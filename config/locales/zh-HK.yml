@@ -1387,7 +1387,7 @@ zh-HK:
       text_version_text: "你可以分享一些其他人可能需要的東西嗎？或者別人擁有一些你可能需要的東西？請點擊%{url}提出一個交易或者查看其他人當前提供的或者請求的東西。"
     reset_password_instructions:
       change_my_password: 更改我的密碼
-      reset_password_instructions: "<p>你曾告訴我們你忘記了你的密碼 或 你在%{service_name}註冊的帳戶名稱。</p><p>你的帳戶名稱是：%{username}</p><p>如果你需要重置你的密碼，請按以下的連結：%{password_reset_link}</p><br/><p>如果你不曾向我們發出這要求，請忽略這個電郵。除非你訪問上面的連結及更改你的密碼，否則你的密碼將不會改變。"
+      reset_password_instructions: "<p>你曾告訴我們你忘記了你的密碼 或 你在%{service_name}註冊的帳戶名稱。</p><p>如果你需要重置你的密碼，請按以下的連結：%{password_reset_link}</p><br/><p>如果你不曾向我們發出這要求，請忽略這個電郵。除非你訪問上面的連結及更改你的密碼，否則你的密碼將不會改變。</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "提示：請不要忘記對%{name}作出評價。"
       you_have_not_given_feedback_yet: "你尚未就%{event}對%{name}作出評價。請不要忘記對%{given_name}在該活動的表現作出評價。"
@@ -1416,6 +1416,7 @@ zh-HK:
       you_are_receiving_this_because: "你關注了%{author_name}所以收到這個通知。"
       view_listing: 查看訊息
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2337,8 +2338,6 @@ zh-HK:
       sign_up: "建立一個新的%{service_name}帳戶"
       terms: 使用條款
       privacy: ~
-      username_is_in_use: 此用戶名稱已被使用。
-      username_is_invalid: 用戶名稱格式不正確。請使用字母，數字及底線。
       visible_only_to_you: 僅你和管理員可見
       visible_to_everybody: 所有人皆可見
       create_account_with_provider: ~

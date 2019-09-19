@@ -1398,6 +1398,7 @@ is:
       you_are_receiving_this_because: ~
       view_listing: ~
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2314,8 +2315,6 @@ is:
       sign_up: "Nýskráning %{service_name}"
       terms: notendaskilmálar
       privacy: ~
-      username_is_in_use: "Notendanafn er nú þegar í notkun."
-      username_is_invalid: "Notendanafn er ógilt. Aðeins eru leyfðir stafir, tölur og undirskor."
       visible_only_to_you: "sjáanlegt aðeins hjá þér og stjórnanda síðunnar"
       visible_to_everybody: "sýnilegt fyrir öllum"
       create_account_with_provider: ~

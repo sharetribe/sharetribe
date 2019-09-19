@@ -1371,7 +1371,7 @@ it:
       text_version_text: "Potresti condividere qualcosa di cui gli altri potrebbero avere bisogno? Oppure hai bisogno di qualcosa che altri potrebbero avere? Aggiungi un'offerta o una richiesta o controlla tutto ciò che gli altri stanno offrendo o stanno richiedendo a %{url}"
     reset_password_instructions:
       change_my_password: "Cambia la mia password"
-      reset_password_instructions: "Hai indicato di aver dimenticato o la  tua password o il tuo nome utente per %{service_name}.</p><p>Il tuo nome utente è: %{username}</p><p>Se vuoi resettare la tua password, clicca sul link seguente:%{password_reset_link}</p><br/><p>Se non hai richiesto tutto ciò, ignora pure questa email. La tua password non cambierà finchè non accedi al link sopra e ne crei una nuova."
+      reset_password_instructions: "<p>Hai indicato di aver dimenticato o la  tua password per %{service_name}.</p><p>Se vuoi resettare la tua password, clicca sul link seguente:%{password_reset_link}</p><br/><p>Se non hai richiesto tutto ciò, ignora pure questa email. La tua password non cambierà finchè non accedi al link sopra e ne crei una nuova.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Promemoria: ricordati di lasciare feedback a %{name}"
       you_have_not_given_feedback_yet: "NOn hai ancora lasciato feedback a %{name} per l'evento %{event}. Ricordati di lasciare il feedback su come %{given_name} ha condotto l'evento."
@@ -1400,6 +1400,7 @@ it:
       you_are_receiving_this_because: "Hai ricevuto una notifica perchè segui %{author_name}."
       view_listing: "Mostra annuncio"
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2323,8 +2324,6 @@ it:
       sign_up: "Crea un nuovo account per %{service_name}"
       terms: "Termini e Condizioni"
       privacy: ~
-      username_is_in_use: "Questo nome utente è già in uso"
-      username_is_invalid: "Nome utente non valido. I caratteri ammessi sono lettere, numeri e underscore."
       visible_only_to_you: "visibile solo a te ed all'amministratore della community"
       visible_to_everybody: "visibile a tutti"
       create_account_with_provider: ~

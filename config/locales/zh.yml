@@ -1387,7 +1387,7 @@ zh:
       text_version_text: "你可以共享一些其他人可能需要的东西吗？或者你可能需要一些别人已经拥有的东西？点击%{url}新添一个宝贝或者查看其他人当前提供的或者请求的东西"
     reset_password_instructions:
       change_my_password: 修改密码
-      reset_password_instructions: "<p>你以確認你忘记了%{service_name}的用户名或者密码。</p><p>你的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果你没有这个要求，请忽略这封电子邮件。 你的密码将不会改变，直到你访问上面的链接并创建一个新的密码。</p>"
+      reset_password_instructions: "<p>你以確認你忘记了%{service_name}的用户名或者密码。</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果你没有这个要求，请忽略这封电子邮件。 你的密码将不会改变，直到你访问上面的链接并创建一个新的密码。</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
       you_have_not_given_feedback_yet: "你尚未评价%{name} 参与的活动'%{event}'。记得评价%{given_name} 在活动中的表现。"
@@ -1416,6 +1416,7 @@ zh:
       you_are_receiving_this_because: "你收到这个通知是由于你关注了%{author_name}。"
       view_listing: 查看发布的信息
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: "名字:"
@@ -2337,8 +2338,6 @@ zh:
       sign_up: "在%{service_name}注册"
       terms: 使用条款
       privacy: ~
-      username_is_in_use: 此用户名已被使用。
-      username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
       visible_only_to_you: 仅对你和集市管理员可见
       visible_to_everybody: 所有人可见
       create_account_with_provider: ~

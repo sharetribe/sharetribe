@@ -1393,7 +1393,7 @@ vi:
       text_version_text: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không? Thêm một đề nghị hoặc một yêu cầu hoặc kiểm tra mọi thứ mà những người khác đang hỗ trợ hoặc yêu cầu tại %{url}"
     reset_password_instructions:
       change_my_password: "Đổi mật khẩu của tôi"
-      reset_password_instructions: "<p>Bạn đã chỉ ra rằng bạn đã quên mật khẩu hoặc tên người dùng của bạn tại dịch vụ %{service_name}.</p><p>Tên người dùng của bạn là: %{username}</p><p>Nếu bạn cần phải đặt lại mật khẩu của bạn, nhấp vào liên kết sau đây: %{password_reset_link}</p><br><p>Nếu bạn không yêu cầu, xin vui lòng bỏ qua email này. Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo ra một mật khẩu mới.</p>"
+      reset_password_instructions: "<p>Bạn đã chỉ ra rằng bạn đã quên mật khẩu hoặc tên người dùng của bạn tại dịch vụ %{service_name}.</p><p>Nếu bạn cần phải đặt lại mật khẩu của bạn, nhấp vào liên kết sau đây: %{password_reset_link}</p><br/><p>Nếu bạn không yêu cầu, xin vui lòng bỏ qua email này. Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo ra một mật khẩu mới.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Nhắc nhở: nhớ đưa ra thông tin phản hồi cho %{name}"
       you_have_not_given_feedback_yet: "Bạn chưa gửi đánh giá cho %{name} về sự kiện '%{event}'. Hãy nhớ đánh giá cách làm việc của %{given_name} trong sự kiện này."
@@ -1422,6 +1422,7 @@ vi:
       you_are_receiving_this_because: "Bạn nhận được thông báo này vì bạn theo dõi %{author_name}."
       view_listing: "Xem bài đăng"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Một thành viên mới đã gia nhập %{community}. Họ vẫn có thể phải xác nhận địa chỉ email của họ."
       this_is_automatic_message: "Đây là một thư tự động được gửi tới các quản trị viên của %{community}."
       person_name: "Tên:"
@@ -2341,8 +2342,6 @@ vi:
       sign_up: "Tạo một tài khoản mới trong %{service_name}"
       terms: "Điều khoản sử dụng"
       privacy: "Chính sách bảo mật"
-      username_is_in_use: "Tên người dùng này đang được sử dụng."
-      username_is_invalid: "Tên người dùng không hợp lệ. Cho phép các ký tự là chữ cái, số và gạch dưới."
       visible_only_to_you: "chỉ hiện thị đối với bạn và cộng đồng quản trị"
       visible_to_everybody: "hiển thị đối với mọi người"
       create_account_with_provider: ~

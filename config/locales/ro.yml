@@ -1393,7 +1393,7 @@ ro:
       text_version_text: "Poti oferi ceva de care altii au nevoie? Sau ai nevoie de ceva ce altii pot oferi? Adauga o oferta sau o cerere sau verifica toata cererea si oferta aici %{url}"
     reset_password_instructions:
       change_my_password: "Modifica-mi parola"
-      reset_password_instructions: "<p>Ai indicat ca ai uitat parola sau numele de utilizator pentru serviciul %{service_name}.</p><p>Numele de utilizator este %{username}</p><p>Daca trebuie sa resetezi parola, fa click pe link-ul%{password_reset_link}</p><br/><p>Daca nu ai cerut asta, ignora acest email. Parola ta nu se va schimba pana nu accesezi link-ul de mai sus si pana cand nu creezi una noua.</p>"
+      reset_password_instructions: "<p>Ai indicat ca ai uitat parola sau numele de utilizator pentru serviciul %{service_name}.</p><p>Daca trebuie sa resetezi parola, fa click pe link-ul%{password_reset_link}</p><br/><p>Daca nu ai cerut asta, ignora acest email. Parola ta nu se va schimba pana nu accesezi link-ul de mai sus si pana cand nu creezi una noua.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Memento: nu uitati sa oferiti o recenzie pentru %{name}"
       you_have_not_given_feedback_yet: "Inca nu ati oferit recenzie pentru %{name} cu privire la tranzactia %{event}. Nu uitati sa oferiti feedback despre modul in care %{given_name} a colaborat in tranzactie."
@@ -1422,6 +1422,7 @@ ro:
       you_are_receiving_this_because: "Ați primit această notificare deoarece il / o urmariti pe %{author_name}."
       view_listing: "Vedeti listarea"
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2342,8 +2343,6 @@ ro:
       sign_up: "Creati un cont nou pe %{service_name}"
       terms: "Termeni de utilizare"
       privacy: "Politica de Confidențialitate"
-      username_is_in_use: "Acest nume de utilizator este deja folosit"
-      username_is_invalid: "Numele de utilizator nu este valid. Caracterele permise sunt litere, numere si \"underscore\""
       visible_only_to_you: "vizibil numai pentru dvs. și echipa %{service_name}"
       visible_to_everybody: "vizibil tuturor"
       create_account_with_provider: "Inscrie-te cu %{provider}"

@@ -1398,6 +1398,7 @@ bg:
       you_are_receiving_this_because: ~
       view_listing: ~
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2314,8 +2315,6 @@ bg:
       sign_up: "Създайте нов профил %{service_name}"
       terms: "условия за ползване"
       privacy: ~
-      username_is_in_use: "Това потребителско име вече е в употреба."
-      username_is_invalid: "Потребителското име е невалидно. Позволените знаци са букви, цифри и долни черти."
       visible_only_to_you: "видимо само за вас и %{service_name} екипа"
       visible_to_everybody: "видимо за всички"
       create_account_with_provider: ~

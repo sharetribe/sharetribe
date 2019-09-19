@@ -1420,7 +1420,7 @@ ru:
       text_version_text: "У вас есть что-нибудь, что может кому-то пригодиться? А может быть вам нужно то, что может быть у других? Оставьте запрос, предложение или просто взгляните на то, что предлагают и запрашивают другие — %{url}"
     reset_password_instructions:
       change_my_password: "Изменить пароль"
-      reset_password_instructions: "<p>Вы указали, что вы забыли свой пароль или имя пользователя в  %{service_name}.</p><p>Ваше имя пользователя: %{username}</p><p>Если вам нужно сбросить ваш пароль, нажмите на следующую ссылку: %{password_reset_link}</p><br><p>Если это были не вы,  просто проигнорируйте это сообщение. Ваш пароль не изменится до тех пор, пока вы не перейдёте по ссылке, указанной выше и не создадите новый пароль.</p>"
+      reset_password_instructions: "<p>Вы указали, что вы забыли свой пароль или имя пользователя в  %{service_name}.</p><p>Если вам нужно сбросить ваш пароль, нажмите на следующую ссылку: %{password_reset_link}</p><br/><p>Если это были не вы,  просто проигнорируйте это сообщение. Ваш пароль не изменится до тех пор, пока вы не перейдёте по ссылке, указанной выше и не создадите новый пароль.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о %{name}"
       you_have_not_given_feedback_yet: "Вы ещё не оставили отзыв о %{name} после события «%{event}». Не забудьте оставить отзыв о том, как зарекомендовал себя %{given_name} во время этого события."
@@ -1449,6 +1449,7 @@ ru:
       you_are_receiving_this_because: "Вы получили это уведомление так как вы подписаны на %{author_name}."
       view_listing: "Просмотр публикации"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Новый участник присоединился к %{community}. Необходимо подтвердить их электронный адрес."
       this_is_automatic_message: "Это автоматическое сообщение, направленное администраторам %{community}."
       person_name: "Имя:"
@@ -1624,7 +1625,7 @@ ru:
       some_private_offers_exist: "Уже есть <b>%{number_of_listings} предложений</b>,"
       some_private_requests_exist: "Уже есть <b>%{number_of_listings} запросов</b>,"
     custom_filters:
-      update_view: Обновить
+      update_view: Применить
       min: "Мин:"
       max: "Макс:"
     event_feed:
@@ -2376,8 +2377,6 @@ ru:
       sign_up: "Зарегистрироваться в %{service_name}"
       terms: "Условиями использования"
       privacy: Конфиденциальность
-      username_is_in_use: "Это имя пользователя занято."
-      username_is_invalid: "Можно использовать только латинские буквы, цифры и знак подчёркивания."
       visible_only_to_you: "видимо только вам"
       visible_to_everybody: "видимо для всех"
       create_account_with_provider: "Зарегистрируйтесь с%{provider}"

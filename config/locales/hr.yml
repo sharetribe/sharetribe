@@ -1415,7 +1415,7 @@ hr:
       text_version_text: "Da li možete podijeliti nešto što bi drugi možda trebali? Ili  trebate nešto što možda drugi imaju? Dodajte ponudu ili zahtjev ili pretražite sve što drugi nude ili traže na %{url}"
     reset_password_instructions:
       change_my_password: "Promijeniti moju lozinku"
-      reset_password_instructions: "<p>Naznačili ste da ste zaboravili ili Vašu lozinku ili korisničko ime u %{service_name} usluzi.</p><p>Vaše korisničko ime je: %{username}</p><p>Ako trebate ponovno složiti Vašu lozinku, kliknite na ovaj link: %{password_reset_link}</p><br/><p>Ako niste ovo zatražili, molimo ignorirajte ovaj email. Vaša lozinka se neće promijeniti dok ne pristupite linku iznad i kreirate novu lozinku</p>"
+      reset_password_instructions: "<p>Naznačili ste da ste zaboravili ili Vašu lozinku ili korisničko ime u %{service_name} usluzi.</p><p>Ako trebate ponovno složiti Vašu lozinku, kliknite na ovaj link: %{password_reset_link}</p><br/><p>Ako niste ovo zatražili, molimo ignorirajte ovaj email. Vaša lozinka se neće promijeniti dok ne pristupite linku iznad i kreirate novu lozinku</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Podsjetnik: molimo dajte povratnu informaciju %{name}"
       you_have_not_given_feedback_yet: "Još uvijek niste dali povratnu informaciju %{name} o '%{event}'. Podsjećamo vas da date povratnu informaciju kako je %{given_name} izveo događaj."
@@ -1444,6 +1444,7 @@ hr:
       you_are_receiving_this_because: "Dobili ste obavijest jer pratite %{author_name}."
       view_listing: "Pogledajte oglas"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Novi član se uključio u %{community}. Mora još potvrditi svoju email adresu."
       this_is_automatic_message: "Ovo je automatska poruka poslana administratorima %{community}."
       person_name: "Ime:"
@@ -2369,8 +2370,6 @@ hr:
       sign_up: "Kreirajte novi %{service_name} korisnički račun"
       terms: "Uvjeti korištenja"
       privacy: "Polica privatnosti"
-      username_is_in_use: "Korisničko ime je već u upotrebi."
-      username_is_invalid: "Korisničko ime je neispravno. Dozvoljeni znakovi su slova, brojevi i donja crta."
       visible_only_to_you: "Vidljivo isključivo Vama i %{service_name} timu!"
       visible_to_everybody: "Vidljivo svima"
       create_account_with_provider: "Registrirajte se na %{provider}"

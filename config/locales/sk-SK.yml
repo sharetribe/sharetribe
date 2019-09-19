@@ -1413,7 +1413,7 @@ sk-SK:
       text_version_text: "Mohli by ste niečo ponúknuť, čo ostatní potrebujú? Potrebujete niečo, čo ostatní majú? Zadajte ponuku alebo žiadosť, alebo si prezrite všetko, čo ostatní ponúkaju alebo žiadajú na %{url}"
     reset_password_instructions:
       change_my_password: "Zmena hesla"
-      reset_password_instructions: "<p>V žiadosti ste uviedli, že ste zabudli svoje heslo alebo užívateľské meno v %{service_name}.</p><p>Vaše užívateľské meno je: %{username}</p><p>Pokiaľ potrebujete zmeniť heslo, kliknite na nasledujúci odkaz: %{password_reset_link}</p><br/><p>Pokiaľ ste o nič nežiadali, prosím ignorujte tento e-mail. Vaše heslo sa zmení po tom, čo kliknete na vyššie uvedený odkaz a zadáte nové heslo.</p>"
+      reset_password_instructions: "<p>V žiadosti ste uviedli, že ste zabudli svoje heslo alebo užívateľské meno v %{service_name}.</p><p>Pokiaľ potrebujete zmeniť heslo, kliknite na nasledujúci odkaz: %{password_reset_link}</p><br/><p>Pokiaľ ste o nič nežiadali, prosím ignorujte tento e-mail. Vaše heslo sa zmení po tom, čo kliknete na vyššie uvedený odkaz a zadáte nové heslo.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Pripomenutie: nezabudnite uviesť spätnú väzbu %{name}"
       you_have_not_given_feedback_yet: "Ešte ste neuviedli spätnú väzbu %{name} o udalosti %{event}. event. Nezabudnite uviesť spätnú väzbu %{given_name} ako prevádzal udalosť."
@@ -1442,6 +1442,7 @@ sk-SK:
       you_are_receiving_this_because: "Prijali ste tento oznam pretože sledujete užívateľa %{author_name}."
       view_listing: "Zobraziť inzerát"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Nový užívateľ sa pripojil k %{community}. Stále ešte môžu čakať na potvrdenie e-mailovej adresy."
       this_is_automatic_message: "Toto je automatická správa odoslaná administrátorom %{community}."
       person_name: "Meno:"
@@ -2369,8 +2370,6 @@ sk-SK:
       sign_up: "Vytvoriť nový %{service_name} účet"
       terms: "Podmienky používania"
       privacy: "Zásady ochrany osobných údajov"
-      username_is_in_use: "Požívateľské meno je už používané."
-      username_is_invalid: "Používateľské meno je neplatné. Povolené sú len písmená, číslice a podčiarkovníky."
       visible_only_to_you: "viditeľné iba pre Vás a pre správcu trhu %{service_name}"
       visible_to_everybody: "videiteľné pre každích"
       create_account_with_provider: "Zaregistrujte sa s %{provider}"

@@ -1016,7 +1016,7 @@ fr:
       travel: Voyage
       other: Autre
     username: "Nom d'utilisateur "
-    username_or_email: "Email ou nom d'utilisateur "
+    username_or_email: Email
     what_is_this: "Qu'est-ce que c'est ?"
     removed_user: "Utilisateur supprimé"
     payment_fee_info:
@@ -1404,7 +1404,7 @@ fr:
       text_version_text: "Et si vous partagiez quelque chose dont les autres ont besoin ? Ou peut être avez-vous besoin de quelque chose que d'autres pourraient avoir ? Ajoutez une offre ou une demande ou jetez un oeil aux offres et demandes des autres membres sur %{url}"
     reset_password_instructions:
       change_my_password: "Changer mon mot de passe"
-      reset_password_instructions: "<p>Vous avez déclaré avoir oublié votre nom d'utilisateur et/ou votre mot de passe pour %{service_name}.</p><p>Votre nom d'utilisateur est : %{username}</p><p>Si vous souhaitez réinitialiser votre mot de passe, cliquez ici : %{password_reset_link}</p><br/><p>Si vous n'avez fait aucune demande, ignorez simplement cet email. Votre mot de passe ne sera pas modifié tant que vous ne cliquez pas sur le lien ci-dessus et en créez un nouveau.</p>"
+      reset_password_instructions: "<p>Vous avez déclaré avoir oublié votre mot de passe pour %{service_name}.</p><p>Si vous souhaitez réinitialiser votre mot de passe, cliquez ici : %{password_reset_link}</p><br/><p>Si vous n'avez fait aucune demande, ignorez simplement cet email. Votre mot de passe ne sera pas modifié tant que vous ne cliquez pas sur le lien ci-dessus et en créez un nouveau.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
@@ -1433,6 +1433,7 @@ fr:
       you_are_receiving_this_because: "Vous recevez cette notification car vous suivez %{author_name}."
       view_listing: "Voir l'annonce"
     new_member_notification:
+      subject: "Un nouveau membre sur %{community}"
       new_member_has_joined: "Un nouveau membre a rejoint %{community}. Il lui reste peut être encore à vérifier son adresse email."
       this_is_automatic_message: "Ceci est un message automatique envoyé aux administrateurs de %{community}."
       person_name: "Nom : "
@@ -2339,7 +2340,7 @@ fr:
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
       email_is_in_use_or_not_allowed: "Cette adresse email n'est pas autorisée ou est déjà utilisée. Si vous n'arrivez pas à vous connecter, contactez-nous."
       email_not_allowed: "Cette email n'est pas autorisé sur %{service_name}. Veuillez utiliser une adresse autorisée. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
-      invalid_username_or_email: "Ce nom d'utilisateur ou cette adresse email sont invalides ou déjà utilisé"
+      invalid_username_or_email: "Cette adresse email est invalide ou déjà utilisée"
       email_restriction_instructions:
         one: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email du type %{allowed_emails}."
         other: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email autorisée."
@@ -2356,8 +2357,6 @@ fr:
       sign_up: "Créer un nouveau compte sur %{service_name}"
       terms: "conditions d'utilisation"
       privacy: "politique de confidentialité"
-      username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
-      username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       visible_only_to_you: "visible uniquement par vous et l'équipe %{service_name}"
       visible_to_everybody: "visible à tout le monde"
       create_account_with_provider: "S'inscrire avec %{provider}"
@@ -2418,7 +2417,7 @@ fr:
   sessions:
     new:
       create_new_account: "Créer un nouveau compte"
-      i_forgot_my_password: "Identifiant ou mot de passe oublié"
+      i_forgot_my_password: "Mot de passe oublié"
       login: Connexion
       login_to_kassi: "Connexion à %{service_name}"
       connect_your_facebook_to_kassi: "Lier votre compte Facebook à %{service_name}"
@@ -2429,11 +2428,11 @@ fr:
       cancle_facebook_connect: "Si vous ne voulez pas lier ce compte, vous pouvez %{cancel_link}."
       facebook_cancel_link_text: annuler
       log_in_with_your_provider_account: "Se connecter %{provider}"
-      or_sign_up_with_your_username: "...ou avec votre nom d'utilisateur et votre mot de passe : "
+      or_sign_up_with_your_username: "...ou avec votre email :"
       we_will_not_post_without_asking_you: "Nous ne publierons jamais sur Facebook sans votre permission."
     password_forgotten:
       email: Email
-      password_recovery_instructions: "Entrez votre adresse email afin de recevoir votre nom d'utilisateur et réinitialiser votre mot de passe."
+      password_recovery_instructions: "Entrez votre adresse email afin de réinitialiser votre mot de passe."
       request_new_password: "Recevoir un nouveau mot de passe"
       change_your_password: "Changer votre mot de passe"
     confirmation_pending:
@@ -2459,7 +2458,7 @@ fr:
       delete_account_confirmation_popup: "Voulez-vous vraiment supprimer votre compte et en perdre toutes ses données ? La suppression d'un compte est irréversible."
       email_addresses: "Adresses email"
       new_email: "Nouvelle adresse email"
-      delete_personal_information: "Si vous supprimez votre compte, vos informations personnelles (nom, numéro de téléphone, adresse, email, photo de profil, etc...) seront supprimées définitivement et ne pourront être récupérées. Toutes les annonces que vous avez créées seront supprimées du site. Vous ne pourrez pas réactiver votre compte. Votre nom d'utilisateur pourra être utilisé sur %{service_name} par quelqu'un d'autre."
+      delete_personal_information: "Si vous supprimez votre compte, vos informations personnelles (nom, numéro de téléphone, adresse, email, photo de profil, etc...) seront supprimées définitivement et ne pourront être récupérées. Toutes les annonces que vous avez créées seront supprimées du site. Vous ne pourrez pas réactiver votre compte."
       delete_information_others_involved: "Les informations impliquant d'autres membres (conversations avec d'autres personnes, transactions que vous avez réalisées, avis que vous avez donné à d'autres, etc...) ne sont pas supprimés quand vous supprimez votre compte. Cependant, votre nom n'apparaîtra pas à côté de ces informations."
       unfinished_transactions: "Votre compte ne peut être supprimé car vous avez des transactions en cours. Veuillez terminer vos transactions avant de supprimer votre compte."
       only_admin: "Votre compte ne peut être supprimé car vous êtes le seul administrateur de la place de marché."

@@ -1391,7 +1391,7 @@ zh-TW:
       text_version_text: "你可以分享一些其他人可能需要的東西嗎？或者別人擁有一些你可能需要的東西？請點擊%{url}提出一個交易或者查看其他人當前提供的或者請求的東西。"
     reset_password_instructions:
       change_my_password: 密碼更改
-      reset_password_instructions: "<p>您聲明忘記了%{service_name}的用戶名或者密碼</p> <p>您的用戶名是：%{username} </p> <p>如果您需要重置密碼，請點擊以下鏈接：%{password_reset_link} </p> <br/><p>如果您沒有這個要求，請忽略這封來信。</p>"
+      reset_password_instructions: "<p>您聲明忘記了%{service_name}的用戶名或者密碼</p><p>如果您需要重置密碼，請點擊以下鏈接：%{password_reset_link} </p> <br/><p>如果您沒有這個要求，請忽略這封來信。</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "提醒：記得給%{name} 評價"
       you_have_not_given_feedback_yet: "您尚未評價%{name} 參與的活動'%{event}'。記得評價%{given_name} 的表現。"
@@ -1420,6 +1420,7 @@ zh-TW:
       you_are_receiving_this_because: "你收到这个通知是由于你关注了%{author_name}。"
       view_listing: 查看发布的信息
     new_member_notification:
+      subject: ~
       new_member_has_joined: "新成員加入了%{community}。 他們仍然需要確認他們的電子郵件地址。"
       this_is_automatic_message: "這是自動發送給%{community}管理員的消息。"
       person_name: 姓名：
@@ -2341,8 +2342,6 @@ zh-TW:
       sign_up: "創建%{service_name}帳號"
       terms: 使用條款
       privacy: ~
-      username_is_in_use: 此用戶名已被使用。
-      username_is_invalid: "無效的用戶名。 允許的字符是字母，數字和下劃線。"
       visible_only_to_you: "僅對您和%{service_name}團隊可見"
       visible_to_everybody: 所有人可見
       create_account_with_provider: ~

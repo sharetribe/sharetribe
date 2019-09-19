@@ -1389,7 +1389,7 @@ lt:
       text_version_text: "Gal galite pasidalinti kažkuo, ko kitiems reikėtų? Arba gal jums reikia to, ką kiti galėtų turėti? Pridėkite pasiūlymą ar prašymą, arba pažiūrėkite viską ką kiti siūlo ar prašo čia %{url}"
     reset_password_instructions:
       change_my_password: "Pakeisti slaptažodį"
-      reset_password_instructions: "<p>Jūs nurodėte, kad pamiršote savo %{service_name} vartotojo vardą arba slaptažodį.</p><p>Jūsų vartotojo vardas yra: %{username}</p><p>Jei norite atstatyti slaptažodį, paspauskite šią nuorodą: %{password_reset_link}</p><br/><p>Jei to neprašėte, prašome ignoruoti šį laišką. Jūsų slaptažodis nebus pakeistas tol kol nepaspausite nuorodos aukščiau ir sukursite naują.</p>"
+      reset_password_instructions: "<p>Jūs nurodėte, kad pamiršote savo %{service_name} slaptažodį.</p><p>Jei norite atstatyti slaptažodį, paspauskite šią nuorodą: %{password_reset_link}</p><br/><p>Jei to neprašėte, prašome ignoruoti šį laišką. Jūsų slaptažodis nebus pakeistas tol kol nepaspausite nuorodos aukščiau ir sukursite naują.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Priminimas: primename parašyti atsiliepimą %{name}"
       you_have_not_given_feedback_yet: "Jūs nepalikote atsiliepimo %{name} apie '%{event}' renginį. Nepamirškite palikti atsiliepimą kaip %{given_name} pasirodė renginyje."
@@ -1418,6 +1418,7 @@ lt:
       you_are_receiving_this_because: "Jūs gavote šį pranešimą, nes jūs sekate %{author_name}."
       view_listing: "Žiūrėti skelbimą"
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2338,8 +2339,6 @@ lt:
       sign_up: "Sukurtį naują %{service_name} paskyrą"
       terms: "Naudojimo sąlygos"
       privacy: ~
-      username_is_in_use: "Šis vartotojo vardas jau naudojamas"
-      username_is_invalid: "Vartotojo vardas negalimas. Leidžiami ženklai yra raidės, skaitmenys ir pabraukimo brūkšnys"
       visible_only_to_you: "matoma tik jums ir %{service_name} komandai"
       visible_to_everybody: "matoma visiems"
       create_account_with_provider: ~

@@ -1396,7 +1396,7 @@ da-DK:
       text_version_text: "Har du noget du kunne dele med andre, som måske ville have brug for det? Eller har du brug for noget andre muligvis har? Tilføj et tilbud eller en forespørgsel, eller tjek alt hvad andre tilbyder lige nu på %{url}"
     reset_password_instructions:
       change_my_password: "Skift min adgangskode"
-      reset_password_instructions: "<p>Vi har modtaget en anmodning om at nulstille adgangskoden til din %{service_name}-konto.</p><p>Dit brugernavn er: %{username}</p><p>Glemt adgangskode? %{password_reset_link}</p><br/><p>Hvis du ikke har bedt om dette, kan du bare se bort fra denne email.</p>"
+      reset_password_instructions: "<p>Vi har modtaget en anmodning om at nulstille adgangskoden til din %{service_name}-konto.</p><p>Glemt adgangskode? %{password_reset_link}</p><br/><p>Hvis du ikke har bedt om dette, kan du bare se bort fra denne email.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Påmindelse: Husk at give feedback til %{name}"
       you_have_not_given_feedback_yet: "Du har endnu ikke givet %{name} feedback på '%{event}'. Husk at give %{given_name} feedback."
@@ -1425,6 +1425,7 @@ da-DK:
       you_are_receiving_this_because: "Du har modtaget denne mail, fordi du følger %{author_name}."
       view_listing: "Vis annonce"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Et nyt medlem har tilmeldt sig %{community}. Medlemmet skal muligvis bekræfte sin e-mail-adresse først."
       this_is_automatic_message: "Dette er en automatisk meddelelse sendt til administratorer af %{community}."
       person_name: "Navn:"
@@ -2350,8 +2351,6 @@ da-DK:
       sign_up: "Opret ny %{service_name} konto"
       terms: Brugervilkår
       privacy: Privatlivspolitik
-      username_is_in_use: "Dette brugernavn er allerede i brug."
-      username_is_invalid: "Brugernavn er ugyldig. Tilladte tegn er bogstaver, tal og understregning."
       visible_only_to_you: "kun synlige for dig og markedspladsens admin"
       visible_to_everybody: "Synlig for alle"
       create_account_with_provider: ~

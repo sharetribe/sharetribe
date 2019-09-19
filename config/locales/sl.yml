@@ -1369,7 +1369,7 @@ sl:
       text_version_text: ~
     reset_password_instructions:
       change_my_password: "Spremeni moje geslo"
-      reset_password_instructions: "<p>Prejeli smo sporočilo, da si pozabil geslo ali pa uporabniško ime na  %{service_name}.</p><p>Tvoje uporabniško ime je: %{username}</p><p>Če želiš obnoviti geslo, klikni na naslednjo povezavo: %{password_reset_link}</p><br/><p>Če zahtevka za obnovite gesla nisi poslal ti, prosim, ignoriraj to sporočilo. Tvoje geslo ne bo spremenjeno, če ne klikneš na zgoraj navedeno povezavo in kreiraš novo geslo.</p>"
+      reset_password_instructions: "<p>Prejeli smo sporočilo, da si pozabil geslo ali pa uporabniško ime na  %{service_name}.</p><p>Če želiš obnoviti geslo, klikni na naslednjo povezavo: %{password_reset_link}</p><br/><p>Če zahtevka za obnovite gesla nisi poslal ti, prosim, ignoriraj to sporočilo. Tvoje geslo ne bo spremenjeno, če ne klikneš na zgoraj navedeno povezavo in kreiraš novo geslo.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: ~
       you_have_not_given_feedback_yet: ~
@@ -1398,6 +1398,7 @@ sl:
       you_are_receiving_this_because: ~
       view_listing: ~
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2314,8 +2315,6 @@ sl:
       sign_up: "Kreiraj nov %{service_name} uporabniški račun"
       terms: "pogoji poslovanja"
       privacy: ~
-      username_is_in_use: "To uporabniško ime je že v uporabi."
-      username_is_invalid: "Uporabniško ime ni veljavno. Dovoljene so samo črke, številke in podčrtaj."
       visible_only_to_you: ~
       visible_to_everybody: ~
       create_account_with_provider: ~

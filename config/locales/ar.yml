@@ -1421,6 +1421,7 @@ ar:
       you_are_receiving_this_because: "‎%{author_name}‎ لقد استقبلت إشعارا لأنك تتابع"
       view_listing: "أظهر الإعلان"
     new_member_notification:
+      subject: ~
       new_member_has_joined: ".قد يكون ما زال عليه تأكيد البريد الإلكتروني الخاص به ‎%{community}‎ تسجيل مشترك جديد في"
       this_is_automatic_message: "‎%{community}‎ رسالة تلقائية مرسلة من قبل"
       person_name: "الإسم:"
@@ -2339,8 +2340,6 @@ ar:
       sign_up: "‎%{service_name}‎ قم بإنشاء حساب جديد في"
       terms: "شروط الاستخدام"
       privacy: ~
-      username_is_in_use: "اسم المستخدم هذا موجود"
-      username_is_invalid: "اسم المستخدم غير صحيح، الرموز المسموحة هي الأحرف، الأرقام والشرطة السفلية"
       visible_only_to_you: "‎%{service_name}‎ مرئية فقط لك ولمشرفي"
       visible_to_everybody: "مرئية للكل"
       create_account_with_provider: ~

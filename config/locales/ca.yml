@@ -1398,6 +1398,7 @@ ca:
       you_are_receiving_this_because: ~
       view_listing: ~
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2314,8 +2315,6 @@ ca:
       sign_up: "Crea un nou compte en %{service_name}"
       terms: "Termes d'ús"
       privacy: ~
-      username_is_in_use: "Aquest usuari ja existeix"
-      username_is_invalid: "El nom d'usuari no és vàlid. Els caràcters permesos són lletres, números i guió baix."
       visible_only_to_you: "visible només per a tu i l'administrador de la comunitat"
       visible_to_everybody: "Visible per a tothom"
       create_account_with_provider: ~

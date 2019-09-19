@@ -1385,7 +1385,7 @@ lv:
       text_version_text: "Vai Jūs varētu dalīties ar kaut ko, kas citiem varētu būt nepieciešams? Vai arī Jums ir nepieciešams kaut kas, ko citi varētu piedāvāt? Pievienojiet savu piedāvājumu vai pieprasījumu vai apskatiet visu, ko citi piedāvā vai pieprasa vietnē %{url}"
     reset_password_instructions:
       change_my_password: "Mainīt manu paroli"
-      reset_password_instructions: "<p>Jūs esat norādījis, ka esat aizmirsis paroli vai lietotājvārdu %{service_name}.</p><p>Jūsu lietotājvārds ir: %{username}</p><p>Ja jums ir nepieciešams atjaunot paroli, noklikšķiniet uz sekojošas saites: %{password_reset_link}</p><br/><p>Ja neesat to pieprasījis, lūdzu, ignorējiet šo e-pastu. Jūsu parole nemainīsies, kamēr neizmantosiet augstāk norādīto saiti un neizveidosiet jaunu paroli.</p>"
+      reset_password_instructions: "<p>Jūs esat norādījis, ka esat aizmirsis paroli %{service_name}.</p><p>Ja jums ir nepieciešams atjaunot paroli, noklikšķiniet uz sekojošas saites: %{password_reset_link}</p><br/><p>Ja neesat to pieprasījis, lūdzu, ignorējiet šo e-pastu. Jūsu parole nemainīsies, kamēr neizmantosiet augstāk norādīto saiti un neizveidosiet jaunu paroli.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Atgādinājums: sniedziet atsauksmi %{name}"
       you_have_not_given_feedback_yet: "Jūs vēl neesat saņēmis atsauksmi no %{name} par pirkumu '%{event}'. Lūdzu sniedziet arī Jūs atsauksmi par %{given_name} kā pārdevēju."
@@ -1414,6 +1414,7 @@ lv:
       you_are_receiving_this_because: "Jūs saņēmāt šo paziņojumu, jo Jūs sekojat %{author_name}"
       view_listing: "Apskatīt sludinājumu"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Jauns dalībnieks ir pievienojies %{community}. Viņiem iespējams vēl ir jāapstiprina sava e-pasta adrese."
       this_is_automatic_message: "Šī ir automātiska ziņa, kas nosūtīta %{community} administratoriem."
       person_name: "Vārds:"
@@ -2337,8 +2338,6 @@ lv:
       sign_up: "Izveidot jaunu %{service_name} profilu"
       terms: "Lietošanas noteikumi"
       privacy: "Privātuma noteikumi"
-      username_is_in_use: "Lietotājvārds jau tiek izmantots."
-      username_is_invalid: "Lietotājvārds nav derīgs. Atļautās rakstu zīmes ir burti, cipari un pasvītrojums."
       visible_only_to_you: "redzams tikai Jums un %{service_name} komandai"
       visible_to_everybody: "redzams visiem"
       create_account_with_provider: "Reģistrējieties ar %{provider}"

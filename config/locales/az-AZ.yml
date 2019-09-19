@@ -1369,7 +1369,7 @@ az-AZ:
       text_version_text: ~
     reset_password_instructions:
       change_my_password: "Parolumu dəyiş"
-      reset_password_instructions: "<p>Siz %{service_name} parolunuzu və ya istifadəçi adınızı unutduğunuzu bildirmisiniz.</p><p>Sizin istifadəçi adınız: %{username}</p><p>Parolunuzu sıfırlamağınız lazımdırsa, bu linki vurun: %{password_reset_link}</p><br/><p>Bunu tələb etmədiyiniz təqdirdə, məktuba əhəmiyyət verməyin. Yuxarıdakı linki daxil etmədən və yenisini yaratana qədər parolunuz dəyişməyəcəkdir.</p>"
+      reset_password_instructions: "<p>Siz %{service_name} parolunuzu və ya istifadəçi adınızı unutduğunuzu bildirmisiniz.</p><p>Parolunuzu sıfırlamağınız lazımdırsa, bu linki vurun: %{password_reset_link}</p><br/><p>Bunu tələb etmədiyiniz təqdirdə, məktuba əhəmiyyət verməyin. Yuxarıdakı linki daxil etmədən və yenisini yaratana qədər parolunuz dəyişməyəcəkdir.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Xatırlatma: %{name}-a geribildirim verməyi unutmayın"
       you_have_not_given_feedback_yet: "Siz %{name} -a %{event} barədə gerbibildirim hələ də verməmisiniz. Tədbirdə %{given_name} necə yerinə yetirildiyi barədə fikir verməyi unutmayın"
@@ -1398,6 +1398,7 @@ az-AZ:
       you_are_receiving_this_because: "Siz %{author_name} istifadəçini izlədiyinizə görə bu bildirişi almısınız."
       view_listing: "Elana bax"
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: "Ad:"
@@ -2319,8 +2320,6 @@ az-AZ:
       sign_up: "Yeni %{service_name} hesabı yarat"
       terms: "İstifadə şərtləri"
       privacy: "Məxfilik siyasəti"
-      username_is_in_use: "Bu istifadəçi adı artıq istifadə olunur."
-      username_is_invalid: "İstifadəçi adı etibarsızdır. İzin verilən simvollar məktublar, nömrələr və altçizdirlər. Yalnız hərflər, rəqəmlər və \"_\" işarəsi istifadə edilə bilər."
       visible_only_to_you: "yalnız sizə və %{service_name} komandasına görünür"
       visible_to_everybody: "hər kəsə görünür"
       create_account_with_provider: ~

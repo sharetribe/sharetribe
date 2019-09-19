@@ -1395,7 +1395,7 @@ ko:
       text_version_text: "다른 사람들이 필요로 하는 것을 공유해 보시겠어요? 다른 사람들의 물건들 중 필요한 것이 있으세요? 제안이나 요청을 해보세요. 또는 %{url}에서 다른 사람들이 제안 또는 요청 중인 물건들을 확인해 보세요."
     reset_password_instructions:
       change_my_password: "비밀번호 변경"
-      reset_password_instructions: "<p>%{service_name} 서비스의 사용자 이름 또는 비밀번호가 올바르지 않습니다</p><p>사용자 이름은 %{username}입니다</p><p>비밀번호를 초기화하길 원하시면 %{password_reset_link}를 클릭하세요</p><br/><p>만약 비밀번호 초기화 요청을 하신 적이 없으시면 이 이메일은 무시하세요. 상기 링크를 클릭하지 않는 한 비밀번호는 변경되지 않습니다.</p>"
+      reset_password_instructions: "<p>%{service_name} 서비스의 사용자 이름 또는 비밀번호가 올바르지 않습니다</p><p>비밀번호를 초기화하길 원하시면 %{password_reset_link}를 클릭하세요</p><br/><p>만약 비밀번호 초기화 요청을 하신 적이 없으시면 이 이메일은 무시하세요. 상기 링크를 클릭하지 않는 한 비밀번호는 변경되지 않습니다.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "알림: %{name}에게 피드백을 남겨주세요."
       you_have_not_given_feedback_yet: "아직 %{name}에게 '%{event}' 이벤트에 대한 피드백을 남기지 않았습니다. %{given_name}이/가 이벤트에서 해야할 일에 대해 피드백을 남겨주세요."
@@ -1424,6 +1424,7 @@ ko:
       you_are_receiving_this_because: "당신은 %{author_name}을/를 팔로우하기 때문에 이 알림을 받았습니다."
       view_listing: 목록보기
     new_member_notification:
+      subject: ~
       new_member_has_joined: "새 회원이 %{community}에 가입했습니다. 이메일 주소를 확인해야 할 수도 있습니다."
       this_is_automatic_message: "이것은 %{community}의 관리자에게 발송된 자동 메시지입니다."
       person_name: "이름:"
@@ -2346,8 +2347,6 @@ ko:
       sign_up: "새 %{service_name} 계정을 만드세요"
       terms: 이용약관
       privacy: "개인 정보 정책"
-      username_is_in_use: "이 사용자명은 이미 존재합니다"
-      username_is_invalid: "사용자 이름이 잘못 되었습니다. 문자, 숫자 및 밑줄만 허용되어집니다"
       visible_only_to_you: "귀하와 %{service_name} 팀에게만 보여집니다"
       visible_to_everybody: "모든사람에게 보여집니다"
       create_account_with_provider: ~

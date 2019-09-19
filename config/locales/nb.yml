@@ -1400,7 +1400,7 @@ nb:
       text_version_text: "Har du kanskje noe andre kan ha bruk for? Eller trenger du kanskje noe som andre har? Legg ut et tilbud eller forespørsel, eller se hva andre tilbyr og forespør på %{url}"
     reset_password_instructions:
       change_my_password: "Endre mitt passord"
-      reset_password_instructions: "<p>Du har indikert at du har glemt ditt passord eller brukernavn på %{service_name} </p><p>Ditt brukernavn er : %{username}</p><p>Dersom du må tilbakestille ditt passord kan du klikke på denne linken:  %{password_reset_link}</p><br/><p>Vennligst se bort fra dette dersom du ikke har etterspurt tilbakestilling av ditt passord. Ditt passord endres ikke før du bruker linken over og lager et nytt.</p>"
+      reset_password_instructions: "<p>Du har indikert at du har glemt ditt passord på %{service_name} </p><p>Dersom du må tilbakestille ditt passord kan du klikke på denne linken:  %{password_reset_link}</p><br/><p>Vennligst se bort fra dette dersom du ikke har etterspurt tilbakestilling av ditt passord. Ditt passord endres ikke før du bruker linken over og lager et nytt.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Påminnelse: husk å gi tilbakemelding til %{name}"
       you_have_not_given_feedback_yet: "Du har ennå ikke gitt tilbakemelding til %{name} om '%{event}'. Husk å gi tilbakemelding på hvordan %{given_name} oppførte seg."
@@ -1429,6 +1429,7 @@ nb:
       you_are_receiving_this_because: "Du mottok denne varslingen fordi du følger %{author_name}"
       view_listing: "Se annonse"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Et nytt medlem har registrert seg på %{community}. Vedkommende må kanskje fremdeles bekrefte sin e-postadresse."
       this_is_automatic_message: "Dette er en automatisk melding sendt til administratorer av %{community}."
       person_name: "Navn:"
@@ -2352,8 +2353,6 @@ nb:
       sign_up: "Opprett ny  %{service_name} brukerkonto"
       terms: "vilkår for bruk"
       privacy: ~
-      username_is_in_use: "Brukernavnet er allerede i bruk."
-      username_is_invalid: "Brukernavnet er ugyldig. Gyldige tegn er bokstaver, tall og understrek."
       visible_only_to_you: "synlig kun for deg og markedsplassens administrator"
       visible_to_everybody: "synlig for alle"
       create_account_with_provider: ~

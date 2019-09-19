@@ -1,55 +1,60 @@
 sl-SI:
   errors:
     messages:
-      expired: ~
+      expired: "je poteklo, prosimo zahtevajte novo"
       not_found: "ni najdeno"
-      already_confirmed: ~
-      not_locked: ~
+      already_confirmed: "je že bilo potrjeno, poskusite se prijaviti"
+      not_locked: "ni bilo zaklenjeno"
+      not_saved:
+        one: "1 napaka je prepovedala %{resource} pred shranjevanjem:"
+        two: "%{count} napaki sta prepovedali ta %{resource} pred shranjevanjem:"
+        few: "%{count} napake so prepovedale ta %{resource} pred shranjevanjem:"
+        other: "%{count} napake so prepovedale ta %{resource} pred shranjevanjem:"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Ste že prijavljeni."
+      unauthenticated: "Preden nadaljujete, se morate prijaviti ali registrirati."
+      unconfirmed: "Pred nadaljevanjem morate potrditi svoj račun."
+      locked: "Vaš račun je zaklenjen."
+      invalid: "Napačen e-naslov ali geslo."
+      invalid_token: "Neveljavno preverjanje pristnosti."
+      timeout: "Vaša seja je potekla. Prosimo, ponovno se prijavite, da lahko nadaljujete."
+      inactive: "Vaš račun še ni bil aktiviran."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Vaše geslo je bilo spremenjeno."
+      send_paranoid_instructions: "Če vaša e-pošta obstaja v naši podatkovni bazi, boste prejeli povezavo za obnovitev gesla na vašo e-pošto."
+      send_instructions: "Prejeli boste e-poštno sporočilo z navodili za ponastavitev gesla v nekaj minutah."
+      updated: "Vaše geslo je bilo spremenjeno. Zdaj ste prijavljeni."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Prijava je bila uspešna."
+      signed_out: "Uspešno ste odjavili."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Če vaša e-pošta obstaja v naši podatkovni bazi, boste v nekaj minutah prejeli e-poštno sporočilo z navodili, kako potrditi svoj račun."
+      send_instructions: "V nekaj minutah boste prejeli e-poštno sporočilo z navodili, kako potrditi svoj račun."
+      confirmed: "Vaš račun je bil uspešno potrjen."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Na vaš e-poštni naslov je bilo poslano sporočilo s potrditveno povezavo. Odprite povezavo, da aktivirate svoj račun."
+      signed_up_but_inactive: "Vaša prijava je bila uspešna, vendar vas še nismo mogli prijaviti, ker vaš račun še ni aktiviran."
+      signed_up_but_locked: "Vaša prijava je bila uspešna, vendar vas še nismo mogli prijaviti, ker je vaš račun zaklenjen."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: neaktiven
+        unconfirmed: nepotrjeno
+        locked: zaklenjeno
+      update_needs_confirmation: "Uspešno ste posodobili svoj račun, vendar moramo preveriti še vaš novi e-poštni naslov. Preverite svoj e-poštni naslov in kliknite povezavo za potrditev, da dokončno potrdite svoj novi e-poštni naslov."
+      signed_up: "Pozdravljeni! Vaša prijava je bila uspešna."
+      updated: "Uspešno ste posodobili račun."
+      destroyed: "Vaš račun je bil uspešno preklican. Upamo, da se kmalu spet vidimo."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Če vaš račun obstaja, boste v nekaj minutah prejeli e-poštno sporočilo z navodili, kako ga odkleniti."
+      send_instructions: "V nekaj minutah boste prejeli e-poštno sporočilo z navodili za odklepanje računa."
+      unlocked: "Vaš račun je bil uspešno odklenjen. Če želite nadaljevati, se prijavite."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Uspešno avtoriziran s strani %{kind} računa"
+      failure: "Ne moremo vas pooblastiti %{kind} zaradi \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Navodila za potrditev pridružitve %{service_name}"
       reset_password_instructions:
-        subject: ~
+        subject: "Navodila za ponastavitev gesla"
       unlock_instructions:
-        subject: ~
+        subject: "Navodila za odklepanje"

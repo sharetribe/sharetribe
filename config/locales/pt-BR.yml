@@ -1398,7 +1398,7 @@ pt-BR:
       text_version_text: "Você poderia compartilhar algo que outros precisam? Ou você precisa de algo que outros já possuem? Adicionar uma oferta, um pedido ou verificar tudo o que outros estão oferecendo ou pedindo a %{url}"
     reset_password_instructions:
       change_my_password: "Alterar minha senha"
-      reset_password_instructions: "<p>Você informou que esqueceu sua senha ou nome de usuário no serviço %{service_name}.</p><p>Seu nome de usuário é: %{username}</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
+      reset_password_instructions: "<p>Você informou que esqueceu sua senha no serviço %{service_name}.</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Lembrete: avaliar %{name}"
       you_have_not_given_feedback_yet: "Você ainda avaliou %{name} sobre %{event}. Lembre de avaliar como foi o evento de %{given_name}."
@@ -1427,6 +1427,7 @@ pt-BR:
       you_are_receiving_this_because: "Você recebeu esta notificação porque você segue %{author_name}."
       view_listing: "Ver anúncio"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Um novo membro se juntou ao %{community}. Eles ainda precisam confirmar o seu endereço de e-mail."
       this_is_automatic_message: "Esta é uma mensagem automática enviada para os administradores do(a) %{community}."
       person_name: "Nome:"
@@ -2352,8 +2353,6 @@ pt-BR:
       sign_up: "Criar uma conta no %{service_name}"
       terms: "termos de uso"
       privacy: privacidade
-      username_is_in_use: "Este nome de usuário já está em uso."
-      username_is_invalid: "Nome de usuário é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: "visível apenas para você e para o administrador do mercado virtual"
       visible_to_everybody: "visível para todos"
       create_account_with_provider: ~

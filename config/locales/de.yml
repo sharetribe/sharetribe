@@ -260,7 +260,7 @@ de:
         delete_this_marketplace: "Diesen Marktplatz löschen"
         payment_preferences: Zahlungssystem
         pre_approved_listings: "Alle Einträge überprüfen, bevor sie veröffentlicht werden"
-        email_admins_about_new_transactions: ~
+        email_admins_about_new_transactions: "Admins eine Email schicken, sobald eine neue Transaktion stattfindet"
       manage_members:
         manage_members: Benutzer
         email: E-Mail
@@ -467,7 +467,7 @@ de:
           started: Gestartet
           last_activity: "Letzte Aktivität"
           initiated_by: Starter
-          other_party: "Anderer Beteiligter"
+          other_party: Anbieter
         status:
           conversation: Unterhaltung
           free: Unterhaltung
@@ -516,7 +516,7 @@ de:
           started: Gestartet
           last_activity: "Neueste Aktivität"
           initiated_by: "Begonnen von"
-          other_party: "Anderer Beteiligter"
+          other_party: Anbieter
         participants: "Unterhaltung: %{starter} mit %{author}"
         profile: "%{author}s Profil"
         search_by_keyword: "Nach Name, E-mail oder Schlagwort suchen"
@@ -562,9 +562,9 @@ de:
           confirm_modify: "Bist du sicher, dass du die Bewertung ändern/löschen möchtest? Wenn sie die Bewertung ändern/löschen, ist es danach nicht mehr möglich, die alten Daten wiederherzustellen."
           deleting_info: "Wird die Bewertung gelöscht, kann der/die Käufer/in eine neue Bewertung für dieselbe Transaktion schreiben."
           blocking_info: "Wird die Bewertung gesperrt, kann der/die Käufer/in nicht mehr eine neue Bewertung für dieselbe Transaktion schreiben."
-          unskip: ~
-          if_you_unskip_the_review: ~
-          they_will_not_be_notified_automatically: ~
+          unskip: Zurücksetzen
+          if_you_unskip_the_review: "Wenn du den Bewertungsstatus zurücksetzt, kann der Benutzer eine Bewertung schreiben."
+          they_will_not_be_notified_automatically: "Der Benutzer wird nicht automatisch davon benachrichtigt."
       invitations:
         invitations: Einladungen
         used:
@@ -1404,7 +1404,7 @@ de:
       text_version_text: "Könntest du etwas teilen, das andere möglicherweise brauchen? Oder benötigst du etwas, das andere vielleicht haben? Füge ein Angebot oder eine Anfrage hinzu oder sieh nach, was andere anbieten oder benötigen bei %{url}"
     reset_password_instructions:
       change_my_password: "Mein Passwort ändern"
-      reset_password_instructions: "<p>Du hast angegeben, dein Passwort oder den Benutzernamen im %{service_name} Dienst vergessen zu haben.</p><p>Dein Benutzername ist: %{username}</p><p>Um dein Passwort zurückzusetzen, klicke auf den folgenden Link: %{password_reset_link}</p><br/><p> Falls du das Zurücksetzen des Passworts nicht angefordert hast, ignoriere diese E-Mail. Dein Passwort wird nicht zurückgesetzt, solange du den oberen Link nicht anklickst und ein neues Passwort erstellst.</p>"
+      reset_password_instructions: "<p>Du hast angegeben, dein Passwort im %{service_name} Dienst vergessen zu haben.</p><p>Um dein Passwort zurückzusetzen, klicke auf den folgenden Link: %{password_reset_link}</p><br/><p> Falls du das Zurücksetzen des Passworts nicht angefordert hast, ignoriere diese E-Mail. Dein Passwort wird nicht zurückgesetzt, solange du den oberen Link nicht anklickst und ein neues Passwort erstellst.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Zur Erinnerung: Denke daran, %{name} zu bewerten"
       you_have_not_given_feedback_yet: "Du hast %{name} noch kein Feedback zur Transaktion '%{event}' gegeben. Denke daran, ein Feedback darüber zu hinterlassen, wie %{given_name} die Transaktion durchgeführt hat."
@@ -1433,6 +1433,7 @@ de:
       you_are_receiving_this_because: "Du hast diese Benachrichtigung erhalten, weil du %{author_name} folgst."
       view_listing: "Eintrag ansehen"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Ein neues Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
       this_is_automatic_message: "Diese Nachricht wurde automatisch an alle Administratoren von %{community} geschickt."
       person_name: "Name:"
@@ -1456,13 +1457,13 @@ de:
       there_is_a_edited_listing_to_review: "Es gibt einen bearbeiteten Eintrag, der Überprüft werden soll: \"%{listing_title}\" von %{author_name}. Du kannst jetzt den Eintrag annehmen oder ablehnen."
       review_the_listing: "Bearbeiteten Eintrag überprüfen"
     new_transaction:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
+      subject: "Neue Transaktion auf %{service_name}"
+      there_is_a_new_transaction: "Es gibt %{link} auf %{service_name}."
+      a_new_transaction: "eine neue Transaktion"
+      listing: "Eintrag: %{title}"
+      sum: "Summe: %{amount}"
+      starter: "Starter: %{name}"
+      provider: "Anbieter: %{name}"
   error_messages:
     booking:
       booking_failed_payment_voided: "Die Buchung ist wegen eines unerwarteten Fehlers fehlgeschlagen. Bitte versuche erneut später. Dein Konto bzw. deine Kreditkarte wurde nicht belastet."
@@ -2356,8 +2357,6 @@ de:
       sign_up: "Ein neues Konto bei %{service_name} erstellen"
       terms: Nutzungsbedingungen
       privacy: Datenschutz
-      username_is_in_use: "Dieser Benutzername wird bereits verwendet."
-      username_is_invalid: "Der Benutzername ist ungültig. Erlaubte Zeichen sind Buchstaben (keine Umlaute), Ziffern und Unterstriche."
       visible_only_to_you: "nur für dich und den Admin von %{service_name} sichtbar"
       visible_to_everybody: "für jeden sichtbar"
       create_account_with_provider: "Registrieren mit %{provider}"

@@ -1375,9 +1375,7 @@ he-IL:
       text_version_text: "האם אתה יכול להיתחלק במשהו שאחרים עשויים להזדקק לו? או שאתה צריך משהו שיש למישהוא אחר? הוסף הצעה או בקשה או תעבור על כל מה שהאחרים מציעים או מבקשים בכתובת ‎%{url}‎"
     reset_password_instructions:
       change_my_password: "שנה את סיסמתי"
-      reset_password_instructions: |-
-          ‎ %{username}‎:שם משתמש
-          ‎%{password_reset_link}‎ :לאיפוס סיסמה לחץ כאן
+      reset_password_instructions: ~
     testimonial_reminder:
       remember_to_give_feedback_to: "‎%{name}‎ תזכורת: זכור/זכרי לתת משוב ל‎"
       you_have_not_given_feedback_yet: "עוד לא נתת ביקורת ל‎%{name}‎ בקשר לאירוע ‎%{event}‎. אנא זכור לתת ביקורת על ביצועו של ‎%{given_name}‎ באירוע."
@@ -1406,6 +1404,7 @@ he-IL:
       you_are_receiving_this_because: "‎%{author_name}‎ קיבלת הודעה זו מכיוון שאתה עוקב אחרי ‎"
       view_listing: "לראות מודעה"
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2325,8 +2324,6 @@ he-IL:
       sign_up: "‎%{service_name}‎ צור חשבון חדש ב‎"
       terms: "תנאי שימוש"
       privacy: ~
-      username_is_in_use: ".שם המשתמש כבר קיים"
-      username_is_invalid: "שם משתמש לא חוקי. תווים מותרים הם אותיות, מספרים וקו תחתון."
       visible_only_to_you: "גלוי רק לך ולמנהל האתר"
       visible_to_everybody: "פתוח לכולם"
       create_account_with_provider: ~

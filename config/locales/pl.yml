@@ -1422,7 +1422,7 @@ pl:
       text_version_text: "Czy możesz podzielić się czymś, czego inni mogą potrzebować? A może Ty potrzebujesz czegoś, co mogą mieć inni? Dodaj ofertę lub zapytanie, możesz też przejrzeć wszystkie oferty i pytania %{url}"
     reset_password_instructions:
       change_my_password: "Zmień moje hasło"
-      reset_password_instructions: "<p>Wskazałeś/aś, że zapomniałeś/aś albo hasła albo nazwy użytkownika w platformie %{service_name}.</p><p>Twoja nazwa użytkownika to: %{username}</p><p>Jeśli potrzebujesz zresetować swoje hasło, naciśnij następujący link: %{password_reset_link}</p><br/><p>Jeśli nie chciałeś tej informacji zignoruj ją proszę. Twoje hasło nie ulegnie zmianie dopóki nie naciśniesz powyższego linka i nie stworzysz nowego.</p>"
+      reset_password_instructions: "<p>Wskazałeś/aś, że zapomniałeś/aś albo hasła albo nazwy użytkownika w platformie %{service_name}.</p><p>Jeśli potrzebujesz zresetować swoje hasło, naciśnij następujący link: %{password_reset_link}</p><br/><p>Jeśli nie chciałeś tej informacji zignoruj ją proszę. Twoje hasło nie ulegnie zmianie dopóki nie naciśniesz powyższego linka i nie stworzysz nowego.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Przypomnienie: pamiętaj, aby przesłać opinię do %{name}"
       you_have_not_given_feedback_yet: "Jeszcze nie przekazałeś opinii do %{name} o wydarzeniu %{event}. Pamiętaj, aby przekazać opinię jak %{given_name} spisał się podczas wydarzenia."
@@ -1451,6 +1451,7 @@ pl:
       you_are_receiving_this_because: "Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_name}."
       view_listing: "Wyświetl oferty"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Nowy członek dołączył do %{community}. Jednakże jeszcze mogli nie potwierdzić adresu email."
       this_is_automatic_message: "To jest automatyczna wiadomość wysłana do administratorów %{community}."
       person_name: "Imię:"
@@ -1754,7 +1755,7 @@ pl:
     global-header:
       select_language: "Wybierz język"
     infos:
-      about: O
+      about: "O nas"
       how_to_use: "Jak to działa"
       info_about_kassi: "Informacje o %{service_name}"
       news: Nowości
@@ -2378,8 +2379,6 @@ pl:
       sign_up: "Stwórz nowe konto w %{service_name}"
       terms: Regulamin
       privacy: "Polityka prywatności"
-      username_is_in_use: "Ta nazwa użytkownika jest już w użyciu."
-      username_is_invalid: "Nazwa użytkownika nie jest poprawna. Dozwolone znaki to litery (bez znaków specjalnych), cyfry i podkreślnik."
       visible_only_to_you: "widoczne tylko dla Ciebie i administratora platformy"
       visible_to_everybody: "widoczne dla wszystkich"
       create_account_with_provider: "Zarejestruj się za pomocą %{provider}"

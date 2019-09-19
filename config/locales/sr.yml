@@ -1369,7 +1369,7 @@ sr:
       text_version_text: "Možete li da podelite nešto što ljudi trenutno traže? Ili da li Vam je nešto potrebno što drugi možda već imaju? Dodajte ponudu ili zahtev ili proverite sve što drugi nude ili traže sa%{url} "
     reset_password_instructions:
       change_my_password: "Promeni lozinku"
-      reset_password_instructions: "<p> Inicirali ste da ste zaboravili svoju lozinku ili vaše korisničko ime u servisu %{service_name}.</p><p> Vaše korisničko ime je:%{username} </p><p> ako želite da resetujete svoju lozinku, kliknite na lik:%{password_reset_link} </p><br/><p> ako niste zahtevali ovo, molimo vas da ignorišete ovaj e-mail. Vaša lozinka se neće promeniti sve dok ne odete na link i kreirate novu.</p> "
+      reset_password_instructions: "<p> Inicirali ste da ste zaboravili svoju lozinku ili vaše korisničko ime u servisu %{service_name}.</p><p> ako želite da resetujete svoju lozinku, kliknite na lik:%{password_reset_link} </p><br/><p> ako niste zahtevali ovo, molimo vas da ignorišete ovaj e-mail. Vaša lozinka se neće promeniti sve dok ne odete na link i kreirate novu.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Podsetnik: ne zaboravite da ocenite %{name}"
       you_have_not_given_feedback_yet: "Niste ocenili %{name} u vezi %{event}. Ne zaboravite da ocenite %{given_name}."
@@ -1398,6 +1398,7 @@ sr:
       you_are_receiving_this_because: ~
       view_listing: ~
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2314,8 +2315,6 @@ sr:
       sign_up: "Otvorite novi nalog na %{service_name}"
       terms: "Uslovi korišćenja"
       privacy: ~
-      username_is_in_use: "Ovo korisničko ime postoji."
-      username_is_invalid: "Neispravno korisničko ime. Dozvoljena su slova, brojevi i donja crta  _"
       visible_only_to_you: "vidljivo samo vama i članovimo %{service_name} tima"
       visible_to_everybody: "svima vidljivo"
       create_account_with_provider: ~

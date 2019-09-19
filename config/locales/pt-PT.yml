@@ -1387,7 +1387,7 @@ pt-PT:
       text_version_text: "Pode partilhar algo de que outros podem precisar? Ou precisa de algo que outros podem possuir? Adicionar uma oferta, um pedido ou verificar tudo o que os outros estão a oferecer ou a pedir a %{url}"
     reset_password_instructions:
       change_my_password: "Alterar a minha palavra-passe"
-      reset_password_instructions: "<p>Você informou que esqueceu sua senha ou nome de utilizador no serviço %{service_name}.</p><p>Seu nome de utilizador é: %{username}</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
+      reset_password_instructions: "<p>Você informou que esqueceu sua senha no serviço %{service_name}.</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Lembrete: não esquecer de dar uma opinião a %{name}"
       you_have_not_given_feedback_yet: "Ainda não deu a sua opinião a %{name} sobre o evento %{event}. Lembre-se de dar uma opinião sobre o desempenho de %{given_name} no evento"
@@ -1416,6 +1416,7 @@ pt-PT:
       you_are_receiving_this_because: ~
       view_listing: "Ver anúncio"
     new_member_notification:
+      subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -2335,8 +2336,6 @@ pt-PT:
       sign_up: "Criar uma conta no %{service_name}"
       terms: "Termos de utilização"
       privacy: ~
-      username_is_in_use: "Este nome de utilizador já está em uso."
-      username_is_invalid: "Nome de utilizador é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: "visível apenas para si e para o administrador do mercado virtual"
       visible_to_everybody: "visível para todos"
       create_account_with_provider: ~

@@ -1404,7 +1404,7 @@ en-NZ:
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
     reset_password_instructions:
       change_my_password: "Change my password"
-      reset_password_instructions: "<p>You have indicated that you have forgotten either your password or username in the %{service_name} service.</p><p>Your username is: %{username}</p><p>If you need to reset your password, click the following link: %{password_reset_link}</p><br/><p>If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one.</p>"
+      reset_password_instructions: ~
     testimonial_reminder:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
@@ -1433,6 +1433,7 @@ en-NZ:
       you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
       view_listing: "View listing"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "A new member has joined %{community}. They may still have to confirm their email address."
       this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
       person_name: "Name:"
@@ -2356,8 +2357,6 @@ en-NZ:
       sign_up: "Create a new %{service_name} account"
       terms: "terms of use"
       privacy: ~
-      username_is_in_use: "This username is already in use."
-      username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you and the %{service_name} team"
       visible_to_everybody: "visible to everybody"
       create_account_with_provider: ~

@@ -1399,7 +1399,7 @@ hu:
       text_version_text: "Tud Ön is olyat felkínálni amire másoknak szüksége lehet? Vagy esetleg olyanra van szüksége ami másoknak van? Itt feladhatja kínál vagy keres hirdetését vagy átböngészheti a mások által feladott hirdetéseket: %{url}"
     reset_password_instructions:
       change_my_password: "Megváltoztatom a jelszavamat"
-      reset_password_instructions: "<p> Ön jelezte, hogy elfelejtette a jelszavát vagy a felhasználónevét %{service_name} oldalunkhoz. </p><p>Az ön felhasználóneve: %{username}</p><p>Amennyiben meg kell változtatnia a jelszavát, kattintson a következő linkre: %{password_reset_link}</p><br/><p>Amennyiben ön ezt nem kérte, hagyja figyelmen kívül e-mailünket. Az ön jelszava nem fog változni addig amíg a fenti liket használva ön egy újat nem igényel.</p>"
+      reset_password_instructions: "<p> Ön jelezte, hogy elfelejtette a jelszavát vagy a felhasználónevét %{service_name} oldalunkhoz. </p><p>Amennyiben meg kell változtatnia a jelszavát, kattintson a következő linkre: %{password_reset_link}</p><br/><p>Amennyiben ön ezt nem kérte, hagyja figyelmen kívül e-mailünket. Az ön jelszava nem fog változni addig amíg a fenti liket használva ön egy újat nem igényel.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Emlékeztető: kérjük értékelje a következő usert: %{name}"
       you_have_not_given_feedback_yet: "Én még nem értékelte %{name}-t ezzel az ügylettel kapcsolatban: %{event}. Kérjük értékelje %{given_name} milyen partnerként viselkedett."
@@ -1430,6 +1430,7 @@ hu:
       you_are_receiving_this_because: "Ön azért kapja ezt az értesítőt mert követi ezt a hirdetőt: %{author_name}"
       view_listing: "Hirdetés megtekintése"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "Egy új tag kapcsolódott a %{community} közösséghez. Lehetséges, hogy még vissza kell igazolniuk az e-mailcímüket."
       this_is_automatic_message: "Ez egy automatikus üzenet melyet a %{community} közösség rendszergazdái kapnak."
       person_name: "Név:"
@@ -2354,8 +2355,6 @@ hu:
       sign_up: "Új %{service_name} fiók létrehozása"
       terms: "felhasználási feltételek"
       privacy: ~
-      username_is_in_use: "Ez a felhasználónév már foglalt"
-      username_is_invalid: "Érvénytelen felhasználónév. Csak betűk, számok és alsó aláhúzás engedélyezett."
       visible_only_to_you: "csak Ön és az adminisztrátor látja"
       visible_to_everybody: "Mindenki számára látható"
       create_account_with_provider: ~

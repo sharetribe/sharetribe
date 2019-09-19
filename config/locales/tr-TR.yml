@@ -1384,7 +1384,7 @@ tr-TR:
       text_version_text: "Başkalarının isteyebileceği bir şeylere mi sahipsiniz? Ya da başkalarının sahip olabileceği bir şeylere mi ihtiyacınız var? Bir teklif ya da talep ekleyin veya diğer kullanıcıların teklif ve taleplerini görüntülemek için %{url} adresine gidin."
     reset_password_instructions:
       change_my_password: "Parolamı değiştir"
-      reset_password_instructions: "%{service_name} şifre ya da kullanıcı adınızı unuttuğunuzu belirttiniz. Kullanıcı adınız: %{username} Şifrenizi sıfırlamak istiyorsanız, linke tıklayın: %{password_reset_link} Eğer böyle bir şey talep etmediyseniz, bu e-postayı görmezden gelin. Aşağıdaki linke tıklayıp yeni bir şifre oluşturmadan, geçerli şifreniz değişmeyecektir."
+      reset_password_instructions: ~
     testimonial_reminder:
       remember_to_give_feedback_to: "Hatırlatma: Lütfen %{name} kullanıcına geri bildirim vermeyi unutmayınız"
       you_have_not_given_feedback_yet: "%{name} kullanıcısına %{event} hakkında geri bildirim vermediniz. %{given_name} kullanıcısının bu konuda nasıl bir performans sergilediğine ilişkin geri bildirim vermeyi unutmayınız."
@@ -1413,6 +1413,7 @@ tr-TR:
       you_are_receiving_this_because: "Bu bildiriyi %{author_name}'i takip ettiğiniz için aldınız."
       view_listing: "Listelemeyi görüntüle"
     new_member_notification:
+      subject: ~
       new_member_has_joined: "%{community} topluluğuna yeni bir üye katıldı. Hala e-posta adreslerini doğrulamaları gerekebilir."
       this_is_automatic_message: "Bu mesaj %{community} yöneticilerine otomatik olarak gönderilmiştir."
       person_name: Ad
@@ -2331,8 +2332,6 @@ tr-TR:
       sign_up: "Yeni %{service_name} hesabı oluştur."
       terms: "Kullanım Koşulları"
       privacy: ~
-      username_is_in_use: "Bu kullanıcı adı kullanımdadır."
-      username_is_invalid: "Kullanıcı adı geçersiz. Kullanıcı adı harf, rakam ve altçizgiden oluşabilir."
       visible_only_to_you: "yalnızca siz ve pazaryeri yöneticisi görebilir"
       visible_to_everybody: "herkes görebilir"
       create_account_with_provider: ~
