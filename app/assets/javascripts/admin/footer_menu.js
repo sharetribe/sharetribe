@@ -31,9 +31,9 @@ window.ST = window.ST || {};
       // toggle error message
       $("input[count-validation]").valid();
       if (fieldCount >= maxValue) {
-        $(".add-fields").prop('disabled', true).addClass('disabled');
+        $(".add-fields").addClass('disabled').css("pointer-events","none");
       } else {
-        $(".add-fields").prop('disabled', false).removeClass('disabled');
+        $(".add-fields").removeClass('disabled').css("pointer-events","auto");
       }
     };
 
