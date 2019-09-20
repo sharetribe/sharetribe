@@ -2,8 +2,9 @@ class HomepageController < ApplicationController
 
   before_action :save_current_path, :except => :sign_in
 
-  APP_DEFAULT_VIEW_TYPE = "grid"
-  VIEW_TYPES = ["grid", "list", "map"]
+  APP_DEFAULT_VIEW_TYPE = "grid".freeze
+  VIEW_TYPES_NO_LOCATION = ["grid".freeze, "list".freeze].freeze
+  VIEW_TYPES = (VIEW_TYPES_NO_LOCATION + ["map".freeze]).freeze
 
   # rubocop:disable AbcSize
   # rubocop:disable MethodLength
@@ -26,7 +27,7 @@ class HomepageController < ApplicationController
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
     else
-      @view_type = SearchPageHelper.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
+      @view_type = SearchPageHelper.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, allowed_view_types)
       @big_cover_photo = !(@current_user || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)) || params[:big_cover_photo]
 
       @categories = @current_community.categories.includes(:children)
@@ -142,6 +143,12 @@ class HomepageController < ApplicationController
   end
   # rubocop:enable AbcSize
   # rubocop:enable MethodLength
+
+  helper_method :allowed_view_types
+
+  def allowed_view_types
+    show_location? ? VIEW_TYPES : VIEW_TYPES_NO_LOCATION
+  end
 
   private
 
@@ -382,5 +389,4 @@ class HomepageController < ApplicationController
   def unsafe_params_hash
     params.to_unsafe_hash
   end
-
 end
