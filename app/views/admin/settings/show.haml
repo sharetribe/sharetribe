@@ -33,7 +33,12 @@
     - if(FeatureFlagHelper.location_search_available)
       .row
         .col-12
-          %h3= t("admin.communities.settings.search_preferences")
+          %h3
+            - if @presenter.allow_hide_location?
+              = t("admin.communities.settings.search_and_location_preferences")
+            - else
+              = t("admin.communities.settings.search_preferences")
+
           .checkbox-container
             .settings-checkbox-label.label
             - select_search_type = select_tag 'main_search', options_for_select(@presenter.main_search_select_options, @presenter.main_search), class: 'inline-select'
@@ -45,6 +50,11 @@
           .checkbox-container
             = check_box_tag :limit_distance, true, @presenter.limit_distance
             = label_tag("limit_distance", t("admin.communities.settings.show_only_nearby"), {class: "settings-checkbox-label"})
+          - if @presenter.allow_hide_location?
+            .checkbox-container
+              = form.check_box :show_location
+              = form.label :show_location, t("admin.communities.settings.allow_users_to_add_location"), :class => "settings-checkbox-label"
+
 
     .row
       .col-12
