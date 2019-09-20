@@ -224,6 +224,7 @@ en:
         require_verification_to_post_listings: "Allow only users verified by admins to post new listings"
         allow_free_conversations: "Allow users to message each other freely"
         search_preferences: "Search preferences"
+        search_and_location_preferences: "Search and location preferences"
         default_search_type: "Search type: %{select_search_type}"
         keyword_search: "Keyword search"
         keyword_and_location_search: "Keyword and location search"
@@ -232,6 +233,7 @@ en:
         km: km
         miles: miles
         show_only_nearby: "Show only nearby listings with location search"
+        allow_users_to_add_location: "Allow users to add location to their profile, listings and show a map view on the search page"
         listing_preferences: "Listing preferences"
         transaction_preferences: "Order preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
