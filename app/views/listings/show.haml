@@ -164,7 +164,7 @@
             .listing-author-activity-description
               = t(".feedback")
 
-    - if @listing.origin_loc && @listing.origin_loc.address != ""
+    - if show_location? && @listing.origin_loc && @listing.origin_loc.address != ""
       .row
         .col-12
           #googlemap
