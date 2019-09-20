@@ -7,8 +7,9 @@
   = render :partial => "listings/form/description", :locals => { :form => form }
   = render :partial => "listings/form/custom_fields", :locals => { :form => form }
   = render :partial => "listings/form/valid_until", :locals => { :form => form }
-  = render :partial => "listings/form/origin", :locals => { :form => form }
-  = render :partial => "listings/form/googlemap", :locals => { :form => form, :run_js_immediately => run_js_immediately}
+  - if show_location?
+    = render :partial => "listings/form/origin", :locals => { :form => form }
+    = render :partial => "listings/form/googlemap", :locals => { :form => form, :run_js_immediately => run_js_immediately}
   = render :partial => "listings/form/images", :locals => { :form => form, :run_js_immediately => run_js_immediately }
   = render :partial => "listings/form/send_button", :locals => { :form => form }
   = hidden_field_tag 'listing_ordered_images'
