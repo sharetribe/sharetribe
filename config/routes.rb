@@ -281,7 +281,7 @@ Rails.application.routes.draw do
             get 'export_status'
           end
         end
-        resources :transactions, controller: :community_transactions, only: :index do
+        resources :transactions, controller: :community_transactions, only: [:index, :show] do
           collection do
             get 'export'
             get 'export_status'

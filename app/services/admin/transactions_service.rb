@@ -15,6 +15,10 @@ module Admin
         .paginate(page: params[:page], per_page: params[:per_page] || PER_PAGE)
     end
 
+    def transaction
+      @transaction ||= transactions_scope.find(params[:id])
+    end
+
     def count
       @count ||= transactions_scope.count
     end
@@ -43,11 +47,11 @@ module Admin
     def sort_column
       column = case params[:sort]
                when "listing"
-        "listings.title"
+                "listings.title"
                when "started"
-        "created_at"
-      end
-      column = "transactions.#{sort_column}" if sort_column.index('.').nil
+                "created_at"
+               end
+      column = "transactions.#{column}" if column.present? && column.index('.').nil?
       column
     end
 

@@ -23,6 +23,7 @@ module FeatureFlagService::Store
       :stripe,
       :footer,
       :stripe_payment_intents,
+      :new_tx_page,
     ].to_set
 
     def initialize(additional_flags:)

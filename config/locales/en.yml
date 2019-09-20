@@ -971,6 +971,17 @@ en:
         request: Offer
         offer: Request
         inquiry: Contact
+    community_transactions:
+      show:
+        transaction_for: Transaction for %{link}
+        status: 'Status:'
+        buyer: 'Buyer:'
+        provider: 'Provider:'
+        buyer_pays: 'Buyer pays:'
+        marketplace_collects: '%{service_name} collects:'
+        buyer_service_fee_label: 'Commision from buyer:'
+        service_fee_label: 'Commision from seller:'
+        provider_receives: 'Seller receives:'
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
