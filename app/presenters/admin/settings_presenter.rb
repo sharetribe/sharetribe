@@ -57,6 +57,10 @@ class Admin::SettingsPresenter
     APP_CONFIG.community_not_found_redirect
   end
 
+  def allow_hide_location?
+    FeatureFlagHelper.feature_enabled?(:hide_location)
+  end
+
   private
 
   def location_search_available
