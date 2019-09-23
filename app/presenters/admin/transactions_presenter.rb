@@ -51,14 +51,6 @@ class Admin::TransactionsPresenter
     transaction.listing_title
   end
 
-  def buyer_name
-    PersonViewUtils.person_display_name(transaction.starter, community)
-  end
-
-  def provider_name
-    PersonViewUtils.person_display_name(transaction.author, community)
-  end
-
   def localized_unit_type
     transaction.unit_type.present? ? ListingViewUtils.translate_unit(transaction.unit_type, transaction.unit_tr_key) : nil
   end
@@ -167,5 +159,21 @@ class Admin::TransactionsPresenter
 
   def show_next_step?
     preauthorized? || paid?
+  end
+
+  def buyer
+    transaction.starter
+  end
+
+  def buyer_name
+    buyer ? PersonViewUtils.person_display_name(buyer, community) : 'X'
+  end
+
+  def provider
+    transaction.author
+  end
+
+  def provider_name
+    provider ? PersonViewUtils.person_display_name(provider, community) : 'X'
   end
 end
