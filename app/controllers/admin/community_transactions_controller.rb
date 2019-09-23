@@ -1,11 +1,10 @@
 require 'csv'
 
 class Admin::CommunityTransactionsController < Admin::AdminBaseController
+  before_action :set_selected_left_navi_link
+  before_action :set_presenter, only: [:index, :show]
 
   def index
-    @selected_left_navi_link = "transactions"
-    @transactions_presenter = AdminTransactionsPresenter.new(@current_community, params, request.format)
-
     respond_to do |format|
       format.html
       format.csv do
@@ -43,5 +42,18 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
     else
       render json: {status: 'error'}
     end
+  end
+
+  def show; end
+
+  private
+
+  def set_selected_left_navi_link
+    @selected_left_navi_link = "transactions"
+  end
+
+  def set_presenter
+    @service = Admin::TransactionsService.new(@current_community, params, request.format)
+    @transactions_presenter = Admin::TransactionsPresenter.new(params, @service)
   end
 end
