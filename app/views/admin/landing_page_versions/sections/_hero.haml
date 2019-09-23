@@ -1,0 +1,9 @@
+= form.hidden_field :previous_id
+= form.hidden_field :kind
+= form.hidden_field :id, value: 'hero'
+
+.row
+  .col-12
+    %p= t(".hero_description")
+
+= render partial: 'background_image_overlay', locals: {form: form, presenter: presenter}

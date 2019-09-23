@@ -33,6 +33,14 @@ function add_validator_methods() {
     );
 
   $.validator.
+    addMethod( "presence",
+      function(value, element, param) {
+        return value && value.replace(/\s+/g, '').length > 0;
+      }
+    );
+
+
+  $.validator.
     addMethod("regex",
       function(value, element, regexp) {
         var re = new RegExp(regexp);
@@ -148,6 +156,9 @@ function add_validator_methods() {
     url: true
   });
 
+  $.validator.addClassRules("presence", {
+    presence: true
+  });
 
   $.validator.
     addMethod("number_no_decimals", function(value, element, opts) {

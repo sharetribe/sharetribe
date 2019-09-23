@@ -23,6 +23,7 @@ module FeatureFlagService::Store
       :stripe,
       :footer,
       :stripe_payment_intents,
+      :clp_editor,
     ].to_set
 
     def initialize(additional_flags:)

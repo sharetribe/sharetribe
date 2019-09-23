@@ -52,6 +52,9 @@ default: &default_settings
   # Default bucket
   s3_bucket_name:
 
+  # Bucket for CLP images
+  clp_s3_bucket_name:
+
   # AWS S3 region
   s3_region: us-east-1
 
@@ -368,6 +371,7 @@ default: &default_settings
   # Example values:
   #
   # - landing_page/
+  # - /landing_page/%{sitename}/
   # - https://s3.amazonaws.com/my-bucket/sites/%{sitename}/
   #
   clp_asset_url: "landing_page/"
@@ -482,6 +486,8 @@ default: &default_settings
   # in admin panel. Open source users should instead use
   # the use_google_tag_manager: false
   admin_enable_tracking_config: false
+
+  clp_s3_bucket_name: 'landing_page'
 
 production: &production_settings
   <<: *default_settings

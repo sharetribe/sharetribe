@@ -1,0 +1,25 @@
+- content_for :javascript do
+  ST.LandingPageSectionEditor.initForm();
+
+= render partial: 'id_field', locals: {presenter: presenter, form: form}
+
+.row
+  .col-12
+    = form.label :youtube_video_id
+    = form.text_field :youtube_video_id, required: true
+
+.row
+  .col-12
+    %label= t(".autoplay")
+    %label
+      = form.radio_button :autoplay, false
+      = t(".autoplay_no")
+    %label
+      = form.radio_button :autoplay, LandingPageVersion::Section::Video::AUTOPLAY_MUTED, checked: !!form.object.autoplay
+      = t(".autoplay_muted")
+
+.row
+  .col-12
+    = form.label :text
+    = render partial: 'layouts/info_text', locals: { text: t(".info")}
+    = form.text_field :text

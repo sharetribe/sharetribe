@@ -1,0 +1,18 @@
+- content_for :javascript do
+  ST.LandingPageSectionEditor.initForm();
+
+= form.hidden_field :variation
+
+= render partial: 'id_field', locals: {presenter: presenter, form: form}
+
+.row
+  .col-12
+    = form.label :title
+    = form.text_field :title, required: true
+.row
+  .col-12
+    = form.label :paragraph
+    = form.text_area :paragraph
+
+= render partial: 'cta_button', locals: {form: form, presenter: presenter}
+= render partial: 'background_selector', locals: {form: form, presenter: presenter}

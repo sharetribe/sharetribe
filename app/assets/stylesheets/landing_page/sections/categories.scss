@@ -22,6 +22,8 @@ $categories__mobile-gutter: 12px;
 
 .categories__section {
   color: $typography__main-color;
+  background-size: cover;
+  background-position: center;
 
   width: 100%;
   @include prefix-val(display, flex);

@@ -1,0 +1,30 @@
+- locale_value = @current_community.default_locale
+.row.without-margin.menu-link-sortable.footer-menu-container{id: f.index, data: {"field-id": f.index, new: f.object.new_record? ? '1' : nil}}
+  .col-10
+    = f.hidden_field :id
+    = f.hidden_field :sort_priority, class: 'sort-priority'
+    = f.hidden_field :_destroy, class: 'destroy-record'
+    .row
+      .col-6
+        %span.hidden-tablet
+          = t("admin.communities.footer.title")
+        = f.text_field :title,  required: true, maxlength: 255,
+          placeholder: t("admin.communities.footer.title_placeholder", locale: locale_value),
+          disabled: disabled
+
+      .col-6
+        %span.hidden-tablet
+          = t("admin.communities.footer.url")
+        = f.text_field :url, required: true, maxlength: 255, url: true,
+          placeholder: t("admin.communities.footer.url_placeholder", locale: locale_value),
+          disabled: disabled
+
+  .col-2.menu-links-actions
+    - link_class = "menu-link-without-locale-remove"
+
+    = link_to "#", class: "menu-link-remove #{link_class}", tabindex: "-1" do
+      = icon_tag("cross", ["icon-fix"])
+    = link_to '#', class: "menu-link-action-up admin-sort-button", tabindex: "-1" do
+      = icon_tag("directup", ["icon-fix"])
+    = link_to '#', class: "menu-link-action-down admin-sort-button", tabindex: "-1" do
+      = icon_tag("directdown", ["icon-fix"])

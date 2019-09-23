@@ -1,0 +1,22 @@
+= form_for [:admin, presenter.landing_page_version, presenter.section], html: {multipart: true, class: "section-#{presenter.section.kind}-form edit_section"} do |form|
+  - if presenter.section_info_single_column?
+    = render 'single_column', presenter: presenter, form: form
+  - elsif presenter.section_hero?
+    = render 'hero', presenter: presenter, form: form
+  - elsif presenter.section_footer?
+    = render 'footer', presenter: presenter, form: form
+  - elsif presenter.section_info_multi_column?
+    = render 'multi_column', presenter: presenter, form: form
+  - elsif presenter.section_listings?
+    = render 'listings', presenter: presenter, form: form
+  - elsif presenter.section_categories?
+    = render 'categories', presenter: presenter, form: form
+  - elsif presenter.section_locations?
+    = render 'locations', presenter: presenter, form: form
+  - elsif presenter.section_video?
+    = render 'video', presenter: presenter, form: form
+
+  .row
+    .col-12
+      = form.button t("admin.communities.landing_pages.form.save")
+

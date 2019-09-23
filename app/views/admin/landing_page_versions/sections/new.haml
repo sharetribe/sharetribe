@@ -1,0 +1,12 @@
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.landing_pages.sections.new")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@presenter.community) }
+
+.left-navi-section
+  %h2= t("admin.communities.landing_pages.sections.new_section.#{@presenter.section.i18n_key}")
+  = render 'form', presenter: @presenter

@@ -1,0 +1,12 @@
+.row.bg-style-color
+  .col-12
+    %h3= t(".background_color")
+
+.row.bg-style-color
+  .col-12
+    = render partial: 'layouts/info_text', locals: {text: t(".background_color_info").html_safe}
+
+.row.bg-style-color
+  .col-12
+    = form.label :background_color_string
+    = form.text_field :background_color_string, required: true

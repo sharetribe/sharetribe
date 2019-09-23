@@ -1,9 +1,6 @@
 module CustomLandingPage
   module LandingPageStoreDB
 
-    class LandingPage < ApplicationRecord; end
-    class LandingPageVersion < ApplicationRecord; end
-
     module_function
 
     #

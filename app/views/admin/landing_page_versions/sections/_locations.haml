@@ -1,0 +1,54 @@
+- content_for :javascript do
+  ST.FooterMenu.init();
+  ST.LandingPageSectionEditor.initForm();
+
+= render partial: 'id_field', locals: {presenter: presenter, form: form}
+
+.row
+  .col-12
+    = form.label :title
+    = form.text_field :title, required: true
+.row
+  .col-12
+    = form.label :paragraph
+    = form.text_area :paragraph
+
+= render partial: 'cta_button', locals: {form: form, presenter: presenter}
+
+%h3= t(".include_title")
+
+= render partial: 'layouts/info_text', locals: {text: t(".info_text") }
+
+#menu-links-table
+  .row.topbar-menu-container-padding.visible-tablet
+    .col-10
+      .col-6
+        = label_tag do
+          = t(".image")
+      .col-6
+        = label_tag do
+          = t(".location")
+
+.row#menu-links
+  - @service.section.locations.each do |location|
+    = form.fields_for :locations, location do |fields|
+      = render "location", f: fields, disabled: false, presenter: presenter
+
+  - new_location = @service.section.new_location
+  = form.fields_for :locations, new_location, child_index: new_location.object_id do |fields|
+    %script{type: "text/template", id: "new-footer-menu-link-tmpl"}
+      = render "location", f: fields, disabled: false, presenter: presenter
+
+.row#menu-links-empty
+  .col-12
+    = t(".empty")
+
+.row
+  .col-12
+    = link_to t(".add"), '#', class: "add-fields",
+      data: {id: new_location.object_id, template_id: "#new-footer-menu-link-tmpl"}
+
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t(".need_at_least_3_locations"), min: 3, 'counter-name': 'item_counter'}, 'count-validation': 'min', name: 'tc3'}
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t(".need_at_most_7_locations"), max: 7, 'counter-name': 'item_counter'}, 'count-validation': 'max', name: 'tc7'}
+
+= render partial: 'background_selector', locals: {form: form, presenter: presenter}

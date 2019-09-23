@@ -133,4 +133,53 @@ select#locale-selection {
 .status-select-line input {
   display: none;
 }
+#bg-image-preview, .bg-image-preview {
+  width: 90%;
+  margin: 20px;
+  min-height: 90px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.collapsible {
+  .collapse-down {
+    display: none;
+  }
+  .collapse-up {
+    display: inline;
+  }
+  .collapse-item {
+    display: block;
+  }
+  &.collapsed {
+    .collapse-down {
+      display: inline;
+    }
+    .collapse-up {
+      display: none;
+    }
+    .collapse-item {
+      display: none;
+    }
+  }
+}
+.section-column-header-toggle {
+  cursor: pointer;
+  margin: lines(0.5) 0 0;
+  @include normal-type;
+  font-weight: 500;
 
+  @include media(small-tablet) {
+    @include big-type;
+    font-weight: 500;
+    text-transform: none;
+  }
+
+  i {
+    color: gray;
+  }
+  .clear-fix {
+    clear: both;
+  }
+}

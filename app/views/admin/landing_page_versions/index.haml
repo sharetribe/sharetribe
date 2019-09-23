@@ -1,0 +1,37 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.landing_pages.landing_pages")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@presenter.community) }
+
+.left-navi-section
+  .row
+    .col-12
+      %h2= t("admin.communities.landing_pages.landing_pages")
+  .row
+    .col-12
+      %p= t("admin.communities.landing_pages.info_1")
+      - landing_page_version = @service.landing_page_version
+      - preview_link = link_to t("admin.communities.landing_pages.info_2_preview_text"), landing_page_preview_path(preview_version: landing_page_version.version)
+      - details_link = link_to t("admin.communities.landing_pages.info_2_details_text"), admin_details_edit_path
+      - design_link =  link_to t("admin.communities.landing_pages.info_2_design_text"), admin_look_and_feel_edit_path
+      %p=raw t("admin.communities.landing_pages.info_2", preview_link: preview_link, details_link: details_link, design_link: design_link)
+      %p= t("admin.communities.landing_pages.info_3")
+      %p= link_to t("admin.communities.landing_pages.info_4"), "#"
+  .row
+    .col-12
+      %h3= t("admin.communities.landing_pages.editor_title")
+  .row
+    .col-12
+      = render partial: "layouts/info_text", locals: {text: t("admin.communities.landing_pages.editor_info") }
+
+  = render partial: 'admin/landing_page_versions/form', locals: {presenter: @presenter}
+
+  .row
+    .col-6
+      = link_to t("admin.communities.landing_pages.preview"), landing_page_preview_path(preview_version: landing_page_version.version), class: "button", target: "_blank"
+    .col-6
+      = link_to t("admin.communities.landing_pages.set_live"), release_admin_landing_page_version_path(landing_page_version), class: "button"
+

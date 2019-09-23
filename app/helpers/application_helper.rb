@@ -471,7 +471,7 @@ module ApplicationHelper
         :topic => :configure,
         :text => t("admin.landing_page.landing_page"),
         :icon_class => icon_class("home"),
-        :path => admin_landing_page_path,
+        :path => FeatureFlagHelper.feature_enabled?(:clp_editor) ? admin_landing_page_versions_path : admin_landing_page_path,
         :name => "landing_page"
       }
     end

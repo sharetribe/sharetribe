@@ -1,0 +1,46 @@
+- content_for :javascript do
+  ST.LandingPageSectionEditor.initForm();
+
+= form.hidden_field :variation
+= form.hidden_field :multi_columns
+
+= render partial: 'id_field', locals: {presenter: presenter, form: form}
+
+.row
+  .col-12
+    = form.label :title, t(".main_title")
+    = form.text_field :title, required: true
+
+- form.object.columns.each_with_index do |column, index|
+  .row.collapsible.collapsed
+    .section-column-header-toggle
+      = t(".column_header", index: index+1)
+      %span.collapse-down
+        = icon_tag("dropdown", ["icon-drowdown"])
+      %span.collapse-up
+        = icon_tag("directup", ["icon-fix"])
+
+    .hidden.collapse-item
+      .row
+        .col-12
+          = label_tag "section[columns][#{index}][icon]", t(".column_icon", index: index + 1)
+          = render partial: 'layouts/info_text', locals: {text: t(".column_icon_info").html_safe }
+          = text_field_tag "section[columns][#{index}][icon]", column['icon']
+
+          = label_tag "section[columns][#{index}][title]", t(".column_title", index: index + 1)
+          = text_field_tag "section[columns][#{index}][title]", column['title']
+
+          = label_tag "section[columns][#{index}][paragraph]", t(".column_paragraph", index: index + 1)
+          = text_area_tag "section[columns][#{index}][paragraph]", column['paragraph']
+
+          = label_tag "section[columns][#{index}][button_title]", t(".column_button", index: index + 1)
+          %div
+            .col-6
+              = text_field_tag "section[columns][#{index}][button_title]", column['button_title'], placeholder: t(".column_button_text")
+            .col-6
+              = text_field_tag "section[columns][#{index}][button_path][value]", column['button_path']&.[]('value'), placeholder: t(".column_button_url")
+.row
+
+= render partial: 'cta_button', locals: {form: form, presenter: presenter}
+
+= render partial: 'background_selector', locals: {form: form, presenter: presenter}

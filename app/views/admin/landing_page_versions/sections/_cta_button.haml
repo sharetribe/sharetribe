@@ -1,0 +1,14 @@
+.row
+  .col-12
+    %h3= t(".cta_button")
+
+.row
+  %label
+    = form.check_box :cta_enabled, class: 'cta-select'
+    = t(".cta_enabled")
+  .cta-enabled
+    = form.label :button_title
+    = form.text_field :button_title, required: true
+
+    = form.label :button_path_string
+    = form.text_field :button_path_string, required: true, url: true

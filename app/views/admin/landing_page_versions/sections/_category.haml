@@ -1,0 +1,39 @@
+- locale_value = @current_community.default_locale
+.row.without-margin.menu-link-sortable.footer-menu-container{id: f.index, data: {"field-id": f.index, new: f.object.new_record? ? '1' : nil}}
+  .col-10
+    = f.hidden_field :id
+    = f.hidden_field :sort_priority, class: 'sort-priority'
+    = f.hidden_field :_destroy, class: 'destroy-record'
+    = f.hidden_field :asset_id
+    = hidden_field_tag 'item_counter'
+
+    .row
+      .col-6
+        %span.hidden-tablet
+          = t(".image")
+        .bg-image-preview
+          - if presenter.category_image(f.index).present?
+            %img{src: presenter.category_image_url(f.index)}
+        %p
+          - if presenter.category_image(f.index).present?
+            = t(".current_image", filename: presenter.category_image_filename(f.index))
+          - else
+            = t(".current_image", filename: t(".file_not_selected"))
+        %p
+          %label= t(".add_another_image")
+          = f.file_field :image, required: presenter.category_image(f.index).blank?, 'data-msg-required': t(".image_required")
+
+      .col-6
+        %span.hidden-tablet
+          = t(".category")
+        = f.select :category_id, presenter.categories_for_select(locale_value)
+
+  .col-2.menu-links-actions
+    - link_class = "menu-link-without-locale-remove"
+
+    = link_to "#", class: "menu-link-remove #{link_class}", tabindex: "-1" do
+      = icon_tag("cross", ["icon-fix"])
+    = link_to '#', class: "menu-link-action-up admin-sort-button", tabindex: "-1" do
+      = icon_tag("directup", ["icon-fix"])
+    = link_to '#', class: "menu-link-action-down admin-sort-button", tabindex: "-1" do
+      = icon_tag("directdown", ["icon-fix"])

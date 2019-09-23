@@ -1347,7 +1347,7 @@ Style/StructInheritance:
 # SupportedStyles: percent, brackets
 Style/SymbolArray:
   EnforcedStyle: percent
-  MinSize: 17
+  MinSize: 18
 
 # Offense count: 40
 # Cop supports --auto-correct.
@@ -1714,3 +1714,6 @@ Style/StderrPuts:
   Exclude:
     - 'bin/**/*'
 
+Rails/ActiveRecordOverride:
+  Exclude:
+    - 'app/models/landing_page_version/section/base.rb'

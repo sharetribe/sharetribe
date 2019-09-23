@@ -24,10 +24,15 @@ gem 'sass', '~> 3.4.24'
 gem 'rack-attack', '~> 6.0.0'
 gem 'rest-client', '~> 2.0.2'
 
-gem 'paperclip', '~> 5.2.1'
+gem 'paperclip', '~> 6.0.0'
 gem 'delayed_paperclip', '~> 3.0.1'
 
-gem 'aws-sdk', '~> 2.9.25'
+# Active Storage
+gem 'image_processing', '~> 1.9.3'
+gem 'mini_magick', '~> 4.9.5'
+
+gem 'aws-sdk-s3', '~> 1'
+gem 'aws-sdk-ses', '~> 1'
 gem "will_paginate", '~> 3.1.7'
 gem 'dalli', '~> 2.7.10'
 gem "memcachier", '~> 0.0.2'
@@ -119,7 +124,8 @@ group :development do
   gem 'listen', '~> 3.1.5'
   gem 'annotate', '~> 2.7.5'
   gem 'zeus', '~> 0.15.13', require: false
-  gem 'better_errors', '~> 2.5.1'
+  #gem 'better_errors', '~> 2.5.1'
+  #gem 'binding_of_caller'
   gem 'web-console', '~> 3.7.0'
   gem 'awesome_print', '~> 1.7.0'
   gem 'binding_of_caller'

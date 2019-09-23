@@ -1,0 +1,78 @@
+- content_for :javascript do
+  ST.FooterMenu.init();
+
+= form.hidden_field :previous_id
+= form.hidden_field :kind
+= form.hidden_field :id, value: 'footer'
+
+%h2= t(".footer_title")
+
+.row
+  .col-12
+    %h3= t(".footer_style")
+
+.row
+  .col-12
+    %label.inline
+      = form.radio_button :theme, Community::FOOTER_DARK
+      = t(".style_dark")
+    %label.inline
+      = form.radio_button :theme, Community::FOOTER_LIGHT
+      = t(".style_light")
+    %label.inline
+      = form.radio_button :theme, Community::FOOTER_MARKETPLACE_COLOR
+      = t(".style_marketplace_color")
+    %label.inline
+      = form.radio_button :theme, Community::FOOTER_LOGO
+      = t(".style_logo")
+
+%h3= t("admin.communities.footer.menu_links")
+#menu-links-table
+  .row.topbar-menu-container-padding.visible-tablet
+    .col-10
+      .col-6
+        = label_tag do
+          = t("admin.communities.footer.title")
+      .col-6
+        = label_tag do
+          = t("admin.communities.footer.url")
+
+.row#menu-links
+  - @service.section.links.each do |footer_menu_link|
+    = form.fields_for :links, footer_menu_link do |fields|
+      = render "footer_menu_link", f: fields, disabled: false
+
+  - new_footer_menu_link = @service.section.new_footer_menu_link
+  = form.fields_for :links, new_footer_menu_link, child_index: new_footer_menu_link.object_id do |fields|
+    %script{type: "text/template", id: "new-footer-menu-link-tmpl"}
+      = render "footer_menu_link", f: fields, disabled: false
+
+.row#menu-links-empty
+  .col-12
+    = t("admin.communities.menu_links.empty")
+
+.row
+  .col-12
+    = link_to t("admin.communities.footer.add"), '#', class: "add-fields",
+      data: {id: new_footer_menu_link.object_id, template_id: "#new-footer-menu-link-tmpl"}
+
+%h3= t("admin.communities.footer.social_links")
+#menu-links-table
+  .row.topbar-menu-container-padding.visible-tablet
+    .col-10
+      .col-6
+        = label_tag do
+          = t("admin.communities.footer.social.title")
+      .col-6
+        = label_tag do
+          = t("admin.communities.footer.social.url")
+
+.row#social-links
+  - @service.section.social.each do |social_link|
+    = form.fields_for :social, social_link do |fields|
+      = render "social_link", f: fields
+
+%h3= t("admin.communities.footer.footer_copyright")
+.row
+  .col-12
+    = form.text_area :copyright

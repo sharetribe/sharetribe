@@ -1,0 +1,45 @@
+- content_for :javascript do
+  ST.LandingPageEditor.initForm();
+
+= form_for [:admin, presenter.landing_page_version] do |form|
+
+  #admin_landing_page_version_sections
+    .row.visible-tablet
+      .col-7.custom-fields-list-title
+        = t("admin.communities.landing_pages.sections.identifier")
+      .col-3.custom-fields-list-title
+        = t("admin.communities.landing_pages.sections.kind")
+      .col-2
+
+    = form.fields_for :section_positions do |position_form|
+      - position = position_form.object
+      .row.landing-page-version-section-position-row{:data => {:"field-id" => position.id}}
+        = position_form.hidden_field :id
+        = position_form.hidden_field :position, 'hidden-position': true
+        .col-7
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t("admin.communities.landing_pages.sections.identifier")
+          = position.id
+        .col-3.custom-field-title
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t("admin.communities.landing_pages.sections.kind")
+          %div
+            = position.kind
+        .col-2
+          = link_to edit_admin_landing_page_version_section_path(presenter.landing_page_version.id, position.id), :tabindex => "-1" do
+            = icon_tag("edit", ["icon-fix"])
+          - allow_move = position.removable?
+          - disabled_class = allow_move ? '' : 'disabled'
+          = link_to_if allow_move, icon_tag("cross", ["icon-fix", disabled_class]), admin_landing_page_version_section_path(presenter.landing_page_version.id, position.id), :method => :delete, :tabindex => "-1",
+            data: { :confirm => t("admin.communities.landing_pages.sections.remove_section_confirmation", section_id: position.id) }
+          = link_to_if allow_move, icon_tag("directup", ["icon-fix", disabled_class]), '#', :class => "admin-sort-button", 'action-up': true, :tabindex => "-1"
+          = link_to_if allow_move, icon_tag("directdown", ["icon-fix", disabled_class]), '#', :class => "admin-sort-button", 'action-down': true, :tabindex => "-1"
+
+.row.new-custom-field-type-form
+  = form_for :section, url: new_admin_landing_page_version_section_path(landing_page_version_id: presenter.landing_page_version.id), method: :get do |form|
+    = form.hidden_field :variation
+    = hidden_field_tag 'section[multi_columns]', '', disabled: true
+    .new-custom-field-type-form-column
+      = t("admin.communities.landing_pages.add_new_section")
+    .new-custom-field-type-form-column
+      = form.select :kind, options_for_select(presenter.section_dropdown_options), { prompt: t("admin.communities.landing_pages.select_section_type") }
