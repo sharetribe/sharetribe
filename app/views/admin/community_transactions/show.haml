@@ -21,6 +21,18 @@
       .col-12
         = t('.status')
         = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
+    - if pr.show_next_step?
+      .row
+        .col-12
+        = t('.next_step')
+        - if pr.preauthorized?
+          = t(".waiting_for_provider_accept_or_reject",
+            provider: PersonViewUtils.person_display_name(provider, pr.community))
+        - elsif pr.paid?
+          = t(".waiting_for_fulfill_and_complete",
+            provider: PersonViewUtils.person_display_name(provider, pr.community),
+            listing_title: pr.listing_title,
+            buyer: PersonViewUtils.person_display_name(buyer, pr.community))
     .row
       .col-12
         = t('.buyer')

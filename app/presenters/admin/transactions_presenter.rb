@@ -156,4 +156,16 @@ class Admin::TransactionsPresenter
       TransactionViewUtils.conversation_messages(transaction.conversation.messages, community.name_display_type),
       TransactionViewUtils.transition_messages(transaction, transaction.conversation, community.name_display_type))
   end
+
+  def preauthorized?
+    transaction.current_state == 'preauthorized'
+  end
+
+  def paid?
+    transaction.current_state == 'paid'
+  end
+
+  def show_next_step?
+    preauthorized? || paid?
+  end
 end
