@@ -25,6 +25,7 @@ module FeatureFlagService::Store
       :stripe_payment_intents,
       :clp_editor,
       :hide_location,
+      :email_layout_v2
     ].to_set
 
     def initialize(additional_flags:)

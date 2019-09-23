@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get "/robots.txt" => RobotsGenerator
 
+  get "/test_design/:page" => "email_design#show"
+
   # URLs for sitemaps
   #
   # From Rails guide: By default dynamic segments don’t accept dots –

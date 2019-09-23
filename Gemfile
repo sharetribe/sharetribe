@@ -71,7 +71,8 @@ gem 'mercury-rails',
 gem 'countries', '~> 2.0.8'
 gem "mail_view", '~> 2.0.4'
 gem 'statesman', '~> 2.0.1'
-gem "premailer", '~> 1.10.4'
+gem "premailer-rails", '~> 1.10.3'
+gem "css_parser", '~> 1.7.0'
 gem 'stringex', '~> 2.7.1'
 gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
@@ -91,7 +92,6 @@ gem 'faraday-encoding', '~> 0.0.4'
 
 gem "react_on_rails", ">= 11.3.0"
 
-gem "css_parser", '~> 1.5.0'
 gem 'sitemap_generator', '~> 5.3.1'
 
 gem "i18n-js", '~> 3.0.0'
