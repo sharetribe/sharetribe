@@ -8,9 +8,6 @@
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(pr.community) }
 
 - transaction = pr.transaction
-- listing = transaction.listing
-- buyer = transaction.starter
-- provider = transaction.author
 .left-navi-section
   %h2
     - listing_title = transaction.listing_title || t("admin.communities.transactions.not_available")
@@ -27,22 +24,22 @@
         = t('.next_step')
         - if pr.preauthorized?
           = t(".waiting_for_provider_accept_or_reject",
-            provider: PersonViewUtils.person_display_name(provider, pr.community))
+            provider: pr.provider_name)
         - elsif pr.paid?
           = t(".waiting_for_fulfill_and_complete",
-            provider: PersonViewUtils.person_display_name(provider, pr.community),
+            provider: pr.provider_name,
             listing_title: pr.listing_title,
-            buyer: PersonViewUtils.person_display_name(buyer, pr.community))
+            buyer: pr.buyer_name)
     .row
       .col-12
         = t('.buyer')
-        = link_to_unless(buyer.deleted,
-          PersonViewUtils.person_display_name(buyer, pr.community), person_path(buyer.username))
+        - if pr.buyer
+          = link_to_unless(pr.buyer.deleted, pr.buyer_name, person_path(pr.buyer.username))
     .row
       .col-12
         = t('.provider')
-        = link_to_unless(provider.deleted,
-          PersonViewUtils.person_display_name(provider, pr.community), person_path(provider.username))
+        - if pr.provider
+          = link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username))
 
   .initiate-transaction-totals
     .initiate-transaction-total-wrapper
