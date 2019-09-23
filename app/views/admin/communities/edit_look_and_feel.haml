@@ -91,7 +91,8 @@
       .col-12
         = form.label :default_browse_view, t(".default_browse_view")
         = render :partial => "layouts/info_text", :locals => { :text => t(".default_browse_view_instructions_text") }
-        = form.select :default_browse_view, [[t(".grid"), "grid"], [t(".list"), "list"], [t(".map"), "map"]]
+        = form.select :default_browse_view,
+          [[t(".grid"), "grid"], [t(".list"), "list"], [t(".map"), "map", {disabled: show_location? ? nil : "disabled"}]]
 
     .row
       .col-12
