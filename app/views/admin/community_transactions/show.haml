@@ -16,28 +16,32 @@
   .admin-transaction-part
     .row
       .col-12
-        = t('.status')
+        %span.initiate-transaction-total-wrapper
+          = t('.status')
         = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
     - if pr.show_next_step?
       .row
         .col-12
-        = t('.next_step')
+        %span.initiate-transaction-total-wrapper
+          = t('.next_step')
         - if pr.preauthorized?
           = t(".waiting_for_provider_accept_or_reject",
-            provider: pr.provider_name)
+            provider: link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username))).html_safe
         - elsif pr.paid?
           = t(".waiting_for_fulfill_and_complete",
-            provider: pr.provider_name,
-            listing_title: pr.listing_title,
-            buyer: pr.buyer_name)
+            provider: link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username)),
+            listing_title: link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title ,
+            buyer: link_to_unless(pr.buyer.deleted, pr.buyer_name, person_path(pr.buyer.username))).html_safe
     .row
       .col-12
-        = t('.buyer')
+        %span.initiate-transaction-total-wrapper
+          = t('.buyer')
         - if pr.buyer
           = link_to_unless(pr.buyer.deleted, pr.buyer_name, person_path(pr.buyer.username))
     .row
       .col-12
-        = t('.provider')
+        %span.initiate-transaction-total-wrapper
+          = t('.provider')
         - if pr.provider
           = link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username))
 

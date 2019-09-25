@@ -48,8 +48,8 @@
 
 <%
   has_links = s["links"].present?
-  s["social"] = s["social"].select{|x| x['enabled'] == true || x['enabled'] == nil}
   has_social = s["social"].present?
+  s["social"] = s["social"].select{|x| x['enabled'] == true || x['enabled'] == nil} if has_social
   container_modifier = has_links && has_social ? "" : "--center"
 %>
 
