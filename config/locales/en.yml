@@ -1126,6 +1126,20 @@ en:
         request: Offer
         offer: Request
         inquiry: Contact
+    community_transactions:
+      show:
+        transaction_for: Transaction for %{link}
+        status: 'Status:'
+        next_step: 'Next step:'
+        waiting_for_provider_accept_or_reject: 'Waiting for %{provider} to accept or reject the request.'
+        waiting_for_fulfill_and_complete: 'Waiting for %{provider} to fulfill the order for %{listing_title} and for %{buyer} to mark the order as completed.'
+        buyer: 'Buyer:'
+        provider: 'Provider:'
+        buyer_pays: 'Buyer pays:'
+        marketplace_collects: '%{service_name} collects:'
+        buyer_service_fee_label: 'Commision from buyer:'
+        service_fee_label: 'Commision from seller:'
+        provider_receives: 'Seller receives:'
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"

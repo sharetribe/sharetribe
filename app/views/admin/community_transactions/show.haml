@@ -1,0 +1,158 @@
+- pr = @transactions_presenter
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.conversations.conversations")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(pr.community) }
+
+- transaction = pr.transaction
+.left-navi-section
+  %h2
+    - listing_title = transaction.listing_title || t("admin.communities.transactions.not_available")
+    = t('.transaction_for', link: link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title ).html_safe
+
+  .admin-transaction-part
+    .row
+      .col-12
+        %span.initiate-transaction-total-wrapper
+          = t('.status')
+        = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
+    - if pr.show_next_step?
+      .row
+        .col-12
+        %span.initiate-transaction-total-wrapper
+          = t('.next_step')
+        - if pr.preauthorized?
+          = t(".waiting_for_provider_accept_or_reject",
+            provider: link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username))).html_safe
+        - elsif pr.paid?
+          = t(".waiting_for_fulfill_and_complete",
+            provider: link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username)),
+            listing_title: link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title ,
+            buyer: link_to_unless(pr.buyer.deleted, pr.buyer_name, person_path(pr.buyer.username))).html_safe
+    .row
+      .col-12
+        %span.initiate-transaction-total-wrapper
+          = t('.buyer')
+        - if pr.buyer
+          = link_to_unless(pr.buyer.deleted, pr.buyer_name, person_path(pr.buyer.username))
+    .row
+      .col-12
+        %span.initiate-transaction-total-wrapper
+          = t('.provider')
+        - if pr.provider
+          = link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username))
+
+  .initiate-transaction-totals
+    .initiate-transaction-total-wrapper
+      %span.initiate-transaction-total-label
+        = t(".buyer_pays")
+      %span.initiate-transaction-total-value
+        = MoneyViewUtils.to_humanized(pr.total)
+    .admin-transaction-part
+      - if pr.booking
+        .initiate-transaction-per-unit-wrapper
+          %span.initiate-transaction-per-unit-label
+            - if pr.unit_type == :day
+              = t("transactions.initiate.price_per_day")
+            - elsif pr.unit_type == :night
+              = t("transactions.initiate.price_per_night")
+            - elsif pr.unit_type == :hour
+              = t("transactions.initiate.price_per_hour")
+            - else
+              = t("transactions.initiate.price_per_unit")
+          %span.initiate-transaction-per-unit-value
+            = MoneyViewUtils.to_humanized(pr.listing_price)
+
+        .initiate-transaction-booking-wrapper
+          - if pr.booking_per_hour
+            %span.initiate-transaction-booking-label
+              = t('transactions.initiate.booked_hours_label', count: pr.duration)
+            %span.initiate-transaction-booking-value
+              = l pr.start_time.to_date, format: :long_with_abbr_day_name
+              = '-'
+              = t("transactions.initiate.start_end_time",
+                start_time: l(pr.start_time, format: :hours_only),
+                end_time: l(pr.end_time, format: :hours_only))
+              = t("transactions.initiate.duration_in_hours", count: pr.duration)
+          - else
+            %span.initiate-transaction-booking-label
+              - if pr.unit_type == :day
+                = use_new_translation("transactions.initiate.booked_days_label", count: pr.duration).or_fallback_to("transactions.initiate.booked_days")
+              - else
+                = use_new_translation("transactions.initiate.booked_nights_label", count: pr.duration).or_fallback_to("transactions.initiate.booked_nights")
+            %span.initiate-transaction-booking-value
+              = l pr.start_on, format: :long_with_abbr_day_name
+              = "-"
+              - if pr.unit_type == :day
+                = l (pr.end_on - 1.day), format: :long_with_abbr_day_name
+                = "(#{pluralize(pr.duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+              - else
+                = l pr.end_on, format: :long_with_abbr_day_name
+                = "(#{pluralize(pr.duration, t("listing_conversations.preauthorize.night"), t("listing_conversations.preauthorize.nights"))})"
+
+      - elsif pr.quantity.present? && pr.localized_unit_type.present?
+        .initiate-transaction-per-unit-wrapper
+          %span.initiate-transaction-per-unit-label
+            = t("transactions.price_per_quantity", unit_type: pr.localized_unit_type)
+          %span.initiate-transaction-per-unit-value
+            = MoneyViewUtils.to_humanized(pr.listing_price)
+        - if pr.quantity > 1
+          .initiate-transaction-quantity-wrapper
+            %span.initiate-transaction-quantity-label
+              = pr.localized_selector_label || t("transactions.initiate.quantity")
+            %span.initiate-transaction-quantity-value
+              = pr.quantity
+
+      - if pr.subtotal.present?
+        .initiate-transaction-sum-wrapper#tx-subtotal
+          %span.initiate-transaction-sum-label
+            = t("transactions.initiate.subtotal")
+          %span.initiate-transaction-sum-value
+            = MoneyViewUtils.to_humanized(pr.subtotal)
+
+      - if pr.shipping_price.present?
+        .initiate-transaction-shipping-price-wrapper
+          %span.initiate-transaction-shipping-price-label
+            = t("transactions.initiate.shipping-price")
+          %span.initiate-transaction-shipping-price-value
+            = MoneyViewUtils.to_humanized(pr.shipping_price)
+
+      - if pr.has_buyer_fee
+        .initiate-transaction-sum-wrapper#tx-buyer-fee
+          %span.initiate-transaction-sum-label
+            = t(".buyer_service_fee_label")
+          %span.initiate-transaction-sum-value
+            = MoneyViewUtils.to_humanized(pr.buyer_fee)
+
+    .initiate-transaction-total-wrapper.admin-transaction
+      %span.initiate-transaction-total-label
+        = t(".marketplace_collects")
+      %span.initiate-transaction-total-value
+        = MoneyViewUtils.to_humanized(pr.marketplace_collects)
+    .admin-transaction-part
+      - if pr.has_provider_fee
+        .initiate-transaction-sum-wrapper#tx-fee
+          %span.initiate-transaction-sum-label
+            = t(".service_fee_label")
+          %span.initiate-transaction-sum-value
+            = MoneyViewUtils.to_humanized(pr.fee)
+
+      - if pr.has_buyer_fee
+        .initiate-transaction-sum-wrapper#tx-buyer-fee
+          %span.initiate-transaction-sum-label
+            = t(".buyer_service_fee_label")
+          %span.initiate-transaction-sum-value
+            = MoneyViewUtils.to_humanized(pr.buyer_fee)
+
+    .initiate-transaction-total-wrapper.admin-transaction
+      %span.initiate-transaction-total-label
+        = t(".provider_receives")
+      %span.initiate-transaction-total-value
+        = MoneyViewUtils.to_humanized(pr.seller_gets)
+
+  #messages
+    = render :partial => "conversations/message", :collection => pr.messages_and_actions, as: :message_or_action
+
