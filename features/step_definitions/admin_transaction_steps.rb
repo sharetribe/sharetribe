@@ -111,3 +111,9 @@ Then(/^I should see the transactions in descending time order by "(.*?)"$/) do |
     .map { |value| DateTime.parse(value) }
   expect(col_values).to eql col_values.sort.reverse
 end
+
+When(/^I open last transaction for listing "(.*?)"$/) do |listing_title|
+  listing = Listing.where(title: listing_title).first
+  tx = Transaction.where(listing_id: listing.id).last
+  visit admin_community_transaction_path(community_id: @current_community, id: tx)
+end

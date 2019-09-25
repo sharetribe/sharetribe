@@ -2,7 +2,7 @@ require 'csv'
 
 class Admin::CommunityTransactionsController < Admin::AdminBaseController
   before_action :set_selected_left_navi_link
-  before_action :set_presenter, only: [:index]
+  before_action :set_presenter, only: [:index, :show]
 
   def index
     respond_to do |format|
@@ -43,6 +43,8 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
       render json: {status: 'error'}
     end
   end
+
+  def show; end
 
   private
 

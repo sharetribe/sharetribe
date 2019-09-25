@@ -124,11 +124,8 @@ group :development do
   gem 'listen', '~> 3.1.5'
   gem 'annotate', '~> 2.7.5'
   gem 'zeus', '~> 0.15.13', require: false
-  #gem 'better_errors', '~> 2.5.1'
-  #gem 'binding_of_caller'
   gem 'web-console', '~> 3.7.0'
   gem 'awesome_print', '~> 1.7.0'
-  gem 'binding_of_caller'
 end
 
 group :test do
