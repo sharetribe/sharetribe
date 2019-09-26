@@ -196,9 +196,11 @@ class PersonMailer < ActionMailer::Base
     set_up_layout_variables(recipient, community)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @listing = listing
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated")) do |format|
+        format.html { render v2_template(community.id, 'new_update_to_followed_listing_notification'), layout: v2_layout(community.id) }
+      end
     end
   end
 
