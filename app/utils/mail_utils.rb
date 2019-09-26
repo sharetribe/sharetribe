@@ -75,8 +75,8 @@ module MailUtils
     end
   end
 
-  def v2_layout(community_id)
-    v2_enabled?(community_id) ? 'email-v2' : 'email'
+  def v2_layout(community_id, default_layout = 'email')
+    v2_enabled?(community_id) ? 'email-v2' : default_layout
   end
 
   def v2_template(community_id, template_name)
