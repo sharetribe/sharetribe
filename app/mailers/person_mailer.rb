@@ -172,9 +172,11 @@ class PersonMailer < ActionMailer::Base
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @comment = comment
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_comment.you_have_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community)))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_comment.you_have_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community))) do |format|
+        format.html { render v2_template(community.id, 'new_comment_to_own_listing_notification'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -182,9 +184,11 @@ class PersonMailer < ActionMailer::Base
     set_up_layout_variables(recipient, community)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @comment = comment
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community)))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community))) do |format|
+        format.html { render v2_template(community.id, 'new_comment_to_followed_listing_notification'), layout: v2_layout(community.id) }
+      end
     end
   end
 
