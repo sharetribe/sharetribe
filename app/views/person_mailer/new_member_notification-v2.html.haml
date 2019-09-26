@@ -1,0 +1,20 @@
+%tr
+  %td.person-name
+    %h1= t("emails.new_member_notification_v2.headline", :community => @community.full_name(@person.locale))
+
+%tr
+  %td.email-content
+    %p= t("emails.new_member_notification_v2.new_member_has_joined")
+
+    %div.user-info
+      %p
+        %b= t("emails.new_member_notification.person_name")
+        = PersonViewUtils.person_display_name(@person, @community)
+      %p
+        %b= t("emails.new_member_notification.person_email")
+        = @email
+
+%tr
+  %td.email-action
+    %p.email-action-help
+      = t("emails.new_member_notification.this_is_automatic_message", :community => @community.full_name(@person.locale))
