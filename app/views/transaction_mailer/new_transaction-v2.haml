@@ -1,0 +1,31 @@
+%tr
+  %td.person-name
+    %h1= t("emails.new_comment_v2.headline", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'))
+
+%tr
+  %td.email-content
+    %p
+      - url = link_to t("emails.new_transaction.a_new_transaction"), person_transaction_url(@transaction.starter, @url_params.merge({:id => @transaction.id}))
+      = t("emails.new_transaction.there_is_a_new_transaction", :link => url).html_safe
+
+%tr
+  %td.email-content
+    .user-info
+      %p
+        %b= t("emails.new_transaction_v2.listing")
+        = @transaction.listing_title
+      %p
+        %b= t("emails.new_transaction_v2.sum")
+        = MoneyViewUtils.to_humanized(@transaction.payment_total)
+      %p
+        %b= t("emails.new_transaction_v2.starter")
+        = PersonViewUtils.person_display_name_for_type(@transaction.starter, "first_name_with_initial")
+      %p
+        %b= t("emails.new_transaction_v2.provider")
+        = PersonViewUtils.person_display_name_for_type(@transaction.author, "first_name_with_initial")
+
+= render partial: 'person_mailer/action_button-v2', locals: {text: t("emails.new_transaction_v2.view_transaction"), url: person_transaction_url(@transaction.starter, @url_params.merge({:id => @transaction.id}))}
+%tr
+  %td.email-action
+    %p.email-action-help
+      = t("emails.new_member_notification.this_is_automatic_message", community: @community_name)
