@@ -1618,6 +1618,9 @@ en:
       reduce_email_footer_text: "Too much email? %{settings_link} or %{unsubscribe_link}."
       settings_link_text: "Edit your email settings here"
       unsubscribe_link_text: unsubscribe
+    community_updates_v2:
+      headline: "Hi %{user_name}, check out the latest activity on %{service_name}"
+      intro_paragraph: "Here are some highlights that happened on %{service_name} during the past %{time_since_last_update}."
     newsletter:
       hi: "Hi %{name},"
       newest_offers: "What people currently offer to others"
