@@ -1681,6 +1681,9 @@ en:
       this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
       person_name: "Name:"
       person_email: "Email:"
+    new_member_notification_v2:
+      headline: "A new member has joined %{community}."
+      new_member_has_joined: "They may still have to confirm their email address."
     listing_submited_for_review:
       subject: "New listing to review: \"%{listing_title}\" by %{author_name} in %{community}"
       there_is_a_new_listing_to_review: "There is a new listing to review: \"%{listing_title}\" by %{author_name}. You now have to approve or reject that listing."
