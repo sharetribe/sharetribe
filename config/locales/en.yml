@@ -1710,6 +1710,15 @@ en:
       sum: "Sum: %{amount}"
       starter: "Starter: %{name}"
       provider: "Seller: %{name}"
+    new_transaction_v2:
+      subject: "New transaction in %{service_name}"
+      there_is_a_new_transaction: "There is %{link} in %{service_name}."
+      a_new_transaction: "a new transaction"
+      listing: "Listing:"
+      sum: "Sum:"
+      starter: "Starter:"
+      provider: "Seller:"
+      view_transaction: "View transaction"
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."
