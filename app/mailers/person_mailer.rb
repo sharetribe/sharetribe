@@ -421,12 +421,14 @@ class PersonMailer < ActionMailer::Base
       @listing = listing
       @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.listing_approved.subject",
-                                   :listing_title => @listing.title,
-                                   :community => @community_name)
-                    )
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.listing_approved.subject",
+                         :listing_title => @listing.title,
+                         :community => @community_name)
+          ) do |format|
+        format.html { render v2_template(community.id, 'listing_approved'), layout: v2_layout(community.id) }
+      end
     end
   end
 
