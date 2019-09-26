@@ -17,5 +17,4 @@
       = listing.title
     - unless listing.description.blank?
       %p
-        - text_with_line_breaks_for_email do
-          = truncate_html(listing.description, :length => 200, :omission => "...")
+        = truncate_html(markdown(listing.description), :length => 200, :omission => "...")
