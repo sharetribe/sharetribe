@@ -210,11 +210,13 @@ class PersonMailer < ActionMailer::Base
       @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
       @translate_scope = [:emails, :new_listing_by_followed_person]
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_listing_by_followed_person.subject",
-                                   :author_name => @author_name,
-                                   :community => community.full_name_with_separator(recipient.locale)))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_listing_by_followed_person.subject",
+                         :author_name => @author_name,
+                         :community => community.full_name_with_separator(recipient.locale))) do |format|
+        format.html { render v2_template(community.id, 'new_listing_by_followed_person'), layout: v2_layout(community.id) }
+      end
     end
   end
 
