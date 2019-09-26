@@ -74,10 +74,11 @@ class PersonMailer < ActionMailer::Base
     recipient = conversation.buyer
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :template_path => 'person_mailer/automatic_confirmation',
-                     :subject => t("emails.transaction_automatically_confirmed.subject"))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.transaction_automatically_confirmed.subject")) do |format|
+        format.html { render 'person_mailer/automatic_confirmation/' + v2_template(community.id, 'transaction_automatically_confirmed'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -89,8 +90,9 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       mail(:to => @recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
-           :template_path => 'person_mailer/automatic_confirmation',
-           :subject => t("emails.booking_transaction_automatically_confirmed.subject"))
+           :subject => t("emails.booking_transaction_automatically_confirmed.subject")) do |format|
+        format.html { render 'person_mailer/automatic_confirmation/' + v2_template(community.id, 'booking_transaction_automatically_confirmed'), layout: v2_layout(community.id) }
+      end
     end
   end
 
