@@ -73,10 +73,11 @@ class PersonMailer < ActionMailer::Base
     recipient = conversation.buyer
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :template_path => 'person_mailer/automatic_confirmation',
-                     :subject => t("emails.transaction_automatically_confirmed.subject"))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.transaction_automatically_confirmed.subject")) do |format|
+        format.html { render 'person_mailer/automatic_confirmation/' + v2_template(community.id, 'transaction_automatically_confirmed'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -88,8 +89,9 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       mail(:to => @recipient.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
-           :template_path => 'person_mailer/automatic_confirmation',
-           :subject => t("emails.booking_transaction_automatically_confirmed.subject"))
+           :subject => t("emails.booking_transaction_automatically_confirmed.subject")) do |format|
+        format.html { render 'person_mailer/automatic_confirmation/' + v2_template(community.id, 'booking_transaction_automatically_confirmed'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -169,9 +171,11 @@ class PersonMailer < ActionMailer::Base
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @comment = comment
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_comment.you_have_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community)))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_comment.you_have_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community))) do |format|
+        format.html { render v2_template(community.id, 'new_comment_to_own_listing_notification'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -179,9 +183,11 @@ class PersonMailer < ActionMailer::Base
     set_up_layout_variables(recipient, community)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @comment = comment
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community)))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community))) do |format|
+        format.html { render v2_template(community.id, 'new_comment_to_followed_listing_notification'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -189,9 +195,11 @@ class PersonMailer < ActionMailer::Base
     set_up_layout_variables(recipient, community)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @listing = listing
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated")) do |format|
+        format.html { render v2_template(community.id, 'new_update_to_followed_listing_notification'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -203,11 +211,13 @@ class PersonMailer < ActionMailer::Base
       @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
       @translate_scope = [:emails, :new_listing_by_followed_person]
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_listing_by_followed_person.subject",
-                                   :author_name => @author_name,
-                                   :community => community.full_name_with_separator(recipient.locale)))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_listing_by_followed_person.subject",
+                         :author_name => @author_name,
+                         :community => community.full_name_with_separator(recipient.locale))) do |format|
+        format.html { render v2_template(community.id, 'new_listing_by_followed_person'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -296,10 +306,12 @@ class PersonMailer < ActionMailer::Base
     with_locale(admin.locale, community.locales.map(&:to_sym), community.id) do
       address = admin.confirmed_notification_emails_to
       if address.present?
-        premailer_mail(:to => address,
-                       :from => community_specific_sender(community),
-                       :subject => t("emails.new_member_notification.subject", community: @community.full_name(@person.locale)),
-                       :template_name => "new_member_notification")
+        mail(:to => address,
+             :from => community_specific_sender(community),
+             :subject => t("emails.new_member_notification.subject", community: @community.full_name(@person.locale)),
+             :template_name => "new_member_notification") do |format|
+          format.html { render v2_template(community.id, "new_member_notification"), layout: v2_layout(community.id) }
+        end
       end
     end
   end
@@ -389,13 +401,15 @@ class PersonMailer < ActionMailer::Base
       @listing = listing
       @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.listing_submited_for_review.subject",
-                                   :listing_title => @listing.title,
-                                   :author_name => @author_name,
-                                   :community => @community_name)
-                    )
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.listing_submited_for_review.subject",
+                         :listing_title => @listing.title,
+                         :author_name => @author_name,
+                         :community => @community_name)
+          ) do |format|
+        format.html { render v2_template(community.id, 'listing_submited_for_review'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -408,12 +422,14 @@ class PersonMailer < ActionMailer::Base
       @listing = listing
       @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.listing_approved.subject",
-                                   :listing_title => @listing.title,
-                                   :community => @community_name)
-                    )
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.listing_approved.subject",
+                         :listing_title => @listing.title,
+                         :community => @community_name)
+          ) do |format|
+        format.html { render v2_template(community.id, 'listing_approved'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -427,12 +443,14 @@ class PersonMailer < ActionMailer::Base
       @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
       @contact_url = new_user_feedback_url(@url_params)
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.listing_rejected.subject",
-                                   :listing_title => @listing.title,
-                                   :community => @community_name)
-                    )
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.listing_rejected.subject",
+                         :listing_title => @listing.title,
+                         :community => @community_name)
+          ) do |format|
+        format.html { render v2_template(community.id, 'listing_rejected'), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -444,13 +462,15 @@ class PersonMailer < ActionMailer::Base
       @listing = listing
       @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.edited_listing_submited_for_review.subject",
-                                   :listing_title => @listing.title,
-                                   :author_name => @author_name,
-                                   :community => @community_name)
-                    )
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.edited_listing_submited_for_review.subject",
+                         :listing_title => @listing.title,
+                         :author_name => @author_name,
+                         :community => @community_name)
+          ) do |format|
+        format.html { render v2_template(community.id, 'edited_listing_submited_for_review'), layout: v2_layout(community.id) }
+      end
     end
   end
 

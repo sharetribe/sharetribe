@@ -72,11 +72,11 @@ class CommunityMailer < ActionMailer::Base
 
       delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
 
-      premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => subject,
-                     :delivery_method => delivery_method) do |format|
-        format.html { render layout: 'email_blank_layout', locals: { unsubscribe_token: unsubscribe_token } }
+      mail(:to => @recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => subject,
+           :delivery_method => delivery_method) do |format|
+             format.html { render v2_template(community.id, 'community_updates'), layout: v2_layout(community.id, 'email_blank_layout'),locals: { unsubscribe_token: unsubscribe_token } }
       end
     end
   end
