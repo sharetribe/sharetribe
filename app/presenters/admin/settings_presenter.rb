@@ -26,7 +26,11 @@ class Admin::SettingsPresenter
   def main_search_select_options
     @main_search_select_options ||= [:keyword, :location].concat(keyword_and_location)
       .map { |type|
-        [SettingsViewUtils.search_type_translation(type), type]
+        html_attrs = {}
+        if !show_location? && type != :keyword
+          html_attrs[:disabled] = 'disabled'
+        end
+        [SettingsViewUtils.search_type_translation(type), type, html_attrs]
       }
   end
 
@@ -78,5 +82,9 @@ class Admin::SettingsPresenter
       else
         []
       end
+  end
+
+  def show_location?
+    @show_location ||= allow_hide_location? ? community.show_location? : true
   end
 end
