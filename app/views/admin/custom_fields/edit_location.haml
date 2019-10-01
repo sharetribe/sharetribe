@@ -9,10 +9,15 @@
 .left-navi-section
   = form_for @community, :as => :community, :url => update_location_admin_custom_fields_path, :method => :put do |form|
 
+    - show_location = FeatureFlagHelper.feature_enabled?(:hide_location) ? @current_community.show_location? : true
     .row
       .col-12
         .checkbox-container
-          = form.check_box :listing_location_required
+          = form.check_box :listing_location_required, disabled: show_location ? nil : 'disabled'
           = form.label :listing_location_required, t(".this_field_is_required")
+        - unless show_location
+          - link = link_to "\"#{t("admin.communities.settings.search_and_location_preferences")}\"",
+            admin_setting_path(anchor: 'search_and_location_preferences')
+          = render partial: 'layouts/info_text', locals: { text: t('.the_location_feature_can_be_enabled', link: link).html_safe }
 
     = render :partial => "admin/custom_fields/form/buttons", :locals => { :form => form }
