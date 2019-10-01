@@ -271,3 +271,9 @@ Given(/^community "(.*?)" has pre-approved listings$/)do |community|
   Community.where(ident: community).first.update_attribute(:pre_approved_listings, true)
 end
 
+Given(/^this community does not allow users to add location$/) do
+  FeatureFlagService::API::Api.features.enable(community_id: @current_community.id, features: [:hide_location])
+  @current_community.show_location = false
+  @current_community.save!
+end
+
