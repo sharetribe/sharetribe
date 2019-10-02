@@ -22,7 +22,7 @@ Would you like to work with an API-based marketplace solution that allows you to
 - [Bug tracker](#bug-tracker)
 - [Documentation](#documentation)
 - [Community forum](#community-forum)
-- [License](#mit-license)
+- [License](#license)
 
 ## Technology stack
 
@@ -472,6 +472,6 @@ The Sharetribe Community forum is located at [https://www.sharetribe.com/communi
 The forum is a great place to ask support and help for example with issues during the installation.
 
 
-## MIT License
+## License
 
-Sharetribe is open source under the MIT license. See [LICENSE](LICENSE) for details.
+Sharetribe is source available under the Sharetribe Community Public Licence. See [LICENSE](LICENSE) for details.
