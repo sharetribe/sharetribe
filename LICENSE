@@ -1,26 +1,14 @@
-The MIT License
+The Sharetribe Community Public Licence
 
-Copyright (c) 
+Copyright (c)
 2008-2012 OtaSizzle, Aalto University
-2011-2017 Sharetribe Ltd
+2011-2019 Sharetribe Ltd
 
 "Sharetribe" and Sharetribe logo are trademarks of Sharetribe Ltd
-Community specific images (e.g. logos) are trademarks of their owners and not released under the MIT license, like the rest of the software.
+Community specific images (e.g. logos) are trademarks of their owners and not released under the Sharetribe Community Public Licence, like the rest of the software.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Sharetribe licenses Sharetribe Go with the Sharetribe Community Public License 1.0: https://www.sharetribe.com/sharetribe-community-public-licence/
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Sharetribe Go includes several open source licensed components. The full list of used components and their licenses is included in the following files:
+- Gemfile for Ruby dependencies: https://github.com/sharetribe/sharetribe/blob/master/Gemfile
+- package.json for JavaScript dependencies: https://github.com/sharetribe/sharetribe/blob/master/client/package.json

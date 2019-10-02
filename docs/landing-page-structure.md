@@ -129,7 +129,7 @@ Values to set:
   * `dark`: 50% darkening (default)
   * `light`: 30% darkening
   * `transparent`: no darkening
-* `background_color`: [r,g,b] style. 
+* `background_color`: [r,g,b] style.
 * `paragraph`
 * `button_title`
 * `button_path`
@@ -144,7 +144,7 @@ Values to set:
   * `dark`: 50% darkening (default)
   * `light`: 30% darkening
   * `transparent`: no darkening
-* `background_color`: [r,g,b] style. 
+* `background_color`: [r,g,b] style.
 * `button_title` this is a button for the whole section, when user only want one in the middle
 * `button_path` this is a button for the whole section, when user only want one in the middle
 * `columns` 2 or 3 columns of:
@@ -154,7 +154,7 @@ Values to set:
   * `button_title`
   * `button_path`
 
-#### Icons are not available in the open source.
+#### Icons are not available in the source available version.
 
 ### Categories
 
@@ -202,7 +202,7 @@ Values to set:
 * `button_path`
 * `locations`: a list of locations information, which include the title of the location and the location link.
   * `title`: the text that will be shown within the image tile
-  * `location`: the link for the location, it can be an internal path or a URL. If it is a URL use the following format: `location: "https://www.sharetribe.com"` if it is an internal path use the path format. 
+  * `location`: the link for the location, it can be an internal path or a URL. If it is a URL use the following format: `location: "https://www.sharetribe.com"` if it is an internal path use the path format.
   * `background_image`: a link to background image
 
 
@@ -254,7 +254,7 @@ Values to set:
   - true: the video plays by default
   - "muted": the video plays by default without sound
 
-  The `text` only shows when the video is paused (false value or manually paused by the user). 
+  The `text` only shows when the video is paused (false value or manually paused by the user).
 
 * `width`
 
