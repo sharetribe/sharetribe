@@ -20,6 +20,35 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [8.1.0] - 2019-10-02
+
+### Added
+
+- Stripe SCA paymentintent based preauth process [#3791](https://github.com/sharetribe/sharetribe/pull/3791)
+- Stripe SCA finalize ui and management [#3805](https://github.com/sharetribe/sharetribe/pull/3805)
+- Support for markdown in listing descriptions [#3795](https://github.com/sharetribe/sharetribe/pull/3795), [#3810](https://github.com/sharetribe/sharetribe/pull/3810), [#3874](https://github.com/sharetribe/sharetribe/pull/3874)
+- Add "Whats new?" link in the sidebar [#3822](https://github.com/sharetribe/sharetribe/pull/3822)
+- Add ready made cover pics link next to the cover pick chooser [#3823](https://github.com/sharetribe/sharetribe/pull/3823)
+- Add "Terms, Privacy Policy and static content" table and links in "Basic details" tab [#3827](https://github.com/sharetribe/sharetribe/pull/3827)
+- Add four new fields to the transactions CSV export [#3845](https://github.com/sharetribe/sharetribe/pull/3845)
+- Allow admins to unskip reviews [#3857](https://github.com/sharetribe/sharetribe/pull/3857)
+- Admin option to send a notification for each new transaction [#3859](https://github.com/sharetribe/sharetribe/pull/3859)
+- Add new countries support: Estonia, Greece, Latvia, Lithuania, Poland, Slovakia, Slovenia [#3872](https://github.com/sharetribe/sharetribe/pull/3872)
+
+### Changed
+- In shipping address replace country dropdown with text field [#3815](https://github.com/sharetribe/sharetribe/pull/3815)
+- Use community currency for free transactions avoiding nil.to_money == 0 EUR [#3816](https://github.com/sharetribe/sharetribe/pull/3816)
+- Edit some CSV exports [#3828](https://github.com/sharetribe/sharetribe/pull/3828)
+- Change datetime format in all CSV exports [#3844](https://github.com/sharetribe/sharetribe/pull/3844)
+- Remove username from signup [#3853](https://github.com/sharetribe/sharetribe/pull/3853)
+
+### Removed
+- Remove google-site-verification from head and hardcoded GWT tag [#3825](https://github.com/sharetribe/sharetribe/pull/3825), [#3826](https://github.com/sharetribe/sharetribe/pull/3826)
+
+### Fixed
+- Order Type name for free listings was not updating cached fragment [#3836](https://github.com/sharetribe/sharetribe/pull/3836)
+- Disabling top bar default links (about, contact) is not possible [#3840](https://github.com/sharetribe/sharetribe/pull/3840)
+
 ## [8.0.0] - 2019-07-31
 
 ### Added
@@ -27,12 +56,12 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Use index hint for homepage query [#3714](https://github.com/sharetribe/sharetribe/pull/3714)
 - Add Albanian to the list of unsupported languages [#3718](https://github.com/sharetribe/sharetribe/pull/3718)
 - Add Macedonian to the list of unsupported languages [#3725](https://github.com/sharetribe/sharetribe/pull/3725)
+- Add .html_safe to content for title [#3744](https://github.com/sharetribe/sharetribe/pull/3744)
 - Ability for providers to delete listings [#3756](https://github.com/sharetribe/sharetribe/pull/3756)
 - Stripe support for Singapore [#3762](https://github.com/sharetribe/sharetribe/pull/3762)
 - Cache community count [#3766](https://github.com/sharetribe/sharetribe/pull/3766)
 - Ability to export listings to a CSV file [#3790](https://github.com/sharetribe/sharetribe/pull/3790)
 - Allow admins to disable direct messaging between users [#3793](https://github.com/sharetribe/sharetribe/pull/3793)
-- Add .html_safe to content for title [#3744](https://github.com/sharetribe/sharetribe/pull/3744)
 
 ### Changed
 
@@ -715,7 +744,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v8.0.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v8.1.0...HEAD
+[8.1.0]: https://github.com/sharetribe/sharetribe/compare/v8.0.0...v8.1.0
 [8.0.0]: https://github.com/sharetribe/sharetribe/compare/v7.6.0...v8.0.0
 [7.6.0]: https://github.com/sharetribe/sharetribe/compare/v7.5.0...v7.6.0
 [7.5.0]: https://github.com/sharetribe/sharetribe/compare/v7.4.0...v7.5.0
