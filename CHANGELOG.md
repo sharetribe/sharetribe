@@ -20,6 +20,12 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [9.0.0] - 2019-10-02
+
+### Changed
+
+- Update Sharetribe Go Licence [#3883](https://github.com/sharetribe/sharetribe/pull/3883)
+
 ## [8.1.0] - 2019-10-02
 
 ### Added
@@ -744,7 +750,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v8.1.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v9.0.0...HEAD
+[9.0.0]: https://github.com/sharetribe/sharetribe/compare/v8.1.0...v9.0.0
 [8.1.0]: https://github.com/sharetribe/sharetribe/compare/v8.0.0...v8.1.0
 [8.0.0]: https://github.com/sharetribe/sharetribe/compare/v7.6.0...v8.0.0
 [7.6.0]: https://github.com/sharetribe/sharetribe/compare/v7.5.0...v7.6.0
