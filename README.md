@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/sharetribe/sharetribe/tree/master.svg?style=svg)](https://circleci.com/gh/sharetribe/sharetribe/tree/master) [![Dependency Status](https://gemnasium.com/sharetribe/sharetribe.png)](https://gemnasium.com/sharetribe/sharetribe) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe)
 
-Sharetribe is an open source platform to create your own peer-to-peer marketplace.
+Sharetribe is a source available platform to create your own peer-to-peer marketplace.
 
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
@@ -392,9 +392,9 @@ If you have installation instructions that you would like to share, don't hesita
 
 PayPal and Stripe are the two available payment gateways integrated.
 
-PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the open source version of Sharetribe in the future.
+PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the source available version of Sharetribe Go in the future.
 
-Stripe can be used in the open-source alternative, as long as your country and currency are supported.
+Stripe can be used in the source available version, as long as your country and currency are supported.
 
 ### Enable Stripe
 
@@ -467,7 +467,7 @@ More detailed technical documentation is located in [docs/](docs/)
 
 ## Community forum
 
-The Sharetribe open source community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/).
+The Sharetribe Community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/).
 
 The forum is a great place to ask support and help for example with issues during the installation.
 
