@@ -65,7 +65,7 @@ class TransactionProcessStateMachine
   end
 
   after_transition(to: :free, after_commit: true) do |transaction|
-    send_new_transaction_email(transaction)
+    send_new_transaction_email(transaction) if transaction.conversation.payment?
   end
 
   after_transition(to: :preauthorized, after_commit: true) do |transaction|
