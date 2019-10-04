@@ -286,6 +286,10 @@ Rails.application.routes.draw do
             get 'export'
             get 'export_status'
           end
+          member do
+            get :confirm
+            get :cancel
+          end
         end
         resources :conversations, controller: :community_conversations, only: [:index, :show]
         resources :testimonials, controller: :community_testimonials, only: [:index, :edit, :update, :new, :create] do

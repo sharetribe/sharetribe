@@ -2,12 +2,13 @@ module Admin
   class TransactionsService
     PER_PAGE = 30
 
-    attr_reader :community, :params, :format
+    attr_reader :community, :params, :format, :current_user
 
-    def initialize(community, params, format)
+    def initialize(community, params, format, current_user)
       @community = community
       @params = params
       @format = format
+      @current_user = current_user
     end
 
     def transactions
@@ -60,6 +61,37 @@ module Admin
         "asc"
       else
         "desc" #default
+      end
+    end
+
+    def confirm
+      return false unless can_transition_to?(:confirmed)
+
+      result = TransactionService::Transaction.complete(
+        community_id: community.id, transaction_id: transaction.id,
+        message: nil, sender_id: nil,
+        metadata: { user_id: current_user.id, executed_by_admin: true }
+      )
+      result.success
+    end
+
+    def cancel
+      return false unless can_transition_to?(:confirmed)
+
+      result = TransactionService::Transaction.cancel(
+        community_id: community.id, transaction_id: transaction.id,
+        message: nil, sender_id: nil,
+        metadata: { user_id: current_user.id, executed_by_admin: true }
+      )
+      result.success
+    end
+
+    private
+
+    def can_transition_to?(new_status)
+      if transaction
+        state_machine = TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
+        state_machine.can_transition_to?(new_status)
       end
     end
   end
