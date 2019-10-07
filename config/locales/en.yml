@@ -646,12 +646,12 @@ en:
         you_can_now_use_a_custom_domain: "With your current plan, you can now enable a custom domain. Let's move forward with the setup. %{contact_us}!"
         would_you_like_to_change_domain: "Would you like to change your marketplace custom domain? %{contact_us}!"
       landing_pages:
-        landing_pages: Landing Page
+        landing_pages: "Landing Page"
         info_1: "The landing page is perhaps the most important page of your marketplace. It is the first page that visitors see - sort of like the front door of your house. You have only a few seconds to convince new vistiors that they should explore your site. The page needs to be appealing and your value proposition should be clear and enticing."
         info_2: "%{preview_link} your current landing page and make changes from the %{details_link} and %{design_link} sections"
-        info_2_preview_text: "Preview"
+        info_2_preview_text: Preview
         info_2_details_text: "basic details"
-        info_2_design_text: "design"
+        info_2_design_text: design
         info_3: "If you want to have a completely customized landing page for your marketplace, you can purchase it as add-on for $99 per month."
         info_4: "Read more about custom landing pages"
         editor_title: "Landing Page Editor"
@@ -663,11 +663,11 @@ en:
           section_type: "Section type"
           version: Version
           released: Released
-        add_new_version: Add new version
-        new_version: New version
-        edit_version: Edit version
-        add_new_section: Add new section
-        select_section_type: Select section type...
+        add_new_version: "Add new version"
+        new_version: "New version"
+        edit_version: "Edit version"
+        add_new_section: "Add new section"
+        select_section_type: "Select section type..."
         form:
           version: Version
           save: Save
@@ -675,56 +675,54 @@ en:
           identifier: "Section ID"
           kind: "Section Type"
           variation: Variation
-          new: New section
-          edit: Edit section %{section_id}
+          new: "New section"
+          edit: "Edit section %{section_id}"
           remove_section_confirmation: "Are you sure you want to remove the section '%{section_id}' and all its data? This cannot be undone."
-          info_single_column: Info 1 Column
-          info_multi_column_2: Info 2 Columns
-          info_multi_column_3: Info 3 Columns
+          info_single_column: "Info 1 Column"
+          info_multi_column_2: "Info 2 Columns"
+          info_multi_column_3: "Info 3 Columns"
           listings: Listings
           categories: Categories
           hero: Hero
           locations: Locations
           video: Video
           new_section:
-            categories: New categories section
-            footer: New footer section
-            hero: New hero section
+            categories: "New categories section"
+            footer: "New footer section"
+            hero: "New hero section"
             info_single_column: "New single column section"
             info_multi_column_2: "New 2 column section"
             info_multi_column_3: "New 3 column section"
             listings: "New listings section"
             locations: "New locations section"
             video: "New video section"
-            locations: "New locations section"
           edit_section:
-            categories: Edit categories section
-            footer: Edit footer section
-            hero: Edit hero section
+            categories: "Edit categories section"
+            footer: "Edit footer section"
+            hero: "Edit hero section"
             info_single_column: "Edit single column section"
             info_multi_column_2: "Edit 2 column section"
             info_multi_column_3: "Edit 3 column section"
             listings: "Edit listings section"
             locations: "Edit locations section"
             video: "Edit video section"
-            locations: "Edit locations section"
     landing_page_versions:
       sections:
         hero:
           hero_title: Hero
           hero_description: "Set the Background image for the hero section. The Slogan and Description are set from the basic details section."
         footer:
-          footer_title: "Footer"
+          footer_title: Footer
           footer_style: "Footer style"
-          style_dark: "Dark"
-          style_light: "Light"
+          style_dark: Dark
+          style_light: Light
           style_marketplace_color: "Marketplace color"
-          style_logo: "Logo"
+          style_logo: Logo
         cta_button:
           cta_button: "CTA Button"
-          cta_enabled: "Enabled"
-          cta_text: "Text"
-          cta_url: "URL"
+          cta_enabled: Enabled
+          cta_text: Text
+          cta_url: URL
         background_image_overlay:
           background_image: "Background image"
           background_image_info: "This image will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels."
@@ -733,53 +731,53 @@ en:
           file_not_selected: "Not selected"
           background_image_overlay: "Background image overlay"
           background_image_overlay_info: "This allows you to determine how dark or light your background image is going to be displayed. \"Transparent\" means no overlay at all."
-          overlay_dark: "Dark"
-          overlay_light: "Light"
-          overlay_transparent: "Transparent"
+          overlay_dark: Dark
+          overlay_light: Light
+          overlay_transparent: Transparent
         background_style:
           background_style: "Background style"
-          style_image: "Image"
-          style_color: "Color"
-          style_none: "None"
+          style_image: Image
+          style_color: Color
+          style_none: None
         background_color:
           background_color: "Background color"
           background_color_info: "You can choose the background color of this section by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> can help you choose the color andgive you the hex color code. You can then copy the code here."
         categories:
           add: "Add a new category to this section"
-          category: "Category"
+          category: Category
           empty: "You don't have any included categories"
-          image: "Image"
+          image: Image
           include_title: "Categories to include"
           info_text: "You can feature 3 to 7 categories in each section. Please add an image to each category and select one of the categories from your marketplace. The recommended image size is 1000 x 667 px."
           need_at_least_3_categories: "You should have at least 3 categories in this section"
           need_at_most_7_categories: "You should have at most 7 categories in this section"
         category:
           add_another_image: "Add another image"
-          category: "Category"
+          category: Category
           current_image: "Current image: %{filename}"
           file_not_selected: "Not selected"
-          image: "Image"
+          image: Image
           image_required: "You should add an image to this category"
           select_category: "Select category"
         locations:
           add: "Add a new location to this section"
-          location: "Location"
+          location: Location
           empty: "You don't have any included locations"
-          image: "Image"
+          image: Image
           include_title: "Locations to include"
           info_text: "You can feature 3 to 7 locations in each section. Please add an image to each location and provide location search url for your marketplace. The recommended image size is 1000 x 667 px."
           need_at_least_3_locations: "You should have at least 3 locations in this section"
           need_at_most_7_locations: "You should have at most 7 locations in this section"
         location:
           add_another_image: "Add another image"
-          location: "Location"
+          location: Location
           current_image: "Current image: %{filename}"
           file_not_selected: "Not selected"
-          image: "Image"
+          image: Image
           image_required: "You should add an image to this location"
-          title: "Title"
+          title: Title
           title_placeholder: "Location text"
-          url: "URL"
+          url: URL
           url_placeholder: "Location link URL"
         multi_column:
           main_title: "Main title"
@@ -794,7 +792,7 @@ en:
         listings:
           you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456"
         video:
-          text: "Text"
+          text: Text
           youtube_video_id: "Youtube video ID"
           autoplay: "Playing options"
           autoplay_no: "No autoplay"
@@ -1171,7 +1169,7 @@ en:
       travel: Travel
       other: Other
     username: Username
-    username_or_email: "Email"
+    username_or_email: Email
     what_is_this: "What's this?"
     removed_user: "Removed user"
     payment_fee_info:
@@ -3073,27 +3071,26 @@ en:
       category_description: "%{category} on %{marketplace}"
       profile_title: "Profile of %{user} - %{marketplace}"
       profile_description: "Learn more about %{user} on %{marketplace}"
-
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: Section unique name
+        id: "Section unique name"
         title: Title
         paragraph: Paragraph
-        button_color: Button color
-        button_color_hover: Button color hover
+        button_color: "Button color"
+        button_color_hover: "Button color hover"
         button_title: Text
         button_path: URL
         button_path_string: URL
-        background_image: Background image
-        background_image_variation: Background image variation
-        background_color: Background color
-        background_color_string: Background color
-        icon_color: Icon color
+        background_image: "Background image"
+        background_image_variation: "Background image variation"
+        background_color: "Background color"
+        background_color_string: "Background color"
+        icon_color: "Icon color"
       landing_page_version/section/listings:
-        listing_1_id: Listing 1 ID
-        listing_2_id: Listing 2 ID
-        listing_3_id: Listing 3 ID
+        listing_1_id: "Listing 1 ID"
+        listing_2_id: "Listing 2 ID"
+        listing_3_id: "Listing 3 ID"
       landing_page_version/section/video:
         text: Text
         youtube_video_id: "Youtube video ID"
