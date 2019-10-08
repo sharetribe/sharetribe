@@ -57,18 +57,22 @@ describe Admin::CommunityTransactionsController, type: :controller do
                                      last_transition_at: 60.minutes.ago,
                                      conversation: conversation)
   end
+  let(:admin) { create_admin_for(community) }
 
   before(:each) do
     @request.host = "#{community.ident}.lvh.me"
     @request.env[:current_marketplace] = community
-    user = create_admin_for(community)
-    sign_in_for_spec(user)
-    transaction1
-    transaction2
-    transaction3
+    sign_in_for_spec(admin)
   end
 
   describe '#index' do
+
+    before(:each) do
+      transaction1
+      transaction2
+      transaction3
+    end
+
     it 'works' do
       get :index, params: {community_id: community.id}
       service = assigns(:service)
@@ -118,6 +122,46 @@ describe Admin::CommunityTransactionsController, type: :controller do
       expect(transactions[0]).to eq transaction2
       expect(transactions[1]).to eq transaction3
       expect(transactions[2]).to eq transaction1
+    end
+  end
+
+  describe '#confirm #cancel'  do
+    let(:paid_transaction) do
+      conversation = FactoryGirl.create(:conversation, community: community)
+      conversation.participants << listing2.author
+      conversation.participants << person2
+      transaction = FactoryGirl.create(:transaction, community: community,
+                                                     listing: listing2,
+                                                     starter: person2,
+                                                     current_state: 'paid',
+                                                     payment_process: 'preauthorize',
+                                                     conversation: conversation
+                                      )
+      FactoryGirl.create(:transaction_transition, to_state: "paid", transaction_id: transaction.id, most_recent: true)
+      transaction.reload
+      transaction
+    end
+
+    before(:each) do
+      paid_transaction
+    end
+
+    it 'confirms transaction' do
+      get :confirm, params: {community_id: community.id, id: paid_transaction.id}
+      paid_transaction.reload
+      expect(paid_transaction.current_state).to eq 'confirmed'
+      last_transition = paid_transaction.transaction_transitions.last
+      expect(last_transition.metadata['user_id']).to eq admin.id
+      expect(last_transition.metadata['executed_by_admin']).to eq true
+    end
+
+    it 'cancels transaction' do
+      get :cancel, params: {community_id: community.id, id: paid_transaction.id}
+      paid_transaction.reload
+      expect(paid_transaction.current_state).to eq 'canceled'
+      last_transition = paid_transaction.transaction_transitions.last
+      expect(last_transition.metadata['user_id']).to eq admin.id
+      expect(last_transition.metadata['executed_by_admin']).to eq true
     end
   end
 end

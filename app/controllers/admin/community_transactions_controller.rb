@@ -2,7 +2,7 @@ require 'csv'
 
 class Admin::CommunityTransactionsController < Admin::AdminBaseController
   before_action :set_selected_left_navi_link
-  before_action :set_presenter, only: [:index, :show]
+  before_action :set_presenter, only: [:index, :show, :confirm, :cancel]
 
   def index
     respond_to do |format|
@@ -46,6 +46,20 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
 
   def show; end
 
+  def confirm
+    unless @service.confirm
+      flash[:error] = t("layouts.notifications.something_went_wrong")
+    end
+    redirect_to admin_community_transaction_path(community_id: @service.community, id: @service.transaction)
+  end
+
+  def cancel
+    unless @service.cancel
+      flash[:error] = t("layouts.notifications.something_went_wrong")
+    end
+    redirect_to admin_community_transaction_path(community_id: @service.community, id: @service.transaction)
+  end
+
   private
 
   def set_selected_left_navi_link
@@ -53,7 +67,7 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
   end
 
   def set_presenter
-    @service = Admin::TransactionsService.new(@current_community, params, request.format)
+    @service = Admin::TransactionsService.new(@current_community, params, request.format, @current_user)
     @transactions_presenter = Admin::TransactionsPresenter.new(params, @service)
   end
 end

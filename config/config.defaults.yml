@@ -258,8 +258,8 @@ default: &default_settings
   icon_pack: "font-awesome"
 
   # If icon_pack is set to "ss-pika", set the location for the icon pack
-  # This setting is irrelevant to Open Source developers, since ss icon pack
-  # is not included in the Open Source distribution
+  # This setting is irrelevant to developers, since ss icon pack
+  # is not included in the source available distribution
   ss_pika_location: "ss-pika"
   ss_social_location: "ss-social"
 
@@ -483,7 +483,7 @@ default: &default_settings
   ##########################################
 
   # Enable end-user analytics tracking configuration
-  # in admin panel. Open source users should instead use
+  # in admin panel. Source available users should instead use
   # the use_google_tag_manager: false
   admin_enable_tracking_config: false
 
