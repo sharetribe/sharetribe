@@ -101,10 +101,10 @@ module ListingsHelper
 
   def price_quantity_per_unit(listing)
     quantity =
-      if listing.unit_type.present?
-        ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key)
-      elsif listing.quantity.present?
-        listing.quantity
+      if listing[:unit_type].present?
+        ListingViewUtils.translate_unit(listing[:unit_type], listing[:unit_tr_key])
+      elsif listing[:quantity].present?
+        listing[:quantity]
       else
         nil
       end
