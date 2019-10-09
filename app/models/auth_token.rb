@@ -15,6 +15,7 @@
 # Indexes
 #
 #  index_auth_tokens_on_token  (token) UNIQUE
+#  index_on_person_id          (person_id)
 #
 
 class AuthToken < ApplicationRecord

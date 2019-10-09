@@ -42,6 +42,14 @@ module PlanService::Store::Plan
     }
   end
 
+  def delete_trials(community_id:)
+    TrialModel.where(community_id: community_id).delete_all
+  end
+
+  def delete_plans(community_id:)
+    PlanModel.where(community_id: community_id).delete_all
+  end
+
   def get_trials(after:, limit:)
     sorted_trials = TrialModel.order(:created_at)
 

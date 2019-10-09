@@ -44,7 +44,9 @@ describe MarketplaceService do
       community = create(@community_params)
       c = Community.find(community.id)
       s = c.shapes.first
-      expect(s.units.empty?).to eql true
+      expect(s.units.empty?).to eql false
+      default_per_unit = {kind: "quantity", name_tr_key: nil, quantity_selector: "number", selector_tr_key: nil, unit_type: "unit"}
+      expect(s.units.first).to eql default_per_unit
       expect(s.availability).to eql 'none'
       expect(s.price_enabled).to eql true
       expect(s.shipping_enabled).to eql true

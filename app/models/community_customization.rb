@@ -22,6 +22,18 @@
 #  search_placeholder                         :string(255)
 #  transaction_agreement_label                :string(255)
 #  transaction_agreement_content              :text(16777215)
+#  social_media_title                         :string(255)
+#  social_media_description                   :text(65535)
+#  meta_title                                 :string(255)
+#  meta_description                           :text(65535)
+#  search_meta_title                          :string(255)
+#  search_meta_description                    :text(65535)
+#  listing_meta_title                         :string(255)
+#  listing_meta_description                   :text(65535)
+#  category_meta_title                        :string(255)
+#  category_meta_description                  :text(65535)
+#  profile_meta_title                         :string(255)
+#  profile_meta_description                   :text(65535)
 #
 # Indexes
 #

@@ -1,0 +1,5 @@
+window.ST.Listings.update({
+id: #{@service.listing.id},
+content: "#{j render('admin/community_listings/update', presenter: @presenter, listing: @service.listing)}",
+error: #{@service.listing.errors.any?}
+});

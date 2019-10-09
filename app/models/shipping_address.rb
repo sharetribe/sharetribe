@@ -23,5 +23,5 @@
 #
 
 class ShippingAddress < ApplicationRecord
-  belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
+  belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id", inverse_of: :shipping_address
 end

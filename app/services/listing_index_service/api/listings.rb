@@ -28,6 +28,7 @@ module ListingIndexService::API
         )
       }.or_else {
         raise search_result.data if raise_errors
+
         log_error(search_result, community_id)
         search_result
       }

@@ -15,7 +15,7 @@ class TransactionAutomaticallyConfirmedJob < Struct.new(:conversation_id, :commu
       transaction = Transaction.find(conversation_id)
       community = Community.find(community_id)
       MailCarrier.deliver_now(PersonMailer.transaction_automatically_confirmed(transaction, community))
-    rescue => ex
+    rescue StandardError => ex
       puts ex.message
       puts ex.backtrace.join("\n")
     end

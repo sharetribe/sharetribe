@@ -1,4 +1,4 @@
-require File.expand_path('../../services/email_service', __FILE__)
+require File.expand_path('../services/email_service', __dir__)
 
 class EmailsController < ApplicationController
 

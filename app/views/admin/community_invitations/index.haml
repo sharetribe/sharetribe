@@ -1,0 +1,51 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.invitations.invitations")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2= t("admin.communities.invitations.invitations")
+
+  .row
+    .col-9
+      %span#admin_invitations_count
+        = page_entries_info(@service.invitations, :model => "Invitation").html_safe
+    .col-3
+      = link_to new_invitation_path do
+        = "+ " + t("admin.communities.edit_details.invite_people")
+
+  %table#admin_invitations
+    %thead
+      %tr
+        %th
+          = render partial: "layouts/sort_link", locals: { column: "sent_by",
+            direction: sort_link_direction("sent_by"),
+            title: t("admin.communities.invitations.headers.sent_by") }
+        %th= t("admin.communities.invitations.headers.message")
+        %th
+          = render partial: "layouts/sort_link", locals: { column: "sent_to",
+            direction: sort_link_direction("sent_to"),
+            title: t("admin.communities.invitations.headers.sent_to") }
+        %th
+          = render partial: "layouts/sort_link", locals: { column: "used",
+            direction: sort_link_direction("used"),
+            title: t("admin.communities.invitations.headers.used") }
+        %th
+          = render partial: "layouts/sort_link", locals: { column: "started",
+            direction: sort_link_direction("started"),
+            title: t("admin.communities.invitations.headers.date_sent") }
+        -#%th= t("admin.communities.invitations.headers.receiver")
+        %th
+
+    %tbody
+      - @service.invitations.each do |invitation|
+        = render 'invitation', invitation: invitation
+
+  .row
+    .col-12
+      = will_paginate @service.invitations
+
+

@@ -26,7 +26,7 @@ module PaypalService::Store::ProcessToken
 
   def update_to_completed(process_token:, op_output:)
     ProcessTokenModel.where(process_token: process_token).first!
-      .update_attributes(op_completed: true, op_output: YAML.dump(op_output))
+      .update(op_completed: true, op_output: YAML.dump(op_output))
   end
 
   def get_by_transaction(community_id:, transaction_id:, op_name:)

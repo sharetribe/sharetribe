@@ -156,7 +156,7 @@ describe TransactionService::PaypalEvents do
           order_total: Money.new(22000, "EUR"),
           authorization_id: SecureRandom.uuid,
           authorization_date: Time.now,
-          authorization_total: Money.new(22000, "EUR"),
+          authorization_total: Money.new(22000, "EUR")
         })
     end
 
@@ -180,7 +180,7 @@ describe TransactionService::PaypalEvents do
           order_total: Money.new(22000, "EUR"),
           authorization_id: SecureRandom.uuid,
           authorization_date: Time.now,
-          authorization_total: Money.new(22000, "EUR"),
+          authorization_total: Money.new(22000, "EUR")
         })
     end
 
@@ -210,7 +210,7 @@ describe TransactionService::PaypalEvents do
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
-          order_total: Money.new(22000, "EUR"),
+          order_total: Money.new(22000, "EUR")
         })
       @voided_payment_no_msg = payment_store.update(community_id: @cid, transaction_id: @transaction_no_msg.id, data: {
           pending_reason: :none,
@@ -224,7 +224,7 @@ describe TransactionService::PaypalEvents do
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
-          order_total: Money.new(22000, "EUR"),
+          order_total: Money.new(22000, "EUR")
         })
       @voided_payment_with_msg = payment_store.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
           pending_reason: :none,
@@ -299,7 +299,7 @@ describe TransactionService::PaypalEvents do
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
-          order_total: Money.new(22000, "EUR"),
+          order_total: Money.new(22000, "EUR")
         })
 
       @authorized_payment = payment_store.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
@@ -334,7 +334,7 @@ describe TransactionService::PaypalEvents do
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
-          order_total: Money.new(22000, "EUR"),
+          order_total: Money.new(22000, "EUR")
         })
 
       @authorized_payment = payment_store.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
@@ -372,7 +372,7 @@ describe TransactionService::PaypalEvents do
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
-          order_total: Money.new(22000, "EUR"),
+          order_total: Money.new(22000, "EUR")
         })
 
       @authorized_payment = payment_store.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {

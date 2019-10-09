@@ -33,7 +33,7 @@ class CustomField < ApplicationRecord
 
   has_many :answers, class_name: "CustomFieldValue", dependent: :destroy
 
-  has_many :options, class_name: "CustomFieldOption"
+  has_many :options, class_name: "CustomFieldOption", dependent: :destroy
 
   belongs_to :community
 

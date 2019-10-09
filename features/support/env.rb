@@ -5,8 +5,8 @@
 # files.
 
 require 'rubygems'
-require File.expand_path('../../../test/helper_modules', __FILE__)
-include TestHelpers
+require File.expand_path('../../test/helper_modules', __dir__)
+include TestHelpers # rubocop:disable Style/MixinUsage
 
 # Require RSpec expectations, so that we can use them in Cucumber features
 require 'rspec/expectations'

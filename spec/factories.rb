@@ -109,6 +109,7 @@ FactoryGirl.define do
       if evaluator.member_of
         person.create_community_membership(community: evaluator.member_of,
                                            admin: evaluator.member_is_admin)
+        person.update_column(:community_id, evaluator.member_of.id)
       end
     end
   end
@@ -490,6 +491,8 @@ FactoryGirl.define do
 
   factory :listing_working_time_slot, class: 'Listing::WorkingTimeSlot' do
     listing_id 123
+    from       '09:00'
+    till       '17:00'
   end
 
   factory :billing_agreement do
@@ -513,10 +516,23 @@ FactoryGirl.define do
     fee_cents         0
     real_fee_cents    31
     subtotal_cents    200
+    buyer_commission  111
   end
 
   factory :stripe_account do
     community_id      123
     person_id         "ABC"
+  end
+
+  factory :landing_page, class: 'CustomLandingPage::LandingPageStoreDB::LandingPage' do
+    community_id      123
+    enabled           true
+    released_version  '1'
+  end
+
+  factory :landing_page_version, class: 'CustomLandingPage::LandingPageStoreDB::LandingPageVersion' do
+    community_id      123
+    version           '1'
+    content           CustomLandingPage::ExampleData::DATA_STR
   end
 end

@@ -35,7 +35,7 @@ module CustomLandingPage
 
       variation_modifiers = {
         'single_column' => 'single-column',
-        'multi_column'  => 'multi-column',
+        'multi_column' => 'multi-column'
       }
       variation_modifier        = variation_modifiers[s['variation']]
 

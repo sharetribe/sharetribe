@@ -12,6 +12,7 @@ module EmailService::SES
   end
 
   class Client
+    attr_reader :ses
 
     def initialize(config:, stubs: nil, logger: EmailService::SES::Logger.new)
       config = DataTypes::Config.build(config)
@@ -26,12 +27,12 @@ module EmailService::SES
       @logger = logger
     end
 
-    def list_verified_addresses
-      log_request_response(:list_verified_email_addresses, nil) do
+    def get_identity_verification_attributes(emails:)
+      log_request_response(:get_identity_verification_attributes, nil) do
         begin
-          response = @ses.list_verified_email_addresses
+          response = @ses.get_identity_verification_attributes(identities: emails)
           if response.successful?
-            Result::Success.new(response.verified_email_addresses)
+            Result::Success.new(response.to_h[:verification_attributes])
           else
             Result::Error.new(response.error)
           end
@@ -39,7 +40,6 @@ module EmailService::SES
           Result::Error.new(e)
         end
       end
-
     end
 
     # Request verification for the given email address. If called

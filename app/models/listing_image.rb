@@ -106,6 +106,7 @@ class ListingImage < ApplicationRecord
   # https://github.com/thoughtbot/paperclip/wiki/Extracting-image-dimensions
   def extract_dimensions
     return unless image_downloaded
+
     tempfile = image.queued_for_write[:original]
 
     # Works with uploaded files and existing files

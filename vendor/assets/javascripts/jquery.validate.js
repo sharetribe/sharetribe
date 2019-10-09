@@ -458,6 +458,8 @@ $.extend( $.validator, {
 
 				//Fix validation for name array within form
 				var sameNameElements = this.findByName( elements[ i ].name )
+					.not( ":submit, :reset, :image, :disabled" )
+					.not( this.settings.ignore );
 				if ( sameNameElements.length !== undefined && sameNameElements.length > 1 ) {
 					for ( var cnt = 0; cnt < sameNameElements.length; cnt++ ) {
 						this.check( sameNameElements[ cnt ] );

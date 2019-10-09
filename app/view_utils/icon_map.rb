@@ -1,4 +1,3 @@
-# coding: utf-8
 ICON_MAP = {
     "ss-pika" => {
 
@@ -8,10 +7,10 @@ ICON_MAP = {
       "thumbnails" => "ss-thumbnails",
       "grid" => "ss-thumbnails",
       "new_listing" => "ss-addfile",
-      "search"  => "ss-search",
+      "search" => "ss-search",
       "list" => "ss-list",
       "home" => "ss-home",
-      "community" =>"ss-usergroup",
+      "community" => "ss-usergroup",
       "help" => "ss-help",
       "admin" => "ss-wrench",
       "directup" => "ss-directup",
@@ -30,6 +29,7 @@ ICON_MAP = {
       "user" => "ss-user",
       "settings" => "ss-settings",
       "facebook" => "ss-facebook ss-icon ss-social",
+      "linkedin" => "ss-linkedin ss-icon ss-social",
       "information" => "ss-info",
       "alert" => "ss-alert",
       "how_to_use" => "ss-signpost",
@@ -66,12 +66,14 @@ ICON_MAP = {
       "link" => "ss-link",
       "external_link" => "ss-action",
       "social_media" => "ss-share",
+      "seo" => "ss-desktop",
       "analytics" => "ss-analytics",
       "openbook" => "ss-openbook",
       "order_types" => "ss-cart",
       "download" => "ss-download",
       "credit_card" => "ss-creditcard",
       "academy" => "ss-bookmark",
+      "plus" => "ss-plus",
 
 
       # Default category & share type icons
@@ -161,17 +163,22 @@ ICON_MAP = {
       "topbar_menu" => "ss-signpost",
       "user_edit" => "ss-userprofile",
       "picture" => "ss-picture",
+      "footer_menu" => "ss-downloadbox",
+      "invitations" => "ss-adduser",
+      "domain" => "ss-globe",
+      "pending" => "ss-clockwise",
+      "minus" => "ss-hyphen"
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
       "thumbnails" => "icon-th",
       "new_listing" => "icon-plus-sign-alt",
 
-      "search"  => "icon-search",
+      "search" => "icon-search",
       "list" => "icon-reorder",
 
       "home" => "icon-home",
-      "community" =>"icon-group",
+      "community" => "icon-group",
       "help" => "icon-question-sign",
       "admin" => "icon-wrench",
 
@@ -191,6 +198,7 @@ ICON_MAP = {
       "user" => "icon-user",
       "settings" => " icon-cog",
       "facebook" => "icon-facebook",
+      "linkedin" => "icon-linkedin",
       "invite" => "icon-user",
       "download" => "icon-download",
       "link" => "icon-link",
@@ -272,5 +280,12 @@ ICON_MAP = {
       "check" => "icon-ok",
       "user_edit" => "icon-user",
       "picture" => "icon-picture",
+      "footer_menu" => "icon-download-alt",
+      "invitations" => "icon-random",
+      "plus" => "icon-plus",
+      "domain" => "icon-globe",
+      "seo" => "icon-external-link",
+      "pending" => "icon-time",
+      "minus" => "icon-minus"
     }
   }

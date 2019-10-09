@@ -1,0 +1,30 @@
+{
+  "please_wait": "Prašome palaukti...",
+  "validation_messages": {
+    "accept": "Paveiksliuko failo formatas turi būti GIF, JPG arba PNG.",
+    "creditcard": "Prašome įvesti galiojantį kredito kortelės numerį.",
+    "date": "Prašome įvesti galiojančią datą.",
+    "dateISO": "Prašome įvesti galiojančią datą (ISO).",
+    "digits": "Prašome įvesti tik skaitmenis.",
+    "email": "Prašome įvesti galiojantį el. pašto adresą.",
+    "equalTo": "Prašome įvesti tokią pačią vertę dar kartą.",
+    "max": "Prašome įvesti vertę mažesnę arba lygią {0}.",
+    "maxlength": "Prašome įvesti ne daugiau nei {0} simbolius.",
+    "min": "Prašome įvesti vertę didesnę arba lygią {0}.",
+    "minlength": "Prašome įvesti bent {0} simbolius.",
+    "number": "Prašome įvesti teisingą skaičių.",
+    "range": "Prašome įvesti vertę tarp {0} ir {1}.",
+    "rangelength": "Prašome įvesti vertę tarp {0} ir {1} ženklų ilgio.",
+    "remote": "Prašome pataisyti šį laukelį.",
+    "required": "Šis laukelis yra privalomas.",
+    "url": "Prašome įvesti teisingą URL.",
+    "address_validator": "Vieta nerasta.",
+    "money": "Privalote įvesti galiojančią piniginę išraišką.",
+    "night_selected": "Jums reikia pasirinkti bent vieną naktį",
+    "availability_range": "Pasirinktas periodas turi datų, kurios nėra laisvos",
+    "min_bound": "Prašome įvesti vertę mažesnę už maksimalią vertę ({0})",
+    "max_bound": "Prašome įvesti vertę didesnę už minimalią vertę ({0})",
+    "number_no_decimals": "Prašome įvesti sveiką skaičių",
+    "number_decimals": "Prašome įvesti skaičių su tašku (.) arba kableliu (,) kaip dešimtainių skirtuku"
+  }
+}

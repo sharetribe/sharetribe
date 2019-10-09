@@ -3,12 +3,7 @@
 - if content_for?(:title)
   - title = "#{content_for(:title)} - #{title_service_name}"
 - else
-  - title = "#{title_service_name} - #{community_slogan}"
-
-- if content_for?(:keywords)
-  - keywords = content_for(:keywords)
-- else
-  - keywords = StringUtils.keywords(community_slogan)
+  - title = social_media_title
 
 - if content_for?(:meta_author)
   - meta_author = content_for(:meta_author)
@@ -20,31 +15,33 @@
 - if content_for?(:meta_description)
   - meta_description = "#{content_for(:meta_description)}"
 - else
-  - meta_description = "#{community_description(false)} - #{community_slogan}"
+  - meta_description = social_media_description
 
 - if content_for?(:meta_image)
   - meta_image = content_for(:meta_image)
   - meta_image_width = content_for(:meta_image_width)
   - meta_image_height = content_for(:meta_image_height)
 - else
-  - if @current_community.logo?
+  - if @current_community.social_logo.try(:image).try(:file?)
+    - meta_image = @current_community.social_logo.image.url(:original)
+  - elsif @current_community.logo?
     - meta_image = @current_community.logo.url(:original)
   - else
     - meta_image = image_path("sharetribe_icon.png")
 
-%title= title
-%meta{ :property => "og:title", :content => title}
-%meta{ :name => "twitter:title", :content => title}
+- default_title = content_for?(:title) ? "#{content_for(:title)} - #{title_service_name}" : "#{title_service_name} - #{community_slogan}"
+%title= custom_meta_title(default_title)
+%meta{ :property => "og:title", :content => custom_meta_title(title, :social)}
+%meta{ :name => "twitter:title", :content => custom_meta_title(title, :social)}
 %meta{ :name => "author", :content=> meta_author }
-%meta{ :name => "keywords", :content => keywords }
 %meta{ :property => "og:url", :content => full_url}
 %meta{ :name => "identifier-url", :content => "#{@current_community.full_domain(with_protocol: true)}"}
 %meta{ :name => "copyright", :content => "#{@current_community.name(I18n.locale)}"}
 %meta{ :name => "twitter:url", :content => full_url}
 %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
-%meta{ :name => "description", :content => strip_tags(meta_description)}
-%meta{ :property => "og:description", :content => strip_tags(meta_description)}
-%meta{ :name => "twitter:description", :content => strip_tags(meta_description)}
+%meta{ :name => "description", :content => strip_tags(custom_meta_description(meta_description))}
+%meta{ :property => "og:description", :content => strip_tags(custom_meta_description(meta_description, :social))}
+%meta{ :name => "twitter:description", :content => strip_tags(custom_meta_description(meta_description, :social))}
 %meta{ :property => "og:image", :content => meta_image}
 - if meta_image_width && meta_image_height
   %meta{ :property => "og:image:width", :content => meta_image_width}
@@ -65,6 +62,9 @@
 
 - if @current_community.has_customizations?
   = render partial: "layouts/style_overrides", locals: MarketplaceHelper.style_customizations_map(@current_community)
+
+- if @custom_footer.try(:display?)
+  = render 'layouts/footer/css'
 
 = stylesheet_link_tag "app-bundle"
 
@@ -97,5 +97,5 @@
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
-- unless on_admin?
+- unless @disable_custom_head_script || on_admin?
   = @current_community.custom_head_script.try(:html_safe)

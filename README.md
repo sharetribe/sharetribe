@@ -6,11 +6,7 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
-*****
-
-Would you like to contribute to the development of Sharetribe? Our equity crowdfunding campaign is now open for people around the world! Check out [our campaign page](https://www.invesdor.com/en/pitches/903) for more info.
-
-*****
+Would you like to work with an API-based marketplace solution that allows you to build your marketplace with the programming language of your choice, build a mobile app, or easily integrate third party services? [Check out Sharetribe Flex](https://www.sharetribe.com/flex).
 
 ### Contents
 
@@ -30,7 +26,7 @@ Would you like to contribute to the development of Sharetribe? Our equity crowdf
 
 ## Technology stack
 
-- Ruby 2.3
+- Ruby 2.6
 - Ruby on Rails 5.1.1
 - MySQL  5.7
 - React + jQuery
@@ -43,7 +39,7 @@ Would you like to contribute to the development of Sharetribe? Our equity crowdf
 - Gems:
     -  [devise](https://github.com/plataformatec/devise) | Authentication
     -  [omniauth-facebook](https://github.com/mkdynamic/omniauth-facebook) | Third party login: Facebook
-    -  [haml](https://github.com/haml/haml) and ERB | HTML teamplating
+    -  [haml](https://github.com/haml/haml) and ERB | HTML templating
     -  [mysql2](https://github.com/brianmario/mysql2) | MySQL library for Ruby
     -  [paperclip](https://github.com/thoughtbot/paperclip) | Image upload management
     -  [passenger](https://github.com/phusion/passenger) | Web application server
@@ -55,7 +51,7 @@ Would you like to contribute to the development of Sharetribe? Our equity crowdf
 ### Requirements
 
 Before you get started, the following needs to be installed:
-  * **Ruby**. Version 2.3.4 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
+  * **Ruby**. Version 2.6.2 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
   * [**RubyGems**](http://rubygems.org/)
   * **Bundler**: `gem install bundler`
   * **Node**. Version 7.8 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n), [nvm](https://github.com/creationix/nvm), or [nenv](https://github.com/ryuone/nenv).
@@ -147,7 +143,7 @@ Before you get started, the following needs to be installed:
     ```
 
 
-Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
+Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000 or http://lvh.me:5000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
 ### Mailcatcher
 
@@ -333,6 +329,8 @@ You need to configure a couple scheduled tasks in order to properly run your mar
 1. In your database, change the value of the `domain` column in the `communities` table to match the hostname of your domain. For example, if the URL for your marketplace is http://mymarketplace.myhosting.com, then the domain is `mymarketplace.myhosting.com`.
 
 1. Change the value of the `use_domain` column to `true` (or `1`) in the `communities` table.
+
+1. If you wish to enable [HTTP Strict Transport Security](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) (recommended), set also the `hsts_max_age` column in `communities` table to a non-zero number of seconds. For instance `31536000 ` (1 year).
 
 
 #### Setting up S3

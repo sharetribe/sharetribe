@@ -23,14 +23,3 @@ Response 201 Created, body:
 { marketplace_url: "https://imaginationtraders.sharetribe.com/en/admin/getting_started_guide"
 }
 ```
-
-## POST /int_api/prospect_emails
-
-Request body:
-
-```ruby
-{ email: "eddie.ejemplo@example.com"
-}
-```
-
-Response 200 OK, empty body

@@ -19,6 +19,43 @@ Feature: Admin edits info pages
     Then I should see "Custom slogan"
     And I should see "This is a custom description"
 
+  Scenario: Admin user can hide community slogan or description
+    When I go to the admin view of community "test"
+    And I should see "Display the slogan in the homepage"
+    And I should see "Display the description in the homepage"
+    And I uncheck "Display the slogan in the homepage"
+    And I uncheck "Display the description in the homepage"
+    And I fill in "community_customizations[en][slogan]" with "Custom slogan"
+    And I fill in "community_customizations[en][description]" with "This is a custom description"
+    And I press submit
+    When I follow "view_slogan_link"
+    Then I should not see "Custom slogan"
+    And I should not see "This is a custom description"
+
+    When I go to the admin view of community "test"
+    And I check "Display the slogan in the homepage"
+    And I check "Display the description in the homepage"
+    And I press submit
+    When I follow "view_slogan_link"
+    Then I should see "Custom slogan"
+    And I should see "This is a custom description"
+
+    When I go to the admin view of community "test"
+    And I check "Display the slogan in the homepage"
+    And I uncheck "Display the description in the homepage"
+    And I press submit
+    When I follow "view_slogan_link"
+    Then I should see "Custom slogan"
+    And I should not see "This is a custom description"
+
+    When I go to the admin view of community "test"
+    And I uncheck "Display the slogan in the homepage"
+    And I check "Display the description in the homepage"
+    And I press submit
+    When I follow "view_slogan_link"
+    Then I should not see "Custom slogan"
+    And I should see "This is a custom description"
+
   Scenario: Admin user can edit community details transaction agreement
     Given this community has transaction agreement in use
     When I go to the admin view of community "test"

@@ -8,7 +8,7 @@ if APP_CONFIG.use_thinking_sphinx_indexing.to_s.casecmp("true") == 0
     set_property :utf8? => true
 
     # limit to open listings
-    where "listings.open = '1' AND listings.deleted = '0' AND (listings.valid_until IS NULL OR listings.valid_until > now())"
+    where "listings.open = '1' AND listings.deleted = '0' AND (listings.valid_until IS NULL OR listings.valid_until > now()) AND listings.state = 'approved'"
 
     # fields
     indexes title
@@ -30,8 +30,8 @@ if APP_CONFIG.use_thinking_sphinx_indexing.to_s.casecmp("true") == 0
     set_property :enable_star => true
 
     set_property :field_weights => {
-      :title       => 10,
-      :category    => 8,
+      :title => 10,
+      :category => 8,
       :description => 3
     }
 

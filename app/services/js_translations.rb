@@ -12,6 +12,7 @@ module JSTranslations
     without_interpolation {
       keys.inject({}) do |memo, key|
         raise "Use only full keys, not keys scoped by partial: '#{key}'" if key.to_s.first == "."
+
         memo[key] = I18n.t(key)
         memo
       end

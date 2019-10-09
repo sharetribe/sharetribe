@@ -21,9 +21,9 @@ Feature: Admin configures social media details
   Then I should see "mycommunity" in the Twitter handle field
 
   Scenario: Admin adds facebook credentials
-  When I fill in "Facebook client id" with "1234567890123456"
-  And I fill in "Facebook client secret" with "c4ca4238a0b923820dcc509a6f75849b"
+  When I fill in "Facebook App ID" with "1234567890123456"
+  And I fill in "Facebook App Secret" with "c4ca4238a0b923820dcc509a6f75849b"
   And I press submit
   And I refresh the page
-  Then I should see "1234567890123456" in the Facebook client id field
-  And I should see "c4ca4238a0b923820dcc509a6f75849b" in the Facebook client secret field
+  Then I should see "1234567890123456" in the Facebook App ID field
+  And I should see "c4ca4238a0b923820dcc509a6f75849b" in the Facebook App Secret field

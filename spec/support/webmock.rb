@@ -1,5 +1,5 @@
 require 'webmock'
-include WebMock::API
+include WebMock::API # rubocop:disable Style/MixinUsage
 WebMock.enable!
 
 require 'webmock/rspec'

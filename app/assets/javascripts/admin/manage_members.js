@@ -50,7 +50,7 @@ window.ST.initializeManageMembers = function() {
   var initBanToggle = function () {
     $(document).on("click", ".admin-members-ban-toggle", function(){
       var banned = this.checked;
-      var row = $(this).parent().parent()[0];
+      var row = $(this).parent().parent();
       var confirmation, url;
       if(banned) {
         confirmation = ST.t('admin.communities.manage_members.ban_user_confirmation');
@@ -66,7 +66,13 @@ window.ST.initializeManageMembers = function() {
           url: url,
           dataType: "JSON",
           success: function(resp) {
-            row.className = "member-"+resp.status;
+            var actions = row.find('.membership-actions span');
+            row[0].className = "member-"+resp.status;
+            if( resp.status == 'banned' ) {
+              actions.addClass('is-disabled');
+            } else {
+              actions.removeClass('is-disabled');
+            }
             showUpdateSuccess();
           },
           error: showUpdateError,
@@ -78,43 +84,118 @@ window.ST.initializeManageMembers = function() {
     });
   };
 
-  var adminStreams = $(".admin-members-is-admin").asEventStream('change')
-    .map(function (ev) {
-      return ev.target;
-    })
-    .filter(function (target) {
-      if (target.checked) {
-        if (confirm(ST.t('admin.communities.manage_members.this_makes_the_user_an_admin'))) {
-          return true;
+  var initStreams = function() {
+    var adminStreams = $(".admin-members-is-admin").asEventStream('change')
+      .map(function (ev) {
+        return ev.target;
+      })
+      .filter(function (target) {
+        if (target.checked) {
+          if (confirm(ST.t('admin.communities.manage_members.this_makes_the_user_an_admin'))) {
+            return true;
+          }
+          target.checked = !target.checked;
+          return false;
         }
-        target.checked = !target.checked;
-        return false;
-      }
-      return true;
-    });
+        return true;
+      });
 
-  var postingAllowedStreams = $(".admin-members-can-post-listings").asEventStream('change')
-    .map(function (ev) {
-      return ev.target;
-    });
+    var postingAllowedStreams = $(".admin-members-can-post-listings").asEventStream('change')
+      .map(function (ev) {
+        var postListing = $(ev.target).parent().parent().find('.post-listing');
+        if (ev.target.checked) {
+          postListing.removeClass('post-listing-is-disabled');
+        } else {
+          postListing.addClass('post-listing-is-disabled');
+        }
+        return ev.target;
+      });
 
-  var postingAllowed = createCheckboxAjaxRequest(postingAllowedStreams, "posting_allowed", "allowed_to_post", "disallowed_to_post");
-  var isAdmin = createCheckboxAjaxRequest(adminStreams, "promote_admin", "add_admin", "remove_admin");
+    var postingAllowed = createCheckboxAjaxRequest(postingAllowedStreams, "posting_allowed", "allowed_to_post", "disallowed_to_post");
+    var isAdmin = createCheckboxAjaxRequest(adminStreams, "promote_admin", "add_admin", "remove_admin");
 
-  var ajaxRequest = postingAllowed.merge(isAdmin);
-  var ajaxResponse = ajaxRequest.ajax().endOnError();
+    var ajaxRequest = postingAllowed.merge(isAdmin);
+    var ajaxResponse = ajaxRequest.ajax().endOnError();
 
-  var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
+    var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
 
-  ajaxStatus.loading.onValue(showUpdateNotification);
-  ajaxStatus.success.onValue(showUpdateSuccess);
-  ajaxStatus.error.onValue(showUpdateError);
-  ajaxStatus.idle.onValue(showUpdateIdle);
+    ajaxStatus.loading.onValue(showUpdateNotification);
+    ajaxStatus.success.onValue(showUpdateSuccess);
+    ajaxStatus.error.onValue(showUpdateError);
+    ajaxStatus.idle.onValue(showUpdateIdle);
+  };
 
   // Attach analytics click handler for CSV export
-  $(".js-users-csv-export").click(function(){
-    window.ST.analytics.logEvent('admin', 'export', 'users');
-  });
+  var initAnalytics = function() {
+    $(".js-users-csv-export").click(function(){
+      window.ST.analytics.logEvent('admin', 'export', 'users');
+    });
+  };
 
+  function updateSelectedStatus() {
+    var v = [];
+    $(".status-select-line input:checked").each(function(){
+      v.push($(this).parent().text().trim());
+    });
+    if (v.length === 0) {
+      v = [ST.t("admin.communities.manage_members.status_filter.all")];
+    } else {
+      v = [ST.t("admin.communities.manage_members.status_filter.selected_js") + v.length];
+    }
+    $(".status-select-button, .reset").text(v.join(", "));
+  }
+
+  function outsideClickListener(evt) {
+    if (!$(evt.target).closest(".status-select-line").length) {
+      $(".status-select-dropdown").hide();
+      document.removeEventListener('mousedown', outsideClickListener);
+    }
+  }
+
+  var initStatusFilter = function() {
+    $(".status-select-button").click(function(){
+      $(".status-select-dropdown").show();
+      setTimeout(function() { document.addEventListener('mousedown', outsideClickListener);}, 300);
+    });
+    $(".status-select-line").click(function(){
+      var status = $(this).data("status");
+      if (status == 'all') {
+        $(".status-select-dropdown").hide();
+        document.removeEventListener('mousedown', outsideClickListener);
+      } else {
+        var cb = $(this).find("input")[0];
+        cb.checked = !cb.checked;
+        $(this).toggleClass("selected");
+      }
+      updateSelectedStatus();
+    });
+  };
+
+  var initPopup = function() {
+    var resendConfirmation = function(e) {
+      e.preventDefault();
+      $('#membership-popup').trigger('close');
+      showUpdateNotification();
+      $.ajax({
+        type: "PUT",
+        url: $(this).attr('href'),
+        success: showUpdateSuccess,
+        error: showUpdateError,
+        complete: _.debounce(showUpdateIdle, DELAY)
+      });
+    };
+    $('.show-popup').on('click', function() {
+      var contentId = $(this).data('popupContentId'),
+        content = $(contentId).html();
+      $('#membership-popup-content').html(content);
+      $('#membership-popup-content .membership-resend-confirmation').on('click', resendConfirmation);
+      $('#membership-popup').lightbox_me({centered: true, closeSelector: '#close_x, #close_x1'});
+    });
+  };
+
+  initStreams();
+  initAnalytics();
   initBanToggle();
+  initStatusFilter();
+  initPopup();
 };

@@ -16,18 +16,13 @@ module ListingIndexService::Search::DatabaseSearchHelper
         listing_shape_id: Maybe(search[:listing_shape_ids]).or_else(nil)
       })
 
-    query = Listing
-            .where(where_opts)
-            .includes(included_models)
-            .order("listings.sort_date DESC")
-            .paginate(per_page: search[:per_page], page: search[:page])
-
-    listings =
-      if search[:include_closed]
-        query
-      else
-        query.currently_open
-      end
+    scope = Listing
+    scope = scope.use_homepage_index if !search[:include_closed] && !search[:author_id]
+    scope = scope.currently_open unless search[:include_closed]
+    listings = scope.where(where_opts)
+                 .includes(included_models)
+                 .order("listings.sort_date DESC")
+                 .paginate(per_page: search[:per_page], page: search[:page])
 
     success_result(listings.total_entries, listings, includes)
   end
@@ -46,6 +41,7 @@ module ListingIndexService::Search::DatabaseSearchHelper
       :distance_max,
       :sort,
       :listing_shape_id,
+      :listing_shape_ids,
       :categories,
       :fields,
       :price_cents

@@ -90,6 +90,20 @@
 #  favicon_processing                         :boolean
 #  deleted                                    :boolean
 #  end_user_analytics                         :boolean          default(TRUE)
+#  show_slogan                                :boolean          default(TRUE)
+#  show_description                           :boolean          default(TRUE)
+#  hsts_max_age                               :integer
+#  footer_theme                               :integer          default("dark")
+#  footer_copyright                           :text(65535)
+#  footer_enabled                             :boolean          default(FALSE)
+#  logo_link                                  :string(255)
+#  google_connect_enabled                     :boolean
+#  google_connect_id                          :string(255)
+#  google_connect_secret                      :string(255)
+#  linkedin_connect_enabled                   :boolean
+#  linkedin_connect_id                        :string(255)
+#  linkedin_connect_secret                    :string(255)
+#  pre_approved_listings                      :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -106,37 +120,46 @@ class Community < ApplicationRecord
   include EmailHelper
 
   has_many :community_memberships, :dependent => :destroy
-  has_many :members, -> { where("community_memberships.status = 'accepted'") }, :through => :community_memberships, :source => :person
-  has_many :admins, -> { where("community_memberships.admin = true AND community_memberships.status <> 'banned'") }, :through => :community_memberships, :source => :person
+  has_many :members, -> { merge(CommunityMembership.accepted) }, :through => :community_memberships, :source => :person
+  has_many :admins, -> { merge(CommunityMembership.admin.not_banned) }, :through => :community_memberships, :source => :person
+  has_many :members_all_statuses, :through => :community_memberships, :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :menu_links, -> { order("sort_priority") }, :dependent => :destroy
+  has_many :menu_links, -> { for_topbar.sorted }, :dependent => :destroy, :inverse_of => :community
+  has_many :footer_menu_links, -> { for_footer.sorted }, :class_name => "MenuLink",  :dependent => :destroy, :inverse_of => :community
 
-  has_many :categories, -> { order("sort_priority") }
-  has_many :top_level_categories, -> { where("parent_id IS NULL").order("sort_priority") }, :class_name => "Category"
-  has_many :subcategories, -> { where("parent_id IS NOT NULL").order("sort_priority") }, :class_name => "Category"
+  has_many :categories, -> { order("sort_priority") }, :inverse_of => :community
+  has_many :top_level_categories, -> { where("parent_id IS NULL").order("sort_priority") }, :class_name => "Category", :inverse_of => :community
+  has_many :subcategories, -> { where("parent_id IS NOT NULL").order("sort_priority") }, :class_name => "Category", :inverse_of => :community
 
-  has_many :conversations
-  has_many :transactions
+  has_many :conversations, :dependent => :destroy
+  has_many :transactions, :dependent => :destroy
 
-  has_many :listings
-  has_many :listing_shapes
-  has_many :shapes, ->{ exist_ordered }, class_name: 'ListingShape'
+  has_many :listings, :dependent => :destroy
+  has_many :listing_shapes, :dependent => :destroy
+  has_many :shapes, ->{ exist_ordered }, class_name: 'ListingShape', :dependent => :destroy, :inverse_of => :community
 
-  has_many :transaction_processes
+  has_many :transaction_processes, :dependent => :destroy
 
-  has_one :paypal_account # Admin paypal account
+  has_one :paypal_account, :dependent => :destroy # Admin paypal account
 
-  has_many :custom_fields, -> { for_listing },  :dependent => :destroy
-  has_many :custom_dropdown_fields, -> { for_listing.dropdown }, :class_name => "CustomField", :dependent => :destroy
-  has_many :custom_numeric_fields, -> { for_listing.numeric }, :class_name => "NumericField", :dependent => :destroy
-  has_many :person_custom_fields, -> { for_person.sorted }, :class_name => "CustomField",  :dependent => :destroy
-  has_many :person_custom_dropdown_fields, -> { for_person.sorted.dropdown }, :class_name => "CustomField", :dependent => :destroy
-  has_many :person_custom_numeric_fields, -> { for_person.sorted.numeric }, :class_name => "NumericField", :dependent => :destroy
-  has_many :marketplace_sender_emails
+  has_many :custom_fields, -> { for_listing }, :dependent => :destroy, :inverse_of => :community
+  has_many :custom_dropdown_fields, -> { for_listing.dropdown }, :class_name => "CustomField", :dependent => :destroy, :inverse_of => :community
+  has_many :custom_numeric_fields, -> { for_listing.numeric }, :class_name => "NumericField", :dependent => :destroy, :inverse_of => :community
+  has_many :person_custom_fields, -> { for_person.sorted }, :class_name => "CustomField",  :dependent => :destroy, :inverse_of => :community
+  has_many :person_custom_dropdown_fields, -> { for_person.sorted.dropdown }, :class_name => "CustomField", :dependent => :destroy, :inverse_of => :community
+  has_many :person_custom_numeric_fields, -> { for_person.sorted.numeric }, :class_name => "NumericField", :dependent => :destroy, :inverse_of => :community
+  has_many :marketplace_sender_emails, :dependent => :destroy
 
-  has_one :configuration, class_name: 'MarketplaceConfigurations'
+  has_one :configuration, class_name: 'MarketplaceConfigurations', :dependent => :destroy
+  has_one :social_logo, :dependent => :destroy
+  has_many :social_links, -> { sorted }, :dependent => :destroy, :inverse_of => :community
+
+  accepts_nested_attributes_for :social_logo
+  accepts_nested_attributes_for :footer_menu_links, allow_destroy: true
+  accepts_nested_attributes_for :social_links, allow_destroy: true
+  accepts_nested_attributes_for :community_customizations
 
   after_create :initialize_settings
 
@@ -244,7 +267,7 @@ class Community < ApplicationRecord
                     },
                     :default_style => :favicon,
                     :convert_options => {
-                      :favicon => "-depth 32 -strip",
+                      :favicon => "-depth 32 -strip"
                     },
                     :default_url => ->(_) { ActionController::Base.helpers.asset_path("favicon.ico") }
 
@@ -265,6 +288,14 @@ class Community < ApplicationRecord
   process_in_background :favicon
 
   before_save :cache_previous_image_urls
+
+  FOOTER_THEMES = {
+    FOOTER_DARK = 'dark'.freeze => 0,
+    FOOTER_LIGHT = 'light'.freeze => 1,
+    FOOTER_MARKETPLACE_COLOR = 'marketplace_color'.freeze => 2,
+    FOOTER_LOGO = 'logo'.freeze => 3
+  }.freeze
+  enum footer_theme: FOOTER_THEMES
 
   def uuid_object
     if self[:uuid].nil?
@@ -441,7 +472,7 @@ class Community < ApplicationRecord
 
     attributes.each_with_index do |(id, value), i|
       if menu_link = menu_links.find_by_id(id)
-        menu_link.update_attributes(value.merge(sort_priority: i))
+        menu_link.update(value.merge(sort_priority: i))
         ids << menu_link.id
       else
         menu_links.build(value.merge(sort_priority: i))

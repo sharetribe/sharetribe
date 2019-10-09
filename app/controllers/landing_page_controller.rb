@@ -31,6 +31,8 @@ class LandingPageController < ActionController::Metal
   helper CLP::MarkdownHelper
   helper CLP::BackgroundHelper
 
+  include HSTS
+
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
 
@@ -53,6 +55,12 @@ class LandingPageController < ActionController::Metal
       content = nil
       cache_meta = CLP::Caching.fetch_cache_meta(cid, version, locale_param, cta, script_digest)
       cache_hit = true
+
+      hsts_header, hsts_header_value = HSTS.hsts_header(request)
+
+      if hsts_header
+        headers[hsts_header] = hsts_header_value
+      end
 
       if cache_meta.nil?
         cache_hit = false
@@ -152,8 +160,12 @@ class LandingPageController < ActionController::Metal
     }
 
     MarketplaceRouter.perform_redirect(redirect_params) do |target|
-      url = target[:url] || send(target[:route_name], protocol: target[:protocol])
-      redirect_to(url, status: target[:status])
+      if target[:message]
+        redirect_to community_not_available_path
+      else
+        url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+        redirect_to(url, status: target[:status])
+      end
     end
   end
 
@@ -235,7 +247,7 @@ class LandingPageController < ActionController::Metal
   end
 
   def community(request)
-    @current_community ||= request.env[:current_marketplace]
+    @current_community ||= request.env[:current_marketplace] # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def user(request)
@@ -243,7 +255,7 @@ class LandingPageController < ActionController::Metal
   end
 
   def plan(request)
-    @current_plan ||= request.env[:current_plan]
+    @current_plan ||= request.env[:current_plan] # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def community_customization(request, locale)
@@ -260,14 +272,16 @@ class LandingPageController < ActionController::Metal
       facebook_connect_id: c.facebook_connect_id,
       google_maps_key: MarketplaceHelper.google_maps_key(c.id),
       end_user_analytics: c.end_user_analytics,
-      google_analytics_key: c.google_analytics_key }
+      google_analytics_key: c.google_analytics_key,
+      social_image: c.social_logo.present? && c.social_logo.image.present?
+    }
   end
 
   def render_landing_page(default_locale:, locale_param:, structure:, cta:)
     c = community(request)
 
     landing_page_locale, sitename = structure["settings"].values_at("locale", "sitename")
-    topbar_locale = locale_param.present? ? locale_param : default_locale
+    topbar_locale = locale_param.presence || default_locale
 
     initialize_i18n!(c&.id, landing_page_locale)
 
@@ -315,7 +329,7 @@ class LandingPageController < ActionController::Metal
                      sections: denormalizer.to_tree(structure, root: "composition"),
                      community_context: community_context(request, landing_page_locale),
                      feature_flags: FeatureFlagHelper.feature_flags,
-                     asset_host: APP_CONFIG.asset_host,
+                     asset_host: APP_CONFIG.asset_host
                    }
   end
 

@@ -20,17 +20,6 @@ describe Admin::CommunitiesController, type: :controller do
     end
   end
 
-  describe "#update_settings" do
-    it "should allow changing 'private'" do
-      update_community_with(:update_settings, private: true)
-    end
-
-    it "should not allow changes to a different community" do
-      attempt_to_update_different_community_with(:update_settings, private: true)
-    end
-
-  end
-
   describe "#update_look_and_feel" do
     it "should allow changing custom_color1" do
       update_community_with(:update_look_and_feel, custom_color1: "8C1515")
@@ -47,34 +36,6 @@ describe Admin::CommunitiesController, type: :controller do
       expect(@community.custom_head_script).to eql(script)
     end
 
-  end
-
-  describe "#update_topbar" do
-    before do
-      allow(TranslationService::API::Api.translations).to receive(:create)
-        .with(anything()).and_return(Result::Success.new("success"))
-    end
-
-    it "should update Post new listing button text" do
-      text_fi = "Modified fi"
-      text_en = "Modified en"
-      translations_group = [{
-        translation_key: "homepage.index.post_new_listing",
-        translations: [{ locale: "en", translation: text_en }, { locale: "fi", translation: text_fi } ]
-      }]
-
-      expect(TranslationService::API::Api.translations).to receive(:create)
-        .with(@community.id, translations_group)
-      put :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en} }
-    end
-
-    it "should not update Post new listing button text with an invalid translation param" do
-      text_fi = ""
-      text_en = "Modified en"
-
-      expect(TranslationService::API::Api.translations).to_not receive(:create).with(anything())
-      patch :update_topbar, params: {post_new_listing_button: {fi: text_fi, en: text_en}}
-    end
   end
 
   describe "#update_new_layout" do
@@ -128,6 +89,83 @@ describe Admin::CommunitiesController, type: :controller do
       expect(FeatureFlagService::API::Api.features)
         .to receive(:disable).with(community_id: @community.id, person_id: @user.id, features: [:foo, :bar, :wat])
       put :update_new_layout
+    end
+  end
+
+  describe "#update_social_media"  do
+    it 'works' do
+      put :update_social_media, params: {
+        id: @community.id,
+        community: {
+          twitter_handle: 'ABC',
+          facebook_connect_enabled: true,
+          facebook_connect_id: '123',
+          facebook_connect_secret: '46a4591952bdc5c00cfba5a607885f8a',
+          google_connect_enabled: true,
+          google_connect_id: '345',
+          google_connect_secret: 'FGH',
+          linkedin_connect_enabled: true,
+          linkedin_connect_id: '678',
+          linkedin_connect_secret: 'IJK'
+        }
+      }
+      @community.reload
+      expect(@community.twitter_handle).to eql('ABC')
+      expect(@community.facebook_connect_enabled).to eql(true)
+      expect(@community.facebook_connect_id).to eql('123')
+      expect(@community.facebook_connect_secret).to eql('46a4591952bdc5c00cfba5a607885f8a')
+      expect(@community.google_connect_enabled).to eql(true)
+      expect(@community.google_connect_id).to eql('345')
+      expect(@community.google_connect_secret).to eql('FGH')
+      expect(@community.linkedin_connect_enabled).to eql(true)
+      expect(@community.linkedin_connect_id).to eql('678')
+      expect(@community.linkedin_connect_secret).to eql('IJK')
+    end
+
+    it 'strips spaces from connect fields' do
+      put :update_social_media, params: {
+        id: @community.id,
+        community: {
+          twitter_handle: ' ABC ',
+          facebook_connect_enabled: true,
+          facebook_connect_id: '    123 ',
+          facebook_connect_secret: '   46a4591952bdc5c00cfba5a607885f8a ',
+          google_connect_enabled: true,
+          google_connect_id: '  345  ',
+          google_connect_secret: '  FGH ',
+          linkedin_connect_enabled: true,
+          linkedin_connect_id: '  678  ',
+          linkedin_connect_secret: ' IJK  '
+        }
+      }
+      @community.reload
+      expect(@community.twitter_handle).to eql('ABC')
+      expect(@community.facebook_connect_enabled).to eql(true)
+      expect(@community.facebook_connect_id).to eql('123')
+      expect(@community.facebook_connect_secret).to eql('46a4591952bdc5c00cfba5a607885f8a')
+      expect(@community.google_connect_enabled).to eql(true)
+      expect(@community.google_connect_id).to eql('345')
+      expect(@community.google_connect_secret).to eql('FGH')
+      expect(@community.linkedin_connect_enabled).to eql(true)
+      expect(@community.linkedin_connect_id).to eql('678')
+      expect(@community.linkedin_connect_secret).to eql('IJK')
+    end
+
+    it 'updates social media title, description' do
+      community_customization = @community.community_customizations.first
+      put :update_social_media, params: {
+        id: @community.id,
+        community: {
+          community_customizations_attributes: {
+            id: community_customization.id,
+            social_media_title: 'Hard Pill to Swallow',
+            social_media_description: 'I think I will buy the red car, or I will lease the blue one.'
+          }
+        }
+      }
+      community_customization.reload
+      expect(community_customization.social_media_title).to eql('Hard Pill to Swallow')
+      expect(community_customization.social_media_description).to eql('I think I will buy the red car, or I will lease the blue one.')
     end
   end
 

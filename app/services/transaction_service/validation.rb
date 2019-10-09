@@ -3,6 +3,7 @@ module TransactionService
 
     IS_POSITIVE = ->(v) {
       return if v.nil?
+
       unless v.positive?
         {code: :positive_integer, msg: "Value must be a positive integer"}
       end
@@ -10,6 +11,7 @@ module TransactionService
 
     PARSE_DATE = ->(v) {
       return if v.nil?
+
       begin
         TransactionViewUtils.parse_booking_date(v)
       rescue ArgumentError => e
@@ -22,6 +24,7 @@ module TransactionService
 
     PARSE_DATETIME = ->(v) {
       return if v.nil?
+
       begin
         TransactionViewUtils.parse_booking_datetime(v)
       rescue ArgumentError => e
@@ -47,64 +50,17 @@ module TransactionService
       [:contract_agreed, transform_with: ->(v) { v == "1" }]
     )
 
-    class ItemTotal
-      attr_reader :unit_price, :quantity
-
-      def initialize(unit_price:, quantity:)
-        @unit_price = unit_price
-        @quantity = quantity
-      end
-
-      def total
-        unit_price * quantity
-      end
-    end
-
-    class ShippingTotal
-      attr_reader :initial, :additional, :quantity
-
-      def initialize(initial:, additional:, quantity:)
-        @initial = initial || 0
-        @additional = additional || 0
-        @quantity = quantity
-      end
-
-      def total
-        initial + (additional * (quantity - 1))
-      end
-    end
-
-    class NoShippingFee
-      def total
-        0
-      end
-    end
-
-    class OrderTotal
-      attr_reader :item_total, :shipping_total
-
-      def initialize(item_total:, shipping_total:)
-        @item_total = item_total
-        @shipping_total = shipping_total
-      end
-
-      def total
-        item_total.total + shipping_total.total
-      end
-    end
-
     module Validator
 
       module_function
 
       def validate_initiate_params(marketplace_uuid:,
-                                   listing_uuid:,
+                                   listing:,
                                    tx_params:,
                                    quantity_selector:,
                                    shipping_enabled:,
                                    pickup_enabled:,
                                    availability_enabled:,
-                                   listing:,
                                    stripe_in_use:)
 
         validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
@@ -115,7 +71,7 @@ module TransactionService
             elsif availability_enabled
               validate_booking_timeslots(tx_params: tx_params,
                                          marketplace_uuid: marketplace_uuid,
-                                         listing_uuid: listing_uuid,
+                                         listing_uuid: listing.uuid_object,
                                          quantity_selector: quantity_selector)
             else
               Result::Success.new(result)
@@ -123,15 +79,34 @@ module TransactionService
         }
       end
 
-      def validate_initiated_params(tx_params:,
+      def validate_initiated_params(marketplace_uuid:,
+                                    tx_params:,
+                                    listing:,
                                     quantity_selector:,
                                     shipping_enabled:,
                                     pickup_enabled:,
+                                    availability_enabled:,
                                     transaction_agreement_in_use:,
                                     stripe_in_use:)
 
         validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
           .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector, stripe_in_use: stripe_in_use) }
+          .and_then { |result|
+            # Dublication of initiate validation becouse of bug when use click
+            # 'back' in browser after successfull payment and redirection to
+            # dialog page, browser just render previous initiate page and if
+            # user pay agian he create second transaction with same params & make payment
+            if tx_params[:per_hour]
+              validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
+            elsif availability_enabled
+              validate_booking_timeslots(tx_params: tx_params,
+                                         marketplace_uuid: marketplace_uuid,
+                                         listing_uuid: listing.uuid_object,
+                                         quantity_selector: quantity_selector)
+            else
+              Result::Success.new(result)
+            end
+          }
           .and_then {
             validate_transaction_agreement(tx_params: tx_params,
                                            transaction_agreement_in_use: transaction_agreement_in_use)
@@ -215,6 +190,7 @@ module TransactionService
 
       def validate_booking_per_hour_timeslots(listing:, tx_params:)
         return Result::Success.new(tx_params) unless tx_params[:per_hour]
+
         booking = Booking.new(tx_params.slice(:start_time, :end_time, :per_hour))
         if listing.working_hours_covers_booking?(booking) && listing.bookings.covers_another_booking(booking).empty?
           Result::Success.new(tx_params)

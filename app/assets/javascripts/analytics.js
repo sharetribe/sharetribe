@@ -55,7 +55,7 @@ window.ST.analytics = (function(){
 
     $(document).on("st-analytics:logout", function(event, args){
       ampClient.setUserId(null);
-      ampClient.regenerateDeviceid();
+      ampClient.regenerateDeviceId();
     });
   };
 

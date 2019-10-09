@@ -1,4 +1,4 @@
-class ListingImageS3OptionsJSAdapter < JSAdapter
+class ListingImageS3OptionsJsAdapter < JsAdapter
 
   def initialize(listing)
     s3uploader = S3Uploader.new

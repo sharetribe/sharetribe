@@ -1,0 +1,12 @@
+= link_to t('admin.communities.manage_members.status_filter.unconfirmed'), '#', class: 'show-popup',
+  data: { popup_content_id: "#pending-confirmation-#{membership.id}" }
+.hidden{id: "pending-confirmation-#{membership.id}"}
+  .membership--pending-popup
+    %h2= t('admin.communities.manage_members.unconfirmed_user', name: member.full_name)
+    = t('admin.communities.manage_members.this_user_hasnt_confirmed_their_email_address')
+    .membership--pending-buttons
+      - path = resend_confirmation_admin_community_community_membership_path(membership.community_id, membership.id)
+      = link_to path, class: 'button membership-resend-confirmation' do
+        = t('admin.communities.manage_members.resend')
+      = link_to '#', class: 'cancel-button', id: 'close_x1' do
+        = t('admin.communities.manage_members.cancel')

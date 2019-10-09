@@ -4,7 +4,7 @@ default: &default_settings
   # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
   # The community subdomains will be added to this top domain.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
-  domain: "lvh.me:3000"
+  domain: "dignityplatform.org"
 
   # A comma separated string of trusted proxies. If you host your
   # application behind proxies this configuration allows
@@ -135,17 +135,21 @@ default: &default_settings
   paypal_ipn_protocol: https
 
   # PayPal implementation, either "real" or "fake"
-  paypal_implementation: real
+  paypal_implementation: fake
 
   # If "fake" implementation is used, specify the file where PayPal information
   # is saved
   # Examples: 'tmp/dev_fakepal.store'
   #           'tmp/test_fakepal.store'
-  fakepal_store:
+  fakepal_store: 'tmp/dev_fakepal.store'
 
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
-  always_use_ssl: false
+  always_use_ssl: true
+
+  # If always_use_ssl is set to true, optionally set HTTP Strict Transport
+  # Security header with this max-age. Set to 0 to disable HSTS.
+  hsts_max_age: 31536000 # one year in seconds
 
   # The default locale (language) of the user interface
   # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
@@ -170,16 +174,10 @@ default: &default_settings
   # If using SMTP, uncomment corresponding lines and enter your information.
   # the SMPT lines below contain example of using Gmail, but you can use any SMTP
   # For the domain part you can enter HELO domain, if needed. Google for more info. :)
-  mail_delivery_method: sendmail
-
-  # smtp_email_address: "smtp.gmail.com"
-  # smtp_email_port: 587
-  # smtp_email_user_name: "<YOUR_GMAIL_USERNAME>@gmail.com"
-  # smtp_email_password: "<YOUR_GMAIL_PASSWORD>"
-  # smtp_email_domain: "localhost"
+  mail_delivery_method: "sendmail"
 
   # This will be the from field in the mails sent from Sharetribe
-  sharetribe_mail_from_address: "your-team@example.com"
+  sharetribe_mail_from_address: "marketplace@dignityplatform.org"
 
   # The address where the notifications of feedbacks from Sharetribe UI are sent
   feedback_mailer_recipients:  'admins@example.com'
@@ -390,7 +388,7 @@ default: &default_settings
   clp_cache_time: 900
 
   # Display mention of custom landing page in admin panel
-  show_landing_page_admin: false
+  show_landing_page_admin: true
   custom_landing_page_marketing_site_url: "https://www.example.com/landingpage/"
 
   #######
@@ -450,8 +448,8 @@ default: &default_settings
   stripe_payout_delay: 7.5
 
   # Key pattern to ensure production keys
-  stripe_private_key_pattern: "\\Ask_test_.{24}\\z"
-  stripe_publishable_key_pattern: "\\Apk_test_.{24}\\z"
+  stripe_private_key_pattern: "\\Ask_test_.{24,200}\\z"
+  stripe_publishable_key_pattern: "\\Apk_test_.{24,200}\\z"
 
   # Stripe allows to hold funds up to 90 days
   # (85 and not 90 or 89 as a security, also because timezones are not
@@ -485,16 +483,16 @@ production: &production_settings
   eager_load: true
 
   log_level: INFO
-  stripe_private_key_pattern: "\\Ask_live_.{24}\\z"
-  stripe_publishable_key_pattern: "\\Apk_live_.{24}\\z"
+  stripe_private_key_pattern: "\\Ask_live_.{24,200}\\z"
+  stripe_publishable_key_pattern: "\\Apk_live_.{24,200}\\z"
 
 staging:
   <<: *production_settings
   # By default staging has same settings as production, but those can be overridden here.
 
   log_level: INFO
-  stripe_private_key_pattern: "\\Ask_(test|live)_.{24}\\z"
-  stripe_publishable_key_pattern: "\\Apk_(test|live)_.{24}\\z"
+  stripe_private_key_pattern: "\\Ask_(test|live)_.{24,200}\\z"
+  stripe_publishable_key_pattern: "\\Apk_(test|live)_.{24,200}\\z"
 
 development:
   <<: *default_settings
@@ -516,7 +514,7 @@ development:
 
   use_js_routes_middleware: true
 
-  paypal_implementation: real
+  paypal_implementation: fake
   fakepal_store: 'tmp/dev_fakepal.store'
 
 test:
@@ -560,6 +558,7 @@ test:
 
   # easier to run tests without SSL
   always_use_ssl: false
+  hsts_max_age: 0
 
   secret_key_base: "8fb582997a5e3ba2efb57c020dd01aa81647674dbb1aee6efcf30d75ec442e3a48832379e1ebaae2801782075efbf02ebed797a1df3f2b3ad87ec3faf37ccc64"
   # Used to encrypt Stripe api keys

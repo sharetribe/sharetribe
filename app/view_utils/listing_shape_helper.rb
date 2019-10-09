@@ -1,8 +1,7 @@
-
 module ListingShapeHelper
 
 
-  PREDEFINED_UNIT_TYPES = ['hour', 'day', 'night', 'week', 'month']
+  PREDEFINED_UNIT_TYPES = ['unit', 'hour', 'day', 'night', 'week', 'month']
 
   module_function
 

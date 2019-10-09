@@ -16,7 +16,7 @@ clp_static_enabled: true
 
 Run the following rake task to copy the default landing page template
 ```sh
-bundle exec rake sharetribe:landing_page:install_static
+bundle exec rake sharetribe:landing_pages:install_static
 ```
 
 The landing page template should now be available under `config/initializers/landing_page.rb`
@@ -119,3 +119,13 @@ The content for the landing page is defined in [CustomLandingPage::ExampleData::
 See [Landing page JSON structure](landing-page-structure.md) for documentation about the landing page data structure format.
 
 When you modify the landing page, use the preview URL (http://lvh.me:3000/_lp_preview) instead of the root URL (http://lvh.me:3000). The root URL sends the `Cache-Control` header and thus you may not see your modifications immediately in the root URL.
+
+## Migrating your landing page from a managed sharetribe marketplace
+
+If you migrated your marketplace from a managed instance, your custom landing page will be saved in the database. If you wish to use the static landing page feature and further edit your landing page, you can retrieve the managed landing page from the database.
+
+The easiest way to get the managed landing page in JSON format is to open the rails console, copy the output of the following code snippet and paste it into your newly generated landing_page.rb:
+
+
+    class LandingPageVersion < ApplicationRecord; end
+    puts LandingPageVersion.last.content

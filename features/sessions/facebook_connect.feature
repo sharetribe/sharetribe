@@ -4,6 +4,9 @@ Feature: Facebook connect
   As a user
   I want to do Facebook connect to link the accounts
 
+  Background:
+    Given provider "facebook" is mocked
+
   @javascript
   Scenario: Facebook connect first time, with same email in Sharetribe DB
     Given there are following users:
@@ -56,7 +59,7 @@ Feature: Facebook connect
     When I open user menu
     When I follow "Settings"
     And I follow "settings-tab-notifications"
-    Then the "I accept to receive occasional emails from" checkbox should be checked
+    Then the "I agree to receive occasional emails from" checkbox should be checked
 
   @javascript
   Scenario: Facebook connect first time, without existing account in Sharetribe, no admin email consent
@@ -76,7 +79,7 @@ Feature: Facebook connect
     When I open user menu
     When I follow "Settings"
     And I follow "settings-tab-notifications"
-    Then the "I accept to receive occasional emails from" checkbox should not be checked
+    Then the "I agree to receive occasional emails from" checkbox should not be checked
 
   @javascript
   Scenario: Facebook connect to log in when the accounts are already linked

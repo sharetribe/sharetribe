@@ -210,23 +210,26 @@ module TransactionHelper
   #     ]
   #   }
   # }
+  # rubocop:disable Metrics/MethodLength
   def get_conversation_statuses(conversation, is_author)
     statuses = if conversation.listing && !conversation.status.eql?("free")
       status_hash = {
-        paid: ->() { {
+        paid: -> { {
           both: [
             status_info(t("conversations.status.request_paid"), icon_classes: icon_for("paid")),
             delivery_status(conversation),
             paid_status(conversation)
           ]
-        } },
-        preauthorized: ->() { {
+        }
+              },
+        preauthorized: -> { {
           both: [
             status_info(t("conversations.status.request_preauthorized"), icon_classes: icon_for("preauthorized")),
             preauthorized_status(conversation)
           ]
-        } },
-        pending_ext: ->() {
+        }
+                       },
+        pending_ext: -> {
           ## This is so wrong place to call services...
           #TODO Deprecated call, update to use PaypalService::API:Api.payments.get_payment
           paypal_payment = PaypalService::Store::PaypalPayment.for_transaction(conversation.id)
@@ -266,31 +269,35 @@ module TransactionHelper
             }
           end
         },
-        confirmed: ->() { {
+        confirmed: -> { {
           both: [
             status_info(t("conversations.status.request_confirmed"), icon_classes: icon_for("confirmed")),
             feedback_status(conversation)
           ]
-        } },
-        canceled: ->() { {
+        }
+                   },
+        canceled: -> { {
           both: [
             status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
             feedback_status(conversation)
           ]
-        } },
-        rejected: ->() { {
+        }
+                  },
+        rejected: -> { {
           both: [
             status_info(t("conversations.status.request_rejected"), icon_classes: icon_for(conversation.status))
           ]
-        } },
-        errored: ->() { {
+        }
+                  },
+        errored: -> { {
           author: [
             status_info(t("conversations.status.payment_errored_author", starter_name: conversation.starter.name(conversation.community)), icon_classes: icon_for("errored"))
           ],
           starter: [
             status_info(t("conversations.status.payment_errored_starter"), icon_classes: icon_for("errored"))
           ]
-        } }
+        }
+                 }
       }
 
       Maybe(status_hash)[conversation.status.to_sym]
@@ -303,6 +310,7 @@ module TransactionHelper
 
     statuses.flatten.compact
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 

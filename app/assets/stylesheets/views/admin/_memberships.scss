@@ -1,0 +1,46 @@
+@import "mixins/all";
+
+#membership-popup {
+  @include media(desktop) {
+    min-width: 600px;
+  }
+}
+
+#membership-popup-content {
+  .membership--pending-popup {
+    margin-top: 10px;
+  }
+  .membership--pending-buttons {
+    text-align: center;
+    margin-top: 30px;
+    .button {
+      display: initial;
+    }
+    .cancel-button {
+      display: initial;
+      padding-top: 0.5625em;
+      padding-bottom: 0.5625em;
+    }
+  }
+}
+
+.post-listing-is-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  a {
+    color: currentColor;
+    display: inline-block;  /* For IE11/ MS Edge bug */
+    pointer-events: none;
+    text-decoration: none;
+  }
+}
+
+td.membership-actions {
+  min-width: 65px;
+  span {
+    margin-right: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

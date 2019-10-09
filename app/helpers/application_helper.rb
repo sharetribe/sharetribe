@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # rubocop:disable Metrics/ModuleLength
 module ApplicationHelper
 
@@ -46,7 +44,7 @@ module ApplicationHelper
 
   # used to escape strings to URL friendly format
   def self.escape_for_url(str)
-     URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
+     URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]")) # rubocop:disable Lint/UriEscapeUnescape
   end
 
   # Changes line breaks to <br>-tags and transforms URLs to links
@@ -116,9 +114,9 @@ module ApplicationHelper
     opts = {
       :currentPage => current_page,
       :totalPages => total_pages,
-      :url        => url,
-      :loaderMsg  => loader_message,
-      :targetDiv  => target_id # extra parameter for jquery.pageless.js patch
+      :url => url,
+      :loaderMsg => loader_message,
+      :targetDiv => target_id # extra parameter for jquery.pageless.js patch
     }
 
     content_for :extra_javascript do
@@ -146,11 +144,11 @@ module ApplicationHelper
   def self.send_error_notification(message, error_class="Special Error", parameters={})
     if APP_CONFIG.use_airbrake
       Airbrake.notify(
-        :error_class      => error_class,
-        :error_message    => message,
-        :backtrace        => $@,
+        :error_class => error_class,
+        :error_message => message,
+        :backtrace => $@,
         :environment_name => ENV['RAILS_ENV'],
-        :parameters       => parameters)
+        :parameters => parameters)
     end
     Rails.logger.error "#{error_class}: #{message}"
   end
@@ -161,6 +159,7 @@ module ApplicationHelper
   def self.pick_referer_domain_part_from_request(request)
     return request.headers["HTTP_ORIGIN"] if request.headers["HTTP_ORIGIN"].present?
     return request.headers["HTTP_REFERER"][/(^[^\/]*(\/\/)?[^\/]+)/,1] if request.headers["HTTP_REFERER"]
+
     return ""
   end
 
@@ -308,7 +307,7 @@ module ApplicationHelper
     }
   end
 
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -343,7 +342,7 @@ module ApplicationHelper
         :text => t("admin.left_hand_navigation.subscription"),
         :icon_class => icon_class("credit_card"),
         :path => admin_plan_path,
-        :name => "plan",
+        :name => "plan"
       }
     end
 
@@ -352,7 +351,7 @@ module ApplicationHelper
       :text => t("admin.left_hand_navigation.preview"),
       :icon_class => icon_class("eye"),
       :path => homepage_without_locale_path(big_cover_photo: true, locale: nil),
-      :name => "preview",
+      :name => "preview"
     }
 
     links += [
@@ -400,10 +399,10 @@ module ApplicationHelper
       },
       {
         :topic => :manage,
-        :text => t("admin.communities.edit_details.invite_people"),
-        :icon_class => icon_class("invite"),
-        :path => new_invitation_path,
-        :name => "invite_people"
+        :text => t("admin.communities.invitations.invitations"),
+        :icon_class => icon_class("invitations"),
+        :path => admin_community_invitations_path(@current_community),
+        :name => "invitations"
       },
       {
         :topic => :configure,
@@ -418,6 +417,13 @@ module ApplicationHelper
         :icon_class => icon_class("looknfeel"),
         :path => admin_look_and_feel_edit_path,
         :name => "tribe_look_and_feel"
+      },
+      {
+        :topic => :configure,
+        :text => t("admin.communities.domain.domain"),
+        :icon_class => icon_class("domain"),
+        :path => admin_domain_path,
+        :name => "domain"
       },
       {
         :topic => :configure,
@@ -438,13 +444,23 @@ module ApplicationHelper
       }
     ]
 
+    links += [
+      {
+        :topic => :configure,
+        :text => t("admin.communities.footer.footer"),
+        :icon_class => icon_class("footer_menu"),
+        :path => admin_footer_edit_path,
+        :name => "footer"
+      }
+    ]
+
     if APP_CONFIG.show_landing_page_admin
       links << {
         :topic => :configure,
         :text => t("admin.landing_page.landing_page"),
         :icon_class => icon_class("home"),
         :path => admin_landing_page_path,
-        :name => "landing_page",
+        :name => "landing_page"
       }
     end
 
@@ -503,6 +519,14 @@ module ApplicationHelper
 
     links << {
       :topic => :configure,
+      :text => t("admin.communities.seo_settings.seo"),
+      :icon_class => icon_class("seo"),
+      :path => admin_community_seo_settings_path,
+      :name => "seo"
+    }
+
+    links << {
+      :topic => :configure,
       :text => t("admin.communities.analytics.analytics"),
       :icon_class => icon_class("analytics"),
       :path => analytics_admin_community_path(@current_community),
@@ -527,16 +551,16 @@ module ApplicationHelper
       :topic => :configure,
       :text => t("admin.communities.settings.settings"),
       :icon_class => icon_class("settings"),
-      :path => admin_settings_path,
+      :path => admin_setting_path,
       :name => "admin_settings"
     }
 
     links
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   # Settings view left hand navigation content
-  def settings_links_for(person, community=nil)
+  def settings_links_for(person, community=nil, restrict_for_admin=false)
     links = [
       {
         :id => "settings-tab-profile",
@@ -544,27 +568,39 @@ module ApplicationHelper
         :icon_class => icon_class("profile"),
         :path => person_settings_path(person),
         :name => "profile"
-      },
-      {
-        :id => "settings-tab-account",
-        :text => t("layouts.settings.account"),
-        :icon_class => icon_class("account_settings"),
-        :path => account_person_settings_path(person) ,
-        :name => "account"
-      },
-      {
-        :id => "settings-tab-notifications",
-        :text => t("layouts.settings.notifications"),
-        :icon_class => icon_class("notification_settings"),
-        :path => notifications_person_settings_path(person),
-        :name => "notifications"
       }
     ]
+    unless restrict_for_admin
+      links +=
+        [
+          {
+            :id => "settings-tab-listings",
+            :text => t("layouts.settings.listings"),
+            :icon_class => icon_class("thumbnails"),
+            :path => listings_person_settings_path(person, sort: "updated"),
+            :name => "listings"
+          },
+          {
+            :id => "settings-tab-account",
+            :text => t("layouts.settings.account"),
+            :icon_class => icon_class("account_settings"),
+            :path => account_person_settings_path(person) ,
+            :name => "account"
+          },
+          {
+            :id => "settings-tab-notifications",
+            :text => t("layouts.settings.notifications"),
+            :icon_class => icon_class("notification_settings"),
+            :path => notifications_person_settings_path(person),
+            :name => "notifications"
+          }
+        ]
+    end
 
     paypal_ready = PaypalHelper.community_ready_for_payments?(@current_community.id)
     stripe_ready = StripeHelper.community_ready_for_payments?(@current_community.id)
 
-    if paypal_ready || stripe_ready
+    if !restrict_for_admin && (paypal_ready || stripe_ready)
       links << {
         :id => "settings-tab-payments",
         :text => t("layouts.settings.payments"),
@@ -605,14 +641,6 @@ module ApplicationHelper
 
   def self.has_aws_keys?
     APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
-  end
-
-  def facebook_connect_in_use?
-    community = Maybe(@current_community)
-
-    (APP_CONFIG.fb_connect_id || community.facebook_connect_id.or_else(false)) &&
-     !@facebook_merge &&
-     community.facebook_connect_enabled?.or_else(false)
   end
 
   def community_slogan
@@ -765,6 +793,49 @@ module ApplicationHelper
 
   def regex_definition_to_js(string)
     string.gsub('\A', '^').gsub('\z', '$').gsub('\\', '\\\\')
+  end
+
+  SOCIAL_LINKS = {
+    facebook: {
+      name: "Facebook",
+      placeholder: "https://www.facebook.com/CHANGEME"
+    },
+    twitter: {
+      name: "Twitter",
+      placeholder: "https://www.twitter.com/CHANGEME"
+    },
+    instagram: {
+      name: "Instagram",
+      placeholder: "https://www.instagram.com/CHANGEME"
+    },
+    youtube: {
+      name: "YouTube",
+      placeholder: "https://www.youtube.com/channel/CHANGEME"
+    },
+    googleplus: {
+      name: "Google+",
+      placeholder: "https://plus.google.com/CHANGEME"
+    },
+    linkedin: {
+      name: "LinkedIn",
+      placeholder: "https://www.linkedin.com/company/CHANGEME"
+    },
+    pinterest: {
+      name: "Pinterest",
+      placeholder: "https://www.pinterest.com/CHANGEME"
+    },
+    soundcloud: {
+      name: "SoundCloud",
+      placeholder: "https://soundcloud.com/CHANGEME"
+    }
+  }.freeze
+
+  def social_link_name(provider)
+    SOCIAL_LINKS[provider.to_sym][:name]
+  end
+
+  def social_link_placeholder(provider)
+    SOCIAL_LINKS[provider.to_sym][:placeholder]
   end
 end
 # rubocop:enable Metrics/ModuleLength

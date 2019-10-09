@@ -42,7 +42,7 @@ module PaypalService
         input_transformer: -> (req) {
           {
             attributeList: {
-                attribute: [ "http://axschema.org/contact/email", "https://www.paypal.com/webapps/auth/schema/payerID" ]
+                attribute: ["http://axschema.org/contact/email", "https://www.paypal.com/webapps/auth/schema/payerID"]
             }
           }
         },

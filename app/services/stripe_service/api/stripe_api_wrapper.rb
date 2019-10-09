@@ -1,16 +1,15 @@
 class StripeService::API::StripeApiWrapper
   class << self
 
-    # rubocop:disable ClassVars
-    @@mutex ||= Mutex.new
+    @@mutex ||= Mutex.new # rubocop:disable ClassVars
 
     def payment_settings_for(community)
       PaymentSettings.where(community_id: community, payment_gateway: :stripe, payment_process: :preauthorize).first
     end
 
     def configure_payment_for(settings)
-      Stripe.api_version = '2017-06-05'
-      Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key)
+      Stripe.api_version = '2019-02-19'
+      Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key, settings.key_encryption_padding)
     end
 
     def reset_configurations
@@ -107,18 +106,30 @@ class StripeService::API::StripeApiWrapper
           payout_mode = {}
         when :destination
           # managed accounts, make payout after completion om funds availability date
-          payout_mode = {
-            payout_schedule: {
-              interval: 'manual'
+          payout_mode =
+            {
+              settings: {
+                payouts: {
+                  schedule: {
+                    interval: 'manual'
+                  }
+                }
+              }
             }
-          }
         end
         data = {
           type: 'custom',
           country: account_info[:address_country],
           email: account_info[:email],
-          account_token: account_info[:token],
+          account_token: account_info[:token]
         }
+        if account_info[:address_country] == 'US'
+          data[:requested_capabilities] = ['card_payments']
+          data[:business_profile] = {
+            mcc: account_info[:mcc],
+            url: account_info[:url]
+          }
+        end
         data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
         Stripe::Account.create(data)
       end
@@ -128,7 +139,7 @@ class StripeService::API::StripeApiWrapper
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Balance.retrieve
       end
-    rescue => e
+    rescue StandardError
       nil
     end
 
@@ -140,8 +151,8 @@ class StripeService::API::StripeApiWrapper
           external_account: {
             object: 'bank_account',
             account_number: account_info[:bank_account_number],
-            currency:       account_info[:bank_currency],
-            country:        account_info[:bank_country],
+            currency: account_info[:bank_currency],
+            country: account_info[:bank_country],
             account_holder_name: account_info[:bank_holder_name],
             account_holder_type: 'individual'
           }.merge(routing),
@@ -247,16 +258,20 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def update_account(community:, account_id:, token:)
+    def update_account(community:, account_id:, attrs:)
       with_stripe_payment_config(community) do |payment_settings|
         account = Stripe::Account.retrieve(account_id)
-        account.account_token = token
+        account.account_token = attrs[:token]
+        if attrs[:address_country] == 'US'
+          account.business_profile.mcc = attrs[:mcc]
+          account.business_profile.url = attrs[:url]
+        end
         account.save
       end
     end
 
     def empty_string_as_nil(value)
-      value.present? ? value : nil
+      value.presence
     end
 
     def get_charge(community:, charge_id:)

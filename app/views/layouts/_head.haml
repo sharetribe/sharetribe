@@ -12,7 +12,7 @@
   = render :partial => 'analytics/head_scripts', locals: { community: @current_community, user: @current_user, plan: @current_plan }
 
   :css
-    @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin-ext);
+    @import url(//fonts.googleapis.com/css?family=Comfortaa&display=swap);
 
   - font_path = APP_CONFIG[:font_proximanovasoft_url]
   - if font_path.present? && FeatureFlagHelper.feature_enabled?(:topbar_v1)
@@ -21,11 +21,19 @@
   %meta{content: "width=device-width, initial-scale=1.0, user-scalable=no", name: "viewport"}
   %meta{ :property => "og:type", :content =>"website"}
   %meta{:"http-equiv" => "content-language", content: "#{I18n.locale}"}
-  %meta{name: "twitter:card", content: "summary"}
+  - if @current_community.social_logo&.image&.present?
+    %meta{name: "twitter:card", content: "summary_large_image"}
+  - else
+    %meta{name: "twitter:card", content: "summary"}
 
   / Additional meta tags for SEO, etc.
   = content_for :head
   = render :partial => "layouts/marketplace_head"
 
+  
+
   -# A tag for google webmaster site verification
   %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
+
+  - if @hide_referer
+    %meta{name: "referrer", content: "no-referrer"}

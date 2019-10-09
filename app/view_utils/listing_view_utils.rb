@@ -35,6 +35,8 @@ module ListingViewUtils
       I18n.translate("listings.unit_types.week", locale: l)
     when 'month'
       I18n.translate("listings.unit_types.month", locale: l)
+    when 'unit'
+      I18n.translate("listings.unit_types.unit", locale: l)
     when 'custom'
       I18n.translate(tr_key, locale: l)
     else
@@ -57,6 +59,8 @@ module ListingViewUtils
       I18n.translate("listings.quantity.week")
     when 'month'
       I18n.translate("listings.quantity.month")
+    when 'unit'
+      I18n.translate("listings.quantity.unit")
     when 'custom'
       if (tr_key)
         I18n.translate(tr_key)
@@ -84,11 +88,13 @@ module ListingViewUtils
 
   def youtube_video_ids(text)
     return [] unless text.present? && text.is_a?(String)
+
     text.scan(/https?:\/\/\S+/).map { |l| youtube_video_id(l) }.compact
   end
 
   def youtube_video_id(link)
     return nil unless link.present? && link.is_a?(String)
+
     pattern = /^.*(?:(?:youtu\.be\/|youtu.*v\/|youtu.*embed\/)|youtu.*(?:\?v=|\&v=))([^#\&\?]*).*/
     Maybe(pattern.match(link))[1].or_else(nil)
   end

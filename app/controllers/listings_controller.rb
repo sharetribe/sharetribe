@@ -4,28 +4,28 @@ class ListingsController < ApplicationController
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_action :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
 
-  before_action :only => [ :edit, :edit_form_content, :update, :close, :follow, :unfollow ] do |controller|
+  before_action :only => [:edit, :edit_form_content, :update, :close, :follow, :unfollow] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
 
-  before_action :only => [ :new, :new_form_content, :create ] do |controller|
+  before_action :only => [:new, :new_form_content, :create] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
 
   before_action :save_current_path, :only => :show
-  before_action :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
+  before_action :ensure_authorized_to_view, :only => [:show, :follow, :unfollow]
 
-  before_action :only => [ :close ] do |controller|
+  before_action :only => [:close] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_close_a_listing")
   end
 
-  before_action :only => [ :edit, :edit_form_content, :update ] do |controller|
+  before_action :only => [:edit, :edit_form_content, :update] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
 
-  before_action :ensure_is_admin, :only => [ :move_to_top, :show_in_updates_email ]
+  before_action :ensure_is_admin, :only => [:move_to_top, :show_in_updates_email]
 
-  before_action :is_authorized_to_post, :only => [ :new, :create ]
+  before_action :is_authorized_to_post, :only => [:new, :create]
 
   def index
     @selected_tribe_navi_tab = "home"
@@ -58,7 +58,7 @@ class ListingsController < ApplicationController
   def listing_bubble
     if params[:id]
       @listing = Listing.find(params[:id])
-      if @listing.visible_to?(@current_user, @current_community)
+      if Policy::ListingPolicy.new(@listing, @current_community, @current_user).visible?
         render :partial => "homepage/listing_bubble", :locals => { :listing => @listing }
       else
         render :partial => "bubble_listing_not_visible"
@@ -89,6 +89,7 @@ class ListingsController < ApplicationController
 
     make_listing_presenter
     @listing_presenter.form_path = new_transaction_path(listing_id: @listing.id)
+    @seo_service.listing = @listing
 
     record_event(
       flash.now,
@@ -107,7 +108,6 @@ class ListingsController < ApplicationController
     return redirect_to action: :new unless request.xhr?
 
     @listing = Listing.new
-    @listing.init_origin_location(@current_user.location)
 
     form_content
   end
@@ -121,6 +121,9 @@ class ListingsController < ApplicationController
   end
 
   def create
+    if new_listing_author != @current_user
+      logger.info "ADMIN ACTION: admin='#{@current_user.id}' create listing params=#{params.inspect}"
+    end
     params[:listing].delete("origin_loc_attributes") if params[:listing][:origin_loc_attributes][:address].blank?
 
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
@@ -140,21 +143,24 @@ class ListingsController < ApplicationController
     end
 
     @listing = Listing.new(result.data)
+    service = Admin::ListingsService.new(community: @current_community, params: params, person: @current_user)
 
     ActiveRecord::Base.transaction do
-      @listing.author = @current_user
+      @listing.author = new_listing_author
+      service.create_state(@listing)
 
       if @listing.save
         @listing.upsert_field_values!(params.to_unsafe_hash[:custom_fields])
         @listing.reorder_listing_images(params, @current_user.id)
         notify_about_new_listing
+        service.create_successful(@listing)
 
         if shape.booking?
           anchor = shape.booking_per_hour? ? 'manage-working-hours' : 'manage-availability'
           @listing.working_hours_new_set(force_create: true) if shape.booking_per_hour?
-          redirect_to listing_path(@listing, anchor: anchor, listing_just_created: true), status: 303
+          redirect_to listing_path(@listing, anchor: anchor, listing_just_created: true), status: :see_other
         else
-          redirect_to @listing, status: 303
+          redirect_to @listing, status: :see_other
         end
       else
         logger.error("Errors in creating listing: #{@listing.errors.full_messages.inspect}")
@@ -206,6 +212,8 @@ class ListingsController < ApplicationController
     end
 
     listing_params = result.data.merge(@listing.closed? ? {open: true} : {})
+    service = Admin::ListingsService.new(community: @current_community, params: params, person: @current_user)
+    listing_params.merge!(service.update_by_author_params(@listing))
 
     old_availability = @listing.availability.to_sym
     update_successful = @listing.update_fields(listing_params)
@@ -217,11 +225,12 @@ class ListingsController < ApplicationController
       end
       if @listing.location
         location_params = ListingFormViewUtils.permit_location_params(params)
-        @listing.location.update_attributes(location_params)
+        @listing.location.update(location_params)
       end
       flash[:notice] = update_flash(old_availability: old_availability, new_availability: shape[:availability])
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
       reprocess_missing_image_styles(@listing) if @listing.closed?
+      service.update_by_author_successful(@listing)
       redirect_to @listing
     else
       logger.error("Errors in editing listing: #{@listing.errors.full_messages.inspect}")
@@ -250,7 +259,7 @@ class ListingsController < ApplicationController
   def show_in_updates_email
     @listing = @current_community.listings.find(params[:id])
     @listing.update_attribute(:updates_email_at, Time.now)
-    render :body => nil, :status => 200
+    render :body => nil, :status => :ok
   end
 
   def follow
@@ -268,6 +277,7 @@ class ListingsController < ApplicationController
   def ensure_current_user_is_listing_author(error_message)
     @listing = Listing.find(params[:id])
     return if current_user?(@listing.author) || @current_user.has_admin_rights?(@current_community)
+
     flash[:error] = error_message
     redirect_to @listing and return
   end
@@ -322,7 +332,11 @@ class ListingsController < ApplicationController
   def form_content
     make_listing_presenter
 
-    @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+    if @listing.new_record?
+      @listing.init_origin_location(@listing_presenter.new_listing_author.location)
+    end
+
+    @listing.category = @current_community.categories.find(params[:subcategory].presence || params[:category])
     @custom_field_questions = @listing.category.custom_fields
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
@@ -335,7 +349,7 @@ class ListingsController < ApplicationController
     payment_type = @current_community.active_payment_types
     allow_posting, error_msg = payment_setup_status(
                      community: @current_community,
-                     user: @current_user,
+                     user: @listing_presenter.new_listing_author,
                      listing: @listing,
                      payment_type: payment_type,
                      process: process)
@@ -356,7 +370,7 @@ class ListingsController < ApplicationController
 
     raise ListingDeleted if @listing.deleted?
 
-    unless @listing.visible_to?(@current_user, @current_community)
+    unless Policy::ListingPolicy.new(@listing, @current_community, @current_user).visible?
       if @current_user
         flash[:error] = if @listing.closed?
           t("layouts.notifications.listing_closed")
@@ -385,8 +399,14 @@ class ListingsController < ApplicationController
   end
 
   def is_authorized_to_post
+    if new_listing_author != @current_user
+      unless @current_user.has_admin_rights?(@current_community)
+        flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+        redirect_to root_path
+      end
+    end
     if @current_community.require_verification_to_post_listings?
-      unless @current_user.has_admin_rights?(@current_community) || @current_community_membership.can_post_listings?
+      unless new_listing_author.has_admin_rights?(@current_community) || new_listing_author.community_membership.can_post_listings?
         redirect_to verification_required_listings_path
       end
     end
@@ -487,5 +507,15 @@ class ListingsController < ApplicationController
     else
       true
     end
+  end
+
+  def new_listing_author
+    @new_listing_author ||=
+      if params[:person_id].present? &&
+         @current_user.has_admin_rights?(@current_community)
+        @current_community.members.find_by!(username: params[:person_id])
+      else
+        @current_user
+      end
   end
 end

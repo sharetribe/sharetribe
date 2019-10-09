@@ -1,0 +1,60 @@
+.chariot-tooltip {
+  // Keep this otherwise tooltip height is unpredictable
+  position: absolute;
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-arrow {
+    position: absolute;
+    transform: rotate(45deg);
+    transform-origin: 50% 50% 0;
+  }
+}
+
+$directions: top, right, bottom, left;
+
+@each $direction in $directions {
+  .animate-appear-#{$direction} {
+    animation: appear-#{$direction} 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+}
+
+@each $direction in $directions {
+  $margin-direction: null;
+  @if ($direction == left) or ($direction == right) {
+    $margin-direction: left;
+  } @else {
+    $margin-direction: top;
+  }
+
+  $reverse: 1;
+  @if ($direction == left) or ($direction == top) {
+    $reverse: -1;
+  }
+
+  @keyframes appear-#{$direction} {
+    0% {
+      margin-#{$margin-direction}: #{10 * $reverse}px;
+      opacity: 0;
+    }
+    40% {
+      margin-#{$margin-direction}: #{-2.5 * $reverse}px;
+    }
+    100% {
+      margin-#{$margin-direction}: 0px;
+      opacity: 1;
+    }
+  }
+}

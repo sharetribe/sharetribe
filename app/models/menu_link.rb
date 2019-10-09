@@ -7,6 +7,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  sort_priority :integer          default(0)
+#  entity_type   :integer          default("for_topbar")
 #
 # Indexes
 #
@@ -17,12 +18,21 @@ class MenuLink < ApplicationRecord
   has_many :translations, :class_name => "MenuLinkTranslation", :dependent => :destroy
   belongs_to :community
 
+  scope :sorted, ->{ order('menu_links.sort_priority ASC') }
+
+  ENTITY_TYPES = {
+    for_topbar: 0,
+    for_footer: 1
+  }.freeze
+
+  enum entity_type: ENTITY_TYPES
+
   validates_presence_of :community
 
   def translation_attributes=(attributes)
     attributes.each do |locale, value|
       if translation = translations.find_by_locale(locale)
-        translation.update_attributes(value)
+        translation.update(value)
       else
         translation = translations.build(value.merge(locale: locale))
       end

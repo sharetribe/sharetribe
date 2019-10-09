@@ -1,6 +1,6 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
 
-- content_for :title, t('layouts.infos.how_to_use')
+- content_for :title, t('layouts.infos.how_to_use').html_safe
 
 - content_for :title_header do
   %h1= t("layouts.infos.info_about_kassi")
@@ -10,6 +10,5 @@
     - content = how_to_use_content.html_safe
 
     - content_for :meta_description, StringUtils.first_words(strip_tags(content))
-    - content_for :keywords, StringUtils.keywords(strip_tags(content))
 
     - content

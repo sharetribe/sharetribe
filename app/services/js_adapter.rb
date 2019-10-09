@@ -1,5 +1,5 @@
 # Helps passing JSON data to JavaScript
-class JSAdapter
+class JsAdapter
   include ApplicationController::DefaultURLOptions
 
   # Due to the way Rails includes the url helpers, this has to be AFTER DefaultURLOptions.

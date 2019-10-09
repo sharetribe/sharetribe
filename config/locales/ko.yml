@@ -62,9 +62,13 @@ ko:
         community_name: "마켓플레이스 이름"
         edit_community_name_description: "마켓플레이스 이름입니다. 이메일 및 다양한 페이지에서 사용자에게 보여집니다."
         community_slogan: "마켓플레이스 슬로건"
+        community_slogan_display: ~
         edit_community_slogan_description: "로그인하지 않은 사용자에게 마켓 플레이스 상단에 보여집니다. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "마켓플레이스 설명"
+        community_description_display: ~
         edit_community_description_description: "로그인하지 않은 사용자에게 마켓 플레이스 상단에 보여집니다. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "도움말 텍스트 검색"
         edit_community_search_placeholder_description: "이것은 검색창에 플레이스홀더 텍스트로 마켓 플레이스의 홈페이지에 표시됩니다. %{see_how_it_looks_like}."
         private_community_homepage_content: "개인 마켓플레이스 홈페이지 컨텐츠"
@@ -90,6 +94,7 @@ ko:
         edit_community_look_and_feel: "마켓플레이스 %{community_name} 꾸미기"
         community_logo: 로고
         community_logo_icon: "모바일용 로고"
+        community_logo_icon_mobile: ~
         community_cover_photo: "표지 이미지"
         small_community_cover_photo: "작은 표지 이미지"
         favicon: 파비콘
@@ -104,6 +109,7 @@ ko:
         logo_instructions_text_with_dimensions_no_placing: "로고 크기는 %{width} x %{height} px 여야합니다."
         logo_icon_instructions_text_with_dimensions: "정사각형 로고는 모바일 화면 또는 페이스북을 통해 사이트를 공유할 때 사용됩니다. 가급적 %{width} x %{height}픽셀로 만들어주세요."
         logo_icon_instructions_text_with_dimensions_no_placing: "이 사각형 로고는 사람들이 Facebook에서 귀하의 사이트를 공유하거나 모바일 장치의 홈 화면에 귀하의 사이트를 북마크 할 때 표시됩니다. 크기는 적어도 %{width} x %{height} px 여야합니다."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "표지 이미지는 로그인하지 않은 사용자에게 보여지는 홈페이지에 나타납니다."
         cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "작은 표지 이미지는 로그인하지 않은 사용자에게 보여지는 홈페이지 이외의 모든 페이지에 나타납니다."
@@ -172,27 +178,33 @@ ko:
       getting_started:
         getting_started: 시작하기
       available_languages:
+        cs: ~
+        da-DK: 덴마크어
+        de: 독일어
         en: 영어
         en-AU: 영어(호주)
         en-GB: 영어(영국)
+        es: ~
+        es-ES: ~
+        fi: 핀란드어
         fr: 프랑스어
         fr-CA: 영어(캐나다)
-        es: 스페인어(칠레)
-        es-ES: 스페인어
-        pt-PT: 포루투갈어
-        pt-BR: 포르투갈어(브라질)
-        nb: 노르웨이어
-        sv: 스웨덴어
-        da-DK: 덴마크어
-        fi: 핀란드어
-        ru: 러시아어
-        de: 독일어
         el: 그리스어
-        nl: 네덜란드어
-        tr-TR: 터키어
-        zh: 중국어
-        ja: 일본어
         it: 이탈리아어
+        ja: 일본어
+        ko: ~
+        nb: 노르웨이어
+        nl: 네덜란드어
+        pl: ~
+        pt-BR: 포르투갈어(브라질)
+        pt-PT: 포루투갈어
+        ru: 러시아어
+        sv: 스웨덴어
+        th-TH: ~
+        tr-TR: 터키어
+        vi: ~
+        zh: 중국어
+        zh-TW: ~
       settings:
         settings: 설정
         general: 일반
@@ -223,6 +235,7 @@ ko:
         update_settings: "설정 저장"
         automatically_confirmed_no_escrow: "결제가 완료되면 주문서에 %{days_dropdown}일 이내에 완료로 표시됩니다."
         automatically_confirmed_no_escrow_stripe_info: "결제 수단으로 Stripe을 선택하신 경우 대금 지급은 구매가 완료될 때까지 보류됩니다. %{learn_more}"
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "자동으로 뉴스레터 보내기 : %{frequency_dropdown}"
         newsletter_daily: 매일
         newsletter_weekly: 매주
@@ -236,6 +249,7 @@ ko:
         you_will_be_redirected_to: "마켓 플레이스를 삭제하면 %{목적지}로 리디렉션됩니다. 더 이상 시장에 액세스 할 수 없습니다."
         delete_this_marketplace: "이 마켓플레이스를 삭제하기"
         payment_preferences: "결제 시스템"
+        pre_approved_listings: ~
       manage_members:
         manage_members: "사용자 관리"
         email: 이메일
@@ -257,6 +271,22 @@ ko:
         reset_search: "전체 보기"
         for_search_terms: "%{terms}동안"
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "새 레이아웃"
         description_roadmap_new: "마켓 플레이스에서 새 레이아웃 구성 요소를 사용할 수있게 되면 새 구성 요소를 사용할지 아니면 이전 구성 요소를 계속 사용 할지를 선택할 수 있습니다. 이 페이지에서 언제든지 선택 사항을 토글 할 수 있습니다. 이전 버전의 구성 요소가 어느 정도 단계적으로 제거 될 수 있으므로 항상 새 버전을 사용하는 것이 좋습니다. 현재 사용중인 구성 요소가 단계적으로 제거되는 경우 사전에 연락을 받게됩니다."
@@ -266,6 +296,14 @@ ko:
         searchpage: "새 검색 페이지 (새 최상위 바가 필요함)"
       social_media:
         social_media: "소셜 미디어"
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "트위터 핸들"
         twitter_handle_info_text: "귀하의 마켓 플레이스의 트위터 계정의 사용자 이름 (있는 경우). 사람들이 목록 페이지에서 트윗 버튼을 사용할 때 언급됩니다."
         twitter_handle_info_text_with_instructions: "귀하의 마켓 플레이스의 트위터 계정의 사용자 이름 (있는 경우). 사람들이 목록 페이지에서 트윗 버튼을 사용할 때 언급됩니다. %{instructions_link}."
@@ -280,21 +318,89 @@ ko:
         invalid_facebook_connect_id: "클라이언트 ID는 숫자만 포함해야합니다."
         facebook_connect_secret: "Facebook 클라이언트 비밀"
         invalid_facebook_connect_secret: "클라이언트 비밀은 a에서 f까지의 숫자와 문자만 포함해야 합니다."
-        enable_facebook_login: ~
+        enable_facebook_login: "페이스북 계정으로 로그인 허용"
         save: "설정 저장"
+        add_another_image: "새 이미지 추가"
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: 분석
         google_analytics_key: "구글 분석 추적 ID"
         google_analytics_key_info_text: "Google 애널리틱스 계정의 추적 ID입니다."
         google_analytics_key_info_text_with_instructions: "Google 애널리틱스 계정의 추적 ID입니다. %{instructions_link}."
         google_analytics_instructions_link_text: "Google 애널리틱스 연결에 대해 자세히 알아보기"
-        sharetribe_analytics: ~
+        sharetribe_analytics: "셰어트라이브 분석 결과"
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "설정 저장"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: 메뉴링크
+        menu_links_display: ~
         save: "설정 저장"
         add_menu_link: "메뉴에 새 링크 추가"
         title_placeholder: "링크 제목"
@@ -307,6 +413,15 @@ ko:
         all: 모든
         max_number_of_links_info: "%{about_page}에 대한 링크는 항상 첫번째 메뉴 링크로 표시됩니다."
         about_page: "페이지에 대해"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: 탑바
         new_listing_button_label: "새 목록 버튼 텍스트 게시"
@@ -315,6 +430,19 @@ ko:
         export_all_as_csv: "CSV로 모두 내보내기"
         processing_export: ~
         transactions: 거래보기
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: "대화 목록"
           listing: 목록
@@ -372,35 +500,127 @@ ko:
           other_party: 제3자
         participants: "대화: %{starter} with %{author}"
         profile: "%{author}의 프로필"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
-        testimonials: ~
+        testimonials: 리뷰
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
-          transaction: ~
-          author: ~
-          receiver: ~
+          transaction: 거래
+          author: 저자
+          receiver: 수신자
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
-          waiting: ~
+          waiting: "검토 대기중"
           skipped: ~
           published: ~
+          blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         headers:
-          title: ~
-          author: ~
+          title: 제목
+          author: 저자
           created: ~
           updated: ~
           category: ~
           status: ~
-        open: ~
-        closed: ~
+        open: 열림
+        closed: 닫힘
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "항목 '%{field_name}' 편집"
@@ -462,13 +682,15 @@ ko:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        save: 저장
+        cancel: 취소
+        minimum_value: 최소
+        maximum_value: 최대
+        allow_decimals: "소수점 허용"
+        add_option: "옵션 추가"
       new:
         new_user_field: ~
       form:
@@ -492,6 +714,7 @@ ko:
           title: "누구에게 이메일을 보내시겠습니까?"
           options:
             all_users: "모든 사용자들"
+            posting_allowed: ~
             with_listing: "하나 이상의 목록을 게시한 사용자"
             with_listing_no_payment: "하나 이상의 목록을 게시했지만 결제 세부 정보를 추가하지 않은 사용자"
             with_payment_no_listing: "결제 세부 사항을 추가했지만 목록을 게시하지 않은 사용자"
@@ -591,6 +814,7 @@ ko:
         night: 1박당
         week: 매주
         month: 매월
+        unit: ~
       can_not_find: "다음의 ID인 주문 유형을 찾을 수 없습니다 : %{id}"
       add_custom_unit: "+ 맞춤 가격 책정 단위 추가 ..."
       delete_custom_unit: 삭제
@@ -660,6 +884,8 @@ ko:
       stripe_fee_notice: "%{stripe_fee_link}는 귀하가 청구하는 거래 수수료에서 공제됩니다."
       fee_should_be_less_than_minimum_price: "최소 거래 수수료는 최소 거래 규모보다 작아야합니다."
       confirm_disable: "%{gateway}을(를) 비활성화 하시겠습니까? 이 기능을 사용 중지하면 제공 업체는 더 이상 돈을받을 수 없으며 구매자는 더 이상이 지불 방법으로 지불 할 수 없습니다. 공급자가 다른 지불 방법을 구성하지 않으면 구매자가 구매할 수 없습니다."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "스트라이프가 연결됨"
         disable: "스트라이프 비활성화"
@@ -672,6 +898,7 @@ ko:
         enable: "페이팔 재활성화"
       cannot_enable_gateway: "결제 게이트웨이 %{gateway}을(를) 활성화 할 수 없습니다."
       cannot_disable_gateway: "결제 게이트웨이 %{gateway}을(를) 비활성화 할 수 없습니다."
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Stripe API 키 추가"
         how_to_get_these: "이것들을 어떻게 얻습니까?"
@@ -797,6 +1024,7 @@ ko:
       quantity_label: "수량:"
       sum_label: "소계 :"
       service_fee_label: "%{service_name} 수수료 :"
+      buyer_service_fee_label: ~
       you_will_get_label: "당신은 얻을 것이다 :"
       total_label: "총:"
       total_value: "%{seller_gets} *"
@@ -842,6 +1070,7 @@ ko:
     message:
       accepted_request: "요청이 승인되어졌습니다"
       received_payment: "요청을 수락하였고, %{sum}에 대한 결제를 받았습니다."
+      received_payment_wo_sum: ~
       accepted_offer: "제안이 승인되어졌습니다"
       rejected_request: "요청을 거절되고 결제가 취소되어졌습니다"
       rejected_offer: "제안이 거절되어졌습니다"
@@ -851,8 +1080,10 @@ ko:
       canceled_offer: "제안이 취소되어졌습니다"
       paid: "%{sum}이 결제되었습니다"
       payment_preauthorized: "승인된 결제 : %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: 메세지
@@ -1067,7 +1298,9 @@ ko:
       shipping_total: "배송:"
       product: "제품:"
       price_payer_paid: "가격 %{payer_full_name} 지불 :"
+      subtotal: ~
       service_fee: "%{service_name} 수수료 :"
+      buyer_service_fee: ~
       you_will_get: "총:"
       new_payment: "새 결제를 받았습니다"
       price_per_unit_type: "%{unit_type} 당 가격 :"
@@ -1083,6 +1316,7 @@ ko:
       duration: 기간
       quantity: 수량
       subtotal: 소계
+      buyer_service_fee: ~
       total: 총
       price: 가격
       service_fee: "서비스 수수료"
@@ -1107,7 +1341,7 @@ ko:
       subtotal: 소계
       total: 총
       price: 가격
-      service_fee: "서비스 수수료"
+      buyer_service_fee: ~
       stripe_gateway_fee: "스트라이프 수수료"
       paypal_gateway_fee: "페이팔 수수료"
       money_will_be_transferred: "a) 귀하가 요청 완료를 표시했거나 b) 결제한 날 %{automatic_confirmation_days} 일이 경과하면 %{recipient_name}(으)로 이체됩니다."
@@ -1173,6 +1407,24 @@ ko:
       this_is_automatic_message: "이것은 %{community}의 관리자에게 발송된 자동 메시지입니다."
       person_name: "이름:"
       person_email: "이메일:"
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
+    edited_listing_submited_for_review:
+      subject: ~
+      there_is_a_edited_listing_to_review: ~
+      review_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "예상치 못한 오류로 인해 예약에 실패했습니다. 나중에 다시 시도 해주십시오. 결제가 청구되지 않았습니다."
@@ -1241,6 +1493,7 @@ ko:
       after: "%{restriction} 이후여야합니다."
       on_or_after: "%{restriction} 또는 그 이후여야합니다."
       positive_number: "번호를 입력하십시오."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name}이 %{listing_title}을 %{requester_name} %{time_ago}로 대여하기로 동의했습니다."
@@ -1448,7 +1701,7 @@ ko:
       how_to_use: "사용 예제"
       info_about_kassi: "%{service_name} 정보"
       news: 소식들
-      register_details: 프라이버시
+      register_details: "개인 정보 정책"
       terms: "이용 약관"
     logged_in:
       admin: 관리
@@ -1487,8 +1740,8 @@ ko:
       comment_sent: "의견 발송"
       confirmation_link_is_wrong_or_used: "확인 링크가 이미 사용되었거나 그렇지 않으면 깨졌습니다. 문제가 계속되면 로그인하거나 피드백을 보내십시오."
       additional_email_confirmed: "입력하신 이메일이 확인되었습니다."
-      could_not_get_email_from_facebook: "Facebook에서 이메일 주소를 가져올 수 없으며 이메일이 없는 계정을 만들 수 없습니다."
-      facebook_email_unconfirmed: "Facebook 계정과 연결된 이메일 주소 '%{email}'은 이미 사용되었지만 아직 확인되지 않았습니다. Facebook에 로그인하기 전에 이메일 주소를 확인하십시오."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "다른 목록 만들기"
       create_one_here: "신규 작성"
       email_confirmation_sent_to_new_address: "이제 전자 메일 확인이 새 주소로 전송됩니다."
@@ -1525,7 +1778,7 @@ ko:
       listing_updated_successfully: "목록이 성공적으로 업데이트되었습니다."
       listing_updated_availability_management_enabled: "목록이 업데이트되었습니다. 가용성 관리가 가능합니다."
       listing_updated_availability_management_disabled: "목록이 업데이트되었습니다. 가용성 관리가 비활성화되었습니다."
-      only_kassi_administrators_can_access_this_area: "%{service_name}팀에서만 이 영역을 접근할 수 있습니다."
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "게시자만 편집할 수 있습니다."
       only_listing_author_can_edit_a_listing: "게시자만 편집할 수 있습니다."
       payment_successful: "성공적으로 결제되었습니다"
@@ -1607,6 +1860,8 @@ ko:
       paypal_payments: "페이팔 결제"
       stripe_payments: "스트라이프 결제"
       payments: 결제
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "이 목록을 볼 수있는 권한이 없습니다."
@@ -1635,6 +1890,10 @@ ko:
       show_in_updates_email_loading: 로딩중...
       show_in_updates_email_error: "서버에 연결할 수 없습니다. 페이지 새로 고침 후 다시 시도하십시오."
       show_in_updates_email_success: "이 목록은 사용자에게 전송된 다음 자동 업데이트 이메일에 표시됩니다."
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "Google지도에서 열기"
     error:
@@ -1714,7 +1973,10 @@ ko:
         location: 위치
         origin: 원산지
       send_button:
-        save_listing: "목록 저장"
+        save_listing: "포스팅 하기"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: 선택
         borrow: 차용
@@ -1785,8 +2047,8 @@ ko:
       accept_for_frees: 무료수락
       trades: 교환
     listing_actions:
-      booking_from: 로부터
-      booking_to: 에게
+      booking_from: 부터
+      booking_to: 까지
       how_paypal_works: "PayPal의 작동 원리"
       payment_help: "결제 도움말"
       unable_load_availability: " 이용여부 정보를 로드 할 수 없습니다. 나중에 다시 시도 해주십시오."
@@ -1794,6 +2056,7 @@ ko:
       select_one: "하나를 선택하기"
       start_time: "시작 시간"
       end_time: "마침 시간"
+      marketplace_fees_may_apply: ~
     new:
       listing: 목록
       selected_category: "카테고리: %{category}"
@@ -1807,12 +2070,14 @@ ko:
       community_not_configured_for_payments: "%{service_name}이(가) 지불을 위해 구성되지 않았으므로 새로운 목록을 아직 게시 할 수 없습니다. 자세한 내용은 %{contact_admin_link}하시기 바랍니다."
       payment_settings_link: "결제 설정"
       community_not_configured_for_payments_admin: "%{service_name}이(가) 결제를 위해 구성되지 않았으므로 새로운 목록을 아직 게시 할 수 없습니다. 결제 세부 사항을 기입 하시려면 %{payment_settings_link} (으)로 이동하십시오."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "시간 수 :"
       day: 일수
       night: "숙박 일수:"
       week: "주 수 :"
       month: "개월 수 :"
+      unit: ~
       custom: "수량:"
     quantity_placeholder: 수량
     please_comment: 설명
@@ -1821,7 +2086,7 @@ ko:
     show:
       add_your_phone_number: "전화 번호 추가"
       add_profile_picture: "프로필 사진을 추가하세요"
-      comments: 공개토론
+      comments: 댓글달기
       contact_by_phone: "전화로 문의 :"
       contact: 연락처
       favor_offer: "서비스 제안"
@@ -1864,6 +2129,7 @@ ko:
       night: 밤
       week: 주
       month: 월
+      unit: ~
     verification_required:
       verification_required: 확인필요
   listing_conversations:
@@ -2027,12 +2293,12 @@ ko:
       show_my_name_to_others: "다른 %{service_name} 사용자에게 내 실명 표시"
       sign_up: "새 %{service_name} 계정을 만드세요"
       terms: 이용약관
-      privacy: ~
+      privacy: "개인 정보 정책"
       username_is_in_use: "이 사용자명은 이미 존재합니다"
       username_is_invalid: "사용자 이름이 잘못되었습니다. 문자, 숫자 및 밑줄만 허용되어집니다"
       visible_only_to_you: "귀하와 %{service_name} 팀에게만 보여집니다"
       visible_to_everybody: "모든사람에게 보여집니다"
-      create_account_with_facebook: "페이스북으로 로그인하기"
+      create_account_with_provider: ~
       OR: 또는
       signup_with_email: "이메일 가입"
       this_field_will_be_publicly_visible: ~
@@ -2040,9 +2306,8 @@ ko:
       grade: "등급:"
       and_gave_following_feedback: "그리고 다음과 같은 피드백을 주었다."
     profile_listings:
-      show_also_closed: "또한 폐쇄되어졌다고 보여줍니다"
-      show_only_open: "단지 개방되어졌다고 보여줍니다"
       no_image: "이미지가 없음"
+      manage_listings: ~
     show:
       contact: "연락처 %{person}"
       about_me: "내 소개:"
@@ -2075,6 +2340,8 @@ ko:
       show_all_listings: "모든 목록보기"
       show_all_open_listings: "모든 개방된 목록들 보기"
       show_all_reviews: "모든 리뷰 보기"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "당신은 %{count} 명을 팔로우합니다."
       you_follow_singular: "당신은 %{count} 명을 팔로우합니다."
@@ -2099,7 +2366,7 @@ ko:
       account_creation_link_text: "여기를 클릭하세요"
       cancle_facebook_connect: "이 계정을 연결하지 않으려면 %{cancel_link} 할 수 있습니다."
       facebook_cancel_link_text: 취소
-      log_in_with_your_facebook_account: "페이스북으로 로그인"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "... 또는 사용자 이름 또는 이메일 :"
       we_will_not_post_without_asking_you: "우리는 귀하에게 묻지 않고 페이스북에 결코 게시하지 않을 것입니다."
     password_forgotten:
@@ -2193,13 +2460,14 @@ ko:
       profile_page: "당신의 프로필 페이지에서"
       profilemap: 지도보기
       street_address: 위치
-      these_fields_are_shown_in_your: "이 정보는 모든 %{service_name} 사용자에게 표시됩니다."
+      these_fields_are_shown_in_your: "이 정보중 일부는 모든 %{service_name} 사용자에게 표시됩니다."
       visible_to_everybody: "모든사람에게 보여집니다"
       visible_to_registered_users: "(로그인 한 사용자만 볼 수 있습니다)"
       default_in_listing: "(새 목록을 만들때 기본값으로만 사용됨)"
       invisible: "(다른 사용자에게는 표시되지 않음)"
       image_is_processing: "잠시만 기다려주세요. 귀하의 프로필 사진을 처리 중입니다. 1 ~ 2 분 안에 준비될 것입니다."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "정보 저장하기"
   shipping_address:
     shipping_address: 배송주소
@@ -2410,6 +2678,7 @@ ko:
       signup: 가입하기
       admin_dashboard: "관리 대시보드"
       language: 언어
+      listings: ~
     utils:
       km: 킬로미터
       mi: mi
@@ -2439,14 +2708,8 @@ ko:
       multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "% {model}이(가) 없습니다."
-          other: "표시되는 %{accepted_count} %{accepted_model} 및 %{banned_count} 님은 %{banned_model}을(를) 금지했습니다."
-        single_page_html:
-          zero: "%{model}이(가) 없습니다."
-          other: "허용된 %{accepted_model} 및 %{banned_count} 개의 %{banned_model}을(를) 허용한 <b> % {accepted_count} </ b>"
-        multi_page: "%{accepted_model} 및 {banned_count} %{banned_model}을 (를) 허용한 %{accept_count}의 % {to}"
-        multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "결제가 설정되지 않았기 때문에 %{service_name}의 결제 시스템을 사용하여 결제를 받을 수 없습니다. 자세한 내용은 %{contact_admin_link}를 눌로 문의하시기 바랍니다."
     contact_admin_link_text: "%{service_name} 팀에 문의하십시오."
@@ -2467,15 +2730,19 @@ ko:
       need_info: "우리는 당신에게 돈을 보낼 수있는 당신에 관한 정보가 필요합니다."
       select_country: 국가선택...
       legal_name: 법명
-      first_name: ~
-      last_name: ~
+      first_name: 이름
+      last_name: 성
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: 국가
       birth_date: 생일
       ssn_last_4: "SSN 마지막 4"
       personal_id_number: "개인 아이디 넘버"
       address_country: 국가
       address_state: 주
-      address_province: ~
+      address_province: 도
       address_city: 도시
       address_postal_code: 우편번호
       address_line1: 거리주소
@@ -2484,6 +2751,21 @@ ko:
       save_details: "세부 정보 저장"
       edit: "세부 정보 편집"
       cancel: 취소
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
+      mcc: ~
     form_bank:
       bank_account_number: "은행 계좌 정보"
       bank_routing_number: "라우팅 번호"
@@ -2532,3 +2814,13 @@ ko:
     wrong_setup: "이 마켓 플레이스의 결제 시스템 설정에 문제가 있습니다. 플랫폼이 등록되지 않았습니다. 팀에 문의하여 Stripe에 플랫폼을 등록해야한다는 사실을 알려주십시오."
     invalid_bank_account_number: "귀하의 은행 계좌가 정확하게 입력되어 귀하의 국가와 일치하는지 확인하십시오."
     invalid_postal_code: "%{country}의 우편 번호가 잘못되었습니다."
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      listing_description_without_price: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

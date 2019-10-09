@@ -12,9 +12,10 @@
 
   $arrow-width: 1em;
 
-  a, .toggle-menu-item {
-
-    &, .feedback {
+  a,
+  .toggle-menu-item {
+    &,
+    .feedback {
       display: block;
       position: relative;
       color: $background;
@@ -34,7 +35,8 @@
     }
   }
 
-  a, .toggle-menu-link {
+  a,
+  .toggle-menu-link {
     &:hover {
       background: $link;
       color: $background;
@@ -72,18 +74,21 @@
 
   .badge {
     position: absolute;
-    right: em(9, 13); top: em(14, 13); bottom: auto;
+    right: em(9, 13);
+    top: em(14, 13);
+    bottom: auto;
     z-index: 900;
 
     &.huge-badge {
-      top: em(10, 13); right: em(9, 13); bottom: auto;
+      top: em(10, 13);
+      right: em(9, 13);
+      bottom: auto;
     }
   }
 
   @include media(tablet) {
     position: absolute;
   }
-
 }
 
 .toggle {
@@ -110,21 +115,19 @@
     $toggle-border-width: 0;
     border: $toggle-border-width solid $border;
     @include border-radius(em(5));
-    background: $highlight;
+    // background: $highlight;
 
     &.toggled {
       border-width: 0;
       @include border-radius(0);
-      background: $light-body;
+      // background: $light-body;
 
       @include media(tablet) {
         // Add padding to fill missing space left by removed borders.
         // No need to do this in mobile, since were not absolutely positioned there.
         padding: $toggle-border-width;
       }
-
     }
-
   }
 }
 
@@ -147,6 +150,7 @@
   }
 }
 
-.toggle-menu-subitem, a.toggle-menu-subitem {
+.toggle-menu-subitem,
+a.toggle-menu-subitem {
   padding-left: lines(1);
 }

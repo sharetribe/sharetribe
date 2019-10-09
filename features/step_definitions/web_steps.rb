@@ -13,6 +13,7 @@ module FillInHelpers
     # Highly inspired by Capybara's fill_in implementation
     # https://github.com/jnicklas/capybara/blob/80befdad73c791eeaea50a7cbe23f04a445a24bc/lib/capybara/node/actions.rb#L50
     raise "Must pass a hash containing 'with'" if not options.is_a?(Hash) or not options.has_key?(:with)
+
     with = options.delete(:with)
     first(:fillable_field, locator, options).set(with)
   end
@@ -21,6 +22,7 @@ module FillInHelpers
     # Highly inspired by Capybara's fill_in implementation
     # https://github.com/jnicklas/capybara/blob/80befdad73c791eeaea50a7cbe23f04a445a24bc/lib/capybara/node/actions.rb#L50
     raise "Must pass a hash containing 'with'" if not options.is_a?(Hash) or not options.has_key?(:with)
+
     with = options.delete(:with)
     results = all(:fillable_field, locator, options)
     if results.size >= n
@@ -354,5 +356,13 @@ end
 
 Then(/^I should see selected "([^"]*)" in the "([^"]*)" dropdown$/) do |content, field|
    expect(page).to have_select(field, selected: content)
+end
+
+Then(/^I should see page source$/) do
+  puts page.driver.html
+end
+
+Then(/^I should see disabled "([^"]*)" input$/) do |field|
+  expect(!!find_field(field, disabled: true)).to eq true
 end
 

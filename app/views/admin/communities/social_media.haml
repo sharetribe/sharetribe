@@ -13,6 +13,45 @@
   %h2= t(".social_media")
   = form_for @community, :url => social_media_admin_community_path(@community), :method => :put do |form|
     .row
+      %h3= t(".logo")
+      = render :partial => "layouts/info_text", :locals => { :text => t('.logo_info', :width => 1200, :height => 600)}
+      = render 'layouts/thumbnail', file_field: @community.social_logo.image
+      = form.fields_for :social_logo do |logo_form|
+        = logo_form.label :image, t('admin.communities.social_media.add_another_image')
+        = logo_form.file_field(:image, :class => "file-field-button")
+    .row
+      %h3= t(".social_media_title")
+      - facebook_preview_link = link_to(t('admin.communities.social_media.link_for_facebook'), 'https://developers.facebook.com/tools/debug/', target: '_blank')
+      - linkedin_preview_link = link_to(t('admin.communities.social_media.link_for_linkedin'), 'https://www.linkedin.com/post-inspector/', target: '_blank')
+      - twitter_preview_link = link_to(t('admin.communities.social_media.link_for_twitter'), 'https://cards-dev.twitter.com/validator', target: '_blank')
+      - info_text = t('admin.communities.social_media.social_media_title_info', :facebook_preview_link => facebook_preview_link, :linkedin_preview_link => linkedin_preview_link, :twitter_preview_link => twitter_preview_link).html_safe
+      - sorted_customizations = customizations_sorted_by_locale
+
+      .translation-wrapper
+        = render partial: "layouts/info_text", locals: {text: info_text}
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :social_media_title, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_field :social_media_title, placeholder:  "#{@community.full_name(locale)} - #{community_slogan}", class: "text_field"
+
+    .row
+      %h3= t(".social_media_description")
+      .translation-wrapper
+        = render partial: "layouts/info_text", locals: {text: info_text}
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :social_media_description, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_area :social_media_description, placeholder:  "#{community_description(false)} - #{community_slogan}", class: "text_field"
+
+    .row
       %h3= t(".twitter_handle")
     .row
       .col-6
@@ -46,6 +85,52 @@
       .col-6
         = form.label :facebook_connect_secret, t(".facebook_connect_secret"), {:class => "input"}.merge(disabled_connect)
         = form.text_field :facebook_connect_secret, {:maxlength => "32", :class => "text_field", :placeholder => "#{Digest::MD5.hexdigest('1')}"}.merge(disabled_connect)
+
+    .row
+      %h3= t('.google_connect')
+      - if display_knowledge_base_articles
+        - google_instructions_link = link_to(t("admin.communities.social_media.google_instructions_link_text"), "#{knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/third-party-sign-up-services/how-to-configure-google-sign-in" )
+        = render :partial => "layouts/info_text", :locals => { :text => t(".google_connect_info_text_with_instructions", :instructions_link => google_instructions_link).html_safe}
+      - else
+        = render :partial => "layouts/info_text", :locals => { :text => t(".google_connect_info_text").html_safe }
+    .row
+      .checkbox-container
+        = form.check_box :google_connect_enabled
+        = form.label :google_connect_enabled, t(".enable_google_login"), :class => "settings-checkbox-label"
+    .row
+      - disabled_connect = @community.google_connect_enabled? ? {} : {disabled: 'disabled'}
+      .col-6
+        = form.label :google_connect_id, t(".google_connect_id"), {:class => "input"}.merge(disabled_connect)
+        = form.text_field :google_connect_id, {:class => "text_field",
+          :placeholder => "23456789-564sqsdLdglks2187pouUs275Uahdbs7of.apps.googleusercontent.com",
+          required: true}.merge(disabled_connect)
+      .col-6
+        = form.label :google_connect_secret, t(".google_connect_secret"), {:class => "input"}.merge(disabled_connect)
+        = form.text_field :google_connect_secret, {:class => "text_field",
+          :placeholder => "Qsd1ljs9qfPOA4nePsp5dglj",
+          required: true}.merge(disabled_connect)
+
+    .row
+      %h3= t('.linkedin_connect')
+      - if display_knowledge_base_articles
+        - linkedin_instructions_link = link_to(t("admin.communities.social_media.linkedin_instructions_link_text"), "#{knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/third-party-sign-up-services/how-to-configure-linkedin-sign-in" )
+        = render :partial => "layouts/info_text", :locals => { :text => t(".linkedin_connect_info_text_with_instructions", :instructions_link => linkedin_instructions_link).html_safe}
+      - else
+        = render :partial => "layouts/info_text", :locals => { :text => t(".linkedin_connect_info_text").html_safe }
+    .row
+      .checkbox-container
+        = form.check_box :linkedin_connect_enabled
+        = form.label :linkedin_connect_enabled, t(".enable_linkedin_login"), :class => "settings-checkbox-label"
+    .row
+      - disabled_connect = @community.linkedin_connect_enabled? ? {} : {disabled: 'disabled'}
+      .col-6
+        = form.label :linkedin_connect_id, t(".linkedin_connect_id"), {:class => "input"}.merge(disabled_connect)
+        = form.text_field :linkedin_connect_id, {:class => "text_field",
+          :placeholder => "86xb8ms47icxgw", required: true}.merge(disabled_connect)
+      .col-6
+        = form.label :linkedin_connect_secret, t(".linkedin_connect_secret"), {:class => "input"}.merge(disabled_connect)
+        = form.text_field :linkedin_connect_secret, {:class => "text_field",
+          :placeholder => "cVjH9Q2Butjm2J90", required: true}.merge(disabled_connect)
 
     .row
       = form.button t("admin.communities.social_media.save")

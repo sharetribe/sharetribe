@@ -69,9 +69,9 @@ describe Result do
     end
 
     it "throws error if lambda results something else than result" do
-      expect { Result.all(->() { success })}.not_to raise_error
-      expect { Result.all(->() { error })}.not_to raise_error
-      expect { Result.all(->() { "a string" })}.to raise_error(ArgumentError, "Lambda must return Result")
+      expect { Result.all(-> { success })}.not_to raise_error
+      expect { Result.all(-> { error })}.not_to raise_error
+      expect { Result.all(-> { "a string" })}.to raise_error(ArgumentError, "Lambda must return Result")
     end
   end
 
