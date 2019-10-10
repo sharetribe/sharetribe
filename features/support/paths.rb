@@ -46,6 +46,8 @@ module NavigationHelpers
       "/en/signup?code=#{$1}"
     when /^the admin view of community "(.*)"$/i
       admin_details_edit_path(locale: "en")
+    when /^the admin settings view of community "(.*)"$/i
+      admin_setting_path(locale: "en")
     when /the infos page/
       about_infos_path(:locale => "en")
     when /the terms page/
