@@ -1,13 +1,24 @@
 .row-with-divider.without-margin.conversation-row{:class => conversation[:should_notify] ? "conversation-unread" : ""}
 
+  - last_meta = conversation[:transitions].present? && conversation[:transitions].last[:metadata]
+  - last_admin_meta = last_meta && last_meta['executed_by_admin']
+  - last_was_transition = conversation[:last_message_at] ? conversation[:last_transition_at] && conversation[:last_transition_at] > conversation[:last_message_at] : conversation[:last_transition_at]
+  - last_admin_action = last_was_transition && last_admin_meta
   .col-3
     .conversation-details-container
       - avatar = conversation[:other].image.present? ? conversation[:other].image.url(:thumb) : missing_avatar(:thumb)
-      = link_to person_path(conversation[:other]) do
+      - if last_admin_action
+        - avatar = @current_community.logo.present? ? @current_community.logo.url(:header_icon) : missing_avatar(:thumb)
         = image_tag avatar, :class => "conversation-avatar"
+      - else
+        = link_to person_path(conversation[:other]) do
+          = image_tag avatar, :class => "conversation-avatar"
       .conversation-details
         .conversation-other-party-name
-          = link_to_unless conversation[:other].deleted, PersonViewUtils.person_display_name(conversation[:other], @current_community), person_path(conversation[:other])
+          - if last_admin_action
+            %b= @current_community.name(I18n.locale)
+          - else
+            = link_to_unless conversation[:other].deleted, PersonViewUtils.person_display_name(conversation[:other], @current_community), person_path(conversation[:other])
         .conversation-last-message-at
           = conversation[:last_activity_ago]
 

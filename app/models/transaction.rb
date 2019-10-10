@@ -326,4 +326,9 @@ class Transaction < ApplicationRecord
     (unit_price * quantity) + shipping_price + buyer_commission
   end
 
+  def last_transition_by_admin?
+    transition = transaction_transitions.last
+    transition && transition[:metadata] && transition[:metadata]['executed_by_admin']
+  end
+
 end
