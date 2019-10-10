@@ -41,6 +41,19 @@ describe HomepageController, type: :controller do
         expect(response.body).to match("<meta content='SEO Description' name='description'>")
       end
 
+      it 'renders updated meta title and description' do
+        @community.community_customizations.first.update(
+          meta_title: 'SEO Title', meta_description: 'SEO Description',
+          social_media_title: 'Social Title', social_media_description: 'Social Description')
+        get :index
+        expect(response.body).to match("<title>SEO Title</title>")
+        expect(response.body).to match("<meta content='Social Title' property='og:title'>")
+        expect(response.body).to match("<meta content='Social Title' name='twitter:title'>")
+        expect(response.body).to match("<meta content='SEO Description' name='description'>")
+        expect(response.body).to match("<meta content='Social Description' property='og:description'>")
+        expect(response.body).to match("<meta content='Social Description' name='twitter:description'>")
+      end
+
       it "renders updated meta title and description when search params are provided" do
         @community.community_customizations.first.update(search_meta_title: "Search results for {{keywords_searched}}", search_meta_description: "Search results for {{keywords_searched}} at {{location_searched}}")
         get :index, params: {q: 'books', lq: 'New York'}
