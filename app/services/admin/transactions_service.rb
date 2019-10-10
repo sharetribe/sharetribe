@@ -76,7 +76,7 @@ module Admin
     end
 
     def cancel
-      return false unless can_transition_to?(:confirmed)
+      return false unless can_transition_to?(:canceled)
 
       result = TransactionService::Transaction.cancel(
         community_id: community.id, transaction_id: transaction.id,

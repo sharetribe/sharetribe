@@ -1129,18 +1129,19 @@ en:
         inquiry: Contact
     community_transactions:
       show:
-        transaction_for: "Transaction for %{link}"
-        status: "Status:"
-        next_step: "Next step:"
-        waiting_for_provider_accept_or_reject: "Waiting for %{provider} to accept or reject the request."
-        waiting_for_fulfill_and_complete: "Waiting for %{provider} to fulfill the order for %{listing_title} and for %{buyer} to mark the order as completed."
-        buyer: "Buyer:"
-        provider: "Provider:"
-        buyer_pays: "Buyer pays:"
-        marketplace_collects: "%{service_name} collects:"
-        buyer_service_fee_label: "Commision from buyer:"
-        service_fee_label: "Commision from seller:"
-        provider_receives: "Seller receives:"
+        transaction_for: Transaction for %{link}
+        status: 'Status:'
+        next_step: 'Next step:'
+        waiting_for_provider_accept_or_reject: 'Waiting for %{provider} to accept or reject the request.'
+        waiting_for_fulfill_and_complete: 'Waiting for %{provider} to fulfill the order for %{listing_title} and for %{buyer} to mark the order as completed.'
+        buyer: 'Buyer:'
+        provider: 'Provider:'
+        buyer_pays: 'Buyer pays:'
+        marketplace_collects: '%{service_name} collects:'
+        buyer_service_fee_label: 'Commision from buyer:'
+        service_fee_label: 'Commision from seller:'
+        provider_receives: 'Seller receives:'
+        admin_info_text: 'As an administrator of %{service_name}, you can do some actions to move this transaction forward:'
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
@@ -1430,6 +1431,7 @@ en:
       give_feedback_to: "Give feedback to %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} has marked the order about '%{request}' completed. The payment for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
+      team_title: 'the %{service_name} team'
     transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The order was automatically completed because %{days_passed} days have passed since the request was accepted."
