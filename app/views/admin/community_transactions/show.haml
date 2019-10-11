@@ -170,7 +170,8 @@
             .icon-with-text.ss-delete
             .text-with-icon
               = t('conversations.status_link.cancel')
-
+  - if pr.completed?
+    = link_to t(".manage_reviews"), admin_community_testimonials_path(community_id: pr.community), class: 'button'
   #messages
     = render :partial => "conversations/message", :collection => pr.messages_and_actions, as: :message_or_action
 
