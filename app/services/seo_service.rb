@@ -60,15 +60,13 @@ class SeoService
   end
 
   def title(default_value, extra_mode = nil, locale = I18n.locale)
-    return @title if defined?(@title)
-
     @locale = locale
     custom_value =
       if mode == 'default' && extra_mode == :social
         # social media title is passed here from layout
         default_value
       elsif customization.present?
-        customization_title(mode)
+        customization_title(mode, extra_mode)
       else
         default_value
       end
@@ -76,15 +74,13 @@ class SeoService
   end
 
   def description(default_value, extra_mode = nil, locale = I18n.locale)
-    return @description if defined?(@description)
-
     @locale = locale
     custom_value =
       if mode == 'default' && extra_mode == :social
         # social media description is passed here from layout
         default_value
       elsif customization.present?
-        customization_description(mode)
+        customization_description(mode, extra_mode)
       else
         default_value
       end
@@ -198,10 +194,14 @@ class SeoService
     end
   end
 
-  def customization_title(mode)
+  def customization_title(mode, extra_mode = nil)
     case mode
     when 'homepage'
-      customization.meta_title
+      if extra_mode == :social
+        customization.social_media_title.presence || customization.meta_title
+      else
+        customization.meta_title
+      end
     when 'listing'
       customization_value_or_default(:listing_meta_title)
     when 'profile'
@@ -213,10 +213,14 @@ class SeoService
     end
   end
 
-  def customization_description(mode)
+  def customization_description(mode, extra_mode = nil)
     case mode
     when 'homepage'
-      customization.meta_description
+      if extra_mode == :social
+        customization.social_media_description.presence || customization.meta_description
+      else
+        customization.meta_description
+      end
     when 'listing'
       customization_value_or_default(:listing_meta_description)
     when 'profile'
