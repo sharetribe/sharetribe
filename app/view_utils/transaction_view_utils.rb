@@ -7,7 +7,8 @@ module TransactionViewUtils
     [:content, :string, :mandatory],
     [:sender, :mandatory],
     [:created_at, :time, :mandatory],
-    [:mood, one_of: [:positive, :negative, :neutral]]
+    [:mood, one_of: [:positive, :negative, :neutral]],
+    [:admin, :to_bool, :optional]
   )
 
   PriceBreakDownLocals = EntityUtils.define_builder(
@@ -133,12 +134,14 @@ module TransactionViewUtils
       }
     when "canceled"
       {
-        sender: starter,
+        sender: transition_user(transition, starter),
+        admin: transition[:metadata] && transition[:metadata]['executed_by_admin'],
         mood: :negative
       }
     when "confirmed"
       {
-        sender: starter,
+        sender: transition_user(transition, starter),
+        admin: transition[:metadata] && transition[:metadata]['executed_by_admin'],
         mood: :positive
       }
     else
@@ -224,5 +227,8 @@ module TransactionViewUtils
       .or_else(1)
   end
 
+  def transition_user(transition, starter)
+    transition[:metadata] && transition[:metadata]['user_id'] && Person.find_by_id(transition[:metadata]['user_id']) || starter
+  end
 
 end
