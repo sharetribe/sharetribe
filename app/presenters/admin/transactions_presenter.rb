@@ -176,4 +176,8 @@ class Admin::TransactionsPresenter
   def provider_name
     provider ? PersonViewUtils.person_display_name(provider, community) : 'X'
   end
+
+  def completed?
+    transaction.current_state == 'confirmed' || transaction.current_state == 'canceled'
+  end
 end
