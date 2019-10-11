@@ -23,3 +23,4 @@ Feature: User closes a listing
     And I should not see "Reopen listing" within "#listing-message-links"
     And I should see "Edit listing" within "#listing-message-links"
     And I should see "Close listing" within "#listing-message-links"
+    And I should see "Delete listing" within "#listing-message-links"
