@@ -248,6 +248,10 @@ Given /^this community has transaction agreement in use$/ do
   @current_community.save!
 end
 
+Given /^this community has location search (enabled|disabled)$/ do |mode|
+  APP_CONFIG.external_search_in_use = mode == 'enabled'
+end
+
 Given /^community "(.*?)" has feature flag "(.*?)" enabled$/ do |community, feature_flag|
   community = Community.where(ident: community).first
   FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [feature_flag.to_sym])

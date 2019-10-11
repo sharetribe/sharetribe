@@ -21,6 +21,21 @@ window.ST = window.ST || {};
     });
   };
 
+  function checkLocationMode() {
+    var mode = $("#main_search").val();
+    if (mode && mode.match(/location/)) {
+      $('.if-location-enabled').show();
+    } else {
+      $('.if-location-enabled').hide();
+    }
+  }
+
+  var initializeLocationSearchModeSwitch = function() {
+    $("#main_search").change(checkLocationMode);
+    checkLocationMode();
+  };
+
   module.initializeDeleteMarketplace = initializeDeleteMarketplace;
+  module.initializeLocationSearchModeSwitch = initializeLocationSearchModeSwitch;
 
 })(window.ST);
