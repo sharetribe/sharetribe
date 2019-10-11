@@ -645,6 +645,159 @@ es:
         contact_us: Contáctanos
         you_can_now_use_a_custom_domain: "Con tu plan actual, puedes habilitar un dominio personalizado. ¿Quieres hacerlo? %{contact_us}!"
         would_you_like_to_change_domain: "¿Te gustaría cambiar el dominio personalizado de tu marketplace? %{contact_us}!"
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_preview_text: ~
+        info_2_details_text: ~
+        info_2_design_text: ~
+        info_3: "Si quieres personalizar la página de inicio de tu marketplace, puedes hacerlo con una subscripción adicional por $99 dólares al mes."
+        info_4: "Leer más acerca de las páginas de inicio personalizadas"
+        editor_title: "Editor de página de inicio"
+        editor_info: ~
+        preview: "Vista previa"
+        set_live: Publicar
+        headers:
+          section_id: "ID de la sección"
+          section_type: "Tipo de sección"
+          version: Versión
+          released: Pubicada
+        add_new_version: "Añadir una versión nueva"
+        new_version: "Nueva versión"
+        edit_version: "Editar versión"
+        add_new_section: "Añadir sección nueva"
+        select_section_type: "Typo de sección..."
+        form:
+          version: Versión
+          save: Guardar
+        sections:
+          identifier: "ID de la sección"
+          kind: "Tipo de sección"
+          variation: Variante
+          new: "Nueva sección"
+          edit: "Editar sección %{section_id}"
+          remove_section_confirmation: "¿Estás seguro que quieres eliminar la sección '%{section_id}' y toda su información? No se puede revertir."
+          info_single_column: "Info 1 columna"
+          info_multi_column_2: "Info 2 columnas"
+          info_multi_column_3: "Info 3 columnas"
+          listings: Anuncios
+          categories: Categorias
+          hero: Hero
+          locations: ~
+          video: ~
+          new_section:
+            categories: "Nueva sección Categorias"
+            footer: "Nueva sección Pie de página"
+            hero: "Nueva sección Hero"
+            info_single_column: "Nueva sección 1 columna"
+            info_multi_column_2: "Nueva sección 2 columnas"
+            info_multi_column_3: "Nueva sección 3 columnas"
+            listings: "Nueva sección Anuncios"
+            locations: "Nueva sección Ubicaciones"
+            video: "Nueva sección Video"
+          edit_section:
+            categories: "Editar sección Categorias"
+            footer: "Editar sección Pie de página"
+            hero: "Editar sección Hero"
+            info_single_column: "Editar sección 1 columna"
+            info_multi_column_2: "Editar sección 2 columnas"
+            info_multi_column_3: "Editar sección 3 columnas"
+            listings: ~
+            locations: ~
+            video: ~
+    landing_page_versions:
+      sections:
+        hero:
+          hero_title: Hero
+          hero_description: ~
+        footer:
+          footer_title: "Pie de página"
+          footer_style: ~
+          style_dark: Obscuro
+          style_light: Claro
+          style_marketplace_color: "Color del Marketplace"
+          style_logo: Logo
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: ~
+          cta_url: ~
+        background_image_overlay:
+          background_image: ~
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: ~
+          title_placeholder: ~
+          url: ~
+          url_placeholder: ~
+        multi_column:
+          main_title: ~
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: ~
+          youtube_video_id: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -1534,6 +1687,9 @@ es:
       on_or_after: "Debe ser a las %{restriction} o después"
       positive_number: "Ingresa un número."
       from_must_be_less_than_till: "La hora inicial debe ser menor que la final"
+      section_with_this_id_already_exists: ~
+      listing_with_this_id_does_not_exist: ~
+      presence: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."
@@ -2913,3 +3069,26 @@ es:
       category_description: "%{category} en %{marketplace}"
       profile_title: "Perfil de %{user} - %{marketplace}"
       profile_description: "Lee más acerca de %{user} en %{marketplace}"
+  activemodel:
+    attributes:
+      landing_page_version/section/base:
+        id: ~
+        title: ~
+        paragraph: ~
+        button_color: ~
+        button_color_hover: ~
+        button_title: ~
+        button_path: ~
+        button_path_string: ~
+        background_image: ~
+        background_image_variation: ~
+        background_color: ~
+        background_color_string: ~
+        icon_color: ~
+      landing_page_version/section/listings:
+        listing_1_id: ~
+        listing_2_id: ~
+        listing_3_id: ~
+      landing_page_version/section/video:
+        text: ~
+        youtube_video_id: ~

@@ -630,6 +630,159 @@ sl-SI:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_preview_text: ~
+        info_2_details_text: ~
+        info_2_design_text: ~
+        info_3: ~
+        info_4: ~
+        editor_title: ~
+        editor_info: ~
+        preview: ~
+        set_live: ~
+        headers:
+          section_id: ~
+          section_type: ~
+          version: ~
+          released: ~
+        add_new_version: ~
+        new_version: ~
+        edit_version: ~
+        add_new_section: ~
+        select_section_type: ~
+        form:
+          version: ~
+          save: ~
+        sections:
+          identifier: ~
+          kind: ~
+          variation: ~
+          new: ~
+          edit: ~
+          remove_section_confirmation: ~
+          info_single_column: ~
+          info_multi_column_2: ~
+          info_multi_column_3: ~
+          listings: ~
+          categories: ~
+          hero: ~
+          locations: ~
+          video: ~
+          new_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+          edit_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+    landing_page_versions:
+      sections:
+        hero:
+          hero_title: ~
+          hero_description: ~
+        footer:
+          footer_title: ~
+          footer_style: ~
+          style_dark: ~
+          style_light: ~
+          style_marketplace_color: ~
+          style_logo: ~
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: ~
+          cta_url: ~
+        background_image_overlay:
+          background_image: ~
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: ~
+          title_placeholder: ~
+          url: ~
+          url_placeholder: ~
+        multi_column:
+          main_title: ~
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: ~
+          youtube_video_id: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -1398,7 +1551,7 @@ sl-SI:
       you_are_receiving_this_because: ~
       view_listing: ~
     new_member_notification:
-      subject: ~
+      subject: "Nov član v %{community}"
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -1499,6 +1652,9 @@ sl-SI:
       on_or_after: ~
       positive_number: ~
       from_must_be_less_than_till: ~
+      section_with_this_id_already_exists: ~
+      listing_with_this_id_does_not_exist: ~
+      presence: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -1563,16 +1719,16 @@ sl-SI:
       items_to_offer: "Blago na izposojo: "
       items_to_request: "Blago za izposojo: "
       log_in: prijava!
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
+      no_offers_visible_unless_logged_in: "Uporabnikom, ki niso prijavljeni ni na voljo ponujanje izdelkov, storitev ali skupne rabe."
+      no_open_offers_currently: "Ni odprtih ponudb za izdelke ali storitve v skupni rabi."
       no_open_requests_currently: ~
       no_requests_visible_unless_logged_in: ~
       one_private_offer_exists: ~
       one_private_request_exists: ~
       ride_offer: ~
       ride_request: "Prevoz v službo"
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      some_private_offers_exist: "Vnešenih <b>%{number_of_listings} ponudb</b>"
+      some_private_requests_exist: "Vnešenih <b>%{number_of_listings} zahtev</b>"
     custom_filters:
       update_view: ~
       min: ~
@@ -1769,11 +1925,11 @@ sl-SI:
       email_confirmation_sent_to_new_address: ~
       email_not_found: "Vnešenega e-naslova nismo našli v bazi %{service_name}."
       error_with_session: "Napaka seje"
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
+      feedback_considered_spam: "Povratne informacije zaradi oblike formata niso shranjene. Poizkusite znova ali uporabite forum za povratne informacije."
+      feedback_not_saved: "Povratnih informacij ni bilo mogoče poslati."
+      feedback_saved: "Hvala za vaše sporočilo! Kontaktirali vas bomo v najkrajšem možnem času."
+      feedback_sent_to: "Povratne informacije poslane %{target_person}"
+      feedback_skipped: "Povratne informacije so bile preskočene"
       invitation_cannot_be_sent: ~
       invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
@@ -1785,7 +1941,7 @@ sl-SI:
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "Dobrodošli/a %{person_name}!"
-      logout_successful: ~
+      logout_successful: "Sedaj ste odjavljeni iz %{service_name}. Se vidimo kmalu!"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
@@ -2037,7 +2193,7 @@ sl-SI:
       all_categories: ~
       all_offer_types: ~
       all_request_types: ~
-      category: ~
+      category: Kategorija
       did_not_found_what_you_were_looking_for: "Ne najdete kar ste iskali?"
       favors: Storitve
       housing: Prostori
@@ -2056,20 +2212,20 @@ sl-SI:
       feed_title: ~
     left_panel_link:
       borrows: Izposojanje
-      buys: ~
+      buys: nakupovanje
       favors: ~
       give_aways: ~
       housings: ~
-      items: ~
+      items: predmeti
       lends: Posojanje
-      receives: ~
+      receives: brezplačno
       rent_outs: Najem
       rents: Najem
       rideshares: ~
-      sells: ~
+      sells: Prodaja
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: Zamenjava
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -2104,13 +2260,13 @@ sl-SI:
       unit: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: Komentar
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Javna razprava"
       contact_by_phone: ~
       contact: ~
       favor_offer: ~
@@ -2375,7 +2531,7 @@ sl-SI:
   sessions:
     new:
       create_new_account: "Ustvarite nov račun"
-      i_forgot_my_password: "Pozabljeno uporabniško ime ali geslo"
+      i_forgot_my_password: "Pozabljeno geslo"
       login: Prijava
       login_to_kassi: "Prijavite se v %{service_name}"
       connect_your_facebook_to_kassi: ~
@@ -2818,3 +2974,26 @@ sl-SI:
       category_description: ~
       profile_title: ~
       profile_description: ~
+  activemodel:
+    attributes:
+      landing_page_version/section/base:
+        id: ~
+        title: ~
+        paragraph: ~
+        button_color: ~
+        button_color_hover: ~
+        button_title: ~
+        button_path: ~
+        button_path_string: ~
+        background_image: ~
+        background_image_variation: ~
+        background_color: ~
+        background_color_string: ~
+        icon_color: ~
+      landing_page_version/section/listings:
+        listing_1_id: ~
+        listing_2_id: ~
+        listing_3_id: ~
+      landing_page_version/section/video:
+        text: ~
+        youtube_video_id: ~
