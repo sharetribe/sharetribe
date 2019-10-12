@@ -28,10 +28,20 @@ window.ST = window.ST || {};
     } else {
       $('.if-location-enabled').hide();
     }
+    var show_loc = $("#community_show_location")[0].checked;
+    if (show_loc) {
+      $("#main_search option").prop("disabled", false);
+    } else {
+      $("#main_search option:not(:first)").prop("disabled", true);
+      if (mode != "keyword") {
+        $("#main_search").val("keyword").trigger("change");
+      }
+    }
   }
 
   var initializeLocationSearchModeSwitch = function() {
     $("#main_search").change(checkLocationMode);
+    $("#community_show_location").click(checkLocationMode);
     checkLocationMode();
   };
 
