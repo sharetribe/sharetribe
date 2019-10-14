@@ -67,3 +67,9 @@ I want to see see all the transactions happening in my community
     When I fill in "q" with "jane"
     And I click ".search-button"
     Then I should see 2 transaction with status "Free transaction"
+
+  Scenario: Admin sees single transaction
+    When I open last transaction for listing "Moving help"
+    Then I should see "Transaction for Moving help"
+    Then I should see "Status: Free transaction"
+
