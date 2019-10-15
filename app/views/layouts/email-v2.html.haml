@@ -31,6 +31,7 @@
                 - if @recipient && @url_params && !skip_unsubscribe_footer
                   %tr
                     %td.unsubscribe
+                      = yield :extra_notice
                       - if @community
                         = t("emails.common.unsubscribe_from_these_emails_info", service_name: @community.full_name(I18n.locale))
                       = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@recipient, @url_params))).html_safe
