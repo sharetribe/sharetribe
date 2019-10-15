@@ -304,6 +304,10 @@ class PersonMailer < ActionMailer::Base
     @no_settings = true
     @person = new_member
     @email = new_member.emails.last.address
+    @url_params = {}
+    @url_params[:host] = "#{community.full_domain}"
+    @url_params[:locale] = admin.locale
+
     with_locale(admin.locale, community.locales.map(&:to_sym), community.id) do
       address = admin.confirmed_notification_emails_to
       if address.present?
