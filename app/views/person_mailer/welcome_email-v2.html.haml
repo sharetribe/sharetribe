@@ -1,0 +1,10 @@
+%tr
+  %td.person_name
+    %h1= t("emails.common.hey", :name => PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only"))
+%tr
+  %td.email-content
+    - customization = @current_community.community_customizations.find_by_locale(@url_params[:locale])
+    - if customization && !customization.welcome_email_content.blank?
+      = customization.welcome_email_content.html_safe
+    - else
+      = render :partial => "admin/communities/default_welcome_email"
