@@ -191,6 +191,11 @@
         font-size: 14px;
         margin: 0;
       }
+
+      vertical-align: top;
+      &.no-padding {
+        padding: 0 0 28px 0;
+      }
     }
 
     .email-listings-title {
