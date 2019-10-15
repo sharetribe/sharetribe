@@ -8,6 +8,7 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
   @feed_presenter.listings.each do |listing|
     feed.entry(nil, id: listing_url(listing[:id], host: host), published: listing[:created_at], updated: listing[:updated_at], url: listing_url(listing[:url], host: host)) do |entry|
       entry.title format_listing_title(listing[:shape_name_tr_key], listing[:title])
+      entry.st :listing_id, listing[:id].to_s
       entry_content = add_links_and_br_tags(html_escape(listing[:description]))
       unless listing[:listing_images].empty?
 

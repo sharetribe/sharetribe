@@ -162,7 +162,7 @@ describe ListingsController, type: :controller do
         :community_id => @c1.id,
       )
 
-      FactoryGirl.create(
+      @l2 = FactoryGirl.create(
         :listing,
         :title => "hammer",
         :category => @category_item,
@@ -231,7 +231,9 @@ describe ListingsController, type: :controller do
       expect(doc.at("feed/title").text).to match(/Listings in Sharetribe /)
       expect(doc.search("feed/entry").count).to eq(2)
       expect(doc.search("feed/entry/title")[0].text).to eq("Sell: hammer")
+      expect(doc.search("feed/entry/listing_id")[0].text).to eq(@l2.id.to_s)
       expect(doc.search("feed/entry/title")[1].text).to eq("Request: bike")
+      expect(doc.search("feed/entry/listing_id")[1].text).to eq(@l1.id.to_s)
       expect(doc.search("feed/entry/published")[0].text).to be > doc.search("feed/entry/published")[1].text
       #DateTime.parse(doc.search("feed/entry/published")[1].text).should == @l1.created_at
       expect(doc.search("feed/entry/content")[1].text).to match(/#{@l1.description}/)
