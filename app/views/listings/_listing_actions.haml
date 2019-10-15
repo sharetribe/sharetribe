@@ -11,8 +11,7 @@
             = icon_tag("unlock", ["icon-part"])
             .text-part= t("listings.edit_links.reopen_listing")
       .listing-view-admin-link
-        = link_to delete_listing_path(@listing), data: {confirm: t("listings.deleting_a_listing_cannot_be_undone")},
-          method: "delete", class: 'icon-with-text-container' do
+        = link_to delete_listing_path(@listing), method: "delete", class: 'icon-with-text-container' do
           = icon_tag("trash", ["icon-part"])
           .text-part= t("listings.edit_links.delete_listing")
 
