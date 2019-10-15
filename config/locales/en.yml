@@ -1675,6 +1675,12 @@ en:
       has_posted_a_new_listing: "%{author_name} has posted a new listing:"
       you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
       view_listing: "View listing"
+    new_listing_by_followed_person_v2:
+      headline: "Hi %{name}, %{author} just added a new listing!"
+      has_posted_a_new_listing: "%{author_name} has posted a new listing:"
+      you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
+      view_listing: "View %{title}"
+      cant_click: "Can't click the button? Here's the link for your convenience:"
     new_member_notification:
       subject: "New member in %{community}"
       new_member_has_joined: "A new member has joined %{community}. They may still have to confirm their email address."
