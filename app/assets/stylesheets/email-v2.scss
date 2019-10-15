@@ -142,6 +142,9 @@
       border-top: 1px solid #ccc;
       padding-top: 48px;
       padding: 48px 0 20px;
+      &.no-top-border {
+        border-top: none;
+      }
     }
 
     .email-listings-item {
