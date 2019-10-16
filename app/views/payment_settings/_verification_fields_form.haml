@@ -17,3 +17,8 @@
       .col-12
         = label_tag :document, t("stripe_accounts.form_verification.document")
         = form.file_field :document, required: true
+    - if presenter.seller_needs_additional_verification
+      .row
+        .col-12
+          = label_tag :additional_document, t("stripe_accounts.form_verification.additional_document")
+          = form.file_field :additional_document, required: true
