@@ -7,7 +7,7 @@
         %div.email-listings-item-seller
           = link_to((image_tag listing.author.image.url(:thumb), :width => 48, :height => 48), person_url(listing.author, @url_params))
 
-  %td.email-listings-text{colspan: listing.listing_images.empty? ? '2' : '1'}
+  %td.email-listings-text{colspan: listing.listing_images.empty? ? '2' : '1', class: listing.listing_images.empty? ? 'no-padding' : ''}
     %small
       - name_link = PersonViewUtils.person_display_name_for_type(listing.author, "first_name_only")
       = t("emails.community_updates.added_listing", name_link: name_link, default: t("emails.community_updates.added_listing", name_link: name_link)).html_safe
@@ -17,4 +17,5 @@
       = listing.title
     - unless listing.description.blank?
       %p
-        = truncate_html(markdown(listing.description), :length => 200, :omission => "...")
+        - max_len =listing.listing_images.empty? ? 140 : 80
+        = truncate_html(markdown(listing.description), :length => max_len, :omission => "...")

@@ -303,6 +303,10 @@ class PersonMailer < ActionMailer::Base
     @no_settings = true
     @person = new_member
     @email = new_member.emails.last.address
+    @url_params = {}
+    @url_params[:host] = "#{community.full_domain}"
+    @url_params[:locale] = admin.locale
+
     with_locale(admin.locale, community.locales.map(&:to_sym), community.id) do
       address = admin.confirmed_notification_emails_to
       if address.present?
@@ -367,10 +371,10 @@ class PersonMailer < ActionMailer::Base
       @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
 
       subject = t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => PersonViewUtils.person_display_name_for_type(person, "first_name_only"))
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => subject) do |format|
-        format.html { render :layout => 'email_blank_layout' }
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => subject) do |format|
+        format.html { render v2_template(community.id, 'welcome_email'), layout: v2_layout(community.id, 'email_blank_layout') }
       end
     end
   end
