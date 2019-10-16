@@ -17,7 +17,7 @@ jobs:
           BUNDLE_PATH: vendor/bundle
           BUNDLE_JOBS: 4
           BUNDLE_RETRY: 3
-      - image: mysql:5.7
+      - image: mysql:5.7.27
         environment:
           MYSQL_ROOT_PASSWORD=very-secret
     steps:
