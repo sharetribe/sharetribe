@@ -1502,6 +1502,7 @@ Rails/FilePath:
     - 'lib/tasks/**/*'
     - 'app/controllers/landing_page_controller.rb'
     - 'app/models/person.rb'
+    - 'app/models/listing_image.rb'
     - 'app/services/paypal_service/paypal_service_injector.rb'
     - 'lib/jsroutes_middleware.rb'
     - 'lib/services/paypal_service/api/fake_api_implementation.rb'

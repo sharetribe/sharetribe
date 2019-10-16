@@ -2,10 +2,7 @@
   - if listing.listing_images.present?
     %td.email-listings-item-image{width: 156}
       = link_to listing_url(@url_params.merge({id: listing.id})) do
-        = image_tag(listing.listing_images.first.image.url(:email), class: "listing_main_image", alt: listing.title, height: "100", width: "150")
-      - if listing.author.has_profile_picture?
-        %div.email-listings-item-seller
-          = link_to((image_tag listing.author.image.url(:thumb), :width => 48, :height => 48), person_url(listing.author, @url_params))
+        = image_tag(listing.listing_images.first.newsletter_email_image_url, class: "listing_main_image", alt: listing.title, height: "116", width: "150")
 
   %td.email-listings-text{colspan: listing.listing_images.empty? ? '2' : '1', class: listing.listing_images.empty? ? 'no-padding' : ''}
     %small
