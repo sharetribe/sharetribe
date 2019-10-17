@@ -28,28 +28,67 @@ describe HomepageController, type: :controller do
     end
 
     describe "#index" do
+      # Nothing in SEO for Homepage/CLP, nothing in Social Media
+      # <title>: the default value
+      # <meta description>: the default value
+      # <og:title> and <twitter:title>: the default value
+      # <og:description> and <twitter:description>: the default value
       it "renders default title and description" do
         get :index
         expect(response.body).to match('<title>Sharetribe - Test slogan</title>')
         expect(response.body).to match("<meta content='Test description - Test slogan' name='description'>")
+        expect(response.body).to match("<meta content='Sharetribe - Test slogan' property='og:title'>")
+        expect(response.body).to match("<meta content='Sharetribe - Test slogan' name='twitter:title'>")
+        expect(response.body).to match("<meta content='Test description - Test slogan' property='og:description'>")
+        expect(response.body).to match("<meta content='Test description - Test slogan' name='twitter:description'>")
       end
 
+      # Something in SEO for Homepage/CLP, nothing in Social Media
+      # <title>: the SEO value
+      # <meta description>: the SEO value
+      # <og:title> and <twitter:title>: the default value
+      # <og:description> and <twitter:description>: the default value
       it "renders updated meta title and description" do
         @community.community_customizations.first.update(meta_title: "SEO Title", meta_description: "SEO Description")
         get :index
         expect(response.body).to match('<title>SEO Title</title>')
         expect(response.body).to match("<meta content='SEO Description' name='description'>")
+        expect(response.body).to match("<meta content='Sharetribe - Test slogan' property='og:title'>")
+        expect(response.body).to match("<meta content='Sharetribe - Test slogan' name='twitter:title'>")
+        expect(response.body).to match("<meta content='Test description - Test slogan' property='og:description'>")
+        expect(response.body).to match("<meta content='Test description - Test slogan' name='twitter:description'>")
       end
 
+      # Nothing in SEO for Homepage/CLP, something in Social Media
+      # <title>: the default
+      # <meta description>: the default
+      # <og:title> and <twitter:title>: the Social Media value
+      # <og:description> and <twitter:description>: the Social Media value
+      it 'renders updated meta title and description' do
+        @community.community_customizations.first.update(social_media_title: 'Social Title', social_media_description: 'Social Description')
+        get :index
+        expect(response.body).to match("<title>Sharetribe - Test slogan</title>")
+        expect(response.body).to match("<meta content='Test description - Test slogan' name='description'>")
+        expect(response.body).to match("<meta content='Social Title' property='og:title'>")
+        expect(response.body).to match("<meta content='Social Title' name='twitter:title'>")
+        expect(response.body).to match("<meta content='Social Description' property='og:description'>")
+        expect(response.body).to match("<meta content='Social Description' name='twitter:description'>")
+      end
+
+      # Something in SEO for Homepage/CLP, something in Social Media
+      # <title>: the SEO value
+      # <meta description>: the SEO value
+      # <og:title> and <twitter:title>: the Social Media value
+      # <og:description> and <twitter:description>: the Social Media value
       it 'renders updated meta title and description' do
         @community.community_customizations.first.update(
           meta_title: 'SEO Title', meta_description: 'SEO Description',
           social_media_title: 'Social Title', social_media_description: 'Social Description')
         get :index
         expect(response.body).to match("<title>SEO Title</title>")
+        expect(response.body).to match("<meta content='SEO Description' name='description'>")
         expect(response.body).to match("<meta content='Social Title' property='og:title'>")
         expect(response.body).to match("<meta content='Social Title' name='twitter:title'>")
-        expect(response.body).to match("<meta content='SEO Description' name='description'>")
         expect(response.body).to match("<meta content='Social Description' property='og:description'>")
         expect(response.body).to match("<meta content='Social Description' name='twitter:description'>")
       end
