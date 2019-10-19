@@ -45,11 +45,11 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  def transaction_confirmed(conversation, community)
+  def transaction_confirmed(conversation, community, send_to = :seller)
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation
-    recipient = conversation.seller
-    set_up_layout_variables(conversation.seller, community, @email_type)
+    recipient = send_to == :seller ? conversation.seller : conversation.buyer
+    set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
