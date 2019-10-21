@@ -90,7 +90,7 @@ fr:
         contact_admin_link_text: "contacter l'équipe %{service_name}"
         save: "Sauvegarder les paramètres"
         transaction_agreement: "Accord de transaction"
-        transaction_agreement_checkbox: "Obliger les clients à valider un accord avant de commencer une transaction"
+        transaction_agreement_checkbox: "Obliger les acheteurs à valider un accord avant de commencer une transaction"
         transaction_agreement_checkbox_header: "Libellé de l'accord"
         transaction_agreement_checkbox_label_description: "Ce texte sera affiché à côté de la case à cocher dans le formulaire de transaction. L'utilisateur doit cocher cette case pour continuer le processus. Un exemple de libellé de d'accord serait \"En cochant cette case, vous acceptez l'accord de transaction\"."
         transaction_agreement_text_header: "Texte de l'accord"
@@ -1124,6 +1124,20 @@ fr:
         request: Proposer
         offer: Demander
         inquiry: Contacter
+    community_transactions:
+      show:
+        transaction_for: "Transaction à propos de %{link}"
+        status: "Statut :"
+        next_step: "Etape suivante :"
+        waiting_for_provider_accept_or_reject: "En attente de l'acceptation ou rejet de la requête par %{provider}."
+        waiting_for_fulfill_and_complete: "En attente de la réalisation par %{provider} de la commande pour %{listing_title} et de la confirmation par %{buyer}."
+        buyer: "Acheteur :"
+        provider: "Vendeur :"
+        buyer_pays: "L'acheteur paie :"
+        marketplace_collects: "%{service_name} reçoit :"
+        buyer_service_fee_label: "Commission prélevée sur l'acheteur :"
+        service_fee_label: "Commission prélevée sur le vendeur :"
+        provider_receives: "Le vendeur reçoit :"
   common:
     edit_page: "Modifier la page"
     default_community_slogan: "Votre place de marché"

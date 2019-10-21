@@ -646,12 +646,12 @@ es:
         you_can_now_use_a_custom_domain: "Con tu plan actual, puedes habilitar un dominio personalizado. ¿Quieres hacerlo? %{contact_us}!"
         would_you_like_to_change_domain: "¿Te gustaría cambiar el dominio personalizado de tu marketplace? %{contact_us}!"
       landing_pages:
-        landing_pages: ~
+        landing_pages: "Página de inicio"
         info_1: ~
         info_2: ~
-        info_2_preview_text: ~
-        info_2_details_text: ~
-        info_2_design_text: ~
+        info_2_preview_text: "Vista previa"
+        info_2_details_text: "detalles básicos"
+        info_2_design_text: diseño
         info_3: "Si quieres personalizar la página de inicio de tu marketplace, puedes hacerlo con una subscripción adicional por $99 dólares al mes."
         info_4: "Leer más acerca de las páginas de inicio personalizadas"
         editor_title: "Editor de página de inicio"
@@ -684,7 +684,7 @@ es:
           listings: Anuncios
           categories: Categorias
           hero: Hero
-          locations: ~
+          locations: Ubicaciones
           video: ~
           new_section:
             categories: "Nueva sección Categorias"
@@ -721,10 +721,10 @@ es:
         cta_button:
           cta_button: ~
           cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
+          cta_text: Texto
+          cta_url: URL
         background_image_overlay:
-          background_image: ~
+          background_image: "Imagen de fondo"
           background_image_info: ~
           add_another_image: ~
           current_image: ~
@@ -735,64 +735,64 @@ es:
           overlay_light: ~
           overlay_transparent: ~
         background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
+          background_style: "Estilo del fondo"
+          style_image: "Imagen de fondo"
+          style_color: "Color de fondo"
+          style_none: "Sin fondo"
         background_color:
-          background_color: ~
+          background_color: "Color de fondo"
           background_color_info: ~
         categories:
           add: ~
           category: ~
           empty: ~
-          image: ~
-          include_title: ~
+          image: Imagen
+          include_title: "Categorías de la sección"
           info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
+          need_at_least_3_categories: "Debes tener por lo menos 3 categorías en la sección"
+          need_at_most_7_categories: "No puedes tener más de 7 categories por sección"
         category:
-          add_another_image: ~
-          category: ~
+          add_another_image: "Añadir otra imagen"
+          category: Categoría
           current_image: ~
           file_not_selected: ~
-          image: ~
+          image: Imagen
           image_required: ~
           select_category: ~
         locations:
           add: ~
-          location: ~
+          location: Ubicación
           empty: ~
-          image: ~
-          include_title: ~
+          image: Imagen
+          include_title: "Ubicaciones de la sección"
           info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
+          need_at_least_3_locations: "Debes tener por lo menos 3 ubicaciones en la sección"
+          need_at_most_7_locations: "No puedes tener más de 7 ubicaciones por sección"
         location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
+          add_another_image: "Añadir otra imagen"
+          location: Ubicación
+          current_image: "Imagen actual: %{filename}"
           file_not_selected: ~
-          image: ~
+          image: Imagen
           image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
+          title: Título
+          title_placeholder: "Texto de la Ubicación"
+          url: URL
+          url_placeholder: "URL del link de la ubicación"
         multi_column:
-          main_title: ~
+          main_title: "Título principal"
           column_header: ~
           column_title: ~
           column_icon_info: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
-          column_button_text: ~
+          column_button_text: "Texto del botón"
           column_button_url: ~
         listings:
           you_need_to_add_the_listing_ids: ~
         video:
-          text: ~
+          text: Texto
           youtube_video_id: ~
           autoplay: ~
           autoplay_no: ~
@@ -1124,6 +1124,20 @@ es:
         request: Ofrecer
         offer: Solicitar
         inquiry: Contactar
+    community_transactions:
+      show:
+        transaction_for: ~
+        status: ~
+        next_step: ~
+        waiting_for_provider_accept_or_reject: ~
+        waiting_for_fulfill_and_complete: ~
+        buyer: ~
+        provider: ~
+        buyer_pays: ~
+        marketplace_collects: ~
+        buyer_service_fee_label: ~
+        service_fee_label: ~
+        provider_receives: ~
   common:
     edit_page: "Editar la página"
     default_community_slogan: "Comunidad de mercado colaborativo"
@@ -1689,7 +1703,7 @@ es:
       from_must_be_less_than_till: "La hora inicial debe ser menor que la final"
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
-      presence: ~
+      presence: "No puede estar vacío"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."
@@ -3072,23 +3086,23 @@ es:
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
+        id: "Nombre único de sección"
+        title: Título
+        paragraph: Párrafo
         button_color: ~
         button_color_hover: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
-        icon_color: ~
+        button_title: Texto
+        button_path: URL
+        button_path_string: URL
+        background_image: "Imagen de fondo"
+        background_image_variation: "Variación de la imagen de fondo"
+        background_color: "Color de fondo"
+        background_color_string: "Color de fondo"
+        icon_color: "Color del ícono"
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: "ID del anuncio 1"
+        listing_2_id: "ID del anuncio 2"
+        listing_3_id: "ID del anuncio 3"
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Texto
+        youtube_video_id: "Id del video de Youtube"
