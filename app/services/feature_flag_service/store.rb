@@ -25,6 +25,7 @@ module FeatureFlagService::Store
       :stripe_payment_intents,
       :clp_editor,
       :new_tx_page,
+      :hide_location,
     ].to_set
 
     def initialize(additional_flags:)

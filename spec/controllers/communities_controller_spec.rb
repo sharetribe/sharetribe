@@ -106,6 +106,7 @@
 #  pre_approved_listings                      :boolean          default(FALSE)
 #  allow_free_conversations                   :boolean          default(TRUE)
 #  email_admins_about_new_transactions        :boolean          default(FALSE)
+#  show_location                              :boolean          default(TRUE)
 #
 # Indexes
 #

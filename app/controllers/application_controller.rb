@@ -634,4 +634,10 @@ class ApplicationController < ActionController::Base
   def setup_seo_service
     @seo_service = SeoService.new(@current_community, params)
   end
+
+  helper_method :show_location?
+
+  def show_location?
+    FeatureFlagHelper.feature_enabled?(:hide_location) ? @current_community.show_location? : true
+  end
 end

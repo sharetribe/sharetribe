@@ -31,20 +31,30 @@
 
 
     - if(FeatureFlagHelper.location_search_available)
-      .row
+      .row#search_and_location_preferences
         .col-12
-          %h3= t("admin.communities.settings.search_preferences")
+          %h3
+            - if @presenter.allow_hide_location?
+              = t("admin.communities.settings.search_and_location_preferences")
+            - else
+              = t("admin.communities.settings.search_preferences")
+          - if @presenter.allow_hide_location?
+            .checkbox-container
+              = form.check_box :show_location
+              = form.label :show_location, t("admin.communities.settings.allow_users_to_add_location"), :class => "settings-checkbox-label"
+
           .checkbox-container
             .settings-checkbox-label.label
             - select_search_type = select_tag 'main_search', options_for_select(@presenter.main_search_select_options, @presenter.main_search), class: 'inline-select'
             = t("admin.communities.settings.default_search_type", select_search_type: select_search_type).html_safe
-          .checkbox-container
+          .checkbox-container.if-location-enabled
             .settings-checkbox-label.label
             - select_distance_unit = select_tag 'distance_unit', options_for_select(@presenter.distance_unit_select_options, @presenter.distance_unit), class: 'inline-select'
             = t("admin.communities.settings.select_distance_unit", distance_units_selector: select_distance_unit).html_safe
-          .checkbox-container
+          .checkbox-container.if-location-enabled
             = check_box_tag :limit_distance, true, @presenter.limit_distance
             = label_tag("limit_distance", t("admin.communities.settings.show_only_nearby"), {class: "settings-checkbox-label"})
+
 
     .row
       .col-12
@@ -100,6 +110,7 @@
   - content_for :extra_javascript do
     :javascript
       window.ST.initializeDeleteMarketplace('#{@presenter.delete_confirmation}');
+      window.ST.initializeLocationSearchModeSwitch();
 
   - if @presenter.can_delete_marketplace
     .row.without-margin

@@ -67,7 +67,7 @@
           = t(".filter")
 
     .home-toolbar-button-group{:class => listing_shape_menu_enabled || @category_menu_enabled ? "filters-enabled" : ""}
-      - ["grid", "list", "map"].each do |view_type|
+      - allowed_view_types.each do |view_type|
         - selected_class = @view_type == view_type ? "selected" : ""
         = link_to search_path(search_params.merge(view: view_type)), :class => "home-toolbar-button-group-button #{selected_class}", :title => t("homepage.filters.#{view_type}_button") do
           = icon_tag(view_type, ["icon-fix", "home-button-group-icon"])
