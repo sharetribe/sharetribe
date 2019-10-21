@@ -32,9 +32,9 @@ class SeoService
 
   def placeholder(section, locale = I18n.locale)
     case section
-    when :homepage_title
+    when :homepage_title, :meta_title
       '{{marketplace_name}} - {{marketplace_slogan}}'
-    when :homepage_description
+    when :homepage_description, :meta_description
       '{{marketplace_description}} - {{marketplace_slogan}}'
     when :search_meta_title
       I18n.t("seo_sections.placeholder.search_results", variable: '{{marketplace_name}}', locale: locale)
@@ -198,9 +198,9 @@ class SeoService
     case mode
     when 'homepage'
       if extra_mode == :social
-        customization.social_media_title.presence || customization.meta_title
+        customization.social_media_title.presence || placeholder(:meta_title, locale)
       else
-        customization.meta_title
+        customization_value_or_default(:meta_title)
       end
     when 'listing'
       customization_value_or_default(:listing_meta_title)
@@ -217,9 +217,9 @@ class SeoService
     case mode
     when 'homepage'
       if extra_mode == :social
-        customization.social_media_description.presence || customization.meta_description
+        customization.social_media_description.presence || placeholder(:meta_description, locale)
       else
-        customization.meta_description
+        customization_value_or_default(:meta_description)
       end
     when 'listing'
       customization_value_or_default(:listing_meta_description)
