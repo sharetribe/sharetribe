@@ -85,6 +85,6 @@ class Admin::SettingsPresenter
   end
 
   def show_location?
-    @show_location ||= allow_hide_location? ? community.show_location? : true
+    @show_location ||= community.show_location?
   end
 end

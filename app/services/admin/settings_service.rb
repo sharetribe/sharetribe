@@ -54,8 +54,7 @@ class Admin::SettingsService
         distance_unit: params[:distance_unit],
         limit_search_distance: params[:limit_distance].present?)
     end
-    if FeatureFlag.feature_enabled?(community.id, :hide_location) &&
-       ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[:community][:show_location])
+    if ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[:community][:show_location])
       community.configuration.update(main_search: :keyword)
     end
   end

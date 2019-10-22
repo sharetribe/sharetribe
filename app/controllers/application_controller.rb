@@ -638,6 +638,6 @@ class ApplicationController < ActionController::Base
   helper_method :show_location?
 
   def show_location?
-    FeatureFlagHelper.feature_enabled?(:hide_location) ? @current_community.show_location? : true
+    @current_community.show_location?
   end
 end
