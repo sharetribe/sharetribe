@@ -24,7 +24,6 @@ module FeatureFlagService::Store
       :footer,
       :stripe_payment_intents,
       :clp_editor,
-      :hide_location,
       :email_layout_v2,
       :new_tx_page,
     ].to_set

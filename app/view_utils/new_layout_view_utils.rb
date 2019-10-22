@@ -25,6 +25,9 @@ module NewLayoutViewUtils
     { title: t("admin.communities.new_layout.new_topbar"),
       name: :topbar_v1
     },
+    { title: t("admin.communities.new_layout.new_email_templates"),
+      name: :email_layout_v2
+    },
    ]
   end
 
