@@ -9,7 +9,7 @@
 .left-navi-section
   = form_for @community, :as => :community, :url => update_location_admin_custom_fields_path, :method => :put do |form|
 
-    - show_location = FeatureFlagHelper.feature_enabled?(:hide_location) ? @current_community.show_location? : true
+    - show_location = @current_community.show_location?
     .row
       .col-12
         .checkbox-container

@@ -70,7 +70,6 @@ Feature: Admin edits info pages
 
   Scenario: Admin users can edit location search modes
     Given this community has location search enabled
-    And feature flag "hide_location" is enabled
     When I go to the admin settings view of community "test"
     Then I should see "Search and location preferences"
     When I select "Keyword" from "main_search"
