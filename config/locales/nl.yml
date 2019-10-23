@@ -226,6 +226,7 @@ nl:
         require_verification_to_post_listings: "Enkel gebruikers die door de beheerder nagekeken werden kunnen nieuwe advertenties toevoegen"
         allow_free_conversations: "Sta gebruikers to vrijelijk met elkaar berichten uit te wisselen"
         search_preferences: "Zoek-functie voorkeuren"
+        search_and_location_preferences: ~
         default_search_type: "Zoek type: %{select_search_type}"
         keyword_search: "Zoeken op keywords"
         keyword_and_location_search: "Zoeken op keyword èn locatie"
@@ -234,6 +235,7 @@ nl:
         km: km
         miles: mijlen
         show_only_nearby: "Laat alleen naburige advertenties zien met zoeken op locatie"
+        allow_users_to_add_location: ~
         listing_preferences: "Advertentie voorkeuren"
         transaction_preferences: "Transactie voorkeuren"
         show_listing_publishing_date: "Toon publicatie datum van de advertentie op de advertentie pagina"
@@ -812,6 +814,7 @@ nl:
       edit_location:
         edit_location_field: "Pas veld 'Locatie' aan"
         this_field_is_required: "Dit veld is verplicht"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Bewerk advertentie veld 'Verloopdatum'"
         enable: "Activeer verloopdatum"

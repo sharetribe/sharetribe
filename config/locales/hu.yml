@@ -225,6 +225,7 @@ hu:
         require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hirdetéseket"
         allow_free_conversations: ~
         search_preferences: "Keresési beállítások"
+        search_and_location_preferences: ~
         default_search_type: "Keresés típusa: %{select_search_type}"
         keyword_search: "Keresés kulcsszóra"
         keyword_and_location_search: "Kulcsszó és hely szerinti keresés"
@@ -233,6 +234,7 @@ hu:
         km: km
         miles: mérföld
         show_only_nearby: "Csak közeli hirdetéseket mutasson a listázás hely szerinti keresés esetén"
+        allow_users_to_add_location: ~
         listing_preferences: "Hirdetési beállítások"
         transaction_preferences: "Rendelési preferenciák"
         show_listing_publishing_date: "A hirdetés feladásának megmutatása a hírdető oldalon"
@@ -811,6 +813,7 @@ hu:
       edit_location:
         edit_location_field: "A hely mező szerkesztése"
         this_field_is_required: "A mező kitöltése kötelező."
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~

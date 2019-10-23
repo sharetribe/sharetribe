@@ -219,6 +219,7 @@ ja:
         require_verification_to_post_listings: サイト管理者によって承認されたユーザのみが新しいリストを投稿できます
         allow_free_conversations: ~
         search_preferences: 検索条件
+        search_and_location_preferences: ~
         default_search_type: "検索タイプ:%{select_search_type}"
         keyword_search: キーワード検索
         keyword_and_location_search: キーワードと位置で検索
@@ -227,6 +228,7 @@ ja:
         km: km
         miles: miles
         show_only_nearby: 位置検索で近隣の投稿のみ表示する
+        allow_users_to_add_location: ~
         listing_preferences: 優先リスト
         transaction_preferences: 課金の設定
         show_listing_publishing_date: リストページのリストの掲載日の日付を表示
@@ -805,6 +807,7 @@ ja:
       edit_location:
         edit_location_field: 場所を編集
         this_field_is_required: この項目は入力必須です
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: リスティングフィールド「有効期限」を編集します
         enable: 期限を有効にします

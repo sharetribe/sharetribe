@@ -219,6 +219,7 @@ th-TH:
         require_verification_to_post_listings: อนุญาตให้เฉพาะผู้ใช้ที่ได้รับการตรวจสอบแล้วจากผู้ดูแลระบบในการโพสต์รายการใหม่
         allow_free_conversations: ~
         search_preferences: ~
+        search_and_location_preferences: ~
         default_search_type: ~
         keyword_search: ~
         keyword_and_location_search: ~
@@ -227,6 +228,7 @@ th-TH:
         km: ~
         miles: ~
         show_only_nearby: ~
+        allow_users_to_add_location: ~
         listing_preferences: การกำหนดค่ารายการ
         transaction_preferences: การตั้งค่าการสั่งซื้อสินค้า
         show_listing_publishing_date: แสดงวันที่เผยแพร่รายการในหน้ารายการ
@@ -805,6 +807,7 @@ th-TH:
       edit_location:
         edit_location_field: แก้ไขข้อมูลตำแหน่ง
         this_field_is_required: ข้อมูลนี้จำเป็น
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~

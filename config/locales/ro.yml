@@ -229,6 +229,7 @@ ro:
         require_verification_to_post_listings: ~
         allow_free_conversations: ~
         search_preferences: ~
+        search_and_location_preferences: ~
         default_search_type: ~
         keyword_search: ~
         keyword_and_location_search: "Caută dupa locație sau nume"
@@ -237,6 +238,7 @@ ro:
         km: Km
         miles: Mile
         show_only_nearby: "Arată-mi listările din jurul meu"
+        allow_users_to_add_location: ~
         listing_preferences: "Preferinte de listare"
         transaction_preferences: ~
         show_listing_publishing_date: "Afișeaza data publicării înregistrării pe pagina de înscriere"
@@ -815,6 +817,7 @@ ro:
       edit_location:
         edit_location_field: ~
         this_field_is_required: "Acest câmp este obligatoriu"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~

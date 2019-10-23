@@ -209,6 +209,7 @@ en-GB:
         require_verification_to_post_listings: ~
         allow_free_conversations: ~
         search_preferences: ~
+        search_and_location_preferences: ~
         default_search_type: ~
         keyword_search: ~
         keyword_and_location_search: ~
@@ -217,6 +218,7 @@ en-GB:
         km: ~
         miles: ~
         show_only_nearby: ~
+        allow_users_to_add_location: ~
         listing_preferences: ~
         transaction_preferences: ~
         show_listing_publishing_date: ~
@@ -795,6 +797,7 @@ en-GB:
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~
@@ -2705,57 +2708,57 @@ en-GB:
     first_day_of_week: ~
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Sunday
+      monday: Monday
+      tuesday: Tuesday
+      wednesday: Wednesday
+      thursday: Thursday
+      friday: Friday
+      saturday: Saturday
     days_short:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Sun
+      monday: Mon
+      tuesday: Tue
+      wednesday: Wed
+      thursday: Thu
+      friday: Fri
+      saturday: Sat
     days_min:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Su
+      monday: Mo
+      tuesday: Tu
+      wednesday: We
+      thursday: Th
+      friday: Fr
+      saturday: Sa
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: January
+      february: February
+      march: March
+      april: April
+      may: May
+      june: June
+      july: July
+      august: August
+      september: September
+      october: October
+      november: November
+      december: December
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
-    today: ~
-    clear: ~
+      january: Jan
+      february: Feb
+      march: Mar
+      april: Apr
+      may: May
+      june: Jun
+      july: Jul
+      august: Aug
+      september: Sep
+      october: Oct
+      november: Nov
+      december: Dec
+    today: Today
+    clear: Clear
     format: dd/mm/yyyy
   time:
     formats:

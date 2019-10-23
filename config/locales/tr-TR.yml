@@ -221,6 +221,7 @@ tr-TR:
         require_verification_to_post_listings: "Sadece yönetici onaylı kullanıcılar yeni ilan ekleyebilir"
         allow_free_conversations: ~
         search_preferences: "Arama seçenekleri"
+        search_and_location_preferences: ~
         default_search_type: ~
         keyword_search: "Anahtar kelime arama"
         keyword_and_location_search: "Anahtar kelime ve lokasyon araması"
@@ -229,6 +230,7 @@ tr-TR:
         km: km
         miles: mil
         show_only_nearby: "Konum arama ile yalnızca yakındaki ilanları göster"
+        allow_users_to_add_location: ~
         listing_preferences: "Listeleme tercihleri"
         transaction_preferences: "İşlem tercihleri"
         show_listing_publishing_date: "Listeleme sayfasında listelemenin gönderilme tarihini göster"
@@ -807,6 +809,7 @@ tr-TR:
       edit_location:
         edit_location_field: "Konum alanını düzenle"
         this_field_is_required: "Bu alan zorunludur"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~

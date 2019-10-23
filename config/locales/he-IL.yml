@@ -215,6 +215,7 @@ he-IL:
         require_verification_to_post_listings: "אפשר רק משתמשים מאומתים על ידי מנהל כדי לפרסם רישומים חדשים"
         allow_free_conversations: ~
         search_preferences: ~
+        search_and_location_preferences: ~
         default_search_type: ~
         keyword_search: ~
         keyword_and_location_search: ~
@@ -223,6 +224,7 @@ he-IL:
         km: ~
         miles: ~
         show_only_nearby: ~
+        allow_users_to_add_location: ~
         listing_preferences: "רשימת ההעדפות"
         transaction_preferences: "העדפות הזמנה"
         show_listing_publishing_date: "הצג תאריך פרסום של הרישום בדף המודעה"
@@ -801,6 +803,7 @@ he-IL:
       edit_location:
         edit_location_field: "ערוך את שדה הרישום 'מיקום'"
         this_field_is_required: "זהו שדה חובה"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~

@@ -224,6 +224,7 @@ da-DK:
         require_verification_to_post_listings: "Kun brugere godkendt af administratoren kan oprette nye annoncer"
         allow_free_conversations: ~
         search_preferences: "Søge præferencer"
+        search_and_location_preferences: ~
         default_search_type: "Søgetype: %{select_search_type}"
         keyword_search: "Nøgleord søgning"
         keyword_and_location_search: "Nøgleord og område søgning"
@@ -232,6 +233,7 @@ da-DK:
         km: km
         miles: mil
         show_only_nearby: "Vis kun annoncer i nærheden, med område søgning"
+        allow_users_to_add_location: ~
         listing_preferences: Annonceindstillinger
         transaction_preferences: "Transaktions indstillinger"
         show_listing_publishing_date: "Vis oprettelsesdato af annoncen på annonce siden"
@@ -810,6 +812,7 @@ da-DK:
       edit_location:
         edit_location_field: "Rediger placerings feltet"
         this_field_is_required: "Dette felt er påkrævet"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Ændr annoncefelt: 'Udløbsdato'"
         enable: "Aktiver udløbsdato"

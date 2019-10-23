@@ -224,6 +224,7 @@ de:
         require_verification_to_post_listings: "Nur von einem Admin verifizierte Benutzer können neue Einträge veröffentlichen"
         allow_free_conversations: "Erlaube es allen Benutzern, einander frei zu kontaktieren"
         search_preferences: Sucheinstellungen
+        search_and_location_preferences: ~
         default_search_type: "Suchtyp: %{select_search_type}"
         keyword_search: Schlagwortsuche
         keyword_and_location_search: "Schlagwort- und Umgebungssuche"
@@ -232,6 +233,7 @@ de:
         km: km
         miles: Meilen
         show_only_nearby: "Mit Umgebungssuche nur Einträge in der Nähe zeigen"
+        allow_users_to_add_location: ~
         listing_preferences: Eintragseinstellungen
         transaction_preferences: Auftragspräferenzen
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Eintragsseite darstellen"
@@ -810,6 +812,7 @@ de:
       edit_location:
         edit_location_field: "Standort bearbeiten"
         this_field_is_required: "Dieses Feld ist erforderlich"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Eintragsfeld 'Ablaufdatum' bearbeiten"
         enable: "Ablaufdatum aktivieren"

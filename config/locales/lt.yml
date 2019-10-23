@@ -229,6 +229,7 @@ lt:
         require_verification_to_post_listings: "Leisti tik administratorių patvirtintiems vartotojams kurti skelbimus"
         allow_free_conversations: ~
         search_preferences: ~
+        search_and_location_preferences: ~
         default_search_type: ~
         keyword_search: ~
         keyword_and_location_search: ~
@@ -237,6 +238,7 @@ lt:
         km: ~
         miles: ~
         show_only_nearby: ~
+        allow_users_to_add_location: ~
         listing_preferences: "Skelbimų nustatymai"
         transaction_preferences: "Kiti nustatymai"
         show_listing_publishing_date: "Rodyti skelbimo sukūrimo datą skelbimo puslapyje"
@@ -815,6 +817,7 @@ lt:
       edit_location:
         edit_location_field: "Redaguoti skelbimo laukelį 'Vieta'"
         this_field_is_required: "Šis laukelis yra privalomas"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~

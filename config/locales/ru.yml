@@ -234,6 +234,7 @@ ru:
         require_verification_to_post_listings: "Только участники подтвержденные администратором могут размещать новые публикации"
         allow_free_conversations: "Разрешить пользователям свободно общаться друг с другом"
         search_preferences: "Настройки поиска"
+        search_and_location_preferences: ~
         default_search_type: "Тип поиска: %{select_search_type}"
         keyword_search: "Поиск по ключевому слову"
         keyword_and_location_search: "Ключевое слово и поиск по местоположению"
@@ -242,6 +243,7 @@ ru:
         km: км
         miles: мили
         show_only_nearby: "Показывать только каталоги наиболее близкие вам с помощью поиска по местоположению"
+        allow_users_to_add_location: ~
         listing_preferences: "Настройки предложений"
         transaction_preferences: "Настройки транзакции"
         show_listing_publishing_date: "Отобразить дату публикации на странице публикации"
@@ -820,6 +822,7 @@ ru:
       edit_location:
         edit_location_field: "Редактировать поле местоположения"
         this_field_is_required: "Это обязательное поле"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Редактировать поле каталога 'Дата истечения срока'"
         enable: "Активировать дату истечения срока"

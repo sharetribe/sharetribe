@@ -219,6 +219,7 @@ zh-TW:
         require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
         allow_free_conversations: ~
         search_preferences: 搜尋推薦
+        search_and_location_preferences: ~
         default_search_type: "搜尋類型：%{select_search_type}"
         keyword_search: 關鍵字搜尋
         keyword_and_location_search: 關鍵字和位置搜索
@@ -227,6 +228,7 @@ zh-TW:
         km: 公里
         miles: 英里
         show_only_nearby: 只顯示位置搜索附近的刊登
+        allow_users_to_add_location: ~
         listing_preferences: 信息展示页面偏好设置
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在信息展示页面的显示信息的发布日期
@@ -805,6 +807,7 @@ zh-TW:
       edit_location:
         edit_location_field: 編輯地點
         this_field_is_required: 该字段必填
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: 編輯列表字段'到期日期'
         enable: 啟用有效日期

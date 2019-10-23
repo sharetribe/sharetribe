@@ -219,6 +219,7 @@ vi:
         require_verification_to_post_listings: ~
         allow_free_conversations: ~
         search_preferences: "Tùy chọn tìm kiếm"
+        search_and_location_preferences: ~
         default_search_type: "Thể loai tìm kiếm: %{select_search_type}"
         keyword_search: "Tìm kiếm từ khoá"
         keyword_and_location_search: "Tìm kiếm từ khoá và vị trí"
@@ -227,6 +228,7 @@ vi:
         km: km
         miles: dặm
         show_only_nearby: "Chỉ hiển thị các bài đăng xung quanh vị trí tìm kiếm"
+        allow_users_to_add_location: ~
         listing_preferences: "Danh mục yêu thích"
         transaction_preferences: ~
         show_listing_publishing_date: "Hiển thị ngày đăng trên bài đăng"
@@ -805,6 +807,7 @@ vi:
       edit_location:
         edit_location_field: ~
         this_field_is_required: "Khu này là bắt buộc"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Chỉnh sửa trường liệt kê 'Ngày hết hạn'"
         enable: "Bật ngày hết hạn"
