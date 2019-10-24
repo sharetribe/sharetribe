@@ -49,6 +49,7 @@ class PersonMailer < ActionMailer::Base
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation
     recipient = send_to == :seller ? conversation.seller : conversation.buyer
+    @recipient_mode = send_to
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
