@@ -34,14 +34,10 @@
       .row#search_and_location_preferences
         .col-12
           %h3
-            - if @presenter.allow_hide_location?
-              = t("admin.communities.settings.search_and_location_preferences")
-            - else
-              = t("admin.communities.settings.search_preferences")
-          - if @presenter.allow_hide_location?
-            .checkbox-container
-              = form.check_box :show_location
-              = form.label :show_location, t("admin.communities.settings.allow_users_to_add_location"), :class => "settings-checkbox-label"
+            = t("admin.communities.settings.search_and_location_preferences")
+          .checkbox-container
+            = form.check_box :show_location
+            = form.label :show_location, t("admin.communities.settings.allow_users_to_add_location"), :class => "settings-checkbox-label"
 
           .checkbox-container
             .settings-checkbox-label.label
