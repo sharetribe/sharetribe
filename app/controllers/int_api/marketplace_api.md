@@ -13,7 +13,7 @@ Request body:
 , marketplace_country: "FI"
 , marketplace_language: "fi"
 , marketplace_name: "ImaginationTraders"
-, marketplace_type: "product"    # or "rental" or "service"
+, marketplace_type: "product"    # or "rental" or "service" "event" "free"
 }
 ```
 
