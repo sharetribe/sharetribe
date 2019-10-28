@@ -135,8 +135,8 @@ module TransactionService::Process
       res
     end
 
-    def complete(tx:, message:, sender_id:, gateway_adapter:)
-      TransactionService::StateMachine.transition_to(tx.id, :confirmed)
+    def complete(tx:, message:, sender_id:, gateway_adapter:, metadata: {})
+      TransactionService::StateMachine.transition_to(tx.id, :confirmed, metadata)
       TxStore.mark_as_unseen_by_other(community_id: tx.community_id,
                                       transaction_id: tx.id,
                                       person_id: tx.listing_author_id)
@@ -148,8 +148,8 @@ module TransactionService::Process
       Result::Success.new({result: true})
     end
 
-    def cancel(tx:, message:, sender_id:, gateway_adapter:)
-      TransactionService::StateMachine.transition_to(tx.id, :canceled)
+    def cancel(tx:, message:, sender_id:, gateway_adapter:, metadata: {})
+      TransactionService::StateMachine.transition_to(tx.id, :canceled, metadata)
       TxStore.mark_as_unseen_by_other(community_id: tx.community_id,
                                       transaction_id: tx.id,
                                       person_id: tx.listing_author_id)

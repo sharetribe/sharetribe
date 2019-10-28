@@ -6,7 +6,9 @@ module TransactionService
 
   TransitionMetadata= EntityUtils.define_builder(
     [:paypal_pending_reason, :symbol],
-    [:paypal_payment_status, :symbol]
+    [:paypal_payment_status, :symbol],
+    [:user_id, :string],
+    [:executed_by_admin, :bool]
   )
 
   module StateMachine
