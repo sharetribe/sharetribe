@@ -9,7 +9,7 @@ module Form
     validates_length_of   :admin_first_name, in: 1..255
     validates_length_of   :admin_last_name, in: 1..255
     validates_presence_of :marketplace_country, :marketplace_language, :marketplace_name, :marketplace_type
-    validates             :marketplace_type, inclusion: { in: %w(product rental service) }
+    validates             :marketplace_type, inclusion: { in: %w(product rental service event free) }
     validates_length_of   :marketplace_country, is: 2
     validates_length_of   :marketplace_language, minimum: 2
   end

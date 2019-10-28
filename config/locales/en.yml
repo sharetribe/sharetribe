@@ -1121,12 +1121,15 @@ en:
       request: Requesting
       inquiry: Announcement
       share_for_free: "Sharing for free"
+      event_w_online_payment: "Event with online payment"
+      event_wo_online_payment: "Event without online payment"
       default_action_button_labels:
         sell: Buy
         rent: Rent
         request: Offer
         offer: Request
         inquiry: Contact
+        book: Book
     community_transactions:
       show:
         transaction_for: Transaction for %{link}
@@ -2318,6 +2321,7 @@ en:
       month: "Number of months:"
       unit: "Number of units:"
       custom: "Quantity:"
+      person: "Number of people:"
     quantity_placeholder: Quantity
     please_comment: Comment
     reply_link:
@@ -2369,6 +2373,7 @@ en:
       week: week
       month: month
       unit: unit
+      person: person
     verification_required:
       verification_required: "Verification required"
   listing_conversations:
