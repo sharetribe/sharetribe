@@ -53,10 +53,7 @@
           %td
             - status = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
             - if @transactions_presenter.show_link?(transaction)
-              - if @transactions_presenter.show_admin_link?
-                = link_to status, admin_community_transaction_path(id: transaction.id)
-              - else
-                = link_to status, person_transaction_path(person_id: @current_user.id, id: transaction.id)
+              = link_to status, admin_community_transaction_path(id: transaction.id)
             - else
               = status
           %td=transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ""
