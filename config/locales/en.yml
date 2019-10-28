@@ -468,7 +468,7 @@ en:
           started: Started
           last_activity: "Latest activity"
           initiated_by: Starter
-          other_party: Provider
+          other_party: Seller
         status:
           conversation: Conversation
           free: "Free transaction"
@@ -517,7 +517,7 @@ en:
           started: Started
           last_activity: "Latest Activity"
           initiated_by: Starter
-          other_party: Provider
+          other_party: Seller
         participants: "Conversation: %{starter} with %{author}"
         profile: "%{author}'s Profile"
         search_by_keyword: "Search for a name, email or keyword"
@@ -1134,7 +1134,7 @@ en:
         waiting_for_provider_accept_or_reject: 'Waiting for %{provider} to accept or reject the request.'
         waiting_for_fulfill_and_complete: 'Waiting for %{provider} to fulfill the order for %{listing_title} and for %{buyer} to mark the order as completed.'
         buyer: 'Buyer:'
-        provider: 'Provider:'
+        provider: 'Seller:'
         buyer_pays: 'Buyer pays:'
         marketplace_collects: '%{service_name} collects:'
         buyer_service_fee_label: 'Commision from buyer:'
@@ -1635,7 +1635,7 @@ en:
       listing: "Listing: %{title}"
       sum: "Sum: %{amount}"
       starter: "Starter: %{name}"
-      provider: "Provider: %{name}"
+      provider: "Seller: %{name}"
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."
@@ -2017,7 +2017,7 @@ en:
       payment_successful: "Payment successful"
       payment_canceled: "Payment canceled"
       error_in_payment: "Error in payment. If you didn't complete the payment yet, try again. If you did, please send us feedback."
-      cannot_receive_payment: "The provider can't receive the payment due some error. Please contact the %{service_name} team to clarify the situation"
+      cannot_receive_payment: "The seller can't receive the payment due some error. Please contact the %{service_name} team to clarify the situation"
       payment_waiting_for_later_accomplishment: "When you have paid, we'll notify the seller and you will get a receipt in email"
       password_recovery_sent: "Instructions to change your password were sent to your email."
       person_activated: "User activated"
