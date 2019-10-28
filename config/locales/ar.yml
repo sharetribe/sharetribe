@@ -209,6 +209,7 @@ ar:
         require_verification_to_post_listings: "السماح فقط للمشتركين المؤكدين من المشرف بإضافة إعلانات"
         allow_free_conversations: ~
         search_preferences: "تفضيلات البحث"
+        search_and_location_preferences: ~
         default_search_type: "‎%{select_search_type}‎ :نوع البحث"
         keyword_search: "بحث بالكلمة"
         keyword_and_location_search: "طرق البحث بالكلمة والموقع"
@@ -217,6 +218,7 @@ ar:
         km: كلم
         miles: ميل
         show_only_nearby: "أظهر فقط الإعلانات القريبة عند البحث بواسطة الموقع"
+        allow_users_to_add_location: ~
         listing_preferences: "تفضيلات الإعلان"
         transaction_preferences: "تفضيلات الطلب"
         show_listing_publishing_date: ~
@@ -795,6 +797,7 @@ ar:
       edit_location:
         edit_location_field: "تحرير حقل الإعلان \"الموقع\""
         this_field_is_required: "هذا الحقل إجباري"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "تحرير حقل الإعلان \"تاريخ الانتهاء\""
         enable: "تفعيل تاريخ الانتهاء"

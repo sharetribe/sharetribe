@@ -232,6 +232,7 @@ hr:
         require_verification_to_post_listings: ~
         allow_free_conversations: ~
         search_preferences: "Pretražite preference"
+        search_and_location_preferences: ~
         default_search_type: "Tip pretrage: %{select_search_type} "
         keyword_search: "Pretraga ključnih riječi"
         keyword_and_location_search: "Pretraga ključne riječi i lokacije"
@@ -240,6 +241,7 @@ hr:
         km: km
         miles: milje
         show_only_nearby: "Prikaži samo oglase u blizini sa pretragom lokacije"
+        allow_users_to_add_location: ~
         listing_preferences: "Preferencije oglasa"
         transaction_preferences: ~
         show_listing_publishing_date: "Prikaži datum objave oglasa na stranici oglasa"
@@ -818,6 +820,7 @@ hr:
       edit_location:
         edit_location_field: ~
         this_field_is_required: "Ovo polje je obavezno"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Uredite polje oglasa 'Rok uporabe'"
         enable: "omogući datum isteka"

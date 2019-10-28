@@ -224,6 +224,7 @@ en-NZ:
         require_verification_to_post_listings: "Allow only users verified by admin to post new listings"
         allow_free_conversations: ~
         search_preferences: "Search preferences"
+        search_and_location_preferences: ~
         default_search_type: "Search type: %{select_search_type}"
         keyword_search: "Keyword search"
         keyword_and_location_search: "Keyword and location search"
@@ -232,6 +233,7 @@ en-NZ:
         km: km
         miles: miles
         show_only_nearby: "Show only nearby listings with location search"
+        allow_users_to_add_location: ~
         listing_preferences: "Listing preferences"
         transaction_preferences: "Order preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
@@ -810,6 +812,7 @@ en-NZ:
       edit_location:
         edit_location_field: "Edit listing field 'Location'"
         this_field_is_required: "This field is required"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Edit listing field 'Expiration date'"
         enable: "Enable expiration date"

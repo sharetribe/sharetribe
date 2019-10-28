@@ -229,6 +229,7 @@ sk-SK:
         require_verification_to_post_listings: "Iba správcom overení užívatelia môžu pridávať inzeráty"
         allow_free_conversations: "Umožnite používateľom voľne si písať"
         search_preferences: "Nastavenie vyhľadávania"
+        search_and_location_preferences: ~
         default_search_type: "Typ vyhľadávania: %{select_search_type}"
         keyword_search: "Vyhľadávanie pomocou kľúčového slova"
         keyword_and_location_search: "Kľúčové slovo a vyhľadávanie podľa polohy"
@@ -237,6 +238,7 @@ sk-SK:
         km: km
         miles: míľach
         show_only_nearby: "Zobraziť iba inzeráty z okolia"
+        allow_users_to_add_location: ~
         listing_preferences: "Nastavenia inzerátu"
         transaction_preferences: "Nastavenia transakcii"
         show_listing_publishing_date: "Zobraziť dátum zverejnenia na stránke inzerátu"
@@ -815,6 +817,7 @@ sk-SK:
       edit_location:
         edit_location_field: "Upraviť umiestnenie poľa"
         this_field_is_required: "Toto pole je povinné"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Upraviť pole ' Vypršanie dátumu platnosti'"
         enable: "Povoliť vypršanie dátumu platnosti."

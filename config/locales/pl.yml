@@ -234,6 +234,7 @@ pl:
         require_verification_to_post_listings: "Pozwól tylko zweryfikowanym użytkownikom na dodawanie nowych ofert"
         allow_free_conversations: ~
         search_preferences: "Preferencje wyszukiwania"
+        search_and_location_preferences: ~
         default_search_type: "Typ wyszukiwania: %{select_search_type}"
         keyword_search: "Wyszukiwanie tekstu"
         keyword_and_location_search: "Słowo kluczowe i wyszukiwanie po lokalizacji"
@@ -242,6 +243,7 @@ pl:
         km: km
         miles: milach
         show_only_nearby: "Pokaż tylko najbliższe oferty przy użyciu wyszukiwania po lokalizacji"
+        allow_users_to_add_location: ~
         listing_preferences: "Preferencje wyświetlania"
         transaction_preferences: "Preferencje dot. zamówień"
         show_listing_publishing_date: "Wyświetl datę publikacji oferty na liście ofert"
@@ -820,6 +822,7 @@ pl:
       edit_location:
         edit_location_field: "Edytuj pole lokalizacji"
         this_field_is_required: "To pole jest wymagane"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Edytuj pole oferty \"Data wygaśnięcia\""
         enable: "Włącz datę wygaśnięcia"

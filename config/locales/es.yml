@@ -224,6 +224,7 @@ es:
         require_verification_to_post_listings: "Sólo los usuarios que han sido verificados por el administrador pueden publicar nuevos anuncios"
         allow_free_conversations: "Permitir que los usuarios se contacten libremente"
         search_preferences: "Preferencias de búsqueda"
+        search_and_location_preferences: ~
         default_search_type: "Tipo de búsqueda: %{select_search_type}"
         keyword_search: "Búsqueda por palabras clave"
         keyword_and_location_search: "Búsqueda por ubicación y palabras clave"
@@ -232,6 +233,7 @@ es:
         km: km
         miles: millas
         show_only_nearby: "Mostrar solamente anuncios cercanos a la búsqueda por ubicación"
+        allow_users_to_add_location: ~
         listing_preferences: "Preferencias de los anuncios"
         transaction_preferences: "Preferencias de transacciones"
         show_listing_publishing_date: "Mostrar fecha de publicación del anuncio la descripción del anuncio"
@@ -810,6 +812,7 @@ es:
       edit_location:
         edit_location_field: "Editar el campo de \"ubicación\""
         this_field_is_required: "Campo obligatorio"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Editar el campo \"Fecha de expiración\""
         enable: "Habilitar fecha de expiración"

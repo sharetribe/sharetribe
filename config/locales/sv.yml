@@ -224,6 +224,7 @@ sv:
         require_verification_to_post_listings: "Tillåt endast användare som har verifierats av admin att skapa nya annonser"
         allow_free_conversations: ~
         search_preferences: "Sök inställningar"
+        search_and_location_preferences: ~
         default_search_type: "Söktyp:%{select_search_type}"
         keyword_search: Nyckelordssökning
         keyword_and_location_search: "Nyckelord och platssökning"
@@ -232,6 +233,7 @@ sv:
         km: km
         miles: mil
         show_only_nearby: "Visa endast närliggande annonser med platssökningen"
+        allow_users_to_add_location: ~
         listing_preferences: Annonsinställningar
         transaction_preferences: Transaktionsinställningar
         show_listing_publishing_date: "Visa publiceringsdatum på annonsen på annonssidan"
@@ -810,6 +812,7 @@ sv:
       edit_location:
         edit_location_field: "Redigera annonsfältet \"plats\""
         this_field_is_required: "Detta fält måste fyllas i"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Ändra annonsfältet \"Utgångsdatum\""
         enable: "Aktivera utgångsdatum"

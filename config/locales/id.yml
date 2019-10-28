@@ -209,6 +209,7 @@ id:
         require_verification_to_post_listings: ~
         allow_free_conversations: ~
         search_preferences: ~
+        search_and_location_preferences: ~
         default_search_type: ~
         keyword_search: ~
         keyword_and_location_search: ~
@@ -217,6 +218,7 @@ id:
         km: ~
         miles: ~
         show_only_nearby: ~
+        allow_users_to_add_location: ~
         listing_preferences: ~
         transaction_preferences: ~
         show_listing_publishing_date: ~
@@ -795,6 +797,7 @@ id:
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~

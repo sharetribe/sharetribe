@@ -229,6 +229,7 @@ cs:
         require_verification_to_post_listings: "Pouze uživatelé ověření správcem mohou přidávat nové inzeráty"
         allow_free_conversations: ~
         search_preferences: "Vyhledávací předvolby"
+        search_and_location_preferences: ~
         default_search_type: "Typ vyhledávání: %{select_search_type}"
         keyword_search: "Hledání dle klíčových slov"
         keyword_and_location_search: "Vyhledávání dle klíčových slov a umístění"
@@ -237,6 +238,7 @@ cs:
         km: km
         miles: míle
         show_only_nearby: "Zobrazit pouze nabídky v okolí s vyhledáváním polohy"
+        allow_users_to_add_location: ~
         listing_preferences: "Nastavení inzerátů"
         transaction_preferences: "Nastavení transakcí"
         show_listing_publishing_date: "Zobrazit datum zveřejnění inzerátu na stránce inzerátu"
@@ -815,6 +817,7 @@ cs:
       edit_location:
         edit_location_field: "Upravit umístění"
         this_field_is_required: "Toto pole je povinné"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Upravit pole ' Vypršení data platnosti '"
         enable: "Povolit vypršení data platnosti"

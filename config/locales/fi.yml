@@ -224,6 +224,7 @@ fi:
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
         allow_free_conversations: "Salli käyttäjien viestitellä keskenään vapaasti"
         search_preferences: Hakuasetukset
+        search_and_location_preferences: ~
         default_search_type: "Haun tyyppi: %{select_search_type}"
         keyword_search: Avainsanahaku
         keyword_and_location_search: "Avainsana- ja sijaintihaku"
@@ -232,6 +233,7 @@ fi:
         km: km
         miles: mailit
         show_only_nearby: "Näytä vain lähistöllä sijaitsevat ilmoitukset sijaintihaussa"
+        allow_users_to_add_location: ~
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: Tilausasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
@@ -810,6 +812,7 @@ fi:
       edit_location:
         edit_location_field: "Muokkaa sijaintikenttää"
         this_field_is_required: "Tämä kenttä on pakollinen"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Muokkaa ilmoituskenttää \"viimeinen voimassaolopäivä\""
         enable: "Salli viimeisen voimassaolopäivän asettaminen"

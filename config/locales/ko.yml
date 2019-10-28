@@ -219,6 +219,7 @@ ko:
         require_verification_to_post_listings: "관리자가 승인한 사용자만 새 리스트를 게시 할 수 있도록 허용"
         allow_free_conversations: "사용자들이 서로 메시지를 주고 받을 수 있도록 허용"
         search_preferences: "검색 환경 설정"
+        search_and_location_preferences: ~
         default_search_type: "검색 유형 : %{select_search_type}"
         keyword_search: "키워드 검색"
         keyword_and_location_search: "키워드 및 위치 검색"
@@ -227,6 +228,7 @@ ko:
         km: 킬로미터
         miles: 마일
         show_only_nearby: "위치 검색을 사용하여 주변 목록만 표시"
+        allow_users_to_add_location: ~
         listing_preferences: "목록 환경설정"
         transaction_preferences: "주문 환경 설정"
         show_listing_publishing_date: "목록 페이지에 목록 게시 날짜 표시"
@@ -805,6 +807,7 @@ ko:
       edit_location:
         edit_location_field: "목록 필드 '위치 수정'"
         this_field_is_required: "이 필드는 필수 항목입니다."
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "목록 필드 '만료일'수정"
         enable: "만료일 활성"

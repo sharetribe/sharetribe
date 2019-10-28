@@ -219,6 +219,7 @@ zh-HK:
         require_verification_to_post_listings: 只有經管理員驗證的用戶才可以發佈新的訊息
         allow_free_conversations: ~
         search_preferences: 搜尋偏好
+        search_and_location_preferences: ~
         default_search_type: "搜尋類型：%{select_search_type}"
         keyword_search: 關鍵字搜尋
         keyword_and_location_search: ~
@@ -227,6 +228,7 @@ zh-HK:
         km: 公里
         miles: 英里
         show_only_nearby: ~
+        allow_users_to_add_location: ~
         listing_preferences: 訊息展示頁面偏好設置訊
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在信息展示頁面顯示信息的發布日期
@@ -805,6 +807,7 @@ zh-HK:
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~

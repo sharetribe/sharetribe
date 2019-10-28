@@ -219,6 +219,7 @@ ka:
         require_verification_to_post_listings: "მხოლოდ ადმინისტრატორის მიერ დადასტურებულ მომხმარებლებს შეუძლიათ დაპოსტოს ახალი ჩამონათვალი"
         allow_free_conversations: ~
         search_preferences: "ძებნის პარამეტრები"
+        search_and_location_preferences: ~
         default_search_type: "ძებნის ტიპი: %{select_search_type}"
         keyword_search: "საკვანძო სიტყვის ძებნა"
         keyword_and_location_search: "საკვანძო სიტყვით და ადგილით ძიება"
@@ -227,6 +228,7 @@ ka:
         km: კმ
         miles: მილები
         show_only_nearby: "ძებნაში აჩვენე მხოლოდ ახლომდებარე პროდუქცია"
+        allow_users_to_add_location: ~
         listing_preferences: "ჩამონათვალის პარამეტრები"
         transaction_preferences: "შეკვეთის პარამეტრები"
         show_listing_publishing_date: "გამოაჩინე ჩამონათვალის გამოქვეყნების თარიღი ჩამონათვალის გვერდზე"
@@ -805,6 +807,7 @@ ka:
       edit_location:
         edit_location_field: "დაარედაქტირე ლოკაციის ველი"
         this_field_is_required: "ეს ველი აუცილებელია"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "დაარედაქტირე ველი \"ვადის გასვლის თარიღი\""
         enable: "ვადის გასვლის თარიღის ჩართვა"
