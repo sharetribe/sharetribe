@@ -95,6 +95,9 @@ class TransactionTypeCreator
            selector_tr_key: 'listings.quantity.person'}
         ]
       }
+    },
+    "Free" => {
+      price_enabled: false
     }
   }
 
@@ -176,6 +179,11 @@ class TransactionTypeCreator
         translation_key: "admin.transaction_types.event_w_online_payment",
         action_button_translation_key: "admin.transaction_types.default_action_button_labels.book"
       }
+    },
+    "Free" => {
+      label: "Free",
+      translation_key: "admin.transaction_types.give",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
     }
   }
 
