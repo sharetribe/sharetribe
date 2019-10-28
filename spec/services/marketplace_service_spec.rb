@@ -67,6 +67,21 @@ describe MarketplaceService do
       expect(s.price_enabled).to eql true
       expect(s.shipping_enabled).to eql false
 
+      community = create(@community_params.merge({:marketplace_type => "event"}))
+      c = Community.find(community.id)
+      expect(c.shapes.count).to eq 2
+      s = c.shapes.last
+      expect(s.units.empty?).to eql false
+      default_per_unit = {
+        kind: "quantity", name_tr_key: 'listings.unit_types.person',
+        quantity_selector: "number", selector_tr_key: 'listings.quantity.person',
+        unit_type: "custom"
+      }
+      expect(s.units.first).to eql default_per_unit
+      expect(s.availability).to eql 'none'
+      expect(s.price_enabled).to eql true
+      expect(s.shipping_enabled).to eql false
+
       # check that category and shape are linked
       expect(CategoryListingShape.where(listing_shape_id: s[:id]).count).to eq(1)
       expect(CategoryListingShape.where(listing_shape_id: s[:id]).first.category).to eql c.categories.first

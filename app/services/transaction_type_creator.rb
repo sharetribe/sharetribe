@@ -75,6 +75,26 @@ class TransactionTypeCreator
     },
     "Swap" => {
       price_enabled: false
+    },
+    "Event" => {
+      none: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_NONE,
+        units: [
+          {unit_type: ListingUnit::CUSTOM, quantity_selector: 'number', kind: 'quantity',
+           name_tr_key: 'listings.unit_types.person',
+           selector_tr_key: 'listings.quantity.person'}
+        ]
+      },
+      preauthorize: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_NONE,
+        units: [
+          {unit_type: ListingUnit::CUSTOM, quantity_selector: 'number', kind: 'quantity',
+           name_tr_key: 'listings.unit_types.person',
+           selector_tr_key: 'listings.quantity.person'}
+        ]
+      }
     }
   }
 
@@ -144,6 +164,18 @@ class TransactionTypeCreator
       label: "Swap",
       translation_key: "admin.transaction_types.swap",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
+    },
+    "Event" => {
+      none: {
+        label: "Event",
+        translation_key: "admin.transaction_types.event_wo_online_payment",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.book"
+      },
+      preauthorize: {
+        label: "Event",
+        translation_key: "admin.transaction_types.event_w_online_payment",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.book"
+      }
     }
   }
 
@@ -174,6 +206,10 @@ class TransactionTypeCreator
       "Rent"
      when "service"
       "Service"
+     when "event"
+      "Event"
+     when "free"
+      "Free"
      else # also "product" goes to this default
       "Sell"
      end
