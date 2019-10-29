@@ -2,21 +2,25 @@
 #
 # Table name: listing_images
 #
-#  id                 :integer          not null, primary key
-#  listing_id         :integer
-#  created_at         :datetime
-#  updated_at         :datetime
-#  image_file_name    :string(255)
-#  image_content_type :string(255)
-#  image_file_size    :integer
-#  image_updated_at   :datetime
-#  image_processing   :boolean
-#  image_downloaded   :boolean          default(FALSE)
-#  error              :string(255)
-#  width              :integer
-#  height             :integer
-#  author_id          :string(255)
-#  position           :integer          default(0)
+#  id                       :integer          not null, primary key
+#  listing_id               :integer
+#  created_at               :datetime
+#  updated_at               :datetime
+#  image_file_name          :string(255)
+#  image_content_type       :string(255)
+#  image_file_size          :integer
+#  image_updated_at         :datetime
+#  image_processing         :boolean
+#  image_downloaded         :boolean          default(FALSE)
+#  error                    :string(255)
+#  width                    :integer
+#  height                   :integer
+#  author_id                :string(255)
+#  position                 :integer          default(0)
+#  email_image_file_name    :string(255)
+#  email_image_content_type :string(255)
+#  email_image_file_size    :integer
+#  email_image_updated_at   :datetime
 #
 # Indexes
 #
