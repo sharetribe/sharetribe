@@ -90,4 +90,23 @@ module CountryI18nHelper
       ['Wyoming', 'WY']
     ]
   end
+
+  def ca_states
+    ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'].map do |state|
+      [I18n.t("canada_states.#{state}"), state]
+    end
+  end
+
+  def au_states
+    [
+      ["Australian Capital Territory", "ACT"],
+      ["New South Wales", "NSW"],
+      ["Northern Territory", "NT"],
+      ["Queensland", "QLD"],
+      ["South Australia", "SA"],
+      ["Tasmania", "TAS"],
+      ["Victoria", "VIC"],
+      ["Western Australia", "WA"]
+    ]
+  end
 end
