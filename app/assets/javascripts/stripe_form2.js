@@ -189,10 +189,10 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
     $("#stripe_account_form_address_country").change(function(){
       var showElement = function (el, show) {
         if (show) {
-          $(el).find('input').prop('disabled', false);
+          $(el).find('input, select').prop('disabled', false);
           $(el).show();
         } else {
-          $(el).find('input').prop('disabled', true);
+          $(el).find('input, select').prop('disabled', true);
           $(el).hide();
         }
       };
