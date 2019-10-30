@@ -1117,12 +1117,15 @@ pt-BR:
       request: Solicitando
       inquiry: Inquérito
       share_for_free: Gratuito
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Comprar
         rent: Alugar
         request: Propor
         offer: Requisição
         inquiry: Contato
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1137,6 +1140,8 @@ pt-BR:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Editar página"
     default_community_slogan: "Mercado Virtual Comunitário"
@@ -1424,6 +1429,7 @@ pt-BR:
       give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Pedido concluído automaticamente - lembre-se de dar feedback"
       we_have_marked_request_as_confirmed: "Marcamos o pedido '%{request}' concluído. O pedido foi concluído automaticamente porque %{days_passed} dias se passaram desde que foi aceito."
@@ -2309,6 +2315,7 @@ pt-BR:
       month: "Número de meses:"
       unit: ~
       custom: "Quantidade:"
+      person: ~
     quantity_placeholder: Quantidade
     please_comment: Comentar
     reply_link:
@@ -2360,6 +2367,7 @@ pt-BR:
       week: semana
       month: mês
       unit: ~
+      person: ~
     verification_required:
       verification_required: "Verificação necessária"
   listing_conversations:

@@ -224,7 +224,7 @@ de:
         require_verification_to_post_listings: "Nur von einem Admin verifizierte Benutzer können neue Einträge veröffentlichen"
         allow_free_conversations: "Erlaube es allen Benutzern, einander frei zu kontaktieren"
         search_preferences: Sucheinstellungen
-        search_and_location_preferences: ~
+        search_and_location_preferences: "Such- und Standortoptionen"
         default_search_type: "Suchtyp: %{select_search_type}"
         keyword_search: Schlagwortsuche
         keyword_and_location_search: "Schlagwort- und Umgebungssuche"
@@ -233,7 +233,7 @@ de:
         km: km
         miles: Meilen
         show_only_nearby: "Mit Umgebungssuche nur Einträge in der Nähe zeigen"
-        allow_users_to_add_location: ~
+        allow_users_to_add_location: "Den Benutzern erlauben, einen Standort zu ihrem Profil und ihren Angeboten hinzufügen, und zeige eine Karte auf der Suchseite"
         listing_preferences: Eintragseinstellungen
         transaction_preferences: Auftragspräferenzen
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Eintragsseite darstellen"
@@ -648,158 +648,158 @@ de:
         you_can_now_use_a_custom_domain: "Mit deinem derzeitigen Plan kannst du eine benutzerdefinierte Domain aktivieren! Fangen wir mit der Einrichtung an. %{contact_us}!"
         would_you_like_to_change_domain: "Möchtest du deine benutzerdefinierte Domain ändern? %{contact_us}!"
       landing_pages:
-        landing_pages: ~
+        landing_pages: "Landing Page"
         info_1: ~
         info_2: ~
-        info_2_preview_text: ~
-        info_2_details_text: ~
+        info_2_preview_text: Vorschau
+        info_2_details_text: Grundangaben
         info_2_design_text: ~
         info_3: ~
-        info_4: ~
-        editor_title: ~
+        info_4: "Mehr über Custom Landing Pages lesen"
+        editor_title: "Landing Page Editor"
         editor_info: ~
-        preview: ~
-        set_live: ~
+        preview: "Landing Page-Vorschau"
+        set_live: "Live machen"
         headers:
-          section_id: ~
-          section_type: ~
-          version: ~
-          released: ~
-        add_new_version: ~
-        new_version: ~
-        edit_version: ~
-        add_new_section: ~
-        select_section_type: ~
+          section_id: "Abschnitt ID"
+          section_type: Abschnittstyp
+          version: Version
+          released: Veröffentlicht
+        add_new_version: "Neue Version hinzufügen"
+        new_version: "Neue Version"
+        edit_version: "Version bearbeiten"
+        add_new_section: "Neuen Abschnitt hinzufügen"
+        select_section_type: "Abchnittstyp wählen..."
         form:
-          version: ~
-          save: ~
+          version: Version
+          save: Speichern
         sections:
-          identifier: ~
-          kind: ~
-          variation: ~
-          new: ~
-          edit: ~
+          identifier: "Abschnitt ID"
+          kind: Abchnittstyp
+          variation: Variante
+          new: "Neuer Abschnitt"
+          edit: "Abschnitt %{section_id} bearbeiten"
           remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: ~
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
+          info_single_column: "Info 1 Spalte"
+          info_multi_column_2: "Info 2 Spalten"
+          info_multi_column_3: "Info 3 Spalten"
+          listings: Angebote
+          categories: Kategorien
+          hero: Hero
+          locations: Standorte
+          video: Video
           new_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Neuer Kategorien-Abschnitt"
+            footer: "Neuer Footer-Abschnitt"
+            hero: "Neuer Hero-Abschnitt"
+            info_single_column: "Neuer Abschnitt mit einer Spalte"
+            info_multi_column_2: "Neuer Abschnitt mit zwei Spalten"
+            info_multi_column_3: "Neuer Abschnitt mit drei Spalten"
+            listings: "Neuer Angebote-Abschnitt"
+            locations: "Neuer Standorte-Abschnitt"
+            video: "Neuer Video-Abschnitt"
           edit_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Kategorien-Abschnitt bearbeiten"
+            footer: "Footer-Abschnitt bearbeiten"
+            hero: "Hero-Abschnitt bearbeiten"
+            info_single_column: "Abschnitt mit einer Spalte bearbeiten"
+            info_multi_column_2: "Abschnitt mit zwei Spalten bearbeiten"
+            info_multi_column_3: "Abschnitt mit drei Spalten bearbeiten"
+            listings: "Angebote-Abschnitt bearbeiten"
+            locations: "Standorte-Abschnitt bearbeiten"
+            video: "Video-Abschnitt bearbeiten"
     landing_page_versions:
       sections:
         hero:
-          hero_title: ~
-          hero_description: ~
+          hero_title: Hero
+          hero_description: "Stelle fest das Hintegrundbild für den Hero-Abschnitt. Der Slogan und die Beschreibung werden auf der Seite \"Grundangaben\" konfiguriert."
         footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
+          footer_title: Footer
+          footer_style: Footer-Stil
+          style_dark: Dunkel
+          style_light: Hell
+          style_marketplace_color: Marktplatzfarbe
+          style_logo: Logo
         cta_button:
-          cta_button: ~
-          cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
+          cta_button: CTA-Taste
+          cta_enabled: Aktiviert
+          cta_text: Text
+          cta_url: URL
         background_image_overlay:
-          background_image: ~
+          background_image: Hintergrundbild
           background_image_info: ~
-          add_another_image: ~
-          current_image: ~
-          file_not_selected: ~
-          background_image_overlay: ~
+          add_another_image: "Zusätzliches Bild hinzufugen"
+          current_image: "Derzeitiges Bild: %{filename}"
+          file_not_selected: "Nicht gewählt"
+          background_image_overlay: Hintergrundbild-Overlay
           background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
+          overlay_dark: Dunkel
+          overlay_light: Hell
+          overlay_transparent: Durchsichtig
         background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
+          background_style: Hintergrundstil
+          style_image: Bild
+          style_color: Farbe
+          style_none: Keine
         background_color:
-          background_color: ~
+          background_color: Hintergrundfarbe
           background_color_info: ~
         categories:
-          add: ~
-          category: ~
-          empty: ~
-          image: ~
-          include_title: ~
+          add: "Neue Kategorie zu diesem Abschnitt hinzufügen"
+          category: Kategorie
+          empty: "Du hast keine gewählten Kategorien"
+          image: Bild
+          include_title: "Gewählte Kategorien"
           info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
+          need_at_least_3_categories: "Du solltest mindestens 3 Kategorien in diesem Abschnitt haben"
+          need_at_most_7_categories: "Du solltest höchstens 7 Kategorien in diesem Abschnitt haben"
         category:
-          add_another_image: ~
-          category: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          select_category: ~
+          add_another_image: "Zusätzliches Bild hinzufugen"
+          category: Kategorie
+          current_image: "Derzeitiges Bild: %{filename}"
+          file_not_selected: "Nicht gewählt"
+          image: Bild
+          image_required: "Du solltest ein Bild zu dieser Kategorie hinzufügen"
+          select_category: "Kategorie wählen"
         locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
+          add: "Einen neuen Standort zu diesem Abschnitt hinzufügen"
+          location: Standort
+          empty: "Du hast keine hinzugefügten Standorte"
+          image: Bild
+          include_title: "Gewählte Standorte"
           info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
+          need_at_least_3_locations: "Du solltest mindestens 3 Standorte in diesem Abschnitt haben"
+          need_at_most_7_locations: "Du solltest höchstens 7 Standorte in diesem Abschnitt haben"
         location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
+          add_another_image: "Zusätzliches Bild hinzufugen"
+          location: Standort
+          current_image: "Derzeitiges Bild: %{filename}"
+          file_not_selected: "Nicht gewählt"
+          image: Bild
+          image_required: "Du solltest ein Bild zu diesem Standort hinzufügen"
+          title: Titel
+          title_placeholder: Standort-Text
+          url: URL
+          url_placeholder: "Standort-Link URL"
         multi_column:
-          main_title: ~
-          column_header: ~
-          column_title: ~
+          main_title: Haupttitel
+          column_header: "Spalte %{index}"
+          column_title: "Spalte %{index} -Titel"
           column_icon_info: ~
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
-          column_button_url: ~
+          column_icon: "Spalte %{index} -Symbol"
+          column_paragraph: "Spalte %{index} -Paragraph"
+          column_button: "Spalte %{index} -Taste"
+          column_button_text: "Text auf der Taste"
+          column_button_url: "https://www.sharetribe.com"
         listings:
           you_need_to_add_the_listing_ids: ~
         video:
-          text: ~
-          youtube_video_id: ~
-          autoplay: ~
-          autoplay_no: ~
-          autoplay_muted: ~
-          info: ~
+          text: Text
+          youtube_video_id: "Youtube Video ID"
+          autoplay: Wiedergabealternativen
+          autoplay_no: "Kein Autoplay"
+          autoplay_muted: "Autoplay ohne Audio"
+          info: "Dieser Text wird angezeigt, wenn du \"Kein Autoplay\" wählst oder das Video pausiert wird"
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -812,7 +812,7 @@ de:
       edit_location:
         edit_location_field: "Standort bearbeiten"
         this_field_is_required: "Dieses Feld ist erforderlich"
-        the_location_feature_can_be_enabled: ~
+        the_location_feature_can_be_enabled: "Die Standort-Funktionalität kann auf dem %{link} Abschnitt deines Administrator Dashboards aktiviert werden"
       edit_expiration:
         edit_expiration_field: "Eintragsfeld 'Ablaufdatum' bearbeiten"
         enable: "Ablaufdatum aktivieren"
@@ -1121,26 +1121,31 @@ de:
       request: Anfragen
       inquiry: Anfrage
       share_for_free: "Kostenlos teilen"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Kaufen
         rent: Mieten
         request: Anbieten
         offer: Anfragen
         inquiry: Kontakt
+        book: ~
     community_transactions:
       show:
-        transaction_for: ~
-        status: ~
-        next_step: ~
-        waiting_for_provider_accept_or_reject: ~
-        waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
-        buyer_pays: ~
-        marketplace_collects: ~
-        buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
+        transaction_for: "Transaction für %{link}"
+        status: "Status:"
+        next_step: "Nächster Schritt:"
+        waiting_for_provider_accept_or_reject: "Gewartet wird, dass %{provider} die Anfrage annimmt or ablehnt."
+        waiting_for_fulfill_and_complete: "Gewartet wird, dass %{listing_title} von %{provider} erbracht wird, and dass %{buyer} die Anfrage als erledigt markiert."
+        buyer: "Käufer:"
+        provider: "Anbieter:"
+        buyer_pays: "Käufer zählt:"
+        marketplace_collects: "%{service_name} bekommt:"
+        buyer_service_fee_label: "Zahlungsgebühr vom Käufer:"
+        service_fee_label: "Zahlungsgebühr vom Anbieter:"
+        provider_receives: "Anbieter bekommt:"
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Seite bearbeiten"
     default_community_slogan: Community-Marktplatz
@@ -1430,6 +1435,7 @@ de:
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag \"%{request}\" als erledigt markiert. Die Überweisung der Zahlung auf Dein Bankkonto für diese Transaktion wurde soeben angestoßen. Du kannst %{other_party_given_name} nun ein Feedback geben."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Anfrage wurde automatisch abgeschlossen - bitte denk daran, Feedback zu geben."
       we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu '%{request}' als erledigt markiert. Der Auftrag wurde automatisch erledigt, weil %{days_passed} Tage vergangen sind, seit der Antrag angenommen wurde."
@@ -1603,7 +1609,7 @@ de:
       you_are_receiving_this_because: "Du hast diese Benachrichtigung erhalten, weil du %{author_name} folgst."
       view_listing: "Eintrag ansehen"
     new_member_notification:
-      subject: ~
+      subject: "Neuer Mitglied bei %{community}"
       new_member_has_joined: "Ein neues Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
       this_is_automatic_message: "Diese Nachricht wurde automatisch an alle Administratoren von %{community} geschickt."
       person_name: "Name:"
@@ -1704,9 +1710,9 @@ de:
       on_or_after: "muss genau oder nach %{restriction} sein"
       positive_number: "Bitte eine Zahl eingeben."
       from_must_be_less_than_till: "\"Startzeit\" muss vor der \"Endzeit\" sein"
-      section_with_this_id_already_exists: ~
-      listing_with_this_id_does_not_exist: ~
-      presence: ~
+      section_with_this_id_already_exists: "Diese Kennung wird bereits verwendet. Bitte wähle eine andere."
+      listing_with_this_id_does_not_exist: "Diese Kennung gehört keinem Angebot auf deinem Marktplatz. Eventuell handelt es sich um einen Tippfehler. Bitte erneut versuchen."
+      presence: "Kann nicht leer sein"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -1869,7 +1875,7 @@ de:
       search: Suchen
       signup: Registrieren
       search_placeholder: "Was suchst du?"
-      search_location_placeholder: Ort
+      search_location_placeholder: Standort
     listings:
       no_listing_image: "Kein Bild"
   layouts:
@@ -2315,6 +2321,7 @@ de:
       month: "Anzahl Monate:"
       unit: Stückzahl
       custom: "Anzahl:"
+      person: ~
     quantity_placeholder: Anzahl
     please_comment: Kommentar
     reply_link:
@@ -2366,6 +2373,7 @@ de:
       week: Woche
       month: Monat
       unit: Einheit
+      person: ~
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
@@ -2912,7 +2920,7 @@ de:
       menu: Menü
       more: Mehr
       search_placeholder: "Suche ..."
-      search_location_placeholder: Ort
+      search_location_placeholder: Standort
       user: Nutzer
       inbox: Posteingang
       profile: Profil
@@ -3089,23 +3097,23 @@ de:
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
-        button_color: ~
-        button_color_hover: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
-        icon_color: ~
+        id: "Einzigartiger Name wählen"
+        title: Titel
+        paragraph: Paragraph
+        button_color: Tastenfarbe
+        button_color_hover: "Schwebefarbe der Taste"
+        button_title: Text
+        button_path: URL
+        button_path_string: URL
+        background_image: Hintergrundbild
+        background_image_variation: "Variante des Hintergrundbildes"
+        background_color: Hintergrundfarbe
+        background_color_string: Hintergrundfarbe
+        icon_color: Symbolfarbe
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: "Angebot 1 ID"
+        listing_2_id: "Angebot 2 ID"
+        listing_3_id: "Angebot 3 ID"
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Text
+        youtube_video_id: "Youtube Video ID"

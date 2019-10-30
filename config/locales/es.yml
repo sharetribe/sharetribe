@@ -687,7 +687,7 @@ es:
           categories: Categorias
           hero: Hero
           locations: Ubicaciones
-          video: ~
+          video: Video
           new_section:
             categories: "Nueva sección Categorias"
             footer: "Nueva sección Pie de página"
@@ -729,7 +729,7 @@ es:
           background_image: "Imagen de fondo"
           background_image_info: ~
           add_another_image: ~
-          current_image: ~
+          current_image: "Imagen actual: %{filename}"
           file_not_selected: ~
           background_image_overlay: ~
           background_image_overlay_info: ~
@@ -1121,12 +1121,15 @@ es:
       request: Solicitando
       inquiry: Anuncio
       share_for_free: "Compartido gratuitamente"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Comprar
         rent: Alquilar
         request: Ofrecer
         offer: Solicitar
         inquiry: Contactar
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1141,6 +1144,8 @@ es:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Editar la página"
     default_community_slogan: "Comunidad de mercado colaborativo"
@@ -1430,6 +1435,7 @@ es:
       give_feedback_to: "Dar valoración a %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} ha marcado la orden de '%{request}' como completada. El dinero por esta transacción se ha transferido a tu cuenta de banco. Puedes ahora dejar una valoración a %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Solicitud completada automáticamente - Recuerda dar una valoración"
       we_have_marked_request_as_confirmed: "Hemos marcado tu solicitud sobre '%{request}' como completada de forma automática ya que han pasado %{days_passed} días desde que fue aceptada."
@@ -1603,7 +1609,7 @@ es:
       you_are_receiving_this_because: "Has recibido ésta notificación porque sigues a %{author_name}."
       view_listing: "Ver anuncio"
     new_member_notification:
-      subject: ~
+      subject: "Un nuevo miembro en %{community}"
       new_member_has_joined: "Un nuevo miembro se ha unido a %{community}. Es posible que aún deban confirmar su dirección de correo electrónico."
       this_is_automatic_message: "Este es un mensaje automático enviado a los administradores de %{community}."
       person_name: "Nombre:"
@@ -2315,6 +2321,7 @@ es:
       month: "Número de meses:"
       unit: "Número de unidades:"
       custom: "Cantidad:"
+      person: ~
     quantity_placeholder: Cantidad
     please_comment: Comentario
     reply_link:
@@ -2366,6 +2373,7 @@ es:
       week: semana
       month: mes
       unit: unidad
+      person: ~
     verification_required:
       verification_required: "Verificación requerida"
   listing_conversations:

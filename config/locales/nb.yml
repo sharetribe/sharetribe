@@ -1117,12 +1117,15 @@ nb:
       request: Forespør
       inquiry: Forespørsel
       share_for_free: "Deler gratis"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Kjøp
         rent: Lei
         request: Tilby
         offer: Forespør
         inquiry: Kontakt
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1137,6 +1140,8 @@ nb:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Rediger side"
     default_community_slogan: Markedsplass
@@ -1424,6 +1429,7 @@ nb:
       give_feedback_to: "Gi vurdering av %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Forespørsel er automatisk merket som gjennomført - husk å gi vurdering"
       we_have_marked_request_as_confirmed: "Vi har merket forespørselen vedrørende %{request} som fullført. Forespørselen ble automatisk fullført fordi %{days_passed} dager er passert siden forespørselen ble akseptert."
@@ -2311,6 +2317,7 @@ nb:
       month: "Antall måneder:"
       unit: ~
       custom: "Antall:"
+      person: ~
     quantity_placeholder: Antall
     please_comment: Kommenter
     reply_link:
@@ -2362,6 +2369,7 @@ nb:
       week: uke
       month: måned
       unit: ~
+      person: ~
     verification_required:
       verification_required: "Verifisering påkrevd"
   listing_conversations:

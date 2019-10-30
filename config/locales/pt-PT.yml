@@ -1108,12 +1108,15 @@ pt-PT:
       request: ~
       inquiry: ~
       share_for_free: ~
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: ~
         rent: ~
         request: ~
         offer: ~
         inquiry: Contacto
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1128,6 +1131,8 @@ pt-PT:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: ~
     default_community_slogan: "Mercado comunitário"
@@ -1413,6 +1418,7 @@ pt-PT:
       give_feedback_to: ~
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} marcou a ordem de '%{request}' como terminada. O pagamento por esta ordem será agora transferido para a sua conta bancária. Já pode dar o seu feedback a %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -2294,6 +2300,7 @@ pt-PT:
       month: ~
       unit: ~
       custom: ~
+      person: ~
     quantity_placeholder: ~
     please_comment: Comentar
     reply_link:
@@ -2345,6 +2352,7 @@ pt-PT:
       week: ~
       month: ~
       unit: ~
+      person: ~
     verification_required:
       verification_required: ~
   listing_conversations:

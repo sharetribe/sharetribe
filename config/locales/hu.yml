@@ -1116,12 +1116,15 @@ hu:
       request: Kérés
       inquiry: Közlemény
       share_for_free: "ingyen fuvar"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Vásárlás
         rent: Bérlet
         request: Ajánlat
         offer: ajánlatkérés
         inquiry: Kapcsolatfelvétel
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1136,6 +1139,8 @@ hu:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Oldal szerkesztése"
     default_community_slogan: "Közösség piactér"
@@ -1425,6 +1430,7 @@ hu:
       give_feedback_to: "Adjon értékelést %{other_party_given_name} számára"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "A rendelés automatikusan teljesítve - ne feledjen értékelést írni"
       we_have_marked_request_as_confirmed: "Ezen felkérést '%{request}' teljesítését befejezettnek jelöltük. A felkérés azért lett automatikusan teljesítve mert %{days_passed} nap eltelt mióta a felkérés elfogadásra került."
@@ -2312,6 +2318,7 @@ hu:
       month: "Hónapok száma:"
       unit: ~
       custom: "Mennyiség:"
+      person: ~
     quantity_placeholder: Mennyiség
     please_comment: Megjegyzés
     reply_link:
@@ -2363,6 +2370,7 @@ hu:
       week: hét
       month: hónap
       unit: ~
+      person: ~
     verification_required:
       verification_required: "Visszaigazolás szükséges"
   listing_conversations:

@@ -1090,12 +1090,15 @@ az-AZ:
       request: ~
       inquiry: ~
       share_for_free: ~
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: ~
         rent: ~
         request: ~
         offer: ~
         inquiry: ~
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1110,6 +1113,8 @@ az-AZ:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Səhifəyə düzəliş et"
     default_community_slogan: "İcma bazarı"
@@ -1395,6 +1400,7 @@ az-AZ:
       give_feedback_to: "%{other_party_given_name} -a geribildirim ver"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: "'%{request}' haqqında sifarişi tamamlanmış kimi qeyd etdik. Sifarişiniz avtomatik olaraq başa çatdı, çünki sifariş müddəti başa çatdıqdan %{days_passed}  gün keçdi."
@@ -2279,6 +2285,7 @@ az-AZ:
       month: ~
       unit: "Miqdarı:"
       custom: ~
+      person: ~
     quantity_placeholder: ~
     please_comment: "Şərh ver"
     reply_link:
@@ -2330,6 +2337,7 @@ az-AZ:
       week: həftə
       month: ay
       unit: ədəd
+      person: ~
     verification_required:
       verification_required: "Doğrulama tələb olunur"
   listing_conversations:

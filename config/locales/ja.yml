@@ -1112,12 +1112,15 @@ ja:
       request: リクエストします
       inquiry: 質問します
       share_for_free: 無料でシェアします
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: 買います
         rent: 借ります
         request: オファーします
         offer: リクエストします
         inquiry: お問い合わせ
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1132,6 +1135,8 @@ ja:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: ページの編集
     default_community_slogan: マーケットプレイスコミュニティー
@@ -1419,6 +1424,7 @@ ja:
       give_feedback_to: "%{other_party_given_name}さんへレビューを書く"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} は、%{request} に関する取引を完了しました。この取引の代金はあなたの銀行口座に支払われます。これで%{other_party_given_name} さんに感想を送ることができます。"
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "リクエストは自動的に完了しました - レビューを書くのを忘れないでください"
       we_have_marked_request_as_confirmed: "%{request}のリクエストが承認されてから%{days_passed}日経過しましたので、自動的に取引完了の処理が行われました。"
@@ -2303,6 +2309,7 @@ ja:
       month: 月間：
       unit: ~
       custom: 数量：
+      person: ~
     quantity_placeholder: 数量
     please_comment: コメント
     reply_link:
@@ -2354,6 +2361,7 @@ ja:
       week: 週
       month: 月
       unit: ~
+      person: ~
     verification_required:
       verification_required: 認証が必要です
   listing_conversations:

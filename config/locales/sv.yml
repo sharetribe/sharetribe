@@ -1121,12 +1121,15 @@ sv:
       request: Förfrågan
       inquiry: Meddelande
       share_for_free: Dela
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Köp
         rent: Hyr
         request: Erbjudande
         offer: Förfrågan
         inquiry: Kontakt
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1141,6 +1144,8 @@ sv:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Redigera sida"
     default_community_slogan: "Gemensam marknadsplats"
@@ -1430,6 +1435,7 @@ sv:
       give_feedback_to: "Ge feedback till %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} har markerad förfrågan på %{request} som slutförd. Betalningen för denna transaktion har nu överförts till ditt bankkonto. Du kan nu ge feedback till %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Förfrågan har automatiskt marketats som slutförd - kom ihåg att ge feedback"
       we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatisk markerad som slutförd eftersom %{days_passed} har passerat sedan förfrågan accepterades."
@@ -2317,6 +2323,7 @@ sv:
       month: "Antal månader:"
       unit: "Antal enheter:"
       custom: "Antal:"
+      person: ~
     quantity_placeholder: Antal
     please_comment: Kommentar
     reply_link:
@@ -2368,6 +2375,7 @@ sv:
       week: vecka
       month: månad
       unit: enhet
+      person: ~
     verification_required:
       verification_required: "Verifiering krävs"
   listing_conversations:

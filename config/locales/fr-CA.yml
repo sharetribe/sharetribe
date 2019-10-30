@@ -1105,12 +1105,15 @@ fr-CA:
       request: Demande
       inquiry: Information
       share_for_free: "Partage gratuit"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Acheter
         rent: Louer
         request: Proposer
         offer: Demander
         inquiry: Contacter
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1125,6 +1128,8 @@ fr-CA:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Modifier la page"
     default_community_slogan: "Votre place de marché"
@@ -1412,6 +1417,7 @@ fr-CA:
       give_feedback_to: "Donner un avis sur %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Demande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
       we_have_marked_request_as_confirmed: "Nous avons signalé la demande à propos de '%{request}' comme terminée. La demande a été terminée automatiquement car %{days_passed} se sont écoulés depuis que la demande a été acceptée."
@@ -2293,6 +2299,7 @@ fr-CA:
       month: ~
       unit: ~
       custom: ~
+      person: ~
     quantity_placeholder: ~
     please_comment: "Faire un commentaire"
     reply_link:
@@ -2344,6 +2351,7 @@ fr-CA:
       week: ~
       month: ~
       unit: ~
+      person: ~
     verification_required:
       verification_required: "Vérification nécessaire"
   listing_conversations:

@@ -454,7 +454,7 @@ it:
           started: ~
           last_activity: "Attività più recenti"
           initiated_by: ~
-          other_party: ~
+          other_party: Venditore
         status:
           conversation: ~
           free: ~
@@ -1090,12 +1090,15 @@ it:
       request: ~
       inquiry: ~
       share_for_free: "Condividere gratuitamente"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Compra
         rent: Affitta
         request: ~
         offer: Richiesta
         inquiry: ~
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1110,6 +1113,8 @@ it:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Modifica pagina"
     default_community_slogan: "Presta, vendi, aiuta, condividi"
@@ -1397,6 +1402,7 @@ it:
       give_feedback_to: "Dai il tuo feedback a %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} ha contrassegnato l'ordine per %{request} come completato. Il pagamento per questa transazione è stato trasferito sul tuo conto corrente. Puoi ora dare un feedback a %{other_party_given_name}"
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Richiesta completata automaticamente -  ricordati di dare il tuo feedback"
       we_have_marked_request_as_confirmed: "Abbiamo confermato la richiesta per '%{request}'. La richiesta è stata completata automaticamente perché sono trascorsi %{days_passed} giorni da quando la richiesta è stata accettata."
@@ -1414,7 +1420,7 @@ it:
       or_paste_link: "Altrimenti puoi copiare il seguente link nella barra degli indirizzi del tuo browser:"
     common:
       hey: "Ciao %{name},"
-      kassi_team: "Il Team %{service_name}"
+      kassi_team: "Il Team di %{service_name}"
       thanks: "Grazie,"
       dont_want_to_receive_these_emails: "Non vuoi ricevere queste email?"
       edit_your_email_settings_here: "Modifica qui le impostazioni della tua email"
@@ -1711,7 +1717,7 @@ it:
     create_new_marketplace: "Crea un nuovo marketplace"
     contact_us: Contattaci
     profile: Profilo
-    manage_listings: "Gestione annunci"
+    manage_listings: "Gestione inserzioni"
     invite: "Invita amici ad unirsi"
     login: Accedi
     signup: Registrati
@@ -1759,7 +1765,7 @@ it:
     index:
       no_listings_with_your_search_criteria: "Nessun risultato. Pazienza, forse ancora nessuno nell'area ha creato un inserzione adatta a questa categoria. Prova a cercare con altri termini."
       no_listings_notification: "No inserzioni. %{add_listing_link}."
-      add_listing_link_text: "Aggiungi il tuo spazio"
+      add_listing_link_text: "Aggiungi inserzione"
       open_listing: "inserzione aperta"
       open_listings: "inserzioni aperte"
       private_listing_notification_log_in: accedi
@@ -1819,7 +1825,7 @@ it:
       map_button: Mappa
       grid_button: Griglia
       list_button: Lista
-      all_listing_types: "Tipo di annuncio"
+      all_listing_types: "Tutte le inserzioni"
       all_categories: "Scegli tra le categorie"
     errors:
       search_engine_not_responding: ~
@@ -1925,7 +1931,7 @@ it:
       settings: Impostazioni
       sign_up: Registrati
     notifications:
-      listing_could_not_be_saved: "L'annuncio non può essere salvato. Ti preghiamo di riprovare. Se il problema persiste, %{contact_admin_link}."
+      listing_could_not_be_saved: "L'inserzione non può essere salvata. Ti preghiamo di riprovare. Se il problema persiste, %{contact_admin_link}."
       contact_admin_link_text: "Contatta l'admin"
       test_welcome_email_delivered_to: "Un'email di prova è stata inviata a %{email}"
       something_went_wrong: "Qualcosa non è andato a buon fine"
@@ -1969,20 +1975,20 @@ it:
       offer_accepted: "Offerta accettata"
       offer_confirmed: "Offerta confermata"
       offer_closed: "Offerta chiusa"
-      listing_created_successfully: "Annuncio creato con successo. %{new_listing_link}"
+      listing_created_successfully: "Inserzione creata con successo. %{new_listing_link}"
       offer_rejected: "Offerta rifiutata"
       offer_canceled: "Offerta cancellata"
       listing_updated_successfully: "L'inserzione è stata aggiornata con successo"
-      listing_updated_availability_management_enabled: "Inserzioni aggiornate con successo. Gestione delle disponibilità abilitate con successo."
-      listing_updated_availability_management_disabled: ""
-      listing_deleted: ~
-      only_kassi_administrators_can_access_this_area: ~
+      listing_updated_availability_management_enabled: "Inserzione aggiornata con successo. Gestione delle disponibilità abilitata."
+      listing_updated_availability_management_disabled: "Inserzione aggiornata con successo. Gestione delle disponibilità disabilitata."
+      listing_deleted: "Inserzione eliminata"
+      only_kassi_administrators_can_access_this_area: "Prego registrati con un account di amministratore per accedere a quest'area"
       only_listing_author_can_close_a_listing: "Solo l'autore dell'inserzione può chiudere l'inserzione"
       only_listing_author_can_edit_a_listing: "Solo l'autore dell'inserzione può modificare l'inserzione"
       payment_successful: "Pagamento riuscito"
       payment_canceled: "Pagamento cancellato"
       error_in_payment: "Errore nel pagamento. Se non hai ancora completato il pagamento, riprova. Se hai già riprovato, per favore inviaci un feedback."
-      cannot_receive_payment: "L'altra parte non può ricevere il pagamento per via di un errore. Ti invitiamo a contattare gli amministratori per chiarire la situazione."
+      cannot_receive_payment: "Il venditore non può ricevere il pagamento per via di un errore. Ti invitiamo a contattare gli amministratori di %{service_name} per chiarire la situazione."
       payment_waiting_for_later_accomplishment: "Una volta pagato, invieremo una notifica al venditore e riceverai una ricevuta via email"
       password_recovery_sent: "Le istruzioni per cambiare la tua password sono state inviate alla tua email."
       person_activated: "Utente attivato"
@@ -2019,7 +2025,7 @@ it:
       you_have_already_given_feedback_about_this_event: "Hai già fornito feedback su questo evento"
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: "Fai il login in %{service_name} per creare una nuova offerta. Se non hai un account puoi %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Accedi a %{service_name} per creare una nuova inserzione. Se non hai un account puoi %{sign_up_link}."
       additional_email_confirmed_dashboard: "Ora la tua email è confermata."
       you_must_log_in_to_give_feedback: "Devi accedere prima di fornire feedback"
       you_must_log_in_to_invite_new_users: "Devi effettuare il login per invitare nuovi utenti in %{service_name}"
@@ -2042,7 +2048,7 @@ it:
       user_does_not_have_email_to_delete: "Non hai l'indirizzo email che stai cercando di rimuovere"
       email_deleted: "Email rimossa"
       listing_author_payment_details_missing: "Ti preghiamo di contattare l'autore, cliccando sul pulsante 'contatta' che trovi più in basso. Deve aggiornare i dettagli di pagamento per poter ricevere pagamenti."
-      listing_author_payment_details_missing_no_free: ~
+      listing_author_payment_details_missing_no_free: "Prego contatta il team di %{service_name} per chiedere loro di contattare e consigliare l'autore dell'inserzione di aggiornare i propri dettagli per il pagamento per ricevere i pagamenti."
       images_are_processing: "Stiamo elaborando le tue immagini. Attendi per favore uno o due minuti e saranno visibili."
       maintenance_mode:
         zero: "Il sito web sarà messo ora offline per manutenzione."
@@ -2060,8 +2066,8 @@ it:
       paypal_payments: "Pagamenti PayPal"
       stripe_payments: "Pagamenti Stripe"
       payments: Pagamenti
-      listings: ~
-      listings_search_placeholder: ~
+      listings: Inserzioni
+      listings_search_placeholder: "Cerca inserzione"
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Non hai il permesso per visualizzare questo annuncio."
@@ -2282,6 +2288,7 @@ it:
       month: "Numero di mesi:"
       unit: ~
       custom: "Quantità:"
+      person: ~
     quantity_placeholder: Quantità
     please_comment: Commenta
     reply_link:
@@ -2333,6 +2340,7 @@ it:
       week: settimana
       month: mese
       unit: ~
+      person: ~
     verification_required:
       verification_required: "Richiesta verifica"
   listing_conversations:

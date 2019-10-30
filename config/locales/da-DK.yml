@@ -110,7 +110,7 @@ da-DK:
         community_slogan_color: "Markedspladsens slogans farve"
         community_slogan_color_instructions_text: "Du kan ændre farven for sloganet på hjemmesiden ved at skrive hexkoden. Sloganet vises til brugere der ikke er logget ind. %{colorpicker} kan hjælpe dig med at vælge farve og give dig hexkoden. Du kan så kopierer koden her. %{see_how_it_looks_like}"
         community_description_color: "Markedspladens beskrivelsesfarve."
-        community_description_color_instructions_text: ~
+        community_description_color_instructions_text: "Du kan ændre farven af beskrivelsen på homepage ved at indtaste en hex farve kode. Beskrivelsen bliver vist til brugere som ikke er logget på.  %{colorpicker}  kan hjælpe dig med at vælge farve og give dig hex farve kode. Du kan kopiere koden her %{see_how_it_looks_like}"
         new_listing_button_custom_color: "Farven af knappen \"Opret annonce\"."
         logo_instructions_text_with_dimensions: "Størrelsen på logoet, som vises på alm. computer, skal være %{height}x%{width}px. Det vil blive vist til brugere med større skærme."
         logo_instructions_text_with_dimensions_no_placing: "Højden på logoet skal være %{height} %{width}px."
@@ -193,8 +193,8 @@ da-DK:
         en: Engelsk
         en-AU: "Engelsk (Australien)"
         en-GB: "Engelsk (Storbritannien)"
-        es: ~
-        es-ES: ~
+        es: Spansk
+        es-ES: "Spansk (Spanien)"
         fi: Finsk
         fr: Fransk
         fr-CA: "Fransk (Canada)"
@@ -260,7 +260,7 @@ da-DK:
         last_community_updates: "Bemærk, at efter sletning, kan du og dine markedsplads brugere stadig modtage de sidste markedsplads opdaterings e-mails."
         you_will_be_redirected_to: "Når du har slettet din markedsplads vil du blive omdirigeret til %{destination}. Du vil ikke kunne få adgang til din markedsplads længere."
         delete_this_marketplace: "Slet denne markedsplads"
-        payment_preferences: ~
+        payment_preferences: Betalingssystem
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
@@ -302,7 +302,7 @@ da-DK:
         pending_user: ~
       new_layout:
         new_layout: "Nyt layout"
-        description_roadmap_new: ~
+        description_roadmap_new: "Når nye layoutkomponenter er til rådighed på din markedsplads, kan du vælge om du vil begynde at bruge den nye komponent eller fortsætte med at bruge den gamle. Du kan skifte valg på ethvert tidspunkt fra denne side. Det anbefales at altid bruge den nye version da de gamle komponenter muligvis udfases på et tidspunkt. Hvis en komponent som du i øjeblikket bruger skal udfases vil du blive kontaktet på forhånd."
         enabled_for_you: "Tilladt for dig."
         enabled_for_all: "Tilladt for alle."
         new_topbar: "Ny top bjælke (synlig på alle sider)."
@@ -483,11 +483,11 @@ da-DK:
           initiated: "Venter på PayPal betalingen"
           pending_ext: "Venter på PayPal betalingen"
           none:
-            free: ~
+            free: "Gratis transaktion"
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
+            free: Samtale
+            pending: Venter
+            preauthorized: "Forud godkendt"
             accepted: Accepteret
             rejected: Afvist
             paid: Betalt
@@ -496,16 +496,16 @@ da-DK:
             initiated: "Afventer PayPal betaling"
             pending_ext: "Afventer PayPal betaling"
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: Samtale
+            pending: Venter
+            preauthorized: "Forud godkendt"
+            accepted: Accepteret
+            rejected: Afvist
+            paid: Betalt
+            confirmed: Udført
+            canceled: Annulleret
+            initiated: "Venter på Stripe betaling"
+            pending_ext: "Venter på Strip betaling"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
@@ -886,19 +886,19 @@ da-DK:
         send_email_to_members_title: "Send email til alle dine brugere"
         send_email: "Send email"
         send_email_or: eller
-        send_test_email: ~
-        test_sent: ~
+        send_test_email: "Send en testmail til dig selv."
+        test_sent: "Testmail er sendt til din indboks"
         send_email_article_title: "denne artikel"
         send_email_article_text: "Du kan lære mere om bruger segmenter her %{article_link}."
         recipients:
-          title: ~
+          title: "Hvem vil du sende en mail til?"
           options:
-            all_users: ~
+            all_users: "Alle brugere"
             posting_allowed: ~
-            with_listing: ~
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
+            with_listing: "Brugere som har slået mindst en ting op"
+            with_listing_no_payment: "Brugere som har slået mindst en ting op, men har ikke tilføjet betalings oplysninger"
+            with_payment_no_listing: "Brugere som har tilføjet betalingsoplysninger, men har ikke slået noget op"
+            no_listing_no_payment: "Brugere som ikke har slået noget op og har ikke tilføjet deres betalingsoplysninger"
         email_subject: Email-emne
         email_content: Email-indhold
         email_content_placeholder: "Hvad vil du gerne sige til dine brugere?"
@@ -1021,8 +1021,8 @@ da-DK:
       integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal-konto, og vælge en minimumspris pr. annonce og størrelsen på dit servicegebyr."
       link_paypal_personal_account_label: "Sælger du selv produkter?"
       link_paypal_personal_account: "Hvis ja, vil du også være nødt til at tilslutte din PayPal konto til %{personal_payment_preferences_link}."
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
+      link_stripe_personal_account: "I så fald skal du også tilføje dine udbetalingsoplysninger %{personal_payment_preferences_link}"
+      link_paypal_and_stripe_personal_account: "I så fald skal du også forbinde din PayPal eller Stripe konto til %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "din personlige markedsplads konto"
       read_more_about_paypal: "Læs mere om Sharetribe's betalingssystem"
       edit_payment_settings: "Ændr betalingsinformation"
@@ -1036,15 +1036,15 @@ da-DK:
       minimum_listing_price_below_tx_fee: "skal mindst være det samme som mindste transaktionsafgift %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "skal være større end mindste provision %{minimum_commission}."
     payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
-      you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
+      title: "Betalingssystem præferencer"
+      general_settings: "1. Generelle indstillinger"
+      connect_a_payment_provider: "Forbind en betalingsudbyder"
+      contact_support: "Kontakt support"
+      no_payments_link_text: Her
+      your_country: "Dit land:"
+      you_cannot_use_online_payments: "Du kan ikke bruge online betalinger i %{country_name} med%{currency}. Venligst vælg en anden valuta eller %{support_link} for at ændre betalingsmiddeller %{help_link}. I fremtiden vil vi måske tilføje flere betalingsudbyder og understøtte flere valutaer"
+      which_to_choose: "Vælg hvilken"
+      you_can_use_stripe_or_paypal: "Du kan enten bruge Stripe, PayPal eller begge som dine betalingsudbyder %{choose_link}"
       you_can_use_stripe_only: ~
       read_more_stripe: ~
       you_can_use_paypal_only: ~
@@ -1117,12 +1117,15 @@ da-DK:
       request: Anmoder
       inquiry: Forespørgsel
       share_for_free: "Deler gratis"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Køb
         rent: Lån
         request: Tilbyd
         offer: Ansøg
         inquiry: Kontakt
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1137,6 +1140,8 @@ da-DK:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Rediger side"
     default_community_slogan: "Fælleskabs markedsplads"
@@ -1422,6 +1427,7 @@ da-DK:
       give_feedback_to: "Giv feedback til %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} har markeret ordren om %{request} som færdiggjort. Betalingen for denne transaktion er blevet overført til din konto. Du kan nu give feedback til %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Anmodningen blev automatisk godkendt - husk at give feedback"
       we_have_marked_request_as_confirmed: "Vi har markeret anmodningen om '%{request}' som godkendt. Anmodningen blev automatisk godkendt fordi der er gået %{days_passed} dage, siden anmodningen blev accepteret."
@@ -2309,6 +2315,7 @@ da-DK:
       month: "Antal måneder:"
       unit: ~
       custom: "Mængde:"
+      person: ~
     quantity_placeholder: Mængde
     please_comment: Kommentar
     reply_link:
@@ -2360,6 +2367,7 @@ da-DK:
       week: uge
       month: måned
       unit: Enhed
+      person: ~
     verification_required:
       verification_required: "Godkendelse påkrævet"
   listing_conversations:

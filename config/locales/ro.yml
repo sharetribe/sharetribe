@@ -1110,12 +1110,15 @@ ro:
       request: Solicita
       inquiry: ~
       share_for_free: "Partajare gratuita"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Cumparati
         rent: Inchiriati
         request: Oferiti
         offer: Cereti
         inquiry: "Persoana de contact"
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1130,6 +1133,8 @@ ro:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Editați pagină"
     default_community_slogan: "Platforma de intermediere online a comunitatii"
@@ -1419,6 +1424,7 @@ ro:
       give_feedback_to: "Oferiti o recenzie pentru %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti o recenzie"
       we_have_marked_request_as_confirmed: ~
@@ -2300,6 +2306,7 @@ ro:
       month: "Numar de luni:"
       unit: ~
       custom: ~
+      person: ~
     quantity_placeholder: Cantitate
     please_comment: Comenteaza
     reply_link:
@@ -2351,6 +2358,7 @@ ro:
       week: saptamana
       month: lună
       unit: ~
+      person: ~
     verification_required:
       verification_required: "Verificare necesară"
   listing_conversations:

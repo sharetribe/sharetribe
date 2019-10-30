@@ -1090,12 +1090,15 @@ ti:
       request: ~
       inquiry: ~
       share_for_free: ~
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: ~
         rent: ~
         request: ~
         offer: ~
         inquiry: ~
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1110,6 +1113,8 @@ ti:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: ~
     default_community_slogan: ~
@@ -1395,6 +1400,7 @@ ti:
       give_feedback_to: ~
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -2276,6 +2282,7 @@ ti:
       month: ~
       unit: ~
       custom: ~
+      person: ~
     quantity_placeholder: ~
     please_comment: ~
     reply_link:
@@ -2327,6 +2334,7 @@ ti:
       week: ~
       month: ~
       unit: ~
+      person: ~
     verification_required:
       verification_required: ~
   listing_conversations:

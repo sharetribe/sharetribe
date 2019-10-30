@@ -1121,12 +1121,15 @@ fi:
       request: Tarvitaan
       inquiry: Tiedustelu
       share_for_free: "Tarjotaan käyttöön ilmaiseksi"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Osta
         rent: Vuokraa
         request: Tarjoa
         offer: Pyydä
         inquiry: "Ota yhteyttä"
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1141,6 +1144,8 @@ fi:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
@@ -1430,6 +1435,7 @@ fi:
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "Käyttäjä %{other_party_full_name} on merkinnyt tilauksen '%{request}' toteutuneeksi. Maksu tästä tilauksesta on nyt maksettu pankkitilillesi. Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
@@ -2315,6 +2321,7 @@ fi:
       month: "Kuukausien määrä:"
       unit: "Yksiköiden lukumäärä:"
       custom: "Määrä:"
+      person: ~
     quantity_placeholder: Määrä
     please_comment: Kommentoi
     reply_link:
@@ -2366,6 +2373,7 @@ fi:
       week: viikko
       month: kuukausi
       unit: yksikkö
+      person: ~
     verification_required:
       verification_required: "Vahvistus vaaditaan"
   listing_conversations:
