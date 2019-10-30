@@ -1108,12 +1108,15 @@ th-TH:
       request: ต้องการ
       inquiry: ประกาศ
       share_for_free: แบ่งปันฟรี
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: ซื้อ
         rent: เช่า
         request: เสนอ
         offer: คำขอ
         inquiry: ติดต่อ
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1128,6 +1131,8 @@ th-TH:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: แก้ไขหน้านี้
     default_community_slogan: ตลาดชุมชน
@@ -1415,6 +1420,7 @@ th-TH:
       give_feedback_to: "ให้ความคิดเห็นแก่%{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} ได้ทำเครื่องหมายการสั่งซื้อเกี่ยวกับ%{request}เสร็จสมบูรณ์แล้ว การชำระเงินได้ถูกปล่อยเข้าธนาคารคุณแล้ว ขณะนี้คุณสามารถให้ความคิดเห็นไปยัง%{other_party_given_name}ได้"
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติ - อย่าลืมที่จะให้ความคิดเห็น"
       we_have_marked_request_as_confirmed: "เราได้ทำเครื่องหมายในการสั่งซื้อ '%{request}' เสร็จแล้ว การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติเนื่องจากผ่านมาแล้ว %{days_passed} วันนับตั้งแต่คำขอได้รับการยอมรับ"
@@ -2296,6 +2302,7 @@ th-TH:
       month: "จำนวนเดือน:"
       unit: ~
       custom: "ปริมาณ:"
+      person: ~
     quantity_placeholder: ปริมาณ
     please_comment: ข้อคิดเห็น
     reply_link:
@@ -2347,6 +2354,7 @@ th-TH:
       week: สัปดาห์
       month: เดือน
       unit: ~
+      person: ~
     verification_required:
       verification_required: ต้องได้รับการยืนยัน
   listing_conversations:

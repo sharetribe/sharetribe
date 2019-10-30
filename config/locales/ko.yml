@@ -1112,12 +1112,15 @@ ko:
       request: 요청
       inquiry: 공지
       share_for_free: "무료 공유"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: 구매하기
         rent: 임대
         request: 제안
         offer: 요청
         inquiry: 연락처
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1132,6 +1135,8 @@ ko:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "페이지 편집"
     default_community_slogan: "커뮤니티 마켓플레이스"
@@ -1421,6 +1426,7 @@ ko:
       give_feedback_to: "%{other_party_given_name}에게 피드백 보내기"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "주문 자동 완성 - 피드백을 해주세요"
       we_have_marked_request_as_confirmed: "'%{request}'에 대한 주문을 완료했습니다. 요청이 수락된 후 %{days_passed} 일이 지났으므로 주문이 자동으로 완료되었습니다."
@@ -2305,6 +2311,7 @@ ko:
       month: "개월 수 :"
       unit: 수량
       custom: "수량:"
+      person: ~
     quantity_placeholder: 수량
     please_comment: 설명
     reply_link:
@@ -2356,6 +2363,7 @@ ko:
       week: 주
       month: ~
       unit: ~
+      person: ~
     verification_required:
       verification_required: "승인 요구됨"
   listing_conversations:

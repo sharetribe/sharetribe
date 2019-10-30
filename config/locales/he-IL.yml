@@ -1096,12 +1096,15 @@ he-IL:
       request: מחפש
       inquiry: הַכרָזָה
       share_for_free: "שיתוף בחינם"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: לקנות
         rent: להשכיר
         request: הצעה
         offer: בקשה
         inquiry: "שלח/י הודעה"
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1116,6 +1119,8 @@ he-IL:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "ערוך דף"
     default_community_slogan: "מרקטפלייס קהילתי"
@@ -1401,6 +1406,7 @@ he-IL:
       give_feedback_to: "לתת משוב ל ‎%{other_party_given_name}‎"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
       we_have_marked_request_as_confirmed: ~
@@ -2282,6 +2288,7 @@ he-IL:
       month: "מספר חודשים:"
       unit: ~
       custom: ~
+      person: ~
     quantity_placeholder: ~
     please_comment: תגובה
     reply_link:
@@ -2333,6 +2340,7 @@ he-IL:
       week: שבוע
       month: חודש
       unit: ~
+      person: ~
     verification_required:
       verification_required: "נדרש אימות"
   listing_conversations:

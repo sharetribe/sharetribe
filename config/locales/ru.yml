@@ -1139,12 +1139,15 @@ ru:
       request: Требуется
       inquiry: Запрос
       share_for_free: "Бесплатно поделюсь"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Купить
         rent: Аренда
         request: Предложение
         offer: Запрос
         inquiry: Связаться
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1159,6 +1162,8 @@ ru:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Редактировать страницу"
     default_community_slogan: "Сотрудничайте, делитесь и помогайте"
@@ -1211,7 +1216,7 @@ ru:
       title: "Комиссия и оплата за обработку платежей"
       stripe: Stripe
       paypal: PayPal
-      info: "Платежи в% {service_name} обрабатываются платежным шлюзом, перечисленным ниже. % {service_name} взимает комиссию в зависимости от платежного шлюза. Платежной шлюз также может взимать плату за каждый платеж, как описано ниже."
+      info: "Платежи в %{service_name} обрабатываются платежным шлюзом, указанным ниже. %{service_name} взимает комиссию в зависимости от платежного шлюза. Платежный шлюз также может взимать плату за каждый платеж, как описано ниже."
     paypal_fee_info:
       title: "PayPal комиссия за обработку платежа"
       body_text: "PayPal удерживает комиссию с каждого платежа. Эта комиссия находится в пределах от 2% до 5% от общей суммы, и зависит от ваших ежемесячных продаж и страны резиденции покупателя. В общем, локальные покупки имеют меньшую комиссию чем международные, и увеличение ежемесячных продаж дает вам возможность уменьшить комиссию. Вы можете увидеть точную сумму комиссии зайдя в ваш PayPal аккаунт %{link_to_paypal}. После каждой покупки вы будете получать квитанцию отображающую точную сумму комиссии."
@@ -1446,6 +1451,7 @@ ru:
       give_feedback_to: "Оставить отзыв %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name}пометил заказ о выполнении '%{request}'. Платеж за эту транзакцию был переведен на ваш банковский счет. Теперь вы можете оставить отзыв%{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Запрос завершен автоматически - не забудьте оставить отзыв"
       we_have_marked_request_as_confirmed: "Мы отметили запрос о \"%{request}\" выполненным. Данный запрос был завершен автоматически так как прошло %{days_passed} дней после того как запрос был принят."
@@ -2333,6 +2339,7 @@ ru:
       month: "Количество месяцев:"
       unit: "Количество единиц:"
       custom: "Количество:"
+      person: ~
     quantity_placeholder: Количество
     please_comment: Комментарий
     reply_link:
@@ -2384,6 +2391,7 @@ ru:
       week: неделя
       month: месяц
       unit: Отдел
+      person: ~
     verification_required:
       verification_required: "Требуется подтверждение"
   listing_conversations:

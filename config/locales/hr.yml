@@ -1132,12 +1132,15 @@ hr:
       request: Potražnja
       inquiry: ~
       share_for_free: "Besplatno dijeljenje"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Kupiti
         rent: Iznajmite
         request: Ponudite
         offer: Zatražite
         inquiry: Kontaktirajte
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1152,6 +1155,8 @@ hr:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Izmijeni stranicu"
     default_community_slogan: "Marketplace zajednica"
@@ -1439,6 +1444,7 @@ hr:
       give_feedback_to: "Pružite povratnu informaciju %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} je označio/la narudžbu kao '%{request}' djelomično izvršenu. Uplata za ovu transakciju je sada prebačena na vaš bankovni račun. Sada možete ostaviti komentar na %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -2328,6 +2334,7 @@ hr:
       month: "Broj mjeseci:"
       unit: "Broj jedinica:"
       custom: "Količina:"
+      person: ~
     quantity_placeholder: Količina
     please_comment: Komentar
     reply_link:
@@ -2379,6 +2386,7 @@ hr:
       week: tjedan
       month: mjesec
       unit: jedinica
+      person: ~
     verification_required:
       verification_required: "Potrebna verifikacija"
   listing_conversations:

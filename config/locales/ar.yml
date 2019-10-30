@@ -1104,12 +1104,15 @@ ar:
       request: طلب
       inquiry: تصريح
       share_for_free: "المشاركة مجانا"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: شراء
         rent: تأجير
         request: عرض
         offer: طلب
         inquiry: اتصال
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1124,6 +1127,8 @@ ar:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "حرر الصفحة"
     default_community_slogan: "سوق اجتماعي"
@@ -1414,6 +1419,7 @@ ar:
       give_feedback_to: "‎%{other_party_given_name}‎ أعط رأيك في"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
@@ -2299,6 +2305,7 @@ ar:
       month: "عدد الأشهر"
       unit: ~
       custom: "الكمية:"
+      person: ~
     quantity_placeholder: الكمية
     please_comment: تعليق
     reply_link:
@@ -2350,6 +2357,7 @@ ar:
       week: أسبوع
       month: شهر
       unit: ~
+      person: ~
     verification_required:
       verification_required: "يحتاج إلى تأكيد"
   listing_conversations:

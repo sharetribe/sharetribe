@@ -1110,12 +1110,15 @@ lt:
       request: Prašoma
       inquiry: Pranešimas
       share_for_free: "Dalijasi nemokamai"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Pirkti
         rent: Nuomoti
         request: Siūlyti
         offer: Prašyti
         inquiry: Kontaktuoti
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1130,6 +1133,8 @@ lt:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Redaguoti puslapį"
     default_community_slogan: "Bendruomenės turgus"
@@ -1415,6 +1420,7 @@ lt:
       give_feedback_to: "Palikti atsiliepimą %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Užsakymas baigtas automatiškai - nepamirškite palikti atsiliepimą"
       we_have_marked_request_as_confirmed: "Užsakymą dėl '%{request}' pažymėjome kaip baigtą. Užsakymas buvo pažymėtas kaip baigtas automatiški nes praėjo %{days_passed} dienos nuo tada kai prašymas buvo priimtas."
@@ -2296,6 +2302,7 @@ lt:
       month: ~
       unit: "Vienetų kiekis:"
       custom: ~
+      person: ~
     quantity_placeholder: ~
     please_comment: Komentuoti
     reply_link:
@@ -2347,6 +2354,7 @@ lt:
       week: ~
       month: ~
       unit: vienetas
+      person: ~
     verification_required:
       verification_required: "Reikalingas patvirtinimas"
   listing_conversations:

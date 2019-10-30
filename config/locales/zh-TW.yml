@@ -1112,12 +1112,15 @@ zh-TW:
       request: 请求
       inquiry: 公告
       share_for_free: 免费共享
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: 购买
         rent: 租赁
         request: 请求
         offer: 请求
         inquiry: 聯絡人
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1132,6 +1135,8 @@ zh-TW:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: 编辑页面
     default_community_slogan: 集市
@@ -1417,6 +1422,7 @@ zh-TW:
       give_feedback_to: "给%{other_party_given_name}反馈"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我們已經完成了關於'%{request}'的順序標記。 訂單已自動完成，因為接受請求後已過去了%{days_passed}天。"
@@ -2301,6 +2307,7 @@ zh-TW:
       month: "月數:"
       unit: ~
       custom: "數量:"
+      person: ~
     quantity_placeholder: 數量
     please_comment: 評論
     reply_link:
@@ -2352,6 +2359,7 @@ zh-TW:
       week: 周
       month: 月
       unit: ~
+      person: ~
     verification_required:
       verification_required: 需要驗證
   listing_conversations:

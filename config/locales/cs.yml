@@ -1126,12 +1126,15 @@ cs:
       request: Žádám
       inquiry: Oznámení
       share_for_free: "Sdílení zdarma"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Koupit
         rent: Pronajmout
         request: Nabídnout
         offer: Žádat
         inquiry: Kontaktovat
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1146,6 +1149,8 @@ cs:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Upravit stránku"
     default_community_slogan: Tržiště
@@ -1433,6 +1438,7 @@ cs:
       give_feedback_to: "Ohodnotit uživatele %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Žádost byla automaticky vyřízena - nezapomeňte poskytnout zpětnou vazbu"
       we_have_marked_request_as_confirmed: "Žádost %{request} byla označena jako vyřízená. Žádost byla automaticky dokončena protože uplynulo %{days_passed} dní od doby, kdy byla žádost přijata."
@@ -2319,6 +2325,7 @@ cs:
       month: "Počet měsíců:"
       unit: "Počet jednotek:"
       custom: "Množství:"
+      person: ~
     quantity_placeholder: Množství
     please_comment: Komentář
     reply_link:
@@ -2370,6 +2377,7 @@ cs:
       week: týden
       month: měsíc
       unit: jednotka
+      person: ~
     verification_required:
       verification_required: "Ověření požadováno"
   listing_conversations:

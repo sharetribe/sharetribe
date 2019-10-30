@@ -1130,12 +1130,15 @@ sk-SK:
       request: Žiadam
       inquiry: Oznamy
       share_for_free: "Zdielanie zdarma"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Kúpiť
         rent: Prenajať
         request: Ponúknuť
         offer: Požiadať
         inquiry: Kontakt
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1150,6 +1153,8 @@ sk-SK:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Editovať stránku"
     default_community_slogan: Trhovisko
@@ -1439,6 +1444,7 @@ sk-SK:
       give_feedback_to: "Zanechať hodnotenie pre %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} označil objednávku '%{request}' ako dokončenú. Platba za túto transakciu bola teraz uvoľnená na váš bankový účet. Teraz môžete poskytnúť spätnú väzbu používateľovi %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Objednávka bola automaticky vybavená - nezabudnite poskytnúť spätnú väzbu"
       we_have_marked_request_as_confirmed: "Žiadosť %{request} bola označená ako vybavená. Žiadosť bola automaticky dokončená pretože uplynulo %{days_passed} dní od doby, keď bola žiadosť prijatá."
@@ -2327,6 +2333,7 @@ sk-SK:
       month: "Počet mesiacov:"
       unit: "Počet kusov:"
       custom: "Množstvo:"
+      person: ~
     quantity_placeholder: Množstvo
     please_comment: Komentár
     reply_link:
@@ -2378,6 +2385,7 @@ sk-SK:
       week: týždeň
       month: mesiac
       unit: jednotka
+      person: ~
     verification_required:
       verification_required: "Overenie požadované"
   listing_conversations:

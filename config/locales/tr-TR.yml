@@ -1102,12 +1102,15 @@ tr-TR:
       request: "Talep etmek"
       inquiry: Sorgulama
       share_for_free: "Bedelsiz paylaşım"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: "Satın al"
         rent: Kirala
         request: Teklif
         offer: Talep
         inquiry: İletişim
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1122,6 +1125,8 @@ tr-TR:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Sayfayı düzenle"
     default_community_slogan: "Topluluk pazarı"
@@ -1410,6 +1415,7 @@ tr-TR:
       give_feedback_to: "%{other_party_given_name} üyesin geri bildirim bırakın."
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Talep otomatik olarak tamamlandı - geri bildirim bırakmayı unutmayın"
       we_have_marked_request_as_confirmed: "'%{request}' hakkındaki talebi tamamlandı olarak işaretledik. Talebin kabulünün üzerinden %{days_passed} gün geçtiği için, talep otomatik olarak tamamlandı."
@@ -2291,6 +2297,7 @@ tr-TR:
       month: "Ay sayısı:"
       unit: ~
       custom: Miktar
+      person: ~
     quantity_placeholder: Adet
     please_comment: Yorum
     reply_link:
@@ -2342,6 +2349,7 @@ tr-TR:
       week: hafta
       month: ay
       unit: ~
+      person: ~
     verification_required:
       verification_required: "Doğrulama gerekli"
   listing_conversations:

@@ -1124,12 +1124,15 @@ nl:
       request: Vraag
       inquiry: Verzoek
       share_for_free: "Gratis delen"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Koop
         rent: Huur
         request: Aanbod
         offer: Vraag
         inquiry: Contact
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1144,6 +1147,8 @@ nl:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Pagina aanpassen"
     default_community_slogan: "Gemeenschappelijke marktplaats"
@@ -1433,6 +1438,7 @@ nl:
       give_feedback_to: "Geef feedback aan %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} heeft de bestelling %{request} als voltooid gemarkeerd. De betaling voor deze transactie is nu naar je bankrekening overgemaakt. Je kunt nu feedback geven aan %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: "We hebben het verzoek betreft %{request} als afgehandeld gemarkeerd. Dit is automatisch uitgevoerd omdat %{days_passed} dagen zijn verlopen sinds het verzoek is geaccepteerd."
@@ -2318,6 +2324,7 @@ nl:
       month: "Aantal maanden:"
       unit: "Aantal eenheden"
       custom: "Aantal:"
+      person: ~
     quantity_placeholder: Aantal
     please_comment: Reactie
     reply_link:
@@ -2369,6 +2376,7 @@ nl:
       week: week
       month: maand
       unit: eenheid
+      person: ~
     verification_required:
       verification_required: "Verificatie vereist"
   listing_conversations:

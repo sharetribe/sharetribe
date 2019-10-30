@@ -1112,12 +1112,15 @@ vi:
       request: "Yêu cầu"
       inquiry: "Thông báo"
       share_for_free: "Chia sẻ miễn phí"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Mua
         rent: Thuê
         request: "Đề nghị"
         offer: "Yêu cầu"
         inquiry: "Liên hệ"
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1132,6 +1135,8 @@ vi:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Chỉnh sửa trang này"
     default_community_slogan: "Cho mượn, giúp đỡ, chia sẻ"
@@ -1419,6 +1424,7 @@ vi:
       give_feedback_to: "Để lại phản hồi cho %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -2303,6 +2309,7 @@ vi:
       month: "Số tháng:"
       unit: ~
       custom: "Số lượng:"
+      person: ~
     quantity_placeholder: "Số lượng"
     please_comment: "Bình luận"
     reply_link:
@@ -2354,6 +2361,7 @@ vi:
       week: tuần
       month: tháng
       unit: ~
+      person: ~
     verification_required:
       verification_required: "Yêu cầu xác minh"
   listing_conversations:

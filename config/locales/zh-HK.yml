@@ -1108,12 +1108,15 @@ zh-HK:
       request: 請求
       inquiry: 公告
       share_for_free: 免費分享
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: 購買
         rent: 出租
         request: 交易
         offer: 請求
         inquiry: 聯絡資訊
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1128,6 +1131,8 @@ zh-HK:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: 编輯頁面
     default_community_slogan: 市集
@@ -1413,6 +1418,7 @@ zh-HK:
       give_feedback_to: "向%{other_party_given_name}作出回應"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: 交易自動完成——不要忘記給予回應
       we_have_marked_request_as_confirmed: "我們已經把「%{request}」標示作已完成。此交易已自動完成，因為在請求被接受後%{days_passed}天已經過去。"
@@ -2297,6 +2303,7 @@ zh-HK:
       month: 月：
       unit: ~
       custom: 數量：
+      person: ~
     quantity_placeholder: 數量
     please_comment: 評論
     reply_link:
@@ -2348,6 +2355,7 @@ zh-HK:
       week: 星期
       month: 月
       unit: ~
+      person: ~
     verification_required:
       verification_required: 需要驗証
   listing_conversations:

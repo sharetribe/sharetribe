@@ -1090,12 +1090,15 @@ lv:
       request: ~
       inquiry: ~
       share_for_free: ~
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: ~
         rent: ~
         request: ~
         offer: ~
         inquiry: ~
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1110,6 +1113,8 @@ lv:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Rediģēt lapu"
     default_community_slogan: "Savstarpējās iznomāšanas platforma"
@@ -1399,6 +1404,7 @@ lv:
       give_feedback_to: "Novērtēt %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} ir atzīmējis pasūtījumu '%{request}' kā pabeigtu. Maksājums par šo darījumu tagad ir pārskaitīts uz Jūsu bankas kontu. Tagad varat sniegt atsauksmes par %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Pasūtījums izpildīts automātiski - atcerieties sniegt atsauksmi"
       we_have_marked_request_as_confirmed: "Mēs esam atzīmējuši, ka pasūtījums par '%{request}' ir izpildīts. Pasūtījums tika izpildīts automātiski, jo bija pagājušas %{days_passed} dienas kopš pieprasījuma apstiprināšanas."
@@ -2284,6 +2290,7 @@ lv:
       month: "Mēnešu skaits:"
       unit: "Vienību skaits:"
       custom: "Daudzums:"
+      person: ~
     quantity_placeholder: Daudzums
     please_comment: Komentārs
     reply_link:
@@ -2335,6 +2342,7 @@ lv:
       week: nedēļa
       month: mēnesis
       unit: vienība
+      person: ~
     verification_required:
       verification_required: "Nepieciešama pārbaude"
   listing_conversations:

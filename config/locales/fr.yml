@@ -233,7 +233,7 @@ fr:
         km: km
         miles: miles
         show_only_nearby: "Afficher uniquement les résultats à proximité lorsque la recherche géographique est utilisée"
-        allow_users_to_add_location: "Autoriser les utilisateurs à ajouter un emplacement à leur profile, leurs annonces et afficher une vue carte sur la page de recherche"
+        allow_users_to_add_location: "Autoriser les utilisateurs à ajouter un emplacement à leur profil et annonces, et afficher une vue carte sur la page de recherche"
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
@@ -1121,12 +1121,15 @@ fr:
       request: Demande
       inquiry: Information
       share_for_free: "Partage gratuit"
+      event_w_online_payment: "Evènement avec paiement en ligne"
+      event_wo_online_payment: "Evènement sans paiement en ligne"
       default_action_button_labels:
         sell: Acheter
         rent: Louer
         request: Proposer
         offer: Demander
         inquiry: Contacter
+        book: Réserver
     community_transactions:
       show:
         transaction_for: "Transaction à propos de %{link}"
@@ -1141,6 +1144,8 @@ fr:
         buyer_service_fee_label: "Commission prélevée sur l'acheteur :"
         service_fee_label: "Commission prélevée sur le vendeur :"
         provider_receives: "Le vendeur reçoit :"
+        admin_info_text: "En tant qu'administrateur de %{service_name}, vous pouvez agir pour faire progresser cette transaction :"
+        manage_reviews: "Gérer les avis"
   common:
     edit_page: "Modifier la page"
     default_community_slogan: "Votre place de marché"
@@ -1236,11 +1241,11 @@ fr:
       stripe-fee_label: "Frais de service"
     confirm:
       confirm_description: "Si votre commande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
-      cancel_description: "Si votre commande n'a pas été satisfaite, vous pouvez la marquer comme \"contestée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
+      cancel_description: "Si votre commande n'a pas été satisfaite, vous pouvez la marquer comme \"annulée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
       cancel_payed_description: "Si votre demande a été acceptée mais que vous changez d'avis, vous pouvez toujours l'annuler avant le paiement."
       canceling_payed_transaction: "Annuler la transaction"
       confirm: Réalisée
-      cancel: Contester
+      cancel: Annuler
       continue: Continuer
       give_feedback_to: "Donner un avis sur %{person_link}"
       do_not_give_feedback: "Ne pas donner d'avis"
@@ -1369,7 +1374,7 @@ fr:
       reject_preauthorized_offer: "Pas cette fois"
       reject_preauthorized_request: "Pas cette fois"
       confirm: Réalisée
-      cancel: Contester
+      cancel: Annuler
   feedback:
     feedback_subject: "Nouveau contact pour %{service_name}"
     feedback_body: "%{author_name_and_email} a envoyé le message suivant à propos de %{service_name}"
@@ -1430,6 +1435,7 @@ fr:
       give_feedback_to: "Donner un avis sur %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} a confirmé la commande à propos de %{request} comme réalisée. Le paiement de cette transaction a maintenant été transféré vers votre compte en banque. Vous pouvez laisser un avis sur %{other_party_given_name}."
+      team_title: "l'équipe %{service_name}"
     transaction_automatically_confirmed:
       subject: "Commande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
       we_have_marked_request_as_confirmed: "Nous avons marqué la commande de '%{request}' comme réalisée. La commande a été marquée comme réalisée automatiquement car %{days_passed} jours se sont écoulés depuis que la demande a été acceptée."
@@ -2315,6 +2321,7 @@ fr:
       month: "Nombre de mois : "
       unit: "Nombre d'unités :"
       custom: "Quantité : "
+      person: "Nombre de personnes :"
     quantity_placeholder: Quantité
     please_comment: "Faire un commentaire"
     reply_link:
@@ -2366,6 +2373,7 @@ fr:
       week: semaine
       month: mois
       unit: unité
+      person: personne
     verification_required:
       verification_required: "Vérification nécessaire"
   listing_conversations:

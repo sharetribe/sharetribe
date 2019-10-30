@@ -1108,12 +1108,15 @@ ka:
       request: მოთხოვნა
       inquiry: განცხადება
       share_for_free: "უფასოთ გაზიარება"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: ყიდვა
         rent: გაქირავება
         request: შეთავაზება
         offer: ყიდვა
         inquiry: კონტაქტი
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1128,6 +1131,8 @@ ka:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "დაარედაქტირე გვერდი"
     default_community_slogan: "ბაზრის გაერთიანება"
@@ -1413,6 +1418,7 @@ ka:
       give_feedback_to: "მიეცი შეფასება %{other_party_given_name}ს"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "შეკვეთა ავტომატურად დასრულდა - არ დაგავიწყდთ შეფასების მიცემა"
       we_have_marked_request_as_confirmed: "ჩვენ მოვნიშნეთ შეკვეთა %{request}-ს შესახებ დასრულებულად. შეკვეთა ავტომატურად დასრულდა, იმის გამო, რომ %{days_passed} დღე გავიდა იმის შემდეგ, რაც მოთხოვნა დადასტურდა."
@@ -2299,6 +2305,7 @@ ka:
       month: "თვეების რაოდენობა"
       unit: ~
       custom: რაოდენობა
+      person: ~
     quantity_placeholder: რაოდენობა
     please_comment: კომენტარი
     reply_link:
@@ -2350,6 +2357,7 @@ ka:
       week: კვირა
       month: თვე
       unit: ~
+      person: ~
     verification_required:
       verification_required: "ვერიფიკაცია სავალდებულოა"
   listing_conversations:

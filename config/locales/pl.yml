@@ -1139,12 +1139,15 @@ pl:
       request: Żądanie
       inquiry: Ogłoszenie
       share_for_free: "Współdzielone za darmo"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Zakup
         rent: Wynajem
         request: Oferta
         offer: Zapytanie
         inquiry: "Skontaktuj się"
+        book: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1159,6 +1162,8 @@ pl:
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Edytuj stronę"
     default_community_slogan: "Platforma społecznościowa"
@@ -1448,6 +1453,7 @@ pl:
       give_feedback_to: "Przekaż opinię do %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} oznaczył usługę '%{request}' jako wykonaną. Płatność za tę transakcję została uruchomiona i będzie przekazana na Twój rachunek bankowy. Możesz teraz wystawić opinię %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Zamówienie automatycznie zakończone - pamiętaj, aby przekazać recenzję"
       we_have_marked_request_as_confirmed: "Oznaczyliśmy zlecenie dotyczące %{request} jako zrealizowane. Zostało ono automatycznie oznaczone jako zrealizowane, ponieważ minęło %{days_passed} dni od jego akceptacji."
@@ -1464,7 +1470,7 @@ pl:
       confirmation_link_text: "Potwierdź mój adres"
       or_paste_link: "Ewentualnie możesz skopiować poniższy link do paska adresowego Twojej przeglądarki:"
     common:
-      hey: "Cześć %{name}"
+      hey: "Cześć %{name},"
       kassi_team: "Zespół %{service_name}"
       thanks: "Dziękujemy,"
       dont_want_to_receive_these_emails: "Nie chcesz otrzymywać takich wiadomości email?"
@@ -1503,7 +1509,7 @@ pl:
       has_commented_listing_you_follow_in_kassi: "%{author} dodał komentarz do oferty %{listing}, którą obserwujesz w %{service_name}"
     new_message:
       view_message: "Zobacz wiadomość"
-      has_sent_you_a_message_in_kassi: "%{sender} wysłał Tobie wiadomość w %{service_name}"
+      has_sent_you_a_message_in_kassi: "Masz wiadomość od %{sender} na %{service_name}"
       you_have_a_new_message: "Nowa wiadomość w %{service_name} od %{sender_name}"
     new_payment:
       new_payment: "Otrzymałeś nową płatność"
@@ -1578,7 +1584,7 @@ pl:
       added_offer: "%{name_link} dodał ofertę:"
       added_request: "%{name_link} dodał ofertę:"
       added_listing: "%{name_link} dodał ofertę:"
-      update_mail_title: "Aktualizacja %{title_link}"
+      update_mail_title: "Nowości w %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Kilka rzeczy, które zadziały się w %{community_link} podczas ostatnich %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
@@ -2335,6 +2341,7 @@ pl:
       month: "Liczba miesięcy:"
       unit: "ilość jednostek"
       custom: "Ilość:"
+      person: ~
     quantity_placeholder: "Ilość:"
     please_comment: Skomentuj
     reply_link:
@@ -2386,6 +2393,7 @@ pl:
       week: tydzień
       month: miesiąc
       unit: jednostka
+      person: ~
     verification_required:
       verification_required: "Wymagana weryfikacja"
   listing_conversations:
