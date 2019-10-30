@@ -129,7 +129,7 @@ class PersonMailer < ActionMailer::Base
            :from => community_specific_sender(community),
            :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details")) do |format|
         format.html do
-          render v2_template(community.id, 'payment_settings_reminder'), :locals => {:skip_unsubscribe_footer => true}, layout: v2_layout(community.id)
+          render v2_template(community.id, 'payment_settings_reminder'), layout: v2_layout(community.id)
         end
       end
     end
