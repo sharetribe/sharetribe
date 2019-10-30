@@ -118,6 +118,7 @@ module MarketplaceService
     locale = p[:marketplace_language].or_else("en")
     marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
     payment_process = p[:payment_process].or_else(:preauthorize)
+    payment_process = :none if p[:marketplace_type].or_else == 'free'
     distance_unit = p[:marketplace_country].map { |country| country == "US" ? :imperial : :metric }.or_else(:metric)
     limit_search_distance = false
 
