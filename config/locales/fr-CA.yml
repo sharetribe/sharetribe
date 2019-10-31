@@ -3005,6 +3005,7 @@ fr-CA:
       document: ~
       send_verification: ~
       need_verification: ~
+      additional_document: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
@@ -3065,11 +3066,10 @@ fr-CA:
     NB: Nouveau-Brunswick
     NL: Terre-Neuve-et-Labrador
     NS: Nouvelle-Écosse
-    NT: Territoires du Nord-Ouest
+    NT: "Territoires du Nord-Ouest"
     NU: Nunavut
-    'ON': Ontario
+    "ON": Ontario
     PE: Île-du-Prince-Édouard
     QC: Québec
     SK: Saskatchewan
-    YT: Yukon
-
+    YT: "Yukon Territory"

@@ -3064,6 +3064,7 @@ fr:
       document: "Document d'identité (passeport, carte d'identité)"
       send_verification: "Envoyer la vérification"
       need_verification: "Vérification supplémentaire nécessaire"
+      additional_document: "Un document avec l'adresse visible, par exemple un passeport, une carte d'identité ou une facture d'électricité ou d'une entreprise reconnue"
     form_pin:
       social_insurance_number: "Numéro d'Assurance Sociale (NAS)"
       social_security_number: "Numéro de Sécurité Sociale (SSN)"
@@ -3124,11 +3125,10 @@ fr:
     NB: Nouveau-Brunswick
     NL: Terre-Neuve-et-Labrador
     NS: Nouvelle-Écosse
-    NT: Territoires du Nord-Ouest
+    NT: "Territoires du Nord-Ouest"
     NU: Nunavut
-    'ON': Ontario
+    "ON": Ontario
     PE: Île-du-Prince-Édouard
     QC: Québec
     SK: Saskatchewan
-    YT: Yukon
-
+    YT: "Yukon Territory"

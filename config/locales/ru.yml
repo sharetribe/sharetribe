@@ -3114,6 +3114,7 @@ ru:
       document: "Удостоверение личности (паспорт,ID выданное правительством)"
       send_verification: "Отправить письмо с подтверждением"
       need_verification: "Нужно дополнительное подтверждение"
+      additional_document: ~
     form_pin:
       social_insurance_number: "Номер социального страхования (SIN)"
       social_security_number: "Номер Социального Страхования"
@@ -3167,3 +3168,17 @@ ru:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

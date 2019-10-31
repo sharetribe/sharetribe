@@ -3026,6 +3026,7 @@ ja:
       document: 本人確認書類
       send_verification: 認証メールを送信
       need_verification: 追加の確認が必要です
+      additional_document: ~
     form_pin:
       social_insurance_number: "社会保険番号 (SIN)"
       social_security_number: 社会保障番号（SSN）
@@ -3079,3 +3080,17 @@ ja:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

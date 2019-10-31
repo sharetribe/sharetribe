@@ -3033,6 +3033,7 @@ ko:
       document: "확인 문서"
       send_verification: "확인 보내기"
       need_verification: "추가 확인 필요"
+      additional_document: ~
     form_pin:
       social_insurance_number: "사회 보장 번호 (SIN)"
       social_security_number: "사회 보장 번호 (SSN)"
@@ -3086,3 +3087,17 @@ ko:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

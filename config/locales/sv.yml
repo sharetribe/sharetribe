@@ -3058,6 +3058,7 @@ sv:
       document: Verifikationsnummer
       send_verification: "Skicka verifikation"
       need_verification: "Behöver ytterligare verifiering"
+      additional_document: ~
     form_pin:
       social_insurance_number: "Personnummer (SIN)"
       social_security_number: "Personnummer (SSN)"
@@ -3111,3 +3112,17 @@ sv:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

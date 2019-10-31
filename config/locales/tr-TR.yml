@@ -3007,6 +3007,7 @@ tr-TR:
       document: ~
       send_verification: ~
       need_verification: ~
+      additional_document: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
@@ -3060,3 +3061,17 @@ tr-TR:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

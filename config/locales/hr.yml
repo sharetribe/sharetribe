@@ -3093,6 +3093,7 @@ hr:
       document: "Dokaz identiteta (putovnica, osobna iskaznica izdana od strane nadležnog tijela vlasti)"
       send_verification: "Pošalji Verifikaciju"
       need_verification: "Potrebna je dodatna verifikacija"
+      additional_document: ~
     form_pin:
       social_insurance_number: "Broj socijalnog osiguranja (SIN)"
       social_security_number: "Broj socijalnog osiguranja (SIN)"
@@ -3146,3 +3147,17 @@ hr:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"
