@@ -27,8 +27,8 @@
 
                 - if @show_branding_info
                   = render :partial => "layouts/email-v2/email_non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=email&utm_campaign=nowl-emails-auto"}
-                - skip_unsubscribe_footer ||= false
-                - if @recipient && @url_params && !skip_unsubscribe_footer
+                - @skip_unsubscribe_footer ||= false
+                - if @recipient && @url_params && !@skip_unsubscribe_footer
                   %tr
                     %td.unsubscribe
                       = yield :extra_notice
