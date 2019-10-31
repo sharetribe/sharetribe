@@ -50,15 +50,13 @@
       .row
         .col-12
           %span.initiate-transaction-total-wrapper
-            = t('listings.form.price.delivery')
-            = ':'
+            = t('.delivery')
           = t('.shipping_to', address: pr.shipping_address)
     - if pr.pickup?
       .row
         .col-12
           %span.initiate-transaction-total-wrapper
-            = t('listings.form.price.delivery')
-            = ':'
+            = t('.delivery')
           = t('listings.form.price.pickup')
 
   .initiate-transaction-totals
