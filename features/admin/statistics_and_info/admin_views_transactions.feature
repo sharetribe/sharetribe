@@ -70,6 +70,7 @@ I want to see see all the transactions happening in my community
 
   Scenario: Admin sees single transaction
     When I open last transaction for listing "Moving help"
-    Then I should see "Transaction for Moving help"
+    Then I should see "Transaction #"
+    Then I should see "for Moving help"
     Then I should see "Status: Free transaction"
 
