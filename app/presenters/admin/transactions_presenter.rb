@@ -176,4 +176,27 @@ class Admin::TransactionsPresenter
   def completed?
     transaction.current_state == 'confirmed' || transaction.current_state == 'canceled'
   end
+
+  def shipping?
+    transaction.delivery_method == 'shipping'
+  end
+
+  def pickup?
+    transaction.delivery_method == 'pickup'
+  end
+
+  def shipping_address
+    return @shipping_address if defined?(@shipping_address)
+
+    @shipping_address = nil
+    fields = [:name, :phone, :street1, :street2, :postal_code, :city, :state_or_province, :country]
+    if transaction.shipping_address
+      address = transaction.shipping_address.slice(*fields)
+      if address.values.any?
+        address[:country] ||= CountryI18nHelper.translate_country(shipping_address[:country_code])
+        @shipping_address = fields.map{|field| address[field]}.select{|x| x.present?}.join(', ')
+      end
+    end
+    @shipping_address
+  end
 end

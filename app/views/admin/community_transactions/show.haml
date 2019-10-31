@@ -44,6 +44,18 @@
           = t('.provider')
         - if pr.provider
           = link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username))
+    - if pr.shipping?
+      .row
+        .col-12
+          %span.initiate-transaction-total-wrapper
+            = t('.delivery')
+          = t('.shipping_to', address: pr.shipping_address)
+    - if pr.pickup?
+      .row
+        .col-12
+          %span.initiate-transaction-total-wrapper
+            = t('.delivery')
+          = t('listings.form.price.pickup')
 
   .initiate-transaction-totals
     .initiate-transaction-total-wrapper
