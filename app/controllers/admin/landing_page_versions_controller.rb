@@ -30,6 +30,8 @@ class Admin::LandingPageVersionsController < Admin::AdminBaseController
   end
 
   def ensure_feature_flag
-    FeatureFlagHelper.feature_enabled?(:clp_editor)
+    unless FeatureFlagHelper.feature_enabled?(:clp_editor)
+      redirect_to admin_landing_page_path and return
+    end
   end
 end
