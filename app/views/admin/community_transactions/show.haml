@@ -1,17 +1,19 @@
 - pr = @transactions_presenter
+- transaction = pr.transaction
+- listing_title = transaction.listing_title || t("admin.communities.transactions.not_available")
+- link = link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title
+- transaction_title = t('.transaction_for', link: link, transaction_id: transaction.id).html_safe
 - content_for :title_header do
   %h1
     = t("layouts.admin.admin")
     = "-"
-    = t("admin.communities.conversations.conversations")
+    = transaction_title
 
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(pr.community) }
 
-- transaction = pr.transaction
 .left-navi-section
   %h2
-    - listing_title = transaction.listing_title || t("admin.communities.transactions.not_available")
-    = t('.transaction_for', link: link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title ).html_safe
+    = transaction_title
 
   .admin-transaction-part
     .row

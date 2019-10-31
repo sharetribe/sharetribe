@@ -1132,7 +1132,7 @@ en:
         book: Book
     community_transactions:
       show:
-        transaction_for: Transaction for %{link}
+        transaction_for: "Transaction #%{transaction_id} for %{link}"
         status: 'Status:'
         next_step: 'Next step:'
         waiting_for_provider_accept_or_reject: 'Waiting for %{provider} to accept or reject the request.'
