@@ -1139,6 +1139,8 @@ en:
         waiting_for_fulfill_and_complete: 'Waiting for %{provider} to fulfill the order for %{listing_title} and for %{buyer} to mark the order as completed.'
         buyer: 'Buyer:'
         provider: 'Seller:'
+        delivery: 'Delivery method:'
+        shipping_to: 'Shipping to %{address}'
         buyer_pays: 'Buyer pays:'
         marketplace_collects: '%{service_name} collects:'
         buyer_service_fee_label: 'Commision from buyer:'
