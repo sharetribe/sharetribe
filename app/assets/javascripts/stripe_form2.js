@@ -231,9 +231,16 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
         var data = prepareData(options),
           verificationEl = $('#stripe_account_form_document'),
           verify = verificationEl.length > 0,
-          fileElement;
+          additionalVerificationEl = $('#stripe_account_form_additional_document'),
+          additionalVerify = additionalVerificationEl.length > 0,
+          fileElement,
+          additionalFileElement;
+
         if (verify) {
           fileElement = verificationEl[0].files[0];
+        }
+        if (additionalVerify) {
+          additionalFileElement = additionalVerificationEl[0].files[0];
         }
         stripeToken({
           data: data,
@@ -246,7 +253,8 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
           },
           verify: verify,
           fileElement: fileElement,
-          fileCallback: function(fileData) {
+          additionalFileElement: additionalFileElement,
+          fileCallback: function(fileData, additionalFileData) {
             var verification = {
               verification: {
                 document: {
@@ -254,6 +262,11 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
                 }
               }
             };
+            if (additionalFileData) {
+              verification.verification.additional_document = {
+                front: additionalFileData.id
+              };
+            }
             $.extend(data.individual, verification);
           }
         });
@@ -338,20 +351,21 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(options) {
-    var fileForm, fileResult, fileData, result;
+    var fileForm, additionalFileForm, additionalFileData, fileResult, fileData, additionalFileResult, result;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!options.verify) {
-              _context.next = 11;
+              _context.next = 22;
               break;
             }
 
             fileForm = new FormData();
+            additionalFileForm = new FormData(), additionalFileData = null;
             fileForm.append('file', options.fileElement);
             fileForm.append('purpose', 'identity_document');
-            _context.next = 6;
+            _context.next = 7;
             return fetch('https://uploads.stripe.com/v1/files', {
               method: 'POST',
               headers: {
@@ -360,23 +374,48 @@ function () {
               body: fileForm
             });
 
-          case 6:
+          case 7:
             fileResult = _context.sent;
-            _context.next = 9;
+            _context.next = 10;
             return fileResult.json();
 
-          case 9:
+          case 10:
             fileData = _context.sent;
 
-            if (fileData.id) {
-              options.fileCallback(fileData);
+            if (!options.additionalFileElement) {
+              _context.next = 20;
+              break;
             }
 
-          case 11:
-            _context.next = 13;
+            additionalFileForm.append('file', options.additionalFileElement);
+            additionalFileForm.append('purpose', 'identity_document');
+            _context.next = 16;
+            return fetch('https://uploads.stripe.com/v1/files', {
+              method: 'POST',
+              headers: {
+                'Authorization': 'Bearer ' + stripeApi._apiKey
+              },
+              body: additionalFileForm
+            });
+
+          case 16:
+            additionalFileResult = _context.sent;
+            _context.next = 19;
+            return additionalFileResult.json();
+
+          case 19:
+            additionalFileData = _context.sent;
+
+          case 20:
+            if (fileData.id) {
+              options.fileCallback(fileData, additionalFileData);
+            }
+
+          case 22:
+            _context.next = 24;
             return stripeApi.createToken('account', omitNullDeep(options.data));
 
-          case 13:
+          case 24:
             result = _context.sent;
 
             if (result.token) {
@@ -387,7 +426,7 @@ function () {
               options.error(result.error);
             }
 
-          case 16:
+          case 27:
           case "end":
             return _context.stop();
         }
