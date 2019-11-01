@@ -12,8 +12,14 @@ module CustomLandingPage
     end
 
     def release_landing_page_version
-      CustomLandingPage::LandingPageStoreDB.release_version!(community.id, landing_page_version.version)
-      Delayed::Job.enqueue(CleanupLandingPageAssetsJob.new(community.id))
+      if latest_version_has_changes?
+        CustomLandingPage::LandingPageStoreDB.release_version!(community.id, landing_page_version.version)
+        Delayed::Job.enqueue(CleanupLandingPageAssetsJob.new(community.id))
+
+        true
+      else
+        false
+      end
     end
 
     def errors?
@@ -78,6 +84,21 @@ module CustomLandingPage
           { id: "default_hero_background", src: "default_hero_background.jpg", content_type: "image/jpeg" }
         ]
       }
+    end
+
+    def released_landing_page_version
+      return @released_landing_page_version if defined?(@released_landing_page_version)
+
+      released_version = LandingPage.released_version(community)
+      @released_landing_page_version = LandingPageVersion.where(community: community, version: released_version).first
+    end
+
+    def latest_version_has_changes?
+      if released_landing_page_version
+        return released_landing_page_version.content != landing_page_version.content
+      end
+
+      true
     end
   end
 end

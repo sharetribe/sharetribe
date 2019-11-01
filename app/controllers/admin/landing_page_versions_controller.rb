@@ -6,7 +6,13 @@ class Admin::LandingPageVersionsController < Admin::AdminBaseController
   def index; end
 
   def release
-    @service.release_landing_page_version
+    if @service.release_landing_page_version
+      link = ActionController::Base.helpers.link_to I18n.t('admin.communities.landing_pages.check_it_out'),
+        landing_page_without_locale_path, target: '_blank', rel: 'noopener'
+      flash[:notice] = I18n.t('admin.communities.landing_pages.latest_version_released', link: link).html_safe # rubocop:disable Rails/OutputSafety
+    else
+      flash[:error] = I18n.t('admin.communities.landing_pages.this_version_is_not_released')
+    end
     redirect_to admin_landing_page_versions_path
   end
 
