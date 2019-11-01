@@ -660,18 +660,9 @@ en:
         editor_info: "Here you can edit the sections that your Landing Page will include. Please note that some sections are predefined and cannot be edited within the Landing Page editor."
         preview: "Preview landing page"
         set_live: "Set live"
-        headers:
-          section_id: "Section ID"
-          section_type: "Section type"
-          version: Version
-          released: Released
-        add_new_version: "Add new version"
-        new_version: "New version"
-        edit_version: "Edit version"
         add_new_section: "Add new section"
         select_section_type: "Select section type..."
         form:
-          version: Version
           save: Save
         sections:
           identifier: "Section ID"
