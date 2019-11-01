@@ -108,7 +108,7 @@ module Kassi
     # This needs to be done before routing: conditional routes break if this is done later
     # Enabling HSTS and secure cookies is not a possiblity because of potential reuse of domains without HTTPS
     config.middleware.insert_before Rack::Sendfile, ::EnforceSsl
-
+    config.require_master_key = false
     # Handle cookies with old key
     config.middleware.use Rack::MethodOverride
 

@@ -73,3 +73,6 @@ client/.vimrc
 storage/
 
 storage/
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
