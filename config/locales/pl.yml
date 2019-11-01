@@ -234,6 +234,7 @@ pl:
         require_verification_to_post_listings: "Pozwól tylko zweryfikowanym użytkownikom na dodawanie nowych ofert"
         allow_free_conversations: ~
         search_preferences: "Preferencje wyszukiwania"
+        search_and_location_preferences: ~
         default_search_type: "Typ wyszukiwania: %{select_search_type}"
         keyword_search: "Wyszukiwanie tekstu"
         keyword_and_location_search: "Słowo kluczowe i wyszukiwanie po lokalizacji"
@@ -242,6 +243,7 @@ pl:
         km: km
         miles: milach
         show_only_nearby: "Pokaż tylko najbliższe oferty przy użyciu wyszukiwania po lokalizacji"
+        allow_users_to_add_location: ~
         listing_preferences: "Preferencje wyświetlania"
         transaction_preferences: "Preferencje dot. zamówień"
         show_listing_publishing_date: "Wyświetl datę publikacji oferty na liście ofert"
@@ -655,6 +657,159 @@ pl:
         contact_us: Kontakt
         you_can_now_use_a_custom_domain: "Z Twoim aktualnym planem możesz ustawić standardową domenę. Kontynuuj aby skonfigurować ustawienia. %{contact_us}!"
         would_you_like_to_change_domain: "Czy chciałbyś zmienić nazwę domeny swojej platformy?%{contact_us}!"
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_preview_text: ~
+        info_2_details_text: ~
+        info_2_design_text: ~
+        info_3: ~
+        info_4: ~
+        editor_title: ~
+        editor_info: ~
+        preview: ~
+        set_live: ~
+        headers:
+          section_id: ~
+          section_type: ~
+          version: ~
+          released: ~
+        add_new_version: ~
+        new_version: ~
+        edit_version: ~
+        add_new_section: ~
+        select_section_type: ~
+        form:
+          version: ~
+          save: ~
+        sections:
+          identifier: ~
+          kind: ~
+          variation: ~
+          new: ~
+          edit: ~
+          remove_section_confirmation: ~
+          info_single_column: ~
+          info_multi_column_2: ~
+          info_multi_column_3: ~
+          listings: ~
+          categories: ~
+          hero: ~
+          locations: ~
+          video: ~
+          new_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+          edit_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+    landing_page_versions:
+      sections:
+        hero:
+          hero_title: ~
+          hero_description: ~
+        footer:
+          footer_title: ~
+          footer_style: ~
+          style_dark: ~
+          style_light: ~
+          style_marketplace_color: ~
+          style_logo: ~
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: ~
+          cta_url: ~
+        background_image_overlay:
+          background_image: ~
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: ~
+          title_placeholder: ~
+          url: ~
+          url_placeholder: ~
+        multi_column:
+          main_title: ~
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: ~
+          youtube_video_id: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
     custom_fields:
       edit:
         edit_listing_field: "Edytuje pole %{field_name} oferty"
@@ -667,6 +822,7 @@ pl:
       edit_location:
         edit_location_field: "Edytuj pole lokalizacji"
         this_field_is_required: "To pole jest wymagane"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Edytuj pole oferty \"Data wygaśnięcia\""
         enable: "Włącz datę wygaśnięcia"
@@ -983,12 +1139,31 @@ pl:
       request: Żądanie
       inquiry: Ogłoszenie
       share_for_free: "Współdzielone za darmo"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Zakup
         rent: Wynajem
         request: Oferta
         offer: Zapytanie
         inquiry: "Skontaktuj się"
+        book: ~
+    community_transactions:
+      show:
+        transaction_for: ~
+        status: ~
+        next_step: ~
+        waiting_for_provider_accept_or_reject: ~
+        waiting_for_fulfill_and_complete: ~
+        buyer: ~
+        provider: ~
+        buyer_pays: ~
+        marketplace_collects: ~
+        buyer_service_fee_label: ~
+        service_fee_label: ~
+        provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Edytuj stronę"
     default_community_slogan: "Platforma społecznościowa"
@@ -1278,6 +1453,7 @@ pl:
       give_feedback_to: "Przekaż opinię do %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} oznaczył usługę '%{request}' jako wykonaną. Płatność za tę transakcję została uruchomiona i będzie przekazana na Twój rachunek bankowy. Możesz teraz wystawić opinię %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Zamówienie automatycznie zakończone - pamiętaj, aby przekazać recenzję"
       we_have_marked_request_as_confirmed: "Oznaczyliśmy zlecenie dotyczące %{request} jako zrealizowane. Zostało ono automatycznie oznaczone jako zrealizowane, ponieważ minęło %{days_passed} dni od jego akceptacji."
@@ -1294,7 +1470,7 @@ pl:
       confirmation_link_text: "Potwierdź mój adres"
       or_paste_link: "Ewentualnie możesz skopiować poniższy link do paska adresowego Twojej przeglądarki:"
     common:
-      hey: "Cześć %{name}"
+      hey: "Cześć %{name},"
       kassi_team: "Zespół %{service_name}"
       thanks: "Dziękujemy,"
       dont_want_to_receive_these_emails: "Nie chcesz otrzymywać takich wiadomości email?"
@@ -1333,7 +1509,7 @@ pl:
       has_commented_listing_you_follow_in_kassi: "%{author} dodał komentarz do oferty %{listing}, którą obserwujesz w %{service_name}"
     new_message:
       view_message: "Zobacz wiadomość"
-      has_sent_you_a_message_in_kassi: "%{sender} wysłał Tobie wiadomość w %{service_name}"
+      has_sent_you_a_message_in_kassi: "Masz wiadomość od %{sender} na %{service_name}"
       you_have_a_new_message: "Nowa wiadomość w %{service_name} od %{sender_name}"
     new_payment:
       new_payment: "Otrzymałeś nową płatność"
@@ -1408,7 +1584,7 @@ pl:
       added_offer: "%{name_link} dodał ofertę:"
       added_request: "%{name_link} dodał ofertę:"
       added_listing: "%{name_link} dodał ofertę:"
-      update_mail_title: "Aktualizacja %{title_link}"
+      update_mail_title: "Nowości w %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Kilka rzeczy, które zadziały się w %{community_link} podczas ostatnich %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
@@ -1463,7 +1639,7 @@ pl:
       this_is_automatic_message: ~
     listing_approved:
       subject: ~
-      listing_has_been_approved: ~
+      listing_has_been_approved: "Mamy dla Ciebie dobrą wiadomość! Twoja oferta %{listing_title} została sprawdzona i zaakceptowana przez zespół %{community}. Jest już opublikowana."
       view_the_listing: "Obejrzyj ofertę"
     listing_rejected:
       subject: ~
@@ -1552,6 +1728,9 @@ pl:
       on_or_after: "musi być na lub po %{restriction}"
       positive_number: "Wprowadź liczbę."
       from_must_be_less_than_till: "\"Godzina rozpoczęcia\" musi być wcześniejsza niż \"godzina zakończenia\""
+      section_with_this_id_already_exists: "Ten identyfikator jest już zajęty. Wybierz inny."
+      listing_with_this_id_does_not_exist: "To nie jest Twój identyfikator ogłoszenia. Może to literówka? Sprawdź i spróbuj ponownie."
+      presence: "Pole nie może być puste."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} zgodził się, aby pożyczyć %{listing_title} do %{requester_name} %{time_ago}"
@@ -2162,6 +2341,7 @@ pl:
       month: "Liczba miesięcy:"
       unit: "ilość jednostek"
       custom: "Ilość:"
+      person: ~
     quantity_placeholder: "Ilość:"
     please_comment: Skomentuj
     reply_link:
@@ -2213,6 +2393,7 @@ pl:
       week: tydzień
       month: miesiąc
       unit: jednostka
+      person: ~
     verification_required:
       verification_required: "Wymagana weryfikacja"
   listing_conversations:
@@ -2923,6 +3104,7 @@ pl:
       document: "Rodzaj dokumenty tożsamości (paszport, dowód osobisty)"
       send_verification: "Wyślij weryfikację"
       need_verification: "Potrzebna dodatkowa weryfikacja"
+      additional_document: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: "Numer ubezpieczenia społecznego (NFZ)"
@@ -2953,3 +3135,40 @@ pl:
       category_description: "%{category} na %{marketplace}"
       profile_title: "Profil %{user} - %{marketplace}"
       profile_description: "Dowiedz się więcej %{user} na %{marketplace}"
+  activemodel:
+    attributes:
+      landing_page_version/section/base:
+        id: "Unikalna nazwa sekcji."
+        title: Tytuł
+        paragraph: Akapit
+        button_color: "Kolor przycisku"
+        button_color_hover: "Kolor przycisku po najechaniu kursorem"
+        button_title: Tekst
+        button_path: URL
+        button_path_string: URL
+        background_image: "Obraz w tle"
+        background_image_variation: "Inny obraz w tle"
+        background_color: "Kolor tła"
+        background_color_string: "Kolor tła"
+        icon_color: "Kolor ikony"
+      landing_page_version/section/listings:
+        listing_1_id: "ID 1. ogłoszenia"
+        listing_2_id: "ID 2. ogłoszenia"
+        listing_3_id: "ID 3. ogłoszenia"
+      landing_page_version/section/video:
+        text: Tekst
+        youtube_video_id: "ID materiału wideo na Youtube"
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

@@ -48,14 +48,6 @@ module StripeService::API
       allow_stripe_exceptions(e)
     end
 
-    def send_verification(community_id:, person_id:, personal_id_number:, file:)
-      account = stripe_accounts_store.get(community_id: community_id, person_id: person_id)
-      stripe_api.send_verification(community: community_id, account_id: account[:stripe_seller_id], personal_id_number: personal_id_number, file_path: file)
-      Result::Success.new(account)
-    rescue StandardError => e
-      allow_stripe_exceptions(e)
-    end
-
     def destroy(community_id:, person_id:)
       Result::Success.new(stripe_accounts_store.destroy(community_id: community_id, person_id: person_id))
     rescue StandardError => e

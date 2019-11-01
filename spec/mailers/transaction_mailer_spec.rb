@@ -229,7 +229,7 @@ describe TransactionMailer, type: :mailer do
       expect(email.body).to have_text('Listing: Sledgehammer', normalize_ws: true)
       expect(email.body).to have_text('Sum: €5', normalize_ws: true)
       expect(email.body).to have_text('Starter: Proto T', normalize_ws: true)
-      expect(email.body).to have_text('Provider: Joan S', normalize_ws: true)
+      expect(email.body).to have_text('Seller: Joan S', normalize_ws: true)
     end
   end
 

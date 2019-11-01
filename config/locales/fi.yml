@@ -224,6 +224,7 @@ fi:
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
         allow_free_conversations: "Salli käyttäjien viestitellä keskenään vapaasti"
         search_preferences: Hakuasetukset
+        search_and_location_preferences: ~
         default_search_type: "Haun tyyppi: %{select_search_type}"
         keyword_search: Avainsanahaku
         keyword_and_location_search: "Avainsana- ja sijaintihaku"
@@ -232,6 +233,7 @@ fi:
         km: km
         miles: mailit
         show_only_nearby: "Näytä vain lähistöllä sijaitsevat ilmoitukset sijaintihaussa"
+        allow_users_to_add_location: ~
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: Tilausasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
@@ -645,6 +647,159 @@ fi:
         contact_us: "Ota meihin yhteyttä"
         you_can_now_use_a_custom_domain: "Nykyisellä tilauksellasi voit kytkeä päälle oman domainisi. Aloitetaan domainin käyttöönotto. %{contact_us}!"
         would_you_like_to_change_domain: "Haluaisitko vaihtaa markkinapaikkasi domainia? %{contact_us}!"
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_preview_text: ~
+        info_2_details_text: ~
+        info_2_design_text: ~
+        info_3: ~
+        info_4: ~
+        editor_title: ~
+        editor_info: ~
+        preview: ~
+        set_live: ~
+        headers:
+          section_id: ~
+          section_type: ~
+          version: ~
+          released: ~
+        add_new_version: ~
+        new_version: ~
+        edit_version: ~
+        add_new_section: ~
+        select_section_type: ~
+        form:
+          version: ~
+          save: ~
+        sections:
+          identifier: ~
+          kind: ~
+          variation: ~
+          new: ~
+          edit: ~
+          remove_section_confirmation: ~
+          info_single_column: ~
+          info_multi_column_2: ~
+          info_multi_column_3: ~
+          listings: ~
+          categories: ~
+          hero: ~
+          locations: ~
+          video: ~
+          new_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+          edit_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+    landing_page_versions:
+      sections:
+        hero:
+          hero_title: ~
+          hero_description: ~
+        footer:
+          footer_title: ~
+          footer_style: ~
+          style_dark: ~
+          style_light: ~
+          style_marketplace_color: ~
+          style_logo: ~
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: ~
+          cta_url: ~
+        background_image_overlay:
+          background_image: ~
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: ~
+          title_placeholder: ~
+          url: ~
+          url_placeholder: ~
+        multi_column:
+          main_title: ~
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: ~
+          youtube_video_id: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -657,6 +812,7 @@ fi:
       edit_location:
         edit_location_field: "Muokkaa sijaintikenttää"
         this_field_is_required: "Tämä kenttä on pakollinen"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Muokkaa ilmoituskenttää \"viimeinen voimassaolopäivä\""
         enable: "Salli viimeisen voimassaolopäivän asettaminen"
@@ -965,12 +1121,31 @@ fi:
       request: Tarvitaan
       inquiry: Tiedustelu
       share_for_free: "Tarjotaan käyttöön ilmaiseksi"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Osta
         rent: Vuokraa
         request: Tarjoa
         offer: Pyydä
         inquiry: "Ota yhteyttä"
+        book: ~
+    community_transactions:
+      show:
+        transaction_for: ~
+        status: ~
+        next_step: ~
+        waiting_for_provider_accept_or_reject: ~
+        waiting_for_fulfill_and_complete: ~
+        buyer: ~
+        provider: ~
+        buyer_pays: ~
+        marketplace_collects: ~
+        buyer_service_fee_label: ~
+        service_fee_label: ~
+        provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
@@ -1260,6 +1435,7 @@ fi:
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "Käyttäjä %{other_party_full_name} on merkinnyt tilauksen '%{request}' toteutuneeksi. Maksu tästä tilauksesta on nyt maksettu pankkitilillesi. Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
@@ -1534,6 +1710,9 @@ fi:
       on_or_after: "täytyy olla %{restriction} tai ennen sitä"
       positive_number: "Käytä kokonaislukuja."
       from_must_be_less_than_till: "\"Aloitusaika\" pitää olla pienempi kuin \"lopetusaika\""
+      section_with_this_id_already_exists: ~
+      listing_with_this_id_does_not_exist: ~
+      presence: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
@@ -2142,6 +2321,7 @@ fi:
       month: "Kuukausien määrä:"
       unit: "Yksiköiden lukumäärä:"
       custom: "Määrä:"
+      person: ~
     quantity_placeholder: Määrä
     please_comment: Kommentoi
     reply_link:
@@ -2193,6 +2373,7 @@ fi:
       week: viikko
       month: kuukausi
       unit: yksikkö
+      person: ~
     verification_required:
       verification_required: "Vahvistus vaaditaan"
   listing_conversations:
@@ -2884,6 +3065,7 @@ fi:
       document: Vahvistusdokumentti
       send_verification: "Lähetä vahvistus"
       need_verification: "Lisävahvistus tarvitaan"
+      additional_document: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sosiaalivakuutusnumero)"
       social_security_number: "Social Security Number (SSN; Sosiaaliturvanumero)"
@@ -2914,3 +3096,40 @@ fi:
       category_description: "%{category} palvelussa %{marketplace}"
       profile_title: "Käyttäjän %{user} profiili - %{marketplace}"
       profile_description: "Lue lisää käyttäjästä %{user} palvelussa %{marketplace}"
+  activemodel:
+    attributes:
+      landing_page_version/section/base:
+        id: ~
+        title: ~
+        paragraph: ~
+        button_color: ~
+        button_color_hover: ~
+        button_title: ~
+        button_path: ~
+        button_path_string: ~
+        background_image: ~
+        background_image_variation: ~
+        background_color: ~
+        background_color_string: ~
+        icon_color: ~
+      landing_page_version/section/listings:
+        listing_1_id: ~
+        listing_2_id: ~
+        listing_3_id: ~
+      landing_page_version/section/video:
+        text: ~
+        youtube_video_id: ~
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

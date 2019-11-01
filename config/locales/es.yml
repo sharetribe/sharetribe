@@ -224,6 +224,7 @@ es:
         require_verification_to_post_listings: "Sólo los usuarios que han sido verificados por el administrador pueden publicar nuevos anuncios"
         allow_free_conversations: "Permitir que los usuarios se contacten libremente"
         search_preferences: "Preferencias de búsqueda"
+        search_and_location_preferences: ~
         default_search_type: "Tipo de búsqueda: %{select_search_type}"
         keyword_search: "Búsqueda por palabras clave"
         keyword_and_location_search: "Búsqueda por ubicación y palabras clave"
@@ -232,6 +233,7 @@ es:
         km: km
         miles: millas
         show_only_nearby: "Mostrar solamente anuncios cercanos a la búsqueda por ubicación"
+        allow_users_to_add_location: ~
         listing_preferences: "Preferencias de los anuncios"
         transaction_preferences: "Preferencias de transacciones"
         show_listing_publishing_date: "Mostrar fecha de publicación del anuncio la descripción del anuncio"
@@ -645,6 +647,159 @@ es:
         contact_us: Contáctanos
         you_can_now_use_a_custom_domain: "Con tu plan actual, puedes habilitar un dominio personalizado. ¿Quieres hacerlo? %{contact_us}!"
         would_you_like_to_change_domain: "¿Te gustaría cambiar el dominio personalizado de tu marketplace? %{contact_us}!"
+      landing_pages:
+        landing_pages: "Página de inicio"
+        info_1: ~
+        info_2: ~
+        info_2_preview_text: "Vista previa"
+        info_2_details_text: "detalles básicos"
+        info_2_design_text: diseño
+        info_3: "Si quieres personalizar la página de inicio de tu marketplace, puedes hacerlo con una subscripción adicional por $99 dólares al mes."
+        info_4: "Leer más acerca de las páginas de inicio personalizadas"
+        editor_title: "Editor de página de inicio"
+        editor_info: ~
+        preview: "Vista previa"
+        set_live: Publicar
+        headers:
+          section_id: "ID de la sección"
+          section_type: "Tipo de sección"
+          version: Versión
+          released: Pubicada
+        add_new_version: "Añadir una versión nueva"
+        new_version: "Nueva versión"
+        edit_version: "Editar versión"
+        add_new_section: "Añadir sección nueva"
+        select_section_type: "Typo de sección..."
+        form:
+          version: Versión
+          save: Guardar
+        sections:
+          identifier: "ID de la sección"
+          kind: "Tipo de sección"
+          variation: Variante
+          new: "Nueva sección"
+          edit: "Editar sección %{section_id}"
+          remove_section_confirmation: "¿Estás seguro que quieres eliminar la sección '%{section_id}' y toda su información? No se puede revertir."
+          info_single_column: "Info 1 columna"
+          info_multi_column_2: "Info 2 columnas"
+          info_multi_column_3: "Info 3 columnas"
+          listings: Anuncios
+          categories: Categorias
+          hero: Hero
+          locations: Ubicaciones
+          video: Video
+          new_section:
+            categories: "Nueva sección Categorias"
+            footer: "Nueva sección Pie de página"
+            hero: "Nueva sección Hero"
+            info_single_column: "Nueva sección 1 columna"
+            info_multi_column_2: "Nueva sección 2 columnas"
+            info_multi_column_3: "Nueva sección 3 columnas"
+            listings: "Nueva sección Anuncios"
+            locations: "Nueva sección Ubicaciones"
+            video: "Nueva sección Video"
+          edit_section:
+            categories: "Editar sección Categorias"
+            footer: "Editar sección Pie de página"
+            hero: "Editar sección Hero"
+            info_single_column: "Editar sección 1 columna"
+            info_multi_column_2: "Editar sección 2 columnas"
+            info_multi_column_3: "Editar sección 3 columnas"
+            listings: ~
+            locations: ~
+            video: ~
+    landing_page_versions:
+      sections:
+        hero:
+          hero_title: Hero
+          hero_description: ~
+        footer:
+          footer_title: "Pie de página"
+          footer_style: ~
+          style_dark: Obscuro
+          style_light: Claro
+          style_marketplace_color: "Color del Marketplace"
+          style_logo: Logo
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: Texto
+          cta_url: URL
+        background_image_overlay:
+          background_image: "Imagen de fondo"
+          background_image_info: ~
+          add_another_image: ~
+          current_image: "Imagen actual: %{filename}"
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: "Estilo del fondo"
+          style_image: "Imagen de fondo"
+          style_color: "Color de fondo"
+          style_none: "Sin fondo"
+        background_color:
+          background_color: "Color de fondo"
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: Imagen
+          include_title: "Categorías de la sección"
+          info_text: ~
+          need_at_least_3_categories: "Debes tener por lo menos 3 categorías en la sección"
+          need_at_most_7_categories: "No puedes tener más de 7 categories por sección"
+        category:
+          add_another_image: "Añadir otra imagen"
+          category: Categoría
+          current_image: ~
+          file_not_selected: ~
+          image: Imagen
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: Ubicación
+          empty: ~
+          image: Imagen
+          include_title: "Ubicaciones de la sección"
+          info_text: ~
+          need_at_least_3_locations: "Debes tener por lo menos 3 ubicaciones en la sección"
+          need_at_most_7_locations: "No puedes tener más de 7 ubicaciones por sección"
+        location:
+          add_another_image: "Añadir otra imagen"
+          location: Ubicación
+          current_image: "Imagen actual: %{filename}"
+          file_not_selected: ~
+          image: Imagen
+          image_required: ~
+          title: Título
+          title_placeholder: "Texto de la Ubicación"
+          url: URL
+          url_placeholder: "URL del link de la ubicación"
+        multi_column:
+          main_title: "Título principal"
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: "Texto del botón"
+          column_button_url: ~
+        listings:
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: Texto
+          youtube_video_id: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -657,6 +812,7 @@ es:
       edit_location:
         edit_location_field: "Editar el campo de \"ubicación\""
         this_field_is_required: "Campo obligatorio"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Editar el campo \"Fecha de expiración\""
         enable: "Habilitar fecha de expiración"
@@ -965,12 +1121,31 @@ es:
       request: Solicitando
       inquiry: Anuncio
       share_for_free: "Compartido gratuitamente"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: Comprar
         rent: Alquilar
         request: Ofrecer
         offer: Solicitar
         inquiry: Contactar
+        book: ~
+    community_transactions:
+      show:
+        transaction_for: ~
+        status: ~
+        next_step: ~
+        waiting_for_provider_accept_or_reject: ~
+        waiting_for_fulfill_and_complete: ~
+        buyer: ~
+        provider: ~
+        buyer_pays: ~
+        marketplace_collects: ~
+        buyer_service_fee_label: ~
+        service_fee_label: ~
+        provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "Editar la página"
     default_community_slogan: "Comunidad de mercado colaborativo"
@@ -1260,6 +1435,7 @@ es:
       give_feedback_to: "Dar valoración a %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} ha marcado la orden de '%{request}' como completada. El dinero por esta transacción se ha transferido a tu cuenta de banco. Puedes ahora dejar una valoración a %{other_party_given_name}."
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Solicitud completada automáticamente - Recuerda dar una valoración"
       we_have_marked_request_as_confirmed: "Hemos marcado tu solicitud sobre '%{request}' como completada de forma automática ya que han pasado %{days_passed} días desde que fue aceptada."
@@ -1433,7 +1609,7 @@ es:
       you_are_receiving_this_because: "Has recibido ésta notificación porque sigues a %{author_name}."
       view_listing: "Ver anuncio"
     new_member_notification:
-      subject: ~
+      subject: "Un nuevo miembro en %{community}"
       new_member_has_joined: "Un nuevo miembro se ha unido a %{community}. Es posible que aún deban confirmar su dirección de correo electrónico."
       this_is_automatic_message: "Este es un mensaje automático enviado a los administradores de %{community}."
       person_name: "Nombre:"
@@ -1534,6 +1710,9 @@ es:
       on_or_after: "Debe ser a las %{restriction} o después"
       positive_number: "Ingresa un número."
       from_must_be_less_than_till: "La hora inicial debe ser menor que la final"
+      section_with_this_id_already_exists: ~
+      listing_with_this_id_does_not_exist: ~
+      presence: "No puede estar vacío"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."
@@ -2142,6 +2321,7 @@ es:
       month: "Número de meses:"
       unit: "Número de unidades:"
       custom: "Cantidad:"
+      person: ~
     quantity_placeholder: Cantidad
     please_comment: Comentario
     reply_link:
@@ -2193,6 +2373,7 @@ es:
       week: semana
       month: mes
       unit: unidad
+      person: ~
     verification_required:
       verification_required: "Verificación requerida"
   listing_conversations:
@@ -2883,6 +3064,7 @@ es:
       document: "Documento de verificación"
       send_verification: "Enviar verificación"
       need_verification: "Necesita verificación adicional"
+      additional_document: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Número de seguridad social (Social Security Number)"
@@ -2913,3 +3095,40 @@ es:
       category_description: "%{category} en %{marketplace}"
       profile_title: "Perfil de %{user} - %{marketplace}"
       profile_description: "Lee más acerca de %{user} en %{marketplace}"
+  activemodel:
+    attributes:
+      landing_page_version/section/base:
+        id: "Nombre único de sección"
+        title: Título
+        paragraph: Párrafo
+        button_color: ~
+        button_color_hover: ~
+        button_title: Texto
+        button_path: URL
+        button_path_string: URL
+        background_image: "Imagen de fondo"
+        background_image_variation: "Variación de la imagen de fondo"
+        background_color: "Color de fondo"
+        background_color_string: "Color de fondo"
+        icon_color: "Color del ícono"
+      landing_page_version/section/listings:
+        listing_1_id: "ID del anuncio 1"
+        listing_2_id: "ID del anuncio 2"
+        listing_3_id: "ID del anuncio 3"
+      landing_page_version/section/video:
+        text: Texto
+        youtube_video_id: "Id del video de Youtube"
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

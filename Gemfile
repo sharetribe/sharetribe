@@ -56,7 +56,7 @@ gem 'delayed_job_active_record', '~> 4.1.3'
 
 gem 'web_translate_it', '~> 2.4.1'
 gem 'rails-i18n', '~> 5.0.4'
-gem 'devise', '>= 4.6.1'
+gem 'devise', '>= 4.7.1'
 gem 'devise-encryptable', '~> 0.2.0'
 gem "omniauth-facebook", '~> 5.0.0'
 gem "omniauth-google-oauth2", '>= 0.6.0'
@@ -130,11 +130,8 @@ group :development do
   gem 'listen', '~> 3.1.5'
   gem 'annotate', '~> 2.7.5'
   gem 'zeus', '~> 0.15.13', require: false
-  #gem 'better_errors', '~> 2.5.1'
-  #gem 'binding_of_caller'
   gem 'web-console', '~> 3.7.0'
   gem 'awesome_print', '~> 1.7.0'
-  gem 'binding_of_caller'
 end
 
 group :test do
@@ -185,5 +182,5 @@ gem 'twitter_cldr'
 gem 'memoist'
 gem 'biz'
 gem 'ffi', '>= 1.9.25'
-gem 'rubyzip', '~> 1.2.2'
+gem 'rubyzip', '~> 1.3.0'
 gem 'bootsnap', require: false

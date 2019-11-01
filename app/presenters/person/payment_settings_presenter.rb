@@ -84,6 +84,18 @@ class Person::PaymentSettingsPresenter
     @seller_needs_verification = need_verification
   end
 
+  def seller_needs_additional_verification
+    return @seller_needs_additional_verification if defined?(@seller_needs_additional_verification)
+
+    need_verification = false
+    if stripe_account_ready && api_seller_account && seller_needs_verification
+      requirements = api_seller_account.requirements
+      required_items = (requirements.currently_due + requirements.past_due + requirements.eventually_due).uniq
+      need_verification = required_items.include?("individual.verification.additional_document")
+    end
+    @seller_needs_additional_verification = need_verification
+  end
+
   def stripe_account_verification
     return @stripe_account_verification if defined?(@stripe_account_verification)
 

@@ -90,7 +90,7 @@ fr:
         contact_admin_link_text: "contacter l'équipe %{service_name}"
         save: "Sauvegarder les paramètres"
         transaction_agreement: "Accord de transaction"
-        transaction_agreement_checkbox: "Obliger les clients à valider un accord avant de commencer une transaction"
+        transaction_agreement_checkbox: "Obliger les acheteurs à valider un accord avant de commencer une transaction"
         transaction_agreement_checkbox_header: "Libellé de l'accord"
         transaction_agreement_checkbox_label_description: "Ce texte sera affiché à côté de la case à cocher dans le formulaire de transaction. L'utilisateur doit cocher cette case pour continuer le processus. Un exemple de libellé de d'accord serait \"En cochant cette case, vous acceptez l'accord de transaction\"."
         transaction_agreement_text_header: "Texte de l'accord"
@@ -224,6 +224,7 @@ fr:
         require_verification_to_post_listings: "Autoriser uniquement les utilisateurs validés par un administrateur à poster de nouvelles annonces"
         allow_free_conversations: "Autoriser les utilisateurs à se contacter directement"
         search_preferences: "Paramètres de recherche"
+        search_and_location_preferences: "Paramètres de recherche et de localisation"
         default_search_type: "Type de recherche : %{select_search_type}"
         keyword_search: "Recherche par mots-clés"
         keyword_and_location_search: "Recherche géographique et par mots-clés"
@@ -232,6 +233,7 @@ fr:
         km: km
         miles: miles
         show_only_nearby: "Afficher uniquement les résultats à proximité lorsque la recherche géographique est utilisée"
+        allow_users_to_add_location: "Autoriser les utilisateurs à ajouter un emplacement à leur profil et annonces, et afficher une vue carte sur la page de recherche"
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
@@ -645,6 +647,159 @@ fr:
         contact_us: Contactez-nous
         you_can_now_use_a_custom_domain: "Avec votre offre actuelle, vous pouvez dès à présent utiliser votre propre domaine. Configurons le ensemble. %{contact_us} !"
         would_you_like_to_change_domain: "Souhaitez-vous modifier le domaine de votre place de marché ? %{contact_us} !"
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_preview_text: ~
+        info_2_details_text: ~
+        info_2_design_text: ~
+        info_3: ~
+        info_4: ~
+        editor_title: ~
+        editor_info: ~
+        preview: ~
+        set_live: ~
+        headers:
+          section_id: ~
+          section_type: ~
+          version: ~
+          released: ~
+        add_new_version: ~
+        new_version: ~
+        edit_version: ~
+        add_new_section: ~
+        select_section_type: ~
+        form:
+          version: ~
+          save: ~
+        sections:
+          identifier: ~
+          kind: ~
+          variation: ~
+          new: ~
+          edit: ~
+          remove_section_confirmation: ~
+          info_single_column: ~
+          info_multi_column_2: ~
+          info_multi_column_3: ~
+          listings: ~
+          categories: ~
+          hero: ~
+          locations: ~
+          video: ~
+          new_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+          edit_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+    landing_page_versions:
+      sections:
+        hero:
+          hero_title: ~
+          hero_description: ~
+        footer:
+          footer_title: ~
+          footer_style: ~
+          style_dark: ~
+          style_light: ~
+          style_marketplace_color: ~
+          style_logo: ~
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: ~
+          cta_url: ~
+        background_image_overlay:
+          background_image: ~
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: ~
+          title_placeholder: ~
+          url: ~
+          url_placeholder: ~
+        multi_column:
+          main_title: ~
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: ~
+          youtube_video_id: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -657,6 +812,7 @@ fr:
       edit_location:
         edit_location_field: "Modifier le champ d'annonce 'Lieu'"
         this_field_is_required: "Ce champ est obligatoire"
+        the_location_feature_can_be_enabled: "La fonctionnalité de localisation peut être activée depuis la section %{link} dans les Paramètres de la place de marché."
       edit_expiration:
         edit_expiration_field: "Modifier le champ d'annonce 'Date d'expiration'"
         enable: "Activer la date d'expiration"
@@ -965,12 +1121,31 @@ fr:
       request: Demande
       inquiry: Information
       share_for_free: "Partage gratuit"
+      event_w_online_payment: "Evènement avec paiement en ligne"
+      event_wo_online_payment: "Evènement sans paiement en ligne"
       default_action_button_labels:
         sell: Acheter
         rent: Louer
         request: Proposer
         offer: Demander
         inquiry: Contacter
+        book: Réserver
+    community_transactions:
+      show:
+        transaction_for: "Transaction à propos de %{link}"
+        status: "Statut :"
+        next_step: "Etape suivante :"
+        waiting_for_provider_accept_or_reject: "En attente de l'acceptation ou rejet de la requête par %{provider}."
+        waiting_for_fulfill_and_complete: "En attente de la réalisation par %{provider} de la commande pour %{listing_title} et de la confirmation par %{buyer}."
+        buyer: "Acheteur :"
+        provider: "Vendeur :"
+        buyer_pays: "L'acheteur paie :"
+        marketplace_collects: "%{service_name} reçoit :"
+        buyer_service_fee_label: "Commission prélevée sur l'acheteur :"
+        service_fee_label: "Commission prélevée sur le vendeur :"
+        provider_receives: "Le vendeur reçoit :"
+        admin_info_text: "En tant qu'administrateur de %{service_name}, vous pouvez agir pour faire progresser cette transaction :"
+        manage_reviews: "Gérer les avis"
   common:
     edit_page: "Modifier la page"
     default_community_slogan: "Votre place de marché"
@@ -1066,11 +1241,11 @@ fr:
       stripe-fee_label: "Frais de service"
     confirm:
       confirm_description: "Si votre commande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
-      cancel_description: "Si votre commande n'a pas été satisfaite, vous pouvez la marquer comme \"contestée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
+      cancel_description: "Si votre commande n'a pas été satisfaite, vous pouvez la marquer comme \"annulée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
       cancel_payed_description: "Si votre demande a été acceptée mais que vous changez d'avis, vous pouvez toujours l'annuler avant le paiement."
       canceling_payed_transaction: "Annuler la transaction"
       confirm: Réalisée
-      cancel: Contester
+      cancel: Annuler
       continue: Continuer
       give_feedback_to: "Donner un avis sur %{person_link}"
       do_not_give_feedback: "Ne pas donner d'avis"
@@ -1199,7 +1374,7 @@ fr:
       reject_preauthorized_offer: "Pas cette fois"
       reject_preauthorized_request: "Pas cette fois"
       confirm: Réalisée
-      cancel: Contester
+      cancel: Annuler
   feedback:
     feedback_subject: "Nouveau contact pour %{service_name}"
     feedback_body: "%{author_name_and_email} a envoyé le message suivant à propos de %{service_name}"
@@ -1260,6 +1435,7 @@ fr:
       give_feedback_to: "Donner un avis sur %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} a confirmé la commande à propos de %{request} comme réalisée. Le paiement de cette transaction a maintenant été transféré vers votre compte en banque. Vous pouvez laisser un avis sur %{other_party_given_name}."
+      team_title: "l'équipe %{service_name}"
     transaction_automatically_confirmed:
       subject: "Commande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
       we_have_marked_request_as_confirmed: "Nous avons marqué la commande de '%{request}' comme réalisée. La commande a été marquée comme réalisée automatiquement car %{days_passed} jours se sont écoulés depuis que la demande a été acceptée."
@@ -1534,6 +1710,9 @@ fr:
       on_or_after: "doit être au ou après %{restriction}"
       positive_number: "Vous devez saisir un nombre entier."
       from_must_be_less_than_till: "\"Heure de début\" doit être antérieure à \"Heure de fin\""
+      section_with_this_id_already_exists: ~
+      listing_with_this_id_does_not_exist: ~
+      presence: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."
@@ -2142,6 +2321,7 @@ fr:
       month: "Nombre de mois : "
       unit: "Nombre d'unités :"
       custom: "Quantité : "
+      person: "Nombre de personnes :"
     quantity_placeholder: Quantité
     please_comment: "Faire un commentaire"
     reply_link:
@@ -2193,6 +2373,7 @@ fr:
       week: semaine
       month: mois
       unit: unité
+      person: personne
     verification_required:
       verification_required: "Vérification nécessaire"
   listing_conversations:
@@ -2883,6 +3064,7 @@ fr:
       document: "Document d'identité (passeport, carte d'identité)"
       send_verification: "Envoyer la vérification"
       need_verification: "Vérification supplémentaire nécessaire"
+      additional_document: "Un document avec l'adresse visible, par exemple un passeport, une carte d'identité ou une facture d'électricité ou d'une entreprise reconnue"
     form_pin:
       social_insurance_number: "Numéro d'Assurance Sociale (NAS)"
       social_security_number: "Numéro de Sécurité Sociale (SSN)"
@@ -2913,3 +3095,40 @@ fr:
       category_description: "%{category} sur %{marketplace}"
       profile_title: "Profil de %{user} - %{marketplace}"
       profile_description: "Découvrez en plus sur %{user} sur %{marketplace}"
+  activemodel:
+    attributes:
+      landing_page_version/section/base:
+        id: ~
+        title: ~
+        paragraph: ~
+        button_color: ~
+        button_color_hover: ~
+        button_title: ~
+        button_path: ~
+        button_path_string: ~
+        background_image: ~
+        background_image_variation: ~
+        background_color: ~
+        background_color_string: ~
+        icon_color: ~
+      landing_page_version/section/listings:
+        listing_1_id: ~
+        listing_2_id: ~
+        listing_3_id: ~
+      landing_page_version/section/video:
+        text: ~
+        youtube_video_id: ~
+  canada_states:
+    AB: Alberta
+    BC: Colombie-Britannique
+    MB: Manitoba
+    NB: Nouveau-Brunswick
+    NL: Terre-Neuve-et-Labrador
+    NS: Nouvelle-Écosse
+    NT: "Territoires du Nord-Ouest"
+    NU: Nunavut
+    "ON": Ontario
+    PE: Île-du-Prince-Édouard
+    QC: Québec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

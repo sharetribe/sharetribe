@@ -219,6 +219,7 @@ ka:
         require_verification_to_post_listings: "მხოლოდ ადმინისტრატორის მიერ დადასტურებულ მომხმარებლებს შეუძლიათ დაპოსტოს ახალი ჩამონათვალი"
         allow_free_conversations: ~
         search_preferences: "ძებნის პარამეტრები"
+        search_and_location_preferences: ~
         default_search_type: "ძებნის ტიპი: %{select_search_type}"
         keyword_search: "საკვანძო სიტყვის ძებნა"
         keyword_and_location_search: "საკვანძო სიტყვით და ადგილით ძიება"
@@ -227,6 +228,7 @@ ka:
         km: კმ
         miles: მილები
         show_only_nearby: "ძებნაში აჩვენე მხოლოდ ახლომდებარე პროდუქცია"
+        allow_users_to_add_location: ~
         listing_preferences: "ჩამონათვალის პარამეტრები"
         transaction_preferences: "შეკვეთის პარამეტრები"
         show_listing_publishing_date: "გამოაჩინე ჩამონათვალის გამოქვეყნების თარიღი ჩამონათვალის გვერდზე"
@@ -640,6 +642,159 @@ ka:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_preview_text: ~
+        info_2_details_text: ~
+        info_2_design_text: ~
+        info_3: ~
+        info_4: ~
+        editor_title: ~
+        editor_info: ~
+        preview: ~
+        set_live: ~
+        headers:
+          section_id: ~
+          section_type: ~
+          version: ~
+          released: ~
+        add_new_version: ~
+        new_version: ~
+        edit_version: ~
+        add_new_section: ~
+        select_section_type: ~
+        form:
+          version: ~
+          save: ~
+        sections:
+          identifier: ~
+          kind: ~
+          variation: ~
+          new: ~
+          edit: ~
+          remove_section_confirmation: ~
+          info_single_column: ~
+          info_multi_column_2: ~
+          info_multi_column_3: ~
+          listings: ~
+          categories: ~
+          hero: ~
+          locations: ~
+          video: ~
+          new_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+          edit_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+    landing_page_versions:
+      sections:
+        hero:
+          hero_title: ~
+          hero_description: ~
+        footer:
+          footer_title: ~
+          footer_style: ~
+          style_dark: ~
+          style_light: ~
+          style_marketplace_color: ~
+          style_logo: ~
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: ~
+          cta_url: ~
+        background_image_overlay:
+          background_image: ~
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: ~
+          title_placeholder: ~
+          url: ~
+          url_placeholder: ~
+        multi_column:
+          main_title: ~
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: ~
+          youtube_video_id: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
     custom_fields:
       edit:
         edit_listing_field: "დაარედაქტირე ჩამონათვალის დარგი %{field_name}"
@@ -652,6 +807,7 @@ ka:
       edit_location:
         edit_location_field: "დაარედაქტირე ლოკაციის ველი"
         this_field_is_required: "ეს ველი აუცილებელია"
+        the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "დაარედაქტირე ველი \"ვადის გასვლის თარიღი\""
         enable: "ვადის გასვლის თარიღის ჩართვა"
@@ -952,12 +1108,31 @@ ka:
       request: მოთხოვნა
       inquiry: განცხადება
       share_for_free: "უფასოთ გაზიარება"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
       default_action_button_labels:
         sell: ყიდვა
         rent: გაქირავება
         request: შეთავაზება
         offer: ყიდვა
         inquiry: კონტაქტი
+        book: ~
+    community_transactions:
+      show:
+        transaction_for: ~
+        status: ~
+        next_step: ~
+        waiting_for_provider_accept_or_reject: ~
+        waiting_for_fulfill_and_complete: ~
+        buyer: ~
+        provider: ~
+        buyer_pays: ~
+        marketplace_collects: ~
+        buyer_service_fee_label: ~
+        service_fee_label: ~
+        provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
   common:
     edit_page: "დაარედაქტირე გვერდი"
     default_community_slogan: "ბაზრის გაერთიანება"
@@ -1243,6 +1418,7 @@ ka:
       give_feedback_to: "მიეცი შეფასება %{other_party_given_name}ს"
       stripe:
         has_marked_request_as_confirmed: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "შეკვეთა ავტომატურად დასრულდა - არ დაგავიწყდთ შეფასების მიცემა"
       we_have_marked_request_as_confirmed: "ჩვენ მოვნიშნეთ შეკვეთა %{request}-ს შესახებ დასრულებულად. შეკვეთა ავტომატურად დასრულდა, იმის გამო, რომ %{days_passed} დღე გავიდა იმის შემდეგ, რაც მოთხოვნა დადასტურდა."
@@ -1519,6 +1695,9 @@ ka:
       on_or_after: "უნდა იყოს ასე ან %{restriction}ის შემდეგ"
       positive_number: "შეიყვანეთ ნომერი:"
       from_must_be_less_than_till: ~
+      section_with_this_id_already_exists: ~
+      listing_with_this_id_does_not_exist: ~
+      presence: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} დაეთანხმა რომ გააქირაოს %{listing_title} %{requester_name}ზე %{time_ago}."
@@ -2126,6 +2305,7 @@ ka:
       month: "თვეების რაოდენობა"
       unit: ~
       custom: რაოდენობა
+      person: ~
     quantity_placeholder: რაოდენობა
     please_comment: კომენტარი
     reply_link:
@@ -2177,6 +2357,7 @@ ka:
       week: კვირა
       month: თვე
       unit: ~
+      person: ~
     verification_required:
       verification_required: "ვერიფიკაცია სავალდებულოა"
   listing_conversations:
@@ -2838,6 +3019,7 @@ ka:
       document: ~
       send_verification: ~
       need_verification: ~
+      additional_document: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
@@ -2868,3 +3050,40 @@ ka:
       category_description: ~
       profile_title: ~
       profile_description: ~
+  activemodel:
+    attributes:
+      landing_page_version/section/base:
+        id: ~
+        title: ~
+        paragraph: ~
+        button_color: ~
+        button_color_hover: ~
+        button_title: ~
+        button_path: ~
+        button_path_string: ~
+        background_image: ~
+        background_image_variation: ~
+        background_color: ~
+        background_color_string: ~
+        icon_color: ~
+      landing_page_version/section/listings:
+        listing_1_id: ~
+        listing_2_id: ~
+        listing_3_id: ~
+      landing_page_version/section/video:
+        text: ~
+        youtube_video_id: ~
+  canada_states:
+    AB: Alberta
+    BC: "British Columbia"
+    MB: Manitoba
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
+    NU: Nunavut
+    "ON": Ontario
+    PE: "Prince Edward Island"
+    QC: Quebec
+    SK: Saskatchewan
+    YT: "Yukon Territory"

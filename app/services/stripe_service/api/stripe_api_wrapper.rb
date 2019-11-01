@@ -215,20 +215,6 @@ class StripeService::API::StripeApiWrapper
       APP_CONFIG.stripe_charges_mode.to_sym
     end
 
-    def send_verification(community:, account_id:, personal_id_number:, file_path:)
-      with_stripe_payment_config(community) do |payment_settings|
-        document = Stripe::FileUpload.create({
-            purpose: 'identity_document',
-            file: File.new(file_path)
-          },
-          { stripe_account: account_id})
-        account = Stripe::Account.retrieve(account_id)
-        account.legal_entity.verification.document = document.id
-        account.legal_entity.personal_id_number = personal_id_number
-        account.save
-      end
-    end
-
     def get_seller_account(community:, account_id:)
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Account.retrieve(account_id)

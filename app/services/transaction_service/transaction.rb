@@ -190,25 +190,25 @@ module TransactionService::Transaction
       .or_else(res)
   end
 
-  def complete(community_id:, transaction_id:, message: nil, sender_id: nil)
+  def complete(community_id:, transaction_id:, message: nil, sender_id: nil, metadata: {})
     tx = find_tx_model(community_id: community_id, transaction_id: transaction_id)
 
     tx_process = tx_process(tx.payment_process)
     gw = gateway_adapter(tx.payment_gateway)
 
-    res = tx_process.complete(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw)
+    res = tx_process.complete(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw, metadata: metadata)
     res.maybe()
       .map { |gw_fields| Result::Success.new(create_transaction_response(tx, gw_fields)) }
       .or_else(res)
   end
 
-  def cancel(community_id:, transaction_id:, message: nil, sender_id: nil)
+  def cancel(community_id:, transaction_id:, message: nil, sender_id: nil, metadata: {})
     tx = find_tx_model(community_id: community_id, transaction_id: transaction_id)
 
     tx_process = tx_process(tx.payment_process)
     gw = gateway_adapter(tx.payment_gateway)
 
-    res = tx_process.cancel(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw)
+    res = tx_process.cancel(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw, metadata: metadata)
     res.maybe()
       .map { |gw_fields| Result::Success.new(create_transaction_response(tx, gw_fields)) }
       .or_else(res)

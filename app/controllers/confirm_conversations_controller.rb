@@ -79,10 +79,19 @@ class ConfirmConversationsController < ApplicationController
 
 
   def complete_or_cancel_tx(community_id, tx_id, status, msg, sender_id)
+    data = {
+      community_id: community_id,
+      transaction_id: tx_id,
+      message: msg,
+      sender_id: sender_id,
+      metadata: {
+        user_id: @current_user.id
+      }
+    }
     if status == :confirmed
-      TransactionService::Transaction.complete(community_id: community_id, transaction_id: tx_id, message: msg, sender_id: sender_id)
+      TransactionService::Transaction.complete(data)
     else
-      TransactionService::Transaction.cancel(community_id: community_id, transaction_id: tx_id, message: msg, sender_id: sender_id)
+      TransactionService::Transaction.cancel(data)
     end
   end
 
