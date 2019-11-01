@@ -3,7 +3,8 @@ module PlanService::DataTypes
     [:deletable, :bool, default: false],
     [:admin_email, :bool, default: false],
     [:whitelabel, :bool, default: false],
-    [:footer, :bool, default: false]
+    [:footer, :bool, default: false],
+    [:landing_page, :bool, default: false]
   )
 
   Configuration = EntityUtils.define_builder(
