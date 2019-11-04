@@ -90,7 +90,7 @@ window.ST = window.ST || {};
   };
 
   var initForm = function(options) {
-    optionOrder = createOptionOrder(".landing-page-version-section-position-row");
+    optionOrder = createOptionOrder("[landing-page-version-section-position-row]");
     $('#section_kind').on('change', onSectionSelect);
   };
 
