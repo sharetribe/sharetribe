@@ -705,6 +705,8 @@ en:
             video: "Edit video section"
     landing_page_versions:
       sections:
+        content:
+          title: Section content
         hero:
           hero_title: Hero
           hero_description: "Set the Background image for the hero section. The Slogan and Description are set from the basic details section."
@@ -722,6 +724,8 @@ en:
           cta_url: URL
           text_placeholder: "Click me!"
           url_placeholder: "https://example.com"
+        background_selector:
+          title: Background
         background_image_overlay:
           background_image: "Background image"
           background_image_info: "This image will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels."
@@ -782,7 +786,8 @@ en:
           main_title: "Main title"
           column_header: "Column %{index}"
           column_title: "Column %{index} title"
-          column_icon_info: "You can choose the icon for this column it's name from <a href=\"/info-icons.html\" target=\"_blank\">full list of supported icons</a>"
+          web_viewer: web viewer
+          column_icon_info: "You can choose your icon from this %{link}. Once you select the icon copy the Directory path and paste it here. i.e. 01-Interface Essential/01-Home/house-2.svg "
           column_icon: "Column %{index} icon"
           column_paragraph: "Column %{index} paragraph"
           column_button: "Column %{index} button"
