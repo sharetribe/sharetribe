@@ -716,10 +716,12 @@ en:
           style_marketplace_color: "Marketplace color"
           style_logo: Logo
         cta_button:
-          cta_button: "CTA Button"
-          cta_enabled: Enabled
+          cta_button: "Call-to-action button"
+          cta_enabled: Show a button
           cta_text: Text
           cta_url: URL
+          text_placeholder: "Click me!"
+          url_placeholder: "https://example.com"
         background_image_overlay:
           background_image: "Background image"
           background_image_info: "This image will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels."
