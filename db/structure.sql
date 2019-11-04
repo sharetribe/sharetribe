@@ -68,6 +68,20 @@ CREATE TABLE `ar_internal_metadata` (
   PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `aucsions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `aucsions` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `listing_id` bigint(20) DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
+  `price_aucsion_cents` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_aucsions_on_listing_id` (`listing_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `auth_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -2413,10 +2427,12 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190305112030'),
 ('20190319114719'),
 ('20190319122745'),
+('20190627055931'),
+('20190705083608'),
+('20190705100256'),
 ('20190717105844'),
 ('20190718081745'),
 ('20190904115045'),
-('20190627055931'),
-('20190705083608'),
-('20190705100256');
+('20191104164403');
+
 

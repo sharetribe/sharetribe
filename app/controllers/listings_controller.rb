@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  VALID_TITLE_CATEGORY_FOR_AUCSION = /au[a-z]{1,5}on/
   class ListingDeleted < StandardError; end
 
   # Skip auth token check as current jQuery doesn't provide it automatically
@@ -170,6 +171,10 @@ class ListingsController < ApplicationController
         ).html_safe
         redirect_to new_listing_path
       end
+    end
+
+    if VALID_TITLE_CATEGORY_FOR_AUCSION.match(@listing.category.url)
+      Aucsion.create(price_aucsion_cents: @listing.price_cents, listing_id: @listing.id)
     end
   end
 

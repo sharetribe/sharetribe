@@ -83,6 +83,7 @@ class Listing < ApplicationRecord
   has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue", :dependent => :destroy
   has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue", :dependent => :destroy
 
+  has_one :aucsion, :dependent => :delete
   has_one :location, :dependent => :destroy
   has_one :origin_loc, -> { where('location_type = ?', 'origin_loc') }, :class_name => "Location", :dependent => :destroy, :inverse_of => :listing
   has_one :destination_loc, -> { where('location_type = ?', 'destination_loc') }, :class_name => "Location", :dependent => :destroy, :inverse_of => :listing

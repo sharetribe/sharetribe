@@ -1,5 +1,13 @@
 module ListingsHelper
+  VALID_TITLE_CATEGORY_FOR_AUCSION = /au[a-z]{1,5}on/
 
+  def valid_title_category_for_aucsion(listing)
+     if VALID_TITLE_CATEGORY_FOR_AUCSION.match(listing.category.url) && @listing.aucsion.present?
+      return true
+    else
+      return false
+    end
+  end
   # Class is selected if conversation type is currently selected
   def get_map_tab_class(tab_name)
     current_tab_name = action_name || "map_view"

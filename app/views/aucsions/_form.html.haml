@@ -1,0 +1,4 @@
+= form_for [listing, listing.aucsion], remote: true do |form|
+  = form.label :price, "Go price"
+  = form.text_field :price_aucsion, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (listing.aucsion.price_aucsion ? listing.aucsion.price_aucsion : 0)
+  = form.button 'Поднять ставку', :class => "enabled-book-button"

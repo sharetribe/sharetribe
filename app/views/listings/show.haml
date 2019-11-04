@@ -125,7 +125,13 @@
         .col-12
           .listing-price
             %span.listing-price-amount
+              - if valid_title_category_for_aucsion(@listing)
+                %h5 Начальная цена
               = MoneyViewUtils.to_humanized(@listing.price)
+              - if valid_title_category_for_aucsion(@listing)
+                %hr/
+                = render :partial => "aucsions/aucsion", locals: { listing: @listing }
+                = render :partial => "aucsions/form", locals: { listing: @listing }
             - with_quantity_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
                 = text

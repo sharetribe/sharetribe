@@ -392,6 +392,7 @@ Rails.application.routes.draw do
         get :locations_json
         get :verification_required
       end
+      resources :aucsions, only: [:update]
       resources :comments, :only => [:create, :destroy]
       resources :listing_images do
         collection do
