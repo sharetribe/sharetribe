@@ -223,7 +223,7 @@ class ListingImage < ApplicationRecord
   end
 
   def email_image_hash
-    Digest::MD5.hexdigest([image_file_name, listing.author.image_file_name].join("|"))
+    Digest::MD5.hexdigest([image_file_name, image_updated_at, listing.author.image_file_name, listing.author.image_updated_at].join("|"))
   end
 
   def compose_email_image
