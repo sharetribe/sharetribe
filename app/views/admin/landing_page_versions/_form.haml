@@ -13,7 +13,8 @@
 
     = form.fields_for :section_positions do |position_form|
       - position = position_form.object
-      .row.landing-page-version-section-position-row{:data => {:"field-id" => position.id}}
+      .row{:data => {:"field-id" => position.id},
+        'landing-page-version-section-position-row': position.sortable?}
         = position_form.hidden_field :id
         = position_form.hidden_field :position, 'hidden-position': true
         .col-7
