@@ -2,6 +2,7 @@ Feature: Admin edits landing page
   Background:
     Given I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "test"
+    Given feature flag "clp_editor" is enabled
 
   @javascript
   Scenario: Admin edits hero section
@@ -9,7 +10,7 @@ Feature: Admin edits landing page
     Then I should see "Landing Page Editor"
     And there is a current landing page in community
     When I go to the landing page section of "hero" admin page
-    Then I should see "Set the Background image for the hero section"
+    Then I should see "Set the background image for the Hero section."
     And I choose "Transparent"
     When I press submit
     Then I should see "Landing Page Editor"
@@ -19,7 +20,7 @@ Feature: Admin edits landing page
     When I go to the landing page admin page
     Then I should see "Landing Page Editor"
     And there is a current landing page in community
-    And I select "Info 1 Column" from "section_kind"
+    And I select "Info 1 column" from "section_kind"
     Then I should see "New single column section"
     And I fill in "section_id" with "test1"
     And I fill in "section_title" with "DemoSingle"

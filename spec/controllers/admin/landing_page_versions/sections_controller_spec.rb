@@ -13,7 +13,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
     @request.env[:current_marketplace] = community
     user = create_admin_for(community)
     sign_in_for_spec(user)
-    FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:clp_editor])
+    RequestStore.store[:feature_flags] = [:clp_editor]
   end
 
   describe '#create' do
