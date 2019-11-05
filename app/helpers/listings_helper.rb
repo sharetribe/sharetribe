@@ -2,7 +2,7 @@ module ListingsHelper
   VALID_TITLE_CATEGORY_FOR_AUCSION = /au[a-z]{1,5}on/
 
   def valid_title_category_for_aucsion(listing)
-     if VALID_TITLE_CATEGORY_FOR_AUCSION.match(listing.category.url) && @listing.aucsion.present?
+     if VALID_TITLE_CATEGORY_FOR_AUCSION.match(listing.category.url) && listing.aucsion.present?
       return true
     else
       return false

@@ -6,6 +6,11 @@ class AucsionsController < ApplicationController
 
   private
 
+  def listing
+    @listing ||= Listing.find(params[:listing_id])
+  end
+  helper_method :listing
+
   def aucsion
     @aucsion ||= Aucsion.find(params[:id])
   end
