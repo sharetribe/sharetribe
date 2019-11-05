@@ -650,17 +650,15 @@ en:
       landing_pages:
         landing_pages: "Landing Page"
         info_1: "The landing page is perhaps the most important page of your marketplace. It is the first page that visitors see - sort of like the front door of your house. You have only a few seconds to convince new vistiors that they should explore your site. The page needs to be appealing and your value proposition should be clear and enticing."
-        info_2: "%{preview_link} your current landing page and make changes from the %{details_link} and %{design_link} sections"
-        info_2_preview_text: Preview
-        info_2_details_text: "basic details"
-        info_2_design_text: design
+        info_2: "Visit the %{help_link} to find out more about how to edit your landing page"
+        info_2_help_center: help center
         info_3: "If you want to have a completely customized landing page for your marketplace, you can purchase it as add-on for $99 per month."
         info_4: "Read more about custom landing pages"
         editor_title: "Landing Page Editor"
-        editor_info: "Here you can edit the sections that your Landing Page will include. Please note that some sections are predefined and cannot be edited within the Landing Page editor."
+        editor_info: "Here you can edit the sections of your Landing Page. At the moment it is only possible to use one language for the landing page. The hero and footer sections' position cannot be altered"
         preview: "Preview landing page"
         set_live: "Set live"
-        add_new_section: "Add new section"
+        add_new_section: "Add new section:"
         select_section_type: "Select section type..."
         this_version_is_not_released: This version is not released as there are no changes
         latest_version_released: "The latest version of your landing page has been released! %{link}!"
@@ -670,14 +668,14 @@ en:
           cancel: Cancel
         sections:
           identifier: "Section ID"
-          kind: "Section Type"
+          kind: "Section type"
           variation: Variation
           new: "New section"
           edit: "Edit section %{section_id}"
           remove_section_confirmation: "Are you sure you want to remove the section '%{section_id}' and all its data? This cannot be undone."
-          info_single_column: "Info 1 Column"
-          info_multi_column_2: "Info 2 Columns"
-          info_multi_column_3: "Info 3 Columns"
+          info_single_column: "Info 1 column"
+          info_multi_column_2: "Info 2 columns"
+          info_multi_column_3: "Info 3 columns"
           listings: Listings
           categories: Categories
           hero: Hero
