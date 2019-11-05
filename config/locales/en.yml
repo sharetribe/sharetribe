@@ -707,7 +707,8 @@ en:
           title: Section content
         hero:
           hero_title: Hero
-          hero_description: "Set the Background image for the hero section. The Slogan and Description are set from the basic details section."
+          hero_description: "Set the background image for the Hero section. The slogan and description are set from the %{link}"
+          basic_details_tab: basic details tab
         footer:
           footer_title: Footer
           footer_style: "Footer style"
