@@ -746,7 +746,7 @@ en:
           background_color: "Background color"
           background_color_info: "You can choose the background color of this section by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> can help you choose the color andgive you the hex color code. You can then copy the code here."
         categories:
-          add: "Add a new category to this section"
+          add: "+ Add a new category to this section"
           category: Category
           empty: "You don't have any included categories"
           image: Image
@@ -763,7 +763,7 @@ en:
           image_required: "You should add an image to this category"
           select_category: "Select category"
         locations:
-          add: "Add a new location to this section"
+          add: "+ Add a new location to this section"
           location: Location
           empty: "You don't have any included locations"
           image: Image
