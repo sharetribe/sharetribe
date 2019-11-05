@@ -18,5 +18,11 @@
 
   .row
     .col-12
-      = form.button t("admin.communities.landing_pages.form.save")
+      .inline-button-container
+        = form.button t("admin.communities.landing_pages.form.save")
+      .inline-button-container
+        = link_to admin_landing_page_versions_path,
+          class: 'cancel-button' do
+          .content
+            = t("admin.communities.landing_pages.form.cancel")
 

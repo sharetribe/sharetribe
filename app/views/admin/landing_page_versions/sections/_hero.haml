@@ -4,6 +4,7 @@
 
 .row
   .col-12
-    %p= t(".hero_description")
+    - link = link_to t('.basic_details_tab'), admin_details_edit_path, target: '_blank'
+    %p= t(".hero_description", link: link).html_safe
 
 = render partial: 'background_image_overlay', locals: {form: form, presenter: presenter}

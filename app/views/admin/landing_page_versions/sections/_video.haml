@@ -6,6 +6,7 @@
 .row
   .col-12
     = form.label :youtube_video_id
+    = render 'layouts/info_text', text: t(".youtube_video_id_info").html_safe
     = form.text_field :youtube_video_id, required: true
 
 .row
