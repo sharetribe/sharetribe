@@ -796,11 +796,10 @@ en:
           you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456."
         video:
           text: Text
-          youtube_video_id: "Youtube video ID"
-          autoplay: "Playing options"
+          autoplay: "Autoplay options"
           autoplay_no: "No autoplay"
           autoplay_muted: "Muted autoplay"
-          info: "This text will show when you select the \"No Autoplay\" playing option or the video is paused"
+          info: 'This text will be displayed when you select the "No Autoplay" option or when the video is paused.'
           youtube_video_id_info: "You can get your video ID from the video's URL. It is normally the last part of the URL. So if your URL is https://www.youtube.com/watch?v=UffchBUUIoI the ID would be <b>UffchBUUIoI</b>"
     custom_fields:
       edit:
@@ -3208,7 +3207,7 @@ en:
         listing_3_id: "Listing 3 ID"
       landing_page_version/section/video:
         text: Text
-        youtube_video_id: "Youtube video ID"
+        youtube_video_id: "YouTube video ID"
   canada_states:
     AB: Alberta
     BC: "British Columbia"
