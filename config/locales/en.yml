@@ -793,7 +793,7 @@ en:
           column_button_text: "Button text"
           column_button_url: "https://www.sharetribe.com"
         listings:
-          you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456"
+          you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456."
         video:
           text: Text
           youtube_video_id: "Youtube video ID"
@@ -1800,7 +1800,7 @@ en:
       positive_number: "Insert a number."
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
       section_with_this_id_already_exists: "This identifier is in use. Please choose another one."
-      listing_with_this_id_does_not_exist: "This listing id is not one of yours. Maybe you made a typo? Please verify and try again"
+      listing_with_this_id_does_not_exist: "This listing id is not one of yours. Maybe you made a typo? Please verify and try again."
       presence: "Can't be blank"
   event_feed_events:
     accept:
