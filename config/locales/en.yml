@@ -802,6 +802,7 @@ en:
           autoplay_no: "No autoplay"
           autoplay_muted: "Muted autoplay"
           info: "This text will show when you select the \"No Autoplay\" playing option or the video is paused"
+          youtube_video_id_info: "You can get your video ID from the video's URL. It is normally the last part of the URL. So if your URL is https://www.youtube.com/watch?v=UffchBUUIoI the ID would be <b>UffchBUUIoI</b>"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
