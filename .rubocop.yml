@@ -1,5 +1,5 @@
 inherit_from: .rubocop_todo.yml
-
+require: rubocop-performance
 # Double negation is the most convenient way in Ruby to convert any value to boolean. Allow the use of it.
 DoubleNegation:
   Enabled: false

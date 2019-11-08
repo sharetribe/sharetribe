@@ -110,6 +110,7 @@ end
 
 group :development, :test do
   gem 'rubocop', '~> 0.67.2', require: false
+  gem 'rubocop-performance'
   gem 'factory_girl_rails', '~> 4.8.0'
 end
 
