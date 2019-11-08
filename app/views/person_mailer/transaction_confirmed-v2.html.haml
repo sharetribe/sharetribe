@@ -18,8 +18,8 @@
 %tr
   %td.email-content
     %p.text-bold
-      - key = stripe_confirmed ? 'emails.transaction_confirmed_v2.stripe.has_marked_request_as_confirmed' : "emails.transaction_confirmed.has_marked_request_as_#{@conversation.status}"
-      = t(key, :other_party_full_name => other_party_full_name, :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"), :request => @conversation.listing.title)
+      - key = stripe_confirmed && @recipient_is_seller ? 'stripe.has_marked_request_as_confirmed' : "has_marked_request_as_#{@conversation.status}"
+      = t("emails.transaction_confirmed_v2.#{key}", :other_party_full_name => other_party_full_name, :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"), :request => @conversation.listing.title)
 
     %p
       = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"))
