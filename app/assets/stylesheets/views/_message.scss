@@ -36,6 +36,7 @@ $message-time-margin: lines(0.25);
 
 .message-avatar-image {
   @include border-radius($default-border-radius);
+  width: 100%;
 }
 
 .message-avatar {
