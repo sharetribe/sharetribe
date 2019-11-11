@@ -161,7 +161,7 @@ window.ST = window.ST || {};
     form.on('stripe-submit', formSubmit);
     spinner = form.find('.paypal-button-loading-img');
     $("#send-add-card").on('click', function(ev) {
-      event.preventDefault();
+      ev.preventDefault();
       if (!validateForm(form)) {
         return false;
       }
