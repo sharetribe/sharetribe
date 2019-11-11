@@ -1,0 +1,16 @@
+- name = PersonViewUtils.person_display_name(@person, @community)
+%tr
+  %td.person-name
+    %h1= t("emails.new_member_notification_v2.headline", community: @community.full_name(@person.locale), user_name: name)
+
+%tr
+  %td.email-content
+    - email_link = mail_to(@email)
+    %p= t("emails.new_member_notification_v2.new_member_has_joined", name: name, email: email_link, community: @community.full_name(@person.locale)).html_safe
+
+= render partial: 'action_button-v2', locals: {url: person_url(@person, @url_params), text: t("emails.new_member_notification_v2.view_profile")}
+
+%tr
+  %td.email-action
+    %p.email-action-help
+      = t("emails.new_member_notification.this_is_automatic_message", community: @community.full_name(@person.locale))

@@ -75,6 +75,19 @@ module MailUtils
     end
   end
 
+  def v2_layout(community_id, default_layout = 'email')
+    v2_enabled?(community_id) ? 'email-v2' : default_layout
+  end
+
+  def v2_template(community_id, template_name)
+    v2_enabled?(community_id) ? template_name + "-v2" : template_name
+  end
+
+  def v2_enabled?(community_id)
+    @_feature_flags ||= FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).maybe[:features].or_else(Set.new)
+    @_feature_flags.include? :email_layout_v2
+  end
+
   module_function
 
   def community_specific_sender(community)

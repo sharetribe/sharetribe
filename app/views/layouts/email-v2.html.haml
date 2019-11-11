@@ -1,0 +1,49 @@
+!!!
+
+%html
+
+  = render 'layouts/email-v2/email_head'
+
+  %body
+
+    %table.email-body
+      %tbody
+        %tr
+          %td
+            %table.email-container
+              %tbody
+                - community = @community || @current_community
+                - if community && community.wide_logo.present?
+                  %tr
+                    %td.logo
+                      = image_tag community.wide_logo.url(:header), alt: community.full_name(I18n.locale), style: 'margin: 0 auto;'
+                - elsif @community
+                  %tr
+                    %td.community-name
+                      %font
+                        = @community.full_name(I18n.locale)
+
+                = yield
+
+                - if @show_branding_info
+                  = render :partial => "layouts/email-v2/email_non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=email&utm_campaign=nowl-emails-auto"}
+                - @skip_unsubscribe_footer ||= false
+                - if @recipient && @url_params && !@skip_unsubscribe_footer
+                  %tr
+                    %td.unsubscribe
+                      = yield :extra_notice
+                      - if @community
+                        = t("emails.common.unsubscribe_from_these_emails_info", service_name: @community.full_name(I18n.locale))
+                      = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@recipient, @url_params))).html_safe
+                      - if @email_type
+                        = t("emails.common.or")
+                        = link_to(t("emails.common.unsubscribe_from_these_emails"), unsubscribe_person_settings_url(@recipient, @url_params.merge({email_type: @email_type, auth: @unsubscribe_token}))) + "."
+
+                - if @invitation
+                  %tr
+                    %td.invitation
+                      %font
+                        = t("emails.common.unsubscribe_from_invitation_emails_info", service_name: @invitation_community)
+                        = link_to(t("emails.common.unsubscribe_from_invitation_emails", service_name: @invitation_community),
+                          unsubscribe_invitations_url(@url_params)) + "."
+

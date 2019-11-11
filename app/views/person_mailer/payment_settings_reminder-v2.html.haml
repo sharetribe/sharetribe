@@ -1,0 +1,12 @@
+- listing_link = listing_url(@url_params.merge({:id => @listing.id}))
+
+%tr
+  %td.person-name
+    %h1= t("emails.payment_settings_reminder_v2.hi", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'))
+
+%tr
+  %td.email-content
+    %p
+      = t("emails.payment_settings_reminder_v2.you_have_added_listing_with_payment", :listing_link => link_to(@listing.title, listing_link)).html_safe
+
+= render :partial => "action_button-v2", locals: { text: t("emails.payment_settings_reminder_v2.fill_payout_details"), url: @payment_settings_link}

@@ -748,6 +748,11 @@ CREATE TABLE `listing_images` (
   `height` int(11) DEFAULT NULL,
   `author_id` varchar(255) DEFAULT NULL,
   `position` int(11) DEFAULT '0',
+  `email_image_file_name` varchar(255) DEFAULT NULL,
+  `email_image_content_type` varchar(255) DEFAULT NULL,
+  `email_image_file_size` int(11) DEFAULT NULL,
+  `email_image_updated_at` datetime DEFAULT NULL,
+  `email_hash` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_listing_images_on_listing_id` (`listing_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2414,11 +2419,12 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190305112030'),
 ('20190319114719'),
 ('20190319122745'),
-('20190717105844'),
-('20190718081745'),
-('20190904115045'),
 ('20190627055931'),
 ('20190705083608'),
 ('20190705100256'),
-('20190920113245');
-
+('20190717105844'),
+('20190718081745'),
+('20190904115045'),
+('20190920113245'),
+('20191016061908'),
+('20191016064022');

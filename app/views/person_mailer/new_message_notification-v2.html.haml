@@ -1,0 +1,15 @@
+- url = person_message_url(@recipient, @url_params.merge({:id => @message.conversation.id.to_s})) + "#message#{@message.id.to_s}"
+- action_text = t("emails.new_message_v2.reply", sender: PersonViewUtils.person_display_name_for_type(@message.sender, 'first_name_only'))
+
+%tr
+  %td.person-name
+    %h1= t("emails.new_message_v2.hi", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'))
+
+%tr
+  %td.email-content
+    %p.text-bold
+      = t("emails.new_message.has_sent_you_a_message_in_kassi", sender: PersonViewUtils.person_display_name(@message.sender, @current_community))
+
+    = render :partial => "quote-v2", locals: {quote: @message.content}
+
+= render :partial => "action_button-v2", :locals => { text: action_text, url: url}

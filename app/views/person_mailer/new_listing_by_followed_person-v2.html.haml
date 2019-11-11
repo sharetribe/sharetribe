@@ -1,0 +1,21 @@
+%tr
+  %td.person-name
+    %h1= t("emails.new_listing_by_followed_person_v2.headline", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'), author: PersonViewUtils.person_display_name_for_type(@listing.author, 'first_name_only'))
+
+%tr
+  %td.email-listings.no-top-border
+    %table
+      %tbody
+        = render :partial => "community_mailer/community_update_listing-v2", :locals => { :listing => @listing }
+
+= render :partial => "action_button-v2", :locals => { :text => t("emails.new_listing_by_followed_person_v2.view_listing", title: @listing.title), :url => @listing_url}
+
+%tr
+  %td.email-content
+    %p.email-action-help
+      = t("emails.new_listing_by_followed_person_v2.cant_click")
+      %br
+      = link_to @listing_url, @listing_url
+
+- content_for :extra_notice do
+  %p.email-action-help= t("emails.new_listing_by_followed_person_v2.you_are_receiving_this_because", :author_name => @author_name)

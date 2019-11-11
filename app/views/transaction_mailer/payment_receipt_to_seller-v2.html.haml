@@ -1,0 +1,81 @@
+%tr
+  %td.person-name
+    - payer_name = "<strong>#{payer_full_name}</strong>"
+    - seller_name = PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only")
+    - listing_link = link_to listing_title, listing_info_url
+    - payment_sum = "<strong>#{payment_total}</strong>"
+    %h1= t("emails.payment_receipt_to_seller_v2.headline", payer_name: payer_name, seller_name: seller_name, listing_link: listing_link, payment_sum: payment_sum).html_safe
+
+%tr
+  %td.email-content
+    %p.text-bold
+      - if gateway == :stripe
+        = t("emails.payment_receipt_to_seller_v2.main_text_stripe")
+      - else
+        = t("emails.payment_receipt_to_seller_v2.main_text")
+
+%tr
+  %td.email-receipt
+    %p.text-bold= t("emails.payment_receipt_to_seller_v2.price_breakdown")
+    %table
+      %tbody
+        %tr
+          %td.header{colspan: 2}
+
+        - if duration.present? || listing_quantity > 1
+          %tr
+            %td
+              = price_per_unit_title
+            %td
+              %strong= listing_price
+        - if duration.present?
+          %tr
+            %td
+              = t("emails.receipt_to_payer.duration")
+            %td
+              %strong= duration
+        - elsif listing_quantity > 1
+          %tr
+            %td
+              = quantity_selector_label || t("emails.new_payment.quantity")
+            %td
+              %strong= listing_quantity
+        - if payment_buyer_service_fee.present?
+          %tr
+            %td
+              %strong= t("emails.payment_receipt_to_seller.subtotal")
+            %td
+              %strong= subtotal
+        - else
+          %tr
+            %td
+              %strong= t("emails.payment_receipt_to_seller.price_payer_paid", :payer_full_name => payer_given_name)
+            %td
+              %strong= payment_total
+        %tr
+          %td
+            = t("emails.payment_receipt_to_seller.service_fee")
+          %td
+            %strong= "#{payment_service_fee}"
+
+        - if shipping_total.present?
+          %tr
+            %td
+              = t("emails.payment_receipt_to_seller.shipping_total")
+            %td
+              %strong= shipping_total
+
+        - if payment_gateway_fee.present? && gateway.to_s != 'stripe'
+          %tr
+            %td
+              = t("emails.payment_receipt_to_seller.payment_gateway_fee")
+            %td
+              %strong= "#{payment_gateway_fee}"
+
+        %tr
+          %td
+            %strong= t("emails.payment_receipt_to_seller.you_will_get")
+          %td
+            %strong= payment_seller_gets
+
+= render :partial => "person_mailer/action_button-v2", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

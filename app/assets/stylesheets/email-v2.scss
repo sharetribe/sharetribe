@@ -1,0 +1,247 @@
+.email-body {
+  border-spacing: 0;
+  border-collapse: collapse;
+  height: 100%;
+  background-color: #fff;
+  color: #333;
+  width: 100%;
+  font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+
+  td {
+    font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+
+  &> tbody > tr > td {
+    padding: 50px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .email-container {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
+    max-width: 500px;
+    width: auto;
+
+    &> tbody > tr > td {
+      padding: 10px 0;
+    }
+
+    .logo {
+      padding: 0 0 15px;
+
+      img {
+        max-width: 113px;
+      }
+    }
+
+    .community-name {
+      border: 0;
+      color: #9b9b9b;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1;
+      padding: 0 0 15px;
+      text-align: left;
+    }
+
+    .person-name {
+      color:  #3c3c3c;
+      font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 32px;
+      line-height: 40px;
+      margin: 0;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0 0 24px;
+      color: #333;
+    }
+
+    blockquote {
+      border-radius: 4px;
+      border: 1px solid #e1e1e1;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 24px;
+      margin: 0 0 30px;
+      padding: 14px 24px 16px;
+    }
+
+    .user-info {
+      border-radius: 4px;
+      border: 1px solid #e1e1e1;
+      background: #e3e3e3;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0 0 30px;
+      padding: 14px 24px 0px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .text-bold {
+      font-weight: bold;
+    }
+
+    .email-action {
+      padding: 0;
+    }
+
+    .email-action-button {
+      border: 0;
+      box-shadow: none;
+      border-radius: 4px;
+      color: #fff;
+      display: block;
+      font-weight: bold;
+      line-height: 1.5;
+      margin: 10px 0 20px;
+      padding: 15px 20px 16px;
+      text-align: center;
+    }
+
+    .email-action-help {
+      color: #9b9b9b;
+      font-size: 12px;
+      line-height: 16px;
+      margin: 0 0 20px;
+    }
+
+    .email-receipt {
+      border-top: 1px solid #ccc;
+      padding: 30px 0 10px;
+
+      table {
+        margin: 0 0 20px;
+        width: 100%;
+
+        tr td {
+          padding: 2px 0;
+
+          &:last-child {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .email-listings {
+      border-top: 1px solid #ccc;
+      padding-top: 48px;
+      padding: 48px 0 20px;
+      &.no-top-border {
+        border-top: none;
+      }
+    }
+
+    .email-listings-item {
+      td {
+        padding-bottom: 28px;
+      }
+
+      &-image {
+        padding: 0;
+        position: relative;
+        vertical-align: top;
+
+        img {
+          border-radius: 4px;
+        }
+      }
+
+      &-seller {
+        height: 48px;
+        position: absolute;
+        right: 10px;
+        top: -16px;
+        width: 48px;
+
+        img {
+          border-radius: 100%;
+          border: 3px solid #fff;
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-sizing: border-box;
+          max-width: 100%;
+        }
+      }
+    }
+
+    .email-listings-text {
+      padding: 0 0 0 20px;
+
+      small {
+        color: #9b9b9b;
+        display: block;
+        font-size: 12px;
+        line-height: 16px;
+        margin: 0 0 10px;
+      }
+
+      p {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      vertical-align: top;
+      &.no-padding {
+        padding: 0 0 28px 0;
+      }
+    }
+
+    .email-listings-title {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 24px;
+      margin: 0 0 10px;
+    }
+
+    .best-regards {
+      border-bottom: 1px solid #d8d8d8;
+      padding: 25px 0 20px;
+    }
+
+    .non-whitelabel-branding {
+      border-top: 1px solid #d8d8d8;
+      color: #000;
+      font-size: 13px;
+      line-height: 16px;
+      padding: 20px 0;
+    }
+
+    .unsubscribe {
+      border-top: 1px solid #d8d8d8;
+      color: #9b9b9b;
+      font-size: 12px;
+      line-height: 16px;
+      padding: 20px 0;
+
+      a {
+        color: inherit;
+      }
+    }
+
+    .invitation {
+      text-align: left;
+      padding-top: 10px;
+      padding-bottom: 30px;
+      border-top: 1px dotted grey;
+      color: gray;
+      font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+    }
+  }
+}

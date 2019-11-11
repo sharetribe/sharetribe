@@ -1,0 +1,18 @@
+%tr.email-listings-item
+  - if listing.listing_images.present?
+    %td.email-listings-item-image{width: 156}
+      = link_to listing_url(@url_params.merge({id: listing.id})) do
+        = image_tag(listing.listing_images.first.newsletter_email_image_url, class: "listing_main_image", alt: listing.title, height: "116", width: "150")
+
+  %td.email-listings-text{colspan: listing.listing_images.empty? ? '2' : '1', class: listing.listing_images.empty? ? 'no-padding' : ''}
+    %small
+      - name_link = PersonViewUtils.person_display_name_for_type(listing.author, "first_name_only")
+      = t("emails.community_updates.added_listing", name_link: name_link, default: t("emails.community_updates.added_listing", name_link: name_link)).html_safe
+    = link_to listing_url(@url_params.merge({:id => listing.id})), target: "_blank", class: 'email-listings-title' do
+      - if @show_listing_shape_label
+        = shape_name(listing) + ":"
+      = listing.title
+    - unless listing.description.blank?
+      %p
+        - max_len =listing.listing_images.empty? ? 140 : 80
+        = truncate_html(markdown(listing.description), :length => max_len, :omission => "...")

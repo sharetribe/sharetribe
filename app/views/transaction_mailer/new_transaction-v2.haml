@@ -1,0 +1,30 @@
+- if FeatureFlag.feature_enabled?(@transaction.community.id, :new_tx_page)
+  - url = admin_community_transaction_url(@url_params.merge({community_id: @transaction.community.id, :id => @transaction.id}))
+- else
+  - url = person_transaction_url(@transaction.starter, @url_params.merge({:id => @transaction.id}))
+
+%tr
+  %td.person-name
+    %h1= t("emails.new_transaction_v2.subject", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'))
+
+%tr
+  %td.email-content
+    %table.new-tx-table
+      %tbody
+        %tr
+          %td{width: 100}= t("emails.new_transaction_v2.listing")
+          %td
+            = link_to listing_url(@url_params.merge(id: @transaction.listing_id)) do
+              %b= @transaction.listing_title
+        %tr
+          %td= t("emails.new_transaction_v2.sum")
+          %td= MoneyViewUtils.to_humanized(@transaction.payment_total)
+        %tr
+          %td= t("emails.new_transaction_v2.starter")
+          %td= PersonViewUtils.person_display_name_for_type(@transaction.starter, "first_name_with_initial")
+        %tr
+          %td= t("emails.new_transaction_v2.provider")
+          %td= PersonViewUtils.person_display_name_for_type(@transaction.author, "first_name_with_initial")
+
+= render partial: 'person_mailer/action_button-v2', locals: {text: t("emails.new_transaction_v2.view_transaction"), url: url}
+

@@ -49,8 +49,9 @@ describe UserService::API::Users do
       expect(email).to have_subject I18n.t("devise.mailer.confirmation_instructions.subject",
                                            service_name: ApplicationHelper.fetch_community_service_name_from_thread)
       # simple check that link to right community exists
-      expect(email.body).to match @community.full_domain
-      expect(email.body).to match "Sharetribe team"
+      email_body = email.html_part.body.to_s
+      expect(email_body).to match @community.full_domain
+      expect(email_body).to match "Sharetribe team"
     end
 
     it "should send the confirmation email in right language" do

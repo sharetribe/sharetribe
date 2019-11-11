@@ -1,0 +1,12 @@
+- transaction_url = person_transaction_url(recipient, url_params.merge({:id => transaction.id.to_s}))
+- url = new_person_message_feedback_url(recipient, url_params.merge({:message_id => transaction.id.to_s}))
+
+= render :partial => "person_mailer/action_button-v2", :locals => { :text => t("emails.accept_reminder.show_thread"), :url => transaction_url}
+
+%tr
+  %td.email-content
+    %p
+      = t("emails.automatically_confirmed_footer.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name_for_type(transaction.other_party(recipient), "first_name_only"))
+
+= render :partial => "person_mailer/action_button-v2", :locals => { :text => t("emails.automatically_confirmed_footer.give_feedback_to", :other_party_given_name => PersonViewUtils.person_display_name_for_type(transaction.other_party(recipient), "first_name_only")), :url => url}
+
