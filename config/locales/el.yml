@@ -1108,6 +1108,8 @@ el:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1385,11 +1387,18 @@ el:
       if_will_not_happen_you_should_cancel: "Αν πιστεύετε ότι αυτό το αίτημα για οποιοδήποτε λόγο δεν θα ολοκληρωθεί, μπορείτε να %{cancel_it_link}."
       cancel_it_link_text: "το ακυρώσετε"
       automatic_confirmation: ~
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Μην ξεχάσετε να προσθέσετε τα στοιχεία σας για να λαμβάνετε πληρωμές"
       you_have_added_listing_with_payment: "Έχετε κάνει μια καταχώρηση \"%{listing_link}\" με πληρωμή όμως δεν έχετε ακόμα συμπληρώσει τα στοιχεία σας. Για να λάβετε την πληρωμή σας πρέπει να συμπληρώσετε τις απαραίτητες πληροφορίες."
       please_go_to_payment_settings: "Παρακαλούμε δείτε τις %{payment_settings_link} και συμπληρώστε τις απαραίτητες πληροφορίες."
       payment_settings_link: "ρυθμίσεις πληρωμών"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Δείτε ένα μήνυμα από το χρήστη %{other_party_given_name}:"
       request_marked_as_confirmed: "Το αίτημα ολοκληρώθηκε - θυμηθείτε να κάνετε κριτική για το άλλο μέλος"
@@ -1401,12 +1410,29 @@ el:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
@@ -1416,6 +1442,11 @@ el:
       need_to_confirm: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
       confirmation_link_text: "Επιβεβαίωσε το λογαριασμό μου"
       or_paste_link: "Εναλλακτικά μπορείτε να αντιγράψετε τον παρακάτω σύνδεσμο στην γραμμή διευθύνσεων του περιηγητή σας."
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Γεια σου %{name},"
       kassi_team: "Η Ομάδα του %{service_name}"
@@ -1429,6 +1460,7 @@ el:
       unsubscribe_from_these_emails: "απεγγραφείτε από αυτά τα μηνύματα"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "Ο/Η %{accepter} δέχτηκε την προσφορά σας για την καταχώρηση \"%{listing}\""
       has_accepted_your_request: "Ο/Η %{accepter} δέχτηκε το αίτημά σας για την καταχώρηση \"%{listing}\""
@@ -1442,22 +1474,34 @@ el:
       you_can_now_pay_to: "Μπορείτε τώρα να πληρώσετε το ποσό στον/στην %{payment_receiver}."
       pay_now: "Πληρώστε τώρα"
       remember_to_confirm: ~
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Γεια!
       you_have_been_invited_to_kassi: "Ο/Η %{inviter} σας προσκάλεσε στην κοινότητα του %{community}."
       here_is_a_message_from: "Ο %{inviter} σου στέλνει ένα προσωπικό μήνυμα:"
       join_now: "Γίνετε μέλος"
       invitation_code: "Κωδικός πρόσκλησης: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "Ο/η %{author} σχολίασε την καταχώρησή σας \"%{listing}\"."
       view_comment: "Δείτε το σχόλιο"
       you_have_a_new_comment: "Ο/Η %{author} σχολίασε την καταχώρησή σας στο %{service_name}"
       listing_you_follow_has_a_new_comment: "Ο/Η %{author} σχολίασε σε μία καταχώρηση που παρακολουθείς στο %{service_name}"
       has_commented_listing_you_follow_in_kassi: "Ο/η %{author} σχολίασε στην καταχώρηση \"%{listing}\" την οποία παρακολουθείτε στο %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Δείτε το μήνυμα"
       has_sent_you_a_message_in_kassi: "Ο/Η %{sender} σας έστειλε ένα μήνυμα στο %{service_name}."
       you_have_a_new_message: "Έχετε ένα νέο μήνυμα στο %{service_name} από τον/την %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Λάβατε μια νέα πληρωμή"
       price_per_unit_type: ~
@@ -1479,6 +1523,11 @@ el:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1494,6 +1543,11 @@ el:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -1523,6 +1577,8 @@ el:
       has_given_you_feedback_in_kassi: "O/H %{name} σχολίασε για σένα στο %{service_name}"
       you_can_give_feedback_to: "Έχετε παραλείψει να γράψετε την κριτική σας για τον/την %{name}."
       view_feedback: "Δείτε την κριτική"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Η καταχώρηση που παρακολουθείς έχει ενημερωθεί"
       has_updated_listing_you_follow_in_kassi: "Ο/η %{author} ενημέρωση την καταχώρηση \"%{listing}\" την οποία παρακολουθείτε στο %{service_name}."
@@ -1538,6 +1594,9 @@ el:
       reduce_email_footer_text: "Είναι πολλά τα email που λαμβάνετε; %{settings_link} ή %{unsubscribe_link}"
       settings_link_text: "Επεξεργαστείτε τις ρυθμίσεις ηλεκτρονικού ταχυδρομείου"
       unsubscribe_link_text: "διαγραφτείτε από τη λίστα ενημερώσεων"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Γεια σου %{name},"
       newest_offers: "Τι προσφέρουν κάποιοι στο %{service_name}"
@@ -1549,6 +1608,10 @@ el:
     testimonial_reminder:
       remember_to_give_feedback_to: "Υπενθύμιση: θυμηθείτε να γράψετε την κριτική σας για το χρήστη %{name}"
       you_have_not_given_feedback_yet: "Δεν έχετε κάνει ακόμα κριτική στο χρήστη %{name} σχετικά με το συμβάν \"%{event}\". Θυμηθείτε να πείτε τη γνώμη σας για το πόσο καλά ανταποκρίθηκε ο/η %{given_name}."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1557,11 +1620,16 @@ el:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: ~
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: ~
       remember_to_accept: ~
       one_day_left: ~
       click_here_to_reply: ~
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
@@ -1573,12 +1641,22 @@ el:
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
       view_listing: ~
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1605,6 +1683,15 @@ el:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

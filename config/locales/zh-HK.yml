@@ -1126,6 +1126,8 @@ zh-HK:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1403,11 +1405,18 @@ zh-HK:
       if_will_not_happen_you_should_cancel: "如果你認為由於某種原因無法完成這個請求，你可以%{cancel_it_link}。"
       cancel_it_link_text: 取消
       automatic_confirmation: "如果你不能在請求被接受後%{days_to_automatic_confirmation}內確認或取消交易，我們將自動把它標記為已完成。"
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: 請記得填寫付款詳情以接收付款
       you_have_added_listing_with_payment: "你已新增了一個需要付款的訊息：%{listing_link}。然而，你尚未填寫你的付款詳情。請填寫付款的資料以接收款項。"
       please_go_to_payment_settings: "請至%{payment_settings_link}並填寫所需的付款資訊。"
       payment_settings_link: 付款設置
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "這裡有一個%{other_party_given_name}給你的訊息:"
       request_marked_as_confirmed: 請求已完成——請不要忘記給予回應
@@ -1419,12 +1428,29 @@ zh-HK:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: 交易自動完成——不要忘記給予回應
       we_have_marked_request_as_confirmed: "我們已經把「%{request}」標示作已完成。此交易已自動完成，因為在請求被接受後%{days_passed}天已經過去。"
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "交易已自動完成 ——不要忘記給予評價"
       we_have_marked_request_as_confirmed: "我們已把關於「%{request}」的交易標記成已完成。由於在預訂期限結束後一天已過去，此請求已自動完成。"
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "你現在可以向%{other_party_given_name}給予回應。若一切順利，你可以讓其它人知道%{other_party_given_name}是可靠的。若有任何問題發生，你也可向其它人提出。"
       give_feedback_to: "向%{other_party_given_name}給予回應"
@@ -1434,6 +1460,11 @@ zh-HK:
       need_to_confirm: 請確認你的電郵地址。
       confirmation_link_text: 確認我的電郵
       or_paste_link: 或者你可以複製以下的連結到你的瀏覽器：
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "%{name} 你好 ,"
       kassi_team: "%{service_name} 團隊"
@@ -1447,6 +1478,7 @@ zh-HK:
       unsubscribe_from_these_emails: 取消訂閱這些電郵
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已經接受了你的%{listing}"
       has_accepted_your_request: "%{accepter}已經接受了你的%{listing}"
@@ -1460,22 +1492,34 @@ zh-HK:
       you_can_now_pay_to: "你現在可以支付請求的金額予%{payment_receiver}。"
       pay_now: 現在付款
       remember_to_confirm: "當交易完成後，請把它標記為「已完成」。若交易未完成，你可在%{days_to_automatic_confirmation}內取消它。否則它將會自動被標示為已完成。"
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: 你好！
       you_have_been_invited_to_kassi: "%{inviter}邀請你使用%{service_name}。"
       here_is_a_message_from: "這是來自%{inviter}的訊息"
       join_now: 立刻加入
       invitation_code: "邀請碼：%{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author}已在你的%{listing}留下評論。"
       view_comment: 查看評論
       you_have_a_new_comment: "%{author} 在%{service_name}的項目留言"
       listing_you_follow_has_a_new_comment: "%{author}在你關注的%{service_name}中發表了一則留言。"
       has_commented_listing_you_follow_in_kassi: "%{author}在你關注的%{service_name}中，於%{listing}留下了評論。"
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: 查閱訊息
       has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 傳送了訊息給你"
       you_have_a_new_message: "在%{service_name}收到來自%{sender_name}的新訊息"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: 你收到一筆新的款項
       price_per_unit_type: "每%{unit_type}的價格"
@@ -1497,6 +1541,11 @@ zh-HK:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1512,6 +1561,11 @@ zh-HK:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: PayPal的費用：
       shipping_total: 運費：
@@ -1541,6 +1595,8 @@ zh-HK:
       has_given_you_feedback_in_kassi: "%{name}已在%{service_name}對您作出評價。"
       you_can_give_feedback_to: "您還未對%{name}作出評價。"
       view_feedback: 查看回應
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: 你所關注的訊息已更新
       has_updated_listing_you_follow_in_kassi: "%{author}在你關注的%{service_name}中，更新了%{listing}中的訊息。"
@@ -1556,6 +1612,9 @@ zh-HK:
       reduce_email_footer_text: "太多郵件？你可以%{settings_link}或%{unsubscribe_link}。"
       settings_link_text: 在此編輯你的電郵設置
       unsubscribe_link_text: 取消訂閱
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "%{name}, 你好!"
       newest_offers: 大家最近提出的交易
@@ -1567,6 +1626,10 @@ zh-HK:
     testimonial_reminder:
       remember_to_give_feedback_to: "提示：請不要忘記對%{name}作出評價。"
       you_have_not_given_feedback_yet: "你尚未就%{event}對%{name}作出評價。請不要忘記對%{given_name}在該活動的表現作出評價。"
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester}已請求及授權為%{listing_title}付款。"
       transaction_requested_by_user: "%{requester}已請求及授權為「%{listing_title}」付款。"
@@ -1575,11 +1638,16 @@ zh-HK:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: 按此以回應請求
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "不要忘記接受來自%{requester}有關%{listing_title}的請求"
       remember_to_accept: "不要忘記接受來自%{requester}有關%{listing_title}的請求。%{requester}已為此請求付款。你需要接受請求以收取款項。"
       one_day_left: 如果你不能在一天內接受請求，這請求將會被自動取消，你亦不會收到款項。
       click_here_to_reply: 按此以回應請求
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "歡迎來到%{service_name}！"
       welcome_to_marketplace: "歡迎來到%{service_name}！恭喜你成功註冊。"
@@ -1591,12 +1659,22 @@ zh-HK:
       has_posted_a_new_listing: "%{author_name}已經發表了一個新的訊息："
       you_are_receiving_this_because: "你關注了%{author_name}所以收到這個通知。"
       view_listing: 查看訊息
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1623,6 +1701,15 @@ zh-HK:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

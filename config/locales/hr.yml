@@ -1150,6 +1150,8 @@ hr:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1429,11 +1431,18 @@ hr:
       if_will_not_happen_you_should_cancel: "Ukoliko smatrate da narudžba neće biti izvršena iz nekog razloga možete ju poništiti na %{cancel_it_link} "
       cancel_it_link_text: otkazati
       automatic_confirmation: ~
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Dodajte detalje plaćanja kako bi zaprimili uplate"
       you_have_added_listing_with_payment: "Dodali ste oglas %{listing_link} uz plaćanje. Ali niste još dodali detalje plaćanja. Kako bi zaprimili uplatu morate dodati informacije o plaćanju."
       please_go_to_payment_settings: "Molimo odite na Vaš %{payment_settings_link} i popunite potrebne informacije o transakcijama. "
       payment_settings_link: "postavke plaćanja"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Ovo je poruka od %{other_party_given_name}:"
       request_marked_as_confirmed: "Narudžba izvršena- ostavite povratnu infomaciju"
@@ -1445,12 +1454,29 @@ hr:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} je označio/la narudžbu kao '%{request}' djelomično izvršenu. Uplata za ovu transakciju je sada prebačena na vaš bankovni račun. Sada možete ostaviti komentar na %{other_party_given_name}."
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Narudžba automatski dovršena - ne zaboravite dati povratnu informaciju"
       we_have_marked_request_as_confirmed: "Označili smo narudžbu o dovršenom '%{request}'. Zahtjev je automatski dovršen zato jer je prošao jedan dan od završetka perioda rezervacije."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Sada možete pružiti povratnu informaciju prema %{other_party_given_name}. Pružanje povratne informacije je uvijek dobra ideja. Ako je sve prošlo dobro, obznanite drugima da %{other_party_given_name} je pouzdan partner. Ako je bilo problema u procesu, bilo bi dobro ih također spomenuti."
       give_feedback_to: "Pružiti povratnu informaciju prema %{other_party_given_name}"
@@ -1460,6 +1486,11 @@ hr:
       need_to_confirm: "Kako biste se uključili na %{service_name}, molimo potvrdite vašu email adresu klikom na gumb ispod."
       confirmation_link_text: "Potvrditi moju email adresu"
       or_paste_link: "Druga opcija je da kopirate ovaj link potvrde u vaš preglednik:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Bok %{name},"
       kassi_team: "%{service_name} tim"
@@ -1473,6 +1504,7 @@ hr:
       unsubscribe_from_these_emails: "odjavite se od ovih email poruka"
       unsubscribe_from_invitation_emails_info: "Primili ste ovaj email jer vas je član %{service_name} pozvao da im se pridružite."
       unsubscribe_from_invitation_emails: "Odjavite primanje email poruka koje vas pozivaju na pridruživanje u %{service_name}."
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} je prihvatio vašu ponudu %{listing}."
       has_accepted_your_request: "%{accepter} je prihvatio vaš zahtjev %{listing}."
@@ -1486,22 +1518,34 @@ hr:
       you_can_now_pay_to: "Sada možete platiti tražen iznos prema %{payment_receiver}."
       pay_now: "Platite sada"
       remember_to_confirm: ~
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Pozdrav!
       you_have_been_invited_to_kassi: "%{inviter} vas poziva na%{service_name} "
       here_is_a_message_from: "Ovo je osobna poruke od %{inviter}:"
       join_now: "Pridružite se sada"
       invitation_code: "Kod pozivnice: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} je komentirao Vaš oglas '%{listing}'."
       view_comment: "Pogledajte komentar"
       you_have_a_new_comment: "%{author} je komentirao vaš oglas u %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} je komentirao oglas koji pratite na %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} je komentirao oglas '%{listing}' koji pratite na %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Pogledajte poruku"
       has_sent_you_a_message_in_kassi: "%{sender} vam je poslao poruku u %{service_name}."
       you_have_a_new_message: "Imate novu poruku u %{service_name} od %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Zaprimili ste novu uplatu"
       price_per_unit_type: "Cijena po %{unit_type}"
@@ -1525,6 +1569,11 @@ hr:
           %{payer_full_name}  . Ovdje Vam je račun.
       stripe:
         you_have_received_new_payment: "Iznos od <b>%{payment_sum}</b> je uplaćen za <b>%{listing_title}</b> od strane %{payer_full_name}. Novac će biti zadržan od strane %{service_name} sve dok narudžba nije označena kao izvršena. Ovdje je vaša potvrda o plaćanju."
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: Račun
       you_have_made_new_payment: "Platili ste %{payment_sum}  za %{listing_title} korsniku %{recipient_full_name} .Ovo Vam je račun"
@@ -1540,6 +1589,11 @@ hr:
       stripe_gateway_fee: "Stripe-ova Provizija"
       paypal_gateway_fee: "PayPal-ova Provizija"
       money_will_be_transferred: "Novac će biti prebačen %{recipient_name} kada pod a) Označite narudžbu kao Dovršenu ili b) kada je prošlo %{automatic_confirmation_days} "
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal naknada:"
       shipping_total: "Dostava:"
@@ -1569,6 +1623,8 @@ hr:
       has_given_you_feedback_in_kassi: "%{name} vam je ostavio povratnu informaciju u %{service_name}"
       you_can_give_feedback_to: "Niste još ocijenili %{name}."
       view_feedback: "Vaša povratna informacija"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Oglas koji pratite je upravo ažuriran"
       has_updated_listing_you_follow_in_kassi: "%{author} je ažurirao oglas '%{listing}' koji pratite na %{service_name}."
@@ -1584,6 +1640,9 @@ hr:
       reduce_email_footer_text: "Previše email-ova? %{settings_link} ili %{unsubscribe_link}."
       settings_link_text: "Uredi email postavke ovdje"
       unsubscribe_link_text: Odjava
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Pozdrav %{name}"
       newest_offers: "Što ljudi trenutačno nude drugima"
@@ -1595,6 +1654,10 @@ hr:
     testimonial_reminder:
       remember_to_give_feedback_to: "Podsjetnik: molimo dajte povratnu informaciju %{name}"
       you_have_not_given_feedback_yet: "Još uvijek niste dali povratnu informaciju %{name} o '%{event}'. Podsjećamo vas da date povratnu informaciju kako je %{given_name} izveo događaj."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1603,11 +1666,16 @@ hr:
       if_you_do_accept_stripe: "Ako potvrdite ovaj zahtjev unutar navedenog razdoblja, plaćanje će se izvršiti. Novac ćete dobiti izravno na vaš račun, nakon što ste dostavili %{listing_title} do %{requester}."
       if_you_do_not_accept: "Ukoliko odbijete zahtjev ili ne prihvatite unutar ovog vremenskog perioda, transakcija će biti automatski otkazana, %{requester}  neće biti naplaćen i vi nećete dobit novac."
       click_here_to_reply: "Kliknite ovdje kako bi odgovorili na zahtjev"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Ne zaboravite prihvatiti zahtjev od %{requester} o oglasu %{listing_title}"
       remember_to_accept: "Ne zaboravite prihvatiti zahtjev od %{requester} o oglasu \"%{listing_title}\". %{requester} je već platio za oglas. Morate prihvatiti zahtjev kako bi primili uplatu."
       one_day_left: "Ako ne prihvatite zahtjev unutar jednog dana, zahtjev će se automatski odbiti i neće vam biti plaćeno."
       click_here_to_reply: "Kliknite ovdje kako bi odgovorili na zahtjev"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: "Dobrodošli na %{service_name}! Drago nam je da ste nam se pridružili."
@@ -1619,12 +1687,22 @@ hr:
       has_posted_a_new_listing: "%{author_name} je postavio novi oglas:"
       you_are_receiving_this_because: "Dobili ste obavijest jer pratite %{author_name}."
       view_listing: "Pogledajte oglas"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "Novi član se uključio u %{community}. Mora još potvrditi svoju email adresu."
       this_is_automatic_message: "Ovo je automatska poruka poslana administratorima %{community}."
       person_name: "Ime:"
       person_email: "Email:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: "Novi oglas za ocjenu: %{listing_title} napisan od strane %{author_name} u %{community}"
       there_is_a_new_listing_to_review: "Imate novi oglas za ocjenu: %{listing_title} strane %{author_name}. Sada morate ili odobriti ili odbiti taj oglas."
@@ -1651,6 +1729,15 @@ hr:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervacija nije uspjela zbog neočekivane greške.Molimo probajte ponovo kasnije.Nije Vam ništa naplaćeno"

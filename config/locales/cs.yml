@@ -1144,6 +1144,8 @@ cs:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1423,11 +1425,18 @@ cs:
       if_will_not_happen_you_should_cancel: "Pokud si myslíte, že tato žádost nebude splněna z jakýchkoliv důvodů, můžete ji %{cancel_it_link}."
       cancel_it_link_text: zrušit
       automatic_confirmation: "Pokud nepotvrdíte nebo nezrušíte žádost do %{days_to_automatic_confirmation} dní po tom, co byla žádost přijata, automaticky se žádost označí jako vyřízená."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Nezapomeňte přidat podrobnosti o platbě, abyste platbu obdrželi"
       you_have_added_listing_with_payment: "Přidali jste inzerát %{listing_link} s platbou. Nicméně jste zatím nepřidali žádné podrobnosti o platbě. Abyste obdrželi platbu, musíte přidat informace o platbě."
       please_go_to_payment_settings: "Prosíme, přejděte na %{payment_settings_link} a vyplňte požadované informace o platbě."
       payment_settings_link: "nastavení plateb"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Zde je zpráva od uživatele %{other_party_given_name}:"
       request_marked_as_confirmed: "Objednávka vyřízena - nezapomeňte ohodnotit uživatele"
@@ -1439,12 +1448,29 @@ cs:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Žádost byla automaticky vyřízena - nezapomeňte poskytnout zpětnou vazbu"
       we_have_marked_request_as_confirmed: "Žádost %{request} byla označena jako vyřízená. Žádost byla automaticky dokončena protože uplynulo %{days_passed} dní od doby, kdy byla žádost přijata."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Žádost byla automaticky vyřízena - nezapomeňte poskytnout zpětnou vazbu"
       we_have_marked_request_as_confirmed: "Žádost %{request} byla označena jako vyřízená. Žádost byla automaticky dokončena, protože uplynul 1 den od doby, kdy lhůta pro zarezervování skončila."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Nyní můžete poskytnout zpětnou vazbu uživateli %{other_party_given_name}. Poskytnutí zpětné vazby je vždy užitečné. Pokud vše probíhalo dobře, měli byste dát ostatním vědět, že uživatel %{other_party_given_name} je důvěryhodný. V případě, že se vyskytly jakékoliv problémy, je dobré to také zmínit."
       give_feedback_to: "Poskytnout zpětnou vazbu uživateli %{other_party_given_name}"
@@ -1454,6 +1480,11 @@ cs:
       need_to_confirm: "Musíte potvrdit svoji e-mailovou adresu."
       confirmation_link_text: "Potvrdit můj e-mail"
       or_paste_link: "Případně můžete zkopírovat následující odkaz do adresního řádku Vašeho prohlížeče:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Ahoj %{name},"
       kassi_team: "Vaši kolegové z %{service_name}"
@@ -1467,6 +1498,7 @@ cs:
       unsubscribe_from_these_emails: "odhlásit se z přijímaní těchto e-mailů"
       unsubscribe_from_invitation_emails_info: "Tento email jste obdrželi, protože vás pozval člen webu%{service_name}."
       unsubscribe_from_invitation_emails: "Odhlásit se od pozvánek k připojení k webu%{service_name}"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "Uživatel %{accepter} přijal/a Vaši nabídku %{listing}."
       has_accepted_your_request: "Uživatel %{accepter} přijal/a Vaši žádost %{listing}."
@@ -1480,22 +1512,34 @@ cs:
       you_can_now_pay_to: "Nyní můžete zaplatit požadovanou částku uživateli %{payment_receiver}."
       pay_now: "Zaplaťte teď"
       remember_to_confirm: "Až bude žádost dokončena, nezapomeňte ji označit jako vyřízenou. Pokud žádost nebyla dokončena, máte %{days_to_automatic_confirmation} dní na to, abyste ji zrušili. V opačném případě bude automaticky označena jako vyřízená."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Ahoj!
       you_have_been_invited_to_kassi: "Uživatel %{inviter} Vás pozval do %{service_name}."
       here_is_a_message_from: "Toto je soukromá zpráva od uživatele %{inviter}:"
       join_now: "Připojte se teď"
       invitation_code: "Kód pozvánky: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "Uživatel %{author} okomentoval Váš inzerát %{listing}."
       view_comment: "Zobrazit komentář"
       you_have_a_new_comment: "%{author} okomentoval Vaše zboží na %{service_name}."
       listing_you_follow_has_a_new_comment: "%{author} přidal příspěvek, který sledujete na %{service_name}."
       has_commented_listing_you_follow_in_kassi: "Uživatel %{author} okomentoval inzerát %{listing}, který sledujete v %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Zobrazit zprávu"
       has_sent_you_a_message_in_kassi: "%{sender} Vám poslal/a zprávu na %{service_name}."
       you_have_a_new_message: "Máte novou zprávu v %{service_name} od %{sender_name}."
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Obdrželi jste novou platbu"
       price_per_unit_type: "Cena za %{unit_type}"
@@ -1517,6 +1561,11 @@ cs:
       you_have_received_new_payment: "Obdrželi jste částku <b>%{payment_sum}</b> za <b>%{listing_title}</b> by %{payer_full_name}. Zde je váš doklad."
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Doklad o zaplacení"
       you_have_made_new_payment: "Zaplatili jste<b>%{payment_sum}</b> za <b>%{listing_title}</b> uživateli %{recipient_full_name}. Zde je stvrzenka provedené platby."
@@ -1532,6 +1581,11 @@ cs:
       stripe_gateway_fee: "Stripe poplatek :"
       paypal_gateway_fee: "PayPal poplatek :"
       money_will_be_transferred: "Peníze budou převedeny uživateli %{recipient_name} , a) pokud označíte žádost jako vyřízenou nebo b) pokud uplynulo %{automatic_confirmation_days} dní od zaplacení."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal poplatek:"
       shipping_total: "Doprava:"
@@ -1561,6 +1615,8 @@ cs:
       has_given_you_feedback_in_kassi: "%{name} Vás ohodnotil/a na %{service_name}."
       you_can_give_feedback_to: "Stále jste neohodnotil/a uživatele %{name}."
       view_feedback: "Zobrazit hodnocení"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Příspěvek, který sledujete, byl aktualizován."
       has_updated_listing_you_follow_in_kassi: "Uživatel %{author} aktualizoval inzerát %{listing}, který sledujete v %{service_name}."
@@ -1576,6 +1632,9 @@ cs:
       reduce_email_footer_text: "Příliš mnoho e-mailů? %{settings_link} nebo %{unsubscribe_link}"
       settings_link_text: "Upravte nastavení Vašeho e-mailu zde"
       unsubscribe_link_text: "se odhlašte"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Ahoj %{name},"
       newest_offers: "To, co lidé právě nabízejí ostatním"
@@ -1587,6 +1646,10 @@ cs:
     testimonial_reminder:
       remember_to_give_feedback_to: "Připomínka: nezapomeňte ohodnotit uživatele %{name}."
       you_have_not_given_feedback_yet: "Stále jste neohodnotil/a uživatele %{name} ohledně %{event}. Nezapomeňte vyjádřit svoji spokojenost s uživatelem %{given_name}."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "Uživatel %{requester} zažádal a potvrdil platbu pro inzerát %{listing_title}"
       transaction_requested_by_user: "Uživatel %{requester} zažádal a autorizoval platbu pro inzerát %{listing_title}"
@@ -1595,11 +1658,16 @@ cs:
       if_you_do_accept_stripe: "Pokud v tomto čase přijmete žádost, platba proběhne. Po vložení %{listing_title} na %{requester} obdržíte peníze přímo na váš bankovní účet."
       if_you_do_not_accept: ~
       click_here_to_reply: "Klikněte zde a odpovězte na žádost"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Nezapomeňte přijmout žádost od uživatele %{requester} na inzerát %{listing_title}"
       remember_to_accept: "Nezapomeňte přijmout žádost od uživatele %{requester} na inzerát %{listing_title}. Uživatel %{requester} již za inzerát zaplatil. Musíte přijmout žádost, abyste mohli obdržet platbu."
       one_day_left: "Pokud nepřijmete žádost do 1 dne od podání žádosti, žádost bude automaticky zamítnuta a nedostanete zaplaceno."
       click_here_to_reply: "Klikněte zde a odpovězte na žádost"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Vítejte v %{service_name}"
       welcome_to_marketplace: "Vítejte v %{service_name}! Jsme rádi, že jste se k nám připojili."
@@ -1611,12 +1679,22 @@ cs:
       has_posted_a_new_listing: "Uživatel %{author_name} přidal nový inzerát:"
       you_are_receiving_this_because: "Obdrželi jste toto upozornění, protože sledujete uživatele %{author_name}."
       view_listing: "Zobrazit inzerát"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "Nový člen se připojil k webu %{community}. Zkontrolujte zda potvrdil svou mailovou adresu."
       this_is_automatic_message: "Jedná se o automatickou zprávu zaslanou administrátorům %{community}."
       person_name: "Jméno:"
       person_email: "Email:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1643,6 +1721,15 @@ cs:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervace se nezdařila, kvůli neočekávané chybě. Zkuste to prosím později."

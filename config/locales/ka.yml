@@ -1126,6 +1126,8 @@ ka:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1403,11 +1405,18 @@ ka:
       if_will_not_happen_you_should_cancel: "თუ თვლით, რომ ეს შეკვეთა არ დასრულდება ერთი ან რამოდენიმე მიზეზის გამო, თქვენ შეგიძლიათ %{cancel_it_link}."
       cancel_it_link_text: გააუქმე
       automatic_confirmation: "თუ თქვენ არ დაადასტურებთ ან გააუქმებთ შეკვეთას %{days_to_automatic_confirmation}-ს მოთხოვნის დადასტურებიდან რამოდენიმე დღის განმავლობაში, ჩვენ ამას მოვნიშნავთ როგორც დასრულებულად."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "არ დაგავიწყდეთ გადახდის დეტალების დამატება, რომ მიიღოთ გადახდები; "
       you_have_added_listing_with_payment: "თქვენ დაამატეთ ჩამონათვალი %{listing_link} გადახდით. მაგრამ თქვენ ჯერ არ დაგიმატებიათ გადახდის დეტალები. გადახდის მიღებისთვის აუცილებელია რომ შეავსოთ ეს ინფორმაცია."
       please_go_to_payment_settings: "გთხოვთ შედით თქვენ %{payment_settings_link}ში და შეაფსეთ მოთხოვნილი გადახდის ინფორმაცია."
       payment_settings_link: "გადახდის პარამეტრები"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "აქ არის წერილი %{other_party_given_name}სგან"
       request_marked_as_confirmed: "შეკვეთა წარმატებით დასრულდა - არ დაგავიწყდეთ შეფასების მიცემა"
@@ -1419,12 +1428,29 @@ ka:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "შეკვეთა ავტომატურად დასრულდა - არ დაგავიწყდთ შეფასების მიცემა"
       we_have_marked_request_as_confirmed: "ჩვენ მოვნიშნეთ შეკვეთა %{request}-ს შესახებ დასრულებულად. შეკვეთა ავტომატურად დასრულდა, იმის გამო, რომ %{days_passed} დღე გავიდა იმის შემდეგ, რაც მოთხოვნა დადასტურდა."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "შეკვეთა წარმატებით დასრულდა - არ დაგავიწყდეთ შეფასების მიცემა"
       we_have_marked_request_as_confirmed: "%{request}-ის შეკვეთა მოვნიშნეთ როგორც დასრულებული. მოთხოვნა ავტომატურად დასრულდა, იმიტომ, რომ ერთი დღე გავიდა იმის მერე რაც ჯავშანის გაკეთების დრო დასრულდა."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: |-
           თქვენ ეხლა შეგიძლიათ შეაფასოთ %{other_party_given_name}.
@@ -1436,6 +1462,11 @@ ka:
       need_to_confirm: "თქვენ უნდა დაადასტუროთ ელ. ფოსტა. "
       confirmation_link_text: "ელ. ფოსტის დადასტურება"
       or_paste_link: "ან თქვენ შეგიძლიათ დააკოპიროთ ეს ბმული თქვენი ბრაუზერის მისამართის ველში:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "გამარჯობა %{name},"
       kassi_team: "%{service_name}  გუნდი"
@@ -1449,6 +1480,7 @@ ka:
       unsubscribe_from_these_emails: "ამ ელ. ფოსტისგან გამოწერის გაუქმება"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} დაეთანხმა თქვენ შემოთავაზებას %{listing}."
       has_accepted_your_request: "%{accepter} დაეთანხმა თქვენ მოთხოვნას %{listing}."
@@ -1462,22 +1494,34 @@ ka:
       you_can_now_pay_to: "თქვენ ეხლა შგიძლიათ გადაუხადოთ მოთხოვნილი თანხა %{payment_receiver}-ს"
       pay_now: "გადაიხადე ეხლა"
       remember_to_confirm: "როცა შეკვეთა შესრულებულია, არ დაგავიწყდეს, რომ მონიშნო ის დასრულებულად. თუ მოთხოვნა შეუსრულებელია, შენ გაქვს %{days_to_automatic_confirmation} დღე  რომ გააუქმო ის. სხვა შემთხვევაში ავტომატურად მოინიშნება როგორც დასრულებული."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: გამარჯობა!
       you_have_been_invited_to_kassi: "%{inviter} მიგიწვიათ %{service_name}ზე."
       here_is_a_message_from: "პერსონალური წერილი %{inviter}სგან"
       join_now: ეხლა
       invitation_code: "მოწვევის კოდი: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} დააკომენტარა თქვენ ჩამონათვალზე %{listing}."
       view_comment: "ნახე კომენტარი"
       you_have_a_new_comment: "%{author} დააკომენტარა თქვენ სიაზე %{service_name}ზე"
       listing_you_follow_has_a_new_comment: "%{author} დააკომენტარა ჩამონათვალზე, რომელსაც თქვენ მიყვებით %{service_name}ში"
       has_commented_listing_you_follow_in_kassi: "%{author} დააკომენტარა ჩამონათვალზე %{listing} რომელსაც თქვენ მისდევთ %{service_name}-ში. "
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "ნახე წერილი"
       has_sent_you_a_message_in_kassi: "%{sender} გამოგიგზავნათ წერილი %{service_name}ში."
       you_have_a_new_message: "ახალი წერილი %{service_name}ში %{sender_name}სგან"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "თქვენ მიიღეთ ახალი გადახდა"
       price_per_unit_type: "ფასი ყოველ %{unit_type}"
@@ -1499,6 +1543,11 @@ ka:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1514,6 +1563,11 @@ ka:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-ის გადასახადი:"
       shipping_total: "ფოსტით გაგზავნა:"
@@ -1543,6 +1597,8 @@ ka:
       has_given_you_feedback_in_kassi: "%{name} მოგცათ შეფასება %{service_name}ში"
       you_can_give_feedback_to: "თქვენ ჯერ არ მიგიციათ შეფასება %{name}სთვის."
       view_feedback: "ნახე შეფასება"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "ჩამონათვალი რომელსაც მიყვებით განახლდა"
       has_updated_listing_you_follow_in_kassi: "%{author} განაახლა ჩამონათვალი %{listing} რომელსაც თქვენ მისდევთ %{service_name}-ზე."
@@ -1558,6 +1614,9 @@ ka:
       reduce_email_footer_text: "ძალიან ბევრი ელ. ფოსტა? %{settings_link} ან %{unsubscribe_link}."
       settings_link_text: "დააკორექტირე შენი ელ. ფოსტის პარამეტრები აქ"
       unsubscribe_link_text: "გამოწერის გაუქმება"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "გამარჯობა %{name}"
       newest_offers: "რას თავაზობს ეხლა ხალხი სხვებს"
@@ -1569,6 +1628,10 @@ ka:
     testimonial_reminder:
       remember_to_give_feedback_to: "შეხსენება: გახსოვდეთ შეფასების მიცემა %{name}სთვის"
       you_have_not_given_feedback_yet: "თქვენ ჯერ არ მიგიციათ შეფასება %{name}-სთვის %{event} ღონისძიების შესახებ. არ დაგავიწყდეთ შეფასების მიცემა  %{given_name}-ზე თუ როგორ გამოვიდა ღონისძიებაზე."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} მოითხოვა და ავტორიზება გაუკეთა %{listing_title}-ს გადახდას"
       transaction_requested_by_user: "%{requester} მოითხოვა და ავტორიზება გაუკეთა %{listing_title}-ს გადახდას"
@@ -1577,11 +1640,16 @@ ka:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "დააჭირე აქ რომ უპასუხო მოთხოვნას"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "არ დაგავიწყდეთ რომ დაადასტუროთ %{listing_title} ჩამონათვალის შესახებ მოთხოვნა %{requester}-სგან"
       remember_to_accept: "არ დაგავიწყდეთ რომ დაადასტუროთ %{listing_title} ჩამონათვალის შესახებ მოთხოვნა %{requester}-სგან. %{requester} უკვე გადაიხადა ამ ჩამონათვლისთვის. თანხის მისაღებად თქვენ უნდა დაადასტუროთ მოთხოვნა."
       one_day_left: "თუ არ დაადასტურებთ მოთხოვნას 1 დღის განმავლობაში მოთხოვნა ავტომატურად გაუქმდება და თქვენ ვერ მიიღებთ თანხას."
       click_here_to_reply: "დააჭირეთ აქ რომ უპასუხოთ მოთხოვნას"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "მოგესალმებით %{service_name}ზე"
       welcome_to_marketplace: "მოგესალმებით %{service_name}-ზე! მოხარული ვართ რომ ჩვენი გუნდის წევრი ხართ."
@@ -1593,12 +1661,22 @@ ka:
       has_posted_a_new_listing: "%{author_name} დაპოსტა ახალი ჩამონათვალი"
       you_are_receiving_this_because: "თქვენ მიიღეთ შეტყობინება, იმიტომ, რომ მისდევთ %{author_name}-ს."
       view_listing: "ნახე ჩამონათვლები"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "ახალი წევრი შემოუერთდა %{community}ს. მათ მოუწევთ ელ.ფოსტის დადასტურება."
       this_is_automatic_message: "ეს არის ავტომატური წერილი რომელიც გაეგზავნა %{community}ის ადმინისტრატორებს"
       person_name: "სახელი:"
       person_email: "ელ.ფოსტა:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1625,6 +1703,15 @@ ka:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ""

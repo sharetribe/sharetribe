@@ -1108,6 +1108,8 @@ az-AZ:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1385,11 +1387,18 @@ az-AZ:
       if_will_not_happen_you_should_cancel: "Bu sifarişin bəzi səbəblərdən tamamlanmayacağını düşünürsünüzsə, %{cancel_it_link} vurun."
       cancel_it_link_text: "ləğv etmək"
       automatic_confirmation: "İstək qəbul edildikdən sonra %{days_to_automatic_confirmation} gün ərzində sifariş təsdiq və ya ləğv etmədiyiniz təqdirdə, biz onu avtomatik olaraq başa çatdıracağıq."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
       payment_settings_link: ~
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "%{other_party_given_name} -dan mesaj:"
       request_marked_as_confirmed: "Sifariş tamamlandı. Geribildirim verməyinizi unutmayın"
@@ -1401,12 +1410,29 @@ az-AZ:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: "'%{request}' haqqında sifarişi tamamlanmış kimi qeyd etdik. Sifarişiniz avtomatik olaraq başa çatdı, çünki sifariş müddəti başa çatdıqdan %{days_passed}  gün keçdi."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Sifariş avtomatik olaraq tamamlandı - geribildirim verməyinizi unutmayın"
       we_have_marked_request_as_confirmed: "'%{request}' haqqında sifarişi tamamlanmış kimi qeyd etdik. İstəyiniz avtomatik olaraq başa çatdı, çünki sifariş müddəti başa çatdıqdan bir gün keçdi."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: "%{other_party_given_name} -a geribildirim ver"
@@ -1416,6 +1442,11 @@ az-AZ:
       need_to_confirm: "%{service_name} saytına qoşulmaq üçün aşağıdakı düyməni basıb e-poçt ünvanınızı təsdiqləyə bilərsiniz."
       confirmation_link_text: "E-poçt ünvanımı təsdiqlə"
       or_paste_link: "Yaxud aşağıdakı linki kopyalayıb brauzerinizin ünvan çubuğuna ata bilərsiniz:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Salam %{name},"
       kassi_team: "%{service_name} komandası"
@@ -1429,6 +1460,7 @@ az-AZ:
       unsubscribe_from_these_emails: "Bu məktublara abunəliyi ləğv et"
       unsubscribe_from_invitation_emails_info: "%{service_name} üzvünün sizi qoşulmağa dəvət etdiyinə görə bu məktubu almısınız."
       unsubscribe_from_invitation_emails: "%{service_name} qoşulmaq üçün dəvət məktublarına abunəliyin ləğv olunması"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} sizin %{listing} təklifinizi qəbul etdi."
       has_accepted_your_request: "%{accepter} sizin %{listing} istəyinizi qəbul etdi."
@@ -1442,22 +1474,34 @@ az-AZ:
       you_can_now_pay_to: ~
       pay_now: "İndi ödə"
       remember_to_confirm: "Sifariş yerinə yetirildikdə, onu tamamlanmiş kimi qeyd edin. Sifariş yerinə yetirilmədikdə, onu ləğv etmək üçün %{days_to_automatic_confirmation} gün var. Əks halda sifariş avtomatik olaraq tamamlanmış kimi qeyd olunacaq."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Salam!
       you_have_been_invited_to_kassi: "%{inviter} sizi %{service_name} -a dəvət etmişdir."
       here_is_a_message_from: "%{inviter} -dan şəxsi mesaj:"
       join_now: "İndi qoşul"
       invitation_code: "Dəvət kodu: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} sizin %{listing} elanınıza şərh etdi."
       view_comment: "Şərhə bax"
       you_have_a_new_comment: "%{author} sizin %{service_name}-daki elanızla əlaqədar şərh etdi"
       listing_you_follow_has_a_new_comment: "%{author} %{service_name} -da izlədiyiniz elana şərh verdi."
       has_commented_listing_you_follow_in_kassi: "%{author} %{service_name} -da izlədiyiniz %{listing} elanına şərh verdi."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Mesaja bax"
       has_sent_you_a_message_in_kassi: "%{sender} sizə %{service_name}-da mesaj göndərib."
       you_have_a_new_message: "%{service_name}-da %{sender_name}-dan yeni mesaj var"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: ~
       price_per_unit_type: "%{unit_type} üçün qiymət"
@@ -1479,6 +1523,11 @@ az-AZ:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1494,6 +1543,11 @@ az-AZ:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -1523,6 +1577,8 @@ az-AZ:
       has_given_you_feedback_in_kassi: "%{name} sizə %{service_name}-də geribildirim verdi"
       you_can_give_feedback_to: "Siz hələ %{name}-a geribildirim vermədiniz."
       view_feedback: "Geribildirimə bax"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "İzlədiyiniz elan yeniləndi"
       has_updated_listing_you_follow_in_kassi: "%{author} %{service_name} -da izlədiyiniz %{listing} elanını yeniləmişdir."
@@ -1538,6 +1594,9 @@ az-AZ:
       reduce_email_footer_text: "Həddindən artıq məktublar gəlir? %{settings_link} və ya %{unsubscribe_link}."
       settings_link_text: "E-poçt ayarlarınız burada düzəldin"
       unsubscribe_link_text: "abunəlikdən çıx"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Salam %{name}!"
       newest_offers: "İndiki təkliflər"
@@ -1549,6 +1608,10 @@ az-AZ:
     testimonial_reminder:
       remember_to_give_feedback_to: "Xatırlatma: %{name}-a geribildirim verməyi unutmayın"
       you_have_not_given_feedback_yet: "Siz %{name} -a %{event} barədə gerbibildirim hələ də verməmisiniz. Tədbirdə %{given_name} necə yerinə yetirildiyi barədə fikir verməyi unutmayın"
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1557,11 +1620,16 @@ az-AZ:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: ~
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: ~
       remember_to_accept: ~
       one_day_left: ~
       click_here_to_reply: ~
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "%{service_name} -a xoş gəlmişsiniz"
       welcome_to_marketplace: "%{service_name} -a xoş gəlmişsiniz! Bizimlə birlikdə olduğunuza görə çox şadıq!"
@@ -1573,12 +1641,22 @@ az-AZ:
       has_posted_a_new_listing: "%{author_name} yeni elan vermişdir:"
       you_are_receiving_this_because: "Siz %{author_name} istifadəçini izlədiyinizə görə bu bildirişi almısınız."
       view_listing: "Elana bax"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: "Ad:"
       person_email: "E-poçt:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1605,6 +1683,15 @@ az-AZ:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

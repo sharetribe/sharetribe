@@ -460,7 +460,7 @@ ro:
           selected_js: ~
           free: ~
           confirmed: ~
-          paid: ~
+          paid: Platit
           canceled: ~
           preauthorized: ~
           rejected: ~
@@ -495,7 +495,7 @@ ro:
             preauthorized: ~
             accepted: ~
             rejected: ~
-            paid: ~
+            paid: Platit
             confirmed: ~
             canceled: ~
             initiated: ~
@@ -506,7 +506,7 @@ ro:
             preauthorized: ~
             accepted: ~
             rejected: ~
-            paid: ~
+            paid: Platit
             confirmed: ~
             canceled: ~
             initiated: ~
@@ -1123,16 +1123,18 @@ ro:
       show:
         transaction_for: ~
         status: ~
-        next_step: ~
+        next_step: "Urmatorii pasi:"
         waiting_for_provider_accept_or_reject: ~
-        waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
-        buyer_pays: ~
-        marketplace_collects: ~
+        waiting_for_fulfill_and_complete: "Asteptam ca %{provider} sa predea produsul %{listing_title}. La returnarea produsului, %{buyer} trebuie sa marcheze comanda ca fiind completa."
+        buyer: "Chirias:"
+        provider: "Proprietar:"
+        delivery: ~
+        shipping_to: ~
+        buyer_pays: "Chiriasul plateste:"
+        marketplace_collects: "%{service_name} colecteaza:"
         buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
+        service_fee_label: "Comision de la proprietar:"
+        provider_receives: "Proprietarul primeste:"
         admin_info_text: ~
         manage_reviews: ~
   common:
@@ -1337,7 +1339,7 @@ ro:
       request_paid: "Plata a fost facuta cu succes"
       request_preauthorized: "Plata autorizata"
       skip_feedback: "Omiteti recenzia"
-      waiting_for_listing_author_to_accept_offer: "Aşteptare pentru %{listing_author_name} pentru a accepta oferta"
+      waiting_for_listing_author_to_accept_offer: "Aşteptam ca %{listing_author_name} sa accepte oferta"
       waiting_for_listing_author_to_accept_request: "Asteapta ca %{listing_author_name} să accepte solicitarea. Imediat ce %{listing_author_name} acceptă, suma iti va fi debitata."
       waiting_for_you_to_accept_request: "Te asteapta sa accepti solicitarea"
       waiting_confirmation_from_requester: "Asteptam ca %{requester_name} sa marcheze comanda ca finalizata"
@@ -1409,11 +1411,18 @@ ro:
       if_will_not_happen_you_should_cancel: "Dacă credeți că această comandă nu va fi finalizată dintr-un motiv sau altul, puteți %{cancel_it_link}."
       cancel_it_link_text: anulați-l
       automatic_confirmation: ~
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Nu uitați să adăugați detaliile de plată pentru a primi plăți"
       you_have_added_listing_with_payment: "Ați adăugat o înregistrare %{listing_link} cu plata. Cu toate acestea, nu ați adăugat încă detaliile dvs. de plată. Pentru a primi plata, trebuie să adăugați informațiile dvs. de plată."
       please_go_to_payment_settings: "Accesați %{payment_settings_link} și completați informațiile de plată necesare."
       payment_settings_link: "setări plăți"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Iată un mesaj de la %{other_party_given_name}:"
       request_marked_as_confirmed: "Comanda finalizata - nu uitati sa oferiti o recenzie."
@@ -1425,12 +1434,29 @@ ro:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti o recenzie"
       we_have_marked_request_as_confirmed: ~
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti o recenzie"
       we_have_marked_request_as_confirmed: "Am marcat comanda despre '%{request}' finalizată. Solicitarea a fost completată automat, deoarece a trecut o zi de la încheierea perioadei de rezervare."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Puteti acum sa oferiti o recenzie pentru %{other_party_given_name}. Feedback-ul este intotdeauna o idee buna. Daca totul a decurs bine comunitatea ar trebui sa stie ca %{other_party_given_name} este de incredere. Daca au fost probleme este bine sa mentionati si aceste aspecte."
       give_feedback_to: "Oferiti o recenzie pentru %{other_party_given_name}"
@@ -1440,6 +1466,11 @@ ro:
       need_to_confirm: "Pentru a te inscrie pe %{service_name}, confirma adresa ta de e-mail accesand butonul de mai jos."
       confirmation_link_text: Confirma
       or_paste_link: "Alternativ, poți să copiezi următorul link în bara de adrese a browserului tau:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Salut %{name}"
       kassi_team: "Echipa %{service_name}"
@@ -1453,6 +1484,7 @@ ro:
       unsubscribe_from_these_emails: "dezabonați-vă de aceste e-mailul."
       unsubscribe_from_invitation_emails_info: "Ai primit acest e-mail deoarece un membru %{service_name} te-a invitat sa te inregistrezi."
       unsubscribe_from_invitation_emails: "Dezaboneaza-te de la email-urile de invitatie %{service_name}"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ți-a acceptat oferta %{listing}."
       has_accepted_your_request: "%{accepter} ți-a acceptat cererea %{listing}."
@@ -1466,22 +1498,34 @@ ro:
       you_can_now_pay_to: "Acum puteţi plăti suma solicitată de %{payment_receiver}."
       pay_now: "Plătiți acum"
       remember_to_confirm: ~
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Salut!
       you_have_been_invited_to_kassi: "%{inviter} te invita pe %{service_name}."
       here_is_a_message_from: "Ai un mesaj privat de la %{inviter}:"
       join_now: "Inregistreaza-te acum"
       invitation_code: "Codul de invitatie: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} a comentat la listarea dvs. '%{listing}'."
       view_comment: "Vedeți comentariu"
       you_have_a_new_comment: "%{author} a comentat la anuntul tau listat in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} a comentat intr-un anunt pe care tu il urmaresti pe %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} a comentat la listarea '%{listing}' pe care o urmaresti in %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Vedeți mesaj"
       has_sent_you_a_message_in_kassi: "%{sender} ti-a trimis un mesaj in %{service_name}"
       you_have_a_new_message: "Un nou mesaj in %{service_name} de la %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Ai primit o nouă plată"
       price_per_unit_type: "Pret pe %{unit_type}"
@@ -1503,6 +1547,11 @@ ro:
       you_have_received_new_payment: "Ai incasat <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> de la %{payer_full_name}. Ai aici chitanţa:"
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1518,6 +1567,11 @@ ro:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Banii vor fi transferati catre %{recipient_name} cand a) ai marcat tranzactia ca fiind completa b) %{automatic_confirmation_days} zile au trecut de cand ai platit."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "Comision PayPal:"
       shipping_total: "Trimite:"
@@ -1547,6 +1601,8 @@ ro:
       has_given_you_feedback_in_kassi: "%{name} v-a oferit feedback in %{service_name}"
       you_can_give_feedback_to: "Inca nu ati oferit feedback pentru %{name}"
       view_feedback: "Vizualizati feedback"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Anuntul pe care il urmaresti a fost actualizat"
       has_updated_listing_you_follow_in_kassi: "%{author} a actualizat listarea '%{listing}' pe care o urmaresti in %{service_name}."
@@ -1562,6 +1618,9 @@ ro:
       reduce_email_footer_text: "Primesti prea multe e-mailuri? %{settings_link} sau %{unsubscribe_link}."
       settings_link_text: "Editaţi-vă setările de e-mail aici"
       unsubscribe_link_text: dezabonare
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Salut %{name}"
       newest_offers: "Ce oferte sunt disponibile"
@@ -1573,6 +1632,10 @@ ro:
     testimonial_reminder:
       remember_to_give_feedback_to: "Memento: nu uitati sa oferiti o recenzie pentru %{name}"
       you_have_not_given_feedback_yet: "Inca nu ati oferit recenzie pentru %{name} cu privire la tranzactia %{event}. Nu uitati sa oferiti feedback despre modul in care %{given_name} a colaborat in tranzactie."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} este interesat si a autorizat plata pentru %{listing_title} publicat pe %{service_name}"
       transaction_requested_by_user: "Avem vesti bune! %{requester} este interesat de \"%{listing_title}\" si a autorizat o plata pentru acest produs."
@@ -1581,11 +1644,16 @@ ro:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: "Daca refuzi cererea sau daca nu raspunzi in termenul mentionat, tranzactia va fi anulata automat. %{requester} nu va plati, iar tu nu vei incasa nicio suma."
       click_here_to_reply: "Apasa aici pentru a raspunde cererii"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Nu uitați să acceptați solicitarea din %{requester} despre înregistrarea %{listing_title}"
       remember_to_accept: "Nu uitați să acceptați solicitarea din %{requester} despre înregistrarea \"%{listing_title}\". %{requester} a plătit deja pentru înregistrare. Trebuie să acceptați solicitarea pentru a primi plata."
       one_day_left: "Dacă nu acceptați solicitarea în termen de o zi, cererea va fi respinsă automat și nu veți fi plătit /a."
       click_here_to_reply: "Apasati aici pentru a raspunde solicitării"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Bine ai venit pe %{service_name}"
       welcome_to_marketplace: "Bine ați venit la %{service_name}! Ne bucurăm să vă avem alături."
@@ -1597,12 +1665,22 @@ ro:
       has_posted_a_new_listing: "%{author_name} a postat o nouă înregistrare:"
       you_are_receiving_this_because: "Ați primit această notificare deoarece il / o urmariti pe %{author_name}."
       view_listing: "Vedeti listarea"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1628,7 +1706,16 @@ ro:
       listing: ~
       sum: ~
       starter: ~
+      provider: "Proprietar: %{name}"
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
       provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

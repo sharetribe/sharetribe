@@ -1126,6 +1126,8 @@ th-TH:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1405,11 +1407,18 @@ th-TH:
       if_will_not_happen_you_should_cancel: "หากคุณคิดว่าการสั่งซื้อนี้จะไม่สมบูรณ์ด้วยเหตุผลใด ๆ ก็ตาม คุณสามารถ%{cancel_it_link}ได้"
       cancel_it_link_text: ยกเลิก
       automatic_confirmation: "หากคุณไม่ได้ยืนยันหรือยกเลิกคำสั่งซื้อภายใน %{days_to_automatic_confirmation} วันหลังจากที่คำขอได้รับการยอมรับ เราจะทำเครื่องหมายให้ว่าเสร็จสมบูรณ์โดยอัตโนมัติ"
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: อย่าลืมที่จะเพิ่มรายละเอียดการชำระเงินของคุณในการรับเงิน
       you_have_added_listing_with_payment: "คุณได้เพิ่มรายการ %{listing_link} กับการชำระเงิน ทั้งนี้ คุณยังไม่ได้เพิ่มรายละเอียดการชำระเงินของคุณ คุณต้องมีเพิ่มข้อมูลการชำระเงินเพื่อที่จะรับเงิน"
       please_go_to_payment_settings: "กรุณาไปที่ %{payment_settings_link} และกรอกข้อมูลการชำระเงินที่จำเป็น"
       payment_settings_link: การตั้งค่าการชำระเงิน
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "นี่คือข้อความจาก%{other_party_given_name}:"
       request_marked_as_confirmed: "การสั่งซื้อเสร็จสมบูรณ์ - อย่าลืมที่จะให้ความคิดเห็น"
@@ -1421,12 +1430,29 @@ th-TH:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} ได้ทำเครื่องหมายการสั่งซื้อเกี่ยวกับ%{request}เสร็จสมบูรณ์แล้ว การชำระเงินได้ถูกปล่อยเข้าธนาคารคุณแล้ว ขณะนี้คุณสามารถให้ความคิดเห็นไปยัง%{other_party_given_name}ได้"
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติ - อย่าลืมที่จะให้ความคิดเห็น"
       we_have_marked_request_as_confirmed: "เราได้ทำเครื่องหมายในการสั่งซื้อ '%{request}' เสร็จแล้ว การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติเนื่องจากผ่านมาแล้ว %{days_passed} วันนับตั้งแต่คำขอได้รับการยอมรับ"
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติ - อย่าลืมที่จะให้ความคิดเห็น"
       we_have_marked_request_as_confirmed: "เราได้ทำเครื่องหมายในการสั่งซื้อ '%{request}' เสร็จแล้ว การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติเนื่องจาก เวลาผ่านมาแล้วหนึ่งวัน นับตั้งแต่คำขอได้รับการยอมรับ"
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "ขณะนี้คุณสามารถให้ข้อเสนอแนะไปยัง %{other_party_given_name} การให้ข้อเสนอแนะมักเป็นสิ่งที่ดี หากทุกอย่างเป็นไปด้วยดี คุณควรช่วยให้คนอื่นรู้ว่า %{other_party_given_name} สามารถเชื่อถือได้ หากมีปัญหาใด ๆ ก็การดีที่จะพูดถึง ปัญหาเหล่านั้นเช่นกัน"
       give_feedback_to: "ให้ความคิดเห็นแก่%{other_party_given_name}"
@@ -1436,6 +1462,11 @@ th-TH:
       need_to_confirm: "ในการเข้าร่วม %{service_name} กรุณายืนยันที่อยู่อีเมล์ของคุณ โดยคลิกที่ปุ่มด้านล่าง"
       confirmation_link_text: ยืนยันที่อยู่ของฉัน
       or_paste_link: "หรือคุณสามารถคัดลอกลิงค์ต่อไปนี้ ไปที่แถบที่อยู่ของเบราว์เซอร์ของคุณ:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "สวัสดี %{name},"
       kassi_team: "ทีมงาน %{service_name}"
@@ -1449,6 +1480,7 @@ th-TH:
       unsubscribe_from_these_emails: ยกเลิกการรับอีเมล์เหล่านี้
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ได้ยอมรับข้อเสนอ %{listing} ของคุณแล้ว"
       has_accepted_your_request: "%{accepter} ได้ตอบรับออเดอร์ %{listing} ของคุณแล้ว"
@@ -1462,22 +1494,34 @@ th-TH:
       you_can_now_pay_to: "ขณะนี้คุณสามารถชำระเงินจำนวนที่ร้องขอไปยัง%{payment_receiver}ได้แล้ว"
       pay_now: ชำระเงินเดี๋ยวนี้
       remember_to_confirm: "เมื่อการสั่งซื้อสมบูรณ์แล้ว อย่าลืมทำเครื่องหมายว่าเสร็จสมบูรณ์ หากการสั่งซื้อไม่สมบูรณ์ คุณมีเวลา %{days_to_automatic_confirmation} วันที่จะยกเลิก มิฉะนั้นการสั่งซื้อก็จะถูกทำเครื่องหมายให้เสร็จสมบูรณ์โดยอัตโนมัติ"
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: สวัสดี!
       you_have_been_invited_to_kassi: "%{inviter} ได้เชิญคุณเข้าร่วม %{service_name}"
       here_is_a_message_from: "นี่คือข้อความส่วนตัวจาก %{inviter}:"
       join_now: เข้าร่วมเดี๋ยวนี้
       invitation_code: "รหัสเชิญ:%{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} ได้ให้ความเห็นในรายการ '%{listing}' ของคุณ"
       view_comment: ดูความเห็น
       you_have_a_new_comment: "%{author} ได้ให้ความเห็นในรายการ %{service_name} ของคุณ"
       listing_you_follow_has_a_new_comment: "%{author} มีความเห็นในรายการที่คุณติดตามใน %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} ได้ให้ความเห็นในรายการ '%{listing}' ที่คุณติดตามใน %{service_name}"
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: ดูข้อความ
       has_sent_you_a_message_in_kassi: "%{sender} ได้ส่งข้อความถึงคุณใน %{service_name}"
       you_have_a_new_message: "ข้อความใหม่ใน %{service_name} จาก %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: คุณได้รับการชำระเงินใหม่
       price_per_unit_type: "ราคาต่อ: %{unit_type}"
@@ -1499,6 +1543,11 @@ th-TH:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1514,6 +1563,11 @@ th-TH:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "ค่าธรรมเนียมของ PayPal"
       shipping_total: จัดส่ง
@@ -1543,6 +1597,8 @@ th-TH:
       has_given_you_feedback_in_kassi: "%{name} ได้ให้ข้อเสนอแนะแก่คุณใน %{service_name}"
       you_can_give_feedback_to: "คุณยังไม่ได้ให้ข้อเสนอแนะแก่ %{name}"
       view_feedback: ดูความคิดเห็น
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: รายการที่คุณติดตามได้รับการปรับปรุงใหม่
       has_updated_listing_you_follow_in_kassi: "%{author} ได้ทำการอัพเดทรายการ '%{listing}' ที่คุณติดตามใน %{service_name}"
@@ -1558,6 +1614,9 @@ th-TH:
       reduce_email_footer_text: "มีอีเมล์มากเกินไป? %{settings_link} หรือ %{unsubscribe_link}"
       settings_link_text: แก้ไขการตั้งค่าอีเมล์ของคุณที่นี่
       unsubscribe_link_text: ยกเลิกการเป็นสมาชิก
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "สวัสดี %{name},"
       newest_offers: "สิ่งที่ผู้คนในขณะนี้เสนอให้กับคนอื่น ๆ"
@@ -1569,6 +1628,10 @@ th-TH:
     testimonial_reminder:
       remember_to_give_feedback_to: "เตือนความจำ: อย่าลืมที่จะให้ข้อเสนอแนะไปยัง %{name}"
       you_have_not_given_feedback_yet: "คุณยังไม่ได้ให้ข้อเสนอแนะไปยัง %{name} เกี่ยวกับ %{event} อย่าลืมให้ข้อเสนอแนะ เกี่ยวกับการที่ %{given_name} ได้ดำเนินการในกรณีดังกล่าว"
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} ได้ยื่นคำขอชำระเงินเพื่อซื้อสินค้าหรือบริการ %{listing_title} ลงขายใน %{service_name}"
       transaction_requested_by_user: "ข่าวดี! %{requester} ได้ยื่นคำขอชำระเงินเพื่อซื้อสินค้าหรือบริการ %{listing_title}"
@@ -1577,11 +1640,16 @@ th-TH:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: คลิกที่นี่เพื่อตอบสนองต่อคำขอ
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "อย่าลืมยอมรับคำขอจาก%{requester}เกี่ยวกับรายการ %{listing_title}"
       remember_to_accept: "อย่าลืมยอมรับคำขอจาก%{requester}เกี่ยวกับรายการ %{listing_title} %{requester}ได้ชำระเงินแก่รายการไปแล้ว คุณต้องยอมรับคำขอเพื่อรับเงิน"
       one_day_left: "หากคุณไม่ยอมรับคำขอภายในหนึ่งวัน คำขอจะถูกปฏิเสธโดยอัตโนมัติ และคุณจะไม่ได้รับเงิน "
       click_here_to_reply: คลิกที่นี่เพื่อตอบสนองต่อคำขอ
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "ยินดีต้อนรับสู่ %{service_name}!"
       welcome_to_marketplace: "ยินดีต้อนรับสู่ %{service_name} ค่ะ"
@@ -1593,12 +1661,22 @@ th-TH:
       has_posted_a_new_listing: "%{author_name}ได้โพสต์รายการใหม่"
       you_are_receiving_this_because: "คุณได้รับการแจ้งเตือนนี้เพราะคุณกำลังติดตาม %{author_name}"
       view_listing: แสดงรายการ
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1625,6 +1703,15 @@ th-TH:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

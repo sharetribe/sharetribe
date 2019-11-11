@@ -1130,6 +1130,8 @@ vi:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1409,11 +1411,18 @@ vi:
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: "Hủy bỏ"
       automatic_confirmation: ~
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Hãy nhớ điền hoàn chỉnh thông tin chi trả của bạn để nhận được thanh toán từ khách hàng."
       you_have_added_listing_with_payment: "Bạn vừa đăng một bài %{listing_link} kèm theo lựa chọn chia trả trực tuyến. Tuy nhiên, thông tin chi trả trong tài khoản của không đầy đủ, bạn vui lòng điền đầy đủ thông tin để nhận được chi trả từ khách hàng."
       please_go_to_payment_settings: ~
       payment_settings_link: "Phương thức thanh toán"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Bạn vừa nhận được tin nhắn từ %{other_party_given_name} :"
       request_marked_as_confirmed: "Đơn hàng đã hoàn tất - bạn đừng quên gửi nhận xét"
@@ -1425,12 +1434,29 @@ vi:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Đơn đặt hàng tự động hoàn thành - nhớ gửi nhận xét"
       we_have_marked_request_as_confirmed: "Chúng tôi đã đánh dấu thứ tự về '%{request}' đã hoàn thành. Yêu cầu đã được tự động hoàn thành vì một ngày đã trôi qua kể từ khi thời gian đặt kết thúc."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Bây giờ bạn có thể gửi nhận xét cho %{other_party_given_name}. Cung cấp nhận xét luôn là một ý tưởng tốt. Nếu mọi thứ đã tốt, bạn nên cho người khác biết rằng %{other_party_given_name} đáng được tin cậy. Nếu có bất kỳ vấn đề nào, bạn cũng nên đề cập đến những điều đó."
       give_feedback_to: "Gửi nhận xét tới %{other_party_given_name}"
@@ -1440,6 +1466,11 @@ vi:
       need_to_confirm: "Bạn cần phải xác nhận địa chỉ email của bạn bằng cách nhấp vào liên kết sau:"
       confirmation_link_text: "Xác nhận tài khoản của tôi"
       or_paste_link: "Nếu không bạn có thể copy đường dẫn này vào thanh địa chỉ trên trình duyệt."
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Chào %{name},"
       kassi_team: "Nhóm %{service_name}"
@@ -1453,6 +1484,7 @@ vi:
       unsubscribe_from_these_emails: "Không muốn nhận những email này?"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} đã chấp nhận sự hỗ trợ của bạn xem xét yêu cầu %{listing}"
       has_accepted_your_request: "%{accepter} đã chấp nhận yêu cầu của bạn xem xét hỗ trợ %{listing}"
@@ -1466,22 +1498,34 @@ vi:
       you_can_now_pay_to: "Bạn không thể thanh toán tiền cho %{payment_receiver}."
       pay_now: "Thanh toán"
       remember_to_confirm: ~
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: "Chào bạn!"
       you_have_been_invited_to_kassi: "%{inviter} mời bạn sử dụng các dịch vụ web %{community}."
       here_is_a_message_from: "Đây là tin nhắn cá nhân từ %{inviter}:"
       join_now: "Tham gia ngay"
       invitation_code: "Đây là mã lời mời bạn cần để tham gia vào dịch vụ: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} đã nhận xét %{listing} của bạn."
       view_comment: "Xem phản hồi"
       you_have_a_new_comment: "%{author} đã nhận xét bài đăng của bạn tại %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} đã bình luận vào bài đăng mà bạn đang theo dõi %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} đã nhận xét về tin đăng '%{listing}' bạn đang theo dõi trong %{service_name}"
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Xem tin nhắn"
       has_sent_you_a_message_in_kassi: "%{sender} đã gửi cho bạn một tin nhắn tại %{service_name}:"
       you_have_a_new_message: "Bạn có một tin nhắn mới tại %{service_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Bạn vừa nhận được chi trả mới."
       price_per_unit_type: "Giá mỗi: %{unit_type}"
@@ -1503,6 +1547,11 @@ vi:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1518,6 +1567,11 @@ vi:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "Phí của PayPal:"
       shipping_total: "Vận chuyển:"
@@ -1547,6 +1601,8 @@ vi:
       has_given_you_feedback_in_kassi: "%{name} đã gửi bạn thông tin phản hồi tại %{service_name}"
       you_can_give_feedback_to: "Ban có thể đưa ra thông tin phản hồi đến %{name} tại"
       view_feedback: "Xem thông tin phản hồi"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Bài đăng bạn theo dõi đã được cập nhật"
       has_updated_listing_you_follow_in_kassi: "%{author} đã cập nhật tin đăng '%{listing}' bạn đang theo dõi trong %{service_name}"
@@ -1562,6 +1618,9 @@ vi:
       reduce_email_footer_text: "Quá nhiều email? %{settings_link} hoặc %{unsubscribe_link}."
       settings_link_text: "Chỉnh sửa các thiết lập email của bạn ở đây"
       unsubscribe_link_text: "Hủy đăng ký"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Chào %{name},"
       newest_offers: "Hiện tại người nào hỗ trợ những người khác"
@@ -1573,6 +1632,10 @@ vi:
     testimonial_reminder:
       remember_to_give_feedback_to: "Nhắc nhở: nhớ đưa ra thông tin phản hồi cho %{name}"
       you_have_not_given_feedback_yet: "Bạn chưa gửi đánh giá cho %{name} về sự kiện '%{event}'. Hãy nhớ đánh giá cách làm việc của %{given_name} trong sự kiện này."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1581,11 +1644,16 @@ vi:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: "Nếu bạn từ chối yêu cầu hoặc không chấp nhận yêu cầu trong khung thời gian này, giao dịch sẽ tự động bị hủy, %{requester} sẽ không bị tính phí và bạn sẽ không được trả tiền."
       click_here_to_reply: "Nhấp vào đây để đáp ứng yêu cầu"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Hãy nhớ chấp nhận yêu cầu từ %{requester} về bài đăng %{listing_title}"
       remember_to_accept: "Hãy nhớ chấp nhận yêu cầu từ %{requester} về bài đăng \"%{listing_title}\". %{requester} đã trả tiền cho việc mặt hàng. Bạn phải chấp nhận yêu cầu để nhận khoản thanh toán."
       one_day_left: "Nếu bạn không chấp nhận yêu cầu trong một ngày thì yêu cầu sẽ tự động bị từ chối và bạn sẽ không được trả tiền."
       click_here_to_reply: "Nhấp vào đây để đáp ứng yêu cầu"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: "Chào mừng bạn đến với %{service_name}! Rất vui khi bạn gia nhập."
@@ -1597,12 +1665,22 @@ vi:
       has_posted_a_new_listing: "%{author_name} đã đăng một bài đăng mới:"
       you_are_receiving_this_because: "Bạn nhận được thông báo này vì bạn theo dõi %{author_name}."
       view_listing: "Xem bài đăng"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "Một thành viên mới đã gia nhập %{community}. Họ vẫn có thể phải xác nhận địa chỉ email của họ."
       this_is_automatic_message: "Đây là một thư tự động được gửi tới các quản trị viên của %{community}."
       person_name: "Tên:"
       person_email: "Email:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1629,6 +1707,15 @@ vi:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Việc đặt chỗ không thành công do lỗi không mong muốn. Vui lòng thử lại sau. Bạn chưa bị tính phí."

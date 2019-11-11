@@ -1142,6 +1142,8 @@ nl:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1423,11 +1425,18 @@ nl:
       if_will_not_happen_you_should_cancel: "Als u denkt dat dit verzoek om welke reden dan ook niet uitgevoerd zal worden, kunt u %{cancel_it_link}."
       cancel_it_link_text: "Annuleer het"
       automatic_confirmation: "Indien u het voorstel niet accepteert of afwijst binnen %{days_to_automatic_confirmation} dagen nadat het verzoek is geaccepteerd, zullen we het automatisch als afgerond markeren."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Vergeet niet om de juiste gegevens toe te voegen om betalingen te kunnen ontvangen."
       you_have_added_listing_with_payment: "U heeft een advertentie %{listing_link} toegevoegd met betaling. U heeft echter nog geen betalingsgegevens opgegeven. Om betalingen te kunnen ontvangen dient u deze informatie nog toe te voegen."
       please_go_to_payment_settings: "Ga aub naar %{payment_settings_link} en vul de vereiste betalingsgegevens in."
       payment_settings_link: "instellingen betalingen"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Hier is een bericht van %{other_party_given_name}:"
       request_marked_as_confirmed: "Verzoek uitgevoerd - vergeet niet om feedback te geven"
@@ -1439,12 +1448,29 @@ nl:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} heeft de bestelling %{request} als voltooid gemarkeerd. De betaling voor deze transactie is nu naar je bankrekening overgemaakt. Je kunt nu feedback geven aan %{other_party_given_name}."
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: "We hebben het verzoek betreft %{request} als afgehandeld gemarkeerd. Dit is automatisch uitgevoerd omdat %{days_passed} dagen zijn verlopen sinds het verzoek is geaccepteerd."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: "We hebben het verzoek betreft '%{request}' gemarkeerd als afgerond. Het verzoek is automatisch afgerond omdat gisteren het einde van de periode was. "
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Je kan nu feedback geven aan %{other_party_given_name}. Het is altijd een goed idee om feedback te geven. Als alles goed is gegaan, kun je anderen laten weten dat %{other_party_given_name} een betrouwbare partij is. Als er problemen zijn geweest, is het zinvol om deze ook te vermelden."
       give_feedback_to: "Geef feedback aan %{other_party_given_name}"
@@ -1454,6 +1480,11 @@ nl:
       need_to_confirm: "Uw account is aangemaakt. De volgende stap is het bevestigen van uw e-mail adres."
       confirmation_link_text: "Bevestig mijn e-mail"
       or_paste_link: "U kunt ook onderstaande link kopiëren en plaatsen in de adresbalk van uw browser."
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Hallo %{name},"
       kassi_team: "Het %{service_name} Team"
@@ -1467,6 +1498,7 @@ nl:
       unsubscribe_from_these_emails: "Uitschrijven van deze e-mails"
       unsubscribe_from_invitation_emails_info: "Je ontvangt deze email omdat een lid van %{service_name} jou heeft uitgenodigd om ook lid te worden."
       unsubscribe_from_invitation_emails: "Afmelden van het ontvangen van uitnodigingsverzoeken van %{service_name}"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} heeft uw aanbod betreffende %{listing} geaccepteerd."
       has_accepted_your_request: "%{accepter} heeft uw verzoek betreffende %{listing} geaccepteerd"
@@ -1480,22 +1512,34 @@ nl:
       you_can_now_pay_to: "U kunt nu het openstaande bedrag betalen aan %{payment_receiver}."
       pay_now: "Betaal nu"
       remember_to_confirm: "Vergeet niet om het verzoek te markeren als afgehandeld eenmaal dit is uitgevoerd. Indien het verzoek niet werd afgehandeld heeft u %{days_to_automatic_confirmation} dagen om het te annuleren. Zoniet zal het automatisch als afgehandeld worden gemarkeerd."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Hallo!
       you_have_been_invited_to_kassi: "%{inviter} heeft je uitgenodigd voor %{service_name}."
       here_is_a_message_from: "Hier is een persoonlijke bericht van %{inviter}"
       join_now: "Word nu lid"
       invitation_code: "Uitnodigingscode: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} heeft feedback gelaten op uw advertentie '%{listing}'."
       view_comment: "Toon reactie"
       you_have_a_new_comment: "%{author} heeft een reactie gegeven over uw vermelding op %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} heeft commentaar gegeven op een advertentie die u volgt op %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} heeft feedback gelaten op de advertentie '%{listing}' dat u volgt op %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Bekijk bericht"
       has_sent_you_a_message_in_kassi: "%{sender} heeft u een bericht gestuurd op %{service_name}."
       you_have_a_new_message: "U heeft een nieuw bericht op %{service_name} van %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "U heeft een nieuwe betaling ontvangen"
       price_per_unit_type: "Prijs per %{unit_type}"
@@ -1517,6 +1561,11 @@ nl:
       you_have_received_new_payment: "Je hebt een betaling ontvangen van %{payer_full_name}, ter waarde van <b>%{payment_sum}</b> voor <b>%{listing_title}</b>. Hier is je kwitantie."
       stripe:
         you_have_received_new_payment: "Het bedrag van <b>%{payment_sum}</b> is betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Het bedrag wordt vastgehouden door %{service_name} totdat de bestelling als voltooid is gemarkeerd. Hier is je bewijs."
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: Betalingsbewijs.
       you_have_made_new_payment: "Je hebt  <b>%{payment_sum}</b> betaald aan %{recipient_full_name}, voor <b>%{listing_title}</b>. Hier is een betalingsbewijs."
@@ -1532,6 +1581,11 @@ nl:
       stripe_gateway_fee: "toeslag Stripe"
       paypal_gateway_fee: "toeslag PayPal"
       money_will_be_transferred: "Het geld zal overgemaakt worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sinds jouw betaling."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal kosten:"
       shipping_total: "Verzenden:"
@@ -1561,6 +1615,8 @@ nl:
       has_given_you_feedback_in_kassi: "%{name} heeft u feedback gegeven op %{service_name}"
       you_can_give_feedback_to: "U heeft nog geen feedback geven aan %{name}."
       view_feedback: "Bekijk feedback"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Advertentie die u volgt is aangepast"
       has_updated_listing_you_follow_in_kassi: "%{author} heeft de advertentie'%{listing}' die u volgt in %{service_name} bijgewerkt."
@@ -1576,6 +1632,9 @@ nl:
       reduce_email_footer_text: "Te veel e-mail? %{settings_link} of %{unsubscribe_link}."
       settings_link_text: "Wijzig uw e-mail instellingen hier"
       unsubscribe_link_text: uitschrijven
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Hallo %{name}"
       newest_offers: "Wat mensen op dit moment aanbieden aan anderen"
@@ -1587,6 +1646,10 @@ nl:
     testimonial_reminder:
       remember_to_give_feedback_to: "Herinnering: vergeet niet om feedback te geven aan %{name}"
       you_have_not_given_feedback_yet: "U heeft nog geen feedback gegeven aan %{name} over '%{event}'. Vergeet niet feedback te geven over hoe %{given_name} gepresteerd heeft in het evenement."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} is geinteresseerd en heeft betaling gemachtigd voor %{listing_title}, gepubliceerd op %{service_name}."
       transaction_requested_by_user: "Goed nieuws! %{requester} heeft interesse in %{listing_title} en heeft betaling hiervoor gemachtigd."
@@ -1595,11 +1658,16 @@ nl:
       if_you_do_accept_stripe: "Als je het verzoek binnen deze periode accepteert, dan wordt de betaling verwerkt. Je ontvangt het geld direct op je bankrekening, nadat je %{listing_title} hebt geleverd aan %{requester}."
       if_you_do_not_accept: "Als je het verzoek afwijst, of niet binnen deze tijdsperiode accepteert, dan wordt de transactie automatisch geannuleerd. %{requester} wordt dan niets in rekening gebracht, en jij ontvangt geen betaling."
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Vergeet niet om het verzoek van %{requester} betreffende advertentie %{listing_title} te accepteren"
       remember_to_accept: "Vergeet niet om het verzoek van %{requester} betreffende advertentie \"%{listing_title}\" te accepteren. %{requester} heeft al betaald voor het verzoek. Je moet het verzoek aanvaarden om de betaling te ontvangen."
       one_day_left: "Als je het verzoek niet binnen één dag accepteert zal het automatisch verworpen worden en wordt je niet betaald."
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Welkom bij %{service_name}"
       welcome_to_marketplace: "Welkom, bij %{service_name}! We zijn blij dat je er bent."
@@ -1611,12 +1679,22 @@ nl:
       has_posted_a_new_listing: "%{author_name} heeft een nieuwe advertentie gepost:"
       you_are_receiving_this_because: "Je krijgt dit bericht omdat je %{author_name} volgt."
       view_listing: "Bekijk advertentie"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "Een nieuw lid heeft zich aangesloten bij %{community}. Hij/zij moet wellicht nog zijn/haar emailadres bevestigen."
       this_is_automatic_message: "Dit is een automatisch bericht, verzonden naar de beheerders van %{community}."
       person_name: "Naam:"
       person_email: "Email:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: "Nieuwe advertentie te controleren: \"%{listing_title} \" van %{author_name}  in %{community}"
       there_is_a_new_listing_to_review: "Er is een nieuwe advertentie om te controleren: \"%{listing_title}\" van %{author_name} . Je kunt deze goedkeuren of afkeuren."
@@ -1643,6 +1721,15 @@ nl:
       sum: "Totaal: %{amount}"
       starter: "Initiatiefnemer: %{name}"
       provider: "Leverancier: %{name}"
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Boeking mislukt door een onverwachte fout. Probeer het later opnieuw. Er is niets in rekening gebracht."

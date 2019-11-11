@@ -1123,6 +1123,8 @@ fr-CA:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1402,11 +1404,18 @@ fr-CA:
       if_will_not_happen_you_should_cancel: "Si vous pensez que cette demande ne sera pas réalisée pour une raison ou une autre, vous pouvez %{cancel_it_link}."
       cancel_it_link_text: l'annuler
       automatic_confirmation: "Si vous ne confirmez ou n'annulez pas la demande sous %{days_to_automatic_confirmation} jours après que la demande ait été acceptée, nous la signalerons automatiquement comme terminée."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "N'oubliez pas d'ajouter vos détails de paiements pour recevoir les paiements"
       you_have_added_listing_with_payment: "Vous avez ajouté une annonce %{listing_link} avec un paiement. Cependant, vous n'avez pas ajouté vos détails de paiement. Pour en recevoir, vous devez ajouter vos informations de paiement."
       please_go_to_payment_settings: "Veuillez vous rendre dans vos %{payment_settings_link} et y complétez les informations nécessaires."
       payment_settings_link: "paramètres de paiement"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Voici un message de %{other_party_given_name} : "
       request_marked_as_confirmed: "Demande réalisée - n'oubliez pas de déposer un avis"
@@ -1418,12 +1427,29 @@ fr-CA:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Demande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
       we_have_marked_request_as_confirmed: "Nous avons signalé la demande à propos de '%{request}' comme terminée. La demande a été terminée automatiquement car %{days_passed} se sont écoulés depuis que la demande a été acceptée."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Demande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
       we_have_marked_request_as_confirmed: "Nous avons signalé la demande à propos de '%{request}' comme terminée. La demande a été terminée automatiquement car une journée s'est écoulée depuis la fin de la période de réservation."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Vous pouvez désormais donner un avis sur %{other_party_given_name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
       give_feedback_to: "Donner un avis sur %{other_party_given_name}"
@@ -1433,6 +1459,11 @@ fr-CA:
       need_to_confirm: "Vous devez confirmer votre adresse email."
       confirmation_link_text: "Confirmer mon email"
       or_paste_link: "Vous pouvez également copier le lien suivant dans la barre d'adresse de votre navigateur : "
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Bonjour %{name},"
       kassi_team: "L'équipe de %{service_name}"
@@ -1446,6 +1477,7 @@ fr-CA:
       unsubscribe_from_these_emails: "désabonnez-vous de ces emails"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} a accepté votre offre %{listing}"
       has_accepted_your_request: "%{accepter} a accepté votre demande %{listing}"
@@ -1459,22 +1491,34 @@ fr-CA:
       you_can_now_pay_to: "Vous pouvez maintenant payer le montant demandé à %{payment_receiver}."
       pay_now: "Payer maintenant"
       remember_to_confirm: "Quand la demande est réalisée, n'oubliez pas de la signaler comme terminée. Si la demande n'est pas réalisée vous avez %{days_to_automatic_confirmation} pour l'annuler. Autrement, elle sera automatiquement signalée comme terminée."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: "Bonjour !"
       you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre %{service_name}."
       here_is_a_message_from: "Voici un message personnel de %{inviter} :"
       join_now: Rejoindre
       invitation_code: "Code d'invitation : %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} a commenté votre annonce '%{listing}'."
       view_comment: "Voir le commentaire"
       you_have_a_new_comment: "%{author} a déposé un commentaire sur votre annonce sur %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} a commenté une annonce que vous suivez dans %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} a commenté l'annonce '%{listing}' que vous suivez sur %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Voir le message"
       has_sent_you_a_message_in_kassi: "%{sender} vous a envoyé un message sur %{service_name}."
       you_have_a_new_message: "Vous avez un nouveau message sur %{service_name} de la part de %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Vous avez reçu un nouveau paiement"
       price_per_unit_type: ~
@@ -1496,6 +1540,11 @@ fr-CA:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1511,6 +1560,11 @@ fr-CA:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "Frais PayPal : "
       shipping_total: "Frais de livraison : "
@@ -1540,6 +1594,8 @@ fr-CA:
       has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur %{service_name}"
       you_can_give_feedback_to: "Vous n'avez pas encore donné un avis sur %{name}."
       view_feedback: "Voir l'avis"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Une annonce que vous suivez a été mise à jour"
       has_updated_listing_you_follow_in_kassi: "%{author} a mis à jour l'annonce '%{listing}' que vous suivez sur %{service_name}."
@@ -1555,6 +1611,9 @@ fr-CA:
       reduce_email_footer_text: "Trop d'emails ? %{settings_link} ou %{unsubscribe_link}."
       settings_link_text: "Gérez vos paramètres d'email"
       unsubscribe_link_text: désabonnez-vous
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Bonjour %{name},"
       newest_offers: "Ce que les membres proposent aux autres en ce moment"
@@ -1566,6 +1625,10 @@ fr-CA:
     testimonial_reminder:
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} a demandé et payé pour %{listing_title}"
       transaction_requested_by_user: "%{requester} a demandé et payé pour \"%{listing_title}\""
@@ -1574,11 +1637,16 @@ fr-CA:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
       remember_to_accept: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce \"%{listing_title}\". %{requester} a déjà payé pour cette annonce. Vous devez accepter la demande pour recevoir le paiement."
       one_day_left: "Si vous n'acceptez pas la demande sous une journée la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Bienvenue sur %{service_name}"
       welcome_to_marketplace: "Bienvenue sur %{service_name} ! Ravi que vous nous ayez rejoint."
@@ -1590,12 +1658,22 @@ fr-CA:
       has_posted_a_new_listing: "%{author_name} a publié une nouvelle annonce : "
       you_are_receiving_this_because: "Vous recevez cette notification car vous suivez %{author_name}."
       view_listing: "Voir l'annonce"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1622,6 +1700,15 @@ fr-CA:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

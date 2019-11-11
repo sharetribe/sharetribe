@@ -2,9 +2,9 @@ ru:
   number:
     currency:
       format:
-        separator: ","
+        separator: "."
         delimiter: " "
-        format: "%n%u"
+        format: "%u%n"
   admin:
     categories:
       edit:
@@ -576,7 +576,7 @@ ru:
           blocking_info: "Блокировка отзыва после удаления не позволяет его автору оставить другой отзыв для той же транзакции."
           unskip: ~
           if_you_unskip_the_review: ~
-          they_will_not_be_notified_automatically: ~
+          they_will_not_be_notified_automatically: "Они не будут автоматически оповещены."
       invitations:
         invitations: Приглашения
         used:
@@ -661,9 +661,9 @@ ru:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_preview_text: ~
+        info_2_preview_text: Предпросмотр
         info_2_details_text: ~
-        info_2_design_text: ~
+        info_2_design_text: дизайн
         info_3: ~
         info_4: ~
         editor_title: ~
@@ -676,18 +676,18 @@ ru:
           version: ~
           released: ~
         add_new_version: ~
-        new_version: ~
-        edit_version: ~
-        add_new_section: ~
+        new_version: "Новая версия"
+        edit_version: "Редактировать версию"
+        add_new_section: "Добавить новый раздел"
         select_section_type: ~
         form:
-          version: ~
-          save: ~
+          version: Версия
+          save: Сохранить
         sections:
           identifier: ~
           kind: ~
           variation: ~
-          new: ~
+          new: "Новый раздел"
           edit: ~
           remove_section_confirmation: ~
           info_single_column: ~
@@ -1157,6 +1157,8 @@ ru:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1226,7 +1228,7 @@ ru:
       link_to_paypal_text: здесь
     stripe_fee_info:
       title: "Комиссия за обработку Stripe платежей"
-      body_text: "Для платежей Stripe% {service_name} взимает комиссию в размере% {stripe_commission}%. Минимальная комиссия за транзакцию составляет% {imum_transaction_fee}. Сборы Stripe включены в эту комиссию."
+      body_text: "Для платежей Stripe %{service_name} взимает комиссию в размере %{stripe_commission}%. Минимальная комиссия за транзакцию составляет %{minimum_transaction_fee}. Сборы Stripe включены в эту комиссию."
       link_to_stripe_text: здесь
   conversations:
     accept:
@@ -1436,11 +1438,18 @@ ru:
       if_will_not_happen_you_should_cancel: "Если вы предполагаете что запрос не будет выполнен по различным причинам, вы можете его отменить %{cancel_it_link}."
       cancel_it_link_text: отменить
       automatic_confirmation: "Если вы не подтвердите или отмените запрос в течении %{days_to_automatic_confirmation} дней после принятия этого запроса, мы автоматически пометим его как выполненный."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Не забудьте указать ваши реквизиты для приема оплаты."
       you_have_added_listing_with_payment: "Вы добавили публикацию %{listing_link} с оплатой. Однако, вы еще не добавили ваши платежные данные. Чтобы получить оплату вам необходимо указать платежную информацию."
       please_go_to_payment_settings: "Пожалуйста перейдите в %{payment_settings_link} и укажите необходимую информацию."
       payment_settings_link: "настройки оплаты"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Сообщение от %{other_party_given_name}:"
       request_marked_as_confirmed: "Запрос завершен - не забудьте оставить отзыв"
@@ -1452,12 +1461,29 @@ ru:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name}пометил заказ о выполнении '%{request}'. Платеж за эту транзакцию был переведен на ваш банковский счет. Теперь вы можете оставить отзыв%{other_party_given_name}."
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Запрос завершен автоматически - не забудьте оставить отзыв"
       we_have_marked_request_as_confirmed: "Мы отметили запрос о \"%{request}\" выполненным. Данный запрос был завершен автоматически так как прошло %{days_passed} дней после того как запрос был принят."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Запрос автоматически выполнен - не забудьте оставить отзыв"
       we_have_marked_request_as_confirmed: "Мы отметили запрос о %{request} завершенным. Данный запрос завершен автоматически так как прошел один день после того как завершился период бронирования."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Вы можете оставить отзыв о %{other_party_given_name}.Оставлять отзыв это всегда хорошо. Если все прошло правильно, вы должны поделиться с другими пользователями что %{other_party_given_name} можно доверять. Либо если были сложности, об этом тоже можно сообщить."
       give_feedback_to: "Оставьте отзыв о %{other_party_given_name}"
@@ -1467,6 +1493,11 @@ ru:
       need_to_confirm: "Вы должны подтвердить свой адрес электронной почты."
       confirmation_link_text: "Подтвердить мой email"
       or_paste_link: "Или же вы можете скопировать ссылку в адресную строку вашего браузера:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Здравствуйте, %{name},"
       kassi_team: "Команда %{service_name}"
@@ -1480,6 +1511,7 @@ ru:
       unsubscribe_from_these_emails: "Отписаться от подобных сообщений"
       unsubscribe_from_invitation_emails_info: "Вы получили это письмо, потому что член%{service_name} пригласил вас присоединиться к ним."
       unsubscribe_from_invitation_emails: "Отменить подписку на электронные письма с приглашением присоединиться к%{service_name}"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} принял ваше предложение по запросу %{listing}"
       has_accepted_your_request: "%{accepter} принял ваш запрос по предложению %{listing}"
@@ -1493,22 +1525,34 @@ ru:
       you_can_now_pay_to: "Сейчас вы можете оплатить требуемую сумму %{payment_receiver}."
       pay_now: "Оплатить сейчас"
       remember_to_confirm: "Когда запрос успешно выполнен, не забудьте отметить его как завершенный. Если запрос не выполнен у вас есть %{days_to_automatic_confirmation} дней чтобы отменить его. В противном случае мы автоматически отметим его как завершенный."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Привет!
       you_have_been_invited_to_kassi: "%{inviter} пригласил вас присоединиться к %{service_name}."
       here_is_a_message_from: "Для вас есть личное сообщение от %{inviter}:"
       join_now: "Присоединяйтесь сейчас!"
       invitation_code: "Пригласительный код: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} оставил комментарий на вашу публикацию %{listing}"
       view_comment: "Просмотреть комментарий"
       you_have_a_new_comment: "%{author} оставил комментарий на ваш запрос в %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} прокомментировал листинг, за которым вы следите в %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} прокомментировал публикацию \"%{listing}\", за которой вы следите в %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Просмотреть сообщение"
       has_sent_you_a_message_in_kassi: "%{sender} отправил вам сообщение в %{service_name}"
       you_have_a_new_message: "У вас новое сообщение в %{service_name} от %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Вы получили новый платёж"
       price_per_unit_type: "Цена за %{unit_type}"
@@ -1530,6 +1574,11 @@ ru:
       you_have_received_new_payment: "Вам оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> от %{payer_full_name}. Здесь ваша квитанция."
       stripe:
         you_have_received_new_payment: "Сумма <b>%{payment_sum}</b>была уплачена за  <b>%{listing_title}</b> by %{payer_full_name}. Деньги удерживаются %{service_name}до тех пор, пока заказ не будет помечен как выполненный. Вот Ваш чек."
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Квитанция об оплате"
       you_have_made_new_payment: "Вы оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> %{recipient_full_name}. Здесь ваша квитанция."
@@ -1545,6 +1594,11 @@ ru:
       stripe_gateway_fee: "Комиссия Stripe платежей"
       paypal_gateway_fee: "комиссия PayPal:"
       money_will_be_transferred: "Деньги будут переведены к %{recipient_name} когда а) вы отметите этот запрос завершенным или б) %{automatic_confirmation_days} дней пройдет после вашей оплаты."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "комиссия PayPal:"
       shipping_total: "Доставка:"
@@ -1574,6 +1628,8 @@ ru:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в %{service_name}"
       you_can_give_feedback_to: "Вы еще не создали отзыв о %{name}"
       view_feedback: "Просмотреть отзывы"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Листинг, за которым вы следите, был обновлён"
       has_updated_listing_you_follow_in_kassi: "%{author} обновил публикацию \"%{listing}\", за которой вы следите в %{service_name}."
@@ -1589,6 +1645,9 @@ ru:
       reduce_email_footer_text: "Надоели эти письма? %{settings_link} или %{unsubscribe_link}."
       settings_link_text: "Отредактируй настройки получения писем"
       unsubscribe_link_text: отпишись
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Привет %{name},"
       newest_offers: "Последние предложения"
@@ -1600,6 +1659,10 @@ ru:
     testimonial_reminder:
       remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о %{name}"
       you_have_not_given_feedback_yet: "Вы ещё не оставили отзыв о %{name} после события «%{event}». Не забудьте оставить отзыв о том, как зарекомендовал себя %{given_name} во время этого события."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} запросил и оплатил за %{listing_title}"
       transaction_requested_by_user: "%{requester} запросил и оплатил за \"%{listing_title}\""
@@ -1608,11 +1671,16 @@ ru:
       if_you_do_accept_stripe: "Если вы примете запрос в течение этого срока, оплата будет произведена. Вы получите деньги прямо на свой банковский счет после того, как отправите%{listing_title} %{requester} ."
       if_you_do_not_accept: "Если вы отклоните запрос или не примите его в указанные сроки, платеж будет автоматически отменен, средства со счета %{requester} не будут списаны, а вы не получите оплату."
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Не забудьте принять запрос от %{requester} о публикации %{listing_title}"
       remember_to_accept: "Не забудьте принять запрос от %{requester} о новом размещении \"%{listing_title}\". %{requester} уже оплатил. Вы должны принять запрос чтобы получить оплату."
       one_day_left: "Если вы не примите запрос в течении одного дня запрос будет автоматически отменен и оплата не будет произведена."
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Добро пожаловать в %{service_name}"
       welcome_to_marketplace: "Добро пожаловать в %{service_name}! Рады видеть вас с нами!"
@@ -1624,12 +1692,22 @@ ru:
       has_posted_a_new_listing: "%{author_name} разместил новую публикацию:"
       you_are_receiving_this_because: "Вы получили это уведомление так как вы подписаны на %{author_name}."
       view_listing: "Просмотр публикации"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "Новый участник присоединился к %{community}. Необходимо подтвердить их электронный адрес."
       this_is_automatic_message: "Это автоматическое сообщение, направленное администраторам %{community}."
       person_name: "Имя:"
       person_email: "Эл. почта:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: "Новая публикация для просмотра: \"%{listing_title}\" от%{author_name}в%{community}"
       there_is_a_new_listing_to_review: "Появился новая публикация для просмотра: \"%{listing_title}\" от%{author_name}. Теперь вы должны одобрить или отклонить этот список."
@@ -1653,9 +1731,18 @@ ru:
       there_is_a_new_transaction: ~
       a_new_transaction: ~
       listing: ~
+      sum: "Сумма: %{amount}"
+      starter: ~
+      provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
       sum: ~
       starter: ~
       provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Бронирование не было осуществлено из-за неизвестной ошибки. Пожалуйста, попробуйте еще раз позже. Списание средств не было осуществлено."
@@ -1821,7 +1908,7 @@ ru:
       is: является
       are: есть
       what_do_you_need: "Что бы вы хотели найти?"
-      post_new_listing: "Создать обьявление"
+      post_new_listing: "Создать объявление"
       are_offering: "что предлагают"
       add_news_item: "Добавить статью"
       lend_rent_help_carpool: "Прокат, обмен, помощь, совместные поездки"
@@ -2080,7 +2167,7 @@ ru:
       you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, вы должны войти в %{service_name}"
       you_must_log_in_to_send_a_comment: "Вы должны войти, чтобы оставить новый комментарий"
       you_must_log_in_to_send_a_message: "Для того, чтобы отправить сообщение пользователю, вы должны авторизоваться в %{service_name}"
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Вам необходимо войти в %{service_name}, чтобы произвести транзакцию."
       you_must_log_in_to_view_this_content: "Для просмотра содержимого требуется авторизация"
       you_must_log_in_to_view_this_page: "Вам необходимо войти в систему для просмотра этой страницы"
       you_must_log_in_to_view_your_inbox: "Для того, чтобы просмотреть входящие сообщения, вы должны зайти в %{service_name}."
@@ -2390,7 +2477,7 @@ ru:
       night: ночь
       week: неделя
       month: месяц
-      unit: Отдел
+      unit: шт.
       person: ~
     verification_required:
       verification_required: "Требуется подтверждение"

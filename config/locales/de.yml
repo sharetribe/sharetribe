@@ -1132,13 +1132,15 @@ de:
         book: ~
     community_transactions:
       show:
-        transaction_for: "Transaction für %{link}"
+        transaction_for: "Transaction #%{transaction_id} für %{link}"
         status: "Status:"
         next_step: "Nächster Schritt:"
         waiting_for_provider_accept_or_reject: "Gewartet wird, dass %{provider} die Anfrage annimmt or ablehnt."
         waiting_for_fulfill_and_complete: "Gewartet wird, dass %{listing_title} von %{provider} erbracht wird, and dass %{buyer} die Anfrage als erledigt markiert."
         buyer: "Käufer:"
         provider: "Anbieter:"
+        delivery: ~
+        shipping_to: ~
         buyer_pays: "Käufer zählt:"
         marketplace_collects: "%{service_name} bekommt:"
         buyer_service_fee_label: "Zahlungsgebühr vom Käufer:"
@@ -1420,11 +1422,18 @@ de:
       if_will_not_happen_you_should_cancel: "Wenn du denkst, dass diese Anfrage wegen irgendeinem Grund nicht erledigt wird, kannst du %{cancel_it_link}."
       cancel_it_link_text: Abbrechen
       automatic_confirmation: "Wenn du den Auftrag nicht innerhalb von %{days_to_automatic_confirmation} Tagen bestätigst oder ablehnst, nachdem die Anfrage akzeptiert wurde, werden wir sie automatisch als erledigt markieren."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Denke daran, deine Zahlungsdetails hinzuzufügen, um Zahlungen erhalten zu können"
       you_have_added_listing_with_payment: "Du hast unter %{listing_link} einen Eintrag mit Bezahlung hinzugefügt. Leider hast du noch keine Zahlungsinformationen angegeben. Um Zahlungen erhalten zu können, musst du Deine Zahlungsinformationen hinterlegen."
       please_go_to_payment_settings: "Bitte geh zu %{payment_settings_link} und fülle die erforderlichen Zahlungsinformationen aus."
       payment_settings_link: Zahlungseinstellungen
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Dies ist eine Nachricht von %{other_party_given_name}."
       request_marked_as_confirmed: "Anfrage erledigt. Denke daran, Feedback zu geben."
@@ -1436,12 +1445,29 @@ de:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag \"%{request}\" als erledigt markiert. Die Überweisung der Zahlung auf Dein Bankkonto für diese Transaktion wurde soeben angestoßen. Du kannst %{other_party_given_name} nun ein Feedback geben."
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Anfrage wurde automatisch abgeschlossen - bitte denk daran, Feedback zu geben."
       we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu '%{request}' als erledigt markiert. Der Auftrag wurde automatisch erledigt, weil %{days_passed} Tage vergangen sind, seit der Antrag angenommen wurde."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Angebot automatisch abgeschlossen - bitte denk daran, Feedback zu geben"
       we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu %{request} als abgeschlossen markiert. Der Antrag wurde automatisch beendet, weil ein Tag ist vergangen, seitdem die  Buchungsperiode beendet ist."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Du kannst nun %{other_party_given_name} ein Feedback geben. Feedback geben ist immer eine gute Idee. Wenn alles gut gegangen ist, solltest du andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn ein Problem aufgetreten ist, ist es gut, das ebenfalls zu erwähnen."
       give_feedback_to: "Bitte bewerte %{other_party_given_name}"
@@ -1451,6 +1477,11 @@ de:
       need_to_confirm: "Klicke unten, um deine E-Mail-Adresse zu bestätigen und %{service_name} beizutreten."
       confirmation_link_text: "Meine E-Mail-Adresse bestätigen"
       or_paste_link: "Alternativ kannst du den folgenden Link in die Adresszeile deines Browsers kopieren:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Hallo %{name},"
       kassi_team: "Das %{service_name} Team"
@@ -1464,6 +1495,7 @@ de:
       unsubscribe_from_these_emails: "bestelle diese E-Mails ab"
       unsubscribe_from_invitation_emails_info: "Du erhältst diese Email, weil ein Mitglied von %{service_name} dich eingeladen hat beizutreten."
       unsubscribe_from_invitation_emails: "Email-Einladungen von %{service_name} abbestellen"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} hat dein Angebot %{listing} akzeptiert."
       has_accepted_your_request: "%{accepter} hat deine Anfrage %{listing} akzeptiert."
@@ -1477,22 +1509,34 @@ de:
       you_can_now_pay_to: "Du kannst jetzt den betreffenden Betrag an %{payment_receiver} zahlen."
       pay_now: "Jetzt bezahlen"
       remember_to_confirm: "Wenn der Auftrag erfüllt ist, denke daran, ihn als erledigt zu markieren. Wenn der Auftrag noch nicht erfüllt ist, hast du %{days_to_automatic_confirmation} Tage, um ihn abzubrechen. Sonst wird er automatisch als erledigt markiert."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Hallo!
       you_have_been_invited_to_kassi: "%{inviter} hat dich eingeladen, %{service_name} zu benutzen."
       here_is_a_message_from: "Persönliche Nachricht von %{inviter}:"
       join_now: "Jetzt Mitglied werden"
       invitation_code: "Einladungscode %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} hat deinen Eintrag %{listing} kommentiert"
       view_comment: "Kommentar ansehen"
       you_have_a_new_comment: "%{author} hat deinen Eintrag auf %{service_name} kommentiert"
       listing_you_follow_has_a_new_comment: "%{author} hat auf einen Eintrag geantwortet, dem du in %{service_name} folgst"
       has_commented_listing_you_follow_in_kassi: "%{author} hat den Eintrag %{listing} kommentiert, dem du in %{service_name} folgst."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Nachricht ansehen"
       has_sent_you_a_message_in_kassi: "%{sender} hat dir eine Nachricht auf %{service_name} gesendet."
       you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} auf %{service_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
@@ -1514,6 +1558,11 @@ de:
       you_have_received_new_payment: "Du hast eine Zahlung in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> durch %{payer_full_name} erhalten. Hier ist deine Quittung."
       stripe:
         you_have_received_new_payment: "Der Betrag in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> wurde von %{payer_full_name} gezahlt. Das Geld wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wird. Als Anlage erhältst Du Deinen Beleg."
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
       you_have_made_new_payment: "Du hast <b>%{payment_sum}</b> bezahlt für <b>%{listing_title}</b> an %{recipient_full_name}. Hier ist eine Quittung für deine Zahlung."
@@ -1529,6 +1578,11 @@ de:
       stripe_gateway_fee: "Gebühr von Stripe:"
       paypal_gateway_fee: "Gebühr von PayPal:"
       money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal Gebühr:"
       shipping_total: "Versand:"
@@ -1558,6 +1612,8 @@ de:
       has_given_you_feedback_in_kassi: "%{name} hat dich auf %{service_name} bewertet"
       you_can_give_feedback_to: "Du hast %{name} noch nicht bewertet."
       view_feedback: "Feedback anzeigen"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Ein Eintrag, dem du folgst, wurde aktualisiert"
       has_updated_listing_you_follow_in_kassi: "%{author} hat den Eintrag %{listing} erneuert, dem du in %{service_name} folgst."
@@ -1573,6 +1629,9 @@ de:
       reduce_email_footer_text: "Zu viele E-Mails? %{settings_link} oder %{unsubscribe_link}"
       settings_link_text: "Bearbeite hier deine E-Mail-Grundeinstellungen."
       unsubscribe_link_text: "bestelle die E-Mails ab."
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Hallo %{name}"
       newest_offers: "Was Leute derzeit anderen anbieten"
@@ -1584,6 +1643,10 @@ de:
     testimonial_reminder:
       remember_to_give_feedback_to: "Zur Erinnerung: Denke daran, %{name} zu bewerten"
       you_have_not_given_feedback_yet: "Du hast %{name} noch kein Feedback zur Transaktion '%{event}' gegeben. Denke daran, ein Feedback darüber zu hinterlassen, wie %{given_name} die Transaktion durchgeführt hat."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} hat %{listing_title} angefragt und eine Zahlung autorisiert auf %{service_name}"
       transaction_requested_by_user: "Gute Nachrichten! %{requester} hat \"%{listing_title}\" angefragt und eine Zahlung autorisiert."
@@ -1592,11 +1655,16 @@ de:
       if_you_do_accept_stripe: "Wenn du die Anfrage innerhalb von diesem Zeitraum akzeptierst, wird die Zahlung erfolgreich bearbeitet. Das Geld wird zu deinem Bankkonto überwiesen, nachdem du %{listing_title} zu %{requester} geliefert hast."
       if_you_do_not_accept: "Wenn du die Anfrage ablehnst, oder sie nicht innerhalb dieses Zeitrahmens akzeptierst, wird die Transaktion automatisch abgebrochen, %{requester} wird nicht belastet, und du bekommst das Geld nicht."
       click_here_to_reply: "Klicke hier, um auf die Anfrage zu antworten"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."
       remember_to_accept: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren. %{requester} hat bereits für das Angebot gezahlt. Du musst die Anfrage akzeptieren um die Zahlung zu erhalten."
       one_day_left: "Wenn du die Anfrage nicht innerhalb eines Tages akzeptierst, wird sie automatisch abgelehnt, und du erhälst keine Zahlung."
       click_here_to_reply: "Klicke hier, um auf die Anfrage zu antworten"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Willkommen bei %{service_name}"
       welcome_to_marketplace: "Willkommen bei %{service_name}! Schön, dass du dabei bist."
@@ -1608,12 +1676,22 @@ de:
       has_posted_a_new_listing: "%{author_name} hat ein neues Angebot veröffentlicht:"
       you_are_receiving_this_because: "Du hast diese Benachrichtigung erhalten, weil du %{author_name} folgst."
       view_listing: "Eintrag ansehen"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: "Neuer Mitglied bei %{community}"
       new_member_has_joined: "Ein neues Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
       this_is_automatic_message: "Diese Nachricht wurde automatisch an alle Administratoren von %{community} geschickt."
       person_name: "Name:"
       person_email: "E-mail:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: "Neuer Eintrag der überprüft werden muss: \"%{listing_title}\" von %{author_name} auf %{community}"
       there_is_a_new_listing_to_review: "Es gibt einen neuen Eintrag, der überprüft werden muss: \"%{listing_title}\" von %{author_name}. Du solltest jetzt den Eintrag annehmen oder ablehnen."
@@ -1640,6 +1718,15 @@ de:
       sum: "Summe: %{amount}"
       starter: "Starter: %{name}"
       provider: "Anbieter: %{name}"
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Die Buchung ist wegen eines unerwarteten Fehlers fehlgeschlagen. Bitte versuche erneut später. Dein Konto bzw. deine Kreditkarte wurde nicht belastet."

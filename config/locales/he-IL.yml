@@ -1114,6 +1114,8 @@ he-IL:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1391,11 +1393,18 @@ he-IL:
       if_will_not_happen_you_should_cancel: "אם אתה חושב שהזמנה זו לא תושלם מסיבה זו או אחרת, תוכל לבצע את‎%{cancel_it_link}‎."
       cancel_it_link_text: ביטול
       automatic_confirmation: ~
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "אל תשכח להגדיר פרטי תשלום לקבלת הזמנות"
       you_have_added_listing_with_payment: "נוסף/ה בהצלחה,כול מה שנשאר זה לחבר את החשבון פייפל שלך ‎%{listing_link}‎"
       please_go_to_payment_settings: "‎%{payment_settings_link}‎ על מנת לסדר את העניין עליך לגשת ל"
       payment_settings_link: "הגדרות תשלום"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "‎%{other_party_given_name}‎ הודעה מ"
       request_marked_as_confirmed: "ההזמנה הושלמה - זכור לתת משוב"
@@ -1407,12 +1416,29 @@ he-IL:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
       we_have_marked_request_as_confirmed: ~
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
       we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
@@ -1422,6 +1448,11 @@ he-IL:
       need_to_confirm: "‎%{service_name}‎ עליך לאשר את כתובת האימייל שלך‎ להצטרפות ל"
       confirmation_link_text: "מאשר את הכתובת"
       or_paste_link: "לחלופין, תוכל להעתיק את הקישור הבא לדפדפן:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "‎%{name}‎ שלום"
       kassi_team: "‎%{service_name}‎"
@@ -1435,6 +1466,7 @@ he-IL:
       unsubscribe_from_these_emails: "לבטל את המנוי של הודעות דוא\"ל אלה"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "‎%{listing}‎ קיבל את ההצעה שלך ‎‎%{accepter}‎"
       has_accepted_your_request: "‎‎%{listing}‎ קיבל את בקשתך ‎%{accepter}‎‎"
@@ -1448,22 +1480,34 @@ he-IL:
       you_can_now_pay_to: "עכשיו אתה יכול לשלם את הסכום המבוקש ל ‎%{payment_receiver}‎"
       pay_now: "שלם עכשיו"
       remember_to_confirm: ~
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: הי!
       you_have_been_invited_to_kassi: "‎‎%{service_name}‎ הזמין אתך ל ‎%{inviter}‎‎"
       here_is_a_message_from: "‎%{inviter}‎ הודעה אישית מ ‎"
       join_now: "הצטרף עכשיו"
       invitation_code: "קוד ההזמנה: ‎%{code}‎"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "‎‎%{listing}‎ הגיב על המודעה שלך ‎%{author}‎‎"
       view_comment: "הצג תגובה"
       you_have_a_new_comment: "‎%{service_name}‎ הגיב על המודעה שלך ב ‎%{author}‎‎"
       listing_you_follow_has_a_new_comment: "‎%{service_name}‎ הגיב על מודעה שאתה עוקב אחריה ב ‎‎%{author}‎"
       has_commented_listing_you_follow_in_kassi: "‎‎%{service_name}‎  שאתה עוקב ב ‎%{listing}‎ הגיב על המודעה ‎‎%{author}‎‎"
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "הצג הודעה"
       has_sent_you_a_message_in_kassi: "‎‎%{service_name}‎ שלח לך הודעה דרך ‎%{sender}‎‎"
       you_have_a_new_message: "‎%{service_name}‎ שלך לך הודעה דרך‎%{sender_name}‎ ‎"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "קיבלת תשלום חדש"
       price_per_unit_type: "‎%{unit_type}‎ מחיר ל"
@@ -1485,6 +1529,11 @@ he-IL:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1500,6 +1549,11 @@ he-IL:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: משלוח
@@ -1529,6 +1583,8 @@ he-IL:
       has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ נתן לך משוב ב ‎%{name}‎"
       you_can_give_feedback_to: "‎%{name}‎ עדיין לא נתת משוב ל"
       view_feedback: "הצג משוב"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "המודעה שאתה עוקב אחריה עודכנה"
       has_updated_listing_you_follow_in_kassi: "‎%{author}‎ עדכן את הרישום '‎%{listing}‎' אתה עוקב ב‎%{service_name}‎."
@@ -1544,6 +1600,9 @@ he-IL:
       reduce_email_footer_text: "יותר מדי דוא\"ל? ‎%{settings_link}‎ או ‎%{unsubscribe_link}‎."
       settings_link_text: "ערוך את פרטי האימייל שלך כאן"
       unsubscribe_link_text: "ביטול מנוי"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "‎%{name}‎ שלום ‎"
       newest_offers: "מה אנשים כרגע מציעים"
@@ -1555,6 +1614,10 @@ he-IL:
     testimonial_reminder:
       remember_to_give_feedback_to: "‎%{name}‎ תזכורת: זכור/זכרי לתת משוב ל‎"
       you_have_not_given_feedback_yet: "עוד לא נתת ביקורת ל‎%{name}‎ בקשר לאירוע ‎%{event}‎. אנא זכור לתת ביקורת על ביצועו של ‎%{given_name}‎ באירוע."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1563,11 +1626,16 @@ he-IL:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "לחץ כאן כדי להגיב לבקשה"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: ~
       remember_to_accept: ~
       one_day_left: "אם לא תקבל את הבקשה בתוך יום אחד הבקשה תידחה באופן אוטומטי ולא תקבל תשלום."
       click_here_to_reply: "לחץ כאן כדי להגיב לבקשה"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "ברוכים הבאים אל ‎%{service_name}‎"
       welcome_to_marketplace: ~
@@ -1579,12 +1647,22 @@ he-IL:
       has_posted_a_new_listing: "‎%{author_name}‎ פרסם מודעה חדשה"
       you_are_receiving_this_because: "‎%{author_name}‎ קיבלת הודעה זו מכיוון שאתה עוקב אחרי ‎"
       view_listing: "לראות מודעה"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1611,6 +1689,15 @@ he-IL:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
