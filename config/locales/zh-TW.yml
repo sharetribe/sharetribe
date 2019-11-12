@@ -1130,6 +1130,8 @@ zh-TW:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1407,11 +1409,18 @@ zh-TW:
       if_will_not_happen_you_should_cancel: "如果你覺得請求由於某種原因無法完成，你可以%{cancel_it_link}。"
       cancel_it_link_text: 取消
       automatic_confirmation: "如果您在接受請求後的%{days_to_automatic_confirmation}天內未確認或取消訂單，我們會自動將其標記為已完成。"
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: 记得添加你的付款明细以接收付款。
       you_have_added_listing_with_payment: "你添加了一个需要付款的信息%{listing_link}。然而，你还没有添加你的付款详情。为了接受付款你必须添加你的付款信息。"
       please_go_to_payment_settings: "请点击进入%{payment_settings_link}并填入付款信息。"
       payment_settings_link: 付款設定
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "有一條來自%{other_party_given_name}的消息："
       request_marked_as_confirmed: 请求已完成——记得给予评价
@@ -1423,12 +1432,29 @@ zh-TW:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我們已經完成了關於'%{request}'的順序標記。 訂單已自動完成，因為接受請求後已過去了%{days_passed}天。"
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我們已經完成了關於'%{request}'的順序標記。 該請求自動完成，因為預訂期限結束後一天已過。"
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "你现在可以评价%{other_party_given_name}。给予评价总是一个好主意。如果一切顺利，你应该让其他人知道%{other_party_given_name}可以被信任。如果有任何问题，在评论中提到它们也是很好的。"
       give_feedback_to: "给予%{other_party_given_name}反馈"
@@ -1438,6 +1464,11 @@ zh-TW:
       need_to_confirm: "請確認您的Email以加入%{service_name}。"
       confirmation_link_text: 確認我的Email
       or_paste_link: 或者您可以複製以下鏈接瀏覽器：
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "您好 %{name},"
       kassi_team: "%{service_name} 團隊"
@@ -1451,6 +1482,7 @@ zh-TW:
       unsubscribe_from_these_emails: 退订这些邮件
       unsubscribe_from_invitation_emails_info: "您收到此電子郵件是因為%{service_name}的會員邀請您加入。"
       unsubscribe_from_invitation_emails: "取消訂閱來自%{service_name}的邀請信件"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已經接受了你的%{listing}"
       has_accepted_your_request: "%{accepter}已經接受了你的%{listing}"
@@ -1464,22 +1496,34 @@ zh-TW:
       you_can_now_pay_to: "你现在可以支付要求的金额给%{payment_receiver}。"
       pay_now: 现在支付
       remember_to_confirm: "訂單完成時，請記住將其標記為已完成。 如果訂單未滿足，您可以使用%{days_to_automatic_confirmation}天取消訂單。 否則它會自動標記為已完成。"
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: 您好！
       you_have_been_invited_to_kassi: "%{inviter}邀請您使用%{service_name}"
       here_is_a_message_from: "來自%{inviter}的邀請信息："
       join_now: 现在加入
       invitation_code: "邀请码：%{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author}评论了你的“%{listing}”。"
       view_comment: 查看评论
       you_have_a_new_comment: "%{author} 在%{service_name}評論了您的刊登"
       listing_you_follow_has_a_new_comment: "%{author}評論了您在%{service_name}關注的刊登"
       has_commented_listing_you_follow_in_kassi: "%{author}评价了你在%{service_name}中关注的“%{listing}”。"
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: 查看消息
       has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向您發送了一條信息"
       you_have_a_new_message: "在%{service_name}收到一條來自%{sender_name}的消息"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: 你收到一笔新的付款
       price_per_unit_type: "每%{unit_type}的價格"
@@ -1501,6 +1545,11 @@ zh-TW:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1516,6 +1565,11 @@ zh-TW:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "以下兩種情況發生時，款項將被轉帳至%{recipient_name}： a) 你標記請求為完成後；或 b) 在你付款%{automatic_confirmation_days}天後。"
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: PayPal的费用：
       shipping_total: "运费:"
@@ -1545,6 +1599,8 @@ zh-TW:
       has_given_you_feedback_in_kassi: "%{name}在%{service_name}给你了評價"
       you_can_give_feedback_to: "您還沒有給%{name}評價"
       view_feedback: 查看反馈
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: 您關注的刊登已更新
       has_updated_listing_you_follow_in_kassi: "%{author}更新了你在%{service_name}中关注的信息“%{listing}”。"
@@ -1560,6 +1616,9 @@ zh-TW:
       reduce_email_footer_text: "太多邮件？%{settings_link}或者%{unsubscribe_link}"
       settings_link_text: 在这里编辑你的邮箱设定
       unsubscribe_link_text: 取消订阅
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "嗨，%{name}"
       newest_offers: 大家都提供了些什么服務？
@@ -1571,6 +1630,10 @@ zh-TW:
     testimonial_reminder:
       remember_to_give_feedback_to: "提醒：記得給%{name} 評價"
       you_have_not_given_feedback_yet: "您尚未評價%{name} 參與的活動'%{event}'。記得評價%{given_name} 的表現。"
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester}已经请求并授权支付了%{listing_title}"
       transaction_requested_by_user: "%{requester}已经请求并授权支付了%{listing_title}"
@@ -1579,11 +1642,16 @@ zh-TW:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: "如果您在此期限內拒絕了請求或不接受該請求，交易將被自動取消，%{requester}將不會被收取，您將不會收到付款。"
       click_here_to_reply: 点击这里回应请求
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "記得接受來自%{requester}關於%{listing_title}的服務請求"
       remember_to_accept: "記得接受來自%{requester}關於“%{listing_title}”的服務請求。%{requester}已完成付款，您必須接受請求才可收到款項。"
       one_day_left: 如果您在一天內不接受請求，該請求將被自動拒絕，您將無法獲得付款。
       click_here_to_reply: 点击这里回应请求
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "欢迎来到%{service_name}"
       welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
@@ -1595,12 +1663,22 @@ zh-TW:
       has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
       you_are_receiving_this_because: "你收到这个通知是由于你关注了%{author_name}。"
       view_listing: 查看发布的信息
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "新成員加入了%{community}。 他們仍然需要確認他們的電子郵件地址。"
       this_is_automatic_message: "這是自動發送給%{community}管理員的消息。"
       person_name: 姓名：
       person_email: 電子信箱：
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1627,6 +1705,15 @@ zh-TW:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "由於意外錯誤，預訂失敗。 請稍後再試。 你沒有被收費。"

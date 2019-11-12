@@ -1128,6 +1128,8 @@ lt:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1405,11 +1407,18 @@ lt:
       if_will_not_happen_you_should_cancel: "Jei manote, kad šis užsakymas nebus baigtas dėl vienos ar kitos priežasties, galite %{cancel_it_link}."
       cancel_it_link_text: atšaukti
       automatic_confirmation: "Jei nepatvirtinsite ar neatšauksite užsakymo per %{days_to_automatic_confirmation} dienas po sutikimo su prašymu, mes automatiškai pažymėsime jį kaip baigtą."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Nepamirškite pridėti savo mokėjimo informaciją, kad priimtumėte mokėjimus"
       you_have_added_listing_with_payment: "Įkėlėte %{listing_link} skelbimą su mokėjimu, tačiau nepridėjote savo mokėjimo informacijos. Norint priimti mokėjimus, pridėkite savo mokėjimo informaciją."
       please_go_to_payment_settings: "Prašome nueiti į jūsų %{payment_settings_link} ir užpildyti reikiamą mokėjimo informaciją."
       payment_settings_link: "mokėjimo nustatymai"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Žinutė nuo %{other_party_given_name}:"
       request_marked_as_confirmed: "Užsakymas baigtas - prisiminkite palikti atsiliepimą"
@@ -1421,12 +1430,29 @@ lt:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Užsakymas baigtas automatiškai - nepamirškite palikti atsiliepimą"
       we_have_marked_request_as_confirmed: "Užsakymą dėl '%{request}' pažymėjome kaip baigtą. Užsakymas buvo pažymėtas kaip baigtas automatiški nes praėjo %{days_passed} dienos nuo tada kai prašymas buvo priimtas."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Užsakymas baigtas automatiškai - nepamirškite palikti atsiliepimą"
       we_have_marked_request_as_confirmed: "Užsakymą dėl '%{request}' pažymėjome kaip baigtą. Užsakymas buvo pažymėtas kaip baigtas automatiški nes praėjo viena diena nuo tada kai rezervacijos periodas baigėsi."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: "Palikti atsiliepimą %{other_party_given_name}"
@@ -1436,6 +1462,11 @@ lt:
       need_to_confirm: "Kad prisijungtumėte prie %{service_name}, patvirtinkite el. paštą paspausdami mygtuką žemiau."
       confirmation_link_text: "Patvirtinti mano adresą"
       or_paste_link: "Taip pat, galite nukopijuoti nuorodą į savo naršyklės adreso juostą:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Sveiki %{name}"
       kassi_team: "%{service_name} komanda"
@@ -1449,6 +1480,7 @@ lt:
       unsubscribe_from_these_emails: "Atšaukti šių laiškų prenumeratą"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} priėmė jūsų pasiūlymą %{listing}"
       has_accepted_your_request: "%{accepter} priėmė jūsų prašymą %{listing}"
@@ -1462,22 +1494,34 @@ lt:
       you_can_now_pay_to: "Galite sumokėti prašomą sumą %{payment_receiver}."
       pay_now: "Mokėti dabar"
       remember_to_confirm: "Kai užsakymas bus baigtas, nepamirškite jį pažymėti kaip baigtą. Jei užsakymas nebus baigtas, turite %{days_to_automatic_confirmation} dienas jam atšaukti. Kitaip jis bus pažymėtas kaip baigtas automatiškai."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Labas!
       you_have_been_invited_to_kassi: "%{inviter} pakvietė jus į %{service_name}."
       here_is_a_message_from: "Asmeninė žinutė iš %{inviter}:"
       join_now: "Prisijungti dabar"
       invitation_code: "Pakvietimo kodas: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} pakomentavo jūsų skelbime '%{listing}'."
       view_comment: "Rodyti komentarą"
       you_have_a_new_comment: "%{author} pakomentavo jūsų skelbime dėl %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} pakomentavo skelbime, kurį sekate %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} pakomentavo skelbime '%{listing}', kurį jūs sekate %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Rodyti žinutę"
       has_sent_you_a_message_in_kassi: "%{sender} parašė jums žinutę dėl %{service_name}"
       you_have_a_new_message: "Nauja žinutė dėl %{service_name} iš %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Gavote naują mokėjimą"
       price_per_unit_type: ~
@@ -1499,6 +1543,11 @@ lt:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1514,6 +1563,11 @@ lt:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -1543,6 +1597,8 @@ lt:
       has_given_you_feedback_in_kassi: "%{name} jums paliko atsiliepimą dėl %{service_name}"
       you_can_give_feedback_to: "Jūs dar nepalikote atsiliepimo %{name}"
       view_feedback: "Rodyti atsiliepimus"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Skelbimas, kurį sekate buvo atnaujintas"
       has_updated_listing_you_follow_in_kassi: "%{author} atnaujino skelbimą '%{listing}', kurį jūs sekate %{service_name}."
@@ -1558,6 +1614,9 @@ lt:
       reduce_email_footer_text: "Per daug laiškų? %{settings_link} arba %{unsubscribe_link}."
       settings_link_text: "Redaguoti jūsų laiškų nustatymus čia"
       unsubscribe_link_text: "Atsisakyti prenumeratos"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Sveiki %{name},"
       newest_offers: "Ką šiuo metu žmonės siūlo kitiems"
@@ -1569,6 +1628,10 @@ lt:
     testimonial_reminder:
       remember_to_give_feedback_to: "Priminimas: primename parašyti atsiliepimą %{name}"
       you_have_not_given_feedback_yet: "Jūs nepalikote atsiliepimo %{name} apie '%{event}' renginį. Nepamirškite palikti atsiliepimą kaip %{given_name} pasirodė renginyje."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} susidomėjo ir patvirtino mokėjimą dėl %{listing_title} skelbimo paskelbto %{service_name}."
       transaction_requested_by_user: "Geros naujienos! %{requester} susidomėjo \"%{listing_title}\" skelbimu ir patvirtino mokėjimą dėl šio skelbimo."
@@ -1577,11 +1640,16 @@ lt:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "Spauskite čia, kad atsakytumėte į prašymą"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Nepamirškite sutikti su prašymu iš %{requester} dėl %{listing_title} skelbimo"
       remember_to_accept: "Nepamirškite sutikti su prašymu iš %{requester} dėl \"%{listing_title}\" skelbimo. %{requester} jau yra sumokėjęs už šį skelbimą. Turite priimti prašymą, kad gautumėte mokėjimą."
       one_day_left: "Jei nepriimsite prašymo per vieną dieną, prašymas bus atšauktas automatiškai ir negausite mokėjimo."
       click_here_to_reply: "Spauskite čia, kad atsakytumėte į prašymą"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Sveiki prisijungę prie %{service_name}"
       welcome_to_marketplace: "Sveiki prisijungę prie %{service_name}! Džiaugiamės jus turėdami."
@@ -1593,12 +1661,22 @@ lt:
       has_posted_a_new_listing: "%{author_name} įkėlė naują skelbimą:"
       you_are_receiving_this_because: "Jūs gavote šį pranešimą, nes jūs sekate %{author_name}."
       view_listing: "Žiūrėti skelbimą"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1625,6 +1703,15 @@ lt:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

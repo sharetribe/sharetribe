@@ -1108,6 +1108,8 @@ lv:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1389,11 +1391,18 @@ lv:
       if_will_not_happen_you_should_cancel: "Ja Jūs domājat, ka šis pasūtījums kaut kāda iemesla dēļ netiks izpildīts, Jūs to varat %{cancel_it_link}."
       cancel_it_link_text: "atcelt to"
       automatic_confirmation: "Ja Jūs neapstiprināsiet vai nenoraidīsiet pasūtījuma izpildi %{days_to_automatic_confirmation} dienu laikā pēc pieprasījuma apstiprināšanas, mēs automātiski atzīmēsim to kā izpildītu."
+    confirm_reminder_v2:
+      headline: "Sveicināti %{name}, Jūs vēl neesat izpildījis vai atcēlis pasūtījumu %{request_link}."
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Neaizmirstiet pievienot maksājuma informāciju, lai saņemtu maksājumus"
       you_have_added_listing_with_payment: "Jūs esat pievienojis sludinājumu %{listing_link} ar maksājumu. Tomēr vēl neesat pievienojis maksājumu informāciju. Lai saņemtu maksājumus, Jums jāpievieno sava maksājumu informācija."
       please_go_to_payment_settings: "Lūdzu dodieties uz %{payment_settings_link} un ievadiet pieprasīto maksājumu informāciju."
       payment_settings_link: "maksājumu iestatījumi"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Šeit ir ziņa no %{other_party_given_name}:"
       request_marked_as_confirmed: "Pasūtījums izpildīts. Atceries sniegt atsauksmes."
@@ -1405,12 +1414,29 @@ lv:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} ir atzīmējis pasūtījumu '%{request}' kā pabeigtu. Maksājums par šo darījumu tagad ir pārskaitīts uz Jūsu bankas kontu. Tagad varat sniegt atsauksmes par %{other_party_given_name}."
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Pasūtījums izpildīts automātiski - atcerieties sniegt atsauksmi"
       we_have_marked_request_as_confirmed: "Mēs esam atzīmējuši, ka pasūtījums par '%{request}' ir izpildīts. Pasūtījums tika izpildīts automātiski, jo bija pagājušas %{days_passed} dienas kopš pieprasījuma apstiprināšanas."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Pasūtījums izpildīts automātiski - atcerieties sniegt atsauksmes"
       we_have_marked_request_as_confirmed: "Mēs esam atzīmējuši pasūtījumu par '%{request}' kā izpildītu. Pieprasījums tika pabeigts automātiski, jo ir pagājusi viena diena kopš rezervēšanas perioda beigām."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Tagad varat sniegt atsauksmes par %{other_party_given_name}. Sniegt atsauksmi vienmēr ir laba doma. Ja viss noritēja labi, Jums vajadzētu ļaut citiem uzzināt, ka var uzticēties %{other_party_given_name}. Ja radās kādas problēmas, ir labi pieminēt arī to."
       give_feedback_to: "Sniedziet atsauksmi %{other_party_given_name}"
@@ -1420,6 +1446,11 @@ lv:
       need_to_confirm: "Lai pievienotos %{service_name}, apstipriniet savu e-pasta adresi noklikšķinot uz pogas zemāk."
       confirmation_link_text: "Apstiprināt manu adresi"
       or_paste_link: "Varat arī iekopēt zemāk atrodamo saiti sava interneta pārlūka adreses joslā:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Sveicināti %{name},"
       kassi_team: "%{service_name} komanda"
@@ -1433,6 +1464,7 @@ lv:
       unsubscribe_from_these_emails: "atrakstīties no šādiem e-pastiem"
       unsubscribe_from_invitation_emails_info: "Jūs saņemat šo e-pastu jo %{service_name} dalībnieks uzaicināja jūs pievienoties"
       unsubscribe_from_invitation_emails: "Atrakstīties no uzaicinājuma e-pastiem lai pievienoties %{service_name}"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ir apstiprinājums jūsu piedāvājumu %{listing}"
       has_accepted_your_request: "%{accepter} ir apstiprinājis jūsu pieprasījumu%{listing}"
@@ -1446,22 +1478,34 @@ lv:
       you_can_now_pay_to: "Tagad Jūs varat apmaksāt pieprasīto summu %{payment_receiver}."
       pay_now: "Apmaksāt tagad"
       remember_to_confirm: "Kad pasūtījums ir izpildīts, atcerieties to atzīmēt kā izpildītu. Ja pasūtījums nav izpildīts, Jums ir %{days_to_automatic_confirmation} dienas, lai to atceltu. Pretējā gadījumā tas tiks automātiski atzīmēts kā izpildīts."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Sveiki!
       you_have_been_invited_to_kassi: "%{inviter} ir uzaicinājis Jūs uz %{service_name}"
       here_is_a_message_from: "Šeit ir personīga ziņa no %{inviter}:"
       join_now: "Pievienoties tagad"
       invitation_code: "Ielūguma kods: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} komentēja Jūsu sludinājumu '%{listing}'."
       view_comment: "Skatīt komentāru"
       you_have_a_new_comment: "%{author} komentēja Jūsu ierakstu %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} komentējis piedāvājumu, kuram sekojat %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} komentēja sludinājumu '%{listing}' kuram Jūs sekojat %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Skatīt vēstuli"
       has_sent_you_a_message_in_kassi: "%{sender} ir nosūtījis Jums ziņu %{service_name}."
       you_have_a_new_message: "Jauna vēstule %{service_name} no %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Jūs esat saņēmis jaunu maksājumu"
       price_per_unit_type: "Cena par %{unit_type}"
@@ -1483,6 +1527,11 @@ lv:
       you_have_received_new_payment: "Jums ir samaksāts <b>%{payment_sum}</b> par <b>%{listing_title}</b> no %{payer_full_name}. Šeit ir Jūsu kvīts."
       stripe:
         you_have_received_new_payment: "%{payer_full_name} samaksāja summu <b>%{payment_sum}</b> par <b>%{listing_title}</b>. Naudu aiztur %{service_name}, līdz pasūtījums tiek atzīmēts kā pabeigts. Šeit ir jūsu kvīts."
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Maksājuma saņemšana"
       you_have_made_new_payment: "Jūs esat samaksājis <b>%{payment_sum}</b> par <b>%{listing_title}</b> %{recipient_full_name}. Šeit ir informācija par saņemto maksājumu."
@@ -1498,6 +1547,11 @@ lv:
       stripe_gateway_fee: "Stripe komisijas maksa:"
       paypal_gateway_fee: "PayPal komisijas maksa:"
       money_will_be_transferred: "Nauda tiks pārskaitīta %{recipient_name}, kad  a) būsiet atzīmējis pieprasījumu kā izpildītu vai b) %{automatic_confirmation_days} dienas būs pagājušas kopš samaksājāt."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal komisija:"
       shipping_total: "Piegāde:"
@@ -1527,6 +1581,8 @@ lv:
       has_given_you_feedback_in_kassi: "%{name} ir iesniedzis jums atsauksmi %{service_name}"
       you_can_give_feedback_to: "Jūs vēl neesat novertējis lietotāju %{name}"
       view_feedback: "Apskatīt atsauksmi"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Piedāvājums, kuram sekojat ir atjaunināts"
       has_updated_listing_you_follow_in_kassi: "%{author} ir atjauninājis sludinājumu '%{listing}' kuram Jūs sekojat %{service_name}."
@@ -1542,6 +1598,9 @@ lv:
       reduce_email_footer_text: "Pārāk daudz e-pastu? %{settings_link} vai %{unsubscribe_link}."
       settings_link_text: "E-pasta iestatījumus rediģējiet šeit"
       unsubscribe_link_text: atrakstīties
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Sveiks %{name},"
       newest_offers: "Ko cilvēki patlaban piedāvā citiem"
@@ -1553,6 +1612,10 @@ lv:
     testimonial_reminder:
       remember_to_give_feedback_to: "Atgādinājums: sniedziet atsauksmi %{name}"
       you_have_not_given_feedback_yet: "Jūs vēl neesat saņēmis atsauksmi no %{name} par pirkumu '%{event}'. Lūdzu sniedziet arī Jūs atsauksmi par %{given_name} kā pārdevēju."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} ir ieinteresēts un ir apstiprinājis maksājumu par %{listing_title}, kas publicēts vietnē %{service_name}"
       transaction_requested_by_user: "Lieliski jaunumi! %{requester} ir ieinteresēts '%{listing_title}' un ir apstiprinājis maksājumu par šo sludinājumu."
@@ -1561,11 +1624,16 @@ lv:
       if_you_do_accept_stripe: "Ja Jūs pieņemat pieprasījumu šajā laika periodā, maksājums tiks pabeigts. Jūs saņemsiet naudu savā bankas kontā pēc tam, kad būsiet piegādājis %{listing_title} %{requester}."
       if_you_do_not_accept: "Ja Jūs noraidāt pieprasījumu vai nepieņemat to šajā laika periodā, darījums tiks automātiski atcelts, no %{requester} netiks ieturēts maksājums un Jūs nesaņemsiet samaksu."
       click_here_to_reply: "Noklikšķiniet šeit, lai atbildētu uz pieprasījumu"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Atcerieties apstiprināt %{requester} pieprasījumu par sludinājumu %{listing_title}"
       remember_to_accept: "Atcerieties apstiprināt %{requester} pieprasījumu par sludinājumu \"%{listing_title}\". %{requester} jau ir samaksājis par sludinājumu. Lai saņemtu maksājumu, Jums ir jāapstiprina pieprasījums."
       one_day_left: "Ja Jūs vienas dienas laikā neapstiprināsiet pieprasījumu, tas tiks automātiski atcelts un Jūs nesaņemsiet samaksu."
       click_here_to_reply: "Noklikšķiniet šeit, lai atbildētu uz pieprasījumu"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Laipni lūdzam %{service_name}"
       welcome_to_marketplace: "Laipni lūdzam %{service_name}! Priecājamies, ka esat ar mums."
@@ -1577,12 +1645,22 @@ lv:
       has_posted_a_new_listing: "%{author_name} ir pievienojis jaunu sludinājumu:"
       you_are_receiving_this_because: "Jūs saņēmāt šo paziņojumu, jo Jūs sekojat %{author_name}"
       view_listing: "Apskatīt sludinājumu"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: "Jauns dalībnieks %{community}"
       new_member_has_joined: "Jauns dalībnieks ir pievienojies %{community}. Viņiem iespējams vēl ir jāapstiprina sava e-pasta adrese."
       this_is_automatic_message: "Šī ir automātiska ziņa, kas nosūtīta %{community} administratoriem."
       person_name: "Vārds:"
       person_email: "E-pasts:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: "Jauns sludinājums izskatīšanai: %{author_name}, %{community} \"%{listing_title}\""
       there_is_a_new_listing_to_review: "Ir jauns sludinājums, kuru jāizskata: %{listing_title} no %{author_name}. Tagad Jums ir jāapstiprina vai jānoraida šis sludinājums."
@@ -1609,6 +1687,15 @@ lv:
       sum: "Summa: %{amount}"
       starter: "Uzsācējs: %{name}"
       provider: "Piegādātājs: %{name}"
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervēšana neizdevās neparedzētas kļūdas dēļ. Lūdzu, mēģiniet vēlreiz vēlāk. Maksājums no Jums nav ieturēts."

@@ -1130,6 +1130,8 @@ ko:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1411,11 +1413,18 @@ ko:
       if_will_not_happen_you_should_cancel: "만일 이주문이 어떤 이유로 완료되지 않을거라 생각한다면, 이 %{cancel_it_link}를 클릭해서 취소 할 수 있습니다."
       cancel_it_link_text: 취소하시겠습니까?
       automatic_confirmation: "요청이 수락된 후 %{days_to_automatic_confirmation} 일 이내에 주문을 확인하거나 취소하지 않으면 자동 완성으로 표시됩니다."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "결제를 받으려면 결제 세부 사항을 추가해야합니다."
       you_have_added_listing_with_payment: "%{listing_link} 목록에 결제를 추가했습니다. 그러나 아직 결제 세부 사항을 추가하지 않았습니다. 결제를 받으려면 결제 정보를 추가해야합니다."
       please_go_to_payment_settings: "%{payment_settings_link}로 이동하여 필요한 결제 정보를 입력하십시오."
       payment_settings_link: "결제 설정"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "%{other_party_given_name}의 메시지는 다음과 같습니다."
       request_marked_as_confirmed: "주문이 완료되었습니다 - 피드백을 잊지 마세요"
@@ -1427,12 +1436,29 @@ ko:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "주문 자동 완성 - 피드백을 해주세요"
       we_have_marked_request_as_confirmed: "'%{request}'에 대한 주문을 완료했습니다. 요청이 수락된 후 %{days_passed} 일이 지났으므로 주문이 자동으로 완료되었습니다."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "주문 자동 완성 - 피드백을 해주세요"
       we_have_marked_request_as_confirmed: "'%{request}'에 대한 주문을 완료했습니다. 예약 기간이 끝난 후 하루가 지나서 요청이 자동으로 완료되었습니다."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "이제 %{other_party_given_name}에게 피드백을 줄 수 있습니다. 항상 피드백을 주는 것이 좋습니다. 모든 것이 잘 진행되면 %{other_party_given_name}이(가) 신뢰할 수 있음을 다른 사람에게 알리도록해야합니다. 문제가 발생하면 해당 문제도 언급하는 것이 좋습니다."
       give_feedback_to: "%{other_party_given_name}에게 피드백 보내기"
@@ -1442,6 +1468,11 @@ ko:
       need_to_confirm: "%{service_name}에 가입하시려면 아래의 버튼을 눌러 이메일 주소를 확인해주세요."
       confirmation_link_text: "주소 확인"
       or_paste_link: "또는 다음 링크를 브라우저의 주소 표시 줄에 복사 할 수 있습니다."
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "%{name}님 안녕하세요,"
       kassi_team: "%{service_name}팀"
@@ -1455,6 +1486,7 @@ ko:
       unsubscribe_from_these_emails: "이메일 수신 거부"
       unsubscribe_from_invitation_emails_info: "%{service_name}의 회원이 귀하를 초대했기 때문에이 이메일을 받았습니다."
       unsubscribe_from_invitation_emails: "초대 이메일에서 %{service_name} 가입을 취소합니다."
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}가 당신의 제안 %{listing}을 승인하였습니다."
       has_accepted_your_request: "%{accepter}가 당신의 요청 %{listing}을 승인하였습니다."
@@ -1468,22 +1500,34 @@ ko:
       you_can_now_pay_to: "이제 요청 된 금액을 %{payment_receiver} (으)로 결제 할 수 있습니다."
       pay_now: "지금 결제하세요"
       remember_to_confirm: "주문이 완료되면 완료된 것으로 표시해야합니다. 주문이 이행되지 않으면 %{days_to_automatic_confirm}} 일 이내에 취소하십시오. 그렇지 않으면 자동으로 완료로 표시됩니다."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: 안녕하세요!
       you_have_been_invited_to_kassi: "%{inviter}님이 당신을 %{service_name}에 초대하였습니다"
       here_is_a_message_from: "%{inviter}님으로부터 메세지가 도착했습니다:"
       join_now: "지금 가입하세요"
       invitation_code: "초대코드 : %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} 님이 귀하의 '%{listing}'에 댓글을 달았습니다."
       view_comment: "코멘트 보기"
       you_have_a_new_comment: "%{author}이/가 당신의 목록 중 %{service_name}에 의견을 추가했습니다."
       listing_you_follow_has_a_new_comment: "%{service_name}의 관심항목에 %{author}님이 새로운 의견을 추가하였습니다."
       has_commented_listing_you_follow_in_kassi: "당신이 %{service_name}에서 팔로우하는 %{author}이/가 목록 '%{listing}'에 댓글을 달았습니다."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "메세지 보기"
       has_sent_you_a_message_in_kassi: "%{sender}가 %{service_name}에 대해 당신에게 메세지를 보냈습니다."
       you_have_a_new_message: "%{sender_name}에게서 %{service_name}에 대한 새로운 메세지"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "새 결제를 받았습니다"
       price_per_unit_type: "%{unit_type} 당 가격 :"
@@ -1505,6 +1549,11 @@ ko:
       you_have_received_new_payment: "%{payer_full_name} 님이 <b> %{listing_title} </ b>에 대해 <b> %{payment_sum} </ b>을(를) 지불하셨습니다. 여기에 영수증이 있습니다."
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: "결제 영수증"
       you_have_made_new_payment: "<b> %{listing_title} </ b>에 대해 %{recipient_full_name}에 <b> %{payment_sum} </ b>을 지불했습니다. 여기에 지불 영수증이 있습니다."
@@ -1520,6 +1569,11 @@ ko:
       stripe_gateway_fee: "스트라이프 수수료"
       paypal_gateway_fee: "페이팔 수수료"
       money_will_be_transferred: "a) 귀하가 요청 완료를 표시했거나 b) 결제한 날 %{automatic_confirmation_days} 일이 경과하면 %{recipient_name}(으)로 이체됩니다."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "페이팔 수수료"
       shipping_total: "배송:"
@@ -1549,6 +1603,8 @@ ko:
       has_given_you_feedback_in_kassi: "%{name}이/가 %{service_name}에 대한 피드백을 남겼습니다."
       you_can_give_feedback_to: "아직 %{name}에게 피드백을 남기지 않았습니다."
       view_feedback: "피드백 보기"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "관심항목에 변경 사항이 생겼습니다."
       has_updated_listing_you_follow_in_kassi: "당신이 %{service_name}에서 팔로우하는 %{author}이/가 목록 '%{listing}'을/를 업데이트 했습니다."
@@ -1564,6 +1620,9 @@ ko:
       reduce_email_footer_text: "이메일이 너무 많습니까? %{settings_link} 또는 %{unsubscribe_link}"
       settings_link_text: "여기에서 이메일 설정 수정하세요"
       unsubscribe_link_text: "구독 취소"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "%{name}님 안녕하세요,"
       newest_offers: "진행 중인 제안"
@@ -1575,6 +1634,10 @@ ko:
     testimonial_reminder:
       remember_to_give_feedback_to: "알림: %{name}에게 피드백을 남겨주세요."
       you_have_not_given_feedback_yet: "아직 %{name}에게 '%{event}' 이벤트에 대한 피드백을 남기지 않았습니다. %{given_name}이/가 이벤트에서 해야할 일에 대해 피드백을 남겨주세요."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester}이(가) 관심을 갖고 %{service_name}에 게시 된 %{listing_title}의 결제를 승인했습니다."
       transaction_requested_by_user: "좋은 소식! %{requester}은(는) \"%{listing_title}\"에 관심이 있으며 이 목록에 대한 결제를 승인했습니다."
@@ -1583,11 +1646,16 @@ ko:
       if_you_do_accept_stripe: "이 기간 내에 요청을 수락하면 지불이 처리됩니다. %{listing_title}을 %{requester} (으)로 배송하면 은행 계좌로 바로 송금됩니다."
       if_you_do_not_accept: "이 기간 내에 요청을 거부하거나 동의하지 않으면 트랜잭션이 자동으로 취소되며 %{requester}는 청구되지 않고 지불되지 않습니다."
       click_here_to_reply: "요청에 응답하려면 여기를 클릭하십시오."
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "%{requester}(으)로부터 목록 %{listing_title}에 대한 요청을 수락하는 것을 잊지 마십시오."
       remember_to_accept: "\"%{listing_title}\"목록에 대해 %{requester}의 요청을 수락하는 것을 잊지 마십시오. %{requester}는 이미 그 목록에 대해 결제했습니다. 결제를 받으려면 요청을 수락해야합니다."
       one_day_left: "하루 이내에 요청을 수락하지 않으면 요청이 자동으로 거절되고 결제되지 않습니다."
       click_here_to_reply: "요청에 응답하려면 여기를 클릭하십시오."
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "%{service_name}에 오신 것을 환영합니다."
       welcome_to_marketplace: "%{service_name}에 오신 것을 환영합니다! 함께하게되어서 매우 기쁩니다."
@@ -1599,12 +1667,22 @@ ko:
       has_posted_a_new_listing: "%{author_name}이(가) 새 목록을 올렸습니다."
       you_are_receiving_this_because: "당신은 %{author_name}을/를 팔로우하기 때문에 이 알림을 받았습니다."
       view_listing: 목록보기
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "새 회원이 %{community}에 가입했습니다. 이메일 주소를 확인해야 할 수도 있습니다."
       this_is_automatic_message: "이것은 %{community}의 관리자에게 발송된 자동 메시지입니다."
       person_name: "이름:"
       person_email: "이메일:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1631,6 +1709,15 @@ ko:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "예상치 못한 오류로 인해 예약에 실패했습니다. 나중에 다시 시도 해주십시오. 결제가 청구되지 않았습니다."

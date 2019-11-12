@@ -1135,6 +1135,8 @@ nb:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1414,11 +1416,18 @@ nb:
       if_will_not_happen_you_should_cancel: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du %{cancel_it_link}."
       cancel_it_link_text: "Avbryt den"
       automatic_confirmation: "Dersom du ikke bekrefter eller avbryter forespørselen innen %{days_to_automatic_confirmation} dager etter forespørselen ble akseptert, blir den automatisk merket som gjennomført."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Husk å legge til din betalingsinformasjon slik at du kan motta betalinger."
       you_have_added_listing_with_payment: "Du har lagt til annonsen %{listing_link} med betaling, men du har ikke lagt til dine utbetalingsdetaljer enda. For å kunne motta betaling, må du legge til din utbetalingsinformasjon."
       please_go_to_payment_settings: "Vennligst gå til %{payment_settings_link} og fyll inn nødvendig betalingsinformasjon."
       payment_settings_link: betalingsinnstillinger
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Her er en melding fra %{other_party_given_name}:"
       request_marked_as_confirmed: "Forespørsel gjennomført - husk å gi vurdering"
@@ -1430,12 +1439,29 @@ nb:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Forespørsel er automatisk merket som gjennomført - husk å gi vurdering"
       we_have_marked_request_as_confirmed: "Vi har merket forespørselen vedrørende %{request} som fullført. Forespørselen ble automatisk fullført fordi %{days_passed} dager er passert siden forespørselen ble akseptert."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Forespørsel er automatisk merket som gjennomført - husk å gi vurdering"
       we_have_marked_request_as_confirmed: "Vi har markert forespørselen om '%{request}' som fullført. Forespørselen ble automatisk fullført fordi en dag har gått siden booking-perioden ble avsluttet."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: |-
           Du kan nå gi vurdering av %{other_party_given_name}. Å gi vurdering er alltid en god idé. Dersom alt gikk fint, bør du la andre få vite
@@ -1447,6 +1473,11 @@ nb:
       need_to_confirm: "Du må bekrefte din e-post."
       confirmation_link_text: "Bekreft min e-post"
       or_paste_link: "Alternativt kan du kopiere lenken under til nettleseren din:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Hei %{name}!"
       kassi_team: "Vennlig hilsen %{service_name}"
@@ -1460,6 +1491,7 @@ nb:
       unsubscribe_from_these_emails: "meld deg av slike e-poster"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har godtatt ditt tilbud %{listing}."
       has_accepted_your_request: "%{accepter} har godtatt din forespørsel %{listing}."
@@ -1473,22 +1505,34 @@ nb:
       you_can_now_pay_to: "Du kan nå betale forespurte beløp til %{payment_receiver}"
       pay_now: "Betal nå"
       remember_to_confirm: "Når en forespørsel er gjennomført, husk å merke den som gjennomført. Dersom en forespørsel ikke er gjennomført har du %{days_to_automatic_confirmation} dager på å avbryte den. Om ikke blir den automatisk merket som gjennomført."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} har invitert deg til %{service_name}."
       here_is_a_message_from: "Her er en personlig melding fra %{inviter}:"
       join_now: "Bli medlem nå"
       invitation_code: "Invitasjons kode: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} har kommentert på din annonse %{listing}"
       view_comment: "Vis kommentar"
       you_have_a_new_comment: "%{author} har kommentert på din annonse på %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} har kommentert på en annonse du følger på %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} har kommentert på annonsen '%{listing}' du følger på %{service_name}"
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Vis melding"
       has_sent_you_a_message_in_kassi: "%{sender} har sendt deg en melding på %{service_name}."
       you_have_a_new_message: "Ny melding på %{service_name} fra %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Du har mottatt en ny betaling"
       price_per_unit_type: "Pris per %{unit_type}"
@@ -1510,6 +1554,11 @@ nb:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1525,6 +1574,11 @@ nb:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-kostnad:"
       shipping_total: "Frakt:"
@@ -1554,6 +1608,8 @@ nb:
       has_given_you_feedback_in_kassi: "%{name} har gitt deg tilbakemelding på %{service_name}"
       you_can_give_feedback_to: "Du har ikke gitt tilbakemelding til %{name} ennå."
       view_feedback: "Vis vurdering"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "En annonse du følger er oppdatert"
       has_updated_listing_you_follow_in_kassi: "%{author} har oppdatert annonsen '%{listing}' du følger på %{service_name}."
@@ -1569,6 +1625,9 @@ nb:
       reduce_email_footer_text: "For mange e-poster?%{settings_link} eller %{unsubscribe_link}."
       settings_link_text: "Rediger dine e-post innstillinger her"
       unsubscribe_link_text: avmeld
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Hei %{name},"
       newest_offers: "Hva folk for øyeblikket tilbyr"
@@ -1580,6 +1639,10 @@ nb:
     testimonial_reminder:
       remember_to_give_feedback_to: "Påminnelse: husk å gi tilbakemelding til %{name}"
       you_have_not_given_feedback_yet: "Du har ennå ikke gitt tilbakemelding til %{name} om '%{event}'. Husk å gi tilbakemelding på hvordan %{given_name} oppførte seg."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} har etterspurt og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har etterspurt og betalt for %{listing_title}"
@@ -1588,11 +1651,16 @@ nb:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: "Hvis du avslår forespørselen eller ikke aksepterer den innen denne tidsfristen, vil transaksjonen bli avbrutt automatisk. %{requester} vil ikke bli belastet, og du vil ikke få betalt."
       click_here_to_reply: "Klikk her for å svare på forespørselen"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Husk å akseptere forespørselen fra %{requester} vedrørende %{listing_title}"
       remember_to_accept: "Husk å akseptere forespørselen fra %{requester} vedrørende %{listing_title}. %{requester} har allerede betalt. Du må akseptere forespørselen for å kunne motta betaling."
       one_day_left: "Dersom du ikke aksepterer forespørselen innen èn dag blir den automatisk avvist og du blir ikke betalt."
       click_here_to_reply: "Klikk her for å svare på forespørselen"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Velkommen til %{service_name}!"
       welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for å ha deg med."
@@ -1604,12 +1672,22 @@ nb:
       has_posted_a_new_listing: "%{author_name} har lagt ut en ny annonse:"
       you_are_receiving_this_because: "Du mottok denne varslingen fordi du følger %{author_name}"
       view_listing: "Se annonse"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "Et nytt medlem har registrert seg på %{community}. Vedkommende må kanskje fremdeles bekrefte sin e-postadresse."
       this_is_automatic_message: "Dette er en automatisk melding sendt til administratorer av %{community}."
       person_name: "Navn:"
       person_email: "E-post:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1636,6 +1714,15 @@ nb:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Reservasjonen feilet på grunn av en uventet feil. Vennligst prøv igjen senere. Du har ikke blitt belastet for noe beløp."

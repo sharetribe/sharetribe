@@ -1122,6 +1122,8 @@ ar:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1404,11 +1406,18 @@ ar:
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: إلغاء
       automatic_confirmation: ~
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "تذكر إضافة تفاصيل عملية الدفع لاستقبال الدفعات"
       you_have_added_listing_with_payment: "ولكنك لم تضف بعد معلومات الدفع لكي تستقبل دفعات يجب عليك إضافة معلومات الدفع ‎%{listing_link}‎ لقد قمت بإضافة"
       please_go_to_payment_settings: "رجاء قم بزيارة ‎%{payment_settings_link}‎ وقم بتعبئة معلومات الدفعة"
       payment_settings_link: "إعدادات طريقة الدفع"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: ~
       request_marked_as_confirmed: "تم إتمام طلبك - تذكر بإعطاء رأيك"
@@ -1420,12 +1429,29 @@ ar:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: "‎%{other_party_given_name}‎ أعط رأيك في"
@@ -1435,6 +1461,11 @@ ar:
       need_to_confirm: "قم بتأكيد بريدك الإلكتروني بالضغط على الزر في الأسفل ‎%{service_name}‎ للإلتحاق بـ"
       confirmation_link_text: "تأكيد العنوان الخاص بي"
       or_paste_link: "أو قم بنسخ الرابط التالي إلى المتصفح الخاص بك"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "،‎%{name}‎ مرحبا"
       kassi_team: "‎%{service_name}‎ فريق عمل"
@@ -1448,6 +1479,7 @@ ar:
       unsubscribe_from_these_emails: "إلغاء الإشتراك من هذه النشرات الإخبارية"
       unsubscribe_from_invitation_emails_info: "قام بدعوتك للانضمام ‎%{service_name}‎ لقد استقبلت هذه الرسالة لأن عضو في"
       unsubscribe_from_invitation_emails: "‎%{service_name}‎ إيقاف استقبال دعوات للانضمام لـ"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "‎%{listing}‎ قام بقبول عرضك ‎%{accepter}‎"
       has_accepted_your_request: "‎%{listing}‎ قام بقبول طلبك ‎%{accepter}‎"
@@ -1461,22 +1493,34 @@ ar:
       you_can_now_pay_to: "‎%{payment_receiver}‎ يمكنك الآن دفع القيمة المطلوبة لـ"
       pay_now: "إدفع الآن"
       remember_to_confirm: ~
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: مرحبا!
       you_have_been_invited_to_kassi: "‎%{service_name}‎ قام بدعوتك إلى ‎%{inviter}‎"
       here_is_a_message_from: ":‎%{inviter}‎ هنالك رسالة شخصية من"
       join_now: "إنضم الآن"
       invitation_code: "‎%{code}‎ :رمز التفعيل"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "‎%{listing}‎ علق على إعلانك ‎%{author}‎"
       view_comment: "أظهر التعليق"
       you_have_a_new_comment: "‎‎%{service_name}‎ وضع تعليق جديد في ‎%{author}‎"
       listing_you_follow_has_a_new_comment: "‎%{service_name}‎‎ علق على إعلان تقوم بمتابعته في ‎%{author}‎"
       has_commented_listing_you_follow_in_kassi: "‎%{service_name}‎ الذي تتابعه في ‎%{listing}‎ علق على الإعلان ‎%{author}‎"
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "أظهر الرسالة"
       has_sent_you_a_message_in_kassi: "‎%{service_name}‎ قام بإرسال رسالة لـ ‎%{sender}‎"
       you_have_a_new_message: "‎%{sender_name}‎ من قبل ‎%{service_name}‎ رسالة جديدة من لـ"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "لقم استقبلت دفعة جديد"
       price_per_unit_type: "‎%{unit_type}‎ السعر بـ"
@@ -1498,6 +1542,11 @@ ar:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1513,6 +1562,11 @@ ar:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: ":رسوم باي بال"
       shipping_total: "الشحن:"
@@ -1542,6 +1596,8 @@ ar:
       has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ قام بإعطاء رأيه في ‎%{name}‎"
       you_can_give_feedback_to: "‎%{name}‎ لم تقم بإعطاء رأيك عن"
       view_feedback: "أظهر الرأي"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "الإعلان الذي تتابعه قد تم التعديل عليه"
       has_updated_listing_you_follow_in_kassi: "‎%{service_name}‎ الذي تتابعه ‎%{listing}‎ قام بالتحديث على الإعلان ‎%{author}‎"
@@ -1557,6 +1613,9 @@ ar:
       reduce_email_footer_text: "‎%{settings_link}‎ أو ‎%{unsubscribe_link}‎ كثير من الإشعارات؟"
       settings_link_text: "قم بتعديل إعدادات بريدك الإلكتروني هنا"
       unsubscribe_link_text: "إلغاء الإشتراك"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "،‎%{name}‎ مرحبا"
       newest_offers: "ماذا يقدم الآخرين حاليا"
@@ -1570,6 +1629,10 @@ ar:
     testimonial_reminder:
       remember_to_give_feedback_to: "‎%{name}‎ تذكير! قم بإعطاء رأيك عن"
       you_have_not_given_feedback_yet: "‎%{given_name}‎ تذكر بإعطاء رأيك عن. ‎‎%{event}‎ للحدث ‎%{name}‎ لم تقم بإعطاء رأيك لـ"
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1580,11 +1643,16 @@ ar:
           إذا قمت برفض الطلب أو لم تقم بالموافقة عليه في هذه الفترة الزمنية المحددة، ستلغى العملية مباشرة، 
           ولن يخصم من حساب مقدم الطلب ولن تستلم الدفعة. ‎%{requester}‎
       click_here_to_reply: "اضغط هنا للرد على الطلب"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: ~
       remember_to_accept: ~
       one_day_left: ~
       click_here_to_reply: "اضغط هنا للرد على الطلب"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "‎%{service_name}‎ أهلا بك في"
       welcome_to_marketplace: "سعداء بوجودك معنا ‎%{service_name}‎ أهلا بك في"
@@ -1596,12 +1664,22 @@ ar:
       has_posted_a_new_listing: ":قام بوضع إعلان جديد ‎%{author_name}‎"
       you_are_receiving_this_because: "‎%{author_name}‎ لقد استقبلت إشعارا لأنك تتابع"
       view_listing: "أظهر الإعلان"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: ".قد يكون ما زال عليه تأكيد البريد الإلكتروني الخاص به ‎%{community}‎ تسجيل مشترك جديد في"
       this_is_automatic_message: "‎%{community}‎ رسالة تلقائية مرسلة من قبل"
       person_name: "الإسم:"
       person_email: "البريد الإلكتروني:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1628,6 +1706,15 @@ ar:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "فشل في الحجز بسبب خطأ غير معروف. يرجى المحاولة مرة أخرى. لم يتم احتساب أي تكلفة عليك."

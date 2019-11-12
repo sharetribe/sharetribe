@@ -1139,6 +1139,8 @@ sv:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1420,11 +1422,18 @@ sv:
       if_will_not_happen_you_should_cancel: "Om du tror att förfrågan inte kommer uppfyllas för någon anledning så kan du %{cancel_it_link}."
       cancel_it_link_text: "avbryt den"
       automatic_confirmation: "Om du inte accepterar eller avbryter förfrågan inom %{days_to_automatic_confirmation} dagar efter förfrågan blev accepterad så kommer den automatiskt markeras som slutförd."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Kom ihåg att ange betalningsdetaljer för att få betalt."
       you_have_added_listing_with_payment: "Du har skapat annons %{listing_link} med betalning. Men du har inte angett dina betalningsdetaljer. För att du ska kunna få betalt så måste du lägga till betalningsinformationen."
       please_go_to_payment_settings: "Vänligen gå till %{payment_settings_link} för att fylla i betalningsinformationen som krävs."
       payment_settings_link: betalningsinställningar
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Här är ett meddelande från %{other_party_given_name}:"
       request_marked_as_confirmed: "Förfrågan har slutförts - kom ihåg att ge feedback"
@@ -1436,12 +1445,29 @@ sv:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} har markerad förfrågan på %{request} som slutförd. Betalningen för denna transaktion har nu överförts till ditt bankkonto. Du kan nu ge feedback till %{other_party_given_name}."
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Förfrågan har automatiskt marketats som slutförd - kom ihåg att ge feedback"
       we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatisk markerad som slutförd eftersom %{days_passed} har passerat sedan förfrågan accepterades."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Förfrågan markerads automatiskt som slutförd - kom ihåg att ge feedback"
       we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatiskt markerad som slutförd eftersom en dag har passerat sen bokningsperioden slutade."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Du kan nu ge feedback till %{other_party_given_name}. Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
       give_feedback_to: "Ge feedback till %{other_party_given_name}"
@@ -1451,6 +1477,11 @@ sv:
       need_to_confirm: "Du behöver bekräfta din emailadress genom att klicka på knappen nedan för att gå med i %{service_name}."
       confirmation_link_text: "Bekräfta min e-postadress"
       or_paste_link: "Alternativt så kan du kopiera följande länk till adressfältet i din webbläsare:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Hej %{name},"
       kassi_team: "%{service_name}gänget"
@@ -1464,6 +1495,7 @@ sv:
       unsubscribe_from_these_emails: "avsluta prenumeration från dessa e-postmeddelanden"
       unsubscribe_from_invitation_emails_info: "Du har fått detta email för att en medlem av %{service_name} har bjudit in dig."
       unsubscribe_from_invitation_emails: "Sluta prenumerera på inbjudningsemail att gå med i %{service_name}"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har accepterat ditt erbjudande angående %{listing}"
       has_accepted_your_request: "%{accepter} har accepterat din förfrågan %{listing}."
@@ -1477,22 +1509,34 @@ sv:
       you_can_now_pay_to: "Du kan nu betala det begärda beloppet till %{payment_receiver}."
       pay_now: "Betala nu"
       remember_to_confirm: "När förfrågan är uppfylld, kom ihåg att markera den som slutförd. Om förfrågan inte är uppfylld så har du %{days_to_automatic_confirmation} dagar på dig att avbryta den. Annars kommer den att automatiskt markeras som slutförd."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Hej!
       you_have_been_invited_to_kassi: "%{inviter} har bjudit in dig till %{service_name}."
       here_is_a_message_from: "Här är ett personligt meddelande från %{inviter}:"
       join_now: "Gå med nu"
       invitation_code: "Inbjudningskod: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} har kommenterat din annons %{listing}."
       view_comment: "Visa kommentar"
       you_have_a_new_comment: "%{author} har kommenterar ditt inlägg i %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} har kommenterat en annons du följer på %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} har kommenterat annonsen %{listing} som du följer på %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Visa meddelande"
       has_sent_you_a_message_in_kassi: "%{sender} har skickat ett meddelande i %{service_name}."
       you_have_a_new_message: "Du har ett nytt meddelande i %{service_name} från %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Du har fått en ny inbetalning"
       price_per_unit_type: "Pris per %{unit_type}"
@@ -1514,6 +1558,11 @@ sv:
       you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
       stripe:
         you_have_received_new_payment: "Summan <b>%{payment_sum}</b> bar blivit betalt för <b>%{listing_title}</b> av %{payer_full_name}. Pengarna hålls nu av %{service_name} tills förfrågan har blivit markerad som slutförd. Här är ditt kvitto."
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Kvitto för betalning"
       you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{recipient_full_name}. Här är ett kvitto av betalningen."
@@ -1529,6 +1578,11 @@ sv:
       stripe_gateway_fee: "Stripes avgift:"
       paypal_gateway_fee: "PayPals avgift:"
       money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som slutförd eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPals avgift:"
       shipping_total: "Frakt:"
@@ -1558,6 +1612,8 @@ sv:
       has_given_you_feedback_in_kassi: "%{name} har givit dig feedback på %{service_name}"
       you_can_give_feedback_to: "Du har inget gett feedback till %{name}."
       view_feedback: "Visa feedback"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Annonser som du följer"
       has_updated_listing_you_follow_in_kassi: "%{author} har uppdaterat annonsen %{listing} som du följer på %{service_name}."
@@ -1573,6 +1629,9 @@ sv:
       reduce_email_footer_text: "För många e-postmeddelanden? %{settings_link} eller %{unsubscribe_link}"
       settings_link_text: "Ändra dina e-postinställningar här"
       unsubscribe_link_text: avprenumerera
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Hej %{name},"
       newest_offers: "Vad folk har att erbjuda andra"
@@ -1584,6 +1643,10 @@ sv:
     testimonial_reminder:
       remember_to_give_feedback_to: "Kom ihåg att lämna feedback till %{name}"
       you_have_not_given_feedback_yet: "Du har ännu inte lämnat någon feedback till %{name} angående händelsen '%{event}'. Kom ihåg att ge feedback om hur %{given_name} utfört händelsen."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} är intresserad och har auktoriserat betalningen för %{listing_title} som finns på %{service_name}"
       transaction_requested_by_user: "Goda nyheter! %{requester} är intresserad av %{listing_title} och har auktoriserat betalningen för annonsen."
@@ -1592,11 +1655,16 @@ sv:
       if_you_do_accept_stripe: "Om du accepterar förfrågan inom denna tidsram så kommer betalningen gå igenom. Du kommer att få pengarna direkt till ditt bankkonto efter att du har uppfyllt förfrågan för %{listing_title} åt %{requester}."
       if_you_do_not_accept: "Om du avslår förfrågan eller inte accepterar den inom denna tidsram så kommer transaktionen automatiskt att avslås. %{requester} kommer inte att behöva betala och du kommer inte få betalt."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
       remember_to_accept: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}. %{requester} har redan betalat för annonsen. Du måste acceptera förfrågan för att få betalt."
       one_day_left: "Om du inte accepterar förfrågan inom en dag så kommer den automatiskt att avslås och du får inte någon betalning."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Välkommen till %{service_name}"
       welcome_to_marketplace: "Välkommen till %{service_name}! Kul att ha dig ombord."
@@ -1610,12 +1678,22 @@ sv:
       has_posted_a_new_listing: "%{author_name} har skapat en ny annons:"
       you_are_receiving_this_because: "Du har fått ett meddelande eftersom du följer %{author_name}."
       view_listing: "Visa annons"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "En ny användare har gått med i %{community}. De måste kanske ännu bekräfta sin e-postadress."
       this_is_automatic_message: "Detta är ett automatisk meddelande skickat åt administratörerna av %{community}."
       person_name: "Namn:"
       person_email: "E-post:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1642,6 +1720,15 @@ sv:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Bokningen misslyckades på grund av ett oväntat fel. Vänligen försök igen senare. Du har inte blivit debiterad."

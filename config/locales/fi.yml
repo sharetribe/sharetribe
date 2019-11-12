@@ -1139,6 +1139,8 @@ fi:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1420,11 +1422,18 @@ fi:
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
       cancel_it_link_text: "peruuttaa sen"
       automatic_confirmation: "Jos et merkkaa pyyntöä toteutuneeksi tai peruuta sitä %{days_to_automatic_confirmation} päivän kuluttua sen hyväksymisestä, merkkaamme sen automaattisesti toteutuneeksi."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Muistutus: Käy lisäämässä maksutietosi"
       you_have_added_listing_with_payment: "Olet lisännyt ilmoituksen %{listing_link}, jolla on hinta. Et ole kuitenkaan vielä syöttänyt maksutietojasi. Jotta voit vastaanottaa maksun ilmoituksestasi, käy täyttämässä maksutietosi."
       please_go_to_payment_settings: "Siirry %{payment_settings_link} ja täytä tarvittavat tiedot."
       payment_settings_link: maksutiedot-sivulle
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Tässä viesti käyttäjältä %{other_party_given_name}:"
       request_marked_as_confirmed: "Pyyntö merkitty toteutuneeksi - muistathan antaa palautetta"
@@ -1436,12 +1445,29 @@ fi:
       stripe:
         has_marked_request_as_confirmed: "Käyttäjä %{other_party_full_name} on merkinnyt tilauksen '%{request}' toteutuneeksi. Maksu tästä tilauksesta on nyt maksettu pankkitilillesi. Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}."
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska varausaika päättyi eilen."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
@@ -1451,6 +1477,11 @@ fi:
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi painamalla alla olevaa näppäintä liittyessäsi %{service_name} -palveluun."
       confirmation_link_text: "Vahvista sähköpostini"
       or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan linkin selaimesi osoitepalkkiin:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Hei %{name},"
       kassi_team: "%{service_name}-tiimi"
@@ -1464,6 +1495,7 @@ fi:
       unsubscribe_from_these_emails: "lopeta tällaisten viestien vastaanotto kokonaan"
       unsubscribe_from_invitation_emails_info: "Vastaanotit tämän sähköpostin, koska palvelun %{service_name} jäsen kutsui sinut palvelun käyttäjäksi."
       unsubscribe_from_invitation_emails: "Lopeta markkinapaikan %{service_name} kutsujen vastaanottaminen sähköpostitse"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi '%{listing}'."
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi '%{listing}'."
@@ -1477,22 +1509,34 @@ fi:
       you_can_now_pay_to: "Voit nyt maksaa käyttäjän %{payment_receiver} pyytämän maksun."
       pay_now: "Maksa nyt"
       remember_to_confirm: "Muista merkitä pyyntö toteutuneeksi, kun olet saanut haluamasi. Jos vastapuoli ei pysty täyttämään lupaustaan, sinulla on %{days_to_automatic_confirmation} päivää aikaa peruuttaa pyyntö, ennen kuin se merkitään toteutuneeksi automaattisesti."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{service_name}-palveluun."
       here_is_a_message_from: "%{inviter} lähetti sinulle seuraavan saateviestin:"
       join_now: "Liity palveluun"
       invitation_code: "Kutsukoodi: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} on kommentoinut ilmoitustasi '%{listing}'"
       view_comment: "Näytä kommentti"
       you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi %{service_name}-palvelussa"
       listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta %{service_name}-palvelussa"
       has_commented_listing_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi ilmoitusta '%{listing}'."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Näytä viesti"
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name}-palvelussa."
       you_have_a_new_message: "Viesti %{service_name}-palvelun käyttäjältä %{sender_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       price_per_unit_type: "Hinta per %{unit_type}"
@@ -1514,6 +1558,11 @@ fi:
       you_have_received_new_payment: "Käyttäjä %{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> ilmoituksesta <b>%{listing_title}</b>. Tässä kuittisi."
       stripe:
         you_have_received_new_payment: "Käyttäjä %{payer_full_name} on nyt maksanut summan <b>%{payment_sum}</b> tilauksesta <b>%{listing_title}</b>. %{service_name} pidättää maksun siihen asti, että tilaus merkitään toteutuneeksi. Tässä on kuittisi."
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Kuitti maksusta"
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> ilmoituksesta <b>%{listing_title}</b>. Tässä kuitti maksusta."
@@ -1529,6 +1578,11 @@ fi:
       stripe_gateway_fee: "Stripen palvelumaksu"
       paypal_gateway_fee: "PayPalin palvelumaksu"
       money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPalin käsittelymaksu:"
       shipping_total: "Postitus:"
@@ -1558,6 +1612,8 @@ fi:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name}-palvelussa"
       you_can_give_feedback_to: "Et ole vielä antanut palautetta käyttäjälle %{name}."
       view_feedback: "Näytä palaute"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Seuraamasi ilmoitus on päivittynyt"
       has_updated_listing_you_follow_in_kassi: "%{author} on päivittänyt seuraamaasi ilmoitusta '%{listing}'."
@@ -1573,6 +1629,9 @@ fi:
       reduce_email_footer_text: "Liikaa sähköpostia? %{settings_link} tai %{unsubscribe_link}."
       settings_link_text: "Säädä sähköpostit harvemmaksi"
       unsubscribe_link_text: "peruuta tämän sähköpostin tulo kokonaan"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Hei %{name},"
       newest_offers: "Muun muassa näitä tarjotaan:"
@@ -1584,6 +1643,10 @@ fi:
     testimonial_reminder:
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'"
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} on kiinnostunut ilmoituksestasi %{listing_title} palvelussa %{service_name} ja tehnyt siitä katevarauksen"
       transaction_requested_by_user: "Hyviä uutisia! %{requester} on kiinnostunut ilmoituksesta \"%{listing_title}\" ja tehnyt siitä katevarauksen."
@@ -1592,11 +1655,16 @@ fi:
       if_you_do_accept_stripe: "Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Saat rahat suoraan pankkitilillesi heti, kun %{listing_title} on toimitettu käyttäjälle %{requester}."
       if_you_do_not_accept: "Jos hylkäät pyynnön tai et hyväksy sitä määräajan puitteissa, tilaus hylätään automaattisesti, käyttäjältä %{requester} ei veloiteta mitään etkä saa rahoja tilillesi."
       click_here_to_reply: "Klikkaa tästä vastaaksesi pyyntöön"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Muista hyväksyä ilmoitukseen %{listing_title} liittyvä tilaus käyttäjältä %{requester}"
       remember_to_accept: "Muista hyväksyä pyyntö käyttäjältä %{requester} koskien tilausta \"%{listing_title}\". %{requester} on jo maksanut tilauksen. Sinun pitää hyväksyä tilaus saadaksesi maksun tilillesi."
       one_day_left: "Mikäli et hyväksy pyyntöä yhden päivän sisällä, pyyntö hylätään automaattisesti etkä saa maksua tilillesi."
       click_here_to_reply: "Klikkaa tästä vastataksesi pyyntöön"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Tervetuloa %{community}-palveluun"
       welcome_to_marketplace: "Tervetuloa %{service_name}-palvelun jäseneksi! Mukavaa kun liityit."
@@ -1608,12 +1676,22 @@ fi:
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
       you_are_receiving_this_because: "Sait tämän viestin, koska seuraat käyttäjää %{author_name}."
       view_listing: "Näytä ilmoitus"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "Uusi käyttäjä liittyi markkinapaikkaan %{community}. Käyttäjän pitää mahdollisesti vielä vahvistaa sähköpostiosoitteensa."
       this_is_automatic_message: "Tämä on automaattinen viesti, joka lähetetään markkinapaikan %{community} ylläpitäjille."
       person_name: "Nimi:"
       person_email: "Sähköpostiosoite:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: "Uusi ilmoitus arvioitavaksi: \"%{listing_title}\", käyttäjän %{author_name} toimesta, palvelussa %{community}"
       there_is_a_new_listing_to_review: "Uusi ilmoitus on valmiina arvioitavaksi. \"%{listing_title}\", käyttäjän %{author_name} toimesta. Sinun tulee nyt hyväksyä tai hylätä tämä ilmoitus."
@@ -1640,6 +1718,15 @@ fi:
       sum: "Summa: %{amount}"
       starter: "Aloittaja: %{name}"
       provider: "Myyjä: %{name}"
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Varaus epäonnistui tunnistamattoman virheen vuoksi. Ole hyvä ja yritä myöhemmin uudelleen. Sinua ei ole veloitettu."

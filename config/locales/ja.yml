@@ -1130,6 +1130,8 @@ ja:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1409,11 +1411,18 @@ ja:
       if_will_not_happen_you_should_cancel: "何か問題が発生した場合、クレーム通知にて%{cancel_it_link}"
       cancel_it_link_text: キャンセルしてください
       automatic_confirmation: "リクエストが承認されてから%{days_to_automatic_confirmation}日以内に取引完了を行わない場合は自動的に完了となりますのでご注意ください。"
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: お支払いを受け取るためにお支払い情報の入力をお願いします
       you_have_added_listing_with_payment: "%{listing_link}のリストが追加されました。しかし、あなたは料金受け取りに必要な情報を追加していないようです。お支払いを受け取るには、お支払いページより、情報を追加してください。"
       please_go_to_payment_settings: "%{payment_settings_link}からお支払い情報のご入力をお願いします。"
       payment_settings_link: お支払い設定
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "これは%{other_party_given_name}さんからのメッセージです："
       request_marked_as_confirmed: "リクエストは完了しました - レビューを書くのを忘れないでください"
@@ -1425,12 +1434,29 @@ ja:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} は、%{request} に関する取引を完了しました。この取引の代金はあなたの銀行口座に支払われます。これで%{other_party_given_name} さんに感想を送ることができます。"
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "リクエストは自動的に完了しました - レビューを書くのを忘れないでください"
       we_have_marked_request_as_confirmed: "%{request}のリクエストが承認されてから%{days_passed}日経過しましたので、自動的に取引完了の処理が行われました。"
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "リクエストは自動的に完了しました - レビューを書くのを忘れないでください"
       we_have_marked_request_as_confirmed: "「%{request}」のリクエストが完了したと、ステータス変更しました。予約期間が終わってから、1日が経過しましたので、このリクエストは自動的に完了済みとして扱われました。"
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "これより先、%{other_party_given_name}さんにレビューを書くことが出来ます。レビューを残すことは、いつでもポジティブな面があります。もし全体的に満足できたサービスであった場合は、%{other_party_given_name}さんが信頼できる方であると、他の皆さんにお知らせするのが良いでしょう。仮に問題が発生していた場合であっても、その情報はきっと、今後その方のサービス向上のために役立つでしょう。"
       give_feedback_to: "%{other_party_given_name}さんへレビューを書く"
@@ -1440,6 +1466,11 @@ ja:
       need_to_confirm: メールアドレスを認証してください。
       confirmation_link_text: メールアドレス認証
       or_paste_link: 別の方法として、下記のリンクをブラウザのアドレスバーに、コピー出来ます。
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "%{name}さん　こんにちは、"
       kassi_team: "%{service_name} チーム"
@@ -1453,6 +1484,7 @@ ja:
       unsubscribe_from_these_emails: これらのメールを購読解除する
       unsubscribe_from_invitation_emails_info: "%{service_name} のメンバーから招待されたため、このメールを受信しました。"
       unsubscribe_from_invitation_emails: "%{service_name} からの招待メールの受信を解除します。"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}さんはあなたの%{listing}のオファーを受け入れました"
       has_accepted_your_request: "%{accepter}さんはあなたの%{listing}のリクエストを受け入れました"
@@ -1466,22 +1498,34 @@ ja:
       you_can_now_pay_to: "%{payment_receiver}さんに、リクエストされた金額をお支払いを行うことが出来ます。"
       pay_now: 今支払います
       remember_to_confirm: "リクエストが達成されている場合は、完了済みとしてステータス変更してください。もしリクエストが達成されていない場合、%{days_to_automatic_confirmation}日間、キャンセルの猶予期間があります。何もしない場合は、自動的にステータスが完了済みになります。"
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: こんにちは！
       you_have_been_invited_to_kassi: "%{inviter}さんがの%{service_name}のサイトに招待しています。"
       here_is_a_message_from: "%{inviter}さんからのプライベートメッセージがあります:"
       join_now: 参加します
       invitation_code: "招待コード： %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "いつもご利用ありがとうございます。「%{listing}」で%{author}さんより新しいコメントがありましたのでお知らせいたします。"
       view_comment: コメントを見る
       you_have_a_new_comment: "いつも%{service_name}のご利用ありがとうございます。%{author}さんより新しいコメントがありましたのでお知らせいたします。"
       listing_you_follow_has_a_new_comment: "いつも%{service_name}のご利用ありがとうございます。%{author}さんより新しいコメントがありましたのでお知らせいたします。"
       has_commented_listing_you_follow_in_kassi: "いつも%{service_name}のご利用ありがとうございます。「%{listing}」で%{author}さんより新しいコメントがありましたのでお知らせいたします。"
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: メッセージを閲覧
       has_sent_you_a_message_in_kassi: "%{sender}さんは%{service_name}でメッセージを送信しました。"
       you_have_a_new_message: "%{service_name}の%{sender_name}さんから新しいメッセージがあります"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: 新しいお支払いを受け取りました
       price_per_unit_type: "%{unit_type}ごとの料金"
@@ -1503,6 +1547,11 @@ ja:
       you_have_received_new_payment: "%{payer_full_name} から<b>%{listing_title}  </b>に<b>%{payment_sum} </b>が支払われました。こちらはその領収書です。"
       stripe:
         you_have_received_new_payment: "<b>%{payment_sum}  </b>の金額が、%{payer_full_name} から<b>%{listing_title}  </b>に支払われました。注文が完了としてマークされるまで、お金は%{service_name} によって保持されています。こちらは領収書です。"
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: お支払いの領収書
       you_have_made_new_payment: "<b>%{listing_title} </b>の<b>%{payment_sum}  </b>を%{recipient_full_name} に支払いました。これが支払いの領収書です。"
@@ -1518,6 +1567,11 @@ ja:
       stripe_gateway_fee: ストライプ手数料
       paypal_gateway_fee: PayPalの手数料
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: PayPalの手数料：
       shipping_total: 送料：
@@ -1547,6 +1601,8 @@ ja:
       has_given_you_feedback_in_kassi: "%{name}さんは%{service_name}であなたにレビューを書きました"
       you_can_give_feedback_to: "%{name}さんにまだレビューを書いていません。"
       view_feedback: レビューを閲覧
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: あなたがフォローしている投稿が更新されました
       has_updated_listing_you_follow_in_kassi: "いつも%{service_name}のご利用ありがとうございます。あなたがフォローしている%{author}さんの「%{listing}」ページが更新されましたのでお知らせいたします。"
@@ -1562,6 +1618,9 @@ ja:
       reduce_email_footer_text: "メールが多すぎますか。%{settings_link} or %{unsubscribe_link}"
       settings_link_text: ここからメール設定を編集
       unsubscribe_link_text: 購読を解除する
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "%{name}さん、こんにちは"
       newest_offers: 他の人が何をオファーしているのか見てみましょう
@@ -1573,6 +1632,10 @@ ja:
     testimonial_reminder:
       remember_to_give_feedback_to: "リマインダー：%{name}さんにレビューを書いてみませんか。"
       you_have_not_given_feedback_yet: "%{name}さんに「%{event}」の件でまだレビューを書いていないようです。この機会に、%{given_name}さんのレビューを是非お願いします。"
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester}さんは%{listing_title}に対してリクエストをし、お支払いが完了しました。"
       transaction_requested_by_user: "%{requester}さんは「%{listing_title}」に対してリクエストをし、お支払いが完了しました。"
@@ -1581,11 +1644,16 @@ ja:
       if_you_do_accept_stripe: "この期間内にリクエストを承認すると、支払いは完了します。あなたが%{listing_title} を%{requester} に送信することにより、あなたは自分の銀行口座に直接代金を受け取ることができます。"
       if_you_do_not_accept: "この期間内にリクエストを却下した場合、または受け付けなかった場合、取引は自動的にキャンセルされ、%{requester} は請求されず、支払いも行われません。"
       click_here_to_reply: リクエストを確認する
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "%{requester}からの%{listing_title}のリクエストを承認してください。"
       remember_to_accept: "%{listing_title}のリクエストを承認してください。%{requester}さんは既にお支払手続を完了しています。支払代金を受け取るにはリクエストの承認が必要です。"
       one_day_left: １日以内に承認しない場合は自動的にキャンセルとなりますのでご注意ください。
       click_here_to_reply: リクエストを確認する
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "%{service_name}へようこそ"
       welcome_to_marketplace: "%{service_name}へようこそ！よくお越しくださいました。"
@@ -1597,12 +1665,22 @@ ja:
       has_posted_a_new_listing: "%{author_name}さんが新しい投稿を投稿をしました："
       you_are_receiving_this_because: "あなたが%{author_name}さんをフォローしているので、このお知らせを送らせていただいております。"
       view_listing: 投稿を見る
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "%{community}に新しいメンバーが参加しました。新メンバーは、メールアドレスを認証する必要があります。"
       this_is_automatic_message: "これは%{community}の管理者に自動送信されるメッセージです。"
       person_name: お名前：
       person_email: メールアドレス：
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1629,6 +1707,15 @@ ja:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: 問題が起きたため取引リクエストが完了しませんでした、再度お試しください。お支払いも実行されませんでしたのでご安心ください。

@@ -1135,6 +1135,8 @@ da-DK:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1412,11 +1414,18 @@ da-DK:
       if_will_not_happen_you_should_cancel: "Hvis du ikke tror at anmodningen vil blive godkendt, kan du %{cancel_it_link}."
       cancel_it_link_text: "annullere din anmodning"
       automatic_confirmation: "Hvis du ikke acceptere eller afviser anmodningen inden %{days_to_automatic_confirmation} dage efter anmodningen blev accepteret, vil vi automatisk markere den som godkendt."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Husk at udfylde dine betalingsoplysninger"
       you_have_added_listing_with_payment: "Du har oprettet en annonce %{listing_link} med betaling, men du har ikke tilføjet dine betalingsoplysninger, der er nødvendigt for at kunne modtage betalinger."
       please_go_to_payment_settings: "Gå venligst til %{payment_settings_link} og udfyld dine betalingsoplysninger."
       payment_settings_link: Betalinger
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Her er en besked fra %{other_party_given_name}:"
       request_marked_as_confirmed: "Anmodning godkendt - husk at give feedback"
@@ -1428,12 +1437,29 @@ da-DK:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} har markeret ordren om %{request} som færdiggjort. Betalingen for denne transaktion er blevet overført til din konto. Du kan nu give feedback til %{other_party_given_name}."
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Anmodningen blev automatisk godkendt - husk at give feedback"
       we_have_marked_request_as_confirmed: "Vi har markeret anmodningen om '%{request}' som godkendt. Anmodningen blev automatisk godkendt fordi der er gået %{days_passed} dage, siden anmodningen blev accepteret."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Anmodningen blev automatisk godkendt - husk at give feedback"
       we_have_marked_request_as_confirmed: "Vi har markeret anmodningen om '%{request}' som godkendt. Anmodningen blev automatisk godkendt fordi der er gået en dag siden bookingen var overstået."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Du kan nu give feedback til %{other_party_given_name}. Det er altid en god idé at vurdere hinanden. Hvis alt gik godt, kan du fortælle andre, at de kan have tillid til %{other_party_given_name}. Hvis der var nogen problemer, kan du nævne dem også."
       give_feedback_to: "Giv feedback til %{other_party_given_name}"
@@ -1443,6 +1469,11 @@ da-DK:
       need_to_confirm: "Du skal bekræfte din email."
       confirmation_link_text: "Bekræft min email"
       or_paste_link: "Alternativt kan du kopiere nedenstående link og åbne det i din browsers adressefelt:"
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Hej %{name}"
       kassi_team: "%{service_name}-Teamet"
@@ -1456,6 +1487,7 @@ da-DK:
       unsubscribe_from_these_emails: "afmeld disse emails"
       unsubscribe_from_invitation_emails_info: "Du har modtaget denne mail fordi en bruger fra %{service_name} har inviteret dig."
       unsubscribe_from_invitation_emails: "Unsubscribe fra invitationsmail til %{service_name}"
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har accepteret dit tilbud %{listing}"
       has_accepted_your_request: "%{accepter} har accepteret din anmodning %{listing}"
@@ -1469,22 +1501,34 @@ da-DK:
       you_can_now_pay_to: "Du kan nu betale %{payment_receiver}."
       pay_now: "Betal nu"
       remember_to_confirm: "Når anmodningen er godkendt, så husk at markere den som godkendt. Hvis anmodningen ikke er afsendt har du %{days_to_automatic_confirmation} dage til at annullere ordren. Ellers vil den automatisk blive markeret som godkendt."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Hej!
       you_have_been_invited_to_kassi: "%{inviter} har inviteret dig til %{service_name}"
       here_is_a_message_from: "Her er en personlig besked fra %{inviter}:"
       join_now: "Opret nu"
       invitation_code: "Invitationskode: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} har kommenteret på din annonce '%{listing}'."
       view_comment: "Se kommentar"
       you_have_a_new_comment: "%{author} har kommenteret på din annonce på %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} har kommenteret på et opslag, som du følger på %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} har kommenteret på annoncen '%{listing}' som du følger på %{service_name}."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Se besked"
       has_sent_you_a_message_in_kassi: "%{sender} har sendt dig en besked på %{service_name}"
       you_have_a_new_message: "En ny besked fra %{sender_name} på %{service_name}"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Du har modtaget en ny betaling"
       price_per_unit_type: "Pris pr. %{unit_type}"
@@ -1506,6 +1550,11 @@ da-DK:
       you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
       stripe:
         you_have_received_new_payment: "Beløbet <b>%{payment_sum}</b> er blevet betalt for <b>%{listing_title}</b> af %{payer_full_name}. Pengene bliver tilbageholdt af %{service_name} indtil ordren er blevet markeret som færdiggjort. Her er din kvittering."
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Kvittering for betaling"
       you_have_made_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{recipient_full_name} . Her er din kvittering."
@@ -1521,6 +1570,11 @@ da-DK:
       stripe_gateway_fee: "Stripe's omkostninger:"
       paypal_gateway_fee: "PayPal's omkostninger:"
       money_will_be_transferred: "Pengene vil blive overført til %{recipient_name} når du enten har markeret anmodningen som fuldført eller at der er gået %{automatic_confirmation_days} dage siden du har betalt."
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-gebyr:"
       shipping_total: "Levering:"
@@ -1550,6 +1604,8 @@ da-DK:
       has_given_you_feedback_in_kassi: "%{name} har givet dig feedback på %{service_name}"
       you_can_give_feedback_to: "Du har endnu ikke givet feedback til %{name}"
       view_feedback: "Se feedback"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Et opslag du følger er blevet opdateret"
       has_updated_listing_you_follow_in_kassi: "%{author} har opdateret annoncen '%{listing}' som du følger på %{service_name}."
@@ -1565,6 +1621,9 @@ da-DK:
       reduce_email_footer_text: "For mange emails? %{settings_link} eller %{unsubscribe_link}."
       settings_link_text: "Skift dine email indstillinger"
       unsubscribe_link_text: "afmeld emails"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Hej %{name},"
       newest_offers: "Hvad folk i øjeblikket tilbyder andre"
@@ -1576,6 +1635,10 @@ da-DK:
     testimonial_reminder:
       remember_to_give_feedback_to: "Påmindelse: Husk at give feedback til %{name}"
       you_have_not_given_feedback_yet: "Du har endnu ikke givet %{name} feedback på '%{event}'. Husk at give %{given_name} feedback."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} har anmodet og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har anmodet og betalt for \"%{listing_title}\""
@@ -1584,11 +1647,16 @@ da-DK:
       if_you_do_accept_stripe: "Hvis du accepterer anmodningen indenfor tidsfristen vil betalingen gå igennem. Du vil modtage pengene på din bankkonto efter du har udført %{listing_title} til %{requester}."
       if_you_do_not_accept: "Hvis du afviser denne anmodning eller ikke accepterer inden tidsfristen, så vil transaktionen automatisk blive annulleret og %{requester} vil ikke blive trukket og du vil ikke blive betalt."
       click_here_to_reply: "Klik her for at sende dit svar"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "Husk at godkende ansøgningen fra %{requester} omhandlende annoncen %{listing_title}"
       remember_to_accept: "Husk at acceptere anmodningen fra %{requester} omhandlende \"%{listing_title}\". %{requester} har allerede betalt for dit produkt. Du skal godkende på siden, for at modtage dine penge."
       one_day_left: "Hvis du ikke accepterer anmodningen inden for en dag, bliver anmodningen automatisk afvist, og du vil ikke blive betalt."
       click_here_to_reply: "Klik her for at sende dit svar"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "Velkommen til %{service_name}"
       welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for at have dig med."
@@ -1600,12 +1668,22 @@ da-DK:
       has_posted_a_new_listing: "%{author_name} har oprettet en ny annonce:"
       you_are_receiving_this_because: "Du har modtaget denne mail, fordi du følger %{author_name}."
       view_listing: "Vis annonce"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "Et nyt medlem har tilmeldt sig %{community}. Medlemmet skal muligvis bekræfte sin e-mail-adresse først."
       this_is_automatic_message: "Dette er en automatisk meddelelse sendt til administratorer af %{community}."
       person_name: "Navn:"
       person_email: "E-mail:"
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1632,6 +1710,15 @@ da-DK:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: |-

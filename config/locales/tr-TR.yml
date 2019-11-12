@@ -1120,6 +1120,8 @@ tr-TR:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
+        delivery: ~
+        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1400,11 +1402,18 @@ tr-TR:
       if_will_not_happen_you_should_cancel: "Eğer herhangi bir sebepten ötürü bu talebin gerçekleşmeyeceğine inanıyorsanız, %{cancel_it_link}."
       cancel_it_link_text: "iptal edebilirsiniz"
       automatic_confirmation: "Eğer talebin kabulünden sonra %{days_to_automatic_confirmation} gün içerisinde bunu doğrulamaz ya da iptal etmezseniz, otomatik olarak tamamlandı olarak işaretleyeceğiz."
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Ödeme alabilmek için ödeme bilgilerinizi eklemeyi unutmayın"
       you_have_added_listing_with_payment: "Ödemeli bir %{listing_link} ilan eklediniz. Ancak, ödeme bilgilerinizi girmediniz. Ödeme alabilmek için, ödeme bilgilerinizi eklemeniz gerekmektedir."
       please_go_to_payment_settings: "Lütfen %{payment_settings_link} sayfasına gidip gerekli ödeme bilgilerini ekleyin."
       payment_settings_link: "ödeme ayarları"
+    payment_settings_reminder_v2:
+      hi: ~
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "%{other_party_given_name}'den gelen mesaj burada:"
       request_marked_as_confirmed: "Talep tamamlandı - geri bildirim bırakmayı unutmayın"
@@ -1416,12 +1425,29 @@ tr-TR:
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: ~
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      team_title: ~
     transaction_automatically_confirmed:
       subject: "Talep otomatik olarak tamamlandı - geri bildirim bırakmayı unutmayın"
       we_have_marked_request_as_confirmed: "'%{request}' hakkındaki talebi tamamlandı olarak işaretledik. Talebin kabulünün üzerinden %{days_passed} gün geçtiği için, talep otomatik olarak tamamlandı."
+    transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Talep otomatik olarak tamamlandı - geri bildirim bırakmayı unutmayın"
       we_have_marked_request_as_confirmed: "'%{request}' hakkındaki talebi tamamlandı olarak işaretledik. Rezervasyon süresinin bitişinin üzerinden bir gün geçtiği için, talep otomatik olarak tamamlandı."
+    booking_transaction_automatically_confirmed_v2:
+      headline: ~
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Şimdi %{other_party_given_name} kullanıcısına geri bildirim bırakabilirsiniz.Geri bildirim bırakmak her zaman iyi bir fikirdir. Eğer her şey yolunda gittiyse, diğer üyelere %{other_party_given_name} üyesinin güvenilir olduğunu bildirmelisiniz. Eğer sorun yaşadıysanız, bunlardan bahsetmekte de fayda var."
       give_feedback_to: "%{other_party_given_name} kullanıcısına geri bildirim bırakın"
@@ -1431,6 +1457,11 @@ tr-TR:
       need_to_confirm: "E-posta adresinizi doğrulamanız gerekmektedir."
       confirmation_link_text: "E-posta adresimi doğrula"
       or_paste_link: "Ya da aşağıdaki linki tarayıcınızın adres çubuğuna kopyalayabilirsiniz."
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
     common:
       hey: "Merhaba %{name}"
       kassi_team: "%{service_name} Takımı"
@@ -1444,6 +1475,7 @@ tr-TR:
       unsubscribe_from_these_emails: "bu e-posta aboneliklerini sonlandır"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
+      best_regards: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}, %{listing} teklifini kabul etti."
       has_accepted_your_request: "%{accepter}, %{listing} talebini kabul etti."
@@ -1457,22 +1489,34 @@ tr-TR:
       you_can_now_pay_to: "Şimdi talep edilen bedeli %{payment_receiver} üyesine ödeyebilirsiniz."
       pay_now: "Şimdi ödeme yap"
       remember_to_confirm: "Talep gerçekleştirildiğinde, bunu tamamlandı olarak işaretlemeyi unutmayın. Eğer talebiniz gerçekleşmediyse, iptal etmek için %{days_to_automatic_confirmation} gününüz var. Aksi takdirde, otomatik olarak tamamlandı olarak işaretlenecektir."
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Selam!
       you_have_been_invited_to_kassi: "%{inviter} sizi %{service_name} pazar yerine davet etti."
       here_is_a_message_from: "%{inviter} size kişisel bir mesaj gönderdi:"
       join_now: "Şimdi katıl"
       invitation_code: "Davet kodu: %{code}"
+    invitation_to_kassi_v2:
+      headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} %{listing} ilanınıza yorum yaptı."
       view_comment: "Yorumu görüntüle"
       you_have_a_new_comment: "%{author} ilanına %{service_name} altında yorum yaptı"
       listing_you_follow_has_a_new_comment: "%{author} %{service_name}'de takip ettiğiniz bir ilan hakkında yorum yaptı"
       has_commented_listing_you_follow_in_kassi: "%{author} %{service_name}'de takip ettiğiniz %{listing} ilanına yorum yaptı."
+    new_comment_v2:
+      headline: ~
     new_message:
       view_message: "Mesajı görüntüle"
       has_sent_you_a_message_in_kassi: "%{sender} sana %{service_name} altında bir mesaj gönderdi."
       you_have_a_new_message: "%{service_name} altında %{sender_name}'den yeni bir mesaj var"
+    new_message_v2:
+      hi: ~
+      reply: ~
     new_payment:
       new_payment: "Yeni bir ödeme aldınız"
       price_per_unit_type: "%{unit_type} başına fiyat"
@@ -1494,6 +1538,11 @@ tr-TR:
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text: ~
+      main_text_stripe: ~
+      price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1509,6 +1558,11 @@ tr-TR:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+      main_text: ~
+      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal işlem ücreti:"
       shipping_total: "Kargo:"
@@ -1538,6 +1592,8 @@ tr-TR:
       has_given_you_feedback_in_kassi: "%{name}, %{service_name} altında sana bir geri bildirimde bulundu"
       you_can_give_feedback_to: "%{name} kullanıcısına henüz bir geri bildirim vermedin."
       view_feedback: "Geri bildirimi görüntüle"
+    new_testimonial_v2:
+      headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Takip ettiğiniz ilan güncellendi"
       has_updated_listing_you_follow_in_kassi: "%{author} %{service_name}'de takip ettiğiniz %{listing} ilanını güncelledi."
@@ -1553,6 +1609,9 @@ tr-TR:
       reduce_email_footer_text: "Çok fazla e-posta mı alıyorsunuz? %{settings_link} ya da %{unsubscribe_link}."
       settings_link_text: "E-posta ayarlarınızı buradan düzenleyin"
       unsubscribe_link_text: "Aboneliği sonlandır"
+    community_updates_v2:
+      headline: ~
+      intro_paragraph: ~
     newsletter:
       hi: "Merhaba %{name},"
       newest_offers: "Kullanıcıların şu anda teklif ettikleri"
@@ -1564,6 +1623,10 @@ tr-TR:
     testimonial_reminder:
       remember_to_give_feedback_to: "Hatırlatma: Lütfen %{name} kullanıcına geri bildirim vermeyi unutmayınız"
       you_have_not_given_feedback_yet: "%{name} kullanıcısına %{event} hakkında geri bildirim vermediniz. %{given_name} kullanıcısının bu konuda nasıl bir performans sergilediğine ilişkin geri bildirim vermeyi unutmayınız."
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} %{listing_title}'i talep etti ve ödeme yaptı"
       transaction_requested_by_user: "%{requester} \"%{listing_title}\"i talep etti ve ödeme yaptı"
@@ -1572,11 +1635,16 @@ tr-TR:
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: "isteği red eder iseniz ya da belirlenen sürede kabul etmez iseniz, işlem otomatik olarak iptal olur,  %{requester} ödeme alınmaz , ödeme yapılmaz."
       click_here_to_reply: "Talebe cevap vermek için buraya tıklayın"
+    transaction_preauthorized_v2:
+      headline: ~
     transaction_preauthorized_reminder:
       subject: "%{listing_title} listelemesi hakkında %{requester}'den gelen talebi kabul etmeyi unutmayın"
       remember_to_accept: "\"%{listing_title}\" listelemesi hakkında %{requester}'den gelen talebi kabul etmeyi unutmayın. %{requester} listeleme için ödemeyi gerçekleştirdi. Ödemeyi alabilmek için talebi kabul etmeniz gerekmektedir."
       one_day_left: "Talebi bir gün içerisinde kabul etmezseniz, otomatik olarak reddedilecek ve ödeme alamayacaksınız."
       click_here_to_reply: "Talebe cevap vermek için buraya tıklayın"
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
     welcome_email:
       welcome_email_subject: "%{service_name} pazar yerine hoş geldiniz!"
       welcome_to_marketplace: "%{service_name} pazar yerine hoş geldiniz! Sizi aramızda görmekten mutluyuz."
@@ -1588,12 +1656,22 @@ tr-TR:
       has_posted_a_new_listing: "%{author_name} yeni bir listeleme ekledi."
       you_are_receiving_this_because: "Bu bildiriyi %{author_name}'i takip ettiğiniz için aldınız."
       view_listing: "Listelemeyi görüntüle"
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "%{community} topluluğuna yeni bir üye katıldı. Hala e-posta adreslerini doğrulamaları gerekebilir."
       this_is_automatic_message: "Bu mesaj %{community} yöneticilerine otomatik olarak gönderilmiştir."
       person_name: Ad
       person_email: ~
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
@@ -1620,6 +1698,15 @@ tr-TR:
       sum: ~
       starter: ~
       provider: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

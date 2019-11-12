@@ -45,7 +45,7 @@ class ListingImage < ApplicationRecord
       :square => "408x408#",
       :square_2x => "816x816#"}
 
-  before_post_process :set_dimensions
+  before_image_post_process :set_dimensions
 
   before_create :set_position
 
