@@ -3,7 +3,7 @@
 .row.message-row
   .col-12.message-container
     - if message_or_action[:admin]
-      - avatar = @current_community.logo.present? ? @current_community.logo.url(:header_icon) : missing_avatar(:thumb)
+      - avatar = @current_community.logo.present? ? @current_community.logo.url(:header_icon_highres) : missing_avatar(:thumb)
     - else
       - avatar = message_or_action[:sender].image.present? ? message_or_action[:sender].image.url(:thumb) : missing_avatar(:thumb)
     %div{class: "message-avatar-#{avatar_side}"}
