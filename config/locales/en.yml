@@ -1244,6 +1244,7 @@ en:
     confirm:
       confirm_description: "If your order has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your order was not fulfilled, you can mark it as 'canceled'. You can still give feedback to the other party and describe what happened."
+      cancel_description_team: "If your order was not fulfilled, you can mark it as 'canceled'. The %{service_name} team will review the situation and will decide to refund or dismiss or cancelation request."
       cancel_payed_description: "If your request was accepted but you're having second thoughts, you can still cancel the request before the payment."
       canceling_payed_transaction: "Cancel transaction"
       confirm: "Mark completed"

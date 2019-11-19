@@ -57,4 +57,12 @@ class Person::TransactionConfirmationPresenter
   def can_transition_to?(state)
     TransactionService::StateMachine.can_transition_to?(transaction.id, state)
   end
+
+  def canceled_flow?
+    FeatureFlagHelper.feature_enabled?(:canceled_flow)
+  end
+
+  def give_feedback_class
+    canceled_flow? && cancel? ? 'hidden' : ''
+  end
 end
