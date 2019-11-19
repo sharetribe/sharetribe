@@ -4,131 +4,65 @@ class ConfirmConversationsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_confirm_or_cancel")
   end
 
-  before_action :fetch_conversation
-  before_action :fetch_listing
-
+  before_action :set_presenter
   before_action :ensure_is_starter
 
   def confirm
-    return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id) unless in_valid_pre_state?
+    unless @presenter.in_valid_pre_state?
+      return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @presenter.transaction.id)
+    end
 
-    conversation =      @listing_transaction.conversation
-    other_person =      @listing_transaction.other_party(@current_user)
-
-    render(locals: {
-      action_type: "confirm",
-      message_form: Message.new,
-      listing_transaction: @listing_transaction,
-      can_be_confirmed: can_be_confirmed?,
-      other_person: other_person,
-      status: @listing_transaction.status,
-      form: @listing_transaction
-    })
+    @presenter.action_type_confirm!
   end
 
   def cancel
-    unless in_valid_pre_state?
-      return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
+    unless @presenter.in_valid_pre_state?
+      return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @presenter.transaction.id)
     end
 
-    conversation =      @listing_transaction.conversation
-    other_person =      @listing_transaction.other_party(@current_user)
-
-    render(:confirm, locals: {
-      action_type: "cancel",
-      message_form: Message.new,
-      listing_transaction: @listing_transaction,
-      can_be_confirmed: can_be_confirmed?,
-      other_person: other_person,
-      status: @listing_transaction.status,
-      form: @listing_transaction
-    })
+    @presenter.action_type_cancel!
+    render :confirm
   end
 
   # Handles confirm and cancel forms
   def confirmation
-    status = params[:transaction][:status].to_sym
+    if service.process
+      flash[:notice] = service.flash_notice
 
-    if !TransactionService::StateMachine.can_transition_to?(@listing_transaction.id, status)
+      redirect_path =
+        if service.give_feedback
+          new_person_message_feedback_path(:person_id => @current_user.id, :message_id => service.transaction.id)
+        else
+          person_transaction_path(:person_id => @current_user.id, :id => service.transaction.id)
+        end
+
+      redirect_to redirect_path
+    else
       flash[:error] = t("layouts.notifications.something_went_wrong")
-      return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
+      redirect_to person_transaction_path(person_id: @current_user.id, message_id: service.transaction.id)
     end
-
-
-    msg = parse_message_param()
-    transaction = complete_or_cancel_tx(@current_community.id, @listing_transaction.id, status, msg, @current_user.id)
-
-    give_feedback = Maybe(params)[:give_feedback].select { |v| v == "true" }.or_else { false }
-
-    confirmation = ConfirmConversation.new(@listing_transaction, @current_user, @current_community)
-    confirmation.update_participation(give_feedback)
-
-    flash[:notice] = t("layouts.notifications.offer_#{status}")
-
-    redirect_path =
-      if give_feedback
-        new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @listing_transaction.id)
-      else
-        person_transaction_path(:person_id => @current_user.id, :id => @listing_transaction.id)
-      end
-
-    redirect_to redirect_path
   end
 
   private
 
-
-  def complete_or_cancel_tx(community_id, tx_id, status, msg, sender_id)
-    data = {
-      community_id: community_id,
-      transaction_id: tx_id,
-      message: msg,
-      sender_id: sender_id,
-      metadata: {
-        user_id: @current_user.id
-      }
-    }
-    if status == :confirmed
-      TransactionService::Transaction.complete(data)
-    else
-      TransactionService::Transaction.cancel(data)
-    end
-  end
-
-  def parse_message_param
-    if(params[:message])
-      message = Message.new(params.require(:message).permit(:content).merge({ conversation_id: @listing_transaction.conversation.id }))
-      if(message.valid?)
-        message.content
-      end
-    end
-  end
-
   def ensure_is_starter
-    unless @listing_transaction.starter == @current_user
+    unless @presenter.transaction.starter == @current_user
       flash[:error] = "Only listing starter can perform the requested action"
       redirect_to (session[:return_to_content] || root)
     end
   end
 
-  def fetch_listing
-    @listing = @listing_transaction.listing
+  def set_presenter
+    @presenter = Person::TransactionConfirmationPresenter.new(
+      community: @current_community,
+      user: @current_user,
+      params: params)
   end
 
-  def fetch_conversation
-    @listing_transaction = @current_community.transactions.find(params[:id])
+  def service
+    @service ||= TransactionService::Confirmation.new(
+      community: @current_community,
+      user: @current_user,
+      params: params)
   end
-
-  def in_valid_pre_state?
-    can_be_confirmed? || can_be_canceled?
-  end
-
-  def can_be_confirmed?
-    TransactionService::StateMachine.can_transition_to?(@listing_transaction.id, :confirmed)
-  end
-
-  def can_be_canceled?
-    TransactionService::StateMachine.can_transition_to?(@listing_transaction.id, :canceled)
-  end
-
 end
