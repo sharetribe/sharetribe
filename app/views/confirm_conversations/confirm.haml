@@ -1,23 +1,8 @@
 - content_for :extra_javascript do
   :javascript
-    (function() {
-      ST.initializeRadioButtons({
-        buttons: [".js-confirm-radio-button", ".js-cancel-radio-button"],
-        input: ".js-confirmation-status",
-        callback: function(selector) {
-          switch(selector) {
-            case ".js-confirm-radio-button":
-            $(".confirm-description").removeClass("hidden");
-            $(".cancel-description").addClass("hidden");
-            break;
-            case ".js-cancel-radio-button":
-            $(".cancel-description").removeClass("hidden");
-            $(".confirm-description").addClass("hidden");
-            break;
-          }
-        }
-      })
-    })();
+    ST.ConfirmConversation.init({
+    canceled_flow: #{@presenter.canceled_flow?}
+    });
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
@@ -39,7 +24,8 @@
         %div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
           = t("conversations.confirm.confirm_description")
         %div{:class => "cancel-description #{@presenter.cancel? ? '' : 'hidden'}"}
-          = t("conversations.confirm.cancel_description")
+          - key = @presenter.canceled_flow? ? 'cancel_description_team' : 'cancel_description'
+          = t("conversations.confirm.#{key}")
 
     - else
 
@@ -54,7 +40,7 @@
 
       = form.hidden_field :status, :value => "canceled"
 
-    .close-listing-radio-buttons
+    .close-listing-radio-buttons{:class => "#{@presenter.give_feedback_class}"}
 
       .checkbox-container
         = radio_button_tag "give_feedback", true, true, :id => "do_give_feedback"
