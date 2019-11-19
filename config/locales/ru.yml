@@ -10,14 +10,14 @@ ru:
       edit:
         edit_listing_category: "Редактировать категорию \"%{category}\""
       index:
-        listing_categories: "Категории публикаций"
+        listing_categories: "Категории объявлений"
         create_a_new_category: "+ Создать новую категорию"
         remove_category_confirmation: "Вы уверены что хотите удалить категорию \"%{category_name}\"?"
         saving_order: "Сохранение порядка категорий"
         save_order_successful: "Порядок категорий сохранен успешно"
         save_order_error: "При сохранении порядка категорий произошла ошибка. Пожалуйста обновите страницу и попробуйте снова."
       new:
-        new_listing_category: "Новая категория публикаций"
+        new_listing_category: "Новая категория объявлений"
       form:
         category_name:
           category_title: "Название категории"
@@ -26,7 +26,7 @@ ru:
           no_parent: "Нет вышестоящей"
         category_transaction_types:
           transaction_types: "Тип транзакции"
-          transaction_types_description: "Типы транзакций определяют какие типы транзакций допустимы для публикаций данной категории. Для примера, это продажа, аренда или в дар где есть бесплатная возможность."
+          transaction_types_description: "Типы транзакций определяют какие типы транзакций допустимы для объявлений данной категории. Для примера, это продажа, аренда или в дар где есть бесплатная возможность."
           select_all: "Выбрать все"
           clear_all: "Очистить все"
         buttons:
@@ -37,10 +37,10 @@ ru:
         remove_category_name: "Удалить категорию \"%{category_name}\""
         warning_remove_effects: "Предупреждение! Удаление категории \"%{category_name}\" отразиться на следующем:"
         warning_listing_will_be_moved:
-          one: "В категории есть %{count} публикация. Она будет перемещена в выбранную категорию."
-          few: "В категории есть %{count} публикаций. Они будут перемещены в выбранную категорию."
-          many: "В категории есть %{count} публикаций. Они будут перемещены в выбранную категорию."
-          other: "В категории есть %{count} публикаций. Они будут перемещены в выбранную категорию."
+          one: "В категории есть %{count} объявление. Оно будет перемещено в выбранную категорию."
+          few: "В категории есть %{count} объявлений. Они будут перемещены в выбранную категорию."
+          many: "В категории есть %{count} объявлений. Они будут перемещены в выбранную категорию."
+          other: "В категории есть %{count} объявлений. Они будут перемещены в выбранную категорию."
         warning_custom_field_will_be_moved:
           one: "В этой категории %{count} пользовательское поле. Будет перемещено в выбранную категорию."
           few: "В этой категории %{count} пользовательских полей. Будут перемещены в выбранную категорию."
@@ -52,16 +52,16 @@ ru:
           many: "В данной категории находятся %{count} субкатегорий. Они будут удалены."
           other: "В данной категории находятся %{count} субкатегорий. Они будут удалены."
         warning_with_subcategories_listing_will_be_moved:
-          one: "В данной категорий и подкатегориях находится %{count} публикация. Они будет перемещена в выбранную категорию. "
-          few: "В данной категории и субкатегориях находятся %{count} предложений. Они будут перемещены в выбранную категорию."
-          many: "В данной категории и субкатегориях находятся %{count} публикаций. Они будут перемещены в выбранную категорию."
-          other: "В данной категории и субкатегориях находятся %{count} публикаций. Они будут перемещены в выбранную категорию."
+          one: "В данной категорий и подкатегориях находится %{count} объявление. Оно будет перемещено в выбранную категорию. "
+          few: "В данной категории и субкатегориях находятся %{count} объявлений. Они будут перемещены в выбранную категорию."
+          many: "В данной категории и субкатегориях находятся %{count} объявлений. Они будут перемещены в выбранную категорию."
+          other: "В данной категории и субкатегориях находятся %{count} объявлений. Они будут перемещены в выбранную категорию."
         warning_with_subcategories_custom_field_will_be_moved:
           one: "В этой категории и субкатегориях находится %{count} персональное поле. Оно будет перемещено в выбранную категорию. "
           few: "В этой категории и субкатегориях находятся %{count} персональных полей. Они будут перемещены в выбранную категорию."
           many: "В этой категории и субкатегориях находятся %{count} персональных полей. Они будут перемещены в выбранную категорию."
           other: "В этой категории и субкатегориях находятся %{count} персональных полей. Они будут перемещены в выбранную категорию."
-        select_new_category: "Выберете новую категорию куда будут перемещены выбранные публикации:"
+        select_new_category: "Выберете новую категорию куда будут перемещены выбранные объявления:"
         buttons:
           remove: Удалить
           cancel: Отмена
@@ -95,7 +95,7 @@ ru:
         edit_info: "Редактировать информацию"
         see_how_it_looks_like: "Посмотреть как это выглядит"
         verification_to_post_listings_info_content: "Информационный текст для неподтвержденных участников"
-        verification_to_post_listings_info_content_description: "Сейчас вашим пользователям требуется быть подтвержденным вручную вами, чтобы они смогли размещать публикации. Здесь вы можете установить базовый текст который показывается для не-подтвержденных пользователей когда они пробуют создать новое размещение публикации."
+        verification_to_post_listings_info_content_description: "Сейчас вашим пользователям требуется быть подтвержденным вручную вами, чтобы они смогли размещать объявления. Здесь вы можете установить базовый текст который показывается для не-подтвержденных пользователей когда они пробуют создать новое размещение объявления."
         verification_to_post_listings_info_content_default: "%{service_name} требует, чтобы пользователи были подтверждены вручную администрацией до того, как они смогут создавать объявления. Вы еще не были подтверждены. Пожалуйста, %{contact_admin_link} для подтверждения."
         contact_admin_link_text: "свяжитесь с администратором"
         save: "Сохранить настройки"
@@ -111,7 +111,7 @@ ru:
         edit_community_look_and_feel: "Редактировать оформление «%{community_name}»"
         community_logo: Логотип
         community_logo_icon: "Лого для соц сетей и мобильных устройств"
-        community_logo_icon_mobile: "Лого для домашнего экрана на мобильных устройствах"
+        community_logo_icon_mobile: "Квадратный логотип"
         community_cover_photo: Обложка
         small_community_cover_photo: "Уменьшенное фото для обложки"
         favicon: "Значок для избранного и отображения во вкладке"
@@ -126,7 +126,7 @@ ru:
         logo_instructions_text_with_dimensions_no_placing: "Размер логотипа должен быть %{width} %{height}px."
         logo_icon_instructions_text_with_dimensions: "Этот квадратный лого будет показан когда люди делятся вашим проектом в Фейсбук, когда они просматривают ваш сайт на мобильных устройствах или когда они запоминают ваш сайт на главной странице их мобильного устройства. Размеры должны быть (по крайней мере) %{width}x%{height} px."
         logo_icon_instructions_text_with_dimensions_no_placing: "Данный логотип будет виден тем, кто делиться вашей страницей на Facebook или когда добавляют в избранное на главном экране своего мобильного устройства. Размеры должны быть (минимум) %{width}x%{height}px."
-        logo_mobile_icon_instructions_text_with_dimensions: "Этот квадратный логотип будет отображаться, когда люди добавят ваш сайт в закладки на главном экране своего мобильного устройства. Размеры должны составлять (как минимум)%{width} x%{height} пикселей."
+        logo_mobile_icon_instructions_text_with_dimensions: "Этот квадратный логотип будет отображаться, когда люди добавят ваш сайт в закладки на главном экране своего мобильного устройства. Размеры должны составлять (как минимум) %{width} x%{height} пикселей."
         cover_photo_visibility: "Обложка с фото будет показана на главной странице для не зарегистрированных пользователей."
         cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера %{see_how_it_looks_like}."
         we_have_you_covered: "Мы вас покрыли"
@@ -137,7 +137,7 @@ ru:
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса, введя его значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
         new_listing_button_instructions_text: ~
         default_browse_view: "Стандартный вид"
-        default_browse_view_instructions_text: "Стандартный вид используется на главной странице чтобы установить отображение публикаций по умолчанию"
+        default_browse_view_instructions_text: "Стандартный вид используется на главной странице чтобы установить отображение объявлений по умолчанию"
         grid: Сетка
         list: Список
         map: Карта
@@ -231,7 +231,7 @@ ru:
         join_with_invite_only: "Участники могут присоединиться к проекту только по приглашению других участников."
         users_can_invite_new_users: "Все участники могут приглашать новых участников в этот проект."
         private: "Этот проект приватный (только зарегистрированные участники могут видеть содержимое)"
-        require_verification_to_post_listings: "Только участники подтвержденные администратором могут размещать новые публикации"
+        require_verification_to_post_listings: "Только участники подтвержденные администратором могут размещать новые объявления"
         allow_free_conversations: "Разрешить пользователям свободно общаться друг с другом"
         search_preferences: "Настройки поиска"
         search_and_location_preferences: ~
@@ -246,9 +246,9 @@ ru:
         allow_users_to_add_location: ~
         listing_preferences: "Настройки предложений"
         transaction_preferences: "Настройки транзакции"
-        show_listing_publishing_date: "Отобразить дату публикации на странице публикации"
-        show_category_in_listing_list: "Показывать тип публикации"
-        listing_comments_in_use: "Позволить участникам комментировать публикации (видно для всех участников)"
+        show_listing_publishing_date: "Отобразить дату публикации на странице объявления"
+        show_category_in_listing_list: "Показывать тип объявления"
+        listing_comments_in_use: "Позволить участникам комментировать объявления (видно для всех участников)"
         email_preferences: "Настройки e-mail"
         automatic_newsletters: "Автоматически отправлять ежедневно/еженедельно новости всем участникам (пока они не откажутся от подписки)"
         email_admins_about_new_members: "Уведомлять администратора о каждом новом участнике по email"
@@ -328,8 +328,8 @@ ru:
         link_for_twitter: "для Twitter"
         social_media_description: "Описание социальной сети"
         twitter_handle: "Twitter аккаунт"
-        twitter_handle_info_text: "Twitter аккаунт вашего проекта (если есть). Будет упоминаться когда люди используют кнопку tweet на странице публикации."
-        twitter_handle_info_text_with_instructions: "Login Twitter аккаунта вашего маркетплейс (если сть). Он будет упоминаться когда люди используют кнопку tweet на странице публикации. %{instructions_link}."
+        twitter_handle_info_text: "Twitter аккаунт вашего проекта (если есть). Будет упоминаться когда люди используют кнопку tweet на странице объявления."
+        twitter_handle_info_text_with_instructions: "Login Twitter аккаунта вашего маркетплейс (если есть). Он будет упоминаться когда люди используют кнопку tweet на странице объявления. %{instructions_link}."
         twitter_instructions_link_text: "Узнать больше"
         twitter_handle_placeholder: Логин
         invalid_twitter_handle: "Название twitter аккаунта максимум должно содержать 15 знаков (буквы A-Z И цифры 0-9)."
@@ -415,7 +415,7 @@ ru:
         google_analytics_key_info_text_with_instructions: "Tracking ID вашего Google Analytics аккаунта. %{instructions_link}."
         google_analytics_instructions_link_text: "Узнать больше о подключении Google Analytics"
         sharetribe_analytics: "Аналитика Sharetribe"
-        sharetribe_analytics_info_text_with_instructions: "Чтобы улучшить услуги и поддержку Sharetribe, Sharetribe отслеживает активность участников рынка. Личные данные не собираются, и эта информация не передается за пределами команды Sharetribe. Это отслеживание может быть полностью отключено. %{instructions_link}"
+        sharetribe_analytics_info_text_with_instructions: "Чтобы улучшить услуги и поддержку Sharetribe, Sharetribe отслеживает активность участников проекта. Личные данные не собираются, и эта информация не передается за пределами команды Sharetribe. Это отслеживание может быть полностью отключено. %{instructions_link}"
         sharetribe_analytics_instructions_link_text: "Узнайте больше об аналитике Sharetribe."
         end_user_analytics: "Разрешить Sharetribe отслеживать активность участников в целях улучшения услуг Sharetribe"
         save: "Сохранить настройки"
@@ -473,7 +473,7 @@ ru:
           payment_intent_action_expired: Истекло
         headers:
           conversation: Обсуждение
-          listing: Публикация
+          listing: Объявление
           status: Статус
           sum: Сумма
           started: Начато
@@ -589,8 +589,8 @@ ru:
           used: Использовано
           date_sent: "Дата отправки"
       listings:
-        listings: Публикации
-        search_by_title_author_category: "Поиск по названию публикации, автору или названию категории"
+        listings: Объявления
+        search_by_title_author_category: "Поиск по названию объявления, автору или названию категории"
         search: Поиск
         reset_search: "Показать все"
         export_all_as_csv: "Экспортировать все как CSV"
@@ -617,7 +617,7 @@ ru:
         approval_pending: "В ожидании"
         approval_rejected: Отклонено
         form:
-          this_listing_has_not_not_been_approved_yet: "Эта публикация еще не был одобрена. Теперь вы можете принять решение одобрить или отклонить публикацию. Если вы утвердите публикацию, оно будет доступным для всех пользователей. Если вы отклоните публикацию, оно не будет публичным."
+          this_listing_has_not_not_been_approved_yet: "Это объявление еще не было одобрено. Теперь вы можете принять решение одобрить или отклонить объявление. Если вы утвердите объявление, оно будет доступным для всех пользователей. Если вы отклоните объявление, оно не будет публичным."
           approve: Подтвердить
           reject: Отказать
           cancel: Отменить
@@ -812,7 +812,7 @@ ru:
           info: ~
     custom_fields:
       edit:
-        edit_listing_field: "Редактировать поле публикации \"%{field_name}\""
+        edit_listing_field: "Редактировать поле объявления \"%{field_name}\""
       edit_price:
         description: "Минимальная и максимальная цена влияет только на фильтр. Для прейскурантных цен нет ограничений."
         edit_price_field: "Редактировать поле цены"
@@ -835,15 +835,15 @@ ru:
           date_cant_be_filtered: "Нет фильтра для поля с указанием даты."
           text_cant_be_filtered: "Нет фильтра для поля ввода текста. Основной текстовый поиск осуществляется по текстовым полям."
       index:
-        listing_fields: "Поля и фильтры для публикаций"
-        listing_fields_help: "Здесь вы можете редактировать поля которые участники должны заполнить когда они создают новую публикацию. Пожалуйста имейте ввиду что некоторые поля предопределены и не не могут быть редактируемые."
+        listing_fields: "Поля и фильтры для объявлений"
+        listing_fields_help: "Здесь вы можете редактировать поля которые участники должны заполнить когда они создают новое объявление. Пожалуйста имейте ввиду что некоторые поля предопределены и не могут быть изменены."
         add_new_field: "Добавить новое поле"
         remove_field_confirmation: "Вы уверены что хотите удалить поле \"%{field_name}\"?"
         cancel: Отмена
         save: Сохранить
         field_title: "Наименование поля"
         field_type: "Тип поля"
-        categories: "Категории публикаций где данное поле используется"
+        categories: "Категории объявлений где данное поле используется"
         select_all: "Выбрать все"
         clear_all: "Очистить все"
         options: Варианты
@@ -857,7 +857,7 @@ ru:
         maximum_value: Максимум
         allow_decimals: "Разрешены десятичные значения"
       new:
-        new_listing_field: "Новое поле публикации"
+        new_listing_field: "Новое поле объявления"
       field_types:
         text: Текст
         number: Число
@@ -1002,7 +1002,7 @@ ru:
         few: "Хотите закрыть %{count} объявления?"
         many: "Хотите закрыть %{count} объявлений?"
         other: "Хотите закрыть %{count} объявлений?"
-      successfully_closed: "Публикации успешно закрыты"
+      successfully_closed: "Объявления успешно закрыты"
       successfully_deleted: "Успешно удален тип '%{order_type}' закаа"
       pricing_and_checkout_title: "Цена & расчет"
       online_payments_label: ~
@@ -1087,7 +1087,7 @@ ru:
       stripe_fee_notice: "%{stripe_fee_link} будет вычтена из комиссии за транзакцию, которую вы взимаете."
       fee_should_be_less_than_minimum_price: "Минимальная комиссия за транзакцию должна быть ниже минимального размера транзакции"
       the_transaction_fee_must_be_lower_than_100: "Комиссия за транзакцию должна быть ниже 100%"
-      confirm_disable: "Вы уверены, что хотите отключить%{gateway}? Если вы отключите его, продавцы больше не смогут получать деньги, а покупатели больше не смогут платить через этот способ оплаты. Если продавцы не настроили другой способ оплаты, покупатели не смогут покупать у них."
+      confirm_disable: "Вы уверены, что хотите отключить %{gateway}? Если вы отключите его, продавцы больше не смогут получать деньги, а покупатели больше не смогут платить через этот способ оплаты. Если продавцы не настроили другой способ оплаты, покупатели не смогут покупать у них."
       commission_from_buyer_label: "Комиссия за транзакцию покупателя:"
       minimum_buyer_transaction_fee_label: "Минимальная комиссия за транзакцию для покупателя:"
       stripe_connected:
@@ -1238,7 +1238,7 @@ ru:
       accept_request: "Принять запрос"
       reject_offer: "Не сейчас"
       reject_request: "Не сейчас"
-      close_listing: "Закрыть публикацию %{listing_title_link}"
+      close_listing: "Закрыть объявление %{listing_title_link}"
       update_later: "Оставить размещения открытыми"
       optional_message: "Сообщение (необязательно)"
       price_to_pay: "Сумма к оплате"
@@ -1319,10 +1319,10 @@ ru:
       you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
       title: Заголовок
       send_message_to_user: "Отправить сообщение %{person}"
-      about_listing: "О публикации %{listing_title}"
+      about_listing: "Об объявлении %{listing_title}"
       author_has_to_accept_request: "%{author_name} нужно принять запрос от вас до того как вы будете оплачивать"
     show:
-      in_response_to_listing: "о публикации"
+      in_response_to_listing: "об объявлении"
       message_sent_by: "Сообщение отправлено"
       message_sent_to: "Сообщение отправлено"
       send_reply: "Отправить ответ"
@@ -1443,7 +1443,7 @@ ru:
       you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Не забудьте указать ваши реквизиты для приема оплаты."
-      you_have_added_listing_with_payment: "Вы добавили публикацию %{listing_link} с оплатой. Однако, вы еще не добавили ваши платежные данные. Чтобы получить оплату вам необходимо указать платежную информацию."
+      you_have_added_listing_with_payment: "Вы добавили объявление %{listing_link} с оплатой. Однако, вы еще не добавили ваши платежные данные. Чтобы получить оплату вам необходимо указать платежную информацию."
       please_go_to_payment_settings: "Пожалуйста перейдите в %{payment_settings_link} и укажите необходимую информацию."
       payment_settings_link: "настройки оплаты"
     payment_settings_reminder_v2:
@@ -1539,11 +1539,11 @@ ru:
     invitation_to_kassi_v2:
       headline: ~
     new_comment:
-      has_commented_your_listing_in_kassi: "%{author} оставил комментарий на вашу публикацию %{listing}"
+      has_commented_your_listing_in_kassi: "Пользователь %{author} оставил комментарий на ваше объявление %{listing}"
       view_comment: "Просмотреть комментарий"
       you_have_a_new_comment: "%{author} оставил комментарий на ваш запрос в %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} прокомментировал листинг, за которым вы следите в %{service_name}"
-      has_commented_listing_you_follow_in_kassi: "%{author} прокомментировал публикацию \"%{listing}\", за которой вы следите в %{service_name}."
+      has_commented_listing_you_follow_in_kassi: "Пользователь %{author} прокомментировал объявление \"%{listing}\", за которым вы следите в %{service_name}."
     new_comment_v2:
       headline: ~
     new_message:
@@ -1632,12 +1632,12 @@ ru:
       headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Листинг, за которым вы следите, был обновлён"
-      has_updated_listing_you_follow_in_kassi: "%{author} обновил публикацию \"%{listing}\", за которой вы следите в %{service_name}."
+      has_updated_listing_you_follow_in_kassi: "Пользователь %{author} обновил объявление \"%{listing}\", за которым вы следите в %{service_name}."
       view_changes: "Просмотр изменений"
     community_updates:
-      added_offer: "%{name_link} добавил(а) публикацию:"
+      added_offer: "Пользователь %{name_link} добавил объявление:"
       added_request: "%{name_link} добавил(а) публикацию:"
-      added_listing: "%{name_link}  добавил(а) публикацию:"
+      added_listing: "Пользователь %{name_link} добавил объявление:"
       update_mail_title: "Обновления %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Несколько новостей %{community_link} за последние %{time_since_last_update}"
@@ -1664,17 +1664,17 @@ ru:
       you_have_not_given_feedback_yet: ~
       leave_feedback: ~
     transaction_preauthorized:
-      subject: "%{requester} запросил и оплатил за %{listing_title}"
+      subject: "Пользователь %{requester} запросил и оплатил за %{listing_title} на %{service_name}"
       transaction_requested_by_user: "%{requester} запросил и оплатил за \"%{listing_title}\""
-      you_have_time_to_accept: "Вам нужно принять или отклонить запрос в течении %{payment_expires_in}. Если вы примите запрос в течение этого времени, оплата будет произведена. Если вы отклоните, запрос будет автоматически отклонен и оплата Вам произведена не будет."
+      you_have_time_to_accept: "У вас есть %{payment_expires_in} чтобы принять или отклонить запрос. Если вы примите запрос в течение этого времени, оплата будет произведена. Если вы отклоните, запрос будет автоматически отклонен и оплата Вам произведена не будет."
       if_you_do_accept: "Если вы примите запрос в указанные сроки, то на ваш счет сразу же будут зачислены средства."
       if_you_do_accept_stripe: "Если вы примете запрос в течение этого срока, оплата будет произведена. Вы получите деньги прямо на свой банковский счет после того, как отправите%{listing_title} %{requester} ."
-      if_you_do_not_accept: "Если вы отклоните запрос или не примите его в указанные сроки, платеж будет автоматически отменен, средства со счета %{requester} не будут списаны, а вы не получите оплату."
+      if_you_do_not_accept: "Если вы отклоните запрос или не примете его в указанные сроки, платеж будет автоматически отменен, средства со счета %{requester} не будут списаны, а вы не получите оплату."
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
     transaction_preauthorized_v2:
       headline: ~
     transaction_preauthorized_reminder:
-      subject: "Не забудьте принять запрос от %{requester} о публикации %{listing_title}"
+      subject: "Не забудьте принять запрос от %{requester} об объявлении %{listing_title}"
       remember_to_accept: "Не забудьте принять запрос от %{requester} о новом размещении \"%{listing_title}\". %{requester} уже оплатил. Вы должны принять запрос чтобы получить оплату."
       one_day_left: "Если вы не примите запрос в течении одного дня запрос будет автоматически отменен и оплата не будет произведена."
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
@@ -1688,10 +1688,10 @@ ru:
       welcome_email_footer_text: "Какие типы сообщение вы хотите получать от %{service_name}? %{settings_link}"
       settings_link_text: "Проверьте настройки"
     new_listing_by_followed_person:
-      subject: "%{author_name} разместил новую публикацию в %{service_name}"
-      has_posted_a_new_listing: "%{author_name} разместил новую публикацию:"
+      subject: "Пользователь %{author_name} разместил новое объявление в %{service_name}"
+      has_posted_a_new_listing: "Пользователь %{author_name} разместил новое объявление:"
       you_are_receiving_this_because: "Вы получили это уведомление так как вы подписаны на %{author_name}."
-      view_listing: "Просмотр публикации"
+      view_listing: "Просмотр объявления"
     new_listing_by_followed_person_v2:
       headline: ~
       has_posted_a_new_listing: ~
@@ -1709,9 +1709,9 @@ ru:
       new_member_has_joined: ~
       view_profile: ~
     listing_submited_for_review:
-      subject: "Новая публикация для просмотра: \"%{listing_title}\" от%{author_name}в%{community}"
-      there_is_a_new_listing_to_review: "Появился новая публикация для просмотра: \"%{listing_title}\" от%{author_name}. Теперь вы должны одобрить или отклонить этот список."
-      review_the_listing: "Просмотреть новую публикацию"
+      subject: "Новое объявление для просмотра: \"%{listing_title}\" от%{author_name}в%{community}"
+      there_is_a_new_listing_to_review: "Появилось новое объявление для просмотра: \"%{listing_title}\" от%{author_name}. Теперь вы должны одобрить или отклонить это объявление."
+      review_the_listing: "Просмотреть новое объявление"
       this_is_automatic_message: "Это автоматическое сообщение, отправленное администраторам%{community}"
     listing_approved:
       subject: "Команда%{community}одобрила ваше объявление \"%{listing_title}''"
@@ -1721,11 +1721,11 @@ ru:
       subject: "Команда%{community}отклонила ваше объявление \"%{listing_title}\""
       listing_has_been_rejected: "К сожалению, команда%{community}отклонила ваше объявление \"%{listing_title}\" после тщательного рассмотрения. Вы можете%{contact_link} узнать больше или отредактировать свое объявление и отправить его на новое рассмотрение."
       contact_link: "свяжитесь с командой%{community}"
-      edit_the_listing: "Редактировать публикацию"
+      edit_the_listing: "Редактировать объявление"
     edited_listing_submited_for_review:
-      subject: "Отредактированная публикация для проверки: \"%{listing_title}\"%{author_name} в %{community}"
-      there_is_a_edited_listing_to_review: "Появилась новая публикация для проверки: \"%{listing_title}\" от %{author_name}. Теперь вы должны одобрить или отклонить эту публикацию."
-      review_the_listing: "Просмотрите отредактированную публикацию"
+      subject: "Отредактированное объявление для проверки: \"%{listing_title}\"%{author_name} в %{community}"
+      there_is_a_edited_listing_to_review: "Появилась новое объявление для проверки: \"%{listing_title}\" от %{author_name}. Теперь вы должны одобрить или отклонить это объявление."
+      review_the_listing: "Просмотрите отредактированное объявление"
     new_transaction:
       subject: ~
       there_is_a_new_transaction: ~
@@ -1784,7 +1784,7 @@ ru:
     error_410:
       page_removed: "Страница удалена"
       page_you_requested_has_been_removed: "Запрошенная вами страница была удалена"
-      page_removed_reason: "На это есть несколько причин. На пример, участник мог удалить свой аккаунт или публикации могли быть удалены."
+      page_removed_reason: "На это есть несколько причин. На пример, участник мог удалить свой аккаунт, или объявления могли быть удалены."
     error_410_title: "страница удалена"
     error_500:
       temporary_unavailable: "Площадка временно недоступна"
@@ -1845,7 +1845,7 @@ ru:
     about: "О проекте"
     home: Главная
     members: Сообщество
-    new_listing: "Новая публикация"
+    new_listing: "Новое объявление"
     mobile_version: "Мобильная версия"
     offers: Предложения
     requests: Запросы
@@ -1853,7 +1853,7 @@ ru:
     create_new_marketplace: "Создать новый проект"
     contact_us: "Связаться с нами"
     profile: Профиль
-    manage_listings: "Управление публикациями"
+    manage_listings: "Управление объявлениями"
     invite: "Пригласить новых участников"
     login: Войти
     signup: Зарегистрироваться
@@ -1900,8 +1900,8 @@ ru:
       processing_uploaded_image: "(Изображение в обработке...)"
     index:
       no_listings_with_your_search_criteria: "Мы не смогли найти результат совпадающий с поисковым запросом."
-      no_listings_notification: "Нет публикаций. %{add_listing_link}"
-      add_listing_link_text: "Добавить новую публикацию"
+      no_listings_notification: "Нет объявлений. %{add_listing_link}"
+      add_listing_link_text: "Добавить новое объявление"
       open_listing: "открытое объявление"
       open_listings: "открытые объявления"
       private_listing_notification_log_in: Войти
@@ -1961,7 +1961,7 @@ ru:
       map_button: Карта
       grid_button: Сетка
       list_button: Список
-      all_listing_types: "Все типы публикаций"
+      all_listing_types: "Все типы объявлений"
       all_categories: "Все категории"
     errors:
       search_engine_not_responding: "Поиск временно недоступен. Попробуйте повторить операцию позже."
@@ -2081,7 +2081,7 @@ ru:
       additional_email_confirmed: "Адрес электронной почты, указанный вами теперь подтвержден."
       could_not_get_email_from_social_network: "Не удалось получить адрес электронной почты от%{provider} и невозможно создать учетную запись без электронной почты."
       social_network_email_unconfirmed: "Адрес электронной почты \"%{email}\", связанный с вашей учетной записью%{provider} уже используется, но еще не подтвержден. Пожалуйста, подтвердите адрес электронной почты, прежде чем войти в систему с помощью%{provider}."
-      create_new_listing: "Создать другую публикацию"
+      create_new_listing: "Создать другое объявление"
       create_one_here: "создать её"
       email_confirmation_sent_to_new_address: "Письмо с ссылкой подтверждения отправлено на новый адрес."
       email_not_found: "Введённый вами адрес электронной почты не содержится в базе данных %{service_name}."
@@ -2111,13 +2111,13 @@ ru:
       offer_accepted: "Предложение подтверждено"
       offer_confirmed: "Предложение подтверждено"
       offer_closed: "Предложение закрыто"
-      listing_created_successfully: "Публикация создана успешно: %{new_listing_link}"
+      listing_created_successfully: "Объявление создано успешно: %{new_listing_link}"
       offer_rejected: "Предложение отклонено"
       offer_canceled: "Предложение отменено"
-      listing_updated_successfully: "Публикация обновлена успешно"
+      listing_updated_successfully: "Объявление обновлено успешно"
       listing_updated_availability_management_enabled: "Каталог успешно обновлен. Управление доступностью включено."
       listing_updated_availability_management_disabled: "Каталог успешно обновлен. Управление доступностью отключено."
-      listing_deleted: "Публикация удалена"
+      listing_deleted: "Объявление удалено"
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Листинг может закрыть только автор"
       only_listing_author_can_edit_a_listing: "Листинг может редактировать только автор"
@@ -2161,7 +2161,7 @@ ru:
       you_have_already_given_feedback_about_this_event: "Вы уже оставляли отзыв об этом событии"
       you_are_now_member: "Добро пожаловать в %{service_name}!"
       you_are_already_member: "Вы уже являетесь участником %{service_name}. С возвращением!"
-      you_must_log_in_to_create_new_listing: "Вы должны авторизоваться в %{service_name} для создания новой публикации. Если у вас нет учётной записи, вы можете %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Вы должны авторизоваться в %{service_name} для создания нового объявления. Если у вас нет учётной записи, вы можете %{sign_up_link}."
       additional_email_confirmed_dashboard: "Ваш адрес электронной почты подтверждён."
       you_must_log_in_to_give_feedback: "Вы должны войти, чтобы отправить отзыв"
       you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, вы должны войти в %{service_name}"
@@ -2183,7 +2183,7 @@ ru:
       can_not_delete_email: "Вы не можете удалить email адрес"
       user_does_not_have_email_to_delete: "У вас нет email адреса который вы пытаетесь удалить"
       email_deleted: "E-mail удален"
-      listing_author_payment_details_missing: "Создатель публикации не добавил детали оплаты поэтому они не получат оплату прямо сейчас. Пожалуйста свяжитесь с автором."
+      listing_author_payment_details_missing: "Создатель объявления не добавил детали оплаты поэтому они не получат оплату прямо сейчас. Пожалуйста свяжитесь с автором."
       listing_author_payment_details_missing_no_free: "Пожалуйста, свяжитесь с командой%{service_name}, чтобы попросить их связаться и посоветовать автору листинга обновить свои платежные реквизиты для получения платежей."
       images_are_processing: "Мы обрабатываем ваши изображения. Подождите несколько минут, и они будут загружены на сайт."
       maintenance_mode:
@@ -2204,8 +2204,8 @@ ru:
       paypal_payments: "PayPal платежи"
       stripe_payments: "Stripe платежи"
       payments: Платежи
-      listings: публикации
-      listings_search_placeholder: "Поиск по названию публикации"
+      listings: Объявления
+      listings_search_placeholder: "Поиск по названию объявления"
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "У вас нет прав для просмотра этой записи."
@@ -2220,26 +2220,26 @@ ru:
       send_comment: Отправить
       to_send_a_comment: "для отправки комментария."
       write_comment: "Новый комментарий:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "Вы не можете оставить новые комментарии так как данная публикация закрыта."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Вы не можете оставить новые комментарии так как данное объявление закрыто."
       you_must: "Вы должны"
       subscribe_to_comments: "Сообщать мне о новых комментариях и обновлениях"
     deleting_a_listing_cannot_be_undone: "Удаление списка не может быть отменено. Вы уверены, что хотите продолжить?"
     edit:
-      edit_listing: "Редактировать публикацию"
+      edit_listing: "Редактировать объявление"
     edit_links:
-      close_listing: "Закрыть публикацию"
-      edit_listing: "Редактировать публикацию"
-      reopen_listing: "Повторно открыть публикацию"
+      close_listing: "Закрыть объявление"
+      edit_listing: "Редактировать объявление"
+      reopen_listing: "Повторно открыть объявление"
       move_to_top: "Переместить на главную страницу"
       show_in_updates_email: "Показать в следующей рассылке"
       show_in_updates_email_loading: загрузка...
       show_in_updates_email_error: "Не удалось установить связь с сервером. Попробуйте еще раз после перезагрузки страницы."
-      show_in_updates_email_success: "Эта публикация будет показана в следующей автоматической рассылке отправляемой участникам"
-      listing_is_pending: "Публикация проходит модерацию"
+      show_in_updates_email_success: "Это объявление будет показано в следующей автоматической рассылке отправляемой участникам"
+      listing_is_pending: "Объявление проходит модерацию"
       listing_is_rejected: "Листинг отклонен"
       approve_listing: "Одобрить публикацию"
       reject_listing: "Отклонить задание"
-      delete_listing: "Удалить публикацию"
+      delete_listing: "Удалить объявление"
     map:
       open_in_google_maps: "Открыть карту Google"
     error:
@@ -2261,8 +2261,8 @@ ru:
         repeated: "Повторяющееся событие (добавьте время и даты в поле «подробное описание»)"
       description:
         detailed_description: "Подробное описание"
-        youtube_info: "Если ваша публикация содержит ссылки на YouTube, видео будет показано ниже публикации."
-        youtube_info_markdown: "Вы можете %{link}. Если ваша публикация содержит ссылки на YouTube, видео будет показано ниже публикации."
+        youtube_info: "Если ваше объявление содержит ссылки на YouTube, видео будет показано ниже публикации."
+        youtube_info_markdown: "Вы можете %{link}. Если ваше объявление содержит ссылки на YouTube, видео будет показано ниже объявления."
       destination:
         destination: "Пункт назначения"
       form_content:
@@ -2320,7 +2320,7 @@ ru:
         location: Местоположение
         origin: "Исходный пункт"
       send_button:
-        save_listing: "Сохранить публикацию"
+        save_listing: "Сохранить объявление"
         submit_for_review: "На модерацию"
         will_be_reviewed: "Все объявления %{service_name} проходят модерацию до публикации. Как только ваше объявление будет одобрено, вы будете информированы через email и оно будет доступно всем."
         we_noticed_youre_an_admin: "Мы заметили, что вы являетесь администратором%{service_name}. Ваши изменения будут применены автоматически и не требуют проверки или одобрения."
@@ -2405,19 +2405,19 @@ ru:
       end_time: "Время заверешения"
       marketplace_fees_may_apply: "Может взиматься плата в размере%{service_name}"
     new:
-      listing: публикация
+      listing: объявление
       selected_category: "Категория: %{category}"
       selected_subcategory: "Подкатегория: %{subcategory}"
-      selected_transaction_type: "Тип публикации: %{transaction_type}"
+      selected_transaction_type: "Тип объявления: %{transaction_type}"
       select_category: "Выберите категорию"
       select_subcategory: "Выберите подкатегорию"
-      select_transaction_type: "Выберите тип публикации"
-      you_need_to_fill_payout_details_before_accepting: "Вам нужно заполнить детали оплаты до того как вы создадите публикацию. Перейдите в %{payment_settings_link} чтобы заполнить детали."
+      select_transaction_type: "Выберите тип объявления"
+      you_need_to_fill_payout_details_before_accepting: "Вам нужно заполнить детали оплаты до того как вы создадите объявление. Перейдите в %{payment_settings_link} чтобы заполнить детали."
       contact_admin_link_text: "свяжитесь с администратором"
       community_not_configured_for_payments: "Сайт %{service_name} не был настроен для платежей, поэтому вы пока не можете размещать новые объявления. Пожалуйста, %{contact_admin_link} для уточнения деталей."
       payment_settings_link: "настройки оплаты"
-      community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые публикации сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
-      you_are_now_posting_a_listing_on_behalf_of: "Вы отправляйте публикацию от имени %{name}"
+      community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые объявления сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
+      you_are_now_posting_a_listing_on_behalf_of: "Вы публикуете объявление от имени %{name}"
     quantity:
       hour: "Количество часов:"
       day: "Количество дней:"
@@ -2430,7 +2430,7 @@ ru:
     quantity_placeholder: Количество
     please_comment: Комментарий
     reply_link:
-      listing_closed: "Публикация закрыта"
+      listing_closed: "Объявление закрыто"
     show:
       add_your_phone_number: "Добавить свой номер телефона"
       add_profile_picture: "Добавить изображение профиля"
@@ -2442,7 +2442,7 @@ ru:
       inquiry: Запрос
       item_offer_trade: "Предложение обмена"
       item_request_trade: "Запрос обмена"
-      no_description: "Эта публикация не содержит описания"
+      no_description: "Это объявление не содержит описания"
       no_image: "Нет изображения"
       no_reviews: "Нет полученных отзывов"
       offer: Предложение
@@ -2459,14 +2459,14 @@ ru:
       times: раз(а)
       times_viewed: Просмотрено
       processing_uploaded_image: "(Изображение в обработке...)"
-      listing_created_at: "Публикация создана"
+      listing_created_at: "Объявление создано"
       price:
         per_quantity_unit: "за %{quantity_unit}"
         per_day: "в день"
       delivery: "Способ доставки"
       shipping: "Доставка (+%{price})"
       shipping_no_price: Доставка
-      shipping_price_additional: "Доставка (+%{price}, дополнительно: +%{shipping_price_additional}"
+      shipping_price_additional: "Доставка (+%{price}, дополнительно: +%{shipping_price_additional})"
       pickup: "Самостоятельное получение"
       pickup_no_price: "Самостоятельное получение"
       youtube_video_player: "Видеопроигрыватель YouTube"
@@ -2588,12 +2588,12 @@ ru:
     paypal_account_connected_title: "PayPal аккаунт подключен"
     paypal_account_connected: "Аккаунт PayPal %{email} был подключен к %{service_name}."
     change_account: "Сменить PayPal аккаунт"
-    missing: "У вас есть открытые публикации, но ваш PayPal счет не подключен для получения платежей. Подключите ваш PayPal и разрешите %{service_name} снимать комиссию за транзакцию через %{settings_link}."
+    missing: "У вас есть открытые объявления, но ваш PayPal счет не подключен для получения платежей. Подключите ваш PayPal и разрешите %{service_name} снимать комиссию за транзакцию через %{settings_link}."
     from_your_payment_settings_link_text: "настройки оплаты"
     redirect_message: "Перенаправление на PayPal. Если ничего не произойдет, нажмите %{redirect_link}"
     redirect_link_text: здесь
     paypal_account_all_set_up: "Ура, все готово!"
-    can_receive_payments: "Теперь вы можете принимать оплату по своим публикациям."
+    can_receive_payments: "Теперь вы можете принимать оплату по своим объявлениям."
     paypal_account_connected_summary: "Аккаунт PayPal %{email} успешно подключен"
     paypal_permission_granted_summary: "Разрешение для комиссий за транзакции получено"
   paypal:
@@ -2647,16 +2647,16 @@ ru:
       privacy: Конфиденциальность
       visible_only_to_you: "видимо только вам"
       visible_to_everybody: "видимо для всех"
-      create_account_with_provider: "Зарегистрируйтесь с%{provider}"
+      create_account_with_provider: "Зарегистрируйтесь с %{provider}"
       OR: или
-      signup_with_email: "Зарегистрируйте используя адрес электронной почты"
+      signup_with_email: "Зарегистрируйтесь используя адрес электронной почты"
       this_field_will_be_publicly_visible: "(Это поле будет публичным)"
     profile_feedback:
       grade: "Оценка:"
       and_gave_following_feedback: "и оставил отзыв"
     profile_listings:
       no_image: "Нет изображения"
-      manage_listings: "Управлять всеми моими публикациями"
+      manage_listings: "Управлять всеми моими объявлениями"
     show:
       contact: "Связаться с %{person}"
       about_me: "Обо мне:"
@@ -2679,23 +2679,23 @@ ru:
       what_are_these: "Что это?"
       review: "получен отзыв"
       reviews: "получены отзывы"
-      listing: публикация
-      listings: публикации
+      listing: объявление
+      listings: объявления
       open_listing: "открытое объявление"
       open_listings: "открытые объявления"
-      no_listings: "Нет публикаций"
-      no_open_listings: "Нет открытых публикаций"
+      no_listings: "Нет объявлений"
+      no_open_listings: "Нет открытых объявлений"
       no_reviews: "Нет отзывов"
       show_all_listings: "Показать все предложения"
-      show_all_open_listings: "Показать все открытые публикации"
+      show_all_open_listings: "Показать все открытые объявления"
       show_all_reviews: "Показать все обзоры"
       admin_actions: "Действия администратора"
       post_listing_as: "Разместить объявление как"
     followed_people:
       you_follow_plural: "Вы подписаны на %{count} участников"
-      you_follow_singular: "Вы подписаны на %{count} участников"
+      you_follow_singular: "Вы подписаны на %{count} участника"
       they_follow_plural: "%{count} участников подписаны"
-      they_follow_singular: "%{count} участников подписаны"
+      they_follow_singular: "%{count} участник подписан"
       show_all_followed_people: "Показать всех подписчиков"
       no_followed_people: "Ни на кого не подписан(а)"
     follow_button:
@@ -2746,7 +2746,7 @@ ru:
       delete_account_confirmation_popup: "Вы уверены что хотите удалить ваш аккаунт и навсегда утратить информацию относящуюся к нему? Удаление аккаунта не может быть отменено."
       email_addresses: "Адреса e-mail"
       new_email: "Новый адрес электронной почты"
-      delete_personal_information: "Если вы удалите ваш аккаунт, ваша персональная информация (имя, телефон, адрес, email, аватар и тд) будут удалены постоянно и без восстановления. Все публикации которые вы создали будут удалены. Вы не сможете реактивировать ваш аккаунт."
+      delete_personal_information: "Если вы удалите ваш аккаунт, ваша персональная информация (имя, телефон, адрес, email, аватар и т.д.) будут удалены постоянно и без восстановления. Все объявления которые вы создали будут удалены. Вы не сможете реактивировать ваш аккаунт."
       delete_information_others_involved: "Информация в которую вовлечены другие участники (диалоги, транзакции, отзывы, и тд) не будут удалены при удалении вашего аккаунта. Однако, ваше имя/название более не будет отображаться."
       unfinished_transactions: "Ваш аккаунт не может быть удален так как вы имеете незавершенные транзакции. Пожалуйста завершите все транзакции перед удалением вашего аккаунта."
       only_admin: "Ваша учетная запись не может быть удалена, потому что вы являетесь единственным администратором маркетплейса."
@@ -2778,14 +2778,14 @@ ru:
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
-      email_daily_community_updates: "Оповещать <b>ежедневно</b> при наличии новых публикаций"
-      email_weekly_community_updates: "Оповещать <b>еженедельно</b> при наличии новых публикаций"
+      email_daily_community_updates: "Оповещать <b>ежедневно</b> при наличии новых объявлений"
+      email_weekly_community_updates: "Оповещать <b>еженедельно</b> при наличии новых объявлений"
       do_not_email_community_updates: "Не посылать мне рассылки"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
       email_about_completed_transactions: "...кто-то отметил мое предложение или запрос как выполенный"
       email_about_new_payments: "...я получил новый платеж"
-      email_about_new_listings_by_followed_people: "... кто-то на кого я подписан разместил новую публикацию"
+      email_about_new_listings_by_followed_people: "... кто-то на кого я подписан разместил новое объявление"
       unsubscribe_succesful: "Вы успешно отписались от рассылки!"
       unsubscribe_info_text: "Вы больше не будете получать подобные письма. Проверьте свои %{settings_link}, чтобы выбрать, какие письма вы хотели бы получать от %{service_name}, либо посетите %{homepage_link}"
       settings_link: настройки
@@ -2812,11 +2812,11 @@ ru:
       these_fields_are_shown_in_your: "Эта информация видна всем пользователям %{service_name}"
       visible_to_everybody: "видимо для всех"
       visible_to_registered_users: "(видимо только для зарегистрированных пользователей)"
-      default_in_listing: "(используется по умолчанию при создании новой публикации)"
+      default_in_listing: "(используется по умолчанию при создании нового объявления)"
       invisible: "(не видно другим участникам)"
       image_is_processing: "Подождите. Изображение вашего профиля обрабатывается. Будет готово через минуту или две."
       shown_in_your_public_profile: "(отображается в вашем общедоступном профиле)"
-      editing_profile_of: "Вы сейчас редактируете профиль%{name} "
+      editing_profile_of: "Вы сейчас редактируете профиль %{name}"
       format_markdown_link: "форматируйте ваше описание используя Markdown"
       format_markdown: "Вы можете%{link}."
     save_information: Сохранить
@@ -2858,7 +2858,7 @@ ru:
       negative: Отрицательный
       default_textual_feedback: "Всё прошло отлично, большое спасибо!"
     testimonial:
-      about_listing: "о публикации"
+      about_listing: "об объявлении"
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
@@ -3049,14 +3049,14 @@ ru:
       user: Пользователь
       inbox: Входящие
       profile: Профиль
-      manage_listings: "Управление публикациями"
+      manage_listings: "Управление объявлениями"
       settings: Настройки
       logout: Выйти
       login: Войти
       signup: Регистрация
       admin_dashboard: "Панель администратора"
       language: Язык
-      listings: "Мои публикации"
+      listings: "Мои объявления"
     utils:
       km: км
       mi: миль
@@ -3090,12 +3090,12 @@ ru:
         other: "Отображены все %{count} %{model}"
       single_page_html:
         zero: "%{model} не найдено "
-        one: "Показываем <b>1</b> %{model}"
-        few: "Показываем <b>all&nbsp;%{count}</b> %{model}"
-        many: "Показываем <b>all&nbsp;%{count}</b> %{model}"
-        other: "Показываем <b>all&nbsp;%{count}</b> %{model}"
+        one: "Показывается <b>1</b> %{model}"
+        few: "Показываются <b>all&nbsp;%{count}</b> %{model}"
+        many: "Показываются <b>all&nbsp;%{count}</b> %{model}"
+        other: "Показываются <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Отображается %{model} %{from}-%{to} из %{count} в общем"
-      multi_page_html: "Показываем %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b> в общем"
+      multi_page_html: "Показываются %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b> в общем"
     person:
       community_members_entries_info:
         single_page:
@@ -3106,10 +3106,10 @@ ru:
           other: "Отображение%{accepted_count} принято%{accepted_model} и %{other_count} другое %{other_model}"
         single_page_html:
           zero: "%{model} не найден"
-          one: "Отображение <b>%{accepted_count} </b>%{accepted_model} и%{other_count} другой%{other_model}"
-          few: "Отображение <b>%{accepted_count} </b>%{accepted_model} и%{other_count} другой%{other_model}"
-          many: "Отображение <b>%{accepted_count} </b>%{accepted_model} и%{other_count} другой%{other_model}"
-          other: "Отображение <b>%{accepted_count} </b>%{accepted_model} и%{other_count} другой%{other_model}"
+          one: "Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count} другой %{other_model}"
+          few: "Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count} другой %{other_model}"
+          many: "Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count} другой %{other_model}"
+          other: "Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count} другой %{other_model}"
         multi_page: "Отображение %{model} %{from} -%{to} из%{accept_count} принято % {accept_model} и%{other_count} другое%{other_model}"
         multi_page_html: "Отображение%{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>% {accept_count}</b> принятых%{accept_model} и %{other_count} других %{ other_model}"
   stripe_accounts:

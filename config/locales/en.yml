@@ -1133,20 +1133,20 @@ en:
     community_transactions:
       show:
         transaction_for: "Transaction #%{transaction_id} for %{link}"
-        status: 'Status:'
-        next_step: 'Next step:'
-        waiting_for_provider_accept_or_reject: 'Waiting for %{provider} to accept or reject the request.'
-        waiting_for_fulfill_and_complete: 'Waiting for %{provider} to fulfill the order for %{listing_title} and for %{buyer} to mark the order as completed.'
-        buyer: 'Buyer:'
-        provider: 'Seller:'
-        delivery: 'Delivery method:'
-        shipping_to: 'Shipping to %{address}'
-        buyer_pays: 'Buyer pays:'
-        marketplace_collects: '%{service_name} collects:'
-        buyer_service_fee_label: 'Commision from buyer:'
-        service_fee_label: 'Commision from seller:'
-        provider_receives: 'Seller receives:'
-        admin_info_text: 'As an administrator of %{service_name}, you can do some actions to move this transaction forward:'
+        status: "Status:"
+        next_step: "Next step:"
+        waiting_for_provider_accept_or_reject: "Waiting for %{provider} to accept or reject the request."
+        waiting_for_fulfill_and_complete: "Waiting for %{provider} to fulfill the order for %{listing_title} and for %{buyer} to mark the order as completed."
+        buyer: "Buyer:"
+        provider: "Seller:"
+        delivery: "Delivery method:"
+        shipping_to: "Shipping to %{address}"
+        buyer_pays: "Buyer pays:"
+        marketplace_collects: "%{service_name} collects:"
+        buyer_service_fee_label: "Commision from buyer:"
+        service_fee_label: "Commision from seller:"
+        provider_receives: "Seller receives:"
+        admin_info_text: "As an administrator of %{service_name}, you can do some actions to move this transaction forward:"
         manage_reviews: "Manage reviews"
   common:
     edit_page: "Edit page"
@@ -1444,7 +1444,7 @@ en:
       give_feedback_to: "Give feedback to %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} has marked the order about '%{request}' completed. The payment for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
-      team_title: 'the %{service_name} team'
+      team_title: "the %{service_name} team"
     transaction_confirmed_v2:
       headline_stripe_confirmed: "Hi %{recipient}, %{other_party_full_name} has marked the order about %{listing_link} completed."
       headline_confirmed: "Hi %{recipient}, %{other_party_full_name} has marked the order about %{listing_link} completed."
@@ -1453,7 +1453,7 @@ en:
         has_marked_request_as_confirmed: "The payment for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
       has_marked_request_as_confirmed: "You can now give feedback to %{other_party_given_name}."
       has_marked_request_as_canceled: "You can still give feedback to %{other_party_given_name}."
-      team_title: 'the %{service_name} team'
+      team_title: "the %{service_name} team"
     transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The order was automatically completed because %{days_passed} days have passed since the request was accepted."
@@ -1521,7 +1521,7 @@ en:
       join_now: "Join now"
       invitation_code: "Invitation code: %{code}"
     invitation_to_kassi_v2:
-      headline: Hi there!
+      headline: "Hi there!"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} has commented on your listing '%{listing}'."
       view_comment: "View comment"
@@ -1583,7 +1583,6 @@ en:
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b>."
       main_text: "Here is your receipt."
       main_text_stripe: "The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
-
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's fee:"
       shipping_total: "Shipping:"
@@ -3210,16 +3209,15 @@ en:
         youtube_video_id: "Youtube video ID"
   canada_states:
     AB: Alberta
-    BC: British Columbia
+    BC: "British Columbia"
     MB: Manitoba
-    NB: New Brunswick
-    NL: Newfoundland and Labrador
-    NS: Nova Scotia
-    NT: Northwest Territories
+    NB: "New Brunswick"
+    NL: "Newfoundland and Labrador"
+    NS: "Nova Scotia"
+    NT: "Northwest Territories"
     NU: Nunavut
-    'ON': Ontario
-    PE: Prince Edward Island
+    "ON": Ontario
+    PE: "Prince Edward Island"
     QC: Quebec
     SK: Saskatchewan
-    YT: Yukon Territory
-
+    YT: "Yukon Territory"
