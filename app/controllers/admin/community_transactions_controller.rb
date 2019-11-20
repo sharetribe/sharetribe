@@ -2,7 +2,7 @@ require 'csv'
 
 class Admin::CommunityTransactionsController < Admin::AdminBaseController
   before_action :set_selected_left_navi_link
-  before_action :set_presenter, only: [:index, :show, :confirm, :cancel]
+  before_action :set_presenter, only: [:index, :show, :confirm, :cancel, :refund, :dismiss]
 
   def index
     respond_to do |format|
@@ -55,6 +55,20 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
 
   def cancel
     unless @service.cancel
+      flash[:error] = t("layouts.notifications.something_went_wrong")
+    end
+    redirect_to admin_community_transaction_path(community_id: @service.community, id: @service.transaction)
+  end
+
+  def refund
+    unless @service.refund
+      flash[:error] = t("layouts.notifications.something_went_wrong")
+    end
+    redirect_to admin_community_transaction_path(community_id: @service.community, id: @service.transaction)
+  end
+
+  def dismiss
+    unless @service.dismiss
       flash[:error] = t("layouts.notifications.something_went_wrong")
     end
     redirect_to admin_community_transaction_path(community_id: @service.community, id: @service.transaction)

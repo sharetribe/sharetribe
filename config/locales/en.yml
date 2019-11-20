@@ -495,6 +495,8 @@ en:
             canceled: Canceled
             initiated: "Waiting PayPal payment"
             pending_ext: "Waiting PayPal payment"
+            refunded: Refunded
+            dismissed: Dismissed
           stripe:
             free: Conversation
             pending: Pending
@@ -509,6 +511,8 @@ en:
             payment_intent_requires_action: Pending
             payment_intent_action_expired: Expired
             payment_intent_failed: "Stripe payment failed"
+            refunded: Refunded
+            dismissed: Dismissed
         not_available: "Not available"
       conversations:
         conversations: Conversations
@@ -1148,6 +1152,8 @@ en:
         provider_receives: "Seller receives:"
         admin_info_text: "As an administrator of %{service_name}, you can do some actions to move this transaction forward:"
         manage_reviews: "Manage reviews"
+        you_should_investigate: "You should investigate the situation by discussion with both parties and decide to refund or dismiss the cancelation. %{learn_more_link}"
+        learn_more: Learn more.
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
@@ -1294,6 +1300,9 @@ en:
         held_payment_wo_sum: "Accepted the request. Payment is being held by %{service_name} until the order is marked as completed."
         confirmed_request: "Marked the order as completed. The payment has now been transferred to %{author_name} bank account or will be transferred soon."
       canceled_the_order: "Canceled the order. %{service_name} team has been notified."
+      marked_as_refunded: "Marked as refunded."
+      dismissed_the_cancelation: "Dismissed the cancelation."
+      payment_has_now_been_transferred: "The payment has now been transferred to %{seller} bank account or will be transferred soon."
     new:
       message: Message
       message_to: "Message to %{author_name}"
@@ -1372,6 +1381,8 @@ en:
       waiting_for_marketplace_review: Waiting for the %{service_name} team to review the situation.
       marketplace_notified: The %{service_name} has been notified. You can also %{contact_link} if you want to share more details with them.
       contact_them: contact them
+      refunded: Order marked as refunded.
+      dismissed: Order cancelation dismissed.
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
@@ -1383,6 +1394,8 @@ en:
       reject_preauthorized_request: "Not this time"
       confirm: "Mark completed"
       cancel: Cancel
+      mark_as_refunded: Mark as refunded
+      dismiss: Dismiss
   feedback:
     feedback_subject: "New feedback from %{service_name}"
     feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
