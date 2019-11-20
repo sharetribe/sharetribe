@@ -14,9 +14,14 @@ class TransactionCanceledJob < Struct.new(:conversation_id, :community_id)
     begin
       transaction = Transaction.find(conversation_id)
       community = Community.find(community_id)
-      MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community, :seller))
-      if transaction.last_transition_by_admin?
-        MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community, :buyer))
+      if FeatureFlag.feature_enabled?(community_id, :canceled_flow) &&
+         transaction.current_state == 'canceled'
+        send_transaction_canceled(transaction, community)
+      else
+        MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community, :seller))
+        if transaction.last_transition_by_admin?
+          MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community, :buyer))
+        end
       end
     rescue StandardError => ex
       puts ex.message
@@ -24,4 +29,17 @@ class TransactionCanceledJob < Struct.new(:conversation_id, :community_id)
     end
   end
 
+  def send_transaction_canceled(transaction, community)
+    TransactionMailer.transaction_canceled(transaction: transaction,
+                                           recipient: transaction.seller,
+                                           is_seller: true).deliver_now
+    TransactionMailer.transaction_canceled(transaction: transaction,
+                                           recipient: transaction.buyer,
+                                           is_seller: false).deliver_now
+    community.admins.each do |admin|
+      TransactionMailer.transaction_canceled(transaction: transaction,
+                                             recipient: admin,
+                                             is_admin: true).deliver_now
+    end
+  end
 end
