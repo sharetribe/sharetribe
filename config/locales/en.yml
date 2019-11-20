@@ -1728,6 +1728,18 @@ en:
       starter: "Starter:"
       provider: "Seller:"
       view_transaction: "View transaction"
+    transaction_canceled:
+      subject: Order canceled - The %{service_name} team is reviewing the situation
+      subject_admin: A transaction was canceled, you must decide what happens next
+      you_have_canceled: you have canceled %{transaction_link}.
+      the_order_about: the order about %{listing_title}
+      the_marketplace_has_been_notified: The %{service_name} has been notified and is reviewing the situation. You can contact them to share more details.
+      contact_the_marketplace_team: Contact the %{service_name} team
+      buyer_has_canceled: "%{buyer} has canceled %{transaction_link}."
+      their_order_with_seler: their order with %{seller}
+      you_must_now_decide: You must now decide if a refund should happen or if you dismiss the cancelation. You can %{learn_more_link}.
+      learn_more_about: learn more about what to do here
+      review_the_transaction: Review the transaction
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."

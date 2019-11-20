@@ -197,6 +197,26 @@ class TransactionMailer < ActionMailer::Base
     end
   end
 
+  # under :canceled_flow feature flag
+  def transaction_canceled(transaction:, recipient:, is_admin: false, is_seller: false)
+    @transaction = transaction
+    @is_admin = is_admin
+    @is_seller = is_seller
+    community = transaction.community
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.full_name(recipient.locale)
+      @skip_unsubscribe_footer = true
+      subject_key = is_admin ? 'subject_admin' : 'subject'
+      mail(to: recipient.confirmed_notification_emails_to,
+           from: community_specific_sender(community),
+           subject: t("emails.transaction_canceled.#{subject_key}")) do |format|
+             format.html { render v2_template(community.id, 'transaction_canceled'), layout: v2_layout(community.id) }
+      end
+    end
+
+  end
+
   private
 
   def premailer_mail(opts, &block)
