@@ -210,7 +210,7 @@ module TransactionHelper
   #     ]
   #   }
   # }
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def get_conversation_statuses(conversation, is_author)
     statuses = if conversation.listing && !conversation.status.eql?("free")
       status_hash = {
@@ -276,12 +276,24 @@ module TransactionHelper
           ]
         }
                    },
-        canceled: -> { {
-          both: [
-            status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
-            feedback_status(conversation)
-          ]
-        }
+        canceled: -> {
+          if FeatureFlagHelper.feature_enabled?(:canceled_flow)
+            contact_link = link_to t("conversations.status.contact_them"), new_user_feedback_path
+            {
+            both: [
+              status_info(t("conversations.status.order_canceled"), icon_classes: icon_for("canceled")),
+              status_info(t("conversations.status.waiting_for_marketplace_review"), icon_classes: 'ss-clock'),
+              status_info(t("conversations.status.marketplace_notified", contact_link: contact_link).html_safe, icon_classes: 'ss-mail'),
+            ]
+            }
+          else
+            {
+            both: [
+              status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
+              feedback_status(conversation)
+            ]
+            }
+          end
                   },
         rejected: -> { {
           both: [
@@ -310,7 +322,7 @@ module TransactionHelper
 
     statuses.flatten.compact
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   private
 
