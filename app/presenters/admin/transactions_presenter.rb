@@ -153,8 +153,12 @@ class Admin::TransactionsPresenter
     transaction.current_state == 'paid'
   end
 
+  def canceled?
+    transaction.current_state == 'canceled'
+  end
+
   def show_next_step?
-    preauthorized? || paid?
+    preauthorized? || paid? || (canceled_flow? && canceled?)
   end
 
   def buyer
@@ -198,5 +202,9 @@ class Admin::TransactionsPresenter
       end
     end
     @shipping_address
+  end
+
+  def canceled_flow?
+    FeatureFlagHelper.feature_enabled?(:canceled_flow)
   end
 end
