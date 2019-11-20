@@ -16,6 +16,8 @@ class TransactionProcessStateMachine
   state :canceled
   state :payment_intent_action_expired
   state :payment_intent_failed
+  state :refunded
+  state :dismissed
 
   transition from: :not_started,                    to: [:free, :initiated]
   transition from: :initiated,                      to: [:payment_intent_requires_action, :preauthorized]
@@ -23,6 +25,7 @@ class TransactionProcessStateMachine
   transition from: :preauthorized,                  to: [:paid, :rejected, :pending_ext, :errored]
   transition from: :pending_ext,                    to: [:paid, :rejected]
   transition from: :paid,                           to: [:confirmed, :canceled]
+  transition from: :canceled,                       to: [:refunded, :dismissed]
 
   after_transition(to: :paid, after_commit: true) do |transaction|
     payer = transaction.starter

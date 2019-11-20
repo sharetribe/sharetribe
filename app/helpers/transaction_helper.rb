@@ -181,6 +181,20 @@ module TransactionHelper
           text: t("conversations.status.payment_errored")
          }
       } },
+
+      refunded: ->() { {
+        both: {
+          icon: icon_tag("refund", ["icon-fix-rel", "confirmed"]),
+          text: t("conversations.status.refunded")
+         }
+      } },
+
+      dismissed: ->() { {
+        both: {
+          icon: icon_tag("dismiss", ["icon-fix-rel", "confirmed"]),
+          text: t("conversations.status.dismissed")
+         }
+      } },
     }
 
     Maybe(status_hash)[status.to_sym]

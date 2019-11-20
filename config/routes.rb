@@ -291,6 +291,8 @@ Rails.application.routes.draw do
           member do
             get :confirm
             get :cancel
+            get :refund
+            get :dismiss
           end
         end
         resources :conversations, controller: :community_conversations, only: [:index, :show]
