@@ -191,7 +191,11 @@ module TransactionViewUtils
       ActiveSupport::Deprecation.warn("Transaction state 'paid' without previous state is deprecated and will be removed in the future.")
       t("conversations.message.paid", sum: amount)
     when "canceled"
-      t("conversations.message.canceled_request")
+      if FeatureFlagHelper.feature_enabled?(:canceled_flow)
+        t("conversations.message.canceled_the_order")
+      else
+        t("conversations.message.canceled_request")
+      end
     when "confirmed"
       if payment_gateway == :stripe
         t("conversations.message.stripe.confirmed_request", author_name: author[:display_name])
