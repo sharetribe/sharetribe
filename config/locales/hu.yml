@@ -194,8 +194,8 @@ hu:
         en: Angol
         en-AU: "Angol (Ausztrália)"
         en-GB: "Angol (Egyesült Királyság)"
-        es: ~
-        es-ES: ~
+        es: Spanyol
+        es-ES: "Spanyol (Spanyolország)"
         fi: Finn
         fr: Francia
         fr-CA: "Francia (Kanada)"
@@ -261,14 +261,14 @@ hu:
         last_community_updates: "Kérjük vegye figyelembe, hogy a piactér törlését követően ön és a piactere felhasználói még utoljára kaphatnak tájékoztató e-maileket."
         you_will_be_redirected_to: "A piactere törlését követően önt átirányítjuk %{destination} oldalra. A továbbiakban nem lesz hozzáférése a piacteréhez."
         delete_this_marketplace: "Piactér törlése"
-        payment_preferences: ~
+        payment_preferences: "Fizetési rendszer"
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
         manage_members: "Felhasználók kezelése"
         email: E-mail
         name: Név
-        display_name: ~
+        display_name: "Megjelenési név"
         join_date: Csatlakozva
         admin: Rendszergazda
         posting_allowed: "Posztolás engedélyezve"
@@ -486,19 +486,19 @@ hu:
           none:
             free: ~
           paypal:
-            free: ~
-            pending: ~
+            free: Beszélgetés
+            pending: Függő
             preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            accepted: Elfogadott
+            rejected: Visszautasított
+            paid: Fizetett
+            confirmed: Befejezett
+            canceled: Törölt
             initiated: ~
             pending_ext: ~
           stripe:
-            free: ~
-            pending: ~
+            free: Beszélgetés
+            pending: Függő
             preauthorized: ~
             accepted: ~
             rejected: ~
@@ -886,15 +886,15 @@ hu:
         send_email_to_members: "E-mail küldése a felhasználóknak"
         send_email_to_members_title: "E-mail küldése az öszes felhasználónak"
         send_email: "E-mail küldése"
-        send_email_or: ~
-        send_test_email: ~
+        send_email_or: vagy
+        send_test_email: "Küldj egy teszt email-t magadnak"
         test_sent: ~
-        send_email_article_title: ~
+        send_email_article_title: "Ez a cikk"
         send_email_article_text: ~
         recipients:
           title: ~
           options:
-            all_users: ~
+            all_users: "Minden felhasználó"
             posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
@@ -929,7 +929,7 @@ hu:
       per_day_availability: "Naponta elérhető"
       per_night_availability: "Éjszakánként elérhető"
       pricing_units_disabled_info: "A Pricing unit nem használható ha a naptár funkció aktiválva van"
-      can_not_find_name: ~
+      can_not_find_name: "A megadott feltételeknek megfelelő megrendelés nem található: %{name}"
       index:
         listing_shapes: Ajánlattípusok
         description: |-
@@ -1036,19 +1036,19 @@ hu:
       minimum_listing_price_below_min: "A minimális tranzakció összege legyen nagyobb mint a minimális jutalék %{minimum_commission}."
     payment_preferences:
       title: ~
-      general_settings: ~
+      general_settings: "Általános beállítások"
       connect_a_payment_provider: ~
       contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
+      no_payments_link_text: itt
+      your_country: "Ország:"
       you_cannot_use_online_payments: ~
-      which_to_choose: ~
+      which_to_choose: "Melyiket válasszam?"
       you_can_use_stripe_or_paypal: ~
       you_can_use_stripe_only: ~
-      read_more_stripe: ~
+      read_more_stripe: "Bővebben a Stripe fizetésről."
       you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
+      read_more_paypal: "Bővebben a Paypal fizetésről"
+      read_more_about_paypal_and_stripe: "Bővebben az online fizetésről, Stripe és Paypal"
       general_settings_updated: ~
       transaction_fee_settings_updated: ~
       choose_popup_text: ~
@@ -1056,10 +1056,10 @@ hu:
       missing_api_keys: ~
       stripe_verified: ~
       change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
+      configure_stripe: "Stripe konfigurálása"
+      configure_paypal: "Paypal konfigurálása"
       transaction_fee_settings: ~
-      transaction_fee_save: ~
+      transaction_fee_save: Mentés
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
@@ -1068,12 +1068,12 @@ hu:
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
       stripe_connected:
-        title: ~
+        title: "Stripe csatlakoztatva"
         disable: ~
         disabled: ~
         enable: ~
       paypal_connected:
-        title: ~
+        title: "Paypal csatlakoztatva"
         disable: ~
         disabled: ~
         enable: ~
@@ -1089,13 +1089,13 @@ hu:
         invalid_secret: ~
         invalid_publishable: ~
       index:
-        header: ~
+        header: "Elérhető fizetési beállítások"
         info: ~
-        active: ~
+        active: Aktív
         gateway: ~
-        process: ~
+        process: Folyamat
         commission: ~
-        minimum_price: ~
+        minimum_price: "Min. ár"
         minimum_fee: ~
         api_verified: ~
         actions: ~
@@ -1193,8 +1193,8 @@ hu:
     removed_user: "Törölt felhasználó"
     payment_fee_info:
       title: ~
-      stripe: ~
-      paypal: ~
+      stripe: Stripe
+      paypal: Paypal
       info: ~
     paypal_fee_info:
       title: "PayPal fizetési folyamat költsége"
@@ -1204,7 +1204,7 @@ hu:
     stripe_fee_info:
       title: ~
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: itt
   conversations:
     accept:
       details: "Rendelés részletei"
@@ -1541,15 +1541,15 @@ hu:
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
-      product: ~
+      product: "Termék:"
       price_payer_paid: ~
       subtotal: ~
       service_fee: ~
       buyer_service_fee: ~
-      you_will_get: ~
+      you_will_get: "Összesen:"
       new_payment: ~
       price_per_unit_type: ~
-      quantity: ~
+      quantity: "Mennyiség:"
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
@@ -1561,15 +1561,15 @@ hu:
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
-      product: ~
+      product: Termék
       price_per_unit_type: ~
       duration: ~
-      quantity: ~
-      subtotal: ~
+      quantity: Mennyiség
+      subtotal: Összesen
       buyer_service_fee: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      total: Összesen
+      price: Ár
+      service_fee: "Szolgáltatási díj"
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
@@ -1646,7 +1646,7 @@ hu:
       subject: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a %{listing_title} hirdetésben szereplő tételért."
       transaction_requested_by_user: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a \"%{listing_title}\" hirdetésben szereplő tételért."
       you_have_time_to_accept: "Kérjük engedélyezze vagy utasítsa el az ajánlatot a lejárat előtt %{payment_expires_in}. Ha a lejárat előtt megadja az engedélyt, az utalás meg fog valósulni. Amennyiben nem engedélyezi, az ajánlat automatikusan elutasításra kerül és az átutalás meghiúsul."
-      if_you_do_accept: ~
+      if_you_do_accept: "Ha elfogadod a kérést erre az időszakra vonatkozóan, a pénzt azonnal megkapod a számládra"
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
@@ -2480,7 +2480,7 @@ hu:
       payment: ~
       pay_with_card: ~
       address: ~
-      address_country: ~
+      address_country: "Ország *"
       address_name: ~
       address_city: ~
       address_state: ~
@@ -2777,7 +2777,7 @@ hu:
       given_name: Keresztnév
       first_name_with_initial: "(a többi felhasználó csak az első betűt láthatja)"
       first_name_only: "(a többi felhasználó számára nem látható)"
-      display_name: ~
+      display_name: "Megjelenési név"
       display_name_description: ~
       location_description: "Ön megadhatja a pontos címét vagy például csak az irányítószámát. Kérjük adja meg legalább az irányítószámát. Továbbá az alábbi térképen is kiválaszthat egy helyet."
       profile_picture_description: ~
