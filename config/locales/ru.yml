@@ -2924,7 +2924,7 @@ ru:
       short_date: "%e. %b %Y"
       hours_only: "%H:%M"
   timestamps:
-    day_ago: "%{count} день назад"
+    day_ago: "%{count} дн."
     days_ago: "%{count} дней назад"
     hour_ago: "%{count} час назад"
     hours_ago: "%{count} часов назад"
