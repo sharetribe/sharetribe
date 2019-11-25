@@ -444,7 +444,7 @@ ru:
         about_link_title: "О нас"
         contact_link_title: "Свяжитесь с нами"
         invite_link_title: "Пригласите новых участников"
-        info: "По умолчанию ссылки на следующие страницы больше не отображаются нигде на вашем рынке: %{about_link}, %{contact_link}, %{Invite_link}."
+        info: "По умолчанию ссылки на следующие страницы больше не отображаются нигде на вашем рынке: %{about_link}, %{contact_link}, %{invite_link}."
         display_about: "Показать ссылку на <i>About</i> и другие статические страницы"
         display_contact: "Показать ссылку на странице<i>Связаться с нами</i>"
         display_invite: "Показать ссылку на странице<i>Пригласить новых участников</i>"
@@ -2924,7 +2924,7 @@ ru:
       short_date: "%e. %b %Y"
       hours_only: "%H:%M"
   timestamps:
-    day_ago: "%{count} дн."
+    day_ago: "%{count} дн. назад"
     days_ago: "%{count} дней назад"
     hour_ago: "%{count} час назад"
     hours_ago: "%{count} часов назад"

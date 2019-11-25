@@ -2903,7 +2903,7 @@ tr-TR:
         other: "%{count} gün"
   transactions:
     initiate:
-      booked_days: "Ayrılmış günler:"
+      booked_days: "Rezervasyon günleri:"
       booked_nights: ~
       price_per_day: "Günlük ücret:"
       price_per_night: "Fiyat her bir gece:"
@@ -2914,6 +2914,8 @@ tr-TR:
       shipping-price: "Kargo:"
       stripe-fee: ~
       start_end_time: ~
+      booked_days_label:
+        other: "Rezervason:"
     price_per_quantity: "%{unit_type} başına fiyat"
     price: "Fiyat:"
     quantity: "Adet: %{quantity}"
