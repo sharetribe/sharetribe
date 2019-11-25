@@ -1383,6 +1383,10 @@ en:
       contact_them: contact them
       refunded: Order marked as refunded.
       dismissed: Order cancelation dismissed.
+      order_refunded: Order marked as refunded. The %{service_name} team has approved the cancelation. You should receive a refund soon.
+      issue_with_the_refund: Something wrong? An issue with the refund? %{contact_link}
+      do_you_disagree: Something wrong? Do you disagree? %{contact_link}
+      contact_the_marketpalce_team: Contact the %{service_name} team.
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
