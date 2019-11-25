@@ -9,7 +9,7 @@
           buyer: PersonViewUtils.person_display_name(@transaction.starter, @transaction.community),
           transaction_link: transaction_link).html_safe
       - else
-        - transaction_link = link_to t("emails.transaction_canceled.the_order_about",
+        - transaction_link = link_to t("emails.transaction_cancel_flow.the_order_about",
           listing_title: @transaction.listing.title),
           person_transaction_url(@url_params.merge(person_id: @recipient.id, id: @transaction.id))
         - if @is_seller
