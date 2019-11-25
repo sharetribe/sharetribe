@@ -1763,6 +1763,14 @@ en:
       you_must_now_decide: You must now decide if a refund should happen or if you dismiss the cancelation. You can %{learn_more_link}.
       learn_more_about: learn more about what to do here
       review_the_transaction: Review the transaction
+    transaction_refunded:
+      subject: Order marked as refunded - The %{service_name} team has approved the cancelation from %{buyer}
+      marketplace_team_has_approved_the_cancelation: the %{service_name} team has approved the cancelation for %{transaction_link} and has marked the payment as refunded.
+      the_order_about: the order about %{listing_title}
+      you_should_receive_a_refund_soon: You should receive a refund soon. You can contact the %{service_name} team if there is any further issue.
+      you_can_contact_the_marketplace_team: You can contact the %{service_name} team if there is any further issue.
+      you_can_now_give_feedback: You can now give feedback to %{name}. Giving feedback is always a good idea. If everything went well, you should let others know that Buyer can be trusted. If there were any problems, it's good to mention those as well.
+      give_feedback_to: Give feedback to %{name}
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."
