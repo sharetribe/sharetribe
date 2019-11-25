@@ -79,6 +79,10 @@ class TransactionProcessStateMachine
     send_new_transaction_email(transaction)
   end
 
+  after_transition(to: :refunded, after_commit: true) do |transaction|
+    Delayed::Job.enqueue(TransactionRefundedJob.new(transaction.id, transaction.community_id))
+  end
+
   class << self
     def send_new_transaction_email(transaction)
       if transaction.community.email_admins_about_new_transactions
