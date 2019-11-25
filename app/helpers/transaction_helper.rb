@@ -340,11 +340,14 @@ module TransactionHelper
           {
           author: [
             status_info(t("conversations.status.order_refunded"), icon_classes: icon_class('refund')),
-            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail'))
+            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
+            feedback_status(conversation)
           ],
           starter: [
             status_info(t("conversations.status.order_refunded"), icon_classes: icon_class('refund')),
-            status_info(t('conversations.status.issue_with_the_refund', contact_link: contact_link).html_safe, icon_classes: icon_class('mail'))
+            status_info(t('conversations.status.issue_with_the_refund', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
+            feedback_status(conversation)
+
           ]
           }
                   },
@@ -353,14 +356,16 @@ module TransactionHelper
           {
           author: [
             status_info(t("conversations.status.order_cancelation_dismissed"), icon_classes: icon_class('dismiss')),
-            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail'))
+            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
+            feedback_status(conversation)
           ],
           starter: [
             status_info(t("conversations.status.order_cancelation_dismissed"), icon_classes: icon_class('dismiss')),
-            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail'))
+            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
+            feedback_status(conversation)
           ]
           }
-                  }
+                   }
       }
 
       Maybe(status_hash)[conversation.status.to_sym]

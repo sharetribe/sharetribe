@@ -1,27 +1,23 @@
 - transaction_url = person_transaction_url(@url_params.merge(person_id: @recipient.id, id: @transaction.id))
 %tr
-  %td.person-name
-    %h1
+  %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"}
+    %font{body_font}
       - transaction_link = link_to t("emails.transaction_cancel_flow.the_order_about",
         listing_title: @transaction.listing.title),
         transaction_url
-      = t("emails.transaction_refunded.marketplace_team_has_approved_the_cancelation",
+      = t("emails.transaction_cancelation_dismissed.marketplace_team_has_rejected_the_cancelation",
         transaction_link: transaction_link).html_safe
 
 %tr
-  %td.email-content
-    %p.text-bold
-      - if @is_seller
-        = t("emails.transaction_cancel_flow.you_can_contact_the_marketplace_team")
-      - else
-        = t("emails.transaction_refunded.you_should_receive_a_refund_soon")
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
+    %font{body_font}
+      = t("emails.transaction_cancel_flow.you_can_contact_the_marketplace_team")
 
 - other_party_name = PersonViewUtils.person_display_name(@transaction.other_party(@recipient), @transaction.community)
 %tr
-  %td.email-content
-    %p.text-bold
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
+    %font{body_font}
       = t("emails.transaction_cancel_flow.you_can_now_give_feedback", name: other_party_name)
 
-= render "person_mailer/action_button-v2", text: t("emails.transaction_cancel_flow.give_feedback_to", name: other_party_name),
+= render "person_mailer/action_button", text: t("emails.transaction_cancel_flow.give_feedback_to", name: other_party_name),
   url: transaction_url
-

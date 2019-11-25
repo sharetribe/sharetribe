@@ -2,7 +2,7 @@
 %tr
   %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"}
     %font{body_font}
-      - transaction_link = link_to t("emails.transaction_refunded.the_order_about",
+      - transaction_link = link_to t("emails.transaction_cancel_flow.the_order_about",
         listing_title: @transaction.listing.title),
         transaction_url
       = t("emails.transaction_refunded.marketplace_team_has_approved_the_cancelation",
@@ -12,7 +12,7 @@
   %td{:align => "left", :style => "padding-bottom: 15px;"}
     %font{body_font}
       - if @is_seller
-        = t("emails.transaction_refunded.you_can_contact_the_marketplace_team")
+        = t("emails.transaction_cancel_flow.you_can_contact_the_marketplace_team")
       - else
         = t("emails.transaction_refunded.you_should_receive_a_refund_soon")
 
@@ -20,7 +20,7 @@
 %tr
   %td{:align => "left", :style => "padding-bottom: 15px;"}
     %font{body_font}
-      = t("emails.transaction_refunded.you_can_now_give_feedback", name: other_party_name)
+      = t("emails.transaction_cancel_flow.you_can_now_give_feedback", name: other_party_name)
 
-= render "person_mailer/action_button", text: t("emails.transaction_refunded.give_feedback_to", name: other_party_name),
+= render "person_mailer/action_button", text: t("emails.transaction_cancel_flow.give_feedback_to", name: other_party_name),
   url: transaction_url
