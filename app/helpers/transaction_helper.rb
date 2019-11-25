@@ -347,6 +347,19 @@ module TransactionHelper
             status_info(t('conversations.status.issue_with_the_refund', contact_link: contact_link).html_safe, icon_classes: icon_class('mail'))
           ]
           }
+                  },
+        dismissed: -> {
+          contact_link = link_to t("conversations.status.contact_the_marketpalce_team"), new_user_feedback_path
+          {
+          author: [
+            status_info(t("conversations.status.order_cancelation_dismissed"), icon_classes: icon_class('dismiss')),
+            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail'))
+          ],
+          starter: [
+            status_info(t("conversations.status.order_cancelation_dismissed"), icon_classes: icon_class('dismiss')),
+            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail'))
+          ]
+          }
                   }
       }
 
