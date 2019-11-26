@@ -461,6 +461,8 @@ en:
           rejected: Rejected
           payment_intent_requires_action: Pending
           payment_intent_action_expired: Expired
+          refunded: Marked as refunded
+          dismissed: Dismissed
         headers:
           conversation: "Conversation thread"
           listing: Listing
