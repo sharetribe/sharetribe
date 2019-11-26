@@ -23,9 +23,12 @@ class Admin::TransactionsPresenter
   end
 
   FILTER_STATUSES = %w(free confirmed paid canceled preauthorized rejected payment_intent_requires_action payment_intent_action_expired)
+  FILTER_STATUSES_CANCELED_FLOW = %w(refunded dismissed)
 
   def sorted_statuses
-    FILTER_STATUSES.map {|status|
+    statuses = FILTER_STATUSES
+    statuses += FILTER_STATUSES_CANCELED_FLOW if canceled_flow?
+    statuses.map {|status|
       [status, I18n.t("admin.communities.transactions.status_filter.#{status}"), status_checked?(status)]
     }.sort_by{|status, translation, checked| collator.get_sort_key(translation) }
   end
