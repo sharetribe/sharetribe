@@ -1,0 +1,37 @@
+development:
+    adapter: mysql2
+    database: sharetribe_development
+    encoding: utf8
+    username: # ADD DATABASE USERNAME
+    password: # ADD DATABASE PASSWORD
+    host: localhost
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test: &test
+    adapter: mysql2
+    database: sharetribe_test
+    encoding: utf8
+    username: # ADD DATABASE USERNAME
+    password: # ADD DATABASE PASSWORD
+    host: localhost
+
+staging:
+    adapter: mysql2
+    database: <%= ENV.fetch('DATABASE_NAME') %>
+    encoding: utf8
+    username: <%= ENV.fetch('DATABASE_USER') %>
+    password: <%= ENV.fetch('DATABASE_PASSWORD') %>
+    host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
+
+production:
+    adapter: mysql2
+    database: sharetribe_production
+    encoding: utf8
+    username: # ADD DATABASE USERNAME
+    password: # ADD DATABASE PASSWORD
+    host: localhost
+
+cucumber:
+  <<: *test
