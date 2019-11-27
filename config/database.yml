@@ -19,10 +19,10 @@ test: &test
 
 staging:
     adapter: mysql2
-    database: <%= ENV.fetch('DATABASE_NAME') %>
+    database: <%= ENV.fetch('DATABASE_NAME', 'donalo_staging') %>
     encoding: utf8
-    username: <%= ENV.fetch('DATABASE_USER') %>
-    password: <%= ENV.fetch('DATABASE_PASSWORD') %>
+    username: <%= ENV.fetch('DATABASE_USER', 'donalo') %>
+    password: <%= ENV.fetch('DATABASE_PASSWORD', '') %>
     host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
 
 production:
