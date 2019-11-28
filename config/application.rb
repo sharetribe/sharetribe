@@ -239,7 +239,7 @@ module Kassi
     ActiveSupport::Deprecation.warn("Support for Google Analytics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_google_analytics.to_s == "true"
 
     config.after_initialize do
-      require File.expand_path('../../lib/active_storage_decorator', __FILE__)
+      # require File.expand_path('../../lib/active_storage_decorator', __FILE__)
     end
   end
 end
