@@ -7,7 +7,6 @@ pid "#{shared_path}/pids/unicorn.pid"
 stderr_path "#{shared_path}/log/unicorn.err.log"
 stdout_path "#{shared_path}/log/unicorn.std.log"
 
-listen "#{shared_path}/sockets/unicorn.donalo.sock"
 worker_processes 2
 
 # Leverage Ruby 2.0+'s Copy-On-Write support
