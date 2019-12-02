@@ -11,6 +11,7 @@
         = t("admin.communities.landing_pages.sections.kind")
       .col-2
 
+    - position_index = 1
     = form.fields_for :section_positions do |position_form|
       - position = position_form.object
       .row{:data => {:"field-id" => position.id},
@@ -33,8 +34,9 @@
           - disabled_class = allow_move ? '' : 'disabled'
           = link_to_if allow_move, icon_tag("cross", ["icon-fix", disabled_class]), admin_landing_page_version_section_path(presenter.landing_page_version.id, position.id), :method => :delete, :tabindex => "-1",
             data: { :confirm => t("admin.communities.landing_pages.sections.remove_section_confirmation", section_id: position.id) }
-          = link_to_if allow_move, icon_tag("directup", ["icon-fix", disabled_class]), '#', :class => "admin-sort-button", 'action-up': true, :tabindex => "-1"
-          = link_to_if allow_move, icon_tag("directdown", ["icon-fix", disabled_class]), '#', :class => "admin-sort-button", 'action-down': true, :tabindex => "-1"
+          = link_to_if allow_move, icon_tag("directup", ["icon-fix", presenter.position_up_class(position, position_index)]), '#', :class => "admin-sort-button", 'action-up': true, :tabindex => "-1"
+          = link_to_if allow_move, icon_tag("directdown", ["icon-fix", presenter.position_down_class(position, position_index)]), '#', :class => "admin-sort-button", 'action-down': true, :tabindex => "-1"
+      - position_index += 1
 
 .row.new-custom-field-type-form
   = form_for :section, url: new_admin_landing_page_version_section_path(landing_page_version_id: presenter.landing_page_version.id), method: :get do |form|

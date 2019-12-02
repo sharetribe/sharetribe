@@ -660,7 +660,7 @@ en:
         set_live: "Set live"
         add_new_section: "Add new section:"
         select_section_type: "Select section type..."
-        this_version_is_not_released: This version is not released as there are no changes
+        this_version_is_not_released: You need to make changes to release a new version of the Landing Page
         latest_version_released: "The latest version of your landing page has been released! %{link}!"
         check_it_out: Check it out
         form:
@@ -791,9 +791,10 @@ en:
           column_paragraph: "Column %{index} paragraph"
           column_button: "Column %{index} button"
           column_button_text: "Button text"
-          column_button_url: "https://www.sharetribe.com"
+          column_button_url: "https://www.example.com"
         listings:
-          you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456."
+          listings_to_feature: "Listings to feature"
+          you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/listings/123456-listing-title, the listing is would be 123456."
         video:
           text: Text
           autoplay: "Autoplay options"
@@ -3191,8 +3192,6 @@ en:
         id: "Section unique name"
         title: Title
         paragraph: Paragraph
-        button_color: "Button color"
-        button_color_hover: "Button color hover"
         button_title: Text
         button_path: URL
         button_path_string: URL
