@@ -57,8 +57,8 @@ window.ST = window.ST || {};
 
       newOrder.forEach(function(value) {
         var item = $('[data-field-id="' + value + '"]'),
-          downIcon = item.find('.icon-sort-down'),
-          upIcon = item.find('.icon-sort-up');
+          downIcon = item.find('[action-down] i'),
+          upIcon = item.find('[action-up] i');
         item.find('input[hidden-position]').val(index);
         if (index == 1) {
           upIcon.addClass('disabled');
