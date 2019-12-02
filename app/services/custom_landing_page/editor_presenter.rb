@@ -52,5 +52,19 @@ module CustomLandingPage
         ]
       ]
     end
+
+    def position_up_class(position, index)
+      position.removable? && index == 2 ? 'disabled' : ''
+    end
+
+    def position_down_class(position, index)
+      position.removable? && index == positions_size - 1 ? 'disabled' : ''
+    end
+
+    private
+
+    def positions_size
+      @positions_size ||= landing_page_version.section_positions.size
+    end
   end
 end

@@ -527,8 +527,8 @@ pl:
           status: Status
           started: "Rozpoczęło się"
           last_activity: "Ostatnia aktywność"
-          initiated_by: ~
-          other_party: "Inne przyjęcie"
+          initiated_by: Kupujący
+          other_party: Dostawca
         participants: "Rozmowa: %{starter} z %{author}"
         profile: "Profil %{author}"
         search_by_keyword: "Szukaj po nazwie, e-mailu lub słowie kluczowym"
@@ -1701,7 +1701,7 @@ pl:
       view_listing: ~
       cant_click: ~
     new_member_notification:
-      subject: ~
+      subject: "Nowy użytkownik na %{community}"
       new_member_has_joined: "Nowy członek dołączył do %{community}. Jednakże jeszcze mogli nie potwierdzić adresu email."
       this_is_automatic_message: "To jest automatyczna wiadomość wysłana do administratorów %{community}."
       person_name: "Imię:"
