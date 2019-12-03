@@ -656,7 +656,7 @@ ru:
         would_you_like_to_change_address: "Хотели бы вы изменить адрес своего проекта? %{contact_us}!"
         contact_us: "Свяжитесь с нами"
         you_can_now_use_a_custom_domain: "С вашим текущим планом вы можете теперь включить собственный домен. Продолжайте настроить. %{contact_us}!"
-        would_you_like_to_change_domain: "Хотите изменить свой пользовательский домен на маркетплейсе?%{contact_us}"
+        would_you_like_to_change_domain: "Хотите изменить свой пользовательский домен на маркетплейсе? %{contact_us}"
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -1258,14 +1258,14 @@ ru:
       shipping_price_label: "Доставка:"
       stripe-fee_label: "Комиссия за обработку платежей"
     confirm:
-      confirm_description: "Если ваш запрос был выполнен вы должны подтвердить его как завершенный. Затем вы можете оставить отзыв."
-      cancel_description: "Если ваш запрос не был выполнен вы можете отметить его как \"не сделанный\". Тем не менее вы можете оставить отзыв и описать ситуацию."
+      confirm_description: "Если ваш запрос был выполнен, вы должны подтвердить его как завершенный. Затем вы можете оставить отзыв."
+      cancel_description: "Если ваш запрос не был выполнен вы, можете отметить его как \"отмененный\". Тем не менее, вы можете оставить отзыв и описать ситуацию."
       cancel_payed_description: "Если ваш запрос был принят, но вы пересмотрели свои намерения, тем не менее вы можете отменить ваш запрос перед оплатой."
       canceling_payed_transaction: "Отменить транзакцию"
       confirm: "Отметить как завершенное"
       cancel: Спорно
       continue: Продолжить
-      give_feedback_to: "Оставить отзыв о %{person_link}"
+      give_feedback_to: "Оставить отзыв о пользователе %{person_link}"
       do_not_give_feedback: "Не оставлять отзыв"
     details:
       day: день
@@ -1433,7 +1433,7 @@ ru:
       create_own: "Хотели бы создать свой собственный маркетплейс как %{service_name}? Узнай больше %{learn_more}."
       learn_more: "Узнать больше"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Вы пока еще не подтвердили или отменили запрос %{request_link}. Если запрос был выполнен, вам нужно подтвердить это. После этого вы можете оставить отзыв о %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Вы пока еще не подтвердили или отменили запрос %{request_link}. Если запрос был выполнен, вам нужно подтвердить это. После этого вы можете оставить отзыв о пользователе %{other_party_given_name}."
       remember_to_confirm_request: "Не забудьте подтвердить или отменить запрос"
       if_will_not_happen_you_should_cancel: "Если вы предполагаете что запрос не будет выполнен по различным причинам, вы можете его отменить %{cancel_it_link}."
       cancel_it_link_text: отменить
@@ -1454,12 +1454,12 @@ ru:
       here_is_a_message_from: "Сообщение от %{other_party_given_name}:"
       request_marked_as_confirmed: "Запрос завершен - не забудьте оставить отзыв"
       request_marked_as_canceled: "Запрос отменен"
-      has_marked_request_as_confirmed: "%{other_party_full_name} отметил запрос %{request} выполненным. Теперь вы можете оставить отзыв о %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} отменил запрос %{request}. Вы все еще можете оставить отзыв о %{other_party_given_name}."
-      giving_feedback_is_good_idea: "Оставлять отзыв это всегда хорошо. Если все прошло правильно, вы должны поделиться с другими пользователями что %{other_party_given_name} можно доверять. Либо если были сложности, об этом тоже можно сообщить."
-      give_feedback_to: "Оставить отзыв %{other_party_given_name}"
+      has_marked_request_as_confirmed: "Пользователь %{other_party_full_name} отметил(а) запрос %{request} выполненным. Теперь вы можете оставить отзыв о пользователе %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} отменил(а) запрос %{request}. Вы все еще можете оставить отзыв о пользователе %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Всегда рекомендуется оставлять отзыв. Если все прошло хорошо, другим пользователям будет полезно знать, что %{other_party_given_name} заслуживает доверия. Если возникли сложности, о них тоже следует сообщить."
+      give_feedback_to: "Оставить отзыв о пользователе %{other_party_given_name}"
       stripe:
-        has_marked_request_as_confirmed: "%{other_party_full_name}пометил заказ о выполнении '%{request}'. Платеж за эту транзакцию был переведен на ваш банковский счет. Теперь вы можете оставить отзыв%{other_party_given_name}."
+        has_marked_request_as_confirmed: "%{other_party_full_name} пометил(а) заказ о выполнении '%{request}'. Платеж за эту транзакцию был переведен на ваш банковский счет. Теперь вы можете оставить отзыв о пользователе %{other_party_given_name}."
       team_title: ~
     transaction_confirmed_v2:
       headline_stripe_confirmed: ~
@@ -1485,7 +1485,7 @@ ru:
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "Вы можете оставить отзыв о %{other_party_given_name}.Оставлять отзыв это всегда хорошо. Если все прошло правильно, вы должны поделиться с другими пользователями что %{other_party_given_name} можно доверять. Либо если были сложности, об этом тоже можно сообщить."
+      giving_feedback_is_good_idea: "Вы можете оставить отзыв о пользователе %{other_party_given_name}. Всегда рекомендуется оставлять отзыв. Если все прошло хорошо, другим пользователям будет полезно знать, что %{other_party_given_name} заслуживает доверия. Если возникли сложности, о них тоже следует сообщить."
       give_feedback_to: "Оставьте отзыв о %{other_party_given_name}"
       show_thread: "Показать диалог"
     confirmation_instructions:
@@ -1657,8 +1657,8 @@ ru:
       change_my_password: "Изменить пароль"
       reset_password_instructions: "<p>Вы указали, что вы забыли свой пароль или имя пользователя в  %{service_name}.</p><p>Если вам нужно сбросить ваш пароль, нажмите на следующую ссылку: %{password_reset_link}</p><br/><p>Если это были не вы,  просто проигнорируйте это сообщение. Ваш пароль не изменится до тех пор, пока вы не перейдёте по ссылке, указанной выше и не создадите новый пароль.</p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о %{name}"
-      you_have_not_given_feedback_yet: "Вы ещё не оставили отзыв о %{name} после события «%{event}». Не забудьте оставить отзыв о том, как зарекомендовал себя %{given_name} во время этого события."
+      remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о пользователе %{name}"
+      you_have_not_given_feedback_yet: "Вы ещё не оставили отзыв о пользователе %{name} после события «%{event}». Не забудьте оставить отзыв о том, как зарекомендовал(а) себя %{given_name} во время этого события."
     testimonial_reminder_v2:
       headline: ~
       you_have_not_given_feedback_yet: ~
@@ -1700,7 +1700,7 @@ ru:
       cant_click: ~
     new_member_notification:
       subject: ~
-      new_member_has_joined: "Новый участник присоединился к %{community}. Необходимо подтвердить их электронный адрес."
+      new_member_has_joined: "Новый участник присоединился к %{community}. Возможно, им необходимо подтвердить их электронный адрес."
       this_is_automatic_message: "Это автоматическое сообщение, направленное администраторам %{community}."
       person_name: "Имя:"
       person_email: "Эл. почта:"
@@ -2194,8 +2194,8 @@ ru:
         other: "Сайт будет недоступен через %{count} минут по причине проведения профилактических работ"
       automatically_logged_out_please_sign_in: "Вы автоматически вышли из системы. Пожалуйста, войдите снова."
       stripe_you_account_balance_is_not_0: "Баланс вашей учетной записи не равен 0, поэтому он не может быть удален. Это может означать, что у вас есть транзакции, ожидающие завершения или что есть деньги, ожидающие выплаты на ваш банковский счет. Пожалуйста, свяжитесь с командой%{service_name}, чтобы узнать больше."
-      visit_admin: "Хотите%{link}?"
-      visit_admin_link: "зайдите в ваш админ панель"
+      visit_admin: "Хотите %{link}?"
+      visit_admin_link: "зайти в вашу панель администратора"
     settings:
       account: "Учётная запись"
       notifications: Оповещения
@@ -2846,7 +2846,7 @@ ru:
     new:
       as_expected: "Как ожидалось"
       exceeded_expectations: "Намного лучше, чем ожидалось"
-      give_feedback_to: "Оставить отзыв о %{person}"
+      give_feedback_to: "Оставить отзыв о пользователе %{person}"
       grade: "Ваше общее ощущение?"
       less_than_expected: "Хуже, чем ожидалось"
       send_feedback: "Отправить отзыв"
@@ -2925,42 +2925,42 @@ ru:
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} дн. назад"
-    days_ago: "%{count} дней назад"
-    hour_ago: "%{count} час назад"
-    hours_ago: "%{count} часов назад"
-    minute_ago: "%{count} минуту назад"
-    minutes_ago: "%{count} минут назад"
-    month_ago: "%{count} месяц назад"
-    months_ago: "%{count} месяцев назад"
-    seconds_ago: "%{count} секунд назад"
-    year_ago: "%{count} год назад"
-    years_ago: "%{count} лет назад"
+    days_ago: "%{count} дн. назад"
+    hour_ago: "%{count} ч. назад"
+    hours_ago: "%{count} ч. назад"
+    minute_ago: "%{count} мин. назад"
+    minutes_ago: "%{count} мин. назад"
+    month_ago: "%{count} мес. назад"
+    months_ago: "%{count} мес. назад"
+    seconds_ago: "%{count} сек. назад"
+    year_ago: "%{count} г. назад"
+    years_ago: "%{count} г. назад"
     days_since:
-      one: "%{count} день"
-      few: "%{count} дня"
-      many: дней
-      other: дня
+      one: "%{count} дн."
+      few: "%{count} дн."
+      many: "%{count} дн."
+      other: "%{count} дн."
     time_to:
       seconds:
-        one: "%{count} секунда"
-        few: "%{count} секунд"
-        many: "%{count} секунд"
-        other: "%{count} секунд"
+        one: "%{count} сек."
+        few: "%{count} сек."
+        many: "%{count} сек."
+        other: "%{count} сек."
       minutes:
-        one: "%{count} минута"
-        few: "%{count} минут"
-        many: "%{count} минута"
-        other: "%{count} минута"
+        one: "%{count} мин."
+        few: "%{count} мин."
+        many: "%{count} мин."
+        other: "%{count} мин."
       hours:
-        one: "%{count} час"
-        few: "%{count} часа"
-        many: "%{count} часов"
-        other: "%{count} часов"
+        one: "%{count} ч."
+        few: "%{count} ч."
+        many: "%{count} ч."
+        other: "%{count} ч."
       days:
-        one: "%{count} день"
-        few: "%{count} дня"
-        many: "%{count} дней"
-        other: "%{count} дней"
+        one: "%{count} дн."
+        few: "%{count} дн."
+        many: "%{count} дн."
+        other: "%{count} дн."
   transactions:
     initiate:
       booked_days: "Забронировано дней:"

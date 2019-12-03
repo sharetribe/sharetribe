@@ -450,7 +450,7 @@ ja:
           selected_js: ~
           free: ~
           confirmed: ~
-          paid: ~
+          paid: 支払済み
           canceled: ~
           preauthorized: ~
           rejected: ~
@@ -484,7 +484,7 @@ ja:
             pending: 保留中
             preauthorized: 仮承認済み
             accepted: 承認済み
-            rejected: 拒否されました
+            rejected: 却下されました
             paid: 支払い済み
             confirmed: 完了しました
             canceled: キャンセル
@@ -495,8 +495,8 @@ ja:
             pending: 保留中
             preauthorized: 事前承認済み
             accepted: 承認済み
-            rejected: 拒否されました
-            paid: ~
+            rejected: 却下されました
+            paid: 支払済み
             confirmed: 完了しました
             canceled: キャンセルされました
             initiated: ~
@@ -1253,7 +1253,7 @@ ja:
     conversation:
       accepted_request: リクエストは受諾されました。
       accepted_offer: オファーは受諾されました。
-      rejected_request: リクエストは却下されました。
+      rejected_request: リクエストにお応えすることができませんでした。
       rejected_offer: オファーは却下されました。
       confirmed_request: リクエストは完了しました。
       confirmed_offer: オファーは完了しました。
@@ -1268,7 +1268,7 @@ ja:
       received_payment: "リクエストを受け入れ、%{sum} のお支払いを確認できました"
       received_payment_wo_sum: リクエストを受け入れ、お支払いを確認できました
       accepted_offer: 受諾されたオファー
-      rejected_request: リクエストは却下されました
+      rejected_request: リクエストにお応えすることができませんでした。お支払い手続きはキャンセルされました。
       rejected_offer: 却下されたオファー
       confirmed_request: お取引が正常に完了しました
       confirmed_offer: オファー完了のステータスに変更しました
@@ -1494,7 +1494,7 @@ ja:
       your_offer_was_accepted: あなたのオファーは受け入れられました
       your_offer_was_rejected: あなたのオファーは却下されました
       your_request_was_accepted: あなたのリクエストは受け入れられました
-      your_request_was_rejected: あなたのリクエストは却下されました
+      your_request_was_rejected: 頂きましたリクエストにお応えすることができませんでした
       you_can_now_pay_to: "%{payment_receiver}さんに、リクエストされた金額をお支払いを行うことが出来ます。"
       pay_now: 今支払います
       remember_to_confirm: "リクエストが達成されている場合は、完了済みとしてステータス変更してください。もしリクエストが達成されていない場合、%{days_to_automatic_confirmation}日間、キャンセルの猶予期間があります。何もしない場合は、自動的にステータスが完了済みになります。"
@@ -1548,7 +1548,7 @@ ja:
       stripe:
         you_have_received_new_payment: "<b>%{payment_sum}  </b>の金額が、%{payer_full_name} から<b>%{listing_title}  </b>に支払われました。注文が完了としてマークされるまで、お金は%{service_name} によって保持されています。こちらは領収書です。"
     payment_receipt_to_seller_v2:
-      headline: ~
+      headline: "%{seller_name} さん、こんにちは。%{payer_name} さんから、%{listing_link} の件で%{payment_sum} 支払われました。"
       main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
@@ -1566,10 +1566,10 @@ ja:
       service_fee: サービス料
       stripe_gateway_fee: ストライプ手数料
       paypal_gateway_fee: PayPalの手数料
-      money_will_be_transferred: ~
+      money_will_be_transferred: "a ) あなたがリクエストを完了しステータスを変更したとき、あるいはb ) あなたがお支払い後、%{automatic_confirmation_days} 日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
     payment_receipt_to_payer_v2:
       headline: ~
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "あなたは<b>%{listing_title}</b>の件で、<b>%{payment_sum} </b>支払いました。"
       main_text: ~
       main_text_stripe: ~
     paypal_new_payment:
@@ -1653,7 +1653,7 @@ ja:
       click_here_to_reply: リクエストを確認する
     transaction_preauthorized_reminder_v2:
       headline: ~
-      remember_to_accept: ~
+      remember_to_accept: "%{requester} さんは既にお支払い手続きを完了しています。支払代金を受け取るにはリクエストの承認が必要です。"
     welcome_email:
       welcome_email_subject: "%{service_name}へようこそ"
       welcome_to_marketplace: "%{service_name}へようこそ！よくお越しくださいました。"
@@ -2116,7 +2116,7 @@ ja:
       reply_sent: 送信しました
       request_accepted: リクエストは受諾されました
       request_confirmed: リクエストは完了しました
-      request_rejected: リクエストは却下されました
+      request_rejected: リクエストにお応えすることができませんでした
       request_canceled: リクエストはキャンセルされました
       message_sent: メッセージを送信しました
       message_not_sent: メッセージの送信が失敗しました。再度送信してください。
