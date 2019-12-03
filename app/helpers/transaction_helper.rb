@@ -157,23 +157,19 @@ module TransactionHelper
         }
       } },
 
-      canceled: ->() {
-        if FeatureFlagHelper.feature_enabled?(:canceled_flow)
-          {
-            both: {
-              icon: icon_tag("clock", ["icon-fix-rel", "canceled"]),
-              text: t("conversations.status.waiting_for_marketplace_review")
-            }
-          }
-        else
-          {
-            both: {
-              icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
-              text: t("conversations.status.request_canceled")
-            }
-          }
-        end
-        },
+      canceled: ->() { {
+        both: {
+          icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
+          text: t("conversations.status.request_canceled")
+        }
+      } },
+
+      disputed: ->() { {
+        both: {
+          icon: icon_tag("clock", ["icon-fix-rel", "canceled"]),
+          text: t("conversations.status.waiting_for_marketplace_review")
+        }
+      } },
 
       errored: ->() { {
         both: {
@@ -302,23 +298,22 @@ module TransactionHelper
         }
                    },
         canceled: -> {
-          if FeatureFlagHelper.feature_enabled?(:canceled_flow)
-            contact_link = link_to t("conversations.status.contact_them"), new_user_feedback_path
-            {
+          {
+            both: [
+              status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
+              feedback_status(conversation)
+            ]
+          }
+                  },
+        disputed: -> {
+          contact_link = link_to t("conversations.status.contact_them"), new_user_feedback_path
+          {
             both: [
               status_info(t("conversations.status.order_canceled"), icon_classes: icon_for("canceled")),
               status_info(t("conversations.status.waiting_for_marketplace_review"), icon_classes: 'ss-clock'),
               status_info(t("conversations.status.marketplace_notified", contact_link: contact_link).html_safe, icon_classes: 'ss-mail'),
             ]
-            }
-          else
-            {
-            both: [
-              status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
-              feedback_status(conversation)
-            ]
-            }
-          end
+          }
                   },
         rejected: -> { {
           both: [
