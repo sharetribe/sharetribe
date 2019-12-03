@@ -1,4 +1,4 @@
-class TransactionCancelationDismissedJob < Struct.new(:transaction_id, :community_id)
+class TransactionCancellationDismissedJob < Struct.new(:transaction_id, :community_id)
 
   include DelayedAirbrakeNotification
 
@@ -12,7 +12,7 @@ class TransactionCancelationDismissedJob < Struct.new(:transaction_id, :communit
 
   def perform
     tx = Transaction.find(transaction_id)
-    TransactionMailer.transaction_cancelation_dismissed(transaction: tx, recipient: tx.author).deliver_now
-    TransactionMailer.transaction_cancelation_dismissed(transaction: tx, recipient: tx.starter).deliver_now
+    TransactionMailer.transaction_cancellation_dismissed(transaction: tx, recipient: tx.author).deliver_now
+    TransactionMailer.transaction_cancellation_dismissed(transaction: tx, recipient: tx.starter).deliver_now
   end
 end

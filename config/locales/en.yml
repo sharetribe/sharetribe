@@ -1154,7 +1154,7 @@ en:
         provider_receives: "Seller receives:"
         admin_info_text: "As an administrator of %{service_name}, you can do some actions to move this transaction forward:"
         manage_reviews: "Manage reviews"
-        you_should_investigate: "You should investigate the situation by discussion with both parties and decide to refund or dismiss the cancelation. %{learn_more_link}"
+        you_should_investigate: "You should investigate the situation by discussion with both parties and decide to refund or dismiss the cancellation. %{learn_more_link}"
         learn_more: Learn more.
   common:
     edit_page: "Edit page"
@@ -1252,7 +1252,7 @@ en:
     confirm:
       confirm_description: "If your order has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your order was not fulfilled, you can mark it as 'canceled'. You can still give feedback to the other party and describe what happened."
-      cancel_description_team: "If your order was not fulfilled, you can mark it as 'canceled'. The %{service_name} team will review the situation and will decide to refund or dismiss or cancelation request."
+      cancel_description_team: "If your order was not fulfilled, you can mark it as 'canceled'. The %{service_name} team will review the situation and will decide to refund or dismiss or cancellation request."
       cancel_payed_description: "If your request was accepted but you're having second thoughts, you can still cancel the request before the payment."
       canceling_payed_transaction: "Cancel transaction"
       confirm: "Mark completed"
@@ -1303,7 +1303,7 @@ en:
         confirmed_request: "Marked the order as completed. The payment has now been transferred to %{author_name} bank account or will be transferred soon."
       canceled_the_order: "Canceled the order. %{service_name} team has been notified."
       marked_as_refunded: "Marked as refunded."
-      dismissed_the_cancelation: "Dismissed the cancelation."
+      dismissed_the_cancellation: "Dismissed the cancellation."
       payment_has_now_been_transferred: "The payment has now been transferred to %{seller} bank account or will be transferred soon."
     new:
       message: Message
@@ -1384,12 +1384,12 @@ en:
       marketplace_notified: The %{service_name} has been notified. You can also %{contact_link} if you want to share more details with them.
       contact_them: contact them
       refunded: Order marked as refunded.
-      dismissed: Order cancelation dismissed.
-      order_refunded: Order marked as refunded. The %{service_name} team has approved the cancelation. You should receive a refund soon.
+      dismissed: Order cancellation dismissed.
+      order_refunded: Order marked as refunded. The %{service_name} team has approved the cancellation. You should receive a refund soon.
       issue_with_the_refund: Something wrong? An issue with the refund? %{contact_link}.
       do_you_disagree: Something wrong? Do you disagree? %{contact_link}.
       contact_the_marketpalce_team: Contact the %{service_name} team
-      order_cancelation_dismissed: Order cancelation dismissed. The %{service_name} team has rejected the cancelation.
+      order_cancellation_dismissed: Order cancellation dismissed. The %{service_name} team has rejected the cancellation.
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
@@ -1766,16 +1766,16 @@ en:
       contact_the_marketplace_team: Contact the %{service_name} team
       buyer_has_canceled: "%{buyer} has canceled %{transaction_link}."
       their_order_with_seler: their order with %{seller}
-      you_must_now_decide: You must now decide if a refund should happen or if you dismiss the cancelation. You can %{learn_more_link}.
+      you_must_now_decide: You must now decide if a refund should happen or if you dismiss the cancellation. You can %{learn_more_link}.
       learn_more_about: learn more about what to do here
       review_the_transaction: Review the transaction
     transaction_refunded:
-      subject: Order marked as refunded - The %{service_name} team has approved the cancelation from %{buyer}
-      marketplace_team_has_approved_the_cancelation: the %{service_name} team has approved the cancelation for %{transaction_link} and has marked the payment as refunded.
+      subject: Order marked as refunded - The %{service_name} team has approved the cancellation from %{buyer}
+      marketplace_team_has_approved_the_cancellation: the %{service_name} team has approved the cancellation for %{transaction_link} and has marked the payment as refunded.
       you_should_receive_a_refund_soon: You should receive a refund soon. You can contact the %{service_name} team if there is any further issue.
-    transaction_cancelation_dismissed:
-      subject: Order cancelation dismissed - The %{service_name} team has rejected the cancelation from %{buyer}
-      marketplace_team_has_rejected_the_cancelation: the %{service_name} team has rejected the cancelation for %{transaction_link}.
+    transaction_cancellation_dismissed:
+      subject: Order cancellation dismissed - The %{service_name} team has rejected the cancellation from %{buyer}
+      marketplace_team_has_rejected_the_cancellation: the %{service_name} team has rejected the cancellation for %{transaction_link}.
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."

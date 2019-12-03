@@ -85,7 +85,7 @@ class TransactionProcessStateMachine
   end
 
   after_transition(to: :dismissed, after_commit: true) do |transaction|
-    Delayed::Job.enqueue(TransactionCancelationDismissedJob.new(transaction.id, transaction.community_id))
+    Delayed::Job.enqueue(TransactionCancellationDismissedJob.new(transaction.id, transaction.community_id))
     confirmation = ConfirmConversation.new(transaction, transaction.starter, transaction.community)
     confirmation.confirm!
   end

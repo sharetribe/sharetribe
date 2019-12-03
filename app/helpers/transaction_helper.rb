@@ -350,12 +350,12 @@ module TransactionHelper
           contact_link = link_to t("conversations.status.contact_the_marketpalce_team"), new_user_feedback_path
           {
           author: [
-            status_info(t("conversations.status.order_cancelation_dismissed"), icon_classes: icon_class('dismiss')),
+            status_info(t("conversations.status.order_cancellation_dismissed"), icon_classes: icon_class('dismiss')),
             status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
             feedback_status(conversation)
           ],
           starter: [
-            status_info(t("conversations.status.order_cancelation_dismissed"), icon_classes: icon_class('dismiss')),
+            status_info(t("conversations.status.order_cancellation_dismissed"), icon_classes: icon_class('dismiss')),
             status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
             feedback_status(conversation)
           ]

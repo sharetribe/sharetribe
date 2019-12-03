@@ -221,7 +221,7 @@ module TransactionViewUtils
     when "refunded"
       t("conversations.message.marked_as_refunded")
     when "dismissed"
-      "#{t('conversations.message.dismissed_the_cancelation')} #{payment_gateway == :stripe ? t('conversations.message.payment_has_now_been_transferred', seller: author[:display_name]) : ''}"
+      "#{t('conversations.message.dismissed_the_cancellation')} #{payment_gateway == :stripe ? t('conversations.message.payment_has_now_been_transferred', seller: author[:display_name]) : ''}"
     else
       raise("Unknown transition to state: #{state}")
     end
