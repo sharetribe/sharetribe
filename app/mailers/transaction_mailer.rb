@@ -235,7 +235,7 @@ class TransactionMailer < ActionMailer::Base
 
   end
 
-  def transaction_cancelation_dismissed(transaction:, recipient:)
+  def transaction_cancellation_dismissed(transaction:, recipient:)
     @transaction = transaction
     @is_seller = transaction.author == recipient
     community = transaction.community
@@ -246,8 +246,8 @@ class TransactionMailer < ActionMailer::Base
       buyer = PersonViewUtils.person_display_name(transaction.starter, community)
       mail(to: recipient.confirmed_notification_emails_to,
            from: community_specific_sender(community),
-           subject: t("emails.transaction_cancelation_dismissed.subject", buyer: buyer)) do |format|
-             format.html { render v2_template(community.id, 'transaction_cancelation_dismissed'), layout: v2_layout(community.id) }
+           subject: t("emails.transaction_cancellation_dismissed.subject", buyer: buyer)) do |format|
+             format.html { render v2_template(community.id, 'transaction_cancellation_dismissed'), layout: v2_layout(community.id) }
       end
     end
 

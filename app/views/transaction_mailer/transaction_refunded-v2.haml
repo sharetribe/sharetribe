@@ -5,7 +5,7 @@
       - transaction_link = link_to t("emails.transaction_cancel_flow.the_order_about",
         listing_title: @transaction.listing.title),
         transaction_url
-      = t("emails.transaction_refunded.marketplace_team_has_approved_the_cancelation",
+      = t("emails.transaction_refunded.marketplace_team_has_approved_the_cancellation",
         transaction_link: transaction_link).html_safe
 
 %tr
