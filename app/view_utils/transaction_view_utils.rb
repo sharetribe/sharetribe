@@ -138,6 +138,12 @@ module TransactionViewUtils
         admin: transition[:metadata] && transition[:metadata]['executed_by_admin'],
         mood: :negative
       }
+    when "disputed"
+      {
+        sender: transition_user(transition, starter),
+        admin: transition[:metadata] && transition[:metadata]['executed_by_admin'],
+        mood: :negative
+      }
     when "confirmed"
       {
         sender: transition_user(transition, starter),
@@ -203,11 +209,9 @@ module TransactionViewUtils
       ActiveSupport::Deprecation.warn("Transaction state 'paid' without previous state is deprecated and will be removed in the future.")
       t("conversations.message.paid", sum: amount)
     when "canceled"
-      if FeatureFlagHelper.feature_enabled?(:canceled_flow)
-        t("conversations.message.canceled_the_order")
-      else
-        t("conversations.message.canceled_request")
-      end
+      t("conversations.message.canceled_request")
+    when "disputed"
+      t("conversations.message.canceled_the_order")
     when "confirmed"
       if payment_gateway == :stripe
         t("conversations.message.stripe.confirmed_request", author_name: author[:display_name])

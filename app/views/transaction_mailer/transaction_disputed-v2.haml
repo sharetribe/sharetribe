@@ -1,11 +1,11 @@
 %tr
-  %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"}
-    %font{body_font}
+  %td.person-name
+    %h1
       - if @is_admin
-        - transaction_link = link_to t("emails.transaction_canceled.their_order_with_seler",
+        - transaction_link = link_to t("emails.transaction_disputed.their_order_with_seler",
           seller: PersonViewUtils.person_display_name(@transaction.author, @transaction.community)),
           admin_community_transaction_url(@url_params.merge(community_id: @community.id, id: @transaction.id))
-        = t("emails.transaction_canceled.buyer_has_canceled",
+        = t("emails.transaction_disputed.buyer_has_canceled",
           buyer: PersonViewUtils.person_display_name(@transaction.starter, @transaction.community),
           transaction_link: transaction_link).html_safe
       - else
@@ -13,25 +13,26 @@
           listing_title: @transaction.listing.title),
           person_transaction_url(@url_params.merge(person_id: @recipient.id, id: @transaction.id))
         - if @is_seller
-          = t("emails.transaction_canceled.buyer_has_canceled",
+          = t("emails.transaction_disputed.buyer_has_canceled",
             transaction_link: transaction_link,
             buyer: PersonViewUtils.person_display_name(@transaction.starter, @transaction.community)).html_safe
         - else
-          = t("emails.transaction_canceled.you_have_canceled", transaction_link: transaction_link).html_safe
+          = t("emails.transaction_disputed.you_have_canceled", transaction_link: transaction_link).html_safe
 
 %tr
-  %td{:align => "left", :style => "padding-bottom: 15px;"}
-    %font{body_font}
+  %td.email-content
+    %p.text-bold
       - if @is_admin
-        - learn_more_link = link_to t("emails.transaction_canceled.learn_more_about"),
+        - learn_more_link = link_to t("emails.transaction_disputed.learn_more_about"),
           "#{APP_CONFIG.knowledge_base_url}/link_to_help_center_not_ready_yet"
-        = t("emails.transaction_canceled.you_must_now_decide", learn_more_link: learn_more_link).html_safe
+        = t("emails.transaction_disputed.you_must_now_decide", learn_more_link: learn_more_link).html_safe
       - else
-        = t("emails.transaction_canceled.the_marketplace_has_been_notified")
+        = t("emails.transaction_disputed.the_marketplace_has_been_notified")
 
 - if @is_admin
-  = render "person_mailer/action_button", text: t("emails.transaction_canceled.review_the_transaction"),
+  = render "person_mailer/action_button-v2", text: t("emails.transaction_disputed.review_the_transaction"),
     url: admin_community_transaction_url(@url_params.merge(community_id: @community.id, id: @transaction.id))
 - else
-  = render "person_mailer/action_button", text: t("emails.transaction_canceled.contact_the_marketplace_team"),
+  = render "person_mailer/action_button-v2", text: t("emails.transaction_disputed.contact_the_marketplace_team"),
     url: new_user_feedback_url(@url_params)
+

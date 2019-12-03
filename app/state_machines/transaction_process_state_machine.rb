@@ -18,14 +18,15 @@ class TransactionProcessStateMachine
   state :payment_intent_failed
   state :refunded
   state :dismissed
+  state :disputed
 
   transition from: :not_started,                    to: [:free, :initiated]
   transition from: :initiated,                      to: [:payment_intent_requires_action, :preauthorized]
   transition from: :payment_intent_requires_action, to: [:preauthorized, :payment_intent_action_expired, :payment_intent_failed]
   transition from: :preauthorized,                  to: [:paid, :rejected, :pending_ext, :errored]
   transition from: :pending_ext,                    to: [:paid, :rejected]
-  transition from: :paid,                           to: [:confirmed, :canceled]
-  transition from: :canceled,                       to: [:refunded, :dismissed]
+  transition from: :paid,                           to: [:confirmed, :canceled, :disputed]
+  transition from: :disputed,                       to: [:refunded, :dismissed]
 
   after_transition(to: :paid, after_commit: true) do |transaction|
     payer = transaction.starter
@@ -87,6 +88,10 @@ class TransactionProcessStateMachine
     Delayed::Job.enqueue(TransactionCancelationDismissedJob.new(transaction.id, transaction.community_id))
     confirmation = ConfirmConversation.new(transaction, transaction.starter, transaction.community)
     confirmation.confirm!
+  end
+
+  after_transition(from: :paid, to: :disputed, after_commit: true) do |transaction|
+    Delayed::Job.enqueue(TransactionDisputedJob.new(transaction.id, transaction.community.id))
   end
 
   class << self
