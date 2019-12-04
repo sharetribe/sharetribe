@@ -457,11 +457,12 @@ en:
           confirmed: Completed
           paid: Paid
           canceled: Canceled
+          disputed: Disputed
           preauthorized: Preauthorized
           rejected: Rejected
           payment_intent_requires_action: Pending
           payment_intent_action_expired: Expired
-          refunded: Marked as refunded
+          refunded: Refunded
           dismissed: Dismissed
         headers:
           conversation: "Conversation thread"
@@ -482,6 +483,7 @@ en:
           paid: Paid
           confirmed: Completed
           canceled: Canceled
+          disputed: Disputed
           initiated: "Waiting PayPal payment"
           pending_ext: "Waiting PayPal payment"
           none:
@@ -495,6 +497,7 @@ en:
             paid: Paid
             confirmed: Completed
             canceled: Canceled
+            disputed: Disputed
             initiated: "Waiting PayPal payment"
             pending_ext: "Waiting PayPal payment"
             refunded: Refunded
@@ -508,6 +511,7 @@ en:
             paid: Paid
             confirmed: Completed
             canceled: Canceled
+            disputed: Disputed
             initiated: "Waiting Stripe payment"
             pending_ext: "Waiting Stripe payment"
             payment_intent_requires_action: Pending
@@ -1154,7 +1158,7 @@ en:
         provider_receives: "Seller receives:"
         admin_info_text: "As an administrator of %{service_name}, you can do some actions to move this transaction forward:"
         manage_reviews: "Manage reviews"
-        you_should_investigate: "You should investigate the situation by discussion with both parties and decide to refund or dismiss the cancellation. %{learn_more_link}"
+        you_should_investigate: "You should investigate the situation by discussing with both parties and decide to refund or dismiss the cancellation. %{learn_more_link}"
         learn_more: Learn more.
   common:
     edit_page: "Edit page"
@@ -1301,8 +1305,8 @@ en:
         held_payment: "Accepted the request. Payment for %{sum} is being held by %{service_name} until the order is marked as completed."
         held_payment_wo_sum: "Accepted the request. Payment is being held by %{service_name} until the order is marked as completed."
         confirmed_request: "Marked the order as completed. The payment has now been transferred to %{author_name} bank account or will be transferred soon."
-      canceled_the_order: "Canceled the order. %{service_name} team has been notified."
-      marked_as_refunded: "Marked as refunded."
+      canceled_the_order: "Canceled the order. The %{service_name} team has been notified."
+      marked_as_refunded: "Marked as refunded"
       dismissed_the_cancellation: "Dismissed the cancellation."
       payment_has_now_been_transferred: "The payment has now been transferred to %{seller} bank account or will be transferred soon."
     new:
@@ -1380,12 +1384,13 @@ en:
       stripe:
         waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the order completed. Once the order is marked as completed, the payment will be released to your bank account."
       order_canceled: Order canceled
-      waiting_for_marketplace_review: Waiting for the %{service_name} team to review the situation.
-      marketplace_notified: The %{service_name} has been notified. You can also %{contact_link} if you want to share more details with them.
+      waiting_for_marketplace_review: Waiting for the %{service_name} team to review the situation
+      marketplace_notified: The %{service_name} team has been notified. You can also %{contact_link} if you want to share more details with them.
       contact_them: contact them
       refunded: Order marked as refunded.
       dismissed: Order cancellation dismissed.
-      order_refunded: Order marked as refunded. The %{service_name} team has approved the cancellation. You should receive a refund soon.
+      order_refunded: Order marked as refunded. The %{service_name} team has approved the cancellation.
+      you_should_receive_refund_soon: You should receive a refund soon.
       issue_with_the_refund: Something wrong? An issue with the refund? %{contact_link}.
       do_you_disagree: Something wrong? Do you disagree? %{contact_link}.
       contact_the_marketpalce_team: Contact the %{service_name} team
@@ -1402,7 +1407,7 @@ en:
       confirm: "Mark completed"
       cancel: Cancel
       mark_as_refunded: Mark as refunded
-      dismiss: Dismiss
+      dismiss: Dismiss and payout
   feedback:
     feedback_subject: "New feedback from %{service_name}"
     feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
@@ -1761,11 +1766,11 @@ en:
     transaction_disputed:
       subject: Order canceled - The %{service_name} team is reviewing the situation
       subject_admin: A transaction was canceled, you must decide what happens next
-      you_have_canceled: you have canceled %{transaction_link}.
-      the_marketplace_has_been_notified: The %{service_name} has been notified and is reviewing the situation. You can contact them to share more details.
+      order_about: order about %{listing_title}
+      the_order_has_been_canceled: the %{transaction_link} has been canceled.
+      the_order_between_buyer_and_seller_has_been_canceled: the %{transaction_link} between %{buyer} and %{seller} has been canceled.
+      the_marketplace_has_been_notified: The %{service_name} team has been notified and is reviewing the situation. You can contact them to share more details.
       contact_the_marketplace_team: Contact the %{service_name} team
-      buyer_has_canceled: "%{buyer} has canceled %{transaction_link}."
-      their_order_with_seler: their order with %{seller}
       you_must_now_decide: You must now decide if a refund should happen or if you dismiss the cancellation. You can %{learn_more_link}.
       learn_more_about: learn more about what to do here
       review_the_transaction: Review the transaction

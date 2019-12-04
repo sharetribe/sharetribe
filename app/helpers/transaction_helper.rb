@@ -339,7 +339,7 @@ module TransactionHelper
             feedback_status(conversation)
           ],
           starter: [
-            status_info(t("conversations.status.order_refunded"), icon_classes: icon_class('refund')),
+            status_info("#{t('conversations.status.order_refunded')} #{t("conversations.status.you_should_receive_refund_soon")}", icon_classes: icon_class('refund')),
             status_info(t('conversations.status.issue_with_the_refund', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
             feedback_status(conversation)
 

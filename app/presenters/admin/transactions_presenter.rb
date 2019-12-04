@@ -23,7 +23,7 @@ class Admin::TransactionsPresenter
   end
 
   FILTER_STATUSES = %w(free confirmed paid canceled preauthorized rejected payment_intent_requires_action payment_intent_action_expired)
-  FILTER_STATUSES_CANCELED_FLOW = %w(refunded dismissed)
+  FILTER_STATUSES_CANCELED_FLOW = %w(disputed refunded dismissed)
 
   def sorted_statuses
     statuses = FILTER_STATUSES
@@ -156,12 +156,12 @@ class Admin::TransactionsPresenter
     transaction.current_state == 'paid'
   end
 
-  def canceled?
-    transaction.current_state == 'canceled'
+  def disputed?
+    transaction.current_state == 'disputed'
   end
 
   def show_next_step?
-    preauthorized? || paid? || (canceled_flow? && canceled?)
+    preauthorized? || paid? || disputed?
   end
 
   def buyer
@@ -181,7 +181,7 @@ class Admin::TransactionsPresenter
   end
 
   def completed?
-    transaction.current_state == 'confirmed' || transaction.current_state == 'canceled'
+    ['confirmed', 'canceled', 'refunded'].include?(transaction.current_state)
   end
 
   def shipping?
