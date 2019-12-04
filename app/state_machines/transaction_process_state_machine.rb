@@ -81,6 +81,7 @@ class TransactionProcessStateMachine
   end
 
   after_transition(to: :refunded, after_commit: true) do |transaction|
+    TransactionService::StateMachine.rejected(transaction)
     Delayed::Job.enqueue(TransactionRefundedJob.new(transaction.id, transaction.community_id))
   end
 
