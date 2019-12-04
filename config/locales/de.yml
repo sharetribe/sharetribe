@@ -651,28 +651,21 @@ de:
         landing_pages: "Landing Page"
         info_1: ~
         info_2: ~
-        info_2_preview_text: Vorschau
-        info_2_details_text: Grundangaben
-        info_2_design_text: ~
+        info_2_help_center: ~
         info_3: ~
         info_4: "Mehr über Custom Landing Pages lesen"
         editor_title: "Landing Page Editor"
         editor_info: ~
         preview: "Landing Page-Vorschau"
         set_live: "Live machen"
-        headers:
-          section_id: "Abschnitt ID"
-          section_type: Abschnittstyp
-          version: Version
-          released: Veröffentlicht
-        add_new_version: "Neue Version hinzufügen"
-        new_version: "Neue Version"
-        edit_version: "Version bearbeiten"
         add_new_section: "Neuen Abschnitt hinzufügen"
         select_section_type: "Abchnittstyp wählen..."
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
         form:
-          version: Version
           save: Speichern
+          cancel: ~
         sections:
           identifier: "Abschnitt ID"
           kind: Abchnittstyp
@@ -710,9 +703,12 @@ de:
             video: "Video-Abschnitt bearbeiten"
     landing_page_versions:
       sections:
+        content:
+          title: ~
         hero:
           hero_title: Hero
           hero_description: "Stelle fest das Hintegrundbild für den Hero-Abschnitt. Der Slogan und die Beschreibung werden auf der Seite \"Grundangaben\" konfiguriert."
+          basic_details_tab: ~
         footer:
           footer_title: Footer
           footer_style: Footer-Stil
@@ -725,6 +721,10 @@ de:
           cta_enabled: Aktiviert
           cta_text: Text
           cta_url: URL
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
         background_image_overlay:
           background_image: Hintergrundbild
           background_image_info: ~
@@ -785,6 +785,7 @@ de:
           main_title: Haupttitel
           column_header: "Spalte %{index}"
           column_title: "Spalte %{index} -Titel"
+          web_viewer: ~
           column_icon_info: ~
           column_icon: "Spalte %{index} -Symbol"
           column_paragraph: "Spalte %{index} -Paragraph"
@@ -792,14 +793,15 @@ de:
           column_button_text: "Text auf der Taste"
           column_button_url: "https://www.sharetribe.com"
         listings:
+          listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
           text: Text
-          youtube_video_id: "Youtube Video ID"
           autoplay: Wiedergabealternativen
           autoplay_no: "Kein Autoplay"
           autoplay_muted: "Autoplay ohne Audio"
           info: "Dieser Text wird angezeigt, wenn du \"Kein Autoplay\" wählst oder das Video pausiert wird"
+          youtube_video_id_info: ~
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -3188,8 +3190,6 @@ de:
         id: "Einzigartiger Name wählen"
         title: Titel
         paragraph: Paragraph
-        button_color: Tastenfarbe
-        button_color_hover: "Schwebefarbe der Taste"
         button_title: Text
         button_path: URL
         button_path_string: URL

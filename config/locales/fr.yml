@@ -178,7 +178,7 @@ fr:
         resend_link: Renvoyer
         invalid_email_error: "Format de l'email invalide pour '%{email}'"
         invalid_email_domain: "L'adresse email '%{email}' utilise le fournisseur '%{domain}' non supporté. %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: "Lisez l'article dans l'espace d'aide pour en savoir plus."
+        invalid_email_domain_read_more_link: "Lisez l'article sur le Help Center pour en savoir plus."
         unknown_error: "Quelque chose s'est mal passé."
         white_label_offer: "Configurez votre propre adresse email comme expéditeur et supprimez toute mention de Sharetribe dans les messages envoyés en %{upgrade_pro_plan_link}."
         upgrade_plan_link: "vous abonnant à l'offre Pro ou supérieure"
@@ -420,7 +420,7 @@ fr:
         save: "Sauvegarder les paramètres"
         add_menu_link: "Ajouter un nouveau lien au menu"
         title_placeholder: "Titre du lien"
-        url_placeholder: "https://example.com/fr"
+        url_placeholder: "https://www.example.com/fr"
         title: Titre
         language: Langue
         url: URL
@@ -628,7 +628,7 @@ fr:
         footer_enabled: "Footer activé"
         social_links: "Liens de réseaux sociaux"
         title_placeholder: "Titre du lien"
-        url_placeholder: "https://example.com/nomdutilisateur"
+        url_placeholder: "https://www.example.com/nomdutilisateur"
         style:
           dark: Sombre
           light: Clair
@@ -648,158 +648,160 @@ fr:
         you_can_now_use_a_custom_domain: "Avec votre offre actuelle, vous pouvez dès à présent utiliser votre propre domaine. Configurons le ensemble. %{contact_us} !"
         would_you_like_to_change_domain: "Souhaitez-vous modifier le domaine de votre place de marché ? %{contact_us} !"
       landing_pages:
-        landing_pages: ~
-        info_1: ~
-        info_2: ~
-        info_2_preview_text: ~
-        info_2_details_text: ~
-        info_2_design_text: ~
-        info_3: ~
-        info_4: ~
-        editor_title: ~
-        editor_info: ~
-        preview: ~
-        set_live: ~
-        headers:
-          section_id: ~
-          section_type: ~
-          version: ~
-          released: ~
-        add_new_version: ~
-        new_version: ~
-        edit_version: ~
-        add_new_section: ~
-        select_section_type: ~
+        landing_pages: "Page d'accueil"
+        info_1: "La page d'accueil est peut être la page la plus importante de votre place de marché. C'est la première page que vos visiteurs voient, un peu comme la porte d'entrée de votre maison. Vous n'avez que quelques secondes pour convaincre les nouveaux visiteurs qu'ils devraient parcourir votre site. Cette page doit être attirante et votre proposition claire et attractive."
+        info_2: "Parcourez le %{help_link} pour en savoir plus sur comment éditer votre page d'accueil"
+        info_2_help_center: "Help Center"
+        info_3: "Si vous souhaitez avoir une page d'accueil personnalisée pour votre place de marché, vous pouvez y souscrire via un add-on à $99 par mois."
+        info_4: "En apprendre plus sur la page d'accueil personnalisée"
+        editor_title: "Éditeur de la page d'accueil"
+        editor_info: "Vous pouvez ici modifier les différentes sections de votre page d'accueil. Pour le moment, un seul language peut être utilisé pour la page d'accueil. L'emplacement des sections \"Hero\" et \"Pied de page\" est fixe."
+        preview: "Prévisualiser la page d'accueil"
+        set_live: Publier
+        add_new_section: "Ajouter une nouvelle section :"
+        select_section_type: "Sélectionner le type de section..."
+        this_version_is_not_released: "Vous devez modifier quelque chose pour pouvoir publier une nouvelle version de votre page d'accueil"
+        latest_version_released: "La dernière version de votre page d'accueil a été publiée ! %{link}!"
+        check_it_out: "Admirez la!"
         form:
-          version: ~
-          save: ~
+          save: Sauvegarder
+          cancel: Annuler
         sections:
-          identifier: ~
-          kind: ~
-          variation: ~
-          new: ~
-          edit: ~
-          remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: ~
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
+          identifier: "Identifiant de la section"
+          kind: "Type de section"
+          variation: Version
+          new: "Nouvelle section"
+          edit: "Edition de la section %{section_id}"
+          remove_section_confirmation: "Voulez-vous vraiment supprimer la section '%{section_id}' et toutes les données associées ? Cela ne peut pas être annulé."
+          info_single_column: "Info 1 colonne"
+          info_multi_column_2: "Info 2 colonnes"
+          info_multi_column_3: "Info 3 colonnes"
+          listings: Annonces
+          categories: Catégories
+          hero: Hero
+          locations: Adresses
+          video: Vidéo
           new_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Ajout d'une nouvelle section 'Catégories'"
+            footer: "Ajout d'une nouvelle section 'Pied de page'"
+            hero: "Ajout d'une nouvelle section 'Hero'"
+            info_single_column: "Ajout d'une nouvelle section \"Info 1 colonne'"
+            info_multi_column_2: "Ajout d'une nouvelle section \"Info 2 colonnes'"
+            info_multi_column_3: "Ajout d'une nouvelle section \"Info 3 colonnes'"
+            listings: "Ajout d'une nouvelle section 'Annonces'"
+            locations: "Ajout d'une nouvelle section 'Adresses'"
+            video: "Ajout d'une nouvelle section 'Vidéo'"
           edit_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Edition d'une section 'Catégories'"
+            footer: "Edition de la section 'Pied de page'"
+            hero: "Edition de la section 'Hero'"
+            info_single_column: "Edition de la section 'Info 1 colonne'"
+            info_multi_column_2: "Edition de la section 'Info 2 colonnes'"
+            info_multi_column_3: "Edition de la section 'Info 3 colonnes'"
+            listings: "Edition de la section 'Annonces'"
+            locations: "Edition de la section 'Adresses'"
+            video: "Edition de la section 'Vidéo'"
     landing_page_versions:
       sections:
+        content:
+          title: "Contenu de la section"
         hero:
-          hero_title: ~
-          hero_description: ~
+          hero_title: Hero
+          hero_description: "Choisissez l'image d'arrière-plan pour la section Hero. Le slogan et la description sont définis depuis l'%{link}."
+          basic_details_tab: "onglet 'Détails de base'"
         footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
+          footer_title: "Pied de page"
+          footer_style: "Style du pied de page"
+          style_dark: Sombre
+          style_light: Clair
+          style_marketplace_color: "Couleur principale de la place de marché"
+          style_logo: Logo
         cta_button:
-          cta_button: ~
-          cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
+          cta_button: Bouton
+          cta_enabled: "Afficher un bouton"
+          cta_text: Libellé
+          cta_url: URL
+          text_placeholder: "Cliquez ici !"
+          url_placeholder: "https://www.example.com"
+        background_selector:
+          title: Arrière-plan
         background_image_overlay:
-          background_image: ~
-          background_image_info: ~
-          add_another_image: ~
-          current_image: ~
-          file_not_selected: ~
-          background_image_overlay: ~
-          background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
+          background_image: "Image d'arrière-plan"
+          background_image_info: "Cette image sera visible comme arrière-plan de la section. Idéalement, elle devrait avoir des dimensions minimum de 1600x1200 pixels."
+          add_another_image: "Ajouter une autre image"
+          current_image: "Image actuelle : %{filename}"
+          file_not_selected: "Aucune image"
+          background_image_overlay: "Surcouche à l'image d'arrière-plan"
+          background_image_overlay_info: "Ceci vous permet de définir si l'image d'arrière-plan est recouverte d'un voile sombre ou clair. \"Transparent\" signifie qu'il n'y aura aucune surcouche ajoutée."
+          overlay_dark: Sombre
+          overlay_light: Clair
+          overlay_transparent: Transparent
         background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
+          background_style: "Style d'arrière-plan"
+          style_image: Image
+          style_color: Couleur
+          style_none: Aucun
         background_color:
-          background_color: ~
-          background_color_info: ~
+          background_color: "Couleur d'arrière-plan"
+          background_color_info: "Vous pouvez changer la couleur d'arrière-plan de cette section en entrant une valeur hexadécimale. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici."
         categories:
-          add: ~
-          category: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
+          add: "+ Ajouter une nouvelle catégorie dans cette section"
+          category: Catégorie
+          empty: "Vous n'avez pas encore ajouté de catégories"
+          image: Image
+          include_title: "Catégories à mettre en avant"
+          info_text: "Vous pouvez mettre en avant entre trois et sept catégories. Veuillez ajouter une image pour chaque catégorie et sélectionner une des catégories de votre place de marché. Idéalement, l'image devrait avoir des dimensions minimum de 1000x667 pixels."
+          need_at_least_3_categories: "Vous devez avoir au moins trois catégories dans cette section"
+          need_at_most_7_categories: "Vous ne devez pas avoir plus de sept catégories dans cette section"
         category:
-          add_another_image: ~
-          category: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          select_category: ~
+          add_another_image: "Ajouter une autre image"
+          category: Catégorie
+          current_image: "Image actuelle : %{filename}"
+          file_not_selected: "Aucune image"
+          image: Image
+          image_required: "Vous devez ajouter une image pour cette catégorie"
+          select_category: "Sélectionner la catégorie"
         locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
+          add: "+ Ajouter une nouvelle adresse dans cette section"
+          location: Adresse
+          empty: "Vous n'avez pas encore ajouté d'adresses"
+          image: Image
+          include_title: "Adresses à mettre en avant"
+          info_text: "Vous pouvez mettre en avant entre trois et sept adresses. Veuillez ajouter une image pour chaque adresse et une URL de recherche géographique au sein de votre place de marché. Idéalement, l'image devrait avoir des dimensions minimum de 1000x667 pixels."
+          need_at_least_3_locations: "Vous devez avoir au moins trois adresses dans cette section"
+          need_at_most_7_locations: "Vous ne pouvez pas avoir plus de sept adresses dans cette section"
         location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
+          add_another_image: "Ajouter une autre image"
+          location: Adresse
+          current_image: "Image actuelle : %{filename}"
+          file_not_selected: "Aucune image"
+          image: Image
+          image_required: "Vous devez ajouter une image pour cette adresse"
+          title: Titre
+          title_placeholder: "Libellé de l'adresse"
+          url: URL
+          url_placeholder: "URL de l'adresse"
         multi_column:
-          main_title: ~
-          column_header: ~
-          column_title: ~
-          column_icon_info: ~
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
-          column_button_url: ~
+          main_title: "Titre principal"
+          column_header: "Colonne %{index}"
+          column_title: "Titre de la colonne %{index}"
+          web_viewer: interface
+          column_icon_info: "Vous pouvez choisir votre icône depuis cette %{link}. Une fois que vous avez sélectionné l'icône, copiez le 'Directory path\" (par exemple '01-Interface Essential/01-Home/house-2.svg' et collez le ici."
+          column_icon: "Icône de la colonne %{index}"
+          column_paragraph: "Paragraphe de la colonne %{index}"
+          column_button: "Bouton de la colonne %{index}"
+          column_button_text: "Libellé du bouton"
+          column_button_url: "https://www.example.com"
         listings:
-          you_need_to_add_the_listing_ids: ~
+          listings_to_feature: "Annonces à mettre en avant"
+          you_need_to_add_the_listing_ids: "Vous devez ajouter les identifiants des annonces que vous voulez mettre en avant dans cette section. Pour trouver l'identifiant d'une annonce, rendez vous sur la page de l'annonce et regardez l'URL de la page. L'identifiant de l'annonce est le nombre affiché juste après l'URL principale. Par exemple pour https://www.example.com/listings/123456-listing-title, l'identifiant de l'annonce est 123456."
         video:
-          text: ~
-          youtube_video_id: ~
-          autoplay: ~
-          autoplay_no: ~
-          autoplay_muted: ~
-          info: ~
+          text: Texte
+          autoplay: "Options de lecture"
+          autoplay_no: "Pas de lecture automatique"
+          autoplay_muted: "Lecture automatique sans son"
+          info: "Ce texte sera affiché si vous sélectionnez l'option \"Pas de lecture automatique\" ou lorsque la vidéo est mise en pause."
+          youtube_video_id_info: "Vous pouvez obtenir l'identifiant de la vidéo depuis l'URL de la vidéo. C'est généralement la dernière partie de l'URL. Par exemple si l'URL est https://www.youtube.com/watch?v=UffchBUUIoI, l'identifiant est 'UffchBUUIoI'"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -810,7 +812,7 @@ fr:
         price_min: "Valeur minimum du filtre prix"
         price_max: "Valeur maximum du filtre prix"
       edit_location:
-        edit_location_field: "Modifier le champ d'annonce 'Lieu'"
+        edit_location_field: "Modifier le champ d'annonce 'Adresse'"
         this_field_is_required: "Ce champ est obligatoire"
         the_location_feature_can_be_enabled: "La fonctionnalité de localisation peut être activée depuis la section %{link} dans les Paramètres de la place de marché."
       edit_expiration:
@@ -1797,9 +1799,9 @@ fr:
       on_or_after: "doit être au ou après %{restriction}"
       positive_number: "Vous devez saisir un nombre entier."
       from_must_be_less_than_till: "\"Heure de début\" doit être antérieure à \"Heure de fin\""
-      section_with_this_id_already_exists: ~
-      listing_with_this_id_does_not_exist: ~
-      presence: ~
+      section_with_this_id_already_exists: "Cet identifiant de section est déjà utilisé. Veuillez en choisir un autre."
+      listing_with_this_id_does_not_exist: "L'identifiant de cette annonce n'est pas de votre place de marché. Peut être avez fait une faute ? Veuillez vérifier et essayer de nouveau."
+      presence: "Ne peut être vide"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."
@@ -2246,7 +2248,7 @@ fr:
         youtube_info: "Si votre description contient des liens YouTube, les vidéos seront affichées sous la description."
         youtube_info_markdown: "Vous pouvez %{link}. Si votre description contient des liens YouTube, les vidéos seront affichées sous la description."
       destination:
-        destination: "Lieu d'arrivée"
+        destination: "Adresse d'arrivée"
       form_content:
         favor: service
         housing: lieu
@@ -2280,7 +2282,7 @@ fr:
         accepted_formats: "L'image doit être un fichier au format GIF, JPG ou PNG."
         images_not_uploaded_confirm: "Toutes les images ne sont pas encore envoyées. Voulez-vous vraiment continuer ?"
       location:
-        location: Lieu
+        location: Adresse
       price:
         price: Prix
         per: par
@@ -2299,8 +2301,8 @@ fr:
         shipping_price_additional: "Eléments supplémentaires"
         pickup: Retrait
       origin:
-        location: Lieu
-        origin: "Lieu de départ"
+        location: Adresse
+        origin: "Adresse de départ"
       send_button:
         save_listing: "Publier l'annonce"
         submit_for_review: "Soumettre pour vérification"
@@ -3185,26 +3187,24 @@ fr:
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
-        button_color: ~
-        button_color_hover: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
-        icon_color: ~
+        id: "Identifiant unique de la section"
+        title: Titre
+        paragraph: Paragraphe
+        button_title: Texte
+        button_path: URL
+        button_path_string: URL
+        background_image: "Image d'arrière-plan"
+        background_image_variation: "Version de l'image d'arrière-plan"
+        background_color: "Couleur d'arrière-plan"
+        background_color_string: "Couleur d'arrière-plan"
+        icon_color: "Couleur de l'icône"
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: "Identifiant de la première annonce"
+        listing_2_id: "Identifiant de la deuxième annonce"
+        listing_3_id: "Identifiant de la troisième annonce"
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Texte
+        youtube_video_id: "Identifiant de la vidéo YouTube"
   canada_states:
     AB: Alberta
     BC: Colombie-Britannique

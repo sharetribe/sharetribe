@@ -90,8 +90,8 @@ tr-TR:
         transaction_agreement_checkbox_label_description: "Bu metin ödeme formunda onay kutucuğunun yanında gösterilecek. Kullanıcının işlemi gerçekleştirebilmek için kutucuğu onaylaması gerekecek. Örnek bir başlık olarak: \"Bu kutuyu işaretleyerek sözleşmeyi kabul ettiğimi beyan ederim.\""
         transaction_agreement_text_header: "Sözleşme metni"
         transaction_agreement_description: "Bu, kullanıcının kabul etmesi gereken asıl sözleşmenin içeriğidir. Anlaşma içeriği kullanıcı sözleşme başlığının yanındaki \"%{read_more}\" linkine tıkladığında görüntülenecektir."
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
+        terms_privacy_policy_and_static_content: "Şartlar, gizlilik politikası ve statik içerik"
+        terms_privacy_policy_and_static_content_infotext: "Dört sayfaya kadar statik içerik düzenleyebilirsiniz. Kullanıcılar, üst çubuktaki \"Hakkında\" bağlantısını tıklayarak sayfaları bulabilirler."
       edit_look_and_feel:
         edit_community_look_and_feel: "%{community_name} pazar görünümü ve özelliklerini düzenle"
         community_logo: "Masaüstü logosu"
@@ -111,8 +111,8 @@ tr-TR:
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Masaüstü logo ebatları %{width}x%{height} olmalıdır. Büyük ekrana sahip üyelere gösterilecektir."
         logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: "Mobil logo kare şeklinde, tercihen %{width}x%{height} px ebatlarında olmalıdır. Küçük ekrana sahip kullanıcılara gösterilecektir."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions: "Bu kare logo, kullanıcılar sitenizi Facebook'ta paylaştığında, sitenizi bir mobil cihazda görüntülediklerinde veya sitenizi mobil cihazlarının ana ekranına eklediklerinde gösterilir. Boyutlar (en az)%{width} x%{height} piksel olmalıdır."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Bu kare logo, kullanıcılar sitenizi Facebook'ta paylaştığında veya sitenizi mobil cihazlarının ana ekranına eklediğinde gösterilir. Boyutlar (en azından) olmalıdır%{width}x%{height} pixels."
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Kapak fotoğrafı ana sayfada giriş yapmamış kullanıcılara gösterilecektir."
         cover_photo_instructions_text_with_dimensions: "Görsel %{width}x%{height} piksel boyutlarında küçültülecek ve uzun görseller ortadan kesilecektir. %{see_how_it_looks_like}."
@@ -307,10 +307,10 @@ tr-TR:
       social_media:
         social_media: "Sosyal medya"
         logo: ~
-        logo_info: ~
+        logo_info: "Birisi web sitenizi paylaştığında bu görüntü Facebook, Twitter ve LinkedIn için sosyal medyada gösterilecektir. En iyi sonuçlar için, 2: 1 en boy oranına ve minimum%{width}x%{height} piksel boyutuna sahip olmalıdır."
         social_media_title: ~
-        social_media_title_info: ~
-        link_for_facebook: ~
+        social_media_title_info: "Bir kişi web sitenizi paylaştığında bu metin Facebook, Twitter ve LinkedIn için sosyal medyada gösterilecektir.%{facebook_preview_link},%{twitter_preview_link}ve%{linkedin_preview_link} nasıl göründüğünü izleyebilirsiniz."
+        link_for_facebook: "Facebook için"
         link_for_linkedin: ~
         link_for_twitter: ~
         social_media_description: ~
@@ -320,16 +320,16 @@ tr-TR:
         twitter_instructions_link_text: "Devamını oku"
         twitter_handle_placeholder: "kullanıcı adı"
         invalid_twitter_handle: "Twitter aracı maksimum 15 alfanumerik karakter içerebilir (A-Z harfler ve 0-9 rakamlar)."
-        facebook_connect: Facebook
-        facebook_developers_dashboard: ~
-        facebook_connect_info_text: "Facebook'la giriş yapmayı etkinleştirebilmek için, <a href='https://developers.facebook.com/'>Facebook geliştiricileri panosunda</a> pazar yeriniz için bir uygulama oluşturun. Uygulamanın oluşturduğu kimlik ve gizli anahtarı buraya ekleyin."
+        facebook_connect: "Facebook Giriş"
+        facebook_developers_dashboard: "Facebook Yazılımcılar Paneli"
+        facebook_connect_info_text: "Pazaryeriniz Facebook Giriş'i etkinleştirmek,%{dashboard_link} içinde bir uygulama oluşturun. Oluşturulan kimliği ve uygulamanın gizli anahtarını buraya ekleyin."
         facebook_connect_info_text_with_instructions: "Facebook ile giriş yapılabilmesi için pazarınız adına<a href='https://developers.facebook.com/'>Facebook Programcılar sayfasındaki panelden</a>başvuru yapın. Oluşturulan ID numarası ve gizli anahtarı ekleyin.%{instructions_link}"
         facebook_instructions_link_text: "Facebook'a bağlanma talimatlarına bakın."
-        facebook_connect_id: "Facebook müşteri kimliği"
-        invalid_facebook_connect_id: "Müşteri kimliği sadece rakam içerebilir."
+        facebook_connect_id: "Facebook Uyulama Kimliği"
+        invalid_facebook_connect_id: "Uyulama kimliği sadece rakam içerebilir."
         facebook_connect_secret: "Facebook müşteri gizli anahtarı"
         invalid_facebook_connect_secret: "Gizli anahtar sadece rakam ve A-F arası harfleri içerebilir."
-        enable_facebook_login: ~
+        enable_facebook_login: "Kullanıcıların Facebook hesaplarıyla giriş yapmalarına izin ver"
         save: "Ayarları kaydet"
         add_another_image: ~
         google_connect: ~
@@ -648,28 +648,21 @@ tr-TR:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_preview_text: ~
-        info_2_details_text: ~
-        info_2_design_text: ~
+        info_2_help_center: ~
         info_3: ~
         info_4: ~
         editor_title: ~
         editor_info: ~
         preview: ~
         set_live: ~
-        headers:
-          section_id: ~
-          section_type: ~
-          version: ~
-          released: ~
-        add_new_version: ~
-        new_version: ~
-        edit_version: ~
         add_new_section: ~
         select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
         form:
-          version: ~
           save: ~
+          cancel: ~
         sections:
           identifier: ~
           kind: ~
@@ -707,9 +700,12 @@ tr-TR:
             video: ~
     landing_page_versions:
       sections:
+        content:
+          title: ~
         hero:
           hero_title: ~
           hero_description: ~
+          basic_details_tab: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -722,6 +718,10 @@ tr-TR:
           cta_enabled: ~
           cta_text: ~
           cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
         background_image_overlay:
           background_image: ~
           background_image_info: ~
@@ -782,6 +782,7 @@ tr-TR:
           main_title: ~
           column_header: ~
           column_title: ~
+          web_viewer: ~
           column_icon_info: ~
           column_icon: ~
           column_paragraph: ~
@@ -789,14 +790,15 @@ tr-TR:
           column_button_text: ~
           column_button_url: ~
         listings:
+          listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
           text: ~
-          youtube_video_id: ~
           autoplay: ~
           autoplay_no: ~
           autoplay_muted: ~
           info: ~
+          youtube_video_id_info: ~
     custom_fields:
       edit:
         edit_listing_field: "'%{field_name}' listeleme alanını düzenle"
@@ -1959,7 +1961,7 @@ tr-TR:
     application:
       join_this_community: "Pazara katılın"
       read_more: "Devamını oku"
-      feedback: "%{service_name}'na mesaj gönder"
+      feedback: "%{service_name}'a mesaj gönder"
       dont_use_to_contact_support: ~
       feedback_forum: "geribildirim forumu"
       feedback_handle: Geribildirim
@@ -1987,7 +1989,7 @@ tr-TR:
       how_to_use: "Nasıl çalışır"
       info_about_kassi: "%{service_name} Hakkımızda"
       news: Yenilikler
-      register_details: Gizlilik
+      register_details: "Gizlilik politikasını"
       terms: "Kullanım koşulları"
     logged_in:
       admin: Yönetici
@@ -2152,8 +2154,8 @@ tr-TR:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Oturumunuzun süresi doldu, lütfen tekrar giriş yapın."
       stripe_you_account_balance_is_not_0: ~
-      visit_admin: "İstermisiniz%{link}?"
-      visit_admin_link: "Yönetici panelinizi ziyaret edin"
+      visit_admin: "%{link}ister misiniz?"
+      visit_admin_link: "yönetici panelinizi ziyaret edin"
     settings:
       account: Hesap
       notifications: Bildirimler
@@ -2308,8 +2310,8 @@ tr-TR:
         for_the_time_being: "Şu an için"
       privacy:
         privacy: Gizlilik
-        private: "Gizli (sadece giriş yapmış kullanıcılar görebilir)"
-        public: "Açık (giriş yapmamış kullanıcılar görebilir)"
+        private: "Gizli (sadece giriş yapan kullanıcılar görebilir)"
+        public: "Açık (giriş yapmayan kullanıcılar görebilir)"
     help_texts:
       help_share_type_title: "Teklif ya da talep türü"
       help_tags_title: Etiketler
@@ -2589,8 +2591,8 @@ tr-TR:
         other: "%{service_name}'e erişim sınırlandırılmıştır. Katılım izniniz olduğunu gösteren bir e-posta adresine sahip olmalısınız."
       family_name: Soyad
       given_name: Ad
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: "Zaman zaman %{service_name} takım üyelerinden e-mailler alacağımı kabul ediyorum ve fikrimi istedim zaman değiştirebileceğimi anladım."
+      i_accept_the_terms_and_privacy: "%{terms} ve %{privacy}  kabul ediyorum"
+      admin_emails_consent: "Zaman zaman %{service_name} takım üyelerinden e-mailler alacağımı kabul ediyorum ve fikrimi istediğim zaman değiştirebileceğimi anladım."
       invalid_invitation_code: "Davet kodu geçerli değil."
       invitation_code: "Davet kodu"
       not_required: ", gerekmemektedir"
@@ -2599,10 +2601,10 @@ tr-TR:
       show_my_name_to_others: "Diğer %{service_name} kullanıcılarına gerçek adımı göster"
       sign_up: "Yeni %{service_name} hesabı oluştur."
       terms: "Kullanım Koşulları"
-      privacy: ~
+      privacy: "Gizlilik politikası"
       visible_only_to_you: "yalnızca siz ve pazaryeri yöneticisi görebilir"
       visible_to_everybody: "herkes görebilir"
-      create_account_with_provider: ~
+      create_account_with_provider: "%{provider} ile kayıt olun"
       OR: "YA DA"
       signup_with_email: "E-posta ile kayıt ol"
       this_field_will_be_publicly_visible: "(Bu alan herkese görünür olacak)"
@@ -2905,6 +2907,8 @@ tr-TR:
     initiate:
       booked_days: "Rezervasyon günleri:"
       booked_nights: ~
+      booked_days_label:
+        other: "Rezervason:"
       price_per_day: "Günlük ücret:"
       price_per_night: "Fiyat her bir gece:"
       price_per_hour: ~
@@ -2914,8 +2918,6 @@ tr-TR:
       shipping-price: "Kargo:"
       stripe-fee: ~
       start_end_time: ~
-      booked_days_label:
-        other: "Rezervason:"
     price_per_quantity: "%{unit_type} başına fiyat"
     price: "Fiyat:"
     quantity: "Adet: %{quantity}"
@@ -3133,8 +3135,6 @@ tr-TR:
         id: ~
         title: ~
         paragraph: ~
-        button_color: ~
-        button_color_hover: ~
         button_title: ~
         button_path: ~
         button_path_string: ~
