@@ -3,17 +3,19 @@
     - payer_name = PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only")
     - listing_link = link_to listing_title, listing_info_url
     - payment_sum = "<strong>#{payment_total}</strong>"
-    %h1= t("emails.payment_receipt_to_payer_v2.headline", payer_name: payer_name, listing_link: listing_link).html_safe
+    %h1
+      = t("emails.common.hi", name: payer_name).html_safe
+      = t("emails.payment_receipt_to_payer_v2.headline", listing_link: listing_link).html_safe
 
 %tr
   %td.email-content
     %p.text-bold
       = t("emails.payment_receipt_to_payer_v2.you_have_made_new_payment", :listing_title => listing_title, :payment_sum => payment_total, :recipient_full_name => recipient_given_name).html_safe
 
-    - if gateway == :stripe
-      %p= t("emails.payment_receipt_to_seller_v2.main_text_stripe")
-    - else
-      %p= t("emails.payment_receipt_to_seller_v2.main_text")
+    %p
+      - if gateway == :stripe
+        = t("emails.payment_receipt_to_seller_v2.main_text_stripe")
+      = t("emails.common.here_is_your_receipt")
 
 %tr
   %td.email-receipt
