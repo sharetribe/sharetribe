@@ -1,6 +1,8 @@
 %tr
   %td.person-name
-    %h1= t("emails.new_listing_by_followed_person_v2.headline", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'), author: PersonViewUtils.person_display_name_for_type(@listing.author, 'first_name_only'))
+    %h1
+      = t("emails.common.hi", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'))
+      = t("emails.new_listing_by_followed_person_v2.headline", author: PersonViewUtils.person_display_name_for_type(@listing.author, 'first_name_only'))
 
 %tr
   %td.email-listings.no-top-border

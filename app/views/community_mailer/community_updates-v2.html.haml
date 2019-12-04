@@ -1,11 +1,13 @@
 %tr
   %td.person-name
     - user_name = PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only")
-    %h1= t("emails.community_updates_v2.headline", user_name: user_name).html_safe
+    %h1
+      = t("emails.common.hi", name: user_name)
+      = t("emails.community_updates_v2.headline")
 
 %tr
   %td.email-content
-    %p= t("emails.community_updates_v2.intro_paragraph", :time_since_last_update => @time_since_last_update).html_safe
+    %p= t("emails.community_updates_v2.intro_paragraph", count: @number_of_days, number_of_days: @number_of_days).html_safe
 
 %tr
   %td.email-listings

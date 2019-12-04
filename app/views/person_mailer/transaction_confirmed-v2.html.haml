@@ -10,16 +10,16 @@
       - other_party_full_name = t('emails.transaction_confirmed.team_title')
     - else
       - other_party_full_name = @conversation.other_party(@recipient).name(@conversation.community)
-    - if stripe_confirmed
-      %h1= t("emails.transaction_confirmed_v2.headline_stripe_confirmed", recipient: recipient_name, other_party_full_name: other_party_full_name, listing_link: listing_link).html_safe
-    - else
-      %h1= t("emails.transaction_confirmed_v2.headline_#{@conversation.status}", recipient: recipient_name, other_party_full_name: other_party_full_name, listing_link: listing_link).html_safe
+    %h1
+      = t("emails.common.hi", name: recipient_name)
+      = t("emails.transaction_confirmed_v2.headline_#{@conversation.status}", other_party_full_name: other_party_full_name, listing_link: listing_link).html_safe
 
 %tr
   %td.email-content
     %p.text-bold
-      - key = stripe_confirmed && @recipient_is_seller ? 'stripe.has_marked_request_as_confirmed' : "has_marked_request_as_#{@conversation.status}"
-      = t("emails.transaction_confirmed_v2.#{key}", :other_party_full_name => other_party_full_name, :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"), :request => @conversation.listing.title)
+      - if stripe_confirmed && @recipient_is_seller
+        = t("emails.transaction_confirmed_v2.stripe.has_marked_request_as_confirmed", :request => @conversation.listing.title)
+      = t("emails.transaction_confirmed_v2.can_give_feedback", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"))
 
     %p
       = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"))
