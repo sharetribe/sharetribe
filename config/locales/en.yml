@@ -420,7 +420,7 @@ en:
         save: "Save settings"
         add_menu_link: "Add a new link to menu"
         title_placeholder: "Link title"
-        url_placeholder: "https://example.com/en"
+        url_placeholder: "https://www.example.com/en"
         title: Title
         language: Language
         url: URL
@@ -628,11 +628,11 @@ en:
         footer_enabled: "Footer enabled"
         social_links: "Footer social links"
         title_placeholder: "Link title"
-        url_placeholder: "https://example.com/username"
+        url_placeholder: "https://www.example.com/username"
         style:
           dark: Dark
           light: Light
-          marketplace_color: "Marketplace Color"
+          marketplace_color: "Marketplace main color"
           logo: Logo
         social:
           title: Title
@@ -648,20 +648,20 @@ en:
         you_can_now_use_a_custom_domain: "With your current plan, you can now enable a custom domain. Let's move forward with the setup. %{contact_us}!"
         would_you_like_to_change_domain: "Would you like to change your marketplace custom domain? %{contact_us}!"
       landing_pages:
-        landing_pages: "Landing Page"
+        landing_pages: "Landing page"
         info_1: "The landing page is perhaps the most important page of your marketplace. It is the first page that visitors see - sort of like the front door of your house. You have only a few seconds to convince new vistiors that they should explore your site. The page needs to be appealing and your value proposition should be clear and enticing."
         info_2: "Visit the %{help_link} to find out more about how to edit your landing page"
-        info_2_help_center: help center
+        info_2_help_center: Help Center
         info_3: "If you want to have a completely customized landing page for your marketplace, you can purchase it as add-on for $99 per month."
         info_4: "Read more about custom landing pages"
-        editor_title: "Landing Page Editor"
-        editor_info: "Here you can edit the sections of your Landing Page. At the moment it is only possible to use one language for the landing page. The hero and footer sections' position cannot be altered"
+        editor_title: "Landing page editor"
+        editor_info: "Here you can edit the sections of your landing page. At the moment it is only possible to use one language for the landing page. The 'Hero' and 'Footer' sections' position cannot be altered"
         preview: "Preview landing page"
         set_live: "Set live"
         add_new_section: "Add new section:"
         select_section_type: "Select section type..."
-        this_version_is_not_released: You need to make changes to release a new version of the Landing Page
-        latest_version_released: "The latest version of your landing page has been released! %{link}!"
+        this_version_is_not_released: You need to make changes to set live a new version of your landing page
+        latest_version_released: "The latest version of your landing page has been set live! %{link}!"
         check_it_out: Check it out
         form:
           save: Save
@@ -682,47 +682,47 @@ en:
           locations: Locations
           video: Video
           new_section:
-            categories: "New categories section"
-            footer: "New footer section"
-            hero: "New hero section"
-            info_single_column: "New single column section"
-            info_multi_column_2: "New 2 column section"
-            info_multi_column_3: "New 3 column section"
-            listings: "New listings section"
-            locations: "New locations section"
-            video: "New video section"
+            categories: "New 'Categories' section addition"
+            footer: "Add new 'Footer' section addition"
+            hero: "New 'Hero' section addition"
+            info_single_column: "New 'Info 1 colum' section addition"
+            info_multi_column_2: "New 'Info 2 columns' section addition"
+            info_multi_column_3: "New 'Info 3 columns' section addition"
+            listings: "New 'Listings' section addition"
+            locations: "New 'Locations' section addition"
+            video: "New 'Video' section addition"
           edit_section:
-            categories: "Edit categories section"
-            footer: "Edit footer section"
-            hero: "Edit hero section"
-            info_single_column: "Edit single column section"
-            info_multi_column_2: "Edit 2 column section"
-            info_multi_column_3: "Edit 3 column section"
-            listings: "Edit listings section"
-            locations: "Edit locations section"
-            video: "Edit video section"
+            categories: "'Categories' section edition"
+            footer: "'Footer' section edition"
+            hero: "'Hero' section edition"
+            info_single_column: "'Info 1 column' section edition"
+            info_multi_column_2: "'Info 2 columns' section edition"
+            info_multi_column_3: "'Info 3 columns' section edition"
+            listings: "'Listings' section edition"
+            locations: "'Locations' section edition"
+            video: "'Video' section edition"
     landing_page_versions:
       sections:
         content:
           title: Section content
         hero:
           hero_title: Hero
-          hero_description: "Set the background image for the Hero section. The slogan and description are set from the %{link}"
-          basic_details_tab: basic details tab
+          hero_description: "Set the background image for the Hero section. The slogan and description are set from the %{link}."
+          basic_details_tab: "'Basic details' tab"
         footer:
           footer_title: Footer
           footer_style: "Footer style"
           style_dark: Dark
           style_light: Light
-          style_marketplace_color: "Marketplace color"
+          style_marketplace_color: "Marketplace main color"
           style_logo: Logo
         cta_button:
           cta_button: "Call-to-action button"
           cta_enabled: Show a button
-          cta_text: Text
+          cta_text: Label
           cta_url: URL
           text_placeholder: "Click me!"
-          url_placeholder: "https://example.com"
+          url_placeholder: "https://www.example.com"
         background_selector:
           title: Background
         background_image_overlay:
@@ -750,9 +750,9 @@ en:
           empty: "You don't have any included categories"
           image: Image
           include_title: "Categories to feature"
-          info_text: "You can feature 3 to 7 categories. Please add an image to each category and select one of the categories from your marketplace. For best results the recommended image size is 1000 x 667 pixels."
-          need_at_least_3_categories: "You should have at least 3 categories in this section"
-          need_at_most_7_categories: "You should have at most 7 categories in this section"
+          info_text: "You can feature three to seven categories. Please add an image to each category and select one of the categories from your marketplace. For best results the recommended image size is 1000 x 667 pixels."
+          need_at_least_3_categories: "You should have at least three categories in this section"
+          need_at_most_7_categories: "You should have at most seven categories in this section"
         category:
           add_another_image: "Add another image"
           category: Category
@@ -767,9 +767,9 @@ en:
           empty: "You don't have any included locations"
           image: Image
           include_title: "Locations to feature"
-          info_text: "You can feature 3 to 7 locations. Please add an image to each location and provide location search url for your marketplace. For best results the recommended image size is 1000 x 667 pixels."
-          need_at_least_3_locations: "You should have at least 3 locations in this section"
-          need_at_most_7_locations: "You should have at most 7 locations in this section"
+          info_text: "You can feature three to seven locations. Please add an image to each location and provide location search URL for your marketplace. For best results the recommended image size is 1000 x 667 pixels."
+          need_at_least_3_locations: "You should have at least three locations in this section"
+          need_at_most_7_locations: "You should have at most sevent locations in this section"
         location:
           add_another_image: "Add another image"
           location: Location
@@ -778,30 +778,30 @@ en:
           image: Image
           image_required: "You should add an image to this location"
           title: Title
-          title_placeholder: "Location text"
+          title_placeholder: "Location label"
           url: URL
-          url_placeholder: "Location link URL"
+          url_placeholder: "Location URL"
         multi_column:
           main_title: "Main title"
           column_header: "Column %{index}"
           column_title: "Column %{index} title"
           web_viewer: web viewer
-          column_icon_info: "You can choose your icon from this %{link}. Once you select the icon copy the Directory path and paste it here. i.e. 01-Interface Essential/01-Home/house-2.svg "
+          column_icon_info: "You can choose your icon from this %{link}. Once you've selected the icon, copy the 'Directory path' (for example '01-Interface Essential/01-Home/house-2.svg') and paste it here."
           column_icon: "Column %{index} icon"
           column_paragraph: "Column %{index} paragraph"
           column_button: "Column %{index} button"
-          column_button_text: "Button text"
+          column_button_text: "Button label"
           column_button_url: "https://www.example.com"
         listings:
           listings_to_feature: "Listings to feature"
-          you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/listings/123456-listing-title, the listing is would be 123456."
+          you_need_to_add_the_listing_ids: "You need to add the listing IDs of the listings you want to feature in this section. To find the ID of a listing, simply go to the listing page and look at the listing URL. The listing ID is the number that comes right after the main URL. In the example https://www.example.com/listings/123456-listing-title, the listing ID would be 123456."
         video:
           text: Text
           autoplay: "Autoplay options"
           autoplay_no: "No autoplay"
           autoplay_muted: "Muted autoplay"
-          info: 'This text will be displayed when you select the "No Autoplay" option or when the video is paused.'
-          youtube_video_id_info: "You can get your video ID from the video's URL. It is normally the last part of the URL. So if your URL is https://www.youtube.com/watch?v=UffchBUUIoI the ID would be <b>UffchBUUIoI</b>"
+          info: 'This text will be displayed if you select the \"No autoplay\" option or when the video is paused.'
+          youtube_video_id_info: "You can get the video ID from the video's URL. It is normally the last part of the URL. For example if the video's URL is https://www.youtube.com/watch?v=UffchBUUIoI, the ID would be 'UffchBUUIoI'"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -1799,8 +1799,8 @@ en:
       on_or_after: "must be on or after %{restriction}"
       positive_number: "Insert a number."
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
-      section_with_this_id_already_exists: "This identifier is in use. Please choose another one."
-      listing_with_this_id_does_not_exist: "This listing id is not one of yours. Maybe you made a typo? Please verify and try again."
+      section_with_this_id_already_exists: "This section unique name is already in use. Please choose another one."
+      listing_with_this_id_does_not_exist: "This listing ID is not available in your marketplace. Maybe you made a typo? Please verify and try again."
       presence: "Can't be blank"
   event_feed_events:
     accept:
