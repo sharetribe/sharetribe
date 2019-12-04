@@ -1387,8 +1387,8 @@ en:
       waiting_for_marketplace_review: Waiting for the %{service_name} team to review the situation
       marketplace_notified: The %{service_name} team has been notified. You can also %{contact_link} if you want to share more details with them.
       contact_them: contact them
-      refunded: Order marked as refunded.
-      dismissed: Order cancellation dismissed.
+      refunded: Order marked as refunded
+      dismissed: Order cancellation dismissed
       order_refunded: Order marked as refunded. The %{service_name} team has approved the cancellation.
       you_should_receive_refund_soon: You should receive a refund soon.
       issue_with_the_refund: Something wrong? An issue with the refund? %{contact_link}.

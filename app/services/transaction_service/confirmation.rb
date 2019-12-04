@@ -59,7 +59,7 @@ class TransactionService::Confirmation
   end
 
   def give_feedback
-    @give_feedback ||= params[:give_feedback].present? && !ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[:give_feedback])
+    @give_feedback ||= params.try(:[], :give_feedback) == 'true'
   end
 end
 
