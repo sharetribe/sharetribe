@@ -1,0 +1,34 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title Bikerrrs | Admin Panel - Dashboard
+
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1 shrink-to-fit=no", :name => "viewport"}
+    %meta{:content => "Sharetribe Go Admin Panel", :name => "description"}
+    %link{:href => "../css/mytheme.min.css", :rel => "stylesheet"}
+    = stylesheet_link_tag "admin/admin"
+  %body
+    / Import Mobilemenu
+    #root
+      / Import Topnav
+      .layout-container
+        / Import Sidenav
+        .content-card
+          .content-card-header
+            %h1.content-card-header-title Dashboard
+            %a.content-card-header-link{:href => "#"} FIXME
+          .content-card-section-container
+            %section.content-card-section
+              %h2 Dashboard
+    .mobilemenu-overlay
+    / jQuery first, then Popper.js, then Bootstrap JS
+    %script{:src => "https://code.jquery.com/jquery-3.3.1.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"}
+    %script{:src => "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"}
+    %script{:src => "../js/gap.js"}
+    :javascript
+      jQuery(function(){
+        $("#dashboard, #dashboard-mobile").addClass("active");
+      });

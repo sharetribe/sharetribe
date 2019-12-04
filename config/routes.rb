@@ -172,6 +172,10 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace :admin2 do
+      resources :dashboard, only: :index
+    end
+
     namespace :admin do
       get '' => "getting_started_guide#index"
 

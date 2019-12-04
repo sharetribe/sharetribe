@@ -20,6 +20,7 @@ Rails.application.config.assets.precompile += %w(
   react_page/styles.css
   design.css
   email-v2.css
+  admin/admin.scss
 )
 
 if Rails.env == 'test'

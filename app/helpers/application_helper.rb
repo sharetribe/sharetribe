@@ -315,7 +315,7 @@ module ApplicationHelper
         :topic => :general,
         :text => t("admin.communities.getting_started.getting_started"),
         :icon_class => icon_class("openbook"),
-        :path => admin_getting_started_guide_path,
+        :path => admin2_dashboard_index_path,
         :name => "getting_started_guide"
       },
       {
