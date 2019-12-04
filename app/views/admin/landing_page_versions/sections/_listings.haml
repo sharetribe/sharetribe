@@ -3,6 +3,7 @@
 
 = render partial: 'id_field', locals: {presenter: presenter, form: form}
 
+= render 'content'
 .row
   .col-12
     = form.label :title
@@ -16,6 +17,7 @@
 
 .row
   .col-12
+    %h3= t('.listings_to_feature')
     = render partial: 'layouts/info_text', locals: {text: t('.you_need_to_add_the_listing_ids')}
 
 .row

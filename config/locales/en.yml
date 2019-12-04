@@ -650,39 +650,32 @@ en:
       landing_pages:
         landing_pages: "Landing Page"
         info_1: "The landing page is perhaps the most important page of your marketplace. It is the first page that visitors see - sort of like the front door of your house. You have only a few seconds to convince new vistiors that they should explore your site. The page needs to be appealing and your value proposition should be clear and enticing."
-        info_2: "%{preview_link} your current landing page and make changes from the %{details_link} and %{design_link} sections"
-        info_2_preview_text: Preview
-        info_2_details_text: "basic details"
-        info_2_design_text: design
+        info_2: "Visit the %{help_link} to find out more about how to edit your landing page"
+        info_2_help_center: help center
         info_3: "If you want to have a completely customized landing page for your marketplace, you can purchase it as add-on for $99 per month."
         info_4: "Read more about custom landing pages"
         editor_title: "Landing Page Editor"
-        editor_info: "Here you can edit the sections that your Landing Page will include. Please note that some sections are predefined and cannot be edited within the Landing Page editor."
+        editor_info: "Here you can edit the sections of your Landing Page. At the moment it is only possible to use one language for the landing page. The hero and footer sections' position cannot be altered"
         preview: "Preview landing page"
         set_live: "Set live"
-        headers:
-          section_id: "Section ID"
-          section_type: "Section type"
-          version: Version
-          released: Released
-        add_new_version: "Add new version"
-        new_version: "New version"
-        edit_version: "Edit version"
-        add_new_section: "Add new section"
+        add_new_section: "Add new section:"
         select_section_type: "Select section type..."
+        this_version_is_not_released: You need to make changes to release a new version of the Landing Page
+        latest_version_released: "The latest version of your landing page has been released! %{link}!"
+        check_it_out: Check it out
         form:
-          version: Version
           save: Save
+          cancel: Cancel
         sections:
           identifier: "Section ID"
-          kind: "Section Type"
+          kind: "Section type"
           variation: Variation
           new: "New section"
           edit: "Edit section %{section_id}"
           remove_section_confirmation: "Are you sure you want to remove the section '%{section_id}' and all its data? This cannot be undone."
-          info_single_column: "Info 1 Column"
-          info_multi_column_2: "Info 2 Columns"
-          info_multi_column_3: "Info 3 Columns"
+          info_single_column: "Info 1 column"
+          info_multi_column_2: "Info 2 columns"
+          info_multi_column_3: "Info 3 columns"
           listings: Listings
           categories: Categories
           hero: Hero
@@ -710,9 +703,12 @@ en:
             video: "Edit video section"
     landing_page_versions:
       sections:
+        content:
+          title: Section content
         hero:
           hero_title: Hero
-          hero_description: "Set the Background image for the hero section. The Slogan and Description are set from the basic details section."
+          hero_description: "Set the background image for the Hero section. The slogan and description are set from the %{link}"
+          basic_details_tab: basic details tab
         footer:
           footer_title: Footer
           footer_style: "Footer style"
@@ -721,10 +717,14 @@ en:
           style_marketplace_color: "Marketplace color"
           style_logo: Logo
         cta_button:
-          cta_button: "CTA Button"
-          cta_enabled: Enabled
+          cta_button: "Call-to-action button"
+          cta_enabled: Show a button
           cta_text: Text
           cta_url: URL
+          text_placeholder: "Click me!"
+          url_placeholder: "https://example.com"
+        background_selector:
+          title: Background
         background_image_overlay:
           background_image: "Background image"
           background_image_info: "This image will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels."
@@ -745,12 +745,12 @@ en:
           background_color: "Background color"
           background_color_info: "You can choose the background color of this section by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> can help you choose the color andgive you the hex color code. You can then copy the code here."
         categories:
-          add: "Add a new category to this section"
+          add: "+ Add a new category to this section"
           category: Category
           empty: "You don't have any included categories"
           image: Image
-          include_title: "Categories to include"
-          info_text: "You can feature 3 to 7 categories in each section. Please add an image to each category and select one of the categories from your marketplace. The recommended image size is 1000 x 667 px."
+          include_title: "Categories to feature"
+          info_text: "You can feature 3 to 7 categories. Please add an image to each category and select one of the categories from your marketplace. For best results the recommended image size is 1000 x 667 pixels."
           need_at_least_3_categories: "You should have at least 3 categories in this section"
           need_at_most_7_categories: "You should have at most 7 categories in this section"
         category:
@@ -762,12 +762,12 @@ en:
           image_required: "You should add an image to this category"
           select_category: "Select category"
         locations:
-          add: "Add a new location to this section"
+          add: "+ Add a new location to this section"
           location: Location
           empty: "You don't have any included locations"
           image: Image
-          include_title: "Locations to include"
-          info_text: "You can feature 3 to 7 locations in each section. Please add an image to each location and provide location search url for your marketplace. The recommended image size is 1000 x 667 px."
+          include_title: "Locations to feature"
+          info_text: "You can feature 3 to 7 locations. Please add an image to each location and provide location search url for your marketplace. For best results the recommended image size is 1000 x 667 pixels."
           need_at_least_3_locations: "You should have at least 3 locations in this section"
           need_at_most_7_locations: "You should have at most 7 locations in this section"
         location:
@@ -785,21 +785,23 @@ en:
           main_title: "Main title"
           column_header: "Column %{index}"
           column_title: "Column %{index} title"
-          column_icon_info: "You can choose the icon for this column it's name from <a href=\"/info-icons.html\" target=\"_blank\">full list of supported icons</a>"
+          web_viewer: web viewer
+          column_icon_info: "You can choose your icon from this %{link}. Once you select the icon copy the Directory path and paste it here. i.e. 01-Interface Essential/01-Home/house-2.svg "
           column_icon: "Column %{index} icon"
           column_paragraph: "Column %{index} paragraph"
           column_button: "Column %{index} button"
           column_button_text: "Button text"
-          column_button_url: "https://www.sharetribe.com"
+          column_button_url: "https://www.example.com"
         listings:
-          you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456"
+          listings_to_feature: "Listings to feature"
+          you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/listings/123456-listing-title, the listing is would be 123456."
         video:
           text: Text
-          youtube_video_id: "Youtube video ID"
-          autoplay: "Playing options"
+          autoplay: "Autoplay options"
           autoplay_no: "No autoplay"
           autoplay_muted: "Muted autoplay"
-          info: "This text will show when you select the \"No Autoplay\" playing option or the video is paused"
+          info: 'This text will be displayed when you select the "No Autoplay" option or when the video is paused.'
+          youtube_video_id_info: "You can get your video ID from the video's URL. It is normally the last part of the URL. So if your URL is https://www.youtube.com/watch?v=UffchBUUIoI the ID would be <b>UffchBUUIoI</b>"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -1798,7 +1800,7 @@ en:
       positive_number: "Insert a number."
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
       section_with_this_id_already_exists: "This identifier is in use. Please choose another one."
-      listing_with_this_id_does_not_exist: "This listing id is not one of yours. Maybe you made a typo? Please verify and try again"
+      listing_with_this_id_does_not_exist: "This listing id is not one of yours. Maybe you made a typo? Please verify and try again."
       presence: "Can't be blank"
   event_feed_events:
     accept:
@@ -3190,8 +3192,6 @@ en:
         id: "Section unique name"
         title: Title
         paragraph: Paragraph
-        button_color: "Button color"
-        button_color_hover: "Button color hover"
         button_title: Text
         button_path: URL
         button_path_string: URL
@@ -3206,7 +3206,7 @@ en:
         listing_3_id: "Listing 3 ID"
       landing_page_version/section/video:
         text: Text
-        youtube_video_id: "Youtube video ID"
+        youtube_video_id: "YouTube video ID"
   canada_states:
     AB: Alberta
     BC: "British Columbia"

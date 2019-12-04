@@ -5,6 +5,7 @@
 = form.hidden_field :multi_columns
 
 = render partial: 'id_field', locals: {presenter: presenter, form: form}
+= render 'content'
 
 .row
   .col-12
@@ -24,7 +25,10 @@
       .row
         .col-12
           = label_tag "section[columns][#{index}][icon]", t(".column_icon", index: index + 1)
-          = render partial: 'layouts/info_text', locals: {text: t(".column_icon_info").html_safe }
+          - link = link_to t('.web_viewer'),
+            'https://app.streamlineicons.com/streamline-light/interface-essential',
+            target: '_blank'
+          = render partial: 'layouts/info_text', locals: {text: t(".column_icon_info", link: link).html_safe }
           = text_field_tag "section[columns][#{index}][icon]", column['icon']
 
           = label_tag "section[columns][#{index}][title]", t(".column_title", index: index + 1)

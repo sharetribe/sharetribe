@@ -17,4 +17,10 @@ class LandingPage < ApplicationRecord
   belongs_to :community
 
   scope :enabled, -> { where(enabled: true) }
+
+  class << self
+    def released_version(community)
+      where(community: community).enabled.pluck(:released_version).first
+    end
+  end
 end

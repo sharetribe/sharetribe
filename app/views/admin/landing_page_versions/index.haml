@@ -13,12 +13,8 @@
   .row
     .col-12
       %p= t("admin.communities.landing_pages.info_1")
-      - landing_page_version = @service.landing_page_version
-      - preview_link = link_to t("admin.communities.landing_pages.info_2_preview_text"), landing_page_preview_path(preview_version: landing_page_version.version)
-      - details_link = link_to t("admin.communities.landing_pages.info_2_details_text"), admin_details_edit_path
-      - design_link =  link_to t("admin.communities.landing_pages.info_2_design_text"), admin_look_and_feel_edit_path
-      %p=raw t("admin.communities.landing_pages.info_2", preview_link: preview_link, details_link: details_link, design_link: design_link)
-      %p= t("admin.communities.landing_pages.info_3")
+      - help_link = link_to t("admin.communities.landing_pages.info_2_help_center"), '#'
+      %p=raw t("admin.communities.landing_pages.info_2", help_link: help_link)
       %p= link_to t("admin.communities.landing_pages.info_4"), "#"
   .row
     .col-12
@@ -31,7 +27,7 @@
 
   .row
     .col-6
-      = link_to t("admin.communities.landing_pages.preview"), landing_page_preview_path(preview_version: landing_page_version.version), class: "button", target: "_blank"
+      = link_to t("admin.communities.landing_pages.preview"), landing_page_preview_path(preview_version: @service.landing_page_version.version), class: "button", target: "_blank"
     .col-6
-      = link_to t("admin.communities.landing_pages.set_live"), release_admin_landing_page_version_path(landing_page_version), class: "button"
+      = link_to t("admin.communities.landing_pages.set_live"), release_admin_landing_page_version_path(@service.landing_page_version), class: "button"
 
