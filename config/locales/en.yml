@@ -1464,7 +1464,6 @@ en:
       please_go_to_payment_settings: "Please go to your %{payment_settings_link} and fill in the required payment information."
       payment_settings_link: "payment settings"
     payment_settings_reminder_v2:
-      hi: "Hi there,"
       fill_payout_details: "Fill the payout details"
       you_have_added_listing_with_payment: "You have added a listing %{listing_link} with payment. We noticed that you haven't yet added your payment details. In order to receive the payment you need to provide your payment information."
     transaction_confirmed:
@@ -1479,27 +1478,22 @@ en:
         has_marked_request_as_confirmed: "%{other_party_full_name} has marked the order about '%{request}' completed. The payment for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
       team_title: "the %{service_name} team"
     transaction_confirmed_v2:
-      headline_stripe_confirmed: "Hi %{recipient}, %{other_party_full_name} has marked the order about %{listing_link} completed."
-      headline_confirmed: "Hi %{recipient}, %{other_party_full_name} has marked the order about %{listing_link} completed."
-      headline_canceled: "Hi %{recipient}, %{other_party_full_name} has canceled the order about %{listing_link}."
+      headline_confirmed: "%{other_party_full_name} has marked the order about %{listing_link} completed."
+      headline_canceled: "%{other_party_full_name} has canceled the order about %{listing_link}."
       stripe:
-        has_marked_request_as_confirmed: "The payment for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
-      has_marked_request_as_confirmed: "You can now give feedback to %{other_party_given_name}."
-      has_marked_request_as_canceled: "You can still give feedback to %{other_party_given_name}."
+        has_marked_request_as_confirmed: "The payment for this transaction has now been released to your bank account."
+      can_give_feedback: "You can now give feedback to %{other_party_given_name}."
       team_title: "the %{service_name} team"
     transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The order was automatically completed because %{days_passed} days have passed since the request was accepted."
     transaction_automatically_confirmed_v2:
-      headline: "Hi %{name}!"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed."
       order_automatically_confirmed: "The order was automatically completed because %{days_passed} days have passed since the request was accepted."
     booking_transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The request was automatically completed because one day has passed since the booking period ended."
     booking_transaction_automatically_confirmed_v2:
-      headline: "Hi %{name}!"
-      we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed."
       order_automatically_confirmed: "The request was automatically completed because one day has passed since the booking period ended."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "You can now give feedback to %{other_party_given_name}. Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
@@ -1511,12 +1505,12 @@ en:
       confirmation_link_text: "Confirm my address"
       or_paste_link: "Alternatively, you can copy the following link to your browser's address bar:"
     confirmation_instructions_v2:
-      headline: "Hi %{name}, confirm your email to join %{service_name}!"
+      headline: "confirm your email to join %{service_name}!"
       need_to_confirm: "Confirm your email address to complete your %{service_name} account. It's easy - just click the button below!"
       confirmation_link_text: "Confirm %{email}"
-      or_paste_link: "Can't click the button? Here's the link for your convenience:"
     common:
       hey: "Hello %{name},"
+      hi: "Hi %{name},"
       kassi_team: "The %{service_name} team"
       thanks: "Thanks,"
       dont_want_to_receive_these_emails: "Don't want to receive these emails?"
@@ -1528,7 +1522,7 @@ en:
       unsubscribe_from_these_emails: "unsubscribe from these emails"
       unsubscribe_from_invitation_emails_info: "You have received this email because a member of %{service_name} has invited you to join them."
       unsubscribe_from_invitation_emails: "Unsubscribe from invitation emails to join %{service_name}"
-      best_regards: "Best regards from %{service_name}"
+      here_is_your_receipt: "Here is your receipt."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer %{listing}."
       has_accepted_your_request: "%{accepter} has accepted your request %{listing}."
@@ -1543,10 +1537,10 @@ en:
       pay_now: "Pay now"
       remember_to_confirm: "When the order is fulfilled, remember to mark it as completed. If the order is not fulfilled your have %{days_to_automatic_confirmation} days to cancel it. Otherwise it will be automatically marked as completed."
     conversation_status_changed_v2:
-      has_accepted_your_request: "Hi %{starter}, your request was accepted."
-      has_accepted_your_request_text: "%{accepter} has accepted your request %{listing}."
-      has_rejected_your_request: "Hi %{starter}, unfortunately your request was declined."
-      has_rejected_your_request_text: "%{accepter} has rejected your request %{listing}."
+      has_accepted_your_request: "your request was accepted."
+      has_accepted_your_request_text: "%{accepter} has accepted your request for %{listing}."
+      has_rejected_your_request: "unfortunately your request was rejected."
+      has_rejected_your_request_text: "%{accepter} has rejected your request for %{listing}."
     invitation_to_kassi:
       hi: Hi!
       you_have_been_invited_to_kassi: "%{inviter} has invited you to %{service_name}."
@@ -1561,8 +1555,6 @@ en:
       you_have_a_new_comment: "%{author} has commented on your listing in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} has commented on the listing '%{listing}' you are following in %{service_name}."
-    new_comment_v2:
-      headline: "Hi %{name}!"
     new_message:
       view_message: "View message"
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
@@ -1592,9 +1584,8 @@ en:
       stripe:
         you_have_received_new_payment: "The amount of <b>%{payment_sum}</b> has been paid for <b>%{listing_title}</b> by %{payer_full_name}. The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
     payment_receipt_to_seller_v2:
-      headline: "Hi %{seller_name}, You have been paid %{payment_sum} for %{listing_link} by %{payer_name}."
-      main_text: "Here is your receipt."
-      main_text_stripe: "The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
+      headline: "you have been paid %{payment_sum} for %{listing_link} by %{payer_name}."
+      main_text_stripe: "The money is being held by %{service_name} until the order is marked as completed."
       price_breakdown: "Price breakdown"
     payment_receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
@@ -1612,10 +1603,8 @@ en:
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
     payment_receipt_to_payer_v2:
-      headline: "Hi %{payer_name}, here is your receipt for %{listing_link}."
+      headline: "here is your receipt for %{listing_link}."
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b>."
-      main_text: "Here is your receipt."
-      main_text_stripe: "The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's fee:"
       shipping_total: "Shipping:"
@@ -1646,7 +1635,7 @@ en:
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
       view_feedback: "View feedback"
     new_testimonial_v2:
-      headline: "Hi %{name}, you got feedback!"
+      headline: "you got feedback!"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Listing you follow has been updated"
       has_updated_listing_you_follow_in_kassi: "%{author} has updated the listing '%{listing}' you are following in %{service_name}."
@@ -1663,8 +1652,10 @@ en:
       settings_link_text: "Edit your email settings here"
       unsubscribe_link_text: unsubscribe
     community_updates_v2:
-      headline: "Hi %{user_name}, check out the latest activity on %{service_name}"
-      intro_paragraph: "Here are some highlights that happened on %{service_name} during the past %{time_since_last_update}."
+      headline: "check out the latest activity on %{service_name}."
+      intro_paragraph:
+        one: "Here are some highlights that happened on %{service_name} during the past day."
+        other: "Here are some highlights that happened on %{service_name} during the past %{number_of_days} days."
     newsletter:
       hi: "Hi %{name},"
       newest_offers: "What people currently offer to others"
@@ -1677,8 +1668,8 @@ en:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     testimonial_reminder_v2:
-      headline: "Hi %{name}, remember leave feedback to %{other_name}!"
-      you_have_not_given_feedback_yet: "Giving feedback is always a good idea. If everything went well, let othersknoww that %{name} can be trusted. If there were any problems, it's good to mention those as well"
+      headline: "remember leave feedback to %{other_name}!"
+      you_have_not_given_feedback_yet: "Giving feedback is always a good idea. If everything went well, let others know that %{name} can be trusted. If there were any problems, it's good to mention those as well"
       leave_feedback: "Leave feedback for %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} is interested and has authorized payment for %{listing_title} published in %{service_name}"
@@ -1689,7 +1680,7 @@ en:
       if_you_do_not_accept: "If you reject the request or don't accept it within this timeframe, the transaction will be automatically canceled, %{requester} will not be charged and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_v2:
-      headline: "Hi %{seller_name}, %{requester} is interested  and has authorized payment for %{listing_link}."
+      headline: "%{requester} is interested and has authorized payment for %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
       remember_to_accept: "Remember to accept the request from %{requester} about listing \"%{listing_title}\". %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
@@ -1710,7 +1701,7 @@ en:
       you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
       view_listing: "View listing"
     new_listing_by_followed_person_v2:
-      headline: "Hi %{name}, %{author} just added a new listing!"
+      headline: "%{author} just added a new listing!"
       has_posted_a_new_listing: "%{author_name} has posted a new listing:"
       you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
       view_listing: "View %{title}"

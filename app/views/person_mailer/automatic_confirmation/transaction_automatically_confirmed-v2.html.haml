@@ -1,6 +1,6 @@
 %tr
   %td.person-name
-    %h1= t("emails.transaction_automatically_confirmed_v2.headline", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'), other_name: PersonViewUtils.person_display_name_for_type(@other_party, 'first_name_only'))
+    %h1= t("emails.common.hi", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'))
 
 %tr
   %td.email-content

@@ -3,7 +3,8 @@
 %tr
   %td.person-name
     %h1
-      = t("emails.confirmation_instructions_v2.headline", :name => PersonViewUtils.person_display_name_for_type(@resource, "first_name_only"))
+      = t("emails.common.hi", :name => PersonViewUtils.person_display_name_for_type(@resource, "first_name_only"))
+      = t("emails.confirmation_instructions_v2.headline")
 
 %tr
   %td{:align => "left"}
@@ -15,6 +16,6 @@
 %tr
   %td.email-action
     %p.email-action-help
-      = t("emails.confirmation_instructions_v2.or_paste_link")
+      = t("emails.new_listing_by_followed_person_v2.cant_click")
       %br
       = link_to link, link
