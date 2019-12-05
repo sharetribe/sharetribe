@@ -20,8 +20,8 @@ Feature: Admin edits landing page
     When I go to the landing page admin page
     Then I should see "Landing page editor"
     And there is a current landing page in community
-    And I select "Info 1 column" from "section_kind"
-    Then I should see "New 'Info 1 colum' section addition"
+    And I select "Info - One column" from "section_kind"
+    Then I should see "New 'Info - One colum' section addition"
     And I fill in "section_id" with "test1"
     And I fill in "section_title" with "DemoSingle"
     And I fill in "section_paragraph" with "DemoSingleParagraph"
