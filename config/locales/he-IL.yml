@@ -22,7 +22,7 @@ he-IL:
         category_name:
           category_title: "כותרת הקטגוריה"
         category_parent:
-          category_parent: "כותרת קטגוריה"
+          category_parent: "קטגוריית הורה"
           no_parent: "אין הורה"
         category_transaction_types:
           transaction_types: "סוגי הזמנות"
@@ -46,6 +46,15 @@ he-IL:
         buttons:
           remove: מחק
           cancel: ביטול
+        warning_subcategory_will_be_removed:
+          one: "זוהי ‎%{count}‎  קטגוריית בת בקטגוריה, היא תמחק"
+          other: "ישנם ‎%{count}‎  קטגוריות בת בקטגוריה, הן ימחקו"
+        warning_with_subcategories_listing_will_be_moved:
+          one: "יש ‎%{count}‎ מודעות בקטגוריה ובקטגוריות בת, הן יועברו לקטגוריה שנבחרה"
+          other: "יש ‎%{count}‎  מודעות בקטגוריה ובקטגוריות בת, הן יועברו לקטגוריה שנבחרה"
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "יש ‎%{count}‎  שדה מותאם אישית בקטגוריה ובקטגוריות בת, הם יועברו לקטגוריה הנבחרת."
+          other: "ישנם ‎%{count}‎  שדות מותאמים אישית בקטגוריה ובקטגוריות בת, הם יועברו לקטגוריה הנבחרת."
     communities:
       edit_details:
         community_details: "פרטים בסיסיים"
@@ -66,7 +75,7 @@ he-IL:
         edit_community_description_description: "זה מוצג בדף הבית של האתר עבור משתמשים שאינם מחוברים. ‎%{see_how_it_looks_like}‎"
         edit_community_description_description_hideable: ~
         community_search_placeholder: "חפש טקסט עזרה"
-        edit_community_search_placeholder_description: ~
+        edit_community_search_placeholder_description: "זה מוצג בדף הבית כמחזיק מקום טקסט בשורת החיפוש. ‎%{see_how_it_looks_like}‎ "
         private_community_homepage_content: "תוכן עמוד הבית של מרקטפלייס פרטי."
         edit_private_community_homepage_content_description: "תוכן זה מוצג בדף הבית של משווקים פרטיים למשתמשים שאינם מחוברים. כאן תוכל לתאר את האתר שלך ואת התהליך הצטרפות אליו. ניתן גם להוסיף תמונות, קטעי וידאו ותוכן HTML כאן. ‎%{see_how_it_looks_like}‎"
         update_information: "שמור הגדרות"
@@ -77,8 +86,8 @@ he-IL:
         see_how_it_looks_like: "תראה איך זה נראה"
         verification_to_post_listings_info_content: "טקסט מידע למשתמשים לא מאומתים"
         verification_to_post_listings_info_content_description: "בשלב זה אתה דורש שהמשתמשים שלך יאומתו באופן ידני על ידך לפני שהם יוכלו לפרסם רישומים. כאן תוכל להגדיר את טקסט ברירת המחדל שמוצג למשתמשים שאינם מאומתים כאשר הם מנסים לפרסם רישום חדש."
-        verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: "שלח/י הודעה לצוות האתר"
+        verification_to_post_listings_info_content_default: "‎%{service_name}‎  דורש אימות ע''י מנהל. עדיין לא אושרת ע''י המנהל, נא פנה ל‎%{contact_admin_link}‎ ע''מ לקבל אישור."
+        contact_admin_link_text: "צור קשר עם צוות ‎%{service_name}‎ "
         save: "שמור הגדרות"
         transaction_agreement: "הסכם עסקה"
         transaction_agreement_checkbox: "דרוש מהמשתמשים לקבל הסכם לפני העסקה"
@@ -117,8 +126,8 @@ he-IL:
         main_content_width: "בעת בחירת תמונות רקע, שים לב שהתוכן הראשי בדף הוא‎%{main_width}‎ פיקסלים לכל היותר. זכור גם לבדוק כיצד נראית תמונת השער שלך במסכים הקטנים יותר (למשל באמצעות חלון דפדפן צר יותר)."
         custom_color1_instructions_text: "באפשרותך לשנות את הצבע הראשי של ממשק המשתמש על-ידי הזנת קוד צבע . <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\"> ColorPicker.com </a> יכול לעזור לך לבחור את הצבע ולתת לך את קוד הצבע. לאחר מכן תוכל להעתיק את הקוד כאן."
         new_listing_button_instructions_text: ~
-        default_browse_view: ~
-        default_browse_view_instructions_text: ~
+        default_browse_view: "צפיה בדפדפן מוגדר"
+        default_browse_view_instructions_text: "צפיה בדפדפן מוגדר בדף הבית מגדירה את אופן הצגת המודעות"
         grid: תמונות
         list: רשימה
         map: מפה
@@ -135,7 +144,7 @@ he-IL:
         edit_text_instructions: "טקסטים להוראה"
       edit_welcome_email:
         welcome_email_content: "ברוכים הבאים תוכן הדוא\"ל"
-        welcome_email_content_description: "ההודעה הבאה תישלח לכל משתמש חדש כאשר הם יצטרפו. באפשרותך להתאים אישית את ההודעה כך שתתאים לשוק שלך. על ידי לחיצה על '‎%{send_test_message_link}‎' תוכל לשלוח הודעת תצוגה מקדימה לכתובת הדוא\"ל שלך, כך שתוכל לראות כיצד היא נראית בדוא\"ל אצל הלקוח ."
+        welcome_email_content_description: "ההודעה הבאה תישלח לכל המשתמשים החדשים כאשר הם יצטרפו. באפשרותך להתאים אישית את ההודעה כך שתתאים לצרכים שלך. על ידי לחיצה על '‎%{send_test_message_link}‎' תוכל לשלוח הודעת תצוגה מקדימה לכתובת הדוא\"ל שלך, כך שתוכל לראות כיצד היא נראית בדוא\"ל אצל הלקוח ."
         edit_message: "עריכת הודעה"
         send_test_message: "עריכת הודעה"
       outgoing_email:
@@ -232,9 +241,9 @@ he-IL:
         listing_comments_in_use: "אפשר למשתמשים לפרסם תגובות למודעות (ניתנים לצפייה לכל שאר המשתמשים)"
         email_preferences: "העדפות דוא\"ל"
         automatic_newsletters: "שלח עלונים יומית / שבועית לכל המשתמשים (אלא אם הם אינם מצטרפים)"
-        email_admins_about_new_members: "שלח למנהלי דוא\"ל הודעת דוא\"ל בכל פעם שמשתמש חדש נרשם"
-        google_analytics_key: ~
-        twitter_handle: ~
+        email_admins_about_new_members: "שלח למנהלים דוא\"ל הודעת דוא\"ל בכל פעם שמשתמש חדש נרשם"
+        google_analytics_key: "מס מעקב גוגל אנליטיקס"
+        twitter_handle: "טוויטר(משתמש בכפתור מותאם בעמוד המודעה)"
         update_settings: "שמור הגדרות"
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
@@ -1090,7 +1099,7 @@ he-IL:
       give: מוסר
       lend: משאיל
       swap: מחליף
-      service: מציעה
+      service: מציע
       service_w_online_payment: ~
       service_wo_online_payment: ~
       request: מחפש
@@ -1240,7 +1249,7 @@ he-IL:
       confirmed_request: "ההזמנה בוצעה."
       confirmed_offer: "ההזמנה בוצעה."
       canceled_request: "ההזמנה בוטלה."
-      canceled_offer: "ההזמנה בוטלה."
+      canceled_offer: "ההצעה בוטלה."
       message_from: "‎%{person}‎ הודעה מ‎"
       about_listing: "‎%{listing_title}‎ לגבי"
       free_message: "הודעה ישירה"
@@ -1356,18 +1365,18 @@ he-IL:
   community_memberships:
     access_denied:
       access_denied: "גישה נדחתה"
-      you_are_banned_in_this_community: ~
+      you_are_banned_in_this_community: "צוות ה‎%{service_name}‎  ביטל את החשבון שלך. אם ברצונך לשלוח הודעה‎ לצוות ‎%{service_name}‎  אתה יכול ב‎%{link_to_contact_page}‎ "
       contact_page_link: "צור איתם קשר"
     new:
       welcome_fb_user: "ברוכים הבאים ל ‎%{service_name}‎ , ‎%{name}‎"
       fb_join_accept_terms: "יש עוד צעד אחד להצטרפות ל-‎%{service_name}‎: עליך לקבל את התנאי השימוש."
       join_community: "‎%{service_name}‎ הצטרך ל"
       you_can_join: "כדי להיצטרף לשירות ‎%{service_name}‎ מבקשת לאשר תנאי שימוש ‎%{service_name}‎"
-      you_can_join_email_confirmation: "כדי להצטרף לשירות, דרושה לך כתובת דוא\"ל תקינה . תוכל להצטרף על ידי מילוי כתובת האימייל שלך, קבלת תנאי השימוש ולחיצה על 'הצטרף' למטה, ואימות של הדוא\"ל שלך."
-      you_can_join_email_confirmation_multiple_addresses: "ל שירות‎ יש מגבלות דוא\"ל. תוכל להצטרף רק אם יש לך כתובת דוא\"ל תקנית. תוכל להצטרף על ידי מילוי כתובת האימייל שלך, קבלת תנאי השימוש של השירות ולחיצה על 'הצטרף למטה."
+      you_can_join_email_confirmation: "כדי להצטרף ל‎%{service_name}‎ , דרושה לך כתובת דוא\"ל תקינה המסתיימת ב‎%{email_ending}‎  . תוכל להצטרף על ידי מילוי כתובת האימייל שלך, קבלת תנאי השימוש ולחיצה על 'הצטרף' ‎%{service_name}‎ , ואימות של הדוא\"ל שלך."
+      you_can_join_email_confirmation_multiple_addresses: "‏ ‎%{service_name}‎  יש מגבלות דוא\"ל. תוכל להצטרף רק אם יש לך כתובת דוא\"ל תקנית. תוכל להצטרף על ידי מילוי כתובת האימייל שלך, קבלת תנאי השימוש של ‎%{service_name}‎  ולחיצה על 'הצטרף למטה."
       you_can_join_with_invite_only: "אתה צריך לבקש מחבר אחר להצטרף אל‎%{service_name}‎. אם יש לך קוד הזמנה, תוכל להצטרף על ידי הקלדת הקוד לשדה למטה, קבלת תנאי השימוש ולחיצה על 'הצטרף' ‎%{service_name}‎ ' למטה."
       if_want_to_view_content: "אם ברצונך לראות את התוכן ב-‎%{service_name}‎ מבלי להצטרף אליו כחבר, אתה צריך"
-      log_out: להיתנתק
+      log_out: התנתקות
       join_community_button: "‎%{service_name}‎ הצטרף ל ‎"
     give_consent:
       invitation_code_invalid_or_used: ~
@@ -1392,7 +1401,7 @@ he-IL:
       remember_to_confirm_request: "זכור לאשר או לבטל בקשה"
       if_will_not_happen_you_should_cancel: "אם אתה חושב שהזמנה זו לא תושלם מסיבה זו או אחרת, תוכל לבצע את‎%{cancel_it_link}‎."
       cancel_it_link_text: ביטול
-      automatic_confirmation: ~
+      automatic_confirmation: "אם ברצונך לאשר או לבטל הזמנה בתוך ‎%{days_to_automatic_confirmation}‎  לאחר שהבקשה התקבלה, אנחנו נעדכן את הסטטוס באופן אוטומטי"
     confirm_reminder_v2:
       headline: ~
       you_have_not_yet_confirmed_or_canceled_request: ~
@@ -1427,7 +1436,7 @@ he-IL:
       team_title: ~
     transaction_automatically_confirmed:
       subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "עדכנו את סטטוס הבקשה ‎%{request}‎ . ההזמנה עודכנה אוטומטית מאחר ו‎%{days_passed}‎  ימים חלפו מאז שהבקשה הוגשה"
     transaction_automatically_confirmed_v2:
       headline: ~
       we_have_marked_request_as_confirmed: ~
@@ -1479,7 +1488,7 @@ he-IL:
       your_request_was_rejected: "בקשתך לא אושרה"
       you_can_now_pay_to: "עכשיו אתה יכול לשלם את הסכום המבוקש ל ‎%{payment_receiver}‎"
       pay_now: "שלם עכשיו"
-      remember_to_confirm: ~
+      remember_to_confirm: "כשההזמנה הושלמה, זכור לעדכן את הסטטוס שלה. אם לא, באפשרותך לבטל אותה בתןך ‎%{days_to_automatic_confirmation}‎ ימים. אחרת ההזמנה‎%{days_to_automatic_confirmation}‎ תעודכן כהושלמה."
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
@@ -1752,7 +1761,7 @@ he-IL:
       javascript_is_disabled_in_your_browser: "JavaScript אינו פעיל כרגע בדפדפן שלך"
       kassi_does_not_currently_work_without_javascript: "‎ אינו פועל כשורה ללא ג'בהסקריפט נסה להפעיל ג'בהסקריפט ‎%{service_name}‎ דרך מאפייני הדפדפן שלך ולטעון דף זה מחדש"
       contact_us: "צור קשר"
-      send_feedback: שלח
+      send_feedback: "שלח הודעה"
       your_feedback_to_admins: "‎%{service_name}‎ ההודעה שלך לצוות"
     send: שלח/י
     your_email_address: "כתובת הדואר האלקטרוני שלך"
@@ -1801,8 +1810,8 @@ he-IL:
     home: "דף הבית"
     members: קהילה
     new_listing: שתף
-    mobile_version: "גרסה לסלולר"
-    offers: הזמנות
+    mobile_version: "גרסת מובייל"
+    offers: הצעות
     requests: בקשות
     search_kassi: "חיפוש ‎%{service_name}‎"
     create_new_marketplace: "צור אתר חדש"
@@ -1820,7 +1829,7 @@ he-IL:
       additionally_some_private_offers_exist: "הצעות אחרות ‎<b>‎ ‎%{number_of_listings}‎ בנוסף יש ‏‎‎</b>‎"
       additionally_some_private_requests_exist: "בקשות נוספות  ‎%{number_of_listings}‎ ‎</b>‎‎ ‎<b>‎ישנן עוד"
     blank_slate:
-      add_first: "באפשרותך להוסיף אחד!"
+      add_first: "באפשרותך להוסיף עוד אחד!"
       but_that_is_visible_only_to_registered_members: "אפשרות זו זמינה רק עבור משתמשים רשומים."
       but_those_are_visible_only_to_registered_members: "אפשרויות אלה זמינות רק עבור משתמשים רשומים."
       create_new_account_for_yourself: "יצירת חשבון חדש"
@@ -1856,7 +1865,7 @@ he-IL:
     index:
       no_listings_with_your_search_criteria: "מצטערים, לא נמצאו פריטים"
       no_listings_notification: "‎%{add_listing_link}‎ לא קיימים פרסומים. להוספה"
-      add_listing_link_text: "הוסף +"
+      add_listing_link_text: "הוסף מודעה חדשה"
       open_listing: "מודעה פתוחה"
       open_listings: "מודעות פתוחות"
       private_listing_notification_log_in: התחבר
@@ -1923,7 +1932,7 @@ he-IL:
   infos:
     about:
       default_about_text_title: "מה זה Sharetribe?"
-      default_about_text: "שוק זה הוא מופעל על ידי פלטפורמת Sharetribe. עם Sharetribe אתה יכול בקלות ליצור אתר משלך. זה בחינם לוקח רגע. ‎%{click_here_link}‎ למידע נוסף!"
+      default_about_text: "שוק זה מופעל על ידי פלטפורמת Sharetribe. עם Sharetribe אתה יכול בקלות ליצור אתר משלך. זה בחינם לוקח רגע. ‎%{click_here_link}‎ למידע נוסף!"
       click_here_link_text: "לחץ כאן"
     how_to_use:
       default_title: ~
@@ -1956,11 +1965,11 @@ he-IL:
       feedback_handle: משוב
       give_feedback: "צור קשר"
       or_check_our: "... או בדוק את ה"
-      send_feedback_to_admin: שלח/י
+      send_feedback_to_admin: "שלח/י הודעה"
       to_see_what_others_have_suggested: "ראה והצביע מה משתמשים אחרים הציעו."
       your_email_address: "כתובת הדואר האלקטרוני שלך ( ליצור קשר איתך)"
       connect: "הרשמו עכשיו"
-      invite_your_friends: "הזמן לחברים!"
+      invite_your_friends: "הזמינו חברים!‏ "
       invite_your_neighbors: "הזמן שכנים!"
       invite_your_friends_description: "ככל שיש יותר אנשים ב-‎%{service_name}‎, כך הוא יהיה שימושי יותר."
       invite_your_friends_invite_only_description: "אנשים לא יכולים להצטרף אל‎%{service_name}‎ אלא אם כן הם מוזמנים."
@@ -2022,7 +2031,7 @@ he-IL:
       settings: הגדרות
       sign_up: "הרשמו עכשיו"
     notifications:
-      listing_could_not_be_saved: ~
+      listing_could_not_be_saved: "המודעה לא נשמרה, נא נסה בשנית.אם הבעיה נמשכת אנא ‎%{contact_admin_link}‎ "
       contact_admin_link_text: "שלח/י הודעה לצוות האתר"
       test_welcome_email_delivered_to: "נשלח הודעת דוא\"ל לבדיקה אל ‎%{email}‎"
       something_went_wrong: "משהוא השתבש"
@@ -2063,17 +2072,17 @@ he-IL:
       news_item_update_failed: "עדכון המאמר נכשל"
       news_item_updated: "המאמר עודכן"
       news_item_deleted: "המאמר הוסר"
-      offer_accepted: "הזמנה אושרה"
+      offer_accepted: "ההצעה אושרה"
       offer_confirmed: "ההצעה הושלמה"
-      offer_closed: "הזמנה נסגרה"
+      offer_closed: "ההצעה נסגרה"
       listing_created_successfully: "‎%{new_listing_link}‎ נוצר בהצלחה"
-      offer_rejected: "הזמנה נדחתה"
+      offer_rejected: "ההצעה נדחתה"
       offer_canceled: "ההצעה בוטלה"
       listing_updated_successfully: "המודעה עודכנה בהצלחה"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
       listing_deleted: ~
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "אנא התחבר עם חשבון מנהל כדי לגשת לאיזור המבוקש"
       only_listing_author_can_close_a_listing: "רק מפרסם המודעה יכול לסגור את המודעה"
       only_listing_author_can_edit_a_listing: "רק מפרסם המודעה יכול לערוך את המודעה"
       payment_successful: "התשלום הצליח"
@@ -2113,7 +2122,7 @@ he-IL:
       you_cannot_reply_to_a_closed_offer: "אין אפשרות להגיב. ההצעה סגורה."
       you_cannot_send_message_to_yourself: "לא ניתן לשלוח הודעה לעצמך"
       you_followed_listing: "כעת אתה עוקב אחרי המודעה"
-      you_have_already_given_feedback_about_this_event: "You have already given feedback about this event‎ך"
+      you_have_already_given_feedback_about_this_event: "כבר השארת תגובה"
       you_are_now_member: "‎%{service_name}‎ ברוכים הבאים ל"
       you_are_already_member: "ברוך שובך ‎%{service_name}‎ אתה כבר חבר ב"
       you_must_log_in_to_create_new_listing: "‎‎%{sign_up_link}‎ מבקשת להיתחבר . אם עדיין אין לך חשבון ‎%{service_name}‎"
@@ -2164,7 +2173,7 @@ he-IL:
       delete: ~
       are_you_sure: ~
     comment_form:
-      ask_a_question: "..."
+      ask_a_question: "הגב על המודעה‎ או בקש עוד פרטים,משתמשים אחרים יוכלו לצפות בתגובתך"
       log_in: התחבר
       send_comment: "שלח תגובה"
       to_send_a_comment: "לשליחת תגובה חדשה"
@@ -2174,10 +2183,10 @@ he-IL:
       subscribe_to_comments: "עדכן אותי על תגובות חדשות"
     deleting_a_listing_cannot_be_undone: ~
     edit:
-      edit_listing: עריכה
+      edit_listing: "עריכת מודעה"
     edit_links:
-      close_listing: סגור
-      edit_listing: עריכה
+      close_listing: "סגור מודעה"
+      edit_listing: "עריכת מודעה"
       reopen_listing: "פרסם את המודעה מחדש"
       move_to_top: הקפץ
       show_in_updates_email: "הצג בעלון הבא"
@@ -2236,15 +2245,15 @@ he-IL:
         add_more: "הוסף עוד +"
         removing: מוחק...
         processing: מעבד...
-        loading_image: ~
+        loading_image: טוען...
         image_uploading_in_progress: ~
         processing_takes_a_while: ~
         this_may_take_a_while: "זה לוקח רק שנייה"
         percentage_loaded: ~
-        uploading_failed: ~
+        uploading_failed: "טעינת התמונה נכשלה"
         image_processing_failed: ~
-        file_too_large: ~
-        accepted_formats: ~
+        file_too_large: "הקובץ גדול מדי"
+        accepted_formats: "פורמט התמונות חייב להיות GIF, JPG , PNG."
         images_not_uploaded_confirm: ~
       location:
         location: מיקום
@@ -2310,7 +2319,7 @@ he-IL:
       all_offer_types: "כל סוגי ההזמנות"
       all_request_types: "כל סוגי הבקשות"
       category: קטגוריה
-      did_not_found_what_you_were_looking_for: "לא מוצאת את מה שחפשת?"
+      did_not_found_what_you_were_looking_for: "לא מוצא\\ת את מה שחפשת?"
       favors: שירותים
       housing: מקומות
       items: פריטים
@@ -2481,7 +2490,7 @@ he-IL:
   mercury:
     content_too_long: ~
   okl:
-    member_id: "מספר עמית"
+    member_id: "מס חשבון משתמש"
     member_id_or_email: "מספר עמית או דוא\"ל"
   paypal_accounts:
     payout_info_title: "קבלת תשלומים"
@@ -2633,7 +2642,7 @@ he-IL:
       no_listings: "אין שירותים או פריטים למכירה/מסירה"
       no_open_listings: "אין מודעות פתוחות"
       no_reviews: "אין ביקורות"
-      show_all_listings: הכל
+      show_all_listings: "הצג את כל המודעות"
       show_all_open_listings: "הצג את כל המודעות הפתוחות"
       show_all_reviews: "הצג את כל הביקורות"
       admin_actions: ~
@@ -2748,7 +2757,9 @@ he-IL:
       first_name_only: "לא יוצג למשתמשים אחרים"
       display_name: "שם לתצוגה"
       display_name_description: "אם אתה מייצג חברה, אתה יכול להשתמש בשם החברה כשם לתצוגה באתר. שם זה מוצג למשתמשים אחרים במקום השם הפרטי ושם המשפחה שלך."
-      location_description: "לדוגמה תל אביב"
+      location_description: |-
+          באפשרותך לספק כתובת רחוב או עיר או מיקוד. תמיד טוב להוסיף את המדינה.
+          לדוגמא, רחוב הרב קוק 21 תל-אביב, מיקוד 662846, ישראל.
       profile_picture_description: ~
       phone_number: "מספר טלפון"
       profile_picture: "תמונת פרופיל"
@@ -2976,16 +2987,24 @@ he-IL:
       create_own: ~
       learn_more: ~
   will_paginate:
-    previous_label: ~
+    previous_label: "&#8592; הקודם"
     next_label: ~
     page_gap: ~
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
+      multi_page: "‏ מציג ‎%{model}‎ ‎%{from}‎ -‎%{to}‎  מתוך‎%{count}‎  מסה''כ"
+      multi_page_html: |
+          מציג ‎%{model}‎ 
+           <b>‎%{from}‎ &nbsp;-&nbsp‎%{to}‎ ‎%{to}‎ </b> 
+          מתוך  <b>%{count}</b>  בסה''כ
     person:
       community_members_entries_info:
         multi_page: ~
         multi_page_html: ~
+    models:
+      person:
+        zero: משתמשים
+        one: משתמש
+        other: משתמשים
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

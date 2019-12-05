@@ -42,20 +42,20 @@ lv:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: Pamatinformācija
+        community_look_and_feel: Dizains
+        edit_community: Pamatinformācija
         enabled_languages: ~
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
+        community_name: "Platformas nosaukums"
         edit_community_name_description: ~
-        community_slogan: ~
+        community_slogan: "Platformas sauklis"
         community_slogan_display: ~
         edit_community_slogan_description: ~
         edit_community_slogan_description_hideable: ~
-        community_description: ~
+        community_description: "Platformas apraksts"
         community_description_display: ~
         edit_community_description_description: ~
         edit_community_description_description_hideable: ~
@@ -63,7 +63,7 @@ lv:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
+        update_information: "Saglabāt iestatījumus"
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
@@ -71,7 +71,7 @@ lv:
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        verification_to_post_listings_info_content_default: "%{service_name} administratoriem pieprasa jaunu lietotāju manuālu apstiprināšanu, pirms tie ir spējīgi pievienot sludinājumus. Jūsu profils vēl nav apstiprināts. Lūdzu %{contact_admin_link}, lai tiktu apstiprināts."
         contact_admin_link_text: ~
         save: ~
         transaction_agreement: ~
@@ -83,33 +83,33 @@ lv:
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
+        edit_community_look_and_feel: "Mainiet platformas \"%{community_name}\" izskatu un sajūtu"
+        community_logo: Logo
         community_logo_icon: ~
         community_logo_icon_mobile: ~
-        community_cover_photo: ~
+        community_cover_photo: "Vāka attēls"
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
+        community_custom_color1: "Platformas galvenā krāsa"
         community_slogan_color: ~
         community_slogan_color_instructions_text: ~
         community_description_color: ~
         community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "Logotipa lielumam jābūt %{width}x%{height} pikseļi. Tas tiks parādīts lietotājiem ar lielākiem ekrāniem."
         logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Šis kvadrātveida logotips tiks parādīts, kad cilvēki kopīgo jūsu vietni sociālajā tīklā Facebook, kad viņi skata jūsu vietni mobilajā ierīcē vai kad jūsu vietni pievieno grāmatzīmei savas mobilās ierīces sākuma ekrānā. Izmēriem jābūt (vismaz) %{width}x%{height} pikseļi."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
         logo_mobile_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: ~
+        cover_photo_visibility: "Mājaslapā tiek parādīts vāka fotoattēls lietotājiem, kas nav pieteikušies."
         cover_photo_instructions_text_with_dimensions: ~
         we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: "Lietotāja saskarnes galveno krāsu var mainīt, ievadot heksa krāsas vērtību. %{link} var palīdzēt jums izvēlēties krāsu un dot jums heksa krāsas kodu. Pēc tam kodu var nokopēt šeit."
         new_listing_button_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
@@ -129,7 +129,7 @@ lv:
         edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: ~
-        welcome_email_content_description: ~
+        welcome_email_content_description: "Zemāk redzamais ziņojums tiks nosūtīts katram jaunam lietotājam, kad viņi pievienosies. Jūs varat pielāgot ziņojumu, lai tas atbilstu jūsu tirgus vietnei. Noklikšķinot uz '%{send_test_message_link}', jūs varat nosūtīt priekšskatījuma ziņojumu uz savu e-pasta adresi, lai redzētu, kā tas izskatās e-pasta klientā."
         edit_message: ~
         send_test_message: ~
       outgoing_email:
@@ -889,7 +889,7 @@ lv:
         email_content_placeholder: ~
         email_language: ~
         any_language: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
+        message_will_be_sent_only_to_people_with_this_language: "E-pasts tiks nosūtīts tikai tiem lietotājiem, kuri jūsu izvēlētajā valodā izmanto %{service_name}."
         email_sent: ~
         to_improve_email_deliverability: ~
         email_subject_text: ~
@@ -1162,7 +1162,7 @@ lv:
       travel: Ceļojumi
       other: Citi
     username: "Lietotāja vārds"
-    username_or_email: "E-pasts vai lietotāja vārds"
+    username_or_email: E-pasts
     what_is_this: "Kas tas ir?"
     removed_user: "Dzēsts lietotājs"
     payment_fee_info:
@@ -1212,11 +1212,11 @@ lv:
       stripe-fee_label: "Maksājuma apstrādes komisijas maksa"
     confirm:
       confirm_description: "Ja pasūtījums ir izpildīts, Jums vajadzētu to apstiprināt kā izpildītu. Tad Jūs varēsiet sniegt atsauksmi par otru darījuma pusi."
-      cancel_description: "Ja Jūsu pasūtījums netika izpildīts, Jūs varat atzīmēt to kā 'apstrīdēts'. Jūs joprojām varat sniegt atsauksmi par otru darījuma pusi un aprakstīt to, kas notika."
+      cancel_description: "Ja Jūsu pasūtījums netika izpildīts, Jūs varat atzīmēt to kā 'atcelts'. Jūs joprojām varat sniegt atsauksmi par otru darījuma pusi un aprakstīt to, kas notika."
       cancel_payed_description: "Ja Jūsu pieprasījums tika apstiprināts, bet Jums ir otreizējas pārdomas, Jūs joprojām pirms maksājuma veikšanas varat atcelt pieprasījumu."
       canceling_payed_transaction: "Atcelt tranzakciju"
       confirm: "Atzīmēt kā pabeigtu"
-      cancel: Strīds
+      cancel: Atcelt
       continue: Turpināt
       give_feedback_to: "Sniedziet atsauksmes par %{person_link}"
       do_not_give_feedback: "Izlaist atsauksmes"
@@ -1345,7 +1345,7 @@ lv:
       reject_preauthorized_offer: "Šoreiz ne"
       reject_preauthorized_request: "Šoreiz ne"
       confirm: "Atzīmēt, ka pabeigts"
-      cancel: Strīds
+      cancel: Atcelt
   feedback:
     feedback_subject: "Jauna atsauksme no %{service_name}"
     feedback_body: "%{author_name_and_email} ir nosūtījis/-jusi šādu atsauksmi no %{service_name}"
@@ -2665,7 +2665,7 @@ lv:
       cancle_facebook_connect: "Ja nevēlaties saistīt šo kontu, varat %{cancel_link}."
       facebook_cancel_link_text: atcelt
       log_in_with_your_provider_account: "Ienāciet ar %{provider}"
-      or_sign_up_with_your_username: "...vai ar Jūsu lietotājvārdu vai e-pastu:"
+      or_sign_up_with_your_username: "...vai ar Jūsu e-pastu:"
       we_will_not_post_without_asking_you: "Mēs nekad neko neievietosim Facebook bez pajautāšanas Jums."
     password_forgotten:
       email: E-pasts

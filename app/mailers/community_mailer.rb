@@ -55,8 +55,8 @@ class CommunityMailer < ActionMailer::Base
 
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
 
-      @time_since_last_update = t("timestamps.days_since",
-                                  :count => time_difference_in_days(@recipient.last_community_updates_at))
+      @number_of_days = time_difference_in_days(@recipient.last_community_updates_at)
+      @time_since_last_update = t("timestamps.days_since", :count => @number_of_days)
       @url_params = {}
       @url_params[:host] = @community.full_domain.to_s
       @url_params[:locale] = @recipient.locale
