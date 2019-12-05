@@ -8,17 +8,19 @@ module StripeService::API
       def create_preauth_payment(tx, gateway_fields)
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         if !seller_account || !seller_account[:stripe_seller_id].present?
-          return SyncCompletion.new(Result::Error.new("No Seller Account"))
+          return Result::Error.new("No Seller Account")
         end
 
         if gateway_fields[:stripe_payment_method_id].present?
           wrap_in_report(tx: tx, start: :create_intent_start, success: :create_intent_success, failed: :create_intent_failed) do
             do_create_preauth_payment(tx, gateway_fields, seller_account)
           end
-        else
+        elsif gateway_fields[:stripe_token].present?
           wrap_in_report(tx: tx, start: :create_charge_start, success: :create_charge_success, failed: :create_charge_failed) do
             do_create_preauth_payment(tx, gateway_fields, seller_account)
           end
+        else
+          Result::Error.new("No payment method or token present")
         end
       end
 
@@ -244,7 +246,7 @@ module StripeService::API
           stripe_api.cancel_payment_intent(community: tx.community,
                                            payment_intent_id: payment[:stripe_payment_intent_id])
           payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_CANCELED
-        else
+        elsif payment[:stripe_charge_id].present?
           stripe_api.cancel_charge(
             community: tx.community_id,
             charge_id: payment[:stripe_charge_id],
@@ -252,6 +254,8 @@ module StripeService::API
             reason: reason,
             metadata: {sharetribe_transaction_id: tx.id}
           )
+        else
+          return Result::Error.new("Cannot cancel preauth: no intent or charge in payment data")
         end
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id, data: payment_data)
         Result::Success.new(payment)
@@ -266,8 +270,10 @@ module StripeService::API
                                                      payment_intent_id: payment[:stripe_payment_intent_id])
           charge = intent['charges']['data'].first
           payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_SUCCESS
-        else
+        elsif payment[:stripe_charge_id].present?
           charge = stripe_api.capture_charge(community: tx.community_id, charge_id: payment[:stripe_charge_id], seller_id: seller_account[:stripe_seller_id])
+        else
+          return Result::Error.new("Cannot capture: no intent or charge in payment data")
         end
         balance_txn = stripe_api.get_balance_txn(community: tx.community_id, balance_txn_id: charge.balance_transaction, account_id: seller_account[:stripe_seller_id])
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id,
