@@ -1,7 +1,5 @@
 class Admin2::DashboardController < Admin2::AdminBaseController
 
-  def index
-
-  end
+  def index; end
 
 end

@@ -1,0 +1,49 @@
+- join = ->(*parts) { File.join(parts.select(&:present?)) }
+:scss
+  @font-face {
+    font-family: 'CircularStd';
+    src: url("#{join.call(path_font, 'CircularStd-Black.woff2')}") format("woff2");
+    font-weight: 800;
+    font-style: normal; }
+
+  @font-face {
+    font-family: 'CircularStd';
+    src: url("#{join.call(path_font, 'CircularStd-BlackItalic.woff2')}") format("woff2");
+    font-weight: 800;
+    font-style: italic; }
+
+  @font-face {
+    font-family: 'CircularStd';
+    src: url("#{join.call(path_font, 'CircularStd-Bold.woff2')}") format("woff2");
+    font-weight: 600;
+    font-style: normal; }
+
+  @font-face {
+    font-family: 'CircularStd';
+    src: url("#{join.call(path_font, 'CircularStd-BoldItalic.woff2')}") format("woff2");
+    font-weight: 600;
+    font-style: italic; }
+
+  @font-face {
+    font-family: 'CircularStd';
+    src: url("#{join.call(path_font, 'CircularStd-Medium.woff2')}") format("woff2");
+    font-weight: 500;
+    font-style: normal; }
+
+  @font-face {
+    font-family: 'CircularStd';
+    src: url("#{join.call(path_font, 'CircularStd-MediumItalic.woff2')}") format("woff2");
+    font-weight: 500;
+    font-style: italic; }
+
+  @font-face {
+    font-family: 'CircularStd';
+    src: url("#{join.call(path_font, 'CircularStd-Book.woff2')}") format("woff2");
+    font-weight: 400;
+    font-style: normal; }
+
+  @font-face {
+    font-family: 'CircularStd';
+    src: url("#{join.call(path_font, 'CircularStd-BookItalic.woff2')}") format("woff2");
+    font-weight: 400;
+    font-style: italic; }

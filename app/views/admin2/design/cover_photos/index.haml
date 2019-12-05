@@ -1,0 +1,36 @@
+- content_for :title do
+  = t('admin2.sidebar.design.cover_photos')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.design.cover_photos')
+
+  = link_to t('admin2.cover_photos.preview_homepage'), '/?big_cover_photo=true', class: %i[content-card-header-link], target: :_blank
+.content-card-section-container
+  = form_for @current_community, url: update_cover_photos_admin2_design_cover_photos_path, html: { multipart: true, class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.sidebar.design.cover_photos')
+      %p.ingress
+        = t('admin2.cover_photos.description', href: 'https://help.sharetribe.com/en/articles/666084').html_safe
+      .content-card-section-form
+        .form-group
+          %label
+            = t('admin2.cover_photos.cover_photo')
+          .custom-file
+            %span.choose-filename
+              = form.object&.cover_photo&.original_filename || t('admin2.logos_and_color.not_added', name: t('admin2.cover_photos.cover_photo'))
+            = form.file_field :cover_photo, accept: 'image/*', class: %i[change-file]
+          %small#coverphoto-help.form-text
+            = t('admin2.cover_photos.cover_photo_info_text')
+        .form-group
+          %label
+            = t('admin2.cover_photos.small_cover_photo')
+          .custom-file
+            %span.choose-filename
+              = form.object&.small_cover_photo&.original_filename || t('admin2.logos_and_color.not_added', name: t('admin2.cover_photos.small_cover_photo'))
+            = form.file_field :small_cover_photo, accept: 'image/*', class: %i[change-file]
+          %small#smallcoverphoto-help.form-text
+            = t('admin2.cover_photos.small_cover_photo_info_text')
+    .content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

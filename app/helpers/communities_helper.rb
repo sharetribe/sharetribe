@@ -74,7 +74,7 @@ module CommunitiesHelper
   def find_community_customizations(customization_key)
     available_locales.inject({}) do |translations, (locale_name, locale_value)|
       translation = @community_customizations[locale_value][customization_key] || ""
-      translations[locale_value] = {language: locale_name, translation: translation};
+      translations[locale_value] = {language: locale_name, translation: translation}
       translations
     end
   end
