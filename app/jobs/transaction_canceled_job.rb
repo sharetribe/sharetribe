@@ -28,18 +28,4 @@ class TransactionCanceledJob < Struct.new(:conversation_id, :community_id)
       puts ex.backtrace.join("\n")
     end
   end
-
-  def send_transaction_canceled(transaction, community)
-    TransactionMailer.transaction_canceled(transaction: transaction,
-                                           recipient: transaction.seller,
-                                           is_seller: true).deliver_now
-    TransactionMailer.transaction_canceled(transaction: transaction,
-                                           recipient: transaction.buyer,
-                                           is_seller: false).deliver_now
-    community.admins.each do |admin|
-      TransactionMailer.transaction_canceled(transaction: transaction,
-                                             recipient: admin,
-                                             is_admin: true).deliver_now
-    end
-  end
 end

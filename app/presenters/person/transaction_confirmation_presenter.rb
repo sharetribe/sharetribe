@@ -62,7 +62,11 @@ class Person::TransactionConfirmationPresenter
     FeatureFlagHelper.feature_enabled?(:canceled_flow)
   end
 
+  def give_feedback_value
+    !(canceled_flow? && cancel?)
+  end
+
   def give_feedback_class
-    canceled_flow? && cancel? ? 'hidden' : ''
+    give_feedback_value ? '' : 'hidden'
   end
 end

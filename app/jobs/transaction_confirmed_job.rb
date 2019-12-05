@@ -14,7 +14,7 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
     transaction = Transaction.find(conversation_id)
     community = Community.find(community_id)
 
-    # do not send emails on cancelation dismissed
+    # do not send emails on cancellation dismissed
     unless transaction.current_state == 'dismissed'
       MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community, :seller))
       if transaction.last_transition_by_admin?

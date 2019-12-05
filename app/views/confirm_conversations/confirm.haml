@@ -43,11 +43,11 @@
     .close-listing-radio-buttons{:class => "#{@presenter.give_feedback_class}"}
 
       .checkbox-container
-        = radio_button_tag "give_feedback", true, true, :id => "do_give_feedback"
+        = radio_button_tag "give_feedback", @presenter.give_feedback_value, true, :id => "do_give_feedback"
         = label_tag "do_give_feedback", t("conversations.confirm.give_feedback_to", :person_link => link_to(PersonViewUtils.person_display_name(@presenter.other_person, @presenter.community), person_path(@presenter.other_person.username))).html_safe, :class => "radio"
 
       .checkbox-container
-        = radio_button_tag "give_feedback", false, false, :id => "do_not_give_feedback"
+        = radio_button_tag "give_feedback", !@presenter.give_feedback_value, false, :id => "do_not_give_feedback"
         = label_tag "do_not_give_feedback", t("conversations.confirm.do_not_give_feedback"), :class => "radio"
 
     = form.button t("conversations.confirm.continue"), :class => "send_button", :id => "send_testimonial_button"

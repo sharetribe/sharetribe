@@ -149,7 +149,11 @@ module TransactionService::Process
     end
 
     def cancel(tx:, message:, sender_id:, gateway_adapter:, metadata: {})
-      TransactionService::StateMachine.transition_to(tx.id, :canceled, metadata)
+      if FeatureFlag.feature_enabled?(tx.community_id, :canceled_flow)
+        TransactionService::StateMachine.transition_to(tx.id, :disputed, metadata)
+      else
+        TransactionService::StateMachine.transition_to(tx.id, :canceled, metadata)
+      end
       TxStore.mark_as_unseen_by_other(community_id: tx.community_id,
                                       transaction_id: tx.id,
                                       person_id: tx.listing_author_id)

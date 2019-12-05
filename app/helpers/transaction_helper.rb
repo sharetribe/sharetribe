@@ -175,6 +175,13 @@ module TransactionHelper
         end
         },
 
+      disputed: ->() { {
+        both: {
+          icon: icon_tag("clock", ["icon-fix-rel", "canceled"]),
+          text: t("conversations.status.waiting_for_marketplace_review")
+        }
+      } },
+
       errored: ->() { {
         both: {
           icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
@@ -302,23 +309,22 @@ module TransactionHelper
         }
                    },
         canceled: -> {
-          if FeatureFlagHelper.feature_enabled?(:canceled_flow)
-            contact_link = link_to t("conversations.status.contact_them"), new_user_feedback_path
-            {
+          {
+            both: [
+              status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
+              feedback_status(conversation)
+            ]
+          }
+                  },
+        disputed: -> {
+          contact_link = link_to t("conversations.status.contact_them"), new_user_feedback_path
+          {
             both: [
               status_info(t("conversations.status.order_canceled"), icon_classes: icon_for("canceled")),
               status_info(t("conversations.status.waiting_for_marketplace_review"), icon_classes: 'ss-clock'),
               status_info(t("conversations.status.marketplace_notified", contact_link: contact_link).html_safe, icon_classes: 'ss-mail'),
             ]
-            }
-          else
-            {
-            both: [
-              status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
-              feedback_status(conversation)
-            ]
-            }
-          end
+          }
                   },
         rejected: -> { {
           both: [
@@ -344,7 +350,7 @@ module TransactionHelper
             feedback_status(conversation)
           ],
           starter: [
-            status_info(t("conversations.status.order_refunded"), icon_classes: icon_class('refund')),
+            status_info("#{t('conversations.status.order_refunded')} #{t('conversations.status.you_should_receive_refund_soon')}", icon_classes: icon_class('refund')),
             status_info(t('conversations.status.issue_with_the_refund', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
             feedback_status(conversation)
 
@@ -355,12 +361,12 @@ module TransactionHelper
           contact_link = link_to t("conversations.status.contact_the_marketpalce_team"), new_user_feedback_path
           {
           author: [
-            status_info(t("conversations.status.order_cancelation_dismissed"), icon_classes: icon_class('dismiss')),
+            status_info(t("conversations.status.order_cancellation_dismissed"), icon_classes: icon_class('dismiss')),
             status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
             feedback_status(conversation)
           ],
           starter: [
-            status_info(t("conversations.status.order_cancelation_dismissed"), icon_classes: icon_class('dismiss')),
+            status_info(t("conversations.status.order_cancellation_dismissed"), icon_classes: icon_class('dismiss')),
             status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
             feedback_status(conversation)
           ]

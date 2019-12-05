@@ -1,0 +1,33 @@
+%tr
+  %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"}
+    %font{body_font}
+      - if @is_admin
+        - transaction_link = link_to t("emails.transaction_disputed.order_about",
+          listing_title: @transaction.listing.title),
+          admin_community_transaction_url(@url_params.merge(community_id: @community.id, id: @transaction.id))
+        = t("emails.transaction_disputed.the_order_between_buyer_and_seller_has_been_canceled",
+          buyer: PersonViewUtils.person_display_name(@transaction.starter, @transaction.community),
+          seller: PersonViewUtils.person_display_name(@transaction.author, @transaction.community),
+          transaction_link: transaction_link).html_safe
+      - else
+        - transaction_link = link_to t("emails.transaction_disputed.order_about",
+          listing_title: @transaction.listing.title),
+          person_transaction_url(@url_params.merge(person_id: @recipient.id, id: @transaction.id))
+        = t("emails.transaction_disputed.the_order_has_been_canceled", transaction_link: transaction_link).html_safe
+
+%tr
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
+    %font{body_font}
+      - if @is_admin
+        - learn_more_link = link_to t("emails.transaction_disputed.learn_more_about"),
+          "#{APP_CONFIG.knowledge_base_url}/en/articles/1587573"
+        = t("emails.transaction_disputed.you_must_now_decide", learn_more_link: learn_more_link).html_safe
+      - else
+        = t("emails.transaction_disputed.the_marketplace_has_been_notified")
+
+- if @is_admin
+  = render "person_mailer/action_button", text: t("emails.transaction_disputed.review_the_transaction"),
+    url: admin_community_transaction_url(@url_params.merge(community_id: @community.id, id: @transaction.id))
+- else
+  = render "person_mailer/action_button", text: t("emails.transaction_disputed.contact_the_marketplace_team"),
+    url: new_user_feedback_url(@url_params)
