@@ -276,13 +276,4 @@ class TransactionMailer < ActionMailer::Base
       subject: subject
     }
   end
-
-  def build_url_params(community, recipient, ref="email")
-    {
-      host: community.full_domain,
-      ref: ref,
-      locale: recipient.locale
-    }
-  end
-
 end

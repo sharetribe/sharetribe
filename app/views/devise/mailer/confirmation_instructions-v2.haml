@@ -1,4 +1,4 @@
-- link = confirmation_url(:confirmation_token => @confirmation_token, :host => @host, :locale => I18n.locale)
+- link = confirmation_url(@url_params.merge(:confirmation_token => @confirmation_token, :host => @host, :locale => I18n.locale))
 
 %tr
   %td.person-name

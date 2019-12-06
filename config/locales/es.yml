@@ -651,28 +651,21 @@ es:
         landing_pages: "Página de inicio"
         info_1: "La página de inicio es quizás la página más importante de tu marketplace. Es la primera página que los visitantes ven- casi como la fachada de tu casa. Tienes tan sólo unos segundos para convencer a nuevos visitantes pare que exploren tu sitio. La página necesita ser atractiva y tu propuesta clara y tentadora."
         info_2: ~
-        info_2_preview_text: "Vista previa"
-        info_2_details_text: "detalles básicos"
-        info_2_design_text: diseño
+        info_2_help_center: ~
         info_3: "Si quieres personalizar la página de inicio de tu marketplace, puedes hacerlo con una subscripción adicional por $99 dólares al mes."
         info_4: "Leer más acerca de las páginas de inicio personalizadas"
         editor_title: "Editor de página de inicio"
         editor_info: ~
         preview: "Vista previa"
         set_live: Publicar
-        headers:
-          section_id: "ID de la sección"
-          section_type: "Tipo de sección"
-          version: Versión
-          released: Pubicada
-        add_new_version: "Añadir una versión nueva"
-        new_version: "Nueva versión"
-        edit_version: "Editar versión"
         add_new_section: "Añadir sección nueva"
         select_section_type: "Typo de sección..."
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
         form:
-          version: Versión
           save: Guardar
+          cancel: ~
         sections:
           identifier: "ID de la sección"
           kind: "Tipo de sección"
@@ -710,9 +703,12 @@ es:
             video: "Editar sección Video"
     landing_page_versions:
       sections:
+        content:
+          title: ~
         hero:
           hero_title: Hero
           hero_description: "Determina la imagen de fondo para la sección Hero. El slogan y la descripción vienen directamente de la sección de detalles básicos de tu panel de administración."
+          basic_details_tab: ~
         footer:
           footer_title: "Pie de página"
           footer_style: "Estilo del píe de página"
@@ -725,6 +721,10 @@ es:
           cta_enabled: Habilitar
           cta_text: Texto
           cta_url: URL
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
         background_image_overlay:
           background_image: "Imagen de fondo"
           background_image_info: "Está imagen es el fondo de esta sección. Se verá mejor y dará mejores resultados con un tamaño mínimo de 1600x1200 pixeles."
@@ -785,6 +785,7 @@ es:
           main_title: "Título principal"
           column_header: "Columna %{index}"
           column_title: "Título de la columna %{index}"
+          web_viewer: ~
           column_icon_info: ~
           column_icon: "Ícono de la columna %{index}"
           column_paragraph: "Párrafo de la columna %{index}"
@@ -792,14 +793,15 @@ es:
           column_button_text: "Texto del botón"
           column_button_url: "https://www.sharetribe.com"
         listings:
+          listings_to_feature: ~
           you_need_to_add_the_listing_ids: "Necesitas añadir el id del anuncio que quieres incluir en esta sección. Para encontrar el id, ve a la página del anuncio y date cuenta del URL. El id del anuncio es el numero que viene después del URL principal. En el ejemplo https://www.example.com/en/listings/123456-listing-title, el id sería 123456."
         video:
           text: Texto
-          youtube_video_id: "ID del video de YouTube"
           autoplay: "Tipo de reproducción"
           autoplay_no: "Sin reproducción automática"
           autoplay_muted: "Reproducción automática muda"
           info: "Este texto se mostrará cuando elijas la opción de \"Sin reproducción automática\" o cuando el video sea pausado."
+          youtube_video_id_info: ~
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -3188,8 +3190,6 @@ es:
         id: "Nombre único de sección"
         title: Título
         paragraph: Párrafo
-        button_color: ~
-        button_color_hover: ~
         button_title: Texto
         button_path: URL
         button_path_string: URL

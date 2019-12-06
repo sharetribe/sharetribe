@@ -8,9 +8,7 @@ module MailUtils
   def set_up_layout_variables(recipient, community, ref="email")
     @community = community
     @current_community = community
-    @url_params = {}
-    @url_params[:host] = community.full_domain
-    @url_params[:ref] = ref
+    @url_params = build_url_params(community, recipient, ref)
     @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
     if recipient
       @recipient = recipient
@@ -93,5 +91,14 @@ module MailUtils
   def community_specific_sender(community)
     cid = Maybe(community).id.or_else(nil)
     EmailService::API::Api.addresses.get_sender(community_id: cid).data[:smtp_format]
+  end
+
+  def build_url_params(community, recipient, ref = 'email')
+    {
+      host: community.full_domain.to_s,
+      locale: recipient&.locale || community.default_locale,
+      ref: ref,
+      protocol: APP_CONFIG.always_use_ssl.to_s == "true" ? "https://" : "http://"
+    }
   end
 end

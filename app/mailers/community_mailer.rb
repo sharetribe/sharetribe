@@ -55,13 +55,9 @@ class CommunityMailer < ActionMailer::Base
 
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
 
-      @number_of_days = time_difference_in_days(@recipient.last_community_updates_at)
-      @time_since_last_update = t("timestamps.days_since", :count => @number_of_days)
-      @url_params = {}
-      @url_params[:host] = @community.full_domain.to_s
-      @url_params[:locale] = @recipient.locale
-      @url_params[:ref] = "weeklymail"
-      @url_params.freeze # to avoid accidental modifications later
+      @time_since_last_update = t("timestamps.days_since",
+                                  :count => time_difference_in_days(@recipient.last_community_updates_at))
+      @url_params = build_url_params(@community, @recipient, "weeklymail")
 
       @show_listing_shape_label = community.shapes.count > 1
       @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]

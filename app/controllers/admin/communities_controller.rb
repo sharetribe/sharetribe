@@ -22,7 +22,8 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     @url_params = {
       :host => @current_community.full_domain,
       :ref => "welcome_email",
-      :locale => @current_user.locale
+      :locale => @current_user.locale,
+      :protocol => APP_CONFIG.always_use_ssl.to_s == "true" ? "https://" : "http://"
     }
 
     sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data
