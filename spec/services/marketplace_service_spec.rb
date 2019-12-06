@@ -84,7 +84,7 @@ describe MarketplaceService do
 
       community = create(@community_params.merge({:marketplace_type => "free"}))
       c = Community.find(community.id)
-      expect(c.shapes.count).to eq 1
+      expect(c.shapes.count).to eq 2
       s = c.shapes.last
       expect(s.units.empty?).to eql true
       expect(s.availability).to eql 'none'
