@@ -163,7 +163,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
         last_name: lastName,
         phone: getValue('phone'),
         email: getValue('email'),
-        id_number: ['US', 'CA', 'HK', 'SG', 'PR'].includes(country) ? getValue('id_number') : null,
+        id_number: ['US', 'CA', 'HK', 'SG', 'PR', 'MX'].includes(country) ? getValue('id_number') : null,
         ssn_last_4: ['US', 'PR'].includes(country) ? getValue('ssn_last_4') : null,
       };
       if (!options.update) {

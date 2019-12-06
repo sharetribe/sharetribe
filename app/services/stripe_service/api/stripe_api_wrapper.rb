@@ -125,7 +125,7 @@ class StripeService::API::StripeApiWrapper
           email: account_info[:email],
           account_token: account_info[:token]
         }
-        if ['US', 'EE', 'GR', 'LV', 'LT', 'PL', 'SK', 'SI'].include?(account_info[:address_country])
+        if ['US', 'EE', 'GR', 'LV', 'LT', 'PL', 'SK', 'SI', 'MX'].include?(account_info[:address_country])
           data[:requested_capabilities] = ['card_payments']
           data[:business_profile] = {
             mcc: DEFAULT_MCC,

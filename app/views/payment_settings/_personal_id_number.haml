@@ -11,4 +11,8 @@
     .col-12
       = label_tag :id_number, t("stripe_accounts.form_pin.singapore_identity_card")+"*"
       = form.text_field :id_number, placeholder: 'X1234567Y', required: true
+  .row.country-dependent{"data-country-only" => "MX"}
+    .col-12
+      = label_tag :id_number, t("stripe_accounts.form_pin.mexico_id_number")+"*"
+      = form.text_field :id_number, placeholder: 'ABCD010180MXXABCDZ', required: true
 
