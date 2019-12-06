@@ -109,4 +109,41 @@ module CountryI18nHelper
       ["Western Australia", "WA"]
     ]
   end
+
+  def mx_states
+    [
+      ["Aguascalientes", "AG"],
+      ["Baja California", "BC"],
+      ["Baja California Sur", "BS"],
+      ["Chihuahua", "CH"],
+      ["Colima", "CL"],
+      ["Campeche", "CM"],
+      ["Coahuila", "CO"],
+      ["Chiapas", "CS"],
+      ["Federal District", "DF"],
+      ["Durango", "DG"],
+      ["Guerrero", "GR"],
+      ["Guanajuato", "GT"],
+      ["Hidalgo", "HG"],
+      ["Jalisco", "JA"],
+      ["México State", "ME"],
+      ["Michoacán", "MI"],
+      ["Morelos", "MO"],
+      ["Nayarit", "NA"],
+      ["Nuevo León", "NL"],
+      ["Oaxaca", "OA"],
+      ["Puebla", "PB"],
+      ["Querétaro", "QE"],
+      ["Quintana Roo", "QR"],
+      ["Sinaloa", "SI"],
+      ["San Luis Potosí", "SL"],
+      ["Sonora", "SO"],
+      ["Tabasco", "TB"],
+      ["Tlaxcala", "TL"],
+      ["Tamaulipas", "TM"],
+      ["Veracruz", "VE"],
+      ["Yucatán", "YU"],
+      ["Zacatecas", "ZA"]
+    ]
+  end
 end

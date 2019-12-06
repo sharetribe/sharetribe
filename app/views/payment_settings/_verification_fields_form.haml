@@ -2,6 +2,8 @@
   %h3
     = t("stripe_accounts.form_verification.need_verification")
 
+  %pre
+    = presenter.inspect
   - id_number_field = :id_number
   = fields_for :stripe_account_form do |form|
     .row.country-dependent{"data-country-only" => "CA"}
@@ -13,6 +15,10 @@
       .col-12
         = label_tag id_number_field, t("stripe_accounts.form_pin.social_security_number")+"*"
         = form.text_field id_number_field, placeholder: '123456789', required: true
+    .row.country-dependent{"data-country-only" => "MX"}
+      .col-12
+        = label_tag id_number_field, t("stripe_accounts.form_pin.mexico_id_number")+"*"
+        = form.text_field id_number_field, placeholder: 'ABCD010180MXXABCDZ', required: true
     .row
       .col-12
         = label_tag :document, t("stripe_accounts.form_verification.document")
