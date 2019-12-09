@@ -198,6 +198,8 @@ class TransactionTypeCreator
 
       transaction_processes = TransactionProcess.where(community_id: community.id, author_is_seller: author_is_seller)
       transaction_processes.each do |transaction_process|
+        next if transaction_process.process == :preauthorize && transaction_type == 'Free'
+
         new(
           community: community,
           transaction_type: transaction_type,
