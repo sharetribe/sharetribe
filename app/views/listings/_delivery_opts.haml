@@ -22,7 +22,7 @@
       - delivery_opts.each do |opts|
         .row
           .col-12
-            = radio_button_tag(:delivery, opts[:name], opts[:default])
+            = radio_button_tag(:delivery, opts[:name])
             = label_tag("delivery_#{opts[:name]}", class: "delivery-label shipping-options-label") do
               = t("listings.show.#{opts[:name]}_no_price")
               - if (opts[:name] == :shipping)

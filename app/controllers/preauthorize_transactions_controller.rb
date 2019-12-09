@@ -359,11 +359,12 @@ class PreauthorizeTransactionsController < ApplicationController
         t("listing_conversations.preauthorize.invalid_parameters")
       elsif [:dates_missing,
              :end_cant_be_before_start,
-             :delivery_method_missing,
              :at_least_one_day_or_night_required,
              :date_too_late
             ].include?(data[:code])
         t("listing_conversations.preauthorize.invalid_parameters")
+      elsif data[:code] == :delivery_method_missing
+        t("listing_conversations.preauthorize.select_delivery_method")
       elsif data[:code] == :dates_not_available
         t("listing_conversations.preauthorize.dates_not_available")
       elsif data[:code] == :harmony_api_error
