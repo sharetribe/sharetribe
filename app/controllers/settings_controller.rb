@@ -53,6 +53,12 @@ class SettingsController < ApplicationController
     @presenter = Listing::ListPresenter.new(@current_community, @current_user, params, false)
   end
 
+  def transactions
+    @selected_left_navi_link = "transactions"
+    @service = Admin::TransactionsService.new(@current_community, params, request.format, @current_user, true)
+    @transactions_presenter = Admin::TransactionsPresenter.new(params, @service)
+  end
+
   private
 
   def find_person_to_unsubscribe(current_user, auth_token)
