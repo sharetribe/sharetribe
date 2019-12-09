@@ -157,23 +157,12 @@ module TransactionHelper
         }
       } },
 
-      canceled: ->() {
-        if FeatureFlagHelper.feature_enabled?(:canceled_flow)
-          {
-            both: {
-              icon: icon_tag("clock", ["icon-fix-rel", "canceled"]),
-              text: t("conversations.status.waiting_for_marketplace_review")
-            }
-          }
-        else
-          {
-            both: {
-              icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
-              text: t("conversations.status.request_canceled")
-            }
-          }
-        end
-        },
+      canceled: ->() { {
+        both: {
+          icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
+          text: t("conversations.status.request_canceled")
+        }
+      } },
 
       disputed: ->() { {
         both: {
