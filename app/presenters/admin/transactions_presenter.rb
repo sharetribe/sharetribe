@@ -210,4 +210,12 @@ class Admin::TransactionsPresenter
   def canceled_flow?
     FeatureFlagHelper.feature_enabled?(:canceled_flow)
   end
+
+  def show_transactions_export?
+    !personal? && !has_search?
+  end
+
+  def personal?
+    service.personal
+  end
 end
