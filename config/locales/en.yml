@@ -1456,7 +1456,7 @@ en:
       cancel_it_link_text: "cancel it"
       automatic_confirmation: "If you don't confirm or cancel the order within %{days_to_automatic_confirmation} days after the request was accepted, we will mark it automatically as completed."
     confirm_reminder_v2:
-      headline: "Hi %{name}, you have not yet completed or canceled the order %{request_link}."
+      headline: "you have not yet completed or canceled the order %{request_link}."
       you_have_not_yet_confirmed_or_canceled_request: "If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
     payment_settings_reminder:
       remember_to_add_payment_details: "Remember to add your payment details to receive payments"
@@ -1560,7 +1560,7 @@ en:
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
       you_have_a_new_message: "A new message in %{service_name} from %{sender_name}"
     new_message_v2:
-      hi: "Hi %{name}, you have a message!"
+      headline: "you have a message!"
       reply: "Reply to %{sender}"
     new_payment:
       new_payment: "You have received a new payment"
@@ -1687,7 +1687,7 @@ en:
       one_day_left: "If you don't accept the request within one day the request will be automatically rejected and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_reminder_v2:
-      headline: "Hi %{seller_name}, remember to accept the request from %{requester} about %{listing_link}."
+      headline: "remember to accept the request from %{requester} about %{listing_link}."
       remember_to_accept: "%{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
     welcome_email:
       welcome_email_subject: "Welcome to %{service_name}"
