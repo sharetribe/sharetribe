@@ -2,13 +2,14 @@ module Admin
   class TransactionsService
     PER_PAGE = 30
 
-    attr_reader :community, :params, :format, :current_user
+    attr_reader :community, :params, :format, :current_user, :personal
 
-    def initialize(community, params, format, current_user)
+    def initialize(community, params, format, current_user, personal = false)
       @community = community
       @params = params
       @format = format
       @current_user = current_user
+      @personal = personal
     end
 
     def transactions
@@ -26,6 +27,10 @@ module Admin
 
     def transactions_scope
       scope = Transaction.exist.by_community(community.id)
+
+      if personal
+        scope = scope.for_person(current_user)
+      end
 
       if params[:q].present?
         pattern = "%#{params[:q]}%"

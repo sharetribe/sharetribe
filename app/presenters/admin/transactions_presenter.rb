@@ -199,4 +199,12 @@ class Admin::TransactionsPresenter
     end
     @shipping_address
   end
+
+  def show_transactions_export?
+    !personal? && !has_search?
+  end
+
+  def personal?
+    service.personal
+  end
 end
