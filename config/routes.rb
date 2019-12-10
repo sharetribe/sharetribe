@@ -529,6 +529,7 @@ Rails.application.routes.draw do
             get :notifications
             get :unsubscribe
             get :listings
+            get :transactions
           end
         end
         resources :testimonials

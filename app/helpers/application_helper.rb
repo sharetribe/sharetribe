@@ -593,6 +593,13 @@ module ApplicationHelper
             :name => "listings"
           },
           {
+            :id => "settings-tab-transactions",
+            :text => t("layouts.settings.transactions"),
+            :icon_class => icon_class("coins"),
+            :path => transactions_person_settings_path(person, sort: "last_activity", direction: "desc"),
+            :name => "transactions"
+          },
+          {
             :id => "settings-tab-account",
             :text => t("layouts.settings.account"),
             :icon_class => icon_class("account_settings"),
