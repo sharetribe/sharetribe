@@ -81,11 +81,13 @@ class TransactionProcessStateMachine
   end
 
   after_transition(to: :refunded, after_commit: true) do |transaction|
+    transaction.update(starter_skipped_feedback: false)
     TransactionService::StateMachine.rejected(transaction)
     Delayed::Job.enqueue(TransactionRefundedJob.new(transaction.id, transaction.community_id))
   end
 
   after_transition(to: :dismissed, after_commit: true) do |transaction|
+    transaction.update(starter_skipped_feedback: false)
     Delayed::Job.enqueue(TransactionCancellationDismissedJob.new(transaction.id, transaction.community_id))
     confirmation = ConfirmConversation.new(transaction, transaction.starter, transaction.community)
     confirmation.confirm!
