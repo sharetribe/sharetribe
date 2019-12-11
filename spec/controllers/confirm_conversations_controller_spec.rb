@@ -82,15 +82,15 @@ describe ConfirmConversationsController, type: :controller do
 
       email_to_seller = ActionMailer::Base.deliveries[0]
       expect(email_to_seller.to.include?(seller.confirmed_notification_emails_to)).to eq true
-      expect(email_to_seller.subject).to eq 'Order canceled - The Sharetribe team is reviewing the situation'
+      expect(email_to_seller.subject).to eq 'Order disputed - The Sharetribe team is reviewing the situation'
 
       email_to_buyer = ActionMailer::Base.deliveries[1]
       expect(email_to_buyer.to.include?(buyer.confirmed_notification_emails_to)).to eq true
-      expect(email_to_buyer.subject).to eq 'Order canceled - The Sharetribe team is reviewing the situation'
+      expect(email_to_buyer.subject).to eq 'Order disputed - The Sharetribe team is reviewing the situation'
 
       email_to_admin = ActionMailer::Base.deliveries[2]
       expect(email_to_admin.to.include?(admin.confirmed_notification_emails_to)).to eq true
-      expect(email_to_admin.subject).to eq 'A transaction was canceled, you must decide what happens next'
+      expect(email_to_admin.subject).to eq 'A transaction was disputed, you must decide what happens next'
     end
   end
 end

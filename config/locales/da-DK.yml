@@ -457,10 +457,13 @@ da-DK:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: Samtaletråd
           listing: Annonce
@@ -480,6 +483,7 @@ da-DK:
           paid: Betalt
           confirmed: Godkendt
           canceled: Annulleret
+          disputed: ~
           initiated: "Venter på PayPal betalingen"
           pending_ext: "Venter på PayPal betalingen"
           none:
@@ -493,8 +497,11 @@ da-DK:
             paid: Betalt
             confirmed: Bekræftet
             canceled: Annulleret
+            disputed: ~
             initiated: "Afventer PayPal betaling"
             pending_ext: "Afventer PayPal betaling"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: Samtale
             pending: Venter
@@ -504,11 +511,14 @@ da-DK:
             paid: Betalt
             confirmed: Udført
             canceled: Annulleret
+            disputed: ~
             initiated: "Venter på Stripe betaling"
             pending_ext: "Venter på Strip betaling"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "Ikke tilgængelig"
       conversations:
         conversations: ~
@@ -1146,6 +1156,8 @@ da-DK:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Rediger side"
     default_community_slogan: "Fælleskabs markedsplads"
@@ -1238,6 +1250,7 @@ da-DK:
     confirm:
       confirm_description: "Hvis din ordre er blevet gennemført, bør du markere den som så. Derefter kan du vurdere handlen."
       cancel_description: "Hvis din ordre ikke blev gennemført, kan du markere den som 'ikke gennemført'. Du kan stadig vurdere den anden part."
+      cancel_description_team: ~
       cancel_payed_description: "Hvis din ansøgning er godkendt, men du har skiftet mening, kan du stadig nå at annullere din bestilling før betalingen bliver trukket."
       canceling_payed_transaction: "Annuller handel"
       confirm: "Marker som success"
@@ -1286,6 +1299,10 @@ da-DK:
         held_payment: "Accepteret anmodningen. Betalingen på %{sum} tilbageholdes af %{service_name} indtil ordren er blevet markeret som gennemført."
         held_payment_wo_sum: ~
         confirmed_request: "Markeret ordren som gennemført. Betalingen er nu blevet overført til %{author_name} konto eller vil blive overført snarrest."
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Besked
       message_to: "Besked til %{author_name}"
@@ -1360,6 +1377,18 @@ da-DK:
           verify: "Venter på at du bekræfter din PayPal-konto"
       stripe:
         waiting_confirmation_from_requester: "Venter på at %{requester_name} skal markere ordren som færdiggjort. Når det er gjort vil betalingen gå igennem til din konto."
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Accepter tilbud"
       accept_request: "Accepter forespørgsel"
@@ -1371,6 +1400,8 @@ da-DK:
       reject_preauthorized_request: "Ikke denne gang"
       confirm: "Marker som success"
       cancel: "Ikke sat"
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Ny feedback sendt fra %{service_name}"
     feedback_body: "%{author_name_and_email} har sendt følgende feedback fra %{service_name}"
@@ -1425,7 +1456,6 @@ da-DK:
       please_go_to_payment_settings: "Gå venligst til %{payment_settings_link} og udfyld dine betalingsoplysninger."
       payment_settings_link: Betalinger
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1440,27 +1470,22 @@ da-DK:
         has_marked_request_as_confirmed: "%{other_party_full_name} har markeret ordren om %{request} som færdiggjort. Betalingen for denne transaktion er blevet overført til din konto. Du kan nu give feedback til %{other_party_given_name}."
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Anmodningen blev automatisk godkendt - husk at give feedback"
       we_have_marked_request_as_confirmed: "Vi har markeret anmodningen om '%{request}' som godkendt. Anmodningen blev automatisk godkendt fordi der er gået %{days_passed} dage, siden anmodningen blev accepteret."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Anmodningen blev automatisk godkendt - husk at give feedback"
       we_have_marked_request_as_confirmed: "Vi har markeret anmodningen om '%{request}' som godkendt. Anmodningen blev automatisk godkendt fordi der er gået en dag siden bookingen var overstået."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Du kan nu give feedback til %{other_party_given_name}. Det er altid en god idé at vurdere hinanden. Hvis alt gik godt, kan du fortælle andre, at de kan have tillid til %{other_party_given_name}. Hvis der var nogen problemer, kan du nævne dem også."
@@ -1475,9 +1500,9 @@ da-DK:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Hej %{name}"
+      hi: ~
       kassi_team: "%{service_name}-Teamet"
       thanks: "Tak,"
       dont_want_to_receive_these_emails: "Vil du ikke længere modtage emails fra os?"
@@ -1489,7 +1514,7 @@ da-DK:
       unsubscribe_from_these_emails: "afmeld disse emails"
       unsubscribe_from_invitation_emails_info: "Du har modtaget denne mail fordi en bruger fra %{service_name} har inviteret dig."
       unsubscribe_from_invitation_emails: "Unsubscribe fra invitationsmail til %{service_name}"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har accepteret dit tilbud %{listing}"
       has_accepted_your_request: "%{accepter} har accepteret din anmodning %{listing}"
@@ -1522,14 +1547,12 @@ da-DK:
       you_have_a_new_comment: "%{author} har kommenteret på din annonce på %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} har kommenteret på et opslag, som du følger på %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} har kommenteret på annoncen '%{listing}' som du følger på %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Se besked"
       has_sent_you_a_message_in_kassi: "%{sender} har sendt dig en besked på %{service_name}"
       you_have_a_new_message: "En ny besked fra %{sender_name} på %{service_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Du har modtaget en ny betaling"
@@ -1554,7 +1577,6 @@ da-DK:
         you_have_received_new_payment: "Beløbet <b>%{payment_sum}</b> er blevet betalt for <b>%{listing_title}</b> af %{payer_full_name}. Pengene bliver tilbageholdt af %{service_name} indtil ordren er blevet markeret som færdiggjort. Her er din kvittering."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1575,8 +1597,6 @@ da-DK:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-gebyr:"
       shipping_total: "Levering:"
@@ -1625,7 +1645,6 @@ da-DK:
       unsubscribe_link_text: "afmeld emails"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Hej %{name},"
       newest_offers: "Hvad folk i øjeblikket tilbyder andre"
@@ -1721,6 +1740,29 @@ da-DK:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: |-
@@ -2473,6 +2515,7 @@ da-DK:
       night: Nat
       nights: Nætter
       invalid_parameters: "Ugyldige værdier for ny transaktion"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Vis.
     stripe_payment:

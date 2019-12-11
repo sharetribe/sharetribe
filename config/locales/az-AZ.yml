@@ -442,10 +442,13 @@ az-AZ:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: ~
           listing: ~
@@ -465,6 +468,7 @@ az-AZ:
           paid: ~
           confirmed: ~
           canceled: ~
+          disputed: ~
           initiated: ~
           pending_ext: ~
           none:
@@ -478,8 +482,11 @@ az-AZ:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -489,11 +496,14 @@ az-AZ:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: ~
       conversations:
         conversations: ~
@@ -1119,6 +1129,8 @@ az-AZ:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Səhifəyə düzəliş et"
     default_community_slogan: "İcma bazarı"
@@ -1211,6 +1223,7 @@ az-AZ:
     confirm:
       confirm_description: "Sifarişiniz yerinə yetirildiyi təqdirdə, onu qəbul edilmiş şəkildə təsdiqləməlisiniz. Ondan sonra, siz digər tərəfə geribildirim verə bilərsiniz."
       cancel_description: "Sifarişiniz yerinə yetirilməmişdirsə, onu 'mübahisəli' kimi qeyd edə bilərsiniz. Hələ də digər tərəfə geribilidirim vermək və baş verənləri təsvir edə bilərsiniz."
+      cancel_description_team: ~
       cancel_payed_description: "Əgər sizin istəyinizin qəbul olduğundan sonra siz fikrinizi dəyişmisisinizsə, siz ödənişdən əvvəl istəyinizi ləğv edə bilərsiniz."
       canceling_payed_transaction: "Əməliyyatını ləğv et"
       confirm: "Tamamlanmış kimi qeyd et"
@@ -1259,6 +1272,10 @@ az-AZ:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Mesaj
       message_to: ~
@@ -1333,6 +1350,18 @@ az-AZ:
           verify: ~
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Təklifi qəbul et"
       accept_request: "İstəyi qəbul et"
@@ -1344,6 +1373,8 @@ az-AZ:
       reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: ~
     feedback_body: "%{author_name_and_email} %{service_name} -dan aşağıdakı geribildirim göndərmişdir"
@@ -1398,7 +1429,6 @@ az-AZ:
       please_go_to_payment_settings: ~
       payment_settings_link: ~
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1413,27 +1443,22 @@ az-AZ:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: "'%{request}' haqqında sifarişi tamamlanmış kimi qeyd etdik. Sifarişiniz avtomatik olaraq başa çatdı, çünki sifariş müddəti başa çatdıqdan %{days_passed}  gün keçdi."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Sifariş avtomatik olaraq tamamlandı - geribildirim verməyinizi unutmayın"
       we_have_marked_request_as_confirmed: "'%{request}' haqqında sifarişi tamamlanmış kimi qeyd etdik. İstəyiniz avtomatik olaraq başa çatdı, çünki sifariş müddəti başa çatdıqdan bir gün keçdi."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
@@ -1448,9 +1473,9 @@ az-AZ:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Salam %{name},"
+      hi: ~
       kassi_team: "%{service_name} komandası"
       thanks: "Təşəkkürlər,"
       dont_want_to_receive_these_emails: "Belə məktublar almaq istəmirsiniz?"
@@ -1462,7 +1487,7 @@ az-AZ:
       unsubscribe_from_these_emails: "Bu məktublara abunəliyi ləğv et"
       unsubscribe_from_invitation_emails_info: "%{service_name} üzvünün sizi qoşulmağa dəvət etdiyinə görə bu məktubu almısınız."
       unsubscribe_from_invitation_emails: "%{service_name} qoşulmaq üçün dəvət məktublarına abunəliyin ləğv olunması"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} sizin %{listing} təklifinizi qəbul etdi."
       has_accepted_your_request: "%{accepter} sizin %{listing} istəyinizi qəbul etdi."
@@ -1495,14 +1520,12 @@ az-AZ:
       you_have_a_new_comment: "%{author} sizin %{service_name}-daki elanızla əlaqədar şərh etdi"
       listing_you_follow_has_a_new_comment: "%{author} %{service_name} -da izlədiyiniz elana şərh verdi."
       has_commented_listing_you_follow_in_kassi: "%{author} %{service_name} -da izlədiyiniz %{listing} elanına şərh verdi."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Mesaja bax"
       has_sent_you_a_message_in_kassi: "%{sender} sizə %{service_name}-da mesaj göndərib."
       you_have_a_new_message: "%{service_name}-da %{sender_name}-dan yeni mesaj var"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: ~
@@ -1527,7 +1550,6 @@ az-AZ:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1548,8 +1570,6 @@ az-AZ:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -1598,7 +1618,6 @@ az-AZ:
       unsubscribe_link_text: "abunəlikdən çıx"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Salam %{name}!"
       newest_offers: "İndiki təkliflər"
@@ -1694,6 +1713,29 @@ az-AZ:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -2443,6 +2485,7 @@ az-AZ:
       night: ~
       nights: ~
       invalid_parameters: ~
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: ~
     stripe_payment:

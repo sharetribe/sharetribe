@@ -459,10 +459,13 @@ nl:
           confirmed: Voltooid
           paid: Betaald
           canceled: Geannuleerd
+          disputed: ~
           preauthorized: "Vooraf geauthoriseerd"
           rejected: Geweigerd
           payment_intent_requires_action: "In afwachting"
           payment_intent_action_expired: Verlopen
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: Conversatie
           listing: Advertentie
@@ -482,6 +485,7 @@ nl:
           paid: Betaald
           confirmed: Voltooid
           canceled: Geannuleerd
+          disputed: ~
           initiated: "Wachten op PayPal betaling"
           pending_ext: "Wachten PayPal betaling"
           none:
@@ -495,8 +499,11 @@ nl:
             paid: Betaald
             confirmed: Uitgevoerd
             canceled: Geannuleerd
+            disputed: ~
             initiated: "In afwachting van PayPal betaling"
             pending_ext: "In afwachting van PayPal betaling"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: Conversatie
             pending: "In afwachting"
@@ -506,11 +513,14 @@ nl:
             paid: Betaald
             confirmed: Uitgevoerd
             canceled: Geannuleerd
+            disputed: ~
             initiated: "In afwachting van Stripe betaling"
             pending_ext: "In afwachting van Stripe betaling"
             payment_intent_requires_action: "in afwachting"
             payment_intent_action_expired: Verlopen
             payment_intent_failed: "Stripe betaling mislukt"
+            refunded: ~
+            dismissed: ~
         not_available: "Niet beschikbaar"
       conversations:
         conversations: Conversaties
@@ -1153,6 +1163,8 @@ nl:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Pagina aanpassen"
     default_community_slogan: "Gemeenschappelijke marktplaats"
@@ -1249,6 +1261,7 @@ nl:
     confirm:
       confirm_description: "Als het verzoek is geleverd, kunt u dat hier markeren als uitgevoerd. Hierna kunt u feedback geven aan de andere partij."
       cancel_description: "Indien uw verzoek niet is uitgevoerd, kunt u het markeren als 'niet uitgevoerd'. U kunt dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
+      cancel_description_team: ~
       cancel_payed_description: "Je verzoek is geaccepteerd. Als u van gedachten verandert, kunt u nog annuleren voordat de betaling gedaan moet worden.   "
       canceling_payed_transaction: "Transactie annuleren"
       confirm: "Markeer als uitgevoerd"
@@ -1297,6 +1310,10 @@ nl:
         held_payment: "Verzoek geaccepteerd. De betaling voor %{sum} wordt vastgehouden door %{service_name} totdat de bestelling als voltooid wordt gemarkeerd."
         held_payment_wo_sum: "Verzoek geaccepteerd. Betaling wordt vastgehouden door %{service_name} totdat de bestelling als voltooid is gemarkeerd."
         confirmed_request: "Bestelling is gemarkeerd als voltooid. De betaling is nu of zal spoedig worden overgemaakt naar %{author_name}'s rekening."
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Bericht
       message_to: "Bericht aan %{author_name}"
@@ -1371,6 +1388,18 @@ nl:
           verify: "Wachten op jou om je PayPal account te verifiëren"
       stripe:
         waiting_confirmation_from_requester: "In afwachting van %{requester_name}, die de bestelling als voltooid dient te markeren. Eenmaal voltooid, zal de betaling naar je bankrekening worden overgemaakt."
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Accepteer aanbod"
       accept_request: "Accepteer verzoek"
@@ -1382,6 +1411,8 @@ nl:
       reject_preauthorized_request: Afwijzen
       confirm: "Markeer als uitgevoerd"
       cancel: Geschil
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Nieuwe feedback van %{service_name}"
     feedback_body: "%{author_name_and_email} heeft de volgende email verzonden vanaf %{service_name}"
@@ -1436,7 +1467,6 @@ nl:
       please_go_to_payment_settings: "Ga aub naar %{payment_settings_link} en vul de vereiste betalingsgegevens in."
       payment_settings_link: "instellingen betalingen"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1451,27 +1481,22 @@ nl:
         has_marked_request_as_confirmed: "%{other_party_full_name} heeft de bestelling %{request} als voltooid gemarkeerd. De betaling voor deze transactie is nu naar je bankrekening overgemaakt. Je kunt nu feedback geven aan %{other_party_given_name}."
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: "We hebben het verzoek betreft %{request} als afgehandeld gemarkeerd. Dit is automatisch uitgevoerd omdat %{days_passed} dagen zijn verlopen sinds het verzoek is geaccepteerd."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: "We hebben het verzoek betreft '%{request}' gemarkeerd als afgerond. Het verzoek is automatisch afgerond omdat gisteren het einde van de periode was. "
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Je kan nu feedback geven aan %{other_party_given_name}. Het is altijd een goed idee om feedback te geven. Als alles goed is gegaan, kun je anderen laten weten dat %{other_party_given_name} een betrouwbare partij is. Als er problemen zijn geweest, is het zinvol om deze ook te vermelden."
@@ -1486,9 +1511,9 @@ nl:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Hallo %{name},"
+      hi: ~
       kassi_team: "Het %{service_name} Team"
       thanks: "Bedankt,"
       dont_want_to_receive_these_emails: "Wilt u deze berichten niet ontvangen?"
@@ -1500,7 +1525,7 @@ nl:
       unsubscribe_from_these_emails: "Uitschrijven van deze e-mails"
       unsubscribe_from_invitation_emails_info: "Je ontvangt deze email omdat een lid van %{service_name} jou heeft uitgenodigd om ook lid te worden."
       unsubscribe_from_invitation_emails: "Afmelden van het ontvangen van uitnodigingsverzoeken van %{service_name}"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} heeft uw aanbod betreffende %{listing} geaccepteerd."
       has_accepted_your_request: "%{accepter} heeft uw verzoek betreffende %{listing} geaccepteerd"
@@ -1533,14 +1558,12 @@ nl:
       you_have_a_new_comment: "%{author} heeft een reactie gegeven over uw vermelding op %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} heeft commentaar gegeven op een advertentie die u volgt op %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} heeft feedback gelaten op de advertentie '%{listing}' dat u volgt op %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Bekijk bericht"
       has_sent_you_a_message_in_kassi: "%{sender} heeft u een bericht gestuurd op %{service_name}."
       you_have_a_new_message: "U heeft een nieuw bericht op %{service_name} van %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "U heeft een nieuwe betaling ontvangen"
@@ -1565,7 +1588,6 @@ nl:
         you_have_received_new_payment: "Het bedrag van <b>%{payment_sum}</b> is betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Het bedrag wordt vastgehouden door %{service_name} totdat de bestelling als voltooid is gemarkeerd. Hier is je bewijs."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1586,8 +1608,6 @@ nl:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal kosten:"
       shipping_total: "Verzenden:"
@@ -1636,7 +1656,6 @@ nl:
       unsubscribe_link_text: uitschrijven
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Hallo %{name}"
       newest_offers: "Wat mensen op dit moment aanbieden aan anderen"
@@ -1732,6 +1751,29 @@ nl:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Boeking mislukt door een onverwachte fout. Probeer het later opnieuw. Er is niets in rekening gebracht."
@@ -2482,6 +2524,7 @@ nl:
       night: nacht
       nights: nachten
       invalid_parameters: "Ongeldige waarden voor nieuwe transactie"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Overzicht.
     stripe_payment:

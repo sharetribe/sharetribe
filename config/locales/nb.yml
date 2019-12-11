@@ -457,10 +457,13 @@ nb:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: "Samtale tråd"
           listing: Annonse
@@ -480,6 +483,7 @@ nb:
           paid: Betalt
           confirmed: Bekreftet
           canceled: Avbrutt
+          disputed: ~
           initiated: "Venter på PayPal betaling"
           pending_ext: "Venter på PayPal betaling"
           none:
@@ -493,8 +497,11 @@ nb:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -504,11 +511,14 @@ nb:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "Ikke tilgjengelig"
       conversations:
         conversations: ~
@@ -1146,6 +1156,8 @@ nb:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Rediger side"
     default_community_slogan: Markedsplass
@@ -1240,6 +1252,7 @@ nb:
       cancel_description: |-
           Dersom din forespørsel ikke ble møtt, kan du merke den som "ikke hendt".
           Du kan likevel gi vurdering av den andre og beskrive hva som skjedde.
+      cancel_description_team: ~
       cancel_payed_description: "Dersom din forespørsel ble møtt, men du angrer deg, kan du fremdeles avbryte forespørsel før betaling."
       canceling_payed_transaction: "Avbryt transaksjon"
       confirm: "Merk som ferdig"
@@ -1288,6 +1301,10 @@ nb:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Melding
       message_to: "Melding til %{author_name}"
@@ -1362,6 +1379,18 @@ nb:
           verify: "Venter på at du skal verifisere din PayPal konto"
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Godta tilbud"
       accept_request: "Godta forespørsel"
@@ -1373,6 +1402,8 @@ nb:
       reject_preauthorized_request: "Ikke denne gang"
       confirm: "Merk som ferdig"
       cancel: Tvist
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Ny tilbakemelding fra %{service_name}"
     feedback_body: "%{author_name_and_email} har sendt følgende tilbakemelding fra %{service_name}"
@@ -1427,7 +1458,6 @@ nb:
       please_go_to_payment_settings: "Vennligst gå til %{payment_settings_link} og fyll inn nødvendig betalingsinformasjon."
       payment_settings_link: betalingsinnstillinger
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1442,27 +1472,22 @@ nb:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Forespørsel er automatisk merket som gjennomført - husk å gi vurdering"
       we_have_marked_request_as_confirmed: "Vi har merket forespørselen vedrørende %{request} som fullført. Forespørselen ble automatisk fullført fordi %{days_passed} dager er passert siden forespørselen ble akseptert."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Forespørsel er automatisk merket som gjennomført - husk å gi vurdering"
       we_have_marked_request_as_confirmed: "Vi har markert forespørselen om '%{request}' som fullført. Forespørselen ble automatisk fullført fordi en dag har gått siden booking-perioden ble avsluttet."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: |-
@@ -1479,9 +1504,9 @@ nb:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Hei %{name}!"
+      hi: ~
       kassi_team: "Vennlig hilsen %{service_name}"
       thanks: "Takk,"
       dont_want_to_receive_these_emails: "Ønsker du ikke å motta e-poster?"
@@ -1493,7 +1518,7 @@ nb:
       unsubscribe_from_these_emails: "meld deg av slike e-poster"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har godtatt ditt tilbud %{listing}."
       has_accepted_your_request: "%{accepter} har godtatt din forespørsel %{listing}."
@@ -1526,14 +1551,12 @@ nb:
       you_have_a_new_comment: "%{author} har kommentert på din annonse på %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} har kommentert på en annonse du følger på %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} har kommentert på annonsen '%{listing}' du følger på %{service_name}"
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Vis melding"
       has_sent_you_a_message_in_kassi: "%{sender} har sendt deg en melding på %{service_name}."
       you_have_a_new_message: "Ny melding på %{service_name} fra %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Du har mottatt en ny betaling"
@@ -1558,7 +1581,6 @@ nb:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1579,8 +1601,6 @@ nb:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-kostnad:"
       shipping_total: "Frakt:"
@@ -1629,7 +1649,6 @@ nb:
       unsubscribe_link_text: avmeld
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Hei %{name},"
       newest_offers: "Hva folk for øyeblikket tilbyr"
@@ -1725,6 +1744,29 @@ nb:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Reservasjonen feilet på grunn av en uventet feil. Vennligst prøv igjen senere. Du har ikke blitt belastet for noe beløp."
@@ -2475,6 +2517,7 @@ nb:
       night: natt
       nights: netter
       invalid_parameters: "Ugyldig verdi for ny betaling"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Vis.
     stripe_payment:

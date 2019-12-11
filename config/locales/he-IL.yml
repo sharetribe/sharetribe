@@ -71,7 +71,7 @@ he-IL:
         edit_community_slogan_description: "זה מוצג בדף הבית של האתר עבור משתמשים שאינם מחוברים.‎%{see_how_it_looks_like}‎"
         edit_community_slogan_description_hideable: ~
         community_description: "תיאור האתר"
-        community_description_display: ~
+        community_description_display: "הצג את התיאור בדף הבית"
         edit_community_description_description: "זה מוצג בדף הבית של האתר עבור משתמשים שאינם מחוברים. ‎%{see_how_it_looks_like}‎"
         edit_community_description_description_hideable: ~
         community_search_placeholder: "חפש טקסט עזרה"
@@ -107,7 +107,7 @@ he-IL:
         favicon: פאביקון
         favicon_info_text: "הפאביקון יחליף את הלוגו של SHARETRIBE. המימדים צריכים להיות 32X32 פיקסלים. התמונה שתועלה תוגדר לפי המימדים הנ''ל"
         community_custom_color1: "צבע עיקרי למרקטפלייס"
-        community_slogan_color: ~
+        community_slogan_color: "צבע סלוגן במרקטפלייס"
         community_slogan_color_instructions_text: ~
         community_description_color: "צבע תיאור במרקטפלייס"
         community_description_color_instructions_text: ~
@@ -222,7 +222,7 @@ he-IL:
         users_can_invite_new_users: "אפשר לכל המשתמשים ולא רק למנהלים להזמין משתמשים חדשים"
         private: "אפשר רק למשתמשים הרשומים לראות רישומים ופרופילים של משתמשים (להפוך את האתר למקום פרטי)"
         require_verification_to_post_listings: "אפשר רק משתמשים מאומתים על ידי מנהל כדי לפרסם רישומים חדשים"
-        allow_free_conversations: ~
+        allow_free_conversations: "הרשו למשתמשים להתכתב ביניהם בצורה חופשית"
         search_preferences: "העדפות חיפוש"
         search_and_location_preferences: ~
         default_search_type: "סוג חיפוש:‎%{select_search_type}‎ "
@@ -247,7 +247,7 @@ he-IL:
         update_settings: "שמור הגדרות"
         automatically_confirmed_no_escrow: "הזמנה תעודכן כהושלמה‎%{days_dropdown}‎ ימים לאחר שהתשלום בוצע."
         automatically_confirmed_no_escrow_stripe_info: "בשביל העברות סטרייפ, התשלומים למוכרים מעוכבים עד לסימון אישור ההזמנה.‎%{learn_more}‎ "
-        buyer_transaction_fees_are_only_supported_with_stripe: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: "עמלות מהקונים מאופשרים רק עם סטרייפ.לא תוכל להשתמש בפייפאל אם תגדיר עמלת קונים."
         automatic_newsletter_frequency: "שלח עלון אוטומטי: ‎%{frequency_dropdown}‎"
         newsletter_daily: יומי
         newsletter_weekly: שבועי
@@ -261,7 +261,7 @@ he-IL:
         you_will_be_redirected_to: "לאחר המחיקה, המרקטפלייס יעבור ל‎%{destination}‎ . לא תוכל לגשת אליו בעתיד‎."
         delete_this_marketplace: "מחוק את המרקטפלייס"
         payment_preferences: "מערכת תשלומים"
-        pre_approved_listings: ~
+        pre_approved_listings: "בחן את כל המודעות לפני שהן יתפרסמו"
         email_admins_about_new_transactions: ~
       manage_members:
         manage_members: משתמשים
@@ -283,7 +283,7 @@ he-IL:
         search_by_name_email: "חפש שם, דוא''ל או שם מוצג"
         reset_search: "הצג הכל"
         for_search_terms: "ל:‎%{terms}‎ "
-        this_makes_the_user_an_admin: ~
+        this_makes_the_user_an_admin: "הפעולה הזאת הופכת את המשתמש למנהל. מחובתך לעדכן את המשתמש על כך ושעליו לקבל את התנאים של SHARETRIBE. האם ברצונך להמשיך?"
         status_filter:
           all: "כל הסטטוסים"
           selected: "‎%{count}‎  סטטוסים נבחרו"
@@ -294,7 +294,7 @@ he-IL:
           accepted: התקבל
           unconfirmed: "לא מאומת"
           pending: ממתין
-        this_user_hasnt_confirmed_their_email_address: ~
+        this_user_hasnt_confirmed_their_email_address: "המשתמש הזה לא אימת את הדוא''ל שלו.ישנה אפשרות שהמשתמש לא קיבל מייל אימות. לחץ על כפתור שליחה אם ברצונך לשלוח בשנית."
         unconfirmed_user: "משתמש לא מאומת ‎%{name}‎ "
         resend: "שלח שוב"
         cancel: לבטל
@@ -359,52 +359,52 @@ he-IL:
         meta_title_link_text: "למד עוד על מטא תגים"
         meta_description_label: ~
         meta_description_info: ~
-        meta_description_link_text: ~
-        search_title: ~
-        search_meta_title_label: ~
-        search_meta_title_info: ~
-        search_meta_title_link_text: ~
-        search_meta_description_label: ~
+        meta_description_link_text: "למד עוד על מטא תגים"
+        search_title: "עמוד תוצאות חיפוש"
+        search_meta_title_label: "כותרת מטא תג של עמוד חיפוש"
+        search_meta_title_info: "התוכן של התג מוצג ומוצע למנועי חיפוש ויוצג בדף חיפוש ככותרת הניתנת להקלה ‎%{link}‎ ‎%{vars}‎ "
+        search_meta_title_link_text: "למד עוד על מטא תגים"
+        search_meta_description_label: "מטא תג בדף תוצאות חיפוש"
         search_meta_description_info: ~
-        search_meta_description_link_text: ~
-        listing_title: ~
-        listing_meta_title_label: ~
-        listing_meta_title_info: ~
-        listing_meta_title_link_text: ~
-        listing_meta_description_label: ~
+        search_meta_description_link_text: "למד עוד על מטא תגים"
+        listing_title: "עמוד מודעות"
+        listing_meta_title_label: "כותרת מטא תג בעמוד מודעה"
+        listing_meta_title_info: "התוכן של התג מוצג ומוצע למנועי חיפוש ויוצג בדף חיפוש ככותרת הניתנת להקלה ‎%{link}‎ ‎%{vars}‎ "
+        listing_meta_title_link_text: "למד עוד על מטא תגים"
+        listing_meta_description_label: "מטא תג פירוט עמוד מודעה"
         listing_meta_description_info: ~
-        listing_meta_description_link_text: ~
-        category_title: ~
-        category_meta_title_label: ~
-        category_meta_title_info: ~
-        category_meta_title_link_text: ~
-        category_meta_description_label: ~
+        listing_meta_description_link_text: "למד עוד על מטא תגים"
+        category_title: "דף קטגוריה"
+        category_meta_title_label: "מטא תג כותרת דף קטגוריה"
+        category_meta_title_info: "התוכן של התג מוצג ומוצע למנועי חיפוש ויוצג בדף חיפוש ככותרת הניתנת להקלה ‎%{link}‎ ‎%{vars}‎ "
+        category_meta_title_link_text: "למד עוד על מטא תגים"
+        category_meta_description_label: "מטא תג תיאור דף קטגוריה"
         category_meta_description_info: ~
-        category_meta_description_link_text: ~
-        profile_title: ~
-        profile_meta_title_label: ~
-        profile_meta_title_info: ~
-        profile_meta_title_link_text: ~
-        profile_meta_description_label: ~
+        category_meta_description_link_text: "למד עוד על מטא תגים."
+        profile_title: "עמוד פרופיל"
+        profile_meta_title_label: "מטא תג עמוד פרופיל"
+        profile_meta_title_info: "התוכן של התג מוצג ומוצע למנועי חיפוש ויוצג בדף חיפוש ככותרת הניתנת להקלה ‎%{link}‎ ‎%{vars}‎ "
+        profile_meta_title_link_text: "למד עוד על מטא תגים."
+        profile_meta_description_label: "מטא תג פירוט עמוד פרופיל"
         profile_meta_description_info: ~
-        profile_meta_description_link_text: ~
+        profile_meta_description_link_text: "למד עוד על מטא תגים"
         sitemap_label: "מפת אתר"
-        sitemap_info: ~
-        sitemap_info_link_text: ~
-        sitemap_info_public: ~
-        sitemap_info_private: ~
-        robots_label: ~
-        robots_info: ~
-        robots_info_link_text: ~
-        robots_info_2: ~
-        save: ~
+        sitemap_info: "מפות אתר הינן דרכים טובות להודיע מנועי חיפוש על עמודים באתר אשר זמינים בפניהם.‎%{link}‎ "
+        sitemap_info_link_text: "למד עוד על XML Sitemap file "
+        sitemap_info_public: "מפת אתר מיוצרת אוטומטית למרקטפלייס שלך.היא מציגה את 500 המודעות האחרונות באתר. אתה יכול לגשת למפה כאן ‎%{link}‎ "
+        sitemap_info_private: "מאחר והמרקטפלייס שלך פרטי, אין מפת אתר."
+        robots_label: "Robots.txt "
+        robots_info: "Robots .txt  הינו קובץ טקסט להדרכת רובוטי רשת כמו מנועי חיפוש לעדכן את האתר שלך‎%{link}‎ "
+        robots_info_link_text: "למד עוד אודות robots .txt "
+        robots_info_2: "robots .txt  נוצר אוטומטית, אתה יכול לגשת לקובץ כאן ‎%{link}‎ A"
+        save: "ANUR VDSRU,"
       analytics:
         analytics: אנליטיקה
         google_analytics_key: "מס מעקב של גוגל אנליטיקס"
         google_analytics_key_info_text: "מס מעקב של חשבון הגוגל אנליטיקס שלך"
         google_analytics_key_info_text_with_instructions: "מס מעקב של גוגל אנליטיקס ‎%{instructions_link}‎ "
         google_analytics_instructions_link_text: "קרא עוד על חיבור של גוגל"
-        sharetribe_analytics: ~
+        sharetribe_analytics: "אנליטיקת SHARETRIBE"
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: "קרא עוד על אנליטיקת SHARETRIBE"
         end_user_analytics: "הרשה לSHARETRIBE לעקוב אחרי פעילות משתמשים בכדי לשפר את שירותי SHARETRIBE"
@@ -446,7 +446,7 @@ he-IL:
         export_all_as_csv: "לייצר לCSV"
         processing_export: "מעבד יצוא לCSV"
         transactions: העברות/עסקאות
-        search_by_title_parties: ~
+        search_by_title_parties: "חפש כותרת עסקה או צדדים מעורבים בה"
         search: חיפוש
         reset_search: "הצג הכל"
         status_filter:
@@ -457,10 +457,13 @@ he-IL:
           confirmed: הסתיים
           paid: שולם
           canceled: בוטל
+          disputed: ~
           preauthorized: מקדמי
           rejected: נדחה
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: שיחה
           listing: שירות
@@ -480,6 +483,7 @@ he-IL:
           paid: שולם
           confirmed: הושלם
           canceled: בוטל
+          disputed: ~
           initiated: "תשלום פייפאל ממתין"
           pending_ext: "תשלום פייפאל ממתין"
           none:
@@ -493,8 +497,11 @@ he-IL:
             paid: שולם
             confirmed: הושלם
             canceled: בוטל
+            disputed: ~
             initiated: "ממתין לתשלום פייפאל"
             pending_ext: "ממתין לתלשלום פייפאל"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: שיחה
             pending: ממתין
@@ -504,11 +511,14 @@ he-IL:
             paid: שולם
             confirmed: הושלם
             canceled: בוטל
+            disputed: ~
             initiated: "ממתין לתשלום סטרייפ"
             pending_ext: "ממתין לתשלום סטרייפ"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "לא זמין"
       conversations:
         conversations: שיחות
@@ -561,9 +571,9 @@ he-IL:
           cancel: לבטל
           delete_review: "למחוק ביקורת"
           block_review: "חסום ביקורת"
-          confirm_modify: ~
-          deleting_info: ~
-          blocking_info: ~
+          confirm_modify: "האם אתה בטוח שתרצה לערוך או למחוק את הביקורת הזאת? ברגע שתעשה את זה לא תהיה דרך לשחזר את המידע הקודם."
+          deleting_info: "מחיקת הביקורת נותנת אפשרות למשתמש לכתוב ביקורת חדשה על אותה העסקה."
+          blocking_info: "חסימת הביקורת לאחר מחיקה לא מאפשרת למשתמש להגיב יותר על העסקה הזאת."
           unskip: ~
           if_you_unskip_the_review: ~
           they_will_not_be_notified_automatically: ~
@@ -583,16 +593,16 @@ he-IL:
         search_by_title_author_category: "חפש מודעה,מפרסם או שם קטגוריה"
         search: חיפוש
         reset_search: "הצג הכל"
-        export_all_as_csv: ~
-        processing_export: ~
+        export_all_as_csv: "לייצא הכל כCSV"
+        processing_export: "מעבד יצוא לCSV"
         status:
           all: "כל הסטטוסים"
           selected_js: "סטטוסים נבחרים:"
           open: פתוח
           closed: סגור
           expired: "פג תוקף"
-          approval_pending: ~
-          approval_rejected: ~
+          approval_pending: ממתין
+          approval_rejected: נדחה
         headers:
           title: כותרת
           author: מפרסם
@@ -603,19 +613,19 @@ he-IL:
         open: פתוחה
         closed: סגורה
         expired: "פג תוקף"
-        approved: ~
-        approval_pending: ~
-        approval_rejected: ~
+        approved: אושר
+        approval_pending: ממתין
+        approval_rejected: נדחה
         form:
-          this_listing_has_not_not_been_approved_yet: ~
-          approve: ~
-          reject: ~
-          cancel: ~
+          this_listing_has_not_not_been_approved_yet: "המודעה עדיין לא אושרה.אתה יכול להחליט אם לאשר את המודעה.אם תאשר, המודעה תהיה זמינה ופומבית.אם לא תאשר היא לא תפורסם."
+          approve: אישור
+          reject: דחייה
+          cancel: ביטול
       user_fields:
         user_fields: "שדות משתמשים"
       footer:
         footer: פוטר
-        offer_pro: ~
+        offer_pro: "נהל והסר את כל המיתוג של SHARETRIBE מהפוטר על ידי ‎%{upgrade_pro_plan_link}‎ "
         upgrade_plan_link: "שדרוג לתוכנית פרו ומעלה"
         menu_links: "לינקים בפוטר"
         language: שפה
@@ -816,8 +826,8 @@ he-IL:
         this_field_is_required: "זהו שדה חובה"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
+        edit_expiration_field: "עדכון שדה מודה ''פג תוקף''"
+        enable: "אפשר פג תוקף"
       form:
         field_required:
           this_field_is_required: "צור חובה למלא שדה זה בעת יצירת רישום חדש"
@@ -898,7 +908,7 @@ he-IL:
           title: "למי תרצה לשלוח אימייל?"
           options:
             all_users: "כל המשתמשים"
-            posting_allowed: ~
+            posting_allowed: "משתמשים מורשים לפרסום מודעות"
             with_listing: "משתמשים שהעלו מודעה אחת לפחות"
             with_listing_no_payment: "משתמשים שהעלו לפחות מודעה אחת אבל לא עדכנו פרטי תשלום"
             with_payment_no_listing: "משתמשים שהגדירו פרטי תשלום אבל לא העלו מודעה"
@@ -1062,10 +1072,10 @@ he-IL:
       stripe_fee: "עמלות סטרייפ"
       stripe_fee_notice: "‎%{stripe_fee_link}‎  תופחת מעמלת העסקה שהינך גובה"
       fee_should_be_less_than_minimum_price: "מינמום עמלת עסקה חייבת להיות נמוכה ממינימום סכום העברה"
-      the_transaction_fee_must_be_lower_than_100: ~
+      the_transaction_fee_must_be_lower_than_100: "עמלת העסקה חייבת להיות פחותה מ100%"
       confirm_disable: ~
-      commission_from_buyer_label: ~
-      minimum_buyer_transaction_fee_label: ~
+      commission_from_buyer_label: "עמלת עסקת קונה:"
+      minimum_buyer_transaction_fee_label: "עסקת מינימום לקונה:"
       stripe_connected:
         title: "סטרייפ התחבר"
         disable: "לבטל את סטרייפ"
@@ -1078,7 +1088,7 @@ he-IL:
         enable: "לאפשר את פייפאל בשנית"
       cannot_enable_gateway: "לא ניתן לאפשר סליקה ‎%{gateway}‎ "
       cannot_disable_gateway: "לא ניתן לבטל סליקה ‎%{gateway}‎ "
-      cannot_enable_gateway_because_of_buyer_commission: ~
+      cannot_enable_gateway_because_of_buyer_commission: "לא ניתן להשתמש בסליקה‎%{gateway}‎  מאחר ואופשרה עמלת קונה"
       stripe_form:
         add_your_api_keys: "הוסף את מפתח הAPI של סטרייפ"
         how_to_get_these: "איך לקבל את אלה?"
@@ -1142,6 +1152,8 @@ he-IL:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "ערוך דף"
     default_community_slogan: "מרקטפלייס קהילתי"
@@ -1221,7 +1233,7 @@ he-IL:
       quantity_label: "כמות:"
       sum_label: סה''כ
       service_fee_label: "מחיר ‎%{service_name}‎ :"
-      buyer_service_fee_label: ~
+      buyer_service_fee_label: "‎%{service_name}‎  עמלה:"
       you_will_get_label: "אתה תקבל:"
       total_label: סה"כ
       total_value: "‎%{seller_gets}‎ "
@@ -1234,6 +1246,7 @@ he-IL:
     confirm:
       confirm_description: "אם ההזמנה שלך כבר התבצא אתה צריך לסמן זאת כמבוצע. לאחר מכן אתה יכול לתת משוב לצד השני."
       cancel_description: "אם ההזמנה שלך לא התבצא אתה יכול לסמן זאת כלא מבוצע.אתה עדיין יכול לתת משוב לצד השני ולתאר את מה שקרה."
+      cancel_description_team: ~
       cancel_payed_description: "אם הבקשה שלך התקבלה, אך יש לך מחשבה שנייה, עדיין תוכל לבטל את הבקשה לפני התשלום."
       canceling_payed_transaction: "בטל עסקה"
       confirm: "סמן כהושלם"
@@ -1267,7 +1280,7 @@ he-IL:
     message:
       accepted_request: "אישר את הבקשה"
       received_payment: "אשר את הבקשה, קבל תשלום של‎%{sum}‎ "
-      received_payment_wo_sum: ~
+      received_payment_wo_sum: "בקשה אושרה,תשלום התקבל"
       accepted_offer: "אישר את ההצעה"
       rejected_request: "דחה את הבקשה, התשלום בוטל"
       rejected_offer: "דחה את ההצעה"
@@ -1277,11 +1290,15 @@ he-IL:
       canceled_offer: "ביטל את ההזמנה"
       paid: "שולם ‎%{sum}‎"
       payment_preauthorized: "תשלום אושר:‎%{sum}‎ "
-      payment_preauthorized_wo_sum: ~
+      payment_preauthorized_wo_sum: "תשלום אושר"
       stripe:
         held_payment: ~
-        held_payment_wo_sum: ~
+        held_payment_wo_sum: "בקשה אושרה, תשלום מוחזק ע''י ‎%{service_name}‎  עד אשר ההזמנה תסומן כהושלמה."
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: הודעה
       message_to: "‎%{author_name}‎ הודעה ל‎"
@@ -1356,6 +1373,18 @@ he-IL:
           verify: "ממתין לאימות חשבון הפייפאל על-ידך."
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "קבל/י הצעה"
       accept_request: "קבל/י בקשה"
@@ -1367,6 +1396,8 @@ he-IL:
       reject_preauthorized_request: "לא הפעם"
       confirm: "סמן את מה שהושלם"
       cancel: ביטול
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "ביקורת חדשה מ‎%{service_name}‎ "
     feedback_body: "‎%{author_name_and_email}‎  שלח את הביקורת הבאה מ‎%{service_name}‎ "
@@ -1423,7 +1454,6 @@ he-IL:
       please_go_to_payment_settings: "‎%{payment_settings_link}‎ על מנת לסדר את העניין עליך לגשת ל"
       payment_settings_link: "הגדרות תשלום"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1438,27 +1468,22 @@ he-IL:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
       we_have_marked_request_as_confirmed: "עדכנו את סטטוס הבקשה ‎%{request}‎ . ההזמנה עודכנה אוטומטית מאחר ו‎%{days_passed}‎  ימים חלפו מאז שהבקשה הוגשה"
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
       we_have_marked_request_as_confirmed: "סימנו את ההזמנה עבור ‎%{request}‎  כהושלמה. הבקשה אושרה אוטומטית מאחר ועבר המועד מזמן ההזמנה.\n"
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "כעת באפשרותך לרשום ביקורת על ‎%{other_party_given_name}‎ . לרשום ביקורת זה תמיד רעיון טוב. אם הכל עבר חלק תן לאחרים לדעת ש‎%{other_party_given_name}‎ ראוי לאמון. אם היו בעיות כדאי לציין גם אותן."
@@ -1473,9 +1498,9 @@ he-IL:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "‎%{name}‎ שלום"
+      hi: ~
       kassi_team: "‎%{service_name}‎"
       thanks: ",תודה רבה"
       dont_want_to_receive_these_emails: "אינך רוצה לקבל הודעות אימייל אלה?"
@@ -1487,7 +1512,7 @@ he-IL:
       unsubscribe_from_these_emails: "לבטל את המנוי של הודעות דוא\"ל אלה"
       unsubscribe_from_invitation_emails_info: "קיבלת את האימייל הזה מאחר וחבר ב‎%{service_name}‎  הזמין אותך להצטרף"
       unsubscribe_from_invitation_emails: "הסר מינוי לאימיילים של הזמנה ב‎%{service_name}‎ "
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "‎%{listing}‎ קיבל את ההצעה שלך ‎‎%{accepter}‎"
       has_accepted_your_request: "‎‎%{listing}‎ קיבל את בקשתך ‎%{accepter}‎‎"
@@ -1520,14 +1545,12 @@ he-IL:
       you_have_a_new_comment: "‎%{service_name}‎ הגיב על המודעה שלך ב ‎%{author}‎‎"
       listing_you_follow_has_a_new_comment: "‎%{service_name}‎ הגיב על מודעה שאתה עוקב אחריה ב ‎‎%{author}‎"
       has_commented_listing_you_follow_in_kassi: "‎‎%{service_name}‎  שאתה עוקב ב ‎%{listing}‎ הגיב על המודעה ‎‎%{author}‎‎"
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "הצג הודעה"
       has_sent_you_a_message_in_kassi: "‎‎%{service_name}‎ שלח לך הודעה דרך ‎%{sender}‎‎"
       you_have_a_new_message: "‎%{service_name}‎ שלך לך הודעה דרך‎%{sender_name}‎ ‎"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "קיבלת תשלום חדש"
@@ -1540,9 +1563,9 @@ he-IL:
       shipping_total: "משלוח:"
       product: "מוצר:"
       price_payer_paid: "מחיר ‎%{payer_full_name}‎  שולם:"
-      subtotal: ~
+      subtotal: סה''כ
       service_fee: "‎%{service_name}‎  עמלת שירות:"
-      buyer_service_fee: ~
+      buyer_service_fee: "‎%{service_name}‎  עמלה:"
       you_will_get: "סה''כ:"
       new_payment: "קיבלת תשלום חדש"
       price_per_unit_type: "מחיר ל‎%{unit_type}‎ "
@@ -1552,7 +1575,6 @@ he-IL:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1563,7 +1585,7 @@ he-IL:
       duration: "משך זמן"
       quantity: כמות
       subtotal: סה''כ
-      buyer_service_fee: ~
+      buyer_service_fee: "‎%{service_name}‎  עמלה:"
       total: סה''כ
       price: מחיר
       service_fee: "עמלת שירות"
@@ -1573,8 +1595,6 @@ he-IL:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "עמלת פייפאל:"
       shipping_total: משלוח
@@ -1593,7 +1613,7 @@ he-IL:
       subtotal: סה''כ
       total: סה"כ
       price: מחיר
-      buyer_service_fee: ~
+      buyer_service_fee: "‎%{service_name}‎  עמלה"
       stripe_gateway_fee: "עמלת סטרייפ:"
       paypal_gateway_fee: "עמלת פייפאל:"
       money_will_be_transferred: "התשלום יועבר ל‎%{recipient_name}‎ כש: א-סימנת את הבקשה כהושלמה או ב-‎%{automatic_confirmation_days}‎  ימים חלפו מהמועד בו תוקבלת."
@@ -1623,7 +1643,6 @@ he-IL:
       unsubscribe_link_text: "ביטול מנוי"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "‎%{name}‎ שלום ‎"
       newest_offers: "מה אנשים כרגע מציעים"
@@ -1689,23 +1708,23 @@ he-IL:
       new_member_has_joined: ~
       view_profile: ~
     listing_submited_for_review:
-      subject: ~
-      there_is_a_new_listing_to_review: ~
-      review_the_listing: ~
-      this_is_automatic_message: ~
+      subject: "מודעה חדשה לבדיקה: ‎%{listing_title}‎ על ידי‎%{author_name}‎ ב‎%{community}‎ "
+      there_is_a_new_listing_to_review: "יש מודעה חדשה לבדיקה:‎%{listing_title}‎ על ידי‎%{author_name}‎ . תצטרך לאשר או לדחות את המודעה."
+      review_the_listing: "בדוק את המודעה החדשה"
+      this_is_automatic_message: "זוהי הודעה אוטומטית אשר נשלחה למנהלים ב‎%{community}‎ "
     listing_approved:
       subject: ~
       listing_has_been_approved: ~
-      view_the_listing: ~
+      view_the_listing: "צפה במודעה "
     listing_rejected:
       subject: ~
       listing_has_been_rejected: ~
       contact_link: ~
-      edit_the_listing: ~
+      edit_the_listing: "ערוך מודעה"
     edited_listing_submited_for_review:
-      subject: ~
-      there_is_a_edited_listing_to_review: ~
-      review_the_listing: ~
+      subject: "הוספת מודעה לבדיקה: ‎%{listing_title}‎  ע''י ‎%{author_name}‎  ב‎%{community}‎ "
+      there_is_a_edited_listing_to_review: "ישנה מודעה ערוכה לבדיקה: ‎%{listing_title}‎  ע''י ‎%{author_name}‎ . כעת יש צורך לאשר או לדחות את המודעה."
+      review_the_listing: "לבדוק את המודעה הערוכה"
     new_transaction:
       subject: ~
       there_is_a_new_transaction: ~
@@ -1723,6 +1742,29 @@ he-IL:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "הזמנה נכשלה בגלל שאירעה תקלה בלתי צפויה. אנא נסה שנית מאוחר יותר. לא בוצע תשלום."
@@ -2097,9 +2139,9 @@ he-IL:
       offer_rejected: "ההצעה נדחתה"
       offer_canceled: "ההצעה בוטלה"
       listing_updated_successfully: "המודעה עודכנה בהצלחה"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
-      listing_deleted: ~
+      listing_updated_availability_management_enabled: "מודעה עודכנה בהצלחה, ניהול זמינות אופשרה"
+      listing_updated_availability_management_disabled: "מודעה עודכנה בהצלחה, ניהול זמינות לא אופשרה"
+      listing_deleted: "מודעה נמחקה"
       only_kassi_administrators_can_access_this_area: "אנא התחבר עם חשבון מנהל כדי לגשת לאיזור המבוקש"
       only_listing_author_can_close_a_listing: "רק מפרסם המודעה יכול לסגור את המודעה"
       only_listing_author_can_edit_a_listing: "רק מפרסם המודעה יכול לערוך את המודעה"
@@ -2203,7 +2245,7 @@ he-IL:
       you_cannot_send_a_new_comment_because_listing_is_closed: "לא ניתן לשלוח הערות חדשות משום שהמודעה הזו נסגרה."
       you_must: אנא
       subscribe_to_comments: "עדכן אותי על תגובות חדשות"
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "מחיקת מודעה, לא תוכלו לשחזר, האם הינכם בטוחים?"
     edit:
       edit_listing: "עריכת מודעה"
     edit_links:
@@ -2215,11 +2257,11 @@ he-IL:
       show_in_updates_email_loading: טוען...
       show_in_updates_email_error: "לא ניתן להגיע לשרת. נסה שוב לאחר רענון הדף."
       show_in_updates_email_success: "רישום זה יוצג בדוא\"ל העדכון האוטומטי הבא שנשלח למשתמשים"
-      listing_is_pending: ~
-      listing_is_rejected: ~
-      approve_listing: ~
-      reject_listing: ~
-      delete_listing: ~
+      listing_is_pending: "מודעה ממתינה לאישור"
+      listing_is_rejected: "מודעה נדחתה"
+      approve_listing: "אשר מודעה"
+      reject_listing: "דחה מודעה"
+      delete_listing: "למחוק מודעה"
     map:
       open_in_google_maps: "לפתוח בגוגל מפות"
     error:
@@ -2301,7 +2343,7 @@ he-IL:
         origin: מקור
       send_button:
         save_listing: "פרסם מודעה"
-        submit_for_review: ~
+        submit_for_review: "שלח לביקורת"
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
       share_type:
@@ -2383,7 +2425,7 @@ he-IL:
       select_one: "בחר אחד"
       start_time: "מועד התחלה"
       end_time: "מועד סיום"
-      marketplace_fees_may_apply: ~
+      marketplace_fees_may_apply: "‎%{service_name}‎ עמלות יכולות לחל"
     new:
       listing: מודעה
       selected_category: "‎%{category}‎"
@@ -2475,6 +2517,7 @@ he-IL:
       night: לילה
       nights: לילות
       invalid_parameters: "ערכים שגויים להעברה החדשה"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: צפה.
     stripe_payment:
@@ -2619,7 +2662,7 @@ he-IL:
       family_name: "שם משפחה"
       given_name: "שם פרטי"
       i_accept_the_terms_and_privacy: "אני מאשר את ה‎%{terms}‎  וה‎%{privacy}‎ "
-      admin_emails_consent: ~
+      admin_emails_consent: "אני מסכים לקבל אימיילים מזדמנים מצוות ‎%{service_name}‎  ואני מבין שאני יכול לשנות את דעתי בכל זמן."
       invalid_invitation_code: "קוד ההזמנה לא תקין"
       invitation_code: "קוד הזמנה"
       not_required: "לא דרוש"
@@ -2733,7 +2776,7 @@ he-IL:
       delete_personal_information: "אם מחקת את חשבונך, הפרטים שלך(שם,טלפון,כתובת,דוא''ל,תמונה וכו) ימחקו לצמיתות ולא תוכל לחדש אותם. כל המודעות יוסרו ולא תוכל לאקטב את חשבונך."
       delete_information_others_involved: "מידע בו מעורבים משתמשים אחרים(שיחות,הזמנות,ביקורות וכו) לא נמחק עם מחיקת חשבונך. שמך לא יוצר בהקשר הזה."
       unfinished_transactions: "חשבונך לא יכול להמחק מאחר ויש תשלומים ממתינים. נא השלם אותם לפני שתמחק את חשבונך."
-      only_admin: ~
+      only_admin: "החשבון שלך לא יכול להמחק מאחר והמנהל היחיד במרקטפלייס"
       new_password: "סיסמה חדשה"
       save: שמור
       these_fields_are_shown_only_to_you: "שם המשתמש יוצר בחשבון שלך אלא אם רשמת את השם שלך. כל המידע נוסף יוצג רק לך."
@@ -3069,6 +3112,10 @@ he-IL:
           zero: "‎%{model}‎  לא נמצא"
           one: "מציג‎%{accepted_count}‎  התקבל ‎%{accepted_model}‎ ו‎%{other_count}‎  אחר‎%{other_model}‎ "
           other: "מציג‎%{accepted_count}‎  התקבל ‎%{accepted_model}‎ ו‎%{other_count}‎  אחר‎%{other_model}‎ "
+        single_page_html:
+          zero: " %{model} לא נמצא"
+          one: "מציג‎<b>‎ ‎%{accepted_count}‎ ‎</b>‎  מאושר‎%{accepted_model}‎ ו‎%{other_count}‎ אחר‎%{other_model}‎ "
+          other: "מציג‎<b>‎ ‎%{accepted_count}‎ ‎</b>‎ מאושר‎%{accepted_model}‎ ו‎%{other_count}‎ אחר‎%{other_model}‎ "
         multi_page: ~
         multi_page_html: ~
   stripe_accounts:
@@ -3087,12 +3134,12 @@ he-IL:
     paypal_connected: "חשבון פייפאל התחבר בהצלחה!"
     paypal_can_accept: "מעכשיו תוכל לקבל תשלומים באמצעות פייפאל"
     paypal_connected_give_permission: ~
-    stripe_account_restricted: ~
-    stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
-    stripe_account_pending_verification: ~
-    stripe_account_pending_verification_info: ~
+    stripe_account_restricted: "תשלומי און ליין בחשבון שלך הוגבלו!"
+    stripe_account_restricted_info: "נא להוסיף פרטי בנק כדי לספק לסולק עוד מידע."
+    stripe_account_restricted_soon: "תשלומי און ליין בחשבונכם יוגבלו בקרוב"
+    stripe_account_restricted_soon_info: "נא להוסיף פרטי בנק כדי לספק לסולק עוד מידע."
+    stripe_account_pending_verification: "פרטי חשבון נשמרו בהצלחה. ממתינים לאישור חשבון מהסולק."
+    stripe_account_pending_verification_info: "בדקו מאוחר יותר כדי לוודא שהכל כשורה."
     form_new:
       need_info: "אנחנו צריכים מידע עבורך בכדי לאפשר לך לשלוח כסף"
       select_country: "בחר מדינה..."
@@ -3182,15 +3229,15 @@ he-IL:
     invalid_bank_account_number: "שים לב שפרטי חשבון הבנק נכונים ותואמים את המדינה שלך"
     invalid_postal_code: "מיקוד לא מתאים ל‎%{country}‎ "
   seo_sections:
-    you_can_use_variables: ~
+    you_can_use_variables: "תאה יכול להשתמש במשתנים הבאים:‎%{vars}‎ "
     placeholder:
-      search_results: ~
-      search_results_for: ~
-      listing_description: ~
-      listing_description_without_price: ~
-      category_description: ~
-      profile_title: ~
-      profile_description: ~
+      search_results: "תוצאות חיפוש-‎%{variable}‎ "
+      search_results_for: "תוצאות חיפוש עבור:‎%{placeholder1}‎  ב ‎%{placeholder2}‎ "
+      listing_description: "‎%{title}‎  עבור ‎%{price}‎  ע''י ‎%{author}‎  ב‎%{marketplace}‎ "
+      listing_description_without_price: "‎%{title}‎  ע''י ‎%{author}‎  ב ‎%{marketplace}‎ "
+      category_description: "‎%{category}‎  ב ‎%{marketplace}‎ "
+      profile_title: "פרופיל של ‎%{marketplace}‎  ‎%{user}‎  ‎ ‎ "
+      profile_description: "למדו עוד על ‎%{user}‎  ב ‎%{marketplace}‎ "
   activemodel:
     attributes:
       landing_page_version/section/base:

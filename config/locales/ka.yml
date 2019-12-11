@@ -452,10 +452,13 @@ ka:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: "მიმოწერის ნაკრები"
           listing: ჩამონათვლები
@@ -475,6 +478,7 @@ ka:
           paid: გადახდილი
           confirmed: დადასტურებულია
           canceled: გაუქმებულია
+          disputed: ~
           initiated: "ველოდებით PayPal-ით გადახდას"
           pending_ext: "ველოდებით PayPal-ით გადახდას"
           none:
@@ -488,8 +492,11 @@ ka:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -499,11 +506,14 @@ ka:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "არ არის ხელმისაწვდომი"
       conversations:
         conversations: ~
@@ -1137,6 +1147,8 @@ ka:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "დაარედაქტირე გვერდი"
     default_community_slogan: "ბაზრის გაერთიანება"
@@ -1229,6 +1241,7 @@ ka:
     confirm:
       confirm_description: "თუ თქვენი შეკვეთა შესრულდა უნდა მონიშნოთ იგი დასრულებულად. შემდეგ შეგეძლებათ მისცეთ შეფასება სხვა ნაწილს."
       cancel_description: "თუ თქვნეი შეკვეთა არ შესრულდა, თქვენ შეგიძლიათ მონიშნოთ იგი როგორც, \"სადავო\". თქვენ ისევ გაქვთ შესაძლებლობა მისცეთ შეფასება მეორე მხარეს და აღწეროთ რა მოხდა. "
+      cancel_description_team: ~
       cancel_payed_description: "თუ თქვენი მოთხოვნა დადასტურდა, მაგრამ თუ ისევ ყოყმანობთ, სანამ გადაიხდით თქვენ შეგიძლიათ შეკვეთის გაუქმება. "
       canceling_payed_transaction: "ტრანზაქციის გაუქმება"
       confirm: "მონიშნე დასრულებულად"
@@ -1277,6 +1290,10 @@ ka:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: შეტყობინება
       message_to: "წერილი %{author_name}ს"
@@ -1351,6 +1368,18 @@ ka:
           verify: "გელოდებით რომ დაადასტუროთ PayPal-ს ანგარიში"
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "შემოთავაზების მიღება"
       accept_request: "მოთხოვნის მიღება"
@@ -1362,6 +1391,8 @@ ka:
       reject_preauthorized_request: "ახლა არა"
       confirm: "მონიშნე დასრულებულად"
       cancel: დავა
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "ახალი სეფასება %{service_name} სგან"
     feedback_body: "%{author_name_and_email} გამოაგზავნა შეფასება %{service_name}-სგან"
@@ -1416,7 +1447,6 @@ ka:
       please_go_to_payment_settings: "გთხოვთ შედით თქვენ %{payment_settings_link}ში და შეაფსეთ მოთხოვნილი გადახდის ინფორმაცია."
       payment_settings_link: "გადახდის პარამეტრები"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1431,27 +1461,22 @@ ka:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "შეკვეთა ავტომატურად დასრულდა - არ დაგავიწყდთ შეფასების მიცემა"
       we_have_marked_request_as_confirmed: "ჩვენ მოვნიშნეთ შეკვეთა %{request}-ს შესახებ დასრულებულად. შეკვეთა ავტომატურად დასრულდა, იმის გამო, რომ %{days_passed} დღე გავიდა იმის შემდეგ, რაც მოთხოვნა დადასტურდა."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "შეკვეთა წარმატებით დასრულდა - არ დაგავიწყდეთ შეფასების მიცემა"
       we_have_marked_request_as_confirmed: "%{request}-ის შეკვეთა მოვნიშნეთ როგორც დასრულებული. მოთხოვნა ავტომატურად დასრულდა, იმიტომ, რომ ერთი დღე გავიდა იმის მერე რაც ჯავშანის გაკეთების დრო დასრულდა."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: |-
@@ -1468,9 +1493,9 @@ ka:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "გამარჯობა %{name},"
+      hi: ~
       kassi_team: "%{service_name}  გუნდი"
       thanks: "მადლობა,"
       dont_want_to_receive_these_emails: "არ გსურთ მიიღოთ ეს ელ. ფოსტა?"
@@ -1482,7 +1507,7 @@ ka:
       unsubscribe_from_these_emails: "ამ ელ. ფოსტისგან გამოწერის გაუქმება"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} დაეთანხმა თქვენ შემოთავაზებას %{listing}."
       has_accepted_your_request: "%{accepter} დაეთანხმა თქვენ მოთხოვნას %{listing}."
@@ -1515,14 +1540,12 @@ ka:
       you_have_a_new_comment: "%{author} დააკომენტარა თქვენ სიაზე %{service_name}ზე"
       listing_you_follow_has_a_new_comment: "%{author} დააკომენტარა ჩამონათვალზე, რომელსაც თქვენ მიყვებით %{service_name}ში"
       has_commented_listing_you_follow_in_kassi: "%{author} დააკომენტარა ჩამონათვალზე %{listing} რომელსაც თქვენ მისდევთ %{service_name}-ში. "
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "ნახე წერილი"
       has_sent_you_a_message_in_kassi: "%{sender} გამოგიგზავნათ წერილი %{service_name}ში."
       you_have_a_new_message: "ახალი წერილი %{service_name}ში %{sender_name}სგან"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "თქვენ მიიღეთ ახალი გადახდა"
@@ -1547,7 +1570,6 @@ ka:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1568,8 +1590,6 @@ ka:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-ის გადასახადი:"
       shipping_total: "ფოსტით გაგზავნა:"
@@ -1618,7 +1638,6 @@ ka:
       unsubscribe_link_text: "გამოწერის გაუქმება"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "გამარჯობა %{name}"
       newest_offers: "რას თავაზობს ეხლა ხალხი სხვებს"
@@ -1714,6 +1733,29 @@ ka:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ""
@@ -2463,6 +2505,7 @@ ka:
       night: ღამე
       nights: ღამე
       invalid_parameters: "ახალი ტრანზაქციისთვის ასეთი სახელი არ არსებობს"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: ნახვა
     stripe_payment:

@@ -458,10 +458,13 @@ hu:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: "Párbeszéd vonala"
           listing: Hirdetések
@@ -481,6 +484,7 @@ hu:
           paid: Fizetve
           confirmed: Megerősítve
           canceled: Törölve
+          disputed: ~
           initiated: "Várjuk PayPal utalását"
           pending_ext: "Várakozás a PayPal-os kifizetésre"
           none:
@@ -494,8 +498,11 @@ hu:
             paid: Fizetett
             confirmed: Befejezett
             canceled: Törölt
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: Beszélgetés
             pending: Függő
@@ -505,11 +512,14 @@ hu:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "Nem elérhető"
       conversations:
         conversations: ~
@@ -1145,6 +1155,8 @@ hu:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Oldal szerkesztése"
     default_community_slogan: "Közösség piactér"
@@ -1237,6 +1249,7 @@ hu:
     confirm:
       confirm_description: "Amennyiben az ön rendelése teljesült ezt igazolnia kell. Majd adhat visszajelzést a másik félnek."
       cancel_description: "Amennyiben a rendelés nem teljesült, azt jelölheti 'vitatottnak'. Ezután még mindig adhat visszajelzést a másik fél számára amiben leírhatja hogy mi történt."
+      cancel_description_team: ~
       cancel_payed_description: "Kérése elfogadása után, ha kétsége merőlne fel akkor még a kifizetés előtt visszavonhatja a kérését."
       canceling_payed_transaction: "Tranzakció megszakítása"
       confirm: Megjelölve
@@ -1285,6 +1298,10 @@ hu:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Üzenet
       message_to: "Üzenet neki: %{author_name}"
@@ -1361,6 +1378,18 @@ hu:
           verify: "Várakozás önre, hogy hitelesítse a PayPal fiókját"
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Ajánlat elfogadása"
       accept_request: "Ajánlatkérés elfogadása"
@@ -1372,6 +1401,8 @@ hu:
       reject_preauthorized_request: "Ezúttal nem"
       confirm: Megjelölve
       cancel: Vitat
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Új értékelés %{service_name}tól"
     feedback_body: "%{author_name_and_email} a következő visszajelzést küldte a %{service_name} oldaláról."
@@ -1428,7 +1459,6 @@ hu:
       please_go_to_payment_settings: "Kérjük, töltse ki a fizetési információkat ide kattintva: %{payment_settings_link}."
       payment_settings_link: "Fizetési beállítások"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1443,27 +1473,22 @@ hu:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "A rendelés automatikusan teljesítve - ne feledjen értékelést írni"
       we_have_marked_request_as_confirmed: "Ezen felkérést '%{request}' teljesítését befejezettnek jelöltük. A felkérés azért lett automatikusan teljesítve mert %{days_passed} nap eltelt mióta a felkérés elfogadásra került."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "A rendelés automatikusan teljesítva - ne feledjen értékelést írni"
       we_have_marked_request_as_confirmed: "Ezen felkérést '%{request}' teljesítését befejezettnek jelöltük. A felkérés azért lett automatikusan teljesítve mert az egynapos foglalási idő lejárt."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Most írhat egy visszajelzést %{other_party_given_name} számára. Mindig jó ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is hogy, %{other_party_given_name} megbízható. Az is hasznos lehet, ha jelzi amennyiben problémája merült fel."
@@ -1478,9 +1503,9 @@ hu:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Üdvözöljük %{name}!"
+      hi: ~
       kassi_team: "A(z) %{service_name} Csapat"
       thanks: "Köszönjük,"
       dont_want_to_receive_these_emails: "Nem szeretné ezeket az e-maileket kapni?"
@@ -1492,7 +1517,7 @@ hu:
       unsubscribe_from_these_emails: "Leíratkozás ezekről az e-mailekről."
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} elfogadta az Ön %{listing} ajánlatát"
       has_accepted_your_request: "%{accepter} elfogadta az Ön %{listing} ajánlatkérését"
@@ -1525,14 +1550,12 @@ hu:
       you_have_a_new_comment: "%{author} megjegyzést fűzött az Ön %{service_name} hirdetéséhez"
       listing_you_follow_has_a_new_comment: "%{author} kommentálta a hirdetést amelyet követ %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} hozzászólt a hirdetéshez '%{listing}' amelyet ön is követ a %{service_name} oldalon."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Üzenet megtekintése"
       has_sent_you_a_message_in_kassi: "%{sender} üzenetet küldött Önnek itt: %{service_name}"
       you_have_a_new_message: "Egy új  %{service_name} üzenet tőle: %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Új utalást kellett kapjon"
@@ -1557,7 +1580,6 @@ hu:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1578,8 +1600,6 @@ hu:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal költségei"
       shipping_total: "Szállítás:"
@@ -1628,7 +1648,6 @@ hu:
       unsubscribe_link_text: Leiratkozás
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Üdvözöljük %{name}"
       newest_offers: "Mit kínálnak a hirdetők a többi felhasználónak"
@@ -1726,6 +1745,29 @@ hu:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Ismeretlen hiba történt a foglalása során. Próbálkozzunk újra! A tranzakció sikertelen volt."
@@ -2476,6 +2518,7 @@ hu:
       night: éjszaka
       nights: éjszakák
       invalid_parameters: "Helytelen értékek az új tranzakciónál"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Nézet
     stripe_payment:

@@ -452,10 +452,13 @@ ko:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: "대화 목록"
           listing: 목록
@@ -475,6 +478,7 @@ ko:
           paid: 결제됨
           confirmed: 완결됨
           canceled: 취소됨
+          disputed: ~
           initiated: "PayPal 결제 대기중"
           pending_ext: "PayPal 결제 대기중"
           none:
@@ -488,8 +492,11 @@ ko:
             paid: 지불됨
             confirmed: 확인됨
             canceled: 취소됨
+            disputed: ~
             initiated: "PayPal 결제 대기중"
             pending_ext: "PayPal 결제 대기중"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: 대화
             pending: 대기중
@@ -499,11 +506,14 @@ ko:
             paid: 지불됨
             confirmed: 확인됨
             canceled: 취소됨
+            disputed: ~
             initiated: "스트라이프 결제 대기중"
             pending_ext: "스트라이프 결제 대기중"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "이용 불가"
       conversations:
         conversations: "대화 보기"
@@ -1141,6 +1151,8 @@ ko:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "페이지 편집"
     default_community_slogan: "커뮤니티 마켓플레이스"
@@ -1237,6 +1249,7 @@ ko:
     confirm:
       confirm_description: "피드백을 작성하시려면 거래 완료 여부를 확인해주세요."
       cancel_description: "거래가 정상적으로 진행되지 않은 경우 '부적합'을 입력해주세요. 이 경우 피드백을 작성하실 수 있으며 불만 내용을 보내실 수 있습니다."
+      cancel_description_team: ~
       cancel_payed_description: "귀하의 요청이 수락되었지만 취소할 생각이 있으시면, 결제 전에 요청을 취소 할 수 있습니다."
       canceling_payed_transaction: "거래 취소"
       confirm: "표시 완료"
@@ -1285,6 +1298,10 @@ ko:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: 메세지
       message_to: "%{author_name}에게 보내는 메시지"
@@ -1359,6 +1376,18 @@ ko:
           verify: "PayPal 계정을 확인할 때까지 기다리는 중입니다."
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "제안 승인"
       accept_request: "요청 승인"
@@ -1370,6 +1399,8 @@ ko:
       reject_preauthorized_request: "다음 기회에"
       confirm: "표시 완료"
       cancel: 분쟁
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "%{service_name}의 새로운 피드백"
     feedback_body: "%{author_name_and_email}이 %{service_name}에서 다음 피드백을 보냈습니다."
@@ -1424,7 +1455,6 @@ ko:
       please_go_to_payment_settings: "%{payment_settings_link}로 이동하여 필요한 결제 정보를 입력하십시오."
       payment_settings_link: "결제 설정"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1439,27 +1469,22 @@ ko:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "주문 자동 완성 - 피드백을 해주세요"
       we_have_marked_request_as_confirmed: "'%{request}'에 대한 주문을 완료했습니다. 요청이 수락된 후 %{days_passed} 일이 지났으므로 주문이 자동으로 완료되었습니다."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "주문 자동 완성 - 피드백을 해주세요"
       we_have_marked_request_as_confirmed: "'%{request}'에 대한 주문을 완료했습니다. 예약 기간이 끝난 후 하루가 지나서 요청이 자동으로 완료되었습니다."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "이제 %{other_party_given_name}에게 피드백을 줄 수 있습니다. 항상 피드백을 주는 것이 좋습니다. 모든 것이 잘 진행되면 %{other_party_given_name}이(가) 신뢰할 수 있음을 다른 사람에게 알리도록해야합니다. 문제가 발생하면 해당 문제도 언급하는 것이 좋습니다."
@@ -1474,9 +1499,9 @@ ko:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "%{name}님 안녕하세요,"
+      hi: ~
       kassi_team: "%{service_name}팀"
       thanks: "고맙습니다,"
       dont_want_to_receive_these_emails: "더이상 이 이메일을 받길 원하지 않으세요?"
@@ -1488,7 +1513,7 @@ ko:
       unsubscribe_from_these_emails: "이메일 수신 거부"
       unsubscribe_from_invitation_emails_info: "%{service_name}의 회원이 귀하를 초대했기 때문에이 이메일을 받았습니다."
       unsubscribe_from_invitation_emails: "초대 이메일에서 %{service_name} 가입을 취소합니다."
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}가 당신의 제안 %{listing}을 승인하였습니다."
       has_accepted_your_request: "%{accepter}가 당신의 요청 %{listing}을 승인하였습니다."
@@ -1521,14 +1546,12 @@ ko:
       you_have_a_new_comment: "%{author}이/가 당신의 목록 중 %{service_name}에 의견을 추가했습니다."
       listing_you_follow_has_a_new_comment: "%{service_name}의 관심항목에 %{author}님이 새로운 의견을 추가하였습니다."
       has_commented_listing_you_follow_in_kassi: "당신이 %{service_name}에서 팔로우하는 %{author}이/가 목록 '%{listing}'에 댓글을 달았습니다."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "메세지 보기"
       has_sent_you_a_message_in_kassi: "%{sender}가 %{service_name}에 대해 당신에게 메세지를 보냈습니다."
       you_have_a_new_message: "%{sender_name}에게서 %{service_name}에 대한 새로운 메세지"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "새 결제를 받았습니다"
@@ -1553,7 +1576,6 @@ ko:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1574,8 +1596,6 @@ ko:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "페이팔 수수료"
       shipping_total: "배송:"
@@ -1624,7 +1644,6 @@ ko:
       unsubscribe_link_text: "구독 취소"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "%{name}님 안녕하세요,"
       newest_offers: "진행 중인 제안"
@@ -1720,6 +1739,29 @@ ko:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "예상치 못한 오류로 인해 예약에 실패했습니다. 나중에 다시 시도 해주십시오. 결제가 청구되지 않았습니다."
@@ -2469,6 +2511,7 @@ ko:
       night: 박
       nights: "숙박 일수:"
       invalid_parameters: "새 거래의 값이 잘못되었습니다."
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: 보기
     stripe_payment:

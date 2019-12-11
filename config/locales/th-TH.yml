@@ -452,10 +452,13 @@ th-TH:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: บทสนทนา
           listing: รายการ
@@ -475,6 +478,7 @@ th-TH:
           paid: ชำระเงินแล้ว
           confirmed: ยืนยันแล้ว
           canceled: ถูกยกเลิก
+          disputed: ~
           initiated: "กำลังรอการชำระเงิน PayPal"
           pending_ext: "กำลังรอการชำระเงิน PayPal"
           none:
@@ -488,8 +492,11 @@ th-TH:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -499,11 +506,14 @@ th-TH:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: ไม่พบข้อมูล
       conversations:
         conversations: ~
@@ -1137,6 +1147,8 @@ th-TH:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: แก้ไขหน้านี้
     default_community_slogan: ตลาดชุมชน
@@ -1231,6 +1243,7 @@ th-TH:
     confirm:
       confirm_description: "หากได้รับสินค้าหรือบริการแล้ว กรุณากดยืนยันว่าได้รับสินค้าหรือบริการเป็นที่เรียบร้อย หลังจากนั้นคุณจะสามารถเขียนรีวิวผู้ขายได้"
       cancel_description: "หากคุณไม่ได้รับหรือไม่พอใจในสินค้า/บริการ คุณสามารถทำเครื่องหมาย 'โต้แย้ง' ได้ และสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น และอธิบายถึงสิ่งที่เกิดขึ้น"
+      cancel_description_team: ~
       cancel_payed_description: "หากคำขอของคุณได้รับการยอมรับแล้ว แต่คุณเปลี่ยนใจ คุณยังสามารถยกเลิกคำขอ ก่อนที่จะชำระเงินได้"
       canceling_payed_transaction: ยกเลิกการทำรายการ
       confirm: ยืนยันว่าได้รับสินค้าหรือบริการแล้ว
@@ -1279,6 +1292,10 @@ th-TH:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: ข้อความ
       message_to: "ข้อความถึง %{author_name}"
@@ -1353,6 +1370,18 @@ th-TH:
           verify: "กำลังรอให้คุณตรวจสอบบัญชี PayPal ของคุณ"
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: ยอมรับข้อเสนอ
       accept_request: ตอบรับออเดอร์
@@ -1364,6 +1393,8 @@ th-TH:
       reject_preauthorized_request: ไม่ใช่ตอนนี้
       confirm: ยืนยันว่าได้รับสินค้าหรือบริการแล้ว
       cancel: โต้แย้ง
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: ~
     feedback_body: ~
@@ -1418,7 +1449,6 @@ th-TH:
       please_go_to_payment_settings: "กรุณาไปที่ %{payment_settings_link} และกรอกข้อมูลการชำระเงินที่จำเป็น"
       payment_settings_link: การตั้งค่าการชำระเงิน
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1433,27 +1463,22 @@ th-TH:
         has_marked_request_as_confirmed: "%{other_party_full_name} ได้ทำเครื่องหมายการสั่งซื้อเกี่ยวกับ%{request}เสร็จสมบูรณ์แล้ว การชำระเงินได้ถูกปล่อยเข้าธนาคารคุณแล้ว ขณะนี้คุณสามารถให้ความคิดเห็นไปยัง%{other_party_given_name}ได้"
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติ - อย่าลืมที่จะให้ความคิดเห็น"
       we_have_marked_request_as_confirmed: "เราได้ทำเครื่องหมายในการสั่งซื้อ '%{request}' เสร็จแล้ว การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติเนื่องจากผ่านมาแล้ว %{days_passed} วันนับตั้งแต่คำขอได้รับการยอมรับ"
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติ - อย่าลืมที่จะให้ความคิดเห็น"
       we_have_marked_request_as_confirmed: "เราได้ทำเครื่องหมายในการสั่งซื้อ '%{request}' เสร็จแล้ว การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติเนื่องจาก เวลาผ่านมาแล้วหนึ่งวัน นับตั้งแต่คำขอได้รับการยอมรับ"
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "ขณะนี้คุณสามารถให้ข้อเสนอแนะไปยัง %{other_party_given_name} การให้ข้อเสนอแนะมักเป็นสิ่งที่ดี หากทุกอย่างเป็นไปด้วยดี คุณควรช่วยให้คนอื่นรู้ว่า %{other_party_given_name} สามารถเชื่อถือได้ หากมีปัญหาใด ๆ ก็การดีที่จะพูดถึง ปัญหาเหล่านั้นเช่นกัน"
@@ -1468,9 +1493,9 @@ th-TH:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "สวัสดี %{name},"
+      hi: ~
       kassi_team: "ทีมงาน %{service_name}"
       thanks: "ขอบคุณ,"
       dont_want_to_receive_these_emails: ไม่ต้องการรับอีเมล์เหล่านี้?
@@ -1482,7 +1507,7 @@ th-TH:
       unsubscribe_from_these_emails: ยกเลิกการรับอีเมล์เหล่านี้
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ได้ยอมรับข้อเสนอ %{listing} ของคุณแล้ว"
       has_accepted_your_request: "%{accepter} ได้ตอบรับออเดอร์ %{listing} ของคุณแล้ว"
@@ -1515,14 +1540,12 @@ th-TH:
       you_have_a_new_comment: "%{author} ได้ให้ความเห็นในรายการ %{service_name} ของคุณ"
       listing_you_follow_has_a_new_comment: "%{author} มีความเห็นในรายการที่คุณติดตามใน %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} ได้ให้ความเห็นในรายการ '%{listing}' ที่คุณติดตามใน %{service_name}"
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: ดูข้อความ
       has_sent_you_a_message_in_kassi: "%{sender} ได้ส่งข้อความถึงคุณใน %{service_name}"
       you_have_a_new_message: "ข้อความใหม่ใน %{service_name} จาก %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: คุณได้รับการชำระเงินใหม่
@@ -1547,7 +1570,6 @@ th-TH:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1568,8 +1590,6 @@ th-TH:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "ค่าธรรมเนียมของ PayPal"
       shipping_total: จัดส่ง
@@ -1618,7 +1638,6 @@ th-TH:
       unsubscribe_link_text: ยกเลิกการเป็นสมาชิก
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "สวัสดี %{name},"
       newest_offers: "สิ่งที่ผู้คนในขณะนี้เสนอให้กับคนอื่น ๆ"
@@ -1714,6 +1733,29 @@ th-TH:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -2460,6 +2502,7 @@ th-TH:
       night: ~
       nights: ~
       invalid_parameters: ~
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: แสดง
     stripe_payment:

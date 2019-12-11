@@ -442,10 +442,13 @@ ar:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: ~
           listing: إعلان
@@ -465,6 +468,7 @@ ar:
           paid: مدفوع
           confirmed: "تم إنجازه"
           canceled: ملغى
+          disputed: ~
           initiated: ~
           pending_ext: ~
           none:
@@ -478,8 +482,11 @@ ar:
             paid: مدفوع
             confirmed: مؤكد
             canceled: ملغي
+            disputed: ~
             initiated: "انتظار دفع باي بال"
             pending_ext: "انتظار دفع باي بال"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: محادثات
             pending: "قيد الانتظار"
@@ -489,11 +496,14 @@ ar:
             paid: مدفوع
             confirmed: مؤكد
             canceled: ملغي
+            disputed: ~
             initiated: "انتظار دفع سترب"
             pending_ext: "انتظار دفع سترب"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "غير متوفر"
       conversations:
         conversations: "أظهر المحادثات"
@@ -1133,6 +1143,8 @@ ar:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "حرر الصفحة"
     default_community_slogan: "سوق اجتماعي"
@@ -1227,6 +1239,7 @@ ar:
     confirm:
       confirm_description: "إذا تم إكمال طلبك يجب عليك تأكيد ذلك بعدها يمكنك إعطاء رأيك"
       cancel_description: "إذا لم يتم إتمام طلبك يمكنك تحديده بـ \"خلاف\" ومازال باستطاعتك إعطاء رأيك في الجهة الأخرى وشرح ما حدث"
+      cancel_description_team: ~
       cancel_payed_description: "إذا تم قبول طلبك ولكن ما زلت في شك من قرارك يمكنك إلغاء الطلب قبل إتمام عملية الدفع"
       canceling_payed_transaction: "إلغاء العملية"
       confirm: مكتملة
@@ -1275,6 +1288,10 @@ ar:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: رسالة
       message_to: "‎%{author_name}‎ رسالة إلى"
@@ -1349,6 +1366,18 @@ ar:
           verify: ~
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "اقبل هذا العرض"
       accept_request: "اقبل هذا الطلب"
@@ -1360,6 +1389,8 @@ ar:
       reject_preauthorized_request: "ليس الآن"
       confirm: مكتملة
       cancel: خلاف
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "‎%{service_name}‎ رسالة جديدة لـ"
     feedback_body: ~
@@ -1417,7 +1448,6 @@ ar:
       please_go_to_payment_settings: "رجاء قم بزيارة ‎%{payment_settings_link}‎ وقم بتعبئة معلومات الدفعة"
       payment_settings_link: "إعدادات طريقة الدفع"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1432,27 +1462,22 @@ ar:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
@@ -1467,9 +1492,9 @@ ar:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "،‎%{name}‎ مرحبا"
+      hi: ~
       kassi_team: "‎%{service_name}‎ فريق عمل"
       thanks: "شكرا جزيلا"
       dont_want_to_receive_these_emails: "لا تريد استقبال هذه الرسائل الإلكترونية؟"
@@ -1481,7 +1506,7 @@ ar:
       unsubscribe_from_these_emails: "إلغاء الإشتراك من هذه النشرات الإخبارية"
       unsubscribe_from_invitation_emails_info: "قام بدعوتك للانضمام ‎%{service_name}‎ لقد استقبلت هذه الرسالة لأن عضو في"
       unsubscribe_from_invitation_emails: "‎%{service_name}‎ إيقاف استقبال دعوات للانضمام لـ"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "‎%{listing}‎ قام بقبول عرضك ‎%{accepter}‎"
       has_accepted_your_request: "‎%{listing}‎ قام بقبول طلبك ‎%{accepter}‎"
@@ -1514,14 +1539,12 @@ ar:
       you_have_a_new_comment: "‎‎%{service_name}‎ وضع تعليق جديد في ‎%{author}‎"
       listing_you_follow_has_a_new_comment: "‎%{service_name}‎‎ علق على إعلان تقوم بمتابعته في ‎%{author}‎"
       has_commented_listing_you_follow_in_kassi: "‎%{service_name}‎ الذي تتابعه في ‎%{listing}‎ علق على الإعلان ‎%{author}‎"
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "أظهر الرسالة"
       has_sent_you_a_message_in_kassi: "‎%{service_name}‎ قام بإرسال رسالة لـ ‎%{sender}‎"
       you_have_a_new_message: "‎%{sender_name}‎ من قبل ‎%{service_name}‎ رسالة جديدة من لـ"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "لقم استقبلت دفعة جديد"
@@ -1546,7 +1569,6 @@ ar:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1567,8 +1589,6 @@ ar:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: ":رسوم باي بال"
       shipping_total: "الشحن:"
@@ -1617,7 +1637,6 @@ ar:
       unsubscribe_link_text: "إلغاء الإشتراك"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "،‎%{name}‎ مرحبا"
       newest_offers: "ماذا يقدم الآخرين حاليا"
@@ -1717,6 +1736,29 @@ ar:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "فشل في الحجز بسبب خطأ غير معروف. يرجى المحاولة مرة أخرى. لم يتم احتساب أي تكلفة عليك."
@@ -2463,6 +2505,7 @@ ar:
       night: ليلة
       nights: ليالي
       invalid_parameters: "القيمة المدخلة خاطئة للعملية الجديدة"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: عرض.
     stripe_payment:

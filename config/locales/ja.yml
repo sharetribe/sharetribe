@@ -452,10 +452,13 @@ ja:
           confirmed: ~
           paid: 支払済み
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: 保留中
           payment_intent_action_expired: 期限切れ
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: 会話のスレッド
           listing: 投稿
@@ -475,6 +478,7 @@ ja:
           paid: 支払い済み
           confirmed: 確定済み
           canceled: キャンセル済
+          disputed: ~
           initiated: PayPalの支払いを待っています
           pending_ext: PayPalの支払いを待っています
           none:
@@ -488,8 +492,11 @@ ja:
             paid: 支払い済み
             confirmed: 完了しました
             canceled: キャンセル
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: 会話
             pending: 保留中
@@ -499,11 +506,14 @@ ja:
             paid: 支払済み
             confirmed: 完了しました
             canceled: キャンセルされました
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: 保留中
             payment_intent_action_expired: 期限切れ
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: ご利用できません
       conversations:
         conversations: 会話
@@ -1141,6 +1151,8 @@ ja:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: ページの編集
     default_community_slogan: マーケットプレイスコミュニティー
@@ -1235,6 +1247,7 @@ ja:
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
+      cancel_description_team: ~
       cancel_payed_description: あなたのリクエストは受け入れられましたが、あなたが再検討している場合は、支払い前にリクエストをキャンセルすることができます。
       canceling_payed_transaction: 課金キャンセル
       confirm: 取引完了
@@ -1283,6 +1296,10 @@ ja:
         held_payment: "リクエストを受け入れました。取引が完了としてマークされるまで%{sum} の支払いは%{service_name} により保留されています。"
         held_payment_wo_sum: "リクエストを受け入れました。取引が完了としてマークされるまで支払いは%{service_name} により保留されています。"
         confirmed_request: "お取引が正常に完了しました。代金は現在%{author_name} の銀行口座へ振り込み手続き中、もしくは今後振り込み手続きが行われます。"
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: メッセージ
       message_to: "%{author_name}さんへメッセージ"
@@ -1357,6 +1374,18 @@ ja:
           verify: あなたのPayPalアカウントの確認待ち
       stripe:
         waiting_confirmation_from_requester: "%{requester_name} さんの取引完了待ちです。注文完了後に、代金はあなたの銀行口座に支払われます。"
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: オファーを承認する
       accept_request: リクエストを受け入れる
@@ -1368,6 +1397,8 @@ ja:
       reject_preauthorized_request: 今回はやめる
       confirm: 取引完了
       cancel: クレーム通知
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "%{service_name}から新しい評価が届きました"
     feedback_body: "%{author_name_and_email}があなたに以下のお問い合わせを%{service_name}より送信されました。"
@@ -1422,7 +1453,6 @@ ja:
       please_go_to_payment_settings: "%{payment_settings_link}からお支払い情報のご入力をお願いします。"
       payment_settings_link: お支払い設定
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1437,27 +1467,22 @@ ja:
         has_marked_request_as_confirmed: "%{other_party_full_name} は、%{request} に関する取引を完了しました。この取引の代金はあなたの銀行口座に支払われます。これで%{other_party_given_name} さんに感想を送ることができます。"
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "リクエストは自動的に完了しました - レビューを書くのを忘れないでください"
       we_have_marked_request_as_confirmed: "%{request}のリクエストが承認されてから%{days_passed}日経過しましたので、自動的に取引完了の処理が行われました。"
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "リクエストは自動的に完了しました - レビューを書くのを忘れないでください"
       we_have_marked_request_as_confirmed: "「%{request}」のリクエストが完了したと、ステータス変更しました。予約期間が終わってから、1日が経過しましたので、このリクエストは自動的に完了済みとして扱われました。"
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "これより先、%{other_party_given_name}さんにレビューを書くことが出来ます。レビューを残すことは、いつでもポジティブな面があります。もし全体的に満足できたサービスであった場合は、%{other_party_given_name}さんが信頼できる方であると、他の皆さんにお知らせするのが良いでしょう。仮に問題が発生していた場合であっても、その情報はきっと、今後その方のサービス向上のために役立つでしょう。"
@@ -1472,9 +1497,9 @@ ja:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "%{name}さん　こんにちは、"
+      hi: ~
       kassi_team: "%{service_name} チーム"
       thanks: それでは、引き続きご利用よろしくお願いします。
       dont_want_to_receive_these_emails: これらのメールを受信したくありませんか。
@@ -1486,7 +1511,7 @@ ja:
       unsubscribe_from_these_emails: これらのメールを購読解除する
       unsubscribe_from_invitation_emails_info: "%{service_name} のメンバーから招待されたため、このメールを受信しました。"
       unsubscribe_from_invitation_emails: "%{service_name} からの招待メールの受信を解除します。"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}さんはあなたの%{listing}のオファーを受け入れました"
       has_accepted_your_request: "%{accepter}さんはあなたの%{listing}のリクエストを受け入れました"
@@ -1519,14 +1544,12 @@ ja:
       you_have_a_new_comment: "いつも%{service_name}のご利用ありがとうございます。%{author}さんより新しいコメントがありましたのでお知らせいたします。"
       listing_you_follow_has_a_new_comment: "いつも%{service_name}のご利用ありがとうございます。%{author}さんより新しいコメントがありましたのでお知らせいたします。"
       has_commented_listing_you_follow_in_kassi: "いつも%{service_name}のご利用ありがとうございます。「%{listing}」で%{author}さんより新しいコメントがありましたのでお知らせいたします。"
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: メッセージを閲覧
       has_sent_you_a_message_in_kassi: "%{sender}さんは%{service_name}でメッセージを送信しました。"
       you_have_a_new_message: "%{service_name}の%{sender_name}さんから新しいメッセージがあります"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: 新しいお支払いを受け取りました
@@ -1551,7 +1574,6 @@ ja:
         you_have_received_new_payment: "<b>%{payment_sum}  </b>の金額が、%{payer_full_name} から<b>%{listing_title}  </b>に支払われました。注文が完了としてマークされるまで、お金は%{service_name} によって保持されています。こちらは領収書です。"
     payment_receipt_to_seller_v2:
       headline: "%{seller_name} さん、こんにちは。%{payer_name} さんから、%{listing_link} の件で%{payment_sum} 支払われました。"
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1572,8 +1594,6 @@ ja:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: "あなたは<b>%{listing_title}</b>の件で、<b>%{payment_sum} </b>支払いました。"
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: PayPalの手数料：
       shipping_total: 送料：
@@ -1622,7 +1642,6 @@ ja:
       unsubscribe_link_text: 購読を解除する
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "%{name}さん、こんにちは"
       newest_offers: 他の人が何をオファーしているのか見てみましょう
@@ -1718,6 +1737,29 @@ ja:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: 問題が起きたため取引リクエストが完了しませんでした、再度お試しください。お支払いも実行されませんでしたのでご安心ください。
@@ -2467,6 +2509,7 @@ ja:
       night: 泊
       nights: 泊
       invalid_parameters: ~
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: 表示
     stripe_payment:
