@@ -462,10 +462,13 @@ ro:
           confirmed: ~
           paid: Platit
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: "Firul conversației"
           listing: Listarea
@@ -485,6 +488,7 @@ ro:
           paid: "Plătit /ă"
           confirmed: ~
           canceled: "Anulat /ă"
+          disputed: ~
           initiated: "Plata prin PayPal in desfasurare"
           pending_ext: "Plata prin PayPal in desfasurare"
           none:
@@ -498,8 +502,11 @@ ro:
             paid: Platit
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -509,11 +516,14 @@ ro:
             paid: Platit
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: Indisponibil
       conversations:
         conversations: ~
@@ -1139,6 +1149,8 @@ ro:
         provider_receives: "Proprietarul primeste:"
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Editați pagină"
     default_community_slogan: "Platforma de intermediere online a comunitatii"
@@ -1235,6 +1247,7 @@ ro:
     confirm:
       confirm_description: "Te rugam sa confirmi returnarea produsului si finalizarea comenzii apasand butonul \"Am returnat produsul\". Apoi puteti oferi o recenzie catre cealalta persoana."
       cancel_description: "Daca comanda dvs. nu a fost finalizata o puteti marca ca fiind 'disputata'. Totusi, puteti oferi recenzie catre cealalta parte si puteti descrie ce s-a intamplat."
+      cancel_description_team: ~
       cancel_payed_description: "Dacă cererea dumneavoastră a fost acceptată, dar aveţi îndoieli, puteţi anula în continuare cererea înainte de plată."
       canceling_payed_transaction: "Anulare tranzacție"
       confirm: "Am returnat produsul"
@@ -1283,6 +1296,10 @@ ro:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Mesaj
       message_to: "Mesaj pentru %{author_name}"
@@ -1357,6 +1374,18 @@ ro:
           verify: "Asteptam sa va verificati contul PayPal"
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Acceptă ofertă"
       accept_request: "Acceptă cererea"
@@ -1368,6 +1397,8 @@ ro:
       reject_preauthorized_request: "Nu de data aceasta"
       confirm: "Am returnat produsul"
       cancel: Disputa
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Feedback nou de la %{service_name}"
     feedback_body: "%{author_name_and_email} a trimis urmatorul feedback de la %{service_name}"
@@ -1422,7 +1453,6 @@ ro:
       please_go_to_payment_settings: "Accesați %{payment_settings_link} și completați informațiile de plată necesare."
       payment_settings_link: "setări plăți"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1437,27 +1467,22 @@ ro:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti o recenzie"
       we_have_marked_request_as_confirmed: ~
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti o recenzie"
       we_have_marked_request_as_confirmed: "Am marcat comanda despre '%{request}' finalizată. Solicitarea a fost completată automat, deoarece a trecut o zi de la încheierea perioadei de rezervare."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Puteti acum sa oferiti o recenzie pentru %{other_party_given_name}. Feedback-ul este intotdeauna o idee buna. Daca totul a decurs bine comunitatea ar trebui sa stie ca %{other_party_given_name} este de incredere. Daca au fost probleme este bine sa mentionati si aceste aspecte."
@@ -1472,9 +1497,9 @@ ro:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Salut %{name}"
+      hi: ~
       kassi_team: "Echipa %{service_name}"
       thanks: "Mulţumim,"
       dont_want_to_receive_these_emails: "Nu doriţi să primiţi aceste e-mailuri?"
@@ -1486,7 +1511,7 @@ ro:
       unsubscribe_from_these_emails: "dezabonați-vă de aceste e-mailul."
       unsubscribe_from_invitation_emails_info: "Ai primit acest e-mail deoarece un membru %{service_name} te-a invitat sa te inregistrezi."
       unsubscribe_from_invitation_emails: "Dezaboneaza-te de la email-urile de invitatie %{service_name}"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ți-a acceptat oferta %{listing}."
       has_accepted_your_request: "%{accepter} ți-a acceptat cererea %{listing}."
@@ -1519,14 +1544,12 @@ ro:
       you_have_a_new_comment: "%{author} a comentat la anuntul tau listat in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} a comentat intr-un anunt pe care tu il urmaresti pe %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} a comentat la listarea '%{listing}' pe care o urmaresti in %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Vedeți mesaj"
       has_sent_you_a_message_in_kassi: "%{sender} ti-a trimis un mesaj in %{service_name}"
       you_have_a_new_message: "Un nou mesaj in %{service_name} de la %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Ai primit o nouă plată"
@@ -1551,7 +1574,6 @@ ro:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1572,8 +1594,6 @@ ro:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "Comision PayPal:"
       shipping_total: "Trimite:"
@@ -1622,7 +1642,6 @@ ro:
       unsubscribe_link_text: dezabonare
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Salut %{name}"
       newest_offers: "Ce oferte sunt disponibile"
@@ -1718,6 +1737,29 @@ ro:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -2464,6 +2506,7 @@ ro:
       night: noapte
       nights: nopți
       invalid_parameters: ~
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Afiseaza.
     stripe_payment:

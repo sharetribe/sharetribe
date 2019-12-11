@@ -457,10 +457,13 @@ fi:
           confirmed: Toteutunut
           paid: Maksettu
           canceled: Peruutettu
+          disputed: ~
           preauthorized: "Katevaraus tehty"
           rejected: Hylätty
           payment_intent_requires_action: Odottaa
           payment_intent_action_expired: Vanhentunut
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: Viestiketju
           listing: Ilmoitus
@@ -480,6 +483,7 @@ fi:
           paid: Maksettu
           confirmed: Toteutunut
           canceled: Peruutettu
+          disputed: ~
           initiated: "Odottaa maksua"
           pending_ext: "Odottaa maksun hyväksyntää"
           none:
@@ -493,8 +497,11 @@ fi:
             paid: Maksettu
             confirmed: Toteutunut
             canceled: Peruutettu
+            disputed: ~
             initiated: "Odottaa PayPal-maksua"
             pending_ext: "Odottaa PayPal-maksua"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: Keskustelu
             pending: "Odottaa hyväksyntää"
@@ -504,11 +511,14 @@ fi:
             paid: Maksettu
             confirmed: Toteutunut
             canceled: Peruutettu
+            disputed: ~
             initiated: "Odottaa Stripe-maksua"
             pending_ext: "Odottaa Stripe-maksua"
             payment_intent_requires_action: Odottaa
             payment_intent_action_expired: Vanhentunut
             payment_intent_failed: "Stripe-maksu epäonnistui"
+            refunded: ~
+            dismissed: ~
         not_available: "Ei saatavilla"
       conversations:
         conversations: Keskustelut
@@ -1150,6 +1160,8 @@ fi:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
@@ -1246,6 +1258,7 @@ fi:
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
+      cancel_description_team: ~
       cancel_payed_description: "Jos pyyntösi on jo hyväksytty mutta tulit toisiin ajatuksiin, voit vielä perua pyynnön ennen maksua."
       canceling_payed_transaction: "Pyynnön peruuttaminen"
       confirm: "Merkitse toteutuneeksi"
@@ -1294,6 +1307,10 @@ fi:
         held_payment: "Hyväksyi pyynnön. Palvelu %{service_name} pidättää maksun %{sum}, kunnes tilaus on merkitty toteutuneeksi."
         held_payment_wo_sum: "Pyyntö hyväksytty. %{service_name} pidättää maksun, kunnes tilaus on merkitty toteutuneeksi."
         confirmed_request: "Merkitsi tilauksen toteutuneeksi. Maksu on nyt siirretty käyttäjän %{author_name} pankkitilille, tai se siirretään pian."
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Viesti
       message_to: "Viesti käyttäjälle %{author_name}"
@@ -1368,6 +1385,18 @@ fi:
           verify: "Odottaa että vahvistat PayPal-tilisi"
       stripe:
         waiting_confirmation_from_requester: "Odotetaan, että käyttäjä %{requester_name} merkitsee tilauksen toteutuneeksi. Kun tilaus on merkitty toteutuneeksi, maksu vapautetaan pankkitilillesi."
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"
@@ -1379,6 +1408,8 @@ fi:
       reject_preauthorized_request: "Ei tällä kertaa"
       confirm: "Merkitse toteutuneeksi"
       cancel: Riitauta
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Uusi palaute palvelusta %{service_name}"
     feedback_body: "%{author_name_and_email} on lähettänyt seuraavan palautteen palvelusta %{service_name}"
@@ -1433,7 +1464,6 @@ fi:
       please_go_to_payment_settings: "Siirry %{payment_settings_link} ja täytä tarvittavat tiedot."
       payment_settings_link: maksutiedot-sivulle
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1448,27 +1478,22 @@ fi:
         has_marked_request_as_confirmed: "Käyttäjä %{other_party_full_name} on merkinnyt tilauksen '%{request}' toteutuneeksi. Maksu tästä tilauksesta on nyt maksettu pankkitilillesi. Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}."
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska varausaika päättyi eilen."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
@@ -1483,9 +1508,9 @@ fi:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Hei %{name},"
+      hi: ~
       kassi_team: "%{service_name}-tiimi"
       thanks: "Terveisin,"
       dont_want_to_receive_these_emails: "Etkö halua saada jatkossa näitä viestejä?"
@@ -1497,7 +1522,7 @@ fi:
       unsubscribe_from_these_emails: "lopeta tällaisten viestien vastaanotto kokonaan"
       unsubscribe_from_invitation_emails_info: "Vastaanotit tämän sähköpostin, koska palvelun %{service_name} jäsen kutsui sinut palvelun käyttäjäksi."
       unsubscribe_from_invitation_emails: "Lopeta markkinapaikan %{service_name} kutsujen vastaanottaminen sähköpostitse"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi '%{listing}'."
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi '%{listing}'."
@@ -1530,14 +1555,12 @@ fi:
       you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi %{service_name}-palvelussa"
       listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta %{service_name}-palvelussa"
       has_commented_listing_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi ilmoitusta '%{listing}'."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Näytä viesti"
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name}-palvelussa."
       you_have_a_new_message: "Viesti %{service_name}-palvelun käyttäjältä %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
@@ -1562,7 +1585,6 @@ fi:
         you_have_received_new_payment: "Käyttäjä %{payer_full_name} on nyt maksanut summan <b>%{payment_sum}</b> tilauksesta <b>%{listing_title}</b>. %{service_name} pidättää maksun siihen asti, että tilaus merkitään toteutuneeksi. Tässä on kuittisi."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1583,8 +1605,6 @@ fi:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPalin käsittelymaksu:"
       shipping_total: "Postitus:"
@@ -1633,7 +1653,6 @@ fi:
       unsubscribe_link_text: "peruuta tämän sähköpostin tulo kokonaan"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Hei %{name},"
       newest_offers: "Muun muassa näitä tarjotaan:"
@@ -1729,6 +1748,29 @@ fi:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Varaus epäonnistui tunnistamattoman virheen vuoksi. Ole hyvä ja yritä myöhemmin uudelleen. Sinua ei ole veloitettu."
@@ -2479,6 +2521,7 @@ fi:
       night: yö
       nights: yötä
       invalid_parameters: "Epäpätevät arvot uudelle transaktiolle"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
     stripe_payment:

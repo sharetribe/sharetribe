@@ -442,10 +442,13 @@ it:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: ~
           listing: Inserzione
@@ -465,6 +468,7 @@ it:
           paid: Pagata
           confirmed: Confermata
           canceled: Cancellata
+          disputed: ~
           initiated: "In attesa del pagamento di PayPal"
           pending_ext: "In attesa del pagamento di PayPal"
           none:
@@ -478,8 +482,11 @@ it:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -489,11 +496,14 @@ it:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "Non disponibile"
       conversations:
         conversations: ~
@@ -1119,6 +1129,8 @@ it:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Modifica pagina"
     default_community_slogan: "Presta, vendi, aiuta, condividi"
@@ -1213,6 +1225,7 @@ it:
     confirm:
       confirm_description: "Se il tuo ordine è stato completato, dovresti confermarlo. Successivamente puoi dare il tuo feedback all'altra parte."
       cancel_description: ~
+      cancel_description_team: ~
       cancel_payed_description: "Se la tua richiesta è stata accettata ma ci stai ripensando, puoi ancora cancellare la richiesta prima del pagamento."
       canceling_payed_transaction: "Cancella la transazione"
       confirm: "Segna come completato"
@@ -1261,6 +1274,10 @@ it:
         held_payment: "Richiesta accettata. Il pagamento di %{sum} è tenuto da %{service_name} finchè l'ordine non è contrassegnato come completato."
         held_payment_wo_sum: ~
         confirmed_request: "Contrassegnato l'ordine come completato. Il pagamento verrà ora trasferito al conto corrente di %{author_name}."
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Messaggio
       message_to: "Messaggio a %{author_name}"
@@ -1335,6 +1352,18 @@ it:
           verify: "In attesa che tu verifichi il tuo conto PayPal"
       stripe:
         waiting_confirmation_from_requester: "In attesa che %{requester_name} contrassegni l'ordine come completato. Una volta che l'ordine sarà contrassegnato, il pagamento verrà trasferito sul tuo conto corrente."
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Accetta offerta"
       accept_request: "Accetta richiesta"
@@ -1346,6 +1375,8 @@ it:
       reject_preauthorized_request: "Non questa volta"
       confirm: "Segna come completato"
       cancel: Contesta
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Nuovo feedback da %{service_name}"
     feedback_body: "%{author_name_and_email} ha inviato il seguente feedback da %{service_name}"
@@ -1400,7 +1431,6 @@ it:
       please_go_to_payment_settings: "Per favore vai alle tue %{payment_settings_link} e inserisci le informazioni richieste."
       payment_settings_link: "impostazioni dei pagamenti"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1415,27 +1445,22 @@ it:
         has_marked_request_as_confirmed: "%{other_party_full_name} ha contrassegnato l'ordine per %{request} come completato. Il pagamento per questa transazione è stato trasferito sul tuo conto corrente. Puoi ora dare un feedback a %{other_party_given_name}"
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Richiesta completata automaticamente -  ricordati di dare il tuo feedback"
       we_have_marked_request_as_confirmed: "Abbiamo confermato la richiesta per '%{request}'. La richiesta è stata completata automaticamente perché sono trascorsi %{days_passed} giorni da quando la richiesta è stata accettata."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Richiesta completata automaticamente -  ricordati di dare il tuo feedback"
       we_have_marked_request_as_confirmed: "Abbiamo confermato la richiesta per '%{request}'. La richiesta è stata completata automaticamente perché è trascorso un giorno da quando il periodo di prenotazione è concluso."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Ora puoi dare un feedback a %{other_party_given_name}. Dare un feedback è sempre una buona idea. Se tutto è andato bene, dovresti far sapere agli altri che %{other_party_given_name} è affidabile. Se ci sono stati dei problemi, è giusto menzionarli."
@@ -1450,9 +1475,9 @@ it:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Ciao %{name},"
+      hi: ~
       kassi_team: "Il Team di %{service_name}"
       thanks: "Grazie,"
       dont_want_to_receive_these_emails: "Non vuoi ricevere queste email?"
@@ -1464,7 +1489,7 @@ it:
       unsubscribe_from_these_emails: "Rimuovi la sottoscrizione da queste email"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha accettato la tua offerta %{listing}."
       has_accepted_your_request: "%{accepter} ha accettato la tua richiesta %{listing}."
@@ -1497,14 +1522,12 @@ it:
       you_have_a_new_comment: "%{author} ha commentato la tua offerta in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} ha commentato una inserzione che stai seguendo su %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} ha lasciato un commento sull'inserzione '%{listing}' che stai seguendo su %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Mostra messaggio"
       has_sent_you_a_message_in_kassi: "%{sender} ti ha inviato un messaggio in %{service_name}"
       you_have_a_new_message: "Un nuovo messaggio in %{service_name} da %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Hai ricevuto un nuovo pagamento"
@@ -1529,7 +1552,6 @@ it:
         you_have_received_new_payment: "La somma di <b>%{payment_sum}</b> è stata pagata per <b>%{listing_title}</b> da %{payer_full_name}. Il denaro è tenuto da %{service_name} finchè l'ordine non sarà contrassegnato come completato. Ecco la tua ricevuta"
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1550,8 +1572,6 @@ it:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "Commissione di PayPal"
       shipping_total: "Spedizione:"
@@ -1600,7 +1620,6 @@ it:
       unsubscribe_link_text: "Annulla sottoscrizione"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Ciao %{name},"
       newest_offers: "Quello che le persone attualmente offrono agli altri"
@@ -1696,6 +1715,29 @@ it:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "La prenotazione è fallita per un errore inaspettato. Per favore riprova più tardi. Nessun trasferimento di denaro è stato eseguito."
@@ -2446,6 +2488,7 @@ it:
       night: notte
       nights: notti
       invalid_parameters: "La nuova transazione non è andata a buon fine, per causa di un errore."
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Mostra
     stripe_payment:

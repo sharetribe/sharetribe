@@ -112,7 +112,7 @@ tr-TR:
         logo_instructions_text_with_dimensions: "Masaüstü logo ebatları %{width}x%{height} olmalıdır. Büyük ekrana sahip üyelere gösterilecektir."
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "Bu kare logo, kullanıcılar sitenizi Facebook'ta paylaştığında, sitenizi bir mobil cihazda görüntülediklerinde veya sitenizi mobil cihazlarının ana ekranına eklediklerinde gösterilir. Boyutlar (en az)%{width} x%{height} piksel olmalıdır."
-        logo_icon_instructions_text_with_dimensions_no_placing: "Bu kare logo, kullanıcılar sitenizi Facebook'ta paylaştığında veya sitenizi mobil cihazlarının ana ekranına eklediğinde gösterilir. Boyutlar (en azından) olmalıdır%{width}x%{height} pixels."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Bu kare logo, kullanıcılar sitenizi Facebook'ta paylaştığında veya sitenizi mobil cihazlarının ana ekranına eklediğinde gösterilir. Boyutlar (en az) olmalıdır%{width}x%{height} pixels."
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Kapak fotoğrafı ana sayfada giriş yapmamış kullanıcılara gösterilecektir."
         cover_photo_instructions_text_with_dimensions: "Görsel %{width}x%{height} piksel boyutlarında küçültülecek ve uzun görseller ortadan kesilecektir. %{see_how_it_looks_like}."
@@ -325,8 +325,8 @@ tr-TR:
         facebook_connect_info_text: "Pazaryeriniz Facebook Giriş'i etkinleştirmek,%{dashboard_link} içinde bir uygulama oluşturun. Oluşturulan kimliği ve uygulamanın gizli anahtarını buraya ekleyin."
         facebook_connect_info_text_with_instructions: "Facebook ile giriş yapılabilmesi için pazarınız adına<a href='https://developers.facebook.com/'>Facebook Programcılar sayfasındaki panelden</a>başvuru yapın. Oluşturulan ID numarası ve gizli anahtarı ekleyin.%{instructions_link}"
         facebook_instructions_link_text: "Facebook'a bağlanma talimatlarına bakın."
-        facebook_connect_id: "Facebook Uyulama Kimliği"
-        invalid_facebook_connect_id: "Uyulama kimliği sadece rakam içerebilir."
+        facebook_connect_id: "Facebook Uygulama Kimliği"
+        invalid_facebook_connect_id: "Uygulama kimliği sadece rakam içerebilir."
         facebook_connect_secret: "Facebook müşteri gizli anahtarı"
         invalid_facebook_connect_secret: "Gizli anahtar sadece rakam ve A-F arası harfleri içerebilir."
         enable_facebook_login: "Kullanıcıların Facebook hesaplarıyla giriş yapmalarına izin ver"
@@ -337,7 +337,7 @@ tr-TR:
         google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
-        enable_google_login: ~
+        enable_google_login: "Kullanıcıların Google hesaplarıyla giriş yapmalarına izin ver"
         google_connect_id: ~
         google_connect_secret: ~
         linkedin_connect: ~
@@ -345,7 +345,7 @@ tr-TR:
         linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
-        enable_linkedin_login: ~
+        enable_linkedin_login: "Kullanıcıların LinkedIn hesaplarıyla oturum açmasına izin ver"
         linkedin_connect_id: ~
         linkedin_connect_secret: ~
       seo_settings:
@@ -454,10 +454,13 @@ tr-TR:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: "Konuşma başlığı"
           listing: Listeleme
@@ -477,6 +480,7 @@ tr-TR:
           paid: Ödenen
           confirmed: Onaylanan
           canceled: "İptal edilen"
+          disputed: ~
           initiated: "PayPal ödemesi bekleniyor"
           pending_ext: "PayPal ödemesi bekleniyor"
           none:
@@ -490,8 +494,11 @@ tr-TR:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -501,11 +508,14 @@ tr-TR:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "Mevcut değil"
       conversations:
         conversations: ~
@@ -1131,6 +1141,8 @@ tr-TR:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Sayfayı düzenle"
     default_community_slogan: "Topluluk pazarı"
@@ -1226,6 +1238,7 @@ tr-TR:
     confirm:
       confirm_description: "Eğer talebiniz gerçekleştirildiyse, bunu \"Gerçekleşti\" olarak işaretlemelisiniz. Bundan sonra, diğer tarafa geri bildirim bırakabilirsiniz."
       cancel_description: "Eğer talebiniz gerçekleştirilmediyse, \"Gerçekleşmedi\" olarak işaretleyebilirsiniz. Bundan sonra, geri bildirim bırakıp neler olduğunu açıklayabilirsiniz."
+      cancel_description_team: ~
       cancel_payed_description: "Eğer talebiniz kabul edildiği halde fikrinizi değiştirmek isterseniz, ödeme gerçekleşmeden talebi iptal edebilirsiniz."
       canceling_payed_transaction: "İşlemi iptal et"
       confirm: "Tamamlandı olarak işaretle"
@@ -1274,6 +1287,10 @@ tr-TR:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Mesaj
       message_to: "%{author_name} üyesine mesaj"
@@ -1348,6 +1365,18 @@ tr-TR:
           verify: "PayPal hesabınızı doğrulatmanız bekleniyor"
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Teklifi kabul et"
       accept_request: "Talebi kabul et"
@@ -1359,6 +1388,8 @@ tr-TR:
       reject_preauthorized_request: "Bu sefer değil"
       confirm: "Tamamlandı olarak işaretle"
       cancel: Gerçekleşmedi
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "%{service_name}: Yeni bildirim"
     feedback_body: "%{service_name}: %{author_name_and_email} size aşağıdaki bildirimi bıraktı;"
@@ -1413,7 +1444,6 @@ tr-TR:
       please_go_to_payment_settings: "Lütfen %{payment_settings_link} sayfasına gidip gerekli ödeme bilgilerini ekleyin."
       payment_settings_link: "ödeme ayarları"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1428,27 +1458,22 @@ tr-TR:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Talep otomatik olarak tamamlandı - geri bildirim bırakmayı unutmayın"
       we_have_marked_request_as_confirmed: "'%{request}' hakkındaki talebi tamamlandı olarak işaretledik. Talebin kabulünün üzerinden %{days_passed} gün geçtiği için, talep otomatik olarak tamamlandı."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Talep otomatik olarak tamamlandı - geri bildirim bırakmayı unutmayın"
       we_have_marked_request_as_confirmed: "'%{request}' hakkındaki talebi tamamlandı olarak işaretledik. Rezervasyon süresinin bitişinin üzerinden bir gün geçtiği için, talep otomatik olarak tamamlandı."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Şimdi %{other_party_given_name} kullanıcısına geri bildirim bırakabilirsiniz.Geri bildirim bırakmak her zaman iyi bir fikirdir. Eğer her şey yolunda gittiyse, diğer üyelere %{other_party_given_name} üyesinin güvenilir olduğunu bildirmelisiniz. Eğer sorun yaşadıysanız, bunlardan bahsetmekte de fayda var."
@@ -1463,9 +1488,9 @@ tr-TR:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Merhaba %{name}"
+      hi: ~
       kassi_team: "%{service_name} Takımı"
       thanks: "Teşekkürler,"
       dont_want_to_receive_these_emails: "Bu e-postaları almak istemiyor musunuz?"
@@ -1477,7 +1502,7 @@ tr-TR:
       unsubscribe_from_these_emails: "bu e-posta aboneliklerini sonlandır"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}, %{listing} teklifini kabul etti."
       has_accepted_your_request: "%{accepter}, %{listing} talebini kabul etti."
@@ -1510,14 +1535,12 @@ tr-TR:
       you_have_a_new_comment: "%{author} ilanına %{service_name} altında yorum yaptı"
       listing_you_follow_has_a_new_comment: "%{author} %{service_name}'de takip ettiğiniz bir ilan hakkında yorum yaptı"
       has_commented_listing_you_follow_in_kassi: "%{author} %{service_name}'de takip ettiğiniz %{listing} ilanına yorum yaptı."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Mesajı görüntüle"
       has_sent_you_a_message_in_kassi: "%{sender} sana %{service_name} altında bir mesaj gönderdi."
       you_have_a_new_message: "%{service_name} altında %{sender_name}'den yeni bir mesaj var"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Yeni bir ödeme aldınız"
@@ -1542,7 +1565,6 @@ tr-TR:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1563,8 +1585,6 @@ tr-TR:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal işlem ücreti:"
       shipping_total: "Kargo:"
@@ -1613,7 +1633,6 @@ tr-TR:
       unsubscribe_link_text: "Aboneliği sonlandır"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Merhaba %{name},"
       newest_offers: "Kullanıcıların şu anda teklif ettikleri"
@@ -1709,6 +1728,29 @@ tr-TR:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -2084,7 +2126,7 @@ tr-TR:
       listing_updated_availability_management_enabled: "Liste başarıyla güncellendi. Uygunluk yönetimi etkin"
       listing_updated_availability_management_disabled: "Liste başarıyla güncellendi. Uygunluk yönetimi devre dışı bırakıldı."
       listing_deleted: ~
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "Bu alana erişmek için lütfen bir yönetici hesabıyla giriş yapın"
       only_listing_author_can_close_a_listing: "Listelemeyi sadece ilan sahibi kapatabilir."
       only_listing_author_can_edit_a_listing: "Listelemeyi yalnızca ilan sahibi düzenleyebilir."
       payment_successful: "Ödeme başarıyla tamamlandı"
@@ -2127,7 +2169,7 @@ tr-TR:
       you_have_already_given_feedback_about_this_event: "Bu etkinlik hakkında geri bildirim vermişsiniz."
       you_are_now_member: "%{service_name} pazar yerine hoş geldiniz!"
       you_are_already_member: "Zaten %{service_name} üyesisiniz. Yeniden hoş geldiniz!"
-      you_must_log_in_to_create_new_listing: "%{service_name}: Yeni listeleme oluşturmak için giriş yapmalısınız. Eğer hesabınız yoksa, %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "%{service_name}: Yeni listeleme oluşturmak için giriş yapmalısınız. Eğer hesabınız yoksa, %{sign_up_link} yapabilirsiniz."
       additional_email_confirmed_dashboard: "E-posta adresiniz doğrulandı."
       you_must_log_in_to_give_feedback: "Geri bildirim vermek için oturum açmanız gerekmektedir."
       you_must_log_in_to_invite_new_users: "Yeni kullanıcıları %{service_name} pazar yerine davet etmek için oturum açmalısınız"
@@ -2152,10 +2194,10 @@ tr-TR:
       listing_author_payment_details_missing: "Bu listelemenin sahibi ödeme bilgilerini eklemediği için şu an ödeme alamıyor. Lütfen ilan sahibine veya bize ulaşın."
       listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
-      automatically_logged_out_please_sign_in: "Oturumunuzun süresi doldu, lütfen tekrar giriş yapın."
+      automatically_logged_out_please_sign_in: "Otomatik olarak çıkış yaptınız. Lütfen tekrar giriş yapın."
       stripe_you_account_balance_is_not_0: ~
       visit_admin: "%{link}ister misiniz?"
-      visit_admin_link: "yönetici panelinizi ziyaret edin"
+      visit_admin_link: "Yönetici panelinizi ziyaret etmek"
     settings:
       account: Hesap
       notifications: Bildirimler
@@ -2455,6 +2497,7 @@ tr-TR:
       night: ~
       nights: ~
       invalid_parameters: ~
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Görüntüle.
     stripe_payment:
@@ -2506,7 +2549,7 @@ tr-TR:
     paypal_receive_funds_info_label: "PayPal hesabınızın ödeme kabul edebilmesi gerekmektedir. PayPal Şirket hesabı gerekebilir."
     paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
+    upgrade_paypal_account_link_text: "oturum açın ve PayPal hesabınızı bir işletme hesabına yükseltin"
     admin_account_not_connected: ~
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Ödeme kabul etmeye hazırsınız!"
@@ -2526,7 +2569,7 @@ tr-TR:
       follow_steps: ~
       connect_paypal_account_title: "PayPal hesabınızı bağlayın"
       connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      connect_paypal_account_instructions: "PayPal'da oturum açmak ve PayPal hesabınızı ile bağlamak için aşağıdaki butona tıklayın %{service_name} ."
       connect_paypal_account: "PayPal hesabınızı bağlayın"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: "%{service_name} sitesinde satış yaptıktan sonra, toplamın %{commission_from_seller} oranında servis ücreti, kargo ücreti hariç, ve minimum ücret olan %{minimum_commission} PayPal hesabınızdan düşülecektir. %{service_name} sitesinde ödeme alabilmek için buna izin vermeniz gerekmektedir. Ücrete %{paypal_info_link} dahil değildir."
@@ -2672,7 +2715,7 @@ tr-TR:
       account_creation_link_text: "buraya tıklayın"
       cancle_facebook_connect: "Bu hesabı bağlamak istemiyorsanız, %{cancel_link} adresine tıklayın."
       facebook_cancel_link_text: iptal
-      log_in_with_your_provider_account: ~
+      log_in_with_your_provider_account: "%{provider} ile giriş yap"
       or_sign_up_with_your_username: "...ya da kullanıcı adı/e-posta ile giriş yap:"
       we_will_not_post_without_asking_you: "Size sormadan Facebook'ta kesinlikle hiçbir şey paylaşmayacağız."
     password_forgotten:

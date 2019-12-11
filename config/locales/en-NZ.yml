@@ -457,10 +457,13 @@ en-NZ:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: "Conversation thread"
           listing: Listing
@@ -480,6 +483,7 @@ en-NZ:
           paid: Paid
           confirmed: Completed
           canceled: Cancelled
+          disputed: ~
           initiated: "Waiting PayPal payment"
           pending_ext: "Waiting PayPal payment"
           none:
@@ -493,8 +497,11 @@ en-NZ:
             paid: Paid
             confirmed: Confirmed
             canceled: Canceled
+            disputed: ~
             initiated: "Waiting PayPal payment"
             pending_ext: "Waiting PayPal payment"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: Conversation
             pending: Pending
@@ -504,11 +511,14 @@ en-NZ:
             paid: Paid
             confirmed: Confirmed
             canceled: Canceled
+            disputed: ~
             initiated: "Waiting Stripe payment"
             pending_ext: "Waiting Stripe payment"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "Not available"
       conversations:
         conversations: "View conversations"
@@ -1150,6 +1160,8 @@ en-NZ:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
@@ -1246,6 +1258,7 @@ en-NZ:
     confirm:
       confirm_description: "If your order has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your order was not fulfilled, you can mark it as 'disputed'. You can still give feedback to the other party and describe what happened."
+      cancel_description_team: ~
       cancel_payed_description: "If your request was accepted but you're having second thoughts, you can still cancel the request before the payment."
       canceling_payed_transaction: "Cancel transaction"
       confirm: "Mark completed"
@@ -1294,6 +1307,10 @@ en-NZ:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Message
       message_to: "Message to %{author_name}"
@@ -1368,6 +1385,18 @@ en-NZ:
           verify: "Waiting for you to verify your PayPal account"
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
@@ -1379,6 +1408,8 @@ en-NZ:
       reject_preauthorized_request: "Not this time"
       confirm: "Mark completed"
       cancel: Dispute
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "New feedback from %{service_name}"
     feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
@@ -1433,7 +1464,6 @@ en-NZ:
       please_go_to_payment_settings: "Please go to your %{payment_settings_link} and fill in the required payment information."
       payment_settings_link: "payment settings"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1448,27 +1478,22 @@ en-NZ:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The order was automatically completed because %{days_passed} days have passed since the request was accepted."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The request was automatically completed because one day has passed since the booking period ended."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "You can now give feedback to %{other_party_given_name}. Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
@@ -1483,9 +1508,9 @@ en-NZ:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Hello %{name},"
+      hi: ~
       kassi_team: "The %{service_name} Team"
       thanks: "Thanks,"
       dont_want_to_receive_these_emails: "Don't want to receive these emails?"
@@ -1497,7 +1522,7 @@ en-NZ:
       unsubscribe_from_these_emails: "unsubscribe from these emails"
       unsubscribe_from_invitation_emails_info: "You have received this email because a member of %{service_name} has invited you to join them."
       unsubscribe_from_invitation_emails: "Unsubscribe from invitation emails to join %{service_name}"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer %{listing}."
       has_accepted_your_request: "%{accepter} has accepted your request %{listing}."
@@ -1530,14 +1555,12 @@ en-NZ:
       you_have_a_new_comment: "%{author} has commented on your listing in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} has commented on the listing '%{listing}' you are following in %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "View message"
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
       you_have_a_new_message: "A new message in %{service_name} from %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "You have received a new payment"
@@ -1562,7 +1585,6 @@ en-NZ:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1583,8 +1605,6 @@ en-NZ:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's fee:"
       shipping_total: "Shipping:"
@@ -1633,7 +1653,6 @@ en-NZ:
       unsubscribe_link_text: unsubscribe
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Hi %{name},"
       newest_offers: "What people currently offer to others"
@@ -1729,6 +1748,29 @@ en-NZ:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."
@@ -2479,6 +2521,7 @@ en-NZ:
       night: night
       nights: nights
       invalid_parameters: "Invalid values for new transaction"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: View.
     stripe_payment:

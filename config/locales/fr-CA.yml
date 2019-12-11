@@ -457,10 +457,13 @@ fr-CA:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: "Fil de conversation"
           listing: Annonce
@@ -480,6 +483,7 @@ fr-CA:
           paid: Payée
           confirmed: Confirmée
           canceled: Annulée
+          disputed: ~
           initiated: "En attente du paiement PayPal"
           pending_ext: "En attente du paiement PayPal"
           none:
@@ -493,8 +497,11 @@ fr-CA:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -504,11 +511,14 @@ fr-CA:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "Non disponible"
       conversations:
         conversations: ~
@@ -1134,6 +1144,8 @@ fr-CA:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Modifier la page"
     default_community_slogan: "Votre place de marché"
@@ -1228,6 +1240,7 @@ fr-CA:
     confirm:
       confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
+      cancel_description_team: ~
       cancel_payed_description: "Si votre demande a été acceptée mais que vous changez d'avis, vous pouvez toujours l'annuler avant le paiement."
       canceling_payed_transaction: "Annuler la transaction"
       confirm: Réalisée
@@ -1276,6 +1289,10 @@ fr-CA:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Message
       message_to: "Message à %{author_name}"
@@ -1350,6 +1367,18 @@ fr-CA:
           verify: "En attente de votre vérification de votre compte PayPal"
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Accepter l'offre"
       accept_request: "Accepter demande"
@@ -1361,6 +1390,8 @@ fr-CA:
       reject_preauthorized_request: "Pas cette fois"
       confirm: Réalisée
       cancel: Contester
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: ~
     feedback_body: ~
@@ -1415,7 +1446,6 @@ fr-CA:
       please_go_to_payment_settings: "Veuillez vous rendre dans vos %{payment_settings_link} et y complétez les informations nécessaires."
       payment_settings_link: "paramètres de paiement"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1430,27 +1460,22 @@ fr-CA:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Demande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
       we_have_marked_request_as_confirmed: "Nous avons signalé la demande à propos de '%{request}' comme terminée. La demande a été terminée automatiquement car %{days_passed} se sont écoulés depuis que la demande a été acceptée."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Demande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
       we_have_marked_request_as_confirmed: "Nous avons signalé la demande à propos de '%{request}' comme terminée. La demande a été terminée automatiquement car une journée s'est écoulée depuis la fin de la période de réservation."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Vous pouvez désormais donner un avis sur %{other_party_given_name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
@@ -1465,9 +1490,9 @@ fr-CA:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Bonjour %{name},"
+      hi: ~
       kassi_team: "L'équipe de %{service_name}"
       thanks: "Merci,"
       dont_want_to_receive_these_emails: "Souhaitez-vous recevoir ces emails ?"
@@ -1479,7 +1504,7 @@ fr-CA:
       unsubscribe_from_these_emails: "désabonnez-vous de ces emails"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} a accepté votre offre %{listing}"
       has_accepted_your_request: "%{accepter} a accepté votre demande %{listing}"
@@ -1512,14 +1537,12 @@ fr-CA:
       you_have_a_new_comment: "%{author} a déposé un commentaire sur votre annonce sur %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} a commenté une annonce que vous suivez dans %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} a commenté l'annonce '%{listing}' que vous suivez sur %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Voir le message"
       has_sent_you_a_message_in_kassi: "%{sender} vous a envoyé un message sur %{service_name}."
       you_have_a_new_message: "Vous avez un nouveau message sur %{service_name} de la part de %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Vous avez reçu un nouveau paiement"
@@ -1544,7 +1567,6 @@ fr-CA:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1565,8 +1587,6 @@ fr-CA:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "Frais PayPal : "
       shipping_total: "Frais de livraison : "
@@ -1615,7 +1635,6 @@ fr-CA:
       unsubscribe_link_text: désabonnez-vous
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Bonjour %{name},"
       newest_offers: "Ce que les membres proposent aux autres en ce moment"
@@ -1711,6 +1730,29 @@ fr-CA:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -2457,6 +2499,7 @@ fr-CA:
       night: ~
       nights: ~
       invalid_parameters: ~
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Lire.
     stripe_payment:
