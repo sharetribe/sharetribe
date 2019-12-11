@@ -143,8 +143,7 @@ class ListingPresenter < MemoisticPresenter
     { name: delivery_type,
       price: price,
       shipping_price_additional: shipping_price_additional,
-      price_info: ListingViewUtils.shipping_info(delivery_type, price, shipping_price_additional),
-      default: true
+      price_info: ListingViewUtils.shipping_info(delivery_type, price, shipping_price_additional)
     }
   end
 
