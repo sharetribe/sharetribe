@@ -4,7 +4,9 @@
 
 %tr
   %td.person-name
-    %h1= t("emails.confirm_reminder_v2.headline", :name => PersonViewUtils.person_display_name_for_type(@conversation.buyer, "first_name_only"), :request_link => link_to(@conversation.listing_title, conversation_url)).html_safe
+    %h1
+      = t("emails.common.hi", name: PersonViewUtils.person_display_name_for_type(@conversation.buyer, "first_name_only"))
+      = t("emails.confirm_reminder_v2.headline", :request_link => link_to(@conversation.listing_title, conversation_url)).html_safe
 %tr
   %td.email-content
     %p.text-bold
