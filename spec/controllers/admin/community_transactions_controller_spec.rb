@@ -216,11 +216,11 @@ describe Admin::CommunityTransactionsController, type: :controller do
 
       email_to_seller = ActionMailer::Base.deliveries[0]
       expect(email_to_seller.to.include?(seller.confirmed_notification_emails_to)).to eq true
-      expect(email_to_seller.subject).to eq 'Order marked as refunded - The Sharetribe team has approved the cancellation from Proto T'
+      expect(email_to_seller.subject).to eq 'Order marked as refunded - The Sharetribe team has approved the dispute from Proto T'
 
       email_to_buyer = ActionMailer::Base.deliveries[1]
       expect(email_to_buyer.to.include?(buyer.confirmed_notification_emails_to)).to eq true
-      expect(email_to_buyer.subject).to eq 'Order marked as refunded - The Sharetribe team has approved the cancellation from Proto T'
+      expect(email_to_buyer.subject).to eq 'Order marked as refunded - The Sharetribe team has approved the dispute from Proto T'
     end
 
     it 'dissmis the cancelation' do
