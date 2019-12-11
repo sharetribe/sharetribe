@@ -7,14 +7,6 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(target_user, @current_community) }
 
 #person_settings_form.left-navi-section.settings-section.account-settings
-  -# Username
-  .account-settings-row
-    .ss-key.account-settings-icon
-    .account-settings-text
-      %b
-        = username_label + ":"
-      = target_user.username
-
   -# Email
   .account-settings-row
     = form_for target_user, :html => {:id => 'email_form'} do |form|
