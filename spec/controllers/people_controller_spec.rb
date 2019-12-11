@@ -536,6 +536,38 @@ describe PeopleController, type: :controller do
       expect(person.custom_field_value_for(field1).display_value).to eq 22
     end
 
+    it 'person updates username' do
+      sign_in_for_spec(person)
+      community_host(community)
+      expect(person.username).to eq 'louisemorris'
+      expect(
+        patch(:update, params: {
+          id: 'louisemorris',
+          referer_form: 'settings',
+          person: { username: 'scott' },
+          community: "test"
+        })
+      ).to redirect_to('/en/scott/settings')
+      person.reload
+      expect(person.username).to eq 'scott'
+    end
+
+    it 'person cannot update username to invalid' do
+      sign_in_for_spec(person)
+      community_host(community)
+      request.env['HTTP_REFERER'] = '/en/louisemorris/settings'
+      expect(person.username).to eq 'louisemorris'
+      expect(
+        patch(:update, params: {
+          id: 'louisemorris',
+          referer_form: 'settings',
+          person: { username: 'about' },
+          community: "test"
+        })
+      ).to redirect_to('/en/louisemorris/settings')
+      person.reload
+      expect(person.username).to eq 'louisemorris'
+    end
   end
 
   def community_host(community)
