@@ -452,10 +452,13 @@ zh:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: 会话
           listing: 发布的信息
@@ -475,6 +478,7 @@ zh:
           paid: 已支付
           confirmed: 已确认
           canceled: 已取消
+          disputed: ~
           initiated: 等待PayPal付款
           pending_ext: 等待PayPal付款
           none:
@@ -488,8 +492,11 @@ zh:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -499,11 +506,14 @@ zh:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: 无
       conversations:
         conversations: ~
@@ -1137,6 +1147,8 @@ zh:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: 编辑页面
     default_community_slogan: 集市
@@ -1229,6 +1241,7 @@ zh:
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
       cancel_description: 如果你的请求没有完成，你可以标记它为“有争议的”。你仍然可以评论给其他交易方描述发生的事情。
+      cancel_description_team: ~
       cancel_payed_description: 如果你的请求被接受但是你有其他的想法，你仍然可以在付款前取消请求。
       canceling_payed_transaction: 取消交易
       confirm: 标记为完成
@@ -1277,6 +1290,10 @@ zh:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: 消息
       message_to: "发送给%{author_name}的消息"
@@ -1351,6 +1368,18 @@ zh:
           verify: 等待你确认你的PayPal帐号
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: 接受宝贝
       accept_request: 接受请求
@@ -1362,6 +1391,8 @@ zh:
       reject_preauthorized_request: 这次不行
       confirm: 标记为已完成
       cancel: 争议
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "来自%{service_name}的新反馈"
     feedback_body: "%{author_name_and_email}已经从%{service_name}发送了下面的反馈。"
@@ -1416,7 +1447,6 @@ zh:
       please_go_to_payment_settings: "请点击进入%{payment_settings_link}并填入付款信息。"
       payment_settings_link: 付款设置
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1431,27 +1461,22 @@ zh:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我们已经将关于“%{request}”的请求标记为完成。自动标记完成是因为在请求被接受后已经过了%{days_passed}天。"
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我们已标记请求“%{request}”完成。该请求自动完成于预订期限结束后一天。"
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "你现在可以评价%{other_party_given_name}。给予评价总是一个好主意。如果一切顺利，你应该让其他人知道%{other_party_given_name}可以被信任。如果有任何问题，在评论中提到它们也是很好的。"
@@ -1466,9 +1491,9 @@ zh:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "你好 %{name},"
+      hi: ~
       kassi_team: "%{service_name} 团队"
       thanks: 谢谢！
       dont_want_to_receive_these_emails: 不想收到这些邮件？
@@ -1480,7 +1505,7 @@ zh:
       unsubscribe_from_these_emails: 退订这些邮件
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已经接受了你的%{listing}"
       has_accepted_your_request: "%{accepter}已经接受了你的%{listing}"
@@ -1513,14 +1538,12 @@ zh:
       you_have_a_new_comment: "%{author} 在%{service_name}评论了你发布的信息"
       listing_you_follow_has_a_new_comment: "%{author}评论了你在%{service_name}关注的一条信息"
       has_commented_listing_you_follow_in_kassi: "%{author}评价了你在%{service_name}中关注的“%{listing}”。"
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: 查看消息
       has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向你发送一条消息"
       you_have_a_new_message: "在%{service_name}收到一条来自%{sender_name}的新消息"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: 你收到一笔新的付款
@@ -1545,7 +1568,6 @@ zh:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1566,8 +1588,6 @@ zh:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: PayPal的费用：
       shipping_total: "运费:"
@@ -1616,7 +1636,6 @@ zh:
       unsubscribe_link_text: 取消订阅
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Hi %{name},"
       newest_offers: 大家都提供了些什么？
@@ -1712,6 +1731,29 @@ zh:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -2458,6 +2500,7 @@ zh:
       night: 晚上
       nights: ~
       invalid_parameters: ~
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: 查看。
     stripe_payment:

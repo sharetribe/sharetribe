@@ -462,10 +462,13 @@ lt:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: Pokalbiai
           listing: Skelbimas
@@ -485,6 +488,7 @@ lt:
           paid: Sumokėta
           confirmed: Baigtas
           canceled: Atšauktas
+          disputed: ~
           initiated: "Laukiama PayPal mokėjimo"
           pending_ext: "Laukiama PayPal mokėjimo"
           none:
@@ -498,8 +502,11 @@ lt:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -509,11 +516,14 @@ lt:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: Neprieinamas
       conversations:
         conversations: ~
@@ -1139,6 +1149,8 @@ lt:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Redaguoti puslapį"
     default_community_slogan: "Bendruomenės turgus"
@@ -1231,6 +1243,7 @@ lt:
     confirm:
       confirm_description: "Jei jūsų užsakymas buvo įvykdytas, turėtumėte jį pažymėti kaip baigtą. Tada galėsite palikti atsiliepimą kitai pusei."
       cancel_description: "Jei jūsų užsakymas nebuvo įvykdytas, galite jį pažymėti kaip 'ginčijamą'. Jūs vis tiek galite palikti atsiliepimą kitai pusei ir papasakoti kas nutiko."
+      cancel_description_team: ~
       cancel_payed_description: "Jei jūsų prašymas buvo patvirtintas, bet dvejojate, vis tiek galite atšaukti prašymą prieš mokėjimą."
       canceling_payed_transaction: "Atšaukti sandorį"
       confirm: "Pažymėti baigtu"
@@ -1279,6 +1292,10 @@ lt:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Žinutė
       message_to: "Žinutė %{author_name}"
@@ -1353,6 +1370,18 @@ lt:
           verify: ~
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Priimti pasiūlymą"
       accept_request: "Priimti prašymą"
@@ -1364,6 +1393,8 @@ lt:
       reject_preauthorized_request: "Ne šį kartą"
       confirm: "Pažymėti baigtu"
       cancel: Ginčyti
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: ~
     feedback_body: ~
@@ -1418,7 +1449,6 @@ lt:
       please_go_to_payment_settings: "Prašome nueiti į jūsų %{payment_settings_link} ir užpildyti reikiamą mokėjimo informaciją."
       payment_settings_link: "mokėjimo nustatymai"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1433,27 +1463,22 @@ lt:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Užsakymas baigtas automatiškai - nepamirškite palikti atsiliepimą"
       we_have_marked_request_as_confirmed: "Užsakymą dėl '%{request}' pažymėjome kaip baigtą. Užsakymas buvo pažymėtas kaip baigtas automatiški nes praėjo %{days_passed} dienos nuo tada kai prašymas buvo priimtas."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Užsakymas baigtas automatiškai - nepamirškite palikti atsiliepimą"
       we_have_marked_request_as_confirmed: "Užsakymą dėl '%{request}' pažymėjome kaip baigtą. Užsakymas buvo pažymėtas kaip baigtas automatiški nes praėjo viena diena nuo tada kai rezervacijos periodas baigėsi."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
@@ -1468,9 +1493,9 @@ lt:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Sveiki %{name}"
+      hi: ~
       kassi_team: "%{service_name} komanda"
       thanks: "Ačiū,"
       dont_want_to_receive_these_emails: "Nenorite gauti šių laiškų?"
@@ -1482,7 +1507,7 @@ lt:
       unsubscribe_from_these_emails: "Atšaukti šių laiškų prenumeratą"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} priėmė jūsų pasiūlymą %{listing}"
       has_accepted_your_request: "%{accepter} priėmė jūsų prašymą %{listing}"
@@ -1515,14 +1540,12 @@ lt:
       you_have_a_new_comment: "%{author} pakomentavo jūsų skelbime dėl %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} pakomentavo skelbime, kurį sekate %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} pakomentavo skelbime '%{listing}', kurį jūs sekate %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Rodyti žinutę"
       has_sent_you_a_message_in_kassi: "%{sender} parašė jums žinutę dėl %{service_name}"
       you_have_a_new_message: "Nauja žinutė dėl %{service_name} iš %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Gavote naują mokėjimą"
@@ -1547,7 +1570,6 @@ lt:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1568,8 +1590,6 @@ lt:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -1618,7 +1638,6 @@ lt:
       unsubscribe_link_text: "Atsisakyti prenumeratos"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Sveiki %{name},"
       newest_offers: "Ką šiuo metu žmonės siūlo kitiems"
@@ -1714,6 +1733,29 @@ lt:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -2460,6 +2502,7 @@ lt:
       night: ~
       nights: ~
       invalid_parameters: ~
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Žiūrėti.
     stripe_payment:

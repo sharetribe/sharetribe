@@ -457,10 +457,13 @@ de:
           confirmed: Bestätigt
           paid: Bezahlt
           canceled: Abgebrochen
+          disputed: ~
           preauthorized: Vorautorisiert
           rejected: Abgelehnt
           payment_intent_requires_action: Ausstehend
           payment_intent_action_expired: Abgelaufen
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: Unterhaltungsverlauf
           listing: Eintrag
@@ -480,6 +483,7 @@ de:
           paid: Bezahlt
           confirmed: Bestätigt
           canceled: Abgebrochen
+          disputed: ~
           initiated: "Warten auf die Paypal Zahlung"
           pending_ext: "Warten auf die Paypal Zahlung"
           none:
@@ -493,8 +497,11 @@ de:
             paid: Bezahlt
             confirmed: Bestätigt
             canceled: Abgebrochen
+            disputed: ~
             initiated: "Warte auf PayPal-Zahlung"
             pending_ext: "Warte auf PayPal-Zahlung"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: Unterhaltung
             pending: Ausstehend
@@ -504,11 +511,14 @@ de:
             paid: Bezahlt
             confirmed: Bestätigt
             canceled: Abgebrochen
+            disputed: ~
             initiated: "Warte auf Stripe-Bezahlung"
             pending_ext: "Warte auf Stripe-Bezahlung"
             payment_intent_requires_action: Ausstehend
             payment_intent_action_expired: Abgelaufen
             payment_intent_failed: "Stripe-Zahlung gescheitert"
+            refunded: ~
+            dismissed: ~
         not_available: "nicht verfügbar"
       conversations:
         conversations: Unterhaltungen
@@ -649,30 +659,30 @@ de:
         would_you_like_to_change_domain: "Möchtest du deine benutzerdefinierte Domain ändern? %{contact_us}!"
       landing_pages:
         landing_pages: "Landing Page"
-        info_1: ~
-        info_2: ~
-        info_2_help_center: ~
-        info_3: ~
+        info_1: "Die Landing Page ist vielleicht die wichtigste Seite deines Marktplatzes. Sie ist die erste Seite, die deine Nutzer sehen, etwa wie die Vordertür deines Hauses. Du hast nur einigen Sekunden deine Kunden davon zu überzeugen, dass sie auf der Seite bleiben sollten. Die Seite sollte attraktiv sein, und das Leistungsversprechen deiner Seite sollte klar und verlockend sein."
+        info_2: "%{help_link} besuchen, um mehr über die Bearbeitung deiner Landing Page zu erfahren."
+        info_2_help_center: Hilfecenter
+        info_3: "Wenn du eine komplett angepasste Landing Page für deinen Marktplatz erwerben möchten, kannst du sie als Add-On für einen monatlichen Preis im Höhe von $99 kaufen."
         info_4: "Mehr über Custom Landing Pages lesen"
         editor_title: "Landing Page Editor"
-        editor_info: ~
+        editor_info: "Hier kannst du die verschiedenen Abschnitte deiner Landing Page bearbeiten. Zur Zeit ist es nur möglich, eine Sprache auf die Landing Page zu verwenden. Die 'Hero' und 'Footer' -Abschnitte können nicht bewogen werden."
         preview: "Landing Page-Vorschau"
         set_live: "Live machen"
         add_new_section: "Neuen Abschnitt hinzufügen"
-        select_section_type: "Abchnittstyp wählen..."
-        this_version_is_not_released: ~
-        latest_version_released: ~
-        check_it_out: ~
+        select_section_type: "Abschnittstyp wählen..."
+        this_version_is_not_released: "Du musst Änderungen vornehmen, um eine neue Version deiner Landing Page live setzen zu können"
+        latest_version_released: "Die neueste Version deiner Landing Page ist jetzt live! %{link} !"
+        check_it_out: "Probiere es aus!"
         form:
           save: Speichern
-          cancel: ~
+          cancel: Abbrechen
         sections:
           identifier: "Abschnitt ID"
-          kind: Abchnittstyp
+          kind: Abschnittstyp
           variation: Variante
           new: "Neuer Abschnitt"
           edit: "Abschnitt %{section_id} bearbeiten"
-          remove_section_confirmation: ~
+          remove_section_confirmation: "Bist du sicher, dass du den Abschnitt '%{section_id}' und die enthaltenen Daten löschen möchtest? Dies kann nicht ruckgängig gemacht werden."
           info_single_column: "Info 1 Spalte"
           info_multi_column_2: "Info 2 Spalten"
           info_multi_column_3: "Info 3 Spalten"
@@ -727,12 +737,12 @@ de:
           title: ~
         background_image_overlay:
           background_image: Hintergrundbild
-          background_image_info: ~
+          background_image_info: "Dieses Bild wird als Hintergrundbild für den Abschnitt verwendet. Für die besten Ergebnisse, es sollte mindestens 1600x1200 Pixel groß sein."
           add_another_image: "Zusätzliches Bild hinzufugen"
           current_image: "Derzeitiges Bild: %{filename}"
           file_not_selected: "Nicht gewählt"
           background_image_overlay: Hintergrundbild-Overlay
-          background_image_overlay_info: ~
+          background_image_overlay_info: "Hier kannst du bestimmen, wie dunkel oder hell dein Hintergrundbild aussieht. \"Durchsichtig\" bedeutet, dass keine Overlay verwendet wird."
           overlay_dark: Dunkel
           overlay_light: Hell
           overlay_transparent: Durchsichtig
@@ -743,14 +753,14 @@ de:
           style_none: Keine
         background_color:
           background_color: Hintergrundfarbe
-          background_color_info: ~
+          background_color_info: "Du kannst die Hintergrundfarbe dieses Abschnitts wählen, indem du einen Hex-Wert eingibst. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> kann dir dabei helfen, eine Farbe zu wählen, und den Hex-Code der Farbe zu finden. Dann kannst du den Code hier eingeben."
         categories:
           add: "Neue Kategorie zu diesem Abschnitt hinzufügen"
           category: Kategorie
           empty: "Du hast keine gewählten Kategorien"
           image: Bild
           include_title: "Gewählte Kategorien"
-          info_text: ~
+          info_text: "Du kannst zwischen 3 und 7 Kategorien werben. Bitte füge ein Bild zu jeder Kategorie und wähle eine der Kategorien auf deinem Marktplatz. Die empfohlene Größe ist 1000 x 667 Pixel."
           need_at_least_3_categories: "Du solltest mindestens 3 Kategorien in diesem Abschnitt haben"
           need_at_most_7_categories: "Du solltest höchstens 7 Kategorien in diesem Abschnitt haben"
         category:
@@ -1150,6 +1160,8 @@ de:
         provider_receives: "Anbieter bekommt:"
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Seite bearbeiten"
     default_community_slogan: Community-Marktplatz
@@ -1246,6 +1258,7 @@ de:
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du den Anderen bewerten."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
+      cancel_description_team: ~
       cancel_payed_description: "Wenn deine Anfrage akzeptiert wurde, du aber noch einmal darüber nachdenken willst, kannst du deine Anfrage vor der Bezahlung immer noch ablehnen."
       canceling_payed_transaction: "Transaktion abbrechen"
       confirm: erledigt
@@ -1294,6 +1307,10 @@ de:
         held_payment: "Die Anfrage wurde akzeptiert. Die Zahlung in Höhe von %{sum} wird von %{service_name} verwahrt bis der Auftrag als erledigt markiert wird."
         held_payment_wo_sum: "Hat die Anfrage angenommen. Zahlung wird von %{service_name} verwahrt bis der Auftrag als erledigt markiert wird."
         confirmed_request: "Hat den Auftrag als erledigt markiert. Die Zahlung wurde oder wird in Kürze auf das Bankkonto von %{author_name} transferiert."
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Nachricht
       message_to: "Nachricht an %{author_name}"
@@ -1368,6 +1385,18 @@ de:
           verify: "Warten, dass du dein PayPal Konto bestätigst"
       stripe:
         waiting_confirmation_from_requester: "Warten bis %{requester_name} den Auftrag als erledigt markiert hat. Sobald der Auftrag als erledigt markiert wurde, erfolgt der Transfer der Zahlung auf Dein Bankkonto."
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Angebot annehmen"
       accept_request: "Anfrage annehmen"
@@ -1379,6 +1408,8 @@ de:
       reject_preauthorized_request: "Nicht dieses Mal"
       confirm: erledigt
       cancel: anfechten
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Neue Nachricht von %{service_name}"
     feedback_body: "%{author_name_and_email} hat Dir die folgende Nachricht auf %{service_name} gesendet"
@@ -1433,7 +1464,6 @@ de:
       please_go_to_payment_settings: "Bitte geh zu %{payment_settings_link} und fülle die erforderlichen Zahlungsinformationen aus."
       payment_settings_link: Zahlungseinstellungen
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1448,27 +1478,22 @@ de:
         has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag \"%{request}\" als erledigt markiert. Die Überweisung der Zahlung auf Dein Bankkonto für diese Transaktion wurde soeben angestoßen. Du kannst %{other_party_given_name} nun ein Feedback geben."
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Anfrage wurde automatisch abgeschlossen - bitte denk daran, Feedback zu geben."
       we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu '%{request}' als erledigt markiert. Der Auftrag wurde automatisch erledigt, weil %{days_passed} Tage vergangen sind, seit der Antrag angenommen wurde."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Angebot automatisch abgeschlossen - bitte denk daran, Feedback zu geben"
       we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu %{request} als abgeschlossen markiert. Der Antrag wurde automatisch beendet, weil ein Tag ist vergangen, seitdem die  Buchungsperiode beendet ist."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Du kannst nun %{other_party_given_name} ein Feedback geben. Feedback geben ist immer eine gute Idee. Wenn alles gut gegangen ist, solltest du andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn ein Problem aufgetreten ist, ist es gut, das ebenfalls zu erwähnen."
@@ -1483,9 +1508,9 @@ de:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Hallo %{name},"
+      hi: ~
       kassi_team: "Das %{service_name} Team"
       thanks: "Vielen Dank,"
       dont_want_to_receive_these_emails: "Willst du diese E-Mails nicht empfangen?"
@@ -1497,7 +1522,7 @@ de:
       unsubscribe_from_these_emails: "bestelle diese E-Mails ab"
       unsubscribe_from_invitation_emails_info: "Du erhältst diese Email, weil ein Mitglied von %{service_name} dich eingeladen hat beizutreten."
       unsubscribe_from_invitation_emails: "Email-Einladungen von %{service_name} abbestellen"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} hat dein Angebot %{listing} akzeptiert."
       has_accepted_your_request: "%{accepter} hat deine Anfrage %{listing} akzeptiert."
@@ -1530,14 +1555,12 @@ de:
       you_have_a_new_comment: "%{author} hat deinen Eintrag auf %{service_name} kommentiert"
       listing_you_follow_has_a_new_comment: "%{author} hat auf einen Eintrag geantwortet, dem du in %{service_name} folgst"
       has_commented_listing_you_follow_in_kassi: "%{author} hat den Eintrag %{listing} kommentiert, dem du in %{service_name} folgst."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Nachricht ansehen"
       has_sent_you_a_message_in_kassi: "%{sender} hat dir eine Nachricht auf %{service_name} gesendet."
       you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} auf %{service_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
@@ -1562,7 +1585,6 @@ de:
         you_have_received_new_payment: "Der Betrag in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> wurde von %{payer_full_name} gezahlt. Das Geld wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wird. Als Anlage erhältst Du Deinen Beleg."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1583,8 +1605,6 @@ de:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal Gebühr:"
       shipping_total: "Versand:"
@@ -1633,7 +1653,6 @@ de:
       unsubscribe_link_text: "bestelle die E-Mails ab."
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Hallo %{name}"
       newest_offers: "Was Leute derzeit anderen anbieten"
@@ -1729,6 +1748,29 @@ de:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Die Buchung ist wegen eines unerwarteten Fehlers fehlgeschlagen. Bitte versuche erneut später. Dein Konto bzw. deine Kreditkarte wurde nicht belastet."
@@ -2479,6 +2521,7 @@ de:
       night: Nacht
       nights: Nächte
       invalid_parameters: "Ungültige Werte für neue Transaktion"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Anzeigen.
     stripe_payment:

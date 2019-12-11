@@ -442,10 +442,13 @@ lv:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: ~
           listing: ~
@@ -465,6 +468,7 @@ lv:
           paid: ~
           confirmed: ~
           canceled: ~
+          disputed: ~
           initiated: ~
           pending_ext: ~
           none:
@@ -478,8 +482,11 @@ lv:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -489,11 +496,14 @@ lv:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: ~
       conversations:
         conversations: ~
@@ -1119,6 +1129,8 @@ lv:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Rediģēt lapu"
     default_community_slogan: "Savstarpējās iznomāšanas platforma"
@@ -1215,6 +1227,7 @@ lv:
     confirm:
       confirm_description: "Ja pasūtījums ir izpildīts, Jums vajadzētu to apstiprināt kā izpildītu. Tad Jūs varēsiet sniegt atsauksmi par otru darījuma pusi."
       cancel_description: "Ja Jūsu pasūtījums netika izpildīts, Jūs varat atzīmēt to kā 'atcelts'. Jūs joprojām varat sniegt atsauksmi par otru darījuma pusi un aprakstīt to, kas notika."
+      cancel_description_team: ~
       cancel_payed_description: "Ja Jūsu pieprasījums tika apstiprināts, bet Jums ir otreizējas pārdomas, Jūs joprojām pirms maksājuma veikšanas varat atcelt pieprasījumu."
       canceling_payed_transaction: "Atcelt tranzakciju"
       confirm: "Atzīmēt kā pabeigtu"
@@ -1263,6 +1276,10 @@ lv:
         held_payment: "Apstiprināja pieprasījumu. %{service_name} pieturēs maksājumu par summu %{sum} līdz pasūtījums būs atzīmēts kā izpildīts."
         held_payment_wo_sum: "Pieņēma pieprasījumu. %{service_name} aizturēs maksājumu, līdz pasūtījums tiks atzīmēts kā pabeigts."
         confirmed_request: "Pasūtījums atzīmēts kā izpildīts. Maksājums ir pārskaitīts uz %{author_name} bankas kontu vai arī drīz tiks pārskaitīts."
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Ziņa
       message_to: "Ziņa %{author_name}"
@@ -1337,6 +1354,18 @@ lv:
           verify: "Gaida, kad Jūs verisifēciet savu PayPal kontu"
       stripe:
         waiting_confirmation_from_requester: "Gaida uz %{requester_name}, kad atzīmēs, ka pasūtījums izpildīts. Tiklīdz pasūtījums tiks atzīmēts, kā izpildīts, maksājums tiks pārskaitīts uz Jūsu bankas kontu."
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Apstiprināt piedāvājumu"
       accept_request: "Apstiprināt pieprasījumu"
@@ -1348,6 +1377,8 @@ lv:
       reject_preauthorized_request: "Šoreiz ne"
       confirm: "Atzīmēt, ka pabeigts"
       cancel: Atcelt
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Jauna atsauksme no %{service_name}"
     feedback_body: "%{author_name_and_email} ir nosūtījis/-jusi šādu atsauksmi no %{service_name}"
@@ -1402,7 +1433,6 @@ lv:
       please_go_to_payment_settings: "Lūdzu dodieties uz %{payment_settings_link} un ievadiet pieprasīto maksājumu informāciju."
       payment_settings_link: "maksājumu iestatījumi"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1417,27 +1447,22 @@ lv:
         has_marked_request_as_confirmed: "%{other_party_full_name} ir atzīmējis pasūtījumu '%{request}' kā pabeigtu. Maksājums par šo darījumu tagad ir pārskaitīts uz Jūsu bankas kontu. Tagad varat sniegt atsauksmes par %{other_party_given_name}."
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Pasūtījums izpildīts automātiski - atcerieties sniegt atsauksmi"
       we_have_marked_request_as_confirmed: "Mēs esam atzīmējuši, ka pasūtījums par '%{request}' ir izpildīts. Pasūtījums tika izpildīts automātiski, jo bija pagājušas %{days_passed} dienas kopš pieprasījuma apstiprināšanas."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Pasūtījums izpildīts automātiski - atcerieties sniegt atsauksmes"
       we_have_marked_request_as_confirmed: "Mēs esam atzīmējuši pasūtījumu par '%{request}' kā izpildītu. Pieprasījums tika pabeigts automātiski, jo ir pagājusi viena diena kopš rezervēšanas perioda beigām."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Tagad varat sniegt atsauksmes par %{other_party_given_name}. Sniegt atsauksmi vienmēr ir laba doma. Ja viss noritēja labi, Jums vajadzētu ļaut citiem uzzināt, ka var uzticēties %{other_party_given_name}. Ja radās kādas problēmas, ir labi pieminēt arī to."
@@ -1452,9 +1477,9 @@ lv:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Sveicināti %{name},"
+      hi: ~
       kassi_team: "%{service_name} komanda"
       thanks: "Paldies,"
       dont_want_to_receive_these_emails: "Nevēlaties turpmāk saņemt šādas vēstules?"
@@ -1466,7 +1491,7 @@ lv:
       unsubscribe_from_these_emails: "atrakstīties no šādiem e-pastiem"
       unsubscribe_from_invitation_emails_info: "Jūs saņemat šo e-pastu jo %{service_name} dalībnieks uzaicināja jūs pievienoties"
       unsubscribe_from_invitation_emails: "Atrakstīties no uzaicinājuma e-pastiem lai pievienoties %{service_name}"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ir apstiprinājums jūsu piedāvājumu %{listing}"
       has_accepted_your_request: "%{accepter} ir apstiprinājis jūsu pieprasījumu%{listing}"
@@ -1499,14 +1524,12 @@ lv:
       you_have_a_new_comment: "%{author} komentēja Jūsu ierakstu %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} komentējis piedāvājumu, kuram sekojat %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} komentēja sludinājumu '%{listing}' kuram Jūs sekojat %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Skatīt vēstuli"
       has_sent_you_a_message_in_kassi: "%{sender} ir nosūtījis Jums ziņu %{service_name}."
       you_have_a_new_message: "Jauna vēstule %{service_name} no %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Jūs esat saņēmis jaunu maksājumu"
@@ -1531,7 +1554,6 @@ lv:
         you_have_received_new_payment: "%{payer_full_name} samaksāja summu <b>%{payment_sum}</b> par <b>%{listing_title}</b>. Naudu aiztur %{service_name}, līdz pasūtījums tiek atzīmēts kā pabeigts. Šeit ir jūsu kvīts."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1552,8 +1574,6 @@ lv:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal komisija:"
       shipping_total: "Piegāde:"
@@ -1602,7 +1622,6 @@ lv:
       unsubscribe_link_text: atrakstīties
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Sveiks %{name},"
       newest_offers: "Ko cilvēki patlaban piedāvā citiem"
@@ -1698,6 +1717,29 @@ lv:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervēšana neizdevās neparedzētas kļūdas dēļ. Lūdzu, mēģiniet vēlreiz vēlāk. Maksājums no Jums nav ieturēts."
@@ -2448,6 +2490,7 @@ lv:
       night: nakts
       nights: naktis
       invalid_parameters: "Nederīgas vērtības jaunam darījumam"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Apskatīt.
     stripe_payment:
