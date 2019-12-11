@@ -13,9 +13,13 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
   def perform
     transaction = Transaction.find(conversation_id)
     community = Community.find(community_id)
-    MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community, :seller))
-    if transaction.last_transition_by_admin?
-      MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community, :buyer))
+
+    # do not send emails on cancellation dismissed
+    unless transaction.current_state == 'dismissed'
+      MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community, :seller))
+      if transaction.last_transition_by_admin?
+        MailCarrier.deliver_now(PersonMailer.transaction_confirmed(transaction, community, :buyer))
+      end
     end
 
     if transaction.payment_gateway == :stripe

@@ -1,45 +1,31 @@
 - content_for :extra_javascript do
   :javascript
-    (function() {
-      ST.initializeRadioButtons({
-        buttons: [".js-confirm-radio-button", ".js-cancel-radio-button"],
-        input: ".js-confirmation-status",
-        callback: function(selector) {
-          switch(selector) {
-            case ".js-confirm-radio-button":
-            $(".confirm-description").removeClass("hidden");
-            $(".cancel-description").addClass("hidden");
-            break;
-            case ".js-cancel-radio-button":
-            $(".cancel-description").removeClass("hidden");
-            $(".confirm-description").addClass("hidden");
-            break;
-          }
-        }
-      })
-    })();
+    ST.ConfirmConversation.init({
+    canceled_flow: #{@presenter.canceled_flow?}
+    });
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
 
 .centered-section.conversation-status-form
-  = form_for form, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => listing_transaction[:id]), :html => { :method => "put" } do |form|
-    - if can_be_confirmed
+  = form_for @presenter.transaction, :url => confirmation_person_message_path(person_id: @presenter.user.id, id: @presenter.transaction.id), :html => { :method => "put" } do |form|
+    - if @presenter.can_be_confirmed?
 
-      %input.js-confirmation-status{type: :hidden, name: "transaction[status]", value: action_type == "confirm" ? "confirmed" : "canceled"}
+      %input.js-confirmation-status{type: :hidden, name: "transaction[status]", value: @presenter.confirm? ? "confirmed" : "canceled"}
 
-      %a#confirm-action-link.radio-button-positive.js-confirm-radio-button{ data: { :"radio-button-value" => "confirmed" }, class: action_type == "confirm" ? "radio-button-selected" : "" }
+      %a#confirm-action-link.radio-button-positive.js-confirm-radio-button{ data: { :"radio-button-value" => "confirmed" }, class: @presenter.confirm? ? "radio-button-selected" : "" }
         .radio-button-icon{class: icon_for("confirmed")}
         .radio-button-label= t("conversations.confirm.confirm")
-      %a#cancel-action-link.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: action_type == "cancel" ? "radio-button-selected" : "" }
+      %a#cancel-action-link.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: @presenter.cancel? ? "radio-button-selected" : "" }
         .radio-button-icon{class: icon_for("canceled")}
         .radio-button-label= t("conversations.confirm.cancel")
 
       .conversation-action-description
-        %div{:class => "confirm-description #{action_type.eql?('confirm') ? '' : 'hidden'}"}
+        %div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
           = t("conversations.confirm.confirm_description")
-        %div{:class => "cancel-description #{action_type.eql?('cancel') ? '' : 'hidden'}"}
-          = t("conversations.confirm.cancel_description")
+        %div{:class => "cancel-description #{@presenter.cancel? ? '' : 'hidden'}"}
+          - key = @presenter.canceled_flow? ? 'cancel_description_team' : 'cancel_description'
+          = t("conversations.confirm.#{key}")
 
     - else
 
@@ -54,14 +40,14 @@
 
       = form.hidden_field :status, :value => "canceled"
 
-    .close-listing-radio-buttons
+    .close-listing-radio-buttons{:class => "#{@presenter.give_feedback_class}"}
 
       .checkbox-container
-        = radio_button_tag "give_feedback", true, true, :id => "do_give_feedback"
-        = label_tag "do_give_feedback", t("conversations.confirm.give_feedback_to", :person_link => link_to(PersonViewUtils.person_display_name(other_person, @current_community), person_path(other_person.username))).html_safe, :class => "radio"
+        = radio_button_tag "give_feedback", @presenter.give_feedback_value, true, :id => "do_give_feedback"
+        = label_tag "do_give_feedback", t("conversations.confirm.give_feedback_to", :person_link => link_to(PersonViewUtils.person_display_name(@presenter.other_person, @presenter.community), person_path(@presenter.other_person.username))).html_safe, :class => "radio"
 
       .checkbox-container
-        = radio_button_tag "give_feedback", false, false, :id => "do_not_give_feedback"
+        = radio_button_tag "give_feedback", !@presenter.give_feedback_value, false, :id => "do_not_give_feedback"
         = label_tag "do_not_give_feedback", t("conversations.confirm.do_not_give_feedback"), :class => "radio"
 
     = form.button t("conversations.confirm.continue"), :class => "send_button", :id => "send_testimonial_button"

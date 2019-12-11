@@ -97,7 +97,7 @@ class Transaction < ApplicationRecord
     .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
   }
   scope :availability_blocking, -> do
-    where(current_state: ['payment_intent_requires_action', 'preauthorized', 'paid', 'confirmed', 'canceled'])
+    where(current_state: ['payment_intent_requires_action', 'preauthorized', 'paid', 'confirmed', 'canceled', 'dismissed', 'disputed'])
   end
   scope :non_free, -> { where('current_state <> ?', ['free']) }
   scope :by_community, -> (community_id) { where(community_id: community_id) }
@@ -114,7 +114,7 @@ class Transaction < ApplicationRecord
   }
   scope :for_testimonials, -> {
     includes(:testimonials, testimonials: [:author, :receiver], listing: :author)
-    .where(current_state: ['confirmed', 'canceled'])
+    .where(current_state: ['confirmed', 'canceled', 'dismissed'])
   }
   scope :search_by_party_or_listing_title, ->(pattern) {
     joins(:starter, :listing_author)

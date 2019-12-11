@@ -138,11 +138,29 @@ module TransactionViewUtils
         admin: transition[:metadata] && transition[:metadata]['executed_by_admin'],
         mood: :negative
       }
+    when "disputed"
+      {
+        sender: transition_user(transition, starter),
+        admin: transition[:metadata] && transition[:metadata]['executed_by_admin'],
+        mood: :negative
+      }
     when "confirmed"
       {
         sender: transition_user(transition, starter),
         admin: transition[:metadata] && transition[:metadata]['executed_by_admin'],
         mood: :positive
+      }
+    when "refunded"
+      {
+        sender: transition_user(transition, starter),
+        admin: transition[:metadata] && transition[:metadata]['executed_by_admin'],
+        mood: :positive
+      }
+    when "dismissed"
+      {
+        sender: transition_user(transition, starter),
+        admin: transition[:metadata] && transition[:metadata]['executed_by_admin'],
+        mood: :negative
       }
     else
       raise("Unknown transition to state: #{transition[:to_state]}")
@@ -192,12 +210,18 @@ module TransactionViewUtils
       t("conversations.message.paid", sum: amount)
     when "canceled"
       t("conversations.message.canceled_request")
+    when "disputed"
+      t("conversations.message.canceled_the_order")
     when "confirmed"
       if payment_gateway == :stripe
         t("conversations.message.stripe.confirmed_request", author_name: author[:display_name])
       else
         t("conversations.message.confirmed_request")
       end
+    when "refunded"
+      t("conversations.message.marked_as_refunded")
+    when "dismissed"
+      "#{t('conversations.message.dismissed_the_cancellation')} #{payment_gateway == :stripe ? t('conversations.message.payment_has_now_been_transferred', seller: author[:display_name]) : ''}"
     else
       raise("Unknown transition to state: #{state}")
     end

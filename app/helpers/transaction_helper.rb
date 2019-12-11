@@ -164,10 +164,31 @@ module TransactionHelper
         }
       } },
 
+      disputed: ->() { {
+        both: {
+          icon: icon_tag("clock", ["icon-fix-rel", "canceled"]),
+          text: t("conversations.status.waiting_for_marketplace_review")
+        }
+      } },
+
       errored: ->() { {
         both: {
           icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
           text: t("conversations.status.payment_errored")
+         }
+      } },
+
+      refunded: ->() { {
+        both: {
+          icon: icon_tag("refund", ["icon-fix-rel", "confirmed"]),
+          text: t("conversations.status.refunded")
+         }
+      } },
+
+      dismissed: ->() { {
+        both: {
+          icon: icon_tag("dismiss", ["icon-fix-rel", "confirmed"]),
+          text: t("conversations.status.dismissed")
          }
       } },
     }
@@ -210,7 +231,7 @@ module TransactionHelper
   #     ]
   #   }
   # }
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def get_conversation_statuses(conversation, is_author)
     statuses = if conversation.listing && !conversation.status.eql?("free")
       status_hash = {
@@ -276,12 +297,23 @@ module TransactionHelper
           ]
         }
                    },
-        canceled: -> { {
-          both: [
-            status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
-            feedback_status(conversation)
-          ]
-        }
+        canceled: -> {
+          {
+            both: [
+              status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
+              feedback_status(conversation)
+            ]
+          }
+                  },
+        disputed: -> {
+          contact_link = link_to t("conversations.status.contact_them"), new_user_feedback_path
+          {
+            both: [
+              status_info(t("conversations.status.order_canceled"), icon_classes: icon_for("canceled")),
+              status_info(t("conversations.status.waiting_for_marketplace_review"), icon_classes: 'ss-clock'),
+              status_info(t("conversations.status.marketplace_notified", contact_link: contact_link).html_safe, icon_classes: 'ss-mail'),
+            ]
+          }
                   },
         rejected: -> { {
           both: [
@@ -297,7 +329,38 @@ module TransactionHelper
             status_info(t("conversations.status.payment_errored_starter"), icon_classes: icon_for("errored"))
           ]
         }
-                 }
+                 },
+        refunded: -> {
+          contact_link = link_to t("conversations.status.contact_the_marketpalce_team"), new_user_feedback_path
+          {
+          author: [
+            status_info(t("conversations.status.order_refunded"), icon_classes: icon_class('refund')),
+            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
+            feedback_status(conversation)
+          ],
+          starter: [
+            status_info("#{t('conversations.status.order_refunded')} #{t('conversations.status.you_should_receive_refund_soon')}", icon_classes: icon_class('refund')),
+            status_info(t('conversations.status.issue_with_the_refund', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
+            feedback_status(conversation)
+
+          ]
+          }
+                  },
+        dismissed: -> {
+          contact_link = link_to t("conversations.status.contact_the_marketpalce_team"), new_user_feedback_path
+          {
+          author: [
+            status_info(t("conversations.status.order_cancellation_dismissed"), icon_classes: icon_class('dismiss')),
+            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
+            feedback_status(conversation)
+          ],
+          starter: [
+            status_info(t("conversations.status.order_cancellation_dismissed"), icon_classes: icon_class('dismiss')),
+            status_info(t('conversations.status.do_you_disagree', contact_link: contact_link).html_safe, icon_classes: icon_class('mail')),
+            feedback_status(conversation)
+          ]
+          }
+                   }
       }
 
       Maybe(status_hash)[conversation.status.to_sym]
@@ -310,7 +373,7 @@ module TransactionHelper
 
     statuses.flatten.compact
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   private
 
