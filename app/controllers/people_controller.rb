@@ -221,8 +221,9 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def check_username_availability
+    target_user = Person.find_by!(username: params[:id], community_id: @current_community.id)
     respond_to do |format|
-      format.json { render :json => Person.username_available?(params[:person][:username], @current_community, @current_user) }
+      format.json { render :json => Person.username_available?(params[:person][:username], @current_community, target_user) }
     end
   end
 
@@ -332,6 +333,7 @@ class PeopleController < Devise::RegistrationsController
       :phone_number,
       :image,
       :description,
+      :username,
       location: [:address, :google_address, :latitude, :longitude],
       custom_field_values_attributes: [
         :id,

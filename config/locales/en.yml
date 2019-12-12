@@ -1847,7 +1847,7 @@ en:
       section_with_this_id_already_exists: "This section unique name is already in use. Please choose another one."
       listing_with_this_id_does_not_exist: "This listing ID is not available in your marketplace. Maybe you made a typo? Please verify and try again."
       presence: "Can't be blank"
-      username_is_invalid: Username is invalid
+      username_is_invalid: This username is invalid or unavailable
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -2849,7 +2849,7 @@ en:
       format_markdown_link: "format your description using Markdown"
       format_markdown: "You can %{link}."
       username: Username
-      username_description: Your username is used as part of the unique URL of your profile page. If you edit the username, you will have to log in again.
+      username_description: Your username is used as part of the unique URL of your profile page. You can only use letters and numbers for your username, without spaces.
     save_information: "Save information"
   shipping_address:
     shipping_address: "Shipping address"
