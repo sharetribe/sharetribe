@@ -51,7 +51,7 @@
       = t("settings.profile.username_description")
     = form.text_field :username, class: "text_field", required: true,
       minlength: 3, maxlength: 20, valid_username: true,
-      remote: check_username_availability_people_path,
+      remote: check_username_availability_person_path(target_user.username),
       data: {'msg-remote': t('errors.messages.username_is_invalid')},
       'data-msg-valid_username': t('errors.messages.username_is_invalid')
 
