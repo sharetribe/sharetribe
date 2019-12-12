@@ -198,6 +198,8 @@ module StripeService::API
             fee: commission.cents + buyer_commission.cents,
             description: description,
             metadata: metadata)
+        else
+          return Result::Error.new("No payment method or token present")
         end
 
         payment_data = {
