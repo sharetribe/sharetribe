@@ -93,8 +93,7 @@ class Transaction < ApplicationRecord
 
   scope :exist, -> { where(deleted: false) }
   scope :for_person, -> (person){
-    joins(:listing)
-    .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
+    where('listing_author_id = ? OR starter_id = ?', person.id, person.id)
   }
   scope :availability_blocking, -> do
     where(current_state: ['payment_intent_requires_action', 'preauthorized', 'paid', 'confirmed', 'canceled', 'dismissed', 'disputed'])
