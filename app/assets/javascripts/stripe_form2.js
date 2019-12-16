@@ -250,6 +250,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
           },
           error: function(error) {
             console.log('Stripe token error ="' + error.message + '" "' + error.param + '" "' + error.type + '"');
+            showError(options.error_nofication.replace('%{message}', error.message));
           },
           verify: verify,
           fileElement: fileElement,
@@ -331,6 +332,12 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
       }
     );
   };
+
+  var showError = function(message) {
+    ST.utils.showError(message, 'error');
+    $('html, body').animate({ scrollTop: $('.flash-notifications').offset().top}, 1000);
+  };
+
 
   module.StripeBankForm = {
     init: init
