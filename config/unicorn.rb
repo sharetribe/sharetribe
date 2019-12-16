@@ -1,7 +1,7 @@
-app_path = File.expand_path(File.dirname(__FILE__) + '/..')
-shared_path = "#{app_path}/shared"
+deploy_to = '/var/www/donalo/'
+shared_path = "#{deploy_to}/shared"
 
-working_directory app_path
+working_directory deploy_to
 
 pid "#{shared_path}/pids/unicorn.pid"
 stderr_path "#{shared_path}/log/unicorn.err.log"
