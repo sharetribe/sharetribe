@@ -20,6 +20,10 @@ module Person::PaymentSettingsCommon
       address_state
       document
       additional_document
+      document_front
+      document_back
+      additional_document_front
+      additional_document_back
       ssn_last_4
       token
       gender

@@ -2,6 +2,8 @@ class StripeService::API::StripeApiWrapper
   class << self
 
     DEFAULT_MCC = 5734 # Computer Software Stores
+    API_2019_12_03 = '2019-12-03'.freeze
+    API_2019_02_19 = '2019-02-19'.freeze
 
     @@mutex ||= Mutex.new # rubocop:disable ClassVars
 
@@ -10,7 +12,8 @@ class StripeService::API::StripeApiWrapper
     end
 
     def configure_payment_for(settings)
-      Stripe.api_version = '2019-02-19'
+      capabilities = FeatureFlag.feature_enabled?(settings.community_id, :stripe_capabilities)
+      Stripe.api_version = capabilities ? API_2019_12_03 : API_2019_02_19
       Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key, settings.key_encryption_padding)
     end
 
@@ -125,8 +128,12 @@ class StripeService::API::StripeApiWrapper
           email: account_info[:email],
           account_token: account_info[:token]
         }
-        if ['US', 'EE', 'GR', 'LV', 'LT', 'PL', 'SK', 'SI', 'MX'].include?(account_info[:address_country])
-          data[:requested_capabilities] = ['card_payments']
+        if Stripe.api_version == API_2019_12_03 || ['US', 'EE', 'GR', 'LV', 'LT', 'PL', 'SK', 'SI', 'MX'].include?(account_info[:address_country])
+          data[:requested_capabilities] = if Stripe.api_version == API_2019_12_03
+            ['card_payments', 'transfers']
+          else
+            ['card_payments']
+                                          end
           data[:business_profile] = {
             mcc: DEFAULT_MCC,
             url: account_info[:url]

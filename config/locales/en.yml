@@ -3203,9 +3203,11 @@ en:
     form_verification:
       personal_id_number: "Personal ID Number"
       document: "Proof of identity (passport, government-issued ID)"
+      document_back: "Proof of identity (passport, government-issued ID) (back of document)"
       send_verification: "Send Verification"
       need_verification: "Need additional verification"
       additional_document: "A document showing address, either a passport, local ID card, or utility bill from a well-known utility company"
+      additional_document_back: "A document showing address, either a passport, local ID card, or utility bill from a well-known utility company (back of document)"
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"
