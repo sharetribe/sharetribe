@@ -1,7 +1,7 @@
 deploy_to = '/var/www/donalo/'
 shared_path = "#{deploy_to}/shared"
 
-working_directory deploy_to
+working_directory "#{deploy_to}/current"
 
 pid "#{shared_path}/pids/unicorn.pid"
 stderr_path "#{shared_path}/log/unicorn.err.log"
