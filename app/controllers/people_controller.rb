@@ -175,13 +175,21 @@ class PeopleController < Devise::RegistrationsController
             flash[:notice] = t("layouts.notifications.email_confirmation_sent_to_new_address")
         end
       else
-        flash[:error] = t("layouts.notifications.#{target_user.errors.first}")
+        flash[:error] = if params[:referer_form] == 'settings'
+          target_user.errors.full_messages.join(', ')
+        else
+          t("layouts.notifications.#{target_user.errors.first}")
+                        end
       end
     rescue RestClient::RequestFailed => e
       flash[:error] = t("layouts.notifications.update_error")
     end
 
-    redirect_back(fallback_location: homepage_url)
+    if params[:referer_form] == 'settings' && target_user.errors.empty?
+      redirect_to person_settings_path(person_id: target_user.username)
+    else
+      redirect_back(fallback_location: homepage_url)
+    end
   end
 
   def destroy
@@ -210,6 +218,13 @@ class PeopleController < Devise::RegistrationsController
     record_event(flash, 'user', {action: "deleted", opt_label: "by user"})
     flash[:notice] = t("layouts.notifications.account_deleted")
     redirect_to search_path
+  end
+
+  def check_username_availability
+    target_user = Person.find_by!(username: params[:id], community_id: @current_community.id)
+    respond_to do |format|
+      format.json { render :json => Person.username_available?(params[:person][:username], @current_community, target_user) }
+    end
   end
 
   def check_email_availability_and_validity
@@ -318,6 +333,7 @@ class PeopleController < Devise::RegistrationsController
       :phone_number,
       :image,
       :description,
+      :username,
       location: [:address, :google_address, :latitude, :longitude],
       custom_field_values_attributes: [
         :id,
@@ -337,6 +353,7 @@ class PeopleController < Devise::RegistrationsController
       :password,
       :password2,
       :min_days_between_community_updates,
+      :username,
       send_notifications: [],
       email_attributes: [:address],
       preferences: [
