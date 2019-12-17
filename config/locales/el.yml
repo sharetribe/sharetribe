@@ -292,6 +292,7 @@ el:
         enabled_for_all: ~
         new_topbar: ~
         searchpage: ~
+        new_email_templates: ~
       social_media:
         social_media: ~
         logo: ~
@@ -1809,6 +1810,7 @@ el:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
@@ -2193,6 +2195,8 @@ el:
       payments: Πληρωμές
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Δεν έχεις δικαίωμα να δεις αυτή την καταχώρηση."
@@ -2805,6 +2809,8 @@ el:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: Αποθήκευση
   shipping_address:
     shipping_address: ~

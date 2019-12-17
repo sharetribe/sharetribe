@@ -302,6 +302,7 @@ vi:
         enabled_for_all: "Bật cho tất cả"
         new_topbar: "Thanh trên cùng mới (hiển thị trên mỗi trang)"
         searchpage: "Trang tìm kiếm mới (yêu cầu thanh trên cùng mới)"
+        new_email_templates: ~
       social_media:
         social_media: "Mạng xã hội"
         logo: ~
@@ -1833,6 +1834,7 @@ vi:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} đồng ý cho %{requester_name} vay %{listing_title} %{time_ago}."
@@ -2220,6 +2222,8 @@ vi:
       payments: "Thanh toán"
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Bạn không có quyền xem bài đăng này."
@@ -2829,6 +2833,8 @@ vi:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Lưu thông tin"
   shipping_address:
     shipping_address: "Địa chỉ giao hàng"

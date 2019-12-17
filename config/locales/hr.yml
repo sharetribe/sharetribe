@@ -315,6 +315,7 @@ hr:
         enabled_for_all: "Omogućeno za sve"
         new_topbar: "Nova gornja traka (vidljiva na svakoj stranici)"
         searchpage: "Nova stranica za pretragu.( zahtjeva top bar)"
+        new_email_templates: ~
       social_media:
         social_media: "Društvene mreže"
         logo: "Slika za društvene medije"
@@ -1855,6 +1856,7 @@ hr:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} je pristao na posudbu %{listing_title} prema %{requester_name} %{time_ago}."
@@ -2245,6 +2247,8 @@ hr:
       payments: Plaćanja
       listings: Oglasi
       listings_search_placeholder: "Traži naslov oglasa"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Nije vam odobreno da vidite ovaj oglas"
@@ -2857,6 +2861,8 @@ hr:
       editing_profile_of: "Trenutno uređujete profil %{name}"
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Spremite informacije"
   shipping_address:
     shipping_address: "Adresa isporuke"

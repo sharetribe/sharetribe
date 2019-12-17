@@ -307,6 +307,7 @@ fi:
         enabled_for_all: "Käytössä kaikilla"
         new_topbar: "Uusi yläpalkki (näkyy joka sivulla)"
         searchpage: "Uusi hakusivu (tarvitsee uuden yläpalkin)"
+        new_email_templates: ~
       social_media:
         social_media: "Sosiaalinen media"
         logo: Logo
@@ -1844,6 +1845,7 @@ fi:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
@@ -2232,6 +2234,8 @@ fi:
       payments: Maksutiedot
       listings: Ilmoitukset
       listings_search_placeholder: "Etsi ilmoituksen otsikolla"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."
@@ -2844,6 +2848,8 @@ fi:
       editing_profile_of: "Muokkaat nyt käyttäjän %{name} profiilia"
       format_markdown_link: "muotoilla kuvaustekstiä käyttäen Markdownia"
       format_markdown: "Voit %{link}."
+      username: ~
+      username_description: ~
     save_information: "Tallenna tiedot"
   shipping_address:
     shipping_address: Postitusosoite

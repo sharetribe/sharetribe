@@ -308,6 +308,7 @@ hu:
         enabled_for_all: "Bekapcsolva mindenkinek"
         new_topbar: "Új top bar (minden oldalon látható)"
         searchpage: "Új keresési oldal"
+        new_email_templates: ~
       social_media:
         social_media: "Közösségi média"
         logo: ~
@@ -1841,6 +1842,7 @@ hu:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} engedélyezte %{listing_title} kölcsönadását %{requester_name} számára %{time_ago}"
@@ -2229,6 +2231,8 @@ hu:
       payments: Fizetések
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Ehhez a hirdetéshez nincs hozzáférése"
@@ -2842,6 +2846,8 @@ hu:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: Mentés
   shipping_address:
     shipping_address: "Szállítási cím"

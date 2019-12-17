@@ -312,6 +312,7 @@ sk-SK:
         enabled_for_all: "Sprístupnené pre všetkých"
         new_topbar: "Nová horná lišta (viditeľná na každej stránke)"
         searchpage: "Nové vyhľadávanie (vyžaduje nový horný riadok)"
+        new_email_templates: ~
       social_media:
         social_media: "Sociálne médiá"
         logo: "Obrázok sociálnych médií"
@@ -1855,6 +1856,7 @@ sk-SK:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} súhlasil s pôžičkou %{listing_title} pre %{requester_name} %{time_ago}."
@@ -2244,6 +2246,8 @@ sk-SK:
       payments: Platby
       listings: Inzeráty
       listings_search_placeholder: "Vyhľadajte názov záznamu"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Nemáte povolenie zobraziť tento zoznam."
@@ -2857,6 +2861,8 @@ sk-SK:
       editing_profile_of: "Teraz upravujete profil používateľa %{name}"
       format_markdown_link: "naformátujte svoj popis pomocou Markdown"
       format_markdown: "Môžete %{link}."
+      username: ~
+      username_description: ~
     save_information: "Ulož informácie"
   shipping_address:
     shipping_address: "Adresa doručenia"
