@@ -317,6 +317,7 @@ pl:
         enabled_for_all: "Włączone dla wszystkich"
         new_topbar: "Nowy pasek górny (widoczny na każdej stronie)"
         searchpage: "Nowa strona wyszukiwania (wymaga nowego górnego paska)"
+        new_email_templates: ~
       social_media:
         social_media: "Media społecznościowe"
         logo: logo
@@ -1862,6 +1863,7 @@ pl:
       section_with_this_id_already_exists: "Ten identyfikator jest już zajęty. Wybierz inny."
       listing_with_this_id_does_not_exist: "To nie jest Twój identyfikator ogłoszenia. Może to literówka? Sprawdź i spróbuj ponownie."
       presence: "Pole nie może być puste."
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} zgodził się, aby pożyczyć %{listing_title} do %{requester_name} %{time_ago}"
@@ -2252,6 +2254,8 @@ pl:
       payments: Płatności
       listings: Oferty
       listings_search_placeholder: "Szukaj po nazwie oferty"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Nie masz uprawnień do obejrzenia tej oferty."
@@ -2866,6 +2870,8 @@ pl:
       editing_profile_of: "Edytujesz profil %{name}"
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Zapisz informacje"
   shipping_address:
     shipping_address: "Adres dostawy"

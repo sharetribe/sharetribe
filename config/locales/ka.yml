@@ -302,6 +302,7 @@ ka:
         enabled_for_all: "ყველასთვის გააქტიურდა"
         new_topbar: "ახალი ზემოთა ბარი (ყველა გვერდზე ჩანს)"
         searchpage: "ახალი გვერდის ძებნა (მოითხოვს ახალი ზედა ზოლის გამოყენებას)"
+        new_email_templates: ~
       social_media:
         social_media: "სოციალური მედია"
         logo: ~
@@ -1829,6 +1830,7 @@ ka:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} დაეთანხმა რომ გააქირაოს %{listing_title} %{requester_name}ზე %{time_ago}."
@@ -2216,6 +2218,8 @@ ka:
       payments: გადახდები
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "თქვენ არ გაქვთ წვდომა ამ ჩამონათვლის სანახავად"
@@ -2827,6 +2831,8 @@ ka:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "ინფორმაციის შენახვა"
   shipping_address:
     shipping_address: "ტრანსპორტირების მისამართი"

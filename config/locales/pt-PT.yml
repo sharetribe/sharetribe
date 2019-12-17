@@ -298,6 +298,7 @@ pt-PT:
         enabled_for_all: ~
         new_topbar: ~
         searchpage: ~
+        new_email_templates: ~
       social_media:
         social_media: ~
         logo: ~
@@ -1827,6 +1828,7 @@ pt-PT:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceitou emprestar %{listing_title} a %{requester_name} %{time_ago}"
@@ -2211,6 +2213,8 @@ pt-PT:
       payments: ~
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Não tem permissão para consultar este anúncio."
@@ -2823,6 +2827,8 @@ pt-PT:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Salvar informação"
   shipping_address:
     shipping_address: ~

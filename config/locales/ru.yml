@@ -317,6 +317,7 @@ ru:
         enabled_for_all: "Доступно для всех"
         new_topbar: "Новая верхняя панель (видимая на каждой странице)"
         searchpage: "Новая страница поиска (необходима новая верхняя панель)"
+        new_email_templates: ~
       social_media:
         social_media: "Социальные медиа"
         logo: "изображение в социальных сетях"
@@ -1860,6 +1861,7 @@ ru:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."
@@ -2250,6 +2252,8 @@ ru:
       payments: Платежи
       listings: Объявления
       listings_search_placeholder: "Поиск по названию объявления"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "У вас нет прав для просмотра этой записи."
@@ -2864,6 +2868,8 @@ ru:
       editing_profile_of: "Вы сейчас редактируете профиль %{name}"
       format_markdown_link: "форматировать ваше описание используя Markdown"
       format_markdown: "Вы можете %{link}."
+      username: ~
+      username_description: ~
     save_information: Сохранить
   shipping_address:
     shipping_address: "Адрес доставки"

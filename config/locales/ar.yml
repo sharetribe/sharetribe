@@ -292,6 +292,7 @@ ar:
         enabled_for_all: "تفعيل للكل"
         new_topbar: "قائمة علوية جديدة (متوفر على كل صفحة)"
         searchpage: "صفحة بحث جديدة تحتاج إلى شريط علوي جديد"
+        new_email_templates: ~
       social_media:
         social_media: "وسائل التواصل الاجتماعي"
         logo: ~
@@ -1832,6 +1833,7 @@ ar:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على إعارة ‎%{offerer_name}‎"
@@ -2216,6 +2218,8 @@ ar:
       payments: المدفوعات
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "ليس لديك صلاحية لعرض هذا المحتوى"
@@ -2827,6 +2831,8 @@ ar:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "حفظ المعلومات"
   shipping_address:
     shipping_address: "عنوان الشحن"

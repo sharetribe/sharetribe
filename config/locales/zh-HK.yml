@@ -302,6 +302,7 @@ zh-HK:
         enabled_for_all: ~
         new_topbar: ~
         searchpage: ~
+        new_email_templates: ~
       social_media:
         social_media: ~
         logo: ~
@@ -1827,6 +1828,7 @@ zh-HK:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 借給 %{requester_name} 。"
@@ -2214,6 +2216,8 @@ zh-HK:
       payments: 款項
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: 你無權查閱此訊息。
@@ -2825,6 +2829,8 @@ zh-HK:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: 保存訊息
   shipping_address:
     shipping_address: ~

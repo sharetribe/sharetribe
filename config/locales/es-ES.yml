@@ -307,6 +307,7 @@ es-ES:
         enabled_for_all: "Habilitar para todos"
         new_topbar: "Nueva barra superior (visible en todas las páginas)"
         searchpage: "Nueva página de búsqueda (requiere de la nueva barra superior)"
+        new_email_templates: ~
       social_media:
         social_media: "Social media"
         logo: "Imagen para medios sociales"
@@ -1844,6 +1845,7 @@ es-ES:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."
@@ -2232,6 +2234,8 @@ es-ES:
       payments: Pagos
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "No está autorizado para ver este anuncio."
@@ -2844,6 +2848,8 @@ es-ES:
       editing_profile_of: "Estás editando el perfil de %{name}"
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: "Dirección de envío"

@@ -302,6 +302,7 @@ zh:
         enabled_for_all: ~
         new_topbar: "新的顶部条 (所有页面可见)"
         searchpage: ~
+        new_email_templates: ~
       social_media:
         social_media: 社交媒体
         logo: ~
@@ -1827,6 +1828,7 @@ zh:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} 同意将 %{listing_title} 借给 %{requester_name} %{time_ago}."
@@ -2211,6 +2213,8 @@ zh:
       payments: 付款
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: 你无权查看此信息。
@@ -2825,6 +2829,8 @@ zh:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: 保存信息
   shipping_address:
     shipping_address: 送货地址

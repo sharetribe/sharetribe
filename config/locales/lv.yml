@@ -292,6 +292,7 @@ lv:
         enabled_for_all: ~
         new_topbar: ~
         searchpage: ~
+        new_email_templates: ~
       social_media:
         social_media: ~
         logo: ~
@@ -1813,6 +1814,7 @@ lv:
       section_with_this_id_already_exists: "Šis identifikators tiek izmantots. Lūdzu, izvēlieties citu."
       listing_with_this_id_does_not_exist: "Šis sludinājuma ID nav Jūsu. Varbūt Jūs kļūdījāties? Lūdzu, pārbaudiet un mēģiniet vēlreiz"
       presence: "Lauks nevar būt tukšs"
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} piekrita aizdot %{listing_title} %{requester_name} %{time_ago}."
@@ -2201,6 +2203,8 @@ lv:
       payments: Maksājumi
       listings: Sludinājumi
       listings_search_placeholder: "Meklējiet sludinājuma virsrakstu"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Jums nav atļaujas apskatīt šo ierakstu."
@@ -2813,6 +2817,8 @@ lv:
       editing_profile_of: "Jūs tagad rediģējat %{name} profilu"
       format_markdown_link: "formatējiet aprakstu, izmantojot Markdown"
       format_markdown: "Jūs varat %{link}."
+      username: ~
+      username_description: ~
     save_information: "Saglabā informāciju"
   shipping_address:
     shipping_address: "Piegādes adrese"
