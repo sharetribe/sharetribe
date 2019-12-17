@@ -17,12 +17,5 @@ test:
 staging:
   secret_key_base: <%= ENV['SECRET_TOKEN'] %>
 
-  mail_delivery_method: smtp
-  smtp_email_address: <%= ENV.fetch('SMTP_EMAIL') %>
-  smtp_email_port: <%= ENV.fetch('SMTP_PORT', 587) %>
-  smtp_email_user_name: <%= ENV.fetch('SMTP_USERNAME') %>
-  smtp_email_password: <%= ENV.fetch('SMTP_PASSWORD') %>
-  smtp_email_domain: <%= ENV.fetch('SMTP_DOMAIN') %>
-
 production:
   # Add local `production` environment configuration overrides here
