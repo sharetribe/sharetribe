@@ -1,0 +1,66 @@
+= form_tag '', :method => :get do
+  .row
+    .col-6
+      = text_field_tag :q, params[:q], placeholder: placeholder
+    .col-3.status-select-wrapper
+      .status-select-button
+        = @transactions_presenter.selected_statuses_title
+
+      .status-select-dropdown
+        .status-select-line.reset{data: {status: 'all'}}
+          = @transactions_presenter.selected_statuses_title
+        - @transactions_presenter.sorted_statuses.each do |status, status_translation, checked|
+          .status-select-line{class: checked ? 'selected' : '', data: {status: status}}
+            = check_box_tag "status[]", status, checked, id: "status-#{status}"
+            = status_translation
+    .col-3
+      = submit_tag t("admin.communities.transactions.search"), class: 'button search-button'
+      - if @transactions_presenter.personal?
+        = link_to t("admin.communities.transactions.reset_search"), transactions_person_settings_path(@current_user, sort: "last_activity", direction: "desc")
+      - else
+        = link_to t("admin.communities.transactions.reset_search"), admin_community_transactions_path(@current_community.id)
+
+- if @transactions_presenter.show_transactions_export?
+  #export-as-csv.right= link_to(" " + t("admin.communities.transactions.export_all_as_csv"), {action: :export}, {remote: true, class: icon_class("download")})
+
+%span#admin_transactions_count= page_entries_info(@transactions_presenter.transactions, :model => "Transaction").html_safe
+
+%table#admin_transactions
+  %thead
+    %tr
+      %th= render partial: "layouts/sort_link", locals: { column: "listing", direction: sort_link_direction("listing"), title: t("admin.communities.transactions.headers.listing") }
+      %th=t("admin.communities.transactions.headers.status")
+      %th=t("admin.communities.transactions.headers.sum")
+      %th= render partial: "layouts/sort_link", locals: { column: "started", direction: sort_link_direction("started"), title: t("admin.communities.transactions.headers.started") }
+      %th= render partial: "layouts/sort_link", locals: { column: "last_activity", direction: sort_link_direction("last_activity"), title: t("admin.communities.transactions.headers.last_activity") }
+      %th=t("admin.communities.transactions.headers.initiated_by")
+      %th=t("admin.communities.transactions.headers.other_party")
+
+  %tbody
+    - @transactions_presenter.transactions.each do |transaction|
+      %tr
+        - listing_title = transaction.listing_title || t("admin.communities.transactions.not_available")
+        %td=Maybe(transaction.listing).map { |listing| link_to_unless(listing.deleted, listing_title, listing_path(transaction.listing_id)) }.or_else(listing_title)
+        %td
+          - status = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
+          - if @transactions_presenter.show_link?(transaction)
+            - if @transactions_presenter.personal?
+              = link_to status, person_transaction_path(@current_user, transaction.id)
+            - else
+              = link_to status, admin_community_transaction_path(id: transaction.id)
+          - else
+            = status
+        %td=transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ""
+        %td=l(transaction.created_at, format: :short_date)
+        %td=l(transaction.last_activity, format: :short_date)
+        %td=Maybe(transaction.starter).map { |p| link_to_unless(p.deleted, PersonViewUtils.person_display_name(p, @current_community),person_path(p.username)) }.or_else("")
+        %td=Maybe(transaction.author).map { |p| link_to_unless(p.deleted, PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)) }.or_else("")
+.row
+  .col-12
+    = will_paginate @transactions_presenter.transactions
+
+- content_for :extra_javascript do
+  = js_t ["admin.communities.transactions.status_filter.all", "admin.communities.transactions.status_filter.selected_js"], true
+  :javascript
+    window.ST.initializeTransactionSearchFormSelector();
+
