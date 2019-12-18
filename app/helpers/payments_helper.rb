@@ -133,7 +133,8 @@ module PaymentsHelper
     {
       stripe_test_mode: !!StripeService::API::Api.wrapper.test_mode?(@current_community.id),
       api_publishable_key: payment_settings.try(:api_publishable_key),
-      bank_rules: BANK_RULES
+      bank_rules: BANK_RULES,
+      error_nofication: I18n.t('layouts.notifications.an_error_occurred_when_saving_your_information', message: '%{message}')
     }
   end
 end

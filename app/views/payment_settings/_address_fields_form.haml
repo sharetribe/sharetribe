@@ -29,6 +29,10 @@
       .col-12
         = form.label :address_state, t("stripe_accounts.form_new.address_province")+"*"
         = form.select :address_state, ca_states, { include_blank: true }, required: true
+    .row.country-dependent{"data-country-only" => "MX"}
+      .col-12
+        = form.label :address_state, t("stripe_accounts.form_new.address_state")+"*"
+        = form.select :address_state, mx_states, { include_blank: true }, required: true
   .country-dependent{"data-country-only" => "JP"}
     - [:address_kana_postal_code, :address_kana_state, :address_kana_city, :address_kana_town, :address_kana_line1].each do |field|
       .row
@@ -41,7 +45,7 @@
           = form.label field, t("stripe_accounts.form_new.#{field}")+"*"
           = form.text_field field, class: 'required'
 
-  .country-dependent{"data-country-only" => 'US,JP,PR,EE,GR,LV,LT,PL,SK,SI'}
+  .country-dependent{"data-country-only" => 'US,JP,PR,EE,GR,LV,LT,PL,SK,SI,MX'}
     .row
       .col-12
         = form.label :phone, t("stripe_accounts.form_new.phone_number")+"*"

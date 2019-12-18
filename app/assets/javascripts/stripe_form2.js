@@ -163,7 +163,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
         last_name: lastName,
         phone: getValue('phone'),
         email: getValue('email'),
-        id_number: ['US', 'CA', 'HK', 'SG', 'PR'].includes(country) ? getValue('id_number') : null,
+        id_number: ['US', 'CA', 'HK', 'SG', 'PR', 'MX'].includes(country) ? getValue('id_number') : null,
         ssn_last_4: ['US', 'PR'].includes(country) ? getValue('ssn_last_4') : null,
       };
       if (!options.update) {
@@ -250,6 +250,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
           },
           error: function(error) {
             console.log('Stripe token error ="' + error.message + '" "' + error.param + '" "' + error.type + '"');
+            showError(options.error_nofication.replace('%{message}', error.message));
           },
           verify: verify,
           fileElement: fileElement,
@@ -331,6 +332,12 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
       }
     );
   };
+
+  var showError = function(message) {
+    ST.utils.showError(message, 'error');
+    $('html, body').animate({ scrollTop: $('.flash-notifications').offset().top}, 1000);
+  };
+
 
   module.StripeBankForm = {
     init: init
