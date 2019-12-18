@@ -1818,7 +1818,7 @@ it:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
-      username_is_invalid: ~
+      username_is_invalid: "Il nome utente non è valido o non è disponibile"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ha accettato il prestito di %{listing_title} a %{requester_name} %{time_ago}."
@@ -2197,6 +2197,7 @@ it:
       stripe_you_account_balance_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
+      an_error_occurred_when_saving_your_information: "Errore durante il salvataggio delle tue informazioni: \"%{message}\". Prego controlla che tutte le informazioni siano corrette e riprova."
     settings:
       account: Account
       notifications: Notifiche
@@ -2207,8 +2208,8 @@ it:
       payments: Pagamenti
       listings: Inserzioni
       listings_search_placeholder: "Cerca inserzione"
-      transactions_search_placeholder: ~
-      transactions: ~
+      transactions_search_placeholder: "Cerca per titolo della transazione o utente"
+      transactions: Transazioni
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Non hai il permesso per visualizzare questo annuncio."
@@ -2823,8 +2824,8 @@ it:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
-      username: ~
-      username_description: ~
+      username: "Nome utente"
+      username_description: "Il nome utente è utilizzato come parte unica dell'URL della tua pagina profilo. Può contenere solamente lettere e numeri, senza spazi."
     save_information: "Salva le informazioni"
   shipping_address:
     shipping_address: "Indirizzo di consegna"
@@ -3157,6 +3158,7 @@ it:
       ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
+      mexico_id_number: ~
       messages:
         social_insurance_number: ~
   payment_settings:

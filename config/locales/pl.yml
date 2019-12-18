@@ -2244,6 +2244,7 @@ pl:
       stripe_you_account_balance_is_not_0: ~
       visit_admin: "czy chciałbyś %{link}?"
       visit_admin_link: "zobacz w panelu administratora"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Konto
       notifications: Powiadomienia
@@ -3249,6 +3250,7 @@ pl:
       ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
+      mexico_id_number: ~
       messages:
         social_insurance_number: ~
   payment_settings:

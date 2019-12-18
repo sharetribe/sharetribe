@@ -2193,6 +2193,7 @@ lv:
       stripe_you_account_balance_is_not_0: "Jūsu konta atlikums nav 0, tāpēc to nevar izdzēst. Tas varētu nozīmēt, ka Jums ir darījumi, kas gaida pabeigšanu, vai arī, ka ir nauda, kas gaida pārskaitījumu uz Jūsu bankas kontu. Lai uzzinātu vairāk, lūdzu, sazinieties ar %{service_name} komandu."
       visit_admin: "Vai vēlaties %{link}?"
       visit_admin_link: "apmeklējiet savu administrēšanas paneli"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Profils
       notifications: Paziņojumi
@@ -3171,6 +3172,7 @@ lv:
       ssn_last_4: "Sociālās apdrošināšanas numura (SSN) pēdējie 4 cipari"
       hong_kong_identity_card: "Honkongas personas apliecības numurs (HKID)"
       singapore_identity_card: "Valsts reģistrācijas personas apliecība (NRIC) vai ārvalstu identifikācijas numurs (FIN)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "jābūt derīgam sociālās apdrošināšanas numuram (SIN)"
   payment_settings:

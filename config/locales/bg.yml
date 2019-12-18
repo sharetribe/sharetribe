@@ -2185,6 +2185,7 @@ bg:
       stripe_you_account_balance_is_not_0: ~
       visit_admin: "Желаете ли да %{link}?"
       visit_admin_link: "Посетете Вашия панел като Администратор"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Сметка
       notifications: Известия
@@ -3114,6 +3115,7 @@ bg:
       ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
+      mexico_id_number: ~
       messages:
         social_insurance_number: ~
   payment_settings:

@@ -2237,6 +2237,7 @@ hr:
       stripe_you_account_balance_is_not_0: "Iznos na vašem računu je veći od 0 stoga se ne može izbrisati. To možda znači da imate transakcije koje čekaju na izvršenje ili da postoje uplate koje trebaju sjesti na vaš bankovni račun. Molimo vas, kontaktirajte %{service_name} tim kako bi saznali više."
       visit_admin: "Da li želite %{link}?"
       visit_admin_link: "posjetite svoje administratorsko sučelje"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: "Korisnički račun"
       notifications: Obavijesti
@@ -3238,6 +3239,7 @@ hr:
       ssn_last_4: "Zadnje 4 znamenke broja socijalnog osiguranja (SSN)"
       hong_kong_identity_card: "Broj osobne iskaznice Hong Konga (HKID)"
       singapore_identity_card: "Nacionalna osobna iskaznica (NRIC) ili Strana osobna iskaznica (FIN)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "broj socijalnog osiguranja (SIN) mora biti valjan"
   payment_settings:
