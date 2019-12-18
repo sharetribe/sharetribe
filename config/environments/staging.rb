@@ -129,7 +129,7 @@ Rails.application.configure do
       :domain               => APP_CONFIG.smtp_email_domain,
       :user_name            => APP_CONFIG.smtp_email_user_name,
       :password             => APP_CONFIG.smtp_email_password,
-      :authentication       => 'plain',
+      :authentication       => APP_CONFIG.smtp_email_auth,
       :enable_starttls_auto => true
     }
   end
