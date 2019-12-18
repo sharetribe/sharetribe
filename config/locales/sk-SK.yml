@@ -2236,6 +2236,7 @@ sk-SK:
       stripe_you_account_balance_is_not_0: "Zostatok na vašom účte nie je 0, takže ho nemožno odstrániť. Môže to znamenať, že máte transakcie čakajúce na dokončenie alebo že na vašom bankovom účte sú nezrealizované platby. Ak chcete získať viac informácií, kontaktujte tím %{service_name}."
       visit_admin: "Chcete %{link}?"
       visit_admin_link: "navštívte správcovský panel"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Účet
       notifications: Oznámenia
@@ -3237,6 +3238,7 @@ sk-SK:
       ssn_last_4: "Posledné 4 číslice čísla sociálneho zabezpečenia (SSN)"
       hong_kong_identity_card: "Hong Kong - číslo preukazu (HKID)"
       singapore_identity_card: "Národný identifikačný preukaz (NRIC) alebo cudzinecké identifikačné číslo (FIN)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "musí byť platné číslo sociálneho poistenia (SIN)"
   payment_settings:

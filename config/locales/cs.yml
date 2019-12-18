@@ -2228,6 +2228,7 @@ cs:
       stripe_you_account_balance_is_not_0: ~
       visit_admin: "Chtěli byste %{link} ?"
       visit_admin_link: "navštivte váš admin panel"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Účet
       notifications: Upozornění
@@ -3224,6 +3225,7 @@ cs:
       ssn_last_4: "Poslední 4 číslice čísla sociálního zabezpečení (SSN)"
       hong_kong_identity_card: "Hong Kong - číslo průkazu (HKID)"
       singapore_identity_card: ~
+      mexico_id_number: ~
       messages:
         social_insurance_number: "Číslo sociálního pojištění (SIN) musí být platné"
   payment_settings:

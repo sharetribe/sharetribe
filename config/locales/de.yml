@@ -2224,6 +2224,7 @@ de:
       stripe_you_account_balance_is_not_0: "Dein Kontostand beträgt nicht 0 und kann daher nicht gelöscht werden. Möglicherweise müssen Transaktionen noch beendet werden oder Geld auf Dein Bankkonto überwiesen werden. Bitte kontaktiere das %{service_name} Team, um mehr zu erfahren."
       visit_admin: "Würdest Du gerne %{link}?"
       visit_admin_link: "Deinen Admin Bereich besuchen"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Konto
       notifications: Benachrichtigungen
@@ -3209,6 +3210,7 @@ de:
       ssn_last_4: "Die letzten 4 Ziffern der Sozialversicherungsnummer (SVNR)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID; Hong Kong Personalausweisnummer)"
       singapore_identity_card: "National Registration Identity Card (NRIC; Personalausweisnummer) oder Foreign Identification Number (Ausländeridentifikationsnummer)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "muss eine gültige Social Insurance Number (SIN; Sozialversicherungsnummer) sein"
   payment_settings:

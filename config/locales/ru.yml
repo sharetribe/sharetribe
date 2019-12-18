@@ -2242,6 +2242,7 @@ ru:
       stripe_you_account_balance_is_not_0: "Баланс вашей учетной записи не равен 0, поэтому он не может быть удален. Это может означать, что у вас есть транзакции, ожидающие завершения или что есть деньги, ожидающие выплаты на ваш банковский счет. Пожалуйста, свяжитесь с командой%{service_name}, чтобы узнать больше."
       visit_admin: "Хотите %{link}?"
       visit_admin_link: "зайти в вашу панель администратора"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: "Учётная запись"
       notifications: Оповещения
@@ -2253,7 +2254,7 @@ ru:
       listings: Объявления
       listings_search_placeholder: "Поиск по названию объявления"
       transactions_search_placeholder: ~
-      transactions: ~
+      transactions: Транзакции
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "У вас нет прав для просмотра этой записи."
@@ -2868,8 +2869,8 @@ ru:
       editing_profile_of: "Вы сейчас редактируете профиль %{name}"
       format_markdown_link: "форматировать ваше описание используя Markdown"
       format_markdown: "Вы можете %{link}."
-      username: ~
-      username_description: ~
+      username: "Имя пользователя"
+      username_description: "Ваше имя пользователя используется как часть уникального URL страницы вашего профиля. Вы можете использовать только буквы и цифры для своего имени пользователя, без пробелов."
     save_information: Сохранить
   shipping_address:
     shipping_address: "Адрес доставки"
@@ -3259,6 +3260,7 @@ ru:
       ssn_last_4: "Последние 4 цифры номера социального страхования (SSN)"
       hong_kong_identity_card: "Номер удостоверения личности Гонконга (HKID)"
       singapore_identity_card: "Национальная регистрационная карточка (NRIC) или иностранный идентификационный номер (FIN)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "должен быть действительный номер социального страхования (SIN)"
   payment_settings:

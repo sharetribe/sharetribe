@@ -262,7 +262,7 @@ he-IL:
         delete_this_marketplace: "מחוק את המרקטפלייס"
         payment_preferences: "מערכת תשלומים"
         pre_approved_listings: "בחן את כל המודעות לפני שהן יתפרסמו"
-        email_admins_about_new_transactions: ~
+        email_admins_about_new_transactions: "שלח למנהל אימייל כשטרנזקציה חדשה מתחילה"
       manage_members:
         manage_members: משתמשים
         email: דוא"ל
@@ -448,7 +448,7 @@ he-IL:
       transactions:
         export_all_as_csv: "לייצר לCSV"
         processing_export: "מעבד יצוא לCSV"
-        transactions: העברות/עסקאות
+        transactions: טרנזקציות
         search_by_title_parties: "חפש כותרת עסקה או צדדים מעורבים בה"
         search: חיפוש
         reset_search: "הצג הכל"
@@ -469,10 +469,10 @@ he-IL:
           dismissed: ~
         headers:
           conversation: שיחה
-          listing: שירות
+          listing: מודעה
           status: סטטוס
           sum: סה"כ
-          started: התחלה
+          started: החלה
           last_activity: "פעילות אחרונה"
           initiated_by: התחלה
           other_party: מוכר
@@ -541,13 +541,13 @@ he-IL:
       testimonials:
         testimonials: ביקורות
         no_testimonials_found: "לא נמצאו ביקורות"
-        displaying_xx_reviews: ~
+        displaying_xx_reviews: "מציג ‎<b>‎ ‎%{count}‎ ‎</b>‎  ביקורות בתרגום ‎%{tx_from}‎ - ‎%{tx_to}‎  מ ‎<b>‎ ‎%{all_count}‎ ‎</b>‎  סה''כ ביקורות"
         search_keyword: "חפש שם,דוא''ל או מילת מפתח"
         search: חיפוש
         reset_search: "הצג הכל"
         for_keyword: "בשביל:‎<b>‎ ‎%{keyword}‎ ‎</b>‎ "
         headers:
-          transaction: העברות
+          transaction: טרנזקציות
           author: מפרסם
           receiver: מקבל
           status: סטטוס
@@ -689,7 +689,7 @@ he-IL:
           info_single_column: ~
           info_multi_column_2: ~
           info_multi_column_3: ~
-          listings: ~
+          listings: מודעות
           categories: ~
           hero: ~
           locations: ~
@@ -806,7 +806,7 @@ he-IL:
           column_button_text: ~
           column_button_url: ~
         listings:
-          listings_to_feature: ~
+          listings_to_feature: "מודעות להבלטה"
           you_need_to_add_the_listing_ids: ~
         video:
           text: ~
@@ -899,7 +899,7 @@ he-IL:
         edit_user_field: "ערוך שדה משתמש ‎%{field_name}‎ "
     emails:
       new:
-        send_email_to_members: "שלח אימייל למשתמשים"
+        send_email_to_members: "שלח דוא''ל למשתמשים"
         send_email_to_members_title: "שלח דוא\"ל למשתמשים שלך"
         send_email: "שלח את האימייל"
         send_email_or: או
@@ -926,7 +926,7 @@ he-IL:
         to_improve_email_deliverability: "כדי לשפר את שירות הדוא''ל, הכותרת נוצרת באופן אוטומטי ולא ניתן לשנותה."
         email_subject_text: "הודעה חדשה מצוות‎%{service_name}‎ "
         firstname_cannot_be_removed: "שם פרטי לא יכול להשתנות, הוא יוחלף ע''י השם האמיתי של כל משתתף"
-        hello_firstname: "שלום שם פרטי,"
+        hello_firstname: "שלום,"
         hello_firstname_text: "שלום ‎%{person}‎ ,"
     left_hand_navigation:
       general: כללי
@@ -983,6 +983,9 @@ he-IL:
         update_success: "שינויים לסוג הזמנה ‎%{shape}‎  נשמרו."
         update_failure: "השינוי לא הצליח ‎%{error_msg}‎ "
         delete: "מחק סוג הזמנה"
+        confirm_delete_order_type:
+          one: "יש ‎%{count}‎  מודעות עם סוג הסדר הזה. אם תמחק את סוג הסדר, המודעה תיסגר. האם אתה בטוח?"
+          other: "יש ‎%{count}‎  מודעות עם סוג הסדר הזה. אם תמחק את סוג הסדר, המודות יסגרו. האם אתה בטוח?"
         can_not_delete_last: "לא ניתן למחוק את סוג ההזמנה מאחר והוא היחיד כרגע."
         can_not_delete_only_one_in_categories: "לא ניתן למחוק את סוג ההזמנה מאחר והוא משמש כסוג יחיד בקטגוריות :‎%{categories}‎ "
       listing_shape_name: שם
@@ -1140,23 +1143,23 @@ he-IL:
     community_transactions:
       show:
         transaction_for: ~
-        status: ~
-        next_step: ~
+        status: סטטוס
+        next_step: "צעד הבא:"
         waiting_for_provider_accept_or_reject: ~
         waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
+        buyer: קונה
+        provider: מוכר
         delivery: ~
         shipping_to: ~
-        buyer_pays: ~
-        marketplace_collects: ~
+        buyer_pays: "קונה משלם"
+        marketplace_collects: "‎%{service_name}‎  אוסף:"
         buyer_service_fee_label: ~
         service_fee_label: ~
         provider_receives: ~
         admin_info_text: ~
-        manage_reviews: ~
+        manage_reviews: "נהל ביקורות"
         you_should_investigate: ~
-        learn_more: ~
+        learn_more: "למד עוד"
   common:
     edit_page: "ערוך דף"
     default_community_slogan: "מרקטפלייס קהילתי"
@@ -1848,7 +1851,7 @@ he-IL:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
-      username_is_invalid: ~
+      username_is_invalid: "שם המשתמש לא תקין או לא זמין"
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{offerer_name}‎ הסכים להשאיל ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
@@ -1932,7 +1935,7 @@ he-IL:
     grid_item:
       processing_uploaded_image: "(מעבד תמונה שהועלתה ...)"
     index:
-      no_listings_with_your_search_criteria: "מצטערים, לא נמצאו פריטים"
+      no_listings_with_your_search_criteria: "מצטערים, לא נמצאו מודעות שתואמות את החיפוש, נסו אולי חיפוש חדש?"
       no_listings_notification: "‎%{add_listing_link}‎ לא קיימים פרסומים. להוספה"
       add_listing_link_text: "הוסף מודעה חדשה"
       open_listing: "מודעה פתוחה"
@@ -2229,6 +2232,7 @@ he-IL:
       stripe_you_account_balance_is_not_0: ~
       visit_admin: "האם תרצה ‎%{link}‎ ?"
       visit_admin_link: "בקשר בפאנל הניהול שלך"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: חשבון
       notifications: התראות
@@ -2240,7 +2244,7 @@ he-IL:
       listings: מודעות
       listings_search_placeholder: "חפש כותרת מודעה"
       transactions_search_placeholder: ~
-      transactions: ~
+      transactions: טרנזקציות
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "אין לך הרשאה לראות את המודעה."
@@ -2461,7 +2465,7 @@ he-IL:
       month: "מספר חודשים:"
       unit: "מספר יחידות:"
       custom: "כמות:"
-      person: ~
+      person: "מספר אנשים:"
     quantity_placeholder: כמות
     please_comment: תגובה
     reply_link:
@@ -2513,7 +2517,7 @@ he-IL:
       week: שבוע
       month: חודש
       unit: יחידה
-      person: ~
+      person: אדם
     verification_required:
       verification_required: "נדרש אימות"
   listing_conversations:
@@ -2604,7 +2608,7 @@ he-IL:
           אם אתה מקבל הודעת שגיאה בעת ההתחברות, עדכן את חשבון הפייפאל לעסקי. השדרוג קל וחינמי. אם אתה אדפ פרטי פשוט רשום את שמך תחת שם העסק. בכדי לעדכן:‎%{upgrade_paypal_account}‎ .
       create_paypal_account: "לחיצה כאן"
       upgrade_paypal_account: "היכנס לחשבון פייפל שלך"
-      paypal_account_billing_agreement: "תן הרשאה ל‎%{service_name}‎  לגבות עמלות עבור עסקאות"
+      paypal_account_billing_agreement: "תן הרשאה ל‎%{service_name}‎  לגבות עמלות עבור טרנזקציות"
       follow_steps: "שים לב לשלבים הבאים להגדרת קבלת התשלומים:"
       connect_paypal_account_title: "חבר את חשבון הפייפאל שלך"
       connect_paypal_account_title_with_step: "שלב‎%{current_step}‎ ‎%{total_steps}‎ :חבר את חשבון הפייפאל שלך"
@@ -2616,7 +2620,7 @@ he-IL:
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "עמלת עיבוד עסקת פייפאל"
-      billing_agreement_description: "תן הרשאה ל‎%{service_name}‎  לגבות עמלות עבור עסקאות"
+      billing_agreement_description: "תן הרשאה ל‎%{service_name}‎  לגבות עמלות עבור טרנזקציות"
       billing_agreement: "להעניק הרשאה"
       permissions_not_granted: "הרשאות להתחברות לחשבון פייפל שלך לא הוענקו."
       could_not_fetch_redirect_url: "לא ניתן היה לאתר לינק קשור לפייפאל"
@@ -2789,7 +2793,7 @@ he-IL:
       delete_personal_information: "אם מחקת את חשבונך, הפרטים שלך(שם,טלפון,כתובת,דוא''ל,תמונה וכו) ימחקו לצמיתות ולא תוכל לחדש אותם. כל המודעות יוסרו ולא תוכל לאקטב את חשבונך."
       delete_information_others_involved: "מידע בו מעורבים משתמשים אחרים(שיחות,הזמנות,ביקורות וכו) לא נמחק עם מחיקת חשבונך. שמך לא יוצר בהקשר הזה."
       unfinished_transactions: "חשבונך לא יכול להמחק מאחר ויש תשלומים ממתינים. נא השלם אותם לפני שתמחק את חשבונך."
-      only_admin: "החשבון שלך לא יכול להמחק מאחר והמנהל היחיד במרקטפלייס"
+      only_admin: "החשבון שלך לא יכול להמחק מאחר ואתה המנהל היחיד במרקטפלייס"
       new_password: "סיסמה חדשה"
       save: שמור
       these_fields_are_shown_only_to_you: "שם המשתמש יוצר בחשבון שלך אלא אם רשמת את השם שלך. כל המידע נוסף יוצג רק לך."
@@ -2819,11 +2823,11 @@ he-IL:
       email_about_new_received_testimonials: "מישהו כתב עלי משוב..."
       email_about_testimonial_reminders: "שכחתי לכתוב ביקורת על אירוע..."
       email_daily_community_updates: "שלחו לי ניוזלטר יומי עם שיתופים חדשים!"
-      email_weekly_community_updates: "שלח לי ניוזלטר שבועי אם יש שירותים חדשים"
+      email_weekly_community_updates: "שלחו לי ניוזלטר שבועי אם יש מודעות חדשות"
       do_not_email_community_updates: "אל תשלחו לי ניוזלטר"
       email_when_conversation_accepted: "מישהו אישר את ההצעה או הבקשה שלי..."
       email_when_conversation_rejected: "מישהו סרב להצעה או הבקשה שלי..."
-      email_about_completed_transactions: "...מישהו השלים את ההזמנה שלי"
+      email_about_completed_transactions: "מישהו סימן את ההזמנה שלי כהושלמה"
       email_about_new_payments: "...קיבלתי תשלום חדש!"
       email_about_new_listings_by_followed_people: "...מישהו שאני עוקב אחריו פרסם שיתוף חדש"
       unsubscribe_succesful: "הסרנו אותך מהרשימה בהצלחה!"
@@ -2861,8 +2865,8 @@ he-IL:
       editing_profile_of: "אתה עכשיו עורך את הפרופיל של ‎%{name}‎ "
       format_markdown_link: ~
       format_markdown: "אתה יכול ‎%{link}‎ "
-      username: ~
-      username_description: ~
+      username: "שם משתמש"
+      username_description: "שם המשתמש שלך משומש כחלק יחודי בURL של הפרופיל שלך. אתה יכול להשתמש באותיות ומספרים ללא מרווחים. כשאתה משנה את שם המשתמש, הURL ישתנה אוטומטית. שם המשתמש הקודם יהפוך לזמין עבור משתמשים אחרים."
     save_information: "שמור פרטים"
   shipping_address:
     shipping_address: "כתובת למשלוח"
@@ -3099,16 +3103,16 @@ he-IL:
         one: משתמש
         other: משתמשים
       transaction:
-        zero: העברות
-        one: העברה
-        other: העברות
+        zero: טרנזקציות
+        one: טרנזקציות
+        other: טרנזקציות
     previous_label: "&#8592; הקודם"
     next_label: "הבא& # 8594 "
     page_gap: "חפש כאן &;"
     page_entries_info:
       single_page:
         zero: " %{model} לא נמצא"
-        one: "מציג 1 ‎%{model}‎ "
+        one: "מציג ‎%{count}‎  ‎%{model}‎ "
         other: "מציג את כל ה‎%{count}‎ ‎%{model}‎ "
       single_page_html:
         zero: " %{model} לא נמצא"
@@ -3229,6 +3233,7 @@ he-IL:
       ssn_last_4: "4 מספרים אחרונים של SSN "
       hong_kong_identity_card: "מספר זהות הונג קונגי HKID "
       singapore_identity_card: "NRIC או FIN "
+      mexico_id_number: ~
       messages:
         social_insurance_number: "מס SIN חייב להיות תקין"
   payment_settings:

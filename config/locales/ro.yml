@@ -2209,6 +2209,7 @@ ro:
       stripe_you_account_balance_is_not_0: ~
       visit_admin: "Vrei sa %{link}?"
       visit_admin_link: "vizitezi Tabloul de Administrare"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Cont
       notifications: Notificari
@@ -3174,6 +3175,7 @@ ro:
       ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
+      mexico_id_number: ~
       messages:
         social_insurance_number: ~
   payment_settings:

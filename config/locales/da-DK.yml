@@ -2218,6 +2218,7 @@ da-DK:
       stripe_you_account_balance_is_not_0: "Din kontobalance er ikke 0 og kan derfor ikke blive slettet. Det betyder du måske har transaktioner der venter på at blive gennemført eller at der er penge der venter på at blive overført til din konto. Kontakt venligst %{service_name} for at lære mere."
       visit_admin: "Kunne du tænke dig at %{link}?"
       visit_admin_link: ~
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Konto
       notifications: Notifikationer
@@ -3191,6 +3192,7 @@ da-DK:
       ssn_last_4: "Sidste 4-ciffer i CPR"
       hong_kong_identity_card: ~
       singapore_identity_card: ~
+      mexico_id_number: ~
       messages:
         social_insurance_number: ~
   payment_settings:
