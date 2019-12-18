@@ -309,6 +309,7 @@ nl:
         enabled_for_all: "Voor allen ingesteld"
         new_topbar: "Nieuwe menubalk boven (zichtbaar op iedere pagina)"
         searchpage: "Nieuwe zoekpagina (vereist de nieuwe top bar)"
+        new_email_templates: ~
       social_media:
         social_media: "Sociale media"
         logo: "Sociale media afbeelding"
@@ -1847,6 +1848,7 @@ nl:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
@@ -2235,6 +2237,8 @@ nl:
       payments: Betalingen
       listings: Advertenties
       listings_search_placeholder: "Zoek een advertentie op titel"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Je hebt geen toestemming om deze advertentie te bekijken."
@@ -2847,6 +2851,8 @@ nl:
       editing_profile_of: "Je wijzigt nu het profiel van %{name}"
       format_markdown_link: "je beschrijving opmaken met Markdown"
       format_markdown: "Je kunt %{link}."
+      username: ~
+      username_description: ~
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"

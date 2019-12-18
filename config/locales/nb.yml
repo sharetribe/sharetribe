@@ -307,6 +307,7 @@ nb:
         enabled_for_all: "Tilgjengelig for alle"
         new_topbar: "Ny toppmeny (synlig på alle sider)"
         searchpage: "Ny søkeside (krever toppmeny)"
+        new_email_templates: ~
       social_media:
         social_media: "Sosiale medier"
         logo: ~
@@ -1840,6 +1841,7 @@ nb:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aksepterte å låne ut %{listing_title} til %{requester_name} %{time_ago}."
@@ -2228,6 +2230,8 @@ nb:
       payments: Betalinger
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du har ikke tillatelse til å se denne annonsen."
@@ -2840,6 +2844,8 @@ nb:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Lagre innstillinger"
   shipping_address:
     shipping_address: Leveringsadresse

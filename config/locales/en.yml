@@ -307,7 +307,7 @@ en:
         enabled_for_all: "Enabled for all"
         new_topbar: "New top bar (visible on every page)"
         searchpage: "New search page (requires the new top bar)"
-        new_email_templates: "New email templates"
+        new_email_templates: "New layout for emails"
       social_media:
         social_media: "Social media"
         logo: "Social media image"
@@ -2853,7 +2853,7 @@ en:
       format_markdown_link: "format your description using Markdown"
       format_markdown: "You can %{link}."
       username: Username
-      username_description: Your username is used as part of the unique URL of your profile page. You can only use letters and numbers for your username, without spaces.
+      username_description: "Your username is used as part of the unique URL of your profile page. You can only use letters and numbers for your username, without spaces. When you change your username, your URL will automatically change and your previous URL will not be redirected. The old username will become available for other users."
     save_information: "Save information"
   shipping_address:
     shipping_address: "Shipping address"

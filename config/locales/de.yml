@@ -307,6 +307,7 @@ de:
         enabled_for_all: "Für alle aktiviert"
         new_topbar: "Neuer Top Bar (auf jeder Seite angezeigt)"
         searchpage: "Neue Suchseite (benötigt das neue Top Bar)"
+        new_email_templates: ~
       social_media:
         social_media: "Social media"
         logo: "Bild für soziale Netzwerke"
@@ -1844,6 +1845,7 @@ de:
       section_with_this_id_already_exists: "Diese Kennung wird bereits verwendet. Bitte wähle eine andere."
       listing_with_this_id_does_not_exist: "Diese Kennung gehört keinem Angebot auf deinem Marktplatz. Eventuell handelt es sich um einen Tippfehler. Bitte erneut versuchen."
       presence: "Kann nicht leer sein"
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -2232,6 +2234,8 @@ de:
       payments: Zahlungen
       listings: Einträge
       listings_search_placeholder: "Nach Titel des Eintrags suchen"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du hast keine Berechtigung, diesen Eintrag anzuschauen."
@@ -2844,6 +2848,8 @@ de:
       editing_profile_of: "Du bearbeitest jetzt das Profil von %{name}"
       format_markdown_link: "die Beschreibung mit Markdown formatieren"
       format_markdown: "Du kannst %{link}."
+      username: ~
+      username_description: ~
     save_information: "Informationen speichern"
   shipping_address:
     shipping_address: Lieferadresse

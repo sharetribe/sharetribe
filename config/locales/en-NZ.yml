@@ -307,6 +307,7 @@ en-NZ:
         enabled_for_all: "Enabled for all"
         new_topbar: "New top bar (visible on every page)"
         searchpage: "New search page (requires the new top bar)"
+        new_email_templates: ~
       social_media:
         social_media: "Social media"
         logo: ~
@@ -1844,6 +1845,7 @@ en-NZ:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -2232,6 +2234,8 @@ en-NZ:
       payments: Payments
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "You do not have permission to view this listing."
@@ -2844,6 +2848,8 @@ en-NZ:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Save information"
   shipping_address:
     shipping_address: "Shipping address"

@@ -307,6 +307,7 @@ sv:
         enabled_for_all: "Aktiverad för alla"
         new_topbar: "Nya menyn (synlig på varje sida)"
         searchpage: "Ny sök sida (kräver den nya menyn)"
+        new_email_templates: ~
       social_media:
         social_media: "Social media"
         logo: ~
@@ -1846,6 +1847,7 @@ sv:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} gick med på att låna ut %{listing_title} till %{requester_name} %{time_ago}."
@@ -2234,6 +2236,8 @@ sv:
       payments: Betalningar
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du har inte behörighet att se denna annons."
@@ -2846,6 +2850,8 @@ sv:
       editing_profile_of: "Du redigerar nu %{name}s profil"
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Spara information"
   shipping_address:
     shipping_address: Leveransadress

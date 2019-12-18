@@ -302,6 +302,7 @@ ko:
         enabled_for_all: "모두 사용"
         new_topbar: "새로운 최상위바 (모든 페이지에 표시됨)"
         searchpage: "새 검색 페이지 (새 최상위 바가 필요함)"
+        new_email_templates: ~
       social_media:
         social_media: "소셜 미디어"
         logo: ~
@@ -1835,6 +1836,7 @@ ko:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name}이 %{listing_title}을 %{requester_name} %{time_ago}로 대여하기로 동의했습니다."
@@ -2222,6 +2224,8 @@ ko:
       payments: 결제
       listings: 리스트
       listings_search_placeholder: "리스트명으로 찾기"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "이 리스트를 볼 수 있는 권한이 없습니다."
@@ -2834,6 +2838,8 @@ ko:
       editing_profile_of: ~
       format_markdown_link: "마크다운 사용하여 편집"
       format_markdown: "%{link} 할 수 있습니다."
+      username: ~
+      username_description: ~
     save_information: "정보 저장하기"
   shipping_address:
     shipping_address: 배송주소

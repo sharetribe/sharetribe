@@ -307,6 +307,7 @@ fr:
         enabled_for_all: "Activé pour tous"
         new_topbar: "Nouvelle barre des menus (visible sur toute les pages)"
         searchpage: "Nouvelle page de recherche (nouvelle barre des menus requise)"
+        new_email_templates: "Nouveau design pour les emails"
       social_media:
         social_media: "Réseaux sociaux"
         logo: "Image sur les réseaux sociaux"
@@ -1754,7 +1755,7 @@ fr:
     transaction_cancel_flow:
       the_order_about: "la commande pour %{listing_title}"
       you_can_contact_the_marketplace_team: "Vous pouvez contacter l'équipe %{service_name} si vous avez le moindre problème."
-      you_can_now_give_feedback: "Vous pouvez désormais donner un avis sur %{name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
+      you_can_now_give_feedback: "Vous pouvez désormais donner un avis sur %{name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{recipient} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
       give_feedback_to: "Donner un avis sur %{name}"
     transaction_disputed:
       subject: "Commande contestée - L'équipe %{service_name} examine la situation"
@@ -1847,6 +1848,7 @@ fr:
       section_with_this_id_already_exists: "Cet identifiant de section est déjà utilisé. Veuillez en choisir un autre."
       listing_with_this_id_does_not_exist: "L'identifiant de cette annonce n'est pas de votre place de marché. Peut être avez fait une faute ? Veuillez vérifier et essayer de nouveau."
       presence: "Ne peut être vide"
+      username_is_invalid: "Ce nom d'utilisateur est indisponible ou n'est pas correct"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."
@@ -2235,6 +2237,8 @@ fr:
       payments: Paiements
       listings: Annonces
       listings_search_placeholder: "Rechercher le titre d'une annonce"
+      transactions_search_placeholder: "Rechercher une annonce ou un participant"
+      transactions: Transactions
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Vous n'avez pas la permission de consulter cette annonce."
@@ -2847,6 +2851,8 @@ fr:
       editing_profile_of: "Vous êtes en train d'éditer le profil de %{name}"
       format_markdown_link: "mettre en page votre description en utilisant Markdown"
       format_markdown: "Vous pouvez %{link}."
+      username: "Nom d'utilisateur"
+      username_description: "Votre nom d'utilisateur est unique et visible dans l'URL de votre page de profil. Seuls des lettres et chiffres, sans espaces, peuvent être dans votre nom d'utilisateur."
     save_information: "Sauvegarder les informations"
   shipping_address:
     shipping_address: "Adresse de livraison"

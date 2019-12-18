@@ -312,6 +312,7 @@ cs:
         enabled_for_all: "Povoleno pro všechny"
         new_topbar: "Nová horní lišta (viditelná na každé stránce)"
         searchpage: "Nové vyhledávání (vyžaduje nový horní řádek)"
+        new_email_templates: ~
       social_media:
         social_media: "Sociální média"
         logo: Logo
@@ -1847,6 +1848,7 @@ cs:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "Uživatel %{offerer_name} souhlasil s propůjčením %{listing_title} uživateli %{requester_name} %{time_ago}."
@@ -2236,6 +2238,8 @@ cs:
       payments: Platby
       listings: "Seznam mých inzerátů"
       listings_search_placeholder: "Hledej podle názvu inzerátu"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Nemáte oprávnění k zobrazení tohoto inzerátu."
@@ -2849,6 +2853,8 @@ cs:
       editing_profile_of: "Nyní upravujete profil %{name}"
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Uložit informace"
   shipping_address:
     shipping_address: "Doručovací adresa"

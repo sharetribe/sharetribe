@@ -26,7 +26,7 @@ it:
           no_parent: ~
         category_transaction_types:
           transaction_types: "Tipo di ordini"
-          transaction_types_description: "Scegliendo il Tipo di ordini si determina quale tipo di azione è consentita nell'inserimento degli annunci. Ad esempio: solo la vendita, o affitto, o cessione gratuita."
+          transaction_types_description: "Scegliendo il Tipo di ordini si determina quale tipo di azione è consentita nell'inserimento delle inserzioni. Ad esempio: solo la vendita, o affitto, o cessione gratuita."
           select_all: ~
           clear_all: ~
         buttons:
@@ -36,6 +36,12 @@ it:
         remove_category: ~
         remove_category_name: ~
         warning_remove_effects: ~
+        warning_listing_will_be_moved:
+          one: "È presente %{count} inserzione nella categoria. Verrà spostata nella categoria selezionata."
+          other: "Sono presenti %{count} inserzioni nella categoria. Verranno spostate nella categoria selezionata."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "È presente %{count} inserzione nella categoria e sottocategoria. Verrà spostata nella categoria selezionata."
+          other: "Sono presenti %{count} inserzioni nella categoria e sottocategoria. Verranno spostate nella categoria selezionata."
         select_new_category: ~
         buttons:
           remove: ~
@@ -70,7 +76,7 @@ it:
         edit_info: ~
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: "Questo marketplace richiede l'amministratore verifichi manualmente ogni persona prima che questa possa pubblicare un annuncio. Qui puoi impostare il testo predefinito che verrà mostrato agli utenti non verificati quando proveranno a pubblicare un nuovo annuncio."
+        verification_to_post_listings_info_content_description: "Questo marketplace richiede che l'amministratore verifichi manualmente ogni utente prima che questo possa pubblicare un'inserzione. Qui puoi impostare il testo predefinito che verrà mostrato agli utenti non verificati quando proveranno a pubblicare una nuova inserzione."
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: "Contatta amministratore"
         save: "Salva impostazioni"
@@ -266,11 +272,11 @@ it:
         ban_me_error: ~
         search: Cerca
         search_by_name_email: ~
-        reset_search: ~
+        reset_search: "Mostra tutti"
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
-          all: ~
+          all: "Tutti gli stati"
           selected: ~
           selected_js: ~
           admin: ~
@@ -278,13 +284,13 @@ it:
           posting_allowed: ~
           accepted: ~
           unconfirmed: ~
-          pending: ~
+          pending: "In attesa"
         this_user_hasnt_confirmed_their_email_address: ~
         unconfirmed_user: ~
         resend: ~
         cancel: ~
         user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+        pending_user: "In attesa: %{name}"
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -292,6 +298,7 @@ it:
         enabled_for_all: ~
         new_topbar: ~
         searchpage: ~
+        new_email_templates: ~
       social_media:
         social_media: ~
         logo: ~
@@ -406,7 +413,7 @@ it:
         add_menu_link: ~
         title_placeholder: ~
         url_placeholder: ~
-        title: ~
+        title: Titolo
         language: Lingua
         url: ~
         empty: ~
@@ -433,9 +440,9 @@ it:
         transactions: "Visualizza transazioni"
         search_by_title_parties: ~
         search: Cerca
-        reset_search: ~
+        reset_search: "Mostra tutti"
         status_filter:
-          all: ~
+          all: "Tutti gli stati"
           selected: ~
           selected_js: ~
           free: ~
@@ -444,9 +451,9 @@ it:
           canceled: ~
           disputed: ~
           preauthorized: ~
-          rejected: ~
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
+          rejected: Rifiutato
+          payment_intent_requires_action: "In attesa"
+          payment_intent_action_expired: Scaduto
           refunded: ~
           dismissed: ~
         headers:
@@ -461,10 +468,10 @@ it:
         status:
           conversation: ~
           free: ~
-          pending: "In corso"
+          pending: "In attesa"
           preauthorized: Preautorizzata
           accepted: Accettata
-          rejected: Negata
+          rejected: Rifiutato
           paid: Pagata
           confirmed: Confermata
           canceled: Cancellata
@@ -475,10 +482,10 @@ it:
             free: ~
           paypal:
             free: ~
-            pending: ~
+            pending: "In attesa"
             preauthorized: ~
             accepted: ~
-            rejected: ~
+            rejected: Rifiutato
             paid: ~
             confirmed: ~
             canceled: ~
@@ -489,18 +496,18 @@ it:
             dismissed: ~
           stripe:
             free: ~
-            pending: ~
+            pending: "In attesa"
             preauthorized: ~
             accepted: ~
-            rejected: ~
+            rejected: Rifiutato
             paid: ~
             confirmed: ~
             canceled: ~
             disputed: ~
             initiated: ~
             pending_ext: ~
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
+            payment_intent_requires_action: "In attesa"
+            payment_intent_action_expired: Scaduto
             payment_intent_failed: ~
             refunded: ~
             dismissed: ~
@@ -518,7 +525,7 @@ it:
         profile: ~
         search_by_keyword: ~
         search: ~
-        reset_search: ~
+        reset_search: "Mostra tutti"
         for_keyword: ~
       testimonials:
         testimonials: ~
@@ -526,7 +533,7 @@ it:
         displaying_xx_reviews: ~
         search_keyword: ~
         search: ~
-        reset_search: ~
+        reset_search: "Mostra tutti"
         for_keyword: ~
         headers:
           transaction: ~
@@ -574,33 +581,33 @@ it:
           used: ~
           date_sent: ~
       listings:
-        listings: ~
+        listings: Inserzioni
         search_by_title_author_category: ~
         search: Cerca
-        reset_search: ~
+        reset_search: "Mostra tutti"
         export_all_as_csv: ~
         processing_export: ~
         status:
-          all: ~
+          all: "Tutti gli stati"
           selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
-          approval_pending: ~
-          approval_rejected: ~
+          open: Aperto
+          closed: Chiuso
+          expired: Scaduto
+          approval_pending: "In attesa"
+          approval_rejected: Rifiutato
         headers:
-          title: ~
+          title: Titolo
           author: ~
-          created: ~
-          updated: ~
+          created: Creato
+          updated: Aggiornato
           category: ~
           status: ~
-        open: ~
-        closed: ~
-        expired: ~
+        open: Aperto
+        closed: Chiuso
+        expired: Scaduto
         approved: ~
-        approval_pending: ~
-        approval_rejected: ~
+        approval_pending: "In attesa"
+        approval_rejected: Rifiutato
         form:
           this_listing_has_not_not_been_approved_yet: ~
           approve: ~
@@ -614,7 +621,7 @@ it:
         upgrade_plan_link: ~
         menu_links: ~
         language: ~
-        title: ~
+        title: Titolo
         url: ~
         add: ~
         save: ~
@@ -630,7 +637,7 @@ it:
           marketplace_color: ~
           logo: ~
         social:
-          title: ~
+          title: Titolo
           url: ~
       domain:
         domain: ~
@@ -772,7 +779,7 @@ it:
           file_not_selected: ~
           image: ~
           image_required: ~
-          title: ~
+          title: Titolo
           title_placeholder: ~
           url: ~
           url_placeholder: ~
@@ -969,7 +976,7 @@ it:
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
-      successfully_closed: "Annunci chiusi con successo"
+      successfully_closed: "Inserzioni chiuse con successo"
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
@@ -1224,7 +1231,7 @@ it:
       stripe-fee_label: "Tariffe per pagamento processato"
     confirm:
       confirm_description: "Se il tuo ordine è stato completato, dovresti confermarlo. Successivamente puoi dare il tuo feedback all'altra parte."
-      cancel_description: ~
+      cancel_description: "Se la richiesta non è stata completata con successo, puoi contrassegnarla come \"contestata\". Potrai in ogni caso dare il tuo feedback all'altra parte e spiegare cosa è successo."
       cancel_description_team: ~
       cancel_payed_description: "Se la tua richiesta è stata accettata ma ci stai ripensando, puoi ancora cancellare la richiesta prima del pagamento."
       canceling_payed_transaction: "Cancella la transazione"
@@ -1250,7 +1257,7 @@ it:
       rejected_offer: "Offerta negata."
       confirmed_request: "Ordine completato."
       confirmed_offer: "Offerta completata."
-      canceled_request: "Ordine cancellato."
+      canceled_request: "Ordine contestato."
       canceled_offer: "Offerta cancellata."
       message_from: "Messaggio da %{person}"
       about_listing: "Informazioni su %{listing_title}"
@@ -1313,7 +1320,7 @@ it:
       feedback_skipped: "Feedback saltato"
       give_feedback: "Rilascia feedback"
       offer_accepted: accettata
-      offer_rejected: rifiutata
+      offer_rejected: Rifiutato
       offer_canceled: Cancellato
       offer_confirmed: completato
       offer_paid: "Pagamento riuscito"
@@ -1330,7 +1337,7 @@ it:
       waiting_for_current_user_to_deliver_listing: "In attesa che tu esegua l'ordine ricevuto per %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "In attesa che %{listing_author_name} proceda al completamento dell'ordine per %{listing_title}"
       request_accepted: accettata
-      request_rejected: rifiutata
+      request_rejected: Rifiutato
       request_confirmed: Completato
       request_canceled: Cancellato
       request_paid: "Pagamento riuscito"
@@ -1417,11 +1424,11 @@ it:
       create_own: ~
       learn_more: ~
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Non hai ancora confermato o cancellato la richiesta %{request_link}. Se l'ordine è stato completato, dovresti confermarlo. Successivamente potraii dare il tuo feedback a %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Non hai ancora confermato o contestato la richiesta %{request_link}. Se la richiesta è stata completata, dovresti confermarla. Successivamente potrai dare il tuo feedback a %{other_party_given_name}."
       remember_to_confirm_request: "Ricordati di confermare o cancellare la richiesta"
       if_will_not_happen_you_should_cancel: "Se credi che la richiesta non venga completata per qualche ragione, puoi cancellarla %{cancel_it_link}."
-      cancel_it_link_text: cancella
-      automatic_confirmation: "Se con confermi o cancelli la richiesta entro %{days_to_automatic_confirmation} giorni dopo che la richiesta è stata accettata, la considereremo automaticamente come completata."
+      cancel_it_link_text: contesta
+      automatic_confirmation: "Se non confermi o contesti la richiesta entro %{days_to_automatic_confirmation} giorni dopo che la richiesta è stata accettata, la considereremo automaticamente come completata."
     confirm_reminder_v2:
       headline: ~
       you_have_not_yet_confirmed_or_canceled_request: ~
@@ -1436,9 +1443,9 @@ it:
     transaction_confirmed:
       here_is_a_message_from: "Ecco un messaggio da %{other_party_given_name}:"
       request_marked_as_confirmed: "Richiesta completata - ricordati di dare il tuo feedback"
-      request_marked_as_canceled: "Ordine cancellato."
+      request_marked_as_canceled: "Ordine contestato."
       has_marked_request_as_confirmed: "%{other_party_full_name} ha segnato la richiesta per %{request} come completa. Ora puoi dare il tuo feedback a %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} ha cancellato l'ordine per %{request}. Puoi ancora dare il tuo feedback a %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} ha cancellato l'ordine per %{request}. Puoi comunque dare il tuo feedback a %{other_party_given_name}."
       giving_feedback_is_good_idea: "Dare un feedback è sempre una buona idea. Se tutto è andato bene, dovresti far sapere agli altri che %{other_party_given_name} è affidabile. Se ci sono stati dei problemi, è giusto menzionarli."
       give_feedback_to: "Dai il tuo feedback a %{other_party_given_name}"
       stripe:
@@ -1502,7 +1509,7 @@ it:
       your_request_was_rejected: "La tua richiesta è stata rifiutata"
       you_can_now_pay_to: "Puoi pagare ora il totale richiesto a %{payment_receiver}."
       pay_now: "Paga ora"
-      remember_to_confirm: "Quando la richiesta ha avuto successo, ricordati di segnare che è stata completata. Se la richiesta non è stata completata hai %{days_to_automatic_confirmation} giorni per cancellarla. Altrimenti sarà considerata automaticamente come completata."
+      remember_to_confirm: "Quando la richiesta è stata completata con successo, ricordati di contrassegnarla come completata. Se la richiesta non è stata completata hai %{days_to_automatic_confirmation} giorni per cancellarla. Altrimenti sarà considerata automaticamente come completata."
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
@@ -1762,7 +1769,7 @@ it:
       seller_express_checkout_disabled: "Il pagamento con PayPal non è attivo sul conto PayPal dell'autore dell'inserzione. Per favore contatta l'autore, e mettilo a conoscenza che c'è un problema con il suo conto PayPal. Consigliali per favore di contattare l'Assistenza clienti PayPal."
       seller_express_checkout_disabled_no_free: ~
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento di PayPal."
-      cancel_error: "Si è verificato un errore durante la cancellazione. Non è stato possibile completare la cancellazione."
+      cancel_error: "Si è verificato un errore durante la contestazione. Non è stato possibile completare la contestazione."
       accept_authorization_error: "Si è verificato un errore durante il tentativo di accettare un pagamento pre autorizzato di Paypal. Per favore, riprova nuovamente."
       reject_authorization_error: "Si è verificato un errore durante il tentativo di respingere la preautorizzazione del pagamento di Paypal. Per favore, provare di nuovo."
     stripe:
@@ -1811,6 +1818,7 @@ it:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ha accettato il prestito di %{listing_title} a %{requester_name} %{time_ago}."
@@ -1848,7 +1856,7 @@ it:
     create_new_marketplace: "Crea un nuovo marketplace"
     contact_us: Contattaci
     profile: Profilo
-    manage_listings: "Gestione inserzioni"
+    manage_listings: Inserzioni
     invite: "Invita amici ad unirsi"
     login: Accedi
     signup: Registrati
@@ -1894,7 +1902,7 @@ it:
     grid_item:
       processing_uploaded_image: "(Elaborazione immagine in corso...)"
     index:
-      no_listings_with_your_search_criteria: "Nessun risultato. Pazienza, forse ancora nessuno nell'area ha creato un inserzione adatta a questa categoria. Prova a cercare con altri termini."
+      no_listings_with_your_search_criteria: "Ci dispiace, ma non abbiamo trovato nessuna inserzione che soddisfi la tua ricerca."
       no_listings_notification: "No inserzioni. %{add_listing_link}."
       add_listing_link_text: "Aggiungi inserzione"
       open_listing: "inserzione aperta"
@@ -2139,7 +2147,7 @@ it:
       request_accepted: "Richiesta accettata"
       request_confirmed: "Richiesta completata."
       request_rejected: "Richiesta respinta"
-      request_canceled: "Ordine cancellato."
+      request_canceled: "Ordine contestato."
       message_sent: "Messaggio inviato"
       message_not_sent: "Spedizione del messaggio fallita. Riprova."
       this_content_is_not_available_in_this_community: "Questo contenuto non è disponibile in questa community."
@@ -2170,7 +2178,7 @@ it:
       you_must_log_in_to_add_news_item: "Devi effettuare il login in %{service_name} per aggiungere nuovi articoli."
       you_must_log_in_to_change_profile_settings: "Devi fare il login in %{service_name} per cambiare le impostazioni del profilo."
       you_must_log_in_to_accept_or_reject: "Devi fare il login per accettare o rifiutare la transazione."
-      you_must_log_in_to_confirm_or_cancel: "Devi fare il login per cancellare o confermare la transazione."
+      you_must_log_in_to_confirm_or_cancel: "Devi fare il login per contestare o confermare la transazione."
       you_need_to_confirm_your_account_first: "Devi prima confermare la tua email."
       you_must_fill_all_the_fields: "Devi completare tutti i campi"
       you_unfollowed_listing: "Non stai più seguendo questa inserzione"
@@ -2199,6 +2207,8 @@ it:
       payments: Pagamenti
       listings: Inserzioni
       listings_search_placeholder: "Cerca inserzione"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Non hai il permesso per visualizzare questo annuncio."
@@ -2315,7 +2325,7 @@ it:
       send_button:
         save_listing: "Salva l'inserzione"
         submit_for_review: ~
-        will_be_reviewed: ~
+        will_be_reviewed: "Tutte le inserzioni su %{service_name} saranno revisionate prima di essere pubblicate. Verrai avvisato per email non appena l'inserzione è stata approvata e resa visibile a tutti."
         we_noticed_youre_an_admin: ~
       share_type:
         select: Seleziona
@@ -2407,9 +2417,9 @@ it:
       select_transaction_type: "Seleziona il tipo di annuncio"
       you_need_to_fill_payout_details_before_accepting: "È necessario compilare i dettagli di pagamento prima di poter postare il tuo spazio. Vai al %{payment_settings_link} e inserisci le informazioni."
       contact_admin_link_text: "Contatta l'amministratore"
-      community_not_configured_for_payments: "%{service_name} non è stato configurato per i pagamenti e quindi non puoi inserire nuovi annunci ancora. Contattare %{contact_admin_link} per ulteriori dettagli."
+      community_not_configured_for_payments: "%{service_name} non è ancora stato configurato per i pagamenti e quindi non puoi pubblicare nuove inserzioni. Contattare %{contact_admin_link} per ulteriori dettagli."
       payment_settings_link: "Impostazioni dei pagamenti"
-      community_not_configured_for_payments_admin: "%{service_name} non è ancora stato configurato per i pagamenti, quindi non puoi pubblicare inserzioni. Vai a %{payment_settings_link} per inserire i dettagli."
+      community_not_configured_for_payments_admin: "%{service_name} non è ancora stato configurato per i pagamenti, quindi non puoi pubblicare nuove inserzioni. Vai a %{payment_settings_link} per inserire i dettagli."
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Numero di ore:"
@@ -2439,7 +2449,7 @@ it:
       no_image: "Nessuna immagine"
       no_reviews: "Nessuna recensione è stata ricevuta"
       offer: Offerta
-      listing_created: Creata
+      listing_created: Creato
       open_until: "Aperto fino %{date}"
       feedback: Feedback
       qr_code: "codice QR"
@@ -2531,7 +2541,7 @@ it:
   paypal_accounts:
     payout_info_title: "Sistema dei pagamenti"
     paypal_account_email_connected: "<del>Connessione del conto Paypal</del> Completata!"
-    payout_info_paypal: "%{service_name} usa PayPal come sistema di pagamento. E' richiesto un %{create_paypal_account_link} per accettare i pagamenti delle tue inserzioni, e deve essere connesso a %{service_name}."
+    payout_info_paypal: "%{service_name} usa PayPal come sistema di pagamento. È richiesto un %{create_paypal_account_link} per accettare i pagamenti delle tue inserzioni, e deve essere connesso a %{service_name}."
     paypal_billing_agreement_made: "<del>Permesso a %{service_name} di applicare una commissione alla transazione</del> Completato!"
     commission_permission_needed: "E' necessario concedere a %{service_name} il permesso di ottenere la commissione sui pagamenti che ricevi."
     create_paypal_account_link_text: "Conto PayPal"
@@ -2613,7 +2623,7 @@ it:
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Questo utente non è più attivo in %{service_name}"
-      inactive_description: "Questo utente ha smesso di utilizzare %{service_name}. Non puoi contattare questo utente, lascia un feedback o un commento nei suoi annunci."
+      inactive_description: "Questo utente ha smesso di utilizzare %{service_name}. Non puoi contattare questo utente, lascia un feedback o un commento nelle sue inserzioni."
     new:
       create_new_account: Iscriviti
       email: "Indirizzo email"
@@ -2648,7 +2658,7 @@ it:
       and_gave_following_feedback: "e dare il successivo feedback"
     profile_listings:
       no_image: "Nessuna immagine"
-      manage_listings: ~
+      manage_listings: "Gestisci tutte le inserzioni"
     show:
       contact: "contatta %{person}"
       about_me: "Su di me:"
@@ -2676,7 +2686,7 @@ it:
       open_listing: "inserzione aperta"
       open_listings: "inserzioni aperte"
       no_listings: "Nessuna inserzione"
-      no_open_listings: "non ci sono inserzioni aperte"
+      no_open_listings: "Non ci sono inserzioni aperte"
       no_reviews: "Nessuna recensione"
       show_all_listings: "Mostra tutte le inserzioni"
       show_all_open_listings: "Mostra tutte le inserzioni aperte"
@@ -2688,7 +2698,7 @@ it:
       you_follow_singular: "Stai seguendo %{count} persona"
       they_follow_plural: "%{count} persone seguite"
       they_follow_singular: "%{count} persona seguita"
-      show_all_followed_people: "Mostra tutti"
+      show_all_followed_people: "Mostra tutte le persone seguite"
       no_followed_people: "Non stai seguendo nessuno"
     follow_button:
       following: "Stai seguendo"
@@ -2740,7 +2750,7 @@ it:
       delete_account_confirmation_popup: "Sei sicuro di voler eliminare il tuo account e perdere in modo permanente tutte le informazioni in esso contenute? La cancellazione dell'account non è reversibile."
       email_addresses: "Indirizzi email"
       new_email: "Nuovo indirizzo email"
-      delete_personal_information: "Se elimini l'account, i tuoi dati personali (nome, numero di telefono, indirizzo, email, foto del profilo, ecc) verranno eliminati in modo permanente e non potranno essere recuperati. Tutti gli annunci che hai creato verranno rimossi. Non sarai in grado di riattivare il tuo account."
+      delete_personal_information: "Se elimini l'account, i tuoi dati personali (nome, numero di telefono, indirizzo, email, foto del profilo, ecc) verranno eliminati in modo permanente e non potranno essere recuperati. Tutte le inserzioni che hai creato verranno rimosse. Non sarai in grado di riattivare il tuo account."
       delete_information_others_involved: "Le informazioni dove altri partecipanti sono coinvolti (le conversazioni con altre persone, le operazioni che hai fatto, recensioni che hai dato agli altri, ecc) non verranno rimosse quando elimini il tuo account. Tuttavia, il tuo nome non sarà più visualizzato accanto a queste informazioni."
       unfinished_transactions: "Il tuo account non può essere camcellato, perchè hai delle transazioni in sospeso. Per favore completa prima le transazioni."
       only_admin: ~
@@ -2761,7 +2771,7 @@ it:
         confirmation_title_desktop: Conferma
         confirmation_resend: "Invia di nuovo"
         status_confirmed: Confermato
-        status_pending: "In corso"
+        status_pending: "In attesa"
     notifications:
       email_from_admins: "Sono disposto a ricevere aggiornamenti occasionali da parte degli amministratori."
       i_want_to_get_email_notification_when: "Voglio ricevere una notifica email quando..."
@@ -2772,8 +2782,8 @@ it:
       email_about_new_messages: "...qualcuno mi invia un messaggio"
       email_about_new_received_testimonials: "...qualcuno mi offre feedback"
       email_about_testimonial_reminders: "...ho dimenticato di offrire feedback su un evento"
-      email_daily_community_updates: "Inviami una email  <b>giornaliera</b> se ci sono nuovi annunci"
-      email_weekly_community_updates: "Inviami una email di aggiornamento <b>settimanale</b> se ci sono nuovi annunci"
+      email_daily_community_updates: "Inviami una email  <b>giornaliera</b> se ci sono nuove inserzioni"
+      email_weekly_community_updates: "Inviami una email di aggiornamento <b>settimanale</b> se ci sono nuove inserzioni"
       do_not_email_community_updates: "Non inviarmi email"
       email_when_conversation_accepted: "...qualcuno accetta la mia offerta o richiesta"
       email_when_conversation_rejected: "...qualcuno rifiuta la mia offerta o richiesta"
@@ -2813,6 +2823,8 @@ it:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Salva le informazioni"
   shipping_address:
     shipping_address: "Indirizzo di consegna"
@@ -3003,7 +3015,7 @@ it:
         add_another_time_slot: "+ Aggiungi un altro spazio"
         save: Salva
     no_listings:
-      sorry: "Purtroppo non si trovano inserzioni per i tuoi criteri di ricerca."
+      sorry: "Ci dispiace, ma purtroppo non ci sono inserzioni per i tuoi criteri di ricerca."
       try_other_search_terms: "Prova con altri termini di ricerca."
     listing_card:
       add_picture: "Aggiungi immagine"
@@ -3019,14 +3031,14 @@ it:
       user: ~
       inbox: Messaggi
       profile: Profilo
-      manage_listings: "Gestione annunci"
+      manage_listings: Inserzioni
       settings: Impostazioni
       logout: Esci
       login: "Log in"
       signup: Registrati
       admin_dashboard: ~
       language: Lingua
-      listings: ~
+      listings: Inserzioni
     utils:
       km: km
       mi: miglia
@@ -3039,6 +3051,10 @@ it:
     next_label: "Successivo &#8594;"
     page_gap: ~
     page_entries_info:
+      single_page:
+        zero: "Nessuna %{model} trovata"
+        one: "Visualizza 1 %{model} "
+        other: "Visualizza tutte %{count} le %{model} "
       multi_page: ~
       multi_page_html: ~
     person:
@@ -3053,7 +3069,7 @@ it:
     pay_with_stripe: "Paga con Stripe usando %{card}"
     add_and_pay: "Conferma pagamento"
     card_not_stored: "Il tuo pagamento è processato in sicurezza da Stripe. %{service_name} non colleziona informazioni di carte di credito/debito"
-    missing_payment: "Hai un'inserzione aperta ma il tuo account non è stato configurato per accettare pagamenti. Per configurare le tue preferenze di pagamento, visita %{settings_link}"
+    missing_payment: "Hai un'inserzione aperta, ma il tuo account non è stato configurato per ricevere pagamenti. Per configurare i pagamenti, visita %{settings_link}"
     stripe_bank_connected: "I dettagli del conto corrente sono stati configurati correttamente!"
     stripe_can_accept: "Ora sei pronto per ricevere denaro sul tuo conto corrente"
     stripe_credit_card: "Carta di credito"
@@ -3169,7 +3185,7 @@ it:
     attributes:
       landing_page_version/section/base:
         id: ~
-        title: ~
+        title: Titolo
         paragraph: ~
         button_title: ~
         button_path: ~

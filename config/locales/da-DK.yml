@@ -307,6 +307,7 @@ da-DK:
         enabled_for_all: "Tilladt for alle."
         new_topbar: "Ny top bjælke (synlig på alle sider)."
         searchpage: "Ny søgeside (kræver ny top bar)"
+        new_email_templates: ~
       social_media:
         social_media: Social
         logo: ~
@@ -1838,6 +1839,7 @@ da-DK:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} indvilligede i at udlåne %{listing_title} til %{requester_name}%{time_ago}"
@@ -2226,6 +2228,8 @@ da-DK:
       payments: Betalinger
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du har ikke tilladelse til at se denne liste."
@@ -2838,6 +2842,8 @@ da-DK:
       editing_profile_of: "Du ændre nu %{name}s profil"
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: Gem
   shipping_address:
     shipping_address: Forsendelsesadresse

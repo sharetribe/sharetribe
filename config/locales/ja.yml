@@ -302,6 +302,7 @@ ja:
         enabled_for_all: ~
         new_topbar: 新トップメニュー(全てのページで適用)
         searchpage: 新検索ページ(新トップメニューが必要)
+        new_email_templates: ~
       social_media:
         social_media: ソーシャルメディア
         logo: ~
@@ -1833,6 +1834,7 @@ ja:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{time_ago}に%{offerer_name}さんは%{requester_name}さんに%{listing_title}を貸すことに同意しました。"
@@ -2220,6 +2222,8 @@ ja:
       payments: お支払い
       listings: リスティング
       listings_search_placeholder: リスティングのタイトルを検索する
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: 投稿を閲覧する権限がありません。
@@ -2831,6 +2835,8 @@ ja:
       editing_profile_of: "あなたは現在%{name} のプロフィールを編集しています"
       format_markdown_link: Markdown記法を使用して文章を整える
       format_markdown: "%{link} ことができます"
+      username: ~
+      username_description: ~
     save_information: 保存する
   shipping_address:
     shipping_address: 届け先住所
