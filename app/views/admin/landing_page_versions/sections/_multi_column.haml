@@ -42,7 +42,7 @@
             .col-6
               = text_field_tag "section[columns][#{index}][button_title]", column['button_title'], placeholder: t(".column_button_text")
             .col-6
-              = text_field_tag "section[columns][#{index}][button_path][value]", column['button_path']&.[]('value'), placeholder: t(".column_button_url")
+              = text_field_tag "section[columns][#{index}][button_path][value]", column['button_path']&.[]('value'), placeholder: t(".column_button_url"), url: true
 .row
 
 = render partial: 'cta_button', locals: {form: form, presenter: presenter}
