@@ -4,7 +4,8 @@
 
 .row.bg-style-color
   .col-12
-    = render partial: 'layouts/info_text', locals: {text: t(".background_color_info").html_safe}
+    - link = link_to 'WebFx', "https://www.webfx.com/web-design/color-picker/", target: '_blank'
+    = render partial: 'layouts/info_text', locals: {text: t(".background_color_info", link: link).html_safe}
 
 .row.bg-style-color
   .col-12
