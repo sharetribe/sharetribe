@@ -130,7 +130,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def handle_tx_response(tx_response, gateway)
     if !tx_response[:success]
-      render_error_response(request.xhr?, t("error_messages.#{gateway}.generic_error"), action: :initiate)
+      render_error_response(request.xhr?, gateway_error_message(tx_response, gateway), action: :initiate)
     elsif (tx_response[:data][:gateway_fields][:redirect_url])
       xhr_json_redirect tx_response[:data][:gateway_fields][:redirect_url]
     elsif gateway == :stripe
@@ -425,5 +425,15 @@ class PreauthorizeTransactionsController < ApplicationController
       end
 
     render_error_response(request.xhr?, error_msg, path)
+  end
+
+  def gateway_error_message(tx_response, gateway)
+    translated_stripe_error_codes = %w(card_declined expired_card)
+    if tx_response[:data].is_a?(Stripe::CardError) &&
+       translated_stripe_error_codes.include?(tx_response[:data].code)
+      t("error_messages.stripe.#{tx_response[:data].code}")
+    else
+      t("error_messages.#{gateway}.generic_error")
+    end
   end
 end

@@ -146,7 +146,11 @@ window.ST = window.ST || {};
       } else if (data.stripe_payment_intent) {
         handleCreatedPaymentIntent(data);
       } else if (data.error) {
+        ST.transaction.toggleSpinner(spinner, true);
         showError(data.error);
+      } else if (data.error_msg) {
+        ST.transaction.toggleSpinner(spinner, true);
+        showError(data.error_msg);
       }
     };
     $.post(formAction, form.serialize(), submitSuccess, 'json');
