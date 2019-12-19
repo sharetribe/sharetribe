@@ -2226,6 +2226,7 @@ sv:
       stripe_you_account_balance_is_not_0: ~
       visit_admin: ~
       visit_admin_link: "besök din adminpanel"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Konto
       notifications: Aviseringar
@@ -3203,6 +3204,7 @@ sv:
       ssn_last_4: "De fyra sista siffrorna av ditt personnummer (SSN)"
       hong_kong_identity_card: "Hong Kong Identitetskortsnummer (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) eller Foreign Identification Number (FIN)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "måste vara ett giltigt personnummer (SIN)"
   payment_settings:

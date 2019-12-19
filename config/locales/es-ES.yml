@@ -2224,6 +2224,7 @@ es-ES:
       stripe_you_account_balance_is_not_0: "El balance de tu cuenta no es 0 y por lo tanto no puede ser eliminada. Esto puede significar que tienes transacciones esperando a ser completadas o que hay dinero esperando a ser transferido a tu cuenta de banco. Por favor contacta al equipo de %{service_name} si tienes alguna duda."
       visit_admin: "¿ Quisieras %{link}?"
       visit_admin_link: "visitar tu panel de administración"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Cuenta
       notifications: Notificaciones
@@ -3209,6 +3210,7 @@ es-ES:
       ssn_last_4: "Número de Seguridad Social (últimos 4 dígitos)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
       singapore_identity_card: "Tarjeta de Identidad de Registro Nacional (NRIC) o Número de Identificación Extranjero (FIN)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "debe ser un número de seguridad social (SIN) válido"
   payment_settings:

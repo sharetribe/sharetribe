@@ -307,7 +307,7 @@ es:
         enabled_for_all: "Habilitar para todos"
         new_topbar: "Nueva barra superior (visible en todas las páginas)"
         searchpage: "Nueva página de búsqueda (requiere de la nueva barra superior)"
-        new_email_templates: ~
+        new_email_templates: "Nuevo diseño de correos"
       social_media:
         social_media: "Social media"
         logo: "Imagen para medios sociales"
@@ -1585,7 +1585,7 @@ es:
       stripe:
         you_have_received_new_payment: "La cantidad de <b>%{payment_sum}</b> ha sido pagada para <b>%{listing_title}</b> por %{payer_full_name}. El dinero esta siendo retenido por %{service_name} hasta que la orden sea marcada como completada. Aquí está tu recibo."
     payment_receipt_to_seller_v2:
-      headline: ~
+      headline: "has recibido un pago de %{payer_name} por la cantidad de %{payment_sum} por %{listing_link}."
       main_text_stripe: "El dinero esta siendo retenido por %{service_name} hasta que la orden sea marcada como completada."
       price_breakdown: "Detalles de transacción"
     payment_receipt_to_payer:
@@ -1605,7 +1605,7 @@ es:
       money_will_be_transferred: "El dinero se transferirá a %{recipient_name} cuando a) hayas marcado la transacción como completada o b) hayan pasado %{automatic_confirmation_days} desde que pagaste."
     payment_receipt_to_payer_v2:
       headline: "aquí está tu recibo por %{listing_link}."
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b>."
     paypal_new_payment:
       paypal_gateway_fee: "Tarifa de PayPal:"
       shipping_total: "Costos de envío:"
@@ -1654,6 +1654,9 @@ es:
       unsubscribe_link_text: "cancela tu suscripción"
     community_updates_v2:
       headline: "Checa lo último que ha pasado en %{service_name}."
+      intro_paragraph:
+        one: "Aquí hay algo de lo más destacado que pasó en %{service_name} durante el último día."
+        other: "Aquí hay algo de lo más destacado que pasó en %{service_name} durante los últimos %{number_of_days} días."
     newsletter:
       hi: "Hola %{name},"
       newest_offers: "Lo que la gente actualmente ofrece a los demás"
@@ -1752,7 +1755,7 @@ es:
     transaction_cancel_flow:
       the_order_about: "la orden de %{listing_title}"
       you_can_contact_the_marketplace_team: "Puedes contactar al equipo de %{service_name} si hay algún otro problema."
-      you_can_now_give_feedback: ~
+      you_can_now_give_feedback: "Ahora puedes escribir una valoración a %{name}. Dejar una valoración es siempre una buena idea. Si todo fue bien, deberías contar a otros que %{recipient} es de confianza. Si hubo algún problema, también es bueno que lo menciones."
       give_feedback_to: "Dar una valoración a %{name}"
     transaction_disputed:
       subject: "Orden disputada - El equipo de %{service_name} está revisando la situación"
@@ -1845,7 +1848,7 @@ es:
       section_with_this_id_already_exists: "Este nombre único de sección ya está siendo usado. Por favor, escoge otro."
       listing_with_this_id_does_not_exist: "Este ID de anuncio no corresponde a uno de los de tu marketplace. A lo mejor lo copiaste mal? Por favor, intenta de nuevo"
       presence: "No puede estar vacío"
-      username_is_invalid: ~
+      username_is_invalid: "Este nombre de usuario es inválido o no está disponible"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."
@@ -2224,6 +2227,7 @@ es:
       stripe_you_account_balance_is_not_0: "El balance de tu cuenta no es 0 y por lo tanto no puede ser eliminada. Esto puede significar que tienes transacciones esperando a ser completadas o que hay dinero esperando a ser transferido a tu cuenta de banco. Por favor contacta al equipo de %{service_name} si tienes alguna duda."
       visit_admin: "¿ Quisieras %{link}?"
       visit_admin_link: "visitar tu panel de administración"
+      an_error_occurred_when_saving_your_information: "Hubo un problema al guardar tu información, el mensaje es: \"%{message}\". Por favor checa que toda la información esté correcta e intenta de nuevo."
     settings:
       account: Cuenta
       notifications: Notificaciones
@@ -2234,8 +2238,8 @@ es:
       payments: Pagos
       listings: Anuncios
       listings_search_placeholder: "Buscar anuncio por título"
-      transactions_search_placeholder: ~
-      transactions: ~
+      transactions_search_placeholder: "Buscar por transacción o por miembros involucrados"
+      transactions: Transacciones
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "No está autorizado para ver este anuncio."
@@ -2848,8 +2852,8 @@ es:
       editing_profile_of: "Estás editando el perfil de %{name}"
       format_markdown_link: "darle formato a tu descripción usando Markdown"
       format_markdown: "Puedes %{link}."
-      username: ~
-      username_description: ~
+      username: "Nombre de usuario"
+      username_description: "Tu nombre de usuario es usado como parte de tu URL única para tu página de perfil. Sólo puedes usar letras y números para tu nombre de usuario, sin espacios. Cuando cambias el nombre de usuario, tu URL cambiará automáticamente y tu URL previa ya no dirigirá a tu perfil. El antiguo nombre de usuario estará disponible para otros usuarios."
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: "Dirección de envío"
@@ -3209,6 +3213,7 @@ es:
       ssn_last_4: "Número de Seguridad Social (últimos 4 dígitos)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
       singapore_identity_card: "Tarjeta de Identidad de Registro Nacional (NRIC) o Número de Identificación Extranjero (FIN)"
+      mexico_id_number: "Clave única de registro de población (CURP)"
       messages:
         social_insurance_number: "debe ser un número de seguridad social (SIN) válido"
   payment_settings:

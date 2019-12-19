@@ -219,9 +219,9 @@ tr-TR:
         users_can_invite_new_users: "Tüm kullanıcılar yeni kullanıcıları bu pazara davet edebilir"
         private: "Bu pazar özeldir (içeriği sadece kayıtlı kullanıcılar görüntüleyebilir)"
         require_verification_to_post_listings: "Sadece yönetici onaylı kullanıcılar yeni ilan ekleyebilir"
-        allow_free_conversations: ~
+        allow_free_conversations: "Kullanıcıların birbirlerine mesaj göndermelerine izin ver"
         search_preferences: "Arama seçenekleri"
-        search_and_location_preferences: ~
+        search_and_location_preferences: "Arama ve yer tercihleri"
         default_search_type: ~
         keyword_search: "Anahtar kelime arama"
         keyword_and_location_search: "Anahtar kelime ve lokasyon araması"
@@ -230,7 +230,7 @@ tr-TR:
         km: km
         miles: mil
         show_only_nearby: "Konum arama ile yalnızca yakındaki ilanları göster"
-        allow_users_to_add_location: ~
+        allow_users_to_add_location: "Kullanıcıların profiline, ilanlarına konum eklemelerine izin ver ve arama sayfasında haritayı göster."
         listing_preferences: "Listeleme tercihleri"
         transaction_preferences: "İşlem tercihleri"
         show_listing_publishing_date: "Listeleme sayfasında listelemenin gönderilme tarihini göster"
@@ -258,8 +258,8 @@ tr-TR:
         you_will_be_redirected_to: ~
         delete_this_marketplace: "Bu pazarı sil"
         payment_preferences: ~
-        pre_approved_listings: ~
-        email_admins_about_new_transactions: ~
+        pre_approved_listings: "Tüm listeleri yayınlanmadan önce inceleyin"
+        email_admins_about_new_transactions: "Yeni bir işlem başladığında yöneticilere bir e-posta gönder"
       manage_members:
         manage_members: "Kullanıcıları yönet"
         email: E-posta
@@ -2050,7 +2050,7 @@ tr-TR:
     logged_in_notifications_icon:
       notifications: Bildirimler
     markdown_help:
-      title: ~
+      title: "Markdown kullanarak yardımın biçimlendirilmesi"
       description: ~
       formatting: ~
       result: ~
@@ -2200,6 +2200,7 @@ tr-TR:
       stripe_you_account_balance_is_not_0: ~
       visit_admin: "%{link}ister misiniz?"
       visit_admin_link: "Yönetici panelinizi ziyaret etmek"
+      an_error_occurred_when_saving_your_information: "Bilgilerinizi kayıt edilirken bir hata oluştu: %{message} Lütfen tüm bilgilerin doğruluğundan emin olun ve tekrar deneyin."
     settings:
       account: Hesap
       notifications: Bildirimler
@@ -2268,7 +2269,7 @@ tr-TR:
       description:
         detailed_description: "Ayrıntılı bilgi"
         youtube_info: "Açıklama alanında Youtube linkleri kullanırsanız videolarınız metnin alt kısmında görüntülenecektir."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "%{link} yapabilirsiniz. Açıklama alanında Youtube linkleri kullanırsanız videolarınız metnin alt kısmında görüntülenecektir."
       destination:
         destination: Hedef
       form_content:
@@ -2315,8 +2316,8 @@ tr-TR:
         after_service_fee_you_will_get: "%{service_name} hizmet bedeli düşüldükten sonra %{sum_with_currency} tutarında ödeme alacaksınız."
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} toplam ücretten kesilecektir..."
         no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
-        payment_fee_info_link_text: ~
+        after_service_fee_you_will_get_payment_text: "Biri ödeme yaptığında, bu tutar eksiltilerek hesabınıza geçer %{payment_fee_info_link}"
+        payment_fee_info_link_text: "%{service_name} servis ücreti ve ödeme işlemleri ücreti"
         delivery: "Teslim Yöntemi"
         shipping: "Kargo:"
         shipping_price: "Kargo ücreti"
@@ -2821,7 +2822,7 @@ tr-TR:
       image_is_processing: "Profil fotoğrafınız hazırlanıyor. Lütfen birazdan sayfayı tekrar yükleyiniz..."
       shown_in_your_public_profile: "(herkese açık profilinizde gösterilir)"
       editing_profile_of: ~
-      format_markdown_link: ~
+      format_markdown_link: "açıklamamızı Markdown kullanarak düzenleyebilirsiniz"
       format_markdown: ~
       username: ~
       username_description: ~
@@ -3154,6 +3155,7 @@ tr-TR:
       ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
+      mexico_id_number: "Kişisel Kimlik Kod Numarası (CURP)"
       messages:
         social_insurance_number: ~
   payment_settings:

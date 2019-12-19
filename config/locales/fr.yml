@@ -2227,6 +2227,7 @@ fr:
       stripe_you_account_balance_is_not_0: "Le solde de votre compte n'est pas nul, il ne peut donc pas être supprimé. Cela peut être car vous avez des transactions non encore réalisées ou bien des paiements vers votre compte en banque sont en attente. Veuillez contacter l'équipe %{service_name} pour en savoir plus."
       visit_admin: "Voulez-vous aller dans %{link} ?"
       visit_admin_link: "votre panneau d'administration"
+      an_error_occurred_when_saving_your_information: "Une erreur s'est produite lors de la sauvegarde des informations : \"%{message}\". Veuillez vérifier que les informations sont correctes puis essayer de nouveau."
     settings:
       account: Compte
       notifications: Notifications
@@ -2852,7 +2853,7 @@ fr:
       format_markdown_link: "mettre en page votre description en utilisant Markdown"
       format_markdown: "Vous pouvez %{link}."
       username: "Nom d'utilisateur"
-      username_description: "Votre nom d'utilisateur est unique et visible dans l'URL de votre page de profil. Seuls des lettres et chiffres, sans espaces, peuvent être dans votre nom d'utilisateur."
+      username_description: "Votre nom d'utilisateur est unique et visible dans l'URL de votre page de profil. Seuls des lettres et chiffres, sans espaces, peuvent être dans votre nom d'utilisateur. Lorsque vous changez votre nom d'utilisateur, votre adresse de profil sera modifié automatiquement et votre adresse antérieure ne sera pas redirigée. L'ancien nom d'utilisateur sera de nouveau disponible."
     save_information: "Sauvegarder les informations"
   shipping_address:
     shipping_address: "Adresse de livraison"
@@ -3212,6 +3213,7 @@ fr:
       ssn_last_4: "Quatre derniers chiffres du numéro de sécurité sociale (SSN)"
       hong_kong_identity_card: "Numéro de carte d'identité de Hong Kong (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) ou Foreign Identification Number (FIN)"
+      mexico_id_number: "Identifiant personnel (CURP)"
       messages:
         social_insurance_number: "doit être un Numéro d'Assurance Sociale (NAS) valide"
   payment_settings:
