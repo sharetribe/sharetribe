@@ -24,6 +24,7 @@ class CommunityMailer < ActionMailer::Base
       next if listings_to_send.blank?
 
       begin
+        ApplicationHelper.store_community_service_name_to_thread_from_community(community)
         token = AuthToken.create_unsubscribe_token(person_id: person.id).token
         MailCarrier.deliver_now(
           CommunityMailer.community_updates(
