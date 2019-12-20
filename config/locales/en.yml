@@ -661,10 +661,11 @@ en:
       landing_pages:
         landing_pages: "Landing page"
         info_1: "The landing page is perhaps the most important page of your marketplace. It is the first page that visitors see - sort of like the front door of your house. You have only a few seconds to convince new vistiors that they should explore your site. The page needs to be appealing and your value proposition should be clear and enticing."
-        info_2: "Visit the %{help_link} to find out more about how to edit your landing page"
-        info_2_help_center: Help Center
+        info_2: "You can use this editor to modify your landing page whenever you want!"
+        info_2_help_center: Help Center article
         info_3: "If you want to have a completely customized landing page for your marketplace, you can purchase it as add-on for $99 per month."
-        info_4: "Read more about custom landing pages"
+        info_4: "Read this %{link} to find out how the landing page editor works, learn about the different sections and how to edit them."
+
         editor_title: "Landing page editor"
         editor_info: "Here you can edit the sections of your landing page. At the moment it is only possible to use one language for the landing page. The 'Hero' and 'Footer' sections' position cannot be altered"
         preview: "Preview landing page"
@@ -680,7 +681,6 @@ en:
         sections:
           identifier: "Section ID"
           kind: "Section type"
-          variation: Variation
           new: "New section"
           edit: "Edit section %{section_id}"
           remove_section_confirmation: "Are you sure you want to remove the section '%{section_id}' and all its data? This cannot be undone."
@@ -694,8 +694,6 @@ en:
           video: Video
           new_section:
             categories: "New 'Categories' section addition"
-            footer: "Add new 'Footer' section addition"
-            hero: "New 'Hero' section addition"
             info_single_column: "New 'Info - One colum' section addition"
             info_multi_column_2: "New 'Info - Two columns' section addition"
             info_multi_column_3: "New 'Info - Three columns' section addition"
@@ -754,7 +752,7 @@ en:
           style_none: None
         background_color:
           background_color: "Background color"
-          background_color_info: "You can choose the background color of this section by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> can help you choose the color andgive you the hex color code. You can then copy the code here."
+          background_color_info: "You can choose the background color of this section by entering a hex color value. %{link} can help you choose the color andgive you the hex color code. You can then copy the code here."
         categories:
           add: "+ Add a new category to this section"
           category: Category
@@ -3253,7 +3251,6 @@ en:
         background_image_variation: "Background image variation"
         background_color: "Background color"
         background_color_string: "Background color"
-        icon_color: "Icon color"
       landing_page_version/section/listings:
         listing_1_id: "Listing 1 ID"
         listing_2_id: "Listing 2 ID"
