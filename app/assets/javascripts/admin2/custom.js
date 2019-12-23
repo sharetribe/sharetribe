@@ -13,9 +13,9 @@ $(function(){
     $('.social-checked').on('change', function () {
        var input_elem = $(this).parents('.social-block').find('.social-data');
        if ($(this).prop('checked')) {
-           input_elem.prop('disabled', false);
+           input_elem.prop('required', true);
        } else {
-           input_elem.prop('disabled', true);
+           input_elem.prop('required', false);
        }
     });
 

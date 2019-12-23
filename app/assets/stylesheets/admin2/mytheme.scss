@@ -10367,7 +10367,11 @@ li.active a {
     .content-card-terminal {
       padding: 5px 60px 64px 0;
       margin-left: -30px;
-      margin-right: 0; } }
+      margin-right: 0;
+      &.without-margin {
+        margin-left: 0;
+      }
+    } }
   .content-card-terminal .btn {
     width: 100%; }
     @media (min-width: 769px) {

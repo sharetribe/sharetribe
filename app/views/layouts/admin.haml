@@ -24,6 +24,7 @@
         .content-card
           = yield
     .mobilemenu-overlay
-    %script{src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'}
-    %script{src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'}
+    = javascript_include_tag 'popper.min.js'
+    = javascript_include_tag 'bootstrap.min.js'
+
     = content_for :extra_javascript

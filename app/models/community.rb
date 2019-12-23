@@ -328,12 +328,21 @@ class Community < ApplicationRecord
 
   attr_accessor :terms
 
-  before_validation :check_colors
+  before_validation :check_colors, :socials_process
 
   def check_colors
     self.slogan_color = slogan_color.to_s.delete('#').presence
     self.description_color = description_color.to_s.delete('#').presence
     self.custom_color1 = custom_color1.to_s.delete('#').presence
+  end
+
+  def socials_process
+    self.facebook_connect_secret = facebook_connect_secret.presence
+    self.facebook_connect_id = facebook_connect_id.presence
+    self.linkedin_connect_secret = linkedin_connect_secret.presence
+    self.linkedin_connect_id = linkedin_connect_id.presence
+    self.google_connect_secret = google_connect_secret.presence
+    self.google_connect_id = google_connect_id.presence
   end
 
   def description_color_string
