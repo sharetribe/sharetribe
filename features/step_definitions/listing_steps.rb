@@ -5,6 +5,11 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   opts[:author] = Person.find_by(username: author) if author
   opts[:valid_until] = DateTime.current + valid_days.to_i.days if valid_days
 
+  puts '------------------'
+  puts shape_name
+  puts all_shapes.first&.name
+  puts '------------------'
+
   shape =
     if shape_name
       find_shape(name: shape_name)
