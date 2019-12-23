@@ -221,6 +221,11 @@ Rails.application.routes.draw do
             patch :update_signup_login
           end
         end
+        resources :user_rights, path: 'user-rights', only: %i[index] do
+          collection do
+            patch :update_user_rights
+          end
+        end
       end
     end
 

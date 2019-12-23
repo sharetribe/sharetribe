@@ -61,9 +61,9 @@
           %li#userfields-mobile
             %a{:href => 'user-fields.php'} User fields
           %li#signuplogin-mobile{class: active_li('signup_login')}
-            = link_to t('admin2.sidebar.design.signup_login'), admin2_users_signup_login_index_path
-          %li#userrights-mobile
-            %a{:href => 'user-rights.php'} User rights
+            = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
+          %li#userrights-mobile{class: active_li('user_rights')}
+          = link_to t('admin2.sidebar.users.user_rights'), admin2_users_user_rights_path
           %li#invitations-mobile
             %a{:href => 'invitations.php'} Invitations
         / Listings
