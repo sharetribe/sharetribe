@@ -1,0 +1,27 @@
+.form-group.select-language-admin
+  %label
+    = t('admin2.essentials.marketplace_languages')
+  = select_tag 'enabled_locales[]', options_for_select(all_locales.map { |l| [l[:translated_name], l[:locale_key]] }, enabled_locale_keys), multiple: true, class: %i[form-control required], required: true
+  %small#marketplaceLanguage-help.form-text
+    = t('admin2.essentials.default_language', language: t("admin.communities.available_languages.#{enabled_locale_keys.first}"))
+
+- content_for :extra_javascript do
+  :javascript
+    var locals = $('#enabled_locales_');
+    locals.select2({
+       theme: "bootstrap",
+       tags: true
+    }).on('select2:select', function(e){
+        var id = e.params.data.id;
+        var option = $(e.target).children('[value=' + id + ']');
+        option.detach();
+        $(e.target).append(option).change();
+    });
+
+    var array_keys = #{raw enabled_locale_keys};
+
+    $.each(array_keys, function(index, a){
+      var option = locals.children('[value=' + a + ']');
+      option.detach();
+      locals.append(option).change();
+    })

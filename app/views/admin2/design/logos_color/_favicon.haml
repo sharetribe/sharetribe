@@ -1,0 +1,13 @@
+%section.content-card-section
+  %h2
+    = t('admin2.logos_and_color.favicon')
+  .content-card-section-form
+    .form-group
+      %label
+        = t('admin2.logos_and_color.favicon')
+      .custom-file
+        %span.choose-filename
+          = form.object&.favicon&.original_filename || t('admin2.logos_and_color.not_added', name: t('admin2.logos_and_color.favicon'))
+        = form.file_field :favicon, accept: 'image/*', class: %i[change-file]
+      %small#favicon-help.form-text
+        = t('admin2.logos_and_color.favicon_info_text')
