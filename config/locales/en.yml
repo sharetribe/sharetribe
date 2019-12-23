@@ -1654,7 +1654,7 @@ en:
       headline: "check out the latest activity on %{service_name}."
       intro_paragraph:
         one: "Here are some highlights that happened on %{service_name} during the past day."
-        other: "Here are some highlights that happened on %{service_name} during the past %{number_of_days} days."
+        other: "Here are some highlights that happened on %{service_name} during the past %{count} days."
     newsletter:
       hi: "Hi %{name},"
       newest_offers: "What people currently offer to others"
