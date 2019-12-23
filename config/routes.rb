@@ -172,6 +172,60 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace :admin2 do
+      resources :dashboard, only: :index
+      namespace :general do
+        resources :essentials, only: %i[index] do
+          collection do
+            patch :update_essential
+          end
+        end
+        resources :admin_notifications, path: 'admin-notifications', only: %i[index] do
+          collection do
+            patch :update_admin_notifications
+          end
+        end
+        resources :static_content, path: 'static-content', only: %i[index]
+        resources :privacy, only: %i[index] do
+          collection do
+            patch :update_privacy
+          end
+        end
+      end
+      namespace :design do
+        resources :landing_page, path: 'landing-page', only: %i[index]
+        resources :display, only: %i[index] do
+          collection do
+            patch :update_display
+          end
+        end
+        resources :experimental, only: %i[index] do
+          collection do
+            patch :update_experimental
+          end
+        end
+        resources :logos_color, path: 'logos-and-color', only: %i[index] do
+          collection do
+            patch :update_logos_color
+          end
+        end
+        resources :cover_photos, path: 'cover-photos', only: %i[index] do
+          collection do
+            patch :update_cover_photos
+          end
+        end
+      end
+      namespace :users do
+        resources :signup_login, path: 'signup-and-login', only: %i[index] do
+          collection do
+            patch :update_signup_login
+          end
+        end
+      end
+    end
+
+    get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')
+
     namespace :admin do
       get '' => "getting_started_guide#index"
 

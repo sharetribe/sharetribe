@@ -328,6 +328,32 @@ class Community < ApplicationRecord
 
   attr_accessor :terms
 
+  before_validation :check_colors
+
+  def check_colors
+    self.slogan_color = slogan_color.to_s.delete('#').presence
+    self.description_color = description_color.to_s.delete('#').presence
+    self.custom_color1 = custom_color1.to_s.delete('#').presence
+  end
+
+  def description_color_string
+    return unless description_color.present?
+
+    "##{description_color}"
+  end
+
+  def custom_color1_string
+    return unless custom_color1.present?
+
+    "##{custom_color1}"
+  end
+
+  def slogan_color_string
+    return unless slogan_color.present?
+
+    "##{slogan_color}"
+  end
+
   # Wrapper for the various attachment images url methods
   # which returns url of old image, while new one is processing.
   def stable_image_url(image_name, style = nil, options = {})
