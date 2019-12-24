@@ -19,7 +19,7 @@ module ListingHelpers
     community ||= @current_community
     all_translations = TranslationService::API::Api.translations.get(community.id)[:data]
     puts all_translations
-    all_shaspes.find { |shape|
+    all_shapes.find { |shape|
       all_translations.any? { |tr|
         tr[:translation_key] == shape[:name_tr_key] && tr[:translation] == name
       }
