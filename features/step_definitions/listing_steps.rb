@@ -12,12 +12,6 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
       all_shapes.first
     end
 
-  puts '------------------'
-  puts shape_name
-  puts shape&.name
-  puts all_shapes.pluck(:name, :name_tr_key)
-  puts '------------------'
-
   create_listing(shape: shape, opts: opts)
 end
 
