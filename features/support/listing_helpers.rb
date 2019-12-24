@@ -17,6 +17,7 @@ module ListingHelpers
 
   def find_shape(name:, community: nil)
     community ||= @current_community
+    puts '--------- all_translations -----------'
     all_translations = TranslationService::API::Api.translations.get(community.id)[:data]
     puts all_translations
     all_shapes.find { |shape|
