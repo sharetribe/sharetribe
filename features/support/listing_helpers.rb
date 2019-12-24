@@ -19,6 +19,7 @@ module ListingHelpers
     community ||= @current_community
     puts '--------- all_translations -----------'
     all_translations = TranslationService::API::Api.translations.get(community.id)[:data]
+    puts CommunityTranslation.all.pluck(:translation, :translation_key)
     puts all_translations
     all_shapes.find { |shape|
       all_translations.any? { |tr|
