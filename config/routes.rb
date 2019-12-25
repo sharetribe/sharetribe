@@ -239,6 +239,15 @@ Rails.application.routes.draw do
           end
         end
       end
+
+      namespace :transactions_reviews, path: 'transactions-and-reviews' do
+        resources :config_transactions, path: 'configure-transactions', only: %i[index] do
+          collection do
+            patch :update_config
+          end
+        end
+      end
+
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')
