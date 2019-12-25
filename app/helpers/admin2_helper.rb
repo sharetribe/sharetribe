@@ -41,6 +41,16 @@ module Admin2Helper
     }
   end
 
+  def community_posting_rights_content
+    translations = find_community_customizations(:verification_to_post_listings_info_content)
+    {
+      input_classes: 'form-control',
+      info_text: t('admin2.user_rights.info_text'),
+      input_name: 'verification_to_post_listings_info_content',
+      translations: translations
+    }
+  end
+
   def community_essentials_hash
     translations = find_community_customizations(:name)
     {

@@ -5,8 +5,4 @@
 .content-card-section-form
   .form-group
     - translations.each do |language_key, value|
-      .d-flex.multiple-languages
-        %span.language
-          = value[:language]
-        = text_area_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
-          class: input_classes, maxlength: defined?(maxlength) ? maxlength : nil, placeholder: defined?(placeholder) ? placeholder : ''
+      = render 'admin2/one_locale_input_field', input_name: input_name, language_key: language_key, value: value, input_classes: input_classes

@@ -1,8 +1,8 @@
 $(function(){
 
-    $('.private-check').on('change', function () {
+    $('.for-hide-content').on('change', function () {
        var checked = $(this).prop('checked'),
-           private_content = $('.private-check-content');
+           private_content = $('.hide-content');
        if (checked) {
            private_content.removeClass('opacity_04');
        } else {
