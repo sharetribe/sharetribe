@@ -680,7 +680,6 @@ de:
         sections:
           identifier: "Abschnitt ID"
           kind: Abschnittstyp
-          variation: Variante
           new: "Neuer Abschnitt"
           edit: "Abschnitt %{section_id} bearbeiten"
           remove_section_confirmation: "Bist du sicher, dass du den Abschnitt '%{section_id}' und die enthaltenen Daten löschen möchtest? Dies kann nicht ruckgängig gemacht werden."
@@ -694,8 +693,6 @@ de:
           video: Video
           new_section:
             categories: "Neuer Kategorien-Abschnitt"
-            footer: "Neuer Footer-Abschnitt"
-            hero: "Neuer Hero-Abschnitt"
             info_single_column: "Neuer Abschnitt mit einer Spalte"
             info_multi_column_2: "Neuer Abschnitt mit zwei Spalten"
             info_multi_column_3: "Neuer Abschnitt mit drei Spalten"
@@ -3248,7 +3245,6 @@ de:
         background_image_variation: "Variante des Hintergrundbildes"
         background_color: Hintergrundfarbe
         background_color_string: Hintergrundfarbe
-        icon_color: Symbolfarbe
       landing_page_version/section/listings:
         listing_1_id: "Angebot 1 ID"
         listing_2_id: "Angebot 2 ID"

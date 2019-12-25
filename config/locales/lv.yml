@@ -665,7 +665,6 @@ lv:
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: ~
           edit: ~
           remove_section_confirmation: ~
@@ -679,8 +678,6 @@ lv:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -3210,7 +3207,6 @@ lv:
         background_image_variation: "Fona attēla variācija"
         background_color: ~
         background_color_string: "Fona krāsa"
-        icon_color: "Ikonas krāsa"
       landing_page_version/section/listings:
         listing_1_id: "Sludinājums 1 ID"
         listing_2_id: "Sludinājums 2 ID"
