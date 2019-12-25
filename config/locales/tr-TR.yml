@@ -125,7 +125,7 @@ tr-TR:
         new_listing_button_instructions_text: ~
         default_browse_view: "Default tarayıcı görünümü"
         default_browse_view_instructions_text: "Default tarayıcı görünümü ana sayfada listelemelerin default olarak nasıl görüntülendiğini görmek için kullanılır."
-        grid: "Kare Ağ"
+        grid: Izgara
         list: Liste
         map: Harita
         name_display_type: "Ad görünümü türü"
@@ -304,7 +304,7 @@ tr-TR:
         enabled_for_all: ~
         new_topbar: ~
         searchpage: ~
-        new_email_templates: ~
+        new_email_templates: "E-postalar için yeni düzen"
       social_media:
         social_media: "Sosyal medya"
         logo: ~
@@ -677,7 +677,6 @@ tr-TR:
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: ~
           edit: ~
           remove_section_confirmation: ~
@@ -691,8 +690,6 @@ tr-TR:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -1064,7 +1061,7 @@ tr-TR:
       fee_should_be_less_than_minimum_price: ~
       the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
-      commission_from_buyer_label: ~
+      commission_from_buyer_label: "Alıcı işlem ücreti:"
       minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
@@ -1078,7 +1075,7 @@ tr-TR:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
-      cannot_enable_gateway_because_of_buyer_commission: ~
+      cannot_enable_gateway_because_of_buyer_commission: "Alıcı komisyonu kullanıldığından%{gateway} ödeme ağ geçidi etkinleştirilemiyor"
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1093,7 +1090,7 @@ tr-TR:
         active: ~
         gateway: ~
         process: ~
-        commission: ~
+        commission: Komisyon
         minimum_price: ~
         minimum_fee: ~
         api_verified: ~
@@ -1193,10 +1190,10 @@ tr-TR:
     what_is_this: "Bu nedir?"
     removed_user: "Silinmiş kullanıcı"
     payment_fee_info:
-      title: ~
+      title: "Komisyon ve Ödeme işlem ücreti"
       stripe: ~
       paypal: ~
-      info: ~
+      info: "%{service_name} 'da ödemeler, aşağıda belirtilen ödeme ağ geçidi tarafından işlenmektedir. %{service_name} , ödeme ağ geçidine bağlı olarak bir komisyon tahsil edecektir. Ödeme ağ geçidi ayrıca aşağıda açıklandığı üzere her ödeme için bir ücret alabilir."
     paypal_fee_info:
       title: "PayPal işlem ücreti"
       body_text: |-
@@ -1207,7 +1204,7 @@ tr-TR:
       link_to_paypal_text: buradan
     stripe_fee_info:
       title: ~
-      body_text: ~
+      body_text: "Stripe ödemeleri için%{service_name},%{stripe_commission} tutarında bir komisyon almaktadır. İşlem başına minimum komisyon%{minimum_transaction_fee}. Stripe ücretleri bu komisyona dahildir."
       link_to_stripe_text: ~
   conversations:
     accept:
@@ -1825,7 +1822,7 @@ tr-TR:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
-      username_is_invalid: ~
+      username_is_invalid: "Bu kullanıcı adı geçersiz veya kullanılamıyor"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} %{time_ago}%{listing_title}'ı %{requester_name} üyesine ödünç vermeyi kabul etti."
@@ -1863,7 +1860,7 @@ tr-TR:
     create_new_marketplace: "Yeni pazar oluştur"
     contact_us: "Bize ulaşın"
     profile: Profil
-    manage_listings: Listelerim
+    manage_listings: İlanlarım
     invite: "Yeni üye davet edin"
     login: "Giriş yap"
     signup: "Kayıt ol"
@@ -1969,7 +1966,7 @@ tr-TR:
       map: "Haritayı göster"
       list: "Listeyi göster"
       map_button: Harita
-      grid_button: "Kare Ağ"
+      grid_button: Izgara
       list_button: Liste
       all_listing_types: "Tüm ilan türleri"
       all_categories: "Tüm kategoriler"
@@ -1999,7 +1996,7 @@ tr-TR:
       create_own: ~
       learn_more: "Daha fazla bilgi"
     no_tribe:
-      inbox: "Gelen Kutusu"
+      inbox: "Gelen posta"
       settings: Ayarlar
       feedback: "İletişim%{service_name}"
     application:
@@ -2050,7 +2047,7 @@ tr-TR:
     logged_in_notifications_icon:
       notifications: Bildirimler
     markdown_help:
-      title: "Markdown kullanarak yardımın biçimlendirilmesi"
+      title: "Markdown kullanarak biçimleri düzenlemek"
       description: ~
       formatting: ~
       result: ~
@@ -2211,8 +2208,8 @@ tr-TR:
       payments: Ödemeler
       listings: ~
       listings_search_placeholder: ~
-      transactions_search_placeholder: ~
-      transactions: ~
+      transactions_search_placeholder: "Bir işlem adı veya ilgili bir şey ile arama yapın"
+      transactions: İşlem
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Bu ilanı görüntüleme yetkiniz yok."
@@ -2222,7 +2219,7 @@ tr-TR:
       delete: sil
       are_you_sure: "Yorumu silmek istediğinize emin misiniz?"
     comment_form:
-      ask_a_question: "Ayrıntılı bilgi için ilana yorum yapın. Diğer tüm kullanıcılar yorumunuzu görebilir."
+      ask_a_question: "İlanı değerlendirin ya da daha fazla detay sorun  . Diğer tüm kullanıcılar yorumunuzu görebilecek."
       log_in: "oturum aç"
       send_comment: "Yorum gönder"
       to_send_a_comment: "yeni yorum göndermek için."
@@ -2238,15 +2235,15 @@ tr-TR:
       edit_listing: "İlanı düzenle"
       reopen_listing: "İlanı yeniden aç"
       move_to_top: "Ana sayfanın üstüne çıkar"
-      show_in_updates_email: "Sonraki otomatik e-postada göster"
+      show_in_updates_email: "Bir sonraki bültende göster"
       show_in_updates_email_loading: Yükleniyor...
       show_in_updates_email_error: "Sunucuyla bağlantı kurulamadı. Sayfayı yeniledikten sonra tekrar deneyin."
-      show_in_updates_email_success: "Bu listeleme kullanıcılara gönderilecek bir sonraki otomatik güncelleme e-postasında gösterilecek"
+      show_in_updates_email_success: "Bu ilan otomatik olarak gönderilen bir sonraki e-postada kullanıcılara gösterilecektir."
       listing_is_pending: ~
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: ~
+      delete_listing: "İlanı sil"
     map:
       open_in_google_maps: "Google Maps üzerinde aç."
     error:
@@ -2269,7 +2266,7 @@ tr-TR:
       description:
         detailed_description: "Ayrıntılı bilgi"
         youtube_info: "Açıklama alanında Youtube linkleri kullanırsanız videolarınız metnin alt kısmında görüntülenecektir."
-        youtube_info_markdown: "%{link} yapabilirsiniz. Açıklama alanında Youtube linkleri kullanırsanız videolarınız metnin alt kısmında görüntülenecektir."
+        youtube_info_markdown: "%{link} Açıklama alanında Youtube linkleri kullanırsanız videolarınız metnin alt kısmında görüntülenecektir."
       destination:
         destination: Hedef
       form_content:
@@ -2547,7 +2544,7 @@ tr-TR:
     paypal_account_email_connected: "<del>1. PayPal hesabını bağla</del> Tamamlandı!"
     payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>2. %{service_name} pazar yerine işletim ücreti kesme izni ver</del> Tamamlandı!"
-    commission_permission_needed: ~
+    commission_permission_needed: "Ayrıca bir işlem ücreti almak için%{service_name} izni vermeniz gerekir."
     create_paypal_account_link_text: "PayPal hesabı"
     connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
     paypal_receive_funds_info_label_australia_only: ~
@@ -2661,7 +2658,7 @@ tr-TR:
       and_gave_following_feedback: "ve aşağıdaki geri bildirimi bıraktı"
     profile_listings:
       no_image: "Görsel yok"
-      manage_listings: ~
+      manage_listings: "Tüm ilanlarımı yönet"
     show:
       contact: "%{person} kullanıcısına ulaş"
       about_me: "Hakkımda:"
@@ -2822,10 +2819,10 @@ tr-TR:
       image_is_processing: "Profil fotoğrafınız hazırlanıyor. Lütfen birazdan sayfayı tekrar yükleyiniz..."
       shown_in_your_public_profile: "(herkese açık profilinizde gösterilir)"
       editing_profile_of: ~
-      format_markdown_link: "açıklamamızı Markdown kullanarak düzenleyebilirsiniz"
+      format_markdown_link: "açıklamamızı Markdown kullanarak düzenleyin"
       format_markdown: ~
-      username: ~
-      username_description: ~
+      username: "Kullanıcı adı"
+      username_description: "Kullanıcı adınız, profil sayfanızın benzersiz URL’sinin bir parçası olarak kullanılır. Boşluk bırakmadan sadece kullanıcı adınız için harfleri ve sayıları kullanabilirsiniz. Kullanıcı adınızı değiştirdiğinizde, URL’niz otomatik olarak değişecek ve önceki URL’nize yönlendirilmeyecektir. Eski kullanıcı adı diğer kullanıcılar için alınabilir olacaktır."
     save_information: "Bu bilgiyi kaydet"
   shipping_address:
     shipping_address: "Gönderim Adresi"
@@ -2923,7 +2920,7 @@ tr-TR:
       december: Ara
     today: Bugün
     clear: Sil
-    format: ay/gün/yıl
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%e %b %Y at %H:%M"
@@ -2998,7 +2995,7 @@ tr-TR:
       save_and_close_availability_editing: "Kaydet ve kapat"
       confirm_discarding_unsaved_availability_changes_explanation: "Uygunluk bilgilerinizde kaydedilmemiş değişiklikleriniz var. Devam ederseniz, bu değişiklikler kaybolacak."
       confirm_discarding_unsaved_availability_changes_question: "Yaptığınız değişiklikleri silmek istediğinizden emin misiniz?"
-      edit_listing_availability: "Listeleme uygunluğunu düzenle"
+      edit_listing_availability: "İlan uygunluğunu düzenle"
       working_hours:
         default_schedule: ~
         i_am_available_on: ~
@@ -3021,16 +3018,16 @@ tr-TR:
       search_placeholder: Ara...
       search_location_placeholder: Lokasyon
       user: Kullanıcı
-      inbox: "Gelen Kutusu"
+      inbox: "Gelen posta"
       profile: Profil
-      manage_listings: Listelerim
+      manage_listings: İlanlarım
       settings: Ayarlar
       logout: "Çıkış yap"
       login: "Giriş yap"
       signup: "Kayıt ol"
       admin_dashboard: "Yönetim paneli"
       language: Dil
-      listings: ~
+      listings: İlanlarım
     utils:
       km: ~
       mi: ~
@@ -3063,7 +3060,7 @@ tr-TR:
     admin_account_not_connected: ~
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: ~
-    commission: ~
+    commission: "%{commission}  %"
     pay_with_stripe: ~
     add_and_pay: ~
     card_not_stored: ~
@@ -3193,7 +3190,6 @@ tr-TR:
         background_image_variation: ~
         background_color: ~
         background_color_string: ~
-        icon_color: ~
       landing_page_version/section/listings:
         listing_1_id: ~
         listing_2_id: ~

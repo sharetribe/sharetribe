@@ -690,7 +690,6 @@ pl:
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: ~
           edit: ~
           remove_section_confirmation: ~
@@ -704,8 +703,6 @@ pl:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -3288,7 +3285,6 @@ pl:
         background_image_variation: "Inny obraz w tle"
         background_color: "Kolor tła"
         background_color_string: "Kolor tła"
-        icon_color: "Kolor ikony"
       landing_page_version/section/listings:
         listing_1_id: "ID 1. ogłoszenia"
         listing_2_id: "ID 2. ogłoszenia"
