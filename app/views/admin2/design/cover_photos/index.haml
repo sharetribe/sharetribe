@@ -32,5 +32,5 @@
             = form.file_field :small_cover_photo, accept: 'image/*', class: %i[change-file]
           %small#smallcoverphoto-help.form-text
             = t('admin2.cover_photos.small_cover_photo_info_text')
-    .content-card-terminal
+    .content-card-terminal.without-margin
       = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
