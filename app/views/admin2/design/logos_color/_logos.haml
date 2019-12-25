@@ -18,5 +18,6 @@
         %span.choose-filename
           = form.object&.logo&.original_filename || t('admin2.logos_and_color.not_added', name: t('admin2.logos_and_color.square_logo'))
         = form.file_field :logo, accept: 'image/*', class: %i[change-file]
+
       %small#mobilelogo-help.form-text
         = t('admin2.logos_and_color.square_logo_info_text')
