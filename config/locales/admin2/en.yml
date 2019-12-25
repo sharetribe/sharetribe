@@ -29,6 +29,10 @@ en:
         user_rights: 'User rights'
       listings:
         listing_approval: 'Listing approval'
+        listing_comments: 'Listing comments'
+    listing_comments:
+      info_text: "Allowing users to comment on a listing helps people clarify things publicly before starting a transaction. This is also helpful if your marketplace doesn't rely on online payments. You can delete comments from listing pages."
+      listing_comments_in_use: 'Allow users to post comments to listings (viewable to all other users)'
     listing_approval:
       info_text: 'Reviewing all content before it is visible to all visitors is a great way to build trust. You can enable the Listing approval feature to review all new and edited listings. They can be approved or rejected. When that feature is enabled, providers who post a listing will have to "Submit it for review", instead of posting it immediately.'
       pre_approved_listings: 'Review all listings before they are published'
@@ -151,6 +155,7 @@ en:
       signup_login_updated: 'Signup & Login settings were updated'
       user_rights_updated: 'User rights settings were updated'
       listing_approval_updated: 'Listing approval settings were updated'
+      listing_comments_updated: 'Listing comments settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

@@ -81,8 +81,8 @@
             %a{:href => 'listing-fields.php'} Listing fields
           %li#listingapproval-mobile{class: active_li('listing_approval')}
           = link_to t('admin2.sidebar.listings.listing_approval'), admin2_listings_listing_approval_index_path
-          %li#listingcomments-mobile
-            %a{:href => 'listing-comments.php'} Listing comments
+          %li#listingcomments-mobile{class: active_li('listing_comments')}
+          = link_to t('admin2.sidebar.listings.listing_comments'), admin2_listings_listing_comments_path
         / Transactions
         %ul.category-title
           %li

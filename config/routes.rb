@@ -233,6 +233,11 @@ Rails.application.routes.draw do
             patch :update_listing_approval
           end
         end
+        resources :listing_comments, path: 'listing-comments', only: %i[index] do
+          collection do
+            patch :update_listing_comments
+          end
+        end
       end
     end
 

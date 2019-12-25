@@ -29,9 +29,13 @@ fr:
         user_rights: 'lorem ipsum'
       listings:
         listing_approval: 'lorem ipsum'
+        listing_comments: 'lorem ipsum'
     listing_approval:
       info_text: 'lorem ipsum'
       pre_approved_listings: 'lorem ipsum'
+    listing_comments:
+      info_text: 'lorem ipsum'
+      listing_comments_in_use: 'lorem ipsum'
     experimental:
       new_layout: 'lorem ipsum'
       info_text: 'lorem ipsum'
@@ -150,6 +154,7 @@ fr:
       cover_photos_updated: 'lorem ipsum'
       user_rights_updated: 'lorem ipsum'
       listing_approval_updated: 'lorem ipsum'
+      listing_comments_updated: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'
