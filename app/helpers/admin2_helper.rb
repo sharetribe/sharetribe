@@ -12,7 +12,8 @@ module Admin2Helper
     {
       general: %w[essentials privacy static_content admin_notifications],
       design: %w[logos_color landing_page display experimental cover_photos],
-      users: %w[signup_login user_rights]
+      users: %w[signup_login user_rights],
+      listings: %w[listing_approval]
     }
   end
 

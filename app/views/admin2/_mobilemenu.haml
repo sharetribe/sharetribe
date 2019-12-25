@@ -70,7 +70,7 @@
         %ul.category-title
           %li
             %a.dropdown-toggle{'aria-controls' => 'listings-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#listings-mobile', :role => 'button'} Listings
-        %ul#listings-mobile.collapse.subtitle
+        %ul#listings-mobile.collapse.subtitle{class: expand_ul('listings')}
           %li#managelistings-mobile
             %a{:href => 'manage-listings.php'} Manage listings
           %li#categories-mobile
@@ -79,8 +79,8 @@
             %a{:href => 'order-types.php'} Order types
           %li#listingfields-mobile
             %a{:href => 'listing-fields.php'} Listing fields
-          %li#listingapproval-mobile
-            %a{:href => 'listing-approval.php'} Listing approval
+          %li#listingapproval-mobile{class: active_li('listing_approval')}
+          = link_to t('admin2.sidebar.listings.listing_approval'), admin2_listings_listing_approval_index_path
           %li#listingcomments-mobile
             %a{:href => 'listing-comments.php'} Listing comments
         / Transactions

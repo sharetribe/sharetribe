@@ -227,6 +227,13 @@ Rails.application.routes.draw do
           end
         end
       end
+      namespace :listings do
+        resources :listing_approval, path: 'listing-approval', only: %i[index] do
+          collection do
+            patch :update_listing_approval
+          end
+        end
+      end
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')

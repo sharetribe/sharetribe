@@ -27,6 +27,11 @@ en:
       users:
         signup_login: 'Signup & Login'
         user_rights: 'User rights'
+      listings:
+        listing_approval: 'Listing approval'
+    listing_approval:
+      info_text: 'Reviewing all content before it is visible to all visitors is a great way to build trust. You can enable the Listing approval feature to review all new and edited listings. They can be approved or rejected. When that feature is enabled, providers who post a listing will have to "Submit it for review", instead of posting it immediately.'
+      pre_approved_listings: 'Review all listings before they are published'
     experimental:
       new_layout: 'New layout'
       info_text: "When new layout components are made available for your marketplace, you can choose whether you want to start using the new component or continue using the old one. You can toggle the selection at any point from this page. It's recommended to always be using the new version, as the old components might be phased out at some point. In case a component you're currently using is going to be phased out, you will be contacted in advance."
@@ -145,6 +150,7 @@ en:
       cover_photos_updated: 'Cover photos settings were updated'
       signup_login_updated: 'Signup & Login settings were updated'
       user_rights_updated: 'User rights settings were updated'
+      listing_approval_updated: 'Listing approval settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

@@ -64,7 +64,7 @@
       %ul.category-title
         %li
           %a.dropdown-toggle{'aria-controls' => 'listings', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#listings', :role => 'button'} Listings
-      %ul#listings.collapse.subtitle
+      %ul#listings.collapse.subtitle{class: expand_ul('listings')}
         %li#managelistings
           %a{:href => 'manage-listings.php'} Manage listings
         %li#categories
@@ -73,8 +73,8 @@
           %a{:href => 'order-types.php'} Order types
         %li#listingfields
           %a{:href => 'listing-fields.php'} Listing fields
-        %li#listingapproval
-          %a{:href => 'listing-approval.php'} Listing approval
+        %li#listingapproval{class: active_li('listing_approval')}
+          = link_to t('admin2.sidebar.listings.listing_approval'), admin2_listings_listing_approval_index_path
         %li#listingcomments
           %a{:href => 'listing-comments.php'} Listing comments
       / Transactions
