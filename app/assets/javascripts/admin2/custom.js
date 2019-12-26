@@ -1,3 +1,15 @@
+function validateConfigureTransactions(community_id) {
+    $("#edit_community_" + community_id).validate({
+        errorPlacement: function (error, element) {
+          $('#days_label').after(error);
+        },
+        onkeyup: false,
+        onclick: false,
+        onfocusout: false,
+        onsubmit: true
+    });
+}
+
 $(function(){
 
     $('.for-hide-content').on('change', function () {

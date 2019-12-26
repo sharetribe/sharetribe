@@ -30,6 +30,19 @@ fr:
       listings:
         listing_approval: 'lorem ipsum'
         listing_comments: 'lorem ipsum'
+      transactions_reviews:
+        config_transactions: 'lorem ipsum'
+    config_transactions:
+      transaction_agreement_in_use: 'lorem ipsum'
+      transaction_auto_completion: 'lorem ipsum'
+      days: 'lorem ipsum'
+      info_text: 'lorem ipsum'
+      automatic_confirmation_after_days: 'lorem ipsum'
+      transaction_agreement: 'lorem ipsum'
+      agreement_label: 'lorem ipsum'
+      agreement_label_info_text: 'lorem ipsum'
+      agreement_text: 'lorem ipsum'
+      agreement_text_info_text: 'lorem ipsum'
     listing_approval:
       info_text: 'lorem ipsum'
       pre_approved_listings: 'lorem ipsum'
@@ -155,6 +168,7 @@ fr:
       user_rights_updated: 'lorem ipsum'
       listing_approval_updated: 'lorem ipsum'
       listing_comments_updated: 'lorem ipsum'
+      configure_transactions_updated: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'
