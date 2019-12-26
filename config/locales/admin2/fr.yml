@@ -32,6 +32,19 @@ fr:
         listing_comments: 'lorem ipsum'
       transactions_reviews:
         config_transactions: 'lorem ipsum'
+      payment_system:
+        country_currency: 'lorem ipsum'
+      emails:
+        automatic_newsletter: 'lorem ipsum'
+    automatic_newsletter:
+      send_automatic_newsletter: 'lorem ipsum'
+      send_automatic_newsletter_info_text: 'lorem ipsum %{href}'
+      automatic_newsletter_frequency: 'lorem ipsum'
+      automatic_newsletter_frequency_info_text: 'lorem ipsum'
+      default_newsletter_frequency: 'lorem ipsum'
+      newsletter_daily: 'lorem ipsum'
+      newsletter_weekly: 'lorem ipsum'
+      automatic_newsletters: 'lorem ipsum'
     config_transactions:
       transaction_agreement_in_use: 'lorem ipsum'
       transaction_auto_completion: 'lorem ipsum'
@@ -169,6 +182,7 @@ fr:
       listing_approval_updated: 'lorem ipsum'
       listing_comments_updated: 'lorem ipsum'
       configure_transactions_updated: 'lorem ipsum'
+      newsletters_updated: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

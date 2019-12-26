@@ -109,13 +109,13 @@
       %ul.category-title
         %li
           %a.dropdown-toggle{'aria-controls' => 'emails', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#emails', :role => 'button'} Emails
-      %ul#emails.collapse.subtitle
+      %ul#emails.collapse.subtitle{class: expand_ul('emails')}
         %li#emailusers
           %a{:href => 'email-users.php'} Email users
         %li#welcomeemail
           %a{:href => 'welcome-email.php'} Welcome email
-        %li#automaticnewsletter
-          %a{:href => 'automatic-newsletter.php'} Automatic newsletter
+        %li#automaticnewsletter{class: active_li('newsletters')}
+          = link_to t('admin2.sidebar.emails.automatic_newsletter'), admin2_emails_newsletters_path
         %li#customoutgoingaddress
           %a{:href => 'custom-outgoing-address.php'} Custom outgoing address
       / Search & Location

@@ -56,6 +56,8 @@ module NavigationHelpers
       admin2_general_admin_notifications_path(locale: "en")
     when /^the admin2 configure transactions community "(.*)"$/i
       admin2_transactions_reviews_config_transactions_path(locale: "en")
+    when /^the admin2 automatic newsletter community "(.*)"$/i
+      admin2_emails_newsletters_path(locale: "en")
     when /^the admin2 user rights community "(.*)"$/i
       admin2_users_user_rights_path(locale: "en")
     when /^the admin2 general essential community "(.*)"$/i

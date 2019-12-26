@@ -50,7 +50,7 @@
           %li#experimental-mobile{class: active_li('experimental')}
             = link_to t('admin2.sidebar.design.experimental'), admin2_design_experimental_index_path
         / Divider
-        %hr/
+        %hr
         / Users
         %ul.category-title
           %li
@@ -63,7 +63,7 @@
           %li#signuplogin-mobile{class: active_li('signup_login')}
             = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
           %li#userrights-mobile{class: active_li('user_rights')}
-          = link_to t('admin2.sidebar.users.user_rights'), admin2_users_user_rights_path
+            = link_to t('admin2.sidebar.users.user_rights'), admin2_users_user_rights_path
           %li#invitations-mobile
             %a{:href => 'invitations.php'} Invitations
         / Listings
@@ -80,9 +80,9 @@
           %li#listingfields-mobile
             %a{:href => 'listing-fields.php'} Listing fields
           %li#listingapproval-mobile{class: active_li('listing_approval')}
-          = link_to t('admin2.sidebar.listings.listing_approval'), admin2_listings_listing_approval_index_path
+            = link_to t('admin2.sidebar.listings.listing_approval'), admin2_listings_listing_approval_index_path
           %li#listingcomments-mobile{class: active_li('listing_comments')}
-          = link_to t('admin2.sidebar.listings.listing_comments'), admin2_listings_listing_comments_path
+            = link_to t('admin2.sidebar.listings.listing_comments'), admin2_listings_listing_comments_path
         / Transactions
         %ul.category-title
           %li
@@ -104,7 +104,7 @@
             %a.dropdown-toggle{'aria-controls' => 'paymentsystem-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#paymentsystem-mobile', :role => 'button'} Payment system
         %ul#paymentsystem-mobile.collapse.subtitle{class: expand_ul('payment_system')}
           %li#countrycurrency-mobile{class: active_li('country_currencies')}
-          = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
+            = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
           %li#transactionsize-mobile
             %a{:href => 'transaction-size.php'} Transaction size
           %li#paypal-mobile
@@ -115,13 +115,13 @@
         %ul.category-title
           %li
             %a.dropdown-toggle{'aria-controls' => 'emails-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#emails-mobile', :role => 'button'} Emails
-        %ul#emails-mobile.collapse.subtitle
+        %ul#emails-mobile.collapse.subtitle{class: expand_ul('emails')}
           %li#emailusers-mobile
             %a{:href => 'email-users.php'} Email users
           %li#welcomeemail-mobile
             %a{:href => 'welcome-email.php'} Welcome email
-          %li#automaticnewsletter-mobile
-            %a{:href => 'automatic-newsletter.php'} Automatic newsletter
+          %li#automaticnewsletter-mobile{class: active_li('newsletters')}
+            = link_to t('admin2.sidebar.emails.automatic_newsletter'), admin2_emails_newsletters_path
           %li#customoutgoingaddress-mobile
             %a{:href => 'custom-outgoing-address.php'} Custom outgoing address
         / Search & Location

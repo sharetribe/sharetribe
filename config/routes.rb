@@ -256,6 +256,14 @@ Rails.application.routes.draw do
         end
       end
 
+      namespace :emails do
+        resources :newsletters, path: 'automatic-newsletter', only: %i[index] do
+          collection do
+            patch :update_newsletter
+          end
+        end
+      end
+
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')

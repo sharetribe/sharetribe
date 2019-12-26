@@ -1,5 +1,4 @@
-@javascript
-Feature: Admin edits configure transactions page
+Feature: Admin edits automatic newsletter page
 
   Background:
     Given "kassi_testperson1" has admin rights in community "test"

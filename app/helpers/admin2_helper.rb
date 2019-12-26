@@ -15,7 +15,8 @@ module Admin2Helper
       users: %w[signup_login user_rights],
       listings: %w[listing_approval listing_comments],
       transactions_reviews: %w[config_transactions],
-      payment_system: %w[country_currencies]
+      payment_system: %w[country_currencies],
+      emails: %w[newsletters]
     }
   end
 
@@ -102,6 +103,11 @@ module Admin2Helper
       end)
     end
     nil
+  end
+
+  def period_emails_send
+    [[t("admin2.automatic_newsletter.newsletter_daily"), 1],
+     [t("admin2.automatic_newsletter.newsletter_weekly"), 7]]
   end
 
   def find_community_customizations(customization_key)
