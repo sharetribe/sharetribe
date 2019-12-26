@@ -1,0 +1,50 @@
+- content_for :title do
+  = t('admin2.sidebar.payment_system.country_currency')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.payment_system.country_currency')
+
+.content-card-section-container
+  %section.content-card-section
+    %h2
+      = t('admin2.sidebar.payment_system.country_currency')
+
+    %form.content-card-section-form
+      .form-group
+        %label{:for => "country"} Country
+        %input#country.form-control{"aria-describedby" => "country", :disabled => "disabled", :placeholder => "Finland", :type => "text"}/
+        %small#country-help.form-text
+          Want to change the country of your marketplace?
+          = succeed "." do
+            %a{:href => "#"} Contact the Sharetribe team
+      .form-group
+        %label{:for => "currency"} Currency
+        %select#currency.form-control{"aria-describedby" => "currency"}
+          %option Euro - € - EUR
+          %option US Dollar - $ - USD
+          %option British pound - £ - GBP
+          %option More currencies - More currencies - More currencies
+
+  %section.content-card-section
+    %h2 Available payment gateways
+    %p.ingress
+      Based on your country and currency settings,
+      %strong PayPal
+      and
+      %strong Stripe
+      can be configured as payment gateways in your marketplace.
+    %p.ingress
+      VARIATION - Based on your country and currency settings,
+      %strong PayPal
+      can be configured as payment gateway in your marketplace.
+    %p.ingress VARIATION - Based on your country and currency settings, there is unfortunately no payment gateways available in your marketplace.
+    %p
+      You can learn more about the availability of payment gateways, for country, in the following articles:
+    %ul
+      %li
+        %a{:href => "https://help.sharetribe.com/en/articles/666091", :target => "_blank"} Countries and currencies supported by PayPal
+      %li
+        %a{:href => "https://help.sharetribe.com/en/articles/1063017", :target => "_blank"} Countries and currencies supported by Stripe
+  .content-card-terminal.without-margin
+    %a.btn.btn-primary{:href => "#"} Save changes

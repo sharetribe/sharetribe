@@ -102,9 +102,9 @@
         %ul.category-title
           %li
             %a.dropdown-toggle{'aria-controls' => 'paymentsystem-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#paymentsystem-mobile', :role => 'button'} Payment system
-        %ul#paymentsystem-mobile.collapse.subtitle
-          %li#countrycurrency-mobile
-            %a{:href => 'country-currency.php'} Country &amp; Currency
+        %ul#paymentsystem-mobile.collapse.subtitle{class: expand_ul('payment_system')}
+          %li#countrycurrency-mobile{class: active_li('country_currencies')}
+          = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
           %li#transactionsize-mobile
             %a{:href => 'transaction-size.php'} Transaction size
           %li#paypal-mobile

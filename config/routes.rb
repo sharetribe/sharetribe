@@ -248,6 +248,14 @@ Rails.application.routes.draw do
         end
       end
 
+      namespace :payment_system, path: 'payment-system' do
+        resources :country_currencies, path: 'country-currency', only: %i[index] do
+          collection do
+            patch :update_country_currencies
+          end
+        end
+      end
+
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')

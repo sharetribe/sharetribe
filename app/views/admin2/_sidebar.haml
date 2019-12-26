@@ -96,9 +96,9 @@
       %ul.category-title
         %li
           %a.dropdown-toggle{'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#paymentsystem', :role => 'button'} Payment system
-      %ul#paymentsystem.collapse.subtitle
-        %li#countrycurrency
-          %a{:href => 'country-currency.php'} Country &amp; Currency
+      %ul#paymentsystem.collapse.subtitle{class: expand_ul('payment_system')}
+        %li#countrycurrency{class: active_li('country_currencies')}
+          = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
         %li#transactionsize
           %a{:href => 'transaction-size.php'} Transaction size
         %li#paypal
