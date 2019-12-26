@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits automatic newsletter page
 
   Background:
