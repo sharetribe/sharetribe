@@ -36,6 +36,11 @@ en:
         country_currency: 'Country & Currency'
       emails:
         automatic_newsletter: 'Automatic newsletter'
+    country_currency:
+      payments_not_enabled: 'Payments not enabled'
+      country: 'Country'
+      country_info_text: 'Want to change the country of your marketplace? <a href="#">Contact the Sharetribe team</a>'
+      currency: 'Currency'
     automatic_newsletter:
       send_automatic_newsletter: 'Send the automatic newsletter'
       send_automatic_newsletter_info_text: 'To be notified about new listings in your marketplace, your members can receive a daily or weekly newsletter. They can opt-out anytime from their own user settings. <a href=%{href} target="_blank">Learn more about the automatic newsletter</a>.'
@@ -184,6 +189,7 @@ en:
       listing_comments_updated: 'Listing comments settings were updated'
       configure_transactions_updated: 'Configure transactions settings were updated'
       newsletters_updated: 'Automatic newsletter settings were updated'
+      country_currency_updated: 'Country & Currency settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

@@ -93,18 +93,19 @@
       / Divider
       %hr/
       / Payment system
-      %ul.category-title
-        %li
-          %a.dropdown-toggle{'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#paymentsystem', :role => 'button'} Payment system
-      %ul#paymentsystem.collapse.subtitle{class: expand_ul('payment_system')}
-        %li#countrycurrency{class: active_li('country_currencies')}
-          = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
-        %li#transactionsize
-          %a{:href => 'transaction-size.php'} Transaction size
-        %li#paypal
-          %a{:href => 'paypal.php'} PayPal
-        %li#stripe
-          %a{:href => 'stripe.php'} Stripe
+      - if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_provisioned?(@current_community.id)
+        %ul.category-title
+          %li
+            %a.dropdown-toggle{'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#paymentsystem', :role => 'button'} Payment system
+        %ul#paymentsystem.collapse.subtitle{class: expand_ul('payment_system')}
+          %li#countrycurrency{class: active_li('country_currencies')}
+            = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
+          %li#transactionsize
+            %a{:href => 'transaction-size.php'} Transaction size
+          %li#paypal
+            %a{:href => 'paypal.php'} PayPal
+          %li#stripe
+            %a{:href => 'stripe.php'} Stripe
       / Email
       %ul.category-title
         %li

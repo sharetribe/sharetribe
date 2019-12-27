@@ -1,0 +1,32 @@
+%section.content-card-section
+  %h2 Available payment gateways
+  - if stripe_allowed && paypal_allowed
+    %p.ingress
+      Based on your country and currency settings,
+      %strong PayPal
+      and
+      %strong Stripe
+      can be configured as payment gateways in your marketplace.
+
+  - if !stripe_allowed && paypal_allowed
+    %p.ingress
+      Based on your country and currency settings,
+      %strong PayPal
+      can be configured as payment gateway in your marketplace.
+
+  - if stripe_allowed && !paypal_allowed
+    %p.ingress
+      Based on your country and currency settings,
+      %strong Stripe
+      can be configured as payment gateway in your marketplace.
+
+  - if !stripe_allowed && !paypal_allowed
+    %p.ingress Based on your country and currency settings, there is unfortunately no payment gateways available in your marketplace.
+
+  %p
+    You can learn more about the availability of payment gateways, for country, in the following articles:
+  %ul
+    %li
+      = link_to 'Countries and currencies supported by PayPal', 'https://help.sharetribe.com/en/articles/666091', target: :_blank
+    %li
+      = link_to 'Countries and currencies supported by Stripe', 'https://help.sharetribe.com/en/articles/1063017', target: :_blank
