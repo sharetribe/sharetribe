@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin2::Emails::NewslettersController, type: :controller do
   let(:community) do
     FactoryGirl.create(:community, automatic_newsletters: false,
-                       default_min_days_between_community_updates: 7)
+                                   default_min_days_between_community_updates: 7)
   end
 
   before(:each) do
