@@ -87,15 +87,15 @@
         %ul.category-title
           %li
             %a.dropdown-toggle{'aria-controls' => 'transactionsreviews-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#transactionsreviews-mobile', :role => 'button'} Transactions &amp; Reviews
-        %ul#transactionsreviews-mobile.collapse.subtitle
+        %ul#transactionsreviews-mobile.collapse.subtitle{class: expand_ul('transactions_reviews')}
           %li#managetransactions-mobile
             %a{:href => 'manage-transactions.php'} Manage transactions
           %li#viewconversations-mobile
             %a{:href => 'view-conversations.php'} View conversations
           %li#managereviews-mobile
             %a{:href => 'manage-reviews.php'} Manage reviews
-          %li#configuretransactions-mobile
-            %a{:href => 'configure-transactions.php'} Configure transactions
+          %li#configuretransactions-mobile{class: active_li('config_transactions')}
+            = link_to t('admin2.sidebar.transactions_reviews.config_transactions'), admin2_transactions_reviews_config_transactions_path
         / Divider
         %hr/
         / Payment system
