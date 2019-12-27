@@ -10,15 +10,10 @@ module Admin2::PaymentSystem
     end
 
     def update_country_currencies
-      currency = params[:community][:currency]
-      base_params = {
-        minimum_price_currency: currency,
-        payment_gateway: :stripe,
-        community_id: @current_community.id,
-        payment_process: :preauthorize
-      }
+      raise t("admin2.notifications.payments_connected") if payments_connected?
+
       ActiveRecord::Base.transaction do
-        @current_community.update!(currency: currency)
+        @current_community.update!(currency: base_params[:minimum_price_currency])
         TransactionService::API::Api.settings.update(base_params)
       end
       flash[:notice] = t('admin2.notifications.country_currency_updated')
@@ -29,6 +24,14 @@ module Admin2::PaymentSystem
     end
 
     private
+
+    def base_params
+      currency = params[:community][:currency]
+      { minimum_price_currency: currency,
+        payment_gateway: :stripe,
+        community_id: @current_community.id,
+        payment_process: :preauthorize }
+    end
 
     def view_locals
       @view_locals ||= begin
