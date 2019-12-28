@@ -252,7 +252,7 @@ bg:
         manage_members: ~
         email: ~
         name: ~
-        display_name: ~
+        display_name: "Публично име"
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -1883,7 +1883,7 @@ bg:
       some_private_offers_exist: "Вече има <b>%{number_of_listings} предложения</b>,"
       some_private_requests_exist: "Вече има <b>%{number_of_listings} запитвания</b>,"
     custom_filters:
-      update_view: ~
+      update_view: "Обнови изглед"
       min: ~
       max: ~
     event_feed:
@@ -1915,7 +1915,7 @@ bg:
       requesting: нужен
       tell_it_here: "Разкажи го тук!"
       welcome_to_new_kassi: "Добре дошли в %{service_name}!"
-      no_reviews: ~
+      no_reviews: "Засега няма отзиви"
       no_image: ~
       filter: ~
       this_is_private_community: "Трябва да сте регистриран преди да видите съдържанието."
@@ -1953,7 +1953,7 @@ bg:
       map_button: Карта
       grid_button: Мрежа
       list_button: Списък
-      all_listing_types: ~
+      all_listing_types: "Всички видове обяви"
       all_categories: ~
     errors:
       search_engine_not_responding: ~
@@ -1968,7 +1968,7 @@ bg:
   landing_page:
     hero:
       search: ~
-      signup: ~
+      signup: "Регистрирай се"
       search_placeholder: ~
       search_location_placeholder: ~
     listings:
@@ -2056,7 +2056,7 @@ bg:
       logout: Изход
       notifications: Известия
       requests: "Заявки за приятелство"
-      settings: ~
+      settings: Настройки
       sign_up: "Регистрирай се"
     notifications:
       listing_could_not_be_saved: ~
@@ -2153,13 +2153,13 @@ bg:
       you_have_already_given_feedback_about_this_event: "Вече дадохте обратна връзка за това събитие"
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "Трябва да сте вписани в %{service_name}, за да създадете нова обява. Ако все още нямате акаунт, можете да %{sign_up_link}."
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: "Трябва да влезете, за да дадете обратна връзка"
       you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: "Трябва да влезете, за да изпратите нов коментар"
       you_must_log_in_to_send_a_message: "Трябва да влезете в %{service_name}, за да изпратите съобщение на друг потребител."
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Трябва да сте вписани в %{service_name} за да осъществите желаното действие."
       you_must_log_in_to_view_this_content: "Трябва да влезете, за да видите това съдържание"
       you_must_log_in_to_view_this_page: "Трябва да се вписани за да видите тази страница"
       you_must_log_in_to_view_your_inbox: "Трябва да влезете в %{service_name}, за да видите входящата си поща."
@@ -2184,7 +2184,7 @@ bg:
       visit_admin_link: "Посетете Вашия панел като Администратор"
       an_error_occurred_when_saving_your_information: ~
     settings:
-      account: Сметка
+      account: Акаунт
       notifications: Известия
       profile: "Информация за профила"
       settings: Настройки
@@ -2205,13 +2205,13 @@ bg:
       are_you_sure: ~
     comment_form:
       ask_a_question: ~
-      log_in: Вход
+      log_in: "да влезете"
       send_comment: "Изпратете коментар"
       to_send_a_comment: "за да изпратите нов коментар."
       write_comment: "Напишете нов коментар:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: "Вие трябва"
-      subscribe_to_comments: ~
+      subscribe_to_comments: "Уведоми ми ме при нови коментари и развития"
     deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: ~
@@ -2251,7 +2251,7 @@ bg:
       description:
         detailed_description: "Подробно описание"
         youtube_info: ~
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Можете да %{link}. Ако вашето описание съдържа YouTube линкове, видеото ще се покаже под описанието."
       destination:
         destination: Дестинация
       form_content:
@@ -2289,8 +2289,8 @@ bg:
       location:
         location: местоположение
       price:
-        price: ~
-        per: ~
+        price: Цена
+        per: за
         per_day: "на ден"
         mass: ~
         time: ~
@@ -2310,7 +2310,7 @@ bg:
         origin: Произход
       send_button:
         save_listing: Запази
-        submit_for_review: ~
+        submit_for_review: "Изпращане за одобрение"
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
       share_type:
@@ -2332,7 +2332,7 @@ bg:
         comma_separate: "(Отделете думите със запетая)"
         tags: Етикети
       title:
-        listing_title: ~
+        listing_title: "Заглавие на обявата"
       valid_until:
         valid_until: "Крайна дата"
       valid_until_radio_buttons:
@@ -2355,7 +2355,7 @@ bg:
       housing: Пространства
       items: Артикули
       list_view: "Изглед като списък"
-      listings: ~
+      listings: Обяви
       map_view: "Изглед на карта"
       offer_something: "Нека другите да знаят!"
       offer_type: "Тип на предложението"
@@ -2400,7 +2400,7 @@ bg:
       selected_transaction_type: ~
       select_category: ~
       select_subcategory: ~
-      select_transaction_type: ~
+      select_transaction_type: "Изберете вида обява"
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
@@ -2421,11 +2421,11 @@ bg:
     reply_link:
       listing_closed: ~
     show:
-      add_your_phone_number: ~
+      add_your_phone_number: "Добави телефонен номер"
       add_profile_picture: ~
       comments: "Обществена дискусия"
       contact_by_phone: ~
-      contact: ~
+      contact: "Свържи се"
       favor_offer: "Предложение за услуга"
       favor_request: "Заявка за услуга"
       inquiry: ~
@@ -2619,8 +2619,8 @@ bg:
       invalid_username_or_email: ~
       family_name: "Фамилно име"
       given_name: "Собствено име"
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "Приемам %{terms} и %{privacy}"
+      admin_emails_consent: "Съгласявам се да получавам елекронна поща от екипа на %{service_name} и разбирам, че мога да променя предпочитанията си във всеки един момент"
       invalid_invitation_code: ~
       invitation_code: ~
       not_required: ", не е задължително"
@@ -2629,10 +2629,10 @@ bg:
       show_my_name_to_others: ~
       sign_up: "Създайте нов профил %{service_name}"
       terms: "условия за ползване"
-      privacy: ~
+      privacy: "Политика за поверителност"
       visible_only_to_you: "видимо само за вас и %{service_name} екипа"
       visible_to_everybody: "видимо за всички"
-      create_account_with_provider: ~
+      create_account_with_provider: "Регистрирай се с %{provider}"
       OR: ~
       signup_with_email: "Регистрирай се с ел.поща."
       this_field_will_be_publicly_visible: ~
@@ -2645,9 +2645,9 @@ bg:
     show:
       contact: ~
       about_me: "За мен:"
-      add_description: ~
+      add_description: "Споделете нещо за вас"
       add_location: ~
-      add_phone_number: ~
+      add_phone_number: "Добави телефонен номер"
       address: "Местоположение:"
       as_expected: ~
       edit_profile_info: ~
@@ -2655,7 +2655,7 @@ bg:
       positive: ~
       hide_description: ~
       less_than_expected: ~
-      phone_number: ~
+      phone_number: "Телефонен номер:"
       show_all_feedback: ~
       show_all_testimonials: ~
       show_full_description: ~
@@ -2665,12 +2665,12 @@ bg:
       review: ~
       reviews: ~
       listing: ~
-      listings: ~
+      listings: Обяви
       open_listing: ~
       open_listings: ~
       no_listings: ~
       no_open_listings: ~
-      no_reviews: ~
+      no_reviews: "Засега няма отзиви"
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
@@ -2682,16 +2682,16 @@ bg:
       they_follow_plural: ~
       they_follow_singular: ~
       show_all_followed_people: ~
-      no_followed_people: ~
+      no_followed_people: "Засега няма последвани профили"
     follow_button:
       following: Последвай
       follow: Последвай
       unfollow: "Спри следенето"
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
+      create_new_account: "Създайте нов акаунт"
+      i_forgot_my_password: "Забравена парола?"
+      login: Вход
       login_to_kassi: "Влезте в %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
@@ -2700,22 +2700,22 @@ bg:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_provider_account: ~
-      or_sign_up_with_your_username: ~
+      log_in_with_your_provider_account: "Влезте с %{provider}"
+      or_sign_up_with_your_username: "...или с вашия имейл адрес:"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: ~
       password_recovery_instructions: ~
-      request_new_password: ~
+      request_new_password: "Заявете нова парола"
       change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: ~
       check_your_email: ~
-      resend_confirmation_instructions: ~
+      resend_confirmation_instructions: "Повторно изпращане на инструкции за потвърждаване"
       your_current_email_is: ~
       change_email: ~
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
+      confirm_your_email: "Моля, потвърдете имейл адреса си."
+      account_confirmation_instructions: "Скоро ще получите имейл с линк за потвърждение на имейл адреса ви. Не забравяйте да проверите вашата спам папка. След като потвърдите имейл адреса ви ще можете да се присъедините към %{service_name}."
       account_confirmation_instructions_title_admin: ~
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
@@ -2725,18 +2725,18 @@ bg:
   settings:
     account:
       change: ~
-      confirm_new_password: ~
+      confirm_new_password: "Потвърдете новата парола"
       delete_account: ~
       delete_account_button: "Изтрии профила завинаги."
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      new_email: ~
+      new_email: "Нов имейл адрес"
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
       only_admin: ~
-      new_password: ~
-      save: ~
+      new_password: "Нова парола"
+      save: Запази
       these_fields_are_shown_only_to_you: ~
       email_already_confirmed: ~
       email:
@@ -2752,7 +2752,7 @@ bg:
         confirmation_title_desktop: ~
         confirmation_resend: ~
         status_confirmed: ~
-        status_pending: ~
+        status_pending: Чакащ
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: ~
@@ -2778,31 +2778,31 @@ bg:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: Описание
+      city: Град
+      family_name: "Фамилно име"
+      given_name: "Собствено име"
       first_name_with_initial: ~
-      first_name_only: ~
-      display_name: ~
-      display_name_description: ~
+      first_name_only: "(не се показва на други потребители)"
+      display_name: "Публично име"
+      display_name_description: "Ако представлявате организация можете да използвате нейното име за публично име на вашия профил. Публичното име ще бъде показвано вместо личните ви собствени и фамилни имена."
       location_description: ~
       profile_picture_description: ~
-      phone_number: ~
-      profile_picture: ~
-      postal_code: ~
+      phone_number: "Телефонен номер:"
+      profile_picture: "Профилна снимка"
+      postal_code: "Пощенски код"
       profile_page: ~
       profilemap: ~
-      street_address: ~
+      street_address: Местоположение
       these_fields_are_shown_in_your: ~
       visible_to_everybody: ~
       visible_to_registered_users: ~
       default_in_listing: ~
-      invisible: ~
+      invisible: "(не се показва на други потребители)"
       image_is_processing: ~
       shown_in_your_public_profile: ~
       editing_profile_of: ~
-      format_markdown_link: ~
+      format_markdown_link: "форматирате вашето описание използвайки Markdown"
       format_markdown: ~
       username: ~
       username_description: ~
@@ -2993,8 +2993,8 @@ bg:
       manage_listings: ~
       settings: ~
       logout: ~
-      login: ~
-      signup: ~
+      login: Вход
+      signup: "Регистрирай се"
       admin_dashboard: ~
       language: ~
       listings: "Моите обяви"
