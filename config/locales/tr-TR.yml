@@ -162,7 +162,7 @@ tr-TR:
         send_verification_button: "Onaylama mailini gönder"
         change_sender_email: ~
         successfully_saved: "Gönderen adresi başarıyla kaydedildi. Onay emaili kısa zamanda gönderilecektir."
-        successfully_saved_name: ~
+        successfully_saved_name: "Gönderen adı başarıyla güncellendi."
         set_sender_name: ~
         change_sender_name: ~
         change_sender_prompt: ~
@@ -651,10 +651,10 @@ tr-TR:
         offer_pro: ~
         upgrade_pro_plan_link: ~
         your_marketplace_address_is: ~
-        would_you_like_to_change_address: ~
+        would_you_like_to_change_address: "Pazaryeri adresinizi değiştirmek istermiydiniz?%{contact_us}!"
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
-        would_you_like_to_change_domain: ~
+        would_you_like_to_change_domain: " Pazaryeri kişisel alan adını değiştirmek ister miydiniz?%{contact_us}!"
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -979,7 +979,7 @@ tr-TR:
       listing_shape_name_placeholder: "Ör. Sat"
       action_button_label: "Ödeme düğmesi etiketi"
       action_button_placeholder: "Ör. Sil"
-      successfully_closed: ~
+      successfully_closed: "İlanlar başarıyla kapatıldı"
       successfully_deleted: "Sipariş türü %{order_type} başarıyla silindi"
       pricing_and_checkout_title: "Fiyatlar & Alışveriş Sepeti"
       online_payments_label: "Satıcıların internet üzerinden ödeme almasına izin ver"
@@ -1125,7 +1125,7 @@ tr-TR:
       show:
         transaction_for: ~
         status: ~
-        next_step: ~
+        next_step: "Sonraki adım:"
         waiting_for_provider_accept_or_reject: ~
         waiting_for_fulfill_and_complete: ~
         buyer: ~
@@ -2102,7 +2102,7 @@ tr-TR:
       invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: "Davet başarıyla gönderildi"
-      invitation_successfully_unsubscribed: ~
+      invitation_successfully_unsubscribed: "Davet e-posta listesinden başarıyla çıkarıldı"
       inviting_new_users_is_not_allowed_in_this_community: "Yeni kullanıcı davet etmeye izin verilnenektedir."
       login_again: "Lütfen tekrar giriş yapın."
       login_failed: "Oturum açma başarısız. Lütfen doğru bilgilerle deneyin."
@@ -2195,7 +2195,7 @@ tr-TR:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Otomatik olarak çıkış yaptınız. Lütfen tekrar giriş yapın."
       stripe_you_account_balance_is_not_0: ~
-      visit_admin: "%{link}ister misiniz?"
+      visit_admin: "%{link}istermiydiniz?"
       visit_admin_link: "Yönetici panelinizi ziyaret etmek"
       an_error_occurred_when_saving_your_information: "Bilgilerinizi kayıt edilirken bir hata oluştu: %{message} Lütfen tüm bilgilerin doğruluğundan emin olun ve tekrar deneyin."
     settings:
@@ -2239,10 +2239,10 @@ tr-TR:
       show_in_updates_email_loading: Yükleniyor...
       show_in_updates_email_error: "Sunucuyla bağlantı kurulamadı. Sayfayı yeniledikten sonra tekrar deneyin."
       show_in_updates_email_success: "Bu ilan otomatik olarak gönderilen bir sonraki e-postada kullanıcılara gösterilecektir."
-      listing_is_pending: ~
+      listing_is_pending: "İlan onay bekliyor"
       listing_is_rejected: ~
-      approve_listing: ~
-      reject_listing: ~
+      approve_listing: "İlanı onayla"
+      reject_listing: "İlanı reddet"
       delete_listing: "İlanı sil"
     map:
       open_in_google_maps: "Google Maps üzerinde aç."
@@ -2542,15 +2542,15 @@ tr-TR:
   paypal_accounts:
     payout_info_title: "Ödeme bilgileri"
     paypal_account_email_connected: "<del>1. PayPal hesabını bağla</del> Tamamlandı!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} Ödeme sağlayıcı PayPal ile çalışmaktadır. Bir%{create_paypal_account_link}  ilanlarınızdan ödeme almanız için zorunludur ve%{service_name} 'a bağlı olması gerekir."
     paypal_billing_agreement_made: "<del>2. %{service_name} pazar yerine işletim ücreti kesme izni ver</del> Tamamlandı!"
     commission_permission_needed: "Ayrıca bir işlem ücreti almak için%{service_name} izni vermeniz gerekir."
     create_paypal_account_link_text: "PayPal hesabı"
     connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: "PayPal hesabınızın ödeme kabul edebilmesi gerekmektedir. PayPal Şirket hesabı gerekebilir."
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
+    paypal_receive_funds_info_label: "PayPal hesabınız ödeme kabul ediyor olmalıdır. PayPal ticari hesabı gerekebilir."
+    paypal_receive_funds_info_australia_only: "Hesabınızı%{service_name} 'a bağlamaya çalışırken bir hata görürseniz ya da%{upgrade_paypal_account_link} 'e veyahut (eğer bir bireyseniz), yeni bir Premier hesabı oluşturun. Her iki hesap türü de tamamen ücretsizdir."
+    paypal_receive_funds_info: "Hesabınızı%{service_name}, bağlamaya çalışırken bir hata görürseniz%{upgrade_paypal_account_link} Ücretsiz ve kolaydır. Birey iseniz, PayPal adınızı İşletme adı olarak kullanmanızı önerir."
     upgrade_paypal_account_link_text: "oturum açın ve PayPal hesabınızı bir işletme hesabına yükseltin"
     admin_account_not_connected: ~
     contact_admin_link_text: ~
@@ -2568,12 +2568,12 @@ tr-TR:
       create_paypal_account: buradan
       upgrade_paypal_account: "Hesabınızı buradan yükseltebilirsiniz."
       paypal_account_billing_agreement: "2. %{service_name} pazar yerine işletim ücreti kesme izni verin"
-      follow_steps: ~
+      follow_steps: "Ödeme almaya başlamak için aşağıdaki adımları izleyin:"
       connect_paypal_account_title: "PayPal hesabınızı bağlayın"
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: "PayPal'da oturum açmak ve PayPal hesabınızı ile bağlamak için aşağıdaki butona tıklayın %{service_name} ."
+      connect_paypal_account_title_with_step: "Adım%{current_step}/%{total_steps}: PayPal hesabınızı bağlayın"
+      connect_paypal_account_instructions: "PayPal'da oturum açmak ve PayPal hesabınızı bağlamak için aşağıdaki butona tıklayın %{service_name} ."
       connect_paypal_account: "PayPal hesabınızı bağlayın"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Adım%{current_step}/%{total_steps}: İşlem ücreti için izin verin"
       paypal_account_billing_agreement_info_both: "%{service_name} sitesinde satış yaptıktan sonra, toplamın %{commission_from_seller} oranında servis ücreti, kargo ücreti hariç, ve minimum ücret olan %{minimum_commission} PayPal hesabınızdan düşülecektir. %{service_name} sitesinde ödeme alabilmek için buna izin vermeniz gerekmektedir. Ücrete %{paypal_info_link} dahil değildir."
       paypal_account_billing_agreement_info_fixed: "%{service_name} sitesinde satış yaptıktan sonra, toplamın %{minimum_commission} oranında servis ücreti PayPal hesabınızdan düşülecektir. %{service_name} sitesinde ödeme alabilmek için buna izin vermeniz gerekmektedir. Ücrete %{paypal_info_link} dahil değildir."
       paypal_account_billing_agreement_info_relative: "%{service_name} sitesinde satış yaptıktan sonra, toplam rakamın %{commission_from_seller} kadar bir servis ücreti, kargo ücreti hariç, PayPal hesabınızdan kesilecektir. %{service_name} sitesinde ödeme alabilmek için buna izin vermeniz gerekmektedir. Ücretlere %{paypal_info_link} dahil değildir."
@@ -2599,7 +2599,7 @@ tr-TR:
     redirect_link_text: buraya
     paypal_account_all_set_up: "Yaşasın, her şey hazır!"
     can_receive_payments: "Artık ilanlarınız için ödeme kabul edebilirsiniz."
-    paypal_account_connected_summary: ~
+    paypal_account_connected_summary: " PayPal hesabı%{email} başarıyla bağlandı"
     paypal_permission_granted_summary: "İşlem ücreti için izin verilmiştir"
   paypal:
     pay_with_paypal: "Ödeme yap"
@@ -2819,7 +2819,7 @@ tr-TR:
       image_is_processing: "Profil fotoğrafınız hazırlanıyor. Lütfen birazdan sayfayı tekrar yükleyiniz..."
       shown_in_your_public_profile: "(herkese açık profilinizde gösterilir)"
       editing_profile_of: ~
-      format_markdown_link: "açıklamamızı Markdown kullanarak düzenleyin"
+      format_markdown_link: "Açıklamanızı Markdown kullanarak düzenleyebilirsiniz."
       format_markdown: ~
       username: "Kullanıcı adı"
       username_description: "Kullanıcı adınız, profil sayfanızın benzersiz URL’sinin bir parçası olarak kullanılır. Boşluk bırakmadan sadece kullanıcı adınız için harfleri ve sayıları kullanabilirsiniz. Kullanıcı adınızı değiştirdiğinizde, URL’niz otomatik olarak değişecek ve önceki URL’nize yönlendirilmeyecektir. Eski kullanıcı adı diğer kullanıcılar için alınabilir olacaktır."
@@ -3064,19 +3064,19 @@ tr-TR:
     pay_with_stripe: ~
     add_and_pay: ~
     card_not_stored: ~
-    missing_payment: ~
-    stripe_bank_connected: ~
+    missing_payment: "Açık ilanlarınız var ancak hesabınız ödeme alacak şekilde ayarlanmamış.Ödeme tercihinizi yapılandırmak için, tıklayın %{settings_link} "
+    stripe_bank_connected: "Banka hesap bilgileri başarıyla yapılandırıldı!"
     stripe_can_accept: ~
     stripe_credit_card: ~
     paypal: ~
-    paypal_connected: ~
+    paypal_connected: "PayPal hesabı başarıyla bağlandı!"
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
     stripe_account_restricted: ~
     stripe_account_restricted_info: ~
     stripe_account_restricted_soon: ~
     stripe_account_restricted_soon_info: ~
-    stripe_account_pending_verification: ~
+    stripe_account_pending_verification: "Hesap ayrıntıları başarıyla kaydedildi. Ödeme sağlayıcısından hesap doğrulaması bekleniyor."
     stripe_account_pending_verification_info: ~
     form_new:
       need_info: ~
