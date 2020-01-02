@@ -23,20 +23,14 @@
     %h2
       = t('admin2.config_transactions.transaction_agreement')
     .content-card-section-form
-      = form.fields_for :community_customizations, @community_customization do |cc|
-        .form-group
-          = cc.label :transaction_agreement_label, t('admin2.config_transactions.agreement_label')
-          = cc.text_field :transaction_agreement_label, class: %i[form-control]
-          %small.form-text
-            = t('admin2.config_transactions.agreement_label_info_text')
-        .form-group
-          = cc.label :transaction_agreement_content, t('admin2.config_transactions.agreement_text')
-          = cc.text_area :transaction_agreement_content, class: %i[form-control]
-          %small.form-text
-            = t('admin2.config_transactions.agreement_text_info_text')
-      .form-check
-        = form.check_box :transaction_agreement_in_use, class: %i[form-check-input]
-        = form.label :transaction_agreement_in_use, t('admin2.config_transactions.transaction_agreement_in_use'), class: %i[form-check-label]
+      .form-group
+        %label= t('admin2.config_transactions.transaction_agreement')
+        .form-check
+          = form.check_box :transaction_agreement_in_use, class: %i[form-check-input for-hide-content]
+          = form.label :transaction_agreement_in_use, t('admin2.config_transactions.transaction_agreement_in_use'), class: %i[form-check-label]
+
+      .hide-content{class: form.object.transaction_agreement_in_use ? '' : :opacity_04}
+        = render 'transaction_agreement', form: form, customizations: @customizations
 
   .content-card-terminal.without-margin
     = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

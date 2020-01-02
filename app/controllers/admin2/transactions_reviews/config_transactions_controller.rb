@@ -1,7 +1,10 @@
 module Admin2::TransactionsReviews
   class ConfigTransactionsController < Admin2::AdminBaseController
 
-    def index; end
+    def index
+      @customizations = @current_community.community_customizations
+                                          .where(locale: @current_community.locales)
+    end
 
     def update_config
       @current_community.update!(config_params)
