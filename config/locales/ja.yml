@@ -675,7 +675,6 @@ ja:
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: ~
           edit: ~
           remove_section_confirmation: ~
@@ -689,8 +688,6 @@ ja:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -1247,12 +1244,12 @@ ja:
       stripe-fee_label: 支払処理手数料
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
-      cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
+      cancel_description: 何らかの理由により取引が完了しなかった場合には、「取引未完了」として取引をキャンセルすることが出来ます。何が起きたかについては相手方にレビューを書くことが出来ます。
       cancel_description_team: ~
       cancel_payed_description: あなたのリクエストは受け入れられましたが、あなたが再検討している場合は、支払い前にリクエストをキャンセルすることができます。
       canceling_payed_transaction: 課金キャンセル
       confirm: 取引完了
-      cancel: クレーム通知
+      cancel: 取引未完了
       continue: 続ける
       give_feedback_to: "%{person_link}さんにレビューを書く"
       do_not_give_feedback: レビュー書くのやめる
@@ -1397,7 +1394,7 @@ ja:
       reject_preauthorized_offer: 今回はやめる
       reject_preauthorized_request: 今回はやめる
       confirm: 取引完了
-      cancel: クレーム通知
+      cancel: 取引未完了
       mark_as_refunded: ~
       dismiss: ~
   feedback:
@@ -1442,7 +1439,7 @@ ja:
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "いつものご利用ありがとうございます。%{request_link}のお取引はまだ完了していないのでお知らせいたします。取引完了を行ってください。完了しましたら%{other_party_given_name}さんより評価されます。"
       remember_to_confirm_request: リクエストお取引は完了していません
-      if_will_not_happen_you_should_cancel: "何か問題が発生した場合、クレーム通知にて%{cancel_it_link}"
+      if_will_not_happen_you_should_cancel: "何か問題が発生したことなどにより、この取引が完了できないと思われる場合は、%{cancel_it_link}をすることが可能です。"
       cancel_it_link_text: キャンセルしてください
       automatic_confirmation: "リクエストが承認されてから%{days_to_automatic_confirmation}日以内に取引完了を行わない場合は自動的に完了となりますのでご注意ください。"
     confirm_reminder_v2:
@@ -3210,7 +3207,6 @@ ja:
         background_image_variation: ~
         background_color: ~
         background_color_string: ~
-        icon_color: ~
       landing_page_version/section/listings:
         listing_1_id: ~
         listing_2_id: ~

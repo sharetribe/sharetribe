@@ -1,12 +1,11 @@
 require 'spec_helper'
 
-describe Admin2::PaymentSystem::CountryController, type: :controller do
+describe Admin2::PaymentSystem::CountryCurrenciesController, type: :controller do
   let(:community) do
-    community = FactoryGirl.create(:community)
+    community = FactoryGirl.create(:community, currency: 'USD')
     payment_provision(community, 'paypal')
-    payment_enable(community, 'paypal')
     payment_provision(community, 'stripe')
-    payment_enable(community, 'stripe')
+    community
   end
 
   let(:person) do
@@ -22,78 +21,20 @@ describe Admin2::PaymentSystem::CountryController, type: :controller do
   end
 
   context '#update_country_currencies' do
-    it 'update general preferences' do
-      paypal_setttings = PaymentSettings.where(payment_gateway: 'paypal').first
-      stripe_setttings = PaymentSettings.where(payment_gateway: 'stripe').first
-      expect(paypal_setttings.minimum_transaction_fee_currency).to eq 11
-      expect(paypal_setttings.minimum_price_cents).to eq 111
-      expect(paypal_setttings.minimum_transaction_fee_cents).to eq 100
-      expect(stripe_setttings.commission_from_seller).to eq 22
-      expect(stripe_setttings.minimum_price_cents).to eq 111
-      expect(stripe_setttings.minimum_transaction_fee_cents).to eq 100
-      patch :update_country_currencies, params: {payment_preferences_form: { mode: 'general', minimum_listing_price: '1.45' }}
-      paypal_setttings.reload
-      stripe_setttings.reload
-      expect(paypal_setttings.commission_from_seller).to eq 11
-      expect(paypal_setttings.minimum_price_cents).to eq 145
-      expect(paypal_setttings.minimum_transaction_fee_cents).to eq 100
-      expect(stripe_setttings.commission_from_seller).to eq 22
-      expect(stripe_setttings.minimum_price_cents).to eq 145
-      expect(stripe_setttings.minimum_transaction_fee_cents).to eq 100
+    it 'update currency' do
+      expect(community.currency).to eq 'USD'
+      patch :update_country_currencies, params: { community: { currency: 'EUR' } }
+      community.reload
+      expect(community.currency).to eq 'EUR'
     end
 
-    it 'update paypal preferences' do
-      paypal_setttings = PaymentSettings.where(payment_gateway: 'paypal').first
-      stripe_setttings = PaymentSettings.where(payment_gateway: 'stripe').first
-      expect(paypal_setttings.commission_from_seller).to eq 11
-      expect(paypal_setttings.minimum_price_cents).to eq 111
-      expect(paypal_setttings.minimum_transaction_fee_cents).to eq 100
-      expect(stripe_setttings.commission_from_seller).to eq 22
-      expect(stripe_setttings.minimum_price_cents).to eq 111
-      expect(stripe_setttings.minimum_transaction_fee_cents).to eq 100
-      post :common_update, params: {
-        payment_preferences_form: {
-          mode: 'transaction_fee',
-          commission_from_seller: '31',
-          minimum_transaction_fee: '0.50'
-        },
-        gateway: 'paypal'
-      }
-      paypal_setttings.reload
-      stripe_setttings.reload
-      expect(paypal_setttings.commission_from_seller).to eq 31
-      expect(paypal_setttings.minimum_price_cents).to eq 111
-      expect(paypal_setttings.minimum_transaction_fee_cents).to eq 50
-      expect(stripe_setttings.commission_from_seller).to eq 22
-      expect(stripe_setttings.minimum_price_cents).to eq 111
-      expect(stripe_setttings.minimum_transaction_fee_cents).to eq 100
-    end
-
-    it 'update stripe preferences' do
-      paypal_setttings = PaymentSettings.where(payment_gateway: 'paypal').first
-      stripe_setttings = PaymentSettings.where(payment_gateway: 'stripe').first
-      expect(paypal_setttings.commission_from_seller).to eq 11
-      expect(paypal_setttings.minimum_price_cents).to eq 111
-      expect(paypal_setttings.minimum_transaction_fee_cents).to eq 100
-      expect(stripe_setttings.commission_from_seller).to eq 22
-      expect(stripe_setttings.minimum_price_cents).to eq 111
-      expect(stripe_setttings.minimum_transaction_fee_cents).to eq 100
-      post :common_update, params: {
-        payment_preferences_form: {
-          mode: 'transaction_fee',
-          commission_from_seller: '23',
-          minimum_transaction_fee: '0.50'
-        },
-        gateway: 'stripe'
-      }
-      paypal_setttings.reload
-      stripe_setttings.reload
-      expect(paypal_setttings.commission_from_seller).to eq 11
-      expect(paypal_setttings.minimum_price_cents).to eq 111
-      expect(paypal_setttings.minimum_transaction_fee_cents).to eq 100
-      expect(stripe_setttings.commission_from_seller).to eq 23
-      expect(stripe_setttings.minimum_price_cents).to eq 111
-      expect(stripe_setttings.minimum_transaction_fee_cents).to eq 50
+    it 'can not update currency' do
+      expect(community.currency).to eq 'USD'
+      payment_enable(community, 'paypal')
+      payment_enable(community, 'stripe')
+      patch :update_country_currencies, params: { community: { currency: 'EUR' } }
+      community.reload
+      expect(community.currency).to eq 'USD'
     end
   end
 end

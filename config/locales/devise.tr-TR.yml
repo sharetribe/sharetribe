@@ -46,7 +46,7 @@ tr-TR:
       send_instructions: "Bir kaç dakika içerisinde hesabınızdaki kilidi nasıl kaldırabileceğinize dair bir e-posta alacaksınız."
       unlocked: "Hesabınızdaki kilit başarıyla kaldırılmıştır. Devam etmek için lütfen giriş yapınız."
     omniauth_callbacks:
-      success: "%{kind} hesabı tarafından başarıyla yetkilendirilmiştir."
+      success: "%{kind} hesabı ile başarıyla giriş yapıldı."
       failure: "Sizi %{kind} konusunda yetkilendiremedik çünkü \"%{reason}\""
     mailer:
       confirmation_instructions:
