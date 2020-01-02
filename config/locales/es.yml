@@ -661,7 +661,7 @@ es:
       landing_pages:
         landing_pages: "Página de inicio"
         info_1: "La página de inicio es quizás la página más importante de tu marketplace. Es la primera página que los visitantes ven- casi como la fachada de tu casa. Tienes tan sólo unos segundos para convencer a nuevos visitantes pare que exploren tu sitio. La página necesita ser atractiva y tu propuesta clara y tentadora."
-        info_2: ~
+        info_2: "Puedes usar este editor para modificar tu página de inicio cuando quieras."
         info_2_help_center: "Help Center"
         info_3: "Si quieres personalizar la página de inicio de tu marketplace, puedes hacerlo con una subscripción adicional por $99 dólares al mes."
         info_4: "Leer más acerca de las páginas de inicio personalizadas"
@@ -680,7 +680,6 @@ es:
         sections:
           identifier: "ID de la sección"
           kind: "Tipo de sección"
-          variation: Variante
           new: "Nueva sección"
           edit: "Editar sección %{section_id}"
           remove_section_confirmation: "¿Estás seguro que quieres eliminar la sección '%{section_id}' y toda su información? No se puede revertir."
@@ -694,8 +693,6 @@ es:
           video: Video
           new_section:
             categories: "Nueva sección Categorías"
-            footer: "Nueva sección Pie de página"
-            hero: "Nueva sección Hero"
             info_single_column: "Nueva sección Info - Una columna"
             info_multi_column_2: "Nueva sección Info - Dos columnas"
             info_multi_column_3: "Nueva sección Info - Tres columnas"
@@ -3251,7 +3248,6 @@ es:
         background_image_variation: "Variación de la imagen de fondo"
         background_color: "Color de fondo"
         background_color_string: "Color de fondo"
-        icon_color: "Color del ícono"
       landing_page_version/section/listings:
         listing_1_id: "ID del anuncio 1"
         listing_2_id: "ID del anuncio 2"
