@@ -6,8 +6,7 @@
       %label
         = t('admin2.logos_and_color.favicon')
       .custom-file
-        %span.choose-filename
-          = form.object&.favicon&.original_filename || t('admin2.logos_and_color.not_added', name: t('admin2.logos_and_color.favicon'))
         = form.file_field :favicon, accept: 'image/*', class: %i[change-file]
       %small#favicon-help.form-text
         = t('admin2.logos_and_color.favicon_info_text')
+      = render 'admin2/design/logos_color/filename', original_filename: form.object&.favicon&.original_filename, field_name: t('admin2.logos_and_color.favicon')
