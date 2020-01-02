@@ -174,7 +174,7 @@ Scenario: User creates a new listing with date field
   And I select "Spaces" from listing type menu
   And I select "Selling" from listing type menu
   And I fill in "listing_title" with "My house"
-  And I fill select custom date "building_date_test" with day="19", month="April" and year="2014"
+  And I fill select custom date "building_date_test" with day="19", month="April" and year="2015"
   And I press "Post listing"
   Then I should see "building_date_test: Apr 19, 2014"
 
