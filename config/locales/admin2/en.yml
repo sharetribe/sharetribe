@@ -30,10 +30,13 @@ en:
       info_text: "When new layout components are made available for your marketplace, you can choose whether you want to start using the new component or continue using the old one. You can toggle the selection at any point from this page. It's recommended to always be using the new version, as the old components might be phased out at some point. In case a component you're currently using is going to be phased out, you will be contacted in advance."
       only_you: 'Only you'
       all_users: 'All users'
-      title_topbar_v1: 'Enable the new Top bar for:'
+      no_one: 'No one'
+      title_topbar_v1: 'Enable the new Top bar for'
       description_topbar_v1: 'The new Top bar is visible on every page.'
-      title_searchpage_v1: 'Enable the new Search page for:'
+      title_searchpage_v1: 'Enable the new Search page for'
       description_searchpage_v1: 'The new Search page requires the new Top bar.'
+      title_email_layout_v2: 'Enable the layout for emails for'
+      description_email_layout_v2: ''
     signup_login:
       signup_header: 'Signup information text'
       signup_info_text: 'Info text that will be shown to users in the Sign up. You can give the users instructions for signing up, information like where to get an invite, etc.'
