@@ -1136,7 +1136,7 @@ bg:
     cancel: Отказ
     fields_that_are_mandatory: "Полетата маркирани със звезда (*) са задължителни."
     or: или
-    password: ~
+    password: Парола
     service_name: ~
     share_types:
       request: ~
@@ -1278,13 +1278,13 @@ bg:
       message: Съобщение
       message_to: ~
       optional_message_to: ~
-      send_message: ~
+      send_message: "Изпрати съобщение"
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: Заглавие
-      send_message_to_user: ~
+      send_message_to_user: "Изпрати съобщение на %{person}"
       about_listing: ~
       author_has_to_accept_request: ~
     show:
@@ -2287,14 +2287,14 @@ bg:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: местоположение
+        location: Mестоположение
       price:
         price: Цена
         per: за
         per_day: "на ден"
         mass: ~
-        time: ~
-        long_time: ~
+        time: "час, ден, месец, ..."
+        long_time: "седмица, месец, ..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
@@ -2306,7 +2306,7 @@ bg:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: местоположение
+        location: Mестоположение
         origin: Произход
       send_button:
         save_listing: Запази
@@ -2412,7 +2412,7 @@ bg:
       day: ~
       night: ~
       week: ~
-      month: ~
+      month: "брой месеци"
       unit: ~
       custom: ~
       person: ~
@@ -2465,7 +2465,7 @@ bg:
       day: ~
       night: ~
       week: ~
-      month: ~
+      month: месец
       unit: Единица
       person: ~
     verification_required:
@@ -2620,7 +2620,7 @@ bg:
       family_name: "Фамилно име"
       given_name: "Собствено име"
       i_accept_the_terms_and_privacy: "Приемам %{terms} и %{privacy}"
-      admin_emails_consent: "Съгласявам се да получавам елекронна поща от екипа на %{service_name} и разбирам, че мога да променя предпочитанията си във всеки един момент"
+      admin_emails_consent: "Съгласявам се да получавам електронна поща от екипа на %{service_name} и разбирам, че мога да променя предпочитанията си във всеки един момент"
       invalid_invitation_code: ~
       invitation_code: ~
       not_required: ", не е задължително"
@@ -2628,8 +2628,8 @@ bg:
       password_again: "Потвърди паролата"
       show_my_name_to_others: ~
       sign_up: "Създайте нов профил %{service_name}"
-      terms: "условия за ползване"
-      privacy: "Политика за поверителност"
+      terms: "Условията за ползване"
+      privacy: "Политиката за поверителност"
       visible_only_to_you: "видимо само за вас и %{service_name} екипа"
       visible_to_everybody: "видимо за всички"
       create_account_with_provider: "Регистрирай се с %{provider}"
@@ -2960,7 +2960,7 @@ bg:
         day: ~
         night: ~
         week: ~
-        month: ~
+        month: месец
       edit_availability_header: ~
       save_and_close_availability_editing: ~
       confirm_discarding_unsaved_availability_changes_explanation: ~
