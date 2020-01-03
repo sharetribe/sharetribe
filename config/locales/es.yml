@@ -662,9 +662,9 @@ es:
         landing_pages: "Página de inicio"
         info_1: "La página de inicio es quizás la página más importante de tu marketplace. Es la primera página que los visitantes ven- casi como la fachada de tu casa. Tienes tan sólo unos segundos para convencer a nuevos visitantes pare que exploren tu sitio. La página necesita ser atractiva y tu propuesta clara y tentadora."
         info_2: "Puedes usar este editor para modificar tu página de inicio cuando quieras."
-        info_2_help_center: "Help Center"
+        info_2_help_center: "artículo de nuestro Help Center"
         info_3: "Si quieres personalizar la página de inicio de tu marketplace, puedes hacerlo con una subscripción adicional por $99 dólares al mes."
-        info_4: "Leer más acerca de las páginas de inicio personalizadas"
+        info_4: "Lee este %{link} (en inglés) para saber más acerca del editor, las diferentes secciones y cómo personalizar tú página."
         editor_title: "Editor de página de inicio"
         editor_info: "Aquí puedes editar las secciones de tu página de inicio. Por ahora sólo es posible usar un idioma para la página de inicio. La posición de las secciones de \"Hero\" y \"Píe de página\" no se puede modificar."
         preview: "Vista previa"
@@ -751,7 +751,7 @@ es:
           style_none: "Sin fondo"
         background_color:
           background_color: "Color de fondo"
-          background_color_info: ~
+          background_color_info: "Puedes cambiar el color de fondo de esta sección por medio de un valor de color hexadecimal. Escoge el color en %{link}. Copia el código hex del color y pégalo aquí."
         categories:
           add: "+ Añadir una nueva categoria"
           category: Categoría
@@ -1653,7 +1653,7 @@ es:
       headline: "Checa lo último que ha pasado en %{service_name}."
       intro_paragraph:
         one: "Aquí hay algo de lo más destacado que pasó en %{service_name} durante el último día."
-        other: "Aquí hay algo de lo más destacado que pasó en %{service_name} durante los últimos %{number_of_days} días."
+        other: "Aquí hay algo de lo más destacado que pasó en %{service_name} durante los últimos %{count} días."
     newsletter:
       hi: "Hola %{name},"
       newest_offers: "Lo que la gente actualmente ofrece a los demás"

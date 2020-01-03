@@ -2497,7 +2497,7 @@ tr-TR:
       day: gün
       days: günler
       night: ~
-      nights: ~
+      nights: gece
       invalid_parameters: ~
       select_delivery_method: ~
     transaction_agreement_checkbox:
@@ -2881,7 +2881,7 @@ tr-TR:
       monday: Pts
       tuesday: Sal
       wednesday: Çar
-      thursday: Per
+      thursday: Prş
       friday: Cum
       saturday: Cmt
     days_min:
@@ -2889,9 +2889,9 @@ tr-TR:
       monday: Pt
       tuesday: Sa
       wednesday: Ça
-      thursday: Pe
+      thursday: Prş
       friday: Cu
-      saturday: Ct
+      saturday: Cmt
     months:
       january: Ocak
       february: Şubat
@@ -2953,7 +2953,7 @@ tr-TR:
   transactions:
     initiate:
       booked_days: "Rezervasyon günleri:"
-      booked_nights: ~
+      booked_nights: "Rezervasyonlu geceler:"
       booked_days_label:
         other: "Rezervason:"
       price_per_day: "Günlük ücret:"
@@ -2965,6 +2965,9 @@ tr-TR:
       shipping-price: "Kargo:"
       stripe-fee: ~
       start_end_time: ~
+      booked_nights_label:
+        other: "Rezervasyonlu geceler:"
+        zero: "Rezervasyonlu gece:"
     price_per_quantity: "%{unit_type} başına fiyat"
     price: "Fiyat:"
     quantity: "Adet: %{quantity}"
