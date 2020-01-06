@@ -156,7 +156,7 @@ module StripeService::API
           exception.params_to_airbrake = {stripe: params_to_airbrake}
         end
         Airbrake.notify(exception)
-        Result::Error.new(exception.message)
+        Result::Error.new(exception.message, exception)
       end
 
       def do_create_preauth_payment(tx, gateway_fields, seller_account)
