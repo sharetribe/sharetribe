@@ -78,7 +78,7 @@ class PreauthorizeTransactionsController < ApplicationController
     rescue Stripe::CardError => e
       stripe_payment.update(stripe_payment_intent_status: StripePayment::PAYMENT_INTENT_FAILED)
       TransactionService::StateMachine.transition_to(tx.id, :payment_intent_failed)
-      return render json: { error: e.message }
+      return render json: { error: t("error_messages.stripe.generic_error") }
     end
 
     if intent.status == StripePayment::PAYMENT_INTENT_REQUIRES_CAPTURE

@@ -661,10 +661,10 @@ fr:
       landing_pages:
         landing_pages: "Page d'accueil"
         info_1: "La page d'accueil est peut être la page la plus importante de votre place de marché. C'est la première page que vos visiteurs voient, un peu comme la porte d'entrée de votre maison. Vous n'avez que quelques secondes pour convaincre les nouveaux visiteurs qu'ils devraient parcourir votre site. Cette page doit être attirante et votre proposition claire et attractive."
-        info_2: "Parcourez le %{help_link} pour en savoir plus sur comment éditer votre page d'accueil"
-        info_2_help_center: "Help Center"
+        info_2: "Vous pouvez utiliser cet éditeur pour modifier votre page d'accueil à tout moment !"
+        info_2_help_center: "article sur le Help Center"
         info_3: "Si vous souhaitez avoir une page d'accueil personnalisée pour votre place de marché, vous pouvez y souscrire via un add-on à $99 par mois."
-        info_4: "En apprendre plus sur la page d'accueil personnalisée"
+        info_4: "Parcourez cet %{link} pour en savoir plus sur le fonctionnement de l'éditeur, découvrir les différentes sections et comment les modifier."
         editor_title: "Éditeur de la page d'accueil"
         editor_info: "Vous pouvez ici modifier les différentes sections de votre page d'accueil. Pour le moment, un seul language peut être utilisé pour la page d'accueil. L'emplacement des sections \"Hero\" et \"Pied de page\" est fixe."
         preview: "Prévisualiser la page d'accueil"
@@ -680,7 +680,6 @@ fr:
         sections:
           identifier: "Identifiant de la section"
           kind: "Type de section"
-          variation: Version
           new: "Nouvelle section"
           edit: "Edition de la section %{section_id}"
           remove_section_confirmation: "Voulez-vous vraiment supprimer la section '%{section_id}' et toutes les données associées ? Cela ne peut pas être annulé."
@@ -694,8 +693,6 @@ fr:
           video: Vidéo
           new_section:
             categories: "Ajout d'une nouvelle section 'Catégories'"
-            footer: "Ajout d'une nouvelle section 'Pied de page'"
-            hero: "Ajout d'une nouvelle section 'Hero'"
             info_single_column: "Ajout d'une nouvelle section \"Info - Une colonne'"
             info_multi_column_2: "Ajout d'une nouvelle section \"Info - Deux colonnes'"
             info_multi_column_3: "Ajout d'une nouvelle section \"Info - Trois colonnes'"
@@ -754,7 +751,7 @@ fr:
           style_none: Aucun
         background_color:
           background_color: "Couleur d'arrière-plan"
-          background_color_info: "Vous pouvez changer la couleur d'arrière-plan de cette section en entrant une valeur hexadécimale. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici."
+          background_color_info: "Vous pouvez changer la couleur d'arrière-plan de cette section en entrant une valeur hexadécimale. %{link} peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici."
         categories:
           add: "+ Ajouter une nouvelle catégorie dans cette section"
           category: Catégorie
@@ -1656,7 +1653,7 @@ fr:
       headline: "jetez un oeil à ce qu'il s'est récemment passé sur %{service_name}."
       intro_paragraph:
         one: "Voici les principales nouveautés sur %{service_name} durant les dernières heures."
-        other: "Voici les principales nouveautés sur %{service_name} durant les derniers %{number_of_days} jours."
+        other: "Voici les principales nouveautés sur %{service_name} durant les derniers %{count} jours."
     newsletter:
       hi: "Bonjour %{name},"
       newest_offers: "Ce que les membres proposent aux autres en ce moment"
@@ -3251,7 +3248,6 @@ fr:
         background_image_variation: "Version de l'image d'arrière-plan"
         background_color: "Couleur d'arrière-plan"
         background_color_string: "Couleur d'arrière-plan"
-        icon_color: "Couleur de l'icône"
       landing_page_version/section/listings:
         listing_1_id: "Identifiant de la première annonce"
         listing_2_id: "Identifiant de la deuxième annonce"
