@@ -99,8 +99,16 @@ class Person::PaymentSettingsPresenter
     @required_verification_document ||= seller_required_items.include?("individual.verification.document")
   end
 
+  def required_verification_document_back?
+    @required_verification_document_back ||= seller_required_items.include?("individual.verification.document.back")
+  end
+
   def required_verification_additional_document?
     @required_verification_additional_document ||= seller_required_items.include?("individual.verification.additional_document")
+  end
+
+  def required_verification_additional_document_back?
+    @required_verification_additional_document_back ||= seller_required_items.include?("individual.verification.additional_document.back")
   end
 
   def stripe_account_verification
