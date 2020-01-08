@@ -67,7 +67,7 @@ module LandingPageVersion::DataStructure
 
   def section_positions_attributes=(section_positions_params)
     composition = []
-    section_positions_params.values.sort_by { |a| a['position'] }.each do |section_position|
+    section_positions_params.values.sort_by { |a| a['position'].to_i }.each do |section_position|
       composition << { 'section' => {'type' => 'sections', 'id' =>  section_position['id'] }}
     end
     new_content = parsed_content.dup
