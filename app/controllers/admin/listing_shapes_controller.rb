@@ -203,7 +203,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
     cant_delete = !can_delete_res.success
     cant_delete_reason = cant_delete ? can_delete_res.error_msg : nil
 
-    count = @current_community.listings.where(listing_shape_id: form[:id], open: true).count
+    count = @current_community.listings.currently_open.where(listing_shape_id: form[:id]).count
 
     locals = common_locals(form: form,
                            count: count,
