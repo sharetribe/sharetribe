@@ -103,8 +103,9 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
   current_community = Community.where(ident: community).first
   old_category_ids = current_community.categories.collect(&:id)
 
-  current_community.categories = categories.hashes.map do |hash|
-    category = current_community.categories.create!
+  new_categories = []
+  categories.hashes.each_with_index do |hash, index|
+    category = current_community.categories.create!(sort_priority: index)
     category.translations.create!(:name => hash['fi'], :locale => 'fi')
     category.translations.create!(:name => hash['en'], :locale => 'en')
 
@@ -116,8 +117,9 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
     else
       category.update_attribute(:parent_id, @top_level_category.id)
     end
-    category
+    new_categories.push category
   end
+  current_community.categories = new_categories
 
   # Clean old
   current_community.categories.select do |category|
