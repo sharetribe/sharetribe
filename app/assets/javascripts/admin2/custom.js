@@ -12,6 +12,29 @@ function validateConfigureTransactions(community_id) {
 
 $(function(){
 
+    $('.location-type').on('change', function() {
+       var value = $(this).val(),
+           search_placeholder = $('.search-placeholder'),
+           search_placeholder_div = $('.search-placeholder-div'),
+           show_distance_div = $('.show-distance-div'),
+           show_distance = $('.show-distance');
+
+       if (value === 'location') {
+           search_placeholder.prop('disabled', true);
+           search_placeholder_div.addClass('opacity_04');
+       } else {
+           search_placeholder.prop('disabled', false);
+           search_placeholder_div.removeClass('opacity_04');
+       }
+        if (value === 'keyword') {
+            show_distance.prop('disabled', true);
+            show_distance_div.addClass('opacity_04');
+        } else {
+            show_distance.prop('disabled', false);
+            show_distance_div.removeClass('opacity_04');
+        }
+    });
+
     $('.for-hide-content').on('change', function () {
        var checked = $(this).prop('checked'),
            private_content = $('.hide-content');

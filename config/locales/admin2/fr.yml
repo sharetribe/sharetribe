@@ -36,6 +36,23 @@ fr:
         country_currency: 'lorem ipsum'
       emails:
         automatic_newsletter: 'lorem ipsum'
+      search_location:
+        search: 'lorem ipsum'
+    search:
+      keyword: 'lorem ipsum'
+      location: 'lorem ipsum'
+      keyword_and_location: 'lorem ipsum'
+      imperial: 'lorem ipsum'
+      metric: 'lorem ipsum'
+      search_type: 'lorem ipsum'
+      search_type_info_text: 'lorem ipsum'
+      keyword_settings: 'lorem ipsum'
+      location_settings: 'lorem ipsum'
+      show_distance: 'lorem ipsum'
+      limit_distance: 'lorem ipsum'
+      search_placeholder: 'lorem ipsum'
+      search_placeholder_info_text: 'lorem ipsum'
+      search_for: 'lorem ipsum'
     automatic_newsletter:
       send_automatic_newsletter: 'lorem ipsum'
       send_automatic_newsletter_info_text: 'lorem ipsum %{href}'
@@ -187,6 +204,8 @@ fr:
       listing_comments_updated: 'lorem ipsum'
       configure_transactions_updated: 'lorem ipsum'
       newsletters_updated: 'lorem ipsum'
+      search_updated: 'lorem ipsum'
+      search_updated_failed: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

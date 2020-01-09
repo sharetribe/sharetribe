@@ -36,6 +36,23 @@ en:
         country_currency: 'Country & Currency'
       emails:
         automatic_newsletter: 'Automatic newsletter'
+      search_location:
+        search: 'Search'
+    search:
+      keyword: 'Keyword'
+      location: 'Location'
+      keyword_and_location: 'Keyword & Location'
+      imperial: 'Miles'
+      metric: 'Kilometers'
+      search_type: 'Search type'
+      search_type_info_text: 'The location search can be used only if the location feature is enabled.'
+      keyword_settings: 'Keyword search settings'
+      location_settings: 'Location search settings'
+      show_distance: 'Show distance in'
+      limit_distance: 'Show only nearby listings with location search.'
+      search_placeholder: 'Keyword search placeholder'
+      search_placeholder_info_text: 'This is shown as the placeholder text in the keyword search bar.'
+      search_for: 'Search for'
     country_currency:
       payments_not_enabled: 'Payments not enabled'
       country: 'Country'
@@ -204,6 +221,8 @@ en:
       newsletters_updated: 'Automatic newsletter settings were updated'
       country_currency_updated: 'Country & Currency settings were updated'
       payments_connected: 'Payments already connected'
+      search_updated: 'Search settings were updated'
+      search_updated_failed: 'Search settings update failed'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

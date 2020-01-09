@@ -30,7 +30,7 @@
           = form.label :allow_free_conversations, t("admin.communities.settings.allow_free_conversations"), :class => "settings-checkbox-label"
 
 
-    - if(FeatureFlagHelper.location_search_available)
+    - if FeatureFlagHelper.location_search_available
       .row#search_and_location_preferences
         .col-12
           %h3

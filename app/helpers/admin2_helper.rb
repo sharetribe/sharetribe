@@ -16,7 +16,8 @@ module Admin2Helper
       listings: %w[listing_approval listing_comments],
       transactions_reviews: %w[config_transactions],
       payment_system: %w[country_currencies],
-      emails: %w[newsletters]
+      emails: %w[newsletters],
+      search_location: %w[search]
     }
   end
 

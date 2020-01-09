@@ -125,14 +125,15 @@
           %li#customoutgoingaddress-mobile
             %a{:href => 'custom-outgoing-address.php'} Custom outgoing address
         / Search & Location
-        %ul.category-title
-          %li
-            %a.dropdown-toggle{'aria-controls' => 'searchlocation-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#searchlocation-mobile', :role => 'button'} Search &amp; Location
-        %ul#searchlocation-mobile.collapse.subtitle
-          %li#search-mobile
-            %a{:href => 'search.php'} Search
-          %li#location-mobile
-            %a{:href => 'location.php'} Location
+        - if FeatureFlagHelper.location_search_available
+          %ul.category-title
+            %li
+              %a.dropdown-toggle{'aria-controls' => 'searchlocation-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#searchlocation-mobile', :role => 'button'} Search &amp; Location
+          %ul#searchlocation-mobile.collapse.subtitle{class: expand_ul('search_location')}
+            %li#search-mobile{class: active_li('search')}
+              = link_to t('admin2.sidebar.search_location.search'), admin2_search_location_search_index_path
+            %li#location-mobile
+              %a{:href => 'location.php'} Location
         / Social media
         %ul.category-title
           %li

@@ -264,6 +264,14 @@ Rails.application.routes.draw do
         end
       end
 
+      namespace :search_location, path: 'search-and-location' do
+        resources :search, only: %i[index] do
+          collection do
+            patch :update_search
+          end
+        end
+      end
+
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')
