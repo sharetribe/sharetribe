@@ -8,7 +8,7 @@ module NewLayoutViewUtils
     [:enabled_for_community, :bool, :mandatory],
     [:required_for_user, :bool, default: false],
     [:required_for_community, :bool, default: false],
-    [:show_for_user, :bool, default: true]
+    [:disabled, :bool, default: false]
   )
 
   # Describes feature relationships:
@@ -28,7 +28,7 @@ module NewLayoutViewUtils
     },
     { title: t("admin.communities.new_layout.new_email_templates"),
       name: :email_layout_v2,
-      show_for_user: false
+      disabled: true
     },
    ]
   end
@@ -60,7 +60,7 @@ module NewLayoutViewUtils
         enabled_for_community: community_flags.include?(f[:name]),
         required_for_user: flag_required?(f, person_flags),
         required_for_community: flag_required?(f, community_flags),
-        show_for_user: f[:show_for_user]
+        disabled: f[:disabled]
       })
     }
   end

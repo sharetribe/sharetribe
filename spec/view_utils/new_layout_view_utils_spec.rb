@@ -52,7 +52,7 @@ describe NewLayoutViewUtils do
             enabled_for_community: false,
             required_for_user: false,
             required_for_community: false,
-            show_for_user: true
+            disabled: false
           },
           { title: "Bar",
             name: :bar,
@@ -60,7 +60,7 @@ describe NewLayoutViewUtils do
             enabled_for_community: false,
             required_for_user: false,
             required_for_community: false,
-            show_for_user: true
+            disabled: false
           },
           { title: "Wat",
             name: :wat,
@@ -68,7 +68,7 @@ describe NewLayoutViewUtils do
             enabled_for_community: true,
             required_for_user: false,
             required_for_community: false,
-            show_for_user: true
+            disabled: false
           }
         ])
       end
@@ -104,7 +104,7 @@ describe NewLayoutViewUtils do
             enabled_for_community: false,
             required_for_user: false,
             required_for_community: false,
-            show_for_user: true
+            disabled: false
           },
           { title: "Bar",
             name: :bar,
@@ -112,7 +112,7 @@ describe NewLayoutViewUtils do
             enabled_for_community: false,
             required_for_user: false,
             required_for_community: false,
-            show_for_user: true
+            disabled: false
           },
           { title: "Wat",
             name: :wat,
@@ -120,7 +120,7 @@ describe NewLayoutViewUtils do
             enabled_for_community: false,
             required_for_user: false,
             required_for_community: false,
-            show_for_user: true
+            disabled: false
           }
         ])
       end
