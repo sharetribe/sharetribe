@@ -73,7 +73,7 @@ fr:
       main_logo_info_text: 'lorem ipsum'
       square_logo: 'lorem ipsum'
       square_logo_info_text: 'lorem ipsum'
-      current_file: 'lorem ipsum %{type} lorem ipsum %{filename}'
+      current_file: 'lorem ipsum %{type} lorem ipsum "%{filename}".'
     privacy:
       private_marketplace: 'lorem ipsum'
       header: 'lorem ipsum'
