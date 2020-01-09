@@ -270,6 +270,11 @@ Rails.application.routes.draw do
             patch :update_search
           end
         end
+        resources :locations, path: 'location', only: %i[index] do
+          collection do
+            patch :update_location
+          end
+        end
       end
 
     end

@@ -363,6 +363,10 @@ class Community < ApplicationRecord
     "##{slogan_color}"
   end
 
+  def apply_main_search_keyword!
+    configuration.update(main_search: :keyword)
+  end
+
   # Wrapper for the various attachment images url methods
   # which returns url of old image, while new one is processing.
   def stable_image_url(image_name, style = nil, options = {})

@@ -132,8 +132,9 @@
           %ul#searchlocation-mobile.collapse.subtitle{class: expand_ul('search_location')}
             %li#search-mobile{class: active_li('search')}
               = link_to t('admin2.sidebar.search_location.search'), admin2_search_location_search_index_path
-            %li#location-mobile
-              %a{:href => 'location.php'} Location
+            %li#location-mobile{class: active_li('locations')}
+              = link_to t('admin2.sidebar.search_location.location'), admin2_search_location_locations_path
+
         / Social media
         %ul.category-title
           %li

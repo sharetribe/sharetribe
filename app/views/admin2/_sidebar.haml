@@ -127,8 +127,8 @@
         %ul#searchlocation.collapse.subtitle{class: expand_ul('search_location')}
           %li#search{class: active_li('search')}
             = link_to t('admin2.sidebar.search_location.search'), admin2_search_location_search_index_path
-          %li#location
-            %a{:href => 'location.php'} Location
+          %li#location{class: active_li('locations')}
+            = link_to t('admin2.sidebar.search_location.location'), admin2_search_location_locations_path
       / Social media
       %ul.category-title
         %li

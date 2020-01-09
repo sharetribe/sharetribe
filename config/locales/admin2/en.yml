@@ -38,6 +38,11 @@ en:
         automatic_newsletter: 'Automatic newsletter'
       search_location:
         search: 'Search'
+        location: 'Location'
+    location:
+      location_settings: 'Location settings'
+      location_settings_info_text: 'Location can be present in multiple steps and features: the listing creation form and pages, the profile pages and settings, the homepage and search. You can disable entirely the use of location.'
+      show_location: 'Allow users to add location to their profile and listings, and show a map view on the search page'
     search:
       keyword: 'Keyword'
       location: 'Location'
@@ -222,6 +227,7 @@ en:
       payments_connected: 'Payments already connected'
       search_updated: 'Search settings were updated'
       search_updated_failed: 'Search settings update failed'
+      location_updated: 'Location settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'
