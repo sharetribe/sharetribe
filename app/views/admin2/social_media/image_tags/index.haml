@@ -1,0 +1,39 @@
+.content-card-header
+  %h1.content-card-header-title Image &amp; tags
+.content-card-section-container
+  %section.content-card-section
+    %h2 Social media image
+    %form.content-card-section-form
+      .form-group
+        %label{:for => "socialMediaImage"} Image for social media
+        .custom-file
+          %input{:accept => "image/*", :name => "socialMediaImage", :type => "file"}/
+        %small#socialMediaImage-help.form-text This image will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of 1200x600 pixels.
+        %small#socialMediaImage-filename.form-text The current social media image filename is "marketplace-social.jpg".
+  %section.content-card-section
+    %h2 Social media tags
+    %form.content-card-section-form
+      .form-group
+        %label{:for => "socialMediaTitle"} Title for social media
+        %input#socialMediaTitle.form-control{"aria-describedby" => "socialMediaTitle", :placeholder => "$MARKETPLACE_NAME - $MARKETPLACE-SLOGAN", :type => "text", :value => ""}/
+        %small#socialMediaTitle-help.form-text
+          This text will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. See how it looks likes
+          = succeed "," do
+            %a{:href => "https://developers.facebook.com/tools/debug/", :target => "_blank"} for Facebook
+          %a{:href => "https://cards-dev.twitter.com/validator", :target => "_blank"} for Twitter
+          and
+          = succeed "." do
+            %a{:href => "https://www.linkedin.com/post-inspector/", :target => "_blank"} for LinkedIn
+      .form-group
+        %label{:for => "socialMediaDescription"} Description for social media
+        %textarea#socialMediaDescription.form-control{"aria-describedby" => "socialMediaDescription", :placeholder => "$MARKETPLACE_DESCRIPTION - $MARKETPLACE_SLOGAN", :type => "text", :value => ""}
+        %small#socialMediaDescription-help.form-text
+          This text will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. See how it looks likes
+          = succeed "," do
+            %a{:href => "https://developers.facebook.com/tools/debug/", :target => "_blank"} for Facebook
+          %a{:href => "https://cards-dev.twitter.com/validator", :target => "_blank"} for Twitter
+          and
+          = succeed "." do
+            %a{:href => "https://www.linkedin.com/post-inspector/", :target => "_blank"} for LinkedIn
+.content-card-terminal
+  %a.btn.btn-primary{:href => "#"} Save changes

@@ -139,9 +139,9 @@
         %ul.category-title
           %li
             %a.dropdown-toggle{'aria-controls' => 'socialmedia-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#socialmedia-mobile', :role => 'button'} Social media
-        %ul#socialmedia.collapse.subtitle
-          %li#imagetags-mobile
-            %a{:href => 'image-tags.php'} Image and tags
+        %ul#socialmedia.collapse.subtitle{class: expand_ul('social_media')}
+          %li#imagetags-mobile{class: active_li('image_tags')}
+            = link_to t('admin2.sidebar.social_media.image_tags'), admin2_social_media_image_tags_path
           %li#twitter-mobile
             %a{:href => 'twitter.php'} Twitter
         / SEO

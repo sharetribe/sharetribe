@@ -17,7 +17,8 @@ module Admin2Helper
       transactions_reviews: %w[config_transactions],
       payment_system: %w[country_currencies],
       emails: %w[newsletters],
-      search_location: %w[search locations]
+      search_location: %w[search locations],
+      social_media: %w[image_tags]
     }
   end
 

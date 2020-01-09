@@ -277,6 +277,14 @@ Rails.application.routes.draw do
         end
       end
 
+      namespace :social_media, path: 'social-media' do
+        resources :image_tags, path: 'image-and-tags', only: %i[index] do
+          collection do
+            patch :update_image
+          end
+        end
+      end
+
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')
