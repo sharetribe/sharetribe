@@ -128,7 +128,7 @@ fr:
       main_logo_info_text: 'lorem ipsum'
       square_logo: 'lorem ipsum'
       square_logo_info_text: 'lorem ipsum'
-      current_file: 'lorem ipsum %{type} lorem ipsum %{filename}'
+      current_file: 'lorem ipsum %{type} lorem ipsum "%{filename}".'
     user_rights:
       invitation_rights: 'lorem ipsum'
       join_with_invite_only: 'lorem ipsum'
