@@ -40,7 +40,17 @@ en:
         search: 'Search'
         location: 'Location'
       social_media:
-        image_tags: 'Image and tags'
+        image_tags: 'Image & tags'
+    image_tags:
+      social_logo: 'Image for social media'
+      social_logo_info_text: 'This image will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of 1200x600 pixels.'
+      social_media_image: 'Social media image'
+      social_media_tags: 'Social media tags'
+      social_media_title: 'Title for social media'
+      social_media_title_info_text: 'This text will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. See how it looks likes <a href="%{fb_url}" target="_blank">for Facebook</a>, <a href="%{twitter_url}" target="_blank">for Twitter</a> and <a href="%{link_url}" target="_blank">for LinkedIn</a>.'
+      social_media_description: 'Description for social media'
+      social_media_title_placeholder: '$MARKETPLACE_NAME - $MARKETPLACE-SLOGAN'
+      social_media_description_palceholder: '$MARKETPLACE_DESCRIPTION - $MARKETPLACE_SLOGAN'
     location:
       location_settings: 'Location settings'
       location_settings_info_text: 'Location can be present in multiple steps and features: the listing creation form and pages, the profile pages and settings, the homepage and search. You can disable entirely the use of location.'
@@ -230,6 +240,7 @@ en:
       search_updated: 'Search settings were updated'
       search_updated_failed: 'Search settings update failed'
       location_updated: 'Location settings were updated'
+      image_tags_updated: 'Image & tags settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

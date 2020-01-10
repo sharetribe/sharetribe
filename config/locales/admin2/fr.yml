@@ -38,6 +38,18 @@ fr:
         automatic_newsletter: 'lorem ipsum'
       search_location:
         search: 'lorem ipsum'
+      social_media:
+        image_tags: 'lorem ipsum'
+    image_tags:
+      social_logo: 'lorem ipsum'
+      social_logo_info_text: 'lorem ipsum'
+      social_media_image: 'lorem ipsum'
+      social_media_tags: 'lorem ipsum'
+      social_media_title: 'lorem ipsum'
+      social_media_title_info_text: 'lorem ipsum <a href="%{fb_url}" target="_blank">lorem ipsum</a>, <a href="%{twitter_url}" target="_blank">lorem ipsum</a> <a href="%{link_url}" target="_blank">lorem ipsum</a>.'
+      social_media_description: 'lorem ipsum'
+      social_media_title_placeholder: 'lorem ipsum'
+      social_media_description_palceholder: 'lorem ipsum'
     search:
       keyword: 'lorem ipsum'
       location: 'lorem ipsum'
@@ -206,6 +218,7 @@ fr:
       newsletters_updated: 'lorem ipsum'
       search_updated: 'lorem ipsum'
       search_updated_failed: 'lorem ipsum'
+      image_tags_updated: 'Image & tags settings were updated'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

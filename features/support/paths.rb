@@ -98,6 +98,8 @@ module NavigationHelpers
       edit_text_instructions_admin_community_path(:id => @current_community.id)
     when /the social media admin page/
       social_media_admin_community_path(:id => @current_community.id)
+    when /the social media image and tags admin page/
+      admin2_social_media_image_tags_path(:id => @current_community.id)
     when /the analytics admin page/
       analytics_admin_community_path(:id => @current_community.id)
     when /the top bar admin page/
