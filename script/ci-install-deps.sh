@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-sudo apt-get update && sudo apt-get install -y sphinxsearch mysql-client
+sudo apt-get update && sudo apt-get install -y sphinxsearch default-mysql-client libmariadb-dev-compat
 
 if [[ -f ~/.nvm/nvm.sh ]] ; then
     echo "NVM already installed"

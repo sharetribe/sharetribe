@@ -1,4 +1,4 @@
-FROM ruby:2.6.2-stretch
+FROM ruby:2.6.5-buster
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
