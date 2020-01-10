@@ -155,6 +155,7 @@ ST.utils = (function(_) {
       "jpeg": "image/jpeg",
       "png": "image/png",
       "gif": "image/gif",
+      "heic": "image/heic",
     };
 
     return map[fileExtension(filename)];
