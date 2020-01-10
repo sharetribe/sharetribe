@@ -290,6 +290,9 @@ Rails.application.routes.draw do
         end
       end
 
+      namespace :seo do
+        resources :sitemap, path: 'sitemap-and-robots', only: %i[index]
+      end
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')

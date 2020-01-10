@@ -142,9 +142,9 @@
       %ul.category-title
         %li
           = link_to t('admin2.sidebar.seo_group'), '#seo', class: %i[dropdown-toggle], 'aria-controls' => 'seo', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
-      %ul#seo.collapse.subtitle
-        %li#sitemaprobots
-          %a{:href => 'sitemap-robots.php'} Sitemap &amp; Robots
+      %ul#seo.collapse.subtitle{class: expand_ul('seo')}
+        %li#sitemaprobots{class: active_li('sitemap')}
+          = link_to t('admin2.sidebar.seo.sitemap_robots'), admin2_seo_sitemap_index_path
         %li#landingpagemeta
           %a{:href => 'landing-page-meta.php'} Landing page meta
         %li#searchresultspagesmeta
