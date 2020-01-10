@@ -11,8 +11,7 @@
       = t('admin2.image_tags.social_media_image')
     .content-card-section-form
       .form-group
-        %label
-          = t('admin2.image_tags.social_logo')
+        = form.label :social_logo, t('admin2.image_tags.social_logo')
         .custom-file
           = form.fields_for :social_logo, @current_community.social_logo || @current_community.build_social_logo do |sl|
             = sl.file_field :image, accept: 'image/*', class: %i[change-file]

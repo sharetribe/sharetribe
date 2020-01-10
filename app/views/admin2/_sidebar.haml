@@ -48,7 +48,7 @@
       / Users
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'users', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#users', :role => 'button'} Users
+          = link_to t('admin2.sidebar.users_group'), '#users', class: %i[dropdown-toggle], 'aria-controls' => 'users', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#users.collapse.subtitle{class: expand_ul('users')}
         %li#manageusers
           %a{:href => 'manage-users.php'} Manage users
@@ -63,7 +63,7 @@
       / Listings
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'listings', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#listings', :role => 'button'} Listings
+          = link_to t('admin2.sidebar.listings_group'), '#listings', class: %i[dropdown-toggle], 'aria-controls' => 'listings', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#listings.collapse.subtitle{class: expand_ul('listings')}
         %li#managelistings
           %a{:href => 'manage-listings.php'} Manage listings
@@ -80,7 +80,7 @@
       / Transactions
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'transactionsreviews', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#transactionsreviews', :role => 'button'} Transactions &amp; Reviews
+          = link_to t('admin2.sidebar.transactions_group'), '#transactionsreviews', class: %i[dropdown-toggle], 'aria-controls' => 'transactionsreviews', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#transactionsreviews.collapse.subtitle{class: expand_ul('transactions_reviews')}
         %li#managetransactions
           %a{:href => 'manage-transactions.php'} Manage transactions
@@ -96,7 +96,7 @@
       - if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_provisioned?(@current_community.id)
         %ul.category-title
           %li
-            %a.dropdown-toggle{'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#paymentsystem', :role => 'button'} Payment system
+            = link_to t('admin2.sidebar.payment_group'), '#paymentsystem', class: %i[dropdown-toggle], 'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#paymentsystem.collapse.subtitle{class: expand_ul('payment_system')}
           %li#countrycurrency{class: active_li('country_currencies')}
             = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
@@ -109,7 +109,7 @@
       / Email
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'emails', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#emails', :role => 'button'} Emails
+          = link_to t('admin2.sidebar.emails_group'), '#emails', class: %i[dropdown-toggle], 'aria-controls' => 'emails', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#emails.collapse.subtitle{class: expand_ul('emails')}
         %li#emailusers
           %a{:href => 'email-users.php'} Email users
@@ -123,7 +123,7 @@
       - if FeatureFlagHelper.location_search_available
         %ul.category-title
           %li
-            %a.dropdown-toggle{'aria-controls' => 'searchlocation', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#searchlocation', :role => 'button'} Search &amp; Location
+            = link_to t('admin2.sidebar.search_group'), '#searchlocation', class: %i[dropdown-toggle], 'aria-controls' => 'searchlocation', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#searchlocation.collapse.subtitle{class: expand_ul('search_location')}
           %li#search{class: active_li('search')}
             = link_to t('admin2.sidebar.search_location.search'), admin2_search_location_search_index_path
@@ -132,16 +132,16 @@
       / Social media
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'socialmedia', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#socialmedia', :role => 'button'} Social media
+          = link_to t('admin2.sidebar.social_media_group'), '#socialmedia', class: %i[dropdown-toggle], 'aria-controls' => 'socialmedia', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#socialmedia.collapse.subtitle{class: expand_ul('social_media')}
         %li#imagetags{class: active_li('image_tags')}
           = link_to t('admin2.sidebar.social_media.image_tags'), admin2_social_media_image_tags_path
-        %li#twitter
-          %a{:href => 'twitter.php'} Twitter
+        %li#twitter{class: active_li('twitter')}
+          = link_to t('admin2.sidebar.social_media.twitter'), admin2_social_media_twitter_index_path
       / SEO
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'seo', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#seo', :role => 'button'} SEO
+          = link_to t('admin2.sidebar.seo_group'), '#seo', class: %i[dropdown-toggle], 'aria-controls' => 'seo', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#seo.collapse.subtitle
         %li#sitemaprobots
           %a{:href => 'sitemap-robots.php'} Sitemap &amp; Robots

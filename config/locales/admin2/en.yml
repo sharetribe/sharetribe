@@ -12,6 +12,14 @@ en:
     sidebar:
       dashboard: 'Dashboard'
       general_group: 'General'
+      social_media_group: 'Social media'
+      users_group: 'Users'
+      listings_group: 'Listings'
+      transactions_group: 'Transactions & Reviews'
+      payment_group: 'Payment system'
+      emails_group: 'Emails'
+      search_group: 'Search & Location'
+      seo_group: 'SEO'
       general:
         essentials: 'Essentials'
         privacy: 'Privacy'
@@ -41,6 +49,12 @@ en:
         location: 'Location'
       social_media:
         image_tags: 'Image & tags'
+        twitter: 'Twitter'
+    twitter:
+      twitter_settings: 'Twitter settings'
+      twitter_handle: 'Twitter handle'
+      twitter_handle_info_text: 'Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page.'
+      yourhandle: 'yourhandle'
     image_tags:
       social_logo: 'Image for social media'
       social_logo_info_text: 'This image will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of 1200x600 pixels.'
@@ -241,6 +255,7 @@ en:
       search_updated_failed: 'Search settings update failed'
       location_updated: 'Location settings were updated'
       image_tags_updated: 'Image & tags settings were updated'
+      twitter_updated: 'Twitter settings settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

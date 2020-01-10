@@ -18,7 +18,7 @@ module Admin2Helper
       payment_system: %w[country_currencies],
       emails: %w[newsletters],
       search_location: %w[search locations],
-      social_media: %w[image_tags]
+      social_media: %w[image_tags twitter]
     }
   end
 

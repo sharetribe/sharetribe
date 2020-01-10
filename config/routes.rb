@@ -283,6 +283,11 @@ Rails.application.routes.draw do
             patch :update_image
           end
         end
+        resources :twitter, only: %i[index] do
+          collection do
+            patch :update_twitter
+          end
+        end
       end
 
     end

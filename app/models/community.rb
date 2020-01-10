@@ -328,7 +328,11 @@ class Community < ApplicationRecord
 
   attr_accessor :terms
 
-  before_validation :check_colors, :socials_process
+  before_validation :check_colors, :socials_process, :check_twitter
+
+  def check_twitter
+    self.twitter_handle = twitter_handle.to_s.delete('@').presence
+  end
 
   def check_colors
     self.slogan_color = slogan_color.to_s.delete('#').presence
