@@ -24,8 +24,7 @@ class CreateSquareImagesJob < Struct.new(:image_id)
 
     validates_attachment_size :image, :less_than => 9.megabytes
     validates_attachment_content_type :image,
-                                      :content_type => ["image/jpeg", "image/png", "image/gif",
-                                                        "image/pjpeg", "image/x-png"] #the two last types are sent by IE.
+                                      :content_type => IMAGE_CONTENT_TYPE
   end
 
   def perform

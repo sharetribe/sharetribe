@@ -52,12 +52,12 @@ class ListingImage < ApplicationRecord
   process_in_background :image, :processing_image_url => "/assets/listing_image/processing.png", :priority => 1
   validates_attachment_size :image, :less_than => APP_CONFIG.max_image_filesize.to_i, :unless => Proc.new {|model| model.image.nil? }
   validates_attachment_content_type :image,
-                                    :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"], # the two last types are sent by IE.
+                                    :content_type => IMAGE_CONTENT_TYPE,
                                     :unless => Proc.new {|model| model.image.nil? }
 
   has_attached_file :email_image
   validates_attachment_content_type :email_image,
-                                    :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"], # the two last types are sent by IE.
+                                    :content_type => IMAGE_CONTENT_TYPE,
                                     :unless => Proc.new {|model| model.email_image.nil? }
 
 
