@@ -49,6 +49,17 @@ fr:
       social_media:
         image_tags: 'lorem ipsum'
         twitter: 'lorem ipsum'
+      seo:
+        sitemap_robots: 'lorem ipsum'
+    sitemap_robots:
+      sitemap: 'lorem ipsum'
+      robots: 'lorem ipsum'
+      sitemap_info_private: 'lorem ipsum'
+      robots_info_private: 'lorem ipsum'
+      sitemap_info_text_1: 'lorem ipsum <a href="%{url}">lorem ipsum</a>.'
+      sitemap_info_text_2: 'lorem ipsum <a href="%{url}">%{url}</a>.'
+      robots_info_text_1: 'lorem ipsum <a href="%{url}">lorem ipsum</a>.'
+      robots_info_text_2: 'lorem ipsum<a href="%{url}">%{url}</a>.'
     twitter:
       twitter_settings: 'lorem ipsum'
       twitter_handle: 'lorem ipsum'
