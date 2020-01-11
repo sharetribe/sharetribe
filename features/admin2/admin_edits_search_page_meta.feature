@@ -5,7 +5,7 @@ Feature: Admin edits search page meta
     And I am logged in as "kassi_testperson1"
     And I am on the seo search meta admin page
 
-  Scenario: Admin adds title and description for social media
+  Scenario: Admin adds title and description for search page meta
   When I fill in "community_community_customizations_attributes_0_search_meta_title" with "Custom title search tag"
    And I fill in "community_community_customizations_attributes_2_search_meta_description" with "Custom description search tag"
   Then I press submit

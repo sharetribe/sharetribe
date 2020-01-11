@@ -5,7 +5,7 @@ Feature: Admin edits listing page meta
     And I am logged in as "kassi_testperson1"
     And I am on the seo listing meta admin page
 
-  Scenario: Admin adds title and description for social media
+  Scenario: Admin adds title and description for listing page meta
   When I fill in "community_community_customizations_attributes_0_listing_meta_title" with "Custom title listing tag"
    And I fill in "community_community_customizations_attributes_2_listing_meta_description" with "Custom description listing tag"
   Then I press submit

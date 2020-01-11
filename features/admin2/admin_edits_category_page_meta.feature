@@ -5,7 +5,7 @@ Feature: Admin edits category page meta
     And I am logged in as "kassi_testperson1"
     And I am on the seo category meta admin page
 
-  Scenario: Admin adds title and description for social media
+  Scenario: Admin adds title and description for category page meta
   When I fill in "community_community_customizations_attributes_0_category_meta_title" with "Custom title category tag"
    And I fill in "community_community_customizations_attributes_2_category_meta_description" with "Custom description category tag"
   Then I press submit

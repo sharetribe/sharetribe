@@ -56,6 +56,16 @@ en:
         search_pages: 'Search results pages meta'
         listing_pages: 'Listings pages meta'
         category_pages: 'Category pages meta'
+        profile_pages: 'Profile pages meta'
+    profile_pages:
+      title: 'Meta tags for the profile pages'
+      title_info_text: 'Optimizing meta tags of your marketplace pages is important for usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href="%{url}" target="_blank">Learn more about meta tags</a>.'
+      profile_meta_title: 'Title meta tag'
+      profile_meta_title_placeholder: 'Profile of {{user_display_name}} - {{marketplace_name}}'
+      profile_meta_title_info_text: 'The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}.'
+      profile_meta_description: 'Description meta tag'
+      profile_meta_description_placeholder: 'Learn more about {{user_display_name}} on {{marketplace_name}}'
+      profile_meta_description_info_text: 'The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}.'
     category_pages:
       title: 'Meta tags for the category pages'
       title_info_text: 'Optimizing meta tags of your marketplace pages is important for usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href="%{url}" target="_blank">Learn more about meta tags</a>.'
@@ -311,6 +321,7 @@ en:
       search_pages_updated: 'Search results pages meta settings were updated'
       listing_pages_updated: 'Listings pages meta settings were updated'
       category_pages_updated: 'Category pages meta settings were updated'
+      profile_pages_updated: 'Profile pages meta settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

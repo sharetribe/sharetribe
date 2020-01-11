@@ -312,6 +312,11 @@ Rails.application.routes.draw do
             patch :update_category_page
           end
         end
+        resources :profile_pages, path: 'profile-pages-meta', only: %i[index] do
+          collection do
+            patch :update_profile_page
+          end
+        end
       end
     end
 
