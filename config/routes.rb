@@ -297,6 +297,11 @@ Rails.application.routes.draw do
             patch :update_landing_page
           end
         end
+        resources :search_pages, path: 'search-results-pages-meta', only: %i[index] do
+          collection do
+            patch :update_search_pages
+          end
+        end
       end
     end
 

@@ -52,6 +52,16 @@ fr:
       seo:
         sitemap_robots: 'lorem ipsum'
         landing_pages: 'lorem ipsum'
+        search_pages: 'lorem ipsum'
+    search_pages:
+      title: 'lorem ipsum'
+      title_info_text: 'lorem ipsum <a href="%{url}" target="_blank">lorem ipsum</a>.'
+      search_meta_title: 'lorem ipsum'
+      search_meta_title_placeholder: 'lorem ipsum'
+      search_meta_title_info_text: 'lorem ipsum'
+      search_meta_description: 'lorem ipsum'
+      search_meta_description_placeholder: 'lorem ipsum'
+      search_meta_description_info_text: 'lorem ipsum'
     landing_pages:
       title: 'lorem ipsum'
       title_info_text: 'lorem ipsum <a href="%{url}" target="_blank">lorem ipsum</a>.'
@@ -255,6 +265,7 @@ fr:
       search_updated_failed: 'lorem ipsum'
       image_tags_updated: 'lorem ipsum'
       landing_pages_updated: 'lorem ipsum'
+      search_pages_updated: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'
