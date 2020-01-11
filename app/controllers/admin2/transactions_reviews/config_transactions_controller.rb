@@ -1,10 +1,8 @@
 module Admin2::TransactionsReviews
   class ConfigTransactionsController < Admin2::AdminBaseController
+    before_action :find_customizations, only: :index
 
-    def index
-      @customizations = @current_community.community_customizations
-                                          .where(locale: @current_community.locales)
-    end
+    def index; end
 
     def update_config
       @current_community.update!(config_params)

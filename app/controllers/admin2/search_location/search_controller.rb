@@ -1,11 +1,9 @@
 module Admin2::SearchLocation
   class SearchController < Admin2::AdminBaseController
     before_action :enabled_search, :set_service
+    before_action :find_customizations, only: :index
 
-    def index
-      @customizations = @current_community.community_customizations
-                                          .where(locale: @current_community.locales)
-    end
+    def index; end
 
     def update_search
       if @service.update

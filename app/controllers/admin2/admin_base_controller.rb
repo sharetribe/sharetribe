@@ -17,6 +17,11 @@ class Admin2::AdminBaseController < ApplicationController
     @current_community.community_customizations.find_by_locale(locale) || build_customization_with_defaults(locale)
   end
 
+  def find_customizations
+    @customizations = @current_community.community_customizations
+                                        .where(locale: @current_community.locales)
+  end
+
   def find_or_initialize_customizations(locales)
     locales.each_with_object({}) do |locale, customizations|
       customizations[locale] = find_or_initialize_customizations_for_locale(locale)

@@ -1,10 +1,8 @@
 module Admin2::Seo
   class LandingPagesController < Admin2::AdminBaseController
+    before_action :find_customizations, only: :index
 
-    def index
-      @customizations = @current_community.community_customizations
-                                          .where(locale: @current_community.locales)
-    end
+    def index; end
 
     def update_landing_page
       @current_community.update!(landing_page_params)

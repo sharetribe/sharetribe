@@ -1,10 +1,8 @@
 module Admin2::Seo
   class SearchPagesController < Admin2::AdminBaseController
+    before_action :find_customizations, only: :index
 
-    def index
-      @customizations = @current_community.community_customizations
-                                          .where(locale: @current_community.locales)
-    end
+    def index; end
 
     def update_search_pages
       @current_community.update!(search_pages_params)
