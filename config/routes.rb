@@ -302,6 +302,11 @@ Rails.application.routes.draw do
             patch :update_search_pages
           end
         end
+        resources :listing_pages, path: 'listing-pages-meta', only: %i[index] do
+          collection do
+            patch :update_listing_page
+          end
+        end
       end
     end
 

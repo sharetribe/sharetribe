@@ -156,8 +156,8 @@
             = link_to t('admin2.sidebar.seo.landing_pages'), admin2_seo_landing_pages_path
           %li#searchresultspagesmeta-mobile{class: active_li('search_pages')}
             = link_to t('admin2.sidebar.seo.search_pages'), admin2_seo_search_pages_path
-          %li#listingpagesmeta-mobile
-            %a{:href => 'listing-pages-meta.php'} Listing pages meta
+          %li#listingpagesmeta-mobile{class: active_li('listing_pages')}
+            = link_to t('admin2.sidebar.seo.listing_pages'), admin2_seo_listing_pages_path
           %li#categorypagesmeta-mobile
             %a{:href => 'category-pages-meta.php'} Category pages meta
           %li#profilepagesmeta-mobile
