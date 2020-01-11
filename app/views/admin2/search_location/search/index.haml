@@ -18,8 +18,10 @@
             .form-radiobutton.form-check-inline
               = radio_button_tag :main_search, key, @presenter.main_search.to_s == key.to_s, class: %i[form-check-input location-type], disabled: options[:disabled] == 'disabled'
               = label_tag "main_search_#{key}", t("admin2.search.#{key}"), class: %i[form-check-label]
-        %small#defaultBrowseView-help.form-text
-          = t('admin2.search.search_type_info_text')
+
+        - unless @current_community.show_location
+          %small#defaultBrowseView-help.form-text
+            = t('admin2.search.search_type_info_text')
 
   - disabled_placeholder = @presenter.main_search.to_s == 'location'
   %section.content-card-section.search-placeholder-div{class: disabled_placeholder ? :opacity_04 : ''}
@@ -37,7 +39,7 @@
         %label
           = t('admin2.search.show_distance')
         .form-radiobutton-wrapper
-          - @presenter.distance_unit_select_options.each do |_name, key|
+          - @presenter.distance_unit_select_options.sort.reverse.each do |_name, key|
             .form-radiobutton.form-check-inline
               = radio_button_tag :distance_unit, key, @presenter.distance_unit.to_s == key.to_s, class: %i[form-check-input show-distance], disabled: disable_distance
               = label_tag "distance_unit_#{key}", t("admin2.search.#{key}"), class: %i[form-check-label]
