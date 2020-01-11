@@ -51,6 +51,16 @@ fr:
         twitter: 'lorem ipsum'
       seo:
         sitemap_robots: 'lorem ipsum'
+        landing_pages: 'lorem ipsum'
+    landing_pages:
+      title: 'lorem ipsum'
+      title_info_text: 'lorem ipsum <a href="%{url}" target="_blank">lorem ipsum</a>.'
+      meta_title: 'lorem ipsum'
+      meta_title_placeholder: 'lorem ipsum'
+      meta_title_info_text: 'lorem ipsum'
+      meta_description: 'lorem ipsum'
+      meta_description_placeholder: 'lorem ipsum'
+      meta_description_info_text: 'lorem ipsum'
     sitemap_robots:
       sitemap: 'lorem ipsum'
       robots: 'lorem ipsum'
@@ -59,7 +69,7 @@ fr:
       sitemap_info_text_1: 'lorem ipsum <a href="%{url}">lorem ipsum</a>.'
       sitemap_info_text_2: 'lorem ipsum <a href="%{url}">%{url}</a>.'
       robots_info_text_1: 'lorem ipsum <a href="%{url}">lorem ipsum</a>.'
-      robots_info_text_2: 'lorem ipsum<a href="%{url}">%{url}</a>.'
+      robots_info_text_2: 'lorem ipsum <a href="%{url}">%{url}</a>.'
     twitter:
       twitter_settings: 'lorem ipsum'
       twitter_handle: 'lorem ipsum'
@@ -243,7 +253,8 @@ fr:
       newsletters_updated: 'lorem ipsum'
       search_updated: 'lorem ipsum'
       search_updated_failed: 'lorem ipsum'
-      image_tags_updated: 'Image & tags settings were updated'
+      image_tags_updated: 'lorem ipsum'
+      landing_pages_updated: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

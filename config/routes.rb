@@ -292,6 +292,11 @@ Rails.application.routes.draw do
 
       namespace :seo do
         resources :sitemap, path: 'sitemap-and-robots', only: %i[index]
+        resources :landing_pages, path: 'landing-page-meta', only: %i[index] do
+          collection do
+            patch :update_landing_page
+          end
+        end
       end
     end
 

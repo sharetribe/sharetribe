@@ -52,6 +52,16 @@ en:
         twitter: 'Twitter'
       seo:
         sitemap_robots: 'Sitemap & Robots'
+        landing_pages: 'Landing page meta'
+    landing_pages:
+      title: 'Meta tags for the homepage or Custom Landing Page'
+      title_info_text: 'Optimizing meta tags of your marketplace pages is important for usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href="%{url}" target="_blank">Learn more about meta tags</a>.'
+      meta_title: 'Title meta tag'
+      meta_title_placeholder: '{{marketplace_name}} - {{marketplace_slogan}}'
+      meta_title_info_text: 'The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}.'
+      meta_description: 'Description meta tag'
+      meta_description_placeholder: '{{marketplace_description}} - {{marketplace_slogan}}'
+      meta_description_info_text: 'The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}.'
     sitemap_robots:
       sitemap: 'Sitemap'
       robots: 'Robots.txt'
@@ -267,6 +277,7 @@ en:
       location_updated: 'Location settings were updated'
       image_tags_updated: 'Image & tags settings were updated'
       twitter_updated: 'Twitter settings settings were updated'
+      landing_pages_updated: 'Landing page meta settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

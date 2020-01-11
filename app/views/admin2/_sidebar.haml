@@ -145,8 +145,8 @@
       %ul#seo.collapse.subtitle{class: expand_ul('seo')}
         %li#sitemaprobots{class: active_li('sitemap')}
           = link_to t('admin2.sidebar.seo.sitemap_robots'), admin2_seo_sitemap_index_path
-        %li#landingpagemeta
-          %a{:href => 'landing-page-meta.php'} Landing page meta
+        %li#landingpagemeta{class: active_li('landing_pages')}
+          = link_to t('admin2.sidebar.seo.landing_pages'), admin2_seo_landing_pages_path
         %li#searchresultspagesmeta
           %a{:href => 'search-results-pages-meta.php'} Search results pages meta
         %li#listingpagesmeta

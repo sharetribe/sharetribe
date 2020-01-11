@@ -100,6 +100,8 @@ module NavigationHelpers
       social_media_admin_community_path(:id => @current_community.id)
     when /the social media image and tags admin page/
       admin2_social_media_image_tags_path(:id => @current_community.id)
+    when /the seo landing meta admin page/
+      admin2_seo_landing_pages_path(:id => @current_community.id)
     when /the social media twitter admin page/
       admin2_social_media_twitter_index_path(:id => @current_community.id)
     when /the analytics admin page/
