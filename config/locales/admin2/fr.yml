@@ -54,6 +54,16 @@ fr:
         landing_pages: 'lorem ipsum'
         search_pages: 'lorem ipsum'
         listing_pages: 'lorem ipsum'
+        category_pages: 'lorem ipsum'
+    category_pages:
+      title: 'lorem ipsum'
+      title_info_text: 'lorem ipsum <a href="%{url}" target="_blank">lorem ipsum</a>.'
+      category_meta_title: 'lorem ipsum'
+      category_meta_title_placeholder: 'lorem ipsum'
+      category_meta_title_info_text: 'lorem ipsum'
+      category_meta_description: 'lorem ipsum'
+      category_meta_description_placeholder: 'lorem ipsum'
+      category_meta_description_info_text: 'lorem ipsum'
     listing_pages:
       title: 'lorem ipsum'
       title_info_text: 'lorem ipsum <a href="%{url}" target="_blank">lorem ipsum</a>.'
@@ -277,6 +287,7 @@ fr:
       landing_pages_updated: 'lorem ipsum'
       search_pages_updated: 'lorem ipsum'
       listing_pages_updated: 'lorem ipsum'
+      category_pages_updated: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

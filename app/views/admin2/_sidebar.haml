@@ -151,8 +151,8 @@
           = link_to t('admin2.sidebar.seo.search_pages'), admin2_seo_search_pages_path
         %li#listingpagesmeta{class: active_li('listing_pages')}
           = link_to t('admin2.sidebar.seo.listing_pages'), admin2_seo_listing_pages_path
-        %li#categorypagesmeta
-          %a{:href => 'category-pages-meta.php'} Category pages meta
+        %li#categorypagesmeta{class: active_li('category_pages')}
+          = link_to t('admin2.sidebar.seo.category_pages'), admin2_seo_category_pages_path
         %li#profilepagesmeta
           %a{:href => 'profile-pages-meta.php'} Profile pages meta
       / Analytics

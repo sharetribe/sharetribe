@@ -106,6 +106,8 @@ module NavigationHelpers
       admin2_seo_search_pages_path(:id => @current_community.id)
     when /the seo listing meta admin page/
       admin2_seo_listing_pages_path(:id => @current_community.id)
+    when /the seo category meta admin page/
+      admin2_seo_category_pages_path(:id => @current_community.id)
     when /the social media twitter admin page/
       admin2_social_media_twitter_index_path(:id => @current_community.id)
     when /the analytics admin page/

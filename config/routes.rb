@@ -307,6 +307,11 @@ Rails.application.routes.draw do
             patch :update_listing_page
           end
         end
+        resources :category_pages, path: 'category-pages-meta', only: %i[index] do
+          collection do
+            patch :update_category_page
+          end
+        end
       end
     end
 
