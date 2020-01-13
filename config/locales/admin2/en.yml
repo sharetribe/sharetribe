@@ -60,8 +60,12 @@ en:
         profile_pages: 'Profile pages meta'
       analytics:
         google: 'Google analytics'
+        sharetribe: 'Sharetribe analytics'
+    sharetribe:
+      info_text: "To improve Sharetribe's services and support, Sharetribe tracks marketplace members' activity. Personal data is never collected and this information is never shared outside the Sharetribe team - that's a pinky promise. <a href='%{url}' target='_blank'>Learn more</a>."
+      end_user_analytics: "Allow Sharetribe to track members activity in order to improve Sharetribe's services"
     google:
-      into_text: "Track your traffic in your Sharetribe marketplace with Google Analytics. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}'>Learn more about the Google Analytics setup</a>."
+      info_text: "Track your traffic in your Sharetribe marketplace with Google Analytics. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}'>Learn more about the Google Analytics setup</a>."
       google_analytics_key: 'Google Analytics tracking ID'
       google_analytics_key_placeholder: 'UA-12345678-9'
       google_analytics_key_info_text: 'Tracking ID of your Google Analytics account. <a href="%{url}">Learn more</a>'
@@ -330,7 +334,8 @@ en:
       listing_pages_updated: 'Listings pages meta settings were updated'
       category_pages_updated: 'Category pages meta settings were updated'
       profile_pages_updated: 'Profile pages meta settings were updated'
-      google_updated: 'Google analytics settings were updated'
+      google_analytics_updated: 'Google analytics settings were updated'
+      sharetribe_analytics_updated: 'Sharetribe analytics settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

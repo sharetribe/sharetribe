@@ -169,8 +169,9 @@
         %ul#analytics-mobile.collapse.subtitle{class: expand_ul('analytics')}
           %li#googleanalytics-mobile{class: active_li('google')}
             = link_to t('admin2.sidebar.analytics.google'), admin2_analytics_google_index_path
-          %li#sharetribeanalytics-mobile
-            %a{:href => 'sharetribe-analytics.php'} Sharetribe analytics
+          - if APP_CONFIG.admin_enable_tracking_config
+            %li#sharetribeanalytics-mobile{class: active_li('sharetribe')}
+              = link_to t('admin2.sidebar.analytics.sharetribe'), admin2_analytics_sharetribe_index_path
         / Advanced
         %ul.category-title
           %li

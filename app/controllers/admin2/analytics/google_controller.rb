@@ -5,7 +5,7 @@ module Admin2::Analytics
 
     def update_google
       @current_community.update!(google_params)
-      flash[:notice] = t('admin2.notifications.google_updated')
+      flash[:notice] = t('admin2.notifications.google_analytics_updated')
     rescue StandardError => e
       flash[:error] = e.message
     ensure

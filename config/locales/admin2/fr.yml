@@ -59,8 +59,12 @@ fr:
         profile_pages: 'lorem ipsum'
       analytics:
         google: 'lorem ipsum'
+        sharetribe: 'lorem ipsum'
+    sharetribe:
+      info_text: "lorem ipsum. <a href='%{url}' target='_blank'>lorem ipsum</a>."
+      end_user_analytics: 'lorem ipsum'
     google:
-      into_text: "lorem ipsum <a href='%{url}'>lorem ipsum</a>."
+      info_text: "lorem ipsum <a href='%{url}'>lorem ipsum</a>."
       google_analytics_key: 'lorem ipsum'
       google_analytics_key_placeholder: 'lorem ipsum'
       google_analytics_key_info_text: 'lorem ipsum <a href="%{url}">lorem ipsum</a>'
@@ -307,7 +311,8 @@ fr:
       listing_pages_updated: 'lorem ipsum'
       category_pages_updated: 'lorem ipsum'
       profile_pages_updated: 'lorem ipsum'
-      google_updated: 'lorem ipsum'
+      google_analytics_updated: 'lorem ipsum'
+      sharetribe_analytics_updated: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

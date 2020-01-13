@@ -114,6 +114,8 @@ module NavigationHelpers
       admin2_social_media_twitter_index_path(:id => @current_community.id)
     when /the google analytics admin page/
       admin2_analytics_google_index_path(:id => @current_community.id)
+    when /the sharetribe analytics admin page/
+      admin2_analytics_sharetribe_index_path(:id => @current_community.id)
     when /the analytics admin page/
       analytics_admin_community_path(:id => @current_community.id)
     when /the top bar admin page/

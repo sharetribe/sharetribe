@@ -325,6 +325,11 @@ Rails.application.routes.draw do
             patch :update_google
           end
         end
+        resources :sharetribe, path: 'sharetribe-analytics', only: %i[index] do
+          collection do
+            patch :update_sharetribe
+          end
+        end
       end
     end
 
