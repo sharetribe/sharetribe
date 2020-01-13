@@ -318,6 +318,14 @@ Rails.application.routes.draw do
           end
         end
       end
+
+      namespace :analytics do
+        resources :google, path: 'google-analytics', only: %i[index] do
+          collection do
+            patch :update_google
+          end
+        end
+      end
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')

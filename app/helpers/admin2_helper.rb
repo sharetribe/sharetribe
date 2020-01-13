@@ -19,7 +19,8 @@ module Admin2Helper
       emails: %w[newsletters],
       search_location: %w[search locations],
       social_media: %w[image_tags twitter],
-      seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages]
+      seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages],
+      analytics: %w[google]
     }
   end
 

@@ -165,10 +165,10 @@
         / Analytics
         %ul.category-title
           %li
-            %a.dropdown-toggle{'aria-controls' => 'analytics-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#analytics-mobile', :role => 'button'} Analytics
-        %ul#analytics-mobile.collapse.subtitle
-          %li#googleanalytics-mobile
-            %a{:href => 'google-analytics.php'} Google Analytics
+            = link_to t('admin2.sidebar.analytics_group'), '#analytics-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'analytics-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#analytics-mobile.collapse.subtitle{class: expand_ul('analytics')}
+          %li#googleanalytics-mobile{class: active_li('google')}
+            = link_to t('admin2.sidebar.analytics.google'), admin2_analytics_google_index_path
           %li#sharetribeanalytics-mobile
             %a{:href => 'sharetribe-analytics.php'} Sharetribe analytics
         / Advanced

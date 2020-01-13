@@ -20,6 +20,7 @@ en:
       emails_group: 'Emails'
       search_group: 'Search & Location'
       seo_group: 'SEO'
+      analytics_group: 'Analytics'
       general:
         essentials: 'Essentials'
         privacy: 'Privacy'
@@ -57,6 +58,13 @@ en:
         listing_pages: 'Listings pages meta'
         category_pages: 'Category pages meta'
         profile_pages: 'Profile pages meta'
+      analytics:
+        google: 'Google analytics'
+    google:
+      into_text: "Track your traffic in your Sharetribe marketplace with Google Analytics. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}'>Learn more about the Google Analytics setup</a>."
+      google_analytics_key: 'Google Analytics tracking ID'
+      google_analytics_key_placeholder: 'UA-12345678-9'
+      google_analytics_key_info_text: 'Tracking ID of your Google Analytics account. <a href="%{url}">Learn more</a>'
     profile_pages:
       title: 'Meta tags for the profile pages'
       title_info_text: 'Optimizing meta tags of your marketplace pages is important for usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href="%{url}" target="_blank">Learn more about meta tags</a>.'
@@ -322,6 +330,7 @@ en:
       listing_pages_updated: 'Listings pages meta settings were updated'
       category_pages_updated: 'Category pages meta settings were updated'
       profile_pages_updated: 'Profile pages meta settings were updated'
+      google_updated: 'Google analytics settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'
