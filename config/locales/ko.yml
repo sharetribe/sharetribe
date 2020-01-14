@@ -1791,6 +1791,8 @@ ko:
       generic_error: "결제 프로세스 중에 오류가 발생했습니다. Stripe의 결제를 완료 할 수 없습니다."
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "앞 페이지로 돌아가기"
     error_404:

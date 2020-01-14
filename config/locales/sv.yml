@@ -1802,6 +1802,8 @@ sv:
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din Stripe betalning."
       accept_authorization_error: "Ett fel uppstod vid försök att acceptera den förauktoriserade Stripe betalningen. Vänligen försök igen."
       reject_authorization_error: "Ett fel uppstod vid försök att avbryta den förauktoriserade Stripe betalningen. Vänligen försök igen."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Tillbaka till startsidan"
     error_404:

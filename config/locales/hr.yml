@@ -1811,6 +1811,8 @@ hr:
       generic_error: "Došlo je do pogreške prilikom procesa naplate. Nismo uspjeli izvršiti Vašu stripe naplatu."
       accept_authorization_error: "Pojavila se greška prilikom pokušaja odobravanja preautorizirane Stripe uplate. Molimo Vas, pokušajte ponovno."
       reject_authorization_error: "Pojavila se greška prilikom pokušaja odbijanja preautorizirane Stripe uplate. Molimo Vas, pokušajte ponovno."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Natrag na naslovnu stranicu"
     error_404:

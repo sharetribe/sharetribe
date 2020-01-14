@@ -1806,6 +1806,8 @@ he-IL:
       generic_error: "התקבלה שגיאה בזמן עיבוד התשלום. תשלום הסטרייפ לא הצליח."
       accept_authorization_error: "התקבלה שגיאה בזמן ניסיון לעבד תשלום מקדמי עם סטרייפ, אנא נסה בשנית"
       reject_authorization_error: "התקבלה שגיאה בזמן ניסיון לדחות תשלום עם סטרייפ, אהא נסה בשנית"
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "בחזרה לעמוד הראשי"
     error_404:

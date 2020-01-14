@@ -1783,6 +1783,8 @@ pt-PT:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Voltar à pagina inicial"
     error_404:

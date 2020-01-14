@@ -307,7 +307,7 @@ fi:
         enabled_for_all: "Käytössä kaikilla"
         new_topbar: "Uusi yläpalkki (näkyy joka sivulla)"
         searchpage: "Uusi hakusivu (tarvitsee uuden yläpalkin)"
-        new_email_templates: ~
+        new_email_templates: "Uusi ulkoasu sähköposteille"
       social_media:
         social_media: "Sosiaalinen media"
         logo: Logo
@@ -458,7 +458,7 @@ fi:
           confirmed: Toteutunut
           paid: Maksettu
           canceled: Peruutettu
-          disputed: ~
+          disputed: Riitautettu
           preauthorized: "Katevaraus tehty"
           rejected: Hylätty
           payment_intent_requires_action: Odottaa
@@ -484,7 +484,7 @@ fi:
           paid: Maksettu
           confirmed: Toteutunut
           canceled: Peruutettu
-          disputed: ~
+          disputed: Riitautettu
           initiated: "Odottaa maksua"
           pending_ext: "Odottaa maksun hyväksyntää"
           none:
@@ -498,7 +498,7 @@ fi:
             paid: Maksettu
             confirmed: Toteutunut
             canceled: Peruutettu
-            disputed: ~
+            disputed: Riitautettu
             initiated: "Odottaa PayPal-maksua"
             pending_ext: "Odottaa PayPal-maksua"
             refunded: ~
@@ -512,7 +512,7 @@ fi:
             paid: Maksettu
             confirmed: Toteutunut
             canceled: Peruutettu
-            disputed: ~
+            disputed: Riitautettu
             initiated: "Odottaa Stripe-maksua"
             pending_ext: "Odottaa Stripe-maksua"
             payment_intent_requires_action: Odottaa
@@ -1158,7 +1158,7 @@ fi:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
-        you_should_investigate: ~
+        you_should_investigate: "Sinun kannattaa tutkia tilannetta keskustelemassa molempien osapuolien kanssa ja joko palauttaa maksu tai hylätä riitautus. %{learn_more_link}"
         learn_more: ~
   common:
     edit_page: "Muokkaa sivua"
@@ -1255,8 +1255,8 @@ fi:
       stripe-fee_label: "Maksunvälittäjän palvelumaksu"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
-      cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
-      cancel_description_team: ~
+      cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön riitautetuksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
+      cancel_description_team: "Jos tilaustasi ei toimitettu, voit merkitä sen riitautetuksi. %{service_name} -palvelun ylläpito tutkii tilanteen ja päättää joko palauttaa maksun tai hylätä riitautuspyyntösi."
       cancel_payed_description: "Jos pyyntösi on jo hyväksytty mutta tulit toisiin ajatuksiin, voit vielä perua pyynnön ennen maksua."
       canceling_payed_transaction: "Pyynnön peruuttaminen"
       confirm: "Merkitse toteutuneeksi"
@@ -1281,7 +1281,7 @@ fi:
       rejected_offer: "Tarjous hylätty."
       confirmed_request: "Pyyntö toteutettu."
       confirmed_offer: "Tarjous toteutettu."
-      canceled_request: "Pyyntö peruutettu."
+      canceled_request: "Pyyntö riitautettu."
       canceled_offer: "Tarjous peruutettu."
       message_from: "Viesti käyttäjältä %{person}"
       about_listing: "Liittyy ilmoitukseen %{listing_title}"
@@ -1305,9 +1305,9 @@ fi:
         held_payment: "Hyväksyi pyynnön. Palvelu %{service_name} pidättää maksun %{sum}, kunnes tilaus on merkitty toteutuneeksi."
         held_payment_wo_sum: "Pyyntö hyväksytty. %{service_name} pidättää maksun, kunnes tilaus on merkitty toteutuneeksi."
         confirmed_request: "Merkitsi tilauksen toteutuneeksi. Maksu on nyt siirretty käyttäjän %{author_name} pankkitilille, tai se siirretään pian."
-      canceled_the_order: ~
+      canceled_the_order: "Tilaus riitautettu. %{service_name} -palvelun tiimille on lähetetty ilmoitus."
       marked_as_refunded: ~
-      dismissed_the_cancellation: ~
+      dismissed_the_cancellation: "Riitautus hylättiin."
       payment_has_now_been_transferred: ~
     new:
       message: Viesti
@@ -1383,18 +1383,18 @@ fi:
           verify: "Odottaa että vahvistat PayPal-tilisi"
       stripe:
         waiting_confirmation_from_requester: "Odotetaan, että käyttäjä %{requester_name} merkitsee tilauksen toteutuneeksi. Kun tilaus on merkitty toteutuneeksi, maksu vapautetaan pankkitilillesi."
-      order_canceled: ~
+      order_canceled: "Tilaus riitautettu"
       waiting_for_marketplace_review: ~
       marketplace_notified: ~
       contact_them: ~
       refunded: ~
-      dismissed: ~
-      order_refunded: ~
+      dismissed: "Tilauksen riitautus hylättiin"
+      order_refunded: "Tilaus merkitty takaisinmaksetuksi. %{service_name} -palvelun tiimi on hyväksynyt riitautuksen."
       you_should_receive_refund_soon: ~
       issue_with_the_refund: ~
       do_you_disagree: ~
       contact_the_marketpalce_team: ~
-      order_cancellation_dismissed: ~
+      order_cancellation_dismissed: "Riitautus hylätty. %{service_name} -palvelun tiimi on hylännyt riitautuksen."
     status_link:
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"
@@ -1448,51 +1448,51 @@ fi:
       create_own: "Haluatko luoda oman online-markkinapaikkasi, aivan kuin %{service_name}? %{learn_more}."
       learn_more: "Lue lisää"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä. Tämän jälkeen voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai riitautetuksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä. Tämän jälkeen voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
       cancel_it_link_text: "peruuttaa sen"
-      automatic_confirmation: "Jos et merkkaa pyyntöä toteutuneeksi tai peruuta sitä %{days_to_automatic_confirmation} päivän kuluttua sen hyväksymisestä, merkkaamme sen automaattisesti toteutuneeksi."
+      automatic_confirmation: "Jos et merkkaa pyyntöä toteutuneeksi tai riitauta sitä %{days_to_automatic_confirmation} päivän kuluttua sen hyväksymisestä, merkkaamme sen automaattisesti toteutuneeksi."
     confirm_reminder_v2:
-      headline: ~
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      headline: "et ole vielä toteuttanut tai riitauttanut tilausta %{request_link}."
+      you_have_not_yet_confirmed_or_canceled_request: "Jos tilaus on toteutunut, sinun tulisi vahvistaa se. Tämän jälkeen voit antaa palautetta käyttäjälle %{other_party_given_name}."
     payment_settings_reminder:
       remember_to_add_payment_details: "Muistutus: Käy lisäämässä maksutietosi"
       you_have_added_listing_with_payment: "Olet lisännyt ilmoituksen %{listing_link}, jolla on hinta. Et ole kuitenkaan vielä syöttänyt maksutietojasi. Jotta voit vastaanottaa maksun ilmoituksestasi, käy täyttämässä maksutietosi."
       please_go_to_payment_settings: "Siirry %{payment_settings_link} ja täytä tarvittavat tiedot."
       payment_settings_link: maksutiedot-sivulle
     payment_settings_reminder_v2:
-      fill_payout_details: ~
-      you_have_added_listing_with_payment: ~
+      fill_payout_details: "Täytä maksutiedot"
+      you_have_added_listing_with_payment: "Olet lisännyt ilmoituksen %{listing_link} jossa on maksumahdollisuus. Huomasimme, ettet ole vielä lisännyt maksutietojasi. Saadaksesi maksun, sinun pitää ilmoittaa maksutietosi."
     transaction_confirmed:
       here_is_a_message_from: "Tässä viesti käyttäjältä %{other_party_given_name}:"
       request_marked_as_confirmed: "Pyyntö merkitty toteutuneeksi - muistathan antaa palautetta"
-      request_marked_as_canceled: "Pyyntö peruttu"
+      request_marked_as_canceled: "Pyyntö riitautettu"
       has_marked_request_as_confirmed: "%{other_party_full_name} on merkinnyt pyynnön '%{request}' toteutuneeksi. Voit nyt antaa hänelle palautetta."
-      has_marked_request_as_canceled: "%{other_party_full_name} on ilmoittanut, että pyyntö '%{request}' ei toteutunut. Voit silti antaa hänelle palautetta."
+      has_marked_request_as_canceled: "%{other_party_full_name} on ilmoittanut, että pyyntö '%{request}' on riitautettu. Voit silti antaa käyttäjälle %{other_party_given_name} palautetta."
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "Käyttäjä %{other_party_full_name} on merkinnyt tilauksen '%{request}' toteutuneeksi. Maksu tästä tilauksesta on nyt maksettu pankkitilillesi. Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}."
-      team_title: ~
+      team_title: "%{service_name} -palvelun tiimi"
     transaction_confirmed_v2:
-      headline_confirmed: ~
-      headline_canceled: ~
+      headline_confirmed: "%{other_party_full_name} on merkinnyt tilauksen ilmoituksesta %{listing_link} toteutuneeksi."
+      headline_canceled: "%{other_party_full_name} on riitauttanut tilauksen ilmoituksesta %{listing_link}."
       stripe:
-        has_marked_request_as_confirmed: ~
-      can_give_feedback: ~
-      team_title: ~
+        has_marked_request_as_confirmed: "Maksu tästä ostotapahtumasta on nyt siirretty pankkitilillesi."
+      can_give_feedback: "Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}."
+      team_title: "%{service_name} -palvelun tiimi"
     transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
     transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: ~
-      order_automatically_confirmed: ~
+      we_have_marked_request_as_confirmed: "Olemme merkinneet tilauksen '%{request}' toteutuneeksi."
+      order_automatically_confirmed: "Tilaus merkittiin automaattisesti toteutuneeksi, koska %{days_passed} päivää on kulunut tilauksen hyväksymisestä."
     booking_transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska varausaika päättyi eilen."
     booking_transaction_automatically_confirmed_v2:
-      order_automatically_confirmed: ~
+      order_automatically_confirmed: "Tilaus merkattiin automaattisesti toteutuneeksi, sillä yksi päivä on kulunut varausajankohdan päättymisestä."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
@@ -1503,12 +1503,12 @@ fi:
       confirmation_link_text: "Vahvista sähköpostini"
       or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan linkin selaimesi osoitepalkkiin:"
     confirmation_instructions_v2:
-      headline: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      headline: "vahvista sähköpostisi liittyäksesi palveluun %{service_name}!"
+      need_to_confirm: "Vahvista sähköpostiosoitteesi saattaaksesi %{service_name} -palvelun tilinluonti päätökseen. Se on helppoa - klikkaa vain alla olevaa nappia!"
+      confirmation_link_text: "Vahvista %{email}"
     common:
       hey: "Hei %{name},"
-      hi: ~
+      hi: "Hei %{name},"
       kassi_team: "%{service_name}-tiimi"
       thanks: "Terveisin,"
       dont_want_to_receive_these_emails: "Etkö halua saada jatkossa näitä viestejä?"
@@ -1520,7 +1520,7 @@ fi:
       unsubscribe_from_these_emails: "lopeta tällaisten viestien vastaanotto kokonaan"
       unsubscribe_from_invitation_emails_info: "Vastaanotit tämän sähköpostin, koska palvelun %{service_name} jäsen kutsui sinut palvelun käyttäjäksi."
       unsubscribe_from_invitation_emails: "Lopeta markkinapaikan %{service_name} kutsujen vastaanottaminen sähköpostitse"
-      here_is_your_receipt: ~
+      here_is_your_receipt: "Tässä on kuittisi."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi '%{listing}'."
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi '%{listing}'."
@@ -1533,12 +1533,12 @@ fi:
       your_request_was_rejected: "Pyyntösi hylättiin"
       you_can_now_pay_to: "Voit nyt maksaa käyttäjän %{payment_receiver} pyytämän maksun."
       pay_now: "Maksa nyt"
-      remember_to_confirm: "Muista merkitä pyyntö toteutuneeksi, kun olet saanut haluamasi. Jos vastapuoli ei pysty täyttämään lupaustaan, sinulla on %{days_to_automatic_confirmation} päivää aikaa peruuttaa pyyntö, ennen kuin se merkitään toteutuneeksi automaattisesti."
+      remember_to_confirm: "Muista merkitä pyyntö toteutuneeksi, kun olet saanut haluamasi. Jos vastapuoli ei pysty täyttämään lupaustaan, sinulla on %{days_to_automatic_confirmation} päivää aikaa riitauttaa pyyntö, ennen kuin se merkitään toteutuneeksi automaattisesti."
     conversation_status_changed_v2:
-      has_accepted_your_request: ~
-      has_accepted_your_request_text: ~
-      has_rejected_your_request: ~
-      has_rejected_your_request_text: ~
+      has_accepted_your_request: "pyyntösi on hyväksytty."
+      has_accepted_your_request_text: "%{accepter} on hyväksynyt pyyntösi ilmoituksesta %{listing}."
+      has_rejected_your_request: "valitettavasti pyyntösi on hylätty."
+      has_rejected_your_request_text: "%{accepter} on hylännyt pyyntösi ilmoituksesta %{listing}."
     invitation_to_kassi:
       hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{service_name}-palveluun."
@@ -1546,7 +1546,7 @@ fi:
       join_now: "Liity palveluun"
       invitation_code: "Kutsukoodi: %{code}"
     invitation_to_kassi_v2:
-      headline: ~
+      headline: Hei!
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} on kommentoinut ilmoitustasi '%{listing}'"
       view_comment: "Näytä kommentti"
@@ -1558,8 +1558,8 @@ fi:
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name}-palvelussa."
       you_have_a_new_message: "Viesti %{service_name}-palvelun käyttäjältä %{sender_name}"
     new_message_v2:
-      headline: ~
-      reply: ~
+      headline: "sinulle on viesti!"
+      reply: "Vastaa käyttäjälle %{sender}"
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       price_per_unit_type: "Hinta per %{unit_type}"
@@ -1582,9 +1582,9 @@ fi:
       stripe:
         you_have_received_new_payment: "Käyttäjä %{payer_full_name} on nyt maksanut summan <b>%{payment_sum}</b> tilauksesta <b>%{listing_title}</b>. %{service_name} pidättää maksun siihen asti, että tilaus merkitään toteutuneeksi. Tässä on kuittisi."
     payment_receipt_to_seller_v2:
-      headline: ~
-      main_text_stripe: ~
-      price_breakdown: ~
+      headline: "%{payer_name} on maksanut sinulle %{payment_sum} ilmoituksesta %{listing_link}."
+      main_text_stripe: "Palvelu %{service_name} pidättää maksun, kunnes tilaus on merkitty toteutuneeksi."
+      price_breakdown: Hintayhteenveto
     payment_receipt_to_payer:
       receipt_of_payment: "Kuitti maksusta"
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> ilmoituksesta <b>%{listing_title}</b>. Tässä kuitti maksusta."
@@ -1601,8 +1601,8 @@ fi:
       paypal_gateway_fee: "PayPalin palvelumaksu"
       money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
     payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
+      headline: "tässä kuittisi ilmoituksesta %{listing_link}."
+      you_have_made_new_payment: "Olet maksanut <b>%{payment_sum}</b> ilmoituksesta <b>%{listing_title}</b>."
     paypal_new_payment:
       paypal_gateway_fee: "PayPalin käsittelymaksu:"
       shipping_total: "Postitus:"
@@ -1633,7 +1633,7 @@ fi:
       you_can_give_feedback_to: "Et ole vielä antanut palautetta käyttäjälle %{name}."
       view_feedback: "Näytä palaute"
     new_testimonial_v2:
-      headline: ~
+      headline: "sinulle on palautetta!"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Seuraamasi ilmoitus on päivittynyt"
       has_updated_listing_you_follow_in_kassi: "%{author} on päivittänyt seuraamaasi ilmoitusta '%{listing}'."
@@ -1650,7 +1650,10 @@ fi:
       settings_link_text: "Säädä sähköpostit harvemmaksi"
       unsubscribe_link_text: "peruuta tämän sähköpostin tulo kokonaan"
     community_updates_v2:
-      headline: ~
+      headline: "katso viimeisimmät tapahtumat palvelussa %{service_name}."
+      intro_paragraph:
+        one: "Tässä muutamia kohokohtia siitä, mitä palvelussa %{service_name} on viime päivän aikana tapahtunut."
+        other: "Tässä on muutamia kohokohtia siitä, mitä palvelussa %{service_name} on tapahtunut viimeisten %{count} päivän aikana."
     newsletter:
       hi: "Hei %{name},"
       newest_offers: "Muun muassa näitä tarjotaan:"
@@ -1658,14 +1661,14 @@ fi:
       text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
     reset_password_instructions:
       change_my_password: "Vaihda salasanani"
-      reset_password_instructions: ~
+      reset_password_instructions: "<p> Olet ilmoittanut että olet unohtanut salasanasi palveluun %{service_name}.</p><p>Jos sinun täytyy palauttaa salasanasi, klikkaa tätä linkkiä: %{password_reset_link}</p><br/><p>Jos et pyytänyt tätä, ole hyvä ja jätä tämä sähköposti huomiotta. Sinun salasanasi ei vaihdu ennen kuin vierailet yllä olevassa linkissä ja luot uuden salasanan.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'"
     testimonial_reminder_v2:
-      headline: ~
-      you_have_not_given_feedback_yet: ~
-      leave_feedback: ~
+      headline: "muista antaa palautetta käyttäjälle %{other_name}!"
+      you_have_not_given_feedback_yet: "Palautteen antaminen on aina hyvä idea. Jos kaikki sujui hyvin, voit kertoa muille että käyttäjään %{name} voi luottaa. Jos ongelmia ilmeni, myös niistä on hyvä mainita"
+      leave_feedback: "Anna palautetta käyttäjälle %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} on kiinnostunut ilmoituksestasi %{listing_title} palvelussa %{service_name} ja tehnyt siitä katevarauksen"
       transaction_requested_by_user: "Hyviä uutisia! %{requester} on kiinnostunut ilmoituksesta \"%{listing_title}\" ja tehnyt siitä katevarauksen."
@@ -1675,15 +1678,15 @@ fi:
       if_you_do_not_accept: "Jos hylkäät pyynnön tai et hyväksy sitä määräajan puitteissa, tilaus hylätään automaattisesti, käyttäjältä %{requester} ei veloiteta mitään etkä saa rahoja tilillesi."
       click_here_to_reply: "Klikkaa tästä vastaaksesi pyyntöön"
     transaction_preauthorized_v2:
-      headline: ~
+      headline: "%{requester} on kiinnostunut, ja hyväksynyt maksun ilmoitukselle %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Muista hyväksyä ilmoitukseen %{listing_title} liittyvä tilaus käyttäjältä %{requester}"
       remember_to_accept: "Muista hyväksyä pyyntö käyttäjältä %{requester} koskien tilausta \"%{listing_title}\". %{requester} on jo maksanut tilauksen. Sinun pitää hyväksyä tilaus saadaksesi maksun tilillesi."
       one_day_left: "Mikäli et hyväksy pyyntöä yhden päivän sisällä, pyyntö hylätään automaattisesti etkä saa maksua tilillesi."
       click_here_to_reply: "Klikkaa tästä vastataksesi pyyntöön"
     transaction_preauthorized_reminder_v2:
-      headline: ~
-      remember_to_accept: ~
+      headline: "muista hyväksyä pyyntö käyttäjältä %{requester} liittyen ilmoitukseen %{listing_link}."
+      remember_to_accept: "%{requester} on jo suorittanut maksun ilmoituksesta. Sinun tulee hyväksyä pyyntö vastaanottaaksesi maksun."
     welcome_email:
       welcome_email_subject: "Tervetuloa %{community}-palveluun"
       welcome_to_marketplace: "Tervetuloa %{service_name}-palvelun jäseneksi! Mukavaa kun liityit."
@@ -1696,21 +1699,21 @@ fi:
       you_are_receiving_this_because: "Sait tämän viestin, koska seuraat käyttäjää %{author_name}."
       view_listing: "Näytä ilmoitus"
     new_listing_by_followed_person_v2:
-      headline: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
-      cant_click: ~
+      headline: "%{author} lisäsi juuri uuden ilmoituksen!"
+      has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
+      you_are_receiving_this_because: "Sait tämän ilmoituksen, koska seuraat käyttäjää %{author_name}."
+      view_listing: "Näytä %{title}"
+      cant_click: "Jos et voi klikata nappia, tässä on suora linkki:"
     new_member_notification:
-      subject: ~
+      subject: "Uusi jäsen palvelussa %{community}"
       new_member_has_joined: "Uusi käyttäjä liittyi markkinapaikkaan %{community}. Käyttäjän pitää mahdollisesti vielä vahvistaa sähköpostiosoitteensa."
       this_is_automatic_message: "Tämä on automaattinen viesti, joka lähetetään markkinapaikan %{community} ylläpitäjille."
       person_name: "Nimi:"
       person_email: "Sähköpostiosoite:"
     new_member_notification_v2:
-      headline: ~
-      new_member_has_joined: ~
-      view_profile: ~
+      headline: "%{user_name} liittyi palveluun %{community}."
+      new_member_has_joined: "%{name} (%{email}) on liittynyt palveluun %{community}. Hänen tarvitsee mahdollisesti vielä vahvistaa sähköpostiosoitteensa."
+      view_profile: "Näytä profiili"
     listing_submited_for_review:
       subject: "Uusi ilmoitus arvioitavaksi: \"%{listing_title}\", käyttäjän %{author_name} toimesta, palvelussa %{community}"
       there_is_a_new_listing_to_review: "Uusi ilmoitus on valmiina arvioitavaksi. \"%{listing_title}\", käyttäjän %{author_name} toimesta. Sinun tulee nyt hyväksyä tai hylätä tämä ilmoitus."
@@ -1738,37 +1741,37 @@ fi:
       starter: "Aloittaja: %{name}"
       provider: "Myyjä: %{name}"
     new_transaction_v2:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
-      view_transaction: ~
+      subject: "Uusi maksutapahtuma palvelussa %{service_name}"
+      there_is_a_new_transaction: "Palvelussa %{service_name} on %{link}."
+      a_new_transaction: "uusi maksutapahtuma"
+      listing: "Ilmoitus:"
+      sum: "Summa:"
+      starter: "Aloittaja:"
+      provider: "Myyjä:"
+      view_transaction: "Näytä maksutapahtuma"
     transaction_cancel_flow:
-      the_order_about: ~
-      you_can_contact_the_marketplace_team: ~
-      you_can_now_give_feedback: ~
-      give_feedback_to: ~
+      the_order_about: "tilaus ilmoituksesta %{listing_title}"
+      you_can_contact_the_marketplace_team: "Voit ottaa yhteyttä palvelun %{service_name} tiimiin mikäli mitään ongelmia ilmenee."
+      you_can_now_give_feedback: "Voit nyt antaa palautetta käyttäjälle %{name}. Palautteen antaminen on aina hyvä idea. Jos kaikki meni hyvin, voit kertoa että käyttäjään %{recipient} voi luottaa. Jos ongelmia ilmeni, niistä on myös hyvä mainta."
+      give_feedback_to: "Anna palautetta käyttäjälle %{name}"
     transaction_disputed:
-      subject: ~
-      subject_admin: ~
-      order_about: ~
-      the_order_has_been_canceled: ~
-      the_order_between_buyer_and_seller_has_been_canceled: ~
-      the_marketplace_has_been_notified: ~
-      contact_the_marketplace_team: ~
-      you_must_now_decide: ~
-      learn_more_about: ~
-      review_the_transaction: ~
+      subject: "Tilaus riitautettu - %{service_name} -palvelun tiimi tutkii tilannetta"
+      subject_admin: "Maksutapahtuma riitautettiin, sinun tulee päättää mitä tapahtuu seuraavaksi"
+      order_about: "tilaus ilmoituksesta %{listing_title}"
+      the_order_has_been_canceled: "%{transaction_link} on riitautettu."
+      the_order_between_buyer_and_seller_has_been_canceled: "%{transaction_link} osapuolien %{buyer} ja %{seller} välillä on riitautettu."
+      the_marketplace_has_been_notified: "%{service_name} -palvelun tiimi on saanut ilmoituksen, ja tutkii tilannetta. Voit ottaa heihin yhteyttä, jos haluat kertoa lisätietoja tapahtumasta."
+      contact_the_marketplace_team: "Ota yhteyttä %{service_name} -palvelun tiimiin"
+      you_must_now_decide: "Sinun tulee nyt päättää, palautetaanko rahat, vai hylkäätkö riitautuksen. Voit %{learn_more_link}."
+      learn_more_about: "lukea täältä lisää siitä, mitä sinun tulisi tehdä"
+      review_the_transaction: "Arvioi maksutapahtuma"
     transaction_refunded:
-      subject: ~
-      marketplace_team_has_approved_the_cancellation: ~
-      you_should_receive_a_refund_soon: ~
+      subject: "Tilaus merkitty takaisinmaksetuksi - %{service_name} -palvelun tiimi on hyväksynyt riitautuksen käyttäjältä %{buyer}"
+      marketplace_team_has_approved_the_cancellation: "%{service_name} -palvelun tiimi on hyväksynyt riitautuksen maksutapahtumasta %{transaction_link} ja merkinnyt maksun takaisinmaksetuksi."
+      you_should_receive_a_refund_soon: "Sinun pitäisi saada pian palautus maksusta. Voit ottaa yhteyttä palvelun %{service_name} tiimiin mikäli ongelmia ilmenee."
     transaction_cancellation_dismissed:
-      subject: ~
-      marketplace_team_has_rejected_the_cancellation: ~
+      subject: "Tilauksen riitautus hylätty - %{service_name} -palvelun tiimi on hylännyt riitautuksen käyttäjältä %{buyer}"
+      marketplace_team_has_rejected_the_cancellation: "%{service_name} -palvelun tiimi on hylännyt riitautuksen maksutapahtumasta %{transaction_link}."
   error_messages:
     booking:
       booking_failed_payment_voided: "Varaus epäonnistui tunnistamattoman virheen vuoksi. Ole hyvä ja yritä myöhemmin uudelleen. Sinua ei ole veloitettu."
@@ -1793,13 +1796,15 @@ fi:
       seller_express_checkout_disabled: "Ilmoituksen jättäjän PayPal-tili ei tällä hetkellä tue Express Checkout -toimintoa. Ole yhteydessä ilmoituksen jättäjään ja kerro hänelle, että hänen PayPal-tilissään on ongelma, joka estää maksujen vastaanottamisen, ja pyydä häntä olemaan yhteydessä PayPalin asiakaspalveluun."
       seller_express_checkout_disabled_no_free: "PayPal Express Checkout on otettu pois käytöstä ilmoituksen luojan PayPal-tililtä. Ole hyvä ja pyydä %{service_name} -tiimiä ottamaan yhteyttä ilmoituksen luojaan ja kehottamaan heitä ottamaan PayPaliin yhteyttä."
       generic_error: "Maksuprosessin yhteydessä tapahtui virhe. PayPal-maksu ei onnistunut."
-      cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."
+      cancel_error: "Maksun riitauttamisen yhteydessä tapahtui virhe. Riitauttamista ei voitu viedä loppuun."
       accept_authorization_error: "Maksun vastaanotto epäonnistui. Yritä uudelleen."
       reject_authorization_error: "Maksun peruuttaminen epäonnistui. Yritä uudelleen."
     stripe:
       generic_error: "Maksuprosessissa tapahtui virhe. Stripe-maksua ei voitu käsitellä."
       accept_authorization_error: "Stripen kautta tehtyä katevarausta hyväksyttäessä tapahtui virhe. Ole hyvä ja yritä uudelleen."
       reject_authorization_error: "Stripen kautta tehtyä katevarausta hylättäessä tapahtui virhe. Ole hyvä ja yritä uudelleen."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:
@@ -2171,7 +2176,7 @@ fi:
       request_accepted: "Pyyntö hyväksytty"
       request_confirmed: "Pyyntö merkitty toteutuneeksi"
       request_rejected: "Pyyntö hylätty"
-      request_canceled: "Pyyntö peruttu"
+      request_canceled: "Pyyntö riitautettu"
       message_sent: "Viesti lähetetty"
       message_not_sent: "Viestin lähetys epäonnistui. Ole hyvä ja yritä uudestaan."
       this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy."
@@ -2202,7 +2207,7 @@ fi:
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voisit luoda uuden uutisen."
       you_must_log_in_to_change_profile_settings: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voit muuttaa profiiliasetuksia."
       you_must_log_in_to_accept_or_reject: "Sinun täytyy kirjautua sisään hyväksyäksesi tai hylätäksesi tilauksen"
-      you_must_log_in_to_confirm_or_cancel: "Sinun täytyy kirjautua sisään peruuttaaksesi tai vahvistaaksesi tilauksen"
+      you_must_log_in_to_confirm_or_cancel: "Sinun täytyy kirjautua sisään riitauttaaksesi tai vahvistaaksesi tilauksen"
       you_need_to_confirm_your_account_first: "Sinun täytyy vahvistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"

@@ -1803,6 +1803,8 @@ fr:
       generic_error: "Une erreur s'est produite durant le paiement. Le paiement Stripe n'a pu être finalisé."
       accept_authorization_error: "Une erreur s'est produite en essayant d'accepter le paiement préautorisé par Stripe. Veuillez essayer de nouveau."
       reject_authorization_error: "Une erreur s'est produite en essayant de rejeter le paiement préautorisé par Stripe. Veuillez essayer de nouveau."
+      card_declined: "Votre carte a été rejetée"
+      expired_card: "Le paiement a échoué car votre carte est expirée"
   error_pages:
     back_to_kassi_front_page: "Retourner sur la page d'accueil"
     error_404:

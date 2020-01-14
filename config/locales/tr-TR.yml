@@ -136,7 +136,7 @@ tr-TR:
         invalid_color_code: "Renk kodu 6 rakam veya A-F arası harf içerebilir. Örneğin: D96E21"
         custom_head_script: "Kişiselleştirilmiş betik"
         custom_head_script_instructions_text: "Bu betik her sayfanın <ana> başlığına eklenmiştir ve kişiselleştirilmiş CSS, JavaScript ya da HTML eklemek için kullanılabilir. Lütfen gelecekteki düzenlemelerde betiğinizin uyumsuz kalabileceğini unutmayın."
-        current_image: ~
+        current_image: "Geçerli resim:"
       edit_text_instructions:
         edit_text_instructions: "Yönerge metinleri"
       edit_welcome_email:
@@ -734,7 +734,7 @@ tr-TR:
           background_image: ~
           background_image_info: ~
           add_another_image: ~
-          current_image: ~
+          current_image: "Geçerli resim%{filename} "
           file_not_selected: ~
           background_image_overlay: ~
           background_image_overlay_info: ~
@@ -761,7 +761,7 @@ tr-TR:
         category:
           add_another_image: ~
           category: ~
-          current_image: ~
+          current_image: "Geçerli resim%{filename} "
           file_not_selected: ~
           image: ~
           image_required: ~
@@ -778,7 +778,7 @@ tr-TR:
         location:
           add_another_image: ~
           location: ~
-          current_image: ~
+          current_image: "Geçerli resim%{filename} "
           file_not_selected: ~
           image: ~
           image_required: ~
@@ -1780,6 +1780,8 @@ tr-TR:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Anasayfaya dön"
     error_404:
@@ -2804,7 +2806,7 @@ tr-TR:
       display_name: "Görüntülenen isim"
       display_name_description: "Bir kuruluşu temsil ediyorsanız eğer, adını gözüken ekran adı olarak kullanabilirsiniz. Güzüken ad diğer kullanıcılara isminiz ve soyisminiz yerine gösterilir."
       location_description: "Açık adresinizi ya da sadece örneğin posta kodunuzu girebilirsiniz. Lütfen en azından posta kodunuzu ekleyin. Ya da aşağıdaki haritadan konumunuzu işaretleyebilirsiniz."
-      profile_picture_description: ~
+      profile_picture_description: "Profil resmi kare biçiminde (1: 1 oran), örneğin 800x800 piksel olmalıdır. Aksi takdirde, sığacak şekilde kırpılır"
       phone_number: "Telefon numarası"
       profile_picture: "Profil resmi"
       postal_code: "Posta kodu"
@@ -2956,6 +2958,9 @@ tr-TR:
       booked_nights: "Rezervasyonlu geceler:"
       booked_days_label:
         other: "Rezervason:"
+      booked_nights_label:
+        zero: "Rezervasyonlu gece:"
+        other: "Rezervasyonlu geceler:"
       price_per_day: "Günlük ücret:"
       price_per_night: "Fiyat her bir gece:"
       price_per_hour: ~
@@ -2965,9 +2970,6 @@ tr-TR:
       shipping-price: "Kargo:"
       stripe-fee: ~
       start_end_time: ~
-      booked_nights_label:
-        other: "Rezervasyonlu geceler:"
-        zero: "Rezervasyonlu gece:"
     price_per_quantity: "%{unit_type} başına fiyat"
     price: "Fiyat:"
     quantity: "Adet: %{quantity}"

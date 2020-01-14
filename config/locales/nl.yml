@@ -1288,7 +1288,7 @@ nl:
       canceled_offer: "Voorstel geannuleerd."
       message_from: "Bericht van %{person}"
       about_listing: "Over advertentie %{listing_title}"
-      free_message: "Direcht bericht"
+      free_message: "Direct bericht"
       message_content_not_available: "Inhoud bericht niet beschikbaar"
     message:
       accepted_request: "heeft het verzoek aanvaard"
@@ -1803,6 +1803,8 @@ nl:
       generic_error: "Er is een fout opgetreden tijdens de betaling. Je Stripe betaling kon niet worden uitgevoerd."
       accept_authorization_error: "Er is een fout opgetreden tijdens een poging on een vooraf geauthoriseerde betaling te accepteren. Gelieve het opnieuw te proberen."
       reject_authorization_error: "Er is een fout opgetreden tijdens een poging on een vooraf geauthoriseerde betaling te weigeren. Gelieve het opnieuw te proberen."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Terug naar de voorpagina"
     error_404:

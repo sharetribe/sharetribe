@@ -1765,6 +1765,8 @@ bg:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Върнете се в началото."
     error_404:
@@ -2633,7 +2635,7 @@ bg:
       visible_only_to_you: "видимо само за вас и %{service_name} екипа"
       visible_to_everybody: "видимо за всички"
       create_account_with_provider: "Регистрирай се с %{provider}"
-      OR: ~
+      OR: ИЛИ
       signup_with_email: "Регистрирай се с ел.поща."
       this_field_will_be_publicly_visible: ~
     profile_feedback:
