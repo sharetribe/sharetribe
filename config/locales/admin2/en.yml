@@ -21,6 +21,7 @@ en:
       search_group: 'Search & Location'
       seo_group: 'SEO'
       analytics_group: 'Analytics'
+      advanced_group: 'Advanced'
       general:
         essentials: 'Essentials'
         privacy: 'Privacy'
@@ -61,6 +62,13 @@ en:
       analytics:
         google: 'Google analytics'
         sharetribe: 'Sharetribe analytics'
+      advanced:
+        custom_script: 'Custom script'
+    custom_script:
+      info_text: "This script is injected inside the tag of every page and can be used to insert custom CSS, JavaScript or HTML. <a href='%{url}' target='_blank'>Learn more about Custom script</a>."
+      custom_head_script: 'CSS, JavaScript and/or HTML script'
+      custom_head_script_placeholder: '<script src="https://example.com/customscript.js"></script>'
+      custom_head_script_info_text: 'Please note that future changes to Sharetribe may render your script incompatible.'
     sharetribe:
       info_text: "To improve Sharetribe's services and support, Sharetribe tracks marketplace members' activity. Personal data is never collected and this information is never shared outside the Sharetribe team - that's a pinky promise. <a href='%{url}' target='_blank'>Learn more</a>."
       end_user_analytics: "Allow Sharetribe to track members activity in order to improve Sharetribe's services"
@@ -336,6 +344,7 @@ en:
       profile_pages_updated: 'Profile pages meta settings were updated'
       google_analytics_updated: 'Google analytics settings were updated'
       sharetribe_analytics_updated: 'Sharetribe analytics settings were updated'
+      custom_script_updated: 'Custom script settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

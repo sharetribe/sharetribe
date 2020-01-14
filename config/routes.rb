@@ -331,6 +331,15 @@ Rails.application.routes.draw do
           end
         end
       end
+
+      namespace :advanced do
+        resources :custom_scripts, path: 'custom-script', only: %i[index] do
+          collection do
+            patch :update_script
+          end
+        end
+      end
+
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')

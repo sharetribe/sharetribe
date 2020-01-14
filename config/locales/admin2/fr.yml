@@ -21,6 +21,7 @@ fr:
       search_group: 'lorem ipsum'
       seo_group: 'lorem ipsum'
       analytics_group: 'lorem ipsum'
+      advanced_group: 'lorem ipsum'
       general:
         essentials: 'lorem ipsum'
         privacy: 'lorem ipsum'
@@ -60,6 +61,13 @@ fr:
       analytics:
         google: 'lorem ipsum'
         sharetribe: 'lorem ipsum'
+      advanced:
+        custom_script: 'lorem ipsum'
+    custom_script:
+      info_text: "lorem ipsum <a href='%{url}' target='_blank'>lorem ipsum</a>."
+      custom_head_script: 'lorem ipsum'
+      custom_head_script_placeholder: 'lorem ipsum'
+      custom_head_script_info_text: 'lorem ipsum'
     sharetribe:
       info_text: "lorem ipsum. <a href='%{url}' target='_blank'>lorem ipsum</a>."
       end_user_analytics: 'lorem ipsum'
@@ -313,6 +321,7 @@ fr:
       profile_pages_updated: 'lorem ipsum'
       google_analytics_updated: 'lorem ipsum'
       sharetribe_analytics_updated: 'lorem ipsum'
+      custom_script_updated: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

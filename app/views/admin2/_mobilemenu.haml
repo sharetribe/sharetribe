@@ -175,10 +175,10 @@
         / Advanced
         %ul.category-title
           %li
-            %a.dropdown-toggle{'aria-controls' => 'advanced-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#advanced-mobile', :role => 'button'} Advanced
-        %ul#advanced-mobile.collapse.subtitle
-          %li#customscript-mobile
-            %a{:href => 'custom-script.php'} Custom script
+            = link_to t('admin2.sidebar.advanced_group'), '#advanced-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'advanced-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#advanced-mobile.collapse.subtitle{class: expand_ul('advanced')}
+          %li#customscript-mobile{class: active_li('custom_scripts')}
+            = link_to t('admin2.sidebar.advanced.custom_script'), admin2_advanced_custom_scripts_path
           %li#deletemarketplace-mobile
             %a{:href => 'delete-marketplace.php'} Delete marketplace
     / Bottom links for branded links
