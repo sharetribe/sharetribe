@@ -185,10 +185,10 @@
     .sidenav-bottomLinks
       %ul.category-title
         %li
-          %a{:href => '/admin/plan', :rel => 'noopener'} Subscription
+          = link_to t('admin2.sidebar.subscription'), admin_plan_path, rel: :noopener
         %li
-          %a{:href => 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', :rel => 'noopener', :target => '_blank'} Help Center
+          = link_to t('admin2.sidebar.help_center'), 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
         %li
-          %a{:href => 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', :rel => 'noopener', :target => '_blank'} Marketplace Guide
+          = link_to t('admin2.sidebar.marketplace_guide'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
         %li
-          %a{:href => 'https://www.sharetribe.com/products/go/updates?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', :rel => 'noopener', :target => '_blank'} What's new?
+          = link_to t('admin2.sidebar.what_new'), 'https://www.sharetribe.com/products/go/updates?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
