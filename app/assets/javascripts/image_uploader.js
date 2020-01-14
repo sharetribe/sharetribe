@@ -333,7 +333,7 @@ window.ST.imageUploader = function(listings, opts) {
     var fileuploadDefaultOptions = {
       dataType: 'text', // Browsers without XHR fileupload support do not support other dataTypes than text
       dropZone: $element.container,
-      acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+      acceptFileTypes: /(\.|\/)(gif|jpe?g|png|heic)$/i,
       imageMaxWidth: opts.originalImageWidth,
       imageMaxHeight: opts.originalImageHeight,
       loadImageMaxFileSize: opts.maxImageFilesize,
