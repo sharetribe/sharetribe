@@ -2221,7 +2221,7 @@ tr-TR:
       delete: sil
       are_you_sure: "Yorumu silmek istediğinize emin misiniz?"
     comment_form:
-      ask_a_question: "İlanı değerlendirin ya da daha fazla detay sorun  . Diğer tüm kullanıcılar yorumunuzu görebilecek."
+      ask_a_question: "İlanı değerlendirin ya da daha fazla detay sorun. Diğer tüm kullanıcılar yorumunuzu görebilecek."
       log_in: "oturum aç"
       send_comment: "Yorum gönder"
       to_send_a_comment: "yeni yorum göndermek için."
@@ -2327,8 +2327,8 @@ tr-TR:
         origin: Kaynak
       send_button:
         save_listing: "İlanı kaydet"
-        submit_for_review: ~
-        will_be_reviewed: ~
+        submit_for_review: "İnceleme için gönder"
+        will_be_reviewed: "%{service_name} üzerindeki tüm ilanlar yayınlanmadan önce incelenir. İlanınız onaylandıktan sonra, e-posta ile bilgilendirilecek siniz ve herkes tarafından görülebilecek."
         we_noticed_youre_an_admin: ~
       share_type:
         select: Seç

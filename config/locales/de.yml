@@ -661,7 +661,7 @@ de:
       landing_pages:
         landing_pages: "Landing Page"
         info_1: "Die Landing Page ist vielleicht die wichtigste Seite deines Marktplatzes. Sie ist die erste Seite, die deine Nutzer sehen, etwa wie die Vordertür deines Hauses. Du hast nur einigen Sekunden deine Kunden davon zu überzeugen, dass sie auf der Seite bleiben sollten. Die Seite sollte attraktiv sein, und das Leistungsversprechen deiner Seite sollte klar und verlockend sein."
-        info_2: "%{help_link} besuchen, um mehr über die Bearbeitung deiner Landing Page zu erfahren."
+        info_2: "Mit diesem Editor können Sie Ihre Zielseite jederzeit ändern!"
         info_2_help_center: Hilfecenter
         info_3: "Wenn du eine komplett angepasste Landing Page für deinen Marktplatz erwerben möchten, kannst du sie als Add-On für einen monatlichen Preis im Höhe von $99 kaufen."
         info_4: "Mehr über Custom Landing Pages lesen"
@@ -1470,7 +1470,7 @@ de:
       request_marked_as_canceled: "Anfrage angefochten"
       has_marked_request_as_confirmed: "%{other_party_full_name} hat die Anfrage '%{request}' als \"erledigt\" markiert. Du kannst nun Feedback an %{other_party_given_name} geben."
       has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage '%{request}' angefochten. Du kannst trotzdem %{other_party_given_name} Feedback geben."
-      giving_feedback_is_good_idea: "Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, solltest du es andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, dies auch zu erwähnen."
+      giving_feedback_is_good_idea: "Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, die auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag \"%{request}\" als erledigt markiert. Die Überweisung der Zahlung auf Dein Bankkonto für diese Transaktion wurde soeben angestoßen. Du kannst %{other_party_given_name} nun ein Feedback geben."
@@ -1667,7 +1667,7 @@ de:
       you_have_not_given_feedback_yet: "Du hast %{name} noch kein Feedback zur Transaktion '%{event}' gegeben. Denke daran, ein Feedback darüber zu hinterlassen, wie %{given_name} die Transaktion durchgeführt hat."
     testimonial_reminder_v2:
       headline: "erinnere dich daran, Feedback an %{other_name} zu geben!"
-      you_have_not_given_feedback_yet: "Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, solltest du es andere wissen lassen, dass %{name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, dies auch zu erwähnen."
+      you_have_not_given_feedback_yet: "Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, die auch zu erwähnen."
       leave_feedback: "Feedback an %{other_party_name} geben"
     transaction_preauthorized:
       subject: "%{requester} hat %{listing_title} angefragt und eine Zahlung autorisiert auf %{service_name}"
@@ -1752,7 +1752,7 @@ de:
     transaction_cancel_flow:
       the_order_about: "die Anfrage über %{listing_title}"
       you_can_contact_the_marketplace_team: "Du kannst das Team von %{service_name} kontaktieren, falls es irgendwelche weitere Probleme gibt."
-      you_can_now_give_feedback: "Du kannst jetzt Feedback an %{name} geben. Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, du solltest anderen wissen lassen, dass %{recipient} vertrauenswürdig ist. Und wenn es irgendeile Probleme gibt, ist es gut, die auch zu erwähnen."
+      you_can_now_give_feedback: "Du kannst jetzt Feedback an %{name} geben. Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{recipient} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, die auch zu erwähnen."
       give_feedback_to: "Feedback an %{name} geben"
     transaction_disputed:
       subject: "Anfrage angefochten - Das Team von %{service_name} untersucht die Situation"
@@ -1803,8 +1803,8 @@ de:
       generic_error: "Während des Zahlungsvorgangs ist ein Fehler aufgetreten. Die Stripe Zahlung konnte nicht abgeschlossen werden."
       accept_authorization_error: "Es ist ein Fehler während der Authorisierung der Stripe Zahlung aufgetreten. Bitte erneut versuchen."
       reject_authorization_error: "Es ist ein Fehler während der Ablehnung der Stripe Zahlung aufgetreten. Bitte erneut versuchen."
-      card_declined: ~
-      expired_card: ~
+      card_declined: "Deine Karte wurde abgelehnt"
+      expired_card: "Die Zahlung ist gescheitert, weil diese Karte abgelaufen ist"
   error_pages:
     back_to_kassi_front_page: "Zurück zur Startseite"
     error_404:
