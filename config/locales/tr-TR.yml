@@ -225,7 +225,7 @@ tr-TR:
         default_search_type: ~
         keyword_search: "Anahtar kelime arama"
         keyword_and_location_search: "Anahtar kelime ve lokasyon araması"
-        location_search: Şehir/Konum
+        location_search: "Konum arama"
         select_distance_unit: ~
         km: km
         miles: mil
@@ -587,11 +587,11 @@ tr-TR:
           used: ~
           date_sent: ~
       listings:
-        listings: ~
+        listings: İlanlar
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
-        export_all_as_csv: ~
+        export_all_as_csv: "Tümünü CSV olarak dışa aktar"
         processing_export: ~
         status:
           all: ~
@@ -683,7 +683,7 @@ tr-TR:
           info_single_column: ~
           info_multi_column_2: ~
           info_multi_column_3: ~
-          listings: ~
+          listings: İlanlar
           categories: ~
           hero: ~
           locations: ~
@@ -1399,8 +1399,8 @@ tr-TR:
       you_are_banned_in_this_community: "Yönetici %{service_name} erişiminizi engelledi. Yöneticiye ulaşmak isterseniz, %{link_to_contact_page} gönderebilirsiniz."
       contact_page_link: "geri bildirim"
     new:
-      welcome_fb_user: "%{name}, %{service_name}'e hoş geldin!"
-      fb_join_accept_terms: "%{service_name}' katılmak için son bir adım kaldı: kullanım koşullarını kabul etmelisiniz."
+      welcome_fb_user: "%{name}, %{service_name}'a hoş geldin!"
+      fb_join_accept_terms: "%{service_name}' a katılmak için son bir adım kaldı: Kullanım koşullarını kabul etmelisiniz."
       join_community: "%{service_name} pazar yerine katıl"
       you_can_join: "Kullanım koşullarını kabul ederek ve aşağıdaki '%{service_name}'e katıl' sekmesine tıklayarak %{service_name}'e katılabilirsiniz."
       you_can_join_email_confirmation: "%{service_name} pazar yerine katılabilmek için %{email_ending} ile biten geçerli bir e-posta adresine sahip olmalısınız. E-posta adresinizi girip, kullanım koşullarını kabul ederek ve aşağıdaki \"%{service_name} pazar yerine katıl\" sekmesine tıklayıp, e-posta adresini doğrulayarak katılabilirsiniz."
@@ -1496,8 +1496,8 @@ tr-TR:
       message_not_displaying_correctly: "Bu e-posta düzgün şekilde görüntülenemedi mi?"
       view_it_in_your_browser: "Tarayıcınızda görüntüleyin"
       or: "ya da"
-      unsubscribe_from_these_emails_info: ~
-      unsubscribe_from_these_emails: "bu e-posta aboneliklerini sonlandır"
+      unsubscribe_from_these_emails_info: "%{service_name} üyesi olduğunuz için bu e-postayı aldınız. "
+      unsubscribe_from_these_emails: "e-posta aboneliklerini sonlandırın."
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
       here_is_your_receipt: ~
@@ -1668,7 +1668,7 @@ tr-TR:
       welcome_email_subject: "%{service_name} pazar yerine hoş geldiniz!"
       welcome_to_marketplace: "%{service_name} pazar yerine hoş geldiniz! Sizi aramızda görmekten mutluyuz."
       love_marketplace_crew: "Sevgiler, <br /><i>%{service_name} ekibi</i>"
-      welcome_email_footer_text: "%{service_name}'den hangi e-postaları almak istiyorsunuz? %{settings_link}"
+      welcome_email_footer_text: "%{service_name} üzerinden hangi e-postaları almak istiyorsunuz? %{settings_link}"
       settings_link_text: "Ayarlarınızı kontrol ediniz"
     new_listing_by_followed_person:
       subject: "%{author_name} %{service_name} pazar yerine yeni bir listeleme ekledi."
@@ -1780,8 +1780,8 @@ tr-TR:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
-      card_declined: ~
-      expired_card: ~
+      card_declined: "Kartınız reddedildi"
+      expired_card: "Kartın süresi dolduğundan ödeme başarısız oldu"
   error_pages:
     back_to_kassi_front_page: "Anasayfaya dön"
     error_404:
@@ -2108,7 +2108,7 @@ tr-TR:
       inviting_new_users_is_not_allowed_in_this_community: "Yeni kullanıcı davet etmeye izin verilnenektedir."
       login_again: "Lütfen tekrar giriş yapın."
       login_failed: "Oturum açma başarısız. Lütfen doğru bilgilerle deneyin."
-      account_creation_successful: "%{person_name}, %{service_name}'e hoş geldin!"
+      account_creation_successful: "%{person_name}, %{service_name}'a hoş geldin!"
       account_deleted: "Hesabınız silindi."
       login_successful: "Hoş geldin, %{person_name}!"
       logout_successful: "%{service_name} 'dan başarıyla çıkış yaptınız. Yeniden bekleriz!"
@@ -2208,7 +2208,7 @@ tr-TR:
       paypal_payments: ~
       stripe_payments: ~
       payments: Ödemeler
-      listings: ~
+      listings: İlanlar
       listings_search_placeholder: ~
       transactions_search_placeholder: "Bir işlem adı veya ilgili bir şey ile arama yapın"
       transactions: İşlem
@@ -2227,7 +2227,7 @@ tr-TR:
       to_send_a_comment: "yeni yorum göndermek için."
       write_comment: "Yeni yorum yaz:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Yeni yorum gönderemezsiniz, çünkü bu ilan kapatıldı."
-      you_must: Yapmalısınız
+      you_must: "Giriş yapmalısınız,"
       subscribe_to_comments: "Beni yeni yorum ve güncellemelerden haberdar et"
     deleting_a_listing_cannot_be_undone: ~
     edit:
@@ -2339,7 +2339,7 @@ tr-TR:
         offer_type: "Teklif türü"
         receive: "Ücretsiz olarak kabul etmek"
         rent: Kiralamak
-        rent_out: "Kiraya vermek"
+        rent_out: Kiralama
         request_type: "Talep türü"
         sell: Satmak
         share_for_free: "Ücretsiz paylaşım"
@@ -2392,9 +2392,9 @@ tr-TR:
       items: Öğeler
       lends: "Ödünç vermek"
       receives: "Ücretsiz almak"
-      rent_outs: "Kiraya vermek"
+      rent_outs: Kiralama
       rents: Kiralamak
-      rideshares: "Yolculuğu paylaşmak"
+      rideshares: "Birleşip gitme"
       sells: Satmak
       share_for_frees: "Ücretsiz paylaşım"
       accept_for_frees: "Ücretsiz olarak kabul etmek"
@@ -2423,7 +2423,7 @@ tr-TR:
       community_not_configured_for_payments: "%{service_name} ödeme almak için ayarlanmadı, yeni listelemeler yapamayacaksınız. Lütfen %{contact_admin_link} ile detaylar için bağlantıya geçiniz."
       payment_settings_link: "ödeme ayarları"
       community_not_configured_for_payments_admin: "%{service_name} ödeme almak için ayarlanmadı, yeni listelemeler yapamayacaksınız. Lütfen %{payment_settings_link} adresine giderek gerekli ödeme alanlarını doldurunuz."
-      you_are_now_posting_a_listing_on_behalf_of: ~
+      you_are_now_posting_a_listing_on_behalf_of: "%{name}  adına ilan yayınlıyorsunuz"
     quantity:
       hour: "Aylık saat:"
       day: "Gün sayısı"
@@ -2440,7 +2440,7 @@ tr-TR:
     show:
       add_your_phone_number: "Telefon numaranızı ekleyin"
       add_profile_picture: "Profil resmi ekleyin"
-      comments: "Genel tartışma"
+      comments: "Genel yorumlar"
       contact_by_phone: "Telefonla ulaş:"
       contact: İletişim
       favor_offer: "Hizmet teklifi"
@@ -2544,15 +2544,15 @@ tr-TR:
   paypal_accounts:
     payout_info_title: "Ödeme bilgileri"
     paypal_account_email_connected: "<del>1. PayPal hesabını bağla</del> Tamamlandı!"
-    payout_info_paypal: "%{service_name} Ödeme sağlayıcı PayPal ile çalışmaktadır. Bir%{create_paypal_account_link}  ilanlarınızdan ödeme almanız için zorunludur ve%{service_name} 'a bağlı olması gerekir."
+    payout_info_paypal: "%{service_name}, ödeme kuruluşu PayPal ile çalışmaktadır. Bir %{create_paypal_account_link}  ilanlarınızdan ödeme almanız için zorunludur ve %{service_name} 'a bağlanması gerekir."
     paypal_billing_agreement_made: "<del>2. %{service_name} pazar yerine işletim ücreti kesme izni ver</del> Tamamlandı!"
-    commission_permission_needed: "Ayrıca bir işlem ücreti almak için%{service_name} izni vermeniz gerekir."
+    commission_permission_needed: "Ayrıca bir işlem ücreti alınması için %{service_name}'a izin vermeniz gerekir."
     create_paypal_account_link_text: "PayPal hesabı"
     connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: "PayPal hesabınız ödeme kabul ediyor olmalıdır. PayPal ticari hesabı gerekebilir."
-    paypal_receive_funds_info_australia_only: "Hesabınızı%{service_name} 'a bağlamaya çalışırken bir hata görürseniz ya da%{upgrade_paypal_account_link} 'e veyahut (eğer bir bireyseniz), yeni bir Premier hesabı oluşturun. Her iki hesap türü de tamamen ücretsizdir."
-    paypal_receive_funds_info: "Hesabınızı%{service_name}, bağlamaya çalışırken bir hata görürseniz%{upgrade_paypal_account_link} Ücretsiz ve kolaydır. Birey iseniz, PayPal adınızı İşletme adı olarak kullanmanızı önerir."
+    paypal_receive_funds_info_australia_only: "Hesabınızı %{service_name} 'a bağlamaya çalışırken bir hata görürseniz ya da %{upgrade_paypal_account_link} 'e veyahut (eğer şahıs iseniz), yeni bir Premier hesabı oluşturun. Her iki hesap türü de tamamen ücretsizdir."
+    paypal_receive_funds_info: "Hesabınızı %{service_name}'a bağlamaya çalışırken bir hata görürseniz %{upgrade_paypal_account_link} Ücretsiz ve kolaydır. Şahıs iseniz, PayPal adınızı İşletme adı olarak kullanmanız önerilir."
     upgrade_paypal_account_link_text: "oturum açın ve PayPal hesabınızı bir işletme hesabına yükseltin"
     admin_account_not_connected: ~
     contact_admin_link_text: ~

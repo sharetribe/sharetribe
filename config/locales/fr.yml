@@ -1409,9 +1409,9 @@ fr:
       mark_as_refunded: "Marquée comme remboursée"
       dismiss: "Écarter et payer"
   feedback:
-    feedback_subject: "Nouveau contact pour %{service_name}"
-    feedback_body: "%{author_name_and_email} a envoyé le message suivant à propos de %{service_name}"
-    unlogged_user: "Utilisateur non connecté"
+    feedback_subject: "Nouveau message pour %{service_name}"
+    feedback_body: "%{author_name_and_email} a envoyé le message suivant depuis votre place de marché %{service_name}"
+    unlogged_user: "Un utilisateur non connecté"
     anonymous_user: "Utilisateur anonyme"
   community_memberships:
     access_denied:
