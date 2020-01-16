@@ -30,6 +30,7 @@
 #  commission_pending_reason  :string(64)
 #  commission_total_cents     :integer
 #  commission_fee_total_cents :integer
+#  commission_retry_count     :integer          default(0)
 #
 # Indexes
 #
@@ -40,6 +41,7 @@
 #
 
 class PaypalPayment < ApplicationRecord
+  MAX_CHARGE_COMMISSION_ATTEMPTS = 3
 
   validates_presence_of(
     :community_id,
@@ -57,4 +59,15 @@ class PaypalPayment < ApplicationRecord
   monetize :commission_total_cents,     with_model_currency: :currency, allow_nil: true
   monetize :commission_fee_total_cents, with_model_currency: :currency, allow_nil: true
 
+  def increment_commission_retry_count
+    update_column(:commission_retry_count, commission_retry_count + 1) # rubocop:disable Rails/SkipsModelValidations
+  end
+
+  def retry_charge_commision?
+    commission_retry_count < MAX_CHARGE_COMMISSION_ATTEMPTS
+  end
+
+  def charge_commision_failed
+    update_column(:commission_status, :failed) # rubocop:disable Rails/SkipsModelValidations
+  end
 end

@@ -1789,6 +1789,8 @@ ro:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Inapoi la pagina principala"
     error_404:

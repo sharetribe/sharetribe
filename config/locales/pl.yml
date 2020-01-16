@@ -1818,6 +1818,8 @@ pl:
       generic_error: "Pojawił się błąd w trakcie realizacji płatności. Nie można sfinalizować Twojej płatności za pomocą Stripe."
       accept_authorization_error: "Pojawił się błąd podczas próby zatwierdzenia płatności Strie. Proszę, spróbuj ponownie."
       reject_authorization_error: "Pojawił się błąd podczas próby odrzucenia płatności Strie. Proszę, spróbuj ponownie."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Wróć do strony głównej"
     error_404:

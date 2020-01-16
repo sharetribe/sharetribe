@@ -1794,6 +1794,8 @@ da-DK:
       generic_error: "Der skete en teknisk fejl under betalingsprocessen."
       accept_authorization_error: "En fejl opstod under godkendelse af Stripe betalingen. Prøv igen senere."
       reject_authorization_error: "En fejl opstod under afvisning af Stripe betalingen. Prøv igen senere."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Tilbage til forsiden"
     error_404:

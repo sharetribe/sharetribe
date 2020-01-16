@@ -1773,6 +1773,8 @@ it:
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento con Stripe"
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: "La carta è stata rifiutata"
+      expired_card: "Il pagamento è fallito perché la carta è scaduta"
   error_pages:
     back_to_kassi_front_page: "Indietro alla front page"
     error_404:
