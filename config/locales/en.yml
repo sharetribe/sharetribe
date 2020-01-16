@@ -1780,6 +1780,13 @@ en:
     transaction_cancellation_dismissed:
       subject: "Order dispute dismissed - The %{service_name} team has rejected the dispute from %{buyer}"
       marketplace_team_has_rejected_the_cancellation: "the %{service_name} team has rejected the dispute for %{transaction_link}."
+    transaction_commission_charge_failed:
+      subject: "A commission in your marketplace was not transferred to your PayPal account"
+      transaction_about: "transaction about %{listing_title}"
+      the_commission_of_the_transaction: "the commission of the %{transaction_link} from %{seller} has failed to be transferred to your PayPal account."
+      this_usually_means: "This usually means that there is something blocking the commission from the seller's PayPal account. In most cases the issue is that the seller does not have a valid and verified funding source connected to their PayPal account."
+      if_you_would_like_to_investigate: "If you would like to investigate this further, a good first step is to contact the seller about this."
+      contact_the_seller: "Contact the seller"
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."

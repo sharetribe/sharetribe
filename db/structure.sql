@@ -1170,6 +1170,7 @@ CREATE TABLE `paypal_payments` (
   `commission_pending_reason` varchar(64) DEFAULT NULL,
   `commission_total_cents` int(11) DEFAULT NULL,
   `commission_fee_total_cents` int(11) DEFAULT NULL,
+  `commission_retry_count` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_paypal_payments_on_transaction_id` (`transaction_id`) USING BTREE,
   UNIQUE KEY `index_paypal_payments_on_authorization_id` (`authorization_id`) USING BTREE,
@@ -2431,6 +2432,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190920113245'),
 ('20191016061908'),
 ('20191016064022'),
+('20200109145736'),
 ('20200127120611'),
 ('20200131111643');
 

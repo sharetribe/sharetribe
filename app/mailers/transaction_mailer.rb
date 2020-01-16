@@ -249,7 +249,22 @@ class TransactionMailer < ActionMailer::Base
              format.html { render v2_template(community.id, 'transaction_cancellation_dismissed'), layout: v2_layout(community.id) }
       end
     end
+  end
 
+  def transaction_commission_charge_failed(transaction:, recipient:)
+    @transaction = transaction
+    community = transaction.community
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.full_name(recipient.locale)
+      @skip_unsubscribe_footer = true
+      @seller = PersonViewUtils.person_display_name(transaction.listing_author, community)
+      mail(to: recipient.confirmed_notification_emails_to,
+           from: community_specific_sender(community),
+           subject: t("emails.transaction_commission_charge_failed.subject")) do |format|
+             format.html { render v2_template(community.id, 'transaction_commission_charge_failed'), layout: v2_layout(community.id) }
+      end
+    end
   end
 
   private
