@@ -117,11 +117,7 @@ module TransactionService::PaypalEvents
   end
 
   def preauthorized_to_paid(tx)
-    # Commission charge is synchronous and must complete before we
-    # transition to paid so that we have the full payment info
-    # available at the time we send payment receipts.
-    TransactionService::Transaction.charge_commission(tx.id)
-    TransactionService::StateMachine.transition_to(tx.id, :paid)
+    to_paid(tx)
   end
 
   def preauthorized_to_pending_ext(tx, pending_reason)
@@ -133,11 +129,7 @@ module TransactionService::PaypalEvents
   end
 
   def pending_ext_to_paid(tx)
-    # Commission charge is synchronous and must complete before we
-    # transition to paid so that we have the full payment info
-    # available at the time we send payment receipts.
-    TransactionService::Transaction.charge_commission(tx.id)
-    TransactionService::StateMachine.transition_to(tx.id, :paid)
+    to_paid(tx)
   end
 
   def delete_transaction(cid:, tx_id:)
@@ -162,5 +154,13 @@ module TransactionService::PaypalEvents
     if locale
       I18n.locale = locale
     end
+  end
+
+  def to_paid(tx)
+    # Commission charge is synchronous and must complete before we
+    # transition to paid so that we have the full payment info
+    # available at the time we send payment receipts.
+    TransactionService::Transaction.charge_commission_and_retry(tx.id)
+    TransactionService::StateMachine.transition_to(tx.id, :paid)
   end
 end

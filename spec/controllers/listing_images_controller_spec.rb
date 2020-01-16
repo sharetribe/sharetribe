@@ -21,6 +21,7 @@
 #  email_image_content_type :string(255)
 #  email_image_file_size    :integer
 #  email_image_updated_at   :datetime
+#  email_hash               :string(255)
 #
 # Indexes
 #
