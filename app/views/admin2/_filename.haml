@@ -1,0 +1,5 @@
+%small.form-text
+  - if original_filename.present?
+    = t('admin2.logos_and_color.current_file', type: field_name.downcase, filename: original_filename)
+  - else
+    = t('admin2.logos_and_color.not_added', name: field_name.downcase)

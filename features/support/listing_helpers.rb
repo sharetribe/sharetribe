@@ -17,8 +17,10 @@ module ListingHelpers
 
   def find_shape(name:, community: nil)
     community ||= @current_community
-    all_translations = TranslationService::API::Api.translations.get(community.id)[:data]
-
+    # all_translations = TranslationService::API::Api.translations.get(community.id)[:data]
+    all_translations = CommunityTranslation.where(community_id: community.id)
+                                           .pluck(:translation, :translation_key)
+                                           .map{ |a| {translation: a[0], translation_key: a[1]} }
     all_shapes.find { |shape|
       all_translations.any? { |tr|
         tr[:translation_key] == shape[:name_tr_key] && tr[:translation] == name

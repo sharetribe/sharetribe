@@ -1,0 +1,18 @@
+.form-group
+  %label
+    = t("admin2.experimental.title_#{feature[:name]}")
+  .form-radiobutton-wrapper
+    .form-radiobutton.form-check-inline
+      = radio_button_tag "feature[#{feature[:name]}]", 'enabled_for_no_one', (!feature[:enabled_for_user] && !feature[:enabled_for_community]), disabled: feature[:required_for_community], class: %i[form-check-input]
+      %label.form-check-label{for: "feature_#{feature[:name]}_enabled_for_no_one"}
+        = t('admin2.experimental.no_one')
+    .form-radiobutton.form-check-inline
+      = radio_button_tag "feature[#{feature[:name]}]", 'enabled_for_user', (feature[:enabled_for_user] && !feature[:enabled_for_community]), disabled: (feature[:required_for_user] || feature[:name] == :email_layout_v2), class: %i[form-check-input]
+      %label.form-check-label{for: "feature_#{feature[:name]}_enabled_for_user"}
+        = t('admin2.experimental.only_you')
+    .form-radiobutton.form-check-inline
+      = radio_button_tag "feature[#{feature[:name]}]", 'enabled_for_community', feature[:enabled_for_community], disabled: feature[:required_for_community], class: %i[form-check-input]
+      %label.form-check-label{for: "feature_#{feature[:name]}_enabled_for_community"}
+        = t('admin2.experimental.all_users')
+  %small#displayNameType-help.form-text
+    = t("admin2.experimental.description_#{feature[:name]}")
