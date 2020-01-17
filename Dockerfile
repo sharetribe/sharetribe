@@ -58,8 +58,13 @@ RUN curl -sfSL \
 # Sharetribe
 #
 
-# Install nginx - used to serve maintenance mode page
-RUN apt-get install -y nginx
+# Install:
+# - nginx - used to serve maintenance mode page
+# - MySQL 5.7 repo and client libs
+COPY script/setup-mysql-apt-repo.sh /root/
+RUN apt-get install -y nginx \
+  && /root/setup-mysql-apt-repo.sh \
+  && apt-get install -y libmysqlclient-dev
 
 # Install latest bundler
 ENV BUNDLE_BIN=
