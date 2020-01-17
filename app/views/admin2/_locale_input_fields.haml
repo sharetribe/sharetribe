@@ -1,0 +1,12 @@
+%h2
+  = header
+%p.ingress
+  = info_text
+.content-card-section-form
+  .form-group
+    - translations.each do |language_key, value|
+      .d-flex.multiple-languages
+        %span.language
+          = value[:language]
+        = text_area_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
+          class: input_classes, maxlength: defined?(maxlength) ? maxlength : nil, placeholder: defined?(placeholder) ? placeholder : ''

@@ -1,0 +1,184 @@
+%aside.sidenav-container
+  .sidenav-container-top
+    / Title for the Admin Panel
+    %h6
+      = t('admin2.topnav.admin_menu')
+    .sidenav-links
+      / Dashboard
+      %ul.category-title
+        %li#dashboard{class: active_li('dashboard')}
+          = link_to t('admin2.sidebar.dashboard'), admin2_dashboard_index_path
+      / General
+      %ul.category-title
+        %li
+          = link_to t('admin2.sidebar.general_group'), '#general', class: %i[dropdown-toggle], 'aria-controls' => 'general', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+      %ul#general.collapse.subtitle{class: expand_ul('general')}
+        %li#essentials{class: active_li('essentials')}
+          = link_to t('admin2.sidebar.general.essentials'), admin2_general_essentials_path
+        %li#domain
+          %a{:href => 'domain.php'} Domain
+        %li#privacy{class: active_li('privacy')}
+          = link_to t('admin2.sidebar.general.privacy'), admin2_general_privacy_index_path
+        %li#staticcontent-mobile{class: active_li('static_content')}
+          = link_to t('admin2.sidebar.general.static_content'), admin2_general_static_content_index_path
+        %li#adminnotifications-mobile{class: active_li('admin_notifications')}
+          = link_to t('admin2.sidebar.general.admin_notifications'), admin2_general_admin_notifications_path
+
+      / Design
+      %ul.category-title
+        %li
+          = link_to t('admin2.sidebar.design_group'), '#design', class: %i[dropdown-toggle], 'aria-controls' => 'design', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+      %ul#design.collapse.subtitle{class: expand_ul('design')}
+        %li#logoscolor{class: active_li('logos_color')}
+          = link_to t('admin2.sidebar.design.logos_and_color'), admin2_design_logos_color_index_path
+        %li#coverphotos{class: active_li('cover_photos')}
+          = link_to t('admin2.sidebar.design.cover_photos'), admin2_design_cover_photos_path
+        %li#landingpage{class: active_li('landing_page')}
+          = link_to t('admin2.sidebar.design.landing_page'), admin2_design_landing_page_index_path
+        %li#topbar
+          %a{:href => 'top-bar.php'} Top bar
+        %li#footer
+          %a{:href => 'footer.php'} Footer
+        %li#display{class: active_li('display')}
+          = link_to t('admin2.sidebar.design.display'), admin2_design_display_index_path
+        %li#experimental{class: active_li('experimental')}
+          = link_to t('admin2.sidebar.design.experimental'), admin2_design_experimental_index_path
+      / Divider
+      %hr/
+      / Users
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'users', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#users', :role => 'button'} Users
+      %ul#users.collapse.subtitle{class: expand_ul('users')}
+        %li#manageusers
+          %a{:href => 'manage-users.php'} Manage users
+        %li#userfields
+          %a{:href => 'user-fields.php'} User fields
+        %li#signuplogin{class: active_li('signup_login')}
+          = link_to t('admin2.sidebar.design.signup_login'), admin2_users_signup_login_index_path
+        %li#userrights
+          %a{:href => 'user-rights.php'} User rights
+        %li#invitations
+          %a{:href => 'invitations.php'} Invitations
+      / Listings
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'listings', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#listings', :role => 'button'} Listings
+      %ul#listings.collapse.subtitle
+        %li#managelistings
+          %a{:href => 'manage-listings.php'} Manage listings
+        %li#categories
+          %a{:href => 'categories.php'} Categories
+        %li#ordertypes
+          %a{:href => 'order-types.php'} Order types
+        %li#listingfields
+          %a{:href => 'listing-fields.php'} Listing fields
+        %li#listingapproval
+          %a{:href => 'listing-approval.php'} Listing approval
+        %li#listingcomments
+          %a{:href => 'listing-comments.php'} Listing comments
+      / Transactions
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'transactionsreviews', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#transactionsreviews', :role => 'button'} Transactions &amp; Reviews
+      %ul#transactionsreviews.collapse.subtitle
+        %li#managetransactions
+          %a{:href => 'manage-transactions.php'} Manage transactions
+        %li#viewconversations
+          %a{:href => 'view-conversations.php'} View conversations
+        %li#managereviews
+          %a{:href => 'manage-reviews.php'} Manage reviews
+        %li#configuretransactions
+          %a{:href => 'configure-transactions.php'} Configure transactions
+      / Divider
+      %hr/
+      / Payment system
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#paymentsystem', :role => 'button'} Payment system
+      %ul#paymentsystem.collapse.subtitle
+        %li#countrycurrency
+          %a{:href => 'country-currency.php'} Country &amp; Currency
+        %li#transactionsize
+          %a{:href => 'transaction-size.php'} Transaction size
+        %li#paypal
+          %a{:href => 'paypal.php'} PayPal
+        %li#stripe
+          %a{:href => 'stripe.php'} Stripe
+      / Email
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'emails', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#emails', :role => 'button'} Emails
+      %ul#emails.collapse.subtitle
+        %li#emailusers
+          %a{:href => 'email-users.php'} Email users
+        %li#welcomeemail
+          %a{:href => 'welcome-email.php'} Welcome email
+        %li#automaticnewsletter
+          %a{:href => 'automatic-newsletter.php'} Automatic newsletter
+        %li#customoutgoingaddress
+          %a{:href => 'custom-outgoing-address.php'} Custom outgoing address
+      / Search & Location
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'searchlocation', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#searchlocation', :role => 'button'} Search &amp; Location
+      %ul#searchlocation.collapse.subtitle
+        %li#search
+          %a{:href => 'search.php'} Search
+        %li#location
+          %a{:href => 'location.php'} Location
+      / Social media
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'socialmedia', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#socialmedia', :role => 'button'} Social media
+      %ul#socialmedia.collapse.subtitle
+        %li#imagetags
+          %a{:href => 'image-tags.php'} Image and tags
+        %li#twitter
+          %a{:href => 'twitter.php'} Twitter
+      / SEO
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'seo', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#seo', :role => 'button'} SEO
+      %ul#seo.collapse.subtitle
+        %li#sitemaprobots
+          %a{:href => 'sitemap-robots.php'} Sitemap &amp; Robots
+        %li#landingpagemeta
+          %a{:href => 'landing-page-meta.php'} Landing page meta
+        %li#searchresultspagesmeta
+          %a{:href => 'search-results-pages-meta.php'} Search results pages meta
+        %li#listingpagesmeta
+          %a{:href => 'listing-pages-meta.php'} Listing pages meta
+        %li#categorypagesmeta
+          %a{:href => 'category-pages-meta.php'} Category pages meta
+        %li#profilepagesmeta
+          %a{:href => 'profile-pages-meta.php'} Profile pages meta
+      / Analytics
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'analytics', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#analytics', :role => 'button'} Analytics
+      %ul#analytics.collapse.subtitle
+        %li#googleanalytics
+          %a{:href => 'google-analytics.php'} Google Analytics
+        %li#sharetribeanalytics
+          %a{:href => 'sharetribe-analytics.php'} Sharetribe analytics
+      / Advanced
+      %ul.category-title
+        %li
+          %a.dropdown-toggle{'aria-controls' => 'advanced', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#advanced', :role => 'button'} Advanced
+      %ul#advanced.collapse.subtitle
+        %li#customscript
+          %a{:href => 'custom-script.php'} Custom script
+        %li#deletemarketplace
+          %a{:href => 'delete-marketplace.php'} Delete marketplace
+  / Bottom links for branded links
+  .sidenav-bottomLinks
+    %ul.category-title
+      %li
+        %a{:href => '/admin/plan', :rel => 'noopener'} Subscription
+      %li
+        %a{:href => 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', :rel => 'noopener', :target => '_blank'} Help Center
+      %li
+        %a{:href => 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', :rel => 'noopener', :target => '_blank'} Marketplace Guide
+      %li
+        %a{:href => 'https://www.sharetribe.com/products/go/updates?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', :rel => 'noopener', :target => '_blank'} What's new?

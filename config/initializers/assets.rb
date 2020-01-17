@@ -20,6 +20,10 @@ Rails.application.config.assets.precompile += %w(
   react_page/styles.css
   design.css
   email-v2.css
+  admin2/admin.js
+  admin2/admin.scss
+  popper.min.js
+  bootstrap.min.js
 )
 
 if Rails.env == 'test'
