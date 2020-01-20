@@ -64,7 +64,7 @@ en:
         category_pages: 'Category pages meta'
         profile_pages: 'Profile pages meta'
       analytics:
-        google: 'Google analytics'
+        google: 'Google Analytics'
         sharetribe: 'Sharetribe analytics'
       advanced:
         custom_script: 'Custom script'
@@ -80,7 +80,7 @@ en:
       info_text: "Track your traffic in your Sharetribe marketplace with Google Analytics. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}' target='_blank' >Learn more about the Google Analytics setup</a>."
       google_analytics_key: 'Google Analytics tracking ID'
       google_analytics_key_placeholder: 'UA-12345678-9'
-      google_analytics_key_info_text: 'Tracking ID of your Google Analytics account. <a href="%{url}" target="_blank">Learn more</a>'
+      google_analytics_key_info_text: 'Tracking ID of your Google Analytics account.'
     profile_pages:
       title: 'Meta tags for the profile pages'
       title_info_text: 'Optimizing meta tags of your marketplace pages is important for usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href="%{url}" target="_blank">Learn more about meta tags</a>.'

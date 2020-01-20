@@ -14,8 +14,8 @@
     .content-card-section-form.margin-form
       .form-group
         = form.label :google_analytics_key, t('admin2.google.google_analytics_key')
-        = form.text_field :google_analytics_key, class: %i[form-control], placeholder: t('admin2.google.google_analytics_key_placeholder')
+        = form.text_field :google_analytics_key, class: %i[form-control], maxlength: 15, placeholder: t('admin2.google.google_analytics_key_placeholder')
         %small#twitterHandle-help.form-text
-          = t('admin2.google.google_analytics_key_info_text', url: 'https://help.sharetribe.com/configuration-and-how-to/how-to-track-your-marketplace-traffic-with-google-analytics').html_safe
+          = t('admin2.google.google_analytics_key_info_text').html_safe
   .content-card-terminal.without-margin
     = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
