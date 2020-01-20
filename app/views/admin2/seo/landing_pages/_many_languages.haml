@@ -8,7 +8,7 @@
       .d-flex.multiple-languages
         %span.language
           = t("admin.communities.available_languages.#{cc.object.locale}")
-        = cc.text_field :meta_title, class: %i[form-control], placeholder: t('admin2.landing_pages.meta_title_placeholder')
+        = cc.text_field :meta_title, class: %i[form-control], maxlength: 255, placeholder: t('admin2.landing_pages.meta_title_placeholder')
 
 .form-group
   %label
@@ -20,4 +20,4 @@
       .d-flex.multiple-languages
         %span.language
           = t("admin.communities.available_languages.#{cc.object.locale}")
-        = cc.text_area :meta_description, class: %i[form-control], placeholder: t('admin2.landing_pages.meta_description_placeholder')
+        = cc.text_area :meta_description, class: %i[form-control], maxlength: 65535, placeholder: t('admin2.landing_pages.meta_description_placeholder')
