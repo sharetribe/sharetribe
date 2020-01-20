@@ -1785,6 +1785,8 @@ ka:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "მთავარ გვერდზე დაბრუნება"
     error_404:

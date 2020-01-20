@@ -1769,6 +1769,8 @@ lv:
       generic_error: "Maksājuma procesa laikā radās kļūda. Nebija iespējams pabeigt Stripe maksājumu."
       accept_authorization_error: "Radās kļūda, mēģinot pieņemt iepriekš autorizētu Stripe maksājumu. Lūdzu mēģiniet vēlreiz."
       reject_authorization_error: "Radās kļūda, mēģinot noraidīt iepriekš autorizētu Stripe maksājumu. Lūdzu mēģiniet vēlreiz."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Atpakaļ uz galveno lapu"
     error_404:

@@ -84,16 +84,31 @@ class Person::PaymentSettingsPresenter
     @seller_needs_verification = need_verification
   end
 
-  def seller_needs_additional_verification
-    return @seller_needs_additional_verification if defined?(@seller_needs_additional_verification)
+  def seller_required_items
+    return @seller_required_items if defined?(@seller_required_items)
 
-    need_verification = false
-    if stripe_account_ready && api_seller_account && seller_needs_verification
-      requirements = api_seller_account.requirements
-      required_items = (requirements.currently_due + requirements.past_due + requirements.eventually_due).uniq
-      need_verification = required_items.include?("individual.verification.additional_document")
-    end
-    @seller_needs_additional_verification = need_verification
+    requirements = api_seller_account.requirements
+    @seller_required_items = (requirements.currently_due + requirements.past_due + requirements.eventually_due).uniq
+  end
+
+  def required_individual_id_number?
+    @required_individual_id_number ||= seller_required_items.include?("individual.id_number")
+  end
+
+  def required_verification_document?
+    @required_verification_document ||= seller_required_items.include?("individual.verification.document")
+  end
+
+  def required_verification_document_back?
+    @required_verification_document_back ||= seller_required_items.include?("individual.verification.document.back")
+  end
+
+  def required_verification_additional_document?
+    @required_verification_additional_document ||= seller_required_items.include?("individual.verification.additional_document")
+  end
+
+  def required_verification_additional_document_back?
+    @required_verification_additional_document_back ||= seller_required_items.include?("individual.verification.additional_document.back")
   end
 
   def stripe_account_verification
@@ -211,6 +226,10 @@ class Person::PaymentSettingsPresenter
 
   def receive_funds_info_tr_key
     PaypalCountryHelper.receive_funds_info_tr_key(community_country_code)
+  end
+
+  def capabilities?
+    @capabilities ||= FeatureFlag.feature_enabled?(community.id, :stripe_capabilities)
   end
 
   private

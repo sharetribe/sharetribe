@@ -1800,6 +1800,8 @@ es-ES:
       generic_error: "Ocurrió un error al procesar el pago. No se pudo finalizar el pago con Stripe."
       accept_authorization_error: "Ocurrió un error al intentar aceptar el pago preautorizado con Stripe. Por favor inténtalo nuevamente."
       reject_authorization_error: "Ocurrió un error al intentar rechazar el pago preautorizado con Stripe. Por favor inténtalo nuevamente."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal"
     error_404:
