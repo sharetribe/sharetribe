@@ -563,6 +563,7 @@ describe PaypalService::IPN do
       paypal_account
       ipn_service.handle_msg(auth_created_msg)
       expect(I18n.locale).to eq :de
+      I18n.locale = :en
     end
   end
 end
