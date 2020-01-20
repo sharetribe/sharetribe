@@ -193,7 +193,7 @@ nb:
         en: Engelsk
         en-AU: "Engelsk (Australia)"
         en-GB: "Engelsk (Storbritannia)"
-        es: ~
+        es: Spansk
         es-ES: ~
         fi: Finsk
         fr: Fransk
@@ -524,7 +524,7 @@ nb:
       conversations:
         conversations: ~
         headers:
-          started_from: ~
+          started_from: "Start fra"
           status: ~
           started: ~
           last_activity: ~
@@ -895,10 +895,10 @@ nb:
         send_email_to_members: "Send e-post til brukere"
         send_email_to_members_title: "Send e-post til alle brukere"
         send_email: "Send epost"
-        send_email_or: ~
-        send_test_email: ~
+        send_email_or: eller
+        send_test_email: "Send en e-post til deg selv"
         test_sent: ~
-        send_email_article_title: ~
+        send_email_article_title: "denne artikkelen"
         send_email_article_text: ~
         recipients:
           title: ~
@@ -1796,6 +1796,8 @@ nb:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Tilbake til forsiden"
     error_404:
@@ -3021,7 +3023,7 @@ nb:
         night: natt
         week: uke
         month: måned
-      edit_availability_header: ~
+      edit_availability_header: Tilgjengelighet
       save_and_close_availability_editing: "Lagre og lukk"
       confirm_discarding_unsaved_availability_changes_explanation: "Du har ulagrede endringer i tilgjengelighets-informasjonen. Hvis du fortsetter, vil disse endringene gå tapt."
       confirm_discarding_unsaved_availability_changes_question: "Er du sikker på at du vil forkaste endringene dine?"
@@ -3071,6 +3073,10 @@ nb:
         zero: brukere
         one: bruker
         other: brukere
+      transaction:
+        zero: transaksjoner
+        one: transaksjon
+        other: transaksjoner
     previous_label: "&#8592; Forrige"
     next_label: "Neste &#8594;"
     page_gap: "&hellip;"

@@ -1811,6 +1811,8 @@ sk-SK:
       generic_error: "Behom platby došlo k chybe. Nedá sa dokončiť platbu cez Stripe."
       accept_authorization_error: "Pri pokuse o prijatie predbežnej platby Stripe sa vyskytla chyba. Prosím skúste  to znova."
       reject_authorization_error: "Pri pokuse o odmietnutie predbežne schválenej platby Stripe sa vyskytla chyba. Prosím skúste znova."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Späť na titulnú stránku."
     error_404:

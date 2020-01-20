@@ -2,7 +2,9 @@
 
 set -eo pipefail
 
-sudo apt-get update && sudo apt-get install -y sphinxsearch mysql-client
+sudo ./script/setup-mysql-apt-repo.sh
+
+sudo apt-get install libmysqlclient-dev mysql-community-client sphinxsearch
 
 if [[ -f ~/.nvm/nvm.sh ]] ; then
     echo "NVM already installed"

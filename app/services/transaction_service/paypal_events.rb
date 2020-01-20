@@ -27,6 +27,7 @@ module TransactionService::PaypalEvents
       #
       SessionContextStore.set_from_transaction(actor: transition[:actor], tx: tx)
       ApplicationHelper.store_community_service_name_to_thread_from_community_id(tx.community_id)
+      set_locale(tx)
 
       case transition[:name]
       when :initiated_to_preauthorized
@@ -145,4 +146,21 @@ module TransactionService::PaypalEvents
     end
   end
 
+  def set_locale(tx) # rubocop:disable Naming/AccessorMethodName
+    user_locale = tx.starter.locale
+    community_locales = tx.community.locales
+    community_default_locale = tx.community.default_locale || "en"
+
+    locale = I18nHelper.select_locale(
+      user_locale: user_locale,
+      param_locale: nil,
+      community_locales: community_locales,
+      community_default: community_default_locale,
+      all_locales: Sharetribe::AVAILABLE_LOCALES
+    )
+
+    if locale
+      I18n.locale = locale
+    end
+  end
 end

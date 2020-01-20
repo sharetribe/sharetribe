@@ -12,6 +12,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+- Update to Ruby 2.6.5 and a Debian Buster base Docker image [#3967](https://github.com/sharetribe/sharetribe/pull/3967)
+
 ### Deprecated
 
 ### Removed

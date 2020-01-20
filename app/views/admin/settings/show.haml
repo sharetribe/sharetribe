@@ -88,7 +88,8 @@
         .checkbox-container
           = form.check_box :automatic_newsletters
           = form.label :automatic_newsletters, t("admin.communities.settings.automatic_newsletters"), :class => "settings-checkbox-label"
-        .checkbox-container
+        .checkbox-container{community_updates: true,
+          class: "#{@presenter.community.automatic_newsletters ? '' : 'hidden'}"}
           .settings-checkbox-label.label
             - frequence_dropdown = form.select :default_min_days_between_community_updates, [[t("admin.communities.settings.newsletter_daily"), 1], [t("admin.communities.settings.newsletter_weekly"), 7]], {}, :class => "inline-select"
             = t("admin.communities.settings.automatic_newsletter_frequency", :frequency_dropdown => frequence_dropdown).html_safe
@@ -105,8 +106,9 @@
 
   - content_for :extra_javascript do
     :javascript
-      window.ST.initializeDeleteMarketplace('#{@presenter.delete_confirmation}');
-      window.ST.initializeLocationSearchModeSwitch();
+      window.ST.Settings.init({
+      delete_confirmation: '#{@presenter.delete_confirmation}'
+      });
 
   - if @presenter.can_delete_marketplace
     .row.without-margin

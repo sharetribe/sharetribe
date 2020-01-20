@@ -1800,6 +1800,8 @@ en-NZ:
       generic_error: "An error occurred during the payment process. Could not finalize your Stripe payment."
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Back to the front page"
     error_404:

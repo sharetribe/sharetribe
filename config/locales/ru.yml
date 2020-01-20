@@ -1816,6 +1816,8 @@ ru:
       generic_error: "Произошла ошибка во время процесса оплаты. Не удалось завершить ваш Stripe платеж."
       accept_authorization_error: "Произошла ошибка при попытке принять платеж Stripe. Пожалуйста, попробуйте еще раз."
       reject_authorization_error: "Произошла ошибка при попытке отклонить предварительно авторизованный платеж Stripe. Пожалуйста, попробуйте еще раз."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "На главную страницу"
     error_404:

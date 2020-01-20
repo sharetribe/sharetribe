@@ -1803,6 +1803,8 @@ cs:
       generic_error: "Během platby došlo k chybě. Nelze dokončit platbu přes Stripe."
       accept_authorization_error: "Došlo k chybě při pokusu o přijetí předem schválené platby Stripe. Prosím, zkuste to znovu"
       reject_authorization_error: "Došlo k chybě při pokusu o zamítnutí předem schválené platby Stripe. Prosím, zkuste to znovu"
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Zpět na hlavní stranu"
     error_404:

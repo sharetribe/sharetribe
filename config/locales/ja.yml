@@ -1789,6 +1789,8 @@ ja:
       generic_error: "支払い処理中にエラーが発生しました。 Stripeの支払いを完了できませんでした。"
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: 前のページに戻る
     error_404:

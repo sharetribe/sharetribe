@@ -4,7 +4,7 @@ describe PaypalService::IPN do
 
   let(:account_store) { PaypalService::Store::PaypalAccount }
 
-  before(:each) do
+  def set_up_ipn_messages # rubocop:disable Metrics/MethodLength
     @events = PaypalService::TestEvents.new
 
     @ipn_service = PaypalService::IPN.new(@events)
@@ -248,6 +248,10 @@ describe PaypalService::IPN do
   end
 
   context "update payment" do
+    before(:each) do
+      set_up_ipn_messages
+    end
+
     it "should send event only on changed payment" do
       @ipn_service.handle_msg(@auth_created_msg)
       @ipn_service.handle_msg(@auth_created_msg)
@@ -394,6 +398,7 @@ describe PaypalService::IPN do
 
   context "async handling" do
     before(:each) do
+      set_up_ipn_messages
       @auth_created_params = {
         "mc_gross" => "1.20",
         "auth_exp" => "23:50:00 Oct 03, 2014 PDT",
@@ -458,5 +463,107 @@ describe PaypalService::IPN do
       expect(PaypalIpnMessage.first.status).to eql :success
     end
 
+  end
+
+  describe 'update payment with locale' do
+    let(:community) { FactoryGirl.create(:community, settings: {"locales"=>["en", "de", "sv"]}) }
+    let(:person1) do
+      FactoryGirl.create(:person, member_of: community,
+                                  given_name: 'Florence',
+                                  family_name: 'Torres',
+                                  display_name: 'Floryt',
+                                  locale: 'sv'
+                        )
+    end
+    let(:person2) do
+      FactoryGirl.create(:person, member_of: community,
+                                  given_name: 'Sherry',
+                                  family_name: 'Rivera',
+                                  display_name: 'Sky caterpillar',
+                                  locale: 'de'
+                        )
+    end
+    let(:listing1) do
+      FactoryGirl.create(:listing, community_id: community.id,
+                                   title: 'Apple cake',
+                                   author: person1)
+    end
+    let(:transaction1) do
+      FactoryGirl.create(:transaction, community: community,
+                                       listing: listing1,
+                                       starter: person2,
+                                       current_state: 'confirmed',
+                                       last_transition_at: 1.minute.ago)
+    end
+    let(:events) do
+      Events.new({
+        payment_updated: -> (flow, payment) { TransactionService::PaypalEvents.payment_updated(flow, payment) }
+      })
+    end
+    let(:ipn_service) { PaypalService::IPN.new(events) }
+    let(:order) do
+      {
+        community_id: community.id,
+        transaction_id: transaction1.id,
+        payer_id: "7LFUVCDKGARH4",
+        receiver_id: "URAPMR7WHFAWY",
+        merchant_id: "asdfasdf",
+        pending_reason: "order",
+        order_id: "O-2ES620817J8424036",
+        order_date: Time.now,
+        order_total: Money.new(1000, "GBP")
+      }
+    end
+    let(:auth_created_msg) do
+      {
+        type: :authorization_created,
+        authorization_date: "2014-10-01 09:04:07 +0300",
+        authorization_expires_date: "2014-10-04 09:50:00 +0300",
+        order_id: "O-2ES620817J8424036",
+        authorization_id: "0L584749FU2628910",
+        payer_email: "foobar@barfoo.com",
+        payer_id: "7LFUVCDKGARH4",
+        receiver_email: "dev+paypal-user1@sharetribe.com",
+        receiver_id: "URAPMR7WHFAWY",
+        payment_status: "Pending",
+        pending_reason: "authorization",
+        receipt_id: "3609-0935-6989-4532",
+        order_total: Money.new(120, "GBP"),
+        authorization_total: Money.new(120, "GBP")
+      }
+    end
+    let(:paypal_account) do
+      cid = community.id
+      txid = transaction1.id
+      mid = "merchant_id_1"
+      payer_id = "payer_id_1"
+      paypal_email = "merchant_1@test.com"
+      paypal_email_admin = "admin_2@test.com"
+      billing_agreement_id = "bagrid"
+
+      PaypalService::Store::PaypalPayment.create(cid, txid, order)
+
+      account_store.create(
+        opts:
+          {
+            active: true,
+            person_id: mid,
+            community_id: cid,
+            email: paypal_email,
+            payer_id: payer_id,
+            order_permission_paypal_username_to: paypal_email_admin,
+            order_permission_request_token: "123456789",
+            billing_agreement_billing_agreement_id: billing_agreement_id,
+            billing_agreement_request_token: "B-123456789",
+            billing_agreement_paypal_username_to: paypal_email_admin
+          })
+    end
+
+    it "should set transaction starter's locale" do
+      paypal_account
+      ipn_service.handle_msg(auth_created_msg)
+      expect(I18n.locale).to eq :de
+      I18n.locale = :en
+    end
   end
 end
