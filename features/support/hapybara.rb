@@ -22,7 +22,7 @@ else
   # https://github.com/teamcapybara/capybara/issues/1890
   # Google Chrome 71.0.3578.80
   require 'webdrivers'
-  Webdrivers::Chromedriver.version = '2.46'
+  # Webdrivers::Chromedriver.version = '2.46'
 
   # :selenium_chrome_headless
   Capybara.javascript_driver = :selenium_chrome_headless
