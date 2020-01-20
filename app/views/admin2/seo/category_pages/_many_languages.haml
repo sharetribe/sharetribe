@@ -8,7 +8,7 @@
       .d-flex.multiple-languages
         %span.language
           = t("admin.communities.available_languages.#{cc.object.locale}")
-        = cc.text_field :category_meta_title, class: %i[form-control], placeholder: t('admin2.category_pages.category_meta_title_placeholder')
+        = cc.text_field :category_meta_title, maxlength: 255, class: %i[form-control], placeholder: t('admin2.category_pages.category_meta_title_placeholder')
 
 .form-group
   %label
@@ -20,4 +20,4 @@
       .d-flex.multiple-languages
         %span.language
           = t("admin.communities.available_languages.#{cc.object.locale}")
-        = cc.text_area :category_meta_description, class: %i[form-control], placeholder: t('admin2.category_pages.category_meta_description_placeholder')
+        = cc.text_area :category_meta_description, maxlength: 65535, class: %i[form-control], placeholder: t('admin2.category_pages.category_meta_description_placeholder')
