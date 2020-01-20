@@ -23,12 +23,11 @@
           %small#defaultBrowseView-help.form-text
             = t('admin2.search.search_type_info_text')
 
-  - disabled_placeholder = @presenter.main_search.to_s == 'location'
-  %section.content-card-section.search-placeholder-div{class: disabled_placeholder ? :opacity_04 : ''}
+  %section.content-card-section.search-placeholder-div
     %h2
       = t('admin2.search.keyword_settings')
     .content-card-section-form
-      = render 'search_placeholder', form: form, customizations: @customizations, disabled_placeholder: disabled_placeholder
+      = render 'search_placeholder', form: form, customizations: @customizations
 
   - disable_distance = @presenter.main_search.to_s == 'keyword'
   %section.content-card-section.show-distance-div{class: disable_distance ? :opacity_04 : ''}
