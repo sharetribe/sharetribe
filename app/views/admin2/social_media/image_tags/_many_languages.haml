@@ -8,7 +8,7 @@
       .d-flex.multiple-languages
         %span.language
           = t("admin.communities.available_languages.#{cc.object.locale}")
-        = cc.text_field :social_media_title, class: %i[form-control], placeholder: t('admin2.image_tags.social_media_title_placeholder')
+        = cc.text_field :social_media_title, class: %i[form-control], placeholder: social_media_title_placeholder(customization.locale)
 
 .form-group
   %label
@@ -20,4 +20,4 @@
       .d-flex.multiple-languages
         %span.language
           = t("admin.communities.available_languages.#{cc.object.locale}")
-        = cc.text_area :social_media_description, class: %i[form-control], placeholder: t('admin2.image_tags.social_media_description_palceholder')
+        = cc.text_area :social_media_description, class: %i[form-control], placeholder: social_media_description_placeholder

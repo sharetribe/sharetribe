@@ -25,6 +25,18 @@ module Admin2Helper
     }
   end
 
+  def community_name_tag(locale)
+    @current_community.full_name(locale).presence
+  end
+
+  def social_media_title_placeholder(locale)
+    "#{community_name_tag(locale)} - #{community_slogan}"
+  end
+
+  def social_media_description_placeholder
+    "#{community_description} - #{community_slogan}"
+  end
+
   def admin_title
     title = t('admin2.seo.title', title: content_for(:title), service_name: title_service_name)
     strip_tags(custom_meta_title(title.squish))
