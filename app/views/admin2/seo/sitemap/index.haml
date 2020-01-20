@@ -23,7 +23,4 @@
     %p.ingress
       = t('admin2.sitemap_robots.robots_info_text_1', url: 'https://help.sharetribe.com/en/articles/674555').html_safe
     %p.ingress
-      - if @current_community.private?
-        = t('admin2.sitemap_robots.robots_info_private')
-      - else
-        = t('admin2.sitemap_robots.robots_info_text_2', url: "#{@current_community.full_url}/robots.txt").html_safe
+      = t('admin2.sitemap_robots.robots_info_text_2', url: "#{@current_community.full_url}/robots.txt").html_safe
