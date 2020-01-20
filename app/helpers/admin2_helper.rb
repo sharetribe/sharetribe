@@ -34,7 +34,7 @@ module Admin2Helper
   end
 
   def social_media_description_placeholder
-    "#{community_description} - #{community_slogan}"
+    "#{community_description(false)} - #{community_slogan}"
   end
 
   def admin_title
