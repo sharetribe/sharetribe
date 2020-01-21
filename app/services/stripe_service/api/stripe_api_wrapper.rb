@@ -264,6 +264,14 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
+    def update_account_capabilities(community:, account_id:)
+      with_stripe_payment_config(community) do |payment_settings|
+        account = Stripe::Account.retrieve(account_id)
+        account.requested_capabilities = ['card_payments', 'transfers']
+        account.save
+      end
+    end
+
     def empty_string_as_nil(value)
       value.presence
     end
