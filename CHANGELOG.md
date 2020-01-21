@@ -20,6 +20,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
+- Fixed issue for CLP sections reordering incorrectly when # of sections > 10
+
 ### Security
 
 ## [9.0.0] - 2019-10-02
