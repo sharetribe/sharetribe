@@ -170,9 +170,10 @@ class Community < ApplicationRecord
 
   monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :currency
 
-  validates_length_of :ident, :in => 2..50
-  validates_format_of :ident, :with => /\A[A-Z0-9_\-\.]*\z/i
-  validates_uniqueness_of :ident
+  validates :ident, length: { in: 3..50 },
+                    format: { with: /\A[A-Z0-9_\-\.]*\z/i, message: :domain_name_is_invalid },
+                    uniqueness: true,
+                    exclusion: { in: MarketplaceService::RESERVED_DOMAINS, message: :domain_name_is_invalid }
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
   validates_format_of :custom_color1, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
