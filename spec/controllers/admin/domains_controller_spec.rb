@@ -92,7 +92,7 @@ describe Admin::DomainsController, type: :controller do
 
     it 'works' do
       expect(
-        patch :update, params: { community: { ident: 'rosemary' } }
+        patch(:update, params: { community: { ident: 'rosemary' } })
       ).to redirect_to %r((http|https)://rosemary.lvh.me:9887)
     end
   end
