@@ -1,5 +1,7 @@
 - content_for :javascript do
-  ST.Domains.init();
+  ST.Domains.init({
+  reserved_domains: #{MarketplaceService::RESERVED_DOMAINS.to_json.html_safe}
+  });
 
 - content_for :title_header do
   %h1
@@ -30,6 +32,8 @@
     %p
       - link = link_to t("admin.communities.domain.contact_us"), '#', 'show-intercom': true
       = t("admin.communities.domain.would_you_like_to_change_address", contact_us: link).html_safe
+
+    = render 'edit', presenter: @presenter
 
   - elsif @presenter.domain_possible?
     %p.marketplace-address-is
