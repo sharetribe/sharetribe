@@ -417,7 +417,11 @@ Rails.application.routes.draw do
         end
       end
       resource :plan, only: [:show]
-      resource :domain, only: [:show]
+      resource :domain, only: [:show, :update] do
+        collection do
+          get :check_availability
+        end
+      end
       resource :community_seo_settings, only: [:show, :update]
       resources :landing_page_versions do
         member do
