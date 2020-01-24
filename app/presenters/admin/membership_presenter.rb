@@ -51,4 +51,12 @@ class Admin::MembershipPresenter
   def require_verification_to_post_listings
     community.require_verification_to_post_listings
   end
+
+  def has_membership_unfinished_transactions(membership)
+    Transaction.unfinished_for_person(membership.person).any?
+  end
+
+  def can_delete(membership)
+    membership.banned? && !has_membership_unfinished_transactions(membership)
+  end
 end
