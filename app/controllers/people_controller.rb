@@ -195,7 +195,7 @@ class PeopleController < Devise::RegistrationsController
   def destroy
     target_user = Person.find_by!(username: params[:id], community_id: @current_community.id)
 
-    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(target_user.id)
+    has_unfinished = Transaction.unfinished_for_person(target_user).any?
     only_admin = @current_community.is_person_only_admin(target_user)
 
     return redirect_to search_path if has_unfinished || only_admin

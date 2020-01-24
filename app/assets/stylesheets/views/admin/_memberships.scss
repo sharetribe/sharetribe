@@ -1,12 +1,12 @@
 @import "mixins/all";
 
-#membership-popup {
+#membership-popup, #membership-delete {
   @include media(desktop) {
     min-width: 600px;
   }
 }
 
-#membership-popup-content {
+.membership-popup-content {
   .membership--pending-popup {
     margin-top: 10px;
   }
@@ -22,6 +22,9 @@
       padding-bottom: 0.5625em;
     }
   }
+  &.delete-content {
+    padding-top: 20px;
+  }
 }
 
 .post-listing-is-disabled {
@@ -36,7 +39,7 @@
 }
 
 td.membership-actions {
-  min-width: 65px;
+  min-width: 90px;
   span {
     margin-right: 5px;
     &:last-child {
