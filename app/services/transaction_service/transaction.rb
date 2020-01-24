@@ -86,10 +86,6 @@ module TransactionService::Transaction
     adapter
   end
 
-  def has_unfinished_transactions(person_id)
-    TxStore.unfinished_tx_count(person_id) > 0
-  end
-
   def can_start_transaction(opts)
     payment_gateway = opts[:transaction][:payment_gateway]
     author_id = opts[:transaction][:listing_author_id]

@@ -1,12 +1,12 @@
 @import "mixins/all";
 
-#membership-popup {
+#membership-popup, #membership-delete {
   @include media(desktop) {
     min-width: 600px;
   }
 }
 
-#membership-popup-content {
+.membership-popup-content {
   .membership--pending-popup {
     margin-top: 10px;
   }
@@ -21,6 +21,9 @@
       padding-top: 0.5625em;
       padding-bottom: 0.5625em;
     }
+  }
+  &.delete-content {
+    padding-top: 20px;
   }
 }
 

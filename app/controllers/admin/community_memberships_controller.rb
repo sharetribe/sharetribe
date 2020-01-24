@@ -67,6 +67,12 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
     render body: nil, status: :ok
   end
 
+  def destroy
+    @service.destroy
+    flash[:error] = @service.error_message
+    redirect_to admin_community_community_memberships_path(@current_community)
+  end
+
   private
 
   def set_selected_left_navi_link
