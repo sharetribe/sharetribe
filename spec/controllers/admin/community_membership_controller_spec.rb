@@ -16,6 +16,11 @@ describe Admin::CommunityMembershipsController, type: :controller do
     person.community_membership.update_column(:status, CommunityMembership::PENDING_CONSENT)
     person
   end
+  let(:person_banned) do
+    person = FactoryGirl.create(:person, member_of: community)
+    person.community_membership.update(status: "banned")
+    person
+  end
 
   before(:each) do
     @request.host = "#{community.ident}.lvh.me"
@@ -169,6 +174,22 @@ describe Admin::CommunityMembershipsController, type: :controller do
       expect(ActionMailer::Base.deliveries.count).to eq 1
       delivered_email = ActionMailer::Base.deliveries.last
       expect(delivered_email.to).to eq [person.emails.first.address]
+    end
+  end
+
+  describe "#destroy" do
+    it 'works' do
+      membership = person_banned.community_membership
+      delete :destroy, params: {community_id: community.id, id: membership.id}
+      person_banned.reload
+      expect(person_banned.deleted).to eq true
+    end
+
+    it 'does not delete if person is not banned' do
+      membership = person1.community_membership
+      delete :destroy, params: {community_id: community.id, id: membership.id}
+      person1.reload
+      expect(person1.deleted).to eq false
     end
   end
 end

@@ -56,6 +56,11 @@
 class Transaction < ApplicationRecord
   include ExportTransaction
 
+  # While initiated is technically not a finished state it also
+  # doesn't have any payment data to track against, so removing person
+  # is still safe.
+  FINISHED_TX_STATES = ['initiated', 'free', 'rejected', 'confirmed', 'canceled', 'errored'].freeze
+
   attr_accessor :contract_agreed
 
   belongs_to :community
@@ -145,6 +150,11 @@ class Transaction < ApplicationRecord
     where("NOT starter_skipped_feedback AND NOT #{Testimonial.with_tx_starter.select('1').arel.exists.to_sql}
            OR NOT author_skipped_feedback AND NOT #{Testimonial.with_tx_author.select('1').arel.exists.to_sql}")
   }
+  scope :unfinished, -> { where.not(current_state: FINISHED_TX_STATES) }
+  # We include deleted transactions on purpose. They might be in a
+  # state where e.g. IPN message causes them to proceed so removing
+  # user data would be unwise.
+  scope :unfinished_for_person, -> (person) { unfinished.for_person(person) }
 
   def booking_uuid_object
     if self[:booking_uuid].nil?
