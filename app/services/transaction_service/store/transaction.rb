@@ -2,11 +2,6 @@ module TransactionService::Store::Transaction
 
   TransactionModel = ::Transaction
 
-  # While initiated is technically not a finished state it also
-  # doesn't have any payment data to track against, so removing person
-  # is still safe.
-  FINISHED_TX_STATES = "'initiated', 'free', 'rejected', 'confirmed', 'canceled', 'errored'"
-
   module_function
 
   def create(tx_data)
@@ -45,16 +40,6 @@ module TransactionService::Store::Transaction
 
   def get_in_community(community_id:, transaction_id:)
     TransactionModel.where(id: transaction_id, community_id: community_id, deleted: false).first
-  end
-
-  def unfinished_tx_count(person_id)
-    # We include deleted transactions on purpose. They might be in a
-    # state where e.g. IPN message causes them to proceed so removing
-    # user data would be unwise.
-    TransactionModel
-      .where("starter_id = ? OR listing_author_id = ?", person_id, person_id)
-      .where("current_state NOT IN (#{FINISHED_TX_STATES})")
-      .count
   end
 
   def upsert_shipping_address(community_id:, transaction_id:, addr:)
