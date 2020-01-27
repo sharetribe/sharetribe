@@ -3203,9 +3203,11 @@ es:
     form_verification:
       personal_id_number: "Numero de Identificación Personal"
       document: "Documento de verificación"
+      document_back: ~
       send_verification: "Enviar verificación"
       need_verification: "Necesita verificación adicional"
       additional_document: "Comprobante de domicilio, ya sea pasaporte, identificación oficial o una factura oficial"
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Número de seguridad social (Social Security Number)"

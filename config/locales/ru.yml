@@ -3250,9 +3250,11 @@ ru:
     form_verification:
       personal_id_number: "Личный ID номер"
       document: "Удостоверение личности (паспорт,ID выданное правительством)"
+      document_back: ~
       send_verification: "Отправить письмо с подтверждением"
       need_verification: "Нужно дополнительное подтверждение"
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "Номер социального страхования (SIN)"
       social_security_number: "Номер Социального Страхования"

@@ -3148,9 +3148,11 @@ it:
     form_verification:
       personal_id_number: "Numero documento di identità"
       document: "Documento di verifica"
+      document_back: "Verifica d'identità (passaporto, carta d'identità) (retro del documento)"
       send_verification: "Invia verifica"
       need_verification: "Bisogno di verifiche aggiuntive"
       additional_document: ~
+      additional_document_back: "Un documento che attesti il tuo indirizzo, come passaporto, carta d'identità o  ricevuta di una società di servizi pubblici (retro del documento)"
     form_pin:
       social_insurance_number: ~
       social_security_number: ~

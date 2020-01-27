@@ -3223,9 +3223,11 @@ he-IL:
     form_verification:
       personal_id_number: "תעודת זהות"
       document: "הוכחת זהות(ת.ז,דרכון)"
+      document_back: ~
       send_verification: "שלח אימות"
       need_verification: "נצרך אימות נוסף"
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "מספר זהות SIN "
       social_security_number: "מספר זהות אמריקאי SSN "

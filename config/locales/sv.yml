@@ -3194,9 +3194,11 @@ sv:
     form_verification:
       personal_id_number: "Personligt ID nummer"
       document: Verifikationsnummer
+      document_back: ~
       send_verification: "Skicka verifikation"
       need_verification: "Behöver ytterligare verifiering"
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "Personnummer (SIN)"
       social_security_number: "Personnummer (SSN)"

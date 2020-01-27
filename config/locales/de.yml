@@ -3203,9 +3203,11 @@ de:
     form_verification:
       personal_id_number: Personalausweisnummer
       document: Nachweis-Dokument
+      document_back: ~
       send_verification: "Verifizierungen zuschicken"
       need_verification: "Zusätzliche Verifizierung benötigt"
       additional_document: "Ein Dokument das die Adresse anzeigt, wie ein Reisepass, eine ID-Karte, oder eine Rechnung eines bekannten Versorgungsunternehmens (z.B. eines Elektrizitätsunternehmens)"
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sozialversicherungsnummer)"
       social_security_number: "Social Security Number (SSN; Sozialversicherungsnummer)"

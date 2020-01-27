@@ -3204,9 +3204,11 @@ fi:
     form_verification:
       personal_id_number: "Henkilökohtainen ID"
       document: Vahvistusdokumentti
+      document_back: ~
       send_verification: "Lähetä vahvistus"
       need_verification: "Lisävahvistus tarvitaan"
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sosiaalivakuutusnumero)"
       social_security_number: "Social Security Number (SSN; Sosiaaliturvanumero)"

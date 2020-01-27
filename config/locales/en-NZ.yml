@@ -3188,9 +3188,11 @@ en-NZ:
     form_verification:
       personal_id_number: "Personal ID Number"
       document: "Verification document"
+      document_back: ~
       send_verification: "Send Verification"
       need_verification: "Need additional verification"
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"

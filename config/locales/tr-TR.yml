@@ -3148,9 +3148,11 @@ tr-TR:
     form_verification:
       personal_id_number: ~
       document: ~
+      document_back: ~
       send_verification: ~
       need_verification: ~
       additional_document: "Adres gösteren belge, pasaport, nufüs cüzdanı ya da elktrik, gaz, telefon faturası"
+      additional_document_back: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~

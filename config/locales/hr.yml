@@ -3229,9 +3229,11 @@ hr:
     form_verification:
       personal_id_number: "Broj osobne iskaznice"
       document: "Dokaz identiteta (putovnica, osobna iskaznica izdana od strane nadležnog tijela vlasti)"
+      document_back: ~
       send_verification: "Pošalji Verifikaciju"
       need_verification: "Potrebna je dodatna verifikacija"
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "Broj socijalnog osiguranja (SIN)"
       social_security_number: "Broj socijalnog osiguranja (SIN)"
