@@ -1650,7 +1650,7 @@ es:
       settings_link_text: "Edita la configuración de tu correo electrónico aquí"
       unsubscribe_link_text: "cancela tu suscripción"
     community_updates_v2:
-      headline: "Checa lo último que ha pasado en %{service_name}."
+      headline: "Consulta lo último que ha pasado en %{service_name}."
       intro_paragraph:
         one: "Aquí hay algo de lo más destacado que pasó en %{service_name} durante el último día."
         other: "Aquí hay algo de lo más destacado que pasó en %{service_name} durante los últimos %{count} días."
@@ -1803,8 +1803,8 @@ es:
       generic_error: "Ocurrió un error al procesar el pago. No se pudo finalizar el pago con Stripe."
       accept_authorization_error: "Ocurrió un error al intentar aceptar el pago preautorizado con Stripe. Por favor inténtalo nuevamente."
       reject_authorization_error: "Ocurrió un error al intentar rechazar el pago preautorizado con Stripe. Por favor inténtalo nuevamente."
-      card_declined: ~
-      expired_card: ~
+      card_declined: "Tu tarjeta fue rechazada"
+      expired_card: "El pago falló porque la tarjeta ha expirado"
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal"
     error_404:
@@ -2226,7 +2226,7 @@ es:
       stripe_you_account_balance_is_not_0: "El balance de tu cuenta no es 0 y por lo tanto no puede ser eliminada. Esto puede significar que tienes transacciones esperando a ser completadas o que hay dinero esperando a ser transferido a tu cuenta de banco. Por favor contacta al equipo de %{service_name} si tienes alguna duda."
       visit_admin: "¿ Quisieras %{link}?"
       visit_admin_link: "visitar tu panel de administración"
-      an_error_occurred_when_saving_your_information: "Hubo un problema al guardar tu información, el mensaje es: \"%{message}\". Por favor checa que toda la información esté correcta e intenta de nuevo."
+      an_error_occurred_when_saving_your_information: "Hubo un problema al guardar tu información, el mensaje es: \"%{message}\". Por favor revisa que toda la información sea correcta e intenta de nuevo."
     settings:
       account: Cuenta
       notifications: Notificaciones
@@ -3202,12 +3202,12 @@ es:
         digits_or_chars: "dígitos o letras entre A-Z"
     form_verification:
       personal_id_number: "Numero de Identificación Personal"
-      document: "Documento de verificación"
-      document_back: ~
+      document: "Documento de verificación de identidad (pasaporte, identificación oficial)"
+      document_back: "Documento de verificación de identidad (parte de atrás)"
       send_verification: "Enviar verificación"
       need_verification: "Necesita verificación adicional"
       additional_document: "Comprobante de domicilio, ya sea pasaporte, identificación oficial o una factura oficial"
-      additional_document_back: ~
+      additional_document_back: "Comprobante de domicilio, ya sea pasaporte, identificación oficial o una factura oficial (parte de atrás)"
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Número de seguridad social (Social Security Number)"
