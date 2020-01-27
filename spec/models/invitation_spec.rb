@@ -13,6 +13,7 @@
 #  inviter_id   :string(255)
 #  message      :text(65535)
 #  email        :string(255)
+#  deleted      :boolean          default(FALSE)
 #
 # Indexes
 #
