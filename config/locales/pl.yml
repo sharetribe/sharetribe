@@ -3240,9 +3240,11 @@ pl:
     form_verification:
       personal_id_number: PESEL
       document: "Rodzaj dokumenty tożsamości (paszport, dowód osobisty)"
+      document_back: ~
       send_verification: "Wyślij weryfikację"
       need_verification: "Potrzebna dodatkowa weryfikacja"
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: "Numer ubezpieczenia społecznego (NFZ)"

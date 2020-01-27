@@ -3162,9 +3162,11 @@ ja:
     form_verification:
       personal_id_number: パーソナルID番号
       document: 本人確認書類
+      document_back: ~
       send_verification: 認証メールを送信
       need_verification: 追加の確認が必要です
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "社会保険番号 (SIN)"
       social_security_number: 社会保障番号（SSN）

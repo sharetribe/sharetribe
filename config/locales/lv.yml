@@ -3162,9 +3162,11 @@ lv:
     form_verification:
       personal_id_number: "Personīgais ID numurs"
       document: "Pārbaudes dokuments (pase, valdības izsniegta personas apliecība)"
+      document_back: ~
       send_verification: "Sūtīt Verifikāciju"
       need_verification: "Nepieciešama papildus pārbaude"
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "Sociālās apdrošināšanas numurs (SIN)"
       social_security_number: "Sociālās apdrošināšanas numurs (SSN)"

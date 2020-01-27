@@ -3203,9 +3203,11 @@ fr:
     form_verification:
       personal_id_number: "Numéro d'identification personel"
       document: "Document d'identité (passeport, carte d'identité)"
+      document_back: "Document d'identité (passeport, carte d'identité) (dos du document)"
       send_verification: "Envoyer la vérification"
       need_verification: "Vérification supplémentaire nécessaire"
       additional_document: "Un document avec l'adresse visible, par exemple un passeport, une carte d'identité ou une facture d'électricité ou d'une entreprise reconnue"
+      additional_document_back: "Un document avec l'adresse visible, par exemple un passeport, une carte d'identité ou une facture d'électricité ou d'une entreprise reconnue (dos du document)"
     form_pin:
       social_insurance_number: "Numéro d'Assurance Sociale (NAS)"
       social_security_number: "Numéro de Sécurité Sociale (SSN)"

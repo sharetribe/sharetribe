@@ -3169,9 +3169,11 @@ ko:
     form_verification:
       personal_id_number: "개인 ID 번호"
       document: "확인 문서"
+      document_back: ~
       send_verification: "확인 보내기"
       need_verification: "추가 확인 필요"
       additional_document: ~
+      additional_document_back: ~
     form_pin:
       social_insurance_number: "사회 보장 번호 (SIN)"
       social_security_number: "사회 보장 번호 (SSN)"
