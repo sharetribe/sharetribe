@@ -29,7 +29,7 @@ describe "HTTP basic auth", type: :request do
     expect(response.status).to eq(401)
   end
 
-  it "is bypassed for internal API" do
+  xit "is bypassed for internal API" do
     post "/int_api/create_trial_marketplace", params: {
            admin_email: "test123@example.com",
            admin_first_name: "Test",

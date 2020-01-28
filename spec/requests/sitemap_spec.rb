@@ -14,7 +14,7 @@ RSpec.describe SitemapController, type: :request do
   end
 
   describe "GET #sitemap" do
-    it "creates sitemap" do
+    xit "creates sitemap" do
       get "http://#{@domain}/sitemap.xml.gz"
       expect(response.status).to eq(200)
     end
