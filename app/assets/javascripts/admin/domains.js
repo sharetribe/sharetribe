@@ -9,6 +9,20 @@ window.ST = window.ST || {};
 
   var init = function(options) {
     $('[show-intercom]').on('click', showIntercom);
+    $.validator.
+      addMethod( "exclude_reserved_domains",
+        function(value, element, param) {
+          return _.indexOf(options.reserved_domains, value.trim()) < 0;
+        }
+      );
+    $('form.edit_community').validate({
+      submitHandler: function(form) {
+        $('#domain_popup').lightbox_me({centered: true, closeSelector: '#close_x, #close_x1'});
+        $('#proceed').off('click').on('click', function(e) {
+          form.submit();
+        });
+      }
+    });
   };
 
   module.Domains = {
