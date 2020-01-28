@@ -686,6 +686,7 @@ CREATE TABLE `invitations` (
   `inviter_id` varchar(255) DEFAULT NULL,
   `message` text,
   `email` varchar(255) DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_invitations_on_code` (`code`) USING BTREE,
   KEY `index_invitations_on_inviter_id` (`inviter_id`) USING BTREE
@@ -2427,4 +2428,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190904115045'),
 ('20190920113245'),
 ('20191016061908'),
-('20191016064022');
+('20191016064022'),
+('20200127120611');
+
+
