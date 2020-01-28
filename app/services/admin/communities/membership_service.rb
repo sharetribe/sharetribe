@@ -91,6 +91,7 @@ class Admin::Communities::MembershipService
       Person.delete_user(person.id)
       Listing.delete_by_author(person.id)
       PaypalAccount.where(person_id: person.id, community_id: person.community_id).delete_all
+      Invitation.where(community: person.community, inviter: person).update_all(deleted: true) # rubocop:disable Rails/SkipsModelValidations
     end
   end
 
