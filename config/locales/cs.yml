@@ -1071,7 +1071,11 @@ cs:
       read_more_about_paypal_and_stripe: "Zjistit více o online platbách, Stripe a PayPal"
       general_settings_updated: "Aktualizace obecného nastavení platebního systému"
       transaction_fee_settings_updated: "Aktualizace nastavení transakčních poplatků"
-      choose_popup_text: ~
+      choose_popup_text: |-
+          Pokud chcete svým uživatelům umožnit přijímat online platby, musíte si vybrat měnu pro své tržiště a poté připojit alespoň jednoho ze dvou poskytovatelů plateb podporovaných Sharetribe: Stripe a PayPal. Můžete se také rozhodnout použít obě možnosti, což znamená, že vaši uživatelé budou moci přijímat platby pomocí obou způsobů platby.
+          Nový účet můžete vytvořit pomocí kterékoli služby, pokud jej již nemáte. Po připojení účtu si můžete vybrat možný poplatek, který účtujete z každé transakce.
+          Jaký je rozdíl mezi Stripe a PayPal? Stripe umožňuje odložit platbu prodávajícímu až o 3 měsíce a nabízí jeden způsob platby (kreditní / debetní karta). Stripe také umožňuje prodejcům přijímat peníze přímo na jejich bankovní účet pouhým poskytnutím jejich bankovních údajů. PayPal poskytuje dva způsoby platby (kreditní kartu a účet PayPal) a nabízí program ochrany pro kupující a prodávající. Vyžaduje, aby vaši prodejci vytvořili obchodní účet PayPal, aby mohli přijímat platby.
+          Pokud používáte Stripe, jeho poplatky budou odečteny z vašeho transakčního poplatku, takže nezapomeňte nastavit dostatečně vysoký minimální poplatek. Pokud používáte PayPal, budou jeho poplatky účtovány od prodávajícího samostatně, kromě transakčního poplatku. Stripe a PayPal mají trochu odlišnou strukturu poplatků. Ve většině případů jsou poplatky Stripe o něco nižší.
       invalid_api_keys: "Neplatný Stripe API klíč"
       missing_api_keys: "Chybí Stripe API klíč"
       stripe_verified: "Stripe API přístup ověřen"
