@@ -267,8 +267,11 @@ class StripeService::API::StripeApiWrapper
     def update_account_capabilities(community:, account_id:)
       with_stripe_payment_config(community) do |payment_settings|
         account = Stripe::Account.retrieve(account_id)
-        account.requested_capabilities = ['card_payments', 'transfers']
-        account.save
+        capabilities = account.capabilities
+        unless capabilities['card_payments'] == 'active' && capabilities['platform_payments'] == 'active'
+          account.requested_capabilities = ['card_payments', 'transfers', 'legacy_payments']
+          account.save
+        end
       end
     end
 

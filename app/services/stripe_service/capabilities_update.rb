@@ -3,23 +3,23 @@ class StripeService::CapabilitiesUpdate
 
   private
 
-  attr_reader :current_community, :person_username, :community_id, :update_all
+  attr_reader :current_community, :person_id, :community_id, :update_all
 
   public
 
-  def initialize(person_username: nil, community_id: nil, update_all: nil)
-    @person_username = person_username
+  def initialize(person_id: nil, community_id: nil, update_all: nil)
+    @person_id = person_id
     @community_id = community_id
     @update_all = update_all
   end
 
   def update
     @current_community = nil
-    if person_username
+    if person_id
       if single_person
         update_person(single_person)
       else
-        puts "Could not find person username='#{person_username}'"
+        puts "Could not find person person_id='#{person_id}'"
       end
     elsif community_id
       update_community
@@ -43,7 +43,7 @@ class StripeService::CapabilitiesUpdate
   end
 
   def update_person(person)
-    puts "Processing person username='#{person.username}'"
+    puts "Processing person person_id='#{person.id}' username='#{person.username}'"
     stripe_account = StripeAccount.find_by(person: person)
     if stripe_account
       @current_community ||= stripe_account.community
@@ -52,7 +52,7 @@ class StripeService::CapabilitiesUpdate
         account_id: stripe_account.stripe_seller_id
       )
     else
-      puts "Could not find stripe account for person='#{person.username}'"
+      puts "Could not find stripe account for person person_id='#{person.id}' username='#{person.username}'"
     end
   end
 
@@ -60,7 +60,7 @@ class StripeService::CapabilitiesUpdate
     StripeAccount.all.each do |stripe_account|
       next unless stripe_account.person && stripe_account.community
 
-      puts "Processing person username='#{stripe_account.person.username}'"
+      puts "Processing person id='#{stripe_account.person.id}'"
       StripeService::API::StripeApiWrapper.update_account_capabilities(
         community: stripe_account.community,
         account_id: stripe_account.stripe_seller_id
@@ -69,7 +69,7 @@ class StripeService::CapabilitiesUpdate
   end
 
   def single_person
-    @single_person ||= Person.find_by(username: person_username)
+    @single_person ||= Person.find_by(id: person_id)
   end
 end
 # rubocop:enable Rails/Output
