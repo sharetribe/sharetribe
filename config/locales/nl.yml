@@ -101,7 +101,7 @@ nl:
         edit_community_look_and_feel: "Bewerk look & feel marktplaats %{community_name}"
         community_logo: Logo
         community_logo_icon: "Logo voor sociale netwerken en mobiele toestellen"
-        community_logo_icon_mobile: "Logo voor home screen op mobiele apparaten"
+        community_logo_icon_mobile: "Vierkant logo"
         community_cover_photo: "Cover afbeelding"
         small_community_cover_photo: "Kleine cover afbeelding"
         favicon: Favicon
@@ -116,7 +116,7 @@ nl:
         logo_instructions_text_with_dimensions_no_placing: "Het logoformaat dient %{height}x%{width} pixels te zijn."
         logo_icon_instructions_text_with_dimensions: "Mobiele logo's dienen vierkant te zijn, bij voorkeur %{width}x%{height} pixels. Het zal getoond worden aan gebruikers met kleinere schermen."
         logo_icon_instructions_text_with_dimensions_no_placing: "Dit vierkante logo wordt vertoond wanneer mensen jouw site delen op Facebook, of wanneer ze je site bookmarken op het home screen van hun mobiele apparaat. De dimensies dienen (minstens) %{height}x%{width} pixels te zijn."
-        logo_mobile_icon_instructions_text_with_dimensions: "Dit vierkante logo verschijnt op het home screen van mobiele apparaten wanneer mensen je site bookmarken. De dimensies dienen minstens %{width}x%{height} pixels te zijn."
+        logo_mobile_icon_instructions_text_with_dimensions: "Dit vierkante logo verschijnt als je sommige taken uitvoert als beheerder, alsmede op het home screen van mobiele apparaten wanneer mensen je site bookmarken. De dimensies dienen (ten minste) %{width}x%{height} pixels te zijn."
         cover_photo_visibility: "Cover afbeelding wordt getoond op de homepagina voor gebruikers die niet ingelogd zijn."
         cover_photo_instructions_text_with_dimensions: "De afbeelding zal verkleind worden naar %{width}x%{height} pixels. Grote afbeeldingen zullen in twee gesplitst worden. %{see_how_it_looks_like}"
         we_have_you_covered: "Hebben we voor je geregeld"
@@ -309,7 +309,7 @@ nl:
         enabled_for_all: "Voor allen ingesteld"
         new_topbar: "Nieuwe menubalk boven (zichtbaar op iedere pagina)"
         searchpage: "Nieuwe zoekpagina (vereist de nieuwe top bar)"
-        new_email_templates: ~
+        new_email_templates: "Nieuwe layout voor emails"
       social_media:
         social_media: "Sociale media"
         logo: "Sociale media afbeelding"
@@ -400,10 +400,10 @@ nl:
         robots_info: "Robots.txt is een tekstbestand dat web robots (gebruikelijk zoekmachine robots) instrueert hoe de pagina's op je marktplaats te doorzoeken. %{link}."
         robots_info_link_text: "Lees meer over het robots.txt bestand"
         robots_info_2: "Een robots.txt bestand wordt automatisch gegenereerd voor je marktplaats. Je hebt toegang tot je robots.txt bestand op %{link}."
-        google_search_console: ~
-        google_search_console_paragraph1: ~
-        google_search_console_these_instructions: ~
-        google_search_console_paragraph2: ~
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "Google Search console biedt gereedschappen en rapporten aan die het zoekmachine-verkeer en prestatie van je site helpen meten, alsmede het oplossen van problemen in de resultaten van Google's zoekmachine."
+        google_search_console_these_instructions: "deze instructies"
+        google_search_console_paragraph2: "Het is een goed idee om je website toe te voegen aan Google Search Console. Het neemt slechts een paar minuten in beslag met %{link}."
         save: "Sla instellingen op"
       analytics:
         analytics: Analytics
@@ -427,7 +427,7 @@ nl:
         save: "Instellingen opslaan"
         add_menu_link: "Voeg een nieuwe koppeling toe aan menu"
         title_placeholder: "Titel koppeling"
-        url_placeholder: "http://voorbeeld.nl"
+        url_placeholder: "http://voorbeeld.nl/en"
         title: Titel
         language: Taal
         url: URL
@@ -464,13 +464,13 @@ nl:
           confirmed: Voltooid
           paid: Betaald
           canceled: Geannuleerd
-          disputed: ~
+          disputed: Aangevochten
           preauthorized: "Vooraf geauthoriseerd"
           rejected: Geweigerd
           payment_intent_requires_action: "In afwachting"
           payment_intent_action_expired: Verlopen
-          refunded: ~
-          dismissed: ~
+          refunded: Teruggestort
+          dismissed: Verworpen
         headers:
           conversation: Conversatie
           listing: Advertentie
@@ -479,7 +479,7 @@ nl:
           started: Gestart
           last_activity: "Laatste activiteit"
           initiated_by: Door
-          other_party: Leverancier
+          other_party: Verkoper
         status:
           conversation: Conversaties
           free: "Vrije transactie"
@@ -490,7 +490,7 @@ nl:
           paid: Betaald
           confirmed: Voltooid
           canceled: Geannuleerd
-          disputed: ~
+          disputed: Aangevochten
           initiated: "Wachten op PayPal betaling"
           pending_ext: "Wachten PayPal betaling"
           none:
@@ -504,11 +504,11 @@ nl:
             paid: Betaald
             confirmed: Uitgevoerd
             canceled: Geannuleerd
-            disputed: ~
+            disputed: Aangevochten
             initiated: "In afwachting van PayPal betaling"
             pending_ext: "In afwachting van PayPal betaling"
-            refunded: ~
-            dismissed: ~
+            refunded: Teruggestort
+            dismissed: Verworpen
           stripe:
             free: Conversatie
             pending: "In afwachting"
@@ -518,14 +518,14 @@ nl:
             paid: Betaald
             confirmed: Uitgevoerd
             canceled: Geannuleerd
-            disputed: ~
+            disputed: Aangevochten
             initiated: "In afwachting van Stripe betaling"
             pending_ext: "In afwachting van Stripe betaling"
             payment_intent_requires_action: "in afwachting"
             payment_intent_action_expired: Verlopen
             payment_intent_failed: "Stripe betaling mislukt"
-            refunded: ~
-            dismissed: ~
+            refunded: Teruggestort
+            dismissed: Verworpen
         not_available: "Niet beschikbaar"
       conversations:
         conversations: Conversaties
@@ -535,7 +535,7 @@ nl:
           started: Begonnen
           last_activity: "Laatste Activiteit"
           initiated_by: Starter
-          other_party: Leverancier
+          other_party: Verkoper
         participants: "Conversatie: %{starter} met %{author}"
         profile: "Profiel van %{author}"
         search_by_keyword: "Zoek voor een naam, email of trefwoord"
@@ -649,7 +649,7 @@ nl:
         style:
           dark: Donker
           light: Licht
-          marketplace_color: "Kleur marktplaats"
+          marketplace_color: "Hoofdkleur marktplaats"
           logo: Logo
         social:
           title: Titel
@@ -664,11 +664,11 @@ nl:
         contact_us: "Neem contact op met ons"
         you_can_now_use_a_custom_domain: "Met je huidige plan kun je nu een eigen domein instellen. Om verder te gaan met de setup: %{contact_us}!"
         would_you_like_to_change_domain: "Wil je je eigen marktplaats domein veranderen? %{contact_us}!"
-        change_your_sharetribe_domain: ~
-        only_letters_numbers_and_hyphens_can_be_used: ~
-        when_you_change_your_sharetribe_domain: ~
-        would_you_like_to_proceed: ~
-        change: ~
+        change_your_sharetribe_domain: "Verander je Sharetribe domein"
+        only_letters_numbers_and_hyphens_can_be_used: "Alleen letters, cijfers en koppeltekens zijn toegestaan. Let op! Je oude domein wordt nu beschikbaar voor gebruik door iedereen en er zal niet worden doorverwezen naar je nieuwe domein."
+        when_you_change_your_sharetribe_domain: "Wanneer je je Sharetribe domein verandert, veranderen al je URL's automatisch mee. Je zult worden doorverwezen naar het nieuwe adres van je marktplaats. Jij en je gebruikers zullen opnieuw moeten inloggen. Je oude domein wordt nu beschikbaar voor gebruik door iedereen en er zal niet worden doorverwezen naar je nieuwe domein."
+        would_you_like_to_proceed: "Wil je verder gaan?"
+        change: Verander
       landing_pages:
         landing_pages: Landingspagina
         info_1: "De landingspagina is misschien wel de belangrijkste pagina van je marktplaats. Het is de eerste pagina die bezoekers zien - een soort van voordeur van je huis. Je hebt slechts een paar seconden om nieuwe bezoekers te overtuigen dat ze je site moeten verkennen. De pagina dient aantrekkelijk te zijn en de waardepropositie duidelijk en verleidelijk."
@@ -687,7 +687,7 @@ nl:
         check_it_out: "Bekijk het hier"
         form:
           save: "Sla op"
-          cancel: ~
+          cancel: Annuleer
         sections:
           identifier: "Sectie ID"
           kind: "Sectie type"
@@ -723,11 +723,11 @@ nl:
     landing_page_versions:
       sections:
         content:
-          title: ~
+          title: "Sectie inhoud"
         hero:
           hero_title: Hero
           hero_description: "Stel de achtergrondafbeelding in voor de ´Hero´ sectie. De slogan en beschrijving zijn ingesteld van de %{link}."
-          basic_details_tab: ~
+          basic_details_tab: "'Basis details' tab"
         footer:
           footer_title: Footer
           footer_style: "Footer stijl"
@@ -740,10 +740,10 @@ nl:
           cta_enabled: "Toon een button"
           cta_text: Label
           cta_url: URL
-          text_placeholder: ~
-          url_placeholder: ~
+          text_placeholder: "Klik mij!"
+          url_placeholder: "https://www.voorbeeld.com"
         background_selector:
-          title: ~
+          title: Achtergrond
         background_image_overlay:
           background_image: Achtergrondafbeelding
           background_image_info: "Deze afbeelding wordt getoond als de achtergrondafbeelding voor de sectie. Voor het beste resultaat dient het minimale afmetingen van 1600x1200 pixels te hebben."
@@ -804,7 +804,7 @@ nl:
           main_title: Hoofdtitel
           column_header: "Kolom %{index}"
           column_title: "Kolom %{index} titel"
-          web_viewer: ~
+          web_viewer: webviewer
           column_icon_info: "Je kunt je icoon kiezen van deze %{link}. Eenmaal geselecteerd, kopieer dan de 'Directory path' (bijvoorbeeld '01-Interface Essential/01-Home/house-2.svg') en plak het hier."
           column_icon: "Kolom %{index}  icoon"
           column_paragraph: "Kolom %{index} paragraaf"
@@ -812,7 +812,7 @@ nl:
           column_button_text: "Button label"
           column_button_url: "https://www.voorbeeld.com"
         listings:
-          listings_to_feature: ~
+          listings_to_feature: "Advertenties om uit te lichten"
           you_need_to_add_the_listing_ids: "Je dient de advertentie ID van de advertenties die je wilt uitlichten aan deze sectie toe te voegen. Je vindt de ID van een advertentie door naar de pagina van de advertentie te gaan en de URL te vinden. De advertentie ID is het nummer direct na de algemene URL. Voorbeeld: in https://www.voorbeeld.com/listings/123456-listing-title, is de listing ID 123456."
         video:
           text: Tekst
@@ -820,7 +820,7 @@ nl:
           autoplay_no: "Geen autoplay"
           autoplay_muted: "Gedempte autoplay"
           info: "Deze text wordt weergegeven als je de optie \\\"Geen autoplay\\\" selecteert, of als de video wordt gepauzeerd."
-          youtube_video_id_info: ~
+          youtube_video_id_info: "Je vindt de video ID van de video URL. Normaalgesproken is het het laatste deel van de URL. Bijvoorbeeld, als de video URL https://www.youtube.com/watch?v=UffchBUUIoI is, dan is de video ID: 'UffchBUUIoI'"
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
@@ -1170,8 +1170,8 @@ nl:
         provider_receives: "Verkoper ontvangt:"
         admin_info_text: "Als beheerder van %{service_name}, kun je een aantal acties ondernemen om deze transactie voort te helpen."
         manage_reviews: "Beheer recensies"
-        you_should_investigate: ~
-        learn_more: ~
+        you_should_investigate: "Onderzoek de situatie door met beide partijen te overleggen en dan te besluiten om het bedrag terug te storten of de klacht te verwerpen. %{learn_more_link}"
+        learn_more: "Lees meer."
   common:
     edit_page: "Pagina aanpassen"
     default_community_slogan: "Gemeenschappelijke marktplaats"
@@ -1217,7 +1217,7 @@ nl:
       travel: Reizen
       other: Andere
     username: Gebruikersnaam
-    username_or_email: "E-mail of gebruikersnaam"
+    username_or_email: E-mail
     what_is_this: "Wat is dit?"
     removed_user: "Verwijderde gebruiker"
     payment_fee_info:
@@ -1267,8 +1267,8 @@ nl:
       stripe-fee_label: Betalingsverwerkingskosten
     confirm:
       confirm_description: "Als het verzoek is geleverd, kunt u dat hier markeren als uitgevoerd. Hierna kunt u feedback geven aan de andere partij."
-      cancel_description: "Indien uw verzoek niet is uitgevoerd, kunt u het markeren als 'niet uitgevoerd'. U kunt dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
-      cancel_description_team: ~
+      cancel_description: "Indien uw verzoek niet is uitgevoerd, kunt u het markeren als 'aangevochten'. U kunt dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
+      cancel_description_team: "Als je order niet is voltooid, dan kun je het als \"aangevochten\" markeren. Het %{service_name} team zal dan de situatie bekijken en beslissen om terug te storten of je klacht te verwerpen."
       cancel_payed_description: "Je verzoek is geaccepteerd. Als u van gedachten verandert, kunt u nog annuleren voordat de betaling gedaan moet worden.   "
       canceling_payed_transaction: "Transactie annuleren"
       confirm: "Markeer als uitgevoerd"
@@ -1293,7 +1293,7 @@ nl:
       rejected_offer: "Aanbod geweigerd."
       confirmed_request: "Verzoek uitgevoerd."
       confirmed_offer: "Voorstel uitgevoerd."
-      canceled_request: "Verzoek geannuleerd."
+      canceled_request: "Verzoek aangevochten"
       canceled_offer: "Voorstel geannuleerd."
       message_from: "Bericht van %{person}"
       about_listing: "Over advertentie %{listing_title}"
@@ -1317,10 +1317,10 @@ nl:
         held_payment: "Verzoek geaccepteerd. De betaling voor %{sum} wordt vastgehouden door %{service_name} totdat de bestelling als voltooid wordt gemarkeerd."
         held_payment_wo_sum: "Verzoek geaccepteerd. Betaling wordt vastgehouden door %{service_name} totdat de bestelling als voltooid is gemarkeerd."
         confirmed_request: "Bestelling is gemarkeerd als voltooid. De betaling is nu of zal spoedig worden overgemaakt naar %{author_name}'s rekening."
-      canceled_the_order: ~
-      marked_as_refunded: ~
-      dismissed_the_cancellation: ~
-      payment_has_now_been_transferred: ~
+      canceled_the_order: "Heeft de order aangevochten. Het %{service_name} team is hiervan op de hoogte gesteld."
+      marked_as_refunded: "Gemarkeerd als teruggestort."
+      dismissed_the_cancellation: "Heeft de klacht verworpen."
+      payment_has_now_been_transferred: "De betaling is nu overgemaakt of zal spoedig worden overgemaakt naar de bankrekening van %{seller}."
     new:
       message: Bericht
       message_to: "Bericht aan %{author_name}"
@@ -1395,18 +1395,18 @@ nl:
           verify: "Wachten op jou om je PayPal account te verifiëren"
       stripe:
         waiting_confirmation_from_requester: "In afwachting van %{requester_name}, die de bestelling als voltooid dient te markeren. Eenmaal voltooid, zal de betaling naar je bankrekening worden overgemaakt."
-      order_canceled: ~
-      waiting_for_marketplace_review: ~
-      marketplace_notified: ~
-      contact_them: ~
-      refunded: ~
-      dismissed: ~
-      order_refunded: ~
-      you_should_receive_refund_soon: ~
-      issue_with_the_refund: ~
-      do_you_disagree: ~
-      contact_the_marketpalce_team: ~
-      order_cancellation_dismissed: ~
+      order_canceled: "Order aangevochten"
+      waiting_for_marketplace_review: "In afwachting van het %{service_name} die de situatie zal bekijken"
+      marketplace_notified: "Het %{service_name} team is op de hoogte gesteld. Je kunt ook %{contact_link} als je meer informatie hierover met hen wilt delen."
+      contact_them: "contact met hen opnemen"
+      refunded: "Order gemarkeerd als teruggestort"
+      dismissed: "Klacht over order afgewezen"
+      order_refunded: "Order gemarkeerd als teruggestort. Het %{service_name} team heeft de klacht als gegrond verklaard."
+      you_should_receive_refund_soon: "Je zult snel een terugstorting ontvangen."
+      issue_with_the_refund: "Is er iets mis? Een probleem met de terugstorting? %{contact_link}."
+      do_you_disagree: "Is er iets mis? Ben je het er niet mee eens? %{contact_link}."
+      contact_the_marketpalce_team: "Neem contact op met het%{service_name} team"
+      order_cancellation_dismissed: "Klacht afgewezen. Het %{service_name} heeft de klacht afgewezen."
     status_link:
       accept_offer: "Accepteer aanbod"
       accept_request: "Accepteer verzoek"
@@ -1418,8 +1418,8 @@ nl:
       reject_preauthorized_request: Afwijzen
       confirm: "Markeer als uitgevoerd"
       cancel: Geschil
-      mark_as_refunded: ~
-      dismiss: ~
+      mark_as_refunded: "Markeer als teruggestort."
+      dismiss: "Wijs af en betaal uit."
   feedback:
     feedback_subject: "Nieuwe feedback van %{service_name}"
     feedback_body: "%{author_name_and_email} heeft de volgende email verzonden vanaf %{service_name}"
@@ -1463,8 +1463,8 @@ nl:
       you_have_not_yet_confirmed_or_canceled_request: "U heeft het verzoek %{request_link} nog niet geaccepteerd of geannuleerd. Als het verzoek is uitgevoerd, dient u dat te bevestigen. Daarna kunt u  feedback geven aan %{other_party_given_name}."
       remember_to_confirm_request: "Herinnering om een verzoek te accepteren of te annuleren"
       if_will_not_happen_you_should_cancel: "Als u denkt dat dit verzoek om welke reden dan ook niet uitgevoerd zal worden, kunt u %{cancel_it_link}."
-      cancel_it_link_text: "Annuleer het"
-      automatic_confirmation: "Indien u het voorstel niet accepteert of afwijst binnen %{days_to_automatic_confirmation} dagen nadat het verzoek is geaccepteerd, zullen we het automatisch als afgerond markeren."
+      cancel_it_link_text: Aanvechten
+      automatic_confirmation: "Indien u de order niet bevestigt of aanvecht binnen %{days_to_automatic_confirmation} dagen nadat de order is geaccepteerd, zullen we het automatisch als afgerond markeren."
     confirm_reminder_v2:
       headline: "Je hebt de order %{request_link} nog niet voltooid of aangevochten."
       you_have_not_yet_confirmed_or_canceled_request: "Als de order is voltooid, dien je dat te bevestigen. Daarna kun je feedback geven aan %{other_party_given_name}."
@@ -1479,9 +1479,9 @@ nl:
     transaction_confirmed:
       here_is_a_message_from: "Hier is een bericht van %{other_party_given_name}:"
       request_marked_as_confirmed: "Verzoek uitgevoerd - vergeet niet om feedback te geven"
-      request_marked_as_canceled: "Verzoek geannuleerd"
+      request_marked_as_canceled: "Verzoek aangevochten"
       has_marked_request_as_confirmed: "%{other_party_full_name} heeft het verzoek betreft '%{request}' als afgerond gemarkeerd. U kunt nu feedback geven aan %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} heeft het verzoek betreft '%{request}' geannuleerd. U kunt nog steeds feedback geven aan %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} heeft het verzoek betreft '%{request}' aangevochten. U kunt nog steeds feedback geven aan %{other_party_given_name}."
       giving_feedback_is_good_idea: "Feedback geven is altijd een goed idee. Indien alles goed ging, kunt u anderen laten weten dat %{other_party_given_name} betrouwbaar is. Als er problemen waren is het zinvol om deze ook te vermelden."
       give_feedback_to: "Geef feedback aan %{other_party_given_name}"
       stripe:
@@ -1492,7 +1492,7 @@ nl:
       headline_canceled: "%{other_party_full_name} heeft de order van %{listing_link} aangevochten."
       stripe:
         has_marked_request_as_confirmed: "De betaling voor deze transactie is nu vrijgegeven naar je bankrekening."
-      can_give_feedback: ~
+      can_give_feedback: "Je kunt nu feedback geven aan %{other_party_given_name}."
       team_title: "het %{service_name} team"
     transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
@@ -1520,7 +1520,7 @@ nl:
       confirmation_link_text: "Bevestig %{email}"
     common:
       hey: "Hallo %{name},"
-      hi: ~
+      hi: "Hi %{name},"
       kassi_team: "Het %{service_name} Team"
       thanks: "Bedankt,"
       dont_want_to_receive_these_emails: "Wilt u deze berichten niet ontvangen?"
@@ -1532,7 +1532,7 @@ nl:
       unsubscribe_from_these_emails: "Uitschrijven van deze e-mails"
       unsubscribe_from_invitation_emails_info: "Je ontvangt deze email omdat een lid van %{service_name} jou heeft uitgenodigd om ook lid te worden."
       unsubscribe_from_invitation_emails: "Afmelden van het ontvangen van uitnodigingsverzoeken van %{service_name}"
-      here_is_your_receipt: ~
+      here_is_your_receipt: "Hier is je kwitantie."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} heeft uw aanbod betreffende %{listing} geaccepteerd."
       has_accepted_your_request: "%{accepter} heeft uw verzoek betreffende %{listing} geaccepteerd"
@@ -1545,7 +1545,7 @@ nl:
       your_request_was_rejected: "Uw verzoek is afgewezen"
       you_can_now_pay_to: "U kunt nu het openstaande bedrag betalen aan %{payment_receiver}."
       pay_now: "Betaal nu"
-      remember_to_confirm: "Vergeet niet om het verzoek te markeren als afgehandeld eenmaal dit is uitgevoerd. Indien het verzoek niet werd afgehandeld heeft u %{days_to_automatic_confirmation} dagen om het te annuleren. Zoniet zal het automatisch als afgehandeld worden gemarkeerd."
+      remember_to_confirm: "Vergeet niet om de order te markeren als afgehandeld als dit is uitgevoerd. Indien de order niet werd afgehandeld heeft u %{days_to_automatic_confirmation} dagen om het te annuleren. Zoniet zal het automatisch als afgehandeld worden gemarkeerd."
     conversation_status_changed_v2:
       has_accepted_your_request: "je verzoek is geaccepteerd."
       has_accepted_your_request_text: "%{accepter} heeft je verzoek voor %{listing} geaccepteerd."
@@ -1570,7 +1570,7 @@ nl:
       has_sent_you_a_message_in_kassi: "%{sender} heeft u een bericht gestuurd op %{service_name}."
       you_have_a_new_message: "U heeft een nieuw bericht op %{service_name} van %{sender_name}"
     new_message_v2:
-      headline: ~
+      headline: "je hebt een bericht!"
       reply: "Antwoord %{sender}"
     new_payment:
       new_payment: "U heeft een nieuwe betaling ontvangen"
@@ -1687,7 +1687,7 @@ nl:
       you_have_time_to_accept: "Je dient het verzoek te accepteren of af te wijzen binnen %{payment_expires_in}."
       if_you_do_accept: "Als je het verzoek binnen deze periode accepteert, ontvang je onmiddelijk het geld in je account."
       if_you_do_accept_stripe: "Als je het verzoek binnen deze periode accepteert, dan wordt de betaling verwerkt. Je ontvangt het geld direct op je bankrekening, nadat je %{listing_title} hebt geleverd aan %{requester}."
-      if_you_do_not_accept: "Als je het verzoek afwijst, of niet binnen deze tijdsperiode accepteert, dan wordt de transactie automatisch geannuleerd. %{requester} wordt dan niets in rekening gebracht, en jij ontvangt geen betaling."
+      if_you_do_not_accept: "Als je de order afwijst, of niet binnen deze tijdsperiode accepteert, dan wordt de transactie automatisch geannuleerd. %{requester} wordt dan niets in rekening gebracht, en jij ontvangt geen betaling."
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
     transaction_preauthorized_v2:
       headline: "%{requester} is geinteresseerd en heeft betaling geautoriseerd voor %{listing_link}."
@@ -1751,7 +1751,7 @@ nl:
       listing: "Advertentie: %{title}"
       sum: "Totaal: %{amount}"
       starter: "Initiatiefnemer: %{name}"
-      provider: "Leverancier: %{name}"
+      provider: "Verkoper: %{name}"
     new_transaction_v2:
       subject: "Nieuwe transactie in %{service_name}"
       there_is_a_new_transaction: "Er is %{link} in %{service_name}."
@@ -1762,28 +1762,28 @@ nl:
       provider: "Verkoper:"
       view_transaction: "Bekijk transactie"
     transaction_cancel_flow:
-      the_order_about: ~
-      you_can_contact_the_marketplace_team: ~
-      you_can_now_give_feedback: ~
-      give_feedback_to: ~
+      the_order_about: "de order van %{listing_title}"
+      you_can_contact_the_marketplace_team: "Je kunt contact opnemen met het %{service_name} team als er nog iets anders is."
+      you_can_now_give_feedback: "Je kan nu feedback geven aan %{name}. Het is altijd een goed idee om feedback te geven. Als alles goed is gegaan, kun je anderen laten weten dat %{recipient} een betrouwbare partij is. Als er problemen zijn geweest, is het zinvol om deze ook te vermelden."
+      give_feedback_to: "Geef feedback aan %{name}"
     transaction_disputed:
-      subject: ~
-      subject_admin: ~
-      order_about: ~
-      the_order_has_been_canceled: ~
-      the_order_between_buyer_and_seller_has_been_canceled: ~
-      the_marketplace_has_been_notified: ~
-      contact_the_marketplace_team: ~
-      you_must_now_decide: ~
-      learn_more_about: ~
-      review_the_transaction: ~
+      subject: "Order aangevochten - het %{service_name} zal de situatie bekijken."
+      subject_admin: "Een transactie is aangevochten, je moet beslissen wat er nu gebeurt"
+      order_about: "order van %{listing_title}"
+      the_order_has_been_canceled: "de %{transaction_link} is aangevochten."
+      the_order_between_buyer_and_seller_has_been_canceled: "de %{transaction_link} tussen %{buyer} en %{seller} is aangevochten."
+      the_marketplace_has_been_notified: "Het %{service_name} team is op de hoogte gesteld en zal de situatie bekijken. Je kunt contact met hen opnemen om meer informatie te delen."
+      contact_the_marketplace_team: "Neem contact op met het %{service_name} team"
+      you_must_now_decide: "Beslis of je de klacht verwerpt, of dat er moet worden teruggestort. Je kunt %{learn_more_link}."
+      learn_more_about: "hier meer lezen over wat te doen"
+      review_the_transaction: "Bekijk de transactie"
     transaction_refunded:
-      subject: ~
-      marketplace_team_has_approved_the_cancellation: ~
-      you_should_receive_a_refund_soon: ~
+      subject: "Order gemarkeerd als teruggestort - Het %{service_name} heeft de klacht van de %{buyer} gegrond verklaard."
+      marketplace_team_has_approved_the_cancellation: "het %{service_name} team heeft de klacht over %{transaction_link} als gegrond verklaard en de betaling gemarkeerd als teruggestort."
+      you_should_receive_a_refund_soon: "Je ontvangt spoedig een terugstorting. Je kunt contact opnemen met %{service_name} als er nog iets anders is."
     transaction_cancellation_dismissed:
-      subject: ~
-      marketplace_team_has_rejected_the_cancellation: ~
+      subject: "Klacht over order afgewezen - Het %{service_name} team heeft de klacht van %{buyer} afgewezen"
+      marketplace_team_has_rejected_the_cancellation: "het %{service_name} team heeft de klacht over %{transaction_link} afgewezen."
   error_messages:
     booking:
       booking_failed_payment_voided: "Boeking mislukt door een onverwachte fout. Probeer het later opnieuw. Er is niets in rekening gebracht."
@@ -1808,15 +1808,15 @@ nl:
       seller_express_checkout_disabled: "Paypal Express Checkout is uitgeschakeld voor de adverteerders PayPal account. Neem contact op met de adverteerder en laat deze weten dat er een probleem is met zijn/haar PayPal account, en adviseer om contact op te nemen met de PayPal Customer Service."
       seller_express_checkout_disabled_no_free: "Paypal Express Checkout is uitgeschakeld voor de adverteerder's PayPal account. Vraag het %{service_name} team om contact op te nemen met de adverteerder en deze te adviseren om contact op te nemen met de PayPal Customer Service."
       generic_error: "Er heeft zicht een fout voorgedaan tijdens de betaling. De PayPal betaling kon niet worden uitgevoerd."
-      cancel_error: "Fout tijdens uitvoeren annulering. Annulering is niet afgehandeld."
+      cancel_error: "Fout tijdens uitvoeren aanvechting. Aanvechting is niet afgehandeld."
       accept_authorization_error: "Preautorisatie krijgen van de PayPal betaling is mislukt. Probeer opnieuw a.u.b."
       reject_authorization_error: "Het annuleren van de preautorisatie van de PayPal betaling is mislukt. Probeer opnieuw a.u.b."
     stripe:
       generic_error: "Er is een fout opgetreden tijdens de betaling. Je Stripe betaling kon niet worden uitgevoerd."
       accept_authorization_error: "Er is een fout opgetreden tijdens een poging on een vooraf geauthoriseerde betaling te accepteren. Gelieve het opnieuw te proberen."
       reject_authorization_error: "Er is een fout opgetreden tijdens een poging on een vooraf geauthoriseerde betaling te weigeren. Gelieve het opnieuw te proberen."
-      card_declined: ~
-      expired_card: ~
+      card_declined: "Je kaart is geweigerd"
+      expired_card: "De betaling is mislukt omdat de kaart is verlopen"
   error_pages:
     back_to_kassi_front_page: "Terug naar de voorpagina"
     error_404:
@@ -1859,8 +1859,8 @@ nl:
       section_with_this_id_already_exists: "De unieke naam van deze sectie is al in gebruik. Kies een andere naam."
       listing_with_this_id_does_not_exist: "Deze advertentie ID is niet beschikbaar in je marktplaats. Misschien een typefout? Verifieer en probeer opnieuw."
       presence: "Kan niet blanco zijn"
-      username_is_invalid: ~
-      domain_name_is_invalid: ~
+      username_is_invalid: "Deze gebruikersnaam is niet geldig of niet beschikbaar"
+      domain_name_is_invalid: "Deze domeinnaam is ongeldig of niet beschikbaar."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
@@ -2189,7 +2189,7 @@ nl:
       request_accepted: "Verzoek geaccepteerd"
       request_confirmed: "Verzoek uitgevoerd"
       request_rejected: "Verzoek afgewezen"
-      request_canceled: "Verzoek geannuleerd"
+      request_canceled: "Verzoek aangevochten"
       message_sent: "Bericht verstuurd"
       message_not_sent: "Verzenden van bericht mislukt. Probeer opnieuw."
       this_content_is_not_available_in_this_community: "Deze inhoud is niet beschikbaar."
@@ -2220,7 +2220,7 @@ nl:
       you_must_log_in_to_add_news_item: "U moet inloggen op %{service_name} om een nieuw artikel toe te voegen."
       you_must_log_in_to_change_profile_settings: "U moet inloggen op %{service_name} om uw profiel instellingen te wijzigen"
       you_must_log_in_to_accept_or_reject: "Je moet inloggen om de transactie te accepteren of te annuleren"
-      you_must_log_in_to_confirm_or_cancel: "Je moet inloggen om de transactie te confirmeren of te annuleren"
+      you_must_log_in_to_confirm_or_cancel: "Je moet inloggen om de transactie te bevestigen of aan te vechten"
       you_need_to_confirm_your_account_first: "U dient uw e-mail adres te bevestigen."
       you_must_fill_all_the_fields: "U moet alle velden invullen"
       you_unfollowed_listing: "U volgt deze advertentie niet meer"
@@ -2239,7 +2239,7 @@ nl:
       stripe_you_account_balance_is_not_0: "Je accountbalans is niet 0 en kan dus niet worden verwijdered. Dit kan betekenen dat je nog transacties hebt die moeten worden afgerond, of dat er nog geld is dat moet worden uitbetaald op jouw rekening. Gelieve contact op te nemen met het team van %{service_name} om meer te weten te komen."
       visit_admin: "Wil je je %{link}?"
       visit_admin_link: "beheerderpaneel bezoeken"
-      an_error_occurred_when_saving_your_information: ~
+      an_error_occurred_when_saving_your_information: "Er is een fout opgetreden terwijl je informatie werd opgeslagen: \"%{message}\". Kijk of alle informatie correct is en probeer het opnieuw."
     settings:
       account: Account
       notifications: Notificaties
@@ -2250,8 +2250,8 @@ nl:
       payments: Betalingen
       listings: Advertenties
       listings_search_placeholder: "Zoek een advertentie op titel"
-      transactions_search_placeholder: ~
-      transactions: ~
+      transactions_search_placeholder: "Zoek op een transactie titel of betrokken partij"
+      transactions: Transacties
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Je hebt geen toestemming om deze advertentie te bekijken."
@@ -2541,7 +2541,7 @@ nl:
       night: nacht
       nights: nachten
       invalid_parameters: "Ongeldige waarden voor nieuwe transactie"
-      select_delivery_method: ~
+      select_delivery_method: "Je dient een bezorgingsmethode te kiezen"
     transaction_agreement_checkbox:
       read_more: Overzicht.
     stripe_payment:
@@ -2673,7 +2673,7 @@ nl:
       email_is_in_use: "Het e-mail adres is al in gebruik."
       email_is_in_use_or_not_allowed: "Dit e-mail adres is niet toegestaan of al in gebruik. Neem contact met ons op als u niet kunt inloggen."
       email_not_allowed: "Deze e-mail is niet toegestaan in %{service_name}. Gebruik aub een toegestaan adres. Mocht het alsnog niet lukken, neem dan contact met ons op."
-      invalid_username_or_email: "Gebruikersnaam of email is ongeldig of al in gebruik"
+      invalid_username_or_email: "Email is ongeldig of al in gebruik"
       email_restriction_instructions:
         one: "De toegang tot %{service_name} is beperkt. Om aan te sluiten heeft u een '%{allowed_emails}' e-mail adres nodig."
         other: "De toegang tot %{service_name} is beperkt. U heeft een e-mail adres nodig dat aantoont dat u gerechtigd bent om aan te sluiten."
@@ -2750,7 +2750,7 @@ nl:
   sessions:
     new:
       create_new_account: "Maak een nieuwe account aan"
-      i_forgot_my_password: "Wachtwoord of gebruikersnaam vergeten"
+      i_forgot_my_password: "Wachtwoord vergeten"
       login: "Log in"
       login_to_kassi: "Log in %{service_name}"
       connect_your_facebook_to_kassi: "Connect je Facebook account aan %{service_name} "
@@ -2761,7 +2761,7 @@ nl:
       cancle_facebook_connect: "Klik %{cancel_link} als u niet wilt linken met dit account."
       facebook_cancel_link_text: annuleer
       log_in_with_your_provider_account: "Log in met %{provider}"
-      or_sign_up_with_your_username: "... of met uw gebruikersnaam of e-mail adres:"
+      or_sign_up_with_your_username: "... of met uw e-mail adres"
       we_will_not_post_without_asking_you: "We zullen nooit iets op Facebook zetten zonder jouw toestemming."
     password_forgotten:
       email: E-mail
@@ -2791,7 +2791,7 @@ nl:
       delete_account_confirmation_popup: "Weet u zeker dat u uw account en alle bijbehorende data wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt."
       email_addresses: "E-mail adressen"
       new_email: "Nieuw e-mail adres"
-      delete_personal_information: "Als je je account verwijdert, zal al je persoonlijke informatie (naam, telefoonnummer, adres, e-mail, profiel afbeelding, enz...) permanent verwijderd worden. Dit kan niet meer ongedaan worden gemaakt. Al de advertenties die je hebt aangemaakt, worden verwijderd. Je kunt je account niet opnieuw activeren. Je gebruikersnaam zal beschikbaar komen voor anderen die registreren op %{service_name}."
+      delete_personal_information: "Als je je account verwijdert, zal al je persoonlijke informatie (naam, telefoonnummer, adres, e-mail, profiel afbeelding, enz...) permanent verwijderd worden. Dit kan niet meer ongedaan worden gemaakt. Al de advertenties die je hebt aangemaakt, worden verwijderd. Je kunt je account niet opnieuw activeren."
       delete_information_others_involved: "Informatie waar andere leden bij betrokken zijn (gesprekken met andere mensen, transacties die je gedaan hebt, feedback die je aan anderen hebt gegeven, enz...) verdwijnen niet wanneer je je account verwijdert. In deze gevallen zal jouw naam echter niet meer getoond worden."
       unfinished_transactions: "Je account kan niet worden verwijderd omdat je lopende transacties hebt. Sluit aub alle transacties alvorens je je account verwijdert."
       only_admin: "Je account kan niet worden verwijderd omdat je de enige beheerder van de marktplaats bent."
@@ -2864,8 +2864,8 @@ nl:
       editing_profile_of: "Je wijzigt nu het profiel van %{name}"
       format_markdown_link: "je beschrijving opmaken met Markdown"
       format_markdown: "Je kunt %{link}."
-      username: ~
-      username_description: ~
+      username: Gebruikersnaam
+      username_description: "Je gebruikersnaam wordt gebruikt als de unieke URL van je profielpagina. Je kunt slechts letters en cijfers gebruiken voor je gebruikersnaam, zonder spaties. Wanneer je je gebruikersnaam verandert wordt ook je URL veranderd. Verkeer naar je vorige URL zal niet worden doorverwezen en je oude gebruikersnaam wordt beschikbaar voor anderen."
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"
@@ -3216,18 +3216,18 @@ nl:
     form_verification:
       personal_id_number: "Persoonlijk ID nummer"
       document: "Verificatiedocument (paspoort, identiteitsbewijs)"
-      document_back: ~
+      document_back: "Identiteitsbewijs (paspoort, identiteitskaart) (achterkant van het document)"
       send_verification: "Verstuur Verificatie"
       need_verification: "Aanvullende verificatie nodig"
       additional_document: "Een document dat een adres toont, een paspoort, identiteitskaart of een energierekening van een bekend energiebedrijf"
-      additional_document_back: ~
+      additional_document_back: "Een document dat een adres toont, het zij een paspoort, identiteitskaart, of een energierekening van een bekend energiebedrijf (achterkant van het document)"
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"
       ssn_last_4: "Laatste 4 cijfers van Social Security Number (SSN)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) of Foreign Identification Number (FIN)"
-      mexico_id_number: ~
+      mexico_id_number: "Personal ID Code Number (CURP)"
       messages:
         social_insurance_number: "moet een geldig Social Insurance Number (SIN) zijn"
   payment_settings:
