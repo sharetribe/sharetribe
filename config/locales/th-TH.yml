@@ -393,6 +393,10 @@ th-TH:
         robots_info: ~
         robots_info_link_text: ~
         robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: ~
       analytics:
         analytics: การวิเคราะห์ข้อมูลหรือสถิติ
@@ -653,6 +657,11 @@ th-TH:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -1703,11 +1712,11 @@ th-TH:
       this_is_automatic_message: ~
     listing_approved:
       subject: ~
-      listing_has_been_approved: ~
+      listing_has_been_approved: "ข่าวดี! รายการของคุณ %{listing_title}  ได้ถูกตรวจสอบ และ อนุมัติจาก %{community} รายการได้ถูกประกาศแล้วสำเร็จแล้ว"
       view_the_listing: ~
     listing_rejected:
       subject: ~
-      listing_has_been_rejected: ~
+      listing_has_been_rejected: "ต้องขอโทษด้วย ทีมงานของ %{community}  ได้ปฏิเสธ รายการ %{listing_title} หลังจากที่ทำการตรวจพิจรณาแล้ว แต่ คุณสามารถแก้ไข หรือ อัพเดทรายการใหม่ ให้ตรงกับกฏที่ทีมงานได้ตั้งไว้. คุณสามารถติดต่อ สอบถาม %{contact_link} เพื่อเรียนรู้เพิ่มเติม."
       contact_link: ~
       edit_the_listing: ~
     edited_listing_submited_for_review:
@@ -1757,7 +1766,7 @@ th-TH:
   error_messages:
     booking:
       booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      double_booking_payment_voided: "ต้องขอโทษด้วย วันที่ที่คุณเลือกไว้ ไม่ว่างอีกต่อไป กรุณาเลือกวันที่อื่นๆ และ รายการยังไม่ได้ทำการชาร์จเงิน"
     onboarding:
       server_rendering: "ไม่สามารถโหลดคู่มือเริ่มต้นใช้งาน เราได้รับแจ้งเกี่ยวกับสถานการณ์และเรากำลังแก้ไข"
     listings:
@@ -1830,6 +1839,7 @@ th-TH:
       listing_with_this_id_does_not_exist: ~
       presence: ~
       username_is_invalid: ~
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ได้ตกลงที่จะให้ %{requester_name} ยืม เมื่อ%{time_ago}"

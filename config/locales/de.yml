@@ -90,7 +90,7 @@ de:
         contact_admin_link_text: "Administrator von %{service_name} kontaktieren"
         save: "Einstellungen speichern"
         transaction_agreement: "Die Allgemeinen Geschäftsbedingungen (AGBs)"
-        transaction_agreement_checkbox: "Benutzer müssen die Allgemeinen Geschäftsbedingungen vor der Transaktion akzeptieren"
+        transaction_agreement_checkbox: "Käufer müssen Bedingungen vor der Transaktion akzeptieren"
         transaction_agreement_checkbox_header: "Allgemeine Geschäftsbedingungen Label"
         transaction_agreement_checkbox_label_description: "Dieser Text wird neben einer Checkbox beim Checkout angezeigt. Der Nutzer muss mit einem Haken in der Checkbox zustimmen, um die Transaktion abzuschließen. Ein Beispiel wäre etwa \"Mit Klicken dieser Box akzeptiere ich die Vereinbarung.\""
         transaction_agreement_text_header: "Allgemeine Geschäftsbedingungen"
@@ -101,7 +101,7 @@ de:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" des Marktplatzes %{community_name}"
         community_logo: Logo
         community_logo_icon: "Logo für soziale Netzwerke und Mobilgeräte"
-        community_logo_icon_mobile: "Logo für den Startbildschirm von Mobilgeräten"
+        community_logo_icon_mobile: Quadrat-Logo
         community_cover_photo: Titelbild
         small_community_cover_photo: "Kleines Titelbild"
         favicon: Favicon
@@ -116,7 +116,7 @@ de:
         logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height} Pixel betragen."
         logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height} Pixel betragen."
         logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixel betragen."
-        logo_mobile_icon_instructions_text_with_dimensions: "Dieses viereckige Logo wird auf dem Mobil-Startbildschirm von deinen Benutzern angezeigt, wenn sie ein Lesezeichen für deinen Marktplatz auf ihren Mobilgeräten erstellen. Die Größe sollte (zumindest) %{width} x%{height} px betragen."
+        logo_mobile_icon_instructions_text_with_dimensions: "Dieses viereckige Logo wird auf dem Mobil-Startbildschirm von deinen Benutzern angezeigt, wenn sie ein Lesezeichen für deinen Marktplatz auf ihren Mobilgeräten erstellen. Das Logo wird auch angezeigt, wenn du als Admin einige Maßnahmen ergreifst. Die Größe sollte (zumindest) %{width} x%{height} px betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
         cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
         we_have_you_covered: "Wir können helfen"
@@ -124,7 +124,7 @@ de:
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
         small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
         main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite höchstens %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht (z.B wenn du einen schmaleren Browser benutzt)."
-        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> kann dir helfen die Farbe auszuwählen, und den Hex-Wert der Farbe zu finden. Kopiere den Code hier ein."
+        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. %{link} kann dir helfen die Farbe auszuwählen, und den Hex-Wert der Farbe zu finden. Kopiere den Code hier ein."
         new_listing_button_instructions_text: "Du kannst die Farbe des \"Neuen Eintrag erstellen\" Knopfes ändern, indem du den Hex-Wert einer neuen Farbe eingibst. %{link_to_colorpicker} kann dir helfen, eine Farbe zu wählen, und den Hex-Code der Farbe zu finden. Du musst nur den Code hier einfügen!"
         default_browse_view: Standardansicht
         default_browse_view_instructions_text: "Die Standardansicht legt fest, wie die Einträge auf der Webseite standardmäßig angezeigt werden."
@@ -217,7 +217,7 @@ de:
       settings:
         settings: Einstellungen
         general: Allgemein
-        access: Zugriffseinstellungen
+        access: "Zugriff- und Kontakteinstellungen"
         join_with_invite_only: "Neue Benutzer können diesem Marktplatz nur mit der Einladung eines Mitglieds beitreten"
         users_can_invite_new_users: "Alle Mitglieder, nicht nur Admins, können neue Benutzer zu diesem Marktplatz einladen"
         private: "Dieser Marktplatz ist privat (nur registrierte Benutzer können den Inhalt sehen)"
@@ -271,14 +271,14 @@ de:
         join_date: Beigetreten
         admin: Administrator
         posting_allowed: "Veröffentlichen von Einträgen erlaubt"
-        ban_user: Sperren
+        ban_user: Deaktiviere
         saving_user_status: Speichern...
         save_user_status_successful: Gespeichert
         export_all_as_csv: "Exportiere Alles als CSV Datei"
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
-        ban_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
+        ban_user_confirmation: "Dies deaktiviert das Konto von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
         unban_user_confirmation: "Damit wird der Benutzer des Marktplatzes entsperrt und erhält wieder Zugang zu seinem Konto. Möchtest du fortfahren?"
-        ban_me_error: "Du kannst dich nicht selber sperren."
+        ban_me_error: "Du kannst dein eigenes Konto nicht deaktivieren."
         search: Suchen
         search_by_name_email: "Nach einem Nahmen, einer E-Mail Adresse, oder einem Anzeigenamen suchen"
         reset_search: "Alle anzeigen"
@@ -289,7 +289,7 @@ de:
           selected: "Gewählte Status: %{count}"
           selected_js: "Gewählte Status: "
           admin: Administrator
-          banned: Gesperrt
+          banned: Deaktiviert
           posting_allowed: "Veröffentlichen von Einträgen erlaubt"
           accepted: Genehmigt
           unconfirmed: Unbestätigt
@@ -298,7 +298,7 @@ de:
         unconfirmed_user: "Unbestätigter Benutzer: %{name}"
         resend: "Erneut senden"
         cancel: Abbrechen
-        user_didnt_complete_the_signup_process: "Der/Die Benutzer registrierte sich mit Facebook, hat aber nicht den Registrierungsprozess beendet. Nachdem man sich mit Facebook registriert, muss man noch die Nutzungsbedingungen akzeptieren und die Benutzerfelder ausfüllen."
+        user_didnt_complete_the_signup_process: "Der/Die Benutzer registrierte sich mit einem Socialnetzwerk, hat aber nicht den Registrierungsprozess beendet. Nachdem man sich mit einem Socialnetzwerk registriert, muss man noch die Nutzungsbedingungen akzeptieren und die obligatorischen Benutzerfelder ausfüllen."
         pending_user: "Ausstehend: %{name}"
       new_layout:
         new_layout: "Neues Layout"
@@ -326,8 +326,8 @@ de:
         invalid_twitter_handle: "Ihr Twitter-Nutzername sollte höchstens 15 alphanumerische (Buchstaben A-Z und Nummern 0-9) Zeichen lang sein."
         facebook_connect: "Facebook Login"
         facebook_developers_dashboard: "Facebook Developers Dashboard"
-        facebook_connect_info_text: "Um Facebook Login zu aktivieren, bitte erstellen Sie einen App für Ihren Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Fügen Sie die generierte ID und den Geheimschlüssel der App hier ein."
-        facebook_connect_info_text_with_instructions: "Um Facebook Login zu aktivieren, bitte erstelle einen App für Deinen Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Füge die generierte ID und den Geheimschlüssel der App hier ein.%{instructions_link}"
+        facebook_connect_info_text: "Um Facebook Login zu aktivieren, bitte erstellen Sie einen App für Ihren Marktplatz auf dem %{dashboard_link}. Fügen Sie die generierte ID und den Geheimschlüssel der App hier ein."
+        facebook_connect_info_text_with_instructions: "Um Facebook Login zu aktivieren, bitte erstelle einen App für Deinen Marktplatz auf dem %{dashboard_link}. Füge die generierte ID und den Geheimschlüssel der App hier ein.%{instructions_link}"
         facebook_instructions_link_text: "Siehe die Anleitung zum Konfigurieren von Facebook Login."
         facebook_connect_id: "Facebook App ID"
         invalid_facebook_connect_id: "Die App ID sollte nur aus Nummern bestehen."
@@ -339,28 +339,28 @@ de:
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Siehe die Anleitung zum Konfigurieren von Google Sign-In."
         google_developers_console: "Google Developers Console"
-        google_connect_info_text_with_instructions: "Um Google Sign-In zu aktivieren, bitte erstelle ein Projekt für deinen Marktplatz auf <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Füge die generierte ID und Clientschlüssel des Projektes hier ein. %{instructions_link}"
-        google_connect_info_text: "Um Google Sign-In zu aktivieren, bitte erstelle ein Projekt für deinen Marktplatz auf <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Füge die generierte ID und Clientschlüssel des Projektes hier ein."
+        google_connect_info_text_with_instructions: "Um Google Sign-In zu aktivieren, bitte erstelle ein Projekt für deinen Marktplatz auf %{dashboard_link}. Füge die generierte ID und Clientschlüssel des Projektes hier ein. %{instructions_link}"
+        google_connect_info_text: "Um Google Sign-In zu aktivieren, bitte erstelle ein Projekt für deinen Marktplatz auf %{dashboard_link}. Füge die generierte ID und Clientschlüssel des Projektes hier ein."
         enable_google_login: "Google-Anmeldung für deine Benutzer aktivieren"
         google_connect_id: "Google Client-ID"
         google_connect_secret: "Google Clientschlüssel"
         linkedin_connect: "LinkedIn Sign In"
         linkedin_instructions_link_text: "Siehe die Anleitung zum Konfigurieren von LinkedIn Sign In."
         linkedin_developers_dashboard: "LinkedIn Developers Dashboard"
-        linkedin_connect_info_text_with_instructions: "Um LinkedIn Sign-In zu aktivieren, bitte erstelle eine App für deinen Marktplatz auf dem <a href='https://www.linkedin.com/developers/'>Linkedin Developers Dashboard</a>. Füge die generierte ID und Geheimschlüssel des Projektes hier ein. %{instructions_link}"
-        linkedin_connect_info_text: "Um LinkedIn Sign-In zu aktivieren, bitte erstelle eine App für deinen Marktplatz auf dem <a href='https://www.linkedin.com/developers/'>Linkedin Developers Dashboard</a>. Füge die generierte ID und Geheimschlüssel des Projektes hier ein."
+        linkedin_connect_info_text_with_instructions: "Um LinkedIn Sign-In zu aktivieren, bitte erstelle eine App für deinen Marktplatz auf dem %{dashboard_link}. Füge die generierte ID und Geheimschlüssel des Projektes hier ein. %{instructions_link}"
+        linkedin_connect_info_text: "Um LinkedIn Sign-In zu aktivieren, bitte erstelle eine App für deinen Marktplatz auf dem %{dashboard_link}. Füge die generierte ID und Geheimschlüssel des Projektes hier ein."
         enable_linkedin_login: "LinkedIn-Anmeldung für deine Benutzer aktivieren"
         linkedin_connect_id: "LinkedIn Client ID"
         linkedin_connect_secret: "LinkedIn Clientschlüssel"
       seo_settings:
         seo: SEO
-        title: Homepage
-        meta_title_label: "Meta-Tag des Homepage-Titels"
-        meta_title_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und wird auf Suchmaschine-Ergebnissen als der klickbare Titel dargestellt. %{link}."
-        meta_title_link_text: "Mehr über Meta-Tags erfahren"
-        meta_description_label: "Homepage Beschreibung Meta-Tag"
-        meta_description_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und wird unter die blauen Links auf Suchmaschinen-Ergebnissen gezeigt. %{link}."
-        meta_description_link_text: "Mehr über Meta-Tags erfahren"
+        title: "Homepage oder Custom Landing Page"
+        meta_title_label: "Meta-Tag des Homepage- oder Custom Landing Page -Titels"
+        meta_title_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und wird auf Suchmaschine-Ergebnissen als der klickbare Titel dargestellt. %{link} %{vars}."
+        meta_title_link_text: "Mehr über Meta-Tags erfahren."
+        meta_description_label: "Homepage oder Custom Landing Page Beschreibung Meta-Tag"
+        meta_description_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und wird unter die blauen Links auf Suchmaschinen-Ergebnissen gezeigt. %{link} %{vars}."
+        meta_description_link_text: "Mehr über Meta-Tags erfahren."
         search_title: Suchergebnisseite
         search_meta_title_label: "Meta-Tag für den Titel der Suchergebnisseite"
         search_meta_title_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und auf der Ergebnissenseiten als klickbare Überschrift angezeigt. %{link} %{vars}."
@@ -398,6 +398,10 @@ de:
         robots_info: "Robots.txt ist eine Textdatei, die Web-Roboter (normalerweise Suchmaschine-Roboter) informiert, wie sie die Seiten deiner Website durchsucht (aka Crawling). %{link}."
         robots_info_link_text: "Mehr über die robots.txt Datei erfahren"
         robots_info_2: "Eine robots.txt Datei wird automatisch für deinen Marktplatz generiert. Du kannst deine robots.txt Datei hier ansehen: %{link}"
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: "Einstellungen speichern"
       analytics:
         analytics: Analytics
@@ -473,7 +477,7 @@ de:
           started: Gestartet
           last_activity: "Letzte Aktivität"
           initiated_by: Starter
-          other_party: Anbieter
+          other_party: Verkäufer
         status:
           conversation: Unterhaltung
           free: Unterhaltung
@@ -529,7 +533,7 @@ de:
           started: Gestartet
           last_activity: "Neueste Aktivität"
           initiated_by: "Begonnen von"
-          other_party: Anbieter
+          other_party: Verkäufer
         participants: "Unterhaltung: %{starter} mit %{author}"
         profile: "%{author}s Profil"
         search_by_keyword: "Nach Name, E-mail oder Schlagwort suchen"
@@ -639,11 +643,11 @@ de:
         footer_enabled: "Fußzeile aktiviert"
         social_links: "Sozial-Links der Fußzeile"
         title_placeholder: "Link Titel"
-        url_placeholder: "https://beispiel.com/benutzername"
+        url_placeholder: "https://beispiel.de/benutzername"
         style:
           dark: Dunkel
           light: Hell
-          marketplace_color: "Farbe des Marktplatzes"
+          marketplace_color: "Hauptfarbe des Marktplatzes"
           logo: Logo
         social:
           title: Titel
@@ -658,18 +662,23 @@ de:
         contact_us: "Kontaktiere uns"
         you_can_now_use_a_custom_domain: "Mit deinem derzeitigen Plan kannst du eine benutzerdefinierte Domain aktivieren! Fangen wir mit der Einrichtung an. %{contact_us}!"
         would_you_like_to_change_domain: "Möchtest du deine benutzerdefinierte Domain ändern? %{contact_us}!"
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: "Landing Page"
         info_1: "Die Landing Page ist vielleicht die wichtigste Seite deines Marktplatzes. Sie ist die erste Seite, die deine Nutzer sehen, etwa wie die Vordertür deines Hauses. Du hast nur einigen Sekunden deine Kunden davon zu überzeugen, dass sie auf der Seite bleiben sollten. Die Seite sollte attraktiv sein, und das Leistungsversprechen deiner Seite sollte klar und verlockend sein."
         info_2: "Mit diesem Editor können Sie Ihre Zielseite jederzeit ändern!"
         info_2_help_center: Hilfecenter
         info_3: "Wenn du eine komplett angepasste Landing Page für deinen Marktplatz erwerben möchten, kannst du sie als Add-On für einen monatlichen Preis im Höhe von $99 kaufen."
-        info_4: "Mehr über Custom Landing Pages lesen"
+        info_4: "%{link} lesen um herauszufinden, wie der Custom Landing Page Editor funktioniert, was die verschiedenen Abschnitte sind, und wie man sie bearbeitet."
         editor_title: "Landing Page Editor"
         editor_info: "Hier kannst du die verschiedenen Abschnitte deiner Landing Page bearbeiten. Zur Zeit ist es nur möglich, eine Sprache auf die Landing Page zu verwenden. Die 'Hero' und 'Footer' -Abschnitte können nicht bewogen werden."
         preview: "Landing Page-Vorschau"
         set_live: "Live machen"
-        add_new_section: "Neuen Abschnitt hinzufügen"
+        add_new_section: "Neuen Abschnitt hinzufügen:"
         select_section_type: "Abschnittstyp wählen..."
         this_version_is_not_released: "Du musst Änderungen vornehmen, um eine neue Version deiner Landing Page live setzen zu können"
         latest_version_released: "Die neueste Version deiner Landing Page ist jetzt live! %{link} !"
@@ -683,50 +692,50 @@ de:
           new: "Neuer Abschnitt"
           edit: "Abschnitt %{section_id} bearbeiten"
           remove_section_confirmation: "Bist du sicher, dass du den Abschnitt '%{section_id}' und die enthaltenen Daten löschen möchtest? Dies kann nicht ruckgängig gemacht werden."
-          info_single_column: "Info 1 Spalte"
-          info_multi_column_2: "Info 2 Spalten"
-          info_multi_column_3: "Info 3 Spalten"
+          info_single_column: "Info - 1 Spalte"
+          info_multi_column_2: "Info - 2 Spalten"
+          info_multi_column_3: "Info - 3 Spalten"
           listings: Angebote
           categories: Kategorien
           hero: Hero
           locations: Standorte
           video: Video
           new_section:
-            categories: "Neuer Kategorien-Abschnitt"
-            info_single_column: "Neuer Abschnitt mit einer Spalte"
-            info_multi_column_2: "Neuer Abschnitt mit zwei Spalten"
-            info_multi_column_3: "Neuer Abschnitt mit drei Spalten"
-            listings: "Neuer Angebote-Abschnitt"
-            locations: "Neuer Standorte-Abschnitt"
-            video: "Neuer Video-Abschnitt"
+            categories: "Neuer 'Kategorien' Abschnitt"
+            info_single_column: "Neuer \"Info - 1 Spalte\" Abschnitt"
+            info_multi_column_2: "Neuer \"Info - 2 Spalten\" Abschnitt"
+            info_multi_column_3: "Neuer \"Info - 3 Spalten\" Abschnitt"
+            listings: "Neuer 'Angebote' Abschnitt"
+            locations: "Neuer 'Standorte' Abschnitt"
+            video: "Neuer 'Video' Abschnitt"
           edit_section:
-            categories: "Kategorien-Abschnitt bearbeiten"
-            footer: "Footer-Abschnitt bearbeiten"
-            hero: "Hero-Abschnitt bearbeiten"
-            info_single_column: "Abschnitt mit einer Spalte bearbeiten"
-            info_multi_column_2: "Abschnitt mit zwei Spalten bearbeiten"
-            info_multi_column_3: "Abschnitt mit drei Spalten bearbeiten"
-            listings: "Angebote-Abschnitt bearbeiten"
-            locations: "Standorte-Abschnitt bearbeiten"
-            video: "Video-Abschnitt bearbeiten"
+            categories: "'Kategorien' Abschnitt bearbeiten"
+            footer: "'Footer' Abschnitt bearbeiten"
+            hero: "'Hero' Abschnitt bearbeiten"
+            info_single_column: "Abschnitt 'Info - 1 Spalte' bearbeiten"
+            info_multi_column_2: "Abschnitt 'Info - 2 Spalten' bearbeiten"
+            info_multi_column_3: "Abschnitt 'Info - 3 Spalten' bearbeiten"
+            listings: "'Angebote' Abschnitt bearbeiten"
+            locations: "'Standorte' Abschnitt bearbeiten"
+            video: "'Video' Abschnitt bearbeiten"
     landing_page_versions:
       sections:
         content:
           title: "Inhalt des Abschnitts"
         hero:
           hero_title: Hero
-          hero_description: "Stelle fest das Hintegrundbild für den Hero-Abschnitt. Der Slogan und die Beschreibung werden auf der Seite \"Grundangaben\" konfiguriert."
+          hero_description: "Stelle fest das Hintegrundbild für den Hero-Abschnitt. Der Slogan und die Beschreibung werden konfiguriert auf %{link}."
           basic_details_tab: "'Grundangaben' -Tab"
         footer:
           footer_title: Footer
           footer_style: Footer-Stil
           style_dark: Dunkel
           style_light: Hell
-          style_marketplace_color: Marktplatzfarbe
+          style_marketplace_color: "Hauptfarbe des Marktplatzes"
           style_logo: Logo
         cta_button:
-          cta_button: CTA-Taste
-          cta_enabled: Aktiviert
+          cta_button: "Call To Action -Taste"
+          cta_enabled: "Taste anzeigen"
           cta_text: Text
           cta_url: URL
           text_placeholder: "Hier klicken!"
@@ -751,9 +760,9 @@ de:
           style_none: Keine
         background_color:
           background_color: Hintergrundfarbe
-          background_color_info: "Du kannst die Hintergrundfarbe dieses Abschnitts wählen, indem du einen Hex-Wert eingibst. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> kann dir dabei helfen, eine Farbe zu wählen, und den Hex-Code der Farbe zu finden. Dann kannst du den Code hier eingeben."
+          background_color_info: "Du kannst die Hintergrundfarbe dieses Abschnitts wählen, indem du einen Hex-Wert eingibst. %{link}  kann dir dabei helfen, eine Farbe zu wählen, und den Hex-Code der Farbe zu finden. Dann kannst du den Code hier eingeben."
         categories:
-          add: "Neue Kategorie zu diesem Abschnitt hinzufügen"
+          add: "+ Neue Kategorie zu diesem Abschnitt hinzufügen"
           category: Kategorie
           empty: "Du hast keine gewählten Kategorien"
           image: Bild
@@ -770,7 +779,7 @@ de:
           image_required: "Du solltest ein Bild zu dieser Kategorie hinzufügen"
           select_category: "Kategorie wählen"
         locations:
-          add: "Einen neuen Standort zu diesem Abschnitt hinzufügen"
+          add: "+ Einen neuen Standort zu diesem Abschnitt hinzufügen"
           location: Standort
           empty: "Du hast keine hinzugefügten Standorte"
           image: Bild
@@ -799,7 +808,7 @@ de:
           column_paragraph: "Spalte %{index} -Paragraph"
           column_button: "Spalte %{index} -Taste"
           column_button_text: "Text auf der Taste"
-          column_button_url: "https://www.sharetribe.com"
+          column_button_url: "https://www.beispiel.de"
         listings:
           listings_to_feature: "Gewählte Anzeigen"
           you_need_to_add_the_listing_ids: "Du musst die Anzeige-IDs der Anzeigen, die du hinzufügen willst, hier einfügen. Um die ID einer Anzeige zu finden, gehe einfach auf die Anzeigeseite und prüfe die Anzeige-URL. Die ID der Anzeige ist die Nummer, die gleich nach der URL-Adresse angezeigt wird. Zum Beispiel auf der Anzeige https://www.beispiel.de/listings/123456-titel-der-anzeige ist 123456 die ID der Anzeige."
@@ -808,7 +817,7 @@ de:
           autoplay: Wiedergabealternativen
           autoplay_no: "Kein Autoplay"
           autoplay_muted: "Autoplay ohne Audio"
-          info: "Dieser Text wird angezeigt, wenn du \"Kein Autoplay\" wählst oder das Video pausiert wird"
+          info: "Dieser Text wird angezeigt, wenn du \\\"Kein Autoplay\\\" wählst oder das Video pausiert wird"
           youtube_video_id_info: "Du siehst die Video ID auf der URL Adresse des Videos. Es ist normalweise das letzte Teil der Adresse. Ist die URL Adresse des Videos zum beispiel https://www.youtube.com/watch?v=UffchBUUIoI, wäre die ID 'UffchBUUIoI'"
     custom_fields:
       edit:
@@ -1040,8 +1049,8 @@ de:
       currency_change_warning_text: "Aufpassen: Wenn du die Währung wechselst, vergiss nicht das deinen Benutzern zu erwählen und sie zu bitten, ihre bestehenden Einträge zu bearbeiten. Dadurch werden sie auch die neue Währung bekommen."
       marketplace_currency_label: "Währung des Marktplatzes:"
       minimum_listing_price_label: "Der Mindestbetrag einer Transaktion:"
-      transaction_fee_label: "Transaktionsgebühr:"
-      minimum_transaction_fee_label: "Mindestgebühr für die Transaktion:"
+      transaction_fee_label: "Transaktionsgebühr des Verkäufers:"
+      minimum_transaction_fee_label: "Mindestgebühr für die Transaktion für Verkäufer:"
       save_settings: "Einstellungen speichern"
       minimum_listing_price_below_tx_fee: "Der Mindestbetrag einer Transaktion muss größer oder gleich Mindestgebühr für die Transaktion sein: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Die Mindestmenge der Transaktion muss größer als die Mindestprovision %{minimum_commission} sein."
@@ -1148,14 +1157,14 @@ de:
         waiting_for_provider_accept_or_reject: "Gewartet wird, dass %{provider} die Anfrage annimmt or ablehnt."
         waiting_for_fulfill_and_complete: "Gewartet wird, dass %{listing_title} von %{provider} erbracht wird, and dass %{buyer} die Anfrage als erledigt markiert."
         buyer: "Käufer:"
-        provider: "Anbieter:"
+        provider: "Verkäufer:"
         delivery: "Lieferungsmethode:"
         shipping_to: "Versand an %{address}"
         buyer_pays: "Käufer zählt:"
         marketplace_collects: "%{service_name} bekommt:"
         buyer_service_fee_label: "Zahlungsgebühr vom Käufer:"
-        service_fee_label: "Zahlungsgebühr vom Anbieter:"
-        provider_receives: "Anbieter bekommt:"
+        service_fee_label: "Zahlungsgebühr vom Verkäufer:"
+        provider_receives: "Verkäufer bekommt:"
         admin_info_text: "Als Admin von %{service_name} kannst du einige Maßnahmen ergreifen, damit diese Transaktion weitergeht:"
         manage_reviews: "Bewertungen verwalten"
         you_should_investigate: "Du solltest die Lage untersuchen damit du mit den beiden Beteiligten diskutierst, und danach die Anfechtung ablehnst oder erstattest. %{learn_more_link}"
@@ -1205,7 +1214,7 @@ de:
       travel: Reisen
       other: Anderes
     username: Benutzername
-    username_or_email: "E-Mail oder Benutzername"
+    username_or_email: E-Mail
     what_is_this: "Was ist das?"
     removed_user: "Entfernter Benutzer"
     payment_fee_info:
@@ -1255,7 +1264,7 @@ de:
       stripe-fee_label: Zahlungsbearbeitungsgebühr
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du den Anderen bewerten."
-      cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
+      cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"angefochten\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
       cancel_description_team: "Wenn die Anfrage nicht erfüllt wurde, du kannst sie als 'Angefochten' markieren. Das Team von %{service_name} wird die Lage untersuchen und die Anfechtung entweder erstatten oder ablehnen."
       cancel_payed_description: "Wenn deine Anfrage akzeptiert wurde, du aber noch einmal darüber nachdenken willst, kannst du deine Anfrage vor der Bezahlung immer noch ablehnen."
       canceling_payed_transaction: "Transaktion abbrechen"
@@ -1405,7 +1414,7 @@ de:
       reject_preauthorized_offer: "Nicht dieses Mal"
       reject_preauthorized_request: "Nicht dieses Mal"
       confirm: erledigt
-      cancel: anfechten
+      cancel: Anfechten
       mark_as_refunded: "Als erstattet markieren"
       dismiss: "Ablehnen und auszahlen"
   feedback:
@@ -1416,8 +1425,8 @@ de:
   community_memberships:
     access_denied:
       access_denied: "Zugriff verweigert"
-      you_are_banned_in_this_community: "Der Administrator hat verhindert, dass du auf %{service_name} zugreifen kannst. Wenn du den Administrator von %{service_name} kontaktieren möchtest, kannst du %{link_to_contact_page} senden."
-      contact_page_link: Feedback
+      you_are_banned_in_this_community: "Das Team von %{service_name} hat dein Konto deaktiviert. Wenn du das Team von %{service_name} kontaktieren möchtest, kannst du %{link_to_contact_page}."
+      contact_page_link: "Feedback senden"
     new:
       welcome_fb_user: "Willkommen bei %{service_name}, %{name}!"
       fb_join_accept_terms: "Es gibt noch einen weiteren Schritt bevor du %{service_name} beitreten kannst: Du musst den Nutzungsbedingungen zustimmen."
@@ -1448,7 +1457,7 @@ de:
       create_own: "Willst Du Deinen eigenen Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
       learn_more: "Erfahre mehr"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Du hast die Anfrage %{request_link} noch nicht bestätigt oder abgelehnt. Wenn die Anfrage erledigt ist, solltest du dies bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
+      you_have_not_yet_confirmed_or_canceled_request: "Du hast die Anfrage %{request_link} noch nicht bestätigt oder angefochten. Wenn die Anfrage erledigt ist, solltest du dies bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
       remember_to_confirm_request: "Denke daran, deine Anfrage zu bestätigen oder abzulehnen"
       if_will_not_happen_you_should_cancel: "Wenn du denkst, dass diese Anfrage wegen irgendeinem Grund nicht erledigt wird, kannst du %{cancel_it_link}."
       cancel_it_link_text: anfechten
@@ -1739,7 +1748,7 @@ de:
       listing: "Eintrag: %{title}"
       sum: "Summe: %{amount}"
       starter: "Starter: %{name}"
-      provider: "Anbieter: %{name}"
+      provider: "Verkäufer: %{name}"
     new_transaction_v2:
       subject: "Neue Transaktion auf %{service_name}"
       there_is_a_new_transaction: "Es gibt %{link} auf %{service_name}."
@@ -1747,7 +1756,7 @@ de:
       listing: "Anzeige:"
       sum: "Summe:"
       starter: "Starter:"
-      provider: "Anbieter:"
+      provider: "Verkäufer:"
       view_transaction: "Transaktion anzeigen"
     transaction_cancel_flow:
       the_order_about: "die Anfrage über %{listing_title}"
@@ -1848,6 +1857,7 @@ de:
       listing_with_this_id_does_not_exist: "Diese Kennung gehört keinem Angebot auf deinem Marktplatz. Eventuell handelt es sich um einen Tippfehler. Bitte erneut versuchen."
       presence: "Kann nicht leer sein"
       username_is_invalid: "Der Benutzername ist ungültig oder nicht verfügbar"
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -2015,7 +2025,7 @@ de:
       no_listing_image: "Kein Bild"
   layouts:
     admin:
-      admin: "%{service_name} Verwaltung"
+      admin: "%{service_name} Admin-Bereich"
     branding:
       powered_by: "%{service_name} wird von %{sharetribe_link} Marktplatz Plattform betrieben."
       create_own: "Willst Du Deinen eigenen Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
@@ -2156,8 +2166,8 @@ de:
       payment_successful: "erfolgreiche Bezahlung"
       payment_canceled: "Zahlung abgebrochen"
       error_in_payment: "Es gab Probleme mit der Zahlung. Wenn du die Zahlung noch nicht ausgeführt hast, versuche es bitte noch einmal. Falls die Zahlung ausgeführt wurde, kontaktiere uns bitte."
-      cannot_receive_payment: "Aufgrund eines Fehlers kann die andere Partei keine Zahlung erhalten. Bitte kontaktiere den Administrator von %{service_name}, um die Situation zu klären"
-      payment_waiting_for_later_accomplishment: "Wenn du bezahlt hast, informieren wir den Zahlungsempfänger, und du erhältst einen Beleg via E-Mail"
+      cannot_receive_payment: "Aufgrund eines Fehlers kann der Verkäufer keine Zahlung erhalten. Bitte kontaktiere das Team von %{service_name}, um die Situation zu klären"
+      payment_waiting_for_later_accomplishment: "Wenn du bezahlt hast, informieren wir den Verkäufer, und du erhältst einen Beleg via E-Mail"
       password_recovery_sent: "Anweisungen zum Ändern deines Passworts wurden an deine E-Mail-Adresse gesendet."
       person_activated: "Benutzer aktiviert"
       person_deactivated: "Benutzer deaktiviert"
@@ -2225,7 +2235,7 @@ de:
       automatically_logged_out_please_sign_in: "Du wurdest automatisch ausgeloggt. Bitte melde dich erneut an."
       stripe_you_account_balance_is_not_0: "Dein Kontostand beträgt nicht 0 und kann daher nicht gelöscht werden. Möglicherweise müssen Transaktionen noch beendet werden oder Geld auf Dein Bankkonto überwiesen werden. Bitte kontaktiere das %{service_name} Team, um mehr zu erfahren."
       visit_admin: "Würdest Du gerne %{link}?"
-      visit_admin_link: "Deinen Admin Bereich besuchen"
+      visit_admin_link: "Deinen Admin-Bereich besuchen"
       an_error_occurred_when_saving_your_information: "Ein Fehler ist aufgetreten, während deine Informationen gespeichert wurden: \"%{message}\". Bitte überprüfen, dass alle Informationen richtig sind, und erneut versuchen."
     settings:
       account: Konto
@@ -2538,7 +2548,7 @@ de:
       address_country: "Land *"
       address_name: "Vor- und Nachnamen *"
       address_city: "Stadt *"
-      address_state: "Staat *"
+      address_state: Staat
       address_street1: "Strasse Adresszeile 1"
       address_street2: "Strasse Adresszeile 2"
       address_postal_code: "Postleitzahl *"
@@ -2660,14 +2670,14 @@ de:
       email_is_in_use: "Die angegebene E-Mail-Adresse wird bereits genutzt."
       email_is_in_use_or_not_allowed: "Diese E-Mail-Adresse ist nicht erlaubt oder bereits in Verwendung. Wenn Du Dich nicht anmelden kannst, kontaktiere uns bitte."
       email_not_allowed: "Diese E-Mail-Adresse ist für %{service_name} nicht gültig. Bitte verwende eine erlaubte Adresse. Wenn du dann immer noch keinen Zugang haben solltest, schicke uns eine Nachricht."
-      invalid_username_or_email: "Der Benutzername oder die E-Mail-Adresse ist ungültig oder wird bereits verwendet"
+      invalid_username_or_email: "Die E-Mail-Adresse ist ungültig oder wird bereits verwendet"
       email_restriction_instructions:
         one: "Der Zugang zu %{service_name} ist beschränkt. Um beitreten zu können, brauchst du eine '%{allowed_emails}' E-Mail-Adresse. "
         other: "Der Zugang zu %{service_name} ist beschränkt. Um beitreten zu können, brauchst du eine E-Mail-Adresse, die belegt, dass deine Teilnahme erlaubt ist."
       family_name: Nachname
       given_name: Vorname
       i_accept_the_terms_and_privacy: "Ich akzeptiere die %{privacy} und %{terms}"
-      admin_emails_consent: "Ich bin damit einverstanden, gelegentlich Emails vom %{service_name} Team zu erhalten und habe zur Kenntnis genommen, dass ich es mir jederzeit anders überlegen kann."
+      admin_emails_consent: "Ich bin damit einverstanden, gelegentlich Emails vom %{service_name} Team zu erhalten und habe zur Kenntnis genommen, dass ich es mir jederzeit anders überlegen kann"
       invalid_invitation_code: "Der Einladungs-Code ist ungültig."
       invitation_code: Einladungscode
       not_required: ", nicht erforderlich"
@@ -2676,7 +2686,7 @@ de:
       show_my_name_to_others: "Anderen %{service_name} Benutzern meinen richtigen Namen anzeigen"
       sign_up: "Ein neues Konto bei %{service_name} erstellen"
       terms: Nutzungsbedingungen
-      privacy: Datenschutz
+      privacy: "Impressum und Datenschutz"
       visible_only_to_you: "nur für dich und den Admin von %{service_name} sichtbar"
       visible_to_everybody: "für jeden sichtbar"
       create_account_with_provider: "Registrieren mit %{provider}"
@@ -2737,7 +2747,7 @@ de:
   sessions:
     new:
       create_new_account: "Ein neues Konto bei %{service_name} erstellen"
-      i_forgot_my_password: "Benutzernamen oder Passwort vergessen?"
+      i_forgot_my_password: "Passwort vergessen?"
       login: Anmelden
       login_to_kassi: "Bei %{service_name} anmelden"
       connect_your_facebook_to_kassi: "Verbinde dein Facebook-Konto mit %{service_name}"
@@ -2748,11 +2758,11 @@ de:
       cancle_facebook_connect: "Wenn du dieses Konto nicht verbinden willst, kannst du %{cancel_link}."
       facebook_cancel_link_text: abbrechen
       log_in_with_your_provider_account: "Anmelden mit %{provider}"
-      or_sign_up_with_your_username: "...oder mit Deinem Benutzernamen und Passwort:"
+      or_sign_up_with_your_username: "...oder mit deiner Email:"
       we_will_not_post_without_asking_you: "Wir werden deine Nachrichten nie auf Facebook posten ohne vorher zu fragen."
     password_forgotten:
       email: E-Mail
-      password_recovery_instructions: "Gib deine E-Mail-Adresse ein, um deinen Benutzernamen zu erhalten sowie Anweisungen, wie du dein Passwort ändern kannst."
+      password_recovery_instructions: "Gib deine E-Mail-Adresse ein, um dein Passwort zurückzusetzen."
       request_new_password: "Neues Passwort anfordern"
       change_your_password: "Ändere dein Passwort"
     confirmation_pending:
@@ -2766,7 +2776,7 @@ de:
       account_confirmation_instructions_title_admin: "Bestätige deine E-Mail-Adresse"
       before_full_access_you_need_to_confirm_email: "Bevor wir dir vollen Zugang zu deinem Marktplatz gewähren können, müssen wir nur noch eines tun: deine E-Mail-Adresse bestätigen."
       before_confirmation_only_access_admin_dashboard: "Vor der Bestätigung hast du nur Zugang zu %{admin_dashboard_link}."
-      admin_dashboard_link_text: "Administrator Dashboard"
+      admin_dashboard_link_text: Admin-Bereich
       account_confirmation_instructions_admin: "Du wirst gleich eine E-Mail auf %{email_address} empfangen, die einen Link für die Verifizierung deiner E-Mail-Adresse enthält. Vergiss nicht, dein Spam-Ordner zu kontrollieren! Nachdem du deine E-Mail-Adresse mit dem Link in dieser E-Mail verifiziert hast, kannst du mit der Einrichtung deines Marktplatzes anfangen. Brauchst du Hilfe, bitte %{support_link}."
       contact_support_link_text: "Kontaktiere unseren Support"
   settings:
@@ -2778,7 +2788,7 @@ de:
       delete_account_confirmation_popup: "Bist du sicher, dass du dein Benutzerkonto und alle damit verbundenen Daten endgültig löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden."
       email_addresses: E-Mail-Adressen
       new_email: "Neue E-Mail-Adresse"
-      delete_personal_information: "Wenn Du Dein Konto löschst, werden Deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote, die Du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, Dein Konto zu reaktivieren. Dein Benutzername wird für neue Mitglieder beim Registrieren wieder verfügbar auf %{service_name}."
+      delete_personal_information: "Wenn du dein Konto löschst, werden deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote, die du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, dein Konto zu reaktivieren."
       delete_information_others_involved: "Informationen, an denen andere Mitglieder beteiligt sind (Unterhaltungen mit anderen Menschen, Transaktionen, die Du durchgeführt hast, Bewertungen, die Du vorgenommen hast usw.) werden nicht entfernt, wenn Du Dein Konto löschst. Allerdings wird dein Name nicht mehr neben diesen Informationen angezeigt werden."
       unfinished_transactions: "Dein Konto kann nicht gelöscht werden, weil Du laufende Transaktionen hast. Bitte schließe alle Transaktionen vor dem Löschen Deines Kontos ab."
       only_admin: "Dein Konto kann nicht gelöscht werden, da Du der einzige Administrator in dem Marktplatz bist."
@@ -3202,12 +3212,12 @@ de:
         digits_or_chars: "Ziffern oder Buchstaben A-Z"
     form_verification:
       personal_id_number: Personalausweisnummer
-      document: Nachweis-Dokument
-      document_back: ~
+      document: "Identitätsnachweis (z.B. Reisepass oder Personalausweis)"
+      document_back: "Identitätsnachweis (z.B. Reisepass oder Personalausweis) (Hinterseite des Dokuments)"
       send_verification: "Verifizierungen zuschicken"
       need_verification: "Zusätzliche Verifizierung benötigt"
       additional_document: "Ein Dokument das die Adresse anzeigt, wie ein Reisepass, eine ID-Karte, oder eine Rechnung eines bekannten Versorgungsunternehmens (z.B. eines Elektrizitätsunternehmens)"
-      additional_document_back: ~
+      additional_document_back: "Ein Dokument, das deine Adresse enthält, z.B. ein Identitäsnachweis mit Adresse oder eine Rechnung eines bekannten Versorgungsunternehmens (Hinterseite des Dokuments)"
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sozialversicherungsnummer)"
       social_security_number: "Social Security Number (SSN; Sozialversicherungsnummer)"

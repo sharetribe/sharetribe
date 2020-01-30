@@ -348,7 +348,7 @@ cs:
         google_connect_info_text: "Chcete-li povolit funkci Google přihlášení, vytvořte projekt pro vaše tržiště na %{dashboard_link}. Vytvořené ID a tajný klíč k projektu přidejte zde."
         enable_google_login: "Povolit uživatelům přihlášení prostřednictvím jejich Google účtu"
         google_connect_id: "Google klient ID"
-        google_connect_secret: ~
+        google_connect_secret: "Skrytý Google klient"
         linkedin_connect: "Přihlášení prostřednictvím LinkedIn"
         linkedin_instructions_link_text: "Viz pokyny pro konfiguraci Přihlášení prostřednictvím LinkedIn."
         linkedin_developers_dashboard: "Řídící panel vývojářů LinkedIn"
@@ -356,11 +356,11 @@ cs:
         linkedin_connect_info_text: "Chcete-li umožnit přihlášení prostřednictvím LinkedIn, vytvořte projekt pro vaše tržiště na %{dashboard_link}. Vytvořené ID a tajný klíč k projektu přidejte zde."
         enable_linkedin_login: "Umožnit uživatelům přihlášení prostřednictvím jejich LinkedIn účtu"
         linkedin_connect_id: "LinkedIn klient ID"
-        linkedin_connect_secret: ~
+        linkedin_connect_secret: "Skrytý klient LinkedInu"
       seo_settings:
         seo: SEO
         title: "Domovská stránka nebo vlastní cílová stránka"
-        meta_title_label: ~
+        meta_title_label: "Meta tag názvu domovské nebo vlastní vstupní stránky"
         meta_title_info: "Obsah tohoto tagu je navržený pro vyhledávače a je zobrazen na stránkách s výsledky jako headline/nadpis, na který lze kliknout. %{link} %{vars}"
         meta_title_link_text: "Zjistit více o meta tagech."
         meta_description_label: "Popis meta tagu domovské stránky nebo vlastní vstupní stránky"
@@ -403,6 +403,10 @@ cs:
         robots_info: "Robots.txt je soubor, který dává web robotům pokyny (typicky roboty vyhledávačů) jak stáhnout stránky na vašem web. %{link}"
         robots_info_link_text: "Více informací o souboru robots.txt"
         robots_info_2: "Soubor robots.txt je generován pro vaše tržiště automaticky. Přístup k vašemu souboru robots.txt najdete na %{link}."
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "Google Search Console nabízí nástroje a přehledy, které vám pomohou měřit  provoz na vašem webu a problémy s výkonem a opravami související s výsledky vyhledávání Google."
+        google_search_console_these_instructions: "tyto pokyny"
+        google_search_console_paragraph2: "Připojit  aši webovou stránku na Google Search Console je dobrá myšlenka. S %{link} to zabere jen pár minut."
         save: "Uložit nastavení"
       analytics:
         analytics: "Google Analytics"
@@ -663,6 +667,11 @@ cs:
         contact_us: "Prosím, kontaktujte nás"
         you_can_now_use_a_custom_domain: "S vaším aktuálním plánem nyní můžete povolit vlastní doménu. Přejděme k nastavení. %{contact_us}"
         would_you_like_to_change_domain: "Chcete změnit tržiště vlastní domény? %{contact_us}!"
+        change_your_sharetribe_domain: "Změnit vaši Sharetribe doménu"
+        only_letters_numbers_and_hyphens_can_be_used: "Mohou být použity pouze písmena, číslice nebo pomlčky. Buďte opatrní! Vaše stará doména se stane dostupnou pro každého uživatele a nebude  přesměrována na vaši novou doménu."
+        when_you_change_your_sharetribe_domain: "Pokud změníte vaši Sharetribe doménu, všechny vaše adresy URL se automaticky změní. Budete přesměrováni na novou adresu vašeho tržiště. Vy a vaši uživatelé se budete muset znovu přihlásit. Vaše předchozí doména tržiště nebude v žádném případě propojena nebo přesměrována k vaší nové doméně. Stará doménadobu k dispozici ostatním k použití."
+        would_you_like_to_proceed: "Přejete si pokračovat?"
+        change: Změna
       landing_pages:
         landing_pages: "Úvodní stránka"
         info_1: "Úvodní stránka je možná nejdůležitější stránkou vašeho tržiště. Je to první stránka, kterou návštěvník vidí - něco jako vstupní dveře do vašeho domu. Máte jen několik vteřin na to, abyste přesvědčil návštěvníky, že by měli prozkoumat vaše webové stránky. Stránka musí být atraktivní a hodnota vaší nabídky by měla být jasná a lákavá."
@@ -707,7 +716,7 @@ cs:
           edit_section:
             categories: "Úprava sekce 'Kategorie'"
             footer: "Úprava sekce 'Zápatí'"
-            hero: ~
+            hero: "Edice sekce 'Hlavní upoutávka'"
             info_single_column: "Úprava sekce 'Info - Jeden sloupec'"
             info_multi_column_2: "Úprava sekce 'Info - Dva sloupce'"
             info_multi_column_3: "Úprava sekce 'Info - Tři sloupce'"
@@ -719,8 +728,8 @@ cs:
         content:
           title: "Obsah sekce"
         hero:
-          hero_title: ~
-          hero_description: ~
+          hero_title: "Hlavní upoutávka"
+          hero_description: "Nastavte obrazek na pozadí v sekci Hlavní upoutávka. Slogan a popis jsou z %{link}."
           basic_details_tab: "Karta 'Základní podrobnosti'"
         footer:
           footer_title: Zápatí
@@ -762,7 +771,7 @@ cs:
           category: Kategorie
           empty: "Nemáte zahrnuté žádné kategorie"
           image: Obrázek
-          include_title: ~
+          include_title: "Kategorie, které mají být uvedeny"
           info_text: "Můžete uvést tři ze sedmi kategorií. Prosím, přidejte obrázek do každé kategorie a vyberte jednu z kategorií na vašem tržišti. Doporučená velikost obrázku k dosažení nejlepšího výsledku je 1000 x 667 pixelů."
           need_at_least_3_categories: "V této sekci byste měl mít alespoň tři kategorie"
           need_at_most_7_categories: "V této sekci byte měl mít maximálně sedm kategorií"
@@ -779,7 +788,7 @@ cs:
           location: Umístění
           empty: "Nezahrnul jste žádné umístění"
           image: Obrázek
-          include_title: ~
+          include_title: "Místa, kde se má zobrazit"
           info_text: "Můžete uvést tři až sedm míst. Prosím, přidejte obrázek ke každému místu a zadejte adresu URL pro vyhledání polohy vašeho tržiště. K dosažení nejlepších výsledků doporučujeme obrázek o velikosti 1000 x 667 pixelů,"
           need_at_least_3_locations: "V této sekci byste měli mít alespoň tři místa"
           need_at_most_7_locations: "V této sekci byste měli mít maximálně sedm míst"
@@ -1854,6 +1863,7 @@ cs:
       listing_with_this_id_does_not_exist: "Toto ID záznamu není na vašem tržišti k dispozici. Možná jste se překlepl. Prosím ověřte to a zkuste to znovu."
       presence: "Pole nesmí být prázdné"
       username_is_invalid: "Toto uživatelské jméno je neplatné nebo nedostupné"
+      domain_name_is_invalid: "Tato doména je neplatná nebo nedostupná."
   event_feed_events:
     accept:
       has_accepted_lend_item: "Uživatel %{offerer_name} souhlasil s propůjčením %{listing_title} uživateli %{requester_name} %{time_ago}."

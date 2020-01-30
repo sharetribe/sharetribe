@@ -398,6 +398,10 @@ fr:
         robots_info: "Le fichier robots.txt est un fichier pour informer les robots web (en général les robots des moteurs de recherche) comment parcourir les pages sur votre site. %{link}."
         robots_info_link_text: "Découvrez-en plus sur le fichier robots.txt"
         robots_info_2: "Un fichier robots.txt est automatiquement généré pour votre place de marché. Vous pouvez accéder à votre robots.txt sur %{link}."
+        google_search_console: ~
+        google_search_console_paragraph1: "Google Search Console offre des outils et rapports pour vous aider à mesurer le traffic et la performance de votre site ainsi que de résoudre des problèmes relatifs aux résultats dans la recherche Google."
+        google_search_console_these_instructions: "ces instructions"
+        google_search_console_paragraph2: "Ajouter votre site à Google Search Console est une bonne idée. Cela ne prend que quelques minutes avec %{link}."
         save: "Sauvegarder les paramètres"
       analytics:
         analytics: Analyses
@@ -658,6 +662,11 @@ fr:
         contact_us: Contactez-nous
         you_can_now_use_a_custom_domain: "Avec votre offre actuelle, vous pouvez dès à présent utiliser votre propre domaine. Configurons le ensemble. %{contact_us} !"
         would_you_like_to_change_domain: "Souhaitez-vous modifier le domaine de votre place de marché ? %{contact_us} !"
+        change_your_sharetribe_domain: "Changer votre domaine Sharetribe"
+        only_letters_numbers_and_hyphens_can_be_used: "Seuls des lettres, chiffres et tirets peuvent être utilisés. Soyez prudent ! Votre ancien domaine sera rendu disponible à quiconque souhaite l'utiliser et ne sera pas redirigé vers votre nouveau domaine."
+        when_you_change_your_sharetribe_domain: "Lorsque vous changez votre domaine Sharetribe, toutes vos URLs seront automatiquement modifiées. Vous serez redirigé vers la nouvelle adresse de votre place de marché. Vous et vos utilisateurs devrez vous connecter de nouveau. L'ancien domaine de votre place de marché ne sera pas du tout lié ou redirigé vers le nouveau. L'ancien domaine sera rendu disponible pour quiconque souhaite l'utiliser."
+        would_you_like_to_proceed: "Voulez-vous continuer ?"
+        change: Changer
       landing_pages:
         landing_pages: "Page d'accueil"
         info_1: "La page d'accueil est peut être la page la plus importante de votre place de marché. C'est la première page que vos visiteurs voient, un peu comme la porte d'entrée de votre maison. Vous n'avez que quelques secondes pour convaincre les nouveaux visiteurs qu'ils devraient parcourir votre site. Cette page doit être attirante et votre proposition claire et attractive."
@@ -1848,6 +1857,7 @@ fr:
       listing_with_this_id_does_not_exist: "L'identifiant de cette annonce n'est pas de votre place de marché. Peut être avez fait une faute ? Veuillez vérifier et essayer de nouveau."
       presence: "Ne peut être vide"
       username_is_invalid: "Ce nom d'utilisateur est indisponible ou n'est pas correct"
+      domain_name_is_invalid: Annuler
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."

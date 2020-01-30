@@ -403,6 +403,10 @@ sk-SK:
         robots_info: "Robots.txt je textový súbor, ktorý webovým robotom (zvyčajne robotom vyhľadávacích strojov) dá pokyn, ako prehľadávať stránky na vašom webe. %{link}."
         robots_info_link_text: "Viac informácií o súbore robots.txt"
         robots_info_2: "Pre Vaše trhovisko sa automaticky vygeneruje súbor robots.txt. Prístup k súboru robots.txt nájdete na adrese %{link}."
+        google_search_console: "Google vyhľadávacia konzola"
+        google_search_console_paragraph1: "Konzola Google Search Console ponúka nástroje a prehľady, ktoré vám pomôžu zmerať návštevnosť a výkonnosť vyhľadávania a problémy súvisiace s výsledkami vyhľadávania vo Vašom webe."
+        google_search_console_these_instructions: "tieto pokyny"
+        google_search_console_paragraph2: "Je dobré pridať svoj web do Konzoly Google Search Console. %{link}  trvá iba pár minút."
         save: "Uložiť nastavenia"
       analytics:
         analytics: "Google Analytics"
@@ -454,7 +458,7 @@ sk-SK:
         transactions: "Zobraziť platby"
         search_by_title_parties: "Vyhľadajte názov transakcie alebo zúčastnené strany"
         search: Hľadať
-        reset_search: "Ukázať všetko"
+        reset_search: Všetko
         status_filter:
           all: "Všetky stavy"
           selected: "Vybrané stavy: %{count}"
@@ -539,7 +543,7 @@ sk-SK:
         profile: "Profil %{author}"
         search_by_keyword: "Vyhľadajte meno, e-mail alebo kľúčové slovo"
         search: Vyhľadávanie
-        reset_search: "Ukázať všetko"
+        reset_search: Všetko
         for_keyword: "pre: <b>%{keyword}</b>"
       testimonials:
         testimonials: Recenzie
@@ -547,7 +551,7 @@ sk-SK:
         displaying_xx_reviews: "Zobrazuje sa <b>%{count} </b> recenzií v transakciách %{tx_from} - %{tx_to} z <b>%{all_count}</b> všetkých recenzií"
         search_keyword: "Vyhľadajte meno, e-mail alebo kľúčové slovo"
         search: Vyhľadávanie
-        reset_search: "Ukázať všetko"
+        reset_search: Všetko
         for_keyword: "pre: <b>%{keyword}</b>"
         headers:
           transaction: Transakcia
@@ -598,7 +602,7 @@ sk-SK:
         listings: Inzeráty
         search_by_title_author_category: "Vyhľadajte názov inzerátu, autora alebo názov kategórie"
         search: Hľadať
-        reset_search: "Ukázať všetko"
+        reset_search: Všetko
         export_all_as_csv: "Exportovať všetko ako CSV"
         processing_export: "Spracováva sa export do súboru CSV ..."
         status:
@@ -663,6 +667,11 @@ sk-SK:
         contact_us: "Kontaktuj nás"
         you_can_now_use_a_custom_domain: "S aktuálnym plánom teraz môžete povoliť vlastnú doménu. Pokračujeme ďalej v nastaveniach. %{contact_us}!"
         would_you_like_to_change_domain: "Chcete zmeniť doménu trhoviska na vlastnú? %{contact_us}!"
+        change_your_sharetribe_domain: "Zmeňte svoju doménu Sharetribe"
+        only_letters_numbers_and_hyphens_can_be_used: "Môžu sa používať písmená, číslice a spojovníky. Buďte opatrní! Vaša stará doména bude k dispozícii všetkým na použitie a nebude presmerovaná na Vašu novú."
+        when_you_change_your_sharetribe_domain: "Keď zmeníte svoju doménu Sharetribe, všetky vaše adresy URL sa automaticky zmenia. Budete presmerovaný na novú adresu svojho trhoviska. Vy a používatelia sa budete musieť znova prihlásiť. Vaša predchádzajúca doména na trhu nebude nijako prepojená ani presmerovaná na novú. Stará doména bude k dispozícii pre ďalšie použitie"
+        would_you_like_to_proceed: "Chcete pokračovať?"
+        change: Zmeniť
       landing_pages:
         landing_pages: "Uvítacia stránka"
         info_1: "Práve uvítacia stránka je možno tou najdôležitejšou stránkou na Vašom trhovisku. Rovnako ako dvere na Vašom dome - je to to prvé, čo návštevník vidí. Máte iba pár sekúnd, aby ste zaujali nových návštevníkov a presvedčili ich, aby Vašu stránku spoznali viac. Uvítacia stránka by preto mala jasne prezentovať hodnoty, ktoré vyznávate a zároveň musí byť prehľadná a lákavá."
@@ -1858,6 +1867,7 @@ sk-SK:
       listing_with_this_id_does_not_exist: "Toto ID nie je dostupné vo Vašom trhovisku. Možno ste spravili preklep? Overte si to a skúste znovu."
       presence: "Nemôže byť prázdne"
       username_is_invalid: "Toto používateľské meno je neplatné alebo nedostupné"
+      domain_name_is_invalid: "Tento názov domény je neplatný alebo nedostupný"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} súhlasil s pôžičkou %{listing_title} pre %{requester_name} %{time_ago}."
@@ -2266,7 +2276,7 @@ sk-SK:
       write_comment: "Napíšte nový komentár:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Nemôžete odoslať nový komentár, lebo tento inzerát bol uzavretý."
       you_must: Musíte
-      subscribe_to_comments: "Notifikujte ma v prípade nových komentárov a aktualizácií."
+      subscribe_to_comments: "Upozornite ma v prípade nových komentárov a aktualizácií."
     deleting_a_listing_cannot_be_undone: "Odstránenie inzerátu nemožno vrátiť späť. Naozaj chcete pokračovať?"
     edit:
       edit_listing: "Upraviť inzerát"
@@ -2734,7 +2744,7 @@ sk-SK:
       show_all_open_listings: "Zobraziť všetky otvorené inzeráty"
       show_all_reviews: "Zobraziť všetky hodnotenia"
       admin_actions: "Správcovské akcie"
-      post_listing_as: "Zobraziť inzerát ako"
+      post_listing_as: "Pridať inzerát"
     followed_people:
       you_follow_plural: "Sledujete %{count} ľudí"
       you_follow_singular: "Sledujete %{count} osôb"
@@ -3061,7 +3071,7 @@ sk-SK:
       save_and_close_availability_editing: "uložiť a zavrieť"
       confirm_discarding_unsaved_availability_changes_explanation: "Nemáme uložené zmeny o dostupnosti. Keď budete pokračovať, zmeny budú stratené."
       confirm_discarding_unsaved_availability_changes_question: "Naozaj chcete zrušiť zmeny?"
-      edit_listing_availability: "Upravte dostupnosť inzerátu."
+      edit_listing_availability: "Upraviť dostupnosť inzerátu"
       working_hours:
         default_schedule: "Predvolený rozvrh"
         i_am_available_on: "Som k dispozícii na ..."

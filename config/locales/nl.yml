@@ -226,7 +226,7 @@ nl:
         require_verification_to_post_listings: "Enkel gebruikers die door de beheerder nagekeken werden kunnen nieuwe advertenties toevoegen"
         allow_free_conversations: "Sta gebruikers to vrijelijk met elkaar berichten uit te wisselen"
         search_preferences: "Zoek-functie voorkeuren"
-        search_and_location_preferences: ~
+        search_and_location_preferences: "Zoek- en locatievoorkeuren"
         default_search_type: "Zoek type: %{select_search_type}"
         keyword_search: "Zoeken op keywords"
         keyword_and_location_search: "Zoeken op keyword èn locatie"
@@ -235,7 +235,7 @@ nl:
         km: km
         miles: mijlen
         show_only_nearby: "Laat alleen naburige advertenties zien met zoeken op locatie"
-        allow_users_to_add_location: ~
+        allow_users_to_add_location: "Sta gebruikers toe om locatie toe te voegen aan hun profiel en advertenties, en om een kaart weer te geven op de zoekpagina"
         listing_preferences: "Advertentie voorkeuren"
         transaction_preferences: "Transactie voorkeuren"
         show_listing_publishing_date: "Toon publicatie datum van de advertentie op de advertentie pagina"
@@ -400,6 +400,10 @@ nl:
         robots_info: "Robots.txt is een tekstbestand dat web robots (gebruikelijk zoekmachine robots) instrueert hoe de pagina's op je marktplaats te doorzoeken. %{link}."
         robots_info_link_text: "Lees meer over het robots.txt bestand"
         robots_info_2: "Een robots.txt bestand wordt automatisch gegenereerd voor je marktplaats. Je hebt toegang tot je robots.txt bestand op %{link}."
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: "Sla instellingen op"
       analytics:
         analytics: Analytics
@@ -660,157 +664,162 @@ nl:
         contact_us: "Neem contact op met ons"
         you_can_now_use_a_custom_domain: "Met je huidige plan kun je nu een eigen domein instellen. Om verder te gaan met de setup: %{contact_us}!"
         would_you_like_to_change_domain: "Wil je je eigen marktplaats domein veranderen? %{contact_us}!"
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
-        landing_pages: ~
-        info_1: ~
-        info_2: ~
-        info_2_help_center: ~
-        info_3: ~
-        info_4: ~
-        editor_title: ~
-        editor_info: ~
-        preview: ~
-        set_live: ~
-        add_new_section: ~
-        select_section_type: ~
-        this_version_is_not_released: ~
-        latest_version_released: ~
-        check_it_out: ~
+        landing_pages: Landingspagina
+        info_1: "De landingspagina is misschien wel de belangrijkste pagina van je marktplaats. Het is de eerste pagina die bezoekers zien - een soort van voordeur van je huis. Je hebt slechts een paar seconden om nieuwe bezoekers te overtuigen dat ze je site moeten verkennen. De pagina dient aantrekkelijk te zijn en de waardepropositie duidelijk en verleidelijk."
+        info_2: "Je kunt deze editor gebruiken om je landingspagina te veranderen wanneer je maar wilt."
+        info_2_help_center: "Help Center artikel"
+        info_3: "Als je een landingspagina op maat wil laten maken voor je marktplaats, dan kun je deze kopen als een add-on for $99 per maand."
+        info_4: "Lees deze %{link} om uit te vinden hoe de landingspagina-editor werkt, het verschil tussen de verschillende secties en hoe deze aan te passen."
+        editor_title: Landingspagina-editor
+        editor_info: "Hier kun je secties van je landingspagina aanpassen. Momenteel is het alleen mogelijk om slechts één taal te gebruiken voor je landingspagina. De \"Hero\" en \"Footer\" secties kunnen niet worden aangepast."
+        preview: "Voorproef landingspagina"
+        set_live: "Instellen als live"
+        add_new_section: "Voeg nieuwe sectie toe:"
+        select_section_type: "Selecteer type sectie..."
+        this_version_is_not_released: "Je dient wijzigingen te maken om een nieuwe versie van je landingspagina live in te stellen"
+        latest_version_released: "De laatste versie van je landingspagina is nu ingesteld als live. %{link} !"
+        check_it_out: "Bekijk het hier"
         form:
-          save: ~
+          save: "Sla op"
           cancel: ~
         sections:
-          identifier: ~
-          kind: ~
-          new: ~
-          edit: ~
-          remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: ~
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
+          identifier: "Sectie ID"
+          kind: "Sectie type"
+          new: "Nieuwe sectie"
+          edit: "Wijzig sectie %{section_id}"
+          remove_section_confirmation: "Weet je zeker dat je sectie ´%{section_id}´ en alle data wilt verwijderen? Dit kan niet ongedaan gemaakt worden."
+          info_single_column: "Info - Één kolom"
+          info_multi_column_2: "Info - Twee kolommen"
+          info_multi_column_3: "Info - Drie kolommen"
+          listings: Advertenties
+          categories: Categorieën
+          hero: Hero
+          locations: Locaties
+          video: Video
           new_section:
-            categories: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Nieuwe toevoeging sectie ´Categories´"
+            info_single_column: "Toevoeging nieuwe sectie 'Info - Een kolom'"
+            info_multi_column_2: "Toevoeging nieuwe sectie 'Info - Twee kolommen'"
+            info_multi_column_3: "Toevoeging nieuwe sectie 'Info - Drie kolommen'"
+            listings: "Toevoeging nieuwe sectie 'Advertenties'"
+            locations: "Toevoeging nieuwe sectie 'Locaties'"
+            video: "Toevoeging nieuwe sectie 'Video'"
           edit_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Wijziging sectie 'Categorieen'"
+            footer: "Wijziging sectie 'Footer'"
+            hero: "Wijziging sectie 'Hero'"
+            info_single_column: "Wijziging sectie 'Info - Een kolom'"
+            info_multi_column_2: "Wijziging sectie 'Info - Twee kolommen'"
+            info_multi_column_3: "Wijziging sectie 'Info - Drie kolommen'"
+            listings: "Wijziging sectie 'Advertenties'"
+            locations: "Wijziging sectie 'Locaties'"
+            video: "Wijziging sectie 'Video'"
     landing_page_versions:
       sections:
         content:
           title: ~
         hero:
-          hero_title: ~
-          hero_description: ~
+          hero_title: Hero
+          hero_description: "Stel de achtergrondafbeelding in voor de ´Hero´ sectie. De slogan en beschrijving zijn ingesteld van de %{link}."
           basic_details_tab: ~
         footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
+          footer_title: Footer
+          footer_style: "Footer stijl"
+          style_dark: Donker
+          style_light: Licht
+          style_marketplace_color: "Marktplaats hoofdkleur"
+          style_logo: Logo
         cta_button:
-          cta_button: ~
-          cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
+          cta_button: "Call-to-action button"
+          cta_enabled: "Toon een button"
+          cta_text: Label
+          cta_url: URL
           text_placeholder: ~
           url_placeholder: ~
         background_selector:
           title: ~
         background_image_overlay:
-          background_image: ~
-          background_image_info: ~
-          add_another_image: ~
-          current_image: ~
-          file_not_selected: ~
-          background_image_overlay: ~
-          background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
+          background_image: Achtergrondafbeelding
+          background_image_info: "Deze afbeelding wordt getoond als de achtergrondafbeelding voor de sectie. Voor het beste resultaat dient het minimale afmetingen van 1600x1200 pixels te hebben."
+          add_another_image: "Voeg nog een afbeelding toe"
+          current_image: "Huidige afbeelding: %{filename}"
+          file_not_selected: "Niet geselecteerd"
+          background_image_overlay: "Laag over achtergrondafbeelding"
+          background_image_overlay_info: "Hiermee bepaal je hoe donker of licht je achtergrondafbeelding zal worden weergegeven. \"Transparant\" betekent dat er helemaal geen laag over heen komt."
+          overlay_dark: Donker
+          overlay_light: Licht
+          overlay_transparent: Transparant
         background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
+          background_style: "Achtergrond stijl"
+          style_image: Afbeelding
+          style_color: Kleur
+          style_none: Geen
         background_color:
-          background_color: ~
-          background_color_info: ~
+          background_color: Achtergrondkleur
+          background_color_info: "Je kunt de achtergrondkleur van deze sectie kiezen door een hex waarde in te vullen. %{link} kan helpen met het kiezen van de kleur en de hex code. Je kunt de code dan hier kopieren."
         categories:
-          add: ~
-          category: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
+          add: "+ Voeg een nieuwe categorie toe aan deze sectie"
+          category: Categorie
+          empty: "Je hebt geen inbegrepen categorieen"
+          image: Afbeelding
+          include_title: "Categorieen om uit te lichten"
+          info_text: "Je kunt drie tot zeven categorieen uitlichten. Voeg een afbeelding toe voor iedere categorie en selecteer een van de categorieen van je marktplaats. Voor het beste resultaat worden afbeelding van 1000x667 pixels aangeraden."
+          need_at_least_3_categories: "Je dient ten minste drie categorieen in deze sectie te hebben."
+          need_at_most_7_categories: "Je kunt maximaal zeven categorieen in deze sectie hebben."
         category:
-          add_another_image: ~
-          category: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          select_category: ~
+          add_another_image: "Voeg nog een afbeelding toe"
+          category: Categorie
+          current_image: "Huidige afbeelding: %{filename}"
+          file_not_selected: "Niet geselecteerd"
+          image: Afbeelding
+          image_required: "Je dient een afbeelding aan deze categorie toe te voegen"
+          select_category: "Selecteer categorie"
         locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
+          add: "+ Voeg een nieuwe locatie toe aan deze sectie"
+          location: Locatie
+          empty: "Je hebt geen inbegrepen locaties."
+          image: Afbeelding
+          include_title: "Locaties om uit te lichten"
+          info_text: "Je kunt drie tot zeven locaties toevoegen. Voeg een afbeelding toe aan iedere locatie en voorzie deze van de \"location search URL\" van je marktplaats. Voor het beste resultaat worden afbeeldingen van 1000 x 667 pixels aangeraden."
+          need_at_least_3_locations: "Je dient ten minste drie locaties in deze sectie te hebben"
+          need_at_most_7_locations: "Je kunt maximaal zeven locaties in deze sectie hebben"
         location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
+          add_another_image: "Voeg nog een afbeelding toe"
+          location: Locatie
+          current_image: "Huidige afbeelding: %{filename}"
+          file_not_selected: "Niet geselecteerd"
+          image: Afbeelding
+          image_required: "Je dient een afbeelding aan deze locatie toe te voegen"
+          title: Titel
+          title_placeholder: "Locatie label"
+          url: URL
+          url_placeholder: "Locatie URL"
         multi_column:
-          main_title: ~
-          column_header: ~
-          column_title: ~
+          main_title: Hoofdtitel
+          column_header: "Kolom %{index}"
+          column_title: "Kolom %{index} titel"
           web_viewer: ~
-          column_icon_info: ~
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
-          column_button_url: ~
+          column_icon_info: "Je kunt je icoon kiezen van deze %{link}. Eenmaal geselecteerd, kopieer dan de 'Directory path' (bijvoorbeeld '01-Interface Essential/01-Home/house-2.svg') en plak het hier."
+          column_icon: "Kolom %{index}  icoon"
+          column_paragraph: "Kolom %{index} paragraaf"
+          column_button: "Kolom %{index} button"
+          column_button_text: "Button label"
+          column_button_url: "https://www.voorbeeld.com"
         listings:
           listings_to_feature: ~
-          you_need_to_add_the_listing_ids: ~
+          you_need_to_add_the_listing_ids: "Je dient de advertentie ID van de advertenties die je wilt uitlichten aan deze sectie toe te voegen. Je vindt de ID van een advertentie door naar de pagina van de advertentie te gaan en de URL te vinden. De advertentie ID is het nummer direct na de algemene URL. Voorbeeld: in https://www.voorbeeld.com/listings/123456-listing-title, is de listing ID 123456."
         video:
-          text: ~
-          autoplay: ~
-          autoplay_no: ~
-          autoplay_muted: ~
-          info: ~
+          text: Tekst
+          autoplay: "Autoplay opties"
+          autoplay_no: "Geen autoplay"
+          autoplay_muted: "Gedempte autoplay"
+          info: "Deze text wordt weergegeven als je de optie \\\"Geen autoplay\\\" selecteert, of als de video wordt gepauzeerd."
           youtube_video_id_info: ~
     custom_fields:
       edit:
@@ -824,7 +833,7 @@ nl:
       edit_location:
         edit_location_field: "Pas veld 'Locatie' aan"
         this_field_is_required: "Dit veld is verplicht"
-        the_location_feature_can_be_enabled: ~
+        the_location_feature_can_be_enabled: "De locatie-functie kan ingeschakeld worden vanuit de %{link} sectie in je marktplaats-instellingen."
       edit_expiration:
         edit_expiration_field: "Bewerk advertentie veld 'Verloopdatum'"
         enable: "Activeer verloopdatum"
@@ -1134,33 +1143,33 @@ nl:
       request: Vraag
       inquiry: Verzoek
       share_for_free: "Gratis delen"
-      event_w_online_payment: ~
-      event_wo_online_payment: ~
+      event_w_online_payment: "Evenement met online betaling"
+      event_wo_online_payment: "Evenement zonder online betaling"
       default_action_button_labels:
         sell: Koop
         rent: Huur
         request: Aanbod
         offer: Vraag
         inquiry: Contact
-        book: ~
+        book: Boek
     community_transactions:
       show:
-        transaction_for: ~
-        status: ~
-        next_step: ~
-        waiting_for_provider_accept_or_reject: ~
-        waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
-        delivery: ~
-        shipping_to: ~
-        buyer_pays: ~
-        marketplace_collects: ~
-        buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
-        admin_info_text: ~
-        manage_reviews: ~
+        transaction_for: "Transactie #%{transaction_id} voor %{link}"
+        status: "Status:"
+        next_step: "Volgende stap:"
+        waiting_for_provider_accept_or_reject: "In afwachting van %{provider} om het verzoek te accepteren of te weigeren."
+        waiting_for_fulfill_and_complete: "In afwachting van %{provider} om de bestelling van %{listing_title} te vervullen en voor de %{buyer} om de order als uitgevoerd te markeren."
+        buyer: "Koper:"
+        provider: "Verkoper:"
+        delivery: "Bezorgmethode:"
+        shipping_to: "Verzenden naar %{address}"
+        buyer_pays: "Koper betaalt:"
+        marketplace_collects: "%{service_name} ontvangt:"
+        buyer_service_fee_label: "Commissie van koper:"
+        service_fee_label: "Commissie van verkoper:"
+        provider_receives: "Verkoper ontvangt:"
+        admin_info_text: "Als beheerder van %{service_name}, kun je een aantal acties ondernemen om deze transactie voort te helpen."
+        manage_reviews: "Beheer recensies"
         you_should_investigate: ~
         learn_more: ~
   common:
@@ -1457,16 +1466,16 @@ nl:
       cancel_it_link_text: "Annuleer het"
       automatic_confirmation: "Indien u het voorstel niet accepteert of afwijst binnen %{days_to_automatic_confirmation} dagen nadat het verzoek is geaccepteerd, zullen we het automatisch als afgerond markeren."
     confirm_reminder_v2:
-      headline: ~
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      headline: "Je hebt de order %{request_link} nog niet voltooid of aangevochten."
+      you_have_not_yet_confirmed_or_canceled_request: "Als de order is voltooid, dien je dat te bevestigen. Daarna kun je feedback geven aan %{other_party_given_name}."
     payment_settings_reminder:
       remember_to_add_payment_details: "Vergeet niet om de juiste gegevens toe te voegen om betalingen te kunnen ontvangen."
       you_have_added_listing_with_payment: "U heeft een advertentie %{listing_link} toegevoegd met betaling. U heeft echter nog geen betalingsgegevens opgegeven. Om betalingen te kunnen ontvangen dient u deze informatie nog toe te voegen."
       please_go_to_payment_settings: "Ga aub naar %{payment_settings_link} en vul de vereiste betalingsgegevens in."
       payment_settings_link: "instellingen betalingen"
     payment_settings_reminder_v2:
-      fill_payout_details: ~
-      you_have_added_listing_with_payment: ~
+      fill_payout_details: "Vul de details in voor uitbetaling."
+      you_have_added_listing_with_payment: "Je hebt een listing %{listing_link} met betaling toegevoegd. Je hebt echter geen betalingsinformatie toegevoegd. Om de betaling te ontvangen dien je je betalingsinformatie toe te voegen."
     transaction_confirmed:
       here_is_a_message_from: "Hier is een bericht van %{other_party_given_name}:"
       request_marked_as_confirmed: "Verzoek uitgevoerd - vergeet niet om feedback te geven"
@@ -1477,25 +1486,25 @@ nl:
       give_feedback_to: "Geef feedback aan %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} heeft de bestelling %{request} als voltooid gemarkeerd. De betaling voor deze transactie is nu naar je bankrekening overgemaakt. Je kunt nu feedback geven aan %{other_party_given_name}."
-      team_title: ~
+      team_title: "het %{service_name} team"
     transaction_confirmed_v2:
-      headline_confirmed: ~
-      headline_canceled: ~
+      headline_confirmed: "%{other_party_full_name} heeft de order van %{listing_link} als voltooid gemarkeerd."
+      headline_canceled: "%{other_party_full_name} heeft de order van %{listing_link} aangevochten."
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "De betaling voor deze transactie is nu vrijgegeven naar je bankrekening."
       can_give_feedback: ~
-      team_title: ~
+      team_title: "het %{service_name} team"
     transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: "We hebben het verzoek betreft %{request} als afgehandeld gemarkeerd. Dit is automatisch uitgevoerd omdat %{days_passed} dagen zijn verlopen sinds het verzoek is geaccepteerd."
     transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: ~
-      order_automatically_confirmed: ~
+      we_have_marked_request_as_confirmed: "We hebben de order van %{request} als voltooid gemarkeerd."
+      order_automatically_confirmed: "De order was automatisch voltooid omdat %{days_passed} dagen voorbij zijn gegaan sinds het verzoek was geaccepteerd."
     booking_transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: "We hebben het verzoek betreft '%{request}' gemarkeerd als afgerond. Het verzoek is automatisch afgerond omdat gisteren het einde van de periode was. "
     booking_transaction_automatically_confirmed_v2:
-      order_automatically_confirmed: ~
+      order_automatically_confirmed: "Het verzoek was automatisch voltooid omdat één dag voorbij is gegaan na het eindigen van de boekingsperiode."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Je kan nu feedback geven aan %{other_party_given_name}. Het is altijd een goed idee om feedback te geven. Als alles goed is gegaan, kun je anderen laten weten dat %{other_party_given_name} een betrouwbare partij is. Als er problemen zijn geweest, is het zinvol om deze ook te vermelden."
       give_feedback_to: "Geef feedback aan %{other_party_given_name}"
@@ -1506,9 +1515,9 @@ nl:
       confirmation_link_text: "Bevestig mijn e-mail"
       or_paste_link: "U kunt ook onderstaande link kopiëren en plaatsen in de adresbalk van uw browser."
     confirmation_instructions_v2:
-      headline: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      headline: "bevestig je email om je aan te sluiten bij %{service_name}!"
+      need_to_confirm: "Bevestig je email om je account op %{service_name} te voltooien. Het is makkelijk - klik gewoon op de button hieronder!"
+      confirmation_link_text: "Bevestig %{email}"
     common:
       hey: "Hallo %{name},"
       hi: ~
@@ -1538,10 +1547,10 @@ nl:
       pay_now: "Betaal nu"
       remember_to_confirm: "Vergeet niet om het verzoek te markeren als afgehandeld eenmaal dit is uitgevoerd. Indien het verzoek niet werd afgehandeld heeft u %{days_to_automatic_confirmation} dagen om het te annuleren. Zoniet zal het automatisch als afgehandeld worden gemarkeerd."
     conversation_status_changed_v2:
-      has_accepted_your_request: ~
-      has_accepted_your_request_text: ~
-      has_rejected_your_request: ~
-      has_rejected_your_request_text: ~
+      has_accepted_your_request: "je verzoek is geaccepteerd."
+      has_accepted_your_request_text: "%{accepter} heeft je verzoek voor %{listing} geaccepteerd."
+      has_rejected_your_request: "Helaas is je verzoek afgewezen."
+      has_rejected_your_request_text: "%{accepter} heeft je verzoek voor %{listing} afgewezen."
     invitation_to_kassi:
       hi: Hallo!
       you_have_been_invited_to_kassi: "%{inviter} heeft je uitgenodigd voor %{service_name}."
@@ -1549,7 +1558,7 @@ nl:
       join_now: "Word nu lid"
       invitation_code: "Uitnodigingscode: %{code}"
     invitation_to_kassi_v2:
-      headline: ~
+      headline: "Hallo daar!"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} heeft feedback gelaten op uw advertentie '%{listing}'."
       view_comment: "Toon reactie"
@@ -1562,7 +1571,7 @@ nl:
       you_have_a_new_message: "U heeft een nieuw bericht op %{service_name} van %{sender_name}"
     new_message_v2:
       headline: ~
-      reply: ~
+      reply: "Antwoord %{sender}"
     new_payment:
       new_payment: "U heeft een nieuwe betaling ontvangen"
       price_per_unit_type: "Prijs per %{unit_type}"
@@ -1585,9 +1594,9 @@ nl:
       stripe:
         you_have_received_new_payment: "Het bedrag van <b>%{payment_sum}</b> is betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Het bedrag wordt vastgehouden door %{service_name} totdat de bestelling als voltooid is gemarkeerd. Hier is je bewijs."
     payment_receipt_to_seller_v2:
-      headline: ~
-      main_text_stripe: ~
-      price_breakdown: ~
+      headline: "Je hebt %{payment_sum} ontvangen van %{payer_name} voor%{listing_link}."
+      main_text_stripe: "Het geld wordt vastgehouden door %{service_name} totdat de order als voltooid is gemarkeerd."
+      price_breakdown: Kostenuitsplitsing
     payment_receipt_to_payer:
       receipt_of_payment: Betalingsbewijs.
       you_have_made_new_payment: "Je hebt  <b>%{payment_sum}</b> betaald aan %{recipient_full_name}, voor <b>%{listing_title}</b>. Hier is een betalingsbewijs."
@@ -1604,8 +1613,8 @@ nl:
       paypal_gateway_fee: "toeslag PayPal"
       money_will_be_transferred: "Het geld zal overgemaakt worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sinds jouw betaling."
     payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
+      headline: "hier is je kwitantie voor %{listing_link}."
+      you_have_made_new_payment: "Je hebt <b>%{payment_sum}</b> betaald voor <b> %{listing_title} </b>."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal kosten:"
       shipping_total: "Verzenden:"
@@ -1636,7 +1645,7 @@ nl:
       you_can_give_feedback_to: "U heeft nog geen feedback geven aan %{name}."
       view_feedback: "Bekijk feedback"
     new_testimonial_v2:
-      headline: ~
+      headline: "Je hebt feedback ontvangen!"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Advertentie die u volgt is aangepast"
       has_updated_listing_you_follow_in_kassi: "%{author} heeft de advertentie'%{listing}' die u volgt in %{service_name} bijgewerkt."
@@ -1653,7 +1662,10 @@ nl:
       settings_link_text: "Wijzig uw e-mail instellingen hier"
       unsubscribe_link_text: uitschrijven
     community_updates_v2:
-      headline: ~
+      headline: "Check de meest recente activiteit op %{service_name}."
+      intro_paragraph:
+        one: "Hier zijn de hoogtepunten van wat er de afgelopen dag op %{service_name} is gebeurd."
+        other: "Hier zijn de hoogtepunten van wat er de afgelopen %{count} dagen op %{service_name} is gebeurd."
     newsletter:
       hi: "Hallo %{name}"
       newest_offers: "Wat mensen op dit moment aanbieden aan anderen"
@@ -1666,9 +1678,9 @@ nl:
       remember_to_give_feedback_to: "Herinnering: vergeet niet om feedback te geven aan %{name}"
       you_have_not_given_feedback_yet: "U heeft nog geen feedback gegeven aan %{name} over '%{event}'. Vergeet niet feedback te geven over hoe %{given_name} gepresteerd heeft in het evenement."
     testimonial_reminder_v2:
-      headline: ~
-      you_have_not_given_feedback_yet: ~
-      leave_feedback: ~
+      headline: "vergeet niet feedback achter te laten voor %{other_name}!"
+      you_have_not_given_feedback_yet: "Feedback geven is altijd een goed idee. Indien alles goed ging, kunt u anderen laten weten dat %{name} betrouwbaar is. Als er problemen waren is het zinvol om deze ook te vermelden."
+      leave_feedback: "Geef feedback aan %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} is geinteresseerd en heeft betaling gemachtigd voor %{listing_title}, gepubliceerd op %{service_name}."
       transaction_requested_by_user: "Goed nieuws! %{requester} heeft interesse in %{listing_title} en heeft betaling hiervoor gemachtigd."
@@ -1678,15 +1690,15 @@ nl:
       if_you_do_not_accept: "Als je het verzoek afwijst, of niet binnen deze tijdsperiode accepteert, dan wordt de transactie automatisch geannuleerd. %{requester} wordt dan niets in rekening gebracht, en jij ontvangt geen betaling."
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
     transaction_preauthorized_v2:
-      headline: ~
+      headline: "%{requester} is geinteresseerd en heeft betaling geautoriseerd voor %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Vergeet niet om het verzoek van %{requester} betreffende advertentie %{listing_title} te accepteren"
       remember_to_accept: "Vergeet niet om het verzoek van %{requester} betreffende advertentie \"%{listing_title}\" te accepteren. %{requester} heeft al betaald voor het verzoek. Je moet het verzoek aanvaarden om de betaling te ontvangen."
       one_day_left: "Als je het verzoek niet binnen één dag accepteert zal het automatisch verworpen worden en wordt je niet betaald."
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
     transaction_preauthorized_reminder_v2:
-      headline: ~
-      remember_to_accept: ~
+      headline: "Vergeet niet om het verzoek van %{requester} over %{listing_link} te accepteren."
+      remember_to_accept: "%{requester} heeft al betaald voor de advertentie. Je dient het verzoek te accepteren om de betaling te ontvangen."
     welcome_email:
       welcome_email_subject: "Welkom bij %{service_name}"
       welcome_to_marketplace: "Welkom, bij %{service_name}! We zijn blij dat je er bent."
@@ -1699,21 +1711,21 @@ nl:
       you_are_receiving_this_because: "Je krijgt dit bericht omdat je %{author_name} volgt."
       view_listing: "Bekijk advertentie"
     new_listing_by_followed_person_v2:
-      headline: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
-      cant_click: ~
+      headline: "%{author} heeft zojuist een nieuwe advertentie toegevoegd!"
+      has_posted_a_new_listing: "%{author_name} heeft een nieuwe advertentie toegevoegd:"
+      you_are_receiving_this_because: "Je ontvangt dit bericht omdat je %{author_name} volgt."
+      view_listing: "Bekijk %{title}"
+      cant_click: "Kun je niet op de button klikken? Hier is de link voor je gemakt:"
     new_member_notification:
-      subject: ~
+      subject: "Nieuw lid in %{community}"
       new_member_has_joined: "Een nieuw lid heeft zich aangesloten bij %{community}. Hij/zij moet wellicht nog zijn/haar emailadres bevestigen."
       this_is_automatic_message: "Dit is een automatisch bericht, verzonden naar de beheerders van %{community}."
       person_name: "Naam:"
       person_email: "Email:"
     new_member_notification_v2:
-      headline: ~
-      new_member_has_joined: ~
-      view_profile: ~
+      headline: "%{user_name} heeft zich bij %{community} aangesloten."
+      new_member_has_joined: "%{name} %{email} heeft zich aangesloten bij %{community}. Hij/zij moet wellicht nog zijn/haar emailadres bevestigen."
+      view_profile: "Beijk profiel"
     listing_submited_for_review:
       subject: "Nieuwe advertentie te controleren: \"%{listing_title} \" van %{author_name}  in %{community}"
       there_is_a_new_listing_to_review: "Er is een nieuwe advertentie om te controleren: \"%{listing_title}\" van %{author_name} . Je kunt deze goedkeuren of afkeuren."
@@ -1741,14 +1753,14 @@ nl:
       starter: "Initiatiefnemer: %{name}"
       provider: "Leverancier: %{name}"
     new_transaction_v2:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
-      view_transaction: ~
+      subject: "Nieuwe transactie in %{service_name}"
+      there_is_a_new_transaction: "Er is %{link} in %{service_name}."
+      a_new_transaction: "een nieuwe transactie"
+      listing: "Advertentie:"
+      sum: "Bedrag:"
+      starter: "Starter:"
+      provider: "Verkoper:"
+      view_transaction: "Bekijk transactie"
     transaction_cancel_flow:
       the_order_about: ~
       you_can_contact_the_marketplace_team: ~
@@ -1844,10 +1856,11 @@ nl:
       on_or_after: "moet zijn op of na %{restriction}"
       positive_number: "Voer een getal in."
       from_must_be_less_than_till: "\"Vanaf\" moet minder zijn dan \"tot\""
-      section_with_this_id_already_exists: ~
-      listing_with_this_id_does_not_exist: ~
-      presence: ~
+      section_with_this_id_already_exists: "De unieke naam van deze sectie is al in gebruik. Kies een andere naam."
+      listing_with_this_id_does_not_exist: "Deze advertentie ID is niet beschikbaar in je marktplaats. Misschien een typefout? Verifieer en probeer opnieuw."
+      presence: "Kan niet blanco zijn"
       username_is_invalid: ~
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
@@ -2459,7 +2472,7 @@ nl:
       month: "Aantal maanden:"
       unit: "Aantal eenheden"
       custom: "Aantal:"
-      person: ~
+      person: "Aantal personen:"
     quantity_placeholder: Aantal
     please_comment: Reactie
     reply_link:
@@ -2511,7 +2524,7 @@ nl:
       week: week
       month: maand
       unit: eenheid
-      person: ~
+      person: persoon
     verification_required:
       verification_required: "Verificatie vereist"
   listing_conversations:
@@ -3206,7 +3219,7 @@ nl:
       document_back: ~
       send_verification: "Verstuur Verificatie"
       need_verification: "Aanvullende verificatie nodig"
-      additional_document: ~
+      additional_document: "Een document dat een adres toont, een paspoort, identiteitskaart of een energierekening van een bekend energiebedrijf"
       additional_document_back: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
@@ -3242,23 +3255,23 @@ nl:
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
+        id: "Unieke naam sectie"
+        title: Titel
+        paragraph: Paragraaf
+        button_title: Tekst
+        button_path: URL
+        button_path_string: URL
+        background_image: Achtergrondafbeelding
+        background_image_variation: "Variatie achtergrondafbeelding"
+        background_color: Achtergrondkleur
+        background_color_string: Achtergrondkleur
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: "Advertentie 1 ID"
+        listing_2_id: "Advertentie 2 ID"
+        listing_3_id: "Advertentie 3 ID"
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Tekst
+        youtube_video_id: "YouTube video ID"
   canada_states:
     AB: Alberta
     BC: "British Columbia"

@@ -408,6 +408,10 @@ ru:
         robots_info: "Robots.txt - это текстовый файл, который инструктирует веб-роботов (обычно роботов поисковых систем), как сканировать страницы на вашем сайте.%{link} ."
         robots_info_link_text: "Узнайте больше о файле robots.txt"
         robots_info_2: "Файл robots.txt автоматически создается для вашего рынка. Вы можете получить доступ к robots.txt по адресу %{link}."
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: "Сохранить настройки"
       analytics:
         analytics: Аналитика
@@ -668,6 +672,11 @@ ru:
         contact_us: "Свяжитесь с нами"
         you_can_now_use_a_custom_domain: "С вашим текущим планом вы можете теперь включить собственный домен. Продолжайте настроить. %{contact_us}!"
         would_you_like_to_change_domain: "Хотите изменить свой пользовательский домен на маркетплейсе? %{contact_us}"
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -1861,6 +1870,7 @@ ru:
       listing_with_this_id_does_not_exist: ~
       presence: ~
       username_is_invalid: ~
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."

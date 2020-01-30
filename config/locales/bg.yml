@@ -383,6 +383,10 @@ bg:
         robots_info: "Robots.txt e един текстов файл който инструктира роботи (става въпрос за роботите които посещават търсачките) как да обхождат страниците в твоя уебсайт. %{link}."
         robots_info_link_text: "Научи още за файла robots.txt"
         robots_info_2: "Robots.txt файлът е автоматично създадена за твоя онлайн пазар. Можеш да го посетиш през %{link}."
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: "Запази настройките"
       analytics:
         analytics: ~
@@ -643,6 +647,11 @@ bg:
         contact_us: "Свържи се с нас"
         you_can_now_use_a_custom_domain: "С твоя сегашен план можеш да въведеш персонализиран домейн. Да минем към неговата настройка. %{contact_us}"
         would_you_like_to_change_domain: "Би ли желал да промениш своя персонализиран домейн към платформата? %{contact_us}"
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -1810,6 +1819,7 @@ bg:
       listing_with_this_id_does_not_exist: ~
       presence: ~
       username_is_invalid: ~
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~

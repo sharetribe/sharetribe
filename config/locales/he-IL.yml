@@ -400,6 +400,10 @@ he-IL:
         robots_info: "Robots .txt  הינו קובץ טקסט להדרכת רובוטי רשת כמו מנועי חיפוש לעדכן את האתר שלך‎%{link}‎ "
         robots_info_link_text: "למד עוד אודות robots .txt "
         robots_info_2: "robots .txt  נוצר אוטומטית, אתה יכול לגשת לקובץ כאן ‎%{link}‎ A"
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: "ANUR VDSRU,"
       analytics:
         analytics: אנליטיקה
@@ -660,6 +664,11 @@ he-IL:
         contact_us: "צור קשר"
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: "עמוד נחיתה"
         info_1: ~
@@ -1851,6 +1860,7 @@ he-IL:
       listing_with_this_id_does_not_exist: ~
       presence: ~
       username_is_invalid: "שם המשתמש לא תקין או לא זמין"
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{offerer_name}‎ הסכים להשאיל ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
@@ -2454,7 +2464,7 @@ he-IL:
       contact_admin_link_text: "שלח/י הודעה לצוות האתר"
       community_not_configured_for_payments: "‎%{service_name}‎  לא הוגדר עבור תשלומים, לכן אתה לא יכול לפרסם מודעות. נא ‎%{contact_admin_link}‎ כדי לקבל פרטים."
       payment_settings_link: "הגדרות תשלום"
-      community_not_configured_for_payments_admin: "‎%{service_name}‎  לא הוגדר עבור תשלומים, לכן אתה לא יכול לפרסם מודעות. נא ‎%{contact_admin_link}‎ כדי לקבל פרטים."
+      community_not_configured_for_payments_admin: ~
       you_are_now_posting_a_listing_on_behalf_of: "אתה עכשיו מפרת מודעה בשם ‎%{name}‎ "
     quantity:
       hour: "מספר שעות:"
