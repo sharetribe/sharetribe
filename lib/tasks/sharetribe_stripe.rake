@@ -11,9 +11,9 @@ namespace :sharetribe do
       end
 
       desc "Updates capabilities of person"
-      task :update_person, [:username] => [:environment] do |t, args|
-        username = args[:username]
-        capabilities_update = StripeService::CapabilitiesUpdate.new(person_username: username)
+      task :update_person, [:person_id] => [:environment] do |t, args|
+        person_id = args[:person_id]
+        capabilities_update = StripeService::CapabilitiesUpdate.new(person_id: person_id)
         capabilities_update.update
       end
 
