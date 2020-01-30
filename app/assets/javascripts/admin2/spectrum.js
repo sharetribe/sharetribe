@@ -6,15 +6,7 @@
 (function (factory) {
     "use strict";
 
-    if (typeof define === 'function' && define.amd) { // AMD
-        define(['../../.rvm/gems/ruby-2.6.2@sharetribe_go/gems/jquery-rails-4.3.1/vendor/assets/javascripts/jquery'], factory);
-    }
-    else if (typeof exports == "object" && typeof module == "object") { // CommonJS
-        module.exports = factory(require('../../.rvm/gems/ruby-2.6.2@sharetribe_go/gems/jquery-rails-4.3.1/vendor/assets/javascripts/jquery'));
-    }
-    else { // Browser
-        factory(jQuery);
-    }
+    factory(jQuery);
 })(function($, undefined) {
     "use strict";
 
