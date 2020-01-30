@@ -87,3 +87,13 @@ label.error {
 .margin-form.content-card-section-form {
   margin-top: 32px;
 }
+
+a.remove {
+  background-position: 28px center;
+  top: -120px;
+
+  @include media-breakpoint-up(lg) {
+    top: 0;
+  }
+}
+

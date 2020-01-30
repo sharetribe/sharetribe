@@ -162,7 +162,9 @@ class Community < ApplicationRecord
   has_many_attached :landing_page_assets
 
   accepts_nested_attributes_for :social_logo
+  accepts_nested_attributes_for :configuration
   accepts_nested_attributes_for :footer_menu_links, allow_destroy: true
+  accepts_nested_attributes_for :menu_links, allow_destroy: true
   accepts_nested_attributes_for :social_links, allow_destroy: true
   accepts_nested_attributes_for :community_customizations
 

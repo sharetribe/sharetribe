@@ -1,0 +1,135 @@
+// Overwrite Bootstrap's variables here
+// You can find them in node_modules/bootstrap/scss/_variables.scss
+// Copy the variables you need into this file, don't modify files under node_modules/
+
+// Some example variables that you can uncomment:
+
+// Enabling shadows and gradients
+// $enable-shadows: true;
+// $enable-gradients: true;
+
+// Changing the body background and text
+$body-bg: #FCFCFC;
+$body-color: #484B4A;
+
+// Changing the border radius of buttons
+$border-radius: 4px;
+
+// Changing the theme colors
+$primary: #4A90E2;
+$secondary: #436296;
+$success: #2ECC71;
+
+// Go theme colors
+
+$blue: $primary;
+$lightblue: #EAEDF3;
+$darkblue: #3970B0;
+$grey: #999;
+$white: #FFFFFF;
+$lightpurple: #D8DCE6;
+
+$input-placeholder-color: #B3B3B3;
+
+// Container widths
+
+/*
+$container-max-widths: (
+  sm: 1278px,
+  md: 1279px,
+  lg: 1280px,
+  xl: 1352px
+);
+*/
+
+$grid-breakpoints: () !default;
+
+$grid-breakpoints: map-merge(
+  (
+    xs: 0,
+    sm: 576px,
+    md: 769px,
+    lg: 1025px,
+    xl: 1200px
+  ),
+  $grid-breakpoints
+);
+
+
+
+// Spacers
+
+$spacer: 24px;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: ($spacer * .75),
+    4: ($spacer * 1),
+    5: ($spacer * 1.25),
+    6: ($spacer * 1.5),
+    7: ($spacer * 1.75),
+    8: ($spacer * 2),
+    9: ($spacer * 2.25),
+    10: ($spacer * 2.5),
+    42: ($spacer * 7),
+  ),
+  $spacers
+);
+
+// Typography
+
+$font-family-sans-serif: "CircularStd", Arial;
+$font-family-monospace: "Menlo", monospace;
+$text-muted: $grey;
+$link-hover-decoration: none;
+
+$small-font-size: 14px;
+$small-font-size-mobile: 13px;
+
+$link-color: $primary;
+$link-hover-color: $darkblue;
+
+
+// Buttons
+// Y-padding is in the _custom-styles.scss because of perfect vertical alignment
+
+$btn-padding-x: 30px;
+$btn-font-weight: 500;
+$btn-transition: all 100ms ease-out;
+
+// Forms
+
+$input-height: 48px;
+$input-padding-x: 16px;
+$input-border-color: $lightpurple;
+$form-check-inline-input-margin-x: 8px;
+$input-disabled-bg: #FAFAFA;
+
+
+// Card
+
+$card-border-color: $lightblue;
+$hr-border-color: $lightblue;
+
+$box-shadow-lg: 0 16px 32px 0 rgba(0,0,0,0.05);
+$box-shadow-sm: 0 2px 4px 0 rgba(0,0,0,0.10);
+
+// Bug fixes
+
+$input-btn-padding-y: 6px;
+$input-btn-padding-x: 12px;
+$custom-select-indicator-padding: 16px;
+
+// Modal
+
+$modal-transition: transform .05s ease-out;
+$modal-backdrop-opacity: 0.6;
+
+
+// Adding (!) an additional theme color (ex. classes btn-cool, bg-cool)
+// $theme-colors: (
+//  "cool": #4d3fa3;
+//);

@@ -1,0 +1,130 @@
+// CSS for the Sidenav
+
+#root .sidenav-container { // Custom style for hiding the sidenav from desktop and making room for the mobilemenu
+	display: none;
+
+	@include media-breakpoint-up(md) {
+		display: flex;
+		width: 204px; // Sidenav's width
+		margin-right: 36px;
+		position: sticky;
+		top: 24px;
+	}
+}
+
+.sidenav-container {
+	flex-direction: column;
+	font-weight: 500;
+	margin-top: 4px; // Baseline adjustment
+	margin-bottom: 24px;
+
+	.sidenav-container-top {
+		flex-direction: column;
+	}
+
+	.active {
+		background: rgba(74, 144, 226, 0.1); // 10% of $primary converted to RGB values
+		border-radius: 4px;
+		padding-left: 12px;
+	}
+
+	h6 {
+		margin-bottom: 7px;
+	}
+
+	a {
+		color: $body-color;
+
+		&:hover {
+			color: $darkblue;
+		}
+	}
+
+	hr {
+		margin-top: 18px;
+    margin-bottom: 17px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 13px;
+     }
+	}
+
+	ul, li {
+		font-size: 15px;
+		list-style: none;
+		line-height: 32px;
+
+		a {
+			padding: 8px 0; // Add more clickable area vertically
+		}
+	}
+
+	ul {
+		padding-left: 0;
+		margin: 0;
+	}
+
+	ul.category-title > li {
+		padding-left: 0;
+		margin-bottom: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	ul.category-title > li.active {
+		margin-left: -12px;
+		padding-left: 12px;
+	}
+
+	ul.subtitle {
+		margin-bottom: 16px;
+
+		> li {
+			padding-left: 12px;
+		}
+
+		&:last-child {
+		}
+
+		a {
+			color: $grey;
+			padding: 8px 0;
+
+			&:hover {
+				color: $darkblue;
+			}
+		}
+	}
+
+	.sidenav-bottomLinks { // Branded links such as Subscription, Marketplace Academy, ... have their own CSS just in case
+		margin-top: 42px;
+
+		@include media-breakpoint-up(md) {
+			margin-top: 44px;
+		}
+
+		ul {
+			padding: 0;
+		}
+
+		li {
+			line-height: 24px;
+		}
+
+		a {
+			color: $grey;
+			font-size: $small-font-size;
+			padding: 8px 0; // Add more clickable area vertically
+
+			&:hover {
+				color: $darkblue;
+			}
+		}
+	}
+}
+
+li.active a {
+	color: $primary!important; // Doesn't apply without the !important :(
+}

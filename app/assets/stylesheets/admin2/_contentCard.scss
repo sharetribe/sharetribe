@@ -1,0 +1,197 @@
+// CSS for the Content card
+
+.content-card {
+	display: flex;
+	flex: 1 1 auto;
+	background-color: $white;
+
+  border-top: 1px solid $lightblue;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+	border-radius: 0;
+	box-shadow: none;
+	flex-direction: column;
+	padding: 0;
+	box-shadow: 0px -12px $body-bg;
+	margin-top: 3px; // Baseline adjustment
+	overflow-x: auto;
+
+	@include media-breakpoint-up(md) {
+	  border: 1px solid $lightblue;
+	  box-shadow: $box-shadow-lg;
+  	border-radius: 4px;
+  	margin-top: 6px; // Baseline adjustment
+  	overflow-x: auto;
+	}
+
+	.content-card-header {
+		display: flex;
+		height: auto;
+		border-bottom: 1px solid $lightblue;
+    flex-wrap: wrap;
+		padding: 6px 20px 8px 20px;
+    justify-content: space-between;
+    background-color: $white;
+    z-index: 1;
+    min-height: 48px;
+
+  	@include media-breakpoint-up(md) {
+			padding: 30px 60px 24px 60px;
+			height: 88px;
+		}
+
+		&.content-table {
+			@include media-breakpoint-up(md) {
+				padding: 30px 60px 19px 60px;
+			}
+		}
+
+    .content-card-header-title {
+	    top: 6px; // Baseline adjustment
+	    position: relative;
+      font-weight: 400;
+      margin-bottom: 0;
+
+      svg {
+	      margin-right: 12px;
+      }
+    }
+
+    .content-card-header-link {
+	    font-size: $small-font-size-mobile;
+	    margin-bottom: 14px;
+	    position: relative;
+	    top: 10px; // Baseline adjustment
+	    font-weight: 500;
+
+	    @include media-breakpoint-up(md) {
+		  	font-size: $small-font-size;
+		  	margin-bottom: 12px;
+		  }
+    }
+
+    .content-card-header-left {
+      margin-top: 3px;
+      width: 600px;
+    }
+
+    .content-card-header-right {
+	    display: flex;
+
+	    select {
+		    margin-right: 24px;
+        margin-top: 2px;
+	    }
+    }
+	}
+
+	.content-card-section-container {
+		width: 100%;
+		max-width: 920px;
+		padding: 28px 0 0 0;
+
+		@include media-breakpoint-up(md) {
+			padding: 35px 60px 0 60px;
+		}
+
+		h2 {
+	    margin-bottom: 26px;
+	    margin-left: 20px;
+	    margin-right: 20px;
+
+	    @include media-breakpoint-up(md) {
+		    margin-bottom: 35px;
+		    margin-left: 0;
+		    margin-right: 0;
+		  }
+		}
+
+		.content-card-section {
+			margin-bottom: 49px;
+
+			@include media-breakpoint-up(md) {
+		    margin-bottom: 72px;
+		  }
+
+		  h2 + p.ingress {
+			  margin-top: -12px;
+
+		    @include media-breakpoint-up(md) {
+					margin-top: -16px;
+					margin-bottom: 16px;
+			  }
+		  }
+
+		  p.ingress {
+			  margin-left: 20px;
+		    margin-right: 20px;
+		    margin-top: 18px;
+
+		    @include media-breakpoint-up(md) {
+			    margin-top: 24px;
+			    margin-left: 0;
+			    margin-right: 0;
+			  }
+
+			  @include media-breakpoint-up(lg) {
+          margin-left: 30px;
+        }
+		  }
+
+		  p.ingress + form.content-card-section-form {
+			  margin-top: 32px;
+		  }
+
+		  p.ingress + small {
+			  margin-top: 12px;
+
+			  @include media-breakpoint-up(md) {
+			  	margin-top: -4px;
+			  }
+
+			  @include media-breakpoint-up(lg) {
+          margin-left: 30px;
+        }
+		  }
+
+			.content-card-section-form {
+				margin-left: 0;
+
+				@include media-breakpoint-up(lg) {
+					margin-left: 30px;
+				}
+			}
+		}
+	}
+}
+
+.content-card-terminal {
+	padding: 20px 0 12px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: auto;
+
+	@include media-breakpoint-up(md) {
+		padding: 5px 0 52px 0px;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	> .btn {
+		width: 100%;
+		margin-bottom: 12px;
+
+		@include media-breakpoint-up(md) {
+			width: auto;
+		}
+	}
+}
+
+.content-card-text {
+  margin-left: 20px;
+
+  @include media-breakpoint-up(md) {
+    margin-left: 30px;
+  }
+}

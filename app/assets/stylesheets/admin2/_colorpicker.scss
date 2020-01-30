@@ -1,0 +1,204 @@
+// CSS for the Spectrum color picker
+
+.sp-container,
+.sp-container button,
+.sp-container input,
+.sp-color,
+.sp-hue,
+.sp-clear {
+	font-family: "CircularStd"!important;
+	font-size: 14px!important;
+}
+
+.multiple-languages .sp-replacer {
+  width: 100%;
+  margin-left: 24px!important;
+  border-radius: 4px!important;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+  height: 48px;
+}
+
+.single-field .sp-replacer {
+  width: 100%;
+  margin-left: 0px!important;
+  border-radius: 4px!important;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+  height: 48px;
+}
+
+input#colorpicker-slogan,
+input#colorpicker-description {
+	border: 0;
+	width: 0;
+	display: none!important;
+}
+
+.sp-replacer {
+	background: $white!important;
+	border-top: 1px solid $lightpurple!important;
+	border-right: 0!important;
+	border-bottom: 1px solid $lightpurple!important;
+	border-left: 1px solid $lightpurple!important;
+	margin-left: -87px!important;
+	margin-top: 0!important;
+	padding: 10px!important;
+	border-radius: 0!important;
+	display: flex!important;
+
+	@include media-breakpoint-up(md) {
+		border-radius: 0 4px 4px 0!important;
+		border-top: 1px solid $lightpurple!important;
+		border-right: 1px solid $lightpurple!important;
+		border-bottom: 1px solid $lightpurple!important;
+		border-left: 1px solid $lightpurple!important;
+	}
+}
+
+.sp-dd {
+  float: none!important;
+  font-size: 0!important;
+  height: auto!important;
+	content: url("../assets/svg/arrow-down-big.svg");
+  padding: 0 4px 0 8px!important;
+  margin-top: 3px;
+}
+
+.sp-preview {
+	border: none!important;
+	width: 30px!important;
+	height: 20px!important;
+	background-image: none!important;
+	margin-top: 4px!important;
+	margin-left: 6px!important;
+  left: 1.5px!important;
+  float: none!important;
+}
+
+.sp-preview-inner {
+	border-radius: 2px!important;
+	border: 1px solid #CCC;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2)
+}
+
+.sp-palette-container {
+	float: none!important;
+	padding: 20px!important;
+	padding-bottom: 300px!important;
+	border: none!important;
+}
+
+.sp-picker-container {
+	float: none!important;
+	padding: 0px 20px 20px!important;
+}
+
+.sp-button-container {
+  margin-bottom: 20px !important;
+}
+
+.sp-dragger {
+	width: 6px!important;
+	height: 6px !important;
+	background: rgba(0,0,0,0)!important;
+	border: 2px solid $white!important;
+	box-shadow: 0 0 2px rgba(0,0,0,1)!important;
+}
+
+.sp-container {
+	box-shadow: $box-shadow-lg!important;
+  border-radius: 0 0 4px 4px!important;
+  background: #fafafa!important;
+  border: 1px solid $lightpurple!important;
+
+	button {
+	  background-color: $success!important;
+	  background-image: none!important;
+	  border: none!important;
+	  border-radius: 4px!important;
+	  color: $white!important;
+	  padding: 8px 12px!important;
+	  text-shadow: none!important;
+	  font-weight: 500!important;
+	  text-transform: capitalize;
+
+	  &:hover {
+			background: darken($success, 5%)!important;
+	  }
+	}
+}
+
+.sp-input {
+	background: $white!important;
+	border: 1px solid $lightpurple!important;
+	padding: 8px 12px!important;
+	border-radius: 4px!important;
+	margin-bottom: 18px!important;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  text-transform: uppercase;
+
+	&:focus {
+		outline: 0;
+		box-shadow: 0 0 0 0.2rem rgba(74,144,226,.25);
+	}
+}
+
+.sp-active {
+	box-shadow: 0 0 0 0.2rem rgba(74,144,226,.25);
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+.sp-thumb-el {
+	background-image: none!important;
+	width: 17px!important;
+  height: 17px!important;
+}
+
+.sp-color, .sp-hue, .sp-clear {
+	border: 1px solid $lightpurple!important;
+}
+
+a.sp-cancel {
+	font-size: 14px;
+	color: #777!important;
+  text-transform: capitalize;
+  margin-right: 12px;
+
+  &:hover {
+	  color: darken(#777, 20%)!important;
+	  text-decoration: none;
+  }
+}
+
+.sp-palette .sp-thumb-light.sp-thumb-active .sp-thumb-inner,
+.sp-palette .sp-thumb-dark.sp-thumb-active .sp-thumb-inner {
+	background-image: none!important;
+}
+
+.sp-slider {
+	background: rgba(0,0,0,0)!important;
+	border: 2px solid $white!important;
+	box-shadow: 0 0 2px rgba(0,0,0,1)!important;
+	height: 4px!important;
+  left: -6px!important;
+  right: -6px!important;
+  opacity: 1!important;
+  border-radius: 100px!important;
+}
+
+.sp-palette .sp-thumb-el:hover, .sp-palette .sp-thumb-el.sp-thumb-active {
+	border-color: $success!important;
+}
+
+.sp-palette-row-0::before {
+  content: "Designer favorites:"!important;
+  font-size: 13px!important;
+  margin-bottom: 6px!important;
+}
+
+.sp-palette-row-selection::before {
+	border-top: 1px solid $lightpurple;
+}
+
+.sp-picker-container {
+	border: none!important;
+}

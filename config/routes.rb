@@ -194,6 +194,13 @@ Rails.application.routes.draw do
       end
       namespace :design do
         resources :landing_page, path: 'landing-page', only: %i[index]
+
+        resources :topbar, path: 'top-bar', only: %i[index] do
+          collection do
+            patch :update_topbar
+          end
+        end
+
         resources :display, only: %i[index] do
           collection do
             patch :update_display

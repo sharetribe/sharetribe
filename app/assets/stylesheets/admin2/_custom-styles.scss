@@ -1,0 +1,254 @@
+// Add additional styles here. For example, overwrite certain styles or add new components.
+// Tip: You can use bootstrap's powerful mixins here!
+
+// Custom CSS
+
+body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased !important;
+	-moz-font-smoothing: antialiased !important;
+	text-rendering: optimizelegibility !important;
+	background-color: $white;
+
+	@include media-breakpoint-up(md) {
+		background-color: $body-bg;
+	}
+}
+
+.layout-container {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 8px auto 0;
+	padding: 0 ;
+	width: 100%;
+// 	max-width: 1352px;
+	align-items: flex-start; // Disable Card's height growth when expanding the nav items in aside
+
+	@include media-breakpoint-up(md) {
+		padding: 0 36px;
+		margin: 25px auto 72px;
+		flex-wrap: nowrap;
+	}
+}
+
+.dropdown-menu {
+	min-width: auto;
+}
+
+.btn {
+	padding-top: 14px;
+	padding-bottom: 16px;
+	box-shadow: $box-shadow-sm;
+	background: inherit;
+	color: $white;
+
+	@include media-breakpoint-up(md) {
+		padding-top: 11px;
+		padding-bottom: 13px;
+	}
+
+	&:hover {
+		background: darken($primary, 10%);
+		color: $white;
+	}
+}
+
+.btn-primary {
+	background-color: $success;
+	border: none;
+
+	&:hover {
+		background: darken($success, 5%);
+		color: $white;
+	}
+
+	&:focus, &:active {
+  	background: darken($success, 5%)!important;
+	}
+}
+
+.btn-secondary {
+	background-color: $primary;
+	border: none;
+
+	&:hover {
+		background: darken($primary, 5%);
+		color: $white;
+	}
+
+	&:focus, &:active {
+  	background: darken($primary, 5%)!important;
+	}
+}
+
+.btn-ghost {
+	background-color: $white;
+	color: $primary;
+	border: 1px solid $lightblue;
+
+	&:hover {
+  	color: $primary;
+  	background-color: $white;
+		border: 1px solid darken($lightblue, 10%);
+	}
+
+	&:focus {
+  	background-color: $white;
+		border: 1px solid darken($lightblue, 10%);
+	}
+}
+
+button:first-of-type {
+  @include media-breakpoint-up(md) {
+    margin-right: 24px;
+  }
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+	background-color: darken($success, 7%);
+	box-shadow: inset 0 0 12px rgba(0,0,0,0.2);
+	transform: scale(0.99);
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:not(:disabled):not(.disabled):active:focus {
+	background-color: darken($primary, 7%);
+	box-shadow: inset 0 0 12px rgba(0,0,0,0.2);
+	transform: scale(0.99);
+}
+
+.btn-ghost:not(:disabled):not(.disabled):active,
+.btn-ghost:not(:disabled):not(.disabled):active,
+.btn-ghost:not(:disabled):not(.disabled):active:focus {
+	background-color: darken($white, 1%);
+	box-shadow: inset 0 0 12px rgba(0,0,0,0.1);
+	transform: scale(0.99);
+}
+
+.dropdown-toggle::after {
+	border: none!important;
+	width: 7px;
+	height: 5px;
+	background-size: 7px 5px;
+	vertical-align: 1px!important;
+	margin-left: 4px!important;
+	background-image: url(image_path('svg/arrow-down.svg'));
+}
+
+.dropdown-toggle:hover::after {
+	background-image: url(image_path('svg/arrow-down-hover.svg'));
+}
+
+// Re-ordering stuff
+
+.handle-move {
+  width: 48px;
+  height: 48px;
+  float: right;
+  top: -48px;
+  margin-bottom: -24px;
+  position: relative;
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg width='8' height='18' viewBox='0 0 8 18' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-5.5%25' y='-2.7%25' width='110.9%25' height='107.6%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='.5' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='16' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='16' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Crect id='b' x='280' y='112' width='1036' height='1488' rx='4'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='matrix(-1 0 0 1 464 -998)'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cuse stroke='%23EAEDF3' fill='%23FFF' xlink:href='%23b'/%3E%3C/g%3E%3Cg fill='%235E6977'%3E%3Crect y='5' width='3' height='3' rx='1.5'/%3E%3Crect width='3' height='3' rx='1.5'/%3E%3Crect y='10' width='3' height='3' rx='1.5'/%3E%3Crect y='15' width='3' height='3' rx='1.5'/%3E%3Crect x='5' y='5' width='3' height='3' rx='1.5'/%3E%3Crect x='5' width='3' height='3' rx='1.5'/%3E%3Crect x='5' y='10' width='3' height='3' rx='1.5'/%3E%3Crect x='5' y='15' width='3' height='3' rx='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: move;
+
+  &:active, &:focus, &:hover {
+    cursor: move;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.remove {
+  width: 48px;
+  height: 48px;
+  float: right;
+  top: -48px;
+  margin-bottom: -24px;
+  position: relative;
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-5.5%25' y='-2.7%25' width='110.9%25' height='107.6%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='.5' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='16' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='16' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Crect id='b' x='280' y='112' width='1036' height='1488' rx='4'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='matrix(-1 0 0 1 506 -1002)'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cuse stroke='%23EAEDF3' fill='%23FFF' xlink:href='%23b'/%3E%3C/g%3E%3Cg fill='%23FF4E36'%3E%3Crect transform='rotate(45 6 6)' x='-1' y='5' width='14' height='2' rx='1'/%3E%3Crect transform='rotate(-45 6 6)' x='-1' y='5' width='14' height='2' rx='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.5;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.list-group > div > input {
+  width: calc(100% - 48px);
+  border-radius: 0 4px 4px 0;
+}
+
+// Modal
+
+.modal-dialog {
+  max-width: 600px;
+  margin: 5% 5%;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.10);
+
+  @include media-breakpoint-up(md) {
+    margin: 10% auto;
+  }
+}
+
+.modal-header {
+  padding: 30px 30px 0 30px;
+  border-bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    padding: 40px 48px 0 48px;
+  }
+}
+
+.modal-header .close {
+  position: relative;
+  top: -10px;
+  left: 10px;
+
+  @include media-breakpoint-up(md) {
+    top: -20px;
+    left: 20px;
+  }
+}
+
+.modal-body {
+  padding: 16px 30px 60px;
+
+  @include media-breakpoint-up(md) {
+    padding: 16px 48px 60px;
+
+  }
+}
+
+.modal-footer {
+  padding: 16px 24px;
+  background: #F9F9FB;
+  border-top: 1px solid #E6E6E6;
+
+  button {
+    margin-left: 24px;
+  }
+
+  .cancel-modal {
+    color: #666;
+
+    &:hover {
+      color: #333;
+    }
+  }
+}
+
+
+
+
