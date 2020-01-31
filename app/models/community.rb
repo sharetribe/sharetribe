@@ -170,10 +170,13 @@ class Community < ApplicationRecord
 
   monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :currency
 
+  # starts ends with alphanumerics can contain hyphen
   validates :ident, length: { in: 3..50 },
-                    format: { with: /\A[A-Z0-9_\-\.]*\z/i, message: :domain_name_is_invalid },
+                    format: { with: /\A[A-Z0-9][A-Z0-9\-]*[A-Z0-9]\z/i, message: :domain_name_is_invalid },
                     uniqueness: true,
                     exclusion: { in: MarketplaceService::RESERVED_DOMAINS, message: :domain_name_is_invalid }
+  # cannot contain --
+  validates :ident, format: { with: /\A((?!\-\-).)*\z/, message: :domain_name_is_invalid }
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
   validates_format_of :custom_color1, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true

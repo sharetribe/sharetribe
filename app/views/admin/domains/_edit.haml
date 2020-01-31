@@ -6,10 +6,10 @@
     .col-6
       = form.text_field :ident, class: "text_field", minlength: 3, maxlength: 50,
         required: true, exclude_reserved_domains: true,
-        valid_username: true,
+        valid_ident: true,
         remote: check_availability_admin_domain_path,
         'data-msg-exclude_reserved_domains': t('errors.messages.domain_name_is_invalid'),
-        'data-msg-valid_username': t('errors.messages.domain_name_is_invalid'),
+        'data-msg-valid_ident': t('errors.messages.domain_name_is_invalid'),
         'data-msg-remote': t('errors.messages.domain_name_is_invalid')
     .col-6.app-config-domain
       = ".#{APP_CONFIG.domain}"
