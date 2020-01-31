@@ -1,9 +1,9 @@
 class StripeService::API::StripeApiWrapper
-  class << self
+  DEFAULT_MCC = 5734 # Computer Software Stores
+  API_2019_12_03 = '2019-12-03'.freeze
+  API_2019_02_19 = '2019-02-19'.freeze
 
-    DEFAULT_MCC = 5734 # Computer Software Stores
-    API_2019_12_03 = '2019-12-03'.freeze
-    API_2019_02_19 = '2019-02-19'.freeze
+  class << self
 
     @@mutex ||= Mutex.new # rubocop:disable ClassVars
 
@@ -273,6 +273,9 @@ class StripeService::API::StripeApiWrapper
           account.save
         end
       end
+      true
+    rescue StandardError
+      nil
     end
 
     def empty_string_as_nil(value)

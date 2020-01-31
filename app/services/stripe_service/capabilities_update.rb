@@ -3,7 +3,7 @@ class StripeService::CapabilitiesUpdate
 
   private
 
-  attr_reader :current_community, :person_id, :community_id, :update_all
+  attr_reader :person_id, :community_id, :update_all
 
   public
 
@@ -14,7 +14,6 @@ class StripeService::CapabilitiesUpdate
   end
 
   def update
-    @current_community = nil
     if person_id
       if single_person
         update_person(single_person)
@@ -32,10 +31,10 @@ class StripeService::CapabilitiesUpdate
 
   # This will update all member's stripe accounts even if member is banned
   def update_community
-    @current_community = Community.find_by(id: community_id)
-    if current_community
-      current_community.members.each do |person|
-        update_person(person)
+    community = Community.find_by(id: community_id)
+    if community
+      stripe_account_scope.by_community(community).each do |stripe_account|
+        update_stripe_account(community, stripe_account)
       end
     else
       puts "Could not find community id='#{community_id}'"
@@ -46,30 +45,40 @@ class StripeService::CapabilitiesUpdate
     puts "Processing person person_id='#{person.id}' username='#{person.username}'"
     stripe_account = StripeAccount.find_by(person: person)
     if stripe_account
-      @current_community ||= stripe_account.community
-      StripeService::API::StripeApiWrapper.update_account_capabilities(
-        community: current_community,
-        account_id: stripe_account.stripe_seller_id
-      )
+      update_stripe_account(stripe_account.community, stripe_account)
     else
       puts "Could not find stripe account for person person_id='#{person.id}' username='#{person.username}'"
     end
   end
 
   def update_all_stripe_accounts
-    StripeAccount.all.each do |stripe_account|
+    stripe_account_scope.each do |stripe_account|
       next unless stripe_account.person && stripe_account.community
 
       puts "Processing person id='#{stripe_account.person.id}'"
-      StripeService::API::StripeApiWrapper.update_account_capabilities(
-        community: stripe_account.community,
-        account_id: stripe_account.stripe_seller_id
-      )
+      update_stripe_account(stripe_account.community, stripe_account)
     end
   end
 
   def single_person
     @single_person ||= Person.find_by(id: person_id)
+  end
+
+  private
+
+  def update_stripe_account(community, stripe_account)
+    result = StripeService::API::StripeApiWrapper.update_account_capabilities(
+      community: community,
+      account_id: stripe_account.stripe_seller_id
+    )
+    if result
+      stripe_account.update_column(:api_version, StripeService::API::StripeApiWrapper::API_2019_12_03) # rubocop:disable Rails/SkipsModelValidations
+    end
+  end
+
+  def stripe_account_scope
+    StripeAccount.active_users
+      .where('api_version != ? OR api_version IS NULL', [StripeService::API::StripeApiWrapper::API_2019_12_03])
   end
 end
 # rubocop:enable Rails/Output

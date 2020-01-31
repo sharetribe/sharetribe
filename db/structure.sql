@@ -1370,9 +1370,11 @@ CREATE TABLE `stripe_accounts` (
   `stripe_customer_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `api_version` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_stripe_accounts_on_community_id` (`community_id`),
-  KEY `index_stripe_accounts_on_person_id` (`person_id`)
+  KEY `index_stripe_accounts_on_person_id` (`person_id`),
+  KEY `index_stripe_accounts_on_api_version` (`api_version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `stripe_payments`;
@@ -2429,6 +2431,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190920113245'),
 ('20191016061908'),
 ('20191016064022'),
-('20200127120611');
+('20200127120611'),
+('20200131111643');
 
 
