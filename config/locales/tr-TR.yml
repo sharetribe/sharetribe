@@ -395,6 +395,10 @@ tr-TR:
         robots_info: ~
         robots_info_link_text: ~
         robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: ~
       analytics:
         analytics: Analytics
@@ -655,6 +659,11 @@ tr-TR:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: " Pazaryeri kişisel alan adını değiştirmek ister miydiniz?%{contact_us}!"
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -1825,6 +1834,7 @@ tr-TR:
       listing_with_this_id_does_not_exist: ~
       presence: ~
       username_is_invalid: "Bu kullanıcı adı geçersiz veya kullanılamıyor"
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} %{time_ago}%{listing_title}'ı %{requester_name} üyesine ödünç vermeyi kabul etti."

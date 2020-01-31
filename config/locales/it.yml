@@ -389,6 +389,10 @@ it:
         robots_info: ~
         robots_info_link_text: ~
         robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: ~
       analytics:
         analytics: ~
@@ -649,6 +653,11 @@ it:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -1818,6 +1827,7 @@ it:
       listing_with_this_id_does_not_exist: ~
       presence: ~
       username_is_invalid: "Il nome utente non è valido o non è disponibile"
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ha accettato il prestito di %{listing_title} a %{requester_name} %{time_ago}."

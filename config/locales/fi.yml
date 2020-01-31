@@ -398,6 +398,10 @@ fi:
         robots_info: "Robots.txt on tekstitiedosto, joka osoittaa webbiroboteille (tyypillisesti nämä ovat hakukonepalvelujen robotteja) sen, miten ne indeksoivat (\"crawl\") verkkosivujasi esim. hakukonetta varten. %{link}."
         robots_info_link_text: "Lue lisää robots.txt -tiedostosta"
         robots_info_2: "Robots.txt -tiedosto luodaan automaattisesti markkinapaikallesi. Voit päästä käsiksi robots.txt -tiedostoosi tästä: %{link}"
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: "Tallenna asetukset"
       analytics:
         analytics: Analytiikka
@@ -658,6 +662,11 @@ fi:
         contact_us: "Ota meihin yhteyttä"
         you_can_now_use_a_custom_domain: "Nykyisellä tilauksellasi voit kytkeä päälle oman domainisi. Aloitetaan domainin käyttöönotto. %{contact_us}!"
         would_you_like_to_change_domain: "Haluaisitko vaihtaa markkinapaikkasi domainia? %{contact_us}!"
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -1848,6 +1857,7 @@ fi:
       listing_with_this_id_does_not_exist: ~
       presence: ~
       username_is_invalid: ~
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."

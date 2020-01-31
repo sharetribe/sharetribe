@@ -408,6 +408,10 @@ pl:
         robots_info: "Robots.txt jest to plik tekstowy, który przekazuje informacje internetowym robotom (mechanizmom wyszukiwania) w jaki sposób przeszukiwać strony na twojej platformie.%{link}."
         robots_info_link_text: "Dowiedz się więcej na temat pliku robots.txt"
         robots_info_2: "Robots.txt jest plikiem automatycznie tworzonym dla Twojej platformy. Możesz się do niego dostać na %{link}."
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: "Zapisz ustawienia"
       analytics:
         analytics: Analizy
@@ -668,6 +672,11 @@ pl:
         contact_us: Kontakt
         you_can_now_use_a_custom_domain: "Z Twoim aktualnym planem możesz ustawić standardową domenę. Kontynuuj aby skonfigurować ustawienia. %{contact_us}!"
         would_you_like_to_change_domain: "Czy chciałbyś zmienić nazwę domeny swojej platformy?%{contact_us}!"
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -1863,6 +1872,7 @@ pl:
       listing_with_this_id_does_not_exist: "To nie jest Twój identyfikator ogłoszenia. Może to literówka? Sprawdź i spróbuj ponownie."
       presence: "Pole nie może być puste."
       username_is_invalid: ~
+      domain_name_is_invalid: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} zgodził się, aby pożyczyć %{listing_title} do %{requester_name} %{time_ago}"
