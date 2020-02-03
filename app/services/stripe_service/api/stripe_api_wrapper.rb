@@ -12,8 +12,7 @@ class StripeService::API::StripeApiWrapper
     end
 
     def configure_payment_for(settings)
-      capabilities = FeatureFlag.feature_enabled?(settings.community_id, :stripe_capabilities)
-      Stripe.api_version = capabilities ? API_2019_12_03 : API_2019_02_19
+      Stripe.api_version = API_2019_12_03
       Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key, settings.key_encryption_padding)
     end
 
@@ -128,17 +127,11 @@ class StripeService::API::StripeApiWrapper
           email: account_info[:email],
           account_token: account_info[:token]
         }
-        if Stripe.api_version == API_2019_12_03 || ['US', 'EE', 'GR', 'LV', 'LT', 'PL', 'SK', 'SI', 'MX'].include?(account_info[:address_country])
-          data[:requested_capabilities] = if Stripe.api_version == API_2019_12_03
-            ['card_payments', 'transfers']
-          else
-            ['card_payments']
-                                          end
-          data[:business_profile] = {
-            mcc: DEFAULT_MCC,
-            url: account_info[:url]
-          }
-        end
+        data[:requested_capabilities] = ['card_payments', 'transfers']
+        data[:business_profile] = {
+          mcc: DEFAULT_MCC,
+          url: account_info[:url]
+        }
         data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
         Stripe::Account.create(data)
       end
