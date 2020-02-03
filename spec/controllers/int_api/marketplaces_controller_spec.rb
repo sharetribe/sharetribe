@@ -196,21 +196,5 @@ describe IntApi::MarketplacesController, type: :controller do
         expect(feature_flag.persisted?).to eq true
       end
     end
-
-    it "should create a marketplace and assign stripe_capabilities feature flag" do
-      post :create, params: { admin_email: "eddie.admin@example.com",
-                     admin_first_name: "Eddie",
-                     admin_last_name: "Admin",
-                     admin_password: "secret_word",
-                     marketplace_country: "FI",
-                     marketplace_language: "fi",
-                     marketplace_name: "ImaginationTraders",
-                     marketplace_type: "product"}
-
-      expect(response.status).to eql 201
-      community = Community.find_by(ident: "imaginationtraders")
-      feature_flag = FeatureFlag.find_by(community_id: community.id, enabled: true, feature: :stripe_capabilities)
-      expect(feature_flag.persisted?).to eq true
-    end
   end
 end
