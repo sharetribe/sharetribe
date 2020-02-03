@@ -122,6 +122,8 @@ class Person::PaymentSettingsPresenter
         :restricted
       elsif requirements.respond_to?(:current_deadline) && requirements.current_deadline.present?
         :restricted_soon
+      elsif seller_required_items.any?
+        :restricted
       else
         :verified
       end
