@@ -69,7 +69,7 @@ class Admin::Communities::MembershipService
 
   def destroy
     person = membership.person
-    unless membership.banned?
+    unless membership.banned? || membership.pending_consent? || membership.pending_email_confirmation?
       @error_message = I18n.t('admin.communities.manage_members.only_delete_disabled')
       return false
     end

@@ -57,6 +57,23 @@ class Admin::MembershipPresenter
   end
 
   def can_delete(membership)
+    can_delete_pending(membership) || can_delete_accepted(membership)
+  end
+
+  def can_delete_accepted(membership)
     membership.banned? && !has_membership_unfinished_transactions(membership)
+  end
+
+  def can_delete_pending(membership)
+    membership.pending_consent? || membership.pending_email_confirmation?
+  end
+
+  def delete_member_title(membership)
+    if can_delete_pending(membership)
+      nil
+    else
+      title = has_membership_unfinished_transactions(membership) ? I18n.t('admin.communities.manage_members.have_ongoing_transactions') : nil
+      title ||= membership.banned? ? nil : I18n.t('admin.communities.manage_members.only_delete_disabled')
+    end
   end
 end
