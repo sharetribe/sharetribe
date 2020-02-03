@@ -108,10 +108,8 @@
                 %span.post-listing{class: "#{edit_class} #{post_klass}"}
                   = link_to new_person_listing_path(person_id: member.username) do
                     = icon_tag("plus")
-                - unfinished_transactions = @presenter.has_membership_unfinished_transactions(membership)
-                - title = unfinished_transactions ? t('admin.communities.manage_members.have_ongoing_transactions') : nil
-                - title ||= banned ? nil : t('admin.communities.manage_members.only_delete_disabled')
-                %span.delete-member{class: banned && !unfinished_transactions ? '' : 'is-disabled', title: title}
+                %span.delete-member{class: @presenter.can_delete(membership) ? '' : 'is-disabled',
+                  title: @presenter.delete_member_title(membership)}
                   = link_to admin_community_community_membership_path(id: membership.id) do
                     = icon_tag("trash")
 
