@@ -88,7 +88,7 @@ class Person::PaymentSettingsPresenter
     return @seller_required_items if defined?(@seller_required_items)
 
     requirements = api_seller_account.requirements
-    @seller_required_items = (requirements.currently_due + requirements.past_due + requirements.eventually_due).uniq
+    @seller_required_items = (requirements.try(:currently_due) + requirements.try(:past_due) + requirements.try(:eventually_due)).uniq
   end
 
   def required_individual_id_number?
@@ -122,6 +122,8 @@ class Person::PaymentSettingsPresenter
         :restricted
       elsif requirements.respond_to?(:current_deadline) && requirements.current_deadline.present?
         :restricted_soon
+      elsif seller_required_items.any?
+        :restricted
       else
         :verified
       end
