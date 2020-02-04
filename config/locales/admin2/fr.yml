@@ -164,6 +164,16 @@ fr:
       search_placeholder: 'lorem ipsum'
       search_placeholder_info_text: 'lorem ipsum'
       search_for: 'lorem ipsum'
+    country_currency:
+      payments_not_enabled: 'lorem ipsum'
+      country: 'lorem ipsum'
+      country_info_text: 'lorem ipsum <a href="#">lorem ipsum</a>'
+      currency: 'lorem ipsum'
+      support: 'lorem ipsum <a href="%{paypal_url}" target="_blank">lorem ipsum</a> lorem ipsum <a href="%{stripe_url}" target="_blank">lorem ipsum</a>.'
+      stripe_paypal_allowed: "lorem ipsum <strong>%{country_name}</strong> lorem ipsum <strong>%{currency}</strong> lorem ipsum, <strong>lorem ipsum</strong> lorem ipsum <strong>lorem ipsum</strong> lorem ipsum."
+      paypal_allowed: "lorem ipsum <strong>%{country_name}</strong> lorem ipsum <strong>%{currency}</strong> lorem ipsum, <strong>PayPal</strong> lorem ipsum."
+      stripe_allowed: "lorem ipsum <strong>%{country_name}</strong> lorem ipsum <strong>%{currency}</strong> lorem ipsum, <strong>Stripe</strong> lorem ipsum."
+      stripe_paypal_not_allowed: "lorem ipsum <strong>%{country_name}</strong> lorem ipsum <strong>%{currency}</strong> lorem ipsum, lorem ipsum."
     automatic_newsletter:
       send_automatic_newsletter: 'lorem ipsum'
       send_automatic_newsletter_info_text: 'lorem ipsum %{href}'
