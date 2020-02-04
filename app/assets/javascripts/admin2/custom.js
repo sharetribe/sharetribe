@@ -18,6 +18,12 @@ function validateCommunityEdit(community_id) {
 
 $(function(){
 
+    $('.country-currency').on('change', function() {
+        var url = $(this).data('url'),
+            currency = $(this).val();
+        $.get(url, {currency: currency});
+    });
+
     $('.location-type').on('change', function() {
        var value = $(this).val(),
            show_distance_div = $('.show-distance-div'),

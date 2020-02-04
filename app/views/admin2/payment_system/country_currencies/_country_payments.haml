@@ -1,0 +1,15 @@
+- if stripe_allowed && paypal_allowed
+  %p.ingress
+    = "With <strong>#{country_name}</strong> and <strong>#{currency}</strong> as your marketplace settings, <strong>PayPal</strong> and <strong>Stripe</strong> can be configured as payment gateways in your marketplace.".html_safe
+
+- if !stripe_allowed && paypal_allowed
+  %p.ingress
+    = "With <strong>#{country_name}</strong> and <strong>#{currency}</strong> as your marketplace settings, <strong>PayPal</strong> can be configured as the payment gateway in your marketplace.".html_safe
+
+- if stripe_allowed && !paypal_allowed
+  %p.ingress
+    = "With <strong>#{country_name}</strong> and <strong>#{currency}</strong> as your marketplace settings, <strong>Stripe</strong> can be configured as the payment gateway in your marketplace.".html_safe
+
+- if !stripe_allowed && !paypal_allowed
+  %p.ingress
+    = "With <strong>#{country_name}</strong> and <strong>#{currency}</strong> as your marketplace settings, there is unfortunately no payment gateways available for your marketplace.".html_safe

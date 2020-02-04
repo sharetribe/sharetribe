@@ -259,6 +259,7 @@ Rails.application.routes.draw do
         resources :country_currencies, path: 'country-currency', only: %i[index] do
           collection do
             patch :update_country_currencies
+            get :verify_currency
           end
         end
       end

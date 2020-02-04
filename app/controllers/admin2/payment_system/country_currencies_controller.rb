@@ -23,6 +23,14 @@ module Admin2::PaymentSystem
       redirect_to admin2_payment_system_country_currencies_path
     end
 
+    def verify_currency
+      @stripe_allowed = stripe_allowed(params[:currency])
+      @paypal_allowed = paypal_allowed(params[:currency])
+      @country_name = CountryI18nHelper.translate_country(@current_community.country)
+      @currency = params[:currency]
+      render layout: false
+    end
+
     private
 
     def base_params
@@ -42,14 +50,14 @@ module Admin2::PaymentSystem
       end
     end
 
-    def paypal_allowed
+    def paypal_allowed(currency = @current_community.currency)
       TransactionService::AvailableCurrencies.paypal_allows_country_and_currency?(@current_community.country,
-                                                                                  @current_community.currency)
+                                                                                  currency)
     end
 
-    def stripe_allowed
+    def stripe_allowed(currency = @current_community.currency)
       TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(@current_community.country,
-                                                                                  @current_community.currency,
+                                                                                  currency,
                                                                                   stripe_mode)
     end
 
