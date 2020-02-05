@@ -1,0 +1,144 @@
+.content-card-header
+  %h1.content-card-header-title Footer
+.content-card-section-container
+  %form.content-card-section-form
+    %section.content-card-section
+      %h2 Footer enabling
+      %p.ingress
+        By customizing the footer, you can give your visitors more ways to access important sections of your marketplace and make your brand more visible. Select the variation of the footer, add text and social media links, add a copyright text:
+        = succeed "." do
+          %a{:href => "https://help.sharetribe.com/en/articles/2364902", :target => "_blank"} learn more about the footer
+        %br/
+        = succeed "Would" do
+          %br/
+        = succeed "." do
+          %a{:href => "/admin/plan"} Upgrade to the Pro plan or higher
+        %span{:style => "color:red"} DISPLAY ONLY IF footer=false
+      .form-group
+        .form-check
+          %input#footerEnabled.form-check-input{:type => "checkbox"}
+            %label.form-check-label{:for => "footerEnabled"} Enable the footer in all pages of your marketplace
+      %section.content-card-section
+        %h2 Footer style
+        .form-group
+          %label{:for => "footerStyle"} Footer style
+          %select#footerStyle.form-control{"aria-describedby" => "footerStyle", :value => "Light"}
+            %option Dark
+            %option Light
+            %option Marketplace color
+            %option Logo
+      %section.content-card-section
+        %h2 Footer links
+        #simpleList.list-group
+          .custom-links-container
+            .multiple-languages-language
+              %span.language English
+            .custom-links-title
+              %input#footerLink1.form-control{"aria-describedby" => "footerLink1", :placeholder => "Link title", :type => "text", :value => "Our blog"}/
+            .custom-links-url
+              %input#footerLink1.form-control{"aria-describedby" => "footerLink1", :placeholder => "https://", :type => "text", :value => "https://blog.bikerrrs.io/en/"}/
+            .custom-links-actions
+              %span.handle-move{"aria-hidden" => "true"}
+              %span.remove{"aria-hidden" => "true"}
+            .multiple-languages-language
+              %span.language French
+            .custom-links-title
+              %input#footerLink1.form-control{"aria-describedby" => "footerLink1", :placeholder => "Link title", :type => "text", :value => "Notre blog"}/
+            .custom-links-url
+              %input#footerLink1.form-control{"aria-describedby" => "footerLink1", :placeholder => "https://", :type => "text", :value => "https://blog.bikerrrs.io/fr/"}/
+            .multiple-languages-language
+              %span.language Spanish
+            .custom-links-title
+              %input#footerLink1.form-control{"aria-describedby" => "footerLink1", :placeholder => "Link title", :type => "text", :value => "Nuestro blog"}/
+            .custom-links-url
+              %input#footerLink1.form-control{"aria-describedby" => "footerLink1", :placeholder => "https://", :type => "text", :value => "https://blog.bikerrrs.io/es/"}/
+          .custom-links-container
+            .multiple-languages-language
+              %span.language English
+            .custom-links-title
+              %input#footerLink2.form-control{"aria-describedby" => "footerLink2", :placeholder => "Link title", :type => "text", :value => "Our partner"}/
+            .custom-links-url
+              %input#footerLink2.form-control{"aria-describedby" => "footerLink2", :placeholder => "https://", :type => "text", :value => "https://www.example.com/partner/"}/
+            %div
+              %span.handle-move{"aria-hidden" => "true"}
+              %span.remove{"aria-hidden" => "true"}
+            .multiple-languages-language
+              %span.language French
+            .custom-links-title
+              %input#footerLink2.form-control{"aria-describedby" => "footerLink2", :placeholder => "Link title", :type => "text", :value => "Notre partenaire"}/
+            .custom-links-url
+              %input#footerLink2.form-control{"aria-describedby" => "footerLink2", :placeholder => "https://", :type => "text", :value => "https://www.example.com/partner/"}/
+            .multiple-languages-language
+              %span.language Spanish
+            .custom-links-title
+              %input#footerLink2.form-control{"aria-describedby" => "footerLink2", :placeholder => "Link title", :type => "text", :value => "Nuestro socio"}/
+            .custom-links-url
+              %input#footerLink2.form-control{"aria-describedby" => "footerLink2", :placeholder => "https://", :type => "text", :value => "https://www.example.com/partner/"}/
+          .custom-links-container
+            .multiple-languages-language
+              %span.language English
+            .custom-links-title
+              %input#footerLink3.form-control{"aria-describedby" => "footerLink3", :placeholder => "Link title", :type => "text"}/
+            .custom-links-url
+              %input#footerLink3.form-control{"aria-describedby" => "footerLink3", :placeholder => "https://", :type => "text"}/
+            %div
+              %span.handle-move{"aria-hidden" => "true"}
+              %span.remove{"aria-hidden" => "true"}
+            .multiple-languages-language
+              %span.language French
+            .custom-links-title
+              %input#footerLink3.form-control{"aria-describedby" => "footerLink3", :placeholder => "Link title", :type => "text"}/
+            .custom-links-url
+              %input#footerLink3.form-control{"aria-describedby" => "footerLink3", :placeholder => "https://", :type => "text"}/
+            .multiple-languages-language
+              %span.language Spanish
+            .custom-links-title
+              %input#footerLink3.form-control{"aria-describedby" => "footerLink3", :placeholder => "Link title", :type => "text"}/
+            .custom-links-url
+              %input#footerLink3.form-control{"aria-describedby" => "footerLink3", :placeholder => "https://", :type => "text"}/
+        %p.content-card-text
+          %a{:href => "#"} + Add a new footer link
+
+      %section.content-card-section
+        %h2 Footer social links
+        .form-group
+          #footerList.list-group
+            %div
+              %label{:for => "socialMediaFacebook"} Facebook
+              %input#socialMediaFacebook.form-control{"aria-describedby" => "socialMediaFacebook", :type => "text"}/
+              %span.handle-move{"aria-hidden" => "true"}
+            %div
+              %label{:for => "socialMediaTwitter"} Twitter
+              %input#socialMediaTwitter.form-control{"aria-describedby" => "socialMediaTwitter", :type => "text"}/
+              %span.handle-move{"aria-hidden" => "true"}
+            %div
+              %label{:for => "socialMediaInstagram"} Instagram
+              %input#socialMediaInstagram.form-control{"aria-describedby" => "socialMediaInstagram", :type => "text"}/
+              %span.handle-move{"aria-hidden" => "true"}
+            %div
+              %label{:for => "socialMediaYoutube"} YouTube
+              %input#socialMediaYoutube.form-control{"aria-describedby" => "socialMediaYoutube", :type => "text"}/
+              %span.handle-move{"aria-hidden" => "true"}
+            %div
+              %label{:for => "socialMediaGoogle"} Google+
+              %input#socialMediaGoogle.form-control{"aria-describedby" => "socialMediaGoogle", :type => "text"}/
+              %span.handle-move{"aria-hidden" => "true"}
+            %div
+              %label{:for => "socialMediaLinkedIn"} LinkedIn
+              %input#socialMediaLinkedIn.form-control{"aria-describedby" => "socialMediaLinkedIn", :type => "text"}/
+              %span.handle-move{"aria-hidden" => "true"}
+            %div
+              %label{:for => "socialMediaPinterest"} Pinterest
+              %input#socialMediaPinterest.form-control{"aria-describedby" => "socialMediaPinterest", :type => "text"}/
+              %span.handle-move{"aria-hidden" => "true"}
+            %div
+              %label{:for => "socialMediaSoundCloud"} SoundCloud
+              %input#socialMediaSoundCloud.form-control{"aria-describedby" => "socialMediaSoundCloud", :type => "text"}/
+              %span.handle-move{"aria-hidden" => "true"}
+      %section.content-card-section
+        %h2 Footer copyright
+        .form-group
+          %label{:for => "footerCopyright"} Footer copyright
+          %textarea#footerCopyright.form-control{"aria-describedby" => "footerCopyright", :placeholder => "All rights reserved."}
+      %section.content-card-terminal
+        %button.btn.btn-primary{:href => "#"} Save changes

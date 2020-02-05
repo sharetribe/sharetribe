@@ -43,8 +43,8 @@
             = link_to t('admin2.sidebar.design.landing_page'), admin2_design_landing_page_index_path
           %li#topbar-mobile{class: active_li('topbar')}
             = link_to t('admin2.sidebar.design.topbar'), admin2_design_topbar_index_path
-          %li#footer-mobile
-            %a{:href => 'footer.php'} Footer
+          %li#footer-mobile{class: active_li('footer')}
+            = link_to t('admin2.sidebar.design.footer'), admin2_design_footer_index_path
           %li#display-mobile{class: active_li('display')}
             = link_to t('admin2.sidebar.design.display'), admin2_design_display_index_path
           %li#experimental-mobile{class: active_li('experimental')}

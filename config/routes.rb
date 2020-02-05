@@ -201,6 +201,12 @@ Rails.application.routes.draw do
           end
         end
 
+        resources :footer, only: %i[index] do
+          collection do
+            patch :update_footer
+          end
+        end
+
         resources :display, only: %i[index] do
           collection do
             patch :update_display
