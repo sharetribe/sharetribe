@@ -1,46 +1,58 @@
+- content_for :title do
+  = t('admin2.sidebar.design.topbar')
+
 .content-card-header
-  %h1.content-card-header-title Top bar
+  %h1.content-card-header-title
+    = t('admin2.sidebar.design.topbar')
+
 .content-card-section-container#top_bar_div
   = form_for @current_community, url: update_topbar_admin2_design_topbar_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
     %section.content-card-section
-      %h2 Top bar settings
+      %h2
+        = t('admin2.topbar.top_bar_settings')
+
+      - if available_locales.size == 1
+        = render 'one_language', form: form
+      - else
+        = render 'many_languages', form: form
 
       .form-group
-        %label{:for => "postNewListingText"} "Post a new listing" button text
-        %input#postNewListingText.form-control{"aria-describedby" => "postNewListingText", :placeholder => "Post a new listing", :type => "text"}/
-
-      .form-group
-        %label{:for => "marketplaceLogoURL"} Target URL for the Marketplace Logo
-        %input#marketplaceLogoURL.form-control{"aria-describedby" => "marketplaceLogoURL", :placeholder => "https://www.bikerrrs.io", :type => "text"}/
-        %small#marketplaceLogoURL-help.form-text You can customize the link of the logo (and the default home button of the top bar menu). By default the logo takes users to the homepage or Custom Landing Page.
+        = form.label :logo_link, t('admin2.topbar.logo_link')
+        = form.text_field :logo_link, class: %i[form-control], placeholder: 'https://www.bikerrrs.io'
+        %small#marketplaceLogoURL-help.form-text
+          = t('admin2.topbar.logo_link_info_text')
 
       = form.fields_for :configuration do |conf|
         .form-group
-          %label Show in the Top bar
+          %label
+            = t('admin2.topbar.show_in_top_bar')
           .form-check
             = conf.check_box :display_about_menu, class: %i[form-check-input]
-            = conf.label :display_about_menu, '"About" and other static pages', class: %i[form-check-label]
+            = conf.label :display_about_menu, t('admin2.topbar.display_about_menu'), class: %i[form-check-label]
           .form-check
             = conf.check_box :display_contact_menu, class: %i[form-check-input]
-            = conf.label :display_contact_menu, '"Contact us" page', class: %i[form-check-label]
+            = conf.label :display_contact_menu, t('admin2.topbar.display_contact_menu'), class: %i[form-check-label]
           .form-check
             = conf.check_box :display_invite_menu, class: %i[form-check-input]
-            = conf.label :display_invite_menu, '"Invite new members" page', class: %i[form-check-label]
+            = conf.label :display_invite_menu, t('admin2.topbar.display_invite_menu'), class: %i[form-check-label]
 
         .form-group
-          %label{:for => "topBarMaximumNumberLinks"} Maximum number of links displayed in the Top bar
-          = conf.select :limit_priority_links, options_for_select((0..5).to_a.map {|o| [o, o]}.concat([['All', -1]]), conf.object.limit_priority_links), {}, class: %i[form-control]
-          %small#topBarMaximumNumberLinks-help.form-text If not all links are displayed, they will be grouped into a dropdown menu.
+          %label
+            = t('admin2.topbar.maximum_number_links')
+          = conf.select :limit_priority_links, options_for_select((0..5).to_a.map {|o| [o, o]}.concat([[t('admin2.topbar.all'), -1]]), conf.object.limit_priority_links), {}, class: %i[form-control]
+          %small#topBarMaximumNumberLinks-help.form-text
+            = t('admin2.topbar.limit_priority_links_info_text')
 
     %section.content-card-section
-      %h2 Top bar custom links
+      %h2
+        = t('admin2.topbar.custom_links')
       #simpleList.list-group
         = form.fields_for :menu_links do |menu_link|
           = render 'menu_link_fields', f: menu_link
       %p.links.content-card-text
-        = link_to_add_association '+ Add a new custom link', form, :menu_links, data: {'association-insertion-method' => 'append', 'association-insertion-node' => '#simpleList' }
+        = link_to_add_association t('admin2.topbar.new_custom_link'), form, :menu_links, data: {'association-insertion-method' => 'append', 'association-insertion-node' => '#simpleList' }
     %section.content-card-terminal
-      %button.btn.btn-primary{:href => "#"} Save changes
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
 
 - content_for :extra_javascript do
   :javascript

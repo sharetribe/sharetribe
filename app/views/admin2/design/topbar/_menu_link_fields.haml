@@ -7,11 +7,11 @@
         %span.language
           = t("admin.communities.available_languages.#{customization.locale}")
       .custom-links-title
-        = tr.text_field :title, class: %i[form-control required], placeholder: 'Link title'
+        = tr.text_field :title, class: %i[form-control required], placeholder: t('admin2.topbar.link_title')
       .custom-links-url
         = tr.text_field :url, class: %i[form-control required], placeholder: 'https://'
       - if index.zero?
         .custom-links-actions
-          %span.handle-move{"aria-hidden" => "true"}
+          %span.handle-move
           = link_to_remove_association("", f, { class: :remove })
 

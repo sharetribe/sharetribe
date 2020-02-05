@@ -69,6 +69,22 @@ en:
         sharetribe: 'Sharetribe analytics'
       advanced:
         custom_script: 'Custom script'
+    topbar:
+      top_bar_settings: 'Top bar settings'
+      logo_link: 'Target URL for the Marketplace Logo'
+      logo_link_info_text: 'You can customize the link of the logo (and the default home button of the top bar menu). By default the logo takes users to the homepage or Custom Landing Page.'
+      post_new_listing_button: '"Post a new listing" button text'
+      post_new_listing: 'Post a new listing'
+      show_in_top_bar: 'Show in the Top bar'
+      display_about_menu: '"About" and other static pages'
+      display_contact_menu: '"Contact us" page'
+      display_invite_menu: '"Invite new members" page'
+      maximum_number_links: 'Maximum number of links'
+      limit_priority_links_info_text: 'If not all links are displayed, they will be grouped into a dropdown menu.'
+      custom_links: 'Top bar custom links'
+      new_custom_link: '+ Add a new custom link'
+      link_title: 'Link title'
+      all: 'All'
     custom_script:
       info_text: "This script is injected inside the tag of every page and can be used to insert custom CSS, JavaScript or HTML. <a href='%{url}' target='_blank'>Learn more about Custom script</a>."
       custom_head_script: 'CSS, JavaScript and/or HTML script'
@@ -345,6 +361,7 @@ en:
       google_analytics_updated: 'Google analytics settings were updated'
       sharetribe_analytics_updated: 'Sharetribe analytics settings were updated'
       custom_script_updated: 'Custom script settings were updated'
+      topbar_updated: 'Top bar settings were updated'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

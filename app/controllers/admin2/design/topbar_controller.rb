@@ -6,7 +6,8 @@ module Admin2::Design
 
     def update_topbar
       @current_community.update!(display_params)
-      flash[:notice] = t('admin2.notifications.display_updated')
+      update_post_new_link!
+      flash[:notice] = t('admin2.notifications.topbar_updated')
     rescue StandardError => e
       flash[:error] = e.message
     ensure
@@ -15,8 +16,20 @@ module Admin2::Design
 
     private
 
+    def update_post_new_link!
+      translations = params.to_unsafe_hash[:post_new_listing_button].map { |k, v| { locale: k, translation: v } }
+      translations_group = [{ translation_key: 'homepage.index.post_new_listing',
+                              translations: translations }]
+      TranslationService::API::Api.translations.create(@current_community.id, translations_group)
+    end
+
     def display_params
-      params.require(:community).permit(menu_links_attributes: [:sort_priority, :id, :_destroy, translations_attributes: [:id, :url, :title, :locale]])
+      params.require(:community).permit(:logo_link,
+                                        menu_links_attributes:
+                                          [:sort_priority, :id, :_destroy,
+                                           translations_attributes: [:id, :url, :title, :locale]],
+                                        configuration_attributes:
+                                          [:limit_priority_links, :display_about_menu, :display_contact_menu, :display_invite_menu, :id])
     end
   end
 end
