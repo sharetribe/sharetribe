@@ -24,7 +24,6 @@ module FeatureFlagService::Store
       :footer,
       :clp_editor,
       :email_layout_v2,
-      :canceled_flow,
     ].to_set
 
     def initialize(additional_flags:)
