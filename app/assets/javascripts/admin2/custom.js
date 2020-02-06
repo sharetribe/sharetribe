@@ -1,9 +1,10 @@
 function validateCommunityEdit(community_id) {
     $("#edit_community_" + community_id).validate({
         errorPlacement: function (error, element) {
-            console.log(element);
             if (element.attr('id') === 'community_automatic_confirmation_after_days') {
                 $('#days_label').after(error);
+            } else if (element.hasClass('social-link-row')) {
+                element.parents('.one-social-link').find('.handle-move').after(error);
             }
             else {
                 element.after(error);
@@ -52,6 +53,18 @@ $(function(){
         $('#top_bar_div').on('cocoon:after-insert', function(e, insertedItem, originalEvent) {
             var index = $('.top_bar_link_position').length - 1;
             insertedItem.find('.sort_priority_class').val(index);
+        });
+    }
+
+    if ($('#footerList').length) {
+        Sortable.create(footerList, {
+            handle: '.handle-move',
+            animation: 250,
+            onEnd: function (/**Event*/evt) {
+                $('.one-social-link').each(function( index ) {
+                    $(this).find('.social-link-sort-prior').val(index);
+                });
+            },
         });
     }
 

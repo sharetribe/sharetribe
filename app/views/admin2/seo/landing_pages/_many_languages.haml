@@ -6,7 +6,7 @@
       = form.fields_for :community_customizations, customization do |cc|
         .multiple-languages-language
           %span.language
-            = t("admin.communities.available_languages.#{cc.object.locale}")
+            = local_name(cc.object.locale)
         .multiple-languages-input
           = cc.text_field :meta_title, class: %i[form-control], maxlength: 255, placeholder: t('admin2.landing_pages.meta_title_placeholder')
     %small.form-text
@@ -20,7 +20,7 @@
       = form.fields_for :community_customizations, customization do |cc|
         .multiple-languages-language
           %span.language
-            = t("admin.communities.available_languages.#{cc.object.locale}")
+            = local_name(cc.object.locale)
         .multiple-languages-input
           = cc.text_area :meta_description, class: %i[form-control], maxlength: 65535, placeholder: t('admin2.landing_pages.meta_description_placeholder')
     %small.form-text

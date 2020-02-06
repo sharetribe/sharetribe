@@ -70,6 +70,22 @@ en:
         sharetribe: 'Sharetribe analytics'
       advanced:
         custom_script: 'Custom script'
+    footer:
+      footer_enabling: 'Footer enabling'
+      footer_enabling_field: 'Enable the footer in all pages of your marketplace'
+      footer_enabling_info_text: "By customizing the footer, you can give your visitors more ways to access important sections of your marketplace and make your brand more visible. Select the variation of the footer, add text and social media links, add a copyright text: <a href='%{url}' target='_blank'>learn more about the footer</a>."
+      plan_disabled: 'Would you like to configure your own custom footer? <a href="%{url}" target="_blank">Upgrade to the Pro plan or higher</a>.'
+      footer_style: 'Footer style'
+      footer_links: 'Footer links'
+      add_new_footer_link: '+ Add a new footer link'
+      footer_social_links: 'Footer social links'
+      footer_copyright: 'Footer copyright'
+      footer_copyright_placeholder: 'All rights reserved.'
+      style:
+        dark: 'Dark'
+        light: 'light'
+        marketplace_color: 'Marketplace main color'
+        logo: 'Logo'
     topbar:
       top_bar_settings: 'Top bar settings'
       logo_link: 'Target URL for the Marketplace Logo'
@@ -363,6 +379,8 @@ en:
       sharetribe_analytics_updated: 'Sharetribe analytics settings were updated'
       custom_script_updated: 'Custom script settings were updated'
       topbar_updated: 'Top bar settings were updated'
+      footer_updated: 'Footer settings were updated'
+      footer_update_failed: 'Footer details update failed'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'
