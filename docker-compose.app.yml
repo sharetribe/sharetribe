@@ -42,3 +42,13 @@ services:
       - convox.deployment.minimum=0
       - convox.deployment.maximum=100
     command: [ "script/startup.sh", "shredder" ]
+  tmp-cli:
+    build: .
+    mem_limit: 512m
+    labels:
+      - convox.environment.secure=true
+      - convox.deployment.minimum=0
+      - convox.deployment.maximum=200
+    volumes:
+      - /var/sharetribe-data
+    command: [ "/bin/sleep", "604800" ]
