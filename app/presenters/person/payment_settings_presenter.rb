@@ -228,10 +228,6 @@ class Person::PaymentSettingsPresenter
     PaypalCountryHelper.receive_funds_info_tr_key(community_country_code)
   end
 
-  def capabilities?
-    @capabilities ||= FeatureFlag.feature_enabled?(community.id, :stripe_capabilities)
-  end
-
   private
 
   def parsed_seller_account
