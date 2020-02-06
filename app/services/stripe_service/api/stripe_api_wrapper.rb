@@ -1,9 +1,9 @@
 class StripeService::API::StripeApiWrapper
-  class << self
+  DEFAULT_MCC = 5734 # Computer Software Stores
+  API_2019_12_03 = '2019-12-03'.freeze
+  API_2019_02_19 = '2019-02-19'.freeze
 
-    DEFAULT_MCC = 5734 # Computer Software Stores
-    API_2019_12_03 = '2019-12-03'.freeze
-    API_2019_02_19 = '2019-02-19'.freeze
+  class << self
 
     @@mutex ||= Mutex.new # rubocop:disable ClassVars
 
@@ -255,6 +255,20 @@ class StripeService::API::StripeApiWrapper
         end
         account.save
       end
+    end
+
+    def update_account_capabilities(community:, account_id:)
+      with_stripe_payment_config(community) do |payment_settings|
+        account = Stripe::Account.retrieve(account_id)
+        capabilities = account.capabilities
+        unless capabilities['card_payments'] == 'active' && capabilities['platform_payments'] == 'active'
+          account.requested_capabilities = ['card_payments', 'transfers', 'legacy_payments']
+          account.save
+        end
+      end
+      true
+    rescue StandardError
+      nil
     end
 
     def empty_string_as_nil(value)
