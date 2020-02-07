@@ -1,11 +1,15 @@
 class Admin::DomainsPresenter
-  attr_reader :community, :plan
 
-  delegate :use_domain?, :ident, :domain, to: :community, prefix: false
+  private
 
-  def initialize(community:, plan:)
-    @community = community
-    @plan = plan
+  attr_reader :service
+
+  public
+
+  delegate :community, :white_label?, :use_domain?, :ident, :domain, to: :service, prefix: false
+
+  def initialize(service:)
+    @service = service
   end
 
   def domain_disabled?
@@ -22,11 +26,5 @@ class Admin::DomainsPresenter
 
   def domain_address
     domain_used? ? "https://#{domain}" : "https://#{ident}.sharetribe.com"
-  end
-
-  private
-
-  def white_label?
-    plan ? !!plan[:features][:whitelabel] : false
   end
 end

@@ -261,6 +261,16 @@
         %p= t('admin.communities.seo_settings.robots_info_2', link: meta_info_link).html_safe
 
     .row
+      %h2= t('admin.communities.seo_settings.google_search_console')
+      %p= t('admin.communities.seo_settings.google_search_console_paragraph1')
+
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.google_search_console_these_instructions'), "#{APP_CONFIG.knowledge_base_url}/en/articles/674140", target: '_blank'
+        %p= t('admin.communities.seo_settings.google_search_console_paragraph2', link: meta_info_link).html_safe
+      - else
+        %p= t('admin.communities.seo_settings.google_search_console_paragraph2', link: "")
+
+    .row
       = form.button t("admin.communities.seo_settings.save")
 
 - content_for :javascript do

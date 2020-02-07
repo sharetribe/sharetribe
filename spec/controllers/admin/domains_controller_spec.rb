@@ -80,4 +80,20 @@ describe Admin::DomainsController, type: :controller do
       expect(presenter.domain_address).to eq "https://#{community_with_domain.domain}"
     end
   end
+
+  describe '#update community without domain' do
+    before(:each) do
+      @request.host = "#{community.ident}.lvh.me"
+      @request.env[:current_marketplace] = community
+      @request.env[:current_plan] = plan
+      user = create_admin_for(community)
+      sign_in_for_spec(user)
+    end
+
+    it 'works' do
+      expect(
+        patch(:update, params: { community: { ident: 'rosemary' } })
+      ).to redirect_to %r((http|https)://rosemary.lvh.me:9887)
+    end
+  end
 end
