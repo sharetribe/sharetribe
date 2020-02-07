@@ -13,4 +13,5 @@
       - if index.zero?
         .custom-links-actions
           %span.handle-move
-          = link_to_remove_association("", f, { class: :remove })
+          = link_to_remove_association f do
+            %span.remove
