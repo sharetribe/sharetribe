@@ -34,8 +34,13 @@
               = conf.check_box :display_contact_menu, class: %i[form-check-input]
               = conf.label :display_contact_menu, t('admin2.topbar.display_contact_menu'), class: %i[form-check-label]
             .form-check
-              = conf.check_box :display_invite_menu, class: %i[form-check-input]
-              = conf.label :display_invite_menu, t('admin2.topbar.display_invite_menu'), class: %i[form-check-label]
+              - if @current_community.users_can_invite_new_users
+                = conf.check_box :display_invite_menu, class: %i[form-check-input]
+                = conf.label :display_invite_menu, t('admin2.topbar.display_invite_menu'), class: %i[form-check-label]
+              - else
+                - conf.object.display_invite_menu = false
+                = conf.check_box :display_invite_menu, disabled: "disabled", class: %i[form-check-input]
+                = conf.label :display_invite_link, t('admin2.topbar.display_invite_menu'), class: %i[form-check-label], disabled: :disabled
 
           .form-group
             %label

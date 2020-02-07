@@ -7,4 +7,4 @@
         %span.language
           = locale_name
       .multiple-languages-input
-        = text_field_tag "post_new_listing_button[#{locale_value}]", t('admin2.topbar.post_new_listing', locale: locale_value), class: %i[required form-control]
+        = text_field_tag "post_new_listing_button[#{locale_value}]", t("homepage.index.post_new_listing", locale: locale_value), class: %i[required form-control]
