@@ -1,9 +1,9 @@
 class StripeService::API::StripeApiWrapper
-  class << self
+  DEFAULT_MCC = 5734 # Computer Software Stores
+  API_2019_12_03 = '2019-12-03'.freeze
+  API_2019_02_19 = '2019-02-19'.freeze
 
-    DEFAULT_MCC = 5734 # Computer Software Stores
-    API_2019_12_03 = '2019-12-03'.freeze
-    API_2019_02_19 = '2019-02-19'.freeze
+  class << self
 
     @@mutex ||= Mutex.new # rubocop:disable ClassVars
 
@@ -12,8 +12,7 @@ class StripeService::API::StripeApiWrapper
     end
 
     def configure_payment_for(settings)
-      capabilities = FeatureFlag.feature_enabled?(settings.community_id, :stripe_capabilities)
-      Stripe.api_version = capabilities ? API_2019_12_03 : API_2019_02_19
+      Stripe.api_version = API_2019_12_03
       Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key, settings.key_encryption_padding)
     end
 
@@ -128,17 +127,11 @@ class StripeService::API::StripeApiWrapper
           email: account_info[:email],
           account_token: account_info[:token]
         }
-        if Stripe.api_version == API_2019_12_03 || ['US', 'EE', 'GR', 'LV', 'LT', 'PL', 'SK', 'SI', 'MX'].include?(account_info[:address_country])
-          data[:requested_capabilities] = if Stripe.api_version == API_2019_12_03
-            ['card_payments', 'transfers']
-          else
-            ['card_payments']
-                                          end
-          data[:business_profile] = {
-            mcc: DEFAULT_MCC,
-            url: account_info[:url]
-          }
-        end
+        data[:requested_capabilities] = ['card_payments', 'transfers']
+        data[:business_profile] = {
+          mcc: DEFAULT_MCC,
+          url: account_info[:url]
+        }
         data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
         Stripe::Account.create(data)
       end
@@ -262,6 +255,20 @@ class StripeService::API::StripeApiWrapper
         end
         account.save
       end
+    end
+
+    def update_account_capabilities(community:, account_id:)
+      with_stripe_payment_config(community) do |payment_settings|
+        account = Stripe::Account.retrieve(account_id)
+        capabilities = account.capabilities
+        unless capabilities['card_payments'] == 'active' && capabilities['platform_payments'] == 'active'
+          account.requested_capabilities = ['card_payments', 'transfers', 'legacy_payments']
+          account.save
+        end
+      end
+      true
+    rescue StandardError
+      nil
     end
 
     def empty_string_as_nil(value)
