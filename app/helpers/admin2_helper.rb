@@ -12,8 +12,29 @@ module Admin2Helper
     {
       general: %w[essentials privacy static_content admin_notifications],
       design: %w[logos_color landing_page display experimental cover_photos],
-      users: %w[signup_login]
+      users: %w[signup_login user_rights],
+      listings: %w[listing_approval listing_comments],
+      transactions_reviews: %w[config_transactions],
+      payment_system: %w[country_currencies],
+      emails: %w[newsletters],
+      search_location: %w[search locations],
+      social_media: %w[image_tags twitter],
+      seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages],
+      analytics: %w[google sharetribe],
+      advanced: %w[custom_scripts]
     }
+  end
+
+  def community_name_tag(locale)
+    @current_community.full_name(locale).presence
+  end
+
+  def social_media_title_placeholder(locale)
+    "#{community_name_tag(locale)} - #{community_slogan}"
+  end
+
+  def social_media_description_placeholder
+    "#{community_description(false)} - #{community_slogan}"
   end
 
   def admin_title
@@ -37,6 +58,16 @@ module Admin2Helper
       input_classes: 'form-control',
       info_text: t('admin2.privacy.info_text'),
       input_name: 'private_community_homepage_content',
+      translations: translations
+    }
+  end
+
+  def community_posting_rights_content
+    translations = find_community_customizations(:verification_to_post_listings_info_content)
+    {
+      input_classes: 'form-control',
+      info_text: t('admin2.user_rights.info_text'),
+      input_name: 'verification_to_post_listings_info_content',
       translations: translations
     }
   end
@@ -89,6 +120,11 @@ module Admin2Helper
       end)
     end
     nil
+  end
+
+  def period_emails_send
+    [[t("admin2.automatic_newsletter.newsletter_daily"), 1],
+     [t("admin2.automatic_newsletter.newsletter_weekly"), 7]]
   end
 
   def find_community_customizations(customization_key)

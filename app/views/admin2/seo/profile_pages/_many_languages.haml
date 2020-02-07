@@ -1,0 +1,23 @@
+.form-group
+  %label
+    = t('admin2.profile_pages.profile_meta_title')
+  %small.form-text-above
+    = t('admin2.profile_pages.profile_meta_title_info_text')
+  - customizations.each do |customization|
+    = form.fields_for :community_customizations, customization do |cc|
+      .d-flex.multiple-languages
+        %span.language
+          = t("admin.communities.available_languages.#{cc.object.locale}")
+        = cc.text_field :profile_meta_title, maxlength: 255, class: %i[form-control], placeholder: t('admin2.profile_pages.profile_meta_title_placeholder')
+
+.form-group
+  %label
+    = t('admin2.profile_pages.profile_meta_description')
+  %small.form-text-above
+    = t('admin2.profile_pages.profile_meta_description_info_text')
+  - customizations.each do |customization|
+    = form.fields_for :community_customizations, customization do |cc|
+      .d-flex.multiple-languages
+        %span.language
+          = t("admin.communities.available_languages.#{cc.object.locale}")
+        = cc.text_area :profile_meta_description, maxlength: 65535, class: %i[form-control], placeholder: t('admin2.profile_pages.profile_meta_description_placeholder')

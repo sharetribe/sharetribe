@@ -153,7 +153,7 @@ describe Community, type: :model do
     community.twitter_handle = "abcdefghijklmnopqr"
     expect(community).not_to be_valid
     community.twitter_handle = "@abcd"
-    expect(community).not_to be_valid
+    expect(community).to be_valid
     community.twitter_handle = "AbCd1"
     expect(community).to be_valid
   end

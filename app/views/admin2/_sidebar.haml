@@ -48,23 +48,23 @@
       / Users
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'users', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#users', :role => 'button'} Users
+          = link_to t('admin2.sidebar.users_group'), '#users', class: %i[dropdown-toggle], 'aria-controls' => 'users', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#users.collapse.subtitle{class: expand_ul('users')}
         %li#manageusers
           %a{:href => 'manage-users.php'} Manage users
         %li#userfields
           %a{:href => 'user-fields.php'} User fields
         %li#signuplogin{class: active_li('signup_login')}
-          = link_to t('admin2.sidebar.design.signup_login'), admin2_users_signup_login_index_path
-        %li#userrights
-          %a{:href => 'user-rights.php'} User rights
+          = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
+        %li#userrights{class: active_li('user_rights')}
+          = link_to t('admin2.sidebar.users.user_rights'), admin2_users_user_rights_path
         %li#invitations
           %a{:href => 'invitations.php'} Invitations
       / Listings
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'listings', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#listings', :role => 'button'} Listings
-      %ul#listings.collapse.subtitle
+          = link_to t('admin2.sidebar.listings_group'), '#listings', class: %i[dropdown-toggle], 'aria-controls' => 'listings', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+      %ul#listings.collapse.subtitle{class: expand_ul('listings')}
         %li#managelistings
           %a{:href => 'manage-listings.php'} Manage listings
         %li#categories
@@ -73,112 +73,115 @@
           %a{:href => 'order-types.php'} Order types
         %li#listingfields
           %a{:href => 'listing-fields.php'} Listing fields
-        %li#listingapproval
-          %a{:href => 'listing-approval.php'} Listing approval
-        %li#listingcomments
-          %a{:href => 'listing-comments.php'} Listing comments
+        %li#listingapproval{class: active_li('listing_approval')}
+          = link_to t('admin2.sidebar.listings.listing_approval'), admin2_listings_listing_approval_index_path
+        %li#listingcomments{class: active_li('listing_comments')}
+          = link_to t('admin2.sidebar.listings.listing_comments'), admin2_listings_listing_comments_path
       / Transactions
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'transactionsreviews', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#transactionsreviews', :role => 'button'} Transactions &amp; Reviews
-      %ul#transactionsreviews.collapse.subtitle
+          = link_to t('admin2.sidebar.transactions_group'), '#transactionsreviews', class: %i[dropdown-toggle], 'aria-controls' => 'transactionsreviews', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+      %ul#transactionsreviews.collapse.subtitle{class: expand_ul('transactions_reviews')}
         %li#managetransactions
           %a{:href => 'manage-transactions.php'} Manage transactions
         %li#viewconversations
           %a{:href => 'view-conversations.php'} View conversations
         %li#managereviews
           %a{:href => 'manage-reviews.php'} Manage reviews
-        %li#configuretransactions
-          %a{:href => 'configure-transactions.php'} Configure transactions
+        %li#configuretransactions{class: active_li('config_transactions')}
+          = link_to t('admin2.sidebar.transactions_reviews.config_transactions'), admin2_transactions_reviews_config_transactions_path
       / Divider
       %hr/
       / Payment system
-      %ul.category-title
-        %li
-          %a.dropdown-toggle{'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#paymentsystem', :role => 'button'} Payment system
-      %ul#paymentsystem.collapse.subtitle
-        %li#countrycurrency
-          %a{:href => 'country-currency.php'} Country &amp; Currency
-        %li#transactionsize
-          %a{:href => 'transaction-size.php'} Transaction size
-        %li#paypal
-          %a{:href => 'paypal.php'} PayPal
-        %li#stripe
-          %a{:href => 'stripe.php'} Stripe
+      - if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_provisioned?(@current_community.id)
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.payment_group'), '#paymentsystem', class: %i[dropdown-toggle], 'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#paymentsystem.collapse.subtitle{class: expand_ul('payment_system')}
+          %li#countrycurrency{class: active_li('country_currencies')}
+            = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
+          %li#transactionsize
+            %a{:href => 'transaction-size.php'} Transaction size
+          %li#paypal
+            %a{:href => 'paypal.php'} PayPal
+          %li#stripe
+            %a{:href => 'stripe.php'} Stripe
       / Email
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'emails', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#emails', :role => 'button'} Emails
-      %ul#emails.collapse.subtitle
+          = link_to t('admin2.sidebar.emails_group'), '#emails', class: %i[dropdown-toggle], 'aria-controls' => 'emails', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+      %ul#emails.collapse.subtitle{class: expand_ul('emails')}
         %li#emailusers
           %a{:href => 'email-users.php'} Email users
         %li#welcomeemail
           %a{:href => 'welcome-email.php'} Welcome email
-        %li#automaticnewsletter
-          %a{:href => 'automatic-newsletter.php'} Automatic newsletter
+        %li#automaticnewsletter{class: active_li('newsletters')}
+          = link_to t('admin2.sidebar.emails.automatic_newsletter'), admin2_emails_newsletters_path
         %li#customoutgoingaddress
           %a{:href => 'custom-outgoing-address.php'} Custom outgoing address
       / Search & Location
-      %ul.category-title
-        %li
-          %a.dropdown-toggle{'aria-controls' => 'searchlocation', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#searchlocation', :role => 'button'} Search &amp; Location
-      %ul#searchlocation.collapse.subtitle
-        %li#search
-          %a{:href => 'search.php'} Search
-        %li#location
-          %a{:href => 'location.php'} Location
+      - if FeatureFlagHelper.location_search_available
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.search_group'), '#searchlocation', class: %i[dropdown-toggle], 'aria-controls' => 'searchlocation', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#searchlocation.collapse.subtitle{class: expand_ul('search_location')}
+          %li#search{class: active_li('search')}
+            = link_to t('admin2.sidebar.search_location.search'), admin2_search_location_search_index_path
+          %li#location{class: active_li('locations')}
+            = link_to t('admin2.sidebar.search_location.location'), admin2_search_location_locations_path
       / Social media
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'socialmedia', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#socialmedia', :role => 'button'} Social media
-      %ul#socialmedia.collapse.subtitle
-        %li#imagetags
-          %a{:href => 'image-tags.php'} Image and tags
-        %li#twitter
-          %a{:href => 'twitter.php'} Twitter
+          = link_to t('admin2.sidebar.social_media_group'), '#socialmedia', class: %i[dropdown-toggle], 'aria-controls' => 'socialmedia', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+      %ul#socialmedia.collapse.subtitle{class: expand_ul('social_media')}
+        %li#imagetags{class: active_li('image_tags')}
+          = link_to t('admin2.sidebar.social_media.image_tags'), admin2_social_media_image_tags_path
+        %li#twitter{class: active_li('twitter')}
+          = link_to t('admin2.sidebar.social_media.twitter'), admin2_social_media_twitter_index_path
       / SEO
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'seo', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#seo', :role => 'button'} SEO
-      %ul#seo.collapse.subtitle
-        %li#sitemaprobots
-          %a{:href => 'sitemap-robots.php'} Sitemap &amp; Robots
-        %li#landingpagemeta
-          %a{:href => 'landing-page-meta.php'} Landing page meta
-        %li#searchresultspagesmeta
-          %a{:href => 'search-results-pages-meta.php'} Search results pages meta
-        %li#listingpagesmeta
-          %a{:href => 'listing-pages-meta.php'} Listing pages meta
-        %li#categorypagesmeta
-          %a{:href => 'category-pages-meta.php'} Category pages meta
-        %li#profilepagesmeta
-          %a{:href => 'profile-pages-meta.php'} Profile pages meta
+          = link_to t('admin2.sidebar.seo_group'), '#seo', class: %i[dropdown-toggle], 'aria-controls' => 'seo', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+      %ul#seo.collapse.subtitle{class: expand_ul('seo')}
+        %li#sitemaprobots{class: active_li('sitemap')}
+          = link_to t('admin2.sidebar.seo.sitemap_robots'), admin2_seo_sitemap_index_path
+        %li#landingpagemeta{class: active_li('landing_pages')}
+          = link_to t('admin2.sidebar.seo.landing_pages'), admin2_seo_landing_pages_path
+        %li#searchresultspagesmeta{class: active_li('search_pages')}
+          = link_to t('admin2.sidebar.seo.search_pages'), admin2_seo_search_pages_path
+        %li#listingpagesmeta{class: active_li('listing_pages')}
+          = link_to t('admin2.sidebar.seo.listing_pages'), admin2_seo_listing_pages_path
+        %li#categorypagesmeta{class: active_li('category_pages')}
+          = link_to t('admin2.sidebar.seo.category_pages'), admin2_seo_category_pages_path
+        %li#profilepagesmeta{class: active_li('profile_pages')}
+          = link_to t('admin2.sidebar.seo.profile_pages'), admin2_seo_profile_pages_path
       / Analytics
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'analytics', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#analytics', :role => 'button'} Analytics
-      %ul#analytics.collapse.subtitle
-        %li#googleanalytics
-          %a{:href => 'google-analytics.php'} Google Analytics
-        %li#sharetribeanalytics
-          %a{:href => 'sharetribe-analytics.php'} Sharetribe analytics
+          = link_to t('admin2.sidebar.analytics_group'), '#analytics', class: %i[dropdown-toggle], 'aria-controls' => 'analytics', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+      %ul#analytics.collapse.subtitle{class: expand_ul('analytics')}
+        %li#googleanalytics{class: active_li('google')}
+          = link_to t('admin2.sidebar.analytics.google'), admin2_analytics_google_index_path
+        - if APP_CONFIG.admin_enable_tracking_config
+          %li#sharetribeanalytics{class: active_li('sharetribe')}
+            = link_to t('admin2.sidebar.analytics.sharetribe'), admin2_analytics_sharetribe_index_path
       / Advanced
       %ul.category-title
         %li
-          %a.dropdown-toggle{'aria-controls' => 'advanced', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', :href => '#advanced', :role => 'button'} Advanced
-      %ul#advanced.collapse.subtitle
-        %li#customscript
-          %a{:href => 'custom-script.php'} Custom script
+          = link_to t('admin2.sidebar.advanced_group'), '#advanced', class: %i[dropdown-toggle], 'aria-controls' => 'advanced', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+      %ul#advanced.collapse.subtitle{class: expand_ul('advanced')}
+        %li#customscript{class: active_li('custom_scripts')}
+          = link_to t('admin2.sidebar.advanced.custom_script'), admin2_advanced_custom_scripts_path
         %li#deletemarketplace
           %a{:href => 'delete-marketplace.php'} Delete marketplace
   / Bottom links for branded links
   .sidenav-bottomLinks
     %ul.category-title
       %li
-        %a{:href => '/admin/plan', :rel => 'noopener'} Subscription
+        = link_to t('admin2.sidebar.subscription'), admin_plan_path, rel: :noopener
       %li
-        %a{:href => 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', :rel => 'noopener', :target => '_blank'} Help Center
+        = link_to t('admin2.sidebar.help_center'), 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
       %li
-        %a{:href => 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', :rel => 'noopener', :target => '_blank'} Marketplace Guide
+        = link_to t('admin2.sidebar.marketplace_guide'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
       %li
-        %a{:href => 'https://www.sharetribe.com/products/go/updates?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', :rel => 'noopener', :target => '_blank'} What's new?
+        = link_to t('admin2.sidebar.what_new'), 'https://www.sharetribe.com/products/go/updates?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank

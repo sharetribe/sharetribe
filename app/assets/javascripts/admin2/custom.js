@@ -1,8 +1,34 @@
+function validateConfigureTransactions(community_id) {
+    $("#edit_community_" + community_id).validate({
+        errorPlacement: function (error, element) {
+          $('#days_label').after(error);
+        },
+        onkeyup: false,
+        onclick: false,
+        onfocusout: false,
+        onsubmit: true
+    });
+}
+
 $(function(){
 
-    $('.private-check').on('change', function () {
+    $('.location-type').on('change', function() {
+       var value = $(this).val(),
+           show_distance_div = $('.show-distance-div'),
+           show_distance = $('.show-distance');
+
+        if (value === 'keyword') {
+            show_distance.prop('disabled', true);
+            show_distance_div.addClass('opacity_04');
+        } else {
+            show_distance.prop('disabled', false);
+            show_distance_div.removeClass('opacity_04');
+        }
+    });
+
+    $('.for-hide-content').on('change', function () {
        var checked = $(this).prop('checked'),
-           private_content = $('.private-check-content');
+           private_content = $('.hide-content');
        if (checked) {
            private_content.removeClass('opacity_04');
        } else {

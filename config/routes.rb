@@ -221,7 +221,125 @@ Rails.application.routes.draw do
             patch :update_signup_login
           end
         end
+        resources :user_rights, path: 'user-rights', only: %i[index] do
+          collection do
+            patch :update_user_rights
+          end
+        end
       end
+      namespace :listings do
+        resources :listing_approval, path: 'listing-approval', only: %i[index] do
+          collection do
+            patch :update_listing_approval
+          end
+        end
+        resources :listing_comments, path: 'listing-comments', only: %i[index] do
+          collection do
+            patch :update_listing_comments
+          end
+        end
+      end
+
+      namespace :transactions_reviews, path: 'transactions-and-reviews' do
+        resources :config_transactions, path: 'configure-transactions', only: %i[index] do
+          collection do
+            patch :update_config
+          end
+        end
+      end
+
+      namespace :payment_system, path: 'payment-system' do
+        resources :country_currencies, path: 'country-currency', only: %i[index] do
+          collection do
+            patch :update_country_currencies
+          end
+        end
+      end
+
+      namespace :emails do
+        resources :newsletters, path: 'automatic-newsletter', only: %i[index] do
+          collection do
+            patch :update_newsletter
+          end
+        end
+      end
+
+      namespace :search_location, path: 'search-and-location' do
+        resources :search, only: %i[index] do
+          collection do
+            patch :update_search
+          end
+        end
+        resources :locations, path: 'location', only: %i[index] do
+          collection do
+            patch :update_location
+          end
+        end
+      end
+
+      namespace :social_media, path: 'social-media' do
+        resources :image_tags, path: 'image-and-tags', only: %i[index] do
+          collection do
+            patch :update_image
+          end
+        end
+        resources :twitter, only: %i[index] do
+          collection do
+            patch :update_twitter
+          end
+        end
+      end
+
+      namespace :seo do
+        resources :sitemap, path: 'sitemap-and-robots', only: %i[index]
+        resources :landing_pages, path: 'landing-page-meta', only: %i[index] do
+          collection do
+            patch :update_landing_page
+          end
+        end
+        resources :search_pages, path: 'search-results-pages-meta', only: %i[index] do
+          collection do
+            patch :update_search_pages
+          end
+        end
+        resources :listing_pages, path: 'listing-pages-meta', only: %i[index] do
+          collection do
+            patch :update_listing_page
+          end
+        end
+        resources :category_pages, path: 'category-pages-meta', only: %i[index] do
+          collection do
+            patch :update_category_page
+          end
+        end
+        resources :profile_pages, path: 'profile-pages-meta', only: %i[index] do
+          collection do
+            patch :update_profile_page
+          end
+        end
+      end
+
+      namespace :analytics do
+        resources :google, path: 'google-analytics', only: %i[index] do
+          collection do
+            patch :update_google
+          end
+        end
+        resources :sharetribe, path: 'sharetribe-analytics', only: %i[index] do
+          collection do
+            patch :update_sharetribe
+          end
+        end
+      end
+
+      namespace :advanced do
+        resources :custom_scripts, path: 'custom-script', only: %i[index] do
+          collection do
+            patch :update_script
+          end
+        end
+      end
+
     end
 
     get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')

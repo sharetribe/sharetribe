@@ -1,0 +1,26 @@
+- content_for :title do
+  = t('admin2.sidebar.seo.sitemap_robots')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.seo.sitemap_robots')
+
+.content-card-section-container
+  %section.content-card-section
+    %h2
+      = t('admin2.sitemap_robots.sitemap')
+    %p.ingress
+      = t('admin2.sitemap_robots.sitemap_info_text_1', url: 'https://help.sharetribe.com/en/articles/674130').html_safe
+    %p.ingress
+      - if @current_community.private?
+        = t('admin2.sitemap_robots.sitemap_info_private')
+      - else
+        = t('admin2.sitemap_robots.sitemap_info_text_2', url: "#{@current_community.full_url}/sitemap.xml.gz").html_safe
+
+  %section.content-card-section
+    %h2
+      = t('admin2.sitemap_robots.robots')
+    %p.ingress
+      = t('admin2.sitemap_robots.robots_info_text_1', url: 'https://help.sharetribe.com/en/articles/674555').html_safe
+    %p.ingress
+      = t('admin2.sitemap_robots.robots_info_text_2', url: "#{@current_community.full_url}/robots.txt").html_safe

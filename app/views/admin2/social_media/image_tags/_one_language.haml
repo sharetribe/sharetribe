@@ -1,0 +1,11 @@
+= form.fields_for :community_customizations, customization do |cc|
+  .form-group
+    = cc.label :social_media_title, t('admin2.image_tags.social_media_title')
+    = cc.text_field :social_media_title, class: %i[form-control], placeholder: social_media_title_placeholder(customization.locale)
+    %small.form-text
+      = t('admin2.image_tags.social_media_title_info_text', fb_url: 'https://developers.facebook.com/tools/debug/', twitter_url: 'https://cards-dev.twitter.com/validator', link_url: 'https://www.linkedin.com/post-inspector/').html_safe
+  .form-group
+    = cc.label :social_media_description, t('admin2.image_tags.social_media_description')
+    = cc.text_area :social_media_description, class: %i[form-control], placeholder: social_media_description_placeholder
+    %small.form-text
+      = t('admin2.image_tags.social_media_title_info_text', fb_url: 'https://developers.facebook.com/tools/debug/', twitter_url: 'https://cards-dev.twitter.com/validator', link_url: 'https://www.linkedin.com/post-inspector/').html_safe

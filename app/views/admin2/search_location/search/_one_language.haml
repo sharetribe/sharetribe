@@ -1,0 +1,6 @@
+= form.fields_for :community_customizations, customization do |cc|
+  .form-group
+    = cc.label :search_placeholder, t('admin2.search.search_placeholder')
+    = cc.text_field :search_placeholder, class: %i[form-control search-placeholder], placeholder: t('admin2.search.search_for')
+    %small#keywordSearchPlaceholder-help.form-text
+      = t('admin2.search.search_placeholder_info_text')
