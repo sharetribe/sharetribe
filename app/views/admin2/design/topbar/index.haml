@@ -18,30 +18,31 @@
 
       .form-group
         = form.label :logo_link, t('admin2.topbar.logo_link')
-        = form.text_field :logo_link, class: %i[form-control], placeholder: 'https://www.bikerrrs.io'
+        = form.text_field :logo_link, class: %i[form-control]
         %small#marketplaceLogoURL-help.form-text
           = t('admin2.topbar.logo_link_info_text')
 
-      = form.fields_for :configuration do |conf|
-        .form-group
-          %label
-            = t('admin2.topbar.show_in_top_bar')
-          .form-check
-            = conf.check_box :display_about_menu, class: %i[form-check-input]
-            = conf.label :display_about_menu, t('admin2.topbar.display_about_menu'), class: %i[form-check-label]
-          .form-check
-            = conf.check_box :display_contact_menu, class: %i[form-check-input]
-            = conf.label :display_contact_menu, t('admin2.topbar.display_contact_menu'), class: %i[form-check-label]
-          .form-check
-            = conf.check_box :display_invite_menu, class: %i[form-check-input]
-            = conf.label :display_invite_menu, t('admin2.topbar.display_invite_menu'), class: %i[form-check-label]
+      - if @new_topbar_enabled
+        = form.fields_for :configuration do |conf|
+          .form-group
+            %label
+              = t('admin2.topbar.show_in_top_bar')
+            .form-check
+              = conf.check_box :display_about_menu, class: %i[form-check-input]
+              = conf.label :display_about_menu, t('admin2.topbar.display_about_menu'), class: %i[form-check-label]
+            .form-check
+              = conf.check_box :display_contact_menu, class: %i[form-check-input]
+              = conf.label :display_contact_menu, t('admin2.topbar.display_contact_menu'), class: %i[form-check-label]
+            .form-check
+              = conf.check_box :display_invite_menu, class: %i[form-check-input]
+              = conf.label :display_invite_menu, t('admin2.topbar.display_invite_menu'), class: %i[form-check-label]
 
-        .form-group
-          %label
-            = t('admin2.topbar.maximum_number_links')
-          = conf.select :limit_priority_links, options_for_select((0..5).to_a.map {|o| [o, o]}.concat([[t('admin2.topbar.all'), -1]]), conf.object.limit_priority_links), {}, class: %i[form-control]
-          %small#topBarMaximumNumberLinks-help.form-text
-            = t('admin2.topbar.limit_priority_links_info_text')
+          .form-group
+            %label
+              = t('admin2.topbar.maximum_number_links')
+            = conf.select :limit_priority_links, options_for_select((0..5).to_a.map {|o| [o, o]}.concat([[t('admin2.topbar.all'), -1]]), conf.object.limit_priority_links), {}, class: %i[form-control]
+            %small#topBarMaximumNumberLinks-help.form-text
+              = t('admin2.topbar.limit_priority_links_info_text')
 
     %section.content-card-section
       %h2

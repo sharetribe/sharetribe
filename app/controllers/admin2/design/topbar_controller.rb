@@ -1,6 +1,7 @@
 module Admin2::Design
   class TopbarController < Admin2::AdminBaseController
     before_action :find_customizations, only: :index
+    before_action :find_features, only: :index
 
     def index; end
 
@@ -15,6 +16,15 @@ module Admin2::Design
     end
 
     private
+
+    def find_features
+      features = NewLayoutViewUtils.features(@current_community.id,
+                                             @current_user.id,
+                                             @current_community.private,
+                                             CustomLandingPage::LandingPageStore.enabled?(@current_community.id))
+      topbar_features = features.detect { |a| a[:name] == :topbar_v1 }
+      @new_topbar_enabled = topbar_features[:enabled_for_user] || topbar_features[:enabled_for_community]
+    end
 
     def update_post_new_link!
       translations = params.to_unsafe_hash[:post_new_listing_button].map { |k, v| { locale: k, translation: v } }
