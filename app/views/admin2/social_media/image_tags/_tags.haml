@@ -1,0 +1,4 @@
+- if customizations.size == 1
+  = render 'one_language', form: form, customization: customizations.first
+- else
+  = render 'many_languages', form: form, customizations: customizations

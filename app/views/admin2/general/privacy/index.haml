@@ -14,9 +14,9 @@
         %label
           = t('admin2.privacy.private_marketplace')
         .form-check
-          = form.check_box :private, class: %i[form-check-input private-check]
+          = form.check_box :private, class: %i[form-check-input for-hide-content]
           = form.label :private, t('admin2.privacy.private'), class: %i[form-check-label]
-  %section.content-card-section.private-check-content{class: form.object.private ? '' : :opacity_04}
+  %section.content-card-section.hide-content{class: form.object.private ? '' : :opacity_04}
     = render partial: 'admin2/locale_input_fields', locals: community_private_homepage_content
   .content-card-terminal.without-margin
     = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

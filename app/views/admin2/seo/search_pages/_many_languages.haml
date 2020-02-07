@@ -1,0 +1,23 @@
+.form-group
+  %label
+    = t('admin2.search_pages.search_meta_title')
+  %small.form-text-above
+    = t('admin2.search_pages.search_meta_title_info_text')
+  - customizations.each do |customization|
+    = form.fields_for :community_customizations, customization do |cc|
+      .d-flex.multiple-languages
+        %span.language
+          = t("admin.communities.available_languages.#{cc.object.locale}")
+        = cc.text_field :search_meta_title, class: %i[form-control], maxlength: 255, placeholder: t('admin2.search_pages.search_meta_title_placeholder')
+
+.form-group
+  %label
+    = t('admin2.search_pages.search_meta_description')
+  %small.form-text-above
+    = t('admin2.search_pages.search_meta_description_info_text')
+  - customizations.each do |customization|
+    = form.fields_for :community_customizations, customization do |cc|
+      .d-flex.multiple-languages
+        %span.language
+          = t("admin.communities.available_languages.#{cc.object.locale}")
+        = cc.text_area :search_meta_description, class: %i[form-control], maxlength: 65535, placeholder: t('admin2.search_pages.search_meta_description_placeholder')

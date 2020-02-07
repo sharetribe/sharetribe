@@ -30,7 +30,8 @@ class Admin::SettingsService
       :pre_approved_listings,
       :allow_free_conversations,
       :email_admins_about_new_transactions,
-      :show_location
+      :show_location,
+      community_customizations_attributes: %i[id search_placeholder]
     )
   end
 
@@ -51,7 +52,7 @@ class Admin::SettingsService
     if FeatureFlagHelper.location_search_available
       community.configuration.update(
         main_search: params[:main_search],
-        distance_unit: params[:distance_unit],
+        distance_unit: params[:distance_unit] || community.configuration.distance_unit,
         limit_search_distance: params[:limit_distance].present?)
     end
     if ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[:community][:show_location])

@@ -1,0 +1,4 @@
+%p.ingress
+  = info_text
+- translations.each do |language_key, value|
+  = render 'admin2/one_locale_input_field', input_name: input_name, language_key: language_key, value: value, input_classes: input_classes

@@ -1,0 +1,27 @@
+%section.content-card-section
+  %h2
+    = t('admin2.country_currency.payment_gateways')
+
+  - if stripe_allowed && paypal_allowed
+    %p.ingress
+      = t('admin2.country_currency.stripe_paypal_allowed').html_safe
+
+  - if !stripe_allowed && paypal_allowed
+    %p.ingress
+      = t('admin2.country_currency.stripe_allowed').html_safe
+
+  - if stripe_allowed && !paypal_allowed
+    %p.ingress
+      = t('admin2.country_currency.paypal_allowed').html_safe
+
+  - if !stripe_allowed && !paypal_allowed
+    %p.ingress
+      = t('admin2.country_currency.stripe_paypal_not_allowed')
+
+  %p
+    = t('admin2.country_currency.payments_info_text')
+  %ul
+    %li
+      = link_to t('admin2.country_currency.supported_paypal'), 'https://help.sharetribe.com/en/articles/666091', target: :_blank
+    %li
+      = link_to t('admin2.country_currency.supported_stripe'), 'https://help.sharetribe.com/en/articles/1063017', target: :_blank

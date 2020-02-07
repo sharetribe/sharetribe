@@ -64,3 +64,26 @@ input#colorpicker-color.multi-language-color {
   background-color: white;
   width: 400px;
 }
+
+label.error {
+  border-radius: 5px;
+  padding: 0.3125em 0.625em 0.625em 0.625em;
+  background: red;
+  color: white;
+  display: block;
+  width: 100%;
+  margin: 0.75em 0 0.75em 0;
+  position: relative;
+  &:before {
+    content: "";
+    border: 0.5em solid transparent;
+    border-bottom-color: red;
+    position: absolute;
+    left: 1.125em;
+    top: -1em;
+  }
+}
+
+.margin-form.content-card-section-form {
+  margin-top: 32px;
+}
