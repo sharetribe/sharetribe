@@ -187,7 +187,7 @@ describe CommunitiesController, type: :controller do
       expect(subject).to redirect_to("http://pearl.lvh.me:9887?auth=#{assigns(:user_token)}")
     end
 
-    it 'create for Services marketplaces' do
+    xit 'create for Services marketplaces' do
       expect(Community.where(ident: 'pearl').count).to eq 0
       post :create, params: params.merge(marketplace_type: 'service')
       expect(Community.where(ident: 'pearl').count).to eq 1
@@ -221,7 +221,7 @@ describe CommunitiesController, type: :controller do
       expect(unit.kind).to eq 'time'
     end
 
-    it 'create for Rental marketplaces' do
+    xit 'create for Rental marketplaces' do
       expect(Community.where(ident: 'pearl').count).to eq 0
       post :create, params: params.merge(marketplace_type: 'rental')
       expect(Community.where(ident: 'pearl').count).to eq 1
