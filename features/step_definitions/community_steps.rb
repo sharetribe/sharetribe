@@ -282,3 +282,13 @@ Given(/^this community does not allow users to add location$/) do
   @current_community.save!
 end
 
+Given /^community "(.*?)" has feature "(.*?)" in the plan$/ do |community, feature|
+  community = Community.where(ident: community).first
+  plan = {
+    status: "active",
+    features: {}
+  }
+  plan[:features][feature.to_sym] = true
+  PlanService::Store::Plan.create(community_id: community.id, plan: plan)
+end
+

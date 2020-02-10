@@ -1,8 +1,8 @@
 Feature: Admin edits landing page
   Background:
+    Given community "test" has feature "landing_page" in the plan
     Given I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "test"
-    Given feature flag "clp_editor" is enabled
 
   @javascript
   Scenario: Admin edits hero section

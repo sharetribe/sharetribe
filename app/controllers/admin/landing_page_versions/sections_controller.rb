@@ -1,5 +1,5 @@
 class Admin::LandingPageVersions::SectionsController < Admin::AdminBaseController
-  before_action :ensure_feature_flag
+  before_action :ensure_plan
   before_action :set_selected_left_navi_link
   before_action :set_service
 
@@ -43,8 +43,8 @@ class Admin::LandingPageVersions::SectionsController < Admin::AdminBaseControlle
     @presenter = CustomLandingPage::SectionPresenter.new(service: @service)
   end
 
-  def ensure_feature_flag
-    unless FeatureFlagHelper.feature_enabled?(:clp_editor)
+  def ensure_plan
+    unless @current_plan.try(:[], :features).try(:[], :landing_page)
       redirect_to admin_landing_page_path and return
     end
   end

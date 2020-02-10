@@ -22,7 +22,6 @@ module FeatureFlagService::Store
       :manage_searchpage,
       :stripe,
       :footer,
-      :clp_editor,
       :email_layout_v2,
       :canceled_flow,
     ].to_set
