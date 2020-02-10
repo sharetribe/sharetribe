@@ -13,15 +13,16 @@
             %table.email-container
               %tbody
                 - community = @community || @current_community
+                - community_name = community.name(community.locales.first)
                 - if community && community.wide_logo.present?
                   %tr
                     %td.logo
-                      = image_tag community.wide_logo.url(:header), alt: community.full_name(I18n.locale), style: 'margin: 0 auto;'
+                      = image_tag community.wide_logo.url(:header), alt: community_name, style: 'margin: 0 auto;'
                 - elsif @community
                   %tr
                     %td.community-name
                       %font
-                        = @community.full_name(I18n.locale)
+                        = community_name
 
                 = yield
 
@@ -33,7 +34,7 @@
                     %td.unsubscribe
                       = yield :extra_notice
                       - if @community
-                        = t("emails.common.unsubscribe_from_these_emails_info", service_name: @community.full_name(I18n.locale))
+                        = t("emails.common.unsubscribe_from_these_emails_info")
                       = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@recipient, @url_params))).html_safe
                       - if @email_type
                         = t("emails.common.or")
