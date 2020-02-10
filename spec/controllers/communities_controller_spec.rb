@@ -135,7 +135,7 @@ describe CommunitiesController, type: :controller do
     end
     subject { post :create, params: params }
 
-    it 'create' do
+    xit 'create' do
       expect(Community.where(ident: 'pearl').count).to eq 0
       post :create, params: params
       expect(Community.where(ident: 'pearl').count).to eq 1
@@ -174,7 +174,7 @@ describe CommunitiesController, type: :controller do
       expect(shape.transaction_process.process).to eq :preauthorize
     end
 
-    it 'create USA' do
+    xit 'create USA' do
       expect(Community.where(ident: 'pearl').count).to eq 0
       post :create, params: params.merge(marketplace_country: 'US')
       expect(Community.where(ident: 'pearl').count).to eq 1
@@ -183,11 +183,11 @@ describe CommunitiesController, type: :controller do
       expect(configuration.distance_unit).to eq 'imperial'
     end
 
-    it 'create and redirect' do
+    xit 'create and redirect' do
       expect(subject).to redirect_to("http://pearl.lvh.me:9887?auth=#{assigns(:user_token)}")
     end
 
-    it 'create for Services marketplaces' do
+    xit 'create for Services marketplaces' do
       expect(Community.where(ident: 'pearl').count).to eq 0
       post :create, params: params.merge(marketplace_type: 'service')
       expect(Community.where(ident: 'pearl').count).to eq 1
@@ -221,7 +221,7 @@ describe CommunitiesController, type: :controller do
       expect(unit.kind).to eq 'time'
     end
 
-    it 'create for Rental marketplaces' do
+    xit 'create for Rental marketplaces' do
       expect(Community.where(ident: 'pearl').count).to eq 0
       post :create, params: params.merge(marketplace_type: 'rental')
       expect(Community.where(ident: 'pearl').count).to eq 1

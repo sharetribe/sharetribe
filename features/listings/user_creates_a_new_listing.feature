@@ -166,7 +166,7 @@ Feature: User creates a new listing
     And I press "Post listing"
     Then I should see "Area: 150"
 
-@javascript @sphinx @no-transaction
+@excluded @javascript @sphinx @no-transaction
 Scenario: User creates a new listing with date field
   Given I am logged in
   And there is a custom date field "building_date_test" in that community in category "Spaces"

@@ -22,7 +22,7 @@ describe IntApi::MarketplacesController, type: :controller do
   end
 
   describe "#create" do
-    it "should create a marketplace and an admin user" do
+    xit "should create a marketplace and an admin user" do
       post :create, params: { admin_email: "eddie.admin@example.com",
                      admin_first_name: "Eddie",
                      admin_last_name: "Admin",
@@ -70,7 +70,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(stripe_settings[:key_encryption_padding]).to eql true
     end
 
-    it "should handle emails starting with info@" do
+    xit "should handle emails starting with info@" do
       post :create, params: { admin_email: "info@example.com",
                      admin_first_name: "Eddiè",
                      admin_last_name: "Admin",
@@ -106,7 +106,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect_trial_plan(c.id)
     end
 
-    it "should handle short emails like fo@barbar.com" do
+    xit "should handle short emails like fo@barbar.com" do
       post :create, params: { admin_email: "fo@example.com",
                      admin_first_name: "Eddie_",
                      admin_last_name: "Admin",
@@ -142,7 +142,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect_trial_plan(c.id)
     end
 
-    it "should handle short first + last names" do
+    xit "should handle short first + last names" do
       post :create, params: { admin_email: "fo@example.com",
                      admin_first_name: "E",
                      admin_last_name: "McT",
@@ -178,7 +178,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect_trial_plan(c.id)
     end
 
-    it "should create a marketplace and assign feature flags" do
+    xit "should create a marketplace and assign feature flags" do
       default_flags_for_trial = [:topbar_v1]
       post :create, params: { admin_email: "eddie.admin@example.com",
                      admin_first_name: "Eddie",
