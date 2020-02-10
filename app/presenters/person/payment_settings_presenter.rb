@@ -116,11 +116,11 @@ class Person::PaymentSettingsPresenter
   end
 
   def has_inactive_capabilities?
-    capabilities_to_check.any?{|item| api_seller_account.capabilities[item] == 'inactive'}
+    capabilities_to_check.any?{|item| api_seller_account.try(:capabilities).try(:[], item) == 'inactive'}
   end
 
   def has_pending_capabilities?
-    capabilities_to_check.any?{|item| api_seller_account.capabilities[item] == 'pending'}
+    capabilities_to_check.any?{|item| api_seller_account.try(:capabilities).try(:[], item) == 'pending'}
   end
 
   def stripe_account_verification
