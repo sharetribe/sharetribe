@@ -197,7 +197,6 @@ class TransactionMailer < ActionMailer::Base
     end
   end
 
-  # under :canceled_flow feature flag
   def transaction_disputed(transaction:, recipient:, is_admin: false, is_seller: false)
     @transaction = transaction
     @is_admin = is_admin
