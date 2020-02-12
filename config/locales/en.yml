@@ -3150,7 +3150,7 @@ en:
     paypal_connected: "PayPal account connected successfully!"
     paypal_can_accept: "You are now all set to receive money to your PayPal account"
     paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
-    stripe_account_restricted: "Online payments to your account are restricted!"
+    stripe_account_restricted: "Online payments to your account are restricted or will be restricted soon!"
     stripe_account_restricted_info: "You should edit your bank account details to provide more information to the payment provider."
     stripe_account_restricted_soon: "Online payments to your account will be restricted soon."
     stripe_account_restricted_soon_info: "You should edit your bank account details to provide more information to the payment provider."

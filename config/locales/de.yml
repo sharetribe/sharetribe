@@ -1264,7 +1264,6 @@ de:
       stripe-fee_label: Zahlungsbearbeitungsgebühr
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du den Anderen bewerten."
-      cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"angefochten\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
       cancel_description_team: "Wenn die Anfrage nicht erfüllt wurde, du kannst sie als 'Angefochten' markieren. Das Team von %{service_name} wird die Lage untersuchen und die Anfechtung entweder erstatten oder ablehnen."
       cancel_payed_description: "Wenn deine Anfrage akzeptiert wurde, du aber noch einmal darüber nachdenken willst, kannst du deine Anfrage vor der Bezahlung immer noch ablehnen."
       canceling_payed_transaction: "Transaktion abbrechen"

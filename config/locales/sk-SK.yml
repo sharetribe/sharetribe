@@ -1223,7 +1223,7 @@ sk-SK:
       travel: Cestovanie
       other: Ostatné
     username: "Užívateľské meno"
-    username_or_email: "E-mailová adresa alebo užívateľské meno"
+    username_or_email: "E-mailová adresa alebo používateľské meno"
     what_is_this: "Čo to je?"
     removed_user: "Odstránený užívateľ"
     payment_fee_info:
@@ -1273,7 +1273,6 @@ sk-SK:
       stripe-fee_label: "Poplatok za spracovanie platby"
     confirm:
       confirm_description: "Pokiaľ bola Vaša objednávka vybavená, mali by ste ju označiť ako hotovú. Potom môžete poskytnúť hodnotenie druhej strane."
-      cancel_description: "Pokiaľ Vaša objednávka nebola vybavená, môžete ju označiť ako \"spor\". Stále môžete poskytnúť hodnotenie druhej strane, že čo sa udialo."
       cancel_description_team: "Ak vaša objednávka nebola splnená, môžete ju označiť ako „spornú“. Tím %{service_name} situáciu skontroluje a rozhodne o vrátení alebo zamietnutí Vašej námietky."
       cancel_payed_description: "Pokiaľ Vaša žiadosť bola prijatá ale nie ste si ňou istý, môžete ju stornovať pred platbou."
       canceling_payed_transaction: "Stornovať transakciu"
@@ -2770,7 +2769,7 @@ sk-SK:
       cancle_facebook_connect: "Pokiaľ nechcete prepojiť tento účet, kliknite na nasledujúci odkaz pre zrušenie %{cancel_link}."
       facebook_cancel_link_text: zrušit
       log_in_with_your_provider_account: "Prihláste sa pomocou %{provider}"
-      or_sign_up_with_your_username: "...alebo pomocou Vašeho užívateľského mena a hesla:"
+      or_sign_up_with_your_username: "...alebo pomocou Vašeho používateľského mena a hesla:"
       we_will_not_post_without_asking_you: "Nikdy nebudeme uverejňovať príspevky na Facebook, bez toho aby sme sa Vás spýtali."
     password_forgotten:
       email: E-mail
@@ -2871,7 +2870,7 @@ sk-SK:
       image_is_processing: "Váš profilový obrázok sa práve generuje, bude o chvíľu hotový."
       shown_in_your_public_profile: "(zobrazené vo vašom verejnom profile)"
       editing_profile_of: "Teraz upravujete profil používateľa %{name}"
-      format_markdown_link: "naformátujte svoj popis pomocou Markdown"
+      format_markdown_link: "naformátovať svoj popis pomocou Markdown"
       format_markdown: "Môžete %{link}."
       username: "Používateľské meno"
       username_description: "Vaše používateľské meno sa používa ako súčasť jedinečnej adresy URL Vašej profilovej stránky. Písmená a čísla môžete používať iba pre svoje používateľské meno bez medzier. Keď zmeníte svoje používateľské meno, Vaša adresa URL sa automaticky zmení a Vaša predchádzajúca adresa URL nebude presmerovaná. Staré používateľské meno bude k dispozícii pre ostatných používateľov."
