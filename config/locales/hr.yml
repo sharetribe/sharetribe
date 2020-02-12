@@ -1273,7 +1273,6 @@ hr:
       stripe-fee_label: "Naknada za transakciju"
     confirm:
       confirm_description: "Ukoliko je narudžba izvršena potvrdite ju kao gotovu. Tada možete dati povratnu informaciju o korisniku"
-      cancel_description: "Ukoliko narudžba nije izvršena, označite ju kao Osporena, I dalje možete dati povratnu informaciju i opisati što se dogodilo."
       cancel_description_team: ~
       cancel_payed_description: "Ako je Vaš zahtjev odobren ali niste još sigurni u Vašu odluku, uvijek možete otkazati zahtjev prije plaćanja."
       canceling_payed_transaction: "Otkažite transakciju"

@@ -1273,7 +1273,6 @@ cs:
       stripe-fee_label: "Poplatek za zpracování platby"
     confirm:
       confirm_description: "Pokud byla Vaše žádost splněna, měli byste ji označit jako vyřízenou. Potom můžete poskytnout zpětnou vazbu druhé straně."
-      cancel_description: "Pokud Vaše žádost nebyla splněna, označte ji jako \"nesplněno\". Stále můžete poskytnout zpětnou vazbu druhé straně a popsat, co se stalo."
       cancel_description_team: "Pokud vaše objednávka nebyla splněna, můžete ji označit za 'spornou'. Tým %{service_name} prověří situaci a rozhodne o vrácení nebo zamítnutí vaší námitky."
       cancel_payed_description: "Pokud byla Vaše žádost přijata, ale jste na vážkách, stále můžete zrušit Vaši žádost před úhradou ceny."
       canceling_payed_transaction: "Zrušit transakci"

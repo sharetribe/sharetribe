@@ -1237,7 +1237,6 @@ it:
       stripe-fee_label: "Tariffe per pagamento processato"
     confirm:
       confirm_description: "Se il tuo ordine è stato completato, dovresti confermarlo. Successivamente puoi dare il tuo feedback all'altra parte."
-      cancel_description: "Se la richiesta non è stata completata con successo, puoi contrassegnarla come \"contestata\". Potrai in ogni caso dare il tuo feedback all'altra parte e spiegare cosa è successo."
       cancel_description_team: ~
       cancel_payed_description: "Se la tua richiesta è stata accettata ma ci stai ripensando, puoi ancora cancellare la richiesta prima del pagamento."
       canceling_payed_transaction: "Cancella la transazione"

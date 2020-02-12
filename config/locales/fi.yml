@@ -1264,7 +1264,6 @@ fi:
       stripe-fee_label: "Maksunvälittäjän palvelumaksu"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
-      cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön riitautetuksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
       cancel_description_team: "Jos tilaustasi ei toimitettu, voit merkitä sen riitautetuksi. %{service_name} -palvelun ylläpito tutkii tilanteen ja päättää joko palauttaa maksun tai hylätä riitautuspyyntösi."
       cancel_payed_description: "Jos pyyntösi on jo hyväksytty mutta tulit toisiin ajatuksiin, voit vielä perua pyynnön ennen maksua."
       canceling_payed_transaction: "Pyynnön peruuttaminen"
