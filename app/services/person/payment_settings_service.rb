@@ -51,8 +51,9 @@ class Person::PaymentSettingsService
   def stripe_update_account
     return unless stripe_account_ready
 
-    address_attrs = stripe_account_form_permitted_params
+    address_attrs = stripe_account_form_permitted_params.to_hash.deep_symbolize_keys!
     presenter.stripe_account_form = StripeAccountForm.new(stripe_account_form_permitted_params)
+    address_attrs[:email] = person.confirmed_notification_email_addresses.first || person.primary_email.try(:address)
     result = stripe_accounts_api.update_account(community_id: community.id, person_id: person.id, attrs: address_attrs)
     if result[:success]
       presenter.reload_from_stripe
