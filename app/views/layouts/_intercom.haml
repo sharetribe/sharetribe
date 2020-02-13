@@ -1,3 +1,12 @@
+:javascript
+  function onDocumentReady(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
 -# Intercom for admin area
 - if on_admin2? && IntercomHelper.admin_intercom_respond_enabled?
   = render 'analytics/intercom', app_id: IntercomHelper.admin_intercom_app_id
