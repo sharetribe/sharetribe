@@ -171,6 +171,10 @@ module ApplicationHelper
     controller.class.name.split("::").first=="Admin"
   end
 
+  def on_admin2?
+    controller.class.name.split("::").first=="Admin2"
+  end
+
   def facebook_like(recommend=false)
     "<div class=\"fb-like\" data-send=\"true\" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\" #{recommend ? 'data-action="recommend"' : ''}></div>".html_safe
   end
