@@ -10,3 +10,4 @@
 //= require admin2/sortable
 //= require cocoon
 //= require admin/domains
+//= require analytics
