@@ -433,10 +433,10 @@ fr:
         max_number_of_links: "Nombre maximum de liens affichés dans la barre des menus : %{select_max_number}"
         all: Tous
         max_number_of_links_info: "Le lien vers %{about_page} sera toujours affiché en premier"
-        about_page: "la page A propos"
+        about_page: "la page À propos"
       default_menu_links:
         title: "Liens par défaut du menu"
-        about_link_title: "A propos"
+        about_link_title: "À propos"
         contact_link_title: "Nous contacter"
         invite_link_title: "Inviter des nouveaux membres"
         info: "Par défaut, les liens des pages suivantes ne sont pas affichés ailleurs dans votre place de marché : %{about_link}, %{contact_link}, %{invite_link}."
@@ -1264,7 +1264,6 @@ fr:
       stripe-fee_label: "Frais de service"
     confirm:
       confirm_description: "Si votre commande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
-      cancel_description: "Si votre commande n'a pas été satisfaite, vous pouvez la marquer comme 'contestée'. Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
       cancel_description_team: "Si votre commande n'a pas été satisfaite, vous pouvez la marquer comme 'contestée'. L'équipe %{service_name} examinera la situation et décidera de rembourser ou d'écarter votre contestation."
       cancel_payed_description: "Si votre demande a été acceptée mais que vous changez d'avis, vous pouvez toujours l'annuler avant le paiement."
       canceling_payed_transaction: "Annuler la transaction"
@@ -1293,7 +1292,7 @@ fr:
       canceled_request: "Commande contestée."
       canceled_offer: "Offre annulée."
       message_from: "Message de %{person}"
-      about_listing: "A propos de l'annonce %{listing_title}"
+      about_listing: "À propos de l'annonce %{listing_title}"
       free_message: "Message direct"
       message_content_not_available: "Le contenu du message n'est pas disponible"
     message:
@@ -1329,7 +1328,7 @@ fr:
       you_will_get_notified: "Vous recevrez une notification par email lorsque %{person} vous répondra."
       title: Titre
       send_message_to_user: "Envoyer un message à %{person}"
-      about_listing: "A propos de l'annonce %{listing_title}"
+      about_listing: "À propos de l'annonce %{listing_title}"
       author_has_to_accept_request: "%{author_name} doit accepter la requête avant que vous ne puissiez payer"
     show:
       in_response_to_listing: "à propos de l'annonce"
@@ -1857,7 +1856,7 @@ fr:
       listing_with_this_id_does_not_exist: "L'identifiant de cette annonce n'est pas de votre place de marché. Peut être avez fait une faute ? Veuillez vérifier et essayer de nouveau."
       presence: "Ne peut être vide"
       username_is_invalid: "Ce nom d'utilisateur est indisponible ou n'est pas correct"
-      domain_name_is_invalid: Annuler
+      domain_name_is_invalid: "Ce nom de domaine n'est pas valide ou n'est pas disponible"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."
@@ -1884,7 +1883,7 @@ fr:
       offer_partitive: offre
       request_partitive: demande
   header:
-    about: "A propos"
+    about: "À propos"
     home: Accueil
     members: "Place de marché"
     new_listing: "Nouvelle annonce"
@@ -2061,7 +2060,7 @@ fr:
     global-header:
       select_language: "Choisir la langue"
     infos:
-      about: "A propos"
+      about: "À propos"
       how_to_use: "Comment ça marche"
       info_about_kassi: "Informations à propos de %{service_name}"
       news: Actualités
@@ -2701,7 +2700,7 @@ fr:
       manage_listings: "Gérer toutes mes annonces"
     show:
       contact: "Contacter %{person}"
-      about_me: "A propos de moi : "
+      about_me: "À propos de moi : "
       add_description: "Partagez quelque chose à propos de vous"
       add_location: "Ajoutez une adresse"
       add_phone_number: "Ajoutez un numéro de téléphone"
@@ -2835,7 +2834,7 @@ fr:
       unsubscribe_unsuccesful: "Erreur lors de la désinscription"
       unsuccessful_unsubscribe_info_text: "Le lien de désinscription a expiré. Veuillez vous connecter pour gérer vos paramètres de notifications."
     profile:
-      about_you: "A propos de vous"
+      about_you: "À propos de vous"
       city: Ville
       family_name: Nom
       given_name: Prénom

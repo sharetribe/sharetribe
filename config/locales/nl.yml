@@ -1267,7 +1267,6 @@ nl:
       stripe-fee_label: Betalingsverwerkingskosten
     confirm:
       confirm_description: "Als het verzoek is geleverd, kunt u dat hier markeren als uitgevoerd. Hierna kunt u feedback geven aan de andere partij."
-      cancel_description: "Indien uw verzoek niet is uitgevoerd, kunt u het markeren als 'aangevochten'. U kunt dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
       cancel_description_team: "Als je order niet is voltooid, dan kun je het als \"aangevochten\" markeren. Het %{service_name} team zal dan de situatie bekijken en beslissen om terug te storten of je klacht te verwerpen."
       cancel_payed_description: "Je verzoek is geaccepteerd. Als u van gedachten verandert, kunt u nog annuleren voordat de betaling gedaan moet worden.   "
       canceling_payed_transaction: "Transactie annuleren"
