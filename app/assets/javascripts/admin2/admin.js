@@ -9,5 +9,5 @@
 //= require select2
 //= require admin2/sortable
 //= require cocoon
-//= require admin/domains
 //= require analytics
+//= require admin/domains

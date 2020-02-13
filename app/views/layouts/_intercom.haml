@@ -14,10 +14,10 @@
 - if IntercomHelper.admin_intercom_respond_enabled?
   - content_for :extra_javascript do
     :javascript
-      window.ST = window.ST || {};
-      var desktop_selector = "#admin-support-link";
-      var mobile_selector = "#support_left_navi_link";
-      $([desktop_selector, mobile_selector].join(", ")).click(function(e) {
-        e.preventDefault();
-        Intercom && Intercom('show');
-      });
+        (function() {
+          ST.analytics.init({
+            analyticsData: #{analytics_data.to_json.html_safe},
+            events: #{flash[:_analytics_events].to_json.html_safe},
+            logout: #{flash[:_analytics_logout].to_json.html_safe}
+          });
+        })();
