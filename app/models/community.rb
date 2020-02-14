@@ -214,11 +214,7 @@ class Community < ApplicationRecord
                     :keep_old_files => true
 
   validates_attachment_content_type :logo,
-                                    :content_type => ["image/jpeg",
-                                                      "image/png",
-                                                      "image/gif",
-                                                      "image/pjpeg",
-                                                      "image/x-png"]
+                                    :content_type => %w[image/jpeg image/png image/gif image/pjpeg image/x-png]
 
   has_attached_file :wide_logo,
                     :styles => {
@@ -234,11 +230,7 @@ class Community < ApplicationRecord
                     :keep_old_files => true
 
   validates_attachment_content_type :wide_logo,
-                                    :content_type => ["image/jpeg",
-                                                      "image/png",
-                                                      "image/gif",
-                                                      "image/pjpeg",
-                                                      "image/x-png"]
+                                    :content_type => %w[image/jpeg image/png image/gif image/pjpeg image/x-png]
 
   has_attached_file :cover_photo,
                     :styles => {
@@ -250,11 +242,7 @@ class Community < ApplicationRecord
                     :keep_old_files => true
 
   validates_attachment_content_type :cover_photo,
-                                    :content_type => ["image/jpeg",
-                                                      "image/png",
-                                                      "image/gif",
-                                                      "image/pjpeg",
-                                                      "image/x-png"]
+                                    :content_type => %w[image/jpeg image/png image/gif image/pjpeg image/x-png]
 
   has_attached_file :small_cover_photo,
                     :styles => {
@@ -266,11 +254,7 @@ class Community < ApplicationRecord
                     :keep_old_files => true
 
   validates_attachment_content_type :small_cover_photo,
-                                    :content_type => ["image/jpeg",
-                                                      "image/png",
-                                                      "image/gif",
-                                                      "image/pjpeg",
-                                                      "image/x-png"]
+                                    :content_type => %w[image/jpeg image/png image/gif image/pjpeg image/x-png]
 
   has_attached_file :favicon,
                     :styles => {
@@ -283,11 +267,7 @@ class Community < ApplicationRecord
                     :default_url => ->(_) { ActionController::Base.helpers.asset_path("favicon.ico") }
 
   validates_attachment_content_type :favicon,
-                                    :content_type => ["image/jpeg",
-                                                      "image/png",
-                                                      "image/gif",
-                                                      "image/x-icon",
-                                                      "image/vnd.microsoft.icon"]
+                                    :content_type => %w[image/jpeg image/png image/gif image/x-icon image/vnd.microsoft.icon]
 
   # process_in_background definitions have to be after
   # after all attachments: https://github.com/jrgifford/delayed_paperclip/issues/129
