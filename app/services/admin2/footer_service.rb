@@ -13,7 +13,7 @@ class Admin2::FooterService
     !plan.dig(:features, :footer).present?
   end
 
-  def footer_menu_links
+  def footer_menu_links # rubocop:disable Rails/Delegate
     community.footer_menu_links
   end
 
