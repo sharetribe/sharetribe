@@ -262,7 +262,7 @@ th-TH:
         manage_members: จัดการผู้ใช้
         email: อีเมล์
         name: ชื่อ
-        display_name: ~
+        display_name: ชื่อที่แสดง
         join_date: เข้าร่วมแล้ว
         admin: ผู้ดูแลระบบ
         posting_allowed: การโพสต์ที่ได้รับอนุญาต
@@ -1249,7 +1249,6 @@ th-TH:
       stripe-fee_label: ~
     confirm:
       confirm_description: "หากได้รับสินค้าหรือบริการแล้ว กรุณากดยืนยันว่าได้รับสินค้าหรือบริการเป็นที่เรียบร้อย หลังจากนั้นคุณจะสามารถเขียนรีวิวผู้ขายได้"
-      cancel_description: "หากคุณไม่ได้รับหรือไม่พอใจในสินค้า/บริการ คุณสามารถทำเครื่องหมาย 'โต้แย้ง' ได้ และสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น และอธิบายถึงสิ่งที่เกิดขึ้น"
       cancel_description_team: ~
       cancel_payed_description: "หากคำขอของคุณได้รับการยอมรับแล้ว แต่คุณเปลี่ยนใจ คุณยังสามารถยกเลิกคำขอ ก่อนที่จะชำระเงินได้"
       canceling_payed_transaction: ยกเลิกการทำรายการ
@@ -1838,7 +1837,7 @@ th-TH:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
-      username_is_invalid: ~
+      username_is_invalid: "Username นี้ใช้ไม่ได้ หรือ ไม่ว่างอีกต่อไป"
       domain_name_is_invalid: ~
   event_feed_events:
     accept:
@@ -2818,8 +2817,8 @@ th-TH:
       given_name: ชื่อ
       first_name_with_initial: (แสดงเฉพาะอักษรตัวแรกให้ผู้ใช้งานคนอื่นเห็น)
       first_name_only: "(ไม่แสดงต่อผู้ใช้อื่น ๆ)"
-      display_name: ~
-      display_name_description: ~
+      display_name: ชื่อที่แสดง
+      display_name_description: ชื่อนี้จะแสดงแทนชื่อจริงและนามสกุลจริงของคุณ
       location_description: "คุณสามารถให้ทั้งที่อยู่ หรือเฉพาะเมือง หรือเฉพาะรหัสไปรษณีย์ของคุณ จะเป็นการดีที่จะเพิ่มประเทศของคุณ ในขณะที่เพิ่มตำแหน่งของคุณ ตัวอย่าง: \"10117 Berlin, Germany\" หรือ \" 2000 Sand Hill Road, CA, USA \""
       profile_picture_description: ~
       phone_number: หมายเลขโทรศัพท์
@@ -2839,7 +2838,7 @@ th-TH:
       format_markdown_link: ~
       format_markdown: ~
       username: ~
-      username_description: ~
+      username_description: "Username ที่คุณตั้งจะเป็นตัวแทน URL หรือที่อยู่ของเวบ ชื่อนี้จะสามารถใช้ได้แค่ตัวอักษรภาษาอังกฤษและตัวเลขเท่านั้น ถ้าคุณเปลี่ยน username ของคุณ URLหรือที่อยู่เวบของจะเปลี่ยนเป็นอันใหม่ และ URL เก่าจะไม่สามารถเข้าถึงโปรไฟล์คุณได้อีกต่อไป ชื่อ username เก่าจะว่างและเปิดให้บริการต่อผู้อื่น"
     save_information: บันทึกข้อมูล
   shipping_address:
     shipping_address: ที่อยู่ในการจัดส่ง

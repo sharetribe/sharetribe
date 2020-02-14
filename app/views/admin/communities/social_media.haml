@@ -36,7 +36,7 @@
                 .name-locale-label.col-2
                   = fields.label :social_media_title, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_field :social_media_title, placeholder:  "#{@community.full_name(locale)} - #{community_slogan}", class: "text_field"
+                = fields.text_field :social_media_title, placeholder:  "#{@community.full_name(locale)} - #{customization.slogan}", class: "text_field"
 
     .row
       %h3= t(".social_media_description")
@@ -49,7 +49,7 @@
                 .name-locale-label.col-2
                   = fields.label :social_media_description, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_area :social_media_description, placeholder:  "#{community_description(false)} - #{community_slogan}", class: "text_field"
+                = fields.text_area :social_media_description, placeholder:  "#{customization.description} - #{customization.slogan}", class: "text_field"
 
     .row
       %h3= t(".twitter_handle")

@@ -929,7 +929,7 @@ lv:
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
       per_hour_availability: ~
-      per_day_availability: ~
+      per_day_availability: pieejamība
       per_night_availability: ~
       pricing_units_disabled_info: ~
       can_not_find_name: ~
@@ -987,7 +987,7 @@ lv:
       units:
         piece: ~
         hour: ~
-        day: ~
+        day: "Par dienu"
         night: ~
         week: ~
         month: ~
@@ -1233,7 +1233,6 @@ lv:
       stripe-fee_label: "Maksājuma apstrādes komisijas maksa"
     confirm:
       confirm_description: "Ja pasūtījums ir izpildīts, Jums vajadzētu to apstiprināt kā izpildītu. Tad Jūs varēsiet sniegt atsauksmi par otru darījuma pusi."
-      cancel_description: "Ja Jūsu pasūtījums netika izpildīts, Jūs varat atzīmēt to kā 'atcelts'. Jūs joprojām varat sniegt atsauksmi par otru darījuma pusi un aprakstīt to, kas notika."
       cancel_description_team: ~
       cancel_payed_description: "Ja Jūsu pieprasījums tika apstiprināts, bet Jums ir otreizējas pārdomas, Jūs joprojām pirms maksājuma veikšanas varat atcelt pieprasījumu."
       canceling_payed_transaction: "Atcelt tranzakciju"
@@ -2311,7 +2310,7 @@ lv:
       price:
         price: Cena
         per: par
-        per_day: dienā
+        per_day: "par dienu"
         mass: "gabalu, kg, l, m2, ..."
         time: "stundu, dienu, mēnesi"
         long_time: "nedēļu, mēnesi"
@@ -2471,7 +2470,7 @@ lv:
       listing_created_at: "Sludinājums izveidots"
       price:
         per_quantity_unit: "par %{quantity_unit}"
-        per_day: Dienā
+        per_day: "par dienu"
       delivery: "Piegādes veids"
       shipping: "Piegāde (+%{price})"
       shipping_no_price: Piegāde
@@ -2934,7 +2933,7 @@ lv:
       short_date: "%b %e, %Y"
       hours_only: "%H:%M"
   timestamps:
-    day_ago: "%{count} diena atpakaļ"
+    day_ago: "%{count} dienu atpakaļ"
     days_ago: "%{count} dienas atpakaļ"
     hour_ago: "%{count} stundu atpakaļ"
     hours_ago: "%{count} stundas atpakaļ"

@@ -1256,9 +1256,6 @@ nb:
       stripe-fee_label: ~
     confirm:
       confirm_description: "Dersom din forespørsel er utført, må du bekrefte den som utført. Du kan så gi vurdering av den andre parten."
-      cancel_description: |-
-          Dersom din forespørsel ikke ble møtt, kan du merke den som "ikke hendt".
-          Du kan likevel gi vurdering av den andre og beskrive hva som skjedde.
       cancel_description_team: ~
       cancel_payed_description: "Dersom din forespørsel ble møtt, men du angrer deg, kan du fremdeles avbryte forespørsel før betaling."
       canceling_payed_transaction: "Avbryt transaksjon"

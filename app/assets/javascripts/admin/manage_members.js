@@ -48,10 +48,36 @@ window.ST.initializeManageMembers = function() {
   };
 
   var initBanToggle = function () {
+    $(document).tooltip();
     $(document).on("click", ".admin-members-ban-toggle", function(){
       var banned = this.checked;
       var row = $(this).parent().parent();
+      var unfinishedTransactions = row.data('unfinishedTransactions');
       var confirmation, url;
+      var updateRowSuccess = function(resp) {
+        var actions = row.find('.membership-actions span'),
+          manage = actions.not('.delete-member'),
+          remove = actions.filter('.delete-member');
+        row[0].className = "member-"+resp.status;
+        if( resp.status == 'banned' ) {
+          manage.addClass('is-disabled');
+          if (unfinishedTransactions) {
+            remove.attr('title', ST.t('admin.communities.manage_members.have_ongoing_transactions'));
+          } else {
+            remove.removeClass('is-disabled');
+            remove.attr('title', null);
+          }
+        } else {
+          manage.removeClass('is-disabled');
+          remove.addClass('is-disabled');
+          if (unfinishedTransactions) {
+            remove.attr('title', ST.t('admin.communities.manage_members.have_ongoing_transactions'));
+          } else {
+            remove.attr('title', ST.t('admin.communities.manage_members.only_delete_disabled'));
+          }
+        }
+        showUpdateSuccess();
+      };
       if(banned) {
         confirmation = ST.t('admin.communities.manage_members.ban_user_confirmation');
         url = $(this).data("ban-url");
@@ -65,22 +91,22 @@ window.ST.initializeManageMembers = function() {
           type: "PUT",
           url: url,
           dataType: "JSON",
-          success: function(resp) {
-            var actions = row.find('.membership-actions span');
-            row[0].className = "member-"+resp.status;
-            if( resp.status == 'banned' ) {
-              actions.addClass('is-disabled');
-            } else {
-              actions.removeClass('is-disabled');
-            }
-            showUpdateSuccess();
-          },
+          success: updateRowSuccess,
           error: showUpdateError,
           complete: _.debounce(showUpdateIdle, DELAY)
         });
       } else {
         this.checked = !banned;
       }
+    });
+  };
+
+  var initDelete = function() {
+    $(document).on("click", ".delete-member a", function(e){
+      e.preventDefault();
+      var deletePath = $(this).attr('href');
+      $('#delete-membership-link').attr('href', deletePath);
+      $('#membership-delete').lightbox_me({centered: true, closeSelector: '#close_x, #close_x1'});
     });
   };
 
@@ -198,4 +224,5 @@ window.ST.initializeManageMembers = function() {
   initBanToggle();
   initStatusFilter();
   initPopup();
+  initDelete();
 };

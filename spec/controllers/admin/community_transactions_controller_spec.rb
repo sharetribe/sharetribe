@@ -158,7 +158,7 @@ describe Admin::CommunityTransactionsController, type: :controller do
     it 'cancels transaction' do
       get :cancel, params: {community_id: community.id, id: paid_transaction.id}
       paid_transaction.reload
-      expect(paid_transaction.current_state).to eq 'canceled'
+      expect(paid_transaction.current_state).to eq 'disputed'
       last_transition = paid_transaction.transaction_transitions.last
       expect(last_transition.metadata['user_id']).to eq admin.id
       expect(last_transition.metadata['executed_by_admin']).to eq true
@@ -166,10 +166,6 @@ describe Admin::CommunityTransactionsController, type: :controller do
   end
 
   describe 'canceled fow' do
-    #
-    # Transaction can reach :disputed state under :canceled_flow feature flag only.
-    # Here we not turn on any feature flag.
-    #
     let(:buyer) { FactoryGirl.create(:person, member_of: community) }
     let(:seller) do
       FactoryGirl.create(:person, member_of: community,

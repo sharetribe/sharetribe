@@ -1,5 +1,5 @@
 class Admin::Communities::MembershipService
-  attr_reader :community, :params, :current_user
+  attr_reader :community, :params, :current_user, :error_message
 
   PER_PAGE = 50
 
@@ -7,6 +7,7 @@ class Admin::Communities::MembershipService
     @params = params
     @community = community
     @current_user = current_user
+    @error_message = nil
   end
 
   def memberships
@@ -64,6 +65,34 @@ class Admin::Communities::MembershipService
     email_to_confirm = membership.person.latest_pending_email_address(community)
     to_confirm = Email.find_by_address_and_community_id(email_to_confirm, community.id)
     Email.send_confirmation(to_confirm, community)
+  end
+
+  def destroy
+    person = membership.person
+    unless membership.banned? || membership.pending_consent? || membership.pending_email_confirmation?
+      @error_message = I18n.t('admin.communities.manage_members.only_delete_disabled')
+      return false
+    end
+    has_unfinished = Transaction.unfinished_for_person(person).any?
+    if has_unfinished
+      @error_message = I18n.t('admin.communities.manage_members.have_ongoing_transactions')
+      return false
+    end
+    only_admin = community.is_person_only_admin(person)
+    return false if only_admin
+
+    stripe_del = StripeService::API::Api.accounts.delete_seller_account(community_id: community.id,
+                                                                        person_id: person.id)
+    unless stripe_del[:success]
+      @error_message = I18n.t("layouts.notifications.stripe_you_account_balance_is_not_0")
+      return false
+    end
+    ActiveRecord::Base.transaction do
+      Person.delete_user(person.id)
+      Listing.delete_by_author(person.id)
+      PaypalAccount.where(person_id: person.id, community_id: person.community_id).delete_all
+      Invitation.where(community: person.community, inviter: person).update_all(deleted: true) # rubocop:disable Rails/SkipsModelValidations
+    end
   end
 
   private

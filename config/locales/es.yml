@@ -398,10 +398,10 @@ es:
         robots_info: "El archivo robots.txt le da instrucciones a los robots web (típicamente robots de buscadores) acerca de como rastrear las páginas de tu sitio. %{link}."
         robots_info_link_text: "Aprender már acerca del archivo robots.txt"
         robots_info_2: "Un archivo robots.txt se genera automaticamente para tu marketplace. Puedes acceder a tu archive de robots.txt en %{link}."
-        google_search_console: ~
-        google_search_console_paragraph1: ~
-        google_search_console_these_instructions: ~
-        google_search_console_paragraph2: ~
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "Google Search Console tiene herramientas y reportes que te pueden ayudar a medir el tráfico y el desempeño de tu sitio y arreglar problemas relacionados con resultados en Google Search."
+        google_search_console_these_instructions: "estas instrucciones"
+        google_search_console_paragraph2: "Es una buena idea añadir tu sitio a Google Search Console. Solo toma unos minutos con %{link}."
         save: "Guardar configuración"
       analytics:
         analytics: Analytics
@@ -662,11 +662,11 @@ es:
         contact_us: Contáctanos
         you_can_now_use_a_custom_domain: "Con tu plan actual, puedes habilitar un dominio personalizado. ¿Quieres hacerlo? %{contact_us}!"
         would_you_like_to_change_domain: "¿Te gustaría cambiar el dominio personalizado de tu marketplace? %{contact_us}!"
-        change_your_sharetribe_domain: ~
-        only_letters_numbers_and_hyphens_can_be_used: ~
-        when_you_change_your_sharetribe_domain: ~
-        would_you_like_to_proceed: ~
-        change: ~
+        change_your_sharetribe_domain: "Cambia tu dominio de Sharetribe"
+        only_letters_numbers_and_hyphens_can_be_used: "Sólo puedes usar letras, números y guiones. ¡Ten cuidado! Si cambias tu dominio, el dominio anterior quedará libre y otro usuario podría ocuparlo."
+        when_you_change_your_sharetribe_domain: "Cuando cambias tu dominio de Sharetribe, todas tus URL automáticamente cambian. Serás redirigido a la nueva dirección. Tus usuarios y tú tendrán que iniciar sesión nuevamente. Tu dominio anterior no estará conectado a tu nuevo dominio o hará redirección. Tu dominio viejo quedará disponible para otros usuarios."
+        would_you_like_to_proceed: "¿Quieres continuar?"
+        change: Cambiar
       landing_pages:
         landing_pages: "Página de inicio"
         info_1: "La página de inicio es quizás la página más importante de tu marketplace. Es la primera página que los visitantes ven- casi como la fachada de tu casa. Tienes tan sólo unos segundos para convencer a nuevos visitantes pare que exploren tu sitio. La página necesita ser atractiva y tu propuesta clara y tentadora."
@@ -1264,7 +1264,6 @@ es:
       stripe-fee_label: "Cuota de procesamiento de pago"
     confirm:
       confirm_description: "Si tu solicitud se ha cumplido debes confirmarla como completada. Después podrás dar una valoración al otro usuario."
-      cancel_description: "Si tu solicitud no se cumplió, puedes marcarla como 'disputada'. Aún así podrás dar una valoración al otro usuario y describir qué pasó."
       cancel_description_team: "Si tu solicitud no se cumplió, puedes marcarla como 'disputada'. El equipo de %{service_name} revisará la situación y decidirá si reembolsar el dinero o descarta la disputa."
       cancel_payed_description: "Si tu solicitud fue aceptada pero tú has cambiado de opinion, todavía podrás cancelarla antes de que se complete el pago."
       canceling_payed_transaction: "Cancelar la transacción"
@@ -1857,7 +1856,7 @@ es:
       listing_with_this_id_does_not_exist: "Este ID de anuncio no corresponde a uno de los de tu marketplace. A lo mejor lo copiaste mal? Por favor, intenta de nuevo"
       presence: "No puede estar vacío"
       username_is_invalid: "Este nombre de usuario es inválido o no está disponible"
-      domain_name_is_invalid: ~
+      domain_name_is_invalid: "Este nombre de dominio es invalido o no está disponible"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."
