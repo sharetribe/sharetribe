@@ -362,7 +362,6 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community_plan_expiration_status
-    request.env[:current_plan] = { features: { footer: true }, created_at: DateTime.now, updated_at: DateTime.now, expires_at: DateTime.now + 1.day }
     @current_plan = request.env[:current_plan]
   end
 
