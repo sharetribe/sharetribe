@@ -1,8 +1,6 @@
 - content_for :extra_javascript do
   :javascript
-    ST.ConfirmConversation.init({
-    canceled_flow: #{@presenter.canceled_flow?}
-    });
+    ST.ConfirmConversation.init({});
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
@@ -24,8 +22,7 @@
         %div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
           = t("conversations.confirm.confirm_description")
         %div{:class => "cancel-description #{@presenter.cancel? ? '' : 'hidden'}"}
-          - key = @presenter.canceled_flow? ? 'cancel_description_team' : 'cancel_description'
-          = t("conversations.confirm.#{key}")
+          = t("conversations.confirm.cancel_description_team")
 
     - else
 
@@ -43,11 +40,11 @@
     .close-listing-radio-buttons{:class => "#{@presenter.give_feedback_class}"}
 
       .checkbox-container
-        = radio_button_tag "give_feedback", @presenter.give_feedback_value, true, :id => "do_give_feedback"
+        = radio_button_tag "give_feedback", true, @presenter.give_feedback_value, :id => "do_give_feedback"
         = label_tag "do_give_feedback", t("conversations.confirm.give_feedback_to", :person_link => link_to(PersonViewUtils.person_display_name(@presenter.other_person, @presenter.community), person_path(@presenter.other_person.username))).html_safe, :class => "radio"
 
       .checkbox-container
-        = radio_button_tag "give_feedback", !@presenter.give_feedback_value, false, :id => "do_not_give_feedback"
+        = radio_button_tag "give_feedback", false, !@presenter.give_feedback_value, :id => "do_not_give_feedback"
         = label_tag "do_not_give_feedback", t("conversations.confirm.do_not_give_feedback"), :class => "radio"
 
     = form.button t("conversations.confirm.continue"), :class => "send_button", :id => "send_testimonial_button"

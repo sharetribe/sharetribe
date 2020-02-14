@@ -22,12 +22,10 @@ class Admin::TransactionsPresenter
     end
   end
 
-  FILTER_STATUSES = %w(free confirmed paid canceled preauthorized rejected payment_intent_requires_action payment_intent_action_expired)
-  FILTER_STATUSES_CANCELED_FLOW = %w(disputed refunded dismissed)
+  FILTER_STATUSES = %w(free confirmed paid canceled preauthorized rejected payment_intent_requires_action payment_intent_action_expired disputed refunded dismissed)
 
   def sorted_statuses
     statuses = FILTER_STATUSES
-    statuses += FILTER_STATUSES_CANCELED_FLOW if canceled_flow?
     statuses.map {|status|
       [status, I18n.t("admin.communities.transactions.status_filter.#{status}"), status_checked?(status)]
     }.sort_by{|status, translation, checked| collator.get_sort_key(translation) }
@@ -205,10 +203,6 @@ class Admin::TransactionsPresenter
       end
     end
     @shipping_address
-  end
-
-  def canceled_flow?
-    FeatureFlagHelper.feature_enabled?(:canceled_flow)
   end
 
   def show_transactions_export?

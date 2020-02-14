@@ -68,7 +68,9 @@
       %tbody
         - @presenter.memberships.each do |membership|
           - accepted_or_banned = membership.accepted? || membership.banned?
+          - banned = membership.banned?
           - member = membership.person
+          - unfinished_transactions = @presenter.has_membership_unfinished_transactions(membership)
           - unless member.blank?
             %tr{class: "member-#{membership.status}"}
               %td.admin-members-full-name
@@ -97,8 +99,8 @@
                     data: {ban_url: ban_admin_community_community_membership_path(@presenter.community.id, membership.id),
                     unban_url: unban_admin_community_community_membership_path(@presenter.community.id, membership.id)},
                     class: "admin-members-ban-toggle"
-              %td.membership-actions
-                - edit_class = membership.banned?  ? 'is-disabled' : ''
+              %td.membership-actions{data: {unfinished_transactions: unfinished_transactions}}
+                - edit_class = banned ? 'is-disabled' : ''
                 %span{class: edit_class}
                   = link_to person_settings_path(member) do
                     = icon_tag("edit")
@@ -106,18 +108,34 @@
                 %span.post-listing{class: "#{edit_class} #{post_klass}"}
                   = link_to new_person_listing_path(person_id: member.username) do
                     = icon_tag("plus")
-
+                %span.delete-member{class: @presenter.can_delete(membership) ? '' : 'is-disabled',
+                  title: @presenter.delete_member_title(membership)}
+                  = link_to admin_community_community_membership_path(id: membership.id) do
+                    = icon_tag("trash")
 
   .row
     .col-12
       = will_paginate @presenter.memberships
 
 = render layout: "layouts/lightbox", locals: { id: "membership-popup"} do
-  #membership-popup-content
+  #membership-popup-content.membership-popup-content
+= render layout: "layouts/lightbox", locals: { id: "membership-delete"} do
+  #membership-delete-content.membership-popup-content.delete-content
+    .membership--pending-popup
+      %p=t('admin.communities.manage_members.delete_info1')
+      %p=t('admin.communities.manage_members.delete_info2')
+    .membership--pending-buttons
+      = link_to '#', id: 'delete-membership-link',
+        class: 'button membership-resend-confirmation', data: {method: "delete"} do
+        = t('admin.communities.manage_members.confirm')
+      = link_to '#', class: 'cancel-button', id: 'close_x1' do
+        = t('admin.communities.manage_members.cancel')
 
 - js_t(['admin.communities.manage_members.ban_user_confirmation',
   'admin.communities.manage_members.unban_user_confirmation',
   'admin.communities.manage_members.this_makes_the_user_an_admin',
   'admin.communities.manage_members.status_filter.all',
-  'admin.communities.manage_members.status_filter.selected_js'])
+  'admin.communities.manage_members.status_filter.selected_js',
+  'admin.communities.manage_members.have_ongoing_transactions',
+  'admin.communities.manage_members.only_delete_disabled'])
 

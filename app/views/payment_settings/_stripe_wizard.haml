@@ -28,8 +28,9 @@
           %p
             =t("stripe_accounts.stripe_account_pending_verification_info")
 
-    .row
-      = link_to t("stripe_accounts.form_new.edit"), "#", id: "edit-stripe-info"
+    - unless presenter.stripe_account_pending_verification?
+      .row
+        = link_to t("stripe_accounts.form_new.edit"), "#", id: "edit-stripe-info"
   - elsif !presenter.paypal_enabled
     .row
       .col-12

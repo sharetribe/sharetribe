@@ -1,0 +1,24 @@
+- transaction_link = link_to t("emails.transaction_commission_charge_failed.transaction_about",
+  listing_title: @transaction.listing.title),
+  admin_community_transaction_url(@url_params.merge(community_id: @community.id, id: @transaction.id))
+
+%tr
+  %td.person-name
+    %h1
+      - seller = PersonViewUtils.person_display_name(@transaction.listing_author, @community)
+      = t("emails.transaction_commission_charge_failed.the_commission_of_the_transaction",
+        transaction_link: transaction_link, seller: seller).html_safe
+
+%tr
+  %td.email-content
+    %p.text-bold
+      = t("emails.transaction_commission_charge_failed.this_usually_means")
+
+%tr
+  %td.email-content
+    %p.text-bold
+      = t("emails.transaction_commission_charge_failed.if_you_would_like_to_investigate")
+
+= render "person_mailer/action_button-v2", text: t("emails.transaction_commission_charge_failed.contact_the_seller"),
+  url: person_url(@url_params.merge(username: @transaction.listing_author.username))
+

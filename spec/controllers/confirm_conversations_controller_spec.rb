@@ -54,17 +54,15 @@ describe ConfirmConversationsController, type: :controller do
                                   person_id: buyer.id,
                                   id: transaction.id}
       transaction.reload
-      expect(transaction.current_state).to eq 'canceled'
+      expect(transaction.current_state).to eq 'disputed'
     end
   end
 
   describe '#confirm canceled flow' do
     let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
-    let(:canceled_flow_flag) { FactoryGirl.create(:feature_flag, community_id: community.id, feature: :canceled_flow) }
 
     before(:each) do
       admin
-      canceled_flow_flag
     end
 
     it 'cancels transaction' do

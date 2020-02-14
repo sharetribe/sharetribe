@@ -88,7 +88,7 @@ class Person::PaymentSettingsPresenter
     return @seller_required_items if defined?(@seller_required_items)
 
     requirements = api_seller_account.requirements
-    @seller_required_items = (requirements.currently_due + requirements.past_due + requirements.eventually_due).uniq
+    @seller_required_items = [requirements.try(:currently_due), requirements.try(:past_due), requirements.try(:eventually_due)].compact.flatten.uniq
   end
 
   def required_individual_id_number?
@@ -111,6 +111,18 @@ class Person::PaymentSettingsPresenter
     @required_verification_additional_document_back ||= seller_required_items.include?("individual.verification.additional_document.back")
   end
 
+  def capabilities_to_check
+    %w[transfers card_payments]
+  end
+
+  def has_inactive_capabilities?
+    capabilities_to_check.any?{|item| api_seller_account.try(:capabilities).try(:[], item) == 'inactive'}
+  end
+
+  def has_pending_capabilities?
+    capabilities_to_check.any?{|item| api_seller_account.try(:capabilities).try(:[], item) == 'pending'}
+  end
+
   def stripe_account_verification
     return @stripe_account_verification if defined?(@stripe_account_verification)
 
@@ -122,6 +134,10 @@ class Person::PaymentSettingsPresenter
         :restricted
       elsif requirements.respond_to?(:current_deadline) && requirements.current_deadline.present?
         :restricted_soon
+      elsif has_inactive_capabilities?
+        :restricted
+      elsif has_pending_capabilities?
+        :pending_verification
       else
         :verified
       end
