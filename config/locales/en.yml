@@ -279,6 +279,10 @@ en:
         ban_user_confirmation: "This disables the user account from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
         unban_user_confirmation: "This enables the user account in the marketplace and allows them to access the site again with this account. Are you sure you want to proceed?"
         ban_me_error: "You cannot disable your own account."
+        have_ongoing_transactions: "This account can't be deleted because they have ongoing transactions. Please complete all transactions before deleting the account."
+        only_delete_disabled: "You can only delete users that have been disabled. Disable a user first in order to delete their account"
+        delete_info1: "If you delete this account, the personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings that they have created will be removed. You won't be able to reactivate this account."
+        delete_info2: "Information where other members are involved (conversations with other people, transactions you've made, reviews you've given to others, etc) is not removed when you delete this account. However, the name will no longer be displayed next to this information."
         search: Search
         search_by_name_email: "Search for a name, email or display name"
         reset_search: "Show all"
@@ -298,6 +302,7 @@ en:
         unconfirmed_user: "Unconfirmed user: %{name}"
         resend: Resend
         cancel: Cancel
+        confirm: Confirm
         user_didnt_complete_the_signup_process: "This user signed up through social login but didn't complete the signup process. After connecting a social login account, users still need to accept your terms of use and fill any mandatory user fields."
         pending_user: "Pending: %{name}"
       new_layout:
