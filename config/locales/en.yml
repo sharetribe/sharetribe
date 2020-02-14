@@ -419,6 +419,10 @@ en:
         sharetribe_analytics_instructions_link_text: "Read more about Sharetribe's analytics."
         end_user_analytics: "Allow Sharetribe to track members activity in order to improve Sharetribe's services"
         save: "Save settings"
+        google_tag_manager: "Google Tag Manager"
+        gtm_paragraph_1: "Using a tag manager such as GTM is a great way to manage and deploy snippets of code or tracking pixels on your website without having to modify the code."
+        gtm_paragraph_2: "Because Sharetribe also relies on Google Tag Manager, you should %{link}."
+        learn_how_to_configure_gtm: "learn how to configure GTM for your Go marketplace"
       logo_link:
         title: "Logo link"
         info: "You can customize the link of the logo (and the default home button of the top bar menu). By default the logo takes users to the homepage or Custom Landing Page."
