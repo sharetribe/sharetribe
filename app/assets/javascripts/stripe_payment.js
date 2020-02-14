@@ -47,41 +47,6 @@ window.ST = window.ST || {};
     return true;
   };
 
-  var initCharge = function(options){
-    stripe = Stripe(options.publishable_key);
-
-    $("#shipping_address_country_code").change(function(){
-      if($(this).val() == 'US') $(".us-only").show(); else $(".us-only").hide();
-    });
-    $("#shipping_address_country_code").trigger("change");
-
-    var card = createCard();
-
-    $("#send-add-card").on('click', function(event) {
-      event.preventDefault();
-      var form = $("#transaction-form");
-      if (!validateForm(form)) {
-        return false;
-      }
-
-      stripe.createToken(card).then(function(result) {
-        var errorElement = document.getElementById('card-errors');
-        if (result.error) {
-          errorElement.textContent = result.error.message;
-          errorElement.className = 'error';
-        } else {
-          errorElement.className = 'hidden';
-          var input = $("<input/>", {type: "hidden", name: "stripe_token", value: result.token.id});
-          form.append(input);
-          $("#payment_type").val("stripe");
-          if(form.valid()) {
-            form.submit();
-          }
-        }
-      });
-    });
-  };
-
   var handleCreatedPaymentIntent = function(response) {
     var payment = response.stripe_payment_intent;
     if (payment.error) {
@@ -193,7 +158,6 @@ window.ST = window.ST || {};
   };
 
   module.StripePayment = {
-    initCharge: initCharge,
     initIntent: initIntent,
   };
 })(window.ST);

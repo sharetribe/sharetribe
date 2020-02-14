@@ -15,38 +15,22 @@ module StripeService::API
           wrap_in_report(tx: tx, start: :create_intent_start, success: :create_intent_success, failed: :create_intent_failed) do
             do_create_preauth_payment(tx, gateway_fields, seller_account)
           end
-        elsif gateway_fields[:stripe_token].present?
-          wrap_in_report(tx: tx, start: :create_charge_start, success: :create_charge_success, failed: :create_charge_failed) do
-            do_create_preauth_payment(tx, gateway_fields, seller_account)
-          end
         else
-          Result::Error.new("No payment method or token present")
+          Result::Error.new("No payment method present")
         end
       end
 
       def cancel_preauth(tx, reason)
         payment = PaymentStore.get(tx.community_id, tx.id)
-        if payment[:stripe_payment_intent_id].present?
-          wrap_in_report(tx: tx, start: :cancel_intent_start, success: :cancel_intent_success, failed: :cancel_intent_failed) do
-            do_cancel_preauth(tx, reason)
-          end
-        else
-          wrap_in_report(tx: tx, start: :cancel_charge_start, success: :cancel_charge_success, failed: :cancel_charge_failed) do
-            do_cancel_preauth(tx, reason)
-          end
+        wrap_in_report(tx: tx, start: :cancel_intent_start, success: :cancel_intent_success, failed: :cancel_intent_failed) do
+          do_cancel_preauth(tx, reason)
         end
       end
 
       def capture(tx)
         payment = PaymentStore.get(tx.community_id, tx.id)
-        if payment[:stripe_payment_intent_id].present?
-          wrap_in_report(tx: tx, start: :capture_intent_start, success: :capture_intent_success, failed: :capture_intent_failed) do
-            do_capture(tx)
-          end
-        else
-          wrap_in_report(tx: tx, start: :capture_charge_start, success: :capture_charge_success, failed: :capture_charge_failed) do
-            do_capture(tx)
-          end
+        wrap_in_report(tx: tx, start: :capture_intent_start, success: :capture_intent_success, failed: :capture_intent_failed) do
+          do_capture(tx)
         end
       end
 
@@ -161,7 +145,6 @@ module StripeService::API
 
       def do_create_preauth_payment(tx, gateway_fields, seller_account)
         seller_id  = seller_account[:stripe_seller_id]
-        source_id  = gateway_fields[:stripe_token]
         payment_method_id = gateway_fields[:stripe_payment_method_id]
 
         subtotal   = order_total(tx)
@@ -178,17 +161,7 @@ module StripeService::API
           sharetribe_mode: stripe_api.charges_mode(tx.community_id)
         }
 
-        if source_id.present?
-          stripe_charge = stripe_api.charge(
-            community: tx.community_id,
-            token: source_id,
-            seller_account_id: seller_id,
-            amount: total.cents,
-            fee: commission.cents + buyer_commission.cents,
-            currency: total.currency.iso_code,
-            description: description,
-            metadata: metadata)
-        elsif payment_method_id.present?
+        if payment_method_id.present?
           intent = stripe_api.create_payment_intent(
             community: tx.community_id,
             seller_account_id: seller_id,
@@ -199,7 +172,7 @@ module StripeService::API
             description: description,
             metadata: metadata)
         else
-          return Result::Error.new("No payment method or token present")
+          return Result::Error.new("No payment method present")
         end
 
         payment_data = {
@@ -210,8 +183,7 @@ module StripeService::API
           commission_cents: commission.cents,
           buyer_commission_cents: buyer_commission.cents,
           fee_cents: fee.cents,
-          subtotal_cents: subtotal.cents,
-          stripe_charge_id: stripe_charge.try(:id)
+          subtotal_cents: subtotal.cents
         }
         if intent
           payment_data[:stripe_payment_intent_id] = intent.id
@@ -242,22 +214,13 @@ module StripeService::API
 
       def do_cancel_preauth(tx, reason)
         payment = PaymentStore.get(tx.community_id, tx.id)
-        seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         payment_data = {status: 'canceled'}
         if payment[:stripe_payment_intent_id].present?
           stripe_api.cancel_payment_intent(community: tx.community,
                                            payment_intent_id: payment[:stripe_payment_intent_id])
           payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_CANCELED
-        elsif payment[:stripe_charge_id].present?
-          stripe_api.cancel_charge(
-            community: tx.community_id,
-            charge_id: payment[:stripe_charge_id],
-            account_id: seller_account[:stripe_seller_id],
-            reason: reason,
-            metadata: {sharetribe_transaction_id: tx.id}
-          )
         else
-          return Result::Error.new("Cannot cancel preauth: no intent or charge in payment data")
+          return Result::Error.new("Cannot cancel preauth: no intent in payment data")
         end
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id, data: payment_data)
         Result::Success.new(payment)
@@ -272,10 +235,8 @@ module StripeService::API
                                                      payment_intent_id: payment[:stripe_payment_intent_id])
           charge = intent['charges']['data'].first
           payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_SUCCESS
-        elsif payment[:stripe_charge_id].present?
-          charge = stripe_api.capture_charge(community: tx.community_id, charge_id: payment[:stripe_charge_id], seller_id: seller_account[:stripe_seller_id])
         else
-          return Result::Error.new("Cannot capture: no intent or charge in payment data")
+          return Result::Error.new("Cannot capture: no intent in payment data")
         end
         balance_txn = stripe_api.get_balance_txn(community: tx.community_id, balance_txn_id: charge.balance_transaction, account_id: seller_account[:stripe_seller_id])
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id,

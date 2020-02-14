@@ -59,43 +59,6 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def charge(community:, token:, seller_account_id:, amount:, fee:, currency:, description:, metadata: {})
-      with_stripe_payment_config(community) do |payment_settings|
-        case charges_mode(community)
-        when :separate
-          Stripe::Charge.create({
-            source: token,
-            amount: amount,
-            description: description,
-            currency: currency,
-            capture: false
-          }.merge(metadata: metadata))
-        when :destination
-          Stripe::Charge.create({
-            source: token,
-            amount: amount,
-            description: description,
-            currency: currency,
-            capture: false,
-            destination: {
-              account: seller_account_id,
-              amount: amount - fee
-            }
-          }.merge(metadata: metadata))
-        end
-      end
-    end
-
-    def capture_charge(community:, charge_id:, seller_id:)
-      with_stripe_payment_config(community) do |payment_settings|
-        case charges_mode(community)
-        when :separate, :destination
-          charge = Stripe::Charge.retrieve(charge_id)
-        end
-        charge.capture
-      end
-    end
-
     def create_token(community:, customer_id:, account_id:)
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Token.create({customer: customer_id}, {stripe_account: account_id})
@@ -224,16 +187,6 @@ class StripeService::API::StripeApiWrapper
     def get_customer_account(community:, customer_id:)
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Customer.retrieve(customer_id)
-      end
-    end
-
-    def cancel_charge(community:, charge_id:, account_id:, reason:, metadata:  {})
-      with_stripe_payment_config(community) do |payment_settings|
-        reason_data = reason.present? ? {reason: reason} : {}
-        case charges_mode(community)
-        when :separate, :destination
-          Stripe::Refund.create({charge: charge_id}.merge(reason_data).merge(metadata: metadata))
-        end
       end
     end
 

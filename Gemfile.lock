@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/ithouse/fake_stripe.git
-  revision: d188f6ad796f498a3d6e9b6b087172d8c150f325
-  ref: d188f6ad796f498a3d6e9b6b087172d8c150f325
+  revision: 56fe73dc420d161ecf9842739af7d857031ca1b2
+  ref: 56fe73dc420d161ecf9842739af7d857031ca1b2
   specs:
     fake_stripe (0.1.0)
       capybara
@@ -616,7 +616,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)
-    webmock (3.8.1)
+    webmock (3.8.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
