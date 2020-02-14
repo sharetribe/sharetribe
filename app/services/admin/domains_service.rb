@@ -18,7 +18,7 @@ class Admin::DomainsService
   end
 
   def update
-    community.ident = params[:community][:ident]
+    community.ident = params[:community][:ident]&.downcase
     community.save
   end
 end
