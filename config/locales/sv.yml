@@ -279,6 +279,10 @@ sv:
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
         unban_user_confirmation: "Detta tar bort spärrningen av användaren och ger dem igen tillgång till din marknadsplats. Är du säker du vill fortsätta?"
         ban_me_error: "Du kan inte bannlysa dig själv."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Sök
         search_by_name_email: "Sök efter namn, epostadress eller synligt namn"
         reset_search: "Visa alla"
@@ -298,6 +302,7 @@ sv:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
@@ -1779,6 +1784,13 @@ sv:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Bokningen misslyckades på grund av ett oväntat fel. Vänligen försök igen senare. Du har inte blivit debiterad."

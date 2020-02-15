@@ -289,6 +289,10 @@ ru:
         ban_user_confirmation: "Это удалит участника из проекта и доступ из этого аккаунта будет не возможен. Вы уверены что хотите продолжить?"
         unban_user_confirmation: "Это включает учетную запись пользователя на торговой площадке и позволяет им снова получить доступ к сайту с этой учетной записью. Вы уверены, что хотите продолжить?"
         ban_me_error: "Вы не можете заблокировать сами себя"
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Поиск
         search_by_name_email: "Поиск имени, электронной почты или отображаемого имени"
         reset_search: "Показать все"
@@ -308,6 +312,7 @@ ru:
         unconfirmed_user: "не подтвержденный пользователь:%{name} "
         resend: "Отправить повторно"
         cancel: Отменить
+        confirm: ~
         user_didnt_complete_the_signup_process: "Этот пользователь зарегистрировался через социальную учетную запись, но не завершил процесс регистрации. После подключения учетной записи для входа в систему пользователям все равно необходимо принять ваши условия использования и заполнить все обязательные поля пользователя."
         pending_user: "В ожидании: %{name} "
       new_layout:
@@ -1793,6 +1798,13 @@ ru:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Бронирование не было осуществлено из-за неизвестной ошибки. Пожалуйста, попробуйте еще раз позже. Списание средств не было осуществлено."

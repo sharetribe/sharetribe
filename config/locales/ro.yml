@@ -284,6 +284,10 @@ ro:
         ban_user_confirmation: "Aceasta dezactiveaza contul utilizatorului si restrictioneaza accesul acestora in viitor cu acest cont pe acest site. Esti sigur ca vrei sa continui?"
         unban_user_confirmation: ~
         ban_me_error: ~
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: ~
         search_by_name_email: "Cauta dupa nume, e-mail sau nume publicat"
         reset_search: ~
@@ -303,6 +307,7 @@ ro:
         unconfirmed_user: "Utilizator neconfirmat: %{name}"
         resend: Retrimite
         cancel: Anuleaza
+        confirm: ~
         user_didnt_complete_the_signup_process: "Acest utilizator s-a inscris prin Facebook dar nu a completat procesul de inscriere. Dupa ce conecteaza un cont Facebook, utilizatorii trebuie sa accepte Termenii de utilizare si sa completeze orice alt camp obligatoriu."
         pending_user: "In asteptare: %{name}"
       new_layout:
@@ -1766,6 +1771,13 @@ ro:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

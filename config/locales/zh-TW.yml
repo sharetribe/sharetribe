@@ -274,6 +274,10 @@ zh-TW:
         ban_user_confirmation: "這會將此用戶從平台中移除，並阻止他們再次使用此帳戶訪問網站。 您確定要繼續嗎？"
         unban_user_confirmation: "這會取消平台上被禁止的用戶，並允許他們使用此帳戶再次訪問該網站。 你確定要繼續嗎？"
         ban_me_error: 你不能禁止自己。
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: 搜索
         search_by_name_email: 搜索名稱，電子信箱或顯示名稱
         reset_search: 顯示全部
@@ -293,6 +297,7 @@ zh-TW:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
@@ -1764,6 +1769,13 @@ zh-TW:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "由於意外錯誤，預訂失敗。 請稍後再試。 你沒有被收費。"

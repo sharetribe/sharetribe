@@ -279,6 +279,10 @@ de:
         ban_user_confirmation: "Dies deaktiviert das Konto von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
         unban_user_confirmation: "Damit wird der Benutzer des Marktplatzes entsperrt und erhält wieder Zugang zu seinem Konto. Möchtest du fortfahren?"
         ban_me_error: "Du kannst dein eigenes Konto nicht deaktivieren."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Suchen
         search_by_name_email: "Nach einem Nahmen, einer E-Mail Adresse, oder einem Anzeigenamen suchen"
         reset_search: "Alle anzeigen"
@@ -298,6 +302,7 @@ de:
         unconfirmed_user: "Unbestätigter Benutzer: %{name}"
         resend: "Erneut senden"
         cancel: Abbrechen
+        confirm: ~
         user_didnt_complete_the_signup_process: "Der/Die Benutzer registrierte sich mit einem Socialnetzwerk, hat aber nicht den Registrierungsprozess beendet. Nachdem man sich mit einem Socialnetzwerk registriert, muss man noch die Nutzungsbedingungen akzeptieren und die obligatorischen Benutzerfelder ausfüllen."
         pending_user: "Ausstehend: %{name}"
       new_layout:
@@ -1780,6 +1785,13 @@ de:
     transaction_cancellation_dismissed:
       subject: "Anfechtung abgebrochen - Das Team von %{service_name} hat die Anfechtung von %{buyer} abgelehnt"
       marketplace_team_has_rejected_the_cancellation: "das Team von %{service_name} hat die Anfechtung von %{transaction_link} abgelehnt."
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Die Buchung ist wegen eines unerwarteten Fehlers fehlgeschlagen. Bitte versuche erneut später. Dein Konto bzw. deine Kreditkarte wurde nicht belastet."

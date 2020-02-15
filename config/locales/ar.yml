@@ -264,6 +264,10 @@ ar:
         ban_user_confirmation: ~
         unban_user_confirmation: "سوف يلغى الحظر عن هذا الحساب وسيتمكن من التسجيل مرة أخرى في السوق عبر نفس الحساب. هل أنت متأكد من ذلك؟"
         ban_me_error: "لا يمكنك حظر نفسك"
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: بحث
         search_by_name_email: "ابحث عن اسم أو بريد إلكتروني أو اسم معروض"
         reset_search: "أظهر الكل"
@@ -283,6 +287,7 @@ ar:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
@@ -1765,6 +1770,13 @@ ar:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "فشل في الحجز بسبب خطأ غير معروف. يرجى المحاولة مرة أخرى. لم يتم احتساب أي تكلفة عليك."
