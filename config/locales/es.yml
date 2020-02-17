@@ -279,6 +279,10 @@ es:
         ban_user_confirmation: "Esto deshabilita la cuenta del usuario en la comunidad y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
         unban_user_confirmation: "Esto habilita la cuenta del usuario en la comunidad y le permitirá acceder al sitio nuevamente con esta cuenta. ¿Estás seguro que quieres continuar?"
         ban_me_error: "No te puedes deshabilitar a ti mismo."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Buscar
         search_by_name_email: "Buscar por nombre, dirección o nombre personalizado"
         reset_search: "Mostrar todos"
@@ -298,6 +302,7 @@ es:
         unconfirmed_user: "Usuario no confirmado: %{name}"
         resend: Reenviar
         cancel: Cancelar
+        confirm: ~
         user_didnt_complete_the_signup_process: "Este usuario se registró por medio de redes sociales pero no completo el proceso de registro. Después de conectar una cuenta de redes sociales, los usuarios tienen que aceptar los términos de uso y llenar los campos obligatorios."
         pending_user: "Pendiente: %{name}"
       new_layout:
@@ -1780,6 +1785,13 @@ es:
     transaction_cancellation_dismissed:
       subject: "Disputa de la orden descartada - El equipo de %{service_name} ha rechazado la disputa de %{buyer}"
       marketplace_team_has_rejected_the_cancellation: "el equipo de %{service_name} ha rechazado la disputa de %{transaction_link}."
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "La reserva falló debido a un error inesperado. Por favor intenta de nuevo más tarde. No se te ha cargado nada."

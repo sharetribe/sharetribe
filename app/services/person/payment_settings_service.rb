@@ -28,6 +28,10 @@ class Person::PaymentSettingsService
     stripe_update_bank_account
   end
 
+  def person_email
+    @person_email ||= person.confirmed_notification_email_addresses.first || person.primary_email.try(:address)
+  end
+
   private
 
   def stripe_create_account
@@ -53,7 +57,7 @@ class Person::PaymentSettingsService
 
     address_attrs = stripe_account_form_permitted_params.to_hash.deep_symbolize_keys!
     presenter.stripe_account_form = StripeAccountForm.new(stripe_account_form_permitted_params)
-    address_attrs[:email] = person.confirmed_notification_email_addresses.first || person.primary_email.try(:address)
+    address_attrs[:email] = person_email
     result = stripe_accounts_api.update_account(community_id: community.id, person_id: person.id, attrs: address_attrs)
     if result[:success]
       presenter.reload_from_stripe

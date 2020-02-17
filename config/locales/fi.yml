@@ -279,6 +279,10 @@ fi:
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
         unban_user_confirmation: "Tämä poistaa eston käyttäjältä ja antaa hänelle taas pääsyn markkinapaikalle. Oletko varma että haluat tehdä tämän?"
         ban_me_error: "Et voi poistaa itseäsi."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Hae
         search_by_name_email: "Etsi nimeä, sähköpostiosoitetta, tai näyttönimeä"
         reset_search: "Näytä kaikki"
@@ -298,6 +302,7 @@ fi:
         unconfirmed_user: "Vahvistamaton käyttäjä: %{name}"
         resend: "Lähetä uudelleen"
         cancel: Peruuta
+        confirm: ~
         user_didnt_complete_the_signup_process: "Tämä käyttäjä rekisteröityi sosiaalisen median avulla mutta ei vienyt rekisteröintiprosessia loppuun saakka. Sosiaalisen median kautta rekisteröitymisen jälkeen käyttäjien tulee vielä hyväksyä markkinapaikkasi säännöt ja täyttää ne tiedot, jotka kaikkien käyttäjien tulee markkinapaikallasi täyttää."
         pending_user: "Odottaa: %{name}"
       new_layout:
@@ -1780,6 +1785,13 @@ fi:
     transaction_cancellation_dismissed:
       subject: "Tilauksen riitautus hylätty - %{service_name} -palvelun tiimi on hylännyt riitautuksen käyttäjältä %{buyer}"
       marketplace_team_has_rejected_the_cancellation: "%{service_name} -palvelun tiimi on hylännyt riitautuksen maksutapahtumasta %{transaction_link}."
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Varaus epäonnistui tunnistamattoman virheen vuoksi. Ole hyvä ja yritä myöhemmin uudelleen. Sinua ei ole veloitettu."

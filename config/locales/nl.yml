@@ -281,6 +281,10 @@ nl:
         ban_user_confirmation: "Dit blokkeert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
         unban_user_confirmation: "Dit heft de blokkering van de gebruiker van de marktplaats op, en herstelt de toegang tot de site voor dit account. Weet je zeker dat je wilt doorgaan?"
         ban_me_error: "Je kunt jezelf niet blokkeren."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Zoek
         search_by_name_email: "Zoek voor een naam, email, of weergavenaam"
         reset_search: "Toon alles"
@@ -300,6 +304,7 @@ nl:
         unconfirmed_user: "Onbevestigde gebruiker: %{name}"
         resend: "Zend opnieuw"
         cancel: Annuleer
+        confirm: ~
         user_didnt_complete_the_signup_process: "Deze gebruiker heeft geregistreerd via sociale login maar het proces niet voltooid. Na het koppelen van een sociaal login account moeten gebruikers nog steeds de gebruikersvoorwaarden accepteren en eventuele verplichte velden invullen."
         pending_user: "In afwachting: %{name}"
       new_layout:
@@ -1783,6 +1788,13 @@ nl:
     transaction_cancellation_dismissed:
       subject: "Klacht over order afgewezen - Het %{service_name} team heeft de klacht van %{buyer} afgewezen"
       marketplace_team_has_rejected_the_cancellation: "het %{service_name} team heeft de klacht over %{transaction_link} afgewezen."
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Boeking mislukt door een onverwachte fout. Probeer het later opnieuw. Er is niets in rekening gebracht."

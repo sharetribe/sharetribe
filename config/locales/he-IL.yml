@@ -279,6 +279,10 @@ he-IL:
         ban_user_confirmation: "פעולה זו מסירה את המשתמש מהמרקטפלייס ומונעת מהם לגשת שוב לאתר באמצעות חשבון זה. האם אתה בטוח שברצונך להמשיך?"
         unban_user_confirmation: "זה יאפשר למשתמש לאקטב את החשבון ולגשת שוב לאתר, האם הינך בטוח?"
         ban_me_error: "אינך יכול לחסום את חשבונך"
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: חיפוש
         search_by_name_email: "חפש שם, דוא''ל או שם מוצג"
         reset_search: "הצג הכל"
@@ -298,6 +302,7 @@ he-IL:
         unconfirmed_user: "משתמש לא מאומת ‎%{name}‎ "
         resend: "שלח שוב"
         cancel: לבטל
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: "ממתין ‎%{name}‎ "
       new_layout:
@@ -672,7 +677,7 @@ he-IL:
       landing_pages:
         landing_pages: "עמוד נחיתה"
         info_1: ~
-        info_2: ~
+        info_2: "באפשרותך להשתמש בעורך לשינוי דף נחיתה בעת הצורך"
         info_2_help_center: ~
         info_3: ~
         info_4: ~
@@ -1159,7 +1164,7 @@ he-IL:
         shipping_to: ~
         buyer_pays: "קונה משלם"
         marketplace_collects: "‎%{service_name}‎  אוסף:"
-        buyer_service_fee_label: ~
+        buyer_service_fee_label: "עמלה מקונה"
         service_fee_label: ~
         provider_receives: ~
         admin_info_text: ~
@@ -1456,7 +1461,7 @@ he-IL:
       you_have_not_yet_confirmed_or_canceled_request: "‎%{other_party_given_name}‎לאחר מכן תוכל לתת פידבק  ‎%{request_link}‎ עדיין לא הסתיים טיפול ב"
       remember_to_confirm_request: "זכור לאשר או לבטל בקשה"
       if_will_not_happen_you_should_cancel: "אם אתה חושב שהזמנה זו לא תושלם מסיבה זו או אחרת, תוכל לבצע את‎%{cancel_it_link}‎."
-      cancel_it_link_text: ביטול
+      cancel_it_link_text: לבטל
       automatic_confirmation: "אם ברצונך לאשר או לבטל הזמנה בתוך ‎%{days_to_automatic_confirmation}‎  לאחר שהבקשה התקבלה, אנחנו נעדכן את הסטטוס באופן אוטומטי"
     confirm_reminder_v2:
       headline: "לא השלמת או ביקשת ערעור עבור ההזמנה ‎%{request_link}‎ "
@@ -1783,6 +1788,13 @@ he-IL:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "הזמנה נכשלה בגלל שאירעה תקלה בלתי צפויה. אנא נסה שנית מאוחר יותר. לא בוצע תשלום."
@@ -2356,7 +2368,7 @@ he-IL:
         after_service_fee_you_will_get: "לאחר‎%{service_name}‎ ודמי עיבוד של תשלומים תקבל ‎%{sum_with_currency}‎"
         no_service_fee_you_will_get_paypal_text: "‎%{paypal_fee_info_link}‎  תנוכה מהסכום"
         no_service_fee_you_will_get_payment_text: "‎%{payment_fee_info_link}‎  יופחת מהתשלום"
-        after_service_fee_you_will_get_payment_text: "‎(‎‎‎%{sum_with_currency}‎‎)‎ לאחר הזמנה תנכה עמלה בסך ‎‎%{service_name}‎ \"\"\"‎%{payment_fee_info_link}‎\"\"\" בנוסף לעמלות פייפל"
+        after_service_fee_you_will_get_payment_text: "לאחר ביצוע ההזמנה, תתקבל התמורה בניכוי ‎%{payment_fee_info_link}‎"
         payment_fee_info_link_text: "‎%{service_name}‎ עמלה ועמלת עיבוד תשלום"
         delivery: "סוג משלוח"
         shipping: משלוח

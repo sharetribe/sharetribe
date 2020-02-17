@@ -274,6 +274,10 @@ ko:
         ban_user_confirmation: "이렇게하면 마켓 플레이스에서 사용자가 삭제되고 사용자가 이 계정으로 사이트에 다시 액세스하지 못하게됩니다. 계속 하시겠습니까?"
         unban_user_confirmation: "이렇게하면 마켓 플레이스의 사용자가 차단되고이 계정으로 사이트에 다시 액세스 할 수 있습니다. 계속 하시겠습니까?"
         ban_me_error: "본인의 계정을 비활성화 할 수는 없습니다."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: 검색
         search_by_name_email: "이름, 이메일 또는 대화명으로 찾기"
         reset_search: "전체 보기"
@@ -293,6 +297,7 @@ ko:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
@@ -1768,6 +1773,13 @@ ko:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "예상치 못한 오류로 인해 예약에 실패했습니다. 나중에 다시 시도 해주십시오. 결제가 청구되지 않았습니다."

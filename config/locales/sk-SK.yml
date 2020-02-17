@@ -284,6 +284,10 @@ sk-SK:
         ban_user_confirmation: "Týmto bude užívateľ odstránený z trhoviska a nebude už pod týmto účtom pristupovať na túto stránku. Ste si istý, že chcete pokračovať?"
         unban_user_confirmation: "Toto umožňuje používateľskému účtu znova pristupovať na stránku pomocou tohto účtu. Naozaj chcete pokračovať?"
         ban_me_error: "Nemôžete seba samého vylúčiť."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Hľadať
         search_by_name_email: "Hľadanie podľa mena, e-mailu alebo zobrazovaného názvu"
         reset_search: "Zobraziť všetko"
@@ -303,6 +307,7 @@ sk-SK:
         unconfirmed_user: "Nepotvrdený používateľ: %{name}"
         resend: "Znovu odoslať"
         cancel: Zrušiť
+        confirm: ~
         user_didnt_complete_the_signup_process: "Tento používateľ sa zaregistroval prostredníctvom sociálneho prihlásenia, ale nedokončil proces registrácie. Po pripojení sociálneho prihlasovacieho účtu musia používatelia naďalej akceptovať vaše podmienky používania a vyplniť všetky povinné polia používateľov"
         pending_user: "Čaká sa: %{name}"
       new_layout:
@@ -1790,6 +1795,13 @@ sk-SK:
     transaction_cancellation_dismissed:
       subject: "Sporná objednávka bola zamietnutá - %{service_name} tím zamietol námietku od %{buyer}"
       marketplace_team_has_rejected_the_cancellation: "%{service_name} tím zamietol sťažnosť na %{transaction_link}."
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervácia zlyhala z dôvodu neočakávanej chyby. Skúste to neskôr prosím. Platba neprebehla."

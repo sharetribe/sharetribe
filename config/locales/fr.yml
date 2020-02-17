@@ -279,6 +279,10 @@ fr:
         ban_user_confirmation: "Ceci désactive ce compte utilisateur au sein de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Voulez-vous vraiment continuer ?"
         unban_user_confirmation: "Ceci active ce compte utilisateur au sein de la place de marché et lui permet d'accéder au site de nouveau avec ce compte. Voulez-vous vraiment continuer ?"
         ban_me_error: "Vous ne pouvez pas désactiver votre propre compte."
+        have_ongoing_transactions: "Ce compte ne peut être supprimé pour le moment car il a toujours des transactions en cours. Veuillez terminer toutes les transactions pour pouvoir supprimer le compte."
+        only_delete_disabled: "Vous ne pouvez supprimer un compte que s'il a préalablement été désactivé. Veuillez tout d'abord désactiver le compte pour pouvoir le supprimer ensuite."
+        delete_info1: "Si vous supprimez ce compte, les informations personnelles (nom, numéro de téléphone, adresse, email, photo de profil, etc...) seront supprimés pour toujours et ne pourront être récupérés. Toutes leur annonces seront supprimées. Vous ne pourrez pas réactiver ce compte."
+        delete_info2: "Les informations partagées avec d'autres utilisateurs (conversations, transactions, avis, etc...) ne seront pas supprimées en supprimant le compte. Cependant, le nom de l'utilisateur ne sera plus affiché."
         search: Rechercher
         search_by_name_email: "Rechercher un nom, un email ou un nom d'affichage"
         reset_search: "Voir tous"
@@ -298,6 +302,7 @@ fr:
         unconfirmed_user: "Utilisateur non confirmé : %{name}"
         resend: Renvoyer
         cancel: Annuler
+        confirm: Confirmer
         user_didnt_complete_the_signup_process: "Cet utilisateur s'est inscrit via un une authentification de réseau social mais n'a pas terminé le processus d'inscription. Après avoir connecté un compte d'un réseau social, les utilisateurs doivent encore accepter vos conditions d'utilisation et compléter les éventuels champs obligatoires."
         pending_user: "En attente : %{name}"
       new_layout:
@@ -1780,6 +1785,13 @@ fr:
     transaction_cancellation_dismissed:
       subject: "Contestation écartée - L'équipe %{service_name} a rejeté la contestation de %{buyer}"
       marketplace_team_has_rejected_the_cancellation: "l'équipe %{service_name} a rejeté la contestation pour %{transaction_link}."
+    transaction_commission_charge_failed:
+      subject: "Une commission pour votre place de marché n'a pu être transférée sur votre compte PayPal"
+      transaction_about: "transaction pour %{listing_title}"
+      the_commission_of_the_transaction: "la commission pour la %{transaction_link} par %{seller} n'a pas pu être transférée sur votre compte PayPal."
+      this_usually_means: "Cela se produit généralement car quelque chose bloque la commission sur le compte PayPal du vendeur. Dans les plupart des cas, le problème est que le vendeur n'a pas un moyen de paiement valide ni vérifié connecté à leur compte PayPal."
+      if_you_would_like_to_investigate: "Si vous voulez comprendre ce qui ne fonctionne pas, une première étape est de contacter le vendeur pour en savoir plus."
+      contact_the_seller: "Contacter le vendeur"
   error_messages:
     booking:
       booking_failed_payment_voided: "La réservation a échoué à cause d'une erreur inattendue. Veuillez essayer de nouveau un peu plus tard. Vous n'avez pas été facturé."
@@ -3141,7 +3153,7 @@ fr:
     paypal_connected: "Compte PayPal connecté avec succès"
     paypal_can_accept: "Vous êtes désormais prêt à recevoir votre argent sur votre compte PayPal"
     paypal_connected_give_permission: "Pour terminer la configuration et recevoir des paiements sur votre compte PayPal <%{email}>, veuillez autoriser le prélèvement de frais de service."
-    stripe_account_restricted: "Les paiements pour votre compte ont été restreints !"
+    stripe_account_restricted: "Les paiements pour votre compte ont été restreints ou le seront bientôt !"
     stripe_account_restricted_info: "Veuillez mettre à jour vos détails bancaires pour fournir plus d'information au prestataire de paiements."
     stripe_account_restricted_soon: "Les paiements pour votre compte vont bientôt être restreints."
     stripe_account_restricted_soon_info: "Veuillez mettre à jour vos détails bancaires pour fournir plus d'information au prestataire de paiements."

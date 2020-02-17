@@ -287,6 +287,10 @@ hr:
         ban_user_confirmation: ~
         unban_user_confirmation: "Ovo vraća prava korisniku na marketplac-u i daje im puni pristup stranici sa svojim računom. Jeste li sigurni da želite nastaviti."
         ban_me_error: "Ne možete zabraniti sebe."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Pretraži
         search_by_name_email: "Tražite ime, email ili korisničko ime"
         reset_search: "Prikaži sve"
@@ -306,6 +310,7 @@ hr:
         unconfirmed_user: "Nepotvrđeni korisnik: %{name}"
         resend: "Ponovno pošalji"
         cancel: Otkaži
+        confirm: ~
         user_didnt_complete_the_signup_process: "Ovaj korisnik se prijavio preko Facebooka, ali nije završio proces registracije. Nakon spajanja s Facebook računom, korisnici još uvijek trebaju prihvatiti vaše uvjete korištenja i ispuniti obavezna korisnička polja."
         pending_user: "Na čekanju: %{name}"
       new_layout:
@@ -1788,6 +1793,13 @@ hr:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervacija nije uspjela zbog neočekivane greške.Molimo probajte ponovo kasnije.Nije Vam ništa naplaćeno"

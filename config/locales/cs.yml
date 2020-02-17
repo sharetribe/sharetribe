@@ -284,6 +284,10 @@ cs:
         ban_user_confirmation: "Tímto bude uživatel z tržiště odstraněn a nebude již mít pod tímto účtem přístup na tuto stránku. Jste si jisti, že chcete pokračovat?"
         unban_user_confirmation: "To umožňuje uživatelský účet na trhu a umožní jim opětovný přístup na web pomocí tohoto účtu. Jste si jistý, že chcete pokračovat?"
         ban_me_error: "Nemůžete sami sebe zakázat."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Hledání
         search_by_name_email: "Hledání podle jména, emailu nebo zobrazovaného názvu"
         reset_search: "Zobrazit vše"
@@ -303,6 +307,7 @@ cs:
         unconfirmed_user: "Nepotvrzený uživatel: %{name}"
         resend: Přeposlat
         cancel: Zrušit
+        confirm: ~
         user_didnt_complete_the_signup_process: "Tento uživatel se zaregistroval prostřednictvím Facebooku, ale nedokončil proces registrace. Po připojení k účtu Facebook, uživatelé musí ještě přijmout vaše podmínky používání a vyplnit všechna povinná pole uživatelů."
         pending_user: "Čekající: %{name}"
       new_layout:
@@ -1786,6 +1791,13 @@ cs:
     transaction_cancellation_dismissed:
       subject: "Spor o objednávku byl zamítnut. %{service_name} tým odmítl spor od %{buyer}"
       marketplace_team_has_rejected_the_cancellation: "%{service_name} tým odmítl spor o %{transaction_link}."
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervace se nezdařila, kvůli neočekávané chybě. Zkuste to prosím později."

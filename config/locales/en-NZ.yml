@@ -279,6 +279,10 @@ en-NZ:
         ban_user_confirmation: "This removes the user from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
         unban_user_confirmation: "This unbans the user in the marketplace and allows them to access the site again with this account. Are you sure you want to proceed?"
         ban_me_error: "You cannot ban yourself."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Search
         search_by_name_email: "Search for a name, email or display name"
         reset_search: "Show all"
@@ -298,6 +302,7 @@ en-NZ:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
@@ -1777,6 +1782,13 @@ en-NZ:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."

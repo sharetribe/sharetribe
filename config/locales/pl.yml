@@ -289,6 +289,10 @@ pl:
         ban_user_confirmation: "Ta akcja spowoduje usunięcie użytkownika z platformy i nie pozwoli mu na ponowne używanie tego konta. Czy jesteś pewien/pewna, że chcesz kontynuować?"
         unban_user_confirmation: "To aktywuje konto użytkownika na platformie i pozwala za jego pomocą na dostęp do strony. Czy chcesz kontynuować?"
         ban_me_error: "Nie możesz wyrzucić samego siebie."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Szukaj
         search_by_name_email: "Szukaj nazwy, adresu e-mail lub wyświetlanej nazwy"
         reset_search: "Pokaż wszystkie"
@@ -308,6 +312,7 @@ pl:
         unconfirmed_user: "Niepotwierdzony użytkownik: %{name}"
         resend: "Wyślij ponownie"
         cancel: Anuluj
+        confirm: ~
         user_didnt_complete_the_signup_process: "Ten użytkownik zalogował się za pomocą Facebook'a ale nie dokończył procesu rejestracji. Po połączeniu się z kontem Facebook, użytkownicy nadal muszą zaakceptować regulamin oraz wypełnić wszystkie konieczne pola."
         pending_user: "Oczekuje: %{name}"
       new_layout:
@@ -1795,6 +1800,13 @@ pl:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezerwacja nie powiodła się ze względu na niespodziewany błąd. Proszę spróbuj ponownie później. Nie zostałeś obciążony opłatą."
