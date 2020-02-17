@@ -491,6 +491,9 @@ default: &default_settings
 
   clp_s3_bucket_name: 'landing_page'
 
+  # Debian CA bundle required for Paypal
+  ssl_ca_certificates_file: '/etc/ssl/certs/ca-certificates.crt'
+
 production: &production_settings
   <<: *default_settings
 
