@@ -10,7 +10,7 @@
 .row
   .col-12
     = form.label :title, t(".main_title")
-    = form.text_field :title, required: true
+    = form.text_field :title
 
 - form.object.columns.each_with_index do |column, index|
   .row.collapsible.collapsed
