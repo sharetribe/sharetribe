@@ -162,6 +162,8 @@
       %ul#analytics.collapse.subtitle{class: expand_ul('analytics')}
         %li#googleanalytics{class: active_li('google')}
           = link_to t('admin2.sidebar.analytics.google'), admin2_analytics_google_index_path
+        %li#googlesearchconsole
+          %a{:href => "google-search-console.php"} Google Search Console
         - if APP_CONFIG.admin_enable_tracking_config
           %li#sharetribeanalytics{class: active_li('sharetribe')}
             = link_to t('admin2.sidebar.analytics.sharetribe'), admin2_analytics_sharetribe_index_path
