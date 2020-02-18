@@ -250,9 +250,9 @@ class StripeService::API::StripeApiWrapper
       with_stripe_payment_config(community) do |payment_settings|
         account = Stripe::Account.retrieve(account_id)
         account.account_token = attrs[:token]
-        if attrs[:address_country] == 'US'
-          account.business_profile.url = attrs[:url]
-        end
+        account.email = attrs[:email]
+        account.business_profile.mcc = DEFAULT_MCC
+        account.business_profile.url = attrs[:url]
         account.save
       end
     end
