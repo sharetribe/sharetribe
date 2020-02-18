@@ -32,4 +32,8 @@ class PaypalAccount < ApplicationRecord
     active.has_permission_and_agreement.where.not(person_id: nil)
   }
   scope :by_community, ->(community) { where(community: community) }
+
+  def connected?
+    active? && order_permission.present? && billing_agreement.present?
+  end
 end
