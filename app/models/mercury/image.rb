@@ -20,11 +20,7 @@ class Mercury::Image < ApplicationRecord
         :url => "/system/:class/:attachment/:id/:style/:filename"
 
   validates_attachment_content_type :image,
-                                    :content_type => ["image/jpeg",
-                                                      "image/png",
-                                                      "image/gif",
-                                                      "image/pjpeg",
-                                                      "image/x-png"]
+                                    :content_type => IMAGE_CONTENT_TYPE
 
   delegate :url, :to => :image
 

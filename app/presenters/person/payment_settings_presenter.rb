@@ -15,7 +15,7 @@ class Person::PaymentSettingsPresenter
     @person_url = person_url
   end
 
-  delegate :community, :params, :person, :stripe_error, to: :service, prefix: false
+  delegate :community, :params, :person, :person_email, :stripe_error, to: :service, prefix: false
 
   def reload_from_stripe
     @stripe_account = nil
@@ -160,7 +160,7 @@ class Person::PaymentSettingsPresenter
   end
 
   def stripe_seller_account
-    return @stripe_seller_account if @stripe_seller_account
+    return @stripe_seller_account if defined?(@stripe_seller_account)
 
     @stripe_seller_account = if stripe_account_ready
                                parsed_seller_account
@@ -174,7 +174,7 @@ class Person::PaymentSettingsPresenter
   end
 
   def stripe_account_form
-    @stripe_account_form ||= StripeAccountForm.new(stripe_seller_account)
+    @stripe_account_form ||= StripeAccountForm.new(stripe_seller_account.merge(email: person_email))
   end
 
   def stripe_bank_form

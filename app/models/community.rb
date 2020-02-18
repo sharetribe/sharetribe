@@ -214,7 +214,7 @@ class Community < ApplicationRecord
                     :keep_old_files => true
 
   validates_attachment_content_type :logo,
-                                    :content_type => %w[image/jpeg image/png image/gif image/pjpeg image/x-png]
+                                    :content_type => IMAGE_CONTENT_TYPE
 
   has_attached_file :wide_logo,
                     :styles => {
@@ -230,7 +230,7 @@ class Community < ApplicationRecord
                     :keep_old_files => true
 
   validates_attachment_content_type :wide_logo,
-                                    :content_type => %w[image/jpeg image/png image/gif image/pjpeg image/x-png]
+                                    :content_type => IMAGE_CONTENT_TYPE
 
   has_attached_file :cover_photo,
                     :styles => {
@@ -242,7 +242,7 @@ class Community < ApplicationRecord
                     :keep_old_files => true
 
   validates_attachment_content_type :cover_photo,
-                                    :content_type => %w[image/jpeg image/png image/gif image/pjpeg image/x-png]
+                                    :content_type => IMAGE_CONTENT_TYPE
 
   has_attached_file :small_cover_photo,
                     :styles => {
@@ -254,7 +254,7 @@ class Community < ApplicationRecord
                     :keep_old_files => true
 
   validates_attachment_content_type :small_cover_photo,
-                                    :content_type => %w[image/jpeg image/png image/gif image/pjpeg image/x-png]
+                                    :content_type => IMAGE_CONTENT_TYPE
 
   has_attached_file :favicon,
                     :styles => {

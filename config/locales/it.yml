@@ -270,6 +270,10 @@ it:
         ban_user_confirmation: ~
         unban_user_confirmation: ~
         ban_me_error: ~
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Cerca
         search_by_name_email: ~
         reset_search: "Mostra tutti"
@@ -289,6 +293,7 @@ it:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: "In attesa: %{name}"
       new_layout:
@@ -405,6 +410,10 @@ it:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "Salva le impostazioni"
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
       logo_link:
         title: ~
         info: ~
@@ -1750,6 +1759,13 @@ it:
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: "Transazione per %{listing_title}"
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: "Contatta il venditore"
   error_messages:
     booking:
       booking_failed_payment_voided: "La prenotazione è fallita per un errore inaspettato. Per favore riprova più tardi. Nessun trasferimento di denaro è stato eseguito."
@@ -2415,7 +2431,7 @@ it:
       select_one: "Seleziona una"
       start_time: "Ora di inizio"
       end_time: "Ora di fine"
-      marketplace_fees_may_apply: ~
+      marketplace_fees_may_apply: "Potrebbero essere applicate delle tariffe di %{service_name}"
     new:
       listing: inserzione
       selected_category: "Categoria: %{category}"
@@ -3156,7 +3172,7 @@ it:
         digits_or_chars: "Cifre da A-Z"
     form_verification:
       personal_id_number: "Numero documento di identità"
-      document: "Documento di verifica"
+      document: "Verifica d'identità (passaporto, carta d'identità)"
       document_back: "Verifica d'identità (passaporto, carta d'identità) (retro del documento)"
       send_verification: "Invia verifica"
       need_verification: "Bisogno di verifiche aggiuntive"

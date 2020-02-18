@@ -18,7 +18,10 @@ module PaypalService
             username: config[:api_credentials][:username],
             password: config[:api_credentials][:password],
             signature: config[:api_credentials][:signature],
-            app_id: config[:api_credentials][:app_id]
+            app_id: config[:api_credentials][:app_id],
+            ssl_options: {
+              ca_file: APP_CONFIG.ssl_ca_certificates_file
+            }
           }
           )
       end
