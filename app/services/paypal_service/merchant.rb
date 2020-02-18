@@ -20,7 +20,7 @@ module PaypalService
             signature: config[:api_credentials][:signature],
             app_id: config[:api_credentials][:app_id],
             ssl_options: {
-              ca_file: nil
+              ca_file: APP_CONFIG.ssl_ca_certificates_file
             }
           }
           )
