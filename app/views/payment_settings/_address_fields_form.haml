@@ -48,4 +48,4 @@
   .row
     .col-12
       = form.label :phone, t("stripe_accounts.form_new.phone_number")+"*"
-      = form.text_field :phone, class: 'required'
+      = form.text_field :phone, class: 'required', phone_number: true
