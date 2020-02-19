@@ -57,6 +57,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
     show_if($(".bank-routing-number"), rule_routing_number);
     show_if($(".bank-routing-1"), rule_routing_1);
     show_if($(".bank-routing-2"), rule_routing_2);
+    $("[phone_number]").attr('placeholder', rule.phone_number);
   }
 
   var getValue = function(name, valueType) {
