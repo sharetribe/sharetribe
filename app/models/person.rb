@@ -208,7 +208,7 @@ class Person < ApplicationRecord
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-  validates_length_of :display_name, :within => 1..30, :allow_nil => true, :allow_blank => true
+  validates_length_of :display_name, :within => 1..100, :allow_nil => true, :allow_blank => true
 
   USERNAME_BLACKLIST = YAML.load_file("#{Rails.root}/config/username_blacklist.yml")
 
