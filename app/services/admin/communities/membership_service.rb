@@ -84,7 +84,7 @@ class Admin::Communities::MembershipService
     stripe_del = StripeService::API::Api.accounts.delete_seller_account(community_id: community.id,
                                                                         person_id: person.id)
     unless stripe_del[:success]
-      @error_message = I18n.t("layouts.notifications.stripe_you_account_balance_is_not_0")
+      @error_message = I18n.t("layouts.notifications.stripe_balance_for_username_is_not_0", username: person.username)
       return false
     end
     ActiveRecord::Base.transaction do
