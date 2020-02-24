@@ -863,6 +863,7 @@ CREATE TABLE `listings` (
   `availability` varchar(32) DEFAULT 'none',
   `per_hour_ready` tinyint(1) DEFAULT '0',
   `state` varchar(255) DEFAULT 'approved',
+  `approval_count` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_listings_on_uuid` (`uuid`),
   KEY `index_listings_on_new_category_id` (`category_id`) USING BTREE,
@@ -2435,6 +2436,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20200109145736'),
 ('20200127120611'),
 ('20200131111643'),
-('20200213130051');
+('20200213130051'),
+('20200224080321');
 
 
