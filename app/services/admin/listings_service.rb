@@ -21,8 +21,10 @@ class Admin::ListingsService
   end
 
   def approve
-    listing.update_column(:state, Listing::APPROVED) # rubocop:disable Rails/SkipsModelValidations
+    listing.update_columns(state: Listing::APPROVED, # rubocop:disable Rails/SkipsModelValidations
+                           approval_count: listing.approval_count + 1)
     self.class.send_listing_approved(listing.id)
+    notify_followers
   end
 
   def reject
@@ -70,6 +72,13 @@ class Admin::ListingsService
 
   def resource_scope
     community.listings
+  end
+
+  # sent only once, when the listing is approved for the first time
+  def notify_followers
+    if listing.approval_count == 1
+      Delayed::Job.enqueue(NotifyFollowersJob.new(listing.id, community.id))
+    end
   end
 
   class << self

@@ -147,6 +147,11 @@ describe Admin::CommunityListingsController, type: :controller do
       FactoryGirl.create(:listing, community_id: community.id,
                                    state: Listing::APPROVAL_PENDING)
     }
+    let(:follower_of_listing_author) do
+      person = FactoryGirl.create(:person, member_of: community)
+      listing.author.followers << person
+      person
+    end
 
     before(:each) do
       @request.host = "#{community.ident}.lvh.me"
@@ -154,28 +159,60 @@ describe Admin::CommunityListingsController, type: :controller do
       sign_in_for_spec(create_admin_for(community))
     end
 
-    it 'approves listing' do
-      post :update, params: {community_id: community.id, id: listing.id,
-                             listing: {state: Listing::APPROVED}},
-                    format: :js
-      listing.reload
-      expect(listing.state).to eq Listing::APPROVED
-    end
+    describe '#approve' do
+      it 'approves listing' do
+        post :update, params: {community_id: community.id, id: listing.id,
+                               listing: {state: Listing::APPROVED}},
+                      format: :js
+        listing.reload
+        expect(listing.state).to eq Listing::APPROVED
+      end
 
-    it '#approve. One email to the listing author immediately
-      when an admin has approved the listing' do
-      stub_thinking_sphinx
-      ActionMailer::Base.deliveries = []
-      get :approve, params: {community_id: community.id, id: listing.id},
-                    format: :js
-      listing.reload
-      expect(listing.state).to eq Listing::APPROVED
+      it 'One email to the listing author immediately
+        when an admin has approved the listing' do
+        stub_thinking_sphinx
+        ActionMailer::Base.deliveries = []
+        get :approve, params: {community_id: community.id, id: listing.id},
+                      format: :js
+        listing.reload
+        expect(listing.state).to eq Listing::APPROVED
+        expect(listing.approval_count).to eq 1
 
-      process_jobs
-      expect(ActionMailer::Base.deliveries).not_to be_empty
-      email = ActionMailer::Base.deliveries.first
-      expect(email.to.include?(listing.author.confirmed_notification_emails_to)).to eq true
-      expect(email.subject).to eq 'The Sharetribe team has approved your listing "Sledgehammer"'
+        process_jobs
+        expect(ActionMailer::Base.deliveries).not_to be_empty
+        email = ActionMailer::Base.deliveries.first
+        expect(email.to.include?(listing.author.confirmed_notification_emails_to)).to eq true
+        expect(email.subject).to eq 'The Sharetribe team has approved your listing "Sledgehammer"'
+      end
+
+      it 'notifies followers only once, when the listing is approved for the first time' do
+        follower_of_listing_author
+        ActionMailer::Base.deliveries = []
+        get :approve, params: {community_id: community.id, id: listing.id},
+                      format: :js
+        listing.reload
+        expect(listing.approval_count).to eq 1
+
+        process_jobs
+        expect(ActionMailer::Base.deliveries).not_to be_empty
+        email = ActionMailer::Base.deliveries.last
+        expect(email.to.include?(follower_of_listing_author.confirmed_notification_emails_to)).to eq true
+        expect(email.subject).to eq 'Proto T has posted a new listing in Sharetribe'
+
+        listing.state = Listing::APPROVAL_PENDING
+        listing.save
+
+        ActionMailer::Base.deliveries = []
+        get :approve, params: {community_id: community.id, id: listing.id},
+                      format: :js
+        listing.reload
+        expect(listing.approval_count).to eq 2
+
+        process_jobs
+        expect(ActionMailer::Base.deliveries).not_to be_empty
+        email = ActionMailer::Base.deliveries.last
+        expect(email.to.include?(follower_of_listing_author.confirmed_notification_emails_to)).to eq false
+      end
     end
 
     it '#reject. One email to the listing author immediately
