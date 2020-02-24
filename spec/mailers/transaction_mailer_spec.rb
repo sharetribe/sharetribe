@@ -78,6 +78,24 @@ describe TransactionMailer, type: :mailer do
       service_name(transaction.community_id)
       transaction
     end
+    let(:stripe_transaction_per_hour_with_shipping_with_buyer_commission) do
+      transaction = FactoryGirl.create(:transaction, starter: buyer,
+                                                     community: community, listing: listing,
+                                                     current_state: 'paid', payment_gateway: 'stripe',
+                                                     unit_price_cents: 200,
+                                                     unit_price_currency: "EUR",
+                                                     listing_quantity: 3,
+                                                     unit_type: 'hour',
+                                                     shipping_price_cents: 300,
+                                                     commission_from_buyer: 20)
+      FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction,
+                                          sum_cents: 1020,
+                                          buyer_commission_cents: 120)
+      service_name(transaction.community_id)
+      FactoryGirl.create(:booking, tx: transaction, start_time: '2017-11-14 09:00',
+                                   end_time: '2017-11-14 12:00', per_hour: true)
+      transaction
+    end
 
     describe '#payment_receipt_to_seller' do
       it 'works with default payment gateway' do
@@ -137,6 +155,17 @@ describe TransactionMailer, type: :mailer do
           expect(email.body).to have_text('Subtotal: €102', normalize_ws: true)
           expect(email.body).to have_text('Sharetribe service fee: -€12', normalize_ws: true)
           expect(email.body).to have_text('Total: €90', normalize_ws: true)
+        end
+
+        it 'works with stripe payment gateway per hour with shipping' do
+          email = TransactionMailer.payment_receipt_to_seller(stripe_transaction_per_hour_with_shipping_with_buyer_commission)
+          expect(email.body).to have_text('The amount of €9 has been paid for Sledgehammer, per hour by Proto. The money is being held by Sharetribe until the order is marked as completed. Here is your receipt.')
+          expect(email.body).to have_text('Price per hour €2', normalize_ws: true)
+          expect(email.body).to have_text('Duration 3', normalize_ws: true)
+          expect(email.body).to have_text('Subtotal: €6', normalize_ws: true)
+          expect(email.body).to have_text('Sharetribe service fee: -€1', normalize_ws: true)
+          expect(email.body).to have_text('Shipping: €3', normalize_ws: true)
+          expect(email.body).to have_text('Total: €8', normalize_ws: true)
         end
       end
     end
