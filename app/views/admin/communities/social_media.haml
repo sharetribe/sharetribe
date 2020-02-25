@@ -27,14 +27,6 @@
           .or-change-attachment
             = t('admin.communities.attachments.or_change', title: t(".logo").downcase)
         = logo_form.file_field(:image, :class => "file-field-button")
-        - file_field = @community.social_logo.image
-        - if file_field.file?
-          .checkbox-container.file-delete-box
-            - id = "attachments_destroyer_image"
-            = logo_form.check_box :destroy_image, {id: id}
-            = label_tag id, class: 'settings-checkbox-label' do
-              = icon_tag("trash")
-              = t('admin.communities.attachments.delete', title: t(".logo").downcase)
     .row
       %h3= t(".social_media_title")
       - facebook_preview_link = link_to(t('admin.communities.social_media.link_for_facebook'), 'https://developers.facebook.com/tools/debug/', target: '_blank')
