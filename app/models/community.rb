@@ -121,6 +121,7 @@ class Community < ApplicationRecord
   require 'sass/plugin'
 
   include EmailHelper
+  include AttachmentDestroyer
 
   has_many :community_memberships, :dependent => :destroy
   has_many :members, -> { merge(CommunityMembership.accepted) }, :through => :community_memberships, :source => :person
