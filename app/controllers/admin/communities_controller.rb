@@ -185,7 +185,8 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
     permitted_params = [
       :wide_logo, :logo,:cover_photo, :small_cover_photo, :favicon, :custom_color1,
-      :custom_color2, :slogan_color, :description_color, :default_browse_view, :name_display_type
+      :custom_color2, :slogan_color, :description_color, :default_browse_view, :name_display_type,
+      attachments_destroyer: []
     ]
     permitted_params << :custom_head_script
     community_params = params.require(:community).permit(*permitted_params)
@@ -217,7 +218,8 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       :linkedin_connect_enabled, :linkedin_connect_id, :linkedin_connect_secret,
       social_logo_attributes: [
         :id,
-        :image
+        :image,
+        :destroy_image
       ],
       community_customizations_attributes: [
         :id,
