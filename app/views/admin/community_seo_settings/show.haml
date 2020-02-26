@@ -33,7 +33,9 @@
               .name-locale-text_field.col-10
                 = fields.text_field :meta_title,
                   placeholder:  @seo_service.placeholder(:homepage_title, locale),
-                  class: "text_field", maxlength: 255
+                  class: "text_field", maxlength: 255,
+                  allowed_template_variables: @seo_service.variables(:homepage_title).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     .row
       %h3= t('admin.communities.seo_settings.meta_description_label')
@@ -53,7 +55,9 @@
               .name-locale-text_field.col-10
                 = fields.text_area :meta_description,
                   placeholder:  @seo_service.placeholder(:homepage_description, locale),
-                  class: "text_field", maxlength: 65535
+                  class: "text_field", maxlength: 65535,
+                  allowed_template_variables: @seo_service.variables(:homepage_description).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     / Search results page
     %h2= t('admin.communities.seo_settings.search_title')
@@ -76,7 +80,9 @@
               .name-locale-text_field.col-10
                 = fields.text_field :search_meta_title,
                   placeholder:  @seo_service.placeholder(:search_meta_title, locale),
-                  class: "text_field", maxlength: 255
+                  class: "text_field", maxlength: 255,
+                  allowed_template_variables: @seo_service.variables(:search_meta_title).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     .row
       %h3= t('admin.communities.seo_settings.search_meta_description_label')
@@ -96,7 +102,9 @@
               .name-locale-text_field.col-10
                 = fields.text_area :search_meta_description,
                   placeholder:  @seo_service.placeholder(:search_meta_description, locale),
-                  class: "text_field", maxlength: 65535
+                  class: "text_field", maxlength: 65535,
+                  allowed_template_variables: @seo_service.variables(:search_meta_description).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     / Listing page
     %h2= t('admin.communities.seo_settings.listing_title')
@@ -119,7 +127,9 @@
               .name-locale-text_field.col-10
                 = fields.text_field :listing_meta_title,
                   placeholder:  @seo_service.placeholder(:listing_meta_title, locale),
-                  class: "text_field", maxlength: 255
+                  class: "text_field", maxlength: 255,
+                  allowed_template_variables: @seo_service.variables(:listing_meta_title).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     .row
       %h3= t('admin.communities.seo_settings.listing_meta_description_label')
@@ -139,7 +149,9 @@
               .name-locale-text_field.col-10
                 = fields.text_area :listing_meta_description,
                   placeholder:  @seo_service.placeholder(:listing_meta_description, locale),
-                  class: "text_field", maxlength: 65535
+                  class: "text_field", maxlength: 65535,
+                  allowed_template_variables: @seo_service.variables(:listing_meta_description).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     / Category page
     %h2= t('admin.communities.seo_settings.category_title')
@@ -162,7 +174,9 @@
               .name-locale-text_field.col-10
                 = fields.text_field :category_meta_title,
                   placeholder:  @seo_service.placeholder(:category_meta_title, locale),
-                  class: "text_field", maxlength: 255
+                  class: "text_field", maxlength: 255,
+                  allowed_template_variables: @seo_service.variables(:category_meta_title).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     .row
       %h3= t('admin.communities.seo_settings.category_meta_description_label')
@@ -182,7 +196,9 @@
               .name-locale-text_field.col-10
                 = fields.text_area :category_meta_description,
                   placeholder:  @seo_service.placeholder(:category_meta_description, locale),
-                  class: "text_field", maxlength: 65535
+                  class: "text_field", maxlength: 65535,
+                  allowed_template_variables: @seo_service.variables(:category_meta_description).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     / Profile page
     %h2= t('admin.communities.seo_settings.profile_title')
@@ -205,7 +221,9 @@
               .name-locale-text_field.col-10
                 = fields.text_field :profile_meta_title,
                   placeholder:  @seo_service.placeholder(:profile_meta_title, locale),
-                  class: "text_field", maxlength: 255
+                  class: "text_field", maxlength: 255,
+                  allowed_template_variables: @seo_service.variables(:profile_meta_title).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     .row
       %h3= t('admin.communities.seo_settings.profile_meta_description_label')
@@ -225,7 +243,9 @@
               .name-locale-text_field.col-10
                 = fields.text_area :profile_meta_description,
                   placeholder:  @seo_service.placeholder(:profile_meta_description, locale),
-                  class: "text_field", maxlength: 65535
+                  class: "text_field", maxlength: 65535,
+                  allowed_template_variables: @seo_service.variables(:profile_meta_description).join(','),
+                  'data-msg-allowed_template_variables': t('errors.messages.only_supported_variables')
 
     / Sitemap
     .row
@@ -274,4 +294,4 @@
       = form.button t("admin.communities.seo_settings.save")
 
 - content_for :javascript do
-  $('form.edit_community').validate();
+  window.ST.SeoSettings.init({});

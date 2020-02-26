@@ -80,6 +80,7 @@
 //= require admin/domains.js
 //= require admin/landing_page_editor.js
 //= require admin/landing_page_section_editor.js
+//= require admin/seo_settings.js
 //= require payment_math
 //= require dropdown
 //= require jquery.nouislider

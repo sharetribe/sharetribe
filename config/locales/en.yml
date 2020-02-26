@@ -1875,6 +1875,7 @@ en:
       presence: "Can't be blank"
       username_is_invalid: "This username is invalid or unavailable"
       domain_name_is_invalid: "This domain name is invalid or unavailable"
+      only_supported_variables: "Make sure to add only supported variables"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."

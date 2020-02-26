@@ -340,7 +340,6 @@ fr:
         invalid_facebook_connect_secret: "L'App Secret ne devrait contenir que des chiffres et des lettre de a à f."
         enable_facebook_login: "Permettre aux utilisateurs de se connecter avec leur compte Facebook"
         save: "Sauvegarder les paramètres"
-        add_another_image: "Ajouter une autre image"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Lire les instructions pour configurer Google Sign-In."
         google_developers_console: "Google Developers Console"
@@ -727,6 +726,9 @@ fr:
             listings: "Edition de la section 'Annonces'"
             locations: "Edition de la section 'Adresses'"
             video: "Edition de la section 'Vidéo'"
+      attachments:
+        delete: "Supprimer l'actuelle image de %{title}"
+        or_change: "Ou modifier l'image de %{title} pour une autre :"
     landing_page_versions:
       sections:
         content:
@@ -2248,7 +2250,8 @@ fr:
         one: "Le site sera inaccessible pour maintenance dans %{count} minute"
         other: "Le site sera inaccessible pour maintenance dans %{count} minutes"
       automatically_logged_out_please_sign_in: "Vous avez été déconnecté automatiquement. Veuillez vous connecter de nouveau."
-      stripe_you_account_balance_is_not_0: "Le solde de votre compte n'est pas nul, il ne peut donc pas être supprimé. Cela peut être car vous avez des transactions non encore réalisées ou bien des paiements vers votre compte en banque sont en attente. Veuillez contacter l'équipe %{service_name} pour en savoir plus."
+      stripe_you_account_balance_is_not_0: "Le solde de votre compte n'est pas nul, il ne peut donc pas être supprimé. Cela peut être car vous avez des transactions non encore réalisées ou bien des transferts en attente vers votre compte en banque. Veuillez contacter l'équipe %{service_name} pour en savoir plus."
+      stripe_balance_for_username_is_not_0: "Le solde du compte Stripe de %{username} n'est pas nul, ce compte ne peut donc être supprimé. Cela peut être car il y a des transactions non encore réalisées ou bien des transferts en attente vers le compte en banque. Veuillez consulter votre Dashboard Stripe pour en savoir plus."
       visit_admin: "Voulez-vous aller dans %{link} ?"
       visit_admin_link: "votre panneau d'administration"
       an_error_occurred_when_saving_your_information: "Une erreur s'est produite lors de la sauvegarde des informations : \"%{message}\". Veuillez vérifier que les informations sont correctes puis essayer de nouveau."
