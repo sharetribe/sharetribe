@@ -1,20 +1,20 @@
 pl:
   errors:
     messages:
-      expired: "wygasło/a, proszę wybrać nowy/ą"
+      expired: "wygasła, poproś o nowy nową"
       not_found: "nie znaleziono"
       already_confirmed: "została już potwierdzona, spróbuj się zalogować"
       not_locked: "nie została zablokowana"
       not_saved:
-        one: "1 błąd uniemożliwił zapisanie tego %{resource}."
-        few: "%{count} błędów uniemożliwiło zapisanie tego %{resource}."
-        many: "%{count} błędów uniemożliwiło zapisanie tego %{resource}."
-        other: "%{count} błędów uniemożliwiło zapisanie tego %{resource}."
+        one: "1 błąd uniemożliwił zapisanie %{resource}."
+        few: "%{count} błędów uniemożliwiło zapisanie %{resource}."
+        many: "%{count} błędów uniemożliwiło zapisanie %{resource}."
+        other: "%{count} błędów uniemożliwiło zapisanie %{resource}."
   devise:
     failure:
       already_authenticated: "Już jesteś zalogowany."
-      unauthenticated: "Aby kontynuować, zaloguj się lub zarejestruj."
-      unconfirmed: "Musisz aktywować swoje konto."
+      unauthenticated: "Aby kontynuować, zaloguj się lub załóż konto."
+      unconfirmed: "Aby kontynuować, musisz potwierdzić swoje konto."
       locked: "Twoje konto jest zablokowane."
       invalid: "Niewłaściwy email lub hasło."
       invalid_token: "Nieprawidłowy token uwierzytelnienia."
@@ -22,9 +22,9 @@ pl:
       inactive: "Twoje konto nie zostało jeszcze aktywowane."
     passwords:
       updated_not_active: "Twoje hasło zostało pomyślnie zmienione."
-      send_paranoid_instructions: "Jeśli Twój adres istnieje w naszej bazie danych, otrzymasz wiadomość zawierającą link do zresetowania hasła."
+      send_paranoid_instructions: "Jeśli Twój adres istnieje w naszej bazie danych, otrzymasz wiadomość e-mail zawierającą link do zresetowania hasła."
       send_instructions: "W ciągu kilku minut otrzymasz email z instrukcjami jak zresetować hasło."
-      updated: "Hasło zostało zmienione. Zalogowano pomyślnie."
+      updated: "Twoje hasło zostało pomyślnie zmienione. Jesteś teraz zalogowany."
     sessions:
       signed_in: "Zalogowano pomyślnie."
       signed_out: "Pomyślnie wylogowano."
@@ -33,27 +33,27 @@ pl:
       send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję aktywacji konta."
       confirmed: "Konto zostało pomyślnie aktywowane."
     registrations:
-      signed_up_but_unconfirmed: "Wiadomość z linkiem aktywacyjnym została wysłana na Twój adres email. Proszę kliknij na link w celu aktywowania swojego konta."
-      signed_up_but_inactive: "Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane."
-      signed_up_but_locked: "Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto zostało zablokowane."
+      signed_up_but_unconfirmed: "Wiadomość z linkiem aktywacyjnym została wysłana na Twój adres e-mail. Proszę kliknij na link w celu aktywowania swojego konta."
+      signed_up_but_inactive: "Rejestracja przebiegła pomyślnie. Jednak, nie możemy Cię zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane."
+      signed_up_but_locked: "Rejestracja przebiegła pomyślnie. Jednak, nie możemy Cię zalogować, ponieważ Twoje konto zostało zablokowane."
       reasons:
         inactive: nieaktywne
         unconfirmed: niepotwierdzone
         locked: zablokowane
-      update_needs_confirmation: "Twoje konto zostało zaktualizowane, ale musimy zweryfikować Twój nowy adres emailowy. Sprawdź swoją skrzynkę i kliknij na przesłany link, aby potwierdzić swój nowy adres."
+      update_needs_confirmation: "Twoje konto zostało pomyślnie zaktualizowane, ale musimy zweryfikować Twój nowy adres e-mailowy. Sprawdź swoją skrzynkę i kliknij na przesłany link, aby potwierdzić swój nowy adres."
       signed_up: "Witamy! Rejestracja przebiegła pomyślnie."
       updated: "Twoje konto zostało pomyślnie zaktualizowane."
       destroyed: "Do zobaczenia! Twoje konto zostało pomyślnie usunięte. Mamy nadzieję, że zobaczymy się wkrótce!"
     unlocks:
-      send_paranoid_instructions: "Jeżeli konto istnieje, za kilka minut otrzymasz wiadomość na swój adres email z instrukcją jak je odblokować."
-      send_instructions: "Otrzymasz email z instrukcją jak odblokować Twoje konto."
+      send_paranoid_instructions: "Jeżeli konto istnieje, za kilka minut otrzymasz wiadomość na swój adres e-mail z instrukcją jak je odblokować."
+      send_instructions: "Otrzymasz e-mail z instrukcją jak odblokować Twoje konto w ciągu kilku minut."
       unlocked: "Twoje konto zostało pomyślnie odblokowane. Zaloguj się, aby kontynuować."
     omniauth_callbacks:
       success: "Pomyślnie autoryzowany z %{kind} konta."
       failure: "Nie możemy Cię autoryzować z %{kind} ponieważ %{reason}."
     mailer:
       confirmation_instructions:
-        subject: "Instrukcje potwierdzenia dołączenia do %{service_name}"
+        subject: "Instrukcje potwierdzające dołączenie do %{service_name}"
       reset_password_instructions:
         subject: "Instrukcje resetowania hasła"
       unlock_instructions:

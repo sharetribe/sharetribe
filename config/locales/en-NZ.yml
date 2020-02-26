@@ -340,7 +340,6 @@ en-NZ:
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
         enable_facebook_login: ~
         save: "Save settings"
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -727,6 +726,9 @@ en-NZ:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2246,6 +2248,7 @@ en-NZ:
         other: "The website will be offline for maintenance in %{count} minutes"
       automatically_logged_out_please_sign_in: "You have been automatically logged out. Please log in again."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
       an_error_occurred_when_saving_your_information: ~

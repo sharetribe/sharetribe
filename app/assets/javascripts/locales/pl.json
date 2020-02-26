@@ -7,14 +7,14 @@
     "dateISO": "Podaj poprawną datę (ISO).",
     "digits": "Podaj tylko cyfry.",
     "email": "Podaj poprawny adres email.",
-    "equalTo": "Podaj tę samą wartość raz jeszcze.",
-    "max": "Podaj wartość mniejszą bądź równą do {0}.",
+    "equalTo": "Wprowadź ponownie tę samą wartość.",
+    "max": "Podaj wartość mniejszą bądź równą {0}.",
     "maxlength": "Podaj nie więcej niż {0} znaków.",
     "min": "Podaj wartość większą bądź równą {0}.",
     "minlength": "Podaj przynajmniej {0} znaków.",
     "number": "Podaj poprawny numer.",
     "range": "Podaj wartość pomiędzy {0} a {1}.",
-    "rangelength": "Podaj wartość długości znaków pomiędzy {0} i {1}.",
+    "rangelength": "Wprowadź wartość długości od {0} do {1} znaków.",
     "remote": "Popraw to pole.",
     "required": "To pole jest wymagane.",
     "url": "Podaj poprawny adres URL.",
@@ -24,7 +24,7 @@
     "availability_range": "Wybrany zakres obejmuje niedostępne daty",
     "min_bound": "Podaj wartość mniejszą niż maksymalna ({0}).",
     "max_bound": "Podaj wartość wiekszą niż minimalna ({0}).",
-    "number_no_decimals": "Podaj całą liczbę",
-    "number_decimals": "Podaj poprawną wartość albo z kropką (.) lub przecinkiem (,) jako separator dziesiętny"
+    "number_no_decimals": "Podaj liczbę całkowitą",
+    "number_decimals": "Podaj poprawną wartość albo z kropką (.), lub przecinkiem (,) jako separator dziesiętny"
   }
 }
