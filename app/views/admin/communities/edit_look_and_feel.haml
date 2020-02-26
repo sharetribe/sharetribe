@@ -21,6 +21,7 @@
         = form.label :wide_logo, t(".community_logo"), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text =>t(logo_info, :width => 336, :height => 80)}
         = render 'layouts/filename', file_field: @community.wide_logo
+        = render 'attachment_destroy', file_field: @community.wide_logo, title: t(".community_logo")
         = form.file_field(:wide_logo, :class => "file_field")
 
     .row
@@ -30,6 +31,7 @@
         = form.label :logo, t(icon_label), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => t(icon_info, :width => 600, :height => 600)}
         = render 'layouts/filename', file_field: @community.logo
+        = render 'attachment_destroy', file_field: @community.logo, title: t(icon_label)
         = form.file_field(:logo, :class => "file_field")
 
     .row
@@ -40,23 +42,24 @@
         = render :partial => "layouts/info_text", :locals => { :text => t(".cover_photo_ready_made", link: link).html_safe }
 
         = render 'layouts/filename', file_field: @community.cover_photo
+        = render 'attachment_destroy', file_field: @community.cover_photo, title: t(".community_cover_photo")
         = form.file_field(:cover_photo, :class => "file_field")
 
     .row
       .col-12
         = form.label :small_cover_photo, t(".small_community_cover_photo"), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => t(".small_cover_photo_visibility") + " " + t(".small_cover_photo_instructions_text_with_dimensions", :width => 1920, :height => 96) }
-        = render 'layouts/filename', file_field: @community.small_cover_photo
-        = form.file_field(:small_cover_photo, :class => "file_field")
-
-
         = render :partial => "layouts/info_text", :locals => { :text => t(".main_content_width", :main_width => 1008)}
+        = render 'layouts/filename', file_field: @community.small_cover_photo
+        = render 'attachment_destroy', file_field: @community.small_cover_photo, title: t(".small_community_cover_photo")
+        = form.file_field(:small_cover_photo, :class => "file_field")
 
     .row
       .col-12
         = form.label :favicon, t(".favicon"), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => t(".favicon_info_text") }
         = render 'layouts/filename', file_field: @community.favicon
+        = render 'attachment_destroy', file_field: @community.favicon, title: t(".favicon")
         = form.file_field(:favicon, :class => "file_field")
 
     .row

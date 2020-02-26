@@ -340,7 +340,6 @@ en:
         invalid_facebook_connect_secret: "App Secret should contain only numbers and letters from a to f."
         enable_facebook_login: "Allow users to log in with their Facebook account"
         save: "Save settings"
-        add_another_image: "Add another image"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "See instructions for configuring Google Sign-In."
         google_developers_console: "Google Developers Console"
@@ -727,6 +726,9 @@ en:
             listings: "'Listings' section edition"
             locations: "'Locations' section edition"
             video: "'Video' section edition"
+      attachments:
+        delete: "Delete the current %{title}"
+        or_change: "Or change the %{title} to a new one:"
     landing_page_versions:
       sections:
         content:

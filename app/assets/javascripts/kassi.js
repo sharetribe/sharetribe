@@ -620,6 +620,17 @@ function initialize_admin_edit_tribe_form(locale, community_id) {
    });
 }
 
+function initializeAttachmentDestroy() {
+  $('input[attachment-destroy]').on('change', function() {
+    var elems = $(this).closest('.row').find('input[type=file], .or-change-attachment');
+    if ($(this).is(":checked")) {
+      elems.hide();
+    } else {
+      elems.show();
+    }
+  });
+}
+
 function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, invalid_color_code_message) {
   translate_validation_messages(locale);
   var form_id = "#edit_community_" + community_id;
@@ -639,6 +650,7 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
        disable_and_submit(form_id, form, "false", locale);
      }
    });
+  initializeAttachmentDestroy();
 }
 
 function initialize_admin_social_media_form(locale, community_id, invalid_twitter_handle_message, invalid_facebook_connect_id_message, invalid_facebook_connect_secret_message) {
@@ -668,6 +680,7 @@ function initialize_admin_social_media_form(locale, community_id, invalid_twitte
        disable_and_submit(form_id, form, "false", locale);
      }
    });
+  initializeAttachmentDestroy();
 }
 
 function initialize_admin_category_form_view(locale, form_id) {

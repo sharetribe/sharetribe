@@ -1,0 +1,9 @@
+- if file_field.file?
+  .checkbox-container.file-delete-box
+    - id = "attachments_destroyer_#{file_field.name}"
+    = check_box_tag "community[attachments_destroyer][]", file_field.name, false, id: id, 'attachment-destroy': true
+    = label_tag id, class: 'settings-checkbox-label' do
+      = t('admin.communities.attachments.delete', title: title.downcase)
+  .or-change-attachment
+    = t('admin.communities.attachments.or_change', title: title.downcase)
+

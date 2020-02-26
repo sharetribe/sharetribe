@@ -17,7 +17,15 @@
       = render :partial => "layouts/info_text", :locals => { :text => t('.logo_info', :width => 1200, :height => 600)}
       = render 'layouts/thumbnail', file_field: @community.social_logo.image
       = form.fields_for :social_logo do |logo_form|
-        = logo_form.label :image, t('admin.communities.social_media.add_another_image')
+        - file_field = @community.social_logo.image
+        - if file_field.file?
+          .checkbox-container.file-delete-box
+            - id = "attachments_destroyer_image"
+            = logo_form.check_box :destroy_image, {id: id, 'attachment-destroy': true}
+            = label_tag id, class: 'settings-checkbox-label' do
+              = t('admin.communities.attachments.delete', title: t(".logo").downcase)
+          .or-change-attachment
+            = t('admin.communities.attachments.or_change', title: t(".logo").downcase)
         = logo_form.file_field(:image, :class => "file-field-button")
     .row
       %h3= t(".social_media_title")
