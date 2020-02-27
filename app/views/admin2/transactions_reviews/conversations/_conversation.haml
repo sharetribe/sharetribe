@@ -1,0 +1,25 @@
+- starter = conversation.starter
+- starter_name = person_name(starter)
+- recipient = conversation.recipient
+- recipient_name = person_name(recipient)
+
+%tr
+  %td
+    - listing = conversation.listing
+    - if listing
+      - listing_title = listing.title || t('admin2.view_conversations.not_available')
+      = link_to_unless listing.deleted, listing_title, listing_path(listing.id), target: :_blank
+    - elsif recipient
+      = link_to t('admin2.view_conversations.profile', author: recipient_name), person_path(recipient.username), target: :_blank
+  %td
+    - if starter
+      = link_to starter_name, person_path(starter.username), target: :_blank
+  %td
+    - if recipient
+      = link_to recipient_name, person_path(recipient.username), target: :_blank
+  %td
+    = l(conversation.created_at, format: :short_date)
+  %td
+    = l(conversation.last_message_at, format: :short_date)
+  %td
+    = link_to t('admin2.view_conversations.conversation'), admin_community_conversation_path(@current_community.id, conversation.id), target: :_blank
