@@ -48,6 +48,7 @@ en:
         listing_comments: 'Listing comments'
       transactions_reviews:
         config_transactions: 'Configure transactions'
+        view_conversations: 'View conversations'
       payment_system:
         country_currency: 'Country & Currency'
       emails:
@@ -70,6 +71,17 @@ en:
         sharetribe: 'Sharetribe analytics'
       advanced:
         custom_script: 'Custom script'
+    view_conversations:
+      search_placeholder: 'Filter conversations by a name, email or keyword...'
+      listing: 'Listing'
+      sender: 'Sender'
+      receiver: 'Receiver'
+      started: 'Started'
+      latest_activity: 'Latest activity'
+      status: 'Status'
+      not_available: 'Not available'
+      profile: "%{author}'s Profile"
+      conversation: 'Conversation'
     footer:
       footer_enabling: 'Footer enabling'
       footer_enabling_field: 'Enable the footer in all pages of your marketplace'

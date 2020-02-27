@@ -84,8 +84,8 @@
       %ul#transactionsreviews.collapse.subtitle{class: expand_ul('transactions_reviews')}
         %li#managetransactions
           %a{:href => 'manage-transactions.php'} Manage transactions
-        %li#viewconversations
-          %a{:href => 'view-conversations.php'} View conversations
+        %li#viewconversations{class: active_li('conversations')}
+          = link_to t('admin2.sidebar.transactions_reviews.view_conversations'), admin2_transactions_reviews_conversations_path(direction: :desc, sort: :last_activity)
         %li#managereviews
           %a{:href => 'manage-reviews.php'} Manage reviews
         %li#configuretransactions{class: active_li('config_transactions')}
