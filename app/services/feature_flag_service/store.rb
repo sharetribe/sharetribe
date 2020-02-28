@@ -23,7 +23,8 @@ module FeatureFlagService::Store
       :stripe,
       :footer,
       :email_layout_v2,
-      :admin2_banner
+      :admin2_banner,
+      :domain,
     ].to_set
 
     def initialize(additional_flags:)

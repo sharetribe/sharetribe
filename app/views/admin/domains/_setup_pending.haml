@@ -1,0 +1,20 @@
+= render 'domain', presenter: @presenter
+
+.row
+  .col-12
+    %h3= t("admin.communities.domain.main_domain")
+    .domain_being_set_up
+      %p
+        = t("admin.communities.domain.domain_being_set_up")
+        %span.domain_name= @presenter.domain_checked
+
+.row
+  .col-12
+    %p
+      = t("admin.communities.domain.status")
+      %span.domain_setup_pending
+        = t("admin.communities.domain.setup_in_progress")
+      - if @presenter.critical_error?
+        = t("admin.communities.domain.setup_check_back_critical_error")
+      - else
+        = t("admin.communities.domain.setup_check_back")
