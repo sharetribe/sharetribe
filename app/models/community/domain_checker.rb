@@ -22,7 +22,7 @@ class Community::DomainChecker < ApplicationRecord
     PENDING = 'pending'.freeze => 'pending'.freeze,
     PASSED = 'passed'.freeze => 'passed'.freeze,
     FAILED = 'failed'.freeze => 'failed'.freeze,
-    PASSED_WITH_WARNING = 'passed_witn_warning'.freeze => 'passed_witn_warning'.freeze
+    PASSED_WITH_WARNING = 'passed_with_warning'.freeze => 'passed_with_warning'.freeze
   }
   enum state: CHECKING
 
@@ -42,7 +42,7 @@ class Community::DomainChecker < ApplicationRecord
     when 'www.example.com'
       passed!
     when 'warning.example.com'
-      passed_witn_warning!
+      passed_with_warning!
     else
       pending!
     end
