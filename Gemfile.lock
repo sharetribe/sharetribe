@@ -544,6 +544,8 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
     shellany (0.0.1)
+    simpleidn (0.1.1)
+      unf (~> 0.1.4)
     sinatra (2.0.8.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -730,6 +732,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.6)
   select2-rails
   selenium-webdriver (~> 3.141.0)
+  simpleidn (~> 0.1)
   sitemap_generator (~> 5.3.1)
   statesman (~> 7.1.0)
   stringex (~> 2.7.1)

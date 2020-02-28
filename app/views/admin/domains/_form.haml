@@ -1,0 +1,25 @@
+- content_for :javascript do
+  ST.Domains.initDomainAvailability({
+  });
+
+= render 'domain', presenter: presenter
+
+.row
+  .col-12
+    %h3= t("admin.communities.domain.main_domain")
+    - link = link_to link_to t("admin.communities.domain.main_domain_link_text"),
+      "#{APP_CONFIG.knowledge_base_url}/en/articles/666106", target: '_blank'
+    = render partial: 'layouts/info_text',
+      locals: { text: t("admin.communities.domain.main_domain_info_text", link: link).html_safe }
+
+.row
+  = form_for presenter.community,
+    url: create_domain_setup_admin_domain_path,
+    html: {class: 'create_domain_setup'} do |form|
+    = form.text_field :domain, placeholder: 'www.example.com',
+      remove_protocol: true,
+      valid_domain: true,
+      'data-msg-valid_domain': t('errors.messages.domain_name_is_invalid')
+
+    .row
+      = form.button t("admin.communities.domain.check_domain")
