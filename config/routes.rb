@@ -670,6 +670,17 @@ Rails.application.routes.draw do
         collection do
           get :check_availability
         end
+        member do
+          patch :check_domain_availability
+          get :check_domain_availability
+          get :pending
+          get :passed
+          get :failed
+          get :passed_with_warning
+          get :reset
+          patch :reset
+          patch :set
+        end
       end
       resource :community_seo_settings, only: [:show, :update]
       resources :landing_page_versions do

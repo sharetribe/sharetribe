@@ -16,6 +16,39 @@ class Admin::DomainsController < Admin::AdminBaseController
     end
   end
 
+  def check_domain_availability
+    state = @service.check_domain_availability
+    case state
+    when Community::DomainChecker::PENDING
+      redirect_to pending_admin_domain_path
+    when Community::DomainChecker::PASSED
+      redirect_to passed_admin_domain_path
+    when Community::DomainChecker::FAILED
+      redirect_to failed_admin_domain_path
+    when Community::DomainChecker::PASSED_WITH_WARNING
+      redirect_to passed_with_warning_admin_domain_path
+    else
+      redirect_to pending_admin_domain_path
+    end
+  end
+
+  def pending; end
+
+  def passed; end
+
+  def failed; end
+
+  def passed_with_warning; end
+
+  def reset
+    @service.reset
+    redirect_to admin_domain_path
+  end
+
+  def set
+    # no action at the moment
+  end
+
   private
 
   def set_selected_left_navi_link

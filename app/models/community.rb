@@ -163,6 +163,8 @@ class Community < ApplicationRecord
 
   has_many_attached :landing_page_assets
 
+  has_one :domain_checker, :dependent => :destroy
+
   accepts_nested_attributes_for :social_logo
   accepts_nested_attributes_for :configuration
   accepts_nested_attributes_for :footer_menu_links, allow_destroy: true

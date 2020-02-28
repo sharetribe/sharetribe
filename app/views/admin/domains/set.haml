@@ -1,0 +1,23 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.domain.domain")
+
+= render "admin/left_hand_navigation", links: admin_links_for(@current_community)
+
+.left-navi-section
+  %h2= t("admin.communities.domain.marketplace_domain")
+
+  = render 'domain', presenter: @presenter
+
+  .row
+    .col-12
+      %h3= t("admin.communities.domain.main_domain")
+      .domain_being_checked
+        %p
+          = t("admin.communities.domain.domain_being_checked")
+          %span.domain_name= @presenter.domain_checked
+  .row
+    .col-12
+      %h3= 'No action at the moment'
