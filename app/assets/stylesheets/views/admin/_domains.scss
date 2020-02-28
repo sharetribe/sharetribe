@@ -8,3 +8,38 @@
 .app-config-domain {
   line-height: 42px;
 }
+.domain_being_checked, .domain_being_set_up {
+  background-color: #e8e8e8;
+  padding: 20px;
+  margin-top: 10px;
+  .domain_name {
+    font-weight: bold;
+  }
+}
+.domain_checks_pending, .domain_setup_pending {
+  color: #808080;
+  font-weight: bold;
+}
+.domain_checks_failed, .domain_setup_failed {
+  color: red;
+  font-weight: bold;
+}
+.domain_checks_passed {
+  color: #5b7d12;
+  font-weight: bold;
+}
+.domain_checks_passed_with_warning {
+  color: #e8bc1e;
+  font-weight: bold;
+}
+.summary_domain_passed {
+  background-color: #e8e8e8;
+  padding: 20px;
+  margin-top: 10px;
+  .title {
+    font-weight: bold;
+  }
+  .checks_passed {
+    text-align: right;
+  }
+}

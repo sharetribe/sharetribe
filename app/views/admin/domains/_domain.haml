@@ -1,0 +1,17 @@
+.row
+  .col-12
+    %p.marketplace-address-is
+      = t("admin.communities.domain.your_marketplace_address_is",
+        address: presenter.domain_address)
+
+    %p= t("admin.communities.domain.you_can_now_enable_a_custom_domain")
+
+    %p= link_to t("admin.communities.domain.read_more_about_the_set_up_of_your_custom_domain"), "#{APP_CONFIG.knowledge_base_url}/en/articles/1641394", target: '_blank'
+
+.row
+  .col-12
+    %h3= t("admin.communities.domain.set_custom_domain")
+    - link = link_to t("admin.communities.domain.instructions_to_point_your_domain"),
+      "#{APP_CONFIG.knowledge_base_url}/en/articles/666106", target: '_blank'
+    = t("admin.communities.domain.in_order_to_set_your_custom_domain", link: link).html_safe
+
