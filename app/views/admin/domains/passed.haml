@@ -1,0 +1,53 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.domain.domain")
+
+= render "admin/left_hand_navigation", links: admin_links_for(@current_community)
+
+.left-navi-section
+  %h2= t("admin.communities.domain.marketplace_domain")
+
+  = render 'domain', presenter: @presenter
+
+  .row
+    .col-12
+      %h3= t("admin.communities.domain.main_domain")
+      .domain_being_checked
+        %p
+          = t("admin.communities.domain.domain_being_checked")
+          %span.domain_name= @presenter.domain_checked
+
+  .row
+    .col-12
+      %p
+        = t("admin.communities.domain.status")
+        %span.domain_checks_passed
+          = t("admin.communities.domain.checks_passed")
+
+      .summary_domain_passed
+        %table
+          %tr
+            %td.title(colspan=2)= t("admin.communities.domain.summary.main_domain")
+
+          %tr
+            %td= @presenter.domain_checked
+            %td.checks_passed= t("admin.communities.domain.checks_passed")
+
+          %tr
+            %td.title(colspan=2)= t("admin.communities.domain.summary.redirect")
+
+          %tr
+            %td= @presenter.domain_checked_for_redirect
+            %td.checks_passed= t("admin.communities.domain.checks_passed")
+
+  .row
+    .col-6
+      = form_for @presenter.community, url: set_admin_domain_path do |form|
+        = form.button t("admin.communities.domain.set_domain")
+    .col-6
+      = form_for @presenter.community, url: reset_admin_domain_path do |form|
+        = form.button t("admin.communities.domain.check_another_domain")
+
+

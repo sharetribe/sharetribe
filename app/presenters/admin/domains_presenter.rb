@@ -27,4 +27,16 @@ class Admin::DomainsPresenter
   def domain_address
     domain_used? ? "https://#{domain}" : "https://#{ident}.sharetribe.com"
   end
+
+  def feature_domain?
+    FeatureFlagHelper.feature_enabled?(:domain)
+  end
+
+  def domain_checked
+    community.domain_checker&.domain
+  end
+
+  def domain_checked_for_redirect
+    "www.#{domain_checked}"
+  end
 end

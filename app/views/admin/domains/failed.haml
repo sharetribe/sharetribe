@@ -1,0 +1,33 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.domain.domain")
+
+= render "admin/left_hand_navigation", links: admin_links_for(@current_community)
+
+.left-navi-section
+  %h2= t("admin.communities.domain.marketplace_domain")
+
+  = render 'domain', presenter: @presenter
+
+  .row
+    .col-12
+      %h3= t("admin.communities.domain.main_domain")
+      .domain_being_checked
+        %p
+          = t("admin.communities.domain.domain_being_checked")
+          %span.domain_name= @presenter.domain_checked
+
+  .row
+    .col-12
+      %p
+        = t("admin.communities.domain.status")
+        %span.domain_checks_failed
+          = t("admin.communities.domain.checks_not_passed")
+        - again_link = link_to t("admin.communities.domain.check_the_domain_again"),
+          check_domain_availability_admin_domain_path
+        - reset_link = link_to t("admin.communities.domain.use_another_domain"),
+          reset_admin_domain_path
+        = t("admin.communities.domain.check_the_domain_again_info",
+          again_link: again_link, reset_link: reset_link).html_safe
