@@ -84,7 +84,9 @@ class Admin::Communities::MembershipService
     stripe_del = StripeService::API::Api.accounts.delete_seller_account(community_id: community.id,
                                                                         person_id: person.id)
     unless stripe_del[:success]
-      @error_message = I18n.t("layouts.notifications.stripe_you_account_balance_is_not_0")
+      display_name = person.display_name.present? ? " (#{person.display_name})" : ''
+      person_name = "#{person.given_name} #{person.family_name}#{display_name}"
+      @error_message = I18n.t("layouts.notifications.stripe_balance_for_username_is_not_0", username: person_name)
       return false
     end
     ActiveRecord::Base.transaction do
@@ -98,7 +100,9 @@ class Admin::Communities::MembershipService
   private
 
   def all_memberships
-    resource_scope.not_deleted_user.includes(person: [:emails, :location])
+    resource_scope.not_deleted_user.includes(
+      person: [:emails, :location, :stripe_account,
+               {paypal_account: [:order_permission, :billing_agreement] }])
   end
 
   def generate_csv_for(yielder)
@@ -120,6 +124,7 @@ class Admin::Communities::MembershipService
       language
     }
     header_row.push("can_post_listings") if community.require_verification_to_post_listings
+    header_row += %w{has_connected_paypal has_connected_stripe}
     header_row += community.person_custom_fields.map{|f| f.name}
     yielder << header_row.to_csv(force_quotes: true)
     all_memberships.find_each do |membership|
@@ -142,6 +147,8 @@ class Admin::Communities::MembershipService
           language: user.locale
         }
         user_data[:can_post_listings] = membership.can_post_listings if community.require_verification_to_post_listings
+        user_data[:has_connected_paypal] = !!user.paypal_account&.connected?
+        user_data[:has_connected_stripe] = !!user.stripe_account&.connected?
         community.person_custom_fields.each do |field|
           field_value = user.custom_field_values.by_question(field).first
           user_data[field.name] = field_value.try(:display_value)

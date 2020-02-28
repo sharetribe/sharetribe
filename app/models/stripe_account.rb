@@ -26,4 +26,8 @@ class StripeAccount < ApplicationRecord
 
   scope :active_users, -> { where.not(person_id: nil) }
   scope :by_community, ->(community) { where(community: community) }
+
+  def connected?
+    stripe_seller_id.present?
+  end
 end

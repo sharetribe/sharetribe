@@ -783,8 +783,8 @@ module ApplicationHelper
       placeholder: "https://www.youtube.com/channel/CHANGEME"
     },
     googleplus: {
-      name: "Google+",
-      placeholder: "https://plus.google.com/CHANGEME"
+      name: "Google",
+      placeholder: "https://www.google.com/CHANGEME"
     },
     linkedin: {
       name: "LinkedIn",

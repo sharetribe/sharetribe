@@ -345,7 +345,6 @@ sk-SK:
         invalid_facebook_connect_secret: "Heslo by malo obsahovať iba číslice a písmená od A do F."
         enable_facebook_login: "Povoliť používateľom prihlásiť sa pomocou svojho Facebook účtu"
         save: "Uložiť nastavenia"
-        add_another_image: "Pridajte ďalší obrázok"
         google_connect: "Prihlásenie do Google"
         google_instructions_link_text: "Prečítajte si pokyny na konfiguráciu prihlásenia Google."
         google_developers_console: "Google vývojarský panel"
@@ -732,6 +731,9 @@ sk-SK:
             listings: "Úprava sekcie 'Inzeráty'"
             locations: "Úprava sekcie 'Polohy'"
             video: "Úprava sekcie 'Video'"
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2260,6 +2262,7 @@ sk-SK:
         other: "Webová stánka bude pre údržbu v offline režime %{count} minút"
       automatically_logged_out_please_sign_in: "Boli ste automaticky odhlásený. Prosím prihláste sa znovu."
       stripe_you_account_balance_is_not_0: "Zostatok na vašom účte nie je 0, takže ho nemožno odstrániť. Môže to znamenať, že máte transakcie čakajúce na dokončenie alebo že na vašom bankovom účte sú nezrealizované platby. Ak chcete získať viac informácií, kontaktujte tím %{service_name}."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Chcete %{link}?"
       visit_admin_link: "navštívte správcovský panel"
       an_error_occurred_when_saving_your_information: "Pri ukladaní informácií sa vyskytla chyba: \"%{message}\". Skontrolujte, či sú všetky informácie správne, a skúste to znova."
@@ -3260,6 +3263,7 @@ sk-SK:
       need_verification: "Potrebuje ďalšie overenie"
       additional_document: "Dokument zobrazujúci adresu, či už cestovný pas, miestny identifikačný preukaz alebo faktúru za služby od známej spoločnosti poskytujúcej služby"
       additional_document_back: "Dokument s adresou, pas alebo občiansky preukaz (zadná strana dokumentu)"
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Číslo sociálneho poistenia (SIN)"
       social_security_number: "Číslo sociálneho zabezpečenia (SSN)"

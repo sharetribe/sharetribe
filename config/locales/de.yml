@@ -340,7 +340,6 @@ de:
         invalid_facebook_connect_secret: "Der App-Secret sollte nur aus Nummern und Buchstaben a-f bestehen."
         enable_facebook_login: "Facebook-Anmeldung für deine Benutzer aktivieren"
         save: "Einstellungen speichern"
-        add_another_image: "Zusätzliches Bild hinzufügen"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Siehe die Anleitung zum Konfigurieren von Google Sign-In."
         google_developers_console: "Google Developers Console"
@@ -727,6 +726,9 @@ de:
             listings: "'Angebote' Abschnitt bearbeiten"
             locations: "'Standorte' Abschnitt bearbeiten"
             video: "'Video' Abschnitt bearbeiten"
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2249,6 +2251,7 @@ de:
         other: "Die Webseite geht offline für Wartungsarbeiten in %{count} Minuten."
       automatically_logged_out_please_sign_in: "Du wurdest automatisch ausgeloggt. Bitte melde dich erneut an."
       stripe_you_account_balance_is_not_0: "Dein Kontostand beträgt nicht 0 und kann daher nicht gelöscht werden. Möglicherweise müssen Transaktionen noch beendet werden oder Geld auf Dein Bankkonto überwiesen werden. Bitte kontaktiere das %{service_name} Team, um mehr zu erfahren."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Würdest Du gerne %{link}?"
       visit_admin_link: "Deinen Admin-Bereich besuchen"
       an_error_occurred_when_saving_your_information: "Ein Fehler ist aufgetreten, während deine Informationen gespeichert wurden: \"%{message}\". Bitte überprüfen, dass alle Informationen richtig sind, und erneut versuchen."
@@ -3233,6 +3236,7 @@ de:
       need_verification: "Zusätzliche Verifizierung benötigt"
       additional_document: "Ein Dokument das die Adresse anzeigt, wie ein Reisepass, eine ID-Karte, oder eine Rechnung eines bekannten Versorgungsunternehmens (z.B. eines Elektrizitätsunternehmens)"
       additional_document_back: "Ein Dokument, das deine Adresse enthält, z.B. ein Identitäsnachweis mit Adresse oder eine Rechnung eines bekannten Versorgungsunternehmens (Hinterseite des Dokuments)"
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sozialversicherungsnummer)"
       social_security_number: "Social Security Number (SSN; Sozialversicherungsnummer)"

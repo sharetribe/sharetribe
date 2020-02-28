@@ -340,7 +340,6 @@ sv:
         invalid_facebook_connect_secret: "Klientsäkerhet ska bara innehålla nummer och bokstäver från a till f."
         enable_facebook_login: "Tillåt användare att logga in med sina Facebook konton"
         save: "Spara inställningar"
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -727,6 +726,9 @@ sv:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2248,6 +2250,7 @@ sv:
         other: "Hemsidan kommer gå offline for underhåll om %{count} minuter"
       automatically_logged_out_please_sign_in: "Du har blivit utloggad. Vänligen logga in igen."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: "besök din adminpanel"
       an_error_occurred_when_saving_your_information: ~
@@ -3224,6 +3227,7 @@ sv:
       need_verification: "Behöver ytterligare verifiering"
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Personnummer (SIN)"
       social_security_number: "Personnummer (SSN)"

@@ -345,7 +345,6 @@ cs:
         invalid_facebook_connect_secret: "Heslo by mělo obsahovat pouze číslice a znaky od A do F."
         enable_facebook_login: "Povolit uživatelům přihlásit se pomocí Facebookového účtu"
         save: "Uložit nastavení"
-        add_another_image: "Přidat další obrázek"
         google_connect: "Přihlásit přes Google"
         google_instructions_link_text: "Viz pokyny ke konfiguraci Google přihlášení"
         google_developers_console: "Konzole pro vývojáře Google"
@@ -732,6 +731,9 @@ cs:
             listings: "Úprava sekce 'Výpisy'"
             locations: "Úprava sekce 'Umístění'"
             video: "Úprava sekce 'Video'"
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2256,6 +2258,7 @@ cs:
         other: "Webová stránka bude offline %{count} minut, probíhá údržba"
       automatically_logged_out_please_sign_in: "Byl jsi automaticky odhlášen. Přihlas se prosím znovu"
       stripe_you_account_balance_is_not_0: "Váš zůstatek na účtu je vyšší než 0, a proto nemůže být zrušen. To může znamenat, že existují transakce čekající na dokončení nebo peníze čekající na vyplacení na váš bankovní účet. Prosím, kontaktujte %{service_name}, abyste zjistil více podrobností."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Chtěli byste %{link} ?"
       visit_admin_link: "navštivte váš admin panel"
       an_error_occurred_when_saving_your_information: "Došlo k chybě při ukládání vašich informací: \"%{message}\". Prosím, ověřte, že všechny informace jsou správné a zkuste to znovu."
@@ -3251,6 +3254,7 @@ cs:
       need_verification: "Potřebujete další ověření"
       additional_document: "Dokument dokládající adresu, buď pas, doklad totožnosti nebo účet za elektřinu od významné energetické společnosti"
       additional_document_back: "Dokument prokazující adresu, buď pas, nebo místní doklad totožnosti nebo účet za energii od významné energetické společnosti (zadní strana dokumentu)"
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Číslo sociálního pojištění (SIN)"
       social_security_number: "Číslo sociálního zabezpečení (SSN)"

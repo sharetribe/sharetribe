@@ -335,7 +335,6 @@ ja:
         invalid_facebook_connect_secret: フェイスプックユーザーの秘密は、数字とアルファベットaからｆを含むものです。
         enable_facebook_login: ~
         save: 設定を保存する
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -722,6 +721,9 @@ ja:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2234,6 +2236,7 @@ ja:
         other: "このウェブサイトはメンテナンスのため%{count}分後にオフラインになります"
       automatically_logged_out_please_sign_in: セッションの期限が切れました。もう一度ログインしてください
       stripe_you_account_balance_is_not_0: "あなたの口座残高は0ではないので削除できません。これは、取引が完了するのを待っているか、銀行口座に支払われるのを待っているお金があることを意味します。詳細については、%{service_name} チームにお問い合わせください。"
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "%{link} をご希望ですか？"
       visit_admin_link: 管理パネルにアクセスしてください
       an_error_occurred_when_saving_your_information: ~
@@ -3192,6 +3195,7 @@ ja:
       need_verification: 追加の確認が必要です
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "社会保険番号 (SIN)"
       social_security_number: 社会保障番号（SSN）

@@ -350,7 +350,6 @@ ru:
         invalid_facebook_connect_secret: "Client secret должен содержать только цифры и буквы от a до f."
         enable_facebook_login: "Разрешить пользователям входить в систему со своей учетной записи Facebook"
         save: "Сохранить настройки"
-        add_another_image: "Добавить другое изображение"
         google_connect: "Вход в Google"
         google_instructions_link_text: "Смотрите инструкции по настройке входа в Google."
         google_developers_console: "Приставка разработчиков Google"
@@ -737,6 +736,9 @@ ru:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2264,6 +2266,7 @@ ru:
         other: "Сайт будет недоступен через %{count} минут по причине проведения профилактических работ"
       automatically_logged_out_please_sign_in: "Вы автоматически вышли из системы. Пожалуйста, войдите снова."
       stripe_you_account_balance_is_not_0: "Баланс вашей учетной записи не равен 0, поэтому он не может быть удален. Это может означать, что у вас есть транзакции, ожидающие завершения или что есть деньги, ожидающие выплаты на ваш банковский счет. Пожалуйста, свяжитесь с командой%{service_name}, чтобы узнать больше."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Хотите %{link}?"
       visit_admin_link: "зайти в вашу панель администратора"
       an_error_occurred_when_saving_your_information: ~
@@ -3280,6 +3283,7 @@ ru:
       need_verification: "Нужно дополнительное подтверждение"
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Номер социального страхования (SIN)"
       social_security_number: "Номер Социального Страхования"

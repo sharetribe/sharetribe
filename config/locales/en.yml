@@ -67,11 +67,11 @@ en:
         community_name: "Marketplace name"
         edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
         community_slogan: "Marketplace slogan"
-        community_slogan_display: "Display the slogan in the homepage"
+        community_slogan_display: "Display the slogan in the homepage or Custom Landing Page"
         edit_community_slogan_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         edit_community_slogan_description_hideable: "This is shown in browsers, search engines and social media. You can also display it on on the homepage of your marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         community_description: "Marketplace description"
-        community_description_display: "Display the description in the homepage"
+        community_description_display: "Display the description in the homepage or Custom Landing Page"
         edit_community_description_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: "This is shown in browsers, search engines and social media. You can also display it on on the homepage of your marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         community_search_placeholder: "Search help text"
@@ -340,7 +340,6 @@ en:
         invalid_facebook_connect_secret: "App Secret should contain only numbers and letters from a to f."
         enable_facebook_login: "Allow users to log in with their Facebook account"
         save: "Save settings"
-        add_another_image: "Add another image"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "See instructions for configuring Google Sign-In."
         google_developers_console: "Google Developers Console"
@@ -727,6 +726,9 @@ en:
             listings: "'Listings' section edition"
             locations: "'Locations' section edition"
             video: "'Video' section edition"
+      attachments:
+        delete: "Delete the current %{title}"
+        or_change: "Or change the %{title} to a new one:"
     landing_page_versions:
       sections:
         content:
@@ -1873,6 +1875,7 @@ en:
       presence: "Can't be blank"
       username_is_invalid: "This username is invalid or unavailable"
       domain_name_is_invalid: "This domain name is invalid or unavailable"
+      only_supported_variables: "Make sure to add only supported variables"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -2249,6 +2252,7 @@ en:
         other: "The website will be offline for maintenance in %{count} minutes"
       automatically_logged_out_please_sign_in: "You have been automatically logged out. Please log in again."
       stripe_you_account_balance_is_not_0: "You account balance is not 0 so it cannot be deleted. This might mean that you have transactions waiting to be completed or that there is money waiting to be paid out to your bank account. Please contact the %{service_name} team to learn more."
+      stripe_balance_for_username_is_not_0: "The Stripe balance for %{username} is not 0, so the account cannot be deleted. This might mean that they have transactions waiting to be completed or that there is money waiting to be paid out to their bank accounts. Please check your Stripe Dashboard for more information."
       visit_admin: "Would you like to %{link}?"
       visit_admin_link: "visit your admin panel"
       an_error_occurred_when_saving_your_information: "An error occurred when saving your information: \"%{message}\". Please check that all information is correct and try again."
@@ -3235,6 +3239,7 @@ en:
       need_verification: "Need additional verification"
       additional_document: "A document showing address, either a passport, local ID card, or utility bill from a well-known utility company"
       additional_document_back: "A document showing address, either a passport, local ID card, or utility bill from a well-known utility company (back of document)"
+      files_need_to_be: "Files need to be JPEGs or PNGs smaller than 5MB. It is not possible to verify PDFs. Files should be in color, be rotated with the image right-side up, and have all information clearly legible."
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"

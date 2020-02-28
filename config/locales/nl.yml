@@ -342,7 +342,6 @@ nl:
         invalid_facebook_connect_secret: "App Secret kan enkel nummers en letters van A-F bevatten."
         enable_facebook_login: "Sta gebruikers toe in te loggen met hun Facebook account"
         save: "Opslaan instellingen"
-        add_another_image: "Voeg nog een afbeelding toe"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Zie instructies voor het configureren van Google Sign-In."
         google_developers_console: "Google Developers Console"
@@ -729,6 +728,9 @@ nl:
             listings: "Wijziging sectie 'Advertenties'"
             locations: "Wijziging sectie 'Locaties'"
             video: "Wijziging sectie 'Video'"
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2252,6 +2254,7 @@ nl:
         other: "De website gaat over %{count} minuten offline voor onderhoud"
       automatically_logged_out_please_sign_in: "Je bent automatisch uitgelogd. Log opnieuw in."
       stripe_you_account_balance_is_not_0: "Je accountbalans is niet 0 en kan dus niet worden verwijdered. Dit kan betekenen dat je nog transacties hebt die moeten worden afgerond, of dat er nog geld is dat moet worden uitbetaald op jouw rekening. Gelieve contact op te nemen met het team van %{service_name} om meer te weten te komen."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Wil je je %{link}?"
       visit_admin_link: "beheerderpaneel bezoeken"
       an_error_occurred_when_saving_your_information: "Er is een fout opgetreden terwijl je informatie werd opgeslagen: \"%{message}\". Kijk of alle informatie correct is en probeer het opnieuw."
@@ -3236,6 +3239,7 @@ nl:
       need_verification: "Aanvullende verificatie nodig"
       additional_document: "Een document dat een adres toont, een paspoort, identiteitskaart of een energierekening van een bekend energiebedrijf"
       additional_document_back: "Een document dat een adres toont, het zij een paspoort, identiteitskaart, of een energierekening van een bekend energiebedrijf (achterkant van het document)"
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"

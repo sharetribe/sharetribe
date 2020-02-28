@@ -18,22 +18,46 @@
       .row
         .col-12
           = label_tag :document_front, t("stripe_accounts.form_verification.document")
-          = form.file_field :document_front, required: true
+          .row
+            %span.alert-box-icon
+              = icon_tag("information", ["icon-fix"])
+            %small
+              = t("stripe_accounts.form_verification.files_need_to_be")
+          = form.file_field :document_front, required: true,
+            'accept': 'image/jpeg, image/png'
 
     - if presenter.required_verification_document_back?
       .row
         .col-12
           = label_tag :document_back, t("stripe_accounts.form_verification.document_back")
-          = form.file_field :document_back, required: true
+          .row
+            %span.alert-box-icon
+              = icon_tag("information", ["icon-fix"])
+            %small
+              = t("stripe_accounts.form_verification.files_need_to_be")
+          = form.file_field :document_back, required: true,
+            'accept': 'image/jpeg, image/png'
 
     - if presenter.required_verification_additional_document?
       .row
         .col-12
           = label_tag :additional_document_front, t("stripe_accounts.form_verification.additional_document")
-          = form.file_field :additional_document_front, required: true
+          .row
+            %span.alert-box-icon
+              = icon_tag("information", ["icon-fix"])
+            %small
+              = t("stripe_accounts.form_verification.files_need_to_be")
+          = form.file_field :additional_document_front, required: true,
+            'accept': 'image/jpeg, image/png'
 
     - if presenter.required_verification_additional_document_back?
       .row
         .col-12
           = label_tag :additional_document_back, t("stripe_accounts.form_verification.additional_document_back")
-          = form.file_field :additional_document_back, required: true
+          .row
+            %span.alert-box-icon
+              = icon_tag("information", ["icon-fix"])
+            %small
+              = t("stripe_accounts.form_verification.files_need_to_be")
+          = form.file_field :additional_document_back, required: true,
+            'accept': 'image/jpeg, image/png'

@@ -5,6 +5,9 @@ et:
       not_found: "pole leitav"
       already_confirmed: "on juba kinnitatud, palun proovige sisse logida"
       not_locked: "ei ole lukustatud"
+      not_saved:
+        one: "1 viga takistab %{resource} salvestamist"
+        other: "%{count} viga takistab %{resource} salvestamist:"
   devise:
     failure:
       already_authenticated: "Olete juba sisse logitud"

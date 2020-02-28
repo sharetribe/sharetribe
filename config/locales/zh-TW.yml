@@ -335,7 +335,6 @@ zh-TW:
         invalid_facebook_connect_secret: 客户端密钥仅应包含数字和字母a到f。
         enable_facebook_login: ~
         save: 保存设置
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -722,6 +721,9 @@ zh-TW:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2232,6 +2234,7 @@ zh-TW:
         other: "該網站準備在%{count}分鐘內進行維護"
       automatically_logged_out_please_sign_in: 您已自動登出，請再次登入。
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
       an_error_occurred_when_saving_your_information: ~
@@ -3194,6 +3197,7 @@ zh-TW:
       need_verification: ~
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~

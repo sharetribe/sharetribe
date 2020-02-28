@@ -325,7 +325,6 @@ lv:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -712,6 +711,9 @@ lv:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2215,6 +2217,7 @@ lv:
         other: "Vietne nebūs pieejama pēc %{count} minūtēm"
       automatically_logged_out_please_sign_in: "Jūs automātiski izgājāt no konta. Lūdzu ienāciet vēlreiz."
       stripe_you_account_balance_is_not_0: "Jūsu konta atlikums nav 0, tāpēc to nevar izdzēst. Tas varētu nozīmēt, ka Jums ir darījumi, kas gaida pabeigšanu, vai arī, ka ir nauda, kas gaida pārskaitījumu uz Jūsu bankas kontu. Lai uzzinātu vairāk, lūdzu, sazinieties ar %{service_name} komandu."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Vai vēlaties %{link}?"
       visit_admin_link: "apmeklējiet savu administrēšanas paneli"
       an_error_occurred_when_saving_your_information: ~
@@ -3192,6 +3195,7 @@ lv:
       need_verification: "Nepieciešama papildus pārbaude"
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Sociālās apdrošināšanas numurs (SIN)"
       social_security_number: "Sociālās apdrošināšanas numurs (SSN)"

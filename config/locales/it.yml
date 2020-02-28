@@ -331,7 +331,6 @@ it:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: "Salva impostazioni"
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -718,6 +717,9 @@ it:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2219,6 +2221,7 @@ it:
         other: "Il sito web sarà offline per %{count} minuti."
       automatically_logged_out_please_sign_in: "Log out automatico. Per favore effettua nuovamente il login."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
       an_error_occurred_when_saving_your_information: "Errore durante il salvataggio delle tue informazioni: \"%{message}\". Prego controlla che tutte le informazioni siano corrette e riprova."
@@ -3178,6 +3181,7 @@ it:
       need_verification: "Bisogno di verifiche aggiuntive"
       additional_document: ~
       additional_document_back: "Un documento che attesti il tuo indirizzo, come passaporto, carta d'identità o  ricevuta di una società di servizi pubblici (retro del documento)"
+      files_need_to_be: "I file devono essere JPEG o PNG più piccoli di 5MB. Non è possibile verificare i PDF. I file devono essere a colori, devono essere ruotati con l'immagine a destra e avere tutte le informazioni chiaramente leggibili."
     form_pin:
       social_insurance_number: ~
       social_security_number: ~

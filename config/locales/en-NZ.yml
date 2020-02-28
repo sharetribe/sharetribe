@@ -340,7 +340,6 @@ en-NZ:
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
         enable_facebook_login: ~
         save: "Save settings"
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -727,6 +726,9 @@ en-NZ:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -1675,7 +1677,7 @@ en-NZ:
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
     reset_password_instructions:
       change_my_password: "Change my password"
-      reset_password_instructions: ""
+      reset_password_instructions: "<p>You have indicated that you have forgotten your password in the %{service_name} service.</p><p>If you need to reset your password, click the following link: %{password_reset_link}</p><br/><p>If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
@@ -2246,6 +2248,7 @@ en-NZ:
         other: "The website will be offline for maintenance in %{count} minutes"
       automatically_logged_out_please_sign_in: "You have been automatically logged out. Please log in again."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
       an_error_occurred_when_saving_your_information: ~
@@ -3218,6 +3221,7 @@ en-NZ:
       need_verification: "Need additional verification"
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"

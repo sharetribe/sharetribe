@@ -345,7 +345,6 @@ ro:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: "Permiteti utilizatorilor sa se autentifice folosind contul de Facebook"
         save: "Salveaza setarile"
-        add_another_image: ~
         google_connect: "Conectare cu Google"
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -732,6 +731,9 @@ ro:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2231,6 +2233,7 @@ ro:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Ati fost deconectat(a) automat. Va rugam sa va conectati inca o data."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Vrei sa %{link}?"
       visit_admin_link: "vizitezi Tabloul de Administrare"
       an_error_occurred_when_saving_your_information: ~
@@ -3195,6 +3198,7 @@ ro:
       need_verification: ~
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~

@@ -335,7 +335,6 @@ ko:
         invalid_facebook_connect_secret: "클라이언트 비밀은 a에서 f까지의 숫자와 문자만 포함해야 합니다."
         enable_facebook_login: "페이스북 계정으로 로그인 허용"
         save: "설정 저장"
-        add_another_image: "새 이미지 추가"
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -722,6 +721,9 @@ ko:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2236,6 +2238,7 @@ ko:
         other: "%{count} 분 후에 웹 사이트가 유지 관리를 위해 오프라인 상태가됩니다."
       automatically_logged_out_please_sign_in: "자동으로 로그 아웃되었습니다. 다시 로그인하십시오."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
       an_error_occurred_when_saving_your_information: ~
@@ -3199,6 +3202,7 @@ ko:
       need_verification: "추가 확인 필요"
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "사회 보장 번호 (SIN)"
       social_security_number: "사회 보장 번호 (SSN)"

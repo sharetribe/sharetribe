@@ -350,7 +350,6 @@ pl:
         invalid_facebook_connect_secret: "Tajny klucz klienta powinien zawierać wyłącznie liczby oraz litery od a do f"
         enable_facebook_login: "Pozwól użytkownikom zalogować się za pomocą konta Facebook"
         save: "Zapisz ustawienia"
-        add_another_image: "dodaj kolejne zdjęcie"
         google_connect: "Loguj się za pomocą Google"
         google_instructions_link_text: "Zapoznaj się z instrukcją aby zalogować się za pomocą konta Google."
         google_developers_console: ~
@@ -635,7 +634,7 @@ pl:
           category: Kategoria
           status: Status
         open: Otwarta
-        closed: Zamknięta
+        closed: Zamknięte
         expired: Wygasło
         approved: Zatwierdzone
         approval_pending: Oczekujące
@@ -737,6 +736,9 @@ pl:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -1208,14 +1210,14 @@ pl:
     share_types:
       request: zapytaj
       offer: oferuj
-      borrow: wypożyczać
-      buy: kupować
-      give_away: rozdawać
-      lend: pożyczyć
-      receive: "wziąć za darmo"
-      rent: wynajmować
-      rent_out: wynająć
-      sell: sprzedawać
+      borrow: wypożyczanie
+      buy: kupno
+      give_away: rozdawanie
+      lend: pożyczanie
+      receive: "oddawanie za darmo"
+      rent: wynajem
+      rent_out: wynajem
+      sell: sprzedaż
       offer_to_swap: wymieniaj
       request_to_swap: wymień
       share_for_free: "współdzielone za darmo"
@@ -1304,7 +1306,7 @@ pl:
       days: dni
       price_per_day: "Cena per dzień: %{price}"
     index:
-      loading_more_messages: "Ładuje więcej wiadomości"
+      loading_more_messages: "Ładuję więcej wiadomości"
       message_partitive: wiadomość
       messages_partitive: wiadomości
       no_received_messages: "Brak wiadomości"
@@ -1375,9 +1377,9 @@ pl:
       payment_errored_starter: "Płatność nie powiodła się. Spróbuj ponownie. Jeśli problem będzie nadal występował proszę skontaktuj się ze wsparciem Sharetribe."
       payment_errored_author: "Płatność nie powiodła się. Proszę skontaktuj się z %{starter_name} i poproś o ponowienie płatności."
       cancel_payed_transaction: Anuluj
-      feedback_given: "Otrzymana opinia"
-      feedback_skipped: "Opinia pominięta"
-      give_feedback: "Przekaż opinię"
+      feedback_given: "Recenzja przekazana"
+      feedback_skipped: "Recenzja pominięta"
+      give_feedback: "Przekaż recenzję"
       offer_accepted: Zaakceptowano
       offer_rejected: Odrzucono
       offer_canceled: Anulowano
@@ -1401,7 +1403,7 @@ pl:
       request_canceled: Anulowano
       request_paid: "Płatność dokonana"
       request_preauthorized: "Płatność autoryzowana"
-      skip_feedback: "Pomiń przekazywanie opinii"
+      skip_feedback: "Pomiń pisanie recenzji"
       waiting_for_listing_author_to_accept_offer: "Oczekuje na akceptację oferty %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "Oczekuje na %{listing_author_name}, aby zaakceptował zapytanie. Jak tylko %{listing_author_name} ją zaakceptuje, zostaniesz obciążony kosztem."
       waiting_for_you_to_accept_request: "Czeka na Ciebie na akceptację"
@@ -1664,8 +1666,8 @@ pl:
       stripe:
         you_have_made_new_payment: "Zapłaciłeś <b>%{payment_sum}</b> za <b>%{listing_title}</b>. Pieniądze zostały zatrzymane przez %{service_name} i będą przekazane do %{recipient_full_name} jak tylko oznaczysz zamówienie jako zrealizowane. Tutaj jest rachunek za tę płatność."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} przekazał Tobie opinię w %{service_name}"
-      you_can_give_feedback_to: "Jeszcze nie przekazałeś opinii do %{name}"
+      has_given_you_feedback_in_kassi: "%{name} przekazał Tobie recenzję w %{service_name}"
+      you_can_give_feedback_to: "Jeszcze nie napisałeś recenzji dla %{name}"
       view_feedback: "Zobacz opinie"
     new_testimonial_v2:
       headline: ~
@@ -1695,7 +1697,7 @@ pl:
       change_my_password: "Zmień moje hasło"
       reset_password_instructions: "<p>Wskazałeś/aś, że zapomniałeś/aś albo hasła albo nazwy użytkownika w platformie %{service_name}.</p><p>Jeśli potrzebujesz zresetować swoje hasło, naciśnij następujący link: %{password_reset_link}</p><br/><p>Jeśli nie chciałeś tej informacji zignoruj ją proszę. Twoje hasło nie ulegnie zmianie dopóki nie naciśniesz powyższego linka i nie stworzysz nowego.</p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: "Przypomnienie: pamiętaj, aby przesłać opinię do %{name}"
+      remember_to_give_feedback_to: "Przypomnienie: pamiętaj, aby napisać recenzję dla %{name}"
       you_have_not_given_feedback_yet: "Jeszcze nie przekazałeś opinii do %{name} o wydarzeniu %{event}. Pamiętaj, aby przekazać opinię jak %{given_name} spisał się podczas wydarzenia."
     testimonial_reminder_v2:
       headline: ~
@@ -1819,7 +1821,7 @@ pl:
       server_rendering: "Poradnik początkujących się nie załadował. Zostaliśmy powiadomieni o sytuacji i naprawiamy ją."
     listings:
       departure_time: "Czas rozpoczęcia musi znajdować się w przedziale między aktualną datą a datą za rok."
-      share_type: "Musisz wybrać jedną"
+      share_type: "Musisz wybrać jedną."
       valid_until: "Data musi znajdować się w przedziale pomiędzy aktualnym czasem, a sześć miesięcy od dziś."
       price: "Cena musi być liczbą całkowitą."
       minimum_price: "Cena minimum to %{minimum_price} %{currency}"
@@ -1848,9 +1850,9 @@ pl:
     back_to_kassi_front_page: "Wróć do strony głównej"
     error_404:
       if_you_believe: "Jeżeli uważasz, że adres jest poprawny i powinien działać, pomóż nam znaleźć błąd poprzez wypełnienie formularza znajdującego się poniżej. Wpisz adres, który spowodował błąd i to co powinno pojawić się na stronie."
-      page_can_not_be_found: "Strony nie znaleziono!"
-      page_you_requested_can_not_be_found: "Strony, której szukasz nie znaleziono. Czy jesteś pewien, że podałeś poprawny adres?"
-    error_404_title: "strony nie znaleziono"
+      page_can_not_be_found: "Strona nie została znaleziona!"
+      page_you_requested_can_not_be_found: "Strony, której szukasz nie znaleziono. Czy jesteś pewny, że podałeś poprawny adres?"
+    error_404_title: "strona nie została znaleziona"
     error_410:
       page_removed: "Strona usunięta"
       page_you_requested_has_been_removed: "Żądana strona została usunięta."
@@ -1864,13 +1866,13 @@ pl:
     error_500_title: "załadowanie strony nie powiodło się"
     error_description: "Opis błędu"
     no_javascript:
-      javascript_is_disabled_in_your_browser: "Javascript jest wyłączony w Twojej przeglądarce"
+      javascript_is_disabled_in_your_browser: "Javascript jest wyłączona w Twojej przeglądarce"
       kassi_does_not_currently_work_without_javascript: "%{service_name} nie działa poprawnie bez javascript. Spróbuj włączyć javascript w ustawieniach preferencji Twojej przeglądarki i później odśwież stronę."
       contact_us: "skontaktuj się z nami"
       send_feedback: "Wyślij wiadomość"
       your_feedback_to_admins: "Wyślij wiadomość do zespołu platformy %{service_name}"
     send: Wyślij
-    your_email_address: "Twój adres email"
+    your_email_address: "Twój adres e-mail"
   errors:
     messages:
       invalid_date: "to nie jest poprawna data"
@@ -1947,8 +1949,8 @@ pl:
       favor_request_list: "opieka nad dzieckiem, lekcje gry na pianinie, wyprowadzenie psa, koszenie trwnika"
       favors_to_offer: "Pomoc: "
       favors_to_request: "Pomoc: "
-      item_offer_list: "narzędzia, sprzęt sportowy, kostiumy, sprzęt na kemping"
-      item_request_list: "narzędzia, sprzęt sportowy, kostiumy, sprzęt na kemping"
+      item_offer_list: "narzędzia, sprzęt sportowy, kostiumy, sprzęt biwakowy"
+      item_request_list: "narzędzia, sprzęt sportowy, kostiumy, sprzęt biwakowy"
       items_to_offer: "Rzeczy do wypożyczenia: "
       items_to_request: "Rzeczy do pożyczenia: "
       log_in: "zaloguj się!"
@@ -2070,12 +2072,12 @@ pl:
       feedback: "Twoja wiadomość do zespołu platformy %{service_name}"
       dont_use_to_contact_support: "Powiadomiliśmy właściciela platformy %{service_name}. Ten formularz to to, z czego korzystają Twoi użytkownicy. Nie możesz używać tego formularza, aby kontaktować się ze wsparciem Sharetribe. Możesz zrobić to przez link Wsparcia w panelu administracyjnym."
       feedback_forum: "forum opinii"
-      feedback_handle: Opinia
+      feedback_handle: Recenzja
       give_feedback: "Skontaktuj się z nami"
-      or_check_our: "... lub spróbuj nasze"
+      or_check_our: "... lub wypróbuj nasze"
       send_feedback_to_admin: "Wyślij wiadomość"
       to_see_what_others_have_suggested: "aby zobaczyć, co zasugerowali inni użytkownicy i zagłosować na pomysły."
-      your_email_address: "Twój adres email (do kontaktu)"
+      your_email_address: "Twój adres e-mail (do kontaktu)"
       connect: Rejestracja
       invite_your_friends: "Zaproś znajomych!"
       invite_your_neighbors: "Zaproś sąsiadów!"
@@ -2137,7 +2139,7 @@ pl:
       notifications: Powiadomienia
       requests: "Zaproszenia do znajomych"
       settings: Ustawienia
-      sign_up: Rejestracja
+      sign_up: "Załóż konto"
     notifications:
       listing_could_not_be_saved: "Oferta nie może być zapisana. Proszę spróbuj ponownie. Jeśli problem nadal będzie występował proszę %{contact_admin_link}."
       contact_admin_link_text: "skontaktuj się z administratorami"
@@ -2191,8 +2193,8 @@ pl:
       listing_updated_availability_management_disabled: "Oferta zaktualizowana pomyślnie. Zarządzanie dostępnością wyłączone."
       listing_deleted: "Oferta usunięta"
       only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: "Tylko autor oferty może zamknąć ofertę"
-      only_listing_author_can_edit_a_listing: "Tylko autor oferty może edytować ofertę"
+      only_listing_author_can_close_a_listing: "Tylko autor oferty może ją zamknąć"
+      only_listing_author_can_edit_a_listing: "Tylko autor oferty może ją edytować"
       payment_successful: "Płatność dokonana"
       payment_canceled: "Płatność anulowana"
       error_in_payment: "Błąd podczas procesowania płatności. Jeżeli nie dokończyłeś płatności, spróbuj ponownie. Jeżeli już zakończyłeś, prześlij nam opinię."
@@ -2201,7 +2203,7 @@ pl:
       password_recovery_sent: "Instrukcje resetowania hasła zostały przesłane na Twój adres email."
       person_activated: "Użytkownik aktywowany"
       person_deactivated: "Użytkownik zdezaktywowany"
-      person_updated_successfully: "Informacje zaktualizowane"
+      person_updated_successfully: "Informacja zaktualizowana"
       poll_answered: "Ankieta wypełniona"
       poll_could_not_be_answered: "Ankieta nie może zostać wypełniona"
       poll_created: "Ankieta stworzona"
@@ -2235,15 +2237,15 @@ pl:
       you_are_already_member: "Już jesteś członkiem %{service_name}. Witaj ponownie!"
       you_must_log_in_to_create_new_listing: "Musisz się zalogować na platformie %{service_name}, aby stworzyć nową ofertę. Jeżeli nie masz jeszcze konta, możesz je %{sign_up_link}."
       additional_email_confirmed_dashboard: "Twój adres email jest potwierdzony."
-      you_must_log_in_to_give_feedback: "Aby przekazać opinię musisz się zalogować."
+      you_must_log_in_to_give_feedback: "Aby napisać recenzję musisz się zalogować"
       you_must_log_in_to_invite_new_users: "Musisz się zalogować, aby zaprosić innych użytkowników do %{service_name}"
       you_must_log_in_to_send_a_comment: "Musiz się zalogować, aby dodać nowy komentarz"
-      you_must_log_in_to_send_a_message: "Musisz się zalogować do %{service_name}, aby móc wysłać wiadomość do innego użytkownika."
+      you_must_log_in_to_send_a_message: "Musisz się zalogować na %{service_name}, aby móc wysłać wiadomość do innego użytkownika."
       you_must_log_in_to_do_a_transaction: "Musisz zalogować się do %{service_name} aby przeprowadzić transakcję."
-      you_must_log_in_to_view_this_content: "Aby zobaczyć zawartość musisz się zalogować."
+      you_must_log_in_to_view_this_content: "Aby zobaczyć zawartość musisz się zalogować"
       you_must_log_in_to_view_this_page: "Musisz się zalogować, aby zobaczyć tę stronę"
-      you_must_log_in_to_view_your_inbox: "Musisz się zalogować do %{service_name}, aby zobaczyć swoją skrzynkę."
-      you_must_log_in_to_view_your_settings: "Musisz się zalogować do %{service_name}, aby zobaczyć ustawienia."
+      you_must_log_in_to_view_your_inbox: "Musisz się zalogować na %{service_name}, aby zobaczyć swoją skrzynkę odbiorczą."
+      you_must_log_in_to_view_your_settings: "Musisz się zalogować na %{service_name}, aby zobaczyć ustawienia."
       you_must_log_in_to_add_news_item: "Musisz się zalogować do %{service_name}, aby dodać nowy artykuł."
       you_must_log_in_to_change_profile_settings: "Musisz się zalogować do platformy %{service_name}, aby zobaczyć ustawienia profilu"
       you_must_log_in_to_accept_or_reject: "Musisz zalogować się aby zaakceptować lub odrzucić transakcję"
@@ -2266,6 +2268,7 @@ pl:
         other: "Strona stanie się niedostępna ze względów serwisowych za %{count} minut"
       automatically_logged_out_please_sign_in: "Zostałeś automatycznie wylogowany. Proszę zaloguj się ponownie."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "czy chciałbyś %{link}?"
       visit_admin_link: "zobacz w panelu administratora"
       an_error_occurred_when_saving_your_information: ~
@@ -2291,7 +2294,7 @@ pl:
       are_you_sure: "Czy jesteś pewien, że chcesz usunąć komentarz?"
     comment_form:
       ask_a_question: "Skomentuj tą ofertę lub zapytaj o więcej szczegółów. Wszyscy inni użytkownicy będą mogli zobaczyć Twój komentarz."
-      log_in: "Zaloguj się"
+      log_in: "zaloguj się"
       send_comment: "Wyślij komentarz"
       to_send_a_comment: "aby wysłać nowy komentarz."
       write_comment: "Napisz nowy komentarz:"
@@ -2344,8 +2347,8 @@ pl:
         favor: usługa
         housing: przestrzeń
         item: przedmiot
-        offer_something: "Zaoferuj coś!"
-        request_something: "Zapytaj o coś!"
+        offer_something: "Zaoferuj coś"
+        request_something: "Zapytaj o coś"
         rideshare: przejazd
         i_want_to_offer: "Chcę zaoferować..."
         i_want_to_request: Potrzebuję...
@@ -2354,10 +2357,10 @@ pl:
         googlemap_description: "Widok mapy"
         googlemap_updatemap: "Zaktualizuj mapę"
       images:
-        image: Zdjęcie
+        image: Obraz
         best_result: "Dla najlepszych rezultatów użyj plików JPG, GIF lub PNG, które mają rozdzielczość %{width} na %{height} pikseli"
         no_file_selected: "Nie wybrano pliku"
-        remove_image: "Usuń zdjęcie"
+        remove_image: "Usuń obraz"
         select_file: "Wybierz plik"
         add_more: "+ Dodaj więcej"
         removing: "Trwa usuwanie..."
@@ -2408,7 +2411,7 @@ pl:
         offer_type: "Rodzaj oferty"
         receive: "Zaakceptuj za darmo"
         rent: Wynajmowanie
-        rent_out: Wynajęcie
+        rent_out: Wynajmowanie
         request_type: "Rodzaj zapytania"
         sell: Sprzedawanie
         share_for_free: "Współdzielone za darmo"
@@ -2422,7 +2425,7 @@ pl:
       valid_until:
         valid_until: "Data wygaśnięcia"
       valid_until_radio_buttons:
-        for_the_time_being: "Od chwili obecnej"
+        for_the_time_being: Obecnie
       privacy:
         privacy: Prywatność
         private: "Prywatny (tylko zalogowani użytkownicy to widzą)"
@@ -2590,7 +2593,7 @@ pl:
       all_offer_types: "Wszystkie rodzaje ofert"
       all_request_types: "Wszystkie rodzaje zapytań"
       category: Kategoria
-      did_not_found_what_you_were_looking_for: "Nie znalazłeś czego szukałeś?"
+      did_not_found_what_you_were_looking_for: "Nie znalazłeś tego czego szukałeś?"
       favors: Usługi
       housing: Przestrzenie
       items: Rzeczy
@@ -2688,9 +2691,9 @@ pl:
       activate: Aktywuj
       deactivate: Dezaktywuj
     help_texts:
-      feedback_description_title: Opinia
+      feedback_description_title: Recenzja
       help_invitation_code_title: "Musisz mieć zaproszenie, aby dołączyć"
-      terms_title: "Regulamin %{service_name}"
+      terms_title: "Zasady użytkowania %{service_name}"
       invite_only_help_text: "Zaznacz tę opcję jeżeli chcesz, aby nowi członkowie dołączali tylko, jeżeli są zaproszeni przez innych użytkowników."
       invite_only_help_text_title: "Tylko z zaproszeniem"
     inactive_notification:
@@ -2698,8 +2701,8 @@ pl:
       inactive_description: "Użytkownik przestał korzystać z %{service_name}. Nie możesz się z nim skontaktować, przekazać opinii ani komentować jego oferty."
     new:
       create_new_account: "Stwórz nowe konto"
-      email: "Adres email"
-      email_is_in_use: "Adres email, który podałeś jest już w użyciu."
+      email: "Adres e-mail"
+      email_is_in_use: "Adres e-mail, który podałeś jest już w użyciu."
       email_is_in_use_or_not_allowed: "Ten adres email nie jest dozwolony lub ktoś już z niego korzysta. Jeżeli nie możesz przebrnąć przez ten etap, skontaktuj się z nami."
       email_not_allowed: "Ten adres email nie jest dozwolony w %{service_name}. Proszę użyj innego adresu. Jeżeli wciąż nie możesz się zalogować, skontaktuj się z nami."
       invalid_username_or_email: "Użytkownik lub e-mail nie są poprawne albo w tej chwili są użytkowane"
@@ -2718,8 +2721,8 @@ pl:
       notification_is_mandatory: "Musisz wybrać przynajmniej jeden adres e-mail do otrzymywania powiadomień. Jeśli nie chcesz otrzymywać żadnych e-maili od %{service_name}, sprawdź swoje ustawienia powiadomień e-mailowych."
       password_again: "Powtórz hasło"
       show_my_name_to_others: "Pokaż moje prawdziwe imię innym użytkownikom %{service_name}"
-      sign_up: "Stwórz nowe konto w %{service_name}"
-      terms: Regulamin
+      sign_up: "Stwórz nowe konto na %{service_name}"
+      terms: "Zasady użytkowania"
       privacy: "Polityka prywatności"
       visible_only_to_you: "widoczne tylko dla Ciebie i administratora platformy"
       visible_to_everybody: "widoczne dla wszystkich"
@@ -2747,8 +2750,8 @@ pl:
       hide_description: "Pokaż mniej"
       less_than_expected: "Poniżej oczekiwań"
       phone_number: "Numer telefonu:"
-      show_all_feedback: "Pokaż wszystkie opinie"
-      show_all_testimonials: "Pokaż wszystkie opinie"
+      show_all_feedback: "Pokaż wszystkie recenzje"
+      show_all_testimonials: "Pokaż wszystkie recenzje"
       show_full_description: "Pokaż więcej"
       slightly_better_than_expected: "Przewyższył oczekiwania"
       slightly_less_than_expected: "Poniżej oczekiwań"
@@ -2783,7 +2786,7 @@ pl:
       create_new_account: "Stwórz nowe konto"
       i_forgot_my_password: "Zapomniałeś nazwy użytkownika lub hasła?"
       login: "Zaloguj się"
-      login_to_kassi: "Zaloguj się do %{service_name}"
+      login_to_kassi: "Zaloguj się na %{service_name}"
       connect_your_facebook_to_kassi: "Połącz swoje konto Facebook z %{service_name}"
       facebook_account: "Konto na Facebooku:"
       log_in_to_link_account: "Jeśli posiadasz już konto w platformie %{service_name}, zaloguj się aby połączyć je ze swoim kontem na Facebook."
@@ -2795,7 +2798,7 @@ pl:
       or_sign_up_with_your_username: "...albo Twoim kontem użytkownika lub adresem email:"
       we_will_not_post_without_asking_you: "Nigdy nie opublikujemy niczego na Facebooku bez zapytania Ciebie."
     password_forgotten:
-      email: "Adres email"
+      email: "Adres e-mail"
       password_recovery_instructions: "Wprowadź swój adres email, aby otrzymać nazwę użytkownika i zresetować hasło."
       request_new_password: "Zamów nowe hasło"
       change_your_password: "Zmień swoje hasło"
@@ -2821,7 +2824,7 @@ pl:
       delete_account_button: "Usuń moje konto na zawsze"
       delete_account_confirmation_popup: "Czy jesteś pewien, że chcesz usunąć swoje konto użytkownika i definitywnie stracić wszystkie dane z nim związane? Usuwanie konta nie może zostać cofnięte."
       email_addresses: "Adresy email"
-      new_email: "Nowy adres email"
+      new_email: "Nowy adres e-mail"
       delete_personal_information: "Jeśli usuniesz swoje konto, Twoje informacje osobiste (imię, telefon, adres, e-mail, zdjęcie profilowe itp.) zostaną usunięte na stałe i nie będzie można ich odzyskać. Wszystkie oferty jakie stworzyłeś zostaną także usunięte. Nie będziesz mógł odzyskać swojego konta."
       delete_information_others_involved: "Informacje w których zaangażowani są inni użytkownicy (konwersacje z innymi, przeprowadzone transakcje, udzielone opinie itp.) nie są usuwane, gdy usuwasz swoje konto. Jednakże Twoje imię nie będzie wyświetlane przy tych informacjach."
       unfinished_transactions: "Twoje konto nie może zostać usunięte, ponieważ masz aktywne transakcje. Zakończ wszystkie swoje transakcje zanim usuniesz konto."
@@ -2846,19 +2849,19 @@ pl:
         status_pending: "W trakcie"
     notifications:
       email_from_admins: "Chcę otrzymywać okazyjne wiadomości email od administratorów"
-      i_want_to_get_email_notification_when: "Chcę otrzymywać powiadomienie email gdy..."
+      i_want_to_get_email_notification_when: "Chcę otrzymywać powiadomienia e-mail, gdy..."
       newsletters: "Emaile od administratorów"
       community_updates: Newslettery
       email_about_confirm_reminders: "... zapomniałem oznaczyć zamówienie jako ukończone"
-      email_about_new_comments_to_own_listing: "...ktoś komentuje moją ofertę lub odpowiada na zapytanie"
-      email_about_new_messages: "...ktoś przesyła mi wiadomość"
-      email_about_new_received_testimonials: "...ktoś przekazuje mi opinię"
-      email_about_testimonial_reminders: "...zapomniałem przekazać opinię o wydarzeniu"
+      email_about_new_comments_to_own_listing: "...ktoś skomentuje moją ofertę lub odpowie na moje zapytanie"
+      email_about_new_messages: "...ktoś wyśle mi wiadomość"
+      email_about_new_received_testimonials: "...ktoś napisze mi recenzję"
+      email_about_testimonial_reminders: "...zapomniałem napisać recenzji o wydarzeniu"
       email_daily_community_updates: "Wyślij mi <b>codzienny</b> newsletter, jeżeli pojawią się nowe oferty"
       email_weekly_community_updates: "Wyślij mi <b>cotygodniowy</b> newsletter, jeżeli pojawią się nowe oferty"
       do_not_email_community_updates: "Nie wysyłaj mi newsletterów"
-      email_when_conversation_accepted: "...ktoś akceptuje moją ofertę lub zapytanie"
-      email_when_conversation_rejected: "...ktoś odrzuca moją ofertę lub zapytanie"
+      email_when_conversation_accepted: "...ktoś zakceptuje moją ofertę lub zapytanie"
+      email_when_conversation_rejected: "...ktoś odrzuci moją ofertę lub zapytanie"
       email_about_completed_transactions: "... ktoś oznacza moje zamówienie jako ukończone"
       email_about_new_payments: "... otrzymałem nową płatność"
       email_about_new_listings_by_followed_people: "... ktoś kogo obserwuję opublikował nową ofertę"
@@ -2908,8 +2911,8 @@ pl:
     show:
       accept_terms: "Akceptuję zasady użytkowania %{service_name}"
       here: "przez kliknięcie tutaj"
-      i_accept_new_terms: "Akceptuję nowe zasady"
-      i_accept_terms: "Akceptuję zasady"
+      i_accept_new_terms: "Akceptuję nowe zasady użytkowania"
+      i_accept_terms: "Akceptuję zasady użytkowania"
       terms: "Zasady użytkowania %{service_name}"
       terms_have_changed: "Zasady użytkowania zmieniły się"
       you_can_view_the_new_terms: "Możesz wyświetlić nowe zasady użytkowania"
@@ -2923,11 +2926,11 @@ pl:
       no_testimonials: "Nie otrzymano opinii."
     new:
       as_expected: "Jak oczekiwano"
-      exceeded_expectations: "Zdecydowanie więcej niż oczekiwano"
+      exceeded_expectations: "Zdecydowanie lepiej niż oczekiwano"
       give_feedback_to: "Przekaż opinię do %{person}"
       grade: "Jaka jest Twoja ogólna ocena?"
       less_than_expected: "Gorzej niż oczekiwano"
-      send_feedback: "Wyślij opinię"
+      send_feedback: "Wyślij recenzję"
       slightly_better_than_expected: "Trochę lepiej niż oczekiwano"
       slightly_less_than_expected: "Trochę gorzej niż oczekiwano"
       textual_feedback: "Jak poszło?"
@@ -2994,7 +2997,7 @@ pl:
       december: Gru
     today: Dziś
     clear: Wyczyść
-    format: mm/dd/rrrr
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%b %e, %Y na %H:%M"
@@ -3270,6 +3273,7 @@ pl:
       need_verification: "Potrzebna dodatkowa weryfikacja"
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: "Numer ubezpieczenia społecznego (NFZ)"

@@ -348,7 +348,6 @@ hr:
         invalid_facebook_connect_secret: "Client secret bi trebao sadržavati samo brojeve i slova od a do f."
         enable_facebook_login: "Dozvoli korisnicima prijavu preko Facebook računa"
         save: "Spremite postavke"
-        add_another_image: "Dodaj drugu sliku"
         google_connect: "Google Prijava"
         google_instructions_link_text: "Vidi upute za konfiguriranje Google Prijave"
         google_developers_console: ~
@@ -735,6 +734,9 @@ hr:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2259,6 +2261,7 @@ hr:
         other: "Web stranica ce biti nedostupna zbog održavanja u roku od %{count} minuta"
       automatically_logged_out_please_sign_in: "Automatski ste odjavljeni. Molimo ponovno se prijavite."
       stripe_you_account_balance_is_not_0: "Iznos na vašem računu je veći od 0 stoga se ne može izbrisati. To možda znači da imate transakcije koje čekaju na izvršenje ili da postoje uplate koje trebaju sjesti na vaš bankovni račun. Molimo vas, kontaktirajte %{service_name} tim kako bi saznali više."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Da li želite %{link}?"
       visit_admin_link: "posjetite svoje administratorsko sučelje"
       an_error_occurred_when_saving_your_information: ~
@@ -3259,6 +3262,7 @@ hr:
       need_verification: "Potrebna je dodatna verifikacija"
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Broj socijalnog osiguranja (SIN)"
       social_security_number: "Broj socijalnog osiguranja (SIN)"

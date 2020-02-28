@@ -186,3 +186,13 @@ select#locale-selection {
 label.after-info-text {
   margin-top: 0;
 }
+form {
+  .checkbox-container.file-delete-box {
+    input[type=checkbox] {
+      top: 8px;
+    }
+    label {
+      margin-top: 0.1875em;
+    }
+  }
+}

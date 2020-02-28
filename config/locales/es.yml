@@ -279,10 +279,10 @@ es:
         ban_user_confirmation: "Esto deshabilita la cuenta del usuario en la comunidad y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
         unban_user_confirmation: "Esto habilita la cuenta del usuario en la comunidad y le permitirá acceder al sitio nuevamente con esta cuenta. ¿Estás seguro que quieres continuar?"
         ban_me_error: "No te puedes deshabilitar a ti mismo."
-        have_ongoing_transactions: ~
-        only_delete_disabled: ~
-        delete_info1: ~
-        delete_info2: ~
+        have_ongoing_transactions: "Esta cuenta no puede ser eliminada porque tienen transacciones pendientes. Asegúrate de que las transacciones estén completas antes de eliminar la cuenta."
+        only_delete_disabled: "Sólo puedes eliminar usuarios que han sido previamente deshabilitados. Deshabilita la cuenta para poder eliminarla."
+        delete_info1: "Si eliminas esta cuenta, la información personal (nombre, número de teléfono, dirección, email, imagen de perfil, etc.) se eliminará permanentemente y no podrá ser recuperada. Todos los anuncios que han creado se eliminarán del portal. No serás capaz de reactivar esta cuenta."
+        delete_info2: "La información en la que están involucrados otros miembros (conversaciones con otra gente, transacciones que se han realizado, revisiones que se han dado a otros, etc) no se eliminarán cuando canceles esta cuenta. No obstante, el nombre no aparecerá junto a esa información."
         search: Buscar
         search_by_name_email: "Buscar por nombre, dirección o nombre personalizado"
         reset_search: "Mostrar todos"
@@ -302,7 +302,7 @@ es:
         unconfirmed_user: "Usuario no confirmado: %{name}"
         resend: Reenviar
         cancel: Cancelar
-        confirm: ~
+        confirm: Confirmar
         user_didnt_complete_the_signup_process: "Este usuario se registró por medio de redes sociales pero no completo el proceso de registro. Después de conectar una cuenta de redes sociales, los usuarios tienen que aceptar los términos de uso y llenar los campos obligatorios."
         pending_user: "Pendiente: %{name}"
       new_layout:
@@ -340,7 +340,6 @@ es:
         invalid_facebook_connect_secret: "El App Secret debe incluir sólo números y letras de la a a la f."
         enable_facebook_login: "Permitir a los usuarios conectarse con su cuenta de Facebook"
         save: "Guardar configuración"
-        add_another_image: "Cambia la imagen"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Ver las instrucciones para configurar Google Sign-In."
         google_developers_console: "Consola para desarrolladores de Google"
@@ -727,6 +726,9 @@ es:
             listings: "Editar sección Anuncios"
             locations: "Editar sección Ubicaciones"
             video: "Editar sección Video"
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -1790,12 +1792,12 @@ es:
       subject: "Disputa de la orden descartada - El equipo de %{service_name} ha rechazado la disputa de %{buyer}"
       marketplace_team_has_rejected_the_cancellation: "el equipo de %{service_name} ha rechazado la disputa de %{transaction_link}."
     transaction_commission_charge_failed:
-      subject: ~
-      transaction_about: ~
-      the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
-      contact_the_seller: ~
+      subject: "Una comisión en tu marketplace no se ha transferido a tu cuenta de PayPal"
+      transaction_about: "transacción por %{listing_title}"
+      the_commission_of_the_transaction: "la comisión de la %{transaction_link} en donde el proveedor es %{seller} ha fallado al intentar ser transferida a tu cuenta de PayPal."
+      this_usually_means: "Normalmente esto significa que hay algo bloqueando la transferencia desde la cuenta de PayPal del proveedor. En la mayoría de los casos, esto es debido a que el proveedor no tiene una fuente de fondos válida o verificada en su cuenta de PayPal."
+      if_you_would_like_to_investigate: "Si quieres investigar esto más a fondo, un buen paso es contactar al proveedor acerca de esto."
+      contact_the_seller: "Contacta al proveedor"
   error_messages:
     booking:
       booking_failed_payment_voided: "La reserva falló debido a un error inesperado. Por favor intenta de nuevo más tarde. No se te ha cargado nada."
@@ -2249,6 +2251,7 @@ es:
         other: "La página estará fuera de servicio por mantenimiento en %{count} minutos"
       automatically_logged_out_please_sign_in: "Por favor, inicia sesión de nuevo, ya que tu sesión ha caducado."
       stripe_you_account_balance_is_not_0: "El balance de tu cuenta no es 0 y por lo tanto no puede ser eliminada. Esto puede significar que tienes transacciones esperando a ser completadas o que hay dinero esperando a ser transferido a tu cuenta de banco. Por favor contacta al equipo de %{service_name} si tienes alguna duda."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "¿ Quisieras %{link}?"
       visit_admin_link: "visitar tu panel de administración"
       an_error_occurred_when_saving_your_information: "Hubo un problema al guardar tu información, el mensaje es: \"%{message}\". Por favor revisa que toda la información sea correcta e intenta de nuevo."
@@ -3233,6 +3236,7 @@ es:
       need_verification: "Necesita verificación adicional"
       additional_document: "Comprobante de domicilio, ya sea pasaporte, identificación oficial o una factura oficial"
       additional_document_back: "Comprobante de domicilio, ya sea pasaporte, identificación oficial o una factura oficial (parte de atrás)"
+      files_need_to_be: "Los archivos tienen que ser en formato JPG or PNG y deben ser más pequeños que 5MB. No es posible verificar PDFs. Las imágenes deben de estar a color, con la imagen boca arriba y con toda la información claramente legible."
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Número de seguridad social (Social Security Number)"

@@ -340,7 +340,6 @@ fi:
         invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
         enable_facebook_login: "Salli käyttäjien kirjautua Facebook-tilillään"
         save: Tallenna
-        add_another_image: "Lisää uusi kuva"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Katso ohjeet Google Sign-In:in käyttöön ottamiseksi."
         google_developers_console: "Googlen Developers Console"
@@ -727,6 +726,9 @@ fi:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -2249,6 +2251,7 @@ fi:
         other: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
       automatically_logged_out_please_sign_in: "Sinut kirjattiin ulos automaattisesti. Kirjaudu uudelleen sisään."
       stripe_you_account_balance_is_not_0: "Tilisi saldo ei ole 0, joten sitä ei voi poistaa. Tämä saattaa tarkoittaa sitä, että sinulla on ostotapahtumia, joita ei ole vielä saatettu loppuun, tai että tililläsi on rahaa, jota ei ole vielä siirretty pankkitilillesi. Ole hyvä ja ota yhteyttä %{service_name} -tiimiin saadaksesi lisätietoja."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Haluaisitko %{link}?"
       visit_admin_link: "siirtyä ylläpitonäkymään"
       an_error_occurred_when_saving_your_information: ~
@@ -3234,6 +3237,7 @@ fi:
       need_verification: "Lisävahvistus tarvitaan"
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sosiaalivakuutusnumero)"
       social_security_number: "Social Security Number (SSN; Sosiaaliturvanumero)"

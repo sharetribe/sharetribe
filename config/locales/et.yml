@@ -42,20 +42,20 @@ et:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: "Põhi info"
+        community_look_and_feel: Disain
+        edit_community: "Põhi info"
         enabled_languages: ~
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
+        community_name: "Kogukonna rendituru nimi"
         edit_community_name_description: ~
-        community_slogan: ~
+        community_slogan: "Kogukonna rendituru slogan"
         community_slogan_display: ~
         edit_community_slogan_description: ~
         edit_community_slogan_description_hideable: ~
-        community_description: ~
+        community_description: "Kogukonna rendituru kirjeldus"
         community_description_display: ~
         edit_community_description_description: ~
         edit_community_description_description_hideable: ~
@@ -63,8 +63,8 @@ et:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
-        invite_people: ~
+        update_information: "Salvesta seaded"
+        invite_people: "Kutsu uusi kasutajaid"
         edit_signup_info: ~
         edit_signup_info_description: ~
         edit_info: ~
@@ -83,15 +83,15 @@ et:
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
+        edit_community_look_and_feel: "Redigeeri \"%{community_name}\" vaata ja tunneta"
+        community_logo: Logo
         community_logo_icon: ~
         community_logo_icon_mobile: ~
-        community_cover_photo: ~
+        community_cover_photo: Kaanefoto
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
+        community_custom_color1: Põhivärv
         community_slogan_color: ~
         community_slogan_color_instructions_text: ~
         community_description_color: ~
@@ -109,7 +109,7 @@ et:
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: "Kasutajaliidese põhivärvi saad muuta, sisestades kuueteistkümnendsisalduse. %{link}  aitab värvi valida ja annab kuueteistkümnenda värvikoodi. Seejärel saad koodi siia kopeerida."
         new_listing_button_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
@@ -121,7 +121,7 @@ et:
         full_name: ~
         first_name_with_initial: ~
         first_name_only: ~
-        invalid_color_code: ~
+        invalid_color_code: "Värvikood peaks sisaldama 6 numbrit või tähte A-F, näiteks D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
         current_image: ~
@@ -325,7 +325,6 @@ et:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -712,6 +711,9 @@ et:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
         content:
@@ -895,9 +897,9 @@ et:
         edit_user_field: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        send_email: ~
+        send_email_to_members: "Saada kasutajatele e-mail"
+        send_email_to_members_title: "Saada e-mail omaa kasutajatele"
+        send_email: "Saada e-mail"
         send_email_or: ~
         send_test_email: ~
         test_sent: ~
@@ -912,13 +914,13 @@ et:
             with_listing_no_payment: ~
             with_payment_no_listing: ~
             no_listing_no_payment: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        email_subject: "E-maili pealkiri"
+        email_content: "E-maili sisu"
+        email_content_placeholder: "Mida sooviskid oma kasutajatele kirjutada?"
+        email_language: "E-maili saajate keel"
+        any_language: "Mis tahes keel"
+        message_will_be_sent_only_to_people_with_this_language: "E-mail saadetakse ainult kasutajatele, kes on %{service_name} sinu valitud keelega."
+        email_sent: "E-mail saadetud."
         to_improve_email_deliverability: ~
         email_subject_text: ~
         firstname_cannot_be_removed: ~
@@ -1149,16 +1151,16 @@ et:
         learn_more: ~
   common:
     edit_page: ~
-    default_community_slogan: ~
-    default_community_description: ~
+    default_community_slogan: "Kogukonna renditurg"
+    default_community_description: "See on koht, kus saab kaupu ja teenuseid teiste rendituru liikmetega müüa, rentida, vahetada ja jagada."
     cancel: Tühista
     fields_that_are_mandatory: "Tärniga märgistatud (*) väljad on kohustuslikud"
     or: või
-    password: ~
-    service_name: ~
+    password: Parool
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
+      request: päring
+      offer: pakkumine
       borrow: "laenu võtmine"
       buy: ostmine
       give_away: "ära andmine"
@@ -1167,32 +1169,32 @@ et:
       rent: Rentimine
       rent_out: "Välja rentida"
       sell: Müüa
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      offer_to_swap: vahetamine
+      request_to_swap: vahetamine
+      share_for_free: "tasuta jagamine"
+      accept_for_free: "soovin tasuta kasutusvõimalust"
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
-    username: ~
-    username_or_email: ~
+      item: Esemed
+      favor: Teenused
+      rideshare: Sõidujagamine
+      housing: Majutus
+      tools: Tööriistad
+      sports: Sporditarbed
+      music: Muusika
+      books: "Raamatud ja Ajakirjad"
+      games: "Mängud ja Mänguasjad"
+      furniture: Mööbel
+      outdoors: "Matkamine ja õuetegevused"
+      food: "Toit ja köök"
+      electronics: Elektroonika
+      pets: "Loomad ja Lemmikloomad"
+      film: Filmid
+      clothes: "Riided ja Aksessuaarid"
+      garden: Aed
+      travel: Reisimine
+      other: Muu
+    username: Kasutajanimi
+    username_or_email: E-mail
     what_is_this: "Mis see on?"
     removed_user: ~
     payment_fee_info:
@@ -1213,14 +1215,14 @@ et:
     accept:
       details: ~
       order_by: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
+      accept_offer: "Aktsepteeri pakkumine"
+      accept_request: "Aktsepteeri taotlus"
+      reject_offer: "Mite see kord"
+      reject_request: "Mitte see kord"
+      close_listing: "Sulge kuulutus %{listing_title_link}"
+      update_later: "Jäta kuulutus aktiivseks"
+      optional_message: "Valikuline sõnum"
+      price_to_pay: "Lõplik summa tasumiseks"
       accept: ~
       decline: ~
       quantity_label: ~
@@ -1237,15 +1239,15 @@ et:
       shipping_price_label: ~
       stripe-fee_label: ~
     confirm:
-      confirm_description: ~
+      confirm_description: "Kui tellimus on täidetud, peaksid selle kinnitama kui valmis. Siis saad teisele poolele tagasisidet anda."
       cancel_description_team: ~
-      cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      cancel_payed_description: "Kui su taotlus aktsepteeriti, kuid veel kahtled, siis saad selle siiski tühistada veel enne tasumist."
+      canceling_payed_transaction: "Tühista tellimus"
+      confirm: "Märgi tehtuks"
+      cancel: Vaidlus
+      continue: Jätka
+      give_feedback_to: "Jäta tagasisidet kasutajale %{person_link}"
+      do_not_give_feedback: "Jäta tagasiside kirjutamine vahele"
     details:
       day: ~
       days: ~
@@ -1257,30 +1259,30 @@ et:
       no_received_messages: "sõnumeid pole"
       no_sent_messages: "Saadetuid sõnumeid pole"
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      accepted_request: "Taotlus aktsepteeritud"
+      accepted_offer: "Pakkumine aktsepteeritud"
+      rejected_request: "Taotlus tagasi lükatud"
+      rejected_offer: "Pakkumine tagasi lükatud"
+      confirmed_request: "Tellimus täidetud"
+      confirmed_offer: "Pakkumine täidetud."
+      canceled_request: "Tellimus vaidlustatud."
+      canceled_offer: "Pakkumine tühistatud."
       message_from: ~
       about_listing: ~
       free_message: ~
       message_content_not_available: ~
     message:
-      accepted_request: ~
+      accepted_request: "Aktsepteeri taotlus."
       received_payment: ~
       received_payment_wo_sum: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_offer: "Taotlus aktsepteeritud."
+      rejected_request: "Taotlus tagasi lükatud, makse tühistatud."
+      rejected_offer: "Pakkumine tagassi lükatud"
+      confirmed_request: "märgitud tellimus täidetuks"
+      confirmed_offer: "märgitud pakkumine täidetuks"
+      canceled_request: "tellimus tühistatud"
+      canceled_offer: "pakkumine tühistatud"
+      paid: "makstud %{sum}"
       payment_preauthorized: ~
       payment_preauthorized_wo_sum: ~
       stripe:
@@ -1295,25 +1297,25 @@ et:
       message: Sõnum
       message_to: ~
       optional_message_to: ~
-      send_message: ~
-      send: ~
-      this_message_is_private: ~
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      send_message: "Saada teade"
+      send: Saada
+      this_message_is_private: "See sõnum on sinu ja %{person}  vahel privaatne. %{person}  teavitatakse sellest sõnumist e-posti teel."
+      you_will_get_notified_of_acceptance: "Saad teavituse e-mailiga kui %{person} aktsepteerib või keeldub teie pakkumisest."
+      you_will_get_notified: "Saad e-maili kui %{person} sulle vastab."
       title: Pealkiri
-      send_message_to_user: ~
+      send_message_to_user: "Saada kiri kasutajale %{person}"
       about_listing: ~
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: "kuulutuse kohta"
+      message_sent_by: "Teade saadetud kelle poolt"
+      message_sent_to: "Teade saadetud kellele"
       send_reply: "Saada vastus"
       write_a_reply: "Kirjuta vastus:"
-      conversation_about_listing: ~
-      conversation_with_user: ~
+      conversation_about_listing: "Vestlus kasutajaga %{person} seoses kuulutusega %{listing}"
+      conversation_with_user: "Kasutajaga %{person}"
       conversation_with: ~
-      last_message_at: ~
+      last_message_at: "(viimane teade %{time})"
       price: ~
       sum: ~
       total: ~
@@ -1321,20 +1323,20 @@ et:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: Tühista
       feedback_given: "Antud tagasiside"
       feedback_skipped: "Tagasiside vahele jäetud"
       give_feedback: "Anna tagasisidet"
       offer_accepted: Aktsepteeritud
       offer_rejected: "Tagasi lükatud"
-      offer_canceled: ~
-      offer_confirmed: ~
+      offer_canceled: Tühistatud
+      offer_confirmed: Lõpetatud
       offer_paid: ~
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
-      pay: ~
+      pay: Maksa
       preauthorized: ~
-      paid: ~
+      paid: "Pakse õnnestus"
       pending_external:
         paypal:
           multicurrency: ~
@@ -1344,17 +1346,17 @@ et:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Vastu võetud"
       request_rejected: "Tagasi lükatud"
-      request_confirmed: ~
-      request_canceled: ~
+      request_confirmed: Täidetud
+      request_canceled: Tühistatud
       request_paid: ~
       request_preauthorized: ~
       skip_feedback: "Jäta tagasiside vahele"
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_offer: "Ootan pakkumise aktsepteerimist kasutaja %{listing_author_name} poolt"
+      waiting_for_listing_author_to_accept_request: "Ootan taotluse aktsepteerimist %{listing_author_name} poolt. Kohe kui %{listing_author_name} on aktsepteerinud, arveldatakse teilt tasu."
       waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_requester: "Ootan, et kasutaja %{requester_name} märgiks tellimuse täidetuks"
       waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
+      waiting_payment_from_requester: "Ootan, et kasutaja %{requester_name} teostaks makse"
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
       pending_external_inbox:
@@ -1386,8 +1388,8 @@ et:
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
       reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      confirm: "Märgi täidetuks"
+      cancel: Vaidlustamine
       mark_as_refunded: ~
       dismiss: ~
   feedback:
@@ -1401,16 +1403,16 @@ et:
       you_are_banned_in_this_community: ~
       contact_page_link: ~
     new:
-      welcome_fb_user: ~
-      fb_join_accept_terms: ~
-      join_community: ~
-      you_can_join: ~
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
-      log_out: ~
-      join_community_button: ~
+      welcome_fb_user: "Tere tuoemast %{service_name}, %{name}!"
+      fb_join_accept_terms: "Veel viimane samm enne liitumist %{service_name}: pead aktsepteerima kasutustingimused."
+      join_community: "Liitu %{service_name}"
+      you_can_join: "Saad liituda %{service_name} kui aktsepteerid kasutustingimused ja vajutad `Liitu %{service_name}`"
+      you_can_join_email_confirmation: "%{service_name}  liitumiseks peab olema kehtiv e-posti aadress, mis lõpeb tähega %{email_ending}. Liituda saab täites oma e-posti aadressi, nõustudes kasutustingimustega, klõpsates allpool asuval 'Liitu%{service_name} ' ja kinnitades oma e-posti aadressi."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name}  on meilipiirangud. Liituda saad ainult siis, kui sul on kehtiv e-posti aadress. Liituda saab täites oma e-posti aadressi, nõustudes %{service_name} kasutustingimustega ja klõpsates allpool asuval 'Liitu %{service_name}'."
+      you_can_join_with_invite_only: "%{service_name} liitumiseks peab sul olema mõne teise liikme kutse. Kui sul on kutsekood, võid liituda, tippides koodi allpool olevale väljale, nõustudes kasutustingimustega ja klõpsates allpool asuvat nuppu „Liitu%{service_name} ”."
+      if_want_to_view_content: "Kui soovid vaadata %{service_name} ,liitumata, pead"
+      log_out: "logi välja"
+      join_community_button: "Liitu %{service_name}"
     give_consent:
       invitation_code_invalid_or_used: ~
       email_not_allowed: ~
@@ -1424,16 +1426,16 @@ et:
       you_can_accept_or_reject_request_at: "Päringut saad aktsepteerida või tagasi lükata"
       you_have_not_yet_accepted_or_rejected_offer: "Sa ei ole veel aktsepteerinud või tagasi lükkanud pakkumist saatjalt %{title} mis saabus kuupäeval %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Sa ei ole veel aktsepteerinud või tagasi lükkanud päringut saatjalt %{title} mis saabus kuupäeval %{date}."
-      show_thread: ~
+      show_thread: "Näita vestlus"
     branding:
       powered_by: ~
       create_own: ~
       learn_more: ~
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
-      remember_to_confirm_request: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      you_have_not_yet_confirmed_or_canceled_request: "Te pole tellimust %{request_link} veel täidetuks märkinud ega vaidlustanud. Kui tellimus on täidetud, peaksite seda kinnitama. Pärast seda saate anda tagasisidet kasutajal %{other_party_given_name}."
+      remember_to_confirm_request: "Ära unusta taotlust kinnitada või tühistada"
+      if_will_not_happen_you_should_cancel: "Kui arvad, et seda tellimust ühel või teisel põhjusel ei täideta, võid %{cancel_it_link}."
+      cancel_it_link_text: "Vaidlusta see"
       automatic_confirmation: ~
     confirm_reminder_v2:
       headline: ~
@@ -1447,13 +1449,13 @@ et:
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      here_is_a_message_from: "Uus teavitus kasutajalt %{other_party_given_name}:"
+      request_marked_as_confirmed: "Tellimus täidetud - pea meeles anda tagasisidet"
+      request_marked_as_canceled: "Tellimus vaidlustatud"
+      has_marked_request_as_confirmed: "%{other_party_full_name} on märkinud tellimuse %{request} täidetuks. Nüüd võid jätta tagasisidet %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} on vaidlustanud tellimuse %{request}. Sa võid siiski jätta tgasisidet %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Tagasiside andmine on alati hea mõte. Kui kõik läks hästi, peaksid teistele teatama, et %{other_party_given_name} saab usaldada. Kui oli probleeme, on hea mainida ka neid."
+      give_feedback_to: "Kirjuta tagasisidet %{other_party_given_name}."
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
@@ -1480,10 +1482,10 @@ et:
       give_feedback_to: ~
       show_thread: ~
     confirmation_instructions:
-      confirmation_instructions_signature: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
-      or_paste_link: ~
+      confirmation_instructions_signature: "Parimate soovidega, <br/>%{service_name} meeskond"
+      need_to_confirm: "Liitumiseks %{service_name}, kinnita oma e-maili aadress vajutades allolevat nuppu."
+      confirmation_link_text: "Kinnita minu aadress"
+      or_paste_link: "Alternatiivina võid kopeerida alloleva llingi oma brauseri aadressiribale."
     confirmation_instructions_v2:
       headline: ~
       need_to_confirm: ~
@@ -1493,27 +1495,27 @@ et:
       hi: ~
       kassi_team: "%{service_name} Meeskond"
       thanks: "Tänud,"
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
-      or: ~
+      dont_want_to_receive_these_emails: "Ei soovi enam neid e-maile saada?"
+      edit_your_email_settings_here: "Muuda oma e-maili seadeid siin"
+      message_not_displaying_correctly: "Kas see e-mail ei näita korralikult?"
+      view_it_in_your_browser: "Vaata oma brauseris"
+      or: või
       unsubscribe_from_these_emails_info: ~
-      unsubscribe_from_these_emails: ~
+      unsubscribe_from_these_emails: "E-maili tellimusest loobumine"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
       here_is_your_receipt: ~
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} aktsepteeris sinu pakkumist %{listing}."
+      has_accepted_your_offer: "%{accepter} aktsepteeris sinu pakkumise %{listing}."
       has_accepted_your_request: "%{accepter} aktsepteeris sinu päringut %{listing}."
       has_rejected_your_offer: "%{accepter} lükkas sinu %{listing} pakkumise tagasi."
       has_rejected_your_request: "%{accepter} lükkas sinu %{listing} päringu tagasi."
-      view_thread: ~
+      view_thread: "Vaata vestlust"
       your_offer_was_accepted: "Sinu pakkumine on vastu võetud"
       your_offer_was_rejected: "Sinu pakkumine on tagasi lükatud"
       your_request_was_accepted: "Sinu päring on vastu võetud"
       your_request_was_rejected: "Sinu päring on tagasi lükatud"
-      you_can_now_pay_to: ~
+      you_can_now_pay_to: "Saad nüüd tasuda küsitud summa kasutajale %{payment_receiver}."
       pay_now: "Maksa nüüd"
       remember_to_confirm: ~
     conversation_status_changed_v2:
@@ -1522,31 +1524,31 @@ et:
       has_rejected_your_request: ~
       has_rejected_your_request_text: ~
     invitation_to_kassi:
-      hi: ~
-      you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
-      join_now: ~
-      invitation_code: ~
+      hi: Tere!
+      you_have_been_invited_to_kassi: "%{inviter} on kutsunud sind %{service_name}."
+      here_is_a_message_from: "Siin on privaatne teade kasutajalt %{inviter}:"
+      join_now: "Liitu nüüd"
+      invitation_code: "Kutse kood: %{code}"
     invitation_to_kassi_v2:
       headline: ~
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
-      you_have_a_new_comment: ~
-      listing_you_follow_has_a_new_comment: ~
+      view_comment: "Vaata kommentaari"
+      you_have_a_new_comment: "%{author} kommenteeris sinu kuulutust %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} kommenteeris kuulutust, mida jälgid saidil %{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      view_message: "Vaata teadet"
+      has_sent_you_a_message_in_kassi: "%{sender} on saatnud sulle teate %{service_name} kohta"
+      you_have_a_new_message: "Uus teade %{service_name} kohta kasutajalt %{sender_name}"
     new_message_v2:
       headline: ~
       reply: ~
     new_payment:
-      new_payment: ~
+      new_payment: "Oled saanud uue makse"
       price_per_unit_type: ~
       quantity: ~
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "Kasutaja %{payer_full_name} on sulle tasunud <b> %{payment_sum} </b><b>  %{listing_title} </b>  eest. Siin on sinu kviitung."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
@@ -1611,39 +1613,39 @@ et:
       stripe:
         you_have_made_new_payment: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
-      view_feedback: ~
+      has_given_you_feedback_in_kassi: "%{name} on jätnud tagasisidet %{service_name} kohta"
+      you_can_give_feedback_to: "Sa pole veel kirjutanud tagasisidet kasutajale %{name}"
+      view_feedback: "Vaata tagasisidet"
     new_testimonial_v2:
       headline: ~
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
+      listing_you_follow_has_been_updated: "Kuulutus mida jälgid on uuendatud"
       has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      view_changes: "Vaata muudatusi"
     community_updates:
-      added_offer: ~
-      added_request: ~
+      added_offer: "%{name_link} lisas kulutuse:"
+      added_request: "%{name_link} lisas kuulutuse:"
       added_listing: ~
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      reduce_email_footer_text: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      update_mail_title: "%{title_link} uuendus"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Siin mõned sündmused %{community_link} viimase %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name}"
+      reduce_email_footer_text: "Liiga palju e-maile? Vajuta %{settings_link} või eemalda nimekirjast %{unsubscribe_link}."
+      settings_link_text: "Muuda oma e-maii seadeid siin"
+      unsubscribe_link_text: "tellimusest loobumine"
     community_updates_v2:
       headline: ~
     newsletter:
-      hi: ~
-      newest_offers: ~
-      newest_requests: ~
-      text_version_text: ~
+      hi: "Tere %{name}"
+      newest_offers: "Mida inimesed hetkel teistele pakuvad"
+      newest_requests: "Mida inimesed hetkel küsivad"
+      text_version_text: "Kas saaksid jagada midagi, mida teised vajaksid? Või vajad midagi, mis teistel võiks olla? Lisa pakkumine või taotlus või vaata kõike, mida teised pakuvad või taotlevad, aadressil %{url}"
     reset_password_instructions:
-      change_my_password: ~
-      reset_password_instructions: ~
+      change_my_password: "Muuda minu parool"
+      reset_password_instructions: "<p> Oled teatanud, et unustasid %{service_name} parooli. </p> <p> Kui pead parooli lähtestama, klõpsa järgmist linki:%{password_reset_link}  </p> <br /> <p> Kui seda ei taotlenud, siis ignoreeri seda e-kirja. Su parool ei muutu enne, kui pääsed ülaltoodud lingile ja lood uue. </p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      remember_to_give_feedback_to: "Meeldetuletus: Palun kirjuta tagasiside kasutajale %{name}"
+      you_have_not_given_feedback_yet: "Sa pole veel jätnud tagasisidet kasutajale %{name} teenuse %{event} eest. Palun kirjuta tagasiside, kuidas jäid rahule %{given_name} teenusega."
     testimonial_reminder_v2:
       headline: ~
       you_have_not_given_feedback_yet: ~
@@ -1670,8 +1672,8 @@ et:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      welcome_email_footer_text: "Millise sisuga e-maili sooviskid saada %{service_name}? %{settings_link}"
+      settings_link_text: "Kontrolli oma seadeid"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1765,14 +1767,14 @@ et:
     onboarding:
       server_rendering: ~
     listings:
-      departure_time: ~
-      share_type: ~
-      valid_until: ~
-      price: ~
+      departure_time: "Väljumisaeg peab olema praeguse aja ja kuni ühe aasta vahel praegusest ajast."
+      share_type: "Pead valima ühe."
+      valid_until: "See kuupäev peab olema praeguse aja ja kuni 6 kuu vahel praegusest."
+      price: "Hind peab olema täisnumber"
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Kui soovid anda mitteneutraalset tagasisidet, pead selgitama, miks."
+      you_must_select_a_grade: "Pea meeles kirjeldada, kas kogemus oli positiivne või negatiivne."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -1792,12 +1794,12 @@ et:
       card_declined: ~
       expired_card: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Tagasi esilehele"
     error_404:
-      if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      if_you_believe: "Kui usud, et aadress on õige ja see peaks toimima, aita meil tõrge üles leida, teatades meile, milline aadress vea põhjustas ja mida peaks lehel nägema alloleva vormiga."
+      page_can_not_be_found: "Lehekülge ei leitud!"
+      page_you_requested_can_not_be_found: "Lehekülge ei leitud. Kas oled kindel, et aadress on õige?"
+    error_404_title: "lehekülge ei leitud"
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -1808,16 +1810,16 @@ et:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: "lehekülje laadimine ebaõnnestus"
+    error_description: "Viga kirjelduses"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: ~
-      contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      javascript_is_disabled_in_your_browser: "Javascript on sinu brauseris keelatud"
+      kassi_does_not_currently_work_without_javascript: "%{service_name} ei tööta korralikult ilma javascriptita. Proovi brauseri eelistustes lubada javascript ja laadi see leht uuesti uuesti."
+      contact_us: "võta meiega ühendust"
+      send_feedback: "Saada teade"
+      your_feedback_to_admins: "Sinu teade %{service_name} meeskonnale"
+    send: Saada
+    your_email_address: "Sinu e-maili aadress"
   errors:
     messages:
       invalid_date: ~
@@ -1837,41 +1839,41 @@ et:
       domain_name_is_invalid: ~
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
+      has_accepted_lend_item: "%{offerer_name} nõustus rentima %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} nõustus rentima %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} nõustus rentima %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} nõustus rentima %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} nõustus andma %{listing_title} kasutajale %{requester_name} %{time_ago}"
+      has_accepted_receive_item: "%{offerer_name} nõustus andma %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} nõustus müüma %{listing_title} kasutajale %{requester_name} %{time_ago}"
+      has_accepted_buy_item: "%{offerer_name} nõustus müüma %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_trade_item: "%{offerer_name} nõustus vahetama %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} nõustus müüma %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} nõustus müüma %{listing_title} kasutajale %{requester_name} %{time_ago}"
+      has_accepted_rent_out_housing: "%{offerer_name} nõustus rentima %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} nõustus rentima %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_favor: "%{offerer_name} nõustus pakkuma %{listing_title} kasutajale %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} nõustus jagama sõitu %{listing_title} kasutajale %{requester_name} %{time_ago}."
     join:
-      joined_kassi: ~
+      joined_kassi: "%{name} liitus %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "%{name} logis sisse %{service_name} %{time_ago}."
     comment:
-      commented: ~
-      offer_partitive: ~
-      request_partitive: ~
+      commented: "%{commenter_name} kommenteeris kuulutust %{listing_title} %{time_ago}."
+      offer_partitive: pakkumine
+      request_partitive: päring
   header:
-    about: ~
-    home: ~
-    members: ~
-    new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    about: Meist
+    home: Algusesse
+    members: Kogukond
+    new_listing: "Uus kuulutus"
+    mobile_version: Mobiiliversioon
+    offers: Pakkumised
+    requests: Päringud
+    search_kassi: "Otsi %{service_name}"
+    create_new_marketplace: "Loo uus võrguturg"
+    contact_us: "Võta meiega ühendust"
+    profile: Profiil
     manage_listings: ~
     invite: ~
     login: ~
@@ -1879,116 +1881,116 @@ et:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Lisaks on veel <b> üks teine pakkumine </b>,"
+      additionally_one_private_request_exists: "Lisaks on veel <b> üks teine päring</b>"
+      additionally_some_private_offers_exist: "Lisaks on veel <b> %{number_of_listings} teisi pakkumisi </b>,"
+      additionally_some_private_requests_exist: "Lisaks on veel <b> %{number_of_listings} teisi päringuid</b>,"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
+      add_first: "Lisa üks!"
+      but_that_is_visible_only_to_registered_members: "kuid see on nähtav ainult registreeritud kautajatele."
+      but_those_are_visible_only_to_registered_members: "kuid need on nähtavad ainult registreeritud kasutajatele."
+      create_new_account_for_yourself: "Loo endale uus konto"
+      examples_of_what_you_could_offer_to_others: "Mida saaksid pakkuda teistele"
+      examples_of_what_you_could_request_to_others: "Miliseid päringuid saadaksid teistele"
+      favor_offer_list: "arvuti abi, riiete parandus, kondiiter, rattaparandus"
+      favor_request_list: "lastehoid, klaveritunnid, koertega jalutamine, muruniitmine"
+      favors_to_offer: "Abi: "
       favors_to_request: "Abi: "
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: "Kaubad laenuks: "
-      items_to_request: ~
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      item_offer_list: "tööriistad, spordivarustus, kostüümid, matkatarbed"
+      item_request_list: "tööriistad, spordivarustus, kostüümid, matkatarbed"
+      items_to_offer: "Kaubad laenutamiseks: "
+      items_to_request: "Kaubad laenamiseks: "
+      log_in: "logi sisse!"
+      no_offers_visible_unless_logged_in: "Ühtegi eseme, teenuse ega sõidujagamise pakkumist ei näe sisse logimata kasutajad."
+      no_open_offers_currently: "Ühtegi  eseme, teenuse ega sõidujagamise pakkumist pole saadaval."
+      no_open_requests_currently: "Ühtegi  eseme, teenuse ega sõidujagamise päringut pole saadaval."
+      no_requests_visible_unless_logged_in: "Ühtegi eseme, teenuse ega sõidujagamise päringut ei näe sisse logimata kasutajad."
+      one_private_offer_exists: "Juba on <b> üks pakkumine </b>,"
+      one_private_request_exists: "Juba on <b>üks päring</b>,"
+      ride_offer: "Kaasa teiste lapsi nende hobide juurde"
+      ride_request: "Sõit tööle"
+      some_private_offers_exist: "Juba on<b>%{number_of_listings} pakkumisi</b>,"
+      some_private_requests_exist: "Juba on <b>%{number_of_listings} päringuid</b>,"
     custom_filters:
       update_view: ~
       min: ~
       max: ~
     event_feed:
-      latest_events: ~
+      latest_events: "Mis hetkel toimumas"
     grid_item:
       processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
+      no_listings_notification: "Kuuutusi pole. %{add_listing_link}"
       add_listing_link_text: ~
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
-      is: ~
-      are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
+      open_listing: "aktiivne kuulutus"
+      open_listings: "aktiivsed kuulutused"
+      private_listing_notification_log_in: "logi sisse"
+      is: "on"
+      are: "on"
+      what_do_you_need: "Mida oled otsimas?"
+      post_new_listing: "Lisa uus kuulutus"
       are_offering: pakkumine
-      add_news_item: ~
+      add_news_item: "Lisa artikkel"
       lend_rent_help_carpool: "Müü, laena, aita, jaga sõite"
-      loading_more_content: ~
+      loading_more_content: "Laadin rohkem sisu"
       more_events: "Rohkem üritusi..."
       news: Uudised
-      no_news: ~
-      more_news: ~
-      or: ~
+      no_news: "Pole uudiseid"
+      more_news: "Rohkem uudiseid"
+      or: ja
       or_see_what_the_others: "...või vaata mida teised"
-      recent_events: "Äsjased üritused"
-      requesting: ~
+      recent_events: "Hiljutised üritused"
+      requesting: vaja
       tell_it_here: "Räägi sellest siin!"
-      welcome_to_new_kassi: ~
+      welcome_to_new_kassi: "Tere tulemast uus %{service_name}!"
       no_reviews: ~
       no_image: ~
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      email: ~
-      message: ~
-      send_invitation: ~
-      add_email_addresses_description: ~
+      email: "E-maili aadress(id)"
+      message: "Privaatne teade"
+      send_invitation: "Saada kutse"
+      add_email_addresses_description: "Lisa allolevale väljale kutsutavate inimeste e-posti aadressid. Mitme e-posti aadressi lisamiseks eralda need komaga."
       add_lots_of_email_addresses: ~
       this_article_link: ~
-      invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: ~
-      errors_in_emails: ~
+      invitation_emails_field_placeholder: "sõber1@näide.com, sõber2@näide.com, ..."
+      invitation_message_field_placeholder: "Ma liitusin fantastilise rendiplatvormiga inimeselt inimesele. Liitu ka!"
+      errors_in_emails: "Kontrolli, kas lisatud e-posti aadressid on õiged ega sisalda ebaharilikke tähemärke. Kui lisasid mitu aadressi, veendu, et need eraldatakse komaga."
     list_item:
       review: ~
       reviews: ~
       distance_away: ~
     news_item:
-      show_less: ~
-      show_more: ~
+      show_less: "Näita vähem"
+      show_more: "Näita rohkem"
     profile_info_empty_notification:
-      add_your_info: ~
-      add_a_profile_picture: ~
-      you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info: "Sisesta oma kontaktandmed"
+      add_a_profile_picture: "Lisa profiilifoto"
+      you_have_not_added_your_info: "Sa pole oma kontaktandmeid lisanud. Palun lisa, et teised saaksid kergemini ühendust võtta. Lisa ka profiilipilt, nii et teistel on sind lihtsam usaldada."
+      add_your_info_link: "Sisesta nüüd oma info"
     recent_listing:
-      please_offer: ~
-      comment: ~
-      comments: ~
+      please_offer: Pakkumine
+      comment: kommentaar
+      comments: kommentaarid
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
+      show: "Filter:"
+      search: Otsing
+      map: "Näita kaardil"
+      list: "Näita nimekiri"
       map_button: ~
       grid_button: ~
       list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      all_listing_types: "Kõik kuulutuste tüübid"
+      all_categories: "Kõik kategooriad"
     errors:
       search_engine_not_responding: ~
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: "Mis on Sharetribe?"
       default_about_text: ~
-      click_here_link_text: ~
+      click_here_link_text: "Vajuta siia"
     how_to_use:
       default_title: ~
       default_content: ~
@@ -2002,62 +2004,62 @@ et:
       no_listing_image: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name} admini vaade"
     branding:
       powered_by: ~
       create_own: ~
       learn_more: ~
     no_tribe:
-      inbox: ~
-      settings: ~
-      feedback: ~
+      inbox: "Postkasti sisendkaust"
+      settings: Seaded
+      feedback: "Võta ühendust %{service_name} meeskonnaga"
     application:
-      join_this_community: ~
-      read_more: ~
-      feedback: ~
+      join_this_community: "Liitu rendituruga"
+      read_more: "Loe rohkem"
+      feedback: "Sinu teade %{service_name} meeskonnale"
       dont_use_to_contact_support: ~
-      feedback_forum: ~
-      feedback_handle: ~
-      give_feedback: ~
-      or_check_our: ~
-      send_feedback_to_admin: ~
-      to_see_what_others_have_suggested: ~
-      your_email_address: ~
-      connect: ~
-      invite_your_friends: ~
-      invite_your_neighbors: ~
-      invite_your_friends_description: ~
-      invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
-      join_without_facebook_link: ~
+      feedback_forum: "tagasiside foorum"
+      feedback_handle: Tagasiside
+      give_feedback: "Võta meiega ühendust"
+      or_check_our: "...või vaata meie"
+      send_feedback_to_admin: "Saada teade"
+      to_see_what_others_have_suggested: "et vaadata teiste ettepanekuid ja hinnata ideid seal"
+      your_email_address: "Sinu e-maili aadress (sinuga ühendust võtmiseks)"
+      connect: Registreeru
+      invite_your_friends: "Kutsu sõpru!"
+      invite_your_neighbors: "Kutsu naabreid!"
+      invite_your_friends_description: "Mida rohkem kasutajaid on %{service_name}, seda kasulikum kõigile."
+      invite_your_friends_invite_only_description: "Inimesed ei saa liituda %{service_name} kui nad pole kutsutud."
+      join_without_facebook: "või alternatiivina %{join_without_facebook_link}"
+      join_without_facebook_link: "Registreeru kasutades Facebooki"
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: Teated
+      notifications: Teavitused
+      received: Saabunud
+      sent: Saadetud
     global-header:
       select_language: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
-      news: ~
-      register_details: ~
-      terms: ~
+      about: Meist
+      how_to_use: "Kuidas töötab"
+      info_about_kassi: "Informatsioon %{service_name} kohta"
+      news: Uudised
+      register_details: Privaatsuspoliitika
+      terms: Kasutustingimused
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Admin
+      go_to_your_profile_page: Profiil
+      hi: Tere
+      login: "Logi sisse"
+      logout: "Logi välja"
+      notifications: Teavitused
+      requests: "Sõbra taotlused"
+      settings: Seaded
+      sign_up: "Loo konto"
     logged_in_messages_icon:
-      messages: ~
+      messages: Teated
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: Teavitused
     markdown_help:
       title: ~
       description: ~
@@ -2076,129 +2078,129 @@ et:
       two: ~
       three: ~
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Admin
+      go_to_your_profile_page: Profiil
+      hi: Tere
+      login: "Logi sisse"
+      logout: "Logi välja"
+      notifications: Teavitused
+      requests: "Sõbra taotlused"
+      settings: Seaded
+      sign_up: Registreeru
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
-      community_updated: ~
-      community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
-      confirmation_link_is_wrong_or_used: ~
-      additional_email_confirmed: ~
+      something_went_wrong: "Midagi läks valesti"
+      community_updated: "Andmed uuendatud"
+      community_update_failed: "Andmete uuendamine nurjus."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Sinu konto on edukalt loodud. Nüüd pead veel oma e-posti aadressi kinnitama."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Tänan, et liitusid %{service_name} . Nüüd pead veel oma e-maili aadressi kinnitama."
+      comment_cannot_be_empty: "Kommentaari lahter ei saa olla tühi"
+      comment_sent: "Kommentaar saadetud"
+      confirmation_link_is_wrong_or_used: "Kinnituslink on juba kasutatud või muul viisil katki. Proovi sisse logida või saada tagasisidet, kui probleem püsib."
+      additional_email_confirmed: "Sisestatud e-mail on kinnitatud."
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: ~
-      create_new_listing: ~
-      create_one_here: ~
-      email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
-      invitation_cannot_be_sent: ~
+      create_new_listing: "Lisa uus kuulutus"
+      create_one_here: "loo siin"
+      email_confirmation_sent_to_new_address: "E-maili kinnitus on nüüd saadetud uuele aadressile."
+      email_not_found: "Sisestatud e-maili aadressi ei leitud %{service_name} andmebaasist"
+      error_with_session: "Sessiooni viga"
+      feedback_considered_spam: "Tagasisidet ei salvestatud vale formaadi tõttu. Proovi uuesti või kasuta tagasiside foorumit."
+      feedback_not_saved: "Tagasisidet ei olnud võimalik saata."
+      feedback_saved: "Suur tänu teate eest! Võtame teiega ühendust nii kiiresti kui võimalik."
+      feedback_sent_to: "Tagasiside saadetud %{target_person}."
+      feedback_skipped: "Tagasiside vahele jäetud"
+      invitation_cannot_be_sent: "Kutset ei olnud võimalik saata"
       invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
-      invitation_sent: ~
+      invitation_sent: "Kutse edukalt saadetud"
       invitation_successfully_unsubscribed: ~
-      inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
-      account_creation_successful: ~
+      inviting_new_users_is_not_allowed_in_this_community: "Uute kasutajate kutsumine ei ole lubatud."
+      login_again: "Palun logi uuesti sisse"
+      login_failed: "Sisselogimine ebaõnnestus. Palun sisesta korrektsed andmed."
+      account_creation_successful: "Tere tulemast %{service_name}`isse , %{person_name}!"
       account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
-      news_item_created: ~
-      news_item_creation_failed: ~
-      news_item_update_failed: ~
-      news_item_updated: ~
-      news_item_deleted: ~
-      offer_accepted: ~
-      offer_confirmed: ~
-      offer_closed: ~
-      listing_created_successfully: ~
-      offer_rejected: ~
-      offer_canceled: ~
-      listing_updated_successfully: ~
+      login_successful: "Tere tulemast, %{person_name}!"
+      logout_successful: "Sind on välja logitud %{service_name}. Kohtumiseni!"
+      news_item_created: "Artikkel loodud"
+      news_item_creation_failed: "Artikli loomine ebaõnnestus"
+      news_item_update_failed: "Artikli üleslaadimine ebaõnnestus"
+      news_item_updated: "Artikkel uuendatud"
+      news_item_deleted: "Artikkel eemaldatud"
+      offer_accepted: "Pakkumine aktsepteeritud"
+      offer_confirmed: "Pakkumine täidetud"
+      offer_closed: "Pakkumine suletud"
+      listing_created_successfully: "Kuulutus edukalt lisatud. %{new_listing_link}."
+      offer_rejected: "Pakkumisest keeldutud"
+      offer_canceled: "Pakkumine tühistatud"
+      listing_updated_successfully: "Kuulutus edukalt lisatud"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
       listing_deleted: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
-      payment_successful: ~
+      only_kassi_administrators_can_access_this_area: "Sellele alale pääsemiseks logige sisse administraatori kontoga"
+      only_listing_author_can_close_a_listing: "Ainult kuulutuse autor saab selle sulgeda"
+      only_listing_author_can_edit_a_listing: "Ainult kuulutuse autor saab seda muuta"
+      payment_successful: "Makse õnnestus"
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
-      person_activated: ~
-      person_deactivated: ~
-      person_updated_successfully: ~
-      poll_answered: ~
-      poll_could_not_be_answered: ~
-      poll_created: ~
-      poll_creation_failed: ~
-      poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
-      read_more: ~
-      registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
-      request_confirmed: ~
-      request_rejected: ~
-      request_canceled: ~
-      message_sent: ~
+      password_recovery_sent: "Juhend parooli muutmiseks saadetud teie e-mailile."
+      person_activated: "Kasutaja aktiveeritud"
+      person_deactivated: "Kasutaja deaktiveeritud"
+      person_updated_successfully: "Andmed uuendatud"
+      poll_answered: "Küsimusele vastatud"
+      poll_could_not_be_answered: "Küsimusele ei saanud vastata"
+      poll_created: "Küsimus loodud"
+      poll_creation_failed: "Küsimust ei saanud luua"
+      poll_update_failed: "Küsimust ei saanud uuendada"
+      poll_updated: "Küsimus uuendatud"
+      poll_deleted: "Küsimus eemaldatud"
+      read_more: "Loe lisa!"
+      registration_considered_spam: "Registreerimine ei õnnestunud, võta meiega ühendust päisemenüüst ja kirjutage \"email2 viga\"."
+      reply_cannot_be_empty: "Tühja sõnumit ei saa saata"
+      reply_sent: "Vastus edukalt saadetud"
+      request_accepted: "Päring aktsepteeritud"
+      request_confirmed: "Tellimus täidetud"
+      request_rejected: "Päringust keeldutud"
+      request_canceled: "Tellimus vaidlustatud"
+      message_sent: "Teade saadetud"
       message_not_sent: ~
-      this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      this_content_is_not_available_in_this_community: "Sisu ei ole saadaval."
+      unknown_error: "Tundmatu viga. Palun kasutage \"Võtke meiega ühendust\" linki ja kirjeldage probleemi."
+      update_error: "Andmete uuendamisel ilmnes viga. Palun proovi uuesti"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Sul ei ole sellele tagasiside jätmiseks piisavalt õigusi"
+      you_are_not_authorized_to_do_this: "Selleks toiminguks pole piisavalt õigusi"
+      you_are_not_authorized_to_view_this_content: "Selle sisu vaatamiseks pole sul piisavalt õigusi"
       listing_closed: ~
-      send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
-      you_cannot_send_message_to_yourself: ~
-      you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
-      you_are_now_member: ~
-      you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
-      additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
-      you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
+      send_instructions: "Mõne minuti jooksul saad e-kirja juhistega oma parooli muutmiseks."
+      you_cannot_reply_to_a_closed_offer: "Suletud pakkumisele vastata ei saa"
+      you_cannot_send_message_to_yourself: "Iseendale sõnumeid saata pole võimalik"
+      you_followed_listing: "Oled nüüd seda kuulutust jälgimas"
+      you_have_already_given_feedback_about_this_event: "Sellele oled juba tagasisidet varasemalt jätnud"
+      you_are_now_member: "Tere tulemast %{service_name}!"
+      you_are_already_member: "Oled juba %{service_name} liige. Tere tulemast tagasi!"
+      you_must_log_in_to_create_new_listing: "Uue kulutuse lisamiseks on vajalik sisse logimine %{service_name}. Kui sul kontot ei ole, siis saab registreeruda siin %{sign_up_link}."
+      additional_email_confirmed_dashboard: "Sinu e-mail on kinnitatud."
+      you_must_log_in_to_give_feedback: "Tagasiside kirjutamiseks on vaja sisse logida"
+      you_must_log_in_to_invite_new_users: "Uute kasutajate kutsumiseks on vaja sisse logida %{service_name}"
+      you_must_log_in_to_send_a_comment: "Uue kommentaari kirjutamiseks on vaja sisse logida"
+      you_must_log_in_to_send_a_message: "Teate saatmiseks teisele kasutajale on vaja %{service_name} sisse logida"
       you_must_log_in_to_do_a_transaction: ~
-      you_must_log_in_to_view_this_content: ~
-      you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
-      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_view_this_content: "Selle sisu vaatamiseks on vaja sisse logida"
+      you_must_log_in_to_view_this_page: "Sisu nägemiseks pead sisse logima"
+      you_must_log_in_to_view_your_inbox: "Postkasti sisu vaatamiseks on vaja %{service_name} sisse logida"
+      you_must_log_in_to_view_your_settings: "Oma seadete vaatamiseks on vaja %{service_name} sisse logida"
+      you_must_log_in_to_add_news_item: "Artikli lisamiseks pead %{service_name} sisse logima"
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: ~
+      you_need_to_confirm_your_account_first: "Pead oma e-maili kinnitama."
       you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
-      joining_community_failed: ~
+      you_unfollowed_listing: "Oled kuulutuse jälgimiselt eemaldatud"
+      joining_community_failed: "Liitumine ebaõnnestus"
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
@@ -2207,14 +2209,15 @@ et:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
       an_error_occurred_when_saving_your_information: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: Konto
+      notifications: Teavitused
+      profile: "Profiili info"
+      settings: Seaded
       paypal_payments: ~
       stripe_payments: ~
       payments: ~
@@ -2224,28 +2227,28 @@ et:
       transactions: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "Sul ei ole selle kuulutuse vaatammiseks piisavalt õigusi."
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: kirjutas
+      send_private_message: "Saada privaatsõnum kasutajale %{person}"
       delete: ~
       are_you_sure: ~
     comment_form:
-      ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      ask_a_question: "Kommenteeri kuulutust või küsi lisateavet. Kõik ülejäänud kasutajad näevad sinu kommentaari."
+      log_in: "logi sisse"
+      send_comment: "Saada kommentaar"
+      to_send_a_comment: "et uut kommentaari saata."
+      write_comment: "Kirjuta uus kommnetaar:"
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Sa ei saa lisada uusi kommentaare, sest kuulutus on suletud."
       you_must: "Sa pead"
-      subscribe_to_comments: ~
+      subscribe_to_comments: "Teavita mind uutest kommentaaridest või uuendustest"
     deleting_a_listing_cannot_be_undone: ~
     edit:
-      edit_listing: ~
+      edit_listing: "Redigeeri kuulutust"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Sule kuulutus"
+      edit_listing: "Redigeeri kuulutust"
+      reopen_listing: "Muuda kuulutus uuesti aktiivseks"
       move_to_top: ~
       show_in_updates_email: ~
       show_in_updates_email_loading: ~
@@ -2264,42 +2267,42 @@ et:
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "Saa e-mail uutest kommentaaridest"
+      unfollow: "Ära saa e-maili uutest kommentaaridest"
     form:
       custom_field_partials:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: Kell
+        departure_time: "Väljumise aeg"
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Uuesti (lisa ajad ja päevad väljale „detailne kirjeldus”)"
       description:
-        detailed_description: ~
+        detailed_description: "Detailne kirjeldus"
         youtube_info: ~
         youtube_info_markdown: ~
       destination:
-        destination: ~
+        destination: Sihtkoht
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        favor: teenus
+        housing: ruum
+        item: ese
+        offer_something: "Paku midagi"
+        request_something: "Küsi midagi"
+        rideshare: sõit
+        i_want_to_offer: "Ma soovin pakkuda..."
+        i_want_to_request: "Ma vajan..."
       googlemap:
         googlemap_copy: "Lõpp-punktid kaardilt"
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_description: Kaardivaade
+        googlemap_updatemap: "Uuenda Kaarti"
       images:
-        image: ~
+        image: Pilt
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        no_file_selected: "Ühtegi faili pole valitud"
+        remove_image: "Eemalda pilt"
+        select_file: "Vali fail"
         add_more: ~
         removing: ~
         processing: ~
@@ -2314,14 +2317,14 @@ et:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: Asukoht
       price:
-        price: ~
-        per: ~
+        price: Hind
+        per: per
         per_day: ~
-        mass: ~
-        time: ~
-        long_time: ~
+        mass: "tk, kg, l, m2, ..."
+        time: "tund, päev, kuu, ...."
+        long_time: "nädal, kuu, ..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
@@ -2333,82 +2336,82 @@ et:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: Asukoht
+        origin: Päritolu
       send_button:
-        save_listing: ~
+        save_listing: "Postita kuuutus"
         submit_for_review: ~
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
       share_type:
-        select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
-        share_for_free: ~
-        accept_for_free: ~
-        trade: ~
+        select: Vali
+        borrow: Laenamine
+        buy: Ostmine
+        give_away: "Ära anda"
+        lend: Laenamine
+        offer_type: "Pakkumise tüüp"
+        receive: "Aktsepteerin tasuta"
+        rent: Rentimine
+        rent_out: "Rendin välja"
+        request_type: "Päringu tüüp"
+        sell: Müün
+        share_for_free: "Tasuta jagamine"
+        accept_for_free: "Võtame tasuta vastu"
+        trade: Vahetan
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(eralda komaga)"
+        tags: Sildid
       title:
-        listing_title: ~
+        listing_title: "Kuulutuse pealkiri"
       valid_until:
-        valid_until: ~
+        valid_until: "Aegumise kuupäev"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: Praeguseks
       privacy:
-        privacy: ~
-        private: ~
-        public: ~
+        privacy: Privaatsus
+        private: "Privaatne(ainult sisse loginud kasutajad näevad)"
+        public: "Avalik(nähtav kasutajatele, kes pole sisse logitud)"
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Pakkumise või taotluse tüüp"
+      help_tags_title: Sildid
+      help_valid_until_title: "Aegumise kuupäev"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
-      feed_title: ~
+      all_categories: "Kõik kategooriad"
+      all_offer_types: "Kõik pakkumise tüübid"
+      all_request_types: "Kõik taotluse tüübid"
+      category: Kategooria
+      did_not_found_what_you_were_looking_for: "Ei leidnud, mida otsisid?"
+      favors: Teenused
+      housing: Majutused
+      items: Esemed
+      list_view: Loendivaade
+      listings: Kuulutused
+      map_view: Kaardivaade
+      offer_something: "Anna teistele teada!"
+      offer_type: "Pakkumise tüüp"
+      offers: Pakkumised
+      request_something: "Taotle midagi!"
+      request_type: "Taotluse tüüp"
+      requests: Taotlused
+      rideshare: Sõidujagamine
+      you_have_something_others_do_not: "Kas sul on midagi pakkuda?"
+      feed_title: "%{listing_type} %{service_name}-teenuses%{optional_category}"
     left_panel_link:
-      borrows: "laenu võtmine"
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
+      borrows: Laenamine
+      buys: Ostmine
+      favors: Teenused
+      give_aways: "Annan ära"
+      housings: Majutused
+      items: Esemed
       lends: "laenu andmine"
-      receives: ~
+      receives: "Soovin tasuta"
       rent_outs: "Välja rentida"
       rents: Rentimine
       rideshares: Sõidujagamine
-      sells: ~
-      share_for_frees: ~
-      accept_for_frees: ~
-      trades: ~
+      sells: Müümine
+      share_for_frees: "Tasuta jagamine"
+      accept_for_frees: "Võtame tasuta vastu"
+      trades: Vahetamine
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -2421,11 +2424,11 @@ et:
       end_time: ~
       marketplace_fees_may_apply: ~
     new:
-      listing: ~
-      selected_category: ~
-      selected_subcategory: ~
+      listing: Kuulutus
+      selected_category: "Kategooria: %{category}"
+      selected_subcategory: "Alamkategooria: %{subcategory}"
       selected_transaction_type: ~
-      select_category: ~
+      select_category: "Vali kategooria"
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
@@ -2444,37 +2447,37 @@ et:
       custom: ~
       person: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: Kommentaar
     reply_link:
-      listing_closed: ~
+      listing_closed: "Kuulutus suletud"
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
-      comments: ~
-      contact_by_phone: ~
+      add_your_phone_number: "Lisa oma telefoninumber"
+      add_profile_picture: "Lisa profiilipilt"
+      comments: "Avalik diskussioon"
+      contact_by_phone: "Helista:"
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: "Teenuse pakkumine"
+      favor_request: "Teenuse päring"
       inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
-      no_description: ~
+      item_offer_trade: "Vahetuse pakkumine"
+      item_request_trade: "Vahetuse päring"
+      no_description: "Kirjeldus puudub"
       no_image: ~
       no_reviews: ~
-      offer: ~
-      listing_created: ~
-      open_until: ~
-      feedback: ~
-      qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
-      send_private_message: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
-      processing_uploaded_image: ~
+      offer: Pakkumine
+      listing_created: Loodud
+      open_until: "Avatud kuni %{date}"
+      feedback: Tagasiside
+      qr_code: "QR kood"
+      request: Päring
+      rideshare_offer: "Sõidujagamise pakkumine"
+      rideshare_request: "Sõidujagamise päring"
+      send_private_message: "Saada privaatsõnum"
+      tags: Sildid
+      time: Kellaaeg
+      times: Kellaajad
+      times_viewed: Vaadatud
+      processing_uploaded_image: "(Laen pilti üles...)"
       listing_created_at: ~
       price:
         per_quantity_unit: ~
@@ -2527,30 +2530,30 @@ et:
       address_postal_code: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
+      all_categories: "Kõik kategooriad"
+      all_offer_types: "Kõik pakkumiste tüübid"
+      all_request_types: "Kõik päringute tüübid"
+      category: Kategooria
+      did_not_found_what_you_were_looking_for: "Ei leidnud mida otsisid?"
+      favors: Teenused
+      housing: Majutused
+      items: Esemed
       list_view: Loendivaade
       map_view: Kaardivaade
       offer_something: "Anna teistele teada!"
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      offer_type: "Pakkumise tüüp"
+      offers: Pakkumised
+      request_something: "Taotle midagi!"
+      request_type: "Päringu tüüp"
+      requests: Päringud
+      rideshare: Sõidujagamine
+      you_have_something_others_do_not: "Sul on midagi pakkuda?"
+    please_comment: Kommenteeri
   mercury:
     content_too_long: ~
   okl:
-    member_id: ~
-    member_id_or_email: ~
+    member_id: "Kasutaja ID"
+    member_id_or_email: "Kasutajanimi või e-mail"
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: ~
@@ -2626,81 +2629,84 @@ et:
     chatting_with_paypal: ~
   people:
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: Aktiveeri
+      deactivate: Deaktiveeri
     help_texts:
-      feedback_description_title: ~
-      help_invitation_code_title: ~
-      terms_title: ~
-      invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      feedback_description_title: Tagasiside
+      help_invitation_code_title: "Liitumiseks vajad kutset"
+      terms_title: "%{service_name} kasutustingimused"
+      invite_only_help_text: "Vali see, kui soovid, et uued liikmed saaksid liituda ainult siis, kui nad on kutsutud olemasoleva kasutaja poolt."
+      invite_only_help_text_title: "Ainult kutsega"
     inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
+      this_person_is_not_active_in_kassi: "Kasutaja ei ole enam aktiivne %{service_name} keskkonnas"
+      inactive_description: "See kasutaja on lõpetanud %{service_name}  kasutamise. Sa ei saa selle kasutajaga ühendust võtta, talle tagasisidet anda ega tema kuulutusi kommenteerida."
     new:
       create_new_account: "Loo konto"
-      email: ~
-      email_is_in_use: ~
-      email_is_in_use_or_not_allowed: ~
-      email_not_allowed: ~
+      email: "E-maili aadress"
+      email_is_in_use: "Sisestatud e-maili aadress on juba kasutusel."
+      email_is_in_use_or_not_allowed: "See e-post pole lubatud või on seda juba kasutatud. Kui ei pääse sisse, võta meiega ühendust."
+      email_not_allowed: "See e-maili aadress ei ole %{service_name} lubatud. Palun sisesta kehtiv e-maili aadress. Kui endiselt sisse ei saa, palun võta meiega ühendust."
       invalid_username_or_email: ~
-      family_name: ~
-      given_name: ~
+      email_restriction_instructions:
+        one: "Ligipääs %{service_name} on piiratud. Vajaik liitumine ja kehtiv e-maili aadresse %{allowed_emails}."
+        other: "Ligipääs %{service_name} piiratud. Vajaik liitumine ja kehtiv e-maili aadress."
+      family_name: Perekonnanimi
+      given_name: Eesnimi
       i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
-      invalid_invitation_code: ~
-      invitation_code: ~
-      not_required: ~
+      invalid_invitation_code: "Liitumiskood pole õige."
+      invitation_code: Liitumiskood
+      not_required: ", ei ole nõutav"
       notification_is_mandatory: ~
-      password_again: ~
-      show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
+      password_again: "Kinnita parool"
+      show_my_name_to_others: "Näita teistele %{service_name} kasutajatele minu päris nime"
+      sign_up: "Loo uus %{service_name} konto"
+      terms: Kasutustingimused
       privacy: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      visible_only_to_you: "nähtav ainult sulle ja %{service_name} meeskonnale"
+      visible_to_everybody: "nähtav kõigile"
       create_account_with_provider: ~
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
     profile_feedback:
-      grade: ~
+      grade: "hinne:"
       and_gave_following_feedback: "ja andis järgmist tagasisidet"
     profile_listings:
       no_image: ~
       manage_listings: ~
     show:
-      contact: ~
-      about_me: ~
-      add_description: ~
-      add_location: ~
-      add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
-      positive: ~
+      contact: "Võta ühendust kasutajaga %{person}"
+      about_me: "Minust:"
+      add_description: "Jaga midagi enda kohta"
+      add_location: "Lisa asukoht"
+      add_phone_number: "Lisa telefoninumber"
+      address: "Asukoht:"
+      as_expected: "Nagu kirjeldatud"
+      edit_profile_info: "Redigeeri profiili"
+      exceeded_expectations: "Ületas ootusi"
+      positive: positiivne
       hide_description: "Näita vähem"
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
+      less_than_expected: "Oodatust kehvem"
+      phone_number: "Telefoninumber:"
+      show_all_feedback: "Näita kogu tagasisidet"
+      show_all_testimonials: "Näita kogu tagasisidet"
       show_full_description: "Näita rohkem"
       slightly_better_than_expected: "Ületas ootuseid"
-      slightly_less_than_expected: ~
+      slightly_less_than_expected: "Oodatust kehvem"
       what_are_these: "Mis need on?"
-      review: ~
-      reviews: ~
+      review: "Saabunud arvustus"
+      reviews: "Saabunud arvustused"
       listing: ~
       listings: ~
-      open_listing: ~
-      open_listings: ~
+      open_listing: "aktiivne kuulutus"
+      open_listings: "aktiivsed kuulutused"
       no_listings: ~
-      no_open_listings: ~
-      no_reviews: ~
+      no_open_listings: "Aktiivsed kuulutused puuduvad"
+      no_reviews: "Arvustused puuduvad"
       show_all_listings: ~
-      show_all_open_listings: ~
-      show_all_reviews: ~
+      show_all_open_listings: "Näita kõiki aktiivseid kuulutusi"
+      show_all_reviews: "Näita kõiki arvustusi"
       admin_actions: ~
       post_listing_as: ~
     followed_people:
@@ -2716,33 +2722,33 @@ et:
       unfollow: ~
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
-      connect_your_facebook_to_kassi: ~
-      facebook_account: ~
-      log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
-      account_creation_link_text: ~
-      cancle_facebook_connect: ~
-      facebook_cancel_link_text: ~
+      create_new_account: "Loo uus konto"
+      i_forgot_my_password: "Unustasin parooli"
+      login: "Logi sisse"
+      login_to_kassi: "Logi sisse %{service_name}"
+      connect_your_facebook_to_kassi: "Registreeru %{service_name} oma Facebooki kontoga"
+      facebook_account: "Facebooki konto:"
+      log_in_to_link_account: "Kui sul juba on %{service_name} konto, logi sisse oma Facebooki kontoga."
+      you_can_also_create_new_account: "Kui sul veel %{service_name} kontot pole, %{accont_creation_link} loo see oma Facebooki kontoga"
+      account_creation_link_text: "vajuta siia"
+      cancle_facebook_connect: "Kui sa ei soovi seda kontot ühendada, võid selle tühistada %{cancel_link}."
+      facebook_cancel_link_text: tühista
       log_in_with_your_provider_account: ~
-      or_sign_up_with_your_username: ~
-      we_will_not_post_without_asking_you: ~
+      or_sign_up_with_your_username: "...või oma e-mailiga:"
+      we_will_not_post_without_asking_you: "Me ei postita kunagi luba küsimata Facebooki"
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
-      change_your_password: ~
+      email: E-mail
+      password_recovery_instructions: "Sisesta oma e-maili aadress parooli värskendamiseks"
+      request_new_password: "Taotle uut parooli"
+      change_your_password: "Muuda oma parooli"
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      resend_confirmation_instructions: ~
-      your_current_email_is: ~
-      change_email: ~
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
+      welcome_to_kassi: "Tere tulemast %{service_name}!"
+      check_your_email: "Kontrolli oma postkasti"
+      resend_confirmation_instructions: "Saada kinnitusjuhend uuesti"
+      your_current_email_is: "Sinu e-mail on %{email}."
+      change_email: Muuda
+      confirm_your_email: "Palun kinnita oma e-maili aadress."
+      account_confirmation_instructions: "Peagi saad e-maili koos lingiga oma e-maili aadressi kinnitamiseks. Ära unustage kontrollida oma rämpsposti kausta! Pärast oma aadressi kinnitamist saad liituda %{service_name}."
       account_confirmation_instructions_title_admin: ~
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
@@ -2751,20 +2757,20 @@ et:
       contact_support_link_text: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
-      delete_account: ~
+      change: Muuda
+      confirm_new_password: "Kinnita uus parool"
+      delete_account: "Kustuta konto"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      new_email: ~
+      new_email: "Uus e-maili aadress"
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
       only_admin: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      new_password: "Uus parool"
+      save: Salvesta
+      these_fields_are_shown_only_to_you: "Kasutajanimi kuvatakse teie profiilis, kui te pole oma nime andnud. Muud teavet kuvatakse ainult teile."
       email_already_confirmed: ~
       email:
         address_title: ~
@@ -2781,49 +2787,49 @@ et:
         status_confirmed: ~
         status_pending: ~
     notifications:
-      email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
-      community_updates: ~
-      email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
+      email_from_admins: "Nõustun saama aeg-ajalt e-maile %{service_name} meeskonnalt."
+      i_want_to_get_email_notification_when: "Tahan saada meilisõnumi, kui ..."
+      newsletters: "E-mailid administraatoritelt"
+      community_updates: Uudiskirjad
+      email_about_confirm_reminders: "...Olen unustanud märkida tellimuse täidetuks"
+      email_about_new_comments_to_own_listing: "... keegi kommenteerib minu pakkumist või taotlust"
+      email_about_new_messages: "... keegi saadab mulle sõnumi"
+      email_about_new_received_testimonials: "... keegi annab mulle tagasisidet"
+      email_about_testimonial_reminders: "... olen unustanud sündmuse kohta tagasisidet anda"
+      email_daily_community_updates: "Saada mulle <b> iga päev</b>  uudiskiri uute kuulutustega"
+      email_weekly_community_updates: "Saada mulle <b>iga nädal</b>  uudiskiri uute kuulutustega"
+      do_not_email_community_updates: "Ära saada mulle uudiskirju"
+      email_when_conversation_accepted: "... keegi aktsepteerib minu pakkumist või taotlust"
+      email_when_conversation_rejected: "... keegi lükkab minu pakkumise või taotluse tagasi"
+      email_about_completed_transactions: "....keegi märgib minu tellimuse täidetuks"
+      email_about_new_payments: "...Olen saanud makse"
       email_about_new_listings_by_followed_people: ~
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
-      unsuccessful_unsubscribe_info_text: ~
+      unsubscribe_succesful: "Tellimusest loobumine õnnestus"
+      unsubscribe_info_text: "Sa ei saa enam neid e-maile. Seadetest %{settings_link} saad reguleerida, mille kohta e-maile %{service_name} saad või mine tagasi pealehele %{homepage_link}."
+      settings_link: seaded
+      homepage_link: pealeht
+      unsubscribe_unsuccesful: "Viga telllimusest loobumisel"
+      unsuccessful_unsubscribe_info_text: "Tellimusest loobumise link on aegunud. Logi sisse, et muuta oma e-maili tellimuste seadeid."
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: Sinust
+      city: Linn
+      family_name: Perekonnanimi
+      given_name: Eesnimi
       first_name_with_initial: ~
       first_name_only: ~
       display_name: ~
       display_name_description: ~
-      location_description: ~
+      location_description: "Võid sisestada oma tänava aadressi või ainult linna või postiindeksi.  Näited: \"10136 Tallinn\" või \"Nikolai 24, 80011 ,Pärnu\"."
       profile_picture_description: ~
-      phone_number: ~
+      phone_number: Telefoninumber
       profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
+      postal_code: Postikood
+      profile_page: "sinu profiililehel"
+      profilemap: Kaardivaade
+      street_address: Asukoht
+      these_fields_are_shown_in_your: "Osa sellest teabest on nähtav kõigile %{service_name} kasutajatele"
+      visible_to_everybody: "nähtav kõigile"
+      visible_to_registered_users: "(nähtav sisseloginud kasutajatele)"
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
@@ -2833,46 +2839,46 @@ et:
       format_markdown: ~
       username: ~
       username_description: ~
-    save_information: ~
+    save_information: "Salvesta infomatsioon"
   shipping_address:
     shipping_address: ~
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: Sildiga
+      without_tag: Sildita
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      accept_terms: "Aktsepteerin %{service_name} kasutustingimused"
+      here: "vajutades siia"
+      i_accept_new_terms: "Aktsepteerin uued tingimused"
+      i_accept_terms: "Aktsepteerin tingimused"
+      terms: "%{service_name} kasutustingimused"
+      terms_have_changed: "Kasutustingimused on muutunud"
+      you_can_view_the_new_terms: "Saad vaadata uusi kasutustingimusi"
+      you_need_to_accept: "Tere tulemast lehele %{service_name}! Tundub, et see on esimene kord, kui kasutad teenust. Enne alustamist pead esmalt aktsepteerima"
+      you_need_to_accept_new_terms: "%{service_name} kasutustingimused on muutunud. %{service_name}  kasutamise jätkamiseks peate uute tingimustega nõustuma. Uute tingimuste eesmärk on võimaldada teenuse hooldamist pärast uurimisprojekti lõppu."
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: "Kogu tagasiside"
+      feedback_altogether: "Tagasiside kõik kokku: "
+      loading_more_testimonials: "Rohkem iseloomustusi laaditakse"
+      no_testimonials: "Tagasiside puudub."
     new:
-      as_expected: ~
-      exceeded_expectations: ~
-      give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
-      this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      as_expected: "Vastab ootustele"
+      exceeded_expectations: "Palju parem kui ootasin"
+      give_feedback_to: "Kirjuta tagasisidet %{person}"
+      grade: "Milline on sinu üleüldine tunne?"
+      less_than_expected: "Halvem kui oodatud"
+      send_feedback: "Saada tagasiside"
+      slightly_better_than_expected: "Natuke parem kui oodatud"
+      slightly_less_than_expected: "Natuke halvem kui oodatud"
+      textual_feedback: "Kuidas läks?"
+      this_will_be_shown_in_profile: "Sinu tagasiside on teistele kasutajatele nähtav %{person}  profiililehel. See aitab neil hinnata, kas %{person}  on usaldusväärne inimene."
+      positive: Positiivne
+      negative: Negatiivne
+      default_textual_feedback: "Kõik sujus hästi, suured tänud!"
     testimonial:
-      about_listing: ~
+      about_listing: "info kuulutuse kohta"
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -2934,21 +2940,24 @@ et:
   time:
     formats:
       short: ~
-      shorter: ~
+      shorter: "%kuu %päev kell %tund:%minut"
       short_date: ~
       hours_only: "%H:%M"
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "%{count} päev tagasi"
+    days_ago: "%{count} päeva tagasi"
+    hour_ago: "%{count} tund tagasi"
+    hours_ago: "%{count} tundi tagasi"
+    minute_ago: "%{count} minut aega tagasi"
+    minutes_ago: "%{count} minutit tagasi"
+    month_ago: "%{count} üks kuu tagasi"
+    months_ago: "%{count} kuud tagasi"
+    seconds_ago: "%{count} sekund tagasi"
+    year_ago: "%{count} aasta tagasi"
+    years_ago: "%{count} aastat tagasi"
+    days_since:
+      one: "%{count} päeva"
+      other: "%{count} päevi"
   transactions:
     initiate:
       booked_days: ~
@@ -3135,6 +3144,7 @@ et:
       need_verification: ~
       additional_document: ~
       additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
