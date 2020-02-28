@@ -363,6 +363,20 @@ CREATE TABLE `community_customizations` (
   KEY `index_community_customizations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `community_domain_checkers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `community_domain_checkers` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` bigint(20) DEFAULT NULL,
+  `domain` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `state` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'initial',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_community_domain_checkers_on_community_id` (`community_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_memberships`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -2437,6 +2451,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20200127120611'),
 ('20200131111643'),
 ('20200213130051'),
-('20200224080321');
+('20200224080321'),
+('20200227111900');
 
 

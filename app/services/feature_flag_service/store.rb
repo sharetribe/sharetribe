@@ -24,6 +24,7 @@ module FeatureFlagService::Store
       :footer,
       :clp_editor,
       :email_layout_v2,
+      :domain,
     ].to_set
 
     def initialize(additional_flags:)

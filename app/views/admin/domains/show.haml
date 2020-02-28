@@ -36,13 +36,17 @@
     = render 'edit', presenter: @presenter
 
   - elsif @presenter.domain_possible?
-    %p.marketplace-address-is
-      = t("admin.communities.domain.your_marketplace_address_is",
-        address: @presenter.domain_address)
+    - if @presenter.feature_domain?
+      - unless @presenter.domain_used?
+        = render 'form', presenter: @presenter
+    - else
+      %p.marketplace-address-is
+        = t("admin.communities.domain.your_marketplace_address_is",
+          address: @presenter.domain_address)
 
-    %p
-      - link = link_to t("admin.communities.domain.contact_us"), '#', 'show-intercom': true
-      = t("admin.communities.domain.you_can_now_use_a_custom_domain", contact_us: link).html_safe
+      %p
+        - link = link_to t("admin.communities.domain.contact_us"), '#', 'show-intercom': true
+        = t("admin.communities.domain.you_can_now_use_a_custom_domain", contact_us: link).html_safe
 
   - elsif @presenter.domain_used?
     %p.marketplace-address-is
