@@ -106,6 +106,8 @@ gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.2'
 
 gem 'recaptcha', '~> 5.5'
 
+gem 'simpleidn', '~> 0.1'
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 6.11.0'
   gem 'rails_12factor', '~> 0.0.3'
