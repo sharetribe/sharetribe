@@ -79,16 +79,13 @@ WORKDIR /opt/app
 COPY Gemfile /opt/app
 COPY Gemfile.lock /opt/app
 
-ENV RAILS_ENV production
-
 USER app
 
-RUN bundle install --deployment --without test,development
+RUN bundle install --deployment --without development
 
 COPY package.json /opt/app/
 COPY client/package.json /opt/app/client/
 
-ENV NODE_ENV production
 ENV NPM_CONFIG_LOGLEVEL error
 ENV NPM_CONFIG_PRODUCTION true
 
@@ -123,4 +120,4 @@ USER app
 # assets will be extracted from there.
 # Otherwise, assets will be compiled with `rake assets:precompile`.
 # Useful for caching assets between builds.
-RUN script/prepare-assets.sh
+# RUN script/prepare-assets.sh

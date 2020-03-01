@@ -1,0 +1,14 @@
+steps:
+  - id: docker-image
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/docx-cloudbuild-experiment/sharetribe:$COMMIT_SHA', '.']
+  - id: rubocop
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['run', 'gcr.io/docx-cloudbuild-experiment/sharetribe:$COMMIT_SHA',  'bundle exec rubocop -R']
+    waitFor:
+    - docker-image
+  - id: rspec
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['run', 'gcr.io/docx-cloudbuild-experiment/sharetribe:$COMMIT_SHA',  'bundle exec rspec -R']
+    waitFor:
+    - docker-image
