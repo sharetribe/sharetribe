@@ -96,7 +96,7 @@ COPY . /opt/app
 EXPOSE 3000
 
 CMD ["script/startup.sh"]
-ENTRYPOINT ["script/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "-c"]
 
 #
 # Assets
