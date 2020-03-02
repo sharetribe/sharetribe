@@ -1860,6 +1860,7 @@ ar:
       presence: ~
       username_is_invalid: ~
       domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على إعارة ‎%{offerer_name}‎"

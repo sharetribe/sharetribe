@@ -1857,6 +1857,7 @@ th-TH:
       presence: ~
       username_is_invalid: "Username นี้ใช้ไม่ได้ หรือ ไม่ว่างอีกต่อไป"
       domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ได้ตกลงที่จะให้ %{requester_name} ยืม เมื่อ%{time_ago}"

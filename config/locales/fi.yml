@@ -12,7 +12,7 @@ fi:
       index:
         listing_categories: Ilmoituskategoriat
         create_a_new_category: "+ Uusi kategoria"
-        remove_category_confirmation: "Haluatko varmasti poistaa kategorian '%{category_name}'?"
+        remove_category_confirmation: "Haluatko varmasti poistaa kategorian '%{category_name}'? Tätä toimintoa ei voi peruuttaa."
         saving_order: "Tallennetaan kategorioiden järjestystä"
         save_order_successful: "Kategorioiden järjestys tallennettu."
         save_order_error: "Kategorioiden järjestyksen tallentamisessa tapahtui virhe. Päivitä sivu ja yritä uudelleen."
@@ -67,11 +67,11 @@ fi:
         community_name: "Kauppapaikan nimi"
         edit_community_name_description: "Kauppapaikan nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
         community_slogan: "Kauppapaikan slogan"
-        community_slogan_display: "Näytä slogan kotisivulla"
+        community_slogan_display: "Näytä slogan kotisivulla tai landing-sivulla"
         edit_community_slogan_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
         edit_community_slogan_description_hideable: "Tämä näkyy selaimissa, hakukoneissa, ja sosiaalisessa mediassa. Voit myös näyttää sen kotisivullasi niille käyttäjille, jotka eivät ole kirjautuneena sisään. %{see_how_it_looks_like}."
         community_description: "Kauppapaikan kuvaus"
-        community_description_display: "Näytä kuvaus kotisivulla"
+        community_description_display: "Näytä kuvaus kotisivulla tai landing-sivulla"
         edit_community_description_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: "Tämä näkyy selaimissa, hakukoneissa, ja sosiaalisessa mediassa. Voit myös näyttää sen kotisivullasi niille käyttäjille, jotka eivät ole kirjautuneena sisään. %{see_how_it_looks_like}."
         community_search_placeholder: "Haun ohjeteksti"
@@ -101,12 +101,12 @@ fi:
         edit_community_look_and_feel: Ulkoasu
         community_logo: Peruslogo
         community_logo_icon: "Logo mobiililaitteita ja sosiaalista mediaa varten"
-        community_logo_icon_mobile: "Logo mobiililaitteiden kotinäkymään"
+        community_logo_icon_mobile: "Neliön muotoinen logo"
         community_cover_photo: Kansikuva
         small_community_cover_photo: "Matala kansikuva"
         favicon: Favicon
         favicon_info_text: "Ladattu kuva korvaa oletuksena käytettävän Sharetriben logon. Faviconin koon tulee olla 32x32 pikseliä. Ladattu kuva muunnetaan tähän kokoon."
-        community_custom_color1: Pääväri
+        community_custom_color1: "Markkinapaikan pääväri"
         community_slogan_color: "Kauppapaikan sloganin väri"
         community_slogan_color_instructions_text: "Voit vaihtaa sloganin väriä antamalla värin heksakoodin. Slogan näytetään etusivulla käyttäjille, jotka eivät ole kirjautuneina sisään. %{colorpicker} auttaa sinua valitsemaan värin ja antaa sen heksakoodin. Voit kopioida värin tähän. %{see_how_it_looks_like}."
         community_description_color: "Kauppapaikan kuvauksen väri"
@@ -116,7 +116,7 @@ fi:
         logo_instructions_text_with_dimensions_no_placing: "Login koon tulisi olla %{height}x%{width} pikseliä."
         logo_icon_instructions_text_with_dimensions: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
         logo_icon_instructions_text_with_dimensions_no_placing: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
-        logo_mobile_icon_instructions_text_with_dimensions: "Tämä neliömuotoinen logo näytetään, kun käyttäjät luovat kirjanmerkin markkinapaikallesi mobiililaitteillaan. Suositeltu koko on (vähintään) %{width} x %{height} pikseliä."
+        logo_mobile_icon_instructions_text_with_dimensions: "Tämä neliömuotoinen logo näytetään kun suoritat tiettyjä toimia ylläpitäjänä ja kun käyttäjät lisäävät sivusi kännykkänsä koti-näkymään kirjanmerkiksi. Suositeltu koko on (vähintään) %{width} x %{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
         cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä. %{see_how_it_looks_like}."
         we_have_you_covered: "Me voimme auttaa"
@@ -124,7 +124,7 @@ fi:
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
         small_cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaan %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä, esimerkiksi muuttamalla selainikkunasi kokoa."
-        custom_color1_instructions_text: "Tästä voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
+        custom_color1_instructions_text: "Tästä voit vaihtaa käyttöliittymän päävärin syöttämällä värin hex-koodin. %{link} voi auttaa sinua valitsemaan värin ja antaa sinulle hex-koodin, jonka voit kopioida tänne."
         new_listing_button_instructions_text: "Voit vaihtaa Lisää uusi ilmoitus -napin väriä antamalla värin heksa-arvon. %{link_to_colorpicker} voi auttaa sinua valitsemaan värin ja kopioimaan sen koodin tänne."
         default_browse_view: "Oletusarvo listausten näyttämiselle"
         default_browse_view_instructions_text: "Tätä arvoa käytetään oletuksena etusivun listauksen näyttötavalle."
@@ -217,14 +217,14 @@ fi:
       settings:
         settings: Yleisasetukset
         general: Yleiset
-        access: Pääsyoikeudet
+        access: "Pääsyoikeus- ja viestintäasetukset"
         join_with_invite_only: "Käyttäjät voivat liittyä palveluun ainoastaan saatuaan kutsun toiselta käyttäjältä"
-        users_can_invite_new_users: "Kaikilla käyttäjillä on oikeus kutsua muita käyttäjiä palveluun"
+        users_can_invite_new_users: "Kaikilla käyttäjillä, eikä vain ylläpitäjillä, on oikeus kutsua muita käyttäjiä palveluun"
         private: "Yksityinen kauppapaikka (vain kirjautuneet käyttäjät näkevät sisällön)"
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
         allow_free_conversations: "Salli käyttäjien viestitellä keskenään vapaasti"
         search_preferences: Hakuasetukset
-        search_and_location_preferences: ~
+        search_and_location_preferences: "Haku- ja sijaintiasetukset"
         default_search_type: "Haun tyyppi: %{select_search_type}"
         keyword_search: Avainsanahaku
         keyword_and_location_search: "Avainsana- ja sijaintihaku"
@@ -233,7 +233,7 @@ fi:
         km: km
         miles: mailit
         show_only_nearby: "Näytä vain lähistöllä sijaitsevat ilmoitukset sijaintihaussa"
-        allow_users_to_add_location: ~
+        allow_users_to_add_location: "Salli käyttäjien lisätä sijainti profiilisivulleen ja ilmoituksiin, ja näytä karttanäkymä hakusivulla"
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: Tilausasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
@@ -276,13 +276,13 @@ fi:
         save_user_status_successful: "Tallennus onnistui"
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
-        ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
+        ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämässä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
         unban_user_confirmation: "Tämä poistaa eston käyttäjältä ja antaa hänelle taas pääsyn markkinapaikalle. Oletko varma että haluat tehdä tämän?"
-        ban_me_error: "Et voi poistaa itseäsi."
-        have_ongoing_transactions: ~
-        only_delete_disabled: ~
-        delete_info1: ~
-        delete_info2: ~
+        ban_me_error: "Et voi estää omaa tiliäsi."
+        have_ongoing_transactions: "Tätä tiliä ei voida poistaa, koska heillä on keskeneräisiä tilauksia. Ole hyvä ja saata kaikki tilaukset loppuun ennen tilin poistamista."
+        only_delete_disabled: "Voit poistaa vain estettyjä käyttäjiä. Estä käyttäjä, jotta voit poistaa heidän tilinsä."
+        delete_info1: "Jos poistat tämän tilin, henkilökohtaiset tiedot (nimi, puhelinnumero, osoite, email, profiilikuva jne.) poistetaan pysyvästi eikä niitä voi palauttaa. Kaikki heidän tekemänsä ilmoitukset poistetaan. Et voi aktivoida tätä tiliä uudelleen."
+        delete_info2: "Tietoja joissa muut käyttäjät ovat osapuolina (kuten keskusteluja muiden käyttäjien kanssa, tehtyjä tilauksia, heidän kirjoittamiansa arvosteluja) ei poisteta kun poistat tämän tilin. Tämän käyttäjän nimeä ei kuitenkaan enää näytetä näiden tietojen yhteydessä."
         search: Hae
         search_by_name_email: "Etsi nimeä, sähköpostiosoitetta, tai näyttönimeä"
         reset_search: "Näytä kaikki"
@@ -302,7 +302,7 @@ fi:
         unconfirmed_user: "Vahvistamaton käyttäjä: %{name}"
         resend: "Lähetä uudelleen"
         cancel: Peruuta
-        confirm: ~
+        confirm: Vahvista
         user_didnt_complete_the_signup_process: "Tämä käyttäjä rekisteröityi sosiaalisen median avulla mutta ei vienyt rekisteröintiprosessia loppuun saakka. Sosiaalisen median kautta rekisteröitymisen jälkeen käyttäjien tulee vielä hyväksyä markkinapaikkasi säännöt ja täyttää ne tiedot, jotka kaikkien käyttäjien tulee markkinapaikallasi täyttää."
         pending_user: "Odottaa: %{name}"
       new_layout:
@@ -315,7 +315,7 @@ fi:
         new_email_templates: "Uusi ulkoasu sähköposteille"
       social_media:
         social_media: "Sosiaalinen media"
-        logo: Logo
+        logo: "Sosiaalisen median logo"
         logo_info: "Tätä kuvaa käytetään, kun joku jakaa sinun domainisi sosiaalisessa mediassa (Facebook, Twitter, Linkedin). Parhaan tuloksen saamiseksi sen kuvasuhteen tulisi olla 2:1, ja sen vähimmäiskoko tulisi olla %{width} x %{height} pikseliä."
         social_media_title: "Sosiaalisen median otsikko"
         social_media_title_info: "Tämä teksti näytetään sosiaalisissa medioissa Facebook, Twitter, ja LinkedIn, kun joku jakaa sivustosi. Voit katsoa miltä se näyttää %{facebook_preview_link}, %{twitter_preview_link} ja %{linkedin_preview_link}."
@@ -329,30 +329,30 @@ fi:
         twitter_instructions_link_text: "Lue lisää"
         twitter_handle_placeholder: tunnus
         invalid_twitter_handle: "Twitter-tilin tunnus voi olla enintään 15 merkkiä pitkä sekä sisältää vain kirjaimia (A-Z) ja numeroita (0-9)."
-        facebook_connect: Facebook
+        facebook_connect: "Facebook Login"
         facebook_developers_dashboard: "Facebook Developers Dashboard"
-        facebook_connect_info_text: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta."
-        facebook_connect_info_text_with_instructions: "Jos haluat ottaa Facebook-kirjautumisen käyttöön, luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. %{instructions_link}"
-        facebook_instructions_link_text: "Lue ohjeet Facebook-sovelluksen luontiin."
-        facebook_connect_id: "Facebook - sovellustunnus"
-        invalid_facebook_connect_id: "Sovellustunnus voi sisältää vain numeroita."
-        facebook_connect_secret: "Facebook - salainen avain"
-        invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
+        facebook_connect_info_text: "Luo omalle kauppapaikallesi Facebook Login -sovellus sivulla %{dashboard_link} ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta."
+        facebook_connect_info_text_with_instructions: "Jos haluat ottaa Facebook-kirjautumisen käyttöön, luo omalle kauppapaikallesi sovellus sivulta %{dashboard_link} ja lisää luodun sovelluksen tunnukset tähän. %{instructions_link}"
+        facebook_instructions_link_text: "Lue ohjeet Facebook Login-sovelluksen luomista varten."
+        facebook_connect_id: "Facebook App ID"
+        invalid_facebook_connect_id: "App ID voi sisältää vain numeroita."
+        facebook_connect_secret: "Facebook App Secret"
+        invalid_facebook_connect_secret: "App Secret voi sisältää vain kirjaimia väliltä a-f sekä numeroita."
         enable_facebook_login: "Salli käyttäjien kirjautua Facebook-tilillään"
         save: Tallenna
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Katso ohjeet Google Sign-In:in käyttöön ottamiseksi."
         google_developers_console: "Googlen Developers Console"
-        google_connect_info_text_with_instructions: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Consolessa</a>. Lisää generoitu ID ja projektin 'secret key' tänne. %{instructions_link}"
-        google_connect_info_text: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Consolessa</a>. Lisää generoitu ID ja projektin 'secret key' tänne."
+        google_connect_info_text_with_instructions: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi palvelussa %{dashboard_link}. Lisää generoitu ID ja projektin 'secret key' tänne. %{instructions_link}"
+        google_connect_info_text: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi palvelussa %{dashboard_link}. Lisää generoitu ID ja projektin 'secret key' tänne."
         enable_google_login: "Salli käyttäjien kirjautua Google-tilillään"
         google_connect_id: "Google Client ID"
         google_connect_secret: "Google Client secret"
         linkedin_connect: "LinkedIn Sign In"
         linkedin_instructions_link_text: "Lue ohjeet LinkedIn Sign In:in käyttöönottamiseksi."
         linkedin_developers_dashboard: "LinkedIn Developers Dashboard"
-        linkedin_connect_info_text_with_instructions: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboardissa</a>. Lisää sitten appia varten generoitu ID ja 'secret key' tänne. %{instructions_link}"
-        linkedin_connect_info_text: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboardissa</a>. Lisää sitten appia varten generoitu ID ja 'secret key' tänne."
+        linkedin_connect_info_text_with_instructions: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi palvelussa %{dashboard_link}. Lisää sitten appia varten generoitu ID ja 'secret key' tänne. %{instructions_link}"
+        linkedin_connect_info_text: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi palvelussa %{dashboard_link}. Lisää sitten appia varten generoitu ID ja 'secret key' tänne."
         enable_linkedin_login: "Salli käyttäjien kirjautua LinkedIn -tilillä"
         linkedin_connect_id: "LinkedIn Client ID"
         linkedin_connect_secret: "LinkedIn Client Secret"
@@ -402,10 +402,10 @@ fi:
         robots_info: "Robots.txt on tekstitiedosto, joka osoittaa webbiroboteille (tyypillisesti nämä ovat hakukonepalvelujen robotteja) sen, miten ne indeksoivat (\"crawl\") verkkosivujasi esim. hakukonetta varten. %{link}."
         robots_info_link_text: "Lue lisää robots.txt -tiedostosta"
         robots_info_2: "Robots.txt -tiedosto luodaan automaattisesti markkinapaikallesi. Voit päästä käsiksi robots.txt -tiedostoosi tästä: %{link}"
-        google_search_console: ~
-        google_search_console_paragraph1: ~
-        google_search_console_these_instructions: ~
-        google_search_console_paragraph2: ~
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "Google Search Console tarjoaa työkaluja ja raportteja jotka antavat sinun mitata sivustosi hakuliikennettä ja suorituskykyä, ja korjata ongelmia jotka liittyvät Googlen hakutuloksiin."
+        google_search_console_these_instructions: "näitä ohjeita"
+        google_search_console_paragraph2: "Sivustosi lisääminen Google Search Consoleen on hyvä idea. Se kestää vain pari minuuttia seuraamalla %{link}."
         save: "Tallenna asetukset"
       analytics:
         analytics: Analytiikka
@@ -418,22 +418,22 @@ fi:
         sharetribe_analytics_instructions_link_text: "Lue lisää Sharetriben analytiikasta"
         end_user_analytics: "Salli Sharetriben seurata markkinapaikan jäsenten käyttäytymistä, jotta Sharetribe voi parantaa palvelujaan"
         save: Tallenna
-        google_tag_manager: ~
-        gtm_paragraph_1: ~
-        gtm_paragraph_2: ~
-        learn_how_to_configure_gtm: ~
+        google_tag_manager: "Google Tag Manager"
+        gtm_paragraph_1: "Tag managerin kuten GTM:n käyttäminen on hyvä tapa ylläpitää ja lisätä koodinpätkiä tai seurantapikseleitä (tracking pixels) sivustollesi niin ettei koodia tarvitse muuttaa."
+        gtm_paragraph_2: "Koska Sharetribe käyttää myös Google Tag Manageria, suosittelemme että %{link}."
+        learn_how_to_configure_gtm: "opit miten voit ottaa GTM:n käyttöön Go-markkinapaikallasi"
       logo_link:
         title: "Logon linkki"
         info: "Voit muokata logoon yhdistettyä linkkiä (ja ylävalikon kotinäppäimen osoitetta). Oletusarvoisesti logo vie käyttäjät etusivulle tai kustomoidulle landing-sivulle."
         url: URL
         placeholder: "https://www.esimerkki.fi"
       menu_links:
-        menu_links: Valikkolinkit
+        menu_links: "Mukautetut valikkolinkit"
         menu_links_display: "Valikon linkkien näyttö"
         save: Tallenna
         add_menu_link: "Lisää uusi linkki valikkoon"
         title_placeholder: "Linkin otsikko"
-        url_placeholder: "http://example.com/fi"
+        url_placeholder: "https://example.com/fi"
         title: Otsikko
         language: Kieli
         url: "Osoite (URL)"
@@ -475,8 +475,8 @@ fi:
           rejected: Hylätty
           payment_intent_requires_action: Odottaa
           payment_intent_action_expired: Vanhentunut
-          refunded: ~
-          dismissed: ~
+          refunded: Takaisinmaksettu
+          dismissed: Hylätty
         headers:
           conversation: Viestiketju
           listing: Ilmoitus
@@ -513,8 +513,8 @@ fi:
             disputed: Riitautettu
             initiated: "Odottaa PayPal-maksua"
             pending_ext: "Odottaa PayPal-maksua"
-            refunded: ~
-            dismissed: ~
+            refunded: Takaisinmaksettu
+            dismissed: Hylätty
           stripe:
             free: Keskustelu
             pending: "Odottaa hyväksyntää"
@@ -530,8 +530,8 @@ fi:
             payment_intent_requires_action: Odottaa
             payment_intent_action_expired: Vanhentunut
             payment_intent_failed: "Stripe-maksu epäonnistui"
-            refunded: ~
-            dismissed: ~
+            refunded: Takaisinmaksettu
+            dismissed: Hylätty
         not_available: "Ei saatavilla"
       conversations:
         conversations: Keskustelut
@@ -655,7 +655,7 @@ fi:
         style:
           dark: Tumma
           light: Vaalea
-          marketplace_color: "Markkinapaikan väri"
+          marketplace_color: "Markkinapaikan pääväri"
           logo: Logo
         social:
           title: Otsikko
@@ -670,166 +670,166 @@ fi:
         contact_us: "Ota meihin yhteyttä"
         you_can_now_use_a_custom_domain: "Nykyisellä tilauksellasi voit kytkeä päälle oman domainisi. Aloitetaan domainin käyttöönotto. %{contact_us}!"
         would_you_like_to_change_domain: "Haluaisitko vaihtaa markkinapaikkasi domainia? %{contact_us}!"
-        change_your_sharetribe_domain: ~
-        only_letters_numbers_and_hyphens_can_be_used: ~
-        when_you_change_your_sharetribe_domain: ~
-        would_you_like_to_proceed: ~
-        change: ~
+        change_your_sharetribe_domain: "Vaihda markkinapaikkasi Sharetribe-domain"
+        only_letters_numbers_and_hyphens_can_be_used: "Vain kirjaimia, numeroita ja väliviivoja voi käyttää. Ole varovainen! Vanha domainisi vapautuu muiden käytettäväksi eikä se enää tule johtamaan markkinapaikallesi."
+        when_you_change_your_sharetribe_domain: "Kun vaihdat Sharetribe-domainiasi, kaikki URL-osoitteesi muuttuvat automaattisesti. Sinut viedään markkinapaikkasi uuteen osoitteeseen. Sinun ja käyttäjiesi tulee kirjautua uudelleen sisään. Vanha markkinapaikka-domainisi ei ole linkattu uuteen eikä uudelleenohjaa uudelle domainillesi millään tavalla. Vanha domain vapautuu muiden käytettäväksi."
+        would_you_like_to_proceed: "Haluatko jatkaa?"
+        change: Vaihda
       landing_pages:
-        landing_pages: ~
-        info_1: ~
-        info_2: ~
-        info_2_help_center: ~
-        info_3: ~
-        info_4: ~
-        editor_title: ~
-        editor_info: ~
-        preview: ~
-        set_live: ~
-        add_new_section: ~
-        select_section_type: ~
-        this_version_is_not_released: ~
-        latest_version_released: ~
-        check_it_out: ~
+        landing_pages: Landing-sivu
+        info_1: "Landing-sivu on markkinapaikkasi mahdollisesti tärkein sivu. Se on vierailijoidesi ensiksi näkemä sivu, ikäänkuin etuovi taloosi. Sinulla on vain muutama sekunti aikaa vakuuttaa vierailija jäämään sivustollesi. Sivun tulee olla kutsuva ja kommunikoida sivustosi käyttäjille antama arvo selkeästi ja houkuttelevasti."
+        info_2: "Voit käyttää tätä editoria muokataksesi landing-sivuasi milloin vain!"
+        info_2_help_center: "Help Center -artikkeli"
+        info_3: "Jos haluat täysin kustomoidun landing-sivun, voit ostaa sen lisäpalveluna $99 dollarin kuukausihintaan."
+        info_4: "Lue tämä %{link} tutustuaksesi landing-sivun editoriin, oppiaksesi miten osiot toimivat, ja miten muokata niitä."
+        editor_title: "Landing-sivun editori"
+        editor_info: "Täällä voit muokata eri osioita landing-sivustasi. Tällä hetkellä landing-sivusto voi olla vain yksikielinen. \"Hero\" ja \"Footer\" -osioiden sijaintia ei voi muuttaa."
+        preview: "Esikatsele landing-sivua"
+        set_live: Julkaise
+        add_new_section: "Lisää uusi osio:"
+        select_section_type: "Valitse osion tyyppi."
+        this_version_is_not_released: "Sinun tulee tehdä muutoksia ennen kuin voit julkaista uuden version landing-sivustasi"
+        latest_version_released: "Uusin versio landing-sivustasi on julkaistu! %{link}!"
+        check_it_out: "Lue se"
         form:
-          save: ~
-          cancel: ~
+          save: Talleta
+          cancel: Peruuta
         sections:
-          identifier: ~
-          kind: ~
-          new: ~
-          edit: ~
-          remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: ~
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
+          identifier: "Osion ID"
+          kind: "Osion tyyppi"
+          new: "Uusi osio"
+          edit: "Muokkaa osioa %{section_id}"
+          remove_section_confirmation: "Oletko varma että haluat poistaa osion '%{section_id}' ja kaiken sen sisällön? Tätä toimintoa ei voi peruuttaa."
+          info_single_column: "Info - Yksi sarake"
+          info_multi_column_2: "Info - Kaksi saraketta"
+          info_multi_column_3: "Info - Kolme saraketta"
+          listings: Ilmoitukset
+          categories: Kategoriat
+          hero: Hero
+          locations: Sijainnit
+          video: Video
           new_section:
-            categories: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Uuden 'Kategoriat' -osion lisäys"
+            info_single_column: "Uuden 'Info - Yksi sarake' -osion lisäys"
+            info_multi_column_2: "Uuden 'Info - Kaksi saraketta' -osion lisäys"
+            info_multi_column_3: "Uuden 'Info - Kolme saraketta' -osion lisäys"
+            listings: "Uuden 'Ilmoitukset' -osion lisäys"
+            locations: "Uuden 'Sijainnit' -osion lisäys"
+            video: "Uuden 'Video' -osion lisäys"
           edit_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "'Kategoriat' -osion muokkaus"
+            footer: "'Footer' -osion muokkaus"
+            hero: "'Hero' -osion muokkaus"
+            info_single_column: "'Info - Yksi sarake' -osion muokkaus"
+            info_multi_column_2: "'Info - Kaksi saraketta' -osion muokkaus"
+            info_multi_column_3: "'Info - Kolme saraketta' -osion muokkaus"
+            listings: "'Ilmoitukset' -osion muokkaus"
+            locations: "'Sijainnit' -osion muokkaus"
+            video: "'Video' -osion muokkaus"
       attachments:
-        delete: ~
-        or_change: ~
+        delete: "Poista nykyinen %{title}"
+        or_change: "Tai vaihda %{title} toiseen:"
     landing_page_versions:
       sections:
         content:
-          title: ~
+          title: "Osion sisältö"
         hero:
-          hero_title: ~
-          hero_description: ~
-          basic_details_tab: ~
+          hero_title: Hero
+          hero_description: "Aseta taustakuva Hero-osiolle. Slogan ja kuvaus asetetaan %{link}."
+          basic_details_tab: "Perustiedot -sivulta"
         footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
+          footer_title: Footer
+          footer_style: "Footerin tyyli"
+          style_dark: Tumma
+          style_light: Vaalea
+          style_marketplace_color: "Markkinapaikan pääväri"
+          style_logo: Logo
         cta_button:
-          cta_button: ~
-          cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
-          text_placeholder: ~
-          url_placeholder: ~
+          cta_button: "Call-to-action -nappi"
+          cta_enabled: "Näytä nappi"
+          cta_text: Teksti
+          cta_url: URL-osoite
+          text_placeholder: "Klikkaa minua!"
+          url_placeholder: "https://www.example.com"
         background_selector:
-          title: ~
+          title: Tausta
         background_image_overlay:
-          background_image: ~
-          background_image_info: ~
-          add_another_image: ~
-          current_image: ~
-          file_not_selected: ~
-          background_image_overlay: ~
-          background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
+          background_image: Taustakuva
+          background_image_info: "Tämä kuva näytetään osion taustakuvana. Kuvan koko tulisi olla vähintään 1600x1200 pikseliä parhaan laadun takaamiseksi."
+          add_another_image: "Lisää toinen kuva"
+          current_image: "Nykyinen kuva: %{filename}"
+          file_not_selected: "Ei valittu"
+          background_image_overlay: "Taustakuvan pimennystaso"
+          background_image_overlay_info: "Tämän avulla voit päättää taustakuvasi pimennystason. \"Läpinäkyvä\" tarkoittaa ettei pimennystä käytetä lainkaan."
+          overlay_dark: Tumma
+          overlay_light: Vaalea
+          overlay_transparent: Läpinäkyvä
         background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
+          background_style: "Taustan tyyppi"
+          style_image: Taustakuva
+          style_color: Taustaväri
+          style_none: "Ei taustaa"
         background_color:
-          background_color: ~
-          background_color_info: ~
+          background_color: Taustaväri
+          background_color_info: "Tästä voit vaihtaa taustavärin syöttämällä värin hex-koodin. %{link} voi auttaa sinua valitsemaan värin ja antaa sinulle hex-koodin, jonka voit kopioida tänne."
         categories:
-          add: ~
-          category: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
+          add: "+ Lisää uusi kategoria tähään osioon"
+          category: Kategoria
+          empty: "Et ole lisännyt yhtään kategorioita"
+          image: Kuva
+          include_title: "Mainostetut kategoriat"
+          info_text: "Voit mainostaa 3-7 eri kategoriaa. Ole hyvä ja lisää kuva jokaisen valitsemasi kategorian yhteyteen. Suositeltu kuvakoko on 1000x667 pikseliä."
+          need_at_least_3_categories: "Sinulla tulee olla vähintään kolme kategoriaa tässä osiossa"
+          need_at_most_7_categories: "Sinulla voi olla korkeintaan seitsemän kategoriaa tässä osiossa"
         category:
-          add_another_image: ~
-          category: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          select_category: ~
+          add_another_image: "Lisää toinen kuva"
+          category: Kategoria
+          current_image: "Nykyinen kuva: %{filename}"
+          file_not_selected: "Ei valittu"
+          image: Kuva
+          image_required: "Sinun tulisi lisätä kuva tähän kategoriaan"
+          select_category: "Valitse kategoria"
         locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
+          add: "+ Lisää uusi sijainti tähän osioon"
+          location: Sijainti
+          empty: "Et ole lisännyt yhtään sijaintia"
+          image: Kuva
+          include_title: "Mainostettavat sijainnit"
+          info_text: "Voit mainostaa 3-7 sijaintia. Ole hyvä ja lisää kuva jokaisen sijainnin yhteyteen, ja lisää sijaintihaun URL-osoite markkinapaikallasi. Suosisteltu kuvakoko on 1000 x 667 pikseliä."
+          need_at_least_3_locations: "Sinulla tulee olla vähintään kolme sijaintia tässä osiossa"
+          need_at_most_7_locations: "Sinulla voi olla korkeintaan seitsemän sijaintia tässä osiossa"
         location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
+          add_another_image: "Lisää toinen kuva"
+          location: Sijainti
+          current_image: "Nykyinen kuva: %{filename}"
+          file_not_selected: "Ei valittu"
+          image: Kuva
+          image_required: "Sinun tulee lisätä kuva tämän sijainnin yhteyteen"
+          title: Otsikko
+          title_placeholder: "Sijainnin kuvaus"
+          url: URL-osoite
+          url_placeholder: "Sijaintihaun URL-osoite"
         multi_column:
-          main_title: ~
-          column_header: ~
-          column_title: ~
-          web_viewer: ~
-          column_icon_info: ~
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
-          column_button_url: ~
+          main_title: Pääotsikko
+          column_header: "Sarake %{index}"
+          column_title: "Sarakkeen %{index} otsikko"
+          web_viewer: verkkopalvelusta
+          column_icon_info: "Voit valita ikonin tästä %{link}. Kun olet valinnut ikonin, kopioi sen 'Directory path' (esimerkiksi '01-Interface Essential/01-Home/house-2.svg') ja liitä se tähän."
+          column_icon: "Sarakkeen %{index} ikoni"
+          column_paragraph: "Sarakkeen %{index} tekstikappale"
+          column_button: "Sarakkeen %{index} nappi"
+          column_button_text: "Napin otsikko"
+          column_button_url: "https://www.example.com"
         listings:
-          listings_to_feature: ~
-          you_need_to_add_the_listing_ids: ~
+          listings_to_feature: "Mainostettavat ilmoitukset"
+          you_need_to_add_the_listing_ids: "Lisää ilmoitustunnus niistä ilmoituksista, joita haluat mainostaa tässä osiossa. Löydät ilmoitustunnuksen menemällä ilmoituksen sivulle, ja katsomalla URL-osoitetta. Ilmoitustunnus on se numero, joka tulee juuri URL-osoitteen pääosan jälkeen. Esimerkiksi ilmoituksen, jonka URL-osoite on https://www.example.com/listings/123456-listing-name , ilmoitustunnus on numerosarja 123456."
         video:
-          text: ~
-          autoplay: ~
-          autoplay_no: ~
-          autoplay_muted: ~
-          info: ~
-          youtube_video_id_info: ~
+          text: Teksti
+          autoplay: "Automaattisen toiston asetukset"
+          autoplay_no: "Ei automaattista toistoa"
+          autoplay_muted: "Automaattinen toisto ilman ääntä"
+          info: "Tämä teksti näytetään, jos valitset \\\"Ei automaatista toistoa\\\" -vaihtoehdon tai kun videon toisto keskeytetään."
+          youtube_video_id_info: "Löydät videon tunnisteen videon URL-osoitteesta. Se on tyypillisesti osoitteen viimeinen osa. Jos videon URL-osoite on esimerkiksi https://www.youtube.com/watch?v=UffchBUUIoI, tunniste olisi 'UffchBUUIoI'"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -842,7 +842,7 @@ fi:
       edit_location:
         edit_location_field: "Muokkaa sijaintikenttää"
         this_field_is_required: "Tämä kenttä on pakollinen"
-        the_location_feature_can_be_enabled: ~
+        the_location_feature_can_be_enabled: "Sijaintitoiminto voidaan kytkeä päälle %{link} -osiossa markkinapaikkasi asetuksissa."
       edit_expiration:
         edit_expiration_field: "Muokkaa ilmoituskenttää \"viimeinen voimassaolopäivä\""
         enable: "Salli viimeisen voimassaolopäivän asettaminen"
@@ -858,7 +858,7 @@ fi:
         listing_fields: Ilmoituskentät
         listing_fields_help: "Voit muokata kenttiä, jotka käyttäjän pitää täyttää listausta luodessa. Osa kentistä on ennaltamäärättyjä eikä niitä voi muokata."
         add_new_field: "Lisää uusi kenttä:"
-        remove_field_confirmation: "Oletko varma että haluat poistaa kentän '%{field_name}'?"
+        remove_field_confirmation: "Oletko varma että haluat poistaa kentän '%{field_name}' ja kaiken sen sisällön? Tätä toimintoa ei voi peruuttaa."
         cancel: Peruuta
         save: Tallenna
         field_title: "Kentän nimi"
@@ -1060,11 +1060,11 @@ fi:
       currency_change_warning_text: "Huomio: mikäli vaihdat valuutan, älä unohda pyytää myyjiäsi päivittämään ilmoituksensa, jotta myös ne saavat uuden valuutan."
       marketplace_currency_label: "Markkinapaikan valuutta:"
       minimum_listing_price_label: "Maksutapahtuman minimikoko:"
-      transaction_fee_label: "Välityspalkkioprosentti:"
-      minimum_transaction_fee_label: "Minimipalkkio:"
+      transaction_fee_label: "Muujän välityspalkkio:"
+      minimum_transaction_fee_label: "Myyjän minimivälityspalkkio:"
       save_settings: "Tallenna asetukset"
       minimum_listing_price_below_tx_fee: "Maksutapahtuman minimikoon tulee olla vähintään minimipalkkio, eli %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "Maksutapahtuman minimikoon tulee olla suurempi kuin minimipalkkion, eli %{minimum_commission}."
+      minimum_listing_price_below_min: "Maksutapahtuman minimikoon tulee olla suurempi kuin minimivälityspalkkion, eli %{minimum_commission}."
     payment_preferences:
       title: "Maksujärjestelmän asetukseet"
       general_settings: "1. Yleiset asetukset"
@@ -1151,35 +1151,35 @@ fi:
       request: Tarvitaan
       inquiry: Tiedustelu
       share_for_free: "Tarjotaan käyttöön ilmaiseksi"
-      event_w_online_payment: ~
-      event_wo_online_payment: ~
+      event_w_online_payment: "Tapahtuma online-maksulla"
+      event_wo_online_payment: "Tapahtuma ilman online-maksua"
       default_action_button_labels:
         sell: Osta
         rent: Vuokraa
         request: Tarjoa
         offer: Pyydä
         inquiry: "Ota yhteyttä"
-        book: ~
+        book: Varaa
     community_transactions:
       show:
-        transaction_for: ~
-        status: ~
-        next_step: ~
-        waiting_for_provider_accept_or_reject: ~
-        waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
-        delivery: ~
-        shipping_to: ~
-        buyer_pays: ~
-        marketplace_collects: ~
-        buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
-        admin_info_text: ~
-        manage_reviews: ~
+        transaction_for: "Tilaus #%{transaction_id} ilmoitukselle %{link}"
+        status: "Tila:"
+        next_step: "Seuraava askel:"
+        waiting_for_provider_accept_or_reject: "Odotetaan että %{provider} hyväksyy tai hylkää pyynnön."
+        waiting_for_fulfill_and_complete: "Odotetaan että %{provider} toimittaa tilauksen ilmoituksesta %{listing_title} ja että %{buyer} merkitsee tilauksen toteutuneeksi."
+        buyer: "Ostaja:"
+        provider: "Myyjä:"
+        delivery: "Toimitustapa:"
+        shipping_to: "Postitus osoitteeseen %{address}"
+        buyer_pays: "Ostaja maksaa:"
+        marketplace_collects: "%{service_name} kerää:"
+        buyer_service_fee_label: "Välityspalkkio ostajalta:"
+        service_fee_label: "Välityspalkkio myyjältä:"
+        provider_receives: "Myyjä saa:"
+        admin_info_text: "Palvelun %{service_name} ylläpitäjänä voit tehdä tiettyjä toimia saattaaksesi tämän maksutapahtuman eteenpäin:"
+        manage_reviews: "Hallitse arvosteluita"
         you_should_investigate: "Sinun kannattaa tutkia tilannetta keskustelemassa molempien osapuolien kanssa ja joko palauttaa maksu tai hylätä riitautus. %{learn_more_link}"
-        learn_more: ~
+        learn_more: "Lue lisää."
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
@@ -1225,7 +1225,7 @@ fi:
       travel: Matkailu
       other: Muut
     username: Käyttäjätunnus
-    username_or_email: "Käyttäjätunnus tai sähköposti"
+    username_or_email: Sähköposti
     what_is_this: "Mitä tämä tarkoittaa?"
     removed_user: "Käyttäjä poistettu"
     payment_fee_info:
@@ -1277,7 +1277,7 @@ fi:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description_team: "Jos tilaustasi ei toimitettu, voit merkitä sen riitautetuksi. %{service_name} -palvelun ylläpito tutkii tilanteen ja päättää joko palauttaa maksun tai hylätä riitautuspyyntösi."
       cancel_payed_description: "Jos pyyntösi on jo hyväksytty mutta tulit toisiin ajatuksiin, voit vielä perua pyynnön ennen maksua."
-      canceling_payed_transaction: "Pyynnön peruuttaminen"
+      canceling_payed_transaction: "Peruuta tilaus"
       confirm: "Merkitse toteutuneeksi"
       cancel: Riitauta
       continue: Jatka
@@ -1325,9 +1325,9 @@ fi:
         held_payment_wo_sum: "Pyyntö hyväksytty. %{service_name} pidättää maksun, kunnes tilaus on merkitty toteutuneeksi."
         confirmed_request: "Merkitsi tilauksen toteutuneeksi. Maksu on nyt siirretty käyttäjän %{author_name} pankkitilille, tai se siirretään pian."
       canceled_the_order: "Tilaus riitautettu. %{service_name} -palvelun tiimille on lähetetty ilmoitus."
-      marked_as_refunded: ~
+      marked_as_refunded: "Merkitty takaisinmaksetuksi"
       dismissed_the_cancellation: "Riitautus hylättiin."
-      payment_has_now_been_transferred: ~
+      payment_has_now_been_transferred: "Maksu on nyt siirretty myyjän %{seller} pankkitilille, tai se siirretään pian."
     new:
       message: Viesti
       message_to: "Viesti käyttäjälle %{author_name}"
@@ -1403,16 +1403,16 @@ fi:
       stripe:
         waiting_confirmation_from_requester: "Odotetaan, että käyttäjä %{requester_name} merkitsee tilauksen toteutuneeksi. Kun tilaus on merkitty toteutuneeksi, maksu vapautetaan pankkitilillesi."
       order_canceled: "Tilaus riitautettu"
-      waiting_for_marketplace_review: ~
-      marketplace_notified: ~
-      contact_them: ~
-      refunded: ~
+      waiting_for_marketplace_review: "Odotetaan että palvelun %{service_name} ylläpito tarkistaa tilanteen"
+      marketplace_notified: "Palvelun %{service_name} ylläpidolle on ilmoitettu. Voit myös %{contact_link} jos haluat antaa heille lisätietoja."
+      contact_them: "ottaa heihin yhteyttä"
+      refunded: "Tilaus merkitty takaisinmaksetuksi"
       dismissed: "Tilauksen riitautus hylättiin"
       order_refunded: "Tilaus merkitty takaisinmaksetuksi. %{service_name} -palvelun tiimi on hyväksynyt riitautuksen."
-      you_should_receive_refund_soon: ~
-      issue_with_the_refund: ~
-      do_you_disagree: ~
-      contact_the_marketpalce_team: ~
+      you_should_receive_refund_soon: "Tulet piakkoin saamaan maksunpalautuksen."
+      issue_with_the_refund: "Ilmenikö ongelmia? Epäonnistuiko takaisinmaksu? %{contact_link}."
+      do_you_disagree: "Ilmenikö ongelmia? Oletko eri mieltä? %{contact_link}."
+      contact_the_marketpalce_team: "Ota yhteyttä palvelun %{service_name} ylläpitoon"
       order_cancellation_dismissed: "Riitautus hylätty. %{service_name} -palvelun tiimi on hylännyt riitautuksen."
     status_link:
       accept_offer: "Hyväksy tarjous"
@@ -1425,8 +1425,8 @@ fi:
       reject_preauthorized_request: "Ei tällä kertaa"
       confirm: "Merkitse toteutuneeksi"
       cancel: Riitauta
-      mark_as_refunded: ~
-      dismiss: ~
+      mark_as_refunded: "Merkitse takaisinmaksetuksi"
+      dismiss: "Hylkää ja anna maksu myyjälle"
   feedback:
     feedback_subject: "Uusi palaute palvelusta %{service_name}"
     feedback_body: "%{author_name_and_email} on lähettänyt seuraavan palautteen palvelusta %{service_name}"
@@ -1470,7 +1470,7 @@ fi:
       you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai riitautetuksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä. Tämän jälkeen voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
-      cancel_it_link_text: "peruuttaa sen"
+      cancel_it_link_text: "riitauttaa sen"
       automatic_confirmation: "Jos et merkkaa pyyntöä toteutuneeksi tai riitauta sitä %{days_to_automatic_confirmation} päivän kuluttua sen hyväksymisestä, merkkaamme sen automaattisesti toteutuneeksi."
     confirm_reminder_v2:
       headline: "et ole vielä toteuttanut tai riitauttanut tilausta %{request_link}."
@@ -1792,12 +1792,12 @@ fi:
       subject: "Tilauksen riitautus hylätty - %{service_name} -palvelun tiimi on hylännyt riitautuksen käyttäjältä %{buyer}"
       marketplace_team_has_rejected_the_cancellation: "%{service_name} -palvelun tiimi on hylännyt riitautuksen maksutapahtumasta %{transaction_link}."
     transaction_commission_charge_failed:
-      subject: ~
-      transaction_about: ~
-      the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
-      contact_the_seller: ~
+      subject: "Erästä välityspalkkiota markkinapaikallasi ei siirretty PayPal-tilillesi"
+      transaction_about: "tilaus koskien ilmoitusta %{listing_title}"
+      the_commission_of_the_transaction: "välityspalkkiota tilauksesta %{transaction_link} myyjältä %{seller} ei voitu siirtää PayPal-tilillesi."
+      this_usually_means: "Tämä johtuu yleensä siitä, että jokin estää välitysmaksun siirtämisen myyjän PayPal-tililtä. Useimmissa tapauksissa ongelma on siinä, ettei myyjällä ole toimivaa maksuvälinettä kytkettynä PayPal-tiliinsä."
+      if_you_would_like_to_investigate: "Jos haluat tutkia tätä tarkemmin, paras ensiaskel on ottaa myyjään yhteyttä tähän asiaan liittyen."
+      contact_the_seller: "Ota yhteyttä myyjään"
   error_messages:
     booking:
       booking_failed_payment_voided: "Varaus epäonnistui tunnistamattoman virheen vuoksi. Ole hyvä ja yritä myöhemmin uudelleen. Sinua ei ole veloitettu."
@@ -1829,8 +1829,8 @@ fi:
       generic_error: "Maksuprosessissa tapahtui virhe. Stripe-maksua ei voitu käsitellä."
       accept_authorization_error: "Stripen kautta tehtyä katevarausta hyväksyttäessä tapahtui virhe. Ole hyvä ja yritä uudelleen."
       reject_authorization_error: "Stripen kautta tehtyä katevarausta hylättäessä tapahtui virhe. Ole hyvä ja yritä uudelleen."
-      card_declined: ~
-      expired_card: ~
+      card_declined: "Korttisi hylättiin"
+      expired_card: "Maksu epäonnistui koska kortti on vanhentunut"
   error_pages:
     back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:
@@ -1870,11 +1870,12 @@ fi:
       on_or_after: "täytyy olla %{restriction} tai ennen sitä"
       positive_number: "Käytä kokonaislukuja."
       from_must_be_less_than_till: "\"Aloitusaika\" pitää olla pienempi kuin \"lopetusaika\""
-      section_with_this_id_already_exists: ~
-      listing_with_this_id_does_not_exist: ~
-      presence: ~
-      username_is_invalid: ~
-      domain_name_is_invalid: ~
+      section_with_this_id_already_exists: "Tämä osion tunniste on jo käytössä. Ole hyvä ja valitse jokin toinen tunniste."
+      listing_with_this_id_does_not_exist: "Tätä ilmoitustunnusta ei löydy markkinapaikaltasi. Ehkä kyseessä on kirjoitusvirhe? Ole hyvä ja tarkista teksti, ja yritä uudelleen."
+      presence: "Ei voi olla tyhjä"
+      username_is_invalid: "Tämä käyttäjätunnus ei kelpaa tai on jo käytössä"
+      domain_name_is_invalid: "Domain-nimi on virheellinen tai ei saatavilla"
+      only_supported_variables: "Käytäthän vain tuettuja muuttujia"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
@@ -1912,7 +1913,7 @@ fi:
     create_new_marketplace: "Luo uusi verkkotori"
     contact_us: "Ota yhteyttä"
     profile: "Oma profiili"
-    manage_listings: "Hallitse ilmoituksia"
+    manage_listings: "Minun ilmoitukseni"
     invite: "Kutsu uusia jäseniä"
     login: "Kirjaudu sisään"
     signup: Rekisteröidy
@@ -2181,7 +2182,7 @@ fi:
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
       payment_successful: "Maksu suoritettu"
-      payment_canceled: "Maksaminen peruutettu"
+      payment_canceled: "Maksu peruutettu"
       error_in_payment: "Virhe maksun käsittelyssä. Jos et maksanut vielä, yritä uudelleen. Jos maksoit, ota yhteys ylläpitoon."
       cannot_receive_payment: "Toisen osapuolen tunnukselle ei voida tällä hetkellä välittää maksuja. Ole hyvä ja ota yhteys %{service_name} -palvelun ylläpitoon asian selvittämiseksi."
       payment_waiting_for_later_accomplishment: "Muista maksaa maksu tilisiirron tiedoilla. Tämän jälkeen saat kuitin ja tieto maksusta välittyy myyjälle."
@@ -2251,10 +2252,10 @@ fi:
         other: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
       automatically_logged_out_please_sign_in: "Sinut kirjattiin ulos automaattisesti. Kirjaudu uudelleen sisään."
       stripe_you_account_balance_is_not_0: "Tilisi saldo ei ole 0, joten sitä ei voi poistaa. Tämä saattaa tarkoittaa sitä, että sinulla on ostotapahtumia, joita ei ole vielä saatettu loppuun, tai että tililläsi on rahaa, jota ei ole vielä siirretty pankkitilillesi. Ole hyvä ja ota yhteyttä %{service_name} -tiimiin saadaksesi lisätietoja."
-      stripe_balance_for_username_is_not_0: ~
+      stripe_balance_for_username_is_not_0: "Käyttäjän %{username} Stripe-saldo ei ole 0, joten tiliä ei voi poistaa. Tämä saattaa tarkoittaa sitä, että käyttäjällä on maksuja joita ei ole vielä saatettu loppuun, tai että tilillä on rahaa jota ei olla vielä siirretty myyjän pankkitilille. Ole hyvä ja tarkista Stripen ylläpitonäkymäsi (Stripe Dashboard) saadaksesi lisätietoja."
       visit_admin: "Haluaisitko %{link}?"
       visit_admin_link: "siirtyä ylläpitonäkymään"
-      an_error_occurred_when_saving_your_information: ~
+      an_error_occurred_when_saving_your_information: "Tietojasi tallentaessa tapahtui virhe: \"%{message}\". Ole hyvä ja tarkista tietojen oikeellisuus ja yritä uudelleen."
     settings:
       account: "Tilin tiedot"
       notifications: Tiedotteet
@@ -2265,8 +2266,8 @@ fi:
       payments: Maksutiedot
       listings: Ilmoitukset
       listings_search_placeholder: "Etsi ilmoituksen otsikolla"
-      transactions_search_placeholder: ~
-      transactions: ~
+      transactions_search_placeholder: "Etsi tilauksen otsikolla tai toisen osapuolen nimellä"
+      transactions: Tilaukset
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."
@@ -2372,7 +2373,7 @@ fi:
         no_service_fee_you_will_get_payment_text: "Hinnasta vähennetään %{payment_fee_info_link}."
         after_service_fee_you_will_get_payment_text: "Kun joku tekee uuden tilauksen, saat tämän summan, josta vähennetään ensin %{payment_fee_info_link}"
         payment_fee_info_link_text: "%{service_name} välityspalkkio sekä maksunvälittäjän palvelumaksu"
-        delivery: Kuljetustapa
+        delivery: Toimitustapa
         shipping: Postitus
         shipping_price: "Postituksen hinta"
         shipping_price_additional: Lisätuotteet
@@ -2487,7 +2488,7 @@ fi:
       month: "Kuukausien määrä:"
       unit: "Yksiköiden lukumäärä:"
       custom: "Määrä:"
-      person: ~
+      person: "Henkilöiden lukumäärä:"
     quantity_placeholder: Määrä
     please_comment: Kommentoi
     reply_link:
@@ -2524,7 +2525,7 @@ fi:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per päivä"
-      delivery: Kuljetustapa
+      delivery: Toimitustapa
       shipping: "Postikulut (+%{price})"
       shipping_no_price: Postikulut
       shipping_price_additional: "Postikulut (+%{price}, lisätuotteet: +%{shipping_price_additional})"
@@ -2539,7 +2540,7 @@ fi:
       week: viikko
       month: kuukausi
       unit: yksikkö
-      person: ~
+      person: henkilö
     verification_required:
       verification_required: "Vahvistus vaaditaan"
   listing_conversations:
@@ -2556,7 +2557,7 @@ fi:
       night: yö
       nights: yötä
       invalid_parameters: "Epäpätevät arvot uudelle transaktiolle"
-      select_delivery_method: ~
+      select_delivery_method: "Sinun tulee valita toimitustapa"
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
     stripe_payment:
@@ -2566,7 +2567,7 @@ fi:
       address_country: "Maa *"
       address_name: "Etu- ja sukunimet *"
       address_city: "Kaupunki *"
-      address_state: "Valtio *"
+      address_state: Valtio
       address_street1: "Katuosoite, rivi 1 *"
       address_street2: "Katuosoite, rivi 2"
       address_postal_code: Postinumero
@@ -2663,7 +2664,7 @@ fi:
     checkout_with: Maksa
     or_pay_with_paypal: tai
     checkout_with_paypal: "Maksa PayPal-tilillä"
-    cancel_succesful: "PayPal maksu onnistuneesti peruttu."
+    cancel_succesful: "PayPal-maksun peruminen onnistui."
     transaction:
       commission_payment_name: "Välityspalkkio %{listing_title} -ostosta"
       commission_payment_description: "%{service_name} -palvelun välityspalkkio %{listing_title} -ostosta"
@@ -2688,7 +2689,7 @@ fi:
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       email_is_in_use_or_not_allowed: "Antamasi osoite ei ole sallittu tässä palvelussa, tai se on jo käytössä. Jos et pääse sisään, ole yhteydessä ylläpitoon."
       email_not_allowed: "Antamasi sähköpostiosoite ei kelpaa palvelussa %{service_name}. Ole hyvä ja anna sallittu osoite. Jos et pääse sisään, lähetä palautetta ylälaidan valikon kautta."
-      invalid_username_or_email: "Käyttäjänimi tai sähköposti on viallinen, tai jo käytössä"
+      invalid_username_or_email: "Sähköposti on virheellinen tai jo käytössä"
       email_restriction_instructions:
         one: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
         other: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset sellaisen organisaation sähköpostiosoitteen, jolle on myönnetty mahdollisuus liittyä tähän palveluun."
@@ -2765,7 +2766,7 @@ fi:
   sessions:
     new:
       create_new_account: "Luo uusi tunnus"
-      i_forgot_my_password: "Käyttäjätunnus tai salasana unohtunut"
+      i_forgot_my_password: "Unohdin salasanani"
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään"
       connect_your_facebook_to_kassi: "Yhdistä Facebook-tilisi %{service_name}-palveluun"
@@ -2776,11 +2777,11 @@ fi:
       cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, voit %{cancel_link}."
       facebook_cancel_link_text: "perua yhdistämisen"
       log_in_with_your_provider_account: "Kirjaudu sisään palvelulla %{provider}"
-      or_sign_up_with_your_username: "...tai käyttäjätunnuksellasi ja salasanallasi:"
+      or_sign_up_with_your_username: "...tai sähköpostiosoitteellasi:"
       we_will_not_post_without_asking_you: "Emme koskaan postaa puolestasi Facebookiin kysymättä ensin sinulta."
     password_forgotten:
       email: Sähköposti
-      password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."
+      password_recovery_instructions: "Anna sähköpostiosoitteesi, ja saat ohjeet salasanan vaihtamiseen."
       request_new_password: "Pyydä uusi salasana"
       change_your_password: "Vaihda salasanasi"
     confirmation_pending:
@@ -2806,7 +2807,7 @@ fi:
       delete_account_confirmation_popup: "Oletko aivan varma, että haluat pysyvästi poistaa käyttäjätilisi ja kaikki siihen liittyvät tiedot? Poistoa ei voi peruuttaa."
       email_addresses: Sähköpostiosoitteet
       new_email: "Uusi sähköpostiosoite"
-      delete_personal_information: "Jos poistat käyttäjätunnuksesi, kaikki henkilokohtaiset tietosi (nimi, puhelinnumero, osoite, sähköpostiosoite, profiilikuva, jne.) poistetaan pysyvästi. Tietojen palauttaminen ei ole mahdollista. Kaikki ilmoituksesi poistetaan. Et voi aktivoida tunnustasi uudelleen poiston jälkeen. Käyttäjänimesi palvelussa %{service_name} vapautuu muiden käytettäväksi."
+      delete_personal_information: "Jos poistat käyttäjätunnuksesi, kaikki henkilokohtaiset tietosi (nimi, puhelinnumero, osoite, sähköpostiosoite, profiilikuva, jne.) poistetaan pysyvästi. Tietojen palauttaminen ei ole mahdollista. Kaikki ilmoituksesi poistetaan. Et voi aktivoida tunnustasi uudelleen poiston jälkeen."
       delete_information_others_involved: "Tapahtumat, joissa mukana on ollut muita osapuolia (esimerkiksi keskustelut, tilaukset, antamasi palautteet, jne.) eivät poistu tunnustesi poiston yhteydessä. Nimeäsi ei kuitenkaan enää näytetä näiden tapahtumien yhteydessä."
       unfinished_transactions: "Et voi poistaa tunnustasi, koska sinulla on keskeneräisiä tilauksia. Päätä tilaukset ennen tunnuksen poistoa."
       only_admin: "Tiliäsi ei voi poistaa, sillä olet markkinapaikan ainoa ylläpitäjä."
@@ -2879,8 +2880,8 @@ fi:
       editing_profile_of: "Muokkaat nyt käyttäjän %{name} profiilia"
       format_markdown_link: "muotoilla kuvaustekstiä käyttäen Markdownia"
       format_markdown: "Voit %{link}."
-      username: ~
-      username_description: ~
+      username: Käyttäjätunnus
+      username_description: "Käyttäjätunnuksesi on osa profiilisivusi ainutlaatuista URL-osoitetta. Voit käyttää vain kirjaimia ja numeroita käyttäjätunnuksessasi, ilman välilyöntejä. Kun vaihdat käyttäjätunnustasi, URL-osoitteesi muuttuu automaattisesti eikä vanha URL-osoitteesi enää toimi. Vanha käyttäjätunnuksesi vapautuu muiden käytettäväksi."
     save_information: "Tallenna tiedot"
   shipping_address:
     shipping_address: Postitusosoite
@@ -3093,7 +3094,7 @@ fi:
       user: Käyttäjä
       inbox: Postilaatikko
       profile: "Oma profiili"
-      manage_listings: "Hallitse ilmoituksia"
+      manage_listings: "Minun ilmoitukseni"
       settings: Asetukset
       logout: "Kirjaudu ulos"
       login: "Kirjaudu sisään"
@@ -3161,7 +3162,7 @@ fi:
     paypal_connected: "PayPal-tili yhdistetty onnistuneesti!"
     paypal_can_accept: "Olet nyt valmis vastaanottamaan rahaa PayPal-tilillesi"
     paypal_connected_give_permission: "Jotta voisit alkaa vastaanottaa maksuja PayPal-tilillesi <%{email}>, sinun tulee antaa lupa välityspalkkion veloittamiseen."
-    stripe_account_restricted: "Online-maksuja tilillesi on rajoitettu!"
+    stripe_account_restricted: "Online-maksuja tilillesi on rajoitettu tai rajoitetaan pian!"
     stripe_account_restricted_info: "Sinun tulisi muokata pankkitilitietojasi ja antaa maksunvälittäjälle lisää tietoa."
     stripe_account_restricted_soon: "Online-maksuja tilillesi tullaan pian rajoittamaan."
     stripe_account_restricted_soon_info: "Sinun tulisi muokata pankkitilitietojasi ja antaa maksunvälittäjälle lisää tietoa."
@@ -3231,20 +3232,20 @@ fi:
         digits_or_chars: "numeroa tai kirjaimia A-Z"
     form_verification:
       personal_id_number: "Henkilökohtainen ID"
-      document: Vahvistusdokumentti
-      document_back: ~
+      document: "Henkilötodistus (passi tai muu valtion myöntämä henkilötodistus)"
+      document_back: "Henkilötodistus (passi tai muu valtion myöntämä henkilötodistus) (dokumentin kääntöpuoli)"
       send_verification: "Lähetä vahvistus"
       need_verification: "Lisävahvistus tarvitaan"
-      additional_document: ~
-      additional_document_back: ~
-      files_need_to_be: ~
+      additional_document: "Dokumentti joka näyttää nimesi ja osoitteesi, kuten sähkölasku, puhelinlasku tai muu vastaava dokumentti"
+      additional_document_back: "Dokumentti joka näyttää nimesi ja osoitteesi, kuten sähkölasku, puhelinlasku tai muu vastaava dokumentti (dokumentin kääntöpuoli)"
+      files_need_to_be: "Tiedostojen tulee olla JPEG-  tai PNG-tiedostoja, ja alle 5MB kokoisia. PDF-tiedostojen vahvistus ei ole mahdollista. Tiedostojen tulisi olla värillisiä, käännetty oikein päin, ja sisältää kaiken informaation luettavassa ja selkeässä muodossa."
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sosiaalivakuutusnumero)"
       social_security_number: "Social Security Number (SSN; Sosiaaliturvanumero)"
       ssn_last_4: "Viimeiset 4 numeroa sosiaaliturvatunnuksestasi (\"SSN\")"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID; Hong Kongin henkilökorttinumero)"
       singapore_identity_card: "National Registration Identity Card (NRIC; Kansallinen identiteettirekisterikorttinumero) tai Foreign Identification Number (FIN; Ulkomaalainen henkilötunnus)"
-      mexico_id_number: ~
+      mexico_id_number: "Personal ID Code Number (CURP)"
       messages:
         social_insurance_number: "täytyy olla pätevä Social Insurance Number (SIN; Sosiaaliturvatunnus)"
   payment_settings:
@@ -3272,23 +3273,23 @@ fi:
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
+        id: "Osion ainutlaatuinen tunniste"
+        title: Otsikko
+        paragraph: Tekstikappale
+        button_title: Teksti
+        button_path: URL-osoite
+        button_path_string: URL-osoite
+        background_image: Taustakuva
+        background_image_variation: "Taustakuvan vaihtoehdot"
+        background_color: Taustaväri
+        background_color_string: Taustaväri
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: "Ilmoituksen 1 tunnus"
+        listing_2_id: "Ilmoituksen 2 tunnus"
+        listing_3_id: "Ilmoituksen 3 tunnus"
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Teksti
+        youtube_video_id: "YouTube-videon tunnus"
   canada_states:
     AB: Alberta
     BC: "British Columbia"
