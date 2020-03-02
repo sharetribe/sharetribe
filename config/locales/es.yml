@@ -1875,6 +1875,7 @@ es:
       presence: "No puede estar vacío"
       username_is_invalid: "Este nombre de usuario es inválido o no está disponible"
       domain_name_is_invalid: "Este nombre de dominio es invalido o no está disponible"
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."

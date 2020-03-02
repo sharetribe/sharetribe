@@ -1859,6 +1859,7 @@ zh-TW:
       presence: ~
       username_is_invalid: ~
       domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} 同意將 %{listing_title} 借給 %{requester_name} %{time_ago}。"

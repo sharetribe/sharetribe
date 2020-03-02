@@ -1861,6 +1861,7 @@ ja:
       presence: ~
       username_is_invalid: ~
       domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{time_ago}に%{offerer_name}さんは%{requester_name}さんに%{listing_title}を貸すことに同意しました。"

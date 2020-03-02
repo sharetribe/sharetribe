@@ -1872,6 +1872,7 @@ en-NZ:
       presence: ~
       username_is_invalid: ~
       domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."

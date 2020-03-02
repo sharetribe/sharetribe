@@ -1885,6 +1885,7 @@ sk-SK:
       presence: "Nemôže byť prázdne"
       username_is_invalid: "Toto používateľské meno je neplatné alebo nedostupné"
       domain_name_is_invalid: "Tento názov domény je neplatný alebo nedostupný"
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} súhlasil s pôžičkou %{listing_title} pre %{requester_name} %{time_ago}."

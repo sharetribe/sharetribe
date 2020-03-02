@@ -1837,6 +1837,7 @@ bg:
       presence: ~
       username_is_invalid: ~
       domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -1913,8 +1914,8 @@ bg:
       some_private_requests_exist: "Вече има <b>%{number_of_listings} запитвания</b>,"
     custom_filters:
       update_view: "Обнови изглед"
-      min: ~
-      max: ~
+      min: "От:"
+      max: "До:"
     event_feed:
       latest_events: ~
     grid_item:
@@ -2103,7 +2104,7 @@ bg:
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: ~
       create_new_listing: ~
-      create_one_here: "създайте тук"
+      create_one_here: "го създадете тук."
       email_confirmation_sent_to_new_address: ~
       email_not_found: "Даденият от вас имейл не бе намерен от базата данни %{service_name}."
       error_with_session: "Грешка при сесията."
