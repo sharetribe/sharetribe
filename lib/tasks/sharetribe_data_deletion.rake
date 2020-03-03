@@ -1,6 +1,10 @@
 # Marketplace data deletion tasks
 # DANGER! Tasks here result in data being permanently deleted.
 
+# Number of days after which old marketplaces and trials are soft-deleted
+# (simply flagged as deleted)
+DATA_SOFT_DELETION_DAYS_THRESHOLD = 180
+
 # Number of days to keep old marketplaces and trials
 DATA_DELETION_DAYS_THRESHOLD = 365
 
@@ -300,6 +304,16 @@ namespace :sharetribe do
     "#{completed} / #{total}, #{(completed  * 100 / total).round(2)}%"
   end
 
+  def soft_delete_marketplace!(community_id)
+    community = Community.find_by_id(community_id)
+
+    return unless community
+
+    community.deleted = true
+    community.save
+    puts "Community #{community_id} marked as deleted"
+  end
+
   def delete_marketplace_data!(community_id, sleep_time, query_sleep_time)
     community = Community.find_by_id(community_id)
 
@@ -402,14 +416,30 @@ namespace :sharetribe do
 
       loop do
         threshold_date = DATA_DELETION_DAYS_THRESHOLD.days.ago
-        # Delete any old expired paid marketplaces
-        old_marketplaces_with_plans(threshold_date).each do |mp_id|
-          delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        soft_delete_threshold_date = DATA_SOFT_DELETION_DAYS_THRESHOLD.days.ago
+
+        # Soft delete marketplaces with expired paid plans
+        old_marketplaces_with_plans(soft_delete_threshold_date).each do |mp_id|
+          soft_delete_marketplace!(mp_id)
         end
 
-        old_marketplace_trials(threshold_date).each do |mp_id|
-          delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        # Soft delete old trials
+        old_marketplace_trials(soft_delete_threshold_date).each do |mp_id|
+          soft_delete_marketplace!(mp_id)
         end
+
+        # Temporary disable hard data deletion. Run only soft-deletion for a while.
+
+        # # Delete any old expired paid marketplaces
+        # old_marketplaces_with_plans(threshold_date).each do |mp_id|
+        #   delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        # end
+
+        # # Delete old trials
+        # old_marketplace_trials(threshold_date).each do |mp_id|
+        #   delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        # end
+
         sleep 3600 * 6 # 6 hours
       end
     end
