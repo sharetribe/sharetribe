@@ -72,6 +72,7 @@ class Listing < ApplicationRecord
   include ActionView::Helpers::TranslationHelper
   include Rails.application.routes.url_helpers
   include ManageAvailabilityPerHour
+  include ManageAvailabilityPerDay
 
   belongs_to :community
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id", :inverse_of => :listings
@@ -100,6 +101,10 @@ class Listing < ApplicationRecord
   has_many :tx, class_name: 'Transaction', :dependent => :destroy
   has_many :bookings, through: :tx
   has_many :bookings_per_hour, ->{ per_hour_blocked }, through: :tx, source: :booking
+  has_many :bookings_per_day, ->{ per_day_blocked }, through: :tx, source: :booking
+
+  has_many :blocked_dates, :dependent => :destroy
+  accepts_nested_attributes_for :blocked_dates, reject_if: :all_blank, allow_destroy: true
 
   monetize :price_cents, :allow_nil => true, with_model_currency: :currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency

@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     resources :listings, only: [], defaults: { format: :json } do
       member do
         post :update_working_time_slots
+        post :update_blocked_dates
       end
     end
   end

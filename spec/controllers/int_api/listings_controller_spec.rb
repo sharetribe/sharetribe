@@ -47,4 +47,20 @@ describe IntApi::ListingsController, type: :controller do
       })
     end
   end
+
+  describe "#update_blocked_dates" do
+    it 'works' do
+      expect(listing.blocked_dates.count).to eq 0
+      listing_params = {
+        listing: {
+          blocked_dates_attributes: {
+            id: nil, blocked_at: '2020-01-01'
+          }
+        }
+      }
+      get :update_blocked_dates, params: {id: listing.id, format: :json}.merge(listing_params)
+      listing.reload
+      expect(listing.blocked_dates.count).to eq 1
+    end
+  end
 end
