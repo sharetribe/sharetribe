@@ -45,3 +45,11 @@ def attach_image(filename, field, selector)
     attach_file(field, path, visible: false)
   end
 end
+
+Given /^external plan service in use$/ do
+  APP_CONFIG.external_plan_service_in_use = true
+end
+
+Given /^external plan service is not used$/ do
+  APP_CONFIG.external_plan_service_in_use = false
+end

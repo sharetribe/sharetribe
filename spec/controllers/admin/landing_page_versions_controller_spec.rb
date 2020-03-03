@@ -5,13 +5,24 @@ describe Admin::LandingPageVersionsController, type: :controller do
   let(:landing_page) { FactoryGirl.create(:landing_page, community: community, released_version: '1') }
   let(:landing_page_version1) { FactoryGirl.create(:landing_page_version, community: community, version: '1') }
   let(:landing_page_version2) { FactoryGirl.create(:landing_page_version, community: community, version: '2') }
+  let(:plan) do
+    {
+      expired: false,
+      features: {
+        whitelabel: true,
+        admin_email: true,
+        footer: true,
+        landing_page: true
+      }
+    }
+  end
 
   before(:each) do
     @request.host = "#{community.ident}.lvh.me"
     @request.env[:current_marketplace] = community
+    @request.env[:current_plan] = plan
     user = create_admin_for(community)
     sign_in_for_spec(user)
-    RequestStore.store[:feature_flags] = [:clp_editor]
   end
 
   describe('#index') do
