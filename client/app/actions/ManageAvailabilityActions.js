@@ -4,9 +4,10 @@ import * as harmony from '../services/harmony';
 import { t } from '../utils/i18n';
 import { expandRange, fromMidnightUTCDate, toMidnightUTCDate } from '../utils/moment';
 import { addFlashNotification } from './FlashNotificationActions';
-import { blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
+import { blockChanges, unblockChanges, compressedChanges } from '../reducers/ManageAvailabilityReducer';
 import { isSameDay } from 'react-dates';
 import axios from 'axios';
+import moment from 'moment';
 
 // Delay to show the save button checkmark before closing the winder.
 const SAVE_FINISHED_DELAY = 2000;
@@ -35,6 +36,11 @@ const changeVisibleMonth = (day) => ({
 export const dataLoaded = (slots, loadedMonths) => ({
   type: actionTypes.DATA_LOADED,
   payload: slots.merge({ loadedMonths }),
+});
+
+export const dataBlockedDatesLoaded = (data) => ({
+  type: actionTypes.DATA_BLOCKED_DATES_LOADED,
+  payload: data,
 });
 
 /**
@@ -94,6 +100,18 @@ const convertBlocksToUTCMidnightDates = (blocks) =>
 const monthsToLoad = (day, loadedMonths, preloadMonths) =>
   removeLoadedMonths(loadRange(day, preloadMonths), loadedMonths);
 
+const getBlockedDates = (listingId, start, end) => (
+  axios(
+    `/int_api/listings/${listingId}/blocked_dates`,
+    {
+      method: 'get',
+      params: {
+        start_on: start.format('YYYY-MM-DD'),
+        end_on: end.format('YYYY-MM-DD'),
+      },
+    })
+);
+
 export const changeMonth = (day) =>
   (dispatch, getState) => {
     dispatch(changeVisibleMonth(day));
@@ -118,6 +136,15 @@ export const changeMonth = (day) =>
         });
 
         dispatch(dataLoaded(slots, expandRange(start, end, 'months').toSet()));
+      })
+      .catch(() => {
+        // Status looks bad, alert user
+        dispatch(addFlashNotification('error', t('web.listings.errors.availability.something_went_wrong')));
+      });
+      getBlockedDates(state.get('listingId'), start, end)
+      .then((response) => {
+        const blocked_dates = response.data.map((x) => ({ id: x.id, blocked_at: moment.utc(x.blocked_at) }));
+        dispatch(dataBlockedDatesLoaded(blocked_dates));
       })
       .catch(() => {
         // Status looks bad, alert user
@@ -157,7 +184,7 @@ const csrfToken = () => {
 };
 
 const convertToApi = (state) => {
-  const changes = state.get('changes');
+  const changes = compressedChanges(state);
   const blocked_dates = state.get('blocked_dates');
   const result = [];
   changes.toJS().forEach((block) => {

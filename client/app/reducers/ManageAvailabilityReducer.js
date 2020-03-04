@@ -206,6 +206,8 @@ const manageAvailabilityReducer = (state = initialState, action) => {
       return state.set('saveInProgress', false);
     case actionTypes.DATA_LOADED:
       return mergeNovelty(state, payload);
+    case actionTypes.DATA_BLOCKED_DATES_LOADED:
+      return state.set('blocked_dates', payload);
     case actionTypes.OPEN_EDIT_VIEW:
       return state.set('isOpen', true);
     case actionTypes.CLOSE_EDIT_VIEW:
