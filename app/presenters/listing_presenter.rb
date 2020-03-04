@@ -92,10 +92,6 @@ class ListingPresenter < MemoisticPresenter
     @listing.unit_type
   end
 
-  def manage_availability_props
-    ManageAvailabilityHelper.availability_props(community: @current_community, listing: @listing)
-  end
-
   def currency_opts
     MoneyViewUtils.currency_opts(I18n.locale, currency)
   end
