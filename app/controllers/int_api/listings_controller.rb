@@ -11,7 +11,7 @@ class IntApi::ListingsController < ApplicationController
 
   def update_blocked_dates
     listing.update(blocked_dates_params)
-    respond_with listing.blocked_dates.as_json, location: nil
+    head :ok
   end
 
   private
