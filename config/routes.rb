@@ -58,6 +58,7 @@ Rails.application.routes.draw do
         post :update_working_time_slots
         post :update_blocked_dates
       end
+      resources :blocked_dates, only: [:index], controller: 'listing/blocked_dates'
     end
   end
 
