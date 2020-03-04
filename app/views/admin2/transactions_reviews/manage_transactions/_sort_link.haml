@@ -1,0 +1,7 @@
+= link_to(sort: column, direction: direction, page: params[:page] || 1) do
+  = title
+  - if params[:sort].eql?(column)
+    - if direction.eql?('asc')
+      ▼
+    - else
+      ▲

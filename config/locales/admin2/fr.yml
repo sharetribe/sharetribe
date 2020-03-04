@@ -1,6 +1,8 @@
 fr:
   admin2:
     save_changes: 'lorem ipsum'
+    next_step: 'lorem ipsum'
+    prev_step: 'lorem ipsum'
     topnav:
       admin_menu: 'lorem ipsum'
       logo: 'lorem ipsum'
@@ -52,6 +54,7 @@ fr:
       transactions_reviews:
         config_transactions: 'lorem ipsum'
         view_conversations: 'lorem ipsum'
+        manage_transactions: 'lorem ipsum'
       payment_system:
         country_currency: 'lorem ipsum'
       emails:
@@ -133,6 +136,20 @@ fr:
       delete_info_text: 'lorem ipsum'
       processing_export: 'lorem ipsum'
       confirm_popup_body: 'lorem ipsum'
+    manage_transactions:
+      export_to_csv: 'lorem ipsum'
+      search_placeholder: 'lorem ipsum'
+      listing: 'lorem ipsum'
+      customer: 'lorem ipsum'
+      provider: 'lorem ipsum'
+      started: 'lorem ipsum'
+      latest_activity: 'lorem ipsum'
+      status: 'lorem ipsum'
+      amount: 'lorem ipsum'
+      actions: 'lorem ipsum'
+      view_details: 'lorem ipsum'
+      all_transactions: 'lorem ipsum (%{count})'
+      not_available: 'lorem ipsum'
     footer:
       footer_enabling: 'lorem ipsum'
       footer_enabling_field: 'lorem ipsum'

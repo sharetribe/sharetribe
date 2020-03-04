@@ -1,0 +1,26 @@
+- content_for :title do
+  = t('admin2.sidebar.transactions_reviews.manage_transactions')
+
+= render 'admin2/transactions_reviews/manage_transactions/filter'
+
+.content-card-section-container{style: 'padding: 0; max-width: none;'}
+  .table-responsive
+    %table.table.table-hover.viewtransactions
+      %thead
+        %tr
+          %th{scope: :col}
+            = render 'sort_link', column: 'listing', direction: sort_link_direction('listing'), title: t('admin2.manage_transactions.listing')
+          %th{scope: :col}= t('admin2.manage_transactions.customer')
+          %th{scope: :col}= t('admin2.manage_transactions.provider')
+          %th{scope: :col}
+            = render 'sort_link', column: 'started', direction: sort_link_direction('started'), title: t('admin2.manage_transactions.started')
+          %th{scope: :col}
+            = render 'sort_link', column: 'last_activity', direction: sort_link_direction('last_activity'), title: t('admin2.manage_transactions.latest_activity')
+          %th{scope: :col}= t('admin2.manage_transactions.status')
+          %th{scope: :col}= t('admin2.manage_transactions.amount')
+          %th{scope: :col}= t('admin2.manage_transactions.actions')
+      %tbody
+        = render partial: 'transaction', collection: @transactions_presenter.transactions
+    .table-bottom
+      %p= page_entries_info(@transactions_presenter.transactions, model: 'Transaction').html_safe
+      = will_paginate @transactions_presenter.transactions, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]

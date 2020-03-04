@@ -88,8 +88,8 @@
           %li
             = link_to t('admin2.sidebar.transactions_group'), '#transactionsreviews-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'transactionsreviews-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#transactionsreviews-mobile.collapse.subtitle{class: expand_ul('transactions_reviews')}
-          %li#managetransactions-mobile
-            %a{:href => 'manage-transactions.php'} Manage transactions
+          %li#managetransactions-mobile{class: active_li('manage_transactions')}
+            = link_to t('admin2.sidebar.transactions_reviews.manage_transactions'), admin2_transactions_reviews_manage_transactions_path(direction: :desc, sort: :last_activity)
           %li#viewconversations-mobile{class: active_li('conversations')}
             = link_to t('admin2.sidebar.transactions_reviews.view_conversations'), admin2_transactions_reviews_conversations_path(direction: :desc, sort: :last_activity)
           %li#managereviews-mobile

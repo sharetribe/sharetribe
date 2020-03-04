@@ -266,6 +266,12 @@ Rails.application.routes.draw do
 
       namespace :transactions_reviews, path: 'transactions-and-reviews' do
         resources :conversations, path: 'view-conversations', only: %i[index]
+        resources :manage_transactions, path: 'manage-transactions', only: %i[index] do
+          collection do
+            get :export
+            get :export_status
+          end
+        end
         resources :config_transactions, path: 'configure-transactions', only: %i[index] do
           collection do
             patch :update_config
