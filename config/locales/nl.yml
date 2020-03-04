@@ -1878,6 +1878,7 @@ nl:
       presence: "Kan niet blanco zijn"
       username_is_invalid: "Deze gebruikersnaam is niet geldig of niet beschikbaar"
       domain_name_is_invalid: "Deze domeinnaam is ongeldig of niet beschikbaar."
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."

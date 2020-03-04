@@ -167,4 +167,55 @@ describe Listing, type: :model do
       expect(hammer.deleted?).to be true
     end
   end
+
+  context 'manage availability per day' do
+    let(:community) { FactoryGirl.create(:community) }
+    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
+    let(:transaction1) do
+      tx = FactoryGirl.create(:transaction, community: community,
+                                            listing: listing,
+                                            current_state: 'confirmed')
+      FactoryGirl.create(:booking, tx: tx, start_on: Date.parse('2020-03-01'), end_on: Date.parse('2020-03-04'))
+      tx
+    end
+    let(:transaction2) do
+      tx = FactoryGirl.create(:transaction, community: community,
+                                            listing: listing,
+                                            current_state: 'confirmed')
+      FactoryGirl.create(:booking, tx: tx, start_on: Date.parse('2020-03-05'), end_on: Date.parse('2020-03-06'))
+      tx
+    end
+    let(:listing_blocked_date1) do
+      FactoryGirl.create(:listing_blocked_date, listing: listing, blocked_at: Date.parse('2020-03-08'))
+    end
+    let(:listing_blocked_date2) do
+      FactoryGirl.create(:listing_blocked_date, listing: listing, blocked_at: Date.parse('2020-03-28'))
+    end
+
+    context '#booked_dates' do
+      it 'works' do
+        transaction1
+        transaction2
+
+        expected_dates = %w(2020-03-01 2020-03-02 2020-03-03 2020-03-05)
+          .map{|x| x.to_time(:utc)}
+        result_dates = listing.booked_dates('2020-02-27', '2020-03-30')
+        expect(expected_dates.all?{ |x| result_dates.include?(x) }).to eq true
+        expect(result_dates.size).to eq 4
+      end
+    end
+
+    context '#direct_blocked_dates' do
+      it 'works' do
+        listing_blocked_date1
+        listing_blocked_date2
+
+        expected_dates = %w(2020-03-08 2020-03-28)
+          .map{|x| x.to_time(:utc)}
+        result_dates = listing.direct_blocked_dates('2020-02-27', '2020-03-30')
+        expect(expected_dates.all?{ |x| result_dates.include?(x) }).to eq true
+        expect(result_dates.size).to eq 2
+      end
+    end
+  end
 end

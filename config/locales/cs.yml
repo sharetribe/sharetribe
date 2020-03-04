@@ -1881,6 +1881,7 @@ cs:
       presence: "Pole nesmí být prázdné"
       username_is_invalid: "Toto uživatelské jméno je neplatné nebo nedostupné"
       domain_name_is_invalid: "Tato doména je neplatná nebo nedostupná."
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "Uživatel %{offerer_name} souhlasil s propůjčením %{listing_title} uživateli %{requester_name} %{time_ago}."

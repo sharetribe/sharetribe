@@ -221,6 +221,27 @@ module ListingAvailabilityManage
     [:day, :night].include?(listing.quantity_selector&.to_sym)
   end
 
+  def manage_availability_props
+    {
+      i18n: {
+        locale: I18n.locale,
+        default_locale: I18n.default_locale,
+        locale_info: I18nHelper.locale_info(Sharetribe::AVAILABLE_LOCALES, I18n.locale)
+      },
+      marketplace: {
+        uuid: @current_community.uuid_object.to_s,
+        marketplace_color1: CommonStylesHelper.marketplace_colors(@current_community)[:marketplace_color1]
+      },
+      listing: {
+        id: @listing.id,
+        uuid: @listing.uuid_object.to_s,
+        title: @listing.title,
+        image_url: path_to_listing_image(@listing),
+        blocked_dates: @listing.blocked_dates.in_period(booking_dates_start, booking_dates_end)
+      }
+    }
+  end
+
   private
 
   def working_time_slots
@@ -249,5 +270,12 @@ module ListingAvailabilityManage
       result[day] = i18n_day_names[index]
     end
     result
+  end
+
+  def path_to_listing_image(listing)
+    Maybe(listing.listing_images.first)
+      .select(&:image_ready?)
+      .image.url(:square)
+      .or_else(nil)
   end
 end
