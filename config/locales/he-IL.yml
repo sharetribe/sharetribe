@@ -1878,6 +1878,7 @@ he-IL:
       presence: ~
       username_is_invalid: "שם המשתמש לא תקין או לא זמין"
       domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{offerer_name}‎ הסכים להשאיל ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"

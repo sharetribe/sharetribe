@@ -1,8 +1,20 @@
 require 'spec_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe Admin::LandingPageVersions::SectionsController, type: :controller do
   let(:community) { FactoryGirl.create(:community) }
   let(:landing_page_version) { FactoryGirl.create(:landing_page_version, community: community, version: '1') }
+  let(:plan) do
+    {
+      expired: false,
+      features: {
+        whitelabel: true,
+        admin_email: true,
+        footer: true,
+        landing_page: true
+      }
+    }
+  end
 
   def stubbed_upload(filename, content_type)
     fixture_file_upload("#{Rails.root}/spec/fixtures/#{filename}", content_type, :binary)
@@ -11,9 +23,9 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
   before(:each) do
     @request.host = "#{community.ident}.lvh.me"
     @request.env[:current_marketplace] = community
+    @request.env[:current_plan] = plan
     user = create_admin_for(community)
     sign_in_for_spec(user)
-    RequestStore.store[:feature_flags] = [:clp_editor]
   end
 
   describe '#create' do
@@ -887,4 +899,4 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
     end
   end
 end
-
+# rubocop:enable Metrics/BlockLength

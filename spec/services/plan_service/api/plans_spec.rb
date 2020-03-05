@@ -33,7 +33,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               status: :trial,
-                                              features: { deletable: true, admin_email: false, whitelabel: false, footer: false },
+                                              features: { deletable: true, admin_email: false, whitelabel: false, footer: false, landing_page: false },
                                               expires_at: expires_at,
                                               member_limit: 300,
                                               created_at: Time.now,
@@ -63,7 +63,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               status: :active,
-                                              features: { deletable: false, admin_email: true, whitelabel: true, footer: false  },
+                                              features: { deletable: false, admin_email: true, whitelabel: true, footer: false, landing_page: false  },
                                               member_limit: 100000,
                                               expires_at: expires_at,
                                               created_at: Time.now,
@@ -90,7 +90,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               status: :active,
-                                              features: { deletable: false, admin_email: true, whitelabel: true, footer: false  },
+                                              features: { deletable: false, admin_email: true, whitelabel: true, footer: false, landing_page: false  },
                                               member_limit: 1000,
                                               expires_at: nil,
                                               created_at: Time.now,

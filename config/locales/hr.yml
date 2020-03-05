@@ -1883,6 +1883,7 @@ hr:
       presence: ~
       username_is_invalid: ~
       domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} je pristao na posudbu %{listing_title} prema %{requester_name} %{time_ago}."

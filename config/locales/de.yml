@@ -67,11 +67,11 @@ de:
         community_name: "Name des Marktplatzes"
         edit_community_name_description: "Der Name deines Marktplatzes. Dieser wird allen Nutzern in E-Mails und an verschiedenen anderen Stellen angezeigt."
         community_slogan: "Slogan des Marktplatzes"
-        community_slogan_display: "Slogan auf der Startseite anzeigen"
+        community_slogan_display: "Slogan auf der Startseite oder Custom Landing Page anzeigen"
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         edit_community_slogan_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Beschreibung des Marktplatzes"
-        community_description_display: "Beschreibung auf der Startseite anzeigen"
+        community_description_display: "Beschreibung auf der Startseite oder Custom Landing Page anzeigen"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_search_placeholder: "Hilfe-Text durchsuchen"
@@ -279,10 +279,10 @@ de:
         ban_user_confirmation: "Dies deaktiviert das Konto von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
         unban_user_confirmation: "Damit wird der Benutzer des Marktplatzes entsperrt und erhält wieder Zugang zu seinem Konto. Möchtest du fortfahren?"
         ban_me_error: "Du kannst dein eigenes Konto nicht deaktivieren."
-        have_ongoing_transactions: ~
-        only_delete_disabled: ~
-        delete_info1: ~
-        delete_info2: ~
+        have_ongoing_transactions: "Das Konto kann nicht gelöscht werden, denn sie haben einige nicht vollgebrachte Transaktionen. Stelle bitte sicher, dass alle Transaktionen abgeschlossen sind, bevor du das Konto löschst."
+        only_delete_disabled: "Du kannst nur Benutzer, die deaktiviert sind, löschen. Deaktiviere das Konto vor dem Löschen."
+        delete_info1: "Wenn du das Konto löschst, werden die persönlichen Informationen (Name, Telefonnummer, Adresse, Email, Profilbild, usw.) dauerhaft gelöscht und können nicht wiederhergestellt werden. Alle seine/ihre Einträge werden gelöscht. Du kannst das Konto nicht wieder aktivieren."
+        delete_info2: "Informationen mit anderen Beteiligten (Unterhaltungen mit anderen Nutzern, Transaktionen, Bewertungen an anderen) werden nicht mit dem Konto gelöscht. Der Name des Nutzers wird jedoch auch hier den anderen nicht mehr gezeigt."
         search: Suchen
         search_by_name_email: "Nach einem Nahmen, einer E-Mail Adresse, oder einem Anzeigenamen suchen"
         reset_search: "Alle anzeigen"
@@ -302,7 +302,7 @@ de:
         unconfirmed_user: "Unbestätigter Benutzer: %{name}"
         resend: "Erneut senden"
         cancel: Abbrechen
-        confirm: ~
+        confirm: Bestätigen
         user_didnt_complete_the_signup_process: "Der/Die Benutzer registrierte sich mit einem Socialnetzwerk, hat aber nicht den Registrierungsprozess beendet. Nachdem man sich mit einem Socialnetzwerk registriert, muss man noch die Nutzungsbedingungen akzeptieren und die obligatorischen Benutzerfelder ausfüllen."
         pending_user: "Ausstehend: %{name}"
       new_layout:
@@ -402,10 +402,10 @@ de:
         robots_info: "Robots.txt ist eine Textdatei, die Web-Roboter (normalerweise Suchmaschine-Roboter) informiert, wie sie die Seiten deiner Website durchsucht (aka Crawling). %{link}."
         robots_info_link_text: "Mehr über die robots.txt Datei erfahren"
         robots_info_2: "Eine robots.txt Datei wird automatisch für deinen Marktplatz generiert. Du kannst deine robots.txt Datei hier ansehen: %{link}"
-        google_search_console: ~
-        google_search_console_paragraph1: ~
-        google_search_console_these_instructions: ~
-        google_search_console_paragraph2: ~
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "Google Search Console hat Werkzeuge und Berichte die dir dabei helfen, die Suchverkehr und Leistung deiner Website zu betrachten und Fehler mit Google-Suchergebnissen zu beheben."
+        google_search_console_these_instructions: "dieser Anleitung"
+        google_search_console_paragraph2: "Es ist eine gute Idee, Google Search Console zu deiner Website hinzuzufügen. Es dauert nur ein paar minuten mit %{link}."
         save: "Einstellungen speichern"
       analytics:
         analytics: Analytics
@@ -418,10 +418,10 @@ de:
         sharetribe_analytics_instructions_link_text: "Mehr über Sharetribe Analytics erfahren."
         end_user_analytics: "Sharetribe die Aufzeichnung von Mitglieder Aktivitäten zur Verbesserung des Sharetribe Services erlauben."
         save: "Einstellungen speichern"
-        google_tag_manager: ~
-        gtm_paragraph_1: ~
-        gtm_paragraph_2: ~
-        learn_how_to_configure_gtm: ~
+        google_tag_manager: "Google Tag Manager"
+        gtm_paragraph_1: "Ein Tag Manager wie GTM ist sehr nützlich um Codeschnipsel oder Tracking-Pixel auf deine Website zu verwenden, ohne den Code ändern zu müssen."
+        gtm_paragraph_2: "Weil Sharetribe auch Google Tag Manager verwendet, solltest du %{link}."
+        learn_how_to_configure_gtm: "lernen, wie du GTM für deinen Go-Marktplatz konfigurieren kannst"
       logo_link:
         title: Logo-Link
         info: "Du kannst den Link des Logos anpassen (und die standardmäßige Home-Taste auf dem Top Bar). Normalerweise leitet das Logo zu der Homeseite oder zu dem Landing Page."
@@ -670,11 +670,11 @@ de:
         contact_us: "Kontaktiere uns"
         you_can_now_use_a_custom_domain: "Mit deinem derzeitigen Plan kannst du eine benutzerdefinierte Domain aktivieren! Fangen wir mit der Einrichtung an. %{contact_us}!"
         would_you_like_to_change_domain: "Möchtest du deine benutzerdefinierte Domain ändern? %{contact_us}!"
-        change_your_sharetribe_domain: ~
-        only_letters_numbers_and_hyphens_can_be_used: ~
-        when_you_change_your_sharetribe_domain: ~
-        would_you_like_to_proceed: ~
-        change: ~
+        change_your_sharetribe_domain: "Deine Sharetribe-Domain ändern"
+        only_letters_numbers_and_hyphens_can_be_used: "Nur Buchstaben, Nummern und Bindestriche sind erlaubt. Vorsicht! Deine alte Domain wird anderen zur Verfügung gestellt und wird nicht zu deiner neuen Domain weiterleiten."
+        when_you_change_your_sharetribe_domain: "Wenn du deine Sharetribe-Domain änderst, werden alle deine URL-Adressen automatisch geändert. Du wirst zu deiner neuen Domain weitergeleitet. Du und deine Kunden müssen sich erneut einloggen. Deine alte Domain wird nicht mit der neuen verlinkt sein oder zu der neuen Domain weiterleiten. Die alte Domain wird wieder für anderen Verfügbar sein."
+        would_you_like_to_proceed: "Möchtest du weitergehen?"
+        change: Ändern
       landing_pages:
         landing_pages: "Landing Page"
         info_1: "Die Landing Page ist vielleicht die wichtigste Seite deines Marktplatzes. Sie ist die erste Seite, die deine Nutzer sehen, etwa wie die Vordertür deines Hauses. Du hast nur einigen Sekunden deine Kunden davon zu überzeugen, dass sie auf der Seite bleiben sollten. Die Seite sollte attraktiv sein, und das Leistungsversprechen deiner Seite sollte klar und verlockend sein."
@@ -727,8 +727,8 @@ de:
             locations: "'Standorte' Abschnitt bearbeiten"
             video: "'Video' Abschnitt bearbeiten"
       attachments:
-        delete: ~
-        or_change: ~
+        delete: "%{title} löschen"
+        or_change: "Oder %{title} zu etwas neues ändern:"
     landing_page_versions:
       sections:
         content:
@@ -1724,14 +1724,14 @@ de:
       view_listing: "%{title} anzeigen"
       cant_click: "Kannst du die Taste nicht drücken? Hier ist ein direkter Link:"
     new_member_notification:
-      subject: "Neuer Mitglied bei %{community}"
+      subject: "Neues Mitglied bei %{community}"
       new_member_has_joined: "Ein neues Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
       this_is_automatic_message: "Diese Nachricht wurde automatisch an alle Administratoren von %{community} geschickt."
       person_name: "Name:"
       person_email: "E-mail:"
     new_member_notification_v2:
-      headline: "%{user_name} hat %{community} beigetreten."
-      new_member_has_joined: "%{name} (%{email}) hat %{community} beigetreten. Er/sie muss noch möglicherweise seine/ihre E-Mail-Adresse bestätigen."
+      headline: "%{user_name} ist %{community} beigetreten."
+      new_member_has_joined: "%{name} (%{email}) ist %{community} beigetreten. Er/sie muss noch möglicherweise seine/ihre E-Mail-Adresse bestätigen."
       view_profile: "Profil anzeigen"
     listing_submited_for_review:
       subject: "Neuer Eintrag der überprüft werden muss: \"%{listing_title}\" von %{author_name} auf %{community}"
@@ -1792,12 +1792,12 @@ de:
       subject: "Anfechtung abgebrochen - Das Team von %{service_name} hat die Anfechtung von %{buyer} abgelehnt"
       marketplace_team_has_rejected_the_cancellation: "das Team von %{service_name} hat die Anfechtung von %{transaction_link} abgelehnt."
     transaction_commission_charge_failed:
-      subject: ~
-      transaction_about: ~
-      the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
-      contact_the_seller: ~
+      subject: "Eine Zahlungsgebühr wurde nicht auf dein PayPal-konto überwiesen"
+      transaction_about: "Transaktion über %{listing_title}"
+      the_commission_of_the_transaction: "Das Übertragen der Zahlungsgebühr für %{transaction_link} von %{seller} auf dein PayPal-konto ist gescheitert."
+      this_usually_means: "Normalerweise bedeutet das, dass irgendetwas die Zahlung vom Verkäufer hindert. Am Häufigsten geht es darum, dass der Verkäufer keine gültige Zahlungsmethode auf sein/ihr PayPal Konto hat."
+      if_you_would_like_to_investigate: "Wenn du dies weiter untersuchen möchtest, der beste nächste Schritt ist den Verkäufer zu kontaktieren."
+      contact_the_seller: "Verkäufer kontaktieren"
   error_messages:
     booking:
       booking_failed_payment_voided: "Die Buchung ist wegen eines unerwarteten Fehlers fehlgeschlagen. Bitte versuche erneut später. Dein Konto bzw. deine Kreditkarte wurde nicht belastet."
@@ -1874,7 +1874,8 @@ de:
       listing_with_this_id_does_not_exist: "Diese Kennung gehört keinem Angebot auf deinem Marktplatz. Eventuell handelt es sich um einen Tippfehler. Bitte erneut versuchen."
       presence: "Kann nicht leer sein"
       username_is_invalid: "Der Benutzername ist ungültig oder nicht verfügbar"
-      domain_name_is_invalid: ~
+      domain_name_is_invalid: "Diese Domain ist ungültig oder nicht verfügbar"
+      only_supported_variables: "Stelle bitte sicher, dass du nur unterstützte Variablen verwendest"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -2251,7 +2252,7 @@ de:
         other: "Die Webseite geht offline für Wartungsarbeiten in %{count} Minuten."
       automatically_logged_out_please_sign_in: "Du wurdest automatisch ausgeloggt. Bitte melde dich erneut an."
       stripe_you_account_balance_is_not_0: "Dein Kontostand beträgt nicht 0 und kann daher nicht gelöscht werden. Möglicherweise müssen Transaktionen noch beendet werden oder Geld auf Dein Bankkonto überwiesen werden. Bitte kontaktiere das %{service_name} Team, um mehr zu erfahren."
-      stripe_balance_for_username_is_not_0: ~
+      stripe_balance_for_username_is_not_0: "Das Stripe-Kontostand für %{username} beträgt nicht 0, also kann das Konto nicht gelöscht werden. Vielleicht bedeutet dies, dass sie noch aktive Transaktionen haben oder dass es Geld auf das Konto gibt, das noch nicht auf sein/ihr Bankkonto überwiesen wurde. Bitte prüfe Stripe Dashboard für mehr Informationen."
       visit_admin: "Würdest Du gerne %{link}?"
       visit_admin_link: "Deinen Admin-Bereich besuchen"
       an_error_occurred_when_saving_your_information: "Ein Fehler ist aufgetreten, während deine Informationen gespeichert wurden: \"%{message}\". Bitte überprüfen, dass alle Informationen richtig sind, und erneut versuchen."
@@ -3160,7 +3161,7 @@ de:
     paypal_connected: "PayPal-Konto erfolgreich verbunden!"
     paypal_can_accept: "Du bist bereit, PayPal-Zahlungen entgegenzunehmen"
     paypal_connected_give_permission: "Als letztes, bitte erteile eine Genehmigung für das Abheben der Transaktionsgebühr, um Geld auf das PayPal Konto <%{email}> bekommen zu können."
-    stripe_account_restricted: "Online-Zahlungen auf dein Konto sind beschränkt!"
+    stripe_account_restricted: "Online-Zahlungen auf dein Konto sind beschränkt oder werden gleich beschränkt!"
     stripe_account_restricted_info: "Du solltest deine Bankkontodetails ändern, um dem Zahlungsdienstleister mehr Informationen zu geben."
     stripe_account_restricted_soon: "Online-Zahlungen auf dein Konto werden bald beschränkt."
     stripe_account_restricted_soon_info: "Du solltest deine Bankkontodetails ändern, um dem Zahlungsdienstleister mehr Informationen zu geben."
@@ -3236,7 +3237,7 @@ de:
       need_verification: "Zusätzliche Verifizierung benötigt"
       additional_document: "Ein Dokument das die Adresse anzeigt, wie ein Reisepass, eine ID-Karte, oder eine Rechnung eines bekannten Versorgungsunternehmens (z.B. eines Elektrizitätsunternehmens)"
       additional_document_back: "Ein Dokument, das deine Adresse enthält, z.B. ein Identitäsnachweis mit Adresse oder eine Rechnung eines bekannten Versorgungsunternehmens (Hinterseite des Dokuments)"
-      files_need_to_be: ~
+      files_need_to_be: "Die Dateien sollten JPEG- oder PNG-Dateien und kleiner als 5MB sein. PDF-Dateien können nicht gelesen werden. Die Dateien sollten farbig sein, richtig gedreht, und alle Informationen sollte klar und lesbar sein."
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sozialversicherungsnummer)"
       social_security_number: "Social Security Number (SSN; Sozialversicherungsnummer)"

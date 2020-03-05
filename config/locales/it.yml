@@ -1845,6 +1845,7 @@ it:
       presence: ~
       username_is_invalid: "Il nome utente non è valido o non è disponibile"
       domain_name_is_invalid: ~
+      only_supported_variables: "Aggiungi solo variabili supportate."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ha accettato il prestito di %{listing_title} a %{requester_name} %{time_ago}."
