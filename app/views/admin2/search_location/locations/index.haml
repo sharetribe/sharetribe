@@ -4,17 +4,16 @@
 .content-card-header
   %h1.content-card-header-title
     = t('admin2.sidebar.search_location.location')
-
-= form_for @current_community, url: update_location_admin2_search_location_locations_path, html: { class: %i[content-card-section-container] }, method: :patch do |form|
-  %section.content-card-section
-    %h2
-      = t('admin2.location.location_settings')
-    %p.ingress
-      = t('admin2.location.location_settings_info_text')
-    .content-card-section-form.margin-form
+.content-card-section-container
+  = form_for @current_community, url: update_location_admin2_search_location_locations_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.location.location_settings')
+      %p.ingress
+        = t('admin2.location.location_settings_info_text')
       .form-group
         .form-check
           = form.check_box :show_location, class: %i[form-check-input]
           = form.label :show_location, t('admin2.location.show_location'), class: %i[form-check-label]
-  .content-card-terminal.without-margin
-    = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
