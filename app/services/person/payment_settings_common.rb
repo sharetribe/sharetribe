@@ -59,7 +59,8 @@ module Person::PaymentSettingsCommon
         :bank_routing_number,
         :bank_routing_1,
         :bank_routing_2,
-        :bank_account_number_common
+        :bank_account_number_common,
+        :bank_account_same_country
         ).with_validations do
     validates_presence_of :bank_country,
         :bank_currency,

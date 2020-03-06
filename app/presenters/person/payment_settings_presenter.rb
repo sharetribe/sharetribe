@@ -244,6 +244,10 @@ class Person::PaymentSettingsPresenter
     PaypalCountryHelper.receive_funds_info_tr_key(community_country_code)
   end
 
+  def bank_account_same_country?
+    stripe_seller_account[:bank_account_same_country]
+  end
+
   private
 
   def parsed_seller_account
@@ -263,6 +267,8 @@ class Person::PaymentSettingsPresenter
       bank_number_info: bank_number,
       bank_currency: bank_record ? bank_record["currency"] : nil,
       bank_routing_number: bank_record ? bank_record[:routing_number] : nil,
+      bank_country: bank_record.try(:[], "country"),
+      bank_holder_name: bank_record.try(:[], "account_holder_name"),
       email: entity[:email],
       phone: entity[:phone],
       url: url
@@ -298,13 +304,15 @@ class Person::PaymentSettingsPresenter
         phone: entity[:phone]
       })
     end
+    result[:bank_account_same_country] = result[:address_country] == result[:bank_country]
     mask_us_pr_as_puerto_rico(result)
   end
 
   def empty_seller_account
     {
       email: person.confirmed_notification_emails.any? ? person.confirmed_notification_email_addresses.first : person.emails.first.try(:address),
-      url: person_url
+      url: person_url,
+      bank_account_same_country: true
     }
   end
 
