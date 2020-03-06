@@ -1,3 +1,4 @@
+f
 @import "compass/css3/images";
 
 @mixin overlay {
@@ -11,7 +12,7 @@
 }
 
 @mixin share-type-link {
-  @include source-sans-pro;
+  @include montserrat;
   color: $aside;
   font-size: em(10);
   font-weight: normal;
