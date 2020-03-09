@@ -1,0 +1,15 @@
+- if stripe_allowed && paypal_allowed
+  %p.ingress
+    = t('admin2.country_currency.stripe_paypal_allowed', country_name: country_name, currency: currency).html_safe
+
+- if !stripe_allowed && paypal_allowed
+  %p.ingress
+    = t('admin2.country_currency.paypal_allowed', country_name: country_name, currency: currency).html_safe
+
+- if stripe_allowed && !paypal_allowed
+  %p.ingress
+    = t('admin2.country_currency.stripe_allowed', country_name: country_name, currency: currency).html_safe
+
+- if !stripe_allowed && !paypal_allowed
+  %p.ingress
+    = t('admin2.country_currency.stripe_paypal_not_allowed', country_name: country_name, currency: currency).html_safe

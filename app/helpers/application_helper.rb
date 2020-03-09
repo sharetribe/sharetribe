@@ -141,6 +141,10 @@ module ApplicationHelper
     locales.map { |loc| [loc[:name], loc[:ident]] }
   end
 
+  def local_name(locale)
+    available_locales.detect { |p| p[1] == locale.to_s }&.first
+  end
+
   def self.send_error_notification(message, error_class="Special Error", parameters={})
     if APP_CONFIG.use_airbrake
       Airbrake.notify(
@@ -165,6 +169,10 @@ module ApplicationHelper
 
   def on_admin?
     controller.class.name.split("::").first=="Admin"
+  end
+
+  def on_admin2?
+    controller.class.name.split("::").first=="Admin2"
   end
 
   def facebook_like(recommend=false)

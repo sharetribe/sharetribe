@@ -1,23 +1,27 @@
 .form-group
   %label
     = t('admin2.listing_pages.listing_meta_title')
-  %small.form-text-above
-    = t('admin2.listing_pages.listing_meta_title_info_text')
-  - customizations.each do |customization|
-    = form.fields_for :community_customizations, customization do |cc|
-      .d-flex.multiple-languages
-        %span.language
-          = t("admin.communities.available_languages.#{cc.object.locale}")
-        = cc.text_field :listing_meta_title, class: %i[form-control], maxlength: 255, placeholder: t('admin2.listing_pages.listing_meta_title_placeholder')
+  .multiple-languages-container
+    - customizations.each do |customization|
+      = form.fields_for :community_customizations, customization do |cc|
+        .multiple-languages-language
+          %span.language
+            = local_name(cc.object.locale)
+        .multiple-languages-input
+          = cc.text_field :listing_meta_title, class: %i[form-control], maxlength: 255, placeholder: t('admin2.listing_pages.listing_meta_title_placeholder')
+    %small.form-text
+      = t('admin2.listing_pages.listing_meta_title_info_text')
 
 .form-group
   %label
     = t('admin2.listing_pages.listing_meta_description')
-  %small.form-text-above
-    = t('admin2.listing_pages.listing_meta_description_info_text')
-  - customizations.each do |customization|
-    = form.fields_for :community_customizations, customization do |cc|
-      .d-flex.multiple-languages
-        %span.language
-          = t("admin.communities.available_languages.#{cc.object.locale}")
-        = cc.text_area :listing_meta_description, class: %i[form-control], maxlength: 65535, placeholder: t('admin2.listing_pages.listing_meta_description_placeholder')
+  .multiple-languages-container
+    - customizations.each do |customization|
+      = form.fields_for :community_customizations, customization do |cc|
+        .multiple-languages-language
+          %span.language
+            = local_name(cc.object.locale)
+        .multiple-languages-input
+          = cc.text_area :listing_meta_description, class: %i[form-control], maxlength: 65535, placeholder: t('admin2.listing_pages.listing_meta_description_placeholder')
+    %small.form-text
+      = t('admin2.listing_pages.listing_meta_description_info_text')

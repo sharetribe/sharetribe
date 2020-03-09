@@ -36,6 +36,7 @@ fr:
         cover_photos: 'lorem ipsum'
         logos_and_color: 'lorem ipsum'
         landing_page: 'lorem ipsum'
+        topbar: 'lorem ipsum'
         display: 'lorem ipsum'
         experimental: 'lorem ipsum'
       users:
@@ -67,6 +68,38 @@ fr:
         sharetribe: 'lorem ipsum'
       advanced:
         custom_script: 'lorem ipsum'
+    footer:
+      footer_enabling: 'lorem ipsum'
+      footer_enabling_field: 'lorem ipsum'
+      footer_enabling_info_text: "lorem ipsum: <a href='%{url}' target='_blank'>lorem ipsum</a>."
+      plan_disabled: 'lorem ipsum<a href="%{url}" target="_blank">lorem ipsum</a>.'
+      footer_style: 'lorem ipsum'
+      footer_links: 'lorem ipsum'
+      add_new_footer_link: 'lorem ipsum'
+      footer_social_links: 'lorem ipsum'
+      footer_copyright: 'lorem ipsum'
+      footer_copyright_placeholder: 'lorem ipsum'
+      style:
+        dark: 'lorem ipsum'
+        light: 'lorem ipsum'
+        marketplace_color: 'lorem ipsum'
+        logo: 'lorem ipsum'
+    topbar:
+      top_bar_settings: 'lorem ipsum'
+      logo_link: 'lorem ipsum'
+      logo_link_info_text: 'lorem ipsum'
+      post_new_listing_button: 'lorem ipsum'
+      post_new_listing: 'lorem ipsum'
+      show_in_top_bar: 'lorem ipsum'
+      display_about_menu: 'lorem ipsum'
+      display_contact_menu: 'lorem ipsum'
+      display_invite_menu: 'lorem ipsum'
+      maximum_number_links: 'lorem ipsum'
+      limit_priority_links_info_text: 'lorem ipsum'
+      custom_links: 'lorem ipsum'
+      new_custom_link: 'lorem ipsum'
+      link_title: 'lorem ipsum'
+      all: 'lorem ipsum'
     custom_script:
       info_text: "lorem ipsum <a href='%{url}' target='_blank'>lorem ipsum</a>."
       custom_head_script: 'lorem ipsum'
@@ -164,6 +197,16 @@ fr:
       search_placeholder: 'lorem ipsum'
       search_placeholder_info_text: 'lorem ipsum'
       search_for: 'lorem ipsum'
+    country_currency:
+      payments_not_enabled: 'lorem ipsum'
+      country: 'lorem ipsum'
+      country_info_text: 'lorem ipsum <a href="#" show-intercom=true>lorem ipsum</a>'
+      currency: 'lorem ipsum'
+      support: 'lorem ipsum <a href="%{paypal_url}" target="_blank">lorem ipsum</a> lorem ipsum <a href="%{stripe_url}" target="_blank">lorem ipsum</a>.'
+      stripe_paypal_allowed: "lorem ipsum <strong>%{country_name}</strong> lorem ipsum <strong>%{currency}</strong> lorem ipsum, <strong>lorem ipsum</strong> lorem ipsum <strong>lorem ipsum</strong> lorem ipsum."
+      paypal_allowed: "lorem ipsum <strong>%{country_name}</strong> lorem ipsum <strong>%{currency}</strong> lorem ipsum, <strong>PayPal</strong> lorem ipsum."
+      stripe_allowed: "lorem ipsum <strong>%{country_name}</strong> lorem ipsum <strong>%{currency}</strong> lorem ipsum, <strong>Stripe</strong> lorem ipsum."
+      stripe_paypal_not_allowed: "lorem ipsum <strong>%{country_name}</strong> lorem ipsum <strong>%{currency}</strong> lorem ipsum, lorem ipsum."
     automatic_newsletter:
       send_automatic_newsletter: 'lorem ipsum'
       send_automatic_newsletter_info_text: 'lorem ipsum %{href}'
@@ -326,6 +369,9 @@ fr:
       google_analytics_updated: 'lorem ipsum'
       sharetribe_analytics_updated: 'lorem ipsum'
       custom_script_updated: 'lorem ipsum'
+      topbar_updated: 'lorem ipsum'
+      footer_updated: 'lorem ipsum'
+      footer_update_failed: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

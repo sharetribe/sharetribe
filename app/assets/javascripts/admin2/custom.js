@@ -1,7 +1,14 @@
-function validateConfigureTransactions(community_id) {
+function validateCommunityEdit(community_id) {
     $("#edit_community_" + community_id).validate({
         errorPlacement: function (error, element) {
-          $('#days_label').after(error);
+            if (element.attr('id') === 'community_automatic_confirmation_after_days') {
+                $('#days_label').after(error);
+            } else if (element.hasClass('social-link-row')) {
+                element.parents('.one-social-link').find('.handle-move').after(error);
+            }
+            else {
+                element.after(error);
+            }
         },
         onkeyup: false,
         onclick: false,
@@ -11,6 +18,12 @@ function validateConfigureTransactions(community_id) {
 }
 
 $(function(){
+
+    $('.country-currency').on('change', function() {
+        var url = $(this).data('url'),
+            currency = $(this).val();
+        $.get(url, {currency: currency});
+    });
 
     $('.location-type').on('change', function() {
        var value = $(this).val(),
@@ -25,6 +38,36 @@ $(function(){
             show_distance_div.removeClass('opacity_04');
         }
     });
+
+    if ($('#simpleList').length) {
+        Sortable.create(simpleList, {
+            handle: '.handle-move',
+            animation: 250,
+            onEnd: function (/**Event*/evt) {
+                $('.top_bar_link_position').each(function( index ) {
+                    $(this).find('.sort_priority_class').val(index);
+                });
+            },
+        });
+
+        $('#top_bar_div').on('cocoon:after-insert', function(e, insertedItem, originalEvent) {
+            var index = $('.top_bar_link_position').length - 1;
+            insertedItem.find('.sort_priority_class').val(index);
+        });
+    }
+
+    if ($('#footerList').length) {
+        Sortable.create(footerList, {
+            handle: '.handle-move',
+            animation: 250,
+            onEnd: function (/**Event*/evt) {
+                $('.one-social-link').each(function( index ) {
+                    $(this).find('.social-link-sort-prior').val(index);
+                });
+            },
+        });
+    }
+
 
     $('.for-hide-content').on('change', function () {
        var checked = $(this).prop('checked'),

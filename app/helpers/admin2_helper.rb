@@ -11,7 +11,7 @@ module Admin2Helper
   def expand_rules
     {
       general: %w[essentials privacy static_content admin_notifications],
-      design: %w[logos_color landing_page display experimental cover_photos],
+      design: %w[logos_color landing_page display experimental cover_photos topbar footer],
       users: %w[signup_login user_rights],
       listings: %w[listing_approval listing_comments],
       transactions_reviews: %w[config_transactions],

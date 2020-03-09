@@ -163,7 +163,9 @@ class Community < ApplicationRecord
   has_many_attached :landing_page_assets
 
   accepts_nested_attributes_for :social_logo
+  accepts_nested_attributes_for :configuration
   accepts_nested_attributes_for :footer_menu_links, allow_destroy: true
+  accepts_nested_attributes_for :menu_links, allow_destroy: true
   accepts_nested_attributes_for :social_links, allow_destroy: true
   accepts_nested_attributes_for :community_customizations
 
@@ -266,11 +268,7 @@ class Community < ApplicationRecord
                     :default_url => ->(_) { ActionController::Base.helpers.asset_path("favicon.ico") }
 
   validates_attachment_content_type :favicon,
-                                    :content_type => ["image/jpeg",
-                                                      "image/png",
-                                                      "image/gif",
-                                                      "image/x-icon",
-                                                      "image/vnd.microsoft.icon"]
+                                    :content_type => %w[image/jpeg image/png image/gif image/x-icon image/vnd.microsoft.icon]
 
   # process_in_background definitions have to be after
   # after all attachments: https://github.com/jrgifford/delayed_paperclip/issues/129

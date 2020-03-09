@@ -194,6 +194,19 @@ Rails.application.routes.draw do
       end
       namespace :design do
         resources :landing_page, path: 'landing-page', only: %i[index]
+
+        resources :topbar, path: 'top-bar', only: %i[index] do
+          collection do
+            patch :update_topbar
+          end
+        end
+
+        resources :footer, only: %i[index] do
+          collection do
+            patch :update_footer
+          end
+        end
+
         resources :display, only: %i[index] do
           collection do
             patch :update_display
@@ -252,6 +265,7 @@ Rails.application.routes.draw do
         resources :country_currencies, path: 'country-currency', only: %i[index] do
           collection do
             patch :update_country_currencies
+            get :verify_currency
           end
         end
       end

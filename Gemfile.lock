@@ -126,6 +126,7 @@ GEM
     cldr-plurals-runtime-rb (1.0.1)
     climate_control (0.2.0)
     cliver (0.3.2)
+    cocoon (1.2.14)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -645,6 +646,7 @@ DEPENDENCIES
   biz
   bootsnap
   capybara (~> 3.16.2)
+  cocoon
   coffee-rails (~> 4.2.2)
   color (~> 1.8)
   compass-rails (~> 3.0.2)
@@ -746,4 +748,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
