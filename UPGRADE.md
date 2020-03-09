@@ -38,6 +38,21 @@ heroku config:set next_maintenance_at="2016-04-29 17:15:00 +0000" --app=<your ap
 
 See instructions how to set application in [maintenance mode in Heroku](https://devcenter.heroku.com/articles/maintenance-mode).
 
+## Upgrade from 9.0.0 to 9.1.0
+
+Ruby version updated from 2.6.2 to 2.6.5.
+
+Using [RVM](https://rvm.io/), you can upgrade your local Ruby version like this:
+
+```
+rvm install ruby-2.6.5
+rvm use ruby-2.6.5
+gem install bundler
+bundle install
+```
+
+Then follow the [#general-update-instructions].
+
 ## Upgrade from 8.1.0 to 9.0.0
 
 Nothing special. See the [#general-update-instructions].

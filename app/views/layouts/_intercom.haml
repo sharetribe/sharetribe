@@ -1,0 +1,23 @@
+:javascript
+  function onDocumentReady(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
+-# Intercom for admin area
+- if on_admin2? && IntercomHelper.admin_intercom_respond_enabled?
+  = render 'analytics/intercom', app_id: IntercomHelper.admin_intercom_app_id
+
+- if IntercomHelper.admin_intercom_respond_enabled?
+  - content_for :extra_javascript do
+    :javascript
+        (function() {
+          ST.analytics.init({
+            analyticsData: #{analytics_data.to_json.html_safe},
+            events: #{flash[:_analytics_events].to_json.html_safe},
+            logout: #{flash[:_analytics_logout].to_json.html_safe}
+          });
+        })();

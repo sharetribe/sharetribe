@@ -36,6 +36,8 @@ en:
         cover_photos: 'Cover photos'
         logos_and_color: 'Logos & Color'
         landing_page: 'Landing page'
+        topbar: 'Top bar'
+        footer: 'Footer'
         display: 'Display'
         experimental: 'Experimental'
       users:
@@ -60,7 +62,7 @@ en:
         sitemap_robots: 'Sitemap & Robots'
         landing_pages: 'Landing page meta'
         search_pages: 'Search results pages meta'
-        listing_pages: 'Listings pages meta'
+        listing_pages: 'Listing pages meta'
         category_pages: 'Category pages meta'
         profile_pages: 'Profile pages meta'
       analytics:
@@ -68,6 +70,38 @@ en:
         sharetribe: 'Sharetribe analytics'
       advanced:
         custom_script: 'Custom script'
+    footer:
+      footer_enabling: 'Footer enabling'
+      footer_enabling_field: 'Enable the footer in all pages of your marketplace'
+      footer_enabling_info_text: "By customizing the footer, you can give your visitors more ways to access important sections of your marketplace and make your brand more visible. Select the variation of the footer, add text and social media links, add a copyright text: <a href='%{url}' target='_blank'>learn more about the footer</a>."
+      plan_disabled: 'Would you like to configure your own custom footer? <a href="%{url}" target="_blank">Upgrade to the Pro plan or higher</a>.'
+      footer_style: 'Footer style'
+      footer_links: 'Footer links'
+      add_new_footer_link: '+ Add a new footer link'
+      footer_social_links: 'Footer social links'
+      footer_copyright: 'Footer copyright'
+      footer_copyright_placeholder: 'All rights reserved.'
+      style:
+        dark: 'Dark'
+        light: 'Light'
+        marketplace_color: 'Marketplace color'
+        logo: 'Logo'
+    topbar:
+      top_bar_settings: 'Top bar settings'
+      logo_link: 'Target URL for the marketplace Main logo'
+      logo_link_info_text: 'You can customize the link of the logo (and the default home button of the top bar menu). By default the logo takes users to the homepage or Custom Landing Page.'
+      post_new_listing_button: '"Post a new listing" button text'
+      post_new_listing: 'Post a new listing'
+      show_in_top_bar: 'Show in the Top bar'
+      display_about_menu: '"About" and other static pages'
+      display_contact_menu: '"Contact us" page'
+      display_invite_menu: '"Invite new members" page'
+      maximum_number_links: 'Maximum number of links displayed in the Top bar'
+      limit_priority_links_info_text: 'If not all links are displayed, they will be grouped into a dropdown menu.'
+      custom_links: 'Top bar custom links'
+      new_custom_link: '+ Add a new custom link'
+      link_title: 'Link title'
+      all: 'All'
     custom_script:
       info_text: "This script is injected inside the tag of every page and can be used to insert custom CSS, JavaScript or HTML. <a href='%{url}' target='_blank'>Learn more about Custom script</a>."
       custom_head_script: 'CSS, JavaScript and/or HTML script'
@@ -170,16 +204,13 @@ en:
     country_currency:
       payments_not_enabled: 'Payments not enabled'
       country: 'Country'
-      country_info_text: 'Want to change the country of your marketplace? <a href="#">Contact the Sharetribe team</a>'
+      country_info_text: 'Want to change the country of your marketplace? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
       currency: 'Currency'
-      stripe_paypal_allowed: 'Based on your country and currency settings,<strong>PayPal</strong> and <strong>Stripe</strong> can be configured as payment gateways in your marketplace.'
-      paypal_allowed: 'Based on your country and currency settings, <strong>PayPal</strong> can be configured as payment gateway in your marketplace.'
-      stripe_allowed: 'Based on your country and currency settings, <strong>Stripe</strong> can be configured as payment gateway in your marketplace.'
-      stripe_paypal_not_allowed: 'Based on your country and currency settings, there is unfortunately no payment gateways available in your marketplace.'
-      payments_info_text: 'You can learn more about the availability of payment gateways, for country, in the following articles:'
-      supported_paypal: 'Countries and currencies supported by PayPal'
-      supported_stripe: 'Countries and currencies supported by Stripe'
-      payment_gateways: 'Available payment gateways'
+      support: 'Sharetribe Go offers PayPal and Stripe as payment gateways. You can learn more about the countries and currencies <a href="%{paypal_url}" target="_blank">supported by PayPal</a> and <a href="%{stripe_url}" target="_blank">supported by Stripe</a>.'
+      stripe_paypal_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>PayPal</strong> and <strong>Stripe</strong> can be configured as payment gateways in your marketplace."
+      paypal_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>PayPal</strong> can be configured as the payment gateway in your marketplace."
+      stripe_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>Stripe</strong> can be configured as the payment gateway in your marketplace."
+      stripe_paypal_not_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, there is unfortunately no payment gateways available for your marketplace."
     automatic_newsletter:
       send_automatic_newsletter: 'Send the automatic newsletter'
       send_automatic_newsletter_info_text: 'To be notified about new listings in your marketplace, your members can receive a daily or weekly newsletter. They can opt-out anytime from their own user settings. <a href=%{href} target="_blank">Learn more about the automatic newsletter</a>.'
@@ -217,17 +248,17 @@ en:
       title_searchpage_v1: 'Enable the new Search page for'
       description_searchpage_v1: 'The new Search page requires the new Top bar.'
       title_email_layout_v2: 'Enable the layout for emails for'
-      description_email_layout_v2: ''
+      description_email_layout_v2: 'The new Search page requires the new Top bar.'
     signup_login:
       signup_header: 'Signup information text'
       signup_info_text: 'Info text that will be shown to users in the Sign up. You can give the users instructions for signing up, information like where to get an invite, etc.'
       google: 'Google'
-      google_info_text: 'To enable Google Sign-In, create a project for your marketplace in the <a target="_blank" href="%{href}">Google Developers Console</a>. <a target="_blank" href="%{href2}">See instructions for configuring Google Sign-In</a>.'
+      google_info_text: 'To enable Google Sign-In, create a project for your marketplace in the <a target="_blank" href="%{href}">Google Developers Console</a>. Add the generated ID and secret key of the app here. <a target="_blank" href="%{href2}">See instructions for configuring Google Sign-In</a>.'
       google_connect_id: 'Google Client ID'
       google_connect_secret: 'Google Client secret'
       google_connect_enabled: 'Users can sign up and login with a Google account'
       facebook: 'Facebook'
-      facebook_info_text: 'To enable Facebook Login, you must create an application for your marketplace in the <a target="_blank" href="%{href}">Facebook Developers Dashboard</a>. <a target="_blank" href="%{href2}">See instructions for configuring Facebook Login</a>.'
+      facebook_info_text: 'To enable Facebook Login, you must create an application for your marketplace in the <a target="_blank" href="%{href}">Facebook Developers Dashboard</a>. Add the generated App ID and Secret Key of the application below. <a target="_blank" href="%{href2}">See instructions for configuring Facebook Login</a>.'
       facebook_connect_id: 'Facebook App ID'
       facebook_connect_secret: 'Facebook App Secret'
       facebook_connect_enabled: 'Users can sign up and log in with a Facebook account'
@@ -235,7 +266,7 @@ en:
       linkedin_connect_id: 'LinkedIn Client ID'
       linkedin_connect_secret: 'LinkedIn Client Secret'
       linkedin_connect_enabled: 'Users can sign up and login with a LinkedIn account'
-      linkedin_info_text: 'To enable LinkedIn Sign In, create an app for your marketplace in the <a target="_blank" href="%{href}">LinkedIn Developers Dashboard</a>. <a target="_blank" href="%{href2}">See instructions for configuring LinkedIn Sign In</a>.'
+      linkedin_info_text: 'To enable LinkedIn Sign In, create an app for your marketplace in the <a target="_blank" href="%{href}">LinkedIn Developers Dashboard</a>. Add the generated ID and secret key of the app here. <a target="_blank" href="%{href2}">See instructions for configuring LinkedIn Sign In</a>.'
     cover_photos:
       preview_homepage: 'Preview homepage'
       description: 'Are you looking for some ready-made and optimized cover pictures? Or would you like some inspiration and websites where to find great cover pictures? <a href="%{href}" target="_blank">We have you covered</a>!'
@@ -341,12 +372,15 @@ en:
       twitter_updated: 'Twitter settings settings were updated'
       landing_pages_updated: 'Landing page meta settings were updated'
       search_pages_updated: 'Search results pages meta settings were updated'
-      listing_pages_updated: 'Listings pages meta settings were updated'
+      listing_pages_updated: 'Listing pages meta settings were updated'
       category_pages_updated: 'Category pages meta settings were updated'
       profile_pages_updated: 'Profile pages meta settings were updated'
       google_analytics_updated: 'Google analytics settings were updated'
       sharetribe_analytics_updated: 'Sharetribe analytics settings were updated'
       custom_script_updated: 'Custom script settings were updated'
+      topbar_updated: 'Top bar settings were updated'
+      footer_updated: 'Footer settings were updated'
+      footer_update_failed: 'Footer details update failed'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

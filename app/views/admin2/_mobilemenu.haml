@@ -41,10 +41,10 @@
           = link_to t('admin2.sidebar.design.cover_photos'), admin2_design_cover_photos_path
           %li#landingpage-mobile{class: active_li('landing_page')}
             = link_to t('admin2.sidebar.design.landing_page'), admin2_design_landing_page_index_path
-          %li#topbar-mobile
-            %a{:href => 'top-bar.php'} Top bar
-          %li#footer-mobile
-            %a{:href => 'footer.php'} Footer
+          %li#topbar-mobile{class: active_li('topbar')}
+            = link_to t('admin2.sidebar.design.topbar'), admin2_design_topbar_index_path
+          %li#footer-mobile{class: active_li('footer')}
+            = link_to t('admin2.sidebar.design.footer'), admin2_design_footer_index_path
           %li#display-mobile{class: active_li('display')}
             = link_to t('admin2.sidebar.design.display'), admin2_design_display_index_path
           %li#experimental-mobile{class: active_li('experimental')}
@@ -169,6 +169,8 @@
         %ul#analytics-mobile.collapse.subtitle{class: expand_ul('analytics')}
           %li#googleanalytics-mobile{class: active_li('google')}
             = link_to t('admin2.sidebar.analytics.google'), admin2_analytics_google_index_path
+          %li#googlesearchconsole-mobile
+            %a{:href => "google-search-console.php"} Google Search Console
           - if APP_CONFIG.admin_enable_tracking_config
             %li#sharetribeanalytics-mobile{class: active_li('sharetribe')}
               = link_to t('admin2.sidebar.analytics.sharetribe'), admin2_analytics_sharetribe_index_path

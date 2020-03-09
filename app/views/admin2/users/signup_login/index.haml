@@ -10,18 +10,17 @@
     %section.content-card-section
       %h2
         = t('admin2.signup_login.signup_header')
-      .content-card-section-form
-        .form-group
-          %label
-            = t('admin2.signup_login.signup_header')
-          = form.fields_for :community_customizations, @community_customization do |cc|
-            = cc.text_area :signup_info_content, class: %i[form-control]
-            %small#marketplaceName-help.form-text
-              = t('admin2.signup_login.signup_info_text')
+      .form-group
+        %label
+          = t('admin2.signup_login.signup_header')
+        = form.fields_for :community_customizations, @community_customization do |cc|
+          = cc.text_area :signup_info_content, class: %i[form-control]
+          %small#marketplaceName-help.form-text
+            = t('admin2.signup_login.signup_info_text')
 
     = render 'facebook', form: form
     = render 'google', form: form
     = render 'linked_in', form: form
 
-    .content-card-terminal.without-margin
+    %section.content-card-terminal.without-margin
       = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

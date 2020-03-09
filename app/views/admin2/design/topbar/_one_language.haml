@@ -1,0 +1,4 @@
+- available_locales.each do |_locale_name, locale_value|
+  .form-group
+    = label_tag :post_new_listing_button, t('admin2.topbar.post_new_listing_button')
+    = text_field_tag "post_new_listing_button[#{locale_value}]", t('admin2.topbar.post_new_listing', locale: locale_value), class: %i[form-control required]

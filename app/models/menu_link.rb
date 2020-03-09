@@ -16,6 +16,7 @@
 
 class MenuLink < ApplicationRecord
   has_many :translations, :class_name => "MenuLinkTranslation", :dependent => :destroy
+  accepts_nested_attributes_for :translations, allow_destroy: true
   belongs_to :community
 
   scope :sorted, ->{ order('menu_links.sort_priority ASC') }

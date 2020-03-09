@@ -179,3 +179,4 @@ gem 'ffi', '>= 1.9.25'
 gem 'rubyzip', '~> 1.3.0'
 gem 'bootsnap', require: false
 gem "select2-rails"
+gem "cocoon"

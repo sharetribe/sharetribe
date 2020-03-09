@@ -1,0 +1,65 @@
+- content_for :title do
+  = t('admin2.sidebar.design.topbar')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.design.topbar')
+
+.content-card-section-container#top_bar_div
+  = form_for @current_community, url: update_topbar_admin2_design_topbar_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.topbar.top_bar_settings')
+
+      - if available_locales.size == 1
+        = render 'one_language', form: form
+      - else
+        = render 'many_languages', form: form
+
+      .form-group
+        = form.label :logo_link, t('admin2.topbar.logo_link')
+        = form.text_field :logo_link, class: %i[form-control]
+        %small#marketplaceLogoURL-help.form-text
+          = t('admin2.topbar.logo_link_info_text')
+
+      - if @new_topbar_enabled
+        = form.fields_for :configuration do |conf|
+          .form-group
+            %label
+              = t('admin2.topbar.show_in_top_bar')
+            .form-check
+              = conf.check_box :display_about_menu, class: %i[form-check-input]
+              = conf.label :display_about_menu, t('admin2.topbar.display_about_menu'), class: %i[form-check-label]
+            .form-check
+              = conf.check_box :display_contact_menu, class: %i[form-check-input]
+              = conf.label :display_contact_menu, t('admin2.topbar.display_contact_menu'), class: %i[form-check-label]
+            .form-check
+              - if @current_community.users_can_invite_new_users
+                = conf.check_box :display_invite_menu, class: %i[form-check-input]
+                = conf.label :display_invite_menu, t('admin2.topbar.display_invite_menu'), class: %i[form-check-label]
+              - else
+                - conf.object.display_invite_menu = false
+                = conf.check_box :display_invite_menu, disabled: "disabled", class: %i[form-check-input]
+                = conf.label :display_invite_link, t('admin2.topbar.display_invite_menu'), class: %i[form-check-label], disabled: :disabled
+
+          .form-group
+            %label
+              = t('admin2.topbar.maximum_number_links')
+            = conf.select :limit_priority_links, options_for_select((0..5).to_a.map {|o| [o, o]}.concat([[t('admin2.topbar.all'), -1]]), conf.object.limit_priority_links), {}, class: %i[form-control]
+            %small#topBarMaximumNumberLinks-help.form-text
+              = t('admin2.topbar.limit_priority_links_info_text')
+
+    %section.content-card-section
+      %h2
+        = t('admin2.topbar.custom_links')
+      #simpleList.list-group
+        = form.fields_for :menu_links do |menu_link|
+          = render 'menu_link_fields', f: menu_link
+      %p.links.content-card-text
+        = link_to_add_association t('admin2.topbar.new_custom_link'), form, :menu_links, data: {'association-insertion-method' => 'append', 'association-insertion-node' => '#simpleList' }
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+
+- content_for :extra_javascript do
+  :javascript
+    validateCommunityEdit(#{@current_community.id});
