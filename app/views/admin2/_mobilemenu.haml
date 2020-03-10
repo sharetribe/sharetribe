@@ -117,8 +117,8 @@
           %li
             = link_to t('admin2.sidebar.emails_group'), '#emails-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'emails-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#emails-mobile.collapse.subtitle{class: expand_ul('emails')}
-          %li#emailusers-mobile
-            %a{:href => 'email-users.php'} Email users
+          %li#emailusers-mobile{class: active_li('email_users')}
+            = link_to t('admin2.sidebar.emails.email_users'), admin2_emails_email_users_path
           %li#welcomeemail-mobile
             %a{:href => 'welcome-email.php'} Welcome email
           %li#automaticnewsletter-mobile{class: active_li('newsletters')}

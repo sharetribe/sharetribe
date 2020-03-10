@@ -51,6 +51,7 @@ fr:
       payment_system:
         country_currency: 'lorem ipsum'
       emails:
+        email_users: 'lorem ipsum'
         automatic_newsletter: 'lorem ipsum'
       search_location:
         search: 'lorem ipsum'
@@ -80,6 +81,22 @@ fr:
       not_available: 'lorem ipsum'
       profile: "%{author}'s lorem ipsum"
       conversation: 'lorem ipsum'
+    email_users:
+      compose_email: 'lorem ipsum'
+      recipients: 'lorem ipsum'
+      learn_segments: 'lorem ipsum <a href="%{url}" target="_blank">lorem ipsum</a>.'
+      receivers_languages: 'lorem ipsum'
+      any_language: 'lorem ipsum'
+      subject: 'lorem ipsum'
+      subject_info_text: 'lorem ipsum'
+      email_subject_text: "lorem ipsum %{service_name} lorem ipsum"
+      message_will_be_sent_only_to_people_with_this_language: "lorem ipsum %{service_name} lorem ipsum."
+      content: 'lorem ipsum'
+      content_info_text: 'lorem ipsum'
+      content_hello: 'lorem ipsum,'
+      content_placeholder: 'lorem ipsum'
+      send_email: 'lorem ipsum'
+      send_to_yourself: 'lorem ipsum'
     footer:
       footer_enabling: 'lorem ipsum'
       footer_enabling_field: 'lorem ipsum'
@@ -384,6 +401,8 @@ fr:
       topbar_updated: 'lorem ipsum'
       footer_updated: 'lorem ipsum'
       footer_update_failed: 'lorem ipsum'
+      email_sent: 'lorem ipsum'
+      test_email_sent: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

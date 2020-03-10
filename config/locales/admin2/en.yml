@@ -52,6 +52,7 @@ en:
       payment_system:
         country_currency: 'Country & Currency'
       emails:
+        email_users: 'Email users'
         automatic_newsletter: 'Automatic newsletter'
       search_location:
         search: 'Search'
@@ -82,6 +83,22 @@ en:
       not_available: 'Not available'
       profile: "%{author}'s Profile"
       conversation: 'Conversation'
+    email_users:
+      compose_email: 'Compose email'
+      recipients: 'Who do you want to email?'
+      learn_segments: 'Learn more about the <a href="%{url}" target="_blank">user segments</a>.'
+      receivers_languages: 'Language of the email receivers'
+      any_language: 'Any language'
+      subject: 'Email subject'
+      subject_info_text: 'To improve email deliverability the email subject is generated automatically and cannot be changed.'
+      email_subject_text: "A new message from the %{service_name} team"
+      message_will_be_sent_only_to_people_with_this_language: "The email will be sent only to the users who are using %{service_name} in the language you choose."
+      content: 'Email content'
+      content_info_text: '"Firstname" cannot be removed and will be replaced by the actual first name of each recipient.'
+      content_hello: 'Hello Firstname,'
+      content_placeholder: 'What do you want to say to your members?'
+      send_email: 'Send email to users'
+      send_to_yourself: 'Send a test email to yourself'
     footer:
       footer_enabling: 'Footer enabling'
       footer_enabling_field: 'Enable the footer in all pages of your marketplace'
@@ -393,6 +410,8 @@ en:
       topbar_updated: 'Top bar settings were updated'
       footer_updated: 'Footer settings were updated'
       footer_update_failed: 'Footer details update failed'
+      email_sent: 'Email sent'
+      test_email_sent: 'Test email was sent to your inbox'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'
