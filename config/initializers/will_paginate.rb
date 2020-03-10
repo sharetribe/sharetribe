@@ -2,18 +2,6 @@ require 'will_paginate/view_helpers/action_view'
 
 module WillPaginate
   module ActionView
-    def will_paginate(collection = nil, options = {})
-      options, collection = collection, nil if collection.is_a? Hash
-      collection ||= infer_collection_from_controller
-
-      options = options.symbolize_keys
-      options[:renderer] ||= BootstrapLinkRenderer
-      options[:list_classes] ||= ['pagination']
-      options[:previous_label] ||= '&larr;'
-      options[:next_label] ||= '&rarr;'
-
-      super(collection, options)
-    end
 
     class BootstrapLinkRenderer < LinkRenderer
       ELLIPSIS = '&hellip;'

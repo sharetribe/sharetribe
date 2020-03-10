@@ -37,7 +37,7 @@ module Admin
         pattern = "%#{params[:q]}%"
         scope = scope.search_by_party_or_listing_title(pattern)
       end
-      if params[:status]&.reject(&:empty?).present?
+      if params[:status].present? && params[:status].is_a?(String) || params[:status]&.reject(&:empty?).present?
         scope = scope.where(current_state: params[:status])
       end
       if params[:sort].nil? || params[:sort] == "last_activity"
