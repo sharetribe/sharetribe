@@ -228,9 +228,22 @@ Rails.application.routes.draw do
           end
         end
       end
-      namespace :users do
-        resources :invitations, only: %i[index]
 
+      namespace :users do
+<<<<<<< HEAD
+        resources :invitations, only: %i[index]
+        resources :manage_users, path: 'manage-users', only: %i[index] do
+=======
+        resources :manage_users, path: 'manage-users', only: %i[index destroy] do
+>>>>>>> 57ad709... add delete user
+          member do
+            get :resend_confirmation
+            patch :ban
+            patch :unban
+            post :promote_admin
+            patch :posting_allowed
+          end
+        end
         resources :signup_login, path: 'signup-and-login', only: %i[index] do
           collection do
             patch :update_signup_login

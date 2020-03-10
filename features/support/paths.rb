@@ -92,6 +92,8 @@ module NavigationHelpers
       admin_categories_path(:locale => "en")
     when /the manage members admin page/
       admin_community_community_memberships_path(:community_id => @current_community.id)
+    when /the manage users admin2 page/
+      admin2_users_manage_users_path
     when /the edit look-and-feel page/
       admin_look_and_feel_edit_path
     when /the text instructions admin page/

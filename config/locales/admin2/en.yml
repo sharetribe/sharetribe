@@ -44,6 +44,7 @@ en:
         display: 'Display'
         experimental: 'Experimental'
       users:
+        manage_users: 'Manage users'
         signup_login: 'Signup & Login'
         user_rights: 'User rights'
         invitations: 'Invitations'
@@ -157,6 +158,43 @@ en:
       view_details: 'View details'
       all_transactions: 'All transactions (%{count})'
       not_available: 'Not available'
+    manage_users:
+      ban_msg: 'This disables the user account from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?'
+      unban_msg: 'This enables the user account in the marketplace and allows them to access the site again with this account. Are you sure you want to proceed?'
+      to_admin: 'This makes the user an admin. You should notify the user about their responsibilities and that they should review the Sharetribe terms of use. Are you sure you want to proceed?'
+      search_by: 'Search users by name, display name or email...'
+      have_ongoing_transactions: "This account can't be deleted because they have ongoing transactions. Please complete all transactions before deleting the account."
+      only_delete_disabled: "You can only delete users that have been disabled. Disable a user first in order to delete their account."
+      export_csv: 'Export to CSV'
+      all_statuses: 'All users (%{count})'
+      name: 'Name'
+      email: 'Email'
+      join_date: 'Joined'
+      posting: 'Posting'
+      admin: 'Admin'
+      disable: 'Disable'
+      actions: 'Actions'
+      unconfirmed_text: "This user hasn't confirmed their email address. It might be possible that the user didn't receive the confirmation email. Click the resend button if you want to send it again."
+      resend_email: 'Re-send confirmation email'
+      cancel: 'Cancel'
+      unconfirmed: 'Unconfirmed'
+      unconfirmed_user: 'Unconfirmed user: %{username}'
+      edit: 'Edit'
+      delete: 'Delete'
+      post_listing: 'Post listing as'
+      ban_me_error: 'You cannot ban yourself'
+      cannot_delete_yourself_admin: 'You cannot delete yourself as an admin'
+      saved: 'Saved'
+      delete_user: 'Delete user: %{username}'
+      delete_forever: 'Delete the user account forever'
+      delete_user_text: >
+        If you delete this account, the personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings that they have created will be removed.
+        <br>
+        <br>
+        Information where other members are involved (conversations with other people, transactions they've made, reviews they've given to others, etc) is not removed when you delete this account. However, the name will no longer be displayed next to this information.
+        <br>
+        <br>
+        You will not be able to reactivate this account after it has been deleted.
     footer:
       footer_enabling: 'Footer enabling'
       footer_enabling_field: 'Enable the footer in all pages of your marketplace'

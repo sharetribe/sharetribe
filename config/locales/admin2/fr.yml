@@ -44,6 +44,7 @@ fr:
         display: 'lorem ipsum'
         experimental: 'lorem ipsum'
       users:
+        manage_users: 'lorem ipsum'
         signup_login: 'lorem ipsum'
         user_rights: 'lorem ipsum'
         invitations: 'lorem ipsum'
@@ -113,6 +114,13 @@ fr:
     google_console:
       info_text: "lorem ipsum"
       info_text_2: "lorem ipsum <a href='%{url}' target='_blank'>lorem ipsum</a>."
+    invitations:
+      invite_new_users: 'lorem ipsum'
+      from: 'lorem ipsum'
+      to: 'lorem ipsum'
+      message: 'lorem ipsum'
+      accepted: 'lorem ipsum'
+      date_sent: 'lorem ipsum'
     manage_listings:
       search_placeholder: 'lorem ipsum'
       export_to_csv: 'lorem ipsum'
@@ -150,6 +158,35 @@ fr:
       view_details: 'lorem ipsum'
       all_transactions: 'lorem ipsum (%{count})'
       not_available: 'lorem ipsum'
+    manage_users:
+      ban_msg: 'lorem ipsum'
+      unban_msg: 'lorem ipsum'
+      to_admin: 'lorem ipsum'
+      search_by: 'lorem ipsum'
+      have_ongoing_transactions: 'lorem ipsum'
+      only_delete_disabled: 'lorem ipsum'
+      export_csv: 'lorem ipsum'
+      all_statuses: 'lorem ipsum'
+      name: 'lorem ipsum'
+      email: 'lorem ipsum'
+      join_date: 'lorem ipsum'
+      posting: 'lorem ipsum'
+      admin: 'lorem ipsum'
+      disable: 'lorem ipsum'
+      actions: 'lorem ipsum'
+      unconfirmed_text: 'lorem ipsum'
+      resend_email: 'lorem ipsum'
+      cancel: 'lorem ipsum'
+      unconfirmed: 'lorem ipsum'
+      unconfirmed_user: 'lorem ipsum %{username}'
+      edit: 'lorem ipsum'
+      delete: 'Delete'
+      post_listing: 'lorem ipsum'
+      ban_me_error: 'lorem ipsum'
+      cannot_delete_yourself_admin: 'lorem ipsum'
+      delete_user: 'lorem ipsum %{username}'
+      delete_forever: 'lorem ipsum'
+      delete_user_text: 'lorem ipsum'
     footer:
       footer_enabling: 'lorem ipsum'
       footer_enabling_field: 'lorem ipsum'
@@ -166,13 +203,6 @@ fr:
         light: 'lorem ipsum'
         marketplace_color: 'lorem ipsum'
         logo: 'lorem ipsum'
-    invitations:
-      invite_new_users: 'lorem ipsum'
-      from: 'lorem ipsum'
-      to: 'lorem ipsum'
-      message: 'lorem ipsum'
-      accepted: 'lorem ipsum'
-      date_sent: 'lorem ipsum'
     topbar:
       top_bar_settings: 'lorem ipsum'
       logo_link: 'lorem ipsum'

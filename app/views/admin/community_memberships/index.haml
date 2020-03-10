@@ -92,7 +92,6 @@
               %td{:style => "text-align: center"}
                 - if accepted_or_banned
                   = check_box_tag "is_admin[#{member.id}]", member.id, member.is_marketplace_admin?(@presenter.community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user) || member.banned?
-
               %td{:style => "text-align: center"}
                 - if accepted_or_banned
                   = check_box_tag "is_banned[#{member.id}]", member.id, member.banned?,
@@ -112,13 +111,13 @@
                   title: @presenter.delete_member_title(membership)}
                   = link_to admin_community_community_membership_path(id: membership.id) do
                     = icon_tag("trash")
-
   .row
     .col-12
       = will_paginate @presenter.memberships
 
 = render layout: "layouts/lightbox", locals: { id: "membership-popup"} do
   #membership-popup-content.membership-popup-content
+
 = render layout: "layouts/lightbox", locals: { id: "membership-delete"} do
   #membership-delete-content.membership-popup-content.delete-content
     .membership--pending-popup
