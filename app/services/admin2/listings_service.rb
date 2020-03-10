@@ -23,7 +23,7 @@ class Admin2::ListingsService
   end
 
   def close
-    listing.update_attribute(:open, false)
+    listing.update!(open: false)
   end
 
   def delete

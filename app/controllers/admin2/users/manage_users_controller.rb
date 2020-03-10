@@ -7,9 +7,9 @@ module Admin2::Users
         format.html {}
         format.csv do
           self.response.headers['Content-Type'] ||= 'text/csv'
-          self.response.headers['Content-Disposition'] = "attachment; filename=#{marketplace_name}-users-#{Date.today}.csv"
+          self.response.headers['Content-Disposition'] = "attachment; filename=#{marketplace_name}-users-#{Time.zone.today}.csv"
           self.response.headers['Content-Transfer-Encoding'] = 'binary'
-          self.response.headers['Last-Modified'] = Time.now.ctime.to_s
+          self.response.headers['Last-Modified'] = Time.current.ctime.to_s
           self.response_body = @service.memberships_csv
         end
       end
@@ -27,7 +27,7 @@ module Admin2::Users
 
       @service.ban
       @can_delete = @presenter.can_delete(@service.membership)
-      @delete_title = @presenter.delete_member_title(@service.membership).to_s.html_safe
+      @delete_title = @presenter.delete_member_title(@service.membership).to_s.html_safe # rubocop:disable Rails/OutputSafety
     rescue StandardError => e
       @error = e.message
     ensure
@@ -60,7 +60,7 @@ module Admin2::Users
     def unban
       @service.unban
       @can_delete = @presenter.can_delete(@service.membership)
-      @delete_title = @presenter.delete_member_title(@service.membership).to_s.html_safe
+      @delete_title = @presenter.delete_member_title(@service.membership).to_s.html_safe # rubocop:disable Rails/OutputSafety
     rescue StandardError => e
       @error = e.message
     ensure
