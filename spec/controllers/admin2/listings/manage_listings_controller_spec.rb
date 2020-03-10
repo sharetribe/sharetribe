@@ -145,7 +145,7 @@ describe Admin2::Listings::ManageListingsController, type: :controller do
     let(:community) { FactoryGirl.create(:community) }
     let(:listing) {
       FactoryGirl.create(:listing, community_id: community.id,
-                         state: Listing::APPROVAL_PENDING)
+                                   state: Listing::APPROVAL_PENDING)
     }
     let(:follower_of_listing_author) do
       person = FactoryGirl.create(:person, member_of: community)
@@ -170,7 +170,7 @@ describe Admin2::Listings::ManageListingsController, type: :controller do
     describe '#reject' do
       it 'reject listing' do
         post :update, params: {id: listing.id, listing: {state: Listing::APPROVAL_REJECTED}},
-             format: :js
+                      format: :js
         listing.reload
         expect(listing.state).to eq Listing::APPROVAL_REJECTED
       end
