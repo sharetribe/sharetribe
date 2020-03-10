@@ -1,0 +1,29 @@
+- content_for :title do
+  = t('admin2.sidebar.users.invitations')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.users.invitations')
+
+  = link_to t('admin2.invitations.invite_new_users'), new_invitation_path, target: :_blank, class: %i[content-card-header-link]
+
+.content-card-section-container{style: 'padding: 0; max-width: none;'}
+  .table-responsive
+    %table.table.table-hover.invitations
+      %thead
+        %tr
+          %th{scope: :col}
+            = render 'sort_link', column: 'sent_by', direction: sort_link_direction('sent_by'), title: t('admin2.invitations.from')
+          %th{scope: :col}
+            = render 'sort_link', column: 'sent_to', direction: sort_link_direction('sent_to'), title: t('admin2.invitations.to')
+          %th{scope: :col}= t('admin2.invitations.message')
+          %th{scope: :col}
+            = render 'sort_link', column: 'used', direction: sort_link_direction('used'), title: t('admin2.invitations.accepted')
+          %th{scope: :col}
+            = render 'sort_link', column: 'started', direction: sort_link_direction('started'), title: t('admin2.invitations.date_sent')
+      %tbody
+        = render partial: 'invitation', collection: @service.invitations
+
+  .table-bottom
+    %p= page_entries_info(@service.invitations, model: 'Invitation').html_safe
+    = will_paginate @service.invitations, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
