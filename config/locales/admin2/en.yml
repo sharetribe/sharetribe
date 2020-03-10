@@ -43,6 +43,7 @@ en:
       users:
         signup_login: 'Signup & Login'
         user_rights: 'User rights'
+        invitations: 'Invitations'
       listings:
         listing_approval: 'Listing approval'
         listing_comments: 'Listing comments'
@@ -107,6 +108,13 @@ en:
     google_console:
       info_text: "Google Search Console offers tools and reports to help you measure your site's Search traffic and performance and fix issues related to Google Search results."
       info_text_2: "It's a good idea to add your website to Google Search Console. It takes only a few minutes with <a href='%{url}' target='_blank'>these instructions</a>."
+    invitations:
+      invite_new_users: 'Invite new users'
+      from: 'From'
+      to: 'To'
+      message: 'Message'
+      accepted: 'Accepted'
+      date_sent: 'Date sent'
     footer:
       footer_enabling: 'Footer enabling'
       footer_enabling_field: 'Enable the footer in all pages of your marketplace'

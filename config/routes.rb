@@ -229,6 +229,8 @@ Rails.application.routes.draw do
         end
       end
       namespace :users do
+        resources :invitations, only: %i[index]
+
         resources :signup_login, path: 'signup-and-login', only: %i[index] do
           collection do
             patch :update_signup_login

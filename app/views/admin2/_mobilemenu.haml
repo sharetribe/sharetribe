@@ -64,8 +64,8 @@
             = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
           %li#userrights-mobile{class: active_li('user_rights')}
             = link_to t('admin2.sidebar.users.user_rights'), admin2_users_user_rights_path
-          %li#invitations-mobile
-            %a{:href => 'invitations.php'} Invitations
+          %li#invitations-mobile{class: active_li('invitations')}
+            = link_to t('admin2.sidebar.users.invitations'), admin2_users_invitations_path(direction: :desc, sort: :started)
         / Listings
         %ul.category-title
           %li

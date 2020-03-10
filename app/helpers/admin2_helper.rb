@@ -12,7 +12,7 @@ module Admin2Helper
     {
       general: %w[essentials privacy static_content admin_notifications],
       design: %w[logos_color landing_page display experimental cover_photos topbar footer],
-      users: %w[signup_login user_rights],
+      users: %w[signup_login user_rights invitations],
       listings: %w[listing_approval listing_comments],
       transactions_reviews: %w[config_transactions conversations],
       payment_system: %w[country_currencies],
@@ -148,4 +148,5 @@ module Admin2Helper
   def email_languages
     [[t('admin2.email_users.any_language'), 'any']] | available_locales
   end
+
 end
