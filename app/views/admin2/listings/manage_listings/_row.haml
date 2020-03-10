@@ -1,0 +1,24 @@
+%td
+  = link_to listing.title, listing_path(listing), target: :_blank
+- if presenter.admin_mode
+  %td
+    - p = listing.author
+    - unless p.deleted
+      = link_to person_name(p), person_path(p.username), target: :_blank
+%td= l(listing.created_at, format: :short)
+%td= l(listing.updated_at, format: :short)
+%td
+  - category = listing.category
+  = link_to category.display_name(I18n.locale), search_path(category: category.url), target: :_blank
+%td
+  - status = t("admin.communities.listings.#{presenter.listing_status(listing)}")
+  - if presenter.show_approval_link?(listing)
+    = link_to status, '#', data: {id: listing.id, title: listing.title}, class: %i[approve-listing-link]
+  - else
+    = status
+%td
+  = link_to t('admin2.manage_listings.edit'), edit_listing_path(listing), target: :_blank
+  |
+  = link_to t('admin2.manage_listings.close'), '#', data: {id: listing.id, title: listing.title}, class: (%i[close-listing] << (%i[opacity_04 is-disabled] if (listing.closed? || presenter.show_approval_link?(listing))))
+  |
+  = link_to t('admin2.manage_listings.delete'), '#', data: {id: listing.id, title: t('admin2.manage_listings.delete_title', title: listing.title)}, class: %i[delete-listing]

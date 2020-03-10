@@ -1,0 +1,1 @@
+= select_tag 'status[]', options_for_select(presenter.statuses_with_count.map { |text, key| [text, key, data: {type: key}] }, current), prompt: t('admin2.manage_listings.all_listings', count: presenter.total_listings), class: %i[tiny-select change-status-filter-listings]

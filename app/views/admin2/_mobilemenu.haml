@@ -71,8 +71,8 @@
           %li
             = link_to t('admin2.sidebar.listings_group'), '#listings-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'listings-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#listings-mobile.collapse.subtitle{class: expand_ul('listings')}
-          %li#managelistings-mobile
-            %a{:href => 'manage-listings.php'} Manage listings
+          %li#managelistings-mobile{class: active_li('manage_listings')}
+            = link_to t('admin2.sidebar.listings.manage_listings'), admin2_listings_manage_listings_path(direction: 'desc', sort: 'updated')
           %li#categories-mobile
             %a{:href => 'categories.php'} Categories
           %li#ordertypes-mobile

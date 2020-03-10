@@ -1,0 +1,6 @@
+<% if @export_result %>
+  initializeExportPolling({
+    pollingUrl: '<%= j export_status_admin2_listings_manage_listings_path(token: @export_result.token) %>',
+    loading: '<%= j render('admin2/loading') %>'
+  });
+<% end %>

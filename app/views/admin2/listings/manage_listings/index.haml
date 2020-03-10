@@ -1,0 +1,28 @@
+- content_for :title do
+  = t('admin2.sidebar.listings.manage_listings')
+
+= render 'admin2/listings/manage_listings/filter'
+
+.content-card-section-container{style: 'padding: 0; max-width: none;'}
+  .table-responsive
+    %table.table.table-hover.listings
+      %thead
+        %tr
+          %th{scope: :col}= t('admin2.manage_listings.listing')
+          - if @presenter.admin_mode
+            %th{scope: :col}= t('admin2.manage_listings.provider')
+          %th{scope: :col}= render 'sort_link', column: 'started', direction: sort_link_direction('started'), title: t('admin2.manage_listings.created')
+          %th{scope: :col}= render 'sort_link', column: 'updated', direction: sort_link_direction('updated'), title: t('admin2.manage_listings.updated')
+          %th{scope: :col}= t('admin2.manage_listings.category')
+          %th{scope: :col}= t('admin2.manage_listings.status')
+          %th{scope: :col}= t('admin2.manage_listings.actions')
+      %tbody
+        = render partial: 'listing', collection: @presenter.listings, locals: { presenter: @presenter }
+
+    .table-bottom
+      %p= page_entries_info(@presenter.listings, model: 'Listing').html_safe
+      = will_paginate @presenter.listings, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
+
+= render 'admin2/listings/manage_listings/approve_popup'
+= render 'admin2/listings/manage_listings/close_popup'
+= render 'admin2/listings/manage_listings/delete_popup'

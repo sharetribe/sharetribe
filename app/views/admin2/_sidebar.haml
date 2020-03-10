@@ -65,8 +65,8 @@
         %li
           = link_to t('admin2.sidebar.listings_group'), '#listings', class: %i[dropdown-toggle], 'aria-controls' => 'listings', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#listings.collapse.subtitle{class: expand_ul('listings')}
-        %li#managelistings
-          %a{:href => 'manage-listings.php'} Manage listings
+        %li#managelistings{class: active_li('manage_listings')}
+          = link_to t('admin2.sidebar.listings.manage_listings'), admin2_listings_manage_listings_path(direction: 'desc', sort: 'updated')
         %li#categories
           %a{:href => 'categories.php'} Categories
         %li#ordertypes

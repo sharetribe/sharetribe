@@ -1,0 +1,10 @@
+$('#listingPendingModal').modal('hide');
+$('.listing_row_<%= j @service.listing.id.to_s %>').html('<%= j render 'admin2/listings/manage_listings/row', listing: @service.listing, presenter: @presenter %>');
+
+<% if @status == Listing::APPROVED %>
+  $('*[data-type="open"]').text('<%= j @presenter.row_status_text('open') %>');
+<% elsif @status == Listing::APPROVAL_REJECTED %>
+  $('*[data-type="approval_rejected"]').text('<%= j @presenter.row_status_text('approval_rejected') %>');
+<% end %>
+
+$('*[data-type="approval_pending"]').text('<%= j @presenter.row_status_text('approval_pending') %>');

@@ -1,0 +1,7 @@
+= form_tag '', method: :get, class: %i[content-card-header content-table] do
+  .content-card-header-left
+    = text_field_tag :q, params[:q], placeholder: t('admin2.manage_listings.search_placeholder'), class: %i[search-header]
+  .content-card-header-right
+    %span#listing_statuses_filter
+      = render 'admin2/listings/manage_listings/statuses', presenter: @presenter, current: params[:status]
+    = link_to t('admin2.manage_listings.export_to_csv'), export_admin2_listings_manage_listings_path, remote: true, id: 'export-as-csv', class: %i[content-card-header-link] << ('opacity_04 is-disabled' if params[:status]&.any? { |s| s.present? } || params[:q].present?)

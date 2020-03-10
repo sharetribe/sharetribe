@@ -1,0 +1,13 @@
+#listingCloseModal.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'listingCloseModalLabel', role: 'dialog', tabindex: '-1'}
+  .modal-dialog{role: 'document'}
+    = form_tag close_admin2_listings_manage_listings_path, method: :patch, remote: true, class: %i[modal-content] do
+      = hidden_field_tag :id, '', id: :listing_close_id
+      .modal-header
+        %h5#listingCloseModalLabel.modal-title
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => 'modal', type: :button}
+          %span{'aria-hidden' => 'true'} ×
+      .modal-body
+        = t('admin2.manage_listings.close_info_text')
+      .modal-footer
+        = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+        = button_tag t('admin2.manage_listings.close'), class: %i[btn btn-primary]
