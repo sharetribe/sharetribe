@@ -16,7 +16,7 @@ module Admin2Helper
       listings: %w[listing_approval listing_comments manage_listings],
       transactions_reviews: %w[config_transactions manage_transactions conversations],
       payment_system: %w[country_currencies],
-      emails: %w[newsletters email_users],
+      emails: %w[newsletters email_users welcome_emails],
       search_location: %w[search locations],
       social_media: %w[image_tags twitter],
       seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages google_console],

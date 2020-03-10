@@ -61,6 +61,7 @@ fr:
       emails:
         email_users: 'lorem ipsum'
         automatic_newsletter: 'lorem ipsum'
+        welcome_email: 'lorem ipsum'
       search_location:
         search: 'lorem ipsum'
         location: 'lorem ipsum'
@@ -187,6 +188,14 @@ fr:
       delete_user: 'lorem ipsum %{username}'
       delete_forever: 'lorem ipsum'
       delete_user_text: 'lorem ipsum'
+    welcome_email:
+      title: 'lorem ipsum'
+      title_info_text: 'lorem ipsum'
+      welcome_email_content: 'lorem ipsum'
+      hello: 'lorem ipsum'
+      welcome_email_content_placeholder: 'lorem ipsum'
+      welcome_email_content_info_text: 'lorem ipsum'
+      send_to_yourself: 'lorem ipsum'
     footer:
       footer_enabling: 'lorem ipsum'
       footer_enabling_field: 'lorem ipsum'
@@ -500,6 +509,8 @@ fr:
       footer_update_failed: 'lorem ipsum'
       email_sent: 'lorem ipsum'
       test_email_sent: 'lorem ipsum'
+      welcome_email_updated:  'lorem ipsum'
+      welcome_email_updated_and_sent: 'lorem ipsum %{email}'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'
