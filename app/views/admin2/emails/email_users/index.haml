@@ -1,0 +1,53 @@
+- content_for :title do
+  = t('admin2.sidebar.emails.email_users')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.emails.email_users')
+
+.content-card-section-container
+  = form_for :email, url: admin2_emails_email_users_path, html: { class: %i[content-card-section-form] } do |form|
+    = hidden_field_tag :test_email, 0
+    %section.content-card-section
+      %h2= t('admin2.email_users.compose_email')
+      .form-group
+        = form.label :recipients, t('admin2.email_users.recipients')
+        = form.select :recipients, admin_email_options, {}, class: %i[form-control]
+        %small#emailRecipients-help.form-text
+          = t('admin2.email_users.learn_segments', url: 'https://help.sharetribe.com/en/articles/1133668').html_safe
+
+      - if available_locales.size > 1
+        .form-group
+          = form.label :locale, t('admin2.email_users.receivers_languages')
+          = form.select :locale, options_for_select(email_languages, 'any'), {}, class: %i[form-control]
+          %small#emailLanguages-help.form-text
+            = t('admin2.email_users.message_will_be_sent_only_to_people_with_this_language')
+      - else
+        = form.hidden_field :locale, value: :any
+      .form-group
+        = form.label :subject, t('admin2.email_users.subject')
+        = form.text_field :subject, disabled: true, placeholder: t('admin2.email_users.email_subject_text'), class: %i[form-control]
+        %small#emailSubject-help.form-text
+          = t('admin2.email_users.subject_info_text')
+
+      .form-group
+        = form.label :content, t('admin2.email_users.content')
+        %p.ingress
+          = t('admin2.email_users.content_hello')
+        = form.text_area :content, placeholder: t('admin2.email_users.content_placeholder'), class: %i[form-control required], minlength: 2
+        %small#emailcontent-help.form-text
+          = t('admin2.email_users.content_info_text')
+
+    %section.content-card-terminal
+      = button_tag t('admin2.email_users.send_email'), class: %i[btn btn-primary]
+      = link_to t('admin2.email_users.send_to_yourself'), '#', class: %i[btn btn-ghost], id: 'send-test-email'
+
+- content_for :extra_javascript do
+  :javascript
+    validateCustomForm();
+    $("#send-test-email").click(function(){
+      var form = $('form'), test_email = $('#test_email');
+      test_email.val('1');
+      form.submit();
+      return false;
+    });

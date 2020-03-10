@@ -272,6 +272,7 @@ Rails.application.routes.draw do
       end
 
       namespace :emails do
+        resources :email_users, path: 'email-users', only: %i[index create]
         resources :newsletters, path: 'automatic-newsletter', only: %i[index] do
           collection do
             patch :update_newsletter

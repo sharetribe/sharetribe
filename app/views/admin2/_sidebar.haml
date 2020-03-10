@@ -111,8 +111,8 @@
         %li
           = link_to t('admin2.sidebar.emails_group'), '#emails', class: %i[dropdown-toggle], 'aria-controls' => 'emails', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#emails.collapse.subtitle{class: expand_ul('emails')}
-        %li#emailusers
-          %a{:href => 'email-users.php'} Email users
+        %li#emailusers{class: active_li('email_users')}
+          = link_to t('admin2.sidebar.emails.email_users'), admin2_emails_email_users_path
         %li#welcomeemail
           %a{:href => 'welcome-email.php'} Welcome email
         %li#automaticnewsletter{class: active_li('newsletters')}
