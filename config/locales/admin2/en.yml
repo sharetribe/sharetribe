@@ -1,6 +1,8 @@
 en:
   admin2:
     save_changes: 'Save changes'
+    next_step: 'Next'
+    prev_step: 'Prev'
     topnav:
       admin_menu: 'Admin menu'
       logo: 'Sharetribe Go Admin Panel'
@@ -52,6 +54,7 @@ en:
       transactions_reviews:
         config_transactions: 'Configure transactions'
         view_conversations: 'View conversations'
+        manage_transactions: 'Manage transactions'
       payment_system:
         country_currency: 'Country & Currency'
       emails:
@@ -140,6 +143,20 @@ en:
       delete_info_text: 'Deleting a listing cannot be undone. Are you sure you want to proceed?'
       processing_export: "Processing export to CSV..."
       confirm_popup_body: 'This listing has not been approved yet. You can now decide to approve or reject the listing. If you approve the listing it will be public and visible to all users. If you reject the listing it will not be public.'
+    manage_transactions:
+      export_to_csv: 'Export to CSV'
+      search_placeholder: 'Search transactions by listing title or users...'
+      listing: 'Listing'
+      customer: 'Customer'
+      provider: 'Provider'
+      started: 'Started'
+      latest_activity: 'Latest activity'
+      status: 'Status'
+      amount: 'Amount'
+      actions: 'Actions'
+      view_details: 'View details'
+      all_transactions: 'All transactions (%{count})'
+      not_available: 'Not available'
     footer:
       footer_enabling: 'Footer enabling'
       footer_enabling_field: 'Enable the footer in all pages of your marketplace'

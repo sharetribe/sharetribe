@@ -1,4 +1,4 @@
-class Admin::TransactionsPresenter
+class Admin2::TransactionsPresenter
   include Collator
 
   private
@@ -14,14 +14,6 @@ class Admin::TransactionsPresenter
 
   delegate :transactions, :transaction, :community, to: :service, prefix: false
 
-  def selected_statuses_title
-    if @params[:status].present?
-      I18n.t("admin.communities.transactions.status_filter.selected", count: @params[:status].size)
-    else
-      I18n.t("admin.communities.transactions.status_filter.all")
-    end
-  end
-
   FILTER_STATUSES = %w[free confirmed paid canceled preauthorized rejected
                        payment_intent_requires_action payment_intent_action_expired
                        disputed refunded dismissed]
@@ -29,12 +21,17 @@ class Admin::TransactionsPresenter
   def sorted_statuses
     statuses = FILTER_STATUSES
     statuses.map {|status|
-      [status, I18n.t("admin.communities.transactions.status_filter.#{status}"), status_checked?(status)]
-    }.sort_by{|_status, translation, _checked| collator.get_sort_key(translation) }
+      ["#{I18n.t("admin.communities.transactions.status_filter.#{status}")} (#{count_by_status(status)})", status]
+    }.sort_by{|translation, _status| collator.get_sort_key(translation) }
   end
 
-  def status_checked?(status)
-    @params[:status].present? && @params[:status].include?(status)
+  def count_by_status(status = nil)
+    scope = Transaction.exist.by_community(community.id)
+    if status.present?
+      scope.where(current_state: status).count
+    else
+      scope.count
+    end
   end
 
   def has_search?
@@ -131,7 +128,7 @@ class Admin::TransactionsPresenter
   end
 
   def has_buyer_fee
-    buyer_fee.present? && buyer_fee > 0
+    buyer_fee.present? && buyer_fee.positive?
   end
 
   def has_provider_fee
@@ -196,7 +193,7 @@ class Admin::TransactionsPresenter
     return @shipping_address if defined?(@shipping_address)
 
     @shipping_address = nil
-    fields = [:name, :phone, :street1, :street2, :postal_code, :city, :state_or_province, :country]
+    fields = %i[name phone street1 street2 postal_code city state_or_province country]
     if transaction.shipping_address
       address = transaction.shipping_address.slice(*fields)
       if address.values.any?

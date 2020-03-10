@@ -1,0 +1,6 @@
+= form_tag '', method: :get, class: %i[content-card-header content-table] do
+  .content-card-header-left
+    = text_field_tag :q, params[:q], placeholder: t('admin2.manage_transactions.search_placeholder'), class: %i[search-header]
+  .content-card-header-right
+    = select_tag 'status[]', options_for_select(@transactions_presenter.sorted_statuses.map { |text, key| [text, key] }, params[:status]), prompt: t('admin2.manage_transactions.all_transactions', count: @transactions_presenter.count_by_status), class: %i[change-status-filter-transaction tiny-select form-control]
+    = link_to t('admin2.manage_transactions.export_to_csv'), export_admin2_transactions_reviews_manage_transactions_path, remote: true, id: 'export-as-csv', class: %i[content-card-header-link] << ('opacity_04 is-disabled' if params[:status]&.any? { |s| s.present? } || params[:q].present?)
