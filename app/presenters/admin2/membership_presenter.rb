@@ -18,7 +18,7 @@ class Admin2::MembershipPresenter
 
   def sorted_statuses
     FILTER_STATUSES.map {|status|
-      [status, "#{I18n.t("admin.communities.manage_members.status_filter.#{status}")} (#{count_by_status(status)})" , status_checked?(status)]
+      [status, "#{I18n.t("admin.communities.manage_members.status_filter.#{status}")} (#{count_by_status(status)})", status_checked?(status)]
     }.sort_by{ |_status, translation, _checked| collator.get_sort_key(translation) }
   end
 
