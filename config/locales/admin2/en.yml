@@ -67,8 +67,10 @@ en:
         listing_pages: 'Listing pages meta'
         category_pages: 'Category pages meta'
         profile_pages: 'Profile pages meta'
+        google_console: 'Google Search Console'
       analytics:
         google: 'Google Analytics'
+        google_manager: 'Google Tag Manager'
         sharetribe: 'Sharetribe analytics'
       advanced:
         custom_script: 'Custom script'
@@ -99,6 +101,12 @@ en:
       content_placeholder: 'What do you want to say to your members?'
       send_email: 'Send email to users'
       send_to_yourself: 'Send a test email to yourself'
+    google_manager:
+      info_text: "Using a tag manager such as GTM is a great way to manage and deploy snippets of code or tracking pixels on your website without having to modify the code."
+      info_text_2: "Because Sharetribe also relies on Google Tag Manager, you should <a href='%{url}' target='_blank'>learn how to configure GTM for your Go marketplace</a>."
+    google_console:
+      info_text: "Google Search Console offers tools and reports to help you measure your site's Search traffic and performance and fix issues related to Google Search results."
+      info_text_2: "It's a good idea to add your website to Google Search Console. It takes only a few minutes with <a href='%{url}' target='_blank'>these instructions</a>."
     footer:
       footer_enabling: 'Footer enabling'
       footer_enabling_field: 'Enable the footer in all pages of your marketplace'

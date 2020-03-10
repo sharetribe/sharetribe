@@ -1,0 +1,15 @@
+- content_for :title do
+  = t('admin2.sidebar.analytics.google_manager')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.analytics.google_manager')
+
+.content-card-section-container
+  %section.content-card-section
+    %h2
+      = t('admin2.sidebar.analytics.google_manager')
+    %p.ingress
+      = t('admin2.google_manager.info_text')
+    %p.ingress
+      = t('admin2.google_manager.info_text_2', url: 'https://help.sharetribe.com/en/articles/2529555').html_safe
