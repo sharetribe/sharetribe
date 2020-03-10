@@ -230,12 +230,8 @@ Rails.application.routes.draw do
       end
 
       namespace :users do
-<<<<<<< HEAD
         resources :invitations, only: %i[index]
-        resources :manage_users, path: 'manage-users', only: %i[index] do
-=======
         resources :manage_users, path: 'manage-users', only: %i[index destroy] do
->>>>>>> 57ad709... add delete user
           member do
             get :resend_confirmation
             patch :ban
