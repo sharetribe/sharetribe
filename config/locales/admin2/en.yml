@@ -61,6 +61,7 @@ en:
       emails:
         email_users: 'Email users'
         automatic_newsletter: 'Automatic newsletter'
+        welcome_email: 'Welcome email'
       search_location:
         search: 'Search'
         location: 'Location'
@@ -195,6 +196,14 @@ en:
         <br>
         <br>
         You will not be able to reactivate this account after it has been deleted.
+    welcome_email:
+      title: 'Welcome email content'
+      title_info_text: "The message below will be sent to every new user when they join. You can customize the message to fit your marketplace. By clicking 'Send test message' you can send a preview message to your email address, so you can see how it looks in an email client."
+      welcome_email_content: 'Email content'
+      hello: 'Hello Firstname,'
+      welcome_email_content_placeholder: 'Welcome to Bikerrrs!'
+      welcome_email_content_info_text: '"Firstname" cannot be removed and will be replaced by the actual first name of each recipient.'
+      send_to_yourself: 'Send a test email to yourself'
     footer:
       footer_enabling: 'Footer enabling'
       footer_enabling_field: 'Enable the footer in all pages of your marketplace'
@@ -508,6 +517,8 @@ en:
       footer_update_failed: 'Footer details update failed'
       email_sent: 'Email sent'
       test_email_sent: 'Test email was sent to your inbox'
+      welcome_email_updated: 'Welcome email settings were updated'
+      welcome_email_updated_and_sent: 'Welcome email settings were updated and a test email was sent to %{email}'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

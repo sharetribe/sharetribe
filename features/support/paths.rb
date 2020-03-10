@@ -60,6 +60,8 @@ module NavigationHelpers
       admin2_emails_newsletters_path(locale: "en")
     when /^the admin2 user rights community "(.*)"$/i
       admin2_users_user_rights_path(locale: "en")
+    when /^the admin2 welcome email community "(.*)"$/i
+      admin2_emails_welcome_emails_path(locale: "en")
     when /^the admin2 general essential community "(.*)"$/i
       admin2_general_essentials_path(locale: "en")
     when /^the admin settings view of community "(.*)"$/i

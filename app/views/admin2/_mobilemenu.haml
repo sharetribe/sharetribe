@@ -119,8 +119,8 @@
         %ul#emails-mobile.collapse.subtitle{class: expand_ul('emails')}
           %li#emailusers-mobile{class: active_li('email_users')}
             = link_to t('admin2.sidebar.emails.email_users'), admin2_emails_email_users_path
-          %li#welcomeemail-mobile
-            %a{:href => 'welcome-email.php'} Welcome email
+          %li#welcomeemail-mobile{class: active_li('welcome_emails')}
+            = link_to t('admin2.sidebar.emails.welcome_email'), admin2_emails_welcome_emails_path
           %li#automaticnewsletter-mobile{class: active_li('newsletters')}
             = link_to t('admin2.sidebar.emails.automatic_newsletter'), admin2_emails_newsletters_path
           %li#customoutgoingaddress-mobile
