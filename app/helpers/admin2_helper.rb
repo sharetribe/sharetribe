@@ -19,8 +19,8 @@ module Admin2Helper
       emails: %w[newsletters email_users],
       search_location: %w[search locations],
       social_media: %w[image_tags twitter],
-      seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages],
-      analytics: %w[google sharetribe],
+      seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages google_console],
+      analytics: %w[google sharetribe google_manager],
       advanced: %w[custom_scripts]
     }
   end

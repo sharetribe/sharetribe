@@ -37,6 +37,7 @@ fr:
         logos_and_color: 'lorem ipsum'
         landing_page: 'lorem ipsum'
         topbar: 'lorem ipsum'
+        footer: 'lorem ipsum'
         display: 'lorem ipsum'
         experimental: 'lorem ipsum'
       users:
@@ -55,6 +56,7 @@ fr:
         automatic_newsletter: 'lorem ipsum'
       search_location:
         search: 'lorem ipsum'
+        location: 'lorem ipsum'
       social_media:
         image_tags: 'lorem ipsum'
         twitter: 'lorem ipsum'
@@ -65,8 +67,10 @@ fr:
         listing_pages: 'lorem ipsum'
         category_pages: 'lorem ipsum'
         profile_pages: 'lorem ipsum'
+        google_console: 'lorem ipsum'
       analytics:
         google: 'lorem ipsum'
+        google_manager: 'lorem ipsum'
         sharetribe: 'lorem ipsum'
       advanced:
         custom_script: 'lorem ipsum'
@@ -97,6 +101,12 @@ fr:
       content_placeholder: 'lorem ipsum'
       send_email: 'lorem ipsum'
       send_to_yourself: 'lorem ipsum'
+    google_manager:
+      info_text: "lorem ipsum"
+      info_text_2: "lorem ipsum <a href='%{url}' target='_blank'>lorem ipsum</a>."
+    google_console:
+      info_text: "lorem ipsum"
+      info_text_2: "lorem ipsum <a href='%{url}' target='_blank'>lorem ipsum</a>."
     footer:
       footer_enabling: 'lorem ipsum'
       footer_enabling_field: 'lorem ipsum'
@@ -209,8 +219,10 @@ fr:
       social_media_title: 'lorem ipsum'
       social_media_title_info_text: 'lorem ipsum <a href="%{fb_url}" target="_blank">lorem ipsum</a>, <a href="%{twitter_url}" target="_blank">lorem ipsum</a> <a href="%{link_url}" target="_blank">lorem ipsum</a>.'
       social_media_description: 'lorem ipsum'
-      social_media_title_placeholder: 'lorem ipsum'
-      social_media_description_palceholder: 'lorem ipsum'
+    location:
+      location_settings: 'lorem ipsum'
+      location_settings_info_text: 'lorem ipsum'
+      show_location: 'lorem ipsum'
     search:
       keyword: 'lorem ipsum'
       location: 'lorem ipsum'
@@ -382,14 +394,19 @@ fr:
       display_updated: 'lorem ipsum'
       logos_updated: 'lorem ipsum'
       cover_photos_updated: 'lorem ipsum'
+      signup_login_updated: 'lorem ipsum'
       user_rights_updated: 'lorem ipsum'
       listing_approval_updated: 'lorem ipsum'
       listing_comments_updated: 'lorem ipsum'
       configure_transactions_updated: 'lorem ipsum'
       newsletters_updated: 'lorem ipsum'
+      country_currency_updated: 'lorem ipsum'
+      payments_connected: 'lorem ipsum'
       search_updated: 'lorem ipsum'
       search_updated_failed: 'lorem ipsum'
+      location_updated: 'lorem ipsum'
       image_tags_updated: 'lorem ipsum'
+      twitter_updated: 'lorem ipsum'
       landing_pages_updated: 'lorem ipsum'
       search_pages_updated: 'lorem ipsum'
       listing_pages_updated: 'lorem ipsum'

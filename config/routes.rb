@@ -308,6 +308,7 @@ Rails.application.routes.draw do
 
       namespace :seo do
         resources :sitemap, path: 'sitemap-and-robots', only: %i[index]
+        resources :google_console, path: 'google-search-console', only: %i[index]
         resources :landing_pages, path: 'landing-page-meta', only: %i[index] do
           collection do
             patch :update_landing_page
@@ -336,6 +337,7 @@ Rails.application.routes.draw do
       end
 
       namespace :analytics do
+        resources :google_manager, path: 'google-tag-manager', only: %i[index]
         resources :google, path: 'google-analytics', only: %i[index] do
           collection do
             patch :update_google
