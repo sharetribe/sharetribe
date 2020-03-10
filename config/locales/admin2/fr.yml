@@ -9,6 +9,7 @@ fr:
       marketplace: 'lorem ipsum'
       avatar: 'lorem ipsum'
       logout: 'lorem ipsum'
+      marketplace_id: 'lorem ipsum: %{id}'
     sidebar:
       dashboard: 'lorem ipsum'
       general_group: 'lorem ipsum'
@@ -47,6 +48,7 @@ fr:
       listings:
         listing_approval: 'lorem ipsum'
         listing_comments: 'lorem ipsum'
+        manage_listings: 'lorem ipsum'
       transactions_reviews:
         config_transactions: 'lorem ipsum'
         view_conversations: 'lorem ipsum'
@@ -108,6 +110,29 @@ fr:
     google_console:
       info_text: "lorem ipsum"
       info_text_2: "lorem ipsum <a href='%{url}' target='_blank'>lorem ipsum</a>."
+    manage_listings:
+      search_placeholder: 'lorem ipsum'
+      export_to_csv: 'lorem ipsum'
+      all_listings: 'lorem ipsum (%{count})'
+      listing: 'lorem ipsum'
+      provider: 'lorem ipsum'
+      created: 'lorem ipsum'
+      updated: 'lorem ipsum'
+      category: 'lorem ipsum'
+      status: 'lorem ipsum'
+      actions: 'lorem ipsum'
+      cancel: 'lorem ipsum'
+      reject: 'lorem ipsum'
+      delete: 'lorem ipsum'
+      delete_title: 'lorem ipsum %{title}'
+      delete_confirm: 'lorem ipsum'
+      approve: 'lorem ipsum'
+      edit: 'lorem ipsum'
+      close: 'lorem ipsum'
+      close_info_text: 'lorem ipsum'
+      delete_info_text: 'lorem ipsum'
+      processing_export: 'lorem ipsum'
+      confirm_popup_body: 'lorem ipsum'
     footer:
       footer_enabling: 'lorem ipsum'
       footer_enabling_field: 'lorem ipsum'
