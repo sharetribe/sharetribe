@@ -56,8 +56,8 @@
           %li
             = link_to t('admin2.sidebar.users_group'), '#users-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'users-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#users-mobile.collapse.subtitle{class: expand_ul('users')}
-          %li#manageusers-mobile
-            %a{:href => 'manage-users.php'} Manage users
+          %li#manageusers-mobile{class: active_li('manage_users')}
+            = link_to t('admin2.sidebar.users.manage_users'), admin2_users_manage_users_path(direction: :desc, sort: :join_date)
           %li#userfields-mobile
             %a{:href => 'user-fields.php'} User fields
           %li#signuplogin-mobile{class: active_li('signup_login')}

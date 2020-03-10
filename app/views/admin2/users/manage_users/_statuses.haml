@@ -1,0 +1,1 @@
+= select_tag 'status[]', options_for_select(presenter.sorted_statuses.map { |st| [st[1], st[0]] }, current), prompt: t('admin2.manage_users.all_statuses', count: @presenter.count_by_status('all')) , class: %i[tiny-select change-status-filter]

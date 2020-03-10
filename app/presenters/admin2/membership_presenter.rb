@@ -1,4 +1,4 @@
-class Admin::MembershipPresenter
+class Admin2::MembershipPresenter
   include Collator
 
   private
@@ -14,20 +14,34 @@ class Admin::MembershipPresenter
     @params = params
   end
 
-  def selected_statuses_title
-    if params[:status].present?
-      I18n.t("admin.communities.manage_members.status_filter.selected", count: params[:status].size)
-    else
-      I18n.t("admin.communities.manage_members.status_filter.all")
-    end
-  end
-
   FILTER_STATUSES = %w[admin banned posting_allowed accepted unconfirmed pending]
 
   def sorted_statuses
     FILTER_STATUSES.map {|status|
-      [status, I18n.t("admin.communities.manage_members.status_filter.#{status}"), status_checked?(status)]
-    }.sort_by{|status, translation, checked| collator.get_sort_key(translation) }
+      [status, "#{I18n.t("admin.communities.manage_members.status_filter.#{status}")} (#{count_by_status(status)})" , status_checked?(status)]
+    }.sort_by{ |_status, translation, _checked| collator.get_sort_key(translation) }
+  end
+
+  def count_by_status(status)
+    users = community.community_memberships.not_deleted_user
+    case status
+    when 'admin'
+      users.admin.count
+    when CommunityMembership::BANNED
+      users.banned.count
+    when 'posting_allowed'
+      users.posting_allowed.count
+    when CommunityMembership::ACCEPTED
+      users.accepted.count
+    when 'unconfirmed'
+      users.pending_email_confirmation.count
+    when 'pending'
+      users.pending_consent.count
+    when 'all'
+      users.count
+    else
+      0
+    end
   end
 
   def status_checked?(status)
@@ -69,11 +83,9 @@ class Admin::MembershipPresenter
   end
 
   def delete_member_title(membership)
-    if can_delete_pending(membership)
-      nil
-    else
-      title = has_membership_unfinished_transactions(membership) ? I18n.t('admin.communities.manage_members.have_ongoing_transactions') : nil
-      title ||= membership.banned? ? nil : I18n.t('admin.communities.manage_members.only_delete_disabled')
-    end
+    return if can_delete_pending(membership)
+
+    title = has_membership_unfinished_transactions(membership) ? I18n.t('admin2.manage_users.have_ongoing_transactions') : nil
+    title ||= membership.banned? ? nil : I18n.t('admin2.manage_users.only_delete_disabled')
   end
 end

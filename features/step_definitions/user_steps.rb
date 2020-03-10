@@ -136,6 +136,10 @@ Given(/^there are (\d+) users with name prefix "([^"]*)" "([^"]*)"$/) do |user_c
   end
 end
 
+When /^I submit the form$/ do
+  page.evaluate_script("document.forms[0].submit()")
+end
+
 # Filling in with random strings
 When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)")?$/ do |field, value, selector|
   @values ||= {}
