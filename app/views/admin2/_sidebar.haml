@@ -86,8 +86,8 @@
           = link_to t('admin2.sidebar.transactions_reviews.manage_transactions'), admin2_transactions_reviews_manage_transactions_path(direction: :desc, sort: :last_activity)
         %li#viewconversations{class: active_li('conversations')}
           = link_to t('admin2.sidebar.transactions_reviews.view_conversations'), admin2_transactions_reviews_conversations_path(direction: :desc, sort: :last_activity)
-        %li#managereviews
-          %a{:href => 'manage-reviews.php'} Manage reviews
+        %li#managereviews{class: active_li('manage_reviews')}
+          = link_to t('admin2.sidebar.transactions_reviews.manage_reviews'), admin2_transactions_reviews_manage_reviews_path
         %li#configuretransactions{class: active_li('config_transactions')}
           = link_to t('admin2.sidebar.transactions_reviews.config_transactions'), admin2_transactions_reviews_config_transactions_path
       / Divider

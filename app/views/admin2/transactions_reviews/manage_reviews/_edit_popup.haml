@@ -1,0 +1,15 @@
+#reviewEdit.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'reviewEditLabel', role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-md{role: :document}
+    .modal-content
+      .modal-header
+        %h2#reviewEditLabel.modal-title
+          = t('admin2.manage_reviews.review_label', title: tx.title_listing)
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+          %span{'aria-hidden' => 'true'} ×
+      = form_tag update_review_admin2_transactions_reviews_manage_review_path(tx), method: :patch do
+        .modal-body
+          = render 'customer_rating', tx: tx
+          = render 'provider_rating', tx: tx
+        .modal-footer
+          = link_to t('admin2.manage_reviews.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.manage_reviews.save'), class: %i[btn btn-primary]

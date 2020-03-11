@@ -1,0 +1,5 @@
+= form_tag '', method: :get, class: %i[content-card-header content-table] do
+  .content-card-header-left
+    = text_field_tag :q, params[:q], placeholder: t('admin2.manage_reviews.search_placeholder'), class: %i[search-header]
+  .content-card-header-right
+    = select_tag 'status[]', options_for_select(@service.sorted_statuses.map { |text, key| [key, text] }, params[:status]), prompt: t('admin2.manage_reviews.all_transactions', count: @service.count_by_status), class: %i[change-status-filter-transaction tiny-select form-control]

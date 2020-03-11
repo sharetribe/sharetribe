@@ -1,0 +1,21 @@
+%h1
+  = t('admin2.manage_reviews.provider_title', title: tx.provider_title)
+- if tx.author_skipped_feedback
+  .form-group
+    %p= t('admin2.manage_reviews.unskip_notice')
+    .form-check
+      = check_box_tag :provider_unskip, 1, false, class: %i[form-check-input]
+      = label_tag :provider_unskip, t('admin2.manage_reviews.unskip'), class: %i[form-check-label]
+- else
+  .form-group
+    %label= t('admin2.manage_reviews.rating_string')
+    .form-radiobutton-wrapper
+      .form-radiobutton.form-check-inline
+        = radio_button_tag :provider_rating, 1, (tx.provider_positive? || !tx.testimonial_from_author.present?), class: %i[form-check-input]
+        = label_tag :provider_rating_1, t('admin2.manage_reviews.statuses.positive'), class: %i[form-check-label]
+      .form-radiobutton.form-check-inline
+        = radio_button_tag :provider_rating, 0, tx.provider_negative?, class: 'form-check-input'
+        = label_tag :provider_rating_0, t('admin2.manage_reviews.statuses.negative'), class: %i[form-check-label]
+  .form-group
+    = label_tag :provider_comment, t('admin2.manage_reviews.comment')
+    = text_area_tag :provider_comment, tx.provider_text, class: %i[form-control]

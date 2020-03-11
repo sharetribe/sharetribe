@@ -274,6 +274,14 @@ Rails.application.routes.draw do
       end
 
       namespace :transactions_reviews, path: 'transactions-and-reviews' do
+        resources :manage_reviews, path: 'manage-reviews', only: %i[index destroy] do
+          member do
+            get :show_review
+            get :edit_review
+            get :delete_review
+            patch :update_review
+          end
+        end
         resources :conversations, path: 'view-conversations', only: %i[index]
         resources :manage_transactions, path: 'manage-transactions', only: %i[index] do
           collection do
