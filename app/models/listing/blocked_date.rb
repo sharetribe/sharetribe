@@ -10,7 +10,8 @@
 #
 # Indexes
 #
-#  index_listing_blocked_dates_on_listing_id  (listing_id)
+#  index_listing_blocked_dates_on_listing_id                 (listing_id)
+#  index_listing_blocked_dates_on_listing_id_and_blocked_at  (listing_id,blocked_at)
 #
 
 class Listing::BlockedDate < ApplicationRecord

@@ -118,7 +118,8 @@ CREATE TABLE `bookings` (
   KEY `index_bookings_on_transaction_id` (`transaction_id`) USING BTREE,
   KEY `index_bookings_on_per_hour` (`per_hour`),
   KEY `index_bookings_on_start_time` (`start_time`),
-  KEY `index_bookings_on_end_time` (`end_time`)
+  KEY `index_bookings_on_end_time` (`end_time`),
+  KEY `index_bookings_on_transaction_start_on_end_on_per_hour` (`transaction_id`,`start_on`,`end_on`,`per_hour`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `categories`;
@@ -730,7 +731,8 @@ CREATE TABLE `listing_blocked_dates` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_listing_blocked_dates_on_listing_id` (`listing_id`)
+  KEY `index_listing_blocked_dates_on_listing_id` (`listing_id`),
+  KEY `index_listing_blocked_dates_on_listing_id_and_blocked_at` (`listing_id`,`blocked_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_followers`;
@@ -1541,7 +1543,8 @@ CREATE TABLE `transactions` (
   KEY `index_transactions_on_deleted` (`deleted`) USING BTREE,
   KEY `index_transactions_on_starter_id` (`starter_id`) USING BTREE,
   KEY `index_transactions_on_listing_author_id` (`listing_author_id`) USING BTREE,
-  KEY `community_starter_state` (`community_id`,`starter_id`,`current_state`)
+  KEY `community_starter_state` (`community_id`,`starter_id`,`current_state`),
+  KEY `index_transactions_on_listing_id_and_current_state` (`listing_id`,`current_state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2451,6 +2454,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20200131111643'),
 ('20200213130051'),
 ('20200224080321'),
-('20200303075727');
+('20200303075727'),
+('20200312112018');
 
 
