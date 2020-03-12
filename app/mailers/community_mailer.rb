@@ -24,6 +24,7 @@ class CommunityMailer < ActionMailer::Base
       next if listings_to_send.blank?
 
       begin
+        ApplicationHelper.store_community_service_name_to_thread_from_community(community)
         token = AuthToken.create_unsubscribe_token(person_id: person.id).token
         MailCarrier.deliver_now(
           CommunityMailer.community_updates(
@@ -55,13 +56,10 @@ class CommunityMailer < ActionMailer::Base
 
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
 
+      @number_of_days = time_difference_in_days(@recipient.last_community_updates_at)
       @time_since_last_update = t("timestamps.days_since",
-                                  :count => time_difference_in_days(@recipient.last_community_updates_at))
-      @url_params = {}
-      @url_params[:host] = @community.full_domain.to_s
-      @url_params[:locale] = @recipient.locale
-      @url_params[:ref] = "weeklymail"
-      @url_params.freeze # to avoid accidental modifications later
+                                  :count => @number_of_days)
+      @url_params = build_url_params(@community, @recipient, "weeklymail")
 
       @show_listing_shape_label = community.shapes.count > 1
       @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
@@ -84,7 +82,7 @@ class CommunityMailer < ActionMailer::Base
   private
 
   def time_difference_in_days(from_time, to_time = Time.now)
-    return nil if from_time.nil?
+    return 1 if from_time.nil?
 
     from_time = from_time.to_time if from_time.respond_to?(:to_time)
     to_time = to_time.to_time if to_time.respond_to?(:to_time)

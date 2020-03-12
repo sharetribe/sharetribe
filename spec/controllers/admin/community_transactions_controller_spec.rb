@@ -158,10 +158,88 @@ describe Admin::CommunityTransactionsController, type: :controller do
     it 'cancels transaction' do
       get :cancel, params: {community_id: community.id, id: paid_transaction.id}
       paid_transaction.reload
-      expect(paid_transaction.current_state).to eq 'canceled'
+      expect(paid_transaction.current_state).to eq 'disputed'
       last_transition = paid_transaction.transaction_transitions.last
       expect(last_transition.metadata['user_id']).to eq admin.id
       expect(last_transition.metadata['executed_by_admin']).to eq true
+    end
+  end
+
+  describe 'canceled fow' do
+    let(:buyer) { FactoryGirl.create(:person, member_of: community) }
+    let(:seller) do
+      FactoryGirl.create(:person, member_of: community,
+                                  given_name: 'Sherry',
+                                  family_name: 'Rivera',
+                                  display_name: 'Sky caterpillar'
+                        )
+    end
+    let(:listing) do
+      FactoryGirl.create(:listing, community_id: community.id,
+                                   title: 'Apple cake',
+                                   author: seller)
+    end
+    let(:transaction) do
+      FactoryGirl.create(:transaction_process, community_id: community.id)
+      conversation = FactoryGirl.create(:conversation, community: community, last_message_at: 20.minutes.ago)
+      tx = FactoryGirl.create(:transaction, community: community,
+                                            listing: listing,
+                                            starter: buyer,
+                                            current_state: 'disputed',
+                                            last_transition_at: 1.minute.ago,
+                                            payment_process: :preauthorize,
+                                            payment_gateway: :stripe,
+                                            conversation: conversation
+                             )
+      FactoryGirl.create(:transaction_transition, to_state: 'disputed', tx: tx)
+      FactoryGirl.create(:stripe_payment, community_id: community.id, transaction_id: tx.id)
+      tx
+    end
+
+    #
+    # Refund action send emails to seler, buyer and reject Harmony booking
+    #
+    it 'refund' do
+      expect(TransactionService::StateMachine).to receive(:rejected)
+
+      get :refund, params: {community_id: community.id, id: transaction.id}
+
+      transaction.reload
+      expect(transaction.current_state).to eq 'refunded'
+
+      ActionMailer::Base.deliveries = []
+      process_jobs
+
+      email_to_seller = ActionMailer::Base.deliveries[0]
+      expect(email_to_seller.to.include?(seller.confirmed_notification_emails_to)).to eq true
+      expect(email_to_seller.subject).to eq 'Order marked as refunded - The Sharetribe team has approved the dispute from Proto T'
+
+      email_to_buyer = ActionMailer::Base.deliveries[1]
+      expect(email_to_buyer.to.include?(buyer.confirmed_notification_emails_to)).to eq true
+      expect(email_to_buyer.subject).to eq 'Order marked as refunded - The Sharetribe team has approved the dispute from Proto T'
+    end
+
+    it 'dissmis the cancelation' do
+      get :dismiss, params: {community_id: community.id, id: transaction.id}
+
+      transaction.reload
+      expect(transaction.current_state).to eq 'dismissed'
+
+      ActionMailer::Base.deliveries = []
+      process_jobs
+
+      email_to_seller = ActionMailer::Base.deliveries[0]
+      expect(email_to_seller.to.include?(seller.confirmed_notification_emails_to)).to eq true
+      expect(email_to_seller.subject).to eq 'Order dispute dismissed - The Sharetribe team has rejected the dispute from Proto T'
+
+      email_to_buyer = ActionMailer::Base.deliveries[1]
+      expect(email_to_buyer.to.include?(buyer.confirmed_notification_emails_to)).to eq true
+      expect(email_to_buyer.subject).to eq 'Order dispute dismissed - The Sharetribe team has rejected the dispute from Proto T'
+
+      expect(Delayed::Job.count).to eq 3
+      handlers = Delayed::Job.all.map(&:handler)
+      expect(handlers.select{|x| x.match 'TestimonialReminderJob'}.size).to eq 2
+      expect(handlers.select{|x| x.match 'StripePayoutJob'}.size).to eq 1
     end
   end
 end

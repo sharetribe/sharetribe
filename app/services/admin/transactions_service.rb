@@ -2,13 +2,14 @@ module Admin
   class TransactionsService
     PER_PAGE = 30
 
-    attr_reader :community, :params, :format, :current_user
+    attr_reader :community, :params, :format, :current_user, :personal
 
-    def initialize(community, params, format, current_user)
+    def initialize(community, params, format, current_user, personal = false)
       @community = community
       @params = params
       @format = format
       @current_user = current_user
+      @personal = personal
     end
 
     def transactions
@@ -26,6 +27,10 @@ module Admin
 
     def transactions_scope
       scope = Transaction.exist.by_community(community.id)
+
+      if personal
+        scope = scope.for_person(current_user)
+      end
 
       if params[:q].present?
         pattern = "%#{params[:q]}%"
@@ -70,7 +75,7 @@ module Admin
       result = TransactionService::Transaction.complete(
         community_id: community.id, transaction_id: transaction.id,
         message: nil, sender_id: nil,
-        metadata: { user_id: current_user.id, executed_by_admin: true }
+        metadata: metadata
       )
       result.success
     end
@@ -81,18 +86,41 @@ module Admin
       result = TransactionService::Transaction.cancel(
         community_id: community.id, transaction_id: transaction.id,
         message: nil, sender_id: nil,
-        metadata: { user_id: current_user.id, executed_by_admin: true }
+        metadata: metadata
       )
       result.success
+    end
+
+    # Admins have to contact users, discuss with them and decide what to do.
+    # Refunds are not done via the marketplace but outside of it.
+    # There is no actual refund for now.
+    def refund
+      transition_to!(:refunded)
+    end
+
+    def dismiss
+      transition_to!(:dismissed)
     end
 
     private
 
     def can_transition_to?(new_status)
-      if transaction
-        state_machine = TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
-        state_machine.can_transition_to?(new_status)
-      end
+      transaction && state_machine.can_transition_to?(new_status)
+    end
+
+    def transition_to!(new_state)
+      return false unless can_transition_to?(new_state)
+
+      transaction.update_column(:current_state, new_state) #rubocop:disable Rails/SkipsModelValidations
+      state_machine.transition_to!(new_state, metadata)
+    end
+
+    def state_machine
+      @state_machine ||= TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
+    end
+
+    def metadata
+      { user_id: current_user.id, executed_by_admin: true }
     end
   end
 end

@@ -1,0 +1,28 @@
+- content_for :title do
+  = t('admin2.sidebar.social_media.image_tags')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.social_media.image_tags')
+
+.content-card-section-container
+  = form_for @current_community, url: update_image_admin2_social_media_image_tags_path, html: { multipart: true, class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.image_tags.social_media_image')
+      .form-group
+        = form.label :social_logo, t('admin2.image_tags.social_logo')
+        .custom-file
+          = form.fields_for :social_logo, @current_community.social_logo || @current_community.build_social_logo do |sl|
+            = sl.file_field :image, accept: 'image/*', class: %i[change-file]
+            %small#socialMediaImage-help.form-text
+              = t('admin2.image_tags.social_logo_info_text')
+            = render 'admin2/filename', original_filename: sl.object&.image&.original_filename, field_name: t('admin2.image_tags.social_logo')
+
+    %section.content-card-section
+      %h2
+        = t('admin2.image_tags.social_media_tags')
+      = render 'tags', form: form, customizations: @customizations
+
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

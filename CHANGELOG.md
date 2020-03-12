@@ -20,6 +20,77 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [9.1.0] - 2020-03-06
+
+### Added
+
+- Custom Landing Page Editor
+- New emails layout
+- Support for Stripe capabilities
+- Allow admin to mark completed cancel transactions [#3889](https://github.com/sharetribe/sharetribe/pull/3889)
+- Added listing price and unit to csv export [#3891](https://github.com/sharetribe/sharetribe/pull/3891)
+- Add listing price to RSS/Atom feed [#3892](https://github.com/sharetribe/sharetribe/pull/3892)
+- Add link to delete closed listing [#3893](https://github.com/sharetribe/sharetribe/pull/3893)
+- Add shipping address to Transaction view [#3910](https://github.com/sharetribe/sharetribe/pull/3910)
+- Add a transaction state after canceled and improve the flow [#3926](https://github.com/sharetribe/sharetribe/pull/3926)
+- Add support for Mexico accounts [#3937](https://github.com/sharetribe/sharetribe/pull/3937)
+- Allow users to edit their username [#3941](https://github.com/sharetribe/sharetribe/pull/3941)
+- Add "My transactions" view in user settings [#3943](https://github.com/sharetribe/sharetribe/pull/3943)
+- Add GHS currency [#3944](https://github.com/sharetribe/sharetribe/pull/3944)
+- Add support for HEIC images [#3966](https://github.com/sharetribe/sharetribe/pull/3966)
+- Allow admin to update the marketplace ident [#3972](https://github.com/sharetribe/sharetribe/pull/3972)
+- Allow admins to delete a user account [#3975](https://github.com/sharetribe/sharetribe/pull/3975)
+- Retry paypal errored commission [#3977](https://github.com/sharetribe/sharetribe/pull/3977)
+- New texts for Google Search Console [#3979](https://github.com/sharetribe/sharetribe/pull/3979)
+- New Add text about GTM [#3997](https://github.com/sharetribe/sharetribe/pull/3997)
+- Add "paypal/stripe setup" in users csv export [#4003](https://github.com/sharetribe/sharetribe/pull/4003)
+- Admin can remove logo, square logo, cover photo, small cover photo, favicon, social media image [#4012](https://github.com/sharetribe/sharetribe/pull/4012)
+
+### Changed
+
+- Send additional verification document if required [#3897](https://github.com/sharetribe/sharetribe/pull/3897)
+- Change to dropdown for state values for Canada and Australia [#3905](https://github.com/sharetribe/sharetribe/pull/3905)
+- Title in admin transaction view [#3911](https://github.com/sharetribe/sharetribe/pull/3911)
+- No default option selected if pickup and shipping are offered [#3938](https://github.com/sharetribe/sharetribe/pull/3938)
+- Stripe API version changed to 2019-12-03 [#3948](https://github.com/sharetribe/sharetribe/pull/3948)
+- Hide "Newsletter" settings if newsletter has been disabled by admins [#3959](https://github.com/sharetribe/sharetribe/pull/3959)
+- Change meta tag xx:image to use profile picture for user profiles[#3960](https://github.com/sharetribe/sharetribe/pull/3960)
+- Update to Ruby 2.6.5 and a Debian Buster base Docker image [#3967](https://github.com/sharetribe/sharetribe/pull/3967)
+- Delete invitations sent by a user who gets deleted forever [#3973](https://github.com/sharetribe/sharetribe/pull/3973)
+- Show account restricted or pending in the smart way [#3990](https://github.com/sharetribe/sharetribe/pull/3990)
+- Send MCC/Email/URL when updating a Connect account [#3993](https://github.com/sharetribe/sharetribe/pull/3993)
+- Link to transaction should redirect to admin view [#3998](https://github.com/sharetribe/sharetribe/pull/3998)
+- Update the forms to have phone placeholder and JPG information [#4004](https://github.com/sharetribe/sharetribe/pull/4004)
+- Remove Google+ from CLP and Footer [#4005](https://github.com/sharetribe/sharetribe/pull/4005)
+- Longer number of characters for Display name [#4007](https://github.com/sharetribe/sharetribe/pull/4007)
+- Add the listing ID to PayPal's metadata [#4013](https://github.com/sharetribe/sharetribe/pull/4013)
+- Validation if SEO variables are not correct [#4014](https://github.com/sharetribe/sharetribe/pull/4014)
+
+### Fixed
+
+- Fixed users CSV export date field not required [#3886](https://github.com/sharetribe/sharetribe/pull/3886)
+- Fixed notification for each new transaction [#3887](https://github.com/sharetribe/sharetribe/pull/3887)
+- Fix meta title/description bug for social [#3894](https://github.com/sharetribe/sharetribe/pull/3894)
+- Fixed payment JS in older browser [#3920](https://github.com/sharetribe/sharetribe/pull/3920)
+- Fixed listing image width setup [#3921](https://github.com/sharetribe/sharetribe/pull/3921)
+- Fixed day/night availability after payment intent failed or expired [#3922](https://github.com/sharetribe/sharetribe/pull/3922)
+- Fixed check payment method presence when initiating payment [#3935](https://github.com/sharetribe/sharetribe/pull/3935)
+- Fixed Stripe payment card declined without SCA [#3952](https://github.com/sharetribe/sharetribe/pull/3952)
+- Fixed localization of PayPal payment description when charging the admin commission [#3961](https://github.com/sharetribe/sharetribe/pull/3961)
+- Fixed incorrect count of listings when editing an Order type isn't correct [#3964](https://github.com/sharetribe/sharetribe/pull/3964)
+- Fixed incorrect language in placeholder for social media tags [#3995](https://github.com/sharetribe/sharetribe/pull/3995)
+- Fixed wrong receipt for the seller when there is Shipping involved [#4009](https://github.com/sharetribe/sharetribe/pull/4009)
+- Fixed followers get notifications of rejected listings [#4011](https://github.com/sharetribe/sharetribe/pull/4011)
+
+### Security
+
+- Updated gems: rubyzip 1.3.0, devise 4.7.1 [#3899](https://github.com/sharetribe/sharetribe/pull/3899)
+- Bump loofah from 2.3.0 to 2.3.1 [#3918](https://github.com/sharetribe/sharetribe/pull/3918)
+- Bump puma from 3.12.1 to 3.12.2 [#3936](https://github.com/sharetribe/sharetribe/pull/3936)
+- Bump rack from 2.0.7 to 2.0.8 [#3951](https://github.com/sharetribe/sharetribe/pull/3951)
+- Bump nokogiri from 1.10.5 to 1.10.8 [#4010](https://github.com/sharetribe/sharetribe/pull/4010)
+- Bump puma from 3.12.2 to 3.12.4 [#4021](https://github.com/sharetribe/sharetribe/pull/4021)
+
 ## [9.0.0] - 2019-10-02
 
 ### Changed
@@ -42,6 +113,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Add new countries support: Estonia, Greece, Latvia, Lithuania, Poland, Slovakia, Slovenia [#3872](https://github.com/sharetribe/sharetribe/pull/3872)
 
 ### Changed
+
 - In shipping address replace country dropdown with text field [#3815](https://github.com/sharetribe/sharetribe/pull/3815)
 - Use community currency for free transactions avoiding nil.to_money == 0 EUR [#3816](https://github.com/sharetribe/sharetribe/pull/3816)
 - Edit some CSV exports [#3828](https://github.com/sharetribe/sharetribe/pull/3828)
@@ -49,9 +121,11 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Remove username from signup [#3853](https://github.com/sharetribe/sharetribe/pull/3853)
 
 ### Removed
+
 - Remove google-site-verification from head and hardcoded GWT tag [#3825](https://github.com/sharetribe/sharetribe/pull/3825), [#3826](https://github.com/sharetribe/sharetribe/pull/3826)
 
 ### Fixed
+
 - Order Type name for free listings was not updating cached fragment [#3836](https://github.com/sharetribe/sharetribe/pull/3836)
 - Disabling top bar default links (about, contact) is not possible [#3840](https://github.com/sharetribe/sharetribe/pull/3840)
 
@@ -750,7 +824,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v9.0.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v9.1.0...HEAD
+[9.1.0]: https://github.com/sharetribe/sharetribe/compare/v9.0.0...v9.1.0
 [9.0.0]: https://github.com/sharetribe/sharetribe/compare/v8.1.0...v9.0.0
 [8.1.0]: https://github.com/sharetribe/sharetribe/compare/v8.0.0...v8.1.0
 [8.0.0]: https://github.com/sharetribe/sharetribe/compare/v7.6.0...v8.0.0

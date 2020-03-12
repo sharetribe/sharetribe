@@ -18,7 +18,7 @@ class SettingsController < ApplicationController
     target_user = Person.find_by!(username: params[:person_id], community_id: @current_community.id)
     @selected_left_navi_link = "account"
     target_user.emails.build
-    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(target_user.id)
+    has_unfinished = Transaction.unfinished_for_person(target_user).any?
     only_admin = @current_community.is_person_only_admin(target_user)
 
     render locals: {has_unfinished: has_unfinished, target_user: target_user, only_admin: only_admin}
@@ -51,6 +51,12 @@ class SettingsController < ApplicationController
   def listings
     @selected_left_navi_link = "listings"
     @presenter = Listing::ListPresenter.new(@current_community, @current_user, params, false)
+  end
+
+  def transactions
+    @selected_left_navi_link = "transactions"
+    @service = Admin::TransactionsService.new(@current_community, params, request.format, @current_user, true)
+    @transactions_presenter = Admin::TransactionsPresenter.new(params, @service)
   end
 
   private

@@ -1,5 +1,9 @@
 Feature: Admin adds a custom field
 
+# These tests are quite slow. Spread them out between this file and
+# the corresponding Part 2, so that CI can balance runtime in parallel
+# well.
+
   Background:
     Given I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "test"
@@ -29,18 +33,3 @@ Feature: Admin adds a custom field
   Scenario: Admin adds numeric field with invalid data
     When I add a new numeric field "Area" with min value 100 and max value 99
     Then I should see 2 validation errors
-
-  @javascript
-  Scenario: Admin adds checkbox field
-    When I add a new checkbox field Amenities
-    Then I should see that there is a custom field "Amenities"
-
-  @javascript
-  Scenario: Admin adds checkbox field with invalid data
-    When I add a new checkbox field Amenities with invalid data
-    Then I should see 2 validation errors
-
-  @javascript
-  Scenario: Admin adds date field
-    When I add a new date field "Begin date"
-    Then I should see that there is a custom field "Begin date"

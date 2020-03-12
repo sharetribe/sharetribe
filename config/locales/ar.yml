@@ -264,6 +264,10 @@ ar:
         ban_user_confirmation: ~
         unban_user_confirmation: "سوف يلغى الحظر عن هذا الحساب وسيتمكن من التسجيل مرة أخرى في السوق عبر نفس الحساب. هل أنت متأكد من ذلك؟"
         ban_me_error: "لا يمكنك حظر نفسك"
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: بحث
         search_by_name_email: "ابحث عن اسم أو بريد إلكتروني أو اسم معروض"
         reset_search: "أظهر الكل"
@@ -283,6 +287,7 @@ ar:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
@@ -292,6 +297,7 @@ ar:
         enabled_for_all: "تفعيل للكل"
         new_topbar: "قائمة علوية جديدة (متوفر على كل صفحة)"
         searchpage: "صفحة بحث جديدة تحتاج إلى شريط علوي جديد"
+        new_email_templates: ~
       social_media:
         social_media: "وسائل التواصل الاجتماعي"
         logo: ~
@@ -319,7 +325,6 @@ ar:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: "حفظ الإعدادات"
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -382,6 +387,10 @@ ar:
         robots_info: ~
         robots_info_link_text: ~
         robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: ~
       analytics:
         analytics: تحليلات
@@ -394,6 +403,10 @@ ar:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "حفظ الإعدادات"
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
       logo_link:
         title: ~
         info: ~
@@ -442,10 +455,13 @@ ar:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: ~
           listing: إعلان
@@ -465,6 +481,7 @@ ar:
           paid: مدفوع
           confirmed: "تم إنجازه"
           canceled: ملغى
+          disputed: ~
           initiated: ~
           pending_ext: ~
           none:
@@ -478,8 +495,11 @@ ar:
             paid: مدفوع
             confirmed: مؤكد
             canceled: ملغي
+            disputed: ~
             initiated: "انتظار دفع باي بال"
             pending_ext: "انتظار دفع باي بال"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: محادثات
             pending: "قيد الانتظار"
@@ -489,11 +509,14 @@ ar:
             paid: مدفوع
             confirmed: مؤكد
             canceled: ملغي
+            disputed: ~
             initiated: "انتظار دفع سترب"
             pending_ext: "انتظار دفع سترب"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "غير متوفر"
       conversations:
         conversations: "أظهر المحادثات"
@@ -632,36 +655,33 @@ ar:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_preview_text: ~
-        info_2_details_text: ~
-        info_2_design_text: ~
+        info_2_help_center: ~
         info_3: ~
         info_4: ~
         editor_title: ~
         editor_info: ~
         preview: ~
         set_live: ~
-        headers:
-          section_id: ~
-          section_type: ~
-          version: ~
-          released: ~
-        add_new_version: ~
-        new_version: ~
-        edit_version: ~
         add_new_section: ~
         select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
         form:
-          version: ~
           save: ~
+          cancel: ~
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: ~
           edit: ~
           remove_section_confirmation: ~
@@ -675,8 +695,6 @@ ar:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -693,11 +711,17 @@ ar:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
+        content:
+          title: ~
         hero:
           hero_title: ~
           hero_description: ~
+          basic_details_tab: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -710,6 +734,10 @@ ar:
           cta_enabled: ~
           cta_text: ~
           cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
         background_image_overlay:
           background_image: ~
           background_image_info: ~
@@ -770,6 +798,7 @@ ar:
           main_title: ~
           column_header: ~
           column_title: ~
+          web_viewer: ~
           column_icon_info: ~
           column_icon: ~
           column_paragraph: ~
@@ -777,14 +806,15 @@ ar:
           column_button_text: ~
           column_button_url: ~
         listings:
+          listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
           text: ~
-          youtube_video_id: ~
           autoplay: ~
           autoplay_no: ~
           autoplay_muted: ~
           info: ~
+          youtube_video_id_info: ~
     custom_fields:
       edit:
         edit_listing_field: "‎%{field_name}‎ تعديل حقل الإعلان"
@@ -1131,6 +1161,8 @@ ar:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "حرر الصفحة"
     default_community_slogan: "سوق اجتماعي"
@@ -1224,7 +1256,7 @@ ar:
       stripe-fee_label: ~
     confirm:
       confirm_description: "إذا تم إكمال طلبك يجب عليك تأكيد ذلك بعدها يمكنك إعطاء رأيك"
-      cancel_description: "إذا لم يتم إتمام طلبك يمكنك تحديده بـ \"خلاف\" ومازال باستطاعتك إعطاء رأيك في الجهة الأخرى وشرح ما حدث"
+      cancel_description_team: ~
       cancel_payed_description: "إذا تم قبول طلبك ولكن ما زلت في شك من قرارك يمكنك إلغاء الطلب قبل إتمام عملية الدفع"
       canceling_payed_transaction: "إلغاء العملية"
       confirm: مكتملة
@@ -1273,6 +1305,10 @@ ar:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: رسالة
       message_to: "‎%{author_name}‎ رسالة إلى"
@@ -1347,6 +1383,18 @@ ar:
           verify: ~
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "اقبل هذا العرض"
       accept_request: "اقبل هذا الطلب"
@@ -1358,6 +1406,8 @@ ar:
       reject_preauthorized_request: "ليس الآن"
       confirm: مكتملة
       cancel: خلاف
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "‎%{service_name}‎ رسالة جديدة لـ"
     feedback_body: ~
@@ -1415,7 +1465,6 @@ ar:
       please_go_to_payment_settings: "رجاء قم بزيارة ‎%{payment_settings_link}‎ وقم بتعبئة معلومات الدفعة"
       payment_settings_link: "إعدادات طريقة الدفع"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1430,27 +1479,22 @@ ar:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
@@ -1465,9 +1509,9 @@ ar:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "،‎%{name}‎ مرحبا"
+      hi: ~
       kassi_team: "‎%{service_name}‎ فريق عمل"
       thanks: "شكرا جزيلا"
       dont_want_to_receive_these_emails: "لا تريد استقبال هذه الرسائل الإلكترونية؟"
@@ -1479,7 +1523,7 @@ ar:
       unsubscribe_from_these_emails: "إلغاء الإشتراك من هذه النشرات الإخبارية"
       unsubscribe_from_invitation_emails_info: "قام بدعوتك للانضمام ‎%{service_name}‎ لقد استقبلت هذه الرسالة لأن عضو في"
       unsubscribe_from_invitation_emails: "‎%{service_name}‎ إيقاف استقبال دعوات للانضمام لـ"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "‎%{listing}‎ قام بقبول عرضك ‎%{accepter}‎"
       has_accepted_your_request: "‎%{listing}‎ قام بقبول طلبك ‎%{accepter}‎"
@@ -1512,14 +1556,12 @@ ar:
       you_have_a_new_comment: "‎‎%{service_name}‎ وضع تعليق جديد في ‎%{author}‎"
       listing_you_follow_has_a_new_comment: "‎%{service_name}‎‎ علق على إعلان تقوم بمتابعته في ‎%{author}‎"
       has_commented_listing_you_follow_in_kassi: "‎%{service_name}‎ الذي تتابعه في ‎%{listing}‎ علق على الإعلان ‎%{author}‎"
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "أظهر الرسالة"
       has_sent_you_a_message_in_kassi: "‎%{service_name}‎ قام بإرسال رسالة لـ ‎%{sender}‎"
       you_have_a_new_message: "‎%{sender_name}‎ من قبل ‎%{service_name}‎ رسالة جديدة من لـ"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "لقم استقبلت دفعة جديد"
@@ -1544,7 +1586,6 @@ ar:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1565,8 +1606,6 @@ ar:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: ":رسوم باي بال"
       shipping_total: "الشحن:"
@@ -1615,7 +1654,6 @@ ar:
       unsubscribe_link_text: "إلغاء الإشتراك"
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "،‎%{name}‎ مرحبا"
       newest_offers: "ماذا يقدم الآخرين حاليا"
@@ -1715,6 +1753,36 @@ ar:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "فشل في الحجز بسبب خطأ غير معروف. يرجى المحاولة مرة أخرى. لم يتم احتساب أي تكلفة عليك."
@@ -1746,6 +1814,8 @@ ar:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "العودة إلى صفحة المقدمة"
     error_404:
@@ -1788,6 +1858,9 @@ ar:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
+      domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على إعارة ‎%{offerer_name}‎"
@@ -2160,8 +2233,10 @@ ar:
       images_are_processing: "نقوم حاليا بمعالجة الصور. ستكون جاهزة في دقائق."
       automatically_logged_out_please_sign_in: "لقدم تم تسجيل خروجك تلقائيا. يرجى تسجيل الدخول مرة أخرى."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: الحساب
       notifications: إشعارات
@@ -2172,6 +2247,8 @@ ar:
       payments: المدفوعات
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "ليس لديك صلاحية لعرض هذا المحتوى"
@@ -2461,6 +2538,7 @@ ar:
       night: ليلة
       nights: ليالي
       invalid_parameters: "القيمة المدخلة خاطئة للعملية الجديدة"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: عرض.
     stripe_payment:
@@ -2782,6 +2860,8 @@ ar:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "حفظ المعلومات"
   shipping_address:
     shipping_address: "عنوان الشحن"
@@ -3123,15 +3203,19 @@ ar:
     form_verification:
       personal_id_number: ~
       document: ~
+      document_back: ~
       send_verification: ~
       need_verification: ~
       additional_document: ~
+      additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
       ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
+      mexico_id_number: ~
       messages:
         social_insurance_number: ~
   payment_settings:
@@ -3162,8 +3246,6 @@ ar:
         id: ~
         title: ~
         paragraph: ~
-        button_color: ~
-        button_color_hover: ~
         button_title: ~
         button_path: ~
         button_path_string: ~
@@ -3171,7 +3253,6 @@ ar:
         background_image_variation: ~
         background_color: ~
         background_color_string: ~
-        icon_color: ~
       landing_page_version/section/listings:
         listing_1_id: ~
         listing_2_id: ~

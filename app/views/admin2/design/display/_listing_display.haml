@@ -1,0 +1,10 @@
+%section.content-card-section
+  %h2
+    = t('admin2.display.listing_display_header')
+  .form-group
+    .form-check
+      = form.check_box :show_category_in_listing_list, class: %i[form-check-input]
+      = form.label :show_category_in_listing_list, t('admin2.display.show_category_in_listing_list'), class: %i[form-check-label]
+    .form-check
+      = form.check_box :show_listing_publishing_date, class: %i[form-check-input]
+      = form.label :show_listing_publishing_date, t('admin2.display.show_listing_publishing_date'), class: %i[form-check-label]

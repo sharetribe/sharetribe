@@ -82,7 +82,11 @@ class TransactionMailer < ActionMailer::Base
     service_fee = Maybe(payment[:charged_commission]).or_else(Money.new(0, payment_total.currency))
     buyer_service_fee = payment[:buyer_commission] || Money.new(0, payment_total.currency)
     gateway_fee = payment[:payment_gateway_fee]
-    subtotal = payment_total - buyer_service_fee
+    shipping_price = Money.new(transaction.shipping_price_cents, payment_total.currency)
+    subtotal = payment_total - buyer_service_fee - shipping_price
+    total = payment_total
+    total -= buyer_service_fee if buyer_service_fee > 0
+
 
     prepare_template(community, seller_model, "email_about_new_payments")
     with_locale(seller_model.locale, community.locales.map(&:to_sym), community.id) do
@@ -113,7 +117,7 @@ class TransactionMailer < ActionMailer::Base
                    listing_quantity: transaction.listing_quantity,
                    duration: transaction.booking.present? ? transaction.listing_quantity: nil,
                    subtotal: MoneyViewUtils.to_humanized(subtotal),
-                   payment_total: MoneyViewUtils.to_humanized(buyer_service_fee > 0 ? subtotal : payment_total),
+                   payment_total: MoneyViewUtils.to_humanized(total),
                    shipping_total: MoneyViewUtils.to_humanized(transaction.shipping_price),
                    payment_service_fee: MoneyViewUtils.to_humanized(-service_fee),
                    payment_buyer_service_fee: buyer_service_fee > 0 ? MoneyViewUtils.to_humanized(-1 * buyer_service_fee) : nil,
@@ -197,6 +201,76 @@ class TransactionMailer < ActionMailer::Base
     end
   end
 
+  def transaction_disputed(transaction:, recipient:, is_admin: false, is_seller: false)
+    @transaction = transaction
+    @is_admin = is_admin
+    @is_seller = is_seller
+    community = transaction.community
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.full_name(recipient.locale)
+      @skip_unsubscribe_footer = true
+      subject_key = is_admin ? 'subject_admin' : 'subject'
+      mail(to: recipient.confirmed_notification_emails_to,
+           from: community_specific_sender(community),
+           subject: t("emails.transaction_disputed.#{subject_key}")) do |format|
+             format.html { render v2_template(community.id, 'transaction_disputed'), layout: v2_layout(community.id) }
+      end
+    end
+
+  end
+
+  def transaction_refunded(transaction:, recipient:)
+    @transaction = transaction
+    @is_seller = transaction.author == recipient
+    community = transaction.community
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.full_name(recipient.locale)
+      @skip_unsubscribe_footer = true
+      buyer = PersonViewUtils.person_display_name(transaction.starter, community)
+      mail(to: recipient.confirmed_notification_emails_to,
+           from: community_specific_sender(community),
+           subject: t("emails.transaction_refunded.subject", buyer: buyer)) do |format|
+             format.html { render v2_template(community.id, 'transaction_refunded'), layout: v2_layout(community.id) }
+      end
+    end
+
+  end
+
+  def transaction_cancellation_dismissed(transaction:, recipient:)
+    @transaction = transaction
+    @is_seller = transaction.author == recipient
+    community = transaction.community
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.full_name(recipient.locale)
+      @skip_unsubscribe_footer = true
+      buyer = PersonViewUtils.person_display_name(transaction.starter, community)
+      mail(to: recipient.confirmed_notification_emails_to,
+           from: community_specific_sender(community),
+           subject: t("emails.transaction_cancellation_dismissed.subject", buyer: buyer)) do |format|
+             format.html { render v2_template(community.id, 'transaction_cancellation_dismissed'), layout: v2_layout(community.id) }
+      end
+    end
+  end
+
+  def transaction_commission_charge_failed(transaction:, recipient:)
+    @transaction = transaction
+    community = transaction.community
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.full_name(recipient.locale)
+      @skip_unsubscribe_footer = true
+      @seller = PersonViewUtils.person_display_name(transaction.listing_author, community)
+      mail(to: recipient.confirmed_notification_emails_to,
+           from: community_specific_sender(community),
+           subject: t("emails.transaction_commission_charge_failed.subject")) do |format|
+             format.html { render v2_template(community.id, 'transaction_commission_charge_failed'), layout: v2_layout(community.id) }
+      end
+    end
+  end
+
   private
 
   def premailer_mail(opts, &block)
@@ -220,13 +294,4 @@ class TransactionMailer < ActionMailer::Base
       subject: subject
     }
   end
-
-  def build_url_params(community, recipient, ref="email")
-    {
-      host: community.full_domain,
-      ref: ref,
-      locale: recipient.locale
-    }
-  end
-
 end

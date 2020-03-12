@@ -15,7 +15,7 @@
 
     <% case s["kind"] %>
     <% when "hero" %>
-      <%= render partial: "hero", locals: {section_id: section_id, s: s} %>
+      <%= render partial: "hero", locals: {section_id: section_id, s: s, community_context: community_context} %>
     <% when "footer" %>
       <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
     <% when "info" %>

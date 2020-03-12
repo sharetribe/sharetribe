@@ -4,11 +4,12 @@
 = form.hidden_field :variation
 
 = render partial: 'id_field', locals: {presenter: presenter, form: form}
+= render 'content'
 
 .row
   .col-12
     = form.label :title
-    = form.text_field :title, required: true
+    = form.text_field :title
 .row
   .col-12
     = form.label :paragraph

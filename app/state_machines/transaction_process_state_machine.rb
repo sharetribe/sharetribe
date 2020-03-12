@@ -16,13 +16,17 @@ class TransactionProcessStateMachine
   state :canceled
   state :payment_intent_action_expired
   state :payment_intent_failed
+  state :refunded
+  state :dismissed
+  state :disputed
 
   transition from: :not_started,                    to: [:free, :initiated]
   transition from: :initiated,                      to: [:payment_intent_requires_action, :preauthorized]
   transition from: :payment_intent_requires_action, to: [:preauthorized, :payment_intent_action_expired, :payment_intent_failed]
   transition from: :preauthorized,                  to: [:paid, :rejected, :pending_ext, :errored]
   transition from: :pending_ext,                    to: [:paid, :rejected]
-  transition from: :paid,                           to: [:confirmed, :canceled]
+  transition from: :paid,                           to: [:confirmed, :canceled, :disputed]
+  transition from: :disputed,                       to: [:refunded, :dismissed]
 
   after_transition(to: :paid, after_commit: true) do |transaction|
     payer = transaction.starter
@@ -74,6 +78,23 @@ class TransactionProcessStateMachine
 
   after_transition(to: :preauthorized, after_commit: true) do |transaction|
     send_new_transaction_email(transaction)
+  end
+
+  after_transition(to: :refunded, after_commit: true) do |transaction|
+    transaction.update(starter_skipped_feedback: false)
+    TransactionService::StateMachine.rejected(transaction)
+    Delayed::Job.enqueue(TransactionRefundedJob.new(transaction.id, transaction.community_id))
+  end
+
+  after_transition(to: :dismissed, after_commit: true) do |transaction|
+    transaction.update(starter_skipped_feedback: false)
+    Delayed::Job.enqueue(TransactionCancellationDismissedJob.new(transaction.id, transaction.community_id))
+    confirmation = ConfirmConversation.new(transaction, transaction.starter, transaction.community)
+    confirmation.confirm!
+  end
+
+  after_transition(from: :paid, to: :disputed, after_commit: true) do |transaction|
+    Delayed::Job.enqueue(TransactionDisputedJob.new(transaction.id, transaction.community.id))
   end
 
   class << self

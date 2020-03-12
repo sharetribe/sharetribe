@@ -1,0 +1,24 @@
+- content_for :title do
+  = t('admin2.sidebar.general.privacy')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.general.privacy')
+
+.content-card-section-container
+  = form_for @current_community, url: update_privacy_admin2_general_privacy_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.privacy.private_marketplace')
+      %p.ingress
+        = community_private_homepage_content[:info_text]
+      .form-group
+        %label
+          = t('admin2.privacy.private_marketplace')
+        .form-check
+          = form.check_box :private, class: %i[form-check-input for-hide-content]
+          = form.label :private, t('admin2.privacy.private'), class: %i[form-check-label]
+    %section.content-card-section.hide-content{class: form.object.private ? '' : :opacity_04}
+      = render partial: 'admin2/locale_input_fields', locals: community_private_homepage_content
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

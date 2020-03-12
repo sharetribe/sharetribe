@@ -686,6 +686,7 @@ CREATE TABLE `invitations` (
   `inviter_id` varchar(255) DEFAULT NULL,
   `message` text,
   `email` varchar(255) DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_invitations_on_code` (`code`) USING BTREE,
   KEY `index_invitations_on_inviter_id` (`inviter_id`) USING BTREE
@@ -862,6 +863,7 @@ CREATE TABLE `listings` (
   `availability` varchar(32) DEFAULT 'none',
   `per_hour_ready` tinyint(1) DEFAULT '0',
   `state` varchar(255) DEFAULT 'approved',
+  `approval_count` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_listings_on_uuid` (`uuid`),
   KEY `index_listings_on_new_category_id` (`category_id`) USING BTREE,
@@ -1169,6 +1171,7 @@ CREATE TABLE `paypal_payments` (
   `commission_pending_reason` varchar(64) DEFAULT NULL,
   `commission_total_cents` int(11) DEFAULT NULL,
   `commission_fee_total_cents` int(11) DEFAULT NULL,
+  `commission_retry_count` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_paypal_payments_on_transaction_id` (`transaction_id`) USING BTREE,
   UNIQUE KEY `index_paypal_payments_on_authorization_id` (`authorization_id`) USING BTREE,
@@ -1369,9 +1372,11 @@ CREATE TABLE `stripe_accounts` (
   `stripe_customer_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `api_version` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_stripe_accounts_on_community_id` (`community_id`),
-  KEY `index_stripe_accounts_on_person_id` (`person_id`)
+  KEY `index_stripe_accounts_on_person_id` (`person_id`),
+  KEY `index_stripe_accounts_on_api_version` (`api_version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `stripe_payments`;
@@ -2427,4 +2432,11 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190904115045'),
 ('20190920113245'),
 ('20191016061908'),
-('20191016064022');
+('20191016064022'),
+('20200109145736'),
+('20200127120611'),
+('20200131111643'),
+('20200213130051'),
+('20200224080321');
+
+

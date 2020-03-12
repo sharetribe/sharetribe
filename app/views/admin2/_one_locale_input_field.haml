@@ -1,0 +1,6 @@
+.multiple-languages-language
+  %span.language
+    = value[:language]
+.multiple-languages-input
+  = text_area_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
+    class: input_classes, maxlength: defined?(maxlength) ? maxlength : nil, placeholder: defined?(placeholder) ? placeholder : ''

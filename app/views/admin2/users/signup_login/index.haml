@@ -1,0 +1,26 @@
+- content_for :title do
+  = t('admin2.sidebar.users.signup_login')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.users.signup_login')
+
+.content-card-section-container
+  = form_for @current_community, url: update_signup_login_admin2_users_signup_login_index_path, html: { multipart: true, class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.signup_login.signup_header')
+      .form-group
+        %label
+          = t('admin2.signup_login.signup_header')
+        = form.fields_for :community_customizations, @community_customization do |cc|
+          = cc.text_area :signup_info_content, class: %i[form-control]
+          %small#marketplaceName-help.form-text
+            = t('admin2.signup_login.signup_info_text')
+
+    = render 'facebook', form: form
+    = render 'google', form: form
+    = render 'linked_in', form: form
+
+    %section.content-card-terminal.without-margin
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

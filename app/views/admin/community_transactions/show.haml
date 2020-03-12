@@ -34,6 +34,9 @@
             provider: link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username)),
             listing_title: link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title ,
             buyer: link_to_unless(pr.buyer.deleted, pr.buyer_name, person_path(pr.buyer.username))).html_safe
+        - elsif pr.disputed?
+          - learn_more_link = link_to t('.learn_more'), "#{APP_CONFIG.knowledge_base_url}/en/articles/1587573", target: '_blank'
+          = t(".you_should_investigate", learn_more_link: learn_more_link).html_safe
     .row
       .col-12
         %span.initiate-transaction-total-wrapper
@@ -184,6 +187,20 @@
             .icon-with-text.ss-delete
             .text-with-icon
               = t('conversations.status_link.cancel')
+  - if pr.disputed?
+    .conversation-status.text-center
+      .inbox-horizontally-aligned-link
+        = link_to refund_admin_community_transaction_path(community_id: pr.community, id: transaction), class: 'confirm' do
+          .content
+            .icon-with-text.ss-check
+            .text-with-icon
+              = t('conversations.status_link.mark_as_refunded')
+      .inbox-horizontally-aligned-link
+        = link_to dismiss_admin_community_transaction_path(community_id: pr.community, id: transaction), class: 'cancel' do
+          .content
+            .icon-with-text.ss-delete
+            .text-with-icon
+              = t('conversations.status_link.dismiss')
   - if pr.completed?
     = link_to t(".manage_reviews"), admin_community_testimonials_path(community_id: pr.community), class: 'button'
   #messages

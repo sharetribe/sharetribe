@@ -1,0 +1,11 @@
+= form.fields_for :community_customizations, customization do |cc|
+  .form-group
+    = cc.label :category_meta_title, t('admin2.category_pages.category_meta_title')
+    = cc.text_field :category_meta_title, maxlength: 255, class: %i[form-control], placeholder: t('admin2.category_pages.category_meta_title_placeholder')
+    %small.form-text
+      = t('admin2.category_pages.category_meta_title_info_text')
+  .form-group
+    = cc.label :category_meta_description, t('admin2.category_pages.category_meta_description')
+    = cc.text_area :category_meta_description, maxlength: 65535, class: %i[form-control], placeholder: t('admin2.category_pages.category_meta_description_placeholder')
+    %small.form-text
+      = t('admin2.category_pages.category_meta_description_info_text')

@@ -1,0 +1,14 @@
+- content_for :title do
+  = t('admin2.sidebar.design.logos_and_color')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.design.logos_and_color')
+
+.content-card-section-container
+  = form_for @current_community, url: update_logos_color_admin2_design_logos_color_index_path, html: { multipart: true, class: %i[content-card-section-form] }, method: :patch do |form|
+    = render 'logos', form: form
+    = render 'color', form: form
+    = render 'favicon', form: form
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

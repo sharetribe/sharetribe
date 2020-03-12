@@ -1,0 +1,18 @@
+- content_for :title do
+  = t('admin2.sidebar.general.essentials')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.general.essentials')
+  = link_to t('admin2.essentials.header_link'), homepage_without_locale_path(big_cover_photo: true, locale: nil), class: %i[content-card-header-link], target: :_blank
+
+.content-card-section-container
+  = form_for @current_community, url: update_essential_admin2_general_essentials_path, html: { class: %i[content-card-section-form] }, method: :patch do
+    %section.content-card-section
+      %h2= t('admin2.essentials.header')
+      = render partial: 'admin2/general/essentials/locale_input_fields', locals: community_essentials_hash
+      = render partial: 'admin2/general/essentials/locale_input_fields', locals: community_slogan_hash
+      = render partial: 'admin2/general/essentials/locale_input_fields', locals: community_description_hash
+      = render partial: 'admin2/general/essentials/locale_selection',    locals: locale_selection_locals
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

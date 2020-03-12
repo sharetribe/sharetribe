@@ -1,0 +1,18 @@
+.custom-links-container.nested-fields.top_bar_link_position
+  = f.hidden_field :sort_priority, class: :sort_priority_class
+  - @customizations.each_with_index do |customization, index|
+    = f.fields_for :translations, f.object.translations.find_or_initialize_by(locale: customization.locale) do |tr|
+      = tr.hidden_field :locale
+      .multiple-languages-language
+        %span.language
+          = local_name(customization.locale)
+      .custom-links-title
+        = tr.text_field :title, class: %i[form-control required], placeholder: t('admin2.topbar.link_title'), disabled: defined?(disabled) && disabled
+      .custom-links-url
+        = tr.text_field :url, class: %i[form-control required], placeholder: 'https://', disabled: defined?(disabled) && disabled, url: true
+      - if index.zero?
+        .custom-links-actions
+          %span.handle-move
+          = link_to_remove_association f do
+            %span.remove
+

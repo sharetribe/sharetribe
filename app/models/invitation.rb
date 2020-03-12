@@ -13,6 +13,7 @@
 #  inviter_id   :string(255)
 #  message      :text(65535)
 #  email        :string(255)
+#  deleted      :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -43,8 +44,10 @@ class Invitation < ApplicationRecord
     self.usages_left ||= 1
   end
 
+  scope :exist, -> { where(deleted: false) }
+
   def usable?
-    return usages_left > 0 && (valid_until.nil? || valid_until > DateTime.now)
+    return !deleted && usages_left > 0 && (valid_until.nil? || valid_until > DateTime.now)
   end
 
   def use_once!

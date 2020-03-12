@@ -1,0 +1,38 @@
+= form_for presenter.community, {url: admin_domain_path} do |form|
+  .row
+    .col-12
+      = form.label :ident, t("admin.communities.domain.change_your_sharetribe_domain"), class: "input"
+      = render 'layouts/info_text', text: t("admin.communities.domain.only_letters_numbers_and_hyphens_can_be_used")
+    .col-6
+      = form.text_field :ident, class: "text_field", minlength: 3, maxlength: 50,
+        required: true, exclude_reserved_domains: true,
+        valid_ident: true,
+        remote: check_availability_admin_domain_path,
+        'data-msg-exclude_reserved_domains': t('errors.messages.domain_name_is_invalid'),
+        'data-msg-valid_ident': t('errors.messages.domain_name_is_invalid'),
+        'data-msg-remote': t('errors.messages.domain_name_is_invalid')
+    .col-6.app-config-domain
+      = ".#{APP_CONFIG.domain}"
+  .row
+    .col-12
+      = form.button t("admin.communities.edit_details.update_information"), class: "send_button"
+
+= render layout: "layouts/lightbox", locals: { id: "domain_popup"} do
+  #domain-proceed-form
+    .row
+      .col-12
+        = t("admin.communities.domain.when_you_change_your_sharetribe_domain")
+    .row
+      .col-12
+        %strong= t("admin.communities.domain.would_you_like_to_proceed")
+    .row
+      .col-12.testimonial-save
+        .inline-button-container
+          %a#proceed{:href => '#', :class => "button"}
+            .content
+              = t("admin.communities.domain.change")
+        .inline-button-container
+          %a#close_x1{:href => '#', :class => "cancel-button"}
+            .content
+              = t("admin.communities.testimonials.form.cancel")
+

@@ -5,11 +5,12 @@
 = form.hidden_field :multi_columns
 
 = render partial: 'id_field', locals: {presenter: presenter, form: form}
+= render 'content'
 
 .row
   .col-12
     = form.label :title, t(".main_title")
-    = form.text_field :title, required: true
+    = form.text_field :title
 
 - form.object.columns.each_with_index do |column, index|
   .row.collapsible.collapsed
@@ -24,7 +25,10 @@
       .row
         .col-12
           = label_tag "section[columns][#{index}][icon]", t(".column_icon", index: index + 1)
-          = render partial: 'layouts/info_text', locals: {text: t(".column_icon_info").html_safe }
+          - link = link_to t('.web_viewer'),
+            'https://app.streamlineicons.com/streamline-light/interface-essential',
+            target: '_blank'
+          = render partial: 'layouts/info_text', locals: {text: t(".column_icon_info", link: link).html_safe }
           = text_field_tag "section[columns][#{index}][icon]", column['icon']
 
           = label_tag "section[columns][#{index}][title]", t(".column_title", index: index + 1)
@@ -38,7 +42,7 @@
             .col-6
               = text_field_tag "section[columns][#{index}][button_title]", column['button_title'], placeholder: t(".column_button_text")
             .col-6
-              = text_field_tag "section[columns][#{index}][button_path][value]", column['button_path']&.[]('value'), placeholder: t(".column_button_url")
+              = text_field_tag "section[columns][#{index}][button_path][value]", column['button_path']&.[]('value'), placeholder: t(".column_button_url"), url: true
 .row
 
 = render partial: 'cta_button', locals: {form: form, presenter: presenter}

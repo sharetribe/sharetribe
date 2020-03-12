@@ -34,9 +34,13 @@ class Community::SocialLogo < ApplicationRecord
                     :keep_old_files => true
 
   validates_attachment_content_type :image,
-                                    :content_type => ["image/jpeg",
-                                                      "image/png",
-                                                      "image/gif",
-                                                      "image/pjpeg",
-                                                      "image/x-png"]
+                                    :content_type => IMAGE_CONTENT_TYPE
+
+  attr_reader :destroy_image
+
+  def destroy_image=(value)
+    if value == '1'
+      image.destroy
+    end
+  end
 end

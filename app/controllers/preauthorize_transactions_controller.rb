@@ -78,7 +78,7 @@ class PreauthorizeTransactionsController < ApplicationController
     rescue Stripe::CardError => e
       stripe_payment.update(stripe_payment_intent_status: StripePayment::PAYMENT_INTENT_FAILED)
       TransactionService::StateMachine.transition_to(tx.id, :payment_intent_failed)
-      return render json: { error: e.message }
+      return render json: { error: t("error_messages.stripe.generic_error") }
     end
 
     if intent.status == StripePayment::PAYMENT_INTENT_REQUIRES_CAPTURE
@@ -130,7 +130,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def handle_tx_response(tx_response, gateway)
     if !tx_response[:success]
-      render_error_response(request.xhr?, t("error_messages.#{gateway}.generic_error"), action: :initiate)
+      render_error_response(request.xhr?, gateway_error_message(tx_response, gateway), action: :initiate)
     elsif (tx_response[:data][:gateway_fields][:redirect_url])
       xhr_json_redirect tx_response[:data][:gateway_fields][:redirect_url]
     elsif gateway == :stripe
@@ -359,11 +359,12 @@ class PreauthorizeTransactionsController < ApplicationController
         t("listing_conversations.preauthorize.invalid_parameters")
       elsif [:dates_missing,
              :end_cant_be_before_start,
-             :delivery_method_missing,
              :at_least_one_day_or_night_required,
              :date_too_late
             ].include?(data[:code])
         t("listing_conversations.preauthorize.invalid_parameters")
+      elsif data[:code] == :delivery_method_missing
+        t("listing_conversations.preauthorize.select_delivery_method")
       elsif data[:code] == :dates_not_available
         t("listing_conversations.preauthorize.dates_not_available")
       elsif data[:code] == :harmony_api_error
@@ -424,5 +425,15 @@ class PreauthorizeTransactionsController < ApplicationController
       end
 
     render_error_response(request.xhr?, error_msg, path)
+  end
+
+  def gateway_error_message(tx_response, gateway)
+    translated_stripe_error_codes = %w(card_declined expired_card)
+    if tx_response[:data].is_a?(Stripe::CardError) &&
+       translated_stripe_error_codes.include?(tx_response[:data].code)
+      t("error_messages.stripe.#{tx_response[:data].code}")
+    else
+      t("error_messages.#{gateway}.generic_error")
+    end
   end
 end

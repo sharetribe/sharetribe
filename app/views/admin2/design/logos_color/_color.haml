@@ -1,0 +1,10 @@
+%section.content-card-section
+  %h2
+    = t('admin2.logos_and_color.color')
+  .form-group
+    %label
+      = t('admin2.logos_and_color.marketplace_color')
+    .d-flex.single-field{style: 'margin-left:0px;'}
+      = form.text_field :custom_color1, id: 'colorpicker-color', value: @current_community.custom_color1_string.presence, class: %i[multi-language-color], readonly: true
+    %small#marketplaceMainColor-help.form-text
+      = t('admin2.logos_and_color.color_info_text')

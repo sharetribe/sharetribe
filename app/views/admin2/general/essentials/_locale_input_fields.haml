@@ -1,0 +1,80 @@
+- multi_language = translations.count > 1
+- if multi_language
+  .form-group
+    %label
+      = header
+
+    .multiple-languages-container
+      - translations.each do |language_key, value|
+        .multiple-languages-language
+          %span.language
+            = value[:language]
+        .multiple-languages-input
+          = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
+            class: input_classes, maxlength: defined?(maxlength) ? maxlength : nil, placeholder: defined?(placeholder) ? placeholder : ''
+      %small.form-text
+        = info_text.html_safe
+
+      - if input_name == 'slogan'
+        .multiple-languages-language
+          %span.color= t('admin2.essentials.color')
+        .multiple-languages-input
+          = text_field_tag "community[slogan_color]", @current_community.slogan_color_string, id: 'colorpicker-slogan', class: 'multi-language-color', readonly: true
+        .form-check
+          = hidden_field_tag 'community[show_slogan]', 0, id: 'hidden_community_show_slogan'
+          = check_box_tag "community[show_slogan]", 1, @current_community.show_slogan?, class: %i[form-check-input]
+          = label_tag "community_show_slogan", t('admin2.essentials.show_slogan'), class: %i[form-check-label]
+
+      - if input_name == 'description'
+        .multiple-languages-language
+          %span.color= t('admin2.essentials.color')
+        .multiple-languages-input
+          = text_field_tag "community[description_color]", @current_community.description_color_string, id: 'colorpicker-description', class: 'multi-language-color', readonly: true
+        .form-check
+          = hidden_field_tag 'community[show_description]', 0, id: 'hidden_community_show_description'
+          = check_box_tag "community[show_description]", 1, @current_community.show_description?, class: %i[form-check-input]
+          = label_tag "community_show_description", t('admin2.essentials.show_description'), class: %i[form-check-label]
+
+- else
+
+  - language_key = translations.keys.first
+  - value = translations[translations.keys.first]
+
+  .form-group
+    - if input_name == 'name'
+      %label
+        = header
+      = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
+        class: input_classes, maxlength: defined?(maxlength) ? maxlength : nil, placeholder: defined?(placeholder) ? placeholder : ''
+      %small.form-text
+        = info_text.html_safe
+
+    - if input_name == 'slogan'
+      %label
+        = header
+      .d-flex
+        = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
+          class: input_classes, maxlength: defined?(maxlength) ? maxlength : nil, placeholder: defined?(placeholder) ? placeholder : '', style: 'padding-right: 86px'
+        = text_field_tag "community[slogan_color]", @current_community.slogan_color_string, id: 'colorpicker-slogan'
+
+      %small.form-text
+        = info_text.html_safe
+      .form-check
+        = hidden_field_tag 'community[show_slogan]', 0, id: 'hidden_community_show_slogan'
+        = check_box_tag "community[show_slogan]", 1, @current_community.show_slogan?, class: %i[form-check-input]
+        = label_tag "community_show_slogan", t('admin2.essentials.show_slogan'), class: %i[form-check-label]
+
+    - if input_name == 'description'
+      %label
+        = header
+      .d-flex
+        = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
+          class: input_classes, maxlength: defined?(maxlength) ? maxlength : nil, placeholder: defined?(placeholder) ? placeholder : '', style: 'padding-right: 86px'
+        = text_field_tag "community[description_color]", @current_community.description_color_string, id: 'colorpicker-description'
+
+      %small.form-text
+        = info_text.html_safe
+      .form-check
+        = hidden_field_tag 'community[show_description]', 0, id: 'hidden_community_show_description'
+        = check_box_tag "community[show_description]", 1, @current_community.show_description?, class: %i[form-check-input]
+        = label_tag "community_show_description", t('admin2.essentials.show_description'), class: %i[form-check-label]

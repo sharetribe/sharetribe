@@ -1,0 +1,44 @@
+- content_for :title do
+  = t('admin2.sidebar.general.static_content')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.general.static_content')
+.content-card-section-container
+  %section.content-card-section
+    %h2
+      = t('admin2.static_content.header')
+    %p.ingress
+      = t('admin2.static_content.info_text')
+    .content-card-section-container{style: 'padding: 0; max-width: none;'}
+      .table-responsive
+        %table.table.table-hover.staticcontent
+          %tbody
+            %tr
+              %td
+                = link_to t('admin2.static_content.about'), about_infos_path, target: :_blank
+              %td
+                = link_to "/editor#{about_infos_path}", target: :_blank do
+                  = image_tag 'svg/edit.svg', class: %i[edit-icon], alt: 'edit'
+                  = t('admin2.static_content.edit')
+            %tr
+              %td
+                = link_to t('admin2.static_content.how_it_works'), how_to_use_infos_path, target: :_blank
+              %td
+                = link_to "/editor#{how_to_use_infos_path}", target: :_blank do
+                  = image_tag 'svg/edit.svg', class: %i[edit-icon], alt: 'edit'
+                  = t('admin2.static_content.edit')
+            %tr
+              %td
+                = link_to t('admin2.static_content.privacy_policy'), privacy_infos_path, target: :_blank
+              %td
+                = link_to "/editor#{privacy_infos_path}", target: :_blank do
+                  = image_tag 'svg/edit.svg', class: %i[edit-icon], alt: 'edit'
+                  = t('admin2.static_content.edit')
+            %tr
+              %td
+                = link_to t('admin2.static_content.terms_of_use'), terms_infos_path, target: :_blank
+              %td
+                = link_to "/editor#{terms_infos_path}", target: :_blank do
+                  = image_tag 'svg/edit.svg', class: %i[edit-icon], alt: 'edit'
+                  = t('admin2.static_content.edit')

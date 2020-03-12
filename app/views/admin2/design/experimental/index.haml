@@ -1,0 +1,18 @@
+- content_for :title do
+  = t('admin2.sidebar.design.experimental')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.design.experimental')
+
+.content-card-section-container
+  = form_for @current_community, url: update_experimental_admin2_design_experimental_index_path, html: { class: %i[content-card-section-form] }, method: :patch do
+    %section.content-card-section
+      %h2
+        = t('admin2.experimental.new_layout')
+      %p.ingress
+        = t('admin2.experimental.info_text')
+
+      = render partial: 'one_feature', collection: features, as: :feature
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

@@ -1,0 +1,16 @@
+- content_for :title do
+  = t('admin2.sidebar.design.display')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.design.display')
+
+.content-card-section-container
+  = form_for @current_community, url: update_display_admin2_design_display_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+
+    = render 'admin2/design/display/browse_view', form: form
+    = render 'admin2/design/display/user_display', form: form
+    = render 'admin2/design/display/listing_display', form: form
+
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

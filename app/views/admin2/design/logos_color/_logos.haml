@@ -1,0 +1,19 @@
+%section.content-card-section
+  %h2
+    = t('admin2.logos_and_color.logos')
+  .form-group
+    %label
+      = t('admin2.logos_and_color.main_logo')
+    .custom-file
+      = form.file_field :wide_logo, accept: 'image/*', class: %i[change-file]
+    %small#mainlogo-help.form-text
+      = t('admin2.logos_and_color.main_logo_info_text')
+    = render 'admin2/filename', original_filename: form.object&.wide_logo&.original_filename, field_name: t('admin2.logos_and_color.main_logo')
+  .form-group
+    %label
+      = t('admin2.logos_and_color.square_logo')
+    .custom-file
+      = form.file_field :logo, accept: 'image/*', class: %i[change-file]
+    %small#mobilelogo-help.form-text
+      = t('admin2.logos_and_color.square_logo_info_text')
+    = render 'admin2/filename', original_filename: form.object&.logo&.original_filename, field_name: t('admin2.logos_and_color.square_logo')

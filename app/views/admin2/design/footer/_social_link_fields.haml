@@ -1,0 +1,8 @@
+- social_link = f.object
+.one-social-link
+  = f.hidden_field :id
+  = f.hidden_field :sort_priority, class: %i[social-link-sort-prior]
+  = f.hidden_field :provider
+  = f.label :url, social_link_name(social_link.provider)
+  = f.text_field :url, maxlength: 255, disabled: defined?(disabled) && disabled, url: true, placeholder: 'https://', class: %i[form-control social-link-row]
+  %span.handle-move

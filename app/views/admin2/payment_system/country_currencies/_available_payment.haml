@@ -1,0 +1,5 @@
+%p.ingress
+  = t('admin2.country_currency.support', paypal_url: 'https://help.sharetribe.com/en/articles/666091', stripe_url: 'https://help.sharetribe.com/en/articles/1063017').html_safe
+
+%span#payments_in_countries
+  = render 'country_payments', stripe_allowed: stripe_allowed, paypal_allowed: paypal_allowed, country_name: country_name, currency: currency

@@ -18,7 +18,6 @@ class TopbarApiController < ApplicationController
     end
   end
 
-
   private
 
   def context_objects

@@ -1,0 +1,60 @@
+- content_for :title do
+  = t('admin2.sidebar.design.footer')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.design.footer')
+
+- disabled = @service.plan_footer_disabled?
+.content-card-section-container
+  = form_for @current_community, url: update_footer_admin2_design_footer_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2= t('admin2.footer.footer_enabling')
+      %p.ingress
+        = t('admin2.footer.footer_enabling_info_text', url: 'https://help.sharetribe.com/en/articles/2364902').html_safe
+        %br
+        %br
+        - if disabled
+          = t('admin2.footer.plan_disabled', url: admin_plan_path).html_safe
+      .form-group{class: ('opacity_04' if disabled)}
+        .form-check
+          = form.check_box :footer_enabled, class: %i[form-check-input], disabled: disabled
+          = form.label :footer_enabled, t('admin2.footer.footer_enabling_field'), class: %i[form-check-label]
+
+    %section.content-card-section{class: ('opacity_04' if disabled)}
+      %h2= t('admin2.footer.footer_style')
+      .form-group
+        = form.label :footer_theme, t('admin2.footer.footer_style')
+        = form.select :footer_theme, options_from_collection_for_select(@service.footer_themes, :key, :value, form.object.footer_theme), {}, class: %i[form-control], disabled: disabled
+
+    %section.content-card-section{class: ('opacity_04' if disabled)}
+      %h2= t('admin2.footer.footer_links')
+      #simpleList.list-group
+        = form.fields_for :footer_menu_links do |footer_menu_link|
+          = render 'footer_menu_link_fields', f: footer_menu_link, disabled: disabled
+      - if disabled
+        %p.links.content-card-text
+          = t('admin2.footer.add_new_footer_link')
+      - else
+        %p.links.content-card-text
+          = link_to_add_association t('admin2.footer.add_new_footer_link'), form, :footer_menu_links, data: {'association-insertion-method' => 'append', 'association-insertion-node' => '#simpleList' }
+
+    %section.content-card-section{class: ('opacity_04' if disabled)}
+      %h2= t('admin2.footer.footer_social_links')
+      .form-group
+        #footerList.list-group
+          - @service.social_links.each do |social_link|
+            = form.fields_for :social_links, social_link do |fields|
+              = render 'social_link_fields', f: fields, disabled: disabled
+
+    %section.content-card-section{class: ('opacity_04' if disabled)}
+      %h2= t('admin2.footer.footer_copyright')
+      .form-group
+        = form.label :footer_copyright, t('admin2.footer.footer_copyright')
+        = form.text_area :footer_copyright, class: %i[form-control], placeholder: t('admin2.footer.footer_copyright_placeholder'), disabled: disabled
+    %section.content-card-terminal{class: ('opacity_04' if disabled)}
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+
+- content_for :extra_javascript do
+  :javascript
+    validateCommunityEdit(#{@current_community.id});

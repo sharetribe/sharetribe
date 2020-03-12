@@ -87,7 +87,7 @@ ru:
         community_search_placeholder: "Текст помощи поиска"
         edit_community_search_placeholder_description: "Это отображается на главной странице проекта как место для заполнения текстом в строке поиска. %{see_how_it_looks_like}"
         private_community_homepage_content: "Контент главной страницы приватного маркетплейс"
-        edit_private_community_homepage_content_description: "Это будет показано на главной странице приватного проекта для пользователей которые не вошли в систему. Здесь вы можете описать ваш проект и процесс действий чтобы присоедениться к нему.Вы также можете добавить изображения, видео и HTML контент здесью %{see_how_it_looks_like}"
+        edit_private_community_homepage_content_description: "Это будет показано на главной странице приватного проекта для пользователей которые не вошли в систему. Здесь вы можете описать ваш проект и процесс действий чтобы присоединиться к нему.Вы также можете добавить изображения, видео и HTML контент здесь. %{see_how_it_looks_like}"
         update_information: "Сохранить настройки"
         invite_people: "Пригласить новых пользователей"
         edit_signup_info: Информация
@@ -289,6 +289,10 @@ ru:
         ban_user_confirmation: "Это удалит участника из проекта и доступ из этого аккаунта будет не возможен. Вы уверены что хотите продолжить?"
         unban_user_confirmation: "Это включает учетную запись пользователя на торговой площадке и позволяет им снова получить доступ к сайту с этой учетной записью. Вы уверены, что хотите продолжить?"
         ban_me_error: "Вы не можете заблокировать сами себя"
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Поиск
         search_by_name_email: "Поиск имени, электронной почты или отображаемого имени"
         reset_search: "Показать все"
@@ -308,6 +312,7 @@ ru:
         unconfirmed_user: "не подтвержденный пользователь:%{name} "
         resend: "Отправить повторно"
         cancel: Отменить
+        confirm: ~
         user_didnt_complete_the_signup_process: "Этот пользователь зарегистрировался через социальную учетную запись, но не завершил процесс регистрации. После подключения учетной записи для входа в систему пользователям все равно необходимо принять ваши условия использования и заполнить все обязательные поля пользователя."
         pending_user: "В ожидании: %{name} "
       new_layout:
@@ -317,12 +322,13 @@ ru:
         enabled_for_all: "Доступно для всех"
         new_topbar: "Новая верхняя панель (видимая на каждой странице)"
         searchpage: "Новая страница поиска (необходима новая верхняя панель)"
+        new_email_templates: ~
       social_media:
         social_media: "Социальные медиа"
         logo: "изображение в социальных сетях"
         logo_info: "Это изображение будет отображаться в социальных сетях для Facebook, Twitter и LinkedIn, когда кто-то опубликует ваш сайт. Для достижения наилучших результатов он должен иметь соотношение сторон 2:1 и минимальный размер в пикселях%{width} x%{height}."
         social_media_title: "Название социальной сети"
-        social_media_title_info: "Этот текст будет отображаться в социальных сетях для Facebook, Twitter и LinkedIn, как только кто-то опубликует ваш сайт. Вы можете просмотреть, как он выглядит% {facebook_preview_link},% {twitter_preview_link} и% {linkedin_preview_link}."
+        social_media_title_info: "Этот текст будет отображаться в социальных сетях для Facebook, Twitter и LinkedIn, как только кто-то опубликует ваш сайт. Вы можете просмотреть, как он выглядит %{facebook_preview_link}, %{twitter_preview_link} и %{linkedin_preview_link}."
         link_for_facebook: "для Facebook"
         link_for_linkedin: "для LinkedIn"
         link_for_twitter: "для Twitter"
@@ -344,7 +350,6 @@ ru:
         invalid_facebook_connect_secret: "Client secret должен содержать только цифры и буквы от a до f."
         enable_facebook_login: "Разрешить пользователям входить в систему со своей учетной записи Facebook"
         save: "Сохранить настройки"
-        add_another_image: "Добавить другое изображение"
         google_connect: "Вход в Google"
         google_instructions_link_text: "Смотрите инструкции по настройке входа в Google."
         google_developers_console: "Приставка разработчиков Google"
@@ -401,12 +406,16 @@ ru:
         sitemap_label: "Карта сайта"
         sitemap_info: "Карты сайта - это простой способ информировать поисковые системы о страницах вашего сайта, доступных для сканирования.%{link}."
         sitemap_info_link_text: "Подробнее о файле XML Sitemap Карта сайта"
-        sitemap_info_public: "Карта сайта автоматически создается для вашего рынка: она содержит до 500 самых последних записей на вашем сайте. Вы можете получить доступ к своей карте сайта по адресу%{link}."
+        sitemap_info_public: "Карта сайта автоматически создается для вашего рынка: она содержит до 500 самых последних записей на вашем сайте. Вы можете получить доступ к своей карте сайта по адресу %{link}."
         sitemap_info_private: "Поскольку ваш рынок является частным, карта сайта отсутствует."
         robots_label: Robots.txt
         robots_info: "Robots.txt - это текстовый файл, который инструктирует веб-роботов (обычно роботов поисковых систем), как сканировать страницы на вашем сайте.%{link} ."
         robots_info_link_text: "Узнайте больше о файле robots.txt"
-        robots_info_2: "Файл robots.txt автоматически создается для вашего рынка. Вы можете получить доступ к robots.txt по адресу%{link}."
+        robots_info_2: "Файл robots.txt автоматически создается для вашего рынка. Вы можете получить доступ к robots.txt по адресу %{link}."
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: "Сохранить настройки"
       analytics:
         analytics: Аналитика
@@ -419,6 +428,10 @@ ru:
         sharetribe_analytics_instructions_link_text: "Узнайте больше об аналитике Sharetribe."
         end_user_analytics: "Разрешить Sharetribe отслеживать активность участников в целях улучшения услуг Sharetribe"
         save: "Сохранить настройки"
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
       logo_link:
         title: "Ссылка на логотип"
         info: "Вы можете настроить ссылку логотипа (и домашнюю кнопку по умолчанию в верхней панели меню). По умолчанию логотип переносит пользователей на домашнюю страницу или пользовательскую целевую страницу."
@@ -430,7 +443,7 @@ ru:
         save: "Сохранить настройки"
         add_menu_link: "Добавить новую ссылку к меню"
         title_placeholder: "Название ссылки"
-        url_placeholder: "http://example.com/en"
+        url_placeholder: "https://www.example.com/en"
         title: Название
         language: Язык
         url: URL
@@ -467,10 +480,13 @@ ru:
           confirmed: Завершено
           paid: Оплачено
           canceled: Отменено
+          disputed: ~
           preauthorized: "Предварительно авторизован"
           rejected: Отклонено
           payment_intent_requires_action: Ожидание
           payment_intent_action_expired: Истекло
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: Обсуждение
           listing: Объявление
@@ -490,6 +506,7 @@ ru:
           paid: Оплачено
           confirmed: Подтверждено
           canceled: Отменено
+          disputed: ~
           initiated: "Ожидание платежа PayPal"
           pending_ext: "Ожидание платежа PayPal"
           none:
@@ -503,8 +520,11 @@ ru:
             paid: Оплачено
             confirmed: Завершено
             canceled: Отменено
+            disputed: ~
             initiated: "Ожидание платежа PayPal"
             pending_ext: "Ожидание платежа PayPal"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: Диалог
             pending: Ожидание
@@ -514,11 +534,14 @@ ru:
             paid: Оплачено
             confirmed: Подтверждено
             canceled: Отменено
+            disputed: ~
             initiated: "Ожидание платежа Stripe"
             pending_ext: "Ожидание платежа Stripe"
             payment_intent_requires_action: Ожидание
             payment_intent_action_expired: Истекло
             payment_intent_failed: "Stripe оплатa не удалась"
+            refunded: ~
+            dismissed: ~
         not_available: "Не доступно"
       conversations:
         conversations: Обсуждения
@@ -638,7 +661,7 @@ ru:
         footer_enabled: "Нижний колонтитул включен"
         social_links: "Социальные ссылки нижнего колонтитула"
         title_placeholder: "Название ссылки"
-        url_placeholder: "https://example.com/username"
+        url_placeholder: "https://www.example.com/username"
         style:
           dark: Тёмная
           light: Светлый
@@ -656,37 +679,34 @@ ru:
         would_you_like_to_change_address: "Хотели бы вы изменить адрес своего проекта? %{contact_us}!"
         contact_us: "Свяжитесь с нами"
         you_can_now_use_a_custom_domain: "С вашим текущим планом вы можете теперь включить собственный домен. Продолжайте настроить. %{contact_us}!"
-        would_you_like_to_change_domain: "Хотите изменить свой пользовательский домен на маркетплейсе?%{contact_us}"
+        would_you_like_to_change_domain: "Хотите изменить свой пользовательский домен на маркетплейсе? %{contact_us}"
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_preview_text: Предпросмотр
-        info_2_details_text: ~
-        info_2_design_text: дизайн
+        info_2_help_center: ~
         info_3: ~
         info_4: ~
         editor_title: ~
         editor_info: ~
         preview: ~
         set_live: ~
-        headers:
-          section_id: ~
-          section_type: ~
-          version: ~
-          released: ~
-        add_new_version: ~
-        new_version: "Новая версия"
-        edit_version: "Редактировать версию"
         add_new_section: "Добавить новый раздел"
         select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
         form:
-          version: Версия
           save: Сохранить
+          cancel: ~
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: "Новый раздел"
           edit: ~
           remove_section_confirmation: ~
@@ -700,8 +720,6 @@ ru:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -718,11 +736,17 @@ ru:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
+        content:
+          title: ~
         hero:
           hero_title: ~
           hero_description: ~
+          basic_details_tab: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -735,6 +759,10 @@ ru:
           cta_enabled: ~
           cta_text: ~
           cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
         background_image_overlay:
           background_image: ~
           background_image_info: ~
@@ -795,6 +823,7 @@ ru:
           main_title: ~
           column_header: ~
           column_title: ~
+          web_viewer: ~
           column_icon_info: ~
           column_icon: ~
           column_paragraph: ~
@@ -802,14 +831,15 @@ ru:
           column_button_text: ~
           column_button_url: ~
         listings:
+          listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
           text: ~
-          youtube_video_id: ~
           autoplay: ~
           autoplay_no: ~
           autoplay_muted: ~
           info: ~
+          youtube_video_id_info: ~
     custom_fields:
       edit:
         edit_listing_field: "Редактировать поле объявления \"%{field_name}\""
@@ -1166,6 +1196,8 @@ ru:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Редактировать страницу"
     default_community_slogan: "Сотрудничайте, делитесь и помогайте"
@@ -1224,7 +1256,7 @@ ru:
       body_text: "PayPal удерживает комиссию с каждого платежа. Эта комиссия находится в пределах от 2% до 5% от общей суммы, и зависит от ваших ежемесячных продаж и страны резиденции покупателя. В общем, локальные покупки имеют меньшую комиссию чем международные, и увеличение ежемесячных продаж дает вам возможность уменьшить комиссию. Вы можете увидеть точную сумму комиссии зайдя в ваш PayPal аккаунт %{link_to_paypal}. После каждой покупки вы будете получать квитанцию отображающую точную сумму комиссии."
       body_text_accept: |-
           Эта транзакция обрабатывается с помощью PayPal. PayPal взимает комиссию за обработку каждого платежа. Этот сбор составляет от 2% до 5% от общей цены продажи, в зависимости от вашего ежемесячного объема продаж и страны проживания покупателя. Как правило, внутренние закупки имеют более низкую комиссию, чем международные, а более высокие ежемесячные продажи дают вам скидку на комиссионные.
-          Вы можете увидеть точные сборы, войдя в свою учетную запись PayPal и выбрав%{link_to_paypal}. После каждой покупки вы получите квитанцию с указанием точной комиссии.
+          Вы можете увидеть точные сборы, войдя в свою учетную запись PayPal и выбрав %{link_to_paypal}. После каждой покупки вы получите квитанцию с указанием точной комиссии.
       link_to_paypal_text: здесь
     stripe_fee_info:
       title: "Комиссия за обработку Stripe платежей"
@@ -1258,14 +1290,14 @@ ru:
       shipping_price_label: "Доставка:"
       stripe-fee_label: "Комиссия за обработку платежей"
     confirm:
-      confirm_description: "Если ваш запрос был выполнен вы должны подтвердить его как завершенный. Затем вы можете оставить отзыв."
-      cancel_description: "Если ваш запрос не был выполнен вы можете отметить его как \"не сделанный\". Тем не менее вы можете оставить отзыв и описать ситуацию."
+      confirm_description: "Если ваш запрос был выполнен, вы должны подтвердить его как завершенный. Затем вы можете оставить отзыв."
+      cancel_description_team: ~
       cancel_payed_description: "Если ваш запрос был принят, но вы пересмотрели свои намерения, тем не менее вы можете отменить ваш запрос перед оплатой."
       canceling_payed_transaction: "Отменить транзакцию"
       confirm: "Отметить как завершенное"
       cancel: Спорно
       continue: Продолжить
-      give_feedback_to: "Оставить отзыв о %{person_link}"
+      give_feedback_to: "Оставить отзыв о пользователе %{person_link}"
       do_not_give_feedback: "Не оставлять отзыв"
     details:
       day: день
@@ -1292,8 +1324,8 @@ ru:
       message_content_not_available: "Содержимое сообщения недоступно"
     message:
       accepted_request: "запрос принят"
-      received_payment: "запрос принял, получил платеж на сумму %{sum}"
-      received_payment_wo_sum: "запрос принял, получил платеж"
+      received_payment: "запрос принят, получен платеж на сумму %{sum}"
+      received_payment_wo_sum: "запрос принят, платеж получен"
       accepted_offer: "предложение принято"
       rejected_request: "запрос отклонен"
       rejected_offer: "предложение отклонено"
@@ -1308,6 +1340,10 @@ ru:
         held_payment: "Принял запрос. Платеж на%{sum} удерживается%{service_name} до тех пор, пока заказ не будет помечен как выполненный."
         held_payment_wo_sum: "Принял запрос. Платеж удерживается%{service_name} до тех пор, пока заказ не будет помечен как выполненный."
         confirmed_request: "Помечен заказ как выполненный. Теперь платеж переведен на банковский счет%{author_name} или будет переведен в ближайшее время."
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Сообщение
       message_to: "Сообщение %{author_name}"
@@ -1382,6 +1418,18 @@ ru:
           verify: "Ожидание подтверждения вашего PayPal аккаунта."
       stripe:
         waiting_confirmation_from_requester: "Ожидание%{requester_name}, чтобы отметить выполненный заказ. Как только заказ будет помечен как выполненный, платеж будет зачислен на ваш банковский счет."
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Принять предложение"
       accept_request: "Принять запрос"
@@ -1393,6 +1441,8 @@ ru:
       reject_preauthorized_request: "Не сейчас"
       confirm: "Отметить как завершенное"
       cancel: Спорно
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Новое сообщение от %{service_name}"
     feedback_body: "%{author_name_and_email} отправил следующее сообщение от %{service_name}"
@@ -1433,7 +1483,7 @@ ru:
       create_own: "Хотели бы создать свой собственный маркетплейс как %{service_name}? Узнай больше %{learn_more}."
       learn_more: "Узнать больше"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Вы пока еще не подтвердили или отменили запрос %{request_link}. Если запрос был выполнен, вам нужно подтвердить это. После этого вы можете оставить отзыв о %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Вы пока еще не подтвердили или отменили запрос %{request_link}. Если запрос был выполнен, вам нужно подтвердить это. После этого вы можете оставить отзыв о пользователе %{other_party_given_name}."
       remember_to_confirm_request: "Не забудьте подтвердить или отменить запрос"
       if_will_not_happen_you_should_cancel: "Если вы предполагаете что запрос не будет выполнен по различным причинам, вы можете его отменить %{cancel_it_link}."
       cancel_it_link_text: отменить
@@ -1447,45 +1497,39 @@ ru:
       please_go_to_payment_settings: "Пожалуйста перейдите в %{payment_settings_link} и укажите необходимую информацию."
       payment_settings_link: "настройки оплаты"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Сообщение от %{other_party_given_name}:"
       request_marked_as_confirmed: "Запрос завершен - не забудьте оставить отзыв"
       request_marked_as_canceled: "Запрос отменен"
-      has_marked_request_as_confirmed: "%{other_party_full_name} отметил запрос %{request} выполненным. Теперь вы можете оставить отзыв о %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} отменил запрос %{request}. Вы все еще можете оставить отзыв о %{other_party_given_name}."
-      giving_feedback_is_good_idea: "Оставлять отзыв это всегда хорошо. Если все прошло правильно, вы должны поделиться с другими пользователями что %{other_party_given_name} можно доверять. Либо если были сложности, об этом тоже можно сообщить."
-      give_feedback_to: "Оставить отзыв %{other_party_given_name}"
+      has_marked_request_as_confirmed: "Пользователь %{other_party_full_name} отметил(а) запрос %{request} выполненным. Теперь вы можете оставить отзыв о пользователе %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} отменил(а) запрос %{request}. Вы все еще можете оставить отзыв о пользователе %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Всегда рекомендуется оставлять отзыв. Если все прошло хорошо, другим пользователям будет полезно знать, что %{other_party_given_name} заслуживает доверия. Если возникли сложности, о них тоже следует сообщить."
+      give_feedback_to: "Оставить отзыв о пользователе %{other_party_given_name}"
       stripe:
-        has_marked_request_as_confirmed: "%{other_party_full_name}пометил заказ о выполнении '%{request}'. Платеж за эту транзакцию был переведен на ваш банковский счет. Теперь вы можете оставить отзыв%{other_party_given_name}."
+        has_marked_request_as_confirmed: "%{other_party_full_name} пометил(а) заказ о выполнении '%{request}'. Платеж за эту транзакцию был переведен на ваш банковский счет. Теперь вы можете оставить отзыв о пользователе %{other_party_given_name}."
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Запрос завершен автоматически - не забудьте оставить отзыв"
       we_have_marked_request_as_confirmed: "Мы отметили запрос о \"%{request}\" выполненным. Данный запрос был завершен автоматически так как прошло %{days_passed} дней после того как запрос был принят."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Запрос автоматически выполнен - не забудьте оставить отзыв"
       we_have_marked_request_as_confirmed: "Мы отметили запрос о %{request} завершенным. Данный запрос завершен автоматически так как прошел один день после того как завершился период бронирования."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "Вы можете оставить отзыв о %{other_party_given_name}.Оставлять отзыв это всегда хорошо. Если все прошло правильно, вы должны поделиться с другими пользователями что %{other_party_given_name} можно доверять. Либо если были сложности, об этом тоже можно сообщить."
+      giving_feedback_is_good_idea: "Вы можете оставить отзыв о пользователе %{other_party_given_name}. Всегда рекомендуется оставлять отзыв. Если все прошло хорошо, другим пользователям будет полезно знать, что %{other_party_given_name} заслуживает доверия. Если возникли сложности, о них тоже следует сообщить."
       give_feedback_to: "Оставьте отзыв о %{other_party_given_name}"
       show_thread: "Показать диалог"
     confirmation_instructions:
@@ -1497,9 +1541,9 @@ ru:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Здравствуйте, %{name},"
+      hi: ~
       kassi_team: "Команда %{service_name}"
       thanks: "Спасибо,"
       dont_want_to_receive_these_emails: "Не хотите получать эти письма?"
@@ -1511,7 +1555,7 @@ ru:
       unsubscribe_from_these_emails: "Отписаться от подобных сообщений"
       unsubscribe_from_invitation_emails_info: "Вы получили это письмо, потому что член%{service_name} пригласил вас присоединиться к ним."
       unsubscribe_from_invitation_emails: "Отменить подписку на электронные письма с приглашением присоединиться к%{service_name}"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} принял ваше предложение по запросу %{listing}"
       has_accepted_your_request: "%{accepter} принял ваш запрос по предложению %{listing}"
@@ -1544,14 +1588,12 @@ ru:
       you_have_a_new_comment: "%{author} оставил комментарий на ваш запрос в %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} прокомментировал листинг, за которым вы следите в %{service_name}"
       has_commented_listing_you_follow_in_kassi: "Пользователь %{author} прокомментировал объявление \"%{listing}\", за которым вы следите в %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Просмотреть сообщение"
-      has_sent_you_a_message_in_kassi: "%{sender} отправил вам сообщение в %{service_name}"
+      has_sent_you_a_message_in_kassi: "%{sender} отправил(а) вам сообщение в %{service_name}"
       you_have_a_new_message: "У вас новое сообщение в %{service_name} от %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Вы получили новый платёж"
@@ -1576,7 +1618,6 @@ ru:
         you_have_received_new_payment: "Сумма <b>%{payment_sum}</b>была уплачена за  <b>%{listing_title}</b> by %{payer_full_name}. Деньги удерживаются %{service_name}до тех пор, пока заказ не будет помечен как выполненный. Вот Ваш чек."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1597,8 +1638,6 @@ ru:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "комиссия PayPal:"
       shipping_total: "Доставка:"
@@ -1647,7 +1686,6 @@ ru:
       unsubscribe_link_text: отпишись
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Привет %{name},"
       newest_offers: "Последние предложения"
@@ -1657,8 +1695,8 @@ ru:
       change_my_password: "Изменить пароль"
       reset_password_instructions: "<p>Вы указали, что вы забыли свой пароль или имя пользователя в  %{service_name}.</p><p>Если вам нужно сбросить ваш пароль, нажмите на следующую ссылку: %{password_reset_link}</p><br/><p>Если это были не вы,  просто проигнорируйте это сообщение. Ваш пароль не изменится до тех пор, пока вы не перейдёте по ссылке, указанной выше и не создадите новый пароль.</p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о %{name}"
-      you_have_not_given_feedback_yet: "Вы ещё не оставили отзыв о %{name} после события «%{event}». Не забудьте оставить отзыв о том, как зарекомендовал себя %{given_name} во время этого события."
+      remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о пользователе %{name}"
+      you_have_not_given_feedback_yet: "Вы ещё не оставили отзыв о пользователе %{name} после события «%{event}». Не забудьте оставить отзыв о том, как зарекомендовал(а) себя %{given_name} во время этого события."
     testimonial_reminder_v2:
       headline: ~
       you_have_not_given_feedback_yet: ~
@@ -1700,7 +1738,7 @@ ru:
       cant_click: ~
     new_member_notification:
       subject: ~
-      new_member_has_joined: "Новый участник присоединился к %{community}. Необходимо подтвердить их электронный адрес."
+      new_member_has_joined: "Новый участник присоединился к %{community}. Возможно, им необходимо подтвердить их электронный адрес."
       this_is_automatic_message: "Это автоматическое сообщение, направленное администраторам %{community}."
       person_name: "Имя:"
       person_email: "Эл. почта:"
@@ -1719,7 +1757,7 @@ ru:
       view_the_listing: "Посмотрите объявление"
     listing_rejected:
       subject: "Команда%{community}отклонила ваше объявление \"%{listing_title}\""
-      listing_has_been_rejected: "К сожалению, команда%{community}отклонила ваше объявление \"%{listing_title}\" после тщательного рассмотрения. Вы можете%{contact_link} узнать больше или отредактировать свое объявление и отправить его на новое рассмотрение."
+      listing_has_been_rejected: "К сожалению, команда %{community} отклонила ваше объявление \"%{listing_title}\" после тщательного рассмотрения. Вы можете %{contact_link} узнать больше или отредактировать свое объявление и отправить его на новое рассмотрение."
       contact_link: "свяжитесь с командой%{community}"
       edit_the_listing: "Редактировать объявление"
     edited_listing_submited_for_review:
@@ -1743,6 +1781,36 @@ ru:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Бронирование не было осуществлено из-за неизвестной ошибки. Пожалуйста, попробуйте еще раз позже. Списание средств не было осуществлено."
@@ -1774,6 +1842,8 @@ ru:
       generic_error: "Произошла ошибка во время процесса оплаты. Не удалось завершить ваш Stripe платеж."
       accept_authorization_error: "Произошла ошибка при попытке принять платеж Stripe. Пожалуйста, попробуйте еще раз."
       reject_authorization_error: "Произошла ошибка при попытке отклонить предварительно авторизованный платеж Stripe. Пожалуйста, попробуйте еще раз."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "На главную страницу"
     error_404:
@@ -1816,6 +1886,9 @@ ru:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
+      domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."
@@ -2194,8 +2267,10 @@ ru:
         other: "Сайт будет недоступен через %{count} минут по причине проведения профилактических работ"
       automatically_logged_out_please_sign_in: "Вы автоматически вышли из системы. Пожалуйста, войдите снова."
       stripe_you_account_balance_is_not_0: "Баланс вашей учетной записи не равен 0, поэтому он не может быть удален. Это может означать, что у вас есть транзакции, ожидающие завершения или что есть деньги, ожидающие выплаты на ваш банковский счет. Пожалуйста, свяжитесь с командой%{service_name}, чтобы узнать больше."
-      visit_admin: "Хотите%{link}?"
-      visit_admin_link: "зайдите в ваш админ панель"
+      stripe_balance_for_username_is_not_0: ~
+      visit_admin: "Хотите %{link}?"
+      visit_admin_link: "зайти в вашу панель администратора"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: "Учётная запись"
       notifications: Оповещения
@@ -2206,6 +2281,8 @@ ru:
       payments: Платежи
       listings: Объявления
       listings_search_placeholder: "Поиск по названию объявления"
+      transactions_search_placeholder: ~
+      transactions: Транзакции
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "У вас нет прав для просмотра этой записи."
@@ -2495,6 +2572,7 @@ ru:
       night: ночь
       nights: сутки
       invalid_parameters: "Неверные значения для новой сделки"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Вид.
     stripe_payment:
@@ -2634,7 +2712,7 @@ ru:
         other: "Доступ к %{service_name} ограничен. Вы должны иметь email адрес подтверждающий что вы имеете право на участие."
       family_name: "Фамилия:"
       given_name: "Имя:"
-      i_accept_the_terms_and_privacy: "Я согласен с %{terms} и %{privacy}"
+      i_accept_the_terms_and_privacy: "Я принимаю %{terms} и %{privacy}"
       admin_emails_consent: "Я хотел бы получать иногда оповещения от администраторов %{service_name} и понимаю, что я могу изменить свое мнение в любое время"
       invalid_invitation_code: "Код приглашения недействителен."
       invitation_code: "Код приглашения:"
@@ -2643,7 +2721,7 @@ ru:
       password_again: "Подтвердите пароль"
       show_my_name_to_others: "Показывать моё настоящее имя другим пользователям %{service_name}"
       sign_up: "Зарегистрироваться в %{service_name}"
-      terms: "Условиями использования"
+      terms: "Условия использования"
       privacy: Конфиденциальность
       visible_only_to_you: "видимо только вам"
       visible_to_everybody: "видимо для всех"
@@ -2817,8 +2895,10 @@ ru:
       image_is_processing: "Подождите. Изображение вашего профиля обрабатывается. Будет готово через минуту или две."
       shown_in_your_public_profile: "(отображается в вашем общедоступном профиле)"
       editing_profile_of: "Вы сейчас редактируете профиль %{name}"
-      format_markdown_link: "форматируйте ваше описание используя Markdown"
-      format_markdown: "Вы можете%{link}."
+      format_markdown_link: "форматировать ваше описание используя Markdown"
+      format_markdown: "Вы можете %{link}."
+      username: "Имя пользователя"
+      username_description: "Ваше имя пользователя используется как часть уникального URL страницы вашего профиля. Вы можете использовать только буквы и цифры для своего имени пользователя, без пробелов."
     save_information: Сохранить
   shipping_address:
     shipping_address: "Адрес доставки"
@@ -2830,8 +2910,8 @@ ru:
     show:
       accept_terms: "Согласие с условиями использования %{service_name}"
       here: здесь
-      i_accept_new_terms: "Я согласен с новыми условиями"
-      i_accept_terms: "Я согласен с условиями"
+      i_accept_new_terms: "Я принимаю новые условия"
+      i_accept_terms: "Я принимаю условия"
       terms: "Условия использования %{service_name}"
       terms_have_changed: "Условия использования изменены"
       you_can_view_the_new_terms: "Вы можете ознакомиться с новыми условиями"
@@ -2846,7 +2926,7 @@ ru:
     new:
       as_expected: "Как ожидалось"
       exceeded_expectations: "Намного лучше, чем ожидалось"
-      give_feedback_to: "Оставить отзыв о %{person}"
+      give_feedback_to: "Оставить отзыв о пользователе %{person}"
       grade: "Ваше общее ощущение?"
       less_than_expected: "Хуже, чем ожидалось"
       send_feedback: "Отправить отзыв"
@@ -2925,42 +3005,42 @@ ru:
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} дн. назад"
-    days_ago: "%{count} дней назад"
-    hour_ago: "%{count} час назад"
-    hours_ago: "%{count} часов назад"
-    minute_ago: "%{count} минуту назад"
-    minutes_ago: "%{count} минут назад"
-    month_ago: "%{count} месяц назад"
-    months_ago: "%{count} месяцев назад"
-    seconds_ago: "%{count} секунд назад"
-    year_ago: "%{count} год назад"
-    years_ago: "%{count} лет назад"
+    days_ago: "%{count} дн. назад"
+    hour_ago: "%{count} ч. назад"
+    hours_ago: "%{count} ч. назад"
+    minute_ago: "%{count} мин. назад"
+    minutes_ago: "%{count} мин. назад"
+    month_ago: "%{count} мес. назад"
+    months_ago: "%{count} мес. назад"
+    seconds_ago: "%{count} сек. назад"
+    year_ago: "%{count} г. назад"
+    years_ago: "%{count} г. назад"
     days_since:
-      one: "%{count} день"
-      few: "%{count} дня"
-      many: дней
-      other: дня
+      one: "%{count} дн."
+      few: "%{count} дн."
+      many: "%{count} дн."
+      other: "%{count} дн."
     time_to:
       seconds:
-        one: "%{count} секунда"
-        few: "%{count} секунд"
-        many: "%{count} секунд"
-        other: "%{count} секунд"
+        one: "%{count} сек."
+        few: "%{count} сек."
+        many: "%{count} сек."
+        other: "%{count} сек."
       minutes:
-        one: "%{count} минута"
-        few: "%{count} минут"
-        many: "%{count} минута"
-        other: "%{count} минута"
+        one: "%{count} мин."
+        few: "%{count} мин."
+        many: "%{count} мин."
+        other: "%{count} мин."
       hours:
-        one: "%{count} час"
-        few: "%{count} часа"
-        many: "%{count} часов"
-        other: "%{count} часов"
+        one: "%{count} ч."
+        few: "%{count} ч."
+        many: "%{count} ч."
+        other: "%{count} ч."
       days:
-        one: "%{count} день"
-        few: "%{count} дня"
-        many: "%{count} дней"
-        other: "%{count} дней"
+        one: "%{count} дн."
+        few: "%{count} дн."
+        many: "%{count} дн."
+        other: "%{count} дн."
   transactions:
     initiate:
       booked_days: "Забронировано дней:"
@@ -3154,7 +3234,7 @@ ru:
       address_city: Город
       address_postal_code: "Почтовый индекс"
       address_line1: "Название улицы"
-      tos_link: "Добавляя данные о выплате, вы принимаете%{stripe_link}."
+      tos_link: "Добавляя данные о выплате, вы принимаете %{stripe_link}."
       tos_link_title: "Соглашение об использовании учетной записи связанной с Stripe"
       save_details: "Сохранить данные"
       edit: "Редактировать данные"
@@ -3175,14 +3255,14 @@ ru:
       female: женский
     form_bank:
       bank_account_number: "Номер банковского счета"
-      bank_routing_number: "Код Банка"
+      bank_routing_number: "Код Банка (Routing number)"
       bank_routing_1: "Банковский код "
       bank_routing_2: "Код Филиала"
       bank_currency: "Валюта банковского счета"
       update_also_bank_account: "Обновить также банковский счет"
       messages:
         account_number: "Номер счета"
-        routing_number: "Код Банка"
+        routing_number: "Код Банка (Routing number)"
         bank_code: "Банковский код "
         branch_code: "Код Филиала"
         transit_number: "Транзитный номер"
@@ -3199,15 +3279,19 @@ ru:
     form_verification:
       personal_id_number: "Личный ID номер"
       document: "Удостоверение личности (паспорт,ID выданное правительством)"
+      document_back: ~
       send_verification: "Отправить письмо с подтверждением"
       need_verification: "Нужно дополнительное подтверждение"
       additional_document: ~
+      additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Номер социального страхования (SIN)"
       social_security_number: "Номер Социального Страхования"
       ssn_last_4: "Последние 4 цифры номера социального страхования (SSN)"
       hong_kong_identity_card: "Номер удостоверения личности Гонконга (HKID)"
       singapore_identity_card: "Национальная регистрационная карточка (NRIC) или иностранный идентификационный номер (FIN)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "должен быть действительный номер социального страхования (SIN)"
   payment_settings:
@@ -3223,7 +3307,7 @@ ru:
     invalid_bank_account_number: "Пожалуйста, убедитесь, что ваш банковский счет введен правильно и соответствует вашей стране."
     invalid_postal_code: "Неверный почтовый индекс для%{country}"
   seo_sections:
-    you_can_use_variables: "Вы можете использовать следующие варианты:%{vars}"
+    you_can_use_variables: "Вы можете использовать следующие варианты: %{vars}"
     placeholder:
       search_results: "Результаты поиска%{variable}"
       search_results_for: "Результаты поиска для:%{placeholder1} на%{placeholder2}"
@@ -3238,8 +3322,6 @@ ru:
         id: ~
         title: ~
         paragraph: ~
-        button_color: ~
-        button_color_hover: ~
         button_title: ~
         button_path: ~
         button_path_string: ~
@@ -3247,7 +3329,6 @@ ru:
         background_image_variation: ~
         background_color: ~
         background_color_string: ~
-        icon_color: ~
       landing_page_version/section/listings:
         listing_1_id: ~
         listing_2_id: ~

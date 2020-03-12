@@ -274,6 +274,10 @@ zh-TW:
         ban_user_confirmation: "這會將此用戶從平台中移除，並阻止他們再次使用此帳戶訪問網站。 您確定要繼續嗎？"
         unban_user_confirmation: "這會取消平台上被禁止的用戶，並允許他們使用此帳戶再次訪問該網站。 你確定要繼續嗎？"
         ban_me_error: 你不能禁止自己。
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: 搜索
         search_by_name_email: 搜索名稱，電子信箱或顯示名稱
         reset_search: 顯示全部
@@ -293,6 +297,7 @@ zh-TW:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
@@ -302,6 +307,7 @@ zh-TW:
         enabled_for_all: 為所有啟用
         new_topbar: 新的頂部導覽（每頁都可見）
         searchpage: 新增搜索頁面（需要新的頂部導覽）
+        new_email_templates: ~
       social_media:
         social_media: 社交媒体
         logo: ~
@@ -329,7 +335,6 @@ zh-TW:
         invalid_facebook_connect_secret: 客户端密钥仅应包含数字和字母a到f。
         enable_facebook_login: ~
         save: 保存设置
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -392,6 +397,10 @@ zh-TW:
         robots_info: ~
         robots_info_link_text: ~
         robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: ~
       analytics:
         analytics: 分析
@@ -404,6 +413,10 @@ zh-TW:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: 保存设置
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
       logo_link:
         title: ~
         info: ~
@@ -452,10 +465,13 @@ zh-TW:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: 会话
           listing: 发布的信息
@@ -475,6 +491,7 @@ zh-TW:
           paid: 已支付
           confirmed: 已确认
           canceled: 已取消
+          disputed: ~
           initiated: 等待PayPal付款
           pending_ext: 等待PayPal付款
           none:
@@ -488,8 +505,11 @@ zh-TW:
             paid: 已付款
             confirmed: 已確認
             canceled: 已取消
+            disputed: ~
             initiated: 等待PayPal付款
             pending_ext: 等待PayPal付款
+            refunded: ~
+            dismissed: ~
           stripe:
             free: 對話
             pending: 待定
@@ -499,11 +519,14 @@ zh-TW:
             paid: 已付款
             confirmed: 已確認
             canceled: 已取消
+            disputed: ~
             initiated: 等待
             pending_ext: 等待
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: 无
       conversations:
         conversations: 查看對話
@@ -642,36 +665,33 @@ zh-TW:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_preview_text: ~
-        info_2_details_text: ~
-        info_2_design_text: ~
+        info_2_help_center: ~
         info_3: ~
         info_4: ~
         editor_title: ~
         editor_info: ~
         preview: ~
         set_live: ~
-        headers:
-          section_id: ~
-          section_type: ~
-          version: ~
-          released: ~
-        add_new_version: ~
-        new_version: ~
-        edit_version: ~
         add_new_section: ~
         select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
         form:
-          version: ~
           save: ~
+          cancel: ~
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: ~
           edit: ~
           remove_section_confirmation: ~
@@ -685,8 +705,6 @@ zh-TW:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -703,11 +721,17 @@ zh-TW:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
+        content:
+          title: ~
         hero:
           hero_title: ~
           hero_description: ~
+          basic_details_tab: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -720,6 +744,10 @@ zh-TW:
           cta_enabled: ~
           cta_text: ~
           cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
         background_image_overlay:
           background_image: ~
           background_image_info: ~
@@ -780,6 +808,7 @@ zh-TW:
           main_title: ~
           column_header: ~
           column_title: ~
+          web_viewer: ~
           column_icon_info: ~
           column_icon: ~
           column_paragraph: ~
@@ -787,14 +816,15 @@ zh-TW:
           column_button_text: ~
           column_button_url: ~
         listings:
+          listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
           text: ~
-          youtube_video_id: ~
           autoplay: ~
           autoplay_no: ~
           autoplay_muted: ~
           info: ~
+          youtube_video_id_info: ~
     custom_fields:
       edit:
         edit_listing_field: "編輯刊登名稱“%{field_name}”"
@@ -1139,6 +1169,8 @@ zh-TW:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: 编辑页面
     default_community_slogan: 集市
@@ -1230,7 +1262,7 @@ zh-TW:
       stripe-fee_label: ~
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
-      cancel_description: "如果您的訂單沒有完成，您可以將其標記為“有爭議”。 你仍然可以向對方提供反饋，並描述發生了什麼。"
+      cancel_description_team: ~
       cancel_payed_description: 如果你的请求被接受但是你有其他的想法，你仍然可以在付款前取消请求。
       canceling_payed_transaction: 取消交易
       confirm: 标记为完成
@@ -1279,6 +1311,10 @@ zh-TW:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: 消息
       message_to: "發送給%{author_name}的消息"
@@ -1353,6 +1389,18 @@ zh-TW:
           verify: 等待你确认你的PayPal帐号
       stripe:
         waiting_confirmation_from_requester: "等待%{requester_name}標記完成的訂單。 一旦訂單被標記為完成，付款將被發佈到您的銀行賬戶。"
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: 接受報價
       accept_request: 接受請求
@@ -1364,6 +1412,8 @@ zh-TW:
       reject_preauthorized_request: 这次不行
       confirm: 标记为已完成
       cancel: 争议
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "来自%{service_name}的新反饋"
     feedback_body: "%{author_name_and_email}已经从%{service_name}发送了下面的反馈。"
@@ -1418,7 +1468,6 @@ zh-TW:
       please_go_to_payment_settings: "请点击进入%{payment_settings_link}并填入付款信息。"
       payment_settings_link: 付款設定
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1433,27 +1482,22 @@ zh-TW:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我們已經完成了關於'%{request}'的順序標記。 訂單已自動完成，因為接受請求後已過去了%{days_passed}天。"
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我們已經完成了關於'%{request}'的順序標記。 該請求自動完成，因為預訂期限結束後一天已過。"
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "你现在可以评价%{other_party_given_name}。给予评价总是一个好主意。如果一切顺利，你应该让其他人知道%{other_party_given_name}可以被信任。如果有任何问题，在评论中提到它们也是很好的。"
@@ -1468,9 +1512,9 @@ zh-TW:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "您好 %{name},"
+      hi: ~
       kassi_team: "%{service_name} 團隊"
       thanks: 謝謝！
       dont_want_to_receive_these_emails: 不想收到这些邮件？
@@ -1482,7 +1526,7 @@ zh-TW:
       unsubscribe_from_these_emails: 退订这些邮件
       unsubscribe_from_invitation_emails_info: "您收到此電子郵件是因為%{service_name}的會員邀請您加入。"
       unsubscribe_from_invitation_emails: "取消訂閱來自%{service_name}的邀請信件"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已經接受了你的%{listing}"
       has_accepted_your_request: "%{accepter}已經接受了你的%{listing}"
@@ -1515,14 +1559,12 @@ zh-TW:
       you_have_a_new_comment: "%{author} 在%{service_name}評論了您的刊登"
       listing_you_follow_has_a_new_comment: "%{author}評論了您在%{service_name}關注的刊登"
       has_commented_listing_you_follow_in_kassi: "%{author}评价了你在%{service_name}中关注的“%{listing}”。"
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: 查看消息
       has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向您發送了一條信息"
       you_have_a_new_message: "在%{service_name}收到一條來自%{sender_name}的消息"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: 你收到一笔新的付款
@@ -1547,7 +1589,6 @@ zh-TW:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1568,8 +1609,6 @@ zh-TW:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: PayPal的费用：
       shipping_total: "运费:"
@@ -1618,7 +1657,6 @@ zh-TW:
       unsubscribe_link_text: 取消订阅
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "嗨，%{name}"
       newest_offers: 大家都提供了些什么服務？
@@ -1714,6 +1752,36 @@ zh-TW:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "由於意外錯誤，預訂失敗。 請稍後再試。 你沒有被收費。"
@@ -1745,6 +1813,8 @@ zh-TW:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: 回到主頁
     error_404:
@@ -1787,6 +1857,9 @@ zh-TW:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
+      domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} 同意將 %{listing_title} 借給 %{requester_name} %{time_ago}。"
@@ -2162,8 +2235,10 @@ zh-TW:
         other: "該網站準備在%{count}分鐘內進行維護"
       automatically_logged_out_please_sign_in: 您已自動登出，請再次登入。
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: 帳號
       notifications: 通知
@@ -2174,6 +2249,8 @@ zh-TW:
       payments: 付款
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: 你无权查看此信息。
@@ -2463,6 +2540,7 @@ zh-TW:
       night: 晚上
       nights: 晚上
       invalid_parameters: 新交易的數值無效
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: 查看。
     stripe_payment:
@@ -2784,6 +2862,8 @@ zh-TW:
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: 保存信息
   shipping_address:
     shipping_address: 送货地址
@@ -3113,15 +3193,19 @@ zh-TW:
     form_verification:
       personal_id_number: ~
       document: ~
+      document_back: ~
       send_verification: ~
       need_verification: ~
       additional_document: ~
+      additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
       ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
+      mexico_id_number: ~
       messages:
         social_insurance_number: ~
   payment_settings:
@@ -3152,8 +3236,6 @@ zh-TW:
         id: ~
         title: ~
         paragraph: ~
-        button_color: ~
-        button_color_hover: ~
         button_title: ~
         button_path: ~
         button_path_string: ~
@@ -3161,7 +3243,6 @@ zh-TW:
         background_image_variation: ~
         background_color: ~
         background_color_string: ~
-        icon_color: ~
       landing_page_version/section/listings:
         listing_1_id: ~
         listing_2_id: ~

@@ -1,0 +1,19 @@
+%section.content-card-section
+  %h2
+    = t('admin2.signup_login.linkedin')
+  %p.ingress
+    = t('admin2.signup_login.linkedin_info_text',
+        href: 'https://www.linkedin.com/developers/',
+        href2: 'https://help.sharetribe.com/sharetribe-go-managing-your-go-marketplace/third-party-sign-up-services/how-to-configure-linkedin-sign-in').html_safe
+  %span.social-block
+    - required_link = @current_community.linkedin_connect_enabled?
+    .form-group
+      = form.label :linkedin_connect_id, t('admin2.signup_login.linkedin_connect_id')
+      = form.text_field :linkedin_connect_id, class: %i[form-control social-data], placeholder: '86xb8ms47icxgw', required: required_link
+    .form-group
+      = form.label :linkedin_connect_secret, t('admin2.signup_login.linkedin_connect_secret')
+      = form.text_field :linkedin_connect_secret, class: %i[form-control social-data], placeholder: 'cVjH9Q2Butjm2J90', required: required_link
+    .form-group
+      .form-check
+        = form.check_box :linkedin_connect_enabled, class: %i[form-check-input social-checked]
+        = form.label :linkedin_connect_enabled, t('admin2.signup_login.linkedin_connect_enabled'), class: %i[form-check-label]

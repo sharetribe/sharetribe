@@ -1,0 +1,196 @@
+#mobilemenu
+  %aside.sidenav-container
+    .mobilemenu-top
+      .mobilemenu-top-logo
+        = link_to admin2_dashboard_index_path, class: :logo do
+          = image_tag 'gap-logo.png', width: 117, alt: t('admin2.topnav.logo')
+
+      = render partial: 'admin2/locals', locals: header_props
+
+    .sidenav-container-top
+      %h6
+        = t('admin2.topnav.admin_menu')
+      .sidenav-links
+        / Dashboard
+        %ul.category-title
+          %li#dashboard-mobile{class: active_li('dashboard')}
+            = link_to t('admin2.sidebar.dashboard'), admin2_dashboard_index_path
+        / General
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.general_group'), '#general-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'general-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#general-mobile.collapse.subtitle{class: expand_ul('general')}
+          %li#essentials-mobile{class: active_li('essentials')}
+            = link_to t('admin2.sidebar.general.essentials'), admin2_general_essentials_path
+          %li#domain-mobile
+            %a{:href => 'domain.php'} Domain
+          %li#privacy-mobile{class: active_li('privacy')}
+            = link_to t('admin2.sidebar.general.privacy'), admin2_general_privacy_index_path
+          %li#staticcontent-mobile
+            %a{:href => 'static-content.php'} Static content
+          %li#adminnotifications-mobile{class: active_li('admin_notifications')}
+            = link_to t('admin2.sidebar.general.admin_notifications'), admin2_general_admin_notifications_path
+        / Design
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.design_group'), '#design-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'design-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#design-mobile.collapse.subtitle{class: expand_ul('design')}
+          %li#logoscolor-mobile{class: active_li('logos_color')}
+          = link_to t('admin2.sidebar.design.logos_and_color'), admin2_design_logos_color_index_path
+          %li#coverphotos-mobile{class: active_li('cover_photos')}
+          = link_to t('admin2.sidebar.design.cover_photos'), admin2_design_cover_photos_path
+          %li#landingpage-mobile{class: active_li('landing_page')}
+            = link_to t('admin2.sidebar.design.landing_page'), admin2_design_landing_page_index_path
+          %li#topbar-mobile{class: active_li('topbar')}
+            = link_to t('admin2.sidebar.design.topbar'), admin2_design_topbar_index_path
+          %li#footer-mobile{class: active_li('footer')}
+            = link_to t('admin2.sidebar.design.footer'), admin2_design_footer_index_path
+          %li#display-mobile{class: active_li('display')}
+            = link_to t('admin2.sidebar.design.display'), admin2_design_display_index_path
+          %li#experimental-mobile{class: active_li('experimental')}
+            = link_to t('admin2.sidebar.design.experimental'), admin2_design_experimental_index_path
+        / Divider
+        %hr
+        / Users
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.users_group'), '#users-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'users-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#users-mobile.collapse.subtitle{class: expand_ul('users')}
+          %li#manageusers-mobile
+            %a{:href => 'manage-users.php'} Manage users
+          %li#userfields-mobile
+            %a{:href => 'user-fields.php'} User fields
+          %li#signuplogin-mobile{class: active_li('signup_login')}
+            = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
+          %li#userrights-mobile{class: active_li('user_rights')}
+            = link_to t('admin2.sidebar.users.user_rights'), admin2_users_user_rights_path
+          %li#invitations-mobile
+            %a{:href => 'invitations.php'} Invitations
+        / Listings
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.listings_group'), '#listings-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'listings-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#listings-mobile.collapse.subtitle{class: expand_ul('listings')}
+          %li#managelistings-mobile
+            %a{:href => 'manage-listings.php'} Manage listings
+          %li#categories-mobile
+            %a{:href => 'categories.php'} Categories
+          %li#ordertypes-mobile
+            %a{:href => 'order-types.php'} Order types
+          %li#listingfields-mobile
+            %a{:href => 'listing-fields.php'} Listing fields
+          %li#listingapproval-mobile{class: active_li('listing_approval')}
+            = link_to t('admin2.sidebar.listings.listing_approval'), admin2_listings_listing_approval_index_path
+          %li#listingcomments-mobile{class: active_li('listing_comments')}
+            = link_to t('admin2.sidebar.listings.listing_comments'), admin2_listings_listing_comments_path
+        / Transactions
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.transactions_group'), '#transactionsreviews-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'transactionsreviews-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#transactionsreviews-mobile.collapse.subtitle{class: expand_ul('transactions_reviews')}
+          %li#managetransactions-mobile
+            %a{:href => 'manage-transactions.php'} Manage transactions
+          %li#viewconversations-mobile
+            %a{:href => 'view-conversations.php'} View conversations
+          %li#managereviews-mobile
+            %a{:href => 'manage-reviews.php'} Manage reviews
+          %li#configuretransactions-mobile{class: active_li('config_transactions')}
+            = link_to t('admin2.sidebar.transactions_reviews.config_transactions'), admin2_transactions_reviews_config_transactions_path
+        / Divider
+        %hr/
+        / Payment system
+        - if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_provisioned?(@current_community.id)
+          %ul.category-title
+            %li
+              = link_to t('admin2.sidebar.payment_group'), '#paymentsystem-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'paymentsystem-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+          %ul#paymentsystem-mobile.collapse.subtitle{class: expand_ul('payment_system')}
+            %li#countrycurrency-mobile{class: active_li('country_currencies')}
+              = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
+            %li#transactionsize-mobile
+              %a{:href => 'transaction-size.php'} Transaction size
+            %li#paypal-mobile
+              %a{:href => 'paypal.php'} PayPal
+            %li#stripe-mobile
+              %a{:href => 'stripe.php'} Stripe
+        / Email
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.emails_group'), '#emails-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'emails-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#emails-mobile.collapse.subtitle{class: expand_ul('emails')}
+          %li#emailusers-mobile
+            %a{:href => 'email-users.php'} Email users
+          %li#welcomeemail-mobile
+            %a{:href => 'welcome-email.php'} Welcome email
+          %li#automaticnewsletter-mobile{class: active_li('newsletters')}
+            = link_to t('admin2.sidebar.emails.automatic_newsletter'), admin2_emails_newsletters_path
+          %li#customoutgoingaddress-mobile
+            %a{:href => 'custom-outgoing-address.php'} Custom outgoing address
+        / Search & Location
+        - if FeatureFlagHelper.location_search_available
+          %ul.category-title
+            %li
+              = link_to t('admin2.sidebar.search_group'), '#searchlocation-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'searchlocation-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+          %ul#searchlocation-mobile.collapse.subtitle{class: expand_ul('search_location')}
+            %li#search-mobile{class: active_li('search')}
+              = link_to t('admin2.sidebar.search_location.search'), admin2_search_location_search_index_path
+            %li#location-mobile{class: active_li('locations')}
+              = link_to t('admin2.sidebar.search_location.location'), admin2_search_location_locations_path
+
+        / Social media
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.social_media_group'), '#socialmedia-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'socialmedia-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#socialmedia.collapse.subtitle{class: expand_ul('social_media')}
+          %li#imagetags-mobile{class: active_li('image_tags')}
+            = link_to t('admin2.sidebar.social_media.image_tags'), admin2_social_media_image_tags_path
+          %li#twitter-mobile{class: active_li('twitter')}
+            = link_to t('admin2.sidebar.social_media.twitter'), admin2_social_media_twitter_index_path
+        / SEO
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.seo_group'), '#seo-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'seo-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#seo-mobile.collapse.subtitle{class: expand_ul('seo')}
+          %li#sitemaprobots-mobile{class: active_li('sitemap')}
+            = link_to t('admin2.sidebar.seo.sitemap_robots'), admin2_seo_sitemap_index_path
+          %li#landingpagemeta-mobile{class: active_li('landing_pages')}
+            = link_to t('admin2.sidebar.seo.landing_pages'), admin2_seo_landing_pages_path
+          %li#searchresultspagesmeta-mobile{class: active_li('search_pages')}
+            = link_to t('admin2.sidebar.seo.search_pages'), admin2_seo_search_pages_path
+          %li#listingpagesmeta-mobile{class: active_li('listing_pages')}
+            = link_to t('admin2.sidebar.seo.listing_pages'), admin2_seo_listing_pages_path
+          %li#categorypagesmeta-mobile{class: active_li('category_pages')}
+            = link_to t('admin2.sidebar.seo.category_pages'), admin2_seo_category_pages_path
+          %li#profilepagesmeta-mobile{class: active_li('profile_pages')}
+            = link_to t('admin2.sidebar.seo.profile_pages'), admin2_seo_profile_pages_path
+        / Analytics
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.analytics_group'), '#analytics-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'analytics-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#analytics-mobile.collapse.subtitle{class: expand_ul('analytics')}
+          %li#googleanalytics-mobile{class: active_li('google')}
+            = link_to t('admin2.sidebar.analytics.google'), admin2_analytics_google_index_path
+          %li#googlesearchconsole-mobile
+            %a{:href => "google-search-console.php"} Google Search Console
+          - if APP_CONFIG.admin_enable_tracking_config
+            %li#sharetribeanalytics-mobile{class: active_li('sharetribe')}
+              = link_to t('admin2.sidebar.analytics.sharetribe'), admin2_analytics_sharetribe_index_path
+        / Advanced
+        %ul.category-title
+          %li
+            = link_to t('admin2.sidebar.advanced_group'), '#advanced-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'advanced-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
+        %ul#advanced-mobile.collapse.subtitle{class: expand_ul('advanced')}
+          %li#customscript-mobile{class: active_li('custom_scripts')}
+            = link_to t('admin2.sidebar.advanced.custom_script'), admin2_advanced_custom_scripts_path
+          %li#deletemarketplace-mobile
+            %a{:href => 'delete-marketplace.php'} Delete marketplace
+    / Bottom links for branded links
+    .sidenav-bottomLinks
+      %ul.category-title
+        %li
+          = link_to t('admin2.sidebar.subscription'), admin_plan_path, rel: :noopener
+        %li
+          = link_to t('admin2.sidebar.help_center'), 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
+        %li
+          = link_to t('admin2.sidebar.marketplace_guide'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
+        %li
+          = link_to t('admin2.sidebar.what_new'), 'https://www.sharetribe.com/products/go/updates?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank

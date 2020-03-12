@@ -4,7 +4,7 @@ module NavigationHelpers
   #   When /^I go to (.+)$/ do |page_name|
   #
   # step definition in web_steps.rb
-  # rubocop:disable CyclomaticComplexity, Metrics/MethodLength
+  # rubocop:disable CyclomaticComplexity, Metrics/MethodLength, Metrics/AbcSize
   def path_to(page_name)
     case page_name
 
@@ -46,6 +46,22 @@ module NavigationHelpers
       "/en/signup?code=#{$1}"
     when /^the admin view of community "(.*)"$/i
       admin_details_edit_path(locale: "en")
+    when /^the admin2 general privacy community "(.*)"$/i
+      admin2_general_privacy_index_path(locale: "en")
+    when /^the admin2 users signup and login community "(.*)"$/i
+      admin2_users_signup_login_index_path(locale: "en")
+    when /^the admin2 design display community "(.*)"$/i
+      admin2_design_display_index_path(locale: "en")
+    when /^the admin2 general admin notifications community "(.*)"$/i
+      admin2_general_admin_notifications_path(locale: "en")
+    when /^the admin2 configure transactions community "(.*)"$/i
+      admin2_transactions_reviews_config_transactions_path(locale: "en")
+    when /^the admin2 automatic newsletter community "(.*)"$/i
+      admin2_emails_newsletters_path(locale: "en")
+    when /^the admin2 user rights community "(.*)"$/i
+      admin2_users_user_rights_path(locale: "en")
+    when /^the admin2 general essential community "(.*)"$/i
+      admin2_general_essentials_path(locale: "en")
     when /^the admin settings view of community "(.*)"$/i
       admin_setting_path(locale: "en")
     when /the infos page/
@@ -82,6 +98,26 @@ module NavigationHelpers
       edit_text_instructions_admin_community_path(:id => @current_community.id)
     when /the social media admin page/
       social_media_admin_community_path(:id => @current_community.id)
+    when /the social media image and tags admin page/
+      admin2_social_media_image_tags_path(:id => @current_community.id)
+    when /the seo landing meta admin page/
+      admin2_seo_landing_pages_path(:id => @current_community.id)
+    when /the seo search meta admin page/
+      admin2_seo_search_pages_path(:id => @current_community.id)
+    when /the seo listing meta admin page/
+      admin2_seo_listing_pages_path(:id => @current_community.id)
+    when /the seo category meta admin page/
+      admin2_seo_category_pages_path(:id => @current_community.id)
+    when /the seo profile meta admin page/
+      admin2_seo_profile_pages_path(:id => @current_community.id)
+    when /the social media twitter admin page/
+      admin2_social_media_twitter_index_path(:id => @current_community.id)
+    when /the google analytics admin page/
+      admin2_analytics_google_index_path(:id => @current_community.id)
+    when /the custom script admin page/
+      admin2_advanced_custom_scripts_path(:id => @current_community.id)
+    when /the sharetribe analytics admin page/
+      admin2_analytics_sharetribe_index_path(:id => @current_community.id)
     when /the analytics admin page/
       analytics_admin_community_path(:id => @current_community.id)
     when /the top bar admin page/
@@ -123,7 +159,7 @@ module NavigationHelpers
       end
     end
   end
-  # rubocop:enable CyclomaticComplexity, Metrics/MethodLength
+  # rubocop:enable CyclomaticComplexity, Metrics/MethodLength, Metrics/AbcSize
 end
 
 World(NavigationHelpers)

@@ -149,7 +149,7 @@ module TransactionService::Process
     end
 
     def cancel(tx:, message:, sender_id:, gateway_adapter:, metadata: {})
-      TransactionService::StateMachine.transition_to(tx.id, :canceled, metadata)
+      TransactionService::StateMachine.transition_to(tx.id, :disputed, metadata)
       TxStore.mark_as_unseen_by_other(community_id: tx.community_id,
                                       transaction_id: tx.id,
                                       person_id: tx.listing_author_id)

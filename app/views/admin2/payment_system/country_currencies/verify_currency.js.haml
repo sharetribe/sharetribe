@@ -1,0 +1,2 @@
+:plain
+  $("#payments_in_countries").html("#{j render 'country_payments', stripe_allowed: @stripe_allowed, paypal_allowed: @paypal_allowed, country_name: @country_name, currency: @currency}");

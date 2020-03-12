@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.6.2'
+ruby '2.6.5'
 
 gem 'rails', '5.2.3'
 
@@ -148,7 +148,7 @@ group :test do
   # required for CircleCI automatic test balancing
   gem 'rspec_junit_formatter'
 
-  gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: '42b9dd09a1db3fb2b7ec11809ac93647f178a115'
+  gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: 'd188f6ad796f498a3d6e9b6b087172d8c150f325'
   gem 'poltergeist'
   gem 'puma'
   gem 'webdrivers'
@@ -179,3 +179,5 @@ gem 'biz'
 gem 'ffi', '>= 1.9.25'
 gem 'rubyzip', '~> 1.3.0'
 gem 'bootsnap', require: false
+gem "select2-rails"
+gem "cocoon"

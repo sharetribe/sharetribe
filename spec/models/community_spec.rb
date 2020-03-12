@@ -125,7 +125,7 @@ describe Community, type: :model do
   end
 
   it "is not valid without proper ident" do
-    community.ident = "test_community-9"
+    community.ident = "test-community-9"
     expect(community).to be_valid
     community.ident = nil
     expect(community).not_to be_valid
@@ -135,6 +135,16 @@ describe Community, type: :model do
     expect(community).not_to be_valid
     community.ident = "´?€"
     expect(community).not_to be_valid
+    community.ident = "-test-community-9"
+    expect(community).not_to be_valid
+    community.ident = "test-community-9-"
+    expect(community).not_to be_valid
+    community.ident = "test-community--9"
+    expect(community).not_to be_valid
+    community.ident = "test-community.9"
+    expect(community).not_to be_valid
+    community.ident = "test-community_9"
+    expect(community).not_to be_valid
   end
 
   it "validates twitter handle" do
@@ -143,7 +153,7 @@ describe Community, type: :model do
     community.twitter_handle = "abcdefghijklmnopqr"
     expect(community).not_to be_valid
     community.twitter_handle = "@abcd"
-    expect(community).not_to be_valid
+    expect(community).to be_valid
     community.twitter_handle = "AbCd1"
     expect(community).to be_valid
   end

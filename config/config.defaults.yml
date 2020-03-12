@@ -417,6 +417,8 @@ default: &default_settings
   #
   font_proximanovasoft_url:
 
+  font_circularstd_url:
+
   ##########################################
   # Admin Intercom (sharetribe.com internal)
   ##########################################
@@ -488,6 +490,9 @@ default: &default_settings
   admin_enable_tracking_config: false
 
   clp_s3_bucket_name: 'landing_page'
+
+  # Debian CA bundle required for Paypal
+  ssl_ca_certificates_file: '/etc/ssl/certs/ca-certificates.crt'
 
 production: &production_settings
   <<: *default_settings
@@ -587,3 +592,4 @@ test:
   feature_stripe_private_key: sk_test_123456789012345678901234
 
   admin_enable_tracking_config: true
+

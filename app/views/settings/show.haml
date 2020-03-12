@@ -23,6 +23,7 @@
     = link_to(t("settings.profile.profile_page"), target_user) + "."
 
   = form_for target_user do |form|
+    = hidden_field_tag :referer_form, 'settings'
     = form.label :given_name, t("settings.profile.given_name")
     = form.text_field :given_name, :class => "text_field", :maxlength => "30"
     .inline-label-container
@@ -39,7 +40,20 @@
       = icon_tag("information", ["icon-fix"])
     %small
       = t("settings.profile.display_name_description")
-    = form.text_field :display_name, class: "text_field", :maxlength => "30"
+    = form.text_field :display_name, class: "text_field", :maxlength => "100"
+
+    -# username
+    .inline-label-container
+      = form.label :display_name, t("settings.profile.username"), class: "inline"
+    %span.alert-box-icon
+      = icon_tag("information", ["icon-fix"])
+    %small
+      = t("settings.profile.username_description")
+    = form.text_field :username, class: "text_field", required: true,
+      minlength: 3, maxlength: 20, valid_username: true,
+      remote: check_username_availability_person_path(target_user.username),
+      data: {'msg-remote': t('errors.messages.username_is_invalid')},
+      'data-msg-valid_username': t('errors.messages.username_is_invalid')
 
     -# Location
     - if show_location?

@@ -1,0 +1,41 @@
+- content_for :title do
+  = t('admin2.sidebar.transactions_reviews.config_transactions')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.transactions_reviews.config_transactions')
+
+.content-card-section-container
+  = form_for @current_community, url: update_config_admin2_transactions_reviews_config_transactions_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.config_transactions.transaction_auto_completion')
+
+      .form-group
+        = form.label :automatic_confirmation_after_days, t('admin2.config_transactions.automatic_confirmation_after_days')
+        .input-group
+          = form.text_field :automatic_confirmation_after_days, class: %i[form-control], required: true, max: 85, maxlength: 2, min: 1, style: 'border-radius: 4px 0 0 4px', type: 'tel'
+          .input-group-append#days_label
+            %span.input-group-text
+              = t('admin2.config_transactions.days')
+        %small#minimumTransactionSize-help.form-text
+          = t('admin2.config_transactions.info_text')
+    %section.content-card-section
+      %h2
+        = t('admin2.config_transactions.transaction_agreement')
+
+      .form-group
+        %label= t('admin2.config_transactions.transaction_agreement')
+        .form-check
+          = form.check_box :transaction_agreement_in_use, class: %i[form-check-input for-hide-content]
+          = form.label :transaction_agreement_in_use, t('admin2.config_transactions.transaction_agreement_in_use'), class: %i[form-check-label]
+
+      %div.hide-content{class: form.object.transaction_agreement_in_use ? '' : :opacity_04}
+        = render 'transaction_agreement', form: form, customizations: @customizations
+
+    .content-card-terminal.without-margin
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+
+- content_for :extra_javascript do
+  :javascript
+    validateCommunityEdit(#{@current_community.id});

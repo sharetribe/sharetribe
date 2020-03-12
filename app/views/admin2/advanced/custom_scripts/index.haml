@@ -1,0 +1,21 @@
+- content_for :title do
+  = t('admin2.sidebar.advanced.custom_script')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.advanced.custom_script')
+
+.content-card-section-container
+  = form_for @current_community, url: update_script_admin2_advanced_custom_scripts_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.sidebar.advanced.custom_script')
+      %p.ingress
+        = t('admin2.custom_script.info_text', url: 'https://help.sharetribe.com/en/articles/666142').html_safe
+      .form-group
+        = form.label :custom_head_script, t('admin2.custom_script.custom_head_script')
+        = form.text_area :custom_head_script, class: %i[form-control], placeholder: t('admin2.custom_script.custom_head_script_placeholder')
+        %small#twitterHandle-help.form-text
+          = t('admin2.custom_script.custom_head_script_info_text')
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

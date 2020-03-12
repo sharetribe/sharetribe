@@ -1,0 +1,23 @@
+- content_for :title do
+  = t('admin2.sidebar.general.admin_notifications')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.general.admin_notifications')
+.content-card-section-container
+  = form_for @current_community, url: update_admin_notifications_admin2_general_admin_notifications_path, method: :patch, html: { class: %i[content-card-section-form] } do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.admin_notifications.header')
+      %p.ingress
+        = t('admin2.admin_notifications.info_text')
+
+      .form-group
+        .form-check
+          = form.check_box :email_admins_about_new_members, class: %i[form-check-input]
+          = form.label :email_admins_about_new_members, t('admin2.admin_notifications.email_admins_about_new_members'), class: %i[form-check-label]
+        .form-check
+          = form.check_box :email_admins_about_new_transactions, class: %i[form-check-input]
+          = form.label :email_admins_about_new_transactions, t('admin2.admin_notifications.email_admins_about_new_transactions'), class: %i[form-check-label]
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

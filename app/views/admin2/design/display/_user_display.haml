@@ -1,0 +1,18 @@
+%section.content-card-section
+  %h2
+    = t('admin2.display.user_display_header')
+  .form-group
+    %label
+      = t('admin2.display.user_display')
+    .form-radiobutton-wrapper
+      .form-radiobutton.form-check-inline
+        = form.radio_button :name_display_type, 'full_name', class: %i[form-check-input]
+        = form.label :name_display_type_full_name, t('admin2.display.full_name'), class: %i[form-check-label]
+      .form-radiobutton.form-check-inline
+        = form.radio_button :name_display_type, 'first_name_with_initial', class: %i[form-check-input]
+        = form.label :name_display_type_first_name_with_initial, t('admin2.display.first_name_with_initial'), class: %i[form-check-label]
+      .form-radiobutton.form-check-inline
+        = form.radio_button :name_display_type, 'first_name_only', class: %i[form-check-input]
+        = form.label :name_display_type_first_name_only, t('admin2.display.first_name_only'), class: %i[form-check-label]
+    %small#displayNameType-help.form-text
+      = t('admin2.display.user_display_info_text')

@@ -4,7 +4,8 @@
 %tr
   %td.person-name
     %h1
-      = t("emails.conversation_status_changed_v2.has_#{@transaction.status}_your_request", :starter => PersonViewUtils.person_display_name(@transaction.starter, @current_community))
+      = t("emails.common.hi", name: PersonViewUtils.person_display_name(@transaction.starter, @current_community))
+      = t("emails.conversation_status_changed_v2.has_#{@transaction.status}_your_request")
 
 %tr
   %td.email-content

@@ -1,0 +1,40 @@
+- content_for :title do
+  = t('admin2.sidebar.users.user_rights')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.users.user_rights')
+
+.content-card-section-container
+  = form_for @current_community, url: update_user_rights_admin2_users_user_rights_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.user_rights.invitation_rights')
+      .form-group
+        .form-check
+          = form.check_box :join_with_invite_only, class: %i[form-check-input]
+          = form.label :join_with_invite_only, t('admin2.user_rights.join_with_invite_only'), class: %i[form-check-label]
+        .form-check
+          = form.check_box :users_can_invite_new_users, class: %i[form-check-input]
+          = form.label :users_can_invite_new_users, t('admin2.user_rights.users_can_invite_new_users'), class: %i[form-check-label]
+
+    %section.content-card-section
+      %h2
+        = t('admin2.user_rights.communication_rights')
+      .form-group
+        .form-check
+          = form.check_box :allow_free_conversations, class: %i[form-check-input]
+          = form.label :allow_free_conversations, t('admin2.user_rights.allow_free_conversations'), class: %i[form-check-label]
+
+    %section.content-card-section
+      %h2
+        = t('admin2.user_rights.posting_rights')
+      .form-group
+        .form-check
+          = form.check_box :require_verification_to_post_listings, class: %i[form-check-input for-hide-content]
+          = form.label :require_verification_to_post_listings, t('admin2.user_rights.require_verification_to_post_listings'), class: %i[form-check-label]
+      .form-group.hide-content{class: form.object.require_verification_to_post_listings ? '' : :opacity_04}
+        = render partial: 'admin2/users/user_rights/posting_rights', locals: community_posting_rights_content
+
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

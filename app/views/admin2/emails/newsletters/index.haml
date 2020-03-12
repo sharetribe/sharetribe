@@ -1,0 +1,30 @@
+- content_for :title do
+  = t('admin2.sidebar.emails.automatic_newsletter')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.emails.automatic_newsletter')
+
+.content-card-section-container
+  = form_for @current_community, url: update_newsletter_admin2_emails_newsletters_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.automatic_newsletter.send_automatic_newsletter')
+      %p.ingress
+        = t('admin2.automatic_newsletter.send_automatic_newsletter_info_text', href: 'https://help.sharetribe.com/en/articles/666133').html_safe
+      .form-group
+        .form-check
+          = form.check_box :automatic_newsletters, class: %i[form-check-input]
+          = form.label :automatic_newsletters, t('admin2.automatic_newsletter.automatic_newsletters'), class: %i[form-check-label]
+
+    %section.content-card-section
+      %h2
+        = t('admin2.automatic_newsletter.automatic_newsletter_frequency')
+      %p.ingress
+        = t('admin2.automatic_newsletter.automatic_newsletter_frequency_info_text')
+      .form-group
+        = form.label :default_min_days_between_community_updates, t('admin2.automatic_newsletter.default_newsletter_frequency')
+        = form.select :default_min_days_between_community_updates, options_for_select(period_emails_send, form.object.default_min_days_between_community_updates), {}, class: %i[form-control]
+
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

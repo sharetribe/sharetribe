@@ -1,0 +1,8 @@
+%h2
+  = header
+%p.ingress
+  = info_text
+.form-group
+  .multiple-languages-container
+    - translations.each do |language_key, value|
+      = render 'admin2/one_locale_input_field', input_name: input_name, language_key: language_key, value: value, input_classes: input_classes

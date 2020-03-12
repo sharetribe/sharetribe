@@ -42,20 +42,20 @@ lv:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: Pamatinformācija
+        community_look_and_feel: Dizains
+        edit_community: Pamatinformācija
         enabled_languages: ~
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
+        community_name: "Platformas nosaukums"
         edit_community_name_description: ~
-        community_slogan: ~
+        community_slogan: "Platformas sauklis"
         community_slogan_display: ~
         edit_community_slogan_description: ~
         edit_community_slogan_description_hideable: ~
-        community_description: ~
+        community_description: "Platformas apraksts"
         community_description_display: ~
         edit_community_description_description: ~
         edit_community_description_description_hideable: ~
@@ -63,7 +63,7 @@ lv:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
+        update_information: "Saglabāt iestatījumus"
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
@@ -71,7 +71,7 @@ lv:
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        verification_to_post_listings_info_content_default: "%{service_name} administratoriem pieprasa jaunu lietotāju manuālu apstiprināšanu, pirms tie ir spējīgi pievienot sludinājumus. Jūsu profils vēl nav apstiprināts. Lūdzu %{contact_admin_link}, lai tiktu apstiprināts."
         contact_admin_link_text: ~
         save: ~
         transaction_agreement: ~
@@ -83,33 +83,33 @@ lv:
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
+        edit_community_look_and_feel: "Mainiet platformas \"%{community_name}\" izskatu un sajūtu"
+        community_logo: Logo
         community_logo_icon: ~
         community_logo_icon_mobile: ~
-        community_cover_photo: ~
+        community_cover_photo: "Vāka attēls"
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
+        community_custom_color1: "Platformas galvenā krāsa"
         community_slogan_color: ~
         community_slogan_color_instructions_text: ~
         community_description_color: ~
         community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "Logotipa lielumam jābūt %{width}x%{height} pikseļi. Tas tiks parādīts lietotājiem ar lielākiem ekrāniem."
         logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Šis kvadrātveida logotips tiks parādīts, kad cilvēki kopīgo jūsu vietni sociālajā tīklā Facebook, kad viņi skata jūsu vietni mobilajā ierīcē vai kad jūsu vietni pievieno grāmatzīmei savas mobilās ierīces sākuma ekrānā. Izmēriem jābūt (vismaz) %{width}x%{height} pikseļi."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
         logo_mobile_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: ~
+        cover_photo_visibility: "Mājaslapā tiek parādīts vāka fotoattēls lietotājiem, kas nav pieteikušies."
         cover_photo_instructions_text_with_dimensions: ~
         we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: "Lietotāja saskarnes galveno krāsu var mainīt, ievadot heksa krāsas vērtību. %{link} var palīdzēt jums izvēlēties krāsu un dot jums heksa krāsas kodu. Pēc tam kodu var nokopēt šeit."
         new_listing_button_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
@@ -129,7 +129,7 @@ lv:
         edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: ~
-        welcome_email_content_description: ~
+        welcome_email_content_description: "Zemāk redzamais ziņojums tiks nosūtīts katram jaunam lietotājam, kad viņi pievienosies. Jūs varat pielāgot ziņojumu, lai tas atbilstu jūsu tirgus vietnei. Noklikšķinot uz '%{send_test_message_link}', jūs varat nosūtīt priekšskatījuma ziņojumu uz savu e-pasta adresi, lai redzētu, kā tas izskatās e-pasta klientā."
         edit_message: ~
         send_test_message: ~
       outgoing_email:
@@ -264,6 +264,10 @@ lv:
         ban_user_confirmation: ~
         unban_user_confirmation: ~
         ban_me_error: ~
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: ~
         search_by_name_email: ~
         reset_search: ~
@@ -283,6 +287,7 @@ lv:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
@@ -292,6 +297,7 @@ lv:
         enabled_for_all: ~
         new_topbar: ~
         searchpage: ~
+        new_email_templates: ~
       social_media:
         social_media: ~
         logo: ~
@@ -319,7 +325,6 @@ lv:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -382,6 +387,10 @@ lv:
         robots_info: ~
         robots_info_link_text: ~
         robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: ~
       analytics:
         analytics: ~
@@ -394,6 +403,10 @@ lv:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: ~
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
       logo_link:
         title: ~
         info: ~
@@ -442,10 +455,13 @@ lv:
           confirmed: ~
           paid: ~
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: ~
           listing: ~
@@ -465,6 +481,7 @@ lv:
           paid: ~
           confirmed: ~
           canceled: ~
+          disputed: ~
           initiated: ~
           pending_ext: ~
           none:
@@ -478,8 +495,11 @@ lv:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -489,11 +509,14 @@ lv:
             paid: ~
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: ~
       conversations:
         conversations: ~
@@ -632,36 +655,33 @@ lv:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_preview_text: ~
-        info_2_details_text: ~
-        info_2_design_text: ~
+        info_2_help_center: ~
         info_3: ~
         info_4: ~
         editor_title: ~
         editor_info: ~
         preview: ~
         set_live: ~
-        headers:
-          section_id: ~
-          section_type: ~
-          version: ~
-          released: ~
-        add_new_version: ~
-        new_version: ~
-        edit_version: ~
         add_new_section: ~
         select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
         form:
-          version: ~
           save: ~
+          cancel: ~
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: ~
           edit: ~
           remove_section_confirmation: ~
@@ -675,8 +695,6 @@ lv:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -693,11 +711,17 @@ lv:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
+        content:
+          title: ~
         hero:
           hero_title: ~
           hero_description: ~
+          basic_details_tab: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -710,6 +734,10 @@ lv:
           cta_enabled: ~
           cta_text: ~
           cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
         background_image_overlay:
           background_image: ~
           background_image_info: ~
@@ -770,6 +798,7 @@ lv:
           main_title: ~
           column_header: ~
           column_title: ~
+          web_viewer: ~
           column_icon_info: ~
           column_icon: ~
           column_paragraph: ~
@@ -777,14 +806,15 @@ lv:
           column_button_text: ~
           column_button_url: ~
         listings:
+          listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
           text: ~
-          youtube_video_id: ~
           autoplay: ~
           autoplay_no: ~
           autoplay_muted: ~
           info: ~
+          youtube_video_id_info: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -889,7 +919,7 @@ lv:
         email_content_placeholder: ~
         email_language: ~
         any_language: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
+        message_will_be_sent_only_to_people_with_this_language: "E-pasts tiks nosūtīts tikai tiem lietotājiem, kuri jūsu izvēlētajā valodā izmanto %{service_name}."
         email_sent: ~
         to_improve_email_deliverability: ~
         email_subject_text: ~
@@ -910,7 +940,7 @@ lv:
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
       per_hour_availability: ~
-      per_day_availability: ~
+      per_day_availability: pieejamība
       per_night_availability: ~
       pricing_units_disabled_info: ~
       can_not_find_name: ~
@@ -968,7 +998,7 @@ lv:
       units:
         piece: ~
         hour: ~
-        day: ~
+        day: "Par dienu"
         night: ~
         week: ~
         month: ~
@@ -1117,6 +1147,8 @@ lv:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Rediģēt lapu"
     default_community_slogan: "Savstarpējās iznomāšanas platforma"
@@ -1162,7 +1194,7 @@ lv:
       travel: Ceļojumi
       other: Citi
     username: "Lietotāja vārds"
-    username_or_email: "E-pasts vai lietotāja vārds"
+    username_or_email: E-pasts
     what_is_this: "Kas tas ir?"
     removed_user: "Dzēsts lietotājs"
     payment_fee_info:
@@ -1212,11 +1244,11 @@ lv:
       stripe-fee_label: "Maksājuma apstrādes komisijas maksa"
     confirm:
       confirm_description: "Ja pasūtījums ir izpildīts, Jums vajadzētu to apstiprināt kā izpildītu. Tad Jūs varēsiet sniegt atsauksmi par otru darījuma pusi."
-      cancel_description: "Ja Jūsu pasūtījums netika izpildīts, Jūs varat atzīmēt to kā 'apstrīdēts'. Jūs joprojām varat sniegt atsauksmi par otru darījuma pusi un aprakstīt to, kas notika."
+      cancel_description_team: ~
       cancel_payed_description: "Ja Jūsu pieprasījums tika apstiprināts, bet Jums ir otreizējas pārdomas, Jūs joprojām pirms maksājuma veikšanas varat atcelt pieprasījumu."
       canceling_payed_transaction: "Atcelt tranzakciju"
       confirm: "Atzīmēt kā pabeigtu"
-      cancel: Strīds
+      cancel: Atcelt
       continue: Turpināt
       give_feedback_to: "Sniedziet atsauksmes par %{person_link}"
       do_not_give_feedback: "Izlaist atsauksmes"
@@ -1261,6 +1293,10 @@ lv:
         held_payment: "Apstiprināja pieprasījumu. %{service_name} pieturēs maksājumu par summu %{sum} līdz pasūtījums būs atzīmēts kā izpildīts."
         held_payment_wo_sum: "Pieņēma pieprasījumu. %{service_name} aizturēs maksājumu, līdz pasūtījums tiks atzīmēts kā pabeigts."
         confirmed_request: "Pasūtījums atzīmēts kā izpildīts. Maksājums ir pārskaitīts uz %{author_name} bankas kontu vai arī drīz tiks pārskaitīts."
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Ziņa
       message_to: "Ziņa %{author_name}"
@@ -1335,6 +1371,18 @@ lv:
           verify: "Gaida, kad Jūs verisifēciet savu PayPal kontu"
       stripe:
         waiting_confirmation_from_requester: "Gaida uz %{requester_name}, kad atzīmēs, ka pasūtījums izpildīts. Tiklīdz pasūtījums tiks atzīmēts, kā izpildīts, maksājums tiks pārskaitīts uz Jūsu bankas kontu."
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Apstiprināt piedāvājumu"
       accept_request: "Apstiprināt pieprasījumu"
@@ -1345,7 +1393,9 @@ lv:
       reject_preauthorized_offer: "Šoreiz ne"
       reject_preauthorized_request: "Šoreiz ne"
       confirm: "Atzīmēt, ka pabeigts"
-      cancel: Strīds
+      cancel: Atcelt
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Jauna atsauksme no %{service_name}"
     feedback_body: "%{author_name_and_email} ir nosūtījis/-jusi šādu atsauksmi no %{service_name}"
@@ -1400,7 +1450,6 @@ lv:
       please_go_to_payment_settings: "Lūdzu dodieties uz %{payment_settings_link} un ievadiet pieprasīto maksājumu informāciju."
       payment_settings_link: "maksājumu iestatījumi"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1415,27 +1464,22 @@ lv:
         has_marked_request_as_confirmed: "%{other_party_full_name} ir atzīmējis pasūtījumu '%{request}' kā pabeigtu. Maksājums par šo darījumu tagad ir pārskaitīts uz Jūsu bankas kontu. Tagad varat sniegt atsauksmes par %{other_party_given_name}."
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Pasūtījums izpildīts automātiski - atcerieties sniegt atsauksmi"
       we_have_marked_request_as_confirmed: "Mēs esam atzīmējuši, ka pasūtījums par '%{request}' ir izpildīts. Pasūtījums tika izpildīts automātiski, jo bija pagājušas %{days_passed} dienas kopš pieprasījuma apstiprināšanas."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Pasūtījums izpildīts automātiski - atcerieties sniegt atsauksmes"
       we_have_marked_request_as_confirmed: "Mēs esam atzīmējuši pasūtījumu par '%{request}' kā izpildītu. Pieprasījums tika pabeigts automātiski, jo ir pagājusi viena diena kopš rezervēšanas perioda beigām."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Tagad varat sniegt atsauksmes par %{other_party_given_name}. Sniegt atsauksmi vienmēr ir laba doma. Ja viss noritēja labi, Jums vajadzētu ļaut citiem uzzināt, ka var uzticēties %{other_party_given_name}. Ja radās kādas problēmas, ir labi pieminēt arī to."
@@ -1450,9 +1494,9 @@ lv:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Sveicināti %{name},"
+      hi: ~
       kassi_team: "%{service_name} komanda"
       thanks: "Paldies,"
       dont_want_to_receive_these_emails: "Nevēlaties turpmāk saņemt šādas vēstules?"
@@ -1464,7 +1508,7 @@ lv:
       unsubscribe_from_these_emails: "atrakstīties no šādiem e-pastiem"
       unsubscribe_from_invitation_emails_info: "Jūs saņemat šo e-pastu jo %{service_name} dalībnieks uzaicināja jūs pievienoties"
       unsubscribe_from_invitation_emails: "Atrakstīties no uzaicinājuma e-pastiem lai pievienoties %{service_name}"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ir apstiprinājums jūsu piedāvājumu %{listing}"
       has_accepted_your_request: "%{accepter} ir apstiprinājis jūsu pieprasījumu%{listing}"
@@ -1497,14 +1541,12 @@ lv:
       you_have_a_new_comment: "%{author} komentēja Jūsu ierakstu %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} komentējis piedāvājumu, kuram sekojat %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} komentēja sludinājumu '%{listing}' kuram Jūs sekojat %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Skatīt vēstuli"
       has_sent_you_a_message_in_kassi: "%{sender} ir nosūtījis Jums ziņu %{service_name}."
       you_have_a_new_message: "Jauna vēstule %{service_name} no %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Jūs esat saņēmis jaunu maksājumu"
@@ -1529,7 +1571,6 @@ lv:
         you_have_received_new_payment: "%{payer_full_name} samaksāja summu <b>%{payment_sum}</b> par <b>%{listing_title}</b>. Naudu aiztur %{service_name}, līdz pasūtījums tiek atzīmēts kā pabeigts. Šeit ir jūsu kvīts."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1550,8 +1591,6 @@ lv:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal komisija:"
       shipping_total: "Piegāde:"
@@ -1600,7 +1639,6 @@ lv:
       unsubscribe_link_text: atrakstīties
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Sveiks %{name},"
       newest_offers: "Ko cilvēki patlaban piedāvā citiem"
@@ -1696,6 +1734,36 @@ lv:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervēšana neizdevās neparedzētas kļūdas dēļ. Lūdzu, mēģiniet vēlreiz vēlāk. Maksājums no Jums nav ieturēts."
@@ -1727,6 +1795,8 @@ lv:
       generic_error: "Maksājuma procesa laikā radās kļūda. Nebija iespējams pabeigt Stripe maksājumu."
       accept_authorization_error: "Radās kļūda, mēģinot pieņemt iepriekš autorizētu Stripe maksājumu. Lūdzu mēģiniet vēlreiz."
       reject_authorization_error: "Radās kļūda, mēģinot noraidīt iepriekš autorizētu Stripe maksājumu. Lūdzu mēģiniet vēlreiz."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Atpakaļ uz galveno lapu"
     error_404:
@@ -1769,6 +1839,9 @@ lv:
       section_with_this_id_already_exists: "Šis identifikators tiek izmantots. Lūdzu, izvēlieties citu."
       listing_with_this_id_does_not_exist: "Šis sludinājuma ID nav Jūsu. Varbūt Jūs kļūdījāties? Lūdzu, pārbaudiet un mēģiniet vēlreiz"
       presence: "Lauks nevar būt tukšs"
+      username_is_invalid: ~
+      domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} piekrita aizdot %{listing_title} %{requester_name} %{time_ago}."
@@ -2145,8 +2218,10 @@ lv:
         other: "Vietne nebūs pieejama pēc %{count} minūtēm"
       automatically_logged_out_please_sign_in: "Jūs automātiski izgājāt no konta. Lūdzu ienāciet vēlreiz."
       stripe_you_account_balance_is_not_0: "Jūsu konta atlikums nav 0, tāpēc to nevar izdzēst. Tas varētu nozīmēt, ka Jums ir darījumi, kas gaida pabeigšanu, vai arī, ka ir nauda, kas gaida pārskaitījumu uz Jūsu bankas kontu. Lai uzzinātu vairāk, lūdzu, sazinieties ar %{service_name} komandu."
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Vai vēlaties %{link}?"
       visit_admin_link: "apmeklējiet savu administrēšanas paneli"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Profils
       notifications: Paziņojumi
@@ -2157,6 +2232,8 @@ lv:
       payments: Maksājumi
       listings: Sludinājumi
       listings_search_placeholder: "Meklējiet sludinājuma virsrakstu"
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Jums nav atļaujas apskatīt šo ierakstu."
@@ -2253,7 +2330,7 @@ lv:
       price:
         price: Cena
         per: par
-        per_day: dienā
+        per_day: "par dienu"
         mass: "gabalu, kg, l, m2, ..."
         time: "stundu, dienu, mēnesi"
         long_time: "nedēļu, mēnesi"
@@ -2413,7 +2490,7 @@ lv:
       listing_created_at: "Sludinājums izveidots"
       price:
         per_quantity_unit: "par %{quantity_unit}"
-        per_day: Dienā
+        per_day: "par dienu"
       delivery: "Piegādes veids"
       shipping: "Piegāde (+%{price})"
       shipping_no_price: Piegāde
@@ -2446,6 +2523,7 @@ lv:
       night: nakts
       nights: naktis
       invalid_parameters: "Nederīgas vērtības jaunam darījumam"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Apskatīt.
     stripe_payment:
@@ -2456,8 +2534,8 @@ lv:
       address_name: "Vārds un uzvārds *"
       address_city: "Pilsēta *"
       address_state: Novads
-      address_street1: "Ielas, mājas vai vietas nosaukums 1"
-      address_street2: "Ielas, mājas vai vietas nosaukums 2"
+      address_street1: "Adreses pirmā līnija"
+      address_street2: "Adreses otrā līnija"
       address_postal_code: "Pasta indekss"
   mapview:
     index:
@@ -2665,7 +2743,7 @@ lv:
       cancle_facebook_connect: "Ja nevēlaties saistīt šo kontu, varat %{cancel_link}."
       facebook_cancel_link_text: atcelt
       log_in_with_your_provider_account: "Ienāciet ar %{provider}"
-      or_sign_up_with_your_username: "...vai ar Jūsu lietotājvārdu vai e-pastu:"
+      or_sign_up_with_your_username: "...vai ar Jūsu e-pastu:"
       we_will_not_post_without_asking_you: "Mēs nekad neko neievietosim Facebook bez pajautāšanas Jums."
     password_forgotten:
       email: E-pasts
@@ -2768,6 +2846,8 @@ lv:
       editing_profile_of: "Jūs tagad rediģējat %{name} profilu"
       format_markdown_link: "formatējiet aprakstu, izmantojot Markdown"
       format_markdown: "Jūs varat %{link}."
+      username: ~
+      username_description: ~
     save_information: "Saglabā informāciju"
   shipping_address:
     shipping_address: "Piegādes adrese"
@@ -2873,7 +2953,7 @@ lv:
       short_date: "%b %e, %Y"
       hours_only: "%H:%M"
   timestamps:
-    day_ago: "%{count} diena atpakaļ"
+    day_ago: "%{count} dienu atpakaļ"
     days_ago: "%{count} dienas atpakaļ"
     hour_ago: "%{count} stundu atpakaļ"
     hours_ago: "%{count} stundas atpakaļ"
@@ -3065,7 +3145,7 @@ lv:
       address_province: Province
       address_city: Pilsēta
       address_postal_code: "Pasta indekss"
-      address_line1: "Ielas, mājas vai vietas nosaukums"
+      address_line1: Adrese
       tos_link: "Pievienojot savu maksājumu informāciju, Jūs piekrītat %{stripe_link}."
       tos_link_title: "Stripe Pievienotā Konta Līgums"
       save_details: "Saglabāt informāciju"
@@ -3111,15 +3191,19 @@ lv:
     form_verification:
       personal_id_number: "Personīgais ID numurs"
       document: "Pārbaudes dokuments (pase, valdības izsniegta personas apliecība)"
+      document_back: ~
       send_verification: "Sūtīt Verifikāciju"
       need_verification: "Nepieciešama papildus pārbaude"
       additional_document: ~
+      additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Sociālās apdrošināšanas numurs (SIN)"
       social_security_number: "Sociālās apdrošināšanas numurs (SSN)"
       ssn_last_4: "Sociālās apdrošināšanas numura (SSN) pēdējie 4 cipari"
       hong_kong_identity_card: "Honkongas personas apliecības numurs (HKID)"
       singapore_identity_card: "Valsts reģistrācijas personas apliecība (NRIC) vai ārvalstu identifikācijas numurs (FIN)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "jābūt derīgam sociālās apdrošināšanas numuram (SIN)"
   payment_settings:
@@ -3150,8 +3234,6 @@ lv:
         id: "Sadaļas unikālais nosaukums"
         title: Nosaukums
         paragraph: Paragrāfs
-        button_color: "Pogas krāsa"
-        button_color_hover: "Pogas krāsas kursors"
         button_title: Teksts
         button_path: URL
         button_path_string: URL
@@ -3159,7 +3241,6 @@ lv:
         background_image_variation: "Fona attēla variācija"
         background_color: ~
         background_color_string: "Fona krāsa"
-        icon_color: "Ikonas krāsa"
       landing_page_version/section/listings:
         listing_1_id: "Sludinājums 1 ID"
         listing_2_id: "Sludinājums 2 ID"

@@ -56,6 +56,11 @@
 class Transaction < ApplicationRecord
   include ExportTransaction
 
+  # While initiated is technically not a finished state it also
+  # doesn't have any payment data to track against, so removing person
+  # is still safe.
+  FINISHED_TX_STATES = ['initiated', 'free', 'rejected', 'confirmed', 'canceled', 'errored'].freeze
+
   attr_accessor :contract_agreed
 
   belongs_to :community
@@ -93,11 +98,10 @@ class Transaction < ApplicationRecord
 
   scope :exist, -> { where(deleted: false) }
   scope :for_person, -> (person){
-    joins(:listing)
-    .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
+    where('listing_author_id = ? OR starter_id = ?', person.id, person.id)
   }
   scope :availability_blocking, -> do
-    where(current_state: ['payment_intent_requires_action', 'preauthorized', 'paid', 'confirmed', 'canceled'])
+    where(current_state: ['payment_intent_requires_action', 'preauthorized', 'paid', 'confirmed', 'canceled', 'dismissed', 'disputed'])
   end
   scope :non_free, -> { where('current_state <> ?', ['free']) }
   scope :by_community, -> (community_id) { where(community_id: community_id) }
@@ -114,7 +118,7 @@ class Transaction < ApplicationRecord
   }
   scope :for_testimonials, -> {
     includes(:testimonials, testimonials: [:author, :receiver], listing: :author)
-    .where(current_state: ['confirmed', 'canceled'])
+    .where(current_state: ['confirmed', 'canceled', 'dismissed'])
   }
   scope :search_by_party_or_listing_title, ->(pattern) {
     joins(:starter, :listing_author)
@@ -146,6 +150,11 @@ class Transaction < ApplicationRecord
     where("NOT starter_skipped_feedback AND NOT #{Testimonial.with_tx_starter.select('1').arel.exists.to_sql}
            OR NOT author_skipped_feedback AND NOT #{Testimonial.with_tx_author.select('1').arel.exists.to_sql}")
   }
+  scope :unfinished, -> { where.not(current_state: FINISHED_TX_STATES) }
+  # We include deleted transactions on purpose. They might be in a
+  # state where e.g. IPN message causes them to proceed so removing
+  # user data would be unwise.
+  scope :unfinished_for_person, -> (person) { unfinished.for_person(person) }
 
   def booking_uuid_object
     if self[:booking_uuid].nil?

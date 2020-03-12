@@ -28,8 +28,9 @@
           %p
             =t("stripe_accounts.stripe_account_pending_verification_info")
 
-    .row
-      = link_to t("stripe_accounts.form_new.edit"), "#", id: "edit-stripe-info"
+    - unless presenter.stripe_account_pending_verification?
+      .row
+        = link_to t("stripe_accounts.form_new.edit"), "#", id: "edit-stripe-info"
   - elsif !presenter.paypal_enabled
     .row
       .col-12
@@ -49,7 +50,7 @@
             = render 'stripe_name', presenter: presenter
             = render 'address_fields_form', presenter: presenter
             = render 'bank_fields_form', presenter: presenter
-            = render 'verification_fields_form', presenter: presenter
+            = render 'verification_fields_form2', presenter: presenter
 
             .col-4
               = link_to t('stripe_accounts.form_new.cancel'), person_payment_settings_path(@current_user), style: 'float: right; margin-top: 1.5em'
@@ -80,7 +81,7 @@
             .country-dependent{"data-country-except" => "XXX"}
               = render 'bank_fields_form', presenter: presenter
             = render 'personal_id_number', presenter: presenter
-            = render 'verification_fields_form', presenter: presenter
+            = render 'verification_fields_form2', presenter: presenter
 
             .country-dependent{"data-country-except" => "XXX"}
               - base_terms_url = "https://stripe.com/COUNTRY/connect-account/legal#translation"
@@ -94,6 +95,6 @@
 - content_for :extra_javascript do
   :javascript
     $(function() {
-      window.ST.StripeBankForm.init(#{stripe_data.to_json.html_safe});
+      window.ST.StripeBankForm3.init(#{stripe_data.to_json.html_safe});
     });
 

@@ -12,7 +12,7 @@ module TransactionService::Gateway
         {
          transaction_id: tx.id,
          payment_action: :authorization,
-         item_name: tx.listing_title,
+         item_name: "#{tx.listing_title} (Listing ID: #{tx.listing_id})",
          item_quantity: tx.listing_quantity,
          item_price: tx.unit_price,
          merchant_id: tx.listing_author_id,

@@ -32,4 +32,15 @@
           = form.check_box :end_user_analytics
           = form.label :end_user_analytics, t(".end_user_analytics"), :class => "settings-checkbox-label"
     .row
+      %h3= t('.google_tag_manager')
+    .row
+      .col-12
+        = t('.gtm_paragraph_1')
+    .row
+      .col-12
+        - link = link_to t('.learn_how_to_configure_gtm'),
+          "#{knowledge_base_url}/en/articles/2529555", target: '_blank'
+        = t('.gtm_paragraph_2', link: link).html_safe
+    .row
       = form.button t("admin.communities.analytics.save")
+

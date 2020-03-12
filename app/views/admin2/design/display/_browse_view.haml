@@ -1,0 +1,18 @@
+%section.content-card-section
+  %h2
+    = t('admin2.display.browse_view_header')
+  .form-group
+    %label
+      = t('admin2.display.browse_view')
+    .form-radiobutton-wrapper
+      .form-radiobutton.form-check-inline
+        = form.radio_button :default_browse_view, 'grid', class: %i[form-check-input]
+        = form.label :default_browse_view_grid, t('admin2.display.grid'), class: %i[form-check-label]
+      .form-radiobutton.form-check-inline
+        = form.radio_button :default_browse_view, 'list', class: %i[form-check-input]
+        = form.label :default_browse_view_list, t('admin2.display.list'), class: %i[form-check-label]
+      .form-radiobutton.form-check-inline
+        = form.radio_button :default_browse_view, 'map', class: %i[form-check-input], disabled: !show_location?
+        = form.label :default_browse_view_map, t('admin2.display.map'), class: %i[form-check-label], disabled: !show_location?
+    %small#defaultBrowseView-help.form-text
+      = t('admin2.display.browse_view_info_text')

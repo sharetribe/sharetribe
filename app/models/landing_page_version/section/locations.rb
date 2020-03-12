@@ -63,7 +63,20 @@ module LandingPageVersion::Section
       button_title: nil,
       button_path: nil,
       location_color_hover: {type: "marketplace_data", id: "primary_color"},
-      locations: []
+      locations: [
+        {
+          'location' => { },
+          'background_image' => { }
+        },
+        {
+          'location' => { },
+          'background_image' => { }
+        },
+        {
+          'location' => { },
+          'background_image' => { }
+        },
+      ]
     }
 
     PERMITTED_PARAMS = [

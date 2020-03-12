@@ -1,0 +1,19 @@
+%section.content-card-section
+  %h2
+    = t('admin2.signup_login.facebook')
+  %p.ingress
+    = t('admin2.signup_login.facebook_info_text',
+        href: 'https://developers.facebook.com/',
+        href2: 'https://help.sharetribe.com/configuration-and-how-to/how-to-configure-facebook-connect').html_safe
+  %span.social-block
+    - required_facebook = @current_community.facebook_connect_enabled?
+    .form-group
+      = form.label :facebook_connect_id, t('admin2.signup_login.facebook_connect_id')
+      = form.text_field :facebook_connect_id, maxlength: 16, class: %i[form-control social-data], placeholder: '1234567890123456', required: required_facebook
+    .form-group
+      = form.label :facebook_connect_secret, t('admin2.signup_login.facebook_connect_secret'), class: %i[social-data]
+      = form.text_field :facebook_connect_secret, maxlength: 32, class: %i[form-control social-data], placeholder: Digest::MD5.hexdigest('1'), required: required_facebook
+    .form-group
+      .form-check
+        = form.check_box :facebook_connect_enabled, class: %i[form-check-input social-checked]
+        = form.label :facebook_connect_enabled, t('admin2.signup_login.facebook_connect_enabled'), class: %i[form-check-label]

@@ -51,21 +51,24 @@ describe NewLayoutViewUtils do
             enabled_for_user: true,
             enabled_for_community: false,
             required_for_user: false,
-            required_for_community: false
+            required_for_community: false,
+            disabled: false
           },
           { title: "Bar",
             name: :bar,
             enabled_for_user: true,
             enabled_for_community: false,
             required_for_user: false,
-            required_for_community: false
+            required_for_community: false,
+            disabled: false
           },
           { title: "Wat",
             name: :wat,
             enabled_for_user: false,
             enabled_for_community: true,
             required_for_user: false,
-            required_for_community: false
+            required_for_community: false,
+            disabled: false
           }
         ])
       end
@@ -100,21 +103,24 @@ describe NewLayoutViewUtils do
             enabled_for_user: false,
             enabled_for_community: false,
             required_for_user: false,
-            required_for_community: false
+            required_for_community: false,
+            disabled: false
           },
           { title: "Bar",
             name: :bar,
             enabled_for_user: false,
             enabled_for_community: false,
             required_for_user: false,
-            required_for_community: false
+            required_for_community: false,
+            disabled: false
           },
           { title: "Wat",
             name: :wat,
             enabled_for_user: false,
             enabled_for_community: false,
             required_for_user: false,
-            required_for_community: false
+            required_for_community: false,
+            disabled: false
           }
         ])
       end

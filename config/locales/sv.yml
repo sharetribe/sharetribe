@@ -279,6 +279,10 @@ sv:
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
         unban_user_confirmation: "Detta tar bort spärrningen av användaren och ger dem igen tillgång till din marknadsplats. Är du säker du vill fortsätta?"
         ban_me_error: "Du kan inte bannlysa dig själv."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: Sök
         search_by_name_email: "Sök efter namn, epostadress eller synligt namn"
         reset_search: "Visa alla"
@@ -298,6 +302,7 @@ sv:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
+        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
@@ -307,6 +312,7 @@ sv:
         enabled_for_all: "Aktiverad för alla"
         new_topbar: "Nya menyn (synlig på varje sida)"
         searchpage: "Ny sök sida (kräver den nya menyn)"
+        new_email_templates: ~
       social_media:
         social_media: "Social media"
         logo: ~
@@ -334,7 +340,6 @@ sv:
         invalid_facebook_connect_secret: "Klientsäkerhet ska bara innehålla nummer och bokstäver från a till f."
         enable_facebook_login: "Tillåt användare att logga in med sina Facebook konton"
         save: "Spara inställningar"
-        add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -397,6 +402,10 @@ sv:
         robots_info: ~
         robots_info_link_text: ~
         robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: ~
       analytics:
         analytics: Analytics
@@ -409,6 +418,10 @@ sv:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "Spara inställningar"
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
       logo_link:
         title: ~
         info: ~
@@ -457,10 +470,13 @@ sv:
           confirmed: Färdig
           paid: Betald
           canceled: Avbruten
+          disputed: ~
           preauthorized: Auktoriserad
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: Konversationstråd
           listing: Annons
@@ -480,6 +496,7 @@ sv:
           paid: Betald
           confirmed: Bekräftad
           canceled: Avbruten
+          disputed: ~
           initiated: "Väntar på PayPal betalning"
           pending_ext: "Väntar på PayPal betalning"
           none:
@@ -493,8 +510,11 @@ sv:
             paid: Betald
             confirmed: Bekräftad
             canceled: Avbryten
+            disputed: ~
             initiated: "Väntar på PayPal betalning"
             pending_ext: "Väntar på PayPal betalning"
+            refunded: ~
+            dismissed: ~
           stripe:
             free: Konversation
             pending: Väntar
@@ -504,11 +524,14 @@ sv:
             paid: Betald
             confirmed: Bekräftad
             canceled: Avbryten
+            disputed: ~
             initiated: "Väntar på Stripe betalning"
             pending_ext: "Väntar på Stripe betalning"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: "Inte tillgänglig"
       conversations:
         conversations: "Visa konversationer"
@@ -647,36 +670,33 @@ sv:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_preview_text: ~
-        info_2_details_text: ~
-        info_2_design_text: ~
+        info_2_help_center: ~
         info_3: ~
         info_4: ~
         editor_title: ~
         editor_info: ~
         preview: ~
         set_live: ~
-        headers:
-          section_id: ~
-          section_type: ~
-          version: ~
-          released: ~
-        add_new_version: ~
-        new_version: ~
-        edit_version: ~
         add_new_section: ~
         select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
         form:
-          version: ~
           save: ~
+          cancel: ~
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: ~
           edit: ~
           remove_section_confirmation: ~
@@ -690,8 +710,6 @@ sv:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -708,11 +726,17 @@ sv:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
+        content:
+          title: ~
         hero:
           hero_title: ~
           hero_description: ~
+          basic_details_tab: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -725,6 +749,10 @@ sv:
           cta_enabled: ~
           cta_text: ~
           cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
         background_image_overlay:
           background_image: ~
           background_image_info: ~
@@ -785,6 +813,7 @@ sv:
           main_title: ~
           column_header: ~
           column_title: ~
+          web_viewer: ~
           column_icon_info: ~
           column_icon: ~
           column_paragraph: ~
@@ -792,14 +821,15 @@ sv:
           column_button_text: ~
           column_button_url: ~
         listings:
+          listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
           text: ~
-          youtube_video_id: ~
           autoplay: ~
           autoplay_no: ~
           autoplay_muted: ~
           info: ~
+          youtube_video_id_info: ~
     custom_fields:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
@@ -1148,6 +1178,8 @@ sv:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Redigera sida"
     default_community_slogan: "Gemensam marknadsplats"
@@ -1243,7 +1275,7 @@ sv:
       stripe-fee_label: Betalningshanteringsavgift
     confirm:
       confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som slutförd. Då kan du ge feedback till den andra parten."
-      cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"bestridd\" och kontakta den andra partern. Du kan även ge feedback till den andra parten och beskriva vad som hände."
+      cancel_description_team: ~
       cancel_payed_description: "Om din förfrågan var accepterad men du har några andra funderingar, så kan du fortfarande avbryta förfrågan innan betalning."
       canceling_payed_transaction: "Avbryt transaktion"
       confirm: "Markera som slutförd"
@@ -1292,6 +1324,10 @@ sv:
         held_payment: "Accepterade förfrågan. Betalningen för %{sum} hålls av %{service_name} tills förfrågan har blivit markerad som slutförd."
         held_payment_wo_sum: ~
         confirmed_request: "Markerade förfrågan som slutförd. Betalningen har nu överförts till %{author_name} bankkonto eller kommer snart att överföras."
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Meddelande
       message_to: "Meddelande till %{author_name}"
@@ -1366,6 +1402,18 @@ sv:
           verify: "Väntar på att du ska verifiera ditt PayPal konto"
       stripe:
         waiting_confirmation_from_requester: "Väntar på att %{requester_name} skall markera förfrågan som slutförd. När förfrågan har markerats som slutfört kommer betalningen att överföras till ditt bankkonto."
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Acceptera erbjudande"
       accept_request: "Acceptera förfrågan"
@@ -1377,6 +1425,8 @@ sv:
       reject_preauthorized_request: "Inte den här gången"
       confirm: "Markera som slutförd"
       cancel: Bestrid
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Ny feedback från %{service_name}"
     feedback_body: "%{author_name_and_email} har skickat följande feedback från %{service_name}"
@@ -1431,7 +1481,6 @@ sv:
       please_go_to_payment_settings: "Vänligen gå till %{payment_settings_link} för att fylla i betalningsinformationen som krävs."
       payment_settings_link: betalningsinställningar
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1446,27 +1495,22 @@ sv:
         has_marked_request_as_confirmed: "%{other_party_full_name} har markerad förfrågan på %{request} som slutförd. Betalningen för denna transaktion har nu överförts till ditt bankkonto. Du kan nu ge feedback till %{other_party_given_name}."
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Förfrågan har automatiskt marketats som slutförd - kom ihåg att ge feedback"
       we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatisk markerad som slutförd eftersom %{days_passed} har passerat sedan förfrågan accepterades."
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Förfrågan markerads automatiskt som slutförd - kom ihåg att ge feedback"
       we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatiskt markerad som slutförd eftersom en dag har passerat sen bokningsperioden slutade."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Du kan nu ge feedback till %{other_party_given_name}. Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
@@ -1481,9 +1525,9 @@ sv:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Hej %{name},"
+      hi: ~
       kassi_team: "%{service_name}gänget"
       thanks: "Tack,"
       dont_want_to_receive_these_emails: "Vill du inte ta emot dessa mail?"
@@ -1495,7 +1539,7 @@ sv:
       unsubscribe_from_these_emails: "avsluta prenumeration från dessa e-postmeddelanden"
       unsubscribe_from_invitation_emails_info: "Du har fått detta email för att en medlem av %{service_name} har bjudit in dig."
       unsubscribe_from_invitation_emails: "Sluta prenumerera på inbjudningsemail att gå med i %{service_name}"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har accepterat ditt erbjudande angående %{listing}"
       has_accepted_your_request: "%{accepter} har accepterat din förfrågan %{listing}."
@@ -1528,14 +1572,12 @@ sv:
       you_have_a_new_comment: "%{author} har kommenterar ditt inlägg i %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} har kommenterat en annons du följer på %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} har kommenterat annonsen %{listing} som du följer på %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Visa meddelande"
       has_sent_you_a_message_in_kassi: "%{sender} har skickat ett meddelande i %{service_name}."
       you_have_a_new_message: "Du har ett nytt meddelande i %{service_name} från %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Du har fått en ny inbetalning"
@@ -1560,7 +1602,6 @@ sv:
         you_have_received_new_payment: "Summan <b>%{payment_sum}</b> bar blivit betalt för <b>%{listing_title}</b> av %{payer_full_name}. Pengarna hålls nu av %{service_name} tills förfrågan har blivit markerad som slutförd. Här är ditt kvitto."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1581,8 +1622,6 @@ sv:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPals avgift:"
       shipping_total: "Frakt:"
@@ -1631,7 +1670,6 @@ sv:
       unsubscribe_link_text: avprenumerera
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Hej %{name},"
       newest_offers: "Vad folk har att erbjuda andra"
@@ -1729,6 +1767,36 @@ sv:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Bokningen misslyckades på grund av ett oväntat fel. Vänligen försök igen senare. Du har inte blivit debiterad."
@@ -1760,6 +1828,8 @@ sv:
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din Stripe betalning."
       accept_authorization_error: "Ett fel uppstod vid försök att acceptera den förauktoriserade Stripe betalningen. Vänligen försök igen."
       reject_authorization_error: "Ett fel uppstod vid försök att avbryta den förauktoriserade Stripe betalningen. Vänligen försök igen."
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Tillbaka till startsidan"
     error_404:
@@ -1802,6 +1872,9 @@ sv:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
+      domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} gick med på att låna ut %{listing_title} till %{requester_name} %{time_ago}."
@@ -2178,8 +2251,10 @@ sv:
         other: "Hemsidan kommer gå offline for underhåll om %{count} minuter"
       automatically_logged_out_please_sign_in: "Du har blivit utloggad. Vänligen logga in igen."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: "besök din adminpanel"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Konto
       notifications: Aviseringar
@@ -2190,6 +2265,8 @@ sv:
       payments: Betalningar
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du har inte behörighet att se denna annons."
@@ -2479,6 +2556,7 @@ sv:
       night: natt
       nights: nätter
       invalid_parameters: "Ogiltiga värden för en ny transaktion"
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Visa
     stripe_payment:
@@ -2801,6 +2879,8 @@ sv:
       editing_profile_of: "Du redigerar nu %{name}s profil"
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Spara information"
   shipping_address:
     shipping_address: Leveransadress
@@ -3143,15 +3223,19 @@ sv:
     form_verification:
       personal_id_number: "Personligt ID nummer"
       document: Verifikationsnummer
+      document_back: ~
       send_verification: "Skicka verifikation"
       need_verification: "Behöver ytterligare verifiering"
       additional_document: ~
+      additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: "Personnummer (SIN)"
       social_security_number: "Personnummer (SSN)"
       ssn_last_4: "De fyra sista siffrorna av ditt personnummer (SSN)"
       hong_kong_identity_card: "Hong Kong Identitetskortsnummer (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) eller Foreign Identification Number (FIN)"
+      mexico_id_number: ~
       messages:
         social_insurance_number: "måste vara ett giltigt personnummer (SIN)"
   payment_settings:
@@ -3182,8 +3266,6 @@ sv:
         id: ~
         title: ~
         paragraph: ~
-        button_color: ~
-        button_color_hover: ~
         button_title: ~
         button_path: ~
         button_path_string: ~
@@ -3191,7 +3273,6 @@ sv:
         background_image_variation: ~
         background_color: ~
         background_color_string: ~
-        icon_color: ~
       landing_page_version/section/listings:
         listing_1_id: ~
         listing_2_id: ~

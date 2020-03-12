@@ -1,0 +1,49 @@
+- content_for :title do
+  = t('admin2.sidebar.search_location.search')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.search_location.search')
+
+.content-card-section-container
+  = form_for @presenter.community, url: update_search_admin2_search_location_search_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.search.search_type')
+      .form-group
+        %label
+          = t('admin2.search.search_type')
+        .form-radiobutton-wrapper
+          - @presenter.main_search_select_options.each do |_name, key, options|
+            .form-radiobutton.form-check-inline
+              = radio_button_tag :main_search, key, @presenter.main_search.to_s == key.to_s, class: %i[form-check-input location-type], disabled: options[:disabled] == 'disabled'
+              = label_tag "main_search_#{key}", t("admin2.search.#{key}"), class: %i[form-check-label]
+
+        - unless @current_community.show_location
+          %small#defaultBrowseView-help.form-text
+            = t('admin2.search.search_type_info_text')
+
+    %section.content-card-section.search-placeholder-div
+      %h2
+        = t('admin2.search.keyword_settings')
+      = render 'search_placeholder', form: form, customizations: @customizations
+
+    - disable_distance = @presenter.main_search.to_s == 'keyword'
+    %section.content-card-section.show-distance-div{class: disable_distance ? :opacity_04 : ''}
+      %h2
+        = t('admin2.search.location_settings')
+      .form-group
+        %label
+          = t('admin2.search.show_distance')
+        .form-radiobutton-wrapper
+          - @presenter.distance_unit_select_options.sort.reverse.each do |_name, key|
+            .form-radiobutton.form-check-inline
+              = radio_button_tag :distance_unit, key, @presenter.distance_unit.to_s == key.to_s, class: %i[form-check-input show-distance], disabled: disable_distance
+              = label_tag "distance_unit_#{key}", t("admin2.search.#{key}"), class: %i[form-check-label]
+      .form-group
+        .form-check
+          = check_box_tag :limit_distance, true, @presenter.limit_distance, class: %i[form-check-input show-distance], disabled: disable_distance
+          = label_tag :limit_distance, t('admin2.search.limit_distance'), class: %i[form-check-label]
+
+    %section.content-card-terminal.without-margin
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

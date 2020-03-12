@@ -70,8 +70,17 @@ textarea.text_area_code {
 }
 
 .member-banned {
-  a, span, .admin-members-can-post-listings, .admin-members-is-admin {
+  a, .admin-members-can-post-listings, .admin-members-is-admin {
     opacity: 0.5;
+  }
+  span {
+    opacity: 0.5;
+    &.delete-member {
+      opacity: 1;
+      a {
+        opacity: 1;
+      }
+    }
   }
 }
 

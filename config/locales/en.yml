@@ -67,11 +67,11 @@ en:
         community_name: "Marketplace name"
         edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
         community_slogan: "Marketplace slogan"
-        community_slogan_display: "Display the slogan in the homepage"
+        community_slogan_display: "Display the slogan in the homepage or Custom Landing Page"
         edit_community_slogan_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         edit_community_slogan_description_hideable: "This is shown in browsers, search engines and social media. You can also display it on on the homepage of your marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         community_description: "Marketplace description"
-        community_description_display: "Display the description in the homepage"
+        community_description_display: "Display the description in the homepage or Custom Landing Page"
         edit_community_description_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: "This is shown in browsers, search engines and social media. You can also display it on on the homepage of your marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         community_search_placeholder: "Search help text"
@@ -279,6 +279,10 @@ en:
         ban_user_confirmation: "This disables the user account from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
         unban_user_confirmation: "This enables the user account in the marketplace and allows them to access the site again with this account. Are you sure you want to proceed?"
         ban_me_error: "You cannot disable your own account."
+        have_ongoing_transactions: "This account can't be deleted because they have ongoing transactions. Please complete all transactions before deleting the account."
+        only_delete_disabled: "You can only delete users that have been disabled. Disable a user first in order to delete their account"
+        delete_info1: "If you delete this account, the personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings that they have created will be removed. You won't be able to reactivate this account."
+        delete_info2: "Information where other members are involved (conversations with other people, transactions they've made, reviews they've given to others, etc) is not removed when you delete this account. However, the name will no longer be displayed next to this information."
         search: Search
         search_by_name_email: "Search for a name, email or display name"
         reset_search: "Show all"
@@ -298,6 +302,7 @@ en:
         unconfirmed_user: "Unconfirmed user: %{name}"
         resend: Resend
         cancel: Cancel
+        confirm: Confirm
         user_didnt_complete_the_signup_process: "This user signed up through social login but didn't complete the signup process. After connecting a social login account, users still need to accept your terms of use and fill any mandatory user fields."
         pending_user: "Pending: %{name}"
       new_layout:
@@ -307,6 +312,7 @@ en:
         enabled_for_all: "Enabled for all"
         new_topbar: "New top bar (visible on every page)"
         searchpage: "New search page (requires the new top bar)"
+        new_email_templates: "New layout for emails"
       social_media:
         social_media: "Social media"
         logo: "Social media image"
@@ -334,7 +340,6 @@ en:
         invalid_facebook_connect_secret: "App Secret should contain only numbers and letters from a to f."
         enable_facebook_login: "Allow users to log in with their Facebook account"
         save: "Save settings"
-        add_another_image: "Add another image"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "See instructions for configuring Google Sign-In."
         google_developers_console: "Google Developers Console"
@@ -397,6 +402,10 @@ en:
         robots_info: "Robots.txt is a text file to instruct web robots (typically search engine robots) how to crawl pages on your website. %{link}."
         robots_info_link_text: "Learn more about the robots.txt file"
         robots_info_2: "A robots.txt file is automatically generated for your marketplace. You can access your robots.txt at %{link}."
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "Google Search Console offers tools and reports to help you measure your site's Search traffic and performance and fix issues related to Google Search results."
+        google_search_console_these_instructions: "these instructions"
+        google_search_console_paragraph2: "It's a good idea to add your website to Google Search Console. It takes only a few minutes with %{link}."
         save: "Save settings"
       analytics:
         analytics: Analytics
@@ -409,6 +418,10 @@ en:
         sharetribe_analytics_instructions_link_text: "Read more about Sharetribe's analytics."
         end_user_analytics: "Allow Sharetribe to track members activity in order to improve Sharetribe's services"
         save: "Save settings"
+        google_tag_manager: "Google Tag Manager"
+        gtm_paragraph_1: "Using a tag manager such as GTM is a great way to manage and deploy snippets of code or tracking pixels on your website without having to modify the code."
+        gtm_paragraph_2: "Because Sharetribe also relies on Google Tag Manager, you should %{link}."
+        learn_how_to_configure_gtm: "learn how to configure GTM for your Go marketplace"
       logo_link:
         title: "Logo link"
         info: "You can customize the link of the logo (and the default home button of the top bar menu). By default the logo takes users to the homepage or Custom Landing Page."
@@ -420,7 +433,7 @@ en:
         save: "Save settings"
         add_menu_link: "Add a new link to menu"
         title_placeholder: "Link title"
-        url_placeholder: "https://example.com/en"
+        url_placeholder: "https://www.example.com/en"
         title: Title
         language: Language
         url: URL
@@ -457,10 +470,13 @@ en:
           confirmed: Completed
           paid: Paid
           canceled: Canceled
+          disputed: Disputed
           preauthorized: Preauthorized
           rejected: Rejected
           payment_intent_requires_action: Pending
           payment_intent_action_expired: Expired
+          refunded: Refunded
+          dismissed: Dismissed
         headers:
           conversation: "Conversation thread"
           listing: Listing
@@ -480,6 +496,7 @@ en:
           paid: Paid
           confirmed: Completed
           canceled: Canceled
+          disputed: Disputed
           initiated: "Waiting PayPal payment"
           pending_ext: "Waiting PayPal payment"
           none:
@@ -493,8 +510,11 @@ en:
             paid: Paid
             confirmed: Completed
             canceled: Canceled
+            disputed: Disputed
             initiated: "Waiting PayPal payment"
             pending_ext: "Waiting PayPal payment"
+            refunded: Refunded
+            dismissed: Dismissed
           stripe:
             free: Conversation
             pending: Pending
@@ -504,11 +524,14 @@ en:
             paid: Paid
             confirmed: Completed
             canceled: Canceled
+            disputed: Disputed
             initiated: "Waiting Stripe payment"
             pending_ext: "Waiting Stripe payment"
             payment_intent_requires_action: Pending
             payment_intent_action_expired: Expired
             payment_intent_failed: "Stripe payment failed"
+            refunded: Refunded
+            dismissed: Dismissed
         not_available: "Not available"
       conversations:
         conversations: Conversations
@@ -628,11 +651,11 @@ en:
         footer_enabled: "Footer enabled"
         social_links: "Footer social links"
         title_placeholder: "Link title"
-        url_placeholder: "https://example.com/username"
+        url_placeholder: "https://www.example.com/username"
         style:
           dark: Dark
           light: Light
-          marketplace_color: "Marketplace Color"
+          marketplace_color: "Marketplace main color"
           logo: Logo
         social:
           title: Title
@@ -647,84 +670,89 @@ en:
         contact_us: "Contact us"
         you_can_now_use_a_custom_domain: "With your current plan, you can now enable a custom domain. Let's move forward with the setup. %{contact_us}!"
         would_you_like_to_change_domain: "Would you like to change your marketplace custom domain? %{contact_us}!"
+        change_your_sharetribe_domain: "Change your Sharetribe domain"
+        only_letters_numbers_and_hyphens_can_be_used: "Only letters, numbers and hyphens can be used. Be careful! Your old domain will become available for everyone to use and it will not redirect to your new one."
+        when_you_change_your_sharetribe_domain: "When you change your Sharetribe domain, all of your URL's will automatically change. You will be redirected to the new address of your marketplace. You and users will have to log in again. Your previous marketplace domain will not be linked or redirected to the new one in any way. The old domain will become available for others to use."
+        would_you_like_to_proceed: "Would you like to proceed?"
+        change: Change
       landing_pages:
-        landing_pages: "Landing Page"
+        landing_pages: "Landing page"
         info_1: "The landing page is perhaps the most important page of your marketplace. It is the first page that visitors see - sort of like the front door of your house. You have only a few seconds to convince new vistiors that they should explore your site. The page needs to be appealing and your value proposition should be clear and enticing."
-        info_2: "%{preview_link} your current landing page and make changes from the %{details_link} and %{design_link} sections"
-        info_2_preview_text: Preview
-        info_2_details_text: "basic details"
-        info_2_design_text: design
+        info_2: "You can use this editor to modify your landing page whenever you want!"
+        info_2_help_center: "Help Center article"
         info_3: "If you want to have a completely customized landing page for your marketplace, you can purchase it as add-on for $99 per month."
-        info_4: "Read more about custom landing pages"
-        editor_title: "Landing Page Editor"
-        editor_info: "Here you can edit the sections that your Landing Page will include. Please note that some sections are predefined and cannot be edited within the Landing Page editor."
+        info_4: "Read this %{link} to find out how the landing page editor works, learn about the different sections and how to edit them."
+        editor_title: "Landing page editor"
+        editor_info: "Here you can edit the sections of your landing page. At the moment it is only possible to use one language for the landing page. The 'Hero' and 'Footer' sections' position cannot be altered"
         preview: "Preview landing page"
         set_live: "Set live"
-        headers:
-          section_id: "Section ID"
-          section_type: "Section type"
-          version: Version
-          released: Released
-        add_new_version: "Add new version"
-        new_version: "New version"
-        edit_version: "Edit version"
-        add_new_section: "Add new section"
+        add_new_section: "Add new section:"
         select_section_type: "Select section type..."
+        this_version_is_not_released: "You need to make changes to set live a new version of your landing page"
+        latest_version_released: "The latest version of your landing page has been set live! %{link}!"
+        check_it_out: "Check it out"
         form:
-          version: Version
           save: Save
+          cancel: Cancel
         sections:
           identifier: "Section ID"
-          kind: "Section Type"
-          variation: Variation
+          kind: "Section type"
           new: "New section"
           edit: "Edit section %{section_id}"
           remove_section_confirmation: "Are you sure you want to remove the section '%{section_id}' and all its data? This cannot be undone."
-          info_single_column: "Info 1 Column"
-          info_multi_column_2: "Info 2 Columns"
-          info_multi_column_3: "Info 3 Columns"
+          info_single_column: "Info - One column"
+          info_multi_column_2: "Info - Two columns"
+          info_multi_column_3: "Info - Three columns"
           listings: Listings
           categories: Categories
           hero: Hero
           locations: Locations
           video: Video
           new_section:
-            categories: "New categories section"
-            footer: "New footer section"
-            hero: "New hero section"
-            info_single_column: "New single column section"
-            info_multi_column_2: "New 2 column section"
-            info_multi_column_3: "New 3 column section"
-            listings: "New listings section"
-            locations: "New locations section"
-            video: "New video section"
+            categories: "New 'Categories' section addition"
+            info_single_column: "New 'Info - One colum' section addition"
+            info_multi_column_2: "New 'Info - Two columns' section addition"
+            info_multi_column_3: "New 'Info - Three columns' section addition"
+            listings: "New 'Listings' section addition"
+            locations: "New 'Locations' section addition"
+            video: "New 'Video' section addition"
           edit_section:
-            categories: "Edit categories section"
-            footer: "Edit footer section"
-            hero: "Edit hero section"
-            info_single_column: "Edit single column section"
-            info_multi_column_2: "Edit 2 column section"
-            info_multi_column_3: "Edit 3 column section"
-            listings: "Edit listings section"
-            locations: "Edit locations section"
-            video: "Edit video section"
+            categories: "'Categories' section edition"
+            footer: "'Footer' section edition"
+            hero: "'Hero' section edition"
+            info_single_column: "'Info - One column' section edition"
+            info_multi_column_2: "'Info - Two columns' section edition"
+            info_multi_column_3: "'Info - Three columns' section edition"
+            listings: "'Listings' section edition"
+            locations: "'Locations' section edition"
+            video: "'Video' section edition"
+      attachments:
+        delete: "Delete the current %{title}"
+        or_change: "Or change the %{title} to a new one:"
     landing_page_versions:
       sections:
+        content:
+          title: "Section content"
         hero:
           hero_title: Hero
-          hero_description: "Set the Background image for the hero section. The Slogan and Description are set from the basic details section."
+          hero_description: "Set the background image for the Hero section. The slogan and description are set from the %{link}."
+          basic_details_tab: "'Basic details' tab"
         footer:
           footer_title: Footer
           footer_style: "Footer style"
           style_dark: Dark
           style_light: Light
-          style_marketplace_color: "Marketplace color"
+          style_marketplace_color: "Marketplace main color"
           style_logo: Logo
         cta_button:
-          cta_button: "CTA Button"
-          cta_enabled: Enabled
-          cta_text: Text
+          cta_button: "Call-to-action button"
+          cta_enabled: "Show a button"
+          cta_text: Label
           cta_url: URL
+          text_placeholder: "Click me!"
+          url_placeholder: "https://www.example.com"
+        background_selector:
+          title: Background
         background_image_overlay:
           background_image: "Background image"
           background_image_info: "This image will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels."
@@ -743,16 +771,16 @@ en:
           style_none: None
         background_color:
           background_color: "Background color"
-          background_color_info: "You can choose the background color of this section by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> can help you choose the color andgive you the hex color code. You can then copy the code here."
+          background_color_info: "You can choose the background color of this section by entering a hex color value. %{link} can help you choose the color and give you the hex color code. You can then copy the code here."
         categories:
-          add: "Add a new category to this section"
+          add: "+ Add a new category to this section"
           category: Category
           empty: "You don't have any included categories"
           image: Image
-          include_title: "Categories to include"
-          info_text: "You can feature 3 to 7 categories in each section. Please add an image to each category and select one of the categories from your marketplace. The recommended image size is 1000 x 667 px."
-          need_at_least_3_categories: "You should have at least 3 categories in this section"
-          need_at_most_7_categories: "You should have at most 7 categories in this section"
+          include_title: "Categories to feature"
+          info_text: "You can feature three to seven categories. Please add an image to each category and select one of the categories from your marketplace. For best results the recommended image size is 1000 x 667 pixels."
+          need_at_least_3_categories: "You should have at least three categories in this section"
+          need_at_most_7_categories: "You should have at most seven categories in this section"
         category:
           add_another_image: "Add another image"
           category: Category
@@ -762,14 +790,14 @@ en:
           image_required: "You should add an image to this category"
           select_category: "Select category"
         locations:
-          add: "Add a new location to this section"
+          add: "+ Add a new location to this section"
           location: Location
           empty: "You don't have any included locations"
           image: Image
-          include_title: "Locations to include"
-          info_text: "You can feature 3 to 7 locations in each section. Please add an image to each location and provide location search url for your marketplace. The recommended image size is 1000 x 667 px."
-          need_at_least_3_locations: "You should have at least 3 locations in this section"
-          need_at_most_7_locations: "You should have at most 7 locations in this section"
+          include_title: "Locations to feature"
+          info_text: "You can feature three to seven locations. Please add an image to each location and provide location search URL for your marketplace. For best results the recommended image size is 1000 x 667 pixels."
+          need_at_least_3_locations: "You should have at least three locations in this section"
+          need_at_most_7_locations: "You should have at most sevent locations in this section"
         location:
           add_another_image: "Add another image"
           location: Location
@@ -778,28 +806,30 @@ en:
           image: Image
           image_required: "You should add an image to this location"
           title: Title
-          title_placeholder: "Location text"
+          title_placeholder: "Location label"
           url: URL
-          url_placeholder: "Location link URL"
+          url_placeholder: "Location URL"
         multi_column:
           main_title: "Main title"
           column_header: "Column %{index}"
           column_title: "Column %{index} title"
-          column_icon_info: "You can choose the icon for this column it's name from <a href=\"/info-icons.html\" target=\"_blank\">full list of supported icons</a>"
+          web_viewer: "web viewer"
+          column_icon_info: "You can choose your icon from this %{link}. Once you've selected the icon, copy the 'Directory path' (for example '01-Interface Essential/01-Home/house-2.svg') and paste it here."
           column_icon: "Column %{index} icon"
           column_paragraph: "Column %{index} paragraph"
           column_button: "Column %{index} button"
-          column_button_text: "Button text"
-          column_button_url: "https://www.sharetribe.com"
+          column_button_text: "Button label"
+          column_button_url: "https://www.example.com"
         listings:
-          you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456"
+          listings_to_feature: "Listings to feature"
+          you_need_to_add_the_listing_ids: "You need to add the listing IDs of the listings you want to feature in this section. To find the ID of a listing, simply go to the listing page and look at the listing URL. The listing ID is the number that comes right after the main URL. In the example https://www.example.com/listings/123456-listing-title, the listing ID would be 123456."
         video:
           text: Text
-          youtube_video_id: "Youtube video ID"
-          autoplay: "Playing options"
+          autoplay: "Autoplay options"
           autoplay_no: "No autoplay"
           autoplay_muted: "Muted autoplay"
-          info: "This text will show when you select the \"No Autoplay\" playing option or the video is paused"
+          info: "This text will be displayed if you select the \\\"No autoplay\\\" option or when the video is paused."
+          youtube_video_id_info: "You can get the video ID from the video's URL. It is normally the last part of the URL. For example if the video's URL is https://www.youtube.com/watch?v=UffchBUUIoI, the ID would be 'UffchBUUIoI'"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -1143,11 +1173,13 @@ en:
         shipping_to: "Shipping to %{address}"
         buyer_pays: "Buyer pays:"
         marketplace_collects: "%{service_name} collects:"
-        buyer_service_fee_label: "Commision from buyer:"
-        service_fee_label: "Commision from seller:"
+        buyer_service_fee_label: "Commission from buyer:"
+        service_fee_label: "Commission from seller:"
         provider_receives: "Seller receives:"
         admin_info_text: "As an administrator of %{service_name}, you can do some actions to move this transaction forward:"
         manage_reviews: "Manage reviews"
+        you_should_investigate: "You should investigate the situation by discussing with both parties and decide to refund or dismiss the dispute. %{learn_more_link}"
+        learn_more: "Learn more."
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
@@ -1243,11 +1275,11 @@ en:
       stripe-fee_label: "Payment processing fee"
     confirm:
       confirm_description: "If your order has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
-      cancel_description: "If your order was not fulfilled, you can mark it as 'canceled'. You can still give feedback to the other party and describe what happened."
+      cancel_description_team: "If your order was not fulfilled, you can mark it as 'disputed'. The %{service_name} team will review the situation and will decide to refund or dismiss your dispute request."
       cancel_payed_description: "If your request was accepted but you're having second thoughts, you can still cancel the request before the payment."
       canceling_payed_transaction: "Cancel transaction"
       confirm: "Mark completed"
-      cancel: Cancel
+      cancel: Dispute
       continue: Continue
       give_feedback_to: "Give feedback to %{person_link}"
       do_not_give_feedback: "Skip feedback"
@@ -1268,7 +1300,7 @@ en:
       rejected_offer: "Offer rejected."
       confirmed_request: "Order completed."
       confirmed_offer: "Offer completed."
-      canceled_request: "Order canceled."
+      canceled_request: "Order disputed."
       canceled_offer: "Offer canceled."
       message_from: "Message from %{person}"
       about_listing: "About listing %{listing_title}"
@@ -1292,6 +1324,10 @@ en:
         held_payment: "Accepted the request. Payment for %{sum} is being held by %{service_name} until the order is marked as completed."
         held_payment_wo_sum: "Accepted the request. Payment is being held by %{service_name} until the order is marked as completed."
         confirmed_request: "Marked the order as completed. The payment has now been transferred to %{author_name} bank account or will be transferred soon."
+      canceled_the_order: "Disputed the order. The %{service_name} team has been notified."
+      marked_as_refunded: "Marked as refunded"
+      dismissed_the_cancellation: "Dismissed the dispute."
+      payment_has_now_been_transferred: "The payment has now been transferred to %{seller} bank account or will be transferred soon."
     new:
       message: Message
       message_to: "Message to %{author_name}"
@@ -1366,6 +1402,18 @@ en:
           verify: "Waiting for you to verify your PayPal account"
       stripe:
         waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the order completed. Once the order is marked as completed, the payment will be released to your bank account."
+      order_canceled: "Order disputed"
+      waiting_for_marketplace_review: "Waiting for the %{service_name} team to review the situation"
+      marketplace_notified: "The %{service_name} team has been notified. You can also %{contact_link} if you want to share more details with them."
+      contact_them: "contact them"
+      refunded: "Order marked as refunded"
+      dismissed: "Order dispute dismissed"
+      order_refunded: "Order marked as refunded. The %{service_name} team has approved the dispute."
+      you_should_receive_refund_soon: "You should receive a refund soon."
+      issue_with_the_refund: "Something wrong? An issue with the refund? %{contact_link}."
+      do_you_disagree: "Something wrong? Do you disagree? %{contact_link}."
+      contact_the_marketpalce_team: "Contact the %{service_name} team"
+      order_cancellation_dismissed: "Order dispute dismissed. The %{service_name} team has rejected the dispute."
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
@@ -1376,7 +1424,9 @@ en:
       reject_preauthorized_offer: "Not this time"
       reject_preauthorized_request: "Not this time"
       confirm: "Mark completed"
-      cancel: Cancel
+      cancel: Dispute
+      mark_as_refunded: "Mark as refunded"
+      dismiss: "Dismiss and payout"
   feedback:
     feedback_subject: "New feedback from %{service_name}"
     feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
@@ -1417,13 +1467,13 @@ en:
       create_own: "Want to create your own online marketplace website like %{service_name}? %{learn_more}."
       learn_more: "Learn more"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "You have not yet completed or canceled the order %{request_link}. If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "You have not yet completed or disputed the order %{request_link}. If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this order will not be completed for one reason or another, you can %{cancel_it_link}."
-      cancel_it_link_text: "cancel it"
-      automatic_confirmation: "If you don't confirm or cancel the order within %{days_to_automatic_confirmation} days after the request was accepted, we will mark it automatically as completed."
+      cancel_it_link_text: "dispute it"
+      automatic_confirmation: "If you don't confirm or dispute the order within %{days_to_automatic_confirmation} days after the request was accepted, we will mark it automatically as completed."
     confirm_reminder_v2:
-      headline: "Hi %{name}, you have not yet completed or canceled the order %{request_link}."
+      headline: "you have not yet completed or disputed the order %{request_link}."
       you_have_not_yet_confirmed_or_canceled_request: "If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
     payment_settings_reminder:
       remember_to_add_payment_details: "Remember to add your payment details to receive payments"
@@ -1431,42 +1481,36 @@ en:
       please_go_to_payment_settings: "Please go to your %{payment_settings_link} and fill in the required payment information."
       payment_settings_link: "payment settings"
     payment_settings_reminder_v2:
-      hi: "Hi there,"
       fill_payout_details: "Fill the payout details"
       you_have_added_listing_with_payment: "You have added a listing %{listing_link} with payment. We noticed that you haven't yet added your payment details. In order to receive the payment you need to provide your payment information."
     transaction_confirmed:
       here_is_a_message_from: "Here's a message from %{other_party_given_name}:"
       request_marked_as_confirmed: "Order completed - remember to give feedback"
-      request_marked_as_canceled: "Order canceled"
+      request_marked_as_canceled: "Order disputed"
       has_marked_request_as_confirmed: "%{other_party_full_name} has marked the order about '%{request}' completed. You can now give feedback to %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} has canceled the order about '%{request}'. You can still give feedback to %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} has disputed the order about '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: "Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} has marked the order about '%{request}' completed. The payment for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
       team_title: "the %{service_name} team"
     transaction_confirmed_v2:
-      headline_stripe_confirmed: "Hi %{recipient}, %{other_party_full_name} has marked the order about %{listing_link} completed."
-      headline_confirmed: "Hi %{recipient}, %{other_party_full_name} has marked the order about %{listing_link} completed."
-      headline_canceled: "Hi %{recipient}, %{other_party_full_name} has canceled the order about %{listing_link}."
+      headline_confirmed: "%{other_party_full_name} has marked the order about %{listing_link} completed."
+      headline_canceled: "%{other_party_full_name} has disputed the order about %{listing_link}."
       stripe:
-        has_marked_request_as_confirmed: "The payment for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
-      has_marked_request_as_confirmed: "You can now give feedback to %{other_party_given_name}."
-      has_marked_request_as_canceled: "You can still give feedback to %{other_party_given_name}."
+        has_marked_request_as_confirmed: "The payment for this transaction has now been released to your bank account."
+      can_give_feedback: "You can now give feedback to %{other_party_given_name}."
       team_title: "the %{service_name} team"
     transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The order was automatically completed because %{days_passed} days have passed since the request was accepted."
     transaction_automatically_confirmed_v2:
-      headline: "Hi %{name}!"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed."
       order_automatically_confirmed: "The order was automatically completed because %{days_passed} days have passed since the request was accepted."
     booking_transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The request was automatically completed because one day has passed since the booking period ended."
     booking_transaction_automatically_confirmed_v2:
-      headline: "Hi %{name}!"
-      we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed."
       order_automatically_confirmed: "The request was automatically completed because one day has passed since the booking period ended."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "You can now give feedback to %{other_party_given_name}. Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
@@ -1478,12 +1522,12 @@ en:
       confirmation_link_text: "Confirm my address"
       or_paste_link: "Alternatively, you can copy the following link to your browser's address bar:"
     confirmation_instructions_v2:
-      headline: "Hi %{name}, confirm your email to join %{service_name}!"
+      headline: "confirm your email to join %{service_name}!"
       need_to_confirm: "Confirm your email address to complete your %{service_name} account. It's easy - just click the button below!"
       confirmation_link_text: "Confirm %{email}"
-      or_paste_link: "Can't click the button? Here's the link for your convenience:"
     common:
       hey: "Hello %{name},"
+      hi: "Hi %{name},"
       kassi_team: "The %{service_name} team"
       thanks: "Thanks,"
       dont_want_to_receive_these_emails: "Don't want to receive these emails?"
@@ -1495,7 +1539,7 @@ en:
       unsubscribe_from_these_emails: "unsubscribe from these emails"
       unsubscribe_from_invitation_emails_info: "You have received this email because a member of %{service_name} has invited you to join them."
       unsubscribe_from_invitation_emails: "Unsubscribe from invitation emails to join %{service_name}"
-      best_regards: "Best regards from %{service_name}"
+      here_is_your_receipt: "Here is your receipt."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer %{listing}."
       has_accepted_your_request: "%{accepter} has accepted your request %{listing}."
@@ -1508,12 +1552,12 @@ en:
       your_request_was_rejected: "Your request was rejected"
       you_can_now_pay_to: "You can now pay the requested amount to %{payment_receiver}."
       pay_now: "Pay now"
-      remember_to_confirm: "When the order is fulfilled, remember to mark it as completed. If the order is not fulfilled your have %{days_to_automatic_confirmation} days to cancel it. Otherwise it will be automatically marked as completed."
+      remember_to_confirm: "When the order is fulfilled, remember to mark it as completed. If the order is not fulfilled your have %{days_to_automatic_confirmation} days to dispute it. Otherwise it will be automatically marked as completed."
     conversation_status_changed_v2:
-      has_accepted_your_request: "Hi %{starter}, your request was accepted."
-      has_accepted_your_request_text: "%{accepter} has accepted your request %{listing}."
-      has_rejected_your_request: "Hi %{starter}, unfortunately your request was declined."
-      has_rejected_your_request_text: "%{accepter} has rejected your request %{listing}."
+      has_accepted_your_request: "your request was accepted."
+      has_accepted_your_request_text: "%{accepter} has accepted your request for %{listing}."
+      has_rejected_your_request: "unfortunately your request was rejected."
+      has_rejected_your_request_text: "%{accepter} has rejected your request for %{listing}."
     invitation_to_kassi:
       hi: Hi!
       you_have_been_invited_to_kassi: "%{inviter} has invited you to %{service_name}."
@@ -1528,14 +1572,12 @@ en:
       you_have_a_new_comment: "%{author} has commented on your listing in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} has commented on the listing '%{listing}' you are following in %{service_name}."
-    new_comment_v2:
-      headline: "Hi %{name}!"
     new_message:
       view_message: "View message"
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
       you_have_a_new_message: "A new message in %{service_name} from %{sender_name}"
     new_message_v2:
-      hi: "Hi %{name}, you have a message!"
+      headline: "you have a message!"
       reply: "Reply to %{sender}"
     new_payment:
       new_payment: "You have received a new payment"
@@ -1559,9 +1601,8 @@ en:
       stripe:
         you_have_received_new_payment: "The amount of <b>%{payment_sum}</b> has been paid for <b>%{listing_title}</b> by %{payer_full_name}. The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
     payment_receipt_to_seller_v2:
-      headline: "Hi %{seller_name}, You have been paid %{payment_sum} for %{listing_link} by %{payer_name}."
-      main_text: "Here is your receipt."
-      main_text_stripe: "The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
+      headline: "you have been paid %{payment_sum} for %{listing_link} by %{payer_name}."
+      main_text_stripe: "The money is being held by %{service_name} until the order is marked as completed."
       price_breakdown: "Price breakdown"
     payment_receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
@@ -1579,10 +1620,8 @@ en:
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
     payment_receipt_to_payer_v2:
-      headline: "Hi %{payer_name}, here is your receipt for %{listing_link}."
+      headline: "here is your receipt for %{listing_link}."
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b>."
-      main_text: "Here is your receipt."
-      main_text_stripe: "The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's fee:"
       shipping_total: "Shipping:"
@@ -1613,7 +1652,7 @@ en:
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
       view_feedback: "View feedback"
     new_testimonial_v2:
-      headline: "Hi %{name}, you got feedback!"
+      headline: "you got feedback!"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Listing you follow has been updated"
       has_updated_listing_you_follow_in_kassi: "%{author} has updated the listing '%{listing}' you are following in %{service_name}."
@@ -1630,8 +1669,10 @@ en:
       settings_link_text: "Edit your email settings here"
       unsubscribe_link_text: unsubscribe
     community_updates_v2:
-      headline: "Hi %{user_name}, check out the latest activity on %{service_name}"
-      intro_paragraph: "Here are some highlights that happened on %{service_name} during the past %{time_since_last_update}."
+      headline: "check out the latest activity on %{service_name}."
+      intro_paragraph:
+        one: "Here are some highlights that happened on %{service_name} during the past day."
+        other: "Here are some highlights that happened on %{service_name} during the past %{count} days."
     newsletter:
       hi: "Hi %{name},"
       newest_offers: "What people currently offer to others"
@@ -1644,8 +1685,8 @@ en:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     testimonial_reminder_v2:
-      headline: "Hi %{name}, remember leave feedback to %{other_name}!"
-      you_have_not_given_feedback_yet: "Giving feedback is always a good idea. If everything went well, let othersknoww that %{name} can be trusted. If there were any problems, it's good to mention those as well"
+      headline: "remember leave feedback to %{other_name}!"
+      you_have_not_given_feedback_yet: "Giving feedback is always a good idea. If everything went well, let others know that %{name} can be trusted. If there were any problems, it's good to mention those as well"
       leave_feedback: "Leave feedback for %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} is interested and has authorized payment for %{listing_title} published in %{service_name}"
@@ -1656,14 +1697,14 @@ en:
       if_you_do_not_accept: "If you reject the request or don't accept it within this timeframe, the transaction will be automatically canceled, %{requester} will not be charged and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_v2:
-      headline: "Hi %{seller_name}, %{requester} is interested  and has authorized payment for %{listing_link}."
+      headline: "%{requester} is interested and has authorized payment for %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
       remember_to_accept: "Remember to accept the request from %{requester} about listing \"%{listing_title}\". %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
       one_day_left: "If you don't accept the request within one day the request will be automatically rejected and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_reminder_v2:
-      headline: "Hi %{seller_name}, remember to accept the request from %{requester} about %{listing_link}."
+      headline: "remember to accept the request from %{requester} about %{listing_link}."
       remember_to_accept: "%{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
     welcome_email:
       welcome_email_subject: "Welcome to %{service_name}"
@@ -1677,7 +1718,7 @@ en:
       you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
       view_listing: "View listing"
     new_listing_by_followed_person_v2:
-      headline: "Hi %{name}, %{author} just added a new listing!"
+      headline: "%{author} just added a new listing!"
       has_posted_a_new_listing: "%{author_name} has posted a new listing:"
       you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
       view_listing: "View %{title}"
@@ -1727,6 +1768,36 @@ en:
       starter: "Starter:"
       provider: "Seller:"
       view_transaction: "View transaction"
+    transaction_cancel_flow:
+      the_order_about: "the order about %{listing_title}"
+      you_can_contact_the_marketplace_team: "You can contact the %{service_name} team if there is any further issue."
+      you_can_now_give_feedback: "You can now give feedback to %{name}. Giving feedback is always a good idea. If everything went well, you should let others know that %{recipient} can be trusted. If there were any problems, it's good to mention those as well."
+      give_feedback_to: "Give feedback to %{name}"
+    transaction_disputed:
+      subject: "Order disputed - The %{service_name} team is reviewing the situation"
+      subject_admin: "A transaction was disputed, you must decide what happens next"
+      order_about: "order about %{listing_title}"
+      the_order_has_been_canceled: "the %{transaction_link} has been disputed."
+      the_order_between_buyer_and_seller_has_been_canceled: "the %{transaction_link} between %{buyer} and %{seller} has been disputed."
+      the_marketplace_has_been_notified: "The %{service_name} team has been notified and is reviewing the situation. You can contact them to share more details."
+      contact_the_marketplace_team: "Contact the %{service_name} team"
+      you_must_now_decide: "You must now decide if a refund should happen or if you dismiss the dispute. You can %{learn_more_link}."
+      learn_more_about: "learn more about what to do here"
+      review_the_transaction: "Review the transaction"
+    transaction_refunded:
+      subject: "Order marked as refunded - The %{service_name} team has approved the dispute from %{buyer}"
+      marketplace_team_has_approved_the_cancellation: "the %{service_name} team has approved the dispute for %{transaction_link} and has marked the payment as refunded."
+      you_should_receive_a_refund_soon: "You should receive a refund soon. You can contact the %{service_name} team if there is any further issue."
+    transaction_cancellation_dismissed:
+      subject: "Order dispute dismissed - The %{service_name} team has rejected the dispute from %{buyer}"
+      marketplace_team_has_rejected_the_cancellation: "the %{service_name} team has rejected the dispute for %{transaction_link}."
+    transaction_commission_charge_failed:
+      subject: "A commission in your marketplace was not transferred to your PayPal account"
+      transaction_about: "transaction about %{listing_title}"
+      the_commission_of_the_transaction: "the commission of the %{transaction_link} from %{seller} has failed to be transferred to your PayPal account."
+      this_usually_means: "This usually means that there is something blocking the commission from the seller's PayPal account. In most cases the issue is that the seller does not have a valid and verified funding source connected to their PayPal account."
+      if_you_would_like_to_investigate: "If you would like to investigate this further, a good first step is to contact the seller about this."
+      contact_the_seller: "Contact the seller"
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."
@@ -1751,13 +1822,15 @@ en:
       seller_express_checkout_disabled: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please contact the author and let them know that there's an issue with their PayPal account, and advise them to contact PayPal Customer Service."
       seller_express_checkout_disabled_no_free: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please ask the %{service_name} team to contact the listing author and advise them to contact PayPal Customer Service."
       generic_error: "An error occurred during the payment process. Could not finalize your PayPal payment."
-      cancel_error: "An error occurred during cancellation. Could not finalize cancel."
+      cancel_error: "An error occurred during dispute. Could not finalize dispute."
       accept_authorization_error: "An error occurred while trying to accept preauthorized Paypal payment. Please, try again."
       reject_authorization_error: "An error occurred while trying to reject preauthorized Paypal payment. Please, try again."
     stripe:
       generic_error: "An error occurred during the payment process. Could not finalize your Stripe payment."
       accept_authorization_error: "An error occurred while trying to accept preauthorized Stripe payment. Please, try again."
       reject_authorization_error: "An error occurred while trying to reject preauthorized Stripe payment. Please, try again."
+      card_declined: "Your card was declined"
+      expired_card: "The payment failed because this card has expired"
   error_pages:
     back_to_kassi_front_page: "Back to the front page"
     error_404:
@@ -1797,9 +1870,12 @@ en:
       on_or_after: "must be on or after %{restriction}"
       positive_number: "Insert a number."
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
-      section_with_this_id_already_exists: "This identifier is in use. Please choose another one."
-      listing_with_this_id_does_not_exist: "This listing id is not one of yours. Maybe you made a typo? Please verify and try again"
+      section_with_this_id_already_exists: "This section unique name is already in use. Please choose another one."
+      listing_with_this_id_does_not_exist: "This listing ID is not available in your marketplace. Maybe you made a typo? Please verify and try again."
       presence: "Can't be blank"
+      username_is_invalid: "This username is invalid or unavailable"
+      domain_name_is_invalid: "This domain name is invalid or unavailable"
+      only_supported_variables: "Make sure to add only supported variables"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -2128,7 +2204,7 @@ en:
       request_accepted: "Request accepted"
       request_confirmed: "Order completed"
       request_rejected: "Request rejected"
-      request_canceled: "Order canceled"
+      request_canceled: "Order disputed"
       message_sent: "Message sent"
       message_not_sent: "Sending the message failed. Please try again."
       this_content_is_not_available_in_this_community: "This content is not available."
@@ -2159,7 +2235,7 @@ en:
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
       you_must_log_in_to_change_profile_settings: "You must log in to %{service_name} to change profile settings"
       you_must_log_in_to_accept_or_reject: "You must log in to accept or reject the transaction"
-      you_must_log_in_to_confirm_or_cancel: "You must log in to cancel or confirm the transaction"
+      you_must_log_in_to_confirm_or_cancel: "You must log in to dispute or confirm the transaction"
       you_need_to_confirm_your_account_first: "You need to confirm your email."
       you_must_fill_all_the_fields: "You must fill all the fields"
       you_unfollowed_listing: "You are no longer following this listing"
@@ -2176,8 +2252,10 @@ en:
         other: "The website will be offline for maintenance in %{count} minutes"
       automatically_logged_out_please_sign_in: "You have been automatically logged out. Please log in again."
       stripe_you_account_balance_is_not_0: "You account balance is not 0 so it cannot be deleted. This might mean that you have transactions waiting to be completed or that there is money waiting to be paid out to your bank account. Please contact the %{service_name} team to learn more."
+      stripe_balance_for_username_is_not_0: "The Stripe balance for %{username} is not 0, so the account cannot be deleted. This might mean that they have transactions waiting to be completed or that there is money waiting to be paid out to their bank accounts. Please check your Stripe Dashboard for more information."
       visit_admin: "Would you like to %{link}?"
       visit_admin_link: "visit your admin panel"
+      an_error_occurred_when_saving_your_information: "An error occurred when saving your information: \"%{message}\". Please check that all information is correct and try again."
     settings:
       account: Account
       notifications: Notifications
@@ -2188,6 +2266,8 @@ en:
       payments: Payments
       listings: Listings
       listings_search_placeholder: "Search for a listing title"
+      transactions_search_placeholder: "Search for a transaction title or other party involved"
+      transactions: Transactions
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "You do not have permission to view this listing."
@@ -2477,6 +2557,7 @@ en:
       night: night
       nights: nights
       invalid_parameters: "Invalid values for new transaction"
+      select_delivery_method: "You should select a delivery method"
     transaction_agreement_checkbox:
       read_more: View.
     stripe_payment:
@@ -2799,6 +2880,8 @@ en:
       editing_profile_of: "You are now editing the profile of %{name}"
       format_markdown_link: "format your description using Markdown"
       format_markdown: "You can %{link}."
+      username: Username
+      username_description: "Your username is used as part of the unique URL of your profile page. You can only use letters and numbers for your username, without spaces. When you change your username, your URL will automatically change and your previous URL will not be redirected. The old username will become available for other users."
     save_information: "Save information"
   shipping_address:
     shipping_address: "Shipping address"
@@ -3080,7 +3163,7 @@ en:
     paypal_connected: "PayPal account connected successfully!"
     paypal_can_accept: "You are now all set to receive money to your PayPal account"
     paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
-    stripe_account_restricted: "Online payments to your account are restricted!"
+    stripe_account_restricted: "Online payments to your account are restricted or will be restricted soon!"
     stripe_account_restricted_info: "You should edit your bank account details to provide more information to the payment provider."
     stripe_account_restricted_soon: "Online payments to your account will be restricted soon."
     stripe_account_restricted_soon_info: "You should edit your bank account details to provide more information to the payment provider."
@@ -3151,15 +3234,19 @@ en:
     form_verification:
       personal_id_number: "Personal ID Number"
       document: "Proof of identity (passport, government-issued ID)"
+      document_back: "Proof of identity (passport, government-issued ID) (back of document)"
       send_verification: "Send Verification"
       need_verification: "Need additional verification"
       additional_document: "A document showing address, either a passport, local ID card, or utility bill from a well-known utility company"
+      additional_document_back: "A document showing address, either a passport, local ID card, or utility bill from a well-known utility company (back of document)"
+      files_need_to_be: "Files need to be JPEGs or PNGs smaller than 5MB. It is not possible to verify PDFs. Files should be in color, be rotated with the image right-side up, and have all information clearly legible."
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"
       ssn_last_4: "Last 4 digits of Social Security Number (SSN)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) or Foreign Identification Number (FIN)"
+      mexico_id_number: "Personal ID Code Number (CURP)"
       messages:
         social_insurance_number: "must be valid Social Insurance Number (SIN)"
   payment_settings:
@@ -3190,8 +3277,6 @@ en:
         id: "Section unique name"
         title: Title
         paragraph: Paragraph
-        button_color: "Button color"
-        button_color_hover: "Button color hover"
         button_title: Text
         button_path: URL
         button_path_string: URL
@@ -3199,14 +3284,13 @@ en:
         background_image_variation: "Background image variation"
         background_color: "Background color"
         background_color_string: "Background color"
-        icon_color: "Icon color"
       landing_page_version/section/listings:
         listing_1_id: "Listing 1 ID"
         listing_2_id: "Listing 2 ID"
         listing_3_id: "Listing 3 ID"
       landing_page_version/section/video:
         text: Text
-        youtube_video_id: "Youtube video ID"
+        youtube_video_id: "YouTube video ID"
   canada_states:
     AB: Alberta
     BC: "British Columbia"

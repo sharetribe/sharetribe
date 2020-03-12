@@ -1,0 +1,21 @@
+- content_for :title do
+  = t('admin2.sidebar.analytics.google')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.analytics.google')
+
+.content-card-section-container
+  = form_for @current_community, url: update_google_admin2_analytics_google_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.sidebar.analytics.google')
+      %p.ingress
+        = t('admin2.google.info_text', url: 'https://help.sharetribe.com/configuration-and-how-to/how-to-track-your-marketplace-traffic-with-google-analytics').html_safe
+      .form-group
+        = form.label :google_analytics_key, t('admin2.google.google_analytics_key')
+        = form.text_field :google_analytics_key, class: %i[form-control], maxlength: 15, placeholder: t('admin2.google.google_analytics_key_placeholder')
+        %small#twitterHandle-help.form-text
+          = t('admin2.google.google_analytics_key_info_text').html_safe
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

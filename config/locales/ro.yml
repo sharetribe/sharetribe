@@ -284,6 +284,10 @@ ro:
         ban_user_confirmation: "Aceasta dezactiveaza contul utilizatorului si restrictioneaza accesul acestora in viitor cu acest cont pe acest site. Esti sigur ca vrei sa continui?"
         unban_user_confirmation: ~
         ban_me_error: ~
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
         search: ~
         search_by_name_email: "Cauta dupa nume, e-mail sau nume publicat"
         reset_search: ~
@@ -303,6 +307,7 @@ ro:
         unconfirmed_user: "Utilizator neconfirmat: %{name}"
         resend: Retrimite
         cancel: Anuleaza
+        confirm: ~
         user_didnt_complete_the_signup_process: "Acest utilizator s-a inscris prin Facebook dar nu a completat procesul de inscriere. Dupa ce conecteaza un cont Facebook, utilizatorii trebuie sa accepte Termenii de utilizare si sa completeze orice alt camp obligatoriu."
         pending_user: "In asteptare: %{name}"
       new_layout:
@@ -312,6 +317,7 @@ ro:
         enabled_for_all: ~
         new_topbar: ~
         searchpage: ~
+        new_email_templates: ~
       social_media:
         social_media: "Retele sociale"
         logo: ~
@@ -339,7 +345,6 @@ ro:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: "Permiteti utilizatorilor sa se autentifice folosind contul de Facebook"
         save: "Salveaza setarile"
-        add_another_image: ~
         google_connect: "Conectare cu Google"
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -402,6 +407,10 @@ ro:
         robots_info: ~
         robots_info_link_text: ~
         robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
         save: ~
       analytics:
         analytics: Analiza
@@ -414,6 +423,10 @@ ro:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "Salveaza setari"
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
       logo_link:
         title: "Link logo"
         info: "Poti customiza link-ul logo-ului (si al butonului de Pagina Initiala din bara de meniu de sus). Implicit, logo-ul duce utilizatorii catre Pagina Initiala sau catre Pagina Initiala customizata."
@@ -462,10 +475,13 @@ ro:
           confirmed: ~
           paid: Platit
           canceled: ~
+          disputed: ~
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
         headers:
           conversation: "Firul conversației"
           listing: Listarea
@@ -485,6 +501,7 @@ ro:
           paid: "Plătit /ă"
           confirmed: ~
           canceled: "Anulat /ă"
+          disputed: ~
           initiated: "Plata prin PayPal in desfasurare"
           pending_ext: "Plata prin PayPal in desfasurare"
           none:
@@ -498,8 +515,11 @@ ro:
             paid: Platit
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
+            refunded: ~
+            dismissed: ~
           stripe:
             free: ~
             pending: ~
@@ -509,11 +529,14 @@ ro:
             paid: Platit
             confirmed: ~
             canceled: ~
+            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
         not_available: Indisponibil
       conversations:
         conversations: ~
@@ -652,36 +675,33 @@ ro:
         contact_us: ~
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_preview_text: ~
-        info_2_details_text: ~
-        info_2_design_text: ~
+        info_2_help_center: ~
         info_3: ~
         info_4: ~
         editor_title: ~
         editor_info: ~
         preview: ~
         set_live: ~
-        headers:
-          section_id: ~
-          section_type: ~
-          version: ~
-          released: ~
-        add_new_version: ~
-        new_version: ~
-        edit_version: ~
         add_new_section: ~
         select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
         form:
-          version: ~
           save: ~
+          cancel: ~
         sections:
           identifier: ~
           kind: ~
-          variation: ~
           new: ~
           edit: ~
           remove_section_confirmation: ~
@@ -695,8 +715,6 @@ ro:
           video: ~
           new_section:
             categories: ~
-            footer: ~
-            hero: ~
             info_single_column: ~
             info_multi_column_2: ~
             info_multi_column_3: ~
@@ -713,11 +731,17 @@ ro:
             listings: ~
             locations: ~
             video: ~
+      attachments:
+        delete: ~
+        or_change: ~
     landing_page_versions:
       sections:
+        content:
+          title: ~
         hero:
           hero_title: ~
           hero_description: ~
+          basic_details_tab: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -730,6 +754,10 @@ ro:
           cta_enabled: ~
           cta_text: ~
           cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
         background_image_overlay:
           background_image: ~
           background_image_info: ~
@@ -790,6 +818,7 @@ ro:
           main_title: ~
           column_header: ~
           column_title: ~
+          web_viewer: ~
           column_icon_info: ~
           column_icon: ~
           column_paragraph: ~
@@ -797,14 +826,15 @@ ro:
           column_button_text: ~
           column_button_url: ~
         listings:
+          listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
           text: ~
-          youtube_video_id: ~
           autoplay: ~
           autoplay_no: ~
           autoplay_muted: ~
           info: ~
+          youtube_video_id_info: ~
     custom_fields:
       edit:
         edit_listing_field: "Editați câmpul %{field_name}"
@@ -1137,6 +1167,8 @@ ro:
         provider_receives: "Proprietarul primeste:"
         admin_info_text: ~
         manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
   common:
     edit_page: "Editați pagină"
     default_community_slogan: "Platforma de intermediere online a comunitatii"
@@ -1232,7 +1264,7 @@ ro:
       stripe-fee_label: "Comision procesare plati"
     confirm:
       confirm_description: "Te rugam sa confirmi returnarea produsului si finalizarea comenzii apasand butonul \"Am returnat produsul\". Apoi puteti oferi o recenzie catre cealalta persoana."
-      cancel_description: "Daca comanda dvs. nu a fost finalizata o puteti marca ca fiind 'disputata'. Totusi, puteti oferi recenzie catre cealalta parte si puteti descrie ce s-a intamplat."
+      cancel_description_team: ~
       cancel_payed_description: "Dacă cererea dumneavoastră a fost acceptată, dar aveţi îndoieli, puteţi anula în continuare cererea înainte de plată."
       canceling_payed_transaction: "Anulare tranzacție"
       confirm: "Am returnat produsul"
@@ -1281,6 +1313,10 @@ ro:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
     new:
       message: Mesaj
       message_to: "Mesaj pentru %{author_name}"
@@ -1355,6 +1391,18 @@ ro:
           verify: "Asteptam sa va verificati contul PayPal"
       stripe:
         waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Acceptă ofertă"
       accept_request: "Acceptă cererea"
@@ -1366,6 +1414,8 @@ ro:
       reject_preauthorized_request: "Nu de data aceasta"
       confirm: "Am returnat produsul"
       cancel: Disputa
+      mark_as_refunded: ~
+      dismiss: ~
   feedback:
     feedback_subject: "Feedback nou de la %{service_name}"
     feedback_body: "%{author_name_and_email} a trimis urmatorul feedback de la %{service_name}"
@@ -1420,7 +1470,6 @@ ro:
       please_go_to_payment_settings: "Accesați %{payment_settings_link} și completați informațiile de plată necesare."
       payment_settings_link: "setări plăți"
     payment_settings_reminder_v2:
-      hi: ~
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
@@ -1435,27 +1484,22 @@ ro:
         has_marked_request_as_confirmed: ~
       team_title: ~
     transaction_confirmed_v2:
-      headline_stripe_confirmed: ~
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti o recenzie"
       we_have_marked_request_as_confirmed: ~
     transaction_automatically_confirmed_v2:
-      headline: ~
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti o recenzie"
       we_have_marked_request_as_confirmed: "Am marcat comanda despre '%{request}' finalizată. Solicitarea a fost completată automat, deoarece a trecut o zi de la încheierea perioadei de rezervare."
     booking_transaction_automatically_confirmed_v2:
-      headline: ~
-      we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Puteti acum sa oferiti o recenzie pentru %{other_party_given_name}. Feedback-ul este intotdeauna o idee buna. Daca totul a decurs bine comunitatea ar trebui sa stie ca %{other_party_given_name} este de incredere. Daca au fost probleme este bine sa mentionati si aceste aspecte."
@@ -1470,9 +1514,9 @@ ro:
       headline: ~
       need_to_confirm: ~
       confirmation_link_text: ~
-      or_paste_link: ~
     common:
       hey: "Salut %{name}"
+      hi: ~
       kassi_team: "Echipa %{service_name}"
       thanks: "Mulţumim,"
       dont_want_to_receive_these_emails: "Nu doriţi să primiţi aceste e-mailuri?"
@@ -1484,7 +1528,7 @@ ro:
       unsubscribe_from_these_emails: "dezabonați-vă de aceste e-mailul."
       unsubscribe_from_invitation_emails_info: "Ai primit acest e-mail deoarece un membru %{service_name} te-a invitat sa te inregistrezi."
       unsubscribe_from_invitation_emails: "Dezaboneaza-te de la email-urile de invitatie %{service_name}"
-      best_regards: ~
+      here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ți-a acceptat oferta %{listing}."
       has_accepted_your_request: "%{accepter} ți-a acceptat cererea %{listing}."
@@ -1517,14 +1561,12 @@ ro:
       you_have_a_new_comment: "%{author} a comentat la anuntul tau listat in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} a comentat intr-un anunt pe care tu il urmaresti pe %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} a comentat la listarea '%{listing}' pe care o urmaresti in %{service_name}."
-    new_comment_v2:
-      headline: ~
     new_message:
       view_message: "Vedeți mesaj"
       has_sent_you_a_message_in_kassi: "%{sender} ti-a trimis un mesaj in %{service_name}"
       you_have_a_new_message: "Un nou mesaj in %{service_name} de la %{sender_name}"
     new_message_v2:
-      hi: ~
+      headline: ~
       reply: ~
     new_payment:
       new_payment: "Ai primit o nouă plată"
@@ -1549,7 +1591,6 @@ ro:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text: ~
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1570,8 +1611,6 @@ ro:
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
-      main_text: ~
-      main_text_stripe: ~
     paypal_new_payment:
       paypal_gateway_fee: "Comision PayPal:"
       shipping_total: "Trimite:"
@@ -1620,7 +1659,6 @@ ro:
       unsubscribe_link_text: dezabonare
     community_updates_v2:
       headline: ~
-      intro_paragraph: ~
     newsletter:
       hi: "Salut %{name}"
       newest_offers: "Ce oferte sunt disponibile"
@@ -1716,6 +1754,36 @@ ro:
       starter: ~
       provider: ~
       view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -1747,6 +1815,8 @@ ro:
       generic_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
   error_pages:
     back_to_kassi_front_page: "Inapoi la pagina principala"
     error_404:
@@ -1789,6 +1859,9 @@ ro:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
+      username_is_invalid: ~
+      domain_name_is_invalid: ~
+      only_supported_variables: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a agreat sa imprumute %{listing_title} catre %{requester_name} %{time_ago}."
@@ -2161,8 +2234,10 @@ ro:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Ati fost deconectat(a) automat. Va rugam sa va conectati inca o data."
       stripe_you_account_balance_is_not_0: ~
+      stripe_balance_for_username_is_not_0: ~
       visit_admin: "Vrei sa %{link}?"
       visit_admin_link: "vizitezi Tabloul de Administrare"
+      an_error_occurred_when_saving_your_information: ~
     settings:
       account: Cont
       notifications: Notificari
@@ -2173,6 +2248,8 @@ ro:
       payments: Plăți
       listings: ~
       listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Nu ai permisiunea de a vizualiza acest anunt."
@@ -2462,6 +2539,7 @@ ro:
       night: noapte
       nights: nopți
       invalid_parameters: ~
+      select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Afiseaza.
     stripe_payment:
@@ -2785,6 +2863,8 @@ ro:
       editing_profile_of: "Acum editezi profilul %{name}"
       format_markdown_link: ~
       format_markdown: ~
+      username: ~
+      username_description: ~
     save_information: "Salveaza informatia"
   shipping_address:
     shipping_address: ~
@@ -3114,15 +3194,19 @@ ro:
     form_verification:
       personal_id_number: ~
       document: ~
+      document_back: ~
       send_verification: ~
       need_verification: ~
       additional_document: ~
+      additional_document_back: ~
+      files_need_to_be: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
       ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
+      mexico_id_number: ~
       messages:
         social_insurance_number: ~
   payment_settings:
@@ -3153,8 +3237,6 @@ ro:
         id: ~
         title: ~
         paragraph: ~
-        button_color: ~
-        button_color_hover: ~
         button_title: ~
         button_path: ~
         button_path_string: ~
@@ -3162,7 +3244,6 @@ ro:
         background_image_variation: ~
         background_color: ~
         background_color_string: ~
-        icon_color: ~
       landing_page_version/section/listings:
         listing_1_id: ~
         listing_2_id: ~

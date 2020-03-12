@@ -169,6 +169,9 @@ class Person < ApplicationRecord
   scope :by_unconfirmed_email, ->(email) do
     joins(:emails).merge(Email.unconfirmed.by_address(email))
   end
+  scope :username_exists, ->(username, community) do
+    where("username = :username AND (is_admin = '1' OR community_id = :cid)", username: username, cid: community.id)
+  end
 
   accepts_nested_attributes_for :custom_field_values
 
@@ -203,17 +206,16 @@ class Person < ApplicationRecord
   serialize :preferences
 
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
-  validates_length_of :username, :within => 3..20
   validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-  validates_length_of :display_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-
-  validates_format_of :username,
-                       :with => /\A[A-Z0-9_]*\z/i
+  validates_length_of :display_name, :within => 1..100, :allow_nil => true, :allow_blank => true
 
   USERNAME_BLACKLIST = YAML.load_file("#{Rails.root}/config/username_blacklist.yml")
 
-  validates :username, exclusion: USERNAME_BLACKLIST, uniqueness: {scope: :community_id}
+  validates :username, exclusion: {in: USERNAME_BLACKLIST, message: :username_is_invalid},
+                       uniqueness: {scope: :community_id},
+                       length: {within: 3..20},
+                       format: {with: /\A[A-Z0-9_]*\z/i, message: :username_is_invalid}
 
   has_attached_file :image, :styles => {
                       :medium => "288x288#",
@@ -226,8 +228,7 @@ class Person < ApplicationRecord
   #validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 9.megabytes
   validates_attachment_content_type :image,
-                                    :content_type => ["image/jpeg", "image/png", "image/gif",
-                                      "image/pjpeg", "image/x-png"] #the two last types are sent by IE.
+                                    :content_type => IMAGE_CONTENT_TYPE
 
   before_validation(:on => :create) do
     self.id = SecureRandom.urlsafe_base64
@@ -274,11 +275,10 @@ class Person < ApplicationRecord
     USERNAME_BLACKLIST
   end
 
-  def self.username_available?(username, community_id)
+  def self.username_available?(username, community, current_user = nil)
+    current_scope = current_user ? self.where.not(id: current_user.id) : self
     !USERNAME_BLACKLIST.include?(username.downcase) &&
-      !Person
-        .where("username = :username AND (is_admin = '1' OR community_id = :cid)", username: username, cid: community_id)
-        .present?
+      !current_scope.username_exists(username, community).present?
   end
 
   def set_given_name(name)

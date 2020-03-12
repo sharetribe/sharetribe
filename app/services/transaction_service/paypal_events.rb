@@ -27,6 +27,7 @@ module TransactionService::PaypalEvents
       #
       SessionContextStore.set_from_transaction(actor: transition[:actor], tx: tx)
       ApplicationHelper.store_community_service_name_to_thread_from_community_id(tx.community_id)
+      set_locale(tx)
 
       case transition[:name]
       when :initiated_to_preauthorized
@@ -116,11 +117,7 @@ module TransactionService::PaypalEvents
   end
 
   def preauthorized_to_paid(tx)
-    # Commission charge is synchronous and must complete before we
-    # transition to paid so that we have the full payment info
-    # available at the time we send payment receipts.
-    TransactionService::Transaction.charge_commission(tx.id)
-    TransactionService::StateMachine.transition_to(tx.id, :paid)
+    to_paid(tx)
   end
 
   def preauthorized_to_pending_ext(tx, pending_reason)
@@ -132,11 +129,7 @@ module TransactionService::PaypalEvents
   end
 
   def pending_ext_to_paid(tx)
-    # Commission charge is synchronous and must complete before we
-    # transition to paid so that we have the full payment info
-    # available at the time we send payment receipts.
-    TransactionService::Transaction.charge_commission(tx.id)
-    TransactionService::StateMachine.transition_to(tx.id, :paid)
+    to_paid(tx)
   end
 
   def delete_transaction(cid:, tx_id:)
@@ -145,4 +138,29 @@ module TransactionService::PaypalEvents
     end
   end
 
+  def set_locale(tx) # rubocop:disable Naming/AccessorMethodName
+    user_locale = tx.starter.locale
+    community_locales = tx.community.locales
+    community_default_locale = tx.community.default_locale || "en"
+
+    locale = I18nHelper.select_locale(
+      user_locale: user_locale,
+      param_locale: nil,
+      community_locales: community_locales,
+      community_default: community_default_locale,
+      all_locales: Sharetribe::AVAILABLE_LOCALES
+    )
+
+    if locale
+      I18n.locale = locale
+    end
+  end
+
+  def to_paid(tx)
+    # Commission charge is synchronous and must complete before we
+    # transition to paid so that we have the full payment info
+    # available at the time we send payment receipts.
+    TransactionService::Transaction.charge_commission_and_retry(tx.id)
+    TransactionService::StateMachine.transition_to(tx.id, :paid)
+  end
 end

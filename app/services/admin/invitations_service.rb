@@ -14,7 +14,7 @@ class Admin::InvitationsService
   private
 
   def resource_scope
-    community.invitations.joins(:inviter).includes(:inviter)
+    community.invitations.exist.joins(:inviter).includes(:inviter)
   end
 
   def sort_column

@@ -1,0 +1,19 @@
+%section.content-card-section
+  %h2
+    = t('admin2.signup_login.google')
+  %p.ingress
+    = t('admin2.signup_login.google_info_text',
+        href: 'https://developers.google.com/identity/sign-in/web/sign-in',
+        href2: 'https://help.sharetribe.com/sharetribe-go-managing-your-go-marketplace/third-party-sign-up-services/how-to-configure-google-sign-in').html_safe
+  %span.social-block
+    - required_google = @current_community.google_connect_enabled?
+    .form-group
+      = form.label :google_connect_id, t('admin2.signup_login.google_connect_id')
+      = form.text_field :google_connect_id, class: %i[form-control social-data], placeholder: '23456789-564sqsdLdglks2187pouUs275Uahdbs7of.apps.googleusercontent.com', required: required_google
+    .form-group
+      = form.label :google_connect_secret, t('admin2.signup_login.google_connect_secret')
+      = form.text_field :google_connect_secret, class: %i[form-control social-data], placeholder: 'Qsd1ljs9qfPOA4nePsp5dglj', required: required_google
+    .form-group
+      .form-check
+        = form.check_box :google_connect_enabled, class: %i[form-check-input social-checked]
+        = form.label :google_connect_enabled, t('admin2.signup_login.google_connect_enabled'), class: %i[form-check-label]

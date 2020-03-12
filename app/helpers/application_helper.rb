@@ -141,6 +141,10 @@ module ApplicationHelper
     locales.map { |loc| [loc[:name], loc[:ident]] }
   end
 
+  def local_name(locale)
+    available_locales.detect { |p| p[1] == locale.to_s }&.first
+  end
+
   def self.send_error_notification(message, error_class="Special Error", parameters={})
     if APP_CONFIG.use_airbrake
       Airbrake.notify(
@@ -165,6 +169,10 @@ module ApplicationHelper
 
   def on_admin?
     controller.class.name.split("::").first=="Admin"
+  end
+
+  def on_admin2?
+    controller.class.name.split("::").first=="Admin2"
   end
 
   def facebook_like(recommend=false)
@@ -471,7 +479,7 @@ module ApplicationHelper
         :topic => :configure,
         :text => t("admin.landing_page.landing_page"),
         :icon_class => icon_class("home"),
-        :path => FeatureFlagHelper.feature_enabled?(:clp_editor) ? admin_landing_page_versions_path : admin_landing_page_path,
+        :path => @current_plan.try(:[], :features).try(:[], :landing_page) ? admin_landing_page_versions_path : admin_landing_page_path,
         :name => "landing_page"
       }
     end
@@ -591,6 +599,13 @@ module ApplicationHelper
             :icon_class => icon_class("thumbnails"),
             :path => listings_person_settings_path(person, sort: "updated"),
             :name => "listings"
+          },
+          {
+            :id => "settings-tab-transactions",
+            :text => t("layouts.settings.transactions"),
+            :icon_class => icon_class("coins"),
+            :path => transactions_person_settings_path(person, sort: "last_activity", direction: "desc"),
+            :name => "transactions"
           },
           {
             :id => "settings-tab-account",
@@ -768,8 +783,8 @@ module ApplicationHelper
       placeholder: "https://www.youtube.com/channel/CHANGEME"
     },
     googleplus: {
-      name: "Google+",
-      placeholder: "https://plus.google.com/CHANGEME"
+      name: "Google",
+      placeholder: "https://www.google.com/CHANGEME"
     },
     linkedin: {
       name: "LinkedIn",

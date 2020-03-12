@@ -23,5 +23,4 @@ class TransactionCanceledJob < Struct.new(:conversation_id, :community_id)
       puts ex.backtrace.join("\n")
     end
   end
-
 end

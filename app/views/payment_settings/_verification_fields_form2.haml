@@ -1,0 +1,63 @@
+- if presenter.seller_needs_verification
+  %h3
+    = t("stripe_accounts.form_verification.need_verification")
+
+  = fields_for :stripe_account_form do |form|
+    - if presenter.required_individual_id_number?
+      .row.country-dependent{"data-country-only" => "CA"}
+        .col-12
+          = label_tag :id_number, t("stripe_accounts.form_pin.social_insurance_number")+"*"
+          = form.text_field :id_number, placeholder: '123456789', 'ca-social-insurance-number': true,
+            data: {'msg-ca-social-insurance-number': t('stripe_accounts.form_pin.messages.social_insurance_number')}
+      .row.country-dependent{"data-country-only" => "US,PR"}
+        .col-12
+          = label_tag :id_number, t("stripe_accounts.form_pin.social_security_number")+"*"
+          = form.text_field :id_number, placeholder: '123456789', required: true
+
+    - if presenter.required_verification_document?
+      .row
+        .col-12
+          = label_tag :document_front, t("stripe_accounts.form_verification.document")
+          .row
+            %span.alert-box-icon
+              = icon_tag("information", ["icon-fix"])
+            %small
+              = t("stripe_accounts.form_verification.files_need_to_be")
+          = form.file_field :document_front, required: true,
+            'accept': 'image/jpeg, image/png'
+
+    - if presenter.required_verification_document_back?
+      .row
+        .col-12
+          = label_tag :document_back, t("stripe_accounts.form_verification.document_back")
+          .row
+            %span.alert-box-icon
+              = icon_tag("information", ["icon-fix"])
+            %small
+              = t("stripe_accounts.form_verification.files_need_to_be")
+          = form.file_field :document_back, required: true,
+            'accept': 'image/jpeg, image/png'
+
+    - if presenter.required_verification_additional_document?
+      .row
+        .col-12
+          = label_tag :additional_document_front, t("stripe_accounts.form_verification.additional_document")
+          .row
+            %span.alert-box-icon
+              = icon_tag("information", ["icon-fix"])
+            %small
+              = t("stripe_accounts.form_verification.files_need_to_be")
+          = form.file_field :additional_document_front, required: true,
+            'accept': 'image/jpeg, image/png'
+
+    - if presenter.required_verification_additional_document_back?
+      .row
+        .col-12
+          = label_tag :additional_document_back, t("stripe_accounts.form_verification.additional_document_back")
+          .row
+            %span.alert-box-icon
+              = icon_tag("information", ["icon-fix"])
+            %small
+              = t("stripe_accounts.form_verification.files_need_to_be")
+          = form.file_field :additional_document_back, required: true,
+            'accept': 'image/jpeg, image/png'

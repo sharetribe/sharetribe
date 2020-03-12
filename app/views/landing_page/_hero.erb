@@ -34,8 +34,12 @@ section_style_class = hero_style_variations[s["background_image_variation"]]
 <section id="<%= section_id %>" class="<%= section_style_class %>">
   <div class="hero__content">
     <div class="hero__content-container">
-      <h1 class="hero__title"><%= s["title"]["value"] %></h1>
-      <h3 class="hero__subtitle"><%= render partial: "prevent_widows", locals: { text: s["subtitle"]["value"]} %></h3>
+      <% if community_context[:show_slogan] %>
+        <h1 class="hero__title"><%= s["title"]["value"] %></h1>
+      <% end %>
+      <% if community_context[:show_description] %>
+        <h3 class="hero__subtitle"><%= render partial: "prevent_widows", locals: { text: s["subtitle"]["value"]} %></h3>
+      <% end %>
 
       <% search_mode = s["variation"]["value"] %>
       <% case search_mode %>

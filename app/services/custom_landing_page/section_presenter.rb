@@ -66,7 +66,7 @@ module CustomLandingPage
     end
 
     def section_background_image_filename
-      section_background_image['src'].split('/').last
+      filename(section_background_image)
     end
 
     def section_background_image
@@ -105,7 +105,7 @@ module CustomLandingPage
     end
 
     def category_image_filename(index)
-      category_image(index)['src'].split('/').last
+      filename(category_image(index))
     end
 
     def location_image(index)
@@ -122,13 +122,17 @@ module CustomLandingPage
     end
 
     def location_image_filename(index)
-      location_image(index)['src'].split('/').last
+      filename(location_image(index))
     end
 
     private
 
     def asset_resolver
       @asset_resolver ||= CustomLandingPage::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_url], community.ident)
+    end
+
+    def filename(item)
+      ActiveStorage::Blob.find_by(id: item['asset_id']).try(:filename).to_s
     end
   end
 end

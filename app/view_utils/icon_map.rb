@@ -109,6 +109,8 @@ ICON_MAP = {
       "sell" => "ss-moneybag",
       "rent" => "ss-pricetag",
       "rent_out" => "ss-pricetag",
+      "refund" => "ss-banknote",
+      "dismiss" => "ss-scales",
 
       # Custom category & share type icons
       "job" => "ss-briefcase",
@@ -246,6 +248,8 @@ ICON_MAP = {
       "rent" => "icon-money",
       "rent_out" => "icon-money",
       "job" => "icon-briefcase",
+      "refund" => "icon-money",
+      "dismiss" => "icon-exchange",
 
       "testimonial" => "icon-star",
       "star" => "icon-star",

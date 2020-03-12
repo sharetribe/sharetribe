@@ -7,7 +7,7 @@
     %td{rowspan: "2", class: 'testimonial-title'}
       - listing_title = tx.listing_title || t("admin.communities.transactions.not_available")
       - price = MoneyViewUtils.to_humanized(tx.payment_total)
-      = link_to person_transaction_path(person_id: @current_user.id, id: tx.id) do
+      = link_to admin_community_transaction_path(id: tx.id) do
         = "#{listing_title} #{price} #{l(tx.created_at, format: :short_date)}"
   - if testimonial
     %td

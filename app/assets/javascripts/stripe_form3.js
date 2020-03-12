@@ -57,6 +57,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
     show_if($(".bank-routing-number"), rule_routing_number);
     show_if($(".bank-routing-1"), rule_routing_1);
     show_if($(".bank-routing-2"), rule_routing_2);
+    $("[phone_number]").attr('placeholder', rule.phone_number);
   }
 
   var getValue = function(name, valueType) {
@@ -163,7 +164,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
         last_name: lastName,
         phone: getValue('phone'),
         email: getValue('email'),
-        id_number: ['US', 'CA', 'HK', 'SG', 'PR'].includes(country) ? getValue('id_number') : null,
+        id_number: ['US', 'CA', 'HK', 'SG', 'PR', 'MX'].includes(country) ? getValue('id_number') : null,
         ssn_last_4: ['US', 'PR'].includes(country) ? getValue('ssn_last_4') : null,
       };
       if (!options.update) {
@@ -229,20 +230,17 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
         removeSpaces();
         stripeFormData = $(form).serializeArray();
         var data = prepareData(options),
-          verificationEl = $('#stripe_account_form_document'),
-          verify = verificationEl.length > 0,
-          additionalVerificationEl = $('#stripe_account_form_additional_document'),
-          additionalVerify = additionalVerificationEl.length > 0,
-          fileElement,
-          additionalFileElement;
+          documentFrontEl = $('#stripe_account_form_document_front'),
+          documentFront = documentFrontEl.length > 0,
+          documentBackEl = $('#stripe_account_form_document_back'),
+          documentBack = documentBackEl.length > 0,
+          additionalDocumentFrontEl = $('#stripe_account_form_additional_document_front'),
+          additionalDocumentFront = additionalDocumentFrontEl.length > 0,
+          additionalDocumentBackEl = $('#stripe_account_form_additional_document_back'),
+          additionalDocumentBack = additionalDocumentBackEl.length > 0,
+          fileElements = {};
 
-        if (verify) {
-          fileElement = verificationEl[0].files[0];
-        }
-        if (additionalVerify) {
-          additionalFileElement = additionalVerificationEl[0].files[0];
-        }
-        stripeToken({
+        var stripeData = {
           data: data,
           success: function(token) {
             $('#stripe_account_form_token').val(token.id);
@@ -250,26 +248,52 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
           },
           error: function(error) {
             console.log('Stripe token error ="' + error.message + '" "' + error.param + '" "' + error.type + '"');
-          },
-          verify: verify,
-          fileElement: fileElement,
-          additionalFileElement: additionalFileElement,
-          fileCallback: function(fileData, additionalFileData) {
-            var verification = {
-              verification: {
-                document: {
-                  front: fileData.id,
-                }
-              }
-            };
-            if (additionalFileData) {
-              verification.verification.additional_document = {
-                front: additionalFileData.id
-              };
-            }
-            $.extend(data.individual, verification);
+            showError(options.error_nofication.replace('%{message}', error.message));
           }
-        });
+        };
+        if (documentFront) {
+          fileElements.documentFront = documentFrontEl[0].files[0];
+        }
+        if (documentBack) {
+          fileElements.documentBack = documentBackEl[0].files[0];
+        }
+        if (additionalDocumentFront) {
+          fileElements.additionalDocumentFront = additionalDocumentFrontEl[0].files[0];
+        }
+        if (additionalDocumentBack) {
+          fileElements.additionalDocumentBack = additionalDocumentBackEl[0].files[0];
+        }
+        if (documentFront || additionalDocumentFront) {
+          stripeUploadFiles({
+            fileElements: fileElements,
+            fileCallback: function(fileData) {
+              var verification = {
+                verification: {
+                  document: {
+                  },
+                  additional_document: {
+                  }
+                }
+              };
+              if (fileData.documentFront) {
+                verification.verification.document.front = fileData.documentFront.id;
+              }
+              if (fileData.documentBack) {
+                verification.verification.document.back = fileData.documentBack.id;
+              }
+              if (fileData.additionalDocumentFront) {
+                verification.verification.additional_document.front = fileData.additionalDocumentFront.id;
+              }
+              if (fileData.additionalDocumentBack) {
+                verification.verification.additional_document.back = fileData.additionalDocumentBack.id;
+              }
+              $.extend(data.individual, verification);
+              stripeToken(stripeData);
+            }
+          });
+        } else {
+          stripeToken(stripeData);
+        }
       }
     });
     $('#update_also_bank_account').on('change', function() {
@@ -332,111 +356,103 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
     );
   };
 
-  module.StripeBankForm = {
+  var showError = function(message) {
+    ST.utils.showError(message, 'error');
+    $('html, body').animate({ scrollTop: $('.flash-notifications').offset().top}, 1000);
+  };
+
+  module.StripeBankForm3 = {
     init: init
   };
 
 //////////////////////////////////////////////////////////////////////
-// compiled by http://babeljs.io/repl/ from stripe_token_original2.js
+// compiled by http://babeljs.io/repl/ from stripe_token_original3.js
 //////////////////////////////////////////////////////////////////////
 /* jshint ignore:start */
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 // contains async-await
-var stripeToken =
-/*#__PURE__*/
-function () {
-  var _ref = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee(options) {
-    var fileForm, additionalFileForm, additionalFileData, fileResult, fileData, additionalFileResult, result;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
+var stripeUploadFiles = function stripeUploadFiles(options) {
+  var uploadFiles = function uploadFiles() {
+    var fileData, itemKey, fileForm, additionalFileForm, additionalFileData, fileResult;
+    return regeneratorRuntime.async(function uploadFiles$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            if (!options.verify) {
-              _context.next = 22;
+            fileData = {};
+            _context.t0 = regeneratorRuntime.keys(options.fileElements);
+
+          case 2:
+            if ((_context.t1 = _context.t0()).done) {
+              _context.next = 17;
               break;
             }
 
+            itemKey = _context.t1.value;
+            fileElement = options.fileElements[itemKey];
             fileForm = new FormData();
             additionalFileForm = new FormData(), additionalFileData = null;
-            fileForm.append('file', options.fileElement);
+            fileForm.append('file', fileElement);
             fileForm.append('purpose', 'identity_document');
-            _context.next = 7;
-            return fetch('https://uploads.stripe.com/v1/files', {
+            _context.next = 11;
+            return regeneratorRuntime.awrap(fetch('https://uploads.stripe.com/v1/files', {
               method: 'POST',
               headers: {
                 'Authorization': 'Bearer ' + stripeApi._apiKey
               },
               body: fileForm
-            });
+            }));
 
-          case 7:
+          case 11:
             fileResult = _context.sent;
-            _context.next = 10;
-            return fileResult.json();
+            _context.next = 14;
+            return regeneratorRuntime.awrap(fileResult.json());
 
-          case 10:
-            fileData = _context.sent;
+          case 14:
+            fileData[itemKey] = _context.sent;
+            _context.next = 2;
+            break;
 
-            if (!options.additionalFileElement) {
-              _context.next = 20;
-              break;
-            }
+          case 17:
+            return _context.abrupt("return", fileData);
 
-            additionalFileForm.append('file', options.additionalFileElement);
-            additionalFileForm.append('purpose', 'identity_document');
-            _context.next = 16;
-            return fetch('https://uploads.stripe.com/v1/files', {
-              method: 'POST',
-              headers: {
-                'Authorization': 'Bearer ' + stripeApi._apiKey
-              },
-              body: additionalFileForm
-            });
-
-          case 16:
-            additionalFileResult = _context.sent;
-            _context.next = 19;
-            return additionalFileResult.json();
-
-          case 19:
-            additionalFileData = _context.sent;
-
-          case 20:
-            if (fileData.id) {
-              options.fileCallback(fileData, additionalFileData);
-            }
-
-          case 22:
-            _context.next = 24;
-            return stripeApi.createToken('account', omitNullDeep(options.data));
-
-          case 24:
-            result = _context.sent;
-
-            if (result.token) {
-              options.success(result.token);
-            }
-
-            if (result.error) {
-              options.error(result.error);
-            }
-
-          case 27:
+          case 18:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee);
-  }));
-
-  return function stripeToken(_x) {
-    return _ref.apply(this, arguments);
+    });
   };
-}();
+
+  uploadFiles().then(function (data) {
+    options.fileCallback(data);
+  });
+};
+
+var stripeToken = function stripeToken(options) {
+  var result;
+  return regeneratorRuntime.async(function stripeToken$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return regeneratorRuntime.awrap(stripeApi.createToken('account', omitNullDeep(options.data)));
+
+        case 2:
+          result = _context2.sent;
+
+          if (result.token) {
+            options.success(result.token);
+          }
+
+          if (result.error) {
+            options.error(result.error);
+          }
+
+        case 5:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
+};
 /* jshint ignore:end */
 })(window.ST);

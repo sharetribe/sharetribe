@@ -304,9 +304,7 @@ class PersonMailer < ActionMailer::Base
     @no_settings = true
     @person = new_member
     @email = new_member.emails.last.address
-    @url_params = {}
-    @url_params[:host] = "#{community.full_domain}"
-    @url_params[:locale] = admin.locale
+    @url_params = build_url_params(community, admin)
 
     with_locale(admin.locale, community.locales.map(&:to_sym), community.id) do
       address = admin.confirmed_notification_emails_to
@@ -328,6 +326,7 @@ class PersonMailer < ActionMailer::Base
     @confirmation_token = email.confirmation_token
     @host = community.full_domain
     @email_address = email.address
+    @url_params = build_url_params(community, email.person)
     @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
     with_locale(email.person.locale, community.locales.map(&:to_sym), community.id) do
       email.update_attribute(:confirmation_sent_at, Time.now)
@@ -363,11 +362,7 @@ class PersonMailer < ActionMailer::Base
       @current_community = community
 
       @regular_email = regular_email
-      @url_params = {}
-      @url_params[:host] = "#{community.full_domain}"
-      @url_params[:locale] = recipient.locale
-      @url_params[:ref] = "welcome_email"
-      @url_params.freeze # to avoid accidental modifications later
+      @url_params = build_url_params(community, recipient, 'welcome_email')
       @test_email = test_email
       @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
 

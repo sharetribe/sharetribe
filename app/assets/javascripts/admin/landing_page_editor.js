@@ -49,17 +49,28 @@ window.ST = window.ST || {};
     var orderManager = window.ST.orderManager(fieldMap);
 
     orderManager.order.changes().onValue(function(changedFields) {
-      var up = changedFields.up;
-      var down = changedFields.down;
+      var newOrder = changedFields.order,
+        size = newOrder.length,
+        up = changedFields.up,
+        down = changedFields.down,
+        index = 1;
 
-      var upHidden = up.element.find("[hidden-position]");
-      var downHidden = down.element.find("[hidden-position]");
+      newOrder.forEach(function(value) {
+        var item = $('[data-field-id="' + value + '"]'),
+          downIcon = item.find('[action-down] i'),
+          upIcon = item.find('[action-up] i');
+        item.find('input[hidden-position]').val(index);
+        if (index == 1) {
+          upIcon.addClass('disabled');
+        } else if (index == size) {
+          downIcon.addClass('disabled');
+        } else {
+          downIcon.removeClass('disabled');
+          upIcon.removeClass('disabled');
+        }
+        index++;
+      });
 
-      var newUpValue = downHidden.val();
-      var newDownValue = upHidden.val();
-
-      upHidden.val(newUpValue);
-      downHidden.val(newDownValue);
       var form = $("form.edit_landing_page_version");
       $.ajax({
         url: form.attr('action'),
@@ -90,7 +101,7 @@ window.ST = window.ST || {};
   };
 
   var initForm = function(options) {
-    optionOrder = createOptionOrder(".landing-page-version-section-position-row");
+    optionOrder = createOptionOrder("[landing-page-version-section-position-row]");
     $('#section_kind').on('change', onSectionSelect);
   };
 

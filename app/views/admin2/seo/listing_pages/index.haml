@@ -1,0 +1,22 @@
+- content_for :title do
+  = t('admin2.sidebar.seo.listing_pages')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.seo.listing_pages')
+
+.content-card-section-container
+  = form_for @current_community, url: update_listing_page_admin2_seo_listing_pages_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    %section.content-card-section
+      %h2
+        = t('admin2.listing_pages.title')
+      %p.ingress
+        = t('admin2.listing_pages.title_info_text', url: 'https://help.sharetribe.com/en/articles/2643885').html_safe
+
+      - if @customizations.size == 1
+        = render 'one_language', form: form, customization: @customizations.first
+      - else
+        = render 'many_languages', form: form, customizations: @customizations
+
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
