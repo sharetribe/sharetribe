@@ -225,6 +225,7 @@ GEM
       faraday
     faraday_middleware (0.11.0.1)
       faraday (>= 0.7.4, < 1.0)
+    fast-polylines (1.0.0)
     ffi (1.10.0)
     flying-sphinx (1.2.0)
       faraday (>= 0.9)
@@ -668,6 +669,7 @@ DEPENDENCIES
   faraday (~> 0.13.0)
   faraday-encoding (~> 0.0.4)
   faraday_middleware (~> 0.11.0)
+  fast-polylines
   ffi (>= 1.9.25)
   flying-sphinx (~> 1.2.0)
   guard-rspec (~> 4.7.3)

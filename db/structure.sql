@@ -317,6 +317,7 @@ CREATE TABLE `communities` (
   `allow_free_conversations` tinyint(1) DEFAULT '1',
   `email_admins_about_new_transactions` tinyint(1) DEFAULT '0',
   `show_location` tinyint(1) DEFAULT '1',
+  `fuzzy_location` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -2466,6 +2467,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20200213130051'),
 ('20200224080321'),
 ('20200227111900'),
-('20200303075727');
+('20200303075727'),
+('20200312062151');
 
 
