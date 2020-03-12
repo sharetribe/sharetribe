@@ -59,7 +59,7 @@ jobs:
           command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then bundle exec rubocop -R ; fi
       - run:
           name: npm lint
-          command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then npm run lint ; fi
+          command: if [[ "$CIRCLE_NODE_INDEX" == "1" || "$CIRCLE_NODE_TOTAL" == "1" ]] ; then npm run lint ; fi
           working_directory: client
       - run:
           name: Wait for DB
@@ -81,7 +81,7 @@ jobs:
           command: shopt -s globstar && mkdir -p $CIRCLE_TEST_REPORTS/cucumber && bundle exec cucumber -p ci --format json --out $CIRCLE_TEST_REPORTS/cucumber/tests.cucumber $(circleci tests glob features/**/*.feature | circleci tests split --split-by=timings --show-counts)
       - run:
           name: npm test
-          command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then npm test ; fi
+          command: if [[ "$CIRCLE_NODE_INDEX" == "2" || ( "$CIRCLE_NODE_TOTAL" -lt "3" && "$CIRCLE_NODE_INDEX" == "1" ) ]] ; then npm test ; fi
           working_directory: client
       - store_test_results:
           path: /tmp/circleci-test-results
