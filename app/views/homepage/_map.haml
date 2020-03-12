@@ -7,7 +7,7 @@
 
     $(document).ready(function() {
       initialize_listing_map(
-        #{raw @listings.map { |l| {category: l[:category_id], id: l[:id], icon: l[:icon_name], latitude: l[:latitude], longitude: l[:longitude] } }.to_json},
+        #{raw listings_for_map(@listings).to_json},
         "#{community_location_lat}",
         "#{community_location_lon}",
         #{raw viewport.to_json},
