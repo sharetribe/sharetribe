@@ -109,6 +109,7 @@ module TransactionService::Store::Transaction
           start_on: start_on,
           end_on: end_on)
       end
+      tx_model.booking.tx = tx_model
     end
   end
 
