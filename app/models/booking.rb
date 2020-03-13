@@ -24,10 +24,14 @@
 class Booking < ApplicationRecord
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id", inverse_of: :booking
 
+  validate :per_day_availability
+  validate :per_hour_availability
+
   scope :in_period, ->(start_time, end_time) { where(['start_time >= ? AND end_time <= ?', start_time, end_time]) }
   scope :hourly_basis, -> { where(per_hour: true) }
-  scope :covers_another_booking, ->(booking) do
-    joins(:tx).per_hour_blocked
+  scope :covers_another_booking_per_hour, ->(booking) do
+    exclude_self(booking)
+    .joins(:tx).per_hour_blocked
     .where(['(start_time <= ? AND end_time > ?) OR (start_time < ? AND end_time >= ?)',
             booking.start_time, booking.start_time, booking.end_time, booking.end_time])
   end
@@ -36,6 +40,15 @@ class Booking < ApplicationRecord
   scope :daily_basis, -> { where(per_hour: false) }
   scope :per_day_blocked, -> { daily_basis.availability_blocking }
   scope :in_per_day_period, ->(start_time, end_time) { where(['start_on >= ? AND end_on <= ?', start_time, end_time]) }
+  scope :covers_another_booking_per_day, ->(booking) do
+    exclude_self(booking)
+    .joins(:tx).per_day_blocked
+    .where(['(start_on <= ? AND end_on > ?) OR (start_on < ? AND end_on >= ?)',
+            booking.start_on, booking.start_on, booking.end_on, booking.end_on])
+  end
+  scope :exclude_self, ->(booking) do
+    booking.persisted? ? where.not(id: booking.id) : self
+  end
 
   def week_day
     Listing::WorkingTimeSlot.week_days.keys[start_time.wday].to_sym
@@ -55,5 +68,26 @@ class Booking < ApplicationRecord
 
   def self.columns
     super.reject { |c| c.name == "end_on_exclusive" }
+  end
+
+  private
+
+  def per_day_availability
+    return true if per_hour
+
+    if tx.listing.bookings.covers_another_booking_per_day(self).any?
+      errors.add(:start_on, :invalid)
+      errors.add(:end_on, :invalid)
+    end
+  end
+
+  def per_hour_availability
+    return true unless per_hour
+
+    unless tx.listing.working_hours_covers_booking?(self) &&
+           tx.listing.bookings.covers_another_booking_per_hour(self).empty?
+      errors.add(:start_time, :invalid)
+      errors.add(:end_time, :invalid)
+    end
   end
 end
