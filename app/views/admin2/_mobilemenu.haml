@@ -183,8 +183,8 @@
         %ul#advanced-mobile.collapse.subtitle{class: expand_ul('advanced')}
           %li#customscript-mobile{class: active_li('custom_scripts')}
             = link_to t('admin2.sidebar.advanced.custom_script'), admin2_advanced_custom_scripts_path
-          %li#deletemarketplace-mobile
-            %a{:href => 'delete-marketplace.php'} Delete marketplace
+          %li#deletemarketplace-mobile{class: active_li('delete_marketplaces')}
+            = link_to t('admin2.sidebar.advanced.delete_marketplace'), admin2_advanced_delete_marketplaces_path
     / Bottom links for branded links
     .sidenav-bottomLinks
       %ul.category-title

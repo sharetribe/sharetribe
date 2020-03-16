@@ -82,6 +82,17 @@ en:
         sharetribe: 'Sharetribe analytics'
       advanced:
         custom_script: 'Custom script'
+        delete_marketplace: 'Delete marketplace'
+    delete_marketplace:
+      info_text_1: 'Delete your marketplace'
+      info_text_2: 'Once you delete the marketplace, you will not be able to access it anymore. This cannot be undone.'
+      info_text_3: 'Be careful.'
+      info_text_4: 'Please note that after deletion, you and your marketplace users may still receive the last marketplace update emails.'
+      info_text_5: 'To delete your marketplace forever, you must type your Sharetribe marketplace domain (%{domain}) in the text field below.'
+      info_text_6: "One last thing before you delete your marketplace: is there anything we can do to help? Don't hesitate to <a href='#' show-intercom=true >contact the Sharetribe team</a> if you have any question. We'll be happy to help you get the most of Sharetribe Go!"
+      delete_confirmation_placeholder: 'Type your Sharetribe marketplace domain here...'
+      delete: 'Delete your marketplace forever'
+      cannot_delete: 'Could not delete marketplace.'
     view_conversations:
       search_placeholder: 'Filter conversations by a name, email or keyword...'
       listing: 'Listing'
