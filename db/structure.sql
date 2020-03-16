@@ -731,8 +731,8 @@ CREATE TABLE `listing_blocked_dates` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_listing_blocked_dates_on_listing_id` (`listing_id`),
-  KEY `index_listing_blocked_dates_on_listing_id_and_blocked_at` (`listing_id`,`blocked_at`)
+  UNIQUE KEY `index_listing_blocked_dates_on_listing_id_and_blocked_at` (`listing_id`,`blocked_at`),
+  KEY `index_listing_blocked_dates_on_listing_id` (`listing_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_followers`;

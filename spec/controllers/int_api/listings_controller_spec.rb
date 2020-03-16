@@ -49,8 +49,27 @@ describe IntApi::ListingsController, type: :controller do
   end
 
   describe "#update_blocked_dates" do
+    let(:blocked_date) do
+      FactoryGirl.create(:listing_blocked_date, listing_id: listing.id, blocked_at: '2020-01-01')
+    end
+
     it 'works' do
       expect(listing.blocked_dates.count).to eq 0
+      listing_params = {
+        listing: {
+          blocked_dates_attributes: {
+            id: nil, blocked_at: '2020-01-01'
+          }
+        }
+      }
+      get :update_blocked_dates, params: {id: listing.id, format: :json}.merge(listing_params)
+      listing.reload
+      expect(listing.blocked_dates.count).to eq 1
+    end
+
+    it 'does not save if date already blocked' do
+      blocked_date
+      expect(listing.blocked_dates.count).to eq 1
       listing_params = {
         listing: {
           blocked_dates_attributes: {

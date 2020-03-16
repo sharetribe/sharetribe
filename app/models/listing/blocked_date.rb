@@ -11,11 +11,13 @@
 # Indexes
 #
 #  index_listing_blocked_dates_on_listing_id                 (listing_id)
-#  index_listing_blocked_dates_on_listing_id_and_blocked_at  (listing_id,blocked_at)
+#  index_listing_blocked_dates_on_listing_id_and_blocked_at  (listing_id,blocked_at) UNIQUE
 #
 
 class Listing::BlockedDate < ApplicationRecord
   belongs_to :listing
+
+  validates :blocked_at, uniqueness: { scope: :listing_id }
 
   scope :in_period, ->(start_on, end_on) do
     where('blocked_at >= ? AND blocked_at <= ?', start_on, end_on)
