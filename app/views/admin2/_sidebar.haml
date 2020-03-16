@@ -176,8 +176,8 @@
       %ul#advanced.collapse.subtitle{class: expand_ul('advanced')}
         %li#customscript{class: active_li('custom_scripts')}
           = link_to t('admin2.sidebar.advanced.custom_script'), admin2_advanced_custom_scripts_path
-        %li#deletemarketplace
-          %a{:href => 'delete-marketplace.php'} Delete marketplace
+        %li#deletemarketplace{class: active_li('delete_marketplaces')}
+          = link_to t('admin2.sidebar.advanced.delete_marketplace'), admin2_advanced_delete_marketplaces_path
   / Bottom links for branded links
   .sidenav-bottomLinks
     %ul.category-title

@@ -43,8 +43,18 @@ function validateCustomForm() {
     });
 }
 
-$(function(){
+function showIntercom(e) {
+    e.preventDefault();
+    if (window.Intercom) {
+        window.Intercom('show');
+    }
+}
 
+function initIntercom(){
+  $('[show-intercom]').on('click', showIntercom);
+}
+
+$(function(){
     $('.country-currency').on('change', function() {
         var url = $(this).data('url'),
             currency = $(this).val();

@@ -382,6 +382,7 @@ Rails.application.routes.draw do
       end
 
       namespace :advanced do
+        resources :delete_marketplaces, path: 'delete-marketplace', only: %i[index destroy]
         resources :custom_scripts, path: 'custom-script', only: %i[index] do
           collection do
             patch :update_script
