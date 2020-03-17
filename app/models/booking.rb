@@ -14,10 +14,11 @@
 #
 # Indexes
 #
-#  index_bookings_on_end_time        (end_time)
-#  index_bookings_on_per_hour        (per_hour)
-#  index_bookings_on_start_time      (start_time)
-#  index_bookings_on_transaction_id  (transaction_id)
+#  index_bookings_on_end_time                              (end_time)
+#  index_bookings_on_per_hour                              (per_hour)
+#  index_bookings_on_start_time                            (start_time)
+#  index_bookings_on_transaction_id                        (transaction_id)
+#  index_bookings_on_transaction_start_on_end_on_per_hour  (transaction_id,start_on,end_on,per_hour)
 #
 
 class Booking < ApplicationRecord
@@ -32,6 +33,9 @@ class Booking < ApplicationRecord
   end
   scope :availability_blocking, -> { merge(Transaction.availability_blocking) }
   scope :per_hour_blocked, -> { hourly_basis.availability_blocking }
+  scope :daily_basis, -> { where(per_hour: false) }
+  scope :per_day_blocked, -> { daily_basis.availability_blocking }
+  scope :in_per_day_period, ->(start_time, end_time) { where(['start_on >= ? AND end_on <= ?', start_time, end_time]) }
 
   def week_day
     Listing::WorkingTimeSlot.week_days.keys[start_time.wday].to_sym

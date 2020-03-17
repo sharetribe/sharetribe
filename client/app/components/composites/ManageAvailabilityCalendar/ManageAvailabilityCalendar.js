@@ -72,6 +72,8 @@ ManageAvailabilityCalendar.propTypes = {
   onMonthChanged: PropTypes.func.isRequired,
 
   extraClasses: PropTypes.string,
+
+  blocked_dates: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ManageAvailabilityCalendar;

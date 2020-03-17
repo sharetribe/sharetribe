@@ -42,15 +42,16 @@
 #
 # Indexes
 #
-#  community_starter_state                   (community_id,starter_id,current_state)
-#  index_transactions_on_community_id        (community_id)
-#  index_transactions_on_conversation_id     (conversation_id)
-#  index_transactions_on_deleted             (deleted)
-#  index_transactions_on_last_transition_at  (last_transition_at)
-#  index_transactions_on_listing_author_id   (listing_author_id)
-#  index_transactions_on_listing_id          (listing_id)
-#  index_transactions_on_starter_id          (starter_id)
-#  transactions_on_cid_and_deleted           (community_id,deleted)
+#  community_starter_state                             (community_id,starter_id,current_state)
+#  index_transactions_on_community_id                  (community_id)
+#  index_transactions_on_conversation_id               (conversation_id)
+#  index_transactions_on_deleted                       (deleted)
+#  index_transactions_on_last_transition_at            (last_transition_at)
+#  index_transactions_on_listing_author_id             (listing_author_id)
+#  index_transactions_on_listing_id                    (listing_id)
+#  index_transactions_on_listing_id_and_current_state  (listing_id,current_state)
+#  index_transactions_on_starter_id                    (starter_id)
+#  transactions_on_cid_and_deleted                     (community_id,deleted)
 #
 
 class Transaction < ApplicationRecord

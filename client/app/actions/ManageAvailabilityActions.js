@@ -4,7 +4,10 @@ import * as harmony from '../services/harmony';
 import { t } from '../utils/i18n';
 import { expandRange, fromMidnightUTCDate, toMidnightUTCDate } from '../utils/moment';
 import { addFlashNotification } from './FlashNotificationActions';
-import { blockChanges, unblockChanges } from '../reducers/ManageAvailabilityReducer';
+import { blockChanges, unblockChanges, compressedChanges } from '../reducers/ManageAvailabilityReducer';
+import { isSameDay } from 'react-dates';
+import axios from 'axios';
+import moment from 'moment';
 
 // Delay to show the save button checkmark before closing the winder.
 const SAVE_FINISHED_DELAY = 2000;
@@ -33,6 +36,11 @@ const changeVisibleMonth = (day) => ({
 export const dataLoaded = (slots, loadedMonths) => ({
   type: actionTypes.DATA_LOADED,
   payload: slots.merge({ loadedMonths }),
+});
+
+export const dataBlockedDatesLoaded = (data) => ({
+  type: actionTypes.DATA_BLOCKED_DATES_LOADED,
+  payload: data,
 });
 
 /**
@@ -92,6 +100,18 @@ const convertBlocksToUTCMidnightDates = (blocks) =>
 const monthsToLoad = (day, loadedMonths, preloadMonths) =>
   removeLoadedMonths(loadRange(day, preloadMonths), loadedMonths);
 
+const getBlockedDates = (listingId, start, end) => (
+  axios(
+    `/int_api/listings/${listingId}/blocked_dates`,
+    {
+      method: 'get',
+      params: {
+        start_on: start.format('YYYY-MM-DD'),
+        end_on: end.format('YYYY-MM-DD'),
+      },
+    })
+);
+
 export const changeMonth = (day) =>
   (dispatch, getState) => {
     dispatch(changeVisibleMonth(day));
@@ -121,6 +141,15 @@ export const changeMonth = (day) =>
         // Status looks bad, alert user
         dispatch(addFlashNotification('error', t('web.listings.errors.availability.something_went_wrong')));
       });
+      getBlockedDates(state.get('listingId'), start, end)
+      .then((response) => {
+        const blocked_dates = response.data.map((x) => ({ id: x.id, blocked_at: moment.utc(x.blocked_at) }));
+        dispatch(dataBlockedDatesLoaded(blocked_dates));
+      })
+      .catch(() => {
+        // Status looks bad, alert user
+        dispatch(addFlashNotification('error', t('web.listings.errors.availability.something_went_wrong')));
+      });
     }
   };
 
@@ -142,22 +171,66 @@ const timeout = (ms) => new Promise((resolve) => {
   window.setTimeout(resolve, ms);
 });
 
+const csrfToken = () => {
+  if (typeof document != 'undefined') {
+    const metaTag = document.querySelector('meta[name=csrf-token]');
+
+    if (metaTag) {
+      return metaTag.getAttribute('content');
+    }
+  }
+
+  return null;
+};
+
+const convertToApi = (state) => {
+  const changes = compressedChanges(state);
+  const blocked_dates = state.get('blocked_dates');
+  const result = [];
+  changes.toJS().forEach((block) => {
+    const blocked_date = blocked_dates.find((x) => (isSameDay(block.day, x.blocked_at)));
+    if (block.action === 'block' && !blocked_date) {
+      result.push({ id: null, blocked_at: block.day.format('YYYY-MM-DD') });
+    }
+    if (block.action === 'unblock' && blocked_date) {
+      result.push({ id: blocked_date.id, _destroy: 1 });
+    }
+  });
+  return { listing: { blocked_dates_attributes: result } };
+};
+
+const updateBlockedDates = (listingId, data) => {
+  axios(
+    `/int_api/listings/${listingId}/update_blocked_dates`,
+    {
+      method: 'post',
+      data: data,
+      withCredentials: true,
+      headers: { 'X-CSRF-Token': csrfToken() },
+    });
+};
+
 export const saveChanges = () =>
   (dispatch, getState) => {
     dispatch(startSaving());
 
     const state = getState().manageAvailability;
     const marketplaceId = state.get('marketplaceUuid');
-    const listingId = state.get('listingUuid');
+    const listingUuid = state.get('listingUuid');
+    const listingId = state.get('listingId');
     const blocks = convertBlocksToUTCMidnightDates(blockChanges(state));
     const unblocks = unblockChanges(state);
     const requests = [];
 
     if (blocks.size > 0) {
-      requests.push(harmony.createBlocks(marketplaceId, listingId, blocks));
+      requests.push(harmony.createBlocks(marketplaceId, listingUuid, blocks));
     }
     if (unblocks.size > 0) {
-      requests.push(harmony.deleteBlocks(marketplaceId, listingId, unblocks));
+      requests.push(harmony.deleteBlocks(marketplaceId, listingUuid, unblocks));
+    }
+
+    if (blocks.size > 0 || unblocks.size > 0) {
+      requests.push(updateBlockedDates(listingId, convertToApi(state)));
     }
 
     if (requests.length === 0) {

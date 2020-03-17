@@ -33,6 +33,8 @@ export default (props) => {
       marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
       listingUuid: new UUID({ value: props.listing.uuid }),
       loadedMonths: Immutable.Set(),
+      blocked_dates: props.listing.blocked_dates.map((x) => ({ id: x.id, blocked_at: moment.utc(x.blocked_at) })),
+      listingId: props.listing.id,
     }),
   };
 
