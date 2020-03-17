@@ -44,6 +44,14 @@ describe TransactionService::Store::Transaction do
   end
 
   context "#create" do
+    let(:booking1) do
+      tx = FactoryGirl.create(:transaction, community: @community,
+                                            listing: @listing,
+                                            availability: 'booking',
+                                            current_state: 'paid')
+      FactoryGirl.create(:booking, tx: tx, start_on: '2050-11-20', end_on: '2050-11-23')
+    end
+
     it "creates transactions with deleted set to false" do
       created_tx = transaction_store.create(@transaction_info)
 
@@ -62,6 +70,13 @@ describe TransactionService::Store::Transaction do
       tx = transaction_store.get(created_tx.id)
       expect(tx.booking.start_on).to eq(@booking_fields[:start_on])
       expect(tx.booking.end_on).to eq(@booking_fields[:end_on])
+    end
+
+    it "does not create a transaction if booking is invalid" do
+      booking1
+      tx = transaction_store.create(
+        @transaction_info.merge(booking_fields: {start_on: '2050-11-20', end_on: '2050-11-23'}))
+      expect(tx.persisted?).to eq false
     end
   end
 

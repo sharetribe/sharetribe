@@ -24,8 +24,10 @@
 class Booking < ApplicationRecord
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id", inverse_of: :booking
 
-  validate :per_day_availability
-  validate :per_hour_availability
+  attr_accessor :skip_validation
+
+  validate :per_day_availability, unless: :skip_validation
+  validate :per_hour_availability, unless: :skip_validation
 
   scope :in_period, ->(start_time, end_time) { where(['start_time >= ? AND end_time <= ?', start_time, end_time]) }
   scope :hourly_basis, -> { where(per_hour: true) }
@@ -68,6 +70,11 @@ class Booking < ApplicationRecord
 
   def self.columns
     super.reject { |c| c.name == "end_on_exclusive" }
+  end
+
+  def direct_validation
+    per_day_availability
+    per_hour_availability
   end
 
   private
