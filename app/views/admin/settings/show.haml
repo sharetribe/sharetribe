@@ -39,7 +39,7 @@
             = form.check_box :show_location
             = form.label :show_location, t("admin.communities.settings.allow_users_to_add_location"), :class => "settings-checkbox-label"
           .checkbox-container
-            = form.check_box :fuzzy_location
+            = form.check_box :fuzzy_location, :disabled => !@presenter.community.show_location?
             = form.label :fuzzy_location, t("admin.communities.settings.fuzzy_location"), :class => "settings-checkbox-label"
 
           .checkbox-container
