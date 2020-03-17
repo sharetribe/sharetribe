@@ -9,7 +9,12 @@ describe TransactionMailer, type: :mailer do
                                   given_name: "Joan", family_name: "Smith")
     }
     let(:buyer) { FactoryGirl.create(:person, member_of: community) }
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, author: seller) }
+    let(:listing) do
+      listing = FactoryGirl.create(:listing, community_id: community.id, author: seller)
+      listing.working_hours_new_set
+      listing.save
+      listing
+    end
     let(:paypal_transaction) do
       transaction = FactoryGirl.create(:transaction, starter: buyer,
                                                      community: community, listing: listing,

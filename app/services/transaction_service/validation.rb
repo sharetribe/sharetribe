@@ -191,8 +191,11 @@ module TransactionService
       def validate_booking_per_hour_timeslots(listing:, tx_params:)
         return Result::Success.new(tx_params) unless tx_params[:per_hour]
 
-        booking = Booking.new(tx_params.slice(:start_time, :end_time, :per_hour))
-        if listing.working_hours_covers_booking?(booking) && listing.bookings.covers_another_booking(booking).empty?
+        booking = Booking.new(
+          tx_params.slice(:start_time, :end_time, :per_hour).merge(
+          tx: ::Transaction.new(listing: listing))
+        )
+        if booking.valid?
           Result::Success.new(tx_params)
         else
           Result::Error.new(nil, code: :dates_not_available)
