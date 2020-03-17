@@ -1,4 +1,5 @@
 module TransactionService::Transaction
+  class BookingDatesInvalid < StandardError; end
 
   class IllegalTransactionStateException < Exception
   end
@@ -108,6 +109,9 @@ module TransactionService::Transaction
     tx_process_settings = set_adapter.tx_process_settings(opts_tx)
 
     tx = TxStore.create(opts_tx.merge(tx_process_settings))
+    unless tx.persisted?
+      return Result::Error.new(BookingDatesInvalid.new(I18n.t("error_messages.booking.double_booking_payment_voided")))
+    end
 
     tx_process = tx_process(tx[:payment_process])
     gateway_adapter = gateway_adapter(tx[:payment_gateway])
