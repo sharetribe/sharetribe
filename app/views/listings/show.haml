@@ -3,7 +3,13 @@
 
 - content_for :extra_javascript do
   :javascript
-    window.ST.listing();
+    window.ST.listing({
+    fuzzy_location: #{@current_community.fuzzy_location.to_json},
+    listing_location: #{raw @listing.location.to_json}
+    });
+  - if @current_community.fuzzy_location
+    - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
+    = javascript_include_tag "//maps.googleapis.com/maps/api/js?key=#{maps_key}"
 
 - content_for :title, raw(@listing.title)
 - content_for :meta_author, PersonViewUtils.person_display_name(@listing.author, @current_community)

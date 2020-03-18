@@ -107,6 +107,7 @@
 #  allow_free_conversations                   :boolean          default(TRUE)
 #  email_admins_about_new_transactions        :boolean          default(FALSE)
 #  show_location                              :boolean          default(TRUE)
+#  fuzzy_location                             :boolean          default(FALSE)
 #
 # Indexes
 #

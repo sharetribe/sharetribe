@@ -1,3 +1,5 @@
+require 'fast-polylines'
+
 class ListingPresenter < MemoisticPresenter
   include ListingAvailabilityManage
   include Rails.application.routes.url_helpers
@@ -338,6 +340,80 @@ class ListingPresenter < MemoisticPresenter
       [acts_as_person, listing]
     else
       listing
+    end
+  end
+
+  def static_google_map_params
+    StaticGoogleMapParams.new(
+      lat: @listing.location&.latitude,
+      lng: @listing.location&.longitude,
+      key: MarketplaceHelper.google_maps_key(@current_community.id)).params
+  end
+
+  class StaticGoogleMapParams
+    attr_reader :lat, :lng, :key, :color, :fillcolor, :weight, :radius
+
+    def initialize(lat:, lng:, key:)
+      @lat = lat
+      @lng = lng
+      @key = key
+      @color = '0xC0392B4C'
+      @fillcolor = '0xC0392B33'
+      @weight = '1'
+      @radius = 500
+    end
+
+    def params
+      {
+        center: "#{lat},#{lng}",
+        key: key,
+        maptype: 'roadmap',
+        path: path,
+        size: '500x358',
+        zoom: 13
+      }
+    end
+
+    private
+
+    def path
+      {
+        color: color,
+        fillcolor: fillcolor,
+        weight: weight,
+        enc: FastPolylines::Encoder.encode(circle_polyline(lat, lng, radius))
+      }.map{|k,v| "#{k}:#{v}"}.join('|')
+    end
+
+    def circle_polyline(lat, lng, radius)
+      detail = 8
+      r = 6371
+
+      lat_r = (lat * Math::PI) / 180
+      lng_r = (lng * Math::PI) / 180
+      d = radius.to_f / 1000 / r
+
+      points = []
+      (0..360).step(detail) do |i|
+        brng = (i * Math::PI) / 180
+
+        point_lat = Math.asin(
+          Math.sin(lat_r) * Math.cos(d) + Math.cos(lat_r) * Math.sin(d) * Math.cos(brng)
+        )
+        point_lng =
+          ((lng_r +
+            Math.atan2(
+              Math.sin(brng) * Math.sin(d) * Math.cos(lat_r),
+              Math.cos(d) - Math.sin(lat_r) * Math.sin(point_lat)
+            )) *
+            180) /
+          Math::PI
+        point_lat = (point_lat * 180) / Math::PI
+
+        points.push([point_lat, point_lng])
+      end
+
+      points
     end
   end
 
