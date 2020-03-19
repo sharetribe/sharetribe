@@ -7,6 +7,14 @@
           presenter.bank_account_same_country?,
           'stripe-bank-account-ready': stripe_account_ready
         = t("stripe_accounts.form_bank.bank_account_same_country")
+  .row{'bank-different-country': true, class: (presenter.bank_account_same_country? ? 'hidden' : '')}
+    .row
+      .col-12
+        = form.label :bank_country, t("stripe_accounts.form_bank.bank_country")+"*"
+        = form.select :bank_country, presenter.stripe_available_countries,
+          {prompt: t("stripe_accounts.form_new.select_country")},
+          style: "min-width: 200px", required: true,
+          'stripe-bank-account-ready': stripe_account_ready
   .row.bank-routing-1.hidden
     .col-12
       = form.label :bank_routing_1, t("stripe_accounts.form_bank.bank_routing_1")+"*"
@@ -37,13 +45,6 @@
         country_regexp: 'account_number',
         'stripe-bank-account-ready': stripe_account_ready
   .row{'bank-different-country': true, class: (presenter.bank_account_same_country? ? 'hidden' : '')}
-    .row
-      .col-12
-        = form.label :bank_country, t("stripe_accounts.form_bank.bank_country")+"*"
-        = form.select :bank_country, presenter.stripe_available_countries,
-          {prompt: t("stripe_accounts.form_new.select_country")},
-          style: "min-width: 200px", required: true,
-          'stripe-bank-account-ready': stripe_account_ready
     .row
       .col-12
         = form.label :bank_holder_name, t("stripe_accounts.form_bank.bank_holder_name")+"*"
