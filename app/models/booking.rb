@@ -82,19 +82,23 @@ class Booking < ApplicationRecord
   def per_day_availability
     return true if per_hour
 
-    if tx.listing.bookings.covers_another_booking_per_day(self).any?
-      errors.add(:start_on, :invalid)
-      errors.add(:end_on, :invalid)
+    self.class.uncached do
+      if tx.listing.bookings.covers_another_booking_per_day(self).any?
+        errors.add(:start_on, :invalid)
+        errors.add(:end_on, :invalid)
+      end
     end
   end
 
   def per_hour_availability
     return true unless per_hour
 
-    unless tx.listing.working_hours_covers_booking?(self) &&
-           tx.listing.bookings.covers_another_booking_per_hour(self).empty?
-      errors.add(:start_time, :invalid)
-      errors.add(:end_time, :invalid)
+    self.class.uncached do
+      unless tx.listing.working_hours_covers_booking?(self) &&
+             tx.listing.bookings.covers_another_booking_per_hour(self).empty?
+        errors.add(:start_time, :invalid)
+        errors.add(:end_time, :invalid)
+      end
     end
   end
 end
