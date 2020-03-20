@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7.27
+    restart: always
+    environment:
+      MYSQL_USER: sharetribe
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: sharetribe_development
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - ./tmp/mysql:/var/lib/mysql
+  web:
+    build: .
+    command: >
+      bash -c "bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+       - .:/opt/sharetribe
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysql
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: mysql2://sharetribe:secret@mysql/sharetribe_development
