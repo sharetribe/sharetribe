@@ -239,6 +239,7 @@ lt:
         miles: ~
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Skelbimų nustatymai"
         transaction_preferences: "Kiti nustatymai"
         show_listing_publishing_date: "Rodyti skelbimo sukūrimo datą skelbimo puslapyje"
@@ -2359,6 +2360,7 @@ lt:
       origin:
         location: Vieta
         origin: Kilmė
+        the_exact_location: ~
       send_button:
         save_listing: "Paskelbti skelbimą"
         submit_for_review: ~

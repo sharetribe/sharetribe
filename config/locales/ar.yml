@@ -219,6 +219,7 @@ ar:
         miles: ميل
         show_only_nearby: "أظهر فقط الإعلانات القريبة عند البحث بواسطة الموقع"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "تفضيلات الإعلان"
         transaction_preferences: "تفضيلات الطلب"
         show_listing_publishing_date: ~
@@ -2362,6 +2363,7 @@ ar:
       origin:
         location: الموقع
         origin: الأصل
+        the_exact_location: ~
       send_button:
         save_listing: "حفظ الإعلان"
         submit_for_review: ~

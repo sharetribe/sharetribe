@@ -236,6 +236,7 @@ nl:
         miles: mijlen
         show_only_nearby: "Laat alleen naburige advertenties zien met zoeken op locatie"
         allow_users_to_add_location: "Sta gebruikers toe om locatie toe te voegen aan hun profiel en advertenties, en om een kaart weer te geven op de zoekpagina"
+        fuzzy_location: ~
         listing_preferences: "Advertentie voorkeuren"
         transaction_preferences: "Transactie voorkeuren"
         show_listing_publishing_date: "Toon publicatie datum van de advertentie op de advertentie pagina"
@@ -1735,7 +1736,7 @@ nl:
     new_member_notification_v2:
       headline: "%{user_name} heeft zich bij %{community} aangesloten."
       new_member_has_joined: "%{name} %{email} heeft zich aangesloten bij %{community}. Hij/zij moet wellicht nog zijn/haar emailadres bevestigen."
-      view_profile: "Beijk profiel"
+      view_profile: "Bekijk profiel"
     listing_submited_for_review:
       subject: "Nieuwe advertentie te controleren: \"%{listing_title} \" van %{author_name}  in %{community}"
       there_is_a_new_listing_to_review: "Er is een nieuwe advertentie om te controleren: \"%{listing_title}\" van %{author_name} . Je kunt deze goedkeuren of afkeuren."
@@ -2384,6 +2385,7 @@ nl:
       origin:
         location: Locatie
         origin: Oorsprong
+        the_exact_location: ~
       send_button:
         save_listing: "Plaats advertentie"
         submit_for_review: "Zend in voor controle"

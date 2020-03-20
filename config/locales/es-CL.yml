@@ -219,6 +219,7 @@ es-CL:
         miles: ~
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: ~
         transaction_preferences: ~
         show_listing_publishing_date: ~
@@ -2346,6 +2347,7 @@ es-CL:
       origin:
         location: Lugar
         origin: Origen
+        the_exact_location: ~
       send_button:
         save_listing: "Guardar listado"
         submit_for_review: ~

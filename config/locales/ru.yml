@@ -244,6 +244,7 @@ ru:
         miles: мили
         show_only_nearby: "Показывать только каталоги наиболее близкие вам с помощью поиска по местоположению"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Настройки предложений"
         transaction_preferences: "Настройки транзакции"
         show_listing_publishing_date: "Отобразить дату публикации на странице объявления"
@@ -2396,6 +2397,7 @@ ru:
       origin:
         location: Местоположение
         origin: "Исходный пункт"
+        the_exact_location: ~
       send_button:
         save_listing: "Сохранить объявление"
         submit_for_review: "На модерацию"

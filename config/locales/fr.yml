@@ -234,6 +234,7 @@ fr:
         miles: miles
         show_only_nearby: "Afficher uniquement les résultats à proximité lorsque la recherche géographique est utilisée"
         allow_users_to_add_location: "Autoriser les utilisateurs à ajouter un emplacement à leur profil et annonces, et afficher une vue carte sur la page de recherche"
+        fuzzy_location: "Afficher un cercle au lieu de l'emplacement exact"
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
@@ -2381,6 +2382,7 @@ fr:
       origin:
         location: Adresse
         origin: "Adresse de départ"
+        the_exact_location: "L'emplacement exact ne sera pas visible par les autres utilisateurs."
       send_button:
         save_listing: "Publier l'annonce"
         submit_for_review: "Soumettre pour vérification"

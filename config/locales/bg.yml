@@ -219,6 +219,7 @@ bg:
         miles: ~
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: ~
         transaction_preferences: ~
         show_listing_publishing_date: ~
@@ -2339,6 +2340,7 @@ bg:
       origin:
         location: Mестоположение
         origin: Произход
+        the_exact_location: ~
       send_button:
         save_listing: Запази
         submit_for_review: "Изпращане за одобрение"

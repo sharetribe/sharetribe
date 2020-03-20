@@ -229,6 +229,7 @@ ja:
         miles: miles
         show_only_nearby: 位置検索で近隣の投稿のみ表示する
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: 優先リスト
         transaction_preferences: 課金の設定
         show_listing_publishing_date: リストページのリストの掲載日の日付を表示
@@ -2366,6 +2367,7 @@ ja:
       origin:
         location: 場所
         origin: 起点となる場所
+        the_exact_location: ~
       send_button:
         save_listing: 投稿する
         submit_for_review: ~

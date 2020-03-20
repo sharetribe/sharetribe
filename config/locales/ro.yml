@@ -239,6 +239,7 @@ ro:
         miles: Mile
         show_only_nearby: "Arată-mi listările din jurul meu"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Preferinte de listare"
         transaction_preferences: ~
         show_listing_publishing_date: "Afișeaza data publicării înregistrării pe pagina de înscriere"
@@ -2363,6 +2364,7 @@ ro:
       origin:
         location: Oras
         origin: origine
+        the_exact_location: ~
       send_button:
         save_listing: "Publicati listarea"
         submit_for_review: ~

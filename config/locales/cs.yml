@@ -239,6 +239,7 @@ cs:
         miles: míle
         show_only_nearby: "Zobrazit pouze nabídky v okolí s vyhledáváním polohy"
         allow_users_to_add_location: "Umožnit uživatelům přidávat umístění do jejich profilu a seznamů, a zobrazovat na stránce vyhledávání zobrazení mapy"
+        fuzzy_location: ~
         listing_preferences: "Nastavení inzerátů"
         transaction_preferences: "Nastavení transakcí"
         show_listing_publishing_date: "Zobrazit datum zveřejnění inzerátu na stránce inzerátu"
@@ -2388,6 +2389,7 @@ cs:
       origin:
         location: Adresa
         origin: Původ
+        the_exact_location: ~
       send_button:
         save_listing: Uložit
         submit_for_review: "Předložit ke kontrole"

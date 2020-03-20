@@ -234,6 +234,7 @@ en-NZ:
         miles: miles
         show_only_nearby: "Show only nearby listings with location search"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Listing preferences"
         transaction_preferences: "Order preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
@@ -2378,6 +2379,7 @@ en-NZ:
       origin:
         location: Location
         origin: Origin
+        the_exact_location: ~
       send_button:
         save_listing: "Save listing"
         submit_for_review: ~

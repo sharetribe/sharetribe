@@ -225,6 +225,7 @@ pt-PT:
         miles: ~
         show_only_nearby: "Mostrar apenas anúncios próximos, com a busca de localização"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Preferências de anúncios"
         transaction_preferences: ~
         show_listing_publishing_date: "Mostrar data de publicação do anúncio na página do anúncio"
@@ -2357,6 +2358,7 @@ pt-PT:
       origin:
         location: Localização
         origin: Origem
+        the_exact_location: ~
       send_button:
         save_listing: "Salvar anúncio"
         submit_for_review: ~

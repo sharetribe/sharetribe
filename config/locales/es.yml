@@ -234,6 +234,7 @@ es:
         miles: millas
         show_only_nearby: "Mostrar solamente anuncios cercanos a la búsqueda por ubicación"
         allow_users_to_add_location: "Permitir a los usuarios añadir ubicación a sus perfiles y anuncios, y mostrar la vista del mapa en la página de resultados de búsqueda"
+        fuzzy_location: "Mostrar un círculo en vez de la ubicación exacta"
         listing_preferences: "Preferencias de los anuncios"
         transaction_preferences: "Preferencias de transacciones"
         show_listing_publishing_date: "Mostrar fecha de publicación del anuncio la descripción del anuncio"
@@ -677,7 +678,7 @@ es:
         change: Cambiar
       landing_pages:
         landing_pages: "Página de inicio"
-        info_1: "La página de inicio es quizás la página más importante de tu marketplace. Es la primera página que los visitantes ven- casi como la fachada de tu casa. Tienes tan sólo unos segundos para convencer a nuevos visitantes pare que exploren tu sitio. La página necesita ser atractiva y tu propuesta clara y tentadora."
+        info_1: "La página de inicio es quizás la página más importante de tu marketplace. Es la primera página que los visitantes ven- casi como la fachada de tu casa. Tienes tan sólo unos segundos para convencer a nuevos visitantes para que exploren tu sitio. La página necesita ser atractiva y tu propuesta clara y tentadora."
         info_2: "Puedes usar este editor para modificar tu página de inicio cuando quieras."
         info_2_help_center: "artículo de nuestro Help Center"
         info_3: "Si quieres personalizar la página de inicio de tu marketplace, puedes hacerlo con una subscripción adicional por $99 dólares al mes."
@@ -1323,7 +1324,7 @@ es:
       stripe:
         held_payment: "Aceptó la transacción. El pago por %{sum} está siendo guardado por %{service_name} hasta que la orden sea marcada como completada."
         held_payment_wo_sum: "Aceptó la solicitud. El pago está siendo guardado por %{service_name} hasta que la transacción se marque completada."
-        confirmed_request: "Marcó la orden como completada. El dinero ha sido transferido a la cuenta de banco de %{author_name} or será transferido pronto."
+        confirmed_request: "Marcó la orden como completada. El dinero ha sido transferido a la cuenta de banco de %{author_name} o será transferido pronto."
       canceled_the_order: "Disputó la orden. El equipo de %{service_name} ha sido notificado."
       marked_as_refunded: "Marcada como reembolsada"
       dismissed_the_cancellation: "Descartó la disputa."
@@ -2381,6 +2382,7 @@ es:
       origin:
         location: Ubicación
         origin: Origen
+        the_exact_location: "La ubicación exacta no se mostrará a otros usuarios."
       send_button:
         save_listing: "Publicar anuncio"
         submit_for_review: "Enviar a revisión"
