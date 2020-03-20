@@ -64,7 +64,7 @@ RUN curl -sfSL \
 COPY script/setup-mysql-apt-repo.sh /root/
 RUN apt-get install -y nginx \
   && /root/setup-mysql-apt-repo.sh \
-  && apt-get install -y libmysqlclient-dev
+  && apt-get install -y libmysqlclient-dev mysql-client
 
 # Install latest bundler
 ENV BUNDLE_BIN=
