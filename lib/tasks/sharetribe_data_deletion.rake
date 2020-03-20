@@ -25,7 +25,7 @@ namespace :sharetribe do
     end
   end
 
-  def old_marketplaces_with_plans(date)
+  def old_marketplaces_with_plans(date, ignore_deleted = false)
     query = <<~SQL
       SELECT DISTINCT
           mp.community_id
@@ -40,6 +40,7 @@ namespace :sharetribe do
       LEFT JOIN communities c
       ON mp.community_id = c.id
       WHERE 1=1
+        #{ignore_deleted ? 'AND c.deleted <> 1' : ''}
       	AND mp.expires_at IS NOT NULL -- To be extra safe
       	AND mp.expires_at < '#{date}' -- Change to desired value
       ORDER BY 2;
@@ -48,7 +49,7 @@ namespace :sharetribe do
     r.map { |row| row[0] }
   end
 
-  def old_marketplace_trials(date)
+  def old_marketplace_trials(date, ignore_deleted = false)
     query = <<~SQL
       SELECT DISTINCT
           mt.community_id
@@ -65,6 +66,7 @@ namespace :sharetribe do
       LEFT JOIN communities c
       ON mt.community_id = c.id
       WHERE 1=1
+        #{ignore_deleted ? 'AND c.deleted <> 1' : ''}
       	AND mp.community_id IS NULL -- Removes all trials with a plan in marketplace_plans
       	AND mt.expires_at IS NOT NULL -- To be extra safe
       	AND mt.expires_at < '#{date}' -- Change to desired value
@@ -419,12 +421,12 @@ namespace :sharetribe do
         soft_delete_threshold_date = DATA_SOFT_DELETION_DAYS_THRESHOLD.days.ago
 
         # Soft delete marketplaces with expired paid plans
-        old_marketplaces_with_plans(soft_delete_threshold_date).each do |mp_id|
+        old_marketplaces_with_plans(soft_delete_threshold_date, true).each do |mp_id|
           soft_delete_marketplace!(mp_id)
         end
 
         # Soft delete old trials
-        old_marketplace_trials(soft_delete_threshold_date).each do |mp_id|
+        old_marketplace_trials(soft_delete_threshold_date, true).each do |mp_id|
           soft_delete_marketplace!(mp_id)
         end
 
