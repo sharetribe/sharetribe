@@ -30,6 +30,7 @@ describe PreauthorizeTransactionsController, type: :controller do
     listing = FactoryGirl.create(:listing, community_id: community.id,
                                            title: 'Cry Wolf',
                                            author: person1,
+                                           availability: 'booking',
                                            valid_until: nil)
     listing.working_hours_new_set
     listing.save
@@ -41,6 +42,14 @@ describe PreauthorizeTransactionsController, type: :controller do
                                  author: person1,
                                  availability: 'booking',
                                  valid_until: nil)
+  end
+  let(:transaction1) do
+    tx = FactoryGirl.create(:transaction, community: community,
+                                          listing: listing2,
+                                          availability: 'booking',
+                                          current_state: 'preauthorized')
+    FactoryGirl.create(:booking, tx: tx, start_time: "2050-11-28T09:00:00Z", end_time: "2050-11-28T12:00:00Z", per_hour: true)
+    tx
   end
 
   before(:each) do
@@ -116,6 +125,35 @@ describe PreauthorizeTransactionsController, type: :controller do
         expect(booking).to_not be_nil
         expect(booking.start_on).to eq Date.parse("2050-11-28")
         expect(booking.end_on).to eq Date.parse("2050-11-29")
+      end
+    end
+
+    it 'buy per hour - does not creates transaction
+      if validation after payment failed' do
+      params = {
+        person_id: person2.id,
+        listing_id: listing2.id,
+        start_on: "", end_on: "",
+        start_time: "2050-11-28T09:00:00Z", end_time: "2050-11-28T12:00:00Z",
+        per_hour: "1", message: "", delivery: "pickup",
+        payment_type: "stripe", stripe_payment_method_id: "pm_xXxX",
+        locale: "en"
+      }
+      gateway_adapter = double
+      allow(gateway_adapter).to receive(:create_payment)
+        .and_return(proc do
+        # this booking is created during paying
+        # this booking is in the equal time slot and transaction state is preauthorized
+        transaction1
+        TransactionService::Gateway::SyncCompletion.new(Result::Success.new({}))
+                    end)
+      allow(gateway_adapter).to receive(:reject_payment).and_return(response: Result::Success.new({}))
+      allow(TransactionService::Transaction).to receive(:gateway_adapter).and_return(gateway_adapter)
+
+      Timecop.travel(Time.zone.parse('2050-11-28 05:00:00')) do
+        expect(Transaction.where(deleted: true).count).to eq 0
+        post :initiated, params: params
+        expect(Transaction.where(deleted: true).count).to eq 1
       end
     end
   end
