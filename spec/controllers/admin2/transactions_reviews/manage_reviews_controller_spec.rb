@@ -4,72 +4,72 @@ describe Admin2::TransactionsReviews::ManageReviewsController, type: :controller
   let(:community) { FactoryGirl.create(:community) }
   let(:person1) do
     FactoryGirl.create(:person, member_of: community,
-                       given_name: 'Florence',
-                       family_name: 'Torres',
-                       display_name: 'Floryt'
+                                given_name: 'Florence',
+                                family_name: 'Torres',
+                                display_name: 'Floryt'
     )
   end
   let(:person2) do
     FactoryGirl.create(:person, member_of: community,
-                       given_name: 'Sherry',
-                       family_name: 'Rivera',
-                       display_name: 'Sky caterpillar'
+                                given_name: 'Sherry',
+                                family_name: 'Rivera',
+                                display_name: 'Sky caterpillar'
     )
   end
   let(:person3) do
     FactoryGirl.create(:person, member_of: community,
-                       given_name: 'Connie',
-                       family_name: 'Brooks',
-                       display_name: 'Candidate'
+                                given_name: 'Connie',
+                                family_name: 'Brooks',
+                                display_name: 'Candidate'
     )
   end
   let(:listing1) do
     FactoryGirl.create(:listing, community_id: community.id,
-                       title: 'Apple cake',
-                       author: person1)
+                                 title: 'Apple cake',
+                                 author: person1)
   end
   let(:listing2) do
     FactoryGirl.create(:listing, community_id: community.id,
-                       title: 'Cosmic scooter',
-                       author: person1)
+                                 title: 'Cosmic scooter',
+                                 author: person1)
   end
   let(:transaction1) do
     transaction = FactoryGirl.create(:transaction, community: community,
-                                     listing: listing1,
-                                     starter: person2,
-                                     current_state: 'confirmed')
+                                                   listing: listing1,
+                                                   starter: person2,
+                                                   current_state: 'confirmed')
     FactoryGirl.create(:testimonial, tx: transaction,
-                       author: listing1.author,
-                       receiver: person2,
-                       grade: 0,
-                       text: 'Hi from author')
+                                     author: listing1.author,
+                                     receiver: person2,
+                                     grade: 0,
+                                     text: 'Hi from author')
     FactoryGirl.create(:testimonial, tx: transaction,
-                       author: person2,
-                       receiver: listing1.author,
-                       grade: 0,
-                       text: 'Hi from starter')
+                                     author: person2,
+                                     receiver: listing1.author,
+                                     grade: 0,
+                                     text: 'Hi from starter')
     transaction
   end
   let(:transaction2) do
     transaction = FactoryGirl.create(:transaction, community: community,
-                                     listing: listing2,
-                                     starter: person2,
-                                     current_state: 'confirmed')
+                                                   listing: listing2,
+                                                   starter: person2,
+                                                   current_state: 'confirmed')
     FactoryGirl.create(:testimonial, tx: transaction,
-                       author: listing2.author,
-                       receiver: person2,
-                       text: 'A heavy snowstorm')
+                                     author: listing2.author,
+                                     receiver: person2,
+                                     text: 'A heavy snowstorm')
     FactoryGirl.create(:testimonial, tx: transaction,
-                       author: person2,
-                       receiver: listing2.author,
-                       text: 'Almost 60 crashes were reported in Virginia')
+                                     author: person2,
+                                     receiver: listing2.author,
+                                     text: 'Almost 60 crashes were reported in Virginia')
     transaction
   end
   let(:transaction3) do
     transaction = FactoryGirl.create(:transaction, community: community,
-                                     listing: listing1,
-                                     starter: person3,
-                                     current_state: 'confirmed')
+                                                   listing: listing1,
+                                                   starter: person3,
+                                                   current_state: 'confirmed')
     transaction
   end
 
@@ -182,11 +182,11 @@ describe Admin2::TransactionsReviews::ManageReviewsController, type: :controller
   describe "#update review" do
     let(:tx) do
       FactoryGirl.create(:transaction, community: community,
-                         listing: listing1,
-                         starter: person3,
-                         starter_skipped_feedback: true,
-                         author_skipped_feedback: true,
-                         current_state: 'confirmed')
+                                       listing: listing1,
+                                       starter: person3,
+                                       starter_skipped_feedback: true,
+                                       author_skipped_feedback: true,
+                                       current_state: 'confirmed')
     end
 
     it 'unskips skipped testimonial' do
