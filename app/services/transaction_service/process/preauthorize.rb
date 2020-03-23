@@ -32,13 +32,17 @@ module TransactionService::Process
         gateway_fields: gateway_fields,
         force_sync: true)
 
-      if completion[:success] && completion[:sync]
-        finalize_res = finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
-        if finalize_res.success
-          completion[:response]
+      if completion[:success]
+        if completion[:sync]
+          finalize_res = finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
+          if finalize_res.success
+            completion[:response]
+          else
+            delete_failed_transaction(tx)
+            finalize_res
+          end
         else
-          delete_failed_transaction(tx)
-          finalize_res
+          completion[:response]
         end
       elsif !completion[:success]
         delete_failed_transaction(tx)
