@@ -12,6 +12,8 @@ services:
     volumes:
       - ./tmp/mysql:/var/lib/mysql
   web:
+    tty: true
+    stdin_open: true
     build:
       context: .
       dockerfile: Dockerfile.dev
