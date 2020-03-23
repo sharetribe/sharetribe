@@ -1,0 +1,24 @@
+- content_for :title do
+  = t('admin2.sidebar.transactions_reviews.manage_reviews')
+
+= render 'admin2/transactions_reviews/manage_reviews/filter'
+
+.content-card-section-container{style: 'padding: 0; max-width: none;'}
+  .table-responsive
+    %table.table.table-hover.managereviews
+      %thead
+        %tr
+          %th{scope: :col}
+            = render 'sort_link', column: 'started', direction: sort_link_direction('started'), title: t('admin2.manage_reviews.transaction')
+          %th{scope: :col}= t('admin2.manage_reviews.customer')
+          %th{scope: :col}= t('admin2.manage_reviews.customer_rating')
+          %th{scope: :col}= t('admin2.manage_reviews.provider')
+          %th{scope: :col}= t('admin2.manage_reviews.provider_rating')
+          %th{scope: :col}= t('admin2.manage_reviews.actions')
+      %tbody
+        = render partial: 'review', collection: @service.transactions, as: :tx
+    .table-bottom
+      %p= page_entries_info(@service.transactions, model: 'Transaction with review').html_safe
+      = will_paginate @service.transactions, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
+
+= render 'admin2/transactions_reviews/manage_reviews/read_popup'

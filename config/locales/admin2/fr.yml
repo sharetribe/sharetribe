@@ -83,6 +83,47 @@ fr:
       advanced:
         custom_script: 'lorem ipsum'
         delete_marketplace: 'lorem ipsum'
+    manage_reviews:
+      transaction: 'lorem ipsum'
+      customer: 'lorem ipsum'
+      customer_rating: 'lorem ipsum'
+      provider: 'lorem ipsum'
+      provider_rating: 'lorem ipsum'
+      actions: 'lorem ipsum'
+      search_placeholder: 'lorem ipsum'
+      all_transactions: 'lorem ipsum (%{count})'
+      customer_title: "lorem ipsum %{title}"
+      provider_title: "lorem ipsum %{title}"
+      review_label: "lorem ipsum '%{title}'"
+      delete_notice: 'lorem ipsum.'
+      blocked_notice: 'lorem ipsum.'
+      delete_title: "lorem ipsum'%{title}'"
+      block_review_customer: "lorem ipsum %{title}"
+      block_review_provider: "lorem ipsum %{title}"
+      delete_review_customer: "lorem ipsum %{title}"
+      delete_review_provider: "lorem ipsum %{title}"
+      save: 'lorem ipsum'
+      cancel: 'lorem ipsum'
+      edit: 'lorem ipsum'
+      rating_string: 'lorem ipsum'
+      delete_block: 'lorem ipsum'
+      read_review_comments: 'lorem ipsum'
+      rating: '%{rating} lorem ipsum'
+      unskip: 'lorem ipsum'
+      comment: 'lorem ipsum'
+      unskip_notice: 'lorem ipsum'
+      statuses:
+        positive: 'lorem ipsum'
+        negative: 'lorem ipsum'
+        skipped: 'lorem ipsum'
+        waiting: 'lorem ipsum'
+        blocked: 'lorem ipsum'
+      status_filter:
+        positive: 'lorem ipsum'
+        negative: 'lorem ipsum'
+        skipped: 'lorem ipsum'
+        waiting: 'lorem ipsum'
+        blocked: 'lorem ipsum'
     delete_marketplace:
       info_text_1: 'lorem ipsum'
       info_text_2: 'lorem ipsum'

@@ -1,0 +1,17 @@
+#reviewRead.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'reviewReadLabel', role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-md{role: :document}
+    .modal-content
+      .modal-header
+        %h2#reviewReadLabel.modal-title
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+          %span{'aria-hidden' => 'true'} ×
+      .modal-body
+        %h1#customer_title
+        %p#customer_status
+        %p
+          %i#customer_text
+
+        %h1#provider_title
+        %p#provider_status
+        %p
+          %i#provider_text
