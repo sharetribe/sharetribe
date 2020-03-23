@@ -82,6 +82,7 @@ COPY client/package.json /opt/app/client/
 ENV NPM_CONFIG_LOGLEVEL error
 
 RUN npm install
+RUN npm run postinstall
 
 COPY . /opt/app
 

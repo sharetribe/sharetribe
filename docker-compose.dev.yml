@@ -29,3 +29,19 @@ services:
     environment:
       RAILS_ENV: development
       DATABASE_URL: mysql2://sharetribe:secret@mysql/sharetribe_development
+  rails-client-assets:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: >
+      bash -c "cd client && npm run build:dev:client"
+    volumes:
+       - .:/opt/app
+       - /opt/app/client/node_modules
+    depends_on:
+      - mysql
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: mysql2://sharetribe:secret@mysql/sharetribe_development
