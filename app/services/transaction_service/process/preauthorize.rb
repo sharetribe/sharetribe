@@ -32,12 +32,22 @@ module TransactionService::Process
         gateway_fields: gateway_fields,
         force_sync: true)
 
-      if completion[:success] && completion[:sync]
-        finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
+      if completion[:success]
+        if completion[:sync]
+          finalize_res = finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
+          if finalize_res.success
+            completion[:response]
+          else
+            delete_failed_transaction(tx)
+            finalize_res
+          end
+        else
+          completion[:response]
+        end
       elsif !completion[:success]
         delete_failed_transaction(tx)
+        completion[:response]
       end
-      completion[:response]
     end
 
     def finalize_create(tx:, gateway_adapter:, force_sync:)
@@ -65,20 +75,16 @@ module TransactionService::Process
           Result::Success.new()
         else
           booking_res =
-            if tx.availability.to_sym == :booking && tx.booking.per_hour?
+            if tx.availability.to_sym == :booking && !tx.booking.valid?
+              void_payment(gateway_adapter, tx)
+              Result::Error.new(TransactionService::Transaction::BookingDatesInvalid.new(I18n.t("error_messages.booking.double_booking_payment_voided")))
+            elsif tx.availability.to_sym == :booking && tx.booking.per_hour?
               Result::Success.new()
             elsif tx.availability.to_sym == :booking
-
               initiate_booking(tx: tx).on_error { |error_msg, data|
                 logger.error("Failed to initiate booking #{data.inspect} #{error_msg}", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
 
-                void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
-
-                void_res.on_success {
-                  logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :id))
-                }.on_error { |payment_error_msg, payment_data|
-                  logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
-                }
+                void_payment(gateway_adapter, tx)
               }.on_success { |data|
                 response_body = data[:body]
                 booking = response_body[:data]
@@ -105,6 +111,17 @@ module TransactionService::Process
       res.and_then {
         Result::Success.new(TransactionService::Transaction.create_transaction_response(tx))
       }
+    end
+
+    def void_payment(gateway_adapter, tx)
+      void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
+
+      void_res.on_success {
+        logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :id))
+      }.on_error { |payment_error_msg, payment_data|
+        logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
+      }
+      void_res
     end
 
     def reject(tx:, message:, sender_id:, gateway_adapter:)
