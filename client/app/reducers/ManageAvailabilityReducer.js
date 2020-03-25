@@ -31,6 +31,12 @@ const initialState = Immutable.Map({
   listingUuid: null,
 
   loadedMonths: Immutable.Set(),
+
+  triggerChanges: null,
+  noReadFromHarmony: false,
+  blocked_dates: [],
+  initial_blocked_dates: [],
+  booked_dates: [],
 });
 
 const includesDay = (days, day) =>
@@ -40,23 +46,43 @@ const ACTION_UNBLOCK = 'unblock';
 const ACTION_BLOCK = 'block';
 
 const withChange = (state, action, day) => {
-  if (includesDay(state.get('bookings'), day)) {
-    // Changes to reserved days ignored
-    return state;
-  }
-  let id = null;
-
-  if (action === ACTION_UNBLOCK) {
-    const currentBlock = state.get('blocks').find(
-      (b) => isSameDay(b.get('day'), day)
-    );
-    if (currentBlock && currentBlock.get('id')) {
-      id = currentBlock.get('id');
+  const noReadFromHarmony = state.get('noReadFromHarmony');
+  if (noReadFromHarmony) {
+    if (includesDay(state.get('booked_dates'), day)) {
+      return state;
     }
-  }
+    const blocked_dates = state.get('blocked_dates');
+    const currentBlock = blocked_dates.find(
+        (b) => isSameDay(b.blocked_at, day)
+      );
+    const destroy = (action === ACTION_UNBLOCK) ? '1' : null;
+    if (currentBlock) {
+      currentBlock.destroy = destroy;
+    } else if (action === ACTION_BLOCK) {
+      blocked_dates.push({ id: null, blocked_at: moment.utc(day) });
+    }
 
-  const change = Immutable.Map({ id, action, day });
-  return state.set('changes', state.get('changes').push(change));
+    // force calendar rerender
+    return state.set('triggerChanges', Math.random());
+  } else {
+    if (includesDay(state.get('bookings'), day)) {
+      // Changes to reserved days ignored
+      return state;
+    }
+    let id = null;
+
+    if (action === ACTION_UNBLOCK) {
+      const currentBlock = state.get('blocks').find(
+        (b) => isSameDay(b.get('day'), day)
+      );
+      if (currentBlock && currentBlock.get('id')) {
+        id = currentBlock.get('id');
+      }
+    }
+
+    const change = Immutable.Map({ id, action, day });
+    return state.set('changes', state.get('changes').push(change));
+  }
 };
 
 const ranges = (bookings) =>
@@ -85,6 +111,26 @@ const mergeNovelty = (state, novelty) => {
   return state.set('bookings', state.get('bookings').concat(bookings))
               .set('blocks', state.get('blocks').concat(blocks))
               .set('loadedMonths', state.get('loadedMonths').union(loadedMonths));
+};
+
+const mergeBlockedDates = (state, payload) => {
+  const blocked_dates = state.get('blocked_dates');
+  const initial_blocked_dates = state.get('initial_blocked_dates') || [];
+  const update_blocked_dates = payload.blocked_dates.filter(
+    (block) => !blocked_dates.find((x) => x.id === block.id));
+  const update_initial_blocked_dates = [...payload.blocked_dates].filter(
+    (block) => !initial_blocked_dates.find((x) => x.id === block.id));
+  const loadedMonths = payload.loadedMonths;
+  return state
+    .set('blocked_dates', blocked_dates.concat(update_blocked_dates))
+    .set('initial_blocked_dates', initial_blocked_dates.concat(update_initial_blocked_dates))
+    .set('loadedMonths', state.get('loadedMonths').union(loadedMonths));
+};
+
+const mergeBookedDates = (state, payload) => {
+  const booked_dates = state.get('booked_dates');
+  const update = payload.filter((x) => booked_dates.indexOf(x) < 0);
+  return state.set('booked_dates', booked_dates.concat(update));
 };
 
 // Calculate all unique changes to the original blocked days
@@ -119,60 +165,119 @@ export const compressedChanges = (state) => {
   });
 };
 
-export const hasChanges = (state) =>
-  compressedChanges(state).size > 0;
+export const hasChanges = (state) => {
+  const noReadFromHarmony = state.get('noReadFromHarmony');
+  if (noReadFromHarmony) {
+    const blocked_dates = state.get('blocked_dates');
+    const initial_blocked_dates = state.get('initial_blocked_dates');
+    if (blocked_dates && initial_blocked_dates) {
+      if (blocked_dates.length !== initial_blocked_dates.length) {
+        return true;
+      } else {
+        return blocked_dates.some((x) => x.destroy === '1');
+      }
+    }
+    return false;
+  } else {
+    return compressedChanges(state).size > 0;
+  }
+};
 
-export const blockChanges = (state) =>
-  compressedChanges(state).reduce((blocks, change) => {
-    if (change.get('action') === ACTION_UNBLOCK) {
-      return blocks;
-    }
-    const day = change.get('day');
-    const block = Immutable.Map({
-      start: day.clone().startOf('day'),
-      end: day.clone()
-        .add(1, 'days')
-        .startOf('day'),
-    });
-    return blocks.push(block);
-  }, Immutable.List());
+export const blockChanges = (state) => {
+  const noReadFromHarmony = state.get('noReadFromHarmony');
+  if (noReadFromHarmony) {
+    const blocked_dates = state.get('blocked_dates');
+    return Immutable.List(blocked_dates
+      .filter((x) => x.id === null)
+      .map((blocked_date) => (
+        Immutable.Map({
+          start: blocked_date.blocked_at.clone().startOf('day'),
+          end: blocked_date.blocked_at.clone()
+            .add(1, 'days')
+            .startOf('day'),
+        }))
+      ));
+  } else {
+    return compressedChanges(state).reduce((blocks, change) => {
+      if (change.get('action') === ACTION_UNBLOCK) {
+        return blocks;
+      }
+      const day = change.get('day');
+      const block = Immutable.Map({
+        start: day.clone().startOf('day'),
+        end: day.clone()
+          .add(1, 'days')
+          .startOf('day'),
+      });
+      return blocks.push(block);
+    }, Immutable.List());
+  }
+};
 
-export const unblockChanges = (state) =>
-  compressedChanges(state).reduce((unblocks, change) => {
-    if (change.get('action') === ACTION_BLOCK) {
-      return unblocks;
-    }
-    if (!change.get('id')) {
-      throw new Error('No id in unblock');
-    }
-    return unblocks.push(change.get('id'));
-  }, Immutable.List());
+export const unblockChanges = (state) => {
+  const noReadFromHarmony = state.get('noReadFromHarmony');
+  if (noReadFromHarmony) {
+    const blocked_dates = state.get('blocked_dates');
+    const blocks = state.get('blocks');
+    const result = blocks
+      .filter((block) => {
+        const day = block.get('day').format('YYYY-MM-DD');
+        const blockedDate = blocked_dates.find(
+            (b) => {
+              const same = b.blocked_at.format('YYYY-MM-DD') === day;
+              const destroy = b.destroy === '1';
+              return same && destroy;
+            }
+          );
+        return !!blockedDate;
+      }).map((block) => block.get('id'));
+    return Immutable.List(result);
+  } else {
+    return compressedChanges(state).reduce((unblocks, change) => {
+      if (change.get('action') === ACTION_BLOCK) {
+        return unblocks;
+      }
+      if (!change.get('id')) {
+        throw new Error('No id in unblock');
+      }
+      return unblocks.push(change.get('id'));
+    }, Immutable.List());
+  }
+};
 
 // Calculate currently blocked days from the fetched ones and the
 // unsaved changes.
 export const blockedDays = (state) => {
-  const changes = compressedChanges(state);
+  const noReadFromHarmony = state.get('noReadFromHarmony');
+  if (noReadFromHarmony) {
+    const blocked_dates = state.get('blocked_dates');
+    return blocked_dates
+      .filter((x) => x.destroy !== '1')
+      .map((x) => x.blocked_at);
+  } else {
+    const changes = compressedChanges(state);
 
-  // Collect lists of day instances for blocks and unblocks
-  const splitChanges = changes.reduce((result, c) => {
-    const isBlock = c.get('action') === ACTION_BLOCK;
-    const day = c.get('day');
-    return isBlock ?
-      result.set('blocks', result.get('blocks').push(day)) :
-      result.set('unblocks', result.get('unblocks').push(day));
-  }, Immutable.Map({
-    blocks: Immutable.List(),
-    unblocks: Immutable.List(),
-  }));
+    // Collect lists of day instances for blocks and unblocks
+    const splitChanges = changes.reduce((result, c) => {
+      const isBlock = c.get('action') === ACTION_BLOCK;
+      const day = c.get('day');
+      return isBlock ?
+        result.set('blocks', result.get('blocks').push(day)) :
+        result.set('unblocks', result.get('unblocks').push(day));
+    }, Immutable.Map({
+      blocks: Immutable.List(),
+      unblocks: Immutable.List(),
+    }));
 
-  const blocks = splitChanges.get('blocks');
-  const unblocks = splitChanges.get('unblocks');
+    const blocks = splitChanges.get('blocks');
+    const unblocks = splitChanges.get('unblocks');
 
-  return state
-    .get('blocks')
-    .map((b) => b.get('day'))
-    .concat(blocks)
-    .filter((d) => !includesDay(unblocks, d));
+    return state
+      .get('blocks')
+      .map((b) => b.get('day'))
+      .concat(blocks)
+      .filter((d) => !includesDay(unblocks, d));
+  }
 };
 
 const clearState = (state) =>
@@ -185,7 +290,11 @@ const clearState = (state) =>
       .set('saveFinished', false)
       .set('loadedMonths', Immutable.Set())
       .set('visibleMonth', moment()
-           .startOf('month'));
+           .startOf('month'))
+      .set('noReadFromHarmony', state.get('noReadFromHarmony'))
+      .set('blocked_dates', [])
+      .set('initial_blocked_dates', [])
+      .set('booked_dates', []);
 
 const manageAvailabilityReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -207,12 +316,16 @@ const manageAvailabilityReducer = (state = initialState, action) => {
     case actionTypes.DATA_LOADED:
       return mergeNovelty(state, payload);
     case actionTypes.DATA_BLOCKED_DATES_LOADED:
-      return state.set('blocked_dates', payload);
+      return mergeBlockedDates(state, payload);
+    case actionTypes.DATA_BOOKED_DATES_LOADED:
+      return mergeBookedDates(state, payload);
     case actionTypes.OPEN_EDIT_VIEW:
       return state.set('isOpen', true);
     case actionTypes.CLOSE_EDIT_VIEW:
       // Clean up store state, everything will be refetched when opened again.
       return saveInProgress ? state : clearState(state);
+    case actionTypes.NO_READ_FROM_HARMONY:
+      return state.set('noReadFromHarmony', true);
     default:
       return state;
   }

@@ -7,7 +7,7 @@ import { initialize as initializeI18n } from '../utils/i18n';
 import moment from 'moment';
 import Immutable from 'immutable';
 import ManageAvailabilityContainer from '../components/sections/ManageAvailability/ManageAvailabilityContainer';
-import { EDIT_VIEW_OPEN_HASH } from '../actions/ManageAvailabilityActions';
+import { EDIT_VIEW_OPEN_HASH, setNoReadFromHarmony } from '../actions/ManageAvailabilityActions';
 import * as cssVariables from '../assets/styles/variables';
 import { UUID } from '../types/types';
 
@@ -33,8 +33,10 @@ export default (props) => {
       marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
       listingUuid: new UUID({ value: props.listing.uuid }),
       loadedMonths: Immutable.Set(),
-      blocked_dates: props.listing.blocked_dates.map((x) => ({ id: x.id, blocked_at: moment.utc(x.blocked_at) })),
       listingId: props.listing.id,
+      noReadFromHarmony: props.no_read_from_harmony,
+      blocked_dates: [],
+      booked_dates: [],
     }),
   };
 
@@ -51,6 +53,10 @@ export default (props) => {
     },
     sideWinderWrapper: document.querySelector('#sidewinder-wrapper'),
   };
+
+  if (props.no_read_from_harmony) {
+    setNoReadFromHarmony();
+  }
 
   return r(Provider, { store }, [
     r(ManageAvailabilityContainer, containerProps),
