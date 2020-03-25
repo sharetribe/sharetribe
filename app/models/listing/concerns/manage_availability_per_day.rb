@@ -2,7 +2,7 @@ module ManageAvailabilityPerDay
   extend ActiveSupport::Concern
 
   def get_blocked_dates(start_on:, end_on:)
-    direct_blocked_dates(start_on, end_on) + booked_dates(start_on, end_on)
+    (direct_blocked_dates(start_on, end_on) + booked_dates(start_on, end_on)).uniq
   end
 
   # returns array of datetime at beginning of day
