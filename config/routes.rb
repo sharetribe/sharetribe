@@ -59,6 +59,7 @@ Rails.application.routes.draw do
         post :update_blocked_dates
       end
       resources :blocked_dates, only: [:index], controller: 'listing/blocked_dates'
+      resources :bookings, only: [:index], controller: 'listing/bookings'
     end
   end
 

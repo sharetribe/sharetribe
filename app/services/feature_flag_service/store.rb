@@ -24,6 +24,7 @@ module FeatureFlagService::Store
       :footer,
       :email_layout_v2,
       :domain,
+      :no_read_from_harmony,
     ].to_set
 
     def initialize(additional_flags:)
