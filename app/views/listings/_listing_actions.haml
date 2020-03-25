@@ -25,23 +25,14 @@
     = form_tag @listing_presenter.form_path, :method => :get, :id => "booking-dates" do
 
       - if @listing_presenter.quantity_per_day_or_night?
-        - @listing_presenter.blocked_dates_result.on_success do |blocked_dates|
-          - content_for :extra_javascript do
-            :javascript
-              window.ST.FromToDatePicker.setupPerDayOrNight(#{raw @listing_presenter.datepicker_per_day_or_night_setup(blocked_dates).to_json});
-          .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
-            .datepicker-start-wrapper
-              = label_tag t(".booking_from")
-              %input.input-sm.form-control.required#start-on{:type => 'text', :name => "start_on_datepicker", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" }, :autocomplete => 'off' }
-              %input#booking-start-output{:type => 'hidden', :name => 'start_on'}
+        - if @listing_presenter.no_read_from_harmony?
+          = render 'date_picker', datepicker_per_day_or_night_setup: @listing_presenter.datepicker_per_day_or_night_setup
+        - else
+          - @listing_presenter.blocked_dates_result.on_success do |blocked_dates|
+            = render 'date_picker', datepicker_per_day_or_night_setup: @listing_presenter.datepicker_per_day_or_night_setup(blocked_dates)
+          - @listing_presenter.blocked_dates_result.on_error do
+            = t("listings.listing_actions.unable_load_availability")
 
-            .datepicker-end-wrapper
-              = label_tag t(".booking_to")
-              %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on_datepicker", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }, :autocomplete => 'off'}
-              %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
-
-        - @listing_presenter.blocked_dates_result.on_error do
-          = t("listings.listing_actions.unable_load_availability")
 
       - elsif @listing_presenter.booking_per_hour?
         .input-daterange.input-group.clearfix
