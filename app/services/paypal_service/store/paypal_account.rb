@@ -160,6 +160,9 @@ module PaypalService::Store::PaypalAccount
   ## Public Store CRUD methods:
 
   def create(opts:)
+    if opts[:order_permission_request_token].present?
+      opts[:order_permission_request_token] = URI.decode(opts[:order_permission_request_token])
+    end
     entity = PaypalAccountCreate.call(opts)
     account = HashUtils.compact(FlattingHelper.select_paypal_account_values(entity))
     order_permission = HashUtils.compact(FlattingHelper.select_order_permission_values(entity))
