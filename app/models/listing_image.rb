@@ -227,6 +227,7 @@ class ListingImage < ApplicationRecord
   end
 
   def compose_email_image
+    return unless image.exists?
     Dir.mktmpdir do |dir|
       avatar_path = "#{dir}/avatar.jpg"
       listing_path = "#{dir}/listing-image.jpg"
@@ -238,9 +239,12 @@ class ListingImage < ApplicationRecord
       end
       image.copy_to_local_file(:email, listing_path)
       `cd #{dir}; bash #{Rails.root}/script/compose-email-image.sh listing-image.jpg avatar.jpg combined-listing-image.png`
-      self.email_image = File.new("#{dir}/combined-listing-image.png")
-      self.email_hash = email_image_hash
-      save
+      combined_filename = "#{dir}/combined-listing-image.png"
+      if File.exist?(combined_filename)
+        self.email_image = File.new(combined_filename)
+        self.email_hash = email_image_hash
+        save
+      end
     end
   end
 end
