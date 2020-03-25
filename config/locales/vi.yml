@@ -229,6 +229,7 @@ vi:
         miles: dặm
         show_only_nearby: "Chỉ hiển thị các bài đăng xung quanh vị trí tìm kiếm"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Danh mục yêu thích"
         transaction_preferences: ~
         show_listing_publishing_date: "Hiển thị ngày đăng trên bài đăng"
@@ -2366,6 +2367,7 @@ vi:
       origin:
         location: "Địa điểm"
         origin: Gốc
+        the_exact_location: ~
       send_button:
         save_listing: Lưu
         submit_for_review: ~

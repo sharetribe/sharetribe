@@ -234,6 +234,7 @@ fi:
         miles: mailit
         show_only_nearby: "Näytä vain lähistöllä sijaitsevat ilmoitukset sijaintihaussa"
         allow_users_to_add_location: "Salli käyttäjien lisätä sijainti profiilisivulleen ja ilmoituksiin, ja näytä karttanäkymä hakusivulla"
+        fuzzy_location: ~
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: Tilausasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
@@ -1060,7 +1061,7 @@ fi:
       currency_change_warning_text: "Huomio: mikäli vaihdat valuutan, älä unohda pyytää myyjiäsi päivittämään ilmoituksensa, jotta myös ne saavat uuden valuutan."
       marketplace_currency_label: "Markkinapaikan valuutta:"
       minimum_listing_price_label: "Maksutapahtuman minimikoko:"
-      transaction_fee_label: "Muujän välityspalkkio:"
+      transaction_fee_label: "Myyjän välityspalkkio:"
       minimum_transaction_fee_label: "Myyjän minimivälityspalkkio:"
       save_settings: "Tallenna asetukset"
       minimum_listing_price_below_tx_fee: "Maksutapahtuman minimikoon tulee olla vähintään minimipalkkio, eli %{minimum_transaction_fee}."
@@ -1464,7 +1465,7 @@ fi:
       show_thread: "Näytä viestiketju"
     branding:
       powered_by: "%{service_name} -palvelua pyörittää %{sharetribe_link} -markkinapaikkajärjestelmä."
-      create_own: "Haluatko luoda oman online-markkinapaikkasi, aivan kuin %{service_name}? %{learn_more}."
+      create_own: "Haluatko luoda oman %{service_name} -kaltaisen online-markkinapaikkasi? %{learn_more}."
       learn_more: "Lue lisää"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai riitautetuksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä. Tämän jälkeen voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
@@ -2046,7 +2047,7 @@ fi:
       admin: "%{service_name} ylläpitonäkymä"
     branding:
       powered_by: "%{service_name} -palvelua pyörittää %{sharetribe_link} -markkinapaikkajärjestelmä."
-      create_own: "Haluatko luoda oman online-markkinapaikkasi, aivan kuin %{service_name}? %{learn_more}."
+      create_own: "Haluatko luoda oman %{service_name} -kaltaisen online-markkinapaikkasi? %{learn_more}."
       learn_more: "Lue lisää"
     no_tribe:
       inbox: Postilaatikko
@@ -2292,7 +2293,7 @@ fi:
       close_listing: "Sulje ilmoitus"
       edit_listing: "Muokkaa ilmoitusta"
       reopen_listing: "Avaa ilmoitus uudelleen"
-      move_to_top: "Nosta ilmoitus etusivun ylälaitaan"
+      move_to_top: "Nosta ilmoitus ylimmäksi etusivulla"
       show_in_updates_email: "Näytä ilmoitus seuraavassa uutiskirjeessä"
       show_in_updates_email_loading: Ladataan...
       show_in_updates_email_error: "Palveluun ei saatu yhteyttä. Päivitä sivu ja yritä uudestaan."
@@ -2381,6 +2382,7 @@ fi:
       origin:
         location: Sijainti
         origin: Lähtöpaikka
+        the_exact_location: ~
       send_button:
         save_listing: "Tallenna ilmoitus"
         submit_for_review: "Lähetä arvioitavaksi"
@@ -2526,7 +2528,7 @@ fi:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per päivä"
       delivery: Toimitustapa
-      shipping: "Postikulut (+%{price})"
+      shipping: "Postitus (+%{price})"
       shipping_no_price: Postikulut
       shipping_price_additional: "Postikulut (+%{price}, lisätuotteet: +%{shipping_price_additional})"
       pickup: Nouto
@@ -3107,7 +3109,7 @@ fi:
       mi: mi
     branding:
       powered_by: "%{service_name} -palvelua pyörittää %{sharetribe_link} -markkinapaikkajärjestelmä."
-      create_own: "Haluatko luoda oman online-markkinapaikkasi, aivan kuin %{service_name}? %{learn_more}."
+      create_own: "Haluatko luoda oman %{service_name} -kaltaisen online-markkinapaikkasi? %{learn_more}."
       learn_more: "Lue lisää"
   will_paginate:
     models:

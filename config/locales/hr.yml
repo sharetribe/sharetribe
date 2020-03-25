@@ -242,6 +242,7 @@ hr:
         miles: milje
         show_only_nearby: "Prikaži samo oglase u blizini sa pretragom lokacije"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Preferencije oglasa"
         transaction_preferences: ~
         show_listing_publishing_date: "Prikaži datum objave oglasa na stranici oglasa"
@@ -2391,6 +2392,7 @@ hr:
       origin:
         location: Lokacija
         origin: Polazište
+        the_exact_location: ~
       send_button:
         save_listing: "Spremi oglas"
         submit_for_review: "Pošalji na pregled"

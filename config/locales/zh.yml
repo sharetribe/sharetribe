@@ -229,6 +229,7 @@ zh:
         miles: 英里
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: 信息展示页面偏好设置
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在信息展示页面的显示信息的发布日期
@@ -2357,6 +2358,7 @@ zh:
       origin:
         location: 地点
         origin: 来源
+        the_exact_location: ~
       send_button:
         save_listing: 发布
         submit_for_review: ~

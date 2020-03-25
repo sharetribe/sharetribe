@@ -229,6 +229,7 @@ th-TH:
         miles: ~
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: การกำหนดค่ารายการ
         transaction_preferences: การตั้งค่าการสั่งซื้อสินค้า
         show_listing_publishing_date: แสดงวันที่เผยแพร่รายการในหน้ารายการ
@@ -2359,6 +2360,7 @@ th-TH:
       origin:
         location: ตำแหน่ง
         origin: ที่มา
+        the_exact_location: ~
       send_button:
         save_listing: บันทึกรายการ
         submit_for_review: ~

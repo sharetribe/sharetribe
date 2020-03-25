@@ -234,6 +234,7 @@ de:
         miles: Meilen
         show_only_nearby: "Mit Umgebungssuche nur Einträge in der Nähe zeigen"
         allow_users_to_add_location: "Den Benutzern erlauben, einen Standort zu ihrem Profil und ihren Angeboten hinzufügen, und zeige eine Karte auf der Suchseite"
+        fuzzy_location: ~
         listing_preferences: Eintragseinstellungen
         transaction_preferences: Auftragspräferenzen
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Eintragsseite darstellen"
@@ -677,7 +678,7 @@ de:
         change: Ändern
       landing_pages:
         landing_pages: "Landing Page"
-        info_1: "Die Landing Page ist vielleicht die wichtigste Seite deines Marktplatzes. Sie ist die erste Seite, die deine Nutzer sehen, etwa wie die Vordertür deines Hauses. Du hast nur einigen Sekunden deine Kunden davon zu überzeugen, dass sie auf der Seite bleiben sollten. Die Seite sollte attraktiv sein, und das Leistungsversprechen deiner Seite sollte klar und verlockend sein."
+        info_1: "Die Landing Page ist vielleicht die wichtigste Seite deines Marktplatzes. Sie ist die erste Seite, die deine Nutzer sehen, etwa wie die Eingangstür deines Hauses. Du hast nur einigen Sekunden, deine Kunden davon zu überzeugen, dass sie auf der Seite bleiben sollen. Die Seite sollte attraktiv sein, und das Leistungsversprechen deiner Seite sollte klar und verlockend sein."
         info_2: "Mit diesem Editor können Sie Ihre Zielseite jederzeit ändern!"
         info_2_help_center: Hilfecenter
         info_3: "Wenn du eine komplett angepasste Landing Page für deinen Marktplatz erwerben möchten, kannst du sie als Add-On für einen monatlichen Preis im Höhe von $99 kaufen."
@@ -1671,8 +1672,8 @@ de:
     community_updates_v2:
       headline: "siehe die letzte Aktivität auf %{service_name}."
       intro_paragraph:
-        one: "Hier sind einige Highlights die auf %{service_name} während des letzten Tages stattgefunden haben."
-        other: "Hier sind einige Highlights die auf %{service_name} während die letzten %{count} stattgefunden haben."
+        one: "Hier sind einige Highlights der vergangenen Tage auf %{service_name}."
+        other: "Hier sind einige Highlights der letzten %{count} Tage auf %{service_name}."
     newsletter:
       hi: "Hallo %{name}"
       newest_offers: "Was Leute derzeit anderen anbieten"
@@ -2381,6 +2382,7 @@ de:
       origin:
         location: Standort
         origin: Herkunft
+        the_exact_location: ~
       send_button:
         save_listing: "Eintrag veröffentlichen"
         submit_for_review: "Zur Überprüfung vorlegen"

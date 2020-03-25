@@ -239,6 +239,7 @@ sk-SK:
         miles: míľach
         show_only_nearby: "Zobraziť iba inzeráty z okolia"
         allow_users_to_add_location: "Umožniť používateľom pridať polohu do svojho profilu a inzerátov a zobraziť mapu vo vyhľadávaní"
+        fuzzy_location: ~
         listing_preferences: "Nastavenia inzerátu"
         transaction_preferences: "Nastavenia transakcií"
         show_listing_publishing_date: "Zobraziť dátum zverejnenia na stránke inzerátu"
@@ -2392,6 +2393,7 @@ sk-SK:
       origin:
         location: Poloha
         origin: Pôvod
+        the_exact_location: ~
       send_button:
         save_listing: Uverejniť
         submit_for_review: "Odoslať na kontrolu"

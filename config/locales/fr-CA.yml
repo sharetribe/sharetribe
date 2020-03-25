@@ -234,6 +234,7 @@ fr-CA:
         miles: ~
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de transactions"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
@@ -2356,6 +2357,7 @@ fr-CA:
       origin:
         location: Lieu
         origin: "Lieu de départ"
+        the_exact_location: ~
       send_button:
         save_listing: "Publier l'annonce"
         submit_for_review: ~

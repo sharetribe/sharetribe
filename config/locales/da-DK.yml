@@ -234,6 +234,7 @@ da-DK:
         miles: mil
         show_only_nearby: "Vis kun annoncer i nærheden, med område søgning"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: Annonceindstillinger
         transaction_preferences: "Transaktions indstillinger"
         show_listing_publishing_date: "Vis oprettelsesdato af annoncen på annonce siden"
@@ -2372,6 +2373,7 @@ da-DK:
       origin:
         location: Lokation
         origin: Oprindelse
+        the_exact_location: ~
       send_button:
         save_listing: "Gem annonce"
         submit_for_review: ~

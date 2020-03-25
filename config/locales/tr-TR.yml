@@ -231,6 +231,7 @@ tr-TR:
         miles: mil
         show_only_nearby: "Konum arama ile yalnızca yakındaki ilanları göster"
         allow_users_to_add_location: "Kullanıcıların profiline, ilanlarına konum eklemelerine izin ver ve arama sayfasında haritayı göster."
+        fuzzy_location: ~
         listing_preferences: "Listeleme tercihleri"
         transaction_preferences: "İşlem tercihleri"
         show_listing_publishing_date: "Listeleme sayfasında listelemenin gönderilme tarihini göster"
@@ -2354,6 +2355,7 @@ tr-TR:
       origin:
         location: Konum
         origin: Kaynak
+        the_exact_location: ~
       send_button:
         save_listing: "İlanı kaydet"
         submit_for_review: "İnceleme için gönder"

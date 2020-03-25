@@ -235,6 +235,7 @@ hu:
         miles: mérföld
         show_only_nearby: "Csak közeli hirdetéseket mutasson a listázás hely szerinti keresés esetén"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Hirdetési beállítások"
         transaction_preferences: "Rendelési preferenciák"
         show_listing_publishing_date: "A hirdetés feladásának megmutatása a hírdető oldalon"
@@ -2375,6 +2376,7 @@ hu:
       origin:
         location: Hely
         origin: Eredet
+        the_exact_location: ~
       send_button:
         save_listing: "Hirdetés mentése"
         submit_for_review: ~

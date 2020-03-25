@@ -108,6 +108,7 @@ module MarketplaceService
     "core",
     "turnkey",
     "admin",
+    "coronavirus",
   ]
 
   module_function

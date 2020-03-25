@@ -229,6 +229,7 @@ ka:
         miles: მილები
         show_only_nearby: "ძებნაში აჩვენე მხოლოდ ახლომდებარე პროდუქცია"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "ჩამონათვალის პარამეტრები"
         transaction_preferences: "შეკვეთის პარამეტრები"
         show_listing_publishing_date: "გამოაჩინე ჩამონათვალის გამოქვეყნების თარიღი ჩამონათვალის გვერდზე"
@@ -2362,6 +2363,7 @@ ka:
       origin:
         location: ადგილმდებარეობა
         origin: თავდაპირველი
+        the_exact_location: ~
       send_button:
         save_listing: "დაიმახსოვრე ჩამონათვალი"
         submit_for_review: ~

@@ -225,6 +225,7 @@ it:
         miles: miglia
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: "Visualizza un cerchio invece della posizione esatta"
         listing_preferences: ~
         transaction_preferences: ~
         show_listing_publishing_date: ~
@@ -2351,6 +2352,7 @@ it:
       origin:
         location: Località
         origin: Origine
+        the_exact_location: "La posizione esatta non sarà mostrata agli altri utenti."
       send_button:
         save_listing: "Salva l'inserzione"
         submit_for_review: ~
@@ -2441,8 +2443,8 @@ it:
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Sottocategoria: %{subcategory}"
       selected_transaction_type: "Tipo di annuncio: %{transaction_type}"
-      select_category: "Seleziona una categoria (se non c'è contattaci e faccelo sapere)"
-      select_subcategory: "Seleziona una Categoria (se non c'è contattaci e faccelo sapere)"
+      select_category: "Seleziona una categoria"
+      select_subcategory: "Seleziona una sottocategoria"
       select_transaction_type: "Seleziona il tipo di annuncio"
       you_need_to_fill_payout_details_before_accepting: "È necessario compilare i dettagli di pagamento prima di poter postare il tuo spazio. Vai al %{payment_settings_link} e inserisci le informazioni."
       contact_admin_link_text: "Contatta l'amministratore"
@@ -3106,10 +3108,10 @@ it:
     paypal_connected: "L'account PayPal è stato connesso con successo!"
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
-    stripe_account_restricted: ~
-    stripe_account_restricted_info: ~
+    stripe_account_restricted: "I pagamenti online sul tuo conto sono limitati o lo saranno presto!"
+    stripe_account_restricted_info: "Dovresti modificare i dati del tuo conto bancario per fornire maggiori informazioni al servizio di pagamento."
     stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
+    stripe_account_restricted_soon_info: "Dovresti modificare i dati del tuo conto bancario per fornire maggiori informazioni al servizio di pagamento."
     stripe_account_pending_verification: ~
     stripe_account_pending_verification_info: ~
     form_new:
@@ -3180,8 +3182,8 @@ it:
       document_back: "Verifica d'identità (passaporto, carta d'identità) (retro del documento)"
       send_verification: "Invia verifica"
       need_verification: "Bisogno di verifiche aggiuntive"
-      additional_document: ~
-      additional_document_back: "Un documento che attesti il tuo indirizzo, come passaporto, carta d'identità o  ricevuta di una società di servizi pubblici (retro del documento)"
+      additional_document: "Un documento che attesti il tuo indirizzo, come passaporto, carta d'identità o ricevuta di un'impresa di servizio pubblico"
+      additional_document_back: "Un documento che attesti il tuo indirizzo, come passaporto, carta d'identità o ricevuta di un'impresa di servizio pubblico (retro del documento)"
       files_need_to_be: "I file devono essere JPEG o PNG più piccoli di 5MB. Non è possibile verificare i PDF. I file devono essere a colori, devono essere ruotati con l'immagine a destra e avere tutte le informazioni chiaramente leggibili."
     form_pin:
       social_insurance_number: ~

@@ -234,6 +234,7 @@ he-IL:
         miles: מייל
         show_only_nearby: "הצג רק מודעות קרובות עם חיפוש מיקום"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "רשימת ההעדפות"
         transaction_preferences: "העדפות הזמנה"
         show_listing_publishing_date: "הצג תאריך פרסום של הרישום בדף המודעה"
@@ -2386,6 +2387,7 @@ he-IL:
       origin:
         location: מיקום
         origin: מקור
+        the_exact_location: ~
       send_button:
         save_listing: "פרסם מודעה"
         submit_for_review: "שלח לביקורת"

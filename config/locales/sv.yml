@@ -234,6 +234,7 @@ sv:
         miles: mil
         show_only_nearby: "Visa endast närliggande annonser med platssökningen"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: Annonsinställningar
         transaction_preferences: Transaktionsinställningar
         show_listing_publishing_date: "Visa publiceringsdatum på annonsen på annonssidan"
@@ -2380,6 +2381,7 @@ sv:
       origin:
         location: Plats
         origin: Ursprung
+        the_exact_location: ~
       send_button:
         save_listing: "Spara annons"
         submit_for_review: ~

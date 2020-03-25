@@ -234,6 +234,7 @@ nb:
         miles: miles
         show_only_nearby: "Vis kun annonser i nærområdet med stedssøk"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: Annonseinnstillinger
         transaction_preferences: Transaksjonsinnstillinger
         show_listing_publishing_date: "Vis dato annonsen ble publisert"
@@ -260,7 +261,7 @@ nb:
         last_community_updates: "Vær obs på at det er mulig at du og brukerne dine vil motta en siste nyhetsmelding fra markedsplassen."
         you_will_be_redirected_to: "Etter du har slettet markedsplassen din vil du bli videresendt til %{destination}. Du vil ikke kunne få tilgang til markedsplassen din mer."
         delete_this_marketplace: "Slett denne markedsplassen"
-        payment_preferences: ~
+        payment_preferences: Betalingssystem
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
@@ -500,16 +501,16 @@ nb:
           initiated: "Venter på PayPal betaling"
           pending_ext: "Venter på PayPal betaling"
           none:
-            free: ~
+            free: "Gratis transaksjon"
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            free: Samtale
+            pending: Venter
+            preauthorized: Forhåndsgodkjent
+            accepted: Akseptert
+            rejected: Avvist
+            paid: Betalt
+            confirmed: Fullført
+            canceled: Avbrutt
             disputed: ~
             initiated: ~
             pending_ext: ~
@@ -525,8 +526,8 @@ nb:
             confirmed: ~
             canceled: ~
             disputed: ~
-            initiated: ~
-            pending_ext: ~
+            initiated: "Venter Stripebetaling"
+            pending_ext: "Venter Stripebetaling"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
@@ -923,9 +924,9 @@ nb:
         recipients:
           title: ~
           options:
-            all_users: ~
+            all_users: "Alle brukere"
             posting_allowed: ~
-            with_listing: ~
+            with_listing: "Brukere som har postet minst én annonse"
             with_listing_no_payment: ~
             with_payment_no_listing: ~
             no_listing_no_payment: ~
@@ -1314,8 +1315,8 @@ nb:
       payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
-        held_payment_wo_sum: ~
-        confirmed_request: ~
+        held_payment_wo_sum: "Godtok forespørselen. Betalingen holdes hos %{service_name} frem til handelen er markert som fullført."
+        confirmed_request: "Markerte handelen som fullført. Betalingen har allerede blitt overført til %{author_name} sin bankkonto eller vil bli overført snart."
       canceled_the_order: ~
       marked_as_refunded: ~
       dismissed_the_cancellation: ~
@@ -2372,6 +2373,7 @@ nb:
       origin:
         location: Sted
         origin: Opprinnelse
+        the_exact_location: ~
       send_button:
         save_listing: "Lagre annonse"
         submit_for_review: ~

@@ -229,6 +229,7 @@ zh-HK:
         miles: 英里
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: 訊息展示頁面偏好設置訊
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在信息展示頁面顯示信息的發布日期
@@ -2360,6 +2361,7 @@ zh-HK:
       origin:
         location: 地點
         origin: 來源
+        the_exact_location: ~
       send_button:
         save_listing: 儲存訊息
         submit_for_review: ~
