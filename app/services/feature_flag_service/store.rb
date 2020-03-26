@@ -23,7 +23,6 @@ module FeatureFlagService::Store
       :stripe,
       :footer,
       :email_layout_v2,
-      :no_read_from_harmony,
     ].to_set
 
     def initialize(additional_flags:)

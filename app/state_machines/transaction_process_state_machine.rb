@@ -103,12 +103,10 @@ class TransactionProcessStateMachine
   after_transition(to: :preauthorized, after_commit: true) do |transaction|
     send_new_transaction_email(transaction)
     handle_preauthorized(transaction)
-    harmony_paid(transaction)
   end
 
   after_transition(to: :refunded, after_commit: true) do |transaction|
     transaction.update(starter_skipped_feedback: false)
-    harmony_rejected(transaction)
     Delayed::Job.enqueue(TransactionRefundedJob.new(transaction.id, transaction.community_id))
   end
 
@@ -131,7 +129,6 @@ class TransactionProcessStateMachine
     end
 
     def reject_transaction(transaction)
-      harmony_rejected(transaction)
       transaction.update_column(:deleted, true) # rubocop:disable Rails/SkipsModelValidations
     end
 
@@ -188,72 +185,6 @@ class TransactionProcessStateMachine
 
     def logger
       SharetribeLogger.new(:transaction_transition_events)
-    end
-
-    def harmony_paid(transaction)
-      return unless (transaction.availability.to_sym == :booking && !transaction.booking.per_hour?)
-
-      community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
-      listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
-      booking_uuid = UUIDUtils.parse_raw(transaction.booking_uuid)
-
-      auth_context = {
-        marketplace_id: community_uuid,
-        actor_id: listing_author_uuid
-      }
-
-      HarmonyClient.post(
-        :accept_booking,
-        params: {
-          id: booking_uuid
-        },
-        body: {
-          actorId: listing_author_uuid,
-          reason: :provider_accepted
-        },
-        opts: {
-          max_attempts: 3,
-          auth_context: auth_context
-        }).on_error { |error_msg, data|
-        log_and_notify_harmony_error!("Failed to accept booking",
-                                      :failed_accept_booking,
-                                      {community_id: transaction.community_id, id: transaction.id, error_msg: error_msg})
-      }
-    end
-
-    def harmony_rejected(transaction)
-      return unless (transaction.availability.to_sym == :booking && !transaction.booking.per_hour?)
-
-      community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
-      listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
-      booking_uuid = UUIDUtils.parse_raw(transaction.booking_uuid)
-
-      auth_context = {
-        marketplace_id: community_uuid,
-        actor_id: listing_author_uuid
-      }
-
-      HarmonyClient.post(
-        :reject_booking,
-        params: {
-          id: booking_uuid
-        },
-        body: {
-          actorId: listing_author_uuid,
-
-          # Passing the reason to the event handler is a bit
-          # cumbersome. We decided to skip it for now. That's why
-          # we always set the reason to "unknown"
-          reason: :unknown
-        },
-        opts: {
-          max_attempts: 3,
-          auth_context: auth_context
-        }).on_error { |error_msg, data|
-        log_and_notify_harmony_error!("Failed to reject booking",
-                                      :failed_reject_booking,
-                                      {community_id: transaction.community_id, id: transaction.id, error_msg: error_msg})
-      }
     end
 
     def validate_before_preauthorized(transaction, transition)
