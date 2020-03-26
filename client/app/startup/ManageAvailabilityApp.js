@@ -7,9 +7,8 @@ import { initialize as initializeI18n } from '../utils/i18n';
 import moment from 'moment';
 import Immutable from 'immutable';
 import ManageAvailabilityContainer from '../components/sections/ManageAvailability/ManageAvailabilityContainer';
-import { EDIT_VIEW_OPEN_HASH, setNoReadFromHarmony } from '../actions/ManageAvailabilityActions';
+import { EDIT_VIEW_OPEN_HASH } from '../actions/ManageAvailabilityActions';
 import * as cssVariables from '../assets/styles/variables';
-import { UUID } from '../types/types';
 
 export default (props) => {
   const locale = props.i18n.locale;
@@ -25,16 +24,10 @@ export default (props) => {
       isOpen: window.location.hash.replace(/^#/, '') === EDIT_VIEW_OPEN_HASH,
       visibleMonth: moment()
         .startOf('month'),
-      bookings: Immutable.List(),
-      blocks: Immutable.List(),
-      changes: Immutable.List(),
       saveInProgress: false,
       saveFinished: false,
-      marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
-      listingUuid: new UUID({ value: props.listing.uuid }),
       loadedMonths: Immutable.Set(),
       listingId: props.listing.id,
-      noReadFromHarmony: props.no_read_from_harmony,
       blocked_dates: [],
       booked_dates: [],
     }),
@@ -53,10 +46,6 @@ export default (props) => {
     },
     sideWinderWrapper: document.querySelector('#sidewinder-wrapper'),
   };
-
-  if (props.no_read_from_harmony) {
-    setNoReadFromHarmony();
-  }
 
   return r(Provider, { store }, [
     r(ManageAvailabilityContainer, containerProps),
