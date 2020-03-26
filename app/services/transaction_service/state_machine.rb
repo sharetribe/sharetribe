@@ -57,10 +57,6 @@ module TransactionService
       case new_status
       when :preauthorized
         preauthorized(transaction, payment_type)
-      when :paid
-        paid(transaction)
-      when :rejected, :payment_intent_action_expired
-        rejected(transaction)
       end
     end
 
@@ -90,72 +86,6 @@ module TransactionService
       setup_preauthorize_reminder(transaction.id, expire_at)
     end
 
-    def paid(transaction)
-      return unless (transaction.availability.to_sym == :booking && !transaction.booking.per_hour?)
-
-      community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
-      listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
-      booking_uuid = UUIDUtils.parse_raw(transaction.booking_uuid)
-
-      auth_context = {
-        marketplace_id: community_uuid,
-        actor_id: listing_author_uuid
-      }
-
-      HarmonyClient.post(
-        :accept_booking,
-        params: {
-          id: booking_uuid
-        },
-        body: {
-          actorId: listing_author_uuid,
-          reason: :provider_accepted
-        },
-        opts: {
-          max_attempts: 3,
-          auth_context: auth_context
-        }).on_error { |error_msg, data|
-        log_and_notify_harmony_error!("Failed to accept booking",
-                                      :failed_accept_booking,
-                                      {community_id: transaction.community_id, id: transaction.id, error_msg: error_msg})
-      }
-    end
-
-    def rejected(transaction)
-      return unless (transaction.availability.to_sym == :booking && !transaction.booking.per_hour?)
-
-      community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
-      listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
-      booking_uuid = UUIDUtils.parse_raw(transaction.booking_uuid)
-
-      auth_context = {
-        marketplace_id: community_uuid,
-        actor_id: listing_author_uuid
-      }
-
-      HarmonyClient.post(
-        :reject_booking,
-        params: {
-          id: booking_uuid
-        },
-        body: {
-          actorId: listing_author_uuid,
-
-          # Passing the reason to the event handler is a bit
-          # cumbersome. We decided to skip it for now. That's why
-          # we always set the reason to "unknown"
-          reason: :unknown
-        },
-        opts: {
-          max_attempts: 3,
-          auth_context: auth_context
-        }).on_error { |error_msg, data|
-        log_and_notify_harmony_error!("Failed to reject booking",
-                                      :failed_reject_booking,
-                                      {community_id: transaction.community_id, id: transaction.id, error_msg: error_msg})
-      }
-    end
-
     # "private" helpers
 
     def setup_preauthorize_reminder(transaction_id, expire_at)
@@ -167,12 +97,6 @@ module TransactionService
       if send_reminder
         Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(transaction_id), priority: 9, :run_at => reminder_at)
       end
-    end
-
-    def log_and_notify_harmony_error!(error_msg, error_code, data)
-      logger.error(error_msg, error_code, data)
-
-      Airbrake.notify(BookingStateChangeError.new("#{error_msg}: #{data}")) if APP_CONFIG.use_airbrake
     end
 
     def logger

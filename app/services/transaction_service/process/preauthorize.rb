@@ -78,23 +78,6 @@ module TransactionService::Process
             if tx.availability.to_sym == :booking && !tx.booking.valid?
               void_payment(gateway_adapter, tx)
               Result::Error.new(TransactionService::Transaction::BookingDatesInvalid.new(I18n.t("error_messages.booking.double_booking_payment_voided")))
-            elsif tx.availability.to_sym == :booking && tx.booking.per_hour?
-              Result::Success.new()
-            elsif tx.availability.to_sym == :booking
-              initiate_booking(tx: tx).on_error { |error_msg, data|
-                logger.error("Failed to initiate booking #{data.inspect} #{error_msg}", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
-
-                void_payment(gateway_adapter, tx)
-              }.on_success { |data|
-                response_body = data[:body]
-                booking = response_body[:data]
-
-                TxStore.update_booking_uuid(
-                  community_id: tx.community_id,
-                  transaction_id: tx.id,
-                  booking_uuid: booking[:id]
-                )
-              }
             else
               Result::Success.new()
             end
@@ -186,50 +169,6 @@ module TransactionService::Process
     end
 
     private
-
-    def initiate_booking(tx:)
-      community_uuid = UUIDUtils.parse_raw(tx.community_uuid)
-      starter_uuid = UUIDUtils.parse_raw(tx.starter_uuid)
-      listing_uuid = UUIDUtils.parse_raw(tx.listing_uuid)
-
-      auth_context = {
-        marketplace_id: community_uuid,
-        actor_id: starter_uuid
-      }
-
-      HarmonyClient.post(
-        :initiate_booking,
-        body: {
-          marketplaceId: community_uuid,
-          refId: listing_uuid,
-          customerId: starter_uuid,
-          initialStatus: :paid,
-          start: tx.booking.start_on,
-          end: tx.booking.end_on
-        },
-        opts: {
-          max_attempts: 3,
-          auth_context: auth_context
-        }).rescue { |error_msg, data|
-
-        new_data =
-          if data[:error].present?
-            # An error occurred, assume connection issue
-            {reason: :connection_issue, listing_id: tx.listing_id}
-          else
-            case data[:status]
-            when 409
-              # Conflict or double bookings, assume double booking
-              {reason: :double_booking, listing_id: tx.listing_id}
-            else
-              # Unknown. Return unchanged.
-              data
-            end
-          end
-
-        Result::Error.new(error_msg, new_data.merge(listing_id: tx.listing_id))
-      }
-    end
 
     def send_message(tx, message, sender_id)
       TxStore.add_message(community_id: tx.community_id,

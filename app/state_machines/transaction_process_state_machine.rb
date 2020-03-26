@@ -105,7 +105,6 @@ class TransactionProcessStateMachine
     end
 
     def reject_transaction(transaction)
-      TransactionService::StateMachine.rejected(transaction)
       transaction.update_column(:deleted, true) # rubocop:disable Rails/SkipsModelValidations
     end
   end
