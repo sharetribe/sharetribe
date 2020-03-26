@@ -228,6 +228,7 @@ class ListingImage < ApplicationRecord
 
   def compose_email_image
     return unless image.exists?
+
     Dir.mktmpdir do |dir|
       avatar_path = "#{dir}/avatar.jpg"
       listing_path = "#{dir}/listing-image.jpg"
