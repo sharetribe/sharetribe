@@ -89,15 +89,20 @@
             %span.buyer-fees
               = t('.marketplace_fees_may_apply')
       - if @listing_presenter.quantity_per_day_or_night?
-        - @listing_presenter.blocked_dates_result.on_success do
+        - if @listing_presenter.no_read_from_harmony?
           %button.enabled-book-button
             .content
               = action_button_label(@listing)
+        - else
+          - @listing_presenter.blocked_dates_result.on_success do
+            %button.enabled-book-button
+              .content
+                = action_button_label(@listing)
 
-        - @listing_presenter.blocked_dates_result.on_error do
-          %button.disabled-book-button{disabled: true}
-            .content
-              = action_button_label(@listing)
+          - @listing_presenter.blocked_dates_result.on_error do
+            %button.disabled-book-button{disabled: true}
+              .content
+                = action_button_label(@listing)
       - else
         %button.enabled-book-button
           .content
@@ -142,7 +147,7 @@
               = icon_tag("calendar", ["icon-part"])
               .text-part= t("web.listings.edit_listing_availability")
             = react_component("ListingWorkingHoursApp", props: @listing_presenter.working_hours_props.merge({ availability_link_id: availability_link_id }), prerender: false)
-          - elsif APP_CONFIG.harmony_api_in_use
+          - elsif @listing_presenter.no_read_from_harmony? || APP_CONFIG.harmony_api_in_use
             %a.icon-with-text-container{id: availability_link_id, href: "#manage-availability"}
               = icon_tag("calendar", ["icon-part"])
               .text-part= t("web.listings.edit_listing_availability")
