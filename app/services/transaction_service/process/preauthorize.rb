@@ -74,6 +74,10 @@ module TransactionService::Process
         if tx.current_state == :preauthorized
           Result::Success.new()
         else
+          # The booking validation is done here, but at this point, the
+          # transaction is still in :initiated state. This means that two
+          # requests with overlapping bookings can both pass this validation,
+          # because the other transaction is still :initiated.
           booking_res =
             if tx.availability.to_sym == :booking && !tx.booking.valid?
               void_payment(gateway_adapter, tx)
@@ -83,6 +87,27 @@ module TransactionService::Process
             end
 
           booking_res.on_success {
+            # The transaction goes to the next state that actually blocks
+            # availability only here. So this transition and the validation
+            # above must happen in a single database transaction, using listing
+            # locking, as you did in
+            # TransactionService::Store::Transaction.create
+
+            # I propose two ways to solve this:
+
+            # - Option 1: We move the validation for tx.booking.valid? to happen
+            # within the transition_to calls below, so that the state machine
+            # can handle the db transaction and lock the listing, etc.
+
+            # Option 2: wrap the entire body of do_finalize_create in a
+            # transaction and lock the listing on top. I'm not sure how that
+            # would play along with the state machine's after_transition actions
+            # that have after_commit: true
+
+
+            # After this is done, the locking/transaction from TxStore.create
+            # can be removed, as it does not have much effect for preventing
+            # overlapping bookings.
             if tx.stripe_payments.last.try(:intent_requires_action?)
               TransactionService::StateMachine.transition_to(tx.id, :payment_intent_requires_action)
             else
