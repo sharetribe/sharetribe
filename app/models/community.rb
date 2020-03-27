@@ -536,7 +536,13 @@ class Community < ApplicationRecord
 
   #returns full domain without protocol
   def full_domain(options= {})
-    APP_CONFIG.domain
+    domain = APP_CONFIG.domain
+
+    if options[:with_protocol]
+      domain = "#{(APP_CONFIG.always_use_ssl.to_s == "true" ? "https://" : "http://")}#{domain}"
+    end
+
+    domain
   end
 
   # returns the community specific service name if such is in use
