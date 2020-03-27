@@ -1,8 +1,6 @@
 FROM ruby:2.6.5-buster
 
-MAINTAINER Sharetribe Team <team@sharetribe.com>
-
-ENV REFRESHED_AT 2019-09-20
+MAINTAINER Coopdevs Team <info@coopdevs.org>
 
 RUN apt-get update && apt-get dist-upgrade -y
 
@@ -67,32 +65,24 @@ RUN apt-get install -y nginx \
   && apt-get install -y libmysqlclient-dev mysql-client
 
 # Install latest bundler
-ENV BUNDLE_BIN=
-RUN gem install bundler
+ENV CONFIGURE_OPTS --disable-install-doc
 
-# Run as non-privileged user
-RUN useradd -m -s /bin/bash app \
-	&& mkdir /opt/app /opt/app/client /opt/app/log /opt/app/tmp && chown -R app:app /opt/app
+RUN gem install bundler
 
 WORKDIR /opt/app
 
 COPY Gemfile /opt/app
 COPY Gemfile.lock /opt/app
 
-ENV RAILS_ENV production
-
-USER app
-
-RUN bundle install --deployment --without test,development
+RUN bundle check || bundle install
 
 COPY package.json /opt/app/
 COPY client/package.json /opt/app/client/
 
-ENV NODE_ENV production
 ENV NPM_CONFIG_LOGLEVEL error
-ENV NPM_CONFIG_PRODUCTION true
 
 RUN npm install
+RUN npm run postinstall
 
 COPY . /opt/app
 
@@ -100,27 +90,3 @@ EXPOSE 3000
 
 CMD ["script/startup.sh"]
 ENTRYPOINT ["script/entrypoint.sh"]
-
-#
-# Assets
-#
-
-# Fix ownership of directories that need to be writable
-USER root
-RUN mkdir -p \
-          app/assets/webpack \
-          public/assets \
-          public/webpack \
-    && chown -R app:app \
-       app/assets/javascripts \
-       app/assets/webpack \
-       client/app/ \
-       public/assets \
-       public/webpack
-USER app
-
-# If assets.tar.gz file exists in project root
-# assets will be extracted from there.
-# Otherwise, assets will be compiled with `rake assets:precompile`.
-# Useful for caching assets between builds.
-RUN script/prepare-assets.sh
