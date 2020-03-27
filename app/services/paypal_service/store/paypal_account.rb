@@ -161,7 +161,7 @@ module PaypalService::Store::PaypalAccount
 
   def create(opts:)
     if opts[:order_permission_request_token].present?
-      opts[:order_permission_request_token] = URI.decode(opts[:order_permission_request_token])
+      opts[:order_permission_request_token] = URI.decode(opts[:order_permission_request_token]) # rubocop:disable Lint/UriEscapeUnescape
     end
     entity = PaypalAccountCreate.call(opts)
     account = HashUtils.compact(FlattingHelper.select_paypal_account_values(entity))
