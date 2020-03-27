@@ -12,7 +12,7 @@
   = render :partial => 'analytics/head_scripts', locals: { community: @current_community, user: @current_user, plan: @current_plan }
 
   :css
-    @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin-ext);
+    @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,700&display=swap');
 
   - font_path = APP_CONFIG[:font_proximanovasoft_url]
   - if font_path.present? && FeatureFlagHelper.feature_enabled?(:topbar_v1)

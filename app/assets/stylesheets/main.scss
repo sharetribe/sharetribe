@@ -32,7 +32,7 @@ a, input, button {
 */
 
 body {
-  @include source-sans-pro;
+  @include montserrat;
   @include normal-type;
 
   @include media(tiny-mobile) {
@@ -578,7 +578,7 @@ label.error {
   bottom: em(-4);
   left: em(2);
 
-  @include source-sans-pro;
+  @include montserrat;
   @include mega-type;
   z-index: 0;
   @include media(tablet) {

@@ -70,6 +70,10 @@ $line-height: 24;
   font-family: 'Source Sans Pro', helvetica, sans-serif;
 }
 
+@mixin montserrat {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
 /*
   ----------------------------------------------------------
   Type presets
