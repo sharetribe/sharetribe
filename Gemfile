@@ -70,7 +70,7 @@ gem 'mercury-rails',
 
 gem 'countries', '~> 2.0.8'
 gem "mail_view", '~> 2.0.4'
-gem 'statesman', '~> 2.0.1'
+gem 'statesman', '~> 7.1.0'
 gem "premailer-rails", '~> 1.10.3'
 gem "css_parser", '~> 1.7.0'
 gem 'stringex', '~> 2.7.1'

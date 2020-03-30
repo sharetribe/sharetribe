@@ -4,24 +4,14 @@ module TransactionService::Store::Transaction
 
   module_function
 
-  # booking validation happens inside SQL BEGIN-COMMIT block
+  # booking validation happens before SQL BEGIN-COMMIT block
   def create(tx_data)
     tx_model = TransactionModel.new(tx_data.except(:content, :booking_fields, :starting_page))
 
     build_conversation(tx_model, tx_data)
     build_booking(tx_model, tx_data)
 
-    TransactionModel.transaction do
-      Listing.lock.find(tx_data[:listing_id])
-      if tx_model.booking
-        tx_model.booking.direct_validation
-        if tx_model.booking.errors.any?
-          raise ActiveRecord::Rollback
-        end
-      end
-      tx_model.save!
-    end
-
+    tx_model.save
     tx_model
   end
 
@@ -121,7 +111,6 @@ module TransactionService::Store::Transaction
           start_on: start_on,
           end_on: end_on)
       end
-      tx_model.booking.skip_validation = true
       tx_model.booking.tx = tx_model
     end
   end

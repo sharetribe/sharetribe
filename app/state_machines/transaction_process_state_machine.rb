@@ -28,6 +28,12 @@ class TransactionProcessStateMachine
   transition from: :paid,                           to: [:confirmed, :canceled, :disputed]
   transition from: :disputed,                       to: [:refunded, :dismissed]
 
+  after_transition do |transaction, transition|
+    transaction.update_columns( # rubocop:disable Rails/SkipsModelValidations
+      current_state: transition.to_state,
+      last_transition_at: Time.current)
+  end
+
   after_transition(to: :paid, after_commit: true) do |transaction|
     payer = transaction.starter
     current_community = transaction.community
@@ -76,13 +82,33 @@ class TransactionProcessStateMachine
     send_new_transaction_email(transaction) if transaction.conversation.payment?
   end
 
+  # "guard_transition" is before SQL BEGIN-COMMIT block
+  # instead, "before_transition" is inside the block
+  before_transition(to: :preauthorized) do |transaction, transition|
+    validate_before_preauthorized(transaction, transition)
+  end
+
+  before_transition(to: :payment_intent_requires_action) do |transaction, transition|
+    validate_before_preauthorized(transaction, transition)
+  end
+
+  after_transition_failure(to: :preauthorized) do |transaction|
+    void_payment(transaction)
+  end
+
+  after_transition_failure(to: :payment_intent_action_expired) do |transaction|
+    void_payment(transaction)
+  end
+
   after_transition(to: :preauthorized, after_commit: true) do |transaction|
     send_new_transaction_email(transaction)
+    handle_preauthorized(transaction)
+    harmony_paid(transaction)
   end
 
   after_transition(to: :refunded, after_commit: true) do |transaction|
     transaction.update(starter_skipped_feedback: false)
-    TransactionService::StateMachine.rejected(transaction)
+    harmony_rejected(transaction)
     Delayed::Job.enqueue(TransactionRefundedJob.new(transaction.id, transaction.community_id))
   end
 
@@ -105,8 +131,136 @@ class TransactionProcessStateMachine
     end
 
     def reject_transaction(transaction)
-      TransactionService::StateMachine.rejected(transaction)
+      harmony_rejected(transaction)
       transaction.update_column(:deleted, true) # rubocop:disable Rails/SkipsModelValidations
+    end
+
+    def handle_preauthorized(transaction)
+      expiration_period = TransactionService::Transaction.authorization_expiration_period(transaction.payment_gateway)
+      gateway_expires_at = case transaction.payment_gateway
+                           when :paypal
+                             # expiration period in PayPal is an estimate,
+                             # which should be quite accurate. We can get
+                             # the exact time from Paypal through IPN notification. In this case,
+                             # we take the 3 days estimate and add 10 minute buffer
+                             expiration_period.days.from_now - 10.minutes
+                           when :stripe
+                             expiration_period.days.from_now - 10.minutes
+                           else
+                             raise ArgumentError.new("Unknown payment_type: '#{transaction.payment_gateway}'")
+                           end
+
+      booking_ends_on = transaction.booking&.final_end
+      expire_at = TransactionService::Transaction.preauth_expires_at(gateway_expires_at, booking_ends_on)
+
+      Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction.id), priority: 5)
+
+      # if enabled it will reject Paypal payment under test environment
+      unless Rails.env.test?
+        Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction.id), priority: 8, run_at: expire_at)
+      end
+
+      setup_preauthorize_reminder(transaction.id, expire_at)
+    end
+
+    def setup_preauthorize_reminder(transaction_id, expire_at)
+      reminder_days_before = 1
+
+      reminder_at = expire_at - reminder_days_before.day
+      send_reminder = reminder_at > Time.zone.now
+
+      if send_reminder
+        Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(transaction_id), priority: 9, :run_at => reminder_at)
+      end
+    end
+
+    def void_payment(tx)
+      gateway_adapter = TransactionService::Transaction.gateway_adapter(tx.payment_gateway)
+      void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
+
+      void_res.on_success {
+        logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :id))
+      }.on_error { |payment_error_msg, payment_data|
+        logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
+      }
+      void_res
+    end
+
+    def logger
+      SharetribeLogger.new(:transaction_transition_events)
+    end
+
+    def harmony_paid(transaction)
+      return unless (transaction.availability.to_sym == :booking && !transaction.booking.per_hour?)
+
+      community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
+      listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
+      booking_uuid = UUIDUtils.parse_raw(transaction.booking_uuid)
+
+      auth_context = {
+        marketplace_id: community_uuid,
+        actor_id: listing_author_uuid
+      }
+
+      HarmonyClient.post(
+        :accept_booking,
+        params: {
+          id: booking_uuid
+        },
+        body: {
+          actorId: listing_author_uuid,
+          reason: :provider_accepted
+        },
+        opts: {
+          max_attempts: 3,
+          auth_context: auth_context
+        }).on_error { |error_msg, data|
+        log_and_notify_harmony_error!("Failed to accept booking",
+                                      :failed_accept_booking,
+                                      {community_id: transaction.community_id, id: transaction.id, error_msg: error_msg})
+      }
+    end
+
+    def harmony_rejected(transaction)
+      return unless (transaction.availability.to_sym == :booking && !transaction.booking.per_hour?)
+
+      community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
+      listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
+      booking_uuid = UUIDUtils.parse_raw(transaction.booking_uuid)
+
+      auth_context = {
+        marketplace_id: community_uuid,
+        actor_id: listing_author_uuid
+      }
+
+      HarmonyClient.post(
+        :reject_booking,
+        params: {
+          id: booking_uuid
+        },
+        body: {
+          actorId: listing_author_uuid,
+
+          # Passing the reason to the event handler is a bit
+          # cumbersome. We decided to skip it for now. That's why
+          # we always set the reason to "unknown"
+          reason: :unknown
+        },
+        opts: {
+          max_attempts: 3,
+          auth_context: auth_context
+        }).on_error { |error_msg, data|
+        log_and_notify_harmony_error!("Failed to reject booking",
+                                      :failed_reject_booking,
+                                      {community_id: transaction.community_id, id: transaction.id, error_msg: error_msg})
+      }
+    end
+
+    def validate_before_preauthorized(transaction, transition)
+      Listing.lock.find(transaction.listing_id)
+      unless transaction.valid? && (transaction.booking ? transaction.booking.valid? : true)
+        raise Statesman::TransitionFailedError.new(transaction.current_state, transition.to_state)
+      end
     end
   end
 end
