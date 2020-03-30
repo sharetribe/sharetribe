@@ -149,6 +149,7 @@ describe PreauthorizeTransactionsController, type: :controller do
                     end)
       allow(gateway_adapter).to receive(:reject_payment).and_return(response: Result::Success.new({}))
       allow(TransactionService::Transaction).to receive(:gateway_adapter).and_return(gateway_adapter)
+      expect(gateway_adapter).to receive(:reject_payment)
 
       Timecop.travel(Time.zone.parse('2050-11-28 05:00:00')) do
         expect(Transaction.where(deleted: true).count).to eq 0
