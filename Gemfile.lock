@@ -557,7 +557,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    statesman (2.0.1)
+    statesman (7.1.0)
     stringex (2.7.1)
     stripe (4.9.0)
       faraday (~> 0.13)
@@ -728,7 +728,7 @@ DEPENDENCIES
   select2-rails
   selenium-webdriver (~> 3.141.0)
   sitemap_generator (~> 5.3.1)
-  statesman (~> 2.0.1)
+  statesman (~> 7.1.0)
   stringex (~> 2.7.1)
   stripe (~> 4.9.0)
   thinking-sphinx (~> 3.3.0)
