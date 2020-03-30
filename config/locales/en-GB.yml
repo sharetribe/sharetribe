@@ -992,7 +992,7 @@ en-GB:
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: "Allow sellers to define a delivery fee"
       price_label: ~
       units_title: ~
       units_desc: ~
@@ -1140,7 +1140,7 @@ en-GB:
         buyer: ~
         provider: ~
         delivery: ~
-        shipping_to: ~
+        shipping_to: "Delivering to %{address}"
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1237,7 +1237,7 @@ en-GB:
       total_value_stripe: ~
       paypal_fee: ~
       paypal_fee_info: ~
-      shipping_price_label: ~
+      shipping_price_label: "Delivery:"
       stripe-fee_label: ~
     confirm:
       confirm_description: ~
@@ -1553,7 +1553,7 @@ en-GB:
       listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
-      shipping_total: ~
+      shipping_total: "Delivery:"
       product: ~
       price_payer_paid: ~
       subtotal: ~
@@ -1590,7 +1590,7 @@ en-GB:
       you_have_made_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
-      shipping_total: ~
+      shipping_total: "Delivery:"
     braintree_new_payment:
       product: ~
       price_payer_paid: ~
@@ -2333,8 +2333,8 @@ en-GB:
         after_service_fee_you_will_get_payment_text: ~
         payment_fee_info_link_text: ~
         delivery: ~
-        shipping: ~
-        shipping_price: ~
+        shipping: Delivery
+        shipping_price: "Delivery fee"
         shipping_price_additional: ~
         pickup: ~
       origin:
@@ -2486,9 +2486,9 @@ en-GB:
         per_quantity_unit: ~
         per_day: ~
       delivery: ~
-      shipping: ~
-      shipping_no_price: ~
-      shipping_price_additional: ~
+      shipping: "Delivery (+%{price})"
+      shipping_no_price: Delivery
+      shipping_price_additional: "Delivery (+%{price}, additional items: +%{shipping_price_additional})"
       pickup: ~
       pickup_no_price: ~
       youtube_video_player: ~
@@ -2523,7 +2523,7 @@ en-GB:
     stripe_payment:
       payment: ~
       pay_with_card: ~
-      address: ~
+      address: "Delivery address"
       address_country: ~
       address_name: ~
       address_city: ~
@@ -2592,9 +2592,9 @@ en-GB:
       connect_paypal_account_instructions: ~
       connect_paypal_account: ~
       paypal_account_billing_agreement_with_step: ~
-      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_both: "After you make a sale on %{service_name}, a service fee (%{commission_from_seller} of the total item price, excluding delivery, minimum fee %{minimum_commission}) will be charged from your PayPal account. Permission to do this is required in order to accept payments in %{service_name}. The fee does not include %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_relative: "After you make a sale on %{service_name}, a service fee (%{commission_from_seller} of the total item price, excluding delivery) will be charged from your PayPal account. Permission to do this is required in order to accept payments in %{service_name}. The fee does not include %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
       billing_agreement_description: ~
@@ -2841,7 +2841,7 @@ en-GB:
       username_description: ~
     save_information: ~
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Delivery address"
   tag_cloud:
     tag_used:
       with_tag: ~
@@ -2965,7 +2965,7 @@ en-GB:
       price_per_unit: ~
       quantity: ~
       subtotal: ~
-      shipping-price: ~
+      shipping-price: "Delivery:"
       stripe-fee: ~
       start_end_time: ~
     price_per_quantity: ~

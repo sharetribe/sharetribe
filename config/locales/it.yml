@@ -1513,7 +1513,7 @@ it:
       unsubscribe_from_these_emails: "Rimuovi la sottoscrizione da queste email"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
-      here_is_your_receipt: ~
+      here_is_your_receipt: "Questa è la tua ricevuta."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha accettato la tua offerta %{listing}."
       has_accepted_your_request: "%{accepter} ha accettato la tua richiesta %{listing}."
@@ -1577,7 +1577,7 @@ it:
     payment_receipt_to_seller_v2:
       headline: ~
       main_text_stripe: ~
-      price_breakdown: ~
+      price_breakdown: "Dettaglio costi"
     payment_receipt_to_payer:
       receipt_of_payment: "Ricevuta di pagamento"
       you_have_made_new_payment: "Hai pagato <b>%{payment_sum}</b> per <b>%{listing_title}</b> a %{recipient_full_name}. Ecco la ricevuta del pagamento."
@@ -1594,8 +1594,8 @@ it:
       paypal_gateway_fee: "Tariffa di Paypal"
       money_will_be_transferred: ~
     payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
+      headline: "ecco la tua ricevuta di pagamento per %{listing_link}."
+      you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> a <b>%{listing_title}</b>."
     paypal_new_payment:
       paypal_gateway_fee: "Commissione di PayPal"
       shipping_total: "Spedizione:"
@@ -2009,7 +2009,7 @@ it:
       search: Cerca
       signup: ~
       search_placeholder: "Che cosa stai cercando?"
-      search_location_placeholder: Area
+      search_location_placeholder: Località
     listings:
       no_listing_image: "Nessuna immagine"
   layouts:
