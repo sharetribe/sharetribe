@@ -105,6 +105,14 @@ module LandingPageVersion::Section
       self.button_path = {value: value}
     end
 
+    def cta_button_type_button?
+      cta_button_type == BUTTON_TYPE_BUTTON
+    end
+
+    def cta_button_type_none?
+      cta_button_type == BUTTON_TYPE_NONE
+    end
+
     class << self
       def new_from_content(content_section)
         new(content_section)

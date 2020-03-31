@@ -42,6 +42,7 @@ section_style_class = hero_style_variations[s["background_image_variation"]]
       <% end %>
 
       <% cta_button_type = s["cta_button_type"] %>
+      <% button_title = cta_button_type == LandingPageVersion::Section::Hero::BUTTON_TYPE_DEFAULT && s["button_title"].try(:[], "value") %>
       <% case cta_button_type %>
       <% when LandingPageVersion::Section::Hero::BUTTON_TYPE_BUTTON %>
         <a class="hero__signup-button" href="<%= s["button_path"]["value"] %>"><%= s["button_title"]["value"] %></a>
@@ -71,7 +72,8 @@ section_style_class = hero_style_variations[s["background_image_variation"]]
                   <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
                 <% end %>
               </div>
-              <button type="submit" class="hero__search-button hero__search-button<%= combined_mode %>"><%= s["search_button"]["value"] %></button>
+              <% search_title = button_title.present? ? button_title : s["search_button"]["value"] %>
+              <button type="submit" class="hero__search-button hero__search-button<%= combined_mode %>"><%= search_title %></button>
               <% if search_mode == "location_search" || search_mode == "keyword_and_location_search" %>
                 <input type="hidden" name="ls" />
                 <input type="hidden" name="lc" />
@@ -97,7 +99,8 @@ section_style_class = hero_style_variations[s["background_image_variation"]]
 
         <% when "private" %>
 
-          <a class="hero__signup-button" href="<%= s["signup_path"]["value"] %>"><%= s["signup_button"]["value"] %></a>
+          <% signup_title = button_title.present? ? button_title : s["signup_button"]["value"] %>
+          <a class="hero__signup-button" href="<%= s["signup_path"]["value"] %>"><%= signup_title %></a>
 
         <% end %>
       <% end %>

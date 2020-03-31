@@ -81,8 +81,16 @@
 
   var initHero = function(options) {
     $('input[cta_button_type_radio]').on('change', function() {
-      var value = $('input[cta_button_type_radio]:checked').val();
-      toggleElements(".cta-enabled", value == 'button');
+      var value = $('input[cta_button_type_radio]:checked').val(),
+        button = value == 'button',
+        none = value == 'none',
+        ctaButtonInfo = $('#cta-button-info'),
+        ctaButtonText = $('#section_cta_button_text');
+      toggleElements(".cta-enabled", button);
+      toggleElements(ctaButtonInfo, !button);
+      toggleElements(".cta-default", !none);
+
+      ctaButtonText.attr('required', button ? true : null);
     });
     $("form.edit_section, form.new_section").validate();
   };
