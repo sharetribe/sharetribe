@@ -34,21 +34,23 @@
         cta_button_type_radio: true
       = t(".button_type.none")
 
-.cta-enabled{class: form.object.cta_button_type == LandingPageVersion::Section::Hero::BUTTON_TYPE_BUTTON ? '' : 'hidden'}
-  .row
-    .col-12
-      %h3= t(".button_content")
+.row.cta-default{class: form.object.cta_button_type_none? ? 'hidden' : ''}
+  .col-12
+    %h3= t(".button_content")
 
-  .row
-    .col-12
-      = form.label :cta_button_text
+.row.cta-default{class: form.object.cta_button_type_none? ? 'hidden' : ''}
+  .col-12
+    = form.label :cta_button_text
+    #cta-button-info{class: form.object.cta_button_type_button? ? 'hidden' : ''}
       = render partial: 'layouts/info_text', locals: {text: t(".cta_button_info")}
-      = form.text_field :cta_button_text,
-        placeholder:  t("admin.landing_page_versions.sections.cta_button.text_placeholder")
+    = form.text_field :cta_button_text,
+      placeholder:  t("admin.landing_page_versions.sections.cta_button.text_placeholder"),
+      required: form.object.cta_button_type_button? ? true : nil
 
-  .row
-    .col-12
-      = form.label :cta_button_url
-      = form.text_field :cta_button_url, url: true,
-        placeholder:  t("admin.landing_page_versions.sections.cta_button.url_placeholder")
+.row.cta-enabled{class: form.object.cta_button_type_button? ? '' : 'hidden'}
+  .col-12
+    = form.label :cta_button_url
+    = form.text_field :cta_button_url, url: true,
+      placeholder:  t("admin.landing_page_versions.sections.cta_button.url_placeholder"),
+      required: true
 
