@@ -85,10 +85,11 @@ class TransactionProcessStateMachine
   # "guard_transition" is before SQL BEGIN-COMMIT block
   # instead, "before_transition" is inside the block
   before_transition(to: :preauthorized) do |transaction, transition|
-    Listing.lock.find(transaction.listing_id)
-    unless transaction.valid? && (transaction.booking ? transaction.booking.valid? : true)
-      raise Statesman::TransitionFailedError.new(transaction.current_state, transition.to_state)
-    end
+    validate_before_preauthorized(transaction, transition)
+  end
+
+  before_transition(to: :payment_intent_requires_action) do |transaction, transition|
+    validate_before_preauthorized(transaction, transition)
   end
 
   after_transition_failure(to: :preauthorized) do |transaction|
@@ -249,6 +250,13 @@ class TransactionProcessStateMachine
                                       :failed_reject_booking,
                                       {community_id: transaction.community_id, id: transaction.id, error_msg: error_msg})
       }
+    end
+
+    def validate_before_preauthorized(transaction, transition)
+      Listing.lock.find(transaction.listing_id)
+      unless transaction.valid? && (transaction.booking ? transaction.booking.valid? : true)
+        raise Statesman::TransitionFailedError.new(transaction.current_state, transition.to_state)
+      end
     end
   end
 end
