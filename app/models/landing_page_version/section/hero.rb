@@ -1,6 +1,6 @@
 module LandingPageVersion::Section
   class Hero < Base
-    ATTRIBUTES = [
+    ATTRIBUTES = [ # abc
       :id,
       :kind,
       :variation,
@@ -17,8 +17,14 @@ module LandingPageVersion::Section
       :search_button_color,
       :search_button_color_hover,
       :signup_button_color,
-      :signup_button_color_hover
+      :signup_button_color_hover,
+      :cta_button_type,
+      :button_title,
+      :button_path,
     ].freeze
+    BUTTON_TYPE_DEFAULT = 'default'.freeze
+    BUTTON_TYPE_BUTTON = 'button'.freeze
+    BUTTON_TYPE_NONE = 'none'.freeze
 
     DEFAULTS = {
       id: "hero",
@@ -37,7 +43,10 @@ module LandingPageVersion::Section
       search_button_color: {type: "marketplace_data", id: "primary_color"},
       search_button_color_hover: {type: "marketplace_data", id: "primary_color_darken"},
       signup_button_color: {type: "marketplace_data", id: "primary_color"},
-      signup_button_color_hover: {type: "marketplace_data", id: "primary_color_darken"}
+      signup_button_color_hover: {type: "marketplace_data", id: "primary_color_darken"},
+      cta_button_type: BUTTON_TYPE_DEFAULT,
+      button_title: nil,
+      button_path: nil
     }.freeze
 
     PERMITTED_PARAMS = [
@@ -46,7 +55,10 @@ module LandingPageVersion::Section
       :id,
       :previous_id,
       :background_image,
-      :background_image_variation
+      :background_image_variation,
+      :cta_button_type,
+      :cta_button_text,
+      :cta_button_url
     ].freeze
 
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
@@ -75,6 +87,22 @@ module LandingPageVersion::Section
 
     def i18n_key
       'hero'
+    end
+
+    def cta_button_text
+      button_title&.[]('value')
+    end
+
+    def cta_button_text=(value)
+      self.button_title = {value: value}
+    end
+
+    def cta_button_url
+      button_path&.[]('value')
+    end
+
+    def cta_button_url=(value)
+      self.button_path = {value: value}
     end
 
     class << self

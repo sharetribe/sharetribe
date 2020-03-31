@@ -41,58 +41,65 @@ section_style_class = hero_style_variations[s["background_image_variation"]]
         <h3 class="hero__subtitle"><%= render partial: "prevent_widows", locals: { text: s["subtitle"]["value"]} %></h3>
       <% end %>
 
-      <% search_mode = s["variation"]["value"] %>
-      <% case search_mode %>
-      <% when "keyword_search", "location_search", "keyword_and_location_search" %>
+      <% cta_button_type = s["cta_button_type"] %>
+      <% case cta_button_type %>
+      <% when LandingPageVersion::Section::Hero::BUTTON_TYPE_BUTTON %>
+        <a class="hero__signup-button" href="<%= s["button_path"]["value"] %>"><%= s["button_title"]["value"] %></a>
+      <% when LandingPageVersion::Section::Hero::BUTTON_TYPE_NONE %>
+      <% else %>
+        <% search_mode = s["variation"]["value"] %>
+        <% case search_mode %>
+        <% when "keyword_search", "location_search", "keyword_and_location_search" %>
 
-        <div class="hero__search-bar-padding">
-          <% combined_mode = search_mode == 'keyword_and_location_search' ? '--combined' : '' %>
-          <form method="get" id="<%= section_id %>__search-form" class="hero__search-bar<%= combined_mode %>" action="<%= s["search_path"]["value"] %>">
-            <div class="hero__search-input-container<%= combined_mode %>">
-              <button type="submit" class="hero__search-icon<%= combined_mode %>">
+          <div class="hero__search-bar-padding">
+            <% combined_mode = search_mode == 'keyword_and_location_search' ? '--combined' : '' %>
+            <form method="get" id="<%= section_id %>__search-form" class="hero__search-bar<%= combined_mode %>" action="<%= s["search_path"]["value"] %>">
+              <div class="hero__search-input-container<%= combined_mode %>">
+                <button type="submit" class="hero__search-icon<%= combined_mode %>">
 
-                <svg class="hero__search-icon-svg" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14.6666667,14.6666667 L19.3254458,19.3254458" id="line" stroke="#525961" stroke-width="2"></path>
-                    <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
-                  </g>
-                </svg>
-              </button>
-              <% if search_mode == "keyword_and_location_search" %>
-                <input type="search" name="q" class="hero__keyword-search-input--combined" placeholder="<%= s["search_placeholder"]["value"] %>"/>
-                <input type="search" name="lq" class="hero__location-search-input--combined" placeholder="<%= s.dig("search_location_with_keyword_placeholder", "value") %>"/>
-              <% else %>
-                <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
+                  <svg class="hero__search-icon-svg" viewBox="27 19 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="icon_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(38.000000, 30.000000) scale(-1, 1) translate(-38.000000, -30.000000) translate(28.000000, 20.000000)" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14.6666667,14.6666667 L19.3254458,19.3254458" id="line" stroke="#525961" stroke-width="2"></path>
+                      <circle id="Oval" stroke="#525961" stroke-width="2" cx="8" cy="8" r="8"></circle>
+                    </g>
+                  </svg>
+                </button>
+                <% if search_mode == "keyword_and_location_search" %>
+                  <input type="search" name="q" class="hero__keyword-search-input--combined" placeholder="<%= s["search_placeholder"]["value"] %>"/>
+                  <input type="search" name="lq" class="hero__location-search-input--combined" placeholder="<%= s.dig("search_location_with_keyword_placeholder", "value") %>"/>
+                <% else %>
+                  <input type="search" name="q" class="hero__search-input" placeholder="<%= s["search_placeholder"]["value"] %>"/>
+                <% end %>
+              </div>
+              <button type="submit" class="hero__search-button hero__search-button<%= combined_mode %>"><%= s["search_button"]["value"] %></button>
+              <% if search_mode == "location_search" || search_mode == "keyword_and_location_search" %>
+                <input type="hidden" name="ls" />
+                <input type="hidden" name="lc" />
+                <input type="hidden" name="boundingbox" />
+                <input type="hidden" name="distance_max" />
+
+                <% content_for :javascript do %>
+                  <script>
+                   window.ST.initializeLocationSearch({
+                     form: '#<%= section_id %>__search-form',
+                     search: '#<%= section_id %>__search-form [name=<%= search_mode == "keyword_and_location_search" ? "lq" : "q" %>]',
+                     status: '#<%= section_id %>__search-form [name=ls]',
+                     coordinate: '#<%= section_id %>__search-form [name=lc]',
+                     boundingbox: '#<%= section_id %>__search-form [name=boundingbox]',
+                     maxDistance: '#<%= section_id %>__search-form [name=distance_max]'
+                   })
+                  </script>
+                <% end %>
               <% end %>
-            </div>
-            <button type="submit" class="hero__search-button hero__search-button<%= combined_mode %>"><%= s["search_button"]["value"] %></button>
-            <% if search_mode == "location_search" || search_mode == "keyword_and_location_search" %>
-              <input type="hidden" name="ls" />
-              <input type="hidden" name="lc" />
-              <input type="hidden" name="boundingbox" />
-              <input type="hidden" name="distance_max" />
 
-              <% content_for :javascript do %>
-                <script>
-                 window.ST.initializeLocationSearch({
-                   form: '#<%= section_id %>__search-form',
-                   search: '#<%= section_id %>__search-form [name=<%= search_mode == "keyword_and_location_search" ? "lq" : "q" %>]',
-                   status: '#<%= section_id %>__search-form [name=ls]',
-                   coordinate: '#<%= section_id %>__search-form [name=lc]',
-                   boundingbox: '#<%= section_id %>__search-form [name=boundingbox]',
-                   maxDistance: '#<%= section_id %>__search-form [name=distance_max]'
-                 })
-                </script>
-              <% end %>
-            <% end %>
+            </form>
+          </div>
 
-          </form>
-        </div>
+        <% when "private" %>
 
-      <% when "private" %>
+          <a class="hero__signup-button" href="<%= s["signup_path"]["value"] %>"><%= s["signup_button"]["value"] %></a>
 
-        <a class="hero__signup-button" href="<%= s["signup_path"]["value"] %>"><%= s["signup_button"]["value"] %></a>
-
+        <% end %>
       <% end %>
     </div>
   </div>

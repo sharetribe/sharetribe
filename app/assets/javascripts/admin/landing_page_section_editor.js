@@ -79,7 +79,16 @@
     };
   };
 
+  var initHero = function(options) {
+    $('input[cta_button_type_radio]').on('change', function() {
+      var value = $('input[cta_button_type_radio]:checked').val();
+      toggleElements(".cta-enabled", value == 'button');
+    });
+    $("form.edit_section, form.new_section").validate();
+  };
+
   module.LandingPageSectionEditor = {
-    initForm: initForm
+    initForm: initForm,
+    initHero: initHero
   };
 })(window.ST);

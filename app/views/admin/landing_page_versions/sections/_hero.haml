@@ -1,3 +1,6 @@
+- content_for :javascript do
+  ST.LandingPageSectionEditor.initHero();
+
 = form.hidden_field :previous_id
 = form.hidden_field :kind
 = form.hidden_field :id, value: 'hero'
@@ -8,3 +11,44 @@
     %p= t(".hero_description", link: link).html_safe
 
 = render partial: 'background_image_overlay', locals: {form: form, presenter: presenter}
+
+.row
+  .col-12
+    %h3= t(".cta_button")
+
+.row
+  .col-12
+    %label
+      = form.radio_button :cta_button_type,
+        LandingPageVersion::Section::Hero::BUTTON_TYPE_DEFAULT,
+        cta_button_type_radio: true
+      = t(".button_type.default")
+    %label
+      = form.radio_button :cta_button_type,
+        LandingPageVersion::Section::Hero::BUTTON_TYPE_BUTTON,
+        cta_button_type_radio: true
+      = t(".button_type.button")
+    %label
+      = form.radio_button :cta_button_type,
+        LandingPageVersion::Section::Hero::BUTTON_TYPE_NONE,
+        cta_button_type_radio: true
+      = t(".button_type.none")
+
+.cta-enabled{class: form.object.cta_button_type == LandingPageVersion::Section::Hero::BUTTON_TYPE_BUTTON ? '' : 'hidden'}
+  .row
+    .col-12
+      %h3= t(".button_content")
+
+  .row
+    .col-12
+      = form.label :cta_button_text
+      = render partial: 'layouts/info_text', locals: {text: t(".cta_button_info")}
+      = form.text_field :cta_button_text,
+        placeholder:  t("admin.landing_page_versions.sections.cta_button.text_placeholder")
+
+  .row
+    .col-12
+      = form.label :cta_button_url
+      = form.text_field :cta_button_url, url: true,
+        placeholder:  t("admin.landing_page_versions.sections.cta_button.url_placeholder")
+
