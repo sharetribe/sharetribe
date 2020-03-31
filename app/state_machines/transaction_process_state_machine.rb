@@ -96,6 +96,10 @@ class TransactionProcessStateMachine
     void_payment(transaction)
   end
 
+  after_transition_failure(to: :payment_intent_action_expired) do |transaction|
+    void_payment(transaction)
+  end
+
   after_transition(to: :preauthorized, after_commit: true) do |transaction|
     send_new_transaction_email(transaction)
     handle_preauthorized(transaction)
