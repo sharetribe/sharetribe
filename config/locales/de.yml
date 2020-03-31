@@ -1523,7 +1523,7 @@ de:
       confirmation_link_text: "Meine E-Mail-Adresse bestätigen"
       or_paste_link: "Alternativ kannst du den folgenden Link in die Adresszeile deines Browsers kopieren:"
     confirmation_instructions_v2:
-      headline: "bestätige deine E-Mail, um %{service_name} zu beitreten!"
+      headline: "bitte bestätige deine E-Mail-Adresse, um deine Registrierung bei %{service_name} abzuschließen."
       need_to_confirm: "Bestätige deine E-Mail-Adresse, um dein Konto für %{service_name} vollständig zu machen. Es ist einfach - du musst nur die Taste unten klicken!"
       confirmation_link_text: "%{email} bestätigen"
     common:
@@ -1993,7 +1993,7 @@ de:
       message: "Eine persönliche Nachricht"
       send_invitation: "Einladung senden"
       add_email_addresses_description: "Füge die E-Mail-Adressen der Leute, die du einladen möchtest, in das obere Feld ein. Wenn du mehrere E-Mail-Adressen hinzufügst, unterteile sie mit einem Komma."
-      add_lots_of_email_addresses: "Wenn du sehr viele Einladungen verschicken möchtest, solltest du lieber ein Email-Tool verwenden. Lies %{this_article_link}, um mehr über geeignete Email-Dienste zu erfahren."
+      add_lots_of_email_addresses: "Weil du ein Administrator bist, haben wir dir eine Empfehlung: Falls du viele Einladungen schicken möchtest, solltest du einen Email-Dienst verwenden. Lies %{this_article_link}, um mehr über geeignete Email-Dienste zu erfahren."
       this_article_link: "diesen Artikel"
       invitation_emails_field_placeholder: "freund1@beispiel.com, freund2@beispiel.com, ..."
       invitation_message_field_placeholder: "Ich bin diesem tollen Marktplatz beigetreten. Das solltest du auch tun!"
