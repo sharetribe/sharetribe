@@ -743,6 +743,14 @@ cs:
           hero_title: "Hlavní upoutávka"
           hero_description: "Nastavte obrazek na pozadí v sekci Hlavní upoutávka. Slogan a popis jsou z %{link}."
           basic_details_tab: "Karta 'Základní podrobnosti'"
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: Zápatí
           footer_style: "Styl zápatí"
@@ -3309,6 +3317,9 @@ cs:
       landing_page_version/section/video:
         text: Text
         youtube_video_id: "ID videa na YouTube"
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

@@ -740,6 +740,14 @@ nl:
           hero_title: Hero
           hero_description: "Stel de achtergrondafbeelding in voor de ´Hero´ sectie. De slogan en beschrijving zijn ingesteld van de %{link}."
           basic_details_tab: "'Basis details' tab"
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: Footer
           footer_style: "Footer stijl"
@@ -3294,6 +3302,9 @@ nl:
       landing_page_version/section/video:
         text: Tekst
         youtube_video_id: "YouTube video ID"
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

@@ -738,14 +738,14 @@ en:
           hero_title: Hero
           hero_description: "Set the background image for the Hero section. The slogan and description are set from the %{link}."
           basic_details_tab: "'Basic details' tab"
-          cta_button: Call-to-action section
-          cta_button_info: You don't need to edit the text of the button. You can just leave this field empty. By default the text is "Search" for public marketplaces and "Sign up" for private marketplaces.
+          cta_button: "Call-to-action section"
+          cta_button_info: "You don't need to edit the text of the button. You can just leave this field empty. By default the text is \"Search\" for public marketplaces and \"Sign up\" for private marketplaces."
           button_type:
             default: Default
             button: Button
             none: None
-          button_content: Button content
-          click_me: Click me!
+          button_content: "Button content"
+          click_me: "Click me!"
         footer:
           footer_title: Footer
           footer_style: "Footer style"
@@ -2390,7 +2390,7 @@ en:
       origin:
         location: Location
         origin: Origin
-        the_exact_location: The exact location will not be shown to other users.
+        the_exact_location: "The exact location will not be shown to other users."
       send_button:
         save_listing: "Post listing"
         submit_for_review: "Submit for review"

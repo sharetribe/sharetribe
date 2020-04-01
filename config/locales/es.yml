@@ -738,6 +738,14 @@ es:
           hero_title: Hero
           hero_description: "Determina la imagen de fondo para la sección Hero. El slogan y la descripción vienen directamente de la sección de %{link}."
           basic_details_tab: "la sección de 'Detalles básicos'"
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: "Pie de página"
           footer_style: "Estilo del píe de página"
@@ -3291,6 +3299,9 @@ es:
       landing_page_version/section/video:
         text: Texto
         youtube_video_id: "Id del video de YouTube"
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "Columbia Británica"

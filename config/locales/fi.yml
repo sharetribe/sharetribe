@@ -738,6 +738,14 @@ fi:
           hero_title: Hero
           hero_description: "Aseta taustakuva Hero-osiolle. Slogan ja kuvaus asetetaan %{link}."
           basic_details_tab: "Perustiedot -sivulta"
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: Footer
           footer_style: "Footerin tyyli"
@@ -3292,6 +3300,9 @@ fi:
       landing_page_version/section/video:
         text: Teksti
         youtube_video_id: "YouTube-videon tunnus"
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

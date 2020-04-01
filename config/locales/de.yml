@@ -738,6 +738,14 @@ de:
           hero_title: Hero
           hero_description: "Stelle fest das Hintegrundbild für den Hero-Abschnitt. Der Slogan und die Beschreibung werden konfiguriert auf %{link}."
           basic_details_tab: "'Grundangaben' -Tab"
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: Footer
           footer_style: Footer-Stil
@@ -3291,6 +3299,9 @@ de:
       landing_page_version/section/video:
         text: Text
         youtube_video_id: "Youtube Video ID"
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"
