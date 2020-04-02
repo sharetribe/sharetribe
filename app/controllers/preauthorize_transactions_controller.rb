@@ -259,6 +259,7 @@ class PreauthorizeTransactionsController < ApplicationController
       tx_params: tx_params,
       listing: listing)
 
+    # HERE
     render "listing_conversations/initiate",
            locals: {
              start_on: tx_params[:start_on],

@@ -44,6 +44,7 @@
           %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
             .content
               = t("listing_conversations.preauthorize.contact", author: author.given_name)
+
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox"
 

@@ -3,4 +3,6 @@
 .centered-section-wide
   = render :partial => "transactions/details", locals: {role: role, is_author: is_author, price_break_down_locals: price_break_down_locals}
 
+  -# Put the payment details here
+
   = render :partial => "conversations/messages_and_form", locals: {role: role, message_form: message_form, message_form_action: message_form_action, messages: messages}
