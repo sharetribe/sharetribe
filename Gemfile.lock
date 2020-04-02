@@ -79,7 +79,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     airbrake (9.1.0)
       airbrake-ruby (~> 4.2)
-    airbrake-ruby (4.2.5)
+    airbrake-ruby (4.13.3)
       rbtree3 (~> 0.5)
     annotate (2.7.1)
       activerecord (>= 3.2, < 6.0)
@@ -451,7 +451,7 @@ GEM
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
     rb-readline (0.5.5)
-    rbtree3 (0.5.0)
+    rbtree3 (0.6.0)
     react_on_rails (6.9.3)
       addressable
       connection_pool
@@ -615,6 +615,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-session_store (~> 1.1.0)
   airbrake (~> 9.1.0)
+  airbrake-ruby (~> 4.2)
   annotate (~> 2.7.1)
   awesome_print (~> 1.7.0)
   aws-sdk (~> 2.9.25)
