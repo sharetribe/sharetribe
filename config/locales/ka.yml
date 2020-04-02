@@ -229,6 +229,7 @@ ka:
         miles: მილები
         show_only_nearby: "ძებნაში აჩვენე მხოლოდ ახლომდებარე პროდუქცია"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "ჩამონათვალის პარამეტრები"
         transaction_preferences: "შეკვეთის პარამეტრები"
         show_listing_publishing_date: "გამოაჩინე ჩამონათვალის გამოქვეყნების თარიღი ჩამონათვალის გვერდზე"
@@ -732,6 +733,14 @@ ka:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -2362,6 +2371,7 @@ ka:
       origin:
         location: ადგილმდებარეობა
         origin: თავდაპირველი
+        the_exact_location: ~
       send_button:
         save_listing: "დაიმახსოვრე ჩამონათვალი"
         submit_for_review: ~
@@ -3241,6 +3251,9 @@ ka:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

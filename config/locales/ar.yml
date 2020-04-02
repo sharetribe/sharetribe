@@ -219,6 +219,7 @@ ar:
         miles: ميل
         show_only_nearby: "أظهر فقط الإعلانات القريبة عند البحث بواسطة الموقع"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "تفضيلات الإعلان"
         transaction_preferences: "تفضيلات الطلب"
         show_listing_publishing_date: ~
@@ -722,6 +723,14 @@ ar:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -2362,6 +2371,7 @@ ar:
       origin:
         location: الموقع
         origin: الأصل
+        the_exact_location: ~
       send_button:
         save_listing: "حفظ الإعلان"
         submit_for_review: ~
@@ -3260,6 +3270,9 @@ ar:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

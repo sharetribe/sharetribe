@@ -31,8 +31,10 @@ window.ST = window.ST || {};
     var show_loc = $("#community_show_location").is(':checked');
     if (show_loc) {
       $("#main_search option").prop("disabled", false);
+      $('#community_fuzzy_location').prop("disabled", false);
     } else {
       $("#main_search option:not(:first)").prop("disabled", true);
+      $('#community_fuzzy_location').prop("disabled", true).attr('checked', false);
       if (mode != "keyword") {
         $("#main_search").val("keyword").trigger("change");
       }

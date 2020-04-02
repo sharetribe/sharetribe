@@ -235,6 +235,7 @@ hu:
         miles: mérföld
         show_only_nearby: "Csak közeli hirdetéseket mutasson a listázás hely szerinti keresés esetén"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Hirdetési beállítások"
         transaction_preferences: "Rendelési preferenciák"
         show_listing_publishing_date: "A hirdetés feladásának megmutatása a hírdető oldalon"
@@ -286,7 +287,7 @@ hu:
         delete_info2: ~
         search: ~
         search_by_name_email: ~
-        reset_search: ~
+        reset_search: "Összes mutatása"
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
@@ -462,14 +463,14 @@ hu:
         transactions: "Mutassa a tranzakciókat"
         search_by_title_parties: ~
         search: ~
-        reset_search: ~
+        reset_search: "Összes mutatása"
         status_filter:
           all: ~
           selected: ~
           selected_js: ~
           free: ~
-          confirmed: ~
-          paid: ~
+          confirmed: Befejezett
+          paid: Fizetett
           canceled: ~
           disputed: ~
           preauthorized: ~
@@ -505,29 +506,29 @@ hu:
           paypal:
             free: Beszélgetés
             pending: Függő
-            preauthorized: ~
+            preauthorized: "Előzetesen engedélyezett"
             accepted: Elfogadott
             rejected: Visszautasított
             paid: Fizetett
             confirmed: Befejezett
             canceled: Törölt
             disputed: ~
-            initiated: ~
-            pending_ext: ~
+            initiated: "Várjuk PayPal utalását"
+            pending_ext: "Várjuk PayPal utalását"
             refunded: ~
             dismissed: ~
           stripe:
             free: Beszélgetés
             pending: Függő
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            preauthorized: "Előzetesen engedélyezett"
+            accepted: Elfogadott
+            rejected: Elutasított
+            paid: Fizetett
+            confirmed: Befejezett
+            canceled: Törölt
             disputed: ~
-            initiated: ~
-            pending_ext: ~
+            initiated: "Várjuk a Stripe utalást"
+            pending_ext: "Várjuk a Stripe utalást"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
@@ -538,7 +539,7 @@ hu:
         conversations: ~
         headers:
           started_from: ~
-          status: ~
+          status: Állapot
           started: ~
           last_activity: ~
           initiated_by: ~
@@ -547,7 +548,7 @@ hu:
         profile: ~
         search_by_keyword: ~
         search: ~
-        reset_search: ~
+        reset_search: "Összes mutatása"
         for_keyword: ~
       testimonials:
         testimonials: ~
@@ -555,18 +556,18 @@ hu:
         displaying_xx_reviews: ~
         search_keyword: ~
         search: ~
-        reset_search: ~
+        reset_search: "Összes mutatása"
         for_keyword: ~
         headers:
           transaction: ~
           author: ~
           receiver: ~
-          status: ~
+          status: Állapot
           grade: ~
           text: ~
         status:
-          waiting: ~
-          skipped: ~
+          waiting: "Felülvizsgálatra vár"
+          skipped: Kihagyott
           published: ~
           blocked: ~
         status_filter:
@@ -606,7 +607,7 @@ hu:
         listings: ~
         search_by_title_author_category: ~
         search: ~
-        reset_search: ~
+        reset_search: "Összes mutatása"
         export_all_as_csv: ~
         processing_export: ~
         status:
@@ -620,10 +621,10 @@ hu:
         headers:
           title: ~
           author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
+          created: Létrehozva
+          updated: Frissítve
+          category: Kategória
+          status: Állapot
         open: ~
         closed: ~
         expired: ~
@@ -738,6 +739,14 @@ hu:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -775,7 +784,7 @@ hu:
           background_color_info: ~
         categories:
           add: ~
-          category: ~
+          category: Kategória
           empty: ~
           image: ~
           include_title: ~
@@ -784,12 +793,12 @@ hu:
           need_at_most_7_categories: ~
         category:
           add_another_image: ~
-          category: ~
+          category: Kategória
           current_image: ~
           file_not_selected: ~
           image: ~
           image_required: ~
-          select_category: ~
+          select_category: "Kategória kiválasztása"
         locations:
           add: ~
           location: ~
@@ -2375,6 +2384,7 @@ hu:
       origin:
         location: Hely
         origin: Eredet
+        the_exact_location: ~
       send_button:
         save_listing: "Hirdetés mentése"
         submit_for_review: ~
@@ -3116,7 +3126,7 @@ hu:
     pay_with_stripe: ~
     add_and_pay: ~
     card_not_stored: ~
-    missing_payment: ~
+    missing_payment: "Önnek létezik nyitott hirdetése, de a fiókja nem lett beállítva átutalások fogadására. Ezek beállításához kérem látogasson a %{settings_link} oldalra."
     stripe_bank_connected: ~
     stripe_can_accept: ~
     stripe_credit_card: ~
@@ -3252,6 +3262,9 @@ hu:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

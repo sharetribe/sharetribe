@@ -234,6 +234,7 @@ he-IL:
         miles: מייל
         show_only_nearby: "הצג רק מודעות קרובות עם חיפוש מיקום"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "רשימת ההעדפות"
         transaction_preferences: "העדפות הזמנה"
         show_listing_publishing_date: "הצג תאריך פרסום של הרישום בדף המודעה"
@@ -739,6 +740,14 @@ he-IL:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -2386,6 +2395,7 @@ he-IL:
       origin:
         location: מיקום
         origin: מקור
+        the_exact_location: ~
       send_button:
         save_listing: "פרסם מודעה"
         submit_for_review: "שלח לביקורת"
@@ -3309,6 +3319,9 @@ he-IL:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: אלברטה
     BC: "קולומביה בריטית"

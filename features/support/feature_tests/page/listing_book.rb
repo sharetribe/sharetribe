@@ -14,7 +14,7 @@ module FeatureTests
       end
 
       def pay_with_stripe
-        execute_script("$('#payment_type').val('stripe');$('#transaction-form').append('<input type=hidden name=stripe_token value=tok_visa />');$('#transaction-form').submit()")
+        execute_script("$('#payment_type').val('stripe');$('#transaction-form').append('<input type=hidden name=stripe_payment_method_id value=abcdef />');$('#transaction-form').submit()")
       end
 
       def total_value

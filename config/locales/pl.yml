@@ -244,6 +244,7 @@ pl:
         miles: milach
         show_only_nearby: "Pokaż tylko najbliższe oferty przy użyciu wyszukiwania po lokalizacji"
         allow_users_to_add_location: "Pozwól użytkownikom dodać lokalizację do ich profili i ofert i pokaż widok mapy na stronie wyszukiwania"
+        fuzzy_location: ~
         listing_preferences: "Preferencje wyświetlania"
         transaction_preferences: "Preferencje dot. zamówień"
         show_listing_publishing_date: "Wyświetl datę publikacji oferty na liście ofert"
@@ -747,6 +748,14 @@ pl:
           hero_title: "Baner główny"
           hero_description: "Ustaw tło dla sekcji \"Baner główny\". Slogan i opis możesz ustawić tutaj %{link}."
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: Stopka
           footer_style: "Styl stopki"
@@ -2398,6 +2407,7 @@ pl:
       origin:
         location: Lokalizacja
         origin: Początek
+        the_exact_location: ~
       send_button:
         save_listing: "Publikuj ofertę"
         submit_for_review: "Wyślij w celu zaopiniowania"
@@ -3338,6 +3348,9 @@ pl:
       landing_page_version/section/video:
         text: Tekst
         youtube_video_id: "ID materiału wideo na Youtube"
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

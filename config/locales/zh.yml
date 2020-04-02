@@ -229,6 +229,7 @@ zh:
         miles: 英里
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: 信息展示页面偏好设置
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在信息展示页面的显示信息的发布日期
@@ -732,6 +733,14 @@ zh:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -2357,6 +2366,7 @@ zh:
       origin:
         location: 地点
         origin: 来源
+        the_exact_location: ~
       send_button:
         save_listing: 发布
         submit_for_review: ~
@@ -3235,6 +3245,9 @@ zh:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

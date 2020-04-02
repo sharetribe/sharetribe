@@ -242,6 +242,7 @@ hr:
         miles: milje
         show_only_nearby: "Prikaži samo oglase u blizini sa pretragom lokacije"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Preferencije oglasa"
         transaction_preferences: ~
         show_listing_publishing_date: "Prikaži datum objave oglasa na stranici oglasa"
@@ -745,6 +746,14 @@ hr:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -2391,6 +2400,7 @@ hr:
       origin:
         location: Lokacija
         origin: Polazište
+        the_exact_location: ~
       send_button:
         save_listing: "Spremi oglas"
         submit_for_review: "Pošalji na pregled"
@@ -3315,6 +3325,9 @@ hr:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

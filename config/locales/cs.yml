@@ -239,6 +239,7 @@ cs:
         miles: míle
         show_only_nearby: "Zobrazit pouze nabídky v okolí s vyhledáváním polohy"
         allow_users_to_add_location: "Umožnit uživatelům přidávat umístění do jejich profilu a seznamů, a zobrazovat na stránce vyhledávání zobrazení mapy"
+        fuzzy_location: ~
         listing_preferences: "Nastavení inzerátů"
         transaction_preferences: "Nastavení transakcí"
         show_listing_publishing_date: "Zobrazit datum zveřejnění inzerátu na stránce inzerátu"
@@ -742,6 +743,14 @@ cs:
           hero_title: "Hlavní upoutávka"
           hero_description: "Nastavte obrazek na pozadí v sekci Hlavní upoutávka. Slogan a popis jsou z %{link}."
           basic_details_tab: "Karta 'Základní podrobnosti'"
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: Zápatí
           footer_style: "Styl zápatí"
@@ -2388,6 +2397,7 @@ cs:
       origin:
         location: Adresa
         origin: Původ
+        the_exact_location: ~
       send_button:
         save_listing: Uložit
         submit_for_review: "Předložit ke kontrole"
@@ -3307,6 +3317,9 @@ cs:
       landing_page_version/section/video:
         text: Text
         youtube_video_id: "ID videa na YouTube"
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

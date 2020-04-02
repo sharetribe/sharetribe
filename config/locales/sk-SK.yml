@@ -239,6 +239,7 @@ sk-SK:
         miles: míľach
         show_only_nearby: "Zobraziť iba inzeráty z okolia"
         allow_users_to_add_location: "Umožniť používateľom pridať polohu do svojho profilu a inzerátov a zobraziť mapu vo vyhľadávaní"
+        fuzzy_location: ~
         listing_preferences: "Nastavenia inzerátu"
         transaction_preferences: "Nastavenia transakcií"
         show_listing_publishing_date: "Zobraziť dátum zverejnenia na stránke inzerátu"
@@ -742,6 +743,14 @@ sk-SK:
           hero_title: Hero
           hero_description: "Nastaviť obrázok pozadia pre Hero sekciu. Slogan a popis sú nastavené z %{link}"
           basic_details_tab: "Záložka 'Základné detaily'"
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: Päta
           footer_style: "Štýl časti Päta"
@@ -2392,6 +2401,7 @@ sk-SK:
       origin:
         location: Poloha
         origin: Pôvod
+        the_exact_location: ~
       send_button:
         save_listing: Uverejniť
         submit_for_review: "Odoslať na kontrolu"
@@ -3316,6 +3326,9 @@ sk-SK:
       landing_page_version/section/video:
         text: Text
         youtube_video_id: "YouTube video ID"
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

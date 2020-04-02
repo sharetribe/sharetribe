@@ -4,6 +4,9 @@
 - origin_loc = @listing.origin_loc
 
 = form.label :origin, title, :class => "input"
+- if @current_community.fuzzy_location?
+  - info_text = t(".the_exact_location")
+  = render partial: "layouts/info_text", locals: { text:  info_text}
 = form.text_field :origin, :class => "text_field #{required_class}", :onkeyup => "timed_input(this)", :value => (origin_loc ? origin_loc.address : nil)
 = form.fields_for :origin_loc, include_id: false do |loc|
   = loc.hidden_field :address, :value => origin_loc.address

@@ -234,6 +234,7 @@ es-ES:
         miles: millas
         show_only_nearby: "Mostrar solamente anuncios cercanos a la búsqueda por ubicación"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Preferencias de los anuncios"
         transaction_preferences: "Preferencias de transacciones"
         show_listing_publishing_date: "Mostrar fecha de publicación del anuncio en la lista de resultados"
@@ -737,6 +738,14 @@ es-ES:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -1323,7 +1332,7 @@ es-ES:
       stripe:
         held_payment: "Aceptó la transacción. El pago por %{sum} está siendo guardado por %{service_name} hasta que la orden sea marcada como completada."
         held_payment_wo_sum: ~
-        confirmed_request: "Marcó la orden como completada. El dinero ha sido transferido a la cuenta de banco de %{author_name} or será transferido pronto."
+        confirmed_request: "Marcó la orden como completada. El dinero ha sido transferido a la cuenta de banco de %{author_name} o será transferido pronto."
       canceled_the_order: ~
       marked_as_refunded: ~
       dismissed_the_cancellation: ~
@@ -2378,6 +2387,7 @@ es-ES:
       origin:
         location: Ubicación
         origin: Origen
+        the_exact_location: ~
       send_button:
         save_listing: "Publicar anuncio"
         submit_for_review: ~
@@ -3286,6 +3296,9 @@ es-ES:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

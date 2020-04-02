@@ -234,6 +234,7 @@ en:
         miles: miles
         show_only_nearby: "Show only nearby listings with location search"
         allow_users_to_add_location: "Allow users to add location to their profile and listings, and show a map view on the search page"
+        fuzzy_location: "Display a circle instead of the exact location"
         listing_preferences: "Listing preferences"
         transaction_preferences: "Order preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
@@ -677,7 +678,7 @@ en:
         change: Change
       landing_pages:
         landing_pages: "Landing page"
-        info_1: "The landing page is perhaps the most important page of your marketplace. It is the first page that visitors see - sort of like the front door of your house. You have only a few seconds to convince new vistiors that they should explore your site. The page needs to be appealing and your value proposition should be clear and enticing."
+        info_1: "The landing page is perhaps the most important page of your marketplace. It is the first page that visitors see - sort of like the front door of your house. You have only a few seconds to convince new visitors that they should explore your site. The page needs to be appealing and your value proposition should be clear and enticing."
         info_2: "You can use this editor to modify your landing page whenever you want!"
         info_2_help_center: "Help Center article"
         info_3: "If you want to have a completely customized landing page for your marketplace, you can purchase it as add-on for $99 per month."
@@ -737,6 +738,14 @@ en:
           hero_title: Hero
           hero_description: "Set the background image for the Hero section. The slogan and description are set from the %{link}."
           basic_details_tab: "'Basic details' tab"
+          cta_button: "Call-to-action section"
+          cta_button_info: "You don't need to edit the text of the button. You can just leave this field empty. By default the text is \"Search\" for public marketplaces and \"Sign up\" for private marketplaces."
+          button_type:
+            default: Default
+            button: Button
+            none: None
+          button_content: "Button content"
+          click_me: "Click me!"
         footer:
           footer_title: Footer
           footer_style: "Footer style"
@@ -2381,6 +2390,7 @@ en:
       origin:
         location: Location
         origin: Origin
+        the_exact_location: "The exact location will not be shown to other users."
       send_button:
         save_listing: "Post listing"
         submit_for_review: "Submit for review"
@@ -3291,6 +3301,9 @@ en:
       landing_page_version/section/video:
         text: Text
         youtube_video_id: "YouTube video ID"
+      landing_page_version/section/hero:
+        cta_button_text: Text
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "British Columbia"

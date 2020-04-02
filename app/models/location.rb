@@ -49,4 +49,7 @@ class Location < ApplicationRecord
     okresponse
   end
 
+  def as_json(options={})
+    super(options.merge(only: [:id, :latitude, :longitude, :address]))
+  end
 end

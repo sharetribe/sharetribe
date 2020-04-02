@@ -229,6 +229,7 @@ zh-HK:
         miles: 英里
         show_only_nearby: ~
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: 訊息展示頁面偏好設置訊
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在信息展示頁面顯示信息的發布日期
@@ -732,6 +733,14 @@ zh-HK:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -2360,6 +2369,7 @@ zh-HK:
       origin:
         location: 地點
         origin: 來源
+        the_exact_location: ~
       send_button:
         save_listing: 儲存訊息
         submit_for_review: ~
@@ -3220,6 +3230,9 @@ zh-HK:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

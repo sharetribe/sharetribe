@@ -234,6 +234,7 @@ pt-BR:
         miles: milhas
         show_only_nearby: "Mostrar apenas anúncios próximos com a busca de localização"
         allow_users_to_add_location: ~
+        fuzzy_location: ~
         listing_preferences: "Preferências de anúncios"
         transaction_preferences: "Transação - preferências"
         show_listing_publishing_date: "Data de publicação de exibição da lista na página de anúncio"
@@ -737,6 +738,14 @@ pt-BR:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -2372,6 +2381,7 @@ pt-BR:
       origin:
         location: Local
         origin: Origem
+        the_exact_location: ~
       send_button:
         save_listing: "Salvar anúncio"
         submit_for_review: "Enviar para análise"
@@ -3264,6 +3274,9 @@ pt-BR:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

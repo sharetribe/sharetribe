@@ -31,6 +31,7 @@ class Admin::SettingsService
       :allow_free_conversations,
       :email_admins_about_new_transactions,
       :show_location,
+      :fuzzy_location,
       community_customizations_attributes: %i[id search_placeholder]
     )
   end

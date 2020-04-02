@@ -1,6 +1,10 @@
 # Marketplace data deletion tasks
 # DANGER! Tasks here result in data being permanently deleted.
 
+# Number of days after which old marketplaces and trials are soft-deleted
+# (simply flagged as deleted)
+DATA_SOFT_DELETION_DAYS_THRESHOLD = 180
+
 # Number of days to keep old marketplaces and trials
 DATA_DELETION_DAYS_THRESHOLD = 365
 
@@ -21,7 +25,7 @@ namespace :sharetribe do
     end
   end
 
-  def old_marketplaces_with_plans(date)
+  def old_marketplaces_with_plans(date, ignore_deleted = false)
     query = <<~SQL
       SELECT DISTINCT
           mp.community_id
@@ -36,6 +40,7 @@ namespace :sharetribe do
       LEFT JOIN communities c
       ON mp.community_id = c.id
       WHERE 1=1
+        #{ignore_deleted ? 'AND c.deleted <> 1' : ''}
       	AND mp.expires_at IS NOT NULL -- To be extra safe
       	AND mp.expires_at < '#{date}' -- Change to desired value
       ORDER BY 2;
@@ -44,7 +49,7 @@ namespace :sharetribe do
     r.map { |row| row[0] }
   end
 
-  def old_marketplace_trials(date)
+  def old_marketplace_trials(date, ignore_deleted = false)
     query = <<~SQL
       SELECT DISTINCT
           mt.community_id
@@ -61,6 +66,7 @@ namespace :sharetribe do
       LEFT JOIN communities c
       ON mt.community_id = c.id
       WHERE 1=1
+        #{ignore_deleted ? 'AND c.deleted <> 1' : ''}
       	AND mp.community_id IS NULL -- Removes all trials with a plan in marketplace_plans
       	AND mt.expires_at IS NOT NULL -- To be extra safe
       	AND mt.expires_at < '#{date}' -- Change to desired value
@@ -300,6 +306,16 @@ namespace :sharetribe do
     "#{completed} / #{total}, #{(completed  * 100 / total).round(2)}%"
   end
 
+  def soft_delete_marketplace!(community_id)
+    community = Community.find_by_id(community_id)
+
+    return unless community
+
+    community.deleted = true
+    community.save
+    puts "Community #{community_id} marked as deleted"
+  end
+
   def delete_marketplace_data!(community_id, sleep_time, query_sleep_time)
     community = Community.find_by_id(community_id)
 
@@ -402,14 +418,30 @@ namespace :sharetribe do
 
       loop do
         threshold_date = DATA_DELETION_DAYS_THRESHOLD.days.ago
-        # Delete any old expired paid marketplaces
-        old_marketplaces_with_plans(threshold_date).each do |mp_id|
-          delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        soft_delete_threshold_date = DATA_SOFT_DELETION_DAYS_THRESHOLD.days.ago
+
+        # Soft delete marketplaces with expired paid plans
+        old_marketplaces_with_plans(soft_delete_threshold_date, true).each do |mp_id|
+          soft_delete_marketplace!(mp_id)
         end
 
-        old_marketplace_trials(threshold_date).each do |mp_id|
-          delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        # Soft delete old trials
+        old_marketplace_trials(soft_delete_threshold_date, true).each do |mp_id|
+          soft_delete_marketplace!(mp_id)
         end
+
+        # Temporary disable hard data deletion. Run only soft-deletion for a while.
+
+        # # Delete any old expired paid marketplaces
+        # old_marketplaces_with_plans(threshold_date).each do |mp_id|
+        #   delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        # end
+
+        # # Delete old trials
+        # old_marketplace_trials(threshold_date).each do |mp_id|
+        #   delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        # end
+
         sleep 3600 * 6 # 6 hours
       end
     end
