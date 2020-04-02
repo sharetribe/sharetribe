@@ -20,8 +20,8 @@ services:
     command: >
       bash -c "bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-       - .:/opt/app
-       - /opt/app/node_modules
+      - .:/opt/app
+      - /opt/app/node_modules
     ports:
       - 3000:3000
     depends_on:
@@ -38,8 +38,24 @@ services:
     command: >
       bash -c "cd client && npm run build:dev:client"
     volumes:
-       - .:/opt/app
-       - /opt/app/client/node_modules
+      - .:/opt/app
+      - /opt/app/client/node_modules
+    depends_on:
+      - mysql
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: mysql2://sharetribe:secret@mysql/sharetribe_development
+  worker:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: >
+      bash -c "bundle exec rake jobs:work"
+    volumes:
+      - .:/opt/app
+      - /opt/app/node_modules
     depends_on:
       - mysql
     environment:
