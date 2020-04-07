@@ -53,16 +53,16 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     message = params[:transaction][:message_attributes][:content]
     status = params[:transaction][:status].to_sym
     sender_id = @current_user.id
-
+    
     tx = @current_community.transactions.find(tx_id)
-
+    
     if tx.current_state != 'preauthorized'
       redirect_to person_transaction_path(person_id: @current_user.id, id: tx_id)
       return
     end
-
+    
     res = accept_or_reject_tx(@current_community.id, tx_id, status, message, sender_id)
-
+    
     if res[:success]
       flash[:notice] = success_msg(res[:flow])
 

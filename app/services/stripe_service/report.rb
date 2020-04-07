@@ -12,6 +12,7 @@ class StripeService::Report
   end
 
   def capture_charge_start
+    # byebug
     result = capture_charge.merge({
       "event": "stripe_call"
     })

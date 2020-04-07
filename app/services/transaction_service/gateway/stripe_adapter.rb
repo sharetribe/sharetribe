@@ -16,6 +16,7 @@ module TransactionService::Gateway
     end
 
     def complete_preauthorization(tx:)
+      # byebug
       result = stripe_api.payments.capture(tx)
       SyncCompletion.new(result)
     end

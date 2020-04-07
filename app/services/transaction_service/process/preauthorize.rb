@@ -118,11 +118,12 @@ module TransactionService::Process
     end
 
     def complete_preauthorization(tx:, message:, sender_id:, gateway_adapter:)
+      # byebug
       res = Gateway.unwrap_completion(
         gateway_adapter.complete_preauthorization(tx: tx)) do
-
-        TransactionService::StateMachine.transition_to(tx.id, :paid)
-      end
+          
+          TransactionService::StateMachine.transition_to(tx.id, :paid)
+        end
 
       if res[:success] && message.present?
         send_message(tx, message, sender_id)

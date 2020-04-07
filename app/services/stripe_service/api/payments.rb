@@ -86,6 +86,7 @@ module StripeService::API
       end
 
       def capture(tx)
+        # byebug
         report = StripeService::Report.new(tx: tx)
         report.capture_charge_start
         payment = PaymentStore.get(tx.community_id, tx.id)

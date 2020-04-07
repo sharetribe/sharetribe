@@ -179,6 +179,7 @@ module TransactionService::Transaction
 
 
   def complete_preauthorization(community_id:, transaction_id:, message: nil, sender_id: nil)
+    # byegbug
     tx = find_tx_model(community_id: community_id, transaction_id: transaction_id)
 
     tx_process = tx_process(tx.payment_process)
