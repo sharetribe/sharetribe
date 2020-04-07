@@ -12,13 +12,13 @@ ro:
   devise:
     failure:
       already_authenticated: "Sunteti deja conectat."
-      unauthenticated: "Trebuie să vă autentificaţi sau să vă înregistrați înainte de a continua."
-      unconfirmed: "Trebuie să vă confirmaţi contul înainte de a continua."
+      unauthenticated: "Trebuie să te autentifici sau să te înregistrezi înainte de a continua."
+      unconfirmed: "Trebuie să îți confirmi contul înainte de a continua."
       locked: "Contul dvs. este blocat."
       invalid: "Adresă de email sau parolă invalidă"
       invalid_token: "Cheie de autentificare invalidă."
-      timeout: "Sesiunea a expirat. Vă rugăm să vă conectaţi din nou pentru a continua."
-      inactive: "Contul dvs. încă nu a fost activat."
+      timeout: "Sesiunea a expirat. Te rugăm să te conectezi din nou pentru a continua."
+      inactive: "Contul tău încă nu a fost activat."
     passwords:
       updated_not_active: "Parolă schimbată cu success."
       send_paranoid_instructions: "Dacă e-mail-ul dvs. există in baza noastră de date, veți primi un link prin care vă veți putea schimba parola."
@@ -28,8 +28,8 @@ ro:
       signed_in: "Autentificare cu succes."
       signed_out: "Deconectare cu succes."
     confirmations:
-      send_paranoid_instructions: "Dacă există e-mail-ul dvs. în baza noastră de date, veți primi un alt e-mail cu instrucţiuni despre cum să confirmaţi contul în câteva minute."
-      send_instructions: "Veţi primi un e-mail cu instrucţiuni despre cum să confirmaţi contul în câteva minute."
+      send_paranoid_instructions: "Dacă e-mail-ul tău există în baza noastră de date, vei primi un e-mail cu instrucţiuni despre cum să confirmi contul în câteva minute."
+      send_instructions: "Vei primi un e-mail cu instrucţiuni despre cum să confirmi contul în câteva minute."
       confirmed: "Contul dvs. a fost confirmat cu succes."
     registrations:
       signed_up_but_unconfirmed: "Un mesaj cu link de confirmare a fost trimis pe email. Vă rugăm să-l deschideți pentru a vă activa contul."
@@ -40,7 +40,7 @@ ro:
         unconfirmed: neconfirmat
         locked: blocat
       update_needs_confirmation: "V-ati actualizat cu succes, dar trebuie să verificăm noua adresă de e-mail. Vă rugăm să verificați adresa, click pe link-ul de confirmare."
-      signed_up: "Bine ați venit! V-ați înregistrat cu succes."
+      signed_up: "Bine ați venit! Te-ai înregistrat cu succes."
       updated: "Cont actualizat cu succes."
       destroyed: "La revedere! Contul dvs. a fost dezactivat cu succes. Sperăm sa ne revedem în curând."
     unlocks:

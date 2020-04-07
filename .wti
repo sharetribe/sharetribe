@@ -6,7 +6,7 @@ api_key: proj_pvt_22uRqBPWgCRmuyjt1kbI9w
 # ignore_locales: 'en'
 
 # Or if you prefer a list of locales to sync with WebTranslateIt:
-# needed_locales: ["ko", "sr", "bn-BD", "pt-BR", "lv", "th-TH", "ro", "zh", "ti", "pt-PT", "eo", "ka", "he-IL", "lt", "it", "nl", "km-KH", "hu", "hr", "pl", "ca", "en-GB", "mk", "sk-SK", "zh-TW", "tr-TR", "sq-AL", "ar", "es", "sv", "en", "hy-AM", "el", "ms-MY", "nb", "ab", "zh-HK", "ru", "is", "sl", "vi", "uk", "hi-IN", "bg", "fr", "de", "es-MX", "da-DK", "et", "cs", "ja", "fr-CA", "fi", "es-ES", "ta-IN", "es-CL", "id", "crp", "eu-ES", "mn", "en-AU", "en-NZ", "sw", "az-AZ"]
+# needed_locales: ["fi", "pl", "et", "zh", "nl", "sl", "en", "de", "cs", "sk-SK", "es", "fr", "ar", "ti", "he-IL", "lt", "lv", "sq-AL", "is", "ro", "it", "mk", "es-MX", "ca", "az-AZ", "crp", "hr", "ta-IN", "tr-TR", "zh-HK", "es-CL", "id", "hy-AM", "uk", "es-ES", "nb", "ms-MY", "el", "sw", "ru", "sr", "fr-CA", "en-AU", "zh-TW", "th-TH", "eo", "hi-IN", "ja", "hu", "sv", "bg", "en-NZ", "eu-ES", "mn", "ka", "pt-PT", "vi", "ab", "pt-BR", "da-DK", "en-GB", "ko", "bn-BD", "km-KH"]
 
 # Optional
 # before_pull: "echo 'some unix command'"   # Command executed before pulling files
