@@ -16,6 +16,7 @@
     = render partial: "delivery_opts", locals: { delivery_opts: @listing_presenter.delivery_opts, is_author: @listing_presenter.is_author }
   - else
 
+    -### HERE
     = form_tag @listing_presenter.form_path, :method => :get, :id => "booking-dates" do
 
       - if @listing_presenter.quantity_per_day_or_night?
@@ -109,7 +110,7 @@
           .content
             = action_button_label(@listing)
 
-    - if @listing_presenter.payments_enabled?
+    - if true#@listing_presenter.payments_enabled?
       .row
         .col-12
           = render :partial => "listing_conversations/payment_methods", locals: { stripe_in_use: @listing_presenter.stripe_in_use, paypal_in_use: @listing_presenter.paypal_in_use }
