@@ -14,37 +14,38 @@ Rails.application.configure do
   # (this is a hack which is fixed properly in Rails 4)
   # config.action_view.cache_template_loading = false
 
-  # Basic log config, for calls to Rails.logger.<level> { <message> }
-  config.logger = ::Logger.new(STDOUT)
-  # Formats log entries into: LEVEL MESSAGE
-  # Heroku adds to this timestamp and worker/dyno id, so datetime can be stripped
-  config.logger.formatter = ->(severity, datetime, progname, msg) { "#{severity} #{msg}\n" }
-  config.logger = ActiveSupport::TaggedLogging.new(config.logger)
+  if false
+    # Basic log config, for calls to Rails.logger.<level> { <message> }
+    config.logger = ::Logger.new(STDOUT)
+    # Formats log entries into: LEVEL MESSAGE
+    # Heroku adds to this timestamp and worker/dyno id, so datetime can be stripped
+    config.logger.formatter = ->(severity, datetime, progname, msg) { "#{severity} #{msg}\n" }
+    config.logger = ActiveSupport::TaggedLogging.new(config.logger)
 
-  # Lograge config, overrides default instrumentation for logging ActionController and ActionView logging
-  config.lograge.enabled = true
-  config.lograge.custom_options = ->(event) {
-    params = event.payload[:params].except('controller', 'action')
+    # Lograge config, overrides default instrumentation for logging ActionController and ActionView logging
+    config.lograge.enabled = true
+    config.lograge.custom_options = ->(event) {
+      params = event.payload[:params].except('controller', 'action')
 
-    { params: params,
-      host: event.payload[:host],
-      community_id: event.payload[:community_id],
-      current_user_id: event.payload[:current_user_id],
-      user_agent: event.payload[:user_agent],
-      referer: event.payload[:referer],
-      forwarded_for: event.payload[:forwarded_for],
-      request_uuid: event.payload[:request_uuid] }
-  }
+      { params: params,
+        host: event.payload[:host],
+        community_id: event.payload[:community_id],
+        current_user_id: event.payload[:current_user_id],
+        user_agent: event.payload[:user_agent],
+        referer: event.payload[:referer],
+        forwarded_for: event.payload[:forwarded_for],
+        request_uuid: event.payload[:request_uuid] }
+    }
 
-  config.lograge.formatter = Lograge::Formatters::Json.new
+    config.lograge.formatter = Lograge::Formatters::Json.new
 
-  config.after_initialize do
-    ActiveRecord::Base.logger = Rails.logger.clone
-    ActiveRecord::Base.logger.level = Logger::DEBUG
-    ActionMailer::Base.logger = Rails.logger.clone
-    ActionMailer::Base.logger.level = Logger::INFO
+    config.after_initialize do
+      ActiveRecord::Base.logger = Rails.logger.clone
+      ActiveRecord::Base.logger.level = Logger::DEBUG
+      ActionMailer::Base.logger = Rails.logger.clone
+      ActionMailer::Base.logger.level = Logger::INFO
+    end
   end
-
 
 
   # Show full error reports and disable caching
@@ -69,7 +70,15 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  if APP_CONFIG.mail_delivery_method == "sendmail"
+  if APP_CONFIG.mail_delivery_method == "letter_opener"
+    ActionMailer::Base.delivery_method = :letter_opener
+    ActionMailer::Base..perform_deliveries = true
+    LetterOpener.configure do |config|
+      # To render only the message body, without any metadata or extra containers or styling.
+      # Default value is `:default` that renders styled message with showing useful metadata.
+      config.message_template = :light
+    end
+  elsif APP_CONFIG.mail_delivery_method == "sendmail"
     ActionMailer::Base.delivery_method = :sendmail
   elsif APP_CONFIG.mail_delivery_method == "smtp"
     # Enable sending mail from localhost
