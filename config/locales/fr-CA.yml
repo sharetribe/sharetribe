@@ -1294,7 +1294,7 @@ fr-CA:
       canceled_request: "Demande annulée."
       canceled_offer: "Offre annulée."
       message_from: "Message de %{person}"
-      about_listing: "A propos de l'annonce %{listing_title}"
+      about_listing: "À propos de l'annonce %{listing_title}"
       free_message: "Message libre"
       message_content_not_available: ~
     message:
@@ -1330,7 +1330,7 @@ fr-CA:
       you_will_get_notified: "Vous recevrez une notification par email lorsque %{person} vous répondra."
       title: Titre
       send_message_to_user: "Envoyer un message à %{person}"
-      about_listing: "A propos de l'annonce %{listing_title}"
+      about_listing: "À propos de l'annonce %{listing_title}"
       author_has_to_accept_request: "%{author_name} doit accepter la requête avant que vous ne puissiez payer"
     show:
       in_response_to_listing: "à propos de l'annonce"
@@ -1890,7 +1890,7 @@ fr-CA:
       offer_partitive: offre
       request_partitive: demande
   header:
-    about: "A propos"
+    about: ~
     home: Accueil
     members: "Place de marché"
     new_listing: "Nouvelle annonce"
@@ -2067,7 +2067,7 @@ fr-CA:
     global-header:
       select_language: "Choisir la langue"
     infos:
-      about: "A propos"
+      about: ~
       how_to_use: "Comment ça marche"
       info_about_kassi: "Informations à propos de %{service_name}"
       news: Actualités
@@ -2705,7 +2705,7 @@ fr-CA:
       manage_listings: ~
     show:
       contact: "Contacter %{person}"
-      about_me: "A propos de moi : "
+      about_me: "À propos de moi :"
       add_description: "Partagez quelque chose à propos de vous"
       add_location: "Ajoutez une adresse"
       add_phone_number: "Ajoutez un numéro de téléphone"
@@ -2839,7 +2839,7 @@ fr-CA:
       unsubscribe_unsuccesful: "Erreur lors de la désinscription"
       unsuccessful_unsubscribe_info_text: "Cela est peut être du au fait que le lien de désinscription que vous avez cliqué est trop ancien ou erroné. Contactez nous grâce au bouton \"feedback\" et nous vous désabonnerons, ou bien connectez vous pour gérer vos réglages d'emails."
     profile:
-      about_you: "A propos de vous"
+      about_you: "À propos de vous"
       city: Ville
       family_name: Nom
       given_name: Prénom
