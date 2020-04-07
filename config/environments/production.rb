@@ -119,10 +119,12 @@ Rails.application.configure do
   end
 
   # Sendmail is used for some mails (e.g. Newsletter) so configure it even when smtp is the main method
-  ActionMailer::Base.sendmail_settings = {
-    :location       => '/usr/sbin/sendmail',
-    :arguments      => '-i -t'
-  }
+  if mail_delivery_method == :sendmail
+    ActionMailer::Base.sendmail_settings = {
+      :location       => '/usr/sbin/sendmail',
+      :arguments      => '-i -t'
+    }
+  end
 
   ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
 

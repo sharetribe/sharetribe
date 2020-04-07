@@ -129,7 +129,7 @@ group :development do
   gem 'awesome_print', '~> 1.7.0'
   gem 'binding_of_caller'
   gem "rails-erd"
-
+  gem "letter_opener"
 end
 
 group :test do
