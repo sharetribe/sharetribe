@@ -141,11 +141,12 @@
             .listing-author-name
               = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"
             = @listing.author.description
-            - if @listing.author != @current_user
-              .listing-author-contact
-                %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
-                  .content
-                    = t(".contact")
+            
+            -# - if @listing.author != @current_user
+            -#   .listing-author-contact
+            -#     %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
+            -#       .content
+            -#         = t(".contact")
 
     - if @listing_presenter.received_testimonials.size > 0
       .row-with-divider.listing-author-activity
