@@ -36,3 +36,13 @@ Notification.all.each do |notification|
     notification.update_attribute(:notifiable_type, "Testimonial")
   end
 end
+Statistic.all.each do |s|
+  j = JSON.parse(s.extra_data)
+  if j["mau_g1"]
+    s.mau_g1_count = j["mau_g1"]
+  end
+  if j["wau_g1"]
+    s.wau_g1_count = j["wau_g1"]
+  end
+  s.save
+end
