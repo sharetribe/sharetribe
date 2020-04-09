@@ -1,37 +1,30 @@
-development:
+# Set default values here that are used for all environments.
+default: &default
     adapter: mysql2
-    database: sharetribe_development
     encoding: utf8
-    username: # ADD DATABASE USERNAME
-    password: # ADD DATABASE PASSWORD
     host: localhost
+    username: <%= Rails.application.credentials.database_username %>
+    password: <%= Rails.application.credentials.database_password %>
+
+# Values for individual environments.
+development:
+    <<: *default
+    database: sharetribe_development
+
+staging:
+    <<: *default
+    database: sharetribe_staging
+
+production:
+    <<: *default
+    database: sharetribe_production
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
-    adapter: mysql2
+    <<: *default
     database: sharetribe_test
-    encoding: utf8
-    username: # ADD DATABASE USERNAME
-    password: # ADD DATABASE PASSWORD
-    host: localhost
-
-staging:
-    adapter: mysql2
-    database: sharetribe_staging
-    encoding: utf8
-    username: # ADD DATABASE USERNAME
-    password: # ADD DATABASE PASSWORD
-    host: localhost
-
-production:
-    adapter: mysql2
-    database: sharetribe_production
-    encoding: utf8
-    username: # ADD DATABASE USERNAME
-    password: # ADD DATABASE PASSWORD
-    host: localhost
 
 cucumber:
-  <<: *test
+    <<: *test

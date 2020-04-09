@@ -12,6 +12,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+- Made updates to installation instructions in README.md
+- Upgraded Ruby to 2.7.1
+- Upgraded Node to 12.16.2
+
 ### Deprecated
 
 ### Removed

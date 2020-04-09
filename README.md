@@ -26,11 +26,11 @@ Would you like to work with an API-based marketplace solution that allows you to
 
 ## Technology stack
 
-- Ruby 2.6
+- Ruby 2.7
 - Ruby on Rails 5.2.3
 - MySQL 5.7
 - React + jQuery
-- Node.js 10.15 (for compiling JavaScript assets)
+- Node.js 12.16.2 (for compiling JavaScript assets)
 - "what you see is what you get" Editor [Mercury](http://jejacks0n.github.io/mercury/)
 - Deploy: Custom Script (not using Mina or Cap3)
 - Server: Heroku
@@ -51,10 +51,10 @@ Would you like to work with an API-based marketplace solution that allows you to
 ### Requirements
 
 Before you get started, the following needs to be installed:
-  * **Ruby**. Version 2.6.5 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
+  * **Ruby**. Version 2.7.1 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
   * [**RubyGems**](http://rubygems.org/)
   * **Bundler**: `gem install bundler`
-  * **Node**. Version 10.15 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n), [nvm](https://github.com/creationix/nvm), or [nenv](https://github.com/ryuone/nenv).
+  * **Node**. Version 12.16 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n), [nvm](https://github.com/creationix/nvm), or [nenv](https://github.com/ryuone/nenv).
   * [**Git**](http://help.github.com/git-installation-redirect)
   * **A database**. Only MySQL 5.7 has been tested, so we give no guarantees that other databases (e.g. PostgreSQL) work. You can install MySQL Community Server two ways:
     1. If you are on a Mac, use homebrew: `brew install mysql` (*highly* recommended). Also consider installing the [MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.1/en/osx-installation-prefpane.html) to control MySQL startup and shutdown. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
@@ -102,7 +102,12 @@ Before you get started, the following needs to be installed:
     cp config/database.example.yml config/database.yml
     ```
 
-1.  Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
+1.  Run `rails credentials:edit` and add this to the bottom (you may need to `export EDITOR=nano` first:
+
+```
+database_username: EDITTHIS
+database_password: EDITTHIS
+```
 
 1.  Create a `config.yml` file by copying the example configuration file:
 
@@ -110,16 +115,16 @@ Before you get started, the following needs to be installed:
     cp config/config.example.yml config/config.yml
     ```
 
-1.  Create and initialize the database:
+1.  Create the database and run all migrations automatically:
 
     ```bash
-    bundle exec rake db:create db:structure:load
+    rails db:setup
     ```
 
 1.  Run Sphinx index:
 
     ```bash
-    bundle exec rake ts:index
+    rails ts:index
     ```
 
     **Note:** If your MySQL server is configured for SSL, update the `config/thinking_sphinx.yml` file and uncomment the `mysql_ssl_ca` lines. Configure correct SSL certificate chain for connection to your database over SSL.
@@ -127,7 +132,7 @@ Before you get started, the following needs to be installed:
 1.  Start the Sphinx daemon:
 
     ```bash
-    bundle exec rake ts:start
+    rails ts:start
     ```
 
 1.  Start the development server:
@@ -139,7 +144,7 @@ Before you get started, the following needs to be installed:
 1.  Invoke the delayed job worker in a new console (open the project root folder):
 
     ```bash
-    bundle exec rake jobs:work
+    rails jobs:work
     ```
 
 
@@ -177,7 +182,7 @@ Use [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
 To update your local database schema to the newest version, run database migrations with:
 
   ```bash
-  bundle exec rake db:migrate
+  rails db:migrate
   ```
 
 ### Running tests
@@ -191,7 +196,7 @@ Remember to follow *all* the steps listed in the [Setting up the development env
 1.  Initialize your test database:
 
     ```bash
-    bundle exec rake test:prepare
+    rails test:prepare
     ```
 
     This needs to be rerun whenever you make changes to your database schema.
@@ -276,43 +281,43 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 1.  Create the database:
 
     ```bash
-    RAILS_ENV=production bundle exec rake db:create
+    RAILS_ENV=production rails db:create
     ```
 
 1.  Initialize your database:
 
     ```bash
-    RAILS_ENV=production bundle exec rake db:structure:load
+    RAILS_ENV=production rails db:structure:load
     ```
 
 1.  Run Sphinx index:
 
     ```bash
-    RAILS_ENV=production bundle exec rake ts:index
+    RAILS_ENV=production rails ts:index
     ```
 
 1.  Start the Sphinx daemon:
 
     ```bash
-    RAILS_ENV=production bundle exec rake ts:start
+    RAILS_ENV=production rails ts:start
     ```
 
 1.  Precompile the assets:
 
     ```bash
-    RAILS_ENV=production NODE_ENV=production bundle exec rake assets:precompile
+    RAILS_ENV=production NODE_ENV=production rails assets:precompile
     ```
 
 1.  Invoke the delayed job worker:
 
     ```bash
-    RAILS_ENV=production bundle exec rake jobs:work
+    RAILS_ENV=production rails jobs:work
     ```
 
 1.  In a new console, open the project root folder and start the server:
 
     ```bash
-    bundle exec rails server -e production
+    rails server -e production
     ```
 
 
@@ -392,13 +397,11 @@ If you have installation instructions that you would like to share, don't hesita
 
 PayPal and Stripe are the two available payment gateways integrated.
 
-PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the source available version of Sharetribe Go in the future.
+PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to PayPal's marketplace solution being invite-only. We hope to add support for PayPal payments to the source available version of Sharetribe Go in the future.
 
 Stripe can be used in the source available version, as long as your country and currency are supported.
 
 ### Enable Stripe
-
-Starting from release 7.2.0, Stripe is supported.
 
 Stripe API keys will be encrypted when stored so it is important to configure your own random encryption key.
 You should fill the `app_encryption_key` variable in the `config/config.yml` file with a long random string, unique to your project.
