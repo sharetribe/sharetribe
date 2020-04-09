@@ -1,4 +1,4 @@
-class MakePrivateCommunityListingsLessVisible < ActiveRecord::Migration
+class MakePrivateCommunityListingsLessVisible < ActiveRecord::Migration[5.2]
   def up
     Community.all.each do |community|
       if community.private

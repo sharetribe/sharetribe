@@ -1,4 +1,4 @@
-class IncreaseCustomizationLengthLimits < ActiveRecord::Migration
+class IncreaseCustomizationLengthLimits < ActiveRecord::Migration[5.2]
   def up
    change_column :community_customizations, :how_to_use_page_content, :mediumtext
    change_column :community_customizations, :about_page_content, :mediumtext

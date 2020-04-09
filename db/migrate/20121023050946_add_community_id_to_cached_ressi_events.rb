@@ -1,4 +1,4 @@
-class AddCommunityIdToCachedRessiEvents < ActiveRecord::Migration
+class AddCommunityIdToCachedRessiEvents < ActiveRecord::Migration[5.2]
   def self.up
     add_column :cached_ressi_events, :community_id, :integer
   end

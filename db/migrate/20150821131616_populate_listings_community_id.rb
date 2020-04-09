@@ -1,4 +1,4 @@
-class PopulateListingsCommunityId < ActiveRecord::Migration
+class PopulateListingsCommunityId < ActiveRecord::Migration[5.2]
   def up
     execute("
       UPDATE listings

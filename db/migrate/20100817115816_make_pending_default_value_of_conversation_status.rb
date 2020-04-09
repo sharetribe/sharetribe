@@ -1,4 +1,4 @@
-class MakePendingDefaultValueOfConversationStatus < ActiveRecord::Migration
+class MakePendingDefaultValueOfConversationStatus < ActiveRecord::Migration[5.2]
   def self.up
     change_column :conversations, :status, :string, :default => "pending"
   end

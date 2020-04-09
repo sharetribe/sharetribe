@@ -1,4 +1,4 @@
-class AddShippingFieldsToListing < ActiveRecord::Migration
+class AddShippingFieldsToListing < ActiveRecord::Migration[5.2]
   def change
     add_column :listings, :require_shipping_address, :boolean, default: false
     add_column :listings, :pickup_enabled, :boolean, default: false

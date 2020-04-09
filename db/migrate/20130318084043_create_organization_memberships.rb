@@ -1,4 +1,4 @@
-class CreateOrganizationMemberships < ActiveRecord::Migration
+class CreateOrganizationMemberships < ActiveRecord::Migration[5.2]
   def change
     create_table :organization_memberships do |t|
       t.string :member_id

@@ -1,4 +1,4 @@
-class EditCommunityDefaults < ActiveRecord::Migration
+class EditCommunityDefaults < ActiveRecord::Migration[5.2]
   def self.up
     change_column_default(:communities, :news_enabled, true)
     change_column_default(:communities, :all_users_can_add_news, true)

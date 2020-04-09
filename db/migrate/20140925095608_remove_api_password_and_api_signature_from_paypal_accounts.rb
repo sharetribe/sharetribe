@@ -1,4 +1,4 @@
-class RemoveApiPasswordAndApiSignatureFromPaypalAccounts < ActiveRecord::Migration
+class RemoveApiPasswordAndApiSignatureFromPaypalAccounts < ActiveRecord::Migration[5.2]
   def up
     remove_column :paypal_accounts, :api_password
     remove_column :paypal_accounts, :api_signature

@@ -1,4 +1,4 @@
-class RemovePlanLevelFromPlans < ActiveRecord::Migration
+class RemovePlanLevelFromPlans < ActiveRecord::Migration[5.2]
   def up
     remove_column :marketplace_plans, :plan_level
   end

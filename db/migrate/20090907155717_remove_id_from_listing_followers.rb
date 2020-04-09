@@ -1,4 +1,4 @@
-class RemoveIdFromListingFollowers < ActiveRecord::Migration
+class RemoveIdFromListingFollowers < ActiveRecord::Migration[5.2]
   def self.up
     drop_table :listing_followers
     create_table :listing_followers, :id => false do |t|

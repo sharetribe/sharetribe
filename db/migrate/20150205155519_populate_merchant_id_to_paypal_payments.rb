@@ -1,4 +1,4 @@
-class PopulateMerchantIdToPaypalPayments < ActiveRecord::Migration
+class PopulateMerchantIdToPaypalPayments < ActiveRecord::Migration[5.2]
   def up
     # To migrate seller's Sharetribe person ID to paypal payments, we have to options:
     #

@@ -1,4 +1,4 @@
-class RemoveSubdomainFromCommunitiesDomain < ActiveRecord::Migration
+class RemoveSubdomainFromCommunitiesDomain < ActiveRecord::Migration[5.2]
   def up
     execute("UPDATE communities SET domain = NULL WHERE INSTR(domain, '.') = 0")
   end

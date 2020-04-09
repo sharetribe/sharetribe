@@ -1,4 +1,4 @@
-class CreateItemReservations < ActiveRecord::Migration
+class CreateItemReservations < ActiveRecord::Migration[5.2]
   def self.up
     create_table :item_reservations do |t|
       t.integer :item_id

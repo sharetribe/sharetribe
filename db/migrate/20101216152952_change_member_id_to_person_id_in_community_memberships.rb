@@ -1,4 +1,4 @@
-class ChangeMemberIdToPersonIdInCommunityMemberships < ActiveRecord::Migration
+class ChangeMemberIdToPersonIdInCommunityMemberships < ActiveRecord::Migration[5.2]
   def self.up
     rename_column(:community_memberships, :member_id, :person_id)
   end

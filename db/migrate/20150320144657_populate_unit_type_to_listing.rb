@@ -1,4 +1,4 @@
-class PopulateUnitTypeToListing < ActiveRecord::Migration
+class PopulateUnitTypeToListing < ActiveRecord::Migration[5.2]
   def up
     execute("
       UPDATE listings

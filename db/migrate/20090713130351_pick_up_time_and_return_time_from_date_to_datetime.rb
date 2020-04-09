@@ -1,4 +1,4 @@
-class PickUpTimeAndReturnTimeFromDateToDatetime < ActiveRecord::Migration
+class PickUpTimeAndReturnTimeFromDateToDatetime < ActiveRecord::Migration[5.2]
   def self.up
     change_column :conversations, :pick_up_time, :datetime
     change_column :conversations, :return_time, :datetime 

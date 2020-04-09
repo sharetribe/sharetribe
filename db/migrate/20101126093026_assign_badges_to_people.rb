@@ -1,4 +1,4 @@
-class AssignBadgesToPeople < ActiveRecord::Migration
+class AssignBadgesToPeople < ActiveRecord::Migration[5.2]
   
   def self.up
     badge_receivers = []

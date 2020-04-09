@@ -1,4 +1,4 @@
-class MoveCustomHeadScriptToCommunity < ActiveRecord::Migration
+class MoveCustomHeadScriptToCommunity < ActiveRecord::Migration[5.2]
   def up
     ensure_each_community_has_at_most_one_custom_head_script
     

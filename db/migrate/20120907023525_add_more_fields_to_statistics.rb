@@ -1,4 +1,4 @@
-class AddMoreFieldsToStatistics < ActiveRecord::Migration
+class AddMoreFieldsToStatistics < ActiveRecord::Migration[5.2]
   def self.up
     add_column :statistics, :listings_count, :integer
     add_column :statistics, :new_listings_last_week, :integer

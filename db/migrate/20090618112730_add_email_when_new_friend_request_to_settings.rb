@@ -1,4 +1,4 @@
-class AddEmailWhenNewFriendRequestToSettings < ActiveRecord::Migration
+class AddEmailWhenNewFriendRequestToSettings < ActiveRecord::Migration[5.2]
   def self.up
     add_column :settings, :email_when_new_friend_request, :integer, :default => 1
   end

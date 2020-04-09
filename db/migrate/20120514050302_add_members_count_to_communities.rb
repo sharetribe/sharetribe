@@ -1,4 +1,4 @@
-class AddMembersCountToCommunities < ActiveRecord::Migration
+class AddMembersCountToCommunities < ActiveRecord::Migration[5.2]
   def self.up
     add_column :communities, :members_count, :integer, :default => 0
     Community.reset_column_information

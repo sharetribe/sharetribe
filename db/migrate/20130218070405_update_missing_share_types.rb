@@ -1,4 +1,4 @@
-class UpdateMissingShareTypes < ActiveRecord::Migration
+class UpdateMissingShareTypes < ActiveRecord::Migration[5.2]
   def up
     Listing.find_each do |listing|
       if listing.share_type.nil? && listing.listing_type_old.present?
