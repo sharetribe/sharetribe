@@ -1,3 +1,46 @@
+DEFAULT_CATEGORIES = [
+  {
+    "item" => [
+      "tools",
+      "sports",
+      "music",
+      "books",
+      "games",
+      "furniture",
+      "outdoors",
+      "food",
+      "electronics",
+      "pets",
+      "film",
+      "clothes",
+      "garden",
+      "travel",
+      "other"
+    ]
+  },
+  "favor",
+  "rideshare",
+  "housing"
+]
+
+DEFAULT_SHARE_TYPES = {
+  "offer" => {:categories => ["item", "favor", "rideshare", "housing"]},
+  "sell" => {:parent => "offer", :categories => ["item", "housing"], :price => true, :payment => true},
+  "rent_out" => {:parent => "offer", :categories => ["item", "housing"], :price => true, :payment => true, :price_quantity_placeholder => "time"},
+  "lend" => {:parent => "offer", :categories => ["item"]},
+  "offer_to_swap" => {:parent => "offer", :categories => ["item"]},
+  "give_away" => {:parent => "offer", :categories => ["item"]},
+  "share_for_free" => {:parent => "offer", :categories => ["housing"]},
+
+  "request" => {:categories => ["item", "favor", "rideshare", "housing"]},
+  "buy" => {:parent => "request", :categories => ["item", "housing"], :payment => true},
+  "rent" => {:parent => "request", :categories => ["item", "housing"], :payment => true},
+  "borrow" => {:parent => "request", :categories => ["item"]},
+  "request_to_swap" => {:parent => "request", :categories => ["item"]},
+  "receive" => {:parent => "request", :categories => ["item"]},
+  "accept_for_free" => {:parent => "request", :categories => ["housing"]}
+}
+
 def old_seeds
   Listing.find(:all).each { |listing| listing.update_attribute :last_modified, listing.created_at}
   Person.find(:all).each do |person|
@@ -47,49 +90,6 @@ def old_seeds
     end
     s.save
   end
-
-  DEFAULT_CATEGORIES = [
-    {
-      "item" => [
-        "tools",
-        "sports",
-        "music",
-        "books",
-        "games",
-        "furniture",
-        "outdoors",
-        "food",
-        "electronics",
-        "pets",
-        "film",
-        "clothes",
-        "garden",
-        "travel",
-        "other"
-      ]
-    },
-    "favor",
-    "rideshare",
-    "housing"
-  ]
-
-  DEFAULT_SHARE_TYPES = {
-    "offer" => {:categories => ["item", "favor", "rideshare", "housing"]},
-    "sell" => {:parent => "offer", :categories => ["item", "housing"], :price => true, :payment => true},
-    "rent_out" => {:parent => "offer", :categories => ["item", "housing"], :price => true, :payment => true, :price_quantity_placeholder => "time"},
-    "lend" => {:parent => "offer", :categories => ["item"]},
-    "offer_to_swap" => {:parent => "offer", :categories => ["item"]},
-    "give_away" => {:parent => "offer", :categories => ["item"]},
-    "share_for_free" => {:parent => "offer", :categories => ["housing"]},
-
-    "request" => {:categories => ["item", "favor", "rideshare", "housing"]},
-    "buy" => {:parent => "request", :categories => ["item", "housing"], :payment => true},
-    "rent" => {:parent => "request", :categories => ["item", "housing"], :payment => true},
-    "borrow" => {:parent => "request", :categories => ["item"]},
-    "request_to_swap" => {:parent => "request", :categories => ["item"]},
-    "receive" => {:parent => "request", :categories => ["item"]},
-    "accept_for_free" => {:parent => "request", :categories => ["housing"]}
-  }
 
   params = {:community_id => nil, :categories => DEFAULT_CATEGORIES, :share_types => DEFAULT_SHARE_TYPES}
   community_id = params[:community_id] || (params[:community] ? params[:community].id : nil)
@@ -260,4 +260,4 @@ def old_seeds
     puts ""
   end
 
-end 
+end
