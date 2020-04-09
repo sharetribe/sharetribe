@@ -18,8 +18,8 @@ def up
 
      # remove old style category indexes
      
-     remove_index :listings, :name => "index_listings_on_category" if index_name_exists?(:listings, "index_listings_on_category", false)
-     remove_index :listings, :name => "index_listings_on_share_type" if index_name_exists?(:listings, "index_listings_on_share_type", false)
+     remove_index :listings, :name => "index_listings_on_category" if index_name_exists?(:listings, "index_listings_on_category")
+     remove_index :listings, :name => "index_listings_on_share_type" if index_name_exists?(:listings, "index_listings_on_share_type")
 
      add_index :listings, :category_id
      add_index :listings, :share_type_id
