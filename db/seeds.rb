@@ -16,3 +16,8 @@ KassiEvent.all.each do |event|
                                    :role => role)
   end
 end
+PersonComment.all.each do |comment|
+  unless comment.grade
+    comment.update_attribute(:grade, 0.5)
+  end
+end
