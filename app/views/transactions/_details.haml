@@ -12,3 +12,10 @@
 
       %div{:id => "transaction_status"}
         = render :partial => "transactions/status/status", :locals => { :__transaction_model => @transaction, role: role, is_author: is_author }
+
+  .row
+    .col-12
+      = form_tag new_transaction_path(listing_id: @listing.id), :method => :get, :id => "booking-dates" do |f|
+        = hidden_field_tag(:listing_id, @listing.id)
+        %button
+          = t("conversations.show.book_user", :person => PersonViewUtils.person_display_name_for_type(@transaction.starter, "first_name_only"))

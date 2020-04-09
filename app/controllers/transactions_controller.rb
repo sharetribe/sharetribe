@@ -156,6 +156,7 @@ class TransactionsController < ApplicationController
 
 
     @transaction = @current_community.transactions.find(params[:id])
+    @listing = @transaction.listing
     m_admin = @current_user.has_admin_rights?(@current_community)
     m_participant = @current_user.id == @transaction.starter_id || @current_user.id == @transaction.listing_author_id
 
