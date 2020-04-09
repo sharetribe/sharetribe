@@ -182,3 +182,6 @@ Rails.application.config.AVAILABLE_LOCALES.each do |loc|
     end
   end
 end
+
+CategoriesHelper.update_translations
+
