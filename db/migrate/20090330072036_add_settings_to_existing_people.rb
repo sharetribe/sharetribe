@@ -1,8 +1,6 @@
 class AddSettingsToExistingPeople < ActiveRecord::Migration[5.2]
-def self.up
-    Person.find(:all).each do |person| 
-      person.settings = Settings.create
-    end  
+  def self.up
+
   end
 
   def self.down
