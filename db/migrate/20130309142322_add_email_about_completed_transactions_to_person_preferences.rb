@@ -1,5 +1,5 @@
-class AddEmailAboutCompletedTransactionsToPersonPreferences < ActiveRecord::Migration
-  def up
+class AddEmailAboutCompletedTransactionsToPersonPreferences < ActiveRecord::Migration[5.2]
+def up
     Person.find_each do |person|
       person.preferences["email_about_completed_transactions"] = true
       person.save

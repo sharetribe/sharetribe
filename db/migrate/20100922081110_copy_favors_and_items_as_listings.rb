@@ -1,5 +1,5 @@
-class CopyFavorsAndItemsAsListings < ActiveRecord::Migration
-  class Item < ApplicationRecord
+class CopyFavorsAndItemsAsListings < ActiveRecord::Migration[5.2]
+class Item < ApplicationRecord
   end
   class Favor < ApplicationRecord
   end

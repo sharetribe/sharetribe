@@ -1,6 +1,5 @@
-class ProcessListingImagesWihtNullValidUntil < ActiveRecord::Migration
-
-  def up
+class ProcessListingImagesWihtNullValidUntil < ActiveRecord::Migration[5.2]
+def up
     # Select listing images that are related to listings
     # that are not closed. For every 1000 of those images
     # create a delayed job that creates square versions

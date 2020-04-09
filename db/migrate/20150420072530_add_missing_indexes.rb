@@ -1,5 +1,5 @@
-class AddMissingIndexes < ActiveRecord::Migration
-  def change
+class AddMissingIndexes < ActiveRecord::Migration[5.2]
+def change
     add_index "categories", ["community_id"], name: "index_categories_on_community_id"
     add_index "community_plans", ["community_id"], name: "index_community_plans_on_community_id"
     add_index "listings", ["category_id"], name: "index_listings_on_new_category_id"

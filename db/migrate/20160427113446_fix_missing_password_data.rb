@@ -1,5 +1,5 @@
-class FixMissingPasswordData < ActiveRecord::Migration
-  def up
+class FixMissingPasswordData < ActiveRecord::Migration[5.2]
+def up
     exec_update(
       "UPDATE people
        SET

@@ -1,5 +1,5 @@
-class AddSettingsToCommunities < ActiveRecord::Migration
-  def self.up
+class AddSettingsToCommunities < ActiveRecord::Migration[5.2]
+def self.up
     add_column :communities, :settings, :text
   end
 

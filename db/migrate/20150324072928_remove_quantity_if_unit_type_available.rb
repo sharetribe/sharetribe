@@ -1,5 +1,5 @@
-class RemoveQuantityIfUnitTypeAvailable < ActiveRecord::Migration
-  def up
+class RemoveQuantityIfUnitTypeAvailable < ActiveRecord::Migration[5.2]
+def up
     execute("
       UPDATE listings
       LEFT JOIN listing_units ON (listings.transaction_type_id = listing_units.transaction_type_id)

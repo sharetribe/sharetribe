@@ -1,6 +1,5 @@
-class ChangeBlacklistedUsernames < ActiveRecord::Migration
-  
-  def up
+class ChangeBlacklistedUsernames < ActiveRecord::Migration[5.2]
+def up
     blacklisted_usernames_in_database.each do |blacklisted_username|
       replacement = find_available_replacement(blacklisted_username)
       execute "UPDATE people SET username=#{sanitize(replacement)} WHERE username=#{sanitize(blacklisted_username)} LIMIT 1"

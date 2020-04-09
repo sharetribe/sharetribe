@@ -1,5 +1,5 @@
-class DuplicateLocationsBasedOnClonedFrom < ActiveRecord::Migration
-  def up
+class DuplicateLocationsBasedOnClonedFrom < ActiveRecord::Migration[5.2]
+def up
     execute("
       INSERT INTO locations
         (latitude, longitude, address, google_address, created_at, updated_at, person_id, location_type)

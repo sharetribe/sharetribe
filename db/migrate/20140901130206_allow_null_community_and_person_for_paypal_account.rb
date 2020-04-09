@@ -1,5 +1,5 @@
-class AllowNullCommunityAndPersonForPaypalAccount < ActiveRecord::Migration
-  def up
+class AllowNullCommunityAndPersonForPaypalAccount < ActiveRecord::Migration[5.2]
+def up
     change_column :paypal_accounts, :person_id, :string, :null => true
     change_column :paypal_accounts, :community_id, :int, :null => true
   end

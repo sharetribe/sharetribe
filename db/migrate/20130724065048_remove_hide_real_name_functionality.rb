@@ -1,5 +1,5 @@
-class RemoveHideRealNameFunctionality < ActiveRecord::Migration
-  def up
+class RemoveHideRealNameFunctionality < ActiveRecord::Migration[5.2]
+def up
     remove_column :communities, :select_whether_name_is_shown_to_everybody
     remove_column :people, :show_real_name_to_other_users
   end

@@ -1,5 +1,5 @@
-class PopulateListingShapes < ActiveRecord::Migration
-  def up
+class PopulateListingShapes < ActiveRecord::Migration[5.2]
+def up
     execute("
       INSERT INTO listing_shapes (
         community_id,

@@ -1,5 +1,5 @@
-class CreateEmails < ActiveRecord::Migration
-  def self.up
+class CreateEmails < ActiveRecord::Migration[5.2]
+def self.up
     create_table :emails do |t|
       t.string :person_id
       t.string :address

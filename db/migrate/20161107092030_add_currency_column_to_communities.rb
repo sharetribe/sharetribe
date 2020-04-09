@@ -1,5 +1,5 @@
-class AddCurrencyColumnToCommunities < ActiveRecord::Migration
-  def up
+class AddCurrencyColumnToCommunities < ActiveRecord::Migration[5.2]
+def up
     add_column :communities, :currency, :string, limit: 3, after: :available_currencies
   end
 

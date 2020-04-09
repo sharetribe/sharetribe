@@ -1,5 +1,5 @@
-class RemoveTransactionColumnsFromConversation < ActiveRecord::Migration
-  def up
+class RemoveTransactionColumnsFromConversation < ActiveRecord::Migration[5.2]
+def up
     remove_column :conversations, :type, :automatic_confirmation_after_days
   end
 

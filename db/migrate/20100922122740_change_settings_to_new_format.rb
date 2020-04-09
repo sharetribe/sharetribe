@@ -1,5 +1,5 @@
-class ChangeSettingsToNewFormat < ActiveRecord::Migration
-  class Setting < ApplicationRecord
+class ChangeSettingsToNewFormat < ActiveRecord::Migration[5.2]
+class Setting < ApplicationRecord
   end
   def self.up
     change_column :people, :preferences, :text

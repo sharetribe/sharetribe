@@ -1,5 +1,5 @@
-class FixRequestTransactionProcess < ActiveRecord::Migration
-  def up
+class FixRequestTransactionProcess < ActiveRecord::Migration[5.2]
+def up
     execute("
       UPDATE transaction_types
 

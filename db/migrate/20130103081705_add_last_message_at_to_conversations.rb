@@ -1,5 +1,5 @@
-class AddLastMessageAtToConversations < ActiveRecord::Migration
-  def up
+class AddLastMessageAtToConversations < ActiveRecord::Migration[5.2]
+def up
     add_column :conversations, :last_message_at, :datetime
     Conversation.all.each do |c|
       # Participations have the same dates so just look at first one

@@ -1,5 +1,5 @@
-class AddLegacyEncryptedPassword < ActiveRecord::Migration
-  # Note: This migration will lose data and make logging in impossible without password resets when migrated down.
+class AddLegacyEncryptedPassword < ActiveRecord::Migration[5.2]
+# Note: This migration will lose data and make logging in impossible without password resets when migrated down.
 
   def change
     reversible do |dir|

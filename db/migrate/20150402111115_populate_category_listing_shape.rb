@@ -1,5 +1,5 @@
-class PopulateCategoryListingShape < ActiveRecord::Migration
-  def up
+class PopulateCategoryListingShape < ActiveRecord::Migration[5.2]
+def up
     execute("
       INSERT INTO category_listing_shapes (category_id, listing_shape_id)
       (

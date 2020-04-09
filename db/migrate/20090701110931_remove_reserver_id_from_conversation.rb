@@ -1,5 +1,5 @@
-class RemoveReserverIdFromConversation < ActiveRecord::Migration
-  def self.up
+class RemoveReserverIdFromConversation < ActiveRecord::Migration[5.2]
+def self.up
     remove_column :conversations, :reserver_id
   end
 

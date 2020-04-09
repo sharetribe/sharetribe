@@ -1,5 +1,5 @@
-class AddTransactionProcessIdToTransactionType < ActiveRecord::Migration
-  def up
+class AddTransactionProcessIdToTransactionType < ActiveRecord::Migration[5.2]
+def up
     add_column :transaction_types, :transaction_process_id, :int, after: :community_id
   end
 

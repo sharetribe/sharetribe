@@ -1,5 +1,5 @@
-class MoveDataToTransactionCurrentState < ActiveRecord::Migration
-  def up
+class MoveDataToTransactionCurrentState < ActiveRecord::Migration[5.2]
+def up
     execute(<<-EOQ)
       # Get 'last_transition_to_state'
       # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)

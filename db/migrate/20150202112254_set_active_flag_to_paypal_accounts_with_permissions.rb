@@ -8,8 +8,8 @@
 # New: Account is marked as active if:
 # - permissions are verified
 #
-class SetActiveFlagToPaypalAccountsWithPermissions < ActiveRecord::Migration
-  def up
+class SetActiveFlagToPaypalAccountsWithPermissions < ActiveRecord::Migration[5.2]
+def up
     execute("
       UPDATE paypal_accounts
       LEFT JOIN order_permissions ON (paypal_accounts.id = order_permissions.paypal_account_id)

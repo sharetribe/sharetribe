@@ -1,5 +1,5 @@
-class CreateNewsItems < ActiveRecord::Migration
-  def self.up
+class CreateNewsItems < ActiveRecord::Migration[5.2]
+def self.up
     create_table :news_items do |t|
       t.string :title
       t.string :content

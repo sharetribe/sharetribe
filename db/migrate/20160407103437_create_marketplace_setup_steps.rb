@@ -1,5 +1,5 @@
-class CreateMarketplaceSetupSteps < ActiveRecord::Migration
-  def change
+class CreateMarketplaceSetupSteps < ActiveRecord::Migration[5.2]
+def change
     create_table :marketplace_setup_steps do |t|
       t.integer :community_id, null: false
       t.boolean :slogan_and_description, null: false, default: false

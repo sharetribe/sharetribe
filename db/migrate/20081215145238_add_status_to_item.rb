@@ -1,5 +1,5 @@
-class AddStatusToItem < ActiveRecord::Migration
-  def self.up
+class AddStatusToItem < ActiveRecord::Migration[5.2]
+def self.up
     add_column :items, :status, :string, :default => "enabled"
   end
 

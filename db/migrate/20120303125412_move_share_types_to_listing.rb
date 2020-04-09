@@ -1,5 +1,5 @@
-class MoveShareTypesToListing < ActiveRecord::Migration
-  def self.up
+class MoveShareTypesToListing < ActiveRecord::Migration[5.2]
+def self.up
     Listing.all.each do |listing|
       listing.update_attribute(:share_type, listing.share_types.first.name) unless listing.share_types.empty?
     end

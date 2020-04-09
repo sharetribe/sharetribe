@@ -1,5 +1,5 @@
-class SetTargetIdsOfTestimonials < ActiveRecord::Migration
-  def self.up
+class SetTargetIdsOfTestimonials < ActiveRecord::Migration[5.2]
+def self.up
     Testimonial.all.each do |testimonial|
       testimonial.target = testimonial.participation.conversation.other_party(testimonial.author)
       testimonial.save

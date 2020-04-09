@@ -1,7 +1,5 @@
-class AddDefaultCategories < ActiveRecord::Migration
-
-
-  def up
+class AddDefaultCategories < ActiveRecord::Migration[5.2]
+def up
     load_default_categories_to_db({:without_description_translations => true, :without_price_updates => true})
     # the above method was changed too much to run this migration on older installations so copy the relevant code here
   end

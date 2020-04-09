@@ -1,7 +1,7 @@
 require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 
-class MigrateStatusesToTransactionTransitions < ActiveRecord::Migration
-  include LoggingHelper
+class MigrateStatusesToTransactionTransitions < ActiveRecord::Migration[5.2]
+include LoggingHelper
 
   def up
     progress = ProgressReporter.new(Conversation.count, 500)

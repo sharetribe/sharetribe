@@ -1,8 +1,8 @@
 class ListingComment < ApplicationRecord
 end
 
-class MigrateListingCommentsForKassi2 < ActiveRecord::Migration
-  def self.up
+class MigrateListingCommentsForKassi2 < ActiveRecord::Migration[5.2]
+def self.up
 
     say  "This migration simply makes a comment from each listing_comment."
     say "This does NOT DELETE the data from listing_comments", true

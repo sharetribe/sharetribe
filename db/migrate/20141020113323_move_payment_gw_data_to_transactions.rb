@@ -1,5 +1,5 @@
-class MovePaymentGwDataToTransactions < ActiveRecord::Migration
-  def up
+class MovePaymentGwDataToTransactions < ActiveRecord::Migration[5.2]
+def up
     execute(<<-EOQ)
        UPDATE transactions t
        LEFT JOIN payment_gateways pgw ON (t.community_id = pgw.community_id)

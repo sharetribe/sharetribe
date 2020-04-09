@@ -1,5 +1,5 @@
-class CreatePersonConversations < ActiveRecord::Migration
-  def self.up
+class CreatePersonConversations < ActiveRecord::Migration[5.2]
+def self.up
     create_table :person_conversations do |t|
       t.string :person_id
       t.integer :conversation_id

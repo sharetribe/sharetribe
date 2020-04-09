@@ -1,5 +1,5 @@
-class AddNewCommunitySettings < ActiveRecord::Migration
-  def change
+class AddNewCommunitySettings < ActiveRecord::Migration[5.2]
+def change
     add_column :communities, :facebook_connect_id, :string
     add_column :communities, :facebook_connect_secret, :string
     add_column :communities, :google_analytics_key, :string

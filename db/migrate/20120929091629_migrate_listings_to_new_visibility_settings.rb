@@ -1,5 +1,5 @@
-class MigrateListingsToNewVisibilitySettings < ActiveRecord::Migration
-  def self.up
+class MigrateListingsToNewVisibilitySettings < ActiveRecord::Migration[5.2]
+def self.up
     Listing.all.each do |listing|
       case listing.visibility
       when "everybody"

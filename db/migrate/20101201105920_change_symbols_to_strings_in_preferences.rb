@@ -1,5 +1,5 @@
-class ChangeSymbolsToStringsInPreferences < ActiveRecord::Migration
-  def self.up
+class ChangeSymbolsToStringsInPreferences < ActiveRecord::Migration[5.2]
+def self.up
     Person.all.each do |person|
       person.preferences.each do |key, value|
         if key.is_a?(Symbol)

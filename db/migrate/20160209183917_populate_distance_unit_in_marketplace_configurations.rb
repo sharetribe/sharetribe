@@ -1,5 +1,5 @@
-class PopulateDistanceUnitInMarketplaceConfigurations < ActiveRecord::Migration
-  def up
+class PopulateDistanceUnitInMarketplaceConfigurations < ActiveRecord::Migration[5.2]
+def up
     # Run this population script after all the codes are in production
     execute("
       UPDATE marketplace_configurations mc, communities c

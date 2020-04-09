@@ -1,5 +1,5 @@
-class AddListingShapes < ActiveRecord::Migration
-  def change
+class AddListingShapes < ActiveRecord::Migration[5.2]
+def change
     create_table :listing_shapes do |t|
       t.integer :community_id, null: false
       t.integer :transaction_process_id, null: false

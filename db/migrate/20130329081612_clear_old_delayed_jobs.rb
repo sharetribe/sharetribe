@@ -1,5 +1,5 @@
-class ClearOldDelayedJobs < ActiveRecord::Migration
-  def up
+class ClearOldDelayedJobs < ActiveRecord::Migration[5.2]
+def up
     # Clear old jobs in the queue (by clearing all)
     Rake::Task['jobs:clear'].invoke
   end

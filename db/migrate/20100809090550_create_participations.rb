@@ -1,5 +1,5 @@
-class CreateParticipations < ActiveRecord::Migration
-  def self.up
+class CreateParticipations < ActiveRecord::Migration[5.2]
+def self.up
     create_table :participations do |t|
       t.string :person_id
       t.integer :conversation_id

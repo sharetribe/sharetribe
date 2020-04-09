@@ -1,7 +1,7 @@
 require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 
-class CreateCommunitySpecificCategories < ActiveRecord::Migration
-  include LoggingHelper
+class CreateCommunitySpecificCategories < ActiveRecord::Migration[5.2]
+include LoggingHelper
 
   def up
     puts "Going through #{Community.count} communities and creating needed categories for each:"

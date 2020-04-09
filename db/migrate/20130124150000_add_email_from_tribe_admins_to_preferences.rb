@@ -1,5 +1,5 @@
-class AddEmailFromTribeAdminsToPreferences < ActiveRecord::Migration
-  def up
+class AddEmailFromTribeAdminsToPreferences < ActiveRecord::Migration[5.2]
+def up
     Person.find_each do |person|
       person.preferences["email_from_admins"] = true
       person.save

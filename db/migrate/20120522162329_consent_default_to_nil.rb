@@ -1,5 +1,5 @@
-class ConsentDefaultToNil < ActiveRecord::Migration
-  def self.up
+class ConsentDefaultToNil < ActiveRecord::Migration[5.2]
+def self.up
     change_column_default(:community_memberships, :consent, nil)
     change_column_default(:communities, :consent, nil)
   end

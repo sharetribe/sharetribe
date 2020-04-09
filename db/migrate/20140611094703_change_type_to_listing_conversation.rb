@@ -1,5 +1,5 @@
-class ChangeTypeToListingConversation < ActiveRecord::Migration
-  def up
+class ChangeTypeToListingConversation < ActiveRecord::Migration[5.2]
+def up
     Conversation.update_all("type = 'ListingConversation'", "listing_id IS NOT NULL")
   end
 

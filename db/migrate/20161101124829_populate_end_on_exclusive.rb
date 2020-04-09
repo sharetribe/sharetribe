@@ -1,5 +1,5 @@
-class PopulateEndOnExclusive < ActiveRecord::Migration
-  def up
+class PopulateEndOnExclusive < ActiveRecord::Migration[5.2]
+def up
     name = "Populate end_on_exclusive for day bookings"
     exec_update([
                   "UPDATE bookings",

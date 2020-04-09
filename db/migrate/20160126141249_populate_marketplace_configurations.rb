@@ -1,5 +1,5 @@
-class PopulateMarketplaceConfigurations < ActiveRecord::Migration
-  def up
+class PopulateMarketplaceConfigurations < ActiveRecord::Migration[5.2]
+def up
     execute("
       INSERT INTO marketplace_configurations (community_id, main_search, created_at, updated_at)
       SELECT c.id, 'keyword', NOW(), NOW()

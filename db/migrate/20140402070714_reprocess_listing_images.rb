@@ -1,5 +1,5 @@
-class ReprocessListingImages < ActiveRecord::Migration
-  say "This migration will reprocess all the images from #{Listing.count} listings"
+class ReprocessListingImages < ActiveRecord::Migration[5.2]
+say "This migration will reprocess all the images from #{Listing.count} listings"
 
   def up
     ListingImage.order("id DESC").each do |listing_image|

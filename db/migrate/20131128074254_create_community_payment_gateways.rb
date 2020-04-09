@@ -1,5 +1,5 @@
-class CreateCommunityPaymentGateways < ActiveRecord::Migration
-  def change
+class CreateCommunityPaymentGateways < ActiveRecord::Migration[5.2]
+def change
     create_table :community_payment_gateways do |t|
       t.integer :community_id
       t.integer :payment_gateway_id

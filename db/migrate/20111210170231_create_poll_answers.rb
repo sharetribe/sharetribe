@@ -1,5 +1,5 @@
-class CreatePollAnswers < ActiveRecord::Migration
-  def self.up
+class CreatePollAnswers < ActiveRecord::Migration[5.2]
+def self.up
     create_table :poll_answers do |t|
       t.integer :poll_id
       t.integer :poll_option_id

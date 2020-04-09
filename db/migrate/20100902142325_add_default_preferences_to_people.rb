@@ -1,5 +1,5 @@
-class AddDefaultPreferencesToPeople < ActiveRecord::Migration
-  def self.up
+class AddDefaultPreferencesToPeople < ActiveRecord::Migration[5.2]
+def self.up
     Person.all.each do |person| 
       person.update_attributes(:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true"})
     end  

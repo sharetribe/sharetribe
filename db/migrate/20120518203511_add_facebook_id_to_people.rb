@@ -1,5 +1,5 @@
-class AddFacebookIdToPeople < ActiveRecord::Migration
-  def self.up
+class AddFacebookIdToPeople < ActiveRecord::Migration[5.2]
+def self.up
     add_column :people, :facebook_id, :string
     
     add_index :people, :facebook_id, :unique => true

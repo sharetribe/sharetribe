@@ -1,7 +1,7 @@
 require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 
-class AddNewLogoStyleAppleTouch < ActiveRecord::Migration
-  include LoggingHelper
+class AddNewLogoStyleAppleTouch < ActiveRecord::Migration[5.2]
+include LoggingHelper
 
   def up
     communities_with_logos = Community.where("logo_file_name IS NOT NULL")

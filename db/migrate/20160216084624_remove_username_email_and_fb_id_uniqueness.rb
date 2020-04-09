@@ -1,5 +1,5 @@
-class RemoveUsernameEmailAndFbIdUniqueness < ActiveRecord::Migration
-  def change
+class RemoveUsernameEmailAndFbIdUniqueness < ActiveRecord::Migration[5.2]
+def change
     reversible do |dir|
       dir.up {
         remove_index :people, :username

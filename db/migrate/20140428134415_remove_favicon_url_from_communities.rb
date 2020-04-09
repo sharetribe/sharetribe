@@ -1,5 +1,5 @@
-class RemoveFaviconUrlFromCommunities < ActiveRecord::Migration
-  def up
+class RemoveFaviconUrlFromCommunities < ActiveRecord::Migration[5.2]
+def up
     remove_column :communities, :favicon_url
   end
 

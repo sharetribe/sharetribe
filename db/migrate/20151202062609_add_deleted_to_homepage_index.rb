@@ -1,5 +1,5 @@
-class AddDeletedToHomepageIndex < ActiveRecord::Migration
-  def up
+class AddDeletedToHomepageIndex < ActiveRecord::Migration[5.2]
+def up
     remove_index "listings", :name => "homepage_query"
     remove_index "listings", :name => "homepage_query_valid_until"
     add_index "listings", ["community_id", "open", "sort_date", "deleted"], :name => "homepage_query"

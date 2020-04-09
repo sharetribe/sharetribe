@@ -1,5 +1,5 @@
-class CopyCommunityIdFromPeopleToEmails < ActiveRecord::Migration
-  def up
+class CopyCommunityIdFromPeopleToEmails < ActiveRecord::Migration[5.2]
+def up
     exec_update(
       ["UPDATE emails e",
        "LEFT JOIN people p ON p.id = e.person_id",

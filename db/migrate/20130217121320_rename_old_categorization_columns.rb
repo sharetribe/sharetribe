@@ -1,5 +1,5 @@
-class RenameOldCategorizationColumns < ActiveRecord::Migration
-  def up
+class RenameOldCategorizationColumns < ActiveRecord::Migration[5.2]
+def up
       # This is done in order to not accidentally read the old values anymore, 
       # but to keep them still safe in the DB as backup for a while if bugs found in the news system
       rename_column :listings, :category, :category_old

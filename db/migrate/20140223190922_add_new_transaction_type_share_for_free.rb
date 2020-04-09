@@ -1,5 +1,5 @@
-class AddNewTransactionTypeShareForFree < ActiveRecord::Migration
-  def up
+class AddNewTransactionTypeShareForFree < ActiveRecord::Migration[5.2]
+def up
     Category.where(name: "housing").each do |category|
 
       # don't react if community id is nil

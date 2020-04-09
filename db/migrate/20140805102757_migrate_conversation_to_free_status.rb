@@ -1,7 +1,7 @@
 require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 
-class MigrateConversationToFreeStatus < ActiveRecord::Migration
-  include LoggingHelper
+class MigrateConversationToFreeStatus < ActiveRecord::Migration[5.2]
+include LoggingHelper
 
   def up
     convs = ListingConversation.select { |conv| conv.status != "free" && no_payments?(conv.community) }

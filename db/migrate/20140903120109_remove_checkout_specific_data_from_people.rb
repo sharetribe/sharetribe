@@ -1,5 +1,5 @@
-class RemoveCheckoutSpecificDataFromPeople < ActiveRecord::Migration
-  def up
+class RemoveCheckoutSpecificDataFromPeople < ActiveRecord::Migration[5.2]
+def up
     remove_column :people, :checkout_merchant_id, :checkout_merchant_key, :company_id
   end
 

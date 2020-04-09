@@ -1,5 +1,5 @@
-class CreateCommunities < ActiveRecord::Migration
-  def self.up
+class CreateCommunities < ActiveRecord::Migration[5.2]
+def self.up
     create_table :communities do |t|
       t.string :name
       t.string :domain

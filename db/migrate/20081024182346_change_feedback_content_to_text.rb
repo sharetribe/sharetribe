@@ -1,5 +1,5 @@
-class ChangeFeedbackContentToText < ActiveRecord::Migration
-  def self.up
+class ChangeFeedbackContentToText < ActiveRecord::Migration[5.2]
+def self.up
     change_column :feedbacks, :content, :text
   end
 

@@ -1,5 +1,5 @@
-class CreateMissingProcesses < ActiveRecord::Migration
-  def up
+class CreateMissingProcesses < ActiveRecord::Migration[5.2]
+def up
     # add 'none', author_is_seller: true
     execute("
       INSERT INTO transaction_processes (

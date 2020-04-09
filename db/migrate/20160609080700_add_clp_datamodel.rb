@@ -1,5 +1,5 @@
-class AddClpDatamodel < ActiveRecord::Migration
-  def up
+class AddClpDatamodel < ActiveRecord::Migration[5.2]
+def up
     create_table :landing_pages do |t|
       t.column :community_id, :integer, null: false
       t.column :enabled, :boolean, null: false, default: false

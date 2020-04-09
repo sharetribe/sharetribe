@@ -1,7 +1,7 @@
 require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 
-class InitializeCategoryUrls < ActiveRecord::Migration
-  include LoggingHelper
+class InitializeCategoryUrls < ActiveRecord::Migration[5.2]
+include LoggingHelper
 
   def up
     Category.reset_column_information

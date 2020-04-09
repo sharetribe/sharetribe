@@ -1,5 +1,5 @@
-class ChangePaymentColumnToInteger < ActiveRecord::Migration
-  def self.up
+class ChangePaymentColumnToInteger < ActiveRecord::Migration[5.2]
+def self.up
     change_column :favors, :payment, :integer
   end
 

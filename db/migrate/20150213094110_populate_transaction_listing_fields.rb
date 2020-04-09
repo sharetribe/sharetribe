@@ -1,5 +1,5 @@
-class PopulateTransactionListingFields < ActiveRecord::Migration
-  def up
+class PopulateTransactionListingFields < ActiveRecord::Migration[5.2]
+def up
     execute("
 UPDATE transactions t
 LEFT JOIN listings l on t.listing_id = l.id

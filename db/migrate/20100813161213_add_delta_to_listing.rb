@@ -1,5 +1,5 @@
-class AddDeltaToListing < ActiveRecord::Migration
-  def self.up
+class AddDeltaToListing < ActiveRecord::Migration[5.2]
+def self.up
     add_column :listings, :delta, :boolean, :default => true, :null => false
   end
 

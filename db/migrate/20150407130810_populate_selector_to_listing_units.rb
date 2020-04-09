@@ -1,5 +1,5 @@
-class PopulateSelectorToListingUnits < ActiveRecord::Migration
-  def up
+class PopulateSelectorToListingUnits < ActiveRecord::Migration[5.2]
+def up
     execute("UPDATE listing_units SET quantity_selector = 'day' WHERE unit_type = 'day'")
     execute("UPDATE listing_units SET quantity_selector = 'none' WHERE unit_type <> 'day'")
   end

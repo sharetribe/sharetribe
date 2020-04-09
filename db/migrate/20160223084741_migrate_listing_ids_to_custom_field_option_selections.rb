@@ -1,6 +1,5 @@
-class MigrateListingIdsToCustomFieldOptionSelections < ActiveRecord::Migration
-
-  # Run this population script after all the code changes are deployed first
+class MigrateListingIdsToCustomFieldOptionSelections < ActiveRecord::Migration[5.2]
+# Run this population script after all the code changes are deployed first
   def up
     execute("
       UPDATE custom_field_option_selections os, custom_field_values cfv

@@ -1,5 +1,5 @@
-class CreatePolls < ActiveRecord::Migration
-  def self.up
+class CreatePolls < ActiveRecord::Migration[5.2]
+def self.up
     create_table :polls do |t|
       t.string :title
       t.string :author_id

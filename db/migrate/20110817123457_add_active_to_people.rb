@@ -1,5 +1,5 @@
-class AddActiveToPeople < ActiveRecord::Migration
-  def self.up
+class AddActiveToPeople < ActiveRecord::Migration[5.2]
+def self.up
     add_column :people, :active, :boolean, :default => 1
   end
 

@@ -1,5 +1,5 @@
-class AddPricingDataToCommunities < ActiveRecord::Migration
-  def self.up
+class AddPricingDataToCommunities < ActiveRecord::Migration[5.2]
+def self.up
     add_column :communities, :user_limit, :integer
     add_column :communities, :monthly_price_in_euros, :float
   end

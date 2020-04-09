@@ -1,5 +1,5 @@
-class PopulateListingQuantityToTransactions < ActiveRecord::Migration
-  def up
+class PopulateListingQuantityToTransactions < ActiveRecord::Migration[5.2]
+def up
     # Transactions with booking
     execute("UPDATE transactions, bookings SET transactions.listing_quantity = (DATEDIFF(bookings.end_on, bookings.start_on) + 1) WHERE transactions.id = bookings.transaction_id")
   end

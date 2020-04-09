@@ -1,6 +1,5 @@
-class RemoveMultiCommunityListings < ActiveRecord::Migration
-
-  # Warning: This migration deletes data. Take backups.
+class RemoveMultiCommunityListings < ActiveRecord::Migration[5.2]
+# Warning: This migration deletes data. Take backups.
   #
   # Background: Earlier versions of Sharetribe supported posting the same listing
   # to multiple marketplaces. This functionality has been removed long ago. However,

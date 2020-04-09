@@ -1,5 +1,5 @@
-class CreateKassiEvents < ActiveRecord::Migration
-  def self.up
+class CreateKassiEvents < ActiveRecord::Migration[5.2]
+def self.up
     create_table :kassi_events do |t|
       t.string :receiver_id
       t.string :realizer_id

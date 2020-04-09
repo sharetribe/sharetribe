@@ -1,5 +1,5 @@
-class SwitchLocationIds < ActiveRecord::Migration
-  def self.up
+class SwitchLocationIds < ActiveRecord::Migration[5.2]
+def self.up
   remove_column :people, :location_id
   remove_column :listings, :origin_loc_id
   remove_column :listings, :destination_loc_id

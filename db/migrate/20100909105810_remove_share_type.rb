@@ -1,5 +1,5 @@
-class RemoveShareType < ActiveRecord::Migration
-  def self.up
+class RemoveShareType < ActiveRecord::Migration[5.2]
+def self.up
     remove_column :listings, :share_type
   end
 

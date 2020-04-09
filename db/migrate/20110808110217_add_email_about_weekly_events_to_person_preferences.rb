@@ -1,5 +1,5 @@
-class AddEmailAboutWeeklyEventsToPersonPreferences < ActiveRecord::Migration
-  def self.up
+class AddEmailAboutWeeklyEventsToPersonPreferences < ActiveRecord::Migration[5.2]
+def self.up
     Person.all.each do |person|
       person.update_attribute(:preferences, person.preferences.merge({"email_about_weekly_events" => true}))
     end

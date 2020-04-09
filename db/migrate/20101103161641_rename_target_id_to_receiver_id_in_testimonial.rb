@@ -1,5 +1,5 @@
-class RenameTargetIdToReceiverIdInTestimonial < ActiveRecord::Migration
-  def self.up
+class RenameTargetIdToReceiverIdInTestimonial < ActiveRecord::Migration[5.2]
+def self.up
     rename_column :testimonials, :target_id, :receiver_id
   end
 

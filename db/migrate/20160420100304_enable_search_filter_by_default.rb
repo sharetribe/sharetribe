@@ -1,5 +1,5 @@
-class EnableSearchFilterByDefault < ActiveRecord::Migration
-  def up
+class EnableSearchFilterByDefault < ActiveRecord::Migration[5.2]
+def up
     change_column :custom_fields, :search_filter, :boolean, default: true
   end
 

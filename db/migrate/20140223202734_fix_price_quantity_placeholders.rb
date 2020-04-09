@@ -18,10 +18,8 @@ class ShareType < ApplicationRecord
 
 end
 
-class FixPriceQuantityPlaceholders < ActiveRecord::Migration
-
-
-  def up
+class FixPriceQuantityPlaceholders < ActiveRecord::Migration[5.2]
+def up
 
     # handle default rentals
     Rent.find_each do |rental_tt|

@@ -1,5 +1,5 @@
-class AddMenuLinkTranslation < ActiveRecord::Migration
-  def up
+class AddMenuLinkTranslation < ActiveRecord::Migration[5.2]
+def up
     create_table :menu_link_translations do |t|
       t.integer :menu_link_id
       t.string :locale

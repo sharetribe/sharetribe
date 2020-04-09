@@ -1,5 +1,5 @@
-class AddTransactionTypeToListing < ActiveRecord::Migration
-  def self.up
+class AddTransactionTypeToListing < ActiveRecord::Migration[5.2]
+def self.up
     add_column :listings, :transaction_type, :string
   end
 

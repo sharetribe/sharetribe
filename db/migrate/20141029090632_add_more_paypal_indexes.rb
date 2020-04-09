@@ -1,5 +1,5 @@
-class AddMorePaypalIndexes < ActiveRecord::Migration
-  def change
+class AddMorePaypalIndexes < ActiveRecord::Migration[5.2]
+def change
     add_index :paypal_accounts, :community_id
     add_index :paypal_accounts, :payer_id
     add_index :paypal_accounts, :person_id

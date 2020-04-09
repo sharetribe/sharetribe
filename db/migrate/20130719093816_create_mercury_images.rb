@@ -1,5 +1,5 @@
-class CreateMercuryImages < ActiveRecord::Migration
-  def change
+class CreateMercuryImages < ActiveRecord::Migration[5.2]
+def change
     create_table :mercury_images do |t|
       t.string :image_file_name
       t.string :image_content_type

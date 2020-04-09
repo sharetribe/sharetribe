@@ -1,5 +1,5 @@
-class SetPriceQuantityPlaceholderNullToCommunitiesThatUseUnits < ActiveRecord::Migration
-  def up
+class SetPriceQuantityPlaceholderNullToCommunitiesThatUseUnits < ActiveRecord::Migration[5.2]
+def up
     execute("
       UPDATE listing_shapes
       LEFT JOIN listing_units ON listing_units.listing_shape_id = listing_shapes.id

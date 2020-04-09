@@ -1,5 +1,5 @@
-class RemoveTimesUsedFromAuthenticationToken < ActiveRecord::Migration
-  def up
+class RemoveTimesUsedFromAuthenticationToken < ActiveRecord::Migration[5.2]
+def up
     remove_column :auth_tokens, :times_used
   end
 

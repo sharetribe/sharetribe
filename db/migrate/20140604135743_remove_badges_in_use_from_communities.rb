@@ -1,5 +1,5 @@
-class RemoveBadgesInUseFromCommunities < ActiveRecord::Migration
-  def up
+class RemoveBadgesInUseFromCommunities < ActiveRecord::Migration[5.2]
+def up
     remove_column :communities, :badges_in_use
   end
 

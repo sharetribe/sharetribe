@@ -1,5 +1,5 @@
-class DeleteNullValuesFromCommunityMemberships < ActiveRecord::Migration
-  def up
+class DeleteNullValuesFromCommunityMemberships < ActiveRecord::Migration[5.2]
+def up
     execute("DELETE FROM community_memberships WHERE person_id IS NULL OR community_id IS NULL")
   end
 

@@ -1,5 +1,5 @@
-class FixReservedWordFromLocation < ActiveRecord::Migration
-  def self.up
+class FixReservedWordFromLocation < ActiveRecord::Migration[5.2]
+def self.up
   	remove_column :locations, :type
 		add_column :locations, :location_type, :string
   end

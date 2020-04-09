@@ -1,5 +1,5 @@
-class RenameConversationIdToListingConversationIdOnBooking < ActiveRecord::Migration
-  def up
+class RenameConversationIdToListingConversationIdOnBooking < ActiveRecord::Migration[5.2]
+def up
     rename_column :bookings, :conversation_id, :listing_conversation_id
   end
 

@@ -1,5 +1,5 @@
-class DeleteUnusedTables < ActiveRecord::Migration
-  def self.up
+class DeleteUnusedTables < ActiveRecord::Migration[5.2]
+def self.up
     remove_column :listings, :close_notification_sent
     drop_table :favors
     drop_table :filters

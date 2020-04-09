@@ -1,7 +1,6 @@
 # coding: utf-8
-class OldNightUnitToCustomUnit < ActiveRecord::Migration
-
-  class Community < ApplicationRecord
+class OldNightUnitToCustomUnit < ActiveRecord::Migration[5.2]
+class Community < ApplicationRecord
     serialize :settings, Hash
 
     def locales

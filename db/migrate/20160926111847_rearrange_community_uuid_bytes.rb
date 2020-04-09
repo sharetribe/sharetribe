@@ -1,5 +1,5 @@
-class RearrangeCommunityUuidBytes < ActiveRecord::Migration
-  def up
+class RearrangeCommunityUuidBytes < ActiveRecord::Migration[5.2]
+def up
     mysql_conn = ActiveRecord::Base.connection.raw_connection
 
     Community.pluck(:id).each_slice(1000) { |ids|

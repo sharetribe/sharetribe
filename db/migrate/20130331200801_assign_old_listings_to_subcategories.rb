@@ -1,7 +1,6 @@
 # encoding: UTF-8
-class AssignOldListingsToSubcategories < ActiveRecord::Migration
-  
-  def up
+class AssignOldListingsToSubcategories < ActiveRecord::Migration[5.2]
+def up
     keywords = [
       ["books", /kirja|book|kirjoja|libro|livre/i],
       ["tools", /tool|työkalu|työväline|saha|vasara|pora|kives|silppuri|hammer|saw|pora|drill|hioma|leikkuri/i],

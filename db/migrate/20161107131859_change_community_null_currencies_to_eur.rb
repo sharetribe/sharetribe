@@ -1,5 +1,5 @@
-class ChangeCommunityNullCurrenciesToEur < ActiveRecord::Migration
-  def up
+class ChangeCommunityNullCurrenciesToEur < ActiveRecord::Migration[5.2]
+def up
     sql = 'UPDATE communities c
            SET c.currency = "EUR"
            WHERE c.currency IS NULL'

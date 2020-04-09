@@ -1,5 +1,5 @@
-class AddCurrencyColumnToPaymentSettings < ActiveRecord::Migration
-  def up
+class AddCurrencyColumnToPaymentSettings < ActiveRecord::Migration[5.2]
+def up
     add_column :payment_settings, :minimum_price_currency, :string, limit: 3, after: :minimum_price_cents
     add_column :payment_settings, :minimum_transaction_fee_currency, :string, limit: 3, after: :minimum_transaction_fee_cents
     sql = "UPDATE communities c, payment_settings s

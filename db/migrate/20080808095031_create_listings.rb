@@ -1,5 +1,5 @@
-class CreateListings < ActiveRecord::Migration
-  def self.up
+class CreateListings < ActiveRecord::Migration[5.2]
+def self.up
     create_table :listings do |t|
       t.string :author_id
       t.string :category

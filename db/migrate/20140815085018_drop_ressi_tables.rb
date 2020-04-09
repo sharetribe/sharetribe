@@ -1,5 +1,5 @@
-class DropRessiTables < ActiveRecord::Migration
-  def up
+class DropRessiTables < ActiveRecord::Migration[5.2]
+def up
     drop_table :cached_ressi_events if ActiveRecord::Base.connection.table_exists? 'cached_ressi_events'
     drop_table :old_ressi_events if ActiveRecord::Base.connection.table_exists? 'old_ressi_events'
   end

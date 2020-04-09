@@ -1,5 +1,5 @@
-class MoveLastPageLoadDatesFromPersonToCommunityMemberships < ActiveRecord::Migration
-  def self.up
+class MoveLastPageLoadDatesFromPersonToCommunityMemberships < ActiveRecord::Migration[5.2]
+def self.up
     Person.all.each do |person|
       person.communities.each do |community|
         membership = CommunityMembership.find_by_person_id_and_community_id(person.id, community.id)

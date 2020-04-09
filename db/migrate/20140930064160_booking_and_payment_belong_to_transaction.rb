@@ -1,5 +1,5 @@
-class BookingAndPaymentBelongToTransaction < ActiveRecord::Migration
-  def up
+class BookingAndPaymentBelongToTransaction < ActiveRecord::Migration[5.2]
+def up
     rename_column :bookings, :listing_conversation_id, :transaction_id
     rename_column :payments, :conversation_id, :transaction_id
   end

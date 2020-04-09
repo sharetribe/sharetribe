@@ -1,7 +1,7 @@
 require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 
-class PopulateParticipationStarter < ActiveRecord::Migration
-  include LoggingHelper
+class PopulateParticipationStarter < ActiveRecord::Migration[5.2]
+include LoggingHelper
 
   def up
     Participation.reset_column_information

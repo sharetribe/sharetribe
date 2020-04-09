@@ -1,5 +1,5 @@
-class FixLocationModelAssociations < ActiveRecord::Migration
-  def self.up
+class FixLocationModelAssociations < ActiveRecord::Migration[5.2]
+def self.up
 	  add_column :people, :location_id, :integer
 	  add_column :listings, :origin_loc_id, :integer
 	  add_column :listings, :destionation_loc_id, :integer

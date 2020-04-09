@@ -1,5 +1,5 @@
-class CreateVisibilities < ActiveRecord::Migration
-  def self.up
+class CreateVisibilities < ActiveRecord::Migration[5.2]
+def self.up
     create_table :visibilities do |t|
       t.integer :visible_object_id
       t.string :visible_object_type

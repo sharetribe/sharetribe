@@ -1,5 +1,5 @@
-class AddAuthenticationTokenToPeople < ActiveRecord::Migration
-  def self.up
+class AddAuthenticationTokenToPeople < ActiveRecord::Migration[5.2]
+def self.up
     add_column :people, :authentication_token, :string
   end
 

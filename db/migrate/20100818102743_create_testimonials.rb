@@ -1,5 +1,5 @@
-class CreateTestimonials < ActiveRecord::Migration
-  def self.up
+class CreateTestimonials < ActiveRecord::Migration[5.2]
+def self.up
     create_table :testimonials do |t|
       t.float :grade
       t.text :text

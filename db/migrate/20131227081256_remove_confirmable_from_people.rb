@@ -1,5 +1,5 @@
-class RemoveConfirmableFromPeople < ActiveRecord::Migration
-  # https://github.com/plataformatec/devise/wiki/How-To:-Add-:confirmable-to-Users
+class RemoveConfirmableFromPeople < ActiveRecord::Migration[5.2]
+# https://github.com/plataformatec/devise/wiki/How-To:-Add-:confirmable-to-Users
   def up
     remove_columns :people, :confirmation_token, :confirmed_at, :confirmation_sent_at
   end

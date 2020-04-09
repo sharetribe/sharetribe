@@ -1,5 +1,5 @@
-class RenameCommunityPaymentGatewaysToPaymentGateways < ActiveRecord::Migration
-  def up
+class RenameCommunityPaymentGatewaysToPaymentGateways < ActiveRecord::Migration[5.2]
+def up
     rename_table :community_payment_gateways, :payment_gateways
   end
 

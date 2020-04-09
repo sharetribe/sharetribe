@@ -1,5 +1,5 @@
-class RemoveUnnecessaryFieldsFromConversations < ActiveRecord::Migration
-  def self.up
+class RemoveUnnecessaryFieldsFromConversations < ActiveRecord::Migration[5.2]
+def self.up
     remove_column :conversations, :reserver_name
     remove_column :conversations, :pick_up_time
     remove_column :conversations, :return_time

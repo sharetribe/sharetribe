@@ -1,5 +1,5 @@
-class CreatePaypalPayments < ActiveRecord::Migration
-  def change
+class CreatePaypalPayments < ActiveRecord::Migration[5.2]
+def change
     create_table :paypal_payments do |t|
       t.integer  :transaction_id, null: false
       t.string   :payer_id, null: false, limit: 64

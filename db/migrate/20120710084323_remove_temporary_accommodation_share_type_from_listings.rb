@@ -1,5 +1,5 @@
-class RemoveTemporaryAccommodationShareTypeFromListings < ActiveRecord::Migration
-  def self.up
+class RemoveTemporaryAccommodationShareTypeFromListings < ActiveRecord::Migration[5.2]
+def self.up
     Listing.all.each do |listing|
       if listing.share_type.eql?("temporary_accommodation")
         if listing.share_type.is_request?

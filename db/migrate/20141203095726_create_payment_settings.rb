@@ -1,5 +1,5 @@
-class CreatePaymentSettings < ActiveRecord::Migration
-  def change
+class CreatePaymentSettings < ActiveRecord::Migration[5.2]
+def change
     create_table :payment_settings do |t|
       t.column :active, :boolean, null: false
       t.column :community_id, :integer, null: false

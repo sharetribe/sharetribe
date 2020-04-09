@@ -1,5 +1,5 @@
-class ChangeCommunityUpdateEmailSettings < ActiveRecord::Migration
-  def up
+class ChangeCommunityUpdateEmailSettings < ActiveRecord::Migration[5.2]
+def up
     #If running this script on a server where there is special aalto community present, use different default for that
     a = Community.find_by_domain("aalto")
     Person.all.each do |person|

@@ -1,5 +1,5 @@
-class AddDefaultQueueNameToDelayedJobs < ActiveRecord::Migration
-  def up
+class AddDefaultQueueNameToDelayedJobs < ActiveRecord::Migration[5.2]
+def up
     execute("UPDATE delayed_jobs SET queue = 'default'")
   end
 

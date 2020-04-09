@@ -1,6 +1,5 @@
-class CreateMarketplaceTrialsTable < ActiveRecord::Migration
-
-  def change
+class CreateMarketplaceTrialsTable < ActiveRecord::Migration[5.2]
+def change
     create_table :marketplace_trials do |t|
       t.integer  :community_id,              :null => false
       t.datetime :expires_at

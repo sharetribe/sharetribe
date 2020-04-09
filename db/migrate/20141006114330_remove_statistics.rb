@@ -1,5 +1,5 @@
-class RemoveStatistics < ActiveRecord::Migration
-  def up
+class RemoveStatistics < ActiveRecord::Migration[5.2]
+def up
     drop_table(:statistics)
   end
 

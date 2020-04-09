@@ -1,5 +1,5 @@
-class AddActiveSessionsTable < ActiveRecord::Migration
-  def up
+class AddActiveSessionsTable < ActiveRecord::Migration[5.2]
+def up
     create_table :active_sessions, id: false do |t|
       t.string :person_id, limit: 22, null: false
       t.integer :community_id, null: false

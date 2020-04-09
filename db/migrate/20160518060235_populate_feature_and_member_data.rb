@@ -1,5 +1,5 @@
-class PopulateFeatureAndMemberData < ActiveRecord::Migration
-  def up
+class PopulateFeatureAndMemberData < ActiveRecord::Migration[5.2]
+def up
     exec_update(
       "UPDATE marketplace_plans mp
        JOIN (

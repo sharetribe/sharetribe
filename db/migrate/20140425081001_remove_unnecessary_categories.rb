@@ -1,7 +1,7 @@
 require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 
-class RemoveUnnecessaryCategories < ActiveRecord::Migration
-  include LoggingHelper
+class RemoveUnnecessaryCategories < ActiveRecord::Migration[5.2]
+include LoggingHelper
 
   def up
     community_id_null = Category.where("community_id IS NULL")

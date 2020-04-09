@@ -1,5 +1,5 @@
-class MigrateOldFaviconsToPaperclip < ActiveRecord::Migration
- def self.up
+class MigrateOldFaviconsToPaperclip < ActiveRecord::Migration[5.2]
+def self.up
     say "This migration will copy the existing favicons to paperclip."
     say "The old favicons images are NOT DELETED (for backup and safety).", true
     say "So you can delete them manually later.", true

@@ -1,5 +1,5 @@
-class SetActiveFlagToConnectedPaypalAccounts < ActiveRecord::Migration
-  def up
+class SetActiveFlagToConnectedPaypalAccounts < ActiveRecord::Migration[5.2]
+def up
     execute("UPDATE paypal_accounts
              LEFT JOIN billing_agreements ON (paypal_accounts.id = billing_agreements.paypal_account_id)
              LEFT JOIN order_permissions ON (paypal_accounts.id = order_permissions.paypal_account_id)

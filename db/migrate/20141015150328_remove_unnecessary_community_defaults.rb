@@ -1,5 +1,5 @@
-class RemoveUnnecessaryCommunityDefaults < ActiveRecord::Migration
-  def up
+class RemoveUnnecessaryCommunityDefaults < ActiveRecord::Migration[5.2]
+def up
     remove_column :communities, :category_change_allowed
     remove_column :communities, :custom_fields_allowed
     remove_column :communities, :privacy_policy_change_allowed

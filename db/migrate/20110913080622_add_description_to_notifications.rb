@@ -1,5 +1,5 @@
-class AddDescriptionToNotifications < ActiveRecord::Migration
-  def self.up
+class AddDescriptionToNotifications < ActiveRecord::Migration[5.2]
+def self.up
     add_column :notifications, :description, :string
   end
 

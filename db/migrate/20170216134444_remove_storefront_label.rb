@@ -1,5 +1,5 @@
-class RemoveStorefrontLabel < ActiveRecord::Migration
-  def up
+class RemoveStorefrontLabel < ActiveRecord::Migration[5.2]
+def up
     remove_column :community_customizations, :storefront_label
   end
   def down

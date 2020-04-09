@@ -1,5 +1,5 @@
-class CreateKassiEventParticipations < ActiveRecord::Migration
-  def self.up
+class CreateKassiEventParticipations < ActiveRecord::Migration[5.2]
+def self.up
     create_table :kassi_event_participations do |t|
       t.integer :kassi_event_id
       t.string :person_id

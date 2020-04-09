@@ -1,5 +1,5 @@
-class CreateFilters < ActiveRecord::Migration
-  def self.up
+class CreateFilters < ActiveRecord::Migration[5.2]
+def self.up
     create_table :filters do |t|
       t.string :person_id
       t.text :keywords

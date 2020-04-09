@@ -1,5 +1,5 @@
-class AddNightSelectorToListingsWithNightUnit < ActiveRecord::Migration
-  def up
+class AddNightSelectorToListingsWithNightUnit < ActiveRecord::Migration[5.2]
+def up
     exec_update("UPDATE listings SET quantity_selector = 'night' WHERE unit_type = 'night'", "Listings quantity selector", [])
   end
 

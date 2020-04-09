@@ -1,5 +1,5 @@
-class AddWideLogoColumnsToCommunities < ActiveRecord::Migration
-  def self.up
+class AddWideLogoColumnsToCommunities < ActiveRecord::Migration[5.2]
+def self.up
       add_attachment :communities, :wide_logo
     end
 

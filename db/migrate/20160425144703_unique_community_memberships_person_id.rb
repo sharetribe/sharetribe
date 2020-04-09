@@ -1,5 +1,5 @@
-class UniqueCommunityMembershipsPersonId < ActiveRecord::Migration
-  def up
+class UniqueCommunityMembershipsPersonId < ActiveRecord::Migration[5.2]
+def up
     remove_index :community_memberships, name: :memberships
     add_index :community_memberships, :person_id, unique: true
   end

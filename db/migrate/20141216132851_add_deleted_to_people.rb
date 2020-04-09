@@ -1,5 +1,5 @@
-class AddDeletedToPeople < ActiveRecord::Migration
-  def change
+class AddDeletedToPeople < ActiveRecord::Migration[5.2]
+def change
     add_column :people, :deleted, :boolean, default: false
   end
 end

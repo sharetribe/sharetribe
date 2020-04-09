@@ -1,5 +1,5 @@
-class SetPaypalPaymentsMerchantIdNotNull < ActiveRecord::Migration
-  def up
+class SetPaypalPaymentsMerchantIdNotNull < ActiveRecord::Migration[5.2]
+def up
     change_column :paypal_payments, :merchant_id, :string, :null => false
   end
 

@@ -1,5 +1,5 @@
-class ChangeContentFromStringToTextInNewsItems < ActiveRecord::Migration
-  def self.up
+class ChangeContentFromStringToTextInNewsItems < ActiveRecord::Migration[5.2]
+def self.up
     change_column :news_items, :content, :text
   end
 

@@ -1,5 +1,5 @@
-class AddAttachmentLogoToOrganizations < ActiveRecord::Migration
-  def self.up
+class AddAttachmentLogoToOrganizations < ActiveRecord::Migration[5.2]
+def self.up
     change_table :organizations do |t|
       t.attachment :logo
     end

@@ -1,5 +1,5 @@
-class RemoveEmailConfirmationFromCommunities < ActiveRecord::Migration
-  def up
+class RemoveEmailConfirmationFromCommunities < ActiveRecord::Migration[5.2]
+def up
     remove_column :communities, :email_confirmation
   end
 

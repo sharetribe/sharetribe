@@ -1,5 +1,5 @@
-class MovePricePerToListingUnits < ActiveRecord::Migration
-  def up
+class MovePricePerToListingUnits < ActiveRecord::Migration[5.2]
+def up
     execute("
       INSERT INTO listing_units (unit_type, transaction_type_id, created_at, updated_at)
       (

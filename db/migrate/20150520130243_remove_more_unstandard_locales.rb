@@ -1,6 +1,5 @@
-class RemoveMoreUnstandardLocales < ActiveRecord::Migration
-
-  # Redefine all Active Record models, so that the migration doesn't depend on the version of code
+class RemoveMoreUnstandardLocales < ActiveRecord::Migration[5.2]
+# Redefine all Active Record models, so that the migration doesn't depend on the version of code
   module MigrationModel
     class Community < ApplicationRecord
       has_many :categories, class_name: "::RemoveMoreUnstandardLocales::MigrationModel::Category"

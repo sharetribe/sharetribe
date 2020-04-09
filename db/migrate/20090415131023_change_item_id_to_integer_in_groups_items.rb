@@ -1,5 +1,5 @@
-class ChangeItemIdToIntegerInGroupsItems < ActiveRecord::Migration
-  def self.up
+class ChangeItemIdToIntegerInGroupsItems < ActiveRecord::Migration[5.2]
+def self.up
     remove_column :groups_items, :item_id
     add_column :groups_items, :item_id, :integer
   end

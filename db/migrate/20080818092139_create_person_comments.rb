@@ -1,5 +1,5 @@
-class CreatePersonComments < ActiveRecord::Migration
-  def self.up
+class CreatePersonComments < ActiveRecord::Migration[5.2]
+def self.up
     create_table :person_comments do |t|
       t.string :author_id
       t.string :target_person_id

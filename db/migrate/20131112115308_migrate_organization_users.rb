@@ -1,6 +1,5 @@
-class MigrateOrganizationUsers < ActiveRecord::Migration
-
-  def up
+class MigrateOrganizationUsers < ActiveRecord::Migration[5.2]
+def up
     Organization.all.each do |organization|
       name = organization.name
       company_id = organization.company_id

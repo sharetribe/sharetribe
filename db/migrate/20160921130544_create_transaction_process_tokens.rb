@@ -1,5 +1,5 @@
-class CreateTransactionProcessTokens < ActiveRecord::Migration
-  def up
+class CreateTransactionProcessTokens < ActiveRecord::Migration[5.2]
+def up
     create_table :transaction_process_tokens do |t|
       t.column :community_id, :integer, null: false
       t.column :transaction_id, :integer, null: false

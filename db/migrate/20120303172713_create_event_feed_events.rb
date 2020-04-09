@@ -1,5 +1,5 @@
-class CreateEventFeedEvents < ActiveRecord::Migration
-  def self.up
+class CreateEventFeedEvents < ActiveRecord::Migration[5.2]
+def self.up
     create_table :event_feed_events do |t|
       t.string :person1_id
       t.string :person2_id

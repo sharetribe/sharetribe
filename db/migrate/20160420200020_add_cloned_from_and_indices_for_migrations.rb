@@ -1,5 +1,5 @@
-class AddClonedFromAndIndicesForMigrations < ActiveRecord::Migration
-  def change
+class AddClonedFromAndIndicesForMigrations < ActiveRecord::Migration[5.2]
+def change
     # Add column
     add_column :people, :cloned_from, :string, { limit: 22 }
 

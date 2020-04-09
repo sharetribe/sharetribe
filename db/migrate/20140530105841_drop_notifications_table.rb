@@ -1,5 +1,5 @@
-class DropNotificationsTable < ActiveRecord::Migration
-  def up
+class DropNotificationsTable < ActiveRecord::Migration[5.2]
+def up
     drop_table :notifications
   end
 

@@ -1,5 +1,5 @@
-class AddIndexesForNewCategorization < ActiveRecord::Migration
-  def up
+class AddIndexesForNewCategorization < ActiveRecord::Migration[5.2]
+def up
     add_index :transaction_types, :community_id
     add_index :transaction_type_translations, :transaction_type_id
     add_index :transaction_type_translations, [:transaction_type_id, :locale], :name => "locale_index"

@@ -1,5 +1,5 @@
-class RemovePolls < ActiveRecord::Migration
-  def up
+class RemovePolls < ActiveRecord::Migration[5.2]
+def up
     remove_column :communities, :polls_enabled
     drop_table :polls
     drop_table :poll_options

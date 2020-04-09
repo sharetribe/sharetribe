@@ -1,5 +1,5 @@
-class CreateFeedbacks < ActiveRecord::Migration
-  def self.up
+class CreateFeedbacks < ActiveRecord::Migration[5.2]
+def self.up
     create_table :feedbacks do |t|
       t.string :content
       t.string :author_id

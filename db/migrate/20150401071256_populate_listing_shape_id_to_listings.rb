@@ -1,5 +1,5 @@
-class PopulateListingShapeIdToListings < ActiveRecord::Migration
-  def up
+class PopulateListingShapeIdToListings < ActiveRecord::Migration[5.2]
+def up
     execute("
       UPDATE listings
       LEFT JOIN listing_shapes ON (listing_shapes.transaction_type_id = listings.transaction_type_id)

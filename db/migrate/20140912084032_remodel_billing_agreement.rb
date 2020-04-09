@@ -1,5 +1,5 @@
-class RemodelBillingAgreement < ActiveRecord::Migration
-  def up
+class RemodelBillingAgreement < ActiveRecord::Migration[5.2]
+def up
     rename_column(:billing_agreements, :from_account_id, :paypal_account_id)
     remove_columns(:billing_agreements, :to_account_id, :status)
     add_column(:billing_agreements, :paypal_username_to, :string, null: false)

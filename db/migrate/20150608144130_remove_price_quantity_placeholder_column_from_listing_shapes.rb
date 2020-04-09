@@ -1,5 +1,5 @@
-class RemovePriceQuantityPlaceholderColumnFromListingShapes < ActiveRecord::Migration
-  def up
+class RemovePriceQuantityPlaceholderColumnFromListingShapes < ActiveRecord::Migration[5.2]
+def up
     remove_column :listing_shapes, :price_quantity_placeholder
   end
 

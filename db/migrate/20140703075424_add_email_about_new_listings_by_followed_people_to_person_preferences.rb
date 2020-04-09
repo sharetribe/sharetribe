@@ -1,7 +1,7 @@
 require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 
-class AddEmailAboutNewListingsByFollowedPeopleToPersonPreferences < ActiveRecord::Migration
-  include LoggingHelper
+class AddEmailAboutNewListingsByFollowedPeopleToPersonPreferences < ActiveRecord::Migration[5.2]
+include LoggingHelper
 
   def up
     person_with_preferences do |person|

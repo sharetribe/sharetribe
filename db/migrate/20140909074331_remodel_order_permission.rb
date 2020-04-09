@@ -1,5 +1,5 @@
-class RemodelOrderPermission < ActiveRecord::Migration
-  def up
+class RemodelOrderPermission < ActiveRecord::Migration[5.2]
+def up
     rename_column(:order_permissions, :from_account_id, :paypal_account_id)
     remove_columns(:order_permissions, :to_account_id, :status)
     add_column(:order_permissions, :request_token, :string, null: false)

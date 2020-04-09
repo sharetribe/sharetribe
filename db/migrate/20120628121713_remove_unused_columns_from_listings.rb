@@ -1,5 +1,5 @@
-class RemoveUnusedColumnsFromListings < ActiveRecord::Migration
-  def self.up
+class RemoveUnusedColumnsFromListings < ActiveRecord::Migration[5.2]
+def self.up
     remove_column :listings, :content
     remove_column :listings, :good_thru
     remove_column :listings, :status

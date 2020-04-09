@@ -1,5 +1,5 @@
-class RemoveVisibilityModel < ActiveRecord::Migration
-  def self.up
+class RemoveVisibilityModel < ActiveRecord::Migration[5.2]
+def self.up
     drop_table :visibilities
   end
 

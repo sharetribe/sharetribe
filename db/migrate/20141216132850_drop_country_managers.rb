@@ -1,5 +1,5 @@
-class DropCountryManagers < ActiveRecord::Migration
-  def up
+class DropCountryManagers < ActiveRecord::Migration[5.2]
+def up
     drop_table :country_managers
   end
 

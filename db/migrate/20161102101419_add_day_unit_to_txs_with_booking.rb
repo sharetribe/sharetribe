@@ -1,6 +1,5 @@
-class AddDayUnitToTxsWithBooking < ActiveRecord::Migration
-
-  # We have some rows in `transactions` table that do not have unit_type
+class AddDayUnitToTxsWithBooking < ActiveRecord::Migration[5.2]
+# We have some rows in `transactions` table that do not have unit_type
   #
   def up
     name = "Add day unit type to transaction with booking and without unit type"

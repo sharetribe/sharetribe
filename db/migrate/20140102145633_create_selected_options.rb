@@ -1,5 +1,5 @@
-class CreateSelectedOptions < ActiveRecord::Migration
-  def change
+class CreateSelectedOptions < ActiveRecord::Migration[5.2]
+def change
     create_table :selected_options do |t|
       t.belongs_to :custom_field_value
       t.belongs_to :custom_field_options

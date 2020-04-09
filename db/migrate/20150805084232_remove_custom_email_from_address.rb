@@ -1,5 +1,5 @@
-class RemoveCustomEmailFromAddress < ActiveRecord::Migration
-  def up
+class RemoveCustomEmailFromAddress < ActiveRecord::Migration[5.2]
+def up
     remove_column :communities, :custom_email_from_address
   end
 

@@ -1,5 +1,5 @@
-class RemoveNewsItems < ActiveRecord::Migration
-  def self.up
+class RemoveNewsItems < ActiveRecord::Migration[5.2]
+def self.up
     drop_table :news_items
     remove_column :communities, :news_enabled
   end

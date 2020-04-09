@@ -1,5 +1,5 @@
-class UpdateColumnInSmerf < ActiveRecord::Migration
-  def self.up
+class UpdateColumnInSmerf < ActiveRecord::Migration[5.2]
+def self.up
     execute "ALTER TABLE smerf_forms MODIFY COLUMN cache LONGTEXT"
   end
 

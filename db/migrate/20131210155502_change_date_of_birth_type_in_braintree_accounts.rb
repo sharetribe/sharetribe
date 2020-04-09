@@ -1,5 +1,5 @@
-class ChangeDateOfBirthTypeInBraintreeAccounts < ActiveRecord::Migration
-  def up
+class ChangeDateOfBirthTypeInBraintreeAccounts < ActiveRecord::Migration[5.2]
+def up
     change_column :braintree_accounts, :date_of_birth, :date
   end
 

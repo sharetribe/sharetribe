@@ -1,5 +1,5 @@
-class CreateInvitations < ActiveRecord::Migration
-  def self.up
+class CreateInvitations < ActiveRecord::Migration[5.2]
+def self.up
     create_table :invitations do |t|
       t.string :code
       t.integer :community_id

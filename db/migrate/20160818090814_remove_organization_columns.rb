@@ -1,5 +1,5 @@
-class RemoveOrganizationColumns < ActiveRecord::Migration
-  def change
+class RemoveOrganizationColumns < ActiveRecord::Migration[5.2]
+def change
     remove_column :communities, :only_organizations, :boolean, after: :wide_logo_updated_at
     remove_column :people, :organization_name, :string, limit: 255, after: :is_organization
     remove_column :people, :is_organization, :boolean, after: :min_days_between_community_updates

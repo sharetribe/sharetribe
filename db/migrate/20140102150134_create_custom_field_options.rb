@@ -1,5 +1,5 @@
-class CreateCustomFieldOptions < ActiveRecord::Migration
-  def change
+class CreateCustomFieldOptions < ActiveRecord::Migration[5.2]
+def change
     create_table :custom_field_options do |t|
       t.belongs_to :custom_field
       t.integer :sort_priority

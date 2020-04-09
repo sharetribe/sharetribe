@@ -1,5 +1,5 @@
-class AddEmailPhoneAddressBirthSsnBackToBraintreeAccount < ActiveRecord::Migration
-  def change
+class AddEmailPhoneAddressBirthSsnBackToBraintreeAccount < ActiveRecord::Migration[5.2]
+def change
     add_column :braintree_accounts, :email, :string
     add_column :braintree_accounts, :phone, :string
     add_column :braintree_accounts, :address_street_address, :string

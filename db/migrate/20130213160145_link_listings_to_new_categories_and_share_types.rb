@@ -1,5 +1,5 @@
-class LinkListingsToNewCategoriesAndShareTypes < ActiveRecord::Migration
-  def up
+class LinkListingsToNewCategoriesAndShareTypes < ActiveRecord::Migration[5.2]
+def up
     add_column :listings, :category_id, :integer
     add_column :listings, :share_type_id, :integer
     Listing.find_each do |listing|

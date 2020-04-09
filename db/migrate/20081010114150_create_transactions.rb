@@ -1,5 +1,5 @@
-class CreateTransactions < ActiveRecord::Migration
-  def self.up
+class CreateTransactions < ActiveRecord::Migration[5.2]
+def self.up
     create_table :transactions do |t|
       t.string :sender_id
       t.string :receiver_id

@@ -1,5 +1,5 @@
-class MoveDataFromKassiEventsPeopleToKassiEventParticipation < ActiveRecord::Migration
-  def self.up
+class MoveDataFromKassiEventsPeopleToKassiEventParticipation < ActiveRecord::Migration[5.2]
+def self.up
     KassiEvent.all.each do |event|
       event.people.each do |person|
         if event.realizer_id == person.id

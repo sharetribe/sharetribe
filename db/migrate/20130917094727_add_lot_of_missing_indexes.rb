@@ -1,5 +1,5 @@
-class AddLotOfMissingIndexes < ActiveRecord::Migration
-  def up
+class AddLotOfMissingIndexes < ActiveRecord::Migration[5.2]
+def up
      add_index :community_customizations, :community_id
      add_index :categories, :parent_id
      add_index :share_types, :parent_id

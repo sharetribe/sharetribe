@@ -1,5 +1,5 @@
-class AddLabelToCommunities < ActiveRecord::Migration
-  def self.up
+class AddLabelToCommunities < ActiveRecord::Migration[5.2]
+def self.up
     add_column :communities, :label, :string
   end
 

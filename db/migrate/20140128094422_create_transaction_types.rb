@@ -1,5 +1,5 @@
-class CreateTransactionTypes < ActiveRecord::Migration
-  def change
+class CreateTransactionTypes < ActiveRecord::Migration[5.2]
+def change
     create_table :transaction_types do |t|
       t.string :type
       t.integer :community_id

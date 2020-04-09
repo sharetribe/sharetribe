@@ -1,5 +1,5 @@
-class RenameInterestingListingsToPersonInterestingListings < ActiveRecord::Migration
-  def self.up
+class RenameInterestingListingsToPersonInterestingListings < ActiveRecord::Migration[5.2]
+def self.up
     rename_table :interesting_listings, :person_interesting_listings
   end
 
