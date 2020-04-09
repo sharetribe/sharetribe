@@ -16,7 +16,6 @@ def self.up
 
       t.datetime :created_at
     end
-    add_index :taggings, [:taggable_id, :taggable_type, :context]
   end
 
   def self.down
