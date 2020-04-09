@@ -1,5 +1,5 @@
 class ReformatNotificationDataToPolymorphic < ActiveRecord::Migration[5.2]
-def self.up
+  def self.up
 
   end
 
