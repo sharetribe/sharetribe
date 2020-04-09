@@ -29,7 +29,7 @@
     .fade
 
 = render partial: 'layouts/onboarding_popup_wrapper'
-
+- author_name = PersonViewUtils.person_display_name(@listing.author, @current_community)
 .row
   .col-8.listing-details-container
     .row
@@ -139,14 +139,9 @@
             = medium_avatar_thumb(@listing.author, {:class => "listing-author-avatar-image"})
           .listing-author-details
             .listing-author-name
-              = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"
+              = link_to author_name, @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{author_name}"
             = @listing.author.description
             
-            -# - if @listing.author != @current_user
-            -#   .listing-author-contact
-            -#     %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
-            -#       .content
-            -#         = t(".contact")
 
     - if @listing_presenter.received_testimonials.size > 0
       .row-with-divider.listing-author-activity
@@ -168,13 +163,21 @@
         #listing-message-links
         -# HERE
         = render :partial => "listing_actions"
-
+        - if @listing.author != @current_user
+          .listing-author-contact
+            %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "enabled-book-button"}
+              .content
+                - if shape_name(@listing) == 'Requesting'
+                  = t(".help") + ' ' + author_name
+                - elsif shape_name(@listing) == 'Offering'
+                  = t(".hire") + ' ' + author_name
+                
 
 
     - if @listing.origin_loc && @listing.origin_loc.address != ""
       .row
         .col-12
-          #googlemap
+          #googlemap  
             = render :partial => "googlemap", :locals => { :listing => @listing}
             = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
 

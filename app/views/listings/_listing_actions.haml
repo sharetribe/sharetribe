@@ -59,61 +59,61 @@
           :javascript
             window.ST.FromToDatePicker.setupPerHour(#{raw @listing_presenter.datepicker_per_hour_setup.to_json});
 
-      - elsif @listing_presenter.listing_unit_type.present?
-        - content_for :extra_javascript do
-          :javascript
-            $("#booking-dates").validate({
-              errorPlacement: function(error, element) {
-                if (element.is("#quantity")) {
-                  error.insertAfter(".quantity-wrapper");
-                } else {
-                  error.insertAfter(element);
-                }
-              }
-            });
-            window.ST.initializeQuantityValidation({validate: "positiveIntegers", input: "quantity", errorMessage: "#{t("errors.messages.positive_number")}" });
-            if ("#{@listing_presenter.delivery_type}" == "shipping" && #{@listing_presenter.shipping_price_additional != nil}) {
-              window.ST.initializeShippingPriceTotal(#{raw @listing_presenter.currency_opts.to_json}, '#quantity', '.delivery-price-value');
-            }
+      -# - elsif @listing_presenter.listing_unit_type.present?
+      -#   - content_for :extra_javascript do
+      -#     :javascript
+      -#       $("#booking-dates").validate({
+      -#         errorPlacement: function(error, element) {
+      -#           if (element.is("#quantity")) {
+      -#             error.insertAfter(".quantity-wrapper");
+      -#           } else {
+      -#             error.insertAfter(element);
+      -#           }
+      -#         }
+      -#       });
+      -#       window.ST.initializeQuantityValidation({validate: "positiveIntegers", input: "quantity", errorMessage: "#{t("errors.messages.positive_number")}" });
+      -#       if ("#{@listing_presenter.delivery_type}" == "shipping" && #{@listing_presenter.shipping_price_additional != nil}) {
+      -#         window.ST.initializeShippingPriceTotal(#{raw @listing_presenter.currency_opts.to_json}, '#quantity', '.delivery-price-value');
+      -#       }
 
-        .quantity-wrapper.input-group.clearfix
-          .quantity-label-wrapper
-            %label.quantity-label{for: 'quantity'}
-              = ListingViewUtils.translate_quantity(@listing.unit_type, @listing.unit_selector_tr_key)
-          .quantity-input.input-sm.required
-            %input#quantity{type: 'number', placeholder: t("listings.quantity_placeholder"), name: 'quantity', value: 1, min: 1, step: 1}
+      -#   .quantity-wrapper.input-group.clearfix
+      -#     .quantity-label-wrapper
+      -#       %label.quantity-label{for: 'quantity'}
+      -#         = ListingViewUtils.translate_quantity(@listing.unit_type, @listing.unit_selector_tr_key)
+      -#     .quantity-input.input-sm.required
+      -#       %input#quantity{type: 'number', placeholder: t("listings.quantity_placeholder"), name: 'quantity', value: 1, min: 1, step: 1}
 
-      = render partial: "delivery_opts", locals: { delivery_opts: @listing_presenter.delivery_opts, is_author: @listing_presenter.is_author }
+      -# = render partial: "delivery_opts", locals: { delivery_opts: @listing_presenter.delivery_opts, is_author: @listing_presenter.is_author }
 
       = hidden_field_tag(:listing_id, @listing.id)
 
-      - if @listing_presenter.buyer_fee?
-        .row
-          .col-12
-            %span.buyer-fees
-              = t('.marketplace_fees_may_apply')
+      -# - if @listing_presenter.buyer_fee?
+      -#   .row
+      -#     .col-12
+      -#       %span.buyer-fees
+      -#         = t('.marketplace_fees_may_apply')
       
       -# HERE
 
-      - if @listing_presenter.quantity_per_day_or_night?
-        - @listing_presenter.blocked_dates_result.on_success do
-          %button.enabled-book-button
-            .content
-              = action_button_label(@listing)
+      -# - if @listing_presenter.quantity_per_day_or_night?
+      -#   - @listing_presenter.blocked_dates_result.on_success do
+      -#     %button.enabled-book-button
+      -#       .content
+      -#         = action_button_label(@listing)
 
-        - @listing_presenter.blocked_dates_result.on_error do
-          %button.disabled-book-button{disabled: true}
-            .content
-              = action_button_label(@listing)
-      - else
-        %button.enabled-book-button
-          .content
-            = action_button_label(@listing)
+      -#   - @listing_presenter.blocked_dates_result.on_error do
+      -#     %button.disabled-book-button{disabled: true}
+      -#       .content
+      -#         = action_button_label(@listing)
+      -# - else
+      -#   %button.enabled-book-button
+      -#     .content
+      -#       = action_button_label(@listing)
 
-    - if @listing_presenter.payments_enabled?
-      .row
-        .col-12
-          = render :partial => "listing_conversations/payment_methods", locals: { stripe_in_use: @listing_presenter.stripe_in_use, paypal_in_use: @listing_presenter.paypal_in_use }
+    -# - if @listing_presenter.payments_enabled?
+    -#   .row
+    -#     .col-12
+    -#       = render :partial => "listing_conversations/payment_methods", locals: { stripe_in_use: @listing_presenter.stripe_in_use, paypal_in_use: @listing_presenter.paypal_in_use }
 
   - if @listing_presenter.is_authorized
     .listing-view-admin-links
