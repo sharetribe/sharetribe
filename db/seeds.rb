@@ -185,3 +185,5 @@ end
 
 CategoriesHelper.update_translations
 
+CategoriesHelper.add_custom_price_quantity_placeholders
+
