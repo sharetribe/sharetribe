@@ -1,4 +1,7 @@
 .DS_Store
+config/credentials.yml.enc
+config/master.key
+package-lock.json
 db/*.sqlite3
 db/sphinx
 config/*.sphinx.conf
