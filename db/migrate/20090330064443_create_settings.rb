@@ -1,4 +1,4 @@
-class CreateSettings < ActiveRecord::Migration
+class CreateSettings < ActiveRecord::Migration[5.2]
   def self.up
     create_table :settings do |t|
       t.integer :email_when_new_message, :default => 1

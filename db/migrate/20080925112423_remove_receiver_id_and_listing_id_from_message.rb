@@ -1,4 +1,4 @@
-class RemoveReceiverIdAndListingIdFromMessage < ActiveRecord::Migration
+class RemoveReceiverIdAndListingIdFromMessage < ActiveRecord::Migration[5.2]
   def self.up
     remove_column :messages, :receiver_id
     remove_column :messages, :listing_id

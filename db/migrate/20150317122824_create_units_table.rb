@@ -1,4 +1,4 @@
-class CreateUnitsTable < ActiveRecord::Migration
+class CreateUnitsTable < ActiveRecord::Migration[5.2]
   def change
     create_table :listing_units do |t|
       t.string :unit_type, limit: 32, null: false

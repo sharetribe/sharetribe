@@ -1,4 +1,4 @@
-class CreateTransactionTypeTranslations < ActiveRecord::Migration
+class CreateTransactionTypeTranslations < ActiveRecord::Migration[5.2]
   def change
     create_table :transaction_type_translations do |t|
       t.integer :transaction_type_id

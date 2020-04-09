@@ -1,4 +1,4 @@
-class MigrateDifficultOrganizationUsers < ActiveRecord::Migration
+class MigrateDifficultOrganizationUsers < ActiveRecord::Migration[5.2]
 
   def migrate_listing_author!(new_author, organization)
     organization.listings.each do |listing|

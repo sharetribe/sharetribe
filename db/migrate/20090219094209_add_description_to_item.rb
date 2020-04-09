@@ -1,4 +1,4 @@
-class AddDescriptionToItem < ActiveRecord::Migration
+class AddDescriptionToItem < ActiveRecord::Migration[5.2]
   def self.up
     add_column :items, :description, :text, :default => ""
   end

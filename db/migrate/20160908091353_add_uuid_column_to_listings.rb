@@ -1,4 +1,4 @@
-class AddUuidColumnToListings < ActiveRecord::Migration
+class AddUuidColumnToListings < ActiveRecord::Migration[5.2]
   def up
     # `add_column` with `:binary, limit: 16` uses the VARBINARY type,
     # but we want to use the BINARY type, which is why we use plain

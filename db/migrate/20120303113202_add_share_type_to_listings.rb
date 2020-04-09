@@ -1,4 +1,4 @@
-class AddShareTypeToListings < ActiveRecord::Migration
+class AddShareTypeToListings < ActiveRecord::Migration[5.2]
   def self.up
     add_column :listings, :share_type, :string
   end

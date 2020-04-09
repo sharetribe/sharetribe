@@ -27,7 +27,7 @@ end
 class ItemReservation < ApplicationRecord
 end
 
-class FixItemAndFavorRelatedTestimonials < ActiveRecord::Migration
+class FixItemAndFavorRelatedTestimonials < ActiveRecord::Migration[5.2]
   def self.up
 
     # Loop through the old KassiEvents again (as done in 20100923074241_migrate_conversations_to_new_format.rb)

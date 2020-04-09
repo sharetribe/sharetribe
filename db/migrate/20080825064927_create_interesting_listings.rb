@@ -1,4 +1,4 @@
-class CreateInterestingListings < ActiveRecord::Migration
+class CreateInterestingListings < ActiveRecord::Migration[5.2]
   def self.up
     create_table :interesting_listings do |t|
       t.string :person_id

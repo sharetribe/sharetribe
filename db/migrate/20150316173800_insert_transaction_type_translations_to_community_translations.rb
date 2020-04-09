@@ -1,4 +1,4 @@
-class InsertTransactionTypeTranslationsToCommunityTranslations < ActiveRecord::Migration
+class InsertTransactionTypeTranslationsToCommunityTranslations < ActiveRecord::Migration[5.2]
   def up
     # Index for basic search for translations
     add_index :community_translations, [:community_id, :translation_key, :locale], :name => "community_translations_key_locale" unless index_exists?(:community_translations, [:community_id, :translation_key, :locale], name: "community_translations_key_locale")

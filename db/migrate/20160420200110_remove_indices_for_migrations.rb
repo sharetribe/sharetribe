@@ -1,4 +1,4 @@
-class RemoveIndicesForMigrations < ActiveRecord::Migration
+class RemoveIndicesForMigrations < ActiveRecord::Migration[5.2]
   def change
     remove_index :people, column: :cloned_from
     remove_index :comments, column: :author_id

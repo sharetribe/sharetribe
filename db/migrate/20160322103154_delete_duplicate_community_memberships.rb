@@ -1,4 +1,4 @@
-class DeleteDuplicateCommunityMemberships < ActiveRecord::Migration
+class DeleteDuplicateCommunityMemberships < ActiveRecord::Migration[5.2]
   def up
     execute("
       DELETE community_memberships FROM community_memberships

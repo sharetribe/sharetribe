@@ -1,4 +1,4 @@
-class AddServiceNameToCommunityCustomizations < ActiveRecord::Migration
+class AddServiceNameToCommunityCustomizations < ActiveRecord::Migration[5.2]
   def up
     Community.find_each do |community|
       community.locales.each do |locale|

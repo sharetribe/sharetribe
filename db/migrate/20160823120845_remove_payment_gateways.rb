@@ -1,4 +1,4 @@
-class RemovePaymentGateways < ActiveRecord::Migration
+class RemovePaymentGateways < ActiveRecord::Migration[5.2]
 
   def up
     drop_table "payment_gateways"

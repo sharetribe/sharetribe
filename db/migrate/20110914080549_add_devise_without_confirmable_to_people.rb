@@ -1,4 +1,4 @@
-class AddDeviseWithoutConfirmableToPeople < ActiveRecord::Migration
+class AddDeviseWithoutConfirmableToPeople < ActiveRecord::Migration[5.2]
   def self.up
     change_table(:people) do |t|
       

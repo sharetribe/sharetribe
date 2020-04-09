@@ -1,4 +1,4 @@
-class AddNegativeCommunityIdToPeopleWithNullCommunityId < ActiveRecord::Migration
+class AddNegativeCommunityIdToPeopleWithNullCommunityId < ActiveRecord::Migration[5.2]
   def up
     exec_update(
       "UPDATE people SET community_id = -1 WHERE community_id IS NULL",

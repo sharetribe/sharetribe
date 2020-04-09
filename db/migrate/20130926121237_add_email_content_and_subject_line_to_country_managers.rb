@@ -1,4 +1,4 @@
-class AddEmailContentAndSubjectLineToCountryManagers < ActiveRecord::Migration
+class AddEmailContentAndSubjectLineToCountryManagers < ActiveRecord::Migration[5.2]
   def change
     add_column :country_managers, :subject_line, :string unless column_exists? :country_managers, :subject_line
     add_column :country_managers, :email_content, :text unless column_exists? :country_managers, :email_content

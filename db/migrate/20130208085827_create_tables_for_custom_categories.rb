@@ -1,4 +1,4 @@
-class CreateTablesForCustomCategories < ActiveRecord::Migration
+class CreateTablesForCustomCategories < ActiveRecord::Migration[5.2]
   def up
     create_table :categories do |t|
       t.string :name

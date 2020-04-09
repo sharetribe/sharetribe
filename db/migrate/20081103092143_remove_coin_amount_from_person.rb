@@ -1,4 +1,4 @@
-class RemoveCoinAmountFromPerson < ActiveRecord::Migration
+class RemoveCoinAmountFromPerson < ActiveRecord::Migration[5.2]
   def self.up
     remove_column :people, :coin_amount
   end

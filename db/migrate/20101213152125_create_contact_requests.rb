@@ -1,4 +1,4 @@
-class CreateContactRequests < ActiveRecord::Migration
+class CreateContactRequests < ActiveRecord::Migration[5.2]
   def self.up
     create_table :contact_requests do |t|
       t.string :email

@@ -1,4 +1,4 @@
-class AddPersonIdToSettings < ActiveRecord::Migration
+class AddPersonIdToSettings < ActiveRecord::Migration[5.2]
   def self.up
     add_column :settings, :person_id, :string
   end
