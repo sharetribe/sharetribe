@@ -187,3 +187,5 @@ CategoriesHelper.update_translations
 
 CategoriesHelper.add_custom_price_quantity_placeholders
 
+Mangopay.create unless Mangopay.count > 0
+Checkout.create unless Checkout.count > 0
