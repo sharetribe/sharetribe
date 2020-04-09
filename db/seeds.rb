@@ -26,3 +26,4 @@ KassiEvent.all.each do |kassi_event|
     kassi_event.update_attribute(:pending, 1)
   end
 end
+Listing.update_all("visibility = 'communities'", "visibility LIKE 'kassi_users'")
