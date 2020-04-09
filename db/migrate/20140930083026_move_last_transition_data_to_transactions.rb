@@ -1,4 +1,4 @@
-class MoveLastTransitionDataToTransactions < ActiveRecord::Migration
+class MoveLastTransitionDataToTransactions < ActiveRecord::Migration[5.2]
   def up
     execute(<<-EOQ)
       # Get 'last_transition_at'

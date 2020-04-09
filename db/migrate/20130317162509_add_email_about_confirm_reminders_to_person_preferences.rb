@@ -1,4 +1,4 @@
-class AddEmailAboutConfirmRemindersToPersonPreferences < ActiveRecord::Migration
+class AddEmailAboutConfirmRemindersToPersonPreferences < ActiveRecord::Migration[5.2]
   def up
     Person.find_each do |person|
       person.preferences["email_about_confirm_reminders"] = true

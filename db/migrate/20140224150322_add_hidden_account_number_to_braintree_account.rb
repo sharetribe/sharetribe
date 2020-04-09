@@ -1,4 +1,4 @@
-class AddHiddenAccountNumberToBraintreeAccount < ActiveRecord::Migration
+class AddHiddenAccountNumberToBraintreeAccount < ActiveRecord::Migration[5.2]
   def change
     add_column :braintree_accounts, :hidden_account_number, :string, :after => :routing_number
   end

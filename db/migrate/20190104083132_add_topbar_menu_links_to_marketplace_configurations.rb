@@ -1,4 +1,4 @@
-class AddTopbarMenuLinksToMarketplaceConfigurations < ActiveRecord::Migration[5.1]
+class AddTopbarMenuLinksToMarketplaceConfigurations < ActiveRecord::Migration[5.2]
   def change
     add_column :marketplace_configurations, :display_about_menu, :boolean, default: true
     add_column :marketplace_configurations, :display_contact_menu, :boolean, default: true

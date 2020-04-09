@@ -1,4 +1,4 @@
-class CreateSocialLinks < ActiveRecord::Migration[5.1]
+class CreateSocialLinks < ActiveRecord::Migration[5.2]
   def change
     create_table :social_links do |t|
       t.integer :community_id

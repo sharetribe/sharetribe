@@ -1,4 +1,4 @@
-class DropTransactionTypesTable < ActiveRecord::Migration
+class DropTransactionTypesTable < ActiveRecord::Migration[5.2]
   def up
 
     # remove transaction_type_id indexes

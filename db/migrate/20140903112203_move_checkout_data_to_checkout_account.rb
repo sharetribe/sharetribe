@@ -1,4 +1,4 @@
-class MoveCheckoutDataToCheckoutAccount < ActiveRecord::Migration
+class MoveCheckoutDataToCheckoutAccount < ActiveRecord::Migration[5.2]
   def up
     execute("INSERT INTO checkout_accounts (company_id, merchant_id, merchant_key, person_id, created_at, updated_at)
              (SELECT company_id, checkout_merchant_id, checkout_merchant_key, id, now(), now()

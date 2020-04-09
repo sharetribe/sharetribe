@@ -1,4 +1,4 @@
-class AddDefaultGradeToExistingPersonComments < ActiveRecord::Migration
+class AddDefaultGradeToExistingPersonComments < ActiveRecord::Migration[5.2]
   def self.up
     PersonComment.all.each do |comment|
       unless comment.grade

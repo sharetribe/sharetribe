@@ -1,4 +1,4 @@
-class CreateStatistics < ActiveRecord::Migration
+class CreateStatistics < ActiveRecord::Migration[5.2]
   def self.up
     create_table :statistics do |t|
       t.integer :community_id

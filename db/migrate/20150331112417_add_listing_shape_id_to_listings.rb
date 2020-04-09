@@ -1,4 +1,4 @@
-class AddListingShapeIdToListings < ActiveRecord::Migration
+class AddListingShapeIdToListings < ActiveRecord::Migration[5.2]
   def change
     add_column :listings, :listing_shape_id, :integer, null: false, after: :transaction_type_id
     add_index :listings, :listing_shape_id

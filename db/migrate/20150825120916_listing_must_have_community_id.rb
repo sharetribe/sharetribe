@@ -1,4 +1,4 @@
-class ListingMustHaveCommunityId < ActiveRecord::Migration
+class ListingMustHaveCommunityId < ActiveRecord::Migration[5.2]
   def up
     change_column :listings, :community_id, :integer, null: false
   end

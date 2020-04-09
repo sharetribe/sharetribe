@@ -1,4 +1,4 @@
-class RemoveSsnFromBraintreeAccounts < ActiveRecord::Migration
+class RemoveSsnFromBraintreeAccounts < ActiveRecord::Migration[5.2]
   def up
     remove_column :braintree_accounts, :ssn
   end

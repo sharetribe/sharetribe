@@ -1,4 +1,4 @@
-class RemoveCommunitiesListingsTable < ActiveRecord::Migration
+class RemoveCommunitiesListingsTable < ActiveRecord::Migration[5.2]
   def up
     drop_table "communities_listings"
   end

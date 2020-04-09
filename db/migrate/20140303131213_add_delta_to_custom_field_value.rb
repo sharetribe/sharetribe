@@ -1,4 +1,4 @@
-class AddDeltaToCustomFieldValue < ActiveRecord::Migration
+class AddDeltaToCustomFieldValue < ActiveRecord::Migration[5.2]
   def self.up
     add_column :custom_field_values, :delta, :boolean, :default => true, :null => false
   end

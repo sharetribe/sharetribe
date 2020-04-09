@@ -1,4 +1,4 @@
-class CreateCommunityPlans < ActiveRecord::Migration
+class CreateCommunityPlans < ActiveRecord::Migration[5.2]
   def up
     create_table :community_plans do |t|
       t.string   :community_id,             null: false

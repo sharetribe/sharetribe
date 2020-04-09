@@ -1,4 +1,4 @@
-class AddCustomFieldsTransactionsEmailsIndexes < ActiveRecord::Migration
+class AddCustomFieldsTransactionsEmailsIndexes < ActiveRecord::Migration[5.2]
   def change
     add_index :category_custom_fields, [:category_id, :custom_field_id]
 

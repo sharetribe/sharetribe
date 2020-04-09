@@ -1,4 +1,4 @@
-class ChangeSumCurrencyToCurrencyInPayments < ActiveRecord::Migration
+class ChangeSumCurrencyToCurrencyInPayments < ActiveRecord::Migration[5.2]
   def up
     rename_column :payments, :sum_currency, :currency
   end

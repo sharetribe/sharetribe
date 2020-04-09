@@ -1,4 +1,4 @@
-class FixPersonIdToString < ActiveRecord::Migration
+class FixPersonIdToString < ActiveRecord::Migration[5.2]
   def self.up
   	remove_column :locations, :person_id
   	add_column :locations, :person_id, :string

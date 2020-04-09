@@ -1,4 +1,4 @@
-class CreateListingTransactions < ActiveRecord::Migration
+class CreateListingTransactions < ActiveRecord::Migration[5.2]
   def up
     create_table :transactions do |t|
       t.string :starter_id, null: false

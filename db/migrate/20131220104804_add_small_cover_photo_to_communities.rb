@@ -1,4 +1,4 @@
-class AddSmallCoverPhotoToCommunities < ActiveRecord::Migration
+class AddSmallCoverPhotoToCommunities < ActiveRecord::Migration[5.2]
   def change
     add_column :communities, :small_cover_photo_file_name, :string, :after => :cover_photo_updated_at
     add_column :communities, :small_cover_photo_content_type, :string, :after => :small_cover_photo_file_name

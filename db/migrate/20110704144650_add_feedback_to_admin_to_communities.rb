@@ -1,4 +1,4 @@
-class AddFeedbackToAdminToCommunities < ActiveRecord::Migration
+class AddFeedbackToAdminToCommunities < ActiveRecord::Migration[5.2]
   def self.up
     add_column :communities, :feedback_to_admin, :boolean, :default => 0
   end

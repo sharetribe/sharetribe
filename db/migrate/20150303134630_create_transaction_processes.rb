@@ -1,4 +1,4 @@
-class CreateTransactionProcesses < ActiveRecord::Migration
+class CreateTransactionProcesses < ActiveRecord::Migration[5.2]
   def change
     create_table :transaction_processes do |t|
       t.integer :community_id

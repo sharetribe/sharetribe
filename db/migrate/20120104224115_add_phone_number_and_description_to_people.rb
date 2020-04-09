@@ -1,4 +1,4 @@
-class AddPhoneNumberAndDescriptionToPeople < ActiveRecord::Migration
+class AddPhoneNumberAndDescriptionToPeople < ActiveRecord::Migration[5.2]
   def self.up
     add_column :people, :phone_number, :string
     add_column :people, :description, :text

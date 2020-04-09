@@ -1,4 +1,4 @@
-class PopulateUseDomain < ActiveRecord::Migration
+class PopulateUseDomain < ActiveRecord::Migration[5.2]
   def up
     execute("UPDATE communities SET use_domain = redirect_to_domain")
   end

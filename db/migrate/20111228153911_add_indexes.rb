@@ -1,4 +1,4 @@
-class AddIndexes < ActiveRecord::Migration
+class AddIndexes < ActiveRecord::Migration[5.2]
   def self.up
     add_index :communities_listings, [:listing_id, :community_id], :name => "communities_listings"
     add_index :listing_images, :listing_id

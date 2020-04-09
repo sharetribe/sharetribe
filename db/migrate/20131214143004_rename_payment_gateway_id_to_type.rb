@@ -1,4 +1,4 @@
-class RenamePaymentGatewayIdToType < ActiveRecord::Migration
+class RenamePaymentGatewayIdToType < ActiveRecord::Migration[5.2]
   class CommunityPaymentGateway < ApplicationRecord
     # Just empty class to make the migration through even if that class is already deleted when running this.
   end

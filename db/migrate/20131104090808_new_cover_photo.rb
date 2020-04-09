@@ -1,4 +1,4 @@
-class NewCoverPhoto < ActiveRecord::Migration
+class NewCoverPhoto < ActiveRecord::Migration[5.2]
   say "This migration will reprocess the cover photo to 1920x450 aspect ratio for #{Community.count} communities"
 
   def up

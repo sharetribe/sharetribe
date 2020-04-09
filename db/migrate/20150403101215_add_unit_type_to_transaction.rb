@@ -1,4 +1,4 @@
-class AddUnitTypeToTransaction < ActiveRecord::Migration
+class AddUnitTypeToTransaction < ActiveRecord::Migration[5.2]
   def change
     add_column :listings, :unit_tr_key, :string, limit: 64, after: :unit_type
     add_column :transactions, :unit_type, :string, limit: 32, after: :listing_title

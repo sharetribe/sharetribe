@@ -1,4 +1,4 @@
-class CreateSmerfs < ActiveRecord::Migration
+class CreateSmerfs < ActiveRecord::Migration[5.2]
   def self.up
     # Create table to hold smerf form data
     create_table :smerf_forms, :primary_key => :id, :force => true do |t|
