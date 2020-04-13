@@ -15,6 +15,7 @@
 
   .row
     .col-12
+    -# this link should go to preauthorize new path, as transction already exist
       = form_tag new_transaction_path(listing_id: @listing.id), :method => :get, :id => "booking-dates" do |f|
         = hidden_field_tag(:listing_id, @listing.id)
         %button

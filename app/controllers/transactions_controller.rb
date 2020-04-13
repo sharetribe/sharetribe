@@ -123,38 +123,6 @@ class TransactionsController < ApplicationController
   end
 
   def show
-    # HERE
-    # puts "**************1************"
-    # params_validator = params_per_hour? ? TransactionService::Validation::NewPerHourTransactionParams : TransactionService::Validation::NewTransactionParams
-    # validation_result = params_validator.validate(params).and_then { |params_entity|
-    #   tx_params = add_defaults(
-    #     params: params_entity,
-    #     shipping_enabled: listing.require_shipping_address,
-    #     pickup_enabled: listing.pickup_enabled)
-    #   tx_params[:marketplace_id] = @current_community.id
-
-    #   TransactionService::Validation::Validator.validate_initiate_params(
-    #     marketplace_uuid: @current_community.uuid_object,
-    #     listing: listing,
-    #     tx_params: tx_params,
-    #     quantity_selector: listing.quantity_selector&.to_sym,
-    #     shipping_enabled: listing.require_shipping_address,
-    #     pickup_enabled: listing.pickup_enabled,
-    #     availability_enabled: listing.availability.to_sym == :booking,
-    #     stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
-    # }
-
-    # puts "**************2************"
-
-    # if validation_result.success
-    #   initiation_success(validation_result.data)
-    # else
-    #   initiation_error(validation_result.data)
-    # end
-
-    puts "**************3************"
-
-
     @transaction = @current_community.transactions.find(params[:id])
     @listing = @transaction.listing
     m_admin = @current_user.has_admin_rights?(@current_community)
@@ -172,8 +140,6 @@ class TransactionsController < ApplicationController
         :admin
       end
 
-    puts "**************4************"
-
     @conversation = @transaction.conversation
     @listing = @transaction.listing
 
@@ -184,7 +150,6 @@ class TransactionsController < ApplicationController
     @transaction.mark_as_seen_by_current(@current_user.id)
 
     is_author = m_admin || @transaction.listing_author_id == @current_user.id
-    puts "**************5************"
 
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,

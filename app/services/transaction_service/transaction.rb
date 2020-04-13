@@ -91,6 +91,7 @@ module TransactionService::Transaction
   end
 
   def can_start_transaction(opts)
+    # byebug
     payment_gateway = opts[:transaction][:payment_gateway]
     author_id = opts[:transaction][:listing_author_id]
     community_id = opts[:transaction][:community_id]
@@ -106,6 +107,7 @@ module TransactionService::Transaction
   end
 
   def create(opts, force_sync: true)
+    #  byebug
     opts_tx = opts[:transaction].to_hash
 
     set_adapter = settings_adapter(opts_tx[:payment_gateway])

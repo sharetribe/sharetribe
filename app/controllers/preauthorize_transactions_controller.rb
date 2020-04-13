@@ -10,6 +10,7 @@ class PreauthorizeTransactionsController < ApplicationController
   before_action :ensure_can_receive_payment
 
   def initiate
+    # byebug
     params_validator = params_per_hour? ? TransactionService::Validation::NewPerHourTransactionParams : TransactionService::Validation::NewTransactionParams
     validation_result = params_validator.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
@@ -37,6 +38,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def initiated
+    byebug
     params_validator = params_per_hour? ? TransactionService::Validation::NewPerHourTransactionParams : TransactionService::Validation::NewTransactionParams
     validation_result = params_validator.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
@@ -150,6 +152,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def ensure_can_receive_payment
+    # byebug
     payment_type = @current_community.active_payment_types || :none
 
     ready = TransactionService::Transaction.can_start_transaction(transaction: {
@@ -197,6 +200,8 @@ class PreauthorizeTransactionsController < ApplicationController
         }
     end
 
+    byebug
+    return
     transaction = {
           community_id: opts[:community].id,
           community_uuid: opts[:community].uuid_object,
@@ -277,7 +282,10 @@ class PreauthorizeTransactionsController < ApplicationController
              stripe_in_use: order.stripe_in_use,
              stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
              stripe_shipping_required: listing.require_shipping_address && tx_params[:delivery] != :pickup,
-             form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing.id),
+             form_action: initiated_order_path(
+               person_id: @current_user.id, # requestor id
+               listing_id: listing.id
+            ),
              country_code: LocalizationUtils.valid_country_code(@current_community.country),
              paypal_analytics_event: paypal_event_params(listing),
              price_break_down_locals: order.price_break_down_locals
@@ -305,7 +313,7 @@ class PreauthorizeTransactionsController < ApplicationController
       end
 
     flash[:error] = error_msg
-    byebug
+    # byebug
     logger.error(error_msg, :transaction_initiate_error, data)
     redirect_to listing_path(listing.id)
   end
