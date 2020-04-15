@@ -137,15 +137,15 @@ en:
       cannot_delete: 'Could not delete marketplace.'
     view_conversations:
       search_placeholder: 'Filter conversations by a name, email or keyword...'
-      listing: 'Listing'
-      sender: 'Sender'
-      receiver: 'Receiver'
+      started_from: 'Started from'
+      sender: 'Starter'
+      receiver: 'Provider'
       started: 'Started'
       latest_activity: 'Latest activity'
-      status: 'Status'
+      actions: 'Actions'
       not_available: 'Not available'
       profile: "%{author}'s Profile"
-      conversation: 'Conversation'
+      read: 'Read'
     email_users:
       compose_email: 'Compose email'
       recipients: 'Who do you want to email?'
