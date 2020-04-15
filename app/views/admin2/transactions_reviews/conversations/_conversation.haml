@@ -15,7 +15,7 @@
   %td
     - listing = conversation.listing
     - if listing
-      - listing_title = listing.title || t('admin2.view_conversations.not_available')
+      - listing_title = t('admin2.view_conversations.listing', listing: listing.title) || t('admin2.view_conversations.not_available')
       = link_to_unless listing.deleted, listing_title, listing_path(listing.id), target: :_blank
     - elsif recipient
       = link_to t('admin2.view_conversations.profile', author: recipient_name), person_path(recipient.username), target: :_blank

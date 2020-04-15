@@ -21,7 +21,7 @@ I want to see see all the conversations happening in my community
     When I am logged in as "manager"
     And "manager" has admin rights in community "test"
     And I am on the conversations admin2 page
-    Then I should see a conversation started from "john doe's Profile" with status "Conversation"
+    Then I should see a conversation started from "john doe's Profile" with status "Read"
 
   Scenario: Admin views conversations started from a listing
     When I am logged in as "kassi_testperson2"
@@ -32,4 +32,4 @@ I want to see see all the conversations happening in my community
     When I am logged in as "manager"
     And "manager" has admin rights in community "test"
     And I am on the conversations admin2 page
-    Then I should see a conversation started from "listing1" with status "Conversation"
+    Then I should see a conversation started from "listing1" with status "Read"
