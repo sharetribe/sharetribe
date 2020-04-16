@@ -22,4 +22,6 @@ Given(/^click to author testimonial edit link/) do
   end
 end
 
-
+Given(/^click to testimonial edit link/) do
+  find('.edit-tx').click
+end

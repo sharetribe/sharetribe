@@ -1,0 +1,6 @@
+<% if @export_result %>
+  initializeExportPolling({
+      pollingUrl: '<%= j export_status_admin2_transactions_reviews_manage_transactions_path(token: @export_result.token) %>',
+      loading: '<%= j render('admin2/loading') %>'
+  });
+<% end %>

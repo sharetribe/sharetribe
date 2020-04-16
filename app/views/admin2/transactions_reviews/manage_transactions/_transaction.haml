@@ -1,0 +1,25 @@
+%tr
+  %td
+    - listing_title = transaction.listing_title || t('admin2.manage_transactions.not_available')
+    = Maybe(transaction.listing).map { |listing| link_to_unless(listing.deleted, listing_title, listing_path(transaction.listing_id), target: :_blank) }.or_else(listing_title)
+  %td
+    = Maybe(transaction.starter).map { |p| link_to_unless(p.deleted, person_name(p), person_path(p.username), target: :_blank) }.or_else('')
+  %td
+    = Maybe(transaction.author).map { |p| link_to_unless(p.deleted, person_name(p), person_path(p.username), target: :_blank) }.or_else('')
+  %td
+    = l(transaction.created_at, format: :short_date)
+  %td
+    = l(transaction.last_activity, format: :short_date)
+  %td
+    - status = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
+    - if @transactions_presenter.show_link?(transaction)
+      - if @transactions_presenter.personal?
+        = link_to status, person_transaction_path(@current_user, transaction.id), target: :_blank
+      - else
+        = link_to status, admin_community_transaction_path(id: transaction.id, community_id: @current_community.id), target: :_blank
+    - else
+      = status
+  %td
+    = transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ''
+  %td
+    = link_to t('admin2.manage_transactions.view_details'), '#'

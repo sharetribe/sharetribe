@@ -50,23 +50,23 @@
         %li
           = link_to t('admin2.sidebar.users_group'), '#users', class: %i[dropdown-toggle], 'aria-controls' => 'users', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#users.collapse.subtitle{class: expand_ul('users')}
-        %li#manageusers
-          %a{:href => 'manage-users.php'} Manage users
+        %li#manageusers{class: active_li('manage_users')}
+          = link_to t('admin2.sidebar.users.manage_users'), admin2_users_manage_users_path(direction: :desc, sort: :join_date)
         %li#userfields
           %a{:href => 'user-fields.php'} User fields
         %li#signuplogin{class: active_li('signup_login')}
           = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
         %li#userrights{class: active_li('user_rights')}
           = link_to t('admin2.sidebar.users.user_rights'), admin2_users_user_rights_path
-        %li#invitations
-          %a{:href => 'invitations.php'} Invitations
+        %li#invitations{class: active_li('invitations')}
+          = link_to t('admin2.sidebar.users.invitations'), admin2_users_invitations_path(direction: :desc, sort: :started)
       / Listings
       %ul.category-title
         %li
           = link_to t('admin2.sidebar.listings_group'), '#listings', class: %i[dropdown-toggle], 'aria-controls' => 'listings', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#listings.collapse.subtitle{class: expand_ul('listings')}
-        %li#managelistings
-          %a{:href => 'manage-listings.php'} Manage listings
+        %li#managelistings{class: active_li('manage_listings')}
+          = link_to t('admin2.sidebar.listings.manage_listings'), admin2_listings_manage_listings_path(direction: 'desc', sort: 'updated')
         %li#categories
           %a{:href => 'categories.php'} Categories
         %li#ordertypes
@@ -82,12 +82,12 @@
         %li
           = link_to t('admin2.sidebar.transactions_group'), '#transactionsreviews', class: %i[dropdown-toggle], 'aria-controls' => 'transactionsreviews', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#transactionsreviews.collapse.subtitle{class: expand_ul('transactions_reviews')}
-        %li#managetransactions
-          %a{:href => 'manage-transactions.php'} Manage transactions
-        %li#viewconversations
-          %a{:href => 'view-conversations.php'} View conversations
-        %li#managereviews
-          %a{:href => 'manage-reviews.php'} Manage reviews
+        %li#managetransactions{class: active_li('manage_transactions')}
+          = link_to t('admin2.sidebar.transactions_reviews.manage_transactions'), admin2_transactions_reviews_manage_transactions_path(direction: :desc, sort: :last_activity)
+        %li#viewconversations{class: active_li('conversations')}
+          = link_to t('admin2.sidebar.transactions_reviews.view_conversations'), admin2_transactions_reviews_conversations_path(direction: :desc, sort: :last_activity)
+        %li#managereviews{class: active_li('manage_reviews')}
+          = link_to t('admin2.sidebar.transactions_reviews.manage_reviews'), admin2_transactions_reviews_manage_reviews_path
         %li#configuretransactions{class: active_li('config_transactions')}
           = link_to t('admin2.sidebar.transactions_reviews.config_transactions'), admin2_transactions_reviews_config_transactions_path
       / Divider
@@ -111,10 +111,10 @@
         %li
           = link_to t('admin2.sidebar.emails_group'), '#emails', class: %i[dropdown-toggle], 'aria-controls' => 'emails', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#emails.collapse.subtitle{class: expand_ul('emails')}
-        %li#emailusers
-          %a{:href => 'email-users.php'} Email users
-        %li#welcomeemail
-          %a{:href => 'welcome-email.php'} Welcome email
+        %li#emailusers{class: active_li('email_users')}
+          = link_to t('admin2.sidebar.emails.email_users'), admin2_emails_email_users_path
+        %li#welcomeemail{class: active_li('welcome_emails')}
+          = link_to t('admin2.sidebar.emails.welcome_email'), admin2_emails_welcome_emails_path
         %li#automaticnewsletter{class: active_li('newsletters')}
           = link_to t('admin2.sidebar.emails.automatic_newsletter'), admin2_emails_newsletters_path
         %li#customoutgoingaddress
@@ -155,6 +155,8 @@
           = link_to t('admin2.sidebar.seo.category_pages'), admin2_seo_category_pages_path
         %li#profilepagesmeta{class: active_li('profile_pages')}
           = link_to t('admin2.sidebar.seo.profile_pages'), admin2_seo_profile_pages_path
+        %li#googlesearchconsole{class: active_li('google_console')}
+          = link_to t('admin2.sidebar.seo.google_console'), admin2_seo_google_console_index_path
       / Analytics
       %ul.category-title
         %li
@@ -162,8 +164,8 @@
       %ul#analytics.collapse.subtitle{class: expand_ul('analytics')}
         %li#googleanalytics{class: active_li('google')}
           = link_to t('admin2.sidebar.analytics.google'), admin2_analytics_google_index_path
-        %li#googlesearchconsole
-          %a{:href => "google-search-console.php"} Google Search Console
+        %li#googletagmanager{class: active_li('google_manager')}
+          = link_to t('admin2.sidebar.analytics.google_manager'), admin2_analytics_google_manager_index_path
         - if APP_CONFIG.admin_enable_tracking_config
           %li#sharetribeanalytics{class: active_li('sharetribe')}
             = link_to t('admin2.sidebar.analytics.sharetribe'), admin2_analytics_sharetribe_index_path
@@ -174,8 +176,8 @@
       %ul#advanced.collapse.subtitle{class: expand_ul('advanced')}
         %li#customscript{class: active_li('custom_scripts')}
           = link_to t('admin2.sidebar.advanced.custom_script'), admin2_advanced_custom_scripts_path
-        %li#deletemarketplace
-          %a{:href => 'delete-marketplace.php'} Delete marketplace
+        %li#deletemarketplace{class: active_li('delete_marketplaces')}
+          = link_to t('admin2.sidebar.advanced.delete_marketplace'), admin2_advanced_delete_marketplaces_path
   / Bottom links for branded links
   .sidenav-bottomLinks
     %ul.category-title

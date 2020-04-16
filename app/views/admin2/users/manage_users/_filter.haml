@@ -1,0 +1,7 @@
+= form_tag '#', class: %i[content-card-header content-table], method: :get do |form|
+  .content-card-header-left
+    = text_field_tag :q, params[:q], placeholder: t('admin2.manage_users.search_by'), class: %i[search-header]
+  .content-card-header-right
+    %span#user_statuses_filter
+      = render 'admin2/users/manage_users/statuses', presenter: @presenter, current: params[:status]
+    = link_to t('admin2.manage_users.export_csv'), { format: :csv }, class: %i[content-card-header-link] << ('opacity_04 is-disabled' if params[:status]&.any?{|s| s.present?} || params[:q].present?)

@@ -9,6 +9,12 @@
       = t('admin2.topnav.menu')
 
   .topnav-list
+    - if @current_user.is_admin?
+      .nav-item
+        %span.hide-mobile.nav-link
+          %span.hide-mobile
+            = t('admin2.topnav.marketplace_id', id: @current_community.id)
+
     .nav-item
       = link_to homepage_with_locale_path, class: %i[nav-link] do
         %span.hide-mobile

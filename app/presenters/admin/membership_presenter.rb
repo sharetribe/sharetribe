@@ -22,7 +22,7 @@ class Admin::MembershipPresenter
     end
   end
 
-  FILTER_STATUSES = ['admin', 'banned', 'posting_allowed', 'accepted', 'unconfirmed', 'pending']
+  FILTER_STATUSES = %w[admin banned posting_allowed accepted unconfirmed pending]
 
   def sorted_statuses
     FILTER_STATUSES.map {|status|

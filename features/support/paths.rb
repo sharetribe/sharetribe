@@ -60,6 +60,8 @@ module NavigationHelpers
       admin2_emails_newsletters_path(locale: "en")
     when /^the admin2 user rights community "(.*)"$/i
       admin2_users_user_rights_path(locale: "en")
+    when /^the admin2 welcome email community "(.*)"$/i
+      admin2_emails_welcome_emails_path(locale: "en")
     when /^the admin2 general essential community "(.*)"$/i
       admin2_general_essentials_path(locale: "en")
     when /^the admin settings view of community "(.*)"$/i
@@ -92,6 +94,8 @@ module NavigationHelpers
       admin_categories_path(:locale => "en")
     when /the manage members admin page/
       admin_community_community_memberships_path(:community_id => @current_community.id)
+    when /the manage users admin2 page/
+      admin2_users_manage_users_path
     when /the edit look-and-feel page/
       admin_look_and_feel_edit_path
     when /the text instructions admin page/
@@ -124,8 +128,12 @@ module NavigationHelpers
       admin_topbar_edit_path
     when /the transactions admin page/
       admin_community_transactions_path(:community_id => @current_community.id)
+    when /the transactions admin2 page/
+      admin2_transactions_reviews_manage_transactions_path(:community_id => @current_community.id)
     when /the conversations admin page/
       admin_community_conversations_path(:community_id => @current_community.id)
+    when /the conversations admin2 page/
+      admin2_transactions_reviews_conversations_path(:community_id => @current_community.id)
     when /the getting started guide for admins/
       admin_getting_started_guide_path
     when /^the admin view of payment preferences of community "(.*)"$/i
@@ -138,6 +146,8 @@ module NavigationHelpers
       unsubscribe_invitations_path(code: $1)
     when /the testimonials admin page/
       admin_community_testimonials_path(:community_id => @current_community.id)
+    when /the testimonials admin2 page/
+      admin2_transactions_reviews_manage_reviews_path(:community_id => @current_community.id)
     when /the listings admin page/
       admin_community_listings_path(:community_id => @current_community.id)
     when /the person custom fields admin page/

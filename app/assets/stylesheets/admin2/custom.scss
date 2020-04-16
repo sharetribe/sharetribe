@@ -110,3 +110,16 @@ a.remove {
 a.remove:hover {
   opacity: 1; }
 
+.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  pointer-events: none;
+  a, button {
+    color: currentColor;
+    display: inline-block;
+    text-decoration: none;
+    &.button {
+      background-color: #c3c3c3;
+    }
+  }
+}

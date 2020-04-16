@@ -1,0 +1,16 @@
+%tr{id: "invitation-#{invitation.id}"}
+  %td
+    - p = invitation.inviter
+    - unless p.deleted
+      = link_to person_name(p), person_path(p.username), target: :_blank
+  %td
+    = invitation.email
+  %td
+    = truncate(invitation.message, length: 200)
+  %td
+    - if invitation.usages_left.positive?
+      = t("admin.communities.invitations.used.no")
+    - else
+      = t("admin.communities.invitations.used.yes")
+  %td
+    = l(invitation.created_at, format: :short)

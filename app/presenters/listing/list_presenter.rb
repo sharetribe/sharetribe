@@ -1,17 +1,19 @@
 class Listing::ListPresenter
   include Rails.application.routes.url_helpers
 
-  attr_reader :community, :author, :params, :admin_mode
+  attr_reader :community, :author, :params, :admin_mode, :per_page
 
-  def initialize(community, author, params, admin_mode)
+  def initialize(community, author, params, admin_mode, per_page = 30)
     @author = author
     @community = community
     @params = params
     @admin_mode = admin_mode
+    @per_page = per_page
   end
 
   def listings
-    @listings ||= resource_scope.order("#{sort_column} #{sort_direction}").paginate(:page => params[:page], :per_page => 30)
+    @listings ||= resource_scope.order("#{sort_column} #{sort_direction}")
+                                .paginate(page: params[:page], per_page: per_page)
   end
 
   def reset_search_path
@@ -25,9 +27,13 @@ class Listing::ListPresenter
   def statuses
     return @statuses if defined?(@statuses)
 
-    result = ['open', 'closed', 'expired']
+    result = %w[open closed expired]
     result += [Listing::APPROVAL_PENDING, Listing::APPROVAL_REJECTED] if community.pre_approved_listings
     @statuses = result
+  end
+
+  def statuses_with_count
+    statuses.map { |status| row_status(status) }
   end
 
   def listing_status(listing)
@@ -56,6 +62,18 @@ class Listing::ListPresenter
     !has_search? && admin_mode
   end
 
+  def total_listings
+    count_by_status('all')
+  end
+
+  def row_status(status)
+    [row_status_text(status), status]
+  end
+
+  def row_status_text(status)
+    "#{I18n.t("admin.communities.listings.status.#{status}")} (#{count_by_status(status)}) "
+  end
+
   private
 
   def resource_scope
@@ -76,16 +94,33 @@ class Listing::ListPresenter
       statuses.push(Listing.status_expired) if params[:status].include?('expired')
       statuses.push(Listing.approval_pending) if params[:status].include?(Listing::APPROVAL_PENDING)
       statuses.push(Listing.approval_rejected) if params[:status].include?(Listing::APPROVAL_REJECTED)
-      if statuses.size > 1
+      if statuses.size.positive?
         status_scope = statuses.slice!(0)
-        statuses.map{|x| status_scope = status_scope.or(x)}
+        statuses.map { |x| status_scope = status_scope.or(x) }
         scope = scope.merge(status_scope)
-      else
-        scope = scope.merge(statuses.first)
       end
     end
 
     scope
+  end
+
+  def count_by_status(status)
+    scope = community.listings.exist
+    scope = case status
+            when 'open'
+              scope.status_open_active
+            when 'closed'
+              scope.status_closed
+            when 'expired'
+              scope.status_expired
+            when Listing::APPROVAL_PENDING
+              scope.approval_pending
+            when Listing::APPROVAL_REJECTED
+              scope.approval_rejected
+            else
+              scope
+            end
+    scope.count
   end
 
   def sort_column

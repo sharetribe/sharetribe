@@ -1,6 +1,8 @@
 en:
   admin2:
     save_changes: 'Save changes'
+    next_step: 'Next'
+    prev_step: 'Prev'
     topnav:
       admin_menu: 'Admin menu'
       logo: 'Sharetribe Go Admin Panel'
@@ -9,6 +11,7 @@ en:
       marketplace: 'Marketplace'
       avatar: 'Sharetribe Go Admin'
       logout: 'Log out'
+      marketplace_id: 'Marketplace ID: %{id}'
     sidebar:
       dashboard: 'Dashboard'
       general_group: 'General'
@@ -41,17 +44,25 @@ en:
         display: 'Display'
         experimental: 'Experimental'
       users:
+        manage_users: 'Manage users'
         signup_login: 'Signup & Login'
         user_rights: 'User rights'
+        invitations: 'Invitations'
       listings:
         listing_approval: 'Listing approval'
         listing_comments: 'Listing comments'
+        manage_listings: 'Manage listings'
       transactions_reviews:
         config_transactions: 'Configure transactions'
+        view_conversations: 'View conversations'
+        manage_transactions: 'Manage transactions'
+        manage_reviews: 'Manage reviews'
       payment_system:
         country_currency: 'Country & Currency'
       emails:
+        email_users: 'Email users'
         automatic_newsletter: 'Automatic newsletter'
+        welcome_email: 'Welcome email'
       search_location:
         search: 'Search'
         location: 'Location'
@@ -65,11 +76,187 @@ en:
         listing_pages: 'Listing pages meta'
         category_pages: 'Category pages meta'
         profile_pages: 'Profile pages meta'
+        google_console: 'Google Search Console'
       analytics:
         google: 'Google Analytics'
+        google_manager: 'Google Tag Manager'
         sharetribe: 'Sharetribe analytics'
       advanced:
         custom_script: 'Custom script'
+        delete_marketplace: 'Delete marketplace'
+    manage_reviews:
+      transaction: 'Transaction'
+      customer: 'Customer'
+      customer_rating: 'Customer rating'
+      provider: 'Provider'
+      provider_rating: 'Provider rating'
+      actions: 'Actions'
+      search_placeholder: 'Search reviews by user, email or keyword...'
+      all_transactions: 'All transactions (%{count})'
+      customer_title: "Customer review from %{title}"
+      provider_title: "Provider review from %{title}"
+      review_label: 'Reviews for the transaction for "%{title}"'
+      delete_notice: 'Deleting a review allows its author to leave another one for the same transaction. Deleting a review cannot be undone.'
+      blocked_notice: 'Blocking the review prevents its author from leaving another one for the same transaction.'
+      delete_title: 'Delete and block reviews for the transaction for "%{title}"'
+      block_review_customer: "Block future customer from %{title}"
+      block_review_provider: "Block future provider from %{title}"
+      delete_review_customer: "Delete customer review from %{title}"
+      delete_review_provider: "Delete provider review from %{title}"
+      save: 'Save'
+      cancel: 'Cancel'
+      edit: 'Edit'
+      rating_string: 'Rating'
+      delete_block: 'Delete and block'
+      read_review_comments: 'Read review comments'
+      rating: '%{rating} rating.'
+      unskip: 'Unskip the review'
+      comment: 'Comment'
+      unskip_notice: 'If you unskip the review, the user will be able to post one. They will not be notified automatically.'
+      statuses:
+        positive: 'Positive'
+        negative: 'Negative'
+        skipped: 'Skipped'
+        waiting: 'Waiting for the review'
+        blocked: 'Blocked'
+      status_filter:
+        positive: 'Positive review'
+        negative: 'Negative review'
+        skipped: 'Skipped review'
+        waiting: 'Waiting for the review'
+        blocked: 'Blocked review'
+    delete_marketplace:
+      info_text_1: 'Delete your marketplace'
+      info_text_2: 'Once you delete the marketplace, you will not be able to access it anymore. This cannot be undone.'
+      info_text_3: 'Be careful.'
+      info_text_4: 'Please note that after deletion, you and your marketplace users may still receive the last marketplace update emails.'
+      info_text_5: 'To delete your marketplace forever, you must type your Sharetribe marketplace domain (%{domain}) in the text field below.'
+      info_text_6: "One last thing before you delete your marketplace: is there anything we can do to help? Don't hesitate to <a href='#' show-intercom=true >contact the Sharetribe team</a> if you have any question. We'll be happy to help you get the most of Sharetribe Go!"
+      delete_confirmation_placeholder: 'Type your Sharetribe marketplace domain here...'
+      delete: 'Delete your marketplace forever'
+      cannot_delete: 'Could not delete marketplace.'
+    view_conversations:
+      search_placeholder: 'Filter conversations by a name, email or keyword...'
+      listing: 'Listing'
+      sender: 'Sender'
+      receiver: 'Receiver'
+      started: 'Started'
+      latest_activity: 'Latest activity'
+      status: 'Status'
+      not_available: 'Not available'
+      profile: "%{author}'s Profile"
+      conversation: 'Conversation'
+    email_users:
+      compose_email: 'Compose email'
+      recipients: 'Who do you want to email?'
+      learn_segments: 'Learn more about the <a href="%{url}" target="_blank">user segments</a>.'
+      receivers_languages: 'Language of the email receivers'
+      any_language: 'Any language'
+      subject: 'Email subject'
+      subject_info_text: 'To improve email deliverability the email subject is generated automatically and cannot be changed.'
+      email_subject_text: "A new message from the %{service_name} team"
+      message_will_be_sent_only_to_people_with_this_language: "The email will be sent only to the users who are using %{service_name} in the language you choose."
+      content: 'Email content'
+      content_info_text: '"Firstname" cannot be removed and will be replaced by the actual first name of each recipient.'
+      content_hello: 'Hello Firstname,'
+      content_placeholder: 'What do you want to say to your members?'
+      send_email: 'Send email to users'
+      send_to_yourself: 'Send a test email to yourself'
+    google_manager:
+      info_text: "Using a tag manager such as GTM is a great way to manage and deploy snippets of code or tracking pixels on your website without having to modify the code."
+      info_text_2: "Because Sharetribe also relies on Google Tag Manager, you should <a href='%{url}' target='_blank'>learn how to configure GTM for your Go marketplace</a>."
+    google_console:
+      info_text: "Google Search Console offers tools and reports to help you measure your site's Search traffic and performance and fix issues related to Google Search results."
+      info_text_2: "It's a good idea to add your website to Google Search Console. It takes only a few minutes with <a href='%{url}' target='_blank'>these instructions</a>."
+    invitations:
+      invite_new_users: 'Invite new users'
+      from: 'From'
+      to: 'To'
+      message: 'Message'
+      accepted: 'Accepted'
+      date_sent: 'Date sent'
+    manage_listings:
+      search_placeholder: 'Search listings by title, user or category...'
+      export_to_csv: 'Export to CSV'
+      all_listings: 'All listings (%{count})'
+      listing: 'Listing'
+      provider: 'Provider'
+      created: 'Created'
+      updated: 'Updated'
+      category: 'Category'
+      status: 'Status'
+      actions: 'Actions'
+      cancel: 'Cancel'
+      reject: 'Reject'
+      delete: 'Delete'
+      delete_title: 'Delete %{title}'
+      delete_confirm: 'Delete the listing forever'
+      approve: 'Approve'
+      edit: 'Edit'
+      close: 'Close'
+      close_info_text: 'This closes the listing. Are you sure you want to proceed?'
+      delete_info_text: 'Deleting a listing cannot be undone. Are you sure you want to proceed?'
+      processing_export: "Processing export to CSV..."
+      confirm_popup_body: 'This listing has not been approved yet. You can now decide to approve or reject the listing. If you approve the listing it will be public and visible to all users. If you reject the listing it will not be public.'
+    manage_transactions:
+      export_to_csv: 'Export to CSV'
+      search_placeholder: 'Search transactions by listing title or users...'
+      listing: 'Listing'
+      customer: 'Customer'
+      provider: 'Provider'
+      started: 'Started'
+      latest_activity: 'Latest activity'
+      status: 'Status'
+      amount: 'Amount'
+      actions: 'Actions'
+      view_details: 'View details'
+      all_transactions: 'All transactions (%{count})'
+      not_available: 'Not available'
+    manage_users:
+      ban_msg: 'This disables the user account from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?'
+      unban_msg: 'This enables the user account in the marketplace and allows them to access the site again with this account. Are you sure you want to proceed?'
+      to_admin: 'This makes the user an admin. You should notify the user about their responsibilities and that they should review the Sharetribe terms of use. Are you sure you want to proceed?'
+      search_by: 'Search users by name, display name or email...'
+      have_ongoing_transactions: "This account can't be deleted because they have ongoing transactions. Please complete all transactions before deleting the account."
+      only_delete_disabled: "You can only delete users that have been disabled. Disable a user first in order to delete their account."
+      export_csv: 'Export to CSV'
+      all_statuses: 'All users (%{count})'
+      name: 'Name'
+      email: 'Email'
+      join_date: 'Joined'
+      posting: 'Posting'
+      admin: 'Admin'
+      disable: 'Disable'
+      actions: 'Actions'
+      unconfirmed_text: "This user hasn't confirmed their email address. It might be possible that the user didn't receive the confirmation email. Click the resend button if you want to send it again."
+      resend_email: 'Re-send confirmation email'
+      cancel: 'Cancel'
+      unconfirmed: 'Unconfirmed'
+      unconfirmed_user: 'Unconfirmed user: %{username}'
+      edit: 'Edit'
+      delete: 'Delete'
+      post_listing: 'Post listing as'
+      ban_me_error: 'You cannot ban yourself'
+      cannot_delete_yourself_admin: 'You cannot delete yourself as an admin'
+      saved: 'Saved'
+      delete_user: 'Delete user: %{username}'
+      delete_forever: 'Delete the user account forever'
+      delete_user_text: >
+        If you delete this account, the personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings that they have created will be removed.
+        <br>
+        <br>
+        Information where other members are involved (conversations with other people, transactions they've made, reviews they've given to others, etc) is not removed when you delete this account. However, the name will no longer be displayed next to this information.
+        <br>
+        <br>
+        You will not be able to reactivate this account after it has been deleted.
+    welcome_email:
+      title: 'Welcome email content'
+      title_info_text: "The message below will be sent to every new user when they join. You can customize the message to fit your marketplace. By clicking 'Send test message' you can send a preview message to your email address, so you can see how it looks in an email client."
+      welcome_email_content: 'Email content'
+      hello: 'Hello Firstname,'
+      welcome_email_content_placeholder: 'Welcome to Bikerrrs!'
+      welcome_email_content_info_text: '"Firstname" cannot be removed and will be replaced by the actual first name of each recipient.'
+      send_to_yourself: 'Send a test email to yourself'
     footer:
       footer_enabling: 'Footer enabling'
       footer_enabling_field: 'Enable the footer in all pages of your marketplace'
@@ -313,8 +500,8 @@ en:
       default_language: '%{language} is used as default in the marketplace.'
       marketplace_languages: 'Marketplace languages'
       color: 'Color'
-      show_slogan: 'Display the slogan in the homepage for users who are not logged in'
-      show_description: 'Display the description in the homepage for users who are not logged in'
+      show_slogan: 'Display the slogan in the homepage or Custom Landing Page for users who are not logged in'
+      show_description: 'Display the description in the homepage or Custom Landing Page for users who are not logged in'
     admin_notifications:
       header: 'Admin notification settings'
       info_text: "To monitor what's happening on your marketplace website, you can be notified of any new activity. Email notifications are sent to all confirmed emails of all admins."
@@ -381,6 +568,10 @@ en:
       topbar_updated: 'Top bar settings were updated'
       footer_updated: 'Footer settings were updated'
       footer_update_failed: 'Footer details update failed'
+      email_sent: 'Email sent'
+      test_email_sent: 'Test email was sent to your inbox'
+      welcome_email_updated: 'Welcome email settings were updated'
+      welcome_email_updated_and_sent: 'Welcome email settings were updated and a test email was sent to %{email}'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

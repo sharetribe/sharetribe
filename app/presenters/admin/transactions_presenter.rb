@@ -22,13 +22,15 @@ class Admin::TransactionsPresenter
     end
   end
 
-  FILTER_STATUSES = %w(free confirmed paid canceled preauthorized rejected payment_intent_requires_action payment_intent_action_expired disputed refunded dismissed)
+  FILTER_STATUSES = %w[free confirmed paid canceled preauthorized rejected
+                       payment_intent_requires_action payment_intent_action_expired
+                       disputed refunded dismissed]
 
   def sorted_statuses
     statuses = FILTER_STATUSES
     statuses.map {|status|
       [status, I18n.t("admin.communities.transactions.status_filter.#{status}"), status_checked?(status)]
-    }.sort_by{|status, translation, checked| collator.get_sort_key(translation) }
+    }.sort_by{|_status, translation, _checked| collator.get_sort_key(translation) }
   end
 
   def status_checked?(status)
@@ -40,7 +42,7 @@ class Admin::TransactionsPresenter
   end
 
   def show_link?(tx)
-    exclude = %w(pending payment_intent_requires_action payment_intent_action_expired)
+    exclude = %w[pending payment_intent_requires_action payment_intent_action_expired]
     !exclude.include?(tx.current_state)
   end
 
@@ -179,7 +181,7 @@ class Admin::TransactionsPresenter
   end
 
   def completed?
-    ['confirmed', 'canceled', 'refunded'].include?(transaction.current_state)
+    %w[confirmed canceled refunded].include?(transaction.current_state)
   end
 
   def shipping?

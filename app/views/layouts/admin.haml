@@ -7,13 +7,12 @@
     %meta{content: 'width=device-width, initial-scale=1 shrink-to-fit=no', name: 'viewport'}
     %meta{content: admin_description.html_safe, name: 'description'}
     %link{rel: 'shortcut icon', href: @current_community.favicon}
-
-  - path_font = APP_CONFIG[:font_circularstd_url]
-  - if path_font.present?
-    = render 'layouts/fonts_admin_v2', path_font: path_font
-
-  = stylesheet_link_tag 'admin2/admin'
-  = javascript_include_tag 'admin2/admin'
+    = csrf_meta_tags
+    - path_font = APP_CONFIG[:font_circularstd_url]
+    - if path_font.present?
+      = render 'layouts/fonts_admin_v2', path_font: path_font
+    = stylesheet_link_tag 'admin2/admin'
+    = javascript_include_tag 'admin2/admin'
   %body
     = render partial: 'admin2/mobilemenu', locals: header_props
     #root

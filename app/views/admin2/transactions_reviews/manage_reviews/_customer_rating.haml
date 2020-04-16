@@ -1,0 +1,21 @@
+%h1
+  = t('admin2.manage_reviews.customer_title', title: tx.customer_title)
+- if tx.starter_skipped_feedback
+  .form-group
+    %p= t('admin2.manage_reviews.unskip_notice')
+    .form-check
+      = check_box_tag :customer_unskip, 1, false, class: %i[form-check-input]
+      = label_tag :customer_unskip, t('admin2.manage_reviews.unskip'), class: %i[form-check-label]
+- else
+  .form-group
+    %label= t('admin2.manage_reviews.rating_string')
+    .form-radiobutton-wrapper
+      .form-radiobutton.form-check-inline
+        = radio_button_tag :customer_rating, 1, (tx.customer_positive? || !tx.testimonial_from_starter.present?), class: %i[form-check-input]
+        = label_tag :customer_rating_1, t('admin2.manage_reviews.statuses.positive'), class: %i[form-check-label]
+      .form-radiobutton.form-check-inline
+        = radio_button_tag :customer_rating, 0, tx.customer_negative?, class: 'form-check-input'
+        = label_tag :customer_rating_0, t('admin2.manage_reviews.statuses.negative'), class: %i[form-check-label]
+  .form-group
+    = label_tag :customer_comment, t('admin2.manage_reviews.comment')
+    = text_area_tag :customer_comment, tx.customer_text, class: %i[form-control]

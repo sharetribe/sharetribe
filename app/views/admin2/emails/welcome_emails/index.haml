@@ -1,0 +1,34 @@
+- content_for :title do
+  = t('admin2.sidebar.emails.welcome_email')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.emails.welcome_email')
+
+.content-card-section-container
+  = form_for @current_community, url: update_email_admin2_emails_welcome_emails_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+    = hidden_field_tag :test_email, 0
+    %section.content-card-section
+      %h2= t('admin2.welcome_email.title')
+      %p.ingress
+        = t('admin2.welcome_email.title_info_text')
+      .form-group
+        = form.fields_for :community_customizations, @community_customization do |cc|
+          = cc.label :welcome_email_content, t('admin2.welcome_email.welcome_email_content')
+          %p.ingress
+            = t('admin2.welcome_email.hello')
+          = cc.text_area :welcome_email_content, class: %i[form-control], placeholder: t('admin2.welcome_email.welcome_email_content_placeholder')
+          %small#welcomeEmailContent-help.form-text
+            = t('admin2.welcome_email.welcome_email_content_info_text')
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = link_to t('admin2.welcome_email.send_to_yourself'), '#', class: %i[btn btn-ghost], id: 'send-test-email'
+
+- content_for :extra_javascript do
+  :javascript
+    $("#send-test-email").click(function(){
+      var form = $('form'), test_email = $('#test_email');
+      test_email.val('1');
+      form.submit();
+      return false;
+    });

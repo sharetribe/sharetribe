@@ -1,0 +1,10 @@
+$('#listingDeleteModal').modal('hide');
+
+<% if @error.present? %>
+  showError('<%= j @error %>');
+<% else %>
+  $('.listing_row_<%= j @service.listing.id.to_s %>').remove();
+  var current = $('#status_').val();
+  $('#listing_statuses_filter').html('<%= j render 'admin2/listings/manage_listings/statuses', presenter: @presenter, current: nil %>');
+  $('#status_').val(current);
+<% end %>

@@ -1,0 +1,15 @@
+#listingPendingModal.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'listingPendingModalLabel', role: 'dialog', tabindex: '-1'}
+  .modal-dialog.modal-md{role: 'document'}
+    = form_tag admin2_listings_manage_listings_path, method: :patch, remote: true, class: %i[modal-content], id: :form_approve_reject do
+      = hidden_field_tag :id, '', id: :listing_id
+      = hidden_field_tag 'listing[state]', '', id: :listing_state
+      .modal-header
+        %h2#listingPendingModalLabel.modal-title
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => 'modal', type: :button}
+          %span{'aria-hidden' => 'true'} ×
+      .modal-body
+        = t('admin2.manage_listings.confirm_popup_body')
+      .modal-footer
+        = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+        = link_to t('admin2.manage_listings.reject'), '#', class: %i[reject-listing btn btn-ghost]
+        = link_to t('admin2.manage_listings.approve'), '#', class: %i[approve-listing btn btn-primary]
