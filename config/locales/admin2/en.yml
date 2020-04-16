@@ -137,16 +137,17 @@ en:
       cannot_delete: 'Could not delete marketplace.'
       delete_info_text: "Would you like to cancel your subscription or delete your marketplace? <a href='#' show-intercom=true >Contact the Sharetribe team</a> we'll be happy to help!"
     view_conversations:
-      search_placeholder: 'Filter conversations by a name, email or keyword...'
-      listing: 'Listing'
-      sender: 'Sender'
-      receiver: 'Receiver'
+      search_placeholder: 'Search conversations by user, email or keyword...'
+      started_from: 'Started from'
+      sender: 'Starter'
+      receiver: 'Provider'
       started: 'Started'
       latest_activity: 'Latest activity'
-      status: 'Status'
+      actions: 'Actions'
       not_available: 'Not available'
-      profile: "%{author}'s Profile"
-      conversation: 'Conversation'
+      profile: "%{author}'s profile"
+      read: 'Read'
+      listing: "Listing: '%{listing}'"
     email_users:
       compose_email: 'Compose email'
       recipients: 'Who do you want to email?'
