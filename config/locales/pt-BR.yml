@@ -1142,22 +1142,22 @@ pt-BR:
         payments_not_enabled: ~
     transaction_types:
       sell: Vendendo
-      sell_w_online_payment: ~
-      sell_wo_online_payment: ~
+      sell_w_online_payment: "Vendas com pagamento online"
+      sell_wo_online_payment: "Vendas sem pagamento online"
       rent: Alugando
-      rent_w_online_payment: ~
-      rent_wo_online_payment: ~
+      rent_w_online_payment: "Alugando com pagamento online"
+      rent_wo_online_payment: "Alugando sem pagamento online"
       give: Doando
       lend: Empréstimo
       swap: Troca
       service: Oferta
-      service_w_online_payment: ~
-      service_wo_online_payment: ~
+      service_w_online_payment: "Serviço com pagamento online"
+      service_wo_online_payment: "Oferta sem pagamento online"
       request: Solicitando
       inquiry: Inquérito
       share_for_free: Gratuito
-      event_w_online_payment: ~
-      event_wo_online_payment: ~
+      event_w_online_payment: "Evento com pagamento online."
+      event_wo_online_payment: "Evento sem pagamento online."
       default_action_button_labels:
         sell: Comprar
         rent: Alugar
@@ -3146,9 +3146,9 @@ pt-BR:
     paypal_connected: ~
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
-    stripe_account_restricted: ~
+    stripe_account_restricted: "Os pagamentos online em sua conta estão restritos ou serão restringidos em breve."
     stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon: "Os pagamentos online em sua conta serão restringidos em breve."
     stripe_account_restricted_soon_info: ~
     stripe_account_pending_verification: ~
     stripe_account_pending_verification_info: ~

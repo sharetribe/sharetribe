@@ -517,14 +517,14 @@ nb:
             refunded: ~
             dismissed: ~
           stripe:
-            free: ~
-            pending: ~
+            free: Meldinger
+            pending: Avventer
             preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            accepted: Akseptert
+            rejected: Avvist
+            paid: Betalt
+            confirmed: Fullført
+            canceled: Avbrutt
             disputed: ~
             initiated: "Venter Stripebetaling"
             pending_ext: "Venter Stripebetaling"
@@ -2301,7 +2301,7 @@ nb:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: ~
+      delete_listing: "Slett annonse"
     map:
       open_in_google_maps: "Åpne i Google Maps"
     error:
@@ -2429,7 +2429,7 @@ nb:
       housing: Steder
       items: Gjenstander
       list_view: Listevisning
-      listings: Listinger
+      listings: Annonser
       map_view: "Vis kart"
       offer_something: "La andre få vite!"
       offer_type: Tilbudstype
@@ -2696,8 +2696,8 @@ nb:
         other: "%{service_name} har restriksjoner. Du trenger en e-postadresse som viser at du er godkjent for å bli medlem."
       family_name: Etternavn
       given_name: Fornavn
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "Jeg godtar %{terms} og %{privacy}"
+      admin_emails_consent: "Jeg godtar å motta e-poster fra %{service_name} og forstår at jeg kan ombestemme meg når som helst."
       invalid_invitation_code: "Invitasjonskode er ikke gyldig."
       invitation_code: Invitasjonskode
       not_required: ", ikke påkrevd"
@@ -2718,7 +2718,7 @@ nb:
       and_gave_following_feedback: "og gav følgende tilbakemelding"
     profile_listings:
       no_image: "Uten bilder"
-      manage_listings: ~
+      manage_listings: "Administrator mine annonser"
     show:
       contact: "Kontakt %{person}"
       about_me: "Om meg:"
@@ -3096,7 +3096,7 @@ nb:
       signup: "Registrer deg"
       admin_dashboard: Administrasjonspanel
       language: Språk
-      listings: ~
+      listings: "Mine annonser"
     utils:
       km: km
       mi: miles
