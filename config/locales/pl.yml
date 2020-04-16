@@ -747,7 +747,7 @@ pl:
         hero:
           hero_title: "Baner główny"
           hero_description: "Ustaw tło dla sekcji \"Baner główny\". Slogan i opis możesz ustawić tutaj %{link}."
-          basic_details_tab: ~
+          basic_details_tab: "Podstawowe detale"
           cta_button: ~
           cta_button_info: ~
           button_type:
@@ -768,7 +768,7 @@ pl:
           cta_enabled: ~
           cta_text: Etykieta
           cta_url: URL
-          text_placeholder: ~
+          text_placeholder: "Kliknij mnie!"
           url_placeholder: "https://www.example.com"
         background_selector:
           title: Tło
@@ -1508,8 +1508,8 @@ pl:
       please_go_to_payment_settings: "Proszę przejść do %{payment_settings_link} i wypełnij wymagane szczegóły dotyczące płatności."
       payment_settings_link: "ustawienia płatności"
     payment_settings_reminder_v2:
-      fill_payout_details: ~
-      you_have_added_listing_with_payment: ~
+      fill_payout_details: "Podaj detale płatności"
+      you_have_added_listing_with_payment: "Opublikowałeś ofertę %{listing_link} z opcją płacenia online. Nasz zespół zauważył, że nie dodałeś jeszcze detali płatności do swojego konta. Aby móc otrzymywać płatności, musisz podać szczegóły płatności w swoim profilu."
     transaction_confirmed:
       here_is_a_message_from: "To wiadomość od %{other_party_given_name}:"
       request_marked_as_confirmed: "Zamówienie zakończone - pamiętaj, aby przekazać opinię"
@@ -1522,10 +1522,10 @@ pl:
         has_marked_request_as_confirmed: "%{other_party_full_name} oznaczył usługę '%{request}' jako zakończoną. Płatność za tę transakcję została zwolniona i będzie przekazana na Twój rachunek bankowy. Możesz teraz wystawić opinię dla %{other_party_given_name}."
       team_title: "zespół %{service_name}"
     transaction_confirmed_v2:
-      headline_confirmed: ~
+      headline_confirmed: "%{other_party_full_name} oznaczył zamówienie %{listing_link} jako zakończone."
       headline_canceled: "%{other_party_full_name} unieważnił zamówienie%{listing_link}."
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "Płatność za to zamówienie została zrealizowana na Twoje konto bankowe."
       can_give_feedback: "Możesz teraz napisać opinię dla %{other_party_given_name}."
       team_title: "zespół %{service_name}"
     transaction_automatically_confirmed:
@@ -1628,8 +1628,8 @@ pl:
       stripe:
         you_have_received_new_payment: "Kwota <b>%{payment_sum}</b> została zapłacona <b>%{listing_title}</b> przez %{payer_full_name}. Pieniądze zostały wstrzymane przez %{service_name} do momentu kiedy zamówienie zostanie oznaczone jako wykonane. To jest Twój rachunek."
     payment_receipt_to_seller_v2:
-      headline: ~
-      main_text_stripe: ~
+      headline: "Otrzymałeś zapłatę %{payment_sum} za zamówienie %{listing_link} od %{payer_name}."
+      main_text_stripe: "Pieniądze są zatrzymane przez %{service_name} dopóki zamówienie nie zostanie oznaczone jako zakończone."
       price_breakdown: "Rozdział kosztów"
     payment_receipt_to_payer:
       receipt_of_payment: Paragon
@@ -1647,8 +1647,8 @@ pl:
       paypal_gateway_fee: "Opłata PayPal:"
       money_will_be_transferred: "Pieniądze zostaną przekazane do %{recipient_name} kiedy a) oznaczysz usługę jako wykonaną lub b) upłynie %{automatic_confirmation_days} dni od momentu zapłaty."
     payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
+      headline: "Potwierdzenie zapłaty za%{listing_link}."
+      you_have_made_new_payment: "Zapłaciłeś <b>%{payment_sum}</b> za <b>%{listing_title}</b>."
     paypal_new_payment:
       paypal_gateway_fee: "Opłata PayPal:"
       shipping_total: "Transport:"
@@ -1696,7 +1696,7 @@ pl:
       settings_link_text: "Zmień swoje preferencje dot. emaili tutaj"
       unsubscribe_link_text: "wypisz się"
     community_updates_v2:
-      headline: ~
+      headline: "Sprawdź ostatnią aktywność na%{service_name}."
     newsletter:
       hi: "Cześć %{name},"
       newest_offers: "Co aktualnie ludzie oferują innym"
@@ -1721,15 +1721,15 @@ pl:
       if_you_do_not_accept: "Jeśli odrzucisz prośbę lub jej nie zaakceptujesz w tym przedziale czasowym, transakcja będzie automatycznie anulowana, %{requester} nie będzie ponosił opłaty a ty nie otrzymasz pieniędzy."
       click_here_to_reply: "Kliknij tutaj, aby odpowiedzieć na zapytanie"
     transaction_preauthorized_v2:
-      headline: ~
+      headline: "%{requester} jest zainteresowany i autoryzował płatność za %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Pamiętaj, aby zaakceptować zapytanie od %{requester} o ofercie %{listing_title}"
       remember_to_accept: "Pamiętaj, aby zaakceptować zapytanie od %{requester} o ofercie %{listing_title}. %{requester} już zapłacił za tę ofertę. Możesz zaakceptować zapytanie, aby otrzymać płatność."
       one_day_left: "Jeżeli nie zaakceptujesz zapytania w ciągu jednego dnia, zostanie ona automatycznie odrzucona i nie otrzymasz zapłaty."
       click_here_to_reply: "Kliknij tutaj, aby odpowiedzieć na zapytanie"
     transaction_preauthorized_reminder_v2:
-      headline: ~
-      remember_to_accept: ~
+      headline: "pamiętaj, aby zaakceptować zapytanie od %{requester} na temat %{listing_link}."
+      remember_to_accept: "%{requester} zapłacił już za ofertę. Musisz zaakceptować zapytanie, aby otrzymać płatność."
     welcome_email:
       welcome_email_subject: "Witaj w %{service_name}!"
       welcome_to_marketplace: "Witaj w %{service_name}! Cieszymy się, że do nas dołączyłeś."
@@ -1742,9 +1742,9 @@ pl:
       you_are_receiving_this_because: "Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_name}."
       view_listing: "Wyświetl oferty"
     new_listing_by_followed_person_v2:
-      headline: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
+      headline: "%{author} właśnie opublikował nową ofertę!"
+      has_posted_a_new_listing: "%{author_name} opublikował nową ofertę:"
+      you_are_receiving_this_because: "Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_name}."
       view_listing: "Wyświetl %{title}"
       cant_click: "Nie możesz kliknąć na przycisk? Tutaj jest link dla Twojej wygody:"
     new_member_notification:
@@ -1755,7 +1755,7 @@ pl:
       person_email: "Adres email:"
     new_member_notification_v2:
       headline: "%{community} dołączył do %{user_name}"
-      new_member_has_joined: ~
+      new_member_has_joined: "%{name} (%{email}) dołączył do %{community}. Być może muszą oni jeszcze potwierdzić swój adres e-mail."
       view_profile: "Wyświetl profil"
     listing_submited_for_review:
       subject: "Nowa oferta do przeglądu: \"%{listing_title}\" %{author_name}  na %{community}"
@@ -1785,7 +1785,7 @@ pl:
       provider: "Sprzedawca: %{name}"
     new_transaction_v2:
       subject: "Nowa transakcja na %{service_name}"
-      there_is_a_new_transaction: ~
+      there_is_a_new_transaction: "Jest %{link} na %{service_name}."
       a_new_transaction: "nowa transakcja"
       listing: "Oferta:"
       sum: "Kwota:"
@@ -1793,34 +1793,34 @@ pl:
       provider: "Sprzedawca:"
       view_transaction: "Wyświetl transakcję"
     transaction_cancel_flow:
-      the_order_about: ~
+      the_order_about: "zamówienie %{listing_title}"
       you_can_contact_the_marketplace_team: "Możesz skontaktować się z zespołem %{service_name} jeśli masz jakieś pytania."
       you_can_now_give_feedback: "Możesz teraz napisać opinię dla %{name}. Przekazywanie opinii jest bardzo dobrą praktyką. Jeżeli wszystko poszło sprawnie, daj znać innym, że %{recipient} jest godny zaufania. Jeżeli napotkałeś jakieś problemy, dobrze też o nich wspomnieć."
       give_feedback_to: "Przekaż opinię dla %{name}"
     transaction_disputed:
-      subject: ~
+      subject: "Zamównienie unieważnione - zespół %{service_name} analizuje sytuację"
       subject_admin: "Oferta została unieważniona, musisz zadecydować co dalej"
-      order_about: ~
+      order_about: "zamówienie %{listing_title}"
       the_order_has_been_canceled: "%{transaction_link} została unieważniona."
-      the_order_between_buyer_and_seller_has_been_canceled: ~
-      the_marketplace_has_been_notified: ~
+      the_order_between_buyer_and_seller_has_been_canceled: "%{transaction_link} pomiędzy %{buyer} i %{seller} zostało unieważnione."
+      the_marketplace_has_been_notified: "Zespół %{service_name} został powiadomiony i analizuje sytuację. Możesz się z nimi skontaktować, aby podać więcej informacji."
       contact_the_marketplace_team: "Skontaktuj się z zespołem %{service_name}"
-      you_must_now_decide: ~
+      you_must_now_decide: "Musisz zadecydować czy zwrócić środki lub czy odrzucić zapytanie. Możesz dowiedzieć się więcej tutaj %{learn_more_link}."
       learn_more_about: "dowiedz się więcej co zrobić tutaj"
       review_the_transaction: ~
     transaction_refunded:
-      subject: ~
-      marketplace_team_has_approved_the_cancellation: ~
+      subject: "Zamówienie oznaczone jako zwrot - zespół %{service_name} zaakceptował unieważnienie od %{buyer}"
+      marketplace_team_has_approved_the_cancellation: "Zespół %{service_name} zaakceptował zwrot za %{transaction_link} i oznaczył płatność jako zwrot."
       you_should_receive_a_refund_soon: "Wkrótce otrzymasz zwrot pieniędzy. Możesz skontaktować się z zespołem %{service_name}, jeśli masz jakiś dodatkowy problem."
     transaction_cancellation_dismissed:
       subject: "Unieważnienie oferty zostało odrzucone - zespół %{service_name} odrzucił unieważnienie oferty od %{buyer}"
       marketplace_team_has_rejected_the_cancellation: "zespół %{service_name} odrzucił unieważnienie oferty dlla %{transaction_link}."
     transaction_commission_charge_failed:
       subject: ~
-      transaction_about: ~
-      the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
+      transaction_about: "zamówienie %{listing_title}"
+      the_commission_of_the_transaction: "transfer prowizja za %{transaction_link} od %{seller} nie mógł zostać zrealizowany na Twoim koncie PayPal."
+      this_usually_means: "To przeważnie oznacza, że dzieje się coś co blokuje prowizję z konta PayPal sprzedawcy. W większości przypadków, sprzedawca nie połączył lub ma nieważną formę płatności dodaną do swojego konta PayPal."
+      if_you_would_like_to_investigate: "Jeśli chcesz zbadać tą sytuację dalej, dobrym pierwszym krokiem jest skontaktować się z sprzedawcą."
       contact_the_seller: "Skontaktuj się ze sprzedawcą"
   error_messages:
     booking:
@@ -1844,7 +1844,7 @@ pl:
       buyer_cannot_pay_error: "Płatność została odrzucona przez PayPal. Proszę skontaktuj się z ich obsługą klienta aby uzyskać więcej szczegółów: %{customer_service_link}"
       pending_review_error: "Płatność została przesłana, jednak PayPal oznaczył ją jako wymagającą przeglądu. Kiedy PayPal zakończy przegląd, płatność zostanie automatycznie autoryzowana."
       seller_express_checkout_disabled: "Szybkie płatności PayPal zostały wyłączone dla konta autora oferty. Proszę, skontaktuj się z autorem oferty i daj mu znać, że jest problem z jego kontem PayPal i poleć mu kontakt z obsługą klienta PayPal."
-      seller_express_checkout_disabled_no_free: ~
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout został wyłączony dla tej oferty z profilu sprzedającego. Skontaktuj się z zespołem %{service_name}, aby poprosić sprzedawcę o dodanie PayPal lub aby skontaktowali się z obsługą klienta PayPal."
       generic_error: "W trakcie procesu płatności pojawił się błąd. Nie można zakończyć Twojej płatności PayPal."
       cancel_error: "Wystąpił błąd podczas unieważniania. Nie można zakończyć unieważniania."
       accept_authorization_error: "Wystąpił błąd podczas akceptowania preautoryzowanej płatności PayPal. Proszę spróbować ponownie."
