@@ -1,8 +1,6 @@
 - content_for :extra_javascript do
   :javascript
-    ST.Domains.init({
-      reserved_domains: #{MarketplaceService::RESERVED_DOMAINS.to_json.html_safe}
-    });
+    initIntercom();
 
 - content_for :title do
   = t('admin2.sidebar.payment_system.country_currency')

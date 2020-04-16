@@ -1,0 +1,21 @@
+%tr
+  %td
+    - price = MoneyViewUtils.to_humanized(tx.payment_total)
+    = link_to admin_community_transaction_path(id: tx.id, community_id: @current_community) do
+      = "#{tx.title_listing} #{price} #{l(tx.created_at, format: :short_date)}"
+  %td
+    - if tx.customer_title
+      = link_to tx.customer_title, person_path(tx.starter.username), target: :_blank
+  %td
+    = tx.customer_status
+  %td
+    - if tx.provider_title
+      = link_to tx.provider_title, person_path(tx.listing_author.username), target: :_blank
+  %td
+    = tx.provider_status
+  %td
+    = link_to t("admin2.manage_reviews.read_review_comments"), show_review_admin2_transactions_reviews_manage_review_path(tx), remote: true
+    |
+    = link_to t("admin2.manage_reviews.edit"), edit_review_admin2_transactions_reviews_manage_review_path(tx), remote: true, class: %i[edit-tx]
+    |
+    = link_to t("admin2.manage_reviews.delete_block"), delete_review_admin2_transactions_reviews_manage_review_path(tx), remote: true

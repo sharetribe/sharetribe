@@ -738,6 +738,14 @@ fr:
           hero_title: Hero
           hero_description: "Choisissez l'image d'arrière-plan pour la section Hero. Le slogan et la description sont définis depuis l'%{link}."
           basic_details_tab: "onglet 'Détails de base'"
+          cta_button: Bouton
+          cta_button_info: "Il n'est pas obligatoire de modifier le texte du bouton. Vous pouvez aussi laisser ce champ vide. Par défaut, le texte est \"Rechercher\" pour les places de marché publiques et \"S'inscrire\" pour les places de marché privées."
+          button_type:
+            default: Défaut
+            button: Bouton
+            none: Aucun
+          button_content: Bouton
+          click_me: "Cliquez ici !"
         footer:
           footer_title: "Pied de page"
           footer_style: "Style du pied de page"
@@ -3291,6 +3299,9 @@ fr:
       landing_page_version/section/video:
         text: Texte
         youtube_video_id: "Identifiant de la vidéo YouTube"
+      landing_page_version/section/hero:
+        cta_button_text: Texte
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: Colombie-Britannique

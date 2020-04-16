@@ -1,0 +1,41 @@
+#reviewDeleteBlock.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'reviewDeleteBlockLabel', role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-md{role: :document}
+    .modal-content
+      .modal-header
+        %h2#reviewDeleteBlockLabel.modal-title
+          = t('admin2.manage_reviews.delete_title', title: tx.title_listing)
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+          %span{'aria-hidden' => 'true'} ×
+
+      = form_tag admin2_transactions_reviews_manage_review_path(tx), method: :delete do
+        .modal-body
+          %p= t('admin2.manage_reviews.delete_notice')
+          %p= t('admin2.manage_reviews.blocked_notice')
+
+          %h1
+            = t('admin2.manage_reviews.customer_title', title: tx.customer_title)
+          .form-group
+            .form-check
+              = check_box_tag :customer_delete_review, 1, false, disabled: !tx.testimonial_from_starter.present?, class: %i[form-check-input customer-delete-review]
+              = label_tag :customer_delete_review, t('admin2.manage_reviews.delete_review_customer', title: tx.customer_title), class: %i[form-check-label]
+            .form-check
+              - customer_blocked_disable = (!tx.testimonial_from_starter.present? || (tx&.testimonial_from_starter.present? && !tx&.testimonial_from_starter.blocked?))
+              = hidden_field_tag :customer_blocked_disable, customer_blocked_disable
+              = check_box_tag :customer_blocked_review, 1, tx.testimonial_from_starter&.blocked?, disabled: customer_blocked_disable, class: %i[form-check-input customer-blocked-review]
+              = label_tag :customer_blocked_review, t('admin2.manage_reviews.block_review_customer', title: tx.customer_title), class: %i[form-check-label]
+
+          %h1
+            = t('admin2.manage_reviews.provider_title', title: tx.provider_title)
+          .form-group
+            .form-check
+              = check_box_tag :provider_delete_review, 1, false, disabled: !tx.testimonial_from_author.present?, class: %i[form-check-input provider-delete-review]
+              = label_tag :provider_delete_review, t('admin2.manage_reviews.delete_review_provider', title: tx.provider_title), class: %i[form-check-label]
+            .form-check
+              - provider_blocked_disable = (!tx.testimonial_from_author.present? || (tx&.testimonial_from_author.present? && !tx&.testimonial_from_author.blocked?))
+              = hidden_field_tag :provider_blocked_disable, provider_blocked_disable
+              = check_box_tag :provider_blocked_review, 1, tx.testimonial_from_author&.blocked?, disabled: provider_blocked_disable, class: %i[form-check-input provider-blocked-review]
+              = label_tag :provider_blocked_review, t('admin2.manage_reviews.block_review_provider', title: tx.provider_title), class: %i[form-check-label]
+
+        .modal-footer
+          = link_to t('admin2.manage_reviews.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.manage_reviews.save'), class: %i[btn btn-primary]

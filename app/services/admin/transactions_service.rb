@@ -2,19 +2,20 @@ module Admin
   class TransactionsService
     PER_PAGE = 30
 
-    attr_reader :community, :params, :format, :current_user, :personal
+    attr_reader :community, :params, :format, :current_user, :personal, :per_page
 
-    def initialize(community, params, format, current_user, personal = false)
+    def initialize(community, params, format, current_user, personal = false, per_page = PER_PAGE)
       @community = community
       @params = params
       @format = format
       @current_user = current_user
       @personal = personal
+      @per_page = per_page
     end
 
     def transactions
       @transactions ||= transactions_scope
-        .paginate(page: params[:page], per_page: params[:per_page] || PER_PAGE)
+        .paginate(page: params[:page], per_page: params[:per_page] || per_page)
     end
 
     def transaction
@@ -36,7 +37,7 @@ module Admin
         pattern = "%#{params[:q]}%"
         scope = scope.search_by_party_or_listing_title(pattern)
       end
-      if params[:status].present?
+      if params[:status].present? && params[:status].is_a?(String) || params[:status]&.reject(&:empty?).present?
         scope = scope.where(current_state: params[:status])
       end
       if params[:sort].nil? || params[:sort] == "last_activity"

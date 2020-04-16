@@ -1,0 +1,45 @@
+- accepted_or_banned = membership.accepted? || membership.banned?
+- banned = membership.banned?
+- member = membership.person
+- row_member_class = "row-member-#{membership.id} #{('opacity_04' if banned)}"
+
+%tr{class: "membership-row-#{membership.id}"}
+  %td.admin-members-full-name{class: row_member_class}
+    = link_to @presenter.person_name(member), member, target: :_blank
+  %td{class: row_member_class}
+    - email = member.confirmed_notification_emails.any? ? member.confirmed_notification_email_addresses.first : member.emails.first.try(:address)
+    = mail_to email
+  %td{class: row_member_class}
+    - if accepted_or_banned
+      = l(membership.created_at, format: :short_date)
+    - elsif membership.pending_email_confirmation?
+      = link_to t('admin2.manage_users.unconfirmed'), '#', class: %i[confirm-user], data: { name: t('admin2.manage_users.unconfirmed_user', username: @presenter.person_name(member)), url: resend_confirmation_admin2_users_manage_user_path(membership) }
+
+  - if @presenter.require_verification_to_post_listings
+    %td{class: row_member_class}
+      - if accepted_or_banned
+        = check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, class: %i[form-check-input admin-members-can-post-listings],
+                data: {url: posting_allowed_admin2_users_manage_user_path(membership)}, disabled: member.banned?
+  %td{class: row_member_class}
+    - if accepted_or_banned
+      = check_box_tag "is_admin[#{member.id}]", member.id, member.is_marketplace_admin?(@presenter.community), class: %i[form-check-input admin-members-is-admin],
+              data: {url: promote_admin_admin2_users_manage_user_path(membership), msg: t('admin2.manage_users.to_admin')},
+              disabled: member.eql?(@current_user) || member.banned?
+  %td
+    - if accepted_or_banned
+      = check_box_tag "is_banned[#{member.id}]", member.id, member.banned?,
+                data: { ban_url: ban_admin2_users_manage_user_path(membership.id),
+                        ban_msg: t('admin2.manage_users.ban_msg'),
+                        unban_url: unban_admin2_users_manage_user_path(membership.id),
+                        unban_msg: t('admin2.manage_users.unban_msg') },
+                class: %i[form-check-input admin-members-ban-toggle]
+  %td
+    - edit_class = banned ? 'edit-membership is-disabled' : 'edit-membership'
+    - post_klass = @presenter.can_post_listing(membership) ? 'post-membership' : 'post-membership is-disabled'
+    = link_to t('admin2.manage_users.edit'), person_settings_path(member), class: "#{edit_class} #{row_member_class}"
+    |
+    = link_to t('admin2.manage_users.post_listing'), new_person_listing_path(person_id: member.username), class: "#{post_klass} #{edit_class} #{row_member_class}"
+    |
+    = link_to t('admin2.manage_users.delete'), '#', 'data-toggle' => 'tooltip', class: @presenter.can_delete(membership) ? 'delete-user' : 'delete-user opacity_04',
+      title: @presenter.delete_member_title(membership), data: { name: t('admin2.manage_users.delete_user', username: @presenter.person_name(member)),
+                                                                 url: admin2_users_manage_user_path(membership) }

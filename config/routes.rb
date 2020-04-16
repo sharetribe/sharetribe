@@ -231,7 +231,18 @@ Rails.application.routes.draw do
           end
         end
       end
+
       namespace :users do
+        resources :invitations, only: %i[index]
+        resources :manage_users, path: 'manage-users', only: %i[index destroy] do
+          member do
+            get :resend_confirmation
+            patch :ban
+            patch :unban
+            post :promote_admin
+            patch :posting_allowed
+          end
+        end
         resources :signup_login, path: 'signup-and-login', only: %i[index] do
           collection do
             patch :update_signup_login
@@ -244,6 +255,15 @@ Rails.application.routes.draw do
         end
       end
       namespace :listings do
+        resources :manage_listings, path: 'manage-listings', only: %i[index] do
+          collection do
+            patch :update
+            patch :close
+            delete :delete
+            get :export
+            get :export_status
+          end
+        end
         resources :listing_approval, path: 'listing-approval', only: %i[index] do
           collection do
             patch :update_listing_approval
@@ -257,6 +277,21 @@ Rails.application.routes.draw do
       end
 
       namespace :transactions_reviews, path: 'transactions-and-reviews' do
+        resources :manage_reviews, path: 'manage-reviews', only: %i[index destroy] do
+          member do
+            get :show_review
+            get :edit_review
+            get :delete_review
+            patch :update_review
+          end
+        end
+        resources :conversations, path: 'view-conversations', only: %i[index]
+        resources :manage_transactions, path: 'manage-transactions', only: %i[index] do
+          collection do
+            get :export
+            get :export_status
+          end
+        end
         resources :config_transactions, path: 'configure-transactions', only: %i[index] do
           collection do
             patch :update_config
@@ -274,6 +309,12 @@ Rails.application.routes.draw do
       end
 
       namespace :emails do
+        resources :email_users, path: 'email-users', only: %i[index create]
+        resources :welcome_emails, path: 'welcome-email', only: %i[index] do
+          collection do
+            patch :update_email
+          end
+        end
         resources :newsletters, path: 'automatic-newsletter', only: %i[index] do
           collection do
             patch :update_newsletter
@@ -309,6 +350,7 @@ Rails.application.routes.draw do
 
       namespace :seo do
         resources :sitemap, path: 'sitemap-and-robots', only: %i[index]
+        resources :google_console, path: 'google-search-console', only: %i[index]
         resources :landing_pages, path: 'landing-page-meta', only: %i[index] do
           collection do
             patch :update_landing_page
@@ -337,6 +379,7 @@ Rails.application.routes.draw do
       end
 
       namespace :analytics do
+        resources :google_manager, path: 'google-tag-manager', only: %i[index]
         resources :google, path: 'google-analytics', only: %i[index] do
           collection do
             patch :update_google
@@ -350,6 +393,7 @@ Rails.application.routes.draw do
       end
 
       namespace :advanced do
+        resources :delete_marketplaces, path: 'delete-marketplace', only: %i[index destroy]
         resources :custom_scripts, path: 'custom-script', only: %i[index] do
           collection do
             patch :update_script

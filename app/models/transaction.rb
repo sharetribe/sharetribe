@@ -56,6 +56,7 @@
 
 class Transaction < ApplicationRecord
   include ExportTransaction
+  include Testimonials
 
   # While initiated is technically not a finished state it also
   # doesn't have any payment data to track against, so removing person

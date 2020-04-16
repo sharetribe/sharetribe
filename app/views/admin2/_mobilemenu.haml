@@ -56,23 +56,23 @@
           %li
             = link_to t('admin2.sidebar.users_group'), '#users-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'users-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#users-mobile.collapse.subtitle{class: expand_ul('users')}
-          %li#manageusers-mobile
-            %a{:href => 'manage-users.php'} Manage users
+          %li#manageusers-mobile{class: active_li('manage_users')}
+            = link_to t('admin2.sidebar.users.manage_users'), admin2_users_manage_users_path(direction: :desc, sort: :join_date)
           %li#userfields-mobile
             %a{:href => 'user-fields.php'} User fields
           %li#signuplogin-mobile{class: active_li('signup_login')}
             = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
           %li#userrights-mobile{class: active_li('user_rights')}
             = link_to t('admin2.sidebar.users.user_rights'), admin2_users_user_rights_path
-          %li#invitations-mobile
-            %a{:href => 'invitations.php'} Invitations
+          %li#invitations-mobile{class: active_li('invitations')}
+            = link_to t('admin2.sidebar.users.invitations'), admin2_users_invitations_path(direction: :desc, sort: :started)
         / Listings
         %ul.category-title
           %li
             = link_to t('admin2.sidebar.listings_group'), '#listings-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'listings-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#listings-mobile.collapse.subtitle{class: expand_ul('listings')}
-          %li#managelistings-mobile
-            %a{:href => 'manage-listings.php'} Manage listings
+          %li#managelistings-mobile{class: active_li('manage_listings')}
+            = link_to t('admin2.sidebar.listings.manage_listings'), admin2_listings_manage_listings_path(direction: 'desc', sort: 'updated')
           %li#categories-mobile
             %a{:href => 'categories.php'} Categories
           %li#ordertypes-mobile
@@ -88,12 +88,12 @@
           %li
             = link_to t('admin2.sidebar.transactions_group'), '#transactionsreviews-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'transactionsreviews-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#transactionsreviews-mobile.collapse.subtitle{class: expand_ul('transactions_reviews')}
-          %li#managetransactions-mobile
-            %a{:href => 'manage-transactions.php'} Manage transactions
-          %li#viewconversations-mobile
-            %a{:href => 'view-conversations.php'} View conversations
-          %li#managereviews-mobile
-            %a{:href => 'manage-reviews.php'} Manage reviews
+          %li#managetransactions-mobile{class: active_li('manage_transactions')}
+            = link_to t('admin2.sidebar.transactions_reviews.manage_transactions'), admin2_transactions_reviews_manage_transactions_path(direction: :desc, sort: :last_activity)
+          %li#viewconversations-mobile{class: active_li('conversations')}
+            = link_to t('admin2.sidebar.transactions_reviews.view_conversations'), admin2_transactions_reviews_conversations_path(direction: :desc, sort: :last_activity)
+          %li#managereviews-mobile{class: active_li('manage_reviews')}
+            = link_to t('admin2.sidebar.transactions_reviews.manage_reviews'), admin2_transactions_reviews_manage_reviews_path
           %li#configuretransactions-mobile{class: active_li('config_transactions')}
             = link_to t('admin2.sidebar.transactions_reviews.config_transactions'), admin2_transactions_reviews_config_transactions_path
         / Divider
@@ -117,10 +117,10 @@
           %li
             = link_to t('admin2.sidebar.emails_group'), '#emails-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'emails-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#emails-mobile.collapse.subtitle{class: expand_ul('emails')}
-          %li#emailusers-mobile
-            %a{:href => 'email-users.php'} Email users
-          %li#welcomeemail-mobile
-            %a{:href => 'welcome-email.php'} Welcome email
+          %li#emailusers-mobile{class: active_li('email_users')}
+            = link_to t('admin2.sidebar.emails.email_users'), admin2_emails_email_users_path
+          %li#welcomeemail-mobile{class: active_li('welcome_emails')}
+            = link_to t('admin2.sidebar.emails.welcome_email'), admin2_emails_welcome_emails_path
           %li#automaticnewsletter-mobile{class: active_li('newsletters')}
             = link_to t('admin2.sidebar.emails.automatic_newsletter'), admin2_emails_newsletters_path
           %li#customoutgoingaddress-mobile
@@ -162,6 +162,8 @@
             = link_to t('admin2.sidebar.seo.category_pages'), admin2_seo_category_pages_path
           %li#profilepagesmeta-mobile{class: active_li('profile_pages')}
             = link_to t('admin2.sidebar.seo.profile_pages'), admin2_seo_profile_pages_path
+          %li#googlesearchconsole-mobile{class: active_li('google_console')}
+            = link_to t('admin2.sidebar.seo.google_console'), admin2_seo_google_console_index_path
         / Analytics
         %ul.category-title
           %li
@@ -169,8 +171,8 @@
         %ul#analytics-mobile.collapse.subtitle{class: expand_ul('analytics')}
           %li#googleanalytics-mobile{class: active_li('google')}
             = link_to t('admin2.sidebar.analytics.google'), admin2_analytics_google_index_path
-          %li#googlesearchconsole-mobile
-            %a{:href => "google-search-console.php"} Google Search Console
+          %li#googletagmanager-mobile{class: active_li('google_manager')}
+            = link_to t('admin2.sidebar.analytics.google_manager'), admin2_analytics_google_manager_index_path
           - if APP_CONFIG.admin_enable_tracking_config
             %li#sharetribeanalytics-mobile{class: active_li('sharetribe')}
               = link_to t('admin2.sidebar.analytics.sharetribe'), admin2_analytics_sharetribe_index_path
@@ -181,8 +183,8 @@
         %ul#advanced-mobile.collapse.subtitle{class: expand_ul('advanced')}
           %li#customscript-mobile{class: active_li('custom_scripts')}
             = link_to t('admin2.sidebar.advanced.custom_script'), admin2_advanced_custom_scripts_path
-          %li#deletemarketplace-mobile
-            %a{:href => 'delete-marketplace.php'} Delete marketplace
+          %li#deletemarketplace-mobile{class: active_li('delete_marketplaces')}
+            = link_to t('admin2.sidebar.advanced.delete_marketplace'), admin2_advanced_delete_marketplaces_path
     / Bottom links for branded links
     .sidenav-bottomLinks
       %ul.category-title

@@ -723,6 +723,14 @@ is:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
         footer:
           footer_title: ~
           footer_style: ~
@@ -3193,6 +3201,9 @@ is:
       landing_page_version/section/video:
         text: ~
         youtube_video_id: ~
+      landing_page_version/section/hero:
+        cta_button_text: ~
+        cta_button_url: ~
   canada_states:
     AB: Alberta
     BC: "British Columbia"

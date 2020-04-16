@@ -1,0 +1,7 @@
+var popup = $('#reviewEdit');
+if (popup.length) {
+    popup.remove();
+}
+
+$('body').append('<%= j render 'admin2/transactions_reviews/manage_reviews/edit_popup', tx: @tx %>');
+$('#reviewEdit').modal('show');
