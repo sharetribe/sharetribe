@@ -367,8 +367,6 @@ class PreauthorizeTransactionsController < ApplicationController
         t("listing_conversations.preauthorize.select_delivery_method")
       elsif data[:code] == :dates_not_available
         t("listing_conversations.preauthorize.dates_not_available")
-      elsif data[:code] == :harmony_api_error
-        t("listing_conversations.preauthorize.error_in_checking_availability")
       else
         raise NotImplementedError.new("No error handler for: #{msg}, #{data.inspect}")
       end

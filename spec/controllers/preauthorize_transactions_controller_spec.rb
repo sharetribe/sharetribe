@@ -98,16 +98,6 @@ describe PreauthorizeTransactionsController, type: :controller do
     end
 
     it 'buy per day - creates transaction' do
-      harmony_response = {body: { data: [
-        attributes: {
-          unitType: :day,
-          start: "2050-11-28"
-        }
-      ]}}
-      harmony_client = double
-      allow(harmony_client).to receive(:get).with(:query_timeslots, any_args).and_return(Result::Success.new(harmony_response))
-      stub_const('HarmonyClient', harmony_client)
-
       params = {
         person_id: person2.id,
         listing_id: listing3.id,

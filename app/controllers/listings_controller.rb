@@ -131,11 +131,6 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
     listing_uuid = UUIDUtils.create
 
-    unless create_booking(shape, listing_uuid)
-      flash[:error] = t("listings.error.create_failed_to_connect_to_booking_service")
-      return redirect_to new_listing_path
-    end
-
     result = ListingFormViewUtils.build_listing_params(shape, listing_uuid, params, @current_community)
 
     unless result.success
@@ -200,11 +195,6 @@ class ListingsController < ApplicationController
     end
 
     shape = get_shape(params[:listing][:listing_shape_id])
-
-    unless create_booking(shape, @listing.uuid_object)
-      flash[:error] = t("listings.error.update_failed_to_connect_to_booking_service")
-      return redirect_to edit_listing_path(@listing)
-    end
 
     result = ListingFormViewUtils.build_listing_params(shape, @listing.uuid_object, params, @current_community)
 
@@ -304,25 +294,6 @@ class ListingsController < ApplicationController
       t("layouts.notifications.listing_updated_availability_management_disabled")
     else
       t("layouts.notifications.listing_updated_successfully")
-    end
-  end
-
-  def create_bookable(community_uuid, listing_uuid, author_uuid)
-    res = HarmonyClient.post(
-      :create_bookable,
-      body: {
-        marketplaceId: community_uuid,
-        refId: listing_uuid,
-        authorId: author_uuid
-      },
-      opts: {
-        max_attempts: 3
-      })
-
-    if !res[:success] && res[:data][:status] == 409
-      Result::Success.new("Bookable for listing with UUID #{listing_uuid} already created")
-    else
-      res
     end
   end
 
@@ -504,20 +475,6 @@ class ListingsController < ApplicationController
       record_event(flash, "km_record", {km_event: "Onboarding listing created"}, AnalyticService::EVENT_LISTING_CREATED)
 
       flash[:show_onboarding_popup] = true
-    end
-  end
-
-  def create_booking(shape, listing_uuid)
-    if shape.present?
-      if shape.booking_per_hour?
-        true
-      elsif APP_CONFIG.harmony_api_in_use && shape.booking?
-        create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object).success
-      else
-        true
-      end
-    else
-      true
     end
   end
 
