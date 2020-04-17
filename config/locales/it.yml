@@ -1301,7 +1301,7 @@ it:
       canceled_offer: "Offerta cancellata"
       paid: "pagati %{sum}"
       payment_preauthorized: "Pagamento autorizzato: %{sum}"
-      payment_preauthorized_wo_sum: ~
+      payment_preauthorized_wo_sum: "Pagamento autorizzato"
       stripe:
         held_payment: "Richiesta accettata. Il pagamento di %{sum} è tenuto da %{service_name} finchè l'ordine non è contrassegnato come completato."
         held_payment_wo_sum: ~

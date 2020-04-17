@@ -1525,7 +1525,7 @@ ro:
       confirmation_link_text: ~
     common:
       hey: "Salut %{name}"
-      hi: ~
+      hi: "Salut %{name},"
       kassi_team: "Echipa %{service_name}"
       thanks: "Mulţumim,"
       dont_want_to_receive_these_emails: "Nu doriţi să primiţi aceste e-mailuri?"
@@ -1667,7 +1667,11 @@ ro:
       settings_link_text: "Editaţi-vă setările de e-mail aici"
       unsubscribe_link_text: dezabonare
     community_updates_v2:
-      headline: ~
+      headline: "iata un rezumat al activitatatii de pe platforma %{service_name}."
+      intro_paragraph:
+        one: "Iata noutatile de pe %{service_name} din ultimele %{count} zile."
+        few: "Iata cateva dintre listarile noi de pe %{service_name} din ultimele %{count} zile."
+        other: "Iata cateva dintre listarile noi de pe %{service_name} din ultimele %{count} zile."
     newsletter:
       hi: "Salut %{name}"
       newest_offers: "Ce oferte sunt disponibile"
@@ -2241,17 +2245,17 @@ ro:
       listing_author_payment_details_missing: "Te rugăm să contactezi furnizorul prin apăsarea butonului \"Contact\" de mai jos în vederea actualizării detaliilor de plată"
       listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
+      maintenance_mode:
+        zero: "Site-ul este offline pentru mentenanță."
+        one: "Site-ul este offline pentru mentenanță pentru %{count} minut."
+        few: "Site-ul este offline pentru mentenanță pentru %{count} minute."
+        other: "Site-ul este offline pentru mentenanță pentru %{count} minute."
       automatically_logged_out_please_sign_in: "Ai fost deconectat/ă automat. Te rugăm să te conectezi din nou."
       stripe_you_account_balance_is_not_0: ~
       stripe_balance_for_username_is_not_0: ~
       visit_admin: "Vrei să %{link}?"
       visit_admin_link: "vizitezi Tabloul de Administrare"
       an_error_occurred_when_saving_your_information: ~
-      maintenance_mode:
-        zero: "Site-ul este offline pentru mentenanță."
-        one: "Site-ul este offline pentru mentenanță pentru %{count} minut."
-        few: "Site-ul este offline pentru mentenanță pentru %{count} minute."
-        other: "Site-ul este offline pentru mentenanță pentru %{count} minute."
     settings:
       account: Cont
       notifications: Notificari

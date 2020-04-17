@@ -723,14 +723,14 @@ es-MX:
           hero_title: ~
           hero_description: ~
           basic_details_tab: ~
-          cta_button: ~
-          cta_button_info: ~
+          cta_button: "Sección del botón"
+          cta_button_info: "No necesitas editar el texto del botón. Puedes simplemente dejar este campo vacío. La opción preestablecida funciona correctamente."
           button_type:
-            default: ~
-            button: ~
-            none: ~
-          button_content: ~
-          click_me: ~
+            default: Preestablecida
+            button: Botón
+            none: Nada
+          button_content: "Contenido del botón"
+          click_me: "Haz click!"
         footer:
           footer_title: ~
           footer_style: ~
@@ -3202,8 +3202,8 @@ es-MX:
         text: ~
         youtube_video_id: ~
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: Texto
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "British Columbia"
