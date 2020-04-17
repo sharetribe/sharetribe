@@ -120,7 +120,7 @@ class Transaction < ApplicationRecord
   }
   scope :for_testimonials, -> {
     includes(:testimonials, testimonials: [:author, :receiver], listing: :author)
-    .where(current_state: ['confirmed', 'canceled', 'dismissed'])
+    .where(current_state: ['confirmed', 'canceled', 'dismissed', 'disputed'])
   }
   scope :search_by_party_or_listing_title, ->(pattern) {
     joins(:starter, :listing_author)
