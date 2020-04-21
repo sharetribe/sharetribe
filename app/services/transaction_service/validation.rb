@@ -66,13 +66,8 @@ module TransactionService
         validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
           .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector, stripe_in_use: stripe_in_use) }
           .and_then { |result|
-            if tx_params[:per_hour]
-              validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
-            elsif availability_enabled
-              validate_booking_timeslots(tx_params: tx_params,
-                                         marketplace_uuid: marketplace_uuid,
-                                         listing_uuid: listing.uuid_object,
-                                         quantity_selector: quantity_selector)
+            if availability_enabled
+              validate_booking_timeslots(listing: listing, tx_params: tx_params)
             else
               Result::Success.new(result)
             end
@@ -96,13 +91,8 @@ module TransactionService
             # 'back' in browser after successfull payment and redirection to
             # dialog page, browser just render previous initiate page and if
             # user pay agian he create second transaction with same params & make payment
-            if tx_params[:per_hour]
-              validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
-            elsif availability_enabled
-              validate_booking_timeslots(tx_params: tx_params,
-                                         marketplace_uuid: marketplace_uuid,
-                                         listing_uuid: listing.uuid_object,
-                                         quantity_selector: quantity_selector)
+            if availability_enabled
+              validate_booking_timeslots(listing: listing, tx_params: tx_params)
             else
               Result::Success.new(result)
             end
@@ -164,35 +154,18 @@ module TransactionService
         }
       end
 
-      def validate_booking_timeslots(tx_params:, marketplace_uuid:, listing_uuid:, quantity_selector:)
-        start_on, end_on = tx_params.values_at(:start_on, :end_on)
+      def validate_booking_timeslots(listing:, tx_params:)
+        booking_params = if tx_params[:per_hour]
+                           tx_params.slice(:start_time, :end_time, :per_hour)
+                         else
+                           tx_params.slice(:start_on, :end_on)
+                         end
 
-        HarmonyClient.get(
-          :query_timeslots,
-          params: {
-            marketplaceId: marketplace_uuid,
-            refId: listing_uuid,
-            start: start_on,
-            end: end_on
-          }
-        ).rescue {
-          Result::Error.new(nil, code: :harmony_api_error)
-        }.and_then { |res|
-          timeslots = res[:body][:data].map { |v| v[:attributes] }
-
-          if all_days_available(timeslots, start_on, end_on)
-            Result::Success.new(tx_params)
-          else
-            Result::Error.new(nil, code: :dates_not_available)
-          end
-        }
-      end
-
-      def validate_booking_per_hour_timeslots(listing:, tx_params:)
-        return Result::Success.new(tx_params) unless tx_params[:per_hour]
-
-        booking = Booking.new(tx_params.slice(:start_time, :end_time, :per_hour))
-        if listing.working_hours_covers_booking?(booking) && listing.bookings.covers_another_booking(booking).empty?
+        booking = Booking.new(
+          booking_params.merge(
+          tx: ::Transaction.new(listing: listing))
+        )
+        if booking.valid?
           Result::Success.new(tx_params)
         else
           Result::Error.new(nil, code: :dates_not_available)

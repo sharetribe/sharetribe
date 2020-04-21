@@ -33,27 +33,6 @@ module ListingAvailabilityManage
     DateUtils.to_midnight_utc(booking_dates_end)
   end
 
-  def get_blocked_dates(start_on:, end_on:, community:, user:, listing:)
-    HarmonyClient.get(
-      :query_timeslots,
-      params: {
-        marketplaceId: community.uuid_object,
-        refId: listing.uuid_object,
-        start: start_on,
-        end: end_on
-      }
-    ).rescue {
-      Result::Error.new(nil, code: :harmony_api_error)
-    }.and_then { |res|
-      available_slots = dates_to_ts_set(
-        res[:body][:data].map { |timeslot| timeslot[:attributes][:start].to_date }
-      )
-      Result::Success.new(
-        dates_to_ts_set(start_on..end_on).subtract(available_slots)
-      )
-    }
-  end
-
   def dates_to_ts_set(dates)
     Set.new(dates.map { |d| DateUtils.to_midnight_utc(d) })
   end
@@ -79,7 +58,9 @@ module ListingAvailabilityManage
     }
   end
 
-  def datepicker_per_day_or_night_setup(blocked_dates)
+  def datepicker_per_day_or_night_setup
+    blocked_dates = listing.get_blocked_dates(start_on: booking_dates_start,
+                                              end_on: booking_dates_end)
     {
       locale: I18n.locale,
       localized_dates: datepicker_localized_dates,
@@ -236,8 +217,7 @@ module ListingAvailabilityManage
         id: @listing.id,
         uuid: @listing.uuid_object.to_s,
         title: @listing.title,
-        image_url: path_to_listing_image(@listing),
-        blocked_dates: @listing.blocked_dates.in_period(booking_dates_start, booking_dates_end)
+        image_url: path_to_listing_image(@listing)
       }
     }
   end

@@ -4,12 +4,14 @@ module TransactionService::Store::Transaction
 
   module_function
 
+  # booking validation happens before SQL BEGIN-COMMIT block
   def create(tx_data)
     tx_model = TransactionModel.new(tx_data.except(:content, :booking_fields, :starting_page))
 
     build_conversation(tx_model, tx_data)
     build_booking(tx_model, tx_data)
-    tx_model.save!
+
+    tx_model.save
     tx_model
   end
 
@@ -109,6 +111,7 @@ module TransactionService::Store::Transaction
           start_on: start_on,
           end_on: end_on)
       end
+      tx_model.booking.tx = tx_model
     end
   end
 

@@ -1,5 +1,20 @@
 - stripe_account_ready = presenter.stripe_account_ready ? true : nil
 = fields_for presenter.stripe_bank_form do |form|
+  .row
+    .col-12
+      = label_tag :bank_account_same_country do
+        = check_box_tag :bank_account_same_country, 1,
+          presenter.bank_account_same_country?,
+          'stripe-bank-account-ready': stripe_account_ready
+        = t("stripe_accounts.form_bank.bank_account_same_country")
+  .row{'bank-different-country': true, class: (presenter.bank_account_same_country? ? 'hidden' : '')}
+    .row
+      .col-12
+        = form.label :bank_country, t("stripe_accounts.form_bank.bank_country")+"*"
+        = form.select :bank_country, presenter.stripe_available_countries,
+          {prompt: t("stripe_accounts.form_new.select_country")},
+          style: "min-width: 200px", required: true,
+          'stripe-bank-account-ready': stripe_account_ready
   .row.bank-routing-1.hidden
     .col-12
       = form.label :bank_routing_1, t("stripe_accounts.form_bank.bank_routing_1")+"*"
@@ -29,12 +44,20 @@
         value: presenter.stripe_seller_account[:bank_number_info] || form.object.bank_account_number_common,
         country_regexp: 'account_number',
         'stripe-bank-account-ready': stripe_account_ready
+  .row{'bank-different-country': true, class: (presenter.bank_account_same_country? ? 'hidden' : '')}
+    .row
+      .col-12
+        = form.label :bank_holder_name, t("stripe_accounts.form_bank.bank_holder_name")+"*"
+        = form.text_field :bank_holder_name, required: true,
+          'stripe-bank-account-ready': stripe_account_ready
+
   - if stripe_account_ready
     .row
       .col-12
         = label_tag :update_also_bank_account do
           = check_box_tag :update_also_bank_account, 1, false
           = t("stripe_accounts.form_bank.update_also_bank_account")
+
 - content_for :extra_javascript do
   :javascript
     window.ST.stripe_form_i18n = #{I18n.t("stripe_accounts.form_bank.messages").to_json.html_safe};

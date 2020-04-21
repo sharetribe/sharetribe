@@ -20,7 +20,6 @@ const ManageAvailabilityContainer = ({
   reservedDays,
   blockedDays,
   sideWinderWrapper,
-  blocked_dates,
 }) =>
       r(ManageAvailability, {
         hasChanges,
@@ -40,7 +39,6 @@ const ManageAvailabilityContainer = ({
           onDayAllowed: actions.unblockDay,
           onDayBlocked: actions.blockDay,
           onMonthChanged: actions.changeMonth,
-          blocked_dates: blocked_dates,
         },
         sideWinderWrapper,
       });
@@ -70,7 +68,6 @@ ManageAvailabilityContainer.propTypes = {
   hasChanges: bool.isRequired,
   reservedDays: arrayOf(object).isRequired,
   blockedDays: arrayOf(object).isRequired,
-  blocked_dates: arrayOf(object).isRequired,
 };
 
 /* eslint-enable react/forbid-prop-types */
@@ -82,9 +79,8 @@ const mapStateToProps = ({ flashNotifications, manageAvailability }) => ({
   hasChanges: availabilityReducer.hasChanges(manageAvailability),
   saveInProgress: manageAvailability.get('saveInProgress'),
   saveFinished: manageAvailability.get('saveFinished'),
-  reservedDays: manageAvailability.get('bookings').toJS(),
-  blockedDays: availabilityReducer.blockedDays(manageAvailability).toJS(),
-  blocked_dates: manageAvailability.get('blocked_dates'),
+  reservedDays: manageAvailability.get('booked_dates'),
+  blockedDays: availabilityReducer.blockedDays(manageAvailability),
 });
 
 const mapDispatchToProps = (dispatch) => ({

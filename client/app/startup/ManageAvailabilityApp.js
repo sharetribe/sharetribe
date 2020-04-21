@@ -9,7 +9,6 @@ import Immutable from 'immutable';
 import ManageAvailabilityContainer from '../components/sections/ManageAvailability/ManageAvailabilityContainer';
 import { EDIT_VIEW_OPEN_HASH } from '../actions/ManageAvailabilityActions';
 import * as cssVariables from '../assets/styles/variables';
-import { UUID } from '../types/types';
 
 export default (props) => {
   const locale = props.i18n.locale;
@@ -25,16 +24,12 @@ export default (props) => {
       isOpen: window.location.hash.replace(/^#/, '') === EDIT_VIEW_OPEN_HASH,
       visibleMonth: moment()
         .startOf('month'),
-      bookings: Immutable.List(),
-      blocks: Immutable.List(),
-      changes: Immutable.List(),
       saveInProgress: false,
       saveFinished: false,
-      marketplaceUuid: new UUID({ value: props.marketplace.uuid }),
-      listingUuid: new UUID({ value: props.listing.uuid }),
       loadedMonths: Immutable.Set(),
-      blocked_dates: props.listing.blocked_dates.map((x) => ({ id: x.id, blocked_at: moment.utc(x.blocked_at) })),
       listingId: props.listing.id,
+      blocked_dates: [],
+      booked_dates: [],
     }),
   };
 

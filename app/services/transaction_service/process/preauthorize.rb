@@ -32,12 +32,22 @@ module TransactionService::Process
         gateway_fields: gateway_fields,
         force_sync: true)
 
-      if completion[:success] && completion[:sync]
-        finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
+      if completion[:success]
+        if completion[:sync]
+          finalize_res = finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
+          if finalize_res.success
+            completion[:response]
+          else
+            delete_failed_transaction(tx)
+            finalize_res
+          end
+        else
+          completion[:response]
+        end
       elsif !completion[:success]
         delete_failed_transaction(tx)
+        completion[:response]
       end
-      completion[:response]
     end
 
     def finalize_create(tx:, gateway_adapter:, force_sync:)
@@ -58,48 +68,22 @@ module TransactionService::Process
 
     def do_finalize_create(transaction_id, community_id)
       tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
-      gateway_adapter = TransactionService::Transaction.gateway_adapter(tx.payment_gateway)
 
       res =
         if tx.current_state == :preauthorized
           Result::Success.new()
         else
-          booking_res =
-            if tx.availability.to_sym == :booking && tx.booking.per_hour?
-              Result::Success.new()
-            elsif tx.availability.to_sym == :booking
-
-              initiate_booking(tx: tx).on_error { |error_msg, data|
-                logger.error("Failed to initiate booking #{data.inspect} #{error_msg}", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
-
-                void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
-
-                void_res.on_success {
-                  logger.info("Payment voided after failed transaction", :void_payment, tx.slice(:community_id, :id))
-                }.on_error { |payment_error_msg, payment_data|
-                  logger.error("Failed to void payment after failed booking", :failed_void_payment, tx.slice(:community_id, :id).merge(error_msg: payment_error_msg))
-                }
-              }.on_success { |data|
-                response_body = data[:body]
-                booking = response_body[:data]
-
-                TxStore.update_booking_uuid(
-                  community_id: tx.community_id,
-                  transaction_id: tx.id,
-                  booking_uuid: booking[:id]
-                )
-              }
-            else
-              Result::Success.new()
-            end
-
-          booking_res.on_success {
-            if tx.stripe_payments.last.try(:intent_requires_action?)
-              TransactionService::StateMachine.transition_to(tx.id, :payment_intent_requires_action)
-            else
-              TransactionService::StateMachine.transition_to(tx.id, :preauthorized)
-            end
-          }
+          new_state = tx.stripe_payments.last.try(:intent_requires_action?) ? :payment_intent_requires_action : :preauthorized
+          transition_tx = TransactionService::StateMachine.transition_to(tx.id, new_state)
+          if transition_tx && transition_tx.current_state.to_sym == new_state
+            Result::Success.new()
+          elsif transition_tx&.booking&.errors&.any?
+            Result::Error.new(
+              TransactionService::Transaction::BookingDatesInvalid.new(
+                I18n.t("error_messages.booking.double_booking_payment_voided")))
+          else
+            Result::Error.new('Generic payment error')
+          end
         end
 
       res.and_then {
@@ -169,50 +153,6 @@ module TransactionService::Process
     end
 
     private
-
-    def initiate_booking(tx:)
-      community_uuid = UUIDUtils.parse_raw(tx.community_uuid)
-      starter_uuid = UUIDUtils.parse_raw(tx.starter_uuid)
-      listing_uuid = UUIDUtils.parse_raw(tx.listing_uuid)
-
-      auth_context = {
-        marketplace_id: community_uuid,
-        actor_id: starter_uuid
-      }
-
-      HarmonyClient.post(
-        :initiate_booking,
-        body: {
-          marketplaceId: community_uuid,
-          refId: listing_uuid,
-          customerId: starter_uuid,
-          initialStatus: :paid,
-          start: tx.booking.start_on,
-          end: tx.booking.end_on
-        },
-        opts: {
-          max_attempts: 3,
-          auth_context: auth_context
-        }).rescue { |error_msg, data|
-
-        new_data =
-          if data[:error].present?
-            # An error occurred, assume connection issue
-            {reason: :connection_issue, listing_id: tx.listing_id}
-          else
-            case data[:status]
-            when 409
-              # Conflict or double bookings, assume double booking
-              {reason: :double_booking, listing_id: tx.listing_id}
-            else
-              # Unknown. Return unchanged.
-              data
-            end
-          end
-
-        Result::Error.new(error_msg, new_data.merge(listing_id: tx.listing_id))
-      }
-    end
 
     def send_message(tx, message, sender_id)
       TxStore.add_message(community_id: tx.community_id,

@@ -36,7 +36,13 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
     }
   }
 
-  function update_bank_number_form(country) {
+  var currentCountry = function() {
+    var id = $('#bank_account_same_country').is(':checked') ? "#stripe_account_form_address_country" : "#stripe_bank_form_bank_country";
+    return $(id).val();
+  };
+
+  function update_bank_number_form() {
+    var country = currentCountry();
     var rule = BANK_RULES[country] || {};
 
     var rule_account_number = rule.account_number || {};
@@ -218,9 +224,9 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
         $(".address-lines").hide();
         $(".country-dependent").hide();
       }
-      update_bank_number_form(country);
+      update_bank_number_form();
       if (options.update) {
-        $('input[stripe-bank-account-ready]').prop('disabled', true);
+        $('input[stripe-bank-account-ready], select[stripe-bank-account-ready]').prop('disabled', true);
       }
     });
     $("#stripe_account_form_address_country").trigger('change');
@@ -297,13 +303,24 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
       }
     });
     $('#update_also_bank_account').on('change', function() {
-      var inputs = $('input[stripe-bank-account-ready]');
+      var inputs = $('input[stripe-bank-account-ready], select[stripe-bank-account-ready]');
       if ($(this).is(':checked')) {
         inputs.filter(':visible').prop('disabled', false);
       } else {
         inputs.prop('disabled', true);
       }
     });
+    $('#bank_account_same_country').on('change', function() {
+      var elems = $('[bank-different-country]');
+      var inputs = elems.find('input, select');
+      if ($(this).is(':checked')) {
+        elems.addClass('hidden');
+      } else {
+        elems.removeClass('hidden');
+        inputs.filter(':visible').prop('disabled', false);
+      }
+    });
+    $('#stripe_bank_form_bank_country').on('change', update_bank_number_form);
   };
 
   var add_validators = function() {
@@ -318,10 +335,14 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
       t = t.replace(/;+/g, ', ').replace(/^,\s*/,'').replace(/,\s*$/, '');
       return t;
     }
+    var currentCountry = function() {
+      var id = $('#bank_account_same_country').is(':checked') ? "#stripe_account_form_address_country" : "#stripe_bank_form_bank_country";
+      return $(id).val();
+    };
     $.validator.addMethod(
       "country_regexp",
       function(value, element, field) {
-        var country = $("#stripe_account_form_address_country").val();
+        var country = currentCountry();
         var rule = BANK_RULES[country] || {};
         var re = (rule[field] || {} ).regexp;
         if(window.ST.stripe_test_api_mode) {
@@ -335,7 +356,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
         return this.optional(element) || $(element).val();
       },
       function(field, element) {
-        var country = $("#stripe_account_form_address_country").val();
+        var country = currentCountry();
         var rule = BANK_RULES[country] || {};
         var title = (rule[field] || {} ).title;
         var regexp = (rule[field] || {} ).regexp;

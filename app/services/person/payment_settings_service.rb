@@ -114,15 +114,16 @@ class Person::PaymentSettingsService
   end
 
   class StripeParseBankParams
-    attr_reader :bank_country, :bank_currency, :form_params, :parsed_seller_account
+    attr_reader :bank_country, :bank_currency, :form_params, :parsed_seller_account, :params
     def initialize(parsed_seller_account:, params:)
       @parsed_seller_account = parsed_seller_account
-      @bank_country = parsed_seller_account[:address_country]
+      @bank_country = parsed_seller_account[:bank_country] || parsed_seller_account[:address_country]
       if @bank_country == 'PR'
         @bank_country = 'US'
       end
       @bank_currency = TransactionService::AvailableCurrencies::COUNTRY_CURRENCIES[@bank_country]
       @form_params = params[:stripe_bank_form]
+      @params = params
     end
 
     def parse
@@ -138,6 +139,15 @@ class Person::PaymentSettingsService
           bank_routing_1: form_params[:bank_routing_1],
           bank_routing_2: form_params[:bank_routing_2]
         })
+        if params[:bank_account_same_country] != '1'
+          country = form_params[:bank_country]
+          currency = TransactionService::AvailableCurrencies::COUNTRY_CURRENCIES[country]
+          result.merge!({
+            bank_country: country,
+            bank_currency: currency,
+            bank_holder_name: form_params[:bank_holder_name]
+          })
+        end
       end
       result
     end
@@ -165,7 +175,9 @@ class Person::PaymentSettingsService
     end
 
     def parse_holder_name
-      if bank_country == 'JP'
+      if parsed_seller_account[:bank_holder_name]
+        parsed_seller_account[:bank_holder_name]
+      elsif bank_country == 'JP'
         [parsed_seller_account[:first_name_kana], parsed_seller_account[:last_name_kana]].join(" ")
       else
         [parsed_seller_account[:first_name], parsed_seller_account[:last_name]].join(" ")

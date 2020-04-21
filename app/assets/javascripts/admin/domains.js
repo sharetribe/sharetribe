@@ -32,8 +32,24 @@ window.ST = window.ST || {};
     });
   };
 
+  var initDomainAvailability = function(options) {
+    $.validator.
+      addMethod( "remove_protocol",
+        function(value, element, param) {
+          var protocolRegex = new RegExp("^(http|https)://");
+          if (value.match(protocolRegex)) {
+            $(element).val(value.replace(protocolRegex, ''));
+          }
+          return true;
+        }
+      );
+    $('form.check_domain_availability').validate();
+  };
+
+
   module.Domains = {
     init: init,
+    initDomainAvailability: initDomainAvailability,
   };
 })(window.ST);
 

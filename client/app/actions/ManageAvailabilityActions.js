@@ -1,11 +1,8 @@
-import Immutable from 'immutable';
 import * as actionTypes from '../constants/ManageAvailabilityConstants';
-import * as harmony from '../services/harmony';
 import { t } from '../utils/i18n';
-import { expandRange, fromMidnightUTCDate, toMidnightUTCDate } from '../utils/moment';
+import { expandRange } from '../utils/moment';
 import { addFlashNotification } from './FlashNotificationActions';
-import { blockChanges, unblockChanges, compressedChanges } from '../reducers/ManageAvailabilityReducer';
-import { isSameDay } from 'react-dates';
+import { hasChanges } from '../reducers/ManageAvailabilityReducer';
 import axios from 'axios';
 import moment from 'moment';
 
@@ -38,10 +35,16 @@ export const dataLoaded = (slots, loadedMonths) => ({
   payload: slots.merge({ loadedMonths }),
 });
 
-export const dataBlockedDatesLoaded = (data) => ({
+export const dataBlockedDatesLoaded = (data, loadedMonths) => ({
   type: actionTypes.DATA_BLOCKED_DATES_LOADED,
+  payload: { blocked_dates: data, loadedMonths: loadedMonths },
+});
+
+export const dataBookedDatesLoaded = (data) => ({
+  type: actionTypes.DATA_BOOKED_DATES_LOADED,
   payload: data,
 });
+
 
 /**
    Number of extra months to preload.
@@ -87,22 +90,24 @@ const removeLoadedMonths = (months, loadedMonths) => ({
   end: months.findLast((e) => !loadedMonths.includes(e)),
 });
 
-const convertBlocksFromUTCMidnightDates = (blocks) =>
-  blocks.filter((block) => block.getIn([':attributes', ':status']) !== ':rejected').map((block) =>
-    block.updateIn([':attributes', ':start'], fromMidnightUTCDate)
-         .updateIn([':attributes', ':end'], fromMidnightUTCDate));
-
-const convertBlocksToUTCMidnightDates = (blocks) =>
-  blocks.map((block) =>
-    block.updateIn(['start'], toMidnightUTCDate)
-         .updateIn(['end'], toMidnightUTCDate));
-
 const monthsToLoad = (day, loadedMonths, preloadMonths) =>
   removeLoadedMonths(loadRange(day, preloadMonths), loadedMonths);
 
 const getBlockedDates = (listingId, start, end) => (
   axios(
     `/int_api/listings/${listingId}/blocked_dates`,
+    {
+      method: 'get',
+      params: {
+        start_on: start.format('YYYY-MM-DD'),
+        end_on: end.format('YYYY-MM-DD'),
+      },
+    })
+);
+
+const getBookedDates = (listingId, start, end) => (
+  axios(
+    `/int_api/listings/${listingId}/bookings`,
     {
       method: 'get',
       params: {
@@ -121,30 +126,19 @@ export const changeMonth = (day) =>
     const { start, end } = monthsToLoad(day, state.get('loadedMonths'), PRELOAD_MONTHS);
 
     if (start && end) {
-      harmony.showBookable({
-        refId: state.get('listingUuid'),
-        marketplaceId: state.get('marketplaceUuid'),
-        include: ['blocks', 'bookings'],
-        start: toMidnightUTCDate(start),
-        end: toMidnightUTCDate(end),
-      })
+      getBlockedDates(state.get('listingId'), start, end)
       .then((response) => {
-        const groups = response.get(':included').groupBy((v) => v.get(':type'));
-        const slots = Immutable.Map({
-          blocks: convertBlocksFromUTCMidnightDates(groups.get(':block', Immutable.List())),
-          bookings: convertBlocksFromUTCMidnightDates(groups.get(':booking', Immutable.List())),
-        });
-
-        dispatch(dataLoaded(slots, expandRange(start, end, 'months').toSet()));
+        const blocked_dates = response.data.map((x) => ({ id: x.id, blocked_at: moment.utc(x.blocked_at) }));
+        dispatch(dataBlockedDatesLoaded(blocked_dates, expandRange(start, end, 'months').toSet()));
       })
       .catch(() => {
         // Status looks bad, alert user
         dispatch(addFlashNotification('error', t('web.listings.errors.availability.something_went_wrong')));
       });
-      getBlockedDates(state.get('listingId'), start, end)
+      getBookedDates(state.get('listingId'), start, end)
       .then((response) => {
-        const blocked_dates = response.data.map((x) => ({ id: x.id, blocked_at: moment.utc(x.blocked_at) }));
-        dispatch(dataBlockedDatesLoaded(blocked_dates));
+        const booked_dates = response.data.map((x) => (moment.utc(x)));
+        dispatch(dataBookedDatesLoaded(booked_dates));
       })
       .catch(() => {
         // Status looks bad, alert user
@@ -184,17 +178,13 @@ const csrfToken = () => {
 };
 
 const convertToApi = (state) => {
-  const changes = compressedChanges(state);
-  const blocked_dates = state.get('blocked_dates');
   const result = [];
-  changes.toJS().forEach((block) => {
-    const blocked_date = blocked_dates.find((x) => (isSameDay(block.day, x.blocked_at)));
-    if (block.action === 'block' && !blocked_date) {
-      result.push({ id: null, blocked_at: block.day.format('YYYY-MM-DD') });
-    }
-    if (block.action === 'unblock' && blocked_date) {
-      result.push({ id: blocked_date.id, _destroy: 1 });
-    }
+  const blocked_dates = state.get('blocked_dates');
+  blocked_dates.forEach((blocked_date) => {
+    result.push({
+      id: blocked_date.id,
+      blocked_at: blocked_date.blocked_at.format('YYYY-MM-DD'),
+      _destroy: blocked_date.destroy });
   });
   return { listing: { blocked_dates_attributes: result } };
 };
@@ -215,21 +205,10 @@ export const saveChanges = () =>
     dispatch(startSaving());
 
     const state = getState().manageAvailability;
-    const marketplaceId = state.get('marketplaceUuid');
-    const listingUuid = state.get('listingUuid');
     const listingId = state.get('listingId');
-    const blocks = convertBlocksToUTCMidnightDates(blockChanges(state));
-    const unblocks = unblockChanges(state);
     const requests = [];
 
-    if (blocks.size > 0) {
-      requests.push(harmony.createBlocks(marketplaceId, listingUuid, blocks));
-    }
-    if (unblocks.size > 0) {
-      requests.push(harmony.deleteBlocks(marketplaceId, listingUuid, unblocks));
-    }
-
-    if (blocks.size > 0 || unblocks.size > 0) {
+    if (hasChanges(state)) {
       requests.push(updateBlockedDates(listingId, convertToApi(state)));
     }
 
@@ -253,3 +232,4 @@ export const saveChanges = () =>
         dispatch(savingFailed(e));
       });
   };
+

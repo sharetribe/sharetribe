@@ -59,12 +59,9 @@ Rails.application.routes.draw do
         post :update_blocked_dates
       end
       resources :blocked_dates, only: [:index], controller: 'listing/blocked_dates'
+      resources :bookings, only: [:index], controller: 'listing/bookings'
     end
   end
-
-  # Harmony Proxy
-  # This endpoint proxies the requests to Harmony and does authorization
-  match '/harmony_proxy/*harmony_path' => 'harmony_proxy#proxy', via: :all
 
   # UI API, i.e. internal endpoints for dynamic UI that doesn't belong to under any specific controller
   get "/ui_api/topbar_props" => "topbar_api#props"
@@ -599,6 +596,17 @@ Rails.application.routes.draw do
         collection do
           get :check_availability
         end
+        member do
+          patch :check_domain_availability
+          get :check_domain_availability
+          get :pending
+          get :passed
+          get :failed
+          get :passed_with_warning
+          get :reset
+          patch :reset
+          patch :set
+        end
       end
       resource :community_seo_settings, only: [:show, :update]
       resources :landing_page_versions do
@@ -701,6 +709,7 @@ Rails.application.routes.draw do
 
       resources :people, except: [:show] do
         collection do
+          get :check_username_availability
           get :check_email_availability
           get :check_email_availability_and_validity
           get :check_invitation_code
