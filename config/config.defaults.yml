@@ -494,6 +494,12 @@ default: &default_settings
   # Debian CA bundle required for Paypal
   ssl_ca_certificates_file: '/etc/ssl/certs/ca-certificates.crt'
 
+  # Proxy auth secret (sharetribe.com internal)
+  proxy_auth_secret: 'changeme-27ece9a1-6ef4-4f03-8f54-5927541b76fd'
+
+  # Use custom host header (sharetribe.com internal)
+  use_custom_host_header: false
+
 production: &production_settings
   <<: *default_settings
 
@@ -592,4 +598,3 @@ test:
   feature_stripe_private_key: sk_test_123456789012345678901234
 
   admin_enable_tracking_config: true
-
