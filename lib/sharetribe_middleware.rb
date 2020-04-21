@@ -1,6 +1,7 @@
 require File.expand_path('rack_middleware/custom_cookie_renamer', __dir__)
 require File.expand_path('rack_middleware/enforce_ssl', __dir__)
 require File.expand_path('rack_middleware/health_check', __dir__)
+require File.expand_path('rack_middleware/marketplace_host_from_custom_header', __dir__)
 require File.expand_path('rack_middleware/marketplace_lookup', __dir__)
 require File.expand_path('rack_middleware/robots_generator', __dir__)
 require File.expand_path('rack_middleware/session_context_middleware', __dir__)
