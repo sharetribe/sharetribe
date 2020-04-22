@@ -93,7 +93,9 @@ module TransactionService::AvailableCurrencies
                                    'AU', 'CA', 'HK', 'NZ',
                                    'PT', 'IT',
                                    'PR', 'JP', 'SG',
-                                   'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'MX', 'CZ']
+                                   'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'MX',
+                                   'CZ',
+                                   'RO']
 
   # Countries listed by Paypal
   # Brazil, Czech Republic, Hungary, Israel, Italy, Japan, Mexico, Malaysia, Poland, Philippines, Portugal, Russia, Singapore, Taiwan, Thailand
