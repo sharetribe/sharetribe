@@ -18,6 +18,12 @@ GIT
       coffee-rails (>= 3.2.2)
       railties (>= 3.0)
 
+PATH
+  remote: donalo_payments
+  specs:
+    donalo_payments (0.1.0)
+      rails (~> 5.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -667,6 +673,7 @@ DEPENDENCIES
   delayed_paperclip (~> 3.0.1)
   devise (>= 4.7.1)
   devise-encryptable (~> 0.2.0)
+  donalo_payments!
   dynamic_form (~> 1.1.4)
   email_spec (~> 2.1.1)
   factory_girl_rails (~> 4.8.0)
