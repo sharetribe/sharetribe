@@ -197,11 +197,9 @@ describe Admin::CommunityTransactionsController, type: :controller do
     end
 
     #
-    # Refund action send emails to seler, buyer and reject Harmony booking
+    # Refund action send emails to seler, buyer
     #
     it 'refund' do
-      expect(TransactionProcessStateMachine).to receive(:harmony_rejected)
-
       get :refund, params: {community_id: community.id, id: transaction.id}
 
       transaction.reload

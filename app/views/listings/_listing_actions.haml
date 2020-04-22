@@ -25,13 +25,7 @@
     = form_tag @listing_presenter.form_path, :method => :get, :id => "booking-dates" do
 
       - if @listing_presenter.quantity_per_day_or_night?
-        - if @listing_presenter.no_read_from_harmony?
-          = render 'date_picker', datepicker_per_day_or_night_setup: @listing_presenter.datepicker_per_day_or_night_setup
-        - else
-          - @listing_presenter.blocked_dates_result.on_success do |blocked_dates|
-            = render 'date_picker', datepicker_per_day_or_night_setup: @listing_presenter.datepicker_per_day_or_night_setup(blocked_dates)
-          - @listing_presenter.blocked_dates_result.on_error do
-            = t("listings.listing_actions.unable_load_availability")
+        = render 'date_picker', datepicker_per_day_or_night_setup: @listing_presenter.datepicker_per_day_or_night_setup
 
 
       - elsif @listing_presenter.booking_per_hour?
@@ -88,25 +82,9 @@
           .col-12
             %span.buyer-fees
               = t('.marketplace_fees_may_apply')
-      - if @listing_presenter.quantity_per_day_or_night?
-        - if @listing_presenter.no_read_from_harmony?
-          %button.enabled-book-button
-            .content
-              = action_button_label(@listing)
-        - else
-          - @listing_presenter.blocked_dates_result.on_success do
-            %button.enabled-book-button
-              .content
-                = action_button_label(@listing)
-
-          - @listing_presenter.blocked_dates_result.on_error do
-            %button.disabled-book-button{disabled: true}
-              .content
-                = action_button_label(@listing)
-      - else
-        %button.enabled-book-button
-          .content
-            = action_button_label(@listing)
+      %button.enabled-book-button
+        .content
+          = action_button_label(@listing)
 
     - if @listing_presenter.payments_enabled?
       .row
@@ -147,7 +125,7 @@
               = icon_tag("calendar", ["icon-part"])
               .text-part= t("web.listings.edit_listing_availability")
             = react_component("ListingWorkingHoursApp", props: @listing_presenter.working_hours_props.merge({ availability_link_id: availability_link_id }), prerender: false)
-          - elsif @listing_presenter.no_read_from_harmony? || APP_CONFIG.harmony_api_in_use
+          - else
             %a.icon-with-text-container{id: availability_link_id, href: "#manage-availability"}
               = icon_tag("calendar", ["icon-part"])
               .text-part= t("web.listings.edit_listing_availability")

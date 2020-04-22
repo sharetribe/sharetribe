@@ -222,7 +222,6 @@ class Admin::ListingShapesController < Admin::AdminBaseController
       uneditable_fields: uneditable_fields(process_summary, form[:author_is_seller]),
       shape: FormViewLayer.shape_to_locals(form),
       count: count,
-      harmony_in_use: APP_CONFIG.harmony_api_in_use.to_s == "true",
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles.to_s == "true",
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }

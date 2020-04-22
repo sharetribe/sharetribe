@@ -72,20 +72,16 @@ ManageAvailabilityContainer.propTypes = {
 
 /* eslint-enable react/forbid-prop-types */
 
-const mapStateToProps = ({ flashNotifications, manageAvailability }) => {
-  const noReadFromHarmony = manageAvailability.get('noReadFromHarmony');
-  const blockedDays = availabilityReducer.blockedDays(manageAvailability);
-  return {
-    flashNotifications,
-    isOpen: manageAvailability.get('isOpen'),
-    visibleMonth: manageAvailability.get('visibleMonth'),
-    hasChanges: availabilityReducer.hasChanges(manageAvailability),
-    saveInProgress: manageAvailability.get('saveInProgress'),
-    saveFinished: manageAvailability.get('saveFinished'),
-    reservedDays: (noReadFromHarmony ? manageAvailability.get('booked_dates') : manageAvailability.get('bookings').toJS()),
-    blockedDays: (noReadFromHarmony ? blockedDays : blockedDays.toJS()),
-  };
-};
+const mapStateToProps = ({ flashNotifications, manageAvailability }) => ({
+  flashNotifications,
+  isOpen: manageAvailability.get('isOpen'),
+  visibleMonth: manageAvailability.get('visibleMonth'),
+  hasChanges: availabilityReducer.hasChanges(manageAvailability),
+  saveInProgress: manageAvailability.get('saveInProgress'),
+  saveFinished: manageAvailability.get('saveFinished'),
+  reservedDays: manageAvailability.get('booked_dates'),
+  blockedDays: availabilityReducer.blockedDays(manageAvailability),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators({ ...FlashNotificationActions, ...ManageAvailabilityActions }, dispatch),

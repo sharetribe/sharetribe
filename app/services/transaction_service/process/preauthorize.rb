@@ -73,40 +73,16 @@ module TransactionService::Process
         if tx.current_state == :preauthorized
           Result::Success.new()
         else
-          booking_res =
-            if tx.availability.to_sym == :booking && !tx.booking.per_hour?
-              initiate_booking(tx: tx).on_error { |error_msg, data|
-                logger.error("Failed to initiate booking #{data.inspect} #{error_msg}", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
-
-                TransactionProcessStateMachine.void_payment(gateway_adapter, tx)
-              }.on_success { |data|
-                response_body = data[:body]
-                booking = response_body[:data]
-
-                TxStore.update_booking_uuid(
-                  community_id: tx.community_id,
-                  transaction_id: tx.id,
-                  booking_uuid: booking[:id]
-                )
-              }
-            else
-              Result::Success.new()
-            end
-
-          if booking_res.success
-            new_state = tx.stripe_payments.last.try(:intent_requires_action?) ? :payment_intent_requires_action : :preauthorized
-            transition_tx = TransactionService::StateMachine.transition_to(tx.id, new_state)
-            if transition_tx && transition_tx.current_state.to_sym == new_state
-              Result::Success.new()
-            elsif transition_tx&.booking&.errors&.any?
-              Result::Error.new(
-                TransactionService::Transaction::BookingDatesInvalid.new(
-                  I18n.t("error_messages.booking.double_booking_payment_voided")))
-            else
-              Result::Error.new('Generic payment error')
-            end
+          new_state = tx.stripe_payments.last.try(:intent_requires_action?) ? :payment_intent_requires_action : :preauthorized
+          transition_tx = TransactionService::StateMachine.transition_to(tx.id, new_state)
+          if transition_tx && transition_tx.current_state.to_sym == new_state
+            Result::Success.new()
+          elsif transition_tx&.booking&.errors&.any?
+            Result::Error.new(
+              TransactionService::Transaction::BookingDatesInvalid.new(
+                I18n.t("error_messages.booking.double_booking_payment_voided")))
           else
-            booking_res
+            Result::Error.new('Generic payment error')
           end
         end
 
@@ -177,50 +153,6 @@ module TransactionService::Process
     end
 
     private
-
-    def initiate_booking(tx:)
-      community_uuid = UUIDUtils.parse_raw(tx.community_uuid)
-      starter_uuid = UUIDUtils.parse_raw(tx.starter_uuid)
-      listing_uuid = UUIDUtils.parse_raw(tx.listing_uuid)
-
-      auth_context = {
-        marketplace_id: community_uuid,
-        actor_id: starter_uuid
-      }
-
-      HarmonyClient.post(
-        :initiate_booking,
-        body: {
-          marketplaceId: community_uuid,
-          refId: listing_uuid,
-          customerId: starter_uuid,
-          initialStatus: :paid,
-          start: tx.booking.start_on,
-          end: tx.booking.end_on
-        },
-        opts: {
-          max_attempts: 3,
-          auth_context: auth_context
-        }).rescue { |error_msg, data|
-
-        new_data =
-          if data[:error].present?
-            # An error occurred, assume connection issue
-            {reason: :connection_issue, listing_id: tx.listing_id}
-          else
-            case data[:status]
-            when 409
-              # Conflict or double bookings, assume double booking
-              {reason: :double_booking, listing_id: tx.listing_id}
-            else
-              # Unknown. Return unchanged.
-              data
-            end
-          end
-
-        Result::Error.new(error_msg, new_data.merge(listing_id: tx.listing_id))
-      }
-    end
 
     def send_message(tx, message, sender_id)
       TxStore.add_message(community_id: tx.community_id,
