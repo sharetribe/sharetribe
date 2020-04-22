@@ -68,7 +68,7 @@ describe TransactionService::StateMachine do
     end
 
     def booking_available?(booking)
-      listing.working_hours_covers_booking?(booking) && listing.bookings.covers_another_booking(booking).empty?
+      listing.working_hours_covers_booking?(booking) && listing.bookings.covers_another_booking_per_hour(booking).empty?
     end
   end
 end
