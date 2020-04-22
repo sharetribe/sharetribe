@@ -1,0 +1,14 @@
+- content_for :extra_javascript do
+  :javascript
+    window.ST.FromToDatePicker.setupPerDayOrNight(#{raw datepicker_per_day_or_night_setup.to_json});
+.input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
+  .datepicker-start-wrapper
+    = label_tag t("listings.listing_actions.booking_from")
+    %input.input-sm.form-control.required#start-on{:type => 'text', :name => "start_on_datepicker", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" }, :autocomplete => 'off' }
+    %input#booking-start-output{:type => 'hidden', :name => 'start_on'}
+
+  .datepicker-end-wrapper
+    = label_tag t("listings.listing_actions.booking_to")
+    %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on_datepicker", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }, :autocomplete => 'off'}
+    %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
+

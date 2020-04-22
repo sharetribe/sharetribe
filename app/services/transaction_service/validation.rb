@@ -67,12 +67,16 @@ module TransactionService
           .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector, stripe_in_use: stripe_in_use) }
           .and_then { |result|
             if tx_params[:per_hour]
-              validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
+              validate_booking_common_timeslots(listing: listing, tx_params: tx_params)
             elsif availability_enabled
-              validate_booking_timeslots(tx_params: tx_params,
-                                         marketplace_uuid: marketplace_uuid,
-                                         listing_uuid: listing.uuid_object,
-                                         quantity_selector: quantity_selector)
+              if FeatureFlagHelper.feature_enabled?(:no_read_from_harmony)
+                validate_booking_common_timeslots(listing: listing, tx_params: tx_params)
+              else
+                validate_booking_timeslots(tx_params: tx_params,
+                                           marketplace_uuid: marketplace_uuid,
+                                           listing_uuid: listing.uuid_object,
+                                           quantity_selector: quantity_selector)
+              end
             else
               Result::Success.new(result)
             end
@@ -97,12 +101,16 @@ module TransactionService
             # dialog page, browser just render previous initiate page and if
             # user pay agian he create second transaction with same params & make payment
             if tx_params[:per_hour]
-              validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
+              validate_booking_common_timeslots(listing: listing, tx_params: tx_params)
             elsif availability_enabled
-              validate_booking_timeslots(tx_params: tx_params,
-                                         marketplace_uuid: marketplace_uuid,
-                                         listing_uuid: listing.uuid_object,
-                                         quantity_selector: quantity_selector)
+              if FeatureFlagHelper.feature_enabled?(:no_read_from_harmony)
+                validate_booking_common_timeslots(listing: listing, tx_params: tx_params)
+              else
+                validate_booking_timeslots(tx_params: tx_params,
+                                           marketplace_uuid: marketplace_uuid,
+                                           listing_uuid: listing.uuid_object,
+                                           quantity_selector: quantity_selector)
+              end
             else
               Result::Success.new(result)
             end
@@ -188,11 +196,15 @@ module TransactionService
         }
       end
 
-      def validate_booking_per_hour_timeslots(listing:, tx_params:)
-        return Result::Success.new(tx_params) unless tx_params[:per_hour]
+      def validate_booking_common_timeslots(listing:, tx_params:)
+        booking_params = if tx_params[:per_hour]
+                           tx_params.slice(:start_time, :end_time, :per_hour)
+                         else
+                           tx_params.slice(:start_on, :end_on)
+                         end
 
         booking = Booking.new(
-          tx_params.slice(:start_time, :end_time, :per_hour).merge(
+          booking_params.merge(
           tx: ::Transaction.new(listing: listing))
         )
         if booking.valid?

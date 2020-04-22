@@ -4,7 +4,7 @@ import * as harmony from '../services/harmony';
 import { t } from '../utils/i18n';
 import { expandRange, fromMidnightUTCDate, toMidnightUTCDate } from '../utils/moment';
 import { addFlashNotification } from './FlashNotificationActions';
-import { blockChanges, unblockChanges, compressedChanges } from '../reducers/ManageAvailabilityReducer';
+import { blockChanges, unblockChanges, compressedChanges, hasChanges } from '../reducers/ManageAvailabilityReducer';
 import { isSameDay } from 'react-dates';
 import axios from 'axios';
 import moment from 'moment';
@@ -38,10 +38,16 @@ export const dataLoaded = (slots, loadedMonths) => ({
   payload: slots.merge({ loadedMonths }),
 });
 
-export const dataBlockedDatesLoaded = (data) => ({
+export const dataBlockedDatesLoaded = (data, loadedMonths) => ({
   type: actionTypes.DATA_BLOCKED_DATES_LOADED,
+  payload: { blocked_dates: data, loadedMonths: loadedMonths },
+});
+
+export const dataBookedDatesLoaded = (data) => ({
+  type: actionTypes.DATA_BOOKED_DATES_LOADED,
   payload: data,
 });
+
 
 /**
    Number of extra months to preload.
@@ -112,6 +118,18 @@ const getBlockedDates = (listingId, start, end) => (
     })
 );
 
+const getBookedDates = (listingId, start, end) => (
+  axios(
+    `/int_api/listings/${listingId}/bookings`,
+    {
+      method: 'get',
+      params: {
+        start_on: start.format('YYYY-MM-DD'),
+        end_on: end.format('YYYY-MM-DD'),
+      },
+    })
+);
+
 export const changeMonth = (day) =>
   (dispatch, getState) => {
     dispatch(changeVisibleMonth(day));
@@ -144,7 +162,16 @@ export const changeMonth = (day) =>
       getBlockedDates(state.get('listingId'), start, end)
       .then((response) => {
         const blocked_dates = response.data.map((x) => ({ id: x.id, blocked_at: moment.utc(x.blocked_at) }));
-        dispatch(dataBlockedDatesLoaded(blocked_dates));
+        dispatch(dataBlockedDatesLoaded(blocked_dates, expandRange(start, end, 'months').toSet()));
+      })
+      .catch(() => {
+        // Status looks bad, alert user
+        dispatch(addFlashNotification('error', t('web.listings.errors.availability.something_went_wrong')));
+      });
+      getBookedDates(state.get('listingId'), start, end)
+      .then((response) => {
+        const booked_dates = response.data.map((x) => (moment.utc(x)));
+        dispatch(dataBookedDatesLoaded(booked_dates));
       })
       .catch(() => {
         // Status looks bad, alert user
@@ -184,18 +211,28 @@ const csrfToken = () => {
 };
 
 const convertToApi = (state) => {
-  const changes = compressedChanges(state);
-  const blocked_dates = state.get('blocked_dates');
+  const noReadFromHarmony = state.get('noReadFromHarmony');
   const result = [];
-  changes.toJS().forEach((block) => {
-    const blocked_date = blocked_dates.find((x) => (isSameDay(block.day, x.blocked_at)));
-    if (block.action === 'block' && !blocked_date) {
-      result.push({ id: null, blocked_at: block.day.format('YYYY-MM-DD') });
-    }
-    if (block.action === 'unblock' && blocked_date) {
-      result.push({ id: blocked_date.id, _destroy: 1 });
-    }
-  });
+  const blocked_dates = state.get('blocked_dates');
+  if (noReadFromHarmony) {
+    blocked_dates.forEach((blocked_date) => {
+      result.push({
+        id: blocked_date.id,
+        blocked_at: blocked_date.blocked_at.format('YYYY-MM-DD'),
+        _destroy: blocked_date.destroy });
+    });
+  } else {
+    const changes = compressedChanges(state);
+    changes.toJS().forEach((block) => {
+      const blocked_date = blocked_dates.find((x) => (isSameDay(block.day, x.blocked_at)));
+      if (block.action === 'block' && !blocked_date) {
+        result.push({ id: null, blocked_at: block.day.format('YYYY-MM-DD') });
+      }
+      if (block.action === 'unblock' && blocked_date) {
+        result.push({ id: blocked_date.id, _destroy: 1 });
+      }
+    });
+  }
   return { listing: { blocked_dates_attributes: result } };
 };
 
@@ -221,6 +258,7 @@ export const saveChanges = () =>
     const blocks = convertBlocksToUTCMidnightDates(blockChanges(state));
     const unblocks = unblockChanges(state);
     const requests = [];
+    const noReadFromHarmony = state.get('noReadFromHarmony');
 
     if (blocks.size > 0) {
       requests.push(harmony.createBlocks(marketplaceId, listingUuid, blocks));
@@ -229,7 +267,8 @@ export const saveChanges = () =>
       requests.push(harmony.deleteBlocks(marketplaceId, listingUuid, unblocks));
     }
 
-    if (blocks.size > 0 || unblocks.size > 0) {
+    const changesToSave = noReadFromHarmony ? hasChanges(state) : blocks.size > 0 || unblocks.size > 0;
+    if (changesToSave) {
       requests.push(updateBlockedDates(listingId, convertToApi(state)));
     }
 
@@ -253,3 +292,8 @@ export const saveChanges = () =>
         dispatch(savingFailed(e));
       });
   };
+
+export const setNoReadFromHarmony = () => ({
+  type: actionTypes.NO_READ_FROM_HARMONY,
+});
+
