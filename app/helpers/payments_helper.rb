@@ -117,6 +117,10 @@ module PaymentsHelper
       account_number: {title: 'IBAN', format: 'PT50123443211234567890172', regexp: 'PT[0-9]{2}[0-9]{4}[0-9]{4}[0-9]{11}[0-9]{2}', test_regexp: 'PT'+TEST_IBAN },
       phone_number: '+351 12 345 7698'
     },
+    RO: {
+      account_number: {title: 'IBAN', format: 'RO49AAAA1B31007593840000', regexp: 'RO[0-9]{2}[A-Z]{4}[A-Z0-9]{16}', test_regexp: 'RO'+TEST_IBAN },
+      phone_number: '+40 123 456 789'
+    },
     SG: {
       account_number: {format: '123456789012', regexp: '[0-9]{6,12}', test_regexp: '[0-9]{6,12}' },
       routing_1: {title: "bank_code", format: '1234', regexp: '[0-9]{4}', test_regexp: '[0-9]{4}' },

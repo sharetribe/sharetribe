@@ -69,6 +69,7 @@ module TransactionService::AvailableCurrencies
       "VA" => "EUR",
       "EE" => "EUR",
       "LV" => "EUR",
+      "RO" => "RON",
       "US" => "USD"
   }
   OLD_CURRENCY_SET = SortedSet.new(["USD"].concat(COUNTRY_CURRENCIES.values))
@@ -93,7 +94,9 @@ module TransactionService::AvailableCurrencies
                                    'AU', 'CA', 'HK', 'NZ',
                                    'PT', 'IT',
                                    'PR', 'JP', 'SG',
-                                   'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'MX', 'CZ']
+                                   'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'MX',
+                                   'CZ',
+                                   'RO']
 
   # Countries listed by Paypal
   # Brazil, Czech Republic, Hungary, Israel, Italy, Japan, Mexico, Malaysia, Poland, Philippines, Portugal, Russia, Singapore, Taiwan, Thailand
@@ -122,6 +125,7 @@ module TransactionService::AvailableCurrencies
     "NZD" => :country_sets,
     "PHP" => :country_sets,
     "PLN" => :country_sets,
+    "RON" => :country_sets,
     "RUB" => :country_sets,
     "SEK" => :country_sets,
     "SGD" => :country_sets,
