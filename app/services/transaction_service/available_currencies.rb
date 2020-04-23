@@ -69,6 +69,7 @@ module TransactionService::AvailableCurrencies
       "VA" => "EUR",
       "EE" => "EUR",
       "LV" => "EUR",
+      "RO" => "RON",
       "US" => "USD"
   }
   OLD_CURRENCY_SET = SortedSet.new(["USD"].concat(COUNTRY_CURRENCIES.values))
@@ -124,6 +125,7 @@ module TransactionService::AvailableCurrencies
     "NZD" => :country_sets,
     "PHP" => :country_sets,
     "PLN" => :country_sets,
+    "RON" => :country_sets,
     "RUB" => :country_sets,
     "SEK" => :country_sets,
     "SGD" => :country_sets,
