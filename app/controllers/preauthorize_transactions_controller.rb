@@ -30,6 +30,8 @@ class PreauthorizeTransactionsController < ApplicationController
         stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
     }
 
+    # byebug
+
     if validation_result.success
       initiation_success(validation_result.data)
     else
@@ -38,7 +40,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def initiated
-    byebug
+    # byebug
     params_validator = params_per_hour? ? TransactionService::Validation::NewPerHourTransactionParams : TransactionService::Validation::NewTransactionParams
     validation_result = params_validator.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
@@ -58,6 +60,7 @@ class PreauthorizeTransactionsController < ApplicationController
         stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
     }
 
+    # byebug
     if validation_result.success
       initiated_success(validation_result.data)
     else
@@ -199,19 +202,15 @@ class PreauthorizeTransactionsController < ApplicationController
           service_name: @current_community.name_with_separator(I18n.locale)
         }
     end
-
-    byebug
-    return
+    
+    # byebug
     transaction = {
+          conversation_id: opts[:conversation_id],
           community_id: opts[:community].id,
           community_uuid: opts[:community].uuid_object,
           listing_id: opts[:listing].id,
           listing_uuid: opts[:listing].uuid_object,
           listing_title: opts[:listing].title,
-          starter_id: opts[:user].id,
-          starter_uuid: opts[:user].uuid_object,
-          listing_author_id: opts[:listing].author.id,
-          listing_author_uuid: opts[:listing].author.uuid_object,
           listing_quantity: opts[:listing_quantity],
           unit_type: opts[:listing].unit_type,
           unit_price: opts[:listing].price,
@@ -225,6 +224,25 @@ class PreauthorizeTransactionsController < ApplicationController
           delivery_method: opts[:delivery_method] || :none
     }
 
+    if (opts[:listing].listing_shape.name === 'requesting')
+      puts "-----------------------------------"
+      puts "its requesting listing"
+      transaction.merge!({
+        starter_id: opts[:listing].author.id,
+        starter_uuid: opts[:listing].author.uuid_object,
+        listing_author_id: opts[:user].id,
+        listing_author_uuid: opts[:user].uuid_object,
+      })
+    else
+      transaction.merge!({
+        starter_id: opts[:user].id,
+        starter_uuid: opts[:user].uuid_object,
+        listing_author_id: opts[:listing].author.id,
+        listing_author_uuid: opts[:listing].author.uuid_object,
+      })
+    end
+
+    # byebug
     if(opts[:delivery_method] == :shipping)
       transaction[:shipping_price] = opts[:shipping_price]
     end
@@ -267,6 +285,7 @@ class PreauthorizeTransactionsController < ApplicationController
     # HERE
     render "listing_conversations/initiate",
            locals: {
+             conversation_id: tx_params[:conversation_id],
              start_on: tx_params[:start_on],
              end_on: tx_params[:end_on],
              start_time: tx_params[:start_time],
@@ -283,7 +302,7 @@ class PreauthorizeTransactionsController < ApplicationController
              stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
              stripe_shipping_required: listing.require_shipping_address && tx_params[:delivery] != :pickup,
              form_action: initiated_order_path(
-               person_id: @current_user.id, # requestor id
+               person_id: @current_user.id, # requestor  id
                listing_id: listing.id
             ),
              country_code: LocalizationUtils.valid_country_code(@current_community.country),
@@ -324,7 +343,9 @@ class PreauthorizeTransactionsController < ApplicationController
       tx_params: tx_params,
       listing: listing)
 
+    # byebug
     tx_response = create_preauth_transaction(
+      conversation_id: tx_params[:conversation_id],
       payment_type: params[:payment_type].to_sym,
       community: @current_community,
       listing: listing,

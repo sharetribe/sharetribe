@@ -15,8 +15,9 @@
 
   .row
     .col-12
-    -# this link should go to preauthorize new path, as transction already exist
-      = form_tag new_transaction_path(listing_id: @listing.id), :method => :get, :id => "booking-dates" do |f|
+      -# Probably it should not go to new_transaction_path, rather create a new action for booking (as it does not create a new conversation)
+      = form_tag new_transaction_path, :method => :get, :id => "booking-dates" do |f|
         = hidden_field_tag(:listing_id, @listing.id)
+        = hidden_field_tag(:conversation_id, conversation_id)
         %button
           = t("conversations.show.book_user", :person => PersonViewUtils.person_display_name_for_type(@transaction.starter, "first_name_only"))

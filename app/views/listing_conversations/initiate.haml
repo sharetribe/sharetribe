@@ -28,7 +28,7 @@
         = render partial: "transactions/price_break_down", locals: price_break_down_locals.merge(is_author: false)
 
   = form_tag form_action, method: :post, id: "transaction-form" do
-
+    = hidden_field_tag(:conversation_id, conversation_id)
     = hidden_field_tag(:start_on, start_on&.iso8601 )
     = hidden_field_tag(:end_on, end_on&.iso8601 )
     - if per_hour

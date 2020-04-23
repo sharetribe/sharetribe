@@ -107,7 +107,6 @@ module TransactionService::Transaction
   end
 
   def create(opts, force_sync: true)
-    #  byebug
     opts_tx = opts[:transaction].to_hash
 
     set_adapter = settings_adapter(opts_tx[:payment_gateway])

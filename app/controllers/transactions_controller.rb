@@ -31,6 +31,7 @@ class TransactionsController < ApplicationController
 
   def new
     # HERE
+    # byebug
     Result.all(
       -> {
         fetch_data(params[:listing_id])
@@ -40,7 +41,7 @@ class TransactionsController < ApplicationController
       }
     ).on_success { |((listing_id, listing_model, author_model, process, gateway))|
       transaction_params = HashUtils.symbolize_keys(
-        {listing_id: listing_model.id}
+        {listing_id: listing_model.id, conversation_id: params[:conversation_id]}
         .merge(params.slice(:start_on, :end_on, :quantity, :delivery, :start_time, :end_time, :per_hour).permit!)
       )
 
@@ -48,7 +49,7 @@ class TransactionsController < ApplicationController
       when matches([:none])
         render_free(listing_model: listing_model, author_model: author_model, community: @current_community, params: transaction_params)
       when matches([:preauthorize, :paypal]), matches([:preauthorize, :stripe]), matches([:preauthorize, [:paypal, :stripe]])
-        ## should be here 
+        # byebug
         redirect_to initiate_order_path(transaction_params)
       else
         opts = "listing_id: #{listing_id}, payment_gateway: #{gateway}, payment_process: #{process}, booking: #{booking}"
@@ -152,6 +153,7 @@ class TransactionsController < ApplicationController
     is_author = m_admin || @transaction.listing_author_id == @current_user.id
 
     render "transactions/show", locals: {
+      conversation_id: @conversation.id,
       messages: messages_and_actions.reverse,
       conversation_other_party: @conversation.other_party(@current_user),
       is_author: is_author,
