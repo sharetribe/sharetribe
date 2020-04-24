@@ -29,6 +29,7 @@ services:
     environment:
       RAILS_ENV: development
       DATABASE_URL: mysql2://sharetribe:secret@mysql/sharetribe_development
+      SPHINX_HOST: 0.0.0.0
   rails-client-assets:
     tty: true
     stdin_open: true
@@ -61,6 +62,7 @@ services:
     environment:
       RAILS_ENV: development
       DATABASE_URL: mysql2://sharetribe:secret@mysql/sharetribe_development
+      SPHINX_HOST: 0.0.0.0
   rails-server-assets:
     tty: true
     stdin_open: true
@@ -72,6 +74,24 @@ services:
     volumes:
        - .:/opt/app
        - /opt/app/client/node_modules
+    depends_on:
+      - mysql
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: mysql2://sharetribe:secret@mysql/sharetribe_development
+  search:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: >
+      bash -c "bundle exec rake ts:configure ts:index ts:start"
+    volumes:
+      - .:/opt/app
+      - /opt/app/node_modules
+    ports:
+      - 3563:3563
     depends_on:
       - mysql
     environment:
