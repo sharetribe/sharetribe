@@ -224,6 +224,7 @@ class PreauthorizeTransactionsController < ApplicationController
           delivery_method: opts[:delivery_method] || :none
     }
 
+    # byebug
     if (opts[:listing].listing_shape.name === 'requesting')
       puts "-----------------------------------"
       puts "its requesting listing"
@@ -286,6 +287,7 @@ class PreauthorizeTransactionsController < ApplicationController
     render "listing_conversations/initiate",
            locals: {
              conversation_id: tx_params[:conversation_id],
+             recipient_id: tx_params[:recipient_id],
              start_on: tx_params[:start_on],
              end_on: tx_params[:end_on],
              start_time: tx_params[:start_time],
@@ -350,7 +352,7 @@ class PreauthorizeTransactionsController < ApplicationController
       community: @current_community,
       listing: listing,
       listing_quantity: order.quantity,
-      user: @current_user,
+      user: listing.listing_shape.name === 'requesting' ? Person.find(tx_params[:recipient_id]) : @current_user,
       content: tx_params[:message],
       force_sync: !request.xhr?,
       delivery_method: tx_params[:delivery],

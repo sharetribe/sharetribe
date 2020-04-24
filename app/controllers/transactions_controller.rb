@@ -41,7 +41,7 @@ class TransactionsController < ApplicationController
       }
     ).on_success { |((listing_id, listing_model, author_model, process, gateway))|
       transaction_params = HashUtils.symbolize_keys(
-        {listing_id: listing_model.id, conversation_id: params[:conversation_id]}
+        {listing_id: listing_model.id, conversation_id: params[:conversation_id], recipient_id: params[:recipient_id]}
         .merge(params.slice(:start_on, :end_on, :quantity, :delivery, :start_time, :end_time, :per_hour).permit!)
       )
 

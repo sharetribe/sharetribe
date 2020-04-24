@@ -19,5 +19,6 @@
       = form_tag new_transaction_path, :method => :get, :id => "booking-dates" do |f|
         = hidden_field_tag(:listing_id, @listing.id)
         = hidden_field_tag(:conversation_id, conversation_id)
+        = hidden_field_tag(:recipient_id, other_party.id)
         %button
           = t("conversations.show.book_user", :person => PersonViewUtils.person_display_name_for_type(@transaction.starter, "first_name_only"))

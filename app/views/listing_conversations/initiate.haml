@@ -29,6 +29,7 @@
 
   = form_tag form_action, method: :post, id: "transaction-form" do
     = hidden_field_tag(:conversation_id, conversation_id)
+    = hidden_field_tag(:recipient_id, recipient_id)
     = hidden_field_tag(:start_on, start_on&.iso8601 )
     = hidden_field_tag(:end_on, end_on&.iso8601 )
     - if per_hour

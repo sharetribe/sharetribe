@@ -208,7 +208,7 @@ class Transaction < ApplicationRecord
   end
 
   def has_feedback_from?(person)
-    if author == person
+    if listing_author == person
       testimonial_from_author.present?
     else
       testimonial_from_starter.present?
@@ -224,7 +224,7 @@ class Transaction < ApplicationRecord
   end
 
   def testimonial_from_author
-    testimonials.find { |testimonial| testimonial.author_id == author.id }
+    testimonials.find { |testimonial| testimonial.author_id == listing_author.id }
   end
 
   def testimonial_from_starter

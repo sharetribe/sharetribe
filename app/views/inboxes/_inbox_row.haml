@@ -31,7 +31,8 @@
       - status = conversation[:last_transition_to_state]
       - if status.present? && status != "free"
         - status_meta = conversation[:transitions].last[:metadata]
-        - is_author = !conversation[:current_is_starter]
+        - listing = Listing.find(conversation[:listing_id])
+        - is_author = listing&.listing_shape&.name === 'requesting' ? conversation[:current_is_starter] : !conversation[:current_is_starter]
         - waiting_feedback = conversation[:waiting_feedback]
         - other_name = PersonViewUtils.person_display_name(conversation[:other], @current_community)
 

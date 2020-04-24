@@ -40,6 +40,7 @@ module TransactionService
       [:quantity, :to_integer, validate_with: IS_POSITIVE],
       [:contract_agreed, transform_with: ->(v) { v == "1" }],
       [:conversation_id, :to_integer, validate_with: IS_POSITIVE],
+      [:recipient_id, :string],
     )
 
     NewPerHourTransactionParams = EntityUtils.define_builder(
@@ -50,6 +51,7 @@ module TransactionService
       [:message, :string],
       [:contract_agreed, transform_with: ->(v) { v == "1" }],
       [:conversation_id, :to_integer, validate_with: IS_POSITIVE],
+      [:recipient_id, :string],
     )
 
     module Validator

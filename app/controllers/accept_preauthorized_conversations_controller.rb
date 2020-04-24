@@ -138,7 +138,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def ensure_is_author
-    unless @listing.author == @current_user
+    unless @transaction.listing_author == @current_user
       flash[:error] = "Only listing author can perform the requested action"
       redirect_to (session[:return_to_content] || root)
     end
