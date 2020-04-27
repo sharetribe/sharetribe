@@ -10,14 +10,14 @@
     %table.table.table-hover
       %thead
         %tr
-          %th{scope: :col}= t('admin2.view_conversations.listing')
           %th{scope: :col}= t('admin2.view_conversations.sender')
           %th{scope: :col}= t('admin2.view_conversations.receiver')
           %th{scope: :col}
             = render 'sort_link', column: 'started', direction: sort_link_direction('started'), title: t('admin2.view_conversations.started')
           %th{scope: :col}
             = render 'sort_link', column: 'last_activity', direction: sort_link_direction('last_activity'), title: t('admin2.view_conversations.latest_activity')
-          %th{scope: :col}= t('admin2.view_conversations.status')
+          %th{scope: :col}= t('admin2.view_conversations.started_from')
+          %th{scope: :col}= t('admin2.view_conversations.actions')
       %tbody
         = render partial: 'admin2/transactions_reviews/conversations/conversation', collection: @service.conversations
 
