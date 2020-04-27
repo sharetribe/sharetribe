@@ -29,7 +29,7 @@ module PaymentsHelper
       phone_number: '+1 866 123 4567'
     },
     CZ: {
-      account_number: {title: 'IBAN', format: 'CZ382200221020145685', regexp: 'CZ[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{11}[0-9]{1}', test_regexp: 'CZ'+TEST_IBAN },
+      account_number: {title: 'IBAN', format: 'CZ6508000000192000145399', regexp: 'CZ[0-9]{2}[0-9]{4}[0-9]{6}[0-9]{10}', test_regexp: 'CZ'+TEST_IBAN },
       phone_number: '+420 607 5552 71'
     },
     DK: {
