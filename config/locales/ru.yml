@@ -154,7 +154,7 @@ ru:
         edit_text_instructions: Инструкция
       edit_welcome_email:
         welcome_email_content: "Содержание приветственного письма"
-        welcome_email_content_description: "Сообщение расположенное ниже будет отправлено каждому новому пользователю. Вы можете адаптировать сообщение наиболее подходящим для вашего проекта способом. Нажимая \"%{send_test_message_link}\" вы можете предварительно посмотреть сообщение чтобы проверить как оно будет отображено клиенту."
+        welcome_email_content_description: "Сообщение расположенное ниже будет отправлено каждому новому пользователю. Вы можете адаптировать сообщение наиболее подходящим для вашего проекта способом. Нажимая \"%{send_test_message_link}\" вы можете предварительно посмотреть сообщение, чтобы проверить, как оно будет отображено клиенту."
         edit_message: "Редактировать сообщение"
         send_test_message: "Отправить тестовое сообщение"
       outgoing_email:
@@ -342,8 +342,8 @@ ru:
         invalid_twitter_handle: "Название twitter аккаунта максимум должно содержать 15 знаков (буквы A-Z И цифры 0-9)."
         facebook_connect: Facebook
         facebook_developers_dashboard: "Панель разработчиков Facebook"
-        facebook_connect_info_text: "Чтобы разрешить вход через Facebook, создайте приложение для вашего проекта <a href='https://developers.facebook.com/'> Facebook developers dashboard</a>. Добавьте созданный ID и секретный ключ приложения здесь."
-        facebook_connect_info_text_with_instructions: "Чтобы разрешить вход через Facebook, создайте приложение для вашего проекта <a href='https://developers.facebook.com/'> Facebook developers dashboard</a>. Добавьте созданный ID и секретный ключ приложения здесь. %{instructions_link}"
+        facebook_connect_info_text: "Чтобы разрешить вход через Facebook, создайте приложение для вашего проекта %{dashboard_link}. Добавьте созданный ID и секретный ключ приложения здесь."
+        facebook_connect_info_text_with_instructions: "Чтобы разрешить вход через Facebook, создайте приложение для вашего проекта %{dashboard_link}. Добавьте созданный ID и секретный ключ приложения здесь. %{instructions_link}"
         facebook_instructions_link_text: "Инструкции по настройке Facebook Connect."
         facebook_connect_id: "Facebook ID"
         invalid_facebook_connect_id: "ID должен содержать только цифры"
@@ -1770,7 +1770,7 @@ ru:
       contact_link: "свяжитесь с командой%{community}"
       edit_the_listing: "Редактировать объявление"
     edited_listing_submited_for_review:
-      subject: "Отредактированное объявление для проверки: \"%{listing_title}\"%{author_name} в %{community}"
+      subject: "Отредактированное объявление для проверки: \"%{listing_title}\" %{author_name} в %{community}"
       there_is_a_edited_listing_to_review: "Появилась новое объявление для проверки: \"%{listing_title}\" от %{author_name}. Теперь вы должны одобрить или отклонить это объявление."
       review_the_listing: "Просмотрите отредактированное объявление"
     new_transaction:
@@ -1842,7 +1842,7 @@ ru:
       buyer_cannot_pay_error: "PayPal отклонил платеж. Пожалуйста, свяжитесь с их отделом обслуживания клиентов для получения дополнительной информации: %{customer_service_link}"
       pending_review_error: "Платеж был представлен, но был помечен PayPal как «требующий рассмотрения». Когда PayPal завершит проверку, платеж будет автоматически авторизован."
       seller_express_checkout_disabled: "PayPal Express Checkout была отключена для учетной записи владельца каталога. Пожалуйста, свяжитесь с владельцем каталога и сообщите, что у него проблема с учетной записью и необходимо связаться с службой поддержки клиентов PayPal."
-      seller_express_checkout_disabled_no_free: "PayPal Express Checkout отключен для учетной записи автора PayPal. Пожалуйста, попросите команду%{service_name} связаться с автором листинга и посоветовать им связаться со службой поддержки PayPal."
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout отключен для учетной записи автора PayPal. Пожалуйста, попросите команду %{service_name} связаться с автором листинга и посоветовать им связаться со службой поддержки PayPal."
       generic_error: "В процессе платежа произошла ошибка. Мы не смогли завершить вашу PayPal оплату."
       cancel_error: "В процессе отмены произошла ошибка. Не смогли завершить отмену."
       accept_authorization_error: "Во время предавторизации платежа Paypal произошла ошибка. Пожалуйста, попробуйте снова."
@@ -2246,12 +2246,12 @@ ru:
       you_must_log_in_to_create_new_listing: "Вы должны авторизоваться в %{service_name} для создания нового объявления. Если у вас нет учётной записи, вы можете %{sign_up_link}."
       additional_email_confirmed_dashboard: "Ваш адрес электронной почты подтверждён."
       you_must_log_in_to_give_feedback: "Вы должны войти, чтобы отправить отзыв"
-      you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, вы должны войти в %{service_name}"
+      you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, требуется авторизация в %{service_name}"
       you_must_log_in_to_send_a_comment: "Вы должны войти, чтобы оставить новый комментарий"
       you_must_log_in_to_send_a_message: "Для того, чтобы отправить сообщение пользователю, вы должны авторизоваться в %{service_name}"
       you_must_log_in_to_do_a_transaction: "Вам необходимо войти в %{service_name}, чтобы произвести транзакцию."
       you_must_log_in_to_view_this_content: "Для просмотра содержимого требуется авторизация"
-      you_must_log_in_to_view_this_page: "Вам необходимо войти в систему для просмотра этой страницы"
+      you_must_log_in_to_view_this_page: "Для просмотра этой страницы требуется авторизация"
       you_must_log_in_to_view_your_inbox: "Для того, чтобы просмотреть входящие сообщения, вы должны зайти в %{service_name}."
       you_must_log_in_to_view_your_settings: "Для просмотра настроек требуется авторизация в %{service_name}"
       you_must_log_in_to_add_news_item: "Вы должны авторизоваться в %{service_name}, чтобы добавить новую статью."
@@ -2266,7 +2266,7 @@ ru:
       user_does_not_have_email_to_delete: "У вас нет email адреса который вы пытаетесь удалить"
       email_deleted: "E-mail удален"
       listing_author_payment_details_missing: "Создатель объявления не добавил детали оплаты поэтому они не получат оплату прямо сейчас. Пожалуйста свяжитесь с автором."
-      listing_author_payment_details_missing_no_free: "Пожалуйста, свяжитесь с командой%{service_name}, чтобы попросить их связаться и посоветовать автору листинга обновить свои платежные реквизиты для получения платежей."
+      listing_author_payment_details_missing_no_free: "Пожалуйста, свяжитесь с командой %{service_name}, чтобы попросить их связаться и посоветовать автору листинга обновить свои платежные реквизиты для получения платежей."
       images_are_processing: "Мы обрабатываем ваши изображения. Подождите несколько минут, и они будут загружены на сайт."
       maintenance_mode:
         zero: "Сайт будет недоступен по причине проведения профилактических работ"
@@ -2818,12 +2818,12 @@ ru:
       your_current_email_is: "Ваша электронная почта: %{email} ."
       change_email: Изменить
       confirm_your_email: "Подтвердите Ваш email"
-      account_confirmation_instructions: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать %{service_name} ."
+      account_confirmation_instructions: "Вскоре вы получите электронное письмо со ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать %{service_name}."
       account_confirmation_instructions_title_admin: "Добро пожаловать в ваш маркетплейс!"
       before_full_access_you_need_to_confirm_email: "Прежде, чем мы предоставим полный доступ к вашему маркетплейсу, необходимо сделать последний шаг: подтвердить ваш электронный адрес."
       before_confirmation_only_access_admin_dashboard: "До подтверждения вы только можете иметь доступ к %{admin_dashboard_link}."
       admin_dashboard_link_text: "панель управления администратора"
-      account_confirmation_instructions_admin: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать ваш маркетплейс."
+      account_confirmation_instructions_admin: "Вскоре вы получите электронное письмо на ваш адрес %{email_address} со ссылкой для подтверждения. Если вы не получили сообщение, проверьте папку для спама или нажмите кнопку внизу для повторного сообщения. После подтверждения вашей электронной почты вы сможете начать использовать ваш маркетплейс. За помощью обращайтесь на %{support_link}."
       contact_support_link_text: "связаться с службой поддержки Sharetribe"
   settings:
     account:
@@ -3321,7 +3321,7 @@ ru:
     placeholder:
       search_results: "Результаты поиска%{variable}"
       search_results_for: "Результаты поиска для:%{placeholder1} на%{placeholder2}"
-      listing_description: "%{title} для%{price} от%{author} на%{marketplace}"
+      listing_description: "%{title} за %{price} от %{author} на %{marketplace}"
       listing_description_without_price: "%{title} от%{author} на%{marketplace}"
       category_description: "%{category}на %{marketplace}"
       profile_title: "Профиль%{user}-%{marketplace}"

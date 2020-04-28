@@ -40,7 +40,7 @@ namespace :sharetribe do
       LEFT JOIN communities c
       ON mp.community_id = c.id
       WHERE 1=1
-        #{ignore_deleted ? 'AND c.deleted <> 1' : ''}
+        #{ignore_deleted ? 'AND (c.deleted = 0 OR c.deleted IS NULL)' : ''}
       	AND mp.expires_at IS NOT NULL -- To be extra safe
       	AND mp.expires_at < '#{date}' -- Change to desired value
       ORDER BY 2;
@@ -66,7 +66,7 @@ namespace :sharetribe do
       LEFT JOIN communities c
       ON mt.community_id = c.id
       WHERE 1=1
-        #{ignore_deleted ? 'AND c.deleted <> 1' : ''}
+        #{ignore_deleted ? 'AND (c.deleted = 0 OR c.deleted IS NULL)' : ''}
       	AND mp.community_id IS NULL -- Removes all trials with a plan in marketplace_plans
       	AND mt.expires_at IS NOT NULL -- To be extra safe
       	AND mt.expires_at < '#{date}' -- Change to desired value

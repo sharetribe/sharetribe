@@ -2910,7 +2910,7 @@ pl:
       format_markdown_link: "formatuj opis za pomocą Markdown"
       format_markdown: "Możesz %{link}"
       username: "Nazwa użytkownika"
-      username_description: ~
+      username_description: "Twoja nazwa użytkownika jest używana jako niepowtarzalna część URL Twojej strony profilowej. Możesz użyć tylko liter i cyfr w swojej nazwie użytkownika, bez spacji. Gdy zmienisz nazwę użytkownika, URL Twojego profilu zostanie automatycznie zaktualizowane, a Twoje stare URL nie będzie przekierowywać. Stara nazwa użytkownika będzie mogła być użyta przez innych użytkowników."
     save_information: "Zapisz informacje"
   shipping_address:
     shipping_address: "Adres dostawy"
@@ -3296,7 +3296,7 @@ pl:
       need_verification: "Potrzebna dodatkowa weryfikacja"
       additional_document: "Dokument ukazjuący adres - paszport, dowód osobisty lub rachunek za media z dobrze znanej firmy"
       additional_document_back: "Dokument ukazujący adres, paszport, dowód osobity lub rachunek za media z dobrze znanej firmy (tył dokumentu)"
-      files_need_to_be: ~
+      files_need_to_be: "Pliki muszą być w formacie JPG lub PNG i powinny być mniejsze niż 5MB. Obecnie pliki PDF nie mogą zostać zweryfikowane. Plik powinien być załączony w kolorze i zostać obrócony w pionie. Wszystkie informacje powinny być czytelne."
     form_pin:
       social_insurance_number: "Numer PESEL (PESEL)"
       social_security_number: "Numer ubezpieczenia społecznego (NFZ)"

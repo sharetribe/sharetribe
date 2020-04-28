@@ -553,7 +553,7 @@ en:
         testimonials: Reviews
         no_testimonials_found: "No reviews found"
         displaying_xx_reviews: "Displaying <b>%{count}</b> reviews in transactions %{tx_from} - %{tx_to} of <b>%{all_count}</b> reviews in total"
-        search_keyword: "Search for a name, email or keyword"
+        search_keyword: "Search for a name or keyword"
         search: Search
         reset_search: "Show all"
         for_keyword: "for: <b>%{keyword}</b>"
@@ -1690,7 +1690,7 @@ en:
     new_testimonial_v2:
       headline: "you got feedback!"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "Listing you follow has been updated"
+      listing_you_follow_has_been_updated: "A listing you follow has been updated"
       has_updated_listing_you_follow_in_kassi: "%{author} has updated the listing '%{listing}' you are following in %{service_name}."
       view_changes: "View changes"
     community_updates:

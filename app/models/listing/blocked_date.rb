@@ -23,6 +23,10 @@ class Listing::BlockedDate < ApplicationRecord
     where('blocked_at >= ? AND blocked_at <= ?', start_on, end_on)
   end
 
+  scope :in_period_end_exclusive, ->(start_on, end_on) do
+    where('blocked_at >= ? AND blocked_at < ?', start_on, end_on)
+  end
+
   def as_json(options = {})
     super(options.merge(only: [:id, :blocked_at]))
   end
