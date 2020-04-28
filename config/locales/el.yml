@@ -10,19 +10,19 @@ el:
       edit:
         edit_listing_category: ~
       index:
-        listing_categories: ~
+        listing_categories: "Κατηγορίες καταχωρήσεων"
         create_a_new_category: "+ Δημιουργήστε νέα κατηγορία"
         remove_category_confirmation: ~
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
       new:
-        new_listing_category: ~
+        new_listing_category: "Νέα κατηγορία καταχώρησης"
       form:
         category_name:
           category_title: "Τίτλος κατηγορίας"
         category_parent:
-          category_parent: ~
+          category_parent: "Κύρια κατηγορία"
           no_parent: ~
         category_transaction_types:
           transaction_types: ~
@@ -30,16 +30,16 @@ el:
           select_all: ~
           clear_all: ~
         buttons:
-          save: ~
-          cancel: ~
+          save: Αποθήκευση
+          cancel: Ακύρωση
       remove:
-        remove_category: ~
+        remove_category: "Κατάργηση κατηγορίας"
         remove_category_name: ~
         warning_remove_effects: ~
-        select_new_category: ~
+        select_new_category: "Επιλέξτε μια νέα κατηγορία όπου τα αντικείμενα που αναφέρονται παραπάνω θα μετακινηθούν:"
         buttons:
-          remove: ~
-          cancel: ~
+          remove: Αφαίρεση
+          cancel: Ακύρωση
     communities:
       edit_details:
         community_details: "Βασικά στοιχεία"
@@ -59,7 +59,7 @@ el:
         community_description_display: ~
         edit_community_description_description: ~
         edit_community_description_description_hideable: ~
-        community_search_placeholder: ~
+        community_search_placeholder: "Αναζήτηση κειμένου βοήθειας"
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
@@ -73,7 +73,7 @@ el:
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: "Επικοινωνήστε με τον διαχειριστή"
-        save: ~
+        save: "Αποθήκευση ρυθμίσεων"
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
@@ -88,7 +88,7 @@ el:
         community_logo_icon: Λογότυπο
         community_logo_icon_mobile: ~
         community_cover_photo: Εξώφυλλο
-        small_community_cover_photo: ~
+        small_community_cover_photo: "Μικρή φωτογραφία"
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: "Κυρίως χρώμα"
@@ -111,16 +111,16 @@ el:
         main_content_width: ~
         custom_color1_instructions_text: "Μπορείτε να αλλάξετε το κυρίως χρώμα του περιβάλλοντος αυτής της κοινότητας εισάγοντας ένα χρώμα σε δεκαεξαδική μορφή. Στο <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> μπορείτε να βρείτε το χρώμα που θέλετε και να αντιγράψετε τον κατάλληλο κωδικό εδώ."
         new_listing_button_instructions_text: ~
-        default_browse_view: ~
-        default_browse_view_instructions_text: ~
-        grid: ~
-        list: ~
-        map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
+        default_browse_view: "Προεπιλεγμένη προβολή περιήγησης"
+        default_browse_view_instructions_text: "Η προεπιλεγμένη προβολή περιήγησης χρησιμοποιείται στην αρχική σελίδα για να ορίσει τον τρόπο εμφάνισης των καταχωρήσεων από προεπιλογή"
+        grid: Πλέγμα
+        list: Λίστα
+        map: Χάρτης
+        name_display_type: "Τύπος εμφάνισης ονόματος"
+        name_display_type_instructions_text: "Επιλέξτε πώς εμφανίζεται το όνομα κάθε χρήστη στον ιστότοπο."
+        full_name: "Πλήρες όνομα (Όνομα, Επίθετο)"
+        first_name_with_initial: "Όνομα με αρχικό "
+        first_name_only: "Όνομα (μόνο)"
         invalid_color_code: "Ο κωδικός του χρώματος πρέπει να αποτελείται από 6 χαρακτήρες, αριθμούς ή γράμματα από A-F, για παράδειγμα D96E21."
         custom_head_script: ~
         custom_head_script_instructions_text: ~
@@ -220,23 +220,23 @@ el:
         show_only_nearby: ~
         allow_users_to_add_location: ~
         fuzzy_location: ~
-        listing_preferences: ~
+        listing_preferences: "Προτιμήσεις Καταχωρήσεων"
         transaction_preferences: ~
-        show_listing_publishing_date: ~
+        show_listing_publishing_date: "Εμφάνιση της ημερομηνίας δημοσίευσης της καταχώρησης στην σελίδα καταχώρησης"
         show_category_in_listing_list: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
+        listing_comments_in_use: "Επιτρέψτε στους χρήστες να δημοσιεύουν σχόλια στις καταχωρήσεις (με δυνατότητα προβολής σε όλους τους άλλους χρήστες)"
+        email_preferences: "Προτιμήσεις Email"
+        automatic_newsletters: "Αποστολή αυτόματων ημερήσιων / εβδομαδιαίων ενημερωτικών δελτίων σε όλους τους χρήστες (εκτός εάν εξαιρεθούν)"
+        email_admins_about_new_members: "Στείλτε στους διαχειριστές ένα email κάθε φορά που ένας νέος χρήστης εγγράφεται"
         google_analytics_key: ~
-        twitter_handle: ~
+        twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
         buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_daily: Ημερίσια
+        newsletter_weekly: Εβδομαδιαία
         delete_marketplace_title: ~
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
@@ -251,17 +251,17 @@ el:
         email_admins_about_new_transactions: ~
       manage_members:
         manage_members: ~
-        email: ~
+        email: Email
         name: Όνομα
         display_name: ~
-        join_date: ~
-        admin: ~
-        posting_allowed: ~
+        join_date: Joined
+        admin: Διαχειριστής
+        posting_allowed: "Επιτρέπεται η δημοσίευση"
         ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
+        saving_user_status: Αποθηκεύεται...
+        save_user_status_successful: "Έγινε αποθήκευση"
         export_all_as_csv: ~
-        save_user_status_error: ~
+        save_user_status_error: "Η αποθήκευση απέτυχε. Ανανεώστε τη σελίδα και δοκιμάστε ξανά."
         ban_user_confirmation: ~
         unban_user_confirmation: ~
         ban_me_error: ~
@@ -417,13 +417,13 @@ el:
         menu_links: ~
         menu_links_display: ~
         save: ~
-        add_menu_link: ~
+        add_menu_link: "Προσθέστε έναν νέο σύνδεσμο στο μενού"
         title_placeholder: ~
         url_placeholder: ~
-        title: ~
-        language: ~
+        title: Τίτλος
+        language: Γλώσσα
         url: ~
-        empty: ~
+        empty: "Δεν έχετε επιπλέον συνδέσμους για το μενού"
         max_number_of_links: ~
         all: ~
         max_number_of_links_info: ~
@@ -464,24 +464,24 @@ el:
           refunded: ~
           dismissed: ~
         headers:
-          conversation: ~
-          listing: ~
+          conversation: Συνομιλία
+          listing: Καταχώρηση
           status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
+          sum: Σύνολο
+          started: Άρχισε
+          last_activity: "Τελευταία δραστηριότητα"
           initiated_by: ~
           other_party: ~
         status:
           conversation: ~
           free: ~
-          pending: ~
+          pending: Εκκρεμής
           preauthorized: ~
           accepted: ~
-          rejected: ~
+          rejected: Απορρίφθηκε
           paid: ~
           confirmed: ~
-          canceled: ~
+          canceled: Ακυρώθηκε
           disputed: ~
           initiated: ~
           pending_ext: ~
@@ -830,12 +830,12 @@ el:
       edit_price:
         description: ~
         edit_price_field: ~
-        show_price_filter_homepage: ~
+        show_price_filter_homepage: "Εμφάνιση φίλτρου τιμών στην αρχική σελίδα"
         price_min: ~
         price_max: ~
       edit_location:
         edit_location_field: ~
-        this_field_is_required: ~
+        this_field_is_required: "Αυτό το πεδίο είναι υποχρεωτικό"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
@@ -857,27 +857,27 @@ el:
         save: Αποθήκευση
         field_title: "Τίτλος Πεδίου"
         field_type: "Τύπος Πεδίου"
-        categories: ~
+        categories: "Λίστα κατηγοριών"
         select_all: ~
         clear_all: ~
-        options: ~
-        add_option: ~
+        options: Επιλογές
+        add_option: "+ Προσθήκη επιλογής"
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
-        select_one: ~
+        select_one: "Επιλογή τύπου πεδίου ..."
         continue: Συνέχεια
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        minimum_value: Ελάχιστο
+        maximum_value: Περισσότερο
+        allow_decimals: "Επιτρέψτε τα δεκαδικά"
       new:
-        new_listing_field: ~
+        new_listing_field: "Επίπεδο για καινούργια καταχώρηση"
       field_types:
-        text: ~
-        number: ~
+        text: Κείμενο
+        number: Αριθμός
         dropdown: ~
         checkbox_group: ~
-        date: ~
+        date: Ημερομηνία
         file: ~
         location: ~
     person_custom_fields:
@@ -1133,10 +1133,10 @@ el:
       event_wo_online_payment: ~
       default_action_button_labels:
         sell: Αγόρασέ
-        rent: ~
+        rent: Ενοίκιο
         request: Πρόσφερε
         offer: "Ζήτησέ το"
-        inquiry: ~
+        inquiry: Επικοινωνία
         book: ~
     community_transactions:
       show:
@@ -1258,8 +1258,8 @@ el:
       give_feedback_to: "Γράψτε κριτική για το χρήστη %{person_link}"
       do_not_give_feedback: "Παραλείψτε την κριτική"
     details:
-      day: ~
-      days: ~
+      day: μέρα
+      days: μέρες
       price_per_day: ~
     index:
       loading_more_messages: "Εμφάνιση περισσότερων μηνυμάτων"
@@ -1344,7 +1344,7 @@ el:
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
       pay: Πληρωμή
-      preauthorized: ~
+      preauthorized: "Επιτυχής Πληρωμή"
       paid: "Επιτυχής πληρωμή"
       pending_external:
         paypal:
@@ -1362,12 +1362,12 @@ el:
       skip_feedback: "Παράλειψε την κριτική"
       waiting_for_listing_author_to_accept_offer: "Αναμονή αποδοχής της προσφοράς από τον/την %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "Αναμονή αποδοχής του αιτήματος από τον/την %{listing_author_name}"
-      waiting_for_you_to_accept_request: ~
+      waiting_for_you_to_accept_request: "Σας περιμένουμε να αποδεχτείτε το αίτημα"
       waiting_confirmation_from_requester: "Αναμονή να δηλωθεί ως ολοκληρωμένο από τον/την %{requester_name}"
       waiting_confirmation_from_you: ~
       waiting_payment_from_requester: "Αναμονή πληρωμής από τον/την %{requester_name}"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "Σας περιμένουμε να πληρώσετε"
+      waiting_feedback_from_you: "Σας περιμένουμε να σχολιάσετε"
       pending_external_inbox:
         paypal:
           multicurrency: ~
@@ -1393,10 +1393,10 @@ el:
       accept_request: "Αποδοχή αιτήματος"
       reject_offer: "Κάποια άλλη φορά"
       reject_request: "Κάποια άλλη φορά"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Δέχομαι την προσφορά"
+      accept_preauthorized_request: "Αποδοχή αιτήματος"
+      reject_preauthorized_offer: "Όχι αυτή την φορά"
+      reject_preauthorized_request: "Όχι αυτή την φορά"
       confirm: Ολοκληρώθηκε
       cancel: "Δεν πραγματοποιήθηκε"
       mark_as_refunded: ~
@@ -1408,7 +1408,7 @@ el:
     anonymous_user: ~
   community_memberships:
     access_denied:
-      access_denied: ~
+      access_denied: "Δεν επιτρέπεται η πρόσβαση"
       you_are_banned_in_this_community: ~
       contact_page_link: ~
     new:
@@ -1687,7 +1687,7 @@ el:
       subject: ~
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
-      view_listing: ~
+      view_listing: "Προβολή καταχώρησης"
     new_listing_by_followed_person_v2:
       headline: ~
       has_posted_a_new_listing: ~
@@ -1887,8 +1887,8 @@ el:
     manage_listings: ~
     invite: Πρόσκληση
     login: ~
-    signup: ~
-    menu: ~
+    signup: Εγγραφή
+    menu: Μενού
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Υπάρχει <b>μία ακόμα προσφορά</b>,"
@@ -1923,8 +1923,8 @@ el:
       some_private_requests_exist: "Υπάρχουν ήδη  <b>%{number_of_listings} αιτήματα</b>"
     custom_filters:
       update_view: "Επικαιροποιήση Εικόνας"
-      min: ~
-      max: ~
+      min: Ελάχιστο
+      max: Περισσότερο
     event_feed:
       latest_events: "Τι νέα;"
     grid_item:
@@ -2259,10 +2259,10 @@ el:
       close_listing: "Απενεργοποίηση καταχώρησης"
       edit_listing: "Επεξεργασία καταχώρησης"
       reopen_listing: "Ενεργοποίηση ξανά της καταχώρησης"
-      move_to_top: ~
+      move_to_top: "Μετακίνηση στην κορυφή της αρχικής σελίδας"
       show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
+      show_in_updates_email_loading: Φόρτωση...
+      show_in_updates_email_error: "Δεν ήταν δυνατή η πρόσβαση στον διακομιστή. Δοκιμάστε ξανά μετά την ανανέωση της σελίδας."
       show_in_updates_email_success: ~
       listing_is_pending: ~
       listing_is_rejected: ~
@@ -2314,14 +2314,14 @@ el:
         remove_image: "Κατάργηση εικόνας"
         select_file: "Επιλέξτε αρχείο"
         add_more: ~
-        removing: ~
-        processing: ~
-        loading_image: ~
+        removing: Αφαιρείται...
+        processing: Επεξεργασία...
+        loading_image: Φόρτωση...
         image_uploading_in_progress: ~
         processing_takes_a_while: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
-        uploading_failed: ~
+        uploading_failed: "Η φόρτωση εικόνας απέτυχε"
         image_processing_failed: ~
         file_too_large: ~
         accepted_formats: "Το αρχείο εικόνας πρέπει να είναι σε μορφή GIF, JPEG ή PNG."
@@ -2440,12 +2440,12 @@ el:
       selected_subcategory: "Υποκατηγορία: %{subcategory}"
       selected_transaction_type: ~
       select_category: "Επιλέξτε κατηγορία"
-      select_subcategory: ~
-      select_transaction_type: ~
+      select_subcategory: "Επιλέξτε υποκατηγορία"
+      select_transaction_type: "Επιλέξτε τύπο καταχώρησης"
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
-      payment_settings_link: ~
+      payment_settings_link: "ρυθμίσεις πληρωμής"
       community_not_configured_for_payments_admin: ~
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
@@ -2489,7 +2489,7 @@ el:
       times: φορές
       times_viewed: Διαβάστηκε
       processing_uploaded_image: "(Γίνεται επεξεργασία της εικόνας...)"
-      listing_created_at: ~
+      listing_created_at: "Κταχώρηση δημιουργήθηκε"
       price:
         per_quantity_unit: ~
         per_day: ~
@@ -2510,14 +2510,14 @@ el:
       unit: ~
       person: ~
     verification_required:
-      verification_required: ~
+      verification_required: "Απαιτείται επαλήθευση"
   listing_conversations:
     preauthorize:
       dates_not_available: ~
       error_in_checking_availability: ~
-      details: ~
+      details: Λεπτομέρειες
       by: ~
-      payment: ~
+      payment: Πληρωμή
       exp: ~
       you_will_be_charged: ~
       day: ~
@@ -2677,8 +2677,8 @@ el:
       visible_only_to_you: "ορατή μόνο σε σας και το διαχειριστή της κοινότητας"
       visible_to_everybody: "ορατό σε όλους"
       create_account_with_provider: ~
-      OR: ~
-      signup_with_email: ~
+      OR: Ή
+      signup_with_email: "Εγγραφείτε με email"
       this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "βαθμός:"
@@ -2725,12 +2725,12 @@ el:
       you_follow_singular: ~
       they_follow_plural: ~
       they_follow_singular: ~
-      show_all_followed_people: ~
+      show_all_followed_people: "Εμφάνιση όλων των ατόμων που ακολουθώ"
       no_followed_people: ~
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Ακολουθώ
+      follow: Ακολουθώ
+      unfollow: "Κατάργηση ακολούθησης"
   sessions:
     new:
       create_new_account: "Δημιουργία λογαριασμού"
@@ -2826,8 +2826,8 @@ el:
       city: Πόλη
       family_name: Επώνυμο
       given_name: Όνομα
-      first_name_with_initial: ~
-      first_name_only: ~
+      first_name_with_initial: "(εμφανίζεται μόνο το πρώτο γράμμα σε άλλους χρήστες)"
+      first_name_only: "(δεν εμφανίζεται σε άλλους χρήστες)"
       display_name: ~
       display_name_description: ~
       location_description: "Μπορείτε να συμπληρώσετε είτε την ακριβή τοποθεσία σας είτε μόνο τον ταχυδρομικό σας κωδικό. Παρακαλούμε να συμπληρώσετε τουλάχιστον τον ταχυδρομικό σας κωδικό. Εναλλακτικά, μπορείτε να διαλέξετε την τοποθεσία σας από τον χάρτη."
@@ -2841,8 +2841,8 @@ el:
       these_fields_are_shown_in_your: "Αυτές οι πληροφορίες είναι ορατές σε όλους τους χρήστες του %{service_name}"
       visible_to_everybody: "ορατό σε όλους"
       visible_to_registered_users: "(ορατό σε συνδεδεμένους χρήστες)"
-      default_in_listing: ~
-      invisible: ~
+      default_in_listing: "(χρησιμοποιείται μόνο ως προεπιλογή κατά τη δημιουργία μιας νέας καταχώρησης)"
+      invisible: "(δεν εμφανίζεται σε άλλους χρήστες)"
       image_is_processing: ~
       shown_in_your_public_profile: ~
       editing_profile_of: ~

@@ -1330,8 +1330,8 @@ de:
       payment_preauthorized: "Zahlung wurde autorisiert: %{sum}"
       payment_preauthorized_wo_sum: "Zahlung erfolgreich"
       stripe:
-        held_payment: "Die Anfrage wurde akzeptiert. Die Zahlung in Höhe von %{sum} wird von %{service_name} verwahrt bis der Auftrag als erledigt markiert wird."
-        held_payment_wo_sum: "Hat die Anfrage angenommen. Zahlung wird von %{service_name} verwahrt bis der Auftrag als erledigt markiert wird."
+        held_payment: "Die Anfrage wurde akzeptiert. Die Zahlung in Höhe von %{sum} wird von %{service_name} verwahrt, bis der Auftrag als erledigt markiert wird."
+        held_payment_wo_sum: "Hat die Anfrage angenommen. Zahlung wird von %{service_name} verwahrt, bis der Auftrag als erledigt markiert wird."
         confirmed_request: "Hat den Auftrag als erledigt markiert. Die Zahlung wurde oder wird in Kürze auf das Bankkonto von %{author_name} transferiert."
       canceled_the_order: "Anfrage angefochten. Das Team von %{service_name} wurde kontaktiert."
       marked_as_refunded: "Als erstattet markiert"
@@ -1610,8 +1610,8 @@ de:
       stripe:
         you_have_received_new_payment: "Der Betrag in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> wurde von %{payer_full_name} gezahlt. Das Geld wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wird. Als Anlage erhältst Du Deinen Beleg."
     payment_receipt_to_seller_v2:
-      headline: "du wurdest %{payment_sum} bezahlt für %{listing_link} von %{payer_name}."
-      main_text_stripe: "Die Zahlung wird von %{service_name} verwahrt bis die Anfrage als abgeschlossen markiert wird."
+      headline: "du wurdest von %{payer_name} für %{listing_link} in Höhe von %{payment_sum} bezahlt."
+      main_text_stripe: "Die Zahlung wird von %{service_name} verwahrt, bis die Anfrage als abgeschlossen markiert wird."
       price_breakdown: Preisstruktur
     payment_receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
@@ -1703,10 +1703,10 @@ de:
       you_have_time_to_accept: "Du musst die Anfrage innerhalb von %{payment_expires_in} akzeptieren oder ablehnen."
       if_you_do_accept: "Wenn du die Anfrage innerhalb dieses Zeitrahmens akzeptierst, wirst du das Geld sofort auf dein Konto bekommen."
       if_you_do_accept_stripe: "Wenn du die Anfrage innerhalb von diesem Zeitraum akzeptierst, wird die Zahlung erfolgreich bearbeitet. Das Geld wird zu deinem Bankkonto überwiesen, nachdem du %{listing_title} zu %{requester} geliefert hast."
-      if_you_do_not_accept: "Wenn du die Anfrage ablehnst, oder sie nicht innerhalb dieses Zeitrahmens akzeptierst, wird die Transaktion automatisch abgebrochen, %{requester} wird nicht belastet, und du bekommst das Geld nicht."
+      if_you_do_not_accept: "Wenn du die Anfrage ablehnst oder sie nicht innerhalb dieses Zeitrahmens akzeptierst, wird die Transaktion automatisch abgebrochen, %{requester} wird nicht belastet, und du bekommst das Geld nicht."
       click_here_to_reply: "Klicke hier, um auf die Anfrage zu antworten"
     transaction_preauthorized_v2:
-      headline: "%{requester} interessiert sich, und hat Zahlung für %{listing_link} autorisiert."
+      headline: "%{requester} interessiert sich und hat Zahlung für %{listing_link} autorisiert."
     transaction_preauthorized_reminder:
       subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."
       remember_to_accept: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren. %{requester} hat bereits für das Angebot gezahlt. Du musst die Anfrage akzeptieren um die Zahlung zu erhalten."
