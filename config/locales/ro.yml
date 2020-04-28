@@ -2081,7 +2081,7 @@ ro:
       about: "Despre noi"
       how_to_use: "Cum funcționează"
       info_about_kassi: "Informații despre %{service_name}"
-      news: Noutati
+      news: Noutăți
       register_details: "Politica de Confidențialitate"
       terms: "Termeni de utilizare"
     logged_in:
@@ -2089,7 +2089,7 @@ ro:
       go_to_your_profile_page: Profil
       hi: Salut
       login: Autentificare
-      logout: Deconectați-vă
+      logout: Deconectare
       notifications: Notificări
       requests: "Cereri prietenie"
       settings: Setări
@@ -2120,7 +2120,7 @@ ro:
       go_to_your_profile_page: Profil
       hi: Salut
       login: Autentificare
-      logout: Deconectați-vă
+      logout: Deconectare
       notifications: Notificari
       requests: "Cereri prietenie"
       settings: Setări
@@ -2141,11 +2141,11 @@ ro:
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: ~
       create_new_listing: "Creați o altă postare"
-      create_one_here: "creaza aici"
+      create_one_here: creează
       email_confirmation_sent_to_new_address: "Email-ul de confirmare a fost trimis la noua adresă."
       email_not_found: "Emailul pe care l-ai indicat nu a fost găsit în baza de date de la %{service_name}"
       error_with_session: "Eroare în această sesiune."
-      feedback_considered_spam: "Feedback-ul nu a fost salvat, datorita formatarii. Incercati inca o data sau folositi forumul de feedback."
+      feedback_considered_spam: "Feedback-ul nu a fost salvat, datorita formatării. Încearcă încă o dată sau foloseste forumul de feedback."
       feedback_not_saved: "Feedback-ul nu a putut fi trimis."
       feedback_saved: "Mulțumim pentru mesaj! Vom reveni cu un răspuns în cel mai scurt timp posibil."
       feedback_sent_to: "Feedback trimis pentru %{target_person}"
@@ -2163,10 +2163,10 @@ ro:
       login_successful: "Bine ai venit, %{person_name}!"
       logout_successful: "Ești deconectat/ă din %{service_name}. Pe curând!"
       news_item_created: "Articol creat"
-      news_item_creation_failed: "Crearea articolului a esuat"
-      news_item_update_failed: "Actualizarea articolului a esuat"
+      news_item_creation_failed: "Crearea articolului a eșuat"
+      news_item_update_failed: "Actualizarea articolului a eșuat"
       news_item_updated: "Articol actualizat"
-      news_item_deleted: "Articol sters"
+      news_item_deleted: "Articol șters"
       offer_accepted: "Ofertă acceptată"
       offer_confirmed: "Ofertă finalizată"
       offer_closed: "Ofertă închisă"
@@ -2189,7 +2189,7 @@ ro:
       person_activated: "Utilizator activat"
       person_deactivated: "Utilizator dezactivat"
       person_updated_successfully: "Informație actualizată"
-      poll_answered: "S-a raspuns la sondaj"
+      poll_answered: "S-a răspuns la sondaj"
       poll_could_not_be_answered: "Nu s-a putut raspunde la sondaj"
       poll_created: "Sondaj creat"
       poll_creation_failed: "Crearea sondajului a esuat"
@@ -2209,7 +2209,7 @@ ro:
       this_content_is_not_available_in_this_community: "Acest conținut nu este disponibil."
       unknown_error: "Eroare necunoscută. Utilizați pagina \"Contactati-ne\" pentru a trimite detaliile despre ceea ce s-a întâmplat."
       update_error: "A apărut o eroare la actualizarea informațiilor tale, te rugăm să mai încerci odată"
-      you_are_not_allowed_to_give_feedback_on_this_transaction: "Nu sunteți autorizat să oferiți recenzie pentru această tranzacție"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Nu ești autorizat să oferi recenzie pentru această tranzacție"
       you_are_not_authorized_to_do_this: "Nu ești autorizat să faci asta"
       you_are_not_authorized_to_view_this_content: "Nu ești autorizat să vezi acest conținut"
       listing_closed: "Listarea s-a închis"
@@ -2217,17 +2217,17 @@ ro:
       you_cannot_reply_to_a_closed_offer: "Nu poți răspunde unei oferte închise"
       you_cannot_send_message_to_yourself: "Nu poti trimite un mesaj catre tine"
       you_followed_listing: "Nu urmaresti acest anunt"
-      you_have_already_given_feedback_about_this_event: "Ați oferit deja feedback despre această tranzacție"
+      you_have_already_given_feedback_about_this_event: "Ai oferit deja feedback despre această tranzacție"
       you_are_now_member: "Bine ai venit pe %{service_name}!"
       you_are_already_member: "Ești deja membru al serviciului %{service_name}. Bine ai revenit!"
       you_must_log_in_to_create_new_listing: "Trebuie sa va conectati pe %{service_name} pentru a crea un anunt nou. Daca nu aveti un cont puteti accesa %{sign_up_link}."
       additional_email_confirmed_dashboard: "Adresa de email a fost confirmata"
-      you_must_log_in_to_give_feedback: "Trebuie să vă autentificați pentru a putea oferi feedback"
+      you_must_log_in_to_give_feedback: "Trebuie să te autentifici pentru a putea oferi feedback"
       you_must_log_in_to_invite_new_users: "Trebuie să te conectezi pentru a putea invita și alți utilizatori pe %{service_name}"
-      you_must_log_in_to_send_a_comment: "Trebuie să vă autentificați pentru a putea trimite un nou comentariu"
-      you_must_log_in_to_send_a_message: "Trebuie să vă autentificați pe %{service_name} pentru a putea trimite un mesaj unui alt utilizator."
+      you_must_log_in_to_send_a_comment: "Trebuie să te autentifici pentru a putea trimite un nou comentariu"
+      you_must_log_in_to_send_a_message: "Trebuie să te autentifici pe %{service_name} pentru a putea trimite un mesaj unui alt utilizator."
       you_must_log_in_to_do_a_transaction: "Trebuie să te conectezi pe %{service_name} pentru a face o tranzacție"
-      you_must_log_in_to_view_this_content: "Trebuie să vă autentificați pentru a putea vedea acest conținut"
+      you_must_log_in_to_view_this_content: "Trebuie să te autentifici pentru a putea vedea acest conținut"
       you_must_log_in_to_view_this_page: "Trebuie să te conectezi pentru a putea vedea această pagină"
       you_must_log_in_to_view_your_inbox: "Trebuie să te autentifici pe %{service_name} pentru a putea vedea mesajele."
       you_must_log_in_to_view_your_settings: "Trebuie să te conectezi pe %{service_name} pentru a putea vedea setările."

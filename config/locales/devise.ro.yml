@@ -1,9 +1,9 @@
 ro:
   errors:
     messages:
-      expired: "a expirat, vă rugăm să solicitaţi din nou"
+      expired: "a expirat, încearcă din nou"
       not_found: inexistent
-      already_confirmed: "a fost deja confirmat, vă rugăm să încercaţi să vă conectaţi"
+      already_confirmed: "a fost deja confirmat, încearcă să te conectezi"
       not_locked: "nu a fost blocat"
       not_saved:
         one: "%{count} eroare a impiedicat această %{resource} sa fie salvată:"
