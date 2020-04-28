@@ -15,11 +15,14 @@ describe Listing, type: :model do
                       )
   end
   let(:listing1) do
-    FactoryGirl.create(:listing, community_id: community.id,
-                                 title: "We will continue to resell web-enabled eProcurement warehouses",
-                                 author: person1,
-                                 availability: 'booking',
-                                 valid_until: nil)
+    l = FactoryGirl.create(:listing, community_id: community.id,
+                                     title: "We will continue to resell web-enabled eProcurement warehouses",
+                                     author: person1,
+                                     availability: 'booking',
+                                     valid_until: nil)
+    FactoryGirl.create(:listing_blocked_date, listing: l, blocked_at: '2050-11-10')
+    FactoryGirl.create(:listing_blocked_date, listing: l, blocked_at: '2050-11-12')
+    l
   end
   let(:listing2) do
     listing = FactoryGirl.create(:listing, community_id: community.id,
@@ -59,12 +62,36 @@ describe Listing, type: :model do
       expect(booking.valid?).to eq false
       booking = Booking.new(tx: tx, start_on: '2050-11-21', end_on: '2050-11-29')
       expect(booking.valid?).to eq false
+      booking = Booking.new(tx: tx, start_on: '2050-11-21', end_on: '2050-11-22')
+      expect(booking.valid?).to eq false
       booking = Booking.new(tx: tx, start_on: '2050-11-19', end_on: '2050-11-21')
       expect(booking.valid?).to eq false
       booking = Booking.new(tx: tx, start_on: '2050-11-23', end_on: '2050-11-29')
       expect(booking.valid?).to eq true
       booking = Booking.new(tx: tx, start_on: '2050-11-18', end_on: '2050-11-20')
       expect(booking.valid?).to eq true
+      booking = Booking.new(tx: tx, start_on: '2050-11-18', end_on: '2050-11-25')
+      expect(booking.valid?).to eq false
+
+      # Check against blocked dates
+      booking = Booking.new(tx: tx, start_on: '2050-11-08', end_on: '2050-11-10')
+      expect(booking.valid?).to eq true
+      booking = Booking.new(tx: tx, start_on: '2050-11-08', end_on: '2050-11-10')
+      expect(booking.valid?).to eq true
+      booking = Booking.new(tx: tx, start_on: '2050-11-11', end_on: '2050-11-12')
+      expect(booking.valid?).to eq true
+      booking = Booking.new(tx: tx, start_on: '2050-11-08', end_on: '2050-11-11')
+      expect(booking.valid?).to eq false
+      booking = Booking.new(tx: tx, start_on: '2050-11-08', end_on: '2050-11-13')
+      expect(booking.valid?).to eq false
+      booking = Booking.new(tx: tx, start_on: '2050-11-10', end_on: '2050-11-11')
+      expect(booking.valid?).to eq false
+      booking = Booking.new(tx: tx, start_on: '2050-11-12', end_on: '2050-11-13')
+      expect(booking.valid?).to eq false
+
+      # Both blocked date and booking overlapping
+      booking = Booking.new(tx: tx, start_on: '2050-11-11', end_on: '2050-11-22')
+      expect(booking.valid?).to eq false
     end
 
     it 'validates per hour' do
@@ -76,12 +103,16 @@ describe Listing, type: :model do
       expect(booking.valid?).to eq false
       booking = Booking.new(tx: tx, start_time: '2050-11-28 14:00', end_time: '2050-11-28 16:00', per_hour: true)
       expect(booking.valid?).to eq false
+      booking = Booking.new(tx: tx, start_time: '2050-11-28 14:00', end_time: '2050-11-28 13:00', per_hour: true)
+      expect(booking.valid?).to eq false
       booking = Booking.new(tx: tx, start_time: '2050-11-28 11:00', end_time: '2050-11-28 13:00', per_hour: true)
       expect(booking.valid?).to eq false
       booking = Booking.new(tx: tx, start_time: '2050-11-28 11:00', end_time: '2050-11-28 12:00', per_hour: true)
       expect(booking.valid?).to eq true
       booking = Booking.new(tx: tx, start_time: '2050-11-28 15:00', end_time: '2050-11-28 16:00', per_hour: true)
       expect(booking.valid?).to eq true
+      booking = Booking.new(tx: tx, start_time: '2050-11-28 11:00', end_time: '2050-11-28 16:00', per_hour: true)
+      expect(booking.valid?).to eq false
     end
   end
 end
