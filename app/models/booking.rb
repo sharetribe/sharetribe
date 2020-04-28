@@ -81,7 +81,8 @@ class Booking < ApplicationRecord
     return true if per_hour
 
     self.class.uncached do
-      if tx.listing.bookings.covers_another_booking_per_day(self).any?
+      if tx.listing.bookings.covers_another_booking_per_day(self).any? ||
+         tx.listing.blocked_dates.in_period_end_exclusive(self.start_on, self.end_on).any?
         errors.add(:start_on, :invalid)
         errors.add(:end_on, :invalid)
       end
