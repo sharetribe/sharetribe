@@ -34,8 +34,7 @@ class Booking < ApplicationRecord
   scope :covers_another_booking_per_hour, ->(booking) do
     exclude_self(booking)
     .joins(:tx).per_hour_blocked
-    .where(['(start_time <= ? AND end_time > ?) OR (start_time < ? AND end_time >= ?)',
-            booking.start_time, booking.start_time, booking.end_time, booking.end_time])
+    .where(['start_time < ? AND end_time > ?', booking.end_time, booking.start_time])
   end
   scope :availability_blocking, -> { merge(Transaction.availability_blocking) }
   scope :per_hour_blocked, -> { hourly_basis.availability_blocking }
@@ -45,8 +44,7 @@ class Booking < ApplicationRecord
   scope :covers_another_booking_per_day, ->(booking) do
     exclude_self(booking)
     .joins(:tx).per_day_blocked
-    .where(['(start_on <= ? AND end_on > ?) OR (start_on < ? AND end_on >= ?)',
-            booking.start_on, booking.start_on, booking.end_on, booking.end_on])
+    .where(['start_on < ? AND end_on > ?', booking.end_on, booking.start_on])
   end
   scope :exclude_self, ->(booking) do
     booking.persisted? ? where.not(id: booking.id) : self
