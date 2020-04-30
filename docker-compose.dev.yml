@@ -87,7 +87,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     command: >
-      bash -c "bundle exec rake ts:configure ts:index ts:start"
+      bash -c "bundle exec rake ts:configure ts:index; searchd --nodetach --pidfile --config config/development.sphinx.conf"
     volumes:
       - .:/opt/app
       - /opt/app/node_modules
