@@ -13,8 +13,8 @@ el:
         listing_categories: "Κατηγορίες καταχωρήσεων"
         create_a_new_category: "+ Δημιουργήστε νέα κατηγορία"
         remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
+        saving_order: "Αποθήκευση παραγγελίας κατηγορίας"
+        save_order_successful: "Η παραγγελία κατηγορίας αποθηκεύτηκε με επιτυχία"
         save_order_error: ~
       new:
         new_listing_category: "Νέα κατηγορία καταχώρησης"
@@ -27,8 +27,8 @@ el:
         category_transaction_types:
           transaction_types: ~
           transaction_types_description: ~
-          select_all: ~
-          clear_all: ~
+          select_all: "Επιλογή όλων"
+          clear_all: "Διαγραφή όλων"
         buttons:
           save: Αποθήκευση
           cancel: Ακύρωση
@@ -45,9 +45,9 @@ el:
         community_details: "Βασικά στοιχεία"
         community_look_and_feel: Εμφάνιση
         edit_community: "Επεξεργασία των στοιχείων της κοινότητας %{community_name}"
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
+        enabled_languages: "Ενεργοποιημένες γλώσσες"
+        enabled_languages_description: "Το σύνολο των διαθέσιμων γλωσσών για τους χρήστες. Το πρώτο χρησιμοποιείται ως προεπιλογή."
+        default_language: "Προεπιλεγμένη γλώσσα"
         language_selection_disabled: ~
         community_name: Όνομα
         edit_community_name_description: ~
@@ -74,7 +74,7 @@ el:
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: "Επικοινωνήστε με τον διαχειριστή"
         save: "Αποθήκευση ρυθμίσεων"
-        transaction_agreement: ~
+        transaction_agreement: "Συμφωνία συναλλαγής"
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
         transaction_agreement_checkbox_label_description: ~
@@ -133,71 +133,71 @@ el:
         edit_message: "Επεξεργασία μηνύματος"
         send_test_message: "Αποστολή δοκιμαστικού μηνύματος"
       outgoing_email:
-        title: ~
+        title: "Εξερχόμενη διεύθυνση email"
         info: ~
         read_more: ~
         sender_address: ~
         sender_address_default: ~
         need_to_change: ~
         contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
+        set_sender_address: "Ορισμός διεύθυνσης αποστολέα"
+        sender_name_label: Όνομα
+        sender_name_placeholder: "Όνομα αποστολέα"
+        sender_email_label: "Διεύθυνση email"
+        sender_email_placeholder: sender-email@example.com
         amazon_ses_notification: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
+        this_is_how_it_will_look: "Έτσι θα φαίνεται:"
+        send_verification_button: "Αποστολή email επαλήθευσης"
         change_sender_email: ~
-        successfully_saved: ~
+        successfully_saved: "Η διεύθυνση αποστολέα αποθηκεύτηκε με επιτυχία. Το email επαλήθευσης θα σταλεί σύντομα."
         successfully_saved_name: ~
         set_sender_name: ~
         change_sender_name: ~
         change_sender_prompt: ~
         status: ~
-        status_verified: ~
+        status_verified: "Επαληθεύτηκε - σε χρήση"
         status_error: ~
         status_requested: ~
         status_expired: ~
         status_resent: ~
-        resend_link: ~
+        resend_link: Ξαναστείλε
         invalid_email_error: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
-        unknown_error: ~
+        unknown_error: "Κάποιο λάθος έγινε"
         white_label_offer: ~
         upgrade_plan_link: ~
         verification_sent_from: ~
-        follow_the_instructions: ~
+        follow_the_instructions: "Ακολουθήστε τις οδηγίες στο email για να επαληθεύσετε τη διεύθυνσή σας."
       getting_started:
         getting_started: ~
       available_languages:
         cs: ~
-        da-DK: ~
-        de: ~
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        es: ~
-        es-ES: ~
-        fi: ~
-        fr: ~
-        fr-CA: ~
-        el: ~
-        it: ~
-        ja: ~
+        da-DK: Δανέζικα
+        de: Γερμανικά
+        en: Αγγλικά
+        en-AU: "Αγγλικά (Αυστραλία)"
+        en-GB: "Αγγλικά (Ηνωμένο Βασίλειο)"
+        es: Ισπανικά
+        es-ES: Ισπανικά
+        fi: Φινλανδικά
+        fr: Γαλλικά
+        fr-CA: "Γαλλικά (Καναδάς)"
+        el: Ελληνικά
+        it: Ιταλικά
+        ja: Ιαπωνέζικα
         ko: ~
         nb: ~
-        nl: ~
+        nl: Ολλανδικά
         pl: ~
         pt-BR: ~
-        pt-PT: ~
-        ru: ~
-        sv: ~
+        pt-PT: Πορτογαλικά
+        ru: Ρώσσικα
+        sv: Σουηδικά
         th-TH: ~
-        tr-TR: ~
+        tr-TR: Τούρκικα
         vi: ~
-        zh: ~
+        zh: Κινέζικα
         zh-TW: ~
       settings:
         settings: Ρυθμίσεις
@@ -208,16 +208,16 @@ el:
         private: ~
         require_verification_to_post_listings: ~
         allow_free_conversations: ~
-        search_preferences: ~
+        search_preferences: "Προτιμήσεις αναζήτησης"
         search_and_location_preferences: ~
         default_search_type: ~
-        keyword_search: ~
-        keyword_and_location_search: ~
-        location_search: ~
+        keyword_search: "Αναζήτηση με λέξη κλειδί"
+        keyword_and_location_search: "Αναζήτηση λέξεων-κλειδιών και τοποθεσίας"
+        location_search: "Αναζήτηση τοποθεσίας"
         select_distance_unit: ~
-        km: ~
-        miles: ~
-        show_only_nearby: ~
+        km: χλμ
+        miles: μίλια
+        show_only_nearby: "Εμφάνιση μόνο κοντινών καταχωρίσεων με αναζήτηση τοποθεσίας"
         allow_users_to_add_location: ~
         fuzzy_location: ~
         listing_preferences: "Προτιμήσεις Καταχωρήσεων"
@@ -237,15 +237,15 @@ el:
         automatic_newsletter_frequency: ~
         newsletter_daily: Ημερίσια
         newsletter_weekly: Εβδομαδιαία
-        delete_marketplace_title: ~
+        delete_marketplace_title: "Διαγραφή marketplace"
         type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
+        type_marketplace_domain_placeholder: "Πληκτρολογήστε τo marketplace domain σας εδώ"
+        once_you_delete: "Μόλις διαγράψετε το marketplace, δεν θα έχετε πλέον πρόσβαση σε αυτό. Πρόσεχετε."
+        are_you_sure: "Είστε σίγουροι;"
+        i_understand_button: "Κατανοώ ότι κάνοντας κλικ σε αυτό το κουμπί, το marketplace μου θα διαγραφεί"
+        last_community_updates: "Λάβετε υπόψη ότι μετά τη διαγραφή, εσείς και οι χρήστες του marketplace ενδέχεται να εξακολουθείτε να λαμβάνετε τα τελευταία μηνύματα ενημέρωσης για το marketplace."
         you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_this_marketplace: "Διαγραφή αυτού του marketplace"
         payment_preferences: ~
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
@@ -292,15 +292,15 @@ el:
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
-        new_layout: ~
+        new_layout: "Νέα διάταξη"
         description_roadmap_new: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
+        enabled_for_you: "Ενεργοποιήθηκε για εσάς"
+        enabled_for_all: "Ενεργοποιήθηκε για όλους"
         new_topbar: ~
         searchpage: ~
         new_email_templates: ~
       social_media:
-        social_media: ~
+        social_media: "Μέσα Κοινωνικής Δικτύωσης "
         logo: ~
         logo_info: ~
         social_media_title: ~
@@ -309,11 +309,11 @@ el:
         link_for_linkedin: ~
         link_for_twitter: ~
         social_media_description: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
+        twitter_handle: "Όνομα Χρήστη Twitter"
+        twitter_handle_info_text: "Όνομα χρήστη του λογαριασμού Twitter του marketplace σας (εάν έχετε). Θα αναφέρεται όταν οι άνθρωποι χρησιμοποιούν το κουμπί tweet στη σελίδα καταχώρισης."
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_placeholder: "όνομα χρήστη"
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_developers_dashboard: ~
@@ -325,7 +325,7 @@ el:
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
-        save: ~
+        save: "Αποθήκευση ρυθμίσεων"
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -403,7 +403,7 @@ el:
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
-        save: ~
+        save: "Αποθήκευση ρυθμίσεων"
         google_tag_manager: ~
         gtm_paragraph_1: ~
         gtm_paragraph_2: ~
@@ -425,9 +425,9 @@ el:
         url: ~
         empty: "Δεν έχετε επιπλέον συνδέσμους για το μενού"
         max_number_of_links: ~
-        all: ~
+        all: Όλα
         max_number_of_links_info: ~
-        about_page: ~
+        about_page: "για την σελίδα"
       default_menu_links:
         title: ~
         about_link_title: ~
@@ -466,7 +466,7 @@ el:
         headers:
           conversation: Συνομιλία
           listing: Καταχώρηση
-          status: ~
+          status: Κατάσταση
           sum: Σύνολο
           started: Άρχισε
           last_activity: "Τελευταία δραστηριότητα"
@@ -476,10 +476,10 @@ el:
           conversation: ~
           free: ~
           pending: Εκκρεμής
-          preauthorized: ~
-          accepted: ~
+          preauthorized: Εξουσιοδοτημένο
+          accepted: Δεκτό
           rejected: Απορρίφθηκε
-          paid: ~
+          paid: Πληρωμένο
           confirmed: ~
           canceled: Ακυρώθηκε
           disputed: ~
@@ -518,7 +518,7 @@ el:
             payment_intent_failed: ~
             refunded: ~
             dismissed: ~
-        not_available: ~
+        not_available: "Δεν είναι διαθέσιμο"
       conversations:
         conversations: ~
         headers:
@@ -858,24 +858,24 @@ el:
         field_title: "Τίτλος Πεδίου"
         field_type: "Τύπος Πεδίου"
         categories: "Λίστα κατηγοριών"
-        select_all: ~
-        clear_all: ~
+        select_all: "Επιλογή όλων"
+        clear_all: "Διαγραφή όλων"
         options: Επιλογές
         add_option: "+ Προσθήκη επιλογής"
-        saving_order: ~
-        save_order_successful: ~
+        saving_order: "Αποθήκευση παραγγελίας πεδίου"
+        save_order_successful: "Η παραγγελία πεδίου αποθηκεύτηκε με επιτυχία"
         save_order_error: ~
         select_one: "Επιλογή τύπου πεδίου ..."
         continue: Συνέχεια
         minimum_value: Ελάχιστο
-        maximum_value: Περισσότερο
+        maximum_value: Μέγιστο
         allow_decimals: "Επιτρέψτε τα δεκαδικά"
       new:
         new_listing_field: "Επίπεδο για καινούργια καταχώρηση"
       field_types:
         text: Κείμενο
         number: Αριθμός
-        dropdown: ~
+        dropdown: "Αναπτυσσόμενο μενού"
         checkbox_group: ~
         date: Ημερομηνία
         file: ~
@@ -936,21 +936,21 @@ el:
         hello_firstname: ~
         hello_firstname_text: ~
     left_hand_navigation:
-      general: ~
+      general: Γενικά
       users_and_transactions: ~
       configure: ~
-      emails_title: ~
-      subscription: ~
+      emails_title: Emails
+      subscription: Συνδρομή
       preview: ~
       whats_new: ~
     listing_shapes:
-      availability_title: ~
-      read_more: ~
+      availability_title: Διαθεσιμότητα
+      read_more: "Διαβάστε περισσότερα σχετικά με την αυτόματη διαχείριση διαθεσιμότητας."
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
       per_hour_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
+      per_day_availability: "Διαθεσιμότητα \"ανά ημέρα\""
+      per_night_availability: "Διαθεσιμότητα \"ανά βραδιά\""
       pricing_units_disabled_info: ~
       can_not_find_name: ~
       index:
@@ -959,8 +959,8 @@ el:
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
-        all_categories: ~
-        no_categories: ~
+        all_categories: "Όλες οι κατηγορίες"
+        no_categories: "Καμία κατηγορία"
         category_count: ~
         header:
           listing_shape_name: ~
@@ -970,35 +970,35 @@ el:
           save_order_successful: ~
           save_order_error: ~
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
+        selling_products: "Πώληση προϊόντων"
+        renting_products: "Ενοικίαση προϊόντων"
+        offering_services: "Προσφέροντας υπηρεσίες"
         giving_things_away: ~
         requesting: ~
         announcement: ~
         custom: ~
       new:
         create_listing_shape: ~
-        create: ~
-        cancel: ~
+        create: Δημιουργία
+        cancel: Ακύρωση
         create_success: ~
         create_failure: ~
       edit:
         edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        update: Αποθήκευση
+        cancel: Ακύρωση
         update_success: ~
         update_failure: ~
         delete: ~
-        can_not_delete_last: ~
+        can_not_delete_last: "Δεν μπορείτε να διαγράψετε αυτόν τον τύπο παραγγελίας επειδή είναι ο μόνος τύπος στο marketplace."
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
+      listing_shape_name: Όνομα
+      listing_shape_name_placeholder: "Π.χ. πουλάω"
       action_button_label: ~
-      action_button_placeholder: ~
+      action_button_placeholder: "Π.χ. Αγοράζω"
       successfully_closed: ~
       successfully_deleted: ~
-      pricing_and_checkout_title: ~
+      pricing_and_checkout_title: "Τιμές & ολοκλήρωση αγοράς"
       online_payments_label: ~
       shipping_label: ~
       price_label: ~
@@ -1006,45 +1006,45 @@ el:
       units_desc: ~
       units:
         piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        hour: "Ανά ώρα"
+        day: "Ανά μέρα"
+        night: "Ανά βραδιά"
+        week: "Ανά εβδομάδα"
+        month: "Ανά μήνα"
         unit: ~
       can_not_find: ~
-      add_custom_unit: ~
-      delete_custom_unit: ~
+      add_custom_unit: "+ Προσθέστε μια προσαρμοσμένη μονάδα τιμολόγησης…"
+      delete_custom_unit: Διαγραφή
       custom_unit_form:
-        title: ~
+        title: "Νέα μονάδα τιμολόγησης"
         label_heading: ~
         selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        label_placeholder: "π.χ. \"κιλά\", \"30 λεπτά\", \"άνθρωπος\""
+        selector_placeholder: "π.χ. \"αριθμός ανθρώπων\", \"κιλά\""
+        per: Ανά
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: "Τύπος μονάδας"
+          quantity_label: "Ποσότητα (ανά τεμάχιο, ανά κιλό, ανά άτομο, ανά περιήγηση 2 ωρών ...)"
+          time_label: "Χρόνος (ανά 30 λεπτά, ανά 2 εβδομάδες, ανά έτος ...)"
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       contact_support_link_text: ~
       integration_info_text: ~
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: "Εσείς παρέχετε προϊόντα ή υπηρεσίες;"
       link_paypal_personal_account: ~
       link_stripe_personal_account: ~
       link_paypal_and_stripe_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      personal_payment_preferences_link_text: "ο προσωπικός σας λογαριασμός marketplace"
       read_more_about_paypal: ~
-      edit_payment_settings: ~
+      edit_payment_settings: "Επεξεργασία ρυθμίσεων πληρωμής"
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      marketplace_currency_label: "Το νόμισμα του marketplace"
       minimum_listing_price_label: ~
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
-      save_settings: ~
+      save_settings: "Αποθήκευση ρυθμίσεων"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     payment_preferences:
@@ -1205,24 +1205,24 @@ el:
     username: "Όνομα χρήστη"
     username_or_email: "Ηλεκτρονική διεύθυνση ή όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
-    removed_user: ~
+    removed_user: "Χρήστης καταργήθηκε"
     payment_fee_info:
       title: ~
-      stripe: ~
-      paypal: ~
+      stripe: Stripe
+      paypal: PayPal
       info: ~
     paypal_fee_info:
       title: ~
       body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: εδώ
     stripe_fee_info:
-      title: ~
+      title: "Χρέωση επεξεργασίας πληρωμής της Stripe"
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: εδώ
   conversations:
     accept:
-      details: ~
+      details: "Λεπτομέρειες παραγγελίας"
       order_by: ~
       accept_offer: "Αποδεχτείτε την προσφορά"
       accept_request: "Αποδεχτείτε το αίτημα"
@@ -1232,21 +1232,21 @@ el:
       update_later: "Η καταχώρηση να παραμείνει ανοιχτή"
       optional_message: "Προαιρετικό μήνυμα"
       price_to_pay: "Τελική τιμή"
-      accept: ~
-      decline: ~
-      quantity_label: ~
-      sum_label: ~
+      accept: Αποδοχή
+      decline: Απόρριψη
+      quantity_label: "Ποσότητα:"
+      sum_label: "Υποσύνολο:"
       service_fee_label: ~
       buyer_service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
+      you_will_get_label: "Θα πάρετε:"
+      total_label: "Σύνολο:"
       total_value: ~
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee: ~
       paypal_fee_info: ~
-      shipping_price_label: ~
-      stripe-fee_label: ~
+      shipping_price_label: "Αποστολή:"
+      stripe-fee_label: "Χρέωση επεξεργασίας πληρωμών"
     confirm:
       confirm_description: "Αν το αίτημά σας έχει εκπληρωθεί θα πρέπει να το επιβεβαιώσετε ως ολοκληρωμένο. Τότε μόνο μπορείτε να γράψετε κριτική για το άλλο μέλος της συναλλαγής."
       cancel_description_team: ~
@@ -1279,11 +1279,11 @@ el:
       message_from: ~
       about_listing: ~
       free_message: ~
-      message_content_not_available: ~
+      message_content_not_available: "Το περιεχόμενο του μηνύματος δεν είναι διαθέσιμο"
     message:
       accepted_request: "δέχτηκε το αίτημα"
       received_payment: ~
-      received_payment_wo_sum: ~
+      received_payment_wo_sum: "αποδέχθηκε το αίτημα, έλαβε πληρωμή"
       accepted_offer: "δέχτηκε την προσφορά"
       rejected_request: "απόρριψε το αίτημα"
       rejected_offer: "απόρριψε την προσφορά"
@@ -1293,14 +1293,14 @@ el:
       canceled_offer: "ακύρωσε την προσφορά"
       paid: "πλήρωσε %{sum}"
       payment_preauthorized: ~
-      payment_preauthorized_wo_sum: ~
+      payment_preauthorized_wo_sum: "Επιτρεπόμενη πληρωμή"
       stripe:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
       canceled_the_order: ~
-      marked_as_refunded: ~
-      dismissed_the_cancellation: ~
+      marked_as_refunded: "Επισημάνθηκε ως επιστροφή χρημάτων"
+      dismissed_the_cancellation: "Απορρίφθηκε η διαφωνία."
       payment_has_now_been_transferred: ~
     new:
       message: Μήνυμα
@@ -1329,7 +1329,7 @@ el:
       sum: ~
       total: ~
     status:
-      payment_errored: ~
+      payment_errored: "Η πληρωμή απέτυχε. Παρακαλώ προσπαθήστε ξανά."
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: Άκυρο
@@ -1340,8 +1340,8 @@ el:
       offer_rejected: "Η προσφορά απορρίφθηκε"
       offer_canceled: Ακυρώθηκε
       offer_confirmed: Ολοκληρώθηκε
-      offer_paid: ~
-      offer_preauthorized: ~
+      offer_paid: "Επιτυχής Πληρωμή"
+      offer_preauthorized: "Επιτυχής Πληρωμή"
       offer_waiting_for_payment: ~
       pay: Πληρωμή
       preauthorized: "Επιτυχής Πληρωμή"
@@ -1357,7 +1357,7 @@ el:
       request_rejected: "Το αίτημα απορρίφθηκε"
       request_confirmed: Ολοκληρώθηκε
       request_canceled: Ακυρώθηκε
-      request_paid: ~
+      request_paid: "Επιτυχής Πληρωμή"
       request_preauthorized: ~
       skip_feedback: "Παράλειψε την κριτική"
       waiting_for_listing_author_to_accept_offer: "Αναμονή αποδοχής της προσφοράς από τον/την %{listing_author_name}"
@@ -1376,14 +1376,14 @@ el:
           verify: ~
       stripe:
         waiting_confirmation_from_requester: ~
-      order_canceled: ~
+      order_canceled: "Η παραγγελία αμφισβητήθηκε"
       waiting_for_marketplace_review: ~
       marketplace_notified: ~
-      contact_them: ~
-      refunded: ~
-      dismissed: ~
+      contact_them: "επικοινωνήστε μαζί τους"
+      refunded: "Η παραγγελία επισημάνθηκε ως επιστροφή χρημάτων"
+      dismissed: "Η διαφορά παραγγελίας απορρίφθηκε"
       order_refunded: ~
-      you_should_receive_refund_soon: ~
+      you_should_receive_refund_soon: "Θα λάβετε επιστροφή χρημάτων σύντομα."
       issue_with_the_refund: ~
       do_you_disagree: ~
       contact_the_marketpalce_team: ~
@@ -1399,13 +1399,13 @@ el:
       reject_preauthorized_request: "Όχι αυτή την φορά"
       confirm: Ολοκληρώθηκε
       cancel: "Δεν πραγματοποιήθηκε"
-      mark_as_refunded: ~
-      dismiss: ~
+      mark_as_refunded: "Επισήμανση ως επιστροφή χρημάτων"
+      dismiss: "Παράβλεψη και πληρωμή"
   feedback:
     feedback_subject: ~
     feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    unlogged_user: "Μη συνδεδεμένος χρήστης"
+    anonymous_user: "Ανώνυμος χρήστης"
   community_memberships:
     access_denied:
       access_denied: "Δεν επιτρέπεται η πρόσβαση"
@@ -1687,7 +1687,7 @@ el:
       subject: ~
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
-      view_listing: "Προβολή καταχώρησης"
+      view_listing: ~
     new_listing_by_followed_person_v2:
       headline: ~
       has_posted_a_new_listing: ~
@@ -1771,10 +1771,10 @@ el:
       contact_the_seller: ~
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Η κράτηση απέτυχε λόγω μη αναμενόμενου σφάλματος. Παρακαλώ δοκιμάστε ξανά αργότερα. Δεν έχετε χρεωθεί."
+      double_booking_payment_voided: "Δυστυχώς, οι ημερομηνίες που επιλέξατε δεν είναι πλέον διαθέσιμες. Επιλέξτε διαφορετικές ημερομηνίες. Δεν έχετε χρεωθεί."
     onboarding:
-      server_rendering: ~
+      server_rendering: "Απέτυχε η φόρτωση του οδηγού έναρξης. Έχουμε ενημερωθεί για την κατάσταση και την επιδιορθώνουμε."
     listings:
       departure_time: "Η ώρα αναχώρησης πρέπει να είναι μεταξύ της τρέχουσας ώρας και ενός χρόνου από τώρα."
       share_type: "Πρέπει να επιλέξεις τουλάχιστον ένα."
@@ -1785,9 +1785,9 @@ el:
       you_must_explain_not_neutral_feedback: "Αν θέλεις να κάνεις μη-ουδέτερη κριτική, πρέπει να εξηγήσεις γιατί."
       you_must_select_a_grade: "Μην ξεχνάτε να πείτε αν η εμπειρία σας ήταν καλή ή όχι."
     transaction_agreement:
-      required_error: ~
+      required_error: "Πρέπει να αποδεχτείτε τη συμφωνία"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Η συναλλαγή δεν μπορεί να ολοκληρωθεί. Αυτό πιθανότατα οφείλεται στην αποτυχία της τραπεζικής άδειας από την πιστωτική κάρτα. Παρακαλώ, δοκιμάστε να αγοράσετε ξανά με έναν εναλλακτικό τρόπο πληρωμής."
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
@@ -1797,7 +1797,7 @@ el:
       accept_authorization_error: ~
       reject_authorization_error: ~
     stripe:
-      generic_error: ~
+      generic_error: "Παρουσιάστηκε σφάλμα κατά τη διαδικασία πληρωμής. Δεν ήταν δυνατή η οριστικοποίηση της πληρωμής Stripe."
       accept_authorization_error: ~
       reject_authorization_error: ~
       card_declined: ~
@@ -1810,14 +1810,14 @@ el:
       page_you_requested_can_not_be_found: "Η σελίδα που ζήτησες δεν μπορεί να βρεθεί. Είσαι σίγουρος ότι έγραψες σωστά τη διεύθυνση;"
     error_404_title: "η σελίδα δεν βρέθηκε"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
-    error_410_title: ~
+      page_removed: "Η σελίδα καταργήθηκε"
+      page_you_requested_has_been_removed: "Η σελίδα που ζητήσατε έχει καταργηθεί."
+      page_removed_reason: "Υπάρχουν μερικοί πιθανοί λόγοι για αυτό. Για παράδειγμα, ένας χρήστης μπορεί να έχει καταργήσει τον λογαριασμό του ή μια καταχώριση να έχει καταργηθεί."
+    error_410_title: "η σελίδα καταργήθηκε"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
+      temporary_unavailable: "Το Marketplace δεν είναι διαθέσιμο προσωρινά"
+      unable_to_process: "Η υπηρεσία δεν είναι σε θέση να επεξεργαστεί το αίτημά σας αυτήν τη στιγμή. Δοκιμάστε ξανά σε λίγο."
+      we_hate_this: "Συγνώμη για αυτό που συμβαίνει! Έχουμε ενημερωθεί για την κατάσταση και την επιδιορθώνουμε."
       refer_to_error_id: ~
     error_500_title: "η φόρτωση της σελίδας απέτυχε"
     error_description: "Περιγραφή του σφάλματος"
@@ -1831,15 +1831,15 @@ el:
     your_email_address: "Η διεύθυνση email σας"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
+      invalid_date: "δεν είναι έγκυρη ημερομηνία"
+      invalid_time: "δεν είναι έγκυρη ώρα"
+      invalid_datetime: "δεν είναι έγκυρη ημερομηνία κ ώρα"
       is_at: ~
       before: ~
       on_or_before: ~
       after: ~
       on_or_after: ~
-      positive_number: ~
+      positive_number: "Εισαγωγή ενός αριθμού."
       from_must_be_less_than_till: ~
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
@@ -1922,9 +1922,9 @@ el:
       some_private_offers_exist: "Υπάρχουν ήδη <b>%{number_of_listings} προσφορές</b>"
       some_private_requests_exist: "Υπάρχουν ήδη  <b>%{number_of_listings} αιτήματα</b>"
     custom_filters:
-      update_view: "Επικαιροποιήση Εικόνας"
+      update_view: Ενημέρωση
       min: Ελάχιστο
-      max: Περισσότερο
+      max: Μέγιστο
     event_feed:
       latest_events: "Τι νέα;"
     grid_item:
@@ -1932,10 +1932,10 @@ el:
     index:
       no_listings_with_your_search_criteria: "Δεν βρήκαμε αποτελέσματα με αυτά τα κριτήρια."
       no_listings_notification: "Καμία καταχώρηση. %{add_listing_link}."
-      add_listing_link_text: "Προσθέστε κάτι"
+      add_listing_link_text: "Προσθέστε νέα καταχώρηση"
       open_listing: "ενεργή καταχώρηση"
       open_listings: "ενεργές καταχωρήσεις"
-      private_listing_notification_log_in: συνδεθείς
+      private_listing_notification_log_in: σύνδεση
       is: είναι
       are: είναι
       what_do_you_need: "Τι χρειάζεστε;"
@@ -1957,16 +1957,16 @@ el:
       no_reviews: "Δεν υπάρχουν κριτικές"
       no_image: "Δεν επιλέχθηκε εικόνα"
       filter: Φίλτρο
-      this_is_private_community: "Θα πρέπει να εγγραφείτε για να δείτε το περιεχόμενο"
+      this_is_private_community: "Θα πρέπει να εγγραφείτε για να δείτε το περιεχόμενο."
     invitation_form:
       email: "Ηλεκτρονικές διευθύνσεις"
       message: "Ένα προσωπικό μήνυμα"
       send_invitation: "Αποστολή πρόσκλησης"
       add_email_addresses_description: "Γράψτε τις ηλεκτρονικές διευθύνσεις των φίλων σας στην παρακάτω φόρμα. Αν γράψετε πάνω από μία, χωρίστε τες με κόμμα."
       add_lots_of_email_addresses: ~
-      this_article_link: ~
+      this_article_link: "αυτό το άρθρο"
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
-      invitation_message_field_placeholder: "Γράφτηκα σε αυτή τη φανταστική κοινότητα. Έλα κι εσύ!"
+      invitation_message_field_placeholder: "Είμαι μέλος αυτού του φανταστική marketplace. Έλα κι εσύ!"
       errors_in_emails: "Ελέγξτε ότι τα email που γράψατε είναι έγκυρα και ότι χωρίζονται μεταξύ τους με κόμμα."
     list_item:
       review: κριτική
@@ -1990,35 +1990,35 @@ el:
       map: Χάρτης
       list: Λίστα
       map_button: Χάρτης
-      grid_button: Πλέγμα
+      grid_button: Εικόνες
       list_button: Λίστα
       all_listing_types: "Όλοι τύποι καταχωρήσεων"
       all_categories: "Όλες οι κατηγορίες"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Η αναζήτηση δεν είναι διαθέσιμη προς το παρόν. Δοκιμάστε να πραγματοποιήσετε ξανά αναζήτηση σύντομα."
   infos:
     about:
       default_about_text_title: "Τι είναι το Sharetribe;"
       default_about_text: "Αυτή η αγορά βασίζεται στην πλατφόρμα Sharetribe. Με το Sharetribe μπορείτε κι εσείς να δημιουργήσετε την δική σας αγορά online. Είναι εύκολο και δωρεάν. %{click_here_link} για να μάθετε περισσότερα!"
       click_here_link_text: "Πατήστε εδώ"
     how_to_use:
-      default_title: ~
+      default_title: "Πώς δουλεύει"
       default_content: ~
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
+      search: Αναζήτηση
+      signup: Εγγραφή
+      search_placeholder: "Τι ψάχνετε; "
+      search_location_placeholder: Τοποθεσία
     listings:
-      no_listing_image: ~
+      no_listing_image: "Χωρίς εικόνα"
   layouts:
     admin:
       admin: "Διαχείριση του %{service_name}"
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: "Μάθε περισσότερα"
     no_tribe:
       inbox: Εισερχόμενα
       settings: Ρυθμίσεις
@@ -2071,10 +2071,10 @@ el:
     logged_in_notifications_icon:
       notifications: Ειδοποιήσεις
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
+      title: "Βοήθεια μορφοποίησης χρησιμοποιώντας το Markdown"
+      description: "Το Markdown είναι ένας απλός τρόπος για τη μορφοποίηση κειμένου που φαίνεται υπέροχο σε οποιαδήποτε συσκευή. Δεν κάνει τίποτα φανταχτερό όπως να αλλάξετε το μέγεθος, το χρώμα ή τον τύπο γραμματοσειράς - μόνο τα βασικά, χρησιμοποιώντας σύμβολα πληκτρολογίου που γνωρίζετε ήδη."
+      formatting: Μορφοποίηση
+      result: Αποτέλεσμα
       h1: ~
       h2: ~
       h3: ~
@@ -2083,10 +2083,10 @@ el:
       underline: ~
       strikethrough: ~
       inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      list: Λίστα
+      one: Ένα
+      two: Δύο
+      three: Τρία
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Προφίλ
@@ -2123,10 +2123,10 @@ el:
       feedback_sent_to: "Η κριτική δόθηκε στον/στην %{target_person}."
       feedback_skipped: "Η κριτική παραλείφθηκε"
       invitation_cannot_be_sent: "Η πρόσκληση δεν μπόρεσε να σταλεί"
-      invitation_cannot_unsubscribe: ~
-      invitation_limit_reached: ~
+      invitation_cannot_unsubscribe: "Δεν είναι δυνατή η κατάργηση εγγραφής από μηνύματα ηλεκτρονικού ταχυδρομείου πρόσκλησης"
+      invitation_limit_reached: "Προσπαθήσατε να στείλετε πάρα πολλές προσκλήσεις. Το ημερήσιο όριο συμπληρώθηκε."
       invitation_sent: "Η πρόσκληση εστάλη επιτυχώς"
-      invitation_successfully_unsubscribed: ~
+      invitation_successfully_unsubscribed: "Καταργήθηκε με επιτυχία η εγγραφή από τα email πρόσκλησης"
       inviting_new_users_is_not_allowed_in_this_community: "Σε αυτή την κοινότητα δεν επιτρέπεται να προσκαλέσεις άλλους χρήστες"
       login_again: "Παρακαλούμε, συνδεθείτε ξανά."
       login_failed: "Η σύνδεση απέτυχε. Παρακαλούμε δώστε τα σωστά στοιχεία."
@@ -2146,9 +2146,9 @@ el:
       offer_rejected: "Η προσφορά απορρίφθηκε"
       offer_canceled: "Η προσφορά ακυρώθηκε"
       listing_updated_successfully: "Η καταχώρηση ενημερώθηκε επιτυχώς"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
-      listing_deleted: ~
+      listing_updated_availability_management_enabled: "Η καταχώριση ενημερώθηκε με επιτυχία. Η διαχείριση διαθεσιμότητας ενεργοποιήθηκε."
+      listing_updated_availability_management_disabled: "Η καταχώριση ενημερώθηκε με επιτυχία. Η διαχείριση διαθεσιμότητας απενεργοποιήθηκε."
+      listing_deleted: "Καταχώρηση διεγράφη"
       only_kassi_administrators_can_access_this_area: "Παρακαλούμε συνδεθείτε με το λογαριασμό του διαχειριστή για αποκτήσετε πρόσβαση."
       only_listing_author_can_close_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την κλείσει."
       only_listing_author_can_edit_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την επεξεργαστεί."
@@ -2177,14 +2177,14 @@ el:
       request_rejected: "Το αίτημα απορρίφθηκε"
       request_canceled: "Το αίτημα ακυρώθηκε"
       message_sent: "Το μήνυμα εστάλη"
-      message_not_sent: ~
+      message_not_sent: "Η αποστολή του μηνύματος απέτυχε. Παρακαλώ προσπαθήστε ξανά."
       this_content_is_not_available_in_this_community: "Αυτό το περιεχόμενο δεν είναι διαθέσιμο σε αυτή την κοινότητα."
       unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε επικοινωνήστε μαζί μας και πείτε μας τι συνέβη."
       update_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια ενημέρωσης των στοιχείων σας. Παρακαλούμε προσπαθήστε ξανά"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Δεν έχεις δικαίωμα να κάνεις κριτική για αυτό το συμβάν"
       you_are_not_authorized_to_do_this: "Δεν έχεις δικαίωμα να το κάνεις αυτό"
       you_are_not_authorized_to_view_this_content: "Δεν έχεις δικαίωμα να δεις αυτό το περιεχόμενο"
-      listing_closed: ~
+      listing_closed: "Αυτή η καταχώρηση έκλεισε"
       send_instructions: "Σε λίγα λεπτά θα λάβετε ένα email με οδηγίες για το πως να επαναφέρετε τον κωδικό πρόσβασης σας."
       you_cannot_reply_to_a_closed_offer: "Δεν μπορείς να απαντήσεις σε μία προσφορά που έχει κλείσει"
       you_cannot_send_message_to_yourself: "Δε γίνεται να στείλετε μήνυμα στον εαυτό σας"
@@ -2205,8 +2205,8 @@ el:
       you_must_log_in_to_view_your_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να δείτε τις ρυθμίσεις σας."
       you_must_log_in_to_add_news_item: "Πρέπει να συνδεθείτε στο %{service_name} για να προσθέσετε ένα άρθρο."
       you_must_log_in_to_change_profile_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να αλλάξετε τις ρυθμίσεις του προφίλ"
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_accept_or_reject: "Πρέπει να συνδεθείτε για να αποδεχτείτε ή να απορρίψετε τη συναλλαγή"
+      you_must_log_in_to_confirm_or_cancel: "Πρέπει να συνδεθείτε για να αμφισβητήσετε ή να επιβεβαιώσετε τη συναλλαγή"
       you_need_to_confirm_your_account_first: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
       you_must_fill_all_the_fields: "Πρέπει να συμπληρώσετε όλα τα πεδία"
       you_unfollowed_listing: "Δεν παρακολουθείς πλέον αυτή την καταχώρηση"
@@ -2214,10 +2214,10 @@ el:
       can_not_delete_email: "Δεν μπορείτε να αφαιρέσετε αυτή τη διεύθυνση email"
       user_does_not_have_email_to_delete: "Δεν έχετε τη διεύθυνση email που προσπαθείτε να αφαιρέσετε"
       email_deleted: "Η διεύθυνση email αφαιρέθηκε"
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: "Επικοινωνήστε με τον συντάκτη πατώντας το κουμπί \"Επικοινωνία\" παρακάτω. Πρέπει να ενημερώσουν τα στοιχεία πληρωμής τους για να λάβουν πληρωμές."
       listing_author_payment_details_missing_no_free: ~
-      images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      images_are_processing: "Επεξεργαζόμαστε τις εικόνες σας. Δώστε μας ένα ή δύο λεπτά και θα είναι ορατές."
+      automatically_logged_out_please_sign_in: "Έχετε αποσυνδεθεί αυτόματα. Συνδεθείτε ξανά."
       stripe_you_account_balance_is_not_0: ~
       stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
@@ -2228,31 +2228,31 @@ el:
       notifications: Ειδοποιήσεις
       profile: "Πληροφορίες προφίλ"
       settings: Ρυθμίσεις
-      paypal_payments: ~
-      stripe_payments: ~
+      paypal_payments: "Πληρωμές PayPal"
+      stripe_payments: "Πληρωμές Stripe"
       payments: Πληρωμές
-      listings: ~
-      listings_search_placeholder: ~
-      transactions_search_placeholder: ~
-      transactions: ~
+      listings: Καταχωρήσεις
+      listings_search_placeholder: "Αναζητήστε έναν τίτλο καταχώρησης"
+      transactions_search_placeholder: "Αναζήτηση τίτλου συναλλαγής ή άλλου εμπλεκόμενου μέρους"
+      transactions: Συναλλαγές
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Δεν έχεις δικαίωμα να δεις αυτή την καταχώρηση."
     comment:
       wrote: έγραψε
       send_private_message: "Στείλε προσωπικό στον/στην %{person}."
-      delete: ~
-      are_you_sure: ~
+      delete: διαγραφή
+      are_you_sure: "Είστε βέβαιοι ότι θέλετε να διαγράψετε το σχόλιο;"
     comment_form:
       ask_a_question: "Σχολίασε την καταχώρηση ή ζήτα περισσότερες πληροφορίες. Το σχόλιό σου είναι ορατό σε όλους τους χρήστες."
-      log_in: συνδεθείς
+      log_in: σύνδεση
       send_comment: Αποστολή
       to_send_a_comment: "για να σχολιάσεις."
       write_comment: "Σχολίασε:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Δεν μπορείτε να σχολιάσετε γιατί η καταχώρηση είναι ανενεργή."
       you_must: "Πρέπει να"
       subscribe_to_comments: "Ειδοποίησέ με αν υπάρξουν νέα σχόλια ή αλλάγες"
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "Δεν είναι δυνατή η αναίρεση της διαγραφής μιας καταχώρησης. Είστε βέβαιοι ότι θέλετε να συνεχίσετε;"
     edit:
       edit_listing: "Επεξεργασία καταχώρησης"
     edit_links:
@@ -2260,22 +2260,22 @@ el:
       edit_listing: "Επεξεργασία καταχώρησης"
       reopen_listing: "Ενεργοποίηση ξανά της καταχώρησης"
       move_to_top: "Μετακίνηση στην κορυφή της αρχικής σελίδας"
-      show_in_updates_email: ~
+      show_in_updates_email: "Εμφάνιση στο επόμενο ενημερωτικό δελτίο"
       show_in_updates_email_loading: Φόρτωση...
       show_in_updates_email_error: "Δεν ήταν δυνατή η πρόσβαση στον διακομιστή. Δοκιμάστε ξανά μετά την ανανέωση της σελίδας."
-      show_in_updates_email_success: ~
-      listing_is_pending: ~
-      listing_is_rejected: ~
-      approve_listing: ~
-      reject_listing: ~
-      delete_listing: ~
+      show_in_updates_email_success: "Αυτή η καταχώριση θα εμφανίζεται στο επόμενο email αυτόματης ενημέρωσης που θα σταλεί στους χρήστες"
+      listing_is_pending: "Η καταχώρηση εκκρεμεί έγκριση"
+      listing_is_rejected: "Η καταχώρηση απορρίπτεται"
+      approve_listing: "Έγκριση καταχώρισης"
+      reject_listing: "Απόρριψη καταχώρησης"
+      delete_listing: "Διαγραφή καταχώρησης"
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Άνοιγμα στο Google Maps"
     error:
       something_went_wrong: ~
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      something_went_wrong_plain: "Κάτι πήγε λάθος"
+      create_failed_to_connect_to_booking_service: "Η δημιουργία καταχώρησης απέτυχε: Αποτυχία σύνδεσης στην υπηρεσία κράτησης. Παρακαλώ προσπαθήστε ξανά."
+      update_failed_to_connect_to_booking_service: "Η ενημέρωση καταχώρησης απέτυχε: Αποτυχία σύνδεσης στην υπηρεσία κράτησης. Παρακαλώ προσπαθήστε ξανά."
     follow_links:
       follow: "Να ειδοποιούμαι για νέα σχόλια"
       unfollow: "Παύση ειδοποιήσεων για νέα σχόλια"
@@ -2290,7 +2290,7 @@ el:
         repeated: "Επαναλαμβανόμενο - προσθέστε λεπτομέρειες στην περιγραφή"
       description:
         detailed_description: Περιγραφή
-        youtube_info: ~
+        youtube_info: "Εάν η περιγραφή σας περιέχει συνδέσμους YouTube, τα βίντεο θα εμφανίζονται κάτω από την περιγραφή."
         youtube_info_markdown: ~
       destination:
         destination: Προορισμός
@@ -2313,25 +2313,25 @@ el:
         no_file_selected: "Δεν έχει επιλεγεί αρχείο"
         remove_image: "Κατάργηση εικόνας"
         select_file: "Επιλέξτε αρχείο"
-        add_more: ~
+        add_more: "+ Προσθέστε περισσότερα"
         removing: Αφαιρείται...
         processing: Επεξεργασία...
         loading_image: Φόρτωση...
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
-        this_may_take_a_while: ~
+        image_uploading_in_progress: "Η επεξεργασία εικόνας βρίσκεται σε εξέλιξη ..."
+        processing_takes_a_while: "Η επεξεργασία των εικόνων θα διαρκέσει λίγο παραπάνω, αλλά μπορείτε να αποθηκεύσετε την καταχώριση σας και να προχωρήσετε."
+        this_may_take_a_while: "θα πάρει μόνο ένα λεπτό"
         percentage_loaded: ~
         uploading_failed: "Η φόρτωση εικόνας απέτυχε"
-        image_processing_failed: ~
-        file_too_large: ~
+        image_processing_failed: "Η επεξεργασία εικόνας απέτυχε"
+        file_too_large: "Το αρχείο είναι πολύ μεγάλο"
         accepted_formats: "Το αρχείο εικόνας πρέπει να είναι σε μορφή GIF, JPEG ή PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Η επεξεργασία όλων των εικόνων δεν έχει ολοκληρωθεί. Θέλετε να συνεχίσετε;"
       location:
         location: Τοποθεσία
       price:
         price: Τιμή
         per: ανά
-        per_day: ~
+        per_day: "ανά μέρα"
         mass: "κομμάτι, κιλό, λίτρο, τετραγωνικό μέτρο"
         time: "ώρα, ημέρα, εβδομάδα, ..."
         long_time: "εβδομάδα, μήνα, ..."
@@ -2348,10 +2348,10 @@ el:
       origin:
         location: Τοποθεσία
         origin: Αφετηρία
-        the_exact_location: ~
+        the_exact_location: "Η ακριβής τοποθεσία δεν θα εμφανίζεται σε άλλους χρήστες."
       send_button:
         save_listing: Αποθήκευση
-        submit_for_review: ~
+        submit_for_review: "Υποβολή για έλεγχο"
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
       share_type:
@@ -2424,15 +2424,15 @@ el:
       accept_for_frees: Δωρεάν
       trades: Ανταλλαγές
     listing_actions:
-      booking_from: ~
-      booking_to: ~
-      how_paypal_works: ~
-      payment_help: ~
-      unable_load_availability: ~
+      booking_from: Από
+      booking_to: Σε
+      how_paypal_works: "Πως λειτουργεί το PayPal"
+      payment_help: "Βοήθεια πληρωμής"
+      unable_load_availability: "Δεν ήταν δυνατή η φόρτωση πληροφοριών διαθεσιμότητας. Παρακαλώ δοκιμάστε ξανά αργότερα."
       booking_date: ~
       select_one: ~
-      start_time: ~
-      end_time: ~
+      start_time: "Ώρα έναρξης"
+      end_time: "Ώρα λήξης"
       marketplace_fees_may_apply: ~
     new:
       listing: καταχώρηση
@@ -2449,15 +2449,15 @@ el:
       community_not_configured_for_payments_admin: ~
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      hour: "Αριθμός ωρών:"
+      day: "Αριθμός ημερών:"
+      night: "Αριθμός βραδιών:"
+      week: "Αριθμός εβδομάδων:"
+      month: "Αριθμός μηνών:"
       unit: ~
-      custom: ~
-      person: ~
-    quantity_placeholder: ~
+      custom: "Ποσότητα:"
+      person: "Αριθμός ανθρώπων:"
+    quantity_placeholder: Ποσότητα
     please_comment: Σχολίασε
     reply_link:
       listing_closed: "Η καταχώρηση έχει απενεργοποιηθεί."
@@ -2469,7 +2469,7 @@ el:
       contact: Επικοινωνία
       favor_offer: Yπηρεσία
       favor_request: Υπηρεσία
-      inquiry: ~
+      inquiry: Ανακοίνωση
       item_offer_trade: Ανταλλαγή
       item_request_trade: Ανταλλαγή
       no_description: "Χωρίς περιγραφή"
@@ -2492,53 +2492,53 @@ el:
       listing_created_at: "Κταχώρηση δημιουργήθηκε"
       price:
         per_quantity_unit: ~
-        per_day: ~
-      delivery: ~
+        per_day: "ανά μέρα"
+      delivery: "Μέθοδος παράδοσης"
       shipping: ~
-      shipping_no_price: ~
+      shipping_no_price: Αποστολή
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
-      youtube_video_player: ~
+      youtube_video_player: "YouTube video player"
     unit_types:
       piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      hour: ώρα
+      day: ημέρα
+      night: βράδυ
+      week: εβδομάδα
+      month: μήνας
       unit: ~
-      person: ~
+      person: άνθρωπος
     verification_required:
       verification_required: "Απαιτείται επαλήθευση"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
-      error_in_checking_availability: ~
+      dates_not_available: "Οι επιλεγμένες ημερομηνίες δεν είναι διαθέσιμες"
+      error_in_checking_availability: "Δεν ήταν δυνατός ο έλεγχος διαθεσιμότητας για τις επιλεγμένες ημερομηνίες"
       details: Λεπτομέρειες
       by: ~
       payment: Πληρωμή
       exp: ~
       you_will_be_charged: ~
-      day: ~
-      days: ~
-      night: ~
-      nights: ~
-      invalid_parameters: ~
-      select_delivery_method: ~
+      day: μέρα
+      days: μέρες
+      night: βράδυ
+      nights: βράδια
+      invalid_parameters: "Μη έγκυρες τιμές για νέα συναλλαγή"
+      select_delivery_method: "Πρέπει να επιλέξετε μια μέθοδο παράδοσης"
     transaction_agreement_checkbox:
       read_more: ~
     stripe_payment:
-      payment: ~
-      pay_with_card: ~
-      address: ~
-      address_country: ~
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      payment: Πληρωμή
+      pay_with_card: "Πληρώστε με πιστωτική ή χρεωστική κάρτα"
+      address: "Διεύθυνση αποστολής"
+      address_country: Χώρα*
+      address_name: "Όνομα και επίθετο*"
+      address_city: Πόλη*
+      address_state: Πόλη
+      address_street1: Οδός*
+      address_street2: Οδός
+      address_postal_code: "Ταχυδρομικός κώδικας*"
   mapview:
     index:
       all_categories: "Όλες οι κατηγορίες"
@@ -2561,7 +2561,7 @@ el:
       you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
     please_comment: Σχολίασε
   mercury:
-    content_too_long: ~
+    content_too_long: "Το περιεχόμενο που είχε εισαχθεί ήταν πολύ μεγάλο."
   okl:
     member_id: "Ταυτότητα Μέλους"
     member_id_or_email: "ID μέλους ή email"
@@ -2571,7 +2571,7 @@ el:
     payout_info_paypal: ~
     paypal_billing_agreement_made: ~
     commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    create_paypal_account_link_text: "λογαριασμός PayPal"
     connected_account: ~
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
@@ -2622,7 +2622,7 @@ el:
     missing: ~
     from_your_payment_settings_link_text: ~
     redirect_message: ~
-    redirect_link_text: ~
+    redirect_link_text: εδώ
     paypal_account_all_set_up: ~
     can_receive_payments: ~
     paypal_account_connected_summary: ~
@@ -2636,8 +2636,8 @@ el:
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Παρακαλώ περιμένετε."
+    chatting_with_paypal: "Επικοινωνούμε με το PayPal."
   people:
     edit_links:
       activate: Ενεργοποίηση
@@ -2657,7 +2657,7 @@ el:
       email_is_in_use: "Το email που δώσατε χρησιμοποιείται ήδη."
       email_is_in_use_or_not_allowed: "Αυτή η ηλεκτρονική διεύθυνση δεν επιτρέπεται σε αυτή την κοινότητα ή χρησιμοποιείται ήδη. Παρακαλούμε χρησιμοποιήστε μία ηλεκτρονική διεύθυνση που σχετίζεται με αυτή την κοινότητα (δείτε τις οδηγίες παραπάνω). Αν και πάλι δεν μπορείτε να συνδεθείτε επικοινωνήστε μαζί μας."
       email_not_allowed: "Αυτή η διεύθυνση email δεν επιτρέπεται σε αυτή την κοινότητα. Παρακαλούμε, χρησιμοποιήστε μία διεύθυνση που να σχετίζεται με αυτή την κοινότητα. Αν και πάλι δεν μπορείτε να γραφτείτε, παρακαλούμε επικοινωνήστε μαζί μας."
-      invalid_username_or_email: ~
+      invalid_username_or_email: "Το email δεν είναι έγκυρο ή χρησιμοποιείται ήδη"
       email_restriction_instructions:
         one: "Αυτή η κοινότητα αφορά το %{community_name}. Για να συμμετέχετε πρέπει να έχετε διεύθυνση email της μορφής '%{allowed_emails}'."
         other: "Αυτή η κοινότητα αφορά το %{community_name}. Για να εγγραφείτε πρέπει η διεύθυνση email σας να αποδεικνύει ότι μπορείτε να συμμετέχετε εδώ."
@@ -2726,7 +2726,7 @@ el:
       they_follow_plural: ~
       they_follow_singular: ~
       show_all_followed_people: "Εμφάνιση όλων των ατόμων που ακολουθώ"
-      no_followed_people: ~
+      no_followed_people: "Άτομα που δεν ακολουθώ "
     follow_button:
       following: Ακολουθώ
       follow: Ακολουθώ
@@ -2761,11 +2761,11 @@ el:
       confirm_your_email: "Επιβεβαιώστε την ηλεκτρονική σας διεύθυνση"
       account_confirmation_instructions: "Σύντομα θα λάβετε ένα email με ένα σύνδεσμο τον οποίο πρέπει να ακολουθήσετε για να επιβεβαιώσετε τη διεύθυνση email σας. Μετά την επιβεβαίωση θα μπορείτε να εγγραφείτε σε αυτή την κοινότητα."
       account_confirmation_instructions_title_admin: ~
-      before_full_access_you_need_to_confirm_email: ~
+      before_full_access_you_need_to_confirm_email: "Προτού μπορέσουμε να σας δώσουμε πλήρη πρόσβαση στο marketplace σας, υπάρχει μόνο ένα ακόμη πράγμα που πρέπει να κάνετε: επιβεβαιώστε τη διεύθυνση email σας."
       before_confirmation_only_access_admin_dashboard: ~
       admin_dashboard_link_text: ~
       account_confirmation_instructions_admin: ~
-      contact_support_link_text: ~
+      contact_support_link_text: "επικοινωνήστε με την υποστήριξη της Sharetribe"
   settings:
     account:
       change: Αλλαγή
@@ -2776,13 +2776,13 @@ el:
       email_addresses: "Διευθύνσεις email"
       new_email: "Νέα διεύθυνση email"
       delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
-      only_admin: ~
+      delete_information_others_involved: "Οι πληροφορίες όπου εμπλέκονται άλλα μέλη (συνομιλίες με άλλα άτομα, συναλλαγές που έχετε πραγματοποιήσει, κριτικές που έχετε δώσει σε άλλους κλπ.) δεν καταργούνται όταν διαγράφετε τον λογαριασμό σας. Ωστόσο, το όνομά σας δεν θα εμφανίζεται πλέον δίπλα σε αυτές τις πληροφορίες."
+      unfinished_transactions: "Δεν είναι δυνατή η διαγραφή του λογαριασμού σας επειδή έχετε τρέχουσες συναλλαγές. Ολοκληρώστε όλες τις συναλλαγές πριν διαγράψετε τον λογαριασμό σας."
+      only_admin: "Δεν είναι δυνατή η διαγραφή του λογαριασμού σας, επειδή είστε ο μόνος διαχειριστής του marketplace."
       new_password: "Νέος κωδικός"
       save: Αποθήκευση
       these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σας εκτός αν έχετε δώσει το πραγματικό σας όνομα. Οι υπόλοιπες πληροφορίες είναι ορατές μόνο σε σας."
-      email_already_confirmed: ~
+      email_already_confirmed: "Η διεύθυνση email σας έχει ήδη επιβεβαιωθεί."
       email:
         address_title: Διεύθυνση
         remove_title: Αφαίρεση
@@ -2828,7 +2828,7 @@ el:
       given_name: Όνομα
       first_name_with_initial: "(εμφανίζεται μόνο το πρώτο γράμμα σε άλλους χρήστες)"
       first_name_only: "(δεν εμφανίζεται σε άλλους χρήστες)"
-      display_name: ~
+      display_name: Όνομα
       display_name_description: ~
       location_description: "Μπορείτε να συμπληρώσετε είτε την ακριβή τοποθεσία σας είτε μόνο τον ταχυδρομικό σας κωδικό. Παρακαλούμε να συμπληρώσετε τουλάχιστον τον ταχυδρομικό σας κωδικό. Εναλλακτικά, μπορείτε να διαλέξετε την τοποθεσία σας από τον χάρτη."
       profile_picture_description: ~
@@ -2844,15 +2844,15 @@ el:
       default_in_listing: "(χρησιμοποιείται μόνο ως προεπιλογή κατά τη δημιουργία μιας νέας καταχώρησης)"
       invisible: "(δεν εμφανίζεται σε άλλους χρήστες)"
       image_is_processing: ~
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "(εμφανίζεται στο δημόσιο προφίλ σας)"
       editing_profile_of: ~
       format_markdown_link: ~
       format_markdown: ~
-      username: ~
-      username_description: ~
+      username: "Όνομα χρήστη"
+      username_description: "Το όνομα χρήστη σας χρησιμοποιείται ως μέρος της μοναδικής διεύθυνσης URL της σελίδας προφίλ σας. Μπορείτε να χρησιμοποιήσετε μόνο γράμματα και αριθμούς για το όνομα χρήστη σας, χωρίς κενά. Όταν αλλάζετε το όνομα χρήστη σας, η διεύθυνση URL θα αλλάξει αυτόματα και η προηγούμενη διεύθυνση URL δεν θα ανακατευθυνθεί. Το παλιό όνομα χρήστη θα είναι διαθέσιμο για άλλους χρήστες."
     save_information: Αποθήκευση
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Διεύθυνση αποστολής"
   tag_cloud:
     tag_used:
       with_tag: "Με ετικέτα"
@@ -2946,8 +2946,8 @@ el:
       november: Νοε
       december: Δεκ
     today: Σήμερα
-    clear: ~
-    format: ~
+    clear: Διαγραφή
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%e %b %Y στις %H:%M"
@@ -2971,31 +2971,31 @@ el:
       other: "%{count} μέρες"
   transactions:
     initiate:
-      booked_days: ~
-      booked_nights: ~
-      price_per_day: ~
-      price_per_night: ~
+      booked_days: "Ημέρες κράτησης:"
+      booked_nights: "Κρατήσεις βραδιών:"
+      price_per_day: "Τιμή ανά ημέρα:"
+      price_per_night: "Τιμή ανά βράδυ:"
       price_per_hour: ~
       price_per_unit: ~
-      quantity: ~
-      subtotal: ~
+      quantity: "Ποσότητα:"
+      subtotal: "Υποσύνολο:"
       shipping-price: ~
       stripe-fee: ~
       start_end_time: ~
     price_per_quantity: ~
-    price: ~
+    price: "Τιμή:"
     quantity: ~
     unit_price: ~
-    total: ~
+    total: "Σύνολο:"
     total_to_pay: ~
   unit:
-    day: ~
-    days: ~
+    day: μέρα
+    days: μέρες
   web:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
+          something_went_wrong: "Δεν μπορούμε να εμφανίσουμε πληροφορίες διαθεσιμότητας. Προσπαθήστε να φορτώσετε ξανά τη σελίδα."
           saving_failed: ~
         working_hours:
           required: ~
@@ -3003,55 +3003,55 @@ el:
           covers: ~
       pricing_units:
         piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
+        hour: ώρα
+        day: μέρα
+        night: βράδυ
+        week: εβδομάδα
+        month: μήνας
+      edit_availability_header: Διαθεσιμότητα
+      save_and_close_availability_editing: "Αποθήκευση και κλείσιμο"
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+      edit_listing_availability: "Επεξεργασία διαθεσιμότητας καταχώρησης"
       working_hours:
         default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
+        i_am_available_on: "Είμαι διαθέσιμος ..."
+        start_time: "Ώρα έναρξης"
+        end_time: "Ώρα λήξης"
         add_another_time_slot: ~
-        save: ~
+        save: Αποθήκευση
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Λυπούμαστε, δεν βρέθηκαν καταχωρήσεις για τα κριτήρια αναζήτησής σας."
+      try_other_search_terms: "Ίσως να δοκιμάσετε άλλους όρους αναζήτησης;"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Προσθήκη φωτογραφίας"
+      no_picture: "Καμία φωτογραφία"
     search:
-      page: ~
+      page: Σελίδα
       page_of_pages: ~
     topbar:
-      menu: ~
-      more: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
+      menu: Μενού
+      more: Περισσότερα
+      search_placeholder: Αναζήτηση...
+      search_location_placeholder: Τοποθεσία
+      user: Χρήστης
+      inbox: Μηνύματα
+      profile: Προφίλ
       manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
+      settings: Ρυθμίσεις
+      logout: Αποσύνδεση
+      login: Σύνδεση
+      signup: Εγγραφή
       admin_dashboard: ~
-      language: ~
+      language: Γλώσσα
       listings: ~
     utils:
-      km: ~
-      mi: ~
+      km: χλμ
+      mi: μίλια
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: "Μάθε περισσότερα"
   will_paginate:
     previous_label: ~
     next_label: ~
@@ -3066,52 +3066,52 @@ el:
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
+    you_are_ready_to_accept_payments: "Είστε έτοιμοι να δεχτείτε πληρωμές!"
     commission: ~
     pay_with_stripe: ~
-    add_and_pay: ~
+    add_and_pay: "Επιβεβαίωση πληρωμής"
     card_not_stored: ~
     missing_payment: ~
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
-    stripe_credit_card: ~
-    paypal: ~
-    paypal_connected: ~
-    paypal_can_accept: ~
+    stripe_bank_connected: "Τα στοιχεία τραπεζικού λογαριασμού διαμορφώθηκαν με επιτυχία!"
+    stripe_can_accept: "Τώρα είστε έτοιμοι να λάβετε χρήματα στον τραπεζικό σας λογαριασμό"
+    stripe_credit_card: "Πιστωτική κάρτα"
+    paypal: PayPal
+    paypal_connected: "Ο λογαριασμός PayPal συνδέθηκε με επιτυχία!"
+    paypal_can_accept: "Τώρα είστε έτοιμοι να λάβετε χρήματα στον λογαριασμό σας στο PayPal"
     paypal_connected_give_permission: ~
-    stripe_account_restricted: ~
-    stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
-    stripe_account_pending_verification: ~
-    stripe_account_pending_verification_info: ~
+    stripe_account_restricted: "Οι διαδικτυακές πληρωμές στον λογαριασμό σας είναι περιορισμένες ή θα περιοριστούν σύντομα!"
+    stripe_account_restricted_info: "Θα πρέπει να επεξεργαστείτε τα στοιχεία του τραπεζικού σας λογαριασμού για να παρέχετε περισσότερες πληροφορίες στον πάροχο πληρωμών."
+    stripe_account_restricted_soon: "Οι διαδικτυακές πληρωμές στον λογαριασμό σας θα περιοριστούν σύντομα."
+    stripe_account_restricted_soon_info: "Θα πρέπει να επεξεργαστείτε τα στοιχεία του τραπεζικού σας λογαριασμού για να παρέχετε περισσότερες πληροφορίες στον πάροχο πληρωμών."
+    stripe_account_pending_verification: "Τα στοιχεία του λογαριασμού αποθηκεύτηκαν με επιτυχία. Αναμονή για επαλήθευση λογαριασμού από τον πάροχο πληρωμών."
+    stripe_account_pending_verification_info: "Ελέγξτε ξανά αργότερα για να βεβαιωθείτε ότι όλα είναι εντάξει."
     form_new:
-      need_info: ~
-      select_country: ~
-      legal_name: ~
-      first_name: ~
-      last_name: ~
+      need_info: "Χρειαζόμαστε μερικές πληροφορίες για εσάς για να μπορέσουμε να σας στείλουμε χρήματα."
+      select_country: "Επιλογή χώρας..."
+      legal_name: "Νόμιμο όνομα"
+      first_name: Όνομα
+      last_name: Επίθετο
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
       last_name_kanji: ~
-      country: ~
-      birth_date: ~
+      country: Χώρα
+      birth_date: "Ημερομηνία γέννησης"
       ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
-      address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
+      personal_id_number: "Αριθμός ταυτότητας"
+      address_country: Χώρα
+      address_state: Πόλη
+      address_province: Πόλη
+      address_city: Πόλη
+      address_postal_code: "Ταχυδρομικός κώδικας"
+      address_line1: Διεύθυνση
       tos_link: ~
-      tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
-      gender: ~
-      phone_number: ~
+      tos_link_title: "Συμφωνία λογαριασμού Stripe Connected"
+      save_details: Αποθήκευση
+      edit: "Επεξεργασία λεπτομερειών"
+      cancel: Ακύρωση
+      gender: Φύλο
+      phone_number: "Αριθμός τηλεφώνου"
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~
@@ -3122,37 +3122,37 @@ el:
       address_kanji_city: ~
       address_kanji_town: ~
       address_kanji_line1: ~
-      male: ~
-      female: ~
+      male: άνδρας
+      female: γυναίκα
     form_bank:
-      bank_account_number: ~
-      bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
-      update_also_bank_account: ~
+      bank_account_number: "Αριθμός τραπεζικού λογαριασμού"
+      bank_routing_number: "Αριθμός δρομολόγησης"
+      bank_routing_1: "Τραπεζικός κωδικός"
+      bank_routing_2: "Κωδικός υποκαταστήματος"
+      bank_currency: "Νόμισμα τραπεζικού λογαριασμού"
+      update_also_bank_account: "Ενημέρωση επίσης τραπεζικού λογαριασμού"
       messages:
-        account_number: ~
-        routing_number: ~
-        bank_code: ~
-        branch_code: ~
-        transit_number: ~
+        account_number: "Αριθμός λογαριασμού"
+        routing_number: "Αριθμός δρομολόγησης"
+        bank_code: "Τραπεζικός κωδικός"
+        branch_code: "Κωδικός υποκαταστήματος"
+        transit_number: "Αριθμός διέλευσης"
         institution_number: ~
-        format_varies_by_bank: ~
+        format_varies_by_bank: "Η μορφή διαφέρει ανά τράπεζα"
         bsb: ~
-        error_message: ~
+        error_message: Ακύρωση
         clearing_code: ~
         sort_code: ~
-        must_match: ~
-        a_dash: ~
-        digits: ~
+        must_match: "πρέπει να έχει την ακόλουθη μορφή:"
+        a_dash: "μία παύλα"
+        digits: ψηφία
         digits_or_chars: ~
     form_verification:
-      personal_id_number: ~
-      document: ~
+      personal_id_number: "Αριθμός ταυτότητας"
+      document: "Απόδειξη ταυτότητας σας (διαβατήριο, πιστοποιητικό ταυτότητας)"
       document_back: ~
-      send_verification: ~
-      need_verification: ~
+      send_verification: "Αποστολή επαλήθευσης"
+      need_verification: "Χρειάζεστε επιπλέον επαλήθευση"
       additional_document: ~
       additional_document_back: ~
       files_need_to_be: ~
@@ -3168,12 +3168,12 @@ el:
   payment_settings:
     title: ~
     bank_account: ~
-    paypal: ~
+    paypal: PayPal
     bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~
-    connect_paypal: ~
+    connect_paypal: "Connect PayPal account"
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~

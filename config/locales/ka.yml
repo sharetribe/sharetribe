@@ -2291,7 +2291,7 @@ ka:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: ~
+      delete_listing: "წაშალეთ ჩამონათვალი"
     map:
       open_in_google_maps: "გახსენი Google Maps-ში"
     error:
@@ -2707,7 +2707,7 @@ ka:
       and_gave_following_feedback: "და მისცა შემდეგი შეფასება"
     profile_listings:
       no_image: "არ არის სურათი"
-      manage_listings: ~
+      manage_listings: "მართეთ ჩემი ყველა ჩამონათვალი"
     show:
       contact: "დაეკონტაქტე %{person}ს"
       about_me: "ჩემ შესახებ:"
@@ -3078,7 +3078,7 @@ ka:
       signup: დარეგისტრირება
       admin_dashboard: "ადმინისტრატორის პანელი"
       language: ენა
-      listings: ~
+      listings: "ჩემი ჩამონათვალი"
     utils:
       km: კილომეტრი
       mi: მილი
