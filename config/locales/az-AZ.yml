@@ -3093,7 +3093,7 @@ az-AZ:
     person:
       community_members_entries_info:
         multi_page: ~
-        multi_page_html: ~
+        multi_page_html: "Отображение%{model}<b>%{from}&nbsp;-&nbsp;%{to}}</b> из <b>%{accepted_count}</b> принятых%{accepted_model} и %{other_count}  других %{other_model}"
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: "%{service_name} komandasına müraciət edin"
