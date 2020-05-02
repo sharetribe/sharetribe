@@ -3201,7 +3201,7 @@ ru:
           many: "Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count} другой %{other_model}"
           other: "Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count} другой %{other_model}"
         multi_page: "Отображение %{model} %{from} -%{to} из%{accept_count} принято % {accept_model} и%{other_count} другое%{other_model}"
-        multi_page_html: "Отображение%{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>% {accept_count}</b> принятых%{accept_model} и %{other_count} других %{ other_model}"
+        multi_page_html: "Отображение %{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{accepted_count}</b> принятых %{accepted_model} и %{other_count} других %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "Использование платежной системы сайта %{service_name} для того, чтобы получать платежи, невозможно, поскольку платежная система не была настроена. Пожалуйста %{contact_admin_link} для уточнения деталей."
     contact_admin_link_text: "связаться с командой%{service_name}"

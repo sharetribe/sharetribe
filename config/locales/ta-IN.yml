@@ -1431,10 +1431,10 @@ ta-IN:
     accept_reminder:
       remember_to_accept_offer: "%{sender_name} இவரது விலையை ஏற்றுக்கொள்ள அல்லது நிராகரிக்க மறந்து விடாதீர்கள்"
       remember_to_accept_request: "%{sender_name} இவரது வேண்டுதலை ஏற்றுக்கொள்ள அல்லது நிராகரிக்க மறந்து விடாதீர்கள்"
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      you_can_accept_or_reject_offer_at: "நீங்கள் இந்த வியாபாரத்தை ஏற்கலாம் அல்லது நிராகரிக்கலாம்"
+      you_can_accept_or_reject_request_at: "நீங்கள் இந்த கோரிக்கையை ஏற்கலாம் அல்லது நிராகிக்கலாம் "
+      you_have_not_yet_accepted_or_rejected_offer: "நீங்கள் இன்னும் %{date} அன்று%{title} இன் வியாபாரத்தை ஏறுகொள்ளவோ நிராகரிக்கவோ இல்லை"
+      you_have_not_yet_accepted_or_rejected_request: "நீங்கள் இன்னும் %{date} அன்று%{title} இன் வேண்டுகோளை ஏறுகொள்ளவோ நிராகரிக்கவோ இல்லை"
       show_thread: ~
     branding:
       powered_by: ~
@@ -1500,10 +1500,10 @@ ta-IN:
       need_to_confirm: ~
       confirmation_link_text: ~
     common:
-      hey: ~
+      hey: "வணக்கம் %{பெயர்}"
       hi: ~
-      kassi_team: ~
-      thanks: ~
+      kassi_team: "%{service_name} குழுவுக்கு உங்கள் செய்தி"
+      thanks: நன்றிகள்
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -1515,8 +1515,8 @@ ta-IN:
       unsubscribe_from_invitation_emails: ~
       here_is_your_receipt: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
+      has_accepted_your_offer: "%{accepter} ஆள் உங்கள் வியாபாரம் ஏற்றுக்கொள்ளப்பட்டது %{listing} ."
+      has_accepted_your_request: "%{accepter} ஆள் உங்கள் வேண்டுதல் ஏற்றுக்கொள்ளப்பட்டது%{listing} ."
       has_rejected_your_offer: ~
       has_rejected_your_request: ~
       view_thread: ~
@@ -1806,7 +1806,7 @@ ta-IN:
     back_to_kassi_front_page: "மீண்டும் முதல் பக்கத்திற்கு செல்"
     error_404:
       if_you_believe: "உங்கள் முகவரி சரியாக இருந்து இது சரியாக காண்பிக்கவில்லை என்றால் கீழ்க்கண்ட தகவல்களை தாருங்கள். சரிபடுத்த உதவியாக இருக்கும்."
-      page_can_not_be_found: ~
+      page_can_not_be_found: "நீங்கள் விரும்பிய பக்கத்தை காண இயலவில்லை,அதற்காக நாங்கள் வருந்துகிறோம்."
       page_you_requested_can_not_be_found: "பக்கம் கிடைக்கவில்லை. முகவரி சரியாக தரப்பட்டதா?"
     error_404_title: "பக்கத்தை காணவில்லை"
     error_410:
