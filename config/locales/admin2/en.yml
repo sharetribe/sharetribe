@@ -373,8 +373,9 @@ en:
       social_media_description: 'Description for social media'
     location:
       location_settings: 'Location settings'
-      location_settings_info_text: 'Location can be present in multiple steps and features: the listing creation form and pages, the profile pages and settings, the homepage and search. You can disable entirely the use of location.'
+      location_settings_info_text: 'Location can be present in multiple steps and features: the listing creation form and pages, the profile pages and settings, the homepage and search. You can disable entirely the use of location. You can decide to display the listing exact location or its general location.'
       show_location: 'Allow users to add location to their profile and listings, and show a map view on the search page'
+      fuzzy_location: 'Display a circle instead of the exact location'
     search:
       keyword: 'Keyword'
       location: 'Location'

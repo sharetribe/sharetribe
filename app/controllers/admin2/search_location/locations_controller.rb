@@ -19,7 +19,7 @@ module Admin2::SearchLocation
     private
 
     def location_params
-      params.require(:community).permit(:show_location)
+      params.require(:community).permit(:show_location, :fuzzy_location)
     end
 
     def enabled_search
