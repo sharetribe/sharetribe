@@ -6,11 +6,13 @@ module DonaloPayments
       puts "[DonaloPayments] monkey see monkey patch"
 
       # referencing monkey patched modules to ensure they are loaded
-      ::StripeHelper
-      ::TransactionService::Transaction
-      ::StripeService::API::StripeApiWrapper
-      ::StripeService::API::Payments
-      ::StripeService::Report
+      PATCHED_OBJECTS = [
+        ::StripeHelper,
+        ::TransactionService::Transaction,
+        ::StripeService::API::StripeApiWrapper,
+        ::StripeService::API::Payments,
+        ::StripeService::Report
+      ]
 
       # StripeHelper.user_active_true? to always return true, so the
       # users don't need to setup their payment setings
