@@ -1437,10 +1437,10 @@ en:
       mark_as_refunded: "Mark as refunded"
       dismiss: "Dismiss and payout"
   feedback:
-    feedback_subject: "New feedback from %{service_name}"
-    feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
-    unlogged_user: "Unlogged user"
-    anonymous_user: "Anonymous user"
+    feedback_subject: "New contact form entry on %{service_name}"
+    feedback_body: "%{author_name_and_email} has submitted the following entry on the %{service_name} contact form. This notification is sent to all %{service_name} admins."
+    unlogged_user: "An unlogged user"
+    anonymous_user: "An anonymous user"
   community_memberships:
     access_denied:
       access_denied: "Access denied"
