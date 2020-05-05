@@ -1437,10 +1437,10 @@ de:
       mark_as_refunded: "Als erstattet markieren"
       dismiss: "Ablehnen und auszahlen"
   feedback:
-    feedback_subject: "Neue Nachricht von %{service_name}"
-    feedback_body: "%{author_name_and_email} hat Dir die folgende Nachricht auf %{service_name} gesendet"
-    unlogged_user: "Nicht angemeldeter Nutzer"
-    anonymous_user: "Anonymer Benutzer"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Zugriff verweigert"

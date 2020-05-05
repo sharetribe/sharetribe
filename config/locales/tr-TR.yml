@@ -59,13 +59,13 @@ tr-TR:
         enabled_languages_description: ~
         default_language: "Varsayılan Dil"
         language_selection_disabled: "Pazarınızda dil seçimi mümkün değildir; çünkü resmi olmayan bir dil kullanıyorsunuz:%{languages}. Eğer dil ayarlarını değiştirmek istiyorsanız lütfen Sharetribe destek ekibiyle iletişime geçin."
-        community_name: "Pazar adı"
+        community_name: "Pazar yeri adı"
         edit_community_name_description: "Pazarınızın adı. Bu ad kullanıcılara e-postalarda ve diğer bazı alanlarda gösterilecektir."
-        community_slogan: "Pazar sloganı"
+        community_slogan: "Pazar yeri sloganı"
         community_slogan_display: ~
         edit_community_slogan_description: "Bu, ana sayfadaki giriş yapmamış kullanıcılara gösterilecektir. %{see_how_it_looks_like}."
         edit_community_slogan_description_hideable: ~
-        community_description: "Pazar tanımı"
+        community_description: "Pazar yeri tanımı"
         community_description_display: ~
         edit_community_description_description: "Bu, ana sayfadaki giriş yapmamış kullanıcılara gösterilecektir. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: ~
@@ -93,7 +93,7 @@ tr-TR:
         terms_privacy_policy_and_static_content: "Şartlar, gizlilik politikası ve statik içerik"
         terms_privacy_policy_and_static_content_infotext: "Dört sayfaya kadar statik içerik düzenleyebilirsiniz. Kullanıcılar, üst çubuktaki \"Hakkında\" bağlantısını tıklayarak sayfaları bulabilirler."
       edit_look_and_feel:
-        edit_community_look_and_feel: "%{community_name} pazar görünümü ve özelliklerini düzenle"
+        edit_community_look_and_feel: "%{community_name} pazar yeri görünümü ve özelliklerini düzenle"
         community_logo: "Masaüstü logosu"
         community_logo_icon: "Mobil logo"
         community_logo_icon_mobile: ~
@@ -101,7 +101,7 @@ tr-TR:
         small_community_cover_photo: "Küçük kapak fotoğrafı"
         favicon: Favicon
         favicon_info_text: "Favicon default Sharetribe logosunun yerini alacaktır. Ebatlar 32x32 piksel olmalıdır ve yüklenen görseller bu boya getirilecektir."
-        community_custom_color1: "Pazaryeri ana renk"
+        community_custom_color1: "Pazar yeri ana renk"
         community_slogan_color: "Pazar yeri slogan rengi"
         community_slogan_color_instructions_text: "Bir hex renk değeri girerek ana sayfa slogan rengini değiştirebilirsiniz. Slogan rengi kullanıcılara giriş yapmadıklarını gösterir. %{colorpicker} renk seçmenize ve hex renk kodu elde etmenize yardımcı olur. Sonrasında renk kodunu buradan kopyalayabilirsiniz  %{see_how_it_looks_like}."
         community_description_color: "Pazar yeri açıklama rengi"
@@ -993,7 +993,7 @@ tr-TR:
         create_listing_shape: "Sipariş türü oluşturun"
         create: Oluştur
         cancel: İptal
-        create_success: ~
+        create_success: "Yeni işlem türü %{shape} eklendi"
         create_failure: "Yeni sipariş türü oluşturulamadı. Hata: %{error_msg}"
       edit:
         edit_listing_shape: "Sipariş türünü düzenle %{shape}"
@@ -1172,7 +1172,7 @@ tr-TR:
         learn_more: ~
   common:
     edit_page: "Sayfayı düzenle"
-    default_community_slogan: "Topluluk pazarı"
+    default_community_slogan: "Topluluk pazar yeri"
     default_community_description: "Diğer üyelerle mal ve hizmet alışverişi, kiralaması, takası ve paylaşımının yapıldığı bir yerdir"
     cancel: İptal
     fields_that_are_mandatory: "Yanında yıldız (*) işareti bulunan alanların doldurulması zorunludur."
@@ -1220,8 +1220,8 @@ tr-TR:
     removed_user: "Silinmiş kullanıcı"
     payment_fee_info:
       title: "Komisyon ve Ödeme işlem ücreti"
-      stripe: ~
-      paypal: ~
+      stripe: Stripe
+      paypal: Paypal
       info: "%{service_name} 'da ödemeler, aşağıda belirtilen ödeme ağ geçidi tarafından işlenmektedir. %{service_name} , ödeme ağ geçidine bağlı olarak bir komisyon tahsil edecektir. Ödeme ağ geçidi ayrıca aşağıda açıklandığı üzere her ödeme için bir ücret alabilir."
     paypal_fee_info:
       title: "PayPal işlem ücreti"
@@ -1232,7 +1232,7 @@ tr-TR:
       body_text_accept: ~
       link_to_paypal_text: buradan
     stripe_fee_info:
-      title: ~
+      title: "Stripe komisyon ücreti"
       body_text: "Stripe ödemeleri için%{service_name},%{stripe_commission} tutarında bir komisyon almaktadır. İşlem başına minimum komisyon%{minimum_transaction_fee}. Stripe ücretleri bu komisyona dahildir."
       link_to_stripe_text: ~
   conversations:
@@ -1401,7 +1401,7 @@ tr-TR:
       you_should_receive_refund_soon: ~
       issue_with_the_refund: ~
       do_you_disagree: ~
-      contact_the_marketpalce_team: ~
+      contact_the_marketpalce_team: "%{service_name} ekibiyle iletişime geçin"
       order_cancellation_dismissed: ~
     status_link:
       accept_offer: "Teklifi kabul et"
@@ -1417,10 +1417,10 @@ tr-TR:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "%{service_name}: Yeni bildirim"
-    feedback_body: "%{service_name}: %{author_name_and_email} size aşağıdaki bildirimi bıraktı;"
-    unlogged_user: "Giriş yapmamış kullanıcı"
-    anonymous_user: "Anonim kullanıcı"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Erişim engellendi"
@@ -1444,7 +1444,7 @@ tr-TR:
       consent_not_given: "Şartları kabul etmemişsiniz."
   emails:
     accept_reminder:
-      remember_to_accept_offer: "%{sender_name}'in teklifini kabul veya reddetmeyi hatırla"
+      remember_to_accept_offer: "%{sender_name} tarafından gelen teklifi kabul veya reddetmeyi hatırla"
       remember_to_accept_request: "%{sender_name}'den gelen bir talebi kabul veya reddetmeyi hatırla"
       you_can_accept_or_reject_offer_at: "Teklifi kabul veya reddedebilirsiniz"
       you_can_accept_or_reject_request_at: "Talebi kabul veya reddedebilirsiniz"
@@ -1454,7 +1454,7 @@ tr-TR:
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: "Daha fazla bilgi al"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "%{request_link}'i henüz kabul veya reddetmediniz. Eğer talep gerçekleştiyse, bunu doğrulamalısınız. Bunun ardından, %{other_party_given_name}'e geri bildirim bırakabilirsiniz."
       remember_to_confirm_request: "Talebi kabul veya reddetmeyi unutmayın"
@@ -1473,7 +1473,7 @@ tr-TR:
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
-      here_is_a_message_from: "%{other_party_given_name}'den gelen mesaj burada:"
+      here_is_a_message_from: "%{other_party_given_name} tarafından bir mesaj var:"
       request_marked_as_confirmed: "Talep tamamlandı - geri bildirim bırakmayı unutmayın"
       request_marked_as_canceled: "Talep iptal edildi"
       has_marked_request_as_confirmed: "%{other_party_full_name} '%{request}' talebini tamamlandı olarak işaretledi. %{other_party_given_name}'e geri bildirim bırakabilirsiniz."
@@ -1482,14 +1482,14 @@ tr-TR:
       give_feedback_to: "%{other_party_given_name} üyesin geri bildirim bırakın."
       stripe:
         has_marked_request_as_confirmed: ~
-      team_title: ~
+      team_title: "%{service_name} ekibi"
     transaction_confirmed_v2:
       headline_confirmed: ~
       headline_canceled: ~
       stripe:
         has_marked_request_as_confirmed: ~
-      can_give_feedback: ~
-      team_title: ~
+      can_give_feedback: "Artık %{other_party_given_name} kullanıcısına yorum bırakabilirsiniz."
+      team_title: "%{service_name} ekibi"
     transaction_automatically_confirmed:
       subject: "Talep otomatik olarak tamamlandı - geri bildirim bırakmayı unutmayın"
       we_have_marked_request_as_confirmed: "'%{request}' hakkındaki talebi tamamlandı olarak işaretledik. Talebin kabulünün üzerinden %{days_passed} gün geçtiği için, talep otomatik olarak tamamlandı."
@@ -1511,13 +1511,13 @@ tr-TR:
       confirmation_link_text: "E-posta adresimi doğrula"
       or_paste_link: "Ya da aşağıdaki linki tarayıcınızın adres çubuğuna kopyalayabilirsiniz."
     confirmation_instructions_v2:
-      headline: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      headline: "%{service_name} pazar yerine katılmak için e-posta adresinizi onaylayın!"
+      need_to_confirm: "%{service_name} hesabınızı oluşturmak için e-posta adresinizi doğrulayın. Aşağıdaki düğmeye basmanız yeterli!"
+      confirmation_link_text: "%{email} adresini doğrula"
     common:
       hey: "Merhaba %{name}"
-      hi: ~
-      kassi_team: "%{service_name} Takımı"
+      hi: "Merhaba %{name},"
+      kassi_team: "%{service_name} ekibi"
       thanks: "Teşekkürler,"
       dont_want_to_receive_these_emails: "Bu e-postaları almak istemiyor musunuz?"
       edit_your_email_settings_here: "E-posta ayarlarınızı buradan düzenleyin"
@@ -1526,8 +1526,8 @@ tr-TR:
       or: "ya da"
       unsubscribe_from_these_emails_info: "%{service_name} üyesi olduğunuz için bu e-postayı aldınız. "
       unsubscribe_from_these_emails: "e-posta aboneliklerini sonlandırın."
-      unsubscribe_from_invitation_emails_info: ~
-      unsubscribe_from_invitation_emails: ~
+      unsubscribe_from_invitation_emails_info: "Bu e-postayı %{service_name} sitesinin bir üyesi sizi davet ettiği için aldınız."
+      unsubscribe_from_invitation_emails: "%{service_name} sitesinden gelen davet e-postalarını iptal et."
       here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}, %{listing} teklifini kabul etti."
@@ -1543,10 +1543,10 @@ tr-TR:
       pay_now: "Şimdi ödeme yap"
       remember_to_confirm: "Talep gerçekleştirildiğinde, bunu tamamlandı olarak işaretlemeyi unutmayın. Eğer talebiniz gerçekleşmediyse, iptal etmek için %{days_to_automatic_confirmation} gününüz var. Aksi takdirde, otomatik olarak tamamlandı olarak işaretlenecektir."
     conversation_status_changed_v2:
-      has_accepted_your_request: ~
-      has_accepted_your_request_text: ~
-      has_rejected_your_request: ~
-      has_rejected_your_request_text: ~
+      has_accepted_your_request: "talebiniz kabul edilmiştir."
+      has_accepted_your_request_text: "%{accepter} %{listing} ilanı için yapmış olduğunuz talebi kabul etti."
+      has_rejected_your_request: "maalesef talebiniz reddedildi."
+      has_rejected_your_request_text: "%{accepter} %{listing} ilanı için yapmış olduğunuz talebi reddetti."
     invitation_to_kassi:
       hi: Selam!
       you_have_been_invited_to_kassi: "%{inviter} sizi %{service_name} pazar yerine davet etti."
@@ -1554,20 +1554,20 @@ tr-TR:
       join_now: "Şimdi katıl"
       invitation_code: "Davet kodu: %{code}"
     invitation_to_kassi_v2:
-      headline: ~
+      headline: Selam!
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} %{listing} ilanınıza yorum yaptı."
       view_comment: "Yorumu görüntüle"
-      you_have_a_new_comment: "%{author} ilanına %{service_name} altında yorum yaptı"
-      listing_you_follow_has_a_new_comment: "%{author} %{service_name}'de takip ettiğiniz bir ilan hakkında yorum yaptı"
-      has_commented_listing_you_follow_in_kassi: "%{author} %{service_name}'de takip ettiğiniz %{listing} ilanına yorum yaptı."
+      you_have_a_new_comment: "%{service_name} sitesinde bir ilanının altına %{author} yorum yaptı"
+      listing_you_follow_has_a_new_comment: "%{author} %{service_name} sitesinde takip ettiğiniz bir ilan hakkında yorum yaptı"
+      has_commented_listing_you_follow_in_kassi: "%{author} %{service_name} üzerinde takip ettiğiniz %{listing} ilanına yorum yaptı."
     new_message:
       view_message: "Mesajı görüntüle"
-      has_sent_you_a_message_in_kassi: "%{sender} sana %{service_name} altında bir mesaj gönderdi."
-      you_have_a_new_message: "%{service_name} altında %{sender_name}'den yeni bir mesaj var"
+      has_sent_you_a_message_in_kassi: "%{sender} sana %{service_name} üzerinden bir mesaj gönderdi."
+      you_have_a_new_message: "%{service_name} üzerinden %{sender_name} sana yeni bir mesaj gönderdi"
     new_message_v2:
-      headline: ~
-      reply: ~
+      headline: "bir mesajın var!"
+      reply: "%{sender} kullanıcısına cevap ver"
     new_payment:
       new_payment: "Yeni bir ödeme aldınız"
       price_per_unit_type: "%{unit_type} başına fiyat"
@@ -1637,14 +1637,14 @@ tr-TR:
       stripe:
         you_have_made_new_payment: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name}, %{service_name} altında sana bir geri bildirimde bulundu"
+      has_given_you_feedback_in_kassi: "%{name}, %{service_name} üzerinden sana bir geri bildirimde bulundu"
       you_can_give_feedback_to: "%{name} kullanıcısına henüz bir geri bildirim vermedin."
       view_feedback: "Geri bildirimi görüntüle"
     new_testimonial_v2:
-      headline: ~
+      headline: "geri bildirim aldınız!"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Takip ettiğiniz ilan güncellendi"
-      has_updated_listing_you_follow_in_kassi: "%{author} %{service_name}'de takip ettiğiniz %{listing} ilanını güncelledi."
+      has_updated_listing_you_follow_in_kassi: "%{author} %{service_name} üzerinde takip ettiğiniz %{listing} ilanını güncelledi."
       view_changes: "Değişiklikleri görüntüle"
     community_updates:
       added_offer: "%{name_link} bir ilan ekledi:"
@@ -1652,13 +1652,15 @@ tr-TR:
       added_listing: "%{name_link} bir ilan ekledi:"
       update_mail_title: "%{title_link} güncellemesi"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Son %{time_since_last_update} içinde %{community_link}'deki etkinliklerden bazıları."
+      intro_paragraph: "Son %{time_since_last_update} içinde %{community_link} üzerindeki etkinliklerden bazıları."
       intro_paragraph_link_text: "%{community_name}"
       reduce_email_footer_text: "Çok fazla e-posta mı alıyorsunuz? %{settings_link} ya da %{unsubscribe_link}."
       settings_link_text: "E-posta ayarlarınızı buradan düzenleyin"
       unsubscribe_link_text: "Aboneliği sonlandır"
     community_updates_v2:
-      headline: ~
+      headline: "%{service_name} üzerindeki en son güncellemelere göz at."
+      intro_paragraph:
+        other: "Son günlerde %{service_name} üzerinde olan bazı gelişmeleri aşağıda görebilirsin."
     newsletter:
       hi: "Merhaba %{name},"
       newest_offers: "Kullanıcıların şu anda teklif ettikleri"
@@ -1666,14 +1668,14 @@ tr-TR:
       text_version_text: "Başkalarının isteyebileceği bir şeylere mi sahipsiniz? Ya da başkalarının sahip olabileceği bir şeylere mi ihtiyacınız var? Bir teklif ya da talep ekleyin veya diğer kullanıcıların teklif ve taleplerini görüntülemek için %{url} adresine gidin."
     reset_password_instructions:
       change_my_password: "Parolamı değiştir"
-      reset_password_instructions: ~
+      reset_password_instructions: "<p>%{service_name} platformunda kullandığınız şifreyi unuttuğunuzu belirttiniz.</p><p>Eğer şifrenizi sıfırlamak istiyorsanız bu linke tıklayın: %{password_reset_link}</p><br/><p>Eğer böyle bir talebiniz olmadıysa lütfen bu emaili görmezden gelin. Yukarıdaki linke tıklamadığınız sürece şifreniz  değişmeyecektir.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Hatırlatma: Lütfen %{name} kullanıcına geri bildirim vermeyi unutmayınız"
       you_have_not_given_feedback_yet: "%{name} kullanıcısına %{event} hakkında geri bildirim vermediniz. %{given_name} kullanıcısının bu konuda nasıl bir performans sergilediğine ilişkin geri bildirim vermeyi unutmayınız."
     testimonial_reminder_v2:
-      headline: ~
-      you_have_not_given_feedback_yet: ~
-      leave_feedback: ~
+      headline: "%{other_name} kullanıcısına geri bildirim verneyi unutma!"
+      you_have_not_given_feedback_yet: "Geri bildirim vermek her zaman için faydalıdır. Eğer her şey yolunda gittiyse %{name} kullanıcısının güvenilir olduğunu bildirmelisiniz. Eğer sorun yaşadıysanız, yaşadığınız sorundan bahsedebilirsiniz."
+      leave_feedback: "%{other_party_name} kullanıcısı için geri bildirim bırak"
     transaction_preauthorized:
       subject: "%{requester} %{listing_title}'i talep etti ve ödeme yaptı"
       transaction_requested_by_user: "%{requester} \"%{listing_title}\"i talep etti ve ödeme yaptı"
@@ -1701,64 +1703,64 @@ tr-TR:
     new_listing_by_followed_person:
       subject: "%{author_name} %{service_name} pazar yerine yeni bir listeleme ekledi."
       has_posted_a_new_listing: "%{author_name} yeni bir listeleme ekledi."
-      you_are_receiving_this_because: "Bu bildiriyi %{author_name}'i takip ettiğiniz için aldınız."
+      you_are_receiving_this_because: "Bu bildiriyi %{author_name} isimli kullanıcıyı takip ettiğiniz için aldınız."
       view_listing: "Listelemeyi görüntüle"
     new_listing_by_followed_person_v2:
-      headline: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      headline: "%{author} yeni bir ilan ekledi!"
+      has_posted_a_new_listing: "%{author_name} yeni bir ilan ekledi:"
+      you_are_receiving_this_because: "Bu e-postayı %{author_name} isimli kullanıcıyı takip ettiğiniz için aldınız."
+      view_listing: "%{title} ilanına göz at"
       cant_click: ~
     new_member_notification:
-      subject: ~
-      new_member_has_joined: "%{community} topluluğuna yeni bir üye katıldı. Hala e-posta adreslerini doğrulamaları gerekebilir."
+      subject: "%{community} platformuna yeni bir üye katıldı"
+      new_member_has_joined: "%{community} topluluğuna yeni bir üye katıldı. Hala e-posta adresini doğrulaması gerekebilir."
       this_is_automatic_message: "Bu mesaj %{community} yöneticilerine otomatik olarak gönderilmiştir."
       person_name: Ad
-      person_email: ~
+      person_email: E-posta
     new_member_notification_v2:
-      headline: ~
+      headline: "%{user_name} %{community} sitesine katıldı."
       new_member_has_joined: ~
-      view_profile: ~
+      view_profile: "Profili gör"
     listing_submited_for_review:
-      subject: ~
-      there_is_a_new_listing_to_review: ~
-      review_the_listing: ~
-      this_is_automatic_message: ~
+      subject: "%{author_name} tarafından %{community} üzerinde onay bekleyen yeni ilan: %{listing_title} "
+      there_is_a_new_listing_to_review: "%{author_name} tarafından girilmiş onay bekleyen yeni bir ilan var: %{listing_title}. Lütfen ilanı onaylayın veya reddedin."
+      review_the_listing: "İlan sayfasına git"
+      this_is_automatic_message: "Bu mesaj %{community} yöneticilerine otomatik olarak gönderilmiştir."
     listing_approved:
-      subject: ~
-      listing_has_been_approved: ~
-      view_the_listing: ~
+      subject: "%{community} ekibi %{listing_title} başlıklı ilanınızı onayladı"
+      listing_has_been_approved: "Yaşasın! %{listing_title} başlıklı ilanınız %{community} yöneticileri tarafından onaylandı. Artık ilanınız yayında!"
+      view_the_listing: "İlana git"
     listing_rejected:
-      subject: ~
-      listing_has_been_rejected: ~
-      contact_link: ~
-      edit_the_listing: ~
+      subject: "%{community} ekibi %{listing_title} başlıklı ilanınızı onaylamamıştır"
+      listing_has_been_rejected: "Maalesef %{community} ekibi %{listing_title} başlıklı ilanınızı dikkatle inceledikten sonra onaylamama kararı almıştır. Daha fazla bilgi sahibi olmak için %{contact_link} üzerinden ilanınızı güncelleyebilir ve tekrardan onaya sunabilirsiniz."
+      contact_link: "%{community} ekibi ile iletişime geçin"
+      edit_the_listing: "İlanı güncelle"
     edited_listing_submited_for_review:
-      subject: ~
-      there_is_a_edited_listing_to_review: ~
-      review_the_listing: ~
+      subject: "%{community} üzerindeki %{listing_title} başlıklı ilan %{author_name} tarafından tekrardan onaya sunulmuştur."
+      there_is_a_edited_listing_to_review: "%{author_name} tarafından güncellenmiş onay bekleyen bir ilan var: %{listing_title}. Lütfen ilanı onaylayın veya reddedin."
+      review_the_listing: "İlana sayfasına git"
     new_transaction:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
+      subject: "%{service_name} üzerinde yeni bir işlem gerçekleşti"
+      there_is_a_new_transaction: "%{service_name} üzerinde %{link}."
+      a_new_transaction: "yeni işlem"
+      listing: "İlan: %{title}"
       sum: ~
       starter: ~
       provider: ~
     new_transaction_v2:
-      subject: ~
+      subject: "%{service_name} üzerinde yeni bir işlem gerçekleşti"
       there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
+      a_new_transaction: "yeni bir işlem"
+      listing: "İlan:"
       sum: ~
       starter: ~
       provider: ~
-      view_transaction: ~
+      view_transaction: "İşlemi gör"
     transaction_cancel_flow:
       the_order_about: ~
       you_can_contact_the_marketplace_team: ~
       you_can_now_give_feedback: ~
-      give_feedback_to: ~
+      give_feedback_to: "%{name} kullanıcısına geri bildirim ver"
     transaction_disputed:
       subject: ~
       subject_admin: ~
@@ -1787,7 +1789,7 @@ tr-TR:
   error_messages:
     booking:
       booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      double_booking_payment_voided: "Seçtiğiniz tarihler artık uygun değil. Lütfen başka bir tarih seçin. Sizden henüz para alınmadı."
     onboarding:
       server_rendering: ~
     listings:
@@ -1848,19 +1850,19 @@ tr-TR:
     messages:
       invalid_date: "geçerli bir tarih değil"
       invalid_time: "geçerli bir süre değil"
-      invalid_datetime: "geçerli bir zaman tarihi değil"
+      invalid_datetime: "geçerli bir tarih ve saat değil"
       is_at: "%{restriction} içerisinde olmalı"
       before: "%{restriction} öncesinde olmalı"
       on_or_before: "%{restriction} içinde ya da öncesinde olmalı"
       after: "%{restriction} sonrasında olmalı"
       on_or_after: "%{restriction} içinde ya da sonrasında olmalı"
       positive_number: "Rakam giriniz"
-      from_must_be_less_than_till: ~
+      from_must_be_less_than_till: "Başlangıç tarihi bitiş tarihinden önce olmalıdır"
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
-      presence: ~
+      presence: "Boş geçilemez"
       username_is_invalid: "Bu kullanıcı adı geçersiz veya kullanılamıyor"
-      domain_name_is_invalid: ~
+      domain_name_is_invalid: "Bu domain ismi hatalı veya kullanılamaz"
       only_supported_variables: ~
   event_feed_events:
     accept:
@@ -1888,15 +1890,15 @@ tr-TR:
       offer_partitive: teklif
       request_partitive: talep
   header:
-    about: Hakkında
-    home: "Ana sayfa"
+    about: Hakkımızda
+    home: Anasayfa
     members: Topluluk
     new_listing: "Yeni ilan"
     mobile_version: "Mobil versiyon"
     offers: Teklifler
     requests: Talepler
     search_kassi: "%{service_name} Ara"
-    create_new_marketplace: "Yeni pazar oluştur"
+    create_new_marketplace: "Yeni pazar yeri oluştur"
     contact_us: "Bize ulaşın"
     profile: Profil
     manage_listings: İlanlarım
@@ -1986,7 +1988,7 @@ tr-TR:
     list_item:
       review: yorum
       reviews: yorumlar
-      distance_away: "%{distance}%{distance_unit}mesafede"
+      distance_away: "%{distance}%{distance_unit} mesafede"
     news_item:
       show_less: "Daha azını göster"
       show_more: "Daha fazlasını göster"
@@ -2002,7 +2004,7 @@ tr-TR:
     filters:
       show: "Filtrele:"
       search: Ara
-      map: "Haritayı göster"
+      map: "Haritada göster"
       list: "Listeyi göster"
       map_button: Harita
       grid_button: Izgara
@@ -2069,7 +2071,7 @@ tr-TR:
       how_to_use: "Nasıl çalışır"
       info_about_kassi: "%{service_name} Hakkımızda"
       news: Yenilikler
-      register_details: "Gizlilik politikasını"
+      register_details: "Gizlilik politikası"
       terms: "Kullanım koşulları"
     logged_in:
       admin: Yönetici
@@ -2260,9 +2262,9 @@ tr-TR:
       are_you_sure: "Yorumu silmek istediğinize emin misiniz?"
     comment_form:
       ask_a_question: "İlanı değerlendirin ya da daha fazla detay sorun. Diğer tüm kullanıcılar yorumunuzu görebilecek."
-      log_in: "oturum aç"
+      log_in: "oturum açın"
       send_comment: "Yorum gönder"
-      to_send_a_comment: "yeni yorum göndermek için."
+      to_send_a_comment: "ve yorumlarınızı yazın."
       write_comment: "Yeni yorum yaz:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Yeni yorum gönderemezsiniz, çünkü bu ilan kapatıldı."
       you_must: "Giriş yapmalısınız,"
@@ -2479,7 +2481,7 @@ tr-TR:
     show:
       add_your_phone_number: "Telefon numaranızı ekleyin"
       add_profile_picture: "Profil resmi ekleyin"
-      comments: "Genel yorumlar"
+      comments: "Tüm yorumlar"
       contact_by_phone: "Telefonla ulaş:"
       contact: İletişim
       favor_offer: "Hizmet teklifi"
@@ -2678,7 +2680,7 @@ tr-TR:
       family_name: Soyad
       given_name: Ad
       i_accept_the_terms_and_privacy: "%{terms} ve %{privacy}  kabul ediyorum"
-      admin_emails_consent: "Zaman zaman %{service_name} takım üyelerinden e-mailler alacağımı kabul ediyorum ve fikrimi istediğim zaman değiştirebileceğimi anladım."
+      admin_emails_consent: "%{service_name} ekibinden aldığım hizmetle alakalı e-mailler alabileceğimi kabul ediyorum ve iletişim iznimi istediğim zaman değiştirebileceğimi anladım."
       invalid_invitation_code: "Davet kodu geçerli değil."
       invitation_code: "Davet kodu"
       not_required: ", gerekmemektedir"
@@ -3227,26 +3229,26 @@ tr-TR:
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
+        id: "Bölüm adı"
+        title: Başlık
+        paragraph: "Paragraf Metni"
+        button_title: Metin
+        button_path: URL
+        button_path_string: URL
+        background_image: "Arka plan görseli "
+        background_image_variation: "Arka plan görseli farkı"
+        background_color: "Arka plan rengi"
+        background_color_string: "Arka plan rengi"
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: "İlan 1 ID"
+        listing_2_id: "İlan 2 ID"
+        listing_3_id: "İlan 3 ID"
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Metin
+        youtube_video_id: "YouTube videosu ID"
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: Metin
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "British Columbia"

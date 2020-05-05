@@ -1428,10 +1428,10 @@ ko:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "%{service_name}의 새로운 피드백"
-    feedback_body: "%{author_name_and_email}이 %{service_name}에서 다음 피드백을 보냈습니다."
-    unlogged_user: "로그인하지 않은 사용자"
-    anonymous_user: "익명 사용자"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "접근이 거부되었습니다."

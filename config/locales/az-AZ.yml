@@ -1403,7 +1403,7 @@ az-AZ:
       dismiss: ~
   feedback:
     feedback_subject: ~
-    feedback_body: "%{author_name_and_email} %{service_name} -dan aşağıdakı geribildirim göndərmişdir"
+    feedback_body: ~
     unlogged_user: ~
     anonymous_user: ~
   community_memberships:
@@ -3082,12 +3082,6 @@ az-AZ:
     next_label: "Sonrakı &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
-      single_page:
-        zero: "%{model} tapılmadı"
-        other: "%{count} %{model} göstətilir"
-      single_page_html:
-        zero: "%{model} tapılmadı"
-        other: "<b>&nbsp;%{count}</b> %{model} göstərilir"
       multi_page: "%{count}-dan %{from} - %{to} %{model} göstərilir"
       multi_page_html: "<b>%{count}-dan</b> <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} göstərilir"
     person:

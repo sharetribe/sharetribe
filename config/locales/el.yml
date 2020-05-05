@@ -1404,8 +1404,8 @@ el:
   feedback:
     feedback_subject: ~
     feedback_body: ~
-    unlogged_user: "Μη συνδεδεμένος χρήστης"
-    anonymous_user: "Ανώνυμος χρήστης"
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Δεν επιτρέπεται η πρόσβαση"

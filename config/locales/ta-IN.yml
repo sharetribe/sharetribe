@@ -1160,17 +1160,17 @@ ta-IN:
         learn_more: ~
   common:
     edit_page: ~
-    default_community_slogan: ~
+    default_community_slogan: "சமூக சந்தை"
     default_community_description: ~
     cancel: "ரத்து செய்"
     fields_that_are_mandatory: "(*) போட்டிருக்கும் தகவல்கள் அவசியமானது"
     or: அல்லது
-    password: ~
+    password: கடவுச்சொல்
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
+      borrow: இரவல்
       buy: வாங்குதல்
       give_away: வழங்குதல்
       lend: "கடன் கொடுத்தல்"
@@ -1202,7 +1202,7 @@ ta-IN:
       garden: ~
       travel: ~
       other: ~
-    username: ~
+    username: "உபயோகிப்பாளரின் பெயர்"
     username_or_email: ~
     what_is_this: "இது என்ன?"
     removed_user: ~
@@ -1308,7 +1308,7 @@ ta-IN:
       optional_message_to: ~
       send_message: ~
       send: ~
-      this_message_is_private: ~
+      this_message_is_private: "இந்த செய்தியானது உங்களுக்கும்%{person}  இடையில் தனிப்பட்டது.  %{person} க்கு  இந்த செய்தி குறித்து மின்னஞ்சல் மூலம் அறிவிக்கப்படும்"
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: தலைப்பு
@@ -1414,14 +1414,14 @@ ta-IN:
     new:
       welcome_fb_user: ~
       fb_join_accept_terms: ~
-      join_community: ~
+      join_community: "%{service_name} இல் சேர"
       you_can_join: ~
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
       if_want_to_view_content: ~
-      log_out: ~
-      join_community_button: ~
+      log_out: வெளியேற
+      join_community_button: "%{service_name} இல் சேர"
     give_consent:
       invitation_code_invalid_or_used: ~
       email_not_allowed: ~
@@ -1493,7 +1493,7 @@ ta-IN:
     confirmation_instructions:
       confirmation_instructions_signature: ~
       need_to_confirm: ~
-      confirmation_link_text: ~
+      confirmation_link_text: "தங்கள் முகவரியை உறுதிப்படுத்த"
       or_paste_link: ~
     confirmation_instructions_v2:
       headline: ~
@@ -1517,8 +1517,8 @@ ta-IN:
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ஆள் உங்கள் வியாபாரம் ஏற்றுக்கொள்ளப்பட்டது %{listing} ."
       has_accepted_your_request: "%{accepter} ஆள் உங்கள் வேண்டுதல் ஏற்றுக்கொள்ளப்பட்டது%{listing} ."
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_rejected_your_offer: "%{accepter} உங்கள் வியாபாரத்தை நிராகரித்துவிட்டார்%{listing}."
+      has_rejected_your_request: "%{accepter} உங்கள் வேண்டுகோளை நிராகரித்துவிட்டார்%{listing}."
       view_thread: ~
       your_offer_was_accepted: "உங்கள் விலை ஏற்று கொள்ளப்பட்டது"
       your_offer_was_rejected: "உங்கள் விலை நிராகரிக்க பட்டது"
@@ -1533,9 +1533,9 @@ ta-IN:
       has_rejected_your_request: ~
       has_rejected_your_request_text: ~
     invitation_to_kassi:
-      hi: ~
-      you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
+      hi: வணக்கம்
+      you_have_been_invited_to_kassi: "%{inviter} உங்களை %{service_name} க்கு அழைத்துள்ளார்"
+      here_is_a_message_from: "%{inviter} இடம் இருந்து தனிப்பட்ட செய்தி :"
       join_now: ~
       invitation_code: ~
     invitation_to_kassi_v2:
@@ -1544,7 +1544,7 @@ ta-IN:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} உங்கள் பொருள் பற்றி %{service_name} இல் கருத்து தெரிவித்து இருக்கிறார்"
-      listing_you_follow_has_a_new_comment: ~
+      listing_you_follow_has_a_new_comment: "%{service_name} இல் நீங்கள் பின்பற்றும் விற்பனை விவரங்களை%{author} கருத்து தெரிவித்துள்ளார்"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
@@ -1628,7 +1628,7 @@ ta-IN:
     new_testimonial_v2:
       headline: ~
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
+      listing_you_follow_has_been_updated: "நீங்கள் பின்பற்றும் விற்பனை விவரங்கள் திருத்த செய்ய பட்டுள்ளன"
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
@@ -1645,12 +1645,12 @@ ta-IN:
     community_updates_v2:
       headline: ~
     newsletter:
-      hi: ~
-      newest_offers: ~
-      newest_requests: ~
+      hi: "வணக்கம் %{name},"
+      newest_offers: "மக்கள் தற்போது மற்றவர்களுக்கு வழங்குவது"
+      newest_requests: "மக்களுக்கான தற்போதைய தேவை"
       text_version_text: ~
     reset_password_instructions:
-      change_my_password: ~
+      change_my_password: "கடவுச்சொல்லை மாற்றவும்"
       reset_password_instructions: ~
     testimonial_reminder:
       remember_to_give_feedback_to: "ஞாபகப்படுத்தல் : %{name} க்கு நீங்கள் இன்னும் உங்கள் அனுபவத்தை கூறவில்லை"
@@ -1776,9 +1776,9 @@ ta-IN:
     onboarding:
       server_rendering: ~
     listings:
-      departure_time: ~
+      departure_time: "புறப்படும் நேரம் தற்போதைய நேரத்திற்கும் மற்றும் ஒரு வருடத்திற்கும் இடையில் இருக்க வேண்டும்."
       share_type: "நீங்கள் கண்டிப்பாக ஒன்றை தேர்வு செய்ய வேண்டும்"
-      valid_until: ~
+      valid_until: "குறிப்பிட்டுள்ள தேதியானது தற்போதைய நேரத்திற்கும் மற்றும் 6 மாதங்களுக்கும் இடையில் இருக்க வேண்டும்."
       price: ~
       minimum_price: ~
     testimonials:
@@ -1870,8 +1870,8 @@ ta-IN:
       logged_in_to_kassi: ~
     comment:
       commented: ~
-      offer_partitive: ~
-      request_partitive: ~
+      offer_partitive: வியாபாரம்
+      request_partitive: வேண்டுகோள்
   header:
     about: "உங்களை பற்றி"
     home: "முகப்பு பக்கம்"
@@ -1891,36 +1891,36 @@ ta-IN:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "கூடுதலாக <b>  மற்றொரு வியாபாரம் உள்ளது</b>,"
+      additionally_one_private_request_exists: "கூடுதலாக<b> மற்றொரு வேண்டுகோள் உள்ளது</b>,"
+      additionally_some_private_offers_exist: "கூடுதலாக உள்ள மற்ற வியாபாரங்கள்<b>%{number_of_listings} </b>"
+      additionally_some_private_requests_exist: "கூடுதலாக <b> மற்ற வேண்டுதல்கள் %{number_of_listings}</b> ,"
     blank_slate:
-      add_first: ~
+      add_first: "இன்னொன்றை சேர்க்கவும்!"
       but_that_is_visible_only_to_registered_members: "ஆனால் அது பதிவு செய்து கொண்ட உறுப்பினருக்கு மட்டுமே தெரியும்"
       but_those_are_visible_only_to_registered_members: "ஆனால் அவை எல்லாம் பதிவு பெற்ற உறுப்பினர்களுக்கு மட்டுமே தெரியும்"
       create_new_account_for_yourself: "உங்களுக்கு ஒரு புதிய கணக்கை துவங்குங்கள்"
       examples_of_what_you_could_offer_to_others: "நீங்கள் அடுதவர்களுக்கு என்ன விற்க முடியும்"
       examples_of_what_you_could_request_to_others: "நீங்கள் மற்றவரிடம் இருந்து என்ன வேண்ட முடியும்"
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      favor_offer_list: "கணினி உதவி, துணிகள் பராமரிப்பு, பேக்கிங்,மோட்டார் வாகனம்   பொருத்துதல்"
+      favor_request_list: "குழந்தை பராமரிப்பு, பியானோ வகுப்புகள், நாய்களுகான நடைபயிற்சி,புல்வெளி பராமரிப்பு"
+      favors_to_offer: "உதவி: "
+      favors_to_request: "உதவி: "
+      item_offer_list: "கருவிகள், விளையாட்டு உபகரணங்கள், உடைகள், முகாம் உபகரணங்கள்"
+      item_request_list: "கருவிகள், விளையாட்டு உபகரணங்கள், உடைகள், முகாம் உபகரணங்கள்"
+      items_to_offer: "இரவல் கொடுக்கப்படும் பொருட்கள்; "
+      items_to_request: "இரவல்க்கு வாங்கபடகூடிய பொருட்கள்: "
+      log_in: உள்நுழைய!
+      no_offers_visible_unless_logged_in: "உள்நுழைந்திருக்காத பயனர்களுக்கு எந்த உருப்படி, சேவை அல்லது ரைட்ஷேர் விவரங்களையும் காண்பிக்க இயலாது."
+      no_open_offers_currently: "எந்த ஆஃபெரும் திறந்த நிலையில் இல்லை."
+      no_open_requests_currently: "எந்த வேண்டுதலும் திறந்த நிலையில் இல்லை."
+      no_requests_visible_unless_logged_in: "எந்த கோரிக்கைகளையும் உள்நுழைந்திருக்காத பயனர்களுக்கு காண்பிக்க இயலாது."
+      one_private_offer_exists: "ஏற்கனவே <b> ஒரு வியாபாரம் உள்ளது</b>,"
+      one_private_request_exists: "ஏற்கனவே <b> ஒரு வேண்டுகோள் உள்ளது</b> ,"
+      ride_offer: "மற்றவர்களின் குழந்தைகளை அவர்களின் பொழுதுபோக்கிற்கு அழைத்துச் செல்லுவது"
+      ride_request: "வேலைக்கு செல்வதற்கு வண்டியில் ஏற்றி செல்வது"
+      some_private_offers_exist: "ஏற்கனவே உள்ள<b>  %{number_of_listings} வியாபாரங்கள்</b> ,"
+      some_private_requests_exist: "ஏற்கனவே உள்ள<b> %{number_of_listings} வேண்டுகோள்கள்</b>,"
     custom_filters:
       update_view: ~
       min: ~
@@ -1940,28 +1940,28 @@ ta-IN:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: வியாபாரம்
       add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: ~
-      news: ~
-      no_news: ~
-      more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      lend_rent_help_carpool: "விற்க, இரவல் வழங்க,உதவி செய்ய,பயண வாகனத்தை பகிர்ந்து கொள்ள"
+      loading_more_content: "இன்னும் விவரங்கள் load ஆகிறது"
+      more_events: "மேலும் நிகழ்வுகள்..."
+      news: செய்தி
+      no_news: "எந்த செய்தியும் இல்லை"
+      more_news: "மேலும் செய்திகளுக்கு"
+      or: மற்றும்
+      or_see_what_the_others: "அல்லது மற்றவர்களைப் பற்றி பார்க்கலாம்"
+      recent_events: "சமீபத்திய நிகழ்வுகள்"
+      requesting: தேவை
+      tell_it_here: "இங்கே தெரிவிக்கலாம்!"
+      welcome_to_new_kassi: "%{service_name}க்கு உங்களை வரவேற்கிறோம்!"
       no_reviews: ~
       no_image: ~
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      email: ~
-      message: ~
-      send_invitation: ~
+      email: "மின்னஞ்சல் முகவரி(கள்)"
+      message: "தனிப்பட்ட செய்தி"
+      send_invitation: "அழைப்பை அனுப்பவும்"
       add_email_addresses_description: ~
       add_lots_of_email_addresses: ~
       this_article_link: ~
@@ -1973,15 +1973,15 @@ ta-IN:
       reviews: ~
       distance_away: ~
     news_item:
-      show_less: ~
-      show_more: ~
+      show_less: "குறைவாக காண்பி"
+      show_more: "மேலும் காண்பி"
     profile_info_empty_notification:
-      add_your_info: ~
-      add_a_profile_picture: ~
+      add_your_info: "உங்களை தொடர்பு கொள்ளும் விவரங்களை தெரிவிக்கவும்"
+      add_a_profile_picture: "தங்களது படத்தை சேர்க்கவும்"
       you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info_link: "உங்கள் பற்றிய தகவலை இப்போது சேர்க்க"
     recent_listing:
-      please_offer: ~
+      please_offer: ஆஃபர்
       comment: ~
       comments: ~
     filters:
@@ -2014,7 +2014,7 @@ ta-IN:
       no_listing_image: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name} இன் நிர்வாக குழு"
     branding:
       powered_by: ~
       create_own: ~
@@ -2026,13 +2026,13 @@ ta-IN:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
+      feedback: "%{service_name} குழுவுக்கு உங்களின் செய்தி"
       dont_use_to_contact_support: ~
       feedback_forum: "விமர்சனம் செய்யும் புலம்"
       feedback_handle: விமர்சனம்
       give_feedback: "எங்களை தொடர்பு கொள்ளுங்கள்"
       or_check_our: "அல்லது இதை பாருங்கள்"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "செய்தியை அனுப்பவும்"
       to_see_what_others_have_suggested: "மற்ற உபயோகிப்பாளர்கள் என்ன சொல்கிறார்கள் என தெரிந்து யோசனைகளுக்கு வாக்களிக்க"
       your_email_address: "உங்கள் மின்னஞ்சல் (உங்களை தொடர்பு கொள்ள)"
       connect: ~
@@ -2053,7 +2053,7 @@ ta-IN:
       about: "உங்களை பற்றி"
       how_to_use: "இது எப்படி வேலை செய்கிறது"
       info_about_kassi: "%{service_name} பற்றிய தகவல்கள்"
-      news: ~
+      news: செய்தி
       register_details: "தனியுரிமை கொள்கை"
       terms: "உபயோகத்திற்கான விதிமுறைகள்"
     logged_in:
@@ -2095,7 +2095,7 @@ ta-IN:
       logout: வெளியேறு
       notifications: அறிவிப்புகள்
       requests: "நட்பு வேண்டும் அழைப்பு"
-      settings: ~
+      settings: அமைப்புகள்
       sign_up: "பதிவு செய்"
     notifications:
       listing_could_not_be_saved: ~
@@ -2104,30 +2104,30 @@ ta-IN:
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: "உங்கள் கணக்கு வெற்றிகரமாக உருவாக்கப்பட்டது.  இப்போது நீங்கள் உங்கள் மின்னஞ்சல் முகவரியை உறுதிப்படுத்த வேண்டும்."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: "கருத்து காலியாக இருக்க முடியாது"
       comment_sent: "கருத்து அனுப்பபட்டது"
       confirmation_link_is_wrong_or_used: ~
-      additional_email_confirmed: ~
+      additional_email_confirmed: "நீங்கள் உள்ளிட்ட மின்னஞ்சல் இப்போது உறுதிப்படுத்தப்பட்டுள்ளது."
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: ~
       create_new_listing: ~
       create_one_here: "இங்கே ஒன்றை உருவாக்கு"
-      email_confirmation_sent_to_new_address: ~
+      email_confirmation_sent_to_new_address: "மின்னஞ்சல் உறுதிப்படுத்தல் இப்போது புதிய முகவரிக்கு அனுப்பப்பட்டுள்ளது"
       email_not_found: "நீங்கள் கொடுத்த மின்னஞ்சல் %{service_name} இல் இல்லை"
       error_with_session: "அமர்வில் பிழை"
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
+      feedback_considered_spam: "அதன் வடிவமைப்பு காரணமாக கருத்து சேமிக்கப்படவில்லை.  மீண்டும் முயற்சிக்கவும் அல்லது கருத்து மன்றத்தைப் பயன்படுத்தவும்."
+      feedback_not_saved: "உங்கள் கருத்தை அனுப்ப இயலவில்லை."
       feedback_saved: "உங்கள் செய்திக்கு நன்றி. விரைவில் திரும்ப வருகிறோம்"
       feedback_sent_to: "உங்கள் விமர்சனம்%{target_person} க்கு அனுப்பபட்டது"
       feedback_skipped: "விமர்சனம் தவிர்க்க பட்டது"
-      invitation_cannot_be_sent: ~
+      invitation_cannot_be_sent: "அழைப்பை அனுப்ப இயலவில்லை"
       invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
-      invitation_sent: ~
+      invitation_sent: "உங்கள் அழைப்பானது வெற்றிகரமாக அனுப்பப்பட்டது"
       invitation_successfully_unsubscribed: ~
-      inviting_new_users_is_not_allowed_in_this_community: ~
+      inviting_new_users_is_not_allowed_in_this_community: "புதிய பயனர்களை அழைக்க தங்களுக்கு அனுமதியில்லை"
       login_again: "மீண்டும் உள்நுழையுங்கள்"
       login_failed: "உள்நுழைய இயலவில்லை. மீண்டும் சரியான விவரங்களை  உள்ளீடு செய்யவும்."
       account_creation_successful: ~
@@ -2159,18 +2159,18 @@ ta-IN:
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "உங்கள் கடவுச்சொல் மாற்றும் அறிவுறுத்தல்கள் உங்கள் மின்னஞ்சலுக்கு அனுப்ப பட்டு உள்ளது"
       person_activated: ~
-      person_deactivated: ~
+      person_deactivated: "உபயோகிப்பாளர் செயல்படுத்தப்பட்டார்"
       person_updated_successfully: "தகவல் பதியப்பட்டது"
-      poll_answered: ~
-      poll_could_not_be_answered: ~
-      poll_created: ~
-      poll_creation_failed: ~
-      poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
-      read_more: ~
+      poll_answered: "வோட்டு பதிலளிக்க பட்டது"
+      poll_could_not_be_answered: "வோட்டுக்கு பதிலளிக்க இயலாது"
+      poll_created: "வோட்டு உருவாக்கப்பட்டது"
+      poll_creation_failed: "வோட்டு உருவாக்கம் தோல்வி அடைந்தது"
+      poll_update_failed: "வோட்டு திருத்தம் தோல்வி அடைந்தது"
+      poll_updated: "வோட்டு திருத்தம் செய்யப்பட்டது"
+      poll_deleted: "வோட்டு அகற்றப்பட்டது"
+      read_more: "மேலும் விபரங்களுக்கு!"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
+      reply_cannot_be_empty: "நீங்கள் ஒரு வெற்று செய்தியை அனுப்ப இயலாது"
       reply_sent: "வெற்றிகரமாக பதில் அனுப்பபட்டது"
       request_accepted: "வேண்டுதல் ஏற்று கொள்ளபட்டது"
       request_confirmed: ~
@@ -2178,38 +2178,38 @@ ta-IN:
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: "இந்த உள்ளடக்காமானது கிடைக்கவில்லை"
       unknown_error: "புரியாத பிழை. என்ன நிகழ்தது என்பதை எங்களை தொடர்பு கொள்ளுங்கள் என்ற இணை மூலம் அனுப்பவும்"
       update_error: "பிழை. மீண்டும் முயற்சிக்கவும்"
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "இந்த நிகழ்வைப் பற்றி கருத்து தெரிவிக்க உங்களுக்கு அனுமதி இல்லை"
+      you_are_not_authorized_to_do_this: "இந்த செயலை செய்ய உங்களுக்கு அனுமதி இல்லை"
       you_are_not_authorized_to_view_this_content: "இதை பார்ப்பதற்கு உங்களுக்கு அனுமதி இல்லை"
       listing_closed: ~
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "முடிந்துபோன வியாபாரத்துக்கு பதில் அனுப்ப முடியாது"
       you_cannot_send_message_to_yourself: ~
-      you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_followed_listing: "நீங்கள் இந்த விற்பனை விவரங்களை பின்தொடர்கிறீர்கள்"
+      you_have_already_given_feedback_about_this_event: "இந்த நிகழ்வைப் பற்றி நீங்கள் ஏற்கனவே கருத்துக்களை வழங்கியுள்ளீர்கள்"
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
-      you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_give_feedback: "உங்கள் கருத்தை நீங்கள் உள்நுழைய வேண்டும்"
+      you_must_log_in_to_invite_new_users: "புதிய பயனர்களை%{service_name} க்கு அழைக்க நீங்கள் உள்நுழைய வேண்டும்"
+      you_must_log_in_to_send_a_comment: "உங்கள் புதிய கருத்தை அனுப்ப நீங்கள் உள்நுழைய வேண்டும்"
+      you_must_log_in_to_send_a_message: "மற்றொரு பயனருக்கு ஒரு செய்தியை அனுப்ப நீங்கள் %{service_name}  இல் உள்நுழைய வேண்டும்."
       you_must_log_in_to_do_a_transaction: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_this_content: "இந்த விவரங்களை பார்க்க நீங்கள் உள்நுழைய வேண்டும்"
       you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_your_inbox: "உங்களுக்கான செய்தியை காண நீங்கள்%{service_name}  இல் உள்நுழைய வேண்டும்."
+      you_must_log_in_to_view_your_settings: "உங்கள் அமைப்புகளைக் காண நீங்கள்%{service_name} இல் உள்நுழைய வேண்டும்."
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: ~
+      you_need_to_confirm_your_account_first: "தங்கள் மின்னஞ்சல் முகவரியை உறுதிப்படுத்தவும்"
       you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
+      you_unfollowed_listing: "நீங்கள் இந்த விற்பனை விவரங்களை பின்தொடரவில்லை"
       joining_community_failed: ~
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
@@ -2237,7 +2237,7 @@ ta-IN:
       transactions: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "இந்த பட்டியலை கான தங்களுக்கு அனமதி இல்லை"
     comment:
       wrote: ~
       send_private_message: ~
@@ -2251,7 +2251,7 @@ ta-IN:
       write_comment: "புது கருத்து எழுது"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: கட்டாயம்
-      subscribe_to_comments: ~
+      subscribe_to_comments: "புதிய கருத்துகள் மற்றும் திருத்தங்களைப் பற்றி எனக்குத் தெரிவிக்கவும்"
     deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: ~
@@ -2277,42 +2277,42 @@ ta-IN:
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "புதிய கருத்துகளைப் பற்றிய மின்னஞ்சல்களைப் பெற"
+      unfollow: "புதிய கருத்துகளைப் பற்றிய மின்னஞ்சல்களைப் பெற வேண்டாம்"
     form:
       custom_field_partials:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: இல்
+        departure_time: "புறப்படும் நேரம்"
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "விரிவான விளக்கம்"
         youtube_info: ~
         youtube_info_markdown: ~
       destination:
-        destination: ~
+        destination: இலக்கு
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        favor: சேவை
+        housing: இடம்
+        item: பொருள்
+        offer_something: "எதையேனும் விற்க"
+        request_something: "தேவைப்படுவதை கேளுங்கள்"
+        rideshare: பயணம்
+        i_want_to_offer: "நான் வியாபாரம் செய்ய விரும்புகிறேன்"
+        i_want_to_request: "எனது தேவை"
       googlemap:
         googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_description: "வரைபடக் காட்சி"
+        googlemap_updatemap: "வரைபடத்தை திருத்த"
       images:
-        image: ~
+        image: படம்
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        no_file_selected: "எந்த கோப்பும் தேர்வு செய்ய படவில்லை"
+        remove_image: "படத்தை அகற்ற"
+        select_file: "கோப்பை தேர்வு செய்யவும்"
         add_more: ~
         removing: ~
         processing: ~
@@ -2327,7 +2327,7 @@ ta-IN:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: இடம்
       price:
         price: ~
         per: ~
@@ -2346,8 +2346,8 @@ ta-IN:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: இடம்
+        origin: "புறப்படும் இடம்"
         the_exact_location: ~
       send_button:
         save_listing: ~
@@ -2355,17 +2355,17 @@ ta-IN:
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
       share_type:
-        select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        select: "தேர்வு செய்யவும்"
+        borrow: இரவல்
+        buy: வாங்குதல்
+        give_away: வழங்குதல்
+        lend: "இரவல் வழங்குதல்"
+        offer_type: "வியாபாரத்தின் வகை"
+        receive: "இலவசமாக ஏற்றுக்கொள்கிறோம்"
+        rent: வாடகைக்கு
+        rent_out: "வாடகைக்கு விடுதல்"
+        request_type: "கோரிக்கையின் வகை"
+        sell: "விற்பனை செய்யப்படுகிறது"
         share_for_free: ~
         accept_for_free: ~
         trade: ~
@@ -2375,51 +2375,51 @@ ta-IN:
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: "காலாவதியாகும் தேதி"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: தற்போதைக்கு
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
+      help_share_type_title: "வியாபாரத்தின் அல்லது வேண்டுகோளின் வகை"
       help_tags_title: ~
-      help_valid_until_title: ~
+      help_valid_until_title: "காலாவதியாகும் தேதி"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "அனைத்து வகைகளும்"
+      all_offer_types: "அனைத்து வியாபார வகைககளும்"
+      all_request_types: "அனைத்து வேண்டுதல்களின் வகைகளும்"
+      category: வகை
+      did_not_found_what_you_were_looking_for: "உங்களுக்குத் தேவையானதைக் கண்டுபிடிக்க இயலவில்லையா?"
+      favors: சேவைகள்
+      housing: இடங்கள்
+      items: பொருட்கள்
+      list_view: "பட்டியல் வடிவில் காண்பி"
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
+      map_view: "வரைபட வடிவில் காண்பி"
+      offer_something: "மற்றவர்களுக்கு தெரியப்படுத்துங்கள்"
+      offer_type: "வியாபாரத்தின் வகை"
+      offers: வியாபாரங்கள்
+      request_something: "தேவைப்படுவதை கேளுங்கள்"
+      request_type: "கோரிக்கையின் வகை"
+      requests: வேண்டுதல்கள்
       rideshare: ~
-      you_have_something_others_do_not: ~
+      you_have_something_others_do_not: "விற்க ஏதாவது இருக்கிறதா?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
+      borrows: "இரவல் வாங்குதல்"
+      buys: வாங்குதல்
+      favors: சேவைகள்
+      give_aways: வழங்குதல்
+      housings: இடங்கள்
+      items: பொருட்கள்
+      lends: "இரவல் வழங்குதல்"
+      receives: "இலவசமாக எடுத்து கொள்ளுதல்"
+      rent_outs: "வாடகைக்கு விடுதல்"
+      rents: வாடகைக்கு
       rideshares: ~
-      sells: ~
+      sells: "விற்பனை செய்தல்"
       share_for_frees: ~
       accept_for_frees: ~
       trades: ~
@@ -2458,21 +2458,21 @@ ta-IN:
       custom: ~
       person: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: கருத்து
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "பொது விவாதம்"
       contact_by_phone: ~
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: "சேவை வழங்குதல்"
+      favor_request: "சேவை வேண்டுதல்"
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: "இந்த பட்டியலில் விளக்கம் இல்லை"
       no_image: ~
       no_reviews: ~
       offer: ~
@@ -2480,14 +2480,14 @@ ta-IN:
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
+      request: வேண்டுதல்
+      rideshare_offer: "பயண வாகனத்தை பகிர்ந்து கொள்ள அழைப்பு"
+      rideshare_request: "பயண வாகனத்தை பகிர்ந்து கொள்ள வேண்டுதல்"
       send_private_message: ~
       tags: ~
-      time: ~
+      time: நேரம்
       times: ~
-      times_viewed: ~
+      times_viewed: "பார்க்க பட்டவை"
       processing_uploaded_image: ~
       listing_created_at: ~
       price:
@@ -2541,29 +2541,29 @@ ta-IN:
       address_postal_code: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
+      all_categories: "அனைத்து வகைகளும்"
+      all_offer_types: "அனைத்து வியாபார வகைககளும்"
+      all_request_types: "அனைத்து வேண்டுதல்களின் வகைகளும்"
+      category: வகை
+      did_not_found_what_you_were_looking_for: "உங்களுக்குத் தேவையானதைக் கண்டுபிடிக்க இயலவில்லையா?"
+      favors: சேவைகள்
+      housing: இடங்கள்
+      items: பொருட்கள்
+      list_view: "பட்டியல் வடிவில் காண்பி"
+      map_view: "வரைபட வடிவில் காண்பி"
+      offer_something: "மற்றவர்களுக்கு தெரியப்படுத்துங்கள்"
+      offer_type: "வியாபாரத்தின் வகை"
       offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      request_something: "தேவைப்படுவதை கேளுங்கள்"
+      request_type: "கோரிக்கையின் வகை"
+      requests: வேண்டுதல்கள்
+      rideshare: "பயண வாகனத்தை பகிர்ந்து கொள்ளுதல்"
+      you_have_something_others_do_not: "விற்க ஏதாவது இருக்கிறதா?"
+    please_comment: விமர்சனம்
   mercury:
     content_too_long: ~
   okl:
-    member_id: ~
+    member_id: "உறுப்பினர் அடையாள எண்"
     member_id_or_email: ~
   paypal_accounts:
     payout_info_title: ~
@@ -2643,36 +2643,36 @@ ta-IN:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
-      help_invitation_code_title: ~
-      terms_title: ~
+      feedback_description_title: கருத்து
+      help_invitation_code_title: "இதில் சேருவதற்கு உங்களுக்கு அழைப்பு தேவை"
+      terms_title: "%{service_name} பயன்பாட்டு விதிமுறைகள்"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
-      email_is_in_use_or_not_allowed: ~
+      create_new_account: "கணக்கை உருவாக்கு"
+      email: "மின்னஞ்சல் முகவரி"
+      email_is_in_use: "நீங்கள் கொடுத்த மின்னஞ்சல் ஏற்கனவே பயன்பாட்டில் உள்ளது."
+      email_is_in_use_or_not_allowed: "இந்த மின்னஞ்சல் அனுமதிக்கப்படவில்லை அல்லது அது ஏற்கனவே பயன்பாட்டில் உள்ளது.  நீங்கள் உள்ளே செல்ல முடியாவிட்டால், எங்களை தொடர்பு கொள்ளவும்."
       email_not_allowed: ~
       invalid_username_or_email: ~
-      family_name: ~
-      given_name: ~
+      family_name: "கடைசி பெயர்"
+      given_name: "முதல் பெயர்"
       i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
-      invalid_invitation_code: ~
-      invitation_code: ~
-      not_required: ~
+      invalid_invitation_code: "இந்த அழைப்பு குறியீடு செல்லுபடியாகாது."
+      invitation_code: "அழைப்பு குறியீடு"
+      not_required: ", அவசியம் இல்லை"
       notification_is_mandatory: ~
-      password_again: ~
+      password_again: "கடவுச்சொல்லை உறுதிப்படுத்தவும்"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
+      sign_up: "புதிய%{service_name} கணக்கை உருவாக்கவும்"
+      terms: "பயன்படுத்தும் விதிமுறைகள்"
       privacy: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      visible_only_to_you: "உங்களுக்கும்%{service_name} குழுவுக்கும் மட்டுமே காண்பிக்கப்படும்"
+      visible_to_everybody: "அனைவருக்கும் காண்பிக்கப்படும்"
       create_account_with_provider: ~
       OR: ~
       signup_with_email: ~
@@ -2685,24 +2685,24 @@ ta-IN:
       manage_listings: ~
     show:
       contact: ~
-      about_me: ~
-      add_description: ~
+      about_me: "தன்னை பற்றிய அறிமுகம்"
+      add_description: "தங்களை பற்றி ஏதேனும் பகிர்ந்து கொள்ளுங்கள்"
       add_location: ~
       add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      address: இடம்
+      as_expected: எதிர்பார்த்தபடி
+      edit_profile_info: "சுயவிவரத்தைத் திருத்து"
+      exceeded_expectations: "எதிர்பார்ப்புகளை மீறியது"
       positive: ~
-      hide_description: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      hide_description: "குறைவாக காண்பி"
+      less_than_expected: "எதிர்பார்த்ததை விட மோசமாக"
+      phone_number: "கைபேசி எண்"
+      show_all_feedback: "அனைத்து கருத்துகளையும் காண்பி"
+      show_all_testimonials: "அனைத்து கருத்துகளையும் காண்பி"
+      show_full_description: "மேலும் காண்பி"
+      slightly_better_than_expected: "எதிர்பார்ப்புகளை மீறியது"
+      slightly_less_than_expected: "எதிர்பார்த்ததை விட மோசமாக"
+      what_are_these: "இவைகள் என்ன?"
       review: ~
       reviews: ~
       listing: ~
@@ -2730,11 +2730,11 @@ ta-IN:
       unfollow: ~
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
-      connect_your_facebook_to_kassi: ~
+      create_new_account: "புதிய கணக்கை உருவாக்க"
+      i_forgot_my_password: "கடவுச்சொல்லை மறந்துவிட்டீர்களா"
+      login: உள்நுழை
+      login_to_kassi: "%{service_name} க்குள் உள்நுழைக"
+      connect_your_facebook_to_kassi: "உங்கள் ஃபேஸ் புக் கணக்கை%{service_name} உடன் இணைக்க"
       facebook_account: ~
       log_in_to_link_account: ~
       you_can_also_create_new_account: ~
@@ -2745,16 +2745,16 @@ ta-IN:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
+      email: மின்னஞ்சல்
+      password_recovery_instructions: "உங்கள் கடவுச்சொல்லை மீட்டமைக்க உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்"
+      request_new_password: "புதிய கடவுச்சொல்லை வேண்ட"
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      resend_confirmation_instructions: ~
-      your_current_email_is: ~
-      change_email: ~
+      welcome_to_kassi: "%{service_name}க்கு உங்களை வரவேற்கிறோம்!"
+      check_your_email: "உங்கள் இன்பாக்ஸை பார்க்க"
+      resend_confirmation_instructions: "உறுதிப்படுத்தும் வழிமுறைகளை மீண்டும் அனுப்பவும்"
+      your_current_email_is: "தங்களது மின்னஞ்சல் முகவரி%{email}"
+      change_email: "மாற்றி அமைக்க"
       confirm_your_email: ~
       account_confirmation_instructions: ~
       account_confirmation_instructions_title_admin: ~
@@ -2765,20 +2765,20 @@ ta-IN:
       contact_support_link_text: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
+      change: "மாற்றி அமைக்க"
+      confirm_new_password: "புதிய கடவுச்சொல்லை உறுதிப்படுத்தவும்"
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      new_email: ~
+      new_email: "புதிய மின்னஞ்சல் முகவரி"
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
       only_admin: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      new_password: "புதிய கடவுச்சொல்"
+      save: சேமி
+      these_fields_are_shown_only_to_you: "உங்கள் பெயரைக் கொடுத்தாலே தவிர பயனர்பெயர் உங்கள் சுயவிவரத்தில் காட்டப்படும்.  பிற தகவல்கள் உங்களுக்கு மட்டுமே காண்பிக்கப்படும்."
       email_already_confirmed: ~
       email:
         address_title: ~
@@ -2796,8 +2796,8 @@ ta-IN:
         status_pending: ~
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
+      i_want_to_get_email_notification_when: "நான் ஒரு மின்னஞ்சல் அறிவிப்பைப் பெற விரும்புகிறேன்"
+      newsletters: "நிர்வாகிகளிடமிருந்து மின்னஞ்சல்கள்"
       community_updates: ~
       email_about_confirm_reminders: ~
       email_about_new_comments_to_own_listing: ~
@@ -2819,25 +2819,25 @@ ta-IN:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: "தன்னை பற்றி"
+      city: நகரம்
+      family_name: "கடைசி பெயர்"
+      given_name: "முதல் பெயர்"
       first_name_with_initial: ~
       first_name_only: ~
       display_name: ~
       display_name_description: ~
       location_description: ~
       profile_picture_description: ~
-      phone_number: ~
+      phone_number: "தொலைபேசி எண்"
       profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
+      postal_code: "அஞ்சலக குறியீடு"
+      profile_page: "உங்களது சுயவிவர பக்கம்"
+      profilemap: "வரைபடக் காட்சி"
+      street_address: இடம்
+      these_fields_are_shown_in_your: "சில விவரங்கள் அனைத்து %{service_name} பயனர்களுக்கும் காண்பிக்கப்படும்"
+      visible_to_everybody: "அனைவருக்கும் காண்பிக்கப்படும்"
+      visible_to_registered_users: "( உள்நுழைந்த பயனர்களுக்கு மட்டும் காண்பிக்கப்படும்)"
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
@@ -2847,7 +2847,7 @@ ta-IN:
       format_markdown: ~
       username: ~
       username_description: ~
-    save_information: ~
+    save_information: "தகவலை சேமிக்கவும்"
   shipping_address:
     shipping_address: ~
   tag_cloud:
@@ -2856,30 +2856,30 @@ ta-IN:
       without_tag: ~
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
+      accept_terms: "%{service_name} இன் பயன்பாட்டு விதிமுறைகள் ஏற்று கொள்ள படுகிறது"
+      here: "இங்கே கிளிக் செய்வதன் மூலம்"
+      i_accept_new_terms: "புதிய விதிமுறைகளை நான் ஏற்றுக்கொள்கிறேன்"
+      i_accept_terms: "விதிமுறைகளை நான் ஏற்றுக்கொள்கிறேன்"
+      terms: "%{service_name} இன் பயன்பாட்டு விதிமுறைகள்"
+      terms_have_changed: "பயன்பாட்டு விதிமுறைகள் மாற்றப்பட்டுவிட்டன"
+      you_can_view_the_new_terms: "புதிய விதிமுறைகளை நீங்கள் காணலாம்"
       you_need_to_accept: ~
       you_need_to_accept_new_terms: ~
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: "அனைத்து கருத்துகள்"
+      feedback_altogether: "அனைத்து கருத்துகள் "
+      loading_more_testimonials: "மேலும் சான்றுகள் load செய்யப்படுகிறது"
+      no_testimonials: "கருத்து இன்னும் பெறவில்லை"
     new:
-      as_expected: ~
-      exceeded_expectations: ~
-      give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
+      as_expected: எதிர்பார்த்தபடி
+      exceeded_expectations: "எதிர்பார்த்ததை விட நன்றாக"
+      give_feedback_to: "இவருக்கு %{person} கருத்தை தெரிவிக்கவும்"
+      grade: "இது வரைக்குமான மொத்த அனுபவம்?"
+      less_than_expected: "எதிர்பார்த்ததை விட மோசமாக"
+      send_feedback: "கருத்தை தெரிவிக்கவும்"
+      slightly_better_than_expected: "எதிர்பார்த்ததை விட சற்று சிறந்ததாக"
+      slightly_less_than_expected: "எதிர்பார்த்ததை விட சற்று மோசமாக"
       textual_feedback: ~
       this_will_be_shown_in_profile: ~
       positive: ~
@@ -2952,17 +2952,17 @@ ta-IN:
       short_date: ~
       hours_only: ~
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "%{count} நாள் முன்பு"
+    days_ago: "%{count} நாட்கள் முன்பு"
+    hour_ago: "%{count} நேரத்திற்கு முன்பு"
+    hours_ago: "%{count} நேரங்களுக்கு முன்பு"
+    minute_ago: "%{count} நிமிடத்திற்கு முன்பு"
+    minutes_ago: "%{count} நிமிடங்களுக்கு முன்பு"
+    month_ago: "%{count} மாததிற்கு முன்பு"
+    months_ago: "%{count} மாதங்களுக்கு முன்பு"
+    seconds_ago: "%{count} நொடிகளுக்கு முன்பு"
+    year_ago: "%{count} வருடத்திற்கு முன்பு"
+    years_ago: "%{count} வருடங்களுக்கு முன்பு"
   transactions:
     initiate:
       booked_days: ~

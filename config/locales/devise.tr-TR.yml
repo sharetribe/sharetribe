@@ -3,7 +3,7 @@ tr-TR:
     messages:
       expired: "süresi doldu, lütfen yeni bir tane isteyiniz"
       not_found: bulunamadı
-      already_confirmed: "daha önce teyit edildi, lütfen hesabınıza giriş yapınız"
+      already_confirmed: "daha önce onaylandı, lütfen hesabınıza giriş yapınız"
       not_locked: kilitlenmedi
       not_saved:
         other: "%{count} hata %{resource}'un kaydedilmesini engelledi. "
@@ -15,7 +15,7 @@ tr-TR:
       locked: "Hesabınız kilitlenmiştir."
       invalid: "Hatalı email ya da şifre."
       invalid_token: "Yanlış doğrulama kodu."
-      timeout: "Zaman aşımı oldu, devam etmek için lütfen tekrar giriş yapın."
+      timeout: "Oturumunuz sona erdi. Devam etmek için lütfen tekrar giriş yapın."
       inactive: "Hesabınız henüz etkinleştirilmemiştir."
     passwords:
       updated_not_active: "Parolanız başarıyla değiştirildi"

@@ -1429,10 +1429,10 @@ nb:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Ny tilbakemelding fra %{service_name}"
-    feedback_body: "%{author_name_and_email} har sendt følgende tilbakemelding fra %{service_name}"
-    unlogged_user: "Ulogget bruker"
-    anonymous_user: "Anonym bruker"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Tilgang avvist"

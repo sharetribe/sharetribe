@@ -1453,10 +1453,10 @@ ru:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Новое сообщение от %{service_name}"
-    feedback_body: "%{author_name_and_email} отправил следующее сообщение от %{service_name}"
-    unlogged_user: "Незарегистрированный пользователь"
-    anonymous_user: "Анонимный пользователь"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Доступ закрыт"

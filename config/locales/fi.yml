@@ -1437,10 +1437,10 @@ fi:
       mark_as_refunded: "Merkitse takaisinmaksetuksi"
       dismiss: "Hylkää ja anna maksu myyjälle"
   feedback:
-    feedback_subject: "Uusi palaute palvelusta %{service_name}"
-    feedback_body: "%{author_name_and_email} on lähettänyt seuraavan palautteen palvelusta %{service_name}"
-    unlogged_user: "Kirjautumaton käyttäjä"
-    anonymous_user: "Anonyymi käyttäjä"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Pääsy estetty"

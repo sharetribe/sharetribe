@@ -1418,10 +1418,10 @@ ar:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "‎%{service_name}‎ رسالة جديدة لـ"
+    feedback_subject: ~
     feedback_body: ~
-    unlogged_user: "مستخدم غير مسجل"
-    anonymous_user: "مستخدم مجهول"
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "الدخول ممنوع"

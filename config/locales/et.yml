@@ -23,7 +23,7 @@ et:
           category_title: "Kategooria pealkiri"
         category_parent:
           category_parent: Peakategooria
-          no_parent: ~
+          no_parent: "Pole algallikat"
         category_transaction_types:
           transaction_types: "Tellimuse tüübid"
           transaction_types_description: "Tellimustüübid määravad, millist tüüpi tellimisprotsess on selle kategooria kirjetega lubatud. Näiteks on lubatud ainult müümine või tasuta rentimine ja äraandmine."
@@ -74,11 +74,11 @@ et:
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
         save: "Salvesta seaded"
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
+        transaction_agreement: Tehinguleping
+        transaction_agreement_checkbox: "Enne tehingu alustamist nõuda ostjatelt lepingu aktsepteerimist"
+        transaction_agreement_checkbox_header: "Kokkuleppe silt"
+        transaction_agreement_checkbox_label_description: "Seda teksti näidatakse kassas märkeruudu kõrval. Tehingu jätkamiseks peab kasutaja olema märkeruut. Sildinäidis oleks näiteks \"Sellel kastil klõpsates nõustun lepinguga.\""
+        transaction_agreement_text_header: "Lepingu tekst"
         transaction_agreement_description: ~
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
@@ -114,8 +114,8 @@ et:
         default_browse_view: "Sirvimise vaikevaade"
         default_browse_view_instructions_text: "Vaikimisi sirvimisvaadet kasutatakse avalehel, et määrata, kuidas loendit vaikimisi kuvatakse."
         grid: ~
-        list: ~
-        map: ~
+        list: Loend
+        map: Kaart
         name_display_type: "Nime kuvamise tüüp"
         name_display_type_instructions_text: "Valige, kuidas saidil kuvatakse iga kasutaja nimi."
         full_name: "Täisnimi (eesnimi)"
@@ -170,7 +170,7 @@ et:
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
-        getting_started: ~
+        getting_started: Alusta
       available_languages:
         cs: ~
         da-DK: ~
@@ -300,7 +300,7 @@ et:
         searchpage: ~
         new_email_templates: ~
       social_media:
-        social_media: ~
+        social_media: Sotsiaalmeedia
         logo: ~
         logo_info: ~
         social_media_title: ~
@@ -309,23 +309,23 @@ et:
         link_for_linkedin: ~
         link_for_twitter: ~
         social_media_description: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
+        twitter_handle: "Twitteri käepide"
+        twitter_handle_info_text: "Teie turuplatsi Twitteri konto kasutajanimi (kui teil seda on)."
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_placeholder: kasutajanimi
         invalid_twitter_handle: ~
-        facebook_connect: ~
+        facebook_connect: "Facebookiga sisselogimine"
         facebook_developers_dashboard: ~
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
+        facebook_connect_id: "Facebooki rakenduse ID"
+        invalid_facebook_connect_id: "Rakenduse ID peaks sisaldama ainult numbreid."
+        facebook_connect_secret: "Facebooki rakenduse saladus"
+        invalid_facebook_connect_secret: "Rakenduse saladus peaks sisaldama ainult numbreid ja tähti alates a – f."
         enable_facebook_login: ~
-        save: ~
+        save: "Salvesta sätted"
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -394,16 +394,16 @@ et:
         google_search_console_paragraph2: ~
         save: ~
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
+        analytics: Analytics
+        google_analytics_key: "Google Analyticsi jälgimise ID"
+        google_analytics_key_info_text: "Teie Google Analyticsi konto jälgimise ID."
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
         sharetribe_analytics: ~
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
-        save: ~
+        save: "Salvesta seaded"
         google_tag_manager: ~
         gtm_paragraph_1: ~
         gtm_paragraph_2: ~
@@ -444,7 +444,7 @@ et:
       transactions:
         export_all_as_csv: ~
         processing_export: ~
-        transactions: ~
+        transactions: Tehingud
         search_by_title_parties: ~
         search: ~
         reset_search: ~
@@ -464,27 +464,27 @@ et:
           refunded: ~
           dismissed: ~
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: Vestlusniit
+          listing: Nimekiri
+          status: Olek
+          sum: Summa
+          started: Alustati
+          last_activity: "Viimane tegevus"
+          initiated_by: Alustaja
+          other_party: Müüja
         status:
           conversation: ~
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: "Tasuta tehing"
+          pending: Ootel
+          preauthorized: Eelvolitatud
+          accepted: Aktsepteeritud
+          rejected: "Tagasi lükatud"
+          paid: Makstud
+          confirmed: Lõpetatud
+          canceled: Tühistatud
           disputed: ~
-          initiated: ~
-          pending_ext: ~
+          initiated: "PayPali makse ootamine"
+          pending_ext: "PayPali makse ootamine"
           none:
             free: ~
           paypal:
@@ -843,7 +843,7 @@ et:
       form:
         field_required:
           this_field_is_required: "Tehke see välja kohustuslikuks täitmiseks uue kirje loomisel"
-          this_field_is_required_checkbox: ~
+          this_field_is_required_checkbox: "Kohustage selle välja täitmine uue kirje loomisel kohustuslikuks (kasutaja peab valima vähemalt ühe valiku)"
         search_filter:
           search_filter: ~
           date_cant_be_filtered: ~
@@ -862,7 +862,7 @@ et:
         clear_all: ~
         options: Valikud
         add_option: "+ Valiku lisamine"
-        saving_order: ~
+        saving_order: "Välja salvestamine"
         save_order_successful: "Tellimus õnnestus edukalt salvestada"
         save_order_error: "Tellimuse salvestamisel ilmnes viga. Värskendage lehte ja proovige uuesti."
         select_one: "Valige välja tüüp ..."
@@ -936,10 +936,10 @@ et:
         hello_firstname: ~
         hello_firstname_text: ~
     left_hand_navigation:
-      general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
+      general: Üldine
+      users_and_transactions: Halda
+      configure: Seadistamine
+      emails_title: E-kirjad
       subscription: ~
       preview: ~
       whats_new: ~
@@ -1027,10 +1027,10 @@ et:
           quantity_label: ~
           time_label: ~
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
+      marketplace_paypal_integration: "Maksesüsteemi eelistused"
+      preferences_updated: "Maksesüsteemi eelistusi on uuendatud"
       contact_support_link_text: ~
-      integration_info_text: ~
+      integration_info_text: "Teie turu maksesüsteem toetab PayPal. Selleks et kasutajad saaksid teie turuplatsil maksta, peate oma PayPali konto ühendama. Kui olete oma PayPali konto ühendanud, saate valida minimaalse tehingu suuruse ja võimaliku vahendustasu."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       link_stripe_personal_account: ~
@@ -1041,10 +1041,10 @@ et:
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
       marketplace_currency_label: ~
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
+      minimum_listing_price_label: "Minimaalne tehingu suurus:"
+      transaction_fee_label: "Müüja tehingutasu:"
       minimum_transaction_fee_label: ~
-      save_settings: ~
+      save_settings: "Salvesta seaded"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     payment_preferences:
@@ -1205,7 +1205,7 @@ et:
     username: Kasutajanimi
     username_or_email: E-mail
     what_is_this: "Mis see on?"
-    removed_user: ~
+    removed_user: "Eemaldatud kasutaja"
     payment_fee_info:
       title: ~
       stripe: ~
@@ -1232,8 +1232,8 @@ et:
       update_later: "Jäta kuulutus aktiivseks"
       optional_message: "Valikuline sõnum"
       price_to_pay: "Lõplik summa tasumiseks"
-      accept: ~
-      decline: ~
+      accept: Nõustu
+      decline: Keelduge
       quantity_label: ~
       sum_label: ~
       service_fee_label: ~
@@ -1258,8 +1258,8 @@ et:
       give_feedback_to: "Jäta tagasisidet kasutajale %{person_link}"
       do_not_give_feedback: "Jäta tagasiside kirjutamine vahele"
     details:
-      day: ~
-      days: ~
+      day: päev
+      days: päevad
       price_per_day: ~
     index:
       loading_more_messages: "Laen täiendavaid sõnumeid"
@@ -1329,8 +1329,8 @@ et:
       sum: "Kokku: %{sum}"
       total: ~
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
+      payment_errored: "Makse ebaõnnestus. Palun proovi uuesti."
+      payment_errored_starter: "Makse ebaõnnestus. Palun proovi uuesti. Kui probleem jätkub, võtke ühendust Sharetribe'i toega."
       payment_errored_author: ~
       cancel_payed_transaction: Tühista
       feedback_given: "Antud tagasiside"
@@ -1340,8 +1340,8 @@ et:
       offer_rejected: "Tagasi lükatud"
       offer_canceled: Tühistatud
       offer_confirmed: Lõpetatud
-      offer_paid: ~
-      offer_preauthorized: ~
+      offer_paid: "Makse õnnestus"
+      offer_preauthorized: "Makse õnnestus"
       offer_waiting_for_payment: ~
       pay: Maksa
       preauthorized: "Makse õnnestus"
@@ -1357,8 +1357,8 @@ et:
       request_rejected: "Tagasi lükatud"
       request_confirmed: Täidetud
       request_canceled: Tühistatud
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Makse õnnestus"
+      request_preauthorized: "Makse on lubatud"
       skip_feedback: "Jäta tagasiside vahele"
       waiting_for_listing_author_to_accept_offer: "Ootan pakkumise aktsepteerimist kasutaja %{listing_author_name} poolt"
       waiting_for_listing_author_to_accept_request: "Ootan taotluse aktsepteerimist %{listing_author_name} poolt. Kohe kui %{listing_author_name} on aktsepteerinud, arveldatakse teilt tasu."
@@ -1370,10 +1370,10 @@ et:
       waiting_feedback_from_you: "Ootan tagasisidet"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
-          unknown_reason: ~
-          verify: ~
+          multicurrency: "Ootan, kuni aktsepteerite PayPali makse"
+          intl: "Ootan, kuni aktsepteerite PayPali makse"
+          unknown_reason: "Makse on ootel. Lisateabe saamiseks logige sisse oma PayPali kontole."
+          verify: "Ootan, kuni kinnitate oma PayPali kontot"
       stripe:
         waiting_confirmation_from_requester: ~
       order_canceled: ~
@@ -1482,14 +1482,14 @@ et:
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
+      subject: "Tellimus täidetakse automaatselt - ärge unustage tagasisidet anda"
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
-      show_thread: ~
+      show_thread: "Kuva vestlus"
     confirmation_instructions:
       confirmation_instructions_signature: "Parimate soovidega, <br/>%{service_name} meeskond"
       need_to_confirm: "Liitumiseks %{service_name}, kinnita oma e-maili aadress vajutades allolevat nuppu."
@@ -1666,7 +1666,7 @@ et:
       if_you_do_accept: ~
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Taotlusele vastamiseks klõpsake siin"
     transaction_preauthorized_v2:
       headline: ~
     transaction_preauthorized_reminder:
@@ -1785,17 +1785,17 @@ et:
       you_must_explain_not_neutral_feedback: "Kui soovid anda mitteneutraalset tagasisidet, pead selgitama, miks."
       you_must_select_a_grade: "Pea meeles kirjeldada, kas kogemus oli positiivne või negatiivne."
     transaction_agreement:
-      required_error: ~
+      required_error: "Peate kokkuleppe heaks kiitma"
     paypal:
       transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
       seller_express_checkout_disabled_no_free: ~
-      generic_error: ~
-      cancel_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      generic_error: "Makseprotsessis ilmnes viga. Teie PayPali makset ei saanud lõpule viia."
+      cancel_error: "Vaidluse ajal ilmnes viga. Vaidlust ei õnnestunud lõpule viia."
+      accept_authorization_error: "Paypaliga volitatud makse aktsepteerimisel ilmnes viga. Palun proovi uuesti."
+      reject_authorization_error: "Eelnevalt volitatud Paypali makse tagasilükkamisel ilmnes viga. Palun proovi uuesti."
     stripe:
       generic_error: ~
       accept_authorization_error: ~
@@ -1810,13 +1810,13 @@ et:
       page_you_requested_can_not_be_found: "Lehekülge ei leitud. Kas oled kindel, et aadress on õige?"
     error_404_title: "lehekülge ei leitud"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
-    error_410_title: ~
+      page_removed: "Leht eemaldatud"
+      page_you_requested_has_been_removed: "Teie soovitud leht on eemaldatud."
+      page_removed_reason: "Sellel on mõned võimalikud põhjused. Näiteks võib kasutaja olla oma konto eemaldanud või kirje võib olla eemaldatud."
+    error_410_title: "leht eemaldatud"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
+      temporary_unavailable: "Turuplats pole ajutiselt saadaval"
+      unable_to_process: "Teenus ei saa teie taotlust praegu töödelda. Proovige mõne hetke pärast uuesti."
       we_hate_this: ~
       refer_to_error_id: ~
     error_500_title: "lehekülje laadimine ebaõnnestus"
@@ -1831,9 +1831,9 @@ et:
     your_email_address: "Sinu e-maili aadress"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
+      invalid_date: "pole õige kuupäev"
+      invalid_time: "pole õige aeg"
+      invalid_datetime: "ei ole kehtiv kellaaeg"
       is_at: ~
       before: ~
       on_or_before: ~
@@ -2002,7 +2002,7 @@ et:
       default_about_text: "See turg töötab Sharetribe'i platvormil. Sharetribe abil saate hõlpsalt luua oma turuplatsi. See on tasuta ja võtab ainult minuti. %{click_here_link} lisateabe saamiseks!"
       click_here_link_text: "Vajuta siia"
     how_to_use:
-      default_title: ~
+      default_title: "Kuidas see töötab"
       default_content: ~
   landing_page:
     hero:
@@ -2214,7 +2214,7 @@ et:
       can_not_delete_email: "E-posti aadressi ei saa eemaldada"
       user_does_not_have_email_to_delete: "Teil pole e-posti aadressi, mida proovite eemaldada"
       email_deleted: "E-post eemaldatud"
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: "Palun kontakteeruge isikuga, vajutades allpool olevat nuppu 'Kontakt'. Maksete saamiseks peavad nad värskendama oma makse üksikasju."
       listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -2260,7 +2260,7 @@ et:
       edit_listing: "Redigeeri kuulutust"
       reopen_listing: "Muuda kuulutus uuesti aktiivseks"
       move_to_top: "Liikuge avalehe algusesse"
-      show_in_updates_email: ~
+      show_in_updates_email: "Näita järgmises infolehes"
       show_in_updates_email_loading: "Laadimine ..."
       show_in_updates_email_error: "Serverisse ei õnnestunud jõuda. Pärast lehe värskendamist proovige uuesti."
       show_in_updates_email_success: "Seda kirjet näidatakse järgmises kasutajatele saadetavas automaatse värskenduse e-kirjas"
@@ -2331,7 +2331,7 @@ et:
       price:
         price: Hind
         per: per
-        per_day: ~
+        per_day: "päeva kohta"
         mass: "tk, kg, l, m2, ..."
         time: "tund, päev, kuu, ...."
         long_time: "nädal, kuu, ..."
@@ -2424,9 +2424,9 @@ et:
       accept_for_frees: "Võtame tasuta vastu"
       trades: Vahetamine
     listing_actions:
-      booking_from: ~
-      booking_to: ~
-      how_paypal_works: ~
+      booking_from: Alates
+      booking_to: Kuni
+      how_paypal_works: "Kuidas PayPal töötab?"
       payment_help: ~
       unable_load_availability: ~
       booking_date: ~
@@ -2492,7 +2492,7 @@ et:
       listing_created_at: "Kirje on loodud"
       price:
         per_quantity_unit: ~
-        per_day: ~
+        per_day: "päeva kohta"
       delivery: ~
       shipping: ~
       shipping_no_price: ~
@@ -2515,19 +2515,19 @@ et:
     preauthorize:
       dates_not_available: ~
       error_in_checking_availability: ~
-      details: ~
+      details: Üksikasjad
       by: ~
-      payment: ~
+      payment: Makse
       exp: ~
       you_will_be_charged: ~
-      day: ~
-      days: ~
+      day: päev
+      days: päeva
       night: ~
       nights: ~
       invalid_parameters: ~
       select_delivery_method: ~
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Vaade
     stripe_payment:
       payment: ~
       pay_with_card: ~
@@ -2566,7 +2566,7 @@ et:
     member_id: "Kasutaja ID"
     member_id_or_email: "Kasutajanimi või e-mail"
   paypal_accounts:
-    payout_info_title: ~
+    payout_info_title: "Raha saamine"
     paypal_account_email_connected: ~
     payout_info_paypal: ~
     paypal_billing_agreement_made: ~
@@ -2580,25 +2580,25 @@ et:
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
+    you_are_ready_to_accept_payments: "Olete valmis makseid vastu võtma!"
     commission: ~
     not_now: ~
     new:
       payout_info_you_need_to_connect: ~
-      payout_info_text: ~
+      payout_info_text: "Oma konto ühendamiseks toimige järgmiselt."
       contact_admin_link_text: ~
       admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      paypal_account_email: "Ühendage oma PayPali konto"
+      paypal_account_email_placeholder: "Teie PayPali e-posti aadress"
       paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
+      create_paypal_account: "klõpsates siin"
+      upgrade_paypal_account: "logige sisse oma PayPali kontole"
       paypal_account_billing_agreement: ~
       follow_steps: ~
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
-      connect_paypal_account: ~
+      connect_paypal_account: "Ühendage oma PayPali konto"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
@@ -2606,13 +2606,13 @@ et:
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
       billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
+      billing_agreement: "Andke luba"
+      permissions_not_granted: "Enda PayPali kontoga ühenduse loomise õigusi ei antud."
+      could_not_fetch_redirect_url: "PayPaliga ühenduse loomiseks ei õnnestunud ümbersuunamit luua."
+      paypal_not_enabled: "PayPali maksed pole lubatud."
+      billing_agreement_canceled: "Arveldusleping tühistati"
+      billing_agreement_not_accepted: "Te ei aktsepteerinud arvelduslepingut PayPalis."
+      billing_agreement_wrong_account: "PayPali kontod ei vastanud. Kasutage sama PayPali kontot, mille ühendasite esimese sammuna."
       something_went_wrong: ~
       account_not_verified: ~
       account_restricted: ~
@@ -2631,8 +2631,8 @@ et:
     pay_with_paypal: ~
     checkout_with: ~
     or_pay_with_paypal: ~
-    checkout_with_paypal: ~
-    cancel_succesful: ~
+    checkout_with_paypal: "Vormista PayPaliga"
+    cancel_succesful: "PayPali makse tühistati edukalt"
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
@@ -2725,12 +2725,12 @@ et:
       you_follow_singular: ~
       they_follow_plural: ~
       they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      show_all_followed_people: "Kuva kõik jälgitavad inimesed"
+      no_followed_people: "Pole jälgitavaid inimesi"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Jälgimine
+      follow: Jälgi
+      unfollow: "Ära jälgi"
   sessions:
     new:
       create_new_account: "Loo uus konto"
@@ -2760,7 +2760,7 @@ et:
       change_email: Muuda
       confirm_your_email: "Palun kinnita oma e-maili aadress."
       account_confirmation_instructions: "Peagi saad e-maili koos lingiga oma e-maili aadressi kinnitamiseks. Ära unustage kontrollida oma rämpsposti kausta! Pärast oma aadressi kinnitamist saad liituda %{service_name}."
-      account_confirmation_instructions_title_admin: ~
+      account_confirmation_instructions_title_admin: "Kinnita oma E-maili aadress"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
       admin_dashboard_link_text: ~
@@ -2814,7 +2814,7 @@ et:
       email_when_conversation_rejected: "... keegi lükkab minu pakkumise või taotluse tagasi"
       email_about_completed_transactions: "....keegi märgib minu tellimuse täidetuks"
       email_about_new_payments: "...Olen saanud makse"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: "... keegi, keda jälgin, postitab uue kirje"
       unsubscribe_succesful: "Tellimusest loobumine õnnestus"
       unsubscribe_info_text: "Sa ei saa enam neid e-maile. Seadetest %{settings_link} saad reguleerida, mille kohta e-maile %{service_name} saad või mine tagasi pealehele %{homepage_link}."
       settings_link: seaded
@@ -2896,58 +2896,58 @@ et:
     first_day_of_week: ~
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Pühapäeval
+      monday: Esmaspäev
+      tuesday: Teisipäev
+      wednesday: Kolmapäev
+      thursday: Neljapäev
+      friday: Reede
+      saturday: Laupäev
     days_short:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Püh.
+      monday: Esm.
+      tuesday: Teis.
+      wednesday: Kolm.
+      thursday: Nelj.
+      friday: Reede
+      saturday: Laup.
     days_min:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Püh.
+      monday: Esm.
+      tuesday: Teis.
+      wednesday: Kolm.
+      thursday: Nelj.
+      friday: Reede
+      saturday: Laup.
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Jaanuar
+      february: Veebruar
+      march: Märts
+      april: Aprill
+      may: Mai
+      june: Juuni
+      july: Juuli
+      august: August
+      september: September
+      october: Oktoober
+      november: November
+      december: Detsember
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
-    today: ~
-    clear: ~
-    format: ~
+      january: Jan
+      february: Veb
+      march: Mär
+      april: Apr
+      may: Mai
+      june: Jun
+      july: Jul
+      august: Aug
+      september: Sep
+      october: Okt
+      november: Nov
+      december: Det
+    today: Täna
+    clear: Puhasta
+    format: "kk / pp / aaaa"
   time:
     formats:
       short: ~
@@ -2989,8 +2989,8 @@ et:
     total: ~
     total_to_pay: ~
   unit:
-    day: ~
-    days: ~
+    day: Päev
+    days: Päeva
   web:
     listings:
       errors:
@@ -3053,6 +3053,11 @@ et:
       create_own: ~
       learn_more: ~
   will_paginate:
+    models:
+      person:
+        zero: kasutajad
+        one: kasutajad
+        other: kasutajad
     previous_label: ~
     next_label: ~
     page_gap: ~
@@ -3063,11 +3068,6 @@ et:
       community_members_entries_info:
         multi_page: ~
         multi_page_html: ~
-    models:
-      person:
-        zero: kasutajad
-        one: kasutajad
-        other: kasutajad
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

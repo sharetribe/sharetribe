@@ -1437,10 +1437,10 @@ fr:
       mark_as_refunded: "Marquée comme remboursée"
       dismiss: "Écarter et payer"
   feedback:
-    feedback_subject: "Nouveau message pour %{service_name}"
-    feedback_body: "%{author_name_and_email} a envoyé le message suivant depuis votre place de marché %{service_name}"
+    feedback_subject: "Nouveau message via le formulaire de contact sur %{service_name}"
+    feedback_body: "%{author_name_and_email} a envoyé le message suivant depuis le formulaire de contact sur %{service_name}. Cette notification est envoyée à tous les administrateurs de l'équipe %{service_name}."
     unlogged_user: "Un utilisateur non connecté"
-    anonymous_user: "Utilisateur anonyme"
+    anonymous_user: "Un utilisateur anonyme"
   community_memberships:
     access_denied:
       access_denied: "Accès refusé"

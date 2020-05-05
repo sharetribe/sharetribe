@@ -1406,10 +1406,10 @@ lv:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Jauna atsauksme no %{service_name}"
-    feedback_body: "%{author_name_and_email} ir nosūtījis/-jusi šādu atsauksmi no %{service_name}"
-    unlogged_user: "Neielogojies lietotājs"
-    anonymous_user: "Anonīms lietotājs"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Piekļuve liegta"

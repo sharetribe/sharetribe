@@ -1437,10 +1437,10 @@ en-NZ:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "New feedback from %{service_name}"
-    feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
-    unlogged_user: "Unlogged user"
-    anonymous_user: "Anonymous user"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Access denied"

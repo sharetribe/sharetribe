@@ -1404,8 +1404,8 @@ ca:
   feedback:
     feedback_subject: ~
     feedback_body: ~
-    unlogged_user: "Usuari desconnectat"
-    anonymous_user: "Usuari anònim"
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: ~

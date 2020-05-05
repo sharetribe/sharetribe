@@ -1426,10 +1426,10 @@ ja:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "%{service_name}から新しい評価が届きました"
-    feedback_body: "%{author_name_and_email}があなたに以下のお問い合わせを%{service_name}より送信されました。"
-    unlogged_user: ログインしていないユーザー
-    anonymous_user: 匿名ユーザー
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: アクセスが拒否されました

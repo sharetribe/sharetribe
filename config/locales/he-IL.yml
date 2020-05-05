@@ -1432,10 +1432,10 @@ he-IL:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "ביקורת חדשה מ‎%{service_name}‎ "
-    feedback_body: "‎%{author_name_and_email}‎  שלח את הביקורת הבאה מ‎%{service_name}‎ "
-    unlogged_user: "משתמש לא מחובר"
-    anonymous_user: "משתמש אנונימי"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "גישה נדחתה"

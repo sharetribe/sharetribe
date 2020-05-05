@@ -1420,10 +1420,10 @@ ka:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "ახალი სეფასება %{service_name} სგან"
-    feedback_body: "%{author_name_and_email} გამოაგზავნა შეფასება %{service_name}-სგან"
-    unlogged_user: "სისტემიდან გამოსული მომხმარებელი"
-    anonymous_user: "ანონიმური მომხმარებელი"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "წვდომა უარყოფილია"
