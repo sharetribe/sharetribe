@@ -42,20 +42,20 @@ ta-IN:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
+        community_details: "அடிப்படை விவரங்கள்"
         community_look_and_feel: ~
-        edit_community: ~
+        edit_community: "அடிப்படை தகவல்கள்"
         enabled_languages: ~
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
+        community_name: "சந்தையின் பெயர்"
         edit_community_name_description: ~
-        community_slogan: ~
+        community_slogan: "சந்தையின் கோஷம்"
         community_slogan_display: ~
         edit_community_slogan_description: ~
         edit_community_slogan_description_hideable: ~
-        community_description: ~
+        community_description: "சந்தையின் விவரம்"
         community_description_display: ~
         edit_community_description_description: ~
         edit_community_description_description_hideable: ~
@@ -63,8 +63,8 @@ ta-IN:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
-        invite_people: ~
+        update_information: "அமைப்புகளை சேமிக்கவும்"
+        invite_people: "புதிய பயனர்களை அழைக்கவும்"
         edit_signup_info: ~
         edit_signup_info_description: ~
         edit_info: ~
@@ -84,10 +84,10 @@ ta-IN:
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
-        community_logo: ~
+        community_logo: "வர்த்தக சின்னம்"
         community_logo_icon: ~
         community_logo_icon_mobile: ~
-        community_cover_photo: ~
+        community_cover_photo: அட்டைப்படம்
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
@@ -906,9 +906,9 @@ ta-IN:
         edit_user_field: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        send_email: ~
+        send_email_to_members: "மின்னஞ்சல் உபயோகிப்பார்கள்"
+        send_email_to_members_title: "உங்களது மின்னஞ்சலை அனுப்புங்கள்"
+        send_email: "மின்னஞ்சலை அனுப்பவும்"
         send_email_or: ~
         send_test_email: ~
         test_sent: ~
@@ -923,13 +923,13 @@ ta-IN:
             with_listing_no_payment: ~
             with_payment_no_listing: ~
             no_listing_no_payment: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
-        email_language: ~
+        email_subject: "மின்னஞ்சலின் பொருள்"
+        email_content: "மின்னஞ்சலின் உள்ளடக்கம்"
+        email_content_placeholder: "உங்கள் பயனர்களுக்கு நீங்கள் என்ன சொல்ல விரும்புகிறீர்கள்?"
+        email_language: "மின்னஞ்சல் பெறுபவர்களின் மொழி"
         any_language: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        message_will_be_sent_only_to_people_with_this_language: "நீங்கள் தேர்ந்தெடுக்கும் மொழியில்%{service_name} ஐப் பயன்படுத்தும் பயனர்களுக்கு மட்டுமே மின்னஞ்சல் அனுப்பப்படும்."
+        email_sent: "மின்னஞ்சல் அனுப்பப்பட்டது"
         to_improve_email_deliverability: ~
         email_subject_text: ~
         firstname_cannot_be_removed: ~
@@ -1161,15 +1161,15 @@ ta-IN:
   common:
     edit_page: ~
     default_community_slogan: "சமூக சந்தை"
-    default_community_description: ~
+    default_community_description: "இந்த இடமானது சந்தையின் மற்ற உறுப்பினர்களுடன் பொருட்கள் மற்றும் சேவைகள் விற்க,வாடகைக்கு விட,இடமாற்றம் செய்ய மற்றும் பகிர்ந்து கொள்வதற்கு ஆகும்."
     cancel: "ரத்து செய்"
     fields_that_are_mandatory: "(*) போட்டிருக்கும் தகவல்கள் அவசியமானது"
     or: அல்லது
     password: கடவுச்சொல்
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
+      request: வேண்டுதல்
+      offer: வியாபாரம்
       borrow: இரவல்
       buy: வாங்குதல்
       give_away: வழங்குதல்
@@ -1180,30 +1180,30 @@ ta-IN:
       sell: விற்பனை
       offer_to_swap: ~
       request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      share_for_free: "இலவசமாக பகிர படுகிறது"
+      accept_for_free: "இலவசமாக பயன்படுத்த விரும்புகிறேன்"
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
+      item: பொருட்கள்
+      favor: சேவைகள்
+      rideshare: "பயண வாகனத்தை பகிர்ந்து கொள்ளுதல்"
+      housing: இடங்கள்
+      tools: கருவிகள்
+      sports: விளையாட்டு
+      music: இசை
+      books: "புத்தகங்கள் மற்றும் பத்திரிகைகள்"
+      games: "விளையாட்டுகள் மற்றும் பொம்மைகள்"
       furniture: ~
       outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
+      food: "உணவு மற்றும் சமையலறை"
+      electronics: "மின்னணு பொருட்கள்"
+      pets: "செல்லப்பிராணிகள் மற்றும் விலங்குகள்"
       film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      clothes: "ஆடைகள் மற்றும் உபகாரணங்கள்"
+      garden: தோட்டம்
+      travel: பயணம்
+      other: மற்றவை
     username: "உபயோகிப்பாளரின் பெயர்"
-    username_or_email: ~
+    username_or_email: மின்னஞ்சல்
     what_is_this: "இது என்ன?"
     removed_user: ~
     payment_fee_info:
@@ -1224,14 +1224,14 @@ ta-IN:
     accept:
       details: ~
       order_by: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "வியாபாரத்தை ஏற்கவும்"
+      accept_request: "வேண்டுகோளை ஏற்கவும்"
+      reject_offer: "இப்போது இல்லை"
+      reject_request: "இப்போது இல்லை"
       close_listing: ~
       update_later: ~
       optional_message: ~
-      price_to_pay: ~
+      price_to_pay: "செலுத்த வேண்டிய மொத்த விலை"
       accept: ~
       decline: ~
       quantity_label: ~
@@ -1306,13 +1306,13 @@ ta-IN:
       message: செய்தி
       message_to: ~
       optional_message_to: ~
-      send_message: ~
+      send_message: "செய்தியை அனுப்பவும்"
       send: ~
       this_message_is_private: "இந்த செய்தியானது உங்களுக்கும்%{person}  இடையில் தனிப்பட்டது.  %{person} க்கு  இந்த செய்தி குறித்து மின்னஞ்சல் மூலம் அறிவிக்கப்படும்"
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: "%{person} உங்களது வேண்டுகோளை ஏறுகொண்டாலோ நிரகரிதலோ மின்னஞ்சல் வரும்"
+      you_will_get_notified: "%{person} உங்களுக்கு பதில் அளித்தால் மின்னஞ்சல் வரும்"
       title: தலைப்பு
-      send_message_to_user: ~
+      send_message_to_user: "%{person} க்கு செய்தி அனுப்பவும்"
       about_listing: ~
       author_has_to_accept_request: ~
     show:
@@ -1321,10 +1321,10 @@ ta-IN:
       message_sent_to: ~
       send_reply: "பதில் அனுப்பு"
       write_a_reply: "பதில் எழுது:"
-      conversation_about_listing: ~
-      conversation_with_user: ~
+      conversation_about_listing: "%{person} உடன்%{listing} பற்றி"
+      conversation_with_user: "%{person} உடன்"
       conversation_with: ~
-      last_message_at: ~
+      last_message_at: "( சமீபத்திய தகவல்%{time} )"
       price: ~
       sum: ~
       total: ~
@@ -1412,12 +1412,12 @@ ta-IN:
       you_are_banned_in_this_community: ~
       contact_page_link: ~
     new:
-      welcome_fb_user: ~
-      fb_join_accept_terms: ~
+      welcome_fb_user: "%{name} ,%{service_name} க்கு உங்களை வரவேற்கிறோம்!"
+      fb_join_accept_terms: "%{service_name} இல் சேர இன்னும் ஒரு நிலை உள்ளது: நீங்கள் பயன்பாட்டு விதிமுறைகளை ஏற்க வேண்டும்."
       join_community: "%{service_name} இல் சேர"
-      you_can_join: ~
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
+      you_can_join: "பயன்பாட்டு விதிமுறைகளை ஏற்று, கீழே உள்ள'%{service_name} இல் சேர்' என்பதைக் கிளிக் செய்வதன் மூலம்%{service_name} இல் சேரலாம்"
+      you_can_join_email_confirmation: "%{service_name} இல் சேர நீங்கள் செல்லுபடியாகும் மின்னஞ்சல் முகவரியை வைத்திருக்க வேண்டும், அது%{email_ending} உடன் இருக்க வேண்டும். உங்கள் மின்னஞ்சல் முகவரியை நிரப்புவதன் மூலமும், பயன்பாட்டு விதிமுறைகளை ஏற்றுக்கொள்வதன் மூலமும், கீழே உள்ள '%{service_name} இல் சேர்' என்பதைக் கிளிக் செய்வதன் மூலமும், உங்கள் மின்னஞ்சலை உறுதிப்படுத்துவதன் மூலமும் நீங்கள் சேரலாம்."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} க்கு மின்னஞ்சல் கட்டுப்பாடுகள் உள்ளன.  உங்களிடம் அனுமதிக்கப்பட்ட மின்னஞ்சல் முகவரி இருந்தால் மட்டுமே நீங்கள் சேர முடியும்.  உங்கள் மின்னஞ்சல் முகவரியை நிரப்பி%{service_name} இன் பயன்பாட்டு விதிமுறைகளை ஏற்று, கீழே உள்ள '%{service_name} சேர்'இல் கிளிக் செய்வதன் மூலம் நீங்கள் சேரலாம்."
       you_can_join_with_invite_only: ~
       if_want_to_view_content: ~
       log_out: வெளியேற
@@ -1491,8 +1491,8 @@ ta-IN:
       give_feedback_to: ~
       show_thread: ~
     confirmation_instructions:
-      confirmation_instructions_signature: ~
-      need_to_confirm: ~
+      confirmation_instructions_signature: "வாழ்த்துகள்,<br/> %{service_name} குழு"
+      need_to_confirm: "%{service_name} இல் சேர, கீழே உள்ள பொத்தானைக் கிளிக் செய்வதன் மூலம் உங்கள் மின்னஞ்சல் முகவரியை உறுதிப்படுத்தவும்."
       confirmation_link_text: "தங்கள் முகவரியை உறுதிப்படுத்த"
       or_paste_link: ~
     confirmation_instructions_v2:
@@ -1504,13 +1504,13 @@ ta-IN:
       hi: ~
       kassi_team: "%{service_name} குழுவுக்கு உங்கள் செய்தி"
       thanks: நன்றிகள்
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
-      or: ~
+      dont_want_to_receive_these_emails: "இந்த மின்னஞ்சல்களைப் பெற விரும்பவில்லையா?"
+      edit_your_email_settings_here: "உங்கள் மின்னஞ்சல் அமைப்பை இங்கே திருத்தம் செய்க"
+      message_not_displaying_correctly: "இந்த மின்னஞ்சல் சரியாகக் காட்டப்படவில்லையா?"
+      view_it_in_your_browser: "உங்கள் உலாவியில் அல்லது பிரவுசரில் பாருங்கள்"
+      or: அல்லது
       unsubscribe_from_these_emails_info: ~
-      unsubscribe_from_these_emails: ~
+      unsubscribe_from_these_emails: "இந்த மின்னஞ்சல்களில் இருந்து குழுவிலகவும்"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
       here_is_your_receipt: ~
@@ -1632,16 +1632,16 @@ ta-IN:
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
-      added_offer: ~
-      added_request: ~
+      added_offer: "%{name_link} ஒரு விற்பனையை துவக்கி இருக்கிறார்"
+      added_request: "%{name_link} ஒரு விற்பனையை துவக்கி இருக்கிறார்"
       added_listing: ~
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      reduce_email_footer_text: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      update_mail_title: "%{title_link} திருத்தம் செய்யப்பட்டது"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "கடந்த%{time_since_last_update}இல்%{community_link}இல் நடந்த சில விஷயங்கள் இங்கே."
+      intro_paragraph_link_text: "%{community_name}"
+      reduce_email_footer_text: "அதிக மினஞ்சலா?%{settings_link} அல்லது %{unsubscribe_link}"
+      settings_link_text: "உங்கள் மின்னஞ்சல் அமைப்பை இங்கே திருத்தம் செய்யலாம்"
+      unsubscribe_link_text: குளுவிலகவும்
     community_updates_v2:
       headline: ~
     newsletter:
@@ -1681,8 +1681,8 @@ ta-IN:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      welcome_email_footer_text: "%{service_name} இடமிருந்து எந்த வகையான மின்னஞ்சல்களைப் பெற விரும்புகிறீர்கள்?%{settings_link}"
+      settings_link_text: "உங்கள் அமைப்புகளைச் சரிபார்க்கவும்"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1824,7 +1824,7 @@ ta-IN:
     no_javascript:
       javascript_is_disabled_in_your_browser: "உங்கள் பிரவுசரில் ஜாவா ஸ்க்ரிப்ட் இல்லை"
       kassi_does_not_currently_work_without_javascript: "%{service_name} Javascript இல்லாமல் சரியாக வேலை செய்யாது. உங்கள் Browser preference இல் javascript சேர்த்து விட்டு முயற்சி செய்யவும்"
-      contact_us: ~
+      contact_us: "எங்களை தொடர்பு கொள்ள"
       send_feedback: "செய்தி அனுப்பவும்"
       your_feedback_to_admins: "%{service_name} குழுவுக்கு உங்கள் செய்தி"
     send: அனுப்பு
@@ -1875,15 +1875,15 @@ ta-IN:
   header:
     about: "உங்களை பற்றி"
     home: "முகப்பு பக்கம்"
-    members: ~
-    new_listing: ~
+    members: சமூகம்
+    new_listing: "புதிய வியாபார விவரங்கள்"
     mobile_version: "கைபேசி பதிப்பு"
     offers: ஆஃபர்கள்
     requests: வேண்டுதல்கள்
     search_kassi: "தேடு %{service_name}"
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    create_new_marketplace: "புதிய சந்தையை உருவாக்கவும்"
+    contact_us: "எங்களை தொடர்பு கொள்ளவதற்கு"
+    profile: சுயவிவரம்
     manage_listings: ~
     invite: ~
     login: ~
@@ -1933,13 +1933,13 @@ ta-IN:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
+      open_listing: "திறந்த வியாபார விவரம்"
+      open_listings: "திறந்த வியாபார விவரங்கள்"
+      private_listing_notification_log_in: உள்நுழை
       is: ~
       are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
+      what_do_you_need: "நீங்கள் என்ன தேடுகிறீர்கள்?"
+      post_new_listing: "புதிய பொருளை விற்பனைக்கு வை"
       are_offering: வியாபாரம்
       add_news_item: ~
       lend_rent_help_carpool: "விற்க, இரவல் வழங்க,உதவி செய்ய,பயண வாகனத்தை பகிர்ந்து கொள்ள"
@@ -1966,7 +1966,7 @@ ta-IN:
       add_lots_of_email_addresses: ~
       this_article_link: ~
       invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: ~
+      invitation_message_field_placeholder: "இந்த சந்தை மிக அருமையான சந்தை.நீங்களும் இதில் சேர வேண்டும்!"
       errors_in_emails: ~
     list_item:
       review: ~
@@ -1982,18 +1982,18 @@ ta-IN:
       add_your_info_link: "உங்கள் பற்றிய தகவலை இப்போது சேர்க்க"
     recent_listing:
       please_offer: ஆஃபர்
-      comment: ~
-      comments: ~
+      comment: கருத்து
+      comments: கருத்துக்கள்
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
+      show: "பிரித்து எடுத்தல்"
+      search: தேடவும்
+      map: "வரைபடத்தை காண்பிக்கவும்"
+      list: "வியாபார விவரத்தை காண்பிக்கவும்"
       map_button: ~
       grid_button: ~
       list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      all_listing_types: "அனைத்து வியாபார விவரங்கள்"
+      all_categories: "அனைத்து வகைகளும்"
     errors:
       search_engine_not_responding: ~
   infos:
@@ -2021,11 +2021,11 @@ ta-IN:
       learn_more: ~
     no_tribe:
       inbox: ~
-      settings: ~
-      feedback: ~
+      settings: அமைப்புகள்
+      feedback: "%{service_name} குழுவைத் தொடர்பு கொள்ளுங்கள்"
     application:
-      join_this_community: ~
-      read_more: ~
+      join_this_community: "சந்தையில் சேர"
+      read_more: "மேலும் விபரங்களுக்கு!"
       feedback: "%{service_name} குழுவுக்கு உங்களின் செய்தி"
       dont_use_to_contact_support: ~
       feedback_forum: "விமர்சனம் செய்யும் புலம்"
@@ -2035,13 +2035,13 @@ ta-IN:
       send_feedback_to_admin: "செய்தியை அனுப்பவும்"
       to_see_what_others_have_suggested: "மற்ற உபயோகிப்பாளர்கள் என்ன சொல்கிறார்கள் என தெரிந்து யோசனைகளுக்கு வாக்களிக்க"
       your_email_address: "உங்கள் மின்னஞ்சல் (உங்களை தொடர்பு கொள்ள)"
-      connect: ~
-      invite_your_friends: ~
+      connect: "பதிவு செய்ய"
+      invite_your_friends: "நண்பர்களை அழைக்க"
       invite_your_neighbors: ~
-      invite_your_friends_description: ~
-      invite_your_friends_invite_only_description: ~
+      invite_your_friends_description: "எவ்வளவு அதிகமான நபர்கள் இதில் %{service_name} இருக்கிறார்களோ அவ்வளவு உபயோகமாக இருக்கும்"
+      invite_your_friends_invite_only_description: "மக்கள் அழைக்கப்படாவிட்டால்%{service_name} இல் சேர இயலாது."
       join_without_facebook: ~
-      join_without_facebook_link: ~
+      join_without_facebook_link: "முகநூல் பயன் படுத்தாமல் பதிவு செய்ய"
     conversations:
       messages: செய்திகள்
       notifications: அறிவிப்புகள்
@@ -2102,10 +2102,10 @@ ta-IN:
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
-      community_updated: ~
-      community_update_failed: ~
+      community_updated: "விவரங்கள் திருதப்பட்டன"
+      community_update_failed: "விவரம் திருத்தல் தோல்வியுற்றது"
       account_creation_succesful_you_still_need_to_confirm_your_email: "உங்கள் கணக்கு வெற்றிகரமாக உருவாக்கப்பட்டது.  இப்போது நீங்கள் உங்கள் மின்னஞ்சல் முகவரியை உறுதிப்படுத்த வேண்டும்."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "%{service_name} இல் இணைந்ததற்கு நன்றி.  இப்போது நீங்கள் உங்கள் மின்னஞ்சல் முகவரியை உறுதிப்படுத்த வேண்டும்."
       comment_cannot_be_empty: "கருத்து காலியாக இருக்க முடியாது"
       comment_sent: "கருத்து அனுப்பபட்டது"
       confirmation_link_is_wrong_or_used: ~
@@ -2130,7 +2130,7 @@ ta-IN:
       inviting_new_users_is_not_allowed_in_this_community: "புதிய பயனர்களை அழைக்க தங்களுக்கு அனுமதியில்லை"
       login_again: "மீண்டும் உள்நுழையுங்கள்"
       login_failed: "உள்நுழைய இயலவில்லை. மீண்டும் சரியான விவரங்களை  உள்ளீடு செய்யவும்."
-      account_creation_successful: ~
+      account_creation_successful: "%{service_name} உங்களை வரவேற்கிறோம்%{person_name}"
       account_deleted: ~
       login_successful: "வந்தனம் %{person_name} !"
       logout_successful: "நீங்கள் இப்போது%{service_name} இல் இருந்து வெளியேறி விட்டீர்கள்! மீண்டும் விரைவில் சந்திப்போம்!"
@@ -2158,7 +2158,7 @@ ta-IN:
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "உங்கள் கடவுச்சொல் மாற்றும் அறிவுறுத்தல்கள் உங்கள் மின்னஞ்சலுக்கு அனுப்ப பட்டு உள்ளது"
-      person_activated: ~
+      person_activated: "உபயோகிப்பாளர் செயல்படுத்தப்பட்டார்"
       person_deactivated: "உபயோகிப்பாளர் செயல்படுத்தப்பட்டார்"
       person_updated_successfully: "தகவல் பதியப்பட்டது"
       poll_answered: "வோட்டு பதிலளிக்க பட்டது"
@@ -2176,7 +2176,7 @@ ta-IN:
       request_confirmed: ~
       request_rejected: "வேண்டுதல் நிராகரிக்க பட்டது"
       request_canceled: ~
-      message_sent: ~
+      message_sent: "செய்தி அனுப்பப்பட்டது"
       message_not_sent: ~
       this_content_is_not_available_in_this_community: "இந்த உள்ளடக்காமானது கிடைக்கவில்லை"
       unknown_error: "புரியாத பிழை. என்ன நிகழ்தது என்பதை எங்களை தொடர்பு கொள்ளுங்கள் என்ற இணை மூலம் அனுப்பவும்"
@@ -2185,22 +2185,22 @@ ta-IN:
       you_are_not_authorized_to_do_this: "இந்த செயலை செய்ய உங்களுக்கு அனுமதி இல்லை"
       you_are_not_authorized_to_view_this_content: "இதை பார்ப்பதற்கு உங்களுக்கு அனுமதி இல்லை"
       listing_closed: ~
-      send_instructions: ~
+      send_instructions: "இன்னும் சில நிமிடங்களில் உங்களுக்கு ஒரு மின்னஞ்சல் வரும். அதில் உங்கள் பழைய கடவுச்சொல்லை மாற்றி புதிதாக எப்படி அமைத்து கொள்வது என விளக்கப்பட்டிருக்கும்"
       you_cannot_reply_to_a_closed_offer: "முடிந்துபோன வியாபாரத்துக்கு பதில் அனுப்ப முடியாது"
-      you_cannot_send_message_to_yourself: ~
+      you_cannot_send_message_to_yourself: "உங்களுக்கான தகவலை நீங்களே அனுப்ப இயலாது"
       you_followed_listing: "நீங்கள் இந்த விற்பனை விவரங்களை பின்தொடர்கிறீர்கள்"
       you_have_already_given_feedback_about_this_event: "இந்த நிகழ்வைப் பற்றி நீங்கள் ஏற்கனவே கருத்துக்களை வழங்கியுள்ளீர்கள்"
-      you_are_now_member: ~
-      you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
-      additional_email_confirmed_dashboard: ~
+      you_are_now_member: "%{service_name}க்கு உங்களை வரவேற்கிறோம்!"
+      you_are_already_member: "நீங்கள் ஏற்கனவே%{service_name} இன் உறுப்பினராக உள்ளீர்கள் உங்களை வரவேற்கிறோம்"
+      you_must_log_in_to_create_new_listing: "புதிய விவரங்களை உருவாக்க %{service_name} குள் உள்நுழைய வேண்டும்.உங்களுக்கு கணக்கு இல்லை எனில் அதை உருவாக்கவும்%{sign_up_link} ."
+      additional_email_confirmed_dashboard: "உங்கள் மின்னஞ்சல் முகவரியானது உறுதிப்படுத்தப்பட்டது"
       you_must_log_in_to_give_feedback: "உங்கள் கருத்தை நீங்கள் உள்நுழைய வேண்டும்"
       you_must_log_in_to_invite_new_users: "புதிய பயனர்களை%{service_name} க்கு அழைக்க நீங்கள் உள்நுழைய வேண்டும்"
       you_must_log_in_to_send_a_comment: "உங்கள் புதிய கருத்தை அனுப்ப நீங்கள் உள்நுழைய வேண்டும்"
       you_must_log_in_to_send_a_message: "மற்றொரு பயனருக்கு ஒரு செய்தியை அனுப்ப நீங்கள் %{service_name}  இல் உள்நுழைய வேண்டும்."
       you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "இந்த விவரங்களை பார்க்க நீங்கள் உள்நுழைய வேண்டும்"
-      you_must_log_in_to_view_this_page: ~
+      you_must_log_in_to_view_this_page: "இந்தப் பக்கத்தைக் காண நீங்கள் உள்நுழைய வேண்டும்"
       you_must_log_in_to_view_your_inbox: "உங்களுக்கான செய்தியை காண நீங்கள்%{service_name}  இல் உள்நுழைய வேண்டும்."
       you_must_log_in_to_view_your_settings: "உங்கள் அமைப்புகளைக் காண நீங்கள்%{service_name} இல் உள்நுழைய வேண்டும்."
       you_must_log_in_to_add_news_item: ~
@@ -2210,7 +2210,7 @@ ta-IN:
       you_need_to_confirm_your_account_first: "தங்கள் மின்னஞ்சல் முகவரியை உறுதிப்படுத்தவும்"
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "நீங்கள் இந்த விற்பனை விவரங்களை பின்தொடரவில்லை"
-      joining_community_failed: ~
+      joining_community_failed: "சேருவது தோல்வி அடைந்தது"
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
@@ -2239,12 +2239,12 @@ ta-IN:
     bubble_listing_not_visible:
       listing_not_visible: "இந்த பட்டியலை கான தங்களுக்கு அனமதி இல்லை"
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: எழுதினார்
+      send_private_message: "%{person} க்கு தனிப்பட்ட செய்தி அனுப்பவும்"
       delete: ~
       are_you_sure: ~
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "வியாபார விவரங்கள் பற்றி கருத்து தெரிவிக்கவும் அல்லது கூடுதல் விவரஙகளைக் கேட்கலாம். மற்ற எல்லா பயனர்களும் உங்கள் கருத்தைக் காண முடியும்."
       log_in: உள்நுழை
       send_comment: "கருத்து அனுப்பு"
       to_send_a_comment: "புது கருத்து அனுப்பு"
@@ -2366,8 +2366,8 @@ ta-IN:
         rent_out: "வாடகைக்கு விடுதல்"
         request_type: "கோரிக்கையின் வகை"
         sell: "விற்பனை செய்யப்படுகிறது"
-        share_for_free: ~
-        accept_for_free: ~
+        share_for_free: "இலவசமாக பகிர படுகிறது"
+        accept_for_free: "இலவசமாக ஏற்று கொள்ளபடுகிறது"
         trade: ~
       tag_list:
         comma_separate: ~
@@ -2379,9 +2379,9 @@ ta-IN:
       valid_until_radio_buttons:
         for_the_time_being: தற்போதைக்கு
       privacy:
-        privacy: ~
-        private: ~
-        public: ~
+        privacy: தனியுரிமை
+        private: "தனிப்பட்டது(உள்நுழைந்த பயனர்களால் மட்டுமே பார்க்க முடியும்)."
+        public: "பொதுவானது (உள்நுழைந்திருக்காத பயனர்களுக்குத் தெரியும்)"
     help_texts:
       help_share_type_title: "வியாபாரத்தின் அல்லது வேண்டுகோளின் வகை"
       help_tags_title: ~
@@ -2396,7 +2396,7 @@ ta-IN:
       housing: இடங்கள்
       items: பொருட்கள்
       list_view: "பட்டியல் வடிவில் காண்பி"
-      listings: ~
+      listings: "வியாபார விவரங்கள்"
       map_view: "வரைபட வடிவில் காண்பி"
       offer_something: "மற்றவர்களுக்கு தெரியப்படுத்துங்கள்"
       offer_type: "வியாபாரத்தின் வகை"
@@ -2404,7 +2404,7 @@ ta-IN:
       request_something: "தேவைப்படுவதை கேளுங்கள்"
       request_type: "கோரிக்கையின் வகை"
       requests: வேண்டுதல்கள்
-      rideshare: ~
+      rideshare: "பயண வாகனத்தை பகிர்ந்து கொள்ளுதல்"
       you_have_something_others_do_not: "விற்க ஏதாவது இருக்கிறதா?"
       feed_title: ~
     left_panel_link:
@@ -2418,10 +2418,10 @@ ta-IN:
       receives: "இலவசமாக எடுத்து கொள்ளுதல்"
       rent_outs: "வாடகைக்கு விடுதல்"
       rents: வாடகைக்கு
-      rideshares: ~
+      rideshares: "பயண வாகனத்தை பகிர்ந்து கொள்ளுதல்"
       sells: "விற்பனை செய்தல்"
-      share_for_frees: ~
-      accept_for_frees: ~
+      share_for_frees: "இலவசமாக பகிர படுகிறது"
+      accept_for_frees: "இலவசமாக ஏற்று கொள்ள படுகிறது"
       trades: ~
     listing_actions:
       booking_from: ~
@@ -2435,9 +2435,9 @@ ta-IN:
       end_time: ~
       marketplace_fees_may_apply: ~
     new:
-      listing: ~
-      selected_category: ~
-      selected_subcategory: ~
+      listing: "வியாபார விவரங்கள்"
+      selected_category: "வகை%{category}"
+      selected_subcategory: "துணைப்பிரிவு%{subcategory}"
       selected_transaction_type: ~
       select_category: ~
       select_subcategory: ~
@@ -2462,10 +2462,10 @@ ta-IN:
     reply_link:
       listing_closed: ~
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
+      add_your_phone_number: "தொலைப்பேசி எண்ணை சேர்க்கவும்"
+      add_profile_picture: "தங்களது படத்தை சேர்க்கவும்"
       comments: "பொது விவாதம்"
-      contact_by_phone: ~
+      contact_by_phone: "தொலைபேசி மூலம் தொடர்பு கொள்ள"
       contact: ~
       favor_offer: "சேவை வழங்குதல்"
       favor_request: "சேவை வேண்டுதல்"
@@ -2475,18 +2475,18 @@ ta-IN:
       no_description: "இந்த பட்டியலில் விளக்கம் இல்லை"
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: வியாபாரம்
       listing_created: ~
-      open_until: ~
-      feedback: ~
+      open_until: "%{date} வரை திறந்திருக்கும்"
+      feedback: விமர்சனம்
       qr_code: ~
       request: வேண்டுதல்
       rideshare_offer: "பயண வாகனத்தை பகிர்ந்து கொள்ள அழைப்பு"
       rideshare_request: "பயண வாகனத்தை பகிர்ந்து கொள்ள வேண்டுதல்"
-      send_private_message: ~
+      send_private_message: "தனிப்பட்ட செய்தி அனுப்பவும்"
       tags: ~
       time: நேரம்
-      times: ~
+      times: நேரங்களில்
       times_viewed: "பார்க்க பட்டவை"
       processing_uploaded_image: ~
       listing_created_at: ~
@@ -2553,7 +2553,7 @@ ta-IN:
       map_view: "வரைபட வடிவில் காண்பி"
       offer_something: "மற்றவர்களுக்கு தெரியப்படுத்துங்கள்"
       offer_type: "வியாபாரத்தின் வகை"
-      offers: ~
+      offers: வியாபாரங்கள்
       request_something: "தேவைப்படுவதை கேளுங்கள்"
       request_type: "கோரிக்கையின் வகை"
       requests: வேண்டுதல்கள்
@@ -2564,7 +2564,7 @@ ta-IN:
     content_too_long: ~
   okl:
     member_id: "உறுப்பினர் அடையாள எண்"
-    member_id_or_email: ~
+    member_id_or_email: "உறுப்பினர் அடையாள எண் அல்லது மின்னஞ்சல்"
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: ~
@@ -2640,23 +2640,23 @@ ta-IN:
     chatting_with_paypal: ~
   people:
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: செயல்படுத்த
+      deactivate: செயலிழக்க
     help_texts:
       feedback_description_title: கருத்து
       help_invitation_code_title: "இதில் சேருவதற்கு உங்களுக்கு அழைப்பு தேவை"
       terms_title: "%{service_name} பயன்பாட்டு விதிமுறைகள்"
-      invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      invite_only_help_text: "ஏற்கனவே உள்ள பயனரால் அழைக்கப்பட்டால் மட்டுமே புதிய உறுப்பினர்கள் சேர முடியும் என்று நீங்கள் விரும்பினால் இந்த விருப்பத்தைத் தேர்ந்தெடுக்கவும்."
+      invite_only_help_text_title: "அழைப்பு மூலம் மட்டுமே"
     inactive_notification:
-      this_person_is_not_active_in_kassi: ~
+      this_person_is_not_active_in_kassi: "இந்த உபயோகிப்பாளர்%{service_name} இல் செயல்பாட்டில் இல்லை"
       inactive_description: ~
     new:
       create_new_account: "கணக்கை உருவாக்கு"
       email: "மின்னஞ்சல் முகவரி"
       email_is_in_use: "நீங்கள் கொடுத்த மின்னஞ்சல் ஏற்கனவே பயன்பாட்டில் உள்ளது."
       email_is_in_use_or_not_allowed: "இந்த மின்னஞ்சல் அனுமதிக்கப்படவில்லை அல்லது அது ஏற்கனவே பயன்பாட்டில் உள்ளது.  நீங்கள் உள்ளே செல்ல முடியாவிட்டால், எங்களை தொடர்பு கொள்ளவும்."
-      email_not_allowed: ~
+      email_not_allowed: "%{service_name} இல் இந்த மின்னஞ்சல் அனுமதிக்க படவில்லை.அனுமதிக்கப்பட்ட மின்னஞ்சலை உபயோகிக்கவும் அபடியும் சிரமம் இருந்தால் எங்களை தொடர்பு கொள்ளவும்"
       invalid_username_or_email: ~
       family_name: "கடைசி பெயர்"
       given_name: "முதல் பெயர்"
@@ -2667,7 +2667,7 @@ ta-IN:
       not_required: ", அவசியம் இல்லை"
       notification_is_mandatory: ~
       password_again: "கடவுச்சொல்லை உறுதிப்படுத்தவும்"
-      show_my_name_to_others: ~
+      show_my_name_to_others: "எனது உண்மையான பெயரை மற்ற%{service_name} பயனர்களுக்குக் காட்டவும்"
       sign_up: "புதிய%{service_name} கணக்கை உருவாக்கவும்"
       terms: "பயன்படுத்தும் விதிமுறைகள்"
       privacy: ~
@@ -2677,23 +2677,26 @@ ta-IN:
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
+      email_restriction_instructions:
+        one: "%{service_name} க்கான அணுகல் தடைசெய்யப்பட்டுள்ளது.சேர உங்களுக்கு%{allowed_emails} மின்னஞ்சல் முகவரி தேவை"
+        other: "%{service_name} க்கான அணுகல் வரையறுக்கப்பட்டுள்ளது.நீங்கள் சேர தகுதியுடையவர் என்பதை நிரூபிக்கும் மின்னஞ்சல் முகவரி உங்களுக்குத் தேவை"
     profile_feedback:
       grade: ~
-      and_gave_following_feedback: ~
+      and_gave_following_feedback: "மற்றும் பின்வரும் கருத்துக்களை வழங்க பட்டது"
     profile_listings:
       no_image: ~
       manage_listings: ~
     show:
-      contact: ~
+      contact: "%{person} தொடர்பு கொள்ள"
       about_me: "தன்னை பற்றிய அறிமுகம்"
       add_description: "தங்களை பற்றி ஏதேனும் பகிர்ந்து கொள்ளுங்கள்"
       add_location: ~
-      add_phone_number: ~
+      add_phone_number: "தொலைபேசி எண்ணை சேர்க்க"
       address: இடம்
       as_expected: எதிர்பார்த்தபடி
       edit_profile_info: "சுயவிவரத்தைத் திருத்து"
       exceeded_expectations: "எதிர்பார்ப்புகளை மீறியது"
-      positive: ~
+      positive: ஆக்கப்பூர்வமாக
       hide_description: "குறைவாக காண்பி"
       less_than_expected: "எதிர்பார்த்ததை விட மோசமாக"
       phone_number: "கைபேசி எண்"
@@ -2703,18 +2706,18 @@ ta-IN:
       slightly_better_than_expected: "எதிர்பார்ப்புகளை மீறியது"
       slightly_less_than_expected: "எதிர்பார்த்ததை விட மோசமாக"
       what_are_these: "இவைகள் என்ன?"
-      review: ~
-      reviews: ~
+      review: "மதிப்பாய்வுரை பெறப்பட்டது"
+      reviews: "மதிப்பாய்வுகள் பெறப்பட்டன"
       listing: ~
       listings: ~
-      open_listing: ~
-      open_listings: ~
+      open_listing: "திறந்த வியாபார விவரம்"
+      open_listings: "திறந்த வியாபார விவரங்கள்"
       no_listings: ~
-      no_open_listings: ~
-      no_reviews: ~
+      no_open_listings: "திறந்த வியாபார விவரங்கள் இல்லை"
+      no_reviews: "மதிப்பாய்வுகள் இல்லை"
       show_all_listings: ~
       show_all_open_listings: ~
-      show_all_reviews: ~
+      show_all_reviews: "அனைத்து மதிப்புரைகளையும் காட்டு"
       admin_actions: ~
       post_listing_as: ~
     followed_people:
@@ -2734,28 +2737,28 @@ ta-IN:
       i_forgot_my_password: "கடவுச்சொல்லை மறந்துவிட்டீர்களா"
       login: உள்நுழை
       login_to_kassi: "%{service_name} க்குள் உள்நுழைக"
-      connect_your_facebook_to_kassi: "உங்கள் ஃபேஸ் புக் கணக்கை%{service_name} உடன் இணைக்க"
-      facebook_account: ~
-      log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
-      account_creation_link_text: ~
-      cancle_facebook_connect: ~
-      facebook_cancel_link_text: ~
+      connect_your_facebook_to_kassi: "உங்கள் முகநூல் கணக்கை%{service_name} உடன் இணைக்க"
+      facebook_account: "முகநூல் கணக்கு"
+      log_in_to_link_account: "உங்களிடம் ஏற்கனவே%{service_name} கணக்கு இருந்தால், அதை உங்கள் முகநூல் கணக்குடன் இணைக்க உள்நுழையவும்."
+      you_can_also_create_new_account: "உங்களிடம் %{service_name} கணக்கு இல்லை எனில் முகநூலில் உள்நுழைந்து %{accont_creation_link} மூலம் உருவாக்கவும்."
+      account_creation_link_text: "இங்கே கிளிக் செய்யவும்"
+      cancle_facebook_connect: "இந்தக் கணக்கை நீங்கள் இணைக்க விரும்பவில்லை என்றால், நீங்கள்%{cancel_link} செய்யலாம்."
+      facebook_cancel_link_text: "ரத்து செய்"
       log_in_with_your_provider_account: ~
-      or_sign_up_with_your_username: ~
-      we_will_not_post_without_asking_you: ~
+      or_sign_up_with_your_username: "அல்லது உங்கள் மின்னஞ்சலுடன்:"
+      we_will_not_post_without_asking_you: "உங்களை கேட்காமல் நாங்கள் ஒருபோதும் முகநூலில் பதிவிட மாட்டோம்."
     password_forgotten:
       email: மின்னஞ்சல்
       password_recovery_instructions: "உங்கள் கடவுச்சொல்லை மீட்டமைக்க உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்"
       request_new_password: "புதிய கடவுச்சொல்லை வேண்ட"
-      change_your_password: ~
+      change_your_password: "கடவுச்சொல்லை மாற்ற"
     confirmation_pending:
       welcome_to_kassi: "%{service_name}க்கு உங்களை வரவேற்கிறோம்!"
       check_your_email: "உங்கள் இன்பாக்ஸை பார்க்க"
       resend_confirmation_instructions: "உறுதிப்படுத்தும் வழிமுறைகளை மீண்டும் அனுப்பவும்"
       your_current_email_is: "தங்களது மின்னஞ்சல் முகவரி%{email}"
       change_email: "மாற்றி அமைக்க"
-      confirm_your_email: ~
+      confirm_your_email: "தங்களது மின்னஞ்சல் முகவரியை உறுதிப்படுத்தவும்"
       account_confirmation_instructions: ~
       account_confirmation_instructions_title_admin: ~
       before_full_access_you_need_to_confirm_email: ~
@@ -2767,7 +2770,7 @@ ta-IN:
     account:
       change: "மாற்றி அமைக்க"
       confirm_new_password: "புதிய கடவுச்சொல்லை உறுதிப்படுத்தவும்"
-      delete_account: ~
+      delete_account: "கணக்கை நீக்க"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
@@ -2795,28 +2798,28 @@ ta-IN:
         status_confirmed: ~
         status_pending: ~
     notifications:
-      email_from_admins: ~
+      email_from_admins: "%{service_name} குழுவிலிருந்து அவ்வப்போது மின்னஞ்சல்களைப் பெற ஒப்புக்கொள்கிறேன்"
       i_want_to_get_email_notification_when: "நான் ஒரு மின்னஞ்சல் அறிவிப்பைப் பெற விரும்புகிறேன்"
       newsletters: "நிர்வாகிகளிடமிருந்து மின்னஞ்சல்கள்"
-      community_updates: ~
+      community_updates: செய்திமடல்கள்
       email_about_confirm_reminders: ~
       email_about_new_comments_to_own_listing: ~
       email_about_new_messages: ~
       email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
+      email_about_testimonial_reminders: "ஒரு நிகழ்வைப் பற்றி விமர்சிக்க மறந்துவிட்டேன்"
+      email_daily_community_updates: "புதிய விற்பனை பொருட்கள்  வரும்போது எனக்கு <b> தினசரி </b> செய்திமடலை அனுப்பவும்"
+      email_weekly_community_updates: "புதிய விற்பனை பொருட்கள் வரும்போது எனக்கு <b> வாராந்திர</b>  செய்திமடலை அனுப்பவும்"
+      do_not_email_community_updates: "எனக்கு செய்திமடல்களை அனுப்ப வேண்டாம்"
       email_when_conversation_accepted: ~
       email_when_conversation_rejected: ~
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_new_listings_by_followed_people: ~
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
+      unsubscribe_succesful: "குழுவிலகள் முடிந்தது"
+      unsubscribe_info_text: "இந்த மின்னஞ்சலை நீங்கள் இனி பெற மாட்டீர்கள்.%{service_name}இலிருந்து நீங்கள் எந்த வகையான மின்னஞ்சல்களைப் பெற விரும்புகிறீர்கள் என்பதைத் தேர்வுசெய்ய உங்கள்%{settings_link} ஐச் சரிபார்க்கவும் அல்லது%{homepage_link} க்குத் திரும்பவும்."
+      settings_link: அமைப்புகள்
+      homepage_link: "முகப்புப் பக்கம்"
+      unsubscribe_unsuccesful: "குளுவிலகிலில் பிரச்சனை உள்ளது"
       unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "தன்னை பற்றி"
@@ -2880,11 +2883,11 @@ ta-IN:
       send_feedback: "கருத்தை தெரிவிக்கவும்"
       slightly_better_than_expected: "எதிர்பார்த்ததை விட சற்று சிறந்ததாக"
       slightly_less_than_expected: "எதிர்பார்த்ததை விட சற்று மோசமாக"
-      textual_feedback: ~
-      this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      textual_feedback: "வியாபாரம் எப்படி சென்றது?"
+      this_will_be_shown_in_profile: "நீங்கள் கொடுக்கும் விமர்சனம் %{person}இன் சுயவிவரப் பக்கத்தில் உள்ள மற்ற உறுப்பினர்களுக்குத் தெரியும். அது %{person} நம்பகமான நபரா என்பதை மதிப்பீடு செய்ய இது அவர்களுக்கு உதவும்"
+      positive: ஆக்கப்பூர்வமாக
+      negative: எதிர்மறையான
+      default_textual_feedback: "எல்லாம் சீராக நடந்தது, மிக்க நன்றி!"
     testimonial:
       about_listing: ~
   date:
@@ -2963,6 +2966,9 @@ ta-IN:
     seconds_ago: "%{count} நொடிகளுக்கு முன்பு"
     year_ago: "%{count} வருடத்திற்கு முன்பு"
     years_ago: "%{count} வருடங்களுக்கு முன்பு"
+    days_since:
+      one: "%{count} ஆம் நாள்"
+      other: "%{count} நாட்கள்"
   transactions:
     initiate:
       booked_days: ~

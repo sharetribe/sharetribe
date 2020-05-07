@@ -265,7 +265,7 @@ tr-TR:
         manage_members: "Kullanıcıları yönet"
         email: E-posta
         name: Ad
-        display_name: "Görüntülenen isim"
+        display_name: "Marka adı"
         join_date: Katıldınız
         admin: Yönetici
         posting_allowed: "Listelemeye izin verildi"
@@ -1910,7 +1910,7 @@ tr-TR:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Ek olarak bir diğer teklif var,"
       additionally_one_private_request_exists: "Ek olarak bir diğer talep var,"
-      additionally_some_private_offers_exist: "Ek olarak diğer teklifler %{number_of_listings}"
+      additionally_some_private_offers_exist: "Ek olarak <b> %{number_of_listings} başka teklif var</b>,"
       additionally_some_private_requests_exist: "Ek olarak diğer %{number_of_listings} talep var,"
     blank_slate:
       add_first: "Yeni bir tane ekle!"
@@ -1955,7 +1955,7 @@ tr-TR:
       private_listing_notification_log_in: "giriş yap"
       is: "'dir."
       are: "'dir."
-      what_do_you_need: "Ne arıyorsunuz?"
+      what_do_you_need: "Ne arıyorsun?"
       post_new_listing: "Yeni İlan Ekle"
       are_offering: teklif
       add_news_item: "Metin ekleyin"
@@ -1963,8 +1963,8 @@ tr-TR:
       loading_more_content: "Daha fazla içerik yükleniyor"
       more_events: "Daha fazla etkinlikler..."
       news: Haberler
-      no_news: "Yenilik yok"
-      more_news: "Daha fazla yenilik"
+      no_news: "Yeni haber yok"
+      more_news: "Daha fazla haber göster"
       or: ve
       or_see_what_the_others: "... veya diğerlerinin ne yaptığına bak"
       recent_events: "Son etkinlikler"
@@ -1982,23 +1982,23 @@ tr-TR:
       add_email_addresses_description: "Aşağıdaki alana davet etmek istediğiniz kişilerin email adreslerini girin. Birden fazla adres ekleyecekseniz, adresleri virgül ile ayırın."
       add_lots_of_email_addresses: ~
       this_article_link: ~
-      invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
-      invitation_message_field_placeholder: "Harika bir pazar yerine katıldım. Sen de denemelisin!"
+      invitation_emails_field_placeholder: "arkadas1@ornek.com, arkadas2@ornek.com, ..."
+      invitation_message_field_placeholder: "Harika bir platforma katıldım. Sen de bir göz at!"
       errors_in_emails: "Eklediğiniz e-posta adreslerinin doğruluğunu kontrol edin. Birden fazla adres eklediyseniz, virgülle ayrıldıklarından emin olun."
     list_item:
       review: yorum
       reviews: yorumlar
-      distance_away: "%{distance}%{distance_unit} mesafede"
+      distance_away: "%{distance} %{distance_unit} mesafede"
     news_item:
       show_less: "Daha azını göster"
       show_more: "Daha fazlasını göster"
     profile_info_empty_notification:
       add_your_info: "İletişim bilgilerinizi ekleyin"
       add_a_profile_picture: "Profil resmi ekleyin"
-      you_have_not_added_your_info: "Ulaşım bilgilerinizi eklemediniz. Diğer kullanıcıların size ulaşabilmesi için lütfen bilgilerinizi ekleyin. Güvenilirliğinizi arttırmak için profil resmi eklemeyi de unutmayın."
+      you_have_not_added_your_info: "İletişim bilgilerinizi eklemediniz. Diğer kullanıcıların size ulaşabilmesi için lütfen bilgilerinizi ekleyin. Güvenilirliğinizi arttırmak için profil resmi eklemeyi de unutmayın."
       add_your_info_link: "Bilgilerinizi şimdi ekleyin"
     recent_listing:
-      please_offer: teklif
+      please_offer: Teklif
       comment: yorum
       comments: yorumlar
     filters:
@@ -2007,12 +2007,12 @@ tr-TR:
       map: "Haritada göster"
       list: "Listeyi göster"
       map_button: Harita
-      grid_button: Izgara
+      grid_button: Kare
       list_button: Liste
       all_listing_types: "Tüm ilan türleri"
       all_categories: "Tüm kategoriler"
     errors:
-      search_engine_not_responding: "Arama şu an aktif değil, daha sonra deneyin."
+      search_engine_not_responding: "Arama şu an yapılamıyor, lütfen daha sonra deneyin."
   infos:
     about:
       default_about_text_title: "Sharetribe nedir?"
@@ -2020,13 +2020,13 @@ tr-TR:
       click_here_link_text: "Buraya tıklayın"
     how_to_use:
       default_title: "Nasıl çalışır"
-      default_content: "%{marketplace_name}'in nasıl çalıştığı hakkında bilgileri burada bulabilirsiniz."
+      default_content: "%{marketplace_name} pazar yerinin nasıl çalıştığı hakkında bilgileri burada bulabilirsiniz."
   landing_page:
     hero:
       search: Ara
       signup: "Kayıt ol"
-      search_placeholder: "Ne arıyorsunuz"
-      search_location_placeholder: Şehir/Konum
+      search_placeholder: "Ne arıyorsun?"
+      search_location_placeholder: Lokasyon/Konum
     listings:
       no_listing_image: "Resim yok"
   layouts:
@@ -2037,9 +2037,9 @@ tr-TR:
       create_own: ~
       learn_more: "Daha fazla bilgi"
     no_tribe:
-      inbox: "Gelen posta"
+      inbox: "Gelen kutusu"
       settings: Ayarlar
-      feedback: "İletişim%{service_name}"
+      feedback: "%{service_name} ekibi ile iletişime geç"
     application:
       join_this_community: "Pazara katılın"
       read_more: "Devamını oku"
@@ -2055,8 +2055,8 @@ tr-TR:
       connect: "Kayıt ol"
       invite_your_friends: "Arkadaşlarını davet et"
       invite_your_neighbors: "Komşularınızı davet edin!"
-      invite_your_friends_description: "%{service_name}'de ne kadar fazla kişi olursa, o kadar kullanışlı olacaktır."
-      invite_your_friends_invite_only_description: "Davetli olmayan kişiler %{service_name}'e katılamaz."
+      invite_your_friends_description: "%{service_name} platformunda ne kadar fazla kişi olursa, o kadar kullanışlı olacaktır."
+      invite_your_friends_invite_only_description: "Davetli olmayan kişiler %{service_name} platformuna katılamaz."
       join_without_facebook: "...ya da %{join_without_facebook_link}"
       join_without_facebook_link: "Facebook kullanmadan kayıt olun"
     conversations:
@@ -2123,7 +2123,7 @@ tr-TR:
       community_update_failed: "Bilgiler güncellenemedi."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Hesap başarıyla oluşturuldu. Şimdi e-posta adresinizi doğrulamanız gerekmektedir."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "%{service_name}' katıldığınız için teşekkür ederiz. Şimdi e-posta adresinizi doğrulamanız gerekmektedir."
-      comment_cannot_be_empty: "Yorum mesajı boş olamaz"
+      comment_cannot_be_empty: "Yorum kısmı boş bırakılamaz"
       comment_sent: "Yorumuzun gönderildi"
       confirmation_link_is_wrong_or_used: "Doğrulama linki kullanılmış ya da hatalı. Giriş yapmaya çalışın veya sorun devam ederse, bize ulaşın."
       additional_email_confirmed: "Girmiş olduğunuz e-posta adresi doğrulandı."
@@ -2137,20 +2137,20 @@ tr-TR:
       feedback_considered_spam: "Format hatası nedeniyle, geri bildiriminiz kaydedilemedi. Tekrar deneyin ya da geri bildirim forumumuza göz atın."
       feedback_not_saved: "Geri bildirim gönderilemedi."
       feedback_saved: "Mesajınız için teşekkür ederiz! Mümkün olan en kısa sürede dönüş yapılacaktır."
-      feedback_sent_to: "Geri bildirim %{target_person} kişisine gönderildi."
+      feedback_sent_to: "Geri bildirim %{target_person} kullanıcısına gönderildi."
       feedback_skipped: "Geri bildirim atlandı."
       invitation_cannot_be_sent: "Davetiye gönderilemedi"
       invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: "Davet başarıyla gönderildi"
       invitation_successfully_unsubscribed: "Davet e-posta listesinden başarıyla çıkarıldı"
-      inviting_new_users_is_not_allowed_in_this_community: "Yeni kullanıcı davet etmeye izin verilnenektedir."
+      inviting_new_users_is_not_allowed_in_this_community: "Yeni kullanıcı davet etmeye izin verilmemektedir."
       login_again: "Lütfen tekrar giriş yapın."
       login_failed: "Oturum açma başarısız. Lütfen doğru bilgilerle deneyin."
-      account_creation_successful: "%{person_name}, %{service_name}'a hoş geldin!"
+      account_creation_successful: "%{person_name}, %{service_name} platformuna hoş geldin!"
       account_deleted: "Hesabınız silindi."
       login_successful: "Hoş geldin, %{person_name}!"
-      logout_successful: "%{service_name} 'dan başarıyla çıkış yaptınız. Yeniden bekleriz!"
+      logout_successful: "%{service_name} platformundan başarıyla çıkış yaptınız. Yeniden bekleriz!"
       news_item_created: "Metin oluşturuldu"
       news_item_creation_failed: "Metin oluşturma başarısız oldu"
       news_item_update_failed: "Metin güncellemesi başarısız oldu"
@@ -2165,10 +2165,10 @@ tr-TR:
       listing_updated_successfully: "İlan başarıyla güncellendi"
       listing_updated_availability_management_enabled: "Liste başarıyla güncellendi. Uygunluk yönetimi etkin"
       listing_updated_availability_management_disabled: "Liste başarıyla güncellendi. Uygunluk yönetimi devre dışı bırakıldı."
-      listing_deleted: ~
+      listing_deleted: "İlan silindi"
       only_kassi_administrators_can_access_this_area: "Bu alana erişmek için lütfen bir yönetici hesabıyla giriş yapın"
-      only_listing_author_can_close_a_listing: "Listelemeyi sadece ilan sahibi kapatabilir."
-      only_listing_author_can_edit_a_listing: "Listelemeyi yalnızca ilan sahibi düzenleyebilir."
+      only_listing_author_can_close_a_listing: "İlanı sadece ilan sahibi kapatabilir."
+      only_listing_author_can_edit_a_listing: "İlanı yalnızca ilan sahibi düzenleyebilir."
       payment_successful: "Ödeme başarıyla tamamlandı"
       payment_canceled: "Ödeme iptal edildi"
       error_in_payment: "Ödeme sırasında hata meydana geldi. Eğer ödemeyi henüz tamamlamadıysanız, yeniden deneyin. Tamamladıysanız, lütfen bize ulaşın."
@@ -2212,16 +2212,16 @@ tr-TR:
       you_must_log_in_to_create_new_listing: "%{service_name}: Yeni listeleme oluşturmak için giriş yapmalısınız. Eğer hesabınız yoksa, %{sign_up_link} yapabilirsiniz."
       additional_email_confirmed_dashboard: "E-posta adresiniz doğrulandı."
       you_must_log_in_to_give_feedback: "Geri bildirim vermek için oturum açmanız gerekmektedir."
-      you_must_log_in_to_invite_new_users: "Yeni kullanıcıları %{service_name} pazar yerine davet etmek için oturum açmalısınız"
+      you_must_log_in_to_invite_new_users: "Yeni kullanıcıları %{service_name} platformuna davet etmek için oturum açmalısınız"
       you_must_log_in_to_send_a_comment: "Yeni yorum göndermek için oturum açmanız gerekmektedir."
       you_must_log_in_to_send_a_message: "%{service_name}: Başka bir kullanıcıya mesaj göndermek için oturum açmanız gerekmektedir."
-      you_must_log_in_to_do_a_transaction: "%{service_name} pazar yerinde işlem yapmak için giriş yapmalısınız.\n"
+      you_must_log_in_to_do_a_transaction: "%{service_name} üzerinde işlem yapmak için giriş yapmalısınız."
       you_must_log_in_to_view_this_content: "Bu içeriği görüntülemek için oturum açmanız gerekmektedir."
       you_must_log_in_to_view_this_page: "Bu sayfayı görüntülemek için oturum açmalısınız"
       you_must_log_in_to_view_your_inbox: "%{service_name}: Gelen kutunuzu görmek için oturum açmanız gerekmektedir."
       you_must_log_in_to_view_your_settings: "%{service_name}: Ayarlarınızı görüntülemek için oturum açmanız gerekmektedir."
       you_must_log_in_to_add_news_item: "%{service_name}: Yeni bir metin eklemek için giriş yapın."
-      you_must_log_in_to_change_profile_settings: "Profil ayarlarını değiştirmek için %{service_name}'a giriş yapmalısınız"
+      you_must_log_in_to_change_profile_settings: "Profil ayarlarını değiştirmek için %{service_name} platformuna giriş yapmalısınız"
       you_must_log_in_to_accept_or_reject: "Bu işlemi kabul ya da reddetmek için giriş yapmalısınız"
       you_must_log_in_to_confirm_or_cancel: "İşlemi iptal etmek ya da onaylamak için giriş yapmalısınız"
       you_need_to_confirm_your_account_first: "E-posta adresinizi doğrulamanız gerekmektedir."
@@ -2233,12 +2233,12 @@ tr-TR:
       email_deleted: "E-posta adresi kaldırıldı"
       listing_author_payment_details_missing: "Bu listelemenin sahibi ödeme bilgilerini eklemediği için şu an ödeme alamıyor. Lütfen ilan sahibine veya bize ulaşın."
       listing_author_payment_details_missing_no_free: ~
-      images_are_processing: ~
+      images_are_processing: "Görseller yükleniyor. Kısa süre içinde görünecekler."
       automatically_logged_out_please_sign_in: "Otomatik olarak çıkış yaptınız. Lütfen tekrar giriş yapın."
       stripe_you_account_balance_is_not_0: ~
       stripe_balance_for_username_is_not_0: ~
-      visit_admin: "%{link}istermiydiniz?"
-      visit_admin_link: "Yönetici panelinizi ziyaret etmek"
+      visit_admin: "%{link} istermiydiniz?"
+      visit_admin_link: "Yönetici panelinizi ziyaret et"
       an_error_occurred_when_saving_your_information: "Bilgilerinizi kayıt edilirken bir hata oluştu: %{message} Lütfen tüm bilgilerin doğruluğundan emin olun ve tekrar deneyin."
     settings:
       account: Hesap
@@ -2249,7 +2249,7 @@ tr-TR:
       stripe_payments: ~
       payments: Ödemeler
       listings: İlanlar
-      listings_search_placeholder: ~
+      listings_search_placeholder: "İlan ara"
       transactions_search_placeholder: "Bir işlem adı veya ilgili bir şey ile arama yapın"
       transactions: İşlem
   listings:
@@ -2264,10 +2264,10 @@ tr-TR:
       ask_a_question: "İlanı değerlendirin ya da daha fazla detay sorun. Diğer tüm kullanıcılar yorumunuzu görebilecek."
       log_in: "oturum açın"
       send_comment: "Yorum gönder"
-      to_send_a_comment: "ve yorumlarınızı yazın."
+      to_send_a_comment: "ve yorumunuzu yazın."
       write_comment: "Yeni yorum yaz:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Yeni yorum gönderemezsiniz, çünkü bu ilan kapatıldı."
-      you_must: "Giriş yapmalısınız,"
+      you_must: "Yorum yapmak için giriş yapmalısınız,"
       subscribe_to_comments: "Beni yeni yorum ve güncellemelerden haberdar et"
     deleting_a_listing_cannot_be_undone: ~
     edit:
@@ -2290,7 +2290,7 @@ tr-TR:
       open_in_google_maps: "Google Maps üzerinde aç."
     error:
       something_went_wrong: "Bir sorun yaşandı; hata kodu: %{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "Bir hata oluştu"
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
     follow_links:
@@ -2473,7 +2473,7 @@ tr-TR:
       month: "Ay sayısı:"
       unit: ~
       custom: Miktar
-      person: ~
+      person: "kişi sayısı:"
     quantity_placeholder: Adet
     please_comment: Yorum
     reply_link:
@@ -2538,8 +2538,8 @@ tr-TR:
       exp: "Son:"
       you_will_be_charged: "Ödeme sadece %{author} kişisi işlemi kabul ettiğinde hesabınızdan düşülür. %{author} işlemi %{expiration_period} gün içerisinde kabul etmelidir. %{author} reddeder ya da cevap vermezse, hesabınızdan kesinti olmayacaktır."
       day: gün
-      days: günler
-      night: ~
+      days: gün
+      night: gece
       nights: gece
       invalid_parameters: ~
       select_delivery_method: ~
@@ -2562,7 +2562,7 @@ tr-TR:
       all_offer_types: "Tüm teklif türleri"
       all_request_types: "Tüm talep türleri"
       category: Kategori
-      did_not_found_what_you_were_looking_for: "Aradığınızı bulamadınız mı?"
+      did_not_found_what_you_were_looking_for: "Aradığını bulamadın mı?"
       favors: Hizmetler
       housing: Alanlar
       items: Öğeler
@@ -2666,15 +2666,15 @@ tr-TR:
       invite_only_help_text: "Yeni üyelerin sadece mevcut üyelerin davetiyle katılabilmesini istiyorsanız bunu seçin."
       invite_only_help_text_title: "Sadece davetle"
     inactive_notification:
-      this_person_is_not_active_in_kassi: "Bu kullanıcı artık %{service_name}'de aktif değildir."
-      inactive_description: "Bu kullanıcı %{service_name}'ı kullanmayı bıraktı. Bu kullanıcıyla iletişim kuramaz, geri bildirim bırakamaz ve ilanlarına yorum yapamazsınız."
+      this_person_is_not_active_in_kassi: "Bu kullanıcı artık %{service_name} üzerinde aktif değildir."
+      inactive_description: "Bu kullanıcı %{service_name} platformunu kullanmayı bıraktı. Bu kullanıcıyla iletişim kuramaz, geri bildirim bırakamaz ve ilanlarına yorum yapamazsınız."
     new:
       create_new_account: "Hesap oluştur"
       email: "E-posta adresi"
       email_is_in_use: "Girdiğiniz e-posta adresi kullanımda."
       email_is_in_use_or_not_allowed: "E-posta adresi tanınmıyor veya kullanımda. Giriş yapamıyorsanız, bize ulaşın."
       email_not_allowed: "%{service_name}: Bu email adresine izin verilmemektedir. Lütfen izin verilen bir email adresi kullanın. Yine de giriş yapamıyorsanız, bize ulaşın."
-      invalid_username_or_email: ~
+      invalid_username_or_email: "E-posta adresi hatalı veya kullanımda"
       email_restriction_instructions:
         other: "%{service_name}'e erişim sınırlandırılmıştır. Katılım izniniz olduğunu gösteren bir e-posta adresine sahip olmalısınız."
       family_name: Soyad
@@ -2690,7 +2690,7 @@ tr-TR:
       sign_up: "Yeni %{service_name} hesabı oluştur."
       terms: "Kullanım Koşulları"
       privacy: "Gizlilik politikası"
-      visible_only_to_you: "yalnızca siz ve pazaryeri yöneticisi görebilir"
+      visible_only_to_you: "yalnızca siz ve %{service_name} yöneticisi görebilir"
       visible_to_everybody: "herkes görebilir"
       create_account_with_provider: "%{provider} ile kayıt olun"
       OR: "YA DA"
@@ -2703,12 +2703,12 @@ tr-TR:
       no_image: "Görsel yok"
       manage_listings: "Tüm ilanlarımı yönet"
     show:
-      contact: "%{person} kullanıcısına ulaş"
+      contact: "%{person} kullanıcısına mesaj gönder"
       about_me: "Hakkımda:"
       add_description: "Kendinizden bahsedin"
       add_location: "Konum ekleyin"
       add_phone_number: "Telefon numarası ekleyin"
-      address: "Yer:"
+      address: "Konum:"
       as_expected: "Beklendiği gibi"
       edit_profile_info: "Profili düzenle"
       exceeded_expectations: "Beklentileri aşan özellikler"
@@ -2727,7 +2727,7 @@ tr-TR:
       listing: ilan
       listings: ilanlar
       open_listing: "açık ilan"
-      open_listings: "açık ilanlar"
+      open_listings: "açık ilan"
       no_listings: "İlan yok"
       no_open_listings: "Açık ilan yok"
       no_reviews: "Yorum yok"
@@ -2739,12 +2739,12 @@ tr-TR:
     followed_people:
       you_follow_plural: "%{count} kişiyi takip ediyorsunuz"
       you_follow_singular: "%{count} kişiyi takip ediyorsunuz"
-      they_follow_plural: "%{count} kişi takip ediliyor"
-      they_follow_singular: "%{count} kişi takip ediliyor"
-      show_all_followed_people: "Takip edilen kişilerin tamamını göster"
-      no_followed_people: "Takip edilen kişi yok"
+      they_follow_plural: "%{count} kişiyi takip ediyor"
+      they_follow_singular: "%{count} kişiyi takip ediyor"
+      show_all_followed_people: "Takip ettiği kişilerin tamamını göster"
+      no_followed_people: "Takip ettiği kişi yok"
     follow_button:
-      following: "Takip ediliyor"
+      following: "Takip ediyor"
       follow: "Takip et"
       unfollow: "Takip etmeyi durdur"
   sessions:
@@ -2752,7 +2752,7 @@ tr-TR:
       create_new_account: "Yeni hesap oluştur"
       i_forgot_my_password: "Kullanıcı adımı ya da şifremi unuttum"
       login: "Oturum aç"
-      login_to_kassi: "%{service_name} pazar yerine giriş yap."
+      login_to_kassi: "%{service_name} platformuna giriş yap."
       connect_your_facebook_to_kassi: "Facebook hesabınızı %{service_name} pazar yerine bağlayın"
       facebook_account: "Facebook hesabı:"
       log_in_to_link_account: "Eğer %{service_name} hesabınız varsa, Facebook hesabınıza bağlamak için giriş yapın."
@@ -2776,7 +2776,7 @@ tr-TR:
       change_email: Değiştir
       confirm_your_email: "Email adresinizi doğrulayın"
       account_confirmation_instructions: "Birkaç dakika içinde girdiğiniz email adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, %{service_name} pazar yerine katılabilirsiniz."
-      account_confirmation_instructions_title_admin: "Pazar yerinize hoş geldiniz!"
+      account_confirmation_instructions_title_admin: "E-posta adresinizi doğrulayın"
       before_full_access_you_need_to_confirm_email: "Pazarınıza bütünüyle erişim sağlamadan önce tamamlamanız gereken bir adım daha bulunuyor: e-posta adresinizi doğrulamanız."
       before_confirmation_only_access_admin_dashboard: "Doğrulamadan önce yalnızca %{admin_dashboard_link} kısmına erişebilirsiniz."
       admin_dashboard_link_text: "yönetici paneli"
@@ -2844,17 +2844,17 @@ tr-TR:
       given_name: Ad
       first_name_with_initial: "(sadece ilk harf diğer kullanıcılara gösterilir)"
       first_name_only: "(Diğer kullanıcılara gösterilmez.)"
-      display_name: "Görüntülenen isim"
-      display_name_description: "Bir kuruluşu temsil ediyorsanız eğer, adını gözüken ekran adı olarak kullanabilirsiniz. Güzüken ad diğer kullanıcılara isminiz ve soyisminiz yerine gösterilir."
+      display_name: "Marka adı"
+      display_name_description: "Eğer bir markayı temsil ediyorsanız, adını marka adı olarak kullanabilirsiniz. Marka adınız diğer kullanıcılara isminiz ve soyisminiz yerine gösterilecektir."
       location_description: "Açık adresinizi ya da sadece örneğin posta kodunuzu girebilirsiniz. Lütfen en azından posta kodunuzu ekleyin. Ya da aşağıdaki haritadan konumunuzu işaretleyebilirsiniz."
       profile_picture_description: "Profil resmi kare biçiminde (1: 1 oran), örneğin 800x800 piksel olmalıdır. Aksi takdirde, sığacak şekilde kırpılır"
       phone_number: "Telefon numarası"
       profile_picture: "Profil resmi"
       postal_code: "Posta kodu"
-      profile_page: "profil sayfanızda"
+      profile_page: "profil sayfanızda görüntülenebilir"
       profilemap: "Harita görüntüsü"
-      street_address: Yer
-      these_fields_are_shown_in_your: "Bu bilgiyi tüm %{service_name} kullanıcıları görebilir"
+      street_address: Konum
+      these_fields_are_shown_in_your: "Bu bilgilerin bir kısmı tüm %{service_name} kullanıcıları tarafından "
       visible_to_everybody: "herkes görebilir"
       visible_to_registered_users: "(oturum açmış kullanıcılar görebilir)"
       default_in_listing: "(Sadece yeni listeleme oluşturulurken default olarak kullanılır.)"
@@ -2863,10 +2863,10 @@ tr-TR:
       shown_in_your_public_profile: "(herkese açık profilinizde gösterilir)"
       editing_profile_of: ~
       format_markdown_link: "Açıklamanızı Markdown kullanarak düzenleyebilirsiniz."
-      format_markdown: ~
+      format_markdown: "Dilerseniz %{link}."
       username: "Kullanıcı adı"
       username_description: "Kullanıcı adınız, profil sayfanızın benzersiz URL’sinin bir parçası olarak kullanılır. Boşluk bırakmadan sadece kullanıcı adınız için harfleri ve sayıları kullanabilirsiniz. Kullanıcı adınızı değiştirdiğinizde, URL’niz otomatik olarak değişecek ve önceki URL’nize yönlendirilmeyecektir. Eski kullanıcı adı diğer kullanıcılar için alınabilir olacaktır."
-    save_information: "Bu bilgiyi kaydet"
+    save_information: "Bilgilerimi kaydet"
   shipping_address:
     shipping_address: "Gönderim Adresi"
   tag_cloud:
@@ -3019,7 +3019,7 @@ tr-TR:
     total_to_pay: "Toplam tutar:"
   unit:
     day: gün
-    days: günler
+    days: gün
   web:
     listings:
       errors:
@@ -3027,7 +3027,7 @@ tr-TR:
           something_went_wrong: "Uygunluk bilgilerini görüntüleyemiyoruz. Sayfayı yeniden yüklemeyi deneyin."
           saving_failed: "Uygunluk değişikliklerini kaydedemiyoruz. Sayfayı yeniden yüklemeyi deneyin."
         working_hours:
-          required: ~
+          required: zorunlu
           overlaps: ~
           covers: ~
       pricing_units:
@@ -3048,13 +3048,13 @@ tr-TR:
         start_time: ~
         end_time: ~
         add_another_time_slot: ~
-        save: ~
+        save: Kaydet
     no_listings:
       sorry: ~
       try_other_search_terms: ~
     listing_card:
       add_picture: "Fotoğraf ekle"
-      no_picture: ~
+      no_picture: "Resim yok"
     search:
       page: ~
       page_of_pages: ~
@@ -3062,9 +3062,9 @@ tr-TR:
       menu: Menü
       more: Menü
       search_placeholder: Ara...
-      search_location_placeholder: Lokasyon
+      search_location_placeholder: "Konum ara"
       user: Kullanıcı
-      inbox: "Gelen posta"
+      inbox: "Gelen kutusu"
       profile: Profil
       manage_listings: İlanlarım
       settings: Ayarlar
@@ -3080,7 +3080,7 @@ tr-TR:
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: "Daha fazla öğrenin"
+      learn_more: "Daha fazla öğren"
   will_paginate:
     models:
       person:

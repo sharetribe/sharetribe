@@ -1908,9 +1908,9 @@ ro:
     mobile_version: "Versiune pentru mobil"
     offers: Oferte
     requests: Cereri
-    search_kassi: "Cauta %{service_name}"
-    create_new_marketplace: "Creați un marketplace nou"
-    contact_us: Contactați-ne
+    search_kassi: "Caută %{service_name}"
+    create_new_marketplace: "Creează un marketplace nou"
+    contact_us: Contact
     profile: Profil
     manage_listings: "Listările mele"
     invite: "Invită membri noi"
@@ -1958,16 +1958,16 @@ ro:
     grid_item:
       processing_uploaded_image: "(Procesarea imaginilor încărcate...)"
     index:
-      no_listings_with_your_search_criteria: "Ne pare rău, nu s-au găsit oferte pentru criteriile dvs. de căutare. Incercați alți termeni de căutare"
+      no_listings_with_your_search_criteria: "Ne pare rău, nu s-au găsit oferte pentru criteriile de căutare. Încearcă alți termeni de căutare"
       no_listings_notification: "Fără anunțuri. %{add_listing_link}."
-      add_listing_link_text: "Adăugați o postare nouă"
+      add_listing_link_text: "Adaugă o postare nouă"
       open_listing: "deschideți anunțul"
       open_listings: "deschideți anunțurile"
       private_listing_notification_log_in: autentificare
       is: este
       are: sunt
-      what_do_you_need: "Ce căutați?"
-      post_new_listing: "Postați un anunț nou"
+      what_do_you_need: "Ce vrei să cauți?"
+      post_new_listing: "Postează un anunț nou"
       are_offering: oferta
       add_news_item: "Adaugă un articol"
       lend_rent_help_carpool: "Vinde, împrumută, ajută, share rides"
@@ -1985,17 +1985,17 @@ ro:
       no_reviews: "Fără recenzii"
       no_image: "Fără imagine"
       filter: Filtru
-      this_is_private_community: "Înainte să puteți vizualiza conținutul trebuie să vă înregistrați."
+      this_is_private_community: "Înainte să poți vizualiza conținutul trebuie să te înregistrezi."
     invitation_form:
       email: "Adresa(adresele) de email"
       message: "Un mesaj personal"
       send_invitation: "Trimite invitație"
-      add_email_addresses_description: "Adăugați adresele de e-mail ale persoanelor pe care le invitați în câmpul de mai jos. Pentru a adăuga mai multe adrese de e-mail, separați-le cu virgulă."
-      add_lots_of_email_addresses: "Fiind administrator, avem un sfat: daca planuiesti sa trimiti multe invitatii, iti recomandam sa folosesti un serviciu de emailuri.  Gasesti aici resurse pentru a determina serviciul potrivit de email: %{this_article_link}."
+      add_email_addresses_description: "Adaugă adresele de e-mail ale persoanelor pe care le inviți în câmpul de mai jos. Pentru a adăuga mai multe adrese de e-mail, separă-le cu virgulă."
+      add_lots_of_email_addresses: "Fiind administrator, avem un sfat: dacă plănuiești să trimiți multe invitații, îți recomandăm să folosești un serviciu de e-mailuri. Găsești aici resurse pentru a determina serviciul potrivit de email: %{this_article_link}."
       this_article_link: "acest articol"
       invitation_emails_field_placeholder: "alex@example.com, eduard@example.com, ..."
       invitation_message_field_placeholder: "M-am alăturat acestui marketplace uimitor. Ar trebui să o faci și tu!"
-      errors_in_emails: "Verificați dacă adresele de e-mail pe care le-ați adăugat sunt valide și nu conțin caractere neobișnuite. Dacă ați adăugat mai multe adrese, asigurați-vă că acestea sunt separate cu virgulă."
+      errors_in_emails: "Verifică dacă adresele de e-mail pe care le-ai adăugat sunt valide și nu conțin caractere neobișnuite. Dacă ai adăugat mai multe adrese, asigură-te că acestea sunt separate cu virgulă."
     list_item:
       review: recenzie
       reviews: recenzii
@@ -2006,7 +2006,7 @@ ro:
     profile_info_empty_notification:
       add_your_info: "Adaugă datele de contact"
       add_a_profile_picture: "Adaugă o poză de profil"
-      you_have_not_added_your_info: "Nu ați adăugat datele de contact. Te rugăm să le adaugi pentru ca alții să poată intra mai ușor în contact cu tine. De asemenea, adaugă o poză de profil pentru a le fi mai ușor altora să aibă încredere în tine."
+      you_have_not_added_your_info: "Nu ai adăugat date de contact. Te rugăm să le adaugi pentru ca alții să poată intra mai ușor în contact cu tine. De asemenea, adaugă o poză de profil pentru a le fi mai ușor altora să aibă încredere în tine."
       add_your_info_link: "Adaugă datele tale de contact acum"
     recent_listing:
       please_offer: Oferta
@@ -2045,17 +2045,17 @@ ro:
       admin: "%{service_name} panou de administrare"
     branding:
       powered_by: "%{service_name} este dezvoltat de platforma de marketplace-uri %{sharetribe_link}."
-      create_own: "Vrei sa-ti creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
+      create_own: "Vrei să-ți creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
       learn_more: "Vezi mai mult"
     no_tribe:
       inbox: Inbox
       settings: Setări
       feedback: "Contactează echipa %{service_name}"
     application:
-      join_this_community: "Alăturați-vă marketplace-ului"
+      join_this_community: "Alătură-te marketplace-ului"
       read_more: "Citiți mai mult"
       feedback: "Mesajul către echipa %{service_name}"
-      dont_use_to_contact_support: "Esti administratorul %{service_name}. Acest formular va fi folosit de catre utilizatori pentru a te contacta pe tine. Nu poti folosi acest formular pentru a contacta Sharetribe. In schimb, poti sa contactezi Sharetribe prin widgetul de suport din partea dreapta-jos a panoului de administrator."
+      dont_use_to_contact_support: "Esti administratorul %{service_name}. Acest formular va fi folosit de către utilizatori pentru a te contacta. Nu poți folosi acest formular pentru a contacta Sharetribe. În schimb, poți să contactezi Sharetribe prin widgetul de suport din partea dreapta-jos a panoului de administrator."
       feedback_forum: "forum de feedback"
       feedback_handle: Feedback
       give_feedback: Contact
@@ -2064,8 +2064,8 @@ ro:
       to_see_what_others_have_suggested: "pentru a vedea ceea ce au sugerat alții și pentru a vota acele idei."
       your_email_address: "Adresa ta e-mail (pentru a te contacta)"
       connect: "Cont nou"
-      invite_your_friends: "Invitați prieteni!"
-      invite_your_neighbors: "Invitați vecinii!"
+      invite_your_friends: "Invită-ți prietenii!"
+      invite_your_neighbors: "Invită-ți vecinii!"
       invite_your_friends_description: "Cu cât sunt mai mulţi oameni în %{service_name}, cu atât mai util este."
       invite_your_friends_invite_only_description: "Persoanele nu se pot alătura %{service_name} dacă nu sunt invitate."
       join_without_facebook: "...sau prin %{join_without_facebook_link}"
@@ -2129,23 +2129,23 @@ ro:
       listing_could_not_be_saved: "Afișarea nu a putut fi salvată. Vă rugăm să încercați din nou. Dacă problema persistă, vă rugăm să %{contact_admin_link}."
       contact_admin_link_text: "contactează echipa %{service_name}"
       test_welcome_email_delivered_to: "Mesaj test a fost trimis către %{email}."
-      something_went_wrong: "Ceva nu a functionat"
+      something_went_wrong: "Ceva nu a funcționat"
       community_updated: "Detalii actualizate"
       community_update_failed: "Actualizarea detaliilor a eșuat."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Cont creat cu succes. Acum trebuie sa confirmi adresa de email."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Vă mulțumim că v-ați alăturat %{service_name}. Acum trebuie să vă confirmați adresa de e-mail."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Cont creat cu succes. Acum trebuie să confirmi adresa de email."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Mulțumim că te-ai alăturat %{service_name}. Acum trebuie să confirmi adresa de e-mail."
       comment_cannot_be_empty: "Comentariul nu poate fi fara continut."
       comment_sent: "Comentariu trimis"
-      confirmation_link_is_wrong_or_used: "Link-ul de confirmare este deja folosit sau corupt. Incearcă să te autentifici sau trimite feedback dacă problema persistă."
-      additional_email_confirmed: "Adresa de email pe care ai introdus-o a fost confirmata"
+      confirmation_link_is_wrong_or_used: "Link-ul de confirmare este deja folosit sau corupt. Încearcă să te autentifici sau trimite feedback dacă problema persistă."
+      additional_email_confirmed: "Adresa de email pe care ai introdus-o a fost confirmată"
       could_not_get_email_from_social_network: ~
-      social_network_email_unconfirmed: ~
+      social_network_email_unconfirmed: "Adresa de email %{email} asociată cu %{provider} este deja folosită însă nu este confirmată. Confirmă adresa de email înainte de te autentifica prin %{provider}."
       create_new_listing: "Creați o altă postare"
       create_one_here: creează
       email_confirmation_sent_to_new_address: "Email-ul de confirmare a fost trimis la noua adresă."
       email_not_found: "Emailul pe care l-ai indicat nu a fost găsit în baza de date de la %{service_name}"
       error_with_session: "Eroare în această sesiune."
-      feedback_considered_spam: "Feedback-ul nu a fost salvat, datorita formatării. Încearcă încă o dată sau foloseste forumul de feedback."
+      feedback_considered_spam: "Feedback-ul nu a fost salvat, datorita formatării. Încearcă încă o dată sau folosește forumul de feedback."
       feedback_not_saved: "Feedback-ul nu a putut fi trimis."
       feedback_saved: "Mulțumim pentru mesaj! Vom reveni cu un răspuns în cel mai scurt timp posibil."
       feedback_sent_to: "Feedback trimis pentru %{target_person}"
@@ -2158,7 +2158,7 @@ ro:
       inviting_new_users_is_not_allowed_in_this_community: "Nu este permisă invitarea noilor utilizatori."
       login_again: "Te rugăm să te autentifici din nou."
       login_failed: "Conectare nereușită. Vă rugăm, introduceți datele corect."
-      account_creation_successful: "Bine ati venit pe %{service_name}, %{person_name}!"
+      account_creation_successful: "Bine ai venit pe %{service_name}, %{person_name}!"
       account_deleted: "Contul a fost șters."
       login_successful: "Bine ai venit, %{person_name}!"
       logout_successful: "Ești deconectat/ă din %{service_name}. Pe curând!"
@@ -2174,8 +2174,8 @@ ro:
       offer_rejected: "Ofertă respinsă"
       offer_canceled: "Ofertă anulată"
       listing_updated_successfully: "Postare actualizată cu succes"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
+      listing_updated_availability_management_enabled: "Anunț actualizat. Modificarea disponibilității activă."
+      listing_updated_availability_management_disabled: "Anunț actualizat. Modificarea disponibilității inactivă."
       listing_deleted: "Listare ștearsă"
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Numai autorul anunțului poate să închidă acest anunț"
@@ -2183,21 +2183,21 @@ ro:
       payment_successful: "Plata cu succes"
       payment_canceled: "Plată anulată"
       error_in_payment: "Eroare la efectuarea plății. Dacă nu ați efectuat plata încă, încercați din nou. Dacă ai efectuat-o, te rugăm să ne trimiți feedback."
-      cannot_receive_payment: "Cealaltă persoana nu poate recepționa plata din cauza unei erori. Contactați echipa %{service_name} pentru a clarifica situația"
-      payment_waiting_for_later_accomplishment: "După plată, vom notifica vânzătorul şi veţi primi o chitanţă în e-mail"
+      cannot_receive_payment: "Cealaltă persoana nu poate recepționa plata din cauza unei erori. Contactează echipa %{service_name} pentru a clarifica situația"
+      payment_waiting_for_later_accomplishment: "După plată, vom notifica vânzătorul şi vei primi o chitanţă pe e-mail"
       password_recovery_sent: "Instrucțiunile de schimbare a parolei au fost trimise prin e-mail."
       person_activated: "Utilizator activat"
       person_deactivated: "Utilizator dezactivat"
       person_updated_successfully: "Informație actualizată"
       poll_answered: "S-a răspuns la sondaj"
-      poll_could_not_be_answered: "Nu s-a putut raspunde la sondaj"
+      poll_could_not_be_answered: "Nu s-a putut răspunde la sondaj"
       poll_created: "Sondaj creat"
-      poll_creation_failed: "Crearea sondajului a esuat"
-      poll_update_failed: "Actualizarea sondajului a esuat"
+      poll_creation_failed: "Crearea sondajului a eșuat"
+      poll_update_failed: "Actualizarea sondajului a eșuat"
       poll_updated: "Sondaj actualizat"
-      poll_deleted: "Sondaj sters"
+      poll_deleted: "Sondaj șters"
       read_more: "Citește mai mult!"
-      registration_considered_spam: "Înregistrarea nu a funcționat, contactați-ne din meniul antetului și menționați \"email2 error\"."
+      registration_considered_spam: "Înregistrarea nu a funcționat, contactează-ne și menționează \"email2 error\"."
       reply_cannot_be_empty: "Nu poți trimite un mesaj gol"
       reply_sent: "Răspuns trimis cu succes"
       request_accepted: "Cerere acceptată"
@@ -2207,21 +2207,21 @@ ro:
       message_sent: "Mesaj trimis"
       message_not_sent: "Mesajul nu a fost trimis. Încearcă din nou."
       this_content_is_not_available_in_this_community: "Acest conținut nu este disponibil."
-      unknown_error: "Eroare necunoscută. Utilizați pagina \"Contactati-ne\" pentru a trimite detaliile despre ceea ce s-a întâmplat."
+      unknown_error: "Eroare necunoscută. Utilizează pagina \"Contact\" pentru a trimite detaliile despre ceea ce s-a întâmplat."
       update_error: "A apărut o eroare la actualizarea informațiilor tale, te rugăm să mai încerci odată"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Nu ești autorizat să oferi recenzie pentru această tranzacție"
       you_are_not_authorized_to_do_this: "Nu ești autorizat să faci asta"
       you_are_not_authorized_to_view_this_content: "Nu ești autorizat să vezi acest conținut"
       listing_closed: "Listarea s-a închis"
-      send_instructions: "Vei primi un email in cateva minute cu instructiuni despre cum sa iti resetezi parola"
+      send_instructions: "Vei primi un email în câteva minute cu instrucțiuni despre cum să îți resetezi parola"
       you_cannot_reply_to_a_closed_offer: "Nu poți răspunde unei oferte închise"
-      you_cannot_send_message_to_yourself: "Nu poti trimite un mesaj catre tine"
-      you_followed_listing: "Nu urmaresti acest anunt"
+      you_cannot_send_message_to_yourself: "Nu poți trimite un mesaj către tine"
+      you_followed_listing: "Nu urmărești acest anunț"
       you_have_already_given_feedback_about_this_event: "Ai oferit deja feedback despre această tranzacție"
       you_are_now_member: "Bine ai venit pe %{service_name}!"
       you_are_already_member: "Ești deja membru al serviciului %{service_name}. Bine ai revenit!"
-      you_must_log_in_to_create_new_listing: "Trebuie sa va conectati pe %{service_name} pentru a crea un anunt nou. Daca nu aveti un cont puteti accesa %{sign_up_link}."
-      additional_email_confirmed_dashboard: "Adresa de email a fost confirmata"
+      you_must_log_in_to_create_new_listing: "Trebuie să te conectezi pe %{service_name} pentru a crea un anunț nou. Dacă nu ai un cont poți accesa %{sign_up_link}."
+      additional_email_confirmed_dashboard: "Adresa de email a fost confirmată"
       you_must_log_in_to_give_feedback: "Trebuie să te autentifici pentru a putea oferi feedback"
       you_must_log_in_to_invite_new_users: "Trebuie să te conectezi pentru a putea invita și alți utilizatori pe %{service_name}"
       you_must_log_in_to_send_a_comment: "Trebuie să te autentifici pentru a putea trimite un nou comentariu"
@@ -2231,15 +2231,15 @@ ro:
       you_must_log_in_to_view_this_page: "Trebuie să te conectezi pentru a putea vedea această pagină"
       you_must_log_in_to_view_your_inbox: "Trebuie să te autentifici pe %{service_name} pentru a putea vedea mesajele."
       you_must_log_in_to_view_your_settings: "Trebuie să te conectezi pe %{service_name} pentru a putea vedea setările."
-      you_must_log_in_to_add_news_item: "Trebuie sa va conectati pe %{service_name} pentru a putea adauga un articol nou."
-      you_must_log_in_to_change_profile_settings: "Trebuie sa va conectati pe %{service_name} pentru a putea face modificari la setarile de profil"
+      you_must_log_in_to_add_news_item: "Trebuie să te conectezi pe %{service_name} pentru a putea adăuga un articol nou."
+      you_must_log_in_to_change_profile_settings: "Trebuie să te conectezi pe %{service_name} pentru a putea face modificări la setările de profil"
       you_must_log_in_to_accept_or_reject: "Trebuie să te autentifici pentru a putea accepta sau refuza tranzacția."
       you_must_log_in_to_confirm_or_cancel: "Trebuie să te autentifici pentru a putea anula sau confirma tranzacția."
       you_need_to_confirm_your_account_first: "Trebuie să confirmi adresa de email."
-      you_must_fill_all_the_fields: "Trebuie să completaţi toate câmpurile"
+      you_must_fill_all_the_fields: "Trebuie să completezi toate câmpurile"
       you_unfollowed_listing: "Nu mai urmărești acest anunț"
       joining_community_failed: "Conectarea a eșuat"
-      can_not_delete_email: "Nu puteți șterge adresa de e-mail"
+      can_not_delete_email: "Nu poți șterge adresa de e-mail"
       user_does_not_have_email_to_delete: "Nu ai adresa de e-mail pe care încerci să o ștergi"
       email_deleted: "Adresa de e-mail ștearsă"
       listing_author_payment_details_missing: "Te rugăm să contactezi furnizorul prin apăsarea butonului \"Contact\" de mai jos în vederea actualizării detaliilor de plată"
@@ -2254,14 +2254,14 @@ ro:
       stripe_you_account_balance_is_not_0: ~
       stripe_balance_for_username_is_not_0: ~
       visit_admin: "Vrei să %{link}?"
-      visit_admin_link: "vizitezi Tabloul de Administrare"
-      an_error_occurred_when_saving_your_information: ~
+      visit_admin_link: "Tabloul de Administrare"
+      an_error_occurred_when_saving_your_information: "Eroare la salvarea:  %{message}.  Verifică dacă este corect și încearcă din nou."
     settings:
       account: Cont
       notifications: Notificari
       profile: "Informații profil"
       settings: Configurare
-      paypal_payments: ~
+      paypal_payments: "Plăți PayPal"
       stripe_payments: ~
       payments: Plăți
       listings: Listări
@@ -2273,8 +2273,8 @@ ro:
       listing_not_visible: "Nu ai permisiunea de a vizualiza acest anunt."
     comment:
       wrote: "a scris"
-      send_private_message: "Trimite mesaj privat catre %{person}"
-      delete: sterge
+      send_private_message: "Trimite mesaj privat către %{person}"
+      delete: șterge
       are_you_sure: "Ești sigur că vrei sa ștergi comentariul?"
     comment_form:
       ask_a_question: "Comentează anunțul sau cere mai multe detalii. Toţi ceilalţi utilizatori vor putea vedea comentariul tău."
@@ -2282,16 +2282,16 @@ ro:
       send_comment: "Trimite comentariul"
       to_send_a_comment: "pentru a trimite un nou comentariu."
       write_comment: "Scrie un comentariu nou:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "Nu aveţi posibilitatea să trimiteţi comentarii noi, deoarece această postare este dezactivată."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Nu se pot trimite comentarii noi deoarece această postare este dezactivată."
       you_must: Trebuie
-      subscribe_to_comments: "Anunta-ma cand sunt comentarii noi sau actualizari"
-    deleting_a_listing_cannot_be_undone: "Stergerea unei listari nu este reversibila. Esti sigur ca vrei sa continui?"
+      subscribe_to_comments: "Anunță-mă când sunt comentarii noi sau actualizări"
+    deleting_a_listing_cannot_be_undone: "Ștergerea unei listări nu este reversibilă. Ești sigur că vrei să continui?"
     edit:
-      edit_listing: "Editați listarea"
+      edit_listing: "Editare listare"
     edit_links:
-      close_listing: "Dezactivați listarea"
-      edit_listing: "Editați listarea"
-      reopen_listing: "Reactivați listarea"
+      close_listing: "Dezactivare listare"
+      edit_listing: "Editare listare"
+      reopen_listing: "Reactivare listare"
       move_to_top: "Mergeți înapoi în pagina de pornire"
       show_in_updates_email: "Include în următorul newsletter"
       show_in_updates_email_loading: Încarcă...
@@ -2301,7 +2301,7 @@ ro:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: "Sterge listare"
+      delete_listing: "Șterge listare"
     map:
       open_in_google_maps: "Deschide in Google Maps"
     error:
@@ -2310,12 +2310,12 @@ ro:
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
     follow_links:
-      follow: "Accepta email-uri despre comentarii noi"
+      follow: "Acceptă email-uri despre comentarii noi"
       unfollow: "Nu accepta email-uri despre comentarii noi"
     form:
       custom_field_partials:
         dropdown:
-          select_one___: "Selectaţi unul..."
+          select_one___: "Alege unul..."
       departure_time:
         at: La
         departure_time: "Oră de plecare"
@@ -2323,7 +2323,7 @@ ro:
         repeated: "Repetat (adauga timpii si zilele in campul 'descriere detaliata')"
       description:
         detailed_description: "Descriere detaliată"
-        youtube_info: "Daca descrierea ta contine link-uri catre YouTube, video-urile vor fi afisate la finalul descrierii."
+        youtube_info: "Dacă descrierea conține link-uri către YouTube, video-urile vor fi afișate la finalul descrierii."
         youtube_info_markdown: ~
       destination:
         destination: Destinație
@@ -2334,7 +2334,7 @@ ro:
         offer_something: "oferă ceva"
         request_something: "cere ceva"
         rideshare: "o cursă"
-        i_want_to_offer: "Vreau sa ofer..."
+        i_want_to_offer: "Vreau să ofer..."
         i_want_to_request: "Am nevoie de..."
       googlemap:
         googlemap_copy: "Puncte finale de pe hartă"
@@ -2346,7 +2346,7 @@ ro:
         no_file_selected: "Nici un fișier selectat"
         remove_image: "Șterge imaginea"
         select_file: "Selectează fișier"
-        add_more: "+ Adauga"
+        add_more: "+ Adaugă"
         removing: "Se elimină..."
         processing: "Se procesează..."
         loading_image: Încarcă...
@@ -2370,9 +2370,9 @@ ro:
         long_time: "săptămână, lună, ..."
         after_service_fee_you_will_get: "După comisionul %{service_name} și procesatorului de plăți, vei primi %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} va fi dedusa din pret."
-        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} va fi dedus din pret."
-        after_service_fee_you_will_get_payment_text: "Cand cineva plaseaza o comanda, vei primi aceasta suma minus %{payment_fee_info_link}"
-        payment_fee_info_link_text: "comisioane si taxe de procesare %{service_name}"
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} va fi dedus din preț."
+        after_service_fee_you_will_get_payment_text: "Când cineva plasează o comandă, vei primi această sumă minus %{payment_fee_info_link}"
+        payment_fee_info_link_text: "comisioane și taxe de procesare %{service_name}"
         delivery: "Metodă de livrare"
         shipping: Transport
         shipping_price: "Taxă transport"
@@ -2383,12 +2383,12 @@ ro:
         origin: origine
         the_exact_location: ~
       send_button:
-        save_listing: "Publicati listarea"
+        save_listing: "Publicare listare"
         submit_for_review: ~
-        will_be_reviewed: "Toate listarile de pe %{service_name} vor fi evaluate inainte de publicare. De indata ce listarea ta va fi aprobata, vei fi notificat pe e-mail iar listarea va fi publicata."
+        will_be_reviewed: "Toate listările de pe %{service_name} vor fi evaluate înainte de publicare. De îndata ce listarea ta va fi aprobată, vei fi notificat pe e-mail iar listarea va fi publicată."
         we_noticed_youre_an_admin: ~
       share_type:
-        select: Selecteaza
+        select: Selectează
         borrow: împrumut
         buy: cumpărare
         give_away: donație
@@ -2399,8 +2399,8 @@ ro:
         rent_out: Închiriere
         request_type: "Tip de cerere"
         sell: Vânzare
-        share_for_free: "Partajare gratuita"
-        accept_for_free: "Acceptați gratis"
+        share_for_free: "Partajare gratuită"
+        accept_for_free: "Acceptă gratuit"
         trade: Schimb
       tag_list:
         comma_separate: "(separate prin virgulă)"
@@ -2442,19 +2442,19 @@ ro:
       feed_title: "%{listing_type} in %{service_name} %{optional_category}"
     left_panel_link:
       borrows: Împrumutare
-      buys: Cumparare
+      buys: Cumpărare
       favors: Servicii
-      give_aways: Donatie
-      housings: Spatii
+      give_aways: Donație
+      housings: Spații
       items: Obiecte
       lends: Împrumut
       receives: Gratuit
       rent_outs: "De închiriat"
       rents: Închiriere
       rideshares: Rideshare
-      sells: Vanzare
-      share_for_frees: "Partajare gratuita"
-      accept_for_frees: "Acceptați gratis"
+      sells: Vânzare
+      share_for_frees: "Partajare gratuită"
+      accept_for_frees: "Acceptă gratuit"
       trades: Schimb
     listing_actions:
       booking_from: "De la"
@@ -2468,7 +2468,7 @@ ro:
       end_time: ~
       marketplace_fees_may_apply: ~
     new:
-      listing: Postați
+      listing: Anunț
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Subcategoria: %{subcategory}"
       selected_transaction_type: "Tipul listării: %{transaction_type}"
@@ -2485,30 +2485,30 @@ ro:
       hour: "Număr de ore:"
       day: "Numar de zile:"
       night: "Număr de nopți"
-      week: "Numar de saptamani:"
-      month: "Numar de luni:"
+      week: "Număr de săptămâni:"
+      month: "Număr de luni:"
       unit: ~
-      custom: ~
+      custom: "Cantitate:"
       person: ~
     quantity_placeholder: Cantitate
-    please_comment: Comenteaza
+    please_comment: Comentează
     reply_link:
-      listing_closed: "Listarea este inchisa"
+      listing_closed: "Listarea este închisă"
     show:
-      add_your_phone_number: "Adaugati numarul de telefon"
-      add_profile_picture: "Adaugati o poza de profil"
-      comments: "Discutie publica"
-      contact_by_phone: "Contactati prin telefon:"
+      add_your_phone_number: "Adaugă numărul de telefon"
+      add_profile_picture: "Adaugă o poză de profil"
+      comments: "Discuție publică"
+      contact_by_phone: "Contact prin telefon:"
       contact: "Verifică disponibilitatea"
-      favor_offer: "Oferta serviciu"
+      favor_offer: "Ofertă serviciu"
       favor_request: "Cerere serviciu"
       inquiry: ~
-      item_offer_trade: "Oferta pentru schimb"
+      item_offer_trade: "Ofertă pentru schimb"
       item_request_trade: "Cerere pentru schimb"
       no_description: "Listarea nu are o descriere"
       no_image: "Fără imagine"
       no_reviews: "Nici o recenzie primită"
-      offer: Oferta
+      offer: Ofertă
       listing_created: Creată
       open_until: "Deschis până la %{date}"
       feedback: Feedback
@@ -2516,7 +2516,7 @@ ro:
       request: Cerere
       rideshare_offer: "Oferta rideshare"
       rideshare_request: "Cerere rideshare"
-      send_private_message: "Trimiteți un mesaj privat"
+      send_private_message: "Trimite un mesaj privat"
       tags: Etichete
       time: data
       times: ori
@@ -2538,7 +2538,7 @@ ro:
       hour: oră
       day: zi
       night: noapte
-      week: saptamana
+      week: săptămâna
       month: lună
       unit: ~
       person: ~
@@ -3042,62 +3042,62 @@ ro:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "A apărut o eroare. Reîncărcă pagina."
+          saving_failed: "Modificările nu au fost salvate. Reîncarcă pagina."
         working_hours:
-          required: ~
-          overlaps: ~
-          covers: ~
+          required: necesar
+          overlaps: suprane
+          covers: acoperă
       pricing_units:
         piece: ~
-        hour: ~
+        hour: oră
         day: zi
         night: noapte
-        week: saptamana
-        month: ~
+        week: săptămână
+        month: lună
       edit_availability_header: Disponibilitate
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: "Ajusteaza disponibilitatea produsului"
+      save_and_close_availability_editing: Salvează
+      confirm_discarding_unsaved_availability_changes_explanation: "Modificări nesalvate. Sigur vrei să continui?"
+      confirm_discarding_unsaved_availability_changes_question: "Renunți la modificări?"
+      edit_listing_availability: "Ajustează disponibilitatea produsului"
       working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
-        add_another_time_slot: ~
+        default_schedule: "Orar standard"
+        i_am_available_on: "Disponibil în"
+        start_time: "Timp de start"
+        end_time: "Timp de finalizare"
+        add_another_time_slot: "+ Adaugă alt intervar orar"
         save: ~
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Nu există anunț pentru căutarea făcută."
+      try_other_search_terms: "Încearcă o altă căutare."
     listing_card:
-      add_picture: "Adaugati poza"
-      no_picture: "Fara poza"
+      add_picture: "Adaugă poză"
+      no_picture: "Fără poză"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Pagina
+      page_of_pages: "din %{total_number_of_pages}"
     topbar:
       menu: Meniu
       more: "Mai mult"
       search_placeholder: Caută...
-      search_location_placeholder: Oras
+      search_location_placeholder: Oraș
       user: Utilizator
-      inbox: "Casuta postala"
+      inbox: Inbox
       profile: Profil
-      manage_listings: "Administreaza listarile"
-      settings: Setari
+      manage_listings: "Administrează listările"
+      settings: Setări
       logout: Deconectare
       login: Autentificare
       signup: "Cont nou"
       admin_dashboard: "Tablou administrativ"
       language: Limba
-      listings: "Listarile mele"
+      listings: "Listările mele"
     utils:
       km: ~
       mi: ~
     branding:
       powered_by: "%{service_name} este dezvoltat de platforma de marketplace-uri %{sharetribe_link}."
-      create_own: "Vrei sa-ti creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
+      create_own: "Vrei să-ți creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
       learn_more: "Vezi mai mult"
   will_paginate:
     models:
