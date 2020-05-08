@@ -20,6 +20,24 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [10.0.0] - 20202-XX-XX
+
+### Added
+
+### Changed
+
+* Go no longer uses [Harmony](/docs/configure_harmony.md) for availability
+  management. Functionality is now implemented fully in Go. See the [upgrade
+  instructions](UPGRADE.md#upgrade-from-910-to-1000).
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
 ## [9.1.0] - 2020-03-06
 
 ### Added
