@@ -20,23 +20,26 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
-## [10.0.0] - 20202-XX-XX
+## [10.0.0] - 2020-05-10
 
 ### Added
 
+- Fuzzy location [#4035](https://github.com/sharetribe/sharetribe/pull/4035)
+- Stripe support for Czech Republic [#4049](https://github.com/sharetribe/sharetribe/pull/4049), [#4069](https://github.com/sharetribe/sharetribe/pull/4069)
+- Allow admin to edit the button in Hero section [#4051](https://github.com/sharetribe/sharetribe/pull/4051)
+- Stripe support for Romania [#4066](https://github.com/sharetribe/sharetribe/pull/4066)
+
 ### Changed
 
-* Go no longer uses [Harmony](/docs/configure_harmony.md) for availability
-  management. Functionality is now implemented fully in Go. See the [upgrade
-  instructions](UPGRADE.md#upgrade-from-910-to-1000).
-
-### Deprecated
-
-### Removed
+- Go no longer uses [Harmony](/docs/configure_harmony.md) for availability management. Functionality is now implemented fully in Go. See the [upgrade instructions](UPGRADE.md#upgrade-from-910-to-1000). [#4020](https://github.com/sharetribe/sharetribe/pull/4020), [#4037](https://github.com/sharetribe/sharetribe/pull/4037), [#4043](https://github.com/sharetribe/sharetribe/pull/4043), [#4048](https://github.com/sharetribe/sharetribe/pull/4048), [#4071](https://github.com/sharetribe/sharetribe/pull/4071)
+- Copy texts for admin email notification of new entry in Contact form [#4077](https://github.com/sharetribe/sharetribe/pull/4077)
 
 ### Fixed
 
-### Security
+- Fixed inbox doesn't consider commission status [#4044](https://github.com/sharetribe/sharetribe/pull/4044)
+- Fixed encoding issue with PayPal [#4045](https://github.com/sharetribe/sharetribe/pull/4045)
+- Fixed missing listing image in community updates email [#4046](https://github.com/sharetribe/sharetribe/pull/4046)
+- Fixed scope of transations for testimonials to support Disputed [#4063](https://github.com/sharetribe/sharetribe/pull/4063)
 
 ## [9.1.0] - 2020-03-06
 
@@ -842,7 +845,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v9.1.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v10.0.0...HEAD
+[10.0.0]: https://github.com/sharetribe/sharetribe/compare/v9.1.0...v10.0.0
 [9.1.0]: https://github.com/sharetribe/sharetribe/compare/v9.0.0...v9.1.0
 [9.0.0]: https://github.com/sharetribe/sharetribe/compare/v8.1.0...v9.0.0
 [8.1.0]: https://github.com/sharetribe/sharetribe/compare/v8.0.0...v8.1.0
