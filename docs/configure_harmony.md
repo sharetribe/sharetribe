@@ -1,5 +1,9 @@
 # Configure Harmony service for availability management
 
+**In Go release 10.0.0 Harmony is no longer used as availability management
+backend. All functionality is supported natively in Go. You no longer need to
+follow the instructions below. They are left as-is for reference.**
+
 This guide instructs you to configure your marketplace to use [Harmony](https://www.github.com/sharetribe/harmony) service for availability management.
 
 This guide does not instruct how to install and run Harmony. See [README.md](https://github.com/sharetribe/harmony/blob/master/README.md) in Harmony repository for installation instructions.

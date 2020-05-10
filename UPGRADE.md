@@ -38,6 +38,85 @@ heroku config:set next_maintenance_at="2016-04-29 17:15:00 +0000" --app=<your ap
 
 See instructions how to set application in [maintenance mode in Heroku](https://devcenter.heroku.com/articles/maintenance-mode).
 
+## Upgrade from 9.1.0 to 10.0.0
+
+If you are not using [Harmony](/docs/configure_harmony.md) for availability
+management, there is nothing special. See the [General update
+instructions](#general-update-instructions).
+
+Otherwise, follow the instructions below.
+
+### Migrate Harmony data to Go
+
+With this release, Go no longer uses [Harmony](/docs/configure_harmony.md) as
+backend for day- and night-based availability management. The functionality is
+completely implemented within Go (there is no change in user-facing features).
+However, this requires that some data from Harmony is migrated to Go's database.
+
+1. Start by following the [General update
+   instructions](#general-update-instructions), which will migrate the Go
+   database to the latest version.
+1. Backup also your Harmony database.
+1. Run the following SQL queries to copy data over. The queries assume you are
+   using the default production database names for both Go
+   (`sharetribe_production`) and Harmony (`harmony_production_db`). If that's
+   not the case, replace the database names accordingly.
+
+    ```sql
+    INSERT INTO sharetribe_production.listing_blocked_dates (listing_id, blocked_at, created_at, updated_at)
+      SELECT
+      l.id, e.start, e.created_at, e.updated_at
+      FROM harmony_production_db.exceptions e
+      LEFT JOIN harmony_production_db.bookables b ON e.bookable_id = b.id
+      LEFT JOIN sharetribe_production.listings l ON b.ref_id = l.uuid
+      LEFT JOIN sharetribe_production.listing_blocked_dates bd ON bd.listing_id = l.id AND bd.blocked_at = e.start
+      WHERE
+      e.deleted <> 1
+      AND l.id IS NOT NULL
+      AND e.start >= curdate()
+      AND bd.id IS NULL
+      GROUP BY e.id ;
+
+
+    -- delete blocked dates that are deleted in Harmony but present in Go
+
+    -- needs temporary table
+    CREATE TABLE sharetribe_production.tmp LIKE sharetribe_production.listing_blocked_dates;
+    INSERT INTO sharetribe_production.tmp
+      SELECT sharetribe_production.listing_blocked_dates.*
+      FROM sharetribe_production.listing_blocked_dates;
+    CREATE TABLE sharetribe_production.tmp2 (id int(11) NOT NULL, PRIMARY KEY (id));
+
+    INSERT INTO sharetribe_production.tmp2 (
+      SELECT
+      distinct(bd.id)
+      FROM harmony_production_db.exceptions e
+      INNER JOIN (
+        SELECT e.id, e.bookable_id, start, max(updated_at) AS max_updated_at
+        FROM harmony_production_db.exceptions e
+        GROUP BY e.bookable_id, e.start
+      ) e2 ON e.id = e2.id AND e.updated_at = e2.max_updated_at
+      LEFT JOIN harmony_production_db.bookables b ON e.bookable_id = b.id
+      LEFT JOIN sharetribe_production.listings l ON b.ref_id = l.uuid
+      LEFT JOIN sharetribe_production.tmp bd ON bd.listing_id = l.id AND bd.blocked_at = e.start
+      WHERE
+      e.deleted = 1
+      AND l.id IS NOT NULL
+      AND e.start >= curdate()
+      AND bd.id IS NOT NULL
+      GROUP BY e.id);
+
+    DELETE FROM sharetribe_production.listing_blocked_dates WHERE id IN (
+      SELECT id FROM sharetribe_production.tmp2);
+    DROP TABLE sharetribe_production.tmp;
+    DROP TABLE sharetribe_production.tmp2;
+    ```
+
+You can now bring Go back up.
+
+After the migration you can delete Harmony's database and remove the Harmony
+service altogether from your system.
+
 ## Upgrade from 9.0.0 to 9.1.0
 
 Ruby version updated from 2.6.2 to 2.6.5.
@@ -51,15 +130,15 @@ gem install bundler
 bundle install
 ```
 
-Then follow the [#general-update-instructions].
+Then follow the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 8.1.0 to 9.0.0
 
-Nothing special. See the [#general-update-instructions].
+Nothing special. See the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 8.0.0 to 8.1.0
 
-Nothing special. See the [#general-update-instructions].
+Nothing special. See the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 7.6.0 to 8.0.0
 
@@ -76,7 +155,7 @@ bundle install
 
 Make sure you have node 10.15 installed.
 
-Then follow the [#general-update-instructions].
+Then follow the [General update instructions](#general-update-instructions).
 
 One more note: after the Rails upgrade, "Memcache" is possibly no longer working. It was never officially supported, and at Sharetribe we rely on Redis.
 
@@ -86,7 +165,7 @@ One more note: after the Rails upgrade, "Memcache" is possibly no longer working
 
 ## Upgrade from 7.5.0 to 7.6.0
 
-Nothing special. See the [#general-update-instructions].
+Nothing special. See the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 7.4.0 to 7.5.0
 
@@ -95,23 +174,23 @@ use custom domain (`communities.use_domain = false`) when `always_use_ssl` is
 set to `true` in the configuration. If you wish to disable it, set
 `hsts_max_age` to `0`.
 
-Nothing else special. See the [#general-update-instructions].
+Nothing else special. See the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 7.3.1 to 7.4.0
 
-Nothing special. See the [#general-update-instructions].
+Nothing special. See the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 7.3.0 to 7.3.1
 
-Nothing special. See the [#general-update-instructions].
+Nothing special. See the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 7.2.0 to 7.3.0
 
-Nothing special. See the [#general-update-instructions].
+Nothing special. See the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 7.1.0 to 7.2.0
 
-Nothing special. See the [#general-update-instructions].
+Nothing special. See the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 7.0.0 to 7.1.0
 
@@ -130,7 +209,7 @@ bundle install
 
 Make sure you have node 7.8 installed.
 
-Then follow the [#general-update-instructions].
+Then follow the [General update instructions](#general-update-instructions).
 
 If foreman causes trouble with an error message:
 
@@ -147,7 +226,7 @@ gem update --system
 
 ## Upgrade from 6.3.0 to 6.4.0
 
-Nothing special. See the [#general-update-instructions].
+Nothing special. See the [General update instructions](#general-update-instructions).
 
 ## Upgrade from 6.2.0 to 6.3.0
 

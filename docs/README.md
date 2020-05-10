@@ -18,10 +18,6 @@ This guide helps you to enable the landing page feature.
 
 This document describes the landing page structure JSON format.
 
-#### [Configure Harmony service for availability management](./configure_harmony.md)
-
-This guide instructs how to configure your marketplace to use [Harmony](https://www.github.com/sharetribe/harmony) service for availability management.
-
 #### [Scheduled tasks](./scheduled_tasks.md)
 
 This guide shows what scheduled tasks are required to properly run Sharetribe in production.
