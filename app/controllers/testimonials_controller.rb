@@ -74,7 +74,7 @@ class TestimonialsController < ApplicationController
     # not joins.
     @transaction = Transaction
       .includes(:listing)
-      .where("starter_id = ? OR listings.author_id = ?", @current_user.id, @current_user.id)
+      .where("starter_id = ? OR listing_author_id = ?", @current_user.id, @current_user.id)
       .where({
         community_id: @current_community.id,
         id: params[:message_id]
