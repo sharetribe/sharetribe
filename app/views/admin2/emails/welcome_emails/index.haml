@@ -17,7 +17,7 @@
           = cc.label :welcome_email_content, t('admin2.welcome_email.welcome_email_content')
           %p.ingress
             = t('admin2.welcome_email.hello')
-          = cc.text_area :welcome_email_content, class: %i[form-control], placeholder: t('admin2.welcome_email.welcome_email_content_placeholder')
+          = cc.text_area :welcome_email_content, class: %i[form-control], placeholder: t('admin2.welcome_email.welcome_email_content_placeholder', name: title_service_name)
           %small#welcomeEmailContent-help.form-text
             = t('admin2.welcome_email.welcome_email_content_info_text')
     %section.content-card-terminal
