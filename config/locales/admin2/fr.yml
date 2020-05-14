@@ -247,7 +247,7 @@ fr:
       title_info_text: 'lorem ipsum'
       welcome_email_content: 'lorem ipsum'
       hello: 'lorem ipsum'
-      welcome_email_content_placeholder: 'lorem ipsum'
+      welcome_email_content_placeholder: 'lorem ipsum %{name}'
       welcome_email_content_info_text: 'lorem ipsum'
       send_to_yourself: 'lorem ipsum'
     footer:
@@ -409,6 +409,7 @@ fr:
       automatic_confirmation_after_days: 'lorem ipsum'
       transaction_agreement: 'lorem ipsum'
       agreement_label: 'lorem ipsum'
+      agreement_label_placeholder: 'lorem ipsum'
       agreement_label_info_text: 'lorem ipsum'
       agreement_text: 'lorem ipsum'
       agreement_text_info_text: 'lorem ipsum'
