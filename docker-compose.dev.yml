@@ -27,10 +27,11 @@ services:
       - 3000:3000
     depends_on:
       - mysql
+      - search
     environment:
       RAILS_ENV: development
       DATABASE_URL: mysql2://sharetribe:secret@mysql/sharetribe_development
-      SPHINX_HOST: 0.0.0.0
+      SPHINX_HOST: search
   rails-client-assets:
     tty: true
     stdin_open: true
@@ -63,7 +64,7 @@ services:
     environment:
       RAILS_ENV: development
       DATABASE_URL: mysql2://sharetribe:secret@mysql/sharetribe_development
-      SPHINX_HOST: 0.0.0.0
+      SPHINX_HOST: search
   rails-server-assets:
     tty: true
     stdin_open: true
