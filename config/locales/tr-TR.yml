@@ -17,7 +17,7 @@ tr-TR:
         save_order_successful: "Kategori düzeni başarıyla kaydedildi"
         save_order_error: "Kategori düzeni kaydedilirken hata meydana geldi. Sayfayı yenileyin ve tekrar deneyin."
       new:
-        new_listing_category: "Yeni listeleme kategorisi"
+        new_listing_category: "Yeni ilan kategorisi"
       form:
         category_name:
           category_title: "Kategori adı"
@@ -26,7 +26,7 @@ tr-TR:
           no_parent: "Ana kategori yok"
         category_transaction_types:
           transaction_types: "İşlem türleri"
-          transaction_types_description: "İşlem türleri bu kategorideki listelemelerde izin verilen işlemleri belirler. Örneğin, sadece satışa ya da kiralama ve hediye etme türlerine izin verilebilir."
+          transaction_types_description: "İşlem türleri bu kategorideki ilanlarda izin verilen işlemleri belirler. Örneğin, sadece satışa ya da kiralama ve hediye etme türlerine izin verilebilir."
           select_all: "Hepsini seç"
           clear_all: ~
         buttons:
@@ -37,13 +37,13 @@ tr-TR:
         remove_category_name: "'%{category_name}' kategorisini kaldır"
         warning_remove_effects: "Uyarı! '%{category_name}' kategorisini kaldırmak aşağıdakilere sebep olacaktır:"
         warning_listing_will_be_moved:
-          other: "Kategoride %{count} listeleme bulunmaktadır. Bunlar seçilen kategoriye taşınacaktır."
+          other: "Bu kategoride %{count} ilan bulunmaktadır. Bunlar seçilen kategoriye taşınacaktır."
         warning_custom_field_will_be_moved:
           other: "Bu kategoride %{count} kişiselleştirilmiş alan bulunmaktadır. Bunlar seçilen kategoriye taşınacaktır."
         warning_subcategory_will_be_removed:
           other: "Bu kategoride %{count} alt kategori bulunmaktadır. Bunlar kaldırılacaktır."
         warning_with_subcategories_listing_will_be_moved:
-          other: "Kategori ve alt kategorilerde %{count} listeleme bulunmaktadır. Bunlar seçilen kategoriye taşınacaktır."
+          other: "Bu kategori ve alt kategorilerde %{count} ilan bulunmaktadır. Bunlar seçilen kategoriye taşınacaktır."
         warning_with_subcategories_custom_field_will_be_moved:
           other: "Kategori ve alt kategorilerde %{count} kişiselleştirilmiş alan bulunmaktadır. Bunlar seçilen kategoriye taşınacaktır."
         select_new_category: "Yukarıda seçilen öğelerin taşınacağı yeni kategoriyi seçin:"
@@ -81,7 +81,7 @@ tr-TR:
         see_how_it_looks_like: "Nasıl göründüğüne bakın"
         verification_to_post_listings_info_content: "Doğrulanmamış kullanıcılar için bilgi metni"
         verification_to_post_listings_info_content_description: "Kullanıcılarınızın listeleme eklemeden önce sizin tarafınızdan elle onaylanmasını talep etmektesiniz. Burada onaylanmamış kullanıcıların yeni bir listeleme eklemeye çalıştığında karşılaşacakları default metni düzenleyebilirsiniz."
-        verification_to_post_listings_info_content_default: "%{service_name} kullanıcıların listeleme eklemeden önce yönetici tarafından onaylanmış olmasını talep etmektedir. Lütfen, onaylanmak için %{contact_admin_link}."
+        verification_to_post_listings_info_content_default: "%{service_name} kullanıcıların ilan eklemeden önce yönetici tarafından onaylanmış olmasını talep etmektedir. Lütfen, onaylanmak için %{contact_admin_link}."
         contact_admin_link_text: "yöneticiyle iletişime geçin"
         save: "Ayarları kaydet"
         transaction_agreement: "İşlem sözleşmesi"
@@ -232,11 +232,11 @@ tr-TR:
         show_only_nearby: "Konum arama ile yalnızca yakındaki ilanları göster"
         allow_users_to_add_location: "Kullanıcıların profiline, ilanlarına konum eklemelerine izin ver ve arama sayfasında haritayı göster."
         fuzzy_location: "Tam konum yerine bir daire göster"
-        listing_preferences: "Listeleme tercihleri"
+        listing_preferences: "İlan tercihleri"
         transaction_preferences: "İşlem tercihleri"
-        show_listing_publishing_date: "Listeleme sayfasında listelemenin gönderilme tarihini göster"
-        show_category_in_listing_list: "Liste görünümünde listeleme türünü göster"
-        listing_comments_in_use: "Diğer kullanıcıların listelemelere yorum yapmasına izin ver (diğer tüm kullanıcılar görebilir)"
+        show_listing_publishing_date: "İlan sayfasında ilanların gönderilme tarihini göster"
+        show_category_in_listing_list: "Liste görünümünde ilan türünü göster"
+        listing_comments_in_use: "Diğer kullanıcıların ilanlara yorum yapmasına izin ver (diğer tüm kullanıcılar görebilir)"
         email_preferences: "E-posta tercihleri"
         automatic_newsletters: "Tüm kullanıcılara günlük / haftalık otomatik bülten gönder (aksini belirtmedikleri takdirde)"
         email_admins_about_new_members: "Yeni bir üye kayıt olduğunda yöneticilere e-posta gönder"
@@ -268,7 +268,7 @@ tr-TR:
         display_name: "Marka adı"
         join_date: Katıldınız
         admin: Yönetici
-        posting_allowed: "Listelemeye izin verildi"
+        posting_allowed: "İlana izin verildi"
         ban_user: "Kullanıcıyı engelle"
         saving_user_status: Kaydediliyor...
         save_user_status_successful: Kaydedildi
@@ -477,7 +477,7 @@ tr-TR:
           dismissed: ~
         headers:
           conversation: "Konuşma başlığı"
-          listing: Listeleme
+          listing: İlan
           status: Durum
           sum: Toplam
           started: Başladı
@@ -838,7 +838,7 @@ tr-TR:
           youtube_video_id_info: ~
     custom_fields:
       edit:
-        edit_listing_field: "'%{field_name}' listeleme alanını düzenle"
+        edit_listing_field: "'%{field_name}' ilan alanını düzenle"
       edit_price:
         description: "Minimum ve maksimum ücretler yalnızca filtreyi etkiler. İlanlar için limit belirlemez."
         edit_price_field: "Fiyat alanını düzenle"
@@ -869,7 +869,7 @@ tr-TR:
         save: Kaydet
         field_title: "Alan adı"
         field_type: "Alan türü"
-        categories: "Alanın kullanıldığı listeleme kategorileri"
+        categories: "Alanın kullanıldığı ilan kategorileri"
         select_all: "Hepsini seç"
         clear_all: ~
         options: Tercihler
@@ -883,7 +883,7 @@ tr-TR:
         maximum_value: Maksimum
         allow_decimals: "Küsürlü değerlere izin ver"
       new:
-        new_listing_field: "Yeni listeleme alanı"
+        new_listing_field: "Yeni ilan alanı"
       field_types:
         text: Metin
         number: Sayı
@@ -1292,7 +1292,7 @@ tr-TR:
       canceled_request: "Talep iptal edildi."
       canceled_offer: "Teklif iptal edildi."
       message_from: "%{person} kullanıcısından mesaj"
-      about_listing: "Listeleme hakkında %{listing_title}"
+      about_listing: "%{listing_title} ilanı hakkında"
       free_message: "Bağımsız mesaj"
       message_content_not_available: "Mesaj içeriği mevcut değil."
     message:
@@ -1328,7 +1328,7 @@ tr-TR:
       you_will_get_notified: "%{person} cevap verdiğinde e-posta ile bilgilendirileceksiniz."
       title: Başlık
       send_message_to_user: "%{person} kullanıcısına mesaj gönder"
-      about_listing: "Listeleme hakkında %{listing_title}"
+      about_listing: "%{listing_title} ilanı hakkında"
       author_has_to_accept_request: "Ödeme yapmanız için %{author_name}'in talebi kabul etmesi gerekiyor"
     show:
       in_response_to_listing: "ilan hakkında"
@@ -1564,10 +1564,10 @@ tr-TR:
     new_message:
       view_message: "Mesajı görüntüle"
       has_sent_you_a_message_in_kassi: "%{sender} sana %{service_name} üzerinden bir mesaj gönderdi."
-      you_have_a_new_message: "%{service_name} üzerinden %{sender_name} sana yeni bir mesaj gönderdi"
+      you_have_a_new_message: "%{sender_name} sana %{service_name} üzerinden yeni bir mesaj gönderdi"
     new_message_v2:
       headline: "bir mesajın var!"
-      reply: "%{sender} kullanıcısına cevap ver"
+      reply: "Cevap ver"
     new_payment:
       new_payment: "Yeni bir ödeme aldınız"
       price_per_unit_type: "%{unit_type} başına fiyat"
@@ -1637,7 +1637,7 @@ tr-TR:
       stripe:
         you_have_made_new_payment: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name}, %{service_name} üzerinden sana bir geri bildirimde bulundu"
+      has_given_you_feedback_in_kassi: "%{name} sana %{service_name} üzerinden bir geri bildirimde bulundu"
       you_can_give_feedback_to: "%{name} kullanıcısına henüz bir geri bildirim vermedin."
       view_feedback: "Geri bildirimi görüntüle"
     new_testimonial_v2:
@@ -1650,7 +1650,7 @@ tr-TR:
       added_offer: "%{name_link} bir ilan ekledi:"
       added_request: "%{name_link} bir ilan ekledi:"
       added_listing: "%{name_link} bir ilan ekledi:"
-      update_mail_title: "%{title_link} güncellemesi"
+      update_mail_title: "%{title_link} güncellendi"
       title_link_text: "%{community_name}"
       intro_paragraph: "Son %{time_since_last_update} içinde %{community_link} üzerindeki etkinliklerden bazıları."
       intro_paragraph_link_text: "%{community_name}"
@@ -1658,7 +1658,7 @@ tr-TR:
       settings_link_text: "E-posta ayarlarınızı buradan düzenleyin"
       unsubscribe_link_text: "Aboneliği sonlandır"
     community_updates_v2:
-      headline: "%{service_name} üzerindeki en son güncellemelere göz at."
+      headline: "%{service_name} sitesinde en son yayınlanan ilanlara göz at."
       intro_paragraph:
         other: "Son günlerde %{service_name} üzerinde olan bazı gelişmeleri aşağıda görebilirsin."
     newsletter:
@@ -1687,8 +1687,8 @@ tr-TR:
     transaction_preauthorized_v2:
       headline: ~
     transaction_preauthorized_reminder:
-      subject: "%{listing_title} listelemesi hakkında %{requester}'den gelen talebi kabul etmeyi unutmayın"
-      remember_to_accept: "\"%{listing_title}\" listelemesi hakkında %{requester}'den gelen talebi kabul etmeyi unutmayın. %{requester} listeleme için ödemeyi gerçekleştirdi. Ödemeyi alabilmek için talebi kabul etmeniz gerekmektedir."
+      subject: "%{listing_title} ilanı için %{requester} kullanıcısından gelen talebi kabul etmeyi unutmayın"
+      remember_to_accept: "\"%{listing_title}\" ilanı için %{requester}'den gelen talebi kabul etmeyi unutmayın. %{requester} ilan için ödemeyi gerçekleştirdi. Ödemeyi alabilmek için talebi kabul etmeniz gerekmektedir."
       one_day_left: "Talebi bir gün içerisinde kabul etmezseniz, otomatik olarak reddedilecek ve ödeme alamayacaksınız."
       click_here_to_reply: "Talebe cevap vermek için buraya tıklayın"
     transaction_preauthorized_reminder_v2:
@@ -1702,9 +1702,9 @@ tr-TR:
       settings_link_text: "Ayarlarınızı kontrol ediniz"
     new_listing_by_followed_person:
       subject: "%{author_name} %{service_name} pazar yerine yeni bir listeleme ekledi."
-      has_posted_a_new_listing: "%{author_name} yeni bir listeleme ekledi."
+      has_posted_a_new_listing: "%{author_name} yeni bir ilan ekledi."
       you_are_receiving_this_because: "Bu bildiriyi %{author_name} isimli kullanıcıyı takip ettiğiniz için aldınız."
-      view_listing: "Listelemeyi görüntüle"
+      view_listing: "İlanı görüntüle"
     new_listing_by_followed_person_v2:
       headline: "%{author} yeni bir ilan ekledi!"
       has_posted_a_new_listing: "%{author_name} yeni bir ilan ekledi:"
@@ -1886,7 +1886,7 @@ tr-TR:
     login:
       logged_in_to_kassi: "%{service_name}: %{name}%{time_ago} giriş yaptı."
     comment:
-      commented: "%{commenter_name}%{time_ago}%{listing_title} listelemesine yorum yaptı."
+      commented: "%{commenter_name}%{time_ago}%{listing_title} ilanına yorum yaptı."
       offer_partitive: teklif
       request_partitive: talep
   header:
@@ -2115,7 +2115,7 @@ tr-TR:
       settings: Ayarlar
       sign_up: "Kayıt ol"
     notifications:
-      listing_could_not_be_saved: "Listeleme kaydedilemedi. Lütfen tekrar deneyin. Sorun devam ederse, lütfen %{contact_admin_link}."
+      listing_could_not_be_saved: "İlan kaydedilemedi. Lütfen tekrar deneyin. Sorun devam ederse, lütfen %{contact_admin_link}."
       contact_admin_link_text: "yöneticiye ulaşın"
       test_welcome_email_delivered_to: "Test mesajı %{email} adresine gönderildi."
       something_went_wrong: "Bir sorun oluştu"
@@ -2209,7 +2209,7 @@ tr-TR:
       you_have_already_given_feedback_about_this_event: "Bu etkinlik hakkında geri bildirim vermişsiniz."
       you_are_now_member: "%{service_name} pazar yerine hoş geldiniz!"
       you_are_already_member: "Zaten %{service_name} üyesisiniz. Yeniden hoş geldiniz!"
-      you_must_log_in_to_create_new_listing: "%{service_name}: Yeni listeleme oluşturmak için giriş yapmalısınız. Eğer hesabınız yoksa, %{sign_up_link} yapabilirsiniz."
+      you_must_log_in_to_create_new_listing: "%{service_name}: Yeni ilan eklemek için giriş yapmalısınız. Eğer hesabınız yoksa, %{sign_up_link}."
       additional_email_confirmed_dashboard: "E-posta adresiniz doğrulandı."
       you_must_log_in_to_give_feedback: "Geri bildirim vermek için oturum açmanız gerekmektedir."
       you_must_log_in_to_invite_new_users: "Yeni kullanıcıları %{service_name} platformuna davet etmek için oturum açmalısınız"
@@ -2506,7 +2506,7 @@ tr-TR:
       times: defa
       times_viewed: Görüldü
       processing_uploaded_image: "(Yüklenen görsel işleniyor...)"
-      listing_created_at: "İlan oluşturuldu"
+      listing_created_at: "İlan verilme tarihi"
       price:
         per_quantity_unit: "%{quantity_unit} her bir"
         per_day: "her bir gün"
@@ -2533,7 +2533,7 @@ tr-TR:
       dates_not_available: "Seçilen tarihler müsait değil."
       error_in_checking_availability: "Seçilen tarihler için uygunluk kontrol edilemedi"
       details: Ayrıntılar
-      by: "%{author} tarafından %{listing}"
+      by: "%{author} kullanıcısının %{listing} ilanı"
       payment: Ödeme
       exp: "Son:"
       you_will_be_charged: "Ödeme sadece %{author} kişisi işlemi kabul ettiğinde hesabınızdan düşülür. %{author} işlemi %{expiration_period} gün içerisinde kabul etmelidir. %{author} reddeder ya da cevap vermezse, hesabınızdan kesinti olmayacaktır."
@@ -2744,7 +2744,7 @@ tr-TR:
       show_all_followed_people: "Takip ettiği kişilerin tamamını göster"
       no_followed_people: "Takip ettiği kişi yok"
     follow_button:
-      following: "Takip ediyor"
+      following: "Takip ediyorsun"
       follow: "Takip et"
       unfollow: "Takip etmeyi durdur"
   sessions:
@@ -2814,7 +2814,7 @@ tr-TR:
         status_confirmed: Onaylandı
         status_pending: Beklemede
     notifications:
-      email_from_admins: "Yöneticilerden bazı güncellemeler almak istiyorum."
+      email_from_admins: "%{service_name} sitesinden iletişim emailleri almak istiyorum."
       i_want_to_get_email_notification_when: "...e-posta ile haberdar edilmek istiyorum."
       newsletters: Bültenler
       community_updates: Bültenler
@@ -2857,7 +2857,7 @@ tr-TR:
       these_fields_are_shown_in_your: "Bu bilgilerin bir kısmı tüm %{service_name} kullanıcıları tarafından "
       visible_to_everybody: "herkes görebilir"
       visible_to_registered_users: "(oturum açmış kullanıcılar görebilir)"
-      default_in_listing: "(Sadece yeni listeleme oluşturulurken default olarak kullanılır.)"
+      default_in_listing: "(Sadece yeni ilan oluşturulurken varsayılan değer olarak kullanılır.)"
       invisible: "(Diğer kullanıcılara gösterilmez.)"
       image_is_processing: "Profil fotoğrafınız hazırlanıyor. Lütfen birazdan sayfayı tekrar yükleyiniz..."
       shown_in_your_public_profile: "(herkese açık profilinizde gösterilir)"
