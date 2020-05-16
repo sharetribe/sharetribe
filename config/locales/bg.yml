@@ -653,7 +653,7 @@ bg:
         upgrade_pro_plan_link: "Премини към Pro или по-висок план"
         your_marketplace_address_is: "Адресът на твоята платформа е: %{address}"
         would_you_like_to_change_address: "Би ли желал да промениш адреса на своята платформа? %{contact_us}"
-        contact_us: "Свържи се с нас"
+        contact_us: "Свържете се с нас"
         you_can_now_use_a_custom_domain: "С твоя сегашен план можеш да въведеш персонализиран домейн. Да минем към неговата настройка. %{contact_us}"
         would_you_like_to_change_domain: "Би ли желал да промениш своя персонализиран домейн към платформата? %{contact_us}"
         change_your_sharetribe_domain: ~
@@ -692,7 +692,7 @@ bg:
           listings: ~
           categories: ~
           hero: ~
-          locations: ~
+          locations: Местоположения
           video: ~
           new_section:
             categories: ~
@@ -879,7 +879,7 @@ bg:
         checkbox_group: ~
         date: ~
         file: ~
-        location: ~
+        location: Mестоположение
     person_custom_fields:
       saving_failed: ~
       index:
@@ -1824,7 +1824,7 @@ bg:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript е изключен във вашият браузър."
       kassi_does_not_currently_work_without_javascript: "%{service_name} не работи коректно със изключен javascript. Моля, активирайте javascript и заредете страницата отново."
-      contact_us: ~
+      contact_us: "свържете се с нас"
       send_feedback: "Изпратете съобщение"
       your_feedback_to_admins: "Вашето съобщение до %{service_name} екип"
     send: Изпратено
@@ -1882,7 +1882,7 @@ bg:
     requests: Заявки
     search_kassi: "Търсене в %{service_name}"
     create_new_marketplace: ~
-    contact_us: ~
+    contact_us: "Свържете се с нас"
     profile: ~
     manage_listings: ~
     invite: ~
@@ -2009,7 +2009,7 @@ bg:
       search: ~
       signup: "Регистрирай се"
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: Mестоположение
     listings:
       no_listing_image: ~
   layouts:
@@ -3027,7 +3027,7 @@ bg:
       menu: ~
       more: ~
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: Mестоположение
       user: ~
       inbox: ~
       profile: ~

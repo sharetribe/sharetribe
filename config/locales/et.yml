@@ -4,15 +4,15 @@ et:
       format:
         separator: ~
         delimiter: ~
-        format: ~
+        format: "%u%n"
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Kategooria muutmine '%{category}'"
       index:
         listing_categories: "Kategooriate loetlemine"
         create_a_new_category: "+ Looge uus kategooria"
-        remove_category_confirmation: ~
+        remove_category_confirmation: "Kas sa oled kindel, et soovid selle välja eemaldada '%{category_name}'? Seda ei saa tagasi võtta."
         saving_order: "Kategooria järjekorra salvestamine"
         save_order_successful: "Kategooria järjekord õnnestus edukalt salvestada"
         save_order_error: "Kategooria järjekorra salvestamisel ilmnes viga. Värskendage lehte ja proovige uuesti."
@@ -27,27 +27,42 @@ et:
         category_transaction_types:
           transaction_types: "Tellimuse tüübid"
           transaction_types_description: "Tellimustüübid määravad, millist tüüpi tellimisprotsess on selle kategooria kirjetega lubatud. Näiteks on lubatud ainult müümine või tasuta rentimine ja äraandmine."
-          select_all: ~
-          clear_all: ~
+          select_all: "Vali kõik"
+          clear_all: "Kustuta kõik"
         buttons:
           save: Salvesta
           cancel: Tühista
       remove:
         remove_category: "Eemalda kategooria"
-        remove_category_name: ~
-        warning_remove_effects: ~
+        remove_category_name: "Eemalda kategooria '%{category_name}'"
+        warning_remove_effects: "Hoiatus! Kategooria eemaldamine '%{category_name}' on järgmiste mõjudega:"
         select_new_category: "Valige uus kategooria, kuhu ülalnimetatud üksused teisaldatakse:"
         buttons:
           remove: Eemalda
           cancel: Tühista
+        warning_listing_will_be_moved:
+          one: "Kategoorias on %{count} kirjet. Kirje teisaldatakse valitud kategooriasse."
+          other: "Kategoorias on %{count} kirjet. Kirje teisaldatakse valitud kategooriasse."
+        warning_custom_field_will_be_moved:
+          one: "Kategoorias on %{count} kohandatud väli. Kirje teisaldatakse valitud kategooriasse."
+          other: "Kategoorias on %{count} kohandatud välja. Kirjed teisaldatakse valitud kategooriasse."
+        warning_subcategory_will_be_removed:
+          one: "Selles kategoorias on %{count} alamkategooria. See teisaldatakse."
+          other: "Selles kategoorias on %{count} alamkategooriat. Need teisaldatakse."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Kategoorias ja alamkategoorias on %{count} kirjet. Kirje teisaldatakse valitud kategooriasse."
+          other: "Kategooriates ja alamkategooriates on %{count} kirjet. Kirjed teisaldatakse valitud kategooriatesse."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Kategoorias ja alamktaegoorias on %{count} kohandatud väli. Väli teisaldatakse valitud kategooriasse."
+          other: "Kategooriates ja alamktaegooriates on %{count} kohandatud väli. Väljad teisaldatakse valitud kategooriatesse."
     communities:
       edit_details:
         community_details: "Põhi info"
         community_look_and_feel: Disain
         edit_community: "Põhi info"
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
+        enabled_languages: "Lubatud keeled"
+        enabled_languages_description: "Kasutajatele saadaolevate keelte komplekt. Esimest kasutatakse vaikimisi."
+        default_language: Vaikekeel
         language_selection_disabled: ~
         community_name: "Kogukonna rendituru nimi"
         edit_community_name_description: "Teie turuplatsi nimi. Seda kuvatakse kasutajatele e-kirjades ja muudes kohtades."
@@ -57,12 +72,12 @@ et:
         edit_community_slogan_description_hideable: ~
         community_description: "Kogukonna rendituru kirjeldus"
         community_description_display: ~
-        edit_community_description_description: ~
+        edit_community_description_description: "Seda kuvatakse sisselogimata kasutajate jaoks mõeldud turu avalehel.%{see_how_it_looks_like}."
         edit_community_description_description_hideable: ~
         community_search_placeholder: "Abiteksti otsimine"
-        edit_community_search_placeholder_description: ~
+        edit_community_search_placeholder_description: "Seda kuvatakse turu avalehel otsinguriba kohatäite tekstina. %{see_how_it_looks_like}."
         private_community_homepage_content: "Privaatse turuplatsi kodulehe sisu"
-        edit_private_community_homepage_content_description: ~
+        edit_private_community_homepage_content_description: "Seda kuvatakse sisselogimata kasutajate jaoks mõeldud turu avalehel. Siin saad kirjeldada oma turgu ja sellega liitumise protsessi. Saad lisada pilte, videosid ja HTML-i sisu.  %{see_how_it_looks_like}."
         update_information: "Salvesta seaded"
         invite_people: "Kutsu uusi kasutajaid"
         edit_signup_info: "Registreerimise info"
@@ -70,9 +85,9 @@ et:
         edit_info: "Muutke teavet"
         see_how_it_looks_like: "Vaadake, kuidas see välja näeb"
         verification_to_post_listings_info_content: "Teabe tekst on kontrollimata kasutajatele"
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
+        verification_to_post_listings_info_content_description: "Praegu soovite, et kasutajad kinnitaksid käsitsi, enne kui nad saavad postitada. Siin saate seada vaikimisi teksti, mida kuvatakse kontrollimata kasutajatele, kui nad proovivad uut kirjet postitada."
+        verification_to_post_listings_info_content_default: "%{service_name} nõuab, et administraator kinnitaks inimesed enne kirjete postitamist käsitsi. Teid pole veel kinnitatud. Palun %{contact_admin_link} kinnitust."
+        contact_admin_link_text: "võta ühendust %{service_name} meeskonnaga"
         save: "Salvesta seaded"
         transaction_agreement: Tehinguleping
         transaction_agreement_checkbox: "Enne tehingu alustamist nõuda ostjatelt lepingu aktsepteerimist"
@@ -89,21 +104,21 @@ et:
         community_logo_icon_mobile: ~
         community_cover_photo: Kaanefoto
         small_community_cover_photo: "Väike kaanefoto"
-        favicon: ~
-        favicon_info_text: ~
+        favicon: Ikoon
+        favicon_info_text: "Ikoon asendab vaikimisi Sharetribe'i logo. Mõõtmed peavad olema 32x32 pikslit ja üleslaaditud pildi suurust muudetakse nende mõõtmete järgi."
         community_custom_color1: Põhivärv
-        community_slogan_color: ~
+        community_slogan_color: "Turuplatsi värv"
         community_slogan_color_instructions_text: ~
-        community_description_color: ~
+        community_description_color: "Turuplatsi kirjelduse värv"
         community_description_color_instructions_text: ~
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "Postitage uue kirje nupu värv"
         logo_instructions_text_with_dimensions: "Logo suurus peaks olema  %{width}x%{height} pikslit. Seda näidatakse suuremate ekraanidega kasutajatele."
         logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Seda ruudukujulist logo kuvatakse siis kui inimesed jagavad teie lehtekülge Facebookis, kui nad vaatavad teie lehte mobiiltelefonis või kui nad lisavad teie lehekülje järjehoidjatesse oma mobiili avalehel. Mõõtmed peavad olema (vähemalt) %{width}x%{height} pikslit."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Kaanefoto kuvatakse sisselogimata kasutajate avalehel."
-        cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: "Foto suurust muudetakse %{width}x%{height} pikslit ja pikemad pildid kadreeritakse keskelt. %{see_how_it_looks_like}."
         we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Väikest kaanefotot näidatakse kõigil lehtedel, välja arvatud sisselogimata kasutajate avalehel."
@@ -113,7 +128,7 @@ et:
         new_listing_button_instructions_text: ~
         default_browse_view: "Sirvimise vaikevaade"
         default_browse_view_instructions_text: "Vaikimisi sirvimisvaadet kasutatakse avalehel, et määrata, kuidas loendit vaikimisi kuvatakse."
-        grid: ~
+        grid: Tabel
         list: Loend
         map: Kaart
         name_display_type: "Nime kuvamise tüüp"
@@ -133,71 +148,71 @@ et:
         edit_message: "Redigeeri sõnumit"
         send_test_message: "Saada sõnum"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
+        title: "Väljaminev e-posti aadress"
+        info: "Seda nime ja aadressi kasutatakse e-kirjade jaoks, mis saadetakse teie turult liikmetele."
+        read_more: "Lisateave väljuva e-posti aadressi kohta"
         sender_address: ~
         sender_address_default: ~
         need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
+        contact_support_link_text: "võtke ühendust Sharetribe'i toega"
+        set_sender_address: "Seadke saatja aadress"
+        sender_name_label: Nimi
+        sender_name_placeholder: "Saatja nimi"
+        sender_email_label: "E-posti aadress"
+        sender_email_placeholder: saatja-email@näide.com
         amazon_ses_notification: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
+        this_is_how_it_will_look: "Nii näeb see välja:"
+        send_verification_button: "Saada kinnitusmeil"
         change_sender_email: ~
-        successfully_saved: ~
+        successfully_saved: "Saatja aadress salvestati edukalt. Kinnitusmeil saadetakse varsti."
         successfully_saved_name: ~
         set_sender_name: ~
         change_sender_name: ~
         change_sender_prompt: ~
         status: ~
-        status_verified: ~
-        status_error: ~
+        status_verified: "Kinnitatud - kasutusel"
+        status_error: "Ilmnes viga. Värskendage lehte."
         status_requested: ~
         status_expired: ~
         status_resent: ~
-        resend_link: ~
+        resend_link: "Saada uuesti"
         invalid_email_error: ~
         invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
+        invalid_email_domain_read_more_link: "Lisateabe saamiseks lugege abikeskuse artiklit."
+        unknown_error: "Midagi läks valesti"
         white_label_offer: ~
-        upgrade_plan_link: ~
+        upgrade_plan_link: "versiooniuuendus Pro-plaani või uuemale versioonile"
         verification_sent_from: ~
-        follow_the_instructions: ~
+        follow_the_instructions: "Oma aadressi kinnitamiseks järgige e-kirjas toodud juhiseid."
       getting_started:
         getting_started: Alusta
       available_languages:
         cs: ~
-        da-DK: ~
-        de: ~
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        es: ~
+        da-DK: Taani
+        de: Saksa
+        en: Inglise
+        en-AU: "Inglise (Austraalia)"
+        en-GB: "Inglise (Ühendkuningriik)"
+        es: Hispaania
         es-ES: ~
-        fi: ~
-        fr: ~
-        fr-CA: ~
-        el: ~
-        it: ~
-        ja: ~
+        fi: Soome
+        fr: French
+        fr-CA: "Prantsuse (Kanada)"
+        el: Kreeka
+        it: Itaalia
+        ja: Jaapani
         ko: ~
-        nb: ~
-        nl: ~
+        nb: Norra
+        nl: Hollandi
         pl: ~
-        pt-BR: ~
-        pt-PT: ~
-        ru: ~
-        sv: ~
+        pt-BR: "Portuguese (Brazil)"
+        pt-PT: Portugali
+        ru: Vene
+        sv: Rootsi
         th-TH: ~
-        tr-TR: ~
+        tr-TR: Türgi
         vi: ~
-        zh: ~
+        zh: Hiina
         zh-TW: ~
       settings:
         settings: Seadistused
@@ -208,16 +223,16 @@ et:
         private: "Luba kirjeid ja kasutajaprofiile näha ainult registreeritud kasutajatel (muuda turg privaatseks)"
         require_verification_to_post_listings: "Luba ainult administraatorite kinnitatud kasutajatel postitada uusi kirjeid"
         allow_free_conversations: ~
-        search_preferences: ~
+        search_preferences: Otsingueelistused
         search_and_location_preferences: ~
         default_search_type: ~
-        keyword_search: ~
-        keyword_and_location_search: ~
-        location_search: ~
+        keyword_search: "Võtmesõna otsing"
+        keyword_and_location_search: "Märksõna ja asukoha otsing"
+        location_search: "Asukoha otsing"
         select_distance_unit: ~
-        km: ~
-        miles: ~
-        show_only_nearby: ~
+        km: km
+        miles: miili
+        show_only_nearby: "Kuvage ainult asukoha otsinguga läheduses olevad kirjed"
         allow_users_to_add_location: ~
         fuzzy_location: ~
         listing_preferences: Loendieelistused
@@ -234,37 +249,37 @@ et:
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
         buyer_transaction_fees_are_only_supported_with_stripe: ~
-        automatic_newsletter_frequency: ~
+        automatic_newsletter_frequency: "Saada automaatne uudiskiri: %{frequency_dropdown}"
         newsletter_daily: Päeviti
         newsletter_weekly: "Nädala kaupa"
-        delete_marketplace_title: ~
+        delete_marketplace_title: "Kustutage turuplats"
         type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
+        type_marketplace_domain_placeholder: "Sisestage oma turu domeen siia"
+        once_you_delete: "Kui olete turuplatsi kustutanud, ei pääse te sellele enam juurde. Ole ettevaatlik."
+        are_you_sure: "Oled sa kindel?"
+        i_understand_button: "Mõistan, et sellel nupul klõpsates kustutatakse minu turg"
+        last_community_updates: "Pange tähele, et pärast kustutamist võidakse teie ja teie turu kasutajad ikkagi saada viimaseid värskenduse e-kirju."
         you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
-        payment_preferences: ~
+        delete_this_marketplace: "Kustutage see turg"
+        payment_preferences: Maksesüsteem
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
         manage_members: Kasutajad
         email: E-post
         name: Nimi
-        display_name: ~
+        display_name: "Kuvatav nimi"
         join_date: Liitunud
         admin: Administraator
         posting_allowed: "Postitamine on lubatud"
         ban_user: Keela
         saving_user_status: "Salvestamine ..."
         save_user_status_successful: Salvestatud
-        export_all_as_csv: ~
+        export_all_as_csv: "Ekspordi kõik CSV-failina"
         save_user_status_error: "Salvestamine nurjus. Värskendage lehte ja proovige uuesti."
         ban_user_confirmation: "See keelab kasutajakonto ja takistab neil selle kontoga uuesti saidile juurdepääsu. Kas soovite kindlasti jätkata?"
         unban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: "Enda kontot ei saa keelata."
         have_ongoing_transactions: ~
         only_delete_disabled: ~
         delete_info1: ~
@@ -292,12 +307,12 @@ et:
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
-        new_layout: ~
-        description_roadmap_new: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
-        searchpage: ~
+        new_layout: "Uus paigutus"
+        description_roadmap_new: "Kui uued paigutuskomponendid on teie turul saadaval, saate valida, kas soovite hakata uut komponenti kasutama või jätkama vana kasutamist. Sellel lehel saate valikut igal ajal vahetada. Soovitatav on alati kasutada uut versiooni, kuna vanad komponendid võivad mingil hetkel järk-järgult kaotada. Kui teie praegu kasutatav komponent kaotatakse järk-järgult, võetakse teiega eelnevalt ühendust."
+        enabled_for_you: "Teie jaoks lubatud"
+        enabled_for_all: "Lubatud kõigile"
+        new_topbar: "Uus ülariba (nähtav igal lehel)"
+        searchpage: "Uus otsinguleht (nõuab uut ülemist riba)"
         new_email_templates: ~
       social_media:
         social_media: Sotsiaalmeedia
@@ -312,14 +327,14 @@ et:
         twitter_handle: "Twitteri käepide"
         twitter_handle_info_text: "Teie turuplatsi Twitteri konto kasutajanimi (kui teil seda on)."
         twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_instructions_link_text: "Loe rohkem"
         twitter_handle_placeholder: kasutajanimi
-        invalid_twitter_handle: ~
+        invalid_twitter_handle: "Twitteri link peaks sisaldama kõige rohkem 15 tärki (tähed A-Z ja numbrid 0–9)."
         facebook_connect: "Facebookiga sisselogimine"
         facebook_developers_dashboard: ~
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_instructions_link_text: "Vaadake juhiseid Facebooki sisselogimise konfigureerimiseks."
         facebook_connect_id: "Facebooki rakenduse ID"
         invalid_facebook_connect_id: "Rakenduse ID peaks sisaldama ainult numbreid."
         facebook_connect_secret: "Facebooki rakenduse saladus"
@@ -398,7 +413,7 @@ et:
         google_analytics_key: "Google Analyticsi jälgimise ID"
         google_analytics_key_info_text: "Teie Google Analyticsi konto jälgimise ID."
         google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_instructions_link_text: "Lisateave Google Analyticsi ühendamise kohta"
         sharetribe_analytics: ~
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
@@ -425,9 +440,9 @@ et:
         url: URL
         empty: "Teil pole täiendavaid menüülinke"
         max_number_of_links: ~
-        all: ~
+        all: Kõik
         max_number_of_links_info: ~
-        about_page: ~
+        about_page: "lehe kohta"
       default_menu_links:
         title: ~
         about_link_title: ~
@@ -438,11 +453,11 @@ et:
         display_contact: ~
         display_invite: ~
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Ülemine riba"
+        new_listing_button_label: "Postitage uue kirje nupu tekst"
+        invalid_post_listing_button_label: "Näita nupu „Uue kirje postitamine”  tekst"
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: "Ekspordi kõik CSV-failina"
         processing_export: ~
         transactions: Tehingud
         search_by_title_parties: ~
@@ -486,39 +501,39 @@ et:
           initiated: "PayPali makse ootamine"
           pending_ext: "PayPali makse ootamine"
           none:
-            free: ~
+            free: "Tasuta tehing"
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            free: Vestlus
+            pending: Ootel
+            preauthorized: Eelvolitatud
+            accepted: Aktsepteeritud
+            rejected: "Tagasi lükatud"
+            paid: Tasutud
+            confirmed: Lõpetatud
+            canceled: Tühistatud
             disputed: ~
-            initiated: ~
-            pending_ext: ~
+            initiated: "PayPali makse ootamine"
+            pending_ext: "PayPali makse ootamine"
             refunded: ~
             dismissed: ~
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            free: Vestlus
+            pending: Ootel
+            preauthorized: Eelvolitatud
+            accepted: Aktsepteeritud
+            rejected: "Tagasi lükatud"
+            paid: Makstud
+            confirmed: Lõpetatud
+            canceled: Tühistatud
             disputed: ~
-            initiated: ~
-            pending_ext: ~
+            initiated: "Stripe makse ootamine"
+            pending_ext: "Stripe makse ootamine"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
             refunded: ~
             dismissed: ~
-        not_available: ~
+        not_available: "Pole saadaval"
       conversations:
         conversations: ~
         headers:
@@ -826,9 +841,9 @@ et:
           youtube_video_id_info: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Muuda '%{field_name}'"
       edit_price:
-        description: ~
+        description: "Minimaalne ja maksimaalne hind mõjutavad ainult filtrit. Nad ei kehtesta hindade loetlemiseks limiiti."
         edit_price_field: "Muutke välja „Hind”"
         show_price_filter_homepage: "Näita kodulehel hinnafiltrit"
         price_min: "Filtreerige minimaalne hind"
@@ -838,28 +853,28 @@ et:
         this_field_is_required: "Selle välja täitmine on kohustuslik"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
+        edit_expiration_field: "Muutke kirje välja „Kõlblikkusaeg”"
+        enable: "Luba aegumiskuupäev"
       form:
         field_required:
           this_field_is_required: "Tehke see välja kohustuslikuks täitmiseks uue kirje loomisel"
           this_field_is_required_checkbox: "Kohustage selle välja täitmine uue kirje loomisel kohustuslikuks (kasutaja peab valima vähemalt ühe valiku)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Kuva avalehel sellel väljal põhinev filter"
+          date_cant_be_filtered: "Kuupäevavälja jaoks pole filtrit saadaval."
+          text_cant_be_filtered: "Tekstivälja jaoks pole filtrit. Peamine tekstiotsing otsib tekstiväljadelt."
       index:
         listing_fields: "Väljad ja filtrid"
         listing_fields_help: "Siin saate redigeerida väljad, mille kasutajad peavad uue kirje loomisel täitma. Pange tähele, et mõned väljad on eelnevalt määratletud ja neid ei saa redigeerida."
         add_new_field: "Lisa uus väli:"
-        remove_field_confirmation: ~
+        remove_field_confirmation: "Kas sa oled kindel, et soovid selle välja eemaldada '%{field_name}' ja kõik andmed? Seda ei saa tagasi võtta."
         cancel: Tühista
         save: Salvesta
         field_title: "Välja pealkiri"
         field_type: "Välja tüüp"
         categories: "Kategooriate loetlemine, kus välja kasutatakse"
-        select_all: ~
-        clear_all: ~
+        select_all: "Vali kõik"
+        clear_all: "Kustuta kõik"
         options: Valikud
         add_option: "+ Valiku lisamine"
         saving_order: "Välja salvestamine"
@@ -909,20 +924,20 @@ et:
         send_email_to_members: "Saada kasutajatele e-mail"
         send_email_to_members_title: "Saada e-mail omaa kasutajatele"
         send_email: "Saada e-mail"
-        send_email_or: ~
-        send_test_email: ~
-        test_sent: ~
-        send_email_article_title: ~
-        send_email_article_text: ~
+        send_email_or: vöi
+        send_test_email: "Saatke endale testmeil"
+        test_sent: "Testmeilisõnum saadeti teie postkasti"
+        send_email_article_title: "see artikkel"
+        send_email_article_text: "Lisateavet kasutaja segmentide kohta saate siit %{article_link}."
         recipients:
-          title: ~
+          title: "Kellele soovite meili saata?"
           options:
-            all_users: ~
+            all_users: "Kõik kasutajad"
             posting_allowed: ~
-            with_listing: ~
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
+            with_listing: "Kasutajad, kes on postitanud vähemalt ühe kirje"
+            with_listing_no_payment: "Kasutajad, kes on postitanud vähemalt ühe kirje, kuid pole oma makse üksikasju lisanud"
+            with_payment_no_listing: "Kasutajad, kes on lisanud oma makse üksikasjad, kuid pole postitust postitanud"
+            no_listing_no_payment: "Kasutajad, kes pole kirjet postitanud ega ole oma makse üksikasju lisanud"
         email_subject: "E-maili pealkiri"
         email_content: "E-maili sisu"
         email_content_placeholder: "Mida sooviskid oma kasutajatele kirjutada?"
@@ -940,153 +955,157 @@ et:
       users_and_transactions: Halda
       configure: Seadistamine
       emails_title: E-kirjad
-      subscription: ~
-      preview: ~
+      subscription: Tellimine
+      preview: "Lehe eelvaade"
       whats_new: ~
     listing_shapes:
-      availability_title: ~
-      read_more: ~
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
+      availability_title: Saadavus
+      read_more: "Lisateave automaatse saadavuse haldamise kohta."
+      read_more_availability_management: "Lisateave saadavuse haldamise kohta."
+      allow_providers_to_manage_availability: "Lubage müüjatel hallata oma saadavust kalendri kaudu"
       per_hour_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      per_day_availability: "Saadavus \"päevas\""
+      per_night_availability: "Saadavus \"öö kohta\""
+      pricing_units_disabled_info: "Hinnaühikuid ei saa kasutada, kui saadavuse kalender on lubatud."
       can_not_find_name: ~
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        listing_shapes: "Tellimuse tüübid"
+        description: "Tellimustüübid määravad, kuidas tellimisprotsess teie saidil töötab. Võite otsustada, kas teie kasutajad rentivad või müüvad, või lihtsalt postitavad teadaanded ja suhtlevad otseteadete kaudu"
+        read_more_about_order_types: "Lisateave tellimistüüpide kohta"
+        add_new_shape: "Lisage uus tellimuse tüüp: "
+        select_template: "Valige mall ..."
+        all_categories: "Kõik kategooriad"
+        no_categories: "Kategooriaid pole"
         category_count: ~
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Tellimuse tüübi nimi"
+          listing_shape_categories: "Kategooriad, kus seda kasutatakse"
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Tellimuste salvestamine"
+          save_order_successful: "Tellimuse tüübi tellimus õnnestus edukalt salvestada"
+          save_order_error: "Tellimuse salvestamisel ilmnes viga. Värskendage lehte ja proovige uuesti."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Toodete müük"
+        renting_products: "Toodete rentimine"
+        offering_services: "Teenuste pakkumine"
+        giving_things_away: "Asjade ära andmine"
+        requesting: Taotleb
+        announcement: "Kuulutuste postitamine"
+        custom: Kohandatud
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
+        create_listing_shape: "Loo tellimuse tüüp"
+        create: Loo
+        cancel: Tühista
         create_success: ~
         create_failure: ~
       edit:
         edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        update: Salvesta
+        cancel: Tühista
         update_success: ~
         update_failure: ~
-        delete: ~
-        can_not_delete_last: ~
+        delete: "Kustuta tellimuse tüüp"
+        can_not_delete_last: "Seda tellimistüüpi ei saa kustutada, kuna see on teie turul ainus tüüp."
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
+      listing_shape_name: Nimi
       listing_shape_name_placeholder: ~
-      action_button_label: ~
+      action_button_label: "Kassanupu silt"
       action_button_placeholder: ~
-      successfully_closed: ~
+      successfully_closed: "Loendite sulgemine õnnestus"
       successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
-      units_title: ~
-      units_desc: ~
+      pricing_and_checkout_title: "Hinnakujundus ja väljamakse"
+      online_payments_label: "Luba müüjatel võrgus makseid vastu võtta"
+      shipping_label: "Luba müüjatel määratleda saatmistasu"
+      price_label: "Luba müüjatel oma kirjetele hinda lisada"
+      units_title: Hinnaühikud
+      units_desc: "Kui olete lubanud hinnaühikud, kuvatakse noteerimishind kui \"hinnaühiku hind\". Näide: \"39 dollarit tunnis\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: Tükis
+        hour: Tunnis
+        day: Päevas
+        night: "Öö kohta"
+        week: Nädalas
+        month: Kuus
         unit: ~
       can_not_find: ~
       add_custom_unit: ~
-      delete_custom_unit: ~
+      delete_custom_unit: kustuta
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: "Uus hinnaüksus"
+        label_heading: Silt
+        selector_label_heading: "Valija silt"
+        label_placeholder: "nt. \"kg\", \"30 minutit\", \"inimene\", \"klass\""
+        selector_placeholder: "nt. \"Inimeste arv\", \"kogus kilogrammides\""
+        per: kohta
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: "Ühiku tüüp"
+          quantity_label: "Kogus (tükk, kg, inimene, 2-tunnise ringkäigu kohta ...)"
+          time_label: "Aeg (30 minuti jooksul, 2 nädala jooksul, aastas ...)"
     paypal_accounts:
       marketplace_paypal_integration: "Maksesüsteemi eelistused"
       preferences_updated: "Maksesüsteemi eelistusi on uuendatud"
-      contact_support_link_text: ~
+      contact_support_link_text: "võtke ühendust tugiteenusega"
       integration_info_text: "Teie turu maksesüsteem toetab PayPal. Selleks et kasutajad saaksid teie turuplatsil maksta, peate oma PayPali konto ühendama. Kui olete oma PayPali konto ühendanud, saate valida minimaalse tehingu suuruse ja võimaliku vahendustasu."
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: "Kas pakute tooteid või teenuseid ise?"
       link_paypal_personal_account: ~
       link_stripe_personal_account: ~
       link_paypal_and_stripe_personal_account: ~
-      personal_payment_preferences_link_text: ~
-      read_more_about_paypal: ~
-      edit_payment_settings: ~
+      personal_payment_preferences_link_text: "teie isiklik turukonto"
+      read_more_about_paypal: "Lisateave maksesüsteemi kohta"
+      edit_payment_settings: "Muutke makseseadeid"
       supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      currency_change_warning_text: "Pea püsti: kui liigute selle valuutavahetusega edasi, ärge unustage, et valuuta värskenduse saamiseks paluge müüjatel olemasolevaid kirjeid käsitsi redigeerida."
+      marketplace_currency_label: "Turu valuuta:"
       minimum_listing_price_label: "Minimaalne tehingu suurus:"
       transaction_fee_label: "Müüja tehingutasu:"
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Müüja minimaalne tehingutasu:"
       save_settings: "Salvesta seaded"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     payment_preferences:
       title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
+      general_settings: "1. Üldseaded"
+      connect_a_payment_provider: "2. Ühendage makseteenuse pakkuja"
+      contact_support: "võtke ühendust tugiteenusega"
+      no_payments_link_text: siin
+      your_country: "Sinu riik:"
       you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
-      choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      which_to_choose: "Kumba valida?"
+      you_can_use_stripe_or_paypal: "Makseteenuse pakkujatena saate kasutada kas Stripe, PayPali või mõlemat.%{choose_link}"
+      you_can_use_stripe_only: "Makseteenuse pakkujana saate kasutada Strip. %{read_more_link}"
+      read_more_stripe: "Lisateavet Stripe kohta."
+      you_can_use_paypal_only: "Makseteenuse pakkujana saate kasutada PayPali. %{read_more_link}"
+      read_more_paypal: "Lisateave PayPali maksete kohta."
+      read_more_about_paypal_and_stripe: "Lisateave veebimaksete, Stripe'i ja PayPali kohta"
+      general_settings_updated: "Maksesüsteemi üldisi seadeid on värskendatud"
+      transaction_fee_settings_updated: "Tehingutasu sätted on värskendatud"
+      choose_popup_text: |-
+          Kui soovite lubada kasutajatel veebimakseid aktsepteerida, peate valima oma turu valuuta ja ühendama seejärel vähemalt ühe kahest Sharetribe'i toetatavast makseteenuse pakkujast: Stripe ja PayPal. Võite kasutada ka mõlemat, mis tähendab, et teie kasutajad saavad makseid vastu võtta ükskõik kumma makseviisiga.
+          Uue konto saate luua mõlema teenusega, kui teil seda veel pole. Kui olete konto ühendanud, saate iga tehingu pealt valida võimaliku tasu, mida te võtate.
+          Mis vahe on Stripe´l ja PayPalil? Stripe võimaldab teil müüjaga väljamakseid edasi lükata kuni 3 kuud ja pakub ühte makseviisi (krediit- / deebetkaart). Stripe võimaldab ka teie müüjatel raha otse oma pangakontole saada, esitades lihtsalt oma pangaandmed. PayPal pakub kahte makseviisi (krediitkaart ja PayPali konto) ning pakub kaitseprogrammi ostjatele ja müüjatele. See nõuab, et teie müüjad looksid maksete vastuvõtmiseks PayPali ärikonto.
+          Kui kasutate Stripe'i, arvatakse selle teenustasud teie tehingutasust maha, seega pidage meeles, et määrake piisavalt kõrge miinimumtasu. Kui kasutate PayPali, võetakse selle tasud lisaks teie tehingutasule ka müüjalt eraldi. Stripe'il ja PayPalil on natuke erinev tasude struktuur. Enamikul juhtudel on Stripe'i tasud pisut madalamad.
+      invalid_api_keys: "Valed Stripe API võtmed"
+      missing_api_keys: "Puuduvad Stripe API võtmed"
+      stripe_verified: "Stripe API juurdepääs on kinnitatud"
+      change_settings: "Seadete ja tasude muutmine"
+      configure_stripe: "Seadistage Stripe"
+      configure_paypal: "Seadistage PayPal"
+      transaction_fee_settings: "Tehingutasu seaded"
+      transaction_fee_save: Salvesta
+      stripe_fee: "Stripe tasud"
+      stripe_fee_notice: "%{stripe_fee_link}  võetakse teie sissenõutavast tehingutasust maha."
+      fee_should_be_less_than_minimum_price: "Minimaalne tehingutasu peab olema väiksem kui tehingu minimaalne suurus"
       the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
       stripe_connected:
-        title: ~
+        title: "Stripe on ühendatud"
         disable: ~
         disabled: ~
         enable: ~
       paypal_connected:
-        title: ~
+        title: "PayPal on ühendatud"
         disable: ~
         disabled: ~
         enable: ~
@@ -1094,25 +1113,25 @@ et:
       cannot_disable_gateway: ~
       cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
+        add_your_api_keys: "Lisage oma Stripe API võtmed"
+        how_to_get_these: "Kuidas neid saada?"
         publishable_key_example: ~
         secret_key_example: ~
-        save_api_keys: ~
+        save_api_keys: "Salvestage Stripe API võtmed"
         invalid_secret: ~
         invalid_publishable: ~
       index:
-        header: ~
-        info: ~
-        active: ~
-        gateway: ~
-        process: ~
-        commission: ~
-        minimum_price: ~
-        minimum_fee: ~
-        api_verified: ~
-        actions: ~
-        payments_not_enabled: ~
+        header: "Saadaolevad makseseaded"
+        info: "Saate konfigureerida saadaolevad maksevõimalused oma turul kasutamiseks. Praegu toetatakse PayPali ja Stripe'i."
+        active: Aktiivne
+        gateway: Sissepääsutee
+        process: Protsess
+        commission: Komisjon
+        minimum_price: "Min. hind"
+        minimum_fee: "Min. tasu"
+        api_verified: "API on kinnitatud?"
+        actions: Tegevused
+        payments_not_enabled: "Teie turul pole maksed lubatud"
     transaction_types:
       sell: Müümine
       sell_w_online_payment: ~
@@ -1207,22 +1226,22 @@ et:
     what_is_this: "Mis see on?"
     removed_user: "Eemaldatud kasutaja"
     payment_fee_info:
-      title: ~
-      stripe: ~
-      paypal: ~
+      title: "Komisjonitasu ja makse töötlemise tasu"
+      stripe: Stripe
+      paypal: PayPal
       info: ~
     paypal_fee_info:
-      title: ~
+      title: "PayPali makse töötlemise tasu"
       body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: siin
     stripe_fee_info:
-      title: ~
+      title: "Stripe makse töötlemise tasu"
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: siin
   conversations:
     accept:
-      details: ~
+      details: "Tellimuse üksikasjad"
       order_by: ~
       accept_offer: "Aktsepteeri pakkumine"
       accept_request: "Aktsepteeri taotlus"
@@ -1234,19 +1253,19 @@ et:
       price_to_pay: "Lõplik summa tasumiseks"
       accept: Nõustu
       decline: Keelduge
-      quantity_label: ~
-      sum_label: ~
+      quantity_label: "Kogus:"
+      sum_label: "Vahesumma:"
       service_fee_label: ~
       buyer_service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
+      you_will_get_label: "Saad:"
+      total_label: "Kokku:"
       total_value: ~
-      total_value_paypal: ~
-      total_value_stripe: ~
+      total_value_paypal: "%{seller_gets}*"
+      total_value_stripe: "%{seller_gets}"
       paypal_fee: ~
       paypal_fee_info: ~
-      shipping_price_label: ~
-      stripe-fee_label: ~
+      shipping_price_label: "Kohaletoimetamine:"
+      stripe-fee_label: "Makse töötlemise tasu"
     confirm:
       confirm_description: "Kui tellimus on täidetud, peaksid selle kinnitama kui valmis. Siis saad teisele poolele tagasisidet anda."
       cancel_description_team: ~
@@ -1277,9 +1296,9 @@ et:
       canceled_request: "Tellimus vaidlustatud."
       canceled_offer: "Pakkumine tühistatud."
       message_from: "Sõnum  %{person}"
-      about_listing: ~
+      about_listing: "info kuulutuse kohta %{listing_title}"
       free_message: "Otsene sõnum"
-      message_content_not_available: ~
+      message_content_not_available: "Sõnumi sisu pole saadaval"
     message:
       accepted_request: "Aktsepteeri taotlus."
       received_payment: ~
@@ -1304,7 +1323,7 @@ et:
       payment_has_now_been_transferred: ~
     new:
       message: Sõnum
-      message_to: ~
+      message_to: "Sinu teade %{author_name}"
       optional_message_to: ~
       send_message: "Saada teade"
       send: Saada
@@ -1313,8 +1332,8 @@ et:
       you_will_get_notified: "Saad e-maili kui %{person} sulle vastab."
       title: Pealkiri
       send_message_to_user: "Saada kiri kasutajale %{person}"
-      about_listing: ~
-      author_has_to_accept_request: ~
+      about_listing: "info kuulutuse kohta %{listing_title}"
+      author_has_to_accept_request: "%{author_name} peab enne päringu kinnitama, alles siis saad maksta"
     show:
       in_response_to_listing: "kuulutuse kohta"
       message_sent_by: "Teade saadetud kelle poolt"
@@ -1323,9 +1342,9 @@ et:
       write_a_reply: "Kirjuta vastus:"
       conversation_about_listing: "Vestlus kasutajaga %{person} seoses kuulutusega %{listing}"
       conversation_with_user: "Kasutajaga %{person}"
-      conversation_with: ~
+      conversation_with: "Vestlus %{person}-ga"
       last_message_at: "(viimane teade %{time})"
-      price: ~
+      price: "Hind: %{price}"
       sum: "Kokku: %{sum}"
       total: ~
     status:
@@ -1404,12 +1423,12 @@ et:
   feedback:
     feedback_subject: ~
     feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    unlogged_user: Kasutamata
+    anonymous_user: "Anonüümne kasutaja"
   community_memberships:
     access_denied:
       access_denied: "Ligipääs keelatud"
-      you_are_banned_in_this_community: ~
+      you_are_banned_in_this_community: "Meeskond %{service_name} on blokeerinud sinu konto. Kui sa soovid saata sõnumi %{service_name} meeskonnale, on sul see võimalus %{link_to_contact_page}."
       contact_page_link: "võtke nendega ühendust"
     new:
       welcome_fb_user: "Tere tuoemast %{service_name}, %{name}!"
@@ -1423,10 +1442,10 @@ et:
       log_out: "logi välja"
       join_community_button: "Liitu %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
+      invitation_code_invalid_or_used: "Kutse kood oli vale või seda on juba kasutatud."
       email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      email_not_available: "Teie antud e-posti aadress on juba kasutusel."
+      consent_not_given: "Tingimusi ei aktsepteeritud."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Pea meeles aktsepteerida või tagasi lükata pakkumine saatjalt %{sender_name}"
@@ -1439,13 +1458,13 @@ et:
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: Lisateave
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Te pole tellimust %{request_link} veel täidetuks märkinud ega vaidlustanud. Kui tellimus on täidetud, peaksite seda kinnitama. Pärast seda saate anda tagasisidet kasutajal %{other_party_given_name}."
       remember_to_confirm_request: "Ära unusta taotlust kinnitada või tühistada"
       if_will_not_happen_you_should_cancel: "Kui arvad, et seda tellimust ühel või teisel põhjusel ei täideta, võid %{cancel_it_link}."
       cancel_it_link_text: "Vaidlusta see"
-      automatic_confirmation: ~
+      automatic_confirmation: "Kui te ei kinnita ega vaidlusta tellimust %{days_to_automatic_confirmation} päeva jooksul peale taotluse vastuvõtmist, märgime selle automaatselt täidetuks."
     confirm_reminder_v2:
       headline: ~
       you_have_not_yet_confirmed_or_canceled_request: ~
@@ -1477,7 +1496,7 @@ et:
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Tellimus täidetakse automaatselt - ärge unustage tagasisidet anda"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "Märgime tellimuse '%{request}' täidetuks. Tellimus on automaatselt täidetud kuna %{days_passed} päeva on möödunud tellimuse vastuvõtmisest."
     transaction_automatically_confirmed_v2:
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
@@ -1502,7 +1521,7 @@ et:
     common:
       hey: "Tere %{name},"
       hi: ~
-      kassi_team: "%{service_name} Meeskond"
+      kassi_team: "%{service_name} meeskond"
       thanks: "Tänud,"
       dont_want_to_receive_these_emails: "Ei soovi enam neid e-maile saada?"
       edit_your_email_settings_here: "Muuda oma e-maili seadeid siin"
@@ -1526,7 +1545,7 @@ et:
       your_request_was_rejected: "Sinu päring on tagasi lükatud"
       you_can_now_pay_to: "Saad nüüd tasuda küsitud summa kasutajale %{payment_receiver}."
       pay_now: "Maksa nüüd"
-      remember_to_confirm: ~
+      remember_to_confirm: "Peale tellimuse täitmist, märgi see lõpetatuks. Kui tellimust ei täideta on sul %{days_to_automatic_confirmation} päeva selle vaidlustamiseks. Vastasel juhul märgitakse see automaatselt lõpetatuks."
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
@@ -1556,21 +1575,21 @@ et:
     new_payment:
       new_payment: "Oled saanud uue makse"
       price_per_unit_type: ~
-      quantity: ~
+      quantity: "Kogus:"
       you_have_received_new_payment: "Kasutaja %{payer_full_name} on sulle tasunud <b> %{payment_sum} </b><b>  %{listing_title} </b>  eest. Siin on sinu kviitung."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
-      payment_gateway_fee: ~
-      shipping_total: ~
-      product: ~
-      price_payer_paid: ~
+      payment_gateway_fee: "Makse töötlemise tasu:"
+      shipping_total: "Kohaletoimetamine:"
+      product: "Toode:"
+      price_payer_paid: "Hind  %{payer_full_name} makstud:"
       subtotal: ~
-      service_fee: ~
+      service_fee: "%{service_name} teenustasu:"
       buyer_service_fee: ~
-      you_will_get: ~
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
+      you_will_get: "Kokku:"
+      new_payment: "Olete saanud uue makse"
+      price_per_unit_type: "Hind %{unit_type}"
+      quantity: "Kogus:"
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
@@ -1581,24 +1600,24 @@ et:
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      product: Toode
+      price_per_unit_type: "Hind %{unit_type}"
+      duration: Kestus
+      quantity: Kogus
+      subtotal: Vahesumma
       buyer_service_fee: ~
-      total: ~
-      price: ~
-      service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      total: Kokku
+      price: Hind
+      service_fee: Teenustasu
+      stripe_gateway_fee: "Stripe tasu"
+      paypal_gateway_fee: "PayPali tasu:"
       money_will_be_transferred: ~
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: "PayPali tasu:"
+      shipping_total: "Kohaletoimetamine:"
     braintree_new_payment:
       product: "Toode:"
       price_payer_paid: "Summa %{payer_full_name} makstud:"
@@ -1609,14 +1628,14 @@ et:
       you_have_made_new_payment: "Sa oled tasunud <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Siin on makse kviitung."
       product: Toode
       price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      duration: Kestus
+      quantity: Kogus
+      subtotal: Vahesumma
       total: Kokku
       price: Hind
       buyer_service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      stripe_gateway_fee: "Stripe tasu"
+      paypal_gateway_fee: "PayPali tasu:"
       money_will_be_transferred: ~
       listing_per_unit_title: ~
       stripe:
@@ -1629,7 +1648,7 @@ et:
       headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Kuulutus mida jälgid on uuendatud"
-      has_updated_listing_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} kirje on värskendanud '%{listing}' sa jälgid %{service_name}."
       view_changes: "Vaata muudatusi"
     community_updates:
       added_offer: "%{name_link} lisas kulutuse:"
@@ -1663,7 +1682,7 @@ et:
       subject: ~
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
-      if_you_do_accept: ~
+      if_you_do_accept: "Kui selle tähtaja jooksul taotluse vastu võtate, saate raha kohe oma kontole."
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "Taotlusele vastamiseks klõpsake siin"
@@ -1698,8 +1717,8 @@ et:
       subject: ~
       new_member_has_joined: ~
       this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      person_name: "Nimi:"
+      person_email: "E-post:"
     new_member_notification_v2:
       headline: ~
       new_member_has_joined: ~
@@ -1771,10 +1790,10 @@ et:
       contact_the_seller: ~
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Broneerimine nurjus ootamatu vea tõttu. Palun proovige hiljem uuesti. Teilt pole tasu võetud."
+      double_booking_payment_voided: "Kahjuks pole teie valitud kuupäevad enam saadaval. Valige erinevad kuupäevad. Teilt pole tasu võetud."
     onboarding:
-      server_rendering: ~
+      server_rendering: "Alustusjuhendi laadimine ebaõnnestus. Meid on olukorrast teavitatud ja parandame seda."
     listings:
       departure_time: "Väljumisaeg peab olema praeguse aja ja kuni ühe aasta vahel praegusest ajast."
       share_type: "Pead valima ühe."
@@ -1787,17 +1806,17 @@ et:
     transaction_agreement:
       required_error: "Peate kokkuleppe heaks kiitma"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Tehingut ei saa lõpule viia. Selle põhjuseks on suure tõenäosusega krediitkaardi ebaõnnestumine panga autoriseerimisel. Proovige uuesti osta alternatiivse makseviisi abil."
       buyer_cannot_pay_error: ~
-      pending_review_error: ~
-      seller_express_checkout_disabled: ~
+      pending_review_error: "Makse esitati, kuid PayPal märkis, et see vajab ülevaatust. Kui PayPal on ülevaatuse lõpetanud, autoriseeritakse makse automaatselt."
+      seller_express_checkout_disabled: "Kirje autori PayPali konto puhul on PayPal Express Checkout keelatud. Võtke ühendust autoriga ja andke neile teada, et nende PayPali kontoga on probleeme, ja soovitage neil pöörduda PayPali klienditeeninduse poole."
       seller_express_checkout_disabled_no_free: ~
       generic_error: "Makseprotsessis ilmnes viga. Teie PayPali makset ei saanud lõpule viia."
       cancel_error: "Vaidluse ajal ilmnes viga. Vaidlust ei õnnestunud lõpule viia."
       accept_authorization_error: "Paypaliga volitatud makse aktsepteerimisel ilmnes viga. Palun proovi uuesti."
       reject_authorization_error: "Eelnevalt volitatud Paypali makse tagasilükkamisel ilmnes viga. Palun proovi uuesti."
     stripe:
-      generic_error: ~
+      generic_error: "Makseprotsessis ilmnes viga. Teie Stripe makset ei saanud lõpule viia."
       accept_authorization_error: ~
       reject_authorization_error: ~
       card_declined: ~
@@ -1817,14 +1836,14 @@ et:
     error_500:
       temporary_unavailable: "Turuplats pole ajutiselt saadaval"
       unable_to_process: "Teenus ei saa teie taotlust praegu töödelda. Proovige mõne hetke pärast uuesti."
-      we_hate_this: ~
+      we_hate_this: "Me vihkame, kui see juhtub! Meid on olukorrast teavitatud ja parandame selle."
       refer_to_error_id: ~
     error_500_title: "lehekülje laadimine ebaõnnestus"
     error_description: "Viga kirjelduses"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript on sinu brauseris keelatud"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ei tööta korralikult ilma javascriptita. Proovi brauseri eelistustes lubada javascript ja laadi see leht uuesti uuesti."
-      contact_us: "võta meiega ühendust"
+      contact_us: Kontakt
       send_feedback: "Saada teade"
       your_feedback_to_admins: "Sinu teade %{service_name} meeskonnale"
     send: Saada
@@ -1839,7 +1858,7 @@ et:
       on_or_before: ~
       after: ~
       on_or_after: ~
-      positive_number: ~
+      positive_number: "Sisestage number."
       from_must_be_less_than_till: ~
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
@@ -1882,9 +1901,9 @@ et:
     requests: Päringud
     search_kassi: "Otsi %{service_name}"
     create_new_marketplace: "Loo uus võrguturg"
-    contact_us: "Võta meiega ühendust"
+    contact_us: Kontakt
     profile: Profiil
-    manage_listings: ~
+    manage_listings: "Minu nimekirjad"
     invite: "Kutsu uusi liikmeid"
     login: "Logi sisse"
     signup: Registreeri
@@ -1931,7 +1950,7 @@ et:
       processing_uploaded_image: "(Üleslaetud pilti töödeldakse ...)"
     index:
       no_listings_with_your_search_criteria: "Kahjuks ei leitud teie otsingukriteeriumide kohta ühtegi kirjet. Proovige teisi otsingusõnu?"
-      no_listings_notification: "Kuuutusi pole. %{add_listing_link}"
+      no_listings_notification: "Kuulutusi pole. %{add_listing_link}"
       add_listing_link_text: "Lisage uus kirje"
       open_listing: "aktiivne kuulutus"
       open_listings: "aktiivsed kuulutused"
@@ -1939,7 +1958,7 @@ et:
       is: "on"
       are: "on"
       what_do_you_need: "Mida oled otsimas?"
-      post_new_listing: "Lisa uus kuulutus"
+      post_new_listing: Lisa
       are_offering: pakkumine
       add_news_item: "Lisa artikkel"
       lend_rent_help_carpool: "Müü, laena, aita, jaga sõite"
@@ -1964,7 +1983,7 @@ et:
       send_invitation: "Saada kutse"
       add_email_addresses_description: "Lisa allolevale väljale kutsutavate inimeste e-posti aadressid. Mitme e-posti aadressi lisamiseks eralda need komaga."
       add_lots_of_email_addresses: ~
-      this_article_link: ~
+      this_article_link: "see artikkel"
       invitation_emails_field_placeholder: "sõber1@näide.com, sõber2@näide.com, ..."
       invitation_message_field_placeholder: "Ma liitusin fantastilise rendiplatvormiga inimeselt inimesele. Liitu ka!"
       errors_in_emails: "Kontrolli, kas lisatud e-posti aadressid on õiged ega sisalda ebaharilikke tähemärke. Kui lisasid mitu aadressi, veendu, et need eraldatakse komaga."
@@ -1995,7 +2014,7 @@ et:
       all_listing_types: "Kõik kuulutuste tüübid"
       all_categories: "Kõik kategooriad"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Otsing pole praegu saadaval. Proovige varsti uuesti otsida."
   infos:
     about:
       default_about_text_title: "Mis on Sharetribe?"
@@ -2006,19 +2025,19 @@ et:
       default_content: ~
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
+      search: Otsi
+      signup: Registreeri
+      search_placeholder: "Mida sa otsid?"
+      search_location_placeholder: Asukoht
     listings:
-      no_listing_image: ~
+      no_listing_image: "Pilt puudub"
   layouts:
     admin:
       admin: "%{service_name} admini vaade"
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: Lisateave
     no_tribe:
       inbox: "Postkasti sisendkaust"
       settings: Seaded
@@ -2030,7 +2049,7 @@ et:
       dont_use_to_contact_support: ~
       feedback_forum: "tagasiside foorum"
       feedback_handle: Tagasiside
-      give_feedback: "Võta meiega ühendust"
+      give_feedback: Kontakt
       or_check_our: "...või vaata meie"
       send_feedback_to_admin: "Saada teade"
       to_see_what_others_have_suggested: "et vaadata teiste ettepanekuid ja hinnata ideid seal"
@@ -2098,8 +2117,8 @@ et:
       settings: Seaded
       sign_up: Registreeru
     notifications:
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
+      listing_could_not_be_saved: "Nimekirja ei saa salvestada. Proovi uuesti. Kui propleem püsib, palun %{contact_admin_link}."
+      contact_admin_link_text: "Võta ühendust %{service_name} meeskonnaga"
       test_welcome_email_delivered_to: "Testmeil saadeti aadressile %{email}."
       something_went_wrong: "Midagi läks valesti"
       community_updated: "Andmed uuendatud"
@@ -2112,7 +2131,7 @@ et:
       additional_email_confirmed: "Sisestatud e-mail on kinnitatud."
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: ~
-      create_new_listing: "Lisa uus kuulutus"
+      create_new_listing: Lisa
       create_one_here: "loo siin"
       email_confirmation_sent_to_new_address: "E-maili kinnitus on nüüd saadetud uuele aadressile."
       email_not_found: "Sisestatud e-maili aadressi ei leitud %{service_name} andmebaasist"
@@ -2124,7 +2143,7 @@ et:
       feedback_skipped: "Tagasiside vahele jäetud"
       invitation_cannot_be_sent: "Kutset ei olnud võimalik saata"
       invitation_cannot_unsubscribe: ~
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Proovisite saata liiga palju kutseid. Päevane limiit on saavutatud."
       invitation_sent: "Kutse edukalt saadetud"
       invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "Uute kasutajate kutsumine ei ole lubatud."
@@ -2146,8 +2165,8 @@ et:
       offer_rejected: "Pakkumisest keeldutud"
       offer_canceled: "Pakkumine tühistatud"
       listing_updated_successfully: "Kuulutus edukalt lisatud"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
+      listing_updated_availability_management_enabled: "Kirje värskendamine õnnestus. Kättesaadavuse haldamine on lubatud."
+      listing_updated_availability_management_disabled: "Kirje värskendamine õnnestus. Kättesaadavuse haldamine on keelatud."
       listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Sellele alale pääsemiseks logige sisse administraatori kontoga"
       only_listing_author_can_close_a_listing: "Ainult kuulutuse autor saab selle sulgeda"
@@ -2155,7 +2174,7 @@ et:
       payment_successful: "Makse õnnestus"
       payment_canceled: "Makse peatatud"
       error_in_payment: "Viga maksmisel. Kui te ei olnud makset veel lõpetanud, proovige uuesti. Kui te seda tegite, saatke meile tagasisidet."
-      cannot_receive_payment: ~
+      cannot_receive_payment: "Vea tõttu ei saa müüja makset vastu võtta. Palun kontakteeru %{service_name} meeskonnaga, et olukord selgitamiseks"
       payment_waiting_for_later_accomplishment: "Kui olete tasunud, teavitame müüjat sellest ja saate e-meili"
       password_recovery_sent: "Juhend parooli muutmiseks saadetud teie e-mailile."
       person_activated: "Kasutaja aktiveeritud"
@@ -2177,14 +2196,14 @@ et:
       request_rejected: "Päringust keeldutud"
       request_canceled: "Tellimus vaidlustatud"
       message_sent: "Teade saadetud"
-      message_not_sent: ~
+      message_not_sent: "Sõnumi saatmine ebaõnnestus. Palun proovi uuesti."
       this_content_is_not_available_in_this_community: "Sisu ei ole saadaval."
       unknown_error: "Tundmatu viga. Palun kasutage \"Võtke meiega ühendust\" linki ja kirjeldage probleemi."
       update_error: "Andmete uuendamisel ilmnes viga. Palun proovi uuesti"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Sul ei ole sellele tagasiside jätmiseks piisavalt õigusi"
       you_are_not_authorized_to_do_this: "Selleks toiminguks pole piisavalt õigusi"
       you_are_not_authorized_to_view_this_content: "Selle sisu vaatamiseks pole sul piisavalt õigusi"
-      listing_closed: ~
+      listing_closed: "See kirje on suletud"
       send_instructions: "Mõne minuti jooksul saad e-kirja juhistega oma parooli muutmiseks."
       you_cannot_reply_to_a_closed_offer: "Suletud pakkumisele vastata ei saa"
       you_cannot_send_message_to_yourself: "Iseendale sõnumeid saata pole võimalik"
@@ -2216,20 +2235,24 @@ et:
       email_deleted: "E-post eemaldatud"
       listing_author_payment_details_missing: "Palun kontakteeruge isikuga, vajutades allpool olevat nuppu 'Kontakt'. Maksete saamiseks peavad nad värskendama oma makse üksikasju."
       listing_author_payment_details_missing_no_free: ~
-      images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      images_are_processing: "Töötleme teie pilte. Andke meile minut või kaks ja nad on nähtavad."
+      automatically_logged_out_please_sign_in: "Teid logiti automaatselt välja. Logige uuesti sisse."
       stripe_you_account_balance_is_not_0: ~
       stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
       visit_admin_link: ~
       an_error_occurred_when_saving_your_information: ~
+      maintenance_mode:
+        zero: "Veebisait läheb nüüd hoolduseks võrguühenduseta"
+        one: "Veebisait on sisselogimiseks võrguühenduseta %{count} minutit"
+        other: "Veebisait on sisselogimiseks võrguühenduseta %{count} minutit"
     settings:
       account: Konto
       notifications: Teavitused
       profile: "Profiili info"
       settings: Seaded
-      paypal_payments: ~
-      stripe_payments: ~
+      paypal_payments: "PayPali maksed"
+      stripe_payments: "Stripe maksed"
       payments: Maksed
       listings: ~
       listings_search_placeholder: ~
@@ -2241,8 +2264,8 @@ et:
     comment:
       wrote: kirjutas
       send_private_message: "Saada privaatsõnum kasutajale %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: kustuta
+      are_you_sure: "Kas soovite kindlasti kommentaari kustutada?"
     comment_form:
       ask_a_question: "Kommenteeri kuulutust või küsi lisateavet. Kõik ülejäänud kasutajad näevad sinu kommentaari."
       log_in: "logi sisse"
@@ -2270,12 +2293,12 @@ et:
       reject_listing: ~
       delete_listing: ~
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Avage Google Mapsis"
     error:
       something_went_wrong: ~
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      something_went_wrong_plain: "Midagi läks valesti"
+      create_failed_to_connect_to_booking_service: "Kirje loomine ebaõnnestus: broneerimisteenusega ühenduse loomine ebaõnnestus. Palun proovi uuesti."
+      update_failed_to_connect_to_booking_service: "Kirje värskendamine nurjus: broneerimisteenusega ühenduse loomine ebaõnnestus. Palun proovi uuesti."
     follow_links:
       follow: "Saa e-mail uutest kommentaaridest"
       unfollow: "Ära saa e-maili uutest kommentaaridest"
@@ -2290,7 +2313,7 @@ et:
         repeated: "Uuesti (lisa ajad ja päevad väljale „detailne kirjeldus”)"
       description:
         detailed_description: "Detailne kirjeldus"
-        youtube_info: ~
+        youtube_info: "Kui teie kirjeldus sisaldab YouTube'i linke, kuvatakse videod kirjelduse all."
         youtube_info_markdown: ~
       destination:
         destination: Sihtkoht
@@ -2313,19 +2336,19 @@ et:
         no_file_selected: "Ühtegi faili pole valitud"
         remove_image: "Eemalda pilt"
         select_file: "Vali fail"
-        add_more: ~
+        add_more: "+ Lisage veel"
         removing: "Eemaldamine ..."
         processing: "Töötlemine ..."
         loading_image: "Laadimine ..."
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "Kujutise üleslaadimine on pooleli ..."
+        processing_takes_a_while: "Kõik pildid on üles laetud! Nende töötlemine võtab natuke aega, kuid kirje salvestamine ja jätkamine on okei."
         this_may_take_a_while: "selleks kulub vaid sekund"
-        percentage_loaded: ~
+        percentage_loaded: "%{percentage}%"
         uploading_failed: "Pildi üleslaadimine nurjus"
-        image_processing_failed: ~
+        image_processing_failed: "Kujutise töötlemine ebaõnnestus"
         file_too_large: "Fail on liiga suur"
         accepted_formats: "Pildi vorm peab olema kas GIF, JPG või PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Kõigi piltide üleslaadimine pole lõppenud. Kas soovite tõesti jätkata?"
       location:
         location: Asukoht
       price:
@@ -2337,20 +2360,20 @@ et:
         long_time: "nädal, kuu, ..."
         after_service_fee_you_will_get: "Pärast  %{service_name} ja makse töötleja tasusid saate %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
-        no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
-        payment_fee_info_link_text: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} arvestatakse hinnast maha."
+        after_service_fee_you_will_get_payment_text: "Kui keegi on tellimuse teinud, saate selle summa miinus %{payment_fee_info_link}"
+        payment_fee_info_link_text: "%{service_name} tasu ja makse töötlemise tasu"
+        delivery: "Kohaletoimetamise viis"
+        shipping: Kohaletoimetamine
+        shipping_price: Saatmistasu
+        shipping_price_additional: "Täiendavad üksused"
+        pickup: "Korja üles"
       origin:
         location: Asukoht
         origin: Päritolu
         the_exact_location: ~
       send_button:
-        save_listing: "Postita kuuutus"
+        save_listing: "Postita kuulutus"
         submit_for_review: ~
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
@@ -2427,8 +2450,8 @@ et:
       booking_from: Alates
       booking_to: Kuni
       how_paypal_works: "Kuidas PayPal töötab?"
-      payment_help: ~
-      unable_load_availability: ~
+      payment_help: Makseabi
+      unable_load_availability: "Kättesaadavuse teavet ei saanud laadida. Palun proovi hiljem uuesti."
       booking_date: ~
       select_one: ~
       start_time: ~
@@ -2438,7 +2461,7 @@ et:
       listing: Kuulutus
       selected_category: "Kategooria: %{category}"
       selected_subcategory: "Alamkategooria: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Kuulutuse tüüp: %{transaction_type}"
       select_category: "Vali kategooria"
       select_subcategory: "Valige alamkategooria"
       select_transaction_type: "Valige kirje tüüp"
@@ -2449,15 +2472,15 @@ et:
       community_not_configured_for_payments_admin: ~
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      hour: "Tundide arv:"
+      day: "Päevade arv:"
+      night: "Ööde arv:"
+      week: "Nädalate arv:"
+      month: "Kuude arv:"
       unit: ~
-      custom: ~
+      custom: "Kogus:"
       person: ~
-    quantity_placeholder: ~
+    quantity_placeholder: Kogus
     please_comment: Kommentaar
     reply_link:
       listing_closed: "Kuulutus suletud"
@@ -2493,28 +2516,28 @@ et:
       price:
         per_quantity_unit: ~
         per_day: "päeva kohta"
-      delivery: ~
+      delivery: "Kohaletoimetamise viis"
       shipping: ~
-      shipping_no_price: ~
+      shipping_no_price: Kohaletoimetamine
       shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
-      youtube_video_player: ~
+      pickup: "Korja üles"
+      pickup_no_price: "Korja üles"
+      youtube_video_player: "YouTube'i videopleier"
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: tükk
+      hour: tund
+      day: päev
+      night: öö
+      week: nädal
+      month: kuu
       unit: ~
       person: ~
     verification_required:
       verification_required: "Kinnitamine on vajalik"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
-      error_in_checking_availability: ~
+      dates_not_available: "Valitud kuupäevad pole saadaval"
+      error_in_checking_availability: "Valitud kuupäevade saadavust ei õnnestunud kontrollida"
       details: Üksikasjad
       by: ~
       payment: Makse
@@ -2522,23 +2545,23 @@ et:
       you_will_be_charged: ~
       day: päev
       days: päeva
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      night: öö
+      nights: ööd
+      invalid_parameters: "Uue tehingu kehtetud väärtused"
       select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Vaade
     stripe_payment:
-      payment: ~
-      pay_with_card: ~
-      address: ~
-      address_country: ~
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      payment: Makse
+      pay_with_card: "Makske krediit- või deebetkaardiga"
+      address: "Kohaletoimetamise aadress"
+      address_country: "Riik *"
+      address_name: "Ees- ja perekonnanimed *"
+      address_city: "Linn *"
+      address_state: Maakond
+      address_street1: "Tänava aadress rida 1 *"
+      address_street2: "Tänava aadressi rida 2"
+      address_postal_code: "Postiindeks *"
   mapview:
     index:
       all_categories: "Kõik kategooriad"
@@ -2561,7 +2584,7 @@ et:
       you_have_something_others_do_not: "Sul on midagi pakkuda?"
     please_comment: Kommenteeri
   mercury:
-    content_too_long: ~
+    content_too_long: "Sisestatud sisu oli liiga pikk."
   okl:
     member_id: "Kasutaja ID"
     member_id_or_email: "Kasutajanimi või e-mail"
@@ -2571,18 +2594,18 @@ et:
     payout_info_paypal: ~
     paypal_billing_agreement_made: ~
     commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    create_paypal_account_link_text: "PayPali konto"
     connected_account: ~
-    paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label_australia_only: "Teie PayPali konto peab olema võimeline makseid vastu võtma. Selleks võib olla vaja Premier või Business kontot."
+    paypal_receive_funds_info_label: "Teie PayPali konto peab olema võimeline makseid vastu võtma. Selleks võib olla vajalik ettevõtte konto."
     paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
+    upgrade_paypal_account_link_text: "logige sisse ja uuendage oma PayPali konto ettevõtte kontole"
     admin_account_not_connected: ~
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Olete valmis makseid vastu võtma!"
     commission: ~
-    not_now: ~
+    not_now: "Ma ei taha praegu PayPali kontot ühendada"
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: "Oma konto ühendamiseks toimige järgmiselt."
@@ -2594,8 +2617,8 @@ et:
       create_paypal_account: "klõpsates siin"
       upgrade_paypal_account: "logige sisse oma PayPali kontole"
       paypal_account_billing_agreement: ~
-      follow_steps: ~
-      connect_paypal_account_title: ~
+      follow_steps: "Raha saamise alustamiseks toimige järgmiselt:"
+      connect_paypal_account_title: "Ühendage oma PayPali konto"
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
       connect_paypal_account: "Ühendage oma PayPali konto"
@@ -2604,7 +2627,7 @@ et:
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
-      paypal_info_link_text: ~
+      paypal_info_link_text: "PayPali makse töötlemise tasu"
       billing_agreement_description: ~
       billing_agreement: "Andke luba"
       permissions_not_granted: "Enda PayPali kontoga ühenduse loomise õigusi ei antud."
@@ -2614,30 +2637,30 @@ et:
       billing_agreement_not_accepted: "Te ei aktsepteerinud arvelduslepingut PayPalis."
       billing_agreement_wrong_account: "PayPali kontod ei vastanud. Kasutage sama PayPali kontot, mille ühendasite esimese sammuna."
       something_went_wrong: ~
-      account_not_verified: ~
-      account_restricted: ~
-    paypal_account_connected_title: ~
+      account_not_verified: "Te pole oma PayPali kontot kinnitanud. Enne jätkamist peate minema saidile paypal.com ja oma konto kinnitama."
+      account_restricted: "Teie PayPali konto on piiratud ja seda ei saa ühendada. Lisateabe saamiseks logige sisse paypal.com-i või võtke ühendust probleemi lahendamiseks PayPali klienditoega."
+    paypal_account_connected_title: "PayPali konto on ühendatud"
     paypal_account_connected: ~
-    change_account: ~
+    change_account: "Muutke PayPali kontot"
     missing: ~
-    from_your_payment_settings_link_text: ~
+    from_your_payment_settings_link_text: makseseaded
     redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
+    redirect_link_text: siin
+    paypal_account_all_set_up: "Hooray, kõik on valmis!"
+    can_receive_payments: "Nüüd saate oma kirjete eest makseid saada."
     paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    paypal_permission_granted_summary: "Luba antud tehingutasude jaoks"
   paypal:
-    pay_with_paypal: ~
-    checkout_with: ~
-    or_pay_with_paypal: ~
+    pay_with_paypal: "Jätkake maksega"
+    checkout_with: "Registreeri välja"
+    or_pay_with_paypal: või
     checkout_with_paypal: "Vormista PayPaliga"
     cancel_succesful: "PayPali makse tühistati edukalt"
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Palun oota."
+    chatting_with_paypal: "Me vestleme PayPaliga."
   people:
     edit_links:
       activate: Aktiveeri
@@ -2761,11 +2784,11 @@ et:
       confirm_your_email: "Palun kinnita oma e-maili aadress."
       account_confirmation_instructions: "Peagi saad e-maili koos lingiga oma e-maili aadressi kinnitamiseks. Ära unustage kontrollida oma rämpsposti kausta! Pärast oma aadressi kinnitamist saad liituda %{service_name}."
       account_confirmation_instructions_title_admin: "Kinnita oma E-maili aadress"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Enne kui saame teile oma turule täieliku juurdepääsu anda, peame tegema veel ühe asja: kinnitage oma e-posti aadress."
+      before_confirmation_only_access_admin_dashboard: "Enne kinnitamist pääsete juurde vaid saidile %{admin_dashboard_link}."
+      admin_dashboard_link_text: "administraatori paneel"
       account_confirmation_instructions_admin: ~
-      contact_support_link_text: ~
+      contact_support_link_text: "võtke ühendust Sharetribe'i toega"
   settings:
     account:
       change: Muuda
@@ -2775,14 +2798,14 @@ et:
       delete_account_confirmation_popup: "Kas soovite kindlasti oma kasutajakonto kustutada ja kaotada jäädavalt kõik sellega seotud andmed? Konto kustutamist ei saa tagasi võtta."
       email_addresses: "E-posti aadressid"
       new_email: "Uus e-maili aadress"
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_personal_information: "Kui kustutate oma konto, kustutatakse teie isiklik teave (nimi, telefoninumber, aadress, e-post, profiilipilt jne) jäädavalt ja seda ei saa taastada. Kõik teie loodud kirjed eemaldatakse. Te ei saa oma kontot uuesti aktiveerida."
+      delete_information_others_involved: "Konto kustutamisel ei eemaldata teavet, millesse on kaasatud teised liikmed (vestlused teiste inimestega, tehtud tehingud, teistele antud arvustused jne). Teie nime selle teabe kõrval enam ei kuvata."
+      unfinished_transactions: "Teie kontot ei saa kustutada, kuna teil on käimasolevaid tehinguid. Enne oma konto kustutamist täitke kõik tehingud."
       only_admin: ~
       new_password: "Uus parool"
       save: Salvesta
       these_fields_are_shown_only_to_you: "Kasutajanimi kuvatakse teie profiilis, kui te pole oma nime andnud. Muud teavet kuvatakse ainult teile."
-      email_already_confirmed: ~
+      email_already_confirmed: "Teie e-posti aadress on juba kinnitatud."
       email:
         address_title: Aadress
         remove_title: Eemalda
@@ -2828,8 +2851,8 @@ et:
       given_name: Eesnimi
       first_name_with_initial: "(teistele kasutajatele näidatakse ainult esimest tähte)"
       first_name_only: "(teistele kasutajatele ei kuvata)"
-      display_name: ~
-      display_name_description: ~
+      display_name: "Kuvatav nimi"
+      display_name_description: "Kui esindate organisatsiooni, saate kuvatavaks nimeks kasutada selle nime. Kuvatavat nime näidatakse teistele kasutajatele teie ees- ja perekonnanime asemel."
       location_description: "Võid sisestada oma tänava aadressi või ainult linna või postiindeksi.  Näited: \"10136 Tallinn\" või \"Nikolai 24, 80011 ,Pärnu\"."
       profile_picture_description: ~
       phone_number: Telefoninumber
@@ -2843,7 +2866,7 @@ et:
       visible_to_registered_users: "(nähtav sisseloginud kasutajatele)"
       default_in_listing: "(kasutatakse ainult vaikimisi uue kirje loomisel)"
       invisible: "(teistele kasutajatele ei kuvata)"
-      image_is_processing: ~
+      image_is_processing: "Töötleme teie profiilipilti. See on valmis, ainult minut või kaks."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
       format_markdown_link: ~
@@ -2852,7 +2875,7 @@ et:
       username_description: ~
     save_information: "Salvesta infomatsioon"
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Kohaletoimetamise aadress"
   tag_cloud:
     tag_used:
       with_tag: Sildiga
@@ -2950,9 +2973,9 @@ et:
     format: "kk / pp / aaaa"
   time:
     formats:
-      short: ~
+      short: "%b %e, %Y at %H:%M"
       shorter: "%kuu %päev kell %tund:%minut"
-      short_date: ~
+      short_date: "%b %e, %Y"
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} päev tagasi"
@@ -2971,23 +2994,29 @@ et:
       other: "%{count} päevi"
   transactions:
     initiate:
-      booked_days: ~
-      booked_nights: ~
-      price_per_day: ~
-      price_per_night: ~
+      booked_days: "Broneeritud päevad:"
+      booked_nights: "Broneeritud ööd:"
+      price_per_day: "Päeva hind:"
+      price_per_night: "Hind öö kohta:"
       price_per_hour: ~
       price_per_unit: ~
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
-      stripe-fee: ~
+      quantity: "Kogus:"
+      subtotal: "Vahesumma:"
+      shipping-price: "Kohaletoimetamine:"
+      stripe-fee: "Stripe tasu (hinnanguline):"
       start_end_time: ~
+      booked_days_label:
+        one: "Broneeritud päev:"
+        other: "Broneeritud päevi:"
+      booked_nights_label:
+        one: "Broneeritud öö:"
+        other: "Broneeritud ööd:"
     price_per_quantity: ~
-    price: ~
+    price: "Hind:"
     quantity: ~
-    unit_price: ~
-    total: ~
-    total_to_pay: ~
+    unit_price: "Ühiku hind: %{unit_price}"
+    total: "Kokku:"
+    total_to_pay: "Makse kokku:"
   unit:
     day: Päev
     days: Päeva
@@ -2995,24 +3024,24 @@ et:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "Me ei saa saadavuse teavet kuvada. Proovige leht uuesti laadida."
+          saving_failed: "Me ei saa kättesaadavuse muudatusi salvestada. Proovige leht uuesti laadida."
         working_hours:
           required: ~
           overlaps: ~
           covers: ~
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+        piece: tükk
+        hour: tund
+        day: päev
+        night: öö
+        week: nädal
+        month: kuu
+      edit_availability_header: Saadavus
+      save_and_close_availability_editing: "Salvestage ja sulgege"
+      confirm_discarding_unsaved_availability_changes_explanation: "Teil on oma saadavusteabes salvestamata muudatusi. Kui jätkate, kaotavad need muudatused."
+      confirm_discarding_unsaved_availability_changes_question: "Kas soovite kindlasti muudatustest loobuda?"
+      edit_listing_availability: "Muutke kirje saadavust"
       working_hours:
         default_schedule: ~
         i_am_available_on: ~
@@ -3021,49 +3050,57 @@ et:
         add_another_time_slot: ~
         save: ~
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Kahjuks ei leitud teie otsingukriteeriumide kohta ühtegi kirjet."
+      try_other_search_terms: "Võib-olla proovite muid otsingusõnu?"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Lisage pilt"
+      no_picture: "Pilt puudub"
     search:
-      page: ~
+      page: Leht
       page_of_pages: ~
     topbar:
-      menu: ~
-      more: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
-      language: ~
+      menu: Menüü
+      more: Veel
+      search_placeholder: Otsing...
+      search_location_placeholder: Asukoht
+      user: Kasutaja
+      inbox: Postkast
+      profile: Profiil
+      manage_listings: "Minu nimekirjad"
+      settings: Seadistused
+      logout: "Logi välja"
+      login: "Logi sisse"
+      signup: Registreeri
+      admin_dashboard: "Administraatori paneel"
+      language: Keel
       listings: ~
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: mil
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: Lisateave
   will_paginate:
     models:
       person:
         zero: kasutajad
         one: kasutajad
         other: kasutajad
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    previous_label: "&#8592; Eelmine"
+    next_label: "Järgmine &#8594;"
+    page_gap: "otsi siin &hellip;"
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+      single_page:
+        zero: "Ei %{model} leitud"
+        one: "Kuvatakse 1 %{model}"
+        other: "Kuvatakse kõik %{count} %{model}"
+      single_page_html:
+        zero: "Ei %{model} leitud"
+        one: "Kuvatakse <b>1</b> %{model}"
+        other: "Kuvatakse <b>all&nbsp;%{count}</b> %{model}"
     person:
       community_members_entries_info:
         multi_page: ~
@@ -3071,17 +3108,17 @@ et:
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
+    you_are_ready_to_accept_payments: "Olete valmis makseid vastu võtma!"
     commission: ~
     pay_with_stripe: ~
-    add_and_pay: ~
+    add_and_pay: "Kinnitage makse"
     card_not_stored: ~
     missing_payment: ~
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
-    stripe_credit_card: ~
-    paypal: ~
-    paypal_connected: ~
+    stripe_bank_connected: "Pangakonto üksikasjad on edukalt konfigureeritud!"
+    stripe_can_accept: "Nüüd olete kõik vajaliku teinud, et pangakontole laekuks raha"
+    stripe_credit_card: Krediitkaart
+    paypal: PayPal
+    paypal_connected: "PayPali konto on edukalt ühendatud!"
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
     stripe_account_restricted: ~
@@ -3091,26 +3128,26 @@ et:
     stripe_account_pending_verification: ~
     stripe_account_pending_verification_info: ~
     form_new:
-      need_info: ~
-      select_country: ~
-      legal_name: ~
+      need_info: "Raha saatmiseks vajame teie kohta teavet"
+      select_country: "Vali riik..."
+      legal_name: "Ametlik nimi"
       first_name: ~
       last_name: ~
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
       last_name_kanji: ~
-      country: ~
-      birth_date: ~
-      ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
+      country: Riik
+      birth_date: Sünnikuupäev
+      ssn_last_4: "SSN viimased 4 numbrit"
+      personal_id_number: Isikukood
+      address_country: Riik
+      address_state: Maakond
       address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
-      tos_link: ~
+      address_city: Linn
+      address_postal_code: Postiindeks
+      address_line1: "Tänava aadress"
+      tos_link: "Väljamakse üksikasjade lisamisega nõustute %{stripe_link}."
       tos_link_title: ~
       save_details: ~
       edit: ~
