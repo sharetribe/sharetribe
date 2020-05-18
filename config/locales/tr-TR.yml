@@ -1701,7 +1701,7 @@ tr-TR:
       welcome_email_footer_text: "%{service_name} üzerinden hangi e-postaları almak istiyorsunuz? %{settings_link}"
       settings_link_text: "Ayarlarınızı kontrol ediniz"
     new_listing_by_followed_person:
-      subject: "%{author_name} %{service_name} pazar yerine yeni bir listeleme ekledi."
+      subject: "%{author_name} %{service_name} üzerinden yeni bir ilan yayınladı"
       has_posted_a_new_listing: "%{author_name} yeni bir ilan ekledi."
       you_are_receiving_this_because: "Bu bildiriyi %{author_name} isimli kullanıcıyı takip ettiğiniz için aldınız."
       view_listing: "İlanı görüntüle"
@@ -1829,7 +1829,7 @@ tr-TR:
     error_410:
       page_removed: "Sayfa silindi"
       page_you_requested_has_been_removed: "Ziyaret etmek istediğiniz sayfa silindi."
-      page_removed_reason: "Bu hatanın oluşma sebebi birden fazla olabilir. Kullanıcı hesabını silmiş veya listeleme listeden çıkartılmış olabilir."
+      page_removed_reason: "Bu hatanın oluşma sebebi birden fazla olabilir. Kullanıcı hesabını silmiş veya ilan yayından kalkmış olabilir."
     error_410_title: "Sayfa silindi"
     error_500:
       temporary_unavailable: "Pazaryerimiz geçiçi olarak devre dışı. Lütfen daha sonra tekrar deneyiniz veya destek için sistem yöneticinizle irtibata geçiniz."
@@ -2089,21 +2089,21 @@ tr-TR:
       notifications: Bildirimler
     markdown_help:
       title: "Markdown kullanarak biçimleri düzenlemek"
-      description: ~
-      formatting: ~
-      result: ~
-      h1: ~
-      h2: ~
-      h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      description: "Markdown, herhangi bir cihazda harika görünen metni biçimlendirmenin basit bir yoludur. Markdown kullanarak yazı rengi veya tipini değiştiremezsiniz, ancak bildiğiniz klavye sembollerini kullanarak metnin yazı boyutlarını ve biçimlerini ayarlayabilirsiniz."
+      formatting: "Metin biçimlendirme"
+      result: Sonuç
+      h1: Başlık1
+      h2: Başlık2
+      h3: Başlık3
+      italic: italik
+      bold: kalın
+      underline: "altı çizili"
+      strikethrough: "üstü çizili"
+      inline_link: "yazı içi bağlantı"
+      list: Liste
+      one: Bir
+      two: İki
+      three: Üç
     mobile_logged_in:
       admin: Yönetici
       go_to_your_profile_page: Profil
@@ -2231,7 +2231,7 @@ tr-TR:
       can_not_delete_email: "E-posta adresini kaldıramazsınız."
       user_does_not_have_email_to_delete: "Kaldırmaya çalıştığınız e-posta adresi mevcut değildir."
       email_deleted: "E-posta adresi kaldırıldı"
-      listing_author_payment_details_missing: "Bu listelemenin sahibi ödeme bilgilerini eklemediği için şu an ödeme alamıyor. Lütfen ilan sahibine veya bize ulaşın."
+      listing_author_payment_details_missing: "Bu ilanın sahibi ödeme bilgilerini eklemediği için şu an ödeme alamıyor. Lütfen ilan sahibine veya bize ulaşın."
       listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Görseller yükleniyor. Kısa süre içinde görünecekler."
       automatically_logged_out_please_sign_in: "Otomatik olarak çıkış yaptınız. Lütfen tekrar giriş yapın."
@@ -2791,9 +2791,9 @@ tr-TR:
       delete_account_confirmation_popup: "Hesabınızı tamamen silmek ve hesapla ilgili tüm verileri kaldırmak istediğinize emin misiniz? Hesap silme işlemi geri alınamaz."
       email_addresses: "E-posta adresleri"
       new_email: "Yeni e-posta adresi"
-      delete_personal_information: "Hesabınızı sildiğinizde kişisel bilgileriniz (ad, telefon, adres, eposta, profil fotoğrafı) geri getirilmeyecek şekilde silinecektir. Oluşturduğunuz bütün listelemeler silinecek ve hesabınızı tekrar aktif hale getiremeyeceksiniz."
+      delete_personal_information: "Hesabınızı sildiğinizde kişisel bilgileriniz (ad, telefon, adres, eposta, profil fotoğrafı) geri getirilmeyecek şekilde silinecektir. Oluşturduğunuz bütün ilanlar silinecek ve hesabınızı tekrar aktif hale getiremeyeceksiniz."
       delete_information_others_involved: "Diğer üyeleri içeren site aktiviteleriniz (yazışmalarınız, yaptığınız işlemler, yorumlarınız vb.) silinmeyecektir. Ama isminiz yayınlanmayacaktır."
-      unfinished_transactions: "Hali hazırda aktif listelemeleriniz olduğu için hesabınızı silemiyoruz. Bütün işlemler tamamlandıktan sonra lütfen tekrar deneyiniz."
+      unfinished_transactions: "Hali hazırda aktif ilanlarınız olduğu için hesabınızı silemiyoruz. Bütün işlemler tamamlandıktan sonra lütfen tekrar deneyiniz."
       only_admin: ~
       new_password: "Yeni şifre"
       save: Kaydet
@@ -2830,7 +2830,7 @@ tr-TR:
       email_when_conversation_rejected: "...biri teklif ya da talebimi reddetti"
       email_about_completed_transactions: "...biri teklif ya da talebimi tamamlandı olarak işaretledi"
       email_about_new_payments: "...yeni ödeme aldım"
-      email_about_new_listings_by_followed_people: "...takip ettiğim bir kişi yeni bir listeleme ekleme"
+      email_about_new_listings_by_followed_people: "...takip ettiğim bir kişi yeni bir ilan ekleyince"
       unsubscribe_succesful: "Abonelik sonlandırıldı"
       unsubscribe_info_text: "Artık bu e-postaları almayacaksınız. %{service_name}'den hangi e-postaları almak istediğinizi düzenlemek için %{settings_link}'e göz atın ya da %{homepage_link}'ya dönün."
       settings_link: ayarlar
