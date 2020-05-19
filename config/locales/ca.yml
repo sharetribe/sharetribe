@@ -95,8 +95,8 @@ ca:
         transaction_agreement_checkbox_label_description: "Aquest text es mostrarà junt a una casella de verificació en el formulari. L'usuari ha de marcar la casella de verificació abans de poder procedir amb la transacció. Un exemple seria \"Al marcar aquesta casella acceptes el present acord i els termes i condicions d'ús.\""
         transaction_agreement_text_header: "Text de l'acord"
         transaction_agreement_description: "Aquest és el contingut del text de l'acord que els usuaris han d'acceptar. El text del present acord es mostrarà quan els usuaris hagi fet clic en l'enllaç %{read_more}."
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
+        terms_privacy_policy_and_static_content: "Termes, política de privacitat i contingut estàtic"
+        terms_privacy_policy_and_static_content_infotext: "Pots editar fins a quatre pàgines de contingut estàtic. Els usuaris poden trobar les pàgines fent clic a l’enllaç \"Sobre\" de la barra superior."
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -119,8 +119,8 @@ ca:
         logo_mobile_icon_instructions_text_with_dimensions: "Aquest logotip quadrat es mostrarà als usuaris quan facis accions com a administrador i als usuaris que guardin l'enllaç de la teva comunitat a la pàgina d'inici d'un dispositiu mòbil. Les dimensions de la imatge han de ser (almenys) %{width} x %{height} píxels."
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
-        we_have_you_covered: ~
-        cover_photo_ready_made: ~
+        we_have_you_covered: "Et tenim cobert"
+        cover_photo_ready_made: "Cerques algunes fotografies de portada ja optimitzades i preparades? O us agradaria una mica d'inspiració i llocs web on trobar imatges de portada fantàstiques? %{link}!"
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: "Quan escullis les fotografies de portada has de tenir present que el contingut principal de la pàgina és de màxim %{main_width} píxels d'ample. Recorda també revisar com es veu la teva fotografia de portada en altres dispositius amb pantalles més petites (pots utilitzar una finestra de navegació més estreta per a comprovar-ho)."
@@ -222,7 +222,7 @@ ca:
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
-        allow_free_conversations: ~
+        allow_free_conversations: "Permet que els usuaris es puguin enviar missatges lliurement"
         search_preferences: "Preferències de búsqueda"
         search_and_location_preferences: ~
         default_search_type: "Tipus de búsqueda: %{select_search_type}"
@@ -263,7 +263,7 @@ ca:
         delete_this_marketplace: "Eliminar aquesta comunitat"
         payment_preferences: "Sistema de pagaments"
         pre_approved_listings: "Reviseu tots els llistats abans que es publiquin"
-        email_admins_about_new_transactions: ~
+        email_admins_about_new_transactions: "Envieu un correu electrònic als administradors sempre que s'iniciï una nova transacció"
       manage_members:
         manage_members: ~
         email: "Correu electrònic"
@@ -331,7 +331,7 @@ ca:
         twitter_handle_placeholder: Usuari
         invalid_twitter_handle: "Twitter handle ha de tenir un màxim de 15 caràcters alfanumèrics (lletres de l'A-Z i números del 0-9). "
         facebook_connect: Facebook
-        facebook_developers_dashboard: ~
+        facebook_developers_dashboard: "Facebook Developers Dashboard"
         facebook_connect_info_text: "Per habilitar Facebook Login, has de crear una aplicació pel teu marketplace al %{dashboard_link}. Afegeix aquí l'ID i la clau secreta que s'hagin generat."
         facebook_connect_info_text_with_instructions: "Per habilitar Facebook Login, has de crear una aplicació pel teu marketplace al %{dashboard_link}. Afegeix aquí l'ID i la clau secreta que s'hagin generat. %{instructions_link}"
         facebook_instructions_link_text: "Veure instruccions per configurar Facebook Login."
@@ -343,7 +343,7 @@ ca:
         save: "Guardar configuració"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Veure les instruccions per configurar Google Sign-In."
-        google_developers_console: ~
+        google_developers_console: "Google Developers Console"
         google_connect_info_text_with_instructions: "Per habilitar Google Sign-In, has de crear un projecte pel teu marketplace a la %{dashboard_link}. Afegeix aquí la ID i la clau secreta que es genera en el projecte. %{instructions_link}"
         google_connect_info_text: "Per habilitar Google Sign-In, has de crear un projecte pel teu marketplace a la %{dashboard_link}. Afegeix aquí la ID i la clau secreta que es genera en el projecte."
         enable_google_login: "Permetre als usuaris que iniciïn sessió amb el seu compte de Google "
@@ -351,7 +351,7 @@ ca:
         google_connect_secret: "Clau secreta (client secret) de Google"
         linkedin_connect: "LinkedIn Sign Sign In"
         linkedin_instructions_link_text: "Consulteu instruccions per configurar l'inici de sessió a LinkedIn."
-        linkedin_developers_dashboard: ~
+        linkedin_developers_dashboard: "LinkedIn Developers Dashboard"
         linkedin_connect_info_text_with_instructions: "Per habilitar l'inici de sessió de LinkedIn, creeu una aplicació per al vostre mercat al %{dashboard_link}. Afegiu aquí el ID generat i la clau secreta de l'aplicació. %{instructions_link}"
         linkedin_connect_info_text: "Per habilitar l'inici de sessió de LinkedIn, creeu una aplicació per al vostre mercat al %{dashboard_link}. Afegiu aquí el ID  generat i la clau secreta de l'aplicació."
         enable_linkedin_login: "Permet als usuaris iniciar sessió amb el seu compte de LinkedIn"
@@ -474,8 +474,8 @@ ca:
           disputed: ~
           preauthorized: Preautoritzada
           rejected: Rebutjada
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
+          payment_intent_requires_action: Pendent
+          payment_intent_action_expired: Expirat
           refunded: ~
           dismissed: ~
         headers:
@@ -528,9 +528,9 @@ ca:
             disputed: ~
             initiated: "Esperan el pagament d'Stripe"
             pending_ext: "Esperant el pagament d'Stripe"
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
-            payment_intent_failed: ~
+            payment_intent_requires_action: Pendent
+            payment_intent_action_expired: Expirat
+            payment_intent_failed: "El pagament de Stripe ha fallat"
             refunded: ~
             dismissed: ~
         not_available: "No disponible"
@@ -588,9 +588,9 @@ ca:
           confirm_modify: "Estàs segur que vols modificar/esborrar aquesta ressenya? Una vegada modificada/esborrada no és possible recuperar la informació en el futur."
           deleting_info: "Esborrar la ressenya li permet a l'autor deixar-ne una altra per a la mateixa transacció."
           blocking_info: "Bloquejar la ressenya després d'esborrar-la, prevé a l'autor la possibilitat de deixar una altra ressenya."
-          unskip: ~
-          if_you_unskip_the_review: ~
-          they_will_not_be_notified_automatically: ~
+          unskip: Desmarcar
+          if_you_unskip_the_review: "Si no desmarques la revisió, l'usuari podrà publicar-ne una."
+          they_will_not_be_notified_automatically: "No seran notificades automàticament."
       invitations:
         invitations: Invitacions
         used:
@@ -607,8 +607,8 @@ ca:
         search_by_title_author_category: "Buscar per títol de l'anunci, autor o categoria"
         search: Buscar
         reset_search: "Mostrar tots"
-        export_all_as_csv: ~
-        processing_export: ~
+        export_all_as_csv: "Exportau tot com a CSV"
+        processing_export: "Processant l'exportació a CSV"
         status:
           all: Tots
           selected_js: "Estatus seleccionats: "
@@ -677,38 +677,38 @@ ca:
         would_you_like_to_proceed: ~
         change: ~
       landing_pages:
-        landing_pages: ~
-        info_1: ~
-        info_2: ~
+        landing_pages: "Pàgina de destinació"
+        info_1: "És possible que la pàgina de destinació sigui la pàgina més important del vostre mercat. És la primera pàgina que veuen els visitants, com la porta principal de casa vostra. Només tens uns segons per convèncer els nous visitants que explorin el vostre lloc. La pàgina ha de ser atractiva i la vostra proposta de valor ha de ser clara i atractiva."
+        info_2: "Podeu utilitzar aquest editor per modificar la pàgina de destinació quan vulgueu."
         info_2_help_center: ~
-        info_3: ~
-        info_4: ~
-        editor_title: ~
-        editor_info: ~
-        preview: ~
-        set_live: ~
-        add_new_section: ~
-        select_section_type: ~
+        info_3: "Si voleu tenir una pàgina de destinació completament personalitzada per al vostre mercat, podeu comprar-la com a complement per 99 dòlars al mes."
+        info_4: "Llegiu aquest %{link} per saber com funciona l'editor de pàgines de destinació, per aprendre sobre les diferents seccions i com editar-les."
+        editor_title: "Editor de pàgines de destinació"
+        editor_info: "Aquí pots editar les seccions de la pàgina de destinació. De moment només és possible utilitzar un idioma per a la pàgina de destinació. La posició de \"Hero\" i \"Footer\" no es pot modificar"
+        preview: "Vista prèvia de la pàgina de destinació"
+        set_live: "Posada en directe"
+        add_new_section: "Afegeix una secció nova:"
+        select_section_type: "Selecciona el tipus de secció ..."
         this_version_is_not_released: ~
         latest_version_released: ~
         check_it_out: ~
         form:
-          save: ~
+          save: Desa
           cancel: ~
         sections:
-          identifier: ~
-          kind: ~
-          new: ~
-          edit: ~
-          remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: ~
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
+          identifier: "Secció ID"
+          kind: "Tipus de secció"
+          new: "Nova secció"
+          edit: "Edita secció %{section_id}"
+          remove_section_confirmation: "Estàs segur que vols eliminar la secció \"%{section_id}\" i totes les seves dades? Això no es pot desfer."
+          info_single_column: "Info - Una columna"
+          info_multi_column_2: "Info - Dues columnes"
+          info_multi_column_3: "Info - Tres columnes"
+          listings: Fitxes
+          categories: Categories
+          hero: Hero
+          locations: Ubicacions
+          video: Vídeo
           new_section:
             categories: ~
             info_single_column: ~
@@ -756,71 +756,71 @@ ca:
         cta_button:
           cta_button: ~
           cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
+          cta_text: Etiqueta
+          cta_url: URL
           text_placeholder: ~
           url_placeholder: ~
         background_selector:
           title: ~
         background_image_overlay:
-          background_image: ~
+          background_image: "Imatge de fons"
           background_image_info: ~
           add_another_image: ~
           current_image: ~
-          file_not_selected: ~
+          file_not_selected: "Sense seleccionar"
           background_image_overlay: ~
           background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
+          overlay_dark: Obscur
+          overlay_light: Clar
+          overlay_transparent: Transparent
         background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
+          background_style: "Estil de fons"
+          style_image: Imatge
+          style_color: Color
+          style_none: Cap
         background_color:
-          background_color: ~
+          background_color: "Color de fons"
           background_color_info: ~
         categories:
           add: ~
-          category: ~
-          empty: ~
-          image: ~
-          include_title: ~
+          category: Categoria
+          empty: "No has inclòs cap categoria"
+          image: Imatge
+          include_title: "Categories a mostrar"
           info_text: ~
           need_at_least_3_categories: ~
           need_at_most_7_categories: ~
         category:
-          add_another_image: ~
-          category: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          select_category: ~
+          add_another_image: "Afegeix una altra imatge"
+          category: Categoria
+          current_image: "Imatge actual: %{filename}"
+          file_not_selected: "No seleccionat"
+          image: Imatge
+          image_required: "Hauries d'afegir una imatge a aquesta categoria"
+          select_category: "Selecciona categoria"
         locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
+          add: "+ Afegeix una nova localització a aquesta secció"
+          location: Localització
+          empty: "No tens cap localització inclosa"
+          image: Imatge
           include_title: ~
           info_text: ~
           need_at_least_3_locations: ~
           need_at_most_7_locations: ~
         location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
+          add_another_image: "Afegeix un altra imatge"
+          location: Localització
+          current_image: "Imatge actual: %{filename}"
+          file_not_selected: "No seleccionat"
+          image: Imatge
+          image_required: "Hauries d'afegir una altra imatge a aquesta localització"
+          title: Títol
+          title_placeholder: "Etiqueta de localització"
+          url: URL
+          url_placeholder: "URL de localització"
         multi_column:
-          main_title: ~
-          column_header: ~
+          main_title: "Títol principal"
+          column_header: "Columna %{index}"
           column_title: ~
           web_viewer: ~
           column_icon_info: ~
@@ -828,15 +828,15 @@ ca:
           column_paragraph: ~
           column_button: ~
           column_button_text: ~
-          column_button_url: ~
+          column_button_url: "https://www.exemple.com"
         listings:
           listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
-          text: ~
-          autoplay: ~
-          autoplay_no: ~
-          autoplay_muted: ~
+          text: Text
+          autoplay: "Opcions de reproducció automàtica"
+          autoplay_no: "No hi ha reproducció automàtica"
+          autoplay_muted: "Reproducció automàtica silenciada"
           info: ~
           youtube_video_id_info: ~
     custom_fields:
@@ -957,7 +957,7 @@ ca:
       emails_title: "Correus electrònics"
       subscription: Subscripció
       preview: "Vista prèvia"
-      whats_new: ~
+      whats_new: "Què hi ha de nou?"
     listing_shapes:
       availability_title: Disponibilitat
       read_more: "Llegeix més sobre l'administració automàtica de disponibilitat"
@@ -1107,7 +1107,7 @@ ca:
       stripe_fee: "Quotes de Stripe"
       stripe_fee_notice: "%{stripe_fee_link} serà reduïda de la quota/comissió de transacció que estàs carregant."
       fee_should_be_less_than_minimum_price: "La quota mínima de transacció ha de ser menor que el preu mínim de transacció"
-      the_transaction_fee_must_be_lower_than_100: ~
+      the_transaction_fee_must_be_lower_than_100: "La quota de transacció ha de ser inferior al 100%"
       confirm_disable: "Estàs segur que vols deshabilitar %{gateway}? Si ho deshabilites, els teus venedors no podran rebre diners en línia i els compradors no podran pagar amb aquest mètode de pagament. Si els venedors no han configurat un altre sistema de pagaments, els compradors no podran comprar-los res."
       commission_from_buyer_label: "Quota pel comprador:"
       minimum_buyer_transaction_fee_label: "Taxa de transacció mínima del comprador:"
@@ -1171,16 +1171,16 @@ ca:
         book: ~
     community_transactions:
       show:
-        transaction_for: ~
-        status: ~
-        next_step: ~
+        transaction_for: "Traducció #%{transaction_id} per %{link}"
+        status: "Estat:"
+        next_step: "Següent pas:"
         waiting_for_provider_accept_or_reject: ~
         waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
+        buyer: Comprador
+        provider: Venedor
         delivery: ~
         shipping_to: ~
-        buyer_pays: ~
+        buyer_pays: "El comprador paga:"
         marketplace_collects: ~
         buyer_service_fee_label: ~
         service_fee_label: ~
@@ -1278,7 +1278,7 @@ ca:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee: ~
+      paypal_fee: "Quota de processament de pagaments de PayPal"
       paypal_fee_info: "* No inclou %{link}"
       shipping_price_label: "Despeses d'enviament:"
       stripe-fee_label: "Quota de processament de pagament"
@@ -1490,7 +1490,7 @@ ca:
       please_go_to_payment_settings: ~
       payment_settings_link: "configuració de pagaments"
     payment_settings_reminder_v2:
-      fill_payout_details: ~
+      fill_payout_details: "Ompliu les dades de pagament"
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Tens un missatge de %{other_party_given_name}:"
@@ -1730,7 +1730,7 @@ ca:
       view_listing: ~
       cant_click: ~
     new_member_notification:
-      subject: ~
+      subject: "Nou membre a %{community}"
       new_member_has_joined: "Un nou membre s'ha unit a %{community}. És possible que encara hagin de confirma la seva adreça de correu electrònic."
       this_is_automatic_message: "Aquest és un missatge automàtic enviat als administradors de %{community}."
       person_name: "Nom:"
@@ -1754,17 +1754,17 @@ ca:
       contact_link: "contacta a l'equip %{community}"
       edit_the_listing: "Edita la fitxa"
     edited_listing_submited_for_review:
-      subject: ~
-      there_is_a_edited_listing_to_review: ~
-      review_the_listing: ~
+      subject: "Fitxa editada per revisar: \"%{listing_title}\" per %{author_name} a %{community}"
+      there_is_a_edited_listing_to_review: "Hi ha una fitxa editada per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquesta fitxa."
+      review_the_listing: "Revisa la fitxa editada"
     new_transaction:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
+      subject: "Nova transacció a %{service_name}"
+      there_is_a_new_transaction: "Hi ha %{link} a %{service_name}."
+      a_new_transaction: "una nova transacció"
+      listing: "Fitxa: %{title}"
+      sum: "Suma: %{amount}"
+      starter: "Iniciat per: %{name}"
+      provider: "Venedor: %{name}"
     new_transaction_v2:
       subject: ~
       there_is_a_new_transaction: ~
@@ -1826,7 +1826,7 @@ ca:
       buyer_cannot_pay_error: "El pagament va ser rebutjat per PayPal. Si us plau contacta al servei al client de PayPal per a més informació: %{customer_service_link}"
       pending_review_error: "El pagament es va realitzar però va ser marcat per PayPal com a 'pendent de revisió'. Quan PayPal completi aquesta revisió, el pagament serà autoritzat automàticament."
       seller_express_checkout_disabled: "El servei de Express Checkout de PayPal ha estat inhabilitat per al compte de PayPal de l'autor de l'anunci. Si us plau contacta amb l'autor de l'anunci per avisar-lo que hi ha un problema en el seu compte de PayPal i recomanar-li que contacti amb el servei al client de PayPal."
-      seller_express_checkout_disabled_no_free: ~
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout s’ha desactivat per al compte PayPal de l’autor de la fitxa. Sol·liciteu l’equip %{service_name} que es posi en contacte amb l’autor de la fitxa i aconselleu que contactin amb el servei d’atenció al client de PayPal."
       generic_error: "Ha ocorregut un error durant el procés de pagament. No s'ha pogut finalitzar el pagament a través de PayPal."
       cancel_error: "Ha ocorregut un error durant la disputa. No s'ha pogut finalitzar la disputa."
       accept_authorization_error: "Ha ocorregut un error en intentar acceptar el pagament preautoritzat amb PayPal. Per favor, intenta-ho una altra vegada."
@@ -1878,7 +1878,7 @@ ca:
       from_must_be_less_than_till: "L'hora inicial ha de ser menor que la final"
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
-      presence: ~
+      presence: "No pot ser en blanc"
       username_is_invalid: ~
       domain_name_is_invalid: ~
       only_supported_variables: ~
@@ -2106,22 +2106,22 @@ ca:
     logged_in_notifications_icon:
       notifications: Notificacions
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
-      h1: ~
-      h2: ~
-      h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      title: "Donar format l'ajuda emprant Markdown"
+      description: "Markdown és una forma senzilla de donar format a un text que es vegi bé en qualsevol dispositiu. No fa res de fantasia com canviar la mida, el color o el tipus de lletra, només els fonamentals, utilitzant els símbols del teclat que ja coneixeu."
+      formatting: "Donar format"
+      result: Resultat
+      h1: H1
+      h2: H2
+      h3: H3
+      italic: itàlica
+      bold: negreta
+      underline: subratllat
+      strikethrough: discreta
+      inline_link: "Enllaç en línia"
+      list: Llista
+      one: Un
+      two: Dos
+      three: Tres
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Perfil
@@ -2183,7 +2183,7 @@ ca:
       listing_updated_successfully: "Anunci actualitzat"
       listing_updated_availability_management_enabled: "Anunci actualitzat amb èxit. Maneig de la disponibilitat habilitat."
       listing_updated_availability_management_disabled: "Anunci actualitzat amb èxit. Maneig de la disponibilitat deshabilitat."
-      listing_deleted: ~
+      listing_deleted: "S'ha suprimit la fitxa"
       only_kassi_administrators_can_access_this_area: "Si us plau, inicia sessió amb un compte d'administrado per a accedir a aquesta àrea"
       only_listing_author_can_close_a_listing: "Només el creador d'una llista pot tancar-la"
       only_listing_author_can_edit_a_listing: "Només el creador d'una llista pot editar-la"
@@ -2250,7 +2250,7 @@ ca:
       user_does_not_have_email_to_delete: "L'adreça de correu electrònic que vols eliminar no existeix"
       email_deleted: "Correu electrònic eliminat"
       listing_author_payment_details_missing: "Si us plau contacti amb l'autor clicant el botó de 'Contacte' de baix. Necessiten actualitzar els seus detalls de pagaments per rebre els pagaments."
-      listing_author_payment_details_missing_no_free: ~
+      listing_author_payment_details_missing_no_free: "Si us plau contacta amb l’equip %{service_name} per demanar-los que contactin i aconsellin a l’autor de la fitxa que actualitzi les seves dades de pagament per rebre pagaments."
       images_are_processing: "Estem processant les teves imatges. Dona'ns un minut o dos i estaran llestes."
       automatically_logged_out_please_sign_in: "Si us plau, inicia la sessió una altra vegada, ja que la teva sessió ha caducat."
       stripe_you_account_balance_is_not_0: "El balanç del teu compte no és 0 i per tant no pot ser eliminada. Això pot significar que tens transaccions esperant a ser completades o que hi ha diners esperant a ser transferit al teu compte del banc. Si us plau contacta a l'equip de %{service_name} si tens algun dubte."
@@ -2291,7 +2291,7 @@ ca:
       you_cannot_send_a_new_comment_because_listing_is_closed: "No es poden enviar nous comentaris ja que l'anunci ha estat tancat."
       you_must: "Hauries de"
       subscribe_to_comments: "Avisa'm dels nous comentaris i actualitzacions"
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "La supressió d'una fitxa no es pot desfer. Esteu segur que voleu continuar?"
     edit:
       edit_listing: "Editar anunci"
     edit_links:
@@ -2307,7 +2307,7 @@ ca:
       listing_is_rejected: "La fitxa és rebutjada"
       approve_listing: "La fitxa és aprovada"
       reject_listing: "Fitxa rebutjada"
-      delete_listing: ~
+      delete_listing: "Suprimeix la fitxa"
     map:
       open_in_google_maps: "Obrir a Google Maps"
     error:
@@ -2330,7 +2330,7 @@ ca:
       description:
         detailed_description: "Descripció detallada"
         youtube_info: "Si la descripció de l'anunci conté enllaços a Youtube, els vídeos es mostren davall la descripció."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Pots %{link}. Si la descripció conté enllaços de YouTube, els vídeos es mostraran a sota de la descripció."
       destination:
         destination: Destí
       form_content:
@@ -2391,8 +2391,8 @@ ca:
       send_button:
         save_listing: ~
         submit_for_review: "Enviar per a revisió"
-        will_be_reviewed: ~
-        we_noticed_youre_an_admin: ~
+        will_be_reviewed: "Totes les fitxes de %{service_name} es revisaran abans de publicar-los. Un cop s'hagi aprovat la fitxa, se us notificarà per correu electrònic i serà visible per a tots."
+        we_noticed_youre_an_admin: "Ens hem adonat que sou un administrador de %{service_name}. Els canvis s’aplicaran automàticament i no necessitaran revisió ni aprovació."
       share_type:
         select: Seleccionar
         borrow: Prestar
@@ -2885,8 +2885,8 @@ ca:
       image_is_processing: "Espera un moment. La teva imatge de perfil s'està processant. Estarà llesta en uns minuts."
       shown_in_your_public_profile: "(es mostra en el teu perfil públic)"
       editing_profile_of: "Estàs editant el perfil de %{name}"
-      format_markdown_link: ~
-      format_markdown: ~
+      format_markdown_link: "Dóna forma a la descripció emprant Markdown"
+      format_markdown: "Pots %{link}."
       username: ~
       username_description: ~
     save_information: "Desa la informació"
@@ -3161,12 +3161,12 @@ ca:
     paypal_connected: "Compte de PayPal connectada amb èxit!"
     paypal_can_accept: "Estàs llest per rebre diners en el teu compte de PayPal"
     paypal_connected_give_permission: "Per completar la configuració i començar a rebre fons en el teu compte de PayPal <%{email}>, si us plau dona permís per carregar una comissió o quota."
-    stripe_account_restricted: ~
-    stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
-    stripe_account_pending_verification: ~
-    stripe_account_pending_verification_info: ~
+    stripe_account_restricted: "Els pagaments en línia al vostre compte estan restringits o quedaran restringits aviat!"
+    stripe_account_restricted_info: "Has d’editar les dades del teu compte bancari per proporcionar més informació al proveïdor de pagaments."
+    stripe_account_restricted_soon: "Aviat es restringiran els pagaments en línia al teu compte."
+    stripe_account_restricted_soon_info: "Has d’editar les dades del teu compte bancari per proporcionar més informació al proveïdor de pagaments."
+    stripe_account_pending_verification: "Els detalls del compte s’han desat correctament. S'espera la verificació del compte del proveïdor de pagaments."
+    stripe_account_pending_verification_info: "Torneu-ho a comprovar més endavant per assegurar-vos que tot està en ordre."
     form_new:
       need_info: "Necessitam un poc d'informació sobre tu per poder enviar-te diners."
       select_country: "Selecciona un país..."
@@ -3260,35 +3260,35 @@ ca:
     invalid_bank_account_number: "Si us plau verifica que el teu compte bancari és correcte i que concorda amb el teu país."
     invalid_postal_code: "Codi postal invàlid per %{country}"
   seo_sections:
-    you_can_use_variables: ~
+    you_can_use_variables: "Podeu utilitzar les següents variables:  %{vars}"
     placeholder:
-      search_results: ~
-      search_results_for: ~
-      listing_description: ~
-      listing_description_without_price: ~
-      category_description: ~
-      profile_title: ~
-      profile_description: ~
+      search_results: "Resultat de cerca - %{variable}"
+      search_results_for: "Resultats de cerca per: %{placeholder1} sobre %{placeholder2}"
+      listing_description: "%{title} per %{price} per %{author} sobre %{marketplace}"
+      listing_description_without_price: "%{title} per %{author} al %{marketplace}"
+      category_description: "%{category} per %{marketplace}"
+      profile_title: "Perfil de %{user} - %{marketplace}"
+      profile_description: "Aprendre més sobre %{user} sobre %{marketplace}"
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
+        id: "Nom exclusiu de la secció"
+        title: Títol
+        paragraph: Paràgraf
+        button_title: Text
+        button_path: URL
+        button_path_string: URL
+        background_image: "Imatge de fons"
+        background_image_variation: "Variació de la imatge de fons"
+        background_color: "Color de fons"
+        background_color_string: "Color de fons"
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: "Fitxa 1 ID"
+        listing_2_id: "Fitxa 2 ID"
+        listing_3_id: "Fitxa 3 ID"
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Text
+        youtube_video_id: "ID del vídeo de YouTube"
       landing_page_version/section/hero:
         cta_button_text: ~
         cta_button_url: ~

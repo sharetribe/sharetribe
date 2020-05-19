@@ -81,7 +81,7 @@ ko:
         see_how_it_looks_like: 미리보기
         verification_to_post_listings_info_content: "확인되지 않은 사용자에 대한 정보 텍스트"
         verification_to_post_listings_info_content_description: "현재 판매자가 매물을 등록하기 전에 수동으로 승인을 받도록 요구하고 있습니다. 승인 받지 않은 판매자들이 매물을 등록할때 보이는 기본 텍스트를 여기서 지정할 수 있습니다."
-        verification_to_post_listings_info_content_default: "%{service_name}의 관리자가 승인한 사용자만이 리스트를 게제할 수 있습니다. 아직 승인을 받지 못 하셨습니다. %{contact_admin_link} 에서 승인을 요청하십시요."
+        verification_to_post_listings_info_content_default: "%{service_name}의 관리자가 승인한 사용자만이 매물을 등록할 수 있습니다. 아직 승인을 받지 못하셨습니다. %{contact_admin_link} 에서 승인을 요청하십시요."
         contact_admin_link_text: "%{service_name} 팀에 문의하기"
         save: "설정 저장"
         transaction_agreement: "거래 계약서"
@@ -180,7 +180,7 @@ ko:
         verification_sent_from: "확인 이메일은 %{verification_sender_name}에서 발송되었습니다."
         follow_the_instructions: "이메일의 지침에 따라 주소를 확인하십시오."
       getting_started:
-        getting_started: 시작하기
+        getting_started: ~
       available_languages:
         cs: ~
         da-DK: 덴마크어
@@ -216,7 +216,7 @@ ko:
         join_with_invite_only: "이미 등록된 사용자가 초대하였을때만 새로운 사용자가 참여하도록 허용"
         users_can_invite_new_users: "모든 사용자가 새 사용자를 초대하도록 허용"
         private: "등록된 사용자만 매물 및 사용자 프로필을 볼 수 있습니다 (마켓 플레이스를 비공개로 설정)."
-        require_verification_to_post_listings: "관리자가 승인한 사용자만 새 리스트를 게시 할 수 있도록 허용"
+        require_verification_to_post_listings: "관리자가 승인한 사용자만 신규 매물을 등록할 수 있도록 허용"
         allow_free_conversations: "사용자들이 서로 메시지를 주고 받을 수 있도록 허용"
         search_preferences: "검색 환경 설정"
         search_and_location_preferences: ~
@@ -450,7 +450,7 @@ ko:
       topbar:
         topbar: 탑바
         new_listing_button_label: "새 매물 버튼 텍스트 게시"
-        invalid_post_listing_button_label: "'새 목록 게시' 버튼에 유효한 텍스트를 입력하십시오."
+        invalid_post_listing_button_label: "'신규 매물 등록' 버튼에 유효한 텍스트를 입력하십시오."
       transactions:
         export_all_as_csv: "CSV로 모두 내보내기"
         processing_export: ~
@@ -598,8 +598,8 @@ ko:
           used: 사용여부
           date_sent: 보낸날짜
       listings:
-        listings: 리스트
-        search_by_title_author_category: "리스트명, 작성자 또는 카테고리명으로 찾기"
+        listings: 매물
+        search_by_title_author_category: "매물명, 작성자 또는 카테고리명으로 찾기"
         search: 찾기
         reset_search: "모두 보기"
         export_all_as_csv: ~
@@ -607,7 +607,7 @@ ko:
         status:
           all: "모든 상태"
           selected_js: ~
-          open: 오픈
+          open: 공개
           closed: 마감
           expired: 만료
           approval_pending: 보류
@@ -619,7 +619,7 @@ ko:
           updated: 업데이트
           category: 카테고리
           status: 상태
-        open: 오픈
+        open: 공개
         closed: 닫힘
         expired: ~
         approved: 승인
@@ -930,9 +930,9 @@ ko:
             all_users: "모든 사용자"
             posting_allowed: ~
             with_listing: "하나 이상의 매물을 게시한 사용자들"
-            with_listing_no_payment: "하나 이상의 리스트를 게시했지만 결제 정보를 추가하지 않은 사용자"
+            with_listing_no_payment: "하나 이상의 매물을 등록했지만 결제 정보를 추가하지 않은 사용자"
             with_payment_no_listing: "결제 세부 사항을 추가했지만 매물을 게시하지 않은 사용자들"
-            no_listing_no_payment: "리스트를 게시하지 않았으며 결제 정보를 추가하지 않은 사용자"
+            no_listing_no_payment: "매물을 게시하지 않았고 결제 정보를 추가하지 않은 사용자"
         email_subject: "이메일 제목"
         email_content: "이메일 본문"
         email_content_placeholder: "사용자에게 발송할 내용"
@@ -1011,10 +1011,10 @@ ko:
       open_listings_warning:
         other: "이 주문 유형에는 %{count}개 목록이 있습니다. 아래 설정 중 하나를 변경하면 해당 목록에는 이전 설정이 유지됩니다. 목록을 수동으로 편집하여 새 설정으로 변경할 수 있습니다. 사이트에 이전 설정이 표시된 목록을 원하지 않으면 아래 버튼을 클릭하여 닫을 수 있습니다."
       close_listings_action:
-        other: "%{count}개 매물 내리기"
+        other: "%{count}개 매물 비공개"
       confirm_close_listings_action:
-        other: "%{count}개의 매물을 내리시겠습니까?"
-      successfully_closed: "매물이 성공적으로 내려졌습니다."
+        other: "%{count}개의 매물을 비공개로 하시겠습니까?"
+      successfully_closed: "매물이 비공개 되었습니다."
       successfully_deleted: "주문 유형 '%{order_type}'을(를) 삭제했습니다."
       pricing_and_checkout_title: "가격 및 결제"
       online_payments_label: "판매자가 온라인 결제를 허용하도록 허용"
@@ -1398,7 +1398,7 @@ ko:
         paypal:
           multicurrency: "PayPal 결제를 수락하기를 기다리는 중입니다."
           intl: "PayPal 결제를 수락하기를 기다리는 중입니다."
-          unknown_reason: "결제 대기 중입니다. 자세한 내용을 보려면 PayPal 계정에 로그인하십시오."
+          unknown_reason: "결제 대기 중입니다. 자세한 내용을 보려면 PayPal 계정에 로그인 하세요."
           verify: "PayPal 계정을 확인할 때까지 기다리는 중입니다."
       stripe:
         waiting_confirmation_from_requester: ~
@@ -1893,7 +1893,7 @@ ko:
     join:
       joined_kassi: "%{name}이 %{service_name} %{time_ago}에 참여했습니다."
     login:
-      logged_in_to_kassi: "%{name} %{service_name} %{time_ago}에 로그인했습니다."
+      logged_in_to_kassi: "%{name}이/가 %{service_name}에 %{time_ago}에 로그인 했습니다."
     comment:
       commented: "%{commenter_name} 님이 %{listing_title} %{time_ago} 매물에 댓글을 달았습니다."
       offer_partitive: 제안
@@ -1910,7 +1910,7 @@ ko:
     create_new_marketplace: "새로운 마켓 플레이스 만들기"
     contact_us: 문의하기
     profile: 프로필
-    manage_listings: "나의 리스트"
+    manage_listings: "내 매물"
     invite: "친구 초대"
     login: 로그인
     signup: 가입
@@ -1956,16 +1956,16 @@ ko:
     grid_item:
       processing_uploaded_image: "(업로드된 이미지 처리 중 ...)"
     index:
-      no_listings_with_your_search_criteria: "죄송합니다. 검색 기준에 맞는 리스트를 찾을 수 없습니다. 다른 검색어를 사용해 보시겠습니까?"
+      no_listings_with_your_search_criteria: "죄송합니다. 검색 기준에 맞는 매물을 찾을 수 없습니다. 다른 검색어를 사용해 보시겠습니까?"
       no_listings_notification: "매물 없음. %{add_listing_link}."
-      add_listing_link_text: "신규 매물 추가하기"
-      open_listing: "오픈 리스트"
-      open_listings: "오픈 리스트"
+      add_listing_link_text: "신규 매물 추가"
+      open_listing: "공개 매물"
+      open_listings: "공개 매물"
       private_listing_notification_log_in: 로그인
       is: 입니다
       are: 입니다
       what_do_you_need: "어떤 것을 찾고 계십니까?"
-      post_new_listing: "신규 매물 올리기"
+      post_new_listing: "신규 매물 등록"
       are_offering: 제안
       add_news_item: "내용을 추가하세요"
       lend_rent_help_carpool: "매매, 대여, 도우미, 카 쉐어링"
@@ -2017,8 +2017,8 @@ ko:
       list: "리스트 보기"
       map_button: 지도
       grid_button: 격자
-      list_button: 매물
-      all_listing_types: "모든 매물"
+      list_button: 리스트
+      all_listing_types: "모든 매물 타입"
       all_categories: "모든 카테고리"
     errors:
       search_engine_not_responding: "검색은 현재 사용할 수 없습니다. 곧 다시 검색하십시오."
@@ -2124,7 +2124,7 @@ ko:
       settings: 설정
       sign_up: 가입
     notifications:
-      listing_could_not_be_saved: "리스트를 저장할 수 없습니다. 다시 시도하십시오. 문제가 지속되면 %{contact_admin_link}하시기 바랍니다."
+      listing_could_not_be_saved: "매물을 저장할 수 없습니다. 다시 시도하십시오. 문제가 지속되면 %{contact_admin_link}하시기 바랍니다."
       contact_admin_link_text: "%{service_name} 팀에 문의하기"
       test_welcome_email_delivered_to: "테스트 이메일이 %{email} (으)로 전송되었습니다."
       something_went_wrong: "오류가 발생했습니다"
@@ -2171,7 +2171,7 @@ ko:
       listing_created_successfully: "매물이 성공적으로 등록되었습니다. %{new_listing_link}."
       offer_rejected: "제안을 거절했습니다."
       offer_canceled: "제안이 취소되어졌습니다"
-      listing_updated_successfully: "매물이 성공적으로 업데이트되었습니다."
+      listing_updated_successfully: "매물이 성공적으로 업데이트 되었습니다."
       listing_updated_availability_management_enabled: "매물이 업데이트되었습니다. 가용성 관리가 가능합니다."
       listing_updated_availability_management_disabled: "매물이 업데이트되었습니다. 가용성 관리가 비활성화되었습니다."
       listing_deleted: ~
@@ -2210,7 +2210,7 @@ ko:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "이 거래에는 피드백을 남기실 수 없습니다."
       you_are_not_authorized_to_do_this: "실행 권한이 없습니다."
       you_are_not_authorized_to_view_this_content: "내용 보기 권한이 없습니다."
-      listing_closed: "이 매물은 내려졌습니다."
+      listing_closed: "이 매물은 비공개 입니다."
       send_instructions: "곧 비밀번호 초기화 안내가 포함된 이메일이 발송되었습니다."
       you_cannot_reply_to_a_closed_offer: "종료된 제안에는 답장을 보내실 수 없습니다."
       you_cannot_send_message_to_yourself: "귀하 자신에게는 메세지를 보낼 수 없습니다"
@@ -2223,14 +2223,14 @@ ko:
       you_must_log_in_to_give_feedback: "피드백을 보내시려면 로그인하셔야 합니다."
       you_must_log_in_to_invite_new_users: "새 사용자를 %{service_name}로 초대하려면 로그인해야합니다"
       you_must_log_in_to_send_a_comment: "메시지를 보내려면 로그인하셔야 합니다."
-      you_must_log_in_to_send_a_message: "다른 가입자에게 메세지를 보내시려면 %{service_name}에 로그인하셔야 합니다."
+      you_must_log_in_to_send_a_message: "새메시지를 보내려면 %{service_name} 로그인 하세요\" 로그인"
       you_must_log_in_to_do_a_transaction: "거래를 하려면 %{service_name}에 로그인해야합니다."
       you_must_log_in_to_view_this_content: "내용을 확인하시려면 로그인하셔야 합니다."
       you_must_log_in_to_view_this_page: "이 페이지를 보려면 로그인해야합니다"
       you_must_log_in_to_view_your_inbox: "받은 편지함을 보려면 %{service_name}에 로그인해야합니다."
       you_must_log_in_to_view_your_settings: "설정을 보려면 %{service_name}에 로그인해야합니다."
       you_must_log_in_to_add_news_item: "새로운 내용을 추가하려면 %{service_name}에 로그인해야합니다."
-      you_must_log_in_to_change_profile_settings: "프로필 설정을 변경하려면 %{service_name}에 로그인해야합니다"
+      you_must_log_in_to_change_profile_settings: "프로필 설정을 변경하려면 %{service_name}에 로그인 해야합니다"
       you_must_log_in_to_accept_or_reject: "거래를 수락하거나 거부하려면 로그인 해야합니다."
       you_must_log_in_to_confirm_or_cancel: "거래를 취소하거나 확인하려면 로그인해야합니다."
       you_need_to_confirm_your_account_first: "이메일을 확인해야합니다."
@@ -2246,7 +2246,7 @@ ko:
       maintenance_mode:
         zero: "유지 보수를 위해 웹 사이트가 오프라인 상태가됩니다."
         other: "%{count} 분 후에 웹 사이트가 유지 관리를 위해 오프라인 상태가됩니다."
-      automatically_logged_out_please_sign_in: "자동으로 로그 아웃되었습니다. 다시 로그인하십시오."
+      automatically_logged_out_please_sign_in: "자동으로 로그아웃 되었습니다. 다시 로그인 하세요."
       stripe_you_account_balance_is_not_0: ~
       stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
@@ -2260,34 +2260,34 @@ ko:
       paypal_payments: "페이팔 결제"
       stripe_payments: "스트라이프 결제"
       payments: 결제
-      listings: 리스트
-      listings_search_placeholder: "리스트명으로 찾기"
+      listings: 매물
+      listings_search_placeholder: "매물명으로 찾기"
       transactions_search_placeholder: ~
       transactions: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "이 리스트를 볼 수 있는 권한이 없습니다."
+      listing_not_visible: "이 매물을 볼 수 있는 권한이 없습니다."
     comment:
       wrote: 작성했다
       send_private_message: "%{person}님에게 개인 메시지 보내기"
       delete: 삭제하기
       are_you_sure: "댓글을 삭제 하시겠습니까?"
     comment_form:
-      ask_a_question: "리스트에 댓글을 달거나 추가 정보를 요청하십시오. 모든 사용자가 댓글을 볼 수 있습니다."
+      ask_a_question: "댓글을 달거나 추가 정보를 요청 할 수 있습니다. 대화는 모든 사용자에게 공개됩니다."
       log_in: 로그인
       send_comment: "메시지 보내기"
       to_send_a_comment: "새 메시지를 보내려면"
       write_comment: "새 메시지 쓰기 :"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "이 리스트가 폐쇄되어 새로운 댓글을 보낼 수 없습니다."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "이 매물이 비공개로 되어 새로운 댓글을 보낼 수 없습니다."
       you_must: 해야합니다
       subscribe_to_comments: "새로운 메시지 및 업데이트 알림"
     deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "매물 수정"
     edit_links:
-      close_listing: "매물 내리기"
+      close_listing: "매물 비공개"
       edit_listing: "매물 수정"
-      reopen_listing: "매물 다시 올리기"
+      reopen_listing: "매물 재공개"
       move_to_top: "홈페이지 상단으로 이동"
       show_in_updates_email: "다음 뉴스레터에서 보기"
       show_in_updates_email_loading: 로딩중...
@@ -2297,7 +2297,7 @@ ko:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: ~
+      delete_listing: "매물 삭제하기"
     map:
       open_in_google_maps: "Google지도에서 열기"
     error:
@@ -2402,7 +2402,7 @@ ko:
         comma_separate: "(콤마로 분리하세요)"
         tags: 태그
       title:
-        listing_title: "리스트 제목"
+        listing_title: "매물 이름"
       valid_until:
         valid_until: 만기일
       valid_until_radio_buttons:
@@ -2471,9 +2471,9 @@ ko:
       select_category: "카테고리 선택"
       select_subcategory: "하위카테고리 선택"
       select_transaction_type: "매물 타입 선택"
-      you_need_to_fill_payout_details_before_accepting: "리스트를 게시하려면 먼저 결제 정보를 입력해야 합니다. 결제 정보를 입력 하려면 %{payment_settings_link}로 이동 하십시오."
+      you_need_to_fill_payout_details_before_accepting: "매물을 등록하려면 먼저 결제 정보를 입력해야 합니다. 결제 정보를 입력 하려면 %{payment_settings_link}로 이동 하십시오."
       contact_admin_link_text: "%{service_name} 팀에 문의하기"
-      community_not_configured_for_payments: "%{service_name}의 지불 구성이 되지 않아 신규 리스트를 아직 게제 할 수 없습니다. 자세한 내용은 %{contact_admin_link}에 문의 하시기 바랍니다."
+      community_not_configured_for_payments: "%{service_name}의 지불 구성이 되지 않아 신규 매물을 아직 등록할 수 없습니다. 자세한 내용은 %{contact_admin_link}에 문의 하시기 바랍니다."
       payment_settings_link: "결제 설정"
       community_not_configured_for_payments_admin: "%{service_name}이/가 결제를 위해 구성되지 않았으므로 아직 신규 매물을 등록할 수 없습니다. 결제 세부 사항을 기입 하시려면 %{payment_settings_link}로 이동하십시오."
       you_are_now_posting_a_listing_on_behalf_of: ~
@@ -2489,7 +2489,7 @@ ko:
     quantity_placeholder: 수량
     please_comment: 설명
     reply_link:
-      listing_closed: "매물이 내려졌습니다."
+      listing_closed: "매물이 비공개 되었습니다."
     show:
       add_your_phone_number: "전화 번호 추가"
       add_profile_picture: "프로필 사진을 추가하세요"
@@ -2518,7 +2518,7 @@ ko:
       times: 번
       times_viewed: 열람된
       processing_uploaded_image: "(업로드된 이미지 처리 중 ...)"
-      listing_created_at: "리스트 생성"
+      listing_created_at: "매물이 등록됨"
       price:
         per_quantity_unit: "%{quantity_unit}당"
         per_day: 일당
@@ -2621,7 +2621,7 @@ ko:
       paypal_account_email_placeholder: "PayPal 이메일 주소"
       paypal_account_email_info_text: "PayPal 계정이없는 경우 %{create_paypal_account} 계정을 만들 수 있습니다. PayPal 계정을 연결할 때 오류 메시지가 나타나면 PayPal 계정을 비즈니스 계정으로 업그레이드하십시오. 업그레이드는 무료이며 쉽습니다. 개인인 경우 이름과 성을 \"상호명\"으로 사용할 수 있습니다. 계정을 업그레이드하려면 %{upgrade_paypal_account}와(과) 업그레이드 링크를 찾으십시오."
       create_paypal_account: "여기를 클릭하십시오."
-      upgrade_paypal_account: "PayPal 계정에 로그인하십시오."
+      upgrade_paypal_account: "PayPal 계정에 로그인"
       paypal_account_billing_agreement: "%{service_name}에게 거래 수수료 부과 권한을 부여하십시오."
       follow_steps: "거래대금을 받기 시작하려면 아래 단계를 따르십시오."
       connect_paypal_account_title: "PayPal 계정 연결"
@@ -2648,7 +2648,7 @@ ko:
     paypal_account_connected_title: "연결된 PayPal 계정"
     paypal_account_connected: "PayPal 계정 <%{email}>이 %{service_name}에 연결되었습니다."
     change_account: "PayPal 계정 변경"
-    missing: "오픈된 목록이 있지만 Paypal 계좌가 지급금을 받을 수 있도록 설정되어 있지 않습니다. Paypal 계정을 연결하고 %{settings_link}에서 %{service_name}에게거래 수수료를 청구 할 수 있는 권한을 부여하십시오."
+    missing: "공개된 매물이 있지만 Paypal 계좌가 지급금을 받을 수 있도록 설정되어 있지 않습니다. Paypal 계정을 연결하고 %{settings_link}에서 %{service_name}에게거래 수수료를 청구 할 수 있는 권한을 부여하십시오."
     from_your_payment_settings_link_text: "결제 설정"
     redirect_message: "PayPal로 리디렉션합니다. 아무 것도 안되면 %{redirect_link}을 클릭하십시오."
     redirect_link_text: 여기
@@ -2679,7 +2679,7 @@ ko:
       invite_only_help_text_title: 초대전용
     inactive_notification:
       this_person_is_not_active_in_kassi: "이 사용자는 더 이상 %{service_name}에서 활성화되어 있지 않습니다."
-      inactive_description: "이 사용자는 %{service_name} 사용을 중지했습니다. 해당 사용자에게 연락하거나 피드백을 주거나 리스트에 메시지를 남길 수 없습니다."
+      inactive_description: "이 사용자는 %{service_name} 사용을 중지했습니다. 해당 사용자에게 연락하거나 피드백을 주거나 매물에 메시지를 남길 수 없습니다."
     new:
       create_new_account: "계정 만들기"
       email: 이메일
@@ -2714,7 +2714,7 @@ ko:
       and_gave_following_feedback: "그리고 다음과 같은 피드백을 주었다."
     profile_listings:
       no_image: "이미지가 없음"
-      manage_listings: "내 모든 리스트 관리"
+      manage_listings: "내 모든 매물 관리"
     show:
       contact: "%{person}님에게 연락하기"
       about_me: "내 소개:"
@@ -2739,13 +2739,13 @@ ko:
       reviews: "수신된 리뷰"
       listing: 매물
       listings: 매물
-      open_listing: "오픈 리스트"
-      open_listings: "오픈 리스트"
+      open_listing: "공개 매물"
+      open_listings: "공개 매물"
       no_listings: "매물 없음"
-      no_open_listings: "비공개 리스트"
+      no_open_listings: "공개된 매물 없음"
       no_reviews: "리뷰 없음"
       show_all_listings: "모든 매물 보기"
-      show_all_open_listings: "모든 오픈 리스트 보기"
+      show_all_open_listings: "모든 공개 매물 보기"
       show_all_reviews: "모든 리뷰 보기"
       admin_actions: ~
       post_listing_as: ~
@@ -2765,11 +2765,11 @@ ko:
       create_new_account: "새로운 계정 만들기"
       i_forgot_my_password: "아이디 또는 비밀번호를 잊으셨습니까?"
       login: 로그인
-      login_to_kassi: "%{service_name}에 로그인하십시오."
+      login_to_kassi: "%{service_name}에 로그인하기"
       connect_your_facebook_to_kassi: "페이스북 계정을 %{service_name}에 연결하십시오."
       facebook_account: "페이스북 계정:"
       log_in_to_link_account: "%{service_name} 계정이 이미 있는 경우 로그인하여 Facebook 계정과 연결하십시오."
-      you_can_also_create_new_account: "%{service_name}, %{accont_creation_link}에 계정이 없으면 Facebook 로그인으로 계정을 생성하십시오."
+      you_can_also_create_new_account: "%{service_name}에 계정이 없으면 %{accont_creation_link}에서 Facebook 로그인으로 계정을 생성하십시오."
       account_creation_link_text: "여기를 클릭하세요"
       cancle_facebook_connect: "이 계정을 연결하지 않으려면 %{cancel_link} 할 수 있습니다."
       facebook_cancel_link_text: 취소
@@ -2836,20 +2836,20 @@ ko:
       email_about_new_messages: "...누군가 나에게 메세지를 보냅니다"
       email_about_new_received_testimonials: "...누군가 나에게 피드백을 줍니다"
       email_about_testimonial_reminders: "...이벤트에 피드백 주는 것을 잊어버렸습니다"
-      email_daily_community_updates: "신규 리스트가 있는 경우 <b>daily</b> 뉴스레터 받기"
-      email_weekly_community_updates: "신규 리스트가 있는 경우 <b>weekly</b> 뉴스레터 받기"
+      email_daily_community_updates: "신규 매물이 있는 경우 <b>daily</b> 뉴스레터 받기"
+      email_weekly_community_updates: "신규 매물이 있는 경우 <b>weekly</b> 뉴스레터 받기"
       do_not_email_community_updates: "뉴스레터 수신거부"
       email_when_conversation_accepted: "...누군가 나의 제안 또는 요청을 받아들입니다"
       email_when_conversation_rejected: "...누군가 나의 제안 또는 요청을 거절합니다"
       email_about_completed_transactions: "... 누군가 내 주문을 완료했다고 표시합니다."
       email_about_new_payments: "...신규 지불을 받습니다"
-      email_about_new_listings_by_followed_people: "...팔로우하는 사람이 새 리스트를 올립니다."
+      email_about_new_listings_by_followed_people: "...내가 팔로우하는 사람이 신규 매물을 올렸습니다."
       unsubscribe_succesful: "성공적으로 구독취소"
       unsubscribe_info_text: "이 이메일은 더 이상 수신되지 않습니다. %{설정} 링크를 확인하여 %{service_name}에서 받을 이메일을 선택하거나 %{homepage link}로 돌아가십시오."
       settings_link: 설정
       homepage_link: 홈페이지
       unsubscribe_unsuccesful: "수신 거부 오류"
-      unsuccessful_unsubscribe_info_text: "구독 취소 링크가 만료되었습니다. 이메일 구독 설정을 변경하려면 로그인하십시오."
+      unsuccessful_unsubscribe_info_text: "구독취소 링크가 만료 되었습니다. 이메일 구독 설정을 변경하려면 로그인 하세요."
     profile:
       about_you: "본인 소개"
       city: 도시
@@ -2858,7 +2858,7 @@ ko:
       first_name_with_initial: "(첫 번째 문자만 다른 사용자에게 표시됨)"
       first_name_only: (비공개)
       display_name: 대화명
-      display_name_description: "조직을 대표하는 경우 조직의 이름을 대화명으로 사용할 수 있습니다. 대화명은 원래 이름 대신 다른 사용자에게 표시됩니다."
+      display_name_description: "대화명을 만드시면 원래 이름 대신 다른 사용자들에게 표시됩니다."
       location_description: "번지수, 도시명, 우편번호 등을 공개 할 수 있습니다. 위치를 추가 할 때 국가명을 추가하는 것이 좋습니다. 예 : \"10117 Berlin, Germany\" 또는 \"2000 Sand Hill Road, CA, USA\"."
       profile_picture_description: "프로필 사진은 정사각형 (1대1비율, 예를 들어 800x800 픽셀) 이어야 합니다. 그렇지 않으면 사진이 잘려서 보이게 됩니다."
       phone_number: 전화번호
@@ -3082,14 +3082,14 @@ ko:
       user: 사용자
       inbox: 수신함
       profile: 프로필
-      manage_listings: "나의 리스트"
+      manage_listings: "내 매물"
       settings: 설정
       logout: 로그아웃
       login: 로그인
       signup: 가입하기
       admin_dashboard: "관리 대시보드"
       language: 언어
-      listings: "내 리스트"
+      listings: "내 매물"
     utils:
       km: 킬로미터
       mi: mi
@@ -3129,7 +3129,7 @@ ko:
     pay_with_stripe: "%{card}를 사용하여 스트라이프로 결제하기"
     add_and_pay: "결제 확인"
     card_not_stored: "귀하의 결제는 Stripe에 의해 안전하게 처리됩니다. %{service_name}에서는 카드 정보를 저장하지 않습니다."
-    missing_payment: "오픈 매물이 있지만 귀하의 계정이 지불을 받을 수 있도록 설정되어 있지 않습니다. 결제 환경을 설정하세요. %{settings_link}"
+    missing_payment: "공개된 매물이 있지만 귀하의 계정이 지불을 받을 수 있도록 설정되어 있지 않습니다. 결제 환경을 설정하세요. %{settings_link}"
     stripe_bank_connected: "결제 정보가 성공적으로 설정되었습니다!"
     stripe_can_accept: "이제 등록하신 은행 계좌로 결제대금을 받을 수 있습니다."
     stripe_credit_card: 신용카드
@@ -3144,7 +3144,7 @@ ko:
     stripe_account_pending_verification: ~
     stripe_account_pending_verification_info: ~
     form_new:
-      need_info: "귀하에게 비용을 보내기 위한 정보가 필요합니다."
+      need_info: "귀하에게 결제금액을 이체하기 위한 정보가 필요합니다."
       select_country: 국가선택...
       legal_name: 법명
       first_name: 이름
@@ -3154,7 +3154,7 @@ ko:
       first_name_kanji: ~
       last_name_kanji: ~
       country: 국가
-      birth_date: 생일
+      birth_date: 생년월일
       ssn_last_4: "SSN 마지막 4"
       personal_id_number: "개인 아이디 넘버"
       address_country: 국가
@@ -3162,14 +3162,14 @@ ko:
       address_province: 도
       address_city: 도시
       address_postal_code: 우편번호
-      address_line1: 거리주소
+      address_line1: 주소
       tos_link: "결제 정보를 추가함으로서 %{stripe_link}에 동의하게 됩니다."
       tos_link_title: "스트라이프에 연결된 계정 계약"
       save_details: "결제 정보 저장"
       edit: "결제 정보 편집"
       cancel: 취소
       gender: ~
-      phone_number: ~
+      phone_number: 전화번호
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~
@@ -3207,10 +3207,10 @@ ko:
         digits_or_chars: "숫자 또는 A-Z 문자"
     form_verification:
       personal_id_number: "개인 ID 번호"
-      document: "확인 문서"
+      document: ~
       document_back: ~
       send_verification: "확인 보내기"
-      need_verification: "추가 확인 필요"
+      need_verification: ~
       additional_document: ~
       additional_document_back: ~
       files_need_to_be: ~
