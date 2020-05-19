@@ -8,7 +8,7 @@ bg:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Редактиране на категория %{category}"
       index:
         listing_categories: ~
         create_a_new_category: ~
@@ -1425,7 +1425,7 @@ bg:
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} има ограничения за имейл. Можете да се присъедините само ако имате разрешен имейл адрес. Можете да се присъедините, като попълните имейл адреса си, приемете условията за ползване на %{service_name} и кликнете върху „Присъединяване на %{service_name}“ по-долу."
       you_can_join_with_invite_only: "Трябва да имате покана от друг член, за да се присъедините към %{service_name}. Ако имате код на покана, можете да се присъедините, като напишете кода в полето по-долу, приемете условията за ползване и кликнете по-долу „Присъединете се %{service_name}“."
       if_want_to_view_content: ~
-      log_out: ~
+      log_out: Изход
       join_community_button: "Присъединете се към %{service_name}"
     give_consent:
       invitation_code_invalid_or_used: ~
@@ -2411,7 +2411,7 @@ bg:
       requests: Заявки
       rideshare: "Споделен превоз"
       you_have_something_others_do_not: "Имате ли нещо да предложите?"
-      feed_title: ~
+      feed_title: "%{listing_type} в%{service_name} %{optional_category}"
     left_panel_link:
       borrows: отдаване
       buys: купуване
@@ -2441,11 +2441,11 @@ bg:
       marketplace_fees_may_apply: ~
     new:
       listing: ~
-      selected_category: ~
-      selected_subcategory: ~
+      selected_category: "Категория: %{category}"
+      selected_subcategory: "Подкатегория:%{subcategory}"
       selected_transaction_type: ~
       select_category: "Избери категория"
-      select_subcategory: ~
+      select_subcategory: "Изберете подкатегория"
       select_transaction_type: "Изберете вид обява"
       you_need_to_fill_payout_details_before_accepting: "Трябва да попълните данни за изплащанията, преди да можете да публикувате обява. Отидете на %{payment_settings_link}, за да попълните данните."
       contact_admin_link_text: ~
@@ -2770,7 +2770,7 @@ bg:
       contact_support_link_text: ~
   settings:
     account:
-      change: ~
+      change: Промяна
       confirm_new_password: "Потвърдете новата парола"
       delete_account: ~
       delete_account_button: "Изтрии профила завинаги."
@@ -2801,19 +2801,19 @@ bg:
         status_pending: Чакащ
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
+      i_want_to_get_email_notification_when: "Искам да получа известие по имейл, когато ..."
+      newsletters: "Имейли от администраторите"
       community_updates: ~
       email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
+      email_about_new_comments_to_own_listing: "...някой коментира моята оферта или молба"
+      email_about_new_messages: "...някой ми изпраща съобщение"
+      email_about_new_received_testimonials: "...някой ми дава обратна връзка"
+      email_about_testimonial_reminders: "...забравих да дам отзиви за дадено събитие"
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
+      email_when_conversation_accepted: "...някой приема моята оферта или молба"
+      email_when_conversation_rejected: "...някой отхвърли моята оферта или молба"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_new_listings_by_followed_people: "... някой, който следя публикува нова обява"
@@ -2852,7 +2852,7 @@ bg:
       format_markdown: ~
       username: Потребител
       username_description: "Вашето потребителско име се използва като част от уникалния URL адрес на страницата на вашия профил. Можете да използвате само букви и цифри за потребителското си име, без интервали. Когато промените потребителското си име, вашият URL адрес автоматично ще се промени и предишният ви URL адрес няма да бъде пренасочен. Старото потребителско име ще стане достъпно за други потребители."
-    save_information: ~
+    save_information: "Запазване на информация"
   shipping_address:
     shipping_address: ~
   tag_cloud:
@@ -3038,7 +3038,7 @@ bg:
       profile: Профил
       manage_listings: ~
       settings: ~
-      logout: ~
+      logout: Изход
       login: Вход
       signup: "Регистрирай се"
       admin_dashboard: ~
