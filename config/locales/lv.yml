@@ -931,10 +931,10 @@ lv:
         message_will_be_sent_only_to_people_with_this_language: "E-pasts tiks nosūtīts tikai tiem lietotājiem, kuri jūsu izvēlētajā valodā izmanto %{service_name}."
         email_sent: ~
         to_improve_email_deliverability: ~
-        email_subject_text: ~
+        email_subject_text: "Jauna ziņa no %{service_name} komandas"
         firstname_cannot_be_removed: ~
         hello_firstname: ~
-        hello_firstname_text: ~
+        hello_firstname_text: "Sveicināti %{person},"
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
