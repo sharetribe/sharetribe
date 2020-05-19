@@ -1431,10 +1431,10 @@ pt-BR:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Novo comentário do %{service_name}"
-    feedback_body: "%{author_name_and_email} enviou este comentário do %{service_name}"
-    unlogged_user: "Usuário desconectado"
-    anonymous_user: "Usuário anônimo"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Acesso negado"

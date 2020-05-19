@@ -1424,10 +1424,10 @@ zh-TW:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "来自%{service_name}的新反饋"
-    feedback_body: "%{author_name_and_email}已经从%{service_name}发送了下面的反馈。"
-    unlogged_user: 未登入的用戶
-    anonymous_user: 匿名用户
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: 沒有權限

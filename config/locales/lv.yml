@@ -269,13 +269,13 @@ lv:
         only_delete_disabled: ~
         delete_info1: ~
         delete_info2: ~
-        search: ~
+        search: Meklēt
         search_by_name_email: ~
-        reset_search: ~
+        reset_search: "Parādīt visus"
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
-          all: ~
+          all: "Visi statusi"
           selected: ~
           selected_js: ~
           admin: ~
@@ -313,7 +313,7 @@ lv:
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_placeholder: lietotājvārds
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_developers_dashboard: ~
@@ -420,7 +420,7 @@ lv:
         add_menu_link: ~
         title_placeholder: ~
         url_placeholder: ~
-        title: ~
+        title: Virsraksts
         language: ~
         url: ~
         empty: ~
@@ -444,12 +444,12 @@ lv:
       transactions:
         export_all_as_csv: ~
         processing_export: ~
-        transactions: ~
+        transactions: Darījumi
         search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search: Meklēt
+        reset_search: "Parādīt visus"
         status_filter:
-          all: ~
+          all: "Visi statusi"
           selected: ~
           selected_js: ~
           free: ~
@@ -465,11 +465,11 @@ lv:
           dismissed: ~
         headers:
           conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
+          listing: Sludinājums
+          status: Statuss
+          sum: Summa
+          started: Sākās
+          last_activity: "Jaunākā aktivitāte"
           initiated_by: ~
           other_party: ~
         status:
@@ -523,30 +523,30 @@ lv:
         conversations: ~
         headers:
           started_from: ~
-          status: ~
-          started: ~
+          status: Statuss
+          started: Sākās
           last_activity: ~
           initiated_by: ~
           other_party: ~
         participants: ~
         profile: ~
         search_by_keyword: ~
-        search: ~
-        reset_search: ~
+        search: Meklēt
+        reset_search: "Parādīt visus"
         for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
         search_keyword: ~
-        search: ~
-        reset_search: ~
+        search: Meklēt
+        reset_search: "Parādīt visus"
         for_keyword: ~
         headers:
           transaction: ~
           author: ~
           receiver: ~
-          status: ~
+          status: Statuss
           grade: ~
           text: ~
         status:
@@ -588,28 +588,28 @@ lv:
           used: ~
           date_sent: ~
       listings:
-        listings: ~
+        listings: Sludinājumi
         search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search: Meklēt
+        reset_search: "Parādīt visus"
         export_all_as_csv: ~
         processing_export: ~
         status:
-          all: ~
+          all: "Visi statusi"
           selected_js: ~
-          open: ~
+          open: Pieejams
           closed: ~
           expired: ~
           approval_pending: ~
           approval_rejected: ~
         headers:
-          title: ~
+          title: Virsraksts
           author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
+          created: Izveidots
+          updated: Atjaunots
+          category: Kategorija
+          status: Statuss
+        open: Pieejams
         closed: ~
         expired: ~
         approved: ~
@@ -628,7 +628,7 @@ lv:
         upgrade_plan_link: ~
         menu_links: ~
         language: ~
-        title: ~
+        title: Virsraksts
         url: ~
         add: ~
         save: ~
@@ -644,7 +644,7 @@ lv:
           marketplace_color: ~
           logo: ~
         social:
-          title: ~
+          title: Virsraksts
           url: ~
       domain:
         domain: ~
@@ -689,7 +689,7 @@ lv:
           info_single_column: ~
           info_multi_column_2: ~
           info_multi_column_3: ~
-          listings: ~
+          listings: Sludinājumi
           categories: ~
           hero: ~
           locations: ~
@@ -768,7 +768,7 @@ lv:
           background_color_info: ~
         categories:
           add: ~
-          category: ~
+          category: Kategorija
           empty: ~
           image: ~
           include_title: ~
@@ -777,7 +777,7 @@ lv:
           need_at_most_7_categories: ~
         category:
           add_another_image: ~
-          category: ~
+          category: Kategorija
           current_image: ~
           file_not_selected: ~
           image: ~
@@ -799,7 +799,7 @@ lv:
           file_not_selected: ~
           image: ~
           image_required: ~
-          title: ~
+          title: Virsraksts
           title_placeholder: ~
           url: ~
           url_placeholder: ~
@@ -948,8 +948,8 @@ lv:
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
-      per_hour_availability: ~
-      per_day_availability: pieejamība
+      per_hour_availability: "Pieejamība stundā"
+      per_day_availability: "Pieejamība dienā"
       per_night_availability: ~
       pricing_units_disabled_info: ~
       can_not_find_name: ~
@@ -1135,7 +1135,7 @@ lv:
         sell: ~
         rent: ~
         request: ~
-        offer: ~
+        offer: Pasūtīt
         inquiry: ~
         book: ~
     community_transactions:
@@ -1406,10 +1406,10 @@ lv:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Jauna atsauksme no %{service_name}"
-    feedback_body: "%{author_name_and_email} ir nosūtījis/-jusi šādu atsauksmi no %{service_name}"
-    unlogged_user: "Neielogojies lietotājs"
-    anonymous_user: "Anonīms lietotājs"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Piekļuve liegta"
@@ -1996,7 +1996,7 @@ lv:
       map_button: Karte
       grid_button: Režģis
       list_button: Saraksts
-      all_listing_types: "Visi sludinājumu veidi"
+      all_listing_types: "Visi norēķinu veidi"
       all_categories: "Visas kategorijas"
     errors:
       search_engine_not_responding: "Meklēšana patreiz nav pieejama. Mēģiniet meklēšanu atkal drīz."
@@ -2034,7 +2034,7 @@ lv:
       dont_use_to_contact_support: "Mēs pamanījām, ka esat %{service_name} administrators. Šo formu Jūsu lietotāji izmantos, lai sazinātos ar Jums. Jūs nevarat izmantot šo formu, lai sazinātos ar Sharetribe klientu atbalstu. Jūs to varat izdarīt, izmantojot administratora rīku, kas atrodas administratora paneļa labajā apakšējā stūrī."
       feedback_forum: "Forums atsauksmēm"
       feedback_handle: Atsauksme
-      give_feedback: "Sazināties ar mums"
+      give_feedback: "Sazinies ar mums"
       or_check_our: "vai apskati mūsu"
       send_feedback_to_admin: "Nosūtīt vēstuli"
       to_see_what_others_have_suggested: "lai apskatītu, ko ieteikuši citi lietotāji un balso par idejām."
@@ -2241,8 +2241,8 @@ lv:
       payments: Maksājumi
       listings: Sludinājumi
       listings_search_placeholder: "Meklējiet sludinājuma virsrakstu"
-      transactions_search_placeholder: ~
-      transactions: ~
+      transactions_search_placeholder: "Meklējiet pēc darījuma nosaukumu vai cita atribūta"
+      transactions: Darījumi
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Jums nav atļaujas apskatīt šo ierakstu."
@@ -2356,7 +2356,7 @@ lv:
       origin:
         location: "Atrašanās vieta"
         origin: Izcelsme
-        the_exact_location: ~
+        the_exact_location: "Precīza atrašanās vieta citiem lietotājiem netiks rādīta."
       send_button:
         save_listing: "Publicēt sludinājumu"
         submit_for_review: "Iesniegt izskatīšanai"
@@ -2404,7 +2404,7 @@ lv:
       housing: Platība
       items: Produkti
       list_view: "Saraksta skats"
-      listings: Piedāvājumi
+      listings: Sludinājumi
       map_view: "Mapes skats"
       offer_something: "Ļaujiet citiem uzzināt!"
       offer_type: "Piedāvājuma veids"
@@ -2443,7 +2443,7 @@ lv:
       end_time: "Beigu laiks"
       marketplace_fees_may_apply: "%{service_name} var piemērot maksu"
     new:
-      listing: Piedāvājums
+      listing: sludinājums
       selected_category: "Kategorija: %{category}"
       selected_subcategory: "Apakškategorija: %{subcategory}"
       selected_transaction_type: "Sludinājuma veids: %{transaction_type}"
@@ -2510,7 +2510,7 @@ lv:
       youtube_video_player: "YouTube video atskaņotājs"
     unit_types:
       piece: gabals
-      hour: stunda
+      hour: stundā
       day: diena
       night: nakts
       week: nedēļa
@@ -2856,8 +2856,8 @@ lv:
       editing_profile_of: "Jūs tagad rediģējat %{name} profilu"
       format_markdown_link: "formatējiet aprakstu, izmantojot Markdown"
       format_markdown: "Jūs varat %{link}."
-      username: ~
-      username_description: ~
+      username: Lietotājvārds
+      username_description: "Jūsu lietotājvārds tiek izmantots kā daļa no jūsu profila lapas unikālā URL. Lietotājvārdā bez atstarpēm varat izmantot tikai burtus un ciparus. Mainot lietotājvārdu, jūsu URL automātiski mainīsies, un iepriekšējais URL netiks novirzīts. Vecais lietotājvārds būs pieejams citiem lietotājiem."
     save_information: "Saglabā informāciju"
   shipping_address:
     shipping_address: "Piegādes adrese"
@@ -3037,7 +3037,7 @@ lv:
           covers: aptver
       pricing_units:
         piece: gabals
-        hour: stunda
+        hour: stundā
         day: diena
         night: nakts
         week: nedēļa

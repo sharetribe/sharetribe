@@ -1440,10 +1440,10 @@ nl:
       mark_as_refunded: "Markeer als teruggestort."
       dismiss: "Wijs af en betaal uit."
   feedback:
-    feedback_subject: "Nieuwe feedback van %{service_name}"
-    feedback_body: "%{author_name_and_email} heeft de volgende email verzonden vanaf %{service_name}"
-    unlogged_user: "Niet-gelogde gebruiker"
-    anonymous_user: "Anonieme user"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Toegang geweigerd"

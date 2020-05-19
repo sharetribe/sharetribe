@@ -1437,10 +1437,10 @@ es-ES:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Nuevo mensaje de %{service_name}"
-    feedback_body: "%{author_name_and_email} ha enviado el siguiente mensaje desde %{service_name}"
-    unlogged_user: "Usuario no identificado"
-    anonymous_user: "Usuario anónimo"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Acceso denegado"

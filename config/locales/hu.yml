@@ -1430,10 +1430,10 @@ hu:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Új értékelés %{service_name}tól"
-    feedback_body: "%{author_name_and_email} a következő visszajelzést küldte a %{service_name} oldaláról."
-    unlogged_user: "Nem regisztrált felhasználó"
-    anonymous_user: "Névtelen felhasználó"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Hozzáférés megtagadva"

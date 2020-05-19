@@ -1446,10 +1446,10 @@ hr:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Nove povratne informacije od korisnika %{service_name}"
-    feedback_body: "%{author_name_and_email} je poslao povratne informacije od %{service_name}"
-    unlogged_user: "Neprijavljeni korisnik"
-    anonymous_user: "Anonimni korisnik"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Pristup odbijen"

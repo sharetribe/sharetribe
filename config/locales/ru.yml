@@ -1453,10 +1453,10 @@ ru:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Новое сообщение от %{service_name}"
-    feedback_body: "%{author_name_and_email} отправил следующее сообщение от %{service_name}"
-    unlogged_user: "Незарегистрированный пользователь"
-    anonymous_user: "Анонимный пользователь"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Доступ закрыт"
@@ -3201,7 +3201,7 @@ ru:
           many: "Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count} другой %{other_model}"
           other: "Отображение <b>%{accepted_count} </b>%{accepted_model} и %{other_count} другой %{other_model}"
         multi_page: "Отображение %{model} %{from} -%{to} из%{accept_count} принято % {accept_model} и%{other_count} другое%{other_model}"
-        multi_page_html: "Отображение%{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>% {accept_count}</b> принятых%{accept_model} и %{other_count} других %{ other_model}"
+        multi_page_html: "Отображение %{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{accepted_count}</b> принятых %{accepted_model} и %{other_count} других %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "Использование платежной системы сайта %{service_name} для того, чтобы получать платежи, невозможно, поскольку платежная система не была настроена. Пожалуйста %{contact_admin_link} для уточнения деталей."
     contact_admin_link_text: "связаться с командой%{service_name}"

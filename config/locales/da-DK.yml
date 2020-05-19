@@ -1429,10 +1429,10 @@ da-DK:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Ny feedback sendt fra %{service_name}"
-    feedback_body: "%{author_name_and_email} har sendt følgende feedback fra %{service_name}"
-    unlogged_user: "Bruger, der ikke er logget ind"
-    anonymous_user: "Anonym bruger"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Adgang nægtet"

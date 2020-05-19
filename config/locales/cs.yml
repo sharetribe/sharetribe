@@ -1446,10 +1446,10 @@ cs:
       mark_as_refunded: "Označit jako vrácené"
       dismiss: "Zamítnout a vyplatit"
   feedback:
-    feedback_subject: "Nové hodnocení od %{service_name}"
-    feedback_body: "Uživatel %{author_name_and_email} poslal následující hodnocení z %{service_name}"
-    unlogged_user: "Nepřihlášený uživatel"
-    anonymous_user: "Anonymní uživatel"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Přístup zamítnut"

@@ -1437,10 +1437,10 @@ sv:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Ny feedback från %{service_name}"
-    feedback_body: "%{author_name_and_email} har skickat följande feedback från %{service_name}"
-    unlogged_user: "Ej inloggad användare"
-    anonymous_user: "Anonym användare"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Åtkomst nekad"

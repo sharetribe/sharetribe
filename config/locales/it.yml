@@ -1410,10 +1410,10 @@ it:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: "Nuovo feedback da %{service_name}"
-    feedback_body: "%{author_name_and_email} ha inviato il seguente feedback da %{service_name}"
-    unlogged_user: "Utente non loggato"
-    anonymous_user: "Utente anonimo"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Accesso negato"

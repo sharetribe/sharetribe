@@ -1437,10 +1437,10 @@ es:
       mark_as_refunded: "Marcar como reembolsada"
       dismiss: "Descartar y hacer el pago"
   feedback:
-    feedback_subject: "Nuevo mensaje de %{service_name}"
-    feedback_body: "%{author_name_and_email} ha enviado el siguiente mensaje desde %{service_name}"
-    unlogged_user: "Usuario no identificado"
-    anonymous_user: "Usuario anónimo"
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   community_memberships:
     access_denied:
       access_denied: "Acceso denegado"
