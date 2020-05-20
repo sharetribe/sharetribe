@@ -24,3 +24,9 @@
         %p.ingress= t('admin2.delete_marketplace.info_text_6').html_safe
       %section.content-card-terminal
         = button_tag t('admin2.delete_marketplace.delete'), class: %i[btn btn-primary]
+- else
+  .content-card-section-container
+    %section.content-card-section
+      %h2= t('admin2.delete_marketplace.info_text_1')
+      %p.ingress
+        = t('admin2.delete_marketplace.delete_info_text').html_safe

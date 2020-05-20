@@ -135,8 +135,12 @@ module Admin2Helper
   end
 
   def person_name(person)
-    display_name = person.display_name.present? ? " (#{person.display_name})" : ''
-    "#{person.given_name} #{person.family_name}#{display_name}"
+    if person.present? && !person.deleted?
+      display_name = person.display_name.present? ? " (#{person.display_name})" : ''
+      "#{person.given_name} #{person.family_name}#{display_name}"
+    else
+      t('common.removed_user')
+    end
   end
 
   def admin_email_options
