@@ -254,7 +254,7 @@ en:
       title_info_text: "The message below will be sent to every new user when they join. You can customize the message to fit your marketplace. By clicking 'Send test message' you can send a preview message to your email address, so you can see how it looks in an email client."
       welcome_email_content: 'Email content'
       hello: 'Hello Firstname,'
-      welcome_email_content_placeholder: 'Welcome to Bikerrrs!'
+      welcome_email_content_placeholder: 'Welcome to %{name}!'
       welcome_email_content_info_text: '"Firstname" cannot be removed and will be replaced by the actual first name of each recipient.'
       send_to_yourself: 'Send a test email to yourself'
     footer:
@@ -288,7 +288,7 @@ en:
       custom_links: 'Top bar custom links'
       new_custom_link: '+ Add a new custom link'
       link_title: 'Link title'
-      all: 'All'
+      all: 'Show all'
     custom_script:
       info_text: "This script is injected inside the tag of every page and can be used to insert custom CSS, JavaScript or HTML. <a href='%{url}' target='_blank'>Learn more about Custom script</a>."
       custom_head_script: 'CSS, JavaScript and/or HTML script'
@@ -388,7 +388,7 @@ en:
       limit_distance: 'Show only nearby listings with location search.'
       search_placeholder: 'Search help text'
       search_placeholder_info_text: 'This is shown as the placeholder text in the search bar.'
-      search_for: 'Search for'
+      search_for: 'Search for...'
     country_currency:
       payments_not_enabled: 'Payments not enabled'
       country: 'Country'
@@ -416,6 +416,7 @@ en:
       automatic_confirmation_after_days: 'Automatically mark transactions completed after'
       transaction_agreement: 'Transaction agreement'
       agreement_label: 'Agreement label'
+      agreement_label_placeholder: 'By clicking this box I accept the agreement'
       agreement_label_info_text: 'This text will be shown next to a checkbox in the checkout form. The buyer needs to check the box to proceed with the transaction. An example label would be something like "By clicking this box I accept the agreement.'
       agreement_text: 'Agreement text'
       agreement_text_info_text: 'This is the content of the actual agreement that the buyer needs to accept. The agreement content is displayed when the user clicks the "View." link next to the agreement label.'
@@ -441,7 +442,7 @@ en:
       signup_header: 'Signup information text'
       signup_info_text: 'Info text that will be shown to users in the Sign up. You can give the users instructions for signing up, information like where to get an invite, etc.'
       google: 'Google'
-      google_info_text: 'To enable Google Sign-In, create a project for your marketplace in the <a target="_blank" href="%{href}">Google Developers Console</a>. Add the generated ID and secret key of the app here. <a target="_blank" href="%{href2}">See instructions for configuring Google Sign-In</a>.'
+      google_info_text: 'To enable Google Sign-In, create a project for your marketplace in the <a target="_blank" href="%{href}">Google Developers Console</a>. Add the generated ID and secret key of the project here. <a target="_blank" href="%{href2}">See instructions for configuring Google Sign-In</a>.'
       google_connect_id: 'Google Client ID'
       google_connect_secret: 'Google Client secret'
       google_connect_enabled: 'Users can sign up and login with a Google account'
@@ -483,12 +484,12 @@ en:
       require_verification_to_post_listings: 'Allow only users verified by admins to post new listings'
       communication_rights: 'Communication rights'
       posting_rights: 'Posting rights'
-      info_text: "To help users understand what is required to be allowed to post listings, you can share some details below: they will be displayed on the new listing form only to users who haven't been allowed to post listings already."
+      info_text: "To help users understand what is required to be allowed to post listings, you can share some details above: they will be displayed on the new listing form only to users who haven't been allowed to post listings already."
     privacy:
       private_marketplace: 'Private marketplace'
       header: 'Private marketplace landing page content'
       private: 'Allow only registered users to see listings and user profiles (make marketplace private)'
-      info_text: 'This content is shown on the homepage of private marketplaces to users who are not logged in. Here you can describe your marketplace and the process to join it'
+      info_text: 'This content is shown on the homepage of private marketplaces to users who are not logged in. Here you can describe your marketplace and the process to join it.'
     essentials:
       header_link: 'Preview your Marketplace'
       header: 'Basic marketplace details'
