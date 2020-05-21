@@ -30,5 +30,8 @@
   = content_for :head
   = render :partial => "layouts/marketplace_head"
 
+  - unless Rails.env.test?
+    = stylesheet_link_tag 'donalo_payments/styles.css'
+
   - if @hide_referer
     %meta{name: "referrer", content: "no-referrer"}
