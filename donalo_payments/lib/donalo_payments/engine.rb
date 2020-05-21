@@ -110,7 +110,7 @@ module DonaloPayments
     end
 
     initializer "donalo_payments.assets.precompile" do |app|
-       app.config.assets.precompile += %w( donalo_payments/styles.css )
+       app.config.assets.precompile += %w(donalo_payments/styles.css)
     end
   end
 end
