@@ -78,6 +78,8 @@ Create and initialize the database:
 docker-compose -f docker-compose.dev.yml run web bundle exec rake db:create db:structure:load db:seed
 ```
 
+To make things easier, it's strongly recommended you set up the env var `COMPOSE_FILE=docker-compose.dev.yml`.
+
 Note the tasks executed above fail for the test database and you might need to run them separately until that's fixed.
 
 Follow the message `db:seed` outputs to log into the marketplace and you'll be good to go.
