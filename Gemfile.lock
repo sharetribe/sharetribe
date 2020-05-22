@@ -19,7 +19,7 @@ GIT
       railties (>= 3.0)
 
 PATH
-  remote: donalo_payments
+  remote: engines/donalo_payments
   specs:
     donalo_payments (0.1.0)
       rails (~> 5.2.3)
