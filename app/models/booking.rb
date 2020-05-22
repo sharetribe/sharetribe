@@ -40,7 +40,7 @@ class Booking < ApplicationRecord
   scope :per_hour_blocked, -> { hourly_basis.availability_blocking }
   scope :daily_basis, -> { where(per_hour: false) }
   scope :per_day_blocked, -> { daily_basis.availability_blocking }
-  scope :in_per_day_period, ->(start_time, end_time) { where(['start_on >= ? AND end_on <= ?', start_time, end_time]) }
+  scope :in_per_day_period, ->(start_time, end_time) { where(['start_on < ? AND end_on > ?', end_time, start_time]) }
   scope :covers_another_booking_per_day, ->(booking) do
     exclude_self(booking)
     .joins(:tx).per_day_blocked
