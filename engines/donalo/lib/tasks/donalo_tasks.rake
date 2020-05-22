@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :donalo_payments do
+# task :donalo do
 #   # Task goes here
 # end

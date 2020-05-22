@@ -1,12 +1,12 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "donalo_payments/version"
+require "donalo/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "donalo_payments"
-  spec.version     = DonaloPayments::VERSION
+  spec.name        = "donalo"
+  spec.version     = Donalo::VERSION
   spec.authors     = [""]
   spec.email       = [""]
   spec.homepage    = "https://github.com/coopdevs/sharetribe"

@@ -1,9 +1,9 @@
-module DonaloPayments
+module Donalo
   class Engine < ::Rails::Engine
-    isolate_namespace DonaloPayments
+    isolate_namespace Donalo
 
-    initializer "donalo_payments.monkey_patch_all_the_things" do
-      puts "[DonaloPayments] monkey see monkey patch"
+    initializer "donalo.monkey_patch_all_the_things" do
+      puts "[Donalo] monkey see monkey patch"
 
       # referencing monkey patched modules to ensure they are loaded
       PATCHED_OBJECTS = [
@@ -106,11 +106,11 @@ module DonaloPayments
           @stripe_account ||= MockStripeAccount.new
         end
       end
-      puts "Starting DonaloPayments engine"
+      puts "Starting Donalo engine"
     end
 
-    initializer "donalo_payments.assets.precompile" do |app|
-       app.config.assets.precompile += %w(donalo_payments/styles.css)
+    initializer "donalo.assets.precompile" do |app|
+      app.config.assets.precompile += %w(donalo/styles.css)
     end
   end
 end
