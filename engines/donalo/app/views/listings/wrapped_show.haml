@@ -1,0 +1,29 @@
+- content_for :extra_javascript do
+  :javascript
+    (function () {
+      var data = {
+        availableUnits: #{@listing.available_units},
+      }
+
+      $(function () {
+        $("#quantity").attr("max", data.availableUnits);
+
+        console.log('available-units', data.availableUnits);
+
+        if (data.availableUnits === 0) {
+          $('.enabled-book-button')
+            .removeClass('enabled-book-button')
+            .addClass('disabled-book-button')
+            .attr('disabled', 'disabled');
+
+          $('#quantity').attr('disabled', 'disabled');
+        }
+      })
+    })()
+
+- content_for :content_after_listing_price do
+  %p
+    -#TODO i18n
+    = "#{@listing.available_units} unidades disponibles"
+
+= render template: 'listings/show'

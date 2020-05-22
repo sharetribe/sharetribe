@@ -2,9 +2,8 @@ module Donalo
   class Engine < ::Rails::Engine
     isolate_namespace Donalo
 
-    initializer "donalo.monkey_patch_all_the_things" do
-      puts "[Donalo] monkey see monkey patch"
-
+    # centralized payments
+    initializer "donalo/monkey_patch/centralized_payments" do |app|
       # referencing monkey patched modules to ensure they are loaded
       PATCHED_OBJECTS = [
         ::StripeHelper,
@@ -90,14 +89,13 @@ module Donalo
             balance_txn = stripe_api.get_balance_txn(community: tx.community_id, balance_txn_id: charge.balance_transaction, account_id: seller_account[:stripe_seller_id])
             payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id,
                                           data: payment_data.merge!({
-                                            real_fee_cents: balance_txn.fee,
-                                            available_on: Time.zone.at(balance_txn.available_on)
-                                          }))
+              real_fee_cents: balance_txn.fee,
+              available_on: Time.zone.at(balance_txn.available_on)
+            }))
             Result::Success.new(payment)
           end
         end
       end
-
 
       class ::StripeService::Report
         MockStripeAccount = Struct.new(:stripe_seller_id)
@@ -106,11 +104,94 @@ module Donalo
           @stripe_account ||= MockStripeAccount.new
         end
       end
-      puts "Starting Donalo engine"
+      app.config.assets.precompile += %w(donalo/styles.css)
     end
 
-    initializer "donalo.assets.precompile" do |app|
-      app.config.assets.precompile += %w(donalo/styles.css)
+    # stock control
+    initializer "donalo/monkey_patch/stock_control" do |app|
+      Donalo.app_root = app.root
+
+      PATCHED_OBJECTS = [
+        ::Listing,
+        ::ListingsController,
+        ::TransactionService::Transaction,
+      ]
+
+      class ::ListingsController
+        alias_method :original_show, :show
+        alias_method :original_new, :new
+        alias_method :original_edit, :edit
+
+        def edit
+          # TODO meh, calling render twice
+          original_edit
+          render 'listings/wrapped_edit'
+        end
+
+        def show
+          original_show
+          render 'listings/wrapped_show'
+        end
+
+        def new
+          original_new
+          render 'listings/wrapped_new'
+        end
+      end
+
+      class ::Listing
+        has_one :stock, class_name: 'Donalo::Stock'
+        accepts_nested_attributes_for :stock
+
+        def available_units
+          if stock
+            stock.amount
+          else
+            0
+          end
+        end
+      end
+
+      module ::TransactionService::Transaction
+        class << self
+          alias_method :original_reject, :reject
+          alias_method :original_create, :create
+
+          def create(opts, force_sync: true)
+            result = original_create(
+              opts,
+              force_sync: force_sync
+            )
+
+            return result unless result.success
+
+            transaction_id = result.data[:transaction].id
+
+            Donalo::StockUpdater.new(
+              transaction_id: transaction_id,
+              rollback: false
+            ).update
+
+            result
+          end
+
+          def reject(community_id:, transaction_id:, message: nil, sender_id: nil)
+            result = original_reject(
+              community_id: community_id,
+              transaction_id: transaction_id,
+              message: message,
+              sender_id: sender_id
+            )
+
+            Donalo::StockUpdater.new(
+              transaction_id: transaction_id,
+              rollback: true
+            ).update
+
+            result
+          end
+        end
+      end
     end
   end
 end

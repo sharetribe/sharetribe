@@ -1,0 +1,39 @@
+- content_for :extra_javascript do
+  :javascript
+    (function () {
+      var data = {
+        availableUnits: #{@listing.available_units},
+      }
+
+      var stockMarkup = '<label class="input" for="listing_stock">%stock_label%</label><input id="listing_stock" class="text_field" type="number" name="listing[stock_attributes][amount]" min="1" value="%value%">';
+      var priceSelector = '.price-container'
+
+      function whenPriceIsReady(callback) {
+        var $listing_price = $(priceSelector);
+
+        if ($listing_price.length <= 0) {
+          setTimeout(function () { whenPriceIsReady(callback) }, 25);
+          return
+        }
+
+        callback();
+      }
+
+      $(function () {
+        whenPriceIsReady(function () {
+          var $listing_price = $(priceSelector);
+
+          $listing_price.after(
+            stockMarkup
+              .replace('%stock_label%', 'Unidades disponibles')
+              .replace('%value%', '1')
+            );
+
+          // make stock amount only editable with mouse
+          $('#listing_stock').focus(function (event) {
+            event.preventDefault();
+            $(this).blur();
+          });
+        });
+      })
+    })()

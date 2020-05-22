@@ -1,6 +1,5 @@
 require "donalo/engine"
 
 module Donalo
-  # Your code goes here...
+  mattr_accessor :app_root
 end
-
