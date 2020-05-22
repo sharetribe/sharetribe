@@ -115,4 +115,22 @@ describe Listing, type: :model do
       expect(booking.valid?).to eq false
     end
   end
+
+  describe "per day period" do
+    it 'booking overlapping with range' do
+      expect(Booking.in_per_day_period('2050-11-19', '2050-11-25')).to eq [booking1]
+
+      expect(Booking.in_per_day_period('2050-11-20', '2050-11-25')).to eq [booking1]
+      expect(Booking.in_per_day_period('2050-11-21', '2050-11-25')).to eq [booking1]
+      expect(Booking.in_per_day_period('2050-11-22', '2050-11-25')).to eq [booking1]
+
+      expect(Booking.in_per_day_period('2050-11-19', '2050-11-23')).to eq [booking1]
+      expect(Booking.in_per_day_period('2050-11-19', '2050-11-22')).to eq [booking1]
+
+      expect(Booking.in_per_day_period('2050-11-21', '2050-11-22')).to eq [booking1]
+
+      expect(Booking.in_per_day_period('2050-11-23', '2050-11-25')).to eq []
+      expect(Booking.in_per_day_period('2050-11-19', '2050-11-20')).to eq []
+    end
+  end
 end

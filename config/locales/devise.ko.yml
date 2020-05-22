@@ -11,7 +11,7 @@ ko:
   devise:
     failure:
       already_authenticated: "이미 로그인하셨습니다."
-      unauthenticated: "계속  진행하시려면 로그인하셔야 합니다."
+      unauthenticated: "계속 진행하려면 로그인 하세요."
       unconfirmed: "먼저 계정을 확인하시고 진행해주세요."
       locked: "계정이 잠겼습니다."
       invalid: "유효하지 않은 이메일 또는 비밀번호입니다."
@@ -22,7 +22,7 @@ ko:
       updated_not_active: "비밀번호 변경이 완료되었습니다."
       send_paranoid_instructions: "등록된 이메일로 비밀번호 복구 링크가 발송되었습니다."
       send_instructions: "곧 비밀번호 초기화 안내가 포함된 이메일이 발송되었습니다."
-      updated: "비밀번호 변경이 완료되었고, 변경된 비밀번호로 로그인 하셨습니다."
+      updated: "비밀번호 변경이 완료되었습니다,"
     sessions:
       signed_in: "로그인 되었습니다."
       signed_out: "로그아웃 되었습니다."
@@ -32,7 +32,7 @@ ko:
       confirmed: "계정 등록이 완료되었습니다."
     registrations:
       signed_up_but_unconfirmed: "이메일이 발송되었습니다. 계정 활성화를 위해 이메일에 첨부된 링크를 눌러주세요."
-      signed_up_but_inactive: "로그인하시려면 먼저 계정을 활성화시켜주세요."
+      signed_up_but_inactive: "로그인 하시려면 먼저 계정을 활성화시켜주세요."
       signed_up_but_locked: "계정이 잠겨있어 로그인하실 수 없습니다."
       reasons:
         inactive: 비활성화
