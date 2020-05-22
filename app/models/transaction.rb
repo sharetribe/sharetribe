@@ -99,6 +99,7 @@ class Transaction < ApplicationRecord
   monetize :minimum_buyer_fee_cents, with_model_currency: :minimum_buyer_fee_currency
 
   scope :exist, -> { where(deleted: false) }
+  scope :initialized, -> { where.not(current_state: nil) }
   scope :for_person, -> (person){
     where('listing_author_id = ? OR starter_id = ?', person.id, person.id)
   }
