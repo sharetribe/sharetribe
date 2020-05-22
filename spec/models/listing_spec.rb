@@ -192,16 +192,34 @@ describe Listing, type: :model do
       FactoryGirl.create(:listing_blocked_date, listing: listing, blocked_at: Date.parse('2020-03-28'))
     end
 
+    def expect_booked_dates(listing, start_on, end_on, expected_dates)
+      expected = expected_dates.map{ |x| x.to_time(:utc)}.to_set
+      result_dates = listing.booked_dates(start_on.to_date, end_on.to_date).to_set
+      expect(result_dates).to eq expected
+    end
+
+    def expect_direct_blocked_dates(listing, start_on, end_on, expected_dates)
+      expected = expected_dates.map{ |x| x.to_time(:utc)}.to_set
+      result_dates = listing.direct_blocked_dates(start_on.to_date, end_on.to_date).to_set
+      expect(result_dates).to eq expected
+    end
+
     context '#booked_dates' do
       it 'works' do
         transaction1
         transaction2
 
-        expected_dates = %w(2020-03-01 2020-03-02 2020-03-03 2020-03-05)
-          .map{|x| x.to_time(:utc)}
-        result_dates = listing.booked_dates('2020-02-27', '2020-03-30')
-        expect(expected_dates.all?{ |x| result_dates.include?(x) }).to eq true
-        expect(result_dates.size).to eq 4
+        expect_booked_dates(listing, '2020-02-27', '2020-03-30', %w(2020-03-01 2020-03-02 2020-03-03 2020-03-05))
+
+        # end is inclusive:
+        expect_booked_dates(listing, '2020-03-02', '2020-03-05', %w(2020-03-02 2020-03-03 2020-03-05))
+        expect_booked_dates(listing, '2020-02-20', '2020-03-01', %w(2020-03-01))
+
+        expect_booked_dates(listing, '2020-03-04', '2020-03-10', %w(2020-03-05))
+        expect_booked_dates(listing, '2020-02-20', '2020-03-02', %w(2020-03-01 2020-03-02))
+
+        expect_booked_dates(listing, '2020-03-06', '2020-03-10', %w())
+        expect_booked_dates(listing, '2020-02-20', '2020-02-29', %w())
       end
     end
 
@@ -210,11 +228,12 @@ describe Listing, type: :model do
         listing_blocked_date1
         listing_blocked_date2
 
-        expected_dates = %w(2020-03-08 2020-03-28)
-          .map{|x| x.to_time(:utc)}
-        result_dates = listing.direct_blocked_dates('2020-02-27', '2020-03-30')
-        expect(expected_dates.all?{ |x| result_dates.include?(x) }).to eq true
-        expect(result_dates.size).to eq 2
+        expect_direct_blocked_dates(listing, '2020-02-27', '2020-03-30', %w(2020-03-08 2020-03-28))
+
+        # range is inclusive:
+        expect_direct_blocked_dates(listing, '2020-03-08', '2020-03-09', %w(2020-03-08))
+        expect_direct_blocked_dates(listing, '2020-03-07', '2020-03-08', %w(2020-03-08))
+        expect_direct_blocked_dates(listing, '2020-03-08', '2020-03-08', %w(2020-03-08))
       end
     end
   end
