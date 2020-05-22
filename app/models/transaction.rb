@@ -105,7 +105,7 @@ class Transaction < ApplicationRecord
   scope :availability_blocking, -> do
     where(current_state: ['payment_intent_requires_action', 'preauthorized', 'paid', 'confirmed', 'canceled', 'dismissed', 'disputed'])
   end
-  scope :non_free, -> { where('current_state <> ?', ['free']) }
+  scope :non_free_including_uninitialized, -> { where('current_state IS NULL OR current_state <> ?', ['free']) }
   scope :by_community, -> (community_id) { where(community_id: community_id) }
   scope :with_payment_conversation, -> {
     left_outer_joins(:conversation).merge(Conversation.payment)

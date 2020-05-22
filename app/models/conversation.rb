@@ -44,7 +44,9 @@ class Conversation < ApplicationRecord
   scope :payment, -> { where('starting_page IS NULL OR starting_page=?', [PAYMENT]) }
   scope :by_community, -> (community) { where(community: community) }
   scope :non_payment_or_free, -> (community) do
-    subquery = Transaction.non_free.by_community(community.id).select('conversation_id').to_sql
+    # Since we do a NOT IN below, include uninitialized transactions in the
+    # subquery, so that those conversations are excluded from the final result.
+    subquery = Transaction.non_free_including_uninitialized.by_community(community.id).select('conversation_id').to_sql
     by_community(community).where("conversations.id NOT IN (#{subquery})").non_payment
   end
   scope :by_keyword, -> (community, pattern) do
