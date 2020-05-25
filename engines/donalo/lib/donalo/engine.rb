@@ -119,36 +119,37 @@ module Donalo
 
       class ::ListingsController
         alias_method :original_show, :show
-        alias_method :original_new, :new
-        alias_method :original_edit, :edit
-
-        def edit
-          # TODO meh, calling render twice
-          original_edit
-          render 'listings/wrapped_edit'
-        end
 
         def show
           original_show
           render 'listings/wrapped_show'
         end
-
-        def new
-          original_new
-          render 'listings/wrapped_new'
-        end
       end
 
       class ::Listing
-        has_one :stock, class_name: 'Donalo::Stock'
-        accepts_nested_attributes_for :stock
-
         def available_units
-          if stock
-            stock.amount
-          else
-            0
-          end
+          return 1 unless stock
+          stock.numeric_value.to_i
+        end
+
+        def minimum_required_units
+          return 1 unless minimum_required_units_field
+
+          answer_for(minimum_required_units_field).numeric_value.to_i
+        end
+
+        def stock
+          answer_for(stock_custom_field)
+        end
+
+        private
+
+        def stock_custom_field
+          @stock_custom_field ||= CustomFieldName.find_by(locale: 'es', value: 'Cantidad disponible')&.custom_field
+        end
+
+        def minimum_required_units_field
+          @minimum_required_units_field ||= CustomFieldName.find_by(locale: 'es', value: 'Cantidad mínima requerida')&.custom_field
         end
       end
 

@@ -3,12 +3,13 @@
     (function () {
       var data = {
         availableUnits: #{@listing.available_units},
+        minimumRequiredUnits: #{@listing.minimum_required_units}
       }
 
       $(function () {
         $("#quantity").attr("max", data.availableUnits);
-
-        console.log('available-units', data.availableUnits);
+        $("#quantity").attr("min", data.minimumRequiredUnits);
+        $("#quantity").val(data.minimumRequiredUnits);
 
         if (data.availableUnits === 0) {
           $('.enabled-book-button')

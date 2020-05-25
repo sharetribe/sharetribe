@@ -8,7 +8,7 @@ module Donalo
     def update
       return unless stock
 
-      stock.amount = new_amount
+      stock.numeric_value = new_amount
       stock.save
     end
 
@@ -20,7 +20,7 @@ module Donalo
       delta = -transaction.listing_quantity
       delta = -delta if rollback
 
-      stock.amount + delta
+      stock.numeric_value.to_i + delta
     end
 
     def transaction
@@ -32,13 +32,7 @@ module Donalo
     end
 
     def stock
-      @stock ||= begin
-        if listing
-          Stock.find_by(listing: listing)
-        else
-          nil
-        end
-      end
+      @stock ||= listing.stock
     end
   end
 end
