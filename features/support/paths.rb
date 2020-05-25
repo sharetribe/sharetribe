@@ -140,6 +140,8 @@ module NavigationHelpers
       admin_payment_preferences_path(locale: "en")
     when /the order types admin page/
       admin_listing_shapes_path
+    when /the order types admin2 page/
+      admin2_listings_order_types_path
     when /the edit "(.*)" order type admin page/
       edit_admin_listing_shape_path(id: $1)
     when /the unsubscribe link with code "(.*)" from invitation email to join community/

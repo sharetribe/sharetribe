@@ -52,6 +52,7 @@ en:
         listing_approval: 'Listing approval'
         listing_comments: 'Listing comments'
         manage_listings: 'Manage listings'
+        order_types: 'Order types'
       transactions_reviews:
         config_transactions: 'Configure transactions'
         view_conversations: 'View conversations'
@@ -84,6 +85,58 @@ en:
       advanced:
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
+    order_types:
+      info_text: 'Order types determine how the order process works in your site. You can decide whether your users are renting or selling, or just perhaps posting announcements and communicating via direct messages.'
+      name: 'Name'
+      used_in: 'Used in'
+      all_categories: "All categories"
+      no_categories: "No categories"
+      category_count: "%{category_count} categories"
+      add_new_order_type: 'Add a new order type'
+      add_new: '+ Add a new order type'
+      new_order_type: 'New order type template'
+      edit_order_type: 'Edit order type: %{type}'
+      listing_shape_name_placeholder: "E.g. Sell"
+      checkout_button: 'Checkout button label'
+      action_button_placeholder: "E.g. Buy"
+      pricing_checkout: 'Pricing and checkout'
+      online_payments_label: "Allow sellers to accept payments online"
+      allow_providers_to_manage_availability: "Allow sellers to manage their availability from a calendar"
+      shipping_label: "Allow sellers to define a shipping fee"
+      price_label: "Allow sellers to add a price to their listings"
+      units_title_with_availability: "Pricing units with availability"
+      units_title_without_availability: 'Pricing units without availability'
+      per_hour_availability: '"Per hour" availability'
+      per_day_availability: '"Per day" availability'
+      per_night_availability: '"Per night" availability'
+      update_success: "Changes to order type '%{shape}' saved"
+      update_failure: "Could not save changes. Error: %{error_msg}"
+      create_success: "New order type '%{shape}' created"
+      create_failure: "Could not create new order type. Error: %{error_msg}"
+      successfully_deleted: "Successfully deleted order type '%{order_type}'"
+      delete: 'Delete the order type'
+      delete_caption: 'Delete order type: %{order_type}'
+      confirm_delete_simple_order_type: 'Deleting an order type cannot be undone. Are you sure you want to proceed?'
+      errors:
+        without_online_payments: 'Shipping cannot be enabled without online payments'
+        enabled_without_price: 'Online payments cannot be enabled without price'
+        used_without_price: 'Price units cannot be used without price field'
+        cannot_delete_msg: 'Cannot delete order type, error: %{error_msg}'
+        cannot_delete: 'Cannot delete order type'
+        can_not_delete_only_one_in_categories: "You can't delete this order type because in following categories this order type is the only one in use: %{categories}"
+        can_not_delete_last: "You can't delete this order type because it's the only type in your marketplace."
+        can_not_find_name: "Can not find order type with given name: %{name}"
+      units:
+        piece: "Per piece"
+        hour: "Per hour"
+        day: "Per day"
+        night: "Per night"
+        week: "Per week"
+        month: "Per month"
+        unit: "Per unit"
+      confirm_delete_order_type:
+        one: "%{count} listing use this order type. If you delete it, this listing will be closed. Are you sure you want to proceed?"
+        other: "%{count} listings use this order type. If you delete it, those listings will be closed. Are you sure you want to proceed?"
     manage_reviews:
       transaction: 'Transaction'
       customer: 'Customer'

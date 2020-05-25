@@ -13,7 +13,7 @@ module Admin2Helper
       general: %w[essentials privacy static_content admin_notifications],
       design: %w[logos_color landing_page display experimental cover_photos topbar footer],
       users: %w[manage_users signup_login user_rights invitations],
-      listings: %w[listing_approval listing_comments manage_listings],
+      listings: %w[listing_approval listing_comments manage_listings order_types],
       transactions_reviews: %w[config_transactions manage_transactions conversations manage_reviews],
       payment_system: %w[country_currencies],
       emails: %w[newsletters email_users welcome_emails],
@@ -151,5 +151,18 @@ module Admin2Helper
 
   def email_languages
     [[t('admin2.email_users.any_language'), 'any']] | available_locales
+  end
+
+  def confirm_opts_order_type(shape)
+    count = @current_community.listings.currently_open.where(listing_shape_id: shape.id).count
+    if count.positive?
+      { url: admin2_listings_order_type_path(shape),
+        caption: t('admin2.order_types.delete_caption', order_type: t(shape.name_tr_key)),
+        notice: t('admin2.order_types.confirm_delete_order_type', count: count) }
+    else
+      { url: admin2_listings_order_type_path(shape),
+        caption: t('admin2.order_types.delete_caption', order_type: t(shape.name_tr_key)),
+        notice: t('admin2.order_types.confirm_delete_simple_order_type') }
+    end
   end
 end

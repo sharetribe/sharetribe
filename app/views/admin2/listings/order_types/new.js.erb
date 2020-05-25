@@ -1,0 +1,8 @@
+<% if @template.present? %>
+  $('#category-body').html('<%= j render 'admin2/listings/order_types/category_body', locals: @locals %>');
+  $('.order-type-footer').show();
+  window.ST.initializeListingShapeForm('#listing_shape_form');
+<% else %>
+  $('#category-body').html('');
+  $('.order-type-footer').hide();
+<% end %>

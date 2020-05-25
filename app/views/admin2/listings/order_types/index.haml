@@ -1,0 +1,44 @@
+- content_for :title do
+  = t('admin2.sidebar.listings.order_types')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.listings.order_types')
+.content-card-section-container
+  %section.content-card-section
+    %h2= t('admin2.sidebar.listings.order_types')
+    %p.ingress
+      = t('admin2.order_types.info_text')
+    .form-group
+      .field-titles
+        %div= t('admin2.order_types.name')
+        %div= t('admin2.order_types.used_in')
+      #orderTypeList.list-group{data: {url: order_admin2_listings_order_types_path}}
+        - @listing_shapes&.map do |shape|
+          .field-data.order_type_position
+            = hidden_field_tag "shape[sort_priority][#{shape.id}]", shape.sort_priority, class: %i[shape_sort_priority], data: { id: shape.id }
+            %div
+              = t(shape.name_tr_key)
+            %div
+              - if shape.category_ids.size.zero?
+                = t('admin2.order_types.no_categories')
+              - elsif shape.category_ids.size == @category_count
+                = t('admin2.order_types.all_categories')
+              - else
+                = t('admin2.order_types.category_count', category_count: "#{shape.category_ids.size}/#{@category_count}")
+            .actions
+              %span.handle-move{'aria-hidden' => true}
+              - unless @listing_shapes.size == 1
+                - if shape.can_delete_shape?
+                  - confirm_opts = confirm_opts_order_type(shape)
+                  = link_to '#', class: "listing-shape-delete-link delete_shape_#{shape.name} confirm-order-type-#{confirm_opts.present?}", data: confirm_opts do
+                    %span.remove
+                = link_to edit_admin2_listings_order_type_path(shape), remote: true, class: "shape_#{shape.name}" do
+                  %span.edit
+
+    %p.ingress
+      = link_to t('admin2.order_types.add_new'), '#', 'data-target' => '#orderTypesAddModal', 'data-toggle' => 'modal'
+
+= render 'admin2/listings/order_types/add_popup', templates: @templates
+= render 'admin2/listings/order_types/delete_popup'
+= render 'admin2/listings/order_types/delete_empty_popup'
