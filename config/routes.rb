@@ -251,6 +251,16 @@ Rails.application.routes.draw do
         end
       end
       namespace :listings do
+        resources :categories do
+          member do
+            get :remove_popup
+            delete :destroy_and_move
+          end
+          collection do
+            post :order
+            post :change_category
+          end
+        end
         resources :manage_listings, path: 'manage-listings', only: %i[index] do
           collection do
             patch :update

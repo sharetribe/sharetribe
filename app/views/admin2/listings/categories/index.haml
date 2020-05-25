@@ -1,0 +1,19 @@
+- content_for :title do
+  = t('admin2.sidebar.listings.categories')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.listings.categories')
+
+.content-card-section-container
+  %section.content-card-section
+    %h2= t('admin2.sidebar.listings.categories')
+    %p.ingress= t('admin2.categories.info_text')
+    .form-group.category-group
+      #nestedList.list-group.nested-sortable{data: {url: order_admin2_listings_categories_path, change_url: change_category_admin2_listings_categories_path}}
+        = render partial: 'category', collection: @categories
+
+    %p.ingress
+      = link_to t('admin2.categories.add_category'), new_admin2_listings_category_path, remote: true
+
+= render 'admin2/listings/categories/delete_empty_popup'

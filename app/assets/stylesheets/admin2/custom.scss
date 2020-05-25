@@ -125,3 +125,11 @@ a.remove:hover {
 }
 
 .tooltip { pointer-events: none; }
+
+.empty-sortable {
+  margin-top: 2px !important;
+}
+
+.category-group .list-group .field-data:last-of-type {
+  border-bottom: 1px solid #EAEDF3;
+}
