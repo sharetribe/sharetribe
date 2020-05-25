@@ -1,6 +1,7 @@
 fr:
   admin2:
     save_changes: 'lorem ipsum'
+    cancel: 'lorem ipsum'
     next_step: 'lorem ipsum'
     prev_step: 'lorem ipsum'
     topnav:
@@ -52,6 +53,7 @@ fr:
         listing_approval: 'lorem ipsum'
         listing_comments: 'lorem ipsum'
         manage_listings: 'lorem ipsum'
+        categories: 'lorem ipsum'
       transactions_reviews:
         config_transactions: 'lorem ipsum'
         view_conversations: 'lorem ipsum'
@@ -83,6 +85,40 @@ fr:
       advanced:
         custom_script: 'lorem ipsum'
         delete_marketplace: 'lorem ipsum'
+    categories:
+      info_text: 'lorem ipsum'
+      add_category: 'lorem ipsum'
+      add_category_popup: 'lorem ipsum'
+      edit_category: 'lorem ipsum %{category}'
+      category_name: 'lorem ipsum'
+      category_parent: 'lorem ipsum'
+      no_parent: 'lorem ipsum'
+      order_types: 'lorem ipsum'
+      delete_category_btn: 'lorem ipsum'
+      delete_category: 'lorem ipsum'
+      delete_category_info_text: 'lorem ipsum?'
+      remove_category_confirmation: "lorem ipsum'%{category_name}'?"
+      remove:
+        remove_category: "lorem ipsum"
+        remove_category_name: "lorem ipsum '%{category_name}'"
+        remove_empty_category: "lorem ipsum"
+        warning_remove_effects: "lorem ipsum '%{category_name}' lorem ipsum:"
+        warning_listing_will_be_moved:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        warning_custom_field_will_be_moved:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        warning_subcategory_will_be_removed:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        select_new_category: "lorem ipsum"
     manage_reviews:
       transaction: 'lorem ipsum'
       customer: 'lorem ipsum'

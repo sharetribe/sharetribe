@@ -1,0 +1,30 @@
+#categoriesDeleteModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'categoriesDeleteModalLabel', role: 'dialog', tabindex: '-1'}
+  .modal-dialog.modal-md{role: :document}
+    = form_tag destroy_and_move_admin2_listings_category_path(category), method: :delete, class: %i[modal-content], style: 'margin-left:0;' do
+
+      .modal-header
+        %h2#categoriesDeleteModalLabel.modal-title
+          = t('admin2.categories.delete_category', category: category.display_name(I18n.locale))
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+          %span{'aria-hidden' => true} ×
+
+      .modal-body
+        - prefix = category.has_subcategories? ? 'admin2.categories.remove.warning_with_subcategories_' : 'admin2.categories.remove.warning_'
+        - show_categories = category.has_own_or_subcategory_listings? || category.has_own_or_subcategory_custom_fields?
+        - if category.has_subcategories?
+          %p= t('admin2.categories.remove.warning_subcategory_will_be_removed', count: category.subcategories.count)
+        - if category.has_own_or_subcategory_listings?
+          %p= t(prefix + 'listing_will_be_moved', count: category.own_and_subcategory_listings.count)
+        - if category.has_own_or_subcategory_custom_fields?
+          %p= t(prefix + 'custom_field_will_be_moved', count: category.own_and_subcategory_custom_fields.count)
+        %p
+        - if show_categories
+          %p= t('admin2.categories.delete_category_info_text')
+          %p
+        .form-group
+          - if show_categories
+            = select_tag :new_category, options_for_select(possible_merge_targets.collect { |c| [c.display_name(I18n.locale), c.id] }), class: %i[form-control]
+
+      .modal-footer
+        = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+        = button_tag t('admin2.categories.delete_category_btn'), class: %i[btn btn-primary]

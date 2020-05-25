@@ -1,0 +1,13 @@
+#categoriesDeleteModalSimple.modal{'aria-hidden' => true, 'aria-labelledby' => 'categoriesDeleteModalSimpleLabel', role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-md{role: :document}
+    = form_tag '#', method: :delete, class: %i[modal-content], id: 'delete-category-form', style: 'margin-left:0;' do
+      .modal-header
+        %h2#categoriesDeleteModalSimpleLabel.modal-title
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => 'modal', type: :button}
+          %span{'aria-hidden' => 'true'} ×
+      .modal-body
+        %p= t('admin2.categories.remove.remove_empty_category')
+        %p
+      .modal-footer
+        = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+        = button_tag t('admin2.categories.delete_category_btn'), class: %i[btn btn-primary]

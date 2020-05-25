@@ -119,7 +119,7 @@ class Category < ApplicationRecord
   end
 
   def remove_needs_caution?
-    has_own_or_subcategory_listings? or has_subcategories?
+    has_own_or_subcategory_listings? || has_subcategories?
   end
 
   def own_and_subcategory_listings
