@@ -52,6 +52,7 @@ fr:
         listing_approval: 'lorem ipsum'
         listing_comments: 'lorem ipsum'
         manage_listings: 'lorem ipsum'
+        order_types: 'lorem ipsum'
       transactions_reviews:
         config_transactions: 'lorem ipsum'
         view_conversations: 'lorem ipsum'
@@ -83,6 +84,58 @@ fr:
       advanced:
         custom_script: 'lorem ipsum'
         delete_marketplace: 'lorem ipsum'
+    order_types:
+      info_text: 'lorem ipsum'
+      name: 'lorem ipsum'
+      used_in: 'lorem ipsum'
+      all_categories: "lorem ipsum"
+      no_categories: "lorem ipsum"
+      category_count: "%{category_count} lorem ipsum"
+      add_new_order_type: 'lorem ipsum'
+      add_new: '+ lorem ipsum'
+      new_order_type: 'lorem ipsum'
+      edit_order_type: 'lorem ipsum: %{type}'
+      listing_shape_name_placeholder: "lorem ipsum"
+      checkout_button: 'lorem ipsum'
+      action_button_placeholder: "lorem ipsum"
+      pricing_checkout: 'lorem ipsum'
+      online_payments_label: "lorem ipsum"
+      allow_providers_to_manage_availability: "lorem ipsum"
+      shipping_label: "lorem ipsum"
+      price_label: "lorem ipsum"
+      units_title_with_availability: "lorem ipsum"
+      units_title_without_availability: 'lorem ipsum'
+      per_hour_availability: 'lorem ipsum'
+      per_day_availability: 'lorem ipsum'
+      per_night_availability: 'lorem ipsum'
+      update_success: "lorem ipsum '%{shape}' lorem ipsum"
+      update_failure: "lorem ipsum: %{error_msg}"
+      create_success: "lorem ipsum '%{shape}' lorem ipsum"
+      create_failure: "lorem ipsum: %{error_msg}"
+      successfully_deleted: "lorem ipsum '%{order_type}'"
+      delete: 'lorem ipsum'
+      delete_caption: 'lorem ipsum: %{order_type}'
+      confirm_delete_simple_order_type: 'lorem ipsum'
+      errors:
+        without_online_payments: 'lorem ipsum'
+        enabled_without_price: 'lorem ipsum'
+        used_without_price: 'lorem ipsum'
+        cannot_delete_msg: 'lorem ipsum %{error_msg}'
+        cannot_delete: 'lorem ipsum'
+        can_not_delete_only_one_in_categories: "lorem ipsum %{categories}"
+        can_not_delete_last: "lorem ipsum"
+        can_not_find_name: "lorem ipsum %{name}"
+      units:
+        piece: "lorem ipsum"
+        hour: "lorem ipsum"
+        day: "lorem ipsum"
+        night: "lorem ipsum"
+        week: "lorem ipsum"
+        month: "lorem ipsum"
+        unit: "lorem ipsum"
+      confirm_delete_order_type:
+        one: "lorem ipsum %{count} lorem ipsum?"
+        other: "lorem ipsum %{count} lorem ipsum?"
     manage_reviews:
       transaction: 'lorem ipsum'
       customer: 'lorem ipsum'

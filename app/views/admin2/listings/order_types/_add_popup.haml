@@ -1,0 +1,16 @@
+#orderTypesAddModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'orderTypesAddModalLabel', role: :dialog, tabindex: -1}
+  .modal-dialog.modal-lg{role: 'document'}
+    .modal-content
+      = form_tag admin2_listings_order_types_path, id: 'listing_shape_form', class: %i[content-card-section-form] do
+        .modal-header
+          %h2#orderTypesEditModalLabel.modal-title= t('admin2.order_types.add_new_order_type')
+          %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+            %span{'aria-hidden' => true} ×
+        .modal-body
+          .form-group
+            = label_tag :template_order_type, t('admin2.order_types.new_order_type')
+            = select_tag :template_order_type, options_for_select(templates.map { |(label_tr_key, template_name)| [t(label_tr_key), template_name]}), prompt: t("admin.listing_shapes.index.select_template"), class: %i[form-control], data: {url: new_admin2_listings_order_type_path}
+          %span#category-body
+        .modal-footer
+          = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary order-type-footer], disabled: true

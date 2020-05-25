@@ -75,8 +75,8 @@
             = link_to t('admin2.sidebar.listings.manage_listings'), admin2_listings_manage_listings_path(direction: 'desc', sort: 'updated')
           %li#categories-mobile
             %a{:href => 'categories.php'} Categories
-          %li#ordertypes-mobile
-            %a{:href => 'order-types.php'} Order types
+          %li#ordertypes-mobile{class: active_li('order_types')}
+            = link_to t('admin2.sidebar.listings.order_types'), admin2_listings_order_types_path
           %li#listingfields-mobile
             %a{:href => 'listing-fields.php'} Listing fields
           %li#listingapproval-mobile{class: active_li('listing_approval')}
