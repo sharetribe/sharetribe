@@ -9,7 +9,7 @@
         .modal-body
           .form-group
             = label_tag :template_order_type, t('admin2.order_types.new_order_type')
-            = select_tag :template_order_type, options_for_select([[t("admin.listing_shapes.index.select_template"), nil]].concat(templates.map { |(label_tr_key, template_name)| [t(label_tr_key), template_name]})), class: %i[form-control], data: {url: new_admin2_listings_order_type_path}
+            = select_tag :template_order_type, options_for_select(templates.map { |(label_tr_key, template_name)| [t(label_tr_key), template_name]}), prompt: t("admin.listing_shapes.index.select_template"), class: %i[form-control], data: {url: new_admin2_listings_order_type_path}
           %span#category-body
         .modal-footer
           = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal order-type-footer], 'data-dismiss': :modal
