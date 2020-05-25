@@ -1,6 +1,7 @@
 $(function() {
 
     $('#orderTypesAddModal'). on('show.bs.modal', function() {
+        $('#template_order_type option[value=""]').show();
         $('#template_order_type').prop('selectedIndex', 0);
         $('#category-body').html('');
         $('.order-type-footer').hide();
