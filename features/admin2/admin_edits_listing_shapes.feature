@@ -38,9 +38,9 @@ Feature: Admin create, update, destroy listing shapes
     When I press "Save changes"
     Then I should see "Renting something nice"
 
-
   Scenario: Admin user delete order type Selling
     When I go to the order types admin2 page of community "test"
     Then I should see "Selling"
     Then I click ".delete_shape_selling"
+    Then I press "Delete the order type"
     Then I should see "Successfully deleted order type 'Selling'"
