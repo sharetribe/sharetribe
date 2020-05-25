@@ -95,7 +95,7 @@ de:
         transaction_agreement_checkbox_label_description: "Dieser Text wird neben einer Checkbox beim Checkout angezeigt. Der Nutzer muss mit einem Haken in der Checkbox zustimmen, um die Transaktion abzuschließen. Ein Beispiel wäre etwa \"Mit Klicken dieser Box akzeptiere ich die Vereinbarung.\""
         transaction_agreement_text_header: "Allgemeine Geschäftsbedingungen"
         transaction_agreement_description: "Dies ist der Inhalt der Allgemeinen Geschäftsbedingungen (AGBs), die der Anwender akzeptieren muss. Der Inhalt der AGBs wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Allgemeinen Geschäftsbedingungen klickt."
-        terms_privacy_policy_and_static_content: "Nutzungsbedingungen, datenschutz, und Inhaltsseiten"
+        terms_privacy_policy_and_static_content: "Nutzungsbedingungen, Datenschutz, und Inhaltsseiten"
         terms_privacy_policy_and_static_content_infotext: "Du kannst bis zu vier Inhaltsseiten bearbeiten. Die Benutzer können die Seiten mit hilfe des \"Über\"-links auf dem Top Bar finden."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" des Marktplatzes %{community_name}"
@@ -1758,7 +1758,7 @@ de:
       edit_the_listing: "Eintrag bearbeiten"
     edited_listing_submited_for_review:
       subject: "Bearbeiteter Eintrag, der Überprüft werden soll: \"%{listing_title}\" von %{author_name} auf %{community}"
-      there_is_a_edited_listing_to_review: "Es gibt einen bearbeiteten Eintrag, der Überprüft werden soll: \"%{listing_title}\" von %{author_name}. Du kannst jetzt den Eintrag annehmen oder ablehnen."
+      there_is_a_edited_listing_to_review: "Es gibt einen bearbeiteten Eintrag, der überprüft werden muss: \"%{listing_title}\" von %{author_name}. Du kannst jetzt den Eintrag annehmen oder ablehnen."
       review_the_listing: "Bearbeiteten Eintrag überprüfen"
     new_transaction:
       subject: "Neue Transaktion auf %{service_name}"
