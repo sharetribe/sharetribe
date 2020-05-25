@@ -1,0 +1,75 @@
+- locale_name_mapping = locals[:locale_name_mapping]
+- shape = locals[:shape]
+- uneditable_fields = locals[:uneditable_fields]
+
+.form-group
+  %label= t('admin2.order_types.name')
+  .multiple-languages-container
+    - shape[:name].map do |loc, translation|
+      .multiple-languages-language
+        %span.language
+          = locale_name_mapping[loc]
+      .multiple-languages-input
+        = text_field_tag "name[#{loc}]", translation, class: %i[required form-control], placeholder: t('admin2.order_types.listing_shape_name_placeholder')
+
+.form-group
+  %label= t('admin2.order_types.checkout_button')
+  .multiple-languages-container
+    - shape[:action_button_label].map do |loc, translation|
+      .multiple-languages-language
+        %span.language
+          = locale_name_mapping[loc]
+      .multiple-languages-input
+        = text_field_tag("action_button_label[#{loc}]", translation, class: %i[required form-control], placeholder: t('admin2.order_types.action_button_placeholder'))
+
+.form-group
+  %label= t('admin2.order_types.pricing_checkout')
+  .form-check
+    = check_box_tag :price_enabled, true, shape[:price_enabled], class: %i[form-check-input js-price-enabled]
+    = label_tag :price_enabled, t('admin2.order_types.price_label'), class: %i[form-check-label js-price-enabled-label]
+
+  - unless uneditable_fields[:online_payments]
+    .form-check
+      = check_box_tag :online_payments, true, shape[:online_payments], class: %i[form-check-input js-online-payments]
+      = label_tag :online_payments, t('admin2.order_types.online_payments_label'), class: %i[form-check-label js-online-payments-label]
+
+  - unless uneditable_fields[:shipping_enabled]
+    .form-check
+      = check_box_tag :shipping_enabled, true, shape[:shipping_enabled], class: %i[form-check-input js-shipping-enabled]
+      = label_tag :shipping_enabled, t('admin2.order_types.shipping_label'), class: %i[form-check-label js-shipping-enabled-label]
+
+  - unless uneditable_fields[:availability]
+    .form-check
+      = check_box_tag :availability, 'booking', shape[:availability] == 'booking', class: %i[form-check-input js-availability]
+      = label_tag :availability, t('admin2.order_types.allow_providers_to_manage_availability'), class: %i[form-check-label js-availability-label]
+
+.form-group
+  %label.js-availability-unit-label= t('admin2.order_types.units_title_with_availability')
+  .form-radiobutton-wrapper
+    .form-radiobutton.form-check-inline
+      = radio_button_tag :availability_unit, 'hour', shape[:availability] == 'booking' && shape[:availability_unit] == 'hour', class: %i[form-check-input js-availability-unit], disabled: uneditable_fields[:availability]
+      = label_tag :availability_unit_hour, t('admin2.order_types.per_hour_availability'), class: %i[form-check-label js-availability-unit-label]
+
+    - if locals[:harmony_in_use]
+      .form-radiobutton.form-check-inline
+        = radio_button_tag :availability_unit, 'day', shape[:availability] == 'booking' && shape[:availability_unit] == 'day', class: %i[form-check-input js-availability-unit], disabled: uneditable_fields[:availability]
+        = label_tag :availability_unit_day, t('admin2.order_types.per_day_availability'), class: %i[form-check-label js-availability-unit-label]
+      .form-radiobutton.form-check-inline
+        = radio_button_tag :availability_unit, 'night', shape[:availability] == 'booking' && shape[:availability_unit] == 'night', class: %i[form-check-input js-availability-unit], disabled: uneditable_fields[:availability]
+        = label_tag :availability_unit_night, t('admin2.order_types.per_night_availability'), class: %i[form-check-label js-availability-unit-label]
+
+.form-group
+  %label= t('admin2.order_types.units_title_without_availability')
+  - shape[:predefined_units].map do |unit|
+    .form-check
+      = check_box_tag "units[#{unit[:unit_type]}]", "true", unit[:enabled], class: %i[form-check-input js-unit-checkbox]
+      = label_tag "units[#{unit[:unit_type]}]", unit[:label], class: %i[form-check-label js-unit-label]
+
+  -# TODO
+  - shape[:custom_units].each_with_index do |unit, index|
+    .form-check{class: "js-custom-unit js-custom-unit-#{index}"}
+      = hidden_field_tag("custom_units[existing][#{index}]", unit[:value])
+      = label_tag("custom_units[existing][#{index}]", "#{t('admin.listing_shapes.custom_unit_form.per')} #{unit[:name][I18n.locale.to_s]}", class: "js-unit-label checkbox-row-label")
+      %a{class: "js-remove-custom-unit listing-shape-remove-custom-unit", data: {customUnitIndex: index}}
+        = t("admin.listing_shapes.delete_custom_unit")
+  + ADDING MORE CUSTOM PRICING UNIT STILL MISSING HERE, WIP.

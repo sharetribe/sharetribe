@@ -1,0 +1,8 @@
+var popup = $('#orderTypesEditModal');
+if (popup.length) {
+    popup.remove();
+}
+
+$('body').append('<%= j render 'admin2/listings/order_types/edit_popup', locals: @locals %>');
+$('#orderTypesEditModal').modal('show');
+window.ST.initializeListingShapeForm('#edit_listing_shape_form');
