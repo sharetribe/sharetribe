@@ -1530,7 +1530,7 @@ bg:
       your_request_was_accepted: "Вашата заявка беше приета."
       your_request_was_rejected: "Вашата заявка беше отхвърлена."
       you_can_now_pay_to: "Вече можете да платите исканата сума до %{payment_receiver}."
-      pay_now: ~
+      pay_now: "Плати сега"
       remember_to_confirm: ~
     conversation_status_changed_v2:
       has_accepted_your_request: ~
@@ -1637,9 +1637,9 @@ bg:
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
-      added_offer: ~
-      added_request: ~
-      added_listing: ~
+      added_offer: "%{name_link} добави обява:"
+      added_request: "%{name_link} добави обява:"
+      added_listing: "%{name_link} добави обява:"
       update_mail_title: ~
       title_link_text: ~
       intro_paragraph: ~
@@ -1728,18 +1728,18 @@ bg:
       there_is_a_edited_listing_to_review: ~
       review_the_listing: ~
     new_transaction:
-      subject: ~
+      subject: "Нова транзакция в %{service_name}"
       there_is_a_new_transaction: ~
       a_new_transaction: ~
-      listing: ~
+      listing: "Обява: %{title}"
       sum: ~
       starter: ~
       provider: ~
     new_transaction_v2:
-      subject: ~
+      subject: "Нова транзакция в %{service_name}"
       there_is_a_new_transaction: ~
       a_new_transaction: ~
-      listing: ~
+      listing: "Обява:"
       sum: ~
       starter: ~
       provider: ~
@@ -1890,7 +1890,7 @@ bg:
     contact_us: "Свържете се с нас"
     profile: Профил
     manage_listings: ~
-    invite: ~
+    invite: "Покани нови потребители"
     login: Вход
     signup: "Регистрирай се"
     menu: ~
@@ -1922,7 +1922,7 @@ bg:
       no_requests_visible_unless_logged_in: "Артикули, услуги или запитвания за превози не са видими за потребители, които не са влезли в профила си."
       one_private_offer_exists: "Вече има <b>една оферта</b>,"
       one_private_request_exists: "Вече има <b>едно запитване</b>,"
-      ride_offer: ~
+      ride_offer: "Вземете децата на другите на техните хобита"
       ride_request: "Пътуване до работа"
       some_private_offers_exist: "Вече има <b>%{number_of_listings} предложения</b>,"
       some_private_requests_exist: "Вече има <b>%{number_of_listings} запитвания</b>,"
