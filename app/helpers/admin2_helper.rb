@@ -152,4 +152,17 @@ module Admin2Helper
   def email_languages
     [[t('admin2.email_users.any_language'), 'any']] | available_locales
   end
+
+  def confirm_opts_order_type(shape)
+    count = @current_community.listings.currently_open.where(listing_shape_id: shape.id).count
+    if count.positive?
+      { url: admin2_listings_order_type_path(shape),
+        caption: t('admin2.order_types.delete_caption', order_type: t(shape.name_tr_key)),
+        notice: t('admin2.order_types.confirm_delete_order_type', count: count) }
+    else
+      { url: admin2_listings_order_type_path(shape),
+        caption: t('admin2.order_types.delete_caption', order_type: t(shape.name_tr_key)),
+        notice: t('admin2.order_types.confirm_delete_simple_order_type') }
+    end
+  end
 end

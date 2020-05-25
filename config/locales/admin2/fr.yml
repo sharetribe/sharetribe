@@ -52,6 +52,7 @@ fr:
         listing_approval: 'lorem ipsum'
         listing_comments: 'lorem ipsum'
         manage_listings: 'lorem ipsum'
+        order_types: 'lorem ipsum'
       transactions_reviews:
         config_transactions: 'lorem ipsum'
         view_conversations: 'lorem ipsum'
@@ -114,6 +115,7 @@ fr:
       successfully_deleted: "lorem ipsum '%{order_type}'"
       delete: 'lorem ipsum'
       delete_caption: 'lorem ipsum: %{order_type}'
+      confirm_delete_simple_order_type: 'lorem ipsum'
       errors:
         without_online_payments: 'lorem ipsum'
         enabled_without_price: 'lorem ipsum'

@@ -52,6 +52,7 @@ en:
         listing_approval: 'Listing approval'
         listing_comments: 'Listing comments'
         manage_listings: 'Manage listings'
+        order_types: 'Order types'
       transactions_reviews:
         config_transactions: 'Configure transactions'
         view_conversations: 'View conversations'
@@ -115,6 +116,7 @@ en:
       successfully_deleted: "Successfully deleted order type '%{order_type}'"
       delete: 'Delete the order type'
       delete_caption: 'Delete order type: %{order_type}'
+      confirm_delete_simple_order_type: 'Deleting an order type cannot be undone. Are you sure you want to proceed?'
       errors:
         without_online_payments: 'Shipping cannot be enabled without online payments'
         enabled_without_price: 'Online payments cannot be enabled without price'

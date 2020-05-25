@@ -30,15 +30,9 @@
               %span.handle-move{'aria-hidden' => true}
               - unless @listing_shapes.size == 1
                 - if shape.can_delete_shape?
-                  - count = @current_community.listings.currently_open.where(listing_shape_id: shape.id).count
-                  - confirm_opts = count.positive? ? { url: admin2_listings_order_type_path(shape), caption: t('admin2.order_types.delete_caption', order_type: t(shape.name_tr_key)), notice: t('admin2.order_types.confirm_delete_order_type', count: count) } : {}
-                  - if confirm_opts.present?
-                    = link_to '#', class: "listing-shape-delete-link delete_shape_#{shape.name} confirm-order-type-true", data: confirm_opts do
-                      %span.remove
-                  - else
-                    = link_to admin2_listings_order_type_path(shape), method: :delete, class: "listing-shape-delete-link delete_shape_#{shape.name}" do
-                      %span.remove
-
+                  - confirm_opts = confirm_opts_order_type(shape)
+                  = link_to '#', class: "listing-shape-delete-link delete_shape_#{shape.name} confirm-order-type-#{confirm_opts.present?}", data: confirm_opts do
+                    %span.remove
                 = link_to edit_admin2_listings_order_type_path(shape), remote: true, class: "shape_#{shape.name}" do
                   %span.edit
 
@@ -47,3 +41,4 @@
 
 = render 'admin2/listings/order_types/add_popup', templates: @templates
 = render 'admin2/listings/order_types/delete_popup'
+= render 'admin2/listings/order_types/delete_empty_popup'

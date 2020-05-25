@@ -53,7 +53,8 @@ class ListingShape < ApplicationRecord
     listing_shapes_categories_map = shapes.map { |shape| [shape.name, shape.category_ids] }
     categories_listing_shapes_map = HashUtils.transpose(listing_shapes_categories_map)
     last_in_category_ids = categories_listing_shapes_map.select { |_category_id, shape_names|
-      shape_names.size == 1 && shape_names.include?(name) }.keys
+      shape_names.size == 1 && shape_names.include?(name)
+    }.keys
     shape = shapes.find { |s| s.name == name }
     if !shape
       I18n.t('admin2.order_types.errors.can_not_find_name', name: name)

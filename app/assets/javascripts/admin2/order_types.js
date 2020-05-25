@@ -16,6 +16,16 @@ $(function() {
         $('#orderTypesDeleteModal').modal('show');
     });
 
+    $(document).on('click', '.confirm-order-type-false', function () {
+        var caption = $(this).data('caption'),
+            url = $(this).data('url'),
+            notice = $(this).data('notice');
+        $('#delete-simple-order-type-body').html(notice);
+        $('#delete-simple-order-form').attr('action', url);
+        $('#orderTypesDeleteModalSimpleLabel').html(caption);
+        $('#orderTypesDeleteModalSimple').modal('show');
+    });
+
     $('#template_order_type').on('change', function(){
         var url = $(this).data('url'),
             id = $(this).val();

@@ -10,13 +10,15 @@ module Admin2::Listings
     end
 
     def new
-      @template = ListingShapeTemplates.new(process_summary)
-                    .find(params[:type_id],
-                          available_locales.map(&:second))
-      @locals = common_locals(form: @template,
-                              count: 0,
-                              process_summary: process_summary,
-                              available_locs: available_locales)
+      if params[:type_id].present?
+        @template = ListingShapeTemplates.new(process_summary)
+                      .find(params[:type_id],
+                            available_locales.map(&:second))
+        @locals = common_locals(form: @template,
+                                count: 0,
+                                process_summary: process_summary,
+                                available_locs: available_locales)
+      end
       render layout: false
     end
 
@@ -43,7 +45,8 @@ module Admin2::Listings
         ShapeService.new(processes).update(
           community: @current_community,
           name: url_name,
-          opts: s) }
+          opts: s)
+      }
       unless update_result.success
         raise t('admin2.order_types.update_failure', error_msg: update_result.error_msg)
       end
@@ -62,7 +65,8 @@ module Admin2::Listings
         ShapeService.new(processes).create(
           community: @current_community,
           default_locale: @current_community.default_locale,
-          opts: s) }
+          opts: s)
+      }
       unless create_result.success
         raise t('admin2.order_types.create_failure', error_msg: create_result.error_msg)
       end
@@ -99,10 +103,10 @@ module Admin2::Listings
     end
 
     def process_summary
-      @process_summary ||= processes.reduce({}) { |info, process|
+      @process_summary ||= processes.each_with_object({}) { |process, info|
         info[:preauthorize_available] = true if process.process == :preauthorize
         info[:request_available] = true if process.author_is_seller == false
-        info }
+      }
     end
 
     def processes
@@ -113,7 +117,8 @@ module Admin2::Listings
 
     def pick_translation(translations)
       translations.find { |(locale, _translation)|
-        locale.to_s == I18n.locale.to_s }.second
+        locale.to_s == I18n.locale.to_s
+      }.second
     end
 
     def validate_shape(form)
