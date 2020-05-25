@@ -16,3 +16,5 @@
 //= require admin2/export
 //= require admin2/manage_reviews
 //= require admin2/location
+//= require admin2/order_types
+//= require admin2/listing_shapes

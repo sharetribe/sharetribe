@@ -48,6 +48,47 @@ class ListingShape < ApplicationRecord
     @units ||= listing_units.map(&:to_unit_hash)
   end
 
+  def delete_shape_msg
+    shapes = community.shapes
+    listing_shapes_categories_map = shapes.map { |shape| [shape.name, shape.category_ids] }
+    categories_listing_shapes_map = HashUtils.transpose(listing_shapes_categories_map)
+    last_in_category_ids = categories_listing_shapes_map.select { |_category_id, shape_names|
+      shape_names.size == 1 && shape_names.include?(name)
+    }.keys
+    shape = shapes.find { |s| s.name == name }
+    if !shape
+      I18n.t('admin2.order_types.errors.can_not_find_name', name: name)
+    elsif shapes.length == 1
+      I18n.t('admin2.order_types.errors.can_not_delete_last')
+    elsif !last_in_category_ids.empty?
+      categories = community.categories
+      category_names = pick_category_names(categories, last_in_category_ids, I18n.locale)
+      I18n.t('admin2.order_types.errors.can_not_delete_only_one_in_categories', categories: category_names.join(", "))
+    end
+  end
+
+  def can_delete_shape?
+    delete_shape_msg.nil?
+  end
+
+  def pick_category_names(categories, ids, locale)
+    locale = locale.to_s
+    pick_categories(categories, ids)
+      .map { |c| Maybe(c.translations.find { |t| t[:locale] == locale }).or_else(c.translations.first) }
+      .map { |t| t[:name] }
+  end
+
+  def pick_categories(category_tree, ids)
+    category_tree.each_with_object([]) { |category, acc|
+      if ids.include?(category[:id])
+        acc << category
+      end
+      if category.children.present?
+        acc.concat(pick_categories(category.children, ids))
+      end
+    }
+  end
+
   def self.create_with_opts(community:, opts:)
     shape = ListingShape.new(ListingShape.permitted_attributes(opts))
     shape.community = community
@@ -87,7 +128,7 @@ class ListingShape < ApplicationRecord
   end
 
   def self.uniq_name(shapes, name_source)
-    blacklist = ['new', 'all']
+    blacklist = %w[new all]
     source = name_source.to_url
     base_name = source.presence || DEFAULT_BASENAME
     current_name = base_name

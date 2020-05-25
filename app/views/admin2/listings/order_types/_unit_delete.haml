@@ -1,0 +1,6 @@
+.remove-unit-content
+  %h2= t('admin2.order_types.delete_unit_title', title: title)
+  %p= t('admin2.order_types.delete_unit_text', title: title)
+  .remove-unit-actions
+    %button.btn.btn-negative.delete-unit{type: :button, data: {id: index}}= t('admin2.delete')
+    %a.remove-unit-cancel.cancel-action{href: '#'}= t('admin2.cancel')
