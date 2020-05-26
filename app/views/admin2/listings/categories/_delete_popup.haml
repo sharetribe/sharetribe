@@ -10,6 +10,7 @@
 
       .modal-body
         - prefix = category.has_subcategories? ? 'admin2.categories.remove.warning_with_subcategories_' : 'admin2.categories.remove.warning_'
+        - show_categories = category.has_own_or_subcategory_listings? || category.has_own_or_subcategory_custom_fields?
         - if category.has_subcategories?
           %p= t('admin2.categories.remove.warning_subcategory_will_be_removed', count: category.subcategories.count)
         - if category.has_own_or_subcategory_listings?
@@ -17,10 +18,11 @@
         - if category.has_own_or_subcategory_custom_fields?
           %p= t(prefix + 'custom_field_will_be_moved', count: category.own_and_subcategory_custom_fields.count)
         %p
-        %p= t('admin2.categories.delete_category_info_text')
-        %p
+        - if show_categories
+          %p= t('admin2.categories.delete_category_info_text')
+          %p
         .form-group
-          - if category.has_own_or_subcategory_listings? || category.has_own_or_subcategory_custom_fields?
+          - if show_categories
             = select_tag :new_category, options_for_select(possible_merge_targets.collect { |c| [c.display_name(I18n.locale), c.id] }), class: %i[form-control]
 
       .modal-footer

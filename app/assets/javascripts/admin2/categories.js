@@ -52,14 +52,23 @@ function sortArray(nestedSortables) {
 }
 
 function validateCategory() {
+    var LISTING_SHAPE_CHECKBOX_NAME = 'category[listing_shapes][][listing_shape_id]';
+
+    var rules = {};
+    rules[LISTING_SHAPE_CHECKBOX_NAME] = {
+        required: true
+    };
+
     $(".edit_category, .new_category").validate({
+        rules: rules,
         errorPlacement: function (error, element) {
-           element.after(error);
-        },
-        onkeyup: false,
-        onclick: false,
-        onfocusout: false,
-        onsubmit: true
+            if (element.attr("name") === LISTING_SHAPE_CHECKBOX_NAME) {
+                var container = $("#category-listing-shapes-container");
+                error.insertAfter(container);
+            } else {
+                error.insertAfter(element);
+            }
+        }
     });
 }
 
