@@ -16,13 +16,13 @@
       - options = [[t('admin2.categories.no_parent'), nil]] + top_level_categories.collect { |c| [c.display_name(I18n.locale), c.id] }
       = form.select :parent_id, options_for_select(options, category.parent_id), {}, class: %i[form-control]
 
-.form-group
+.form-group#category-listing-shapes-container
   - if shapes.size > 1
     %label= t('admin2.categories.order_types')
     - shapes.each do |shape|
       - checkbox_id = "listing_shape_checkbox_#{shape[:id].to_s}"
       .form-check
-        = check_box_tag "category[listing_shapes][][listing_shape_id]", "#{shape[:id]}", selected_shape_ids.include?(shape[:id]), id: checkbox_id, class: %i[form-check-input]
+        = check_box_tag 'category[listing_shapes][][listing_shape_id]', "#{shape[:id]}", selected_shape_ids.include?(shape[:id]), id: checkbox_id, class: %i[form-check-input]
         = label_tag checkbox_id, t(shape[:name_tr_key]), class: %i[form-check-label]
   - else
     = hidden_field_tag "category[listing_shapes][][listing_shape_id]", shapes.first[:id]
