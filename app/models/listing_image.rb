@@ -67,6 +67,8 @@ class ListingImage < ApplicationRecord
       {width: 240, height: 160}
     when :medium
       {width: 360, height: 270}
+    when :big
+      {width: 660, height: 440}
     when :thumb
       {width: 120, height: 120}
     when :email
@@ -75,7 +77,7 @@ class ListingImage < ApplicationRecord
       {width: 408, height: 408}
     when :square_2x
       {width: 816, height: 816}
-    when :original, :big
+    when :original
       raise NotImplementedError.new("This feature is not implemented yet for style: #{style}")
     else
       raise ArgumentError.new("Unknown style: #{style}")
