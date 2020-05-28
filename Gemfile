@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.6.2'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'rails', '5.1.6.2'
 
 gem 'coffee-rails', '~> 4.2.2'
