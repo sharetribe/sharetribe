@@ -156,7 +156,7 @@ ko:
         sender_email_label: 이메일
         sender_email_placeholder: sender-email@example.com
         amazon_ses_notification: "%{email_sender}로부터 인증 이메일을 받게됩니다. 이메일 타이틀은 '%{email_subject}' 입니다. 안내에 따라 이메일을 인증해주세요."
-        this_is_how_it_will_look: "이것이 어떻게 보일 것입니다 :"
+        this_is_how_it_will_look: ~
         send_verification_button: "확인 이메일 보내기"
         change_sender_email: "발신자 이메일 변경"
         successfully_saved: "보낸 사람 주소가 성공적으로 저장되었습니다. 확인 이메일이 곧 전송됩니다."
@@ -269,7 +269,7 @@ ko:
         posting_allowed: "게시 허용"
         ban_user: 금지
         saving_user_status: 저장중...
-        save_user_status_successful: 저장되어졌습니다
+        save_user_status_successful: 저장되었습니다.
         export_all_as_csv: "CSV로 모두 내보내기"
         save_user_status_error: "저장하지 못했습니다. 페이지를 새로 고침하고 다시 시도하십시오."
         ban_user_confirmation: "이렇게하면 마켓 플레이스에서 사용자가 삭제되고 사용자가 이 계정으로 사이트에 다시 액세스하지 못하게됩니다. 계속 하시겠습니까?"
@@ -285,7 +285,7 @@ ko:
         for_search_terms: "%{terms}동안"
         this_makes_the_user_an_admin: ~
         status_filter:
-          all: ~
+          all: "모든 상태"
           selected: ~
           selected_js: ~
           admin: ~
@@ -293,14 +293,14 @@ ko:
           posting_allowed: ~
           accepted: ~
           unconfirmed: ~
-          pending: ~
+          pending: 보류
         this_user_hasnt_confirmed_their_email_address: ~
         unconfirmed_user: ~
         resend: ~
         cancel: ~
-        confirm: 인증
+        confirm: 확인
         user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+        pending_user: "보류: %{name}"
       new_layout:
         new_layout: "새 레이아웃"
         description_roadmap_new: "마켓 플레이스에서 새 레이아웃 구성 요소를 사용할 수있게 되면 새 구성 요소를 사용할지 아니면 이전 구성 요소를 계속 사용 할지를 선택할 수 있습니다. 이 페이지에서 언제든지 선택 사항을 토글 할 수 있습니다. 이전 버전의 구성 요소가 어느 정도 단계적으로 제거 될 수 있으므로 항상 새 버전을 사용하는 것이 좋습니다. 현재 사용중인 구성 요소가 단계적으로 제거되는 경우 사전에 연락을 받게됩니다."
@@ -455,24 +455,24 @@ ko:
         export_all_as_csv: "CSV로 모두 내보내기"
         processing_export: ~
         transactions: 거래보기
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search_by_title_parties: "매물명으로 찾아보기"
+        search: 찾기
+        reset_search: 전체보기
         status_filter:
-          all: ~
+          all: "모든 상태"
           selected: ~
           selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
-          disputed: ~
-          preauthorized: ~
-          rejected: ~
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
-          refunded: ~
-          dismissed: ~
+          free: 무상거래
+          confirmed: 완료
+          paid: 결제완료
+          canceled: 취소
+          disputed: 분쟁중
+          preauthorized: 사전승인
+          rejected: 거부
+          payment_intent_requires_action: 보류
+          payment_intent_action_expired: 만료
+          refunded: 환불
+          dismissed: 무시
         headers:
           conversation: "대화 목록"
           listing: 매물
@@ -484,7 +484,7 @@ ko:
           other_party: 판매자
         status:
           conversation: 대화
-          free: 무료거래
+          free: 무상거래
           pending: 대기중
           preauthorized: 사전승인됨
           accepted: 승인됨
@@ -492,11 +492,11 @@ ko:
           paid: 결제됨
           confirmed: 완결됨
           canceled: 취소됨
-          disputed: ~
+          disputed: 분쟁중
           initiated: "PayPal 결제 대기중"
           pending_ext: "PayPal 결제 대기중"
           none:
-            free: 무료거래
+            free: 무상거래
           paypal:
             free: 대화
             pending: 대기중
@@ -506,11 +506,11 @@ ko:
             paid: 지불됨
             confirmed: 확인됨
             canceled: 취소됨
-            disputed: ~
+            disputed: 분쟁중
             initiated: "PayPal 결제 대기중"
             pending_ext: "PayPal 결제 대기중"
-            refunded: ~
-            dismissed: ~
+            refunded: 환불
+            dismissed: 무시
           stripe:
             free: 대화
             pending: 대기중
@@ -520,14 +520,14 @@ ko:
             paid: 지불됨
             confirmed: 확인됨
             canceled: 취소됨
-            disputed: ~
+            disputed: 분쟁중
             initiated: "스트라이프 결제 대기중"
             pending_ext: "스트라이프 결제 대기중"
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
+            payment_intent_requires_action: 보류
+            payment_intent_action_expired: 만료
             payment_intent_failed: ~
-            refunded: ~
-            dismissed: ~
+            refunded: 환불
+            dismissed: 무시
         not_available: "이용 불가"
       conversations:
         conversations: "대화 보기"
@@ -540,17 +540,17 @@ ko:
           other_party: 판매자
         participants: "대화: %{starter} with %{author}"
         profile: "%{author}의 프로필"
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
+        search_by_keyword: "이름, 이메일 또는 키워드로 찾기"
+        search: 찾기
+        reset_search: 전체보기
         for_keyword: ~
       testimonials:
         testimonials: 리뷰
         no_testimonials_found: ~
         displaying_xx_reviews: ~
-        search_keyword: ~
-        search: ~
-        reset_search: ~
+        search_keyword: "이름 또는 키워드로 찾기"
+        search: 찾기
+        reset_search: 전체보기
         for_keyword: ~
         headers:
           transaction: 거래
@@ -621,7 +621,7 @@ ko:
           status: 상태
         open: 공개
         closed: 닫힘
-        expired: ~
+        expired: 만료
         approved: 승인
         approval_pending: 보류
         approval_rejected: 거부
@@ -1257,7 +1257,7 @@ ko:
       close_listing: "%{listing_title_link}를 비공개로 전환합니다."
       update_later: "매물을 공개 상태로 유지합니다."
       optional_message: "추가 메시지"
-      price_to_pay: "총 지불 금액"
+      price_to_pay: "총 결제금액"
       accept: 수락
       decline: 거절
       quantity_label: "수량:"
@@ -1265,7 +1265,7 @@ ko:
       service_fee_label: "%{service_name} 수수료 :"
       buyer_service_fee_label: ~
       you_will_get_label: "당신은 얻을 것이다 :"
-      total_label: "총:"
+      total_label: "총액:"
       total_value: "%{seller_gets} *"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
@@ -1319,13 +1319,13 @@ ko:
       canceled_offer: "제안이 취소되어졌습니다"
       paid: "%{sum}이 결제되었습니다"
       payment_preauthorized: "승인된 결제 : %{sum}"
-      payment_preauthorized_wo_sum: ~
+      payment_preauthorized_wo_sum: "결제가 사전승인됨"
       stripe:
         held_payment: ~
         held_payment_wo_sum: ~
         confirmed_request: ~
       canceled_the_order: ~
-      marked_as_refunded: ~
+      marked_as_refunded: "환불로 표시됨"
       dismissed_the_cancellation: ~
       payment_has_now_been_transferred: ~
     new:
@@ -1352,8 +1352,8 @@ ko:
       conversation_with: "%{person}님과의 대화"
       last_message_at: "(최근 메시지 %{time})"
       price: "가격: %{price}"
-      sum: "총: %{sum}"
-      total: "총: %{total}"
+      sum: "총액: %{sum}"
+      total: "총액: %{total}"
     status:
       payment_errored: "결제 실패. 다시 시도하십시오."
       payment_errored_starter: "결제 실패. 다시 시도하십시오. 문제가 계속되면 Sharetribe 지원부에 문의하십시오."
@@ -1406,7 +1406,7 @@ ko:
       waiting_for_marketplace_review: ~
       marketplace_notified: ~
       contact_them: ~
-      refunded: ~
+      refunded: "환불로 표시된 주문"
       dismissed: ~
       order_refunded: ~
       you_should_receive_refund_soon: ~
@@ -1425,7 +1425,7 @@ ko:
       reject_preauthorized_request: "다음 기회에"
       confirm: "표시 완료"
       cancel: 분쟁
-      mark_as_refunded: ~
+      mark_as_refunded: "환불로 표시"
       dismiss: ~
   feedback:
     feedback_subject: ~
@@ -1556,7 +1556,7 @@ ko:
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
-      has_rejected_your_request: ~
+      has_rejected_your_request: "요청이 거부되었습니다."
       has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: 안녕하세요!
@@ -1593,7 +1593,7 @@ ko:
       subtotal: ~
       service_fee: "%{service_name} 수수료 :"
       buyer_service_fee: ~
-      you_will_get: "총:"
+      you_will_get: "총액:"
       new_payment: "새 결제를 받았습니다"
       price_per_unit_type: "%{unit_type} 당 가격 :"
       quantity: "수량:"
@@ -1613,7 +1613,7 @@ ko:
       quantity: 수량
       subtotal: 소계
       buyer_service_fee: ~
-      total: 총
+      total: 총액
       price: 가격
       service_fee: "서비스 수수료"
       stripe_gateway_fee: "스트라이프 수수료"
@@ -1629,7 +1629,7 @@ ko:
       product: "제품:"
       price_payer_paid: "%{payer_full_name}가 결제한 가격 :"
       service_fee: "%{service_name} 수수료 :"
-      you_will_get: "총:"
+      you_will_get: "총액:"
     receipt_to_payer:
       receipt_of_payment: "결제 영수증"
       you_have_made_new_payment: "<b> %{listing_title} </ b>에 대해 % {recipient_full_name}에 <b> %{payment_sum} </ b>을 지불했습니다. 여기에 결제 영수증이 있습니다."
@@ -1638,7 +1638,7 @@ ko:
       duration: 존속기간
       quantity: 수량
       subtotal: 소계
-      total: 총
+      total: 총액
       price: 가격
       buyer_service_fee: ~
       stripe_gateway_fee: "스트라이프 수수료"
@@ -1827,7 +1827,7 @@ ko:
       accept_authorization_error: ~
       reject_authorization_error: ~
       card_declined: ~
-      expired_card: ~
+      expired_card: "카드가 만료되어 지불이 불가능합니다."
   error_pages:
     back_to_kassi_front_page: "앞 페이지로 돌아가기"
     error_404:
@@ -1841,9 +1841,9 @@ ko:
       page_removed_reason: "사용자가 계정을 삭제했거나 매물이 삭제되었을 수 있습니다."
     error_410_title: "페이지가 제거되었습니다."
     error_500:
-      temporary_unavailable: "마켓 플레이스를 일시적으로 사용할 수 없음"
+      temporary_unavailable: "싸이트를 일시적으로 사용할 수 없음"
       unable_to_process: "서비스에서 결제 요청을 처리 할 수 없습니다. 잠시 후 다시 시도하십시오."
-      we_hate_this: "아주 싫은 상황이지만, 우리는 상황에 대한 정보를 얻었고 우리는 그것을 고치고 있습니다."
+      we_hate_this: "지금 원인을 파악하고 수정 작업중 입니다."
       refer_to_error_id: "이 문제와 관련하여 지원 팀에 문의하려면 메시지에 오류 ID \"% {error_id}\"를 포함 시키십시오."
     error_500_title: "페이지을 열지 못했습니다."
     error_description: "오류 설명"
@@ -1852,7 +1852,7 @@ ko:
       kassi_does_not_currently_work_without_javascript: "%{service_name}은/는 자바스크립트가 없으면 동작하지 않습니다. 브라우저 설정에서 자바스크립트 허용으로 변경하신 후 이 페이지를 다시 로딩해주세요."
       contact_us: 문의하기
       send_feedback: "메시지 보내기"
-      your_feedback_to_admins: "%{service_name}에 메시지 보내기"
+      your_feedback_to_admins: "%{service_name}에 보낼 메시지"
     send: 발송
     your_email_address: "당신의 이메일 주소"
   errors:
@@ -2016,7 +2016,7 @@ ko:
       map: "지도 보기"
       list: "리스트 보기"
       map_button: 지도
-      grid_button: 격자
+      grid_button: 그리드
       list_button: 리스트
       all_listing_types: "모든 매물 타입"
       all_categories: "모든 카테고리"
@@ -2052,7 +2052,7 @@ ko:
     application:
       join_this_community: "마켓플레이스에 가입하기"
       read_more: 더읽기
-      feedback: "%{service_name}에 메시지 보내기"
+      feedback: "%{service_name}에 보낼 메시지"
       dont_use_to_contact_support: "귀하는 %{service_name}의 관리자입니다. 이 양식은 사용자가 귀하에게 연락하기 위해 사용하는 양식입니다. 이 양식으로 Sharetribe 지원 부서에 연락 할 수 없습니다. 대신 관리자 패널의 오른쪽 하단에있는 지원 위젯을 통해이 연락하실 수 있습니다."
       feedback_forum: "피드백 포럼"
       feedback_handle: 피드백
@@ -2060,7 +2060,7 @@ ko:
       or_check_our: "또는 검토"
       send_feedback_to_admin: "메시지 보내기"
       to_see_what_others_have_suggested: "다른 사용자들의 제안과 아이디어에 대한 투표 결과를 보려면"
-      your_email_address: "연락을 위한 이메일 주소"
+      your_email_address: "이메일 주소 (회신용)"
       connect: 가입하기
       invite_your_friends: 친구초대
       invite_your_neighbors: "이웃 초대!"
@@ -2080,8 +2080,8 @@ ko:
       how_to_use: 이용방법
       info_about_kassi: "%{service_name} 정보"
       news: 소식들
-      register_details: "개인 정보 정책"
-      terms: "이용 약관"
+      register_details: 개인정보정책
+      terms: 이용약관
     logged_in:
       admin: 관리자
       go_to_your_profile_page: 프로필
@@ -2174,7 +2174,7 @@ ko:
       listing_updated_successfully: "매물이 성공적으로 업데이트 되었습니다."
       listing_updated_availability_management_enabled: "매물이 업데이트되었습니다. 가용성 관리가 가능합니다."
       listing_updated_availability_management_disabled: "매물이 업데이트되었습니다. 가용성 관리가 비활성화되었습니다."
-      listing_deleted: ~
+      listing_deleted: "매물 삭제됨"
       only_kassi_administrators_can_access_this_area: "여기에 접속하시려면 관리자 계정으로 로그인 하세요."
       only_listing_author_can_close_a_listing: "게시자만 항목을 닫을 수 있습니다."
       only_listing_author_can_edit_a_listing: "게시자만 편집할 수 있습니다."
@@ -2262,7 +2262,7 @@ ko:
       payments: 결제
       listings: 매물
       listings_search_placeholder: "매물명으로 찾기"
-      transactions_search_placeholder: ~
+      transactions_search_placeholder: "매물명으로 찾아보기"
       transactions: 거래
   listings:
     bubble_listing_not_visible:
@@ -2275,13 +2275,13 @@ ko:
     comment_form:
       ask_a_question: "댓글을 달거나 추가 정보를 요청 할 수 있습니다. 대화는 모든 사용자에게 공개됩니다."
       log_in: 로그인
-      send_comment: "메시지 보내기"
+      send_comment: "댓글 추가하기"
       to_send_a_comment: 해야합니다.
       write_comment: "새 메시지 쓰기 :"
       you_cannot_send_a_new_comment_because_listing_is_closed: "이 매물이 비공개로 되어 새로운 댓글을 보낼 수 없습니다."
       you_must: "댓글을 쓰려면"
       subscribe_to_comments: "새로운 메시지 및 업데이트 알림"
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "매물을 삭제하시면 다시 되돌릴 수 없습니다. 진행하시겠습니까?"
     edit:
       edit_listing: "매물 수정"
     edit_links:
@@ -2294,7 +2294,7 @@ ko:
       show_in_updates_email_error: "서버에 연결할 수 없습니다. 페이지 새로 고침 후 다시 시도하십시오."
       show_in_updates_email_success: "이 매물은 사용자에게 전송되는 다음 자동 업데이트 이메일에 표시됩니다."
       listing_is_pending: "매물이 승인 대기중입니다"
-      listing_is_rejected: ~
+      listing_is_rejected: "매물이 거부되었습니다."
       approve_listing: "매물 승인하기"
       reject_listing: "매물 승인 거절하기"
       delete_listing: "매물 삭제하기"
@@ -2548,7 +2548,7 @@ ko:
       by: "%{author}님의 %{listing}"
       payment: 결제
       exp: "Exp:"
-      you_will_be_charged: "%{author}님이 거래를 수락하는 경우에만 비용이 청구됩니다. %{author} 님이 %{expiration_period}일 이내에 거래를 수락해야 합니다. %{author}님이 거부하거나 응답하지 않으면 요금이 부과되지 않습니다."
+      you_will_be_charged: "%{author}님이 거래를 수락하는 경우에만 비용이 청구됩니다. %{author} 님이 %{expiration_period}일 이내에 거래를 수락해야 합니다. %{author}님이 거부하거나 응답하지 않으면 비용이 청구되지 않습니다."
       day: 일
       days: 일
       night: 박
@@ -2702,7 +2702,7 @@ ko:
       show_my_name_to_others: "다른 %{service_name} 사용자에게 내 실명 표시"
       sign_up: "새 %{service_name} 계정을 만드세요"
       terms: 이용약관
-      privacy: "개인 정보 정책"
+      privacy: 개인정보정책
       visible_only_to_you: "본인과 %{service_name}에만 보여집니다"
       visible_to_everybody: "모든사람에게 보여집니다"
       create_account_with_provider: ~
@@ -2872,7 +2872,7 @@ ko:
       visible_to_registered_users: "(로그인 한 사용자만 볼 수 있습니다)"
       default_in_listing: "(신규 매물 등록시 기본값으로만 사용됨)"
       invisible: (비공개)
-      image_is_processing: "잠시만 기다려주세요. 귀하의 프로필 사진을 처리 중입니다. 1 ~ 2 분 안에 준비될 것입니다."
+      image_is_processing: "잠시만 기다려주세요. 프로필 사진을 처리 중입니다."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
       format_markdown_link: "마크다운 사용하여 편집"
@@ -3031,7 +3031,7 @@ ko:
     price: "가격:"
     quantity: "수량 : %{quantity}"
     unit_price: "단가 : %{unit_price}"
-    total: "총:"
+    total: "총액:"
     total_to_pay: "총 결제액:"
   unit:
     day: 일
@@ -3129,7 +3129,7 @@ ko:
     pay_with_stripe: "%{card}를 사용하여 스트라이프로 결제하기"
     add_and_pay: "결제 확인"
     card_not_stored: "귀하의 결제는 Stripe에 의해 안전하게 처리됩니다. %{service_name}에서는 카드 정보를 저장하지 않습니다."
-    missing_payment: "등록된 매물이 있지만 계정이 지불을 받을 수 있도록 설정되어 있지 않습니다. 결제환경을 설정하세요. %{settings_link}"
+    missing_payment: "계정이 지불을 받을 수 있도록 설정되어 있지 않습니다. 결제환경을 설정하세요. %{settings_link}"
     stripe_bank_connected: "결제 정보가 성공적으로 설정되었습니다!"
     stripe_can_accept: "이제 등록하신 은행 계좌로 결제대금을 받을 수 있습니다."
     stripe_credit_card: 신용카드
@@ -3141,8 +3141,8 @@ ko:
     stripe_account_restricted_info: "결제 서비스사에 추가 정보를 보내기 위해 은행계좌 정보를 수정해야 합니다."
     stripe_account_restricted_soon: ~
     stripe_account_restricted_soon_info: "결제 서비스사에 추가 정보를 보내기 위해 은행계좌 정보를 수정해야 합니다."
-    stripe_account_pending_verification: ~
-    stripe_account_pending_verification_info: ~
+    stripe_account_pending_verification: "계정 정보가 성공적으로 저장되었습니다. 결제 서비스사의 확인을 기다리고 있습니다."
+    stripe_account_pending_verification_info: "이후에 모든 기능이 정상적으로 작동하는지 확인 바랍니다."
     form_new:
       need_info: "판매대금을 본인의 은행계좌로 받기 위한 정보가 필요합니다."
       select_country: 국가선택...
