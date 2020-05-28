@@ -689,7 +689,7 @@ ja:
         check_it_out: ~
         form:
           save: 保存
-          cancel: ~
+          cancel: キャンセル
         sections:
           identifier: セクションID
           kind: セクションタイプ
@@ -809,12 +809,12 @@ ja:
           file_not_selected: ~
           image: ~
           image_required: ~
-          title: ~
+          title: タイトル
           title_placeholder: ~
-          url: ~
+          url: URL
           url_placeholder: ~
         multi_column:
-          main_title: ~
+          main_title: メインタイトル
           column_header: ~
           column_title: ~
           web_viewer: ~
@@ -828,7 +828,7 @@ ja:
           listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
-          text: ~
+          text: テキスト
           autoplay: ~
           autoplay_no: ~
           autoplay_muted: ~
@@ -1167,19 +1167,19 @@ ja:
         next_step: ~
         waiting_for_provider_accept_or_reject: ~
         waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
+        buyer: 購入者：
+        provider: 販売者：
         delivery: ~
         shipping_to: ~
-        buyer_pays: ~
+        buyer_pays: 購入者支払い
         marketplace_collects: ~
-        buyer_service_fee_label: ~
-        service_fee_label: ~
+        buyer_service_fee_label: 購入者からの手数料：
+        service_fee_label: 販売者からの手数料：
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
         you_should_investigate: ~
-        learn_more: ~
+        learn_more: もっと詳しく
   common:
     edit_page: ページの編集
     default_community_slogan: マーケットプレイスコミュニティー
@@ -1399,9 +1399,9 @@ ja:
           unknown_reason: お支払いは承認待ちの状態です。今一度、PayPalアカウントにログインして詳細をご確認ください。
           verify: あなたのPayPalアカウントの確認待ち
       stripe:
-        waiting_confirmation_from_requester: "%{requester_name} さんの取引完了待ちです。注文完了後に、代金はあなたの銀行口座に支払われます。"
-      order_canceled: ~
-      waiting_for_marketplace_review: ~
+        waiting_confirmation_from_requester: "%{requester_name}さんの取引完了待ちです。取引が完了して７営業日後に、代金はあなたの銀行口座に支払われます。"
+      order_canceled: リクエストはキャンセルされました
+      waiting_for_marketplace_review: "%{service_name} 事務局が状況を確認するのを待っています。"
       marketplace_notified: ~
       contact_them: ~
       refunded: 返金済みとしてマークされた注文
@@ -1438,14 +1438,14 @@ ja:
     new:
       welcome_fb_user: "%{service_name}へようこそ、%{name}さん！"
       fb_join_accept_terms: "%{service_name}に参加するまでご利用規約の確認の上、同意をお願いいたします。"
-      join_community: "%{service_name}に参加する"
+      join_community: "%{service_name}を利用する"
       you_can_join: "%{service_name}の利用規約に同意し、下の「%{service_name}に参加する」をクリックすると参加できます。"
       you_can_join_email_confirmation: "%{service_name}に参加するには、%{email_ending}で終わる有効なメールアドレスが必要です。メールアドレスを記入し、利用規約に同意し「%{service_name}に参加」をクリックして、メール認証手続きを行ってご参加ください。"
       you_can_join_email_confirmation_multiple_addresses: "%{service_name}は、メールアドレスの規制があります。参加するには、許可されたメールアドレスが必要です。メールアドレスを記入し、%{service_name}の利用規約に同意し、「%{service_name}に参加」をクリックして、メール認証手続きを行ってご参加ください。"
       you_can_join_with_invite_only: "他のメンバーから%{service_name}に参加するよう招待されています。もし招待コードをお持ちの場合は、下記の枠に招待コードを入力して、利用規約に同意し「%{service_name}に参加」をクリックしてください。"
       if_want_to_view_content: "サイトに参加せずに%{service_name}のメンバーページを見たいなら、あなたは"
       log_out: ログアウト
-      join_community_button: "%{service_name}に参加する"
+      join_community_button: "%{service_name}を利用する"
     give_consent:
       invitation_code_invalid_or_used: 招待コードは無効、もしくは既に使用されているのでご利用できません
       email_not_allowed: "このメールアドレスは%{service_name}でご利用いただけません"
@@ -1563,7 +1563,7 @@ ja:
       join_now: 参加します
       invitation_code: "招待コード： %{code}"
     invitation_to_kassi_v2:
-      headline: ~
+      headline: こんにちは！
     new_comment:
       has_commented_your_listing_in_kassi: "いつもご利用ありがとうございます。「%{listing}」で%{author}さんより新しいコメントがありましたのでお知らせいたします。"
       view_comment: コメントを見る
@@ -1667,7 +1667,7 @@ ja:
       settings_link_text: ここからメール設定を編集
       unsubscribe_link_text: 購読を解除する
     community_updates_v2:
-      headline: ~
+      headline: "%{service_name} の最新のアクティビティをチェックしてください"
       intro_paragraph:
         other: "%{service_name} 過去1週間に登録された最新情報をお届けします。"
     newsletter:
@@ -1771,7 +1771,7 @@ ja:
       you_can_now_give_feedback: ~
       give_feedback_to: ~
     transaction_disputed:
-      subject: ~
+      subject: "リクエストはキャンセルされました。%{service_name} 事務局は状況を確認しています。"
       subject_admin: ~
       order_about: ~
       the_order_has_been_canceled: ~
@@ -2035,7 +2035,7 @@ ja:
       search: 検索
       signup: 新規登録
       search_placeholder: 何をお探しですか？
-      search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
+      search_location_placeholder: "場所 （地区、郵便番号、市町区村名...）"
     listings:
       no_listing_image: 画像がありません
   layouts:
@@ -2356,7 +2356,7 @@ ja:
         accepted_formats: GIF、JPG、PNGのいずれかの画像フォーマットにしてください。
         images_not_uploaded_confirm: 全ての画像のアップロードが完了しておりません。本当に次へ進みますか？
       location:
-        location: "場所 （地区、郵便番号、市町村名...）"
+        location: "場所 （地区、郵便番号、市町区村名...）"
       price:
         price: 価格
         per: につき
@@ -2563,10 +2563,10 @@ ja:
       address: 配送先住所
       address_country: 国
       address_name: 氏名
-      address_city: 市町村
+      address_city: 市町区村（例：千代田区）
       address_state: 都道府県
-      address_street1: 住所１
-      address_street2: 住所２
+      address_street1: 住所１（例：神田須田町）
+      address_street2: "住所２（例：1-34-4 神田グロウビル7F）\n"
       address_postal_code: 郵便番号
   mapview:
     index:
@@ -2704,7 +2704,7 @@ ja:
       privacy: プライバシーポリシー
       visible_only_to_you: あなただけに表示されるマーケットプレイスの管理ページ
       visible_to_everybody: 全員に表示
-      create_account_with_provider: ~
+      create_account_with_provider: "%{provider} で新規登録する"
       OR: または
       signup_with_email: メールアドレスで新規登録する
       this_field_will_be_publicly_visible: ~
@@ -2772,7 +2772,7 @@ ja:
       account_creation_link_text: ここをクリック
       cancle_facebook_connect: "もしこのアカウントをリンクしたくない場合は、%{cancel_link}が出来ます。"
       facebook_cancel_link_text: キャンセル
-      log_in_with_your_provider_account: ~
+      log_in_with_your_provider_account: "%{provider} でログインする"
       or_sign_up_with_your_username: "または、ユーザー名 or メールアドレスで："
       we_will_not_post_without_asking_you: あなたに断りなくFacebookに投稿することは、決してありません。
     password_forgotten:
@@ -3078,7 +3078,7 @@ ja:
       menu: メニュー
       more: More
       search_placeholder: 検索中...
-      search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
+      search_location_placeholder: "場所 （地区、郵便番号、市町区村名...）"
       user: メンバー
       inbox: メール受信箱
       profile: プロフィール
@@ -3160,7 +3160,7 @@ ja:
       address_country: 国
       address_state: 都道府県
       address_province: 都道府県
-      address_city: 市町村
+      address_city: 市町区村（例：千代田区）
       address_postal_code: 郵便番号
       address_line1: 住所
       tos_link: "支払いの詳細を追加することによりあなたは%{stripe_link} を受け入れます。"
@@ -3172,14 +3172,14 @@ ja:
       phone_number: "電話番号：+81に続き頭の\"0\"を除いた番号をハイフンなしでご記載下さい。例：090-xxxx-xxxx --> +8190xxxxxxxx"
       address_kana_postal_code: 郵便番号
       address_kana_state: "都道府県 (カナ)"
-      address_kana_city: 市町村（カナ）
+      address_kana_city: 市町区村（カナ）
       address_kana_town: 住所１（カナ）
       address_kana_line1: 住所２（カナ）
       address_kanji_postal_code: 郵便番号
       address_kanji_state: 都道府県
-      address_kanji_city: 市町村
-      address_kanji_town: 住所１
-      address_kanji_line1: 住所２
+      address_kanji_city: 市町区村（例：千代田区）
+      address_kanji_town: 住所１（例：神田須田町）
+      address_kanji_line1: "住所２（例：1-34-4 神田グロウビル7F）\n"
       male: 男性
       female: 女性
     form_bank:
@@ -3249,12 +3249,12 @@ ja:
     attributes:
       landing_page_version/section/base:
         id: ~
-        title: ~
-        paragraph: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
+        title: タイトル
+        paragraph: パラグラフ
+        button_title: テキスト
+        button_path: URL
+        button_path_string: URL
+        background_image: 背景画像
         background_image_variation: ~
         background_color: ~
         background_color_string: ~
