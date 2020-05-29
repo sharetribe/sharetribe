@@ -52,5 +52,5 @@
     = form.label :cta_button_url
     = form.text_field :cta_button_url, url: true,
       placeholder:  t("admin.landing_page_versions.sections.cta_button.url_placeholder"),
-      required: true
+      required: form.object.cta_button_type_button?
 
