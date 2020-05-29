@@ -2338,7 +2338,7 @@ lv:
         location: "Atrašanās vieta"
       price:
         price: Cena
-        per: par
+        per: /
         per_day: "par dienu"
         mass: "gabalu, kg, l, m2, ..."
         time: "stundu, dienu, mēnesi"
@@ -2511,11 +2511,11 @@ lv:
     unit_types:
       piece: gabals
       hour: stundā
-      day: diena
+      day: dienā
       night: nakts
       week: nedēļa
       month: mēnesis
-      unit: vienība
+      unit: gabalā
       person: ~
     verification_required:
       verification_required: "Nepieciešama pārbaude"
@@ -3023,7 +3023,7 @@ lv:
     total: "Kopā:"
     total_to_pay: "Maksājuma kopsumma:"
   unit:
-    day: diena
+    day: dienā
     days: dienas
   web:
     listings:
@@ -3038,7 +3038,7 @@ lv:
       pricing_units:
         piece: gabals
         hour: stundā
-        day: diena
+        day: dienā
         night: nakts
         week: nedēļa
         month: mēnesis

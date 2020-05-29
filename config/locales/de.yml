@@ -95,7 +95,7 @@ de:
         transaction_agreement_checkbox_label_description: "Dieser Text wird neben einer Checkbox beim Checkout angezeigt. Der Nutzer muss mit einem Haken in der Checkbox zustimmen, um die Transaktion abzuschließen. Ein Beispiel wäre etwa \"Mit Klicken dieser Box akzeptiere ich die Vereinbarung.\""
         transaction_agreement_text_header: "Allgemeine Geschäftsbedingungen"
         transaction_agreement_description: "Dies ist der Inhalt der Allgemeinen Geschäftsbedingungen (AGBs), die der Anwender akzeptieren muss. Der Inhalt der AGBs wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Allgemeinen Geschäftsbedingungen klickt."
-        terms_privacy_policy_and_static_content: "Nutzungsbedingungen, datenschutz, und Inhaltsseiten"
+        terms_privacy_policy_and_static_content: "Nutzungsbedingungen, Datenschutz, und Inhaltsseiten"
         terms_privacy_policy_and_static_content_infotext: "Du kannst bis zu vier Inhaltsseiten bearbeiten. Die Benutzer können die Seiten mit hilfe des \"Über\"-links auf dem Top Bar finden."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" des Marktplatzes %{community_name}"
@@ -631,7 +631,7 @@ de:
         approval_pending: Ausstehend
         approval_rejected: Abgelehnt
         form:
-          this_listing_has_not_not_been_approved_yet: "Dieser Eintrag wurde noch nicht angenommen. Du kannst jetzt dich entscheiden, ob du den Eintrag annehmen oder ablehnen willst. Wenn du den Eintrag annimst, wird er veröffentlicht und für alle Benutzer sichtbar. Wenn du den Eintrag ablehnst, wird er nicht veröffentlicht."
+          this_listing_has_not_not_been_approved_yet: "Dieser Eintrag wurde noch nicht angenommen. Du kannst dich jetzt entscheiden, ob du den Eintrag annehmen oder ablehnen willst. Wenn du den Eintrag annimmst, wird er veröffentlicht und für alle Benutzer sichtbar. Wenn du den Eintrag ablehnst, wird er nicht veröffentlicht."
           approve: Annehmen
           reject: Ablehnen
           cancel: Abbrechen
@@ -1187,7 +1187,7 @@ de:
         provider_receives: "Verkäufer bekommt:"
         admin_info_text: "Als Admin von %{service_name} kannst du einige Maßnahmen ergreifen, damit diese Transaktion weitergeht:"
         manage_reviews: "Bewertungen verwalten"
-        you_should_investigate: "Du solltest die Lage untersuchen damit du mit den beiden Beteiligten diskutierst, und danach die Anfechtung ablehnst oder erstattest. %{learn_more_link}"
+        you_should_investigate: "Du solltest die Lage untersuchen, indem du mit den beiden Beteiligten diskutierst und danach entscheiden, ob du die Anfechtung ablehnst oder erstattest. %{learn_more_link}"
         learn_more: "Mehr erfahren."
   common:
     edit_page: "Seite bearbeiten"
@@ -1284,7 +1284,7 @@ de:
       stripe-fee_label: Zahlungsbearbeitungsgebühr
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du den Anderen bewerten."
-      cancel_description_team: "Wenn die Anfrage nicht erfüllt wurde, du kannst sie als 'Angefochten' markieren. Das Team von %{service_name} wird die Lage untersuchen und die Anfechtung entweder erstatten oder ablehnen."
+      cancel_description_team: "Wenn die Anfrage nicht erfüllt wurde, kannst du sie als 'Angefochten' markieren. Das Team von %{service_name} wird die Lage untersuchen und die Anfechtung entweder erstatten oder ablehnen."
       cancel_payed_description: "Wenn deine Anfrage akzeptiert wurde, du aber noch einmal darüber nachdenken willst, kannst du deine Anfrage vor der Bezahlung immer noch ablehnen."
       canceling_payed_transaction: "Transaktion abbrechen"
       confirm: erledigt
@@ -1413,7 +1413,7 @@ de:
         waiting_confirmation_from_requester: "Warten bis %{requester_name} den Auftrag als erledigt markiert hat. Sobald der Auftrag als erledigt markiert wurde, erfolgt der Transfer der Zahlung auf Dein Bankkonto."
       order_canceled: "Anfrage angefochten"
       waiting_for_marketplace_review: "Es wird gewartet, dass das Team von %{service_name} die Lage untersucht"
-      marketplace_notified: "Dem Team von %{service_name} wurde eine Nachricht geschickt. Du kannst sie auch %{contact_link} wenn du mehr Details an sie schicken möchtest."
+      marketplace_notified: "Dem Team von %{service_name} wurde eine Nachricht geschickt. Du kannst sie auch %{contact_link}, wenn du mehr Details an sie schicken möchtest."
       contact_them: kontaktieren
       refunded: "Anfrage als erstattet markiert"
       dismissed: "Anfechtung abgelehnt"
@@ -1483,7 +1483,7 @@ de:
       automatic_confirmation: "Wenn du den Auftrag nicht innerhalb von %{days_to_automatic_confirmation} Tagen bestätigst oder anfechtest, nachdem die Anfrage akzeptiert wurde, werden wir sie automatisch als erledigt markieren."
     confirm_reminder_v2:
       headline: "du hast die Anfrage %{request_link} noch nicht erfüllt oder angefochten."
-      you_have_not_yet_confirmed_or_canceled_request: "Wenn die Anfrage erledigt wurde, solltest du dies bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
+      you_have_not_yet_confirmed_or_canceled_request: "Wenn die Anfrage erledigt wurde, solltest du dies bestätigen. Danach kannst du %{other_party_given_name} ein Feedback geben."
     payment_settings_reminder:
       remember_to_add_payment_details: "Denke daran, deine Zahlungsdetails hinzuzufügen, um Zahlungen erhalten zu können"
       you_have_added_listing_with_payment: "Du hast unter %{listing_link} einen Eintrag mit Bezahlung hinzugefügt. Leider hast du noch keine Zahlungsinformationen angegeben. Um Zahlungen erhalten zu können, musst du Deine Zahlungsinformationen hinterlegen."
@@ -1491,13 +1491,13 @@ de:
       payment_settings_link: Zahlungseinstellungen
     payment_settings_reminder_v2:
       fill_payout_details: "Payout-Details ausfüllen"
-      you_have_added_listing_with_payment: "Du hast die Anzeige %{listing_link} mit Zahlung hinzugefügt. Wir haben festgestellt, dass du deine Zahlungsdetails noch nicht hinzugefügt hast. Um Zahlungen zu bekommen, musst du deine Zahlungsdetails eingeben."
+      you_have_added_listing_with_payment: "Du hast die Anzeige %{listing_link} mit Zahlung hinzugefügt. Wir haben festgestellt, dass du deine Zahlungsdetails noch nicht hinzugefügt hast. Um Geld zu erhalten, musst du deine Kontoverbindung eingeben."
     transaction_confirmed:
       here_is_a_message_from: "Dies ist eine Nachricht von %{other_party_given_name}."
       request_marked_as_confirmed: "Anfrage erledigt. Denke daran, Feedback zu geben."
       request_marked_as_canceled: "Anfrage angefochten"
       has_marked_request_as_confirmed: "%{other_party_full_name} hat die Anfrage '%{request}' als \"erledigt\" markiert. Du kannst nun Feedback an %{other_party_given_name} geben."
-      has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage '%{request}' angefochten. Du kannst trotzdem %{other_party_given_name} Feedback geben."
+      has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage '%{request}' angefochten. Du kannst trotzdem %{other_party_given_name} ein Feedback geben."
       giving_feedback_is_good_idea: "Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, die auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
       stripe:
@@ -1508,7 +1508,7 @@ de:
       headline_canceled: "%{other_party_full_name} hat die Anfrage %{listing_link} angefochten."
       stripe:
         has_marked_request_as_confirmed: "Die Zahlung für diese Transaktion wurde jetzt auf dein Bankkonto freigelassen."
-      can_give_feedback: "Du kannst jetzt Feedback an %{other_party_given_name} geben."
+      can_give_feedback: "Du kannst jetzt %{other_party_given_name} ein Feedback geben."
       team_title: "das Team von %{service_name}"
     transaction_automatically_confirmed:
       subject: "Anfrage wurde automatisch abgeschlossen - bitte denk daran, Feedback zu geben."
@@ -1522,7 +1522,7 @@ de:
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: "Die Anfrage wurde automatisch abgeschlossen, denn ein Tag ist vergangen nach dem Ende der Buchungsperiode."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "Du kannst nun %{other_party_given_name} ein Feedback geben. Feedback geben ist immer eine gute Idee. Wenn alles gut gegangen ist, solltest du andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn ein Problem aufgetreten ist, ist es gut, das ebenfalls zu erwähnen."
+      giving_feedback_is_good_idea: "Du kannst nun %{other_party_given_name} ein Feedback geben. Feedback zu geben ist immer eine gute Idee. Wenn alles gut gegangen ist, solltest du andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn ein Problem aufgetreten ist, ist es gut, das ebenfalls zu erwähnen."
       give_feedback_to: "Bitte bewerte %{other_party_given_name}"
       show_thread: "Unterhaltung anzeigen"
     confirmation_instructions:
@@ -1694,9 +1694,9 @@ de:
       remember_to_give_feedback_to: "Zur Erinnerung: Denke daran, %{name} zu bewerten"
       you_have_not_given_feedback_yet: "Du hast %{name} noch kein Feedback zur Transaktion '%{event}' gegeben. Denke daran, ein Feedback darüber zu hinterlassen, wie %{given_name} die Transaktion durchgeführt hat."
     testimonial_reminder_v2:
-      headline: "erinnere dich daran, Feedback an %{other_name} zu geben!"
+      headline: "denke daran, %{other_name} Feedback zu geben!"
       you_have_not_given_feedback_yet: "Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, die auch zu erwähnen."
-      leave_feedback: "Feedback an %{other_party_name} geben"
+      leave_feedback: "%{other_party_name} ein Feedback geben"
     transaction_preauthorized:
       subject: "%{requester} hat %{listing_title} angefragt und eine Zahlung autorisiert auf %{service_name}"
       transaction_requested_by_user: "Gute Nachrichten! %{requester} hat \"%{listing_title}\" angefragt und eine Zahlung autorisiert."
@@ -1758,7 +1758,7 @@ de:
       edit_the_listing: "Eintrag bearbeiten"
     edited_listing_submited_for_review:
       subject: "Bearbeiteter Eintrag, der Überprüft werden soll: \"%{listing_title}\" von %{author_name} auf %{community}"
-      there_is_a_edited_listing_to_review: "Es gibt einen bearbeiteten Eintrag, der Überprüft werden soll: \"%{listing_title}\" von %{author_name}. Du kannst jetzt den Eintrag annehmen oder ablehnen."
+      there_is_a_edited_listing_to_review: "Es gibt einen bearbeiteten Eintrag, der überprüft werden muss: \"%{listing_title}\" von %{author_name}. Du kannst jetzt den Eintrag annehmen oder ablehnen."
       review_the_listing: "Bearbeiteten Eintrag überprüfen"
     new_transaction:
       subject: "Neue Transaktion auf %{service_name}"
@@ -1779,23 +1779,23 @@ de:
       view_transaction: "Transaktion anzeigen"
     transaction_cancel_flow:
       the_order_about: "die Anfrage über %{listing_title}"
-      you_can_contact_the_marketplace_team: "Du kannst das Team von %{service_name} kontaktieren, falls es irgendwelche weitere Probleme gibt."
-      you_can_now_give_feedback: "Du kannst jetzt Feedback an %{name} geben. Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{recipient} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, die auch zu erwähnen."
-      give_feedback_to: "Feedback an %{name} geben"
+      you_can_contact_the_marketplace_team: "Du kannst das Team von %{service_name} kontaktieren, falls es irgendwelche weiteren Probleme gibt."
+      you_can_now_give_feedback: "Du kannst jetzt %{name} ein Feedback geben. Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{recipient} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, diese auch zu erwähnen."
+      give_feedback_to: "%{name} ein Feedback geben"
     transaction_disputed:
       subject: "Anfrage angefochten - Das Team von %{service_name} untersucht die Situation"
       subject_admin: "Eine Transaktion wurde angefochten, du musst entscheiden was als nächstes passiert"
       order_about: "Anfrage über %{listing_title}"
       the_order_has_been_canceled: "%{transaction_link} wurde angefochten."
       the_order_between_buyer_and_seller_has_been_canceled: "%{transaction_link} zwischen %{buyer} und %{seller} wurde angefochten."
-      the_marketplace_has_been_notified: "Dem Team von %{service_name} wurde eine Nachricht geschickt, und sie untersuchen die Situation. Du kannst sie kontaktieren, um mehr zu erfahren."
+      the_marketplace_has_been_notified: "Dem Team von %{service_name} wurde eine Nachricht geschickt und sie untersuchen die Situation. Du kannst sie kontaktieren, um mehr zu erfahren."
       contact_the_marketplace_team: "Das Team von %{service_name} kontaktieren"
-      you_must_now_decide: "Du musst dich jetzt entscheide, ob eine Erstattung stattfinden oder die Anfechtung abgebrochen werden soll. Du kannst %{learn_more_link}."
-      learn_more_about: "hier mehr erfahren darüber, was du tun sollst"
-      review_the_transaction: "Transaktion bewerten"
+      you_must_now_decide: "Du musst dich jetzt entscheiden, ob eine Erstattung stattfinden oder die Anfechtung abgebrochen werden soll. Du kannst %{learn_more_link}."
+      learn_more_about: "hier mehr darüber erfahren, was du tun kannst"
+      review_the_transaction: "Transaktion überprüfen"
     transaction_refunded:
       subject: "Anfrage als erstattet markiert - Das Team von %{service_name} hat die Anfechtung von %{buyer} angenommen"
-      marketplace_team_has_approved_the_cancellation: "das Team von %{service_name} hat die Anfechtung von %{transaction_link} angenommen und die Zahlung als erstattet markiert."
+      marketplace_team_has_approved_the_cancellation: "Das Team von %{service_name} hat die Anfechtung von %{transaction_link} angenommen und die Zahlung als erstattet markiert."
       you_should_receive_a_refund_soon: "Du solltest bald eine Erstattung bekommen. Du kannst das Team von %{service_name} kontaktieren, wenn es irgendeine weitere Probleme gibt."
     transaction_cancellation_dismissed:
       subject: "Anfechtung abgebrochen - Das Team von %{service_name} hat die Anfechtung von %{buyer} abgelehnt"

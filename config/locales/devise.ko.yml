@@ -21,7 +21,7 @@ ko:
     passwords:
       updated_not_active: "비밀번호 변경이 완료되었습니다."
       send_paranoid_instructions: "등록된 이메일로 비밀번호 복구 링크가 발송되었습니다."
-      send_instructions: "곧 비밀번호 초기화 안내가 포함된 이메일이 발송되었습니다."
+      send_instructions: "곧 비밀번호 재설정 안내가 포함된 이메일이 발송됩니다."
       updated: "비밀번호 변경이 완료되었습니다,"
     sessions:
       signed_in: "로그인 되었습니다."
@@ -53,6 +53,6 @@ ko:
       confirmation_instructions:
         subject: "%{service_name} 에 가입하기 위한 확인 안내"
       reset_password_instructions:
-        subject: "비밀번호 초기화 안내"
+        subject: "비밀번호 재설정 안내"
       unlock_instructions:
         subject: "잠금 해제 안내"

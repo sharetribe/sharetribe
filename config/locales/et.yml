@@ -2372,7 +2372,7 @@ et:
         location: Asukoht
       price:
         price: Hind
-        per: ~
+        per: kohta
         per_day: "päeva kohta"
         mass: "tk, kg, l, m2, ..."
         time: "tund, päev, kuu, ...."
@@ -2989,7 +2989,7 @@ et:
       december: Det
     today: Täna
     clear: Puhasta
-    format: kk/pp/aaaa
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%b %e, %Y at %H:%M"
