@@ -1,3 +1,5 @@
+- show_map = show_location? && @listing.origin_loc && @listing.origin_loc.address != ""
+
 - content_for :javascript do
   initialize_listing_view('#{I18n.locale}');
 
@@ -7,7 +9,7 @@
     fuzzy_location: #{@current_community.fuzzy_location.to_json},
     listing_location: #{raw @listing.location.to_json}
     });
-  - if @current_community.fuzzy_location
+  - if !show_map && @current_community.fuzzy_location
     - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
     = javascript_include_tag "//maps.googleapis.com/maps/api/js?key=#{maps_key}"
 
@@ -170,7 +172,7 @@
             .listing-author-activity-description
               = t(".feedback")
 
-    - if show_location? && @listing.origin_loc && @listing.origin_loc.address != ""
+    - if show_map
       .row
         .col-12
           #googlemap
