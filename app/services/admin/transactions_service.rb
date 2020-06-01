@@ -27,7 +27,7 @@ module Admin
     end
 
     def transactions_scope
-      scope = Transaction.exist.by_community(community.id)
+      scope = Transaction.exist.initialized.by_community(community.id)
 
       if personal
         scope = scope.for_person(current_user)

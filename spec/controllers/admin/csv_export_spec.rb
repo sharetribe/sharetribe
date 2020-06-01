@@ -17,7 +17,7 @@ describe Admin::CommunityMembershipsController, type: :controller do
     end
 
     it "returns CSV with actual data" do
-      get :index, params: {format: :csv, community_id: @community.id} 
+      get :index, params: {format: :csv, community_id: @community.id}
       response_arr = CSV.parse(response.body)
       expect(response_arr.count).to eq(3)
       user = Hash[*response_arr[0].zip(response_arr[1]).flatten]
@@ -53,7 +53,7 @@ describe Admin::CommunityTransactionsController, type: :controller do
     sign_in_for_spec(@person)
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
-    @transaction = FactoryGirl.create(:transaction, starter: @person, listing: @listing, community: @community)
+    @transaction = FactoryGirl.create(:transaction, starter: @person, listing: @listing, current_state: :initiated, community: @community)
   end
 
   describe "transactions CSV export" do

@@ -57,6 +57,14 @@ describe Admin::CommunityTransactionsController, type: :controller do
                                      last_transition_at: 60.minutes.ago,
                                      conversation: conversation)
   end
+  let(:transaction4) do
+    FactoryGirl.create(:transaction,
+                       community: community,
+                       listing: listing1,
+                       starter: person3,
+                       current_state: nil,
+                       last_transition_at: nil)
+  end
   let(:admin) { create_admin_for(community) }
 
   before(:each) do
@@ -71,6 +79,7 @@ describe Admin::CommunityTransactionsController, type: :controller do
       transaction1
       transaction2
       transaction3
+      transaction4
     end
 
     it 'works' do
