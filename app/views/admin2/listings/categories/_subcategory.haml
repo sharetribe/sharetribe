@@ -1,5 +1,5 @@
-.list-group-item.nested-2.field-data{data: {id: subcategory.id}}
-  %div= subcategory.display_name(I18n.locale)
+.list-group-item.nested-2.field-data.subCategoryWrapper{data: {id: subcategory.id}}
+  .categoryName= subcategory.display_name(I18n.locale)
   .actions
     %span.handle-move{'aria-hidden' => true}
     - if !subcategory.can_destroy?
