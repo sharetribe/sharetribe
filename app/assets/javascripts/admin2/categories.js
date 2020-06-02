@@ -6,6 +6,11 @@ function sortArray(nestedSortables) {
             fallbackOnBody: true,
             swapThreshold: 0.65,
             handle: '.handle-move',
+            onMove: function (/**Event*/evt, originalEvent) {
+                if ($(evt.related).hasClass('nested-2') && $(evt.dragged).find('.nested-2').length > 0) {
+                    return false;
+                }
+            },
             onEnd: function (/**Event*/evt) {
                 var elem_id = evt.item.attributes['data-id'].value,
                     parent_elem_id,
