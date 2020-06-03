@@ -12,7 +12,7 @@ module Admin2Helper
     {
       general: %w[essentials privacy static_content admin_notifications],
       design: %w[logos_color landing_page display experimental cover_photos topbar footer],
-      users: %w[manage_users signup_login user_rights invitations],
+      users: %w[manage_users signup_login user_rights invitations user_fields],
       listings: %w[listing_approval listing_comments manage_listings],
       transactions_reviews: %w[config_transactions manage_transactions conversations manage_reviews],
       payment_system: %w[country_currencies],

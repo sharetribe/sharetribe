@@ -22,10 +22,19 @@ class CustomFieldOption < ApplicationRecord
   has_many :custom_field_option_selections, :dependent => :destroy
   has_many :custom_field_values, :through => :custom_field_option_selections
 
+  scope :sorted, -> { order(:sort_priority) }
   validates_length_of :titles, :minimum => 1
 
   def title(locale="en")
     TranslationCache.new(self, :titles).translate(locale, :value)
+  end
+
+  def json_data
+    selector_label = {}
+    titles.each { |t| selector_label[t.locale] = t.value }
+    { locals: titles.pluck(:locale),
+      uniq: id,
+      selector_label: selector_label }
   end
 
   def title_attributes=(attributes)

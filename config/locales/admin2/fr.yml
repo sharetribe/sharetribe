@@ -1,6 +1,7 @@
 fr:
   admin2:
     save_changes: 'lorem ipsum'
+    cancel: 'lorem ipsum'
     next_step: 'lorem ipsum'
     prev_step: 'lorem ipsum'
     topnav:
@@ -48,6 +49,7 @@ fr:
         signup_login: 'lorem ipsum'
         user_rights: 'lorem ipsum'
         invitations: 'lorem ipsum'
+        user_fields: 'lorem ipsum'
       listings:
         listing_approval: 'lorem ipsum'
         listing_comments: 'lorem ipsum'
@@ -83,6 +85,37 @@ fr:
       advanced:
         custom_script: 'lorem ipsum'
         delete_marketplace: 'lorem ipsum'
+    user_fields:
+      info_text: 'lorem ipsum'
+      field_title: 'lorem ipsum'
+      field_type: 'lorem ipsum'
+      sign_up: 'lorem ipsum'
+      public: 'lorem ipsum'
+      add_new_field: 'lorem ipsum'
+      first_name: 'lorem ipsum'
+      last_name: 'lorem ipsum'
+      text: 'lorem ipsum'
+      email_address: 'lorem ipsum'
+      profile_picture: 'lorem ipsum'
+      file: 'lorem ipsum'
+      location: 'lorem ipsum'
+      display_name: 'lorem ipsum'
+      phone_number: 'lorem ipsum'
+      about_you: 'lorem ipsum'
+      add_new_user_field: 'lorem ipsum'
+      new_user_field_type: 'lorem ipsum'
+      edit_field_type: 'lorem ipsum: %{name} (%{field_type})'
+      required_field: 'lorem ipsum'
+      public_field: 'lorem ipsum'
+      required_field_title: 'lorem ipsum'
+      public_field_title: 'lorem ipsum'
+      decimal: 'lorem ipsum'
+      allow_decimals: 'lorem ipsum'
+      minimum_value: 'lorem ipsum'
+      maximum_value: 'lorem ipsum'
+      delete_title: 'lorem ipsum: %{name}'
+      delete_info_text: 'lorem ipsum %{name}'
+      delete_user_field: 'lorem ipsum'
     manage_reviews:
       transaction: 'lorem ipsum'
       customer: 'lorem ipsum'
@@ -567,6 +600,9 @@ fr:
       test_email_sent: 'lorem ipsum'
       welcome_email_updated:  'lorem ipsum'
       welcome_email_updated_and_sent: 'lorem ipsum %{email}'
+      user_field_updated: 'lorem ipsum'
+      user_field_created: 'lorem ipsum'
+      user_field_saving_failed: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

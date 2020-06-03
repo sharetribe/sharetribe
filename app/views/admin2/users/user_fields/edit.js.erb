@@ -1,0 +1,7 @@
+var popup = $('#userFieldsEditModal');
+if (popup.length) {
+    popup.remove();
+}
+
+$('body').append('<%= j render 'admin2/users/user_fields/edit_popup', service: @service %>');
+$('#userFieldsEditModal').modal('show');

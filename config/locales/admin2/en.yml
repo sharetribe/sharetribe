@@ -1,6 +1,7 @@
 en:
   admin2:
     save_changes: 'Save changes'
+    cancel: 'Cancel'
     next_step: 'Next'
     prev_step: 'Prev'
     topnav:
@@ -48,6 +49,7 @@ en:
         signup_login: 'Signup & Login'
         user_rights: 'User rights'
         invitations: 'Invitations'
+        user_fields: 'User fields'
       listings:
         listing_approval: 'Listing approval'
         listing_comments: 'Listing comments'
@@ -84,6 +86,37 @@ en:
       advanced:
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
+    user_fields:
+      info_text: 'Manage existing user fields'
+      field_title: 'Field title'
+      field_type: 'Field type'
+      sign_up: 'Sign up'
+      public: 'Public'
+      add_new_field: '+ Add a new user field'
+      first_name: 'First name'
+      last_name: 'Last name'
+      text: 'Text'
+      email_address: 'Email address'
+      profile_picture: 'Profile picture'
+      file: 'File'
+      location: 'Location'
+      display_name: 'Display name'
+      phone_number: 'Phone number'
+      about_you: 'About you'
+      add_new_user_field: 'Add a new user field'
+      new_user_field_type: 'New user field type'
+      edit_field_type: 'Edit user field: %{name} (%{field_type})'
+      required_field: 'Make it mandatory to fill this field when signing up to the marketplace'
+      public_field: 'Show this field in the public profile page'
+      required_field_title: 'Required field'
+      public_field_title: 'Public field'
+      decimal: 'Decimal'
+      allow_decimals: 'Allow decimals'
+      minimum_value: 'Minimum value allowed'
+      maximum_value: 'Maximum value allowed'
+      delete_title: 'Delete user field: %{name}'
+      delete_info_text: 'Are you sure you want to remove the field %{name} and all its data? This cannot be undone.'
+      delete_user_field: 'Delete the user field'
     manage_reviews:
       transaction: 'Transaction'
       customer: 'Customer'
@@ -576,6 +609,9 @@ en:
       test_email_sent: 'Test email was sent to your inbox'
       welcome_email_updated: 'Welcome email settings were updated'
       welcome_email_updated_and_sent: 'Welcome email settings were updated and a test email was sent to %{email}'
+      user_field_updated: 'User field updated'
+      user_field_created: 'User field created'
+      user_field_saving_failed: 'User field saving failed'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

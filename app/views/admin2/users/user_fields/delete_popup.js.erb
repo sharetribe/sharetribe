@@ -1,0 +1,7 @@
+var popup = $('#userFieldsDeleteModal');
+if (popup.length) {
+    popup.remove();
+}
+
+$('body').append('<%= j render 'admin2/users/user_fields/delete_popup', service: @service %>');
+$('#userFieldsDeleteModal').modal('show');

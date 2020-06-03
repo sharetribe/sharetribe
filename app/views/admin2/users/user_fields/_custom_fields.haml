@@ -1,0 +1,17 @@
+.field-data.nested{data: {id: custom_field.id}}
+  %div
+    = custom_field.name(I18n.locale)
+  %div
+    = field_type_translation(custom_field.type)
+  %div
+    - if custom_field.required?
+      = image_tag 'svg/checkmark-blue.svg', alt: 'checkmark'
+  %div
+    - if custom_field.public?
+      = image_tag 'svg/checkmark-blue.svg', alt: 'checkmark'
+  .actions
+    %span.handle-move{'aria-hidden' => true}
+    = link_to delete_popup_admin2_users_user_field_path(custom_field), remote: true do
+      %span.remove
+    = link_to edit_admin2_users_user_field_path(custom_field), remote: true do
+      %span.edit

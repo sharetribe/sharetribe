@@ -249,6 +249,14 @@ Rails.application.routes.draw do
             patch :update_user_rights
           end
         end
+        resources :user_fields, path: 'user-fields' do
+          collection do
+            post :order
+          end
+          member do
+            get :delete_popup
+          end
+        end
       end
       namespace :listings do
         resources :manage_listings, path: 'manage-listings', only: %i[index] do
