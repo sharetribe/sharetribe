@@ -149,7 +149,7 @@ module Donalo
         end
 
         def minimum_required_units_field
-          @minimum_required_units_field ||= CustomFieldName.find_by(locale: 'es', value: 'Cantidad mínima requerida')&.custom_field
+          @minimum_required_units_field ||= CustomFieldName.find_by(locale: 'es', value: 'Cantidad mínima a solicitar')&.custom_field
         end
       end
 
