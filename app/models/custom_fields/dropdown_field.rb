@@ -24,7 +24,9 @@
 #
 
 class DropdownField < OptionField
-  validates_length_of :options, :minimum => 2
+  MINIMUM_LENGTH = 2
+
+  validates_length_of :options, minimum: MINIMUM_LENGTH = 1
 
   def with_type(&block)
     block.call(:dropdown)

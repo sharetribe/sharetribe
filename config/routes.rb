@@ -251,6 +251,15 @@ Rails.application.routes.draw do
         end
       end
       namespace :listings do
+        resources :listing_fields do
+          member do
+            get :delete_popup
+          end
+          collection do
+            post :order
+            post :add_unit
+          end
+        end
         resources :manage_listings, path: 'manage-listings', only: %i[index] do
           collection do
             patch :update

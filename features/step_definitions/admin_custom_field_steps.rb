@@ -42,6 +42,10 @@ Then /^I should see that I do not have any custom fields$/ do
   expect(all(".custom-field-title")).to be_empty
 end
 
+Then /^I should see that I do not have any listing fields$/ do
+  expect(all(".custom-field-list-row")).to be_empty
+end
+
 When /^I remove custom field "(.*?)"$/ do |title|
   steps %Q{
     Given I will confirm all following confirmation dialogs in this page if I am running PhantomJS
@@ -49,6 +53,13 @@ When /^I remove custom field "(.*?)"$/ do |title|
   find_remove_link_for_custom_field(title).click
   steps %Q{
     And I confirm alert popup
+  }
+end
+
+When /^I remove listing field "(.*?)"$/ do |title|
+  find_remove_link_for_custom_field(title).click
+  steps %Q{
+    And I press "Delete the listing field"
   }
 end
 
