@@ -52,4 +52,13 @@ class Location < ApplicationRecord
   def as_json(options={})
     super(options.merge(only: [:id, :latitude, :longitude, :address]))
   end
+
+  def coordinates(fuzzy_location)
+    if fuzzy_location
+      lat, lon = MapService.obfuscated_coordinates(listing_id, latitude, longitude)
+      { latitude: lat, longitude: lon }.to_json
+    else
+      self.to_json
+    end
+  end
 end

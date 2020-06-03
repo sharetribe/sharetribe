@@ -7,7 +7,7 @@
 
     $(document).ready(function() {
       initialize_listing_map(
-        #{raw listings_for_map(@listings).to_json},
+        #{raw MapService.listings_for_map(@listings, @current_community.fuzzy_location).to_json},
         "#{community_location_lat}",
         "#{community_location_lon}",
         #{raw viewport.to_json},

@@ -1,4 +1,6 @@
-module MapHelper
+module MapService
+  module_function
+
   EARTH_RADIUS = 6371000 # meters
   DEG_TO_RAD = Math::PI / 180.0
   THREE_PI = Math::PI * 3
@@ -13,7 +15,7 @@ module MapHelper
     [lat / DEG_TO_RAD, lng / DEG_TO_RAD]
   end
 
-  def obfuscated_coordinates(init_lat, init_lng)
+  def obfuscated_coordinates(listing_id, init_lat, init_lng)
     unless init_lat && init_lng
       return [nil, nil]
     end
@@ -22,8 +24,10 @@ module MapHelper
     sin_lat = Math.sin(lat)
     cos_lat = Math.cos(lat)
 
-    randomize_bearing = rand
-    randomize_distance = rand
+    cache_key = "#{listing_id}#{init_lat}#{init_lng}".gsub(/[^0-9]/, '').reverse.to_i
+
+    randomize_bearing = Random.new(cache_key).rand
+    randomize_distance = Random.new(cache_key).rand
 
     # Randomize distance and bearing
     distance = randomize_distance * FUZZY_OFFSET
@@ -44,7 +48,7 @@ module MapHelper
     rad_to_degrees(new_lat, new_lng_normalized)
   end
 
-  def listings_for_map(listings)
+  def listings_for_map(listings, fuzzy_location)
     listings.map do |listing|
       result = {
         category: listing[:category_id],
@@ -53,8 +57,8 @@ module MapHelper
         latitude: listing[:latitude],
         longitude: listing[:longitude]
       }
-      if @current_community.fuzzy_location
-        latitude, longitude = obfuscated_coordinates(listing[:latitude], listing[:longitude])
+      if fuzzy_location
+        latitude, longitude = obfuscated_coordinates(listing[:id], listing[:latitude], listing[:longitude])
         result[:latitude] = latitude
         result[:longitude] = longitude
       end
