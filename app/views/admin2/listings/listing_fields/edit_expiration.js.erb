@@ -1,0 +1,7 @@
+var popup = $('#dateEditModal');
+if (popup.length) {
+    popup.remove();
+}
+
+$('body').append('<%= j render 'admin2/listings/listing_fields/edit_date_popup' %>');
+$('#dateEditModal').modal('show');

@@ -17,15 +17,24 @@ class CustomFieldOption < ApplicationRecord
   include SortableByPriority # use `sort_priority()` for sorting
 
   belongs_to :custom_field
-  has_many :titles, :foreign_key => "custom_field_option_id", :class_name => "CustomFieldOptionTitle", :dependent => :destroy # rubocop:disable Rails/InverseOf
+  has_many :titles, foreign_key: :custom_field_option_id, class_name: 'CustomFieldOptionTitle', dependent: :destroy # rubocop:disable Rails/InverseOf
 
-  has_many :custom_field_option_selections, :dependent => :destroy
-  has_many :custom_field_values, :through => :custom_field_option_selections
+  has_many :custom_field_option_selections, dependent: :destroy
+  has_many :custom_field_values, through: :custom_field_option_selections
 
-  validates_length_of :titles, :minimum => 1
+  scope :sorted, -> { order(:sort_priority) }
+  validates_length_of :titles, minimum: 1
 
   def title(locale="en")
     TranslationCache.new(self, :titles).translate(locale, :value)
+  end
+
+  def json_data
+    selector_label = {}
+    titles.each { |t| selector_label[t.locale] = t.value }
+    { locals: titles.pluck(:locale),
+      uniq: id,
+      selector_label: selector_label }
   end
 
   def title_attributes=(attributes)

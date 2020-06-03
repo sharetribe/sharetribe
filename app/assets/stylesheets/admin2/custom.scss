@@ -125,3 +125,9 @@ a.remove:hover {
 }
 
 .tooltip { pointer-events: none; }
+
+.add-new-unit-content,
+.remove-unit-content,
+.edit-unit-content{
+  display: none
+}

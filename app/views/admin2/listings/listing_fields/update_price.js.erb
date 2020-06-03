@@ -1,0 +1,5 @@
+<% if @error %>
+  alert('<%= j @error %>');
+<% else %>
+  $('#priceEditModal').modal('hide');
+<% end %>

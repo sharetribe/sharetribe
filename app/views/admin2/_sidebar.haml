@@ -71,8 +71,8 @@
           %a{:href => 'categories.php'} Categories
         %li#ordertypes
           %a{:href => 'order-types.php'} Order types
-        %li#listingfields
-          %a{:href => 'listing-fields.php'} Listing fields
+        %li#listingfields{class: active_li('listing_fields')}
+          = link_to t('admin2.sidebar.listings.listing_fields'), admin2_listings_listing_fields_path
         %li#listingapproval{class: active_li('listing_approval')}
           = link_to t('admin2.sidebar.listings.listing_approval'), admin2_listings_listing_approval_index_path
         %li#listingcomments{class: active_li('listing_comments')}

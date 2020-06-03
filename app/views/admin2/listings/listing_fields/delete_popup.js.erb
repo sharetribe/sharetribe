@@ -1,0 +1,7 @@
+var popup = $('#listingFieldsDeleteModal');
+if (popup.length) {
+    popup.remove();
+}
+
+$('body').append('<%= j render 'admin2/listings/listing_fields/delete_popup', custom_field: @custom_field %>');
+$('#listingFieldsDeleteModal').modal('show');
