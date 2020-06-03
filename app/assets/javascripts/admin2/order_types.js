@@ -4,7 +4,6 @@ $(function() {
         $('#template_order_type option[value=""]').show();
         $('#template_order_type').prop('selectedIndex', 0);
         $('#category-body').html('');
-        $('.order-type-footer').hide();
     });
 
     $(document).on('click', '.confirm-order-type-true', function () {
