@@ -1506,7 +1506,7 @@ bg:
       confirmation_link_text: ~
     common:
       hey: "Здравейте %{name},"
-      hi: ~
+      hi: "Здравей %{name},"
       kassi_team: "Екипът на %{service_name}"
       thanks: "Благодаря,"
       dont_want_to_receive_these_emails: "Не искате да получавате тези имейли?"
@@ -1544,7 +1544,7 @@ bg:
       join_now: ~
       invitation_code: ~
     invitation_to_kassi_v2:
-      headline: ~
+      headline: Здравей!
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
@@ -1648,7 +1648,10 @@ bg:
       settings_link_text: "Редактирайте настройките си за имейл тук"
       unsubscribe_link_text: отписване
     community_updates_v2:
-      headline: ~
+      headline: "Проверете последната активност на %{service_name}."
+      intro_paragraph:
+        one: "Виж събития, случили се на %{service_name} за последния ден."
+        other: "Виж събития, случили се на %{service_name} през последните %{count} дни."
     newsletter:
       hi: "Здравей %{name},"
       newest_offers: "Какво хората предлагат в момента на другите"

@@ -1713,8 +1713,8 @@ de:
       one_day_left: "Wenn du die Anfrage nicht innerhalb eines Tages akzeptierst, wird sie automatisch abgelehnt, und du erhälst keine Zahlung."
       click_here_to_reply: "Klicke hier, um auf die Anfrage zu antworten"
     transaction_preauthorized_reminder_v2:
-      headline: "erinnere dich daran, die Anfrage von %{requester} über %{listing_link} anzunehmen."
-      remember_to_accept: "%{requester} hat schon für die Anzeige bezahlt. Du musst die Anfrage annehmen, um die Zahlung zu bekommen."
+      headline: "denke daran, die Anfrage von %{requester} über %{listing_link} anzunehmen."
+      remember_to_accept: "%{requester} hat schon für die Anzeige bezahlt. Du musst die Anfrage annehmen, um die Zahlung zu erhalten."
     welcome_email:
       welcome_email_subject: "Willkommen bei %{service_name}"
       welcome_to_marketplace: "Willkommen bei %{service_name}! Schön, dass du dabei bist."
@@ -2550,7 +2550,7 @@ de:
       week: Woche
       month: Monat
       unit: Einheit
-      person: Persone
+      person: Person
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:

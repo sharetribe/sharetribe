@@ -64,7 +64,7 @@ lv:
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: "Saglabāt iestatījumus"
-        invite_people: ~
+        invite_people: "Uzaiciniet jaunus lietotājus"
         edit_signup_info: ~
         edit_signup_info_description: ~
         edit_info: ~
@@ -283,14 +283,14 @@ lv:
           posting_allowed: ~
           accepted: ~
           unconfirmed: ~
-          pending: ~
+          pending: Gaida
         this_user_hasnt_confirmed_their_email_address: ~
         unconfirmed_user: ~
         resend: ~
         cancel: ~
         confirm: ~
         user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+        pending_user: "Gaida: %{name}"
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -458,9 +458,9 @@ lv:
           canceled: ~
           disputed: ~
           preauthorized: ~
-          rejected: ~
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
+          rejected: Noraidīts
+          payment_intent_requires_action: Gaida
+          payment_intent_action_expired: Beidzies
           refunded: ~
           dismissed: ~
         headers:
@@ -475,10 +475,10 @@ lv:
         status:
           conversation: ~
           free: ~
-          pending: ~
+          pending: Gaida
           preauthorized: ~
           accepted: ~
-          rejected: ~
+          rejected: Noraidīts
           paid: ~
           confirmed: ~
           canceled: ~
@@ -489,10 +489,10 @@ lv:
             free: ~
           paypal:
             free: ~
-            pending: ~
+            pending: Gaida
             preauthorized: ~
             accepted: ~
-            rejected: ~
+            rejected: Noraidīts
             paid: ~
             confirmed: ~
             canceled: ~
@@ -503,18 +503,18 @@ lv:
             dismissed: ~
           stripe:
             free: ~
-            pending: ~
+            pending: Gaida
             preauthorized: ~
             accepted: ~
-            rejected: ~
+            rejected: Noraidīts
             paid: ~
             confirmed: ~
             canceled: ~
             disputed: ~
             initiated: ~
             pending_ext: ~
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
+            payment_intent_requires_action: Gaida
+            payment_intent_action_expired: Beidzies
             payment_intent_failed: ~
             refunded: ~
             dismissed: ~
@@ -598,10 +598,10 @@ lv:
           all: "Visi statusi"
           selected_js: ~
           open: Pieejams
-          closed: ~
-          expired: ~
-          approval_pending: ~
-          approval_rejected: ~
+          closed: Slēgts
+          expired: Beidzies
+          approval_pending: Gaida
+          approval_rejected: Noraidīts
         headers:
           title: Virsraksts
           author: ~
@@ -610,11 +610,11 @@ lv:
           category: Kategorija
           status: Statuss
         open: Pieejams
-        closed: ~
-        expired: ~
+        closed: Slēgts
+        expired: Beidzies
         approved: ~
-        approval_pending: ~
-        approval_rejected: ~
+        approval_pending: Gaida
+        approval_rejected: Noraidīts
         form:
           this_listing_has_not_not_been_approved_yet: ~
           approve: ~
@@ -1556,7 +1556,7 @@ lv:
       you_have_a_new_message: "Jauna vēstule %{service_name} no %{sender_name}"
     new_message_v2:
       headline: ~
-      reply: ~
+      reply: "Atbildēt priekš - %{sender}"
     new_payment:
       new_payment: "Jūs esat saņēmis jaunu maksājumu"
       price_per_unit_type: "Cena par %{unit_type}"
@@ -1805,7 +1805,7 @@ lv:
       accept_authorization_error: "Radās kļūda, mēģinot pieņemt iepriekš autorizētu Stripe maksājumu. Lūdzu mēģiniet vēlreiz."
       reject_authorization_error: "Radās kļūda, mēģinot noraidīt iepriekš autorizētu Stripe maksājumu. Lūdzu mēģiniet vēlreiz."
       card_declined: ~
-      expired_card: ~
+      expired_card: "Maksājums neizdevās, jo šīs kartes derīguma termiņš ir beidzies"
   error_pages:
     back_to_kassi_front_page: "Atpakaļ uz galveno lapu"
     error_404:
@@ -1886,7 +1886,7 @@ lv:
     requests: Pieprasījumi
     search_kassi: "Meklēt %{service_name}"
     create_new_marketplace: "Izveidojiet jaunu tirgošanās vietu"
-    contact_us: "Sazināties ar mums"
+    contact_us: "Sazinies ar mums"
     profile: Profils
     manage_listings: "Pārvaldīt sludinājumus"
     invite: "Uzaicināt jaunus dalībniekus"
@@ -1934,7 +1934,7 @@ lv:
     grid_item:
       processing_uploaded_image: "(Apstrādā augšupielādēto attēlu...)"
     index:
-      no_listings_with_your_search_criteria: "Atvainojiet, sludinājumi, pēc Jūsu meklēšanas kritērijiem, netika atrasti. Varbūt pamēğiniet citus meklēšanas kritērijus?"
+      no_listings_with_your_search_criteria: "Atvainojiet, sludinājumi, pēc ievadītajiem meklēšanas kritērijiem, netika atrasti. Pamēģiniet citus meklēšanas kritērijus?"
       no_listings_notification: "Nav sludinājumi. %{add_listing_link}."
       add_listing_link_text: "Pievienot jaunu sludinājumu"
       open_listing: "atvērts sludinājums"
@@ -1963,14 +1963,14 @@ lv:
       filter: Filtrēt
       this_is_private_community: "Lai varētu apskatīt saturu, jums ir jāpiereģistrējas."
     invitation_form:
-      email: "E-pasta adrese (es)"
+      email: "E-pasta adrese(es)"
       message: "Privāts ziņojums"
       send_invitation: "Nosūtīt ielūgumu"
       add_email_addresses_description: "Zemāk redzamajā laukā pievienojiet uzaicināto personu e-pasta adreses. Lai pievienotu vairākas e-pasta adreses, atdaliet tās ar komatu."
       add_lots_of_email_addresses: "Tā kā Jūs esat administrators, šeit ir padoms: ja Jūs plānojat sūtīt daudz uzaicinājumus, Jums vajadzētu izmantot e-pastu sūtīšanas rīku. Apskatiet %{this_article_link}, lai noskaidrotu piemērotus e-pasta pakalpojumus."
       this_article_link: "šis raksts"
-      invitation_emails_field_placeholder: "draugs1@piemērs.com, draugs2@piemērs.com, ..."
-      invitation_message_field_placeholder: "Es pievienojos šai lieliskajai vietnei. Jums arī vajadzētu!"
+      invitation_emails_field_placeholder: "draugs1@piemērs.lv, draugs2@piemērs.lv, ..."
+      invitation_message_field_placeholder: "Es jau pievienojos šai lieliskajai mājaslapai. Jums arī vajadzētu!"
       errors_in_emails: "Pārbaudiet, vai pievienotās e-pasta adreses ir derīgas un tās nesatur neparastas rakstu zīmes. Ja pievienojāt vairākas adreses, pārliecinieties, vai tās ir atdalītas ar komatu."
     list_item:
       review: atsauksme
@@ -2524,7 +2524,7 @@ lv:
       dates_not_available: "Atlasītie datumi nav pieejami"
       error_in_checking_availability: "Nevarēja pārbaudīt atlasīto datumu pieejamību"
       details: "Sīkāka informācija"
-      by: "%{author} sludinājums %{listing}"
+      by: "%{author} - pakalpojums - %{listing}"
       payment: Maksājums
       exp: "Derīguma termiņš:"
       you_will_be_charged: "No Jums tiks ieturēts maksājums tikai tad, ja %{author} apstiprinās darījumu. %{author} nepieciešams apstiprināt darījumu %{expiration_period} dienu laikā. Ja %{author} noraidīs vai neatbildēs, maksājums no Jums netiks ieturēts."
@@ -2967,11 +2967,11 @@ lv:
     days_ago: "%{count} dienas atpakaļ"
     hour_ago: "%{count} stundu atpakaļ"
     hours_ago: "%{count} stundas atpakaļ"
-    minute_ago: "%{count} minūti atpakaļ"
-    minutes_ago: "%{count} minūtes atpakaļ"
+    minute_ago: "pirms %{count} minūti"
+    minutes_ago: "pirms %{count} minūtēm"
     month_ago: "%{count} mēnesi atpakaļ"
     months_ago: "%{count} mēneši atpakaļ"
-    seconds_ago: "%{count} sekundes atpakaļ"
+    seconds_ago: "pirms %{count} sekundēm"
     year_ago: "%{count} gadu atpakaļ"
     years_ago: "%{count} gadu atpakaļ"
     days_since:
@@ -3016,7 +3016,7 @@ lv:
         one: "(1 stunda)"
         other: "(%{count} stundas)"
       start_end_time: "%{start_time} līdz %{end_time}"
-    price_per_quantity: "Cena par %{unit_type}:"
+    price_per_quantity: "Cena %{unit_type}:"
     price: "Cena:"
     quantity: "Daudzums: %{quantity}"
     unit_price: "Vienības cena: %{unit_price}"
