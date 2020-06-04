@@ -20,7 +20,7 @@ module Donalo
       delta = -transaction.listing_quantity
       delta = -delta if rollback
 
-      stock.numeric_value.to_i + delta
+      current_quantity + delta
     end
 
     def transaction
@@ -33,6 +33,10 @@ module Donalo
 
     def stock
       @stock ||= listing.stock
+    end
+
+    def current_quantity
+      stock.numeric_value.to_i
     end
   end
 end

@@ -157,6 +157,7 @@ module Donalo
         class << self
           alias_method :original_reject, :reject
           alias_method :original_create, :create
+          alias_method :original_complete_preauthorization, :complete_preauthorization
 
           def create(opts, force_sync: true)
             result = original_create(
@@ -190,6 +191,19 @@ module Donalo
             ).update
 
             result
+          end
+
+          def complete_preauthorization(community_id:, transaction_id:, message: nil, sender_id: nil)
+            Donalo::AvailabilityUpdater.new(
+              transaction_id: transaction_id,
+            ).update
+
+            original_complete_preauthorization(
+              community_id: community_id,
+              transaction_id: transaction_id,
+              message: message,
+              sender_id: sender_id
+            )
           end
         end
       end
