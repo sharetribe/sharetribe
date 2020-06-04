@@ -104,7 +104,8 @@ module Donalo
           @stripe_account ||= MockStripeAccount.new
         end
       end
-      app.config.assets.precompile += %w(donalo/styles.css)
+
+      app.config.assets.precompile += %w(donalo/styles.css donalo/styles-non-admin.css)
     end
 
     # stock control
