@@ -822,7 +822,7 @@ et:
           main_title: Peapealkiri
           column_header: "Veerg %{index}"
           column_title: "Veeru %{index} pealkiri"
-          web_viewer: ~
+          web_viewer: veebiversioon
           column_icon_info: "Oma ikooni saate valida selle %{link} seast. Kui olete ikooni valinud, kopeerige 'Directory path' (näiteks '01-Interface Essential / 01-Home / house-2.svg ') ja kleepige see siia."
           column_icon: "Veeru %{index} ikoon"
           column_paragraph: "Veeru %{index} lõik"
@@ -1593,7 +1593,7 @@ et:
       price_per_unit_type: "Hind %{unit_type}"
       quantity: "Kogus:"
       you_have_received_new_payment: "Kasutaja %{payer_full_name} on sulle tasunud <b> %{payment_sum} </b><b>  %{listing_title} </b>  eest. Siin on sinu kviitung."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, %{unit_type}  kohta"
     payment_receipt_to_seller:
       payment_gateway_fee: "Makse töötlemise tasu:"
       shipping_total: "Kohaletoimetamine:"
@@ -1627,7 +1627,7 @@ et:
       service_fee: Teenustasu
       stripe_gateway_fee: "Stripe tasu"
       paypal_gateway_fee: "PayPali tasu:"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Raha kantakse kontole %{recipient_name}, kui a) olete märkinud, et taotlus on täidetud või b) %{automatic_confirmation_days} päeva on möödunud maksmisest."
     payment_receipt_to_payer_v2:
       headline: "siin on teie %{listing_link} kviitung."
       you_have_made_new_payment: "Sa oled tasunud <b>%{payment_sum}</b> for <b>%{listing_title}</b>"
@@ -1653,7 +1653,7 @@ et:
       stripe_gateway_fee: "Stripe tasu"
       paypal_gateway_fee: "PayPali tasu:"
       money_will_be_transferred: "Raha kantakse kontole %{recipient_name}, kui a) olete märkinud, et taotlus on täidetud või b) %{automatic_confirmation_days} päeva on möödunud maksmisest."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, %{unit_type} kohta"
       stripe:
         you_have_made_new_payment: "Olete maksnud <b>%{payment_sum}</b> <b>%{listing_title}</b> eest. Raha hoiab %{service_name} ja see vabastatakse aadressil %{recipient_full_name} kui märgite tellimuse täidetuks. Siin on makse kviitung."
     new_testimonial:
@@ -2533,7 +2533,7 @@ et:
       processing_uploaded_image: "(Laen pilti üles...)"
       listing_created_at: "Kirje on loodud"
       price:
-        per_quantity_unit: ~
+        per_quantity_unit: "%{quantity_unit} kohta"
         per_day: "päeva kohta"
       delivery: "Kohaletoimetamise viis"
       shipping: "Kohaletoimetamine (+%{price})"
@@ -3254,7 +3254,7 @@ et:
       ssn_last_4: "Sotsiaalkindlustusenumbri (SSN) viimased 4 numbrit"
       hong_kong_identity_card: "Hong Kongi ID kaardi number (HKID)"
       singapore_identity_card: "Riiklik registreerimiskaart (NRIC) või välisriigi isikukood (FIN)"
-      mexico_id_number: ~
+      mexico_id_number: "Isiklik ID number (CURP)"
       messages:
         social_insurance_number: "Peab olema kehtiv sotsiaalkindlustusnumber (SIN)"
   payment_settings:
@@ -3304,10 +3304,10 @@ et:
         cta_button_url: URL
   canada_states:
     AB: Alberta
-    BC: "British Columbia"
+    BC: "Briti Columbia"
     MB: Manitoba
     NB: "New Brunswick"
-    NL: "Newfoundland and Labrador"
+    NL: "Newfoundland ja Labrador"
     NS: "Nova Scotia"
     NT: "Northwest Territories"
     NU: Nunavut

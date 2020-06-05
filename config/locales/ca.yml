@@ -2029,7 +2029,7 @@ ca:
       list: "Mostrar llista"
       map_button: Mapa
       grid_button: "Vista resumida"
-      list_button: Lllista
+      list_button: LLista
       all_listing_types: "Tots els tipus d'anuncis"
       all_categories: "Totes les categories"
     errors:
@@ -3148,6 +3148,8 @@ ca:
     models:
       person:
         zero: usuaris
+        one: usuari
+        other: usuaris
       transaction:
         zero: transaccions
         one: transacció
