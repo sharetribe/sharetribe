@@ -61,7 +61,7 @@ class Transaction < ApplicationRecord
   # While initiated is technically not a finished state it also
   # doesn't have any payment data to track against, so removing person
   # is still safe.
-  FINISHED_TX_STATES = ['initiated', 'free', 'rejected', 'confirmed', 'canceled', 'errored'].freeze
+  FINISHED_TX_STATES = ['initiated', 'free', 'rejected', 'confirmed', 'canceled', 'errored', 'payment_intent_action_expired', 'payment_intent_failed', 'refunded', 'dismissed', 'disputed'].freeze
 
   attr_accessor :contract_agreed
 
