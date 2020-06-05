@@ -1824,10 +1824,10 @@ ja:
       reject_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
     stripe:
       generic_error: "支払い処理中にエラーが発生しました。 Stripeの支払いを完了できませんでした。"
-      accept_authorization_error: ~
+      accept_authorization_error: 事前に承認されたStripeの支払いを受け入れるときにエラーが発生しました。もう一度やり直してください。
       reject_authorization_error: ~
-      card_declined: ~
-      expired_card: ~
+      card_declined: あなたのカードは拒否されました。
+      expired_card: このカードは有効期限が切れているため、支払いに失敗しました。
   error_pages:
     back_to_kassi_front_page: 前のページに戻る
     error_404:
@@ -1867,10 +1867,10 @@ ja:
       on_or_after: "%{restriction}以後でなければなりません"
       positive_number: 数字を入力。
       from_must_be_less_than_till: ~
-      section_with_this_id_already_exists: ~
+      section_with_this_id_already_exists: このセクションの固有の名前はすでに使用されています。別の名前を選んでください。
       listing_with_this_id_does_not_exist: ~
-      presence: ~
-      username_is_invalid: ~
+      presence: 空白は使えません。
+      username_is_invalid: このユーザー名は無効または使用することができません
       domain_name_is_invalid: ~
       only_supported_variables: ~
   event_feed_events:
@@ -2241,7 +2241,7 @@ ja:
       user_does_not_have_email_to_delete: 削除しようとしていたメールアドレスは、正しくありません。
       email_deleted: メールアドレスは削除されました
       listing_author_payment_details_missing: この投稿の作成者はお支払い詳細を追加していないので、現在のところお支払いを受け取れません。「問合せ」ボタンをクリックして、このリストの作者に直接連絡を取ってください。
-      listing_author_payment_details_missing_no_free: ~
+      listing_author_payment_details_missing_no_free: "%{service_name} 事務局に問い合わせ、リストの作成者へ報酬を受け取るために支払いの詳細を更新するように依頼してください。"
       images_are_processing: 現在画像を処理中です、今しばらくお待ちください。
       maintenance_mode:
         zero: メンテナンスのため、このウェブサイトは只今より一時的にオフラインになります
@@ -3137,9 +3137,9 @@ ja:
     paypal_connected: ペイパルアカウントは正常に接続されました
     paypal_can_accept: ペイパルアカウントでお金を受け取れるようになりました
     paypal_connected_give_permission: "セットアップを完了してPayPalアカウント%{email} への入金を開始するには、取引手数料を請求する許可を付与してください。"
-    stripe_account_restricted: ~
+    stripe_account_restricted: アカウントへのオンライン支払いは制限されているか、まもなく制限されます。
     stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon: まもなくアカウントへのオンライン支払いは制限されます。
     stripe_account_restricted_soon_info: ~
     stripe_account_pending_verification: ~
     stripe_account_pending_verification_info: ~
