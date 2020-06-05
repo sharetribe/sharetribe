@@ -1241,7 +1241,7 @@ fr:
       title: "Commission et frais de transactions"
       stripe: Stripe
       paypal: PayPal
-      info: "Les paiements sur %{service_name} sont gérés par les plateformes de paiement listées ci-dessous. %{service_name} facture une commission qui peut diffèrer selon la plateforme de paiement utilisée. Cette dernière peut également facture des frais pour chaque paiement, comme décrit ci-dessous."
+      info: "Les paiements sur %{service_name} sont gérés par les plateformes de paiement listées ci-dessous. %{service_name} facture une commission qui peut diffèrer selon la plateforme de paiement utilisée. Cette dernière peut également facturer des frais pour chaque paiement, comme décrit ci-dessous."
     paypal_fee_info:
       title: "Frais de transaction PayPal"
       body_text: |-
