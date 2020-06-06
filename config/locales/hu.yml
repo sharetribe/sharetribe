@@ -94,7 +94,7 @@ hu:
             A címke például lehet: "A jelölőnégyzetre kattintva elfogadom a feltételeket."
         transaction_agreement_text_header: "Felhasználói feltételek"
         transaction_agreement_description: "A használati feltételek tartalmát a felhasználónak tudomásul kell vennie. A használati feltételek tartalma akkor kerül megjelenésre ha a felhasználó  rákattint a \"%{read_more}\" linkre amely használati feltételek címke mellett található."
-        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content: "Feltételek, adatvédelmi irányelvek és statikus tartalom"
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Piactér szerkesztése \"%{community_name}\" nézet és érzet"
@@ -119,7 +119,7 @@ hu:
         cover_photo_visibility: "A borítókép a nyitóoldalon jelenik meg azok számára akik nincsenek bejelentkezve."
         cover_photo_instructions_text_with_dimensions: "A kép újr lesz méretve %{width}x%{height} pixel nagyságúra és a magasabb képek félbe lesznek vágva. %{see_how_it_looks_like}"
         we_have_you_covered: ~
-        cover_photo_ready_made: ~
+        cover_photo_ready_made: "Kész és optimalizált borítóképeket keres? Vagy szeretne inspirációt és webhelyeket találni, ahol remek borítóképeket talál? %{link}"
         small_cover_photo_visibility: "A kis borítókép az összes oldalon megjelenik a nyitóoldal kivételével ahol a felhasználók nincsenek bejelentkezve."
         small_cover_photo_instructions_text_with_dimensions: "A kép újra lesz méretve %{width}x%{height} pixel nagyságúra és a magasabb képek félbe lesznek vágva."
         main_content_width: "A fedőkép  kiválasztásakor vegye figyelembe, hogy az oldal maximálisan %{main_width} pixel szélességű. Ellenőrizze kisebb képernyőn is a fedőkép megjelenítését (pl: egy sokkal keskenyebb keresőablakot használva)."
@@ -223,7 +223,7 @@ hu:
         users_can_invite_new_users: "Engedélyezés az összes felhasználónak új felhasználók meghívására"
         private: "Hirdetések és felhasználói profilok megtekintése kizárülag regisztrált felhasználók részére (privát piactér létrehozása)"
         require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hirdetéseket"
-        allow_free_conversations: ~
+        allow_free_conversations: "Engedélyezze, hogy a felhasználók szabadon üzenjenek egymásnak."
         search_preferences: "Keresési beállítások"
         search_and_location_preferences: ~
         default_search_type: "Keresés típusa: %{select_search_type}"
@@ -263,8 +263,8 @@ hu:
         you_will_be_redirected_to: "A piactere törlését követően önt átirányítjuk %{destination} oldalra. A továbbiakban nem lesz hozzáférése a piacteréhez."
         delete_this_marketplace: "Piactér törlése"
         payment_preferences: "Fizetési rendszer"
-        pre_approved_listings: ~
-        email_admins_about_new_transactions: ~
+        pre_approved_listings: "Tekintse át az összes hirdetést, mielőtt azokat közzétennénk"
+        email_admins_about_new_transactions: "Küldjön e-mailt az adminoknak, amikor egy új tranzakció indul"
       manage_members:
         manage_members: "Felhasználók kezelése"
         email: E-mail
@@ -374,11 +374,11 @@ hu:
         search_meta_description_label: ~
         search_meta_description_info: ~
         search_meta_description_link_text: "További információ a metacímkékről."
-        listing_title: ~
-        listing_meta_title_label: ~
+        listing_title: "Hirdetési oldal"
+        listing_meta_title_label: "Hirdetési oldal cím meta tag"
         listing_meta_title_info: ~
         listing_meta_title_link_text: "További információ a metacímkékről."
-        listing_meta_description_label: ~
+        listing_meta_description_label: "Hirdetési oldal leírás meta tag"
         listing_meta_description_info: ~
         listing_meta_description_link_text: "További információ a metacímkékről."
         category_title: "Kategória oldal"
@@ -397,13 +397,13 @@ hu:
         profile_meta_description_link_text: "További információ a metacímkékről."
         sitemap_label: Oldaltérkép
         sitemap_info: ~
-        sitemap_info_link_text: ~
-        sitemap_info_public: ~
+        sitemap_info_link_text: "Tudjon meg többet az XML fájlról."
+        sitemap_info_public: "A oldaltérképet automatikusan létrehozza a piactér: az 500 legfrissebb hirdetésre hivatkozik a webhelyén. Oldaltérképét a következő címen érheti el: %{link}"
         sitemap_info_private: "Mivel az ön piactere privát, nincs hozzá oldaltérkép."
         robots_label: Robots.txt
         robots_info: "A Robots.txt egy szöveges fájl, amellyel webrobotokat (általában keresőmotorrobotokat) utasíthatunk, hogyan kell feltérképezni a webhely oldalait. %{link}"
         robots_info_link_text: "Tudjon meg többet a robots.txt fájlról"
-        robots_info_2: ~
+        robots_info_2: "A robots.txt fájlt automatikusan létrehozza a piactér. A robots.txt fájlhoz a következő címen férhet hozzá: %{link}."
         google_search_console: ~
         google_search_console_paragraph1: ~
         google_search_console_these_instructions: ~
@@ -475,8 +475,8 @@ hu:
           disputed: ~
           preauthorized: "Előzetesen engedélyezett"
           rejected: Elutasítva
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
+          payment_intent_requires_action: Függőben
+          payment_intent_action_expired: Lejárt
           refunded: ~
           dismissed: ~
         headers:
@@ -529,9 +529,9 @@ hu:
             disputed: ~
             initiated: "Várjuk a Stripe utalást"
             pending_ext: "Várjuk a Stripe utalást"
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
-            payment_intent_failed: ~
+            payment_intent_requires_action: Függőben
+            payment_intent_action_expired: Lejárt
+            payment_intent_failed: "Sikertelen Stripe fizetés"
             refunded: ~
             dismissed: ~
         not_available: "Nem elérhető"
@@ -585,13 +585,13 @@ hu:
           save: Mentés
           cancel: Töröl
           delete_review: "Vélemény törlése"
-          block_review: ~
+          block_review: "Vélemény blokkolása"
           confirm_modify: "Biztos benne, hogy módosítani / törölni szeretné ezt az értékelést? A vélemény szerkesztése / törlése után a régi adatokat nem lehet helyreállítani."
           deleting_info: "Az értékelés törlése lehetővé teszi a szerző számára, hogy ugyanahhoz a tranzakcióhoz új értékelést írjon."
           blocking_info: "A megjegyzés blokkolása a törlés után megakadályozza a szerzőt, hogy ugyanahhoz a tranzakcióhoz újabb megjegyzést hagyjon."
           unskip: ~
           if_you_unskip_the_review: ~
-          they_will_not_be_notified_automatically: ~
+          they_will_not_be_notified_automatically: "Őket nem értesítjük automatikusan."
       invitations:
         invitations: Meghívók
         used:
@@ -601,7 +601,7 @@ hu:
           sent_by: "Az üzenetet küldte"
           message: Üzenet
           sent_to: "Az üzenet elküldve"
-          used: ~
+          used: Használt
           date_sent: "Küldés dátuma"
       listings:
         listings: Hirdetések
@@ -632,7 +632,7 @@ hu:
         approval_pending: Függőben
         approval_rejected: Elutasítva
         form:
-          this_listing_has_not_not_been_approved_yet: ~
+          this_listing_has_not_not_been_approved_yet: "Ez a hirdetés még nem lett jóváhagyva. Most dönthet úgy, hogy jóváhagyja vagy elutasítja a hirdetést. Ha jóváhagyja a lhirdetést, az nyilvános és minden felhasználó számára látható lesz. Ha elutasítja a hirdetést, az nem lesz nyilvános."
           approve: Jóváhagy
           reject: Elutasít
           cancel: Töröl
@@ -664,70 +664,70 @@ hu:
           url: URL
       domain:
         domain: domain
-        marketplace_domain: ~
+        marketplace_domain: "Piactér domain"
         offer_pro: ~
         upgrade_pro_plan_link: "Váltás a Pro vagy további csomagunkra"
         your_marketplace_address_is: "Az Ön piactér címe: %{address}"
         would_you_like_to_change_address: "Szeretné megváltoztatni a piacterének címét? %{contact_us}"
         contact_us: "Keressen minket"
         you_can_now_use_a_custom_domain: ~
-        would_you_like_to_change_domain: ~
+        would_you_like_to_change_domain: "Szeretné megváltoztatni a piactér egyedi domainjét? %{contact_us}"
         change_your_sharetribe_domain: ~
         only_letters_numbers_and_hyphens_can_be_used: ~
         when_you_change_your_sharetribe_domain: ~
         would_you_like_to_proceed: ~
         change: ~
       landing_pages:
-        landing_pages: ~
-        info_1: ~
-        info_2: ~
+        landing_pages: Nyitóoldal
+        info_1: "A kezdőoldal talán a piactér legfontosabb oldala. Ez az első oldal, amelyet a látogatók látnak - olyan, mint az Ön házának a bejárata. Csak néhány másodperc van arra, hogy meggyőzze az új látogatókat arról, hogy felfedezzék az Ön oldalát. Az oldalnak megnyerőnek, ajánlatának érthetőnek és vonzónak kell lennie."
+        info_2: "Ezzel a szerkesztővel bármikor módosíthatja a nyitóoldalt!"
         info_2_help_center: ~
-        info_3: ~
+        info_3: "Ha teljesen testreszabott kezdőoldalt szeretne kapni a piacterére, havi 99 dollárért megvásárolhatja azt."
         info_4: ~
-        editor_title: ~
+        editor_title: "Nyitóoldal szerkesztő"
         editor_info: ~
-        preview: ~
+        preview: "A nyitóoldal előnézete"
         set_live: ~
-        add_new_section: ~
+        add_new_section: "Új rész hozzáadása:"
         select_section_type: ~
         this_version_is_not_released: ~
         latest_version_released: ~
         check_it_out: ~
         form:
-          save: ~
+          save: Mentés
           cancel: ~
         sections:
           identifier: ~
           kind: ~
-          new: ~
+          new: "Új rész"
           edit: ~
           remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: ~
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
+          info_single_column: "Infó - Egy bekezdés"
+          info_multi_column_2: "Infó - Két bekezdés"
+          info_multi_column_3: "Infó - Három bekezdés"
+          listings: Hirdetések
+          categories: Kategóriák
+          hero: Hős
+          locations: Elhelyezkedés
+          video: Videó
           new_section:
-            categories: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Új \"kategóriák\" rész hozzáadása"
+            info_single_column: "Új \"Infó - egy bekezdés\" rész hozzáadása"
+            info_multi_column_2: "Új \"Infó - Két bekezdés\" rész hozzáadása"
+            info_multi_column_3: "Új \"Infó - Három bekezdés\" rész hozzáadása"
+            listings: "Új \"Hirdetések\" rész hozzáadása"
+            locations: "Új \"Elhelyezkedés\" rész hozzáadása"
+            video: "Új \"Videó\" rész hozzáadása"
           edit_section:
-            categories: ~
+            categories: "\"Kategóriák\" szerkesztése"
             footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            hero: "\"Hős\" rész szerkesztés"
+            info_single_column: "\"Infó - Egy oszlop\" rész szerkesztése"
+            info_multi_column_2: "\"Infó - két oszlop\" rész szerkesztése"
+            info_multi_column_3: "\"Infó - három oszlop\" rész szerkesztése"
+            listings: "\"Hirdetések\" rész szerkesztése"
+            locations: "\"Helyszínek\" rész szerkesztése"
+            video: "\"Videó\" rész szerkesztése"
       attachments:
         delete: ~
         or_change: ~
@@ -736,7 +736,7 @@ hu:
         content:
           title: ~
         hero:
-          hero_title: ~
+          hero_title: Hős
           hero_description: ~
           basic_details_tab: ~
           cta_button: ~
@@ -748,79 +748,79 @@ hu:
           button_content: ~
           click_me: ~
         footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
+          footer_title: Lábléc
+          footer_style: "Lábléc stílus"
+          style_dark: Sötét
+          style_light: Világos
+          style_marketplace_color: "Piactér fő szín"
+          style_logo: Logó
         cta_button:
           cta_button: ~
           cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
+          cta_text: Címke
+          cta_url: URL
           text_placeholder: ~
           url_placeholder: ~
         background_selector:
           title: ~
         background_image_overlay:
-          background_image: ~
-          background_image_info: ~
-          add_another_image: ~
-          current_image: ~
-          file_not_selected: ~
-          background_image_overlay: ~
-          background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
+          background_image: Háttérkép
+          background_image_info: "Ez a kép fog megjelenni háttérképként. A legjobb eredmény elérése érdekében minimális méretének 1600x1200 pixelnek kell lennie."
+          add_another_image: "Adjon hozzá még egy képet"
+          current_image: "Jelenlegi kép: %{filename}"
+          file_not_selected: "Nincs kiválasztva"
+          background_image_overlay: "Háttérkép borítás"
+          background_image_overlay_info: "Ez lehetővé teszi annak meghatározását, hogy a háttérkép milyen sötét vagy világos lesz. A \"transzparens\" azt jelenti, hogy egyáltalán nincs rajta filter."
+          overlay_dark: Sötét
+          overlay_light: Világos
+          overlay_transparent: Transzparens
         background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
+          background_style: Háttérstílus
+          style_image: Kép
+          style_color: Szín
+          style_none: "Egyik sem"
         background_color:
-          background_color: ~
+          background_color: Háttérszín
           background_color_info: ~
         categories:
-          add: ~
+          add: "+ Adjon hozzá új kategóriát ehhez a részhez"
           category: Kategória
           empty: ~
-          image: ~
+          image: Kép
           include_title: ~
           info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
+          need_at_least_3_categories: "Ebben a szekcióban legalább három kategóriának kell lennie"
+          need_at_most_7_categories: "Ebben a szekcióban legfeljebb hét kategória lehet"
         category:
-          add_another_image: ~
+          add_another_image: "Adjon hozzá még egy képet"
           category: Kategória
           current_image: ~
-          file_not_selected: ~
-          image: ~
+          file_not_selected: "Nincs kiválasztva"
+          image: Kép
           image_required: ~
           select_category: "Kategória kiválasztása"
         locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
+          add: "+ Adjon hozzá még egy helyszínt ehhez a szekcióhoz"
+          location: Helyszín
+          empty: "Nincs beépített helyszín"
+          image: Kép
+          include_title: "Megjelenítendő helyszínek"
+          info_text: "Három-hét helyszínt adhat meg. Kérjük, adjon hozzá egy képet minden egyes helyszínhez, és adja meg a helykeresési URL-t a piactere számára. A legjobb eredmény elérése érdekében az ajánlott képméret 1000 x 667 pixel."
+          need_at_least_3_locations: "Ebben a szekcióban legalább három helyszínt fel kell tüntetnie."
+          need_at_most_7_locations: "Ebben a szekcióban legfeljebb hét helyszín lehet"
         location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
+          add_another_image: "Adjon hozzá még egy képet"
+          location: Helyszín
+          current_image: "Jelenlegi kép: %{filename}"
+          file_not_selected: "Nincs kiválasztva"
+          image: Kép
+          image_required: "Töltsön fel egy képet ehhez a helyszínhez"
+          title: Cím
+          title_placeholder: "Helység címke"
+          url: URL
+          url_placeholder: "Helység URL"
         multi_column:
-          main_title: ~
+          main_title: Főcím
           column_header: ~
           column_title: ~
           web_viewer: ~
@@ -958,7 +958,7 @@ hu:
       emails_title: E-mailek
       subscription: Feliratkozás
       preview: "A honlap előnézete"
-      whats_new: ~
+      whats_new: "Mi újság?"
     listing_shapes:
       availability_title: Elérhetőség
       read_more: "Még több információ az automatikus elérhetőség menedzsmentről"
@@ -1275,7 +1275,7 @@ hu:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee: ~
+      paypal_fee: "PayPal tranzakciós díj"
       paypal_fee_info: "* %{link} kizárása"
       shipping_price_label: "Szállítás:"
       stripe-fee_label: "Fizetés feldolgozási díj"
@@ -1328,7 +1328,7 @@ hu:
       payment_preauthorized_wo_sum: "Fizetés engedélyezett"
       stripe:
         held_payment: "Kérés elfogadva. A %{sum} összeg a  %{service_name} -nél marad, amíg a megrendelés nincs teljesítve."
-        held_payment_wo_sum: ~
+        held_payment_wo_sum: "Kérés elfogadva. A fizetés a  %{service_name} -nél marad, amíg a megrendelés nincs teljesítettként jelölve."
         confirmed_request: "A rendelés teljesítettnek jelölve. Az összeg átutalása megtörtént %{author_name}  bankszámlájára vagy hamarosan átutalásra kerül."
       canceled_the_order: ~
       marked_as_refunded: ~
@@ -1733,7 +1733,7 @@ hu:
       view_listing: ~
       cant_click: ~
     new_member_notification:
-      subject: ~
+      subject: "Új tag a %{community} csoportban"
       new_member_has_joined: "Egy új tag kapcsolódott a %{community} közösséghez. Lehetséges, hogy még vissza kell igazolniuk az e-mailcímüket."
       this_is_automatic_message: "Ez egy automatikus üzenet melyet a %{community} közösség rendszergazdái kapnak."
       person_name: "Név:"
@@ -1745,29 +1745,29 @@ hu:
     listing_submited_for_review:
       subject: ~
       there_is_a_new_listing_to_review: ~
-      review_the_listing: ~
+      review_the_listing: "Nézze át az új hirdetést"
       this_is_automatic_message: ~
     listing_approved:
       subject: ~
-      listing_has_been_approved: ~
-      view_the_listing: ~
+      listing_has_been_approved: "Jó hír! A %{listing_title} hirdetést felülvizsgálta és jóváhagyta a %{community}  csapat. Mindenki számára látható."
+      view_the_listing: "Tekintse meg a hirdetést"
     listing_rejected:
-      subject: ~
-      listing_has_been_rejected: ~
-      contact_link: ~
-      edit_the_listing: ~
+      subject: "A %{community} csapat elutasította a hirdetését \"%{listing_title}\""
+      listing_has_been_rejected: "Sajnos a %{community} csapat elutasította a hirdetését \"%{listing_title}\" gondos áttekintést követően. Az alábbi linken %{contact_link} megtudhat többet az okokról, szerkesztheti hirdetését és újra benyújthatja felülvizsgálat céljából."
+      contact_link: "Vegye fel a kapcsolatot a %{community} csapattal."
+      edit_the_listing: "Módosítsa a hirdetést"
     edited_listing_submited_for_review:
       subject: ~
       there_is_a_edited_listing_to_review: ~
-      review_the_listing: ~
+      review_the_listing: "Tekintse meg a módosított hirdetéseket"
     new_transaction:
-      subject: ~
+      subject: "Új tranzakció itt %{service_name}"
       there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
+      a_new_transaction: "egy új tranzakció"
+      listing: "Hirdetés: %{title}"
+      sum: "Összeg: %{amount}"
+      starter: "Kezdő: %{name}"
+      provider: "Eladó: %{name}"
     new_transaction_v2:
       subject: ~
       there_is_a_new_transaction: ~
@@ -2110,16 +2110,16 @@ hu:
       notifications: Megjegyzések
     markdown_help:
       title: ~
-      description: ~
-      formatting: ~
+      description: "A Markdown egy egyszerű módja annak, hogy bármilyen eszközön jól nézzen ki a szöveg. Nem csinál semmi különöset, mint például a betűméret, szín vagy típus megváltoztatása - csak az alapvető fontosságú funkciókat, már ismert billentyűzet-szimbólumok felhasználásával."
+      formatting: Formázás
       result: Eredmény
       h1: H1
       h2: H2
       h3: H3
       italic: "dőlt betű"
-      bold: ~
+      bold: félkövér
       underline: Aláhúzás
-      strikethrough: ~
+      strikethrough: áthúzás
       inline_link: ~
       list: Lista
       one: Egy
@@ -2186,7 +2186,7 @@ hu:
       listing_updated_successfully: "Hidetését frissítette"
       listing_updated_availability_management_enabled: "Hirdetés frissítése sikeres. Az elérhetőség menedzser aktiválva."
       listing_updated_availability_management_disabled: "Hirdetés frissítése sikeres. Az elérhetőség menedzser kikapcsolva."
-      listing_deleted: ~
+      listing_deleted: "Hirdetés törölve"
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Csak a hirdetés feladója törölheti a hirdetést\n"
       only_listing_author_can_edit_a_listing: "Csak a hirdetés feladója szerkesztheti a hirdetést\n"
@@ -2255,7 +2255,7 @@ hu:
       listing_author_payment_details_missing: |-
           Kérjük a 'Kapcsolat' gombra kattintva lépjen kapcsolatba a hirdetővel. 
           A hirdetőnek frissítenie kell a fizetési információit, hogy átutalásokat tudjon fogadni.
-      listing_author_payment_details_missing_no_free: ~
+      listing_author_payment_details_missing_no_free: "Kérjük, vegye fel a kapcsolatot a %{service_name} csapattal, és kérje meg őket, hogy lépjenek kapcsolatba a hirdetés létrehozójával, hogy frissítse fizetési adatait a kifizetések fogadásához."
       images_are_processing: "A képei feldolgozás alatt vannak. Egy-két perc türelmét kérjük és láthatóak lesznek."
       maintenance_mode:
         other: "Karbantartási munkálatok miatt %{count} perc múlva a weboldal nem lesz elérhető "
@@ -2294,7 +2294,7 @@ hu:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Nem küldhet új hozzászólást, mert a hirdetés lezárult."
       you_must: "Szükség van erre:"
       subscribe_to_comments: "Értesítsen engem új hozzászólás vagy frissítés esetén"
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "A hirdetés törlését nem lehet visszavonni. Biztosan folytatni akarja?"
     edit:
       edit_listing: "Hirdetés szerkesztése"
     edit_links:
@@ -2306,11 +2306,11 @@ hu:
       show_in_updates_email_loading: Töltés...
       show_in_updates_email_error: "A szerver elérése sikertelen. Frissítés után próbálja újra."
       show_in_updates_email_success: "A hirdetést a legkorábbi automatikus e-mailben küldjük a felhasználóknak"
-      listing_is_pending: ~
-      listing_is_rejected: ~
-      approve_listing: ~
-      reject_listing: ~
-      delete_listing: ~
+      listing_is_pending: "A hirdetés jóváhagyásra vár"
+      listing_is_rejected: "A hirdetés el lett utasítva"
+      approve_listing: "Hagyja jóvá a hirdetést"
+      reject_listing: "Utasítsa el a hirdetést"
+      delete_listing: "Törölje a hirdetést"
     map:
       open_in_google_maps: "Megnyitása Google Maps-szal"
     error:
@@ -2394,7 +2394,7 @@ hu:
       send_button:
         save_listing: "Hirdetés mentése"
         submit_for_review: "Benyújtás elbírálásra"
-        will_be_reviewed: ~
+        will_be_reviewed: "A %{service_name} oldalon található összes hirdetést a közzététel előtt átnézzük. Amint a hirdetés jóvá van hagyva, Ön E-mailben értesítést kap róla és mindenki számára látható lesz."
         we_noticed_youre_an_admin: ~
       share_type:
         select: Válasszon
@@ -2475,7 +2475,7 @@ hu:
       select_one: "Válasszon egyet"
       start_time: "Kezdés ideje"
       end_time: "Befejezési időpont"
-      marketplace_fees_may_apply: ~
+      marketplace_fees_may_apply: "%{service_name} költségek léphetnek fel"
     new:
       listing: Hirdetés
       selected_category: "Kategória: %{category}"
@@ -2719,7 +2719,7 @@ hu:
       privacy: Adatvédelem
       visible_only_to_you: "csak Ön és az adminisztrátor látja"
       visible_to_everybody: "Mindenki számára látható"
-      create_account_with_provider: ~
+      create_account_with_provider: "Regisztráljon %{provider}"
       OR: VAGY
       signup_with_email: "Bejelentkezés emaillel"
       this_field_will_be_publicly_visible: "(Ez a mező nyilvánosan látható lesz)"
@@ -2787,7 +2787,7 @@ hu:
       account_creation_link_text: "Kattintson ide"
       cancle_facebook_connect: "Amennyiben nem szeretné összekapcsolni ezzel a fiókjával akkor kattintson ide: %{cancel_link}"
       facebook_cancel_link_text: Törlés
-      log_in_with_your_provider_account: ~
+      log_in_with_your_provider_account: "Jelentkezzen be %{provider}"
       or_sign_up_with_your_username: "...vagy a felhasználó nevével vagy e-mailcímével:"
       we_will_not_post_without_asking_you: "Soha nem posztolunk az Ön Facebookján a beleegyezése nélkül"
     password_forgotten:
@@ -2889,7 +2889,7 @@ hu:
       image_is_processing: "A profilképe feldolgozása folyamatban van. Kérjük, frissítse az oldalt egy kis idő elteltével."
       shown_in_your_public_profile: "(látható a nyilvános profilon)"
       editing_profile_of: "Ön most %{name} profilját szerkeszti"
-      format_markdown_link: ~
+      format_markdown_link: "Formázza a leírását a Markdown segítségével"
       format_markdown: ~
       username: ~
       username_description: ~
@@ -3132,6 +3132,7 @@ hu:
         multi_page_html: ~
         single_page_html:
           zero: "%{model} nem található"
+          other: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{other_count} other %{other_model}"
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: "Lépjen kapcsolatba a %{service_name} csapattal"
@@ -3254,8 +3255,8 @@ hu:
       listing_description: ~
       listing_description_without_price: ~
       category_description: ~
-      profile_title: ~
-      profile_description: ~
+      profile_title: "%{user} profilja - %{marketplace}"
+      profile_description: "Tudjon meg többet %{user} profiljáról itt %{marketplace}"
   activemodel:
     attributes:
       landing_page_version/section/base:
