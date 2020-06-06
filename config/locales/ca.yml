@@ -26,7 +26,7 @@ ca:
           no_parent: "Pàgina principal (sense superior)"
         category_transaction_types:
           transaction_types: "Tipus de comanda"
-          transaction_types_description: "Els tipus de comanda determinen quin tipus de procés de comanda es permet amb els llistats d'aquesta categoria. Per exemple, només es permet vendre o bé llogar i regalar gratuïtament."
+          transaction_types_description: "Els tipus de comanda determinen quin tipus de procés de comanda es permet amb els anuncis d'aquesta categoria. Per exemple, només es permet vendre o bé llogar i regalar gratuïtament."
           select_all: "Seleccionar tot"
           clear_all: "Borrar tot"
         buttons:
@@ -85,8 +85,8 @@ ca:
         edit_info: "Editar informació"
         see_how_it_looks_like: "Veure com es veu"
         verification_to_post_listings_info_content: "Text d'informació per a usuaris no verificats"
-        verification_to_post_listings_info_content_description: "Actualment, necessiteu que els usuaris us ho verifiquin manualment abans que puguin publicar fitxes. Aquí podeu definir el text predeterminat que es mostra als usuaris no verificats quan intenten publicar una fitxa nova."
-        verification_to_post_listings_info_content_default: "%{service_name} requereix que les persones es verifiquen manualment per administrador abans que puguin publicar fitxes. Encara no heu estat verificats. Si us plau, per verificar %{contact_admin_link}."
+        verification_to_post_listings_info_content_description: "Actualment, necessiteu que els usuaris us ho verifiquin manualment abans que puguin publicar anuncis. Aquí podeu definir el text predeterminat que es mostra als usuaris no verificats quan intenten publicar un anunci nou."
+        verification_to_post_listings_info_content_default: "%{service_name} requereix que les persones es verifiquen manualment per l'administrador abans que puguin publicar anuncis. Encara no haveu estat verificats. Si us plau, per verificar %{contact_admin_link}."
         contact_admin_link_text: "contacteu amb l’equip %{service_name}"
         save: "Guardar configuració"
         transaction_agreement: "Acord de transacció"
@@ -238,7 +238,7 @@ ca:
         listing_preferences: "Preferències dels anuncis"
         transaction_preferences: "Preferències de la comanda"
         show_listing_publishing_date: "Mostrar data de publicació de l'anunci a la descripció de l'anunci"
-        show_category_in_listing_list: "Mostrar el tipus d'ordre a la vista de la llista"
+        show_category_in_listing_list: "Mostrar el tipus d'ordre a la vista de l'anunci"
         listing_comments_in_use: "Tots els usuaris poden publicar comentaris en els anuncis (visibles per a la resta dels usuaris)"
         email_preferences: "Preferències de correus"
         automatic_newsletters: "Enviar el butlletí informatiu diari/setmanal a tots els usuaris (excepte si no han acceptat l'enviament de missatges automàtics)"
@@ -397,7 +397,7 @@ ca:
         sitemap_label: "Mapa del lloc"
         sitemap_info: "Els mapes del lloc són una forma senzilla d’informar els motors de cerca sobre les pàgines del vostre lloc disponibles per a rastreig. %{link}."
         sitemap_info_link_text: "Aprendre més sobre el fitxer de mapa de lloc XML"
-        sitemap_info_public: "Es genera automàticament un mapa del lloc per al vostre mercat: fa referència fins als 500 llistats més recents del vostre lloc web. Podeu accedir al vostre mapa del lloc a %{link}."
+        sitemap_info_public: "Es genera automàticament un mapa del lloc per al vostre mercat: fa referència fins als 500 anuncis més recents del vostre lloc web. Podeu accedir al vostre mapa del lloc a %{link}."
         sitemap_info_private: "Com que el vostre mercat és privat, no hi ha cap mapa del lloc."
         robots_label: Robots.txt
         robots_info: "Robots.txt és un fitxer de text per instruir els robots web (normalment els robots dels motors de cerca) com explorar les pàgines del vostre lloc web. %{link}."
@@ -844,7 +844,7 @@ ca:
         edit_listing_field: "Editar camp '%{field_name}'"
       edit_price:
         description: "El preu mínim i màxim només afecta al filtre. No estableix un límit per als preus dels anuncis."
-        edit_price_field: "Edita el camp de llistat 'Preu'"
+        edit_price_field: "Edita el camp de l'anunci 'Preu'"
         show_price_filter_homepage: "Mostrar filtre per preu a la pàgina principal"
         price_min: "Filtre per preu mínim"
         price_max: "Filtre per preu màxim"
@@ -857,15 +857,15 @@ ca:
         enable: "Habilitar la data d'expiració"
       form:
         field_required:
-          this_field_is_required: "Fa obligatori omplir aquest camp quan creeu una fitxa nova"
-          this_field_is_required_checkbox: "Fa obligatori omplir aquest camp quan creeu una fitxa nova (l’usuari ha de seleccionar almenys una opció)"
+          this_field_is_required: "És obligatori omplir aquest camp quan creeu un anunci nou"
+          this_field_is_required_checkbox: "Fa obligatori omplir aquest camp quan creeu un anunci nou (l’usuari ha de seleccionar almenys una opció)"
         search_filter:
           search_filter: "Crear un filtre basat en aquest camp a la pàgina d'inici"
           date_cant_be_filtered: "No hi ha filtres disponibles per al campo de data."
           text_cant_be_filtered: "No hi ha filtres disponibles per al camp de text. La barra de búsqueda principal busca en els camps de text."
       index:
         listing_fields: "Llistar camps i filtres"
-        listing_fields_help: "Aquí podeu editar els camps que han d’omplir els usuaris quan creen una fitxa nova. Si us plau, tingueu en compte que alguns camps estan predefinits i no es poden modificar."
+        listing_fields_help: "Aquí podeu editar els camps que han d’omplir els usuaris quan creen un anunci nou. Si us plau, tingueu en compte que alguns camps estan predefinits i no es poden modificar."
         add_new_field: "Afegir un camp nou:"
         remove_field_confirmation: "Esteu segur que voleu eliminar el camp '%{field_name}' i totes les seves dades? Això no es pot desfer."
         cancel: Cancel·lar
@@ -1048,11 +1048,11 @@ ca:
         one: "Hi ha %{count} anunci obert amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquest anunci no s'actualitzarà i mantindrà els ajustaments anteriors. Pots actualitzar els paràmetres de l'anunci editant-lo manualment. En cas que no vulguis que aquest anunci amb la configuració desactualitzats sigui visible en la teva comunitat, pots tancar-lo (desactivar-lo) fent clic al botó de sota."
         other: "Hi ha %{count}  anuncis oberts amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquests anuncis no s'actualitzaran i mantindran els ajustaments anteriors. Pots actualitzar la configuració dels anuncis editant -los manualment. En cas que no vulguis que aquests anuncis amb la configuració desactualitzats siguin visibles a la teva comunitat, pots tancar-los (desactivar-los) fent clic al botó de sota."
       close_listings_action:
-        one: "Tanca la llista de %{count}"
-        other: "Tanca els llistats de %{count}"
+        one: "Tanca l'anunci de %{count}"
+        other: "Tanca els anuncis de %{count}"
       confirm_close_listings_action:
-        one: "Esteu segur que voleu tancar el llistat %{count}?"
-        other: "Esteu segur que voleu tancar els llistats de %{count}?"
+        one: "Esteu segur que voleu tancar l'anunci %{count}?"
+        other: "Esteu segur que voleu tancar els anuncis de %{count}?"
     paypal_accounts:
       marketplace_paypal_integration: "Preferències del sistema de pagaments"
       preferences_updated: "Preferències del sistema de pagaments actualitzades"
@@ -1578,7 +1578,7 @@ ca:
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} ha comentat el teu anunci '%{listing}'. "
       view_comment: "Veure comentari"
-      you_have_a_new_comment: "%{author} ha comentat la teva llista en %{service_name}"
+      you_have_a_new_comment: "%{author} ha comentat el teu anunci en %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} ha comentat un anunci que segueixes a %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} ha comentat a l'anunci '%{listing}' que estàs seguint a %{service_name}."
     new_message:
@@ -1663,7 +1663,7 @@ ca:
     new_testimonial_v2:
       headline: "has rebut una valoració!"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "La llista que segueixes ha estat actualitzada"
+      listing_you_follow_has_been_updated: "L'anunci que segueixes ha estat actualitzat"
       has_updated_listing_you_follow_in_kassi: "%{author} ha actualitzat l'anunci '%{listing}' que estàs seguint a %{service_name}."
       view_changes: "Veure els canvis"
     community_updates:
@@ -1698,7 +1698,7 @@ ca:
       you_have_not_given_feedback_yet: "Donar una valoració sempre és una bona idea. Si tot va sortir bé, hauries de comptar a altres que %{name} és de confiança. Si hi va haver algun problema, també és bo que ho mencionis."
       leave_feedback: "Deixa una valoració per %{other_party_name}"
     transaction_preauthorized:
-      subject: "%{requester} està interessat i ha autoritzat el pagament de %{listing_title} publicat en %{service_name}"
+      subject: "%{requester} està interessat i ha autoritzat el pagament de %{listing_title} publicat a %{service_name}"
       transaction_requested_by_user: "Bona notícia! %{requester} està interessat en \"%{listing_title}\" i ha autoritzat el pagament."
       you_have_time_to_accept: "Has d'acceptar o rebutjar la sol·licitud dins de %{payment_expires_in}."
       if_you_do_accept: "SI acceptes la transacció durant aquest temps, rebràs els diners immediatament en el teu compte."
@@ -1743,21 +1743,21 @@ ca:
       new_member_has_joined: "%{name} (%{email}) s'ha unit a %{community}. Potser encara han de confirmar la seva adreça de correu."
       view_profile: "Veure perfil"
     listing_submited_for_review:
-      subject: "Nova fitxa per revisar: \"%{listing_title}\" per %{author_name} a%{community}"
-      there_is_a_new_listing_to_review: "Hi ha una nova fitxa per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquesta fitxa."
-      review_the_listing: "Revisa la fitxa nova"
+      subject: "Nou anunci per revisar: \"%{listing_title}\" per %{author_name} a%{community}"
+      there_is_a_new_listing_to_review: "Hi ha un anunci nou per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquesta fitxa."
+      review_the_listing: "Revisa el nou anunci"
       this_is_automatic_message: "Aquest és un missatge automàtic enviat als administradors de %{community}."
     listing_approved:
-      subject: "L'equip %{community} ha aprovat la vostra fitxa \"%{listing_title}\""
-      listing_has_been_approved: "Bona notícia! La vostra fitxa \"%{listing_title}\" ha estat revisada i aprovada per l'equip %{community}. Ha estat publicat."
-      view_the_listing: "Veure la fitxa"
+      subject: "L'equip %{community} ha aprovat el vostre anunci \"%{listing_title}\""
+      listing_has_been_approved: "Bona notícia! El vostre anunci \"%{listing_title}\" ha estat revisat i aprovat per l'equip %{community}. Ha estat publicat."
+      view_the_listing: "Veure l'anunci"
     listing_rejected:
-      subject: "L'equip %{community} ha rebutjat la vostra fitxa \"%{listing_title}\""
-      listing_has_been_rejected: "Malauradament, l’equip %{community} ha rebutjat la vostra fitxa \"%{listing_title}\" després de revisar-la detingudament. Podeu %{contact_link} per aprendre més o editar la fitxa i enviar-la a una nova revisió."
+      subject: "L'equip %{community} ha rebutjat el vostre anunci \"%{listing_title}\""
+      listing_has_been_rejected: "Malauradament, l’equip %{community} ha rebutjat el vostre anunci \"%{listing_title}\" després de revisar-lo detingudament. Podeu %{contact_link} per aprendre més o editar l'anunci i enviar-lo a una nova revisió."
       contact_link: "contacta a l'equip %{community}"
-      edit_the_listing: "Edita la fitxa"
+      edit_the_listing: "Edita l'anunci"
     edited_listing_submited_for_review:
-      subject: "Fitxa editada per revisar: \"%{listing_title}\" per %{author_name} a %{community}"
+      subject: "Anunci editat per revisar: \"%{listing_title}\" per %{author_name} a %{community}"
       there_is_a_edited_listing_to_review: "Hi ha una fitxa editada per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquesta fitxa."
       review_the_listing: "Revisa la fitxa editada"
     new_transaction:
@@ -1929,8 +1929,8 @@ ca:
     menu: Menú
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "A més hi a <b>aquesta altra oferta</b>,"
-      additionally_one_private_request_exists: "A més hi a <b>aquesta altra sol·licitud</b>,"
+      additionally_one_private_offer_exists: "A més hi ha <b>aquesta altra oferta</b>,"
+      additionally_one_private_request_exists: "A més hi ha <b>aquesta altra sol·licitud</b>,"
       additionally_some_private_offers_exist: "A més hi han <b>%{number_of_listings} altres ofertes</b>,"
       additionally_some_private_requests_exist: "A més hi han <b>%{number_of_listings} altres sol·licituds</b>,"
     blank_slate:
@@ -1970,7 +1970,7 @@ ca:
     index:
       no_listings_with_your_search_criteria: "Ho sentim, no s'ha pogut trobar cap fitxa per als criteris de cerca. Potser proveu altres termes de cerca?"
       no_listings_notification: "No hi ha anuncis. %{add_listing_link}."
-      add_listing_link_text: "Afegir una nova llista"
+      add_listing_link_text: "Afegir un nou anunci"
       open_listing: "anunci obert"
       open_listings: "obrir llistes"
       private_listing_notification_log_in: "Inicia sessió"
@@ -2188,8 +2188,8 @@ ca:
       listing_updated_availability_management_disabled: "Anunci actualitzat amb èxit. Maneig de la disponibilitat deshabilitat."
       listing_deleted: "S'ha suprimit la fitxa"
       only_kassi_administrators_can_access_this_area: "Si us plau, inicia sessió amb un compte d'administrado per a accedir a aquesta àrea"
-      only_listing_author_can_close_a_listing: "Només el creador d'una llista pot tancar-la"
-      only_listing_author_can_edit_a_listing: "Només el creador d'una llista pot editar-la"
+      only_listing_author_can_close_a_listing: "Només el creador d'un anunci pot tancar-lo"
+      only_listing_author_can_edit_a_listing: "Només el creador d'un anunci pot editar-lo"
       payment_successful: "Pagament exitós"
       payment_canceled: "Pagament cancelat"
       error_in_payment: "Hi ha hagut un error en el pagament. Si encara no has completat el procés, tornau a provar. Si ja ho vas completar, si us plau, contacta'ns."
@@ -2230,7 +2230,7 @@ ca:
       you_have_already_given_feedback_about_this_event: "Ja has enviat un suggeriment sobre aquest esdeveniment"
       you_are_now_member: "Benvingut a %{service_name}!"
       you_are_already_member: "Ja ets un membre de %{service_name}. Bentornat!"
-      you_must_log_in_to_create_new_listing: "Per crear una llista nova, heu d’iniciar sessió a %{service_name}. Si no teniu cap compte, podeu %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Per crear un anunci nou, haveu d’iniciar sessió a %{service_name}. Si no teniu cap compte, podeu %{sign_up_link}."
       additional_email_confirmed_dashboard: "El teu correu electrònic ha estat confirmat."
       you_must_log_in_to_give_feedback: "Has d'iniciar una sessió per fer una suggerència"
       you_must_log_in_to_invite_new_users: "Cal que inicis sessió per convidar a nous usuaris a %{service_name}"
@@ -2306,10 +2306,10 @@ ca:
       show_in_updates_email_loading: Carregant...
       show_in_updates_email_error: "No s'ha pogut connectar amb el servidor. Si us plau, actualitza la pàgina i torni a intentar-ho."
       show_in_updates_email_success: "Aquesta llista apareixerà al següent correu electrònic d’actualització automàtica enviat als usuaris"
-      listing_is_pending: "La fixa està pendent de ser aprovada"
-      listing_is_rejected: "La fitxa és rebutjada"
-      approve_listing: "La fitxa és aprovada"
-      reject_listing: "Fitxa rebutjada"
+      listing_is_pending: "L'anunci està pendent de ser aprovat"
+      listing_is_rejected: "L'anunci ha estat rebutjat"
+      approve_listing: "Aprovar anunci"
+      reject_listing: "Rebutjar anunci"
       delete_listing: "Suprimeix la fitxa"
     map:
       open_in_google_maps: "Obrir a Google Maps"
@@ -2324,7 +2324,7 @@ ca:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: "Selecció un.."
+          select_one___: "Seleccionar un.."
       departure_time:
         at: a
         departure_time: "Hora de sortida"
@@ -2340,7 +2340,7 @@ ca:
         favor: "un servei"
         housing: "un allotjament"
         item: "alguna cosa"
-        offer_something: "Ofereir alguna cosa"
+        offer_something: "Oferir alguna cosa"
         request_something: "Demanar alguna cosa"
         rideshare: "compartir cotxe"
         i_want_to_offer: "M'agradaria oferir..."
@@ -2352,7 +2352,7 @@ ca:
       images:
         image: Imatge
         best_result: "Per a millors resultats, utilitza imatges JPG, GIF o PNG que siguin de %{width} per %{height} píxels"
-        no_file_selected: "No hi ha fitxer seleccionat"
+        no_file_selected: "No hi ha cap fitxer seleccionat"
         remove_image: "Elimina la imatge"
         select_file: "Tria un fitxer"
         add_more: "+ Afegir més"
@@ -2394,7 +2394,7 @@ ca:
       send_button:
         save_listing: "Publica fitxa"
         submit_for_review: "Enviar per a revisió"
-        will_be_reviewed: "Totes les fitxes de %{service_name} es revisaran abans de publicar-los. Un cop s'hagi aprovat la fitxa, se us notificarà per correu electrònic i serà visible per a tots."
+        will_be_reviewed: "Totes els anuncis de %{service_name} es revisaran abans de publicar-los. Un cop s'hagi aprovat l'anunci, se us notificarà per correu electrònic i serà visible per a tots."
         we_noticed_youre_an_admin: "Ens hem adonat que sou un administrador de %{service_name}. Els canvis s’aplicaran automàticament i no necessitaran revisió ni aprovació."
       share_type:
         select: Seleccionar
@@ -2666,7 +2666,7 @@ ca:
     redirect_message: "Redirigint a PayPal. Si no succeeix res, fes clic %{redirect_link}."
     redirect_link_text: aquí
     paypal_account_all_set_up: "Molt bé! Tot està llest."
-    can_receive_payments: "Ara pots començar a rebre pagaments pels teus anuncis en línia."
+    can_receive_payments: "Ara pots començar a rebre pagaments pels teus anuncis."
     paypal_account_connected_summary: "Compte PayPal <%{email}> connectada amb èxit"
     paypal_permission_granted_summary: "permís donat per cobrar les comissions de transacció"
   paypal:
@@ -2751,13 +2751,13 @@ ca:
       review: "ressenya rebuda"
       reviews: "ressenyes rebudes"
       listing: llista
-      listings: llistes
+      listings: anuncis
       open_listing: "anunci obert"
       open_listings: "anuncis oberts"
       no_listings: "No hi ha anuncis"
       no_open_listings: "No hi ha anuncis oberts"
       no_reviews: "Sense ressenyes"
-      show_all_listings: "Mostrar totes les llistes"
+      show_all_listings: "Mostrar tots els anuncis"
       show_all_open_listings: "Mostrar tots els anuncis oberts"
       show_all_reviews: "Mostrar totes les ressenyes"
       admin_actions: "Accions d'administradors"
@@ -2849,14 +2849,14 @@ ca:
       email_about_new_messages: "...algú m'envia un missatge"
       email_about_new_received_testimonials: "...algú em dóna suggeriments"
       email_about_testimonial_reminders: "...he oblidat fer un suggeriment o donar informació sobre un esdeveniment"
-      email_daily_community_updates: "Envieu-me un butlletí <b>diari</b> si hi ha fitxes noves"
-      email_weekly_community_updates: "Envieu-me un butlletí <b>setmanal</b> si hi ha fitxes noves"
+      email_daily_community_updates: "Envieu-me un butlletí <b>diari</b> si hi ha anuncis nous"
+      email_weekly_community_updates: "Envieu-me un butlletí <b>setmanal</b> si hi ha anuncis nous"
       do_not_email_community_updates: "No m’envieu butlletins"
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"
       email_about_completed_transactions: "... algú marca la meva comanda com a completada"
       email_about_new_payments: "... rebut d'un nou pagament"
-      email_about_new_listings_by_followed_people: "... algú al qual segueixo publica una nova fitxa"
+      email_about_new_listings_by_followed_people: "... algú al qual segueixo publica un anunci nou"
       unsubscribe_succesful: "Subscripció cancel·lada exitosament"
       unsubscribe_info_text: "Deixaràs de rebre aquests correus. Revisa els teus %{settings_link} per escollir quina classe de correus vols rebre de %{service_name}, o torna a la %{homepage_link}."
       settings_link: configuracions
