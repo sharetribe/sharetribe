@@ -1786,8 +1786,8 @@ en:
       subject: "Order disputed - The %{service_name} team is reviewing the situation"
       subject_admin: "A transaction was disputed, you must decide what happens next"
       order_about: "order about %{listing_title}"
-      the_order_has_been_canceled: "the %{transaction_link} has been disputed."
-      the_order_between_buyer_and_seller_has_been_canceled: "the %{transaction_link} between %{buyer} and %{seller} has been disputed."
+      the_order_has_been_canceled: "The %{transaction_link} has been disputed."
+      the_order_between_buyer_and_seller_has_been_canceled: "The %{transaction_link} between %{buyer} and %{seller} has been disputed."
       the_marketplace_has_been_notified: "The %{service_name} team has been notified and is reviewing the situation. You can contact them to share more details."
       contact_the_marketplace_team: "Contact the %{service_name} team"
       you_must_now_decide: "You must now decide if a refund should happen or if you dismiss the dispute. You can %{learn_more_link}."
@@ -1795,11 +1795,11 @@ en:
       review_the_transaction: "Review the transaction"
     transaction_refunded:
       subject: "Order marked as refunded - The %{service_name} team has approved the dispute from %{buyer}"
-      marketplace_team_has_approved_the_cancellation: "the %{service_name} team has approved the dispute for %{transaction_link} and has marked the payment as refunded."
+      marketplace_team_has_approved_the_cancellation: "The %{service_name} team has approved the dispute for %{transaction_link} and has marked the payment as refunded."
       you_should_receive_a_refund_soon: "You should receive a refund soon. You can contact the %{service_name} team if there is any further issue."
     transaction_cancellation_dismissed:
       subject: "Order dispute dismissed - The %{service_name} team has rejected the dispute from %{buyer}"
-      marketplace_team_has_rejected_the_cancellation: "the %{service_name} team has rejected the dispute for %{transaction_link}."
+      marketplace_team_has_rejected_the_cancellation: "The %{service_name} team has rejected the dispute for %{transaction_link}."
     transaction_commission_charge_failed:
       subject: "A commission in your marketplace was not transferred to your PayPal account"
       transaction_about: "transaction about %{listing_title}"
