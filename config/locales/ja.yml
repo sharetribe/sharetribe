@@ -1166,7 +1166,7 @@ ja:
         status: ステータス：
         next_step: 次のステップ：
         waiting_for_provider_accept_or_reject: "%{provider} がリクエストを承認または拒否するのを待っています。"
-        waiting_for_fulfill_and_complete: ~
+        waiting_for_fulfill_and_complete: "%{provider} が%{listing_title} の注文を処理し、%{buyer} が注文完了のマークをするのを待っています。"
         buyer: 購入者：
         provider: 販売者：
         delivery: 配送：
@@ -1176,7 +1176,7 @@ ja:
         buyer_service_fee_label: 購入者からの手数料：
         service_fee_label: 販売者からの手数料：
         provider_receives: 販売利益：
-        admin_info_text: ~
+        admin_info_text: "%{service_name} の管理者は、この取引を進めるためにアクションを実行できます。"
         manage_reviews: ~
         you_should_investigate: "両者で協議し状況を調査して払い戻しまたは却下する必要があります。詳細はこちら：%{learn_more_link} "
         learn_more: もっと詳しく
@@ -1576,7 +1576,7 @@ ja:
       you_have_a_new_message: "%{service_name}の%{sender_name}さんから新しいメッセージがあります"
     new_message_v2:
       headline: ~
-      reply: ~
+      reply: "%{sender} さんへ返信する"
     new_payment:
       new_payment: 新しいお支払いを受け取りました
       price_per_unit_type: "%{unit_type}ごとの料金"
@@ -1780,7 +1780,7 @@ ja:
       contact_the_marketplace_team: "%{service_name} へ問い合わせる"
       you_must_now_decide: "払い戻しを行うか、異議を却下するかを決める必要があります。詳細はこちらのリンクをご覧ください。%{learn_more_link} "
       learn_more_about: ~
-      review_the_transaction: 取引を確認する。
+      review_the_transaction: 取引を確認する
     transaction_refunded:
       subject: ~
       marketplace_team_has_approved_the_cancellation: "%{service_name} チームは%{transaction_link} に関するあなたの異議申し立てを承認し、支払いを返金しました。"
@@ -3012,6 +3012,8 @@ ja:
       booked_days_label:
         zero: "予約日:"
         other: "予約日数:"
+      booked_nights_label:
+        other: 予約した宿泊
       booked_hours_label:
         other: 予約時間
       price_per_day: 日割り料金
@@ -3025,8 +3027,6 @@ ja:
       duration_in_hours:
         other: "(%{count} 時間)"
       start_end_time: "%{start_time} ～%{end_time}"
-      booked_nights_label:
-        other: 予約した宿泊
     price_per_quantity: "%{unit_type}ごとの料金："
     price: 料金：
     quantity: "数量： %{quantity}"

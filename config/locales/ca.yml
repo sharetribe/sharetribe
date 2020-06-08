@@ -36,10 +36,6 @@ ca:
         remove_category: "Eliminar categoria"
         remove_category_name: "Eliminar categoria '%{category_name}'"
         warning_remove_effects: "Atenció! Esborrar la categoria '%{category_name}' tendrà el següent resultat:"
-        select_new_category: "Selecciona una nova categoria a la qual vulguis moure els registres que apareixen a dalt."
-        buttons:
-          remove: Eliminar
-          cancel: Canceŀla
         warning_listing_will_be_moved:
           one: "Hi ha %{count} anunci en aquesta categoria. Es mourà a la categoria seleccionada."
           other: "Hi ha %{count} anuncis en aquesta categoria. Es mouran a la categoria seleccionada."
@@ -55,6 +51,10 @@ ca:
         warning_with_subcategories_custom_field_will_be_moved:
           one: "Hi ha %{count} camp personalitzat a la categoria i subcategoria. Es mourà a la categoria seleccionada."
           other: "Hi ha %{count} camps personalitzats a la categoria i subcategoria. Es mouran a la categoria seleccionada."
+        select_new_category: "Selecciona una nova categoria a la qual vulguis moure els registres que apareixen a dalt."
+        buttons:
+          remove: Eliminar
+          cancel: Canceŀla
     communities:
       edit_details:
         community_details: "Detalls bàsics"
@@ -704,7 +704,7 @@ ca:
           info_single_column: "Info - Una columna"
           info_multi_column_2: "Info - Dues columnes"
           info_multi_column_3: "Info - Tres columnes"
-          listings: Fitxes
+          listings: Anuncis
           categories: Categories
           hero: Hero
           locations: Ubicacions
@@ -831,7 +831,7 @@ ca:
           column_button_url: "https://www.exemple.com"
         listings:
           listings_to_feature: "Anuncis per mostrar"
-          you_need_to_add_the_listing_ids: "Necessites afegir l'id de l'anunci que vols incloure en aquesta secció. Per trobar l'id, ves a la pàgina de l'anunci i adona't de l'URL. L'id de l'anunci és el número que ve després de l'URL principal. En l'exemple https://www.exemple.com/listings/123456-listing-title, l'id seria: 123456."
+          you_need_to_add_the_listing_ids: "Necessites afegir l'ID de l'anunci que vols incloure en aquesta secció. Per trobar l'ID, ves a la pàgina de l'anunci i mira la URL. L'ID de l'anunci és el número que ve després de la URL principal. En l'exemple https://www.exemple.com/listings/123456-listing-title, l'ID seria: 123456."
         video:
           text: Text
           autoplay: "Opcions de reproducció automàtica"
@@ -928,7 +928,7 @@ ca:
         send_test_email: "Enviar un correu de prova al teu compte"
         test_sent: "El correu de prova ha estat enviat"
         send_email_article_title: "aquest article"
-        send_email_article_text: "Pots aprendre més dels segments d'usuarisa %{article_link}"
+        send_email_article_text: "Pots aprendre més dels segments d'usuaris a %{article_link}"
         recipients:
           title: "A qui li vols enviar el correu?"
           options:
@@ -1005,15 +1005,24 @@ ca:
         update_success: "S'han guardat els canvis al tipus d'ordre '%{shape}'"
         update_failure: "No s'han pogut guardar els canvis. Error:%{error_msg}"
         delete: "Borrar tipus d'ordre"
-        can_not_delete_last: "No pots eliminar aquest tipus d'ordre perquè és l'únic tipus d'ordre que existeix a la teva comunitat."
-        can_not_delete_only_one_in_categories: "No pots eliminar aquest tipus d'ordre perquè en les següents categories només s'empra aquest tipus d'ordre: %{categories}"
         confirm_delete_order_type:
           one: "Hi ha un registre de %{count} amb aquest tipus de comanda. Si suprimiu el tipus de comanda, aquest llistat es tancarà. Esteu segur que voleu suprimir el tipus de comanda?"
           other: "Hi ha %{count} llistats amb aquest tipus de comanda. Si suprimiu el tipus de comanda, aquests llistats es tancaran. Esteu segur que voleu suprimir el tipus de comanda?"
+        can_not_delete_last: "No pots eliminar aquest tipus d'ordre perquè és l'únic tipus d'ordre que existeix a la teva comunitat."
+        can_not_delete_only_one_in_categories: "No pots eliminar aquest tipus d'ordre perquè en les següents categories només s'empra aquest tipus d'ordre: %{categories}"
       listing_shape_name: Nom
       listing_shape_name_placeholder: "ex: Vendre"
       action_button_label: "Etiqueta el botó de checkout"
       action_button_placeholder: "ex: Comprar"
+      open_listings_warning:
+        one: "Hi ha %{count} anunci obert amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquest anunci no s'actualitzarà i mantindrà els ajustaments anteriors. Pots actualitzar els paràmetres de l'anunci editant-lo manualment. En cas que no vulguis que aquest anunci amb la configuració desactualitzats sigui visible en la teva comunitat, pots tancar-lo (desactivar-lo) fent clic al botó de sota."
+        other: "Hi ha %{count}  anuncis oberts amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquests anuncis no s'actualitzaran i mantindran els ajustaments anteriors. Pots actualitzar la configuració dels anuncis editant -los manualment. En cas que no vulguis que aquests anuncis amb la configuració desactualitzats siguin visibles a la teva comunitat, pots tancar-los (desactivar-los) fent clic al botó de sota."
+      close_listings_action:
+        one: "Tanca l'anunci de %{count}"
+        other: "Tanca els anuncis de %{count}"
+      confirm_close_listings_action:
+        one: "Esteu segur que voleu tancar l'anunci %{count}?"
+        other: "Esteu segur que voleu tancar els anuncis de %{count}?"
       successfully_closed: "Anuncis tancats correctament"
       successfully_deleted: "Tipus d'ordre '%{order_type}' eliminat correctament"
       pricing_and_checkout_title: "Preu & pagament"
@@ -1044,15 +1053,6 @@ ca:
           heading: "Tipus d'unitat"
           quantity_label: "Quantitat (per peça, per kg, per persona, per 2 hores de tour...)"
           time_label: "Temps (per 30 minuts, per 2 setmanes, per any...)"
-      open_listings_warning:
-        one: "Hi ha %{count} anunci obert amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquest anunci no s'actualitzarà i mantindrà els ajustaments anteriors. Pots actualitzar els paràmetres de l'anunci editant-lo manualment. En cas que no vulguis que aquest anunci amb la configuració desactualitzats sigui visible en la teva comunitat, pots tancar-lo (desactivar-lo) fent clic al botó de sota."
-        other: "Hi ha %{count}  anuncis oberts amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquests anuncis no s'actualitzaran i mantindran els ajustaments anteriors. Pots actualitzar la configuració dels anuncis editant -los manualment. En cas que no vulguis que aquests anuncis amb la configuració desactualitzats siguin visibles a la teva comunitat, pots tancar-los (desactivar-los) fent clic al botó de sota."
-      close_listings_action:
-        one: "Tanca l'anunci de %{count}"
-        other: "Tanca els anuncis de %{count}"
-      confirm_close_listings_action:
-        one: "Esteu segur que voleu tancar l'anunci %{count}?"
-        other: "Esteu segur que voleu tancar els anuncis de %{count}?"
     paypal_accounts:
       marketplace_paypal_integration: "Preferències del sistema de pagaments"
       preferences_updated: "Preferències del sistema de pagaments actualitzades"
@@ -1184,7 +1184,7 @@ ca:
         marketplace_collects: "%{service_name} reb:"
         buyer_service_fee_label: "Comissió del comprador:"
         service_fee_label: "Comissió del venedor:"
-        provider_receives: ~
+        provider_receives: "El venedor reb:"
         admin_info_text: "Com l'administrador de %{service_name} pots dur a terme algunes accions per fer avançar aquesta transacció:"
         manage_reviews: "Administrar ressenyes"
         you_should_investigate: "Has d'investigar la situació i comunicar-te amb les dues parts. Després d'això pots decidir si reemborsar els diners o descartar la disputa. %{learn_more_link}"
@@ -1758,13 +1758,13 @@ ca:
       edit_the_listing: "Edita l'anunci"
     edited_listing_submited_for_review:
       subject: "Anunci editat per revisar: \"%{listing_title}\" per %{author_name} a %{community}"
-      there_is_a_edited_listing_to_review: "Hi ha una fitxa editada per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquesta fitxa."
-      review_the_listing: "Revisa la fitxa editada"
+      there_is_a_edited_listing_to_review: "Hi ha un anunci editat per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquest anunci."
+      review_the_listing: "Revisa l'anunci editat"
     new_transaction:
       subject: "Nova transacció a %{service_name}"
       there_is_a_new_transaction: "Hi ha %{link} a %{service_name}."
       a_new_transaction: "una nova transacció"
-      listing: "Fitxa: %{title}"
+      listing: "Anunci: %{title}"
       sum: "Suma: %{amount}"
       starter: "Iniciat per: %{name}"
       provider: "Venedor: %{name}"
@@ -1829,7 +1829,7 @@ ca:
       buyer_cannot_pay_error: "El pagament va ser rebutjat per PayPal. Si us plau contacta al servei al client de PayPal per a més informació: %{customer_service_link}"
       pending_review_error: "El pagament es va realitzar però va ser marcat per PayPal com a 'pendent de revisió'. Quan PayPal completi aquesta revisió, el pagament serà autoritzat automàticament."
       seller_express_checkout_disabled: "El servei de Express Checkout de PayPal ha estat inhabilitat per al compte de PayPal de l'autor de l'anunci. Si us plau contacta amb l'autor de l'anunci per avisar-lo que hi ha un problema en el seu compte de PayPal i recomanar-li que contacti amb el servei al client de PayPal."
-      seller_express_checkout_disabled_no_free: "PayPal Express Checkout s’ha desactivat per al compte PayPal de l’autor de la fitxa. Sol·liciteu l’equip %{service_name} que es posi en contacte amb l’autor de la fitxa i aconselleu que contactin amb el servei d’atenció al client de PayPal."
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout s’ha desactivat per al compte PayPal de l’autor de l'anunci. Sol·liciteu l’equip %{service_name} que es posi en contacte amb l’autor de l'anunci i aconselleu que contactin amb el servei d’atenció al client de PayPal."
       generic_error: "Ha ocorregut un error durant el procés de pagament. No s'ha pogut finalitzar el pagament a través de PayPal."
       cancel_error: "Ha ocorregut un error durant la disputa. No s'ha pogut finalitzar la disputa."
       accept_authorization_error: "Ha ocorregut un error en intentar acceptar el pagament preautoritzat amb PayPal. Per favor, intenta-ho una altra vegada."
@@ -2186,7 +2186,7 @@ ca:
       listing_updated_successfully: "Anunci actualitzat"
       listing_updated_availability_management_enabled: "Anunci actualitzat amb èxit. Maneig de la disponibilitat habilitat."
       listing_updated_availability_management_disabled: "Anunci actualitzat amb èxit. Maneig de la disponibilitat deshabilitat."
-      listing_deleted: "S'ha suprimit la fitxa"
+      listing_deleted: "S'ha suprimit l'anunci"
       only_kassi_administrators_can_access_this_area: "Si us plau, inicia sessió amb un compte d'administrado per a accedir a aquesta àrea"
       only_listing_author_can_close_a_listing: "Només el creador d'un anunci pot tancar-lo"
       only_listing_author_can_edit_a_listing: "Només el creador d'un anunci pot editar-lo"
@@ -2253,18 +2253,18 @@ ca:
       user_does_not_have_email_to_delete: "L'adreça de correu electrònic que vols eliminar no existeix"
       email_deleted: "Correu electrònic eliminat"
       listing_author_payment_details_missing: "Si us plau contacti amb l'autor clicant el botó de 'Contacte' de baix. Necessiten actualitzar els seus detalls de pagaments per rebre els pagaments."
-      listing_author_payment_details_missing_no_free: "Si us plau contacta amb l’equip %{service_name} per demanar-los que contactin i aconsellin a l’autor de la fitxa que actualitzi les seves dades de pagament per rebre pagaments."
+      listing_author_payment_details_missing_no_free: "Si us plau contacta amb l’equip %{service_name} per demanar-los que contactin i aconsellin a l’autor de l'anunci que actualitzi les seves dades de pagament per rebre pagaments."
       images_are_processing: "Estem processant les teves imatges. Dona'ns un minut o dos i estaran llestes."
+      maintenance_mode:
+        zero: "La pàgina està fora de servei per manteniment"
+        one: "La pàgina estarà fora de servei per manteniment en %{count} minut"
+        other: "La pàgina estarà fora de servei per manteniment en %{count} minuts"
       automatically_logged_out_please_sign_in: "Si us plau, inicia la sessió una altra vegada, ja que la teva sessió ha caducat."
       stripe_you_account_balance_is_not_0: "El balanç del teu compte no és 0 i per tant no pot ser eliminada. Això pot significar que tens transaccions esperant a ser completades o que hi ha diners esperant a ser transferit al teu compte del banc. Si us plau contacta a l'equip de %{service_name} si tens algun dubte."
       stripe_balance_for_username_is_not_0: "El romanent de Stripe per %{username} no és 0, per això el compte no pot ser esborrat. Això pot significar que tinguin transaccions a l'espera de completar o que hi hagi diners a l'espera de pagar als seus comptes bancaris. Si us plau, per obtenir més informació, consulteu el vostre Tauler de Stripe."
       visit_admin: "Voldries %{link}?"
       visit_admin_link: "visitar el teu panell d'administració"
       an_error_occurred_when_saving_your_information: "Hi va haver un problema quan vas desar la teva informació, el missatge és: \"%{message}\". Si us plau revisa que tota la informació sigui correcta i intenta-ho de nou."
-      maintenance_mode:
-        zero: "La pàgina està fora de servei per manteniment"
-        one: "La pàgina estarà fora de servei per manteniment en %{count} minut"
-        other: "La pàgina estarà fora de servei per manteniment en %{count} minuts"
     settings:
       account: Compte
       notifications: Notificacions
@@ -2294,7 +2294,7 @@ ca:
       you_cannot_send_a_new_comment_because_listing_is_closed: "No es poden enviar nous comentaris ja que l'anunci ha estat tancat."
       you_must: "Hauries de"
       subscribe_to_comments: "Avisa'm dels nous comentaris i actualitzacions"
-    deleting_a_listing_cannot_be_undone: "La supressió d'una fitxa no es pot desfer. Esteu segur que voleu continuar?"
+    deleting_a_listing_cannot_be_undone: "La supressió d'un anunci no es pot desfer. Esteu segur que voleu continuar?"
     edit:
       edit_listing: "Editar anunci"
     edit_links:
@@ -2310,7 +2310,7 @@ ca:
       listing_is_rejected: "L'anunci ha estat rebutjat"
       approve_listing: "Aprovar anunci"
       reject_listing: "Rebutjar anunci"
-      delete_listing: "Suprimeix la fitxa"
+      delete_listing: "Suprimeix l'anunci"
     map:
       open_in_google_maps: "Obrir a Google Maps"
     error:
@@ -2700,6 +2700,9 @@ ca:
       email_is_in_use_or_not_allowed: "Aquest correu electrònic no està autoritzat per a aquesta comunitat o ja està sent utilitzat. Si no pots entrar contacta amb nosaltres."
       email_not_allowed: "Aquest correu electrònic no està permès a %{service_name}. Utilitzeu una adreça de correu electrònic que estigui permesa. Si encara no podeu accedir, poseu-vos en contacte amb nosaltres."
       invalid_username_or_email: "El correu electrònic és invàlid o ja està essent emprat"
+      email_restriction_instructions:
+        one: "L'accés a %{service_name} està restringit. Per a unir-t'hi necessites una adreça de correu electrònic que acabi en %{allowed_emails}."
+        other: "L'accés a %{service_name} està restringit. Per a unir-t'hi necessites una adreça de correu electrònic que sigui vàlida en aquesta comunitat."
       family_name: "Cognoms:"
       given_name: "Nom:"
       i_accept_the_terms_and_privacy: "Accepto els %{terms} i la %{privacy}"
@@ -2719,9 +2722,6 @@ ca:
       OR: O
       signup_with_email: "Registra't amb el teu correu electrònic"
       this_field_will_be_publicly_visible: "(Aquest camp serà públic)"
-      email_restriction_instructions:
-        one: "L'accés a %{service_name} està restringit. Per a unir-t'hi necessites una adreça de correu electrònic que acabi en %{allowed_emails}."
-        other: "L'accés a %{service_name} està restringit. Per a unir-t'hi necessites una adreça de correu electrònic que sigui vàlida en aquesta comunitat."
     profile_feedback:
       grade: "puntuació:"
       and_gave_following_feedback: "i va fer els següents comentaris"
@@ -3028,15 +3028,6 @@ ca:
     initiate:
       booked_days: "Dies reservats:"
       booked_nights: "Nits triades:"
-      price_per_day: "Preu per dia:"
-      price_per_night: "Preu per nit:"
-      price_per_hour: "Preu per hora:"
-      price_per_unit: "Preu per unitat:"
-      quantity: "Quantitat:"
-      subtotal: "Subtotal:"
-      shipping-price: "Enviament:"
-      stripe-fee: "Quota (estimada) de Stripe:"
-      start_end_time: "%{start_time} a %{end_time}"
       booked_days_label:
         one: "Dia reservat:"
         other: "Dies reservats:"
@@ -3045,9 +3036,18 @@ ca:
       booked_hours_label:
         one: "Hora reservada:"
         other: "Hores reservades:"
+      price_per_day: "Preu per dia:"
+      price_per_night: "Preu per nit:"
+      price_per_hour: "Preu per hora:"
+      price_per_unit: "Preu per unitat:"
+      quantity: "Quantitat:"
+      subtotal: "Subtotal:"
+      shipping-price: "Enviament:"
+      stripe-fee: "Quota (estimada) de Stripe:"
       duration_in_hours:
         one: "(1 hora)"
         other: "(%{count} hores)"
+      start_end_time: "%{start_time} a %{end_time}"
     price_per_quantity: "Preu per %{unit_type}"
     price: "Preu:"
     quantity: "Quantitat: %{quantity}"
@@ -3119,32 +3119,6 @@ ca:
       create_own: "Vols crear la teva pròpia comunitat de consum col·laboratiu en línia com a%{service_name}?%{learn_more}."
       learn_more: "Aprèn com"
   will_paginate:
-    previous_label: "&#8592; Anterior"
-    next_label: "Següent &#8594;"
-    page_gap: "&hellip;"
-    page_entries_info:
-      multi_page: "Mostrant %{model} %{from} - %{to}  de %{count}"
-      multi_page_html: "Mostrant %{model} <b> %{from}&nbsp;-&nbsp;%{to} </b> de<b> %{count}</b> en total"
-      single_page:
-        zero: "%{model} no trobat"
-        one: "Mostrant un %{model} "
-        other: "Mostrant tot: %{count} %{model}"
-      single_page_html:
-        zero: "Res trobat"
-        one: "Mostrant <b>1}</b> %{model}"
-        other: "Mostrant <b>%{count}</b> %{model}"
-    person:
-      community_members_entries_info:
-        multi_page: "Mostrant %{model} %{from} - %{to} de %{accepted_count} %{accepted_model} acceptats i %{other_count} altres %{other_model}"
-        multi_page_html: "Mostrant %{model}<b>%{from} -%{to}</b>%{accepted_count} </b>%{accepted_model} acceptats i %{other_count} altres %{other_model}"
-        single_page:
-          zero: "No s'ha trobat cap %{model}"
-          one: "Mostrant %{accepted_count} acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
-          other: "Mostrant %{accepted_count} acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
-        single_page_html:
-          zero: "No s'ha trobat cap %{model}"
-          one: "Mostrant <b>%{accepted_count}</b> acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
-          other: "Mostrant <b>%{accepted_count}</b> acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
     models:
       person:
         zero: usuaris
@@ -3154,6 +3128,32 @@ ca:
         zero: transaccions
         one: transacció
         other: transaccions
+    previous_label: "&#8592; Anterior"
+    next_label: "Següent &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero: "%{model} no trobat"
+        one: "Mostrant un %{model} "
+        other: "Mostrant tot: %{count} %{model}"
+      single_page_html:
+        zero: "Res trobat"
+        one: "Mostrant <b>1}</b> %{model}"
+        other: "Mostrant <b>%{count}</b> %{model}"
+      multi_page: "Mostrant %{model} %{from} - %{to}  de %{count}"
+      multi_page_html: "Mostrant %{model} <b> %{from}&nbsp;-&nbsp;%{to} </b> de<b> %{count}</b> en total"
+    person:
+      community_members_entries_info:
+        single_page:
+          zero: "No s'ha trobat cap %{model}"
+          one: "Mostrant %{accepted_count} acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
+          other: "Mostrant %{accepted_count} acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
+        single_page_html:
+          zero: "No s'ha trobat cap %{model}"
+          one: "Mostrant <b>%{accepted_count}</b> acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
+          other: "Mostrant <b>%{accepted_count}</b> acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
+        multi_page: "Mostrant %{model} %{from} - %{to} de %{accepted_count} %{accepted_model} acceptats i %{other_count} altres %{other_model}"
+        multi_page_html: "Mostrant %{model}<b>%{from} -%{to}</b>%{accepted_count} </b>%{accepted_model} acceptats i %{other_count} altres %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "No és possible emprar el sistema de pagaments de %{service_name} per rebre pagaments, ja que els pagaments no s'han configurat. Si us plau %{contact_admin_link} per a més informació."
     contact_admin_link_text: "contacta a l'equip de %{service_name}"
@@ -3292,9 +3292,9 @@ ca:
         background_color: "Color de fons"
         background_color_string: "Color de fons"
       landing_page_version/section/listings:
-        listing_1_id: "Fitxa 1 ID"
-        listing_2_id: "Fitxa 2 ID"
-        listing_3_id: "Fitxa 3 ID"
+        listing_1_id: "Anunci 1 ID"
+        listing_2_id: "Anunci 2 ID"
+        listing_3_id: "Anunci 3 ID"
       landing_page_version/section/video:
         text: Text
         youtube_video_id: "ID del vídeo de YouTube"

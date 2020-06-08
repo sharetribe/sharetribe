@@ -95,7 +95,7 @@ hu:
         transaction_agreement_text_header: "Felhasználói feltételek"
         transaction_agreement_description: "A használati feltételek tartalmát a felhasználónak tudomásul kell vennie. A használati feltételek tartalma akkor kerül megjelenésre ha a felhasználó  rákattint a \"%{read_more}\" linkre amely használati feltételek címke mellett található."
         terms_privacy_policy_and_static_content: "Feltételek, adatvédelmi irányelvek és statikus tartalom"
-        terms_privacy_policy_and_static_content_infotext: ~
+        terms_privacy_policy_and_static_content_infotext: "Legfeljebb négy oldalas statikus tartalmat szerkeszthet. A felhasználók az oldalakat a felső sávban található „Névjegy” linkre kattintva találhatják meg."
       edit_look_and_feel:
         edit_community_look_and_feel: "Piactér szerkesztése \"%{community_name}\" nézet és érzet"
         community_logo: Logó
@@ -332,7 +332,7 @@ hu:
         twitter_handle_placeholder: felhasználónév
         invalid_twitter_handle: "A Twitter név maximum 15 alfanumerikus (betűk A-Z és számok 0-9) karaktet tartalmazhat"
         facebook_connect: Facebook
-        facebook_developers_dashboard: ~
+        facebook_developers_dashboard: "Facebook fejlesztőinek a kezelőpultja"
         facebook_connect_info_text: "A Facebook-os bejelentkezés lehetővé tételéhez jelentkezzen piacterével <a href='https://developers.facebook.com/'> Facebook fejlesztők kezelőpultján</a>. Adja meg a generált azonosítót és a titkos kódot itt."
         facebook_connect_info_text_with_instructions: "A Facebook-os bejelentkezés lehetővé tételéhez jelentkezzen piacterével <a href='https://developers.facebook.com/'> Facebook fejlesztők kezelőpultján</a>. Adja meg a generált azonosítót és a titkos kódot itt. %{instructions_link}"
         facebook_instructions_link_text: "Magyarázat a Facebook kapcsolat beállításához."
@@ -344,7 +344,7 @@ hu:
         save: "Beállítások mentése"
         google_connect: "Google bejelentkezés"
         google_instructions_link_text: "Tekintse meg a Google Bejelentkezés funkció konfigurálásának útmutatásait."
-        google_developers_console: ~
+        google_developers_console: "Google fejlesztői konzol"
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: "Engedélyezze a felhasználóknak, hogy a Google-fiókjukkal jelentkezzenek be"
@@ -352,7 +352,7 @@ hu:
         google_connect_secret: ~
         linkedin_connect: "LinkedIn bejelentkezés"
         linkedin_instructions_link_text: "Tekintse meg a LinkedIn bejelentkezés konfigurálásának útmutatásait."
-        linkedin_developers_dashboard: ~
+        linkedin_developers_dashboard: "LinkedIn fejlesztőinek a kezelőpultja"
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: "Engedélyezze a felhasználóknak, hogy bejelentkezzenek a LinkedIn fiókjukkal"
@@ -608,8 +608,8 @@ hu:
         search_by_title_author_category: "Keresés egy bejegyzéscímre, szerzőre vagy kategórianévre"
         search: Keresés
         reset_search: "Összes mutatása"
-        export_all_as_csv: ~
-        processing_export: ~
+        export_all_as_csv: "Az összes exportálása CSV formátumban"
+        processing_export: "Exportálás CSV formátumba..."
         status:
           all: "Összes státusz"
           selected_js: "Kiválasztott státuszok: "
@@ -697,10 +697,10 @@ hu:
           save: Mentés
           cancel: ~
         sections:
-          identifier: ~
-          kind: ~
+          identifier: "Szekció ID"
+          kind: "Szekció típusa"
           new: "Új rész"
-          edit: ~
+          edit: "Szekció szerkesztése %{section_id}"
           remove_section_confirmation: ~
           info_single_column: "Infó - Egy bekezdés"
           info_multi_column_2: "Infó - Két bekezdés"
@@ -755,8 +755,8 @@ hu:
           style_marketplace_color: "Piactér fő szín"
           style_logo: Logó
         cta_button:
-          cta_button: ~
-          cta_enabled: ~
+          cta_button: "Cselekvésre ösztönző gomb"
+          cta_enabled: "Mutasson egy gombot"
           cta_text: Címke
           cta_url: URL
           text_placeholder: ~
@@ -785,16 +785,16 @@ hu:
         categories:
           add: "+ Adjon hozzá új kategóriát ehhez a részhez"
           category: Kategória
-          empty: ~
+          empty: "Nincsenek benne kategóriák"
           image: Kép
-          include_title: ~
-          info_text: ~
+          include_title: "Kiemelendő kategóriák"
+          info_text: "Három-hét kategóriát emelhet ki. Adjon hozzá egy képet minden egyes kategóriához és válassza ki az egyik kategóriát a piacteréről. A legjobb eredmény elérése érdekében az ajánlott képméret 1000 x 667 pixel."
           need_at_least_3_categories: "Ebben a szekcióban legalább három kategóriának kell lennie"
           need_at_most_7_categories: "Ebben a szekcióban legfeljebb hét kategória lehet"
         category:
           add_another_image: "Adjon hozzá még egy képet"
           category: Kategória
-          current_image: ~
+          current_image: "Jelenlegi kép: %{filename}"
           file_not_selected: "Nincs kiválasztva"
           image: Kép
           image_required: ~
@@ -821,23 +821,23 @@ hu:
           url_placeholder: "Helység URL"
         multi_column:
           main_title: Főcím
-          column_header: ~
-          column_title: ~
+          column_header: "Oszlop %{index}"
+          column_title: "Oszlop %{index} cím"
           web_viewer: ~
           column_icon_info: ~
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
-          column_button_url: ~
+          column_icon: "Oszlop %{index} ikon"
+          column_paragraph: "Oszlop %{index} bekezdés"
+          column_button: "Oszlop %{index} gomb"
+          column_button_text: "Gomb címke"
+          column_button_url: "https://www.example.com"
         listings:
           listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
         video:
-          text: ~
-          autoplay: ~
-          autoplay_no: ~
-          autoplay_muted: ~
+          text: Szöveg
+          autoplay: "Automatikus lejátszás opciók"
+          autoplay_no: "Nincs automatikus lejátszás"
+          autoplay_muted: "Néma automatikus lejátszás"
           info: ~
           youtube_video_id_info: ~
     custom_fields:
@@ -1171,19 +1171,19 @@ hu:
     community_transactions:
       show:
         transaction_for: ~
-        status: ~
+        status: "Státusz:"
         next_step: ~
         waiting_for_provider_accept_or_reject: ~
         waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
+        buyer: "Vevő:"
+        provider: "Eladó:"
         delivery: ~
         shipping_to: ~
-        buyer_pays: ~
+        buyer_pays: "Vevő fizet:"
         marketplace_collects: ~
-        buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
+        buyer_service_fee_label: "Jutalék a vevőtől:"
+        service_fee_label: "Jutalék az eladótól:"
+        provider_receives: "Az eladó kap:"
         admin_info_text: ~
         manage_reviews: ~
         you_should_investigate: ~
@@ -1743,12 +1743,12 @@ hu:
       new_member_has_joined: ~
       view_profile: ~
     listing_submited_for_review:
-      subject: ~
-      there_is_a_new_listing_to_review: ~
+      subject: "Új hirdetés átnézésre vár: %{listing_title} %{author_name} által a %{community} csoportban"
+      there_is_a_new_listing_to_review: "Új hirdetés vár átnézésre:\"%{listing_title}\" %{author_name} által. Hagyja jóvá vagy utasítsa el a hirdetést."
       review_the_listing: "Nézze át az új hirdetést"
-      this_is_automatic_message: ~
+      this_is_automatic_message: "Ez egy automatikus üzenet melyet a %{community} közösség rendszergazdái kapnak."
     listing_approved:
-      subject: ~
+      subject: "A %{community} csapat jóváhagyta az ön hirdetését \"%{listing_title}\""
       listing_has_been_approved: "Jó hír! A %{listing_title} hirdetést felülvizsgálta és jóváhagyta a %{community}  csapat. Mindenki számára látható."
       view_the_listing: "Tekintse meg a hirdetést"
     listing_rejected:
@@ -1757,8 +1757,8 @@ hu:
       contact_link: "Vegye fel a kapcsolatot a %{community} csapattal."
       edit_the_listing: "Módosítsa a hirdetést"
     edited_listing_submited_for_review:
-      subject: ~
-      there_is_a_edited_listing_to_review: ~
+      subject: "Szerkesztett hirdetés átnézésre vár: \"%{listing_title}\" %{author_name} által a %{community} csoportban"
+      there_is_a_edited_listing_to_review: "Egy szerkesztett hirdetés vár átnézésre:\"%{listing_title}\" %{author_name} által. Hagyja jóvá vagy utasítsa el a hirdetést."
       review_the_listing: "Tekintse meg a módosított hirdetéseket"
     new_transaction:
       subject: "Új tranzakció itt %{service_name}"
@@ -1881,7 +1881,7 @@ hu:
       from_must_be_less_than_till: "A \"kezdési idő\" -nek korábban kell lennie, mint a \"befejezési idő\" -nek."
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
-      presence: ~
+      presence: "Nem lehet üres"
       username_is_invalid: ~
       domain_name_is_invalid: ~
       only_supported_variables: ~
@@ -2395,7 +2395,7 @@ hu:
         save_listing: "Hirdetés mentése"
         submit_for_review: "Benyújtás elbírálásra"
         will_be_reviewed: "A %{service_name} oldalon található összes hirdetést a közzététel előtt átnézzük. Amint a hirdetés jóvá van hagyva, Ön E-mailben értesítést kap róla és mindenki számára látható lesz."
-        we_noticed_youre_an_admin: ~
+        we_noticed_youre_an_admin: "Látjuk, hogy Ön a %{service_name} adminjaként van beállítva. Az Ön módosításai automatikusan életbe lépnek és nem igényelnek felülvizsgálatot vagy jóváhagyást."
       share_type:
         select: Válasszon
         borrow: Kölcsönzés
@@ -3028,6 +3028,8 @@ hu:
         other: "Lefoglalt napok:"
       booked_nights_label:
         other: "Lefoglalt éjszakák:"
+      booked_hours_label:
+        other: "Lefoglalt óra:"
       price_per_day: "Napi díja"
       price_per_night: "Ár éjszakánként:"
       price_per_hour: "Ár óránként"
@@ -3036,11 +3038,9 @@ hu:
       subtotal: "Végösszeg:"
       shipping-price: "Szállítás:"
       stripe-fee: "Stripe díj (becsült)"
-      start_end_time: "%{start_time} -tól %{end_time} -ig"
-      booked_hours_label:
-        other: "Lefoglalt óra:"
       duration_in_hours:
         other: "%{count} óra"
+      start_end_time: "%{start_time} -tól %{end_time} -ig"
     price_per_quantity: "Ár %{unit_type}:"
     price: "Ár:"
     quantity: "Mennyiség: %{quantity}"
@@ -3128,11 +3128,11 @@ hu:
       multi_page_html: "Megjelenítés %{model}<b>%{from}&nbsp-&nbsp;%{to}</b> az összesből amely <b>%{count}</b>"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
         single_page_html:
           zero: "%{model} nem található"
           other: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{other_count} other %{other_model}"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: "Lépjen kapcsolatba a %{service_name} csapattal"
@@ -3248,12 +3248,12 @@ hu:
     invalid_bank_account_number: "Kérjük ellenőrizze, hogy bankszámlája helyesen van-e megadva és megegyezik-e az Ön országával."
     invalid_postal_code: "Érvénytelen irányítószám az adott országra %{country}"
   seo_sections:
-    you_can_use_variables: ~
+    you_can_use_variables: "Használhatja az alábbi változókat: %{vars}"
     placeholder:
       search_results: "Keresési találatok - %{variable}"
       search_results_for: ~
       listing_description: ~
-      listing_description_without_price: ~
+      listing_description_without_price: "%{title} %{author} által a %{marketplace} piactéren"
       category_description: ~
       profile_title: "%{user} profilja - %{marketplace}"
       profile_description: "Tudjon meg többet %{user} profiljáról itt %{marketplace}"
@@ -3261,22 +3261,22 @@ hu:
     attributes:
       landing_page_version/section/base:
         id: ~
-        title: ~
-        paragraph: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
+        title: Megszólítás
+        paragraph: Bekezdés
+        button_title: Szöveg
+        button_path: URL
+        button_path_string: URL
+        background_image: Háttérkép
+        background_image_variation: "Háttérkép variáció"
+        background_color: Háttérszín
+        background_color_string: Háttérszín
       landing_page_version/section/listings:
         listing_1_id: ~
         listing_2_id: ~
         listing_3_id: ~
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Szöveg
+        youtube_video_id: "YouTube videó azonosító"
       landing_page_version/section/hero:
         cta_button_text: ~
         cta_button_url: ~
