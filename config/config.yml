@@ -11,6 +11,7 @@
 development:
   # Add local `development` environment configuration overrides here
   domain: "0.0.0.0:3000"
+  external_plan_service_in_use: true
 
 test:
   # Add local `test` environment configuration overrides here
