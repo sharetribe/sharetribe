@@ -130,6 +130,7 @@ module Donalo
       class ::Listing
         def available_units
           return 1 unless stock
+
           stock.numeric_value.to_i
         end
 
@@ -196,7 +197,7 @@ module Donalo
 
           def complete_preauthorization(community_id:, transaction_id:, message: nil, sender_id: nil)
             Donalo::AvailabilityUpdater.new(
-              transaction_id: transaction_id,
+              transaction_id: transaction_id
             ).update
 
             original_complete_preauthorization(
