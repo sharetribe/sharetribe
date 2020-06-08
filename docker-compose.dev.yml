@@ -54,7 +54,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     command: >
-      bash -c "bundle exec rake ts:configure ts:index; \
+      bash -c "bundle exec rake ts:index; \
                searchd --pidfile \
                        --config config/development.sphinx.conf; \
                bundle exec rake jobs:work"
