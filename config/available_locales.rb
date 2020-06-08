@@ -43,7 +43,7 @@ module Sharetribe
     {ident: "ar", name: "Arabic", language: "ar", region: "SA", fallback: nil}, # Arabic (Saudi Arabia)
     {ident: "az-AZ", name: "Azərbaycan", language: "az", region: "AZ", fallback: nil}, # Azerbaijani (Azerbaijan)
     {ident: "bg", name: "български", language: "bg", region: "BG", fallback: nil}, # Bulgarian
-    {ident: "ca", name: "Catalan", language: "ca", region: "ES", fallback: nil}, # Catalan (Spain)
+    {ident: "ca", name: "Català", language: "ca", region: "ES", fallback: nil}, # Catalan (Spain)
     {ident: "crp", name: "Kreyòl ayisyen", language: "crp", region: "HT", fallback: nil}, # Haitian Creole
     {ident: "el", name: "Ελληνικά", language: "el", region: "GR", fallback: nil}, # Greek (Greece)
     {ident: "en-NZ", name: "English (New Zealand)", language: "en", region: "NZ", fallback: nil}, # English (New Zealand)
