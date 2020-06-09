@@ -7,13 +7,13 @@ function sortArray(nestedSortables) {
             swapThreshold: 0.65,
             handle: '.handle-move',
             onMove: function (/**Event*/evt, originalEvent) {
-                if ($(evt.related).hasClass('nested-2') && $(evt.dragged).find('.nested-2').length > 0) {
+                if (($(evt.related).hasClass('nested-2') || $(evt.related).hasClass('empty-sortable')) && $(evt.dragged).find('.nested-2').length > 0) {
                     return false;
                 }
             },
             onEnd: function (/**Event*/evt) {
                 var elem_id = evt.item.attributes['data-id'].value,
-                    parent_elem_id,
+                    parent_elem_id, cnt,
                     array = [],
                     nestedList = $('#nestedList'),
                     url = nestedList.data('url'),
@@ -22,12 +22,15 @@ function sortArray(nestedSortables) {
                 if (evt.to.attributes['data-id']) {
                     parent_elem_id = evt.to.attributes['data-id'].value;
                     $.post(change_url, {elem_id: elem_id, parent_elem_id: parent_elem_id});
-                    content.find('.list-group-item[data-id='+ elem_id +']').removeClass('nested-1').addClass('nested-2').addClass('field-data');
+                    content.find('.list-group-item[data-id='+ elem_id +']').removeClass('nested-1').addClass('nested-2').addClass('field-data').addClass('subCategoryWrapper');
                     content.find('.list-group-item[data-id='+ elem_id +']').find('.nested-sortable').remove();
                     content.find('.list-group-item[data-id='+ parent_elem_id +']').find('.nested-sortable').removeClass('empty-sortable');
+                    cnt = content.find('.list-group-item[data-id='+ elem_id +']').find('.categoryNameWrapper').contents();
+                    content.find('.list-group-item[data-id='+ elem_id +']').find('.categoryNameWrapper').replaceWith(cnt);
                 } else {
                     $.post(change_url, {elem_id: elem_id});
-                    content.find('.list-group-item[data-id='+ elem_id +']').addClass('nested-1').removeClass('nested-2').removeClass('field-data');
+                    content.find('.list-group-item[data-id='+ elem_id +']').addClass('nested-1').removeClass('nested-2').removeClass('field-data').removeClass('subCategoryWrapper');
+
                     var main_elem = content.find('.list-group-item[data-id='+ elem_id +']');
                     if (main_elem.find('.nested-sortable').length === 0) {
                         main_elem.append('<div class="empty-sortable list-group nested-sortable" data-id="'+ elem_id +'"></div>');
