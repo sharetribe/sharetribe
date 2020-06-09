@@ -64,25 +64,23 @@ Before you get started, the following needs to be installed:
 
 ### Setting up the development environment
 
-You can find below Sharetribe's own development setup instructions but for Donalo we have a docker environment you can use as follows (based on the former).
+You can find below Sharetribe's own development setup instructions but for Donalo we have a specific docker environment implemented in `docker-compose.dev.yml` based on them.
 
-Start the containers running:
-
-```bash
-docker-compose -f docker-compose.dev.yml up
-```
-
-Create and initialize the database:
+First install [direnv](https://direnv.net/). Then, start the containers as usual:
 
 ```bash
-docker-compose -f docker-compose.dev.yml run web bundle exec rake db:create db:structure:load db:seed
+docker-compose up
 ```
 
-To make things easier, it's strongly recommended you set up the env var `COMPOSE_FILE=docker-compose.dev.yml`.
+The first time you'll need to create and initialize the database as follows:
+
+```bash
+docker-compose run web bundle exec rake db:create db:structure:load db:seed
+```
 
 Note the tasks executed above fail for the test database and you might need to run them separately until that's fixed.
 
-Follow the message `db:seed` outputs to log into the marketplace and you'll be good to go.
+Now, follow the message `db:seed` outputs to log into the marketplace and you'll be good to go.
 
 This setup doesn't cover the steps 9 and 11 from the list below yet. Coming soon.
 
