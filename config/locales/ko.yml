@@ -1316,7 +1316,7 @@ ko:
       confirmed_request: "거래완료로 표시됨"
       confirmed_offer: "제안 완료로 표시되어졌습니다"
       canceled_request: "주문이 취소되어졌습니다"
-      canceled_offer: "제안이 취소되어졌습니다"
+      canceled_offer: "거래 취소"
       paid: "%{sum}이 결제되었습니다"
       payment_preauthorized: "승인된 결제 : %{sum}"
       payment_preauthorized_wo_sum: "결제가 사전승인됨"
@@ -1325,7 +1325,7 @@ ko:
         held_payment_wo_sum: ~
         confirmed_request: ~
       canceled_the_order: "분쟁중. %{service_name}에 통보 되었습니다."
-      marked_as_refunded: "환불로 표시됨"
+      marked_as_refunded: "환불 조치"
       dismissed_the_cancellation: ~
       payment_has_now_been_transferred: ~
     new:
@@ -1361,7 +1361,7 @@ ko:
       cancel_payed_transaction: 취소
       feedback_given: "피드백 제공"
       feedback_skipped: "피드백 생략"
-      give_feedback: "피드백 제공하기"
+      give_feedback: "피드백 보내기"
       offer_accepted: 수락
       offer_rejected: 거부
       offer_canceled: 취소되었습니다
@@ -1393,7 +1393,7 @@ ko:
       waiting_confirmation_from_you: "거래완료 확인을 기다리는 중입니다."
       waiting_payment_from_requester: "%{requester_name}가 결제 대기중입니다."
       waiting_payment_from_you: "당신이 결제하기를 기다리는 중입니다."
-      waiting_feedback_from_you: "당신이 피드백주기를 기다리는 중입니다"
+      waiting_feedback_from_you: "회원님의 피드백 기다리는 중"
       pending_external_inbox:
         paypal:
           multicurrency: "PayPal 결제를 수락하기를 기다리는 중입니다."
@@ -1405,13 +1405,13 @@ ko:
       order_canceled: 분쟁건
       waiting_for_marketplace_review: "%{service_name}의 검토를 기다리는 중"
       marketplace_notified: "%{service_name}에 통보 되었습니다. 추가 정보를 보내시려면 이 링크를 이용하세요. %{contact_link}"
-      contact_them: ~
-      refunded: "환불로 표시된 주문"
+      contact_them: 연락하기
+      refunded: "환불 조치된 거래"
       dismissed: ~
-      order_refunded: ~
-      you_should_receive_refund_soon: ~
-      issue_with_the_refund: ~
-      do_you_disagree: ~
+      order_refunded: "환불 처리 되었습니다. %{service_name}에서 분쟁 신청을 승인했습니다."
+      you_should_receive_refund_soon: "곧 환불 처리가 이루어집니다."
+      issue_with_the_refund: "환불에 문제가 있나요? %{contact_link}"
+      do_you_disagree: "동의하지 않으신가요? %{contact_link}"
       contact_the_marketpalce_team: "%{service_name} 연락하기"
       order_cancellation_dismissed: ~
     status_link:
@@ -1425,7 +1425,7 @@ ko:
       reject_preauthorized_request: "구매요청 거부"
       confirm: 거래완료
       cancel: 분쟁
-      mark_as_refunded: "환불로 표시"
+      mark_as_refunded: "환불 조치"
       dismiss: ~
   feedback:
     feedback_subject: ~
@@ -1474,7 +1474,7 @@ ko:
       automatic_confirmation: "요청이 수락된 후 %{days_to_automatic_confirmation} 일 이내에 주문을 확인하거나 취소하지 않으면 자동 완성으로 표시됩니다."
     confirm_reminder_v2:
       headline: ~
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request: "거래가 완료되었다면 거래완료 선택을 해주셔야 합니다. 그 후에 %{other_party_given_name}님에게 피드백을 보낼 수 있습니다."
     payment_settings_reminder:
       remember_to_add_payment_details: "결제환경 설정이 필요합니다."
       you_have_added_listing_with_payment: "%{listing_link}의 매물 등록을 추가하셨습니다. 하지만 아직 결제환경 설정이 되어 있지 않습니다. 판매대금의 결제를 위해서 결제환경을 설정해 주십시오."
@@ -1769,7 +1769,7 @@ ko:
       the_order_about: "%{listing_title} 거래"
       you_can_contact_the_marketplace_team: "추가 문의 사항이 있으시면 %{service_name}에 연락 하실 수 있습니다."
       you_can_now_give_feedback: "이제 %{name}님에게 피드백을 보낼 수 있습니다. 항상 피드백을 보내실 것을 권합니다. 거래에 문제가 없었다면 %{recipient}님이 신뢰할 수 있음을 다른 사람에게 알릴 수 있습니다."
-      give_feedback_to: ~
+      give_feedback_to: "%{name}님에게 피드백 보내기"
     transaction_disputed:
       subject: "분쟁건 - %{service_name}에서 거래내역을 검토중입니다."
       subject_admin: ~
@@ -1782,8 +1782,8 @@ ko:
       learn_more_about: ~
       review_the_transaction: ~
     transaction_refunded:
-      subject: ~
-      marketplace_team_has_approved_the_cancellation: ~
+      subject: "환불조치 - %{service_name}에서 %{buyer}님의 분쟁 신청 승인"
+      marketplace_team_has_approved_the_cancellation: "%{service_name}에서 %{transaction_link} 분쟁 요청을 승인하고 환불 처리 했습니다."
       you_should_receive_a_refund_soon: "곧 환불이 이루어집니다. 추가 문의사항이 있으시면 %{service_name}에 연락 하실 수 있습니다."
     transaction_cancellation_dismissed:
       subject: ~
@@ -2170,7 +2170,7 @@ ko:
       offer_closed: "제안을 종료하였습니다."
       listing_created_successfully: "매물이 성공적으로 등록되었습니다. %{new_listing_link}."
       offer_rejected: "제안을 거절했습니다."
-      offer_canceled: "제안이 취소되어졌습니다"
+      offer_canceled: "거래 취소"
       listing_updated_successfully: "매물이 성공적으로 업데이트 되었습니다."
       listing_updated_availability_management_enabled: "매물이 업데이트되었습니다. 가용성 관리가 가능합니다."
       listing_updated_availability_management_disabled: "매물이 업데이트되었습니다. 가용성 관리가 비활성화되었습니다."

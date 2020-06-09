@@ -283,8 +283,8 @@ hu:
         ban_me_error: "Nem tilthatja le önmagát"
         have_ongoing_transactions: "Ezt a fiókot nem lehet törölni, mert tranzakciók vannak folyamatban. A fiók törlése előtt hajtsa végre az összes tranzakciót."
         only_delete_disabled: "Csak a letiltott felhasználókat törölheti. Először tiltsa le a felhasználót hogy törölhesse fiókját"
-        delete_info1: ~
-        delete_info2: ~
+        delete_info1: "Ha törli ezt a fiókot, a személyes adatok (név, telefonszám, cím, e-mail, profilkép stb.) véglegesen törlődnek és nem állíthatók helyre. Az általuk létrehozott összes hirdetés eltávolításra kerül. Nem fogja tudni újraaktiválni ezt a fiókot."
+        delete_info2: "A fiók törlésekor nem távolítják el azokat az információkat, amelyekben más tagok vesznek részt (beszélgetések másokkal, tranzakciók, értékelések, amelyeket másoknak adtak, stb.). A név azonban nem jelenik meg ezen információk mellett."
         search: Keresés
         search_by_name_email: "Keresés név, E-mail cím vagy megjelenített név alapján"
         reset_search: "Összes mutatása"
@@ -407,7 +407,7 @@ hu:
         google_search_console: ~
         google_search_console_paragraph1: ~
         google_search_console_these_instructions: "ezek az instrukciók"
-        google_search_console_paragraph2: ~
+        google_search_console_paragraph2: "Jó ötlet, ha webhelyét hozzáadja a Google Search Console-hoz. Csak néhány percig tart a %{link} használatával."
         save: "Beállítások mentése"
       analytics:
         analytics: Vizsgálat
@@ -420,10 +420,10 @@ hu:
         sharetribe_analytics_instructions_link_text: "Olvasson többet a Sharetribe elemzéseiről."
         end_user_analytics: "Engedje meg, hogy a Sharetribe nyomon kövesse a tagok tevékenységét a Sharetribe szolgáltatásainak javítása érdekében"
         save: "Beállítások mentése"
-        google_tag_manager: ~
+        google_tag_manager: "Google Címkekezelő"
         gtm_paragraph_1: ~
         gtm_paragraph_2: ~
-        learn_how_to_configure_gtm: ~
+        learn_how_to_configure_gtm: "Tanulja meg, hogyan konfigurálhatja a GTM-et az Ön Go piacterére"
       logo_link:
         title: "Logó link"
         info: "Testreszabhatja a logó linkjét (és a felső sáv menüjének alapértelmezett kezdőgombját). Alapértelmezés szerint a logó a felhasználókat a honlapra vagy az egyedi nyitóoldalra viszi."
@@ -720,7 +720,7 @@ hu:
             video: "Új \"Videó\" rész hozzáadása"
           edit_section:
             categories: "\"Kategóriák\" szerkesztése"
-            footer: ~
+            footer: "A „lábléc” szekció szerkesztése"
             hero: "\"Hős\" rész szerkesztés"
             info_single_column: "\"Infó - Egy oszlop\" rész szerkesztése"
             info_multi_column_2: "\"Infó - két oszlop\" rész szerkesztése"
@@ -1801,13 +1801,13 @@ hu:
       you_should_receive_a_refund_soon: "Hamarosan meg kell kapnia a visszatérítést. Ha további probléma merül fel, vegye fel a kapcsolatot a %{service_name} csapattal."
     transaction_cancellation_dismissed:
       subject: ~
-      marketplace_team_has_rejected_the_cancellation: ~
+      marketplace_team_has_rejected_the_cancellation: "A %{service_name} csapat elutasította a %{transaction_link} tranzakcióval kapcsolatos reklamációt."
     transaction_commission_charge_failed:
-      subject: ~
+      subject: "A piacterén lévő jutalékot nem utalták át a PayPal-számlájára"
       transaction_about: ~
       the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
+      this_usually_means: "Ez általában azt jelenti, hogy valami blokkolja a jutalékot az eladó PayPal számláján. A legtöbb esetben az a probléma, hogy az eladónak nincs érvényes és ellenőrzött finanszírozási forrása, amely a PayPal-számlájához kapcsolódik."
+      if_you_would_like_to_investigate: "Ha tovább szeretné ezt vizsgálni, akkor az a helyes első lépés, ha kapcsolatba lép az eladóval."
       contact_the_seller: "Lépjen kapcsolatba az eladóval"
   error_messages:
     booking:
@@ -3222,11 +3222,11 @@ hu:
     form_verification:
       personal_id_number: "Személyi azonosító szám"
       document: "Személyazonosság igazolás (útlevél, kormány által kiállított személyi igazolvány)"
-      document_back: ~
+      document_back: "Személyazonosság igazolása (útlevél, kormány által kiállított személyi igazolvány) (a dokumentum hátulja)"
       send_verification: "Igazoló e-mail küldése"
       need_verification: "További ellenőrzésre van szükség"
       additional_document: "Egy címet tartalmazó dokumentum vagy útlevél, helyi személyi igazolvány vagy közüzemi számla egy ismert közüzemi vállalattól"
-      additional_document_back: ~
+      additional_document_back: "Egy dokumentumot mely lakcímet tartalmaz, útlevél, helyi személyi igazolvány vagy közüzemi számla egy jól ismert közüzemtől (a dokumentum hátulja)"
       files_need_to_be: ~
     form_pin:
       social_insurance_number: "Társadalombiztosítási szám (TAJ)"
