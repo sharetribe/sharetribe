@@ -489,6 +489,7 @@ describe ListingsController, type: :controller do
     before :each do
       @request.host = "#{community.ident}.lvh.me"
       @request.env[:current_marketplace] = community
+      stub_donalo_stuff
     end
 
     it "shows renders custom meta tags with placeholders" do
