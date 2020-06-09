@@ -82,7 +82,7 @@ ko:
         verification_to_post_listings_info_content: "확인되지 않은 사용자에 대한 정보 텍스트"
         verification_to_post_listings_info_content_description: "현재 판매자가 매물을 등록하기 전에 수동으로 승인을 받도록 요구하고 있습니다. 승인 받지 않은 판매자들이 매물을 등록할때 보이는 기본 텍스트를 여기서 지정할 수 있습니다."
         verification_to_post_listings_info_content_default: "%{service_name}의 관리자가 승인한 사용자만이 매물을 등록할 수 있습니다. 아직 승인을 받지 못하셨습니다. %{contact_admin_link} 에서 승인을 요청하십시요."
-        contact_admin_link_text: "%{service_name}에 문의하기"
+        contact_admin_link_text: "%{service_name} 연락하기"
         save: "설정 저장"
         transaction_agreement: "거래 계약서"
         transaction_agreement_checkbox: "사용자가 거래 전에 계약서에 동의하도록 요청하십시오."
@@ -1275,7 +1275,7 @@ ko:
       stripe-fee_label: "결제 처리 수수료"
     confirm:
       confirm_description: "피드백을 작성하시려면 거래 완료 여부를 확인해주세요."
-      cancel_description_team: ~
+      cancel_description_team: "거래가 정상적으로 이루어지지 않은 경우 \"분쟁\"을 선택할 수 있습니다. %{service_name}에서 거래 내역을 확인 후 환불 또는 정상진행을 결정합니다."
       cancel_payed_description: "귀하의 요청이 수락되었지만 취소할 생각이 있으시면, 결제 전에 요청을 취소 할 수 있습니다."
       canceling_payed_transaction: "거래 취소"
       confirm: 거래완료
@@ -1300,7 +1300,7 @@ ko:
       rejected_offer: "거절된 제안"
       confirmed_request: "완료된 주문"
       confirmed_offer: "완료된 제안"
-      canceled_request: "취소되어진 주문"
+      canceled_request: 분쟁건
       canceled_offer: "취소되어진 제안"
       message_from: "%{person}님의 메시지"
       about_listing: "매물 정보 %{listing_title}"
@@ -1313,7 +1313,7 @@ ko:
       accepted_offer: "제안이 승인되어졌습니다"
       rejected_request: "요청을 거절되고 결제가 취소되어졌습니다"
       rejected_offer: "제안이 거절되어졌습니다"
-      confirmed_request: "주문 완료로 표시되어졌습니다"
+      confirmed_request: "거래완료로 표시됨"
       confirmed_offer: "제안 완료로 표시되어졌습니다"
       canceled_request: "주문이 취소되어졌습니다"
       canceled_offer: "제안이 취소되어졌습니다"
@@ -1324,7 +1324,7 @@ ko:
         held_payment: "구매요청을 수락했습니다. 결제된 %{sum}는 구매자의 거래완료 확인이 있을때까지 %{service_name}에 보관됩니다."
         held_payment_wo_sum: ~
         confirmed_request: ~
-      canceled_the_order: ~
+      canceled_the_order: "분쟁중. %{service_name}에 통보 되었습니다."
       marked_as_refunded: "환불로 표시됨"
       dismissed_the_cancellation: ~
       payment_has_now_been_transferred: ~
@@ -1384,13 +1384,13 @@ ko:
       request_confirmed: 완료되었습니다
       request_canceled: 취소되었습니다
       request_paid: "성공적으로 결제되었습니다"
-      request_preauthorized: "결제가 승인되어졌습니다"
+      request_preauthorized: "결제가 승인되었습니다."
       skip_feedback: "피드백 생략"
       waiting_for_listing_author_to_accept_offer: "%{listing_author_name}님이 제안을 승인할 때까지 기다리고 있습니다."
-      waiting_for_listing_author_to_accept_request: "%{listing_author_name}님이 요청을 승인할 때까지 기다리는 중입니다. %{listing_author_name}이 수락하면 곧 비용이 청구됩니다."
+      waiting_for_listing_author_to_accept_request: "%{listing_author_name}님의 거래 수락을 기다리는 중입니다. %{listing_author_name}님이 수락하면 비용이 청구됩니다."
       waiting_for_you_to_accept_request: "요청을 수락하기를 기다리고 있습니다."
       waiting_confirmation_from_requester: "%{requester_name}님의 거래완료 확인을 기다리는 중"
-      waiting_confirmation_from_you: "당신이 주문 완료되었다고 표시되기를 기다리는 중입니다."
+      waiting_confirmation_from_you: "거래완료 확인을 기다리는 중입니다."
       waiting_payment_from_requester: "%{requester_name}가 결제 대기중입니다."
       waiting_payment_from_you: "당신이 결제하기를 기다리는 중입니다."
       waiting_feedback_from_you: "당신이 피드백주기를 기다리는 중입니다"
@@ -1401,10 +1401,10 @@ ko:
           unknown_reason: "결제 대기 중입니다. 자세한 내용을 보려면 PayPal 계정에 로그인 하세요."
           verify: "PayPal 계정을 확인할 때까지 기다리는 중입니다."
       stripe:
-        waiting_confirmation_from_requester: "%{requester_name}님의 거래완료를 기다리는 중. 거래완료가 확인되면 본인의 은행 계좌로 지불처리 됩니다."
-      order_canceled: ~
-      waiting_for_marketplace_review: ~
-      marketplace_notified: ~
+        waiting_confirmation_from_requester: "%{requester_name}님의 거래완료 확인을 기다리는 중. 거래완료가 확인되면 본인의 은행 계좌로 지불처리 됩니다."
+      order_canceled: 분쟁건
+      waiting_for_marketplace_review: "%{service_name}의 검토를 기다리는 중"
+      marketplace_notified: "%{service_name}에 통보 되었습니다. 추가 정보를 보내시려면 이 링크를 이용하세요. %{contact_link}"
       contact_them: ~
       refunded: "환불로 표시된 주문"
       dismissed: ~
@@ -1412,7 +1412,7 @@ ko:
       you_should_receive_refund_soon: ~
       issue_with_the_refund: ~
       do_you_disagree: ~
-      contact_the_marketpalce_team: ~
+      contact_the_marketpalce_team: "%{service_name} 연락하기"
       order_cancellation_dismissed: ~
     status_link:
       accept_offer: "제안 승인"
@@ -1436,7 +1436,7 @@ ko:
     access_denied:
       access_denied: "접근이 거부되었습니다."
       you_are_banned_in_this_community: "%{service_name} 관리자가 당신의 접근을 제한하였습니다. %{link_to_contact_page}를 통해 %{service_name} 관리자에게 문의해주세요."
-      contact_page_link: "사용 문의"
+      contact_page_link: 연락하기
     new:
       welcome_fb_user: "%{name}님, %{service_name} 가입을 축하드립니다."
       fb_join_accept_terms: "%{service_name} 가입 절차를 마치기 위해 이용 약관에 동의해주세요."
@@ -1486,7 +1486,7 @@ ko:
     transaction_confirmed:
       here_is_a_message_from: "%{other_party_given_name}의 메시지는 다음과 같습니다."
       request_marked_as_confirmed: "거래가 완료되었습니다."
-      request_marked_as_canceled: "주문이 취소되었습니다."
+      request_marked_as_canceled: 분쟁건
       has_marked_request_as_confirmed: "%{other_party_full_name}님이 '%{request}'에 대한 거래완료를 확인했습니다. 이제 %{other_party_given_name}님에게 피드백을 보낼 수 있습니다."
       has_marked_request_as_canceled: "%{other_party_full_name}님이 '%{request}' 거래에 대해 분쟁을 선택하셨습니다. %{other_party_given_name}님에게 피드백을 보낼 수 있습니다."
       giving_feedback_is_good_idea: "항상 피드백을 보낼 것을 권장합니다. 거래가 잘 진행되었다면 다른 사람에게 %{other_party_given_name}님이 신뢰할 수 있음을 알려줄 수 있습니다."
@@ -1496,7 +1496,7 @@ ko:
       team_title: ~
     transaction_confirmed_v2:
       headline_confirmed: "%{other_party_full_name}님이 %{listing_link}의 거래완료를 확인했습니다."
-      headline_canceled: ~
+      headline_canceled: "%{other_party_full_name}님이 %{listing_link} 거래를 분쟁중입니다."
       stripe:
         has_marked_request_as_confirmed: ~
       can_give_feedback: "이제 %{other_party_given_name}님께 피드백을 보낼 수 있습니다."
@@ -1505,7 +1505,7 @@ ko:
       subject: "주문 자동 완성 - 피드백을 해주세요"
       we_have_marked_request_as_confirmed: "'%{request}'에 대한 주문을 완료했습니다. 요청이 수락된 후 %{days_passed} 일이 지났으므로 주문이 자동으로 완료되었습니다."
     transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "%{request} 거래를 완료로 표시했습니다."
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "주문 자동 완성 - 피드백을 해주세요"
@@ -1742,7 +1742,7 @@ ko:
     listing_rejected:
       subject: ~
       listing_has_been_rejected: ~
-      contact_link: ~
+      contact_link: "%{community} 연락하기"
       edit_the_listing: ~
     edited_listing_submited_for_review:
       subject: ~
@@ -1766,25 +1766,25 @@ ko:
       provider: ~
       view_transaction: "거래 보기"
     transaction_cancel_flow:
-      the_order_about: ~
-      you_can_contact_the_marketplace_team: ~
+      the_order_about: "%{listing_title} 거래"
+      you_can_contact_the_marketplace_team: "추가 문의 사항이 있으시면 %{service_name}에 연락 하실 수 있습니다."
       you_can_now_give_feedback: "이제 %{name}님에게 피드백을 보낼 수 있습니다. 항상 피드백을 보내실 것을 권합니다. 거래에 문제가 없었다면 %{recipient}님이 신뢰할 수 있음을 다른 사람에게 알릴 수 있습니다."
       give_feedback_to: ~
     transaction_disputed:
-      subject: ~
+      subject: "분쟁건 - %{service_name}에서 거래내역을 검토중입니다."
       subject_admin: ~
-      order_about: ~
-      the_order_has_been_canceled: ~
+      order_about: "%{listing_title} 거래"
+      the_order_has_been_canceled: "%{transaction_link} 분쟁중"
       the_order_between_buyer_and_seller_has_been_canceled: ~
-      the_marketplace_has_been_notified: ~
-      contact_the_marketplace_team: ~
+      the_marketplace_has_been_notified: "%{service_name}에 통보 되었으며, 거래 내역을 검토중입니다. 필요한 경우 추가 정보를 보낼 수 있습니다."
+      contact_the_marketplace_team: "%{service_name} 연락하기"
       you_must_now_decide: ~
       learn_more_about: ~
       review_the_transaction: ~
     transaction_refunded:
       subject: ~
       marketplace_team_has_approved_the_cancellation: ~
-      you_should_receive_a_refund_soon: ~
+      you_should_receive_a_refund_soon: "곧 환불이 이루어집니다. 추가 문의사항이 있으시면 %{service_name}에 연락 하실 수 있습니다."
     transaction_cancellation_dismissed:
       subject: ~
       marketplace_team_has_rejected_the_cancellation: ~
@@ -2048,7 +2048,7 @@ ko:
     no_tribe:
       inbox: "받은 편지함"
       settings: 설정
-      feedback: "%{service_name}에 문의하기"
+      feedback: "%{service_name} 연락하기"
     application:
       join_this_community: "마켓플레이스에 가입하기"
       read_more: 더읽기
@@ -2125,7 +2125,7 @@ ko:
       sign_up: 가입
     notifications:
       listing_could_not_be_saved: "매물을 저장할 수 없습니다. 다시 시도하십시오. 문제가 지속되면 %{contact_admin_link}하시기 바랍니다."
-      contact_admin_link_text: "%{service_name}에 문의하기"
+      contact_admin_link_text: "%{service_name} 연락하기"
       test_welcome_email_delivered_to: "테스트 이메일이 %{email} (으)로 전송되었습니다."
       something_went_wrong: "오류가 발생했습니다"
       community_updated: "세부 정보가 업데이트 되었습니다."
@@ -2198,10 +2198,10 @@ ko:
       registration_considered_spam: "등록이 되지 않았습니다. 상위 메뉴에서 고객문의를 선택하셔서 \"email2 오류\"를 언급하여 주십시요"
       reply_cannot_be_empty: "빈 메시지는 보내실 수 없습니다."
       reply_sent: "답장을 보냈습니다."
-      request_accepted: "요청을 받아들였습니다."
+      request_accepted: "구매요청을 수락했습니다."
       request_confirmed: "주문이 완료되었습니다"
       request_rejected: "요청을 거절했습니다."
-      request_canceled: "주문이 취소되었습니다."
+      request_canceled: 분쟁건
       message_sent: "메시지를 보냈습니다"
       message_not_sent: "메시지 보내기가 실패했습니다. 다시 시도하십시오."
       this_content_is_not_available_in_this_community: "이 콘텐츠를 사용할 수 없습니다."
@@ -2472,7 +2472,7 @@ ko:
       select_subcategory: "하위카테고리 선택"
       select_transaction_type: "매물 타입 선택"
       you_need_to_fill_payout_details_before_accepting: "매물을 등록하려면 먼저 결제 정보를 입력해야 합니다. 결제 정보를 입력 하려면 %{payment_settings_link}로 이동 하십시오."
-      contact_admin_link_text: "%{service_name}에 문의하기"
+      contact_admin_link_text: "%{service_name} 연락하기"
       community_not_configured_for_payments: "%{service_name}의 지불 구성이 되지 않아 신규 매물을 아직 등록할 수 없습니다. 자세한 내용은 %{contact_admin_link}에 문의 하시기 바랍니다."
       payment_settings_link: "결제 설정"
       community_not_configured_for_payments_admin: "%{service_name}이/가 결제를 위해 구성되지 않았으므로 아직 신규 매물을 등록할 수 없습니다. 결제 세부 사항을 기입 하시려면 %{payment_settings_link}로 이동하십시오."
@@ -2548,7 +2548,7 @@ ko:
       by: "%{author}님의 %{listing}"
       payment: 결제
       exp: "Exp:"
-      you_will_be_charged: "%{author}님이 거래를 수락하는 경우에만 비용이 청구됩니다. %{author} 님이 %{expiration_period}일 이내에 거래를 수락해야 합니다. %{author}님이 거부하거나 응답하지 않으면 비용이 청구되지 않습니다."
+      you_will_be_charged: "%{author}님이 거래를 수락하는 경우에만 비용이 청구됩니다. %{author}님이 %{expiration_period}일 이내에 거래를 수락해야 하며, %{author}님이 거래를 거부하거나 응답하지 않으면 비용이 청구되지 않습니다."
       day: 일
       days: 일
       night: 박
@@ -2608,14 +2608,14 @@ ko:
     paypal_receive_funds_info: "%{service_name}, %{upgrade_paypal_account_link}에 계정을 연결하려고 할 때 오류가 표시되는 경우 무료이며 쉽습니다. 개인인 경우 PayPal은 귀하의 이름을 비즈니스 이름으로 사용할 것을 권장합니다."
     upgrade_paypal_account_link_text: "로그인하여 PayPal 계정을 비즈니스 계정으로 업그레이드하십시오."
     admin_account_not_connected: "결제가 설정되지 않았기 때문에 %{service_name}의 결제 시스템을 사용하여 결제를 받을 수 없습니다. 자세한 내용은 %{contact_admin_link}에 문의 바랍니다."
-    contact_admin_link_text: "%{service_name}에 문의하기"
+    contact_admin_link_text: "%{service_name} 연락하기"
     you_are_ready_to_accept_payments: "결제를 받을 준비가 되었습니다."
     commission: "%{commission} %"
     not_now: "PayPal 계정에 지금 연결하고 싶지 않습니다."
     new:
       payout_info_you_need_to_connect: "결제를 받으려면 PayPal 계정을 %{service_name}에 연결해야합니다."
       payout_info_text: "계정을 연결하려면 다음 단계를 완료하십시오."
-      contact_admin_link_text: "%{service_name}에 문의하기"
+      contact_admin_link_text: "%{service_name} 연락하기"
       admin_account_not_connected: "%{service_name}의 결제 시스템이 셋업되지 않아 PayPal 계정을 연결할 수 없습니다. 자세한 내용은 %{contact_admin_link}에 문의 하시기 바랍니다."
       paypal_account_email: "PayPal 계정 연결"
       paypal_account_email_placeholder: "PayPal 이메일 주소"
@@ -3123,12 +3123,12 @@ ko:
         multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "결제가 설정되지 않았기 때문에 %{service_name}의 결제 시스템을 사용하여 결제를 받을 수 없습니다. 자세한 내용은 %{contact_admin_link}에 문의 바랍니다."
-    contact_admin_link_text: "%{service_name}에 문의하기"
+    contact_admin_link_text: "%{service_name} 연락하기"
     you_are_ready_to_accept_payments: "결제를 받을 준비가 되었습니다."
     commission: "%{commission} %"
     pay_with_stripe: "%{card}를 사용하여 스트라이프로 결제하기"
     add_and_pay: "결제 확인"
-    card_not_stored: "귀하의 결제는 Stripe에 의해 안전하게 처리됩니다. %{service_name}에서는 카드 정보를 저장하지 않습니다."
+    card_not_stored: "결제는 Stripe의 결제 시스템으로 안전하게 처리됩니다. %{service_name}에서는 카드 정보를 저장하지 않습니다."
     missing_payment: "계정이 지불을 받을 수 있도록 설정되어 있지 않습니다. 결제환경을 설정하세요. %{settings_link}"
     stripe_bank_connected: "결제 정보가 성공적으로 설정되었습니다!"
     stripe_can_accept: "이제 등록하신 은행 계좌로 결제대금을 받을 수 있습니다."
