@@ -52,6 +52,17 @@ RUN curl -sfSL \
   | sha256sum -c - \
   && chmod 755 /usr/sbin/secure-environment
 
+# Install Chrome
+RUN wget --quiet -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+    sh -c "echo 'deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list.d/google-chrome.list" && \
+    apt-get update && \
+    apt-get install -fy google-chrome-stable
+
+# Install Chromedriver
+RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip && \
+    unzip chromedriver_linux64.zip -d /usr/bin && \
+    chmod u+x /usr/bin/chromedriver
+
 #
 # Sharetribe
 #
@@ -76,13 +87,14 @@ WORKDIR /opt/app
 COPY Gemfile /opt/app
 COPY Gemfile.lock /opt/app
 
-RUN bundle check || bundle install
+#RUN bundle check || bundle install
 
 COPY package.json /opt/app/
 COPY client/package.json /opt/app/client/
 
 ENV NPM_CONFIG_LOGLEVEL error
 
+# TODO this could cause the same issues as having bundle install in the image
 RUN npm install
 RUN npm run postinstall
 

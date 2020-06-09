@@ -16,6 +16,7 @@ AllCops:
     - 'vendor/bundle/**/*'
     - '.pryrc'
     - 'Procfile.spec'
+    - 'engines/donalo/test/dummy/**/*'
   TargetRubyVersion: 2.3
 
 Style/RegexpLiteral:

@@ -733,6 +733,7 @@ Style/Alias:
   Exclude:
     - 'lib/i18n_action_mailer/i18n_action_mailer.rb'
     - 'spec/spec_helper.rb'
+    - 'engines/donalo/lib/donalo/engine.rb'
 
 # Offense count: 40
 # Cop supports --auto-correct.

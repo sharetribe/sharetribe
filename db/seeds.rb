@@ -23,6 +23,34 @@ url = URLUtils.append_query_param(
   marketplace.full_domain(with_protocol: true), "auth", user_token
 )
 
+NumericField.create(
+  community: Community.first,
+  min: 1,
+  max: 999,
+  categories: [Category.first],
+  search_filter: false,
+  names: [
+    CustomFieldName.new(
+      value: 'Cantidad mínima a solicitar',
+      locale: 'es'
+    ),
+  ]
+)
+
+NumericField.create(
+  community: Community.first,
+  min: 1,
+  max: 999,
+  categories: [Category.first],
+  search_filter: false,
+  names: [
+    CustomFieldName.new(
+      value: 'Cantidad disponible',
+      locale: 'es'
+    ),
+  ]
+)
+
 Rake::Task['stripe:enable'].invoke
 
 puts "\n\e[33mYou can now navigate to your markeplace at #{url}"
