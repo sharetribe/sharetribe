@@ -4,6 +4,9 @@ marketplace = MarketplaceService.create(
   marketplace_country: 'ES',
   marketplace_language: 'es'
 )
+marketplace.locales << 'ca'
+marketplace.save!
+
 user = UserService::API::Users.create_user(
   {
     given_name: 'Troy',
