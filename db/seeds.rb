@@ -53,4 +53,13 @@ NumericField.create(
 
 Rake::Task['stripe:enable'].invoke
 
+# Enable customizable footer. Note it also needs external_plan_service_in_use
+# set to true.
+PlanService::Store::Plan::PlanModel.create(
+  community_id: marketplace.id,
+  status: "active",
+  features: {"whitelabel"=>true, "admin_email"=>true, "footer"=>true},
+  expires_at: Time.current + 20.years
+)
+
 puts "\n\e[33mYou can now navigate to your markeplace at #{url}"
