@@ -2201,8 +2201,8 @@ lv:
       you_must_log_in_to_give_feedback: "Jums jāienāk, lai sniegtu atsauksmes"
       you_must_log_in_to_invite_new_users: "Jums jāienāk, lai uzaicinātu jaunus lietotājus %{service_name}"
       you_must_log_in_to_send_a_comment: "Jums jāienāk, lai pievienotu jaunu komentāru"
-      you_must_log_in_to_send_a_message: "Jums jāienāk %{service_name}, lai nosūtītu ziņu citam lietotājam."
-      you_must_log_in_to_do_a_transaction: "Lai veiktu darījumu, Jums jāieiet %{service_name}."
+      you_must_log_in_to_send_a_message: "Jums jāiereģistrējas %{service_name}, lai nosūtītu ziņu citam lietotājam."
+      you_must_log_in_to_do_a_transaction: "Lai veiktu darbību, Jums jāiereģistrējas %{service_name}."
       you_must_log_in_to_view_this_content: "Jums jāienāk, lai apskatītu šo saturu"
       you_must_log_in_to_view_this_page: "Jums jāienāk, lai apskatītu šo lapu"
       you_must_log_in_to_view_your_inbox: "Jums jāienāk %{service_name}, lai apskatītu savas ienākošās ziņas."
@@ -3037,7 +3037,7 @@ lv:
           covers: aptver
       pricing_units:
         piece: gabals
-        hour: stundā
+        hour: stundu
         day: dienā
         night: nakts
         week: nedēļa

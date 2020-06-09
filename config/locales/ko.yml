@@ -112,7 +112,7 @@ ko:
         logo_icon_instructions_text_with_dimensions: "정사각형 로고는 모바일 화면 또는 페이스북을 통해 사이트를 공유할 때 사용됩니다. 가급적 %{width} x %{height}픽셀로 만들어주세요."
         logo_icon_instructions_text_with_dimensions_no_placing: "이 사각형 로고는 사람들이 Facebook에서 귀하의 사이트를 공유하거나 모바일 장치의 홈 화면에 귀하의 사이트를 북마크 할 때 표시됩니다. 크기는 적어도 %{width} x %{height} px 여야합니다."
         logo_mobile_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: "표지 이미지는 로그인하지 않은 사용자에게 보여집니다."
+        cover_photo_visibility: "표지 이미지는 메인 페이지에서 로그인하지 않은 사용자에게 보여집니다."
         cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다. %{see_how_it_looks_like}"
         we_have_you_covered: ~
         cover_photo_ready_made: ~
@@ -1467,7 +1467,7 @@ ko:
       create_own: "%{service_name} 같은 온라인 마켓 플레이스 웹 사이트를 만들고 싶습니까? %{learn_more}."
       learn_more: 자세히
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "%{request_link} 주문을 아직 완료하거나 취소하지 않았습니다. 주문이 완료되면 이를 확인해야합니다. 그 후에 %{other_party_given_name}에게 피드백을 줄 수 있습니다."
+      you_have_not_yet_confirmed_or_canceled_request: "%{request_link} 거래에 대해 아직 거래완료 또는 분쟁을 선택하지 않으셨습니다. 물품을 받으시면 선택을 입력하셔야 합니다. 그 후에 %{other_party_given_name}님에게 피드백을 보낼 수 있습니다."
       remember_to_confirm_request: "요청을 확인하거나 취소하는 것을 잊지 마십시오."
       if_will_not_happen_you_should_cancel: "만일 이주문이 어떤 이유로 완료되지 않을거라 생각한다면, 이 %{cancel_it_link}를 클릭해서 취소 할 수 있습니다."
       cancel_it_link_text: 취소하시겠습니까?
@@ -1488,7 +1488,7 @@ ko:
       request_marked_as_confirmed: "거래가 완료되었습니다."
       request_marked_as_canceled: "주문이 취소되었습니다."
       has_marked_request_as_confirmed: "%{other_party_full_name}님이 '%{request}'에 대한 거래완료를 확인했습니다. 이제 %{other_party_given_name}님에게 피드백을 보낼 수 있습니다."
-      has_marked_request_as_canceled: "%{other_party_full_name}이 '%{request}'에 대한 주문을 취소했습니다. 여전히 %{other_party_given_name}에게 피드백을 줄 수 있습니다."
+      has_marked_request_as_canceled: "%{other_party_full_name}님이 '%{request}' 거래에 대해 분쟁을 선택하셨습니다. %{other_party_given_name}님에게 피드백을 보낼 수 있습니다."
       giving_feedback_is_good_idea: "항상 피드백을 보낼 것을 권장합니다. 거래가 잘 진행되었다면 다른 사람에게 %{other_party_given_name}님이 신뢰할 수 있음을 알려줄 수 있습니다."
       give_feedback_to: "%{other_party_given_name}님에게 피드백 보내기"
       stripe:
@@ -1513,7 +1513,7 @@ ko:
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "이제 %{other_party_given_name}님에게 피드백을 줄 수 있습니다. 항상 피드백을 주는 것이 좋습니다. 모든 것이 잘 진행되면 %{other_party_given_name}님이 신뢰할 수 있음을 다른 사람에게 알릴 수 있습니다."
+      giving_feedback_is_good_idea: "이제 %{other_party_given_name}님에게 피드백을 보낼 수 있습니다. 항상 피드백을 보내는 것이 좋습니다. 거래에 문제가 없었다면 %{other_party_given_name}님이 신뢰할 수 있음을 다른 사람에게 알릴 수 있습니다."
       give_feedback_to: "%{other_party_given_name}님에게 피드백 보내기"
       show_thread: "대화 보여주기"
     confirmation_instructions:
@@ -1539,7 +1539,7 @@ ko:
       unsubscribe_from_these_emails: "이메일 수신 거부"
       unsubscribe_from_invitation_emails_info: "%{service_name}의 회원이 귀하를 초대했기 때문에이 이메일을 받았습니다."
       unsubscribe_from_invitation_emails: "초대 이메일에서 %{service_name} 가입을 취소합니다."
-      here_is_your_receipt: ~
+      here_is_your_receipt: "여기에 영수증이 있습니다."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}가 당신의 제안 %{listing}을 승인하였습니다."
       has_accepted_your_request: "%{accepter}가 당신의 요청 %{listing}을 승인하였습니다."
@@ -1583,7 +1583,7 @@ ko:
       new_payment: "신규결제가 처리되었습니다."
       price_per_unit_type: "%{unit_type} 당 가격 :"
       quantity: "수량:"
-      you_have_received_new_payment: "%{payer_full_name}님이 <b>%{listing_title}</b>에 대해 <b>%{payment_sum} </b>를 결제한 영수증입니다."
+      you_have_received_new_payment: "%{payer_full_name}님이 <b>%{listing_title}</b>에 대해 결제한 <b>%{payment_sum} </b>에 대한 영수증입니다."
       listing_per_unit_title: "%{unit_type}당 %{title}"
     payment_receipt_to_seller:
       payment_gateway_fee: "결제 처리 수수료:"
@@ -1597,7 +1597,7 @@ ko:
       new_payment: "신규결제가 처리되었습니다."
       price_per_unit_type: "%{unit_type} 당 가격 :"
       quantity: "수량:"
-      you_have_received_new_payment: "%{payer_full_name}님이 <b>%{listing_title}</b>에 대해 <b>%{payment_sum}</b>를 결제한 영수증입니다."
+      you_have_received_new_payment: "%{payer_full_name}님이 <b>%{listing_title}</b>에 대해 결제한 <b>%{payment_sum}</b>에 대한 영수증입니다."
       stripe:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
@@ -1620,8 +1620,8 @@ ko:
       paypal_gateway_fee: "페이팔 수수료"
       money_will_be_transferred: "a) 귀하가 요청 완료를 표시했거나 b) 결제한 날 %{automatic_confirmation_days} 일이 경과하면 %{recipient_name}(으)로 이체됩니다."
     payment_receipt_to_payer_v2:
-      headline: "%{listing_link} 상품에 대한 영수증입니다."
-      you_have_made_new_payment: "<b>%{listing_title}</b>에 대한 <b>%{payment_sum}</b>를 결제하였습니다."
+      headline: "%{listing_link} 매물에 대한 영수증입니다."
+      you_have_made_new_payment: "<b>%{listing_title}</b>에 대해 <b>%{payment_sum}</b>를 결제하였습니다."
     paypal_new_payment:
       paypal_gateway_fee: "페이팔 수수료"
       shipping_total: "배송:"
@@ -1649,7 +1649,7 @@ ko:
         you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}님이 %{service_name}에서 피드백을 보냈했습니다."
-      you_can_give_feedback_to: "아직 %{name}에게 피드백을 남기지 않았습니다."
+      you_can_give_feedback_to: "아직 %{name}님에게 피드백을 남기지 않았습니다."
       view_feedback: "피드백 보기"
     new_testimonial_v2:
       headline: "피드백을 받으셨습니다!"
@@ -1679,12 +1679,12 @@ ko:
       change_my_password: "비밀번호 변경"
       reset_password_instructions: "<p>%{service_name}의 비밀번호 재설정 안내입니다.</p><p>비밀번호를 재설정 하려면 %{password_reset_link}을 클릭하세요.</p><br/><p>만약 비밀번호 재설정 요청을 하신 적이 없다면 이메일을 무시하세요. 위의 링크를 클릭하지 않는한 비밀번호는 변경되지 않습니다.</p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: "알림: %{name}에게 피드백을 남겨주세요."
+      remember_to_give_feedback_to: "알림: %{name}님에게 피드백을 남겨주세요."
       you_have_not_given_feedback_yet: "아직 %{name}에게 '%{event}' 이벤트에 대한 피드백을 남기지 않았습니다. %{given_name}이/가 이벤트에서 해야할 일에 대해 피드백을 남겨주세요."
     testimonial_reminder_v2:
-      headline: ~
-      you_have_not_given_feedback_yet: ~
-      leave_feedback: ~
+      headline: "%{other_name}님에게 피드백을 보내주세요!"
+      you_have_not_given_feedback_yet: "항상 피드백을 보내실 것을 권합니다. 거래에 문제가 없었다면 %{name}님이 신뢰할 수 있음을 다른 사람에게 알릴 수 있습니다."
+      leave_feedback: "%{other_party_name}님에게 피드백 보내기"
     transaction_preauthorized:
       subject: "%{requester}님이 %{service_name}에서 %{listing_title} 결제함"
       transaction_requested_by_user: "%{requester}이/가 \"%{listing_title}\" 매물에 대한 결제를 승인했습니다."
@@ -1768,7 +1768,7 @@ ko:
     transaction_cancel_flow:
       the_order_about: ~
       you_can_contact_the_marketplace_team: ~
-      you_can_now_give_feedback: ~
+      you_can_now_give_feedback: "이제 %{name}님에게 피드백을 보낼 수 있습니다. 항상 피드백을 보내실 것을 권합니다. 거래에 문제가 없었다면 %{recipient}님이 신뢰할 수 있음을 다른 사람에게 알릴 수 있습니다."
       give_feedback_to: ~
     transaction_disputed:
       subject: ~
