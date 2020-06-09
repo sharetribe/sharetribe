@@ -56,7 +56,7 @@ services:
       dockerfile: Dockerfile.dev
     command: >
       bash -c "bundle install;
-               bundle exec rakets:index; \
+               bundle exec rake ts:index; \
                searchd --pidfile \
                        --config config/development.sphinx.conf; \
                bundle exec rake jobs:work"
