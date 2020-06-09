@@ -1,8 +1,14 @@
+require File.expand_path(File.join(File.dirname(__FILE__), '../../', 'spec', 'support', 'donalo'))
+
 Before do
   Capybara.default_host = 'http://test.lvh.me:9887'
   Capybara.server_port = 9887
   Capybara.app_host = "http://test.lvh.me:9887"
   @current_community = Community.where(ident: "test").first
+
+  RSpec::Mocks.with_temporary_scope do
+    stub_donalo_stuff
+  end
 end
 
 Before('@javascript') do
