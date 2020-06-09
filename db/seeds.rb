@@ -2,8 +2,11 @@ marketplace = MarketplaceService.create(
   marketplace_name: 'donalo',
   marketplace_type: 'product',
   marketplace_country: 'ES',
-  marketplace_language: 'es'
+  marketplace_language: 'es',
 )
+marketplace.locales << 'ca'
+marketplace.save!
+
 user = UserService::API::Users.create_user(
   {
     given_name: 'Troy',
