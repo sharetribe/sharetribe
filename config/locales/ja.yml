@@ -1597,9 +1597,9 @@ ja:
       quantity: 量：
       you_have_received_new_payment: "%{payer_full_name} から<b>%{listing_title}  </b>に<b>%{payment_sum} </b>が支払われました。こちらはその領収書です。"
       stripe:
-        you_have_received_new_payment: "<b>%{payment_sum}  </b>の金額が、%{payer_full_name} から<b>%{listing_title}  </b>に支払われました。注文が完了としてマークされるまで、お金は%{service_name} によって保持されています。こちらは領収書です。"
+        you_have_received_new_payment: "<b>%{payment_sum}</b>の金額が、%{payer_full_name} から<b>%{listing_title}</b>に支払われました。注文が完了としてマークされるまで、お金は%{service_name} によって保持されています。こちらは領収書です。"
     payment_receipt_to_seller_v2:
-      headline: "%{seller_name} さん、こんにちは。%{payer_name} さんから、%{listing_link} の件で%{payment_sum} 支払われました。"
+      headline: "こんにちは。%{payer_name} さんから、%{listing_link} の件で%{payment_sum} 支払われました。"
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
