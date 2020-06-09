@@ -142,6 +142,7 @@ module Donalo
 
         def stock
           return nil unless stock_custom_field
+
           answer_for(stock_custom_field)
         end
 
