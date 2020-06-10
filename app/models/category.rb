@@ -38,7 +38,13 @@ class Category < ApplicationRecord
 
   before_save :uniq_url
   before_destroy :can_be_destroyed?
+  before_save :check_level
 
+  def check_level
+    return unless subcategories.present? && parent_id.present?
+
+    raise 'Only 2 level categories are available.'
+  end
 
   def translation_attributes=(attributes)
     build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
@@ -68,7 +74,7 @@ class Category < ApplicationRecord
     current_url = Maybe(url_source).to_url.or_else("noname")
 
     if new_record? || url != current_url
-      blacklist = ['new', 'all']
+      blacklist = %w[new all]
       base_url = current_url
       categories = Category.where(community_id: community_id)
 
@@ -119,7 +125,7 @@ class Category < ApplicationRecord
   end
 
   def remove_needs_caution?
-    has_own_or_subcategory_listings? or has_subcategories?
+    has_own_or_subcategory_listings? || has_subcategories?
   end
 
   def own_and_subcategory_listings

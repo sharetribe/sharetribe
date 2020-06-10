@@ -1,0 +1,28 @@
+.form-group
+  = form.label :name_attributes, t('admin2.categories.category_name')
+  .multiple-languages-container
+    - available_locales.each do |locale_name, locale_value|
+      .multiple-languages-language
+        %span.language
+          = locale_name
+      .multiple-languages-input
+        = text_field_tag "category[translation_attributes][#{locale_value}][name]", category.display_name(locale_value), class: 'required form-control'
+
+- if category.new_record?
+  .form-group{style: 'margin-left:0;'}
+    - top_level_categories = @current_community.top_level_categories.reject { |c| c.id == category.id }
+    - if category.children.empty? && top_level_categories.size.positive?
+      = form.label :parent_id, t('admin2.categories.category_parent')
+      - options = [[t('admin2.categories.no_parent'), nil]] + top_level_categories.collect { |c| [c.display_name(I18n.locale), c.id] }
+      = form.select :parent_id, options_for_select(options, category.parent_id), {}, class: %i[form-control]
+
+.form-group#category-listing-shapes-container
+  - if shapes.size > 1
+    %label= t('admin2.categories.order_types')
+    - shapes.each do |shape|
+      - checkbox_id = "listing_shape_checkbox_#{shape[:id].to_s}"
+      .form-check
+        = check_box_tag 'category[listing_shapes][][listing_shape_id]', "#{shape[:id]}", selected_shape_ids.include?(shape[:id]), id: checkbox_id, class: %i[form-check-input]
+        = label_tag checkbox_id, t(shape[:name_tr_key]), class: %i[form-check-label]
+  - else
+    = hidden_field_tag "category[listing_shapes][][listing_shape_id]", shapes.first[:id]
