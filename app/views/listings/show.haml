@@ -6,8 +6,8 @@
 - content_for :extra_javascript do
   :javascript
     window.ST.listing({
-    fuzzy_location: #{@current_community.fuzzy_location.to_json},
-    listing_location: #{raw @listing.location.to_json}
+      fuzzy_location: #{@current_community.fuzzy_location.to_json},
+      listing_location: #{raw @listing.location.coordinates(@current_community.fuzzy_location)}
     });
   - if !show_map && @current_community.fuzzy_location
     - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
@@ -177,4 +177,3 @@
         .col-12
           #googlemap
             = render :partial => "googlemap", :locals => { :listing => @listing}
-            = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
