@@ -23,8 +23,11 @@
     })()
 
 - content_for :content_after_listing_price do
-  %p
-    -#TODO i18n
-    = "#{@listing.available_units} unidades disponibles"
+  %div.row
+    %strong= "#{@listing.stock_custom_field.name}:"
+    %span= @listing.available_units
+  %div.row
+    %strong= "#{@listing.minimum_required_units_custom_field.name}:"
+    %span= @listing.minimum_required_units
 
 = render template: 'listings/show'
