@@ -119,11 +119,24 @@ module Donalo
       ]
 
       class ::ListingsController
+        alias_method :original_new, :new
         alias_method :original_show, :show
+
+        def new
+          original_new
+          @computers_category_id = computers_category_id
+          render 'listings/wrapped_new'
+        end
 
         def show
           original_show
           render 'listings/wrapped_show'
+        end
+
+        private
+
+        def computers_category_id
+          Category.find_by(url: 'informatica')&.id
         end
       end
 
