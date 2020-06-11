@@ -89,13 +89,18 @@ module TransactionService::AvailableCurrencies
   # Austria, Belgium, Denmark, Finland, France, Germany, Ireland, Luxembourg, Netherlands, Norway, Spain, Sweden, Switzerland, the United Kingdom, the United States
   # Australia, Canada, Hong Kong, New Zealand
   # Portugal, Italy
-  # Puerto Rico
+  # Puerto Rico, Japan, Singapore
+  # Estonia, Lithuania, Latvia, Greece, Poland, Slovakia, Slovenia, Mexico
+  # Czech Republic
+  # Romania
+  # Cyprus
   COUNTRY_SET_STRIPE_AND_PAYPAL = ['AT', 'BE', 'DK', 'FI', 'FR', 'DE', 'IE', 'LU', 'NL', 'NO', 'ES', 'SE', 'CH', 'GB', 'US',
                                    'AU', 'CA', 'HK', 'NZ',
                                    'PT', 'IT',
                                    'PR', 'JP', 'SG',
                                    'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'MX',
                                    'CZ',
+                                   'CY']
                                    'RO']
 
   # Countries listed by Paypal
