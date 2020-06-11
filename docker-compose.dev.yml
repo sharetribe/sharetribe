@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile.dev
     command: >
       bash -c "rm -f tmp/pids/server.pid;
-               bundle install;
+               bundle check || bundle install;
                bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/opt/app
@@ -55,7 +55,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     command: >
-      bash -c "bundle install;
+      bash -c "bundle check || bundle install;
                bundle exec rake ts:index; \
                searchd --pidfile \
                        --config config/development.sphinx.conf; \
