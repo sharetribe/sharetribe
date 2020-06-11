@@ -1,0 +1,17 @@
+- content_for :extra_javascript do
+  :javascript
+    (function () {
+      var data = #{{
+        computers_category_id: @computers_category_id,
+        is_admin: @is_current_community_admin,
+        form_url: 'https://blog.donalo.org/alta-material-informatico-para-donalo-org/'
+      }.to_json.html_safe};
+
+      if (data.is_admin) {
+        return;
+      }
+
+      $("[name=category] .select.option[data-id=" + data.computers_category_id + "]").attr("href", data.form_url);
+    })()
+
+= render template: 'listings/new'

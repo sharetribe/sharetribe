@@ -119,11 +119,24 @@ module Donalo
       ]
 
       class ::ListingsController
+        alias_method :original_new, :new
         alias_method :original_show, :show
+
+        def new
+          original_new
+          @computers_category_id = computers_category_id
+          render 'listings/wrapped_new'
+        end
 
         def show
           original_show
           render 'listings/wrapped_show'
+        end
+
+        private
+
+        def computers_category_id
+          Category.find_by(url: 'informatica')&.id
         end
       end
 
@@ -135,9 +148,9 @@ module Donalo
         end
 
         def minimum_required_units
-          return 1 unless minimum_required_units_field
+          return 1 unless minimum_required_units_custom_field
 
-          answer_for(minimum_required_units_field).numeric_value.to_i
+          answer_for(minimum_required_units_custom_field).numeric_value.to_i
         end
 
         def stock
@@ -146,14 +159,12 @@ module Donalo
           answer_for(stock_custom_field)
         end
 
-        private
-
         def stock_custom_field
           @stock_custom_field ||= CustomFieldName.find_by(locale: 'es', value: 'Cantidad disponible')&.custom_field
         end
 
-        def minimum_required_units_field
-          @minimum_required_units_field ||= CustomFieldName.find_by(locale: 'es', value: 'Cantidad mínima a solicitar')&.custom_field
+        def minimum_required_units_custom_field
+          @minimum_required_units_custom_field ||= CustomFieldName.find_by(locale: 'es', value: 'Cantidad mínima a solicitar')&.custom_field
         end
       end
 
