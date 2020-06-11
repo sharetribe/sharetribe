@@ -1323,7 +1323,7 @@ ko:
       stripe:
         held_payment: "구매요청을 수락했습니다. 결제된 %{sum}는 구매자의 거래완료 확인이 있을때까지 %{service_name}에 보관됩니다."
         held_payment_wo_sum: ~
-        confirmed_request: ~
+        confirmed_request: "거래 완료로 표시되었습니다. %{author_name}님의 계좌로 비용이 송금될 예정입니다."
       canceled_the_order: "분쟁중. %{service_name}에 통보 되었습니다."
       marked_as_refunded: "환불 조치"
       dismissed_the_cancellation: ~
@@ -1498,7 +1498,7 @@ ko:
       headline_confirmed: "%{other_party_full_name}님이 %{listing_link}의 거래완료를 확인했습니다."
       headline_canceled: "%{other_party_full_name}님이 %{listing_link} 거래를 분쟁중입니다."
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "해당 거래에 대한 비용이 은행 계좌로 송금 되었습니다."
       can_give_feedback: "이제 %{other_party_given_name}님께 피드백을 보낼 수 있습니다."
       team_title: ~
     transaction_automatically_confirmed:

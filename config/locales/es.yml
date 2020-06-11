@@ -67,11 +67,11 @@ es:
         community_name: "Nombre de la comunidad:"
         edit_community_name_description: "El nombre de tu comunidad. Este se muestra en correos electrónicos y en varios otros lugares."
         community_slogan: "Eslogan de la comunidad:"
-        community_slogan_display: "Mostrar el eslogan en la página de inicio"
+        community_slogan_display: "Mostrar el eslogan en la página de inicio o Custom landing page"
         edit_community_slogan_description: "Se muestra en la página de inicio de la comunidad a los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         edit_community_slogan_description_hideable: "Se muestra en navegadores, buscadores y social media. También puedes decidir mostrarlo en la página de inicio de tu marketplace para visitantes y usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         community_description: "Descripción de la comunidad:"
-        community_description_display: "Mostrar la descripción en la página de inicio"
+        community_description_display: "Mostrar la descripción en la página de inicio o Custom landing page"
         edit_community_description_description: "Se muestra en la página de inicio para los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: "Se muestra en navegadores, buscadores y social media. También puedes decidir mostrarla en la página de inicio de tu marketplace para visitantes y usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         community_search_placeholder: Ayuda
@@ -553,7 +553,7 @@ es:
         testimonials: Reseñas
         no_testimonials_found: "No hay feedback"
         displaying_xx_reviews: "Mostrando <b>%{count}</b> feedbacks en las transacciones %{tx_from} - %{tx_to} de <b>%{all_count}</b> feedbacks en total"
-        search_keyword: "Busca por nombre, email o palabra clave"
+        search_keyword: "Busca por nombre o palabra clave"
         search: Buscar
         reset_search: "Mostrar todas"
         for_keyword: "para: <b>%{keyword}</b>"
@@ -728,8 +728,8 @@ es:
             locations: "Editar sección Ubicaciones"
             video: "Editar sección Video"
       attachments:
-        delete: ~
-        or_change: ~
+        delete: "Borrar la imagen de %{title}"
+        or_change: "O cambiar la imagen de %{title} por una nueva:"
     landing_page_versions:
       sections:
         content:
@@ -738,14 +738,14 @@ es:
           hero_title: Hero
           hero_description: "Determina la imagen de fondo para la sección Hero. El slogan y la descripción vienen directamente de la sección de %{link}."
           basic_details_tab: "la sección de 'Detalles básicos'"
-          cta_button: ~
-          cta_button_info: ~
+          cta_button: "Sección del botón"
+          cta_button_info: "No necesitas editar el texto del botón si no quieres. Puedes dejar esto en blanco. Por defecto el texto es \"Buscar\" para marketplaces públicos y \"Sign up\" para marketplaces privados."
           button_type:
-            default: ~
-            button: ~
-            none: ~
-          button_content: ~
-          click_me: ~
+            default: "Por defecto"
+            button: Botón
+            none: Nada
+          button_content: "Contenido del botón"
+          click_me: "Haz click!"
         footer:
           footer_title: "Pie de página"
           footer_style: "Estilo del píe de página"
@@ -1437,10 +1437,10 @@ es:
       mark_as_refunded: "Marcar como reembolsada"
       dismiss: "Descartar y hacer el pago"
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Nuevo mensaje enviado desde la forma de contacto en %{service_name}"
+    feedback_body: "%{author_name_and_email} ha enviado el siguiente mensaje desde la forma de contacto en %{service_name}. Esta notificación se ha enviado a todos los administradores de %{service_name}."
+    unlogged_user: "Un usuario no registrado"
+    anonymous_user: "Un usuario anónimo"
   community_memberships:
     access_denied:
       access_denied: "Acceso denegado"
@@ -1694,7 +1694,7 @@ es:
       remember_to_give_feedback_to: "Recordatorio: Recuerda dar una valoración a %{name}"
       you_have_not_given_feedback_yet: "Aún no has dado una valoración a %{name} acerca de la transacción '%{event}'. Recuerda dar una valoración sobre cómo %{given_name} actuó durante la transacción."
     testimonial_reminder_v2:
-      headline: "¡recuerda dejar una valoración para %{other_name}!"
+      headline: "¡Recuerda dejar una valoración para %{other_name}!"
       you_have_not_given_feedback_yet: "Dar una valoración siempre es una buena idea. Si todo salió bien, deberías contar a otros que %{name} es de confianza. Si hubo algún problema, también es bueno que lo menciones."
       leave_feedback: "Dejar una valoración para %{other_party_name}"
     transaction_preauthorized:
@@ -1786,8 +1786,8 @@ es:
       subject: "Orden disputada - El equipo de %{service_name} está revisando la situación"
       subject_admin: "Una transacción ha sido disputada, debes decidir que pasa a continuación"
       order_about: "orden de %{listing_title}"
-      the_order_has_been_canceled: "la %{transaction_link} ha sido disputada."
-      the_order_between_buyer_and_seller_has_been_canceled: "la %{transaction_link} entre %{buyer} y %{seller} ha sido disputada."
+      the_order_has_been_canceled: "La %{transaction_link} ha sido disputada."
+      the_order_between_buyer_and_seller_has_been_canceled: "La %{transaction_link} entre %{buyer} y %{seller} ha sido disputada."
       the_marketplace_has_been_notified: "El equipo de %{service_name} ha sido notificado y está en proceso de revisar la situación. Puedes contactarlo para compartir más detalles."
       contact_the_marketplace_team: "Contactar al equipo de %{service_name}"
       you_must_now_decide: "Debes decidir si un reembolso es válido o no. Si un reembolso no es valido, puede descartar la disputa. Puedes %{learn_more_link}."
@@ -1795,11 +1795,11 @@ es:
       review_the_transaction: "Revisar la transacción"
     transaction_refunded:
       subject: "La orden has sido marcada como reembolsada. El equipo de %{service_name} ha aprobado la disputa de %{buyer}"
-      marketplace_team_has_approved_the_cancellation: "el equipo de %{service_name} ha aprovado la disputa de %{transaction_link} y ha marcado el pago como reembolsado."
+      marketplace_team_has_approved_the_cancellation: "El equipo de %{service_name} ha aprovado la disputa de %{transaction_link} y ha marcado el pago como reembolsado."
       you_should_receive_a_refund_soon: "Deberías recibir un reembolso pronto. Puedes contactar al equipo de %{service_name} si hay algún problema."
     transaction_cancellation_dismissed:
       subject: "Disputa de la orden descartada - El equipo de %{service_name} ha rechazado la disputa de %{buyer}"
-      marketplace_team_has_rejected_the_cancellation: "el equipo de %{service_name} ha rechazado la disputa de %{transaction_link}."
+      marketplace_team_has_rejected_the_cancellation: "El equipo de %{service_name} ha rechazado la disputa de %{transaction_link}."
     transaction_commission_charge_failed:
       subject: "Una comisión en tu marketplace no se ha transferido a tu cuenta de PayPal"
       transaction_about: "transacción por %{listing_title}"
@@ -1884,7 +1884,7 @@ es:
       presence: "No puede estar vacío"
       username_is_invalid: "Este nombre de usuario es inválido o no está disponible"
       domain_name_is_invalid: "Este nombre de dominio es invalido o no está disponible"
-      only_supported_variables: ~
+      only_supported_variables: "Asegúrate de añadir exclusivamente variables válidas"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."
@@ -2261,7 +2261,7 @@ es:
         other: "La página estará fuera de servicio por mantenimiento en %{count} minutos"
       automatically_logged_out_please_sign_in: "Por favor, inicia sesión de nuevo, ya que tu sesión ha caducado."
       stripe_you_account_balance_is_not_0: "El balance de tu cuenta no es 0 y por lo tanto no puede ser eliminada. Esto puede significar que tienes transacciones esperando a ser completadas o que hay dinero esperando a ser transferido a tu cuenta de banco. Por favor contacta al equipo de %{service_name} si tienes alguna duda."
-      stripe_balance_for_username_is_not_0: ~
+      stripe_balance_for_username_is_not_0: "El balance de Stripe de %{username} no es 0, por lo tanto la cuenta no puede ser eliminada. Esto puede significar que hay transacciones a la espera de ser completadas o que hay dinero por pagar a su cuenta de banco. Por favor, revisa tu Stripe Dashboard para más información."
       visit_admin: "¿ Quisieras %{link}?"
       visit_admin_link: "visitar tu panel de administración"
       an_error_occurred_when_saving_your_information: "Hubo un problema al guardar tu información, el mensaje es: \"%{message}\". Por favor revisa que toda la información sea correcta e intenta de nuevo."
@@ -3171,7 +3171,7 @@ es:
     paypal_connected: "¡Cuenta de PayPal conectada con éxito!"
     paypal_can_accept: "Estás listo para recibir dinero en tu cuenta de PayPal"
     paypal_connected_give_permission: "Para completar la configuración y empezar a recibir fondos en tu cuenta de PayPal <%{email}>, por favor da permiso para cargar una comisión o cuota."
-    stripe_account_restricted: "¡Pagos en linea a tu cuenta restringidos!"
+    stripe_account_restricted: "¡Los pagos en linea a tu cuenta están restringidos or lo estarán pronto!"
     stripe_account_restricted_info: "Debes editar los datos de tu cuenta bancaria para proporcionar más información al proveedor de pagos."
     stripe_account_restricted_soon: "Pagos en línea a tu cuenta serán restringidos pronto."
     stripe_account_restricted_soon_info: "Debes editar los datos de tu cuenta bancaria para proporcionar más información al proveedor de pagos."
@@ -3204,7 +3204,7 @@ es:
       cancel: Cancelar
       gender: Sexo
       phone_number: Teléfono
-      phone_info_text: ~
+      phone_info_text: "El teléfono debe comenzar con el código del país. Por ejemplo"
       address_kana_postal_code: "Código postal (Kana)"
       address_kana_state: "Estado (Kana)"
       address_kana_city: "Ciudad (Kana)"
@@ -3301,8 +3301,8 @@ es:
         text: Texto
         youtube_video_id: "Id del video de YouTube"
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: Texto
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "Columbia Británica"
