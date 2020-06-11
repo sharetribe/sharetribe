@@ -1166,7 +1166,7 @@ ja:
         status: ステータス：
         next_step: 次のステップ：
         waiting_for_provider_accept_or_reject: "%{provider} がリクエストを承認または拒否するのを待っています。"
-        waiting_for_fulfill_and_complete: ~
+        waiting_for_fulfill_and_complete: "%{provider} が%{listing_title} の注文を処理し、%{buyer} が注文完了のマークをするのを待っています。"
         buyer: 購入者：
         provider: 販売者：
         delivery: 配送：
@@ -1176,7 +1176,7 @@ ja:
         buyer_service_fee_label: 購入者からの手数料：
         service_fee_label: 販売者からの手数料：
         provider_receives: 販売利益：
-        admin_info_text: ~
+        admin_info_text: "%{service_name} の管理者は、この取引を進めるためにアクションを実行できます。"
         manage_reviews: ~
         you_should_investigate: "両者で協議し状況を調査して払い戻しまたは却下する必要があります。詳細はこちら：%{learn_more_link} "
         learn_more: もっと詳しく
@@ -1576,7 +1576,7 @@ ja:
       you_have_a_new_message: "%{service_name}の%{sender_name}さんから新しいメッセージがあります"
     new_message_v2:
       headline: ~
-      reply: ~
+      reply: "%{sender} さんへ返信する"
     new_payment:
       new_payment: 新しいお支払いを受け取りました
       price_per_unit_type: "%{unit_type}ごとの料金"
@@ -1597,9 +1597,9 @@ ja:
       quantity: 量：
       you_have_received_new_payment: "%{payer_full_name} から<b>%{listing_title}  </b>に<b>%{payment_sum} </b>が支払われました。こちらはその領収書です。"
       stripe:
-        you_have_received_new_payment: "<b>%{payment_sum}  </b>の金額が、%{payer_full_name} から<b>%{listing_title}  </b>に支払われました。注文が完了としてマークされるまで、お金は%{service_name} によって保持されています。こちらは領収書です。"
+        you_have_received_new_payment: "<b>%{payment_sum}</b>の金額が、%{payer_full_name} から<b>%{listing_title}</b>に支払われました。注文が完了としてマークされるまで、お金は%{service_name} によって保持されています。こちらは領収書です。"
     payment_receipt_to_seller_v2:
-      headline: "%{seller_name} さん、こんにちは。%{payer_name} さんから、%{listing_link} の件で%{payment_sum} 支払われました。"
+      headline: "こんにちは。%{payer_name} さんから、%{listing_link} の件で%{payment_sum} 支払われました。"
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
@@ -1780,7 +1780,7 @@ ja:
       contact_the_marketplace_team: "%{service_name} へ問い合わせる"
       you_must_now_decide: "払い戻しを行うか、異議を却下するかを決める必要があります。詳細はこちらのリンクをご覧ください。%{learn_more_link} "
       learn_more_about: ~
-      review_the_transaction: 取引を確認する。
+      review_the_transaction: 取引を確認する
     transaction_refunded:
       subject: ~
       marketplace_team_has_approved_the_cancellation: "%{service_name} チームは%{transaction_link} に関するあなたの異議申し立てを承認し、支払いを返金しました。"
@@ -1824,10 +1824,10 @@ ja:
       reject_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
     stripe:
       generic_error: "支払い処理中にエラーが発生しました。 Stripeの支払いを完了できませんでした。"
-      accept_authorization_error: ~
+      accept_authorization_error: 事前に承認されたStripeの支払いを受け入れるときにエラーが発生しました。もう一度やり直してください。
       reject_authorization_error: ~
-      card_declined: ~
-      expired_card: ~
+      card_declined: あなたのカードは拒否されました。
+      expired_card: このカードは有効期限が切れているため、支払いに失敗しました。
   error_pages:
     back_to_kassi_front_page: 前のページに戻る
     error_404:
@@ -1867,10 +1867,10 @@ ja:
       on_or_after: "%{restriction}以後でなければなりません"
       positive_number: 数字を入力。
       from_must_be_less_than_till: ~
-      section_with_this_id_already_exists: ~
+      section_with_this_id_already_exists: このセクションの固有の名前はすでに使用されています。別の名前を選んでください。
       listing_with_this_id_does_not_exist: ~
-      presence: ~
-      username_is_invalid: ~
+      presence: 空白は使えません。
+      username_is_invalid: このユーザー名は無効または使用することができません
       domain_name_is_invalid: ~
       only_supported_variables: ~
   event_feed_events:
@@ -2241,7 +2241,7 @@ ja:
       user_does_not_have_email_to_delete: 削除しようとしていたメールアドレスは、正しくありません。
       email_deleted: メールアドレスは削除されました
       listing_author_payment_details_missing: この投稿の作成者はお支払い詳細を追加していないので、現在のところお支払いを受け取れません。「問合せ」ボタンをクリックして、このリストの作者に直接連絡を取ってください。
-      listing_author_payment_details_missing_no_free: ~
+      listing_author_payment_details_missing_no_free: "%{service_name} 事務局に問い合わせ、リストの作成者へ報酬を受け取るために支払いの詳細を更新するように依頼してください。"
       images_are_processing: 現在画像を処理中です、今しばらくお待ちください。
       maintenance_mode:
         zero: メンテナンスのため、このウェブサイトは只今より一時的にオフラインになります
@@ -3012,6 +3012,8 @@ ja:
       booked_days_label:
         zero: "予約日:"
         other: "予約日数:"
+      booked_nights_label:
+        other: 予約した宿泊
       booked_hours_label:
         other: 予約時間
       price_per_day: 日割り料金
@@ -3025,8 +3027,6 @@ ja:
       duration_in_hours:
         other: "(%{count} 時間)"
       start_end_time: "%{start_time} ～%{end_time}"
-      booked_nights_label:
-        other: 予約した宿泊
     price_per_quantity: "%{unit_type}ごとの料金："
     price: 料金：
     quantity: "数量： %{quantity}"
@@ -3137,9 +3137,9 @@ ja:
     paypal_connected: ペイパルアカウントは正常に接続されました
     paypal_can_accept: ペイパルアカウントでお金を受け取れるようになりました
     paypal_connected_give_permission: "セットアップを完了してPayPalアカウント%{email} への入金を開始するには、取引手数料を請求する許可を付与してください。"
-    stripe_account_restricted: ~
+    stripe_account_restricted: アカウントへのオンライン支払いは制限されているか、まもなく制限されます。
     stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon: まもなくアカウントへのオンライン支払いは制限されます。
     stripe_account_restricted_soon_info: ~
     stripe_account_pending_verification: ~
     stripe_account_pending_verification_info: ~
@@ -3170,6 +3170,7 @@ ja:
       cancel: キャンセル
       gender: 性別
       phone_number: "電話番号：+81に続き頭の\"0\"を除いた番号をハイフンなしでご記載下さい。例：090-xxxx-xxxx --> +8190xxxxxxxx"
+      phone_info_text: ~
       address_kana_postal_code: 郵便番号
       address_kana_state: "都道府県 (カナ)"
       address_kana_city: 市町区村（カナ）

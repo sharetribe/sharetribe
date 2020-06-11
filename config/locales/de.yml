@@ -1532,7 +1532,7 @@ de:
       or_paste_link: "Alternativ kannst du den folgenden Link in die Adresszeile deines Browsers kopieren:"
     confirmation_instructions_v2:
       headline: "bitte bestätige deine E-Mail-Adresse, um deine Registrierung bei %{service_name} abzuschließen."
-      need_to_confirm: "Bestätige deine E-Mail-Adresse, um dein Konto für %{service_name} vollständig zu machen. Es ist einfach - du musst nur die Taste unten klicken!"
+      need_to_confirm: "Bestätige deine E-Mail-Adresse, um dein Konto für %{service_name} zu vervollständigen. Es ist einfach - du musst nur den Button unten klicken!"
       confirmation_link_text: "%{email} bestätigen"
     common:
       hey: "Hallo %{name},"
@@ -1731,7 +1731,7 @@ de:
       has_posted_a_new_listing: "%{author_name} hat eine neue Anzeige veröffentlicht:"
       you_are_receiving_this_because: "Du hast diese Benachrichtigung bekommen, weil du %{author_name} folgst."
       view_listing: "%{title} anzeigen"
-      cant_click: "Kannst du die Taste nicht drücken? Hier ist ein direkter Link:"
+      cant_click: "Kannst du nicht auf den Button klicken? Hier ist ein direkter Link:"
     new_member_notification:
       subject: "Neues Mitglied bei %{community}"
       new_member_has_joined: "Ein neues Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
@@ -1740,7 +1740,7 @@ de:
       person_email: "E-mail:"
     new_member_notification_v2:
       headline: "%{user_name} ist %{community} beigetreten."
-      new_member_has_joined: "%{name} (%{email}) ist %{community} beigetreten. Er/sie muss noch möglicherweise seine/ihre E-Mail-Adresse bestätigen."
+      new_member_has_joined: "%{name} (%{email}) ist %{community} beigetreten. Er/sie muss möglicherweise noch seine/ihre E-Mail-Adresse bestätigen."
       view_profile: "Profil anzeigen"
     listing_submited_for_review:
       subject: "Neuer Eintrag der überprüft werden muss: \"%{listing_title}\" von %{author_name} auf %{community}"
@@ -3204,6 +3204,7 @@ de:
       cancel: Abbrechen
       gender: Geschlecht
       phone_number: Telefonnummer
+      phone_info_text: ~
       address_kana_postal_code: "Postleitzahl kana"
       address_kana_state: "Staat kana"
       address_kana_city: "Stadt kana"

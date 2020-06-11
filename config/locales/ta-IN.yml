@@ -1229,7 +1229,7 @@ ta-IN:
       reject_offer: "இப்போது இல்லை"
       reject_request: "இப்போது இல்லை"
       close_listing: ~
-      update_later: ~
+      update_later: "வியாபார விவரங்கள் திறந்து இருக்கட்டும்"
       optional_message: ~
       price_to_pay: "செலுத்த வேண்டிய மொத்த விலை"
       accept: ~
@@ -2658,6 +2658,9 @@ ta-IN:
       email_is_in_use_or_not_allowed: "இந்த மின்னஞ்சல் அனுமதிக்கப்படவில்லை அல்லது அது ஏற்கனவே பயன்பாட்டில் உள்ளது.  நீங்கள் உள்ளே செல்ல முடியாவிட்டால், எங்களை தொடர்பு கொள்ளவும்."
       email_not_allowed: "%{service_name} இல் இந்த மின்னஞ்சல் அனுமதிக்க படவில்லை.அனுமதிக்கப்பட்ட மின்னஞ்சலை உபயோகிக்கவும் அபடியும் சிரமம் இருந்தால் எங்களை தொடர்பு கொள்ளவும்"
       invalid_username_or_email: ~
+      email_restriction_instructions:
+        one: "%{service_name} க்கான அணுகல் தடைசெய்யப்பட்டுள்ளது.சேர உங்களுக்கு%{allowed_emails} மின்னஞ்சல் முகவரி தேவை"
+        other: "%{service_name} க்கான அணுகல் வரையறுக்கப்பட்டுள்ளது.நீங்கள் சேர தகுதியுடையவர் என்பதை நிரூபிக்கும் மின்னஞ்சல் முகவரி உங்களுக்குத் தேவை"
       family_name: "கடைசி பெயர்"
       given_name: "முதல் பெயர்"
       i_accept_the_terms_and_privacy: ~
@@ -2677,9 +2680,6 @@ ta-IN:
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
-      email_restriction_instructions:
-        one: "%{service_name} க்கான அணுகல் தடைசெய்யப்பட்டுள்ளது.சேர உங்களுக்கு%{allowed_emails} மின்னஞ்சல் முகவரி தேவை"
-        other: "%{service_name} க்கான அணுகல் வரையறுக்கப்பட்டுள்ளது.நீங்கள் சேர தகுதியுடையவர் என்பதை நிரூபிக்கும் மின்னஞ்சல் முகவரி உங்களுக்குத் தேவை"
     profile_feedback:
       grade: ~
       and_gave_following_feedback: "மற்றும் பின்வரும் கருத்துக்களை வழங்க பட்டது"
@@ -3053,6 +3053,11 @@ ta-IN:
       create_own: ~
       learn_more: ~
   will_paginate:
+    models:
+      person:
+        zero: உபயோகிப்பாளர்கள்
+        one: உபயோகிப்பாளர்
+        other: உபயோகிப்பாளர்கள்
     previous_label: ~
     next_label: ~
     page_gap: ~
@@ -3063,11 +3068,6 @@ ta-IN:
       community_members_entries_info:
         multi_page: ~
         multi_page_html: ~
-    models:
-      person:
-        zero: உபயோகிப்பாளர்கள்
-        one: உபயோகிப்பாளர்
-        other: உபயோகிப்பாளர்கள்
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~
@@ -3117,6 +3117,7 @@ ta-IN:
       cancel: ~
       gender: ~
       phone_number: ~
+      phone_info_text: ~
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~

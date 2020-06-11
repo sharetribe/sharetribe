@@ -1241,7 +1241,7 @@ fr:
       title: "Commission et frais de transactions"
       stripe: Stripe
       paypal: PayPal
-      info: "Les paiements sur %{service_name} sont gérés par les plateformes de paiement listées ci-dessous. %{service_name} facture une commission qui peut diffèrer selon la plateforme de paiement utilisée. Cette dernière peut également facture des frais pour chaque paiement, comme décrit ci-dessous."
+      info: "Les paiements sur %{service_name} sont gérés par les plateformes de paiement listées ci-dessous. %{service_name} facture une commission qui peut diffèrer selon la plateforme de paiement utilisée. Cette dernière peut également facturer des frais pour chaque paiement, comme décrit ci-dessous."
     paypal_fee_info:
       title: "Frais de transaction PayPal"
       body_text: |-
@@ -1786,8 +1786,8 @@ fr:
       subject: "Commande contestée - L'équipe %{service_name} examine la situation"
       subject_admin: "Une transaction a été contestée, vous devez décider de la suite des évènements"
       order_about: "commande pour %{listing_title}"
-      the_order_has_been_canceled: "la %{transaction_link} a été contestée"
-      the_order_between_buyer_and_seller_has_been_canceled: "la %{transaction_link} entre %{buyer} et %{seller} a été contestée."
+      the_order_has_been_canceled: "La %{transaction_link} a été contestée"
+      the_order_between_buyer_and_seller_has_been_canceled: "La %{transaction_link} entre %{buyer} et %{seller} a été contestée."
       the_marketplace_has_been_notified: "L'équipe %{service_name} a été prévenue et examine la situation. Vous pouvez les contacter pour partager des détails supplémentaires."
       contact_the_marketplace_team: "Contacter l'équipe %{service_name}"
       you_must_now_decide: "Vous devez maintenant décider en faveur d'un remboursement ou écarter la contestation. Vous pouvez %{learn_more_link}."
@@ -1795,11 +1795,11 @@ fr:
       review_the_transaction: "Examiner la transaction"
     transaction_refunded:
       subject: "Commande marquée comme remboursée - L'équipe %{service_name} a approuvé la contestation de %{buyer}"
-      marketplace_team_has_approved_the_cancellation: "l'équipe %{service_name} a approuvé la contestation pour %{transaction_link} et a marqué le paiement comme remboursé."
+      marketplace_team_has_approved_the_cancellation: "L'équipe %{service_name} a approuvé la contestation pour %{transaction_link} et a marqué le paiement comme remboursé."
       you_should_receive_a_refund_soon: "Vous devriez recevoir un remboursement très bientôt. Vous pouvez contacter l'équipe %{service_name} si vous avez le moindre problème."
     transaction_cancellation_dismissed:
       subject: "Contestation écartée - L'équipe %{service_name} a rejeté la contestation de %{buyer}"
-      marketplace_team_has_rejected_the_cancellation: "l'équipe %{service_name} a rejeté la contestation pour %{transaction_link}."
+      marketplace_team_has_rejected_the_cancellation: "L'équipe %{service_name} a rejeté la contestation pour %{transaction_link}."
     transaction_commission_charge_failed:
       subject: "Une commission pour votre place de marché n'a pu être transférée sur votre compte PayPal"
       transaction_about: "transaction pour %{listing_title}"
@@ -3204,6 +3204,7 @@ fr:
       cancel: Annuler
       gender: Sexe
       phone_number: "Numéro de téléphone"
+      phone_info_text: "Le numéro de téléphone doit commencer par le code pays, par example"
       address_kana_postal_code: "Code postal kana"
       address_kana_state: "Etat kana"
       address_kana_city: "Ville kana"
