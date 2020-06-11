@@ -1,4 +1,6 @@
-module MapHelper
+module MapService
+  module_function
+
   EARTH_RADIUS = 6371000 # meters
   DEG_TO_RAD = Math::PI / 180.0
   THREE_PI = Math::PI * 3
@@ -46,7 +48,7 @@ module MapHelper
     rad_to_degrees(new_lat, new_lng_normalized)
   end
 
-  def listings_for_map(listings)
+  def listings_for_map(listings, fuzzy_location)
     listings.map do |listing|
       result = {
         category: listing[:category_id],
@@ -55,7 +57,8 @@ module MapHelper
         latitude: listing[:latitude],
         longitude: listing[:longitude]
       }
-      if @current_community.fuzzy_location
+
+      if fuzzy_location
         latitude, longitude = obfuscated_coordinates(listing[:id], listing[:latitude], listing[:longitude])
         result[:latitude] = latitude
         result[:longitude] = longitude
