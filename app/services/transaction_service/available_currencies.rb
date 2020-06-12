@@ -93,7 +93,7 @@ module TransactionService::AvailableCurrencies
   # Estonia, Lithuania, Latvia, Greece, Poland, Slovakia, Slovenia, Mexico
   # Czech Republic
   # Romania
-  # Cyprus
+  # Cyprus, Malta
   COUNTRY_SET_STRIPE_AND_PAYPAL = ['AT', 'BE', 'DK', 'FI', 'FR', 'DE', 'IE', 'LU', 'NL', 'NO', 'ES', 'SE', 'CH', 'GB', 'US',
                                    'AU', 'CA', 'HK', 'NZ',
                                    'PT', 'IT',
@@ -101,7 +101,7 @@ module TransactionService::AvailableCurrencies
                                    'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'MX',
                                    'CZ',
                                    'RO',
-                                   'CY']
+                                   'CY', 'MT']
 
   # Countries listed by Paypal
   # Brazil, Czech Republic, Hungary, Israel, Italy, Japan, Mexico, Malaysia, Poland, Philippines, Portugal, Russia, Singapore, Taiwan, Thailand

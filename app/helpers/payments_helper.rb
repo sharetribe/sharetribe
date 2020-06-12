@@ -97,6 +97,10 @@ module PaymentsHelper
       account_number: {title: 'IBAN', format: 'LV80BANK0000435195001', regexp: 'LV[0-9]{2}[A-Z]{4}[A-Z0-9]{13}', test_regexp: 'LV'+TEST_IBAN },
       phone_number: '+371 12 123 450'
     },
+    MT: {
+      account_number: {title: 'IBAN', format: 'MT84MALT011000012345MTLCAST001S', regexp: 'MT[0-9]{2}[A-Z]{4}[0-9]{5}[A-Z0-9]{18}', test_regexp: 'MT'+TEST_IBAN },
+      phone_number: '+356 2122 1623'
+    },
     MX: {
       account_number: {title: 'CLABE', format: '123456789012345678', regexp: '[0-9]{18}', test_regexp: '[0-9]{18}' },
       phone_number: '+52 55 1234 5678'
