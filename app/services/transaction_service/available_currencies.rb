@@ -39,7 +39,7 @@ module TransactionService::AvailableCurrencies
       "AD" => "EUR",
       "AT" => "EUR",
       "BE" => "EUR",
-      "BG" => "EUR",
+      "BG" => "BGN",
       "HR" => "EUR",
       "CY" => "EUR",
       "FI" => "EUR",
@@ -93,7 +93,7 @@ module TransactionService::AvailableCurrencies
   # Estonia, Lithuania, Latvia, Greece, Poland, Slovakia, Slovenia, Mexico
   # Czech Republic
   # Romania
-  # Cyprus, Malta
+  # Cyprus, Malta, Bulgaria
   COUNTRY_SET_STRIPE_AND_PAYPAL = ['AT', 'BE', 'DK', 'FI', 'FR', 'DE', 'IE', 'LU', 'NL', 'NO', 'ES', 'SE', 'CH', 'GB', 'US',
                                    'AU', 'CA', 'HK', 'NZ',
                                    'PT', 'IT',
@@ -101,7 +101,7 @@ module TransactionService::AvailableCurrencies
                                    'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'MX',
                                    'CZ',
                                    'RO',
-                                   'CY', 'MT']
+                                   'CY', 'MT', 'BG']
 
   # Countries listed by Paypal
   # Brazil, Czech Republic, Hungary, Israel, Italy, Japan, Mexico, Malaysia, Poland, Philippines, Portugal, Russia, Singapore, Taiwan, Thailand
@@ -112,6 +112,7 @@ module TransactionService::AvailableCurrencies
   VALID_CURRENCIES = {
     "ARS" => :country_sets,
     "AUD" => :country_sets,
+    "BGN" => :country_sets,
     "BRL" => "BR", # BRL is valid only for PayPal accounts in Brazil
     "CAD" => :country_sets,
     "CHF" => :country_sets,
