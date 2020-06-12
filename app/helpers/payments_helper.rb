@@ -28,6 +28,10 @@ module PaymentsHelper
       separator: "-",
       phone_number: '+1 866 123 4567'
     },
+    CY: {
+      account_number: {title: 'IBAN', format: 'CY17002001280000001200527600', regexp: 'CY[0-9]{2}[0-9]{3}[0-9]{5}[A-Z0-9]{16}', test_regexp: 'CY'+TEST_IBAN },
+      phone_number: '+357 22 865854'
+    },
     CZ: {
       account_number: {title: 'IBAN', format: 'CZ6508000000192000145399', regexp: 'CZ[0-9]{2}[0-9]{4}[0-9]{6}[0-9]{10}', test_regexp: 'CZ'+TEST_IBAN },
       phone_number: '+420 607 5552 71'
