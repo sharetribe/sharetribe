@@ -177,6 +177,7 @@ en:
         status_resent: "Verification email resent to %{email}. %{resend_link}"
         resend_link: Resend
         invalid_email_error: "Invalid email format for '%{email}'"
+        invalid_email_address: 'Please enter a valid email address'
         invalid_email_domain: "The '%{email}' email address is using an unsupported email provider: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Read the Help Center article for more information."
         unknown_error: "Something went wrong"
