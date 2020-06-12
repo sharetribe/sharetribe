@@ -211,9 +211,17 @@ window.ST = window.ST || {};
     // Execute immediately
 
     var $form = $(".js-sender-email-form");
+
+    $.validator.addMethod("custom_email",
+        function(value, element) {
+            return /^([a-zA-Z0-9_.\-+])+\@(?!sharetribe\.com)(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,8})+$/.test(value);
+        },
+        "Please enter a valid email address."
+    );
+
     $form.validate({
       rules: {
-        "email": {required: true, email: true}
+        "email": {required: true, custom_email: true}
       }
     });
 
