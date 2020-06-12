@@ -15,6 +15,10 @@ module PaymentsHelper
       account_number: { title: 'IBAN', format: 'BE12345678912345', regexp: 'BE[0-9]{2}[0-9]{12}', test_regexp: 'BE'+TEST_IBAN },
       phone_number: '+32 123 03 21 72'
     },
+    BG: {
+      account_number: { title: 'IBAN', format: 'BG80BNBG96611020345678', regexp: 'BG[0-9]{2}[A-Z]{4}[0-9]{4}[A-Z0-9]{10}', test_regexp: 'BG'+TEST_IBAN },
+      phone_number: '+359 2 916 6300'
+    },
     BR: {
       account_number: { format: 'format_varies_by_bank' },
       routing_1: { title: "bank_code", format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' },
