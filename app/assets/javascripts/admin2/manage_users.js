@@ -67,7 +67,7 @@ $(function() {
         var name = $(this).data('name'),
             url = $(this).data('url');
         $('#userDeleteModalLabel').html(name);
-        $('#btn-delete-user').attr('href', url);
+        $('#form-delete-user').attr('action', url);
         $('#userDeleteModal').modal('show');
     });
 
