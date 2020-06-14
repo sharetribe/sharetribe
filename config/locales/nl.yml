@@ -179,6 +179,7 @@ nl:
         status_resent: "Verificatie email opnieuw verzonden naar %{email}. %{resend_link}"
         resend_link: "Opnieuw zenden"
         invalid_email_error: "Ongeldig email formaat voor '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "Het '%{email}' emailadres gebruikt een niet ondersteunde email provider. '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lees het Help Center artikel (Engels) voor meer informatie."
         unknown_error: "Er ging iets mis"

@@ -162,6 +162,7 @@ lv:
         status_resent: ~
         resend_link: ~
         invalid_email_error: ~
+        invalid_email_address: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
@@ -1543,7 +1544,7 @@ lv:
       join_now: "Pievienoties tagad"
       invitation_code: "Ielūguma kods: %{code}"
     invitation_to_kassi_v2:
-      headline: ~
+      headline: Sveiks!
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} komentēja Jūsu sludinājumu '%{listing}'."
       view_comment: "Skatīt komentāru"
@@ -2135,7 +2136,7 @@ lv:
       login_again: "Lūdzu, pieslēdzies vēlreiz."
       login_failed: "Pieslēgšanās neizdevās. Lūdzu ievadiet pareizus datus."
       account_creation_successful: "Laipni lūgti pie %{service_name}, %{person_name}!"
-      account_deleted: "Jūsu konts tagad ir dzēsts."
+      account_deleted: "Jūsu profils tagad ir izdzēsts."
       login_successful: "Laipni lūgti, %{person_name}!"
       logout_successful: "Jūs tagad esat izrakstījies no %{service_name}. Uz drīzu redzēšanos!"
       news_item_created: "Raksts izveidots"
@@ -2152,7 +2153,7 @@ lv:
       listing_updated_successfully: "Sludinājums veiksmīgi atjaunināts"
       listing_updated_availability_management_enabled: "Sludinājums veiksmīgi atjaunināts. Pieejamības vadība aktivizēta."
       listing_updated_availability_management_disabled: "Sludinājums veiksmīgi atjaunināts. Pieejamības vadība nav aktivizēta."
-      listing_deleted: "Sludinājums ir dzēsts"
+      listing_deleted: "Sludinājums ir izdzēsts"
       only_kassi_administrators_can_access_this_area: "Lūdzu, pieslēdzieties, izmantojot administratora kontu, lai piekļūtu šai zonai"
       only_listing_author_can_close_a_listing: "Tikai ieraksta autors var dzēst ierakstu"
       only_listing_author_can_edit_a_listing: "Tikai ieraksta autors var labot ierakstu"

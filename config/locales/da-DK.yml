@@ -177,6 +177,7 @@ da-DK:
         status_resent: "Bekræftelsesmail er gensendt til %{email}. %{resend_link}"
         resend_link: Gensend
         invalid_email_error: "Ugyldig e-mail format for '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "E-mail-adressen '%{email}' bruger en ikke-understøttet udbyder: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Læs vidensbaseartiklen for yderligere information."
         unknown_error: "Noget gik galt"

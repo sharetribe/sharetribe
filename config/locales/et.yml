@@ -177,6 +177,7 @@ et:
         status_resent: "Korduskiri saadeti aadressile %{email}. %{resend_link}"
         resend_link: "Saada uuesti"
         invalid_email_error: "Vigane e-posti vorming '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "E-posti aadress '%{email}' ei toeta e-posti teenusepakkujat: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lisateabe saamiseks lugege abikeskuse artiklit."
         unknown_error: "Midagi läks valesti"

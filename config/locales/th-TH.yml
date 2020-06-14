@@ -172,6 +172,7 @@ th-TH:
         status_resent: "อีเมลเพื่อทำการยืนยันได้ส่งไปที่ %{email} อีกครั้ง หากต้องการส่งใหม่กรุณากด %{resend_link}"
         resend_link: ส่งอีกครั้ง
         invalid_email_error: "อีเมลไม่ถูกต้องสำหรับ '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: เกิดข้อผิดพลาดบางอย่าง

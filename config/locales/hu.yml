@@ -178,6 +178,7 @@ hu:
         status_resent: "Igazoló e-mail újraküldve erre az e-mailcímre %{email}. %{resend_link}"
         resend_link: Újraküld
         invalid_email_error: "Hibás e-mail formátum %{email}"
+        invalid_email_address: ~
         invalid_email_domain: "Ez az e-mailcím '%{email}' egy általunk nem támogatott e-mail szolgáltatót használ: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "További információért tekintse át atudásbázist"
         unknown_error: "Hiba történt"

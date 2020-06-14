@@ -177,6 +177,7 @@ sv:
         status_resent: "Verifikationsmail skickades till %{email}.%{resend_link}"
         resend_link: "Skicka igen"
         invalid_email_error: "Felaktig e-postformat för %{email}"
+        invalid_email_address: ~
         invalid_email_domain: "E-postadressen %{email} använder en otillåten e-postleverantör: %{domain}. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Vänligen läs hjälpcenterartikeln för mer information."
         unknown_error: "Någonting gick fel"

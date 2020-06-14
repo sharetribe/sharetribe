@@ -69,11 +69,11 @@ de:
         community_slogan: "Slogan des Marktplatzes"
         community_slogan_display: "Slogan auf der Startseite oder Custom Landing Page anzeigen"
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
-        edit_community_slogan_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Beschreibung des Marktplatzes"
         community_description_display: "Beschreibung auf der Startseite oder Custom Landing Page anzeigen"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
-        edit_community_description_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_search_placeholder: "Hilfe-Text durchsuchen"
         edit_community_search_placeholder_description: "Dies wird auf der Homepage des Marktes als Platzhaltertext in der Suchleiste angezeigt. %{see_how_it_looks_like}"
         private_community_homepage_content: "Privater Inhalt der Marktplatz Startseite"
@@ -114,7 +114,7 @@ de:
         new_listing_button_custom_color: "Farbe der \"Neuen Eintrag erstellen\" Taste"
         logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height} Pixel betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
         logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height} Pixel betragen."
-        logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height} Pixel betragen."
+        logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf sozialen Netzwerken teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräts anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height} Pixel betragen."
         logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixel betragen."
         logo_mobile_icon_instructions_text_with_dimensions: "Dieses viereckige Logo wird auf dem Mobil-Startbildschirm von deinen Benutzern angezeigt, wenn sie ein Lesezeichen für deinen Marktplatz auf ihren Mobilgeräten erstellen. Das Logo wird auch angezeigt, wenn du als Admin einige Maßnahmen ergreifst. Die Größe sollte (zumindest) %{width} x%{height} px betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
@@ -177,6 +177,7 @@ de:
         status_resent: "Verifizierungsmail erneut gesendet an %{email}. %{resend_link}"
         resend_link: "Erneut senden"
         invalid_email_error: "Ungültiges Email Format für '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "Die \"%{email}\" Email Adresse nutzt einen nicht unterstützten Email Provider: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lies den Artikel im Help Center für mehr Informationen."
         unknown_error: "Da ist etwas schief gelaufen"
@@ -729,14 +730,14 @@ de:
             video: "'Video' Abschnitt bearbeiten"
       attachments:
         delete: "%{title} löschen"
-        or_change: "Oder %{title} zu etwas neues ändern:"
+        or_change: "Oder %{title} zu etwas neuem ändern:"
     landing_page_versions:
       sections:
         content:
           title: "Inhalt des Abschnitts"
         hero:
           hero_title: Hero
-          hero_description: "Stelle fest das Hintegrundbild für den Hero-Abschnitt. Der Slogan und die Beschreibung werden konfiguriert auf %{link}."
+          hero_description: "Stelle das Hintegrundbild für den Hero-Abschnitt fest. Der Slogan und die Beschreibung werden konfiguriert auf %{link}."
           basic_details_tab: "'Grundangaben' -Tab"
           cta_button: ~
           cta_button_info: ~
@@ -764,7 +765,7 @@ de:
           title: Hintergrund
         background_image_overlay:
           background_image: Hintergrundbild
-          background_image_info: "Dieses Bild wird als Hintergrundbild für den Abschnitt verwendet. Für die besten Ergebnisse, es sollte mindestens 1600x1200 Pixel groß sein."
+          background_image_info: "Dieses Bild wird als Hintergrundbild für den Abschnitt verwendet. Für die besten Ergebnisse, sollte es mindestens 1600x1200 Pixel groß sein."
           add_another_image: "Zusätzliches Bild hinzufugen"
           current_image: "Derzeitiges Bild: %{filename}"
           file_not_selected: "Nicht gewählt"

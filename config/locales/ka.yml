@@ -172,6 +172,7 @@ ka:
         status_resent: "დადასტურების წერილის თავიდან გაგზავნა %{email}-ზე. %{resend_link}"
         resend_link: გადაგზავნა
         invalid_email_error: "არასწორი ელ. ფოსტის ფორმატი %{email}"
+        invalid_email_address: ~
         invalid_email_domain: "%{email} ელ. ფოსტის მისამართი იყენებს ელ. ფოსტის პროვაიდერს რომლის მხარდაჭერაც არ ხდება ჩვენ მიერ: %{domain}. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "მეტი ინფორმაციისთვის წაიკითხე ცოდნაზე დაფუძნებული სტატია."
         unknown_error: "რაღაც წავიდა შეცდომით"
@@ -2969,7 +2970,7 @@ ka:
       december: დეკ
     today: დღეს
     clear: მოწმენდილი
-    format: თთ/დდ/წწწწ
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%b %e, %წ %ს.%თ ზე"

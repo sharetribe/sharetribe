@@ -172,6 +172,7 @@ ko:
         status_resent: "확인 이메일이 %{email}에 재전송됩니다. %{resend_link}"
         resend_link: 재전송
         invalid_email_error: "'%{email}'에 대한 이메일 형식이 잘못되었습니다."
+        invalid_email_address: ~
         invalid_email_domain: "'%{email}'이메일 주소가 지원되지 않는 이메일 제공 업체인 '%{domain}'을 사용 중입니다. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "자세한 내용은 도움말 센터를 참조하십시오."
         unknown_error: "오류가 발생했습니다"

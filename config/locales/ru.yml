@@ -187,6 +187,7 @@ ru:
         status_resent: "Письмо с подтверждением повторно отправлено на %{email}. %{resend_link}"
         resend_link: "Отправить повторно"
         invalid_email_error: "Некорректный формат %{email}"
+        invalid_email_address: ~
         invalid_email_domain: "В адресе электронной почты %{email} используется неподдерживаемый провайдер услуг электронной почты: %{domain}. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Для получения дополнительной информации прочтите статью в базе знаний."
         unknown_error: "Что-то пошло не так"
