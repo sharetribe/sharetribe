@@ -72,7 +72,7 @@ First install [direnv](https://direnv.net/). Then, start the containers as usual
 docker-compose up
 ```
 
-The first time you'll need to create and initialize the database as follows:
+The first time you'll need to create and initialize the database from a separate terminal as follows:
 
 ```bash
 docker-compose exec web bundle exec rake db:create db:structure:load db:seed
