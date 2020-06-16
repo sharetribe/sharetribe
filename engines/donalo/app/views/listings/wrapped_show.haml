@@ -24,10 +24,10 @@
 
 - content_for :content_after_listing_price do
   %div.row
-    %strong= "#{@listing.stock_custom_field&.name}:"
+    %strong= "#{@listing.stock_custom_field&.name(I18n.locale)}:"
     %span= @listing.available_units
   %div.row
-    %strong= "#{@listing.minimum_required_units_custom_field&.name}:"
+    %strong= "#{@listing.minimum_required_units_custom_field&.name(I18n.locale)}:"
     %span= @listing.minimum_required_units
 
 = render template: 'listings/show'

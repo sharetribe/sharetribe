@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/LineLength
 namespace :donalo do
   COMMUNITY_ID = 1
 
@@ -52,3 +53,4 @@ namespace :donalo do
     TranslationServiceHelper.translation_hashes_to_tr_key!([attrs], COMMUNITY_ID, key)
   end
 end
+# rubocop:enable Metrics/LineLength
