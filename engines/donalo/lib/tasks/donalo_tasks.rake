@@ -31,8 +31,8 @@ namespace :donalo do
     translate(locale: 'es', key: 'conversations.message.payment_has_now_been_transferred', value: "Marcó la orden como completada.")
     translate(locale: 'ca', key: 'conversations.message.payment_has_now_been_transferred', value: "Ha marcat l'ordre com completada.")
 
-    translate(locale: 'es', key: 'conversations.message.received_payment_wo_sum', value: "Esperando a que escribas a %{listing_author_name} un día y hora de cuándo pasarás a recoger el producto.")
-    translate(locale: 'ca', key: 'conversations.message.received_payment_wo_sum', value: "Esperant que escribes a %{listing_author_name} un dia i hora de quan passaràs a recollir el producte.")
+    translate(locale: 'es', key: 'conversations.message.received_payment_wo_sum', value: "Esperando a que propongas un día y hora de cuándo pasarás a recoger el producto.")
+    translate(locale: 'ca', key: 'conversations.message.received_payment_wo_sum', value: "Esperant que proposis un dia i hora de quan passaràs a recollir el producte.")
 
     translate(locale: 'es', key: 'conversations.status_link.confirm', value: "He recibido bien el producto")
     translate(locale: 'ca', key: 'conversations.status_link.confirm', value: "He rebut bé el producte")
