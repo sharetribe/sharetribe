@@ -66,7 +66,15 @@ Before you get started, the following needs to be installed:
 
 You can find below Sharetribe's own development setup instructions but for Donalo we have a specific docker environment implemented in `docker-compose.dev.yml` based on them.
 
-First install [direnv](https://direnv.net/). Then, start the containers as usual:
+First install [direnv](https://direnv.net/). You can do so in Ubuntu by running:
+
+```bash
+sudo apt install direnv
+```
+
+and follow the rest of the [installation steps](https://direnv.net/#basic-installation). Close and reopen your terminal and navigate to the project again. Note that the first time `direnv` will ask you to execute `direnv allow` for security reasons. Do so and proceed to the next step.
+
+Now, start the containers as usual:
 
 ```bash
 docker-compose up
