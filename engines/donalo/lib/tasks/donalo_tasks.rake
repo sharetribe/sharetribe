@@ -34,6 +34,18 @@ namespace :donalo do
     translate(locale: 'es', key: 'conversations.message.received_payment_wo_sum', value: "Esperando a que propongas un día y hora de cuándo pasarás a recoger el producto.")
     translate(locale: 'ca', key: 'conversations.message.received_payment_wo_sum', value: "Esperant que proposis un dia i hora de quan passaràs a recollir el producte.")
 
+    translate(locale: 'es', key: 'conversations.message.stripe.held_payment_wo_sum', value: "Aceptó la solicitud.")
+    translate(locale: 'ca', key: 'conversations.message.stripe.held_payment_wo_sum', value: "S'ha acceptat a sol·licitud")
+
+    translate(locale: 'es', key: 'conversations.message.canceled_the_order', value: "Abrió una incidència. El equipo de %{service_name} ha sido notificado.")
+    translate(locale: 'ca', key: 'conversations.message.canceled_the_order', value: "Ha obert una incidència. L'equip de %{service_name} ha estat notificat.")
+
+    translate(locale: 'es', key: 'conversations.message.dismissed_the_cancellation', value: "Descartó la incidència.")
+    translate(locale: 'ca', key: 'conversations.message.dismissed_the_cancellation', value: "S'ha descartat la incidència.")
+
+    translate(locale: 'es', key: 'conversations.message.payment_has_now_been_transferred', value: "Se ha resuelto, cualquier duda contacta con donalo.")
+    translate(locale: 'ca', key: 'conversations.message.payment_has_now_been_transferred', value: "S'ha resolt, qualsevol dubte contacta amb donalo.")
+
     translate(locale: 'es', key: 'conversations.status_link.confirm', value: "He recibido bien el producto")
     translate(locale: 'ca', key: 'conversations.status_link.confirm', value: "He rebut bé el producte")
 
@@ -45,6 +57,12 @@ namespace :donalo do
 
     translate(locale: 'es', key: 'conversations.confirm.cancel_description_team', value: "En caso de que haya surgido cualquier incidencia referente a la recogida del producto por favor marque la casilla \"Hubo un incidente\" y el equipo Donalo se pondrá en contacto contigo.")
     translate(locale: 'ca', key: 'conversations.confirm.cancel_description_team', value: "En cas que hagi sorgit qualsevol incidència referent a la recollida del producte si us plau marqui la casella \"Obrir incidència\" i l'equip Donalo es posarà en contacte amb tu.")
+
+    translate(locale: 'es', key: 'conversations.confirm.confirm', value: "He recibido bien el producto")
+    translate(locale: 'ca', key: 'conversations.confirm.confirm', value: "He rebut bé el producte")
+
+    translate(locale: 'es', key: 'conversations.confirm.cancel', value: "Hubo un incidente")
+    translate(locale: 'ca', key: 'conversations.confirm.cancel', value: "Obrir incidència")
 
   end
 
