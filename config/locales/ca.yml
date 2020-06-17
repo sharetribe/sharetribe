@@ -1788,7 +1788,7 @@ ca:
       subject_admin: "Una transacció ha estat disputada, has de decidir que passa a continuació"
       order_about: "ordre de %{listing_title}"
       the_order_has_been_canceled: "la %{transaction_link} ha estat disputada"
-      the_order_between_buyer_and_seller_has_been_canceled: "la %{transaction_link} enre %{buyer} i %{seller} ha estat disputada."
+      the_order_between_buyer_and_seller_has_been_canceled: "la %{transaction_link} entre %{buyer} i %{seller} ha estat disputada."
       the_marketplace_has_been_notified: "L'equip de %{service_name} ha estat notificat i està en procés de revisar la situació. Pots contactar-per compartir més detalls."
       contact_the_marketplace_team: "Contactar a l'equip de %{service_name}"
       you_must_now_decide: "Has de decidir si un reemborsament és vàlid o no. Si un reemborsament no és vàlid, pot descartar la disputa. pots %{learn_more_link}."
@@ -2030,7 +2030,7 @@ ca:
       list: "Mostrar llista"
       map_button: Mapa
       grid_button: "Vista resumida"
-      list_button: LLista
+      list_button: Llista
       all_listing_types: "Tots els tipus d'anuncis"
       all_categories: "Totes les categories"
     errors:
