@@ -187,6 +187,7 @@ pl:
         status_resent: "E-mail weryfikacyjny wysłany ponownie do %{email}. %{resend_link}"
         resend_link: "Wyślij ponownie"
         invalid_email_error: "Nieprawidłowy format e-maila dla '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "Adres e-mailowy '%{email}' używa niewspieranej domeny: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Przeczytaj artykuł aby uzyskać więcej informacji"
         unknown_error: "Coś poszło źle"

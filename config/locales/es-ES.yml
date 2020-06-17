@@ -177,6 +177,7 @@ es-ES:
         status_resent: "Correo de verificación reenviado a %{email}. %{resend_link}"
         resend_link: Reenviar
         invalid_email_error: "Formato de correo electrónico para '%{email}' es inválido"
+        invalid_email_address: ~
         invalid_email_domain: "La dirección de correo '%{email}' usa un proveedor de correo no soportado por nuestro sistema: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lee el artículo en nuestro centro de ayuda para obtener más información."
         unknown_error: "Algo salió mal"

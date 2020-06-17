@@ -162,6 +162,7 @@ ar:
         status_resent: "تم ارسال رابط التأكيد مرة أخري ‎%{email}‎ ‎%{resend_link}‎"
         resend_link: "إعادة الإرسال"
         invalid_email_error: "خطأ في البريد الإلكتروني \"‎%{email}‎\""
+        invalid_email_address: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: "حصل خطأ ما"

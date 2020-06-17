@@ -172,6 +172,7 @@ zh:
         status_resent: "验证邮件重新发送到%{email}。%{resend_link}"
         resend_link: 重新发送
         invalid_email_error: "邮件地址%{email}格式不正确"
+        invalid_email_address: ~
         invalid_email_domain: "邮件地址%{email}来自不被支持的邮件提供商：‘%{domain}’。%{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: 通过读知识库的文章获得更多信息
         unknown_error: 出错了
@@ -2286,7 +2287,7 @@ zh:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: ~
+      delete_listing: 删除该信息
     map:
       open_in_google_maps: 在Google地图中打开
     error:

@@ -177,6 +177,7 @@ fr:
         status_resent: "Email de vérification renvoyé à %{email}. %{resend_link}"
         resend_link: Renvoyer
         invalid_email_error: "Format de l'email invalide pour '%{email}'"
+        invalid_email_address: "Veuillez saisir une adresse email valide."
         invalid_email_domain: "L'adresse email '%{email}' utilise le fournisseur '%{domain}' non supporté. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lisez l'article sur le Help Center pour en savoir plus."
         unknown_error: "Quelque chose s'est mal passé."

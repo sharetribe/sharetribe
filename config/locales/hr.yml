@@ -185,6 +185,7 @@ hr:
         status_resent: "Email verifikacije je ponovno poslan na %{email}. %{resend_link}"
         resend_link: "Pošaljite ponovno"
         invalid_email_error: "netočni email format za %{email}"
+        invalid_email_address: ~
         invalid_email_domain: "Adresa e-pošte '%{email}' koristi nepodržanog davatelja usluga e-pošte: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Više informacija potražite u članku Centra za podršku."
         unknown_error: "Nešto je pošlo krivo"

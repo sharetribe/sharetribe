@@ -187,6 +187,7 @@ ru:
         status_resent: "Письмо с подтверждением повторно отправлено на %{email}. %{resend_link}"
         resend_link: "Отправить повторно"
         invalid_email_error: "Некорректный формат %{email}"
+        invalid_email_address: ~
         invalid_email_domain: "В адресе электронной почты %{email} используется неподдерживаемый провайдер услуг электронной почты: %{domain}. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Для получения дополнительной информации прочтите статью в базе знаний."
         unknown_error: "Что-то пошло не так"
@@ -1898,6 +1899,21 @@ ru:
       username_is_invalid: ~
       domain_name_is_invalid: ~
       only_supported_variables: ~
+      too_long:
+        one: 'слишком большой длины (не может быть больше чем 1 символ)'
+        few: 'слишком большой длины (не может быть больше чем %{count} символа)'
+        many: 'слишком большой длины (не может быть больше чем %{count} символов)'
+        other: 'слишком большой длины (не может быть больше чем %{count} символа)'
+      too_short:
+        one: 'недостаточной длины (не может быть меньше 1 символа)'
+        few: 'недостаточной длины (не может быть меньше %{count} символов)'
+        many: 'недостаточной длины (не может быть меньше %{count} символов)'
+        other: 'недостаточной длины (не может быть меньше %{count} символа)'
+      wrong_length:
+        one: 'неверной длины (может быть длиной ровно 1 символ)'
+        few: 'неверной длины (может быть длиной ровно %{count} символа)'
+        many: 'неверной длины (может быть длиной ровно %{count} символов)'
+        other: 'неверной длины (может быть длиной ровно %{count} символа)'
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."

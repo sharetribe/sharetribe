@@ -182,6 +182,7 @@ lt:
         status_resent: ~
         resend_link: ~
         invalid_email_error: ~
+        invalid_email_address: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
@@ -2968,7 +2969,7 @@ lt:
       december: Gru.
     today: Šiandien
     clear: Išvalyti
-    format: YYYY/mm/dd
+    format: yyyy/mm/dd
   time:
     formats:
       short: "%b %e, %Y %H:%M"
