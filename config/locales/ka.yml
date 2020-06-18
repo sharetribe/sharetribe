@@ -1264,7 +1264,7 @@ ka:
       total_value_stripe: ~
       paypal_fee: ~
       paypal_fee_info: "არ შეიცავს %{link}"
-      shipping_price_label: გაგზავნა
+      shipping_price_label: "მიტანის სერვისი"
       stripe-fee_label: ~
     confirm:
       confirm_description: "თუ თქვენი შეკვეთა შესრულდა უნდა მონიშნოთ იგი დასრულებულად. შემდეგ შეგეძლებათ მისცეთ შეფასება სხვა ნაწილს."
@@ -1619,7 +1619,7 @@ ka:
       you_have_made_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-ის გადასახადი:"
-      shipping_total: "ფოსტით გაგზავნა:"
+      shipping_total: "მიტანის სერვისი:"
     braintree_new_payment:
       product: პროდუქტი
       price_payer_paid: "ფასი %{payer_full_name} გადახდილია:"
@@ -2278,10 +2278,10 @@ ka:
       subscribe_to_comments: "შემატყობინეთ ახალი კომენტარების და განახლებების შესახებ"
     deleting_a_listing_cannot_be_undone: ~
     edit:
-      edit_listing: "დაარედაქტირე სია"
+      edit_listing: "დაარედაქტირე განცხადება"
     edit_links:
       close_listing: "სიის დახურვა"
-      edit_listing: "დაარედაქტირე სია"
+      edit_listing: "დაარედაქტირე განცხადება"
       reopen_listing: "თავიდან გახსენი ჩამონათვალი"
       move_to_top: "გადაიტანე მთავარი გვერდის თავში"
       show_in_updates_email: "მანახე შემდეგ გამოწერაში"
@@ -2292,7 +2292,7 @@ ka:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: "წაშალეთ ჩამონათვალი"
+      delete_listing: "წაშალე განცხადება"
     map:
       open_in_google_maps: "გახსენი Google Maps-ში"
     error:
@@ -2365,7 +2365,7 @@ ka:
         after_service_fee_you_will_get_payment_text: ~
         payment_fee_info_link_text: ~
         delivery: "მიტანის მეთოდი"
-        shipping: "ფოსტით გაგზავნა:"
+        shipping: "მიტანის სერვისი:"
         shipping_price: "ტრანსპორტირების გადასახადი"
         shipping_price_additional: "დამატებითი  ნივთები"
         pickup: "ადგილზე აღება"
@@ -2746,10 +2746,10 @@ ka:
     followed_people:
       you_follow_plural: "თქვენ მისდევთ %{count} ადამიანს"
       you_follow_singular: "თქვენ მისდევთ %{count} ადამიანს"
-      they_follow_plural: "%{count} გაყვა ადამიანი"
-      they_follow_singular: "%{count} გაყვა პიროვნება"
+      they_follow_plural: "%{count} გამოწერილი ხალხი"
+      they_follow_singular: "%{count} გაყვა პიროვნებაგამოწერილი ხალხი"
       show_all_followed_people: "მანახე ყველა მიდევნებული ადამიანი"
-      no_followed_people: "არ არის მიდევნებული ხალხი"
+      no_followed_people: "გამოწერილი ხალხი"
     follow_button:
       following: მიყვება
       follow: გაყოლა
@@ -3014,7 +3014,7 @@ ka:
       price_per_unit: ~
       quantity: რაოდენობა
       subtotal: "ჯამი:"
-      shipping-price: "ფოსტით გაგზავნა:"
+      shipping-price: "მიტანის სერვისი:"
       stripe-fee: ~
       start_end_time: ~
     price_per_quantity: "ფასი ყოველ %{unit_type}"
