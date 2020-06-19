@@ -1,9 +1,10 @@
 fr:
   admin2:
     save_changes: 'lorem ipsum'
-    cancel: 'lorem ipsum'
     next_step: 'lorem ipsum'
     prev_step: 'lorem ipsum'
+    cancel: 'lorem ipsum'
+    delete: 'lorem ipsum'
     topnav:
       admin_menu: 'lorem ipsum'
       logo: 'lorem ipsum'
@@ -118,6 +119,18 @@ fr:
       delete: 'lorem ipsum'
       delete_caption: 'lorem ipsum: %{order_type}'
       confirm_delete_simple_order_type: 'lorem ipsum'
+      per: 'lorem ipsum'
+      add_unit_title: '+ lorem ipsum'
+      add_unit: 'lorem ipsum'
+      unit_label: 'lorem ipsum'
+      unit_label_placeholder: 'lorem ipsum'
+      unit_type_quantity: 'lorem ipsum'
+      unit_type_time: 'lorem ipsum'
+      save_unit: 'lorem ipsum'
+      selector_label: 'lorem ipsum'
+      unit_type: 'lorem ipsum'
+      delete_unit_title: 'lorem ipsum "%{title}"'
+      delete_unit_text: 'lorem ipsum "%{title}"?'
       errors:
         without_online_payments: 'lorem ipsum'
         enabled_without_price: 'lorem ipsum'

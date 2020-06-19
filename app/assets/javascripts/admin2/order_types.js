@@ -1,5 +1,29 @@
 $(function() {
 
+    $(document).on('click', '.remove-pricing-unit-trigger', function () {
+        $(this).parents('.hidden-unit-div').find('.remove-unit-content').show(200);
+        $(this).parents('.hidden-unit-div').find('.add-new-unit-content').hide(0);
+        $('#new-unit-trigger').show(0);
+    });
+
+    $(document).on('click', '.delete-unit', function () {
+        var id = $(this).data('id');
+        $('#unit_' + id).remove();
+    });
+
+    $(document).on('click', '.remove-unit-cancel', function(){
+        $(this).parents('.hidden-unit-div').find('.remove-unit-content').hide(0);
+    });
+
+    $(document).on('click', '#save-unit', function(){
+        var url = $('#unit-form').data('url'),
+            myInputs_container = $('#unit-form').clone(),
+            str = $('<form>').append(myInputs_container).serialize();
+        if ($('#unit-form').find('input').valid()) {
+            $.post(url, str, null, 'script');
+        }
+    });
+
     $('#orderTypesAddModal'). on('show.bs.modal', function() {
         $('#template_order_type option[value=""]').show();
         $('#template_order_type').prop('selectedIndex', 0);

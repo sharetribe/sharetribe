@@ -25,6 +25,13 @@ Feature: Admin create, update, destroy listing shapes
     Then I select "Selling products" from "template_order_type"
     Then I should see "Checkout button label"
     When I fill in "Selling something nice" for "name_en"
+    Then I follow "+ Add a custom pricing unit"
+    When I fill in "Customize something nice" for "unit_label_en"
+    When I fill in "Customize something nice" for "unit_label_fi"
+    When I fill in "Customize it!" for "selector_label_en"
+    When I fill in "Customize it!" for "selector_label_fi"
+    Then I press "Save pricing unit"
+    Then I should see "Per Customize something nice"
     When I press "Save changes"
     Then I should see "Selling something nice"
 

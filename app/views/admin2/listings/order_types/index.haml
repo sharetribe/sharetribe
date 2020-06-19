@@ -10,23 +10,24 @@
     %p.ingress
       = t('admin2.order_types.info_text')
     .form-group
-      .field-titles
-        %div= t('admin2.order_types.name')
-        %div= t('admin2.order_types.used_in')
+      .field-titles.field-data
+        .col.col-lg-6= t('admin2.order_types.name')
+        .col.col-lg-4= t('admin2.order_types.used_in')
+        .col
       #orderTypeList.list-group{data: {url: order_admin2_listings_order_types_path}}
         - @listing_shapes&.map do |shape|
           .field-data.order_type_position
             = hidden_field_tag "shape[sort_priority][#{shape.id}]", shape.sort_priority, class: %i[shape_sort_priority], data: { id: shape.id }
-            %div
+            .col.col-lg-6
               = t(shape.name_tr_key)
-            %div
+            .col.col-lg-4
               - if shape.category_ids.size.zero?
                 = t('admin2.order_types.no_categories')
               - elsif shape.category_ids.size == @category_count
                 = t('admin2.order_types.all_categories')
               - else
                 = t('admin2.order_types.category_count', category_count: "#{shape.category_ids.size}/#{@category_count}")
-            .actions
+            .actions.col
               %span.handle-move{'aria-hidden' => true}
               - unless @listing_shapes.size == 1
                 - if shape.can_delete_shape?

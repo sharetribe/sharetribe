@@ -62,14 +62,35 @@
   %label= t('admin2.order_types.units_title_without_availability')
   - shape[:predefined_units].map do |unit|
     .form-check
-      = check_box_tag "units[#{unit[:unit_type]}]", "true", unit[:enabled], class: %i[form-check-input js-unit-checkbox]
+      = check_box_tag "units[#{unit[:unit_type]}]", 'true', unit[:enabled], class: %i[form-check-input js-unit-checkbox]
       = label_tag "units[#{unit[:unit_type]}]", unit[:label], class: %i[form-check-label js-unit-label]
 
-  -# TODO
   - shape[:custom_units].each_with_index do |unit, index|
-    .form-check{class: "js-custom-unit js-custom-unit-#{index}"}
-      = hidden_field_tag("custom_units[existing][#{index}]", unit[:value])
-      = label_tag("custom_units[existing][#{index}]", "#{t('admin.listing_shapes.custom_unit_form.per')} #{unit[:name][I18n.locale.to_s]}", class: "js-unit-label checkbox-row-label")
-      %a{class: "js-remove-custom-unit listing-shape-remove-custom-unit", data: {customUnitIndex: index}}
-        = t("admin.listing_shapes.delete_custom_unit")
-  + ADDING MORE CUSTOM PRICING UNIT STILL MISSING HERE, WIP.
+    %span.hidden-unit-div{id: "unit_#{index}"}
+      .form-check
+        = hidden_field_tag("custom_units[existing][#{index}]", unit[:value])
+        %input#pricingUnitPerPasta.form-check-input{checked: true, disabled: true, type: :checkbox}
+        = label_tag "custom_units[existing][#{index}]", "#{t('admin2.order_types.per')} #{unit[:name][I18n.locale.to_s]}", class: %i[form-check-label js-unit-label checkbox-row-label], for: :pricingUnitPerPasta
+        .actions
+          %span.remove-pricing-unit-trigger.remove{"aria-hidden" => "true"}
+      = render 'unit_delete', index: index, title: "#{t('admin2.order_types.per')} #{unit[:name][I18n.locale.to_s]}"
+
+  %span#new_units_span
+
+= render 'admin2/listings/order_types/add_unit'
+
+:javascript
+  $(function() {
+    $('#unit-form').validate();
+    $("#new-unit-trigger").click(function(e){
+      $('#unit-form').find('input.form-control').val('');
+      $(".add-new-unit-content").show(200);
+      $("#new-unit-trigger").hide();
+      $(".remove-unit-content").hide();
+    });
+    $("#add-new-unit-cancel").click(function(){
+      $(".add-new-unit-content").hide();
+      $("#new-unit-trigger").show();
+    });
+    $('.remove-unit-content').hide();
+  });

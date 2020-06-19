@@ -58,6 +58,15 @@ module Admin2::Listings
       redirect_to admin2_listings_order_types_path
     end
 
+    def add_unit
+      @data = { locals: params['unit_label'].keys,
+                uniq: DateTime.now.strftime('%Q'),
+                unit_label: params['unit_label'],
+                selector_label: params['selector_label'],
+                unit_type: params['unit_type'] }
+      render layout: false
+    end
+
     def create
       shape = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
 

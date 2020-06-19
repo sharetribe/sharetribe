@@ -89,16 +89,6 @@ window.ST.initializeListingShapeForm = function(formId) {
     var toggleCustomUnitsEnabled = function(enabled) {
         toggleLabelEnabled($(".js-listing-shape-add-custom-unit-link"), enabled);
         toggleInputEnabled($('.js-custom-unit input'), enabled);
-
-        // First, turn off the click listener
-        $('.js-listing-shape-add-custom-unit-link').off('click');
-
-        if (enabled) {
-            // Add click listener if custom units are enabled
-            $('.js-listing-shape-add-custom-unit-link').click(function() {
-                addCustomUnitForm();
-            });
-        }
     };
 
     var toggleAvailabilityEnabled = function(enabled) {
@@ -117,17 +107,6 @@ window.ST.initializeListingShapeForm = function(formId) {
         if (typeof index !== "undefined") {
             $('.js-custom-unit-' + index).remove();
         }
-    };
-
-    // var customUnitTemplate = _.template($(".js-listing-shape-add-custom-unit-form").html());
-
-    var addCustomUnitForm = function() {
-        var uniqueId = _.uniqueId('new_unit-');
-
-        // var $form = $(customUnitTemplate({uniqueId: uniqueId}));
-
-        // $form.find('.js-listing-shape-close-custom-unit-form').click(closeCustomUnitForm);
-        // $form.insertBefore($('.js-listing-shape-add-custom-unit-link').parent()).show();
     };
 
     var closeCustomUnitForm = function() {

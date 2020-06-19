@@ -1,9 +1,10 @@
 en:
   admin2:
     save_changes: 'Save changes'
-    cancel: 'Cancel'
     next_step: 'Next'
     prev_step: 'Prev'
+    cancel: 'Cancel'
+    delete: 'Delete'
     topnav:
       admin_menu: 'Admin menu'
       logo: 'Sharetribe Go Admin Panel'
@@ -119,6 +120,18 @@ en:
       delete: 'Delete the order type'
       delete_caption: 'Delete order type: %{order_type}'
       confirm_delete_simple_order_type: 'Deleting an order type cannot be undone. Are you sure you want to proceed?'
+      per: 'Per'
+      add_unit_title: '+ Add a custom pricing unit'
+      add_unit: 'Add a new pricing unit'
+      unit_label: 'Pricing unit label'
+      unit_label_placeholder: 'e.g. kg, 30 minutes, person, class…'
+      unit_type_quantity: 'Quantity (per piece, per kg, per person, per 2h tour…)'
+      unit_type_time: 'Time (per 30 minutes, per 2 weeks, per year…)'
+      save_unit: 'Save pricing unit'
+      selector_label: 'Selector label'
+      unit_type: 'Unit type'
+      delete_unit_title: 'Delete pricing unit "%{title}"'
+      delete_unit_text: 'Are you sure you want to delete the pricing unit "%{title}"?'
       errors:
         without_online_payments: 'Shipping cannot be enabled without online payments'
         enabled_without_price: 'Online payments cannot be enabled without price'

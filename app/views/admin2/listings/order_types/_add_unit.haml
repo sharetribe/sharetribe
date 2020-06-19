@@ -1,0 +1,41 @@
+.add-new-unit
+  %p.add-new-unit-trigger
+    %a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link#new-unit-trigger{href: '#'}= t('admin2.order_types.add_unit_title')
+  .add-new-unit-content#unit-form{data: {url: add_unit_admin2_listings_order_types_path}}
+    %h2= t('admin2.order_types.add_unit')
+    .form-group
+      %label= t('admin2.order_types.unit_label')
+      .multiple-languages-container
+        - @current_community.locales.each do |locale|
+          .multiple-languages-language
+            %span.language
+              = t("admin.communities.available_languages.#{locale}")
+          .multiple-languages-input
+            .input-group.append-first
+              .input-group-append
+                %span.input-group-text= t('admin2.order_types.per')&.downcase
+              = text_field_tag "unit_label[#{locale}]", '', class: %i[form-control required], placeholder: t('admin2.order_types.unit_label_placeholder')
+
+    .form-group
+      %label= t('admin2.order_types.selector_label')
+      .multiple-languages-container
+        - @current_community.locales.each do |locale|
+          .multiple-languages-language
+            %span.language
+              = t("admin.communities.available_languages.#{locale}")
+          .multiple-languages-input
+            = text_field_tag "selector_label[#{locale}]", '', class: %i[form-control required], placeholder: t('admin2.order_types.unit_label_placeholder')
+
+    .form-group
+      %label= t('admin2.order_types.unit_type')
+      .form-radiobutton-wrapper
+        .form-radiobutton.radiobuttons-vertically
+          = radio_button_tag :unit_type, 'quantity', true, class: %i[form-check-input]
+          %label.form-check-label{for: :unit_type_quantity}= t('admin2.order_types.unit_type_quantity')
+        .form-radiobutton.radiobuttons-vertically
+          = radio_button_tag :unit_type, 'time', false, class: %i[form-check-input]
+          %label.form-check-label{for: :unit_type_time}= t('admin2.order_types.unit_type_time')
+
+    .add-new-unit-actions
+      %button.btn.btn-secondary#save-unit{type: :button}= t('admin2.order_types.save_unit')
+      %a#add-new-unit-cancel.cancel-action{href: '#'}= t('admin2.cancel')
