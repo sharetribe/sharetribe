@@ -26,7 +26,7 @@ module Donalo
       module ::StripeHelper
         class << self
           def user_stripe_active?(community_id, person_id)
-            return true
+            true
           end
         end
       end
