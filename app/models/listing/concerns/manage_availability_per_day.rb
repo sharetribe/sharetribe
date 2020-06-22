@@ -12,12 +12,14 @@ module ManageAvailabilityPerDay
 
   # returns array of datetime at beginning of day
   def booked_dates(start_on, end_on)
+    start_on_t = start_on.is_a?(String) ? start_on.to_date : start_on
+    end_on_t = end_on.is_a?(String) ? end_on.to_date : end_on
     result = []
     # end_on is inclusive, but booking model query is exclusive on end
-    bookings_per_day.in_per_day_period(start_on, end_on + 1.day).each do |booking|
-      trimmed_start_on = [booking.start_on, start_on].max
-      trimmed_end_on = [booking.end_on - 1.day, end_on].min
-      result += (trimmed_start_on..trimmed_end_on).to_a.map{|x| x.to_time(:utc)}
+    bookings_per_day.in_per_day_period(start_on_t, end_on_t + 1.day).each do |booking|
+      trimmed_start_on_t = [booking.start_on, start_on_t].max
+      trimmed_end_on_t = [booking.end_on - 1.day, end_on_t].min
+      result += (trimmed_start_on_t..trimmed_end_on_t).to_a.map{|x| x.to_time(:utc)}
     end
     result
   end

@@ -177,6 +177,7 @@ fi:
         status_resent: "Vahvistusviesti lähetetty uudestaan osoitteeseen %{email}. %{resend_link}"
         resend_link: "Lähetä viesti uudelleen"
         invalid_email_error: "Virheellinen sähköpostiosoite: '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "Sähköpostioosoite '%{email}' käyttää sähköpostipalveluntarjoajaa '%{domain}'. Järjestelmämme ei tällä hetkellä tue kyseistä palveluntarjoajaa. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: Lisätietoja
         unknown_error: "Jotain meni vikaan"
@@ -3205,6 +3206,7 @@ fi:
       cancel: Peruuta
       gender: Sukupuoli
       phone_number: Puhelinnumero
+      phone_info_text: ~
       address_kana_postal_code: "Postinumero kana"
       address_kana_state: "Osavaltio kana"
       address_kana_city: "Kaupunki kana"

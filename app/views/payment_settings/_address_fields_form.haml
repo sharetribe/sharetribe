@@ -48,4 +48,11 @@
   .row
     .col-12
       = form.label :phone, t("stripe_accounts.form_new.phone_number")+"*"
+      .row
+        %span.alert-box-icon
+          = icon_tag("information", ["icon-fix"])
+        %small
+          = t('stripe_accounts.form_new.phone_info_text')
+          %span#phone-placeholder
+            "+49 33 12373321".
       = form.text_field :phone, class: 'required', phone_number: true

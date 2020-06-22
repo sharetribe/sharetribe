@@ -182,6 +182,7 @@ cs:
         status_resent: "Ověřovací e-mail byl znovu odeslán na %{email}. %{resend_link}"
         resend_link: "Znovu poslat"
         invalid_email_error: "Neplatný formát e-mailu \"%{email}\""
+        invalid_email_address: ~
         invalid_email_domain: "E-mailová adresa %{email} využívá nepodporovaného poskytovatele e-mailu: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Přečtěte si následující článek pro více informací."
         unknown_error: "Něco se nezdařilo"
@@ -3222,6 +3223,7 @@ cs:
       cancel: Zrušit
       gender: Pohlaví
       phone_number: "Telefonní číslo"
+      phone_info_text: ~
       address_kana_postal_code: PSČ
       address_kana_state: Stát
       address_kana_city: Město

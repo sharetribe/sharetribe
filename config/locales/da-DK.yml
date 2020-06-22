@@ -177,6 +177,7 @@ da-DK:
         status_resent: "Bekræftelsesmail er gensendt til %{email}. %{resend_link}"
         resend_link: Gensend
         invalid_email_error: "Ugyldig e-mail format for '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "E-mail-adressen '%{email}' bruger en ikke-understøttet udbyder: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Læs vidensbaseartiklen for yderligere information."
         unknown_error: "Noget gik galt"
@@ -1432,7 +1433,7 @@ da-DK:
     feedback_subject: ~
     feedback_body: ~
     unlogged_user: ~
-    anonymous_user: ~
+    anonymous_user: "En anonym bruger"
   community_memberships:
     access_denied:
       access_denied: "Adgang nægtet"
@@ -3183,6 +3184,7 @@ da-DK:
       cancel: Annuller
       gender: Køn
       phone_number: Telefonnummer
+      phone_info_text: ~
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~

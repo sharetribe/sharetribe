@@ -2,8 +2,8 @@ ca:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
+        separator: ","
+        delimiter: "."
         format: "%u%n"
   admin:
     categories:
@@ -12,10 +12,10 @@ ca:
       index:
         listing_categories: "Categories d'anuncis"
         create_a_new_category: "+ Crear nova categoria"
-        remove_category_confirmation: ~
+        remove_category_confirmation: "Esteu segur que voleu suprimir la categoria '%{category_name}'? Això no es pot desfer."
         saving_order: "Guardant l'ordre de les categories"
         save_order_successful: "Ordre de les categories guardat amb èxit"
-        save_order_error: ~
+        save_order_error: "S'ha produït un error en desar la categoria de la comanda. Actualitza la pàgina i torna-ho a provar."
       new:
         new_listing_category: "Nova categoria d'anuncis"
       form:
@@ -25,8 +25,8 @@ ca:
           category_parent: "Categoria superior"
           no_parent: "Pàgina principal (sense superior)"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "Tipus de comanda"
+          transaction_types_description: "Els tipus de comanda determinen quin tipus de procés de comanda es permet amb els anuncis d'aquesta categoria. Per exemple, només es permet vendre o bé llogar i regalar gratuïtament."
           select_all: "Seleccionar tot"
           clear_all: "Borrar tot"
         buttons:
@@ -36,10 +36,6 @@ ca:
         remove_category: "Eliminar categoria"
         remove_category_name: "Eliminar categoria '%{category_name}'"
         warning_remove_effects: "Atenció! Esborrar la categoria '%{category_name}' tendrà el següent resultat:"
-        select_new_category: "Selecciona una nova categoria a la qual vulguis moure els registres que apareixen a dalt."
-        buttons:
-          remove: Eliminar
-          cancel: Canceŀla
         warning_listing_will_be_moved:
           one: "Hi ha %{count} anunci en aquesta categoria. Es mourà a la categoria seleccionada."
           other: "Hi ha %{count} anuncis en aquesta categoria. Es mouran a la categoria seleccionada."
@@ -55,39 +51,43 @@ ca:
         warning_with_subcategories_custom_field_will_be_moved:
           one: "Hi ha %{count} camp personalitzat a la categoria i subcategoria. Es mourà a la categoria seleccionada."
           other: "Hi ha %{count} camps personalitzats a la categoria i subcategoria. Es mouran a la categoria seleccionada."
+        select_new_category: "Selecciona una nova categoria a la qual vulguis moure els registres que apareixen a dalt."
+        buttons:
+          remove: Eliminar
+          cancel: Canceŀla
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: "Detalls bàsics"
+        community_look_and_feel: Disseny
+        edit_community: "Detalls bàsics"
         enabled_languages: "Idiomes habilitats"
         enabled_languages_description: "Conjunt d'idiomes disponibles per als usuaris. El primer en l'ordre s'empra per defecte."
         default_language: "Idioma predeterminat"
         language_selection_disabled: "La selecció d'idioma està deshabilitada per la teva comunitat perquè estàs emprant els següents idiomes no oficials: %{languages}. Si us plau contacta a l'equip de suport de Sharetribe si vols modificar els teus ajuntaments d'idiomes."
-        community_name: ~
-        edit_community_name_description: ~
-        community_slogan: ~
+        community_name: "Nom del mercat"
+        edit_community_name_description: "El nom del vostre mercat. Això es mostra als usuaris en els correus electrònics i en altres llocs."
+        community_slogan: "Eslògan del mercat"
         community_slogan_display: "Mostrar l'eslògan a la pàgina d'inici"
-        edit_community_slogan_description: ~
+        edit_community_slogan_description: "Això es mostra a la pàgina principal del mercat per als usuaris que no tenen sessió iniciada.%{see_how_it_looks_like}."
         edit_community_slogan_description_hideable: "Es mostra en navegadors, cercadors i mitjans socials. També pots decidir mostrar-lo a la pàgina d'inici del teu marketplace per a visitants i usuaris que no han iniciat sessió %{see_how_it_looks_like}."
-        community_description: ~
+        community_description: "Descripció del mercat"
         community_description_display: "Mostrar la descripció a la pàgina d'inici"
-        edit_community_description_description: ~
+        edit_community_description_description: "Això es mostra a la pàgina principal del mercat per als usuaris que no tenen sessió iniciada.%{see_how_it_looks_like}."
         edit_community_description_description_hideable: "Es mostra en navegadors, cercadors i mitjans socials. També pots decidir mostrar-la a la pàgina d'inici del teu marketplace per a visitants i usuaris que no han iniciat sessió %{see_how_it_looks_like}."
         community_search_placeholder: Ajuda
-        edit_community_search_placeholder_description: ~
-        private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
+        edit_community_search_placeholder_description: "Així es mostra a la pàgina principal del mercat com a text de marcador de posició a la barra de cerca. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Contingut de la pàgina principal del mercat privat"
+        edit_private_community_homepage_content_description: "Aquest contingut es mostra a la pàgina principal dels mercats privats als usuaris que no tenen sessió d'inici. Aquí podeu descriure el vostre mercat i el procés per unir-s'hi. També podeu afegir imatges, vídeos i contingut HTML aquí. %{see_how_it_looks_like}."
         update_information: "Guardar configuració"
-        invite_people: ~
+        invite_people: "Convida usuaris nous"
         edit_signup_info: "Informació de registre"
         edit_signup_info_description: "Aquest és un text informatiu que pot mostrar-se als usuaris a la pàgina de registre. Aquí pots donar-los instruccions per iniciar sessió, informació sobre com aconseguir una invitació, etc. Per defecte, no hi ha instruccions per mostrar."
         edit_info: "Editar informació"
         see_how_it_looks_like: "Veure com es veu"
         verification_to_post_listings_info_content: "Text d'informació per a usuaris no verificats"
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
+        verification_to_post_listings_info_content_description: "Actualment, necessiteu que els usuaris us ho verifiquin manualment abans que puguin publicar anuncis. Aquí podeu definir el text predeterminat que es mostra als usuaris no verificats quan intenten publicar un anunci nou."
+        verification_to_post_listings_info_content_default: "%{service_name} requereix que les persones es verifiquen manualment per l'administrador abans que puguin publicar anuncis. Encara no haveu estat verificats. Si us plau, per verificar %{contact_admin_link}."
+        contact_admin_link_text: "contacteu amb l’equip %{service_name}"
         save: "Guardar configuració"
         transaction_agreement: "Acord de transacció"
         transaction_agreement_checkbox: "Requerir als usuaris que acceptin l'acord abans de realitzar una transacció."
@@ -98,33 +98,33 @@ ca:
         terms_privacy_policy_and_static_content: "Termes, política de privacitat i contingut estàtic"
         terms_privacy_policy_and_static_content_infotext: "Pots editar fins a quatre pàgines de contingut estàtic. Els usuaris poden trobar les pàgines fent clic a l’enllaç \"Sobre\" de la barra superior."
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
+        edit_community_look_and_feel: "Editar l'aparença del mercat \"%{community_name}\""
+        community_logo: Logotip
         community_logo_icon: "Logo per a xarxes socials i dispositius mòbils"
         community_logo_icon_mobile: "Logotip quadrat"
         community_cover_photo: "Fotografia de portada"
         small_community_cover_photo: "Imatge de capçalera petita"
         favicon: Favicon
         favicon_info_text: "El Favicó reemplaçarà el logotip predeterminat de Sharetribe. Les dimensions hauran de ser de 32x32 píxels i la imatge que pugis es retallarà a aquest tamany."
-        community_custom_color1: ~
+        community_custom_color1: "Color principal del mercat"
         community_slogan_color: "Color de l'eslògan"
         community_slogan_color_instructions_text: "Així pots canviar el color de l'eslògan que apareix a la pàgina d'inici. Necessites ingressar un valor de color hexadecimal. L'eslògan només es mostra als usuaris que no han iniciat sessió. A %{colorpicker} pots triar el color i després copiar aquí el codi que es generi allà. %{see_how_it_looks_like}."
         community_description_color: "Color de la descripció de la teva comunitat"
         community_description_color_instructions_text: "Aquí pots canviar el color de la descripció que apareix a la pàgina d'inici. Necessites ingressar un valor de color hexadecimal. La descripció es mostra només als usuaris que no han iniciat cap sessió. En %{colorpicker} pots triar el color i després pots copiar aquí el codi que es generi allà. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Color del botó de \"Publicar anunci\""
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "La mida del logotip hauria de ser %{width}x%{height} píxels. Es mostrarà als usuaris amb pantalles més grans."
         logo_instructions_text_with_dimensions_no_placing: "El logotip ha de tenir una resolució de %{width}x%{height} píxels."
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Aquest logotip quadrat es mostrarà quan les persones comparteixen el vostre lloc a Facebook, quan vegin el vostre lloc en un dispositiu mòbil o quan marquin el vostre lloc a la pantalla inicial del dispositiu mòbil. Les dimensions han de ser (almenys) %{width}x%{height} píxels."
         logo_icon_instructions_text_with_dimensions_no_placing: "Aquest logotip es mostrarà quan les persones comparteixin el teu lloc a Facebook o quan guardin un accés al teu lloc als seus dispositius mòbils. Les dimensions han de ser (al manco) %{width}x%{height} píxels."
         logo_mobile_icon_instructions_text_with_dimensions: "Aquest logotip quadrat es mostrarà als usuaris quan facis accions com a administrador i als usuaris que guardin l'enllaç de la teva comunitat a la pàgina d'inici d'un dispositiu mòbil. Les dimensions de la imatge han de ser (almenys) %{width} x %{height} píxels."
-        cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_visibility: "La foto de portada es mostra a la pàgina principal dels usuaris que no inicien la sessió."
+        cover_photo_instructions_text_with_dimensions: "La foto es redimensionarà a %{width}x%{height} píxels i les imatges més altes es tallaran al centre. %{see_how_it_looks_like}."
         we_have_you_covered: "Et tenim cobert"
         cover_photo_ready_made: "Cerques algunes fotografies de portada ja optimitzades i preparades? O us agradaria una mica d'inspiració i llocs web on trobar imatges de portada fantàstiques? %{link}!"
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
+        small_cover_photo_visibility: "La petita imatge de portada es mostra a totes les pàgines, excepte a la pàgina d'inici per als usuaris que no hagin accedit."
+        small_cover_photo_instructions_text_with_dimensions: "La foto es redimensionarà a %{width}x%{height} píxels i les imatges més altes es tallaran al centre."
         main_content_width: "Quan escullis les fotografies de portada has de tenir present que el contingut principal de la pàgina és de màxim %{main_width} píxels d'ample. Recorda també revisar com es veu la teva fotografia de portada en altres dispositius amb pantalles més petites (pots utilitzar una finestra de navegació més estreta per a comprovar-ho)."
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: "Podeu canviar el color principal de la interfície d'usuari si introduïu un valor de color hex. %{link}  us pot ajudar a triar el color i us proporcionarà el codi de color hex. Podeu copiar el codi aquí."
         new_listing_button_instructions_text: "Pots canviar el color del botó de Publicar Anunci escrivint un codi de color hexadecimal. A %{link_to_colorpicker} pots triar el color i després pots copiar el codi del color aquí."
         default_browse_view: "Vista per defecte del buscador"
         default_browse_view_instructions_text: "La vista seleccionada s'usa en la pàgina principal per elegir com es mostren els resultats per defecte."
@@ -141,10 +141,10 @@ ca:
         custom_head_script_instructions_text: "Aquest script serà afegit al <head> de cada pàgina i podrà ser usat per afegir un CSS personalitzat, JavaScript o HTML. Si us plau, recorda que futures actualitzacions de Sharetribe poden fer que el teu script deixi de funcionar correctament."
         current_image: "Imatge actual:"
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: "Textos d’instrucció"
       edit_welcome_email:
         welcome_email_content: "Contingut del correu electrònic de benvinguda."
-        welcome_email_content_description: ~
+        welcome_email_content_description: "El missatge següent s’enviarà a tots els usuaris nous quan s’uneixin. Podeu personalitzar el missatge perquè s’adapti al vostre mercat. Fent clic a '%{send_test_message_link}' podeu enviar un missatge de previsualització a la vostra adreça de correu electrònic, de manera que podreu veure com es veu en un de correu electrònic d'un client."
         edit_message: "Editar missatge"
         send_test_message: "Enviar missatge de prova"
       outgoing_email:
@@ -177,6 +177,7 @@ ca:
         status_resent: "Correu de verificació reenviat a %{email}. %{resend_link}"
         resend_link: Reenviar
         invalid_email_error: "Format de correu electrònic per a '%{email}' és invàlid"
+        invalid_email_address: "Si us plau, introdueixi una adreça de correu vàlida"
         invalid_email_domain: "L'adreça de correu '%{email}'  empra un proveïdor no suportat pel nostre sistema: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Llegeix l'article en el nostre centre d'ajuda per obtenir més informació."
         unknown_error: "Qualque cosa ha sortit malament"
@@ -217,14 +218,14 @@ ca:
       settings:
         settings: Configuració
         general: General
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
+        access: "Preferències d’accés i contacte"
+        join_with_invite_only: "Permet que els usuaris nous s’uneixin només amb una invitació d’un usuari registrat"
+        users_can_invite_new_users: "Permet que tots els usuaris registrats i, no només els administradors, convidin a usuaris nous"
+        private: "Permet només als usuaris registrats veure fitxes i perfils d’usuaris (fer que el mercat sigui privat)"
+        require_verification_to_post_listings: "Permet que només els usuaris verificats pels administradors puguin publicar fitxes noves"
         allow_free_conversations: "Permet que els usuaris es puguin enviar missatges lliurement"
         search_preferences: "Preferències de búsqueda"
-        search_and_location_preferences: ~
+        search_and_location_preferences: "Preferències de búsqueda i ubicació"
         default_search_type: "Tipus de búsqueda: %{select_search_type}"
         keyword_search: "Búsqueda per paraules clau"
         keyword_and_location_search: "Búsqueda per ubicació i paraules clau"
@@ -233,12 +234,12 @@ ca:
         km: km
         miles: milles
         show_only_nearby: "Mostrar només anuncis propers a la búsqueda per ubicació"
-        allow_users_to_add_location: ~
-        fuzzy_location: ~
+        allow_users_to_add_location: "Permetre als usuaris afegir ubicació als seus perfils i anuncis, i mostrar la vista del mapa a la pàgina de resultats de cerca"
+        fuzzy_location: "Mostra un cercle en comptes de la ubicació exacta"
         listing_preferences: "Preferències dels anuncis"
-        transaction_preferences: ~
+        transaction_preferences: "Preferències de la comanda"
         show_listing_publishing_date: "Mostrar data de publicació de l'anunci a la descripció de l'anunci"
-        show_category_in_listing_list: "Mostrar el tipus d'ordre a la vista de la llista"
+        show_category_in_listing_list: "Mostrar el tipus d'ordre a la vista de l'anunci"
         listing_comments_in_use: "Tots els usuaris poden publicar comentaris en els anuncis (visibles per a la resta dels usuaris)"
         email_preferences: "Preferències de correus"
         automatic_newsletters: "Enviar el butlletí informatiu diari/setmanal a tots els usuaris (excepte si no han acceptat l'enviament de missatges automàtics)"
@@ -265,23 +266,23 @@ ca:
         pre_approved_listings: "Reviseu tots els llistats abans que es publiquin"
         email_admins_about_new_transactions: "Envieu un correu electrònic als administradors sempre que s'iniciï una nova transacció"
       manage_members:
-        manage_members: ~
+        manage_members: Usuaris
         email: "Correu electrònic"
         name: Nom
         display_name: "Nom personalitzat"
         join_date: "Data de registre"
         admin: Admin
         posting_allowed: "Publicació permesa"
-        ban_user: ~
+        ban_user: Desactivar
         saving_user_status: Desant...
         save_user_status_successful: Guardat
         export_all_as_csv: "Exportar-ho tot com CSV"
         save_user_status_error: "No s'han guardat els canvis. Si us plau, actualitza la pàgina i torna a intentar-ho."
-        ban_user_confirmation: ~
+        ban_user_confirmation: "Això desactiva el compte d’usuari del mercat i impedeix que tornin a accedir al lloc amb aquest compte. Esteu segur que voleu continuar?"
         unban_user_confirmation: "Això habilita el compte de l'usuari a la comunitat i li permetrà accedir una altra vegada al seu compte. Està segur que vols continuar?"
         ban_me_error: "No et pots deshabilitar a tu mateix."
-        have_ongoing_transactions: ~
-        only_delete_disabled: ~
+        have_ongoing_transactions: "Aquest compte no es pot suprimir perquè tenen transaccions en curs. Completeu totes les transaccions abans de suprimir el compte."
+        only_delete_disabled: "Només podeu suprimir els usuaris que s’han desactivat. Desactiveu primer un usuari per eliminar el seu compte"
         delete_info1: "Si elimines aquest compte, la informació personal (nom, número de telèfon, adreça, correu electrònic, imatge de perfil, etc.) s'eliminarà permanentment i no podrà ser recuperada. Tots els anuncis que han creat s'eliminaran del portal. No podràs reactivar aquest compte."
         delete_info2: "La informació en la que estan involucrats altres membres (conversacions amb altra gent, transaccions que s'han realitzat, revisions que s'han donat a altres, etc) no s'eliminaran quan cancel·lis aquest compte. No obstant, el nom no apareixerà junt a aquesta informació."
         search: Buscar
@@ -313,7 +314,7 @@ ca:
         enabled_for_all: "Habilitar per a tots"
         new_topbar: "Nova barra superior (visible a totes les pàgines)"
         searchpage: "Nova pàgina de búsqueda (requereix de la nova barra superior)"
-        new_email_templates: ~
+        new_email_templates: "Nou disseny de correus"
       social_media:
         social_media: "Mitjans socials"
         logo: "Imatge pels mitjans socials"
@@ -330,7 +331,7 @@ ca:
         twitter_instructions_link_text: "Llegir més"
         twitter_handle_placeholder: Usuari
         invalid_twitter_handle: "Twitter handle ha de tenir un màxim de 15 caràcters alfanumèrics (lletres de l'A-Z i números del 0-9). "
-        facebook_connect: Facebook
+        facebook_connect: "Accés al Facebook"
         facebook_developers_dashboard: "Facebook Developers Dashboard"
         facebook_connect_info_text: "Per habilitar Facebook Login, has de crear una aplicació pel teu marketplace al %{dashboard_link}. Afegeix aquí l'ID i la clau secreta que s'hagin generat."
         facebook_connect_info_text_with_instructions: "Per habilitar Facebook Login, has de crear una aplicació pel teu marketplace al %{dashboard_link}. Afegeix aquí l'ID i la clau secreta que s'hagin generat. %{instructions_link}"
@@ -397,16 +398,16 @@ ca:
         sitemap_label: "Mapa del lloc"
         sitemap_info: "Els mapes del lloc són una forma senzilla d’informar els motors de cerca sobre les pàgines del vostre lloc disponibles per a rastreig. %{link}."
         sitemap_info_link_text: "Aprendre més sobre el fitxer de mapa de lloc XML"
-        sitemap_info_public: "Es genera automàticament un mapa del lloc per al vostre mercat: fa referència fins als 500 llistats més recents del vostre lloc web. Podeu accedir al vostre mapa del lloc a %{link}."
+        sitemap_info_public: "Es genera automàticament un mapa del lloc per al vostre mercat: fa referència fins als 500 anuncis més recents del vostre lloc web. Podeu accedir al vostre mapa del lloc a %{link}."
         sitemap_info_private: "Com que el vostre mercat és privat, no hi ha cap mapa del lloc."
         robots_label: Robots.txt
         robots_info: "Robots.txt és un fitxer de text per instruir els robots web (normalment els robots dels motors de cerca) com explorar les pàgines del vostre lloc web. %{link}."
         robots_info_link_text: "Aprendre més sobre l'arxiu robots.txt"
         robots_info_2: "Es genera automàticament un fitxer robots.txt per al vostre mercat. Podeu accedir als vostres robots.txt a %{link}"
-        google_search_console: ~
-        google_search_console_paragraph1: ~
-        google_search_console_these_instructions: ~
-        google_search_console_paragraph2: ~
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "Google Search Console ofereix eines i informes per ajudar-vos a mesurar el trànsit i el rendiment de cerca del vostre lloc i solucionar problemes relacionats amb els resultats de la Cerca de Google."
+        google_search_console_these_instructions: "aquestes instruccions"
+        google_search_console_paragraph2: "És una bona idea afegir el vostre lloc web a Google Search Console. Només triguen uns minuts %{link}"
         save: "Guardar configuració"
       analytics:
         analytics: Analytics
@@ -429,12 +430,12 @@ ca:
         url: URL
         placeholder: "https://www.exemple.com"
       menu_links:
-        menu_links: ~
+        menu_links: "Enllaços de menú personalitzats"
         menu_links_display: "Visualització dels enllaços del menú"
         save: "Guardar configuració"
         add_menu_link: "Afegir un nou enllaç al menú"
         title_placeholder: "Títol de l'enllaç"
-        url_placeholder: ~
+        url_placeholder: "https://www.exemple.com/en"
         title: Títol
         language: Idioma
         url: URL
@@ -459,7 +460,7 @@ ca:
       transactions:
         export_all_as_csv: "Exportar-ho tot com CSV"
         processing_export: "Processant l'exportació a CSV..."
-        transactions: ~
+        transactions: Transaccions
         search_by_title_parties: "Busca per títol de transacció o nom d'usuaris"
         search: Buscar
         reset_search: "Mostrar totes"
@@ -471,13 +472,13 @@ ca:
           confirmed: Completada
           paid: Pagada
           canceled: Cancel·lada
-          disputed: ~
+          disputed: Disputada
           preauthorized: Preautoritzada
           rejected: Rebutjada
           payment_intent_requires_action: Pendent
           payment_intent_action_expired: Expirat
-          refunded: ~
-          dismissed: ~
+          refunded: Reembolsada
+          dismissed: Descartada
         headers:
           conversation: Conversa
           listing: Anunci
@@ -486,18 +487,18 @@ ca:
           started: Inici
           last_activity: "Última activitat"
           initiated_by: "Iniciada per"
-          other_party: ~
+          other_party: Venedor
         status:
           conversation: Conversa
-          free: ~
+          free: "Transacció gratuïta"
           pending: Pendent
           preauthorized: Pre-autoritzada
           accepted: Acceptada
           rejected: Rebutjada
           paid: Pagat
-          confirmed: ~
+          confirmed: Completat
           canceled: Cancel·lada
-          disputed: ~
+          disputed: Disputada
           initiated: "Esperant el pagament de PayPal"
           pending_ext: "Esperant el pagament de PayPal"
           none:
@@ -509,13 +510,13 @@ ca:
             accepted: Acceptada
             rejected: Rebutjada
             paid: Pagat
-            confirmed: Confirmat
+            confirmed: Completat
             canceled: Cancel·lada
-            disputed: ~
+            disputed: Disputada
             initiated: "Esperant el pagament PayPal"
             pending_ext: "Esperant el pagament PayPal"
-            refunded: ~
-            dismissed: ~
+            refunded: Reembolsada
+            dismissed: Descartada
           stripe:
             free: Conversa
             pending: Pendent
@@ -525,24 +526,24 @@ ca:
             paid: Pagada
             confirmed: Completada
             canceled: Cancel·lada
-            disputed: ~
+            disputed: Disputada
             initiated: "Esperan el pagament d'Stripe"
             pending_ext: "Esperant el pagament d'Stripe"
             payment_intent_requires_action: Pendent
             payment_intent_action_expired: Expirat
             payment_intent_failed: "El pagament de Stripe ha fallat"
-            refunded: ~
-            dismissed: ~
+            refunded: Reembolsada
+            dismissed: Descartada
         not_available: "No disponible"
       conversations:
-        conversations: "Visualitzar converses"
+        conversations: Converses
         headers:
           started_from: "Iniciat des de"
           status: Estat
           started: Iniciat
           last_activity: "Última activitat"
           initiated_by: "Iniciat per"
-          other_party: "Altre participant"
+          other_party: Venedor
         participants: "Conversa: %{starter} amb %{author}"
         profile: "Perfil del %{author}"
         search_by_keyword: "Buscar per nom, correu electrònic o paraula clau"
@@ -671,16 +672,16 @@ ca:
         contact_us: Contacta'ns
         you_can_now_use_a_custom_domain: "Amb el teu pla actual, pots habilitar un domini personalitzat. Vols fer-ho? %{contact_us}!"
         would_you_like_to_change_domain: "T'agradaria canviar el domini personalitzat del teu marketplace? %{contact_us}!"
-        change_your_sharetribe_domain: ~
-        only_letters_numbers_and_hyphens_can_be_used: ~
-        when_you_change_your_sharetribe_domain: ~
-        would_you_like_to_proceed: ~
-        change: ~
+        change_your_sharetribe_domain: "Canvia el teu domini de Sharetribe"
+        only_letters_numbers_and_hyphens_can_be_used: "Només es poden utilitzar lletres, números i guionets. Ves amb compte! El vostre domini antic estarà disponible per a tothom que el faci servir i no el redirigirà al nou."
+        when_you_change_your_sharetribe_domain: "Quan canvieu el domini de Sharetribe, tots els vostres URL canviaran automàticament. Se us redirigirà a la nova adreça del vostre mercat. Vostè i els usuaris hauran de tornar a iniciar la sessió. El vostre domini anterior del mercat no serà en cap cas enllaçat ni redirigit al nou. El domini antic quedarà disponible per a que l’utilitzin altres."
+        would_you_like_to_proceed: "Voleu continuar?"
+        change: Canviar
       landing_pages:
         landing_pages: "Pàgina de destinació"
         info_1: "És possible que la pàgina de destinació sigui la pàgina més important del vostre mercat. És la primera pàgina que veuen els visitants, com la porta principal de casa vostra. Només tens uns segons per convèncer els nous visitants que explorin el vostre lloc. La pàgina ha de ser atractiva i la vostra proposta de valor ha de ser clara i atractiva."
         info_2: "Podeu utilitzar aquest editor per modificar la pàgina de destinació quan vulgueu."
-        info_2_help_center: ~
+        info_2_help_center: "article del nostre Centre d'Ajuda"
         info_3: "Si voleu tenir una pàgina de destinació completament personalitzada per al vostre mercat, podeu comprar-la com a complement per 99 dòlars al mes."
         info_4: "Llegiu aquest %{link} per saber com funciona l'editor de pàgines de destinació, per aprendre sobre les diferents seccions i com editar-les."
         editor_title: "Editor de pàgines de destinació"
@@ -689,12 +690,12 @@ ca:
         set_live: "Posada en directe"
         add_new_section: "Afegeix una secció nova:"
         select_section_type: "Selecciona el tipus de secció ..."
-        this_version_is_not_released: ~
-        latest_version_released: ~
-        check_it_out: ~
+        this_version_is_not_released: "Per poder posar en viu una nova versió de la teva pàgina d'inici necessites fer-li canvis."
+        latest_version_released: "L'última versió de la teva pàgina d'inici ha estat posada en viu! %{link}!"
+        check_it_out: Chécala
         form:
           save: Desa
-          cancel: ~
+          cancel: Cancelar
         sections:
           identifier: "Secció ID"
           kind: "Tipus de secció"
@@ -704,72 +705,72 @@ ca:
           info_single_column: "Info - Una columna"
           info_multi_column_2: "Info - Dues columnes"
           info_multi_column_3: "Info - Tres columnes"
-          listings: Fitxes
+          listings: Anuncis
           categories: Categories
           hero: Hero
           locations: Ubicacions
           video: Vídeo
           new_section:
-            categories: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Nova secció Categories"
+            info_single_column: "Nova secció Informació - Una columna"
+            info_multi_column_2: "Nova secció Informació - Dues columnes"
+            info_multi_column_3: "Nova secció Informació - Tres columnes"
+            listings: "Nova secció Anuncis"
+            locations: "Nova secció Ubicacions"
+            video: "Nova secció Vídeo"
           edit_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Editar secció Categories"
+            footer: "Editar secció Peu de pàgina"
+            hero: "Editar secció Hero"
+            info_single_column: "Editar secció Informació - Una columna"
+            info_multi_column_2: "Editar secció Informació - Dues columnes"
+            info_multi_column_3: "Editar secció Informació - Tres columnes"
+            listings: "Editar secció Anuncis"
+            locations: "Editar secció  Ubicacions"
+            video: "Editar secció Vídeo"
       attachments:
-        delete: ~
-        or_change: ~
+        delete: "Esborrar el %{title} actual"
+        or_change: "O canvia el %{title} per un de nou:"
     landing_page_versions:
       sections:
         content:
-          title: ~
+          title: "Contingut de la secció"
         hero:
-          hero_title: ~
-          hero_description: ~
-          basic_details_tab: ~
-          cta_button: ~
-          cta_button_info: ~
+          hero_title: Hero
+          hero_description: "Determina la imatge de fons per a la secció Hero. L'eslògan i la descripció vénen directament de la secció de %{link}."
+          basic_details_tab: "la secció de 'Detalls bàsics'"
+          cta_button: "Secció cridada a l'acció"
+          cta_button_info: "No cal que editis el text del botó. Només pots deixar aquest camp buit. De manera predeterminada, el text és \"Cerca\" per a mercats públics i \"Registre\" per a mercats privats."
           button_type:
-            default: ~
-            button: ~
-            none: ~
-          button_content: ~
-          click_me: ~
+            default: "Per defecte"
+            button: Botó
+            none: Cap
+          button_content: "Contingut del botó"
+          click_me: Clica'm
         footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
+          footer_title: "Peu de pàgina"
+          footer_style: "Estil del peu de pàgina"
+          style_dark: Obscur
+          style_light: Clar
+          style_marketplace_color: "Color del mercat"
+          style_logo: Logotip
         cta_button:
-          cta_button: ~
-          cta_enabled: ~
+          cta_button: Botó
+          cta_enabled: "Mostrar un botó"
           cta_text: Etiqueta
           cta_url: URL
-          text_placeholder: ~
-          url_placeholder: ~
+          text_placeholder: "Fes clic!"
+          url_placeholder: "https://www.exemple.com"
         background_selector:
-          title: ~
+          title: Fons
         background_image_overlay:
           background_image: "Imatge de fons"
-          background_image_info: ~
-          add_another_image: ~
-          current_image: ~
+          background_image_info: "Aquesta imatge és el fons d'aquesta secció. Es veurà millor i donarà millors resultats amb una mida mínima de 1600x1200 píxels."
+          add_another_image: "Afegir una altra imatge"
+          current_image: "Imatge actual: %{filename}"
           file_not_selected: "Sense seleccionar"
-          background_image_overlay: ~
-          background_image_overlay_info: ~
+          background_image_overlay: "Superposició de la imatge de fons"
+          background_image_overlay_info: "Això et permet determinar com d'obscura o clara es veurà la teva imatge. \"Transparent\" vol dir que no té ombra."
           overlay_dark: Obscur
           overlay_light: Clar
           overlay_transparent: Transparent
@@ -780,16 +781,16 @@ ca:
           style_none: Cap
         background_color:
           background_color: "Color de fons"
-          background_color_info: ~
+          background_color_info: "Pots canviar el color de fons d'aquesta secció per mitjà d'un valor de color hexadecimal. Tria el color a %{link}. Copia el codi hex del color i enganxa'l aquí."
         categories:
-          add: ~
+          add: "+ Afegir una nova categoria"
           category: Categoria
           empty: "No has inclòs cap categoria"
           image: Imatge
           include_title: "Categories a mostrar"
-          info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
+          info_text: "Pots presentar de tres a set categories en aquesta secció. Si us plau afegeix una imatge a cada categoria i selecciona la categoria adequada. La mida recomanada és de 1000 x 667 píxels."
+          need_at_least_3_categories: "Has de tenir almenys tres categories en la secció"
+          need_at_most_7_categories: "No pots tenir més de set categories en aquesta secció"
         category:
           add_another_image: "Afegeix una altra imatge"
           category: Categoria
@@ -803,10 +804,10 @@ ca:
           location: Localització
           empty: "No tens cap localització inclosa"
           image: Imatge
-          include_title: ~
-          info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
+          include_title: "Ubicacions de la secció"
+          info_text: "Pots presentar de tres a set ubicacions en aquesta secció. Si us plau afegeix una imatge a cada ubicació, un títol i un enllaç. La mida recomanada és de 1000 x 667 píxels."
+          need_at_least_3_locations: "Has de tenir almenys tres ubicacions a la secció"
+          need_at_most_7_locations: "No pots tenir més de 7 ubicacions en aquesta secció"
         location:
           add_another_image: "Afegeix un altra imatge"
           location: Localització
@@ -821,53 +822,53 @@ ca:
         multi_column:
           main_title: "Títol principal"
           column_header: "Columna %{index}"
-          column_title: ~
-          web_viewer: ~
-          column_icon_info: ~
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
+          column_title: "Títol de la columna %{index}"
+          web_viewer: "visualitzador en línia"
+          column_icon_info: "Pots triar la icona d'aquesta columna en aquest %{link}. Una vegada que seleccionis la icona còpia tot el \"Directory path\" (per exemple '01 -Interface Essential / 01-Home / house-2.svg ') i enganxa'l aquí."
+          column_icon: "Icona de la columna %{index}"
+          column_paragraph: "Paràgraf de la columna %{index}"
+          column_button: "Botó de la columna %{index}"
+          column_button_text: "Text de botó"
           column_button_url: "https://www.exemple.com"
         listings:
-          listings_to_feature: ~
-          you_need_to_add_the_listing_ids: ~
+          listings_to_feature: "Anuncis per mostrar"
+          you_need_to_add_the_listing_ids: "Necessites afegir l'ID de l'anunci que vols incloure en aquesta secció. Per trobar l'ID, ves a la pàgina de l'anunci i mira la URL. L'ID de l'anunci és el número que ve després de la URL principal. En l'exemple https://www.exemple.com/listings/123456-listing-title, l'ID seria: 123456."
         video:
           text: Text
           autoplay: "Opcions de reproducció automàtica"
           autoplay_no: "No hi ha reproducció automàtica"
           autoplay_muted: "Reproducció automàtica silenciada"
-          info: ~
-          youtube_video_id_info: ~
+          info: "Aquest text es mostrarà si tries l'opció de \\ \"Sense reproducció automàtica \\\" o quan el vídeo sigui pausat."
+          youtube_video_id_info: "Pots obtenir l'ID de el vídeo des de l'URL del vídeo. Normalment és l'última part de l'URL. Per exemple en el vídeo amb URL: https://www.youtube.com/watch?v=UffchBUUIoI, l'ID seria 'UffchBUUIoI'"
     custom_fields:
       edit:
         edit_listing_field: "Editar camp '%{field_name}'"
       edit_price:
         description: "El preu mínim i màxim només afecta al filtre. No estableix un límit per als preus dels anuncis."
-        edit_price_field: ~
+        edit_price_field: "Edita el camp de l'anunci 'Preu'"
         show_price_filter_homepage: "Mostrar filtre per preu a la pàgina principal"
-        price_min: ~
-        price_max: ~
+        price_min: "Filtre per preu mínim"
+        price_max: "Filtre per preu màxim"
       edit_location:
-        edit_location_field: ~
+        edit_location_field: "Edita el camp de la fitxa 'Ubicació'"
         this_field_is_required: "Camp obligatori"
-        the_location_feature_can_be_enabled: ~
+        the_location_feature_can_be_enabled: "La funció d'ubicació pot ser habilitada des de la secció de %{link} a la configuració del teu marketplace."
       edit_expiration:
         edit_expiration_field: "Editar el camp \"Data d'expiració\""
         enable: "Habilitar la data d'expiració"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
+          this_field_is_required: "És obligatori omplir aquest camp quan creeu un anunci nou"
+          this_field_is_required_checkbox: "Fa obligatori omplir aquest camp quan creeu un anunci nou (l’usuari ha de seleccionar almenys una opció)"
         search_filter:
           search_filter: "Crear un filtre basat en aquest camp a la pàgina d'inici"
           date_cant_be_filtered: "No hi ha filtres disponibles per al campo de data."
           text_cant_be_filtered: "No hi ha filtres disponibles per al camp de text. La barra de búsqueda principal busca en els camps de text."
       index:
-        listing_fields: ~
-        listing_fields_help: ~
+        listing_fields: "Llistar camps i filtres"
+        listing_fields_help: "Aquí podeu editar els camps que han d’omplir els usuaris quan creen un anunci nou. Si us plau, tingueu en compte que alguns camps estan predefinits i no es poden modificar."
         add_new_field: "Afegir un camp nou:"
-        remove_field_confirmation: ~
+        remove_field_confirmation: "Esteu segur que voleu eliminar el camp '%{field_name}' i totes les seves dades? Això no es pot desfer."
         cancel: Cancel·lar
         save: Guardar
         field_title: "Títol del camp"
@@ -879,7 +880,7 @@ ca:
         add_option: "+ Afegir opció"
         saving_order: "Guardant ordre dels camps en el formulari"
         save_order_successful: "Camps ordenats correctament"
-        save_order_error: ~
+        save_order_error: "S'ha produït un error en desar el camp de la comanda. Actualitza la pàgina i torna-ho a provar."
         select_one: "Selecciona el tipus de camp..."
         continue: Continuar
         minimum_value: Mínim
@@ -921,14 +922,14 @@ ca:
         edit_user_field: "Editar el camp '%{field_name}'"
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
+        send_email_to_members: "Escriu un correu electrònic als usuaris"
+        send_email_to_members_title: "Envia un correu electrònic als teus usuaris"
         send_email: Enviar
         send_email_or: o
         send_test_email: "Enviar un correu de prova al teu compte"
         test_sent: "El correu de prova ha estat enviat"
         send_email_article_title: "aquest article"
-        send_email_article_text: "Pots aprendre més dels segments d'usuarisa %{article_link}"
+        send_email_article_text: "Pots aprendre més dels segments d'usuaris a %{article_link}"
         recipients:
           title: "A qui li vols enviar el correu?"
           options:
@@ -943,7 +944,7 @@ ca:
         email_content_placeholder: "Què vols dir als teus usuaris?"
         email_language: "Idioma dels usuaris que rebran el correu"
         any_language: "Qualsevol idioma"
-        message_will_be_sent_only_to_people_with_this_language: ~
+        message_will_be_sent_only_to_people_with_this_language: "El correu electrònic només s’enviarà als usuaris que utilitzin %{service_name} en l’idioma que trieu."
         email_sent: "Missatge enviat."
         to_improve_email_deliverability: "Per millorar l'enviament i recepció de correus, l'assumpte del correu és generat automàticament i no pot ser canviat."
         email_subject_text: "Un missatge nou de part de l'equip de %{service_name}"
@@ -1005,15 +1006,24 @@ ca:
         update_success: "S'han guardat els canvis al tipus d'ordre '%{shape}'"
         update_failure: "No s'han pogut guardar els canvis. Error:%{error_msg}"
         delete: "Borrar tipus d'ordre"
-        can_not_delete_last: "No pots eliminar aquest tipus d'ordre perquè és l'únic tipus d'ordre que existeix a la teva comunitat."
-        can_not_delete_only_one_in_categories: "No pots eliminar aquest tipus d'ordre perquè en les següents categories només s'empra aquest tipus d'ordre: %{categories}"
         confirm_delete_order_type:
           one: "Hi ha un registre de %{count} amb aquest tipus de comanda. Si suprimiu el tipus de comanda, aquest llistat es tancarà. Esteu segur que voleu suprimir el tipus de comanda?"
           other: "Hi ha %{count} llistats amb aquest tipus de comanda. Si suprimiu el tipus de comanda, aquests llistats es tancaran. Esteu segur que voleu suprimir el tipus de comanda?"
+        can_not_delete_last: "No pots eliminar aquest tipus d'ordre perquè és l'únic tipus d'ordre que existeix a la teva comunitat."
+        can_not_delete_only_one_in_categories: "No pots eliminar aquest tipus d'ordre perquè en les següents categories només s'empra aquest tipus d'ordre: %{categories}"
       listing_shape_name: Nom
       listing_shape_name_placeholder: "ex: Vendre"
       action_button_label: "Etiqueta el botó de checkout"
       action_button_placeholder: "ex: Comprar"
+      open_listings_warning:
+        one: "Hi ha %{count} anunci obert amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquest anunci no s'actualitzarà i mantindrà els ajustaments anteriors. Pots actualitzar els paràmetres de l'anunci editant-lo manualment. En cas que no vulguis que aquest anunci amb la configuració desactualitzats sigui visible en la teva comunitat, pots tancar-lo (desactivar-lo) fent clic al botó de sota."
+        other: "Hi ha %{count}  anuncis oberts amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquests anuncis no s'actualitzaran i mantindran els ajustaments anteriors. Pots actualitzar la configuració dels anuncis editant -los manualment. En cas que no vulguis que aquests anuncis amb la configuració desactualitzats siguin visibles a la teva comunitat, pots tancar-los (desactivar-los) fent clic al botó de sota."
+      close_listings_action:
+        one: "Tanca l'anunci de %{count}"
+        other: "Tanca els anuncis de %{count}"
+      confirm_close_listings_action:
+        one: "Esteu segur que voleu tancar l'anunci %{count}?"
+        other: "Esteu segur que voleu tancar els anuncis de %{count}?"
       successfully_closed: "Anuncis tancats correctament"
       successfully_deleted: "Tipus d'ordre '%{order_type}' eliminat correctament"
       pricing_and_checkout_title: "Preu & pagament"
@@ -1044,15 +1054,6 @@ ca:
           heading: "Tipus d'unitat"
           quantity_label: "Quantitat (per peça, per kg, per persona, per 2 hores de tour...)"
           time_label: "Temps (per 30 minuts, per 2 setmanes, per any...)"
-      open_listings_warning:
-        one: "Hi ha %{count} anunci obert amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquest anunci no s'actualitzarà i mantindrà els ajustaments anteriors. Pots actualitzar els paràmetres de l'anunci editant-lo manualment. En cas que no vulguis que aquest anunci amb la configuració desactualitzats sigui visible en la teva comunitat, pots tancar-lo (desactivar-lo) fent clic al botó de sota."
-        other: "Hi ha %{count}  anuncis oberts amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquests anuncis no s'actualitzaran i mantindran els ajustaments anteriors. Pots actualitzar la configuració dels anuncis editant -los manualment. En cas que no vulguis que aquests anuncis amb la configuració desactualitzats siguin visibles a la teva comunitat, pots tancar-los (desactivar-los) fent clic al botó de sota."
-      close_listings_action:
-        one: "Tanca la llista de %{count}"
-        other: "Tanca els llistats de %{count}"
-      confirm_close_listings_action:
-        one: "Esteu segur que voleu tancar el llistat %{count}?"
-        other: "Esteu segur que voleu tancar els llistats de %{count}?"
     paypal_accounts:
       marketplace_paypal_integration: "Preferències del sistema de pagaments"
       preferences_updated: "Preferències del sistema de pagaments actualitzades"
@@ -1158,41 +1159,41 @@ ca:
       service_w_online_payment: "Oferta amb pagaments en línia"
       service_wo_online_payment: "Oferta sense pagaments en línia"
       request: Sol·licitant
-      inquiry: ~
+      inquiry: Anunci
       share_for_free: "Compartit gratuïtament"
-      event_w_online_payment: ~
-      event_wo_online_payment: ~
+      event_w_online_payment: "Esdeveniment amb pagaments en línia"
+      event_wo_online_payment: "Esdeveniment sense pagaments en línia"
       default_action_button_labels:
         sell: Comprar
         rent: Llogar
         request: Oferir
         offer: Sol·licitar
         inquiry: Contactar
-        book: ~
+        book: Reservar
     community_transactions:
       show:
         transaction_for: "Traducció #%{transaction_id} per %{link}"
         status: "Estat:"
         next_step: "Següent pas:"
-        waiting_for_provider_accept_or_reject: ~
-        waiting_for_fulfill_and_complete: ~
+        waiting_for_provider_accept_or_reject: "Esperant que %{provider} accepti or rebutgi la sol·licitud."
+        waiting_for_fulfill_and_complete: "Esperant que %{buyer} marqui l'ordre com a completada un cop que %{provider} completi l'ordre de %{listing_title}."
         buyer: Comprador
         provider: Venedor
-        delivery: ~
-        shipping_to: ~
+        delivery: "Mètode d'enviament:"
+        shipping_to: "Enviament a %{address}"
         buyer_pays: "El comprador paga:"
-        marketplace_collects: ~
-        buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
-        admin_info_text: ~
-        manage_reviews: ~
-        you_should_investigate: ~
-        learn_more: ~
+        marketplace_collects: "%{service_name} reb:"
+        buyer_service_fee_label: "Comissió del comprador:"
+        service_fee_label: "Comissió del venedor:"
+        provider_receives: "El venedor reb:"
+        admin_info_text: "Com l'administrador de %{service_name} pots dur a terme algunes accions per fer avançar aquesta transacció:"
+        manage_reviews: "Administrar ressenyes"
+        you_should_investigate: "Has d'investigar la situació i comunicar-te amb les dues parts. Després d'això pots decidir si reemborsar els diners o descartar la disputa. %{learn_more_link}"
+        learn_more: "Aprendre més."
   common:
     edit_page: "Editar la pàgina"
     default_community_slogan: "Comunitat de mercat col·laboratiu"
-    default_community_description: ~
+    default_community_description: "Aquest és un lloc per vendre, llogar, intercanviar i compartir béns i serveis amb els altres membres del mercat."
     cancel: Cancel·la
     fields_that_are_mandatory: "Els camps marcats amb (*) són obligatoris"
     or: o
@@ -1234,7 +1235,7 @@ ca:
       travel: Viatge
       other: Altre
     username: Usuari
-    username_or_email: ~
+    username_or_email: "Correu electrònic"
     what_is_this: "Què és això?"
     removed_user: "Usuari eliminat"
     payment_fee_info:
@@ -1283,12 +1284,12 @@ ca:
       shipping_price_label: "Despeses d'enviament:"
       stripe-fee_label: "Quota de processament de pagament"
     confirm:
-      confirm_description: ~
-      cancel_description_team: ~
+      confirm_description: "Si la comanda s’ha complert, haureu de confirmar-la tal com s’ha fet. Aleshores, podeu escriure comentaris a l’altra part."
+      cancel_description_team: "Si la teva sol·licitud no es va complir, pots marcar-la com a 'disputada'. L'equip de %{service_name} revisarà la situació i decidirà si reemborsar els diners o descarta la disputa."
       cancel_payed_description: "Si la teva sol·licitud va ser acceptada però tu has canviat d'opinió, encara podràs cancel·lar-la abans que es completi el pagament."
       canceling_payed_transaction: "Cancel·lar transaacció"
       confirm: Completada
-      cancel: ~
+      cancel: Disputa
       continue: Continuar
       give_feedback_to: "Donar una valoració a %{person_link}"
       do_not_give_feedback: "Omitir valoració"
@@ -1307,24 +1308,24 @@ ca:
       accepted_offer: "Oferta acceptada"
       rejected_request: "Sol·licitud rebutjada."
       rejected_offer: "Oferta rebutjada"
-      confirmed_request: ~
+      confirmed_request: "Ordre completada"
       confirmed_offer: "Oferta completada"
-      canceled_request: ~
+      canceled_request: "Ordre disputada."
       canceled_offer: "Oferta cancel·lada"
       message_from: "Missatge de %{person}"
       about_listing: "sobre l'anunci %{listing_title}"
-      free_message: ~
+      free_message: "Missatge directe"
       message_content_not_available: "Contingut del missatge no disponible"
     message:
-      accepted_request: ~
+      accepted_request: "va acceptar la sol·licitud"
       received_payment: "sol·licitud acceptada, pagament per la quantitat de %{sum} rebut"
       received_payment_wo_sum: "va acceptar la sol·licitud, va rebre el pagament"
       accepted_offer: "va acceptar l'oferta"
-      rejected_request: ~
+      rejected_request: "va rebutjar la sol·licitud, va cancel·lar el pagament"
       rejected_offer: "va rebutjar l'oferta"
-      confirmed_request: ~
+      confirmed_request: "va marcar la comanda com a finalitzada"
       confirmed_offer: "va marcar l'oferta com a completada"
-      canceled_request: ~
+      canceled_request: "va cancel·lar la comanda"
       canceled_offer: "va cancel·lar l'oferta"
       paid: "va pagar %{sum}"
       payment_preauthorized: "Pagament autoritzat: %{sum}"
@@ -1333,10 +1334,10 @@ ca:
         held_payment: "Ha acceptat la transacció. El pagament per %{sum} està essent guardat per %{service_name} fins que l'ordre sigui marcada com a completada."
         held_payment_wo_sum: "Va acceptar la sol·licitud. El pagament es manté en %{service_name} fins que la comanda es marca com a finalitzada."
         confirmed_request: "Ha marcat l'ordre com a completada. Els diners han estat transferits al compte del banc de %{author_name} o seran transferits aviat."
-      canceled_the_order: ~
-      marked_as_refunded: ~
-      dismissed_the_cancellation: ~
-      payment_has_now_been_transferred: ~
+      canceled_the_order: "Va disputar l'ordre. L'equip de %{service_name} ha estat notificat."
+      marked_as_refunded: "Marcada com a reembolsada"
+      dismissed_the_cancellation: "Va descartar la disputa."
+      payment_has_now_been_transferred: "Els diners han estat transferit al compte del banc de %{seller} o seran transferits aviat."
     new:
       message: Missatge
       message_to: "Missatge a %{author_name}"
@@ -1396,10 +1397,10 @@ ca:
       request_preauthorized: "Pagament autoritzat"
       skip_feedback: "Omet la suggeència"
       waiting_for_listing_author_to_accept_offer: "Esperant a que %{listing_author_name} accepti l'oferta"
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_request: "Espereu que %{listing_author_name} accepti la sol·licitud. Tan bon punt %{listing_author_name} accepti, se us farà càrrec."
       waiting_for_you_to_accept_request: "Esperant a que acceptis la sol·licitud"
-      waiting_confirmation_from_requester: ~
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_requester: "Esperant que %{requester_name} marqui la comanda finalitzada"
+      waiting_confirmation_from_you: "S'espera que marqui la comanda finalitzada"
       waiting_payment_from_requester: "Esperant que %{requester_name} realitzi el pagament"
       waiting_payment_from_you: "Esperant a que realitzis el pagament"
       waiting_feedback_from_you: "Esperant a que escriguis la teva valoració"
@@ -1411,18 +1412,18 @@ ca:
           verify: "Estem esperant que verifiquis el teu compte de PayPal"
       stripe:
         waiting_confirmation_from_requester: "Esperant que %{requester_name} marqui l'ordre com a completada. Una vegada que l'ordre sigui marcada com a completada, els diners es mouran al teu compte del banc."
-      order_canceled: ~
-      waiting_for_marketplace_review: ~
-      marketplace_notified: ~
-      contact_them: ~
-      refunded: ~
-      dismissed: ~
-      order_refunded: ~
-      you_should_receive_refund_soon: ~
-      issue_with_the_refund: ~
-      do_you_disagree: ~
-      contact_the_marketpalce_team: ~
-      order_cancellation_dismissed: ~
+      order_canceled: "Ordre disputada"
+      waiting_for_marketplace_review: "Esperant a que l'equip de %{service_name} revisi la situació"
+      marketplace_notified: "L'equip de %{service_name} ha estat notificat. També pots %{contact_link} si vols compartir més detalls amb ells."
+      contact_them: contactar-los
+      refunded: "L'ordre ha estat marcada com a reembolsada"
+      dismissed: "Disputa de l'ordre descartada"
+      order_refunded: "L'ordre ha estat marcada com a reembolsada. L'equip de %{service_name} ha aprovat la disputa."
+      you_should_receive_refund_soon: "Hauries de rebre un reemborsament aviat."
+      issue_with_the_refund: "Hi ha algun problema amb el reemborsament? %{contact_link}"
+      do_you_disagree: "Hi ha algun problema o no estàs d'acord? %{contact_link}"
+      contact_the_marketpalce_team: "Contactar a l'equip de %{service_name}"
+      order_cancellation_dismissed: "Disputa de l'ordre descartada - L'equip de %{service_name} ha rebutjat la disputa."
     status_link:
       accept_offer: "Acceptar l'oferta"
       accept_request: "Acceptar sol·licitud"
@@ -1433,9 +1434,9 @@ ca:
       reject_preauthorized_offer: "Aquesta vegada no"
       reject_preauthorized_request: "Aquesta vegada no"
       confirm: "Marcar com a completada"
-      cancel: ~
-      mark_as_refunded: ~
-      dismiss: ~
+      cancel: Disputa
+      mark_as_refunded: "Marcar com a reembolsada"
+      dismiss: "Descartar i fer el pagament"
   feedback:
     feedback_subject: "Entrada nova del formulari de contacte a %{service_name}"
     feedback_body: "%{author_name_and_email}  ha enviat la següent entrada al formulari de contacte %{service_name} . Aquesta notificació s'envia a tots els administradors de %{service_name}."
@@ -1444,19 +1445,19 @@ ca:
   community_memberships:
     access_denied:
       access_denied: "Accés denegat"
-      you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      you_are_banned_in_this_community: "L’equip %{service_name} ha desactivat el vostre compte. Si voleu enviar un missatge a l’equip %{service_name}, podeu %{link_to_contact_page}."
+      contact_page_link: "contacta amb ells"
     new:
       welcome_fb_user: "Benvingut a %{service_name}, %{name}!"
-      fb_join_accept_terms: ~
-      join_community: ~
-      you_can_join: ~
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
-      log_out: ~
-      join_community_button: ~
+      fb_join_accept_terms: "Hi ha un pas més per unir-te a %{service_name}: has d’acceptar els termes d’ús."
+      join_community: "Uniu-vos a %{service_name}"
+      you_can_join: "Et pots unir a %{service_name} acceptant els termes d'ús i clicant 'Unir-se a %{service_name}' a baix."
+      you_can_join_email_confirmation: "Per unir-se a %{service_name} necessites tenir un correu electrònic valid que acabi amb %{email_ending}. T'hi pots unir omplint-ho en el teu correu electrònic, acceptant els termes d'ús i clicant 'Unir-se a %{service_name}' a baix, i confirmant el teu correu electrònic."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} té restriccions de correu electrònic. Només podeu unir-vos si teniu una adreça de correu electrònic permesa. Podeu unir-vos emplenant la vostra adreça de correu electrònic, acceptant els termes d’ús de %{service_name} i clicant a 'Unir-se a %{service_name}' a baix."
+      you_can_join_with_invite_only: "Heu de tenir una invitació d’un altre membre per unir-vos a %{service_name}. Si teniu un codi d'invitació, podeu unir-vos escrivint el codi al camp següent, acceptant els termes d'ús i fent clic a 'Uneix-te %{service_name}'  a continuació."
+      if_want_to_view_content: "Si voleu veure el contingut a %{service_name} sense unir-vos com a membre, haureu de fer-ho"
+      log_out: "tancar sessió"
+      join_community_button: "Unir-se a %{service_name}"
     give_consent:
       invitation_code_invalid_or_used: "Aquest codi no és vàlid o ja ha estat emprat."
       email_not_allowed: "Aquest correu electrònic no està permès a %{service_name}."
@@ -1476,51 +1477,51 @@ ca:
       create_own: "Vols crear la teva pròpia comunitat en línia amb %{service_name}? %{learn_more}."
       learn_more: "Assabenta't com"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request: "Encara no heu completat ni disputat la comanda %{request_link}. Si la comanda s'ha completat, hauríeu de confirmar-ho. Després podeu enviar comentaris a %{other_party_given_name}."
       remember_to_confirm_request: "Recorda confirmar o cancel·lar una sol·licitud"
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
-      automatic_confirmation: ~
+      if_will_not_happen_you_should_cancel: "Si creieu que aquesta comanda no es completarà per un motiu o altre, podeu %{cancel_it_link}."
+      cancel_it_link_text: disputar-ho
+      automatic_confirmation: "Si no confirmeu o disputeu la comanda en %{days_to_automatic_confirmation} dies després de l'acceptació de la sol·licitud, la marcarem automàticament com a finalitzada."
     confirm_reminder_v2:
-      headline: ~
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      headline: "encara no has completat o disputat l'ordre de %{request_link}."
+      you_have_not_yet_confirmed_or_canceled_request: "Si l'ordre ha estat completada, has confirmar-ho en el marketplace. Després d'això pots donar una valoració a %{other_party_given_name}"
     payment_settings_reminder:
       remember_to_add_payment_details: "Recorda afegir totes les teves dades per a rebre pagaments."
       you_have_added_listing_with_payment: "Has afegit un nou anunci %{listing_link} amb opció de pagament, però encara no has afegit els teus detalls de pagament. Recorda que has de configurar les teves dades de pagament per poder rebre pagaments en línia."
-      please_go_to_payment_settings: ~
+      please_go_to_payment_settings: "Vés al teu %{payment_settings_link} i emplena la informació de pagament necessària."
       payment_settings_link: "configuració de pagaments"
     payment_settings_reminder_v2:
       fill_payout_details: "Ompliu les dades de pagament"
-      you_have_added_listing_with_payment: ~
+      you_have_added_listing_with_payment: "Has afegit un anunci %{listing_link} amb pagaments en línia. No obstant això, hem notat que ho has afegit els detalls del pagament. Per poder rebre pagaments en línia has d'afegir la teva informació de pagament."
     transaction_confirmed:
       here_is_a_message_from: "Tens un missatge de %{other_party_given_name}:"
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      request_marked_as_confirmed: "Comanda finalitzada: recordeu donar una valoració"
+      request_marked_as_canceled: "Ordre disputada"
+      has_marked_request_as_confirmed: "%{other_party_full_name} ha marcat la comanda sobre '%{request}' finalitzada. Ara podeu donar una valoració a %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} ha disputat la comanda sobre '%{request}'. Encara podeu donar una valoració a %{other_party_given_name}."
       giving_feedback_is_good_idea: "Donar una valoració és sempre una bona idea. Si tot va sortir bé, hauries de contar al altres que %{other_party_given_name} és de confiança. Si hi va haver cap problema, també és bo que ho mencionis."
       give_feedback_to: "Donar valoració a %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} ha marcat l'ordre de '%{request}' com a completada. Els diners per aquesta transacció s'ha transferit al teu compte del banc. Ara pots deixar una valoració a %{other_party_given_name}. "
-      team_title: ~
+      team_title: "L'equip de %{service_name}"
     transaction_confirmed_v2:
-      headline_confirmed: ~
-      headline_canceled: ~
+      headline_confirmed: "%{other_party_full_name} ha marcat l'ordre de %{listing_link}  com a completada."
+      headline_canceled: "%{other_party_full_name} ha disputat l'ordre de %{listing_link}"
       stripe:
-        has_marked_request_as_confirmed: ~
-      can_give_feedback: ~
-      team_title: ~
+        has_marked_request_as_confirmed: "El pagament per aquesta transacció ha estat alliberat i enviat al teu compte del banc."
+      can_give_feedback: "Ara pots donar-li una valoració a %{other_party_given_name}"
+      team_title: "l'equip de %{service_name}"
     transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Comanda completada automàticament - Recorda donar una valoració"
+      we_have_marked_request_as_confirmed: "Hem marcat la teva transacció sobre '%{request}' com a completada de forma automàtica ja que han passat  %{days_passed} dies des que la sol·licitud va ser acceptada."
     transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: ~
-      order_automatically_confirmed: ~
+      we_have_marked_request_as_confirmed: "Hem marcat l'ordre de '%{request}' com a completada."
+      order_automatically_confirmed: "L'ordre s'ha marcat com a completada automàticament perquè han passat %{days_passed} dies des que la sol·licitud va ser acceptada."
     booking_transaction_automatically_confirmed:
       subject: "Transacció completada automàticament - Recorda donar una valoració"
       we_have_marked_request_as_confirmed: "Hem marcat la teva transacció sobre '%{request}' com a completada de forma automàtica ja que ha passat 1 dia des que s'acabà el període de la reserva."
     booking_transaction_automatically_confirmed_v2:
-      order_automatically_confirmed: ~
+      order_automatically_confirmed: "L'ordre s'ha marcat com a completada automàticament perquè ha passat un dia des que la sol·licitud va ser acceptada."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Ara pot escriure una valoració sobre %{other_party_given_name}. Deixar una valoració és sempre una bona idea. Si tot va anar bé, hauries de contar als altres que %{other_party_given_name} és de confiança. Si hi va haver cap problema, també és bo que ho mencionis."
       give_feedback_to: "Escriure una valoració sobre %{other_party_given_name}"
@@ -1529,14 +1530,14 @@ ca:
       confirmation_instructions_signature: "Salutacions cordials,<br/>L'equip de %{service_name}"
       need_to_confirm: "Abans d'utilitzar %{service_name} has de confirmar el teu correu electrònic al següent enllaç:"
       confirmation_link_text: "Confirmar el meu compte"
-      or_paste_link: ~
+      or_paste_link: "També podeu copiar el següent enllaç a la barra d’adreces del vostre navegador:"
     confirmation_instructions_v2:
-      headline: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      headline: "confirma el teu correu per unir-te a %{service_name}.e"
+      need_to_confirm: "Confirma el teu correu per completar el teu compte a %{service_name}. És molt fàcil - només fes clic al botó de sota."
+      confirmation_link_text: "Confirmar %{email}"
     common:
       hey: "Hola %{name},"
-      hi: ~
+      hi: "Hola %{name}."
       kassi_team: "L'equip de %{service_name}"
       thanks: "Gràcies,"
       dont_want_to_receive_these_emails: "Vols rebre aquests correus electrònics?"
@@ -1548,7 +1549,7 @@ ca:
       unsubscribe_from_these_emails: "dona't de baixa d'aquests correus"
       unsubscribe_from_invitation_emails_info: "Has rebut aquest correu perquè un usuari de %{service_name} t'ha convidat a unir-te a aquesta comunitat."
       unsubscribe_from_invitation_emails: "Cancel·lar la subscripció de correus d'invitació a unir-se a %{service_name}"
-      here_is_your_receipt: ~
+      here_is_your_receipt: "Aquí tens el teu rebut."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha acceptat la teva oferta %{listing}."
       has_accepted_your_request: "%{accepter} ha acceptat la teva sol·licitud %{listing}."
@@ -1561,24 +1562,24 @@ ca:
       your_request_was_rejected: "La teva sol·licitud ha estat rebutjada"
       you_can_now_pay_to: "Ja pots pagar a %{payment_receiver} la suma sol·licitada."
       pay_now: "Pagar ara"
-      remember_to_confirm: ~
+      remember_to_confirm: "Quan es compleixi la comanda, recordeu marcar-la com a finalitzada. Si no es compleix la comanda, teniu %{days_to_automatic_confirmation} dies per disputar-la. En cas contrari, es marcarà automàticament com a finalitzat."
     conversation_status_changed_v2:
-      has_accepted_your_request: ~
-      has_accepted_your_request_text: ~
-      has_rejected_your_request: ~
-      has_rejected_your_request_text: ~
+      has_accepted_your_request: "la teva sol·licitud va ser acceptada."
+      has_accepted_your_request_text: "%{accepter} ha acceptat la teva sol·licitud de %{listing}"
+      has_rejected_your_request: "desafortunadament la teva sol·licitud va ser rebutjada."
+      has_rejected_your_request_text: "%{accepter}  ha rebutjat to sol·licitud de %{listing}"
     invitation_to_kassi:
       hi: Hola!
-      you_have_been_invited_to_kassi: "%{inviter} t'ha convidat a utilitzar el servei web Kassi de la comunitat %{community}"
+      you_have_been_invited_to_kassi: "%{inviter} t'ha convidat a %{service_name}"
       here_is_a_message_from: "Tens un missatge personal de %{inviter}:"
       join_now: "Unir-se ara"
       invitation_code: "Codi d'invitació: %{code}"
     invitation_to_kassi_v2:
-      headline: ~
+      headline: Hola!
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} ha comentat el teu anunci '%{listing}'. "
       view_comment: "Veure comentari"
-      you_have_a_new_comment: "%{author} ha comentat la teva llista en %{service_name}"
+      you_have_a_new_comment: "%{author} ha comentat el teu anunci en %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} ha comentat un anunci que segueixes a %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} ha comentat a l'anunci '%{listing}' que estàs seguint a %{service_name}."
     new_message:
@@ -1586,8 +1587,8 @@ ca:
       has_sent_you_a_message_in_kassi: "%{sender} t'ha enviat un missatge en %{service_name}."
       you_have_a_new_message: "Tens un nou missatge en %{service_name} de %{sender_name}"
     new_message_v2:
-      headline: ~
-      reply: ~
+      headline: "tens un missatge"
+      reply: "Respondre a %{sender}"
     new_payment:
       new_payment: "Has rebut un nou pagament"
       price_per_unit_type: "Preu per %{unit_type}"
@@ -1610,9 +1611,9 @@ ca:
       stripe:
         you_have_received_new_payment: "La quantitat de <b>%{payment_sum} </b>ha estat pagada per a <b>%{listing_title}</b> per %{payer_full_name}. Els diners estan sent retinguts per %{service_name} fins que l'ordre sigui marcada com a completada. Aquí hi ha el teu rebut."
     payment_receipt_to_seller_v2:
-      headline: ~
-      main_text_stripe: ~
-      price_breakdown: ~
+      headline: "has rebut un pagament de %{payer_name}  per la quantitat de %{payment_sum} per %{listing_link}."
+      main_text_stripe: "Els diners estan sent retinguts per %{service_name} fins que l'ordre sigui marcada com a completada."
+      price_breakdown: "Detalls de la transacció"
     payment_receipt_to_payer:
       receipt_of_payment: "Rebut de pagament"
       you_have_made_new_payment: "Has pagat <b> %{payment_sum} </b> per <b> %{listing_title} </b>  a %{recipient_full_name}. Aquí hi ha el rebut del pagament."
@@ -1629,8 +1630,8 @@ ca:
       paypal_gateway_fee: "Quota de PayPal:"
       money_will_be_transferred: "Els diners es transferiran a %{recipient_name} quan a) hagis marcat la transacció com a completada o b) hagin passat %{automatic_confirmation_days} des que vares pagar."
     payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
+      headline: "aquí hi ha el teu rebut per %{listing_link}"
+      you_have_made_new_payment: "Has pagat <b>%{payment_sum}</b> per <b>%{listing_title}</b>."
     paypal_new_payment:
       paypal_gateway_fee: "Tarifa de PayPal:"
       shipping_total: "Costos d'enviament:"
@@ -1638,7 +1639,7 @@ ca:
       product: "Producte:"
       price_payer_paid: "Import pagat per %{payer_full_name}:"
       service_fee: "Quota de servei de %{service_name}:"
-      you_will_get: ~
+      you_will_get: "Total:"
     receipt_to_payer:
       receipt_of_payment: "Rebut de pagament"
       you_have_made_new_payment: "Has pagat <b> %{payment_sum} </b> per <b> %{listing_title} </b>  a %{recipient_full_name}. Aquí hi ha el rebut del pagament."
@@ -1661,24 +1662,27 @@ ca:
       you_can_give_feedback_to: "Encara no has fet un suggeriment a %{name}."
       view_feedback: "Veure la valoració"
     new_testimonial_v2:
-      headline: ~
+      headline: "has rebut una valoració!"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "La llista que segueixes ha estat actualitzada"
+      listing_you_follow_has_been_updated: "L'anunci que segueixes ha estat actualitzat"
       has_updated_listing_you_follow_in_kassi: "%{author} ha actualitzat l'anunci '%{listing}' que estàs seguint a %{service_name}."
       view_changes: "Veure els canvis"
     community_updates:
       added_offer: "%{name_link} va afegir un anunci:"
       added_request: "%{name_link} va afegir un anunci:"
       added_listing: "%{name_link} ha afegit un anunci:"
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
+      update_mail_title: "Actualització %{title_link}"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "A continuació, es mostren algunes de les coses que han passat a %{community_link} durant el passat %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name}"
       reduce_email_footer_text: "Massa correus? %{settings_link} o %{unsubscribe_link}."
       settings_link_text: "Edita la configuració del teu correu electrònic aquí"
       unsubscribe_link_text: "cancel·la la teva subscripció"
     community_updates_v2:
-      headline: ~
+      headline: "Consulta el darrer que ha passat a %{service_name}."
+      intro_paragraph:
+        one: "Aquí hi ha un resum del més destacat del que ha passat a %{service_name} durant l'últim dia."
+        other: "Aquí hi ha un resum del més destacat que ha passat  a %{service_name} durant els últims %{count} dies."
     newsletter:
       hi: "Hola %{name},"
       newest_offers: "Que ofereix la gent?"
@@ -1686,16 +1690,16 @@ ca:
       text_version_text: "Tens alguna cosa que la resta puguin necessitar? O necessites alguna cosa que altra gent pugui tenir? Afegeix una oferta o sol·licitud, o revisa tot allò que s'ofereix a %{url}"
     reset_password_instructions:
       change_my_password: "Canviar la meva clau"
-      reset_password_instructions: ~
+      reset_password_instructions: "<p>Heu indicat que heu oblidat la vostra contrasenya al servei %{service_name}. </p><p> Si heu de restablir la vostra contrasenya, feu clic al següent enllaç: %{password_reset_link} </p><br/><p> Si no ho heu sol·licitat, ignoreu aquest correu electrònic. La vostra contrasenya no canviarà fins que no accediu a l’enllaç de dalt i en creeu un de nou. </p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Recordatori: Recorda fer un suggeriment a %{name}"
       you_have_not_given_feedback_yet: "Encara no has fet un suggeriment a %{name} sobre l'esdeveniment '%{event}'. Recorda fer un suggeriment de com %{given_name} va actuar a l'esdeveniment."
     testimonial_reminder_v2:
-      headline: ~
-      you_have_not_given_feedback_yet: ~
-      leave_feedback: ~
+      headline: "recorda deixar una valoració per a %{other_name}!"
+      you_have_not_given_feedback_yet: "Donar una valoració sempre és una bona idea. Si tot va sortir bé, hauries de comptar a altres que %{name} és de confiança. Si hi va haver algun problema, també és bo que ho mencionis."
+      leave_feedback: "Deixa una valoració per %{other_party_name}"
     transaction_preauthorized:
-      subject: "%{requester} està interessat i ha autoritzat el pagament de %{listing_title} publicat en %{service_name}"
+      subject: "%{requester} està interessat i ha autoritzat el pagament de %{listing_title} publicat a %{service_name}"
       transaction_requested_by_user: "Bona notícia! %{requester} està interessat en \"%{listing_title}\" i ha autoritzat el pagament."
       you_have_time_to_accept: "Has d'acceptar o rebutjar la sol·licitud dins de %{payment_expires_in}."
       if_you_do_accept: "SI acceptes la transacció durant aquest temps, rebràs els diners immediatament en el teu compte."
@@ -1703,15 +1707,15 @@ ca:
       if_you_do_not_accept: "Si rebutges la transacció o no acceptes l'oferta durant aquest temps, la transacció es cancel·larà automàticament, no se li cobrarà a %{requester} i no rebràs el pagament."
       click_here_to_reply: "Fes clic aquí per respondre a la sol·licitud"
     transaction_preauthorized_v2:
-      headline: ~
+      headline: "%{requester}  està interessat en i ha autoritzat el pagament per %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Recorda acceptar la sol·licitud de %{requester} sobre l'anunci %{listing_title}"
       remember_to_accept: "Recorda acceptar la sol·licitud de %{requester} sobre el teu anunci \"%{listing_title} \".%{requester} ja ha pagat. Has d'acceptar la sol·licitud per poder rebre el pagament."
       one_day_left: "Si no acceptes la sol·licitud en 1 dia, la sol·licitud es rebutjarà automàticament i no rebràs cap pagament."
       click_here_to_reply: "Fes clic aquí per respondre la sol·licitud"
     transaction_preauthorized_reminder_v2:
-      headline: ~
-      remember_to_accept: ~
+      headline: "Recorda acceptar la sol·licitud de %{requester} sobre %{listing_link}."
+      remember_to_accept: "%{requester} ja ha fet el pagament per a la transacció. No obstant això, necessites acceptar la sol·licitud per rebre el pagament."
     welcome_email:
       welcome_email_subject: "Benvingut a %{service_name}"
       welcome_to_marketplace: "Benvinguts a %{service_name}! Ens encanta que estiguis amb nosaltres."
@@ -1724,11 +1728,11 @@ ca:
       you_are_receiving_this_because: "Has rebut aquesta notificació perquè segueixes a %{author_name}"
       view_listing: "Veure anunci"
     new_listing_by_followed_person_v2:
-      headline: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
-      cant_click: ~
+      headline: "%{author} ha afegit un nou anunci!"
+      has_posted_a_new_listing: "%{author_name} ha publicat un nou anunci:"
+      you_are_receiving_this_because: "Has rebut aquesta notificació perquè segueixes a %{author_name}"
+      view_listing: "Veure %{title}"
+      cant_click: "No pots fer clic al botó? Aquí hi ha un enllaç per la teva conveniència:"
     new_member_notification:
       subject: "Nou membre a %{community}"
       new_member_has_joined: "Un nou membre s'ha unit a %{community}. És possible que encara hagin de confirma la seva adreça de correu electrònic."
@@ -1736,74 +1740,74 @@ ca:
       person_name: "Nom:"
       person_email: "Correu electrònic:"
     new_member_notification_v2:
-      headline: ~
-      new_member_has_joined: ~
-      view_profile: ~
+      headline: "%{user_name} s'ha unit a %{community}"
+      new_member_has_joined: "%{name} (%{email}) s'ha unit a %{community}. Potser encara han de confirmar la seva adreça de correu."
+      view_profile: "Veure perfil"
     listing_submited_for_review:
-      subject: "Nova fitxa per revisar: \"%{listing_title}\" per %{author_name} a%{community}"
-      there_is_a_new_listing_to_review: "Hi ha una nova fitxa per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquesta fitxa."
-      review_the_listing: "Revisa la fitxa nova"
+      subject: "Nou anunci per revisar: \"%{listing_title}\" per %{author_name} a%{community}"
+      there_is_a_new_listing_to_review: "Hi ha un anunci nou per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquesta fitxa."
+      review_the_listing: "Revisa el nou anunci"
       this_is_automatic_message: "Aquest és un missatge automàtic enviat als administradors de %{community}."
     listing_approved:
-      subject: "L'equip %{community} ha aprovat la vostra fitxa \"%{listing_title}\""
-      listing_has_been_approved: "Bona notícia! La vostra fitxa \"%{listing_title}\" ha estat revisada i aprovada per l'equip %{community}. Ha estat publicat."
-      view_the_listing: "Veure la fitxa"
+      subject: "L'equip %{community} ha aprovat el vostre anunci \"%{listing_title}\""
+      listing_has_been_approved: "Bona notícia! El vostre anunci \"%{listing_title}\" ha estat revisat i aprovat per l'equip %{community}. Ha estat publicat."
+      view_the_listing: "Veure l'anunci"
     listing_rejected:
-      subject: "L'equip %{community} ha rebutjat la vostra fitxa \"%{listing_title}\""
-      listing_has_been_rejected: "Malauradament, l’equip %{community} ha rebutjat la vostra fitxa \"%{listing_title}\" després de revisar-la detingudament. Podeu %{contact_link} per aprendre més o editar la fitxa i enviar-la a una nova revisió."
+      subject: "L'equip %{community} ha rebutjat el vostre anunci \"%{listing_title}\""
+      listing_has_been_rejected: "Malauradament, l’equip %{community} ha rebutjat el vostre anunci \"%{listing_title}\" després de revisar-lo detingudament. Podeu %{contact_link} per aprendre més o editar l'anunci i enviar-lo a una nova revisió."
       contact_link: "contacta a l'equip %{community}"
-      edit_the_listing: "Edita la fitxa"
+      edit_the_listing: "Edita l'anunci"
     edited_listing_submited_for_review:
-      subject: "Fitxa editada per revisar: \"%{listing_title}\" per %{author_name} a %{community}"
-      there_is_a_edited_listing_to_review: "Hi ha una fitxa editada per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquesta fitxa."
-      review_the_listing: "Revisa la fitxa editada"
+      subject: "Anunci editat per revisar: \"%{listing_title}\" per %{author_name} a %{community}"
+      there_is_a_edited_listing_to_review: "Hi ha un anunci editat per revisar: \"%{listing_title}\" per %{author_name}. Ara has d'aprovar o rebutjar aquest anunci."
+      review_the_listing: "Revisa l'anunci editat"
     new_transaction:
       subject: "Nova transacció a %{service_name}"
       there_is_a_new_transaction: "Hi ha %{link} a %{service_name}."
       a_new_transaction: "una nova transacció"
-      listing: "Fitxa: %{title}"
+      listing: "Anunci: %{title}"
       sum: "Suma: %{amount}"
       starter: "Iniciat per: %{name}"
       provider: "Venedor: %{name}"
     new_transaction_v2:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
-      view_transaction: ~
+      subject: "Nova transacció a %{service_name}"
+      there_is_a_new_transaction: "Hi ha un %{link} a %{service_name}"
+      a_new_transaction: "nova transacció"
+      listing: "Anunci:"
+      sum: "Quantitat:"
+      starter: "Comprador:"
+      provider: "Venedor:"
+      view_transaction: "Veure la transacció"
     transaction_cancel_flow:
-      the_order_about: ~
-      you_can_contact_the_marketplace_team: ~
-      you_can_now_give_feedback: ~
-      give_feedback_to: ~
+      the_order_about: "l'ordre de %{listing_title}"
+      you_can_contact_the_marketplace_team: "Pots contactar a l'equip de %{service_name} si hi ha algun altre problema."
+      you_can_now_give_feedback: "Ara pots escriure una valoració a %{name}. Deixar una valoració és sempre una bona idea. Si tot va anar bé, hauries de contar als altres que %{recipient} és de confiança. Si hi va haver algun problema, també és bo que ho mencionis."
+      give_feedback_to: "Donar una valoració a %{name}"
     transaction_disputed:
-      subject: ~
-      subject_admin: ~
-      order_about: ~
-      the_order_has_been_canceled: ~
-      the_order_between_buyer_and_seller_has_been_canceled: ~
-      the_marketplace_has_been_notified: ~
-      contact_the_marketplace_team: ~
-      you_must_now_decide: ~
-      learn_more_about: ~
-      review_the_transaction: ~
+      subject: "Ordre disputada - L'equip de %{service_name} està revisant la situació"
+      subject_admin: "Una transacció ha estat disputada, has de decidir que passa a continuació"
+      order_about: "ordre de %{listing_title}"
+      the_order_has_been_canceled: "la %{transaction_link} ha estat disputada"
+      the_order_between_buyer_and_seller_has_been_canceled: "la %{transaction_link} entre %{buyer} i %{seller} ha estat disputada."
+      the_marketplace_has_been_notified: "L'equip de %{service_name} ha estat notificat i està en procés de revisar la situació. Pots contactar-per compartir més detalls."
+      contact_the_marketplace_team: "Contactar a l'equip de %{service_name}"
+      you_must_now_decide: "Has de decidir si un reemborsament és vàlid o no. Si un reemborsament no és vàlid, pot descartar la disputa. pots %{learn_more_link}."
+      learn_more_about: "aprendre més sobre que fer en aquest cas"
+      review_the_transaction: "Revisar la transacció"
     transaction_refunded:
-      subject: ~
-      marketplace_team_has_approved_the_cancellation: ~
-      you_should_receive_a_refund_soon: ~
+      subject: "L'ordre has estat marcada com a reemborsada. L'equip de %{service_name} ha aprovat la disputa de %{buyer}"
+      marketplace_team_has_approved_the_cancellation: "l'equip de %{service_name} ha aprovat la disputa de %{transaction_link} i ha marcat el pagament com a reemborsat."
+      you_should_receive_a_refund_soon: "Hauries de rebre un reemborsament aviat. Pots contactar a l'equip de %{service_name} si hi ha algun problema."
     transaction_cancellation_dismissed:
-      subject: ~
-      marketplace_team_has_rejected_the_cancellation: ~
+      subject: "Disputa de l'ordre descartada - L'equip de %{service_name} ha rebutjat la disputa de %{buyer}"
+      marketplace_team_has_rejected_the_cancellation: "l'equip de %{service_name} ha rebutjat la disputa de %{transaction_link}."
     transaction_commission_charge_failed:
-      subject: ~
-      transaction_about: ~
-      the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
-      contact_the_seller: ~
+      subject: "Una comissió del vostre mercat no s'ha transferit al vostre compte de PayPal"
+      transaction_about: "transacció sobre %{listing_title}"
+      the_commission_of_the_transaction: "la comissió del %{transaction_link} des del %{seller} ha fallat per ser transferit al teu compte de PayPal."
+      this_usually_means: "Això normalment significa que hi ha alguna cosa que bloqueja la comissió del compte PayPal del venedor. En la majoria dels casos, el problema és que el venedor no té una font de finançament vàlida i verificada connectada al seu compte de PayPal."
+      if_you_would_like_to_investigate: "Si voleu investigar més endavant, un bon primer pas és contactar amb el venedor sobre aquest tema."
+      contact_the_seller: "Poseu-vos en contacte amb el venedor"
   error_messages:
     booking:
       booking_failed_payment_voided: "La reserva ha fallat a causa d'un error inesperat. Si us plau intenta-ho més tard. No se t'ha carregat res."
@@ -1818,7 +1822,7 @@ ca:
       minimum_price: "El preu mínim és %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Si desitges fer un suggeriment no neutral, has de raonar-lo."
-      you_must_select_a_grade: "Recorda avaluar als usuaris clicant en una de les icones de sobre (pot veure les explicacions de cada icona passant el ratolí per sobre d'elles)"
+      you_must_select_a_grade: "No oblideu explicar si la vostra experiència va ser positiva o negativa."
     transaction_agreement:
       required_error: "Has d'acceptar l'acord"
     paypal:
@@ -1826,7 +1830,7 @@ ca:
       buyer_cannot_pay_error: "El pagament va ser rebutjat per PayPal. Si us plau contacta al servei al client de PayPal per a més informació: %{customer_service_link}"
       pending_review_error: "El pagament es va realitzar però va ser marcat per PayPal com a 'pendent de revisió'. Quan PayPal completi aquesta revisió, el pagament serà autoritzat automàticament."
       seller_express_checkout_disabled: "El servei de Express Checkout de PayPal ha estat inhabilitat per al compte de PayPal de l'autor de l'anunci. Si us plau contacta amb l'autor de l'anunci per avisar-lo que hi ha un problema en el seu compte de PayPal i recomanar-li que contacti amb el servei al client de PayPal."
-      seller_express_checkout_disabled_no_free: "PayPal Express Checkout s’ha desactivat per al compte PayPal de l’autor de la fitxa. Sol·liciteu l’equip %{service_name} que es posi en contacte amb l’autor de la fitxa i aconselleu que contactin amb el servei d’atenció al client de PayPal."
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout s’ha desactivat per al compte PayPal de l’autor de l'anunci. Sol·liciteu l’equip %{service_name} que es posi en contacte amb l’autor de l'anunci i aconselleu que contactin amb el servei d’atenció al client de PayPal."
       generic_error: "Ha ocorregut un error durant el procés de pagament. No s'ha pogut finalitzar el pagament a través de PayPal."
       cancel_error: "Ha ocorregut un error durant la disputa. No s'ha pogut finalitzar la disputa."
       accept_authorization_error: "Ha ocorregut un error en intentar acceptar el pagament preautoritzat amb PayPal. Per favor, intenta-ho una altra vegada."
@@ -1835,8 +1839,8 @@ ca:
       generic_error: "S'ha produït un error en processar el pagament. No s'ha pogut finalitzar el pagament amb Stripe."
       accept_authorization_error: "S'ha produït un error en intentar acceptar el pagament preautoritzat amb Stripe. Si us plau intenta-ho una altra vegada."
       reject_authorization_error: "S'ha produït un error en intentar rebutjar el pagament preautoritzat amb Stripe. Si us plau intenta-ho una altra vegada."
-      card_declined: ~
-      expired_card: ~
+      card_declined: "La vostra targeta s'ha rebutjat"
+      expired_card: "El pagament ha fallat perquè aquesta targeta ha caducat"
   error_pages:
     back_to_kassi_front_page: "Tornar a la pàgina principal"
     error_404:
@@ -1876,15 +1880,15 @@ ca:
       on_or_after: "Ha de ser a les %{restriction} o després"
       positive_number: "Ingressa el número."
       from_must_be_less_than_till: "L'hora inicial ha de ser menor que la final"
-      section_with_this_id_already_exists: ~
-      listing_with_this_id_does_not_exist: ~
+      section_with_this_id_already_exists: "Aquest nom únic de secció ja està en ús. Si us plau, escull un altre nom."
+      listing_with_this_id_does_not_exist: "Aquest ID d'anunci no es correspon a cap dels del teu mercat. Potser ho va copiar malament? Si us plau, intenta-ho de nou"
       presence: "No pot ser en blanc"
-      username_is_invalid: ~
-      domain_name_is_invalid: ~
-      only_supported_variables: ~
+      username_is_invalid: "Aquest nom d'usuari no és vàlid o no està disponible"
+      domain_name_is_invalid: "Aquest nom de domini no és vàlid o no està disponible"
+      only_supported_variables: "Assegura't d'afegir només variables que siguin suportades"
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
+      has_accepted_lend_item: "%{offerer_name} va estar d'acord a deixar %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_borrow_item: "%{offerer_name} acorda deixar %{listing_title} a%{requester_name} %{time_ago}."
       has_accepted_rent_out_item: "%{offerer_name} va acceptar llogar %{listing_title} de%{requester_name} %{time_ago}."
       has_accepted_rent_item: "%{offerer_name} va acceptar en lloguer%{listing_title} de%{requester_name} %{time_ago}."
@@ -1900,9 +1904,9 @@ ca:
       has_accepted_favor: "%{offerer_name} va acceptar oferir %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_rideshare: "%{offerer_name} va acceptar un viatge compartit %{listing_title} amb %{requester_name} %{time_ago}."
     join:
-      joined_kassi: ~
+      joined_kassi: "%{name} es va unir a %{service_name} %{time_ago}.es"
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "%{name} es va registrar a %{service_name} %{time_ago}."
     comment:
       commented: "%{commenter_name} va comentar en la publicació %{listing_title} %{time_ago}."
       offer_partitive: oferta
@@ -1921,13 +1925,13 @@ ca:
     profile: Perfil
     manage_listings: "Els meus anuncis"
     invite: "Convidar a nous membres"
-    login: ~
+    login: "Iniciar Sessió"
     signup: Registrar-se
     menu: Menú
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "A més hi a <b>aquesta altra oferta</b>,"
-      additionally_one_private_request_exists: "A més hi a <b>aquesta altra sol·licitud</b>,"
+      additionally_one_private_offer_exists: "A més hi ha <b>aquesta altra oferta</b>,"
+      additionally_one_private_request_exists: "A més hi ha <b>aquesta altra sol·licitud</b>,"
       additionally_some_private_offers_exist: "A més hi han <b>%{number_of_listings} altres ofertes</b>,"
       additionally_some_private_requests_exist: "A més hi han <b>%{number_of_listings} altres sol·licituds</b>,"
     blank_slate:
@@ -1965,9 +1969,9 @@ ca:
     grid_item:
       processing_uploaded_image: "(Processant la imatge...)"
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: "Ho sentim, no s'ha pogut trobar cap fitxa per als criteris de cerca. Potser proveu altres termes de cerca?"
       no_listings_notification: "No hi ha anuncis. %{add_listing_link}."
-      add_listing_link_text: "Afegir una nova llista"
+      add_listing_link_text: "Afegir un nou anunci"
       open_listing: "anunci obert"
       open_listings: "obrir llistes"
       private_listing_notification_log_in: "Inicia sessió"
@@ -1994,15 +1998,15 @@ ca:
       filter: Filtrar
       this_is_private_community: "Has de crear un compte per poder veure tot el contingut"
     invitation_form:
-      email: "Adreça de correu electrònic del teu amic:"
+      email: "Correu(s) electrònic(s)"
       message: "Missatge personal:"
       send_invitation: "Enviar invitació"
-      add_email_addresses_description: ~
+      add_email_addresses_description: "Afegiu les adreces de correu electrònic de les persones que esteu convidant al camp següent. Per afegir diverses adreces de correu electrònic, separeu-les amb una coma."
       add_lots_of_email_addresses: "Vet aquí un consell per a administradors: si tens plans d'enviar moltes invitacions, hauries de considerar emprar una eina per enviar correus electrònics. Llegeix %{this_article_link} per trobar recursos sobre serveis d'enviament de correu electrònic que s'adaptin a les teves necessitats."
       this_article_link: "aquest article"
       invitation_emails_field_placeholder: "amic1@exemple.com, amic2@exemple.com, ..."
-      invitation_message_field_placeholder: ~
-      errors_in_emails: ~
+      invitation_message_field_placeholder: "Em vaig incorporar a aquest fantàstic mercat. També ho hauríeu de fer!"
+      errors_in_emails: "Comproveu que les adreces de correu electrònic que heu afegit siguin vàlides i que no continguin cap caràcter inusual. Si heu afegit diverses adreces, assegureu-vos que es separen amb una coma."
     list_item:
       review: opinió
       reviews: opinions
@@ -2026,7 +2030,7 @@ ca:
       list: "Mostrar llista"
       map_button: Mapa
       grid_button: "Vista resumida"
-      list_button: Lllista
+      list_button: Llista
       all_listing_types: "Tots els tipus d'anuncis"
       all_categories: "Totes les categories"
     errors:
@@ -2057,15 +2061,15 @@ ca:
     no_tribe:
       inbox: "Bústia d'entrada"
       settings: Configuració
-      feedback: ~
+      feedback: "contacte l'equip de %{service_name}"
     application:
-      join_this_community: ~
+      join_this_community: "Unir-se al mercat"
       read_more: "LLegir més"
       feedback: "El seu missatge a l'equip de %{service_name}"
       dont_use_to_contact_support: "Hem notat que ets administrador de %{service_name}. Aquesta forma és per a que els usuaris de la teva comunitat et contactin. Si el que vols és contactar a l'equip de suport de Sharetribe, pots fer-ho per mitjà de la bombolla de Suport que es troba en la part inferior dreta en el panell d'administració."
       feedback_forum: "Fòrum de suggeriments"
       feedback_handle: Suggeriment
-      give_feedback: "Fes un suggeriment"
+      give_feedback: Contacta'ns
       or_check_our: "...o comprova el nostre"
       send_feedback_to_admin: "Enviar missatge"
       to_see_what_others_have_suggested: "per veure els suggeriments d'altres usuaris, i votar per les vostres funcionalitats preferides."
@@ -2074,7 +2078,7 @@ ca:
       invite_your_friends: "Convida a amics!"
       invite_your_neighbors: "Invita els teus veïns!"
       invite_your_friends_description: "Com més gent hi hagi a %{service_name}, més útil serà."
-      invite_your_friends_invite_only_description: ~
+      invite_your_friends_invite_only_description: "Les persones no poden unir-se a %{service_name} tret que siguin convidades."
       join_without_facebook: "... o alternativament %{join_without_facebook_link}"
       join_without_facebook_link: "registrar-te sense utilitzar Facebook"
     conversations:
@@ -2134,13 +2138,13 @@ ca:
       sign_up: Registre
     notifications:
       listing_could_not_be_saved: "L'anunci no s'ha pogut publicar. Per favor, intenta-ho de nou i si torna a fallar, contacta amb l'administrador %{contact_admin_link}."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "contacteu amb l’equip %{service_name}"
       test_welcome_email_delivered_to: "El missatge de prova a estat enviat a %{email}"
       something_went_wrong: "Alguna cosa va sortir malament"
-      community_updated: ~
-      community_update_failed: ~
+      community_updated: "Detalls actualitzats."
+      community_update_failed: "L'actualització de detalls ha fallat."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Compte creat correctament. A continuació hauràs de confirmar la teva adreça de correu electrònic."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Gràcies per unir-vos a %{service_name}. Ara heu de confirmar la vostra adreça de correu electrònic."
       comment_cannot_be_empty: "Els comentaris no poden restar buits."
       comment_sent: "Comentari enviat"
       confirmation_link_is_wrong_or_used: "L'enllaç de confirmació ja s'ha utilitzat o s'ha trencat. Intenta iniciar sessió o contacta amb nosaltres si el problema continua."
@@ -2162,7 +2166,7 @@ ca:
       invitation_limit_reached: "Has tractat d'enviar moltes invitacions. Has assolit el límit diari."
       invitation_sent: "Invitació enviada amb èxit"
       invitation_successfully_unsubscribed: "Subscripció de correus d'invitació cancel·lada amb èxit"
-      inviting_new_users_is_not_allowed_in_this_community: "Convidar a nous usuaris no està permès en aquesta comunitat"
+      inviting_new_users_is_not_allowed_in_this_community: "Convidar a nous usuaris no està permès."
       login_again: "Si us plau, torna a iniciar sessió"
       login_failed: "Error. Si us plau comprova que les dades són correctes."
       account_creation_successful: "Benvingut a %{service_name}, %{person_name}!"
@@ -2175,22 +2179,22 @@ ca:
       news_item_updated: "Article actualitzat"
       news_item_deleted: "Article suprimit"
       offer_accepted: "Oferta acceptada"
-      offer_confirmed: ~
+      offer_confirmed: "Oferta completada"
       offer_closed: "Oferta finalitzada"
       listing_created_successfully: "Anunci publicat amb èxit %{new_listing_link}."
       offer_rejected: "Oferta rebutjada"
-      offer_canceled: ~
+      offer_canceled: "Oferta cancelada"
       listing_updated_successfully: "Anunci actualitzat"
       listing_updated_availability_management_enabled: "Anunci actualitzat amb èxit. Maneig de la disponibilitat habilitat."
       listing_updated_availability_management_disabled: "Anunci actualitzat amb èxit. Maneig de la disponibilitat deshabilitat."
-      listing_deleted: "S'ha suprimit la fitxa"
+      listing_deleted: "S'ha suprimit l'anunci"
       only_kassi_administrators_can_access_this_area: "Si us plau, inicia sessió amb un compte d'administrado per a accedir a aquesta àrea"
-      only_listing_author_can_close_a_listing: "Només el creador d'una llista pot tancar-la"
-      only_listing_author_can_edit_a_listing: "Només el creador d'una llista pot editar-la"
+      only_listing_author_can_close_a_listing: "Només el creador d'un anunci pot tancar-lo"
+      only_listing_author_can_edit_a_listing: "Només el creador d'un anunci pot editar-lo"
       payment_successful: "Pagament exitós"
-      payment_canceled: ~
+      payment_canceled: "Pagament cancelat"
       error_in_payment: "Hi ha hagut un error en el pagament. Si encara no has completat el procés, tornau a provar. Si ja ho vas completar, si us plau, contacta'ns."
-      cannot_receive_payment: ~
+      cannot_receive_payment: "El venedor no pot rebre el pagament per algun error. Si us plau, poseu-vos en contacte amb l’equip %{service_name} per aclarir la situació"
       payment_waiting_for_later_accomplishment: "Quan hagis pagat, ho notifiques al venedor i rebràs un rebut per correu electrònic"
       password_recovery_sent: "Les instruccions per canviar la contrasenya s'han enviat a la teva adreça de correu electrònic."
       person_activated: "Usuari activat"
@@ -2208,13 +2212,13 @@ ca:
       reply_cannot_be_empty: "No pots enviar un missatge buit"
       reply_sent: "Resposta enviada amb èxit"
       request_accepted: "Sol·licitud acceptada"
-      request_confirmed: ~
+      request_confirmed: "Comanda completada"
       request_rejected: "Sol·licitud rebutjada"
-      request_canceled: ~
+      request_canceled: "Comanda disputada"
       message_sent: "Missatge enviat"
       message_not_sent: "El missatge no pot ser enviat. Si us plau intenta-ho una altra vegada."
       this_content_is_not_available_in_this_community: "Aquest contingut no està disponible en aquesta comunitat."
-      unknown_error: "Error desconegut. Si us plau utilitza l'enllaç de suggeriments per donar-nos detalls del que ha succeït."
+      unknown_error: "Error desconegut. Si us plau utilitza l'enllaç per enviar-nos detalls del que ha succeït."
       update_error: "S'ha produït un error durant l'actualització de la informació, si us plau intenta-ho de nou."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No tens autorització per donar suggeriments en aquest esdeveniment."
       you_are_not_authorized_to_do_this: "No tens autorització per dur a terme aquesta acció."
@@ -2225,43 +2229,43 @@ ca:
       you_cannot_send_message_to_yourself: "No pots enviar un missatge"
       you_followed_listing: "Ara està seguint aquesta llista"
       you_have_already_given_feedback_about_this_event: "Ja has enviat un suggeriment sobre aquest esdeveniment"
-      you_are_now_member: ~
-      you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
+      you_are_now_member: "Benvingut a %{service_name}!"
+      you_are_already_member: "Ja ets un membre de %{service_name}. Bentornat!"
+      you_must_log_in_to_create_new_listing: "Per crear un anunci nou, haveu d’iniciar sessió a %{service_name}. Si no teniu cap compte, podeu %{sign_up_link}."
       additional_email_confirmed_dashboard: "El teu correu electrònic ha estat confirmat."
       you_must_log_in_to_give_feedback: "Has d'iniciar una sessió per fer una suggerència"
-      you_must_log_in_to_invite_new_users: "Cal que inicis sessió per convida a nous usuaris"
+      you_must_log_in_to_invite_new_users: "Cal que inicis sessió per convidar a nous usuaris a %{service_name}"
       you_must_log_in_to_send_a_comment: "Has d'iniciar una sessió per enviar un nou comentari"
       you_must_log_in_to_send_a_message: "Has d'iniciar una sessió en %{service_name} per a enviar un missatge a un usuari."
       you_must_log_in_to_do_a_transaction: "T'has de registrar a %{service_name} per fer una transacció."
       you_must_log_in_to_view_this_content: "Has d'iniciar una sessión per a veure aquest contingut"
-      you_must_log_in_to_view_this_page: ~
+      you_must_log_in_to_view_this_page: "Per veure aquesta pàgina, heu d’iniciar la sessió"
       you_must_log_in_to_view_your_inbox: "Has d'iniciar una sessión en %{service_name} per a revisar la safata d'entrada"
       you_must_log_in_to_view_your_settings: "Has d'iniciar una sessió en %{service_name} per a veure la teva configuració"
-      you_must_log_in_to_add_news_item: "Has d'iniciar sesió per afegir un nou article"
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_add_news_item: "Has d'iniciar sessió a %{service_name} per afegir un nou article"
+      you_must_log_in_to_change_profile_settings: "Per canviar la configuració del perfil, heu d’iniciar sessió a %{service_name}"
+      you_must_log_in_to_accept_or_reject: "Heu d’iniciar la sessió per acceptar o rebutjar la transacció"
+      you_must_log_in_to_confirm_or_cancel: "Heu d’iniciar la sessió per disputar o confirmar la transacció"
       you_need_to_confirm_your_account_first: "Hauràs de confirmar el teu correu electrònic."
       you_must_fill_all_the_fields: "Has de completar tots els camps"
       you_unfollowed_listing: "Ja no segueixes aquest anunci"
-      joining_community_failed: ~
-      can_not_delete_email: ~
+      joining_community_failed: "La unió ha fallat"
+      can_not_delete_email: "No podeu eliminar l'adreça de correu electrònic"
       user_does_not_have_email_to_delete: "L'adreça de correu electrònic que vols eliminar no existeix"
       email_deleted: "Correu electrònic eliminat"
       listing_author_payment_details_missing: "Si us plau contacti amb l'autor clicant el botó de 'Contacte' de baix. Necessiten actualitzar els seus detalls de pagaments per rebre els pagaments."
-      listing_author_payment_details_missing_no_free: "Si us plau contacta amb l’equip %{service_name} per demanar-los que contactin i aconsellin a l’autor de la fitxa que actualitzi les seves dades de pagament per rebre pagaments."
+      listing_author_payment_details_missing_no_free: "Si us plau contacta amb l’equip %{service_name} per demanar-los que contactin i aconsellin a l’autor de l'anunci que actualitzi les seves dades de pagament per rebre pagaments."
       images_are_processing: "Estem processant les teves imatges. Dona'ns un minut o dos i estaran llestes."
-      automatically_logged_out_please_sign_in: "Si us plau, inicia la sessió una altra vegada, ja que la teva sessió ha caducat."
-      stripe_you_account_balance_is_not_0: "El balanç del teu compte no és 0 i per tant no pot ser eliminada. Això pot significar que tens transaccions esperant a ser completades o que hi ha diners esperant a ser transferit al teu compte del banc. Si us plau contacta a l'equip de %{service_name} si tens algun dubte."
-      stripe_balance_for_username_is_not_0: ~
-      visit_admin: "Voldries %{link}?"
-      visit_admin_link: "visitar el teu panell d'administració"
-      an_error_occurred_when_saving_your_information: ~
       maintenance_mode:
         zero: "La pàgina està fora de servei per manteniment"
         one: "La pàgina estarà fora de servei per manteniment en %{count} minut"
         other: "La pàgina estarà fora de servei per manteniment en %{count} minuts"
+      automatically_logged_out_please_sign_in: "Si us plau, inicia la sessió una altra vegada, ja que la teva sessió ha caducat."
+      stripe_you_account_balance_is_not_0: "El balanç del teu compte no és 0 i per tant no pot ser eliminada. Això pot significar que tens transaccions esperant a ser completades o que hi ha diners esperant a ser transferit al teu compte del banc. Si us plau contacta a l'equip de %{service_name} si tens algun dubte."
+      stripe_balance_for_username_is_not_0: "El romanent de Stripe per %{username} no és 0, per això el compte no pot ser esborrat. Això pot significar que tinguin transaccions a l'espera de completar o que hi hagi diners a l'espera de pagar als seus comptes bancaris. Si us plau, per obtenir més informació, consulteu el vostre Tauler de Stripe."
+      visit_admin: "Voldries %{link}?"
+      visit_admin_link: "visitar el teu panell d'administració"
+      an_error_occurred_when_saving_your_information: "Hi va haver un problema quan vas desar la teva informació, el missatge és: \"%{message}\". Si us plau revisa que tota la informació sigui correcta i intenta-ho de nou."
     settings:
       account: Compte
       notifications: Notificacions
@@ -2272,8 +2276,8 @@ ca:
       payments: Pagaments
       listings: Anuncis
       listings_search_placeholder: "Buscar anunci per títol"
-      transactions_search_placeholder: ~
-      transactions: ~
+      transactions_search_placeholder: "Buscar per transacció o per membres implicats"
+      transactions: Transaccions
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "No tens autorització per veure aquest anunci."
@@ -2291,7 +2295,7 @@ ca:
       you_cannot_send_a_new_comment_because_listing_is_closed: "No es poden enviar nous comentaris ja que l'anunci ha estat tancat."
       you_must: "Hauries de"
       subscribe_to_comments: "Avisa'm dels nous comentaris i actualitzacions"
-    deleting_a_listing_cannot_be_undone: "La supressió d'una fitxa no es pot desfer. Esteu segur que voleu continuar?"
+    deleting_a_listing_cannot_be_undone: "La supressió d'un anunci no es pot desfer. Esteu segur que voleu continuar?"
     edit:
       edit_listing: "Editar anunci"
     edit_links:
@@ -2299,15 +2303,15 @@ ca:
       edit_listing: "Editar la llista"
       reopen_listing: "Reactivar anunci"
       move_to_top: "Moure a la part superior de la pàgina principal"
-      show_in_updates_email: ~
+      show_in_updates_email: "Es mostra al proper butlletí"
       show_in_updates_email_loading: Carregant...
       show_in_updates_email_error: "No s'ha pogut connectar amb el servidor. Si us plau, actualitza la pàgina i torni a intentar-ho."
-      show_in_updates_email_success: ~
-      listing_is_pending: "La fixa està pendent de ser aprovada"
-      listing_is_rejected: "La fitxa és rebutjada"
-      approve_listing: "La fitxa és aprovada"
-      reject_listing: "Fitxa rebutjada"
-      delete_listing: "Suprimeix la fitxa"
+      show_in_updates_email_success: "Aquesta llista apareixerà al següent correu electrònic d’actualització automàtica enviat als usuaris"
+      listing_is_pending: "L'anunci està pendent de ser aprovat"
+      listing_is_rejected: "L'anunci ha estat rebutjat"
+      approve_listing: "Aprovar anunci"
+      reject_listing: "Rebutjar anunci"
+      delete_listing: "Suprimeix l'anunci"
     map:
       open_in_google_maps: "Obrir a Google Maps"
     error:
@@ -2317,11 +2321,11 @@ ca:
       update_failed_to_connect_to_booking_service: "S'h produït un error en actualitzar l'anunci: la connexió amb el servei de disponibilitat ha fallat. Si us plau intenta-ho una altra vegada."
     follow_links:
       follow: "Reb correus electrònic sobre nous comentaris"
-      unfollow: "Deixa de segur aquest anunci"
+      unfollow: "No envieu correus electrònics sobre els nous comentaris"
     form:
       custom_field_partials:
         dropdown:
-          select_one___: "Selecció un.."
+          select_one___: "Seleccionar un.."
       departure_time:
         at: a
         departure_time: "Hora de sortida"
@@ -2335,9 +2339,9 @@ ca:
         destination: Destí
       form_content:
         favor: "un servei"
-        housing: Allotjament
+        housing: "un allotjament"
         item: "alguna cosa"
-        offer_something: "Ofereir alguna cosa"
+        offer_something: "Oferir alguna cosa"
         request_something: "Demanar alguna cosa"
         rideshare: "compartir cotxe"
         i_want_to_offer: "M'agradaria oferir..."
@@ -2349,7 +2353,7 @@ ca:
       images:
         image: Imatge
         best_result: "Per a millors resultats, utilitza imatges JPG, GIF o PNG que siguin de %{width} per %{height} píxels"
-        no_file_selected: "No hi ha fitxer seleccionat"
+        no_file_selected: "No hi ha cap fitxer seleccionat"
         remove_image: "Elimina la imatge"
         select_file: "Tria un fitxer"
         add_more: "+ Afegir més"
@@ -2358,11 +2362,11 @@ ca:
         loading_image: Carregant...
         image_uploading_in_progress: "Carregant la imatge"
         processing_takes_a_while: "Totes les imatges han estat carregades. Processar-les pot dur més temps, però està bé salvar l'anunci i seguir envant."
-        this_may_take_a_while: ~
+        this_may_take_a_while: "això només triga un segon"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Hi ha hagut un error en pujar les imatges"
         image_processing_failed: "El processament de la imatge ha fallat"
-        file_too_large: ~
+        file_too_large: "El fitxer és massa gran"
         accepted_formats: "L'arxiu d'imatge ha d'estar en format GIF, JPG o PNG."
         images_not_uploaded_confirm: "No totes les imatges han estat carregades. Estàs segur que desitges continuar?"
       location:
@@ -2374,7 +2378,7 @@ ca:
         mass: "peça, kg, l, m2, ..."
         time: "hora, dia mes, ..."
         long_time: "semana, mes, ..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "Després de %{service_name} i despeses del processador de pagaments, obtindreu %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "La %{paypal_fee_info_link} serà deduïda del preu."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} es reduirà del preu."
         after_service_fee_you_will_get_payment_text: "Quan algú faci un ordre, la %{payment_fee_info_link} es deduiran d'aquesta quantitat."
@@ -2387,11 +2391,11 @@ ca:
       origin:
         location: Lloc
         origin: Origen
-        the_exact_location: ~
+        the_exact_location: "La ubicació exacta no es mostrarà a altres usuaris."
       send_button:
-        save_listing: ~
+        save_listing: "Publica fitxa"
         submit_for_review: "Enviar per a revisió"
-        will_be_reviewed: "Totes les fitxes de %{service_name} es revisaran abans de publicar-los. Un cop s'hagi aprovat la fitxa, se us notificarà per correu electrònic i serà visible per a tots."
+        will_be_reviewed: "Totes els anuncis de %{service_name} es revisaran abans de publicar-los. Un cop s'hagi aprovat l'anunci, se us notificarà per correu electrònic i serà visible per a tots."
         we_noticed_youre_an_admin: "Ens hem adonat que sou un administrador de %{service_name}. Els canvis s’aplicaran automàticament i no necessitaran revisió ni aprovació."
       share_type:
         select: Seleccionar
@@ -2419,8 +2423,8 @@ ca:
         for_the_time_being: "De moment"
       privacy:
         privacy: Privacitat
-        private: ~
-        public: ~
+        private: "Privat (només els usuaris que han iniciat la sessió ho poden veure )"
+        public: "Públic (visible per als usuaris que no tenen la sessió iniciada)"
     help_texts:
       help_share_type_title: "Tipus d'oferta o sol·licitud"
       help_tags_title: Etiquetes
@@ -2445,13 +2449,13 @@ ca:
       requests: Sol·licituds
       rideshare: "Compartir cotxe"
       you_have_something_others_do_not: "Tens alguna cosa que oferir?"
-      feed_title: ~
+      feed_title: "%{listing_type} a %{service_name} %{optional_category}"
     left_panel_link:
       borrows: Prèstecs
       buys: Compra
       favors: Serveis
       give_aways: Gratuït
-      housings: Allotjament
+      housings: Allotjaments
       items: Articles
       lends: Prestant
       receives: Gratuït
@@ -2495,7 +2499,7 @@ ca:
       month: "Nombre de mesos:"
       unit: "Número d'unitats"
       custom: "Quantitat:"
-      person: ~
+      person: "Número de persones:"
     quantity_placeholder: Quantitat
     please_comment: Comentari
     reply_link:
@@ -2508,10 +2512,10 @@ ca:
       contact: Contactar
       favor_offer: "Oferta de serveis"
       favor_request: "Sol·licitud de servei"
-      inquiry: ~
+      inquiry: Anunci
       item_offer_trade: "Oferta d'intercanvi"
       item_request_trade: "Sol·licitud d'intercanvi"
-      no_description: "Sense descripció"
+      no_description: "La fitxa no té cap descripció"
       no_image: "No hi ha cap imatge"
       no_reviews: "No ha rebut comentaris"
       offer: Oferta
@@ -2547,7 +2551,7 @@ ca:
       week: setmana
       month: mes
       unit: unitat
-      person: ~
+      person: persona
     verification_required:
       verification_required: "Verificació requerida"
   listing_conversations:
@@ -2558,13 +2562,13 @@ ca:
       by: "%{listing} per %{author}"
       payment: Pagament
       exp: "Exp:"
-      you_will_be_charged: ~
+      you_will_be_charged: "Només se us cobrarà si %{author}  accepta la transacció. %{author} ha d'acceptar la transacció en un termini de %{expiration_period} dies. Si %{author} declina o no respon, no es farà cap càrrec."
       day: dia
       days: dies
       night: nit
       nights: nits
       invalid_parameters: "Valors invàlids per a una transacció nova"
-      select_delivery_method: ~
+      select_delivery_method: "Has de triar un mètode d'enviament"
     transaction_agreement_checkbox:
       read_more: Veure
     stripe_payment:
@@ -2586,7 +2590,7 @@ ca:
       category: Categoria
       did_not_found_what_you_were_looking_for: "No trobes el que busques?"
       favors: Serveis
-      housing: Allotjament
+      housing: Allotjaments
       items: Articles
       list_view: "Mostra la llista"
       map_view: "Mostra el mapa"
@@ -2663,7 +2667,7 @@ ca:
     redirect_message: "Redirigint a PayPal. Si no succeeix res, fes clic %{redirect_link}."
     redirect_link_text: aquí
     paypal_account_all_set_up: "Molt bé! Tot està llest."
-    can_receive_payments: "Ara pots començar a rebre pagaments pels teus anuncis en línia."
+    can_receive_payments: "Ara pots començar a rebre pagaments pels teus anuncis."
     paypal_account_connected_summary: "Compte PayPal <%{email}> connectada amb èxit"
     paypal_permission_granted_summary: "permís donat per cobrar les comissions de transacció"
   paypal:
@@ -2685,8 +2689,8 @@ ca:
       feedback_description_title: Suggeriment
       help_invitation_code_title: "Necessites una invitació per unir-te a"
       terms_title: "Termes d'ús de %{service_name}"
-      invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      invite_only_help_text: "Seleccioneu aquesta opció si voleu que els membres nous es puguin unir només si són convidats per un usuari existent."
+      invite_only_help_text_title: "Només convida"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Aquest usuari ja no està actiu a %{service_name}"
       inactive_description: "Aquest usuari ha deixat d'utilitzar %{service_name}. No pots posar-te en contacte amb ell, donar-li retroalimentació o comentar els seus anuncis."
@@ -2695,8 +2699,11 @@ ca:
       email: "Correu electrònic"
       email_is_in_use: "Aquest correu ja està registrat"
       email_is_in_use_or_not_allowed: "Aquest correu electrònic no està autoritzat per a aquesta comunitat o ja està sent utilitzat. Si no pots entrar contacta amb nosaltres."
-      email_not_allowed: ~
+      email_not_allowed: "Aquest correu electrònic no està permès a %{service_name}. Utilitzeu una adreça de correu electrònic que estigui permesa. Si encara no podeu accedir, poseu-vos en contacte amb nosaltres."
       invalid_username_or_email: "El correu electrònic és invàlid o ja està essent emprat"
+      email_restriction_instructions:
+        one: "L'accés a %{service_name} està restringit. Per a unir-t'hi necessites una adreça de correu electrònic que acabi en %{allowed_emails}."
+        other: "L'accés a %{service_name} està restringit. Per a unir-t'hi necessites una adreça de correu electrònic que sigui vàlida en aquesta comunitat."
       family_name: "Cognoms:"
       given_name: "Nom:"
       i_accept_the_terms_and_privacy: "Accepto els %{terms} i la %{privacy}"
@@ -2706,19 +2713,16 @@ ca:
       not_required: ", no és necessari"
       notification_is_mandatory: "Has de triar al menys una adreça de correu per rebre notificacions. Si no desitges rebre correus de %{service_name}, revisa la teva configuració de notificacions."
       password_again: "Confirma la contrasenya:"
-      show_my_name_to_others: "Mostra el meu nom real als altres usuaris"
+      show_my_name_to_others: "Mostra el meu nom real als altres usuaris a %{service_name}"
       sign_up: "Crea un nou compte en %{service_name}"
       terms: "Termes d'ús"
       privacy: "Política de privacitat"
-      visible_only_to_you: "visible només per a tu i l'administrador de la comunitat"
+      visible_only_to_you: "visible només per a tu i l'equip de %{service_name}"
       visible_to_everybody: "Visible per a tothom"
       create_account_with_provider: "Registra't amb %{provider}"
       OR: O
       signup_with_email: "Registra't amb el teu correu electrònic"
       this_field_will_be_publicly_visible: "(Aquest camp serà públic)"
-      email_restriction_instructions:
-        one: "L'accés a %{service_name} està restringit. Per a unir-t'hi necessites una adreça de correu electrònic que acabi en %{allowed_emails}."
-        other: "L'accés a %{service_name} està restringit. Per a unir-t'hi necessites una adreça de correu electrònic que sigui vàlida en aquesta comunitat."
     profile_feedback:
       grade: "puntuació:"
       and_gave_following_feedback: "i va fer els següents comentaris"
@@ -2733,7 +2737,7 @@ ca:
       add_phone_number: "Afegir número de telèfon"
       address: "Ubicació:"
       as_expected: "Com era d'esperar"
-      edit_profile_info: "Edita la informació"
+      edit_profile_info: "Edita el perfil"
       exceeded_expectations: "Expectatives superades"
       positive: positiva
       hide_description: "Mostrar menys"
@@ -2748,13 +2752,13 @@ ca:
       review: "ressenya rebuda"
       reviews: "ressenyes rebudes"
       listing: llista
-      listings: llistes
+      listings: anuncis
       open_listing: "anunci obert"
       open_listings: "anuncis oberts"
       no_listings: "No hi ha anuncis"
       no_open_listings: "No hi ha anuncis oberts"
       no_reviews: "Sense ressenyes"
-      show_all_listings: "Mostrar totes les llistes"
+      show_all_listings: "Mostrar tots els anuncis"
       show_all_open_listings: "Mostrar tots els anuncis oberts"
       show_all_reviews: "Mostrar totes les ressenyes"
       admin_actions: "Accions d'administradors"
@@ -2775,16 +2779,16 @@ ca:
       create_new_account: "Crear un compte nou"
       i_forgot_my_password: "Recuperar usuari o contrasenya"
       login: "Inicia sessió"
-      login_to_kassi: "Inicia sessió a Kassi"
+      login_to_kassi: "Inicia sessió a %{service_name}"
       connect_your_facebook_to_kassi: "Connecta el compte de Facebook a %{service_name}"
       facebook_account: "Compte de Facebook"
-      log_in_to_link_account: ~
+      log_in_to_link_account: "Si ja teniu un compte a %{service_name}, inicieu la sessió per enllaçar-lo amb el vostre compte de Facebook."
       you_can_also_create_new_account: "Si no tens un compte a %{service_name}, %{accont_creation_link} per crear un compte de Facebook."
       account_creation_link_text: "clic aquí"
       cancle_facebook_connect: "Si no vols vincular aquest compte, pots %{cancel_link}."
       facebook_cancel_link_text: cancel·lar
       log_in_with_your_provider_account: "Inicieu la sessió amb %{provider}"
-      or_sign_up_with_your_username: ~
+      or_sign_up_with_your_username: "... o amb el vostre correu electrònic:"
       we_will_not_post_without_asking_you: "Mai publicarem a Facebook sense preguntar-t'ho."
     password_forgotten:
       email: "Correu electrònic"
@@ -2798,7 +2802,7 @@ ca:
       your_current_email_is: "El teu correu electrònic és %{email}."
       change_email: Canvia
       confirm_your_email: "Si us plau confirma el teu correu electrònic"
-      account_confirmation_instructions: ~
+      account_confirmation_instructions: "Ben aviat rebràs un correu electrònic amb un enllaç per confirmar la teva adreça de correu electrònic. No us oblideu de comprovar la vostra carpeta de correu brossa! Després de confirmar la vostra adreça, podeu unir-vos a %{service_name}."
       account_confirmation_instructions_title_admin: "Confirma la teva adreça de correu electrònic"
       before_full_access_you_need_to_confirm_email: "Abans de donar-te accés total a la teva comunitat, és necessari que facis només una cosa més: confirma el teu compte de correu electrònic."
       before_confirmation_only_access_admin_dashboard: "Abans de confirmar el teu correu electrònic només pots tenir accés al %{admin_dashboard_link}"
@@ -2811,7 +2815,7 @@ ca:
       confirm_new_password: "Confirmar nova contrasenya"
       delete_account: "Eliminar compte"
       delete_account_button: "Eliminar la meva compte de forma permanent."
-      delete_account_confirmation_popup: ~
+      delete_account_confirmation_popup: "Esteu segur que voleu suprimir el vostre compte d’usuari i perdre definitivament totes les dades relacionades amb ell? No es pot invertir la supressió del compte."
       email_addresses: "Adreces de correu electrònic"
       new_email: "Nou correu electrònic:"
       delete_personal_information: "Si elimines el teu compte, la teva informació personal (nom, número de telèfon, adreça, correu electrònic, imatge de perfil, etc.) s'eliminarà permanentment i no podrà ser recuperada. Tots els anuncis que has creat s'eliminaran del portal. No podràs reactivar el teu compte."
@@ -2837,29 +2841,29 @@ ca:
         status_confirmed: Confirmat
         status_pending: Pendent
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Accepto rebre correus electrònics puntuals de l’equip %{service_name}"
       i_want_to_get_email_notification_when: "Desitjo rebre una notificació de correu electrònic quan..."
       newsletters: "Correus electrònics dels administradors"
-      community_updates: ~
-      email_about_confirm_reminders: ~
+      community_updates: Butlletins
+      email_about_confirm_reminders: "... m'he oblidat de confirmar una comanda com a completada"
       email_about_new_comments_to_own_listing: "...algú ha comentat la meva oferta o sol·licitud"
       email_about_new_messages: "...algú m'envia un missatge"
       email_about_new_received_testimonials: "...algú em dóna suggeriments"
       email_about_testimonial_reminders: "...he oblidat fer un suggeriment o donar informació sobre un esdeveniment"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
+      email_daily_community_updates: "Envieu-me un butlletí <b>diari</b> si hi ha anuncis nous"
+      email_weekly_community_updates: "Envieu-me un butlletí <b>setmanal</b> si hi ha anuncis nous"
+      do_not_email_community_updates: "No m’envieu butlletins"
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"
-      email_about_completed_transactions: ~
+      email_about_completed_transactions: "... algú marca la meva comanda com a completada"
       email_about_new_payments: "... rebut d'un nou pagament"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: "... algú al qual segueixo publica un anunci nou"
       unsubscribe_succesful: "Subscripció cancel·lada exitosament"
       unsubscribe_info_text: "Deixaràs de rebre aquests correus. Revisa els teus %{settings_link} per escollir quina classe de correus vols rebre de %{service_name}, o torna a la %{homepage_link}."
       settings_link: configuracions
-      homepage_link: ~
+      homepage_link: "pàgina principal"
       unsubscribe_unsuccesful: "Error en cancel·lar la subscripció"
-      unsuccessful_unsubscribe_info_text: ~
+      unsuccessful_unsubscribe_info_text: "L’enllaç de baixa de subscripció ha caducat. Inicieu la sessió per canviar la configuració de la subscripció de correu electrònic."
     profile:
       about_you: "Sobre tu:"
       city: "Ciutat:"
@@ -2887,8 +2891,8 @@ ca:
       editing_profile_of: "Estàs editant el perfil de %{name}"
       format_markdown_link: "Dóna forma a la descripció emprant Markdown"
       format_markdown: "Pots %{link}."
-      username: ~
-      username_description: ~
+      username: "Nom d'usuari"
+      username_description: "El teu nom d'usuari és usat com a part de la teva URL única per la teva pàgina de perfil. Només pots fer servir lletres i números per al teu nom d'usuari, sense espais. Quan canvies el nom d'usuari, la teva URL canviarà automàticament i la teva URL prèvia ja no dirigirà al teu perfil. L'antic nom d'usuari estarà disponible per a altres usuaris."
     save_information: "Desa la informació"
   shipping_address:
     shipping_address: "Adreça d'enviament"
@@ -2898,8 +2902,8 @@ ca:
       without_tag: "Sense etiqueta"
   terms:
     show:
-      accept_terms: "Accepto els termes d'ús"
-      here: Aquí
+      accept_terms: "Accepto els termes d'ús de %{service_name}"
+      here: "clicant aquí"
       i_accept_new_terms: "Accepto els nous termes d'ús"
       i_accept_terms: "Accepto els termes d'ús"
       terms: "%{service_name}  termes d'ús"
@@ -2923,7 +2927,7 @@ ca:
       slightly_better_than_expected: "Una mica millor de l'esperat"
       slightly_less_than_expected: "Una mica pitjor de l'esperat"
       textual_feedback: Suggeriment
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "El comentari que proporcioneu serà visible a altres membres en la pàgina de perfil de %{person}. Els ajuda a avaluar si %{person} és una persona de confiança."
       positive: Positiva
       negative: Negativa
       default_textual_feedback: "Tot perfecte, moltes gràcies."
@@ -2991,7 +2995,7 @@ ca:
     formats:
       short: "%b %e %Y al %H:%M"
       shorter: "%b %e al %H:%M"
-      short_date: ~
+      short_date: "%b %e, %Y"
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} fa un dia"
@@ -3025,15 +3029,6 @@ ca:
     initiate:
       booked_days: "Dies reservats:"
       booked_nights: "Nits triades:"
-      price_per_day: "Preu per dia:"
-      price_per_night: "Preu per nit:"
-      price_per_hour: "Preu per hora:"
-      price_per_unit: "Preu per unitat:"
-      quantity: "Quantitat:"
-      subtotal: "Subtotal:"
-      shipping-price: "Enviament:"
-      stripe-fee: "Quota (estimada) de Stripe:"
-      start_end_time: "%{start_time} a %{end_time}"
       booked_days_label:
         one: "Dia reservat:"
         other: "Dies reservats:"
@@ -3042,9 +3037,18 @@ ca:
       booked_hours_label:
         one: "Hora reservada:"
         other: "Hores reservades:"
+      price_per_day: "Preu per dia:"
+      price_per_night: "Preu per nit:"
+      price_per_hour: "Preu per hora:"
+      price_per_unit: "Preu per unitat:"
+      quantity: "Quantitat:"
+      subtotal: "Subtotal:"
+      shipping-price: "Enviament:"
+      stripe-fee: "Quota (estimada) de Stripe:"
       duration_in_hours:
         one: "(1 hora)"
         other: "(%{count} hores)"
+      start_end_time: "%{start_time} a %{end_time}"
     price_per_quantity: "Preu per %{unit_type}"
     price: "Preu:"
     quantity: "Quantitat: %{quantity}"
@@ -3116,20 +3120,31 @@ ca:
       create_own: "Vols crear la teva pròpia comunitat de consum col·laboratiu en línia com a%{service_name}?%{learn_more}."
       learn_more: "Aprèn com"
   will_paginate:
+    models:
+      person:
+        zero: usuaris
+        one: usuari
+        other: usuaris
+      transaction:
+        zero: transaccions
+        one: transacció
+        other: transaccions
     previous_label: "&#8592; Anterior"
     next_label: "Següent &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
-      multi_page: "Mostrant %{model} %{from} - %{to}  de %{count}"
-      multi_page_html: "Mostrant %{model} <b> %{from}&nbsp;-&nbsp;%{to} </b> de<b> %{count}</b> en total"
       single_page:
         zero: "%{model} no trobat"
         one: "Mostrant un %{model} "
         other: "Mostrant tot: %{count} %{model}"
+      single_page_html:
+        zero: "Res trobat"
+        one: "Mostrant <b>1}</b> %{model}"
+        other: "Mostrant <b>%{count}</b> %{model}"
+      multi_page: "Mostrant %{model} %{from} - %{to}  de %{count}"
+      multi_page_html: "Mostrant %{model} <b> %{from}&nbsp;-&nbsp;%{to} </b> de<b> %{count}</b> en total"
     person:
       community_members_entries_info:
-        multi_page: "Mostrant %{model} %{from} - %{to} de %{accepted_count} %{accepted_model} acceptats i %{other_count} altres %{other_model}"
-        multi_page_html: "Mostrant %{model}<b>%{from} -%{to}</b>%{accepted_count} </b>%{accepted_model} acceptats i %{other_count} altres %{other_model}"
         single_page:
           zero: "No s'ha trobat cap %{model}"
           one: "Mostrant %{accepted_count} acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
@@ -3138,13 +3153,8 @@ ca:
           zero: "No s'ha trobat cap %{model}"
           one: "Mostrant <b>%{accepted_count}</b> acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
           other: "Mostrant <b>%{accepted_count}</b> acceptat %{accepted_model} i %{other_count} un altre %{other_model}"
-    models:
-      person:
-        zero: usuaris
-      transaction:
-        zero: transaccions
-        one: transacció
-        other: transaccions
+        multi_page: "Mostrant %{model} %{from} - %{to} de %{accepted_count} %{accepted_model} acceptats i %{other_count} altres %{other_model}"
+        multi_page_html: "Mostrant %{model}<b>%{from} -%{to}</b>%{accepted_count} </b>%{accepted_model} acceptats i %{other_count} altres %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "No és possible emprar el sistema de pagaments de %{service_name} per rebre pagaments, ja que els pagaments no s'han configurat. Si us plau %{contact_admin_link} per a més informació."
     contact_admin_link_text: "contacta a l'equip de %{service_name}"
@@ -3194,6 +3204,7 @@ ca:
       cancel: Cancel·lar
       gender: Sexe
       phone_number: Telèfon
+      phone_info_text: "El número de telèfon ha de començar amb el codi del país, per exemple +34"
       address_kana_postal_code: "Codi postal kana"
       address_kana_state: "Estat kana"
       address_kana_city: "Ciutat kana"
@@ -3232,11 +3243,11 @@ ca:
     form_verification:
       personal_id_number: "Número d'Identificació Personal"
       document: "Document de verificació d'identitat (passaport, identificació oficial) (darrera del document)"
-      document_back: ~
+      document_back: "Justificant d'identitat (passaport, DNI emès per govern) (part posterior del document)"
       send_verification: "Enviar verificació"
       need_verification: "Necessita verificació addicional"
-      additional_document: ~
-      additional_document_back: ~
+      additional_document: "Comprovant de domicili, ja sigui passaport, identificació oficial o una factura oficial"
+      additional_document_back: "Un document que mostri l'adreça, ja sigui un passaport, una targeta d'identitat local o una factura de serveis públics d'una coneguda empresa de serveis públics (part posterior del document)"
       files_need_to_be: "Els arxius han de ser en format JPG o PNG i han de ser més petits de 5MB. No és possible verificar PDFs. Les imatges han de ser a color, amb la imatge boca a dalt i amb tota la informació clarament llegible."
     form_pin:
       social_insurance_number: "Nombre se la Seguretat Social (SSGG)"
@@ -3244,7 +3255,7 @@ ca:
       ssn_last_4: "Número de Seguretat Social (últims 4 dígits)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
       singapore_identity_card: "Targeta d'Identitat de Registre Nacional (NRIC) o Número d'Identificació Estranger (NIE)"
-      mexico_id_number: ~
+      mexico_id_number: "Clau única de registre de població (CURP)"
       messages:
         social_insurance_number: "ha de ser un número de seguretat social (SSGG) vàlid"
   payment_settings:
@@ -3283,15 +3294,15 @@ ca:
         background_color: "Color de fons"
         background_color_string: "Color de fons"
       landing_page_version/section/listings:
-        listing_1_id: "Fitxa 1 ID"
-        listing_2_id: "Fitxa 2 ID"
-        listing_3_id: "Fitxa 3 ID"
+        listing_1_id: "Anunci 1 ID"
+        listing_2_id: "Anunci 2 ID"
+        listing_3_id: "Anunci 3 ID"
       landing_page_version/section/video:
         text: Text
         youtube_video_id: "ID del vídeo de YouTube"
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: Text
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "British Columbia"

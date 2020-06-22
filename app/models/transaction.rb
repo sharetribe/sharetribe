@@ -61,7 +61,7 @@ class Transaction < ApplicationRecord
   # While initiated is technically not a finished state it also
   # doesn't have any payment data to track against, so removing person
   # is still safe.
-  FINISHED_TX_STATES = ['initiated', 'free', 'rejected', 'confirmed', 'canceled', 'errored'].freeze
+  FINISHED_TX_STATES = ['initiated', 'free', 'rejected', 'confirmed', 'canceled', 'errored', 'payment_intent_action_expired', 'payment_intent_failed', 'refunded', 'dismissed', 'disputed'].freeze
 
   attr_accessor :contract_agreed
 
@@ -99,13 +99,14 @@ class Transaction < ApplicationRecord
   monetize :minimum_buyer_fee_cents, with_model_currency: :minimum_buyer_fee_currency
 
   scope :exist, -> { where(deleted: false) }
+  scope :initialized, -> { where.not(current_state: nil) }
   scope :for_person, -> (person){
     where('listing_author_id = ? OR starter_id = ?', person.id, person.id)
   }
   scope :availability_blocking, -> do
     where(current_state: ['payment_intent_requires_action', 'preauthorized', 'paid', 'confirmed', 'canceled', 'dismissed', 'disputed'])
   end
-  scope :non_free, -> { where('current_state <> ?', ['free']) }
+  scope :non_free_including_uninitialized, -> { where('current_state IS NULL OR current_state <> ?', ['free']) }
   scope :by_community, -> (community_id) { where(community_id: community_id) }
   scope :with_payment_conversation, -> {
     left_outer_joins(:conversation).merge(Conversation.payment)

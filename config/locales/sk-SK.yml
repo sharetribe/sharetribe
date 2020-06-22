@@ -182,6 +182,7 @@ sk-SK:
         status_resent: "Overovací e-mail bol znovu odoslaný na %{email}. %{resend_link}"
         resend_link: "Znovu poslať"
         invalid_email_error: "Nesprávny formát e-mailu %{email}"
+        invalid_email_address: ~
         invalid_email_domain: "E-mailová adresa %{email} využíva nepodporovaného poskytovateľa e-mailu: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Ďalšie informácie nájdete v článku Centrum pomoci."
         unknown_error: "Niečo sa pokazilo"
@@ -3231,6 +3232,7 @@ sk-SK:
       cancel: Zrušiť
       gender: Pohlavie
       phone_number: "Tel. číslo"
+      phone_info_text: ~
       address_kana_postal_code: "PSČ kana"
       address_kana_state: "Štát kana"
       address_kana_city: "Mesto kana"

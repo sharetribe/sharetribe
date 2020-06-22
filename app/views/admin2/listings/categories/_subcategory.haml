@@ -1,0 +1,13 @@
+.list-group-item.nested-2.field-data.subCategoryWrapper{data: {id: subcategory.id}}
+  .categoryName= subcategory.display_name(I18n.locale)
+  .actions
+    %span.handle-move{'aria-hidden' => true}
+    - if !subcategory.can_destroy?
+    - elsif subcategory.remove_needs_caution?
+      = link_to remove_popup_admin2_listings_category_path(subcategory), remote: true do
+        %span.remove
+    - else
+      = link_to '#', class: 'remove-category', data: { url: admin2_listings_category_path(subcategory), caption: t('admin2.categories.delete_category', category: subcategory.display_name(I18n.locale)) } do
+        %span.remove
+    = link_to edit_admin2_listings_category_path(subcategory), remote: true do
+      %span.edit

@@ -182,6 +182,7 @@ ro:
         status_resent: ~
         resend_link: Retrimite
         invalid_email_error: ~
+        invalid_email_address: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: "Ceva nu a funcționat"
@@ -1073,7 +1074,7 @@ ro:
       connect_a_payment_provider: ~
       contact_support: ~
       no_payments_link_text: aici
-      your_country: ~
+      your_country: Țara
       you_cannot_use_online_payments: ~
       which_to_choose: ~
       you_can_use_stripe_or_paypal: ~
@@ -1980,7 +1981,7 @@ ro:
       or_see_what_the_others: "...sau vedeți ceea ce alții"
       recent_events: "Evenimente recente"
       requesting: nevoie
-      tell_it_here: "Spuneți aici!"
+      tell_it_here: "Spune aici!"
       welcome_to_new_kassi: "Bine ai venit la %{service_name}"
       no_reviews: "Fără recenzii"
       no_image: "Fără imagine"
@@ -2267,7 +2268,7 @@ ro:
       listings: Listări
       listings_search_placeholder: "Caută după titlu listării"
       transactions_search_placeholder: ~
-      transactions: ~
+      transactions: Tranzactii
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Nu ai permisiunea de a vizualiza acest anunt."
@@ -3046,7 +3047,7 @@ ro:
           saving_failed: "Modificările nu au fost salvate. Reîncarcă pagina."
         working_hours:
           required: necesar
-          overlaps: suprane
+          overlaps: suprapune
           covers: acoperă
       pricing_units:
         piece: ~
@@ -3143,38 +3144,39 @@ ro:
     paypal_can_accept: "Acum ai toate setarile corecte pentru a primi bani in contul tau PayPal"
     paypal_connected_give_permission: ~
     stripe_account_restricted: "Platile online catre contul tau sunt restrictionate!"
-    stripe_account_restricted_info: ~
+    stripe_account_restricted_info: "Vă rugăm să editați detaliile contului dvs. bancar pentru a oferi mai multe informații furnizorului de plăți."
     stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
-    stripe_account_pending_verification: ~
-    stripe_account_pending_verification_info: ~
+    stripe_account_restricted_soon_info: "Vă rugăm să editați detaliile contului dvs. bancar pentru a oferi mai multe informații furnizorului de plăți."
+    stripe_account_pending_verification: "Detaliile contului au fost salvate cu succes. Așteaptă verificarea contului de la furnizorul de plată."
+    stripe_account_pending_verification_info: "Reveniți mai târziu pentru a vă asigura că totul este în ordine și pentru a adăuga actele de confirmare a identității."
     form_new:
-      need_info: ~
+      need_info: "Avem nevoie de câteva informații despre dvs. pentru a vă putea transfera bani."
       select_country: ~
       legal_name: ~
-      first_name: ~
-      last_name: ~
+      first_name: Prenume
+      last_name: Nume
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
       last_name_kanji: ~
-      country: ~
-      birth_date: ~
+      country: Țara
+      birth_date: "Data nașterii"
       ssn_last_4: ~
       personal_id_number: ~
-      address_country: ~
+      address_country: Țara
       address_state: ~
       address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
+      address_city: Oraș
+      address_postal_code: "Cod poștal"
+      address_line1: Adresa
       tos_link: ~
       tos_link_title: ~
-      save_details: ~
+      save_details: "Salvați detaliile"
       edit: ~
       cancel: ~
       gender: ~
-      phone_number: ~
+      phone_number: "Număr de telefon"
+      phone_info_text: "Numărul de telefon trebuie să înceapă cu prefixul țării, de exemplu"
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~
@@ -3193,7 +3195,7 @@ ro:
       bank_routing_1: ~
       bank_routing_2: ~
       bank_currency: ~
-      update_also_bank_account: ~
+      update_also_bank_account: "Actualizați și contul bancar"
       messages:
         account_number: ~
         routing_number: ~
@@ -3212,13 +3214,13 @@ ro:
         digits_or_chars: ~
     form_verification:
       personal_id_number: ~
-      document: ~
-      document_back: ~
+      document: "Dovada identității (pașaport, permis de conducere, carte de identitate)"
+      document_back: "Dovada identității (pașaport, permis de conducere, carte de identitate)(partea verso)"
       send_verification: ~
-      need_verification: ~
-      additional_document: ~
-      additional_document_back: ~
-      files_need_to_be: ~
+      need_verification: "Este nevoie de verificări suplimentare"
+      additional_document: "Un document care arată adresa, fie o carte de identitate sau o factură de utilitate de la o companie de utilități cunoscută."
+      additional_document_back: "Un document care arată adresa, fie o carte de identitate sau o factură de utilitate de la o companie de utilități cunoscută(verso document)"
+      files_need_to_be: "Fișierele trebuie să fie în format JPEG sau PNG mai mici de 5MB. Nu este posibilă verificarea PDF-urilor. Fișierele trebuie să fie în culori, să fie rotite cu imaginea în partea dreaptă în sus și să aibă toate informațiile clar lizibile."
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
@@ -3229,7 +3231,7 @@ ro:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
+    title: "Setarea Plăților"
     bank_account: "Cont bancar"
     paypal: ~
     bank_account_details: "Pentru tranzacții în contul bancar trebuie să adaugi informațiile bancare. Clienții tăi vor putea plăti folosind cardul."

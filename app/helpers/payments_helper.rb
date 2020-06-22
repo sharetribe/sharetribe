@@ -15,6 +15,10 @@ module PaymentsHelper
       account_number: { title: 'IBAN', format: 'BE12345678912345', regexp: 'BE[0-9]{2}[0-9]{12}', test_regexp: 'BE'+TEST_IBAN },
       phone_number: '+32 123 03 21 72'
     },
+    BG: {
+      account_number: { title: 'IBAN', format: 'BG80BNBG96611020345678', regexp: 'BG[0-9]{2}[A-Z]{4}[0-9]{4}[A-Z0-9]{10}', test_regexp: 'BG'+TEST_IBAN },
+      phone_number: '+359 2 916 6300'
+    },
     BR: {
       account_number: { format: 'format_varies_by_bank' },
       routing_1: { title: "bank_code", format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' },
@@ -27,6 +31,10 @@ module PaymentsHelper
       routing_2: { title: 'institution_number', format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' },
       separator: "-",
       phone_number: '+1 866 123 4567'
+    },
+    CY: {
+      account_number: {title: 'IBAN', format: 'CY17002001280000001200527600', regexp: 'CY[0-9]{2}[0-9]{3}[0-9]{5}[A-Z0-9]{16}', test_regexp: 'CY'+TEST_IBAN },
+      phone_number: '+357 22 865854'
     },
     CZ: {
       account_number: {title: 'IBAN', format: 'CZ6508000000192000145399', regexp: 'CZ[0-9]{2}[0-9]{4}[0-9]{6}[0-9]{10}', test_regexp: 'CZ'+TEST_IBAN },
@@ -92,6 +100,10 @@ module PaymentsHelper
     LV: {
       account_number: {title: 'IBAN', format: 'LV80BANK0000435195001', regexp: 'LV[0-9]{2}[A-Z]{4}[A-Z0-9]{13}', test_regexp: 'LV'+TEST_IBAN },
       phone_number: '+371 12 123 450'
+    },
+    MT: {
+      account_number: {title: 'IBAN', format: 'MT84MALT011000012345MTLCAST001S', regexp: 'MT[0-9]{2}[A-Z]{4}[0-9]{5}[A-Z0-9]{18}', test_regexp: 'MT'+TEST_IBAN },
+      phone_number: '+356 2122 1623'
     },
     MX: {
       account_number: {title: 'CLABE', format: '123456789012345678', regexp: '[0-9]{18}', test_regexp: '[0-9]{18}' },

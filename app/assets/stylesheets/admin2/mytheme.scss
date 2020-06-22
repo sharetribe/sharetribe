@@ -10437,6 +10437,31 @@ a.negative-link:hover {
   width: calc(100% - 48px);
   border-radius: 0 4px 4px 0; }
 
+.categoryNameWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around; }
+.categoryNameWrapper .actions {
+  top: 22px;
+  position: relative; }
+
+.categoryName {
+  width: calc(100% - 150px); }
+
+.subCategoryWrapper {
+  -webkit-box-align: start !important;
+  -webkit-align-items: flex-start !important;
+  -ms-flex-align: start !important;
+  align-items: flex-start !important; }
+
 .nested-1 {
   padding: 16px 24px;
   margin-bottom: 16px;
