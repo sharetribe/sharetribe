@@ -13,6 +13,14 @@ module Donalo
         ::StripeService::Report
       ]
 
+      module SendPaymentReceiptsOverride
+        def seller_should_receive_receipt(_seller_id)
+          false
+        end
+      end
+
+      ::SendPaymentReceipts.prepend(SendPaymentReceiptsOverride)
+
       # StripeHelper.user_active_true? to always return true, so the
       # users don't need to setup their payment setings
       module ::StripeHelper
