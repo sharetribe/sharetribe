@@ -46,6 +46,12 @@ namespace :donalo do
     translate(locale: 'es', key: 'conversations.confirm.cancel_description_team', value: "En caso de que haya surgido cualquier incidencia referente a la recogida del producto por favor marque la casilla \"Hubo un incidente\" y el equipo Donalo se pondrá en contacto contigo.")
     translate(locale: 'ca', key: 'conversations.confirm.cancel_description_team', value: "En cas que hagi sorgit qualsevol incidència referent a la recollida del producte si us plau marqui la casella \"Obrir incidència\" i l'equip Donalo es posarà en contacte amb tu.")
 
+    translate(locale: 'es', key: 'transactions.total', value: "Total (IVA incluido):")
+    translate(locale: 'ca', key: 'transactions.total', value: "Total (IVA inclòs):")
+
+    translate(locale: 'es', key: 'transactions.total_to_pay', value: "Pago total (IVA incluido):")
+    translate(locale: 'ca', key: 'transactions.total_to_pay', value: "Pagament total (IVA inclòs):")
+
   end
 
   def translate(locale:, key:, value:)
