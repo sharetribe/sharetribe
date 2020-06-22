@@ -33,15 +33,15 @@
       = check_box_tag :online_payments, true, shape[:online_payments], class: %i[form-check-input js-online-payments]
       = label_tag :online_payments, t('admin2.order_types.online_payments_label'), class: %i[form-check-label js-online-payments-label]
 
-  - unless uneditable_fields[:shipping_enabled]
-    .form-check
-      = check_box_tag :shipping_enabled, true, shape[:shipping_enabled], class: %i[form-check-input js-shipping-enabled]
-      = label_tag :shipping_enabled, t('admin2.order_types.shipping_label'), class: %i[form-check-label js-shipping-enabled-label]
-
   - unless uneditable_fields[:availability]
     .form-check
       = check_box_tag :availability, 'booking', shape[:availability] == 'booking', class: %i[form-check-input js-availability]
       = label_tag :availability, t('admin2.order_types.allow_providers_to_manage_availability'), class: %i[form-check-label js-availability-label]
+
+  - unless uneditable_fields[:shipping_enabled]
+    .form-check
+      = check_box_tag :shipping_enabled, true, shape[:shipping_enabled], class: %i[form-check-input js-shipping-enabled]
+      = label_tag :shipping_enabled, t('admin2.order_types.shipping_label'), class: %i[form-check-label js-shipping-enabled-label]
 
 .form-group
   %label.js-availability-unit-label= t('admin2.order_types.units_title_with_availability')

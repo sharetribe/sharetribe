@@ -28,6 +28,7 @@ $(function() {
         $('#template_order_type option[value=""]').show();
         $('#template_order_type').prop('selectedIndex', 0);
         $('#category-body').html('');
+        $('button.order-type-footer').prop('disabled', true);
     });
 
     $(document).on('click', '.confirm-order-type-true', function () {
