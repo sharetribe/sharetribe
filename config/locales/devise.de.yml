@@ -47,7 +47,7 @@ de:
       send_instructions: "In wenigen Minuten erhältst du eine E-Mail mit Anweisungen zum Entsperren deines Kontos."
       unlocked: "Dein Konto wurde erfolgreich entsperrt. Bitte melde Dich an, um fortzufahren."
     omniauth_callbacks:
-      success: "Erfolgreich von %{kind} Konto autorisiert."
+      success: "Erfolgreich vom %{kind} Konto autorisiert."
       failure: "Authentifizierung von %{kind} fehlgeschlagen wegen: \"%{reason}\"."
     mailer:
       confirmation_instructions:
