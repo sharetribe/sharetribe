@@ -177,7 +177,7 @@ de:
         status_resent: "Verifizierungsmail erneut gesendet an %{email}. %{resend_link}"
         resend_link: "Erneut senden"
         invalid_email_error: "Ungültiges Email Format für '%{email}'"
-        invalid_email_address: ~
+        invalid_email_address: "Bitte eine gültige Email-Adresse eingeben"
         invalid_email_domain: "Die \"%{email}\" Email Adresse nutzt einen nicht unterstützten Email Provider: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lies den Artikel im Help Center für mehr Informationen."
         unknown_error: "Da ist etwas schief gelaufen"
@@ -235,7 +235,7 @@ de:
         miles: Meilen
         show_only_nearby: "Mit Umgebungssuche nur Einträge in der Nähe zeigen"
         allow_users_to_add_location: "Den Benutzern erlauben, einen Standort zu ihrem Profil und ihren Angeboten hinzufügen, und zeige eine Karte auf der Suchseite"
-        fuzzy_location: ~
+        fuzzy_location: "Einen Kreis anstatt die genaue Lage anzeigen"
         listing_preferences: Eintragseinstellungen
         transaction_preferences: Auftragspräferenzen
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Eintragsseite darstellen"
@@ -554,7 +554,7 @@ de:
         testimonials: Bewertungen
         no_testimonials_found: "Keine Bewertungen gefunden."
         displaying_xx_reviews: "<b>%{count}</b> Bewertungen werden angezeigt, unter Transaktionen %{tx_from} - %{tx_to} von insgesamt <b>%{all_count}</b> Transaktionen."
-        search_keyword: "Nach Name, E-mail oder Schlagwort suchen"
+        search_keyword: "Nach Name oder Schlagwort suchen"
         search: Suche
         reset_search: "Alle anzeigen"
         for_keyword: "für: <b>%{keyword}</b>"
@@ -739,14 +739,14 @@ de:
           hero_title: Hero
           hero_description: "Stelle das Hintegrundbild für den Hero-Abschnitt fest. Der Slogan und die Beschreibung werden konfiguriert auf %{link}."
           basic_details_tab: "'Grundangaben' -Tab"
-          cta_button: ~
-          cta_button_info: ~
+          cta_button: Call-to-Action-Abschnitt
+          cta_button_info: "Der Text des Knopfes muss nicht bearbeitet werden. Du kannst dieses Feld einfach leer lassen. Normalerwise ist der Text \"Suchen\" auf öffentlichen Marktplätzen, und \"Registrieren\" auf privaten Marktplätzen."
           button_type:
-            default: ~
-            button: ~
-            none: ~
-          button_content: ~
-          click_me: ~
+            default: Standard
+            button: Taste
+            none: Nichts
+          button_content: "Inhalt der Taste"
+          click_me: "Hier klicken!"
         footer:
           footer_title: Footer
           footer_style: Footer-Stil
@@ -1438,10 +1438,10 @@ de:
       mark_as_refunded: "Als erstattet markieren"
       dismiss: "Ablehnen und auszahlen"
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Neue Kontaktaufnahme durch das Kontaktformular auf %{service_name}"
+    feedback_body: "%{author_name_and_email} hat den folgenden Eintrag auf das Kontaktformular von %{service_name} abgegeben. Diese Mitteilung ist automatisch an alle %{service_name} -Administratoren geschickt."
+    unlogged_user: "Ein nicht eingeloggter Benutzer"
+    anonymous_user: "Ein anonymer Benutzer"
   community_memberships:
     access_denied:
       access_denied: "Zugriff verweigert"
@@ -2706,7 +2706,7 @@ de:
         other: "Der Zugang zu %{service_name} ist beschränkt. Um beitreten zu können, brauchst du eine E-Mail-Adresse, die belegt, dass deine Teilnahme erlaubt ist."
       family_name: Nachname
       given_name: Vorname
-      i_accept_the_terms_and_privacy: "Ich akzeptiere die %{privacy} und %{terms}"
+      i_accept_the_terms_and_privacy: "Ich akzeptiere %{privacy} und die %{terms}"
       admin_emails_consent: "Ich bin damit einverstanden, gelegentlich Emails vom %{service_name} Team zu erhalten und habe zur Kenntnis genommen, dass ich es mir jederzeit anders überlegen kann"
       invalid_invitation_code: "Der Einladungs-Code ist ungültig."
       invitation_code: Einladungscode
@@ -3205,7 +3205,7 @@ de:
       cancel: Abbrechen
       gender: Geschlecht
       phone_number: Telefonnummer
-      phone_info_text: ~
+      phone_info_text: "Die Telefonnummer sollte mit dem Ländercode anfangen, zum Beispiel"
       address_kana_postal_code: "Postleitzahl kana"
       address_kana_state: "Staat kana"
       address_kana_city: "Stadt kana"
@@ -3302,8 +3302,8 @@ de:
         text: Text
         youtube_video_id: "Youtube Video ID"
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: Text
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "British Columbia"

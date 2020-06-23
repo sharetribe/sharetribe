@@ -2694,14 +2694,14 @@ ko:
       family_name: 성
       given_name: 이름
       i_accept_the_terms_and_privacy: "%{terms} 및 %{privacy}에 동의 합니다."
-      admin_emails_consent: "%{service_name} 이메일 수신에 동의하고 언제든지 취소 할 수 있음을 알고 있습니다."
+      admin_emails_consent: "%{service_name} 이메일 수신 동의"
       invalid_invitation_code: "초대 코드가 유효하지 않습니다."
       invitation_code: 초대코드
       not_required: ", 필요하지 않습니다"
       notification_is_mandatory: "알림 수신을 위해 하나 이상의 전자 메일 주소를 선택해야합니다. %{service_name}에서 이메일을받지 않으려면 이메일 알림 설정을 확인하십시오."
       password_again: "비밀번호 재확인"
       show_my_name_to_others: "다른 %{service_name} 사용자에게 내 실명 표시"
-      sign_up: "새 %{service_name} 계정을 만드세요"
+      sign_up: "%{service_name} 신규 계정 만들기"
       terms: 이용약관
       privacy: 개인정보정책
       visible_only_to_you: "본인과 %{service_name}에만 보여집니다"
