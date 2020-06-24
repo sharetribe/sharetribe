@@ -430,17 +430,15 @@ namespace :sharetribe do
           soft_delete_marketplace!(mp_id)
         end
 
-        # Temporary disable hard data deletion. Run only soft-deletion for a while.
+        # Delete any old expired paid marketplaces
+        old_marketplaces_with_plans(threshold_date).each do |mp_id|
+          delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        end
 
-        # # Delete any old expired paid marketplaces
-        # old_marketplaces_with_plans(threshold_date).each do |mp_id|
-        #   delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
-        # end
-
-        # # Delete old trials
-        # old_marketplace_trials(threshold_date).each do |mp_id|
-        #   delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
-        # end
+        # Delete old trials
+        old_marketplace_trials(threshold_date).each do |mp_id|
+          delete_marketplace_data!(mp_id, sleep_time, query_sleep_time)
+        end
 
         sleep 3600 * 6 # 6 hours
       end
