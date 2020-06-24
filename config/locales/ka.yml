@@ -955,7 +955,7 @@ ka:
       preview: "საიტის გადახედვა"
       whats_new: ~
     listing_shapes:
-      availability_title: ხელმისაწვდომობა
+      availability_title: "მონიშნეთ დაჯავშნილი თარიღები"
       read_more: "წაიკითხეთ მეტი ავტომატური ხელმისაწვდომობის მართვაზე."
       read_more_availability_management: "წაიკითხეთ მეტი ხელმისაწვდომობის შესახებ"
       allow_providers_to_manage_availability: "მიეცი უფლება პროვაიდერებს რათა მართონ მათი თავისუფალი დრო კალენდრიდან."
@@ -1264,7 +1264,7 @@ ka:
       total_value_stripe: ~
       paypal_fee: ~
       paypal_fee_info: "არ შეიცავს %{link}"
-      shipping_price_label: "მიტანის სერვისი"
+      shipping_price_label: "მიტანის სერვისიმიტანის სერვისი:"
       stripe-fee_label: ~
     confirm:
       confirm_description: "თუ თქვენი შეკვეთა შესრულდა უნდა მონიშნოთ იგი დასრულებულად. შემდეგ შეგეძლებათ მისცეთ შეფასება სხვა ნაწილს."
@@ -1619,7 +1619,7 @@ ka:
       you_have_made_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-ის გადასახადი:"
-      shipping_total: "მიტანის სერვისი:"
+      shipping_total: "მიტანის სერვისიმიტანის სერვისი:"
     braintree_new_payment:
       product: პროდუქტი
       price_payer_paid: "ფასი %{payer_full_name} გადახდილია:"
@@ -1894,7 +1894,7 @@ ka:
       offer_partitive: შეთავაზება
       request_partitive: ყიდვა
   header:
-    about: შესახებ
+    about: "ჩვენს შესახებ"
     home: მთავარი
     members: გაერთიანება
     new_listing: "ახალი სია"
@@ -2010,7 +2010,7 @@ ka:
       search: ძებნა
       map: "რუკის ჩვენება"
       list: "სიის ჩვენება"
-      map_button: რუქა
+      map_button: რუკა
       grid_button: ცხრილი
       list_button: სია
       all_listing_types: "ყველა სიის ტიპი"
@@ -2280,7 +2280,7 @@ ka:
     edit:
       edit_listing: "დაარედაქტირე განცხადება"
     edit_links:
-      close_listing: "სიის დახურვა"
+      close_listing: "განცხადების დახურვა"
       edit_listing: "დაარედაქტირე განცხადება"
       reopen_listing: "თავიდან გახსენი ჩამონათვალი"
       move_to_top: "გადაიტანე მთავარი გვერდის თავში"
@@ -2515,7 +2515,7 @@ ka:
       processing_uploaded_image: "(სურათი იტვირთება)"
       listing_created_at: "ჩამონათვალი შექმნილია"
       price:
-        per_quantity_unit: "ყოველ %{quantity_unit}"
+        per_quantity_unit: "%{quantity_unit}"
         per_day: დღიურად
       delivery: "მიტანის მეთოდი"
       shipping: "ფოსტით გაგზავნა (+%{price})"
@@ -2711,7 +2711,7 @@ ka:
       manage_listings: "მართეთ ჩემი ყველა ჩამონათვალი"
     show:
       contact: "დაეკონტაქტე %{person}ს"
-      about_me: "ჩემ შესახებ:"
+      about_me: "ჩემს შესახებ:"
       add_description: "გააზიარე რამე შენ შესახებ"
       add_location: "ადგილმდებარეობის დამატება"
       add_phone_number: "ტელეფონის ნომრის დამატება"
@@ -2845,7 +2845,7 @@ ka:
       unsubscribe_unsuccesful: "გამოწერის გაუქმების შეცდომა"
       unsuccessful_unsubscribe_info_text: "გამოწერის გაუქმების ბმულს ვადა გაუვიდა. შედი სისტემაში, რომ შეცვალოთ ელ. ფოსტის გამოწერის პარამეტრები"
     profile:
-      about_you: "შენ შესახებ"
+      about_you: "შენს შესახებ"
       city: ქალაქი
       family_name: გვარი
       given_name: სახელი
