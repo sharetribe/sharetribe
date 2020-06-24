@@ -9,7 +9,7 @@
     - if @conversation.last_transition_by_admin?
       - other_party_full_name = t('emails.transaction_confirmed.team_title')
     - else
-      - other_party_full_name = PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_with_initial")
+      - other_party_full_name = PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only")
     %h1
       = t("emails.common.hi", name: recipient_name)
       = t("emails.transaction_confirmed_v2.headline_#{@conversation.status}", other_party_full_name: other_party_full_name, listing_link: listing_link).html_safe
