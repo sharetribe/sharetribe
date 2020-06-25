@@ -70,6 +70,68 @@ namespace :donalo do
     translate(locale: 'es', key: 'conversations.confirm.cancel', value: "Hubo un incidente")
     translate(locale: 'ca', key: 'conversations.confirm.cancel', value: "Obrir incidència")
 
+    translate(locale: 'es', key: 'emails.confirm_reminder.you_have_not_yet_confirmed_or_canceled_request', value: "Aún no has completado la solicitud %{request_link}.  Si la solicitud se completó y ya tienes el producto en tu posesión por favor marca la opción 'he recibido el producto' para confirmarlo. Después de eso podrás dar una valoración a %{other_party_given_name}.")
+    translate(locale: 'ca', key: 'emails.confirm_reminder.you_have_not_yet_confirmed_or_canceled_request', value: "Encara no has completat la sol·licitud %{request_link}. Si la sol·licitud es va completar i ja tens el producte a la teva possessió si us plau marca l'opció 'he rebut el producte' per confirmar-ho. Després d'això podràs donar una valoració a %{other_party_given_name}.")
+
+    translate(locale: 'es', key: 'emails.transaction_confirmed.request_marked_as_canceled', value: "Hubo una incidencia")
+    translate(locale: 'ca', key: 'emails.transaction_confirmed.request_marked_as_canceled', value: "Hi ha hagut una incidència")
+
+    translate(locale: 'es', key: 'emails.confirm_reminder.cancel_it_link_text', value: "abrir una incidencia")
+    translate(locale: 'ca', key: 'emails.confirm_reminder.cancel_it_link_text', value: "obrir una incidència")
+
+    translate(locale: 'es', key: 'emails.confirm_reminder.automatic_confirmation', value: "Si no confirmas la solicitud o abres una indencia en %{days_to_automatic_confirmation} días después de que la solicitud haya sido aceptada, la marcaremos como completada automáticamente.")
+    translate(locale: 'ca', key: 'emails.confirm_reminder.automatic_confirmation', value: "Si no confirmes la sol·licitud o obres una indencia en %{days_to_automatic_confirmation} dies després que la sol·licitud hagi estat acceptada, la marcarem com completada automàticament.")
+
+    translate(locale: 'es', key: 'emails.transaction_confirmed.has_marked_request_as_canceled', value: "%{other_party_full_name} abrió una incidència para '%{request}'. Aún así puedes dar una valoración a %{other_party_given_name}.")
+    translate(locale: 'ca', key: 'emails.transaction_confirmed.has_marked_request_as_canceled', value: "%{other_party_full_name} va obrir una incidència per a '%{request}'. Tot i així pots donar una valoració a %{other_party_given_name}.")
+
+    translate(locale: 'es', key: 'emails.conversation_status_changed.remember_to_confirm', value: "Cuando la transacción sea completada, recuerda marcarla como completada. Si la transacción no es completada, dispones de %{days_to_automatic_confirmation} días para abrir una indencia o será marcada como completada automáticamente.")
+    translate(locale: 'ca', key: 'emails.conversation_status_changed.remember_to_confirm', value: "Quan la transacció sigui completada, recorda marcar-la com completada. Si la transacció no és completada, disposes de %{days_to_automatic_confirmation} dies per obrir una indencia o serà marcada com completada automàticament.")
+
+    translate(locale: 'es', key: 'emails.new_payment.new_payment', value: "Has recibido un nuevo pago")
+
+    translate(locale: 'es', key: 'emails.new_payment.price_per_unit_type', value: "Precio por %{unit_type}")
+
+    translate(locale: 'es', key: 'emails.new_payment.quantity', value: "Cantidad:")
+
+    translate(locale: 'es', key: 'emails.new_payment.you_have_received_new_payment', value: "%{payer_full_name} te ha pagado <b>%{payment_sum}<b> por <b>%{listing_title}</b>. Aquí está tu recibo.")
+
+    translate(locale: 'es', key: 'emails.new_payment.stripe.you_have_received_new_payment', value: "La cantidad de <b>%{payment_sum}</b> ha sido pagada para <b>%{listing_title}</b> por %{payer_full_name}. El dinero esta siendo retenido por %{service_name} hasta que la orden sea marcada como completada. Aquí está tu recibo.")
+
+    translate(locale: 'es', key: 'emails.transaction_preauthorized.subject', value: "%{requester} está interesado en %{listing_title} en %{service_name}")
+    translate(locale: 'ca', key: 'emails.transaction_preauthorized.subject', value: "%{requester} està interessat en %{listing_title} a %{service_name}")
+
+    translate(locale: 'es', key: 'emails.transaction_preauthorized.transaction_requested_by_user', value: "Buenas noticias! %{requester} está interesado en \"%{listing_title}\" y ya ha autorizado el pago por este anuncio.")
+
+    translate(locale: 'es', key: 'emails.transaction_preauthorized.if_you_do_accept_stripe', value: "Si aceptas la solicitud dentro de este periodo, el pago será completado. Recibirás el dinero directamente en tu cuenta de banco después de que hayas completado %{listing_title} para %{requester}.")
+
+    translate(locale: 'es', key: 'emails.transaction_preauthorized.if_you_do_not_accept', value: "Si rechazas la transacción o no aceptas la oferta durante este tiempo, la transacción se cancelará automáticamente, no se le cobrará a %{requester} y no recibirás el pago.")
+
+    translate(locale: 'es', key: 'emails.transaction_preauthorized_reminder.remember_to_accept', value: "Recuerda aceptar la solicitud de %{requester} sobre tu anuncio \"%{listing_title}\". %{requester} ya ha pagado. Debes aceptar la solicitud para poder recibir el pago.")
+
+    translate(locale: 'es', key: 'emails.transaction_preauthorized_reminder.one_day_left', value: "Si no aceptas la solicitud en 1 día, la solicitud se rechazará automáticamente y no recibirás ningún pago.")
+
+    translate(locale: 'es', key: 'emails.transaction_disputed.subject', value: "Orden disputada - El equipo de %{service_name} está revisando la situación")
+
+    translate(locale: 'es', key: 'emails.transaction_disputed.subject_admin', value: "Una transacción ha sido disputada, debes decidir que pasa a continuación")
+
+    translate(locale: 'es', key: 'emails.transaction_disputed.the_order_has_been_canceled', value: "la %{transaction_link} ha sido disputada.")
+
+    translate(locale: 'es', key: 'emails.transaction_disputed.the_order_between_buyer_and_seller_has_been_canceled', value: "la %{transaction_link} entre %{buyer} y %{seller} ha sido disputada.")
+
+    translate(locale: 'es', key: 'emails.transaction_disputed.you_must_now_decide', value: "Debes decidir si un reembolso es válido o no. Si un reembolso no es valido, puede descartar la disputa. Puedes %{learn_more_link}.")
+
+    translate(locale: 'es', key: 'emails.transaction_refunded.subject', value: "La orden has sido marcada como reembolsada. El equipo de %{service_name} ha aprobado la disputa de %{buyer}")
+
+    translate(locale: 'es', key: 'emails.transaction_refunded.marketplace_team_has_approved_the_cancellation', value: "el equipo de %{service_name} ha aprovado la disputa de %{transaction_link} y ha marcado el pago como reembolsado.")
+
+    translate(locale: 'es', key: 'emails.transaction_cancellation_dismissed.subject', value: "Disputa de la orden descartada - El equipo de %{service_name} ha rechazado la disputa de %{buyer}")
+
+    translate(locale: 'es', key: 'emails.transaction_cancellation_dismissed.marketplace_team_has_rejected_the_cancellation', value: "el equipo de %{service_name} ha rechazado la disputa de %{transaction_link}.")
+
+
+
+
   end
 
   def translate(locale:, key:, value:)
