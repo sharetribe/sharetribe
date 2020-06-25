@@ -29,7 +29,7 @@
 //= require jquery.lightbox_me
 //= require jquery.transit.min
 //= require jquery.ui.widget
-//= require load-image.min.js
+//= require load-image.all.min.js
 //= require canvas-to-blob.min.js
 //= require jquery.fileupload
 //= require jquery.fileupload-process
