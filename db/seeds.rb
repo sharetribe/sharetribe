@@ -65,4 +65,6 @@ PlanService::Store::Plan::PlanModel.create(
   expires_at: Time.current + 20.years
 )
 
+require Rails.root.join('db/seeds/categories.rb')
+
 puts "\n\e[33mYou can now navigate to your markeplace at #{url}"
