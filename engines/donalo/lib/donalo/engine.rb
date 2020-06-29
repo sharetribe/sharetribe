@@ -21,6 +21,14 @@ module Donalo
 
       ::SendPaymentReceipts.prepend(SendPaymentReceiptsOverride)
 
+      module ListingCreatedJobOverride
+        def send_payment_settings_reminder?(_listing_id, _community)
+          false
+        end
+      end
+
+      ::ListingCreatedJob.prepend(ListingCreatedJobOverride)
+
       # StripeHelper.user_active_true? to always return true, so the
       # users don't need to setup their payment setings
       module ::StripeHelper
