@@ -8,7 +8,7 @@ describe Donalo::Engine::SendPaymentReceiptsOverride do
 
     it 'returns false' do
       dummy_receiver = DummyReceiver.new
-      result = dummy_receiver.seller_should_receive_receipt(nil) 
+      result = dummy_receiver.seller_should_receive_receipt(nil)
       expect(result).to eq(false)
     end
   end
