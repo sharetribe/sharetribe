@@ -30,7 +30,7 @@ class ActionDispatch::Session::MigrateToCookieStore < ActionDispatch::Session::C
 
       if data["session_id"]
         data = persistent_session_id!(data)
-        [data["session_id"], data]
+        [Rack::Session::SessionId.new(data["session_id"]), data]
       else
         db_session = find_db_session(req)
 
@@ -42,7 +42,7 @@ class ActionDispatch::Session::MigrateToCookieStore < ActionDispatch::Session::C
         else
           # Create new session using the normal CookieStore
           data = persistent_session_id!(data)
-          [data["session_id"], data]
+          [Rack::Session::SessionId.new(data["session_id"]), data]
         end
       end
 
