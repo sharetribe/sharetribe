@@ -251,6 +251,12 @@ Rails.application.routes.draw do
         end
       end
       namespace :listings do
+        resources :order_types, path: 'order-types' do
+          collection do
+            post :add_unit
+            post :order
+          end
+        end
         resources :categories do
           member do
             get :remove_popup

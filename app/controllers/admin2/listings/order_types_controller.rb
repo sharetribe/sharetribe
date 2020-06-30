@@ -60,7 +60,7 @@ module Admin2::Listings
 
     def add_unit
       @data = { locals: params['unit_label'].keys,
-                uniq: DateTime.now.strftime('%Q'),
+                uniq: DateTime.current.strftime('%Q'),
                 unit_label: params['unit_label'],
                 selector_label: params['selector_label'],
                 unit_type: params['unit_type'] }

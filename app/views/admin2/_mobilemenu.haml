@@ -73,10 +73,10 @@
         %ul#listings-mobile.collapse.subtitle{class: expand_ul('listings')}
           %li#managelistings-mobile{class: active_li('manage_listings')}
             = link_to t('admin2.sidebar.listings.manage_listings'), admin2_listings_manage_listings_path(direction: 'desc', sort: 'updated')
-          %li#ordertypes-mobile{class: active_li('order_types')}
-            = link_to t('admin2.sidebar.listings.order_types'), admin2_listings_order_types_path
           %li#categories-mobile{class: active_li('categories')}
             = link_to t('admin2.sidebar.listings.categories'), admin2_listings_categories_path
+          %li#ordertypes-mobile{class: active_li('order_types')}
+            = link_to t('admin2.sidebar.listings.order_types'), admin2_listings_order_types_path
           %li#listingfields-mobile
             %a{:href => 'listing-fields.php'} Listing fields
           %li#listingapproval-mobile{class: active_li('listing_approval')}
