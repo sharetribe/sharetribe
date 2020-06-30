@@ -72,7 +72,7 @@
         %input#pricingUnitPerPasta.form-check-input{checked: true, disabled: true, type: :checkbox}
         = label_tag "custom_units[existing][#{index}]", "#{t('admin2.order_types.per')} #{unit[:name][I18n.locale.to_s]}", class: %i[form-check-label js-unit-label checkbox-row-label], for: :pricingUnitPerPasta
         .actions
-          %span.remove-pricing-unit-trigger.remove{"aria-hidden" => "true"}
+          %span.remove-pricing-unit-trigger.js-unit-label.remove{"aria-hidden" => "true"}
       = render 'unit_delete', index: index, title: "#{t('admin2.order_types.per')} #{unit[:name][I18n.locale.to_s]}"
 
   %span#new_units_span

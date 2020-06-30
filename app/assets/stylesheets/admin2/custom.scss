@@ -126,7 +126,8 @@ a.remove:hover {
 
 .tooltip { pointer-events: none; }
 
-a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opacity_04 {
+a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opacity_04,
+.js-unit-label.remove.opacity_04{
   pointer-events: none;
 }
 
@@ -141,3 +142,7 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
 .category-group .list-group .field-data:last-of-type {
   border-bottom: 1px solid #EAEDF3;
 }
+
+.form-check-input[disabled] ~ .form-check-label,
+.form-check-input:disabled ~ .form-check-label {
+  color: #484B4A !important; }
