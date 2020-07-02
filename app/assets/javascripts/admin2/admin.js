@@ -19,3 +19,4 @@
 //= require admin2/order_types
 //= require admin2/listing_shapes
 //= require admin2/categories
+//= require admin2/listing_fields

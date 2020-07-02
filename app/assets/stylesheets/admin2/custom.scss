@@ -146,3 +146,9 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
 .form-check-input[disabled] ~ .form-check-label,
 .form-check-input:disabled ~ .form-check-label {
   color: #484B4A !important; }
+
+.add-new-unit-content,
+.remove-unit-content,
+.edit-unit-content{
+  display: none
+}
