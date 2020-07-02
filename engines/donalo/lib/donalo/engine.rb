@@ -2,8 +2,20 @@ module Donalo
   class Engine < ::Rails::Engine
     isolate_namespace Donalo
 
+    config.generators do |g|
+      g.test_framework :rspec
+    end
+
+    module SendPaymentReceiptsOverride
+      def seller_should_receive_receipt(_seller_id)
+        false
+      end
+    end
+
     # centralized payments
     initializer "donalo/monkey_patch/centralized_payments" do |app|
+      next unless defined?(::StripeHelper)
+
       # referencing monkey patched modules to ensure they are loaded
       PATCHED_OBJECTS = [
         ::StripeHelper,
@@ -12,12 +24,6 @@ module Donalo
         ::StripeService::API::Payments,
         ::StripeService::Report
       ]
-
-      module SendPaymentReceiptsOverride
-        def seller_should_receive_receipt(_seller_id)
-          false
-        end
-      end
 
       ::SendPaymentReceipts.prepend(SendPaymentReceiptsOverride)
 
@@ -126,6 +132,8 @@ module Donalo
 
     # stock control
     initializer "donalo/monkey_patch/stock_control" do |app|
+      next unless defined?(::Listing)
+
       Donalo.app_root = app.root
 
       PATCHED_OBJECTS = [
