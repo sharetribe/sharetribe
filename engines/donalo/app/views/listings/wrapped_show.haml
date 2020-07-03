@@ -30,4 +30,9 @@
     %strong= "#{@listing.minimum_required_units_custom_field&.name(I18n.locale)}:"
     %span= @listing.minimum_required_units
 
+  - unless @listing.valid_until.nil?
+    %div.row
+      %strong= "#{I18n.t('listings.form.valid_until.valid_until')}: "
+      %span= @listing.valid_until.to_date
+
 = render template: 'listings/show'
