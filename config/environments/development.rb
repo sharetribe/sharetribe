@@ -70,7 +70,7 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
-  config.active_storage.service = :local
+  config.active_storage.service = APP_CONFIG.active_storage_service.to_sym
 
   config.action_controller.action_on_unpermitted_parameters = :raise
 
@@ -113,5 +113,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  config.active_storage.service = :amazon
 end
