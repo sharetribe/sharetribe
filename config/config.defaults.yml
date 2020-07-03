@@ -52,6 +52,10 @@ default: &default_settings
   # Default bucket
   s3_bucket_name:
 
+  # Use local (disk) storage service by default. Set to "amazon" when using S3
+  # for CLP assets. See config/storage.yml.
+  active_storage_service: local
+
   # Bucket for CLP images
   clp_s3_bucket_name:
 
@@ -499,6 +503,8 @@ production: &production_settings
 
   eager_load: true
 
+  active_storage_service: amazon
+
   log_level: INFO
   stripe_private_key_pattern: "\\Ask_live_.{24,200}\\z"
   stripe_publishable_key_pattern: "\\Apk_live_.{24,200}\\z"
@@ -506,6 +512,8 @@ production: &production_settings
 staging:
   <<: *production_settings
   # By default staging has same settings as production, but those can be overridden here.
+
+  active_storage_service: amazon
 
   log_level: INFO
   stripe_private_key_pattern: "\\Ask_(test|live)_.{24,200}\\z"
@@ -567,6 +575,7 @@ test:
 
   # don't use S3 in tests. (this is the default to avoid
   # anyone losing money for paying for the hosting of test images)
+  active_storage_service: test
   s3_bucket_name:
   aws_access_key_id:
   aws_secret_access_key:
@@ -592,4 +601,3 @@ test:
   feature_stripe_private_key: sk_test_123456789012345678901234
 
   admin_enable_tracking_config: true
-
