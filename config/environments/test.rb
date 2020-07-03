@@ -33,7 +33,7 @@ Rails.application.configure do
   config.action_controller.action_on_unpermitted_parameters = :raise
 
   # Store uploaded files on the local file system in a temporary directory
-  config.active_storage.service = :test
+  config.active_storage.service = APP_CONFIG.active_storage_service.to_sym
 
   config.action_mailer.perform_caching = false
 
