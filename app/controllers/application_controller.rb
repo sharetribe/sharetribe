@@ -97,7 +97,7 @@ class ApplicationController < ActionController::Base
 
     # A hack to get the path where the user is
     # redirected after the locale is changed
-    new_path = request.fullpath.clone
+    new_path = request.fullpath.dup
     new_path.slice!("/#{params[:locale]}")
     new_path.slice!(0,1) if new_path =~ /^\//
     @return_to = new_path
