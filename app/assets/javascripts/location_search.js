@@ -126,9 +126,9 @@ window.ST = window.ST || {};
 
         placeService.getDetails({
           placeId: predictions[0].place_id, // first prediction is default
+          fields: ['address_components', 'geometry', 'icon', 'name'],
           sessionToken: sessionToken
         }, function(place, placeServiceStatus) {
-
           if(placeServiceStatus === serviceStatus.OK) {
             coordinateInput.value = place.geometry.location.toUrlValue();
             updateViewportData(place.geometry.viewport);
