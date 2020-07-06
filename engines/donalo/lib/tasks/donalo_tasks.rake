@@ -19,8 +19,8 @@ namespace :donalo do
     translate(locale: 'es', key: 'conversations.status.request_preauthorized', value: "Solicitud de producto pendiente de aprobar.<br/> Al aceptar la solicitud estás aprobando que el solicitante reciba el producto. Puedes enviarle un mensaje con la franja de horario disponible en la que podrá ir a recoger el producto.<br/>Si rechazas la solicitud estás negando que el solicitante reciba el producto y se volverá a publicar en la web para que otros lo puedan solicitar. Puedes enviarle un mensaje para explicarle el motivo de rechazar su solicitud.<br/>Recuerda que puedes entrar en el perfil del solicitante para ver su reputación.")
     translate(locale: 'ca', key: 'conversations.status.request_preauthorized', value: "Sol·licitud de producte pendent d'aprovar. <br/> A l'acceptar la sol·licitud estàs aprovant que el sol·licitant rebi el producte. Pots enviar-li un missatge amb la franja d'horari disponible a la qual podrà anar a recollir el producte. <br/> Si rebutges la sol·licitud estàs negant que el sol·licitant rebi el producte i es tornarà a publicar al web perquè altres el puguin sol·licitar . Pots enviar-li un missatge per explicar-li el motiu de rebutjar la seva sol·licitud.<br/>Recorda que pots entrar al perfil de sol·licitant per veure la seva reputació.")
 
-    translate(locale: 'es', key: 'conversations.status.offer_paid', value: "")
-    translate(locale: 'ca', key: 'conversations.status.offer_paid', value: "")
+    translate(locale: 'es', key: 'conversations.status.offer_paid', value: " ")
+    translate(locale: 'ca', key: 'conversations.status.offer_paid', value: " ")
 
     translate(locale: 'es', key: 'conversations.status.waiting_for_current_user_to_deliver_listing', value: "Has adjudicado el producto %{listing_title}. Por favor, coordina la recogida del producto a través del chat.")
     translate(locale: 'ca', key: 'conversations.status.waiting_for_current_user_to_deliver_listing', value: "Has adjudicat el producte %{listing_title}. Si us plau, coordina la recollida del producte a través del xat.")
