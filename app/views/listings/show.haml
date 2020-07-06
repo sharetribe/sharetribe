@@ -175,3 +175,4 @@
         .col-12
           #googlemap
             = render :partial => "googlemap", :locals => { :listing => @listing}
+            = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
