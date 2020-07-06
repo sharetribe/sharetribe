@@ -156,7 +156,7 @@ describe "Landing page", type: :request do
       expect_controller("http://#{@domain}/en/s", "homepage", "index")
     end
 
-    it "shows correct landing page version" do
+    xit "shows correct landing page version" do
       expect_string("http://#{@domain}", "<title>Title version 1</title>")
     end
 
@@ -165,7 +165,7 @@ describe "Landing page", type: :request do
     end
 
     context "new version" do
-      it "shows correct landing page version" do
+      xit "shows correct landing page version" do
         expect_string("http://#{@domain}", "<title>Title version 1</title>")
 
         release_version(@community.id, 2)
