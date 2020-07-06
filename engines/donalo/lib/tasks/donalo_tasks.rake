@@ -7,11 +7,23 @@ namespace :donalo do
     translate(locale: 'es', key: 'listings.listing_actions.marketplace_fees_may_apply', value: "%{service_name} aplica una cuota de servicio por transacción que contribuye a mantener la plataforma")
     translate(locale: 'ca', key: 'listings.listing_actions.marketplace_fees_may_apply', value: "%{service_name} aplica una quota de servei per transacció que contribueix a mantenir la plataforma")
 
+    translate(locale: 'es', key: 'settings.profile.location_description', value: "Esta ubicación debe ser dónde se encuentra el producto y dónde el receptor del mismo irá a buscarlo. Puedes dar tu ubicación exacta o indicar sólo tu código postal.")
+    translate(locale: 'ca', key: 'settings.profile.location_description', value: "Aquesta ubicació ha de ser on es troba el producte i on el receptor de la mateixa anirà a buscar-lo. Pots donar la teva ubicació exacta o indicar només el teu codi postal.")
+
+    translate(locale: 'es', key: 'settings.notifications.email_about_new_payments', value: "...recibo una nueva solicitud")
+    translate(locale: 'ca', key: 'settings.notifications.email_about_new_payments', value: "...rebo una nova sol·licitud")
+
     translate(locale: 'es', key: 'conversations.status.waiting_for_listing_author_to_accept_request', value: "Esperando a que %{listing_author_name} acepte la solicitud. En tal caso, se cargará el importe en tu tarjeta y podrás coordinar la recogida a través del chat. Si tu solicitud es rechazada no se efectuará ningún cargo en tu tarjeta.")
     translate(locale: 'ca', key: 'conversations.status.waiting_for_listing_author_to_accept_request', value: "Esperant que %{listing_author_name} accepti la sol·licitud. En tal cas, es carregarà l'import en la teva targeta i podràs coordinar la recollida a través del xat. Si la teva sol·licitud és rebutjada no s'efectuarà cap càrrec en la teva targeta.")
 
-    translate(locale: 'es', key: 'conversations.status.request_preauthorized', value: "Solicitud de producto pendiente de aprobar")
-    translate(locale: 'ca', key: 'conversations.status.request_preauthorized', value: "Sol·licitud de producte pendent d'aprovar")
+    translate(locale: 'es', key: 'conversations.status.request_preauthorized', value: "Solicitud de producto pendiente de aprobar.<br/> Al aceptar la solicitud estás aprobando que el solicitante reciba el producto. Puedes enviarle un mensaje con la franja de horario disponible en la que podrá ir a recoger el producto.<br/>Si rechazas la solicitud estás negando que el solicitante reciba el producto y se volverá a publicar en la web para que otros lo puedan solicitar. Puedes enviarle un mensaje para explicarle el motivo de rechazar su solicitud.<br/>Recuerda que puedes entrar en el perfil del solicitante para ver su reputación.")
+    translate(locale: 'ca', key: 'conversations.status.request_preauthorized', value: "Sol·licitud de producte pendent d'aprovar. <br/> A l'acceptar la sol·licitud estàs aprovant que el sol·licitant rebi el producte. Pots enviar-li un missatge amb la franja d'horari disponible a la qual podrà anar a recollir el producte. <br/> Si rebutges la sol·licitud estàs negant que el sol·licitant rebi el producte i es tornarà a publicar al web perquè altres el puguin sol·licitar . Pots enviar-li un missatge per explicar-li el motiu de rebutjar la seva sol·licitud.<br/>Recorda que pots entrar al perfil de sol·licitant per veure la seva reputació.")
+
+    translate(locale: 'es', key: 'conversations.status.offer_paid', value: "")
+    translate(locale: 'ca', key: 'conversations.status.offer_paid', value: "")
+
+    translate(locale: 'es', key: 'conversations.status.waiting_for_current_user_to_deliver_listing', value: "Has adjudicado el producto %{listing_title}. Por favor, coordina la recogida del producto a través del chat.")
+    translate(locale: 'ca', key: 'conversations.status.waiting_for_current_user_to_deliver_listing', value: "Has adjudicat el producte %{listing_title}. Si us plau, coordina la recollida del producte a través del xat.")
 
     translate(locale: 'es', key: 'conversations.status.waiting_confirmation_from_you', value: "Tu solicitud ha sido aceptada. Coordina la recogida por el chat")
     translate(locale: 'ca', key: 'conversations.status.waiting_confirmation_from_you', value: "La teva sol·licitud ha estat acceptada. Coordina la recollida pel xat")
@@ -22,8 +34,8 @@ namespace :donalo do
     translate(locale: 'es', key: 'conversations.status.waiting_for_listing_author_to_deliver_listing', value: "Tu solicitud de producto ha sido aceptada. Por favor, indica el día y la hora en la que podrás ir a recoger el producto a través del chat. Una vez tengas el producto, por favor, vuelve a esta pantalla y completa la transacción para comunicarnos que ya has recogido el producto.<br/>Si por cualquier motivo, no has podido recibir el producto, clica la opción \"Hubo un incidente\" y desde el equipo Donalo se pondrá en contacto contigo.")
     translate(locale: 'ca', key: 'conversations.status.waiting_for_listing_author_to_deliver_listing', value: "La teva sol·licitud de producte ha estat acceptada. Si us plau, indica el dia i l'hora en la qual podràs anar a recollir el producte a través del xat. Una vegada tinguis el producte, si us plau, torna a aquesta pantalla i completa la transacció per a comunicar-nos que ja has recollit el producte.<br/>Si per qualsevol motiu, no has pogut rebre el producte, clica l'opció \"Obrir incidència\" i des de l'equip Donalo es posarà en contacte amb tu.")
 
-    translate(locale: 'es', key: 'conversations.message.payment_preauthorized_wo_sum', value: "Solicitud de producto pendiente de aprobar")
-    translate(locale: 'ca', key: 'conversations.message.payment_preauthorized_wo_sum', value: "Sol·licitud de producte pendent d'aprovar")
+    translate(locale: 'es', key: 'conversations.message.payment_preauthorized_wo_sum', value: "Solicitud de producto pendiente de aprobar.<br/> Al aceptar la solicitud estás aprobando que el solicitante reciba el producto. Puedes enviarle un mensaje con la franja de horario disponible en la que podrá ir a recoger el producto.<br/>Si rechazas la solicitud estás negando que el solicitante reciba el producto y se volverá a publicar en la web para que otros lo puedan solicitar. Puedes enviarle un mensaje para explicarle el motivo de rechazar su solicitud.<br/>Recuerda que puedes entrar en el perfil del solicitante para ver su reputación.")
+    translate(locale: 'ca', key: 'conversations.message.payment_preauthorized_wo_sum', value: "Sol·licitud de producte pendent d'aprovar. <br/> A l'acceptar la sol·licitud estàs aprovant que el sol·licitant rebi el producte. Pots enviar-li un missatge amb la franja d'horari disponible a la qual podrà anar a recollir el producte. <br/> Si rebutges la sol·licitud estàs negant que el sol·licitant rebi el producte i es tornarà a publicar al web perquè altres el puguin sol·licitar . Pots enviar-li un missatge per explicar-li el motiu de rebutjar la seva sol·licitud.<br/>Recorda que pots entrar al perfil de sol·licitant per veure la seva reputació.")
 
     translate(locale: 'es', key: 'conversations.message.stripe.confirmed_request', value: "Marcó la orden como completada.")
     translate(locale: 'ca', key: 'conversations.message.stripe.confirmed_request', value: "Ha marcat l'ordre com completada.")
@@ -58,17 +70,23 @@ namespace :donalo do
     translate(locale: 'es', key: 'conversations.confirm.cancel_description_team', value: "En caso de que haya surgido cualquier incidencia referente a la recogida del producto por favor marque la casilla \"Hubo un incidente\" y el equipo Donalo se pondrá en contacto contigo.")
     translate(locale: 'ca', key: 'conversations.confirm.cancel_description_team', value: "En cas que hagi sorgit qualsevol incidència referent a la recollida del producte si us plau marqui la casella \"Obrir incidència\" i l'equip Donalo es posarà en contacte amb tu.")
 
-    translate(locale: 'es', key: 'transactions.total', value: "Total (IVA incluido):")
-    translate(locale: 'ca', key: 'transactions.total', value: "Total (IVA inclòs):")
-
-    translate(locale: 'es', key: 'transactions.total_to_pay', value: "Pago total (IVA incluido):")
-    translate(locale: 'ca', key: 'transactions.total_to_pay', value: "Pagament total (IVA inclòs):")
-
     translate(locale: 'es', key: 'conversations.confirm.confirm', value: "He recibido bien el producto")
     translate(locale: 'ca', key: 'conversations.confirm.confirm', value: "He rebut bé el producte")
 
     translate(locale: 'es', key: 'conversations.confirm.cancel', value: "Hubo un incidente")
     translate(locale: 'ca', key: 'conversations.confirm.cancel', value: "Obrir incidència")
+
+    translate(locale: 'es', key: 'conversations.message.rejected_request', value: "rechazó la solicitud")
+    translate(locale: 'es', key: 'conversations.message.rejected_request', value: "ha rebutjat la sol·licitud")
+
+    translate(locale: 'es', key: 'conversations.accept.total_label', value: "Total (IVA incluido):")
+    translate(locale: 'ca', key: 'conversations.accept.total_label', value: "Total (IVA inclòs):")
+
+    translate(locale: 'es', key: 'transactions.total', value: "Total (IVA incluido):")
+    translate(locale: 'ca', key: 'transactions.total', value: "Total (IVA inclòs):")
+
+    translate(locale: 'es', key: 'transactions.total_to_pay', value: "Pago total (IVA incluido):")
+    translate(locale: 'ca', key: 'transactions.total_to_pay', value: "Pagament total (IVA inclòs):")
 
     translate(locale: 'es', key: 'emails.confirm_reminder.you_have_not_yet_confirmed_or_canceled_request', value: "Aún no has completado la solicitud %{request_link}.  Si la solicitud se completó y ya tienes el producto en tu posesión por favor marca la opción 'he recibido el producto' para confirmarlo. Después de eso podrás dar una valoración a %{other_party_given_name}.")
     translate(locale: 'ca', key: 'emails.confirm_reminder.you_have_not_yet_confirmed_or_canceled_request', value: "Encara no has completat la sol·licitud %{request_link}. Si la sol·licitud es va completar i ja tens el producte a la teva possessió si us plau marca l'opció 'he rebut el producte' per confirmar-ho. Després d'això podràs donar una valoració a %{other_party_given_name}.")
@@ -130,7 +148,7 @@ namespace :donalo do
     translate(locale: 'es', key: 'emails.transaction_refunded.subject', value: "La orden has sido marcada como reembolsada. El equipo de %{service_name} ha aprobado la solicitud de %{buyer}")
     translate(locale: 'ca', key: 'emails.transaction_refunded.subject', value: "L'ordre has estat marcada com a reemborsada. L'equip de %{service_name} ha aprovat la sol·licitud de %{buyer}")
 
-    translate(locale: 'es', key: 'emails.transaction_refunded.marketplace_team_has_approved_the_cancellation', value: "el equipo de %{service_name} ha validado la incidencia de %{transaction_link} y ha marcado el pago como reembolsado.")
+    translate(locale: 'es', key: 'emails.transaction_refunded.marketplace_team_has_approved_the_cancellation', value: "El equipo de %{service_name} ha validado la incidencia de %{transaction_link} y ha marcado el pago como reembolsado.")
     translate(locale: 'ca', key: 'emails.transaction_refunded.marketplace_team_has_approved_the_cancellation', value: "l'equip de %{service_name} ha validat la incidència de %{transaction_link} i ha marcat el pagament com reemborsat.")
 
     translate(locale: 'es', key: 'emails.transaction_cancellation_dismissed.subject', value: "Incidencia descartada - El equipo de %{service_name} ha resuelto la incidencia de %{buyer}")
@@ -138,6 +156,12 @@ namespace :donalo do
 
     translate(locale: 'es', key: 'emails.transaction_cancellation_dismissed.marketplace_team_has_rejected_the_cancellation', value: "el equipo de %{service_name} ha resuelto la incidencia de %{transaction_link}.")
     translate(locale: 'ca', key: 'emails.transaction_cancellation_dismissed.marketplace_team_has_rejected_the_cancellation', value: "l'equip de %{service_name} ha resolt la incidència de %{transaction_link}.")
+
+    translate(locale: 'es', key: 'emails.receipt_to_payer.stripe.you_have_made_new_payment', value: "Has sido beneficiario de <b>%{listing_title}</b>. Por favor, accede a la conversación para coordinar un día y hora de entrega del producto.")
+    translate(locale: 'ca', key: 'emails.receipt_to_payer.stripe.you_have_made_new_payment', value: "Has estat beneficiari de <b>%{listing_title}</b>. Si us plau, accedeix a la conversa per coordinar un dia i hora d'entrega del producte.")
+
+    translate(locale: 'es', key: 'emails.transaction_confirmed.stripe.has_marked_request_as_confirmed', value: "%{other_party_full_name} ha marcado la orden de '%{request}' como completada. Puedes ahora dejar una valoración a %{other_party_given_name}.")
+    translate(locale: 'ca', key: 'emails.transaction_confirmed.stripe.has_marked_request_as_confirmed', value: "%{other_party_full_name} ha marcat l'ordre de '%{request}' com completada. Pots ara deixar una valoració a %{other_party_given_name}.")
 
 
   end
