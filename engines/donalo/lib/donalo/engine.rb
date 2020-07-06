@@ -14,7 +14,6 @@ module Donalo
 
     # centralized payments
     initializer "donalo/monkey_patch/centralized_payments" do |app|
-      next unless defined?(::StripeHelper)
 
       # referencing monkey patched modules to ensure they are loaded
       PATCHED_OBJECTS = [
@@ -132,8 +131,6 @@ module Donalo
 
     # stock control
     initializer "donalo/monkey_patch/stock_control" do |app|
-      next unless defined?(::Listing)
-
       Donalo.app_root = app.root
 
       PATCHED_OBJECTS = [
