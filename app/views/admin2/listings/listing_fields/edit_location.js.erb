@@ -1,0 +1,7 @@
+var popup = $('#locationEditModal');
+if (popup.length) {
+    popup.remove();
+}
+
+$('body').append('<%= j render 'admin2/listings/listing_fields/edit_location_popup' %>');
+$('#locationEditModal').modal('show');

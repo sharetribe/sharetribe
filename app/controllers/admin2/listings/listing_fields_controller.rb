@@ -19,6 +19,57 @@ module Admin2::Listings
       render layout: false
     end
 
+    def edit_price
+      render layout: false
+    end
+
+    def edit_location
+      render layout: false
+    end
+
+    def edit_expiration
+      render layout: false
+    end
+
+    def update_location
+      location_params = params.require(:community)
+                              .permit(:listing_location_required)
+      success = @current_community.update(location_params)
+      raise t('admin2.notifications.listing_fields_update_location_failed') unless success
+
+      render layout: false
+    rescue StandardError => e
+      @error = e.message
+    end
+
+    def update_expiration
+      listing_expiration_enabled = params[:listing_expiration_enabled] == 'enabled'
+      success = @current_community.update({ hide_expiration_date: !listing_expiration_enabled })
+
+      raise t('admin2.notifications.listing_fields_update_expiration_failed') unless success
+
+      render layout: false
+    rescue StandardError => e
+      @error = e.message
+    end
+
+    def update_price
+      params[:community][:price_filter_min] = MoneyUtil.parse_str_to_money(params[:community][:price_filter_min], @current_community.currency).cents if params[:community][:price_filter_min]
+      params[:community][:price_filter_max] = MoneyUtil.parse_str_to_money(params[:community][:price_filter_max], @current_community.currency).cents if params[:community][:price_filter_max]
+
+      price_params = params.require(:community).permit(
+        :show_price_filter,
+        :price_filter_min,
+        :price_filter_max
+      )
+      success = @current_community.update(price_params)
+      raise t('admin2.notifications.listing_fields_update_price_failed') unless success
+
+      render layout: false
+    rescue StandardError => e
+      @error = e.message
+    end
+
     def edit
       render layout: false
     end
@@ -48,6 +99,7 @@ module Admin2::Listings
     def delete_popup
       render layout: false
     end
+
 
     def create
       return unless params[:field_type].present?

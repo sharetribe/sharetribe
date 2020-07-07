@@ -258,6 +258,12 @@ Rails.application.routes.draw do
           collection do
             post :order
             post :add_unit
+            get :edit_price
+            get :edit_expiration
+            get :edit_location
+            put :update_expiration
+            put :update_price
+            put :update_location
           end
         end
         resources :manage_listings, path: 'manage-listings', only: %i[index] do
