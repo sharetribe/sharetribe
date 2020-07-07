@@ -9,7 +9,7 @@
     fuzzy_location: #{@current_community.fuzzy_location.to_json},
     listing_location: #{raw @listing.location.to_json}
     });
-  - if !show_map && @current_community.fuzzy_location
+  - if @current_community.fuzzy_location && !(search_mode != :keyword)
     - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
     = javascript_include_tag "//maps.googleapis.com/maps/api/js?key=#{maps_key}"
 
