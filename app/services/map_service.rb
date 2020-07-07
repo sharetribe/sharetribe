@@ -26,8 +26,9 @@ module MapService
 
     cache_key = "#{listing_id}#{init_lat}#{init_lng}".gsub(/[^0-9]/, '').reverse.to_i
 
-    randomize_bearing = Random.new(cache_key).rand
-    randomize_distance = Random.new(cache_key).rand
+    r = Random.new(cache_key)
+    randomize_bearing = r.rand
+    randomize_distance = r.rand
 
     # Randomize distance and bearing
     distance = randomize_distance * FUZZY_OFFSET
