@@ -1,7 +1,7 @@
 - url = custom_field.new_record? ? admin2_listings_listing_fields_path(field_type: custom_field.type) : admin2_listings_listing_field_path(field_type: custom_field.type)
-= form_for custom_field, url: url, html: { id: id, class: %i[content-card-section-form listing-field-form] } do |form|
+= form_for custom_field, as: :custom_field, url: url, html: { id: id, class: %i[content-card-section-form listing-field-form] } do |form|
   = render 'admin2/listings/listing_fields/field_name', form: form
-  = render 'admin2/listings/listing_fields/field_required', form: form
+  = render 'admin2/listings/listing_fields/field_required', form: form, custom_field: custom_field
   = render 'admin2/listings/listing_fields/search_filter', form: form, custom_field: custom_field
 
   - custom_field.with(:numeric) do

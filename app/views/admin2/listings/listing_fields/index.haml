@@ -31,7 +31,8 @@
               .actions.col
                 %span.handle-move.disabled{'aria-hidden' => true}
                 %span.remove.disabled{'aria-hidden' => true}
-                %span.edit.disabled{'aria-hidden' => true}
+                = link_to edit_price_admin2_listings_listing_fields_path, remote: true do
+                  %span.edit
           .field-data
             .col.col-lg-6= t('admin2.listing_fields.detailed_description')
             .col.col-lg-4= t('admin2.listing_fields.types.text')
@@ -48,10 +49,19 @@
             .actions.col
               %span.handle-move.disabled{'aria-hidden' => true}
               %span.remove.disabled{'aria-hidden' => true}
-              %span.edit.disabled{'aria-hidden' => true}
+              = link_to edit_expiration_admin2_listings_listing_fields_path, remote: true do
+                %span.edit
           .field-data
             .col.col-lg-6= t('admin2.listing_fields.types.location')
             .col.col-lg-4= t('admin2.listing_fields.types.location')
+            .actions.col
+              %span.handle-move.disabled{'aria-hidden' => true}
+              %span.remove.disabled{'aria-hidden' => true}
+              = link_to edit_location_admin2_listings_listing_fields_path, remote: true do
+                %span.edit
+          .field-data
+            .col.col-lg-6= t('admin2.listing_fields.types.image')
+            .col.col-lg-4= t('admin2.listing_fields.types.image')
             .actions.col
               %span.handle-move.disabled{'aria-hidden' => true}
               %span.remove.disabled{'aria-hidden' => true}
