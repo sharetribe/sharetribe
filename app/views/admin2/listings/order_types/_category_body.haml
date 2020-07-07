@@ -43,14 +43,13 @@
       = check_box_tag :shipping_enabled, true, shape[:shipping_enabled], class: %i[form-check-input js-shipping-enabled]
       = label_tag :shipping_enabled, t('admin2.order_types.shipping_label'), class: %i[form-check-label js-shipping-enabled-label]
 
-.form-group
-  %label.js-availability-unit-label= t('admin2.order_types.units_title_with_availability')
-  .form-radiobutton-wrapper
-    .form-radiobutton.form-check-inline
-      = radio_button_tag :availability_unit, 'hour', shape[:availability] == 'booking' && shape[:availability_unit] == 'hour', class: %i[form-check-input js-availability-unit], disabled: uneditable_fields[:availability]
-      = label_tag :availability_unit_hour, t('admin2.order_types.per_hour_availability'), class: %i[form-check-label js-availability-unit-label]
-
-    - if locals[:harmony_in_use]
+- unless uneditable_fields[:availability]
+  .form-group
+    %label.js-availability-unit-label= t('admin2.order_types.units_title_with_availability')
+    .form-radiobutton-wrapper
+      .form-radiobutton.form-check-inline
+        = radio_button_tag :availability_unit, 'hour', shape[:availability] == 'booking' && shape[:availability_unit] == 'hour', class: %i[form-check-input js-availability-unit], disabled: uneditable_fields[:availability]
+        = label_tag :availability_unit_hour, t('admin2.order_types.per_hour_availability'), class: %i[form-check-label js-availability-unit-label]
       .form-radiobutton.form-check-inline
         = radio_button_tag :availability_unit, 'day', shape[:availability] == 'booking' && shape[:availability_unit] == 'day', class: %i[form-check-input js-availability-unit], disabled: uneditable_fields[:availability]
         = label_tag :availability_unit_day, t('admin2.order_types.per_day_availability'), class: %i[form-check-label js-availability-unit-label]

@@ -124,8 +124,10 @@ window.ST.initializeListingShapeForm = function(formId) {
     var toggleInputEnabled = function(el, state) {
         if(state) {
             el.prop('disabled', false);
+            $('.hidden-unit-div input:hidden').prop('disabled', false);
         } else {
             el.prop('disabled', true);
+            $('.hidden-unit-div input:hidden').prop('disabled', true);
         }
     };
 
