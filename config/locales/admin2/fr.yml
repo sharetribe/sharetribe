@@ -1,10 +1,10 @@
 fr:
   admin2:
     save_changes: 'lorem ipsum'
-    next_step: 'lorem ipsum'
-    prev_step: 'lorem ipsum'
     cancel: 'lorem ipsum'
     delete: 'lorem ipsum'
+    next_step: 'lorem ipsum'
+    prev_step: 'lorem ipsum'
     topnav:
       admin_menu: 'lorem ipsum'
       logo: 'lorem ipsum'
@@ -103,7 +103,7 @@ fr:
       add_title: 'lorem ipsum'
       new_field_type: 'lorem ipsum'
       edit_field_type: 'lorem ipsum: %{name} (%{field_type})'
-      delete_title: 'lorem ipsum: #{name}'
+      delete_title: 'lorem ipsum: %{name}'
       delete_info_text: 'lorem ipsum %{name}'
       delete_listing_field: 'lorem ipsum'
       display_on_homepage: 'lorem ipsum'
@@ -122,6 +122,11 @@ fr:
       edit_option: 'lorem ipsum'
       delete_option_title: 'lorem ipsum "%{title}"'
       delete_option_body: 'lorem ipsum "%{title}"?'
+      price_filter_min: 'lorem ipsum'
+      price_filter_max: 'lorem ipsum'
+      show_price_filter: 'lorem ipsum'
+      edit_price_hint: 'lorem ipsum'
+      listing_location_required: 'lorem ipsum'
       types:
         text: 'lorem ipsum'
         price: 'lorem ipsum'
@@ -225,6 +230,7 @@ fr:
           one: "lorem ipsum %{count} lorem ipsum."
           other: "lorem ipsum %{count} lorem ipsum."
         select_new_category: "lorem ipsum"
+        image: 'lorem ipsum'
     manage_reviews:
       transaction: 'lorem ipsum'
       customer: 'lorem ipsum'
@@ -712,6 +718,9 @@ fr:
       listing_field_updated: 'lorem ipsum'
       listing_field_saving_failed: 'lorem ipsum'
       listing_field_created: 'lorem ipsum'
+      listing_fields_update_location_failed: 'lorem ipsum'
+      listing_fields_update_expiration_failed: 'lorem ipsum'
+      listing_fields_update_price_failed: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'
