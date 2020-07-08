@@ -467,7 +467,7 @@ ja:
           confirmed: 完了しました
           paid: 支払済み
           canceled: キャンセルされた
-          disputed: ~
+          disputed: 異議あり
           preauthorized: 事前に承認済み
           rejected: 拒否されました
           payment_intent_requires_action: 保留中
@@ -493,7 +493,7 @@ ja:
           paid: 支払い済み
           confirmed: 確定済み
           canceled: キャンセル済
-          disputed: ~
+          disputed: 異議あり
           initiated: PayPalの支払いを待っています
           pending_ext: PayPalの支払いを待っています
           none:
@@ -507,7 +507,7 @@ ja:
             paid: 支払い済み
             confirmed: 完了しました
             canceled: キャンセル
-            disputed: ~
+            disputed: 異議あり
             initiated: PayPal決済待ち
             pending_ext: ペイパル支払い待ち
             refunded: 返金済み
@@ -521,7 +521,7 @@ ja:
             paid: 支払済み
             confirmed: 完了しました
             canceled: キャンセルされました
-            disputed: ~
+            disputed: 異議あり
             initiated: Stripe支払い待ち
             pending_ext: Stripe支払い待ち
             payment_intent_requires_action: 保留中
@@ -1538,7 +1538,7 @@ ja:
       unsubscribe_from_these_emails: これらのメールを購読解除する
       unsubscribe_from_invitation_emails_info: "%{service_name} のメンバーから招待されたため、このメールを受信しました。"
       unsubscribe_from_invitation_emails: "%{service_name} からの招待メールの受信を解除します。"
-      here_is_your_receipt: ~
+      here_is_your_receipt: こちらが領収書です。
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}さんはあなたの%{listing}のオファーを受け入れました"
       has_accepted_your_request: "%{accepter}さんはあなたの%{listing}のリクエストを受け入れました"
@@ -1601,7 +1601,7 @@ ja:
         you_have_received_new_payment: "<b>%{payment_sum}</b>の金額が、%{payer_full_name} から<b>%{listing_title}</b>に支払われました。注文が完了としてマークされるまで、お金は%{service_name} によって保持されています。こちらは領収書です。"
     payment_receipt_to_seller_v2:
       headline: "こんにちは。%{payer_name} さんから、%{listing_link} の件で%{payment_sum} 支払われました。"
-      main_text_stripe: ~
+      main_text_stripe: "注文完了までの間、%{service_name} 事務局で代金を預かっています。"
       price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: お支払いの領収書
@@ -1619,7 +1619,7 @@ ja:
       paypal_gateway_fee: PayPalの手数料
       money_will_be_transferred: "a ) あなたがリクエストを完了しステータスを変更したとき、あるいはb ) あなたがお支払い後、%{automatic_confirmation_days} 日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
     payment_receipt_to_payer_v2:
-      headline: ~
+      headline: "こちらが%{listing_link} の領収書です。"
       you_have_made_new_payment: "あなたは<b>%{listing_title}</b>の件で、<b>%{payment_sum} </b>支払いました。"
     paypal_new_payment:
       paypal_gateway_fee: PayPalの手数料：
@@ -1773,14 +1773,14 @@ ja:
       give_feedback_to: ~
     transaction_disputed:
       subject: "リクエストはキャンセルされました。%{service_name} 事務局は状況を確認しています。"
-      subject_admin: ~
+      subject_admin: 取引に異議が申し立てられたので、この後どうするかを決めなければいけません。
       order_about: "%{listing_title} を注文"
       the_order_has_been_canceled: "%{transaction_link} に異議が申し立てられています。"
       the_order_between_buyer_and_seller_has_been_canceled: "%{buyer} と%{seller} の間で%{transaction_link} に関して異議が申し立てられています。"
       the_marketplace_has_been_notified: "%{service_name} 事務局は通知を受け、状況を調査しています。あなたは事務局に連絡し詳細を共有することができます。"
       contact_the_marketplace_team: "%{service_name} へ問い合わせる"
       you_must_now_decide: "払い戻しを行うか、異議を却下するかを決める必要があります。詳細はこちらのリンクをご覧ください。%{learn_more_link} "
-      learn_more_about: ~
+      learn_more_about: なにするかについては、こちらをご覧ください。
       review_the_transaction: 取引を確認する
     transaction_refunded:
       subject: ~
@@ -3171,7 +3171,7 @@ ja:
       cancel: キャンセル
       gender: 性別
       phone_number: "電話番号：+81に続き頭の\"0\"を除いた番号をハイフンなしでご記載下さい。例：090-xxxx-xxxx --> +8190xxxxxxxx"
-      phone_info_text: ~
+      phone_info_text: 電話番号は国際番号をつけて入力してください、例えば
       address_kana_postal_code: 郵便番号
       address_kana_state: "都道府県 (カナ)"
       address_kana_city: 市町区村（カナ）

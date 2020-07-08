@@ -1320,7 +1320,7 @@ ro:
       payment_preauthorized: "Plata autorizata: %{sum}"
       payment_preauthorized_wo_sum: ~
       stripe:
-        held_payment: ~
+        held_payment: "Plata a fost procesata. Suma de %{sum} este retinuta de %{service_name} pana cand rezervarea este finalizata."
         held_payment_wo_sum: ~
         confirmed_request: ~
       canceled_the_order: ~
@@ -1377,7 +1377,7 @@ ro:
           verify: "Nu puteti accepta aceasta tranzactie pentru ca nu v-ati verificat contul PayPal. Accesati %{paypal_url} pentru a va verifica contul."
           intl: "Nu am putut procesa plata prin PayPal deoarece contul dvs. de PayPal nu are un mecanism de retragere. Accesati link-ul %{paypal_url} si conectati-va pentru a putea accepta sau rejecta manual plata."
       waiting_for_current_user_to_deliver_listing: "Asteptam sa livrezi comanda pentru %{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: "Asteptam ca %{listing_author_name} sa livreze comanda pentru %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Asteptam ca %{listing_author_name} sa valideze rezervarea pentru %{listing_title}"
       request_accepted: "Cerere acceptată"
       request_rejected: Refuzat
       request_confirmed: Finalizat

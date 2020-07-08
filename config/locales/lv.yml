@@ -289,7 +289,7 @@ lv:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
-        confirm: ~
+        confirm: Apstiprini
         user_didnt_complete_the_signup_process: ~
         pending_user: "Gaida: %{name}"
       new_layout:
@@ -1501,12 +1501,12 @@ lv:
       confirmation_link_text: "Apstiprināt manu adresi"
       or_paste_link: "Varat arī iekopēt zemāk atrodamo saiti sava interneta pārlūka adreses joslā:"
     confirmation_instructions_v2:
-      headline: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      headline: "apstipriniet savu e-pastu, lai pievienotos %{service_name}!"
+      need_to_confirm: "Apstiprini savu e-pasta adresi, lai pabeigtu %{service_name} konta izveidi. Tas ir vienkārši - tikai noklikšķiniet uz zemāk esošās pogas!"
+      confirmation_link_text: "Apstiprini %{email}"
     common:
       hey: "Sveicināti %{name},"
-      hi: ~
+      hi: "Sveiks %{name},"
       kassi_team: "%{service_name} komanda"
       thanks: "Paldies,"
       dont_want_to_receive_these_emails: "Nevēlaties turpmāk saņemt šādas vēstules?"
@@ -1557,7 +1557,7 @@ lv:
       you_have_a_new_message: "Jauna vēstule %{service_name} no %{sender_name}"
     new_message_v2:
       headline: ~
-      reply: "Atbildēt priekš - %{sender}"
+      reply: "Nosūtīt atbildi priekš - %{sender}"
     new_payment:
       new_payment: "Jūs esat saņēmis jaunu maksājumu"
       price_per_unit_type: "Cena par %{unit_type}"
@@ -1648,7 +1648,11 @@ lv:
       settings_link_text: "E-pasta iestatījumus rediģējiet šeit"
       unsubscribe_link_text: atrakstīties
     community_updates_v2:
-      headline: ~
+      headline: "apskatiet jaunākās aktivitātes %{service_name} portālā."
+      intro_paragraph:
+        zero: "Šeit ir daži svarīgākie notikumi, kas portālā %{service_name} notika pēdējās dienas laikā."
+        one: "Šeit ir daži svarīgākie notikumi, kas portālā %{service_name} notika pēdējo %{count} dienu laikā."
+        other: "Šeit ir daži svarīgākie notikumi, kas portālā %{service_name} notika pēdējo %{count} dienu laikā."
     newsletter:
       hi: "Sveiks %{name},"
       newest_offers: "Ko cilvēki patlaban piedāvā citiem"
@@ -1698,7 +1702,7 @@ lv:
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
       view_listing: ~
-      cant_click: ~
+      cant_click: "Vai nevarat noklikšķināt uz pogas? Jūsu ērtībai šeit ir saite:"
     new_member_notification:
       subject: "Jauns dalībnieks %{community}"
       new_member_has_joined: "Jauns dalībnieks ir pievienojies %{community}. Viņiem iespējams vēl ir jāapstiprina sava e-pasta adrese."
@@ -2060,7 +2064,7 @@ lv:
       info_about_kassi: "Informācija par %{service_name}"
       news: Jaunumi
       register_details: "Privātuma politika"
-      terms: "Lietošanas nosacījumi"
+      terms: "Lietošanas noteikumi"
     logged_in:
       admin: Administrators
       go_to_your_profile_page: Profils
@@ -2458,7 +2462,7 @@ lv:
       community_not_configured_for_payments_admin: "%{service_name} nav konfigurēts maksājumiem, tāpēc Jūs vēl nevarat ievietot jaunus sludinājumus. Ejiet uz %{payment_settings_link}, lai aizpildītu maksājumu informāciju."
       you_are_now_posting_a_listing_on_behalf_of: "Jūs tagad publicējat sludinājumu %{name} vārdā"
     quantity:
-      hour: "Stundu skaits:"
+      hour: "Aptuvenais darba ilgums stundās:"
       day: "Dienu skaits:"
       night: "Nakšu skaits:"
       week: "Nedēļu skaits:"
@@ -2500,7 +2504,7 @@ lv:
       processing_uploaded_image: "(Apstrādā augšupielādēto attēlu...)"
       listing_created_at: "Sludinājums izveidots"
       price:
-        per_quantity_unit: "par %{quantity_unit}"
+        per_quantity_unit: "/ %{quantity_unit}"
         per_day: "par dienu"
       delivery: "Piegādes veids"
       shipping: "Piegāde (+%{price})"
@@ -2673,7 +2677,7 @@ lv:
       family_name: Uzvārds
       given_name: Vārds
       i_accept_the_terms_and_privacy: "Es piekrītu %{terms} un %{privacy}"
-      admin_emails_consent: "Es apstiprinu, ka laiku pa laikam saņemšu e-pasta ziņojumus no %{service_name} komandas un saprotu, ka varu to mainīt jebkurā laikā"
+      admin_emails_consent: "Es piekrītu, ka laiku pa laikam saņemšu e-pasta ziņojumus no %{service_name} un saprotu, ka varu no tiem atteikties jebkurā laikā"
       invalid_invitation_code: "Ielūguma kods nav pareizs"
       invitation_code: "Ielūguma kods"
       not_required: ", nav nepieciešams"
@@ -2681,13 +2685,13 @@ lv:
       password_again: "Apstiprināt paroli"
       show_my_name_to_others: "Parādiet manu pilno vārdu citiem %{service_name} lietotājiem"
       sign_up: "Izveidot jaunu %{service_name} profilu"
-      terms: "Lietošanas noteikumi"
-      privacy: "Privātuma noteikumi"
+      terms: "Lietošanas noteikumiem"
+      privacy: "Privātuma noteikumiem"
       visible_only_to_you: "redzams tikai Jums un %{service_name} komandai"
       visible_to_everybody: "redzams visiem"
-      create_account_with_provider: "Reģistrējieties ar %{provider}"
+      create_account_with_provider: "Reģistrējies ar %{provider}"
       OR: VAI
-      signup_with_email: "Reģistrējieties ar e-pastu"
+      signup_with_email: "Reģistrējies ar e-pastu"
       this_field_will_be_publicly_visible: "(Šis lauks būs visiem redzams)"
     profile_feedback:
       grade: "vērtējums:"
@@ -2727,7 +2731,7 @@ lv:
       show_all_listings: "Parādīt visus sludinājumus"
       show_all_open_listings: "Parādīt visus atvērtos sludinājumus"
       show_all_reviews: "Parādīt visas atsauksmes"
-      admin_actions: "Administratora darbības"
+      admin_actions: "Administratora darbības:"
       post_listing_as: "Publicēt sludinājumu kā"
     followed_people:
       you_follow_plural: "Jūs sekojat %{count} cilvēkiem"
@@ -2769,7 +2773,7 @@ lv:
       change_email: Mainīt
       confirm_your_email: "Lūdzu apstipriniet savu e-pasta adresi"
       account_confirmation_instructions: "Jūs drīz saņemsiet e-pastu ar saiti, lai apstiprinātu savu e-pasta adresi. Neaizmirstiet pārbaudīt savu surogātpasta mapi! Pēc e-pasta adreses apstiprināšanas varat pievienoties %{service_name}."
-      account_confirmation_instructions_title_admin: "Apstipriniet savu e-pasta adresi"
+      account_confirmation_instructions_title_admin: "Apstiprini savu e-pasta adresi"
       before_full_access_you_need_to_confirm_email: "Pirms mēs Jums nodrošinam pilnu piekļuvi Jūsu vietnei, nepieciešams izdarīt vēl vienu lietu: apstipriniet savu e-pasta adresi."
       before_confirmation_only_access_admin_dashboard: "Pirms apstiprināšanas Jūs varat piekļūt tikai %{admin_dashboard_link}."
       admin_dashboard_link_text: "administratora rīku panelis"
@@ -2870,8 +2874,8 @@ lv:
     show:
       accept_terms: "Piekrišana %{service_name} lietošanas noteikumiem"
       here: "nospiežot šeit"
-      i_accept_new_terms: "Es piekrītu jauniem nosacījumiem"
-      i_accept_terms: "Es piekrītu nosacījumiem"
+      i_accept_new_terms: "Es piekrītu jauniem noteikumiem"
+      i_accept_terms: "Es piekrītu noteikumiem"
       terms: "%{service_name} lietošanas noteikumi"
       terms_have_changed: "Lietošanas noteikumi ir mainījušies"
       you_can_view_the_new_terms: "Jūs varat apskatīt jaunos noteikumus"
