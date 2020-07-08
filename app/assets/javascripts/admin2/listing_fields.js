@@ -50,9 +50,9 @@ $(function() {
             }
         }
 
-        if (success) {
+        // if (success) {
             error_options.removeClass('error').hide();
-        }
+        // }
 
         if (form.valid() && success) {
             form.submit();
