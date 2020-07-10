@@ -61,10 +61,10 @@ class Person::OmniauthService
     ActiveRecord::Base.transaction do
       new_person = Person.create!(person_hash)
       # We trust that Facebook has already confirmed these and save the user few clicks
-      Email.create!(:address => email, :send_notifications => true, :person => new_person, :confirmed_at => Time.zone.now, community_id: community.id)
+      Email.create!(address: email, send_notifications: true, person: new_person, confirmed_at: Time.zone.now, community_id: community.id)
 
       new_person.set_default_preferences
-
+      new_person.inherit_settings_from(community)
       # By default no email consent is given
       new_person.preferences["email_from_admins"] = false
       new_person.save
