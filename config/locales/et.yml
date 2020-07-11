@@ -823,8 +823,8 @@ et:
           main_title: Peapealkiri
           column_header: "Veerg %{index}"
           column_title: "Veeru %{index} pealkiri"
-          web_viewer: veebiversioon
-          column_icon_info: "Oma ikooni saate valida selle %{link} seast. Kui olete ikooni valinud, kopeerige 'Directory path' (näiteks '01-Interface Essential / 01-Home / house-2.svg ') ja kleepige see siia."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Veeru %{index} ikoon"
           column_paragraph: "Veeru %{index} lõik"
           column_button: "Veeru %{index} nupp"

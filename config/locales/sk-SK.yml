@@ -828,8 +828,8 @@ sk-SK:
           main_title: "Hlavný nadpis"
           column_header: "Stĺpec %{index}"
           column_title: "Stĺpec %{index} nadpis"
-          web_viewer: "webový prehliadač"
-          column_icon_info: "Z tohto %{link} si môžete vybrať svoju ikonu. Po výbere ikony skopírujte cestu k adresáru (napríklad '01 -Interface Essential / 01-Home / house-2.svg ') a vložte ju sem."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Stĺpec %{index} ikona"
           column_paragraph: "Stĺpec %{index} odstavec"
           column_button: "Stĺpec %{index} tlačidlo"
