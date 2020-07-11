@@ -25,8 +25,8 @@
       .row
         .col-12
           = label_tag "section[columns][#{index}][icon]", t(".column_icon", index: index + 1)
-          - link = link_to t('.web_viewer'),
-            'https://app.streamlineicons.com/streamline-light/interface-essential',
+          - link = link_to t('.column_icon_info_link'),
+            'https://help.sharetribe.com/en/articles/3597471',
             target: '_blank'
           = render partial: 'layouts/info_text', locals: {text: t(".column_icon_info", link: link).html_safe }
           = text_field_tag "section[columns][#{index}][icon]", column['icon']
