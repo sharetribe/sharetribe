@@ -6,7 +6,7 @@
     %meta{charset: 'utf-8'}
     %meta{content: 'width=device-width, initial-scale=1 shrink-to-fit=no', name: 'viewport'}
     %meta{content: admin_description.html_safe, name: 'description'}
-    %link{rel: 'shortcut icon', href: @current_community.favicon}
+    %link{rel: 'shortcut icon', type: 'image/icon', href: @current_community.favicon}
     = csrf_meta_tags
     - path_font = APP_CONFIG[:font_circularstd_url]
     - if path_font.present?

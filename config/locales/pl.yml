@@ -187,6 +187,7 @@ pl:
         status_resent: "E-mail weryfikacyjny wysłany ponownie do %{email}. %{resend_link}"
         resend_link: "Wyślij ponownie"
         invalid_email_error: "Nieprawidłowy format e-maila dla '%{email}'"
+        invalid_email_address: "Proszę podać poprawny adres e-mail"
         invalid_email_domain: "Adres e-mailowy '%{email}' używa niewspieranej domeny: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Przeczytaj artykuł aby uzyskać więcej informacji"
         unknown_error: "Coś poszło źle"
@@ -244,7 +245,7 @@ pl:
         miles: milach
         show_only_nearby: "Pokaż tylko najbliższe oferty przy użyciu wyszukiwania po lokalizacji"
         allow_users_to_add_location: "Pozwól użytkownikom dodać lokalizację do ich profili i ofert i pokaż widok mapy na stronie wyszukiwania"
-        fuzzy_location: ~
+        fuzzy_location: "Pokaż koło, zamiast dokładnej lokalizacji"
         listing_preferences: "Preferencje wyświetlania"
         transaction_preferences: "Preferencje dot. zamówień"
         show_listing_publishing_date: "Wyświetl datę publikacji oferty na liście ofert"
@@ -749,13 +750,13 @@ pl:
           hero_description: "Ustaw tło dla sekcji \"Baner główny\". Slogan i opis możesz ustawić tutaj %{link}."
           basic_details_tab: "Podstawowe detale"
           cta_button: ~
-          cta_button_info: ~
+          cta_button_info: "Nie musisz edytować tekstu dla tego przycisku. Możesz zwyczajnie pozostawić to pole puste. Domyślny tekst dla publicznych stron to \"Szukaj\" i \"Zarejestruj się\" dla prywatnych stron."
           button_type:
-            default: ~
-            button: ~
-            none: ~
-          button_content: ~
-          click_me: ~
+            default: Domyślny
+            button: Przycisk
+            none: Brak
+          button_content: "Zawartość przycisku"
+          click_me: "Kliknij mnie!"
         footer:
           footer_title: Stopka
           footer_style: "Styl stopki"
@@ -832,8 +833,8 @@ pl:
           main_title: "Główny tytuł"
           column_header: "%{index} kolumny"
           column_title: "Tytuł %{index} kolumny"
-          web_viewer: ~
-          column_icon_info: "Możesz wybrać swoje ikony za pomocą tego linku %{link}. Po wybraniu ikony, skopiuj jej \"Directory path\" (na przykład \"01-InterfaceEssential/01-Home/house-2.svg\") i wklej je tutaj."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Ikona %{index} kolumny"
           column_paragraph: "Paragraf %{index} kolumny"
           column_button: "Przycisk %{index} kolumny"
@@ -1597,7 +1598,7 @@ pl:
       has_commented_your_listing_in_kassi: "%{author} dodał komentarz do Twojej oferty %{listing}"
       view_comment: "Zobacz komentarz"
       you_have_a_new_comment: "%{author} dodał komentarz do Twojej oferty %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} skomentował/a ofertę, którą obserwujesz w %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} skomentował ofertę, którą obserwujesz w %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} dodał komentarz do oferty %{listing}, którą obserwujesz w %{service_name}"
     new_message:
       view_message: "Zobacz wiadomość"
@@ -1965,8 +1966,8 @@ pl:
       items_to_request: "Rzeczy do pożyczenia: "
       log_in: "zaloguj się!"
       no_offers_visible_unless_logged_in: "Żadna rzecz, usługa ani oferta przejazdu nie są widoczne dla użytkowników, którzy nie są zalogowani."
-      no_open_offers_currently: "Nie otwarta rzecz, usługa lub oferta przejazdu."
-      no_open_requests_currently: "Brak otwartej rzeczy, usługi ani oferty przejazdu."
+      no_open_offers_currently: "Nie ma żadnych dostępnych lub otwartych ofert rzeczy, usług lub ofert przejazdu."
+      no_open_requests_currently: "Nie ma żadnych otwartych ofert rzeczy, usług ani ofert przejazdu."
       no_requests_visible_unless_logged_in: "Żadna rzecz, usługa ani oferta przejazdu nie są widoczne dla użytkowników, którzy nie są zalogowani."
       one_private_offer_exists: "Jest już <b>jedna oferta</b>,"
       one_private_request_exists: "Jest już <b>jedno zapytanie</b>,"
@@ -2157,7 +2158,7 @@ pl:
       something_went_wrong: "Coś poszło nie tak"
       community_updated: "Szczegóły zaktualizowane."
       community_update_failed: "Aktualizacja szczegółów nie powiodła się."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Twoje konto zostało pomyślnie utworzone. Teraz musisz potwierdzić swój adres email."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Twoje konto zostało pomyślnie utworzone. Teraz musisz potwierdzić swój adres e-mail."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Dziękujemy, że dołączyłeś do %{service_name}. Teraz musisz potwierdzić swój adres email."
       comment_cannot_be_empty: "Komentarz nie może być pusty"
       comment_sent: "Komentarz wysłany"
@@ -2168,7 +2169,7 @@ pl:
       create_new_listing: "Stwórz kolejną ofertę"
       create_one_here: "stwórz nowy tutaj"
       email_confirmation_sent_to_new_address: "Email potwierdzający został wysłany na nowy adres."
-      email_not_found: "Email, który podałeś nie został znaleziony w bazie %{service_name}"
+      email_not_found: "Email, który podałeś nie został znaleziony w bazie danych %{service_name}"
       error_with_session: "Problem z sesją."
       feedback_considered_spam: "Opinia nie została zapisana ze względu na jej formatowanie. Spróbuj ponownie lub skorzystaj z forum."
       feedback_not_saved: "Opinia nie została wysłana."
@@ -2231,11 +2232,11 @@ pl:
       request_canceled: "Zamówienie unieważnione"
       message_sent: "Wiadomość wysłana"
       message_not_sent: "Wysyłanie wiadomości nie powiodło się. Proszę spróbować ponownie."
-      this_content_is_not_available_in_this_community: "Treść nie jest dostępna."
-      unknown_error: "Nieznany błąd. Skorzystaj z linku \"Kontakt \" i opisz szczegóły tego co się stało."
-      update_error: "W trakcie aktualizacji informacji wystąpił błąd, spróbuj ponownie później."
+      this_content_is_not_available_in_this_community: "Treść jest niedostępna."
+      unknown_error: "Nieznany błąd. Skorzystaj z linku \"Kontakt \" i opisz szczegóły problemu."
+      update_error: "W trakcie aktualizacji informacji wystąpił błąd, spróbuj ponownie."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Nie jesteś uprawniony do wystawiania opinii dla tego wydarzenia."
-      you_are_not_authorized_to_do_this: "Nie masz uprawnień do zrobieni tego."
+      you_are_not_authorized_to_do_this: "Nie masz uprawnień do wykonania tej czynności."
       you_are_not_authorized_to_view_this_content: "Nie masz uprawnień do przeglądania tych treści."
       listing_closed: "Ta oferta została zamknięta"
       send_instructions: "W ciągu kliku minut otrzymasz wiadomość email z instrukcją jak zrestartować swoje hasło."
@@ -2407,7 +2408,7 @@ pl:
       origin:
         location: Lokalizacja
         origin: Początek
-        the_exact_location: ~
+        the_exact_location: "Dokładna lokalizacja nie będzie pokazana innym użytkownikom."
       send_button:
         save_listing: "Publikuj ofertę"
         submit_for_review: "Wyślij w celu zaopiniowania"
@@ -2475,7 +2476,7 @@ pl:
       items: Rzeczy
       lends: Pożyczanie
       receives: "Weź za darmo"
-      rent_outs: Wynajmij
+      rent_outs: Wynajmowanie
       rents: Wynajmowanie
       rideshares: Przejazdy
       sells: Sprzedawanie
@@ -2925,7 +2926,7 @@ pl:
       i_accept_new_terms: "Akceptuję nowe zasady użytkowania"
       i_accept_terms: "Akceptuję zasady użytkowania"
       terms: "Zasady użytkowania %{service_name}"
-      terms_have_changed: "Zasady użytkowania zmieniły się"
+      terms_have_changed: "Zasady użytkowania zostały zmienione"
       you_can_view_the_new_terms: "Możesz wyświetlić nowe zasady użytkowania"
       you_need_to_accept: "Witaj w %{service_name}! Wygląda na to, że używasz tego serwisu po raz pierwszy. Zanim rozpoczniesz, musisz zaakceptować"
       you_need_to_accept_new_terms: "Regulamin %{service_name} zmienił się. Musisz zaakceptować nowy regulamin, aby kontynuować korzystanie z %{service_name}. Nowy regulamin ma umożliwić utrzymanie usługi po zakończeniu projektu testowego."
@@ -3253,6 +3254,7 @@ pl:
       cancel: Anuluj
       gender: płeć
       phone_number: "numer telefonu"
+      phone_info_text: "Numer telefonu powinien zawierać numer kierunkowy, na przykład"
       address_kana_postal_code: "kod pocztowy"
       address_kana_state: "Prefektura w dialekcie Kana"
       address_kana_city: miasto
@@ -3349,8 +3351,8 @@ pl:
         text: Tekst
         youtube_video_id: "ID materiału wideo na Youtube"
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: Tekst
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "British Columbia"

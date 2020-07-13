@@ -344,9 +344,12 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def static_google_map_params
+    lat, lon = MapService.obfuscated_coordinates(@listing.id,
+                                                 @listing.location&.latitude,
+                                                 @listing.location&.longitude)
     StaticGoogleMapParams.new(
-      lat: @listing.location&.latitude,
-      lng: @listing.location&.longitude,
+      lat: lat,
+      lng: lon,
       key: MarketplaceHelper.google_maps_key(@current_community.id)).params
   end
 

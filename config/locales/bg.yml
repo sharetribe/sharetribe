@@ -162,6 +162,7 @@ bg:
         status_resent: ~
         resend_link: ~
         invalid_email_error: ~
+        invalid_email_address: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
@@ -807,8 +808,8 @@ bg:
           main_title: ~
           column_header: ~
           column_title: ~
-          web_viewer: ~
           column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -996,6 +997,9 @@ bg:
       listing_shape_name_placeholder: ~
       action_button_label: "Заглавие на бутона за поръчка"
       action_button_placeholder: "Т.е. Купи"
+      open_listings_warning:
+        one: "Има %{count} отворена обява с този тип поръчка. Ако промените някоя от настройките по-долу, тази обява ще запази старите настройки. Обявата може да бъде променена с новите настройки, като я редактирате ръчно. Ако не искате обява със старите настройки да е видима на вашия сайт, можете да я затворите, като щракнете върху бутона по-долу."
+        other: "Има %{count} отворена обява с този тип поръчка. Ако промените някоя от настройките по-долу, тази обявя ще запази старите настройки. Тази обява може да бъде променена с новите настройки, като я редактирате ръчно. Ако не искате да имате никакви обяви със старите настройки, видими на вашия сайт, можете да ги затворите, като щракнете върху бутона по-долу."
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
@@ -1026,9 +1030,6 @@ bg:
           heading: ~
           quantity_label: "Количество(за парче, за кг, за човек, за 2 часа тур..  )"
           time_label: "Време(за 30 минути, за 2 седмици, за година...)"
-      open_listings_warning:
-        one: "Има %{count} отворена обява с този тип поръчка. Ако промените някоя от настройките по-долу, тази обява ще запази старите настройки. Обявата може да бъде променена с новите настройки, като я редактирате ръчно. Ако не искате обява със старите настройки да е видима на вашия сайт, можете да я затворите, като щракнете върху бутона по-долу."
-        other: "Има %{count} отворена обява с този тип поръчка. Ако промените някоя от настройките по-долу, тази обявя ще запази старите настройки. Тази обява може да бъде променена с новите настройки, като я редактирате ръчно. Ако не искате да имате никакви обяви със старите настройки, видими на вашия сайт, можете да ги затворите, като щракнете върху бутона по-долу."
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
@@ -1506,7 +1507,7 @@ bg:
       confirmation_link_text: ~
     common:
       hey: "Здравейте %{name},"
-      hi: ~
+      hi: "Здравей %{name},"
       kassi_team: "Екипът на %{service_name}"
       thanks: "Благодаря,"
       dont_want_to_receive_these_emails: "Не искате да получавате тези имейли?"
@@ -1544,7 +1545,7 @@ bg:
       join_now: ~
       invitation_code: ~
     invitation_to_kassi_v2:
-      headline: ~
+      headline: Здравей!
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
@@ -1648,7 +1649,10 @@ bg:
       settings_link_text: "Редактирайте настройките си за имейл тук"
       unsubscribe_link_text: отписване
     community_updates_v2:
-      headline: ~
+      headline: "Проверете последната активност на %{service_name}."
+      intro_paragraph:
+        one: "Виж събития, случили се на %{service_name} за последния ден."
+        other: "Виж събития, случили се на %{service_name} през последните %{count} дни."
     newsletter:
       hi: "Здравей %{name},"
       newest_offers: "Какво хората предлагат в момента на другите"
@@ -2663,11 +2667,14 @@ bg:
       email_is_in_use_or_not_allowed: "Този имейл не е позволен или вече се използва. Ако не можете да влезете, свържете се с нас."
       email_not_allowed: "Този имейл не е разрешен в %{service_name}. Моля, използвайте имейл адрес, който е разрешен. Ако все още не можете да влезете, свържете се с нас."
       invalid_username_or_email: ~
+      email_restriction_instructions:
+        one: "Достъпът до %{service_name} е ограниaccess access access access access чен. За да се присъедините, се нуждаете от имейл адрес '%{allowed_emails}'."
+        other: "Достъпът до %{service_name} е ограничен. Трябва ви имейл адрес, който доказва, че имате право да се присъедините."
       family_name: "Фамилно име"
       given_name: "Собствено име"
       i_accept_the_terms_and_privacy: "Приемам %{terms} и %{privacy}"
       admin_emails_consent: "Съгласявам се да получавам електронна поща от екипа на %{service_name} и разбирам, че мога да променя предпочитанията си във всеки един момент"
-      invalid_invitation_code: ~
+      invalid_invitation_code: "Кодът на поканата не е валиден."
       invitation_code: "Код на поканата"
       not_required: ", не е задължително"
       notification_is_mandatory: ~
@@ -2682,9 +2689,6 @@ bg:
       OR: ИЛИ
       signup_with_email: "Регистрирай се с ел.поща."
       this_field_will_be_publicly_visible: ~
-      email_restriction_instructions:
-        one: "Достъпът до %{service_name} е ограниaccess access access access access чен. За да се присъедините, се нуждаете от имейл адрес '%{allowed_emails}'."
-        other: "Достъпът до %{service_name} е ограничен. Трябва ви имейл адрес, който доказва, че имате право да се присъедините."
     profile_feedback:
       grade: "оценка:"
       and_gave_following_feedback: "и добавете отзив"
@@ -3117,6 +3121,7 @@ bg:
       cancel: ~
       gender: Пол
       phone_number: "Телефонен номер"
+      phone_info_text: ~
       address_kana_postal_code: "Пощенски код"
       address_kana_state: Щат
       address_kana_city: Град

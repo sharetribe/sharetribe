@@ -67,6 +67,8 @@ module MarketplaceService
     "proxy",
     "preproduction",
     "staging",
+    "status",
+    "statuspage-notifications",
     "demo",
     "plan",
     "plans",

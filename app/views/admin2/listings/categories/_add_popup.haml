@@ -1,0 +1,17 @@
+#categoriesAddModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'categoriesAddModalLabel', role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-lg{role: :document}
+    .modal-content
+      = form_for [:admin2, :listings, category], class: %i[content-card-section-form] do |form|
+        .modal-header
+          %h2#categoriesAddModalLabel.modal-title
+            - if category.new_record?
+              = t('admin2.categories.add_category_popup')
+            - else
+              = t('admin2.categories.edit_category', category: category.display_name(I18n.locale))
+          %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+            %span{'aria-hidden' => true} ×
+        .modal-body
+          = render 'form', form: form, category: category, shapes: shapes, selected_shape_ids: selected_shape_ids
+        .modal-footer
+          = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

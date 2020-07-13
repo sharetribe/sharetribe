@@ -3,6 +3,9 @@ if APP_CONFIG.use_airbrake
     config.project_id = APP_CONFIG.airbrake_project_id
     config.project_key = APP_CONFIG.airbrake_project_key
 
+    # Disable performance monitoring. Performance monitoring sends metrics on
+    # each request and is priced separately by request volume.
+    config.performance_stats = false
 
     config.root_directory = Rails.root
     config.logger = Rails.logger

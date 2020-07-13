@@ -1,0 +1,13 @@
+- uniq = data[:uniq]
+%span.hidden-unit-div{id: "unit_#{uniq}"}
+  - data[:locals].each do |locale|
+    = hidden_field_tag "custom_units[new][new_unit-#{uniq}][name][#{locale}]", data[:unit_label][locale]
+    = hidden_field_tag "custom_units[new][new_unit-#{uniq}][selector][#{locale}]", data[:selector_label][locale]
+  = hidden_field_tag "custom_units[new][new_unit-#{uniq}][kind]", data[:unit_type]
+  .form-check
+    %input#pricingUnitPerPasta.form-check-input{checked: :checked, disabled: :disabled, type: :checkbox}
+    %label.form-check-label.js-unit-label.checkbox-row-label{enabled: '', for: 'pricingUnitPerPasta'}
+      = "#{t('admin2.order_types.per')} #{data[:unit_label][I18n.locale.to_s]}"
+    .actions
+      %span.remove-pricing-unit-trigger.js-unit-label.remove
+  = render 'unit_delete', index: uniq, title: "#{t('admin2.order_types.per')} #{data[:unit_label][I18n.locale.to_s]}"

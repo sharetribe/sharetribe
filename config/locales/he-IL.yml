@@ -177,6 +177,7 @@ he-IL:
         status_resent: "אימייל אימות נשלח שוב‎%{email}‎ ‎%{resend_link}‎ "
         resend_link: "שלח שוב"
         invalid_email_error: "אימייל לא תקין ‎%{email}‎ "
+        invalid_email_address: ~
         invalid_email_domain: "ה‎%{email}‎  כתובת הדוא''ל משתמשת בנותן שירות לא נתמך.‎%{domain}‎ ‎%{invalid_email_domain_read_more_link}‎ "
         invalid_email_domain_read_more_link: "קרא את המאמר במרכז העזרה כדי לקבל עוד מידע."
         unknown_error: "משהו השתבש"
@@ -824,8 +825,8 @@ he-IL:
           main_title: ~
           column_header: ~
           column_title: ~
-          web_viewer: ~
           column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -3224,6 +3225,7 @@ he-IL:
       cancel: ביטול
       gender: מין
       phone_number: "מס טלפון"
+      phone_info_text: ~
       address_kana_postal_code: "מיקוד קאנה"
       address_kana_state: "מדינה קאנה"
       address_kana_city: "עיר קאנה"

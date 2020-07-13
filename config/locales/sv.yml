@@ -177,6 +177,7 @@ sv:
         status_resent: "Verifikationsmail skickades till %{email}.%{resend_link}"
         resend_link: "Skicka igen"
         invalid_email_error: "Felaktig e-postformat för %{email}"
+        invalid_email_address: ~
         invalid_email_domain: "E-postadressen %{email} använder en otillåten e-postleverantör: %{domain}. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Vänligen läs hjälpcenterartikeln för mer information."
         unknown_error: "Någonting gick fel"
@@ -822,8 +823,8 @@ sv:
           main_title: ~
           column_header: ~
           column_title: ~
-          web_viewer: ~
           column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -2762,8 +2763,8 @@ sv:
       admin_actions: "Admin åtgärder"
       post_listing_as: "Skapa annons som"
     followed_people:
-      you_follow_plural: "Du följer %{count} person"
-      you_follow_singular: "Du följer %{count} personer"
+      you_follow_plural: "Du följer %{count} personer"
+      you_follow_singular: "Du följer %{count} person"
       they_follow_plural: "%{count} följande personer"
       they_follow_singular: "%{count} följande personer"
       show_all_followed_people: "Visa alla följande personer"
@@ -3195,6 +3196,7 @@ sv:
       cancel: Avbryt
       gender: ~
       phone_number: ~
+      phone_info_text: ~
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~

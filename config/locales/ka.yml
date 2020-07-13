@@ -172,6 +172,7 @@ ka:
         status_resent: "დადასტურების წერილის თავიდან გაგზავნა %{email}-ზე. %{resend_link}"
         resend_link: გადაგზავნა
         invalid_email_error: "არასწორი ელ. ფოსტის ფორმატი %{email}"
+        invalid_email_address: ~
         invalid_email_domain: "%{email} ელ. ფოსტის მისამართი იყენებს ელ. ფოსტის პროვაიდერს რომლის მხარდაჭერაც არ ხდება ჩვენ მიერ: %{domain}. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "მეტი ინფორმაციისთვის წაიკითხე ცოდნაზე დაფუძნებული სტატია."
         unknown_error: "რაღაც წავიდა შეცდომით"
@@ -817,8 +818,8 @@ ka:
           main_title: ~
           column_header: ~
           column_title: ~
-          web_viewer: ~
           column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -954,7 +955,7 @@ ka:
       preview: "საიტის გადახედვა"
       whats_new: ~
     listing_shapes:
-      availability_title: ხელმისაწვდომობა
+      availability_title: "მონიშნეთ დაჯავშნილი თარიღები"
       read_more: "წაიკითხეთ მეტი ავტომატური ხელმისაწვდომობის მართვაზე."
       read_more_availability_management: "წაიკითხეთ მეტი ხელმისაწვდომობის შესახებ"
       allow_providers_to_manage_availability: "მიეცი უფლება პროვაიდერებს რათა მართონ მათი თავისუფალი დრო კალენდრიდან."
@@ -1025,7 +1026,7 @@ ka:
       units:
         piece: "ყოველ ცალზე"
         hour: "ყოველ საათში"
-        day: "ყოველ დღე"
+        day: დღე
         night: "ყოველ ღამე"
         week: "ყოველ კვირას"
         month: "ყოველ თვიურად"
@@ -1263,7 +1264,7 @@ ka:
       total_value_stripe: ~
       paypal_fee: ~
       paypal_fee_info: "არ შეიცავს %{link}"
-      shipping_price_label: გაგზავნა
+      shipping_price_label: "მიტანის სერვისიმიტანის სერვისი:"
       stripe-fee_label: ~
     confirm:
       confirm_description: "თუ თქვენი შეკვეთა შესრულდა უნდა მონიშნოთ იგი დასრულებულად. შემდეგ შეგეძლებათ მისცეთ შეფასება სხვა ნაწილს."
@@ -1618,7 +1619,7 @@ ka:
       you_have_made_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-ის გადასახადი:"
-      shipping_total: "ფოსტით გაგზავნა:"
+      shipping_total: "მიტანის სერვისიმიტანის სერვისი:"
     braintree_new_payment:
       product: პროდუქტი
       price_payer_paid: "ფასი %{payer_full_name} გადახდილია:"
@@ -1893,7 +1894,7 @@ ka:
       offer_partitive: შეთავაზება
       request_partitive: ყიდვა
   header:
-    about: შესახებ
+    about: "ჩვენს შესახებ"
     home: მთავარი
     members: გაერთიანება
     new_listing: "ახალი სია"
@@ -2009,7 +2010,7 @@ ka:
       search: ძებნა
       map: "რუკის ჩვენება"
       list: "სიის ჩვენება"
-      map_button: რუქა
+      map_button: რუკა
       grid_button: ცხრილი
       list_button: სია
       all_listing_types: "ყველა სიის ტიპი"
@@ -2277,10 +2278,10 @@ ka:
       subscribe_to_comments: "შემატყობინეთ ახალი კომენტარების და განახლებების შესახებ"
     deleting_a_listing_cannot_be_undone: ~
     edit:
-      edit_listing: "დაარედაქტირე სია"
+      edit_listing: "დაარედაქტირე განცხადება"
     edit_links:
-      close_listing: "სიის დახურვა"
-      edit_listing: "დაარედაქტირე სია"
+      close_listing: "განცხადების დახურვა"
+      edit_listing: "დაარედაქტირე განცხადება"
       reopen_listing: "თავიდან გახსენი ჩამონათვალი"
       move_to_top: "გადაიტანე მთავარი გვერდის თავში"
       show_in_updates_email: "მანახე შემდეგ გამოწერაში"
@@ -2291,7 +2292,7 @@ ka:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: "წაშალეთ ჩამონათვალი"
+      delete_listing: "წაშალე განცხადება"
     map:
       open_in_google_maps: "გახსენი Google Maps-ში"
     error:
@@ -2364,7 +2365,7 @@ ka:
         after_service_fee_you_will_get_payment_text: ~
         payment_fee_info_link_text: ~
         delivery: "მიტანის მეთოდი"
-        shipping: "ფოსტით გაგზავნა:"
+        shipping: "მიტანის სერვისი:"
         shipping_price: "ტრანსპორტირების გადასახადი"
         shipping_price_additional: "დამატებითი  ნივთები"
         pickup: "ადგილზე აღება"
@@ -2448,7 +2449,7 @@ ka:
       trades: გაცვლა
     listing_actions:
       booking_from: დან
-      booking_to: ზე
+      booking_to: მდე
       how_paypal_works: "როგორ მუშაობს PayPal"
       payment_help: "გადახდის დახმარება"
       unable_load_availability: "ვერ მოხდა ჩატვირთვა ხელმისაწვდომობაზე. გთხოვთ თავიდან სცადოთ."
@@ -2514,7 +2515,7 @@ ka:
       processing_uploaded_image: "(სურათი იტვირთება)"
       listing_created_at: "ჩამონათვალი შექმნილია"
       price:
-        per_quantity_unit: "ყოველ %{quantity_unit}"
+        per_quantity_unit: "%{quantity_unit}"
         per_day: დღიურად
       delivery: "მიტანის მეთოდი"
       shipping: "ფოსტით გაგზავნა (+%{price})"
@@ -2710,7 +2711,7 @@ ka:
       manage_listings: "მართეთ ჩემი ყველა ჩამონათვალი"
     show:
       contact: "დაეკონტაქტე %{person}ს"
-      about_me: "ჩემ შესახებ:"
+      about_me: "ჩემს შესახებ:"
       add_description: "გააზიარე რამე შენ შესახებ"
       add_location: "ადგილმდებარეობის დამატება"
       add_phone_number: "ტელეფონის ნომრის დამატება"
@@ -2745,10 +2746,10 @@ ka:
     followed_people:
       you_follow_plural: "თქვენ მისდევთ %{count} ადამიანს"
       you_follow_singular: "თქვენ მისდევთ %{count} ადამიანს"
-      they_follow_plural: "%{count} გაყვა ადამიანი"
-      they_follow_singular: "%{count} გაყვა პიროვნება"
+      they_follow_plural: "%{count} გამოწერილი ხალხი"
+      they_follow_singular: "%{count} გაყვა პიროვნებაგამოწერილი ხალხი"
       show_all_followed_people: "მანახე ყველა მიდევნებული ადამიანი"
-      no_followed_people: "არ არის მიდევნებული ხალხი"
+      no_followed_people: "გამოწერილი ხალხი"
     follow_button:
       following: მიყვება
       follow: გაყოლა
@@ -2844,7 +2845,7 @@ ka:
       unsubscribe_unsuccesful: "გამოწერის გაუქმების შეცდომა"
       unsuccessful_unsubscribe_info_text: "გამოწერის გაუქმების ბმულს ვადა გაუვიდა. შედი სისტემაში, რომ შეცვალოთ ელ. ფოსტის გამოწერის პარამეტრები"
     profile:
-      about_you: "შენ შესახებ"
+      about_you: "შენს შესახებ"
       city: ქალაქი
       family_name: გვარი
       given_name: სახელი
@@ -2969,7 +2970,7 @@ ka:
       december: დეკ
     today: დღეს
     clear: მოწმენდილი
-    format: თთ/დდ/წწწწ
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%b %e, %წ %ს.%თ ზე"
@@ -3013,7 +3014,7 @@ ka:
       price_per_unit: ~
       quantity: რაოდენობა
       subtotal: "ჯამი:"
-      shipping-price: "ფოსტით გაგზავნა:"
+      shipping-price: "მიტანის სერვისი:"
       stripe-fee: ~
       start_end_time: ~
     price_per_quantity: "ფასი ყოველ %{unit_type}"
@@ -3156,6 +3157,7 @@ ka:
       cancel: ~
       gender: ~
       phone_number: ~
+      phone_info_text: ~
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~

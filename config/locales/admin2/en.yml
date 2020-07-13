@@ -1,10 +1,10 @@
 en:
   admin2:
     save_changes: 'Save changes'
-    cancel: 'Cancel'
-    delete: 'Delete'
     next_step: 'Next'
     prev_step: 'Prev'
+    cancel: 'Cancel'
+    delete: 'Delete'
     topnav:
       admin_menu: 'Admin menu'
       logo: 'Sharetribe Go Admin Panel'
@@ -55,6 +55,8 @@ en:
         listing_comments: 'Listing comments'
         manage_listings: 'Manage listings'
         listing_fields: 'Listing fields'
+        order_types: 'Order types'
+        categories: 'Categories'
       transactions_reviews:
         config_transactions: 'Configure transactions'
         view_conversations: 'View conversations'
@@ -133,6 +135,104 @@ en:
         date: 'Date'
         location: 'Location'
         image: 'Image'
+    order_types:
+      info_text: 'Order types determine how the order process works in your site. You can decide whether your users are renting or selling, or just perhaps posting announcements and communicating via direct messages.'
+      name: 'Name'
+      used_in: 'Used in'
+      all_categories: "All categories"
+      no_categories: "No categories"
+      category_count: "%{category_count} categories"
+      add_new_order_type: 'Add a new order type'
+      add_new: '+ Add a new order type'
+      new_order_type: 'New order type template'
+      edit_order_type: 'Edit order type: %{type}'
+      listing_shape_name_placeholder: "E.g. Sell"
+      checkout_button: 'Checkout button label'
+      action_button_placeholder: "E.g. Buy"
+      pricing_checkout: 'Pricing and checkout'
+      online_payments_label: "Allow sellers to accept payments online"
+      allow_providers_to_manage_availability: "Allow sellers to manage their availability from a calendar"
+      shipping_label: "Allow sellers to define a shipping fee"
+      price_label: "Allow sellers to add a price to their listings"
+      units_title_with_availability: "Pricing units with availability"
+      units_title_without_availability: 'Pricing units without availability'
+      per_hour_availability: '"Per hour" availability'
+      per_day_availability: '"Per day" availability'
+      per_night_availability: '"Per night" availability'
+      update_success: "Changes to order type '%{shape}' saved"
+      update_failure: "Could not save changes. Error: %{error_msg}"
+      create_success: "New order type '%{shape}' created"
+      create_failure: "Could not create new order type. Error: %{error_msg}"
+      successfully_deleted: "Successfully deleted order type '%{order_type}'"
+      delete: 'Delete the order type'
+      delete_caption: 'Delete order type: %{order_type}'
+      confirm_delete_simple_order_type: 'Deleting an order type cannot be undone. Are you sure you want to proceed?'
+      per: 'Per'
+      add_unit_title: '+ Add a custom pricing unit'
+      add_unit: 'Add a new pricing unit'
+      unit_label: 'Pricing unit label'
+      unit_label_placeholder: 'e.g. kg, 30 minutes, person, class…'
+      unit_type_quantity: 'Quantity (per piece, per kg, per person, per 2h tour…)'
+      unit_type_time: 'Time (per 30 minutes, per 2 weeks, per year…)'
+      save_unit: 'Save pricing unit'
+      selector_label: 'Selector label'
+      unit_type: 'Unit type'
+      delete_unit_title: 'Delete pricing unit "%{title}"'
+      delete_unit_text: 'Are you sure you want to delete the pricing unit "%{title}"?'
+      errors:
+        without_online_payments: 'Shipping cannot be enabled without online payments'
+        enabled_without_price: 'Online payments cannot be enabled without price'
+        used_without_price: 'Price units cannot be used without price field'
+        cannot_delete_msg: 'Cannot delete order type, error: %{error_msg}'
+        cannot_delete: 'Cannot delete order type'
+        can_not_delete_only_one_in_categories: "You can't delete this order type because in following categories this order type is the only one in use: %{categories}"
+        can_not_delete_last: "You can't delete this order type because it's the only type in your marketplace."
+        can_not_find_name: "Can not find order type with given name: %{name}"
+      units:
+        piece: "Per piece"
+        hour: "Per hour"
+        day: "Per day"
+        night: "Per night"
+        week: "Per week"
+        month: "Per month"
+        unit: "Per unit"
+      confirm_delete_order_type:
+        one: "%{count} listing use this order type. If you delete it, this listing will be closed. Are you sure you want to proceed?"
+        other: "%{count} listings use this order type. If you delete it, those listings will be closed. Are you sure you want to proceed?"
+    categories:
+      info_text: 'Here you can edit the categories that providers have to put listing in, and visitors use to browse your marketplace.'
+      add_category: '+ Add a new category'
+      add_category_popup: 'Add a new category'
+      edit_category: 'Edit category: %{category}'
+      category_name: 'Category name'
+      category_parent: 'Parent category'
+      no_parent: 'No parent'
+      order_types: 'Order types'
+      delete_category_btn: 'Delete the category'
+      delete_category: 'Delete category: %{category}'
+      delete_category_info_text: 'What should be their new category?'
+      remove_category_confirmation: "Are you sure you want to remove category '%{category_name}'?"
+      remove:
+        remove_category: "Remove category"
+        remove_category_name: "Remove category '%{category_name}'"
+        remove_empty_category: 'Deleting a category cannot be undone. Are you sure you want to proceed?'
+        warning_remove_effects: "Warning! Removing category '%{category_name}' will have the following effects:"
+        warning_listing_will_be_moved:
+          one: "There is %{count} listing in the category. It will be moved to the selected category."
+          other: "There are %{count} listings in the category. They will be moved to the selected category."
+        warning_custom_field_will_be_moved:
+          one: "There is %{count} custom field in the category. It will be moved to the selected category."
+          other: "There are %{count} custom field in the category. They will be moved to the selected category."
+        warning_subcategory_will_be_removed:
+          one: "There is %{count} subcategory in the category. It will be removed."
+          other: "There are %{count} subcategories in the category. They will be removed."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "There is %{count} listing in the category and subcategories. It will be moved to the selected category."
+          other: "There are %{count} listings in the category and subcategories. They will be moved to the selected category."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "There is %{count} custom field in the category and subcategories. It will be moved to the selected category."
+          other: "There are %{count} custom field in the category and subcategories. They will be moved to the selected category."
+        select_new_category: "Select a new category where the items listed above will be moved:"
     manage_reviews:
       transaction: 'Transaction'
       customer: 'Customer'

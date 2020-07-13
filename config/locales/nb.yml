@@ -177,6 +177,7 @@ nb:
         status_resent: "Bekreftelses-epost sendt på nytt til %{email}. %{resend_link}"
         resend_link: "Send på nytt"
         invalid_email_error: "Ugyldig epostformat for '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "Epostadressen '%{email}' bruker en epostleverandør vi ikke støtter: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Les mer i denne artikkelen."
         unknown_error: "Noe gikk galt"
@@ -822,8 +823,8 @@ nb:
           main_title: ~
           column_header: ~
           column_title: ~
-          web_viewer: ~
           column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -3181,6 +3182,7 @@ nb:
       cancel: ~
       gender: ~
       phone_number: ~
+      phone_info_text: ~
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~

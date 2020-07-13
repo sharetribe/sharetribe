@@ -172,6 +172,7 @@ vi:
         status_resent: "Email xác minh gửi lại %{email}. %{resend_link}"
         resend_link: "Gửi lại"
         invalid_email_error: "Định dạng email không hợp lệ cho '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "Địa chỉ email '%{email}' đang sử dụng nhà cung cấp dịch vụ email không được hỗ trợ: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Đọc bài viết trong Trung tâm trợ giúp để biết thêm thông tin."
         unknown_error: "Đã xảy ra sự cố"
@@ -817,8 +818,8 @@ vi:
           main_title: ~
           column_header: ~
           column_title: ~
-          web_viewer: ~
           column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -3158,6 +3159,7 @@ vi:
       cancel: ~
       gender: ~
       phone_number: ~
+      phone_info_text: ~
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~

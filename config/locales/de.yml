@@ -69,11 +69,11 @@ de:
         community_slogan: "Slogan des Marktplatzes"
         community_slogan_display: "Slogan auf der Startseite oder Custom Landing Page anzeigen"
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
-        edit_community_slogan_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Beschreibung des Marktplatzes"
         community_description_display: "Beschreibung auf der Startseite oder Custom Landing Page anzeigen"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
-        edit_community_description_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_search_placeholder: "Hilfe-Text durchsuchen"
         edit_community_search_placeholder_description: "Dies wird auf der Homepage des Marktes als Platzhaltertext in der Suchleiste angezeigt. %{see_how_it_looks_like}"
         private_community_homepage_content: "Privater Inhalt der Marktplatz Startseite"
@@ -114,7 +114,7 @@ de:
         new_listing_button_custom_color: "Farbe der \"Neuen Eintrag erstellen\" Taste"
         logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height} Pixel betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
         logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height} Pixel betragen."
-        logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height} Pixel betragen."
+        logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf sozialen Netzwerken teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräts anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height} Pixel betragen."
         logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixel betragen."
         logo_mobile_icon_instructions_text_with_dimensions: "Dieses viereckige Logo wird auf dem Mobil-Startbildschirm von deinen Benutzern angezeigt, wenn sie ein Lesezeichen für deinen Marktplatz auf ihren Mobilgeräten erstellen. Das Logo wird auch angezeigt, wenn du als Admin einige Maßnahmen ergreifst. Die Größe sollte (zumindest) %{width} x%{height} px betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
@@ -177,6 +177,7 @@ de:
         status_resent: "Verifizierungsmail erneut gesendet an %{email}. %{resend_link}"
         resend_link: "Erneut senden"
         invalid_email_error: "Ungültiges Email Format für '%{email}'"
+        invalid_email_address: "Bitte eine gültige Email-Adresse eingeben"
         invalid_email_domain: "Die \"%{email}\" Email Adresse nutzt einen nicht unterstützten Email Provider: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lies den Artikel im Help Center für mehr Informationen."
         unknown_error: "Da ist etwas schief gelaufen"
@@ -234,7 +235,7 @@ de:
         miles: Meilen
         show_only_nearby: "Mit Umgebungssuche nur Einträge in der Nähe zeigen"
         allow_users_to_add_location: "Den Benutzern erlauben, einen Standort zu ihrem Profil und ihren Angeboten hinzufügen, und zeige eine Karte auf der Suchseite"
-        fuzzy_location: ~
+        fuzzy_location: "Einen Kreis anstatt des genauen Standortes anzeigen"
         listing_preferences: Eintragseinstellungen
         transaction_preferences: Auftragspräferenzen
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Eintragsseite darstellen"
@@ -553,7 +554,7 @@ de:
         testimonials: Bewertungen
         no_testimonials_found: "Keine Bewertungen gefunden."
         displaying_xx_reviews: "<b>%{count}</b> Bewertungen werden angezeigt, unter Transaktionen %{tx_from} - %{tx_to} von insgesamt <b>%{all_count}</b> Transaktionen."
-        search_keyword: "Nach Name, E-mail oder Schlagwort suchen"
+        search_keyword: "Nach Name oder Schlagwort suchen"
         search: Suche
         reset_search: "Alle anzeigen"
         for_keyword: "für: <b>%{keyword}</b>"
@@ -729,23 +730,23 @@ de:
             video: "'Video' Abschnitt bearbeiten"
       attachments:
         delete: "%{title} löschen"
-        or_change: "Oder %{title} zu etwas neues ändern:"
+        or_change: "Oder %{title} zu etwas neuem ändern:"
     landing_page_versions:
       sections:
         content:
           title: "Inhalt des Abschnitts"
         hero:
           hero_title: Hero
-          hero_description: "Stelle fest das Hintegrundbild für den Hero-Abschnitt. Der Slogan und die Beschreibung werden konfiguriert auf %{link}."
+          hero_description: "Stelle das Hintegrundbild für den Hero-Abschnitt fest. Der Slogan und die Beschreibung werden konfiguriert auf %{link}."
           basic_details_tab: "'Grundangaben' -Tab"
-          cta_button: ~
-          cta_button_info: ~
+          cta_button: Call-to-Action-Abschnitt
+          cta_button_info: "Der Text des Knopfes muss nicht bearbeitet werden. Du kannst dieses Feld einfach leer lassen. Normalerwise ist der Text \"Suchen\" auf öffentlichen Marktplätzen, und \"Registrieren\" auf privaten Marktplätzen."
           button_type:
-            default: ~
-            button: ~
-            none: ~
-          button_content: ~
-          click_me: ~
+            default: Standard
+            button: Taste
+            none: Nichts
+          button_content: "Inhalt der Taste"
+          click_me: "Hier klicken!"
         footer:
           footer_title: Footer
           footer_style: Footer-Stil
@@ -764,7 +765,7 @@ de:
           title: Hintergrund
         background_image_overlay:
           background_image: Hintergrundbild
-          background_image_info: "Dieses Bild wird als Hintergrundbild für den Abschnitt verwendet. Für die besten Ergebnisse, es sollte mindestens 1600x1200 Pixel groß sein."
+          background_image_info: "Dieses Bild wird als Hintergrundbild für den Abschnitt verwendet. Für die besten Ergebnisse, sollte es mindestens 1600x1200 Pixel groß sein."
           add_another_image: "Zusätzliches Bild hinzufugen"
           current_image: "Derzeitiges Bild: %{filename}"
           file_not_selected: "Nicht gewählt"
@@ -822,8 +823,8 @@ de:
           main_title: Haupttitel
           column_header: "Spalte %{index}"
           column_title: "Spalte %{index} -Titel"
-          web_viewer: "Web Viewer"
-          column_icon_info: "Du kannst dein Icon hier wählen: %{link}. Wenn du das Icon gewählt hast, kopiere die 'Directory path' (zum Beispiel '01-InterfaceEssential/01-Home/house-2.svg') und sie hier einfügen."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Spalte %{index} -Symbol"
           column_paragraph: "Spalte %{index} -Paragraph"
           column_button: "Spalte %{index} -Taste"
@@ -1028,7 +1029,7 @@ de:
       pricing_and_checkout_title: "Preise & Kasse"
       online_payments_label: "Erlaube den Verkäufern, Online-Zahlungen entgegenzunehmen"
       shipping_label: "Den Verkäufern erlauben, Versandkosten festzulegen"
-      price_label: "Erlaube den Verkäufern, ein Preis für ihre Einträge festzustellen"
+      price_label: "Erlaube den Verkäufern, einen Preis für ihre Einträge festzustellen"
       units_title: Preiseinheiten
       units_desc: "Wenn Du Preiseinheiten aktiviert hast, wird der Eintagspreis als \"Preis pro Preiseinheit\" angezeigt. Beispiel: \"39 € pro Stunde\"."
       units:
@@ -1437,10 +1438,10 @@ de:
       mark_as_refunded: "Als erstattet markieren"
       dismiss: "Ablehnen und auszahlen"
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Neue Kontaktaufnahme durch das Kontaktformular auf %{service_name}"
+    feedback_body: "%{author_name_and_email} hat den folgenden Eintrag auf das Kontaktformular von %{service_name} abgegeben. Diese Mitteilung ist automatisch an alle %{service_name} -Administratoren geschickt."
+    unlogged_user: "Ein nicht eingeloggter Benutzer"
+    anonymous_user: "Ein anonymer Benutzer"
   community_memberships:
     access_denied:
       access_denied: "Zugriff verweigert"
@@ -1473,7 +1474,7 @@ de:
       show_thread: "Konversation anzeigen"
     branding:
       powered_by: "%{service_name} wird von %{sharetribe_link} Marktplatz Plattform betrieben."
-      create_own: "Willst Du Deinen eigenen Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
+      create_own: "Willst du deine eigene Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
       learn_more: "Erfahre mehr"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du hast die Anfrage %{request_link} noch nicht bestätigt oder angefochten. Wenn die Anfrage erledigt ist, solltest du dies bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
@@ -1486,7 +1487,7 @@ de:
       you_have_not_yet_confirmed_or_canceled_request: "Wenn die Anfrage erledigt wurde, solltest du dies bestätigen. Danach kannst du %{other_party_given_name} ein Feedback geben."
     payment_settings_reminder:
       remember_to_add_payment_details: "Denke daran, deine Zahlungsdetails hinzuzufügen, um Zahlungen erhalten zu können"
-      you_have_added_listing_with_payment: "Du hast unter %{listing_link} einen Eintrag mit Bezahlung hinzugefügt. Leider hast du noch keine Zahlungsinformationen angegeben. Um Zahlungen erhalten zu können, musst du Deine Zahlungsinformationen hinterlegen."
+      you_have_added_listing_with_payment: "Du hast unter %{listing_link} einen Eintrag mit Bezahlung hinzugefügt. Leider hast du noch keine Zahlungsinformationen angegeben. Um Geld zu erhalten, musst du noch deine Kontoverbindung eingeben."
       please_go_to_payment_settings: "Bitte geh zu %{payment_settings_link} und fülle die erforderlichen Zahlungsinformationen aus."
       payment_settings_link: Zahlungseinstellungen
     payment_settings_reminder_v2:
@@ -1496,7 +1497,7 @@ de:
       here_is_a_message_from: "Dies ist eine Nachricht von %{other_party_given_name}."
       request_marked_as_confirmed: "Anfrage erledigt. Denke daran, Feedback zu geben."
       request_marked_as_canceled: "Anfrage angefochten"
-      has_marked_request_as_confirmed: "%{other_party_full_name} hat die Anfrage '%{request}' als \"erledigt\" markiert. Du kannst nun Feedback an %{other_party_given_name} geben."
+      has_marked_request_as_confirmed: "%{other_party_full_name} hat die Anfrage '%{request}' als \"erledigt\" markiert. Du kannst nun %{other_party_given_name} Feedback geben."
       has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage '%{request}' angefochten. Du kannst trotzdem %{other_party_given_name} ein Feedback geben."
       giving_feedback_is_good_idea: "Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, die auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
@@ -1532,7 +1533,7 @@ de:
       or_paste_link: "Alternativ kannst du den folgenden Link in die Adresszeile deines Browsers kopieren:"
     confirmation_instructions_v2:
       headline: "bitte bestätige deine E-Mail-Adresse, um deine Registrierung bei %{service_name} abzuschließen."
-      need_to_confirm: "Bestätige deine E-Mail-Adresse, um dein Konto für %{service_name} vollständig zu machen. Es ist einfach - du musst nur die Taste unten klicken!"
+      need_to_confirm: "Bestätige deine E-Mail-Adresse, um dein Konto für %{service_name} zu vervollständigen. Es ist einfach - du musst nur den Button unten klicken!"
       confirmation_link_text: "%{email} bestätigen"
     common:
       hey: "Hallo %{name},"
@@ -1680,7 +1681,7 @@ de:
     community_updates_v2:
       headline: "sieh dir die letzten Aktivitäten auf %{service_name} an."
       intro_paragraph:
-        one: "Hier sind einige Highlights der vergangenen Tage auf %{service_name}."
+        one: "Hier sind einige Highlights des letzten Tages auf %{service_name}."
         other: "Hier sind einige Highlights der letzten %{count} Tage auf %{service_name}."
     newsletter:
       hi: "Hallo %{name}"
@@ -1710,11 +1711,11 @@ de:
     transaction_preauthorized_reminder:
       subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."
       remember_to_accept: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren. %{requester} hat bereits für das Angebot gezahlt. Du musst die Anfrage akzeptieren um die Zahlung zu erhalten."
-      one_day_left: "Wenn du die Anfrage nicht innerhalb eines Tages akzeptierst, wird sie automatisch abgelehnt, und du erhälst keine Zahlung."
+      one_day_left: "Wenn du die Anfrage nicht innerhalb eines Tages akzeptierst, wird sie automatisch abgelehnt und du wirst nicht bezahlt."
       click_here_to_reply: "Klicke hier, um auf die Anfrage zu antworten"
     transaction_preauthorized_reminder_v2:
-      headline: "erinnere dich daran, die Anfrage von %{requester} über %{listing_link} anzunehmen."
-      remember_to_accept: "%{requester} hat schon für die Anzeige bezahlt. Du musst die Anfrage annehmen, um die Zahlung zu bekommen."
+      headline: "denke daran, die Anfrage von %{requester} über %{listing_link} anzunehmen."
+      remember_to_accept: "%{requester} hat schon für die Anzeige bezahlt. Du musst die Anfrage annehmen, um die Zahlung zu erhalten."
     welcome_email:
       welcome_email_subject: "Willkommen bei %{service_name}"
       welcome_to_marketplace: "Willkommen bei %{service_name}! Schön, dass du dabei bist."
@@ -1722,7 +1723,7 @@ de:
       welcome_email_footer_text: "Welche Art von E-Mails willst du von %{service_name} empfangen? %{settings_link}"
       settings_link_text: "Überprüfe Deine Einstellungen"
     new_listing_by_followed_person:
-      subject: "%{author_name} hat ein neues Angebot in %{service_name} veröffentlicht"
+      subject: "%{author_name} hat ein neues Angebot auf %{service_name} veröffentlicht"
       has_posted_a_new_listing: "%{author_name} hat ein neues Angebot veröffentlicht:"
       you_are_receiving_this_because: "Du hast diese Benachrichtigung erhalten, weil du %{author_name} folgst."
       view_listing: "Eintrag ansehen"
@@ -1731,7 +1732,7 @@ de:
       has_posted_a_new_listing: "%{author_name} hat eine neue Anzeige veröffentlicht:"
       you_are_receiving_this_because: "Du hast diese Benachrichtigung bekommen, weil du %{author_name} folgst."
       view_listing: "%{title} anzeigen"
-      cant_click: "Kannst du die Taste nicht drücken? Hier ist ein direkter Link:"
+      cant_click: "Kannst du nicht auf den Button klicken? Hier ist ein direkter Link:"
     new_member_notification:
       subject: "Neues Mitglied bei %{community}"
       new_member_has_joined: "Ein neues Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
@@ -1740,7 +1741,7 @@ de:
       person_email: "E-mail:"
     new_member_notification_v2:
       headline: "%{user_name} ist %{community} beigetreten."
-      new_member_has_joined: "%{name} (%{email}) ist %{community} beigetreten. Er/sie muss noch möglicherweise seine/ihre E-Mail-Adresse bestätigen."
+      new_member_has_joined: "%{name} (%{email}) ist %{community} beigetreten. Er/sie muss möglicherweise noch seine/ihre E-Mail-Adresse bestätigen."
       view_profile: "Profil anzeigen"
     listing_submited_for_review:
       subject: "Neuer Eintrag der überprüft werden muss: \"%{listing_title}\" von %{author_name} auf %{community}"
@@ -2055,7 +2056,7 @@ de:
       admin: "%{service_name} Admin-Bereich"
     branding:
       powered_by: "%{service_name} wird von %{sharetribe_link} Marktplatz Plattform betrieben."
-      create_own: "Willst Du Deinen eigenen Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
+      create_own: "Willst du deine eigene Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
       learn_more: "Erfahre mehr"
     no_tribe:
       inbox: Posteingang
@@ -2550,7 +2551,7 @@ de:
       week: Woche
       month: Monat
       unit: Einheit
-      person: Persone
+      person: Person
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
@@ -2705,7 +2706,7 @@ de:
         other: "Der Zugang zu %{service_name} ist beschränkt. Um beitreten zu können, brauchst du eine E-Mail-Adresse, die belegt, dass deine Teilnahme erlaubt ist."
       family_name: Nachname
       given_name: Vorname
-      i_accept_the_terms_and_privacy: "Ich akzeptiere die %{privacy} und %{terms}"
+      i_accept_the_terms_and_privacy: "Ich akzeptiere %{privacy} und die %{terms}"
       admin_emails_consent: "Ich bin damit einverstanden, gelegentlich Emails vom %{service_name} Team zu erhalten und habe zur Kenntnis genommen, dass ich es mir jederzeit anders überlegen kann"
       invalid_invitation_code: "Der Einladungs-Code ist ungültig."
       invitation_code: Einladungscode
@@ -2843,15 +2844,15 @@ de:
       email_from_admins: "Ich möchte gelegentlich Neuigkeiten von den Administratoren von %{service_name} empfangen"
       i_want_to_get_email_notification_when: "Ich möchte eine E-Mail-Benachrichtigung erhalten, wenn..."
       newsletters: "E-mails von Administatoren"
-      community_updates: Newsletters
+      community_updates: Newsletter
       email_about_confirm_reminders: "...ich vergessen habe, eine Anfrage als erledigt zu bestätigen"
       email_about_new_comments_to_own_listing: "...jemand mein Angebot oder meine Anfrage kommentiert"
       email_about_new_messages: "...mir jemand eine Nachricht sendet"
       email_about_new_received_testimonials: "...mir jemand eine Bewertung gibt"
       email_about_testimonial_reminders: "...ich vergessen habe, jemandem zu einer Transaktion eine Bewertung zu geben"
-      email_daily_community_updates: "Schickt mir <b>täglich</b> Newsletters, sofern es neue Einträge gibt"
-      email_weekly_community_updates: "Schickt mir <b>wöchentlich</b> Newsletters, sofern es neue Einträge gibt"
-      do_not_email_community_updates: "Schickt mir keine Newsletters"
+      email_daily_community_updates: "Schickt mir <b>täglich</b> Newsletter, sofern es neue Einträge gibt"
+      email_weekly_community_updates: "Schickt mir <b>wöchentlich</b> Newsletter, sofern es neue Einträge gibt"
+      do_not_email_community_updates: "Schickt mir keine Newsletter"
       email_when_conversation_accepted: "...jemand mein Angebot oder meine Anfrage akzeptiert"
       email_when_conversation_rejected: "...jemand mein Angebot oder meine Anfrage ablehnt"
       email_about_completed_transactions: "...jemand mein Angebot oder meine Anfrage als erledigt markiert"
@@ -3117,7 +3118,7 @@ de:
       mi: Meilen
     branding:
       powered_by: "%{service_name} wird von %{sharetribe_link} Marktplatz Plattform betrieben."
-      create_own: "Willst du deinen eigenen Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
+      create_own: "Willst du deine eigene Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
       learn_more: "Mehr erfahren"
   will_paginate:
     models:
@@ -3204,6 +3205,7 @@ de:
       cancel: Abbrechen
       gender: Geschlecht
       phone_number: Telefonnummer
+      phone_info_text: "Die Telefonnummer sollte mit dem Ländercode anfangen, zum Beispiel"
       address_kana_postal_code: "Postleitzahl kana"
       address_kana_state: "Staat kana"
       address_kana_city: "Stadt kana"
@@ -3300,8 +3302,8 @@ de:
         text: Text
         youtube_video_id: "Youtube Video ID"
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: Text
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "British Columbia"
