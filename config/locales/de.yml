@@ -823,8 +823,8 @@ de:
           main_title: Haupttitel
           column_header: "Spalte %{index}"
           column_title: "Spalte %{index} -Titel"
-          web_viewer: "Web Viewer"
-          column_icon_info: "Du kannst dein Icon hier wählen: %{link}. Wenn du das Icon gewählt hast, kopiere die 'Directory path' (zum Beispiel '01-InterfaceEssential/01-Home/house-2.svg') und sie hier einfügen."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Spalte %{index} -Symbol"
           column_paragraph: "Spalte %{index} -Paragraph"
           column_button: "Spalte %{index} -Taste"

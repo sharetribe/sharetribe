@@ -823,8 +823,8 @@ ca:
           main_title: "Títol principal"
           column_header: "Columna %{index}"
           column_title: "Títol de la columna %{index}"
-          web_viewer: "visualitzador en línia"
-          column_icon_info: "Pots triar la icona d'aquesta columna en aquest %{link}. Una vegada que seleccionis la icona còpia tot el \"Directory path\" (per exemple '01 -Interface Essential / 01-Home / house-2.svg ') i enganxa'l aquí."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Icona de la columna %{index}"
           column_paragraph: "Paràgraf de la columna %{index}"
           column_button: "Botó de la columna %{index}"

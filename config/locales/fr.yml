@@ -823,8 +823,8 @@ fr:
           main_title: "Titre principal"
           column_header: "Colonne %{index}"
           column_title: "Titre de la colonne %{index}"
-          web_viewer: interface
-          column_icon_info: "Vous pouvez choisir votre icône depuis cette %{link}. Une fois que vous avez sélectionné l'icône, copiez le 'Directory path\" (par exemple '01-Interface Essential/01-Home/house-2.svg' et collez le ici."
+          column_icon_info: "Ajouter des icônes nécessite une action manuelle de la part de l'équipe Sharetribe. Veuillez %{link} pour sélectionner l'icône de votre choix et le partager avec le support Sharetribe."
+          column_icon_info_link: "suivre les instructions dans cet article"
           column_icon: "Icône de la colonne %{index}"
           column_paragraph: "Paragraphe de la colonne %{index}"
           column_button: "Bouton de la colonne %{index}"

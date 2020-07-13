@@ -828,8 +828,8 @@ cs:
           main_title: "Hlavní název"
           column_header: "Sloupec %{index}"
           column_title: "Název %{index} sloupce"
-          web_viewer: "prohlížeč webu"
-          column_icon_info: "Svou ikonku můžete vybrat zde %{link}. Jakmile jste ikonku vybrali, zkopírujte 'Odkaz na adresář' (např. '01-Interface Essential/01-Home/house-2.svg') a vložte ho zde."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Ikonka sloupce %{index}"
           column_paragraph: ~
           column_button: "Tlačítko %{index} sloupce"

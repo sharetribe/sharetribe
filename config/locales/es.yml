@@ -823,8 +823,8 @@ es:
           main_title: "Título principal"
           column_header: "Columna %{index}"
           column_title: "Título de la columna %{index}"
-          web_viewer: "visualizador en línea"
-          column_icon_info: "Puedes elegir el ícono de esta columna en este %{link}. Una vez que selecciones el ícono copia todo el \"Directory path\" (por ejemplo '01-Interface Essential/01-Home/house-2.svg') y pégalo aquí."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Ícono de la columna %{index}"
           column_paragraph: "Párrafo de la columna %{index}"
           column_button: "Botón de la columna %{index}"

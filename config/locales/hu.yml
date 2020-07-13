@@ -824,8 +824,8 @@ hu:
           main_title: Főcím
           column_header: "Oszlop %{index}"
           column_title: "Oszlop %{index} cím"
-          web_viewer: webfigyelő
-          column_icon_info: "Kiválaszthatja az ikonját ezen a linken %{link}. Miután kiválasztotta az ikont, másolja ki az 'elérési utat' (például '01 -Interface Essential / 01-Home / house-2.svg '), és illessze be ide."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Oszlop %{index} ikon"
           column_paragraph: "Oszlop %{index} bekezdés"
           column_button: "Oszlop %{index} gomb"

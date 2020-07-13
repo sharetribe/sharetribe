@@ -833,8 +833,8 @@ pl:
           main_title: "Główny tytuł"
           column_header: "%{index} kolumny"
           column_title: "Tytuł %{index} kolumny"
-          web_viewer: ~
-          column_icon_info: "Możesz wybrać swoje ikony za pomocą tego linku %{link}. Po wybraniu ikony, skopiuj jej \"Directory path\" (na przykład \"01-InterfaceEssential/01-Home/house-2.svg\") i wklej je tutaj."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Ikona %{index} kolumny"
           column_paragraph: "Paragraf %{index} kolumny"
           column_button: "Przycisk %{index} kolumny"
