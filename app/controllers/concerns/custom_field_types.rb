@@ -5,7 +5,7 @@ module CustomFieldTypes
     if [false, true].include?(v)
       v
     else
-      v == "1"
+      v == '1'
     end
   }
 
