@@ -24,7 +24,9 @@
 #
 
 class CheckboxField < OptionField
-  validates_length_of :options, :minimum => 1
+  MINIMUM_LENGTH = 1
+
+  validates_length_of :options, minimum: MINIMUM_LENGTH
 
   def with_type(&block)
     block.call(:checkbox)

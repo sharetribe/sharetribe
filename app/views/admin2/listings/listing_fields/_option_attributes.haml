@@ -1,0 +1,42 @@
+- locals = data[:locals]
+- uniq = data[:uniq]
+- selector_label = data[:selector_label]
+- current_title = selector_label[I18n.locale.to_s]
+
+.field-data
+  = hidden_field_tag "custom_field[option_attributes][#{uniq}][id]", uniq
+  = hidden_field_tag "custom_field[option_attributes][#{uniq}][sort_priority]", uniq, class: %i[sort-options]
+  - locals.each do |locale|
+    = hidden_field_tag "custom_field[option_attributes][#{uniq}][title_attributes][#{locale}]", selector_label[locale], value: selector_label[locale]
+  .option-name
+    = current_title
+  .actions
+    %span.handle-move
+    %span.remove-list-option-trigger.remove
+    %span.edit-list-option-trigger.edit
+
+.remove-unit-content
+  %h2
+    = t('admin2.listing_fields.delete_option_title', title: current_title)
+  %p
+    = t('admin2.listing_fields.delete_option_body', title: current_title)
+  .remove-unit-actions
+    = button_tag t('admin2.delete'), class: %i[btn btn-negative delete-option], data: { id: uniq }
+    = link_to t('admin2.cancel'), '#', class: %i[remove-unit-cancel cancel-action]
+
+.edit-unit-content{data: { url: add_unit_admin2_listings_listing_fields_path }}
+  = hidden_field_tag :uniq, uniq
+  %h2= t('admin2.listing_fields.edit_option')
+  .form-group
+    %label= t('admin2.listing_fields.option_label')
+    .multiple-languages-container
+      - available_locales.each do |locale_name, locale|
+        .multiple-languages-language
+          %span.language
+            = locale_name
+        .multiple-languages-input
+          = text_field_tag "selector_label[#{locale}]", selector_label[locale], class: %i[form-control required selector-label]
+
+  .edit-new-unit-actions
+    = button_tag t('admin2.listing_fields.save_changes'), class: %i[btn btn-secondary], id: 'save-option', type: :button
+    = link_to t('admin2.cancel'), '#', class: %i[edit-unit-cancel cancel-action]

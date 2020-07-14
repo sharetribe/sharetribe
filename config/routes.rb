@@ -251,6 +251,21 @@ Rails.application.routes.draw do
         end
       end
       namespace :listings do
+        resources :listing_fields do
+          member do
+            get :delete_popup
+          end
+          collection do
+            post :order
+            post :add_unit
+            get :edit_price
+            get :edit_expiration
+            get :edit_location
+            put :update_expiration
+            put :update_price
+            put :update_location
+          end
+        end
         resources :order_types, path: 'order-types' do
           collection do
             post :add_unit

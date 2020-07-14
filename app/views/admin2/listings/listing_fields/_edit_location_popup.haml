@@ -1,0 +1,17 @@
+#locationEditModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'locationEditModalLabel', role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-lg{role: :document}
+    .modal-content
+      = form_for @current_community, as: :community, url: update_location_admin2_listings_listing_fields_path, remote: true, method: :put, class: %i[content-card-section-form] do |form|
+        .modal-header
+          %h2.modal-title#priceEditModalLabel= t('admin2.listing_fields.edit_location_title')
+          %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+            %span{'aria-hidden' => true} ×
+        .modal-body
+          .form-group
+            = label_tag t('admin2.listing_fields.required_field')
+            .form-check
+              = form.check_box :listing_location_required, disabled: !@current_community.show_location?, class: %i[form-check-input]
+              = form.label :listing_location_required, t('admin2.listing_fields.listing_location_required'), class: %i[form-check-label]
+        .modal-footer
+          = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
