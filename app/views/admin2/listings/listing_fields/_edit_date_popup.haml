@@ -3,14 +3,15 @@
     .modal-content
       = form_tag update_expiration_admin2_listings_listing_fields_path, remote: true, method: :put, class: %i[content-card-section-form] do |form|
         .modal-header
+          %h2.modal-title#dateEditModalLabel= t('admin2.listing_fields.edit_date_title')
           %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
             %span{'aria-hidden' => true} ×
         .modal-body
           .form-group
-            .col-12
-              .checkbox-container
-                = check_box_tag :listing_expiration_enabled, :enabled, !@current_community.hide_expiration_date
-                = label_tag :listing_expiration_enabled, 'Enable expiration date'
+            = label_tag t('admin2.listing_fields.listing_expiration_enabled_title')
+            .form-check
+              = check_box_tag :listing_expiration_enabled, :enabled, !@current_community.hide_expiration_date, class: %i[form-check-input]
+              = label_tag :listing_expiration_enabled, t('admin2.listing_fields.listing_expiration_enabled'), class: %i[form-check-label]
 
         .modal-footer
           = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
