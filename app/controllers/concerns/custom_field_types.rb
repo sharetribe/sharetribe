@@ -2,10 +2,10 @@ module CustomFieldTypes
   extend ActiveSupport::Concern
 
   CHECKBOX_TO_BOOLEAN = ->(v) {
-    if v == false || v == true
+    if [false, true].include?(v)
       v
     else
-      v == "1"
+      v == '1'
     end
   }
 
@@ -14,7 +14,7 @@ module CustomFieldTypes
       v
     elsif v.is_a?(Hash)
       v.values
-    elsif v == nil
+    elsif v.nil?
       nil
     else
       raise ArgumentError.new("Illegal argument given to transformer: #{v.to_inspect}")

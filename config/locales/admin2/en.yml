@@ -54,9 +54,9 @@ en:
         listing_approval: 'Listing approval'
         listing_comments: 'Listing comments'
         manage_listings: 'Manage listings'
+        listing_fields: 'Listing fields'
         order_types: 'Order types'
         categories: 'Categories'
-        listing_fields: 'Listing fields'
       transactions_reviews:
         config_transactions: 'Configure transactions'
         view_conversations: 'View conversations'
@@ -127,8 +127,14 @@ en:
       price_filter_min: 'Filter minimum price'
       price_filter_max: 'Filter maximum price'
       show_price_filter: 'Display a filter based on this field on the homepage'
-      edit_price_hint: 'The minimum and maximum price only affect the filter. They do not set a limit for listing prices.'
-      listing_location_required: 'This field is required'
+      price_filter_min_hint: 'The minimum price only affect the filter. They do not set a limit for listing prices.'
+      price_filter_max_hint: 'The maximum price only affect the filter. They do not set a limit for listing prices.'
+      edit_price_title: 'Edit listing field: Price'
+      edit_date_title: 'Edit listing field: Expiration date'
+      listing_location_required: 'Make it mandatory to fill in this field when creating a new listing'
+      listing_expiration_enabled_title: 'Enable expiration date'
+      listing_expiration_enabled: 'Enable the expiration date'
+      edit_location_title: 'Edit listing field: Location'
       types:
         text: 'Text'
         price: 'Price'
@@ -233,7 +239,6 @@ en:
           one: "There is %{count} custom field in the category and subcategories. It will be moved to the selected category."
           other: "There are %{count} custom field in the category and subcategories. They will be moved to the selected category."
         select_new_category: "Select a new category where the items listed above will be moved:"
-        image: 'Image'
     manage_reviews:
       transaction: 'Transaction'
       customer: 'Customer'

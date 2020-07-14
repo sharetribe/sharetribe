@@ -1,10 +1,10 @@
 fr:
   admin2:
     save_changes: 'lorem ipsum'
-    cancel: 'lorem ipsum'
-    delete: 'lorem ipsum'
     next_step: 'lorem ipsum'
     prev_step: 'lorem ipsum'
+    cancel: 'lorem ipsum'
+    delete: 'lorem ipsum'
     topnav:
       admin_menu: 'lorem ipsum'
       logo: 'lorem ipsum'
@@ -54,9 +54,9 @@ fr:
         listing_approval: 'lorem ipsum'
         listing_comments: 'lorem ipsum'
         manage_listings: 'lorem ipsum'
+        listing_fields: 'lorem ipsum'
         order_types: 'lorem ipsum'
         categories: 'lorem ipsum'
-        listing_fields: 'lorem ipsum'
       transactions_reviews:
         config_transactions: 'lorem ipsum'
         view_conversations: 'lorem ipsum'
@@ -125,13 +125,20 @@ fr:
       price_filter_min: 'lorem ipsum'
       price_filter_max: 'lorem ipsum'
       show_price_filter: 'lorem ipsum'
-      edit_price_hint: 'lorem ipsum'
+      price_filter_min_hint: 'lorem ipsum'
+      price_filter_max_hint: 'lorem ipsum'
+      edit_price_title: 'lorem ipsum'
+      edit_date_title: 'lorem ipsum'
       listing_location_required: 'lorem ipsum'
+      listing_expiration_enabled_title: 'lorem ipsum'
+      listing_expiration_enabled: 'lorem ipsum'
+      edit_location_title: 'lorem ipsum'
       types:
         text: 'lorem ipsum'
         price: 'lorem ipsum'
         date: 'lorem ipsum'
         location: 'lorem ipsum'
+        image: 'lorem ipsum'
     order_types:
       info_text: 'lorem ipsum'
       name: 'lorem ipsum'
@@ -230,7 +237,6 @@ fr:
           one: "lorem ipsum %{count} lorem ipsum."
           other: "lorem ipsum %{count} lorem ipsum."
         select_new_category: "lorem ipsum"
-        image: 'lorem ipsum'
     manage_reviews:
       transaction: 'lorem ipsum'
       customer: 'lorem ipsum'
