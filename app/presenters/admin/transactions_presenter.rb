@@ -145,7 +145,7 @@ class Admin::TransactionsPresenter
   def messages_and_actions
     @messages_and_actions ||= TransactionViewUtils.merge_messages_and_transitions(
       TransactionViewUtils.conversation_messages(transaction.conversation.messages, community.name_display_type),
-      TransactionViewUtils.transition_messages(transaction, transaction.conversation, community.name_display_type)).reverse
+      TransactionViewUtils.transition_messages(transaction, transaction.conversation, community)).reverse
   end
 
   def preauthorized?
