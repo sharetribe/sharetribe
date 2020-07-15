@@ -142,7 +142,7 @@ class TransactionsController < ApplicationController
 
     messages_and_actions = TransactionViewUtils.merge_messages_and_transitions(
       TransactionViewUtils.conversation_messages(@conversation.messages, @current_community.name_display_type),
-      TransactionViewUtils.transition_messages(@transaction, @conversation, @current_community.name_display_type))
+      TransactionViewUtils.transition_messages(@transaction, @conversation, @current_community))
 
     @transaction.mark_as_seen_by_current(@current_user.id)
 
