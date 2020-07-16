@@ -1,0 +1,37 @@
+- url = custom_field.new_record? ? admin2_listings_listing_fields_path(field_type: custom_field.type) : admin2_listings_listing_field_path(field_type: custom_field.type)
+= form_for custom_field, as: :custom_field, url: url, html: { id: id, class: %i[content-card-section-form listing-field-form] } do |form|
+  = render 'admin2/listings/listing_fields/field_name', form: form
+  = render 'admin2/listings/listing_fields/field_required', form: form, custom_field: custom_field
+  = render 'admin2/listings/listing_fields/search_filter', form: form, custom_field: custom_field
+
+  - custom_field.with(:numeric) do
+    = render 'admin2/listings/listing_fields/field_min_max', form: form
+
+  - custom_field.with(:dropdown) do
+    .form-group
+      %label= t('admin2.listing_fields.dropdown_list_options')
+      .list-group#optionsList
+        - custom_field.options.sorted.each do |option|
+          = render 'admin2/listings/listing_fields/field_options', data: option.json_data
+    = render 'add_new_option'
+    %label.error-options{style: 'display:none'}
+      = hidden_field_tag :minimum_length, DropdownField::MINIMUM_LENGTH
+      = t('admin2.listing_fields.error_count_options', count: DropdownField::MINIMUM_LENGTH)
+
+  - custom_field.with(:checkbox) do
+    .form-group
+      %label= t('admin2.listing_fields.checkbox_list_options')
+      .list-group#optionsList
+        - custom_field.options.sorted.each do |option|
+          = render 'admin2/listings/listing_fields/field_options', data: option.json_data
+    = render 'add_new_option'
+    %label.error-options{style: 'display:none'}
+      = hidden_field_tag :minimum_length, CheckboxField::MINIMUM_LENGTH
+      = t('admin2.listing_fields.error_count_options', count: CheckboxField::MINIMUM_LENGTH)
+
+  = render 'admin2/listings/listing_fields/field_categories', form: form, custom_field: custom_field
+
+:javascript
+  $(function() {
+    validateListingFields();
+  });

@@ -162,6 +162,7 @@ es-CL:
         status_resent: ~
         resend_link: ~
         invalid_email_error: ~
+        invalid_email_address: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
@@ -807,8 +808,8 @@ es-CL:
           main_title: ~
           column_header: ~
           column_title: ~
-          web_viewer: ~
           column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -3119,6 +3120,7 @@ es-CL:
       cancel: ~
       gender: ~
       phone_number: ~
+      phone_info_text: ~
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~

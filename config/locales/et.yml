@@ -36,10 +36,6 @@ et:
         remove_category: "Eemalda kategooria"
         remove_category_name: "Eemalda kategooria '%{category_name}'"
         warning_remove_effects: "Hoiatus! Kategooria eemaldamine '%{category_name}' on järgmiste mõjudega:"
-        select_new_category: "Valige uus kategooria, kuhu ülalnimetatud üksused teisaldatakse:"
-        buttons:
-          remove: Eemalda
-          cancel: Tühista
         warning_listing_will_be_moved:
           one: "Kategoorias on %{count} kirjet. Kirje teisaldatakse valitud kategooriasse."
           other: "Kategoorias on %{count} kirjet. Kirje teisaldatakse valitud kategooriasse."
@@ -55,6 +51,10 @@ et:
         warning_with_subcategories_custom_field_will_be_moved:
           one: "Kategoorias ja alamktaegoorias on %{count} kohandatud väli. Väli teisaldatakse valitud kategooriasse."
           other: "Kategooriates ja alamktaegooriates on %{count} kohandatud väli. Väljad teisaldatakse valitud kategooriatesse."
+        select_new_category: "Valige uus kategooria, kuhu ülalnimetatud üksused teisaldatakse:"
+        buttons:
+          remove: Eemalda
+          cancel: Tühista
     communities:
       edit_details:
         community_details: "Põhi info"
@@ -177,6 +177,7 @@ et:
         status_resent: "Korduskiri saadeti aadressile %{email}. %{resend_link}"
         resend_link: "Saada uuesti"
         invalid_email_error: "Vigane e-posti vorming '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "E-posti aadress '%{email}' ei toeta e-posti teenusepakkujat: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lisateabe saamiseks lugege abikeskuse artiklit."
         unknown_error: "Midagi läks valesti"
@@ -190,7 +191,7 @@ et:
         cs: "Tšehhi keel"
         da-DK: Taani
         de: Saksa
-        en: Inglise
+        en: English
         en-AU: "Inglise (Austraalia)"
         en-GB: "Inglise (Ühendkuningriik)"
         es: Hispaania
@@ -822,8 +823,8 @@ et:
           main_title: Peapealkiri
           column_header: "Veerg %{index}"
           column_title: "Veeru %{index} pealkiri"
-          web_viewer: ~
-          column_icon_info: "Oma ikooni saate valida selle %{link} seast. Kui olete ikooni valinud, kopeerige 'Directory path' (näiteks '01-Interface Essential / 01-Home / house-2.svg ') ja kleepige see siia."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Veeru %{index} ikoon"
           column_paragraph: "Veeru %{index} lõik"
           column_button: "Veeru %{index} nupp"
@@ -1005,15 +1006,24 @@ et:
         update_success: "Tellimusetüübi muudatused '%{shape}' salvestati"
         update_failure: "Muudatusi ei saa salvestada. Viga: %{error_msg}"
         delete: "Kustuta tellimuse tüüp"
-        can_not_delete_last: "Seda tellimistüüpi ei saa kustutada, kuna see on teie turul ainus tüüp."
-        can_not_delete_only_one_in_categories: "Seda tellimistüüpi ei saa kustutada, kuna järgmistes kategooriates on see tellimustüüp ainus: %{categories}"
         confirm_delete_order_type:
           one: "Selle tellimuse tüübiga on %{count} pakkumist. Kustutades tellimuse tüübi, see kirje suletakse. Kas soovite kindlasti tellimuse tüübi kustutada?"
           other: "Selle tellimuse tüübiga on %{count} pakkumist. Kustutades tellimuse tüübid, need kirjed suletakse. Kas soovite kindlasti tellimuse tüübi kustutada?"
+        can_not_delete_last: "Seda tellimistüüpi ei saa kustutada, kuna see on teie turul ainus tüüp."
+        can_not_delete_only_one_in_categories: "Seda tellimistüüpi ei saa kustutada, kuna järgmistes kategooriates on see tellimustüüp ainus: %{categories}"
       listing_shape_name: Nimi
       listing_shape_name_placeholder: "Näit. Müüa"
       action_button_label: "Kassanupu silt"
       action_button_placeholder: "Näit. Osta"
+      open_listings_warning:
+        one: "Selle tellimistüübiga on avatud kuulutus %{count}. Kui muudate mõnda allpool olevatest seadetest, säilitatakse selles loendis vanad sätted. Kirjet saab uuteks seadeteks muuta, käsitsi redigeerides. Kui te ei soovi, et teie vanade sätetega kuulutus oleks teie saidil nähtav, saate selle sulgeda, klõpsates allpool asuvat nuppu."
+        other: "Selle tellimistüübiga on avatud kuulutus %{count}. Kui muudate mõnda allpool olevatest seadetest, säilitatakse selles loendis vanad sätted. Kirjeid saab uuteks seadeteks muuta, käsitsi redigeerides. Kui te ei soovi, et teie vanade sätetega kuulutused oleks teie saidil nähtavad, saate need sulgeda, klõpsates allpool asuvat nuppu."
+      close_listings_action:
+        one: "Sulge %{count} kuulutus"
+        other: "Sulge %{count} kuulutused"
+      confirm_close_listings_action:
+        one: "Kas soovite kindlasti sulgeda %{count} kuulutuse?"
+        other: "Kas soovite kindlasti sulgeda %{count} kuulutused?"
       successfully_closed: "Loendite sulgemine õnnestus"
       successfully_deleted: "Tellimuse tüüp edukalt kustutatud '%{order_type}'"
       pricing_and_checkout_title: "Hinnakujundus ja väljamakse"
@@ -1044,15 +1054,6 @@ et:
           heading: "Ühiku tüüp"
           quantity_label: "Kogus (tükk, kg, inimene, 2-tunnise ringkäigu kohta ...)"
           time_label: "Aeg (30 minuti jooksul, 2 nädala jooksul, aastas ...)"
-      open_listings_warning:
-        one: "Selle tellimistüübiga on avatud kuulutus %{count}. Kui muudate mõnda allpool olevatest seadetest, säilitatakse selles loendis vanad sätted. Kirjet saab uuteks seadeteks muuta, käsitsi redigeerides. Kui te ei soovi, et teie vanade sätetega kuulutus oleks teie saidil nähtav, saate selle sulgeda, klõpsates allpool asuvat nuppu."
-        other: "Selle tellimistüübiga on avatud kuulutus %{count}. Kui muudate mõnda allpool olevatest seadetest, säilitatakse selles loendis vanad sätted. Kirjeid saab uuteks seadeteks muuta, käsitsi redigeerides. Kui te ei soovi, et teie vanade sätetega kuulutused oleks teie saidil nähtavad, saate need sulgeda, klõpsates allpool asuvat nuppu."
-      close_listings_action:
-        one: "Sulge %{count} kuulutus"
-        other: "Sulge %{count} kuulutused"
-      confirm_close_listings_action:
-        one: "Kas soovite kindlasti sulgeda %{count} kuulutuse?"
-        other: "Kas soovite kindlasti sulgeda %{count} kuulutused?"
     paypal_accounts:
       marketplace_paypal_integration: "Maksesüsteemi eelistused"
       preferences_updated: "Maksesüsteemi eelistusi on uuendatud"
@@ -1593,7 +1594,7 @@ et:
       price_per_unit_type: "Hind %{unit_type}"
       quantity: "Kogus:"
       you_have_received_new_payment: "Kasutaja %{payer_full_name} on sulle tasunud <b> %{payment_sum} </b><b>  %{listing_title} </b>  eest. Siin on sinu kviitung."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, %{unit_type}  kohta"
     payment_receipt_to_seller:
       payment_gateway_fee: "Makse töötlemise tasu:"
       shipping_total: "Kohaletoimetamine:"
@@ -1627,7 +1628,7 @@ et:
       service_fee: Teenustasu
       stripe_gateway_fee: "Stripe tasu"
       paypal_gateway_fee: "PayPali tasu:"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Raha kantakse kontole %{recipient_name}, kui a) olete märkinud, et taotlus on täidetud või b) %{automatic_confirmation_days} päeva on möödunud maksmisest."
     payment_receipt_to_payer_v2:
       headline: "siin on teie %{listing_link} kviitung."
       you_have_made_new_payment: "Sa oled tasunud <b>%{payment_sum}</b> for <b>%{listing_title}</b>"
@@ -1653,7 +1654,7 @@ et:
       stripe_gateway_fee: "Stripe tasu"
       paypal_gateway_fee: "PayPali tasu:"
       money_will_be_transferred: "Raha kantakse kontole %{recipient_name}, kui a) olete märkinud, et taotlus on täidetud või b) %{automatic_confirmation_days} päeva on möödunud maksmisest."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, %{unit_type} kohta"
       stripe:
         you_have_made_new_payment: "Olete maksnud <b>%{payment_sum}</b> <b>%{listing_title}</b> eest. Raha hoiab %{service_name} ja see vabastatakse aadressil %{recipient_full_name} kui märgite tellimuse täidetuks. Siin on makse kviitung."
     new_testimonial:
@@ -2255,16 +2256,16 @@ et:
       listing_author_payment_details_missing: "Palun kontakteeruge isikuga, vajutades allpool olevat nuppu 'Kontakt'. Maksete saamiseks peavad nad värskendama oma makse üksikasju."
       listing_author_payment_details_missing_no_free: "Võtke ühendust %{service_name} meeskonnaga, et paluda neil nimekirja autoriga ühendust võtta ja maksete saamiseks soovitada värskendada makse üksikasju."
       images_are_processing: "Töötleme teie pilte. Andke meile minut või kaks ja nad on nähtavad."
+      maintenance_mode:
+        zero: "Veebisait läheb nüüd hoolduseks võrguühenduseta"
+        one: "Veebisait on sisselogimiseks võrguühenduseta %{count} minutit"
+        other: "Veebisait on sisselogimiseks võrguühenduseta %{count} minutit"
       automatically_logged_out_please_sign_in: "Teid logiti automaatselt välja. Logige uuesti sisse."
       stripe_you_account_balance_is_not_0: "Teie konto saldo ei ole 0, seega ei saa seda kustutada. See võib tähendada, et teil on tehinguid, mis ootavad lõpuleviimist või seda, et teie pangakontole on oodata raha väljamaksmist. Lisateabe saamiseks võtke ühendust %{service_name} meeskonnaga."
       stripe_balance_for_username_is_not_0: "%{username} Stripe saldo ei ole 0, seega ei saa kontot kustutada. See võib tähendada, et neil on tehinguid, mis ootavad lõpuleviimist või et nende pangakontodele on raha välja maksmist oodata. Lisateabe saamiseks kontrollige oma Stripe juhtpaneeli."
       visit_admin: "Kas te sooviksite %{link}"
       visit_admin_link: "külastage oma administraatori paneeli"
       an_error_occurred_when_saving_your_information: "Teie teabe salvestamisel ilmnes tõrge: %{message}. Kontrollige, kas kogu teave on õige ja proovige uuesti."
-      maintenance_mode:
-        zero: "Veebisait läheb nüüd hoolduseks võrguühenduseta"
-        one: "Veebisait on sisselogimiseks võrguühenduseta %{count} minutit"
-        other: "Veebisait on sisselogimiseks võrguühenduseta %{count} minutit"
     settings:
       account: Konto
       notifications: Teavitused
@@ -2533,7 +2534,7 @@ et:
       processing_uploaded_image: "(Laen pilti üles...)"
       listing_created_at: "Kirje on loodud"
       price:
-        per_quantity_unit: ~
+        per_quantity_unit: "%{quantity_unit} kohta"
         per_day: "päeva kohta"
       delivery: "Kohaletoimetamise viis"
       shipping: "Kohaletoimetamine (+%{price})"
@@ -3028,15 +3029,6 @@ et:
     initiate:
       booked_days: "Broneeritud päevad:"
       booked_nights: "Broneeritud ööd:"
-      price_per_day: "Päeva hind:"
-      price_per_night: "Hind öö kohta:"
-      price_per_hour: "Tunnihind:"
-      price_per_unit: "Tükihind:"
-      quantity: "Kogus:"
-      subtotal: "Vahesumma:"
-      shipping-price: "Kohaletoimetamine:"
-      stripe-fee: "Stripe tasu (hinnanguline):"
-      start_end_time: "%{start_time} kuni %{end_time}"
       booked_days_label:
         one: "Broneeritud päev:"
         other: "Broneeritud päevi:"
@@ -3046,9 +3038,18 @@ et:
       booked_hours_label:
         one: "Broneeritud tund:"
         other: "Broneeritud tunnid:"
+      price_per_day: "Päeva hind:"
+      price_per_night: "Hind öö kohta:"
+      price_per_hour: "Tunnihind:"
+      price_per_unit: "Tükihind:"
+      quantity: "Kogus:"
+      subtotal: "Vahesumma:"
+      shipping-price: "Kohaletoimetamine:"
+      stripe-fee: "Stripe tasu (hinnanguline):"
       duration_in_hours:
         one: "(1 tund)"
         other: "(%{count} tundi)"
+      start_end_time: "%{start_time} kuni %{end_time}"
     price_per_quantity: "Hind %{unit_type}"
     price: "Hind:"
     quantity: "Kogus %{quantity}"
@@ -3133,8 +3134,6 @@ et:
     next_label: "Järgmine &#8594;"
     page_gap: "otsi siin &hellip;"
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
       single_page:
         zero: "Ei %{model} leitud"
         one: "Kuvatakse 1 %{model}"
@@ -3143,10 +3142,10 @@ et:
         zero: "Ei %{model} leitud"
         one: "Kuvatakse <b>1</b> %{model}"
         other: "Kuvatakse <b>all&nbsp;%{count}</b> %{model}"
+      multi_page: ~
+      multi_page_html: ~
     person:
       community_members_entries_info:
-        multi_page: "Kuvatakse %{model} %{from} - %{to} %{accepted_count} kinnitatud %{accepted_model} ja %{other_count} muud %{other_model}"
-        multi_page_html: "Kuvatakse %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> kinnitatud %{accepted_model} ja %{other_count} muud %{other_model}"
         single_page:
           zero: "%{model} ei leitud"
           one: "Kuvatakse %{accepted_count} kinnitatud %{accepted_model} ja %{other_count} muu %{other_model} "
@@ -3155,6 +3154,8 @@ et:
           zero: "%{model} ei leitud"
           one: "Kuvatakse <b>%{accepted_count}</b> kinnitatud %{accepted_model} ja %{other_count} muu %{other_model}"
           other: "Kuvatakse <b>%{accepted_count}</b> kinnitatud %{accepted_model} ja %{other_count} muud %{other_model}"
+        multi_page: "Kuvatakse %{model} %{from} - %{to} %{accepted_count} kinnitatud %{accepted_model} ja %{other_count} muud %{other_model}"
+        multi_page_html: "Kuvatakse %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> kinnitatud %{accepted_model} ja %{other_count} muud %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "PayPali konto ühendamine pole võimalik, kuna %{service_name} pole makseid seadistanud. Üksikasjade saamiseks palun %{contact_admin_link}."
     contact_admin_link_text: "Võta ühendust %{service_name} meeskonnaga"
@@ -3204,6 +3205,7 @@ et:
       cancel: Tühista
       gender: Sugu
       phone_number: Telefoninumber
+      phone_info_text: ~
       address_kana_postal_code: "Postiindeks kana"
       address_kana_state: "Osariik kana"
       address_kana_city: "Linn kana"
@@ -3254,7 +3256,7 @@ et:
       ssn_last_4: "Sotsiaalkindlustusenumbri (SSN) viimased 4 numbrit"
       hong_kong_identity_card: "Hong Kongi ID kaardi number (HKID)"
       singapore_identity_card: "Riiklik registreerimiskaart (NRIC) või välisriigi isikukood (FIN)"
-      mexico_id_number: ~
+      mexico_id_number: "Isiklik ID number (CURP)"
       messages:
         social_insurance_number: "Peab olema kehtiv sotsiaalkindlustusnumber (SIN)"
   payment_settings:
@@ -3304,10 +3306,10 @@ et:
         cta_button_url: URL
   canada_states:
     AB: Alberta
-    BC: "British Columbia"
+    BC: "Briti Columbia"
     MB: Manitoba
     NB: "New Brunswick"
-    NL: "Newfoundland and Labrador"
+    NL: "Newfoundland ja Labrador"
     NS: "Nova Scotia"
     NT: "Northwest Territories"
     NU: Nunavut

@@ -1,0 +1,20 @@
+.list-group-item.nested-1{data: {id: category.id}}
+  .categoryNameWrapper
+    .categoryName
+      = category.display_name(I18n.locale)
+    .actions
+      %span.handle-move{'aria-hidden' => true}
+      - if !category.can_destroy?
+      - elsif category.remove_needs_caution?
+        = link_to remove_popup_admin2_listings_category_path(category), remote: true do
+          %span.remove
+      - else
+        = link_to '#', class: 'remove-category', data: { url: admin2_listings_category_path(category), caption: t('admin2.categories.delete_category', category: category.display_name(I18n.locale)) } do
+          %span.remove
+
+      = link_to edit_admin2_listings_category_path(category), remote: true do
+        %span.edit
+
+  .list-group.nested-sortable{data: {id: category.id}, class: "#{'empty-sortable' if category.children.empty?}"}
+    - unless category.children.empty?
+      = render partial: 'subcategory', collection: category.children, locals: { category_count: category.children.size }

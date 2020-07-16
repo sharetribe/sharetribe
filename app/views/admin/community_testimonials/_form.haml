@@ -1,7 +1,7 @@
 - persisted = service.testimonial.persisted?
 .testimonial-edit-form
   - url = persisted ? admin_community_testimonial_path(service.testimonial) : admin_community_testimonials_path()
-  = form_for service.testimonial, url: url,
+  = form_for service.testimonial, url: url, html: { class: %i[form-testimonial] },
     remote: true, data: { confirm: t('admin.communities.testimonials.form.confirm_modify') } do |form|
     = form.hidden_field :grade
     .row
@@ -16,7 +16,7 @@
             = icon_tag("dislike")
       .col-8
         = form.label :text, t('admin.communities.testimonials.form.review_text')
-        = form.text_area :text
+        = form.text_area :text, class: %i[required]
     .row
       .col-4
       .col-8.testimonial-checkbox

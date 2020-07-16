@@ -18,6 +18,7 @@ window.ST = window.ST || {};
     $('#testimonial-form').html(options.content);
     $('#testimonial_popup').lightbox_me({centered: true, closeSelector: '#close_x, #close_x1'});
     $(document).tooltip();
+    $('.form-testimonial').validate();
     setupDeleteBlocked();
   };
 
@@ -34,13 +35,16 @@ window.ST = window.ST || {};
     if ($('#testimonial_blocked[disabled]').length > 0) {
       $('#delete_review').on('change', function() {
         var input = $('#testimonial_blocked'),
+          testimonial_text = $('#testimonial_text'),
           label = input.closest('label');
         if ($(this).is(':checked')) {
           input.prop('disabled', false);
+          testimonial_text.removeClass('required');
           label.removeClass('disabled');
         } else {
           input.prop('disabled', true);
           label.addClass('disabled');
+          testimonial_text.addClass('required');
         }
       });
     }

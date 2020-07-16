@@ -1,0 +1,5 @@
+<% if @error %>
+  alert('<%= j @error %>');
+<% else %>
+  $('#locationEditModal').modal('hide');
+<% end %>

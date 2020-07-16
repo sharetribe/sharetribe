@@ -179,6 +179,7 @@ nl:
         status_resent: "Verificatie email opnieuw verzonden naar %{email}. %{resend_link}"
         resend_link: "Opnieuw zenden"
         invalid_email_error: "Ongeldig email formaat voor '%{email}'"
+        invalid_email_address: ~
         invalid_email_domain: "Het '%{email}' emailadres gebruikt een niet ondersteunde email provider. '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Lees het Help Center artikel (Engels) voor meer informatie."
         unknown_error: "Er ging iets mis"
@@ -824,8 +825,8 @@ nl:
           main_title: Hoofdtitel
           column_header: "Kolom %{index}"
           column_title: "Kolom %{index} titel"
-          web_viewer: webviewer
-          column_icon_info: "Je kunt je icoon kiezen van deze %{link}. Eenmaal geselecteerd, kopieer dan de 'Directory path' (bijvoorbeeld '01-Interface Essential/01-Home/house-2.svg') en plak het hier."
+          column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: "Kolom %{index}  icoon"
           column_paragraph: "Kolom %{index} paragraaf"
           column_button: "Kolom %{index} button"
@@ -3207,6 +3208,7 @@ nl:
       cancel: Annuleer
       gender: Geslacht
       phone_number: Telefoonnummer
+      phone_info_text: ~
       address_kana_postal_code: "Postcode (in Kana)"
       address_kana_state: "Staat (in Kana)"
       address_kana_city: "Stad (in Kana)"

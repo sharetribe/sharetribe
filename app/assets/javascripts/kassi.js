@@ -214,10 +214,12 @@ function initialize_admin_edit_price($form, min_name, max_name, locale) {
 
   rules = {};
   rules[min_name] = {
-    min_bound: max_name
+    min_bound: max_name,
+    number_max: 21474836
   };
   rules[max_name] = {
-    max_bound: min_name
+    max_bound: min_name,
+    number_max: 21474836
   };
 
   $form.validate({rules: rules})

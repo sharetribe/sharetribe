@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.6.5'
 
-gem 'rails', '5.2.3'
+gem 'rails', '5.2.4.3'
 
 gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier', '~> 3.2.0'
@@ -76,7 +76,7 @@ gem "css_parser", '~> 1.7.0'
 gem 'stringex', '~> 2.7.1'
 gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
-gem 'airbrake', '~> 9.1.0'
+gem 'airbrake', '~> 10.0.4'
 gem 'stripe', '~> 4.9.0'
 
 gem 'lograge', '~> 0.10.0'
@@ -105,7 +105,7 @@ gem 'mail', '~> 2.6.6.rc1'
 gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.2'
 
 group :staging, :production do
-  gem 'newrelic_rpm', '~> 4.2.0.334'
+  gem 'newrelic_rpm', '~> 6.11.0'
   gem 'rails_12factor', '~> 0.0.3'
 end
 

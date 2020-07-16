@@ -1,6 +1,6 @@
 # Sharetribe
 
-[![CircleCI](https://circleci.com/gh/sharetribe/sharetribe/tree/master.svg?style=svg)](https://circleci.com/gh/sharetribe/sharetribe/tree/master) [![Dependency Status](https://gemnasium.com/sharetribe/sharetribe.png)](https://gemnasium.com/sharetribe/sharetribe) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe)
+[![CircleCI](https://circleci.com/gh/sharetribe/sharetribe/tree/master.svg?style=svg)](https://circleci.com/gh/sharetribe/sharetribe/tree/master) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe)
 
 Sharetribe is a source available platform to create your own peer-to-peer marketplace.
 
@@ -13,6 +13,7 @@ Would you like to work with an API-based marketplace solution that allows you to
 - [Technology stack](#technology-stack)
 - [Installation](#installation)
 - [Payments](#payments)
+- [Custom Landing Page](#custom-landing-page)
 - [Versioning](#versioning)
 - [Changes](#changes)
 - [Upgrade](#upgrade)
@@ -410,6 +411,12 @@ If Stripe isn't automatically enabled in the admin panel after upgrading to 7.2.
 `TransactionService::API::Api.processes.create(community_id: <ID>, process: :preauthorize, author_is_seller: true)`
 and
 `TransactionService::API::Api.settings.provision(community_id: <ID>, payment_gateway: :stripe, payment_process: :preauthorize, active: true)`.
+
+## Custom Landing Page
+
+Sharetribe Go includes a Custom Landing Page add-on and editor. You can [learn more about it here](https://www.sharetribe.com/products/go/landing-page/).
+
+The Custom Landing Page Editor should be available automatically, from [v9.1.0](https://github.com/sharetribe/sharetribe/releases/tag/v9.1.0). If this is not the case, you can find plenty of useful information in the *[Landing Pages for Idiots Like Me](https://www.sharetribe.com/community/t/landing-pages-for-idiots-like-me/2788)* post written by [Jeremy D Evans](https://github.com/jeremyevans6). 
 
 ## Versioning
 

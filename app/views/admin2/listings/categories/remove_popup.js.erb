@@ -1,0 +1,7 @@
+var popup = $('#categoriesDeleteModal');
+if (popup.length) {
+    popup.remove();
+}
+
+$('body').append('<%= j render 'admin2/listings/categories/delete_popup', category: @category, possible_merge_targets: @possible_merge_targets %>');
+$('#categoriesDeleteModal').modal('show');

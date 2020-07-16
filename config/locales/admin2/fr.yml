@@ -1,9 +1,10 @@
 fr:
   admin2:
     save_changes: 'lorem ipsum'
-    cancel: 'lorem ipsum'
     next_step: 'lorem ipsum'
     prev_step: 'lorem ipsum'
+    cancel: 'lorem ipsum'
+    delete: 'lorem ipsum'
     topnav:
       admin_menu: 'lorem ipsum'
       logo: 'lorem ipsum'
@@ -54,6 +55,9 @@ fr:
         listing_approval: 'lorem ipsum'
         listing_comments: 'lorem ipsum'
         manage_listings: 'lorem ipsum'
+        listing_fields: 'lorem ipsum'
+        order_types: 'lorem ipsum'
+        categories: 'lorem ipsum'
       transactions_reviews:
         config_transactions: 'lorem ipsum'
         view_conversations: 'lorem ipsum'
@@ -116,6 +120,155 @@ fr:
       delete_title: 'lorem ipsum: %{name}'
       delete_info_text: 'lorem ipsum %{name}'
       delete_user_field: 'lorem ipsum'
+    listing_fields:
+      info_header: 'lorem ipsum'
+      info_text: 'lorem ipsum'
+      field_title: 'lorem ipsum'
+      field_type: 'lorem ipsum'
+      field_name: 'lorem ipsum'
+      required_field: 'lorem ipsum'
+      filter: 'lorem ipsum'
+      listing_title: 'lorem ipsum'
+      detailed_description: 'lorem ipsum'
+      expiration_date: 'lorem ipsum'
+      add_listing_type: '+ lorem ipsum'
+      add_title: 'lorem ipsum'
+      new_field_type: 'lorem ipsum'
+      edit_field_type: 'lorem ipsum: %{name} (%{field_type})'
+      delete_title: 'lorem ipsum: %{name}'
+      delete_info_text: 'lorem ipsum %{name}'
+      delete_listing_field: 'lorem ipsum'
+      display_on_homepage: 'lorem ipsum'
+      make_mandatory: 'lorem ipsum'
+      allow_decimals: 'lorem ipsum'
+      minimum_value: 'lorem ipsum'
+      maximum_value: 'lorem ipsum'
+      listing_categories: 'lorem ipsum'
+      dropdown_list_options: 'lorem ipsum'
+      checkbox_list_options: 'lorem ipsum'
+      add_option_link: '+ lorem ipsum'
+      add_new_option: 'lorem ipsum'
+      option_label: 'lorem ipsum'
+      save_option: 'lorem ipsum'
+      save_changes: 'lorem ipsum'
+      edit_option: 'lorem ipsum'
+      delete_option_title: 'lorem ipsum "%{title}"'
+      delete_option_body: 'lorem ipsum "%{title}"?'
+      price_filter_min: 'lorem ipsum'
+      price_filter_max: 'lorem ipsum'
+      show_price_filter: 'lorem ipsum'
+      price_filter_min_hint: 'lorem ipsum'
+      price_filter_max_hint: 'lorem ipsum'
+      edit_price_title: 'lorem ipsum'
+      edit_date_title: 'lorem ipsum'
+      listing_location_required: 'lorem ipsum'
+      listing_expiration_enabled_title: 'lorem ipsum'
+      listing_expiration_enabled: 'lorem ipsum'
+      edit_location_title: 'lorem ipsum'
+      types:
+        text: 'lorem ipsum'
+        price: 'lorem ipsum'
+        date: 'lorem ipsum'
+        location: 'lorem ipsum'
+        image: 'lorem ipsum'
+    order_types:
+      info_text: 'lorem ipsum'
+      name: 'lorem ipsum'
+      used_in: 'lorem ipsum'
+      all_categories: "lorem ipsum"
+      no_categories: "lorem ipsum"
+      category_count: "%{category_count} lorem ipsum"
+      add_new_order_type: 'lorem ipsum'
+      add_new: '+ lorem ipsum'
+      new_order_type: 'lorem ipsum'
+      edit_order_type: 'lorem ipsum: %{type}'
+      listing_shape_name_placeholder: "lorem ipsum"
+      checkout_button: 'lorem ipsum'
+      action_button_placeholder: "lorem ipsum"
+      pricing_checkout: 'lorem ipsum'
+      online_payments_label: "lorem ipsum"
+      allow_providers_to_manage_availability: "lorem ipsum"
+      shipping_label: "lorem ipsum"
+      price_label: "lorem ipsum"
+      units_title_with_availability: "lorem ipsum"
+      units_title_without_availability: 'lorem ipsum'
+      per_hour_availability: 'lorem ipsum'
+      per_day_availability: 'lorem ipsum'
+      per_night_availability: 'lorem ipsum'
+      update_success: "lorem ipsum '%{shape}' lorem ipsum"
+      update_failure: "lorem ipsum: %{error_msg}"
+      create_success: "lorem ipsum '%{shape}' lorem ipsum"
+      create_failure: "lorem ipsum: %{error_msg}"
+      successfully_deleted: "lorem ipsum '%{order_type}'"
+      delete: 'lorem ipsum'
+      delete_caption: 'lorem ipsum: %{order_type}'
+      confirm_delete_simple_order_type: 'lorem ipsum'
+      per: 'lorem ipsum'
+      add_unit_title: '+ lorem ipsum'
+      add_unit: 'lorem ipsum'
+      unit_label: 'lorem ipsum'
+      unit_label_placeholder: 'lorem ipsum'
+      unit_type_quantity: 'lorem ipsum'
+      unit_type_time: 'lorem ipsum'
+      save_unit: 'lorem ipsum'
+      selector_label: 'lorem ipsum'
+      unit_type: 'lorem ipsum'
+      delete_unit_title: 'lorem ipsum "%{title}"'
+      delete_unit_text: 'lorem ipsum "%{title}"?'
+      errors:
+        without_online_payments: 'lorem ipsum'
+        enabled_without_price: 'lorem ipsum'
+        used_without_price: 'lorem ipsum'
+        cannot_delete_msg: 'lorem ipsum %{error_msg}'
+        cannot_delete: 'lorem ipsum'
+        can_not_delete_only_one_in_categories: "lorem ipsum %{categories}"
+        can_not_delete_last: "lorem ipsum"
+        can_not_find_name: "lorem ipsum %{name}"
+      units:
+        piece: "lorem ipsum"
+        hour: "lorem ipsum"
+        day: "lorem ipsum"
+        night: "lorem ipsum"
+        week: "lorem ipsum"
+        month: "lorem ipsum"
+        unit: "lorem ipsum"
+      confirm_delete_order_type:
+        one: "lorem ipsum %{count} lorem ipsum?"
+        other: "lorem ipsum %{count} lorem ipsum?"
+    categories:
+      info_text: 'lorem ipsum'
+      add_category: 'lorem ipsum'
+      add_category_popup: 'lorem ipsum'
+      edit_category: 'lorem ipsum %{category}'
+      category_name: 'lorem ipsum'
+      category_parent: 'lorem ipsum'
+      no_parent: 'lorem ipsum'
+      order_types: 'lorem ipsum'
+      delete_category_btn: 'lorem ipsum'
+      delete_category: 'lorem ipsum'
+      delete_category_info_text: 'lorem ipsum?'
+      remove_category_confirmation: "lorem ipsum'%{category_name}'?"
+      remove:
+        remove_category: "lorem ipsum"
+        remove_category_name: "lorem ipsum '%{category_name}'"
+        remove_empty_category: "lorem ipsum"
+        warning_remove_effects: "lorem ipsum '%{category_name}' lorem ipsum:"
+        warning_listing_will_be_moved:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        warning_custom_field_will_be_moved:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        warning_subcategory_will_be_removed:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "lorem ipsum %{count} lorem ipsum."
+          other: "lorem ipsum %{count} lorem ipsum."
+        select_new_category: "lorem ipsum"
     manage_reviews:
       transaction: 'lorem ipsum'
       customer: 'lorem ipsum'
@@ -603,6 +756,12 @@ fr:
       user_field_updated: 'lorem ipsum'
       user_field_created: 'lorem ipsum'
       user_field_saving_failed: 'lorem ipsum'
+      listing_field_updated: 'lorem ipsum'
+      listing_field_saving_failed: 'lorem ipsum'
+      listing_field_created: 'lorem ipsum'
+      listing_fields_update_location_failed: 'lorem ipsum'
+      listing_fields_update_expiration_failed: 'lorem ipsum'
+      listing_fields_update_price_failed: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

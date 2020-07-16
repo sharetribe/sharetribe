@@ -172,6 +172,7 @@ zh-HK:
         status_resent: "已重新發送驗証電郵至%{email}。%{resend_link}"
         resend_link: 重新發送
         invalid_email_error: "郵件地址%{email}的格式不正確"
+        invalid_email_address: ~
         invalid_email_domain: "電郵地址%{email}來自不被支持的電郵提供商：‘%{domain}’。%{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: 通過資料庫的文章獲得更多訊息。
         unknown_error: 發生問題了
@@ -817,8 +818,8 @@ zh-HK:
           main_title: ~
           column_header: ~
           column_title: ~
-          web_viewer: ~
           column_icon_info: ~
+          column_icon_info_link: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -3135,6 +3136,7 @@ zh-HK:
       cancel: ~
       gender: ~
       phone_number: ~
+      phone_info_text: ~
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~

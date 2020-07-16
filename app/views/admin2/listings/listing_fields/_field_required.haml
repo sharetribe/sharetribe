@@ -1,0 +1,5 @@
+.form-group
+  %label= t('admin2.listing_fields.required_field')
+  .form-check
+    = form.check_box :required, class: %i[form-check-input]
+    = form.label :required, t('admin2.listing_fields.make_mandatory'), class: %i[form-check-label]

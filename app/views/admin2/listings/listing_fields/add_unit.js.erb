@@ -1,0 +1,8 @@
+<% if @exist_id %>
+  $('#custom_option_<%= @exist_id %>').html('<%= j render 'admin2/listings/listing_fields/option_attributes', data: @data %>');
+<% else %>
+  $('#optionsList').append('<%= j render 'admin2/listings/listing_fields/field_options', data: @data %>');
+  $(".add-new-unit-content").hide(0);
+  $("#new-option-trigger").show(0);
+  $('.add-new-unit-content input').val('');
+<% end %>

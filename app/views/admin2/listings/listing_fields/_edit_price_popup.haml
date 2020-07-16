@@ -1,0 +1,27 @@
+#priceEditModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'priceEditModalLabel', role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-lg{role: :document}
+    .modal-content
+      = form_for @current_community, as: :community, url: update_price_admin2_listings_listing_fields_path, remote: true, method: :put, class: %i[content-card-section-form] do |form|
+        .modal-header
+          %h2.modal-title#priceEditModalLabel= t('admin2.listing_fields.edit_price_title')
+          %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+            %span{'aria-hidden' => true} ×
+        .modal-body
+          - min = MoneyUtil.to_units(MoneyUtil.to_money(@current_community.price_filter_min, @current_community.currency)) || 0
+          - max = MoneyUtil.to_units(MoneyUtil.to_money(@current_community.price_filter_max, @current_community.currency)) || 100_000
+          .form-group
+            = label_tag t('admin2.listing_fields.filter')
+            .form-check
+              = form.check_box :show_price_filter, class: %i[form-check-input]
+              = form.label :show_price_filter, t('admin2.listing_fields.show_price_filter'), class: %i[form-check-label]
+          .form-group
+            = form.label "community[price_filter_min]", t('admin2.listing_fields.price_filter_min')
+            = text_field_tag "community[price_filter_min]", min, class: %i[form-control number-no-decimals required]
+            %small.form-text= t('admin2.listing_fields.price_filter_min_hint')
+          .form-group
+            = form.label "community[price_filter_max]", t('admin2.listing_fields.price_filter_max')
+            = text_field_tag "community[price_filter_max]", max, class: %i[form-control number-no-decimals required]
+            %small.form-text= t('admin2.listing_fields.price_filter_max_hint')
+        .modal-footer
+          = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
