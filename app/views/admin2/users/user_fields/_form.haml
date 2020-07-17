@@ -1,0 +1,28 @@
+- custom_field = service.custom_field
+- path = service.edit? ? admin2_users_user_field_path(custom_field) : admin2_users_user_fields_path(field_type: custom_field.type)
+= form_for custom_field, as: :custom_field, url: path, html: { id: id, class: %i[content-card-section-form listing-field-form] } do |form|
+  = render 'admin2/users/user_fields/field_name', form: form, service: service
+  = render 'admin2/users/user_fields/field_required', form: form, service: service
+  - custom_field.with(:numeric) do
+    = render 'admin2/users/user_fields/field_min_max', form: form, service: service
+  - custom_field.with(:dropdown) do
+    .form-group
+      %label= t('admin2.listing_fields.dropdown_list_options')
+      .list-group#optionsList
+        - custom_field.options.sorted.each do |option|
+          = render 'admin2/users/user_fields/field_options', data: option.json_data
+    = render 'add_new_option'
+    %label.error-options{style: 'display:none'}
+      = hidden_field_tag :minimum_length, DropdownField::MINIMUM_LENGTH
+      = t('admin2.listing_fields.error_count_options', count: DropdownField::MINIMUM_LENGTH)
+
+  - custom_field.with(:checkbox) do
+    .form-group
+      %label= t('admin2.listing_fields.dropdown_list_options')
+      .list-group#optionsList
+        - custom_field.options.sorted.each do |option|
+          = render 'admin2/users/user_fields/field_options', data: option.json_data
+    = render 'add_new_option'
+    %label.error-options{style: 'display:none'}
+      = hidden_field_tag :minimum_length, CheckboxField::MINIMUM_LENGTH
+      = t('admin2.listing_fields.error_count_options', count: CheckboxField::MINIMUM_LENGTH)

@@ -1,0 +1,9 @@
+<% if @service.present? %>
+  $('#body_type').html('<%= j render 'admin2/users/user_fields/form', service: @service, id: :submit_new_user_field %>');
+  $('#userFieldsAddModal .modal-footer .btn-primary').prop('disabled', false);
+  $('#field_type option[value=""]').hide();
+  initValidate('<%= I18n.locale %>', '#submit_new_user_field');
+<% else %>
+  $('#body_type').html('');
+  $('#userFieldsAddModal .modal-footer .btn-primary').prop('disabled', true);
+<% end %>

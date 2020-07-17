@@ -1,0 +1,29 @@
+- content_for :title do
+  = t('admin2.sidebar.users.user_fields')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.users.user_fields')
+
+.content-card-section-container
+  %section.content-card-section
+    %h2= t('admin2.user_fields.info_text')
+    .form-group
+      .field-titles.user-fields.field-data
+        .col-4= t('admin2.user_fields.field_title')
+        .col-3= t('admin2.user_fields.field_type')
+        .col.text-center= t('admin2.user_fields.sign_up')
+        .col.text-center= t('admin2.user_fields.public')
+        .col-2
+      .list-group
+        = render 'fixed_fields'
+        - if @service.show_custom_fields?
+          %span#userCustomList{data: {url: order_admin2_users_user_fields_path}}
+            = render partial: 'custom_fields', collection: @service.custom_fields, as: :custom_field
+    %p.ingress
+      = link_to t('admin2.user_fields.add_new_field'), '#', 'data-target' => '#userFieldsAddModal', 'data-toggle' => :modal
+
+= render 'admin2/users/user_fields/add_popup'
+
+:javascript
+  window.ST.jsonTranslations = #{ raw JSONTranslations.get(I18n.locale) };
