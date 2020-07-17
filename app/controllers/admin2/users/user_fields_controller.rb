@@ -26,6 +26,7 @@ module Admin2::Users
     def create
       success = @service.create
       raise I18n.t('admin2.notifications.user_field_saving_failed') unless success
+
       flash[:notice] = t('admin2.notifications.user_field_created')
     rescue StandardError => e
       flash[:error] = e.message
@@ -46,6 +47,14 @@ module Admin2::Users
     def order
       @service.order
       head :ok
+    end
+
+    def add_unit
+      @exist_id = params[:uniq]
+      @data = { locals: params['selector_label'].keys,
+                uniq: @exist_id,
+                selector_label: params['selector_label'] }
+      render layout: false
     end
 
     private

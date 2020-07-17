@@ -11,4 +11,4 @@
           = render 'admin2/users/user_fields/form', service: service, id: :submit_edit_user_field
         .modal-footer
           = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary], onclick: "document.getElementById('submit_edit_user_field').submit();"
+          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary submit-listing-field-form]

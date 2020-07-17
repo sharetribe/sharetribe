@@ -4,10 +4,10 @@
 - current_title = selector_label[I18n.locale.to_s]
 
 .field-data
-  = hidden_field_tag "custom_field[option_attributes][#{uniq}][id]", uniq
-  = hidden_field_tag "custom_field[option_attributes][#{uniq}][sort_priority]", uniq, class: %i[sort-options]
+  = hidden_field_tag "custom_field[option_attributes][][id]", uniq
+  = hidden_field_tag "custom_field[option_attributes][][sort_priority]", uniq, class: %i[sort-options]
   - locals.each do |locale|
-    = hidden_field_tag "custom_field[option_attributes][#{uniq}][title_attributes][#{locale}]", selector_label[locale], value: selector_label[locale]
+    = hidden_field_tag "custom_field[option_attributes][][title_attributes][#{locale}]", selector_label[locale], value: selector_label[locale]
   .option-name
     = current_title
   .actions
@@ -24,7 +24,7 @@
     = button_tag t('admin2.delete'), class: %i[btn btn-negative delete-option], data: { id: uniq }
     = link_to t('admin2.cancel'), '#', class: %i[remove-unit-cancel cancel-action]
 
-.edit-unit-content{data: { url: add_unit_admin2_listings_listing_fields_path }}
+.edit-unit-content{data: { url: add_unit_admin2_users_user_fields_path }}
   = hidden_field_tag :uniq, uniq
   %h2= t('admin2.listing_fields.edit_option')
   .form-group

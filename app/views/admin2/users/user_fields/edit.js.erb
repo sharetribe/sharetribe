@@ -5,3 +5,4 @@ if (popup.length) {
 
 $('body').append('<%= j render 'admin2/users/user_fields/edit_popup', service: @service %>');
 $('#userFieldsEditModal').modal('show');
+initValidate('<%= I18n.locale %>', '#submit_edit_user_field');
