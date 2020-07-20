@@ -27,4 +27,4 @@
           = recipient_link
 
     .conversation-wrapper
-      = render partial: 'message', collection: @service.conversation_messages, as: :message_or_action
+      = render partial: 'message', collection: @service.conversation_messages, as: :message_or_action, locals: { starter: starter }
