@@ -1,4 +1,4 @@
-- side = message_or_action[:sender].id == @current_user.id ? 'bubble-left' : 'bubble-right'
+- side = message_or_action[:sender].id == starter.id ? 'bubble-left' : 'bubble-right'
 
 - if message_or_action[:admin]
   - avatar = @current_community.logo.present? ? @current_community.logo.url(:header_icon_highres) : missing_avatar(:thumb)
