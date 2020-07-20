@@ -303,6 +303,9 @@ en:
       profile: "%{author}'s profile"
       read: 'Read'
       listing: "Listing: '%{listing}'"
+      back_to_conversations: '‹ Back to the conversations list'
+      initiator: 'Initiator:'
+      other_party: 'Other party:'
     email_users:
       compose_email: 'Compose email'
       recipients: 'Who do you want to email?'
