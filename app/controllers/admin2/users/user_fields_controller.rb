@@ -41,6 +41,7 @@ module Admin2::Users
 
     def destroy
       @service.destroy
+      flash[:notice] = t('admin2.notifications.user_field_deleted')
       redirect_to admin2_users_user_fields_path
     end
 
