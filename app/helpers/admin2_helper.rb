@@ -168,7 +168,7 @@ module Admin2Helper
 
   def date_format(date)
     base = "#{I18n.l(date, format: :short)} (UTC)"
-    base.slice!(DateTime.now.year.to_s) if DateTime.now.year == date.year
+    base.slice!(DateTime.current.year.to_s) if DateTime.current.year == date.year
     base
   end
 end
