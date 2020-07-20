@@ -312,7 +312,7 @@ Rails.application.routes.draw do
             patch :update_review
           end
         end
-        resources :conversations, path: 'view-conversations', only: %i[index]
+        resources :conversations, path: 'view-conversations', only: %i[index show]
         resources :manage_transactions, path: 'manage-transactions', only: %i[index] do
           collection do
             get :export
