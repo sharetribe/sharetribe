@@ -1307,7 +1307,7 @@ ro:
       message_content_not_available: "Mesajul nu este disponibil"
     message:
       accepted_request: "a acceptat cererea"
-      received_payment: "cerere acceptata, plata de %{sum} primita"
+      received_payment: "Rezervare acceptata, plata de %{sum} a fost primita. "
       received_payment_wo_sum: ~
       accepted_offer: "acceptat oferta"
       rejected_request: "a refuzat cererea, a anulat plata"
