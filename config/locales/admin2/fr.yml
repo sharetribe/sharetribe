@@ -304,6 +304,8 @@ fr:
       back_to_conversations: 'lorem ipsum'
       initiator: 'lorem ipsum'
       other_party: 'lorem ipsum'
+      participants: 'lorem ipsum %{starter} lorem ipsum %{author}'
+      show_conversation: 'lorem ipsum'
     email_users:
       compose_email: 'lorem ipsum'
       recipients: 'lorem ipsum'

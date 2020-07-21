@@ -1,3 +1,6 @@
+- content_for :title do
+  = t('admin2.view_conversations.show_conversation')
+
 .content-card-header
   = link_to t('admin2.view_conversations.back_to_conversations'), admin2_transactions_reviews_conversations_path, class: %i[content-card-header-title]
 
@@ -13,7 +16,7 @@
 .content-card-section-container
   %section.content-card-section
     %h2
-      = t("admin.communities.conversations.participants", starter: starter_name, author: recipient_name).html_safe
+      = t("admin2.view_conversations.participants", starter: starter_name, author: recipient_name).html_safe
     .conversation-parties-wrapper
       .conversation-party
         %p
