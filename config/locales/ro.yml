@@ -1645,7 +1645,7 @@ ro:
       money_will_be_transferred: "Banii vor fi transferati catre %{recipient_name} cand a) ai marcat cererea ca fiind completa sau b) %{automatic_confirmation_days} zile au trecut de cand ai platit."
       listing_per_unit_title: ~
       stripe:
-        you_have_made_new_payment: ~
+        you_have_made_new_payment: "Ai plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> catre %{recipient_full_name}. Aici este dovada plății. Adresa locației este: %{listing_origin_loc_attributes_address}"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} v-a oferit feedback in %{service_name}"
       you_can_give_feedback_to: "Inca nu ati oferit feedback pentru %{name}"

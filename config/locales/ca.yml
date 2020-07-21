@@ -823,8 +823,8 @@ ca:
           main_title: "Títol principal"
           column_header: "Columna %{index}"
           column_title: "Títol de la columna %{index}"
-          column_icon_info: ~
-          column_icon_info_link: ~
+          column_icon_info: "Per afegir icones cal un pas manual per part de l’equip de Sharetribe. Si us plau, %{link} per seleccionar la icona que hagueu triat i compartiu-la amb l'assistència de Sharetribe."
+          column_icon_info_link: "seguiu les instruccions d'aquest article"
           column_icon: "Icona de la columna %{index}"
           column_paragraph: "Paràgraf de la columna %{index}"
           column_button: "Botó de la columna %{index}"
@@ -2990,7 +2990,7 @@ ca:
       december: Des
     today: Avui
     clear: Reiniciar
-    format: mm/dd/aaaa
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%b %e %Y al %H:%M"

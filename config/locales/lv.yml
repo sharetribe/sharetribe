@@ -49,7 +49,7 @@ lv:
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: "Platformas nosaukums"
+        community_name: ~
         edit_community_name_description: ~
         community_slogan: "Platformas sauklis"
         community_slogan_display: ~
@@ -809,7 +809,7 @@ lv:
           column_header: ~
           column_title: ~
           column_icon_info: ~
-          column_icon_info_link: ~
+          column_icon_info_link: "izpildiet šajā rakstā sniegtos norādījumus"
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -1407,8 +1407,8 @@ lv:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
+    feedback_subject: "Jauns kontakta formas ieraksts %{service_name}"
+    feedback_body: "%{author_name_and_email} ir iesūtījis info %{service_name} kontakta veidlapā. Šis paziņojums tiek nosūtīts visiem %{service_name} administratoriem."
     unlogged_user: ~
     anonymous_user: ~
   community_memberships:
@@ -1506,7 +1506,7 @@ lv:
       confirmation_link_text: "Apstiprini %{email}"
     common:
       hey: "Sveicināti %{name},"
-      hi: "Sveiks %{name},"
+      hi: "Sveiki %{name},"
       kassi_team: "%{service_name} komanda"
       thanks: "Paldies,"
       dont_want_to_receive_these_emails: "Nevēlaties turpmāk saņemt šādas vēstules?"
@@ -1514,7 +1514,7 @@ lv:
       message_not_displaying_correctly: "Vai šis e-pasta ziņojums nav parādīts pareizi?"
       view_it_in_your_browser: "Apskatīt savā interneta pārlūkā."
       or: vai
-      unsubscribe_from_these_emails_info: "Jūs saņemat šo e-pastu jo jūs esat %{service_name} dalībnieks"
+      unsubscribe_from_these_emails_info: "Jūs saņemat šo e-pastu, jo jūs esat %{service_name} dalībnieks."
       unsubscribe_from_these_emails: "atrakstīties no šādiem e-pastiem"
       unsubscribe_from_invitation_emails_info: "Jūs saņemat šo e-pastu jo %{service_name} dalībnieks uzaicināja jūs pievienoties"
       unsubscribe_from_invitation_emails: "Atrakstīties no uzaicinājuma e-pastiem lai pievienoties %{service_name}"
@@ -1544,7 +1544,7 @@ lv:
       join_now: "Pievienoties tagad"
       invitation_code: "Ielūguma kods: %{code}"
     invitation_to_kassi_v2:
-      headline: Sveiks!
+      headline: Sveiki!
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} komentēja Jūsu sludinājumu '%{listing}'."
       view_comment: "Skatīt komentāru"
@@ -1553,7 +1553,7 @@ lv:
       has_commented_listing_you_follow_in_kassi: "%{author} komentēja sludinājumu '%{listing}' kuram Jūs sekojat %{service_name}."
     new_message:
       view_message: "Skatīt vēstuli"
-      has_sent_you_a_message_in_kassi: "%{sender} ir nosūtījis Jums ziņu %{service_name}."
+      has_sent_you_a_message_in_kassi: "%{sender} no %{service_name} ir atsūtījis Tev ziņu."
       you_have_a_new_message: "Jauna vēstule %{service_name} no %{sender_name}"
     new_message_v2:
       headline: ~
@@ -1654,7 +1654,7 @@ lv:
         one: "Šeit ir daži svarīgākie notikumi, kas portālā %{service_name} notika pēdējo %{count} dienu laikā."
         other: "Šeit ir daži svarīgākie notikumi, kas portālā %{service_name} notika pēdējo %{count} dienu laikā."
     newsletter:
-      hi: "Sveiks %{name},"
+      hi: "Sveiki %{name},"
       newest_offers: "Ko cilvēki patlaban piedāvā citiem"
       newest_requests: "Kas ir vajadzīgs cilvēkiem šobrīd?"
       text_version_text: "Vai Jūs varētu dalīties ar kaut ko, kas citiem varētu būt nepieciešams? Vai arī Jums ir nepieciešams kaut kas, ko citi varētu piedāvāt? Pievienojiet savu piedāvājumu vai pieprasījumu vai apskatiet visu, ko citi piedāvā vai pieprasa vietnē %{url}"
@@ -1691,7 +1691,7 @@ lv:
       welcome_to_marketplace: "Laipni lūdzam %{service_name}! Priecājamies, ka esat ar mums."
       love_marketplace_crew: "Ar sveicieniem <br /><i>%{service_name} komanda</i>"
       welcome_email_footer_text: "Kāda veida e-pastus Jūs vēlaties saņemt no %{service_name}? %{settings_link}"
-      settings_link_text: "Pārbaudiet savus iestatījumus"
+      settings_link_text: "Pārbaudiet savus iestatījumus."
     new_listing_by_followed_person:
       subject: "%{author_name} ir pievienojis jaunu sludinājumu %{service_name}"
       has_posted_a_new_listing: "%{author_name} ir pievienojis jaunu sludinājumu:"
@@ -1851,7 +1851,7 @@ lv:
       positive_number: "Ievietojiet numuru."
       from_must_be_less_than_till: "“Sākuma laikam” jābūt mazākam par “Beigu laiku”"
       section_with_this_id_already_exists: "Šis identifikators tiek izmantots. Lūdzu, izvēlieties citu."
-      listing_with_this_id_does_not_exist: "Šis sludinājuma ID nav Jūsu. Varbūt Jūs kļūdījāties? Lūdzu, pārbaudiet un mēģiniet vēlreiz"
+      listing_with_this_id_does_not_exist: "Šis sludinājuma ID nav Jūsu. Varbūt Jūs kļūdījāties? Lūdzu, pārbaudiet un mēģiniet vēlreiz."
       presence: "Lauks nevar būt tukšs"
       username_is_invalid: ~
       domain_name_is_invalid: ~
@@ -2322,7 +2322,7 @@ lv:
         googlemap_updatemap: "Atjaunināt karti"
       images:
         image: Bilde
-        best_result: "Lai iegūtu vislabākos rezultātus, izmantojiet JPG, GIF vai PNG attēlus, kuru izmērs ir %{width} un %{height} pikseļi."
+        best_result: "Lai iegūtu vislabākos rezultātus, izmantojiet JPG, GIF vai PNG attēlus, kuru izmērs ir vismaz %{width} x %{height} pikseļi."
         no_file_selected: "Nav izvēlēts fails"
         remove_image: "Dzēst bildi"
         select_file: "Izvēlēties failu"
@@ -2386,7 +2386,7 @@ lv:
         comma_separate: "(atdali ar komatu)"
         tags: Tagi
       title:
-        listing_title: "Sludinājuma nosaukums"
+        listing_title: "Sludinājuma virsraksts"
       valid_until:
         valid_until: "Derīguma termiņš"
       valid_until_radio_buttons:
@@ -2462,7 +2462,7 @@ lv:
       community_not_configured_for_payments_admin: "%{service_name} nav konfigurēts maksājumiem, tāpēc Jūs vēl nevarat ievietot jaunus sludinājumus. Ejiet uz %{payment_settings_link}, lai aizpildītu maksājumu informāciju."
       you_are_now_posting_a_listing_on_behalf_of: "Jūs tagad publicējat sludinājumu %{name} vārdā"
     quantity:
-      hour: "Aptuvenais darba ilgums stundās:"
+      hour: "Vajadzīgais pakalpojuma ilgums stundās:"
       day: "Dienu skaits:"
       night: "Nakšu skaits:"
       week: "Nedēļu skaits:"
@@ -2684,7 +2684,7 @@ lv:
       notification_is_mandatory: "Lai saņemtu paziņojumus, Jums jāizvēlas vismaz viena e-pasta adrese. Ja Jūs nevēlaties saņemt e-pasta ziņojumus no %{service_name}, pārbaudiet e-pasta paziņojumu iestatījumus."
       password_again: "Apstiprināt paroli"
       show_my_name_to_others: "Parādiet manu pilno vārdu citiem %{service_name} lietotājiem"
-      sign_up: "Izveidot jaunu %{service_name} profilu"
+      sign_up: "Izveido jaunu %{service_name} profilu un ievieto savu sludinājumu"
       terms: "Lietošanas noteikumiem"
       privacy: "Privātuma noteikumiem"
       visible_only_to_you: "redzams tikai Jums un %{service_name} komandai"
@@ -2859,7 +2859,7 @@ lv:
       image_is_processing: "Mēs apstrādājam Jūsu profila attēlu. Tas būs gatavs pēc minūtes vai divām."
       shown_in_your_public_profile: "(parādīts jūsu publiskā profilā)"
       editing_profile_of: "Jūs tagad rediģējat %{name} profilu"
-      format_markdown_link: "formatējiet aprakstu, izmantojot Markdown"
+      format_markdown_link: "formatēt aprakstu, izmantojot Markdown"
       format_markdown: "Jūs varat %{link}."
       username: Lietotājvārds
       username_description: "Jūsu lietotājvārds tiek izmantots kā daļa no jūsu profila lapas unikālā URL. Lietotājvārdā bez atstarpēm varat izmantot tikai burtus un ciparus. Mainot lietotājvārdu, jūsu URL automātiski mainīsies, un iepriekšējais URL netiks novirzīts. Vecais lietotājvārds būs pieejams citiem lietotājiem."
