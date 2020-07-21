@@ -214,7 +214,7 @@ module TransactionViewUtils
       t("conversations.message.canceled_the_order")
     when "confirmed"
       if payment_gateway == :stripe
-        t("conversations.message.stripe.confirmed_request", author_name: author[:display_name])
+        t('conversations.message.stripe.confirmed_request', author_name: PersonViewUtils.person_display_name(author, community))
       else
         t("conversations.message.confirmed_request")
       end
