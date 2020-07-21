@@ -10,4 +10,4 @@
         = t('admin2.listing_fields.delete_info_text', name: custom_field.name(I18n.locale))
       = form_tag admin2_listings_listing_field_path(custom_field), method: :delete, class: %i[modal-footer] do
         = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-        = button_tag t('admin2.listing_fields.delete_listing_field'), class: %i[btn btn-primary]
+        = button_tag t('admin2.listing_fields.delete_listing_field'), class: %i[btn btn-negative]
