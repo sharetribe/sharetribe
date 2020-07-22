@@ -1,0 +1,67 @@
+#seller.breakdown-element
+  .breakdown-overview
+    .breakdown-overview-left
+      .breakdown-trigger-show +
+      .breakdown-trigger-hide –
+      .breakdown-title Seller receives:
+    .breakdown-total-price= MoneyViewUtils.to_humanized(pr.seller_gets)
+
+  .breakdown-detailed
+    - if pr.booking
+      .breakdown-row
+        .breakdown-row-left
+          - if pr.unit_type == :day
+            = t("transactions.initiate.price_per_day")
+          - elsif pr.unit_type == :night
+            = t("transactions.initiate.price_per_night")
+          - elsif pr.unit_type == :hour
+            = t("transactions.initiate.price_per_hour")
+          - else
+            = t("transactions.initiate.price_per_unit")
+        .breakdown-row-right= MoneyViewUtils.to_humanized(pr.listing_price)
+      - if pr.booking_per_hour
+        .breakdown-row
+          .breakdown-row-left Booking start
+          .breakdown-row-right= l pr.start_time
+        .breakdown-row
+          .breakdown-row-left Booking end
+          .breakdown-row-right= l pr.end_time
+        .breakdown-row
+          .breakdown-row-left Booking duration
+          .breakdown-row-right= t("transactions.initiate.duration_in_hours", count: pr.duration)
+      - else
+        .breakdown-row
+          .breakdown-row-left Booking start
+          .breakdown-row-right= l pr.start_on
+        .breakdown-row
+          .breakdown-row-left Booking end
+          - if pr.unit_type == :day
+            .breakdown-row-right= l pr.end_on - 1.day
+          - else
+            .breakdown-row-right= l pr.end_on
+        .breakdown-row
+          .breakdown-row-left Booking duration
+          - if pr.unit_type == :day
+            .breakdown-row-right= pluralize(pr.duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))
+          - else
+            .breakdown-row-right= pluralize(pr.duration, t("listing_conversations.preauthorize.night"), t("listing_conversations.preauthorize.nights"))
+    - elsif pr.quantity.present? && pr.localized_unit_type.present?
+      .breakdown-row
+        .breakdown-row-left= t("transactions.price_per_quantity", unit_type: pr.localized_unit_type)
+        .breakdown-row-right= MoneyViewUtils.to_humanized(pr.listing_price)
+      - if pr.quantity > 1
+        .breakdown-row-left= pr.localized_selector_label || t("transactions.initiate.quantity")
+        .breakdown-row-right= pr.quantity
+    %hr
+    - if pr.subtotal.present?
+      .breakdown-row
+        .breakdown-row-left.breakdown-bolded Subtotal
+        .breakdown-row-right.breakdown-bolded= MoneyViewUtils.to_humanized(pr.subtotal)
+    - if pr.has_provider_fee
+      .breakdown-row
+        .breakdown-row-left= "Marketplace commission (#{transaction.commission_per})"
+        .breakdown-row-right= MoneyViewUtils.to_humanized(-pr.transaction.commission)
+    %hr
+    .breakdown-row
+      .breakdown-row-left.breakdown-bolded Total
+      .breakdown-row-right.breakdown-total-price= MoneyViewUtils.to_humanized(pr.seller_gets)

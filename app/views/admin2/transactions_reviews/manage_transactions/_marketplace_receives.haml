@@ -1,0 +1,20 @@
+#marketplace.breakdown-element
+  .breakdown-overview
+    .breakdown-overview-left
+      .breakdown-trigger-show +
+      .breakdown-trigger-hide –
+      .breakdown-title= t("admin2.manage_transactions.marketplace_collects")
+    .breakdown-total-price= MoneyViewUtils.to_humanized(pr.marketplace_collects)
+  .breakdown-detailed
+    - if pr.has_buyer_fee
+      .breakdown-row
+        .breakdown-row-left Commission from buyer
+        .breakdown-row-right= MoneyViewUtils.to_humanized(pr.buyer_fee)
+    - if pr.has_provider_fee
+      .breakdown-row
+        .breakdown-row-left Commission from seller
+        .breakdown-row-right= MoneyViewUtils.to_humanized(pr.fee)
+    %hr
+    .breakdown-row
+      .breakdown-row-left.breakdown-bolded Total
+      .breakdown-row-right.breakdown-total-price= MoneyViewUtils.to_humanized(pr.marketplace_collects)

@@ -132,7 +132,7 @@ class Admin2::TransactionsPresenter
   end
 
   def has_provider_fee
-    fee.present? && fee > 0
+    fee.present? && fee.positive?
   end
 
   def marketplace_collects
