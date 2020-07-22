@@ -1,0 +1,14 @@
+- if pr.shipping?
+  %div
+    %span{style: 'font-weight: 600;'}
+      = t('admin2.manage_transactions.delivery_method.title')
+    %ul
+      %li
+        = t('admin2.manage_transactions.delivery_method.delivering_to', address: pr.shipping_address)
+- if pr.pickup?
+  %div
+    %span{style: 'font-weight: 600;'}
+      = t('admin2.manage_transactions.delivery_method.title')
+    %ul
+      %li
+        = t('admin2.manage_transactions.delivery_method.pickup')

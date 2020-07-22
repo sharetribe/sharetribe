@@ -1,0 +1,17 @@
+.transaction-nextsteps
+  %span{style: 'font-weight: 600;'}
+    = t('admin2.manage_transactions.next_steps')
+  %ul
+    - if pr.preauthorized?
+      %li
+        = t('admin2.manage_transactions.waiting_for_provider_accept_or_reject', provider: link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username))).html_safe
+    - elsif pr.paid?
+      %li
+        = t('admin2.manage_transactions.waiting_for_fulfill_and_complete',
+              provider: link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username)),
+              listing_title: link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title ,
+              buyer: link_to_unless(pr.buyer.deleted, pr.buyer_name, person_path(pr.buyer.username))).html_safe
+    - elsif pr.disputed?
+      %li
+        - learn_more_link = link_to t('admin2.manage_transactions.learn_more'), '#{APP_CONFIG.knowledge_base_url}/en/articles/1587573', target: :_blank
+        = t('admin2.manage_transactions.you_should_investigate', learn_more_link: learn_more_link).html_safe

@@ -1,0 +1,42 @@
+.statusbar{class: transaction_status_class(transaction.status)}
+  .transaction-status
+    = t('admin2.manage_transactions.transaction_status')
+    %span.transaction-status
+      - if transaction.status == 'disputed'
+        = image_tag 'svg/dispute.svg', style: 'position: relative; top: -1px;', alt: 'dispute'
+      = t("admin2.manage_transactions.status_transaction.#{transaction.payment_gateway}.#{transaction.status}")
+
+  - if transaction.status == 'paid'
+    .transaction-admin-actions.dropdown
+      %a.dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-flip' => 'false', 'data-toggle' => 'dropdown', href: '#', role: :button} •••
+      .dropdown-menu
+        %a.dropdown-item.positive{'data-target' => '#transactionMarkAsCompletedModal', 'data-toggle' => 'modal', href: '#'}
+          %svg{height: '10', width: '11', xmlns: 'http://www.w3.org/2000/svg'}>
+            %path{d: 'M9.2 1.1l-5 7-2.6-2.6a.3.3 0 0 0-.5 0V6L4 8.9a.3.3 0 0 0 .5 0l5.2-7.4c.2-.1.1-.3 0-.4a.3.3 0 0 0-.5 0z', 'fill-rule' => 'evenodd', 'stroke-width' => '1.5'}
+          = t('admin2.manage_transactions.action_button.mark_as_completed')
+        %a.dropdown-item.negative{'data-target' => '#transactionDisputeModal', 'data-toggle' => 'modal', href: '#'}
+          %svg{height: '14', width: '14', xmlns: 'http://www.w3.org/2000/svg'}>
+            %g{fill: 'none', 'fill-rule' => 'evenodd', 'stroke-linecap' => 'round', 'stroke-linejoin' => 'round', 'stroke-width' => '1.5'}
+              %path{d: 'M7 10a.375.375 0 100 .75.375.375 0 000-.75'}
+              %path{d: 'M12.813 10.432A1.774 1.774 0 0111.226 13H2.774a1.773 1.773 0 01-1.586-2.568l4.225-8.45a1.774 1.774 0 013.174 0l4.226 8.45zM7 7.75v-3'}
+          = t('admin2.manage_transactions.action_button.dispute')
+    = render 'mark_as_completed_popup', transaction: transaction
+    = render 'dispute_popup', transaction: transaction
+
+  - if transaction.status == 'confirmed'
+    .transaction-admin-actions.dropdown
+      %a.dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-flip' => 'false', 'data-toggle' => 'dropdown', href: '#', role: :button} •••
+      .dropdown-menu
+        = link_to admin2_transactions_reviews_manage_reviews_path, class: %i[dropdown-item neutral] do
+          %svg{height: '14', viewbox: '0 0 14 14', width: '14', xmlns: 'http://www.w3.org/2000/svg'}>
+            %g{fill: 'none', 'fill-rule' => 'evenodd', 'stroke-linecap' => 'round', 'stroke-linejoin' => 'round'}
+              %path{d: 'M5.30722367 11.1549173L1 13l1.845953-4.30809399L10.53872933 1 13 3.46127067zM11 5L9 3M5 11L3 9'}
+          = t('admin2.manage_transactions.action_button.manage_reviews')
+
+  - if transaction.status == 'disputed'
+    .transaction-admin-actions.admin-actions-inline-buttons
+      = link_to t('admin2.manage_transactions.action_button.mark_as_refunded'), '#', class: %i[btn btn-secondary btn-sm], 'data-target' => '#transactionRefundedModal', 'data-toggle' => 'modal'
+      %span.admim-action-or or
+      = link_to t('admin2.manage_transactions.action_button.dismiss_and_payout'), '#', class: %i[btn btn-primary btn-sm], 'data-target' => '#transactionDismissModal', 'data-toggle' => 'modal'
+    = render 'mark_as_refunded_popup', transaction: transaction
+    = render 'dismiss_and_payout_popup', transaction: transaction

@@ -343,7 +343,13 @@ Rails.application.routes.draw do
           end
         end
         resources :conversations, path: 'view-conversations', only: %i[index show]
-        resources :manage_transactions, path: 'manage-transactions', only: %i[index] do
+        resources :manage_transactions, path: 'manage-transactions', only: %i[index show] do
+          member do
+            patch :confirm
+            patch :cancel
+            patch :refund
+            patch :dismiss
+          end
           collection do
             get :export
             get :export_status
