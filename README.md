@@ -2,11 +2,14 @@
 
 [![CircleCI](https://circleci.com/gh/sharetribe/sharetribe/tree/master.svg?style=svg)](https://circleci.com/gh/sharetribe/sharetribe/tree/master) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe)
 
-Sharetribe is a source available platform to create your own peer-to-peer marketplace.
+Sharetribe develops advanced marketplace software for every business life cycle stage.
 
-Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
+Sharetribe Go gives you the complete feature set to launch a marketplace for rentals, services, events, or products. The platform is source-available under the Sharetribe Community Public License.
 
-Would you like to work with an API-based marketplace solution that allows you to build your marketplace with the programming language of your choice, build a mobile app, or easily integrate third party services? [Check out Sharetribe Flex](https://www.sharetribe.com/flex).
+To launch your marketplace in minutes without touching code or worrying about hosting and backups, [head to the SaaS version of Sharetribe Go](https://www.sharetribe.com/products/go).
+
+If you're looking for a customizable and extendable marketplace solution, [check out Sharetribe Flex](https://www.sharetribe.com/products/flex). Flex is an API-based marketplace solution designed with a developers-first mindset. It allows you to develop your marketplace with the programming language of your choice, build a mobile app, design a customized transaction flow, and easily integrate third party services.
+
 
 ### Contents
 
@@ -482,4 +485,4 @@ The forum is a great place to ask support and help for example with issues durin
 
 ## License
 
-Sharetribe is source available under the Sharetribe Community Public Licence. See [LICENSE](LICENSE) for details.
+Sharetribe Go is source-available under the Sharetribe Community Public License. See [LICENSE](LICENSE) for details.
