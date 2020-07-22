@@ -1,6 +1,9 @@
+- content_for :title do
+  = t('admin2.manage_transactions.show_transaction')
+
 - pr = @transactions_presenter
 - transaction = pr.transaction
-- listing_title = transaction.listing_title || t("admin.communities.transactions.not_available")
+- listing_title = transaction.listing_title || t('admin.communities.transactions.not_available')
 - link = link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title
 - transaction_title = t('admin2.manage_transactions.transaction_for', link: link, transaction_id: transaction.id).html_safe
 
@@ -19,56 +22,14 @@
 
 %section.transaction-payment-breakdown
   .payment-breakdown-wrapper
-    %h2 Payment breakdown
+    %h2= t('admin2.manage_transactions.payment_breakdown')
     = render 'buyer_pays', pr: pr, transaction: transaction
     = render 'seller_receives', pr: pr, transaction: transaction
     = render 'marketplace_receives', pr: pr
 
 %section.transaction-conversation
   .conversation-wrapper
-    %h2= "Timeline and conversation (#{pr.messages_and_actions.size})"
+    %h2= t('admin2.manage_transactions.timeline_and_conversation', count: pr.messages_and_actions.size)
     = render partial: 'message', collection: pr.messages_and_actions, as: :message_or_action, locals: { starter: pr.buyer }
 
 .mobilemenu-overlay
-
-:javascript
-  jQuery(function(){
-    $("#managetransactions, #managetransactions-mobile").addClass("active");
-    $("#transactionsreviews, #transactionsreviews-mobile").addClass("show");
-  });
-
-  $('#buyer .breakdown-detailed, #buyer .breakdown-trigger-hide').hide();
-
-  $("#buyer .breakdown-trigger-show").click(function(){
-    $("#buyer .breakdown-detailed, #buyer .breakdown-trigger-hide").show();
-    $("#buyer .breakdown-trigger-show, #buyer .breakdown-overview .breakdown-total-price").hide();
-  });
-
-  $("#buyer .breakdown-trigger-hide").click(function(){
-    $("#buyer .breakdown-detailed, #buyer .breakdown-trigger-hide").hide();
-    $("#buyer .breakdown-trigger-show, #buyer .breakdown-overview .breakdown-total-price").show();
-  });
-
-  $('#seller .breakdown-detailed, #seller .breakdown-trigger-hide').hide();
-
-  $("#seller .breakdown-trigger-show").click(function(){
-    $("#seller .breakdown-detailed, #seller .breakdown-trigger-hide").show();
-    $("#seller .breakdown-trigger-show, #seller .breakdown-overview .breakdown-total-price").hide();
-  });
-
-  $("#seller .breakdown-trigger-hide").click(function(){
-    $("#seller .breakdown-detailed, #seller .breakdown-trigger-hide").hide();
-    $("#seller .breakdown-trigger-show, #seller .breakdown-overview .breakdown-total-price").show();
-  });
-
-  $('#marketplace .breakdown-detailed, #marketplace .breakdown-trigger-hide').hide();
-
-  $("#marketplace .breakdown-trigger-show").click(function(){
-    $("#marketplace .breakdown-detailed, #marketplace .breakdown-trigger-hide").show();
-    $("#marketplace .breakdown-trigger-show, #marketplace .breakdown-overview .breakdown-total-price").hide();
-  });
-
-  $("#marketplace .breakdown-trigger-hide").click(function(){
-    $("#marketplace .breakdown-detailed, #marketplace .breakdown-trigger-hide").hide();
-    $("#marketplace .breakdown-trigger-show, #marketplace .breakdown-overview .breakdown-total-price").show();
-  });

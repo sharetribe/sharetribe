@@ -14,28 +14,28 @@ module Admin2::TransactionsReviews
 
     def confirm
       unless @service.confirm
-        flash[:error] = t("layouts.notifications.something_went_wrong")
+        flash[:error] = t('layouts.notifications.something_went_wrong')
       end
       redirect_to admin2_transactions_reviews_manage_transaction_path(@service.transaction)
     end
 
     def cancel
       unless @service.cancel
-        flash[:error] = t("layouts.notifications.something_went_wrong")
+        flash[:error] = t('layouts.notifications.something_went_wrong')
       end
       redirect_to admin2_transactions_reviews_manage_transaction_path(@service.transaction)
     end
 
     def refund
       unless @service.refund
-        flash[:error] = t("layouts.notifications.something_went_wrong")
+        flash[:error] = t('layouts.notifications.something_went_wrong')
       end
       redirect_to admin2_transactions_reviews_manage_transaction_path(@service.transaction)
     end
 
     def dismiss
       unless @service.dismiss
-        flash[:error] = t("layouts.notifications.something_went_wrong")
+        flash[:error] = t('layouts.notifications.something_went_wrong')
       end
       redirect_to admin2_transactions_reviews_manage_transaction_path(@service.transaction)
     end

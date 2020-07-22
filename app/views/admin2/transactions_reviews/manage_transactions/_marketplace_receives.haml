@@ -8,13 +8,13 @@
   .breakdown-detailed
     - if pr.has_buyer_fee
       .breakdown-row
-        .breakdown-row-left Commission from buyer
+        .breakdown-row-left=t('admin2.manage_transactions.commission_from_buyer')
         .breakdown-row-right= MoneyViewUtils.to_humanized(pr.buyer_fee)
     - if pr.has_provider_fee
       .breakdown-row
-        .breakdown-row-left Commission from seller
+        .breakdown-row-left=t('admin2.manage_transactions.commission_from_seller')
         .breakdown-row-right= MoneyViewUtils.to_humanized(pr.fee)
     %hr
     .breakdown-row
-      .breakdown-row-left.breakdown-bolded Total
+      .breakdown-row-left.breakdown-bolded=t('admin2.manage_transactions.total_commission')
       .breakdown-row-right.breakdown-total-price= MoneyViewUtils.to_humanized(pr.marketplace_collects)
