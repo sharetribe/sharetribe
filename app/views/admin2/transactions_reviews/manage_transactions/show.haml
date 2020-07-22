@@ -29,7 +29,7 @@
 
 %section.transaction-conversation
   .conversation-wrapper
-    %h2= t('admin2.manage_transactions.timeline_and_conversation', count: pr.messages_and_actions.size)
+    %h2= t('admin2.manage_transactions.timeline_and_conversation', count: transaction.conversation&.messages&.size.to_i)
     = render partial: 'message', collection: pr.messages_and_actions, as: :message_or_action, locals: { starter: pr.buyer }
 
 .mobilemenu-overlay
