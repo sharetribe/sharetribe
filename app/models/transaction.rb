@@ -310,7 +310,7 @@ class Transaction < ApplicationRecord
     array = [(item_total * (commission_from_seller / 100.0) unless commission_from_seller.nil?),
              (minimum_commission unless minimum_commission.nil? || minimum_commission.zero?)]
     if array[0].to_f >= array[1].to_f
-      "#{commission_from_buyer}%"
+      "#{commission_from_seller}%"
     elsif array[1].to_f > array[0].to_f
       Money.new(array[1], item_total.currency)
     else
