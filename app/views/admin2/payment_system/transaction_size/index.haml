@@ -1,0 +1,21 @@
+- content_for :title do
+  = t('admin2.sidebar.payment_system.transaction_size')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.transaction_size.info_header')
+
+.content-card-section-container
+  = form_tag save_admin2_payment_system_transaction_size_index_path, method: :patch, class: %i[content-card-section-form] do
+    %section.content-card-section
+      %h2= t('admin2.transaction_size.info_header')
+      %p.ingress
+        = t('admin2.transaction_size.info_text', url: "#{APP_CONFIG.knowledge_base_url}/en/articles/666101").html_safe
+      .form-group
+        %label= t('admin2.transaction_size.minimum_transaction_size')
+        .input-group
+          = number_field_tag :minimum_listing_price, @current_min_price, class: %i[form-control]
+          .input-group-append
+            %span.input-group-text= @current_community.currency
+    %section.content-card-terminal
+      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

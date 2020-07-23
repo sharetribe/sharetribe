@@ -15,7 +15,7 @@ module Admin2Helper
       users: %w[manage_users signup_login user_rights invitations user_fields],
       listings: %w[listing_approval listing_comments manage_listings order_types categories listing_fields],
       transactions_reviews: %w[config_transactions manage_transactions conversations manage_reviews],
-      payment_system: %w[country_currencies],
+      payment_system: %w[country_currencies transaction_size],
       emails: %w[newsletters email_users welcome_emails],
       search_location: %w[search locations],
       social_media: %w[image_tags twitter],
