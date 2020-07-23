@@ -387,6 +387,17 @@ en:
       booking_start: 'Booking start'
       booking_end: 'Booking end'
       booking_duration: 'Booking duration'
+      price_per_day: 'Price per day'
+      price_per_night: 'Price per night'
+      price_per_hour: 'Price per hour'
+      price_per_unit: 'Price per unit'
+      subtotal: 'Subtotal'
+      quantity: 'Quantity'
+      shipping-price: 'Shipping'
+      total: 'Total'
+      duration_in_hours:
+        one: '1 hour'
+        other: '%{count} hours'
       marketplace_commission: 'Marketplace commission (%{value})'
       seller_receives: 'Seller receives:'
       commission_from_buyer: 'Commission from buyer'
@@ -394,7 +405,7 @@ en:
       total_commission: 'Total'
       delivery_method:
         title: 'Delivery method:'
-        delivering_to: 'Delivering to %{address}'
+        delivering_to: 'Shipping to %{address}'
         pickup: 'Pickup'
       popups:
         mark_transaction_as_completed:
@@ -406,7 +417,7 @@ en:
           body: 'Sometimes, things can go wrong. If the buyer has reported some issues, you can dispute the transaction #%{transaction}. This cannot be undone.'
           submit: 'Dispute the transaction'
         mark_as_refunded:
-          title: 'Mark as Refunded the transaction'
+          title: 'Mark the transaction as refunded'
           body: 'Refunded #%{transaction}. This cannot be undone.'
           submit: 'Mark as Refunded'
         dismiss_and_payout:
@@ -418,7 +429,7 @@ en:
         dispute: 'Dispute…'
         manage_reviews: 'Manage reviews'
         mark_as_refunded: 'Mark as refunded…'
-        dismiss_and_payout: 'Dismiss and payout'
+        dismiss_and_payout: 'Dismiss and payout…'
       status_transaction:
         conversation: 'Conversation'
         free: 'Free transaction'

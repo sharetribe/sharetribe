@@ -20,8 +20,6 @@
               %path{d: 'M7 10a.375.375 0 100 .75.375.375 0 000-.75'}
               %path{d: 'M12.813 10.432A1.774 1.774 0 0111.226 13H2.774a1.773 1.773 0 01-1.586-2.568l4.225-8.45a1.774 1.774 0 013.174 0l4.226 8.45zM7 7.75v-3'}
           = t('admin2.manage_transactions.action_button.dispute')
-    = render 'mark_as_completed_popup', transaction: transaction
-    = render 'dispute_popup', transaction: transaction
 
   - if transaction.status == 'confirmed'
     .transaction-admin-actions.dropdown
@@ -38,5 +36,3 @@
       = link_to t('admin2.manage_transactions.action_button.mark_as_refunded'), '#', class: %i[btn btn-secondary btn-sm], 'data-target' => '#transactionRefundedModal', 'data-toggle' => 'modal'
       %span.admim-action-or or
       = link_to t('admin2.manage_transactions.action_button.dismiss_and_payout'), '#', class: %i[btn btn-primary btn-sm], 'data-target' => '#transactionDismissModal', 'data-toggle' => 'modal'
-    = render 'mark_as_refunded_popup', transaction: transaction
-    = render 'dismiss_and_payout_popup', transaction: transaction
