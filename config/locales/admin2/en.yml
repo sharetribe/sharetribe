@@ -302,7 +302,12 @@ en:
       not_available: 'Not available'
       profile: "%{author}'s profile"
       read: 'Read'
-      listing: "Listing: '%{listing}'"
+      listing: 'Listing "%{listing}"'
+      back_to_conversations: '‹ Back to the conversations list'
+      initiator: 'Initiator:'
+      other_party: 'Other party:'
+      participants: 'Conversation with %{starter} and %{author}'
+      show_conversation: 'Conversation'
     email_users:
       compose_email: 'Compose email'
       recipients: 'Who do you want to email?'

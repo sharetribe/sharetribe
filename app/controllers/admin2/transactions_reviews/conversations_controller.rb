@@ -4,6 +4,8 @@ module Admin2::TransactionsReviews
 
     def index; end
 
+    def show; end
+
     private
 
     def set_service

@@ -165,4 +165,10 @@ module Admin2Helper
         notice: t('admin2.order_types.confirm_delete_simple_order_type') }
     end
   end
+
+  def date_format(date)
+    base = "#{I18n.l(date, format: :short)} (UTC)"
+    base.slice!(DateTime.current.year.to_s) if DateTime.current.year == date.year
+    base
+  end
 end
