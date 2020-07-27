@@ -1,0 +1,87 @@
+.content-card-header
+  %h1.content-card-header-title Stripe
+.content-card-section-container
+  - if stripe_allowed
+    = form_for stripe_api_form, url: update_stripe_keys_admin_payment_preferences_path, method: :put, class: %i[content-card-section-form] do |form|
+      %section.content-card-section
+        %h2 Stripe transaction fee settings
+
+        - unless stripe_enabled
+          %p.ingress
+            %svg{:height => "14", :style => "position: relative; top: -1px", :width => "14", :xmlns => "http://www.w3.org/2000/svg"}
+              %g{:fill => "none", "fill-rule" => "evenodd", :stroke => "#FF9F05", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
+                %path{:d => "M7 10a.375.375 0 100 .75.375.375 0 000-.75"}
+                %path{:d => "M12.813 10.432A1.774 1.774 0 0111.226 13H2.774a1.773 1.773 0 01-1.586-2.568l4.225-8.45a1.774 1.774 0 013.174 0l4.226 8.45zM7 7.75v-3"}
+            %strong
+              To set Stripe fees, you must first
+              = succeed "." do
+                %a{:href => "#stripe-api-settings"} configure your Stripe API keys
+
+        %p.ingress
+          %a{:href => "https://help.sharetribe.com/en/articles/1012776", :target => "_blank"} Stripe's fees
+          will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed.
+          = succeed "." do
+            %a{:href => "https://help.sharetribe.com/en/articles/1224180", :target => "_blank"} Learn more
+
+        .form-group
+          %label{:for => "SellerTransactionFee"} Seller transaction fee
+          .input-group
+            %input#SellerTransactionFee.form-control{"aria-label" => "Seller transaction fee", :disabled => "disabled", :style => "border-radius: 4px 0 0 4px", :type => "text", :value => "10"}/
+            .input-group-append.disabled
+              %span.input-group-text %
+            %small.form-text
+              To set Stripe fees, you must first
+              = succeed "." do
+                %a{:href => "#stripe-api-settings"} configure your Stripe API keys
+
+        .form-group
+          %label{:for => "SellerMinimunTransactionFee"} Seller minimun transaction fee
+          .input-group
+            %input#SellerMinimunTransactionFee.form-control{"aria-label" => "Seller minimun transaction fee", :disabled => "disabled", :style => "border-radius: 4px 0 0 4px", :type => "text", :value => "0.50"}/
+            .input-group-append.disabled
+              %span.input-group-text EUR
+            %small.form-text
+              To set Stripe fees, you must first
+              = succeed "." do
+                %a{:href => "#stripe-api-settings"} configure your Stripe API keys
+
+        .form-group
+          %label{:for => "SellerTransactionFee"} Buyer transaction fee
+          .input-group
+            %input#BuyerTransactionFee.form-control{"aria-label" => "Buyer transaction fee", :disabled => "disabled", :style => "border-radius: 4px 0 0 4px", :type => "text", :value => "10"}/
+            .input-group-append.disabled
+              %span.input-group-text %
+            %small.form-text
+              To set Stripe fees, you must first
+              = succeed "." do
+                %a{:href => "#stripe-api-settings"} configure your Stripe API keys
+
+        .form-group
+          %label{:for => "SellerMinimunTransactionFee"} Buyer minimun transaction fee
+          .input-group
+            %input#BuyerMinimunTransactionFee.form-control{"aria-label" => "Buyer minimun transaction fee", :disabled => "disabled", :style => "border-radius: 4px 0 0 4px", :type => "text", :value => "0.50"}/
+            .input-group-append.disabled
+              %span.input-group-text EUR
+            %small.form-text
+              To set Stripe fees, you must first
+              = succeed "." do
+                %a{:href => "#stripe-api-settings"} configure your Stripe API keys
+
+      %section#stripe-api-settings.content-card-section
+        %h2 Configure Stripe API Keys
+        .form-group
+          %label{:for => "stripePublishableKey"} Stripe Publishable Key
+          %input#stripePublishableKey.form-control{"aria-describedby" => "stripeSecretKey", :placeholder => "For example: pk_live_67c9SwGQtbsaPkx3JeJKS&mM4", :type => "text"}/
+          %small#stripePublishableKey-help.form-text
+            %a{:href => "#"} How to get a Stripe Publishable Key?
+        .form-group
+          %label{:for => "stripeSecretKey"} Stripe Secret Key
+          %input#stripeSecretKey.form-control{"aria-describedby" => "stripeSecretKey", :placeholder => "For example: sk_live_c7VffYB8AwSchkxe5RfjtS7e", :type => "text"}/
+          %small#stripeSecretKey-help.form-text
+            %a{:href => "#"} How to get a Stripe Secret Key?
+      %section.content-card-terminal
+        %a.btn.btn-primary{:href => "stripe-configured.php"} Save changes
+  - else
+    - support_link = link_to t("admin.payment_preferences.contact_support"), "mailto:#{support_email}"
+    - help_link = link_to t("admin.payment_preferences.no_payments_link_text"), "#{knowledge_base_url}/currencies-supported-in-a-sharetribe-marketplace", target: "_blank"
+    = t("admin.payment_preferences.you_cannot_use_online_payments", currency: @current_community.currency, country_name: country_name, support_link: support_link, help_link: help_link).html_safe
