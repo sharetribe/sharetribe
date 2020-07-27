@@ -327,7 +327,12 @@ Rails.application.routes.draw do
       end
 
       namespace :payment_system, path: 'payment-system' do
-        resources :stripe
+        resources :stripe do
+          collection do
+            patch :update_stripe_keys
+            patch :common_update
+          end
+        end
         resources :country_currencies, path: 'country-currency', only: %i[index] do
           collection do
             patch :update_country_currencies
