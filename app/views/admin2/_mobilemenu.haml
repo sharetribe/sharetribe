@@ -99,7 +99,9 @@
         / Divider
         %hr/
         / Payment system
-        - if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_provisioned?(@current_community.id)
+        - stripe_allowed = StripeHelper.stripe_provisioned?(@current_community.id)
+        - paypal_allowed = PaypalHelper.paypal_active?(@current_community.id)
+        - if paypal_allowed || stripe_allowed
           %ul.category-title
             %li
               = link_to t('admin2.sidebar.payment_group'), '#paymentsystem-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'paymentsystem-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
@@ -108,10 +110,12 @@
               = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
             %li#transactionsize-mobile
               %a{:href => 'transaction-size.php'} Transaction size
-            %li#paypal-mobile
-              %a{:href => 'paypal.php'} PayPal
-            %li#stripe-mobile
-              %a{:href => 'stripe.php'} Stripe
+            - if paypal_allowed
+              %li#paypal-mobile
+                %a{:href => 'paypal.php'} PayPal
+            - if stripe_allowed
+              %li#stripe-mobile{class: active_li('stripe')}
+                = link_to t('admin2.sidebar.payment_system.stripe'), admin2_payment_system_stripe_index_path
         / Email
         %ul.category-title
           %li
