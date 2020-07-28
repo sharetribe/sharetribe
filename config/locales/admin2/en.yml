@@ -115,11 +115,11 @@ en:
       fee_should_be_less_than_minimum_price: 'Minimum transaction fee must be lower than minimum transaction size'
       stripe_connected: 'Stripe connected'
       stripe_disabled: 'Stripe disabled'
-      disable_stripe: 'Disable Stripe.'
-      enable_stripe: 'Enable Stripe.'
+      disable_stripe: 'Disable Stripe'
+      enable_stripe: 'Enable Stripe'
       need_to_change_stripe_keys: "Do you need to change your Stripe keys? <a href='#' show-intercom=true >Contact the Sharetribe team</a>."
-      need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >Contact the Sharetribe team</a>"
-      need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >Contact the Sharetribe team</a>"
+      need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
+      need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
     listing_fields:
       info_header: 'Manage existing listing fields'
       info_text: 'Here you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and cannot be edited.'
