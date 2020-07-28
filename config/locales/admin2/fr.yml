@@ -98,6 +98,37 @@ fr:
         minimum_listing_price_below_tx_fee: 'lorem ipsum: %{minimum_transaction_fee}.'
         minimum_listing_price_below_min: 'lorem ipsum %{minimum_commission}.'
         payments_not_enabled: 'lorem ipsum'
+    stripe:
+      info_header: 'lorem ipsum'
+      info_text: "<a href='%{fee_url}' target='_blank'>lorem ipsum</a>lorem ipsum. <a href='%{more_url}' target='_blank'> lorem ipsum</a>"
+      transaction_fee_settings: 'lorem ipsum'
+      configure_api_keys: 'lorem ipsum'
+      set_stripe_fee_keys: 'lorem ipsum <a href="%{url}">lorem ipsum</a>'
+      enable_stripe_fee_keys: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      enable_first_stripe_fee_keys: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      disable_paypal: 'lorem ipsum  <a href="%{url}">lorem ipsum </a>'
+      how_to_get_publishable_key: '<a href="%{url}" target="_blank">lorem ipsum?</a>'
+      how_to_get_secret_key: '<a href="%{url}" target="_blank"lorem ipsum?</a>'
+      publishable_key_example: "lorem ipsum: %{api_publishable_key_example}"
+      secret_key_example: "lorem ipsum: %{api_secret_key_example}"
+      invalid_secret: "lorem ipsum %{secret_key}"
+      invalid_publishable: "lorem ipsum %{publishable_key}"
+      api_publishable_key: 'lorem ipsum'
+      api_private_key: 'lorem ipsum'
+      commission_from_seller: "lorem ipsum:"
+      minimum_transaction_fee: 'lorem ipsum'
+      commission_from_buyer: 'lorem ipsum'
+      minimum_buyer_transaction_fee: 'lorem ipsum'
+      minimum_transaction_size: 'lorem ipsum <a href="%{url}">lorem ipsum</a> is %{sum}.'
+      the_transaction_fee_must_be_lower_than_100: 'lorem ipsum'
+      fee_should_be_less_than_minimum_price: 'lorem ipsum'
+      stripe_connected: 'lorem ipsum'
+      stripe_disabled: 'lorem ipsum'
+      disable_stripe: 'lorem ipsum.'
+      enable_stripe: 'lorem ipsum.'
+      need_to_change_stripe_keys: "lorem ipsum <a href='#' show-intercom=true >lorem ipsum</a>."
+      need_to_change_publishable_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
+      need_to_change_secret_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
     listing_fields:
       info_header: 'lorem ipsum'
       info_text: 'lorem ipsum'
@@ -186,36 +217,6 @@ fr:
       add_new_option: 'lorem ipsum'
       option_label: 'lorem ipsum'
       save_option: 'lorem ipsum'
-    stripe:
-      info_header: 'lorem ipsum'
-      info_text: "<a href='%{fee_url}' target='_blank'>lorem ipsum</a>lorem ipsum. <a href='%{more_url}' target='_blank'> lorem ipsum</a>"
-      transaction_fee_settings: 'lorem ipsum'
-      configure_api_keys: 'lorem ipsum'
-      set_stripe_fee_keys: 'lorem ipsum <a href="%{url}">lorem ipsum</a>'
-      enable_stripe_fee_keys: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
-      enable_first_stripe_fee_keys: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
-      how_to_get_publishable_key: '<a href="%{url}" target="_blank">lorem ipsum?</a>'
-      how_to_get_secret_key: '<a href="%{url}" target="_blank"lorem ipsum?</a>'
-      publishable_key_example: "lorem ipsum: %{api_publishable_key_example}"
-      secret_key_example: "lorem ipsum: %{api_secret_key_example}"
-      invalid_secret: "lorem ipsum %{secret_key}"
-      invalid_publishable: "lorem ipsum %{publishable_key}"
-      api_publishable_key: 'lorem ipsum'
-      api_private_key: 'lorem ipsum'
-      commission_from_seller: "lorem ipsum:"
-      minimum_transaction_fee: 'lorem ipsum'
-      commission_from_buyer: 'lorem ipsum'
-      minimum_buyer_transaction_fee: 'lorem ipsum'
-      minimum_transaction_size: 'lorem ipsum <a href="%{url}">lorem ipsum</a> is %{sum}.'
-      the_transaction_fee_must_be_lower_than_100: 'lorem ipsum'
-      fee_should_be_less_than_minimum_price: 'lorem ipsum'
-      stripe_connected: 'lorem ipsum'
-      stripe_disabled: 'lorem ipsum'
-      disable_stripe: 'lorem ipsum.'
-      enable_stripe: 'lorem ipsum.'
-      need_to_change_stripe_keys: "lorem ipsum <a href='#' show-intercom=true >lorem ipsum</a>."
-      need_to_change_publishable_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
-      need_to_change_secret_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
     order_types:
       info_text: 'lorem ipsum'
       name: 'lorem ipsum'
