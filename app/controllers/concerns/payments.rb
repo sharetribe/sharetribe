@@ -227,10 +227,10 @@ module Payments
       if form.mode == 'transaction_fee' || form.mode == 'paypal'
         # Onboarding wizard step recording
         state_changed = Admin::OnboardingWizard.new(@current_community.id)
-                          .update_from_event(:payment_preferences_updated, @current_community)
+                                               .update_from_event(:payment_preferences_updated, @current_community)
         if state_changed
-          record_event(flash, "km_record", {km_event: "Onboarding payments setup"})
-          record_event(flash, "km_record", {km_event: "Onboarding paypal connected"})
+          record_event(flash, "km_record", { km_event: "Onboarding payments setup" })
+          record_event(flash, "km_record", { km_event: "Onboarding paypal connected" })
 
           flash[:show_onboarding_popup] = true
         end
