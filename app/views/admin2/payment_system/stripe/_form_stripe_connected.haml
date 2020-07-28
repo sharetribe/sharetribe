@@ -37,7 +37,7 @@
     - if buyer_disabled
       %small.form-text
         = t('admin2.stripe.disable_paypal', url: '#').html_safe
-    - if disabled_fee
+    - elsif disabled_fee
       %small.form-text
         = t('admin2.stripe.enable_first_stripe_fee_keys', url: '#stripe-api-settings').html_safe
 
