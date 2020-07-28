@@ -1,0 +1,26 @@
+.form-group
+  = form.label :api_publishable_key, t('admin2.stripe.api_publishable_key')
+  = form.text_field :api_publishable_key, class: %i[form-control required], placeholder: t('admin2.stripe.publishable_key_example', api_publishable_key_example: 'pk_live_67c9SwGQtbsaPkx3JeJKS&mM4'),
+          regex: regex_definition_to_js(APP_CONFIG.stripe_publishable_key_pattern),
+          data: {'msg-regex': t('admin2.stripe.invalid_publishable', publishable_key: 'publishable key')}
+  %small#stripePublishableKey-help.form-text
+    = t('admin2.stripe.how_to_get_publishable_key', url: "#{APP_CONFIG.knowledge_base_url}/how-to-configure-your-stripe-account-and-get-api-keys-for-your-marketplace").html_safe
+
+.form-group
+  = form.label :api_private_key, t('admin2.stripe.api_private_key')
+  = form.text_field :api_private_key, class: %i[form-control required], placeholder: t('admin2.stripe.secret_key_example', api_secret_key_example: 'sk_live_c7VffYB8AwSchkxe5RfjtS7e'),
+          regex: regex_definition_to_js(APP_CONFIG.stripe_private_key_pattern),
+          data: {'msg-regex': t('admin2.stripe.invalid_secret', secret_key: 'secret key')},
+          autocomplete: 'off'
+  %small#stripeSecretKey-help.form-text
+    = t('admin2.stripe.how_to_get_secret_key', url: "#{APP_CONFIG.knowledge_base_url}/how-to-configure-your-stripe-account-and-get-api-keys-for-your-marketplace").html_safe
+
+:javascript
+  $.validator.addMethod(
+    "regex",
+    function(value, element, regexp) {
+      var re = new RegExp(regexp);
+      return this.optional(element) || re.test(value);
+    }
+  );
+  $("#new_stripe_api_keys_form").validate();
