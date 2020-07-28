@@ -184,4 +184,10 @@ module Admin2Helper
     base.slice!(DateTime.current.year.to_s) if DateTime.current.year == date.year
     base
   end
+
+  def date_format(date)
+    base = "#{I18n.l(date, format: :short)} (UTC)"
+    base.slice!(DateTime.current.year.to_s) if DateTime.current.year == date.year
+    base
+  end
 end

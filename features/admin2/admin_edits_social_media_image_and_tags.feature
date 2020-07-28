@@ -14,3 +14,12 @@ Feature: Admin edits social media image and tags
   Then I should see "Custom title" in the "community_community_customizations_attributes_0_social_media_title" input
    And I should see "Custom description" in the "community_community_customizations_attributes_3_social_media_description" input
    And I should see "Australian_painted_lady.jpg"
+
+  Scenario: Admin remove social logo file
+    When I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "community_social_logo_attributes_image"
+    Then I press submit
+    And I refresh the page
+    And I should see "Australian_painted_lady.jpg"
+    Then I follow "Reset to default image for social media."
+    And I follow "Delete the image for social media forever"
+    And I should not see "Australian_painted_lady.jpg"
