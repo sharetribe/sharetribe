@@ -2,8 +2,7 @@
   $('#body_type').html('<%= j render 'admin2/listings/listing_fields/form', custom_field: @custom_field, id: :submit_listing_field %>');
   $('#listingFieldsAddModal .modal-footer .btn-primary').prop('disabled', false);
   $('#field_type option[value=""]').hide();
-  sortOptions();
-  validateOptions();
+  initValidate('<%= I18n.locale %>', '#submit_listing_field');
 <% else %>
   $('#body_type').html('');
   $('#listingFieldsAddModal .modal-footer .btn-primary').prop('disabled', true);

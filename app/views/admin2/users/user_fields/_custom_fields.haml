@@ -1,0 +1,17 @@
+.field-data.custom-field-title.custom-field-list-row.nested{data: {id: custom_field.id}}
+  .col-4
+    = custom_field.name(I18n.locale)
+  .col-3
+    = field_type_translation(custom_field.type)
+  .col.text-center
+    - if custom_field.required?
+      = image_tag 'svg/checkmark-blue.svg', alt: 'checkmark'
+  .col.text-center
+    - if custom_field.public?
+      = image_tag 'svg/checkmark-blue.svg', alt: 'checkmark'
+  .actions.col-2
+    %span.handle-move{'aria-hidden' => true}
+    = link_to delete_popup_admin2_users_user_field_path(custom_field), remote: true, class: %i[custom-fields-action-remove] do
+      %span.remove
+    = link_to edit_admin2_users_user_field_path(custom_field), remote: true, id: "edit_custom_field_#{custom_field.id}" do
+      %span.edit
