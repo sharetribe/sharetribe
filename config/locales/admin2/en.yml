@@ -638,6 +638,11 @@ en:
       square_logo: 'Square logo'
       square_logo_info_text: 'The square logo will be shown when you perform some actions as an admin and when people bookmark your site to the home screen of their mobile device. The dimensions should be (at least) 600x600 pixels.'
       current_file: 'The current %{type} filename is "%{filename}".'
+      reset_to_default: 'Reset to default %{type}.'
+      delete_popup:
+        title: 'Delete %{type}'
+        body: 'Deleting the "%{filename}" %{type} cannot be undone. Are you sure you want to proceed?'
+        save_button: 'Delete the %{type} forever'
     user_rights:
       invitation_rights: 'Invitation rights'
       join_with_invite_only: 'Allow new users to join only with an invite from a registered user'
@@ -742,6 +747,7 @@ en:
       listing_fields_update_location_failed: 'Location field editing failed'
       listing_fields_update_expiration_failed: 'Expiration field editing failed'
       listing_fields_update_price_failed: 'Price field editing failed'
+      file_was_deleted: 'File was successfully deleted'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'
