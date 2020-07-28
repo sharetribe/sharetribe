@@ -1407,8 +1407,8 @@ lv:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
+    feedback_subject: "Jauns kontakta formas ieraksts %{service_name}"
+    feedback_body: "%{author_name_and_email} ir iesūtījis info %{service_name} kontakta veidlapā. Šis paziņojums tiek nosūtīts visiem %{service_name} administratoriem."
     unlogged_user: ~
     anonymous_user: ~
   community_memberships:
@@ -2842,7 +2842,7 @@ lv:
       first_name_with_initial: "(tikai pirmie burti tiek rādīti citiem lietotājiem)"
       first_name_only: "(netiek rādīts citiem lietotājiem)"
       display_name: "Redzamais vārds"
-      display_name_description: "Ja pārstāvat kādu organizāciju, varat izmantot tās nosaukumu kā redzamo vārdu. Citiem lietotājiem tiek parādīts redzamais vārds vai nosaukums, nevis Jūsu vārds un uzvārds."
+      display_name_description: "Ja pārstāvat kādu organizāciju, varat izmantot tās nosaukumu kā redzamo vārdu. Citiem lietotājiem tiek parādīts redzamais vārds, nevis jūsu vārds un uzvārds."
       location_description: "Jūs varat norādīt tikai pilsētu vai arī pilsētu un ielas nosaukumu."
       profile_picture_description: "Profila attēlam jābūt kvadrātveida formātā (1:1 attiecība), piemēram, 800x800 pikseļi. Pretējā gadījumā, attēls tiks apgriezts, lai tas atbilstu noteikumiem."
       phone_number: Tālrunis
@@ -2960,7 +2960,7 @@ lv:
       december: Dec
     today: Šodien
     clear: Brīvs
-    format: mm/dd/gggg
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%b %e, %Y at %H:%M"
