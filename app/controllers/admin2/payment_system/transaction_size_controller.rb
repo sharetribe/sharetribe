@@ -41,7 +41,8 @@ module Admin2::PaymentSystem
     end
 
     def minimum_transaction_fee
-      @minimum_transaction_fee ||= Money.new(active_tx_settings[:minimum_transaction_fee_cents], currency)
+      minimum_transaction_fee_cents = PaymentSettings.max_minimum_transaction_fee(@current_community)
+      parse_money_with_default(nil, minimum_transaction_fee_cents, currency)
     end
 
     def tx_settings_api
