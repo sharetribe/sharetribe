@@ -1,121 +1,37 @@
+- content_for :extra_javascript do
+  :javascript
+    initIntercom();
+
+- content_for :title do
+  = t('admin2.sidebar.payment_system.stripe')
+
 .content-card-header
-  %h1.content-card-header-title Stripe
+  %h1.content-card-header-title
+    = t('admin2.stripe.info_header')
+
 .content-card-section-container
-  - if stripe_allowed
+  - object = stripe_connected ? payment_prefs_form : stripe_api_form
+  - url = stripe_connected ? common_update_admin2_payment_system_stripe_index_path : update_stripe_keys_admin2_payment_system_stripe_index_path
 
-    - object = stripe_connected ? payment_prefs_form : stripe_api_form
-    - url = stripe_connected ? common_update_admin2_payment_system_stripe_index : update_stripe_keys_admin2_payment_system_stripe_index_path
-
-    = form_for object, url: url, method: :patch, class: %i[transaction_preferences_form content-card-section-form] do |form|
-      = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
-      = hidden_field_tag 'gateway', 'stripe'
-      %section.content-card-section
-        %h2 Stripe transaction fee settings
-
-        - unless stripe_connected
-          %p.ingress
-            %svg{:height => "14", :style => "position: relative; top: -1px", :width => "14", :xmlns => "http://www.w3.org/2000/svg"}
-              %g{:fill => "none", "fill-rule" => "evenodd", :stroke => "#FF9F05", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
-                %path{:d => "M7 10a.375.375 0 100 .75.375.375 0 000-.75"}
-                %path{:d => "M12.813 10.432A1.774 1.774 0 0111.226 13H2.774a1.773 1.773 0 01-1.586-2.568l4.225-8.45a1.774 1.774 0 013.174 0l4.226 8.45zM7 7.75v-3"}
-            %strong
-              To set Stripe fees, you must first
-              %a{:href => "#stripe-api-settings"} configure your Stripe API keys
-
-        %p.ingress
-          %a{:href => "https://help.sharetribe.com/en/articles/1012776", :target => "_blank"} Stripe's fees
-          will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed.
-          %a{:href => "https://help.sharetribe.com/en/articles/1224180", :target => "_blank"} Learn more
-
-        - if stripe_connected
-          .form-group
-            = form.label :commission_from_seller, 'Seller transaction fee'
-            .input-group
-              = form.text_field :commission_from_seller, class: %i[form-control], required: true, number_min: 0, number_max: 99, number_no_decimals: true,
-                                'data-msg-number_max': t("admin.payment_preferences.the_transaction_fee_must_be_lower_than_100"), style: "border-radius: 4px 0 0 4px"
-              .input-group-append.disabled
-                %span.input-group-text %
-              %small.form-text
-                To set Stripe fees, you must first
-                %a{:href => "#stripe-api-settings"} configure your Stripe API keys
-
-          .form-group
-            = form.label :commission_from_seller, 'Seller minimun transaction fee'
-            .input-group
-              - max_tx_fee = payment_prefs_form.minimum_listing_price.to_f
-              - max_tx_fee = max_tx_fee - 0.01 if max_tx_fee > 0.01
-              = form.text_field :minimum_transaction_fee, class: %i[form-control], required: true, number_max: max_tx_fee, number_min: 0,
-                'data-msg-number_max': t("admin.payment_preferences.fee_should_be_less_than_minimum_price"), style: "border-radius: 4px 0 0 4px"
-
-              .input-group-append.disabled
-                %span.input-group-text= currency
-              %small.form-text
-                To set Stripe fees, you must first
-                %a{:href => "#stripe-api-settings"} configure your Stripe API keys
-
-          .form-group
-            - buyer_disabled = paypal_enabled && paypal_allowed && paypal_connected && paypal_enabled_by_admin
-            = form.label :commission_from_buyer, 'Buyer transaction fee'
-            .input-group
-              = form.text_field :commission_from_buyer, class: %i[form-control], disabled: buyer_disabled, style: "border-radius: 4px 0 0 4px"
-              .input-group-append.disabled
-                %span.input-group-text %
-              %small.form-text
-                To set Stripe fees, you must first
-                %a{:href => "#stripe-api-settings"} configure your Stripe API keys
-
-          .form-group
-            = form.label :minimum_buyer_transaction_fee, 'Buyer minimun transaction fee'
-            .input-group
-              = form.text_field :minimum_buyer_transaction_fee, class: %i[form-control], disabled: buyer_disabled, style: "border-radius: 4px 0 0 4px"
-              .input-group-append.disabled
-                %span.input-group-text= currency
-              %small.form-text
-                To set Stripe fees, you must first
-                %a{:href => "#stripe-api-settings"} configure your Stripe API keys
-
+  = form_for object, url: url, method: :patch, html: { class: %i[transaction_preferences_form content-card-section-form] } do |form|
+    = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
+    = hidden_field_tag 'gateway', 'stripe'
+    %section.content-card-section
+      %h2= t('admin2.stripe.transaction_fee_settings')
+      = render 'hint_title', stripe_connected: stripe_connected, stripe_enabled_by_admin: stripe_enabled_by_admin
 
       - if stripe_connected
-        %section.content-card-section
-          %h2 Configure Stripe API Keys
-          %p.ingress
-            = image_tag 'svg/checkmark-green.svg', alt: 'checkmark-green'
-            %strong Stripe connected
-          %p.small-ingress{:style => "padding-left: 16px; margin-bottom: 32px;"}
-            Do you need to change your Stripe keys?
-            %a{:href => "#"} Contact the Sharetribe team.
-            %br
-            %a.negative-link{:href => "stripe-disabled.php"} Disable Stripe.
-          .form-group
-            %label Stripe Publishable Key
-            = text_field_tag :api_publishable_key, stripe_account[:api_publishable_key], disabled: true, class: %i[form-control]
-            %small.form-text
-              To change your Stripe Publishable Key,
-              %a{:href => "#"} contact the Sharetribe team
-          .form-group
-            %label Stripe Secret Key
-            = text_field_tag :api_visible_private_key, stripe_account[:api_visible_private_key], disabled: true, class: %i[form-control]
-            %small.form-text
-              To change your Stripe Secret Key,
-              %a{:href => "#"} contact the Sharetribe team
+        = render partial: 'form_stripe_connected', locals: local_assigns.merge(form: form)
       - else
-        %section#stripe-api-settings.content-card-section
-          %h2 Configure Stripe API Keys
-          .form-group
-            = label_tag :api_publishable_key, 'Stripe Publishable Key'
-            = text_field_tag :api_publishable_key, '', class: %i[form-control], placeholder: 'For example: pk_live_67c9SwGQtbsaPkx3JeJKS&mM4'
-            %small#stripePublishableKey-help.form-text
-              %a{:href => "#"} How to get a Stripe Publishable Key?
-          .form-group
-            = label_tag :api_private_key, 'Stripe Secret Key'
-            = text_field_tag :api_private_key, '', class: %i[form-control], placeholder: 'For example: sk_live_c7VffYB8AwSchkxe5RfjtS7e'
-            %small#stripeSecretKey-help.form-text
-              %a{:href => "#"} How to get a Stripe Secret Key?
+        = render 'form_stripe', currency: currency
 
+    %section#stripe-api-settings.content-card-section
+      %h2= t('admin2.stripe.configure_api_keys')
+      - if stripe_connected
+        = render 'stripe_keys_connected', stripe_enabled_by_admin: stripe_enabled_by_admin, stripe_account: stripe_account
+      - else
+        = render 'stripe_keys', form: form
+
+    - if stripe_enabled_by_admin
       %section.content-card-terminal
-        = form.button 'Save changes', class: %i[btn btn-primary]
-
-  - else
-    - support_link = link_to t("admin.payment_preferences.contact_support"), "mailto:#{support_email}"
-    - help_link = link_to t("admin.payment_preferences.no_payments_link_text"), "#{knowledge_base_url}/currencies-supported-in-a-sharetribe-marketplace", target: "_blank"
-    = t("admin.payment_preferences.you_cannot_use_online_payments", currency: @current_community.currency, country_name: country_name, support_link: support_link, help_link: help_link).html_safe
+        = form.button t('admin2.save_changes'), class: %i[btn btn-primary]
