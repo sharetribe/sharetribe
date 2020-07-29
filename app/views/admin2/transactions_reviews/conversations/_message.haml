@@ -1,0 +1,20 @@
+- side = message_or_action[:sender].id == starter.id ? 'bubble-left' : 'bubble-right'
+
+- if message_or_action[:admin]
+  - avatar = @current_community.logo.present? ? @current_community.logo.url(:header_icon_highres) : missing_avatar(:thumb)
+- else
+  - avatar = message_or_action[:sender].image.present? ? message_or_action[:sender].image.url(:thumb) : missing_avatar(:thumb)
+
+%div{class: side}
+  .avatar
+    = image_tag(avatar)
+  .message-container
+    .message
+      - text_with_line_breaks do
+        = message_or_action[:content]
+    .message-timestamp
+      - if message_or_action[:admin]
+        - name = @current_community.name(I18n.locale)
+      - else
+        - name = PersonViewUtils.person_display_name(message_or_action[:sender], @current_community)
+      = "#{name} • #{date_format(message_or_action[:created_at])}"

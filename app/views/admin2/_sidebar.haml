@@ -52,8 +52,8 @@
       %ul#users.collapse.subtitle{class: expand_ul('users')}
         %li#manageusers{class: active_li('manage_users')}
           = link_to t('admin2.sidebar.users.manage_users'), admin2_users_manage_users_path(direction: :desc, sort: :join_date)
-        %li#userfields
-          %a{:href => 'user-fields.php'} User fields
+        %li#userfields{class: active_li('user_fields')}
+          = link_to t('admin2.sidebar.users.user_fields'), admin2_users_user_fields_path
         %li#signuplogin{class: active_li('signup_login')}
           = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
         %li#userrights{class: active_li('user_rights')}

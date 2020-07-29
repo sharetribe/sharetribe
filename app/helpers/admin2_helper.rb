@@ -12,7 +12,7 @@ module Admin2Helper
     {
       general: %w[essentials privacy static_content admin_notifications],
       design: %w[logos_color landing_page display experimental cover_photos topbar footer],
-      users: %w[manage_users signup_login user_rights invitations],
+      users: %w[manage_users signup_login user_rights invitations user_fields],
       listings: %w[listing_approval listing_comments manage_listings order_types categories listing_fields],
       transactions_reviews: %w[config_transactions manage_transactions conversations manage_reviews],
       payment_system: %w[country_currencies transaction_size],
@@ -164,5 +164,11 @@ module Admin2Helper
         caption: t('admin2.order_types.delete_caption', order_type: t(shape.name_tr_key)),
         notice: t('admin2.order_types.confirm_delete_simple_order_type') }
     end
+  end
+
+  def date_format(date)
+    base = "#{I18n.l(date, format: :short)} (UTC)"
+    base.slice!(DateTime.current.year.to_s) if DateTime.current.year == date.year
+    base
   end
 end
