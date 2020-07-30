@@ -1,4 +1,4 @@
-#orderTypesDeleteModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'orderTypesDeleteModalLabel', role: :dialog, tabindex: -1}
+#orderTypesDeleteModal.modal{'data-backdrop' => 'static', 'aria-hidden' => true, 'aria-labelledby' => 'orderTypesDeleteModalLabel', role: :dialog, tabindex: -1}
   .modal-dialog.modal-md{role: :document}
     .modal-content
       = form_tag '#', method: :delete, class: %i[content-card-section-form], id: 'delete-order-form' do
