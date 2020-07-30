@@ -1,4 +1,4 @@
-#listingPendingModal.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'listingPendingModalLabel', role: 'dialog', tabindex: '-1'}
+#listingPendingModal.modal{'data-backdrop' => 'static', 'aria-hidden' => 'true', 'aria-labelledby' => 'listingPendingModalLabel', role: 'dialog', tabindex: '-1'}
   .modal-dialog.modal-md{role: 'document'}
     = form_tag admin2_listings_manage_listings_path, method: :patch, remote: true, class: %i[modal-content], id: :form_approve_reject do
       = hidden_field_tag :id, '', id: :listing_id

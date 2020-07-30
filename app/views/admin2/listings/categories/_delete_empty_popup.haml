@@ -1,4 +1,4 @@
-#categoriesDeleteModalSimple.modal{'aria-hidden' => true, 'aria-labelledby' => 'categoriesDeleteModalSimpleLabel', role: :dialog, tabindex: '-1'}
+#categoriesDeleteModalSimple.modal{'data-backdrop' => 'static', 'aria-hidden' => true, 'aria-labelledby' => 'categoriesDeleteModalSimpleLabel', role: :dialog, tabindex: '-1'}
   .modal-dialog.modal-md{role: :document}
     = form_tag '#', method: :delete, class: %i[modal-content], id: 'delete-category-form', style: 'margin-left:0;' do
       .modal-header

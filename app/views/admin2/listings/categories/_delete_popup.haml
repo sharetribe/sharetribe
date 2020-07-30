@@ -1,4 +1,4 @@
-#categoriesDeleteModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'categoriesDeleteModalLabel', role: 'dialog', tabindex: '-1'}
+#categoriesDeleteModal.modal{'data-backdrop' => 'static', 'aria-hidden' => true, 'aria-labelledby' => 'categoriesDeleteModalLabel', role: 'dialog', tabindex: '-1'}
   .modal-dialog.modal-md{role: :document}
     = form_tag destroy_and_move_admin2_listings_category_path(category), method: :delete, class: %i[modal-content], style: 'margin-left:0;' do
 
