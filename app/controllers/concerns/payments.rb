@@ -52,19 +52,14 @@ module Payments
 
   def paypal_index
     paypal_account = paypal_accounts_api.get(community_id: @current_community.id).data
-
-    {
-      order_permission_action: admin_paypal_preferences_account_create_path(),
-      paypal_account: paypal_account
-    }
+    { order_permission_action: admin_paypal_preferences_account_create_path,
+      paypal_account: paypal_account }
   end
 
   def stripe_index
     stripe_account = stripe_tx_settings
-    {
-      stripe_account: stripe_account,
-      stripe_api_form: StripeApiKeysForm.new
-    }
+    { stripe_account: stripe_account,
+      stripe_api_form: StripeApiKeysForm.new }
   end
 
   def tx_settings_by_gateway(gateway)
@@ -86,16 +81,12 @@ module Payments
   end
 
   def active_tx_setttings
-    if @paypal_enabled
-      paypal_tx_settings
-    else
-      stripe_tx_settings
-    end
+    @paypal_enabled ? paypal_tx_settings : stripe_tx_settings
   end
 
   def build_prefs_form(params = nil)
     currency = @current_community.currency
-    data = {paypal_prefs_form: nil, stripe_prefs_form: nil}
+    data = { paypal_prefs_form: nil, stripe_prefs_form: nil }
 
     if @paypal_enabled
       data[:paypal_prefs_form] = prefs_form_from_settings(paypal_tx_settings, paypal_minimum_commissions_api.get(currency), currency)
