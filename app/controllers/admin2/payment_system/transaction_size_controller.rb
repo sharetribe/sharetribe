@@ -33,9 +33,9 @@ module Admin2::PaymentSystem
     end
 
     def verify_price(tx_min_price)
-      if tx_min_price.nil? || tx_min_price < (minimum_commission || 0)
+      if tx_min_price.nil? || tx_min_price <= (minimum_commission || 0)
         raise I18n.t('admin2.transaction_size.errors.minimum_listing_price_below_min', minimum_commission: minimum_commission)
-      elsif minimum_transaction_fee && tx_min_price < minimum_transaction_fee
+      elsif minimum_transaction_fee && tx_min_price <= minimum_transaction_fee
         raise I18n.t('admin2.transaction_size.errors.minimum_listing_price_below_tx_fee', minimum_transaction_fee: minimum_transaction_fee)
       end
     end
