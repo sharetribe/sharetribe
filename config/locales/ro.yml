@@ -1273,7 +1273,7 @@ ro:
       shipping_price_label: "Trimite:"
       stripe-fee_label: "Comision procesare plati"
     confirm:
-      confirm_description: "Te rugam sa confirmi returnarea produsului si finalizarea comenzii apasand butonul \"Am returnat produsul\". Apoi puteti oferi o recenzie catre cealalta persoana."
+      confirm_description: "Te rugăm să confirmi plata și finalizarea procesului de rezervare. De asemenea, puteți oferi o recenzie proprietarului."
       cancel_description_team: ~
       cancel_payed_description: "Dacă cererea dumneavoastră a fost acceptată, dar aveţi îndoieli, puteţi anula în continuare cererea înainte de plată."
       canceling_payed_transaction: "Anulare tranzacție"
@@ -1298,7 +1298,7 @@ ro:
       rejected_request: "Cerere respinsă."
       rejected_offer: "Oferta respinsă."
       confirmed_request: "Comanda finalizata."
-      confirmed_offer: "Ofertă finalizată."
+      confirmed_offer: "Rezervare finalizată."
       canceled_request: "Comanda anulata."
       canceled_offer: "Oferta anulată."
       message_from: "Mesaj de la %{person}"
@@ -1320,9 +1320,9 @@ ro:
       payment_preauthorized: "Plata autorizata: %{sum}"
       payment_preauthorized_wo_sum: ~
       stripe:
-        held_payment: "Plata a fost procesata. Suma de %{sum} este retinuta de %{service_name} pana cand rezervarea este finalizata."
+        held_payment: "Plata a fost procesată. Suma de %{sum} este reținută de %{service_name} până când rezervarea va fi finalizată."
         held_payment_wo_sum: ~
-        confirmed_request: ~
+        confirmed_request: "Rezervarea a fost finalizată. Plata a fost transferată către contul bancar al lui %{author_name} și va fi decontată în termen de 7 zile."
       canceled_the_order: ~
       marked_as_refunded: ~
       dismissed_the_cancellation: ~
@@ -1380,16 +1380,16 @@ ro:
       waiting_for_listing_author_to_deliver_listing: "Asteptam ca %{listing_author_name} sa valideze rezervarea pentru %{listing_title}"
       request_accepted: "Cerere acceptată"
       request_rejected: Refuzat
-      request_confirmed: Finalizat
+      request_confirmed: "Rezervare finalizată"
       request_canceled: Anulat
       request_paid: "Plata a fost facuta cu succes"
-      request_preauthorized: "Plata autorizata"
+      request_preauthorized: "Plata a fost autorizată"
       skip_feedback: "Omiteti recenzia"
       waiting_for_listing_author_to_accept_offer: "Aşteptam ca %{listing_author_name} sa accepte oferta"
       waiting_for_listing_author_to_accept_request: "Asteapta ca %{listing_author_name} să accepte solicitarea. Imediat ce %{listing_author_name} acceptă, suma iti va fi debitata."
       waiting_for_you_to_accept_request: "Te asteapta sa accepti solicitarea"
       waiting_confirmation_from_requester: "Asteptam ca %{requester_name} sa marcheze comanda ca finalizata"
-      waiting_confirmation_from_you: "Te asteptam ca sa marchezi comanda ca fiind completa"
+      waiting_confirmation_from_you: "Te așteptăm să marchezi rezervarea ca fiind completa, confirmând plata"
       waiting_payment_from_requester: "Aşteptare pentru %{requester_name} să plătească"
       waiting_payment_from_you: "Vă aștept să plătiți"
       waiting_feedback_from_you: "Asteptam sa oferiti o recenzie"
@@ -1466,7 +1466,7 @@ ro:
       create_own: "Vrei sa-ti creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
       learn_more: "Vezi mai mult"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Inca nu ati finalizat sau nu ati anulat comanda %{request_link}. Daca comanda a fost finalizata ar trebui sa confirmati acest lucru. Apoi puteti oferi o recenzie catre %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Încă  nu ați finalizat sau nu ați anulat comanda %{request_link}. Dacă comanda a fost finalizată ar trebui să confirmați acest pas. Apoi puteți oferi o recenzie către %{other_party_given_name}."
       remember_to_confirm_request: "Nu uitați să confirmați sau să revocați o solicitare"
       if_will_not_happen_you_should_cancel: "Dacă credeți că această comandă nu va fi finalizată dintr-un motiv sau altul, puteți %{cancel_it_link}."
       cancel_it_link_text: anulați-l
@@ -1508,7 +1508,7 @@ ro:
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti o recenzie"
-      we_have_marked_request_as_confirmed: "Am marcat comanda despre '%{request}' finalizată. Solicitarea a fost completată automat, deoarece a trecut o zi de la încheierea perioadei de rezervare."
+      we_have_marked_request_as_confirmed: "Rezervarea la '%{request}' a fost finalizată. Finalizarea rezervării a fost procesată automat, deoarece a trecut o zi de la încheierea perioadei de rezervare."
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
@@ -1645,7 +1645,7 @@ ro:
       money_will_be_transferred: "Banii vor fi transferati catre %{recipient_name} cand a) ai marcat cererea ca fiind completa sau b) %{automatic_confirmation_days} zile au trecut de cand ai platit."
       listing_per_unit_title: ~
       stripe:
-        you_have_made_new_payment: "Ai plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> catre %{recipient_full_name}. Aici este dovada plății. Adresa locației este: %{listing_origin_loc_attributes_address}"
+        you_have_made_new_payment: "Ai plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> catre %{recipient_full_name}. Aceasta este dovada plății. Adresa locației este: %{listing_origin_loc_attributes_address}. Suma achitată a fost blocată de către  %{service_name} si va fi transferata către %{recipient_full_name} deîndată ce vei marca completă rezervarea."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} v-a oferit feedback in %{service_name}"
       you_can_give_feedback_to: "Inca nu ati oferit feedback pentru %{name}"
@@ -2553,7 +2553,7 @@ ro:
       by: "%{listing} de %{author}"
       payment: Plată
       exp: "Exp:"
-      you_will_be_charged: "Suma îți va fi debitată doar dacă %{author} acceptă tranzacția. %{author} trebuie să accepte tranzacția în termen de %{expiration_period} zile. Dacă %{author} refuză tranzacția sau nu răspunde, suma nu îți va fi debitată."
+      you_will_be_charged: "Suma îți va fi debitată doar dacă %{author} acceptă rezervarea. %{author} trebuie să accepte rezervarea în termen de %{expiration_period} zile. Dacă %{author} refuză rezervarea sau nu răspunde, suma nu îți va fi debitată."
       day: zi
       days: zile
       night: noapte
@@ -3133,8 +3133,8 @@ ro:
     you_are_ready_to_accept_payments: ~
     commission: ~
     pay_with_stripe: ~
-    add_and_pay: ~
-    card_not_stored: ~
+    add_and_pay: "Autorizează plata"
+    card_not_stored: "Plata dvs. este procesată în siguranță de către Stripe. %{service_name} nu salvează datele cardului dvs. "
     missing_payment: "Ai produse listate insa contul tau nu este setat pentru a incasa bani. Ca sa iti configurezi preferintele de plati, viziteaza %{settings_link}"
     stripe_bank_connected: ~
     stripe_can_accept: ~

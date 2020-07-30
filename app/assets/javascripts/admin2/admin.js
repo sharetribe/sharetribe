@@ -26,3 +26,4 @@
 //= require admin2/listing_fields
 //= require admin2/user_fields
 //= require admin2/transaction_size
+//= require admin2/user_fields
