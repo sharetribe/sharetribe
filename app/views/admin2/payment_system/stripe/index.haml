@@ -10,12 +10,13 @@
     = t('admin2.stripe.info_header')
 
 .content-card-section-container
-  - object = stripe_connected ? payment_prefs_form : stripe_api_form
+  - object = stripe_connected ? stripe_prefs_form : stripe_api_form
   - url = stripe_connected ? common_update_admin2_payment_system_stripe_index_path : update_stripe_keys_admin2_payment_system_stripe_index_path
 
   = form_for object, url: url, method: :patch, html: { class: %i[transaction_preferences_form content-card-section-form] } do |form|
-    = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
-    = hidden_field_tag 'gateway', 'stripe'
+    - if stripe_connected
+      = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
+      = hidden_field_tag 'gateway', 'stripe'
     %section.content-card-section
       %h2= t('admin2.stripe.transaction_fee_settings')
       = render 'hint_title', stripe_connected: stripe_connected, stripe_enabled_by_admin: stripe_enabled_by_admin

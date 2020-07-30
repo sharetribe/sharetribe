@@ -34,12 +34,12 @@
     = form.text_field :commission_from_buyer, class: %i[form-control], disabled: buyer_disabled, style: 'border-radius: 4px 0 0 4px'
     .input-group-append.disabled
       %span.input-group-text %
-    - if buyer_disabled
-      %small.form-text
-        = t('admin2.stripe.disable_paypal', url: '#').html_safe
-    - elsif disabled_fee
+    - if disabled_fee
       %small.form-text
         = t('admin2.stripe.enable_first_stripe_fee_keys', url: '#stripe-api-settings').html_safe
+    - elsif buyer_disabled
+      %small.form-text
+        = t('admin2.stripe.disable_paypal', url: '#').html_safe
 
 .form-group
   = form.label :minimum_buyer_transaction_fee, t('admin2.stripe.minimum_buyer_transaction_fee')
@@ -48,10 +48,10 @@
     .input-group-append.disabled
       %span.input-group-text= currency
     %small.form-text
-      - if buyer_disabled
-        = t('admin2.stripe.disable_paypal', url: '#').html_safe
-      - elsif disabled_fee
+      - if disabled_fee
         = t('admin2.stripe.enable_first_stripe_fee_keys', url: '#stripe-api-settings').html_safe
+      - elsif buyer_disabled
+        = t('admin2.stripe.disable_paypal', url: '#').html_safe
       - else
         = t('admin2.stripe.minimum_transaction_size', url: '#', sum: "#{payment_prefs_form.minimum_listing_price} #{currency}").html_safe
 

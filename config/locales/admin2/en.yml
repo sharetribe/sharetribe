@@ -107,7 +107,7 @@ en:
       invalid_publishable: "That doesn't look like a correct %{publishable_key}"
       api_publishable_key: 'Stripe Publishable Key'
       api_private_key: 'Stripe Secret Key'
-      commission_from_seller: "Seller transaction fee:"
+      commission_from_seller: "Seller transaction fee"
       minimum_transaction_fee: 'Seller minimum transaction fee'
       commission_from_buyer: 'Buyer transaction fee'
       minimum_buyer_transaction_fee: 'Buyer minimum transaction fee'
