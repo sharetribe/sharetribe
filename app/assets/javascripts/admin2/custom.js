@@ -136,7 +136,7 @@ $(function(){
             preferredFormat: "hex",
             showPalette: true,
             showSelectionPalette: false,
-            palette: [["#FFF", "#000", "#ED4F2E", "#15778E", "#ff5a5f"]]
+            palette: [["#FFF", "#000", "#FF4E36", "#15778E", "#ff5a5f"]]
         });
         $("#colorpicker-slogan, #colorpicker-description").show();
     }
@@ -148,7 +148,7 @@ $(function(){
             preferredFormat: "hex",
             showPalette: true,
             showSelectionPalette: false,
-            palette: [["#FFF", "#000", "#ED4F2E", "#15778E", "#ff5a5f"]]
+            palette: [["#FFF", "#000", "#FF4E36", "#15778E", "#ff5a5f"]]
         });
         $("#colorpicker-color").show();
     }
