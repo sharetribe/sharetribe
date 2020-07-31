@@ -1,6 +1,6 @@
 = form_tag '', method: :get, class: %i[content-card-header content-table] do
   .content-card-header-left
-    = text_field_tag :q, params[:q], placeholder: t('admin2.manage_listings.search_placeholder'), class: %i[search-header]
+    = search_field_tag :q, params[:q], placeholder: t('admin2.manage_listings.search_placeholder'), class: %i[search-header]
   .content-card-header-right
     %span#listing_statuses_filter
       = render 'admin2/listings/manage_listings/statuses', presenter: @presenter, current: params[:status]

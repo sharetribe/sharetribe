@@ -3,7 +3,7 @@
 
 .content-card-header.content-table
   = form_tag '', method: :get, class: %i[content-card-header-left] do
-    = text_field_tag :q, params[:q], placeholder: t('admin2.view_conversations.search_placeholder'), class: %i[search-header]
+    = search_field_tag :q, params[:q], placeholder: t('admin2.view_conversations.search_placeholder'), class: %i[search-header]
 
 .content-card-section-container{style: 'padding: 0; max-width: none;'}
   .table-responsive
