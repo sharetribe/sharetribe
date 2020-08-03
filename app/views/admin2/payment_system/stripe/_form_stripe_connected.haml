@@ -31,7 +31,8 @@
   - buyer_disabled = paypal_enabled && paypal_allowed && paypal_connected && paypal_enabled_by_admin || disabled_fee
   = form.label :commission_from_buyer, t('admin2.stripe.commission_from_buyer')
   .input-group
-    = form.text_field :commission_from_buyer, class: %i[form-control], disabled: buyer_disabled, style: 'border-radius: 4px 0 0 4px'
+    = form.text_field :commission_from_buyer, class: %i[form-control], disabled: buyer_disabled, style: 'border-radius: 4px 0 0 4px',
+                      number_min: 0, number_max: 99, number_no_decimals: true, 'data-msg-number_max': t("admin2.stripe.the_buyer_transaction_fee_must_be_lower_than_100")
     .input-group-append.disabled
       %span.input-group-text %
     - if disabled_fee
@@ -44,7 +45,9 @@
 .form-group
   = form.label :minimum_buyer_transaction_fee, t('admin2.stripe.minimum_buyer_transaction_fee')
   .input-group
-    = form.text_field :minimum_buyer_transaction_fee, class: %i[form-control], disabled: buyer_disabled, style: 'border-radius: 4px 0 0 4px'
+    = form.text_field :minimum_buyer_transaction_fee, class: %i[form-control], disabled: buyer_disabled, style: 'border-radius: 4px 0 0 4px',
+                      number_max: max_tx_fee, number_min: 0, 'data-msg-number_max': t("admin2.stripe.buyer_fee_should_be_less_than_minimum_price")
+
     .input-group-append.disabled
       %span.input-group-text= currency
     %small.form-text
