@@ -92,6 +92,8 @@ module NavigationHelpers
       admin_custom_fields_path(:locale => "en")
     when /the listing fields admin2 page/
       admin2_listings_listing_fields_path(:locale => "en")
+    when /the user fields admin2 page/
+      admin2_users_user_fields_path(:locale => "en")
     when /the categories admin page/
       admin_categories_path(:locale => "en")
     when /the manage members admin page/

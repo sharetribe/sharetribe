@@ -1428,7 +1428,7 @@ ja:
       dismiss: 却下して支払う
   feedback:
     feedback_subject: ~
-    feedback_body: ~
+    feedback_body: "%{author_name_and_email} は、%{service_name} のお問い合わせフォームに以下の項目を送信しました。この通知は、すべて%{service_name} 管理者に送信されます。"
     unlogged_user: 記録されてないユーザー
     anonymous_user: 匿名ユーザー
   community_memberships:
