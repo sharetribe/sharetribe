@@ -4,6 +4,10 @@ module Admin2::PaymentSystem
 
     def index
       @current_min_price = Money.new(active_tx_settings[:minimum_price_cents], currency)
+      fee = [stripe_tx_settings[:minimum_transaction_fee_cents].to_i,
+             stripe_tx_settings[:minimum_buyer_transaction_fee_cents].to_i,
+             paypal_tx_settings[:minimum_transaction_fee_cents].to_i].max
+      @current_fee = Money.new(fee, currency)
     end
 
     def save

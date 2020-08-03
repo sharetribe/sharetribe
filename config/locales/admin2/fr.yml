@@ -94,6 +94,7 @@ fr:
       info_header: 'lorem ipsum'
       info_text: 'lorem ipsum. <a href="%{url}" target="_blank">lorem ipsum.</a>'
       minimum_transaction_size: 'lorem ipsum'
+      transaction_fee: 'lorem ipsum %{fee}.'
       errors:
         minimum_listing_price_below_tx_fee: 'lorem ipsum: %{minimum_transaction_fee}.'
         minimum_listing_price_below_min: 'lorem ipsum %{minimum_commission}.'

@@ -92,6 +92,15 @@ en:
       advanced:
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
+    transaction_size:
+      info_header: 'Transaction size'
+      info_text: 'If payments are enabled in your marketplace, you need to define a minimum transaction size: the smallest amount that an item can be purchased for. <a href="%{url}" target="_blank">Learn more about the minimum transaction size.</a>'
+      minimum_transaction_size: 'Minimum transaction size'
+      transaction_fee: 'Marketplace setting for Minimum transaction fee is %{fee}.'
+      errors:
+        minimum_listing_price_below_tx_fee: 'The minimum transaction size has to be greater than the minimum transaction fee: %{minimum_transaction_fee}.'
+        minimum_listing_price_below_min: 'The minimum transaction size has to be greater than the minimum commission %{minimum_commission}.'
+        payments_not_enabled: 'Payments not enabled'
     user_fields:
       info_text: 'Manage existing user fields'
       field_title: 'Field name'
@@ -129,14 +138,6 @@ en:
       add_new_option: 'Add a new option'
       option_label: 'Option label'
       save_option: 'Save option'
-    transaction_size:
-      info_header: 'Transaction size'
-      info_text: 'If payments are enabled in your marketplace, you need to define a minimum transaction size: the smallest amount that an item can be purchased for. <a href="%{url}" target="_blank">Learn more about the minimum transaction size.</a>'
-      minimum_transaction_size: 'Minimum transaction size'
-      errors:
-        minimum_listing_price_below_tx_fee: 'The minimum transaction size has to be greater than the minimum transaction fee: %{minimum_transaction_fee}.'
-        minimum_listing_price_below_min: 'The minimum transaction size has to be greater than the minimum commission %{minimum_commission}.'
-        payments_not_enabled: 'Payments not enabled'
     stripe:
       info_header: 'Stripe'
       info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>"
