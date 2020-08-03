@@ -106,8 +106,8 @@
           %ul#paymentsystem-mobile.collapse.subtitle{class: expand_ul('payment_system')}
             %li#countrycurrency-mobile{class: active_li('country_currencies')}
               = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
-            %li#transactionsize-mobile
-              %a{:href => 'transaction-size.php'} Transaction size
+            %li#transactionsize-mobile{class: active_li('transaction_size')}
+              = link_to t('admin2.sidebar.payment_system.transaction_size'), admin2_payment_system_transaction_size_index_path
             %li#paypal-mobile
               %a{:href => 'paypal.php'} PayPal
             %li#stripe-mobile
