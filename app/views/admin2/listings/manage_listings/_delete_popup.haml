@@ -1,4 +1,4 @@
-#listingDeleteModal.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'listingDeleteModalLabel', role: 'dialog', tabindex: '-1'}
+#listingDeleteModal.modal{'data-backdrop' => 'static', 'aria-hidden' => 'true', 'aria-labelledby' => 'listingDeleteModalLabel', role: 'dialog', tabindex: '-1'}
   .modal-dialog.modal-md{role: 'document'}
     = form_tag delete_admin2_listings_manage_listings_path, method: :delete, remote: true, class: %i[modal-content] do
       = hidden_field_tag :id, '', id: :listing_delete_id
