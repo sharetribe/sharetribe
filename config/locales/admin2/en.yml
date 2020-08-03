@@ -95,6 +95,7 @@ en:
       info_header: 'Transaction size'
       info_text: 'If payments are enabled in your marketplace, you need to define a minimum transaction size: the smallest amount that an item can be purchased for. <a href="%{url}" target="_blank">Learn more about the minimum transaction size.</a>'
       minimum_transaction_size: 'Minimum transaction size'
+      transaction_fee: 'Marketplace setting for Minimum transaction fee is %{fee}.'
       errors:
         minimum_listing_price_below_tx_fee: 'The minimum transaction size has to be greater than the minimum transaction fee: %{minimum_transaction_fee}.'
         minimum_listing_price_below_min: 'The minimum transaction size has to be greater than the minimum commission %{minimum_commission}.'
