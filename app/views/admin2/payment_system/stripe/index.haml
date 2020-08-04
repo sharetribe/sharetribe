@@ -36,3 +36,5 @@
     - if stripe_enabled_by_admin
       %section.content-card-terminal
         = form.button t('admin2.save_changes'), class: %i[btn btn-primary]
+
+= render 'disable_stripe_popup'

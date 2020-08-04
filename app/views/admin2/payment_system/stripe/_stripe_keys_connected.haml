@@ -11,7 +11,6 @@
   %br
   - if stripe_enabled_by_admin
     = link_to t('admin2.stripe.disable_stripe'), '#', 'data-toggle': 'modal', 'data-target': '#disableStripeModal', class: %i[negative-link]
-    = render 'disable_stripe_popup'
   - else
     = link_to t('admin2.stripe.enable_stripe'), enable_admin2_payment_system_stripe_path(payment_gateway: :stripe), method: :patch
 

@@ -93,13 +93,13 @@ en:
         delete_marketplace: 'Delete marketplace'
     stripe:
       info_header: 'Stripe'
-      info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>"
+      info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>."
       transaction_fee_settings: 'Stripe transaction fee settings'
       configure_api_keys: 'Configure Stripe API Keys'
-      set_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">configure your Stripe API keys</a>'
+      set_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">configure your Stripe API keys</a>.'
       enable_stripe_fee_keys: 'To set Stripe fees, you must <a href="%{url}">enable Stripe</a> again in your marketplace.'
       enable_first_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">enable Stripe</a> again in your marketplace.'
-      disable_paypal: 'To set Stripe buyer fees, you must first <a href="%{url}">disable PayPal</a>'
+      disable_paypal: 'To set Stripe buyer fees, you must first <a href="%{url}">disable PayPal</a>.'
       how_to_get_publishable_key: '<a href="%{url}" target="_blank">How to get a Stripe Publishable Key?</a>'
       how_to_get_secret_key: '<a href="%{url}" target="_blank">How to get a Stripe Secret Key?</a>'
       publishable_key_example: "For example: %{api_publishable_key_example}"
