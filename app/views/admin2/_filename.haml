@@ -2,7 +2,8 @@
 %small.form-text
   - if original_filename.present?
     = t('admin2.logos_and_color.current_file', type: field_name.downcase, filename: original_filename)
-    = link_to t('admin2.logos_and_color.reset_to_default', type: field_name.downcase), '#', 'data-toggle': 'modal', 'data-target': "##{type}DeleteModal", class: %i[negative-link]
+    = succeed "." do
+      = link_to t('admin2.logos_and_color.reset_to_default', type: field_name.downcase), '#', 'data-toggle': 'modal', 'data-target': "##{type}DeleteModal", class: %i[negative-link]
   - else
     = t('admin2.logos_and_color.not_added', name: field_name.downcase)
 
@@ -19,4 +20,4 @@
         %br
       .modal-footer
         = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-        = link_to t('admin2.logos_and_color.delete_popup.save_button', type: field_name.downcase, filename: original_filename), remove_files_admin2_design_logos_color_index_path(type: type), method: :delete, class: %i[btn btn-primary]
+        = link_to t('admin2.logos_and_color.delete_popup.save_button', type: field_name.downcase, filename: original_filename), remove_files_admin2_design_logos_color_index_path(type: type), method: :delete, class: %i[btn btn-negative]

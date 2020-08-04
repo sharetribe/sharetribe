@@ -11223,12 +11223,12 @@ li.active a {
   .content-card .content-card-section-container {
     padding: 35px 60px 0 60px;
     max-width: 920px; } }
-.content-card .content-card-section-container h2 {
+.content-card .content-card-section-container h2:not(.modal-title) {
   margin-bottom: 26px;
   margin-left: 20px;
   margin-right: 20px; }
 @media (min-width: 1023px) {
-  .content-card .content-card-section-container h2 {
+  .content-card .content-card-section-container h2:not(.modal-title) {
     margin-bottom: 35px;
     margin-left: 0;
     margin-right: 0; } }

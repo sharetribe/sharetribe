@@ -165,3 +165,13 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
 .message-container .message p:last-child {
   margin-bottom: 0;
 }
+
+.modal-footer a.btn {
+  margin-left: 24px;
+}
+
+@media (min-width: 1023px) {
+  .modal-footer a.btn {
+    margin-right: 24px;
+  }
+}

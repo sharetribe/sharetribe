@@ -828,7 +828,7 @@ en:
       square_logo: 'Square logo'
       square_logo_info_text: 'The square logo will be shown when you perform some actions as an admin and when people bookmark your site to the home screen of their mobile device. The dimensions should be (at least) 600x600 pixels.'
       current_file: 'The current %{type} filename is "%{filename}".'
-      reset_to_default: 'Reset to default %{type}.'
+      reset_to_default: 'Reset to default %{type}'
       delete_popup:
         title: 'Delete %{type}'
         body: 'Deleting the "%{filename}" %{type} cannot be undone. Are you sure you want to proceed?'
