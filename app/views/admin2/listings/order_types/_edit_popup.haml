@@ -1,4 +1,4 @@
-#orderTypesEditModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'orderTypesEditModalLabel', role: :dialog, tabindex: -1}
+#orderTypesEditModal.modal{'data-backdrop' => 'static', 'aria-hidden' => true, 'aria-labelledby' => 'orderTypesEditModalLabel', role: :dialog, tabindex: -1}
   .modal-dialog.modal-lg{role: :document}
     .modal-content
       = form_tag admin2_listings_order_type_path(locals[:id]), id: :edit_listing_shape_form, method: :patch, class: %i[content-card-section-form] do

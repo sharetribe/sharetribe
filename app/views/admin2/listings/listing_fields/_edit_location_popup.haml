@@ -1,4 +1,4 @@
-#locationEditModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'locationEditModalLabel', role: :dialog, tabindex: '-1'}
+#locationEditModal.modal{'data-backdrop' => 'static', 'aria-hidden' => true, 'aria-labelledby' => 'locationEditModalLabel', role: :dialog, tabindex: '-1'}
   .modal-dialog.modal-lg{role: :document}
     .modal-content
       = form_for @current_community, as: :community, url: update_location_admin2_listings_listing_fields_path, remote: true, method: :put, class: %i[content-card-section-form] do |form|

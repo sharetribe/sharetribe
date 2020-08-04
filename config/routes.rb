@@ -352,6 +352,12 @@ Rails.application.routes.draw do
             get :verify_currency
           end
         end
+
+        resources :transaction_size, path: 'transaction-size', only: %i[index] do
+          collection do
+            patch :save
+          end
+        end
       end
 
       namespace :emails do
