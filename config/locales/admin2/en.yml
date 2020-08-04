@@ -92,6 +92,40 @@ en:
       advanced:
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
+    stripe:
+      info_header: 'Stripe'
+      info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>."
+      transaction_fee_settings: 'Stripe transaction fee settings'
+      configure_api_keys: 'Configure Stripe API Keys'
+      set_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">configure your Stripe API keys</a>.'
+      enable_stripe_fee_keys: 'To set Stripe fees, you must <a href="%{url}">enable Stripe</a> again in your marketplace.'
+      enable_first_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">enable Stripe</a> again in your marketplace.'
+      disable_paypal: 'To set Stripe buyer fees, you must first <a href="%{url}">disable PayPal</a>.'
+      how_to_get_publishable_key: '<a href="%{url}" target="_blank">How to get a Stripe Publishable Key?</a>'
+      how_to_get_secret_key: '<a href="%{url}" target="_blank">How to get a Stripe Secret Key?</a>'
+      publishable_key_example: "For example: %{api_publishable_key_example}"
+      secret_key_example: "For example: %{api_secret_key_example}"
+      invalid_secret: "That doesn't look like a correct %{secret_key}"
+      invalid_publishable: "That doesn't look like a correct %{publishable_key}"
+      api_publishable_key: 'Stripe Publishable Key'
+      api_private_key: 'Stripe Secret Key'
+      commission_from_seller: "Seller transaction fee"
+      minimum_transaction_fee: 'Seller minimum transaction fee'
+      commission_from_buyer: 'Buyer transaction fee'
+      minimum_buyer_transaction_fee: 'Buyer minimum transaction fee'
+      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">Minimum transaction size</a> is %{sum}.'
+      the_transaction_fee_must_be_lower_than_100: 'The transaction fee must be lower than 100%'
+      the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer transaction fee must be lower than 100%'
+      fee_should_be_less_than_minimum_price: 'Minimum transaction fee must be lower than minimum transaction size'
+      buyer_fee_should_be_less_than_minimum_price: 'Minimum buyer transaction fee must be lower than minimum transaction size'
+      stripe_connected: 'Stripe connected'
+      stripe_disabled: 'Stripe disabled'
+      disable_stripe: 'Disable Stripe.'
+      disable_stripe_caption: 'Disable Stripe'
+      enable_stripe: 'Enable Stripe.'
+      need_to_change_stripe_keys: "Do you need to change your Stripe keys? <a href='#' show-intercom=true >Contact the Sharetribe team</a>."
+      need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
+      need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
     transaction_size:
       info_header: 'Transaction size'
       info_text: 'If payments are enabled in your marketplace, you need to define a minimum transaction size: the smallest amount that an item can be purchased for. <a href="%{url}" target="_blank">Learn more about the minimum transaction size.</a>'
@@ -138,39 +172,6 @@ en:
       add_new_option: 'Add a new option'
       option_label: 'Option label'
       save_option: 'Save option'
-    stripe:
-      info_header: 'Stripe'
-      info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>"
-      transaction_fee_settings: 'Stripe transaction fee settings'
-      configure_api_keys: 'Configure Stripe API Keys'
-      set_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">configure your Stripe API keys</a>'
-      enable_stripe_fee_keys: 'To set Stripe fees, you must <a href="%{url}">enable Stripe</a> again in your marketplace.'
-      enable_first_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">enable Stripe</a> again in your marketplace.'
-      disable_paypal: 'To set Stripe buyer fees, you must first <a href="%{url}">disable PayPal</a>'
-      how_to_get_publishable_key: '<a href="%{url}" target="_blank">How to get a Stripe Publishable Key?</a>'
-      how_to_get_secret_key: '<a href="%{url}" target="_blank">How to get a Stripe Secret Key?</a>'
-      publishable_key_example: "For example: %{api_publishable_key_example}"
-      secret_key_example: "For example: %{api_secret_key_example}"
-      invalid_secret: "That doesn't look like a correct %{secret_key}"
-      invalid_publishable: "That doesn't look like a correct %{publishable_key}"
-      api_publishable_key: 'Stripe Publishable Key'
-      api_private_key: 'Stripe Secret Key'
-      commission_from_seller: "Seller transaction fee"
-      minimum_transaction_fee: 'Seller minimum transaction fee'
-      commission_from_buyer: 'Buyer transaction fee'
-      minimum_buyer_transaction_fee: 'Buyer minimum transaction fee'
-      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">Minimum transaction size</a> is %{sum}.'
-      the_transaction_fee_must_be_lower_than_100: 'The transaction fee must be lower than 100%'
-      the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer transaction fee must be lower than 100%'
-      fee_should_be_less_than_minimum_price: 'Minimum transaction fee must be lower than minimum transaction size'
-      buyer_fee_should_be_less_than_minimum_price: 'Minimum buyer transaction fee must be lower than minimum transaction size'
-      stripe_connected: 'Stripe connected'
-      stripe_disabled: 'Stripe disabled'
-      disable_stripe: 'Disable Stripe'
-      enable_stripe: 'Enable Stripe'
-      need_to_change_stripe_keys: "Do you need to change your Stripe keys? <a href='#' show-intercom=true >Contact the Sharetribe team</a>."
-      need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
-      need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
     listing_fields:
       info_header: 'Manage existing listing fields'
       info_text: 'Here you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and cannot be edited.'

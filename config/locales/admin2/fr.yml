@@ -65,6 +65,7 @@ fr:
       payment_system:
         country_currency: 'lorem ipsum'
         transaction_size: 'lorem ipsum'
+        stripe: 'lorem ipsum'
       emails:
         email_users: 'lorem ipsum'
         automatic_newsletter: 'lorem ipsum'
@@ -90,15 +91,6 @@ fr:
       advanced:
         custom_script: 'lorem ipsum'
         delete_marketplace: 'lorem ipsum'
-    transaction_size:
-      info_header: 'lorem ipsum'
-      info_text: 'lorem ipsum. <a href="%{url}" target="_blank">lorem ipsum.</a>'
-      minimum_transaction_size: 'lorem ipsum'
-      transaction_fee: 'lorem ipsum %{fee}.'
-      errors:
-        minimum_listing_price_below_tx_fee: 'lorem ipsum: %{minimum_transaction_fee}.'
-        minimum_listing_price_below_min: 'lorem ipsum %{minimum_commission}.'
-        payments_not_enabled: 'lorem ipsum'
     stripe:
       info_header: 'lorem ipsum'
       info_text: "<a href='%{fee_url}' target='_blank'>lorem ipsum</a>lorem ipsum. <a href='%{more_url}' target='_blank'> lorem ipsum</a>"
@@ -132,6 +124,15 @@ fr:
       need_to_change_stripe_keys: "lorem ipsum <a href='#' show-intercom=true >lorem ipsum</a>."
       need_to_change_publishable_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
       need_to_change_secret_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
+    transaction_size:
+      info_header: 'lorem ipsum'
+      info_text: 'lorem ipsum. <a href="%{url}" target="_blank">lorem ipsum.</a>'
+      minimum_transaction_size: 'lorem ipsum'
+      transaction_fee: 'lorem ipsum %{fee}.'
+      errors:
+        minimum_listing_price_below_tx_fee: 'lorem ipsum: %{minimum_transaction_fee}.'
+        minimum_listing_price_below_min: 'lorem ipsum %{minimum_commission}.'
+        payments_not_enabled: 'lorem ipsum'
     user_fields:
       info_text: 'lorem ipsum'
       field_title: 'lorem ipsum'
