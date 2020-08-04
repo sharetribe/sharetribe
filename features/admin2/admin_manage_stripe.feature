@@ -12,10 +12,10 @@ Feature: Admin manage stripe
   Scenario: Admin user can enable or disable payment method
     When I go to the admin2 view of stripe payment of community "test"
     Then I should see "Stripe connected"
-    When I follow "Disable Stripe"
-    Then I follow "Disable Stripe" within ".modal-footer"
+    When I follow "Disable Stripe."
+    Then I press "Disable Stripe" within ".modal-footer"
     Then I should see "Stripe disabled"
-    When I follow "Enable Stripe"
+    When I follow "Enable Stripe."
     Then I should see "Stripe connected"
 
   Scenario: Admin user can edit stripe's settings
