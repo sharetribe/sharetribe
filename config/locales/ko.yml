@@ -1235,7 +1235,7 @@ ko:
       paypal: 페이팔
       info: "%{service_name}의 결제는 아래 지불 게이트웨이에 의해 처리 됩니다. %{service_name}의 수수료는 지불 게이트웨이에 따라 다릅니다. 지불 게이트웨이에서 각 지불시 마다 비용을 청구 할 수도 있습니다. 아래 설명을 참고하세요."
     paypal_fee_info:
-      title: "페이팔 수수료"
+      title: "페이팔 결제 수수료"
       body_text: |-
           %{service_name}은 수수료 %{paypal_commission}를 부과합니다. 여기에는 페이팔이 결제 처리 건마다 부과하는 이용 수수료는 포함되어 있지 않습니다. 페이팔 이용 수수료는 보통 전체 결제 금액의 2 ~ 5%이며, 월간 매출 규모와 구매자의 거주 지역에 따라 달라집니다. 일반적으로 내국인 구매이거나 매출 규모가 클수록 낮은 수수료율이 적용됩니다.
           %{link_to_paypal}에서 수수료 세부 내역을 확인하실 수 있습니다. 결제 처리 후 수수료가 포함된 영수증이 발행됩니다.
@@ -2659,7 +2659,7 @@ ko:
     paypal_permission_granted_summary: "부여된 거래 수수료에 대한 허가"
   paypal:
     pay_with_paypal: 결제진행
-    checkout_with: "으로 결제 "
+    checkout_with: ~
     or_pay_with_paypal: 또는
     checkout_with_paypal: "PayPal을 통한 결제"
     cancel_succesful: "PayPal 결제가 성공적으로 취소되었습니다."
@@ -3138,7 +3138,7 @@ ko:
     paypal_connected: "PayPal 계정이 성공적으로 연결되었습니다!"
     paypal_can_accept: "이제 PayPal 계정으로 돈을 받을 준비가되었습니다."
     paypal_connected_give_permission: "설정을 완료하고 PayPal 계정 <%{email}>에 대한 자금 수령을 시작하려면 거래 수수료를 청구 할 수있는 권한을 부여하십시오."
-    stripe_account_restricted: "본인 계좌로의 온라인 결제가 제한되거나 조만간 제한될 예정입니다!"
+    stripe_account_restricted: "본인 계좌로의 온라인 결제가 제한 됩니다!"
     stripe_account_restricted_info: "결제 서비스사에 추가 정보를 보내기 위해 은행계좌 정보를 수정해야 합니다."
     stripe_account_restricted_soon: ~
     stripe_account_restricted_soon_info: "결제 서비스사에 추가 정보를 보내기 위해 은행계좌 정보를 수정해야 합니다."

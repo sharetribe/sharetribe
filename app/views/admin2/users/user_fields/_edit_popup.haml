@@ -1,0 +1,14 @@
+#userFieldsEditModal.modal{'data-backdrop' => 'static', 'aria-hidden' => true, 'aria-labelledby' => 'userFieldsEditModalLabel', role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-lg{role: :document}
+    .modal-content
+      .content-card-section-form
+        .modal-header
+          %h2#userFieldsEditModalLabel.modal-title
+            = t('admin2.user_fields.edit_field_type', name: service.custom_field.name(I18n.locale), field_type: field_type_translation(service.custom_field.type).downcase)
+          %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+            %span{'aria-hidden' => true} ×
+        .modal-body
+          = render 'admin2/users/user_fields/form', service: service, id: :submit_edit_user_field
+        .modal-footer
+          = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary submit-listing-field-form]

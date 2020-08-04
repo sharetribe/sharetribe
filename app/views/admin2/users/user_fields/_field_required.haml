@@ -1,0 +1,12 @@
+.form-group
+  %label= t('admin2.user_fields.required_field_title')
+  .form-check
+    = form.check_box :required, class: %i[form-check-input]
+    = form.label :required, t('admin2.user_fields.required_field'), class: %i[form-check-label]
+
+.form-group
+  %label= t('admin2.user_fields.public_field_title')
+  .form-check
+    - disabled = form.object.phone_number?
+    = form.check_box :public, class: %i[form-check-input], disabled: disabled
+    = form.label :public, t('admin2.user_fields.public_field'), class: %i[form-check-label]

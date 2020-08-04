@@ -1,13 +1,15 @@
 function sortOptions() {
-    Sortable.create(optionsList, {
-        handle: '.handle-move',
-        animation: 250,
-        onEnd: function (/**Event*/evt) {
-            $('.sort-options').each(function( index ) {
-                $(this).val(index);
-            });
-        },
-    });
+    if ($('#optionsList').length) {
+        Sortable.create(optionsList, {
+            handle: '.handle-move',
+            animation: 250,
+            onEnd: function (/**Event*/evt) {
+                $('.sort-options').each(function (index) {
+                    $(this).val(index);
+                });
+            },
+        });
+    }
 }
 
 function validateListingFields() {
@@ -33,7 +35,7 @@ function validateListingFields() {
 }
 
 function validateOptions(){
-    $('form.add-new-unit-content, .edit-unit-content').validate();
+    $('form.add-new-unit-content, .edit-unit-content').validate({ ignore: ":hidden" });
 }
 
 $(function() {
@@ -50,9 +52,7 @@ $(function() {
             }
         }
 
-        // if (success) {
-            error_options.removeClass('error').hide();
-        // }
+        error_options.removeClass('error').hide();
 
         if (form.valid() && success) {
             form.submit();

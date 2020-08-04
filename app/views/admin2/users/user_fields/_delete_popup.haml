@@ -1,0 +1,14 @@
+- custom_field = service.custom_field
+#userFieldsDeleteModal.modal{'data-backdrop' => 'static', 'aria-hidden' => true, 'aria-labelledby' => 'userFieldsDeleteModalLabel', role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-md{role: :document}
+    .modal-content
+      .modal-header
+        %h2#userFieldsDeleteModalLabel.modal-title
+          = t('admin2.user_fields.delete_title', name: custom_field.name(I18n.locale))
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+          %span{'aria-hidden' => true} ×
+      .modal-body
+        = t('admin2.user_fields.delete_info_text', name: custom_field.name(I18n.locale))
+      = form_tag admin2_users_user_field_path(custom_field), method: :delete, class: %i[modal-footer] do
+        = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+        = button_tag t('admin2.user_fields.delete_user_field'), class: %i[btn btn-negative]
