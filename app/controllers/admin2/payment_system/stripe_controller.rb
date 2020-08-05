@@ -25,9 +25,9 @@ module Admin2::PaymentSystem
     def enable
       if can_enable_gateway?
         result = tx_settings_api.activate(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
-        raise t("admin.payment_preferences.cannot_enable_gateway", gateway: params[:payment_gateway]) unless result[:success]
+        raise t('admin2.stripe.cannot_enable_gateway', gateway: params[:payment_gateway]) unless result[:success]
       else
-        raise t("admin.payment_preferences.cannot_enable_gateway_because_of_buyer_commission", gateway: params[:payment_gateway])
+        raise t('admin2.stripe.cannot_enable_gateway_because_of_buyer_commission', gateway: params[:payment_gateway])
       end
     rescue StandardError => e
       flash[:error] = e.message
@@ -37,7 +37,7 @@ module Admin2::PaymentSystem
 
     def disable
       result = tx_settings_api.disable(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
-      raise t("admin.payment_preferences.cannot_disable_gateway", gateway: params[:payment_gateway]) unless result[:success]
+      raise t('admin2.stripe.cannot_disable_gateway', gateway: params[:payment_gateway]) unless result[:success]
     rescue StandardError => e
       flash[:error] = e.message
     ensure

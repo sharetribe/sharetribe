@@ -121,6 +121,11 @@ fr:
       stripe_disabled: 'lorem ipsum'
       disable_stripe: 'lorem ipsum.'
       enable_stripe: 'lorem ipsum.'
+      cannot_enable_gateway: "lorem ipsum. %{gateway}."
+      cannot_disable_gateway: "lorem ipsum. %{gateway}."
+      cannot_enable_gateway_because_of_buyer_commission: "lorem ipsum. %{gateway} lorem ipsum."
+      disable_stripe_caption: 'lorem ipsum.'
+      confirm_disable: 'lorem ipsum.'
       need_to_change_stripe_keys: "lorem ipsum <a href='#' show-intercom=true >lorem ipsum</a>."
       need_to_change_publishable_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
       need_to_change_secret_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."

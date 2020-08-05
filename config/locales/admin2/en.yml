@@ -122,6 +122,10 @@ en:
       stripe_disabled: 'Stripe disabled'
       disable_stripe: 'Disable Stripe.'
       disable_stripe_caption: 'Disable Stripe'
+      cannot_enable_gateway: "Cannot enable payment gateway %{gateway}."
+      cannot_disable_gateway: "Cannot disable payment gateway %{gateway}."
+      cannot_enable_gateway_because_of_buyer_commission: "Cannot enable payment gateway %{gateway} because the buyer's commission is used"
+      confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
       enable_stripe: 'Enable Stripe.'
       need_to_change_stripe_keys: "Do you need to change your Stripe keys? <a href='#' show-intercom=true >Contact the Sharetribe team</a>."
       need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
