@@ -1,0 +1,20 @@
+%p.ingress
+  - if paypal_enabled_by_admin
+    = image_tag 'svg/checkmark-green.svg', alt: 'checkmark-green'
+    The PayPal account
+    %strong= paypal_account[:email]
+    has been connected with
+    = service_name
+  - else
+    = image_tag 'svg/remove.svg', alt: 'remove'
+    The PayPal account
+    %strong= paypal_account[:email]
+    is disabled.
+
+%p.small-ingress{style: 'padding-left: 16px; margin-bottom: 32px;'}
+  = link_to 'Change PayPal account', '#', id: :ask_paypal_permissions
+  %br
+  - if paypal_enabled_by_admin
+    = link_to t('admin2.paypal.disable_paypal'), '#', 'data-toggle': 'modal', 'data-target': '#disableStripeModal', class: %i[negative-link]
+  - else
+    = link_to t('admin2.paypal.enable_paypal'), enable_admin2_payment_system_paypal_path(payment_gateway: :paypal), method: :patch
