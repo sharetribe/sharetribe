@@ -15,4 +15,4 @@
   .col-12
     .paypal-redirect-message
       - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
-      =t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe
+      = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe

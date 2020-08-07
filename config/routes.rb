@@ -347,6 +347,11 @@ Rails.application.routes.draw do
           end
         end
         resources :paypal, param: :payment_gateway do
+          collection do
+            get :account_create
+            patch :common_update
+            get :permissions_verified
+          end
           member do
             patch :disable
             patch :enable

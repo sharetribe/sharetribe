@@ -1,6 +1,7 @@
 - content_for :extra_javascript do
   :javascript
     initIntercom();
+    ST.initializeNewPaypalAccountHandler('ask_paypal_permissions', "#{order_permission_action}", '.js-paypal-redirect-order-permission');
 
 - content_for :title do
   = t('admin2.sidebar.payment_system.paypal')
@@ -10,10 +11,9 @@
     = t('admin2.paypal.info_header')
 
 .content-card-section-container
-  - object = paypal_connected ? paypal_prefs_form : paypal_api_form
-  - url = paypal_connected ? common_update_admin2_payment_system_stripe_index_path : update_stripe_keys_admin2_payment_system_stripe_index_path
+  - url = paypal_connected ? common_update_admin2_payment_system_paypal_index_path : '#'
 
-  = form_for object, url: url, method: :patch, html: { class: %i[transaction_preferences_form content-card-section-form] } do |form|
+  = form_for paypal_prefs_form, url: url, method: :patch, html: { class: %i[transaction_preferences_form content-card-section-form] } do |form|
     - if paypal_connected
       = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
       = hidden_field_tag 'gateway', 'paypal'
@@ -26,16 +26,14 @@
       - else
         = render 'form_paypal', currency: currency
     %section#paypal-account-settings.content-card-section
-      %h2 PayPal account settings
-      - if stripe_connected
-        = render 'paypal_keys_connected', paypal_enabled_by_admin: paypal_enabled_by_admin, paypal_account: paypal_account
+      %h2= t('admin2.paypal.account_settings')
+      - if paypal_connected
+        = render 'paypal_keys_connected', paypal_enabled_by_admin: paypal_enabled_by_admin, paypal_account: paypal_account, order_permission_action: order_permission_action
       - else
         = render 'paypal_keys', form: form
 
-    - if paypal_enabled_by_admin
+    - if paypal_enabled_by_admin && paypal_connected
       %section.content-card-terminal
         = form.button t('admin2.save_changes'), class: %i[btn btn-primary]
 
-    - unless paypal_connected
-      %p.ingress Log in to PayPal and connect your PayPal account with your marketplace.
-      %a.btn.btn-secondary{:href => "paypal-connected.php"} Connect PayPal
+= render 'disable_paypal_popup'

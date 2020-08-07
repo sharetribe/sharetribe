@@ -144,6 +144,8 @@ module NavigationHelpers
       admin_payment_preferences_path(locale: "en")
     when /^the admin2 view of stripe payment of community "(.*)"$/i
       admin2_payment_system_stripe_index_path(locale: "en")
+    when /^the admin2 view of paypal payment of community "(.*)"$/i
+      admin2_payment_system_paypal_index_path(locale: "en")
     when /the order types admin page/
       admin_listing_shapes_path
     when /the order types admin2 page/

@@ -1,10 +1,5 @@
+%p.ingress= t('admin2.paypal.login_to')
+= link_to t('admin2.paypal.connect_paypal'), 'javascript:void(0);', class: %i[btn btn-secondary], id: :ask_paypal_permissions
 
-:javascript
-  $.validator.addMethod(
-    "regex",
-    function(value, element, regexp) {
-      var re = new RegExp(regexp);
-      return this.optional(element) || re.test(value);
-    }
-  );
-  $("#new_stripe_api_keys_form").validate();
+.form-group
+  = render 'admin2/payment_system/paypal/connected_hint'

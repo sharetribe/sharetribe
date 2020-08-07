@@ -94,16 +94,31 @@ en:
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
     paypal:
+      account_settings: 'PayPal account settings'
       paypal_connected: 'PayPal connected'
       paypal_disabled: 'PayPal disabled'
       disable_paypal: 'Disable PayPal.'
+      disable_paypal_caption: 'Disable PayPal'
       enable_paypal: 'Enable PayPal.'
       info_header: 'PayPal'
+      commission_from_seller: "Seller transaction fee"
+      minimum_transaction_fee: 'Seller minimum transaction fee'
       transaction_fee_settings: 'PayPal transaction fee settings'
+      the_transaction_fee_must_be_lower_than_100: 'The transaction fee must be lower than 100%'
+      the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer transaction fee must be lower than 100%'
+      fee_should_be_less_than_minimum_price: 'Minimum transaction fee must be lower than minimum transaction size'
+      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">Minimum transaction size</a> is %{sum}.'
       connect_paypal_account: 'To set PayPal fees, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
       enable_paypal_fee: 'To set PayPal fees, you must <a href="%{url}">enable PayPal</a> again in your marketplace.'
       first_connect_paypal: 'To set PayPal fees, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
       first_enable_paypal: 'To set PayPal fees, you must first <a href="%{url}">enable PayPal</a> again in your marketplace.'
+      login_to: 'Log in to PayPal and connect your PayPal account with your marketplace.'
+      connect_paypal: 'Connect PayPal'
+      redirect_message: "Redirecting you to PayPal. If nothing happens, click %{redirect_link}."
+      redirect_link_text: 'here'
+      paypal_has_been_connected: 'The PayPal account <strong>%{email}</strong> has been connected with %{service_name}.'
+      paypal_has_been_disabled: 'The PayPal account <strong>%{email}</strong> is disabled.'
+      change_account: 'Change PayPal account.'
     stripe:
       info_header: 'Stripe'
       info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>."
