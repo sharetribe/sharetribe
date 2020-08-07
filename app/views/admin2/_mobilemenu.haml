@@ -100,7 +100,7 @@
         %hr/
         / Payment system
         - stripe_allowed = StripeHelper.stripe_provisioned?(@current_community.id)
-        - paypal_allowed = PaypalHelper.paypal_active?(@current_community.id)
+        - paypal_allowed = PaypalHelper.paypal_provisioned?(@current_community.id)
         - if paypal_allowed || stripe_allowed
           %ul.category-title
             %li
@@ -111,8 +111,8 @@
             %li#transactionsize-mobile{class: active_li('transaction_size')}
               = link_to t('admin2.sidebar.payment_system.transaction_size'), admin2_payment_system_transaction_size_index_path
             - if paypal_allowed
-              %li#paypal-mobile
-                %a{:href => 'paypal.php'} PayPal
+              %li#paypal-mobile{class: active_li('paypal')}
+                = link_to t('admin2.sidebar.payment_system.paypal'), admin2_payment_system_paypal_index_path
             - if stripe_allowed
               %li#stripe-mobile{class: active_li('stripe')}
                 = link_to t('admin2.sidebar.payment_system.stripe'), admin2_payment_system_stripe_index_path

@@ -65,6 +65,7 @@ fr:
       payment_system:
         country_currency: 'lorem ipsum'
         transaction_size: 'lorem ipsum'
+        paypal: 'lorem ipsum'
         stripe: 'lorem ipsum'
       emails:
         email_users: 'lorem ipsum'
@@ -124,6 +125,32 @@ fr:
       need_to_change_stripe_keys: "lorem ipsum <a href='#' show-intercom=true >lorem ipsum</a>."
       need_to_change_publishable_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
       need_to_change_secret_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
+    paypal:
+      account_settings: 'lorem ipsum'
+      paypal_connected: 'lorem ipsum'
+      paypal_disabled: 'lorem ipsum'
+      disable_paypal: 'lorem ipsum.'
+      disable_paypal_caption: 'lorem ipsum'
+      enable_paypal: 'lorem ipsum.'
+      info_header: 'lorem ipsum'
+      commission_from_seller: "lorem ipsum"
+      minimum_transaction_fee: 'lorem ipsum'
+      transaction_fee_settings: 'lorem ipsum'
+      the_transaction_fee_must_be_lower_than_100: 'lorem ipsum'
+      the_buyer_transaction_fee_must_be_lower_than_100: 'lorem ipsum'
+      fee_should_be_less_than_minimum_price: 'lorem ipsum'
+      minimum_transaction_size: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum %{sum}.'
+      connect_paypal_account: 'lorem ipsum<a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      enable_paypal_fee: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      first_connect_paypal: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      first_enable_paypal: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      login_to: 'lorem ipsum.'
+      connect_paypal: 'lorem ipsum'
+      redirect_message: "lorem ipsum %{redirect_link}."
+      redirect_link_text: 'lorem ipsum'
+      paypal_has_been_connected: 'lorem ipsum <strong>%{email}</strong>lorem ipsum %{service_name}.'
+      paypal_has_been_disabled: 'lorem ipsum <strong>%{email}</strong> lorem ipsum.'
+      change_account: 'lorem ipsum.'
     transaction_size:
       info_header: 'lorem ipsum'
       info_text: 'lorem ipsum. <a href="%{url}" target="_blank">lorem ipsum.</a>'
