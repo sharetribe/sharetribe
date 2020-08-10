@@ -4,7 +4,7 @@
   = form.label :commission_from_seller, t('admin2.paypal.commission_from_seller')
   .input-group
     = form.text_field :commission_from_seller, class: %i[form-control], required: true, number_min: 0, number_max: 100, number_no_decimals: true, disabled: disabled_fee,
-                      'data-msg-number_max': t('admin2.paypal.the_transaction_fee_must_be_lower_than_100'), style: 'border-radius: 4px 0 0 4px'
+                      'data-msg-number_max': nil, style: 'border-radius: 4px 0 0 4px'
     .input-group-append{class: disabled_fee ? 'disabled' : ''}
       %span.input-group-text %
     - if disabled_fee
