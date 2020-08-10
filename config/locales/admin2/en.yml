@@ -97,9 +97,10 @@ en:
       account_settings: 'PayPal account settings'
       paypal_connected: 'PayPal connected'
       paypal_disabled: 'PayPal disabled'
-      disable_paypal: 'Disable PayPal.'
-      disable_paypal_caption: 'Disable PayPal'
-      enable_paypal: 'Enable PayPal.'
+      disable_paypal: 'Disable PayPal'
+      disable_paypal_link: '%{url}.'
+      enable_paypal: 'Enable PayPal'
+      enable_paypal_link: '%{url}.'
       info_header: 'PayPal'
       commission_from_seller: "Seller transaction fee"
       minimum_transaction_fee: 'Seller minimum transaction fee'
@@ -118,7 +119,8 @@ en:
       redirect_link_text: 'here'
       paypal_has_been_connected: 'The PayPal account <strong>%{email}</strong> has been connected with %{service_name}.'
       paypal_has_been_disabled: 'The PayPal account <strong>%{email}</strong> is disabled.'
-      change_account: 'Change PayPal account.'
+      change_account: 'Change PayPal account'
+      change_account_link: '%{url}.'
     stripe:
       info_header: 'Stripe'
       info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>."
@@ -147,19 +149,20 @@ en:
       buyer_fee_should_be_less_than_minimum_price: 'Minimum buyer transaction fee must be lower than minimum transaction size'
       stripe_connected: 'Stripe connected'
       stripe_disabled: 'Stripe disabled'
-      disable_stripe: 'Disable Stripe.'
-      disable_stripe_caption: 'Disable Stripe'
+      disable_stripe: 'Disable Stripe'
+      disable_stripe_link: '%{url}.'
       cannot_enable_gateway: "Cannot enable payment gateway %{gateway}."
       cannot_disable_gateway: "Cannot disable payment gateway %{gateway}."
       cannot_enable_gateway_because_of_buyer_commission: "Cannot enable payment gateway %{gateway} because the buyer's commission is used"
       confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
-      enable_stripe: 'Enable Stripe.'
+      enable_stripe: 'Enable Stripe'
+      enable_stripe_link: '%{url}.'
       need_to_change_stripe_keys: "Do you need to change your Stripe keys? <a href='#' show-intercom=true >Contact the Sharetribe team</a>."
       need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
       need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
     transaction_size:
       info_header: 'Transaction size'
-      info_text: 'If payments are enabled in your marketplace, you need to define a minimum transaction size: the smallest amount that an item can be purchased for. <a href="%{url}" target="_blank">Learn more about the minimum transaction size.</a>'
+      info_text: 'If payments are enabled in your marketplace, you need to define a minimum transaction size: the smallest amount that an item can be purchased for. <a href="%{url}" target="_blank">Learn more about the minimum transaction size</a>.'
       minimum_transaction_size: 'Minimum transaction size'
       transaction_fee: 'Marketplace setting for Minimum transaction fee is %{fee}.'
       errors:
