@@ -12,10 +12,10 @@ Feature: Admin manage stripe
   Scenario: Admin user can enable or disable payment method
     When I go to the admin2 view of paypal payment of community "test"
     Then I should see "The PayPal account mildred@example.com has been connected with Sharetribe"
-    When I follow "Disable PayPal."
+    When I follow "Disable PayPal"
     Then I press "Disable PayPal" within ".modal-footer"
     Then I should see "The PayPal account mildred@example.com is disabled"
-    When I follow "Enable PayPal."
+    When I follow "Enable PayPal"
     Then I should see "The PayPal account mildred@example.com has been connected with Sharetribe"
 
   Scenario: Admin user can edit stripe's settings
