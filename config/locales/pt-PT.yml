@@ -290,14 +290,14 @@ pt-PT:
           posting_allowed: ~
           accepted: ~
           unconfirmed: ~
-          pending: ~
+          pending: Pendente
         this_user_hasnt_confirmed_their_email_address: ~
         unconfirmed_user: ~
         resend: ~
         cancel: ~
         confirm: ~
         user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+        pending_user: "Pendente: %{name}"
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -465,8 +465,8 @@ pt-PT:
           canceled: ~
           disputed: ~
           preauthorized: ~
-          rejected: ~
-          payment_intent_requires_action: ~
+          rejected: Recusada
+          payment_intent_requires_action: Pendente
           payment_intent_action_expired: ~
           refunded: ~
           dismissed: ~
@@ -496,10 +496,10 @@ pt-PT:
             free: ~
           paypal:
             free: ~
-            pending: ~
+            pending: Pendente
             preauthorized: ~
             accepted: ~
-            rejected: ~
+            rejected: Recusada
             paid: ~
             confirmed: ~
             canceled: ~
@@ -510,17 +510,17 @@ pt-PT:
             dismissed: ~
           stripe:
             free: ~
-            pending: ~
+            pending: Pendente
             preauthorized: ~
             accepted: ~
-            rejected: ~
+            rejected: Recusada
             paid: ~
             confirmed: ~
             canceled: ~
             disputed: ~
             initiated: ~
             pending_ext: ~
-            payment_intent_requires_action: ~
+            payment_intent_requires_action: Pendente
             payment_intent_action_expired: ~
             payment_intent_failed: ~
             refunded: ~
@@ -557,7 +557,7 @@ pt-PT:
           grade: ~
           text: ~
         status:
-          waiting: ~
+          waiting: "A espera de uma avaliação"
           skipped: ~
           published: ~
           blocked: ~
@@ -607,8 +607,8 @@ pt-PT:
           open: ~
           closed: ~
           expired: ~
-          approval_pending: ~
-          approval_rejected: ~
+          approval_pending: Pendente
+          approval_rejected: Recusada
         headers:
           title: ~
           author: ~
@@ -620,8 +620,8 @@ pt-PT:
         closed: ~
         expired: ~
         approved: ~
-        approval_pending: ~
-        approval_rejected: ~
+        approval_pending: Pendente
+        approval_rejected: Recusada
         form:
           this_listing_has_not_not_been_approved_yet: ~
           approve: ~
@@ -955,7 +955,7 @@ pt-PT:
       read_more: "Leia mais sobre o gerenciamento automático de disponibilidade."
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
-      per_hour_availability: ~
+      per_hour_availability: "Dispinibilidade !por hora\""
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -1002,7 +1002,7 @@ pt-PT:
           other: "Existem %{count} anúncios com este tipo de ordem. Se excluir este tipo de ordem so anúncios serão encerrados. Tem a certeza que deseja excluir este tipo de ordem?"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
+      listing_shape_name: Nome
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
@@ -1022,10 +1022,10 @@ pt-PT:
       shipping_label: ~
       price_label: ~
       units_title: ~
-      units_desc: ~
+      units_desc: "Se você habilitou unidades de preço o valor do anúncio é mostrado como \"valor por unidade de preço\". Por exemplo:\"$39 por hora\""
       units:
         piece: ~
-        hour: ~
+        hour: "Por hora"
         day: ~
         night: ~
         week: ~
@@ -1256,7 +1256,7 @@ pt-PT:
       quantity_label: "Quantidade:"
       sum_label: "Sub-total:"
       service_fee_label: "taxa de serviço %{service_name}:"
-      buyer_service_fee_label: ~
+      buyer_service_fee_label: "Taxa de serviço %{service_name}:"
       you_will_get_label: "Você receberá:"
       total_label: "Total:"
       total_value: ~
@@ -1274,8 +1274,8 @@ pt-PT:
       confirm: Concluído
       cancel: Contestar
       continue: Continuar
-      give_feedback_to: "dê feedback à %{person_link}"
-      do_not_give_feedback: "Pular feedback"
+      give_feedback_to: "Avaliar %{person_link}"
+      do_not_give_feedback: "Pular avaliação"
     details:
       day: dia
       days: dias
@@ -1314,9 +1314,9 @@ pt-PT:
       payment_preauthorized: "Pagamento autorizado: %{sum}"
       payment_preauthorized_wo_sum: ~
       stripe:
-        held_payment: ~
+        held_payment: "O pedido foi aceite. O pagamento de %{sum} está a ser retido por %{service_name} até que você marque o pedido como concluído."
         held_payment_wo_sum: ~
-        confirmed_request: ~
+        confirmed_request: "O pedido foi marcado como concluído. O pagamento já foi transferido para a conta de %{author_name} ou será transferido brevemente."
       canceled_the_order: ~
       marked_as_refunded: ~
       dismissed_the_cancellation: ~
@@ -1394,7 +1394,7 @@ pt-PT:
           unknown_reason: ~
           verify: ~
       stripe:
-        waiting_confirmation_from_requester: ~
+        waiting_confirmation_from_requester: "A espera de %{requester_name} marcar o pedido como concluído. Uma vez que o pedido esteja marcado como concluído, o pagamento será enviado para a sua conta."
       order_canceled: "Pedido contestado"
       waiting_for_marketplace_review: "A espera da equipa %{service_name} avaliar a situação"
       marketplace_notified: "A equipa do %{service_name} já foi notificada. Você pode %{contact_link} caso tenha queria compartilhar mais pormenores."
@@ -2100,15 +2100,15 @@ pt-PT:
       h1: ~
       h2: ~
       h3: ~
-      italic: ~
+      italic: itálico
       bold: ~
       underline: ~
       strikethrough: ~
       inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      list: Lista
+      one: Um
+      two: Dois
+      three: Três
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Perfil
@@ -2289,7 +2289,7 @@ pt-PT:
       listing_is_pending: "O anúncio precisa ser aprovado"
       listing_is_rejected: "Anúncio rejeitado"
       approve_listing: "Anúncio aprovado"
-      reject_listing: ~
+      reject_listing: "Anúncio recusado"
       delete_listing: "Deletar anúncio"
     map:
       open_in_google_maps: "Abrir no Google Maps"
@@ -2530,14 +2530,14 @@ pt-PT:
       week: semana
       month: mês
       unit: unidades
-      person: ~
+      person: pessoa
     verification_required:
       verification_required: "Verificação necessária"
   listing_conversations:
     preauthorize:
       dates_not_available: "As datas seleccionadas não estão disponíveis"
       error_in_checking_availability: "Não foi possível verificar a disponibilidade das datas seleccionadas"
-      details: Detalhes
+      details: Pormenores
       by: "%{listing} de %{author}"
       payment: Pagamento
       exp: ~
@@ -2845,7 +2845,7 @@ pt-PT:
       unsuccessful_unsubscribe_info_text: "O link de cancelamento expirou. Faça login para modificar a suas configurações de email."
     profile:
       about_you: "Sobre si"
-      city: Cidade
+      city: Concelho
       family_name: Apelido
       given_name: Nome
       first_name_with_initial: "(apenas a primeira letra mostrada para outros utilizadores)"
@@ -2868,8 +2868,8 @@ pt-PT:
       image_is_processing: "Seu imagem de perfil está a ser preparada. Por favor, atualize a página daqui a pouco."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
-      format_markdown_link: "formate a sua descrição utilizando Markdown"
-      format_markdown: ~
+      format_markdown_link: "formatar a sua descrição utilizando Markdown"
+      format_markdown: "Você pode %{link}."
       username: ~
       username_description: "O seu nome de usuário é uma parte única da URL do seu perfil. Você só pode utilizar letras e números no seu nome de usuário. Quando você muda o seu nome de usuário, a URL do seu perfil irá mudar automaticamente, e a antiga URL não será redirecionada. O nome de usuário antigo ficará  disponível para outras pessoas utilizarem."
     save_information: "Salvar informação"
@@ -2899,10 +2899,10 @@ pt-PT:
     new:
       as_expected: "Como esperado"
       exceeded_expectations: "Muito melhor do que esperado"
-      give_feedback_to: "Dar uma opinião sobre %{person}"
+      give_feedback_to: "Dê a sua opinião sobre %{person}"
       grade: "Qual é o seu sentimento em geral?"
       less_than_expected: "Pior do que esperado"
-      send_feedback: "Enviar feedback"
+      send_feedback: "Enviar avaliação"
       slightly_better_than_expected: "Um pouco melhor do que esperado"
       slightly_less_than_expected: "Um pouco pior do que esperado"
       textual_feedback: "Como é que correu?"
@@ -3010,19 +3010,25 @@ pt-PT:
       booked_nights: ~
       price_per_day: "Preço por dia:"
       price_per_night: ~
-      price_per_hour: ~
+      price_per_hour: "Preço por hora:"
       price_per_unit: "Preço por unidade:"
       quantity: ~
       subtotal: "Sub-total:"
       shipping-price: ~
       stripe-fee: ~
       start_end_time: ~
+      booked_hours_label:
+        one: "Hora contratada:"
+        other: "Horas contratadas:"
+      duration_in_hours:
+        one: "(1 hora)"
+        other: "(%{count} horas)"
     price_per_quantity: "Preço por %{unit_type}:"
     price: "Preço:"
     quantity: ~
     unit_price: "Preço por unidade: %{unit_price}"
     total: ~
-    total_to_pay: ~
+    total_to_pay: "Total de pagamento:"
   unit:
     day: dia
     days: dias
@@ -3034,8 +3040,8 @@ pt-PT:
           saving_failed: "Não é possível salvar as alterações de disponibilidade. Tente recarregar a página."
         working_hours:
           required: obrigatório
-          overlaps: ~
-          covers: ~
+          overlaps: sobreposições
+          covers: sobre
       pricing_units:
         piece: peça
         hour: hora
@@ -3117,8 +3123,8 @@ pt-PT:
     you_are_ready_to_accept_payments: ~
     commission: ~
     pay_with_stripe: ~
-    add_and_pay: ~
-    card_not_stored: ~
+    add_and_pay: "Confirmar pagamento"
+    card_not_stored: "O seu pagamento é processado pela empresa Stripe. %{service_name} não armazena as informações do seu cartão de crédito/débito."
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -3128,11 +3134,11 @@ pt-PT:
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
     stripe_account_restricted: ~
-    stripe_account_restricted_info: ~
+    stripe_account_restricted_info: "O Stripe precisa verificar sua identidade antes de lhe enviar pagamentos. Por favor informe suas informações pessoais para verificação."
     stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
+    stripe_account_restricted_soon_info: "O Stripe precisa verificar sua identidade antes de lhe enviar pagamentos. Por favor informe suas informações pessoais para verificação."
     stripe_account_pending_verification: "Os dados da conta foram salvos com sucesso. A esperar a verificado da conta por parte do provedor de pagamentos."
-    stripe_account_pending_verification_info: ~
+    stripe_account_pending_verification_info: "Volte mais tarde para te verificar se já foi tudo confirmado."
     form_new:
       need_info: ~
       select_country: ~
@@ -3150,27 +3156,27 @@ pt-PT:
       address_country: ~
       address_state: ~
       address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
+      address_city: Concelho
+      address_postal_code: "Código postal"
+      address_line1: Morada
       tos_link: "Ao adicionar os seus dados de pagamentos você aceita com os termos de uso %{stripe_link}."
       tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
+      save_details: "Salvar informações"
+      edit: "Editar informações"
+      cancel: Cancelar
       gender: ~
       phone_number: "Telemóvel para contacto"
       phone_info_text: "O número de telemóvel deve começar com o código do país, por exemplo"
-      address_kana_postal_code: ~
+      address_kana_postal_code: "Código postal"
       address_kana_state: ~
-      address_kana_city: ~
+      address_kana_city: Concelho
       address_kana_town: ~
-      address_kana_line1: ~
-      address_kanji_postal_code: ~
+      address_kana_line1: Morada
+      address_kanji_postal_code: "Código postal"
       address_kanji_state: ~
-      address_kanji_city: ~
+      address_kanji_city: Concelho
       address_kanji_town: ~
-      address_kanji_line1: ~
+      address_kanji_line1: Morada
       male: ~
       female: ~
     form_bank:
@@ -3179,7 +3185,7 @@ pt-PT:
       bank_routing_1: ~
       bank_routing_2: ~
       bank_currency: ~
-      update_also_bank_account: ~
+      update_also_bank_account: "Atualizar também os dados bancários"
       messages:
         account_number: ~
         routing_number: ~
@@ -3198,13 +3204,13 @@ pt-PT:
         digits_or_chars: ~
     form_verification:
       personal_id_number: ~
-      document: ~
-      document_back: ~
+      document: "Comprovativo de identeidade (passaporte, cartão de cidadão ou outro comprovativo do governo)"
+      document_back: "Comprovativo de identeidade (passaporte, cartão de cidadão ou outro comprovativo do governo) (parte de trás)"
       send_verification: ~
-      need_verification: ~
-      additional_document: ~
-      additional_document_back: ~
-      files_need_to_be: ~
+      need_verification: "Verificação adicional necessária"
+      additional_document: "Um documento a mostrar a morada, o seu cartão de cidadão ou uma conta de luz, água ou outra utilidade."
+      additional_document_back: "Um documento a mostrar a morada, o seu cartão de cidadão ou uma conta de luz, água ou outra utilidade. (parte de trás)"
+      files_need_to_be: "Arquivos precisam estar no formato JPEG ou PNG e serem menores que 5MB. Não é possível verificar arquivos em PDF. Arquivos devem estar com cores, estarem na vertical e terem todas as informações claramente visíveis."
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
@@ -3225,7 +3231,7 @@ pt-PT:
     connect_paypal: ~
     wrong_setup: ~
     invalid_bank_account_number: ~
-    invalid_postal_code: ~
+    invalid_postal_code: "Código postal inválido para %{country}"
   seo_sections:
     you_can_use_variables: ~
     placeholder:
