@@ -346,6 +346,17 @@ Rails.application.routes.draw do
             patch :enable
           end
         end
+        resources :paypal, param: :payment_gateway do
+          collection do
+            get :account_create
+            patch :common_update
+            get :permissions_verified
+          end
+          member do
+            patch :disable
+            patch :enable
+          end
+        end
         resources :country_currencies, path: 'country-currency', only: %i[index] do
           collection do
             patch :update_country_currencies

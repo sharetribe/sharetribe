@@ -10,9 +10,11 @@
   = t('admin2.stripe.need_to_change_stripe_keys').html_safe
   %br
   - if stripe_enabled_by_admin
-    = link_to t('admin2.stripe.disable_stripe'), '#', 'data-toggle': 'modal', 'data-target': '#disableStripeModal', class: %i[negative-link]
+    - url = link_to t('admin2.stripe.disable_stripe'), '#', 'data-toggle': 'modal', 'data-target': '#disableStripeModal', class: %i[negative-link]
+    = t('admin2.stripe.disable_stripe_link', url: url).html_safe
   - else
-    = link_to t('admin2.stripe.enable_stripe'), enable_admin2_payment_system_stripe_path(payment_gateway: :stripe), method: :patch
+    - url = link_to t('admin2.stripe.enable_stripe'), enable_admin2_payment_system_stripe_path(payment_gateway: :stripe), method: :patch
+    = t('admin2.stripe.enable_stripe_link', url: url).html_safe
 
 .form-group
   %label= t('admin2.stripe.api_publishable_key')
