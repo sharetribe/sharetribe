@@ -219,6 +219,7 @@ Rails.application.routes.draw do
         resources :logos_color, path: 'logos-and-color', only: %i[index] do
           collection do
             patch :update_logos_color
+            delete :remove_files
           end
         end
         resources :cover_photos, path: 'cover-photos', only: %i[index] do
