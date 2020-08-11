@@ -2302,7 +2302,7 @@ lv:
       departure_time_radio_buttons:
         repeated: "Atkārtot (laukam 'detalizēts apsraksts' pievienojiet laiku un dienas)"
       description:
-        detailed_description: Apraksts
+        detailed_description: "Plašs pakalpojuma apraksts"
         youtube_info: "Ja Jūsu sludinājuma apraksts satur YouTube saites, videoklipi būs redzami zem apraksta."
         youtube_info_markdown: "Jūs varat %{link}. Ja Jūsu apraksts satur YouTube saites, video tiks parādīti zem apraksta."
       destination:
@@ -2321,8 +2321,8 @@ lv:
         googlemap_description: Karte
         googlemap_updatemap: "Atjaunināt karti"
       images:
-        image: Bilde
-        best_result: "Lai iegūtu vislabākos rezultātus, izmantojiet JPG, GIF vai PNG attēlus, kuru izmērs ir vismaz %{width} x %{height} pikseļi."
+        image: Bildes
+        best_result: "Lai iegūtu vislabākos rezultātus, izmantojiet JPG, GIF vai PNG attēlus, kuru izmērs ir vismaz %{width} x %{height} pikseļi un nelietojiet bildes ar kontaktu info"
         no_file_selected: "Nav izvēlēts fails"
         remove_image: "Dzēst bildi"
         select_file: "Izvēlēties failu"
