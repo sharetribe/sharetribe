@@ -1,0 +1,5 @@
+%p.ingress= t('admin2.paypal.login_to')
+= link_to t('admin2.paypal.connect_paypal'), 'javascript:void(0);', class: %i[btn btn-secondary], id: :ask_paypal_permissions
+
+.form-group
+  = render 'admin2/payment_system/paypal/connected_hint'

@@ -65,6 +65,8 @@ en:
         manage_reviews: 'Manage reviews'
       payment_system:
         country_currency: 'Country & Currency'
+        stripe: 'Stripe'
+        paypal: 'PayPal'
         transaction_size: 'Transaction size'
       emails:
         email_users: 'Email users'
@@ -91,9 +93,76 @@ en:
       advanced:
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
+    paypal:
+      account_settings: 'PayPal account settings'
+      paypal_connected: 'PayPal connected'
+      paypal_disabled: 'PayPal disabled'
+      disable_paypal: 'Disable PayPal'
+      disable_paypal_link: '%{url}.'
+      enable_paypal: 'Enable PayPal'
+      enable_paypal_link: '%{url}.'
+      info_header: 'PayPal'
+      commission_from_seller: "Seller transaction fee"
+      minimum_transaction_fee: 'Seller minimum transaction fee'
+      transaction_fee_settings: 'PayPal transaction fee settings'
+      the_transaction_fee_must_be_lower_than_100: 'The transaction fee must be lower than 100%'
+      the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer transaction fee must be lower than 100%'
+      fee_should_be_less_than_minimum_price: 'Minimum transaction fee must be lower than minimum transaction size'
+      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">Minimum transaction size</a> is %{sum}.'
+      connect_paypal_account: 'To set PayPal fees, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
+      enable_paypal_fee: 'To set PayPal fees, you must <a href="%{url}">enable PayPal</a> again in your marketplace.'
+      first_connect_paypal: 'To set PayPal fees, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
+      first_enable_paypal: 'To set PayPal fees, you must first <a href="%{url}">enable PayPal</a> again in your marketplace.'
+      login_to: 'Log in to PayPal and connect your PayPal account with your marketplace.'
+      connect_paypal: 'Connect PayPal'
+      redirect_message: "Redirecting you to PayPal. If nothing happens, click %{redirect_link}."
+      redirect_link_text: 'here'
+      paypal_has_been_connected: 'The PayPal account <strong>%{email}</strong> has been connected with %{service_name}.'
+      paypal_has_been_disabled: 'The PayPal account <strong>%{email}</strong> is disabled.'
+      change_account: 'Change PayPal account'
+      change_account_link: '%{url}.'
+    stripe:
+      info_header: 'Stripe'
+      info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>."
+      transaction_fee_settings: 'Stripe transaction fee settings'
+      configure_api_keys: 'Configure Stripe API Keys'
+      set_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">configure your Stripe API keys</a>.'
+      enable_stripe_fee_keys: 'To set Stripe fees, you must <a href="%{url}">enable Stripe</a> again in your marketplace.'
+      enable_first_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">enable Stripe</a> again in your marketplace.'
+      disable_paypal: 'To set Stripe buyer fees, you must first <a href="%{url}">disable PayPal</a>.'
+      how_to_get_publishable_key: '<a href="%{url}" target="_blank">How to get a Stripe Publishable Key?</a>'
+      how_to_get_secret_key: '<a href="%{url}" target="_blank">How to get a Stripe Secret Key?</a>'
+      publishable_key_example: "For example: %{api_publishable_key_example}"
+      secret_key_example: "For example: %{api_secret_key_example}"
+      invalid_secret: "That doesn't look like a correct %{secret_key}"
+      invalid_publishable: "That doesn't look like a correct %{publishable_key}"
+      api_publishable_key: 'Stripe Publishable Key'
+      api_private_key: 'Stripe Secret Key'
+      commission_from_seller: "Seller transaction fee"
+      minimum_transaction_fee: 'Seller minimum transaction fee'
+      commission_from_buyer: 'Buyer transaction fee'
+      minimum_buyer_transaction_fee: 'Buyer minimum transaction fee'
+      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">Minimum transaction size</a> is %{sum}.'
+      the_transaction_fee_must_be_lower_than_100: 'The transaction fee must be lower than 100%'
+      the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer transaction fee must be lower than 100%'
+      fee_should_be_less_than_minimum_price: 'Minimum transaction fee must be lower than minimum transaction size'
+      buyer_fee_should_be_less_than_minimum_price: 'Minimum buyer transaction fee must be lower than minimum transaction size'
+      stripe_connected: 'Stripe connected'
+      stripe_disabled: 'Stripe disabled'
+      disable_stripe: 'Disable Stripe'
+      disable_stripe_link: '%{url}.'
+      cannot_enable_gateway: "Cannot enable payment gateway %{gateway}."
+      cannot_disable_gateway: "Cannot disable payment gateway %{gateway}."
+      cannot_enable_gateway_because_of_buyer_commission: "Cannot enable payment gateway %{gateway} because the buyer's commission is used"
+      confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
+      enable_stripe: 'Enable Stripe'
+      enable_stripe_link: '%{url}.'
+      need_to_change_stripe_keys: "Do you need to change your Stripe keys? <a href='#' show-intercom=true >Contact the Sharetribe team</a>."
+      need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
+      need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
     transaction_size:
       info_header: 'Transaction size'
-      info_text: 'If payments are enabled in your marketplace, you need to define a minimum transaction size: the smallest amount that an item can be purchased for. <a href="%{url}" target="_blank">Learn more about the minimum transaction size.</a>'
+      info_text: 'If payments are enabled in your marketplace, you need to define a minimum transaction size: the smallest amount that an item can be purchased for. <a href="%{url}" target="_blank">Learn more about the minimum transaction size</a>.'
       minimum_transaction_size: 'Minimum transaction size'
       transaction_fee: 'Marketplace setting for Minimum transaction fee is %{fee}.'
       errors:

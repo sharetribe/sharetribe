@@ -337,6 +337,27 @@ Rails.application.routes.draw do
       end
 
       namespace :payment_system, path: 'payment-system' do
+        resources :stripe, param: :payment_gateway do
+          collection do
+            patch :update_stripe_keys
+            patch :common_update
+          end
+          member do
+            patch :disable
+            patch :enable
+          end
+        end
+        resources :paypal, param: :payment_gateway do
+          collection do
+            get :account_create
+            patch :common_update
+            get :permissions_verified
+          end
+          member do
+            patch :disable
+            patch :enable
+          end
+        end
         resources :country_currencies, path: 'country-currency', only: %i[index] do
           collection do
             patch :update_country_currencies
