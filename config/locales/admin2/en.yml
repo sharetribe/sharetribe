@@ -206,6 +206,15 @@ en:
       add_new_option: 'Add a new option'
       option_label: 'Option label'
       save_option: 'Save option'
+      select_one: 'Select field type...'
+      field_types:
+        text: 'Text'
+        number: 'Number'
+        dropdown: 'Dropdown'
+        checkbox_group: 'Checkbox group'
+        date: 'Date'
+        file: 'File'
+        location: 'Location'
     listing_fields:
       info_header: 'Manage existing listing fields'
       info_text: 'Here you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and cannot be edited.'
@@ -427,7 +436,6 @@ en:
       show_conversation: 'Conversation'
     email_users:
       compose_email: 'Compose email'
-      recipients: 'Who do you want to email?'
       learn_segments: 'Learn more about the <a href="%{url}" target="_blank">user segments</a>.'
       receivers_languages: 'Language of the email receivers'
       any_language: 'Any language'
@@ -441,6 +449,15 @@ en:
       content_placeholder: 'What do you want to say to your members?'
       send_email: 'Send email to users'
       send_to_yourself: 'Send a test email to yourself'
+      recipients:
+        title: "Who do you want to email?"
+        options:
+          all_users: "All users"
+          posting_allowed: "Users who are allowed to post listings"
+          with_listing: "Users who have posted at least one listing"
+          with_listing_no_payment: "Users who have posted at least one listing but haven't added their payment details"
+          with_payment_no_listing: "Users who have added their payment details but haven't posted a listing"
+          no_listing_no_payment: "Users who haven't posted a listing and haven't added their payment details"
     google_manager:
       info_text: "Using a tag manager such as GTM is a great way to manage and deploy snippets of code or tracking pixels on your website without having to modify the code."
       info_text_2: "Because Sharetribe also relies on Google Tag Manager, you should <a href='%{url}' target='_blank'>learn how to configure GTM for your Go marketplace</a>."
@@ -454,10 +471,18 @@ en:
       message: 'Message'
       accepted: 'Accepted'
       date_sent: 'Date sent'
+      used_no: 'No'
+      used_yes: 'Yes'
     manage_listings:
       search_placeholder: 'Search listings by title, user or category...'
       export_to_csv: 'Export to CSV'
       all_listings: 'All listings (%{count})'
+      statuses:
+        open: 'Open'
+        closed: 'Closed'
+        expired: 'Expired'
+        approval_pending: 'Pending'
+        approval_rejected: 'Rejected'
       listing: 'Listing'
       provider: 'Provider'
       created: 'Created'
@@ -491,6 +516,64 @@ en:
       view_details: 'View details'
       all_transactions: 'All transactions (%{count})'
       not_available: 'Not available'
+      status_filter:
+        free: "Free transaction"
+        confirmed: 'Completed'
+        paid: 'Paid'
+        canceled: 'Canceled'
+        disputed: 'Disputed'
+        preauthorized: 'Preauthorized'
+        rejected: 'Rejected'
+        payment_intent_requires_action: 'Pending'
+        payment_intent_action_expired: 'Expired'
+        refunded: 'Refunded'
+        dismissed: 'Dismissed'
+      statuses:
+        conversation: 'Conversation'
+        free: "Free transaction"
+        pending: 'Pending'
+        preauthorized: 'Preauthorized'
+        accepted: 'Accepted'
+        rejected: 'Rejected'
+        paid: 'Paid'
+        confirmed: 'Completed'
+        canceled: 'Canceled'
+        disputed: 'Disputed'
+        initiated: "Waiting PayPal payment"
+        pending_ext: "Waiting PayPal payment"
+        none:
+          free: "Free transaction"
+        paypal:
+          free: 'Conversation'
+          pending: 'Pending'
+          preauthorized: 'Preauthorized'
+          accepted: 'Accepted'
+          rejected: 'Rejected'
+          paid: 'Paid'
+          confirmed: 'Completed'
+          canceled: 'Canceled'
+          disputed: 'Disputed'
+          initiated: "Waiting PayPal payment"
+          pending_ext: "Waiting PayPal payment"
+          refunded: 'Refunded'
+          dismissed: 'Dismissed'
+        stripe:
+          free: 'Conversation'
+          pending: 'Pending'
+          preauthorized: 'Preauthorized'
+          accepted: 'Accepted'
+          rejected: 'Rejected'
+          paid: 'Paid'
+          confirmed: 'Completed'
+          canceled: 'Canceled'
+          disputed: 'Disputed'
+          initiated: "Waiting Stripe payment"
+          pending_ext: "Waiting Stripe payment"
+          payment_intent_requires_action: 'Pending'
+          payment_intent_action_expired: 'Expired'
+          payment_intent_failed: "Stripe payment failed"
+          refunded: 'Refunded'
+          dismissed: 'Dismissed'
     manage_users:
       ban_msg: 'This disables the user account from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?'
       unban_msg: 'This enables the user account in the marketplace and allows them to access the site again with this account. Are you sure you want to proceed?'

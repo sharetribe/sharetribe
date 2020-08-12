@@ -11,7 +11,7 @@
     %section.content-card-section
       %h2= t('admin2.email_users.compose_email')
       .form-group
-        = form.label :recipients, t('admin2.email_users.recipients')
+        = form.label :recipients, t('admin2.email_users.recipients.title')
         = form.select :recipients, admin_email_options, {}, class: %i[form-control]
         %small#emailRecipients-help.form-text
           = t('admin2.email_users.learn_segments', url: 'https://help.sharetribe.com/en/articles/1133668').html_safe
