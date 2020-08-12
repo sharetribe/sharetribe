@@ -500,7 +500,7 @@ fr:
       confirm_popup_body: 'lorem ipsum'
     manage_transactions:
       export_to_csv: 'lorem ipsum'
-      search_placeholder: 'lorem ipsum'
+      search_placeholder: 'lorem ipsum...'
       listing: 'lorem ipsum'
       customer: 'lorem ipsum'
       provider: 'lorem ipsum'
@@ -509,16 +509,16 @@ fr:
       status: 'lorem ipsum'
       amount: 'lorem ipsum'
       actions: 'lorem ipsum'
-      view_details: 'lorem ipsum'
-      all_transactions: 'lorem ipsum (%{count})'
+      view_details: 'lorem ipsums'
+      all_transactions: 'lorem ipsum(%{count})'
       not_available: 'lorem ipsum'
       transaction_for: "lorem ipsum #%{transaction_id} lorem ipsum %{link}"
       waiting_for_provider_accept_or_reject: "lorem ipsum %{provider} lorem ipsum."
       waiting_for_fulfill_and_complete: "lorem ipsum %{provider} lorem ipsum %{listing_title} lorem ipsum %{buyer} lorem ipsum."
-      learn_more: "lorem ipsum"
+      learn_more: "lorem ipsum."
       you_should_investigate: "lorem ipsum %{learn_more_link}"
       marketplace_collects: "%{service_name} lorem ipsum:"
-      back_to_list: '‹ lorem ipsum'
+      back_to_list: '‹lorem ipsum'
       initiator: 'lorem ipsum:'
       other_party: 'lorem ipsum:'
       transaction_status: 'lorem ipsum:'
@@ -530,27 +530,38 @@ fr:
       booking_start: 'lorem ipsum'
       booking_end: 'lorem ipsum'
       booking_duration: 'lorem ipsum'
+      price_per_day: 'lorem ipsum'
+      price_per_night: 'lorem ipsum'
+      price_per_hour: 'lorem ipsum'
+      price_per_unit: 'lorem ipsum'
+      subtotal: 'lorem ipsum'
+      quantity: 'lorem ipsum'
+      shipping-price: 'lorem ipsum'
+      total: 'lorem ipsum'
+      duration_in_hours:
+        one: '1 lorem ipsum'
+        other: '%{count} lorem ipsum'
       marketplace_commission: 'lorem ipsum (%{value})'
-      seller_receives: 'lorem ipsum:'
+      seller_receives: 'lorem ipsum'
       commission_from_buyer: 'lorem ipsum'
       commission_from_seller: 'lorem ipsum'
       total_commission: 'lorem ipsum'
       delivery_method:
-        title: 'lorem ipsum:'
+        title: 'lorem ipsum'
         delivering_to: 'lorem ipsum %{address}'
         pickup: 'lorem ipsum'
       popups:
         mark_transaction_as_completed:
           title: 'lorem ipsum'
-          body: 'lorem ipsum #%{transaction} lorem ipsum'
+          body: 'lorem ipsum #%{transaction} lorem ipsum.'
           submit: 'lorem ipsum'
         dispute:
           title: 'lorem ipsum'
-          body: 'lorem ipsum #%{transaction}. lorem ipsum'
+          body: 'lorem ipsum #%{transaction}. lorem ipsum.'
           submit: 'lorem ipsum'
         mark_as_refunded:
           title: 'lorem ipsum'
-          body: 'lorem ipsum #%{transaction}. lorem ipsum'
+          body: 'lorem ipsum #%{transaction}.lorem ipsum.'
           submit: 'lorem ipsum'
         dismiss_and_payout:
           title: 'lorem ipsum'
@@ -588,7 +599,7 @@ fr:
           canceled: 'lorem ipsum'
           disputed: 'lorem ipsum'
           initiated: 'lorem ipsum'
-          pending_ext: 'lorem ipsumt'
+          pending_ext: 'lorem ipsum'
           refunded: 'lorem ipsum'
           dismissed: 'lorem ipsum'
         stripe:
