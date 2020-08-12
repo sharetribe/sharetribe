@@ -1,0 +1,20 @@
+%p.ingress
+  - if paypal_enabled_by_admin
+    = image_tag 'svg/checkmark-green.svg', alt: 'checkmark-green'
+    = t('admin2.paypal.paypal_has_been_connected', email: paypal_account[:email]).html_safe
+  - else
+    = image_tag 'svg/remove.svg', alt: 'remove'
+    = t('admin2.paypal.paypal_has_been_disabled', email: paypal_account[:email]).html_safe
+
+%p.small-ingress{style: 'padding-left: 16px; margin-bottom: 32px;'}
+  - url_change = link_to t('admin2.paypal.change_account'), 'javascript:void(0);', id: :ask_paypal_permissions
+  = t('admin2.paypal.change_account_link', url: url_change).html_safe
+  = render 'admin2/payment_system/paypal/connected_hint'
+
+  %br
+  - if paypal_enabled_by_admin
+    - url = link_to t('admin2.paypal.disable_paypal'), '#', 'data-toggle': 'modal', 'data-target': '#disablePaypalModal', class: %i[negative-link]
+    = t('admin2.paypal.disable_paypal_link', url: url).html_safe
+  - else
+    - url = link_to t('admin2.paypal.enable_paypal'), enable_admin2_payment_system_paypal_path(payment_gateway: :paypal), method: :patch
+    = t('admin2.paypal.enable_paypal_link', url: url).html_safe

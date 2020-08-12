@@ -1,4 +1,4 @@
-#orderTypesDeleteModal.modal{'aria-hidden' => true, 'aria-labelledby' => 'orderTypesDeleteModalLabel', role: :dialog, tabindex: -1}
+#orderTypesDeleteModal.modal{'data-backdrop' => 'static', 'aria-hidden' => true, 'aria-labelledby' => 'orderTypesDeleteModalLabel', role: :dialog, tabindex: -1}
   .modal-dialog.modal-md{role: :document}
     .modal-content
       = form_tag '#', method: :delete, class: %i[content-card-section-form], id: 'delete-order-form' do
@@ -9,4 +9,4 @@
         .modal-body#delete-order-type-body
         .modal-footer
           = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-          = button_tag t('admin2.order_types.delete'), class: %i[btn btn-primary]
+          = button_tag t('admin2.order_types.delete'), class: %i[btn btn-negative]

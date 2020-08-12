@@ -1,4 +1,4 @@
-#userDeleteModal.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'userDeleteModalLabel', role: :dialog, tabindex: '-1'}
+#userDeleteModal.modal{'data-backdrop' => 'static', 'aria-hidden' => 'true', 'aria-labelledby' => 'userDeleteModalLabel', role: :dialog, tabindex: '-1'}
   .modal-dialog{role: 'document'}
     = form_tag '#', method: :delete, remote: true, class: %i[modal-content], id: 'form-delete-user' do
       .modal-header
@@ -9,4 +9,4 @@
         = t('admin2.manage_users.delete_user_text').html_safe
       .modal-footer
         = link_to t('admin2.manage_users.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-        = button_tag t('admin2.manage_users.delete_forever'), class: %i[btn btn-primary]
+        = button_tag t('admin2.manage_users.delete_forever'), class: %i[btn btn-negative]

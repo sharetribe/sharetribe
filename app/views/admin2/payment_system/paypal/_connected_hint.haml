@@ -1,0 +1,3 @@
+%small.form-text.js-paypal-redirect-order-permission.hidden
+  - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t('admin2.paypal.redirect_link_text')}</a>"
+  = t('admin2.paypal.redirect_message', redirect_link: paypal_redirect_link).html_safe

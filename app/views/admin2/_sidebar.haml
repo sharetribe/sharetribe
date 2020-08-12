@@ -52,8 +52,8 @@
       %ul#users.collapse.subtitle{class: expand_ul('users')}
         %li#manageusers{class: active_li('manage_users')}
           = link_to t('admin2.sidebar.users.manage_users'), admin2_users_manage_users_path(direction: :desc, sort: :join_date)
-        %li#userfields
-          %a{:href => 'user-fields.php'} User fields
+        %li#userfields{class: active_li('user_fields')}
+          = link_to t('admin2.sidebar.users.user_fields'), admin2_users_user_fields_path
         %li#signuplogin{class: active_li('signup_login')}
           = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
         %li#userrights{class: active_li('user_rights')}
@@ -93,19 +93,23 @@
       / Divider
       %hr
       / Payment system
-      - if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_provisioned?(@current_community.id)
+      - stripe_allowed = StripeHelper.stripe_provisioned?(@current_community.id)
+      - paypal_allowed = PaypalHelper.paypal_provisioned?(@current_community.id)
+      - if paypal_allowed || stripe_allowed
         %ul.category-title
           %li
             = link_to t('admin2.sidebar.payment_group'), '#paymentsystem', class: %i[dropdown-toggle], 'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#paymentsystem.collapse.subtitle{class: expand_ul('payment_system')}
           %li#countrycurrency{class: active_li('country_currencies')}
             = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
-          %li#transactionsize
-            %a{:href => 'transaction-size.php'} Transaction size
-          %li#paypal
-            %a{:href => 'paypal.php'} PayPal
-          %li#stripe
-            %a{:href => 'stripe.php'} Stripe
+          %li#transactionsize{class: active_li('transaction_size')}
+            = link_to t('admin2.sidebar.payment_system.transaction_size'), admin2_payment_system_transaction_size_index_path
+          - if paypal_allowed
+            %li#paypal{class: active_li('paypal')}
+              = link_to t('admin2.sidebar.payment_system.paypal'), admin2_payment_system_paypal_index_path
+          - if stripe_allowed
+            %li#stripe{class: active_li('stripe')}
+              = link_to t('admin2.sidebar.payment_system.stripe'), admin2_payment_system_stripe_index_path
       / Email
       %ul.category-title
         %li

@@ -50,6 +50,7 @@ fr:
         signup_login: 'lorem ipsum'
         user_rights: 'lorem ipsum'
         invitations: 'lorem ipsum'
+        user_fields: 'lorem ipsum'
       listings:
         listing_approval: 'lorem ipsum'
         listing_comments: 'lorem ipsum'
@@ -63,6 +64,9 @@ fr:
         manage_transactions: 'lorem ipsum'
       payment_system:
         country_currency: 'lorem ipsum'
+        transaction_size: 'lorem ipsum'
+        paypal: 'lorem ipsum'
+        stripe: 'lorem ipsum'
       emails:
         email_users: 'lorem ipsum'
         automatic_newsletter: 'lorem ipsum'
@@ -88,6 +92,116 @@ fr:
       advanced:
         custom_script: 'lorem ipsum'
         delete_marketplace: 'lorem ipsum'
+    paypal:
+      account_settings: 'lorem ipsum'
+      paypal_connected: 'lorem ipsum'
+      paypal_disabled: 'lorem ipsum'
+      disable_paypal: 'lorem ipsum.'
+      disable_paypal_caption: 'lorem ipsum'
+      enable_paypal: 'lorem ipsum.'
+      info_header: 'lorem ipsum'
+      commission_from_seller: "lorem ipsum"
+      minimum_transaction_fee: 'lorem ipsum'
+      transaction_fee_settings: 'lorem ipsum'
+      the_transaction_fee_must_be_lower_than_100: 'lorem ipsum'
+      the_buyer_transaction_fee_must_be_lower_than_100: 'lorem ipsum'
+      fee_should_be_less_than_minimum_price: 'lorem ipsum'
+      minimum_transaction_size: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum %{sum}.'
+      connect_paypal_account: 'lorem ipsum<a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      enable_paypal_fee: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      first_connect_paypal: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      first_enable_paypal: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      login_to: 'lorem ipsum.'
+      connect_paypal: 'lorem ipsum'
+      redirect_message: "lorem ipsum %{redirect_link}."
+      redirect_link_text: 'lorem ipsum'
+      paypal_has_been_connected: 'lorem ipsum <strong>%{email}</strong>lorem ipsum %{service_name}.'
+      paypal_has_been_disabled: 'lorem ipsum <strong>%{email}</strong> lorem ipsum.'
+      change_account: 'lorem ipsum.'
+    stripe:
+      info_header: 'lorem ipsum'
+      info_text: "<a href='%{fee_url}' target='_blank'>lorem ipsum</a>lorem ipsum. <a href='%{more_url}' target='_blank'> lorem ipsum</a>"
+      transaction_fee_settings: 'lorem ipsum'
+      configure_api_keys: 'lorem ipsum'
+      set_stripe_fee_keys: 'lorem ipsum <a href="%{url}">lorem ipsum</a>'
+      enable_stripe_fee_keys: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      enable_first_stripe_fee_keys: 'lorem ipsum <a href="%{url}">lorem ipsum</a> lorem ipsum.'
+      disable_paypal: 'lorem ipsum  <a href="%{url}">lorem ipsum </a>'
+      how_to_get_publishable_key: '<a href="%{url}" target="_blank">lorem ipsum?</a>'
+      how_to_get_secret_key: '<a href="%{url}" target="_blank"lorem ipsum?</a>'
+      publishable_key_example: "lorem ipsum: %{api_publishable_key_example}"
+      secret_key_example: "lorem ipsum: %{api_secret_key_example}"
+      invalid_secret: "lorem ipsum %{secret_key}"
+      invalid_publishable: "lorem ipsum %{publishable_key}"
+      api_publishable_key: 'lorem ipsum'
+      api_private_key: 'lorem ipsum'
+      commission_from_seller: "lorem ipsum:"
+      minimum_transaction_fee: 'lorem ipsum'
+      commission_from_buyer: 'lorem ipsum'
+      minimum_buyer_transaction_fee: 'lorem ipsum'
+      minimum_transaction_size: 'lorem ipsum <a href="%{url}">lorem ipsum</a> is %{sum}.'
+      the_transaction_fee_must_be_lower_than_100: 'lorem ipsum'
+      the_buyer_transaction_fee_must_be_lower_than_100: 'lorem ipsum'
+      fee_should_be_less_than_minimum_price: 'lorem ipsum'
+      buyer_fee_should_be_less_than_minimum_price: 'lorem ipsum'
+      stripe_connected: 'lorem ipsum'
+      stripe_disabled: 'lorem ipsum'
+      disable_stripe: 'lorem ipsum.'
+      enable_stripe: 'lorem ipsum.'
+      cannot_enable_gateway: "lorem ipsum. %{gateway}."
+      cannot_disable_gateway: "lorem ipsum. %{gateway}."
+      cannot_enable_gateway_because_of_buyer_commission: "lorem ipsum. %{gateway} lorem ipsum."
+      disable_stripe_caption: 'lorem ipsum.'
+      confirm_disable: 'lorem ipsum.'
+      need_to_change_stripe_keys: "lorem ipsum <a href='#' show-intercom=true >lorem ipsum</a>."
+      need_to_change_publishable_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
+      need_to_change_secret_key: "lorem ipsum, <a href='#' show-intercom=true >lorem ipsum</a>."
+    transaction_size:
+      info_header: 'lorem ipsum'
+      info_text: 'lorem ipsum. <a href="%{url}" target="_blank">lorem ipsum.</a>'
+      minimum_transaction_size: 'lorem ipsum'
+      transaction_fee: 'lorem ipsum %{fee}.'
+      errors:
+        minimum_listing_price_below_tx_fee: 'lorem ipsum: %{minimum_transaction_fee}.'
+        minimum_listing_price_below_min: 'lorem ipsum %{minimum_commission}.'
+        payments_not_enabled: 'lorem ipsum'
+    user_fields:
+      info_text: 'lorem ipsum'
+      field_title: 'lorem ipsum'
+      field_type: 'lorem ipsum'
+      sign_up: 'lorem ipsum'
+      public: 'lorem ipsum'
+      add_new_field: 'lorem ipsum'
+      first_name: 'lorem ipsum'
+      last_name: 'lorem ipsum'
+      text: 'lorem ipsum'
+      email_address: 'lorem ipsum'
+      profile_picture: 'lorem ipsum'
+      file: 'lorem ipsum'
+      location: 'lorem ipsum'
+      display_name: 'lorem ipsum'
+      phone_number: 'lorem ipsum'
+      about_you: 'lorem ipsum'
+      add_new_user_field: 'lorem ipsum'
+      new_user_field_type: 'lorem ipsum'
+      edit_field_type: 'lorem ipsum: %{name} (%{field_type})'
+      required_field: 'lorem ipsum'
+      public_field: 'lorem ipsum'
+      required_field_title: 'lorem ipsum'
+      public_field_title: 'lorem ipsum'
+      decimal: 'lorem ipsum'
+      allow_decimals: 'lorem ipsum'
+      minimum_value: 'lorem ipsum'
+      maximum_value: 'lorem ipsum'
+      delete_title: 'lorem ipsum: %{name}'
+      delete_info_text: 'lorem ipsum %{name}'
+      delete_user_field: 'lorem ipsum'
+      dropdown_list_options: 'lorem ipsum'
+      checkbox_list_options: 'lorem ipsum'
+      add_option_link: 'lorem ipsum'
+      add_new_option: 'lorem ipsum'
+      option_label: 'lorem ipsum'
+      save_option: 'lorem ipsum'
     listing_fields:
       info_header: 'lorem ipsum'
       info_text: 'lorem ipsum'
@@ -301,6 +415,11 @@ fr:
       profile: "%{author}'s lorem ipsum"
       read: 'lorem ipsum'
       listing: 'lorem ipsum %{listing}'
+      back_to_conversations: 'lorem ipsum'
+      initiator: 'lorem ipsum'
+      other_party: 'lorem ipsum'
+      participants: 'lorem ipsum %{starter} lorem ipsum %{author}'
+      show_conversation: 'lorem ipsum'
     email_users:
       compose_email: 'lorem ipsum'
       recipients: 'lorem ipsum'
@@ -355,7 +474,7 @@ fr:
       confirm_popup_body: 'lorem ipsum'
     manage_transactions:
       export_to_csv: 'lorem ipsum'
-      search_placeholder: 'lorem ipsum'
+      search_placeholder: 'lorem ipsum...'
       listing: 'lorem ipsum'
       customer: 'lorem ipsum'
       provider: 'lorem ipsum'
@@ -364,16 +483,16 @@ fr:
       status: 'lorem ipsum'
       amount: 'lorem ipsum'
       actions: 'lorem ipsum'
-      view_details: 'lorem ipsum'
-      all_transactions: 'lorem ipsum (%{count})'
+      view_details: 'lorem ipsums'
+      all_transactions: 'lorem ipsum(%{count})'
       not_available: 'lorem ipsum'
       transaction_for: "lorem ipsum #%{transaction_id} lorem ipsum %{link}"
       waiting_for_provider_accept_or_reject: "lorem ipsum %{provider} lorem ipsum."
       waiting_for_fulfill_and_complete: "lorem ipsum %{provider} lorem ipsum %{listing_title} lorem ipsum %{buyer} lorem ipsum."
-      learn_more: "lorem ipsum"
+      learn_more: "lorem ipsum."
       you_should_investigate: "lorem ipsum %{learn_more_link}"
       marketplace_collects: "%{service_name} lorem ipsum:"
-      back_to_list: '‹ lorem ipsum'
+      back_to_list: '‹lorem ipsum'
       initiator: 'lorem ipsum:'
       other_party: 'lorem ipsum:'
       transaction_status: 'lorem ipsum:'
@@ -385,27 +504,38 @@ fr:
       booking_start: 'lorem ipsum'
       booking_end: 'lorem ipsum'
       booking_duration: 'lorem ipsum'
+      price_per_day: 'lorem ipsum'
+      price_per_night: 'lorem ipsum'
+      price_per_hour: 'lorem ipsum'
+      price_per_unit: 'lorem ipsum'
+      subtotal: 'lorem ipsum'
+      quantity: 'lorem ipsum'
+      shipping-price: 'lorem ipsum'
+      total: 'lorem ipsum'
+      duration_in_hours:
+        one: '1 lorem ipsum'
+        other: '%{count} lorem ipsum'
       marketplace_commission: 'lorem ipsum (%{value})'
-      seller_receives: 'lorem ipsum:'
+      seller_receives: 'lorem ipsum'
       commission_from_buyer: 'lorem ipsum'
       commission_from_seller: 'lorem ipsum'
       total_commission: 'lorem ipsum'
       delivery_method:
-        title: 'lorem ipsum:'
+        title: 'lorem ipsum'
         delivering_to: 'lorem ipsum %{address}'
         pickup: 'lorem ipsum'
       popups:
         mark_transaction_as_completed:
           title: 'lorem ipsum'
-          body: 'lorem ipsum #%{transaction} lorem ipsum'
+          body: 'lorem ipsum #%{transaction} lorem ipsum.'
           submit: 'lorem ipsum'
         dispute:
           title: 'lorem ipsum'
-          body: 'lorem ipsum #%{transaction}. lorem ipsum'
+          body: 'lorem ipsum #%{transaction}. lorem ipsum.'
           submit: 'lorem ipsum'
         mark_as_refunded:
           title: 'lorem ipsum'
-          body: 'lorem ipsum #%{transaction}. lorem ipsum'
+          body: 'lorem ipsum #%{transaction}.lorem ipsum.'
           submit: 'lorem ipsum'
         dismiss_and_payout:
           title: 'lorem ipsum'
@@ -443,7 +573,7 @@ fr:
           canceled: 'lorem ipsum'
           disputed: 'lorem ipsum'
           initiated: 'lorem ipsum'
-          pending_ext: 'lorem ipsumt'
+          pending_ext: 'lorem ipsum'
           refunded: 'lorem ipsum'
           dismissed: 'lorem ipsum'
         stripe:
@@ -719,6 +849,11 @@ fr:
       square_logo: 'lorem ipsum'
       square_logo_info_text: 'lorem ipsum'
       current_file: 'lorem ipsum %{type} lorem ipsum "%{filename}".'
+      reset_to_default: 'lorem ipsum %{type}.'
+      delete_popup:
+        title: 'lorem ipsum %{type}'
+        body: 'lorem ipsum "%{filename}" %{type} lorem ipsum'
+        save_button: 'lorem ipsum %{type} lorem ipsum'
     user_rights:
       invitation_rights: 'lorem ipsum'
       join_with_invite_only: 'lorem ipsum'
@@ -817,12 +952,18 @@ fr:
       test_email_sent: 'lorem ipsum'
       welcome_email_updated:  'lorem ipsum'
       welcome_email_updated_and_sent: 'lorem ipsum %{email}'
+      user_field_updated: 'lorem ipsum'
+      user_field_created: 'lorem ipsum'
+      user_field_deleted: 'lorem ipsum'
+      user_field_saving_failed: 'lorem ipsum'
       listing_field_updated: 'lorem ipsum'
       listing_field_saving_failed: 'lorem ipsum'
       listing_field_created: 'lorem ipsum'
       listing_fields_update_location_failed: 'lorem ipsum'
       listing_fields_update_expiration_failed: 'lorem ipsum'
       listing_fields_update_price_failed: 'lorem ipsum'
+      transaction_size_updated: 'lorem ipsum'
+      file_was_deleted: 'lorem ipsum'
     seo:
       title: 'lorem ipsum'
       description: 'lorem ipsum'

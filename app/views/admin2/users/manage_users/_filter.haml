@@ -1,6 +1,6 @@
 = form_tag '#', class: %i[content-card-header content-table], method: :get do |form|
   .content-card-header-left
-    = text_field_tag :q, params[:q], placeholder: t('admin2.manage_users.search_by'), class: %i[search-header]
+    = search_field_tag :q, params[:q], placeholder: t('admin2.manage_users.search_by'), class: %i[search-header]
   .content-card-header-right
     %span#user_statuses_filter
       = render 'admin2/users/manage_users/statuses', presenter: @presenter, current: params[:status]

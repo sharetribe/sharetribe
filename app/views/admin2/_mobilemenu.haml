@@ -36,9 +36,9 @@
             = link_to t('admin2.sidebar.design_group'), '#design-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'design-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#design-mobile.collapse.subtitle{class: expand_ul('design')}
           %li#logoscolor-mobile{class: active_li('logos_color')}
-          = link_to t('admin2.sidebar.design.logos_and_color'), admin2_design_logos_color_index_path
+            = link_to t('admin2.sidebar.design.logos_and_color'), admin2_design_logos_color_index_path
           %li#coverphotos-mobile{class: active_li('cover_photos')}
-          = link_to t('admin2.sidebar.design.cover_photos'), admin2_design_cover_photos_path
+            = link_to t('admin2.sidebar.design.cover_photos'), admin2_design_cover_photos_path
           %li#landingpage-mobile{class: active_li('landing_page')}
             = link_to t('admin2.sidebar.design.landing_page'), admin2_design_landing_page_index_path
           %li#topbar-mobile{class: active_li('topbar')}
@@ -58,8 +58,8 @@
         %ul#users-mobile.collapse.subtitle{class: expand_ul('users')}
           %li#manageusers-mobile{class: active_li('manage_users')}
             = link_to t('admin2.sidebar.users.manage_users'), admin2_users_manage_users_path(direction: :desc, sort: :join_date)
-          %li#userfields-mobile
-            %a{:href => 'user-fields.php'} User fields
+          %li#userfields-mobile{class: active_li('user_fields')}
+            = link_to t('admin2.sidebar.users.user_fields'), admin2_users_user_fields_path
           %li#signuplogin-mobile{class: active_li('signup_login')}
             = link_to t('admin2.sidebar.users.signup_login'), admin2_users_signup_login_index_path
           %li#userrights-mobile{class: active_li('user_rights')}
@@ -99,19 +99,24 @@
         / Divider
         %hr/
         / Payment system
-        - if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_provisioned?(@current_community.id)
+        - stripe_allowed = StripeHelper.stripe_provisioned?(@current_community.id)
+        - paypal_allowed = PaypalHelper.paypal_provisioned?(@current_community.id)
+        - if paypal_allowed || stripe_allowed
           %ul.category-title
             %li
               = link_to t('admin2.sidebar.payment_group'), '#paymentsystem-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'paymentsystem-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
           %ul#paymentsystem-mobile.collapse.subtitle{class: expand_ul('payment_system')}
             %li#countrycurrency-mobile{class: active_li('country_currencies')}
               = link_to t('admin2.sidebar.payment_system.country_currency'), admin2_payment_system_country_currencies_path
-            %li#transactionsize-mobile
-              %a{:href => 'transaction-size.php'} Transaction size
-            %li#paypal-mobile
-              %a{:href => 'paypal.php'} PayPal
-            %li#stripe-mobile
-              %a{:href => 'stripe.php'} Stripe
+            %li#transactionsize-mobile{class: active_li('transaction_size')}
+              = link_to t('admin2.sidebar.payment_system.transaction_size'), admin2_payment_system_transaction_size_index_path
+            - if paypal_allowed
+              %li#paypal-mobile{class: active_li('paypal')}
+                = link_to t('admin2.sidebar.payment_system.paypal'), admin2_payment_system_paypal_index_path
+            - if stripe_allowed
+              %li#stripe-mobile{class: active_li('stripe')}
+                = link_to t('admin2.sidebar.payment_system.stripe'), admin2_payment_system_stripe_index_path
+
         / Email
         %ul.category-title
           %li
@@ -140,7 +145,7 @@
         %ul.category-title
           %li
             = link_to t('admin2.sidebar.social_media_group'), '#socialmedia-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'socialmedia-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
-        %ul#socialmedia.collapse.subtitle{class: expand_ul('social_media')}
+        %ul#socialmedia-mobile.collapse.subtitle{class: expand_ul('social_media')}
           %li#imagetags-mobile{class: active_li('image_tags')}
             = link_to t('admin2.sidebar.social_media.image_tags'), admin2_social_media_image_tags_path
           %li#twitter-mobile{class: active_li('twitter')}

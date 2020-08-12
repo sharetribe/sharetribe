@@ -219,6 +219,7 @@ Rails.application.routes.draw do
         resources :logos_color, path: 'logos-and-color', only: %i[index] do
           collection do
             patch :update_logos_color
+            delete :remove_files
           end
         end
         resources :cover_photos, path: 'cover-photos', only: %i[index] do
@@ -247,6 +248,15 @@ Rails.application.routes.draw do
         resources :user_rights, path: 'user-rights', only: %i[index] do
           collection do
             patch :update_user_rights
+          end
+        end
+        resources :user_fields, path: 'user-fields' do
+          collection do
+            post :order
+            post :add_unit
+          end
+          member do
+            get :delete_popup
           end
         end
       end
@@ -312,7 +322,7 @@ Rails.application.routes.draw do
             patch :update_review
           end
         end
-        resources :conversations, path: 'view-conversations', only: %i[index]
+        resources :conversations, path: 'view-conversations', only: %i[index show]
         resources :manage_transactions, path: 'manage-transactions', only: %i[index show] do
           member do
             patch :confirm
@@ -333,10 +343,37 @@ Rails.application.routes.draw do
       end
 
       namespace :payment_system, path: 'payment-system' do
+        resources :stripe, param: :payment_gateway do
+          collection do
+            patch :update_stripe_keys
+            patch :common_update
+          end
+          member do
+            patch :disable
+            patch :enable
+          end
+        end
+        resources :paypal, param: :payment_gateway do
+          collection do
+            get :account_create
+            patch :common_update
+            get :permissions_verified
+          end
+          member do
+            patch :disable
+            patch :enable
+          end
+        end
         resources :country_currencies, path: 'country-currency', only: %i[index] do
           collection do
             patch :update_country_currencies
             get :verify_currency
+          end
+        end
+
+        resources :transaction_size, path: 'transaction-size', only: %i[index] do
+          collection do
+            patch :save
           end
         end
       end

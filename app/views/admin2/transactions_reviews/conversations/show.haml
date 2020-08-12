@@ -1,0 +1,33 @@
+- content_for :title do
+  = t('admin2.view_conversations.show_conversation')
+
+.content-card-header
+  = link_to t('admin2.view_conversations.back_to_conversations'), admin2_transactions_reviews_conversations_path, class: %i[content-card-header-title]
+
+- starter = @service.conversation.starter
+- starter_name = PersonViewUtils.person_display_name_for_type(starter, 'first_name_with_initial')
+- starter_link = starter ? link_to(starter_name, person_path(starter.username)) : ''
+- recipient = @service.conversation.recipient
+- recipient_name = PersonViewUtils.person_display_name_for_type(recipient, 'first_name_with_initial')
+- recipient_link = recipient ? link_to(recipient_name, person_path(recipient.username)) : ''
+- starter_ava = starter.image.present? ? starter.image.url(:thumb) : missing_avatar(:thumb)
+- recipient_ava = recipient.image.present? ? recipient.image.url(:thumb) : missing_avatar(:thumb)
+
+.content-card-section-container
+  %section.content-card-section
+    %h2
+      = t("admin2.view_conversations.participants", starter: starter_name, author: recipient_name).html_safe
+    .conversation-parties-wrapper
+      .conversation-party
+        %p
+          %span.conversation-role= t('admin2.view_conversations.initiator')
+          = image_tag(starter_ava)
+          = starter_link
+      .conversation-party
+        %p
+          %span.conversation-role= t('admin2.view_conversations.other_party')
+          = image_tag(recipient_ava)
+          = recipient_link
+
+    .conversation-wrapper
+      = render partial: 'message', collection: @service.conversation_messages, as: :message_or_action, locals: { starter: starter }

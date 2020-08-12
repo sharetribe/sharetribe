@@ -92,6 +92,8 @@ module NavigationHelpers
       admin_custom_fields_path(:locale => "en")
     when /the listing fields admin2 page/
       admin2_listings_listing_fields_path(:locale => "en")
+    when /the user fields admin2 page/
+      admin2_users_user_fields_path(:locale => "en")
     when /the categories admin page/
       admin_categories_path(:locale => "en")
     when /the manage members admin page/
@@ -140,6 +142,10 @@ module NavigationHelpers
       admin_getting_started_guide_path
     when /^the admin view of payment preferences of community "(.*)"$/i
       admin_payment_preferences_path(locale: "en")
+    when /^the admin2 view of stripe payment of community "(.*)"$/i
+      admin2_payment_system_stripe_index_path(locale: "en")
+    when /^the admin2 view of paypal payment of community "(.*)"$/i
+      admin2_payment_system_paypal_index_path(locale: "en")
     when /the order types admin page/
       admin_listing_shapes_path
     when /the order types admin2 page/

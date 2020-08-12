@@ -157,6 +157,24 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
   margin-bottom: 0;
 }
 
+.modal-footer a.btn {
+  margin-left: 24px;
+}
+
+@media (min-width: 1023px) {
+  .modal-footer a.btn {
+    margin-right: 24px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.message-container .message p:last-child {
+  margin-bottom: 0;
+}
+
 .delivery_method {
   margin-top: 37px;
   margin-left: 20px;
