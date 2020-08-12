@@ -10,7 +10,7 @@
         .modal-body
           .form-group
             = label_tag :field_type, t('admin2.user_fields.new_user_field_type')
-            = select_tag :field_type, options_for_select(custom_field_dropdown_options(CustomField::VALID_TYPES)), class: %i[form-control], data: {url: new_admin2_users_user_field_path}
+            = select_tag :field_type, options_for_select(custom_field_dropdown_options_admin2(CustomField::VALID_TYPES)), class: %i[form-control], data: {url: new_admin2_users_user_field_path}
           #body_type
         .modal-footer
           = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal

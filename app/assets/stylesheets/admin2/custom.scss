@@ -179,3 +179,17 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
 .hidden {
   display: none;
 }
+
+.modal-footer a.btn {
+  margin-left: 24px;
+}
+
+@media (min-width: 1023px) {
+  .modal-footer a.btn {
+    margin-right: 24px;
+  }
+}
+
+.hidden {
+  display: none;
+}
