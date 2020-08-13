@@ -71,6 +71,3 @@
         = link_to t('admin2.listing_fields.add_listing_type'), '#', 'data-target' => '#listingFieldsAddModal', 'data-toggle' => :modal
 
 = render 'admin2/listings/listing_fields/add_popup'
-
-:javascript
-  window.ST.jsonTranslations = #{ raw JSONTranslations.get(I18n.locale) };

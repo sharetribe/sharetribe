@@ -16,3 +16,18 @@
       = render partial: 'admin2/general/essentials/locale_selection',    locals: locale_selection_locals
     %section.content-card-terminal
       = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+
+:javascript
+  $(function(){
+    $("#colorpicker-slogan, #colorpicker-description").spectrum({
+        color: $(this).val(),
+        showInput: true,
+        preferredFormat: "hex",
+        showPalette: true,
+        showSelectionPalette: false,
+        chooseText: "#{t('admin2.chooseText')}",
+        cancelText: "#{t('admin2.cancelText')}",
+        palette: [["#FFF", "#000", "#FF4E36", "#15778E", "#ff5a5f"]]
+    });
+    $("#colorpicker-slogan, #colorpicker-description").show();
+  });
