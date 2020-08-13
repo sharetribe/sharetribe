@@ -24,6 +24,3 @@
       = link_to t('admin2.user_fields.add_new_field'), '#', 'data-target' => '#userFieldsAddModal', 'data-toggle' => :modal
 
 = render 'admin2/users/user_fields/add_popup'
-
-:javascript
-  window.ST.jsonTranslations = #{ raw JSONTranslations.get(I18n.locale) };

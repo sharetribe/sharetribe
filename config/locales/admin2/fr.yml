@@ -5,6 +5,8 @@ fr:
     prev_step: 'lorem ipsum'
     cancel: 'lorem ipsum'
     delete: 'lorem ipsum'
+    chooseText: 'lorem ipsum'
+    cancelText: 'lorem ipsum'
     topnav:
       admin_menu: 'lorem ipsum'
       logo: 'lorem ipsum'
@@ -246,6 +248,7 @@ fr:
       edit_option: 'lorem ipsum'
       delete_option_title: 'lorem ipsum "%{title}"'
       delete_option_body: 'lorem ipsum "%{title}"?'
+      error_count_options: 'lorem ipsum %{count} lorem ipsum(s)'
       price_filter_min: 'lorem ipsum'
       price_filter_max: 'lorem ipsum'
       show_price_filter: 'lorem ipsum'
@@ -363,6 +366,7 @@ fr:
         select_new_category: "lorem ipsum"
     manage_reviews:
       transaction: 'lorem ipsum'
+      paginate: 'lorem ipsum'
       customer: 'lorem ipsum'
       customer_rating: 'lorem ipsum'
       provider: 'lorem ipsum'
