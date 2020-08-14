@@ -4,7 +4,7 @@
   %meta{charset: "utf-8"}
 
   = render partial: "analytics/head_scripts", locals: { community: @current_community, user: @current_user, plan: @current_plan }
-  - font_path = APP_CONFIG[:font_proximanovasoft_url]
+  - font_path = APP_CONFIG[:font_proximasoft_url]
   - if font_path.present?
     = render partial: "layouts/fonts", locals: { font_path: font_path }
 
