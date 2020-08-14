@@ -11,7 +11,7 @@
   %td
     = l(transaction.last_activity, format: :short_date)
   %td
-    - status = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
+    - status = t("admin2.manage_transactions.statuses.#{transaction.payment_gateway}.#{transaction.status}")
     - if @transactions_presenter.show_link?(transaction)
       - if @transactions_presenter.personal?
         = link_to status, person_transaction_path(@current_user, transaction.id), target: :_blank
