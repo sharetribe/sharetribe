@@ -76,7 +76,7 @@ clp_asset_url: `https://your-cdn-service.com/landing_page/assets/`
 
 Landing page is designed to be used with Proxima Nova Soft font, which is not freely available. If you want to use Proxima Nova Soft font in the landing page, you need to buy the font.
 
-`font_proximanovasoft_url` configuration controls the path where the font is loaded from.
+`font_proximasoft_url` configuration controls the path where the font is loaded from.
 
 #### Hosting the font file in /public (Recommended)
 
@@ -84,12 +84,12 @@ Hosting the Proxima Nova Soft font in the `/public` directory is the recommended
 
 **Example:**
 
-If you save the font files to `/public/landing_page/fonts`, then you need to set the `font_proximanovasoft_url` configuration to:
+If you save the font files to `/public/landing_page/fonts`, then you need to set the `font_proximasoft_url` configuration to:
 
 ```yaml
 # config.yml
 
-font_proximanovasoft_url: `https://your-cdn-service.com/landing_page/fonts/`
+font_proximasoft_url: `https://your-cdn-service.com/landing_page/fonts/`
 ```
 
 #### Hosting the font file in S3
@@ -99,7 +99,7 @@ Change the configuration to match the font location in your S3 bucket:
 ```yaml
 # config.yml
 
-font_proximanovasoft_url: `https://yourbucketnamehere.s3.amazonaws.com/landing_page/fonts/`
+font_proximasoft_url: `https://yourbucketnamehere.s3.amazonaws.com/landing_page/fonts/`
 ```
 
 Even if you use S3 to host the font file, it's recommended to use CDN in front of the S3 bucket.
@@ -107,7 +107,7 @@ Even if you use S3 to host the font file, it's recommended to use CDN in front o
 ```yaml
 # config.yml
 
-font_proximanovasoft_url: `https://your-cdn-service.com/landing_page/fonts/`
+font_proximasoft_url: `https://your-cdn-service.com/landing_page/fonts/`
 ```
 
 ## Modifying landing page content
