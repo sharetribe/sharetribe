@@ -11,7 +11,7 @@
   - category = listing.category
   = link_to category.display_name(I18n.locale), search_path(category: category.url), target: :_blank
 %td
-  - status = t("admin.communities.listings.#{presenter.listing_status(listing)}")
+  - status = t("admin2.manage_listings.statuses.#{presenter.listing_status(listing)}")
   - if presenter.show_approval_link?(listing)
     = link_to status, '#', data: {id: listing.id, title: listing.title}, class: %i[approve-listing-link]
   - else

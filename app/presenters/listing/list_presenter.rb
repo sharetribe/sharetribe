@@ -71,7 +71,7 @@ class Listing::ListPresenter
   end
 
   def row_status_text(status)
-    "#{I18n.t("admin.communities.listings.status.#{status}")} (#{count_by_status(status)}) "
+    "#{I18n.t("admin2.manage_listings.statuses.#{status}")} (#{count_by_status(status)}) "
   end
 
   private

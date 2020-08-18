@@ -409,17 +409,17 @@ default: &default_settings
   # Fonts
   #######
 
-  # Path or URL for Proxima Nova Soft font files
+  # Path or URL for Proxima Soft font files
   #
   # Because a directory is expected, it's recommended to include trailing slash.
   #
   # Example values:
   #
-  # - empty: don't use Proximan Nova Soft font
+  # - empty: don't use Proxima Soft font
   # - landing_page/
   # - https://s3.amazonaws.com/my-bucket/fonts/
   #
-  font_proximanovasoft_url:
+  font_proximasoft_url:
 
   font_circularstd_url:
 

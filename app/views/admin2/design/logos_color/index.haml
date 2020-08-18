@@ -12,3 +12,18 @@
     = render 'favicon', form: form
     %section.content-card-terminal
       = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+
+:javascript
+  $(function(){
+    $("#colorpicker-color").spectrum({
+            color: $(this).val(),
+            showInput: true,
+            preferredFormat: "hex",
+            showPalette: true,
+            showSelectionPalette: false,
+            chooseText: "#{t('admin2.chooseText')}",
+            cancelText: "#{t('admin2.cancelText')}",
+            palette: [["#FFF", "#000", "#FF4E36", "#15778E", "#ff5a5f"]]
+    });
+    $("#colorpicker-color").show();
+  });

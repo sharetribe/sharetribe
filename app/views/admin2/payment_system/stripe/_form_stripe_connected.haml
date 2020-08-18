@@ -60,8 +60,6 @@
 
 :javascript
   $(document).ready(function() {
-    window.ST.jsonTranslations = #{ raw JSONTranslations.get(I18n.locale) };
-    translate_validation_messages("#{I18n.locale}");
     add_validator_methods();
     $("#new_payment_preferences_form").validate({
       errorPlacement: function(error, element) {

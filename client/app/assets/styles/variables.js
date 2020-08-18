@@ -14,7 +14,7 @@ const fontSizeMobile = '17px';
 const fontWeightMedium = '500';
 const fontWeightSemibold = '600';
 
-const proximaNovaFontFamily = "'Proxima Nova Soft', Helvetica, sans";
+const proximaFontFamily = "'Proxima Soft', Helvetica, sans";
 
 const lineHeight = 22;
 
@@ -146,7 +146,7 @@ module.exports = {
   '--Topbar_logoMaxHeight': '40px',
   '--Topbar_logoMaxHeightTablet': '36px',
   '--Topbar_logoMaxHeightMobile': '32px',
-  '--Topbar_fontFamily': proximaNovaFontFamily,
+  '--Topbar_fontFamily': proximaFontFamily,
   '--Topbar_borderColor': 'rgba(0, 0, 50, 0.1)',
 
    // Must be at least 16px to avoid iOS from zooming in when focusing
@@ -374,11 +374,11 @@ module.exports = {
   '--ManageAvailability_contentWidth': '274px',
   '--ManageAvailability_maxWidth': 342,
   '--ManageAvailability_minWidth': 320,
-  '--ManageAvailability_fontFamily': proximaNovaFontFamily,
+  '--ManageAvailability_fontFamily': proximaFontFamily,
   '--ManageAvailability_padding': '34px',
   '--ManageAvailability_saveButtonHeight': '60px',
   '--ManageAvailabilityHeader_height': '254px',
-  '--ManageAvailabilityCalendar_fontFamily': proximaNovaFontFamily,
+  '--ManageAvailabilityCalendar_fontFamily': proximaFontFamily,
   '--ManageAvailabilityCalendar_fontSize': fontSize,
   '--ManageAvailabilityCalendar_width': '318px',
   '--ManageAvailabilityWorkingHours_maxWidth': 440,

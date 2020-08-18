@@ -21,8 +21,8 @@ class Admin2::TransactionsPresenter
   def sorted_statuses
     statuses = FILTER_STATUSES
     statuses.map {|status|
-      ["#{I18n.t("admin.communities.transactions.status_filter.#{status}")} (#{count_by_status(status)})", status]
-    }.sort_by { |translation, _status| collator.get_sort_key(translation) }
+      ["#{I18n.t("admin2.manage_transactions.status_filter.#{status}")} (#{count_by_status(status)})", status]
+    }.sort_by{|translation, _status| collator.get_sort_key(translation) }
   end
 
   def count_by_status(status = nil)

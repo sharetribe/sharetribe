@@ -146,7 +146,7 @@ module Admin2Helper
   def admin_email_options
     options = %i[all_users posting_allowed with_listing with_listing_no_payment with_payment_no_listing no_listing_no_payment]
     options.delete(:posting_allowed) unless @current_community.require_verification_to_post_listings
-    options.map { |option| [I18n.t("admin.emails.new.recipients.options.#{option}"), option] }
+    options.map { |option| [I18n.t("admin2.email_users.recipients.options.#{option}"), option] }
   end
 
   def email_languages

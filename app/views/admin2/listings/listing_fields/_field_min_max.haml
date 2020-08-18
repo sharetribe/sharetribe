@@ -1,5 +1,5 @@
 .form-group
-  %label Decimal
+  %label= t('admin2.listing_fields.decimal')
   .form-check
     = form.check_box :allow_decimals, class: %i[form-check-input]
     = form.label :allow_decimals, t('admin2.listing_fields.allow_decimals'), class: %i[form-check-label]

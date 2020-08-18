@@ -5,6 +5,8 @@ fr:
     prev_step: 'lorem ipsum'
     cancel: 'lorem ipsum'
     delete: 'lorem ipsum'
+    chooseText: 'lorem ipsum'
+    cancelText: 'lorem ipsum'
     topnav:
       admin_menu: 'lorem ipsum'
       logo: 'lorem ipsum'
@@ -62,6 +64,7 @@ fr:
         config_transactions: 'lorem ipsum'
         view_conversations: 'lorem ipsum'
         manage_transactions: 'lorem ipsum'
+        manage_reviews: 'lorem ipsum'
       payment_system:
         country_currency: 'lorem ipsum'
         transaction_size: 'lorem ipsum'
@@ -202,6 +205,15 @@ fr:
       add_new_option: 'lorem ipsum'
       option_label: 'lorem ipsum'
       save_option: 'lorem ipsum'
+      select_one: 'lorem ipsum'
+      field_types:
+        text: 'lorem ipsum'
+        number: 'lorem ipsum'
+        dropdown: 'lorem ipsum'
+        checkbox_group: 'lorem ipsum'
+        date: 'lorem ipsum'
+        file: 'lorem ipsum'
+        location: 'lorem ipsum'
     listing_fields:
       info_header: 'lorem ipsum'
       info_text: 'lorem ipsum'
@@ -222,6 +234,7 @@ fr:
       delete_listing_field: 'lorem ipsum'
       display_on_homepage: 'lorem ipsum'
       make_mandatory: 'lorem ipsum'
+      decimal: 'lorem ipsum'
       allow_decimals: 'lorem ipsum'
       minimum_value: 'lorem ipsum'
       maximum_value: 'lorem ipsum'
@@ -236,6 +249,7 @@ fr:
       edit_option: 'lorem ipsum'
       delete_option_title: 'lorem ipsum "%{title}"'
       delete_option_body: 'lorem ipsum "%{title}"?'
+      error_count_options: 'lorem ipsum %{count} lorem ipsum(s)'
       price_filter_min: 'lorem ipsum'
       price_filter_max: 'lorem ipsum'
       show_price_filter: 'lorem ipsum'
@@ -353,6 +367,7 @@ fr:
         select_new_category: "lorem ipsum"
     manage_reviews:
       transaction: 'lorem ipsum'
+      paginate: 'lorem ipsum'
       customer: 'lorem ipsum'
       customer_rating: 'lorem ipsum'
       provider: 'lorem ipsum'
@@ -422,7 +437,6 @@ fr:
       show_conversation: 'lorem ipsum'
     email_users:
       compose_email: 'lorem ipsum'
-      recipients: 'lorem ipsum'
       learn_segments: 'lorem ipsum <a href="%{url}" target="_blank">lorem ipsum</a>.'
       receivers_languages: 'lorem ipsum'
       any_language: 'lorem ipsum'
@@ -436,6 +450,15 @@ fr:
       content_placeholder: 'lorem ipsum'
       send_email: 'lorem ipsum'
       send_to_yourself: 'lorem ipsum'
+      recipients:
+        title: 'lorem ipsum'
+        options:
+          all_users: 'lorem ipsum'
+          posting_allowed: 'lorem ipsum'
+          with_listing: 'lorem ipsum'
+          with_listing_no_payment: 'lorem ipsum'
+          with_payment_no_listing: 'lorem ipsum'
+          no_listing_no_payment: 'lorem ipsum'
     google_manager:
       info_text: "lorem ipsum"
       info_text_2: "lorem ipsum <a href='%{url}' target='_blank'>lorem ipsum</a>."
@@ -449,10 +472,19 @@ fr:
       message: 'lorem ipsum'
       accepted: 'lorem ipsum'
       date_sent: 'lorem ipsum'
+      used_no: 'lorem ipsum'
+      used_yes: 'lorem ipsum'
     manage_listings:
       search_placeholder: 'lorem ipsum'
       export_to_csv: 'lorem ipsum'
       all_listings: 'lorem ipsum (%{count})'
+      statuses:
+        open: 'lorem ipsum'
+        closed: 'lorem ipsum'
+        expired: 'lorem ipsum'
+        approved: 'lorem ipsum'
+        approval_pending: 'lorem ipsum'
+        approval_rejected: 'lorem ipsum'
       listing: 'lorem ipsum'
       provider: 'lorem ipsum'
       created: 'lorem ipsum'
@@ -593,6 +625,64 @@ fr:
           payment_intent_failed: 'lorem ipsum'
           refunded: 'lorem ipsum'
           dismissed: 'lorem ipsum'
+      status_filter:
+        free: "lorem ipsum"
+        confirmed: 'lorem ipsum'
+        paid: 'lorem ipsum'
+        canceled: 'lorem ipsum'
+        disputed: 'lorem ipsum'
+        preauthorized: 'lorem ipsum'
+        rejected: 'lorem ipsum'
+        payment_intent_requires_action: 'lorem ipsum'
+        payment_intent_action_expired: 'lorem ipsum'
+        refunded: 'lorem ipsum'
+        dismissed: 'lorem ipsum'
+      statuses:
+        conversation: 'lorem ipsum'
+        free: "lorem ipsum"
+        pending: 'lorem ipsum'
+        preauthorized: 'lorem ipsum'
+        accepted: 'lorem ipsum'
+        rejected: 'lorem ipsum'
+        paid: 'lorem ipsum'
+        confirmed: 'lorem ipsum'
+        canceled: 'lorem ipsum'
+        disputed: 'lorem ipsum'
+        initiated: "lorem ipsum"
+        pending_ext: "lorem ipsum"
+        none:
+          free: "lorem ipsum"
+        paypal:
+          free: 'lorem ipsum'
+          pending: 'lorem ipsum'
+          preauthorized: 'lorem ipsum'
+          accepted: 'lorem ipsum'
+          rejected: 'lorem ipsum'
+          paid: 'lorem ipsum'
+          confirmed: 'lorem ipsum'
+          canceled: 'lorem ipsum'
+          disputed: 'lorem ipsum'
+          initiated: "lorem ipsum"
+          pending_ext: "lorem ipsum"
+          refunded: 'lorem ipsum'
+          dismissed: 'lorem ipsum'
+        stripe:
+          free: 'lorem ipsum'
+          pending: 'lorem ipsum'
+          preauthorized: 'lorem ipsum'
+          accepted: 'lorem ipsum'
+          rejected: 'lorem ipsum'
+          paid: 'lorem ipsum'
+          confirmed: 'lorem ipsum'
+          canceled: 'lorem ipsum'
+          disputed: 'lorem ipsum'
+          initiated: "lorem ipsum"
+          pending_ext: "lorem ipsum"
+          payment_intent_requires_action: 'lorem ipsum'
+          payment_intent_action_expired: 'lorem ipsum'
+          payment_intent_failed: "lorem ipsum"
+          refunded: 'lorem ipsum'
+          dismissed: 'lorem ipsum'
     manage_users:
       ban_msg: 'lorem ipsum'
       unban_msg: 'lorem ipsum'
@@ -615,7 +705,7 @@ fr:
       unconfirmed: 'lorem ipsum'
       unconfirmed_user: 'lorem ipsum %{username}'
       edit: 'lorem ipsum'
-      delete: 'Delete'
+      delete: 'lorem ipsum'
       post_listing: 'lorem ipsum'
       ban_me_error: 'lorem ipsum'
       cannot_delete_yourself_admin: 'lorem ipsum'
