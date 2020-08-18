@@ -1,0 +1,15 @@
+.conversation-parties-wrapper
+  .conversation-party
+    %p
+      %span.conversation-role= t('admin2.manage_transactions.initiator')
+      - if pr.buyer
+        - starter_ava = pr.buyer.image.present? ? pr.buyer.image.url(:thumb) : missing_avatar(:thumb)
+        = image_tag(starter_ava)
+        = link_to_unless(pr.buyer.deleted, pr.buyer_name, person_path(pr.buyer.username))
+  .conversation-party
+    %p
+      %span.conversation-role= t('admin2.manage_transactions.other_party')
+      - if pr.provider
+        - provider_ava = pr.provider.image.present? ? pr.provider.image.url(:thumb) : missing_avatar(:thumb)
+        = image_tag(provider_ava)
+        = link_to_unless(pr.provider.deleted, pr.provider_name, person_path(pr.provider.username))

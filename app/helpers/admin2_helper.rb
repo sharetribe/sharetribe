@@ -166,6 +166,19 @@ module Admin2Helper
     end
   end
 
+  def transaction_status_class(status)
+    case status
+    when 'paid', 'confirmed', 'free', 'refunded'
+      'positive'
+    when 'payment_intent_action_expired', 'dismissed', 'rejected'
+      'neutral'
+    when 'canceled', 'disputed'
+      'negative'
+    when 'pending', 'preauthorized'
+      'attention'
+    end
+  end
+
   def date_format(date)
     base = "#{I18n.l(date, format: :short)} (UTC)"
     base.slice!(DateTime.current.year.to_s) if DateTime.current.year == date.year

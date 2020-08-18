@@ -26,7 +26,7 @@ class Admin2::TransactionsPresenter
   end
 
   def count_by_status(status = nil)
-    scope = Transaction.exist.by_community(community.id)
+    scope = service.transactions_scope.unscope(where: :current_state)
     if status.present?
       scope.where(current_state: status).count
     else
@@ -132,7 +132,7 @@ class Admin2::TransactionsPresenter
   end
 
   def has_provider_fee
-    fee.present? && fee > 0
+    fee.present? && fee.positive?
   end
 
   def marketplace_collects

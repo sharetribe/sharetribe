@@ -1,0 +1,38 @@
+- content_for :title do
+  = t('admin2.manage_transactions.show_transaction')
+
+- pr = @transactions_presenter
+- transaction = pr.transaction
+- listing_title = transaction.listing_title || t('admin.communities.transactions.not_available')
+- link = link_to_unless(transaction.listing.deleted, listing_title, listing_path(transaction.listing_id)) || listing_title
+- transaction_title = t('admin2.manage_transactions.transaction_for', link: link, transaction_id: transaction.id).html_safe
+
+.content-card-header
+  = link_to t('admin2.manage_transactions.back_to_list'), admin2_transactions_reviews_manage_transactions_path(direction: :desc, sort: :last_activity), class: %i[content-card-header-title]
+
+.content-card-section-container
+  %section.content-card-section
+    %h2
+      = transaction_title
+    = render 'header', pr: pr
+    = render 'status', transaction: transaction
+    - if pr.show_next_step?
+      = render 'next_steps', pr: pr, transaction: transaction, listing_title: listing_title
+    = render 'delivery_method', pr: pr
+
+%section.transaction-payment-breakdown
+  .payment-breakdown-wrapper
+    %h2= t('admin2.manage_transactions.payment_breakdown')
+    = render 'buyer_pays', pr: pr, transaction: transaction
+    = render 'seller_receives', pr: pr, transaction: transaction
+    = render 'marketplace_receives', pr: pr
+
+%section.transaction-conversation
+  .conversation-wrapper
+    %h2= t('admin2.manage_transactions.timeline_and_conversation', count: transaction.conversation&.messages&.size.to_i)
+    = render partial: 'message', collection: pr.messages_and_actions, as: :message_or_action, locals: { starter: pr.buyer }
+
+= render 'mark_as_completed_popup', transaction: transaction
+= render 'dispute_popup', transaction: transaction
+= render 'mark_as_refunded_popup', transaction: transaction
+= render 'dismiss_and_payout_popup', transaction: transaction
