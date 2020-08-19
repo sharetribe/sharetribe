@@ -686,6 +686,11 @@ en:
           payment_intent_failed: 'Stripe payment failed'
           refunded: 'Refunded'
           dismissed: 'Dismissed'
+    expired_popup:
+      title: '%{first_name}, your 30-day Sharetribe trial has expired.'
+      body: "Don't worry, your data has not beed deleted. You can unlock your marketplace immediately by subscribing to a paid plan, starting from $79/mo."
+      more_information: 'Need more information or time? <a href="%{mailto}">Contact us</a> or <a href="%{expire_url}">extend your free trial for two weeks</a>.'
+      choose_plan: 'Choose a plan'
     manage_users:
       ban_msg: 'This disables the user account from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?'
       unban_msg: 'This enables the user account in the marketplace and allows them to access the site again with this account. Are you sure you want to proceed?'
