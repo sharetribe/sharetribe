@@ -1,0 +1,12 @@
+
+# Configure AWS S3 Storage credentails
+EDITOR="vim" bin/rails credentails:edit
+
+# to grant sharetribe user access to create development and test database, on mysql console do:
+
+GRANT ALL PRIVILEGES ON *.* TO 'sharetribe'@'%' IDENTIFIED BY 'secret';
+
+flush privileges;
+
+
+#

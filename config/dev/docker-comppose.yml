@@ -1,0 +1,36 @@
+version: '3.3'
+services:
+  db:
+    image: mysql/mysql-server:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'root'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: ''
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: ''
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '13306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+
+  #sphinx:
+  #  image: macbre/sphinxsearch:3.2.1
+  #  ports:
+  #    - "36307:36307"
+  #    #- "127.0.0.1:36307:36307" # bind to local interface only!
+  #  volumes:
+  #    - ./data:/opt/sphinx/index  # directory where sphinx will store index data
+  #    - ./sphinx.conf:/opt/sphinx/conf/sphinx.conf  # SphinxSE configuration file
+    #mem_limit: 512m # match indexer.value from sphinx.conf
+# Names our volume
+#volumes:
+#my-db:
