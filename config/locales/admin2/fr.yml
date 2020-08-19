@@ -683,6 +683,11 @@ fr:
           payment_intent_failed: "lorem ipsum"
           refunded: 'lorem ipsum'
           dismissed: 'lorem ipsum'
+    expired_popup:
+      title: '%{first_name}, lorem ipsum.'
+      body: "lorem ipsum"
+      more_information: 'lorem ipsum <a href="%{mailto}">lorem ipsum</a> lorem ipsum <a href="%{expire_url}">lorem ipsum</a>.'
+      choose_plan: 'lorem ipsum'
     manage_users:
       ban_msg: 'lorem ipsum'
       unban_msg: 'lorem ipsum'
