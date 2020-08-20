@@ -59,7 +59,7 @@ window.ST = window.ST || {};
         text.html(actionError);
       });
     });
-    if (options.fuzzy_location) {
+    if (options.fuzzy_location && options.listing_location) {
       initFuzzyLocation(options);
     }
   };
