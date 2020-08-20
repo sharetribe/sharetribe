@@ -8,7 +8,7 @@
     %meta{content: admin_description.html_safe, name: 'description'}
     %link{rel: 'shortcut icon', type: 'image/icon', href: @current_community.favicon}
     = csrf_meta_tags
-    - path_font = APP_CONFIG[:font_circularstd_url]
+    - path_font = APP_CONFIG[:font_proximasoft_url]
     - if path_font.present?
       = render 'layouts/fonts_admin_v2', path_font: path_font
     = stylesheet_link_tag 'admin2/admin'
