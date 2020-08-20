@@ -7,7 +7,7 @@
   :javascript
     window.ST.listing({
       fuzzy_location: #{@current_community.fuzzy_location.to_json},
-      listing_location: #{raw @listing.location&.coordinates(@current_community.fuzzy_location)}
+      listing_location: #{raw @listing.location&.coordinates(@current_community.fuzzy_location) || false}
     });
   - if @current_community.fuzzy_location && !(search_mode != :keyword)
     - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
