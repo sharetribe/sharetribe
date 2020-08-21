@@ -40,6 +40,7 @@
     %p.ingress
       = link_to t('admin2.order_types.add_new'), '#', 'data-target' => '#orderTypesAddModal', 'data-toggle' => 'modal'
 
-= render 'admin2/listings/order_types/add_popup', templates: @templates
-= render 'admin2/listings/order_types/delete_popup'
-= render 'admin2/listings/order_types/delete_empty_popup'
+- content_for :popup_layout do
+  = render 'admin2/listings/order_types/add_popup', templates: @templates
+  = render 'admin2/listings/order_types/delete_popup'
+  = render 'admin2/listings/order_types/delete_empty_popup'

@@ -10517,9 +10517,9 @@ a.negative-link:hover {
 .modal-footer .cancel-modal:hover {
   color: #333; }
 
-//.modal-open #root {
-//  -webkit-filter: blur(3px);
-//  filter: blur(3px); }
+.modal-open #root {
+  -webkit-filter: blur(3px);
+  filter: blur(3px); }
 
 .conversation-parties-wrapper {
   display: -webkit-box;

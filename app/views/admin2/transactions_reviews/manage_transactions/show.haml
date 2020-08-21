@@ -32,7 +32,8 @@
     %h2= t('admin2.manage_transactions.timeline_and_conversation', count: transaction.conversation&.messages&.size.to_i)
     = render partial: 'message', collection: pr.messages_and_actions, as: :message_or_action, locals: { starter: pr.buyer }
 
-= render 'mark_as_completed_popup', transaction: transaction
-= render 'dispute_popup', transaction: transaction
-= render 'mark_as_refunded_popup', transaction: transaction
-= render 'dismiss_and_payout_popup', transaction: transaction
+- content_for :popup_layout do
+  = render 'mark_as_completed_popup', transaction: transaction
+  = render 'dispute_popup', transaction: transaction
+  = render 'mark_as_refunded_popup', transaction: transaction
+  = render 'dismiss_and_payout_popup', transaction: transaction
