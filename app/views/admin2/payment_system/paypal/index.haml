@@ -36,4 +36,5 @@
       %section.content-card-terminal
         = form.button t('admin2.save_changes'), class: %i[btn btn-primary]
 
-= render 'disable_paypal_popup'
+- content_for :popup_layout do
+  = render 'disable_paypal_popup'
