@@ -3234,13 +3234,13 @@ sv:
         digits_or_chars: "siffror eller bokstäverna A-Z"
     form_verification:
       personal_id_number: "Personligt ID nummer"
-      document: Verifikationsnummer
+      document: "Identitetsbevis (pass eller ID-kort)"
       document_back: ~
       send_verification: "Skicka verifikation"
       need_verification: "Behöver ytterligare verifiering"
       additional_document: ~
       additional_document_back: ~
-      files_need_to_be: ~
+      files_need_to_be: "Du kan ladda upp JPEG eller PNG-bilder som är mindre än 5MB. Det är inte möjligt för Stripe att verifiera PDF dokument. Bilden måste vara i färg, vara roterad med bilden höger sida upp samt ha all information tydligt synlig."
     form_pin:
       social_insurance_number: "Personnummer (SIN)"
       social_security_number: "Personnummer (SSN)"

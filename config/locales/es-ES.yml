@@ -1696,7 +1696,7 @@ es-ES:
       you_have_not_given_feedback_yet: ~
       leave_feedback: ~
     transaction_preauthorized:
-      subject: "%{requester} está interesado en y autorizado el pago por %{listing_title} en %{service_name}"
+      subject: "%{requester} está interesado y ha autorizado el pago por %{listing_title} en %{service_name}"
       transaction_requested_by_user: "Buenas noticias! %{requester} está interesado en \"%{listing_title}\" y ya ha autorizado el pago por este anuncio."
       you_have_time_to_accept: "Debes aceptar o rechazar la solicitud dentro de %{payment_expires_in}."
       if_you_do_accept: "Si aceptas la transacción durante este tiempo, recibirás el dinero inmediatamente en tu cuenta."
@@ -3253,7 +3253,7 @@ es-ES:
       ssn_last_4: "Número de Seguridad Social (últimos 4 dígitos)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
       singapore_identity_card: "Tarjeta de Identidad de Registro Nacional (NRIC) o Número de Identificación Extranjero (FIN)"
-      mexico_id_number: ~
+      mexico_id_number: "Registro Federal de Contribuyentes (RFC)"
       messages:
         social_insurance_number: "debe ser un número de seguridad social (SIN) válido"
   payment_settings:
