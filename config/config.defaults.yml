@@ -496,6 +496,11 @@ default: &default_settings
   # Debian CA bundle required for Paypal
   ssl_ca_certificates_file: '/etc/ssl/certs/ca-certificates.crt'
 
+  # reCAPTCHA
+  recaptcha_secret_key:
+  # Set to 'log', 'enforce' or 'disabled'
+  recaptcha_mode: 'disabled'
+
 production: &production_settings
   <<: *default_settings
 
