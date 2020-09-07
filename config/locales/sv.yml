@@ -2351,7 +2351,7 @@ sv:
         googlemap_updatemap: "Uppdatera karta"
       images:
         image: Bild
-        best_result: "För bästa resultat använd JPG, GIF eller PNG bilder som är %{width}x%{height} pixlar"
+        best_result: "För bästa resultat använd JPG, GIF eller PNG bilder som är %{width}x%{height} pixlar."
         no_file_selected: "Ingen fil vald"
         remove_image: "Ta bort bild"
         select_file: "Välj fil"
@@ -2390,7 +2390,7 @@ sv:
       origin:
         location: Plats
         origin: Ursprung
-        the_exact_location: ~
+        the_exact_location: "Den exakta platsen kommer inte att visas för andra användare."
       send_button:
         save_listing: "Spara annons"
         submit_for_review: ~
@@ -2714,7 +2714,7 @@ sv:
       password_again: "Bekräfta lösenord"
       show_my_name_to_others: "Visa mitt riktiga namn till andra %{service_name} användare"
       sign_up: "Skapa ett nytt %{service_name} konto"
-      terms: användarvillkoren
+      terms: Användarvillkor
       privacy: Sekretesspolicy
       visible_only_to_you: "endast synlig för dig och %{service_name} admin"
       visible_to_everybody: "synlig för alla"
@@ -2871,7 +2871,7 @@ sv:
       first_name_with_initial: "(bara första bokstaven visas för andra användare)"
       first_name_only: "(visas inte för andra användare)"
       display_name: "Synligt namn"
-      display_name_description: "Om du representerar en organisation kan du använda organisationens namn som synligt namn. Det synliga namnet visas åt andra användare istället för ditt för och efternamn."
+      display_name_description: "Om du representerar en organisation kan du använda organisationens namn som synligt namn. Det synliga namnet visas för andra användare istället för ditt för- och efternamn."
       location_description: "Du kan antingen ange hela din address eller t ex bara ditt postnummer eller stad. Det är också bra att lägga till ditt land då du väljer en plats. Till exempel: 753 20 Uppsala Sverige\" Eller \"Gustav Adolfsgatan 34,Malmö, Sverige\"."
       profile_picture_description: "Profilbilden bör vara i ett kvadratiskt format (1:1 ratio), till exempel, 800x800 pixlar. Annars kommer den att beskäras för att passa."
       phone_number: Telefonnummer
@@ -2891,7 +2891,7 @@ sv:
       format_markdown_link: ~
       format_markdown: ~
       username: ~
-      username_description: ~
+      username_description: "Ditt användarnamn används som en del av din profilsidas unika URL. Du kan endast använda bokstäver och siffror i ditt användarnamn, utan mellanslag. När du ändrar ditt användarnamn kommer din URL automatiskt att ändras och din föregående URL kommer inte att omdirigeras. Det gamla användarnamnet kommer att bli tillgängligt för andra användare."
     save_information: "Spara information"
   shipping_address:
     shipping_address: Leveransadress

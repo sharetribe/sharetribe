@@ -3008,6 +3008,9 @@ pt-PT:
     initiate:
       booked_days: "Dias reservados:"
       booked_nights: ~
+      booked_hours_label:
+        one: "Hora contratada:"
+        other: "Horas contratadas:"
       price_per_day: "Preço por dia:"
       price_per_night: ~
       price_per_hour: "Preço por hora:"
@@ -3016,13 +3019,10 @@ pt-PT:
       subtotal: "Sub-total:"
       shipping-price: ~
       stripe-fee: ~
-      start_end_time: ~
-      booked_hours_label:
-        one: "Hora contratada:"
-        other: "Horas contratadas:"
       duration_in_hours:
         one: "(1 hora)"
         other: "(%{count} horas)"
+      start_end_time: ~
     price_per_quantity: "Preço por %{unit_type}:"
     price: "Preço:"
     quantity: ~
@@ -3103,8 +3103,6 @@ pt-PT:
     next_label: "Próximo &#8594;"
     page_gap: ~
     page_entries_info:
-      multi_page: "A mostrar %{model} %{from} - %{to} do %{count} em total"
-      multi_page_html: "A mostrar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> em total"
       single_page:
         zero: "Nenhum %{model} encontrado"
         one: "A mostrar 1 %{model}"
@@ -3113,6 +3111,8 @@ pt-PT:
         zero: "Nenhum %{model} encontrado"
         one: "A mostar <b>1</b> %{model}"
         other: "A mostrar <b>all&nbsp;%{count}</b> %{model}"
+      multi_page: "A mostrar %{model} %{from} - %{to} do %{count} em total"
+      multi_page_html: "A mostrar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> em total"
     person:
       community_members_entries_info:
         multi_page: ~
