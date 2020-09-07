@@ -194,3 +194,17 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
   margin-top: 37px;
   margin-left: 20px;
 }
+
+.minimum-listing-price-holder {
+  .input-group-append {
+    order: 1;
+  }
+
+  label.error {
+    order: 2;
+  }
+
+  .form-text {
+    order: 3;
+  }
+}
