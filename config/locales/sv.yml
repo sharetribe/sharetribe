@@ -2333,7 +2333,7 @@ sv:
       description:
         detailed_description: "Detaljerad beskrivning"
         youtube_info: "Om din beskrivning innehåller länkar till YouTube videon kommer de visas under beskrivningen."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Du kan %{link}. Om din beskrivning innehåller YouTube-länkar så kommer videon att visas nedanför beskrivningen."
       destination:
         destination: Destination
       form_content:
@@ -2351,7 +2351,7 @@ sv:
         googlemap_updatemap: "Uppdatera karta"
       images:
         image: Bild
-        best_result: "För bästa resultat använd JPG, GIF eller PNG bilder som är %{width}x%{height} pixlar."
+        best_result: "För bästa resultat, använd JPG, GIF eller PNG bilder som är %{width}x%{height} pixlar."
         no_file_selected: "Ingen fil vald"
         remove_image: "Ta bort bild"
         select_file: "Välj fil"
@@ -2888,7 +2888,7 @@ sv:
       image_is_processing: "Din profilbild förbereds. Den kommer vara klar om några minuter."
       shown_in_your_public_profile: "(visas i din offentliga profil)"
       editing_profile_of: "Du redigerar nu %{name}s profil"
-      format_markdown_link: ~
+      format_markdown_link: "formatera din beskrivning med Markdown"
       format_markdown: ~
       username: ~
       username_description: "Ditt användarnamn används som en del av din profilsidas unika URL. Du kan endast använda bokstäver och siffror i ditt användarnamn, utan mellanslag. När du ändrar ditt användarnamn kommer din URL automatiskt att ändras och din föregående URL kommer inte att omdirigeras. Det gamla användarnamnet kommer att bli tillgängligt för andra användare."
