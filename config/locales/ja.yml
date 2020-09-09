@@ -2979,7 +2979,7 @@ ja:
     format: yyyy/mm/dd
   time:
     formats:
-      short: "%Y年 %H:%M"
+      short: "%Y年 %b %e日 %H:%M"
       shorter: "%m/%e %H:%M"
       short_date: "%Y/%m/%e"
       hours_only: ~
