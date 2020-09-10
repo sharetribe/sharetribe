@@ -104,6 +104,8 @@ gem 'mail', '~> 2.6.6.rc1'
 
 gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.2'
 
+gem 'recaptcha', '~> 5.5'
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 6.11.0'
   gem 'rails_12factor', '~> 0.0.3'
