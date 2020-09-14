@@ -36,7 +36,7 @@ Feature: User changes notification settings
     And I uncheck "...someone rejects my offer or request"
     And I uncheck "...someone gives me feedback"
     And I uncheck "...I have forgotten to confirm an order as completed"
-    And I uncheck "...I have forgotten to give feedback on an event"
+    And I uncheck "...I have forgotten to give feedback on an order"
     And I uncheck "...someone marks my order as completed"
     And I uncheck "...I receive a new payment"
     And I uncheck "...someone I follow posts a new listing"
@@ -49,7 +49,7 @@ Feature: User changes notification settings
     And the "...someone rejects my offer or request" checkbox should not be checked
     And the "...someone gives me feedback" checkbox should not be checked
     And the "...I have forgotten to confirm an order as completed" checkbox should not be checked
-    And the "...I have forgotten to give feedback on an event" checkbox should not be checked
+    And the "...I have forgotten to give feedback on an order" checkbox should not be checked
     And the "...someone marks my order as completed" checkbox should not be checked
     And the "...I receive a new payment" checkbox should not be checked
     And the "...someone I follow posts a new listing" checkbox should not be checked
