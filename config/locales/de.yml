@@ -637,7 +637,7 @@ de:
           reject: Ablehnen
           cancel: Abbrechen
       user_fields:
-        user_fields: "Benutzer Feld"
+        user_fields: Benutzerfelder
       footer:
         footer: Fußzeile
         offer_pro: "Sharetribe-Branding aus der Fußzeile entfernen und die Fußzeile konfigurieren durch %{upgrade_pro_plan_link}"
@@ -897,9 +897,9 @@ de:
         file: Datei
         location: Standort
     person_custom_fields:
-      saving_failed: "Speicherung Benutzer Feld fehlgeschlagen"
+      saving_failed: "Speicherung der Benutzerfelder fehlgeschlagen"
       index:
-        user_fields: "Benutzer Felder"
+        user_fields: Benutzerfelder
         field_title: "Feld Name"
         field_type: "Feld Typ"
         signup: Anmeldung
@@ -912,14 +912,14 @@ de:
         allow_decimals: "Dezimalstellen erlauben"
         add_option: "Option hinzufügen"
       new:
-        new_user_field: "Neues Benutzer Feld"
+        new_user_field: "Neues Benutzerfeld"
       form:
         field_required:
           this_field_is_required: "Dieses Feld zum Pflichtfeld machen, wenn eine Registrierung auf dem Marktplatz erfolgt"
           this_field_is_required_checkbox: "Dieses Feld zum Pflichtfeld machen, wenn eine Registrierung auf dem Marktplatz erfolgt (Nutzer muss mindestens eine Option auswählen)"
           this_field_is_public: "Dieses Feld in der öffentlichen Profilseite anzeigen"
       edit:
-        edit_user_field: "Benutzer Feld anpassen %{field_name}"
+        edit_user_field: "Benutzerfeld %{field_name} anpassen"
     emails:
       new:
         send_email_to_members: "E-Mail an alle Mitglieder senden"
