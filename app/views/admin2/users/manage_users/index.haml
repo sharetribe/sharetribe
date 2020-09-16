@@ -17,9 +17,9 @@
           - if @presenter.require_verification_to_post_listings
             %th{scope: :col}
               = t('admin2.manage_users.posting')
-          %th{scope: :col}
+          -#%th{scope: :col}
             = t('admin2.manage_users.admin')
-          %th{scope: :col}
+          -#%th{scope: :col}
             = t('admin2.manage_users.disable')
           %th{scope: :col}
             = t('admin2.manage_users.actions')
@@ -33,3 +33,4 @@
 - content_for :popup_layout do
   = render 'admin2/users/manage_users/confirm_popup'
   = render 'admin2/users/manage_users/delete_popup'
+  = render 'admin2/users/manage_users/admin_popup'
