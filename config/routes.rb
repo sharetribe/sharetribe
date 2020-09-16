@@ -234,8 +234,8 @@ Rails.application.routes.draw do
         resources :manage_users, path: 'manage-users', only: %i[index destroy] do
           member do
             get :resend_confirmation
-            patch :ban
-            patch :unban
+            post :ban
+            post :unban
             post :promote_admin
             patch :posting_allowed
           end
