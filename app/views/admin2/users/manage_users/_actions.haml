@@ -1,7 +1,7 @@
-%a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-flip" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"} •••
+%a.more.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-flip" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"} •••
 .dropdown-menu
   - if accepted_or_banned && member.banned?
-    = link_to '#', class: %i[dropdown-item positive revoke-admin],
+    = link_to '#', class: %i[dropdown-item positive revoke-admin unban-user],
                    data: {url: unban_admin2_users_manage_user_path(membership.id),
                           msg: t('admin2.manage_users.unban_msg'),
                           caption: t('admin2.manage_users.unban_caption', username: @presenter.person_name(member)),
@@ -43,7 +43,7 @@
   %hr
   - if accepted_or_banned && !member.eql?(@current_user) && !member.banned?
     - if member.is_marketplace_admin?(@presenter.community)
-      = link_to '#', class: %i[dropdown-item negative revoke-admin],
+      = link_to '#', class: %i[dropdown-item negative revoke-admin remove-admin],
                      data: {url: promote_admin_admin2_users_manage_user_path(membership, remove_admin: member.id),
                             msg: t('admin2.manage_users.from_admin'),
                             caption: t('admin2.manage_users.from_admin_caption', username: @presenter.person_name(member)),
@@ -54,7 +54,7 @@
             %path{:d => "M10.977 12.504C10.36 10.233 8.174 9 5.483 9 2.793 9 .617 10.235 0 12.507"}
         = t('admin2.manage_users.revoke_admin')
     - else
-      = link_to '#', class: %i[dropdown-item negative revoke-admin],
+      = link_to '#', class: %i[dropdown-item negative revoke-admin add-admin],
                      data: {url: promote_admin_admin2_users_manage_user_path(membership, add_admin: member.id),
                             msg: t('admin2.manage_users.to_admin'),
                             caption: t('admin2.manage_users.to_admin_caption', username: @presenter.person_name(member)),
@@ -68,7 +68,7 @@
     %hr
 
   - if accepted_or_banned && !member.banned?
-    = link_to '#', class: %i[dropdown-item negative revoke-admin],
+    = link_to '#', class: %i[dropdown-item negative revoke-admin ban-user],
                    data: {url: ban_admin2_users_manage_user_path(membership.id),
                           msg: t('admin2.manage_users.ban_msg'),
                           caption: t('admin2.manage_users.ban_caption', username: @presenter.person_name(member)),
