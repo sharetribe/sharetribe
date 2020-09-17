@@ -371,13 +371,13 @@ DROP TABLE IF EXISTS `community_domain_checkers`;
 CREATE TABLE `community_domain_checkers` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `community_id` bigint(20) DEFAULT NULL,
-  `domain` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `state` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'initial',
+  `domain` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT 'initial',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_community_domain_checkers_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_memberships`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
