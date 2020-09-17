@@ -83,7 +83,7 @@ class IntApi::MarketplacesController < ApplicationController
         logger.info('trial_recaptcha_validate_success', nil, {})
       rescue Recaptcha::RecaptchaError => e
         logger.info('trial_recaptcha_validate_error', nil, {error: e.message})
-        return false
+        return mode != :enforce
       end
     end
 

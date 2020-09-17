@@ -1492,7 +1492,7 @@ es:
       payment_settings_link: "configuración de pagos"
     payment_settings_reminder_v2:
       fill_payout_details: "Completa tus detalles de pago"
-      you_have_added_listing_with_payment: "Has añadido un anuncio %{listing_link} con pagos en línea. Sin embargo, hemos notado que no has añadido tus detalles de pago. Para poder recibir pagos en línea debes añadir tus información de pago."
+      you_have_added_listing_with_payment: "Has añadido un anuncio %{listing_link} con pagos en línea. Sin embargo, hemos notado que no has añadido tus detalles de pago. Para poder recibir pagos en línea debes añadir tu información de pago."
     transaction_confirmed:
       here_is_a_message_from: "Tienes un mensaje de %{other_party_given_name}:"
       request_marked_as_confirmed: "Solicitud completada - Recuerda dar una valoración"
@@ -3256,7 +3256,7 @@ es:
       ssn_last_4: "Número de Seguridad Social (últimos 4 dígitos)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
       singapore_identity_card: "Tarjeta de Identidad de Registro Nacional (NRIC) o Número de Identificación Extranjero (FIN)"
-      mexico_id_number: "Clave única de registro de población (CURP)"
+      mexico_id_number: "Registro Federal de Contribuyente (RFC)"
       messages:
         social_insurance_number: "debe ser un número de seguridad social (SIN) válido"
   payment_settings:

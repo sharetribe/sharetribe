@@ -94,6 +94,15 @@ When(/^I (.*?)ban user "(.*?)"$/) do |unban_str, full_name|
   }
 end
 
+When(/^I (.*?)ban user in admin2 "(.*?)"$/) do |unban_str, full_name|
+  elem = find_element_for_person(full_name, '.more')
+  elem.click
+
+  link = find_element_for_person(full_name, ".#{unban_str}ban-user")
+
+  link.click
+  find('#userRevokeAdminRightsModalButton').click
+end
 
 Then(/^"(.*?)" should (.*?)be banned from this community$/) do |username, not_banned|
   not_banned = not_banned.include?('not')
@@ -132,6 +141,16 @@ When(/^I promote "(.*?)" to admin$/) do |full_name|
   steps %Q{
     Then I should see "Saved" within ".ajax-update-notification"
   }
+end
+
+When(/^I promote "(.*?)" to admin2$/) do |full_name|
+  elem = find_element_for_person(full_name, '.more')
+  elem.click
+
+  link = find_element_for_person(full_name, ".add-admin")
+
+  link.click
+  find('#userRevokeAdminRightsModalButton').click
 end
 
 Then(/^I should see that I can not remove admin rights of "(.*?)"$/) do |full_name|

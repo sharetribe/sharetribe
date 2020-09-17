@@ -11,14 +11,14 @@ Feature: User changes notification settings
     When I open user menu
     When I follow "Settings"
     And I follow "notifications_left_navi_link"
-    And the "...someone comments on my offer or request" checkbox should be checked
+    And the "...someone comments on my listing" checkbox should be checked
     And the "...someone sends me a message" checkbox should be checked
     And the "Send me a daily newsletter if there are new listings" checkbox should be checked
-    And I uncheck "...someone comments on my offer or request"
+    And I uncheck "...someone comments on my listing"
     And I choose "do_not_email_community_updates"
     And I press "Save information"
     Then I should see "Information updated"
-    And the "...someone comments on my offer or request" checkbox should not be checked
+    And the "...someone comments on my listing" checkbox should not be checked
     And the "Send me a daily newsletter if there are new listings" checkbox should not be checked
     And the "Don't send me newsletters" checkbox should be checked
     And the "...someone sends me a message" checkbox should be checked
@@ -31,12 +31,12 @@ Feature: User changes notification settings
     Given I am on the notifications settings page
     And I uncheck "I agree to receive occasional emails from"
     And I uncheck "...someone sends me a message"
-    And I uncheck "...someone comments on my offer or request"
+    And I uncheck "...someone comments on my listing"
     And I uncheck "...someone accepts my offer or request"
     And I uncheck "...someone rejects my offer or request"
     And I uncheck "...someone gives me feedback"
     And I uncheck "...I have forgotten to confirm an order as completed"
-    And I uncheck "...I have forgotten to give feedback on an event"
+    And I uncheck "...I have forgotten to give feedback on an order"
     And I uncheck "...someone marks my order as completed"
     And I uncheck "...I receive a new payment"
     And I uncheck "...someone I follow posts a new listing"
@@ -44,12 +44,12 @@ Feature: User changes notification settings
     Then I should see "Information updated"
     And the "I agree to receive occasional emails from" checkbox should not be checked
     And the "...someone sends me a message" checkbox should not be checked
-    And the "...someone comments on my offer or request" checkbox should not be checked
+    And the "...someone comments on my listing" checkbox should not be checked
     And the "...someone accepts my offer or request" checkbox should not be checked
     And the "...someone rejects my offer or request" checkbox should not be checked
     And the "...someone gives me feedback" checkbox should not be checked
     And the "...I have forgotten to confirm an order as completed" checkbox should not be checked
-    And the "...I have forgotten to give feedback on an event" checkbox should not be checked
+    And the "...I have forgotten to give feedback on an order" checkbox should not be checked
     And the "...someone marks my order as completed" checkbox should not be checked
     And the "...I receive a new payment" checkbox should not be checked
     And the "...someone I follow posts a new listing" checkbox should not be checked

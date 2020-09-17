@@ -2381,8 +2381,8 @@ ja:
         the_exact_location: ~
       send_button:
         save_listing: 投稿する
-        submit_for_review: ~
-        will_be_reviewed: ~
+        submit_for_review: 投稿確認を依頼する
+        will_be_reviewed: "%{service_name} における全ての投稿は、公開前に運営の承認が必要です。承認が下りるとメールにて通知が届き、プラットフォーム上で投稿が公開されます。"
         we_noticed_youre_an_admin: ~
       share_type:
         select: 選択
@@ -2832,7 +2832,7 @@ ja:
       newsletters: ☆速報☆
       community_updates: メルマガ登録
       email_about_confirm_reminders: "...取引完了ボタンをクリックし忘れた時"
-      email_about_new_comments_to_own_listing: 私の公開された依頼または要望ページに新しいコメントがあった場合
+      email_about_new_comments_to_own_listing: "...自分の投稿に新しいコメントがあった時"
       email_about_new_messages: "...メッセージを受信したとき"
       email_about_new_received_testimonials: "...レビューを受け取った時"
       email_about_testimonial_reminders: "...レビュー書くのを忘れてしまった時"
@@ -2864,7 +2864,7 @@ ja:
       phone_number: 電話番号
       profile_picture: プロフィール画像
       postal_code: 郵便番号
-      profile_page: プロフィール情報を設定
+      profile_page: プロフィール表示を確認する
       profilemap: 地図で見る
       street_address: 所在地
       these_fields_are_shown_in_your: "この情報は、%{service_name}のすべてのユーザーに表示されます。"
@@ -2921,7 +2921,7 @@ ja:
       about_listing: さんから以下の件でレビューいただきました
   date:
     formats:
-      long_with_abbr_day_name: "%Y/%m/%d （%a）"
+      long_with_abbr_day_name: "%Y %m %d %a"
     first_day_of_week: ０
   datepicker:
     days:
@@ -2979,7 +2979,7 @@ ja:
     format: yyyy/mm/dd
   time:
     formats:
-      short: "%Y年 %H:%M"
+      short: "%Y年 %b %e日 %H:%M"
       shorter: "%m/%e %H:%M"
       short_date: "%Y/%m/%e"
       hours_only: ~
