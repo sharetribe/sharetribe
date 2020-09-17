@@ -8,6 +8,8 @@ class IntApi::MarketplacesController < ApplicationController
 
   # Creates a marketplace and an admin user for that marketplace
   def create
+    return render status: :bad_request, json: {recaptcha_error: "validation failed"} unless validate_recaptcha(params[:recaptcha_token])
+
     form = NewMarketplaceForm.new(params)
     return render status: :bad_request, json: form.errors unless form.valid?
 
@@ -69,6 +71,24 @@ class IntApi::MarketplacesController < ApplicationController
   end
 
   private
+
+  def validate_recaptcha(token)
+    mode = APP_CONFIG.recaptcha_mode.to_sym
+    if APP_CONFIG.recaptcha_secret_key && [:log, :enforce].include?(mode)
+      begin
+        verify_recaptcha!(
+          response: token,
+          secret_key: APP_CONFIG.recaptcha_secret_key,
+          timeout: 5)
+        logger.info('trial_recaptcha_validate_success', nil, {})
+      rescue Recaptcha::RecaptchaError => e
+        logger.info('trial_recaptcha_validate_error', nil, {error: e.message})
+        return mode != :enforce
+      end
+    end
+
+    return true
+  end
 
   def set_access_control_headers
     # TODO change this to more strict setting when done testing
