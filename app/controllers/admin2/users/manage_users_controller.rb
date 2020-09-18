@@ -1,3 +1,5 @@
+require 'csv'
+
 module Admin2::Users
   class ManageUsersController < Admin2::AdminBaseController
     before_action :set_service
