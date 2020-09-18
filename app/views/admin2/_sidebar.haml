@@ -34,7 +34,7 @@
         %li#coverphotos{class: active_li('cover_photos')}
           = link_to t('admin2.sidebar.design.cover_photos'), admin2_design_cover_photos_path
         %li#landingpage{class: active_li('landing_page')}
-          = link_to t('admin2.sidebar.design.landing_page'), admin2_design_landing_page_index_path
+          = link_to t('admin2.sidebar.design.landing_page'), admin2_landing_page_path
         %li#topbar{class: active_li('topbar')}
           = link_to t('admin2.sidebar.design.topbar'), admin2_design_topbar_index_path
         %li#footer{class: active_li('footer')}
@@ -44,7 +44,7 @@
         %li#experimental{class: active_li('experimental')}
           = link_to t('admin2.sidebar.design.experimental'), admin2_design_experimental_index_path
       / Divider
-      %hr/
+      %hr
       / Users
       %ul.category-title
         %li
@@ -193,3 +193,5 @@
         = link_to t('admin2.sidebar.marketplace_guide'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
       %li
         = link_to t('admin2.sidebar.what_new'), 'https://www.sharetribe.com/products/go/updates?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
+      %li
+        = link_to t('admin2.sidebar.legacy_admin_panel'), admin_path
