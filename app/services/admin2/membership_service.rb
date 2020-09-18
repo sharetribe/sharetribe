@@ -219,4 +219,12 @@ class Admin2::MembershipService
     end
     scope
   end
+
+  def paypal_accounts_api
+    PaypalService::API::Api.accounts
+  end
+
+  def stripe_accounts_api
+    StripeService::API::Api.accounts
+  end
 end
