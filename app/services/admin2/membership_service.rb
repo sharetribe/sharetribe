@@ -120,6 +120,7 @@ class Admin2::MembershipService
       language
     }
     header_row.push("can_post_listings") if community.require_verification_to_post_listings
+    header_row += %w{has_connected_paypal has_connected_stripe}
     header_row += community.person_custom_fields.map{|f| f.name}
     yielder << header_row.to_csv(force_quotes: true)
     all_memberships.find_each do |membership|
@@ -142,6 +143,10 @@ class Admin2::MembershipService
           language: user.locale
         }
         user_data[:can_post_listings] = membership.can_post_listings if community.require_verification_to_post_listings
+        paypal_account = paypal_accounts_api.get(community_id: community.id, person_id: user.id).data || {}
+        stripe_account = stripe_accounts_api.get(community_id: community.id, person_id: user.id).data || {}
+        user_data[:has_connected_paypal] = paypal_account[:state] == :verified
+        user_data[:has_connected_stripe] = stripe_account[:stripe_seller_id].present?
         community.person_custom_fields.each do |field|
           field_value = user.custom_field_values.by_question(field).first
           user_data[field.name] = field_value.try(:display_value)
