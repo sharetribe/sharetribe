@@ -147,8 +147,10 @@ class Admin::Communities::MembershipService
           language: user.locale
         }
         user_data[:can_post_listings] = membership.can_post_listings if community.require_verification_to_post_listings
-        user_data[:has_connected_paypal] = !!user.paypal_account&.connected?
-        user_data[:has_connected_stripe] = !!user.stripe_account&.connected?
+        paypal_account = paypal_accounts_api.get(community_id: community.id, person_id: user.id).data || {}
+        stripe_account = stripe_accounts_api.get(community_id: community.id, person_id: user.id).data || {}
+        user_data[:has_connected_paypal] = paypal_account[:state] == :verified
+        user_data[:has_connected_stripe] = stripe_account[:stripe_seller_id].present?
         community.person_custom_fields.each do |field|
           field_value = user.custom_field_values.by_question(field).first
           user_data[field.name] = field_value.try(:display_value)
@@ -221,4 +223,13 @@ class Admin::Communities::MembershipService
     end
     scope
   end
+
+  def paypal_accounts_api
+    PaypalService::API::Api.accounts
+  end
+
+  def stripe_accounts_api
+    StripeService::API::Api.accounts
+  end
+
 end
