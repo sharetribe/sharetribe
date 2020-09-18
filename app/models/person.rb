@@ -123,7 +123,7 @@ class Person < ApplicationRecord
   has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue", :dependent => :destroy
   has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue", :dependent => :destroy
   has_one :stripe_account, :dependent => :destroy
-  has_one :paypal_account, -> { order('created_at DESC') }, :dependent => :destroy, :inverse_of => :person
+  has_one :paypal_account, :dependent => :destroy
   has_many :starter_transactions, :class_name => "Transaction", :foreign_key => "starter_id", :dependent => :destroy, :inverse_of => :starter
   has_many :payer_stripe_payments, :class_name => "StripePayment", :foreign_key => "payer_id", :dependent => :destroy, :inverse_of => :payer
   has_many :receiver_stripe_payments, :class_name => "StripePayment", :foreign_key => "receiver_id", :dependent => :destroy, :inverse_of => :receiver
