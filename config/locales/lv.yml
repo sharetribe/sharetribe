@@ -2302,7 +2302,7 @@ lv:
       departure_time_radio_buttons:
         repeated: "Atkārtot (laukam 'detalizēts apsraksts' pievienojiet laiku un dienas)"
       description:
-        detailed_description: "Pēc iespējas plašāks pakalpojuma apraksts"
+        detailed_description: "Plašs pakalpojuma apraksts"
         youtube_info: "Ja Jūsu sludinājuma apraksts satur YouTube saites, videoklipi būs redzami zem apraksta."
         youtube_info_markdown: "Jūs varat %{link}. Ja Tev ir YouTube video, iekopē liku šeit un video tiks parādīti zem apraksta."
       destination:
@@ -2321,7 +2321,7 @@ lv:
         googlemap_description: Karte
         googlemap_updatemap: "Atjaunināt karti"
       images:
-        image: "Pakalpojuma foto"
+        image: "Pakalpojuma foto bez teksta"
         best_result: "Lai iegūtu vislabākos rezultātus, izmantojiet JPG, GIF vai PNG attēlus, kuru izmērs ir vismaz %{width} x %{height} pikseļi un nelietojiet bildes ar kontaktu info."
         no_file_selected: "Nav izvēlēts fails"
         remove_image: "Dzēst bildi"
@@ -2841,12 +2841,12 @@ lv:
       given_name: Vārds
       first_name_with_initial: "(tikai pirmie burti tiek rādīti citiem lietotājiem)"
       first_name_only: "(netiek rādīts citiem lietotājiem)"
-      display_name: "Redzamais vārds"
+      display_name: "Labdarības organizācija"
       display_name_description: "Ja pārstāvat kādu organizāciju, varat izmantot tās nosaukumu kā redzamo vārdu. Citiem lietotājiem tiek parādīts redzamais vārds, nevis jūsu vārds un uzvārds."
       location_description: "Jūs varat norādīt tikai pilsētu vai arī pilsētu un ielas nosaukumu."
-      profile_picture_description: "Profila attēlam jābūt kvadrātveida formātā (1:1 attiecība), piemēram, 800x800 pikseļi. Pretējā gadījumā, attēls tiks apgriezts, lai tas atbilstu noteikumiem."
+      profile_picture_description: "Profila foto jābūt kvadrātveida formātā (1:1 attiecība), piemēram, 800x800 pikseļi. Pretējā gadījumā, attēls tiks apgriezts, lai tas atbilstu formātam."
       phone_number: Tālrunis
-      profile_picture: "Profila attēls"
+      profile_picture: "Profila foto"
       postal_code: "Pasta indekss"
       profile_page: "Jūsu profila lapā"
       profilemap: "Mapes skats"
