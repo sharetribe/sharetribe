@@ -12,3 +12,5 @@
       %li
         - learn_more_link = link_to t('admin2.manage_transactions.learn_more'), "#{APP_CONFIG.knowledge_base_url}/en/articles/1587573", target: :_blank
         = t('admin2.manage_transactions.you_should_investigate', learn_more_link: learn_more_link).html_safe
+
+  = render 'delivery_method', pr: pr
