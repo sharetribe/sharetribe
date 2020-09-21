@@ -291,7 +291,7 @@ sv:
         for_search_terms: "för: %{terms}"
         this_makes_the_user_an_admin: ~
         status_filter:
-          all: ~
+          all: "Alla statusar"
           selected: ~
           selected_js: ~
           admin: ~
@@ -476,7 +476,7 @@ sv:
           preauthorized: Auktoriserad
           rejected: ~
           payment_intent_requires_action: ~
-          payment_intent_action_expired: Utgånget
+          payment_intent_action_expired: "Löpts ut"
           refunded: ~
           dismissed: ~
         headers:
@@ -530,7 +530,7 @@ sv:
             initiated: "Väntar på Stripe betalning"
             pending_ext: "Väntar på Stripe betalning"
             payment_intent_requires_action: ~
-            payment_intent_action_expired: Utgånget
+            payment_intent_action_expired: "Löpts ut"
             payment_intent_failed: ~
             refunded: ~
             dismissed: ~
@@ -611,11 +611,11 @@ sv:
         export_all_as_csv: ~
         processing_export: ~
         status:
-          all: ~
+          all: "Alla statusar"
           selected_js: ~
           open: Öppen
           closed: Avslutad
-          expired: Utgånget
+          expired: "Löpts ut"
           approval_pending: ~
           approval_rejected: ~
         headers:
@@ -626,8 +626,8 @@ sv:
           category: Kategori
           status: Status
         open: Öppen
-        closed: Stängd
-        expired: Utgånget
+        closed: Avslutad
+        expired: "Löpts ut"
         approved: ~
         approval_pending: ~
         approval_rejected: ~
@@ -2007,7 +2007,7 @@ sv:
       invitation_message_field_placeholder: "Jag har gått med i denna fantastiska marknadsplats. Det borde du också göra!"
       errors_in_emails: "Kontrollera att e-postadresserna som du lade till är giltiga och inte innehåller några otillåtna tecken. Om du lade till flera adresser, kontrollera så att de är separerade med kommatecken."
     list_item:
-      review: granska
+      review: recension
       reviews: recensioner
       distance_away: "%{distance} %{distance_unit} bort"
     news_item:
@@ -2275,7 +2275,7 @@ sv:
       payments: Betalningar
       listings: Annonser
       listings_search_placeholder: "Sök efter en titel"
-      transactions_search_placeholder: ~
+      transactions_search_placeholder: "Sök efter en transaktionstitel eller involverade parter"
       transactions: Transaktioner
   listings:
     bubble_listing_not_visible:
@@ -3173,8 +3173,8 @@ sv:
       need_info: "Vi behöver en del information om dig för att kunna skicka dig pengar."
       select_country: "Välj land...."
       legal_name: Namn
-      first_name: ~
-      last_name: ~
+      first_name: Förnamn
+      last_name: Efternamn
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
