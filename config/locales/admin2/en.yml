@@ -738,7 +738,7 @@ en:
         admin: 'Admin'
         admin_tooltip: 'This user has full access to the marketplace settings and data, via the Admin panel.'
         pending: 'Pending'
-        pending_tooltip: 'This user has not accepted your marketplace terms yet. Next time they log in, they will be prompted the terms again to be able to fully join your marketplace.'
+        pending_tooltip: "This user signed up through social login but didn't complete the signup process. After connecting a social login account, users still need to accept your terms of use and fill any mandatory user fields."
         unconfirmed_tooltip: "This user's email address has not been verified. You can resend the confirmation email via the Actions."
         unconfirmed: 'Unconfirmed'
       delete_user_text: >
