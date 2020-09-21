@@ -7,7 +7,7 @@
   = link_to @presenter.person_name(member), member, target: :_blank
   - if member.is_marketplace_admin?(@presenter.community)
     %span.badge.badge-admin{"data-toggle" => "tooltip", title: t('admin2.manage_users.badge.admin_tooltip')}= t('admin2.manage_users.badge.admin')
-  - unless accepted_or_banned
+  - if membership.pending_consent?
     %span.badge.badge-unconfirmed{"data-toggle" => "tooltip", title: t('admin2.manage_users.badge.pending_tooltip')}= t('admin2.manage_users.badge.pending')
   - if membership.pending_email_confirmation?
     %span.badge.badge-unconfirmed{"data-toggle" => "tooltip", title: t('admin2.manage_users.badge.unconfirmed_tooltip')}= t('admin2.manage_users.badge.unconfirmed')
