@@ -16,9 +16,8 @@
       = transaction_title
     = render 'header', pr: pr
     = render 'status', transaction: transaction
-    - if pr.show_next_step?
+    - if pr.show_next_step? || pr.shipping? || pr.pickup?
       = render 'next_steps', pr: pr, transaction: transaction, listing_title: listing_title
-    = render 'delivery_method', pr: pr
 
 %section.transaction-payment-breakdown
   .payment-breakdown-wrapper
