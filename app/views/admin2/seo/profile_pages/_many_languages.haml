@@ -4,7 +4,7 @@
   .multiple-languages-container
     - customizations.each do |customization|
       = form.fields_for :community_customizations, customization do |cc|
-        .d-flex.multiple-languages
+        .multiple-languages-language
           %span.language
             = local_name(cc.object.locale)
         .multiple-languages-input
