@@ -1549,8 +1549,8 @@ el:
       has_commented_listing_you_follow_in_kassi: "Ο/η %{author} σχολίασε στην καταχώρηση \"%{listing}\" την οποία παρακολουθείτε στο %{service_name}."
     new_message:
       view_message: "Δείτε το μήνυμα"
-      has_sent_you_a_message_in_kassi: "Ο/Η %{sender} σας έστειλε ένα μήνυμα στο %{service_name}."
-      you_have_a_new_message: "Έχετε ένα νέο μήνυμα στο %{service_name} από τον/την %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~

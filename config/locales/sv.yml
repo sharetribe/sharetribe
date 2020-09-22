@@ -1584,11 +1584,11 @@ sv:
       has_commented_listing_you_follow_in_kassi: "%{author} har kommenterat annonsen %{listing} som du följer på %{service_name}."
     new_message:
       view_message: "Visa meddelande"
-      has_sent_you_a_message_in_kassi: "%{sender} har skickat ett meddelande i %{service_name}."
-      you_have_a_new_message: "Du har fått ett nytt meddelande i %{service_name} från %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
-      reply: "Svara %{sender}"
+      reply: ~
     new_payment:
       new_payment: "Du har fått en ny inbetalning"
       price_per_unit_type: "Pris per %{unit_type}"
@@ -1613,7 +1613,7 @@ sv:
     payment_receipt_to_seller_v2:
       headline: ~
       main_text_stripe: "Pengarna hålls av %{service_name} tills beställningen markeras som slutförd."
-      price_breakdown: Kostnadsuppdelning
+      price_breakdown: Prisspecifikation
     payment_receipt_to_payer:
       receipt_of_payment: "Kvitto för betalning"
       you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{recipient_full_name}. Här är ett kvitto av betalningen."

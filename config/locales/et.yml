@@ -1584,11 +1584,11 @@ et:
       has_commented_listing_you_follow_in_kassi: "%{author}  on kommenteerinud kirjet '%{listing}', mida te jälgite, %{service_name}."
     new_message:
       view_message: "Vaata teadet"
-      has_sent_you_a_message_in_kassi: "%{sender} on saatnud sulle teate %{service_name} kohta"
-      you_have_a_new_message: "Uus teade %{service_name} kohta kasutajalt %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: "sulle on sõnum!"
-      reply: "Vasta %{sender}"
+      reply: ~
     new_payment:
       new_payment: "Oled saanud uue makse"
       price_per_unit_type: "Hind %{unit_type}"

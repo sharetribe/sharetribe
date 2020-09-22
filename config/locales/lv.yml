@@ -1553,11 +1553,11 @@ lv:
       has_commented_listing_you_follow_in_kassi: "%{author} komentēja sludinājumu '%{listing}' kuram Jūs sekojat %{service_name}."
     new_message:
       view_message: "Skatīt vēstuli"
-      has_sent_you_a_message_in_kassi: "%{sender} no %{service_name} ir atsūtījis Tev ziņu."
-      you_have_a_new_message: "Jauna vēstule %{service_name} no %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
-      reply: "Nosūtīt atbildi priekš - %{sender}"
+      reply: ~
     new_payment:
       new_payment: "Jūs esat saņēmis jaunu maksājumu"
       price_per_unit_type: "Cena par %{unit_type}"

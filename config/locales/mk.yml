@@ -1549,8 +1549,8 @@ mk:
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: "%{sender} ви испрати порака во %{service_name}"
-      you_have_a_new_message: "Нова порака на %{service_name} од %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~

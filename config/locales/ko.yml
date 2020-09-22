@@ -1575,11 +1575,11 @@ ko:
       has_commented_listing_you_follow_in_kassi: "%{service_name}에서 %{author}님이 '%{listing}'에 댓글을 추가했습니다."
     new_message:
       view_message: "메시지 보기"
-      has_sent_you_a_message_in_kassi: "%{service_name} 회원 %{sender}님이 메시지를 보냈습니다."
-      you_have_a_new_message: "%{service_name} 회원 %{sender_name}님의 신규 메시지"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
-      reply: "%{sender}님에게 회신하기"
+      reply: ~
     new_payment:
       new_payment: "신규결제가 처리되었습니다."
       price_per_unit_type: "%{unit_type} 당 가격 :"
