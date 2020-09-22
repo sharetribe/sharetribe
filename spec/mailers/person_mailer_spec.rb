@@ -23,7 +23,7 @@ describe PersonMailer, type: :mailer do
     email = MailCarrier.deliver_now(PersonMailer.new_message_notification(@message, @community))
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal @test_person2.confirmed_notification_email_addresses, email.to
-    assert_equal "A new message in Sharetribe from #{PersonViewUtils.person_display_name_for_type(@message.sender, 'first_name_with_initial')}", email.subject
+    assert_equal "You have a new message from #{PersonViewUtils.person_display_name_for_type(@message.sender, 'first_name_with_initial')} in Sharetribe", email.subject
   end
 
   it "should send email about a new comment to own listing" do
