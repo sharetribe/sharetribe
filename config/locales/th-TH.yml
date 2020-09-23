@@ -1569,8 +1569,8 @@ th-TH:
       has_commented_listing_you_follow_in_kassi: "%{author} ได้ให้ความเห็นในรายการ '%{listing}' ที่คุณติดตามใน %{service_name}"
     new_message:
       view_message: ดูข้อความ
-      has_sent_you_a_message_in_kassi: "%{sender} ได้ส่งข้อความถึงคุณใน %{service_name}"
-      you_have_a_new_message: "ข้อความใหม่ใน %{service_name} จาก %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~

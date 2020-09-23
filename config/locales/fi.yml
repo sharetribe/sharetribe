@@ -1584,11 +1584,11 @@ fi:
       has_commented_listing_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi ilmoitusta '%{listing}'."
     new_message:
       view_message: "Näytä viesti"
-      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name}-palvelussa."
-      you_have_a_new_message: "Viesti %{service_name}-palvelun käyttäjältä %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: "sinulle on viesti!"
-      reply: "Vastaa käyttäjälle %{sender}"
+      reply: ~
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       price_per_unit_type: "Hinta per %{unit_type}"

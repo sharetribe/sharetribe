@@ -1573,8 +1573,8 @@ vi:
       has_commented_listing_you_follow_in_kassi: "%{author} đã nhận xét về tin đăng '%{listing}' bạn đang theo dõi trong %{service_name}"
     new_message:
       view_message: "Xem tin nhắn"
-      has_sent_you_a_message_in_kassi: "%{sender} đã gửi cho bạn một tin nhắn tại %{service_name}:"
-      you_have_a_new_message: "Bạn có một tin nhắn mới tại %{service_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~

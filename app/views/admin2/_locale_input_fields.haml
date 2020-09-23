@@ -3,6 +3,14 @@
 %p.ingress
   = info_text
 .form-group
-  .multiple-languages-container
-    - translations.each do |language_key, value|
-      = render 'admin2/one_locale_input_field', input_name: input_name, language_key: language_key, value: value, input_classes: input_classes
+  %label.openInEditor{for: 'private_community_homepage_content'}
+    = header
+    %a{id: :edit_link, href: "/editor" + request.path, data: { save_url: mercury_update_path }}
+      = image_tag 'svg/edit.svg', alt: 'edit'
+      = t('admin2.open_in_editor')
+
+  #private_community_homepage_content{data: {mercury: :full}}
+    = @community_customization.private_community_homepage_content&.html_safe
+
+  %small#privateMarketplaceInstructionText-help.form-text
+    = t('admin2.privacy.small_text', language: get_full_locale_name(I18n.locale))

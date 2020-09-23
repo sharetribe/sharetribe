@@ -3,7 +3,7 @@
     = t('admin2.manage_transactions.transaction_status')
     %span.transaction-status
       - if transaction.status == 'disputed'
-        = image_tag 'svg/dispute.svg', style: 'position: relative; top: -1px;', alt: 'dispute'
+        = image_tag 'svg/dispute.svg', style: 'position: relative; top: -5px;', alt: 'dispute'
       = t("admin2.manage_transactions.status_transaction.#{transaction.payment_gateway}.#{transaction.status}")
 
   - if transaction.status == 'paid'

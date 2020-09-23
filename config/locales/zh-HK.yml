@@ -1567,8 +1567,8 @@ zh-HK:
       has_commented_listing_you_follow_in_kassi: "%{author}在你關注的%{service_name}中，於%{listing}留下了評論。"
     new_message:
       view_message: 查閱訊息
-      has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 傳送了訊息給你"
-      you_have_a_new_message: "在%{service_name}收到來自%{sender_name}的新訊息"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~

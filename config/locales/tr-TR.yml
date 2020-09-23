@@ -1564,11 +1564,11 @@ tr-TR:
       has_commented_listing_you_follow_in_kassi: "%{author} %{service_name} üzerinde takip ettiğiniz %{listing} ilanına yorum yaptı."
     new_message:
       view_message: "Mesajı görüntüle"
-      has_sent_you_a_message_in_kassi: "%{sender} sana %{service_name} üzerinden bir mesaj gönderdi."
-      you_have_a_new_message: "%{sender_name} sana %{service_name} üzerinden yeni bir mesaj gönderdi"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: "bir mesajın var!"
-      reply: "Cevap ver"
+      reply: ~
     new_payment:
       new_payment: "Yeni bir ödeme aldınız"
       price_per_unit_type: "%{unit_type} başına fiyat"

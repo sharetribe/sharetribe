@@ -7,6 +7,7 @@ fr:
     delete: 'lorem ipsum'
     chooseText: 'lorem ipsum'
     cancelText: 'lorem ipsum'
+    open_in_editor: 'lorem ipsum'
     topnav:
       admin_menu: 'lorem ipsum'
       logo: 'lorem ipsum'
@@ -740,7 +741,7 @@ fr:
       welcome_email_content: 'lorem ipsum'
       hello: 'lorem ipsum'
       welcome_email_content_placeholder: 'lorem ipsum %{name}'
-      welcome_email_content_info_text: 'lorem ipsum'
+      welcome_email_content_info_text: 'lorem ipsum %{language}'
       send_to_yourself: 'lorem ipsum'
     footer:
       footer_enabling: 'lorem ipsum'
@@ -974,12 +975,14 @@ fr:
       require_verification_to_post_listings: 'lorem ipsum'
       communication_rights: 'lorem ipsum'
       posting_rights: 'lorem ipsum'
+      posting_rights_info: 'lorem ipsum'
       info_text: 'lorem ipsum'
     privacy:
       private_marketplace: 'lorem ipsum'
       header: 'lorem ipsum'
       private: 'lorem ipsum'
       info_text: 'lorem ipsum'
+      small_text: 'lorem ipsum %{language}. lorem ipsum.'
     essentials:
       header_link: 'lorem ipsum'
       header: 'lorem ipsum'

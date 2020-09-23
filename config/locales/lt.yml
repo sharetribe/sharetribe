@@ -1569,8 +1569,8 @@ lt:
       has_commented_listing_you_follow_in_kassi: "%{author} pakomentavo skelbime '%{listing}', kurį jūs sekate %{service_name}."
     new_message:
       view_message: "Rodyti žinutę"
-      has_sent_you_a_message_in_kassi: "%{sender} parašė jums žinutę dėl %{service_name}"
-      you_have_a_new_message: "Nauja žinutė dėl %{service_name} iš %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~

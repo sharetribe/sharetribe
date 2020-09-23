@@ -1567,8 +1567,8 @@ zh:
       has_commented_listing_you_follow_in_kassi: "%{author}评价了你在%{service_name}中关注的“%{listing}”。"
     new_message:
       view_message: 查看消息
-      has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向你发送一条消息"
-      you_have_a_new_message: "在%{service_name}收到一条来自%{sender_name}的新消息"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~

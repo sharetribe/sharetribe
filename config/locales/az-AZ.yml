@@ -1549,8 +1549,8 @@ az-AZ:
       has_commented_listing_you_follow_in_kassi: "%{author} %{service_name} -da izlədiyiniz %{listing} elanına şərh verdi."
     new_message:
       view_message: "Mesaja bax"
-      has_sent_you_a_message_in_kassi: "%{sender} sizə %{service_name}-da mesaj göndərib."
-      you_have_a_new_message: "%{service_name}-da %{sender_name}-dan yeni mesaj var"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~
