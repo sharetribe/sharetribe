@@ -7,7 +7,7 @@
 
 .content-card-section-container
   = form_for @current_community, url: update_privacy_admin2_general_privacy_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
-    %section.content-card-section
+    %section.content-card-section.remove-from-mercury
       %h2
         = t('admin2.privacy.private_marketplace')
       %p.ingress
@@ -19,6 +19,11 @@
           = form.check_box :private, class: %i[form-check-input for-hide-content]
           = form.label :private, t('admin2.privacy.private'), class: %i[form-check-label]
     %section.content-card-section.hide-content{class: form.object.private ? '' : :opacity_04}
-      = render partial: 'admin2/locale_input_fields', locals: community_private_homepage_content
-    %section.content-card-terminal
+      = render partial: 'admin2/locale_input_fields', locals: community_private_homepage_content.merge(form: form)
+    %section.content-card-terminal.remove-from-mercury
       = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+
+:javascript
+    $(window).on('mercury:ready', function() {
+      $('.remove-from-mercury').hide();
+    })

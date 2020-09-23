@@ -9,7 +9,9 @@ Feature: Admin edits general privacy page
     When I go to the admin2 general privacy community "test"
     And I check "Allow only registered users to see listings and user profiles (make marketplace private)"
 
-    And I fill in "community_customizations[en][private_community_homepage_content]" with "Home Page Content"
-    And I press submit
+    When I follow "Open in editor"
+    And I change the contents of "private_community_homepage_content" to "Home Page Content"
+    And I click save on the editor
+
     When I go to the big cover photo home page
     Then I should see "Home Page Content"
