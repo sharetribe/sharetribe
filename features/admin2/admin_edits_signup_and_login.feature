@@ -8,7 +8,9 @@ Feature: Admin edits general privacy page
 
   Scenario: Admin user can edit privacy settings
     Then I should see "Signup information text"
-    When I fill in "community_community_customizations_attributes_0_signup_info_content" with "Custom signup info"
+    When I follow "Open in editor"
+     And I change the contents of "signup_info_content" to "Custom signup info"
+     And I click save on the editor
      And I uncheck "community_facebook_connect_enabled"
      And I uncheck "community_google_connect_enabled"
      And I check "community_linkedin_connect_enabled"

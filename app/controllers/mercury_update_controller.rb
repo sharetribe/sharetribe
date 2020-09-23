@@ -16,7 +16,7 @@ class MercuryUpdateController < ApplicationController
     end
 
     if @community_customization
-      if !@community_customization.update(param_hash)
+      unless @community_customization.update(param_hash)
         flash[:error] = I18n.t("mercury.content_too_long")
       end
     else
