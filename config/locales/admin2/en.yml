@@ -757,7 +757,7 @@ en:
       welcome_email_content: 'Email content'
       hello: 'Hello Firstname,'
       welcome_email_content_placeholder: 'Welcome to %{name}!'
-      welcome_email_content_info_text: 'You are now editing the content for %{language}. To edit that content in other languages, change the language from the top bar. "Firstname" cannot be removed and will be replaced by the actual first name or Display name of each recipient.'
+      welcome_email_content_info_text: 'This is the content for %{language}. To view and edit that content in other languages, change the language from the top bar. "Firstname" cannot be removed and will be replaced by the actual first name or Display name of each recipient.'
       send_to_yourself: 'Send a test email to yourself'
     footer:
       footer_enabling: 'Footer enabling'
@@ -998,7 +998,7 @@ en:
       header: 'Private marketplace landing page content'
       private: 'Allow only registered users to see listings and user profiles (make marketplace private)'
       info_text: 'This content is shown on the homepage of private marketplaces to users who are not logged in. Here you can describe your marketplace and the process to join it.'
-      small_text: 'You are now editing the content for %{language}. To edit that content in other languages, change the language from the top bar.'
+      small_text: 'This is the content for %{language}. To view and edit that content in other languages, change the language from the top bar.'
     essentials:
       header_link: 'Preview your Marketplace'
       header: 'Basic marketplace details'
