@@ -16,7 +16,10 @@ Feature: Admin edits user rights page
   Scenario: Admin user can set only users verified by admins to post new listings
     When I go to the admin2 user rights community "test"
     And I check "Allow only users verified by admins to post new listings"
-    And I fill in "community_customizations_en_verification_to_post_listings_info_content" with "Verification info"
+    Then I follow "Open in editor"
+    And I change the contents of "verification_to_post_listings_info_content" to "Verification info"
+    And I click save on the editor
+    Then I check "Allow only users verified by admins to post new listings"
     And I press submit
     Then I am logged in as "kassi_testperson2"
     When I follow "Post a new listing"
