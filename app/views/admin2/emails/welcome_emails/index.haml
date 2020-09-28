@@ -13,19 +13,28 @@
       %p.ingress
         = t('admin2.welcome_email.title_info_text')
       .form-group
-        = form.fields_for :community_customizations, @community_customization do |cc|
-          = cc.label :welcome_email_content, t('admin2.welcome_email.welcome_email_content')
-          %p.ingress
-            = t('admin2.welcome_email.hello')
-          = cc.text_area :welcome_email_content, class: %i[form-control], placeholder: t('admin2.welcome_email.welcome_email_content_placeholder', name: title_service_name)
-          %small#welcomeEmailContent-help.form-text
-            = t('admin2.welcome_email.welcome_email_content_info_text')
-    %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+        %label.openInEditor{for: 'welcome_email_content'}
+          = t('admin2.welcome_email.welcome_email_content')
+          %a{id: :edit_link, href: "/editor" + request.path, data: { save_url: mercury_update_path }}
+            = image_tag 'svg/edit.svg', alt: 'edit'
+            = t('admin2.open_in_editor')
+
+        %p.ingress
+          = t('admin2.welcome_email.hello')
+        #welcome_email_content{data: {mercury: :full}}
+          = @community_customization.welcome_email_content&.html_safe
+
+        %small#welcomeEmailContent-help.form-text
+          = t('admin2.welcome_email.welcome_email_content_info_text', language: get_full_locale_name(I18n.locale))
+    %section.content-card-terminal.remove-from-mercury
       = link_to t('admin2.welcome_email.send_to_yourself'), '#', class: %i[btn btn-ghost], id: 'send-test-email'
 
 - content_for :extra_javascript do
   :javascript
+    $(window).on('mercury:ready', function() {
+      $('.remove-from-mercury').hide();
+    });
+
     $("#send-test-email").click(function(){
       var form = $('form'), test_email = $('#test_email');
       test_email.val('1');

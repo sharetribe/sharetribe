@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_action :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
 
-  helper_method :root, :logged_in?, :current_user?
+  helper_method :root, :logged_in?, :current_user?, :get_full_locale_name
 
   attr_reader :current_user
 
