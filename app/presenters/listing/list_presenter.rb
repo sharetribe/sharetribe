@@ -39,11 +39,15 @@ class Listing::ListPresenter
   def listing_status(listing)
     if listing.approval_pending? || listing.approval_rejected?
       listing.state
-    elsif listing.valid_until && listing.valid_until < DateTime.current
+    elsif listing_expired?(listing)
       'expired'
     else
       listing.open? ? 'open' : 'closed'
     end
+  end
+
+  def listing_expired?(listing)
+    listing.valid_until && listing.valid_until < DateTime.current
   end
 
   def listing_wait_for_approval?(listing)
