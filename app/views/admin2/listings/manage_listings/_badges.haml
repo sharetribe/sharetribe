@@ -1,0 +1,6 @@
+- if presenter.show_approval_link?(listing)
+  %span.badge.badge-unconfirmed{"data-original-title": t('admin2.manage_listings.badges.pending_tooltip'), "data-toggle": :tooltip}= t('admin2.manage_listings.badges.pending')
+- if presenter.listing_expired?(listing)
+  %span.badge.badge-admin{"data-original-title": t('admin2.manage_listings.badges.expired_tooltip'), "data-toggle": :tooltip}= t('admin2.manage_listings.badges.expired')
+- if listing.approval_rejected?
+  %span.badge.badge-rejected{"data-original-title": t('admin2.manage_listings.badges.rejected_tooltip'), "data-toggle": :tooltip}= t('admin2.manage_listings.badges.rejected')
