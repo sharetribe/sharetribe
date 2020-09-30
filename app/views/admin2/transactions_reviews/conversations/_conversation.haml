@@ -20,4 +20,6 @@
     - elsif recipient
       = link_to t('admin2.view_conversations.profile', author: recipient_name), person_path(recipient.username), target: :_blank
   %td
-    = link_to t('admin2.view_conversations.read'), admin2_transactions_reviews_conversation_path(conversation.id)
+    = link_to admin2_transactions_reviews_conversation_path(conversation.id) do
+      = image_tag 'svg/eye.svg', alt: 'eye'
+      = t('admin2.view_conversations.read')
