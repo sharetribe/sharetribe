@@ -7,7 +7,8 @@
   <% if @disallow_id %>
     disallowPost(<%= j @id %>);
   <% end %>
-  showSuccess('<%= j t('admin2.manage_users.saved') %>');
+
+  $('.membership-row-<%= @service.membership.id %>').html('<%= j render 'admin2/users/manage_users/one_row', membership: @service.membership %>');
   var current = $('#status_').val();
   $('#user_statuses_filter').html('<%= j render 'admin2/users/manage_users/statuses', presenter: @presenter, current: nil %>');
   $('#status_').val(current);

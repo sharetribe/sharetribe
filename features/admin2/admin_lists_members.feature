@@ -14,34 +14,34 @@ Feature: Admin lists members
 
   Scenario: Admin views & sorts list of members
     Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
+      | Name               | Email               | Joined      | Actions |
+      | matti manager Admin| manager@example.com | Mar 1, 2014 | •••     |
+      | john doe Admin     | test2@example.com   | Mar 1, 2013 | •••     |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 | •••     |
     When I follow "Name"
     Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
+      | Name               | Email               | Joined      | Actions |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 | •••     |
+      | john doe Admin     | test2@example.com   | Mar 1, 2013 | •••     |
+      | matti manager Admin| manager@example.com | Mar 1, 2014 | •••     |
     When I follow "Name"
     Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
+      | Name               | Email               | Joined      | Actions |
+      | matti manager Admin| manager@example.com | Mar 1, 2014 | •••     |
+      | john doe Admin     | test2@example.com   | Mar 1, 2013 | •••     |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 | •••     |
     When I follow "Email"
     Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
+      | Name               | Email               | Joined      | Actions |
+      | matti manager Admin| manager@example.com | Mar 1, 2014 | •••     |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 | •••     |
+      | john doe Admin     | test2@example.com   | Mar 1, 2013 | •••     |
     When I follow "Joined"
     Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
+      | Name               | Email               | Joined      | Actions |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 | •••     |
+      | john doe Admin     | test2@example.com   | Mar 1, 2013 | •••     |
+      | matti manager Admin| manager@example.com | Mar 1, 2014 | •••     |
 
   Scenario: Admin views member count
     Given there are 3 banned users with name prefix "Hazel" "Banned %d"
@@ -60,16 +60,7 @@ Feature: Admin lists members
     And the first user should be "User Number 100"
     When I follow "Next"
     Then I should see 3 users
-    And the first user should be "matti manager"
-
-  Scenario: Admin verifies sellers
-    Given only verified users can post listings in this community
-    And I refresh the page
-    Then I should see that "john doe" cannot post new listings
-    When I verify user "john doe" as a seller
-    Then I should see that "john doe" can post new listings
-    When I refresh the page
-    Then I should see that "john doe" can post new listings
+    And the first user should be "matti manager Admin"
 
   Scenario: Admin bans and unbans a user
     Given there is a listing with title "Sledgehammer" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"
@@ -77,21 +68,16 @@ Feature: Admin lists members
      Then I should see "Sledgehammer"
 
     Given I am on the manage users admin2 page
-      And I will confirm all following confirmation dialogs in this page if I am running PhantomJS
-     When I ban user "john doe"
+     When I ban user in admin2 "john doe"
      Then I should see "john doe"
-     Then I wait for 1 seconds
-     # Identifying is easier when using username
      And "kassi_testperson1" should be banned from this community
 
     Given I am on the home page
      Then I should not see "Sledgehammer"
 
     Given I am on the manage users admin2 page
-      And I will confirm all following confirmation dialogs in this page if I am running PhantomJS
-     When I unban user "john doe"
+     When I unban user in admin2 "john doe"
      Then I should see "john doe"
-     Then I wait for 1 seconds
      And "kassi_testperson1" should not be banned from this community
 
     Given I am on the home page
@@ -99,18 +85,10 @@ Feature: Admin lists members
 
   Scenario: Admin promotes user to admin
     Given I will confirm all following confirmation dialogs in this page if I am running PhantomJS
-    Then I should see that "manager" has admin rights in this community
-    Then I should see that "john doe" has admin rights in this community
-    Then I should see that "jane doe" does not have admin rights in this community
-    When I promote "jane doe" to admin
-    Then I wait for 1 seconds
-    Then I should see that "jane doe" has admin rights in this community
+    Then I should see "manager Admin"
+    Then I should see "john doe Admin"
+    Then I should see "jane doe (Puckett)"
+    When I promote "jane doe" to admin2
+    Then I should see "jane doe (Puckett) Admin"
     When I refresh the page
-    Then I should see that "jane doe" has admin rights in this community
-
-  Scenario: Admin is not able to remove her own admin rights
-    Then I should see that "jane doe" does not have admin rights in this community
-    And I should see that I can remove admin rights of "jane doe"
-    Then I should see that "manager" has admin rights in this community
-    And I should see that I can not remove admin rights of "manager"
-
+    Then I should see "jane doe (Puckett) Admin"
