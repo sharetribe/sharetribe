@@ -1,5 +1,5 @@
 %h1
-  = t('admin2.manage_reviews.customer_title', title: tx.customer_title)
+  = t('admin2.manage_reviews.customer_title', title: person_name(tx.starter))
 - if tx.starter_skipped_feedback
   .form-group
     %p= t('admin2.manage_reviews.unskip_notice')
@@ -18,4 +18,4 @@
         = label_tag :customer_rating_0, t('admin2.manage_reviews.statuses.negative'), class: %i[form-check-label]
   .form-group
     = label_tag :customer_comment, t('admin2.manage_reviews.comment')
-    = text_area_tag :customer_comment, tx.customer_text, class: %i[form-control]
+    = text_area_tag :customer_comment, tx.customer_text, class: %i[form-control required]

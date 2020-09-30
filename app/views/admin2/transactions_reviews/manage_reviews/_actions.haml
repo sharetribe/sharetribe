@@ -1,0 +1,20 @@
+%a.more.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-flip" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"} •••
+.dropdown-menu
+  = link_to show_review_admin2_transactions_reviews_manage_review_path(tx), remote: true, class: %i[dropdown-item neutral] do
+    %svg{:height => "12", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}>
+      %g{:fill => "none", "fill-rule" => "evenodd"}
+        %path{:d => "M9 1.5c-2.687-.045-5.467 1.833-7.214 3.757a1.109 1.109 0 000 1.484c1.71 1.882 4.48 3.804 7.214 3.758 2.733.046 5.505-1.876 7.216-3.758.38-.422.38-1.063 0-1.484C14.466 3.333 11.687 1.455 9 1.5z", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
+        %path{:d => "M11.5 6a2.5 2.5 0 11-5-.001 2.5 2.5 0 015 .001z", :fill => "#4A90E2"}
+    = t("admin2.manage_reviews.read_review_comments")
+  = link_to edit_review_admin2_transactions_reviews_manage_review_path(tx), remote: true, class: %i[edit-tx dropdown-item neutral] do
+    %svg{:height => "16", :width => "14", :xmlns => "http://www.w3.org/2000/svg"}>
+      %g{:fill => "none", "fill-rule" => "evenodd", "stroke-width" => "1.5"}
+        %path{:d => "M13.944 2.056a2.123 2.123 0 00-3.016.02L2.47 10.535l-1.033 4.027 4.028-1.033 8.459-8.458a2.122 2.122 0 00.02-3.015zM10.687 2.318l2.995 2.995M2.471 10.534l2.997 2.993"}
+    = t("admin2.manage_reviews.edit")
+  %hr
+  = link_to delete_review_admin2_transactions_reviews_manage_review_path(tx), remote: true, class: %i[dropdown-item negative] do
+    %svg{:height => "11", :width => "12", :xmlns => "http://www.w3.org/2000/svg"}>
+      %g{"fill-rule" => "nonzero"}
+        %rect{:height => "1.5", :rx => ".75", :transform => "rotate(45 5.834 5.48)", :width => "14", :x => "-1.166", :y => "4.73"}
+        %rect{:height => "1.5", :rx => ".75", :transform => "rotate(-45 5.48 5.48)", :width => "14", :x => "-1.52", :y => "4.73"}
+    = t("admin2.manage_reviews.delete_block")

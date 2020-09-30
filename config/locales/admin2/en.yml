@@ -374,9 +374,9 @@ en:
       transaction: 'Transaction'
       paginate: 'Transaction with review'
       customer: 'Customer'
-      customer_rating: 'Customer rating'
+      customer_rating: 'Customer rated'
       provider: 'Provider'
-      provider_rating: 'Provider rating'
+      provider_rating: 'Provider rated'
       actions: 'Actions'
       search_placeholder: 'Search reviews by user or keyword...'
       all_transactions: 'All transactions (%{count})'
@@ -390,12 +390,13 @@ en:
       block_review_provider: "Block future provider from %{title}"
       delete_review_customer: "Delete customer review from %{title}"
       delete_review_provider: "Delete provider review from %{title}"
-      save: 'Delete and/or block reviews'
+      delete_or_block: 'Delete and/or block reviews'
+      save: 'Save'
       cancel: 'Cancel'
-      edit: 'Edit'
+      edit: 'Edit reviews…'
       rating_string: 'Rating'
-      delete_block: 'Delete and block'
-      read_review_comments: 'Read review comments'
+      delete_block: 'Delete and block…'
+      read_review_comments: 'Read reviews…'
       rating: '%{rating} rating.'
       unskip: 'Unskip the review'
       comment: 'Comment'
@@ -404,7 +405,7 @@ en:
         positive: 'Positive'
         negative: 'Negative'
         skipped: 'Skipped'
-        waiting: 'Waiting for the review'
+        waiting: 'Review pending'
         blocked: 'Blocked'
       status_filter:
         positive: 'Positive review'

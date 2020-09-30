@@ -23,5 +23,6 @@ Given(/^click to author testimonial edit link/) do
 end
 
 Given(/^click to testimonial edit link/) do
+  find('.more').click
   find('.edit-tx').click
 end
