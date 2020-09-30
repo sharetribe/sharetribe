@@ -25,7 +25,7 @@ module Admin2::SearchLocation
     def enabled_search
       return if FeatureFlagHelper.location_search_available
 
-      redirect_to admin2_dashboard_index_path
+      redirect_to admin2_path
     end
   end
 end

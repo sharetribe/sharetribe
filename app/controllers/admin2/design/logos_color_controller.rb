@@ -32,7 +32,7 @@ module Admin2::Design
     rescue StandardError => e
       flash[:error] = e.message
     ensure
-      redirect_back(fallback_location: admin2_dashboard_index_path)
+      redirect_back(fallback_location: admin2_path)
     end
 
     private

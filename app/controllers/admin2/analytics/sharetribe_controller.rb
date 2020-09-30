@@ -18,7 +18,7 @@ module Admin2::Analytics
     def check_admin_enable_tracking
       return if APP_CONFIG.admin_enable_tracking_config
 
-      redirect_to admin2_dashboard_index_path
+      redirect_to admin2_path
     end
 
     def sharetribe_params
