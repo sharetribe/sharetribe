@@ -1,5 +1,3 @@
-%h1
-  = t('admin2.manage_reviews.provider_title', title: tx.provider_title)
 - if tx.author_skipped_feedback
   .form-group
     %p= t('admin2.manage_reviews.unskip_notice')
@@ -18,4 +16,4 @@
         = label_tag :provider_rating_0, t('admin2.manage_reviews.statuses.negative'), class: %i[form-check-label]
   .form-group
     = label_tag :provider_comment, t('admin2.manage_reviews.comment')
-    = text_area_tag :provider_comment, tx.provider_text, class: %i[form-control]
+    = text_area_tag :provider_comment, tx.provider_text, class: %i[form-control required]
