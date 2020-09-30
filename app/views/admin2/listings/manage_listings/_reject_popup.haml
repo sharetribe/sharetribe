@@ -1,0 +1,14 @@
+#listingRejectModal.modal{'data-backdrop' => 'static', 'aria-hidden' => 'true', 'aria-labelledby' => 'listingPendingModalLabel', role: 'dialog', tabindex: '-1'}
+  .modal-dialog.modal-md{role: 'document'}
+    = form_tag admin2_listings_manage_listings_path, method: :patch, remote: true, class: %i[modal-content], id: :form_approve_reject do
+      = hidden_field_tag :id, '', id: :reject_listing_id
+      = hidden_field_tag 'listing[state]', 'approval_rejected', id: :listing_state
+      .modal-header
+        %h2#listingRejectModalLabel.modal-title
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => 'modal', type: :button}
+          %span{'aria-hidden' => 'true'} ×
+      .modal-body
+        = t('admin2.manage_listings.reject_popup_body')
+      .modal-footer
+        = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+        = button_tag t('admin2.manage_listings.reject'), class: %i[btn btn-primary]

@@ -480,6 +480,13 @@ fr:
       search_placeholder: 'lorem ipsum'
       export_to_csv: 'lorem ipsum'
       all_listings: 'lorem ipsum (%{count})'
+      badges:
+        pending: 'lorem ipsum'
+        pending_tooltip: 'lorem ipsum'
+        expired: 'lorem ipsum'
+        expired_tooltip: 'lorem ipsum'
+        rejected: 'lorem ipsum'
+        rejected_tooltip: 'lorem ipsum'
       statuses:
         open: 'lorem ipsum'
         closed: 'lorem ipsum'
@@ -506,6 +513,7 @@ fr:
       delete_info_text: 'lorem ipsum'
       processing_export: 'lorem ipsum'
       confirm_popup_body: 'lorem ipsum'
+      reject_popup_body: 'lorem ipsum'
     manage_transactions:
       export_to_csv: 'lorem ipsum'
       search_placeholder: 'lorem ipsum...'
