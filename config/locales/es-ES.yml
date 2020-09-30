@@ -1584,8 +1584,8 @@ es-ES:
       has_commented_listing_you_follow_in_kassi: "%{author} ha comentado en el anuncio '%{listing}' que estás siguiendo en %{service_name}."
     new_message:
       view_message: "Ver mensaje"
-      has_sent_you_a_message_in_kassi: "%{sender} te ha enviado un mensaje en %{service_name}."
-      you_have_a_new_message: "Tienes un nuevo mensaje de %{sender_name} en %{service_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~

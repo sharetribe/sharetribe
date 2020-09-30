@@ -291,7 +291,7 @@ sv:
         for_search_terms: "för: %{terms}"
         this_makes_the_user_an_admin: ~
         status_filter:
-          all: ~
+          all: "Alla statusar"
           selected: ~
           selected_js: ~
           admin: ~
@@ -476,7 +476,7 @@ sv:
           preauthorized: Auktoriserad
           rejected: ~
           payment_intent_requires_action: ~
-          payment_intent_action_expired: Utgånget
+          payment_intent_action_expired: "Löpts ut"
           refunded: ~
           dismissed: ~
         headers:
@@ -486,7 +486,7 @@ sv:
           sum: Summa
           started: Publicerad
           last_activity: "Senaste aktivitet"
-          initiated_by: Startar
+          initiated_by: ~
           other_party: Motpart
         status:
           conversation: Konversation
@@ -530,7 +530,7 @@ sv:
             initiated: "Väntar på Stripe betalning"
             pending_ext: "Väntar på Stripe betalning"
             payment_intent_requires_action: ~
-            payment_intent_action_expired: Utgånget
+            payment_intent_action_expired: "Löpts ut"
             payment_intent_failed: ~
             refunded: ~
             dismissed: ~
@@ -611,11 +611,11 @@ sv:
         export_all_as_csv: ~
         processing_export: ~
         status:
-          all: ~
+          all: "Alla statusar"
           selected_js: ~
           open: Öppen
           closed: Avslutad
-          expired: Utgånget
+          expired: "Löpts ut"
           approval_pending: ~
           approval_rejected: ~
         headers:
@@ -626,8 +626,8 @@ sv:
           category: Kategori
           status: Status
         open: Öppen
-        closed: Stängd
-        expired: Utgånget
+        closed: Avslutad
+        expired: "Löpts ut"
         approved: ~
         approval_pending: ~
         approval_rejected: ~
@@ -1537,7 +1537,7 @@ sv:
       confirmation_link_text: ~
     common:
       hey: "Hej %{name},"
-      hi: ~
+      hi: "Hej %{name},"
       kassi_team: "%{service_name}gänget"
       thanks: "Tack,"
       dont_want_to_receive_these_emails: "Vill du inte ta emot dessa mail?"
@@ -1545,11 +1545,11 @@ sv:
       message_not_displaying_correctly: "Syns inte e-postmeddelandet korrekt?"
       view_it_in_your_browser: "Se den i din webbläsare."
       or: eller
-      unsubscribe_from_these_emails_info: "Du har fått detta email för du är en medlem av %{service_name}."
-      unsubscribe_from_these_emails: "avsluta prenumeration från dessa e-postmeddelanden"
+      unsubscribe_from_these_emails_info: "Du har fått detta email för att du är en medlem av %{service_name}."
+      unsubscribe_from_these_emails: "avsluta prenumerationen från dessa e-mails"
       unsubscribe_from_invitation_emails_info: "Du har fått detta email för att en medlem av %{service_name} har bjudit in dig."
-      unsubscribe_from_invitation_emails: "Sluta prenumerera på inbjudningsemail att gå med i %{service_name}"
-      here_is_your_receipt: ~
+      unsubscribe_from_invitation_emails: "Sluta att prenumerera på inbjudningar till att gå med i %{service_name}"
+      here_is_your_receipt: "Det här är ditt kvitto."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har accepterat ditt erbjudande angående %{listing}"
       has_accepted_your_request: "%{accepter} har accepterat din förfrågan %{listing}."
@@ -1575,7 +1575,7 @@ sv:
       join_now: "Gå med nu"
       invitation_code: "Inbjudningskod: %{code}"
     invitation_to_kassi_v2:
-      headline: ~
+      headline: "Hallå där!"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} har kommenterat din annons %{listing}."
       view_comment: "Visa kommentar"
@@ -1584,8 +1584,8 @@ sv:
       has_commented_listing_you_follow_in_kassi: "%{author} har kommenterat annonsen %{listing} som du följer på %{service_name}."
     new_message:
       view_message: "Visa meddelande"
-      has_sent_you_a_message_in_kassi: "%{sender} har skickat ett meddelande i %{service_name}."
-      you_have_a_new_message: "Du har ett nytt meddelande i %{service_name} från %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~
@@ -1600,7 +1600,7 @@ sv:
       shipping_total: "Leverans:"
       product: "Produkt:"
       price_payer_paid: "Pris som %{payer_full_name} har betalat:"
-      subtotal: ~
+      subtotal: "Delsumma:"
       service_fee: "%{service_name} serviceavgift:"
       buyer_service_fee: ~
       you_will_get: "Totalt:"
@@ -1612,8 +1612,8 @@ sv:
         you_have_received_new_payment: "Summan <b>%{payment_sum}</b> bar blivit betald för <b>%{listing_title}</b> av %{payer_full_name}. Pengarna hålls nu av %{service_name} tills förfrågan har blivit markerad som slutförd. Här är ditt kvitto."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text_stripe: ~
-      price_breakdown: ~
+      main_text_stripe: "Pengarna hålls av %{service_name} tills beställningen markeras som slutförd."
+      price_breakdown: Prisspecifikation
     payment_receipt_to_payer:
       receipt_of_payment: "Kvitto för betalning"
       you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{recipient_full_name}. Här är ett kvitto av betalningen."
@@ -1630,8 +1630,8 @@ sv:
       paypal_gateway_fee: "PayPals avgift:"
       money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som slutförd eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
     payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
+      headline: "här är ditt kvitto för %{listing_link}."
+      you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b>."
     paypal_new_payment:
       paypal_gateway_fee: "PayPals avgift:"
       shipping_total: "Frakt:"
@@ -1662,7 +1662,7 @@ sv:
       you_can_give_feedback_to: "Du har inget gett feedback till %{name}."
       view_feedback: "Visa feedback"
     new_testimonial_v2:
-      headline: ~
+      headline: "du har fått feedback!"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Annonser som du följer"
       has_updated_listing_you_follow_in_kassi: "%{author} har uppdaterat annonsen %{listing} som du följer på %{service_name}."
@@ -1671,7 +1671,7 @@ sv:
       added_offer: "%{name_link} skapade en annons:"
       added_request: "%{name_link} skapade en annons:"
       added_listing: "%{name_link} skapade en annons:"
-      update_mail_title: "%{title_link} nyheter"
+      update_mail_title: "%{title_link}: nyheter"
       title_link_text: "%{community_name}"
       intro_paragraph: "Här är några saker som har hänt på %{community_link} under de senaste %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
@@ -1679,7 +1679,10 @@ sv:
       settings_link_text: "Ändra dina e-postinställningar här"
       unsubscribe_link_text: avprenumerera
     community_updates_v2:
-      headline: ~
+      headline: "kolla in den senaste aktiviteten på %{service_name}."
+      intro_paragraph:
+        one: "Här är några höjdpunkter som hände på %{service_name} under den senaste dagen."
+        other: "Här är några höjdpunkter som hände på %{service_name} under de senaste %{count} dagarna."
     newsletter:
       hi: "Hej %{name},"
       newest_offers: "Vad folk har att erbjuda andra"
@@ -1704,7 +1707,7 @@ sv:
       if_you_do_not_accept: "Om du avslår förfrågan eller inte accepterar den inom denna tidsram så kommer transaktionen automatiskt att avslås. %{requester} kommer inte att behöva betala och du kommer inte få betalt."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_v2:
-      headline: ~
+      headline: "%{requester} är intresserad och har auktoriserat betalningen för %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
       remember_to_accept: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}. %{requester} har redan betalat för annonsen. Du måste acceptera förfrågan för att få betalt."
@@ -1717,9 +1720,7 @@ sv:
       welcome_email_subject: "Välkommen till %{service_name}"
       welcome_to_marketplace: "Välkommen till %{service_name}! Kul att ha dig ombord."
       love_marketplace_crew: "Vänligen,<br /><i>%{service_name} teamet</i>"
-      welcome_email_footer_text: |-
-          Vilken typ av e-postmeddelanden vill du få från %{service_name}?
-          %{settings_link}
+      welcome_email_footer_text: "Vilka typer av e-mail vill du få från %{service_name}?%{settings_link}"
       settings_link_text: "Kontrollera dina inställningar"
     new_listing_by_followed_person:
       subject: "%{author_name} har skapat en ny annons på %{service_name}"
@@ -1764,16 +1765,16 @@ sv:
       subject: ~
       there_is_a_new_transaction: ~
       a_new_transaction: ~
-      listing: ~
-      sum: ~
+      listing: "Annons: %{title}"
+      sum: "Summa: %{amount}"
       starter: ~
-      provider: ~
+      provider: "Säljare: %{name}"
     new_transaction_v2:
       subject: ~
       there_is_a_new_transaction: ~
       a_new_transaction: ~
       listing: ~
-      sum: ~
+      sum: "Summa:"
       starter: ~
       provider: ~
       view_transaction: ~
@@ -2007,7 +2008,7 @@ sv:
       invitation_message_field_placeholder: "Jag har gått med i denna fantastiska marknadsplats. Det borde du också göra!"
       errors_in_emails: "Kontrollera att e-postadresserna som du lade till är giltiga och inte innehåller några otillåtna tecken. Om du lade till flera adresser, kontrollera så att de är separerade med kommatecken."
     list_item:
-      review: granska
+      review: recension
       reviews: recensioner
       distance_away: "%{distance} %{distance_unit} bort"
     news_item:
@@ -2275,7 +2276,7 @@ sv:
       payments: Betalningar
       listings: Annonser
       listings_search_placeholder: "Sök efter en titel"
-      transactions_search_placeholder: ~
+      transactions_search_placeholder: "Sök efter en transaktionstitel eller involverade parter"
       transactions: Transaktioner
   listings:
     bubble_listing_not_visible:
@@ -3173,8 +3174,8 @@ sv:
       need_info: "Vi behöver en del information om dig för att kunna skicka dig pengar."
       select_country: "Välj land...."
       legal_name: Namn
-      first_name: ~
-      last_name: ~
+      first_name: Förnamn
+      last_name: Efternamn
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
@@ -3260,7 +3261,7 @@ sv:
     to_accept_paypal: "För att ta emot PayPal betalningar måste du koppla ditt PayPal konto. Dina kunder kommer kunna betala via PayPal"
     connect_paypal: "Koppla ditt PayPal konto"
     wrong_setup: "Det är något fel med marknadsplatsens betalsystem, platformen har inte blivit registrerad. Vänligen kontakta marknadsplatsens administratörer och meddela att de bör registrera platformen hos Stripe."
-    invalid_bank_account_number: "Vänligen kontrollera att ditt banknummer är skrivet rätt och matchar ditt valda land."
+    invalid_bank_account_number: "Vänligen kontrollera att ditt banknummer är rätt och att det matchar ditt valda land."
     invalid_postal_code: "Ogiltig postnummer för %{country}"
   seo_sections:
     you_can_use_variables: ~

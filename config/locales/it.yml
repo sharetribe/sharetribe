@@ -1557,8 +1557,8 @@ it:
       has_commented_listing_you_follow_in_kassi: "%{author} ha lasciato un commento sull'inserzione '%{listing}' che stai seguendo su %{service_name}."
     new_message:
       view_message: "Mostra messaggio"
-      has_sent_you_a_message_in_kassi: "%{sender} ti ha inviato un messaggio in %{service_name}"
-      you_have_a_new_message: "Un nuovo messaggio in %{service_name} da %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~
@@ -2587,10 +2587,10 @@ it:
     create_paypal_account_link_text: "Conto PayPal"
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
     paypal_receive_funds_info_label_australia_only: "Devi abilitare il tuo conto PayPal per accettare i pagamenti. Può essere richiesto un conto PayPal premier o business. L'aggiornamento ad un conto PayPal business è semplice e non costa nulla."
-    paypal_receive_funds_info_label: "Raramente accade che non è possibile collegare il conto PayPal."
+    paypal_receive_funds_info_label: "Il tuo account PayPal deve poter accettare i pagamenti. Potrebbe essere richiesto un account Business per questo."
     paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: "Se avviene un errore tentando di collegare il tuo Conto PayPal a %{service_name}, il tuo conto potrebbe essere obsoleto, e aver bisogno di un aggiornamento ad un Conto Premier a questo link: %{upgrade_paypal_account_link}. La cosa migliore è contattare il servizio clienti PayPal e farsi guidare."
-    upgrade_paypal_account_link_text: "Aggiorna l'account PayPal."
+    paypal_receive_funds_info: "Se vedi un errore quando provi a collegare il tuo account a %{service_name}, %{upgrade_paypal_account_link}. È gratuito e semplice. Se sei un privato, PayPal suggerisce di inserire il tuo nome come Ragione Sociale."
+    upgrade_paypal_account_link_text: "esegui il log in e aggiorna il tuo account PayPal a uno di tipo Business"
     admin_account_not_connected: "Non è possibile utilizzare il sistema di pagamenti di %{service_name} e ricevere pagamenti, se prima non è stato settato. Per favore %{contact_admin_link} per i dettagli."
     contact_admin_link_text: "contatta l'amministratore della piattaforma di marketplace"
     you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"

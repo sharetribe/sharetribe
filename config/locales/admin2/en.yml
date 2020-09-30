@@ -7,6 +7,7 @@ en:
     delete: 'Delete'
     chooseText: 'Choose'
     cancelText: 'Cancel'
+    open_in_editor: 'Open in editor'
     topnav:
       admin_menu: 'Admin menu'
       logo: 'Sharetribe Go Admin Panel'
@@ -33,6 +34,7 @@ en:
       help_center: 'Help Center'
       marketplace_guide: 'Marketplace Guide'
       what_new: "What's new?"
+      legacy_admin_panel: 'Legacy Admin panel'
       general:
         essentials: 'Essentials'
         privacy: 'Privacy'
@@ -202,7 +204,7 @@ en:
       delete_title: 'Delete user field: %{name}'
       delete_info_text: 'Are you sure you want to remove the field %{name} and all its data? This cannot be undone.'
       delete_user_field: 'Delete the user field'
-      dropdown_list_options: 'Dropdown list options'
+      dropdown_list_options: 'Dropdown list options (at least two)'
       checkbox_list_options: 'Checkbox list options'
       add_option_link: '+ Add option'
       add_new_option: 'Add a new option'
@@ -686,6 +688,11 @@ en:
           payment_intent_failed: "Stripe payment failed"
           refunded: 'Refunded'
           dismissed: 'Dismissed'
+    expired_popup:
+      title: '%{first_name}, your 30-day Sharetribe trial has expired.'
+      body: "Don't worry, your data has not beed deleted. You can unlock your marketplace immediately by subscribing to a paid plan, starting from $79/mo."
+      more_information: 'Need more information or time? <a href="%{mailto}">Contact us</a> or <a href="%{expire_url}">extend your free trial for two weeks</a>.'
+      choose_plan: 'Choose a plan'
     manage_users:
       ban_msg: 'This disables the user account from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?'
       unban_msg: 'This enables the user account in the marketplace and allows them to access the site again with this account. Are you sure you want to proceed?'
@@ -750,7 +757,7 @@ en:
       welcome_email_content: 'Email content'
       hello: 'Hello Firstname,'
       welcome_email_content_placeholder: 'Welcome to %{name}!'
-      welcome_email_content_info_text: '"Firstname" cannot be removed and will be replaced by the actual first name of each recipient.'
+      welcome_email_content_info_text: 'This is the content for %{language}. To view and edit that content in other languages, change the language from the top bar. "Firstname" cannot be removed and will be replaced by the actual first name or Display name of each recipient.'
       send_to_yourself: 'Send a test email to yourself'
     footer:
       footer_enabling: 'Footer enabling'
@@ -984,12 +991,14 @@ en:
       require_verification_to_post_listings: 'Allow only users verified by admins to post new listings'
       communication_rights: 'Communication rights'
       posting_rights: 'Posting rights'
+      posting_rights_info: 'Posting rights information text'
       info_text: "To help users understand what is required to be allowed to post listings, you can share some details above: they will be displayed on the new listing form only to users who haven't been allowed to post listings already."
     privacy:
       private_marketplace: 'Private marketplace'
       header: 'Private marketplace landing page content'
       private: 'Allow only registered users to see listings and user profiles (make marketplace private)'
       info_text: 'This content is shown on the homepage of private marketplaces to users who are not logged in. Here you can describe your marketplace and the process to join it.'
+      small_text: 'This is the content for %{language}. To view and edit that content in other languages, change the language from the top bar.'
     essentials:
       header_link: 'Preview your Marketplace'
       header: 'Basic marketplace details'

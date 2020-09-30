@@ -1554,8 +1554,8 @@ bg:
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: "%{sender} Ви изпрати съобщение в %{service_name}."
-      you_have_a_new_message: "Имате ново съобщение в %{service_name} от %{sender_name}."
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
       reply: ~

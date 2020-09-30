@@ -1585,11 +1585,11 @@ hu:
       has_commented_listing_you_follow_in_kassi: "%{author} hozzászólt a hirdetéshez '%{listing}' amelyet ön is követ a %{service_name} oldalon."
     new_message:
       view_message: "Üzenet megtekintése"
-      has_sent_you_a_message_in_kassi: "%{sender} üzenetet küldött Önnek itt: %{service_name}"
-      you_have_a_new_message: "Egy új  %{service_name} üzenet tőle: %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: "Üzenete érkezett!"
-      reply: "Válasz a feladónak: %{sender}"
+      reply: ~
     new_payment:
       new_payment: "Új utalást kellett kapjon"
       price_per_unit_type: "Ár: %{unit_type}"

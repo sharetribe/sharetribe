@@ -1583,11 +1583,11 @@ he-IL:
       has_commented_listing_you_follow_in_kassi: "‎‎%{service_name}‎  שאתה עוקב ב ‎%{listing}‎ הגיב על המודעה ‎‎%{author}‎‎"
     new_message:
       view_message: "הצג הודעה"
-      has_sent_you_a_message_in_kassi: "‎‎%{service_name}‎ שלח לך הודעה דרך ‎%{sender}‎‎"
-      you_have_a_new_message: "‎%{service_name}‎ שלך לך הודעה דרך‎%{sender_name}‎ ‎"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
-      reply: "השב ל ‎%{sender}‎ "
+      reply: ~
     new_payment:
       new_payment: "קיבלת תשלום חדש"
       price_per_unit_type: "‎%{unit_type}‎ מחיר ל"
@@ -2857,10 +2857,10 @@ he-IL:
       newsletters: "איימילים מצוות האתר"
       community_updates: ניוזלטר
       email_about_confirm_reminders: "...שכחתי לאשר הזמנה"
-      email_about_new_comments_to_own_listing: "מישהו הגיב על ההזמנה או הבקשה שלי..."
+      email_about_new_comments_to_own_listing: "מישהו הגיב על כרטיס השירות שלי..."
       email_about_new_messages: "מישהו שלח לי הודעה..."
       email_about_new_received_testimonials: "מישהו כתב עלי משוב..."
-      email_about_testimonial_reminders: "שכחתי לכתוב ביקורת על אירוע..."
+      email_about_testimonial_reminders: "שכחתי לכתוב ביקורת על הזמנה..."
       email_daily_community_updates: "שלחו לי ניוזלטר יומי עם שיתופים חדשים!"
       email_weekly_community_updates: "שלחו לי ניוזלטר שבועי אם יש מודעות חדשות"
       do_not_email_community_updates: "אל תשלחו לי ניוזלטר"

@@ -1573,11 +1573,11 @@ ja:
       has_commented_listing_you_follow_in_kassi: "いつも%{service_name}のご利用ありがとうございます。「%{listing}」で%{author}さんより新しいコメントがありましたのでお知らせいたします。"
     new_message:
       view_message: メッセージを閲覧
-      has_sent_you_a_message_in_kassi: "%{sender}さんは%{service_name}でメッセージを送信しました。"
-      you_have_a_new_message: "%{service_name}の%{sender_name}さんから新しいメッセージがあります"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: ~
-      reply: "%{sender} さんへ返信する"
+      reply: ~
     new_payment:
       new_payment: 新しいお支払いを受け取りました
       price_per_unit_type: "%{unit_type}ごとの料金"

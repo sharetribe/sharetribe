@@ -1593,11 +1593,11 @@ sk-SK:
       has_commented_listing_you_follow_in_kassi: "Užívateľ %{author}, ktorého sledujete v %{service_name}, komentoval Váš inzerát %{listing}."
     new_message:
       view_message: "Zobraz správu"
-      has_sent_you_a_message_in_kassi: "%{sender} poslal Vám správu v %{service_name}"
-      you_have_a_new_message: "Nová správa v %{service_name} od %{sender_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: "máte správu!"
-      reply: "Odpovedať %{sender}"
+      reply: ~
     new_payment:
       new_payment: "Obdržali ste novú platbu"
       price_per_unit_type: "Cena za %{unit_type}"

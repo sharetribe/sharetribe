@@ -1584,11 +1584,11 @@ es:
       has_commented_listing_you_follow_in_kassi: "%{author} ha comentado en el anuncio '%{listing}' que estás siguiendo en %{service_name}."
     new_message:
       view_message: "Ver mensaje"
-      has_sent_you_a_message_in_kassi: "%{sender} te ha enviado un mensaje en %{service_name}."
-      you_have_a_new_message: "Tienes un nuevo mensaje de %{sender_name} en %{service_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: "tienes un mensaje."
-      reply: "Responder a %{sender}"
+      reply: ~
     new_payment:
       new_payment: "Has recibido un nuevo pago"
       price_per_unit_type: "Precio por %{unit_type}"
@@ -1703,7 +1703,7 @@ es:
       transaction_requested_by_user: "Buenas noticias! %{requester} está interesado en \"%{listing_title}\" y ya ha autorizado el pago por este anuncio."
       you_have_time_to_accept: "Debes aceptar o rechazar la solicitud dentro de %{payment_expires_in}."
       if_you_do_accept: "Si aceptas la transacción durante este tiempo, recibirás el dinero inmediatamente en tu cuenta."
-      if_you_do_accept_stripe: "Si aceptas la solicitud dentro de este periodo, el pago será completado. Recibirás el dinero directamente en tu cuenta de banco después de que hayas completado %{listing_title} para %{requester}."
+      if_you_do_accept_stripe: "Si aceptas la solicitud dentro de este periodo, el pago será cargado y retenido. Recibirás el dinero en tu cuenta de banco sólo cuando hayas completado %{listing_title} para %{requester}."
       if_you_do_not_accept: "Si rechazas la transacción o no aceptas la oferta durante este tiempo, la transacción se cancelará automáticamente, no se le cobrará a %{requester} y no recibirás el pago."
       click_here_to_reply: "Haz clic aquí para responder a la solicitud"
     transaction_preauthorized_v2:
@@ -2927,7 +2927,7 @@ es:
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
       textual_feedback: "Danos tu sugerencia textual"
-      this_will_be_shown_in_profile: "La valoración que tú des será visible para otros usuarios en la página del perfil de %{person}. Esto ayudará a los otros miembros de esta comunidad a evaluar si %{person} es una persona confiable."
+      this_will_be_shown_in_profile: "La valoración que tú des será visible para otros usuarios en la página del perfil de %{person}. Esto ayudará a los otros miembros de esta comunidad a evaluar si %{person} es un usuario confiable."
       positive: Positiva
       negative: Negativa
       default_textual_feedback: "Todo perfecto, muchas gracias."

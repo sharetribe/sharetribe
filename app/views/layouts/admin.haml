@@ -27,9 +27,14 @@
     = javascript_include_tag 'popper.min.js'
     = javascript_include_tag 'bootstrap.min.js'
     = render 'layouts/intercom'
+
     :javascript
       $(document).ready(function() {
           window.ST.jsonTranslations = #{ raw JSONTranslations.get(I18n.locale) };
           translate_validation_messages("#{I18n.locale}");
       });
+
+    - if logged_in? && @display_expiration_notice
+      = render 'admin2/expired_popup_admin'
+
     = content_for :extra_javascript

@@ -1584,11 +1584,11 @@ de:
       has_commented_listing_you_follow_in_kassi: "%{author} hat den Eintrag %{listing} kommentiert, dem du in %{service_name} folgst."
     new_message:
       view_message: "Nachricht ansehen"
-      has_sent_you_a_message_in_kassi: "%{sender} hat dir eine Nachricht auf %{service_name} gesendet."
-      you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} auf %{service_name}"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_message_v2:
       headline: "du hast eine Nachricht!"
-      reply: "Antwort an %{sender}"
+      reply: ~
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
