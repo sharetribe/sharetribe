@@ -12750,3 +12750,20 @@ a.sp-cancel:hover {
 @media (min-width: 1023px) {
   .dashboard-postscript {
     padding: 16px 0 0 0; } }
+
+div[data-mercury='full'] {
+  border-radius: 4px;
+  border: 1px solid #d8dce6;
+  padding: 6px 16px;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  img {
+    max-width: 100%;
+  }
+}
+
+.opacity_04{
+  #edit_link {
+    pointer-events: none;
+  }
+}
