@@ -12264,6 +12264,11 @@ span.attention {
   min-height: auto;
   position: relative;
   top: -3px; }
+.custom-switch input[type=checkbox],
+.custom-control input[type=checkbox] {
+  width: 0;
+  height: 0;
+  border: 0; }
 
 .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #2ECC71;
@@ -12279,11 +12284,6 @@ span.attention {
 
 .custom-control-label {
   width: 24px; }
-
-input[type=checkbox].custom-control-input {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important; }
 
 .custom-switch .custom-control-label::after {
   background-color: #FFFFFF;
@@ -12750,3 +12750,20 @@ a.sp-cancel:hover {
 @media (min-width: 1023px) {
   .dashboard-postscript {
     padding: 16px 0 0 0; } }
+
+div[data-mercury='full'] {
+  border-radius: 4px;
+  border: 1px solid #d8dce6;
+  padding: 6px 16px;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  img {
+    max-width: 100%;
+  }
+}
+
+.opacity_04{
+  #edit_link {
+    pointer-events: none;
+  }
+}

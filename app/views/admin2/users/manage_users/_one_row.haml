@@ -1,0 +1,29 @@
+- accepted_or_banned = membership.accepted? || membership.banned?
+- banned = membership.banned?
+- member = membership.person
+- row_member_class = "row-member-#{membership.id} #{('opacity_04' if banned)}"
+
+%td.admin-members-full-name{class: row_member_class}
+  - if banned
+    = @presenter.person_name(member)
+  - else
+    = link_to @presenter.person_name(member), member, target: :_blank
+  - if member.is_marketplace_admin?(@presenter.community)
+    %span.badge.badge-admin{"data-toggle" => "tooltip", title: t('admin2.manage_users.badge.admin_tooltip')}= t('admin2.manage_users.badge.admin')
+  - if membership.pending_consent?
+    %span.badge.badge-unconfirmed{"data-toggle" => "tooltip", title: t('admin2.manage_users.badge.pending_tooltip')}= t('admin2.manage_users.badge.pending')
+  - if membership.pending_email_confirmation?
+    %span.badge.badge-unconfirmed{"data-toggle" => "tooltip", title: t('admin2.manage_users.badge.unconfirmed_tooltip')}= t('admin2.manage_users.badge.unconfirmed')
+%td{class: row_member_class}
+  - email = member.confirmed_notification_emails.any? ? member.confirmed_notification_email_addresses.first : member.emails.first.try(:address)
+  = mail_to email
+%td{class: row_member_class}
+  = l(membership.created_at, format: :short_date)
+- if @presenter.require_verification_to_post_listings
+  %td{class: row_member_class}
+    .custom-control.custom-switch
+      = check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, class: %i[custom-control-input admin-members-can-post-listings],
+       data: {url: posting_allowed_admin2_users_manage_user_path(membership)}, disabled: (member.banned? || !accepted_or_banned)
+      %label.custom-control-label{for: "posting-allowed_#{member.id}"}
+%td.table-actions
+  = render 'actions', accepted_or_banned: accepted_or_banned, member: member, membership: membership, banned: banned, row_member_class: row_member_class
