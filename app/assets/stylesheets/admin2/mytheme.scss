@@ -12264,6 +12264,11 @@ span.attention {
   min-height: auto;
   position: relative;
   top: -3px; }
+.custom-switch input[type=checkbox],
+.custom-control input[type=checkbox] {
+  width: 0;
+  height: 0;
+  border: 0; }
 
 .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #2ECC71;
@@ -12279,11 +12284,6 @@ span.attention {
 
 .custom-control-label {
   width: 24px; }
-
-input[type=checkbox].custom-control-input {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important; }
 
 .custom-switch .custom-control-label::after {
   background-color: #FFFFFF;
