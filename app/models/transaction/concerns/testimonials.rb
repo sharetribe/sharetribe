@@ -16,28 +16,35 @@ module Testimonials
   def customer_status(popup = false)
     customer = testimonial_from_starter
     if starter_skipped_feedback
-      I18n.t('admin2.manage_reviews.statuses.skipped') + ('.' if popup).to_s
+      text = I18n.t('admin2.manage_reviews.statuses.skipped') + ('.' if popup).to_s
+      html_class = 'badge-skipped'
     elsif customer.present?
       if customer.blocked?
-        I18n.t('admin2.manage_reviews.statuses.blocked') + ('.' if popup).to_s
+        text = I18n.t('admin2.manage_reviews.statuses.blocked') + ('.' if popup).to_s
+        html_class = 'badge-blocked'
       else
-        status_string(customer.positive?, popup)
+        text, html_class = status_string(customer.positive?, popup)
       end
     else
-      I18n.t('admin2.manage_reviews.statuses.waiting') + ('.' if popup).to_s
+      text = I18n.t('admin2.manage_reviews.statuses.waiting') + ('.' if popup).to_s
+      html_class = 'badge-pending'
     end
+    [text, html_class]
   end
 
   def status_string(positive, popup)
-    rating = if positive
-               I18n.t('admin2.manage_reviews.statuses.positive')
-             else
-               I18n.t('admin2.manage_reviews.statuses.negative')
-             end
+    html_class = ''
+    if positive
+      rating = I18n.t('admin2.manage_reviews.statuses.positive')
+      html_class = 'badge-positive'
+    else
+      rating =  I18n.t('admin2.manage_reviews.statuses.negative')
+      html_class = 'badge-negative'
+    end
     if popup
       rating = I18n.t('admin2.manage_reviews.rating', rating: rating)
     end
-    rating
+    [rating, html_class]
   end
 
   def customer_positive?
@@ -74,16 +81,20 @@ module Testimonials
   def provider_status(popup = false)
     provider = testimonial_from_author
     if author_skipped_feedback
-      I18n.t('admin2.manage_reviews.statuses.skipped') + ('.' if popup).to_s
+      text = I18n.t('admin2.manage_reviews.statuses.skipped') + ('.' if popup).to_s
+      html_class = 'badge-skipped'
     elsif provider.present?
       if provider.blocked?
-        I18n.t('admin2.manage_reviews.statuses.blocked') + ('.' if popup).to_s
+        text = I18n.t('admin2.manage_reviews.statuses.blocked') + ('.' if popup).to_s
+        html_class = 'badge-blocked'
       else
-        status_string(provider.positive?, popup)
+        text, html_class = status_string(provider.positive?, popup)
       end
     else
-      I18n.t('admin2.manage_reviews.statuses.waiting') + ('.' if popup).to_s
+      text = I18n.t('admin2.manage_reviews.statuses.waiting') + ('.' if popup).to_s
+      html_class = 'badge-pending'
     end
+    [text, html_class]
   end
 
   def provider_positive?

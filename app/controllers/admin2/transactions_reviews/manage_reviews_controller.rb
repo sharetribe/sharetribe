@@ -8,10 +8,10 @@ module Admin2::TransactionsReviews
       tx = @service.transaction
       @review = { reviewReadLabel: t('admin2.manage_reviews.review_label', title: tx.title_listing),
                   customer_title: t('admin2.manage_reviews.customer_title', title: tx.customer_title),
-                  customer_status: tx.customer_status(true),
+                  customer_status: tx.customer_status(true)[0],
                   customer_text: tx.customer_text,
                   provider_title: t('admin2.manage_reviews.provider_title', title: tx.provider_title),
-                  provider_status: tx.provider_status(true),
+                  provider_status: tx.provider_status(true)[0],
                   provider_text: tx.provider_text }
       render layout: false
     end

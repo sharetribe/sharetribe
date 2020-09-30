@@ -7,15 +7,16 @@
     - if tx.customer_title
       = link_to tx.customer_title, person_path(tx.starter.username), target: :_blank
   %td
-    = tx.customer_status
+    - text_c, html_class_c = tx.customer_status
+    %span.badge{class: html_class_c}
+      = text_c
+
   %td
     - if tx.provider_title
       = link_to tx.provider_title, person_path(tx.listing_author.username), target: :_blank
   %td
-    = tx.provider_status
-  %td
-    = link_to t("admin2.manage_reviews.read_review_comments"), show_review_admin2_transactions_reviews_manage_review_path(tx), remote: true
-    |
-    = link_to t("admin2.manage_reviews.edit"), edit_review_admin2_transactions_reviews_manage_review_path(tx), remote: true, class: %i[edit-tx]
-    |
-    = link_to t("admin2.manage_reviews.delete_block"), delete_review_admin2_transactions_reviews_manage_review_path(tx), remote: true
+    - text, html_class = tx.provider_status
+    %span.badge{class: html_class}
+      = text
+  %td.table-actions
+    = render 'actions', tx: tx
