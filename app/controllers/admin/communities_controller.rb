@@ -102,7 +102,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     else
       render json: {error: res.error_msg }, status: :internal_server_error
     end
-
   end
 
   def resend_verification_email
