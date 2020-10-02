@@ -1,19 +1,16 @@
 %tr
   %td
     - price = MoneyViewUtils.to_humanized(tx.payment_total)
-    = link_to admin_community_transaction_path(id: tx.id, community_id: @current_community) do
+    = link_to admin2_transactions_reviews_manage_transaction_path(id: tx.id, community_id: @current_community) do
       = "#{tx.title_listing} #{price} #{l(tx.created_at, format: :short_date)}"
   %td
-    - if tx.customer_title
-      = link_to tx.customer_title, person_path(tx.starter.username), target: :_blank
+    = link_to_unless tx.starter.deleted, person_name(tx.starter), person_path(tx.starter.username), target: :_blank
   %td
     - text_c, html_class_c = tx.customer_status
     %span.badge{class: html_class_c}
       = text_c
-
   %td
-    - if tx.provider_title
-      = link_to tx.provider_title, person_path(tx.listing_author.username), target: :_blank
+    = link_to_unless tx.listing_author.deleted, person_name(tx.listing_author), person_path(tx.listing_author.username), target: :_blank
   %td
     - text, html_class = tx.provider_status
     %span.badge{class: html_class}

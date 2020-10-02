@@ -16,7 +16,7 @@ $(function() {
             $('.customer-blocked-review').prop('disabled', false);
         } else {
             if ($('#customer_blocked_disable').val() === 'true') {
-                $('.customer-blocked-review').prop('disabled', true);
+                $('.customer-blocked-review').prop('disabled', true).prop('checked', false);
             }
         }
     });
