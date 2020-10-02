@@ -20,7 +20,7 @@
       = flash_messages
       .layout-container
         = render 'admin2/sidebar'
-        .content-card
+        %div{ class: layout_class }
           = yield
     .mobilemenu-overlay
     = content_for :popup_layout

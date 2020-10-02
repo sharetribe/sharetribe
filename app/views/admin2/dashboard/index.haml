@@ -1,10 +1,82 @@
 - content_for :title do
   = t('admin2.sidebar.dashboard')
 
-.content-card-header
-  %h1.content-card-header-title
-    Dashboard
-  -#%a.content-card-header-link{:href => "#"} FIXME
-.content-card-section-container
-  %section.content-card-section
-    %h2 Dashboard
+.dashboard-card.user
+  %h1= t('admin2.home.title', name: @current_user.given_name, marketplace_name: title_service_name)
+  %p
+    = t('admin2.home.info_text', url: @presenter.domain_address).html_safe
+
+.dashboard-card.quicklinks
+  %h2= t('admin2.home.quicklinks')
+  %div
+    %p= t('admin2.home.day_to_day')
+    %ul
+      %li
+        = link_to t('admin2.home.manage_users'), admin2_users_manage_users_path(direction: :desc, sort: :join_date)
+      %li
+        = link_to t('admin2.home.manage_listings'), admin2_listings_manage_listings_path(direction: :desc, sort: :updated)
+    %p= t('admin2.home.transactions_conversations')
+    %ul
+      %li
+        = link_to t('admin2.home.manage_transactions'), admin2_transactions_reviews_manage_transactions_path(direction: :desc, sort: :last_activity)
+      %li
+        = link_to t('admin2.home.manage_reviews'), admin2_transactions_reviews_manage_reviews_path
+      %li
+        = link_to t('admin2.home.view_conversations'), admin2_transactions_reviews_conversations_path(direction: :desc, sort: :last_activity)
+  %div
+    %p= t('admin2.home.online_payments')
+    %ul
+      - stripe_allowed = StripeHelper.stripe_provisioned?(@current_community.id)
+      - paypal_allowed = PaypalHelper.paypal_provisioned?(@current_community.id)
+      - if paypal_allowed || stripe_allowed
+        %li
+          = link_to t('admin2.home.transaction_size'), admin2_payment_system_transaction_size_index_path
+      - if stripe_allowed
+        %li
+          = link_to t('admin2.home.stripe'), admin2_payment_system_stripe_index_path
+      - if paypal_allowed
+        %li
+          = link_to t('admin2.home.paypal'), admin2_payment_system_paypal_index_path
+    %p= t('admin2.home.what_new')
+    %ul
+      %li
+        = link_to t('admin2.home.sharetribe_go_updates'), 'https://www.sharetribe.com/products/go/updates/'
+
+.dashboard-card.guide
+  .guideImg
+  .textWrapper
+    %h2= t('admin2.home.free_and_practical')
+    %p
+      = link_to t('admin2.home.read_on'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+
+.dashboard-card.academy
+  %h2= t('admin2.home.block_1')
+  %p= t('admin2.home.block_1_body_1')
+  %p= t('admin2.home.block_1_body_2')
+  %ul
+    %li
+      = link_to t('admin2.home.block_1_point_1'), 'https://www.sharetribe.com/academy/why-you-should-launch-your-marketplace-early/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+    %li
+      = link_to t('admin2.home.block_1_point_2'), 'https://www.sharetribe.com/academy/marketplace-business-slows-down/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+    %li
+      = link_to t('admin2.home.block_1_point_3'), 'https://www.sharetribe.com/academy/backstage/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+  %p
+    = link_to t('admin2.home.block_1_point_4'), 'https://www.sharetribe.com/academy/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+
+.dashboard-card.gopro
+  = render "block_#{@block}"
+
+.dashboard-card.help
+  .card-top
+    %h2= t('admin2.home.block_3')
+    %p= t('admin2.home.block_3_body_1')
+  .card-bottom
+    %ul
+      %li
+        = link_to t('admin2.home.chat_with_us'), '#', 'show-intercom': true
+      %li
+        = link_to t('admin2.home.browse_sharetribe'), 'https://help.sharetribe.com/', rel: :noopener, target: :_blank
+
+.dashboard-postscript
+  %small
+    = t('admin2.home.bottom_text', url: 'https://www.sharetribe.com/twosided/').html_safe
