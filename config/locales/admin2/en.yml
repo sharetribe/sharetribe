@@ -391,7 +391,8 @@ en:
       block_review_provider: "Block future provider from %{title}"
       delete_review_customer: "Delete customer review from %{title}"
       delete_review_provider: "Delete provider review from %{title}"
-      save: 'Delete and/or block reviews'
+      delete_or_block: 'Delete and/or block reviews'
+      save: 'Save'
       cancel: 'Cancel'
       edit: 'Edit reviews…'
       rating_string: 'Rating'
