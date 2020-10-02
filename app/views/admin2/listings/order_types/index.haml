@@ -28,14 +28,14 @@
               - else
                 = t('admin2.order_types.category_count', category_count: "#{shape.category_ids.size}/#{@category_count}")
             .actions.col
-              %span.handle-move{'aria-hidden' => true}
               - unless @listing_shapes.size == 1
+                %span.handle-move{'aria-hidden' => true}
                 - if shape.can_delete_shape?
                   - confirm_opts = confirm_opts_order_type(shape)
                   = link_to '#', class: "listing-shape-delete-link delete_shape_#{shape.name} confirm-order-type-#{confirm_opts.present?}", data: confirm_opts do
                     %span.remove
-                = link_to edit_admin2_listings_order_type_path(shape), remote: true, class: "shape_#{shape.name}" do
-                  %span.edit
+              = link_to edit_admin2_listings_order_type_path(shape), remote: true, class: "shape_#{shape.name}" do
+                %span.edit
 
     %p.ingress
       = link_to t('admin2.order_types.add_new'), '#', 'data-target' => '#orderTypesAddModal', 'data-toggle' => 'modal'
