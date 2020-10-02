@@ -69,10 +69,6 @@ class Admin2::MembershipService
 
   def destroy
     person = membership.person
-    unless membership.banned? || membership.pending_consent? || membership.pending_email_confirmation?
-      @error_message = I18n.t('admin.communities.manage_members.only_delete_disabled')
-      return false
-    end
     has_unfinished = Transaction.unfinished_for_person(person).any?
     if has_unfinished
       @error_message = I18n.t('admin.communities.manage_members.have_ongoing_transactions')

@@ -10,6 +10,16 @@ $(function() {
         $('#listingPendingModal').modal('show');
     });
 
+    $(document).on('click', '.reject-listing-link', function () {
+        var id = $(this).data('id'),
+            title_popup = $('#listingRejectModalLabel'),
+            listing_name = $(this).data('title');
+
+        title_popup.html(listing_name);
+        $('#reject_listing_id').val(id);
+        $('#listingRejectModal').modal('show');
+    });
+
     $(document).on('click', '.close-listing', function () {
         var id = $(this).data('id'),
             title_popup = $('#listingCloseModalLabel'),

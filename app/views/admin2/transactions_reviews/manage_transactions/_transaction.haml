@@ -15,4 +15,6 @@
   %td
     = transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ''
   %td
-    = link_to t('admin2.manage_transactions.view_details'), admin2_transactions_reviews_manage_transaction_path(transaction)
+    = link_to admin2_transactions_reviews_manage_transaction_path(transaction) do
+      = image_tag 'svg/eye.svg', alt: 'eye'
+      = t('admin2.manage_transactions.view_details')
