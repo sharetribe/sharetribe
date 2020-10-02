@@ -97,6 +97,49 @@ en:
       advanced:
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
+    home:
+      title: 'Hi %{name}, welcome to %{marketplace_name}!'
+      info_text: "Your marketplace is available at <a href='%{url}'>%{url}</a>.
+                  <br>
+                  Here in Admin panel, you can manage all your marketplace settings and ask for help :-)"
+      quicklinks: 'Quicklinks'
+      block_1: 'Marketplace Academy'
+      block_1_body_1: 'Everything you need to know about running a marketplace.'
+      block_1_body_2: 'Noteworthy articles:'
+      block_1_point_1: '› Why you should launch your marketplace early'
+      block_1_point_2: '› What to do if your marketplace business slows down'
+      block_1_point_3: '› The Backstage video series'
+      block_1_point_4: '› Browse all Marketplace Academy articles'
+      block_2:
+        a_title: 'Go Pro'
+        a_body: 'Enable a custom domain, footer and many other features by subscribing to a Pro plan. Starting from $119/mo.'
+        a_link: '› Manage your subscription'
+        b_title: 'Add a beautiful landing page to your marketplace'
+        b_body: 'Communicate your main value proposition to your audience, explain how your site works, and entice users to sign up by adding a fantastic looking landing page to your marketplace. $99/mo.'
+        b_link: '› Learn more about the Custom Landing Page'
+        c_title: 'Discover Flex'
+        c_body: 'Build a marketplace that is uniquely yours. Thanks to its advanced, headless approach, Sharetribe Flex powers your business at a fraction of the cost of a custom-build. On any scale.'
+        c_link: '› Learn more about Sharetribe Flex'
+      block_3: 'Help!'
+      block_3_body_1: "The support team's marketplace experts are here for you 7 days a week."
+      bottom_text: 'P.S.: Have you listened to <a href="%{url}" rel="noopener" target="_blank">Two-sided: the marketplace podcast</a>?'
+      browse_sharetribe: "› Browse Sharetribe Go's Help Center"
+      day_to_day: 'Day-to-day:'
+      transactions_conversations: 'Transactions & conversations:'
+      chat_with_us: '› Chat with us'
+      online_payments: 'Online payments:'
+      what_new: "What's new:"
+      sharetribe_go_updates: '› Sharetribe Go updates'
+      free_and_practical: 'A free and practical online guide for building online marketplaces'
+      read_on: '› Read on'
+      manage_users: '› Manage users'
+      manage_listings: '› Manage listings'
+      manage_transactions: '› Manage transactions'
+      manage_reviews: '› Manage reviews'
+      view_conversations: '› View conversations'
+      transaction_size: '› Transaction size'
+      stripe: '› Stripe setup and commission'
+      paypal: '› PayPal setup and commission'
     paypal:
       account_settings: 'PayPal account settings'
       paypal_connected: 'PayPal connected'
