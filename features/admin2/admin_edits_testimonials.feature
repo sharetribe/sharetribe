@@ -17,6 +17,6 @@ Feature: Admin edit testimonials
     When click to testimonial edit link
     Then I should see "Hi from author" within field "provider_comment"
     Then I fill in "provider_comment" with "What is up?"
-    Then I press "Delete and/or block reviews"
+    Then I press "Save"
     Then click to testimonial edit link
     Then I should see "What is up?"
