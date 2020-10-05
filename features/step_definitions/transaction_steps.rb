@@ -24,5 +24,5 @@ end
 
 Given(/^click to testimonial edit link/) do
   find('.more').click
-  find('.edit-tx').click
+  find('.edit-tx.provider').click
 end
