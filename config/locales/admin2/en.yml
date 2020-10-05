@@ -382,6 +382,7 @@ en:
       all_transactions: 'All transactions (%{count})'
       customer_title: "Customer review from %{title}"
       provider_title: "Provider review from %{title}"
+      review_label: 'Reviews for the transaction for "%{title}"'
       review_label_customer: 'Customer''s review from %{title} for the transaction for "%{listing}"'
       review_label_provider: 'Provider''s review from %{title} for the transaction for "%{listing}"'
       delete_notice: 'Deleting a review allows its author to leave another one for the same transaction. Deleting a review cannot be undone.'

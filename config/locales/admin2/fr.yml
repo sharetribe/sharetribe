@@ -379,6 +379,7 @@ fr:
       all_transactions: 'lorem ipsum (%{count})'
       customer_title: "lorem ipsum %{title}"
       provider_title: "lorem ipsum %{title}"
+      review_label: 'lorem ipsum "%{title}"'
       review_label_customer: 'lorem ipsum %{title} lorem ipsum "%{listing}"'
       review_label_provider: 'lorem ipsumm %{title} lorem ipsum "%{listing}"'
       delete_notice: 'lorem ipsum.'
