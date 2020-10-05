@@ -382,7 +382,8 @@ en:
       all_transactions: 'All transactions (%{count})'
       customer_title: "Customer review from %{title}"
       provider_title: "Provider review from %{title}"
-      review_label: 'Reviews for the transaction for "%{title}"'
+      review_label_customer: 'Customer''s review from %{title} for the transaction for "%{listing}"'
+      review_label_provider: 'Provider''s review from %{title} for the transaction for "%{listing}"'
       delete_notice: 'Deleting a review allows its author to leave another one for the same transaction. Deleting a review cannot be undone.'
       blocked_notice: 'Blocking the review prevents its author from leaving another one for the same transaction.'
       delete_title: 'Delete and block reviews for the transaction for "%{title}"'
@@ -393,7 +394,8 @@ en:
       delete_or_block: 'Delete and/or block reviews'
       save: 'Save'
       cancel: 'Cancel'
-      edit: 'Edit reviews…'
+      edit_customer: "Edit customer's review…"
+      edit_provider: "Edit provider's review…"
       rating_string: 'Rating'
       delete_block: 'Delete and block…'
       read_review_comments: 'Read reviews…'
