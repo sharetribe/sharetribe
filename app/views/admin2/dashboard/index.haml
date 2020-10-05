@@ -1,7 +1,7 @@
 - content_for :extra_javascript do
   :javascript
     initIntercom();
-    
+
 - content_for :title do
   = t('admin2.sidebar.dashboard')
 
@@ -44,7 +44,7 @@
     %p= t('admin2.home.what_new')
     %ul
       %li
-        = link_to t('admin2.home.sharetribe_go_updates'), 'https://www.sharetribe.com/products/go/updates/', rel: :noopener, target: :_blank
+        = link_to t('admin2.home.sharetribe_go_updates'), 'https://www.sharetribe.com/products/go/updates/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
 
 .dashboard-card.guide
   .guideImg
@@ -79,8 +79,8 @@
       %li
         = link_to t('admin2.home.chat_with_us'), '#', 'show-intercom': true
       %li
-        = link_to t('admin2.home.browse_sharetribe'), 'https://help.sharetribe.com/', rel: :noopener, target: :_blank
+        = link_to t('admin2.home.browse_sharetribe'), 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
 
 .dashboard-postscript
   %small
-    = t('admin2.home.bottom_text', url: 'https://www.sharetribe.com/twosided/').html_safe
+    = t('admin2.home.bottom_text', url: 'https://www.sharetribe.com/twosided/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home').html_safe
