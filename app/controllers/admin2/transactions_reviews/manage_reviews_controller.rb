@@ -18,6 +18,7 @@ module Admin2::TransactionsReviews
     end
 
     def edit_review
+      @type = params[:type]
       @tx = @service.transaction
       render layout: false
     end
