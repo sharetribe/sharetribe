@@ -14,7 +14,6 @@
           %th{scope: :col}= render 'sort_link', column: 'started', direction: sort_link_direction('started'), title: t('admin2.manage_listings.created')
           %th{scope: :col}= render 'sort_link', column: 'updated', direction: sort_link_direction('updated'), title: t('admin2.manage_listings.updated')
           %th{scope: :col}= t('admin2.manage_listings.category')
-          %th{scope: :col}= t('admin2.manage_listings.status')
           %th{scope: :col}= t('admin2.manage_listings.actions')
       %tbody
         = render partial: 'listing', collection: @presenter.listings, locals: { presenter: @presenter }
@@ -25,5 +24,6 @@
 
 - content_for :popup_layout do
   = render 'admin2/listings/manage_listings/approve_popup'
+  = render 'admin2/listings/manage_listings/reject_popup'
   = render 'admin2/listings/manage_listings/close_popup'
   = render 'admin2/listings/manage_listings/delete_popup'

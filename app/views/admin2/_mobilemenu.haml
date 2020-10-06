@@ -2,7 +2,7 @@
   %aside.sidenav-container
     .mobilemenu-top
       .mobilemenu-top-logo
-        = link_to admin2_dashboard_index_path, class: :logo do
+        = link_to admin2_path, class: :logo do
           = image_tag 'gap-logo.png', width: 117, alt: t('admin2.topnav.logo')
 
       = render partial: 'admin2/locals', locals: header_props
@@ -14,7 +14,7 @@
         / Dashboard
         %ul.category-title
           %li#dashboard-mobile{class: active_li('dashboard')}
-            = link_to t('admin2.sidebar.dashboard'), admin2_dashboard_index_path
+            = link_to t('admin2.sidebar.dashboard'), admin2_path
         / General
         %ul.category-title
           %li
@@ -23,7 +23,7 @@
           %li#essentials-mobile{class: active_li('essentials')}
             = link_to t('admin2.sidebar.general.essentials'), admin2_general_essentials_path
           %li#domain-mobile
-            %a{:href => 'domain.php'} Domain
+            = link_to t('admin2.sidebar.general.domain'), admin_domain_path
           %li#privacy-mobile{class: active_li('privacy')}
             = link_to t('admin2.sidebar.general.privacy'), admin2_general_privacy_index_path
           %li#staticcontent-mobile

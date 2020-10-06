@@ -1,0 +1,48 @@
+%a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-flip" => "false", "data-toggle" => "dropdown", href: '#', role: 'button'} •••
+.dropdown-menu{:style => "position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(1772px, 298px, 0px);", "x-placement" => "bottom-start"}
+
+  - if presenter.show_approval_link?(listing)
+    = link_to '#', data: {id: listing.id, title: t('admin2.manage_listings.confirm_popup_title', listing: listing.title)}, class: %i[approve-listing-link dropdown-item positive] do
+      %svg{:height => "16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}>
+        %g{:fill => "none", "fill-rule" => "evenodd", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
+          %path{:d => "M4.063 13.688a3.5 3.5 0 01.908.134l2.12.606c.313.089.636.134.96.134h2.85a3.5 3.5 0 003.483-3.15l.175-2.975a2.625 2.625 0 00-1.983-2.68l-.85-.185a.875.875 0 01-.663-.85V2.75a1.313 1.313 0 00-2.625 0v.907a4.375 4.375 0 01-4.375 4.375v5.656zM1.438 6.688h2.625v7.875H1.438z"}
+      = t('admin2.manage_listings.actions_menu.approve_listing')
+
+    = link_to '#', data: {id: listing.id, title: t('admin2.manage_listings.reject_popup_title', listing: listing.title)}, class: %i[reject-listing-link dropdown-item negative] do
+      %svg{:height => "16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}>
+        %g{:fill => "none", "fill-rule" => "evenodd", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
+          %path{:d => "M4.063 2.312a3.5 3.5 0 00.908-.134l2.12-.606c.313-.089.636-.135.96-.135h2.85a3.5 3.5 0 013.483 3.15l.175 2.976a2.625 2.625 0 01-1.983 2.68l-.85.185a.875.875 0 00-.663.85v1.972a1.313 1.313 0 01-2.625 0v-.906a4.375 4.375 0 00-4.375-4.375V2.312zM1.438 9.312h2.625V1.437H1.438z"}
+      = t('admin2.manage_listings.actions_menu.reject_listing')
+    %hr
+
+  - if opacity
+    = link_to edit_listing_path(listing), target: :_blank, class: %i[dropdown-item positive] do
+      %svg{:height => "16", :width => "14", :xmlns => "http://www.w3.org/2000/svg"}>
+        %g{:fill => "none", "fill-rule" => "evenodd", "stroke-width" => "1.5"}
+          %path{:d => "M13.944 2.056a2.123 2.123 0 00-3.016.02L2.47 10.535l-1.033 4.027 4.028-1.033 8.459-8.458a2.122 2.122 0 00.02-3.015zM10.687 2.318l2.995 2.995M2.471 10.534l2.997 2.993"}
+      = t('admin2.manage_listings.actions_menu.edit_and_reopen')
+
+  - else
+    = link_to edit_listing_path(listing), target: :_blank, class: %i[dropdown-item neutral] do
+      %svg{:height => "16", :width => "14", :xmlns => "http://www.w3.org/2000/svg"}>
+        %g{:fill => "none", "fill-rule" => "evenodd", "stroke-width" => "1.5"}
+          %path{:d => "M13.944 2.056a2.123 2.123 0 00-3.016.02L2.47 10.535l-1.033 4.027 4.028-1.033 8.459-8.458a2.122 2.122 0 00.02-3.015zM10.687 2.318l2.995 2.995M2.471 10.534l2.997 2.993"}
+      = t('admin2.manage_listings.actions_menu.edit_listing')
+
+  %hr
+
+  - if !listing.closed? && !presenter.show_approval_link?(listing) && !listing.approval_rejected?
+    = link_to '#', data: {id: listing.id, title: listing.title}, class: %i[dropdown-item negative close-listing] do
+      %svg{:height => "15", :width => "12", :xmlns => "http://www.w3.org/2000/svg"}>
+        %g{:fill => "none", "fill-rule" => "evenodd", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5", :transform => "translate(1 1)"}
+          %rect{:height => "7.8", :rx => "1.5", :width => "9.533", :y => "5.2"}
+          %path{:d => "M1.733 5.2V3.033a3.033 3.033 0 016.067 0V5.2"}
+          %circle{:cx => "4.767", :cy => "9.1", :r => "1.3"}
+      = t('admin2.manage_listings.actions_menu.close_listing')
+
+  = link_to '#', data: {id: listing.id, title: t('admin2.manage_listings.delete_title', title: listing.title)}, class: %i[dropdown-item negative delete-listing] do
+    %svg{:height => "11", :width => "12", :xmlns => "http://www.w3.org/2000/svg"}>
+      %g{"fill-rule" => "nonzero"}
+        %rect{:height => "1.5", :rx => ".75", :transform => "rotate(45 5.834 5.48)", :width => "14", :x => "-1.166", :y => "4.73"}
+        %rect{:height => "1.5", :rx => ".75", :transform => "rotate(-45 5.48 5.48)", :width => "14", :x => "-1.52", :y => "4.73"}
+    = t('admin2.manage_listings.actions_menu.delete_listing')

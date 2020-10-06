@@ -1,8 +1,9 @@
 <% if @error.present? %>
   showError('<%= j @error %>');
 <% else %>
-  showSuccess('<%= j t('admin2.manage_users.saved') %>');
   var current = $('#status_').val();
   $('#user_statuses_filter').html('<%= j render 'admin2/users/manage_users/statuses', presenter: @presenter, current: nil %>');
   $('#status_').val(current);
+  $('#userRevokeAdminRightsModal').modal('hide');
+  $('.membership-row-<%= @service.membership.id %>').html('<%= j render 'admin2/users/manage_users/one_row', membership: @service.membership %>');
 <% end %>

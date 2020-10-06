@@ -1,24 +1,17 @@
-%td
+- opacity = listing.approval_rejected? || listing.closed?
+
+%td{class: "#{'opacity_03' if opacity}"}
   = link_to listing.title, listing_path(listing), target: :_blank
+  = render 'badges', listing: listing, presenter: presenter
 - if presenter.admin_mode
-  %td
+  %td{class: "#{'opacity_03' if listing.closed?}"}
     - p = listing.author
     - unless p.deleted
       = link_to person_name(p), person_path(p.username), target: :_blank
-%td= l(listing.created_at, format: :short)
-%td= l(listing.updated_at, format: :short)
-%td
+%td{class: "#{'opacity_03' if opacity}"}= l(listing.created_at, format: :short_date)
+%td{class: "#{'opacity_03' if opacity}"}= l(listing.updated_at, format: :short_date)
+%td{class: "#{'opacity_03' if opacity}"}
   - category = listing.category
   = link_to category.display_name(I18n.locale), search_path(category: category.url), target: :_blank
-%td
-  - status = t("admin2.manage_listings.statuses.#{presenter.listing_status(listing)}")
-  - if presenter.show_approval_link?(listing)
-    = link_to status, '#', data: {id: listing.id, title: listing.title}, class: %i[approve-listing-link]
-  - else
-    = status
-%td
-  = link_to t('admin2.manage_listings.edit'), edit_listing_path(listing), target: :_blank
-  |
-  = link_to t('admin2.manage_listings.close'), '#', data: {id: listing.id, title: listing.title}, class: (%i[close-listing] << (%i[opacity_04 is-disabled] if (listing.closed? || presenter.show_approval_link?(listing))))
-  |
-  = link_to t('admin2.manage_listings.delete'), '#', data: {id: listing.id, title: t('admin2.manage_listings.delete_title', title: listing.title)}, class: %i[delete-listing]
+%td.table-actions
+  = render 'actions', presenter: presenter, listing: listing, opacity: opacity
