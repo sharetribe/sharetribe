@@ -6,6 +6,13 @@
       .flash-text
         = t("layouts.notifications.maintenance_mode", count: @minutes_to_maintenance)
 
+- if @admin2_banner
+  .flash-notifications-banner
+    .flash-notification.flash-warning
+      .flash-icon.ss-info
+      .flash-text
+        = t('admin2.notice_banner', url: admin2_path).html_safe
+
 - { :notice => "ss-check", :warning => "ss-info", :error => "ss-alert" }.each do |announcement, icon_class|
   - if flash[announcement]
     .flash-notifications
