@@ -188,4 +188,8 @@ module Admin2Helper
     base.slice!(DateTime.current.year.to_s) if DateTime.current.year == date.year
     base
   end
+
+  def layout_class
+    controller_name == 'dashboard' ? 'dashboard-content-wrapper' : 'content-card'
+  end
 end

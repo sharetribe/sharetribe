@@ -172,7 +172,7 @@ Rails.application.routes.draw do
     end
 
     namespace :admin2 do
-      resources :dashboard, only: :index
+      get '' => "dashboard#index"
       namespace :general do
         resources :essentials, only: %i[index] do
           collection do
@@ -479,7 +479,7 @@ Rails.application.routes.draw do
 
     end
 
-    get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')
+    # get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')
 
     namespace :admin do
       get '' => "getting_started_guide#index"

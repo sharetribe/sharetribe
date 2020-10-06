@@ -37,6 +37,7 @@ fr:
       legacy_admin_panel: 'lorem ipsum'
       general:
         essentials: 'lorem ipsum'
+        domain: 'lorem ipsum'
         privacy: 'lorem ipsum'
         static_content: 'lorem ipsum'
         admin_notifications: 'lorem ipsum'
@@ -97,6 +98,48 @@ fr:
       advanced:
         custom_script: 'lorem ipsum'
         delete_marketplace: 'lorem ipsum'
+    home:
+      title: 'lorem ipsum %{name},lorem ipsum %{marketplace_name}!'
+      info_text: "lorem ipsum <a href='%{url}'>%{url}</a>.
+                  lorem ipsum"
+      quicklinks: 'lorem ipsum'
+      block_1: 'lorem ipsum'
+      block_1_body_1: 'lorem ipsum.'
+      block_1_body_2: 'lorem ipsum:'
+      block_1_point_1: '› lorem ipsum'
+      block_1_point_2: '› lorem ipsum'
+      block_1_point_3: '› lorem ipsum'
+      block_1_point_4: '› lorem ipsum'
+      block_2:
+        a_title: 'lorem ipsum'
+        a_body: 'lorem ipsum'
+        a_link: '› lorem ipsum'
+        b_title: 'lorem ipsum'
+        b_body: 'lorem ipsum'
+        b_link: '› lorem ipsum'
+        c_title: 'lorem ipsum'
+        c_body: 'lorem ipsum.'
+        c_link: '› lorem ipsum'
+      block_3: 'lorem ipsum'
+      block_3_body_1: "lorem ipsum"
+      bottom_text: 'lorem ipsum <a href="%{url}" rel="noopener" target="_blank">lorem ipsum</a>?'
+      browse_sharetribe: "› lorem ipsum"
+      day_to_day: 'lorem ipsum:'
+      transactions_conversations: 'lorem ipsum:'
+      chat_with_us: '› lorem ipsum'
+      online_payments: 'lorem ipsum:'
+      what_new: "lorem ipsum:"
+      sharetribe_go_updates: '› lorem ipsum'
+      free_and_practical: 'lorem ipsum'
+      read_on: '› lorem ipsum'
+      manage_users: '› lorem ipsum'
+      manage_listings: '› lorem ipsum'
+      manage_transactions: '› lorem ipsum'
+      manage_reviews: '› lorem ipsum'
+      view_conversations: '› lorem ipsum'
+      transaction_size: '› lorem ipsum'
+      stripe: '› lorem ipsum'
+      paypal: '› lorem ipsum'
     paypal:
       account_settings: 'lorem ipsum'
       paypal_connected: 'lorem ipsum'
