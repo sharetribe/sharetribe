@@ -423,7 +423,9 @@ fr:
       all_transactions: 'lorem ipsum (%{count})'
       customer_title: "lorem ipsum %{title}"
       provider_title: "lorem ipsum %{title}"
-      review_label: "lorem ipsum '%{title}'"
+      review_label: 'lorem ipsum "%{title}"'
+      review_label_customer: 'lorem ipsum %{title} lorem ipsum "%{listing}"'
+      review_label_provider: 'lorem ipsumm %{title} lorem ipsum "%{listing}"'
       delete_notice: 'lorem ipsum.'
       blocked_notice: 'lorem ipsum.'
       delete_title: "lorem ipsum'%{title}'"
@@ -431,9 +433,11 @@ fr:
       block_review_provider: "lorem ipsum %{title}"
       delete_review_customer: "lorem ipsum %{title}"
       delete_review_provider: "lorem ipsum %{title}"
+      delete_or_block: 'lorem ipsum'
       save: 'lorem ipsum'
       cancel: 'lorem ipsum'
-      edit: 'lorem ipsum'
+      edit_customer: "lorem ipsum"
+      edit_provider: "lorem ipsum"
       rating_string: 'lorem ipsum'
       delete_block: 'lorem ipsum'
       read_review_comments: 'lorem ipsum'
