@@ -1,0 +1,14 @@
+.form-group.expired_email
+  = label_tag :name, t('admin2.outgoing_address.name')
+  = text_field_tag :name, user_defined_address.try(:[], :name), placeholder: t('admin2.outgoing_address.sender_name_placeholder'), class: %i[form-control], disabled: true
+  %small#senderName-help.form-text
+    = t('admin2.outgoing_address.name_info')
+
+.form-group.expired_email
+  = label_tag :email do
+    = t('admin2.outgoing_address.email_verified')
+    = image_tag 'svg/remove.svg', alt: 'fail-red', style: 'margin-top: -2px;'
+    %span.fail{"data-placement" => "top", "data-toggle" => "tooltip", :title => "The verification email expired and failed. You can resend the email to try again."} Expired
+  = text_field_tag :email, user_defined_address.try(:[], :email), placeholder: t('admin2.outgoing_address.sender_email_placeholder'), class: %i[form-control], disabled: true
+  %small#senderEmail-help.form-text
+    = t('admin2.outgoing_address.verified_info')

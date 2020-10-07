@@ -1,14 +1,14 @@
 module Admin2::Emails
   class OutgoingEmailsController < Admin2::AdminBaseController
 
-    before_action :ensure_white_label_plan, only: [:create]
+    before_action :ensure_white_label_plan, only: %i[create]
 
     def index
       @url_params = {
-        :host => @current_community.full_domain,
-        :ref => "welcome_email",
-        :locale => @current_user.locale,
-        :protocol => APP_CONFIG.always_use_ssl.to_s == "true" ? "https://" : "http://"
+        host: @current_community.full_domain,
+        ref: 'welcome_email',
+        locale: @current_user.locale,
+        protocol: APP_CONFIG.always_use_ssl.to_s == 'true' ? 'https://' : 'http://'
       }
 
       sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data
@@ -30,8 +30,7 @@ module Admin2::Emails
         post_sender_address_url: admin2_emails_outgoing_emails_path,
         can_set_sender_address: can_set_sender_address(@current_plan),
         ses_in_use: ses_in_use,
-        show_branding_info: !@current_plan[:features][:whitelabel],
-        link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=referral&utm_campaign=nowl-admin-panel"
+        show_branding_info: !@current_plan[:features][:whitelabel]
       }
     end
 
@@ -40,7 +39,7 @@ module Admin2::Emails
 
       if user_defined_address && user_defined_address[:email] == params[:email].to_s.downcase.strip
         EmailService::API::Api.addresses.update(community_id: @current_community.id, id: user_defined_address[:id], name: params[:name])
-        flash[:notice] = t("admin.communities.outgoing_email.successfully_saved_name")
+        flash[:notice] = t('admin2.outgoing_address.successfully_saved_name')
         redirect_to action: :index
         return
       end
@@ -53,22 +52,20 @@ module Admin2::Emails
         })
 
       if res.success
-        flash[:notice] =
-          t("admin.communities.outgoing_email.successfully_saved")
-
+        flash[:notice] = t('admin2.outgoing_address.successfully_saved')
         redirect_to action: :index
       else
         error_message =
           case Maybe(res.data)[:error_code]
           when Some(:invalid_email)
-            t("admin.communities.outgoing_email.invalid_email_error", email: res.data[:email])
+            t('admin2.outgoing_address.invalid_email_error', email: res.data[:email])
           when Some(:invalid_email_address)
-            t('admin.communities.outgoing_email.invalid_email_address')
+            t('admin2.outgoing_address.invalid_email_address')
           when Some(:invalid_domain)
-            kb_link = view_context.link_to(t("admin.communities.outgoing_email.invalid_email_domain_read_more_link"), "#{APP_CONFIG.knowledge_base_url}/configuration-and-how-to/how-to-define-your-own-address-as-the-sender-of-all-outgoing-emails", class: "flash-error-link") # rubocop:disable Metrics/LineLength
-            t("admin.communities.outgoing_email.invalid_email_domain", email: res.data[:email], domain: res.data[:domain], invalid_email_domain_read_more_link: kb_link).html_safe
+            kb_link = view_context.link_to(t('admin2.outgoing_address.invalid_email_domain_read_more_link'), "#{APP_CONFIG.knowledge_base_url}/configuration-and-how-to/how-to-define-your-own-address-as-the-sender-of-all-outgoing-emails", class: "flash-error-link") # rubocop:disable Metrics/LineLength
+            t('admin2.outgoing_address.invalid_email_domain', email: res.data[:email], domain: res.data[:domain], invalid_email_domain_read_more_link: kb_link).html_safe
           else
-            t("admin.communities.outgoing_email.unknown_error")
+            t('admin2.outgoing_address.unknown_error')
           end
 
         flash[:error] = error_message
@@ -88,13 +85,13 @@ module Admin2::Emails
 
         render json: HashUtils.camelize_keys(address.merge(translated_verification_sent_time_ago: time_ago(address[:verification_requested_at])))
       else
-        render json: {error: res.error_msg }, status: :internal_server_error
+        render json: { error: res.error_msg }, status: :internal_server_error
       end
     end
 
     def resend_verification_email
       EmailService::API::Api.addresses.enqueue_verification_request(community_id: @current_community.id, id: params[:address_id])
-      render json: {}, status: :ok
+      render layout: false
     end
 
     private
@@ -111,7 +108,7 @@ module Admin2::Emails
 
     def ensure_white_label_plan
       unless can_set_sender_address(@current_plan)
-        flash[:error] = "Not available for your plan"
+        flash[:error] = t('admin2.outgoing_address.not_in_plan')
         redirect_to action: :index
       end
     end
