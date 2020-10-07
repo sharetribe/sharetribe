@@ -1,0 +1,42 @@
+.form-group#email-spinner
+  = render 'spinner'
+
+:javascript
+    $(document).ready(function() {
+      var interval = 1000,
+          count = 0;
+      function statusEmail() {
+        $.ajax({
+          type: 'GET',
+          url: "#{status_check_url}",
+          dataType: 'json',
+          complete: function (data, xrf) {
+            if (data.responseJSON.verificationStatus === 'expired') {
+              $('.expired_email').show();
+              $('#email-spinner').hide();
+              clearTimeout(timer);
+            } else {
+              count += 1;
+              if (count > 15 || Date.parse(data.responseJSON.updatedAt) !== Date.parse("#{user_defined_address[:updated_at]}")) {
+                clearTimeout(timer);
+                if (data.responseJSON.verificationStatus === 'expired') {
+                  $('.expired_email').show();
+                } else if (data.responseJSON.verificationStatus === 'requested') {
+                  $('.unverified_email').show();
+                } else if (data.responseJSON.verificationStatus === 'verified') {
+                  $('.verified_email').show();
+                  $('.verified-class').prop('disabled', false);
+                  $('.verified-label-class').show();
+                  $('.unverified-label-class').hide();
+                }
+                $('#email-spinner').hide();
+              } else {
+                setTimeout(statusEmail, interval);
+              }
+            }
+          }
+        });
+      }
+      var timer = setTimeout(statusEmail, interval);
+    });
+

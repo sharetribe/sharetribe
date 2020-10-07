@@ -1,0 +1,17 @@
+.form-group.unverified_email
+  = label_tag :name, t('admin2.outgoing_address.name')
+  = text_field_tag :name, user_defined_address.try(:[], :name), placeholder: t('admin2.outgoing_address.sender_name_placeholder'), class: %i[form-control], disabled: true
+  %small#senderName-help.form-text
+    = t('admin2.outgoing_address.name_info')
+
+.form-group.unverified_email
+  = label_tag :email do
+    = t('admin2.outgoing_address.email_verified')
+    %svg{:height => "14", :style => "margin-top: -2px;", :width => "14", :xmlns => "http://www.w3.org/2000/svg"}
+      %g{:fill => "none", "fill-rule" => "evenodd", :stroke => "#FF9F05", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
+        %path{:d => "M7 10a.375.375 0 100 .75.375.375 0 000-.75"}
+        %path{:d => "M12.813 10.432A1.774 1.774 0 0111.226 13H2.774a1.773 1.773 0 01-1.586-2.568l4.225-8.45a1.774 1.774 0 013.174 0l4.226 8.45zM7 7.75v-3"}
+    %span.attention{"data-placement" => "top", "data-toggle" => "tooltip", title: t('admin2.outgoing_address.unverified_tooltip')}= t('admin2.outgoing_address.unverified')
+  = text_field_tag :email, user_defined_address.try(:[], :email), placeholder: t('admin2.outgoing_address.sender_email_placeholder'), class: %i[form-control], disabled: true
+  %small#senderEmail-help.form-text
+    = t('admin2.outgoing_address.verified_info')

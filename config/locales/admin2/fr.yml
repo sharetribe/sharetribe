@@ -99,6 +99,35 @@ fr:
       advanced:
         custom_script: 'lorem ipsum'
         delete_marketplace: 'lorem ipsum'
+    outgoing_address:
+      outgoing_email_settings: 'lorem ipsum'
+      resend_verification_email: 'lorem ipsum'
+      upgrading: 'lorem ipsum <a href="%{url}">lorem ipsum</a>.'
+      info: 'lorem ipsum<a href="%{url}" target="_blank" >lorem ipsum</a>.'
+      expired_notice_email: 'lorem ipsum %{email} lorem ipsum'
+      expired_notice_link: 'lorem ipsum %{link}.'
+      send_notice_email: 'lorem ipsum %{email} lorem ipsum.'
+      send_notice_info: 'lorem ipsum'
+      sent: 'lorem ipsum!'
+      name: 'lorem ipsum'
+      verified_info: 'lorem ipsum.'
+      name_info: 'lorem ipsum.'
+      sender_email_placeholder: 'lorem ipsum'
+      sender_name_placeholder: 'lorem ipsum'
+      email: 'lorem ipsum'
+      email_verified: 'lorem ipsum  • '
+      verified: 'lorem ipsum'
+      expired: 'lorem ipsum'
+      unverified: 'lorem ipsum'
+      unverified_tooltip: 'lorem ipsum sharetribe@sharetribe.com lorem ipsum.'
+      successfully_saved_name: 'lorem ipsum.'
+      successfully_saved: 'lorem ipsum.'
+      invalid_email_error: "lorem ipsum '%{email}'"
+      invalid_email_address: 'lorem ipsum'
+      invalid_email_domain_read_more_link: 'lorem ipsum.'
+      invalid_email_domain: "lorem ipsum '%{email}' lorem ipsum '%{domain}'. %{invalid_email_domain_read_more_link}"
+      unknown_error: 'lorem ipsum'
+      not_in_plan: 'lorem ipsum'
     home:
       title: 'lorem ipsum %{name},lorem ipsum %{marketplace_name}!'
       info_text: "lorem ipsum <a href='%{url}'>%{url}</a>.

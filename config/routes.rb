@@ -400,6 +400,12 @@ Rails.application.routes.draw do
       end
 
       namespace :emails do
+        resources :outgoing_emails, path: 'custom-outgoing-address' do
+          collection do
+            get :check_email_status
+            post :resend_verification_email
+          end
+        end
         resources :email_users, path: 'email-users', only: %i[index create]
         resources :welcome_emails, path: 'welcome-email', only: %i[index] do
           collection do

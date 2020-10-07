@@ -78,6 +78,7 @@ en:
         email_users: 'Email users'
         automatic_newsletter: 'Automatic newsletter'
         welcome_email: 'Welcome email'
+        custom_outgoing_address: 'Custom outgoing address'
       search_location:
         search: 'Search'
         location: 'Location'
@@ -99,6 +100,35 @@ en:
       advanced:
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
+    outgoing_address:
+      outgoing_email_settings: 'Outgoing email settings'
+      resend_verification_email: 'Resend verification email'
+      upgrading: 'To set your own email address as the sender and remove all Sharetribe branding from outgoing emails by <a href="%{url}">upgrading to the Pro plan or higher</a>.'
+      info: 'This name and email address is used for emails sent from your marketplace to the marketplace members. <a href="%{url}" target="_blank" >Learn more</a>.'
+      expired_notice_email: 'The verification email sent to %{email} from Amazon Web Services has expired.'
+      expired_notice_link: 'Please ask for a new one to verify your email address. %{link}.'
+      send_notice_email: 'The verification email was sent to %{email} from Amazon Web Services.'
+      send_notice_info: 'Please follow the instructions in the email to verify your email address.'
+      sent: 'Sent!'
+      name: 'Sender name'
+      verified_info: 'The email address marketplace members will receive the email from.'
+      name_info: 'Name is shown to users in emails and various other places.'
+      sender_email_placeholder: 'sender-email@example.com'
+      sender_name_placeholder: 'Sender name'
+      email: 'Sender email'
+      email_verified: 'Sender email  • '
+      verified: 'Verified'
+      expired: 'Expired'
+      unverified: 'Unverified'
+      unverified_tooltip: 'Sender email is sharetribe@sharetribe.com until you confirm the new email address.'
+      successfully_saved_name: 'Sender name updated successfully.'
+      successfully_saved: 'Sender address saved successfully. The verification email will be sent soon.'
+      invalid_email_error: "Invalid email format for '%{email}'"
+      invalid_email_address: 'Please enter a valid email address'
+      invalid_email_domain_read_more_link: 'Read the Help Center article for more information.'
+      invalid_email_domain: "The '%{email}' email address is using an unsupported email provider: '%{domain}'. %{invalid_email_domain_read_more_link}"
+      unknown_error: 'Something went wrong'
+      not_in_plan: 'Not available for your plan'
     home:
       title: 'Hi %{name}, welcome to %{marketplace_name}!'
       info_text: "Your marketplace is available at <a href='%{url}'>%{url}</a>.
