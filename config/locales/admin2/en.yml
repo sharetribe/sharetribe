@@ -266,6 +266,7 @@ en:
       phone_number: 'Phone number'
       about_you: 'About you'
       add_new_user_field: 'Add a new user field'
+      save_new_user_field: 'Add the new user field'
       new_user_field_type: 'New user field type'
       edit_field_type: 'Edit user field: %{name} (%{field_type})'
       required_field: 'Make it mandatory to fill this field when signing up to the marketplace'
@@ -332,6 +333,7 @@ en:
       error_count_options: 'Add at least %{count} option(s)'
       price_filter_min: 'Filter minimum price'
       price_filter_max: 'Filter maximum price'
+      save_add_listing_field: 'Add the new listing field'
       show_price_filter: 'Display a filter based on this field on the homepage'
       price_filter_min_hint: 'The minimum price only affect the filter. They do not set a limit for listing prices.'
       price_filter_max_hint: 'The maximum price only affect the filter. They do not set a limit for listing prices.'
@@ -376,6 +378,7 @@ en:
       create_success: "New order type '%{shape}' created"
       create_failure: "Could not create new order type. Error: %{error_msg}"
       successfully_deleted: "Successfully deleted order type '%{order_type}'"
+      save_order_type: 'Add the new order type'
       delete: 'Delete the order type'
       delete_caption: 'Delete order type: %{order_type}'
       confirm_delete_simple_order_type: 'Deleting an order type cannot be undone. Are you sure you want to proceed?'
@@ -415,6 +418,7 @@ en:
       info_text: 'Here you can edit the categories that providers have to put listing in, and visitors use to browse your marketplace.'
       add_category: '+ Add a new category'
       add_category_popup: 'Add a new category'
+      save_add_category_popup: 'Add the new category'
       edit_category: 'Edit category: %{category}'
       category_name: 'Category name'
       category_parent: 'Parent category'
