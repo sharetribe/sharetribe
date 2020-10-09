@@ -934,15 +934,15 @@ en:
     twitter:
       twitter_settings: 'Twitter settings'
       twitter_handle: 'Twitter handle'
-      twitter_handle_info_text: 'Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page.'
+      twitter_handle_info_text: 'Username of the Twitter account of your marketplace (if you have one). It will be added to the suggested tweet when people use the tweet button on a listing page.'
       yourhandle: 'yourhandle'
     image_tags:
       social_logo: 'Image for social media'
-      social_logo_info_text: 'This image will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of 1200x600 pixels.'
+      social_logo_info_text: 'This image will be shown on the social media card when someone shares your marketplace in a post on Facebook, Twitter, or LinkedIn. It should have a 2:1 aspect ratio and a minimum size of 1200x600 pixels.'
       social_media_image: 'Social media image'
       social_media_tags: 'Social media tags'
       social_media_title: 'Title for social media'
-      social_media_title_info_text: 'This text will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. See how it looks likes <a href="%{fb_url}" target="_blank">for Facebook</a>, <a href="%{twitter_url}" target="_blank">for Twitter</a> and <a href="%{link_url}" target="_blank">for LinkedIn</a>.'
+      social_media_title_info_text: 'This text will be shown on the social media card when someone shares your website on Facebook, Twitter, or LinkedIn. Preview your social media card <a href="%{fb_url}" target="_blank">for Facebook</a>, <a href="%{twitter_url}" target="_blank">for Twitter</a> and <a href="%{link_url}" target="_blank">for LinkedIn</a>.'
       social_media_description: 'Description for social media'
     location:
       location_settings: 'Location settings'
