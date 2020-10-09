@@ -961,6 +961,7 @@ en:
       payments_not_enabled: 'Payments not enabled'
       country: 'Country'
       country_info_text: 'Want to change the country of your marketplace? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
+      currency_info_text: 'Want to change the currency of your marketplace? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
       currency: 'Currency'
       support: 'Sharetribe Go offers PayPal and Stripe as payment gateways. You can learn more about the countries and currencies <a href="%{paypal_url}" target="_blank">supported by PayPal</a> and <a href="%{stripe_url}" target="_blank">supported by Stripe</a>.'
       stripe_paypal_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>PayPal</strong> and <strong>Stripe</strong> can be configured as payment gateways in your marketplace."

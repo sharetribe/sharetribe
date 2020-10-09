@@ -940,6 +940,7 @@ fr:
       payments_not_enabled: 'lorem ipsum'
       country: 'lorem ipsum'
       country_info_text: 'lorem ipsum <a href="#" show-intercom=true>lorem ipsum</a>'
+      currency_info_text: 'lorem ipsum <a href="#" show-intercom=true>lorem ipsum</a>'
       currency: 'lorem ipsum'
       support: 'lorem ipsum <a href="%{paypal_url}" target="_blank">lorem ipsum</a> lorem ipsum <a href="%{stripe_url}" target="_blank">lorem ipsum</a>.'
       stripe_paypal_allowed: "lorem ipsum <strong>%{country_name}</strong> lorem ipsum <strong>%{currency}</strong> lorem ipsum, <strong>lorem ipsum</strong> lorem ipsum <strong>lorem ipsum</strong> lorem ipsum."
