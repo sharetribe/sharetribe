@@ -71,8 +71,8 @@ en:
         manage_reviews: 'Manage reviews'
       payment_system:
         country_currency: 'Country & Currency'
-        stripe: 'Stripe'
-        paypal: 'PayPal'
+        stripe: 'Stripe settings'
+        paypal: 'PayPal settings'
         transaction_size: 'Transaction size'
       emails:
         email_users: 'Email users'
@@ -151,17 +151,17 @@ en:
       enable_paypal: 'Enable PayPal'
       enable_paypal_link: '%{url}.'
       info_header: 'PayPal'
-      commission_from_seller: "Seller transaction fee"
-      minimum_transaction_fee: 'Seller minimum transaction fee'
-      transaction_fee_settings: 'PayPal transaction fee settings'
-      the_transaction_fee_must_be_lower_than_100: 'The transaction fee must be lower than 100%'
-      the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer transaction fee must be lower than 100%'
-      fee_should_be_less_than_minimum_price: 'Minimum transaction fee must be lower than minimum transaction size'
-      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">Minimum transaction size</a> is %{sum}.'
-      connect_paypal_account: 'To set PayPal fees, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
-      enable_paypal_fee: 'To set PayPal fees, you must <a href="%{url}">enable PayPal</a> again in your marketplace.'
-      first_connect_paypal: 'To set PayPal fees, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
-      first_enable_paypal: 'To set PayPal fees, you must first <a href="%{url}">enable PayPal</a> again in your marketplace.'
+      commission_from_seller: "Seller commission"
+      minimum_transaction_fee: 'Seller minimum commission'
+      transaction_fee_settings: 'PayPal commission settings'
+      the_transaction_fee_must_be_lower_than_100: 'The commission must be lower than 100%'
+      the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer commission must be lower than 100%'
+      fee_should_be_less_than_minimum_price: 'Minimum commission must be lower than minimum listing price'
+      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">minimum listing price</a> is %{sum}.'
+      connect_paypal_account: 'To set a commission using PayPal, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
+      enable_paypal_fee: 'To set a commission using PayPal, you must <a href="%{url}">enable PayPal</a> again on your marketplace.'
+      first_connect_paypal: 'To set a commission using PayPal, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
+      first_enable_paypal: 'To set a commission using PayPal fees, you must first <a href="%{url}">enable PayPal</a> again on your marketplace.'
       login_to: 'Log in to PayPal and connect your PayPal account with your marketplace.'
       connect_paypal: 'Connect PayPal'
       redirect_message: "Redirecting you to PayPal. If nothing happens, click %{redirect_link}."
@@ -172,13 +172,13 @@ en:
       change_account_link: '%{url}.'
     stripe:
       info_header: 'Stripe'
-      info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the transaction fee you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>."
-      transaction_fee_settings: 'Stripe transaction fee settings'
+      info_text: "<a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the commission you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>."
+      transaction_fee_settings: 'Stripe commission settings'
       configure_api_keys: 'Configure Stripe API Keys'
-      set_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">configure your Stripe API keys</a>.'
-      enable_stripe_fee_keys: 'To set Stripe fees, you must <a href="%{url}">enable Stripe</a> again in your marketplace.'
-      enable_first_stripe_fee_keys: 'To set Stripe fees, you must first <a href="%{url}">enable Stripe</a> again in your marketplace.'
-      disable_paypal: 'To set Stripe buyer fees, you must first <a href="%{url}">disable PayPal</a>.'
+      set_stripe_fee_keys: 'To set a commission using Stripe, you must first <a href="%{url}">configure your Stripe API keys</a>.'
+      enable_stripe_fee_keys: 'To set a commission using Stripe, you must <a href="%{url}">enable Stripe</a> again on your marketplace.'
+      enable_first_stripe_fee_keys: 'To set a commission using Stripe, you must first <a href="%{url}">enable Stripe</a> again on your marketplace.'
+      disable_paypal: 'To set a buyer commission using Stripe, you must first <a href="%{url}">disable PayPal</a>.'
       how_to_get_publishable_key: '<a href="%{url}" target="_blank">How to get a Stripe Publishable Key?</a>'
       how_to_get_secret_key: '<a href="%{url}" target="_blank">How to get a Stripe Secret Key?</a>'
       publishable_key_example: "For example: %{api_publishable_key_example}"
@@ -187,22 +187,22 @@ en:
       invalid_publishable: "That doesn't look like a correct %{publishable_key}"
       api_publishable_key: 'Stripe Publishable Key'
       api_private_key: 'Stripe Secret Key'
-      commission_from_seller: "Seller transaction fee"
-      minimum_transaction_fee: 'Seller minimum transaction fee'
-      commission_from_buyer: 'Buyer transaction fee'
-      minimum_buyer_transaction_fee: 'Buyer minimum transaction fee'
-      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">Minimum transaction size</a> is %{sum}.'
-      the_transaction_fee_must_be_lower_than_100: 'The transaction fee must be lower than 100%'
-      the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer transaction fee must be lower than 100%'
-      fee_should_be_less_than_minimum_price: 'Minimum transaction fee must be lower than minimum transaction size'
-      buyer_fee_should_be_less_than_minimum_price: 'Minimum buyer transaction fee must be lower than minimum transaction size'
+      commission_from_seller: "Seller commission"
+      minimum_transaction_fee: 'Seller minimum commission'
+      commission_from_buyer: 'Buyer commission'
+      minimum_buyer_transaction_fee: 'Buyer minimum commission'
+      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">minimum listing price</a> is %{sum}.'
+      the_transaction_fee_must_be_lower_than_100: 'The commission must be lower than 100%'
+      the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer commission must be lower than 100%'
+      fee_should_be_less_than_minimum_price: 'Minimum commission must be lower than minimum listing price'
+      buyer_fee_should_be_less_than_minimum_price: 'Minimum buyer commission must be lower than minimum listing price'
       stripe_connected: 'Stripe connected'
       stripe_disabled: 'Stripe disabled'
       disable_stripe: 'Disable Stripe'
       disable_stripe_link: '%{url}.'
       cannot_enable_gateway: "Cannot enable payment gateway %{gateway}."
       cannot_disable_gateway: "Cannot disable payment gateway %{gateway}."
-      cannot_enable_gateway_because_of_buyer_commission: "Cannot enable payment gateway %{gateway} because the buyer's commission is used"
+      cannot_enable_gateway_because_of_buyer_commission: "Cannot enable payment gateway %{gateway} because buyer commission is used"
       confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
       enable_stripe: 'Enable Stripe'
       enable_stripe_link: '%{url}.'
@@ -210,13 +210,13 @@ en:
       need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
       need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
     transaction_size:
-      info_header: 'Transaction size'
-      info_text: 'If payments are enabled in your marketplace, you need to define a minimum transaction size: the smallest amount that an item can be purchased for. <a href="%{url}" target="_blank">Learn more about the minimum transaction size</a>.'
-      minimum_transaction_size: 'Minimum transaction size'
-      transaction_fee: 'Marketplace setting for Minimum transaction fee is %{fee}.'
+      info_header: 'Minimum listing price'
+      info_text: 'If payments are enabled in your marketplace, you need to define a minimum listing price: the smallest price a listing on your marketplace can have. <a href="%{url}" target="_blank">Learn more about the minimum listing price</a>.'
+      minimum_transaction_size: 'Minimum listing price'
+      transaction_fee: 'Marketplace setting for minimum commission is %{fee}.'
       errors:
-        minimum_listing_price_below_tx_fee: 'The minimum transaction size has to be greater than the minimum transaction fee: %{minimum_transaction_fee}.'
-        minimum_listing_price_below_min: 'The minimum transaction size has to be greater than the minimum commission %{minimum_commission}.'
+        minimum_listing_price_below_tx_fee: 'The minimum listing price has to be greater than the minimum commission: %{minimum_transaction_fee}.'
+        minimum_listing_price_below_min: 'The minimum listing price has to be greater than the minimum commission %{minimum_commission}.'
         payments_not_enabled: 'Payments not enabled'
     user_fields:
       info_text: 'Manage user fields'
@@ -281,7 +281,7 @@ en:
       new_field_type: 'New listing field type'
       edit_field_type: 'Edit listing field: %{name} (%{field_type})'
       delete_title: 'Delete listing field: %{name}'
-      delete_info_text: 'Are you sure you want to remove the field %{name} and all its data? You can’t undo this action.'
+      delete_info_text: 'Are you sure you want to remove the field %{name} and all its data? You can't undo this action.'
       delete_listing_field: 'Delete the listing field'
       display_on_homepage: 'Use this field as a search filter on the homepage'
       make_mandatory: 'Make this field mandatory when creating a new listing'
@@ -305,8 +305,8 @@ en:
       price_filter_max: 'Filter maximum price'
       save_add_listing_field: 'Add the new listing field'
       show_price_filter: 'Use this field as a search filter on the homepage'
-      price_filter_min_hint: 'The minimum price only affects the filter. It doesn’t limit listing prices.'
-      price_filter_max_hint: 'The maximum price only affects the filter. It doesn’t limit listing prices.'
+      price_filter_min_hint: 'The minimum price only affects the filter. It doesn't limit listing prices.'
+      price_filter_max_hint: 'The maximum price only affects the filter. It doesn't limit listing prices.'
       edit_price_title: 'Edit listing field: Price'
       edit_date_title: 'Edit listing field: Expiration date'
       listing_location_required: 'Make this field mandatory when creating a new listing'
@@ -488,7 +488,7 @@ en:
       profile: "%{author}'s profile"
       read: 'Read conversation'
       listing: 'Listing "%{listing}"'
-      back_to_conversations: '‹ Back to the conversations list'
+      back_to_conversations: '‹ Back to conversations list'
       initiator: 'Initiator:'
       other_party: 'Other party:'
       participants: 'Conversation with %{starter} and %{author}'
@@ -501,11 +501,11 @@ en:
       subject: 'Email subject'
       subject_info_text: 'To improve email deliverability the email subject is generated automatically and cannot be changed.'
       email_subject_text: "A new message from the %{service_name} team"
-      message_will_be_sent_only_to_people_with_this_language: "The email will be sent only to the users who are using %{service_name} in the language you choose."
+      message_will_be_sent_only_to_people_with_this_language: "The email will be only sent to users who are using %{service_name} in the language you choose."
       content: 'Email content'
       content_info_text: '"Firstname" cannot be removed and will be replaced by the actual first name of each recipient.'
       content_hello: 'Hello Firstname,'
-      content_placeholder: 'What do you want to say to your members?'
+      content_placeholder: 'What do you want to say to your users?'
       send_email: 'Send email to users'
       send_to_yourself: 'Send a test email to yourself'
       recipients:
@@ -597,9 +597,9 @@ en:
       waiting_for_provider_accept_or_reject: "Waiting for %{provider} to accept or reject the request."
       waiting_for_fulfill_and_complete: "Waiting for %{provider} to fulfill the order for %{listing_title} and for %{buyer} to mark the order as completed."
       learn_more: "Learn more."
-      you_should_investigate: "You should investigate the situation by discussing with both parties and decide to refund or dismiss the dispute. %{learn_more_link}"
+      you_should_investigate: "Discuss the situation with both parties to decide whether to refund or dismiss the dispute. %{learn_more_link}"
       marketplace_collects: "%{service_name} collects:"
-      back_to_list: '‹ Back to the transactions list'
+      back_to_list: '‹ Back to transactions list'
       initiator: 'Initiator:'
       other_party: 'Other party:'
       transaction_status: 'Transaction status:'
@@ -634,19 +634,19 @@ en:
       popups:
         mark_transaction_as_completed:
           title: 'Mark the transaction as completed'
-          body: 'If both parties confirmed that everything went well, you can mark the transaction #%{transaction} as completed. This cannot be undone.'
+          body: 'If both parties have confirmed that everything went well, you can mark the transaction #%{transaction} as completed. You can't undo this action.'
           submit: 'Mark as completed'
         dispute:
           title: 'Dispute the transaction'
-          body: 'Sometimes, things can go wrong. If the buyer has reported some issues, you can dispute the transaction #%{transaction}. This cannot be undone.'
-          submit: 'Dispute the transaction'
+          body: 'If the buyer has reported issues in the transaction, you can dispute the transaction #%{transaction}. You can't undo this action.'
+          submit: 'Dispute transaction'
         mark_as_refunded:
           title: 'Mark the transaction as refunded'
-          body: 'Refunded #%{transaction}. This cannot be undone.'
+          body: 'Refunded #%{transaction}. You can't undo this action.'
           submit: 'Mark as Refunded'
         dismiss_and_payout:
           title: 'Dismiss and payout the transaction'
-          body: 'Dismiss and payout #%{transaction}. This cannot be undone.'
+          body: 'Dismiss and payout #%{transaction}. You can't undo this action.'
           submit: 'Dismiss and payout'
       action_button:
         mark_as_completed: 'Mark as completed…'
@@ -823,11 +823,11 @@ en:
         You will not be able to reactivate this account after it has been deleted.
     welcome_email:
       title: 'Welcome email content'
-      title_info_text: "The message below will be sent to every new user when they join. You can customize the message to fit your marketplace. By clicking 'Send test message' you can send a preview message to your email address, so you can see how it looks in an email client."
+      title_info_text: "A welcome message will be sent to every new user when they join your marketplace. Welcome message can't be disabled, but you can write your own or customize the default message to fit your marketplace. By clicking 'Send test message' you can send a preview message to your email address."
       welcome_email_content: 'Email content'
       hello: 'Hello Firstname,'
       welcome_email_content_placeholder: 'Welcome to %{name}!'
-      welcome_email_content_info_text: 'This is the content for %{language}. To view and edit that content in other languages, change the language from the top bar. "Firstname" cannot be removed and will be replaced by the actual first name or Display name of each recipient.'
+      welcome_email_content_info_text: 'This is the content for %{language}. To view and edit the content in other languages, change the language from the top bar. "Firstname" cannot be removed and will be replaced by the actual first name or display name of each recipient.'
       send_to_yourself: 'Send a test email to yourself'
     footer:
       footer_enabling: 'Enable footer'
@@ -946,8 +946,8 @@ en:
       social_media_description: 'Description for social media'
     location:
       location_settings: 'Location settings'
-      location_settings_info_text: 'Location can be present in multiple steps and features: the listing creation form and pages, the profile pages and settings, the homepage and search. You can disable entirely the use of location. You can decide to display the listing exact location or its general location.'
-      show_location: 'Allow users to add location to their profile and listings, and show a map view on the search page'
+      location_settings_info_text: 'Location is shown on listing pages, profile pages, and the homepage. You can display the exact listing location or it’s general location, or disable the use of location entirely.'
+      show_location: 'Allow users to add their location to their profile and listings. This adds a map view to the search page.'
       fuzzy_location: 'Display a circle instead of the exact location'
     search:
       keyword: 'Keyword'
@@ -957,7 +957,7 @@ en:
       metric: 'Kilometers'
       search_type: 'Search type'
       search_type_info_text: 'The location search can be used only if the location feature is enabled.'
-      keyword_settings: 'Search placeholder'
+      keyword_settings: 'Search help text'
       location_settings: 'Location search settings'
       show_distance: 'Show distance in'
       limit_distance: 'Show only nearby listings with location search.'
@@ -970,16 +970,16 @@ en:
       country_info_text: 'Want to change the country of your marketplace? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
       currency_info_text: 'Want to change the currency of your marketplace? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
       currency: 'Currency'
-      support: 'Sharetribe Go offers PayPal and Stripe as payment gateways. You can learn more about the countries and currencies <a href="%{paypal_url}" target="_blank">supported by PayPal</a> and <a href="%{stripe_url}" target="_blank">supported by Stripe</a>.'
+      support: 'Sharetribe Go offers PayPal and Stripe as payment gateways. Learn more about the countries and currencies <a href="%{paypal_url}" target="_blank">supported by PayPal</a> and <a href="%{stripe_url}" target="_blank">supported by Stripe</a>.'
       stripe_paypal_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>PayPal</strong> and <strong>Stripe</strong> can be configured as payment gateways in your marketplace."
       paypal_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>PayPal</strong> can be configured as the payment gateway in your marketplace."
       stripe_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>Stripe</strong> can be configured as the payment gateway in your marketplace."
       stripe_paypal_not_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, there is unfortunately no payment gateways available for your marketplace."
     automatic_newsletter:
-      send_automatic_newsletter: 'Send the automatic newsletter'
-      send_automatic_newsletter_info_text: 'To be notified about new listings in your marketplace, your members can receive a daily or weekly newsletter. They can opt-out anytime from their own user settings. <a href=%{href} target="_blank">Learn more about the automatic newsletter</a>.'
+      send_automatic_newsletter: 'Send an automatic newsletter'
+      send_automatic_newsletter_info_text: 'Notify your users about new listings with a daily or weekly newsletter. Users can opt-out of the newsletter from their user settings. <a href=%{href} target="_blank">Learn more about the automatic newsletter</a>.'
       automatic_newsletter_frequency: 'Automatic newsletter frequency'
-      automatic_newsletter_frequency_info_text: 'For new users, you can specify the new initial frequency of the automatic newsletter. Members can unsubscribe or change the frequency anytime, from their own user settings.'
+      automatic_newsletter_frequency_info_text: 'Specify the default frequency of the automatic newsletter. Members can unsubscribe or change the frequency anytime from their user settings.'
       default_newsletter_frequency: 'Default automatic newsletter frequency'
       newsletter_daily: 'Daily'
       newsletter_weekly: 'Weekly'
@@ -988,14 +988,14 @@ en:
       transaction_agreement_in_use: 'Buyers are required to accept an agreement before transaction'
       transaction_auto_completion: 'Transaction auto-completion'
       days: 'Days'
-      info_text: 'Default 7 days, max 85 days. For transactions processed by Stripe, payments to sellers are delayed until the order is marked as completed.'
+      info_text: 'Default 14 days, max 85 days. In transactions processed by Stripe, payments to sellers are delayed until the order is marked as completed.'
       automatic_confirmation_after_days: 'Automatically mark transactions completed after'
       transaction_agreement: 'Transaction agreement'
       agreement_label: 'Agreement label'
-      agreement_label_placeholder: 'By clicking this box I accept the agreement'
-      agreement_label_info_text: 'This text will be shown next to a checkbox in the checkout form. The buyer needs to check the box to proceed with the transaction. An example label would be something like "By clicking this box I accept the agreement.'
+      agreement_label_placeholder: 'I accept the agreement'
+      agreement_label_info_text: 'This text will be shown next to a checkbox in the checkout form. The buyer needs to check the box to proceed with the transaction.'
       agreement_text: 'Agreement text'
-      agreement_text_info_text: 'This is the content of the actual agreement that the buyer needs to accept. The agreement content is displayed when the user clicks the "View." link next to the agreement label.'
+      agreement_text_info_text: 'The content of the agreement the buyer needs to accept. The agreement content is displayed when the user clicks the "View." link next to the agreement label.'
     listing_comments:
       info_text: "Allowing users to comment on a listing helps potential customers ask for more information publicly. You can delete any comments from the listing page in question."
       listing_comments_in_use: 'Allow users to post comments to listings (visible to all other users)'
@@ -1066,7 +1066,7 @@ en:
       communication_rights: 'Communication rights'
       posting_rights: 'Posting rights'
       posting_rights_info: 'Posting rights information text'
-      info_text: "Help users understand what is required to be allowed to post listings on your marketplace. These instructions will be displayed on the new listing form only to users who aren’t allowed to post listings."
+      info_text: "Help users understand what is required to be allowed to post listings on your marketplace. These instructions will be displayed on the new listing form only to users who aren't allowed to post listings."
     privacy:
       private_marketplace: 'Private marketplace'
       header: 'Private marketplace landing page content'
@@ -1167,7 +1167,7 @@ en:
       listing_fields_update_location_failed: 'Location field editing failed'
       listing_fields_update_expiration_failed: 'Expiration field editing failed'
       listing_fields_update_price_failed: 'Price field editing failed'
-      transaction_size_updated: 'Transaction size settings were updated'
+      transaction_size_updated: 'Minimum listing price settings were updated'
       file_was_deleted: 'File was successfully deleted'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
