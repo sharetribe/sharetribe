@@ -26,7 +26,7 @@
         - else
           = form.select :currency, options_for_select(available_currencies, currency), {}, class: %i[form-control country-currency], data: {url: verify_currency_admin2_payment_system_country_currencies_path}
         %small#country-help.form-text
-          = t('admin2.country_currency.country_info_text').html_safe
+          = t('admin2.country_currency.currency_info_text').html_safe
 
       = render 'admin2/payment_system/country_currencies/available_payment', stripe_allowed: stripe_allowed, paypal_allowed: paypal_allowed, country_name: country_name, currency: currency
 
