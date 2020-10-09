@@ -32,7 +32,7 @@ Feature: Admin create, update, destroy listing shapes
     When I fill in "Customize it!" for "selector_label_fi"
     Then I press "Save pricing unit"
     Then I should see "Per Customize something nice"
-    When I press "Save changes"
+    When I press "Add the new order type"
     Then I should see "Selling something nice"
 
   Scenario: Admin user create new order type Renting products
@@ -42,7 +42,7 @@ Feature: Admin create, update, destroy listing shapes
     Then I select "Renting products" from "template_order_type"
     Then I should see "heckout button label"
     When I fill in "Renting something nice" for "name_en"
-    When I press "Save changes"
+    When I press "Add the new order type"
     Then I should see "Renting something nice"
 
   Scenario: Admin user delete order type Selling
