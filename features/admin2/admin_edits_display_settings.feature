@@ -24,7 +24,7 @@ Feature: Admin edits design display page
   Scenario: Admin can change to show the listing type
     Given community "test" has default browse view "list"
     When I choose "List"
-    And I check "Show listing's type on the List view"
+    And I check "Show listing type on the List view"
     And I press submit
     Then I go to the homepage
     And I should see the browse view selected as "List"
@@ -33,20 +33,20 @@ Feature: Admin edits design display page
   Scenario: Admin can change to hide the listing type
     Given community "test" has default browse view "list"
     When I choose "List"
-    And I uncheck "Show listing's type on the List view"
+    And I uncheck "Show listing type on the List view"
     And I press submit
     Then I go to the homepage
     And I should see the browse view selected as "List"
     And I should not see "Requesting"
 
   Scenario: Admin can show listing publish date
-    When I check "Show listing's publishing date on the listing page"
+    When I check "Show listing publishing date on the listing page"
     And I press submit
     Then I go to the listing page
     And I should see "Listing created"
 
   Scenario: Admin can show listing publish date
-    When I uncheck "Show listing's publishing date on the listing page"
+    When I uncheck "Show listing publishing date on the listing page"
     And I press submit
     Then I go to the listing page
     And I should not see "Listing created"
