@@ -248,7 +248,7 @@ en:
       minimum_value: 'Minimum value allowed'
       maximum_value: 'Maximum value allowed'
       delete_title: 'Delete user field: %{name}'
-      delete_info_text: 'Are you sure you want to remove the field %{name} and all its data? You can't undo this action.'
+      delete_info_text: "Are you sure you want to remove the field %{name} and all its data? You can't undo this action."
       delete_user_field: 'Delete the user field'
       dropdown_list_options: 'Dropdown list options (at least two)'
       checkbox_list_options: 'Checkbox list options'
@@ -281,7 +281,7 @@ en:
       new_field_type: 'New listing field type'
       edit_field_type: 'Edit listing field: %{name} (%{field_type})'
       delete_title: 'Delete listing field: %{name}'
-      delete_info_text: 'Are you sure you want to remove the field %{name} and all its data? You can't undo this action.'
+      delete_info_text: "Are you sure you want to remove the field %{name} and all its data? You can't undo this action."
       delete_listing_field: 'Delete the listing field'
       display_on_homepage: 'Use this field as a search filter on the homepage'
       make_mandatory: 'Make this field mandatory when creating a new listing'
@@ -298,15 +298,15 @@ en:
       save_option: 'Save option'
       save_changes: 'Save changes'
       edit_option: 'Edit option'
-      delete_option_title: 'Delete option "%{title}"'
-      delete_option_body: 'Are you sure you want to delete the checkbox list option "%{title}"?'
+      delete_option_title: "Delete option \"%{title}\""
+      delete_option_body: "Are you sure you want to delete the checkbox list option \"%{title}\"?"
       error_count_options: 'Add at least %{count} option(s)'
       price_filter_min: 'Filter minimum price'
       price_filter_max: 'Filter maximum price'
       save_add_listing_field: 'Add the new listing field'
       show_price_filter: 'Use this field as a search filter on the homepage'
-      price_filter_min_hint: 'The minimum price only affects the filter. It doesn't limit listing prices.'
-      price_filter_max_hint: 'The maximum price only affects the filter. It doesn't limit listing prices.'
+      price_filter_min_hint: "The minimum price only affects the filter. It doesn't limit listing prices."
+      price_filter_max_hint: "The maximum price only affects the filter. It doesn't limit listing prices."
       edit_price_title: 'Edit listing field: Price'
       edit_date_title: 'Edit listing field: Expiration date'
       listing_location_required: 'Make this field mandatory when creating a new listing'
@@ -634,19 +634,19 @@ en:
       popups:
         mark_transaction_as_completed:
           title: 'Mark the transaction as completed'
-          body: 'If both parties have confirmed that everything went well, you can mark the transaction #%{transaction} as completed. You can't undo this action.'
+          body: "If both parties have confirmed that everything went well, you can mark the transaction #%{transaction} as completed. You can't undo this action."
           submit: 'Mark as completed'
         dispute:
           title: 'Dispute the transaction'
-          body: 'If the buyer has reported issues in the transaction, you can dispute the transaction #%{transaction}. You can't undo this action.'
+          body: "If the buyer has reported issues in the transaction, you can dispute the transaction #%{transaction}. You can't undo this action."
           submit: 'Dispute transaction'
         mark_as_refunded:
           title: 'Mark the transaction as refunded'
-          body: 'Refunded #%{transaction}. You can't undo this action.'
+          body: "Refunded #%{transaction}. You can't undo this action."
           submit: 'Mark as Refunded'
         dismiss_and_payout:
           title: 'Dismiss and payout the transaction'
-          body: 'Dismiss and payout #%{transaction}. You can't undo this action.'
+          body: "Dismiss and payout #%{transaction}. You can't undo this action."
           submit: 'Dismiss and payout'
       action_button:
         mark_as_completed: 'Mark as completed…'
@@ -832,10 +832,10 @@ en:
     footer:
       footer_enabling: 'Enable footer'
       footer_enabling_field: 'Enable the footer on all pages'
-      footer_enabling_info_text: 'In trial and Hobby plans, the footer is Sharetribe-branded and can't be customized. In Pro plans and higher, you can add a customizable footer to all pages on your marketplace.
+      footer_enabling_info_text: "In trial and Hobby plans, the footer is Sharetribe-branded and can't be customized. In Pro plans and higher, you can add a customizable footer to all pages on your marketplace.
       <br>
       <br>
-      The footer section gives your visitors more ways to access important pages on your marketplace and makes your brand more visible. You can select a dark or light footer style and add text, social media links, and a copyright text. <a href="%{url}" target="_blank">Learn more about the footer</a>.'
+      The footer section gives your visitors more ways to access important pages on your marketplace and makes your brand more visible. You can select a dark or light footer style and add text, social media links, and a copyright text. <a href="%{url}" target="_blank">Learn more about the footer</a>."
       plan_disabled: 'Would you like to configure your own own custom footer? <a href="%{url}" target="_blank">Upgrade to the Pro plan or higher</a>.'
       footer_style: 'Footer style'
       footer_links: 'Footer links'
@@ -1055,7 +1055,7 @@ en:
       reset_to_default: 'Reset to default %{type}'
       delete_popup:
         title: 'Delete %{type}'
-        body: 'Are you sure you want to permanently delete the "%{filename}" %{type}? You can't undo this action.'
+        body: "Are you sure you want to permanently delete the "%{filename}" %{type}? You can't undo this action."
         save_button: 'Delete the %{type} permanently'
     user_rights:
       invitation_rights: 'Invitation rights'
