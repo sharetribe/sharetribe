@@ -21,7 +21,7 @@ Feature: Admin manage stripe
   Scenario: Admin user can edit stripe's settings
     When I go to the admin2 view of paypal payment of community "test"
     Then I should see "The PayPal account mildred@example.com has been connected with Sharetribe"
-    Then I should see "PayPal transaction fee settings"
+    Then I should see "PayPal commission settings"
     And I fill in "payment_preferences_form_commission_from_seller" with "12"
     And I fill in "payment_preferences_form_minimum_transaction_fee" with "0.75"
     And I press "Save changes"

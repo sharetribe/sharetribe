@@ -20,6 +20,6 @@ Feature: Admin edits social media image and tags
     Then I press submit
     And I refresh the page
     And I should see "Australian_painted_lady.jpg"
-    Then I follow "Reset to default image for social media."
-    And I follow "Delete the image for social media forever"
+    Then I follow "Reset to default image for social media"
+    And I follow "Delete the image for social media permanently"
     And I should not see "Australian_painted_lady.jpg"
