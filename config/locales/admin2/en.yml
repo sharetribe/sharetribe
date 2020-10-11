@@ -49,8 +49,8 @@ en:
         landing_page: 'Landing page'
         topbar: 'Top bar'
         footer: 'Footer'
-        display: 'Display'
-        experimental: 'Experimental'
+        display: 'Arrangement'
+        experimental: 'New features'
       users:
         manage_users: 'Manage users'
         signup_login: 'Signup & Login'
@@ -73,9 +73,9 @@ en:
         country_currency: 'Country & Currency'
         stripe: 'Stripe settings'
         paypal: 'PayPal settings'
-        transaction_size: 'Transaction size'
+        transaction_size: 'Minimum listing price'
       emails:
-        email_users: 'Email users'
+        email_users: 'Send email'
         automatic_newsletter: 'Automatic newsletter'
         welcome_email: 'Welcome email'
       search_location:
@@ -871,7 +871,7 @@ en:
       custom_head_script_info_text: 'Please note that future changes to Sharetribe Go features may render your script incompatible.'
     sharetribe:
       info_text: "To improve Sharetribe's services and support, Sharetribe tracks marketplace members' activity. We will never collect personal data  or share this information outside the Sharetribe team. <a href='%{url}' target='_blank'>Learn more</a>."
-      end_user_analytics: "Allow Sharetribe to track members activity in order to improve Sharetribe's services"
+      end_user_analytics: "Allow Sharetribe to track members' activity in order to improve Sharetribe's services"
     google:
       info_text: "Google Analytics helps you track your marketplace traffic. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}' target='_blank' >Learn more about the Google Analytics setup</a>."
       google_analytics_key: 'Google Analytics tracking ID'
@@ -903,7 +903,7 @@ en:
       listing_meta_title_info_text: 'The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}.'
       listing_meta_description: 'Description meta tag'
       listing_meta_description_placeholder: '{{listing_title}} for {{listing_price}} by {{listing_author}} on {{marketplace_name}}'
-      listing_meta_description_info_text: 'The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}.'
+      listing_meta_description_info_text: "The content of this tag is suggested to search engines and appears underneath the blue clickable links on search engines' results pages. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}."
     search_pages:
       title: "Meta tags for your marketplace's search results pages"
       title_info_text: "Meta tags define the title and description that are shown when your page appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
@@ -1126,7 +1126,7 @@ en:
       essentials_updated: 'Marketplace details were updated'
       essentials_update_failed: 'Marketplace details update failed'
       admin_notifications_updated: 'Admin notifications preferences were updated'
-      display_updated: 'Display settings were updated'
+      display_updated: 'Arrangement settings were updated'
       logos_updated: 'Logos & Color settings were updated'
       cover_photos_updated: 'Cover photos settings were updated'
       signup_login_updated: 'Signup & Login settings were updated'
