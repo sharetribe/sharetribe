@@ -835,7 +835,7 @@ en:
       footer_enabling_info_text: "In trial and Hobby plans, the footer is Sharetribe-branded and can't be customized. In Pro plans and higher, you can add a customizable footer to all pages on your marketplace.
       <br>
       <br>
-      The footer section gives your visitors more ways to access important pages on your marketplace and makes your brand more visible. You can select a dark or light footer style and add text, social media links, and a copyright text. <a href="%{url}" target="_blank">Learn more about the footer</a>."
+      The footer section gives your visitors more ways to access important pages on your marketplace and makes your brand more visible. You can select a dark or light footer style and add text, social media links, and a copyright text. <a href=\"%{url}\" target=\"_blank\">Learn more about the footer</a>."
       plan_disabled: 'Would you like to configure your own own custom footer? <a href="%{url}" target="_blank">Upgrade to the Pro plan or higher</a>.'
       footer_style: 'Footer style'
       footer_links: 'Footer links'
@@ -1034,7 +1034,7 @@ en:
       linkedin_info_text: 'To enable LinkedIn Sign In, create an app for your marketplace in the <a target="_blank" href="%{href}">LinkedIn Developers Dashboard</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring LinkedIn Sign In</a>.'
     cover_photos:
       preview_homepage: 'Preview homepage'
-      description: 'Don't have a cover picture on hand? You can find ready-made pictures and links to free and paid image banks <a href="%{href}" target="_blank">in the Go Help Center</a>.'
+      description: "Don't have a cover picture on hand? You can find ready-made pictures and links to free and paid image banks <a href=\"%{href}\" target=\"_blank\">in the Go Help Center</a>."
       cover_photo: 'Main cover photo'
       cover_photo_info_text: 'The main cover photo is shown on the homepage to users who are not logged in. The dimensions should be 1920x450 pixels.'
       small_cover_photo: 'Small cover photo'
@@ -1050,12 +1050,12 @@ en:
       main_logo: 'Main logo'
       main_logo_info_text: 'The main logo will be shown on your marketplace Top bar and in automatic email notifications. The dimensions should be 336x80 pixels.'
       square_logo: 'Square logo'
-      square_logo_info_text: 'The square logo will be shown to users as your profile picture when you manage a transaction on behalf of your user. It's also shown when people bookmark your site to the home screen of their mobile device. The dimensions should be (at least) 600x600 pixels.'
+      square_logo_info_text: "The square logo will be shown to users as your profile picture when you manage a transaction on behalf of your user. It's also shown when people bookmark your site to the home screen of their mobile device. The dimensions should be (at least) 600x600 pixels."
       current_file: 'The current %{type} filename is "%{filename}".'
       reset_to_default: 'Reset to default %{type}'
       delete_popup:
         title: 'Delete %{type}'
-        body: "Are you sure you want to permanently delete the "%{filename}" %{type}? You can't undo this action."
+        body: "Are you sure you want to permanently delete the \"%{filename}\" %{type}? You can't undo this action."
         save_button: 'Delete the %{type} permanently'
     user_rights:
       invitation_rights: 'Invitation rights'
