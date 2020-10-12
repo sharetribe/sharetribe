@@ -22,8 +22,10 @@
         %p.ingress
           = t('admin2.welcome_email.hello')
         #welcome_email_content{data: {mercury: :full}}
-          = @community_customization.welcome_email_content&.html_safe
-
+          - if @community_customization&.welcome_email_content
+            = @community_customization.welcome_email_content.html_safe
+          - else
+            = render 'default_email'
         %small#welcomeEmailContent-help.form-text
           = t('admin2.welcome_email.welcome_email_content_info_text', language: get_full_locale_name(I18n.locale))
     %section.content-card-terminal.remove-from-mercury
