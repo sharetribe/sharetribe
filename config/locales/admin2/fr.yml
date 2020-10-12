@@ -828,6 +828,8 @@ fr:
       welcome_email_content_placeholder: 'lorem ipsum %{name}'
       welcome_email_content_info_text: 'lorem ipsum %{language}'
       send_to_yourself: 'lorem ipsum'
+      welcome_to_marketplace: "lorem ipsum %{service_name}! lorem ipsum"
+      love_marketplace_crew: "lorem ipsum,<br/><i>%{service_name} lorem ipsum</i>"
     footer:
       footer_enabling: 'lorem ipsum'
       footer_enabling_field: 'lorem ipsum'
