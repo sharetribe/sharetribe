@@ -25,7 +25,7 @@ Feature: Admin edits listing fields
   @javascript
   Scenario: Admin tries to give custom field invalid name
     When I change custom field "House type" name to ""
-    Then I should see 1 validation errors
+    Then I should see 1 validation errors in admin2
 
   @javascript
   Scenario: Admin changes categories
@@ -35,7 +35,7 @@ Feature: Admin edits listing fields
   @javascript
   Scenario: Admin tries to remove all categories
     When I try to remove all categories
-    Then I should see 1 validation errors
+    Then I should see 1 validation errors in admin2
 
   @javascript
   Scenario: Admin removes custom fields from category
