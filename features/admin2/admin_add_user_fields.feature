@@ -29,7 +29,7 @@ Feature: Admin add a listing fields
     And I fill in "custom_field[name_attributes][en]" with "House type"
     And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
     And I press submit
-    Then I should see 1 validation errors
+    Then I should see 1 validation errors in admin2
 
   @javascript
   Scenario: Admin adds numeric field
