@@ -27,3 +27,4 @@
 //= require admin2/transaction_size
 //= require admin2/user_fields
 //= require paypal_account_settings
+//= require admin2/validator

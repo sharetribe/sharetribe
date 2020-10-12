@@ -63,7 +63,7 @@
     add_validator_methods();
     $("#new_payment_preferences_form").validate({
       errorPlacement: function(error, element) {
-        error.appendTo(element.parent());
+        error.appendTo(element.parents('.form-group')).addClass('form-text');
       },
     });
   });

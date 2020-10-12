@@ -52,14 +52,14 @@ $(function() {
             }
         }
 
-        error_options.removeClass('error').hide();
+        error_options.removeClass('attention').hide();
 
         if (form.valid() && success) {
             form.submit();
         }
 
         if (!success) {
-           error_options.addClass('error').show();
+           error_options.addClass('attention').show();
         }
     });
 
