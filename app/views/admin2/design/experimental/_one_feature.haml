@@ -15,4 +15,4 @@
       %label.form-check-label{for: "feature_#{feature[:name]}_enabled_for_community"}
         = t('admin2.experimental.all_users')
   %small#displayNameType-help.form-text
-    = t("admin2.experimental.description_#{feature[:name]}")
+    = t("admin2.experimental.description_#{feature[:name]}") unless feature[:name] == :email_layout_v2
