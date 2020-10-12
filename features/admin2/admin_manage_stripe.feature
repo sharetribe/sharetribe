@@ -21,7 +21,7 @@ Feature: Admin manage stripe
   Scenario: Admin user can edit stripe's settings
     When I go to the admin2 view of stripe payment of community "test"
     Then I should see "Stripe connected"
-    Then I should see "Stripe transaction fee settings"
+    Then I should see "Stripe commission settings"
     And I fill in "payment_preferences_form_commission_from_seller" with "12"
     And I fill in "payment_preferences_form_minimum_transaction_fee" with "0.75"
     And I fill in "payment_preferences_form_commission_from_buyer" with "14"
