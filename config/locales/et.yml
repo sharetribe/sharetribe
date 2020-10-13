@@ -1400,7 +1400,7 @@ et:
       waiting_for_listing_author_to_accept_request: "Ootan taotluse aktsepteerimist %{listing_author_name} poolt. Kohe kui %{listing_author_name} on aktsepteerinud, arveldatakse teilt tasu."
       waiting_for_you_to_accept_request: "Ootan, kuni võtate taotluse vastu"
       waiting_confirmation_from_requester: "Ootan, et kasutaja %{requester_name} märgiks tellimuse täidetuks"
-      waiting_confirmation_from_you: "Ootan, kuni märkite tellimuse lõpule"
+      waiting_confirmation_from_you: "Ootan, kuni saan tellimuse lõppenuks märkida"
       waiting_payment_from_requester: "Ootan, et kasutaja %{requester_name} teostaks makse"
       waiting_payment_from_you: "Ootan, kuni maksad"
       waiting_feedback_from_you: "Ootan tagasisidet"
@@ -1433,7 +1433,7 @@ et:
       accept_preauthorized_request: "Nõustuge taotlusega"
       reject_preauthorized_offer: "Mitte seekord"
       reject_preauthorized_request: "Mitte seekord"
-      confirm: "Märgi täidetuks"
+      confirm: "Sain tellimuse kätte"
       cancel: Vaidlustamine
       mark_as_refunded: "Märgi tagastatuks"
       dismiss: "Vabastamine ja väljamakse"
@@ -1581,7 +1581,7 @@ et:
       view_comment: "Vaata kommentaari"
       you_have_a_new_comment: "%{author} kommenteeris sinu kuulutust %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} kommenteeris kuulutust, mida järgid saidil %{service_name}"
-      has_commented_listing_you_follow_in_kassi: "%{author}  on kommenteerinud kirjet '%{listing}', mida te jälgite, %{service_name}."
+      has_commented_listing_you_follow_in_kassi: "%{author} on kommenteerinud kirjet '%{listing}', mida te jälgite, %{service_name}."
     new_message:
       view_message: "Vaata teadet"
       has_sent_you_a_message_in_kassi: ~
@@ -2387,7 +2387,7 @@ et:
         shipping: Kohaletoimetamine
         shipping_price: Saatmistasu
         shipping_price_additional: "Täiendavad üksused"
-        pickup: "Korja üles"
+        pickup: "Lähen ise järele"
       origin:
         location: Asukoht
         origin: Päritolu
@@ -2540,8 +2540,8 @@ et:
       shipping: "Kohaletoimetamine (+%{price})"
       shipping_no_price: Kohaletoimetamine
       shipping_price_additional: "Kohaletoimetamine (+%{price}, lisaartiklid: +%{shipping_price_additional})"
-      pickup: "Korja üles"
-      pickup_no_price: "Korja üles"
+      pickup: "Lähen ise järele"
+      pickup_no_price: "Lähen ise järele"
       youtube_video_player: "YouTube'i videopleier"
     unit_types:
       piece: tükk
