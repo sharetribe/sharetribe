@@ -7,9 +7,9 @@
                       'data-msg-number_max': nil, style: 'border-radius: 4px 0 0 4px'
     .input-group-append{class: disabled_fee ? 'disabled' : ''}
       %span.input-group-text %
-    - if disabled_fee
-      %small.form-text
-        = t('admin2.paypal.first_enable_paypal', url: '#paypal-account-settings').html_safe
+  - if disabled_fee
+    %small.form-text
+      = t('admin2.paypal.first_enable_paypal', url: '#paypal-account-settings').html_safe
 
 .form-group
   = form.label :commission_from_seller, t('admin2.paypal.minimum_transaction_fee')
@@ -21,11 +21,11 @@
 
     .input-group-append{class: disabled_fee ? 'disabled' : ''}
       %span.input-group-text= currency
-    %small.form-text
-      - if disabled_fee
-        = t('admin2.paypal.first_enable_paypal', url: '#paypal-account-settings').html_safe
-      - else
-        = t('admin2.paypal.minimum_transaction_size', url: admin2_payment_system_transaction_size_index_path, sum: "#{payment_prefs_form.minimum_listing_price} #{currency}").html_safe
+  %small.form-text
+    - if disabled_fee
+      = t('admin2.paypal.first_enable_paypal', url: '#paypal-account-settings').html_safe
+    - else
+      = t('admin2.paypal.minimum_transaction_size', url: admin2_payment_system_transaction_size_index_path, sum: "#{payment_prefs_form.minimum_listing_price} #{currency}").html_safe
 
 :javascript
   $(document).ready(function() {
