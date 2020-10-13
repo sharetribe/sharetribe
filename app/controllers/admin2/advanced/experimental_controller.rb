@@ -1,4 +1,4 @@
-module Admin2::Design
+module Admin2::Advanced
   class ExperimentalController < Admin2::AdminBaseController
 
     def index
@@ -24,7 +24,7 @@ module Admin2::Design
       else
         flash[:error] = t("layouts.notifications.community_update_failed")
       end
-      redirect_to admin2_design_experimental_index_path
+      redirect_to admin2_advanced_experimental_index_path
     end
 
     private
