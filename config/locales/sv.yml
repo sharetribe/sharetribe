@@ -705,7 +705,7 @@ sv:
           info_single_column: ~
           info_multi_column_2: ~
           info_multi_column_3: ~
-          listings: ~
+          listings: Annonser
           categories: ~
           hero: ~
           locations: ~
@@ -1865,7 +1865,7 @@ sv:
       kassi_does_not_currently_work_without_javascript: "Tyvärr %{service_name} fungerar inte utan Javascript. Försök att aktivera Javascript i din webbläsare och ladda om sidan."
       contact_us: "kontakta oss"
       send_feedback: "Skicka meddelande"
-      your_feedback_to_admins: "Ditt meddelande till %{service_name} team"
+      your_feedback_to_admins: "Ditt meddelande till teamet bakom %{service_name}"
     send: Skicka
     your_email_address: "Din e-postadress"
   errors:
@@ -2065,7 +2065,7 @@ sv:
     application:
       join_this_community: "Gå med marknadsplatsen"
       read_more: "Läs mer"
-      feedback: "Ditt meddelande till %{service_name} team"
+      feedback: "Ditt meddelande till teamet bakom %{service_name}"
       dont_use_to_contact_support: "Vi lade märke till att du är en admin för %{service_name}. Detta formulär är till för att dina användare skall kunna kontakta dig. Du kan inte använda detta formulär för att kontakta Sharetribes kundtjänst. Använd chatten i högra hörnet istället."
       feedback_forum: "forum för feedback"
       feedback_handle: Feedback
@@ -2578,7 +2578,7 @@ sv:
       address_country: Land*
       address_name: "För och efternamn*"
       address_city: Stad*
-      address_state: Tillstånd*
+      address_state: Län
       address_street1: "Gatuadress 1*"
       address_street2: "Gatuadress  2"
       address_postal_code: Postnummer*
@@ -3155,7 +3155,7 @@ sv:
     commission: "%{commission}%"
     pay_with_stripe: "Betala med Stripe och använd %{card}"
     add_and_pay: "Bekräfta betalning"
-    card_not_stored: "Din betalning är säkert hanterad av Stripe. %{service_name} sparar inte din kortinformation."
+    card_not_stored: "Din betalning hanteras på ett säkert sätt av Stripe. %{service_name} sparar inte din kortinformation."
     missing_payment: "Du har öppna annonser, men ditt konto är inte inställt för att ta emot betalningar. För att ställa in dina betalningsinställningar besök %{settings_link}."
     stripe_bank_connected: "Bankkontoinformationen har sparats!"
     stripe_can_accept: "Du är nu redo att ta emot betalningar till ditt bankkonto"

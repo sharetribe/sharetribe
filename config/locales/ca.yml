@@ -1584,11 +1584,11 @@ ca:
       has_commented_listing_you_follow_in_kassi: "%{author} ha comentat a l'anunci '%{listing}' que estàs seguint a %{service_name}."
     new_message:
       view_message: "Veure missatge"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} us ha enviat un missatge. Aneu a %{service_name} per respondre."
+      you_have_a_new_message: "Tens un nou missatge de %{sender_name} a %{service_name}"
     new_message_v2:
       headline: "tens un missatge"
-      reply: ~
+      reply: "Cliqueu aquí per respondre a %{sender}"
     new_payment:
       new_payment: "Has rebut un nou pagament"
       price_per_unit_type: "Preu per %{unit_type}"

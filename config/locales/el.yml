@@ -8,7 +8,7 @@ el:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Επεξεργασία κατηγορίας '%{category}'"
       index:
         listing_categories: "Κατηγορίες καταχωρήσεων"
         create_a_new_category: "+ Δημιουργήστε νέα κατηγορία"
@@ -34,7 +34,7 @@ el:
           cancel: Ακύρωση
       remove:
         remove_category: "Κατάργηση κατηγορίας"
-        remove_category_name: ~
+        remove_category_name: "Αφαίρεση κατηγορίας '%{category_name}'"
         warning_remove_effects: ~
         select_new_category: "Επιλέξτε μια νέα κατηγορία όπου τα αντικείμενα που αναφέρονται παραπάνω θα μετακινηθούν:"
         buttons:
@@ -162,7 +162,7 @@ el:
         status_resent: ~
         resend_link: Ξαναστείλε
         invalid_email_error: ~
-        invalid_email_address: ~
+        invalid_email_address: "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου"
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
         unknown_error: "Κάποιο λάθος έγινε"
@@ -313,7 +313,7 @@ el:
         twitter_handle: "Όνομα Χρήστη Twitter"
         twitter_handle_info_text: "Όνομα χρήστη του λογαριασμού Twitter του marketplace σας (εάν έχετε). Θα αναφέρεται όταν οι άνθρωποι χρησιμοποιούν το κουμπί tweet στη σελίδα καταχώρισης."
         twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_instructions_link_text: "Διαβάστε περισσότερα"
         twitter_handle_placeholder: "όνομα χρήστη"
         invalid_twitter_handle: ~
         facebook_connect: ~
@@ -809,7 +809,7 @@ el:
           column_header: ~
           column_title: ~
           column_icon_info: ~
-          column_icon_info_link: ~
+          column_icon_info_link: "ακολουθήστε τις οδηγίες σε αυτό το άρθρο"
           column_icon: ~
           column_paragraph: ~
           column_button: ~
@@ -1006,7 +1006,7 @@ el:
       units_title: ~
       units_desc: ~
       units:
-        piece: ~
+        piece: "Ανά τεμάχιο"
         hour: "Ανά ώρα"
         day: "Ανά μέρα"
         night: "Ανά βραδιά"
@@ -1208,7 +1208,7 @@ el:
     what_is_this: "Τι είναι αυτό;"
     removed_user: "Χρήστης καταργήθηκε"
     payment_fee_info:
-      title: ~
+      title: "Προμήθεια και τέλος επεξεργασίας πληρωμών"
       stripe: Stripe
       paypal: PayPal
       info: ~
@@ -1261,7 +1261,7 @@ el:
     details:
       day: μέρα
       days: μέρες
-      price_per_day: ~
+      price_per_day: "Τιμή ανά ημέρα %{price}"
     index:
       loading_more_messages: "Εμφάνιση περισσότερων μηνυμάτων"
       message_partitive: μήνυμα
@@ -1277,8 +1277,8 @@ el:
       confirmed_offer: "Η προσφορά ολοκληρώθηκε."
       canceled_request: "Το αίτημα ακυρώθηκε."
       canceled_offer: "Η προσφορά ακυρώθηκε."
-      message_from: ~
-      about_listing: ~
+      message_from: "Μήνυμα από %{person}"
+      about_listing: "Σχετικά με καταχώρηση %{listing_title}"
       free_message: ~
       message_content_not_available: "Το περιεχόμενο του μηνύματος δεν είναι διαθέσιμο"
     message:
@@ -1305,8 +1305,8 @@ el:
       payment_has_now_been_transferred: ~
     new:
       message: Μήνυμα
-      message_to: ~
-      optional_message_to: ~
+      message_to: "Μήνυμα προς %{author_name}"
+      optional_message_to: "Προαιρετικό μήνυμα προς %{author_name}"
       send_message: Αποστολή
       send: Αποστολή
       this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του χρήστη %{person}. Ο/η %{person} θα ειδοποιηθεί γι' αυτό το μήνυμα με email."
@@ -1315,7 +1315,7 @@ el:
       title: Τίτλος
       send_message_to_user: "Αποστολή μηνύματος στον/στην %{person}"
       about_listing: ~
-      author_has_to_accept_request: ~
+      author_has_to_accept_request: "%{author_name} πρέπει να αποδεχτείτε το αίτημα για να μπορέσετε να πληρώσετε"
     show:
       in_response_to_listing: "σχετικά με την καταχώρηση"
       message_sent_by: "Μήνυμα από το χρήστη"
@@ -1324,11 +1324,11 @@ el:
       write_a_reply: "Απάντησε:"
       conversation_about_listing: "Με τον/την %{person} σχετικά με την καταχώρηση \"%{listing}\""
       conversation_with_user: "Με τον/την %{person}"
-      conversation_with: ~
+      conversation_with: "Συνομιλία με  %{person}"
       last_message_at: "(τελευταίο μήνυμα %{time})"
-      price: ~
+      price: "Τιμή: %{price}"
       sum: ~
-      total: ~
+      total: "Σύνολο: %{total}"
     status:
       payment_errored: "Η πληρωμή απέτυχε. Παρακαλώ προσπαθήστε ξανά."
       payment_errored_starter: ~
@@ -1350,7 +1350,7 @@ el:
       pending_external:
         paypal:
           multicurrency: ~
-          verify: ~
+          verify: "Δεν μπορείτε να αποδεχτείτε αυτήν τη συναλλαγή επειδή δεν έχετε επαληθεύσει τον λογαριασμό σας στο PayPal. Πήγαινε στο %{paypal_url} για να επαληθεύσετε τον λογαριασμό σας."
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
@@ -1372,9 +1372,9 @@ el:
       pending_external_inbox:
         paypal:
           multicurrency: ~
-          intl: ~
+          intl: "Σας περιμένουμε να αποδεχτείτε την πληρωμή μέσω PayPal"
           unknown_reason: ~
-          verify: ~
+          verify: "Σας περιμένουμε να επαληθεύσετε τον λογαριασμό σας PayPal"
       stripe:
         waiting_confirmation_from_requester: ~
       order_canceled: "Η παραγγελία αμφισβητήθηκε"
@@ -1490,7 +1490,7 @@ el:
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
-      show_thread: ~
+      show_thread: "Εμφάνιση συνομιλίας"
     confirmation_instructions:
       confirmation_instructions_signature: "Χαιρετισμούς,<br>Η Ομάδα του %{service_name}"
       need_to_confirm: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
@@ -1557,7 +1557,7 @@ el:
     new_payment:
       new_payment: "Λάβατε μια νέα πληρωμή"
       price_per_unit_type: ~
-      quantity: ~
+      quantity: "Ποσότητα:"
       you_have_received_new_payment: "Πληρωθήκατε <b>%{payment_sum}</b> για το \"<b>%{listing_title}</b>\" από τον/την %{payer_full_name}. Ορίστε η απόδειξή σας."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
@@ -1598,7 +1598,7 @@ el:
       headline: ~
       you_have_made_new_payment: ~
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: "Τέλη του PayPal:"
       shipping_total: ~
     braintree_new_payment:
       product: "Προϊόν:"
@@ -1671,7 +1671,7 @@ el:
     transaction_preauthorized_v2:
       headline: ~
     transaction_preauthorized_reminder:
-      subject: ~
+      subject: "Θυμηθείτε να αποδεχτείτε το αίτημα από το %{requester} σχετικά με την καταχώριση %{listing_title}"
       remember_to_accept: ~
       one_day_left: ~
       click_here_to_reply: ~
@@ -1681,14 +1681,14 @@ el:
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
-      love_marketplace_crew: ~
+      love_marketplace_crew: "Με αγάπη,<br /><i>%{service_name} ομάδα </i>"
       welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
       settings_link_text: "Δείτε τις ρυθμίσεις σας"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
-      view_listing: ~
+      view_listing: "Προβολή καταχώρησης"
     new_listing_by_followed_person_v2:
       headline: ~
       has_posted_a_new_listing: ~
@@ -2099,7 +2099,7 @@ el:
       settings: Ρυθμίσεις
       sign_up: Εγγραφή
     notifications:
-      listing_could_not_be_saved: ~
+      listing_could_not_be_saved: "Δεν ήταν δυνατή η αποθήκευση της καταχώρισης. Παρακαλώ δοκιμάστε ξανά. Εάν το πρόβλημα παραμένει, παρακαλώ %{contact_admin_link}."
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: "Ένα δοκιμαστικό μήνυμα στάλθηκε στο %{email}."
       something_went_wrong: "Κάτι πήγε στραβά"
@@ -2344,8 +2344,8 @@ el:
         delivery: ~
         shipping: ~
         shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        shipping_price_additional: "Επιπρόσθετα αντικείμενα"
+        pickup: Παραλαβή
       origin:
         location: Τοποθεσία
         origin: Αφετηρία
@@ -2499,7 +2499,7 @@ el:
       shipping_no_price: Αποστολή
       shipping_price_additional: ~
       pickup: ~
-      pickup_no_price: ~
+      pickup_no_price: Παραλαβή
       youtube_video_player: "YouTube video player"
     unit_types:
       piece: ~
@@ -2528,7 +2528,7 @@ el:
       invalid_parameters: "Μη έγκυρες τιμές για νέα συναλλαγή"
       select_delivery_method: "Πρέπει να επιλέξετε μια μέθοδο παράδοσης"
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Προβολή.
     stripe_payment:
       payment: Πληρωμή
       pay_with_card: "Πληρώστε με πιστωτική ή χρεωστική κάρτα"
@@ -2573,7 +2573,7 @@ el:
     paypal_billing_agreement_made: ~
     commission_permission_needed: ~
     create_paypal_account_link_text: "λογαριασμός PayPal"
-    connected_account: ~
+    connected_account: "Ο λογαριασμός PayPal  '%{email}'  συνδέθηκε με επιτυχία."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
     paypal_receive_funds_info_australia_only: ~
@@ -2590,7 +2590,7 @@ el:
       contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      paypal_account_email_placeholder: "Διεύθυνση ηλεκτρονικού ταχυδρομείου του PayPal"
       paypal_account_email_info_text: ~
       create_paypal_account: ~
       upgrade_paypal_account: ~
@@ -2605,12 +2605,12 @@ el:
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
-      paypal_info_link_text: ~
+      paypal_info_link_text: "Χρέωση επεξεργασίας πληρωμής του PayPal"
       billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~
       could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
+      paypal_not_enabled: "Η πληρωμές με PayPal δεν είναι ενεργοποιημένες."
       billing_agreement_canceled: ~
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
@@ -2621,7 +2621,7 @@ el:
     paypal_account_connected: ~
     change_account: ~
     missing: ~
-    from_your_payment_settings_link_text: ~
+    from_your_payment_settings_link_text: "ρυθμίσεις πληρωμής"
     redirect_message: ~
     redirect_link_text: εδώ
     paypal_account_all_set_up: ~
@@ -2629,7 +2629,7 @@ el:
     paypal_account_connected_summary: ~
     paypal_permission_granted_summary: ~
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "Προχωρήστε στην πληρωμή"
     checkout_with: ~
     or_pay_with_paypal: ~
     checkout_with_paypal: ~
@@ -2722,7 +2722,7 @@ el:
       admin_actions: ~
       post_listing_as: ~
     followed_people:
-      you_follow_plural: ~
+      you_follow_plural: "Ακολουθείτε %{count} ατομα"
       you_follow_singular: ~
       they_follow_plural: ~
       they_follow_singular: ~
@@ -2983,9 +2983,9 @@ el:
       shipping-price: ~
       stripe-fee: ~
       start_end_time: ~
-    price_per_quantity: ~
+    price_per_quantity: "Τιμή ανά: %{unit_type}"
     price: "Τιμή:"
-    quantity: ~
+    quantity: "Ποσότητα: %{quantity}"
     unit_price: ~
     total: "Σύνολο:"
     total_to_pay: ~
