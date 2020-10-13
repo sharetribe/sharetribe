@@ -151,6 +151,7 @@ en:
       enable_paypal: 'Enable PayPal'
       enable_paypal_link: '%{url}.'
       info_header: 'PayPal'
+      info_text: 'Commission is the service fee you charge for every payment users make through your marketplace.'
       commission_from_seller: "Seller commission"
       minimum_transaction_fee: 'Seller minimum commission'
       transaction_fee_settings: 'PayPal commission settings'
@@ -993,6 +994,7 @@ en:
       info_text: 'Default 14 days, max 85 days. In transactions processed by Stripe, payments to sellers are delayed until the order is marked as completed.'
       automatic_confirmation_after_days: 'Automatically mark transactions completed after'
       transaction_agreement: 'Transaction agreement'
+      transaction_agreement_info: 'Create an agreement that buyers need to accept before proceeding with a transaction.'
       agreement_label: 'Agreement label'
       agreement_label_placeholder: 'I accept the agreement'
       agreement_label_info_text: 'This text will be shown next to a checkbox in the checkout form. The buyer needs to check the box to proceed with the transaction.'
