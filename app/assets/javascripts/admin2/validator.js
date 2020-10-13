@@ -5,10 +5,13 @@ jQuery.extend(jQuery.validator.defaults,
         errorPlacement: function(error, element) {
             var hint = $(element).next('small.form-text:not(.attention)');
             if (hint.length) {
-                error.insertAfter(hint).addClass('form-text');
+                error.insertAfter(hint);
+            } else if ($(element).parents('.input-group').length) {
+                $(element).parents('.form-group').append(error)
             } else {
-                error.insertAfter(element).addClass('form-text');
+                error.insertAfter(element);
             }
+            error.addClass('form-text');
         },
         highlight: function(element, errorClass, validClass) {
             $(element).removeClass(validClass).addClass(errorClass).next('small.attention').addClass('form-text');
