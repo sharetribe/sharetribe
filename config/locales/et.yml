@@ -1500,7 +1500,7 @@ et:
       has_marked_request_as_confirmed: "%{other_party_full_name} on märkinud tellimuse %{request} täidetuks. Nüüd võid jätta tagasisidet %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} on vaidlustanud tellimuse %{request}. Sa võid siiski jätta tgasisidet %{other_party_given_name}."
       giving_feedback_is_good_idea: "Tagasiside andmine on alati hea mõte. Kui kõik läks hästi, peaksid teistele teatama, et %{other_party_given_name} saab usaldada. Kui oli probleeme, on hea mainida ka neid."
-      give_feedback_to: "Kirjuta tagasisidet %{other_party_given_name}."
+      give_feedback_to: "Kirjuta tagasiside kasutajale %{other_party_given_name}."
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} märkis tellimuse %{request} peaaegu valmis. Makse selle tehingu eest on nüüd vabastatud teie pangakontole. Nüüd saate anda tagasisidet kasutajale %{other_party_given_name}."
       team_title: "tiimi %{service_name} nimi"
@@ -2352,7 +2352,7 @@ et:
         googlemap_updatemap: "Uuenda Kaarti"
       images:
         image: Pilt
-        best_result: "Parima tulemuse saamiseks, kasuta JPG, GIF või PNG pilte, mis on %{width}x%{height} pikslit"
+        best_result: "Parima tulemuse saamiseks kasuta JPG, GIF või PNG pilte, mis on %{width}x%{height} pikslit"
         no_file_selected: "Ühtegi faili pole valitud"
         remove_image: "Eemalda pilt"
         select_file: "Vali fail"
@@ -2849,7 +2849,7 @@ et:
       email_about_new_comments_to_own_listing: "... keegi kommenteerib minu pakkumist või taotlust"
       email_about_new_messages: "... keegi saadab mulle sõnumi"
       email_about_new_received_testimonials: "... keegi annab mulle tagasisidet"
-      email_about_testimonial_reminders: "... olen unustanud sündmuse kohta tagasisidet anda"
+      email_about_testimonial_reminders: "... olen unustanud tellimuse kohta tagasisidet anda"
       email_daily_community_updates: "Saada mulle <b> iga päev</b>  uudiskiri uute kuulutustega"
       email_weekly_community_updates: "Saada mulle <b>iga nädal</b>  uudiskiri uute kuulutustega"
       do_not_email_community_updates: "Ära saada mulle uudiskirju"
@@ -2920,7 +2920,7 @@ et:
     new:
       as_expected: "Vastab ootustele"
       exceeded_expectations: "Palju parem kui ootasin"
-      give_feedback_to: "Kirjuta tagasisidet %{person}"
+      give_feedback_to: "Kirjuta tagasiside kasutajale %{person}"
       grade: "Milline on sinu üleüldine tunne?"
       less_than_expected: "Halvem kui oodatud"
       send_feedback: "Saada tagasiside"
