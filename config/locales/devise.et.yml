@@ -14,7 +14,7 @@ et:
       unauthenticated: "Jätkamiseks logige sisse või looge kasutajakonto"
       unconfirmed: "Enne jätkamist peate oma konto kinnitama."
       locked: "Teie konto on blokeeritud"
-      invalid: "Vale email või kasutaja nimi"
+      invalid: "Vale email või kasutajanimi"
       invalid_token: "Vigane autentimisvõti."
       timeout: "Teie sessioon on aegunud. Palun logige uuesti sisse."
       inactive: "Teie konto pole veel aktiveeritud"
@@ -24,8 +24,8 @@ et:
       send_instructions: "Mõne minuti jooksul saad e-kirja juhistega oma parooli muutmiseks."
       updated: "Sinu parool on edukalt muudetud. Oled nüüd sisse logitud."
     sessions:
-      signed_in: "Sisse logimine õnnestus"
-      signed_out: "Välja logimine õnnestus"
+      signed_in: "Sisselogimine õnnestus"
+      signed_out: "Väljalogimine õnnestus"
     confirmations:
       send_paranoid_instructions: "Kui teie e-posti aadress on meie andmebaasis olemas, saabub teile mõne minuti jooksul kiri juhistega, kuidas oma konto kinnitada."
       send_instructions: "Saate mõne minuti jooksul e-kirja, milles on juhised, kuidas kinnitada oma konto."
@@ -43,8 +43,8 @@ et:
       updated: "Teie kasutajakonto uuendamine õnnestus"
       destroyed: "Nägemist! Sinu konto on deaktiveeritud. Loodetavasti näeme sind varsti jälle."
     unlocks:
-      send_paranoid_instructions: "Kui teie konto eksisteerib siis mõne minuti jooksul saate juhendi kuidas see lahti lukustada."
-      send_instructions: "Mõne minuti jooksul saate e-kirja juhistega kuidas on konto lahti lukustada."
+      send_paranoid_instructions: "Kui sinu konto eksisteerib, siis saad mõne minuti jooksul juhendi, kuidas see uuesti avada."
+      send_instructions: "Mõne minuti jooksul saate e-kirja juhistega, kuidas on konto uuesti avada."
       unlocked: "Sinu konto on edukalt taasavatud. Jätkamiseks palun logi sisse."
     omniauth_callbacks:
       success: "Konto edukalt kinnitatud %{kind}."
