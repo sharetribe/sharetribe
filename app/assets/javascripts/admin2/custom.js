@@ -16,13 +16,14 @@ function validateCommunityEdit(community_id) {
     $("#edit_community_" + community_id).validate({
         errorPlacement: function (error, element) {
             if (element.attr('id') === 'community_automatic_confirmation_after_days') {
-                $('#days_label').after(error);
+                $(element).parents('.form-group').append(error);
             } else if (element.hasClass('social-link-row')) {
                 element.parents('.one-social-link').find('.handle-move').after(error);
             }
             else {
                 element.after(error);
             }
+            error.addClass('form-text');
         },
         onkeyup: false,
         onclick: false,

@@ -4,8 +4,8 @@
     = text_field_tag :commission_from_seller, '', class: %i[form-control], disabled: true, style: "border-radius: 4px 0 0 4px"
     .input-group-append.disabled
       %span.input-group-text %
-    %small.form-text
-      = t('admin2.paypal.first_connect_paypal', url: '#paypal-account-settings').html_safe
+  %small.form-text
+    = t('admin2.paypal.first_connect_paypal', url: '#paypal-account-settings').html_safe
 
 .form-group
   = label_tag :minimum_transaction_fee, t('admin2.paypal.minimum_transaction_fee')
@@ -13,5 +13,5 @@
     = text_field_tag :minimum_transaction_fee, '', class: %i[form-control], disabled: true, style: "border-radius: 4px 0 0 4px"
     .input-group-append.disabled
       %span.input-group-text= currency
-    %small.form-text
-      = t('admin2.paypal.first_connect_paypal', url: '#paypal-account-settings').html_safe
+  %small.form-text
+    = t('admin2.paypal.first_connect_paypal', url: '#paypal-account-settings').html_safe

@@ -12,7 +12,7 @@
         - custom_field.options.sorted.each do |option|
           = render 'admin2/users/user_fields/field_options', data: option.json_data
     = render 'add_new_option'
-    %label.error-options{style: 'display:none'}
+    %small.form-text.error-options{style: 'display:none'}
       = hidden_field_tag :minimum_length, DropdownField::MINIMUM_LENGTH
       = t('admin2.listing_fields.error_count_options', count: DropdownField::MINIMUM_LENGTH)
 
@@ -23,6 +23,6 @@
         - custom_field.options.sorted.each do |option|
           = render 'admin2/users/user_fields/field_options', data: option.json_data
     = render 'add_new_option'
-    %label.error-options{style: 'display:none'}
+    %small.form-text.error-options{style: 'display:none'}
       = hidden_field_tag :minimum_length, CheckboxField::MINIMUM_LENGTH
       = t('admin2.listing_fields.error_count_options', count: CheckboxField::MINIMUM_LENGTH)

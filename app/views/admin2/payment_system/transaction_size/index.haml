@@ -17,8 +17,8 @@
           = number_field_tag :minimum_listing_price, @current_min_price.amount, class: %i[form-control], min: @current_fee || 0
           .input-group-append
             %span.input-group-text= @current_community.currency
-          - if @current_fee.positive?
-            %small.form-text= t('admin2.transaction_size.transaction_fee', fee: "#{@current_fee} #{@current_community.currency}")
+        - if @current_fee.positive?
+          %small.form-text= t('admin2.transaction_size.transaction_fee', fee: "#{@current_fee} #{@current_community.currency}")
     %section.content-card-terminal
       = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
 

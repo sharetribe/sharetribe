@@ -19,7 +19,7 @@ Feature: Admin edits listing fields
   @javascript
   Scenario: Admin tries to give custom field invalid name
     When I change custom field "Balcony type" name to ""
-    Then I should see 1 validation errors
+    Then I should see 1 validation errors in admin2
 
   @javascript
   Scenario: Admin removes custom fields from category
