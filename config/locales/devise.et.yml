@@ -20,20 +20,20 @@ et:
       inactive: "Sinu konto pole veel aktiveeritud"
     passwords:
       updated_not_active: "Sinu parool on edukalt muudetud"
-      send_paranoid_instructions: "Kui sinu e-posti aadress on meie andmebaasis olemas, saad oma e-postile parooli taastamise lingi"
+      send_paranoid_instructions: "Kui Sinu e-posti aadress on meie andmebaasis olemas, saad oma e-postile parooli taastamise lingi"
       send_instructions: "Mõne minuti jooksul saad e-kirja juhistega oma parooli muutmiseks."
       updated: "Sinu parool on edukalt muudetud. Oled nüüd sisse logitud."
     sessions:
       signed_in: "Sisselogimine õnnestus"
       signed_out: "Väljalogimine õnnestus"
     confirmations:
-      send_paranoid_instructions: "Kui sinu e-posti aadress on meie andmebaasis olemas, saabub mõne minuti jooksul kiri juhistega, kuidas oma konto kinnitada."
+      send_paranoid_instructions: "Kui Sinu e-posti aadress on meie andmebaasis olemas, saabub mõne minuti jooksul kiri juhistega, kuidas oma konto kinnitada."
       send_instructions: "Saad mõne minuti jooksul e-kirja, milles on juhised, kuidas oma konto kinnitada."
       confirmed: "Sinu konto on edukalt kinnitatud."
     registrations:
       signed_up_but_unconfirmed: "Sinu e-posti aadressile on saadetud kinnituslinki sisaldav sõnum. Konto aktiveerimiseks tuleb link avada."
       signed_up_but_inactive: "Oled edukalt loonud kasutajakonto. Siiski ei saanud me sind sisse logida, sest konto pole veel aktiveeritud."
-      signed_up_but_locked: "Oled edukalt loonud kasutajakonto. Siiski ei saanud me sind sisse logida, sest konto on lukustatud."
+      signed_up_but_locked: "Oled edukalt loonud kasutajakonto. Siiski ei saanud me Sind sisse logida, sest konto on lukustatud."
       reasons:
         inactive: "ei ole aktiivne"
         unconfirmed: "ei ole kinnitatud"
@@ -43,7 +43,7 @@ et:
       updated: "Sinu kasutajakonto uuendamine õnnestus"
       destroyed: "Nägemist! Sinu konto on deaktiveeritud. Loodetavasti näeme sind varsti jälle."
     unlocks:
-      send_paranoid_instructions: "Kui sinu konto eksisteerib, siis saad mõne minuti jooksul juhendi, kuidas see uuesti avada."
+      send_paranoid_instructions: "Kui Sinu konto eksisteerib, siis saad mõne minuti jooksul juhendi, kuidas see uuesti avada."
       send_instructions: "Mõne minuti jooksul saad e-kirja juhistega, kuidas konto uuesti avada."
       unlocked: "Sinu konto on edukalt taasavatud. Jätkamiseks palun logi sisse."
     omniauth_callbacks:
