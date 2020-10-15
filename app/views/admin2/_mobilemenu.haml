@@ -184,10 +184,10 @@
           %li
             = link_to t('admin2.sidebar.advanced_group'), '#advanced-mobile', class: %i[dropdown-toggle], 'aria-controls' => 'advanced-mobile', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#advanced-mobile.collapse.subtitle{class: expand_ul('advanced')}
-          %li#experimental-mobile{class: active_li('experimental')}
-            = link_to t('admin2.sidebar.advanced.experimental'), admin2_advanced_experimental_index_path
           %li#customscript-mobile{class: active_li('custom_scripts')}
             = link_to t('admin2.sidebar.advanced.custom_script'), admin2_advanced_custom_scripts_path
+          %li#experimental-mobile{class: active_li('experimental')}
+            = link_to t('admin2.sidebar.advanced.experimental'), admin2_advanced_experimental_index_path
           %li#deletemarketplace-mobile{class: active_li('delete_marketplaces')}
             = link_to t('admin2.sidebar.advanced.delete_marketplace'), admin2_advanced_delete_marketplaces_path
     / Bottom links for branded links
