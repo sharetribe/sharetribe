@@ -176,10 +176,10 @@
         %li
           = link_to t('admin2.sidebar.advanced_group'), '#advanced', class: %i[dropdown-toggle], 'aria-controls' => 'advanced', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#advanced.collapse.subtitle{class: expand_ul('advanced')}
-        %li#experimental{class: active_li('experimental')}
-          = link_to t('admin2.sidebar.advanced.experimental'), admin2_advanced_experimental_index_path
         %li#customscript{class: active_li('custom_scripts')}
           = link_to t('admin2.sidebar.advanced.custom_script'), admin2_advanced_custom_scripts_path
+        %li#experimental{class: active_li('experimental')}
+          = link_to t('admin2.sidebar.advanced.experimental'), admin2_advanced_experimental_index_path
         %li#deletemarketplace{class: active_li('delete_marketplaces')}
           = link_to t('admin2.sidebar.advanced.delete_marketplace'), admin2_advanced_delete_marketplaces_path
   / Bottom links for branded links
