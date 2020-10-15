@@ -1699,7 +1699,7 @@ et:
       you_have_not_given_feedback_yet: "Tagasiside andmine on alati hea mõte. Kui kõik läks hästi, peaksid teistele teatama, et %{name} saab usaldada. Kui oli probleeme, on hea mainida ka neid."
       leave_feedback: "Jäta tagasiside %{other_party_name}"
     transaction_preauthorized:
-      subject: "%{requester} on huvitatud ja maksnud %{listing_title} mis on avaldatud lehel %{service_name}"
+      subject: "%{requester} on huvitatud ja maksnud %{listing_title} eest lehel %{service_name}"
       transaction_requested_by_user: "Suurepärased uudised! %{requester} on huvitatud \"%{listing_title}\" ja on selle kuulutuse eest maksnud."
       you_have_time_to_accept: "%{payment_expires_in} jooksul tuleb tellimus kinnitada või tagasi lükata."
       if_you_do_accept: "Kui selle tähtaja jooksul taotluse vastu võtate, saate raha kohe oma kontole."
@@ -1707,7 +1707,7 @@ et:
       if_you_do_not_accept: "Kui lükkate taotluse tagasi või ei võta selle tähtaja jooksul vastu, siis tehing tühistatakse automaatselt, %{requester} ei võeta tasu ja te ei saa selle eest tasu."
       click_here_to_reply: "Taotlusele vastamiseks klõpsake siin"
     transaction_preauthorized_v2:
-      headline: "%{requester} on huvitatud makse teostamisest saidil %{listing_link} turvavest."
+      headline: "%{requester} on huvitatud makse teostamisest saidil %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Ärge unustage kinnitada taotlust %{requester} kuulutse kohta %{listing_title}"
       remember_to_accept: "Ärge unustage kinnitada taotlust %{requester} kuulutse kohta %{listing_title}. %{requester} on juba tasunud kuulutuse eest. Makse saamiseks pead taotluse aktsepteerima."
