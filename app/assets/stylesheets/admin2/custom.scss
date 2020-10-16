@@ -148,10 +148,6 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
   border-bottom: 1px solid #EAEDF3;
 }
 
-.form-check-input[disabled] ~ .form-check-label,
-.form-check-input:disabled ~ .form-check-label {
-  color: #484B4A !important; }
-
 .add-new-unit-content,
 .remove-unit-content,
 .edit-unit-content{
@@ -214,3 +210,6 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
 .expired_email, .sent_notice, .unverified_email {
   display: none;
 }
+
+textarea.attention {
+  border: 1px solid #FF4E36; }

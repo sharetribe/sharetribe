@@ -11,7 +11,7 @@ module Admin2Helper
   def expand_rules
     {
       general: %w[essentials privacy static_content admin_notifications],
-      design: %w[logos_color landing_page display experimental cover_photos topbar footer],
+      design: %w[logos_color landing_page display cover_photos topbar footer],
       users: %w[manage_users signup_login user_rights invitations user_fields],
       listings: %w[listing_approval listing_comments manage_listings order_types categories listing_fields],
       transactions_reviews: %w[config_transactions manage_transactions conversations manage_reviews],
@@ -21,7 +21,7 @@ module Admin2Helper
       social_media: %w[image_tags twitter],
       seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages google_console],
       analytics: %w[google sharetribe google_manager],
-      advanced: %w[custom_scripts delete_marketplaces]
+      advanced: %w[custom_scripts delete_marketplaces experimental]
     }
   end
 

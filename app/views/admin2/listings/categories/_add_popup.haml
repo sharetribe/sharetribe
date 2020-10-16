@@ -1,3 +1,4 @@
+- save_button_label = category.new_record? ? t('admin2.categories.save_add_category_popup') : t('admin2.save_changes')
 #categoriesAddModal.modal{'data-backdrop' => 'static', 'aria-hidden' => true, 'aria-labelledby' => 'categoriesAddModalLabel', role: :dialog, tabindex: '-1'}
   .modal-dialog.modal-lg{role: :document}
     .modal-content
@@ -14,4 +15,4 @@
           = render 'form', form: form, category: category, shapes: shapes, selected_shape_ids: selected_shape_ids
         .modal-footer
           = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+          = button_tag save_button_label, class: %i[btn btn-primary]

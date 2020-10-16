@@ -206,16 +206,12 @@ Rails.application.routes.draw do
           end
         end
 
-        resources :display, only: %i[index] do
+        resources :display, path: 'arrangement', only: %i[index] do
           collection do
             patch :update_display
           end
         end
-        resources :experimental, only: %i[index] do
-          collection do
-            patch :update_experimental
-          end
-        end
+
         resources :logos_color, path: 'logos-and-color', only: %i[index] do
           collection do
             patch :update_logos_color
@@ -230,7 +226,7 @@ Rails.application.routes.draw do
       end
 
       namespace :users do
-        resources :invitations, only: %i[index]
+        resources :invitations, path: 'view-invitations', only: %i[index]
         resources :manage_users, path: 'manage-users', only: %i[index destroy] do
           member do
             get :resend_confirmation
@@ -371,7 +367,7 @@ Rails.application.routes.draw do
           end
         end
 
-        resources :transaction_size, path: 'transaction-size', only: %i[index] do
+        resources :transaction_size, path: 'minimum-listing-price', only: %i[index] do
           collection do
             patch :save
           end
@@ -379,6 +375,7 @@ Rails.application.routes.draw do
       end
 
       namespace :emails do
+        resources :email_users, path: 'compose-email', only: %i[index create]
         resources :outgoing_emails, path: 'custom-outgoing-address' do
           collection do
             get :check_email_status
@@ -427,27 +424,27 @@ Rails.application.routes.draw do
       namespace :seo do
         resources :sitemap, path: 'sitemap-and-robots', only: %i[index]
         resources :google_console, path: 'google-search-console', only: %i[index]
-        resources :landing_pages, path: 'landing-page-meta', only: %i[index] do
+        resources :landing_pages, path: 'landing-page-meta-tags', only: %i[index] do
           collection do
             patch :update_landing_page
           end
         end
-        resources :search_pages, path: 'search-results-pages-meta', only: %i[index] do
+        resources :search_pages, path: 'search-page-meta-tags', only: %i[index] do
           collection do
             patch :update_search_pages
           end
         end
-        resources :listing_pages, path: 'listing-pages-meta', only: %i[index] do
+        resources :listing_pages, path: 'listing-pages-meta-tags', only: %i[index] do
           collection do
             patch :update_listing_page
           end
         end
-        resources :category_pages, path: 'category-pages-meta', only: %i[index] do
+        resources :category_pages, path: 'category-pages-meta-tags', only: %i[index] do
           collection do
             patch :update_category_page
           end
         end
-        resources :profile_pages, path: 'profile-pages-meta', only: %i[index] do
+        resources :profile_pages, path: 'profile-pages-meta-tags', only: %i[index] do
           collection do
             patch :update_profile_page
           end
@@ -469,6 +466,11 @@ Rails.application.routes.draw do
       end
 
       namespace :advanced do
+        resources :experimental, path: 'new-features', only: %i[index] do
+          collection do
+            patch :update_experimental
+          end
+        end
         resources :delete_marketplaces, path: 'delete-marketplace', only: %i[index destroy]
         resources :custom_scripts, path: 'custom-script', only: %i[index] do
           collection do

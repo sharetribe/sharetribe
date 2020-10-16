@@ -5,3 +5,4 @@ if (popup.length) {
 
 $('body').append('<%= j render 'admin2/transactions_reviews/manage_reviews/delete_popup', tx: @tx %>');
 $('#reviewDeleteBlock').modal('show');
+$('.dropdown-menu').removeClass('show');

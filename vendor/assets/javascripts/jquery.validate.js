@@ -905,10 +905,10 @@ $.extend( $.validator, {
 			var i, elements, error;
 			for ( i = 0; this.errorList[ i ]; i++ ) {
 				error = this.errorList[ i ];
+				this.showLabel( error.element, error.message );
 				if ( this.settings.highlight ) {
 					this.settings.highlight.call( this, error.element, this.settings.errorClass, this.settings.validClass );
 				}
-				this.showLabel( error.element, error.message );
 			}
 			if ( this.errorList.length ) {
 				this.toShow = this.toShow.add( this.containers );

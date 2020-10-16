@@ -27,9 +27,9 @@ function init_admin2_number_custom_field(form, locale) {
         errorPlacement: function(error, element) {
             if (element.attr("name") === CATEGORY_CHECKBOX_NAME) {
                 var container = $("#categories-container");
-                error.insertAfter(container);
+                error.insertAfter(container).addClass('form-text');
             } else {
-                error.insertAfter(element);
+                error.insertAfter(element).addClass('form-text');
             }
         }
     });

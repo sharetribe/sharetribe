@@ -1583,11 +1583,11 @@ he-IL:
       has_commented_listing_you_follow_in_kassi: "‎‎%{service_name}‎  שאתה עוקב ב ‎%{listing}‎ הגיב על המודעה ‎‎%{author}‎‎"
     new_message:
       view_message: "הצג הודעה"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "‎%{sender}‎ שלח לך הודעה. עבור ל ‎%{service_name}‎ על מנת להשיב."
+      you_have_a_new_message: "יש לך הודעה חדשה מ ‎%{sender_name}‎ ב ‎%{service_name}‎"
     new_message_v2:
       headline: ~
-      reply: ~
+      reply: "לחץ כאן להשיב ל ‎%{sender}‎"
     new_payment:
       new_payment: "קיבלת תשלום חדש"
       price_per_unit_type: "‎%{unit_type}‎ מחיר ל"

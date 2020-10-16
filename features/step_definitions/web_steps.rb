@@ -321,6 +321,14 @@ Then /^I should see (\d+) validation errors$/ do |errors_count|
   }
 end
 
+Then /^I should see (\d+) validation errors in admin2$/ do |errors_count|
+  errors = all("small.attention");
+  expect(errors.size).to eql(errors_count.to_i)
+  all("small.attention").each { |error|
+    expect(error).to be_visible
+  }
+end
+
 Then /^take a screenshot$/ do
   save_screenshot('screenshot.png')
 end
