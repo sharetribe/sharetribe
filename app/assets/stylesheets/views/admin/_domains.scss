@@ -8,7 +8,7 @@
 .app-config-domain {
   line-height: 42px;
 }
-.domain_being_checked {
+.domain_being_checked, .domain_being_set_up {
   background-color: #e8e8e8;
   padding: 20px;
   margin-top: 10px;
@@ -16,11 +16,11 @@
     font-weight: bold;
   }
 }
-.domain_checks_pending {
+.domain_checks_pending, .domain_setup_pending {
   color: #808080;
   font-weight: bold;
 }
-.domain_checks_failed {
+.domain_checks_failed, .domain_setup_failed {
   color: red;
   font-weight: bold;
 }

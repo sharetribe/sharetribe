@@ -14,11 +14,12 @@
 
 .row
   = form_for presenter.community,
-    url: check_domain_availability_admin_domain_path,
-    html: {class: 'check_domain_availability'} do |form|
+    url: create_domain_setup_admin_domain_path,
+    html: {class: 'create_domain_setup'} do |form|
     = form.text_field :domain, placeholder: 'www.example.com',
-      remove_protocol: true
+      remove_protocol: true,
+      valid_domain: true,
+      'data-msg-valid_domain': t('errors.messages.domain_name_is_invalid')
 
     .row
       = form.button t("admin.communities.domain.check_domain")
-

@@ -16,37 +16,33 @@ class Admin::DomainsController < Admin::AdminBaseController
     end
   end
 
-  def check_domain_availability
-    state = @service.check_domain_availability
-    case state
-    when Community::DomainChecker::PENDING
-      redirect_to pending_admin_domain_path
-    when Community::DomainChecker::PASSED
-      redirect_to passed_admin_domain_path
-    when Community::DomainChecker::FAILED
-      redirect_to failed_admin_domain_path
-    when Community::DomainChecker::PASSED_WITH_WARNING
-      redirect_to passed_with_warning_admin_domain_path
+  def create_domain_setup
+    s = @service.create_domain_setup
+    if s
+      redirect_to admin_domain_path
     else
-      redirect_to pending_admin_domain_path
+      redirect_to admin_domain_path, flash: {error: t('errors.messages.domain_name_is_invalid')}
     end
   end
 
-  def pending; end
+  def recheck_domain_setup
+    @service.recheck_domain_setup
+    redirect_to admin_domain_path
+  end
 
-  def passed; end
-
-  def failed; end
-
-  def passed_with_warning; end
-
-  def reset
+  def reset_domain_setup
     @service.reset
     redirect_to admin_domain_path
   end
 
-  def set
-    # no action at the moment
+  def confirm_domain_setup
+    @service.confirm_domain_setup
+    redirect_to admin_domain_path
+  end
+
+  def retry_domain_setup
+    @service.retry_domain_setup
+    redirect_to admin_domain_path
   end
 
   private

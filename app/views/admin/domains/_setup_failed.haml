@@ -1,0 +1,22 @@
+= render 'domain', presenter: @presenter
+
+.row
+  .col-12
+    %h3= t("admin.communities.domain.main_domain")
+    .domain_being_checked
+      %p
+        = t("admin.communities.domain.domain_being_checked")
+        %span.domain_name= @presenter.domain_checked
+
+.row
+  .col-12
+    %p
+      = t("admin.communities.domain.status")
+      %span.domain_setup_failed
+        = t("admin.communities.domain.setup_failed")
+      = t("admin.communities.domain.setup_the_domain_again_info")
+
+.row
+  .col-6
+    = form_for @presenter.community, url: retry_domain_setup_admin_domain_path, html: {class: 'retry_domain_setup'} do |form|
+      = form.button t("admin.communities.domain.setup_the_domain_again")

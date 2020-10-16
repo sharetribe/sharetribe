@@ -671,15 +671,11 @@ Rails.application.routes.draw do
           get :check_availability
         end
         member do
-          patch :check_domain_availability
-          get :check_domain_availability
-          get :pending
-          get :passed
-          get :failed
-          get :passed_with_warning
-          get :reset
-          patch :reset
-          patch :set
+          patch :create_domain_setup
+          patch :recheck_domain_setup
+          patch :reset_domain_setup
+          patch :confirm_domain_setup
+          patch :retry_domain_setup
         end
       end
       resource :community_seo_settings, only: [:show, :update]
