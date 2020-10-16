@@ -20,7 +20,7 @@ Feature: Admin create, update, destroy listing shapes
 
   Scenario: Admin user create new order type Selling
     When I go to the order types admin2 page of community "test"
-    Then I should see "Order types determine how the order process works in your site."
+    Then I should see "Order types determine how the order process works on your marketplace."
     When I follow "+ Add a new order type"
     Then I select "Selling products" from "template_order_type"
     Then I should see "Checkout button label"
@@ -37,7 +37,7 @@ Feature: Admin create, update, destroy listing shapes
 
   Scenario: Admin user create new order type Renting products
     When I go to the order types admin2 page of community "test"
-    Then I should see "Order types determine how the order process works in your site."
+    Then I should see "Order types determine how the order process works on your marketplace."
     When I follow "+ Add a new order type"
     Then I select "Renting products" from "template_order_type"
     Then I should see "heckout button label"
