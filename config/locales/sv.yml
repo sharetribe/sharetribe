@@ -469,16 +469,16 @@ sv:
           selected: "Valda statusar: %{count}"
           selected_js: "Valda statusar: "
           free: "Gratis transaktion"
-          confirmed: Färdig
+          confirmed: Avslutad
           paid: Betald
           canceled: Avbruten
-          disputed: ~
-          preauthorized: Auktoriserad
-          rejected: ~
-          payment_intent_requires_action: ~
+          disputed: Bestridd
+          preauthorized: Förhandsauktoriserad
+          rejected: Avslagen
+          payment_intent_requires_action: Väntar
           payment_intent_action_expired: "Löpts ut"
-          refunded: ~
-          dismissed: ~
+          refunded: Återbetalad
+          dismissed: Nekad
         headers:
           conversation: Konversationstråd
           listing: Annons
@@ -492,48 +492,48 @@ sv:
           conversation: Konversation
           free: "Kostnadsfri transaktion"
           pending: Väntar
-          preauthorized: Auktoriserad
-          accepted: Godkänt
+          preauthorized: Förhandsauktoriserad
+          accepted: Godkänd
           rejected: Nekad
           paid: Betald
-          confirmed: Bekräftad
+          confirmed: Avslutad
           canceled: Avbruten
-          disputed: ~
-          initiated: "Väntar på PayPal betalning"
-          pending_ext: "Väntar på PayPal betalning"
+          disputed: Bestridd
+          initiated: "Väntar på PayPal-betalning"
+          pending_ext: "Väntar på PayPal-betalning"
           none:
             free: "Kostnadsfri transaktion"
           paypal:
             free: Konversation
             pending: Väntar
-            preauthorized: Förauktoriserad
+            preauthorized: Förhandsauktoriserad
             accepted: Accepterad
             rejected: Avslagen
             paid: Betald
             confirmed: Bekräftad
-            canceled: Avbryten
-            disputed: ~
-            initiated: "Väntar på PayPal betalning"
-            pending_ext: "Väntar på PayPal betalning"
-            refunded: ~
-            dismissed: ~
+            canceled: Avbruten
+            disputed: Bestridd
+            initiated: "Väntar på PayPal-betalning"
+            pending_ext: "Väntar på PayPal-betalning"
+            refunded: Återbetalad
+            dismissed: Nekad
           stripe:
             free: Konversation
             pending: Väntar
-            preauthorized: "Väntar på PayPal betalning"
+            preauthorized: Förhandsauktoriserad
             accepted: Accepterad
             rejected: Avslagen
             paid: Betald
-            confirmed: Bekräftad
-            canceled: Avbryten
-            disputed: ~
-            initiated: "Väntar på Stripe betalning"
-            pending_ext: "Väntar på Stripe betalning"
-            payment_intent_requires_action: ~
+            confirmed: Avslutad
+            canceled: Avbruten
+            disputed: Bestridd
+            initiated: "Väntar på Stripe-betalning"
+            pending_ext: "Väntar på Stripe-betalning"
+            payment_intent_requires_action: Avslagen
             payment_intent_action_expired: "Löpts ut"
-            payment_intent_failed: ~
-            refunded: ~
-            dismissed: ~
+            payment_intent_failed: "Stripe-betalning misslyckad"
+            refunded: Återbetalad
+            dismissed: Nekad
         not_available: "Inte tillgänglig"
       conversations:
         conversations: "Visa konversationer"
@@ -2311,7 +2311,7 @@ sv:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: ~
+      delete_listing: "Ta bort annons"
     map:
       open_in_google_maps: "Öppna i Google Maps"
     error:

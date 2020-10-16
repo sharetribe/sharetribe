@@ -34,9 +34,6 @@ function validateCommunityEdit(community_id) {
 
 function validateCustomForm() {
     $('form').validate({
-        errorPlacement: function (error, element) {
-           element.after(error);
-        },
         onkeyup: false,
         onclick: false,
         onfocusout: false,
