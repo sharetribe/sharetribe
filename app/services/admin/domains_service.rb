@@ -27,17 +27,19 @@ class Admin::DomainsService
   end
 
   def create_domain_setup
+    return unless domain_possible?
+
     domain = params.try(:[], :community).try(:[], :domain)
     if domain.present?
       ascii_domain = begin
                        SimpleIDN.to_ascii(domain)
-                     rescue Exception
-                       return false
+                     rescue
+                       return
                      end
       s = DomainSetup.create(domain: ascii_domain.downcase,
                              state: DomainSetup::CHECK_PENDING,
                              community: community)
-      s if s && s.persisted?
+      s if s&.persisted?
     end
   end
 

@@ -27,7 +27,7 @@ class DomainSetup < ApplicationRecord
     CHECK_OK_REDIRECT_WARNING = 'check_ok_redirect-warning'.freeze => 'check-ok-redirect-warning'.freeze,
     CHECK_FAILED = 'check_failed'.freeze => 'check-failed'.freeze,
     SETUP_PENDING = 'setup_pending'.freeze => 'setup-pending'.freeze,
-    SETUP_FAILED = 'setup_failed'.freeze => 'setup-failed'.freeze,
+    SETUP_FAILED = 'setup_failed'.freeze => 'setup-failed'.freeze
   }
 
   enum state: STATE
@@ -35,8 +35,9 @@ class DomainSetup < ApplicationRecord
   DOMAIN_REGEX = /(?!(sharetribe|sharetri\.be))(?=.{4,253})(\A((?!-)[a-z0-9-]{1,63}(?<!-)\.)+((?![0-9]+\z)(?!-)[a-z0-9-]{1,63}(?<!-)))\z/
 
   validates :community_id, uniqueness: true
-  validates :domain, length: { in: 4..253 },
-            format: { with: DOMAIN_REGEX, message: :domain_name_is_invalid },
+  validates :domain,
+            length:     { in: 4..253 },
+            format:     { with: DOMAIN_REGEX, message: :domain_name_is_invalid },
             uniqueness: true
   validate :domain_is_globally_unique?
 

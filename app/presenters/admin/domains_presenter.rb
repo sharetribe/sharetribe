@@ -44,7 +44,7 @@ class Admin::DomainsPresenter
 
   def domain_checked
     d = community.domain_setup&.domain
-    if d && d.match(/xn--/)
+    if d&.match(/xn--/)
       SimpleIDN.to_unicode(d)
     else
       d
