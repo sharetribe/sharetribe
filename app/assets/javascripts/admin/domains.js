@@ -43,7 +43,14 @@ window.ST = window.ST || {};
           return true;
         }
       );
-    $('form.check_domain_availability').validate();
+    $.validator.
+      addMethod( "valid_domain",
+       function(value, element, param) {
+         v = punycode.toASCII(value);
+         return v.match(new RegExp('(?=.{4,253})^(((?!-)[a-z0-9-]{0,62}[a-z0-9]\\.)+((?![0-9]+$)(?!-)[a-z0-9-]{0,62}[a-z0-9]))$'));
+       }
+     );
+    $('form.create_domain_setup').validate();
   };
 
 
@@ -52,4 +59,3 @@ window.ST = window.ST || {};
     initDomainAvailability: initDomainAvailability,
   };
 })(window.ST);
-

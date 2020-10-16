@@ -38,7 +38,21 @@
   - elsif @presenter.domain_possible?
     - if @presenter.feature_domain?
       - unless @presenter.domain_used?
-        = render 'form', presenter: @presenter
+        - case @presenter.domain_setup_state
+        - when DomainSetup::CHECK_PENDING
+          = render 'check_pending', presenter: @presenter
+        - when DomainSetup::CHECK_OK
+          = render 'check_passed', presenter: @presenter
+        - when DomainSetup::CHECK_OK_REDIRECT_WARNING
+          = render 'check_passed_with_warning', presenter: @presenter
+        - when DomainSetup::CHECK_FAILED
+          = render 'check_failed', presenter: @presenter
+        - when DomainSetup::SETUP_PENDING
+          = render 'setup_pending', presenter: @presenter
+        - when DomainSetup::SETUP_FAILED
+          = render 'setup_failed', presenter: @presenter
+        - else
+          = render 'form', presenter: @presenter
     - else
       %p.marketplace-address-is
         = t("admin.communities.domain.your_marketplace_address_is",
@@ -56,4 +70,3 @@
     %p
       - link = link_to t("admin.communities.domain.contact_us"), '#', 'show-intercom': true
       = t("admin.communities.domain.would_you_like_to_change_domain", contact_us: link).html_safe
-

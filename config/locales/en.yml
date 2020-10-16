@@ -689,16 +689,22 @@ en:
         domain_being_checked: "Domain being checked:"
         status: "Status:"
         checks_pending: "Checks pending..."
-        please_check_back: "Please check back in a few minutes, checks should be back soon!"
+        please_check_back: "Please check back in a few minutes, checks should be done soon!"
         checks_not_passed: "Checks not passed!"
-        check_the_domain_again_info: "%{again_link} or %{reset_link}. Make sure that your DNS records are configured correctly."
+        check_the_domain_again_info: "Make sure that your DNS records are configured correctly."
         check_the_domain_again: "Check the domain again"
         use_another_domain: "use another domain"
         checks_passed: "Checks passed!"
+        domain_being_set_up: "Domain beting set up:"
+        setup_in_progress: "Setup in progress..."
+        setup_check_back: "Please check back in a few minutes, the domain setup should be completed soon!"
+        setup_check_back_critical_error: "The domain setup will take longer than expected. Check back later or contact us!"
+        setup_failed: "Domain setup failed!"
+        setup_the_domain_again_info: "Likely your domain DNS changes have not yet propagated fully. This can occasionally take up to 48 hours. Make sure that your DNS records are configured correctly and try again after an hour. Contact us, if the issue persists."
+        setup_the_domain_again: "Retry domain setup"
         summary:
           main_domain: "Main domain:"
           redirect: "Redirect:"
-        set_domain: "Set domain"
         check_another_domain: "Check another domain"
         checks_passed_with_warning: "Checks passed - with warning!"
         this_domain_is_not_configured_correctly: "This domain is not configured correctly. This means that this domain will not redirect to your marketplace. Make sure that the domain DNS records are configured correctly and check it again if you want this domain to redirect to your main address. If you don't want the redirect, click \"Start using the custom domain\"."
@@ -3217,11 +3223,11 @@ en:
       last_name_kana: "Last name kana"
       first_name_kanji: "First name kanji"
       last_name_kanji: "Last name kanji"
-      country: Country of residence
+      country: Country
       birth_date: "Birth date"
       ssn_last_4: "SSN Last 4"
       personal_id_number: "Personal ID number"
-      address_country: Country of residence
+      address_country: Country
       address_state: State
       address_province: Province
       address_city: City
@@ -3254,9 +3260,6 @@ en:
       bank_routing_2: "Branch code"
       bank_currency: "Bank account currency"
       update_also_bank_account: "Update also Bank account"
-      bank_account_same_country: "Use a bank account located in my country of residence"
-      bank_country: "Bank account country"
-      bank_holder_name: "Bank account holder name"
       messages:
         account_number: "Account number"
         routing_number: "Routing number"
