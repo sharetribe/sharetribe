@@ -35,7 +35,15 @@ function validateCommunityEdit(community_id) {
 function validateCustomForm() {
     $('form').validate({
         errorPlacement: function (error, element) {
-           element.after(error);
+            var hint = $(element).next('small.form-text:not(.attention)');
+            if (hint.length) {
+                error.insertAfter(hint);
+            } else if ($(element).parents('.input-group').length) {
+                $(element).parents('.form-group').append(error)
+            } else {
+                error.insertAfter(element);
+            }
+            error.addClass('form-text');
         },
         onkeyup: false,
         onclick: false,
