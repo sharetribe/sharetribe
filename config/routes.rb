@@ -382,7 +382,6 @@ Rails.application.routes.draw do
             post :resend_verification_email
           end
         end
-        resources :email_users, path: 'email-users', only: %i[index create]
         resources :welcome_emails, path: 'welcome-email', only: %i[index] do
           collection do
             patch :update_email
