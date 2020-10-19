@@ -8,7 +8,9 @@
           %span.language
             = local_name(cc.object.locale)
         .multiple-languages-input
-          = cc.text_field :profile_meta_title, maxlength: 255, class: %i[form-control], placeholder: t('admin2.profile_pages.profile_meta_title_placeholder', locale: cc.object.locale)
+          = cc.text_field :profile_meta_title, maxlength: 255, class: %i[form-control], placeholder: t('admin2.profile_pages.profile_meta_title_placeholder', locale: cc.object.locale),
+                                 allowed_template_variables: @seo_service.variables(:profile_meta_title).join(','),
+                                'data-msg-allowed_template_variables': t('admin2.seo.only_supported_variables')
     %small.form-text
       = t('admin2.profile_pages.profile_meta_title_info_text')
 
@@ -22,6 +24,8 @@
           %span.language
             = local_name(cc.object.locale)
         .multiple-languages-input
-          = cc.text_area :profile_meta_description, maxlength: 65535, class: %i[form-control], placeholder: t('admin2.profile_pages.profile_meta_description_placeholder', locale: cc.object.locale)
+          = cc.text_area :profile_meta_description, maxlength: 65535, class: %i[form-control], placeholder: t('admin2.profile_pages.profile_meta_description_placeholder', locale: cc.object.locale),
+                                 allowed_template_variables: @seo_service.variables(:profile_meta_description).join(','),
+                                'data-msg-allowed_template_variables': t('admin2.seo.only_supported_variables')
     %small.form-text
       = t('admin2.profile_pages.profile_meta_description_info_text')
