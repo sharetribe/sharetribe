@@ -15,6 +15,10 @@ Feature: Admin edits automatic newsletter page
     When I go to the admin2 configure transactions community "test"
     And I fill in "community_automatic_confirmation_after_days" with "55"
     And I check "community_transaction_agreement_in_use"
+    And I fill in "community_community_customizations_attributes_0_transaction_agreement_label" with "label"
+    And I fill in "community_community_customizations_attributes_2_transaction_agreement_content" with "content"
+    And I fill in "community_community_customizations_attributes_1_transaction_agreement_label" with "label"
+    And I fill in "community_community_customizations_attributes_3_transaction_agreement_content" with "content"
     Then I press submit
     And I refresh the page
     And the "community_automatic_confirmation_after_days" field should contain "55"
