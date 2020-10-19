@@ -10,6 +10,6 @@
     = image_tag 'svg/checkmark-green.svg', style: verified ? '' : 'display:none', class: %i[verified-label-class]
   %span.success.verified-label-class{style: verified ? '' : 'display:none'}= t('admin2.outgoing_address.verified')
   = label_tag :email, t('admin2.outgoing_address.email'), style: verified ? 'display:none' : '', class: %i[unverified-label-class]
-  = text_field_tag :email, user_defined_address.try(:[], :email), placeholder: t('admin2.outgoing_address.sender_email_placeholder'), class: %i[form-control verified-class], disabled: disable
+  = text_field_tag :email, user_defined_address.try(:[], :email), placeholder: t('admin2.outgoing_address.sender_email_placeholder'), class: %i[form-control verified-class required], disabled: disable
   %small#senderEmail-help.form-text
     = t('admin2.outgoing_address.verified_info')
