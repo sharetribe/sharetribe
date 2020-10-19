@@ -53,7 +53,7 @@ module Admin2::Users
     def add_unit
       @exist_id = params[:uniq]
       @data = { locals: params['selector_label'].keys,
-                uniq: @exist_id,
+                uniq: @exist_id || "temp_#{DateTime.current.strftime('%Q')}",
                 selector_label: params['selector_label'] }
       render layout: false
     end

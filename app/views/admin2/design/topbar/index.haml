@@ -18,7 +18,7 @@
 
       .form-group
         = form.label :logo_link, t('admin2.topbar.logo_link')
-        = form.text_field :logo_link, placeholder: request.base_url, class: %i[form-control]
+        = form.text_field :logo_link, data: {'rule-url': true}, placeholder: request.base_url, class: %i[form-control]
         %small#marketplaceLogoURL-help.form-text
           = t('admin2.topbar.logo_link_info_text')
 

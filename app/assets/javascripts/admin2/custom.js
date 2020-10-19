@@ -15,10 +15,13 @@ function showSuccess(text) {
 function validateCommunityEdit(community_id) {
     $("#edit_community_" + community_id).validate({
         errorPlacement: function (error, element) {
+            var hint = $(element).next('small.form-text:not(.attention)');
             if (element.attr('id') === 'community_automatic_confirmation_after_days') {
                 $(element).parents('.form-group').append(error);
             } else if (element.hasClass('social-link-row')) {
                 element.parents('.one-social-link').find('.handle-move').after(error);
+            } else if (hint.length) {
+                error.insertAfter(hint);
             }
             else {
                 element.after(error);
@@ -29,6 +32,22 @@ function validateCommunityEdit(community_id) {
         onclick: false,
         onfocusout: false,
         onsubmit: true
+    });
+}
+
+function admin2_social_media_form(community_id, invalid_twitter_handle_message, invalid_facebook_connect_id_message, invalid_facebook_connect_secret_message) {
+    var form_id = "#edit_community_" + community_id;
+    $(form_id).validate({
+        rules: {
+            "community[twitter_handle]": {minlength: 1, maxlength: 15, regex: "^([A-Za-z0-9_]+)?$"},
+            "community[facebook_connect_id]": {minlength: 1, maxlength: 16, regex: "^([0-9]+)?$"},
+            "community[facebook_connect_secret]": {minlength: 32, maxlength: 32, regex: "^([a-f0-9]+)?$"}
+        },
+        messages: {
+            "community[twitter_handle]": { regex: invalid_twitter_handle_message },
+            "community[facebook_connect_id]": {regex: invalid_facebook_connect_id_message },
+            "community[facebook_connect_secret]": {regex: invalid_facebook_connect_secret_message }
+        }
     });
 }
 
@@ -104,19 +123,26 @@ $(function(){
 
     $('.for-hide-content').on('change', function () {
        var checked = $(this).prop('checked'),
-           private_content = $('.hide-content');
+           private_content = $('.hide-content'),
+           hidden_required = $(this).hasClass('hidden-required');
        if (checked) {
            private_content.removeClass('opacity_04');
+           if (hidden_required) {
+               private_content.find('input, textarea').addClass('required');
+           }
        } else {
            private_content.addClass('opacity_04');
+           if (hidden_required) {
+               private_content.find('input, textarea').removeClass('required');
+           }
        }
     });
     $('.social-checked').on('change', function () {
        var input_elem = $(this).parents('.social-block').find('.social-data');
        if ($(this).prop('checked')) {
-           input_elem.prop('required', true);
+           input_elem.addClass('required');
        } else {
-           input_elem.prop('required', false);
+           input_elem.removeClass('required');
        }
     });
     $('.change-file').on('change', function() {
