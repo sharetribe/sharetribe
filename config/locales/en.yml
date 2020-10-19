@@ -3223,11 +3223,11 @@ en:
       last_name_kana: "Last name kana"
       first_name_kanji: "First name kanji"
       last_name_kanji: "Last name kanji"
-      country: Country
+      country: Country of residence
       birth_date: "Birth date"
       ssn_last_4: "SSN Last 4"
       personal_id_number: "Personal ID number"
-      address_country: Country
+      address_country: Country of residence
       address_state: State
       address_province: Province
       address_city: City
@@ -3260,6 +3260,9 @@ en:
       bank_routing_2: "Branch code"
       bank_currency: "Bank account currency"
       update_also_bank_account: "Update also Bank account"
+      bank_account_same_country: "Use a bank account located in my country of residence"
+      bank_country: "Bank account country"
+      bank_holder_name: "Bank account holder name"
       messages:
         account_number: "Account number"
         routing_number: "Routing number"

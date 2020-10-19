@@ -226,7 +226,7 @@ Rails.application.routes.draw do
       end
 
       namespace :users do
-        resources :invitations, only: %i[index]
+        resources :invitations, path: 'view-invitations', only: %i[index]
         resources :manage_users, path: 'manage-users', only: %i[index destroy] do
           member do
             get :resend_confirmation
@@ -288,6 +288,7 @@ Rails.application.routes.draw do
             post :change_category
           end
         end
+
         resources :manage_listings, path: 'manage-listings', only: %i[index] do
           collection do
             patch :update
@@ -382,6 +383,7 @@ Rails.application.routes.draw do
             post :resend_verification_email
           end
         end
+        resources :email_users, path: 'email-users', only: %i[index create]
         resources :welcome_emails, path: 'welcome-email', only: %i[index] do
           collection do
             patch :update_email
@@ -786,6 +788,7 @@ Rails.application.routes.draw do
 
       resources :people, except: [:show] do
         collection do
+          get :check_username_availability
           get :check_email_availability
           get :check_email_availability_and_validity
           get :check_invitation_code
