@@ -2340,7 +2340,7 @@ lv:
         accepted_formats: "Attēlu formātam jābūt kādam no GIF, JPG vai PNG."
         images_not_uploaded_confirm: "Visu attēlu augšupielāde nav pabeigta. Vai Jūs patiešām vēlaties turpināt?"
       location:
-        location: "Mana atrašanās vieta, adrese"
+        location: "Mana adrese"
       price:
         price: Cena
         per: /
@@ -2359,7 +2359,7 @@ lv:
         shipping_price_additional: "Papildus preces"
         pickup: "Saņemšana pie pārdevēja"
       origin:
-        location: "Mana atrašanās vieta, adrese"
+        location: "Mana adrese"
         origin: Izcelsme
         the_exact_location: "Precīza atrašanās vieta citiem lietotājiem netiks rādīta."
       send_button:
@@ -2850,7 +2850,7 @@ lv:
       postal_code: "Pasta indekss"
       profile_page: "Jūsu profila lapā"
       profilemap: "Mapes skats"
-      street_address: "Atrašanas vieta"
+      street_address: "Mana adrese"
       these_fields_are_shown_in_your: "Daļa no šīs informācijas ir redzama visiem %{service_name} lietotājiem"
       visible_to_everybody: "redzams visiem"
       visible_to_registered_users: "(redzams lietotājiem, kuri ir ienākuši)"
@@ -3072,7 +3072,7 @@ lv:
       menu: Izvēlne
       more: Vairāk
       search_placeholder: Meklēt...
-      search_location_placeholder: "Atrašanas vieta"
+      search_location_placeholder: "Mana adrese"
       user: Lietotājs
       inbox: "Ienākošās ziņas"
       profile: Profils

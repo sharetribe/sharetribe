@@ -1,11 +1,11 @@
 = form.fields_for :community_customizations, customization do |cc|
   .form-group
     = cc.label :transaction_agreement_label, t('admin2.config_transactions.agreement_label')
-    = cc.text_field :transaction_agreement_label, placeholder: t('admin2.config_transactions.agreement_label_placeholder', locale: cc.object.locale), class: %i[form-control]
+    = cc.text_field :transaction_agreement_label, placeholder: t('admin2.config_transactions.agreement_label_placeholder', locale: cc.object.locale), class: %i[form-control] << (:required if form.object.transaction_agreement_in_use?)
     %small.form-text
       = t('admin2.config_transactions.agreement_label_info_text')
   .form-group
     = cc.label :transaction_agreement_content, t('admin2.config_transactions.agreement_text')
-    = cc.text_area :transaction_agreement_content, class: %i[form-control]
+    = cc.text_area :transaction_agreement_content, class: %i[form-control] << (:required if form.object.transaction_agreement_in_use?)
     %small.form-text
       = t('admin2.config_transactions.agreement_text_info_text')

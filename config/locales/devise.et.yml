@@ -32,7 +32,7 @@ et:
       confirmed: "Sinu konto on edukalt kinnitatud."
     registrations:
       signed_up_but_unconfirmed: "Sinu e-posti aadressile on saadetud kinnituslinki sisaldav sõnum. Konto aktiveerimiseks tuleb link avada."
-      signed_up_but_inactive: "Oled edukalt loonud kasutajakonto. Siiski ei saanud me sind sisse logida, sest konto pole veel aktiveeritud."
+      signed_up_but_inactive: "Oled edukalt loonud kasutajakonto. Siiski ei saanud me Sind sisse logida, sest konto pole veel aktiveeritud."
       signed_up_but_locked: "Oled edukalt loonud kasutajakonto. Siiski ei saanud me Sind sisse logida, sest konto on lukustatud."
       reasons:
         inactive: "ei ole aktiivne"
@@ -41,14 +41,14 @@ et:
       update_needs_confirmation: "Uuendasid oma kontot edukalt, kuid peame kinnitama uue e-posti aadressi. Palun kontrolli oma e-posti ning uue e-posti aadressi kinnitamiseks klõpsa lingile e-kirjas."
       signed_up: "Tere tulemast! Sinu konto loomine õnnestus."
       updated: "Sinu kasutajakonto uuendamine õnnestus"
-      destroyed: "Nägemist! Sinu konto on deaktiveeritud. Loodetavasti näeme sind varsti jälle."
+      destroyed: "Nägemist! Sinu konto on deaktiveeritud. Loodetavasti näeme Sind varsti jälle."
     unlocks:
       send_paranoid_instructions: "Kui Sinu konto eksisteerib, siis saad mõne minuti jooksul juhendi, kuidas see uuesti avada."
       send_instructions: "Mõne minuti jooksul saad e-kirja juhistega, kuidas konto uuesti avada."
       unlocked: "Sinu konto on edukalt taasavatud. Jätkamiseks palun logi sisse."
     omniauth_callbacks:
       success: "Konto edukalt kinnitatud %{kind}."
-      failure: "Autoriseerimine %{kind} kaudu ebaõnnestus kuna \"%{reason}\"."
+      failure: "Autoriseerimine %{kind} kaudu ebaõnnestus, sest \"%{reason}\"."
     mailer:
       confirmation_instructions:
         subject: "Kinnitus liitumiseks %{service_name}"

@@ -20,3 +20,7 @@
 
     %section.content-card-terminal
       = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+
+- content_for :extra_javascript do
+  :javascript
+    validateCommunityEdit(#{@current_community.id});

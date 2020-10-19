@@ -9,10 +9,10 @@
     - required_facebook = @current_community.facebook_connect_enabled?
     .form-group
       = form.label :facebook_connect_id, t('admin2.signup_login.facebook_connect_id')
-      = form.text_field :facebook_connect_id, maxlength: 16, class: %i[form-control social-data], placeholder: '1234567890123456', required: required_facebook
+      = form.text_field :facebook_connect_id, maxlength: 16, class: %i[form-control social-data] << (:required if required_facebook), placeholder: '1234567890123456'
     .form-group
       = form.label :facebook_connect_secret, t('admin2.signup_login.facebook_connect_secret'), class: %i[social-data]
-      = form.text_field :facebook_connect_secret, maxlength: 32, class: %i[form-control social-data], placeholder: Digest::MD5.hexdigest('1'), required: required_facebook
+      = form.text_field :facebook_connect_secret, maxlength: 32, class: %i[form-control social-data] << (:required if required_facebook), placeholder: Digest::MD5.hexdigest('1')
     .form-group
       .form-check
         = form.check_box :facebook_connect_enabled, class: %i[form-check-input social-checked]

@@ -1048,6 +1048,9 @@ en:
       description_searchpage_v1: 'The new Search page requires the new Top bar.'
       title_email_layout_v2: 'Enable the layout for emails for'
     signup_login:
+      invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
+      invalid_facebook_connect_id: "App ID should contain only numbers."
+      invalid_facebook_connect_secret: "App Secret should contain only numbers and letters from a to f."
       signup_header: 'Signup information text'
       signup_info_text: 'This info text will be shown to users on the sign up page. You can give the users instructions for signing up, information about where to get an invite, etc.'
       google: 'Google'
@@ -1205,3 +1208,4 @@ en:
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'
+      only_supported_variables: 'Make sure to add only supported variables'
