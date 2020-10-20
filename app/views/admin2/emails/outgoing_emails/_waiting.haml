@@ -21,7 +21,7 @@
                 clearTimeout(timer);
                 if (data.responseJSON.verificationStatus === 'expired') {
                   $('.expired_email').show();
-                } else if (data.responseJSON.verificationStatus === 'requested') {
+                } else if (data.responseJSON.verificationStatus === 'requested' || data.responseJSON.verificationStatus === 'none') {
                   $('.unverified_email').show();
                 } else if (data.responseJSON.verificationStatus === 'verified') {
                   $('.verified_email').show();
