@@ -21,7 +21,7 @@
   %p
     = t('admin2.listing_fields.delete_option_body', title: current_title)
   .remove-unit-actions
-    = button_tag t('admin2.delete'), class: %i[btn btn-negative delete-option], data: { id: uniq }
+    = button_tag t('admin2.delete'), class: %i[btn btn-negative delete-option], type: :button, data: { id: uniq }
     = link_to t('admin2.cancel'), '#', class: %i[remove-unit-cancel cancel-action]
 
 .edit-unit-content{data: { url: add_unit_admin2_listings_listing_fields_path }}
