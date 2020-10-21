@@ -8,7 +8,9 @@
           %span.language
             = local_name(cc.object.locale)
         .multiple-languages-input
-          = cc.text_field :meta_title, class: %i[form-control], maxlength: 255, placeholder: t('admin2.landing_pages.meta_title_placeholder', locale: cc.object.locale)
+          = cc.text_field :meta_title, class: %i[form-control], maxlength: 255, placeholder: t('admin2.landing_pages.meta_title_placeholder', locale: cc.object.locale),
+                                       allowed_template_variables: @seo_service.variables(:homepage_title).join(','),
+                                      'data-msg-allowed_template_variables': t('admin2.seo.only_supported_variables'), autocomplete: :off
     %small.form-text
       = t('admin2.landing_pages.meta_title_info_text')
 
@@ -22,6 +24,8 @@
           %span.language
             = local_name(cc.object.locale)
         .multiple-languages-input
-          = cc.text_area :meta_description, class: %i[form-control], maxlength: 65535, placeholder: t('admin2.landing_pages.meta_description_placeholder', locale: cc.object.locale)
+          = cc.text_area :meta_description, class: %i[form-control], maxlength: 65535, placeholder: t('admin2.landing_pages.meta_description_placeholder', locale: cc.object.locale),
+                                            allowed_template_variables: @seo_service.variables(:homepage_description).join(','),
+                                            'data-msg-allowed_template_variables': t('admin2.seo.only_supported_variables'), autocomplete: :off
     %small.form-text
       = t('admin2.landing_pages.meta_description_info_text')

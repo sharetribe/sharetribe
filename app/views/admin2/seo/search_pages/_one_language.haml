@@ -1,11 +1,15 @@
 = form.fields_for :community_customizations, customization do |cc|
   .form-group
     = cc.label :search_meta_title, t('admin2.search_pages.search_meta_title')
-    = cc.text_field :search_meta_title, class: %i[form-control], maxlength: 255, placeholder: t('admin2.search_pages.search_meta_title_placeholder', locale: cc.object.locale)
+    = cc.text_field :search_meta_title, class: %i[form-control], maxlength: 255, placeholder: t('admin2.search_pages.search_meta_title_placeholder', locale: cc.object.locale),
+                                 allowed_template_variables: @seo_service.variables(:search_meta_title).join(','),
+                                'data-msg-allowed_template_variables': t('admin2.seo.only_supported_variables'), autocomplete: :off
     %small.form-text
       = t('admin2.search_pages.search_meta_title_info_text')
   .form-group
     = cc.label :search_meta_description, t('admin2.search_pages.search_meta_description')
-    = cc.text_area :search_meta_description, class: %i[form-control], maxlength: 65535, placeholder: t('admin2.search_pages.search_meta_description_placeholder', locale: cc.object.locale)
+    = cc.text_area :search_meta_description, class: %i[form-control], maxlength: 65535, placeholder: t('admin2.search_pages.search_meta_description_placeholder', locale: cc.object.locale),
+                                 allowed_template_variables: @seo_service.variables(:search_meta_description).join(','),
+                                'data-msg-allowed_template_variables': t('admin2.seo.only_supported_variables'), autocomplete: :off
     %small.form-text
       = t('admin2.search_pages.search_meta_description_info_text')

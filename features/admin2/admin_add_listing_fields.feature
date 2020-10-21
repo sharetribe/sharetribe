@@ -24,7 +24,7 @@ Feature: Admin add a listing fields
     And I fill in "selector_label[en]" with "Appartment"
     And I fill in "selector_label[fi]" with "Asunto"
     And I press "Save option"
-    And I press submit
+    And I press "Add the new listing field"
     Then I should see "House type" within ".custom-field-title"
 
   @javascript
@@ -34,7 +34,7 @@ Feature: Admin add a listing fields
     And I fill in "custom_field[name_attributes][en]" with "House type"
     And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
     And I toggle category "Spaces"
-    And I press submit
+    And I press "Add the new listing field"
     Then I should see 1 validation errors in admin2
 
   @javascript
@@ -46,7 +46,7 @@ Feature: Admin add a listing fields
     And I toggle category "Spaces"
     Then I set numeric field min value to 0
     And I set numeric field max value to 100
-    And I press submit
+    And I press "Add the new listing field"
     Then I should see "Area" within ".custom-field-title"
 
   @javascript
@@ -64,7 +64,7 @@ Feature: Admin add a listing fields
     And I fill in "selector_label[en]" with "Appartment"
     And I fill in "selector_label[fi]" with "Asunto"
     And I press "Save option"
-    And I press submit
+    And I press "Add the new listing field"
     Then I should see "Checkbox type" within ".custom-field-title"
 
   @javascript
@@ -74,5 +74,5 @@ Feature: Admin add a listing fields
     And I fill in "custom_field[name_attributes][en]" with "Area Date"
     And I fill in "custom_field[name_attributes][fi]" with "Talon Area"
     And I toggle category "Spaces"
-    And I press submit
+    And I press "Add the new listing field"
     Then I should see "Area Date" within ".custom-field-title"

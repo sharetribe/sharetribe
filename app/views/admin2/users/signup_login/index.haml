@@ -31,6 +31,10 @@
     %section.content-card-terminal.without-margin.remove-from-mercury
       = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
 
+- content_for :extra_javascript do
+  :javascript
+    admin2_social_media_form("#{@current_community.id}", "#{t('admin2.signup_login.invalid_twitter_handle')}", "#{t('admin2.signup_login.invalid_facebook_connect_id')}", "#{t('admin2.signup_login.invalid_facebook_connect_secret')}" );
+
 :javascript
     $(window).on('mercury:ready', function() {
       $('.remove-from-mercury').hide();
