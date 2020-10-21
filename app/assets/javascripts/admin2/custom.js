@@ -20,7 +20,7 @@ function validateCommunityEdit(community_id) {
                 $(element).parents('.form-group').append(error);
             } else if (element.hasClass('social-link-row')) {
                 element.parents('.one-social-link').find('.handle-move').after(error);
-            } if (hint.length) {
+            } else if (hint.length) {
                 error.insertAfter(hint);
             }
             else {
