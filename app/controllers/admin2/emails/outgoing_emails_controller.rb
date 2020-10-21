@@ -53,7 +53,6 @@ module Admin2::Emails
 
       if res.success
         flash[:notice] = t('admin2.outgoing_address.successfully_saved')
-        redirect_to action: :index
       else
         error_message =
           case Maybe(res.data)[:error_code]
@@ -63,14 +62,14 @@ module Admin2::Emails
             t('admin2.outgoing_address.invalid_email_address')
           when Some(:invalid_domain)
             kb_link = view_context.link_to(t('admin2.outgoing_address.invalid_email_domain_read_more_link'), "#{APP_CONFIG.knowledge_base_url}/configuration-and-how-to/how-to-define-your-own-address-as-the-sender-of-all-outgoing-emails", class: "flash-error-link") # rubocop:disable Metrics/LineLength
-            t('admin2.outgoing_address.invalid_email_domain', email: res.data[:email], domain: res.data[:domain], invalid_email_domain_read_more_link: kb_link).html_safe
+            t('admin2.outgoing_address.invalid_email_domain', email: res.data[:email], domain: res.data[:domain], invalid_email_domain_read_more_link: kb_link).html_safe # rubocop:disable Rails/OutputSafety
           else
             t('admin2.outgoing_address.unknown_error')
           end
 
         flash[:error] = error_message
-        redirect_to action: :index
       end
+      redirect_to action: :index
     end
 
     def check_email_status
