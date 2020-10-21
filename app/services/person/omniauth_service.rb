@@ -147,17 +147,15 @@ class Person::OmniauthService
 
   def store_picture_from_provider(new_person)
     url = if facebook? && new_person.facebook_id
-      begin
-        logger.info("DEBUG: FB omniauth data", :debug_omniauth_data, request.env["omniauth.auth"])
-        logger.info("Image URL from info: #{info.image}")
-        from_info = RestClient.get(info.image)
-        logger.info("Obtained image url: #{from_info}")
-      rescue StandardError => e
-        logger.error(e.message, :debug_from_info_failed)
-      end
       resp = RestClient.get(
         "https://graph.facebook.com/#{FacebookSdkVersion::SERVER}/#{new_person.facebook_id}/picture?type=large&redirect=false&breaking_change=profile_picture")
-      logger.info("DEBUG: picture resp: #{resp}")
+      begin
+        logger.info("Image URL from info: #{info.image}")
+        from_info = RestClient.get(info.image)
+        logger.info("Obtained image url: #{JSON.parse(from_info)["data"]["url"]}")
+      rescue StandardError => e
+        logger.error(e.message)
+      end
       JSON.parse(resp)["data"]["url"]
     elsif google_oauth2? && new_person.google_oauth2_id
       info.image
