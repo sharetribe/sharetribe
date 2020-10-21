@@ -33,7 +33,7 @@ class Admin::DomainsService
     if domain.present?
       ascii_domain = begin
                        SimpleIDN.to_ascii(domain)
-                     rescue
+                     rescue StandardError
                        return
                      end
       s = DomainSetup.create(domain: ascii_domain.downcase,
