@@ -225,7 +225,7 @@ en:
       field_type: 'Field type'
       sign_up: 'Sign up'
       public: 'Public'
-      add_new_field: '+ Add a new user field'
+      add_new_field: '+ Add a user field'
       first_name: 'First name'
       last_name: 'Last name'
       text: 'Text'
@@ -236,8 +236,8 @@ en:
       display_name: 'Display name'
       phone_number: 'Phone number'
       about_you: 'About you'
-      add_new_user_field: 'Add a new user field'
-      save_new_user_field: 'Add the new user field'
+      add_new_user_field: 'Add a user field'
+      save_new_user_field: 'Add the user field'
       new_user_field_type: 'New user field type'
       edit_field_type: 'Edit user field: %{name} (%{field_type})'
       required_field: 'Make this field mandatory when signing up to the marketplace'
@@ -254,7 +254,7 @@ en:
       dropdown_list_options: 'Dropdown list options (at least two)'
       checkbox_list_options: 'Checkbox list options'
       add_option_link: '+ Add option'
-      add_new_option: 'Add a new option'
+      add_new_option: 'Add an option'
       option_label: 'Option label'
       save_option: 'Save option'
       select_one: 'Select field type...'
@@ -304,7 +304,7 @@ en:
       error_count_options: 'Add at least %{count} option(s)'
       price_filter_min: 'Filter minimum price'
       price_filter_max: 'Filter maximum price'
-      save_add_listing_field: 'Add the new listing field'
+      save_add_listing_field: 'Add the listing field'
       show_price_filter: 'Use this field as a search filter on the homepage'
       price_filter_min_hint: "The minimum price only affects the filter. It doesn't limit listing prices."
       price_filter_max_hint: "The maximum price only affects the filter. It doesn't limit listing prices."
@@ -386,7 +386,7 @@ en:
         one: "%{count} listing uses this order type. If you delete it, this listing will be closed. Are you sure you want to delete this order type? You can't undo this action."
         other: "%{count} listings use this order type. If you delete it, those listings will be closed. Are you sure you want to delete this order type? You can't undo this action."
     categories:
-      info_text: 'Here, you can edit the categories that visitors use to browse your marketplace offering. Providers need to assign their listing to one of the categories you have specified.'
+      info_text: 'Here, you can edit the categories that visitors use to browse your marketplace offering. Sellers need to assign their listing to one of the categories you have specified.'
       add_category: '+ Add a category'
       add_category_popup: 'Add a category'
       save_add_category_popup: 'Add the category'
@@ -423,29 +423,29 @@ en:
     manage_reviews:
       transaction: 'Transaction'
       paginate: 'Transaction with review'
-      customer: 'Customer'
-      customer_rating: 'Customer rated'
+      customer: 'Buyer'
+      customer_rating: 'Buyer rated'
       provider: 'Seller'
       provider_rating: 'Seller rated'
       actions: 'Actions'
       search_placeholder: 'Search reviews by user or keyword…'
       all_transactions: 'All transactions (%{count})'
-      customer_title: "Customer review for %{title}"
+      customer_title: "Buyer review for %{title}"
       provider_title: "Seller review for %{title}"
       review_label: 'Reviews for the transaction for "%{title}"'
-      review_label_customer: 'Customer review for %{title} for the transaction for "%{listing}"'
+      review_label_customer: 'Buyer review for %{title} for the transaction for "%{listing}"'
       review_label_provider: 'Seller review for %{title} for the transaction for "%{listing}"'
       delete_notice: "Deleting a review allows its author to leave another one for the same transaction. You can't undo this action."
       blocked_notice: 'Blocking a review prevents its author from leaving another one for the same transaction.'
       delete_title: 'Delete and block reviews for the transaction for "%{title}"'
-      block_review_customer: "Block future customer review for %{title}"
+      block_review_customer: "Block future buyer review for %{title}"
       block_review_provider: "Block future seller review for %{title}"
-      delete_review_customer: "Delete the customer review for %{title}"
+      delete_review_customer: "Delete the buyer review for %{title}"
       delete_review_provider: "Delete the seller review for %{title}"
       delete_or_block: 'Delete and/or block reviews'
       save: 'Save changes'
       cancel: 'Cancel'
-      edit_customer: "Edit customer's review…"
+      edit_customer: "Edit buyer's review…"
       edit_provider: "Edit seller's review…"
       rating_string: 'Rating'
       delete_block: 'Delete and block…'
@@ -481,7 +481,7 @@ en:
       search_placeholder: 'Search conversations by user, email or keyword…'
       started_from: 'Started from'
       sender: 'Starter'
-      receiver: 'Provider'
+      receiver: 'Other party'
       started: 'Started'
       latest_activity: 'Latest'
       actions: 'Actions'
@@ -842,7 +842,7 @@ en:
       plan_disabled: 'Would you like to configure your own own custom footer? <a href="%{url}" target="_blank">Upgrade to the Pro plan or higher</a>.'
       footer_style: 'Footer style'
       footer_links: 'Footer links'
-      add_new_footer_link: '+ Add a new footer link'
+      add_new_footer_link: '+ Add a footer link'
       footer_social_links: 'Footer social links'
       footer_copyright: 'Footer copyright'
       footer_copyright_placeholder: 'All rights reserved.'
@@ -864,7 +864,7 @@ en:
       maximum_number_links: 'Maximum number of links displayed in the Top bar'
       limit_priority_links_info_text: 'If you add more links to the top bar than the maximum, the links will be grouped into a drop-down menu.'
       custom_links: 'Top bar custom links'
-      new_custom_link: '+ Add a new custom link'
+      new_custom_link: '+ Add a custom link'
       link_title: 'Link title'
       all: 'Show all'
     custom_script:
@@ -1001,7 +1001,7 @@ en:
       agreement_text: 'Agreement text'
       agreement_text_info_text: 'The content of the agreement the buyer needs to accept. The agreement content is displayed when the buyer clicks the "View." link next to the agreement label.'
     listing_comments:
-      info_text: "When you allow users to comment on a listing, potential customers can publicly ask for more information from the seller. You can delete any comments from a listing page by navigating to the page and selecting the comment."
+      info_text: "When you allow users to comment on a listing, potential buyers can publicly ask for more information from the seller. You can delete any comments from a listing page by navigating to the page and selecting the comment."
       listing_comments_in_use: 'Allow users to post comments to listings (visible to all other users)'
     listing_approval:
       info_text: 'Reviewing all listings before they are visible to visitors helps you manage the content on your marketplace. If you enable the listing approval feature, all new and edited listings need to be reviewed by an admin before they are published. Listings can be approved or rejected. Sellers who want to post a listing will click on "Submit for review" instead of posting immediately.'
