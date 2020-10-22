@@ -114,10 +114,10 @@ en:
       block_1_point_4: '› Browse all Marketplace Academy articles'
       block_2:
         a_title: 'Upgrade to Pro'
-        a_body: 'Use your own domain, remove all Sharetribe branding, and more. Subscribe to a Pro plan, starting from $119/mo.'
+        a_body: 'Use your own domain, remove all Sharetribe branding, and more. Subscribe to a Pro plan, starting from $119 per month.'
         a_link: '› Manage your subscription'
         b_title: 'Add a beautiful landing page to your marketplace'
-        b_body: 'Communicate your value proposition and engage your users the moment they arrive on your marketplace. Add a beautifully designed landing page to your marketplace. $99/mo.'
+        b_body: 'Communicate your value proposition and engage your visitors the moment they arrive on your marketplace. Add a beautifully designed landing page to your marketplace. $99 per month.'
         b_link: '› Learn more about the Custom Landing Page'
         c_title: 'Discover Sharetribe Flex'
         c_body: 'Take your marketplace business to the next level. Sharetribe Flex lets you build unique features and designs on top of powerful APIs. Start developing for free or get connected to a verified Flex expert.'
@@ -159,27 +159,27 @@ en:
       the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer commission must be lower than 100%'
       fee_should_be_less_than_minimum_price: 'Minimum commission must be lower than minimum listing price'
       minimum_transaction_size: 'Marketplace setting for <a href="%{url}">minimum listing price</a> is %{sum}.'
-      connect_paypal_account: 'To set a commission using PayPal, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
-      enable_paypal_fee: 'To set a commission using PayPal, you must <a href="%{url}">enable PayPal</a> again on your marketplace.'
-      first_connect_paypal: 'To set a commission using PayPal, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
-      first_enable_paypal: 'To set a commission using PayPal fees, you must first <a href="%{url}">enable PayPal</a> again on your marketplace.'
+      connect_paypal_account: 'To collect a commission using PayPal, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
+      enable_paypal_fee: 'To collect a commission using PayPal, you must <a href="%{url}">enable PayPal</a> again on your marketplace.'
+      first_connect_paypal: 'To collect a commission using PayPal, you must first <a href="%{url}">connect your PayPal account</a> with your marketplace.'
+      first_enable_paypal: 'To collect a commission using PayPal fees, you must first <a href="%{url}">enable PayPal</a> again on your marketplace.'
       login_to: 'Log in to PayPal and connect your PayPal account with your marketplace.'
       connect_paypal: 'Connect PayPal'
       redirect_message: "Redirecting you to PayPal. If nothing happens, click %{redirect_link}."
       redirect_link_text: 'here'
-      paypal_has_been_connected: 'The PayPal account <strong>%{email}</strong> has been connected with %{service_name}.'
-      paypal_has_been_disabled: 'The PayPal account <strong>%{email}</strong> is disabled.'
-      change_account: 'Change PayPal account'
+      paypal_has_been_connected: 'Your PayPal account <strong>%{email}</strong> has been connected with %{service_name}.'
+      paypal_has_been_disabled: 'Your PayPal account <strong>%{email}</strong> has been disconnected from %{service_name}.'
+      change_account: 'Switch connection to another PayPal account'
       change_account_link: '%{url}.'
     stripe:
       info_header: 'Stripe'
       info_text: "Commission is the service fee you charge for every payment users make through your marketplace. <a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the commission you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>."
       transaction_fee_settings: 'Stripe commission settings'
       configure_api_keys: 'Configure Stripe API Keys'
-      set_stripe_fee_keys: 'To set a commission using Stripe, you must first <a href="%{url}">configure your Stripe API keys</a>.'
-      enable_stripe_fee_keys: 'To set a commission using Stripe, you must <a href="%{url}">enable Stripe</a> again on your marketplace.'
-      enable_first_stripe_fee_keys: 'To set a commission using Stripe, you must first <a href="%{url}">enable Stripe</a> again on your marketplace.'
-      disable_paypal: 'To set a buyer commission using Stripe, you must first <a href="%{url}">disable PayPal</a>.'
+      set_stripe_fee_keys: 'To collect a commission using Stripe, you must first <a href="%{url}">configure your Stripe API keys</a>.'
+      enable_stripe_fee_keys: 'To collect a commission using Stripe, you must <a href="%{url}">enable Stripe</a> again on your marketplace.'
+      enable_first_stripe_fee_keys: 'To collect a commission using Stripe, you must first <a href="%{url}">enable Stripe</a> again on your marketplace.'
+      disable_paypal: 'To collect a buyer commission using Stripe, you must first <a href="%{url}">disable PayPal</a>.'
       how_to_get_publishable_key: '<a href="%{url}" target="_blank">How to get a Stripe Publishable Key?</a>'
       how_to_get_secret_key: '<a href="%{url}" target="_blank">How to get a Stripe Secret Key?</a>'
       publishable_key_example: "For example: %{api_publishable_key_example}"
@@ -192,18 +192,18 @@ en:
       minimum_transaction_fee: 'Seller minimum commission'
       commission_from_buyer: 'Buyer commission'
       minimum_buyer_transaction_fee: 'Buyer minimum commission'
-      minimum_transaction_size: 'Marketplace setting for <a href="%{url}">minimum listing price</a> is %{sum}.'
+      minimum_transaction_size: '<a href="%{url}">Minimum listing price</a> is currently set to %{sum}.'
       the_transaction_fee_must_be_lower_than_100: 'The commission must be lower than 100%'
       the_buyer_transaction_fee_must_be_lower_than_100: 'The buyer commission must be lower than 100%'
       fee_should_be_less_than_minimum_price: 'Minimum commission must be lower than minimum listing price'
       buyer_fee_should_be_less_than_minimum_price: 'Minimum buyer commission must be lower than minimum listing price'
-      stripe_connected: 'Stripe connected'
+      stripe_connected: 'Stripe enabled'
       stripe_disabled: 'Stripe disabled'
       disable_stripe: 'Disable Stripe'
       disable_stripe_link: '%{url}.'
-      cannot_enable_gateway: "Cannot enable payment gateway %{gateway}."
-      cannot_disable_gateway: "Cannot disable payment gateway %{gateway}."
-      cannot_enable_gateway_because_of_buyer_commission: "Cannot enable payment gateway %{gateway} because buyer commission is used. You can change this in the Stripe settings."
+      cannot_enable_gateway: "Can't enable payment gateway %{gateway}."
+      cannot_disable_gateway: "Can't disable payment gateway %{gateway}."
+      cannot_enable_gateway_because_of_buyer_commission: "Can't enable payment gateway %{gateway} because buyer commission is set. You can change this in the Stripe settings."
       confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
       enable_stripe: 'Enable Stripe'
       enable_stripe_link: '%{url}.'
@@ -212,13 +212,13 @@ en:
       need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
     transaction_size:
       info_header: 'Minimum listing price'
-      info_text: 'If payments are enabled in your marketplace, you need to define a minimum listing price: the smallest price a listing on your marketplace can have. <a href="%{url}" target="_blank">Learn more about the minimum listing price</a>.'
+      info_text: 'If the payment system is enabled in your marketplace, you need to define a minimum listing price: the smallest price a listing on your marketplace can have. <a href="%{url}" target="_blank">Learn more about the minimum listing price</a>.'
       minimum_transaction_size: 'Minimum listing price'
-      transaction_fee: 'Marketplace setting for minimum commission is %{fee}.'
+      transaction_fee: 'The minimum commission is currently set to %{fee}.'
       errors:
         minimum_listing_price_below_tx_fee: 'The minimum listing price has to be greater than the minimum commission: %{minimum_transaction_fee}.'
         minimum_listing_price_below_min: 'The minimum listing price has to be greater than the minimum commission %{minimum_commission}.'
-        payments_not_enabled: 'Payments not enabled'
+        payments_not_enabled: 'The payment system is not enabled'
     user_fields:
       info_text: 'Manage user fields'
       field_title: 'Field name'
@@ -240,16 +240,16 @@ en:
       save_new_user_field: 'Add the new user field'
       new_user_field_type: 'New user field type'
       edit_field_type: 'Edit user field: %{name} (%{field_type})'
-      required_field: 'Make it mandatory to fill in this field when signing up to the marketplace'
+      required_field: 'Make this field mandatory when signing up to the marketplace'
       public_field: 'Show this field on the public profile page'
       required_field_title: 'Required field'
       public_field_title: 'Public field'
       decimal: 'Decimal'
       allow_decimals: 'Allow decimals'
-      minimum_value: 'Minimum value allowed'
-      maximum_value: 'Maximum value allowed'
-      delete_title: 'Delete user field: %{name}'
-      delete_info_text: "Are you sure you want to remove the field %{name} and all its data? You can't undo this action."
+      minimum_value: 'Minimum value'
+      maximum_value: 'Maximum value'
+      delete_title: 'Delete the user field "%{name}"'
+      delete_info_text: "Are you sure you want to delete the field "%{name}" and all its data? You can't undo this action."
       delete_user_field: 'Delete the user field'
       dropdown_list_options: 'Dropdown list options (at least two)'
       checkbox_list_options: 'Checkbox list options'
@@ -268,8 +268,8 @@ en:
         location: 'Location'
     listing_fields:
       info_header: 'Manage listing fields'
-      info_text: 'Here, you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and cannot be edited.'
-      field_title: 'Field title'
+      info_text: "Here, you can edit the fields that users have to fill in when they create a new listing. Some fields are predefined and can't be edited."
+      field_title: 'Field name'
       field_type: 'Field type'
       field_name: 'Field name'
       required_field: 'Required field'
@@ -277,29 +277,29 @@ en:
       listing_title: 'Listing title'
       detailed_description: 'Detailed description'
       expiration_date: 'Expiration date'
-      add_listing_type: '+ Add a new listing field'
-      add_title: 'Add a new listing field'
+      add_listing_type: '+ Add a listing field'
+      add_title: 'Add a listing field'
       new_field_type: 'New listing field type'
-      edit_field_type: 'Edit listing field: %{name} (%{field_type})'
-      delete_title: 'Delete listing field: %{name}'
-      delete_info_text: "Are you sure you want to remove the field %{name} and all its data? You can't undo this action."
+      edit_field_type: 'Edit the listing field "%{name}" (%{field_type})'
+      delete_title: 'Delete the listing field "%{name}"'
+      delete_info_text: "Are you sure you want to delete the field "%{name}" and all its data? You can't undo this action."
       delete_listing_field: 'Delete the listing field'
       display_on_homepage: 'Use this field as a search filter on the homepage'
-      make_mandatory: 'Make this field mandatory when creating a new listing'
+      make_mandatory: 'Make this field mandatory when creating or editing a listing'
       decimal: 'Decimal'
       allow_decimals: 'Allow decimals'
-      minimum_value: 'Minimum value allowed'
-      maximum_value: 'Maximum value allowed'
+      minimum_value: 'Minimum value'
+      maximum_value: 'Maximum value'
       listing_categories: 'Listing categories where the field is used'
       dropdown_list_options: 'Dropdown list options'
       checkbox_list_options: 'Checkbox list options'
-      add_option_link: '+ Add option'
-      add_new_option: 'Add a new option'
+      add_option_link: '+ Add an option'
+      add_new_option: 'Add an option'
       option_label: 'Option label'
       save_option: 'Save option'
       save_changes: 'Save changes'
       edit_option: 'Edit option'
-      delete_option_title: "Delete option \"%{title}\""
+      delete_option_title: 'Delete the option "%{title}"'
       delete_option_body: "Are you sure you want to delete the checkbox list option \"%{title}\"?"
       error_count_options: 'Add at least %{count} option(s)'
       price_filter_min: 'Filter minimum price'
@@ -308,12 +308,12 @@ en:
       show_price_filter: 'Use this field as a search filter on the homepage'
       price_filter_min_hint: "The minimum price only affects the filter. It doesn't limit listing prices."
       price_filter_max_hint: "The maximum price only affects the filter. It doesn't limit listing prices."
-      edit_price_title: 'Edit listing field: Price'
-      edit_date_title: 'Edit listing field: Expiration date'
-      listing_location_required: 'Make this field mandatory when creating a new listing'
+      edit_price_title: 'Edit the listing field "Price"'
+      edit_date_title: 'Edit the listing field "Expiration date"'
+      listing_location_required: 'Make this field mandatory when creating or editing a listing'
       listing_expiration_enabled_title: 'Enable expiration date'
       listing_expiration_enabled: 'Enable the expiration date'
-      edit_location_title: 'Edit listing field: Location'
+      edit_location_title: 'Edit the listing field "Location"'
       types:
         text: 'Text'
         price: 'Price'
@@ -327,8 +327,8 @@ en:
       all_categories: "All categories"
       no_categories: "No categories"
       category_count: "%{category_count} categories"
-      add_new_order_type: 'Add a new order type'
-      add_new: '+ Add a new order type'
+      add_new_order_type: 'Add an order type'
+      add_new: '+ Add an order type'
       new_order_type: 'New order type template'
       edit_order_type: 'Edit order type: %{type}'
       listing_shape_name_placeholder: "E.g. Sell"
@@ -339,41 +339,41 @@ en:
       allow_providers_to_manage_availability: "Allow sellers to manage their availability on a calendar"
       shipping_label: "Allow sellers to define a shipping fee"
       price_label: "Allow sellers to add a price to their listings"
-      units_title_with_availability: "Pricing units with availability"
-      units_title_without_availability: 'Pricing units without availability'
+      units_title_with_availability: "Pricing units with availability management"
+      units_title_without_availability: 'Pricing units without availabilitymanagement'
       per_hour_availability: '"Per hour" availability'
       per_day_availability: '"Per day" availability'
       per_night_availability: '"Per night" availability'
-      update_success: "Changes to order type '%{shape}' saved"
+      update_success: 'Changes to order type "%{shape}" saved'
       update_failure: "Could not save changes. Error: %{error_msg}"
-      create_success: "New order type '%{shape}' created"
+      create_success: 'New order type "%{shape}" created'
       create_failure: "Could not create new order type. Error: %{error_msg}"
-      successfully_deleted: "Successfully deleted order type '%{order_type}'"
-      save_order_type: 'Add the new order type'
+      successfully_deleted: 'Successfully deleted the order type "%{order_type}"'
+      save_order_type: 'Add the order type'
       delete: 'Delete the order type'
-      delete_caption: 'Delete order type: %{order_type}'
-      confirm_delete_simple_order_type: 'Deleting an order type cannot be undone. Are you sure you want to proceed?'
+      delete_caption: 'Delete the order type: "%{order_type}"'
+      confirm_delete_simple_order_type: "Are you sure you want to delete this order type? You can't undo this action."
       per: 'Per'
       add_unit_title: '+ Add a custom pricing unit'
-      add_unit: 'Add a new pricing unit'
+      add_unit: 'Add a custom pricing unit'
       unit_label: 'Pricing unit label'
       unit_label_placeholder: 'e.g. kg, 30 minutes, person, class…'
-      unit_type_quantity: 'Quantity (per piece, per kg, per person, per 2h tour…)'
-      unit_type_time: 'Time (per 30 minutes, per 2 weeks, per year…)'
-      save_unit: 'Save pricing unit'
+      unit_type_quantity: 'Quantity (per piece, per kg, per person, per two-hours tour…)'
+      unit_type_time: 'Time (per 30 minutes, per two weeks, per year…)'
+      save_unit: 'Add pricing unit'
       selector_label: 'Selector label'
       unit_type: 'Unit type'
-      delete_unit_title: 'Delete pricing unit "%{title}"'
+      delete_unit_title: 'Delete the pricing unit "%{title}"'
       delete_unit_text: 'Are you sure you want to delete the pricing unit "%{title}"?'
       errors:
-        without_online_payments: 'Shipping cannot be enabled without online payments'
-        enabled_without_price: 'Online payments cannot be enabled without price'
-        used_without_price: 'Price units cannot be used without price field'
-        cannot_delete_msg: 'Cannot delete order type, error: %{error_msg}'
-        cannot_delete: 'Cannot delete order type'
+        without_online_payments: "Shipping can't be enabled without online payments"
+        enabled_without_price: "Online payments can't be enabled without price"
+        used_without_price: "Price units can't be used without price field"
+        cannot_delete_msg: "Can't delete order type, error: %{error_msg}"
+        cannot_delete: "Can't delete order type"
         can_not_delete_only_one_in_categories: "You can't delete this order type because in the following categories, this order type is the only one in use: %{categories}"
-        can_not_delete_last: "You can't delete this order type because it's the only type on your marketplace."
-        can_not_find_name: "Can't find order type with name: %{name}"
+        can_not_delete_last: "You can't delete this order type because it's the only one on your marketplace."
+        can_not_find_name: 'Can't find the order type with the name "%{name}"'
       units:
         piece: "Per piece"
         hour: "Per hour"
@@ -383,27 +383,27 @@ en:
         month: "Per month"
         unit: "Per unit"
       confirm_delete_order_type:
-        one: "%{count} listing uses this order type. If you delete it, this listing will be closed. Are you sure you want to proceed?"
-        other: "%{count} listings use this order type. If you delete it, those listings will be closed. Are you sure you want to proceed?"
+        one: "%{count} listing uses this order type. If you delete it, this listing will be closed. Are you sure you want to delete this order type? You can't undo this action."
+        other: "%{count} listings use this order type. If you delete it, those listings will be closed. Are you sure you want to delete this order type? You can't undo this action."
     categories:
       info_text: 'Here, you can edit the categories that visitors use to browse your marketplace offering. Providers need to assign their listing to one of the categories you have specified.'
-      add_category: '+ Add a new category'
-      add_category_popup: 'Add a new category'
-      save_add_category_popup: 'Add the new category'
-      edit_category: 'Edit category: %{category}'
+      add_category: '+ Add a category'
+      add_category_popup: 'Add a category'
+      save_add_category_popup: 'Add the category'
+      edit_category: 'Edit the category "%{category}"'
       category_name: 'Category name'
       category_parent: 'Parent category'
       no_parent: 'No parent'
       order_types: 'Order types'
       delete_category_btn: 'Delete the category'
-      delete_category: 'Delete category: %{category}'
+      delete_category: 'Delete the category "%{category}"'
       delete_category_info_text: 'What should be the new category?'
-      remove_category_confirmation: "Are you sure you want to remove category '%{category_name}'?"
+      remove_category_confirmation: 'Are you sure you want to delete the category "%{category_name}"?'
       remove:
-        remove_category: "Remove category"
-        remove_category_name: "Remove category '%{category_name}'"
-        remove_empty_category: 'Deleting a category cannot be undone. Are you sure you want to proceed?'
-        warning_remove_effects: "Warning! Removing category '%{category_name}' will have the following effects:"
+        remove_category: "Delete the category"
+        remove_category_name: 'Delete the category "%{category_name}"'
+        remove_empty_category: "Are you sure you want to delete this category? You can't undo this action."
+        warning_remove_effects: 'Warning! Deleting the category "%{category_name}" will have the following effects:'
         warning_listing_will_be_moved:
           one: "There is %{count} listing in the category. It will be moved to the selected category."
           other: "There are %{count} listings in the category. They will be moved to the selected category."
@@ -411,8 +411,8 @@ en:
           one: "There is %{count} custom field in the category. It will be moved to the selected category."
           other: "There are %{count} custom fields in the category. They will be moved to the selected category."
         warning_subcategory_will_be_removed:
-          one: "There is %{count} subcategory in the category. It will be removed."
-          other: "There are %{count} subcategories in the category. They will be removed."
+          one: "There is %{count} subcategory in the category. It will be deleted."
+          other: "There are %{count} subcategories in the category. They will be deleted."
         warning_with_subcategories_listing_will_be_moved:
           one: "There is %{count} listing in the category and subcategories. It will be moved to the selected category."
           other: "There are %{count} listings in the category and subcategories. They will be moved to the selected category."
@@ -425,28 +425,28 @@ en:
       paginate: 'Transaction with review'
       customer: 'Customer'
       customer_rating: 'Customer rated'
-      provider: 'Provider'
-      provider_rating: 'Provider rated'
+      provider: 'Seller'
+      provider_rating: 'Seller rated'
       actions: 'Actions'
-      search_placeholder: 'Search reviews by user or keyword...'
+      search_placeholder: 'Search reviews by user or keyword…'
       all_transactions: 'All transactions (%{count})'
-      customer_title: "Customer review from %{title}"
-      provider_title: "Provider review from %{title}"
+      customer_title: "Customer review for %{title}"
+      provider_title: "Seller review for %{title}"
       review_label: 'Reviews for the transaction for "%{title}"'
-      review_label_customer: 'Customer review from %{title} for the transaction for "%{listing}"'
-      review_label_provider: 'Provider review from %{title} for the transaction for "%{listing}"'
-      delete_notice: 'Deleting a review allows its author to leave another one for the same transaction. Deleting a review cannot be undone.'
-      blocked_notice: 'Blocking the review prevents its author from leaving another one for the same transaction.'
+      review_label_customer: 'Customer review for %{title} for the transaction for "%{listing}"'
+      review_label_provider: 'Seller review for %{title} for the transaction for "%{listing}"'
+      delete_notice: "Deleting a review allows its author to leave another one for the same transaction. You can't undo this action."
+      blocked_notice: 'Blocking a review prevents its author from leaving another one for the same transaction.'
       delete_title: 'Delete and block reviews for the transaction for "%{title}"'
-      block_review_customer: "Block future customer from %{title}"
-      block_review_provider: "Block future provider from %{title}"
-      delete_review_customer: "Delete customer review from %{title}"
-      delete_review_provider: "Delete provider review from %{title}"
+      block_review_customer: "Block future customer review for %{title}"
+      block_review_provider: "Block future seller review for %{title}"
+      delete_review_customer: "Delete the customer review for %{title}"
+      delete_review_provider: "Delete the seller review for %{title}"
       delete_or_block: 'Delete and/or block reviews'
-      save: 'Save'
+      save: 'Save changes'
       cancel: 'Cancel'
       edit_customer: "Edit customer's review…"
-      edit_provider: "Edit provider's review…"
+      edit_provider: "Edit seller's review…"
       rating_string: 'Rating'
       delete_block: 'Delete and block…'
       read_review_comments: 'Read reviews…'
@@ -470,20 +470,20 @@ en:
       info_text_1: 'Delete your marketplace'
       info_text_2: "Once you delete your marketplace, you will not be able to access it anymore. You can't undo this action."
       info_text_3: 'Be careful.'
-      info_text_4: 'Please note that after deletion, you and your marketplace users may still receive the latest marketplace update emails.'
+      info_text_4: 'After deletion, you and your marketplace users may still receive one last automatic newsletter from your marketplace.'
       info_text_5: 'To permanently delete your marketplace, you must type your Sharetribe marketplace domain (%{domain}) in the text field below.'
       info_text_6: "One last thing before you delete your marketplace: is there anything we can do to help? Don't hesitate to <a href='#' show-intercom=true >contact the Sharetribe team</a> if you have any questions. We'll be happy to help you get the most of Sharetribe Go!"
-      delete_confirmation_placeholder: 'Type your Sharetribe marketplace domain here...'
+      delete_confirmation_placeholder: 'Type your Sharetribe marketplace domain here…'
       delete: 'Delete your marketplace permanently'
       cannot_delete: 'Could not delete marketplace.'
-      delete_info_text: "Would you like to cancel your subscription or delete your marketplace? <a href='#' show-intercom=true >Contact the Sharetribe team</a> we'll be happy to help!"
+      delete_info_text: "Would you like to cancel your subscription or delete your marketplace? <a href='#' show-intercom=true >Contact the Sharetribe team</a>, we'll be happy to help!"
     view_conversations:
-      search_placeholder: 'Search conversations by user, email or keyword...'
+      search_placeholder: 'Search conversations by user, email or keyword…'
       started_from: 'Started from'
       sender: 'Starter'
       receiver: 'Provider'
       started: 'Started'
-      latest_activity: 'Latest activity'
+      latest_activity: 'Latest'
       actions: 'Actions'
       not_available: 'Not available'
       profile: "%{author}'s profile"
@@ -492,7 +492,7 @@ en:
       back_to_conversations: '‹ Back to conversations list'
       initiator: 'Initiator:'
       other_party: 'Other party:'
-      participants: 'Conversation with %{starter} and %{author}'
+      participants: 'Conversation between %{starter} and %{author}'
       show_conversation: 'Conversation'
     email_users:
       compose_email: 'Compose email'
@@ -500,11 +500,11 @@ en:
       receivers_languages: 'Language of the email receivers'
       any_language: 'Any language'
       subject: 'Email subject'
-      subject_info_text: 'To improve email deliverability the email subject is generated automatically and cannot be changed.'
+      subject_info_text: "To improve email deliverability the email subject is generated automatically and can't be changed."
       email_subject_text: "A new message from the %{service_name} team"
       message_will_be_sent_only_to_people_with_this_language: "The email will be only sent to users who are using %{service_name} in the language you choose."
       content: 'Email content'
-      content_info_text: '"Firstname" cannot be removed and will be replaced by the actual first name of each recipient.'
+      content_info_text: "\"Firstname\" can't be removed and will be automatically replaced by the actual first name of each recipient."
       content_hello: 'Hello Firstname,'
       content_placeholder: 'What do you want to say to your users?'
       send_email: 'Send email to users'
@@ -519,8 +519,8 @@ en:
           with_payment_no_listing: "Users who have added their payment details but haven't posted a listing"
           no_listing_no_payment: "Users who haven't posted a listing and haven't added their payment details"
     google_manager:
-      info_text: "Using a tag manager such as Google Tag Manager (GTM) is a great way to manage and deploy snippets of code or tracking pixels on your website without having to modify the code. GTM allows you to use more advanced Google Analytics features, such as goal conversions tracking."
-      info_text_2: "Sharetribe also relies on Google Tag Manager for analytics across our domains, you need to disable our GTM first to enable yours. <a href='%{url}' target='_blank'>Learn more about configuring GTM for your Go marketplace</a>."
+      info_text: "Using a tag manager such as Google Tag Manager (GTM) is a great way to manage and deploy snippets of code or tracking pixels on your website without having to modify the source code. GTM allows you to use more advanced Google Analytics features, such as goal conversions tracking."
+      info_text_2: "Sharetribe also relies on Google Tag Manager its own analytics. You should disable Sharetribe's analytics before enabling your tag manager for more accurate tracking. <a href='%{url}' target='_blank'>Learn more about configuring GTM for your Go marketplace</a>."
     google_console:
       info_text: "Google Search Console offers tools and reports to help you measure your search traffic and performance and fix issues related to Google Search results."
       info_text_2: "It's a good idea to add your website to Google Search Console. It takes only a few minutes with <a href='%{url}' target='_blank'>these instructions</a>."
@@ -530,11 +530,11 @@ en:
       to: 'To'
       message: 'Message'
       accepted: 'Accepted'
-      date_sent: 'Date sent'
+      date_sent: 'Sent'
       used_no: 'No'
       used_yes: 'Yes'
     manage_listings:
-      search_placeholder: 'Search listings by title, user or category...'
+      search_placeholder: 'Search listings by title, user or category…'
       export_to_csv: 'Export to CSV'
       all_listings: 'All listings (%{count})'
       actions_menu:
@@ -546,7 +546,7 @@ en:
         delete_listing: 'Delete listing…'
       badges:
         pending: 'Pending review'
-        pending_tooltip: 'The listing is waiting for your review. Visit the listing page and choose Approve or Reject it on the Actions menu.'
+        pending_tooltip: 'The listing is waiting for your review. Visit the listing page and choose Approve or Reject on the Actions menu.'
         expired: 'Expired'
         expired_tooltip: 'The listing has reached its expiration date and has been closed automatically. You can edit and reopen it on the Actions menu.'
         rejected: 'Rejected'
@@ -559,7 +559,7 @@ en:
         approval_pending: 'Pending review'
         approval_rejected: 'Rejected'
       listing: 'Listing'
-      provider: 'Provider'
+      provider: 'Seller'
       created: 'Created'
       updated: 'Updated'
       category: 'Category'
@@ -573,21 +573,21 @@ en:
       approve: 'Approve listing'
       edit: 'Edit'
       close: 'Close'
-      close_info_text: 'This closes the listing. Are you sure you want to proceed?'
-      delete_info_text: 'Deleting a listing cannot be undone. Are you sure you want to proceed?'
-      processing_export: "Processing export to CSV..."
-      confirm_popup_title: 'Approve %{listing}'
-      reject_popup_title: 'Reject %{listing}'
-      confirm_popup_body: 'This listing has not been approved yet. If you approve the listing it will be public and visible to all users. The provider will be notified by email. Are you sure you want to proceed?'
-      reject_popup_body: 'This listing has not been approved yet. If you reject the listing it will not be public. The provider will be notified by email. Are you sure you want to proceed?'
+      close_info_text: 'Closed listings are not public. Admins and the listing's author can edit and reopen the listing later. Are you sure you want to close the listing?'
+      delete_info_text: 'Are you sure you want to delete this listing? You can't undo this action.'
+      processing_export: "Processing export to CSV…"
+      confirm_popup_title: 'Approve the listing "%{listing}"'
+      reject_popup_title: 'Reject the listing "%{listing}"'
+      confirm_popup_body: 'This listing has not been reviewed yet. If you approve the listing it will be public and visible to all users. The seller will be notified by email. Are you sure you want to proceed?'
+      reject_popup_body: 'This listing has not been reviewed yet. If you reject the listing it will not be public. The seller will be notified by email. Are you sure you want to proceed?'
     manage_transactions:
       export_to_csv: 'Export to CSV'
-      search_placeholder: 'Search transactions by listing title or users...'
+      search_placeholder: 'Search transactions by listing title or users…'
       listing: 'Listing'
-      customer: 'Customer'
-      provider: 'Provider'
+      customer: 'Buyer'
+      provider: 'Seller'
       started: 'Started'
-      latest_activity: 'Latest activity'
+      latest_activity: 'Latest'
       status: 'Status'
       amount: 'Amount'
       actions: 'Actions'
@@ -601,8 +601,8 @@ en:
       you_should_investigate: "Discuss the situation with both parties to decide whether to refund or dismiss the dispute. %{learn_more_link}"
       marketplace_collects: "%{service_name} collects:"
       back_to_list: '‹ Back to transactions list'
-      initiator: 'Initiator:'
-      other_party: 'Other party:'
+      initiator: 'Buyer:'
+      other_party: 'Seller:'
       transaction_status: 'Transaction status:'
       next_steps: 'Next steps:'
       show_transaction: 'Transaction'
@@ -640,14 +640,14 @@ en:
         dispute:
           title: 'Dispute the transaction'
           body: "If the buyer has reported issues in the transaction, you can dispute the transaction #%{transaction}. You can't undo this action."
-          submit: 'Dispute transaction'
+          submit: 'Dispute the transaction'
         mark_as_refunded:
           title: 'Mark the transaction as refunded'
-          body: "Refunded #%{transaction}. You can't undo this action."
+          body: "Refunde the transaction #%{transaction}. You can't undo this action."
           submit: 'Mark as Refunded'
         dismiss_and_payout:
           title: 'Dismiss and payout the transaction'
-          body: "Dismiss and payout #%{transaction}. You can't undo this action."
+          body: "Dismiss and payout the transaction #%{transaction}. You can't undo this action."
           submit: 'Dismiss and payout'
       action_button:
         mark_as_completed: 'Mark as completed…'
@@ -760,26 +760,26 @@ en:
           refunded: 'Refunded'
           dismissed: 'Dismissed'
     expired_popup:
-      title: '%{first_name}, your 30-day Sharetribe trial has expired.'
-      body: "Don't worry, your data has not been deleted. You can unlock your marketplace immediately by subscribing to a paid plan, starting from $79/mo."
+      title: '%{first_name}, your 30-day Sharetribe Go trial has expired.'
+      body: "Don't worry, your data has not been deleted. You can unlock your marketplace immediately by subscribing to a paid plan, starting from $79 per month."
       more_information: 'Need help or more time? <a href="%{mailto}">Contact us</a> or <a href="%{expire_url}">extend your free trial for two weeks</a>.'
       choose_plan: 'Choose a plan'
     manage_users:
       ban_msg: 'This disables the user account and prevents the user from accessing the site again with this account. Are you sure you want to proceed?'
       unban_msg: 'This enables the user account and allows the user to access the site again with this account. Are you sure you want to proceed?'
       to_admin: 'This makes the user an admin. You should notify the user about their responsibilities and remind them to read the Sharetribe terms of use. Are you sure you want to proceed?'
-      to_admin_caption: 'Grant admin rights to user: %{username}'
+      to_admin_caption: 'Grant %{username} admin rights'
       to_admin_button: 'Grant the user admin rights'
       from_admin: 'This removes all admin rights from the user. They will lose access to the Admin panel. Are you sure you want to proceed?'
-      from_admin_caption: 'Revoke admin rights to user: %{username}'
-      from_admin_button: 'Revoke admin rights'
-      ban_caption: 'Disable user: %{username}'
-      unban_caption: 'Enable user: %{username}'
+      from_admin_caption: "Remove %{username}'s admin rights"
+      from_admin_button: 'Remove admin rights'
+      ban_caption: 'Disable %{username}'s user account'
+      unban_caption: 'Enable %{username}'s user account'
       ban_button: 'Disable the user account'
       unbun_button: 'Enable the user account'
-      search_by: 'Search users by name, display name or email...'
-      have_ongoing_transactions: "This account can't be deleted because the user has ongoing transactions. Please complete all transactions before deleting the account."
-      only_delete_disabled: "You can only delete users that have been disabled. Disable a user first in order to delete their account."
+      search_by: 'Search users by name, display name or email…'
+      have_ongoing_transactions: "This account can't be deleted because the user has ongoing transactions. To delete the account, first complete the user's ongoing transactions."
+      only_delete_disabled: "You can only delete user accounts that have first been disabled. Disable the user account first in order to delete it."
       export_csv: 'Export to CSV'
       all_statuses: 'All users (%{count})'
       name: 'Name'
@@ -792,53 +792,53 @@ en:
       unconfirmed_text: "This user hasn't confirmed their email address. They might not have received the confirmation email. Click Resend to send it again."
       resend_email: 'Resend confirmation email…'
       resend_email_button: 'Resend confirmation email'
-      revoke_admin: 'Revoke admin rights…'
+      revoke_admin: 'Remove admin rights…'
       grant_admin: 'Grant admin rights…'
-      disable_user: 'Disable user…'
+      disable_user: 'Disable user account…'
       cancel: 'Cancel'
       unconfirmed: 'Unconfirmed'
-      unconfirmed_user: 'Unconfirmed user: %{username}'
+      unconfirmed_user: 'User "%{username}" unconfirmed'
       edit: 'Edit user'
-      enable_user: 'Enable user…'
-      delete: 'Delete user…'
+      enable_user: 'Enable user account…'
+      delete: 'Delete user account…'
       post_listing: 'Post listing as'
-      ban_me_error: 'You cannot ban yourself'
-      cannot_delete_yourself_admin: 'You cannot delete yourself as an admin'
+      ban_me_error: 'You can't disable your own user account'
+      cannot_delete_yourself_admin: 'As an admin, You can't delete your own user account'
       saved: 'Saved'
-      delete_user: 'Delete user: %{username}'
+      delete_user: 'Delete the user account "%{username}"'
       delete_forever: 'Delete the user account permanently'
       badge:
         admin: 'Admin'
         admin_tooltip: 'This user has full access to the Admin panel and all marketplace settings and data.'
         pending: 'Pending'
-        pending_tooltip: "This user signed up through social login but didn't complete the signup. After connecting a social login account, users still need to accept your terms of use and fill in any mandatory user fields."
-        unconfirmed_tooltip: "This user's email address has not been verified. Go to Actions to resend the confirmation email."
+        pending_tooltip: "This user signed up through social login but didn't complete the signup. After signing up with a social login account, users still need to accept your terms of use and fill in any mandatory user fields."
+        unconfirmed_tooltip: "This user's email address has not been verified. Use the Actions menu to resend the confirmation email."
         unconfirmed: 'Unconfirmed'
       delete_user_text: >
-        If you delete this account, the personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings the user  has created will be removed.
+        If you delete this account, the personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings the user has created will be deleted.
         <br>
         <br>
-        Information where other members are involved (conversations with other people, transactions the user has made, reviews they've given to others, etc) is not removed when you delete this account. However, the user's name will no longer be displayed next to this information.
+        Information where other users are involved (conversations with other users, transactions the user has made, reviews they've given to others, etc.) will not deleted when you delete this account. However, the user's name will no longer be displayed next to this information.
         <br>
         <br>
-        You will not be able to reactivate this account after it has been deleted.
+        You will not be able to recover this account after it has been deleted.
     welcome_email:
       title: 'Welcome email content'
-      title_info_text: "A welcome message will be sent to every new user when they join your marketplace. Welcome message can't be disabled, but you can write your own or customize the default message to fit your marketplace. By clicking 'Send test message' you can send a preview message to your email address."
+      title_info_text: "A welcome message will be sent to every new user when they join your marketplace. Welcome message can't be disabled, but you can write your own or customize the default message to fit your marketplace. By clicking 'Send a test email to yourself' you can send a preview message to your email address."
       welcome_email_content: 'Email content'
       hello: 'Hello Firstname,'
       welcome_email_content_placeholder: 'Welcome to %{name}!'
-      welcome_email_content_info_text: 'This is the content for %{language}. To view and edit the content in other languages, change the language from the top bar. "Firstname" cannot be removed and will be replaced by the actual first name or display name of each recipient.'
+      welcome_email_content_info_text: "This is the content for %{language}. To view and edit the content in other languages, change the language from the top bar. \"Firstname\" can't be removed and will be automatically replaced by the actual first name or display name of each recipient."
       send_to_yourself: 'Send a test email to yourself'
       welcome_to_marketplace: "Welcome to %{service_name}! Glad to have you on board."
       love_marketplace_crew: "Love,<br/><i>%{service_name} crew</i>"
     footer:
       footer_enabling: 'Enable footer'
       footer_enabling_field: 'Enable the footer on all pages'
-      footer_enabling_info_text: "In trial and Hobby plans, the footer is Sharetribe-branded and can't be customized. In Pro plans and higher, you can add a customizable footer to all pages on your marketplace.
+      footer_enabling_info_text: "In trial and Hobby plans, the footer is Sharetribe-branded and can't be customized. In Pro plans and higher, you can customize the footer. The footer is displayed on all pages of your marketplace.
       <br>
       <br>
-      The footer section gives your visitors more ways to access important pages on your marketplace and makes your brand more visible. You can select a dark or light footer style and add text, social media links, and a copyright text. <a href=\"%{url}\" target=\"_blank\">Learn more about the footer</a>."
+      The footer gives your visitors more ways to access important pages on your marketplace and makes your brand more visible. You can select a dark or light footer style and add text, social media links, and a copyright text. <a href=\"%{url}\" target=\"_blank\">Learn more about the footer</a>."
       plan_disabled: 'Would you like to configure your own own custom footer? <a href="%{url}" target="_blank">Upgrade to the Pro plan or higher</a>.'
       footer_style: 'Footer style'
       footer_links: 'Footer links'
@@ -862,19 +862,19 @@ en:
       display_contact_menu: '"Contact us" page'
       display_invite_menu: '"Invite new members" page'
       maximum_number_links: 'Maximum number of links displayed in the Top bar'
-      limit_priority_links_info_text: 'If you select more links to the top bar than the maximum, the links will be grouped into a drop-down menu.'
+      limit_priority_links_info_text: 'If you add more links to the top bar than the maximum, the links will be grouped into a drop-down menu.'
       custom_links: 'Top bar custom links'
       new_custom_link: '+ Add a new custom link'
       link_title: 'Link title'
       all: 'Show all'
     custom_script:
-      info_text: "Custom script can be added inside the tag for every page and used to insert custom CSS, JavaScript or HTML. <a href='%{url}' target='_blank'>Learn more about Custom script</a>."
+      info_text: "Custom script can be added inside the <head> tag for every page and used to insert custom CSS, JavaScript or HTML. <a href='%{url}' target='_blank'>Learn more about Custom script</a>."
       custom_head_script: 'CSS, JavaScript and/or HTML script'
       custom_head_script_placeholder: '<script src="https://example.com/customscript.js"></script>'
-      custom_head_script_info_text: 'Please note that future changes to Sharetribe Go features may render your script incompatible.'
+      custom_head_script_info_text: 'Note that future updates to Sharetribe Go features may render your script incompatible.'
     sharetribe:
-      info_text: "To improve our services and support, Sharetribe tracks marketplace members' activity. We will never collect personal data or share this information outside the Sharetribe team. <a href='%{url}' target='_blank'>Learn more</a>."
-      end_user_analytics: "Allow Sharetribe to track members' activity in order to improve our services"
+      info_text: "To improve its services and support, Sharetribe tracks marketplace users' activity. We will never collect personal data or share this information outside the Sharetribe team. <a href='%{url}' target='_blank'>Learn more</a>."
+      end_user_analytics: "Allow Sharetribe to track users' activity in order to improve its services"
     google:
       info_text: "Google Analytics helps you track your marketplace traffic. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}' target='_blank' >Learn more about the Google Analytics setup</a>."
       google_analytics_key: 'Google Analytics tracking ID'
@@ -882,7 +882,7 @@ en:
       google_analytics_key_info_text: 'Paste the tracking ID of your Google Analytics account here.'
     profile_pages:
       title: 'Meta tags for the profile pages'
-      title_info_text: "Meta tags define the title and description that are shown when your page appears in a search engine's results page. Optimizing meta tags for your most important pages is important for usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your site appears in a search engine's results page. Optimizing the meta tags for your most important pages is important for usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
       profile_meta_title: 'Title meta tag'
       profile_meta_title_placeholder: 'Profile of {{user_display_name}} - {{marketplace_name}}'
       profile_meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}."
@@ -891,7 +891,7 @@ en:
       profile_meta_description_info_text: "The content of this tag is suggested to search engines and appears underneath the blue clickable links on search engines' results pages. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}."
     category_pages:
       title: 'Meta tags for the category pages'
-      title_info_text: "Meta tags define the title and description that are shown when your page appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
       category_meta_title: 'Title meta tag'
       category_meta_title_placeholder: '{{category_name}} - {{marketplace_name}}'
       category_meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{category_name}}."
@@ -900,7 +900,7 @@ en:
       category_meta_description_info_text: "The content of this tag is suggested to search engines and appears underneath the blue clickable links on search engines' results pages. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{category_name}}."
     listing_pages:
       title: 'Meta tags for the listing pages'
-      title_info_text: "Meta tags define the title and description that are shown when your page appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
       listing_meta_title: 'Title meta tag'
       listing_meta_title_placeholder: '{{listing_title}} - {{marketplace_name}}'
       listing_meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}."
@@ -909,7 +909,7 @@ en:
       listing_meta_description_info_text: "The content of this tag is suggested to search engines and appears underneath the blue clickable links on search engines' results pages. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}."
     search_pages:
       title: "Meta tags for your marketplace's search results pages"
-      title_info_text: "Meta tags define the title and description that are shown when your page appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
       search_meta_title: 'Title meta tag'
       search_meta_title_placeholder: 'Search results - {{marketplace_name}}'
       search_meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{keywords_searched}}, {{location_searched}}."
@@ -918,7 +918,7 @@ en:
       search_meta_description_info_text: "The content of this tag is suggested to search engines and appears underneath the blue clickable links on search engines' results pages. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{keywords_searched}}, {{location_searched}}."
     landing_pages:
       title: 'Meta tags for your homepage or Custom Landing Page'
-      title_info_text: "Meta tags define the title and description that are shown when your page appears in a search engine’s results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine’s results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
       meta_title: 'Title meta tag'
       meta_title_placeholder: '{{marketplace_name}} - {{marketplace_slogan}}'
       meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}."
@@ -931,25 +931,25 @@ en:
       sitemap_info_private: 'As your marketplace is private, there is no sitemap.'
       robots_info_private: 'As your marketplace is private, there is no robots.txt.'
       sitemap_info_text_1: 'A sitemap is an additional SEO feature that helps search engines crawl your site more intelligently and show the right page in the results for relevant searches. <a href="%{url}" target="_blank">Learn more about the XML Sitemap file</a>.'
-      sitemap_info_text_2: 'A sitemap is automatically generated for your marketplace: it references up to 500 most recent listings on your website. You can access your sitemap at <a href="%{url}" target="_blank">%{url}</a>.'
+      sitemap_info_text_2: 'A sitemap file is automatically generated for your marketplace: it references up to 500 most recent listings on your website. You can access your sitemap at <a href="%{url}" target="_blank">%{url}</a>.'
       robots_info_text_1: 'Robots.txt is a text file to help web robots (typically search engine robots) crawl your website efficiently. <a href="%{url}" target="_blank">Learn more about the robots.txt file</a>.'
       robots_info_text_2: 'A robots.txt file is automatically generated for your marketplace. You can access your robots.txt at <a href="%{url}" target="_blank">%{url}</a>.'
     twitter:
       twitter_settings: 'Twitter settings'
       twitter_handle: 'Twitter handle'
-      twitter_handle_info_text: 'Username of the Twitter account of your marketplace (if you have one). It will be added to the suggested tweet when people use the tweet button on a listing page.'
+      twitter_handle_info_text: 'Username of the Twitter account of your marketplace (if you have one). It will be added to the suggested tweet when visitors use the tweet button on a listing page.'
       yourhandle: 'yourhandle'
     image_tags:
       social_logo: 'Image for social media'
-      social_logo_info_text: 'This image will be shown on the social media card when someone shares your marketplace in a post on Facebook, Twitter, or LinkedIn. It should have a 2:1 aspect ratio and a minimum size of 1200x600 pixels.'
+      social_logo_info_text: 'This image is shown on the social media card when someone shares your marketplace in a post on Facebook, Twitter, or LinkedIn. It should have a 2:1 aspect ratio and a minimum size of 1200x600 pixels.'
       social_media_image: 'Social media image'
       social_media_tags: 'Social media tags'
       social_media_title: 'Title for social media'
-      social_media_title_info_text: 'This text will be shown on the social media card when someone shares your website on Facebook, Twitter, or LinkedIn. Preview your social media card <a href="%{fb_url}" target="_blank">for Facebook</a>, <a href="%{twitter_url}" target="_blank">for Twitter</a> and <a href="%{link_url}" target="_blank">for LinkedIn</a>.'
+      social_media_title_info_text: 'This text is shown on the social media card when someone shares your marketplace on Facebook, Twitter, or LinkedIn. Preview your social media card <a href="%{fb_url}" target="_blank">for Facebook</a>, <a href="%{twitter_url}" target="_blank">for Twitter</a> and <a href="%{link_url}" target="_blank">for LinkedIn</a>.'
       social_media_description: 'Description for social media'
     location:
       location_settings: 'Location settings'
-      location_settings_info_text: 'Location is shown on listing pages, profile pages, and the homepage. You can display the exact listing location or it’s general location, or disable the use of location entirely.'
+      location_settings_info_text: 'Location is shown on listing pages, profile pages, and the homepage. You can display the exact listing location or its general location, or disable the use of location entirely.'
       show_location: 'Allow users to add their location to their profile and listings. This adds a map view to the search page.'
       fuzzy_location: 'Display a circle instead of the exact location'
     search:
@@ -963,12 +963,12 @@ en:
       keyword_settings: 'Search help text'
       location_settings: 'Location search settings'
       show_distance: 'Show distance in'
-      limit_distance: 'Show only nearby listings with location search.'
+      limit_distance: 'Show only nearby listings with location search'
       search_placeholder: 'Search help text'
       search_placeholder_info_text: 'This is shown as the placeholder text in the search bar.'
-      search_for: 'Search for...'
+      search_for: 'Search for…'
     country_currency:
-      payments_not_enabled: 'Payments not enabled'
+      payments_not_enabled: 'Payment system is not enabled'
       country: 'Country'
       country_info_text: 'Want to change the country of your marketplace? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
       currency_info_text: 'Want to change the currency of your marketplace? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
@@ -982,29 +982,29 @@ en:
       send_automatic_newsletter: 'Send an automatic newsletter'
       send_automatic_newsletter_info_text: 'Notify your users about new listings with a daily or weekly newsletter. Users can opt-out of the newsletter from their user settings. <a href=%{href} target="_blank">Learn more about the automatic newsletter</a>.'
       automatic_newsletter_frequency: 'Automatic newsletter frequency'
-      automatic_newsletter_frequency_info_text: 'Specify the default frequency of the automatic newsletter. Members can unsubscribe or change the frequency anytime from their user settings.'
+      automatic_newsletter_frequency_info_text: 'Specify the default frequency of the automatic newsletter. Users can unsubscribe or change the frequency anytime from their user settings.'
       default_newsletter_frequency: 'Default automatic newsletter frequency'
       newsletter_daily: 'Daily'
       newsletter_weekly: 'Weekly'
       automatic_newsletters: 'Send automatic newsletters to all users'
     config_transactions:
-      transaction_agreement_in_use: 'Buyers are required to accept an agreement before transaction'
+      transaction_agreement_in_use: 'Buyers are required to accept an agreement before a transaction'
       transaction_auto_completion: 'Transaction auto-completion'
       days: 'Days'
-      info_text: 'Default 14 days, max 85 days. In transactions processed by Stripe, payments to sellers are delayed until the order is marked as completed.'
+      info_text: 'Default 14 days, maximum 85 days. In transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed.'
       automatic_confirmation_after_days: 'Automatically mark transactions completed after'
       transaction_agreement: 'Transaction agreement'
-      transaction_agreement_info: 'Create an agreement that buyers need to accept before proceeding with a transaction.'
+      transaction_agreement_info: 'Write an agreement that buyers need to accept before proceeding with a transaction.'
       agreement_label: 'Agreement label'
       agreement_label_placeholder: 'I accept the agreement'
-      agreement_label_info_text: 'This text will be shown next to a checkbox in the checkout form. The buyer needs to check the box to proceed with the transaction.'
+      agreement_label_info_text: 'This text is shown next to a checkbox in the checkout form. The buyer needs to check the box to proceed with the transaction.'
       agreement_text: 'Agreement text'
-      agreement_text_info_text: 'The content of the agreement the buyer needs to accept. The agreement content is displayed when the user clicks the "View." link next to the agreement label.'
+      agreement_text_info_text: 'The content of the agreement the buyer needs to accept. The agreement content is displayed when the buyer clicks the "View." link next to the agreement label.'
     listing_comments:
-      info_text: "Allowing users to comment on a listing helps potential customers ask for more information publicly. You can delete any comments from the listing page in question."
+      info_text: "When you allow users to comment on a listing, potential customers can publicly ask for more information from the seller. You can delete any comments from a listing page by navigating to the page and selecting the comment."
       listing_comments_in_use: 'Allow users to post comments to listings (visible to all other users)'
     listing_approval:
-      info_text: 'Reviewing all listings before they are visible to visitors helps you manage the content on your marketplace. If you enable the listing approval feature, all new and edited listings need to be reviewed by an admin before they are published. Listings can be approved or rejected. Providers who want to post a listing will click on "Submit for review" instead of posting immediately.'
+      info_text: 'Reviewing all listings before they are visible to visitors helps you manage the content on your marketplace. If you enable the listing approval feature, all new and edited listings need to be reviewed by an admin before they are published. Listings can be approved or rejected. Sellers who want to post a listing will click on "Submit for review" instead of posting immediately.'
       pre_approved_listings: 'Review all listings before they are published'
     experimental:
       new_layout: 'New layout'
@@ -1022,41 +1022,41 @@ en:
       invalid_facebook_connect_id: "App ID should contain only numbers."
       invalid_facebook_connect_secret: "App Secret should contain only numbers and letters from a to f."
       signup_header: 'Signup information text'
-      signup_info_text: 'This info text will be shown to users on the sign up page. You can give the users instructions for signing up, information about where to get an invite, etc.'
+      signup_info_text: 'This info text is shown to visitors on the sign up page. You can give the visitors instructions for signing up, information about where to get an invite, etc.'
       google: 'Google'
-      google_info_text: 'To enable Google Sign-In, create a project for your marketplace in the <a target="_blank" href="%{href}">Google Developers Console</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring Google Sign-In</a>.'
+      google_info_text: 'To enable Google Sign-In, you must create a Google project for your marketplace in the <a target="_blank" href="%{href}">Google Developers Console</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring Google Sign-In</a>.'
       google_connect_id: 'Google Client ID'
       google_connect_secret: 'Google Client secret'
-      google_connect_enabled: 'Users can sign up and login with a Google account'
+      google_connect_enabled: 'Users can sign up and login with their Google account'
       facebook: 'Facebook'
-      facebook_info_text: 'To enable Facebook Login, you must create an application for your marketplace in the <a target="_blank" href="%{href}">Facebook Developers Dashboard</a>. You will get a generated App ID and App Secret. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring Facebook Login</a>.'
+      facebook_info_text: 'To enable Facebook Login, you must create a Facebook application for your marketplace in the <a target="_blank" href="%{href}">Facebook Developers Dashboard</a>. You will get a generated App ID and App Secret. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring Facebook Login</a>.'
       facebook_connect_id: 'Facebook App ID'
       facebook_connect_secret: 'Facebook App Secret'
-      facebook_connect_enabled: 'Users can sign up and log in with a Facebook account'
+      facebook_connect_enabled: 'Users can sign up and log in with their Facebook account'
       linkedin: 'LinkedIn'
       linkedin_connect_id: 'LinkedIn Client ID'
       linkedin_connect_secret: 'LinkedIn Client Secret'
-      linkedin_connect_enabled: 'Users can sign up and login with a LinkedIn account'
-      linkedin_info_text: 'To enable LinkedIn Sign In, create an app for your marketplace in the <a target="_blank" href="%{href}">LinkedIn Developers Dashboard</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring LinkedIn Sign In</a>.'
+      linkedin_connect_enabled: 'Users can sign up and login with their LinkedIn account'
+      linkedin_info_text: 'To enable LinkedIn Sign In, you must create a LinkedIn app for your marketplace in the <a target="_blank" href="%{href}">LinkedIn Developers Dashboard</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring LinkedIn Sign In</a>.'
     cover_photos:
       preview_homepage: 'Preview homepage'
       description: "Don't have a cover picture on hand? You can find ready-made pictures and links to free and paid image banks <a href=\"%{href}\" target=\"_blank\">in the Go Help Center</a>."
       cover_photo: 'Main cover photo'
-      cover_photo_info_text: 'The main cover photo is shown on the homepage to users who are not logged in. The dimensions should be 1920x450 pixels.'
+      cover_photo_info_text: 'The main cover photo is shown on the homepage to users who are not logged in. Its dimensions should be 1920x450 pixels.'
       small_cover_photo: 'Small cover photo'
-      small_cover_photo_info_text: 'The small cover photo is shown on all other pages to users who are not logged in. The dimensions should be 1920x96 pixels.'
+      small_cover_photo_info_text: 'The small cover photo is shown on all other pages to users who are not logged in. Its dimensions should be 1920x96 pixels.'
     logos_and_color:
       favicon: 'Favicon'
-      favicon_info_text: "The favicon will be shown on the browser's tab. The dimensions should be 32x32 pixels."
+      favicon_info_text: "The favicon is shown on the browser's tab. Its dimensions should be 32x32 pixels."
       not_added: "You haven't added a %{name} yet."
       color: 'Color'
       color_info_text: 'The marketplace color is used as the primary color on your marketplace interface and in email notifications.'
       marketplace_color: 'Marketplace color'
       logos: 'Logos'
       main_logo: 'Main logo'
-      main_logo_info_text: 'The main logo will be shown on your marketplace Top bar and in automatic email notifications. The dimensions should be 336x80 pixels.'
+      main_logo_info_text: 'The main logo is shown on your marketplace Top bar and in automatic email notifications. Its dimensions should be 336x80 pixels.'
       square_logo: 'Square logo'
-      square_logo_info_text: "The square logo will be shown to users as your profile picture when you manage a transaction on behalf of your user. It's also shown when people bookmark your site to the home screen of their mobile device. The dimensions should be (at least) 600x600 pixels."
+      square_logo_info_text: "The square logo is shown to users as your profile picture when you manage a transaction on behalf of a user. It's also shown when visitors bookmark your site to the home screen of their mobile device. Its dimensions should be (at least) 600x600 pixels."
       current_file: 'The current %{type} filename is "%{filename}".'
       reset_to_default: 'Reset to default %{type}'
       delete_popup:
@@ -1065,10 +1065,10 @@ en:
         save_button: 'Delete the %{type} permanently'
     user_rights:
       invitation_rights: 'Invitation rights'
-      join_with_invite_only: 'Allow new users to join only with an invite from a registered user'
+      join_with_invite_only: 'Allow new users to sign up only with an invite from a registered user'
       users_can_invite_new_users: 'Allow all registered users, and not only admins, to invite new users'
       allow_free_conversations: 'Allow users to message each other freely'
-      require_verification_to_post_listings: 'Allow only users verified by admins to post new listings'
+      require_verification_to_post_listings: 'Allow only users verified by admins to post listings'
       communication_rights: 'Communication rights'
       posting_rights: 'Posting rights'
       posting_rights_info: 'Posting rights information text'
@@ -1076,8 +1076,8 @@ en:
     privacy:
       private_marketplace: 'Private marketplace'
       header: 'Private marketplace landing page content'
-      private: 'Make marketplace private (allow only registered users to see listings and user profiles)'
-      info_text: 'This content is shown on your homepage to users who are not logged in. Here, you can describe your marketplace and the process to join it.'
+      private: 'Require users to log in to see listings and user profiles (make marketplace private)'
+      info_text: 'This content is shown on your marketplace homepage to users who are not logged in. Here, you can describe your marketplace and the process to join it.'
       small_text: 'This is the content for %{language}. To view and edit the content in other languages, change the language from the top bar.'
     essentials:
       header_link: 'Preview your marketplace'
@@ -1088,13 +1088,13 @@ en:
       community_slogan_info_text: 'Slogan is shown in browsers, search engine results, and social media.'
       community_description: 'Marketplace description & color'
       community_description_info_text: 'Description is shown in browsers, search engine results, and social media.'
-      default_language: 'First language on the list will be used as the default. Your default language is %{language}.'
+      default_language: 'First language on the list is used as the default. Your marketplace default language is %{language}.'
       marketplace_languages: 'Marketplace languages'
       color: 'Color'
       show_slogan: 'Display slogan on the homepage or Custom Landing Page for users who are not logged in'
       show_description: 'Display description on the homepage or Custom Landing Page for users who are not logged in'
     admin_notifications:
-      header: 'Admin notification preferences'
+      header: 'Admin notification settings'
       info_text: "Get notified of new activity on your marketplace. Email notifications are sent to all confirmed emails of all admins."
       email_admins_about_new_members: 'Send admins an email when a new user signs up'
       email_admins_about_new_transactions: 'Send admins an email when a new transaction starts'
@@ -1108,7 +1108,7 @@ en:
       edit: 'Edit'
     landing_page:
       header: 'Custom Landing Page'
-      info_text_1: 'The landing page is the first page that new marketplace visitors see. A beautifully designed landing page helps you communicate your value proposition, explain how your site works, and encourage users to sign up.'
+      info_text_1: 'The landing page is the first page that new marketplace visitors see. A beautifully designed landing page helps you communicate your value proposition, explain how your site works, and encourage visitors to sign up.'
       info_text_2: 'You can add a customizable landing page for your marketplace for $99 per month.'
       btn_text: 'Learn more about the Custom Landing Page add-on'
     display:
@@ -1125,8 +1125,8 @@ en:
       user_display_header: 'Displaying user information'
       user_display_info_text: 'Display name type determines how the name of each user is shown on the marketplace.'
       browse_view: 'Home page arrangement'
-      browse_view_header: 'Displaying listings on the home page'
-      browse_view_info_text: 'The default view determines how listings are displayed on the homepage. Users may switch between views.'
+      browse_view_header: 'Displaying listings'
+      browse_view_info_text: 'The default view determines how listings are displayed on the homepage, search results pages, and when users browse and filter listings. Users may switch between views.'
     notifications:
       privacy_updated: 'Privacy settings were updated'
       essentials_updated: 'Marketplace details were updated'
@@ -1142,12 +1142,12 @@ en:
       configure_transactions_updated: 'Configure transactions settings were updated'
       newsletters_updated: 'Automatic newsletter settings were updated'
       country_currency_updated: 'Country & Currency settings were updated'
-      payments_connected: 'Payments already connected'
+      payments_connected: 'Payments already configured'
       search_updated: 'Search settings were updated'
       search_updated_failed: 'Search settings update failed'
       location_updated: 'Location settings were updated'
       image_tags_updated: 'Image & tags settings were updated'
-      twitter_updated: 'Twitter settings settings were updated'
+      twitter_updated: 'Twitter settings were updated'
       landing_pages_updated: 'Landing page meta tags settings were updated'
       search_pages_updated: 'Search page meta tags settings were updated'
       listing_pages_updated: 'Listing pages meta tags settings were updated'
@@ -1160,7 +1160,7 @@ en:
       footer_updated: 'Footer settings were updated'
       footer_update_failed: 'Footer details update failed'
       email_sent: 'Email sent'
-      test_email_sent: 'Test email was sent to your inbox'
+      test_email_sent: 'Test email sent'
       welcome_email_updated: 'Welcome email settings were updated'
       welcome_email_updated_and_sent: 'Welcome email settings were updated and a test email was sent to %{email}'
       user_field_updated: 'User field updated'
@@ -1171,7 +1171,7 @@ en:
       listing_field_saving_failed: 'Listing field saving failed'
       listing_field_created: 'Listing field created'
       listing_fields_update_location_failed: 'Location field editing failed'
-      listing_fields_update_expiration_failed: 'Expiration field editing failed'
+      listing_fields_update_expiration_failed: 'Expiration date field editing failed'
       listing_fields_update_price_failed: 'Price field editing failed'
       transaction_size_updated: 'Minimum listing price settings were updated'
       file_was_deleted: 'File was successfully deleted'
