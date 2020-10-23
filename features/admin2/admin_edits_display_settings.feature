@@ -24,7 +24,7 @@ Feature: Admin edits design display page
   Scenario: Admin can change to show the listing type
     Given community "test" has default browse view "list"
     When I choose "List"
-    And I check "Show listing type on the List view"
+    And I check "Show listing type in the List view"
     And I press submit
     Then I go to the homepage
     And I should see the browse view selected as "List"
@@ -33,7 +33,7 @@ Feature: Admin edits design display page
   Scenario: Admin can change to hide the listing type
     Given community "test" has default browse view "list"
     When I choose "List"
-    And I uncheck "Show listing type on the List view"
+    And I uncheck "Show listing type in the List view"
     And I press submit
     Then I go to the homepage
     And I should see the browse view selected as "List"
