@@ -25,7 +25,7 @@ class DomainSetup < ApplicationRecord
   STATE = {
     CHECK_PENDING = 'check_pending'.freeze => 'check-pending'.freeze,
     CHECK_PASSED = 'check_passed'.freeze => 'check-passed'.freeze,
-    CHECK_PASSED_REDIRECT_WARNING = 'check_passed_redirect-warning'.freeze => 'check-passed-redirect-warning'.freeze,
+    CHECK_PASSED_REDIRECT_WARNING = 'check_passed_redirect_warning'.freeze => 'check-passed-redirect-warning'.freeze,
     CHECK_FAILED = 'check_failed'.freeze => 'check-failed'.freeze,
     SETUP_PENDING = 'setup_pending'.freeze => 'setup-pending'.freeze,
     SETUP_FAILED = 'setup_failed'.freeze => 'setup-failed'.freeze
