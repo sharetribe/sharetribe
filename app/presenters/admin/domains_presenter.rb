@@ -52,10 +52,6 @@ class Admin::DomainsPresenter
   end
 
   def domain_checked_for_redirect
-    if domain_checked.starts_with?("www.")
-      domain_checked[4..-1]
-    else
-      "www.#{domain_checked}"
-    end
+    DomainSetup.www_alt_name(domain_checked)
   end
 end

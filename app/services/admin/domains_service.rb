@@ -44,21 +44,29 @@ class Admin::DomainsService
   end
 
   def recheck_domain_setup
+    return unless domain_possible?
+
     community.domain_setup.recheck_setup!
   end
 
   def confirm_domain_setup
+    return unless domain_possible?
+
     community.domain_setup.confirm_setup!
   end
 
   def retry_domain_setup
+    return unless domain_possible?
+
     community.domain_setup.retry_setup!
   end
 
   def reset
+    return unless domain_possible?
+
     if [DomainSetup::CHECK_FAILED,
-        DomainSetup::CHECK_OK,
-        DomainSetup::CHECK_OK_REDIRECT_WARNING].include?(community.domain_setup&.state)
+        DomainSetup::CHECK_PASSED,
+        DomainSetup::CHECK_PASSED_REDIRECT_WARNING].include?(community.domain_setup&.state)
       community.domain_setup&.destroy
       community.reload
     end

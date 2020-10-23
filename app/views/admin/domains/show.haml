@@ -41,9 +41,9 @@
         - case @presenter.domain_setup_state
         - when DomainSetup::CHECK_PENDING
           = render 'check_pending', presenter: @presenter
-        - when DomainSetup::CHECK_OK
+        - when DomainSetup::CHECK_PASSED
           = render 'check_passed', presenter: @presenter
-        - when DomainSetup::CHECK_OK_REDIRECT_WARNING
+        - when DomainSetup::CHECK_PASSED_REDIRECT_WARNING
           = render 'check_passed_with_warning', presenter: @presenter
         - when DomainSetup::CHECK_FAILED
           = render 'check_failed', presenter: @presenter

@@ -588,6 +588,7 @@ CREATE TABLE `domain_setups` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `index_domain_setups_on_domain` (`domain`),
   UNIQUE KEY `index_domain_setups_on_community_id` (`community_id`),
   KEY `index_domain_setups_on_state_and_updated_at` (`state`,`updated_at`),
   KEY `index_domain_setups_on_critical_error` (`critical_error`)

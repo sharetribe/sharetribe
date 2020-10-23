@@ -2,7 +2,7 @@ class CreateDomainSetups < ActiveRecord::Migration[5.2]
   def change
     create_table :domain_setups do |t|
       t.references :community, index: { unique: true }
-      t.string :domain, null: false
+      t.string :domain, null: false, index: { unique: true }
       t.string :state, null: false
       t.string :error
       t.boolean :critical_error
