@@ -311,8 +311,8 @@ en:
       edit_price_title: 'Edit the listing field "Price"'
       edit_date_title: 'Edit the listing field "Expiration date"'
       listing_location_required: 'Make this field mandatory when creating or editing a listing'
-      listing_expiration_enabled_title: 'Enable expiration date'
-      listing_expiration_enabled: 'Enable the expiration date'
+      listing_expiration_enabled_title: 'Enable an expiration date'
+      listing_expiration_enabled: 'Enable an expiration date'
       edit_location_title: 'Edit the listing field "Location"'
       types:
         text: 'Text'
@@ -480,7 +480,7 @@ en:
     view_conversations:
       search_placeholder: 'Search conversations by user, email or keyword…'
       started_from: 'Started from'
-      sender: 'Starter'
+      sender: 'Initiator'
       receiver: 'Other party'
       started: 'Started'
       latest_activity: 'Latest'
@@ -988,7 +988,7 @@ en:
       newsletter_weekly: 'Weekly'
       automatic_newsletters: 'Send automatic newsletters to all users'
     config_transactions:
-      transaction_agreement_in_use: 'Buyers are required to accept an agreement before a transaction'
+      transaction_agreement_in_use: 'Buyers are required to accept an agreement before they can proceed with a transaction'
       transaction_auto_completion: 'Transaction auto-completion'
       days: 'Days'
       info_text: 'Default 14 days, maximum 85 days. In transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed.'
@@ -1001,7 +1001,7 @@ en:
       agreement_text: 'Agreement text'
       agreement_text_info_text: 'The content of the agreement the buyer needs to accept. The agreement content is displayed when the buyer clicks the "View." link next to the agreement label.'
     listing_comments:
-      info_text: "When you allow users to comment on a listing, potential buyers can publicly ask for more information from the seller. You can delete any comments from a listing page by navigating to the page and selecting the comment."
+      info_text: "When you allow users to comment on a listing, potential buyers can publicly ask for more information from the seller. To delete any comments from a listing page, navigate to the page and click \"Delete\" next to the comment."
       listing_comments_in_use: 'Allow users to post comments to listings (visible to all other users)'
     listing_approval:
       info_text: 'Reviewing all listings before they are visible to visitors helps you manage the content on your marketplace. If you enable the listing approval feature, all new and edited listings need to be reviewed by an admin before they are published. Listings can be approved or rejected. Sellers who want to post a listing will click on "Submit for review" instead of posting immediately.'
@@ -1084,9 +1084,9 @@ en:
       header: 'Marketplace details'
       community_name: 'Marketplace name'
       community_info_text: 'Your marketplace name is shown to users in emails and many places on your site.'
-      community_slogan: 'Marketplace slogan & color'
+      community_slogan: 'Marketplace slogan (text & color)'
       community_slogan_info_text: 'Slogan is shown in browsers, search engine results, and social media.'
-      community_description: 'Marketplace description & color'
+      community_description: 'Marketplace description (text & color)'
       community_description_info_text: 'Description is shown in browsers, search engine results, and social media.'
       default_language: 'First language on the list is used as the default. Your marketplace default language is %{language}.'
       marketplace_languages: 'Marketplace languages'
@@ -1118,13 +1118,13 @@ en:
       full_name: 'John Doe'
       first_name_with_initial: 'John D'
       first_name_only: 'John'
-      show_category_in_listing_list: "Show listing type on the List view"
+      show_category_in_listing_list: "Show listing type in the List view"
       show_listing_publishing_date: "Show listing publishing date on the listing page"
       listing_display_header: 'Displaying listing information'
       user_display: 'Display name type'
       user_display_header: 'Displaying user information'
       user_display_info_text: 'Display name type determines how the name of each user is shown on the marketplace.'
-      browse_view: 'Home page arrangement'
+      browse_view: 'Listing arrangement'
       browse_view_header: 'Displaying listings'
       browse_view_info_text: 'The default view determines how listings are displayed on the homepage, search results pages, and when users browse and filter listings. Users may switch between views.'
     notifications:
