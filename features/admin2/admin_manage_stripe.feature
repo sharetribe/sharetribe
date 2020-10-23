@@ -11,16 +11,16 @@ Feature: Admin manage stripe
 
   Scenario: Admin user can enable or disable payment method
     When I go to the admin2 view of stripe payment of community "test"
-    Then I should see "Stripe connected"
+    Then I should see "Stripe enabled"
     When I follow "Disable Stripe"
     Then I press "Disable Stripe" within ".modal-footer"
     Then I should see "Stripe disabled"
     When I follow "Enable Stripe"
-    Then I should see "Stripe connected"
+    Then I should see "Stripe enabled"
 
   Scenario: Admin user can edit stripe's settings
     When I go to the admin2 view of stripe payment of community "test"
-    Then I should see "Stripe connected"
+    Then I should see "Stripe enabled"
     Then I should see "Stripe commission settings"
     And I fill in "payment_preferences_form_commission_from_seller" with "12"
     And I fill in "payment_preferences_form_minimum_transaction_fee" with "0.75"
