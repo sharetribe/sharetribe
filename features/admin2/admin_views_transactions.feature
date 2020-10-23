@@ -36,10 +36,10 @@ I want to see see all the transactions happening in my community
     Then I should see the transactions in descending time order by "started"
 
   Scenario: Admin sorts transactions by latest activity
-    When I sort by "latest activity"
-    Then I should see the transactions in ascending time order by "latest activity"
-    When I sort by "latest activity"
-    Then I should see the transactions in descending time order by "latest activity"
+    When I sort by "latest"
+    Then I should see the transactions in ascending time order by "latest"
+    When I sort by "latest"
+    Then I should see the transactions in descending time order by "latest"
 
   Scenario: Admin filters transaction by free status
     When I select "Free transaction (3)" from "status_"
@@ -54,4 +54,3 @@ I want to see see all the transactions happening in my community
     Then I should see "Transaction #"
     Then I should see "for Moving help"
     Then I should see "Status: Free transaction"
-

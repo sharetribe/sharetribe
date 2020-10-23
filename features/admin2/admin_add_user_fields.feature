@@ -7,7 +7,7 @@ Feature: Admin add a listing fields
 
   @javascript
   Scenario: Admin adds Dropdown custom field
-    When I follow "+ Add a new user field"
+    When I follow "+ Add a user field"
     And I select "Dropdown" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "House type"
     And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
@@ -24,7 +24,7 @@ Feature: Admin add a listing fields
 
   @javascript
   Scenario: Admin adds Dropdown custom field without options
-    When I follow "+ Add a new user field"
+    When I follow "+ Add a user field"
     And I select "Dropdown" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "House type"
     And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
@@ -33,7 +33,7 @@ Feature: Admin add a listing fields
 
   @javascript
   Scenario: Admin adds numeric field
-    When I follow "+ Add a new user field"
+    When I follow "+ Add a user field"
     And I select "Number" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "Area"
     And I fill in "custom_field[name_attributes][fi]" with "Talon Area"
@@ -44,7 +44,7 @@ Feature: Admin add a listing fields
 
   @javascript
   Scenario: Admin adds Checkbox custom field
-    When I follow "+ Add a new user field"
+    When I follow "+ Add a user field"
     And I select "Checkbox" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "Checkbox type"
     And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
@@ -61,7 +61,7 @@ Feature: Admin add a listing fields
 
   @javascript
   Scenario: Admin adds Date custom field
-    When I follow "+ Add a new user field"
+    When I follow "+ Add a user field"
     And I select "Date" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "Area Date"
     And I fill in "custom_field[name_attributes][fi]" with "Talon Area"
