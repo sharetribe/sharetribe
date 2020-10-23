@@ -671,6 +671,13 @@ Rails.application.routes.draw do
         collection do
           get :check_availability
         end
+        member do
+          patch :create_domain_setup
+          patch :recheck_domain_setup
+          patch :reset_domain_setup
+          patch :confirm_domain_setup
+          patch :retry_domain_setup
+        end
       end
       resource :community_seo_settings, only: [:show, :update]
       resources :landing_page_versions do

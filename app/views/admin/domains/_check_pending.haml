@@ -1,0 +1,17 @@
+= render 'domain', presenter: @presenter
+
+.row
+  .col-12
+    %h3= t("admin.communities.domain.main_domain")
+    .domain_being_checked
+      %p
+        = t("admin.communities.domain.domain_being_checked")
+        %span.domain_name= @presenter.domain_checked
+
+.row
+  .col-12
+    %p
+      = t("admin.communities.domain.status")
+      %span.domain_checks_pending
+        = t("admin.communities.domain.checks_pending")
+      = t("admin.communities.domain.please_check_back")

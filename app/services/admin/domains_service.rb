@@ -17,8 +17,58 @@ class Admin::DomainsService
     !!plan.try(:[], :features).try(:[], :whitelabel)
   end
 
+  def domain_possible?
+    white_label? && !use_domain?
+  end
+
   def update
     community.ident = params[:community][:ident]&.downcase
     community.save
+  end
+
+  def create_domain_setup
+    return unless domain_possible?
+
+    domain = params.try(:[], :community).try(:[], :domain)
+    if domain.present?
+      ascii_domain = begin
+                       SimpleIDN.to_ascii(domain)
+                     rescue StandardError
+                       return
+                     end
+      s = DomainSetup.create(domain: ascii_domain.downcase,
+                             state: DomainSetup::CHECK_PENDING,
+                             community: community)
+      s if s&.persisted?
+    end
+  end
+
+  def recheck_domain_setup
+    return unless domain_possible?
+
+    community.domain_setup.recheck_setup!
+  end
+
+  def confirm_domain_setup
+    return unless domain_possible?
+
+    community.domain_setup.confirm_setup!
+  end
+
+  def retry_domain_setup
+    return unless domain_possible?
+
+    community.domain_setup.retry_setup!
+  end
+
+  def reset
+    return unless domain_possible?
+
+    if [DomainSetup::CHECK_FAILED,
+        DomainSetup::CHECK_PASSED,
+        DomainSetup::CHECK_PASSED_REDIRECT_WARNING].include?(community.domain_setup&.state)
+      community.domain_setup&.destroy
+      community.reload
+    end
   end
 end
