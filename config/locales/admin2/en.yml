@@ -312,7 +312,11 @@ en:
       new_field_type: 'New listing field type'
       edit_field_type: 'Edit the listing field "%{name}" (%{field_type})'
       delete_title: 'Delete the listing field "%{name}"'
+<<<<<<< HEAD
       delete_info_text: "Are you sure you want to delete the field `\"%{name}\" and all its data? You can't undo this action."
+=======
+      delete_info_text: "Are you sure you want to delete the field \"%{name}\" and all its data? You can't undo this action."
+>>>>>>> admin2-again-more-copy-improvements
       delete_listing_field: 'Delete the listing field'
       display_on_homepage: 'Use this field as a search filter on the homepage'
       make_mandatory: 'Make this field mandatory when creating or editing a listing'
@@ -381,7 +385,11 @@ en:
       successfully_deleted: 'Successfully deleted the order type "%{order_type}"'
       save_order_type: 'Add the order type'
       delete: 'Delete the order type'
+<<<<<<< HEAD
       delete_caption: 'Delete the order type: "%{order_type}"'
+=======
+      delete_caption: 'Delete the order type "%{order_type}"'
+>>>>>>> admin2-again-more-copy-improvements
       confirm_delete_simple_order_type: "Are you sure you want to delete this order type? You can't undo this action."
       per: 'Per'
       add_unit_title: '+ Add a custom pricing unit'
@@ -403,7 +411,11 @@ en:
         cannot_delete: "Can't delete order type"
         can_not_delete_only_one_in_categories: "You can't delete this order type because in the following categories, this order type is the only one in use: %{categories}"
         can_not_delete_last: "You can't delete this order type because it's the only one on your marketplace."
+<<<<<<< HEAD
         can_not_find_name: "Can't find the order type with the name \"%{name}\""
+=======
+        can_not_find_name: "Can't find the order type \"%{name}\""
+>>>>>>> admin2-again-more-copy-improvements
       units:
         piece: "Per piece"
         hour: "Per hour"
@@ -731,7 +743,11 @@ en:
           submit: 'Dispute the transaction'
         mark_as_refunded:
           title: 'Mark the transaction as refunded'
+<<<<<<< HEAD
           body: "Refunde the transaction #%{transaction}. You can't undo this action."
+=======
+          body: "Mark the transaction #%{transaction} as refunded. You can't undo this action."
+>>>>>>> admin2-again-more-copy-improvements
           submit: 'Mark as Refunded'
         dismiss_and_payout:
           title: 'Dismiss and payout the transaction'
