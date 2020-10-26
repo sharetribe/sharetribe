@@ -46,6 +46,9 @@ coverage/
 .env
 .session.vim
 
+# WTI real config file. See .wti.main and .wti.admin instead
+.wti
+
 # React on Rails
 npm-debug.log*
 node_modules

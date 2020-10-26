@@ -1,0 +1,21 @@
+# There are multiple WebTranslateIt for Go, this config file contains the kye for the
+# Go main interface translations
+api_key: proj_pub_sFyFJRPy8lu-r3AKvMcBEw
+
+# Optional: locales not to sync with WebTranslateIt.
+# Takes a string, a symbol, or an array of string or symbol.
+# More information here: https://github.com/AtelierConvivialite/webtranslateit/wiki
+# ignore_locales: 'en'
+
+# Or if you prefer a list of locales to sync with WebTranslateIt:
+# needed_locales: ["fi", "pl", "et", "zh", "nl", "sl", "en", "de", "cs", "sk-SK", "es", "fr", "ar", "ti", "he-IL", "lt", "lv", "sq-AL", "is", "ro", "it", "mk", "es-MX", "ca", "az-AZ", "crp", "hr", "ta-IN", "tr-TR", "zh-HK", "es-CL", "id", "hy-AM", "uk", "es-ES", "nb", "ms-MY", "el", "sw", "ru", "sr", "fr-CA", "en-AU", "zh-TW", "th-TH", "eo", "hi-IN", "ja", "hu", "sv", "bg", "en-NZ", "eu-ES", "mn", "ka", "pt-PT", "vi", "ab", "pt-BR", "da-DK", "en-GB", "ko", "bn-BD", "km-KH"]
+
+# Optional
+# before_pull: "echo 'some unix command'"   # Command executed before pulling files
+# after_pull:  "touch tmp/restart.txt"      # Command executed after pulling files
+#
+# before_push: "echo 'some unix command'"   # Command executed before pushing files
+# after_push:  "touch tmp/restart.txt"      # Command executed after pushing files
+
+# Silence SSL errors
+# silence_errors: true
