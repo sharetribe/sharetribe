@@ -687,6 +687,38 @@ pl:
         when_you_change_your_sharetribe_domain: "Gdy zmienisz swoją domenę Sharetribe, wszystkie linki URL Twojego serwisu zostaną automatycznie zmienione. Zostaniesz przekierowany do nowego adresu swojego serwisu. Twoi użytkownicy będą musieli się ponownie zalogować. Twoja poprzednia domena nie będzie połączona, ani nie będzie w żaden sposób przekierowywała do Twojej nowej domeny. Twoja stara domena będzie dostępna dla innych."
         would_you_like_to_proceed: "Chcesz kontynuować?"
         change: Zmień
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
       landing_pages:
         landing_pages: "Strona docelowa"
         info_1: "Strona docelowa jest prawdopodobnie najważniejszą stroną Twojego serwisu. Jest to pierwsza strona, którą zobaczą użytkownicy odwiedzający Twój serwis - trochę jak drzwi wejściowe do Twojego domu. Masz tylko kilka sekund, aby przekonać nowych użytkowników do przejrzenia Twojego serwisu. Strona docelowa musi być atrakcyjna i główny cel serwisu w niej zawarty powinien być jasny i przyciągający."

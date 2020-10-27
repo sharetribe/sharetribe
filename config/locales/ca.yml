@@ -677,6 +677,38 @@ ca:
         when_you_change_your_sharetribe_domain: "Quan canvieu el domini de Sharetribe, tots els vostres URL canviaran automàticament. Se us redirigirà a la nova adreça del vostre mercat. Vostè i els usuaris hauran de tornar a iniciar la sessió. El vostre domini anterior del mercat no serà en cap cas enllaçat ni redirigit al nou. El domini antic quedarà disponible per a que l’utilitzin altres."
         would_you_like_to_proceed: "Voleu continuar?"
         change: Canviar
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: "Domini principal"
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: "Comprovar domini"
+        domain_being_checked: "Comprovant domini:"
+        status: "Estat:"
+        checks_pending: "Comprovacions pendents:"
+        please_check_back: ~
+        checks_not_passed: "Comprovacions no passades!"
+        check_the_domain_again_info: "Assegureu-vos que els vostres registres DNS estan configurats correctament."
+        check_the_domain_again: "Comprovar el domini altre cop"
+        use_another_domain: "Utilitzar un altre domini"
+        checks_passed: "Comprovacions passades!"
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: "Comprovar un altre domini"
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
       landing_pages:
         landing_pages: "Pàgina de destinació"
         info_1: "És possible que la pàgina de destinació sigui la pàgina més important del vostre mercat. És la primera pàgina que veuen els visitants, com la porta principal de casa vostra. Només tens uns segons per convèncer els nous visitants que explorin el vostre lloc. La pàgina ha de ser atractiva i la vostra proposta de valor ha de ser clara i atractiva."
