@@ -30,10 +30,6 @@
       = render 'verified', user_defined_address: user_defined_address, disable: disable, hidden: waiting
       = render 'expired', user_defined_address: user_defined_address
       = render 'unverified', user_defined_address: user_defined_address
-    %section.content-card-terminal
-      = submit_tag t('admin2.save_changes'), class: %i[btn btn-primary]
 
-:javascript
-  $(function() {
-    $('#outgoing_email_form').validate();
-  });
+    %section.content-card-terminal#save_changes_button{style: ('display:none' if waiting)}
+      = submit_tag t('admin2.save_changes'), class: %i[btn btn-primary]
