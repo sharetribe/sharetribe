@@ -195,5 +195,21 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
   }
 }
 
+.loaderLargeRevert {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+  stroke-width: 3.5;
+  margin: 0 auto;
+}
+
+.loaderLargeRevert {
+  stroke: black;
+}
+
+.expired_email, .sent_notice, .unverified_email {
+  display: none;
+}
+
 textarea.attention {
   border: 1px solid #FF4E36; }

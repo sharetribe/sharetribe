@@ -119,8 +119,8 @@
           = link_to t('admin2.sidebar.emails.welcome_email'), admin2_emails_welcome_emails_path
         %li#automaticnewsletter{class: active_li('newsletters')}
           = link_to t('admin2.sidebar.emails.automatic_newsletter'), admin2_emails_newsletters_path
-        %li#customoutgoingaddress
-          %a{:href => 'custom-outgoing-address.php'} Custom outgoing address
+        %li#customoutgoingaddress{class: active_li('outgoing_emails')}
+          = link_to t('admin2.sidebar.emails.custom_outgoing_address'), admin2_emails_outgoing_emails_path
       / Search & Location
       - if FeatureFlagHelper.location_search_available
         %ul.category-title

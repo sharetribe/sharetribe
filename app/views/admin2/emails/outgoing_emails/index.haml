@@ -1,0 +1,35 @@
+- content_for :title do
+  = t('admin2.sidebar.emails.custom_outgoing_address')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.emails.custom_outgoing_address')
+
+- disable = show_branding_info || !can_set_sender_address
+.content-card-section-container
+  = form_tag post_sender_address_url, method: :post, class: 'content-card-section-form', id: :outgoing_email_form do
+    %section.content-card-section
+      %h2= t('admin2.outgoing_address.outgoing_email_settings')
+      - if user_defined_address.present?
+        = render 'expired_notice', resend_url: resend_url, user_defined_address: user_defined_address
+        = render 'unverified_notice', resend_url: resend_url, user_defined_address: user_defined_address
+        = render 'sent_notice', user_defined_address: user_defined_address
+      - if disable
+        %p.ingress
+          %svg{:height => "14", :style => "position: relative; top: -1px", :width => "14", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "none", "fill-rule" => "evenodd", :stroke => "#FF9F05", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
+              %path{:d => "M7 10a.375.375 0 100 .75.375.375 0 000-.75"}
+              %path{:d => "M12.813 10.432A1.774 1.774 0 0111.226 13H2.774a1.773 1.773 0 01-1.586-2.568l4.225-8.45a1.774 1.774 0 013.174 0l4.226 8.45zM7 7.75v-3"}
+          %strong
+            = t('admin2.outgoing_address.upgrading', url: admin_plan_path).html_safe
+      %p.ingress
+        = t('admin2.outgoing_address.info', url: 'https://help.sharetribe.com/en/articles/666096-how-to-define-and-edit-your-own-email-address-as-the-sender-of-all-outgoing-emails').html_safe
+      - waiting = user_defined_address && %i[none requested expired].include?(user_defined_address[:verification_status])
+      - if waiting
+        = render 'waiting', status_check_url: status_check_url, user_defined_address: user_defined_address
+      = render 'verified', user_defined_address: user_defined_address, disable: disable, hidden: waiting
+      = render 'expired', user_defined_address: user_defined_address
+      = render 'unverified', user_defined_address: user_defined_address
+
+    %section.content-card-terminal#save_changes_button{style: ('display:none' if waiting)}
+      = submit_tag t('admin2.save_changes'), class: %i[btn btn-primary]

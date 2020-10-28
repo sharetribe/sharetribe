@@ -80,7 +80,7 @@ module EmailService::Store::Address
 
   def update(community_id:, id:, name:)
     Maybe(MarketplaceSenderEmail.where(community_id: community_id, id: id).first)
-      .update(name:  name).or_else(nil)
+      .update(name: name).or_else(nil)
   end
 
   ## Privates

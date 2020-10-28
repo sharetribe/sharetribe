@@ -376,6 +376,12 @@ Rails.application.routes.draw do
 
       namespace :emails do
         resources :email_users, path: 'compose-email', only: %i[index create]
+        resources :outgoing_emails, path: 'custom-outgoing-address' do
+          collection do
+            get :check_email_status
+            post :resend_verification_email
+          end
+        end
         resources :welcome_emails, path: 'welcome-email', only: %i[index] do
           collection do
             patch :update_email
