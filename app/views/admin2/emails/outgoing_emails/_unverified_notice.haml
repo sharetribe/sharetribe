@@ -7,4 +7,7 @@
     %strong= t('admin2.outgoing_address.send_notice_email', email: user_defined_address[:email])
     %br
     - link = link_to t('admin2.outgoing_address.resend_verification_email'), resend_url, remote: true, method: :post
-    = t('admin2.outgoing_address.expired_notice_link', link: link).html_safe
+    = t('admin2.outgoing_address.send_notice_info_link', link: link).html_safe
+    %br
+    %br
+    = t('admin2.outgoing_address.send_notice_info_2')

@@ -13,3 +13,18 @@
   = text_field_tag :email, user_defined_address.try(:[], :email), placeholder: t('admin2.outgoing_address.sender_email_placeholder'), class: %i[form-control verified-class required], disabled: disable
   %small#senderEmail-help.form-text
     = t('admin2.outgoing_address.verified_info')
+
+:javascript
+  $(function(){
+    $.validator.addMethod('custom_email',
+      function(value, element) {
+          return /^([a-zA-Z0-9_.\-+])+\@(?!sharetribe\.com)(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,8})+$/.test(value);
+      },
+      "#{t('admin2.outgoing_address.invalid_email_address')}"
+    );
+  $('form#outgoing_email_form').validate({
+        rules: {
+          "email": {required: true, custom_email: true}
+        }
+    });
+  });
