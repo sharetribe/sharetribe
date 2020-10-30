@@ -677,6 +677,38 @@ fi:
         when_you_change_your_sharetribe_domain: "Kun vaihdat Sharetribe-domainiasi, kaikki URL-osoitteesi muuttuvat automaattisesti. Sinut viedään markkinapaikkasi uuteen osoitteeseen. Sinun ja käyttäjiesi tulee kirjautua uudelleen sisään. Vanha markkinapaikka-domainisi ei ole linkattu uuteen eikä uudelleenohjaa uudelle domainillesi millään tavalla. Vanha domain vapautuu muiden käytettäväksi."
         would_you_like_to_proceed: "Haluatko jatkaa?"
         change: Vaihda
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
       landing_pages:
         landing_pages: Landing-sivu
         info_1: "Landing-sivu on markkinapaikkasi mahdollisesti tärkein sivu. Se on vierailijoidesi ensiksi näkemä sivu, ikäänkuin etuovi taloosi. Sinulla on vain muutama sekunti aikaa vakuuttaa vierailija jäämään sivustollesi. Sivun tulee olla kutsuva ja kommunikoida sivustosi käyttäjille antama arvo selkeästi ja houkuttelevasti."

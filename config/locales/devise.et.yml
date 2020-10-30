@@ -51,7 +51,7 @@ et:
       failure: "Autoriseerimine %{kind} kaudu ebaõnnestus, sest \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Kinnitus liitumiseks %{service_name}"
+        subject: "Kinnitus liitumiseks platvormiga %{service_name}"
       reset_password_instructions:
         subject: "Salasõna uuendamise juhend"
       unlock_instructions:

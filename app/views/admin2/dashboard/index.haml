@@ -44,14 +44,14 @@
     %p= t('admin2.home.what_new')
     %ul
       %li
-        = link_to t('admin2.home.sharetribe_go_updates'), 'https://www.sharetribe.com/products/go/updates/', rel: :noopener, target: :_blank
+        = link_to t('admin2.home.sharetribe_go_updates'), 'https://www.sharetribe.com/products/go/updates/', class: %i[external-link], rel: :noopener, target: :_blank
 
 .dashboard-card.guide
   .guideImg
   .textWrapper
     %h2= t('admin2.home.free_and_practical')
     %p
-      = link_to t('admin2.home.read_on'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+      = link_to t('admin2.home.read_on'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', class: %i[external-link], rel: :noopener, target: :_blank
 
 .dashboard-card.academy
   %h2= t('admin2.home.block_1')
@@ -59,13 +59,13 @@
   %p= t('admin2.home.block_1_body_2')
   %ul
     %li
-      = link_to t('admin2.home.block_1_point_1'), 'https://www.sharetribe.com/academy/why-you-should-launch-your-marketplace-early/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+      = link_to t('admin2.home.block_1_point_1'), 'https://www.sharetribe.com/academy/why-you-should-launch-your-marketplace-early/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', class: %i[external-link], rel: :noopener, target: :_blank
     %li
-      = link_to t('admin2.home.block_1_point_2'), 'https://www.sharetribe.com/academy/how-to-launch-your-marketplace/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+      = link_to t('admin2.home.block_1_point_2'), 'https://www.sharetribe.com/academy/how-to-launch-your-marketplace/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', class: %i[external-link], rel: :noopener, target: :_blank
     %li
-      = link_to t('admin2.home.block_1_point_3'), 'https://www.sharetribe.com/academy/measure-your-success-key-marketplace-metrics/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+      = link_to t('admin2.home.block_1_point_3'), 'https://www.sharetribe.com/academy/measure-your-success-key-marketplace-metrics/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', class: %i[external-link], rel: :noopener, target: :_blank
   %p
-    = link_to t('admin2.home.block_1_point_4'), 'https://www.sharetribe.com/academy/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', rel: :noopener, target: :_blank
+    = link_to t('admin2.home.block_1_point_4'), 'https://www.sharetribe.com/academy/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', class: %i[external-link], rel: :noopener, target: :_blank
 
 .dashboard-card.gopro
   = render "block_#{@block}"
@@ -79,7 +79,7 @@
       %li
         = link_to t('admin2.home.chat_with_us'), '#', 'show-intercom': true
       %li
-        = link_to t('admin2.home.browse_sharetribe'), 'https://help.sharetribe.com/', rel: :noopener, target: :_blank
+        = link_to t('admin2.home.browse_sharetribe'), 'https://help.sharetribe.com/', rel: :noopener, target: :_blank, class: %i[external-link]
 
 .dashboard-postscript
   %small

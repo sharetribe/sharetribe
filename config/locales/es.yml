@@ -677,6 +677,38 @@ es:
         when_you_change_your_sharetribe_domain: "Cuando cambias tu dominio de Sharetribe, todas tus URL automáticamente cambian. Serás redirigido a la nueva dirección. Tus usuarios y tú tendrán que iniciar sesión nuevamente. Tu dominio anterior no estará conectado a tu nuevo dominio o hará redirección. Tu dominio viejo quedará disponible para otros usuarios."
         would_you_like_to_proceed: "¿Quieres continuar?"
         change: Cambiar
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
       landing_pages:
         landing_pages: "Página de inicio"
         info_1: "La página de inicio es quizás la página más importante de tu marketplace. Es la primera página que los visitantes ven- casi como la fachada de tu casa. Tienes tan sólo unos segundos para convencer a nuevos visitantes para que exploren tu sitio. La página necesita ser atractiva y tu propuesta clara y tentadora."

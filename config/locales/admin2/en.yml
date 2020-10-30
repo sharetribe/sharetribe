@@ -104,7 +104,7 @@ en:
       outgoing_email_settings: 'Outgoing email settings'
       resend_verification_email: 'Resend verification email'
       upgrading: 'To set your own email address as the sender and remove all Sharetribe branding from outgoing emails by <a href="%{url}">upgrading to the Pro plan or higher</a>.'
-      info: 'This name and email address is used for emails sent from your marketplace to the marketplace users. <a href="%{url}" target="_blank" >Learn more</a>.'
+      info: 'This name and email address is used for emails sent from your marketplace to the marketplace users. <a href="%{url}" class="external-link" target="_blank" >Learn more</a>.'
       expired_notice_email: 'The verification email sent to %{email} from Amazon Web Services has expired.'
       expired_notice_link: 'Please ask for a new one to verify your email address. %{link}.'
       send_notice_email: 'A verification email was sent to %{email} from Amazon Web Services.'
@@ -155,7 +155,7 @@ en:
         c_link: '› Learn more about Sharetribe Flex'
       block_3: 'Help!'
       block_3_body_1: "The support team's marketplace experts are here for you 7 days a week."
-      bottom_text: 'P.S. Have you listened to <a href="%{url}" rel="noopener" target="_blank">Two-sided: the marketplace podcast</a>?'
+      bottom_text: 'P.S. Have you listened to <a href="%{url}" class="external-link" rel="noopener" target="_blank">Two-sided: the marketplace podcast</a>?'
       browse_sharetribe: "› Browse Sharetribe Go's Help Center"
       day_to_day: 'Day-to-day:'
       transactions_conversations: 'Transactions & conversations:'
@@ -204,15 +204,15 @@ en:
       change_account_link: '%{url}.'
     stripe:
       info_header: 'Stripe'
-      info_text: "Commission is the service fee you charge for every payment users make through your marketplace. <a href='%{fee_url}' target='_blank'>Stripe's fees</a> will be deducted from the commission you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' target='_blank'> Learn more</a>."
+      info_text: "Commission is the service fee you charge for every payment users make through your marketplace. <a href='%{fee_url}' class=\"external-link\" target='_blank'>Stripe's fees</a> will be deducted from the commission you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' class=\"external-link\" target='_blank'> Learn more</a>."
       transaction_fee_settings: 'Stripe commission settings'
       configure_api_keys: 'Configure Stripe API Keys'
       set_stripe_fee_keys: 'To collect a commission using Stripe, you must first <a href="%{url}">configure your Stripe API keys</a>.'
       enable_stripe_fee_keys: 'To collect a commission using Stripe, you must <a href="%{url}">enable Stripe</a> again on your marketplace.'
       enable_first_stripe_fee_keys: 'To collect a commission using Stripe, you must first <a href="%{url}">enable Stripe</a> again on your marketplace.'
       disable_paypal: 'To collect a buyer commission using Stripe, you must first <a href="%{url}">disable PayPal</a>.'
-      how_to_get_publishable_key: '<a href="%{url}" target="_blank">How to get a Stripe Publishable Key?</a>'
-      how_to_get_secret_key: '<a href="%{url}" target="_blank">How to get a Stripe Secret Key?</a>'
+      how_to_get_publishable_key: '<a href="%{url}" class="external-link" target="_blank">How to get a Stripe Publishable Key?</a>'
+      how_to_get_secret_key: '<a href="%{url}" class="external-link" target="_blank">How to get a Stripe Secret Key?</a>'
       publishable_key_example: "For example: %{api_publishable_key_example}"
       secret_key_example: "For example: %{api_secret_key_example}"
       invalid_secret: "That doesn't look like a correct %{secret_key}"
@@ -243,7 +243,7 @@ en:
       need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
     transaction_size:
       info_header: 'Minimum listing price'
-      info_text: 'If the payment system is enabled in your marketplace, you need to define a minimum listing price: the smallest price a listing on your marketplace can have. <a href="%{url}" target="_blank">Learn more about the minimum listing price</a>.'
+      info_text: 'If the payment system is enabled in your marketplace, you need to define a minimum listing price: the smallest price a listing on your marketplace can have. <a href="%{url}" class="external-link" target="_blank">Learn more about the minimum listing price</a>.'
       minimum_transaction_size: 'Minimum listing price'
       transaction_fee: 'The minimum commission is currently set to %{fee}.'
       errors:
@@ -527,7 +527,7 @@ en:
       show_conversation: 'Conversation'
     email_users:
       compose_email: 'Compose email'
-      learn_segments: 'Learn more about the <a href="%{url}" target="_blank">user segments</a>.'
+      learn_segments: 'Learn more about the <a href="%{url}" class="external-link" target="_blank">user segments</a>.'
       receivers_languages: 'Language of the email receivers'
       any_language: 'Any language'
       subject: 'Email subject'
@@ -551,10 +551,10 @@ en:
           no_listing_no_payment: "Users who haven't posted a listing and haven't added their payment details"
     google_manager:
       info_text: "Using a tag manager such as Google Tag Manager (GTM) is a great way to manage and deploy snippets of code or tracking pixels on your website without having to modify the source code. GTM allows you to use more advanced Google Analytics features, such as goal conversions tracking."
-      info_text_2: "Sharetribe also relies on Google Tag Manager its own analytics. You should disable Sharetribe's analytics before enabling your tag manager for more accurate tracking. <a href='%{url}' target='_blank'>Learn more about configuring GTM for your Go marketplace</a>."
+      info_text_2: "Sharetribe also relies on Google Tag Manager its own analytics. You should disable Sharetribe's analytics before enabling your tag manager for more accurate tracking. <a href='%{url}' class='external-link' target='_blank'>Learn more about configuring GTM for your Go marketplace</a>."
     google_console:
       info_text: "Google Search Console offers tools and reports to help you measure your search traffic and performance and fix issues related to Google Search results."
-      info_text_2: "It's a good idea to add your website to Google Search Console. It takes only a few minutes with <a href='%{url}' target='_blank'>these instructions</a>."
+      info_text_2: "It's a good idea to add your website to Google Search Console. It takes only a few minutes with <a href='%{url}' class='external-link' target='_blank'>these instructions</a>."
     invitations:
       invite_new_users: 'Invite new users'
       from: 'From'
@@ -869,7 +869,7 @@ en:
       footer_enabling_info_text: "In trial and Hobby plans, the footer is Sharetribe-branded and can't be customized. In Pro plans and higher, you can customize the footer. The footer is displayed on all pages of your marketplace.
       <br>
       <br>
-      The footer gives your visitors more ways to access important pages on your marketplace and makes your brand more visible. You can select a dark or light footer style and add text, social media links, and a copyright text. <a href=\"%{url}\" target=\"_blank\">Learn more about the footer</a>."
+      The footer gives your visitors more ways to access important pages on your marketplace and makes your brand more visible. You can select a dark or light footer style and add text, social media links, and a copyright text. <a href=\"%{url}\" class='external-link' target=\"_blank\">Learn more about the footer</a>."
       plan_disabled: 'Would you like to configure your own own custom footer? <a href="%{url}" target="_blank">Upgrade to the Pro plan or higher</a>.'
       footer_style: 'Footer style'
       footer_links: 'Footer links'
@@ -899,21 +899,21 @@ en:
       link_title: 'Link title'
       all: 'Show all'
     custom_script:
-      info_text: "Custom script can be added inside the <head> tag for every page and used to insert custom CSS, JavaScript or HTML. <a href='%{url}' target='_blank'>Learn more about Custom script</a>."
+      info_text: "Custom script can be added inside the <head> tag for every page and used to insert custom CSS, JavaScript or HTML. <a href='%{url}' class='external-link' target='_blank'>Learn more about Custom script</a>."
       custom_head_script: 'CSS, JavaScript and/or HTML script'
       custom_head_script_placeholder: '<script src="https://example.com/customscript.js"></script>'
       custom_head_script_info_text: 'Note that future updates to Sharetribe Go features may render your script incompatible.'
     sharetribe:
-      info_text: "To improve its services and support, Sharetribe tracks marketplace users' activity. We will never collect personal data or share this information outside the Sharetribe team. <a href='%{url}' target='_blank'>Learn more</a>."
+      info_text: "To improve its services and support, Sharetribe tracks marketplace users' activity. We will never collect personal data or share this information outside the Sharetribe team. <a href='%{url}' class=\"external-link\" target='_blank'>Learn more</a>."
       end_user_analytics: "Allow Sharetribe to track users' activity in order to improve its services"
     google:
-      info_text: "Google Analytics helps you track your marketplace traffic. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}' target='_blank' >Learn more about the Google Analytics setup</a>."
+      info_text: "Google Analytics helps you track your marketplace traffic. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}' class='external-link' target='_blank' >Learn more about the Google Analytics setup</a>."
       google_analytics_key: 'Google Analytics tracking ID'
       google_analytics_key_placeholder: 'UA-12345678-9'
       google_analytics_key_info_text: 'Paste the tracking ID of your Google Analytics account here.'
     profile_pages:
       title: 'Meta tags for the profile pages'
-      title_info_text: "Meta tags define the title and description that are shown when a page on your site appears in a search engine's results page. Optimizing the meta tags for your most important pages is important for usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your site appears in a search engine's results page. Optimizing the meta tags for your most important pages is important for usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about meta tags</a>."
       profile_meta_title: 'Title meta tag'
       profile_meta_title_placeholder: 'Profile of {{user_display_name}} - {{marketplace_name}}'
       profile_meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}."
@@ -922,7 +922,7 @@ en:
       profile_meta_description_info_text: "The content of this tag is suggested to search engines and appears underneath the blue clickable links on search engines' results pages. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}."
     category_pages:
       title: 'Meta tags for the category pages'
-      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about meta tags</a>."
       category_meta_title: 'Title meta tag'
       category_meta_title_placeholder: '{{category_name}} - {{marketplace_name}}'
       category_meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{category_name}}."
@@ -931,7 +931,7 @@ en:
       category_meta_description_info_text: "The content of this tag is suggested to search engines and appears underneath the blue clickable links on search engines' results pages. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{category_name}}."
     listing_pages:
       title: 'Meta tags for the listing pages'
-      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about meta tags</a>."
       listing_meta_title: 'Title meta tag'
       listing_meta_title_placeholder: '{{listing_title}} - {{marketplace_name}}'
       listing_meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}."
@@ -940,7 +940,7 @@ en:
       listing_meta_description_info_text: "The content of this tag is suggested to search engines and appears underneath the blue clickable links on search engines' results pages. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}."
     search_pages:
       title: "Meta tags for your marketplace's search results pages"
-      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine's results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about meta tags</a>."
       search_meta_title: 'Title meta tag'
       search_meta_title_placeholder: 'Search results - {{marketplace_name}}'
       search_meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{keywords_searched}}, {{location_searched}}."
@@ -949,7 +949,7 @@ en:
       search_meta_description_info_text: "The content of this tag is suggested to search engines and appears underneath the blue clickable links on search engines' results pages. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{keywords_searched}}, {{location_searched}}."
     landing_pages:
       title: 'Meta tags for your homepage or Custom Landing Page'
-      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine’s results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" target=\"_blank\">Learn more about meta tags</a>."
+      title_info_text: "Meta tags define the title and description that are shown when a page on your marketplace appears in a search engine’s results page. Optimizing the meta tags for your most important pages improves usability and SEO (Search Engine Optimization). You can use variables to design the perfect tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about meta tags</a>."
       meta_title: 'Title meta tag'
       meta_title_placeholder: '{{marketplace_name}} - {{marketplace_slogan}}'
       meta_title_info_text: "The content of this tag is suggested to search engines and displayed on search engines' results pages as the clickable headline. You can use the following variables: {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}."
@@ -961,10 +961,10 @@ en:
       robots: 'Robots.txt'
       sitemap_info_private: 'As your marketplace is private, there is no sitemap.'
       robots_info_private: 'As your marketplace is private, there is no robots.txt.'
-      sitemap_info_text_1: 'A sitemap is an additional SEO feature that helps search engines crawl your site more intelligently and show the right page in the results for relevant searches. <a href="%{url}" target="_blank">Learn more about the XML Sitemap file</a>.'
-      sitemap_info_text_2: 'A sitemap file is automatically generated for your marketplace: it references up to 500 most recent listings on your website. You can access your sitemap at <a href="%{url}" target="_blank">%{url}</a>.'
-      robots_info_text_1: 'Robots.txt is a text file to help web robots (typically search engine robots) crawl your website efficiently. <a href="%{url}" target="_blank">Learn more about the robots.txt file</a>.'
-      robots_info_text_2: 'A robots.txt file is automatically generated for your marketplace. You can access your robots.txt at <a href="%{url}" target="_blank">%{url}</a>.'
+      sitemap_info_text_1: 'A sitemap is an additional SEO feature that helps search engines crawl your site more intelligently and show the right page in the results for relevant searches. <a href="%{url}" class="external-link" target="_blank">Learn more about the XML Sitemap file</a>.'
+      sitemap_info_text_2: 'A sitemap file is automatically generated for your marketplace: it references up to 500 most recent listings on your website. You can access your sitemap at <a href="%{url}" class="external-link" target="_blank">%{url}</a>.'
+      robots_info_text_1: 'Robots.txt is a text file to help web robots (typically search engine robots) crawl your website efficiently. <a href="%{url}" class="external-link" target="_blank">Learn more about the robots.txt file</a>.'
+      robots_info_text_2: 'A robots.txt file is automatically generated for your marketplace. You can access your robots.txt at <a href="%{url}" class="external-link" target="_blank">%{url}</a>.'
     twitter:
       twitter_settings: 'Twitter settings'
       twitter_handle: 'Twitter handle'
@@ -976,7 +976,7 @@ en:
       social_media_image: 'Social media image'
       social_media_tags: 'Social media tags'
       social_media_title: 'Title for social media'
-      social_media_title_info_text: 'This text is shown on the social media card when someone shares your marketplace on Facebook, Twitter, or LinkedIn. Preview your social media card <a href="%{fb_url}" target="_blank">for Facebook</a>, <a href="%{twitter_url}" target="_blank">for Twitter</a> and <a href="%{link_url}" target="_blank">for LinkedIn</a>.'
+      social_media_title_info_text: 'This text is shown on the social media card when someone shares your marketplace on Facebook, Twitter, or LinkedIn. Preview your social media card <a href="%{fb_url}" class="external-link" target="_blank">for Facebook</a>, <a href="%{twitter_url}" class="external-link" target="_blank">for Twitter</a> and <a href="%{link_url}" class="external-link" target="_blank">for LinkedIn</a>.'
       social_media_description: 'Description for social media'
     location:
       location_settings: 'Location settings'
@@ -1004,14 +1004,14 @@ en:
       country_info_text: 'Want to change the country of your marketplace? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
       currency_info_text: 'Want to change the currency of your marketplace? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
       currency: 'Currency'
-      support: 'Sharetribe Go offers PayPal and Stripe as payment gateways. Learn more about the countries and currencies <a href="%{paypal_url}" target="_blank">supported by PayPal</a> and <a href="%{stripe_url}" target="_blank">supported by Stripe</a>.'
+      support: 'Sharetribe Go offers PayPal and Stripe as payment gateways. Learn more about the countries and currencies <a href="%{paypal_url}" class="external-link" target="_blank">supported by PayPal</a> and <a href="%{stripe_url}" class="external-link" target="_blank">supported by Stripe</a>.'
       stripe_paypal_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>PayPal</strong> and <strong>Stripe</strong> can be configured as payment gateways in your marketplace."
       paypal_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>PayPal</strong> can be configured as the payment gateway in your marketplace."
       stripe_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, <strong>Stripe</strong> can be configured as the payment gateway in your marketplace."
       stripe_paypal_not_allowed: "With <strong>%{country_name}</strong> and <strong>%{currency}</strong> as your marketplace settings, there is unfortunately no payment gateways available for your marketplace."
     automatic_newsletter:
       send_automatic_newsletter: 'Send an automatic newsletter'
-      send_automatic_newsletter_info_text: 'Notify your users about new listings with a daily or weekly newsletter. Users can opt-out of the newsletter from their user settings. <a href=%{href} target="_blank">Learn more about the automatic newsletter</a>.'
+      send_automatic_newsletter_info_text: 'Notify your users about new listings with a daily or weekly newsletter. Users can opt-out of the newsletter from their user settings. <a href=%{href} class="external-link" target="_blank">Learn more about the automatic newsletter</a>.'
       automatic_newsletter_frequency: 'Automatic newsletter frequency'
       automatic_newsletter_frequency_info_text: 'Specify the default frequency of the automatic newsletter. Users can unsubscribe or change the frequency anytime from their user settings.'
       default_newsletter_frequency: 'Default automatic newsletter frequency'
@@ -1055,12 +1055,12 @@ en:
       signup_header: 'Signup information text'
       signup_info_text: 'This info text is shown to visitors on the sign up page. You can give the visitors instructions for signing up, information about where to get an invite, etc.'
       google: 'Google'
-      google_info_text: 'To enable Google Sign-In, you must create a Google project for your marketplace in the <a target="_blank" href="%{href}">Google Developers Console</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring Google Sign-In</a>.'
+      google_info_text: 'To enable Google Sign-In, you must create a Google project for your marketplace in the <a target="_blank" class="external-link" href="%{href}">Google Developers Console</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" class="external-link" href="%{href2}">See instructions for configuring Google Sign-In</a>.'
       google_connect_id: 'Google Client ID'
       google_connect_secret: 'Google Client secret'
       google_connect_enabled: 'Users can sign up and login with their Google account'
       facebook: 'Facebook'
-      facebook_info_text: 'To enable Facebook Login, you must create a Facebook application for your marketplace in the <a target="_blank" href="%{href}">Facebook Developers Dashboard</a>. You will get a generated App ID and App Secret. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring Facebook Login</a>.'
+      facebook_info_text: 'To enable Facebook Login, you must create a Facebook application for your marketplace in the <a target="_blank" class="external-link" href="%{href}">Facebook Developers Dashboard</a>. You will get a generated App ID and App Secret. Copy and paste them below. <a target="_blank" class="external-link" href="%{href2}">See instructions for configuring Facebook Login</a>.'
       facebook_connect_id: 'Facebook App ID'
       facebook_connect_secret: 'Facebook App Secret'
       facebook_connect_enabled: 'Users can sign up and log in with their Facebook account'
@@ -1068,10 +1068,10 @@ en:
       linkedin_connect_id: 'LinkedIn Client ID'
       linkedin_connect_secret: 'LinkedIn Client Secret'
       linkedin_connect_enabled: 'Users can sign up and login with their LinkedIn account'
-      linkedin_info_text: 'To enable LinkedIn Sign In, you must create a LinkedIn app for your marketplace in the <a target="_blank" href="%{href}">LinkedIn Developers Dashboard</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" href="%{href2}">See instructions for configuring LinkedIn Sign In</a>.'
+      linkedin_info_text: 'To enable LinkedIn Sign In, you must create a LinkedIn app for your marketplace in the <a target="_blank" class="external-link" href="%{href}">LinkedIn Developers Dashboard</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" class="external-link" href="%{href2}">See instructions for configuring LinkedIn Sign In</a>.'
     cover_photos:
       preview_homepage: 'Preview homepage'
-      description: "Don't have a cover picture on hand? You can find ready-made pictures and links to free and paid image banks <a href=\"%{href}\" target=\"_blank\">in the Go Help Center</a>."
+      description: "Don't have a cover picture on hand? You can find ready-made pictures and links to free and paid image banks <a href=\"%{href}\" class=\"external-link\" target=\"_blank\">in the Go Help Center</a>."
       cover_photo: 'Main cover photo'
       cover_photo_info_text: 'The main cover photo is shown on the homepage to users who are not logged in. Its dimensions should be 1920x450 pixels.'
       small_cover_photo: 'Small cover photo'

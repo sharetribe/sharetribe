@@ -263,7 +263,7 @@ et:
         you_will_be_redirected_to: "Pärast oma turu kustutamist suunatakse teid uuesti asukohta %{destination}. Te ei pääse oma turule enam ligi."
         delete_this_marketplace: "Kustutage see turg"
         payment_preferences: Maksesüsteem
-        pre_approved_listings: "Vaadake kõik kirjed enne avaldamist üle"
+        pre_approved_listings: "Vaata kõik kuulutused enne avaldamist üle"
         email_admins_about_new_transactions: "Saatke administraatoritele e-kiri alati, kui algab uus tehing"
       manage_members:
         manage_members: Kasutajad
@@ -677,6 +677,38 @@ et:
         when_you_change_your_sharetribe_domain: "Kui muudate oma Sharetribe'i domeeni, muutuvad kõik teie URL-id automaatselt. Teid suunatakse ümber oma uuele turu aadressile. Teie ja kasutajad peate uuesti sisse logima. Teie eelmist turundusdomeeni ei lingita ega suunata mingil viisil uuele domeenile. Vana domeen muutub teistele kasutamiseks kättesaadavaks."
         would_you_like_to_proceed: "Kas soovite jätkata?"
         change: Muuda
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
       landing_pages:
         landing_pages: Maandumisleht
         info_1: "Maandumisleht võib-olla teie turu kõige olulisem leht. See on esimene leht, mida külastajad näevad - nagu teie maja välisuks. Paari sekundi jooksul peaksite veenma külastajaid, et nad peaksid teie saiti külastama. Leht peab olema ahvatlev ja teie väärtuspakkumine peaks olema selge ja köitev."
@@ -944,7 +976,7 @@ et:
         email_content_placeholder: "Mida sooviskid oma kasutajatele kirjutada?"
         email_language: "Emaili saajate keel"
         any_language: "Mis tahes keel"
-        message_will_be_sent_only_to_people_with_this_language: "Email saadetakse ainult kasutajatele, kes on %{service_name} Sinu valitud keelega."
+        message_will_be_sent_only_to_people_with_this_language: "E-mail saadetakse ainult kasutajatele, kes on %{service_name} Sinu valitud keelega."
         email_sent: "E-mail saadetud."
         to_improve_email_deliverability: "E-posti liikumise kiirendamiseks luuakse e-posti teema automaatselt ja seda ei saa muuta."
         email_subject_text: "%{service_name} meeskonna uus sõnum"
@@ -1341,7 +1373,7 @@ et:
     new:
       message: Sõnum
       message_to: "Sinu teade %{author_name}"
-      optional_message_to: "Valikuline sõnum %{author_name}"
+      optional_message_to: "Valikuline sõnum kasutajale %{author_name}"
       send_message: "Saada teade"
       send: Saada
       this_message_is_private: "See sõnum on Sinu ja %{person}  vahel privaatne. %{person} teavitatakse sellest sõnumist e-posti teel."
@@ -1533,7 +1565,7 @@ et:
       or_paste_link: "Alternatiivina võid kopeerida alloleva llingi oma brauseri aadressiribale."
     confirmation_instructions_v2:
       headline: "liitumiseks %{service_name}, kinnita oma e-posti aadress."
-      need_to_confirm: "Konto %{service_name} lõpuni täitmiseks kinnitage oma e-posti aadress. See on lihtne - klõpsake lihtsalt allpool olevat nuppu!"
+      need_to_confirm: "%{service_name} konto lõpuni täitmiseks kinnita oma e-posti aadress. See on lihtne - klõpsa allpool olevat nuppu!"
       confirmation_link_text: "Kinnita %{email}"
     common:
       hey: "Tere, %{name}!"
@@ -1580,12 +1612,12 @@ et:
       has_commented_your_listing_in_kassi: "%{author} on kommenteerinud '%{listing}'."
       view_comment: "Vaata kommentaari"
       you_have_a_new_comment: "%{author} kommenteeris Sinu kuulutust %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} kommenteeris kuulutust, mida järgid saidil %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} kommenteeris kuulutust, mida jälgid lehel %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} on kommenteerinud kuulutust '%{listing}', mida Sa jälgid %{service_name}."
     new_message:
       view_message: "Vaata teadet"
-      has_sent_you_a_message_in_kassi: "%{sender} on saatnud Sulle sõnumi. Mine %{service_name}, et vastata."
-      you_have_a_new_message: "Sulle on tulnud uus sõnum kasutajalt %{sender_name} keskkonnas%{service_name}"
+      has_sent_you_a_message_in_kassi: "%{sender} on saatnud Sulle sõnumi. Mine lehele %{service_name}, et vastata."
+      you_have_a_new_message: "Sulle on tulnud uus sõnum kasutajalt %{sender_name} keskkonnas %{service_name}"
     new_message_v2:
       headline: "sulle on sõnum!"
       reply: "Vajuta siia, et vastata kasutajale %{sender}"
@@ -1609,7 +1641,7 @@ et:
       quantity: "Kogus:"
       you_have_received_new_payment: "%{payer_full_name} on Sulle tasunud <b>%{payment_sum}</b> <b>%{listing_title}</b> eest. Siin on Sinu kviitung."
       stripe:
-        you_have_received_new_payment: "<b>%{listing_title} </b> eest on tasunud summa <b>%{payment_sum} </b>, mille on maksnud %{payer_full_name}. Raha hoiab %{service_name} kuni tellimus märgitakse täidetuks. Siin on sinu kviitung."
+        you_have_received_new_payment: "<b>%{listing_title} </b> eest on tasunud summa <b>%{payment_sum} </b>, mille on maksnud %{payer_full_name}. Raha hoiab %{service_name} kuni tellimus märgitakse täidetuks. Siin on Sinu kviitung."
     payment_receipt_to_seller_v2:
       headline: "%{payer_name} on teile maksnud %{payment_sum} %{listing_link}."
       main_text_stripe: "%{service_name} hoiab raha kinni kuni ostja märgib tellimuse täidetuks."
@@ -1671,7 +1703,7 @@ et:
       added_offer: "%{name_link} lisas kulutuse:"
       added_request: "%{name_link} lisas kuulutuse:"
       added_listing: "%{name_link} lisas kuulutuse:"
-      update_mail_title: "%{title_link} uuendus"
+      update_mail_title: "%{title_link} uudised"
       title_link_text: "%{community_name}"
       intro_paragraph: "Siin mõned sündmused %{community_link} viimase %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
@@ -1679,10 +1711,10 @@ et:
       settings_link_text: "Muuda oma e-maii seadeid siin"
       unsubscribe_link_text: "tellimusest loobumine"
     community_updates_v2:
-      headline: "vaadake viimaseid tegevusi saidil %{service_name}"
+      headline: "vaata viimaseid tegevusi platvormil %{service_name}"
       intro_paragraph:
-        one: "Siin on sündmus, mis juhtus lehel %{service_name} viimase päeva jooksul."
-        other: "Siin on mõned olulisemad sündmused, mis juhtusid saidil %{service_name} viimase %{count} päeva jooksul."
+        one: "Siin on sündmused, mis juhtusid lehel %{service_name} viimase päeva jooksul."
+        other: "Siin on mõned olulisemad sündmused, mis juhtusid lehel %{service_name} viimase %{count} päeva jooksul."
     newsletter:
       hi: "Tere, %{name}!"
       newest_offers: "Mida inimesed hetkel teistele pakuvad"
@@ -1746,12 +1778,12 @@ et:
     listing_submited_for_review:
       subject: "Uus kuulutus ülevaatamiseks: \"%{listing_title}\" %{author_name} in %{community}"
       there_is_a_new_listing_to_review: "Ülevaatamiseks on kasutajalt %{author_name} uus  kirje: \"%{listing_title}\". Peate selle pakkumise heaks kiitma või tagasi lükkama."
-      review_the_listing: "Vaadake uus kuulutus üle"
+      review_the_listing: "Vaata uus kuulutus üle"
       this_is_automatic_message: "See on automaatne teade, mis saadetakse saidi %{community} administraatoritele."
     listing_approved:
       subject: "Meeskond %{community} aktsepteeris sinu nimekirja \"%{listing_title}\""
       listing_has_been_approved: "Head uudised! %{community} meeskond on teie nimekirja \"%{listing_title}\" üle vaadanud ja heaks kiitnud. See on avaldatud."
-      view_the_listing: "Vaadake nimekirja"
+      view_the_listing: "Vaata kuulutust"
     listing_rejected:
       subject: "%{community} meeskond lükkas tagasi teie kirje \"%{listing_title}\""
       listing_has_been_rejected: "Kahjuks lükkas %{community} meeskond teie kirje \"%{listing_title}\" pärast selle põhjalikku ülevaatamist tagasi. Saate %{contact_link} lisateabe saamiseks või oma nimekirja redigeerimiseks ja uue ülevaatuse jaoks esitamiseks."
@@ -1777,7 +1809,7 @@ et:
       sum: "Summa:"
       starter: Alustaja
       provider: "Müüja:"
-      view_transaction: "Vaadake tehingut"
+      view_transaction: "Vaata tehingut"
     transaction_cancel_flow:
       the_order_about: "Tellimusest %{listing_title}"
       you_can_contact_the_marketplace_team: "Kui teil on veel probleeme, võite võtta ühendust %{service_name} meeskonnaga."
@@ -1793,7 +1825,7 @@ et:
       contact_the_marketplace_team: "võta ühendust %{service_name} meeskonnaga"
       you_must_now_decide: "Nüüd peate otsustama, kas tagasimakse toimub või kui loobute vaidlusest. Saate %{learn_more_link}."
       learn_more_about: "rohkem lisateavet selle kohta, mida nüüd teha"
-      review_the_transaction: "Vaadake tehing üle"
+      review_the_transaction: "Vaata tehing üle"
     transaction_refunded:
       subject: "Tellimus märgitakse tagastatuks - %{service_name} meeskond kiitis %{buyer} vaidluse heaks"
       marketplace_team_has_approved_the_cancellation: "%{service_name} meeskond kiitis %{transaction_link} vaidluse heaks ja märkis makse tagastatuks."
@@ -1969,7 +2001,7 @@ et:
     grid_item:
       processing_uploaded_image: "(Üleslaetud pilti töödeldakse ...)"
     index:
-      no_listings_with_your_search_criteria: "Kahjuks ei leitud Sinu otsingukriteeriumidele ühtegi sobivat kuulutust. Proovige teisi otsingusõnu?"
+      no_listings_with_your_search_criteria: "Kahjuks ei leitud Sinu otsingukriteeriumitele ühtegi sobivat kuulutust. Proovi palun teisi otsingusõnu."
       no_listings_notification: "Kuulutusi pole. %{add_listing_link}"
       add_listing_link_text: "Lisa uus kuulutus"
       open_listing: "aktiivne kuulutus"
@@ -2144,7 +2176,7 @@ et:
       community_updated: "Andmed uuendatud"
       community_update_failed: "Andmete uuendamine nurjus."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Sinu konto on edukalt loodud. Nüüd pead veel oma e-posti aadressi kinnitama."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Tänan, et liitusid %{service_name} . Nüüd pead kinnitama veel vaid oma e-maili aadressi."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Tänan, et liitusid %{service_name} . Nüüd pead kinnitama veel vaid oma emaili aadressi."
       comment_cannot_be_empty: "Kommentaari lahter ei saa olla tühi"
       comment_sent: "Kommentaar saadetud"
       confirmation_link_is_wrong_or_used: "Kinnituslink on juba kasutatud või muul viisil katki. Proovi sisse logida või saada tagasisidet, kui probleem püsib."
@@ -2237,10 +2269,10 @@ et:
       you_must_log_in_to_invite_new_users: "Uute kasutajate kutsumiseks on vaja sisse logida %{service_name}"
       you_must_log_in_to_send_a_comment: "Uue kommentaari kirjutamiseks on vaja sisse logida"
       you_must_log_in_to_send_a_message: "Teate saatmiseks teisele kasutajale on vaja %{service_name} sisse logida"
-      you_must_log_in_to_do_a_transaction: "Tehingu sooritamiseks peate sisse logima %{service_name}."
+      you_must_log_in_to_do_a_transaction: "Tehingu sooritamiseks pead HeyHorsy platvormile sisse logima %{service_name}."
       you_must_log_in_to_view_this_content: "Selle sisu vaatamiseks on vaja sisse logida"
       you_must_log_in_to_view_this_page: "Sisu nägemiseks pead sisse logima"
-      you_must_log_in_to_view_your_inbox: "Postkasti sisu vaatamiseks on vaja %{service_name} sisse logida"
+      you_must_log_in_to_view_your_inbox: "Postkasti sisu vaatamiseks on vaja lehele %{service_name} sisse logida"
       you_must_log_in_to_view_your_settings: "Oma seadete vaatamiseks on vaja %{service_name} sisse logida"
       you_must_log_in_to_add_news_item: "Artikli lisamiseks pead %{service_name} sisse logima"
       you_must_log_in_to_change_profile_settings: "Profiili sätete muutmiseks pead sisse logima %{service_name}"
@@ -2568,7 +2600,7 @@ et:
       night: öö
       nights: ööd
       invalid_parameters: "Uue tehingu kehtetud väärtused"
-      select_delivery_method: "Peaksite valima kättetoimetamisviisi"
+      select_delivery_method: "Peaksid valima kättetoimetamisviisi"
     transaction_agreement_checkbox:
       read_more: Vaade
     stripe_payment:
@@ -2802,10 +2834,10 @@ et:
       your_current_email_is: "Sinu e-mail on %{email}."
       change_email: Muuda
       confirm_your_email: "Palun kinnita oma e-maili aadress."
-      account_confirmation_instructions: "Peagi saad e-maili koos lingiga oma e-maili aadressi kinnitamiseks. Ära unustage kontrollida oma rämpsposti kausta! Pärast oma aadressi kinnitamist saad liituda %{service_name}."
+      account_confirmation_instructions: "Peagi saad e-maili koos lingiga oma e-maili aadressi kinnitamiseks. Ära unusta kontrollida oma rämpsposti kausta! Pärast oma aadressi kinnitamist saad liituda %{service_name}."
       account_confirmation_instructions_title_admin: "Kinnita oma e-maili aadress"
       before_full_access_you_need_to_confirm_email: "Enne kui saame teile oma turule täieliku juurdepääsu anda, peame tegema veel ühe asja: kinnitage oma e-posti aadress."
-      before_confirmation_only_access_admin_dashboard: "Enne kinnitamist pääsete juurde vaid saidile %{admin_dashboard_link}."
+      before_confirmation_only_access_admin_dashboard: "Enne kinnitamist pääsed juurde vaid lehele %{admin_dashboard_link}."
       admin_dashboard_link_text: "administraatori paneel"
       account_confirmation_instructions_admin: "Oleksid pidanud saama e-mailile %{email_address} kinnituslingi. Kui Sa ei näe seda, kontrolli oma rämpsposti kausta või klõpsa e-kirja uuesti saatmiseks allolevat nuppu. Kui kiri on kohale jõudnud, ava oma aadressi kinnitamiseks lisatud link, peale seda saad oma turule täieliku juurdepääsu. Kui vajad abi, ära kõhkle %{support_link}."
       contact_support_link_text: "võtke ühendust Sharetribe'i toega"
@@ -3166,7 +3198,7 @@ et:
     card_not_stored: "Stripe töötleb Sinu makse turvaliselt. %{service_name} ei salvesta Sinu krediit- või deebetkaardi andmeid."
     missing_payment: "Sinu konto pole seadistatud raha vastuvõtmiseks, seega ostjad ei saa Sulle raha kanda. Makse eelistuste seadistamiseks külasta %{settings_link}"
     stripe_bank_connected: "Pangakonto üksikasjad on edukalt konfigureeritud!"
-    stripe_can_accept: "Nüüd olete kõik vajaliku teinud, et pangakontole laekuks raha"
+    stripe_can_accept: "Nüüd oled kõik vajaliku teinud, et pangakontole laekuks raha."
     stripe_credit_card: Krediitkaart
     paypal: PayPal
     paypal_connected: "PayPali konto on edukalt ühendatud!"
@@ -3177,7 +3209,7 @@ et:
     stripe_account_restricted_soon: "Online-makseid teie kontole piiratakse varsti."
     stripe_account_restricted_soon_info: "Makseteenuse pakkujale lisateabe saamiseks peaksite oma pangakonto üksikasju muutma."
     stripe_account_pending_verification: "Konto üksikasjad on edukalt salvestatud. Konto kinnituse ootamine makseteenuse pakkujalt."
-    stripe_account_pending_verification_info: "Vaadake hiljem uuesti, et veenduda, kas kõik on korras."
+    stripe_account_pending_verification_info: "Vaata hiljem uuesti, et veenduda, kas kõik on korras."
     form_new:
       need_info: "Raha saatmiseks vajame Sinu kohta teavet"
       select_country: "Vali riik..."
@@ -3201,7 +3233,7 @@ et:
       tos_link: "Väljamakse üksikasjade lisamisel nõustud %{stripe_link}."
       tos_link_title: "Stripe ühendatud konto leping"
       save_details: "Salvestage üksikasjad"
-      edit: "Muutke üksikasju"
+      edit: "Muuda üksikasju"
       cancel: Tühista
       gender: Sugu
       phone_number: Telefoninumber

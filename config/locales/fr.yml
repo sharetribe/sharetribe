@@ -263,7 +263,7 @@ fr:
         you_will_be_redirected_to: "Une fois que vous aurez supprimé votre place de marché vous serez redirigé vers %{destination}. Vous ne pourrez plus accéder à votre place de marché."
         delete_this_marketplace: "Supprimer cette place de marché"
         payment_preferences: "Système de paiements"
-        pre_approved_listings: "Vérifier toutes les annonces avant qu'elles ne soient publiées"
+        pre_approved_listings: "Vérifier toutes les annonces avant qu'elles soient publiées"
         email_admins_about_new_transactions: "Envoyer un email aux administrateurs à chaque fois qu'il y a une nouvelle transaction"
       manage_members:
         manage_members: Utilisateurs
@@ -677,6 +677,38 @@ fr:
         when_you_change_your_sharetribe_domain: "Lorsque vous changez votre domaine Sharetribe, toutes vos URLs seront automatiquement modifiées. Vous serez redirigé vers la nouvelle adresse de votre place de marché. Vous et vos utilisateurs devrez vous connecter de nouveau. L'ancien domaine de votre place de marché ne sera pas du tout lié ou redirigé vers le nouveau. L'ancien domaine sera rendu disponible pour quiconque souhaite l'utiliser."
         would_you_like_to_proceed: "Voulez-vous continuer ?"
         change: Changer
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
       landing_pages:
         landing_pages: "Page d'accueil"
         info_1: "La page d'accueil est peut être la page la plus importante de votre place de marché. C'est la première page que vos visiteurs voient, un peu comme la porte d'entrée de votre maison. Vous n'avez que quelques secondes pour convaincre les nouveaux visiteurs qu'ils devraient parcourir votre site. Cette page doit être attirante et votre proposition claire et attractive."
@@ -3130,6 +3162,10 @@ fr:
         zero: transaction
         one: transaction
         other: transactions
+      listing:
+        zero: annonce
+        one: annonce
+        other: annonces
     previous_label: "&#8592; Précédent"
     next_label: "Suivant &#8594;"
     page_gap: "&hellip;"

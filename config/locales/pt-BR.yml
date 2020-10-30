@@ -506,7 +506,7 @@ pt-BR:
           paypal:
             free: ~
             pending: ~
-            preauthorized: ~
+            preauthorized: Pré-autorizado
             accepted: ~
             rejected: ~
             paid: ~
@@ -520,7 +520,7 @@ pt-BR:
           stripe:
             free: ~
             pending: ~
-            preauthorized: ~
+            preauthorized: Pré-autorizado
             accepted: ~
             rejected: ~
             paid: ~
@@ -677,6 +677,38 @@ pt-BR:
         when_you_change_your_sharetribe_domain: ~
         would_you_like_to_proceed: ~
         change: ~
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
@@ -1325,9 +1357,9 @@ pt-BR:
       payment_preauthorized: "Pagamento autorizado: %{sum}"
       payment_preauthorized_wo_sum: ~
       stripe:
-        held_payment: ~
+        held_payment: "O pedido foi aceito.O pagamento para %{sum} foi retido por %{service_name} até que o pedido esteja setado como concluído."
         held_payment_wo_sum: ~
-        confirmed_request: ~
+        confirmed_request: "O pedido foi setado como concluído. O pagamento foi transferido para a conta bancária de %{author_name} ou será transferido em breve."
       canceled_the_order: ~
       marked_as_refunded: ~
       dismissed_the_cancellation: ~
@@ -1405,7 +1437,7 @@ pt-BR:
           unknown_reason: "O pagamento está pendente. Conecte-se na sua conta PayPal para ver mais detalhes."
           verify: "Aguardando você verificar sua conta PayPal"
       stripe:
-        waiting_confirmation_from_requester: ~
+        waiting_confirmation_from_requester: "Aguardando por %{requester_name} setar o pedido como concluído. Uma vez que o pedido é setado como concluído, o pagamento será realizado em sua conta bancária."
       order_canceled: ~
       waiting_for_marketplace_review: ~
       marketplace_notified: ~
@@ -1531,7 +1563,7 @@ pt-BR:
       confirmation_link_text: ~
     common:
       hey: "Oi %{name}"
-      hi: ~
+      hi: "Oi %{name},"
       kassi_team: "Equipe %{service_name}"
       thanks: "Obrigado,"
       dont_want_to_receive_these_emails: "Você deseja receber e-mails?"
@@ -1569,7 +1601,7 @@ pt-BR:
       join_now: "Entrar agora"
       invitation_code: "Código do convite : %{code}"
     invitation_to_kassi_v2:
-      headline: ~
+      headline: Olá!
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} comentou seu anúncio '%{listing}'."
       view_comment: "Ver comentário"
@@ -1578,11 +1610,11 @@ pt-BR:
       has_commented_listing_you_follow_in_kassi: "%{author} comentou o anúncio '%{listing}' que você segue no %{service_name}."
     new_message:
       view_message: "Ver mensagem"
-      has_sent_you_a_message_in_kassi: ~
+      has_sent_you_a_message_in_kassi: "%{sender} enviou uma mensagem para você. Vá para %{service_name} para responder."
       you_have_a_new_message: ~
     new_message_v2:
       headline: ~
-      reply: ~
+      reply: "Click aqui para responder para %{sender}"
     new_payment:
       new_payment: "Você recebeu um novo pagamento"
       price_per_unit_type: "Preço por %{unit_type}"
@@ -1698,7 +1730,7 @@ pt-BR:
       if_you_do_not_accept: "Se você rejeitar o pedido ou não o aceitar nesse prazo, a transação será automaticamente cancelada, %{requester} não será cobrado e você não receberá o pagamento."
       click_here_to_reply: "Clique aqui para responder ao pedido"
     transaction_preauthorized_v2:
-      headline: ~
+      headline: "%{requester} está interessado e autorizou o pagamento de %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Não esqueça de aceitar o pedido de %{requester} sobre o anúncio %{listing_title}"
       remember_to_accept: "Não esqueça de aceitar o pedido de %{requester} pelo anúncio %{listing_title} para receber o pagamento. %{requester} já pagou por esse anúncio."
