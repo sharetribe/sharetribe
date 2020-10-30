@@ -26,8 +26,8 @@
             = link_to t('admin2.sidebar.general.domain'), admin_domain_path
           %li#privacy-mobile{class: active_li('privacy')}
             = link_to t('admin2.sidebar.general.privacy'), admin2_general_privacy_index_path
-          %li#staticcontent-mobile
-            %a{:href => 'static-content.php'} Static content
+          %li#staticcontent-mobile{class: active_li('static_content')}
+            = link_to t('admin2.sidebar.general.static_content'), admin2_general_static_content_index_path
           %li#adminnotifications-mobile{class: active_li('admin_notifications')}
             = link_to t('admin2.sidebar.general.admin_notifications'), admin2_general_admin_notifications_path
         / Design
