@@ -77,6 +77,7 @@ fr:
         email_users: "Écrire un email"
         automatic_newsletter: "Newsletter automatique"
         welcome_email: "Email de bienvenue"
+        custom_outgoing_address: "Adresse email de l'expéditeur"
       search_location:
         search: Recherche
         location: Localisation
@@ -99,9 +100,39 @@ fr:
         experimental: "Nouvelles fonctionnalités"
         custom_script: "Script personnalisé"
         delete_marketplace: "Suppression de la place de marché"
+    outgoing_address:
+      outgoing_email_settings: "Paramètres de l'adresse email de l'expéditeur"
+      resend_verification_email: "Renvoyer l'email de vérification"
+      upgrading: "Pour configurer votre propre adresse email comme l'expéditeur et supprimer toutes mentions de Sharetribe des emails, <a href=\"%{url}\">passez à l'offre Pro ou supérieure</a>."
+      info: "Ce nom et cette adresse email sont utilisés pour les emails envoyés depuis votre place de marché aux utilisateurs. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\" >En savoir plus</a>."
+      expired_notice_email: "L'email de vérification envoyé à %{email} par Amazon Web Services a expiré."
+      expired_notice_link: "Veuillez en demander un nouveau pour vérifier votre adresse email. %{link}."
+      send_notice_email: "Un email de vérification a été envoyé à %{email} par Amazon Web Services."
+      send_notice_info: "N'oubliez pas de vérifier votre dossier spam. Veuillez suivre les instructions dans l'email pour vérifier votre adresse email."
+      send_notice_info_link: "N'oubliez pas de vérifier votre dossier spam. Veuillez suivre les instructions dans l'email pour vérifier votre adresse email. %{link}"
+      send_notice_info_2: "Tant que vous n'avez pas vérifié votre adresse email, la configuration précédente est utilisée."
+      sent: "Envoyé !"
+      name: "Nom d'expéditeur"
+      verified_info: "L'adresse email depuis laquelle les utilisateurs de la place de marché recevront les emails."
+      name_info: "Le nom affiché aux utilisateurs comme expéditeur."
+      sender_email_placeholder: expediteur-email@example.com
+      sender_name_placeholder: "Nom de l'expéditeur"
+      email: "Adresse email de l'expéditeur"
+      email_verified: "Adresse email de l'expéditeur • "
+      verified: Vérifiée
+      expired: Expirée
+      unverified: "Non vérifiée"
+      successfully_saved_name: "Le nom de l'expéditeur a bien été mis à jour"
+      successfully_saved: "L'adresse email de l'expéditeur a bien été mise à jour. L'email de vérification va être envoyé sous peu."
+      invalid_email_error: "Format incorrect pour l'adresse email '%{email}'"
+      invalid_email_address: "Veuillez entrer une adresse email valide"
+      invalid_email_domain_read_more_link: "Lisez cet article sur le Help Center pour plus d'informations."
+      invalid_email_domain: "L'adresse email '%{email}' utilise un fournisseur email non supporté : '%{domain}'. %{invalid_email_domain_read_more_link}"
+      unknown_error: "Quelque chose ne s'est pas passé correctement"
+      not_in_plan: "Non disponible avec votre offre actuelle"
     home:
       title: "Bonjour %{name}, bienvenue sur %{marketplace_name} !"
-      info_text: "Votre place de marché est disponible sur <a href='%{url}'>%{url}</a>. <br> Ici, dans votre panneau d'administration, vous pouvez gérer toute l'activités et les paramètres de votre place de marché. Si vous avez besoin d'aide, vous pouvez nous contacter depuis le tchat dans le coin en bas à droite."
+      info_text: "Votre place de marché est disponible sur <a href='%{url}'>%{url}</a>. <br> Ici, dans votre panneau d'administration, vous pouvez gérer toute l'activité et les paramètres de votre place de marché. Si vous avez besoin d'aide, vous pouvez nous contacter depuis le tchat dans le coin en bas à droite."
       quicklinks: "Liens rapides"
       block_1: "Marketplace Academy"
       block_1_body_1: "Des articles sur construire, lancer et faire croître votre place de marché."
@@ -125,7 +156,7 @@ fr:
       bottom_text: "P.S. Avez-vous écouté <a href=\"%{url}\" class=\"external-link\" rel=\"noopener\" target=\"_blank\">Two-sided : the marketplace podcast</a>?"
       browse_sharetribe: "› Parcourir le Help Center sur Sharetribe Go"
       day_to_day: "Au quotidien :"
-      transactions_conversations: "Transactions et conversations"
+      transactions_conversations: "Transactions et conversations :"
       chat_with_us: "› Nous envoyer un message (en anglais)"
       online_payments: "Paiements en lignes :"
       what_new: "Nouveautés :"
@@ -393,6 +424,7 @@ fr:
       category_parent: "Catégorie parente"
       no_parent: "Aucune parente"
       order_types: "Types de transaction"
+      add_more: "Vous pouvez ajouter d'autres types depuis la page \"Types de transactions\"."
       delete_category_btn: "Supprimer la catégorie"
       delete_category: "Supprimer la catégorie \"%{category}\""
       delete_category_info_text: "Qu'elle devrait être la nouvelle catégorie ?"
@@ -864,7 +896,7 @@ fr:
       info_text: "À Sharetribe, pour améliorer nos services et notre support, nous suivons l'activité des utilisateurs des places de marché. Nous ne collectons aucune données personnelles et ne partageons pas ces informations en dehors de l'équipe Sharetribe. <a href='%{url}' class=\"external-link\" target='_blank'>En savoir plus</a>."
       end_user_analytics: "Permettre à Sharetribe de suivre l'activité des utilisateurs pour améliorer nos services"
     google:
-      info_text: "Google Analytics vous permet de suivre le trafic utilisateurs sur votre place de marché. Vous pourrez visualiser et analyser de nombreuses données : nombre de visiteurs, pages vues, temps passé sur votre place de marché, sources du trafic, etc. <a href='%{url}' class=\"external-link\" target='_blank' >En savoir plus sur la configuration Google Analytics</a>."
+      info_text: "Google Analytics vous permet de suivre le trafic utilisateurs sur votre place de marché. Vous pourrez visualiser et analyser de nombreuses données : nombre de visiteurs, pages vues, temps passé sur votre place de marché, sources du trafic, etc. <a href='%{url}' class='external-link' target='_blank' >En savoir plus sur la configuration Google Analytics</a>."
       google_analytics_key: "Code de suivi Google Analytics"
       google_analytics_key_placeholder: UA-12345678-9
       google_analytics_key_info_text: "Copier ici le code de suivi de votre compte Google Analytics"
@@ -961,7 +993,7 @@ fr:
       country_info_text: "Souhaitez-vous modifier le pays de votre place de marché ? <a href='#' show-intercom=true >Contactez l'équipe Sharetribe</a>."
       currency_info_text: "Souhaitez-vous changer la devise de votre place de marché ? <a href='#' show-intercom=true >Contactez l'équipe Sharetribe</a>."
       currency: Devise
-      support: "Sharetribe Go offre PayPal et Stripe comme plateforme de paiements. En savoir plus sur les pays et devises <a href=\"%{paypal_url}\" class=\"external-link\" target=\"_blank\">supportés par PayPal</a> et <a href=\"%{stripe_url}\" class=\"external-link\" target=\"_blank\"> supportés par Stripe</a>."
+      support: "Sharetribe Go offre PayPal et Stripe comme plateforme de paiements. En savoir plus sur les pays et devises <a href=\"%{paypal_url}\" class=\"external-link\" target=\"_blank\">supportés par PayPal</a> et <a href=\"%{stripe_url}\" class=\"external-link\" target=\"_blank\">supportés par Stripe</a>."
       stripe_paypal_allowed: "Avec <strong>%{country_name}</strong> et <strong>%{currency}</strong> comme paramètres de votre place de marché, <strong>PayPal</strong> et <strong>Stripe</strong> peuvent être configurés comme plateformes de paiements sur votre place de marché."
       paypal_allowed: "Avec <strong>%{country_name}</strong> et <strong>%{currency}</strong> comme paramètres de votre place de marché, <strong>PayPal</strong> peut être configuré comme plateforme de paiements sur votre place de marché."
       stripe_allowed: "Avec <strong>%{country_name}</strong> et <strong>%{currency}</strong> comme paramètres de votre place de marché, <strong>Stripe</strong> peut être configuré comme plateforme de paiements sur votre place de marché."
@@ -1012,7 +1044,7 @@ fr:
       signup_header: "Texte d'information lors de l'inscription"
       signup_info_text: "Ce texte d'information est affiché aux visiteurs sur la page d'inscription. Vous pouvez présenter à ces visiteurs des instructions pour s'inscrire, des informations pour obtenir une invitation, etc."
       google: Google
-      google_info_text: "Pour activer Google Sign-In, vous devez créer un projet Google pour votre place de marché depuis la <a target=\"_blank\" href=\"%{href}\">Google Developers Console</a>. Vous obtiendrez un ID et une clé secrète. Copiez et collez les ci-dessous. <a target=\"_blank\" class=\"external-link\" href=\"%{href2}\">Lire les instructions pour configurer Google Sign-In</a>."
+      google_info_text: "Pour activer Google Sign-In, vous devez créer un projet Google pour votre place de marché depuis la <a target=\"_blank\" class=\"external-link\" href=\"%{href}\">Google Developers Console</a>. Vous obtiendrez un ID et une clé secrète. Copiez et collez les ci-dessous. <a target=\"_blank\" class=\"external-link\" href=\"%{href2}\">Lire les instructions pour configurer Google Sign-In</a>."
       google_connect_id: "Google Client ID"
       google_connect_secret: "Google Client Secret"
       google_connect_enabled: "Les utilisateurs peuvent s'inscrire et se connecter avec leur compte Google"

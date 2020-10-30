@@ -77,6 +77,7 @@ fi:
         email_users: ~
         automatic_newsletter: ~
         welcome_email: ~
+        custom_outgoing_address: ~
       search_location:
         search: ~
         location: ~
@@ -99,6 +100,36 @@ fi:
         experimental: ~
         custom_script: ~
         delete_marketplace: ~
+    outgoing_address:
+      outgoing_email_settings: ~
+      resend_verification_email: ~
+      upgrading: ~
+      info: ~
+      expired_notice_email: ~
+      expired_notice_link: ~
+      send_notice_email: ~
+      send_notice_info: ~
+      send_notice_info_link: ~
+      send_notice_info_2: ~
+      sent: ~
+      name: ~
+      verified_info: ~
+      name_info: ~
+      sender_email_placeholder: ~
+      sender_name_placeholder: ~
+      email: ~
+      email_verified: ~
+      verified: ~
+      expired: ~
+      unverified: ~
+      successfully_saved_name: ~
+      successfully_saved: ~
+      invalid_email_error: ~
+      invalid_email_address: ~
+      invalid_email_domain_read_more_link: ~
+      invalid_email_domain: ~
+      unknown_error: ~
+      not_in_plan: ~
     home:
       title: ~
       info_text: ~
@@ -390,6 +421,7 @@ fi:
       category_parent: ~
       no_parent: ~
       order_types: ~
+      add_more: ~
       delete_category_btn: ~
       delete_category: ~
       delete_category_info_text: ~
