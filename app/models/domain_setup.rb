@@ -45,18 +45,23 @@ class DomainSetup < ApplicationRecord
 
   def recheck_setup!
     if [CHECK_PASSED_REDIRECT_WARNING, CHECK_FAILED].include?(state)
+      self.error = nil
       check_pending!
     end
   end
 
   def confirm_setup!
     if [CHECK_PASSED_REDIRECT_WARNING, CHECK_PASSED].include?(state)
+      self.error = nil
       setup_pending!
     end
   end
 
   def retry_setup!
-    setup_pending! if state == SETUP_FAILED
+    if state == SETUP_FAILED
+      self.error = nil
+      setup_pending!
+    end
   end
 
   def domain_is_globally_unique?
