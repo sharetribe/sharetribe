@@ -122,7 +122,7 @@ fr:
         c_link: "› En savoir plus sur Sharetribe Flex"
       block_3: "À l'aide !"
       block_3_body_1: "Les experts en place de marché de l'équipe support sont disponibles 7 jours sur 7."
-      bottom_text: "P.S. Avez-vous écouté <a href=\"%{url}\" rel=\"noopener\" target=\"_blank\">Two-sided : the marketplace podcast</a>?"
+      bottom_text: "P.S. Avez-vous écouté <a href=\"%{url}\" class=\"external-link\" rel=\"noopener\" target=\"_blank\">Two-sided : the marketplace podcast</a>?"
       browse_sharetribe: "› Parcourir le Help Center sur Sharetribe Go"
       day_to_day: "Au quotidien :"
       transactions_conversations: "Transactions et conversations"
@@ -171,15 +171,15 @@ fr:
       change_account_link: "%{url}."
     stripe:
       info_header: Stripe
-      info_text: "La commission est les frais de service que vous prélevez sur chaque paiement que vos utilisateurs réalisent sur votre place de marché. <a href='%{fee_url}' target='_blank'>Les frais Stripe</a> seront déduits de la commission que vous facturez. Pour les transactions gérées par Stripe, le transfert de l'argent au vendeur est retenu jusqu'à ce que la transaction soit marquée comme réalisée. <a href='%{more_url}' target='_blank'>En savoir plus</a>."
+      info_text: "La commission est les frais de service que vous prélevez sur chaque paiement que vos utilisateurs réalisent sur votre place de marché. <a href='%{fee_url}' class=\"external-link\" target='_blank'>Les frais Stripe</a> seront déduits de la commission que vous facturez. Pour les transactions gérées par Stripe, le transfert de l'argent au vendeur est retenu jusqu'à ce que la transaction soit marquée comme réalisée. <a href='%{more_url}' class=\"external-link\" target='_blank'>En savoir plus</a>."
       transaction_fee_settings: "Paramètres de commission avec Stripe"
       configure_api_keys: "Configurer les clés API Stripe"
       set_stripe_fee_keys: "Pour prélever une commission avec Stripe, vous devez d'abord <a href=\"%{url}\">configurer vos clés API Stripe</a>."
       enable_stripe_fee_keys: "Pour prélever une commission avec Stripe, vous devez <a href=\"%{url}\">réactiver Stripe</a> sur votre place de marché."
       enable_first_stripe_fee_keys: "Pour prélever une commission avec Stripe, vous devez d'abord <a href=\"%{url}\">activer Stripe</a> sur votre place de marché."
       disable_paypal: "Pour prélever une commission sur l'achat avec Stripe, vous devez d'abord <a href=\"%{url}\">désactiver PayPal</a>."
-      how_to_get_publishable_key: "<a href=\"%{url}\" target=\"_blank\">Comment obtenir une Stripe Publishable Key?</a>"
-      how_to_get_secret_key: "<a href=\"%{url}\" target=\"_blank\">Comment obtenir une Stripe Secret Key?</a>"
+      how_to_get_publishable_key: "<a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Comment obtenir une Stripe Publishable Key?</a>"
+      how_to_get_secret_key: "<a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Comment obtenir une Stripe Secret Key?</a>"
       publishable_key_example: "Par exemple : %{api_publishable_key_example}"
       secret_key_example: "Par example : %{api_secret_key_example}"
       invalid_secret: "Cela ne semble pas être une %{secret_key} correcte"
@@ -210,7 +210,7 @@ fr:
       need_to_change_secret_key: "Pour changer votre Secret Key Stripe, <a href='#' show-intercom=true >contactez l'équipe Sharetribe</a>."
     transaction_size:
       info_header: "Prix minimum d'annonce"
-      info_text: "Si le système de paiements est activé dans votre place de marché, vous devez définir un prix minimum d'annonce: le prix le plus bas auquel doit être une annonce sur votre place de marché. <a href=\"%{url}\" target=\"_blank\">En savoir plus sur le prix minimum d'annonce</a>."
+      info_text: "Si le système de paiements est activé dans votre place de marché, vous devez définir un prix minimum d'annonce: le prix le plus bas auquel doit être une annonce sur votre place de marché. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur le prix minimum d'annonce</a>."
       minimum_transaction_size: "Prix minimum d'annonce"
       transaction_fee: "La commission minimum est actuellement de %{fee}."
       errors:
@@ -494,7 +494,7 @@ fr:
       show_conversation: Conversation
     email_users:
       compose_email: "Écrire un email"
-      learn_segments: "En savoir plus sur <a href=\"%{url}\" target=\"_blank\">les segments utilisateurs</a>."
+      learn_segments: "En savoir plus sur <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">les segments utilisateurs</a>."
       receivers_languages: "Langue des destinataires de l'email"
       any_language: "Toutes les langues"
       subject: "Objet de l'email"
@@ -518,10 +518,10 @@ fr:
           no_listing_no_payment: "Utilisateurs qui n'ont pas posté d'annonce et qui n'ont pas ajouté leurs informations de paiement"
     google_manager:
       info_text: "Utiliser un gestionnaire de tags tel que Google Tag Manager (GTM) est une excellente solution pour gérer et déployer des morceaux de code ou des codes de suivis sur votre site sans avoir à en modifier le code source. GTM vous permet d'utiliser des fonctionnalités avancée de Google Analytics, comme le suivi des objectifs de conversions."
-      info_text_2: "Sharetribe utilise également Google Tag Manager pour ses propres analyses. Vous devriez désactiver les analyses Sharetribe avant d'activer votre gestionnaire de tags. <a href='%{url}' target='_blank'>En savoir plus sur la configuration de GTM pour votre place de marché</a>."
+      info_text_2: "Sharetribe utilise également Google Tag Manager pour ses propres analyses. Vous devriez désactiver les analyses Sharetribe avant d'activer votre gestionnaire de tags. <a href='%{url}' class='external-link' target='_blank'>En savoir plus sur la configuration de GTM pour votre place de marché</a>."
     google_console:
       info_text: "Google Search Console propose des outils et rapports pour vous aider à mesurer votre trafic et performances de recherche ainsi que de régler des problèmes liés aux résultats de recherches sur Google."
-      info_text_2: "C'est une bonne idée d'ajouter votre site à Google Search Console. Cela ne prend que quelques minutes grâce à <a href='%{url}' target='_blank'>ces instructions</a>."
+      info_text_2: "C'est une bonne idée d'ajouter votre site à Google Search Console. Cela ne prend que quelques minutes grâce à <a href='%{url}' class='external-link' target='_blank'>ces instructions</a>."
     invitations:
       invite_new_users: "Inviter de nouveaux utilisateurs"
       from: De
@@ -826,7 +826,7 @@ fr:
     footer:
       footer_enabling: "Activer le pied de page"
       footer_enabling_field: "Activer le pied de page sur toutes les pages"
-      footer_enabling_info_text: "Durant la période d'essai ou avec l'offre Hobby, le pied de page affiche le nom Sharetribe et ne peut être personnalisé. Avec les offres Pro et supérieures, vous pouvez personnaliser le pied de page. Le pied de page est affiché sur toutes les pages de votre place de marché. <br><br> Le pied de page donne aux visiteurs des raccourcies vers les pages importantes de votre place de marché et rend votre marque plus visible. Vous pouvez sélectionner un style sombre ou clair et ajouter du texts, des liens vers des réseaux sociaux et un copyright. <a href=\"%{url}\" target=\"_blank\">En savoir plus sur le pied de page</a>."
+      footer_enabling_info_text: "Durant la période d'essai ou avec l'offre Hobby, le pied de page affiche le nom Sharetribe et ne peut être personnalisé. Avec les offres Pro et supérieures, vous pouvez personnaliser le pied de page. Le pied de page est affiché sur toutes les pages de votre place de marché. <br><br> Le pied de page donne aux visiteurs des raccourcies vers les pages importantes de votre place de marché et rend votre marque plus visible. Vous pouvez sélectionner un style sombre ou clair et ajouter du texts, des liens vers des réseaux sociaux et un copyright. <a href=\"%{url}\" class='external-link' target=\"_blank\">En savoir plus sur le pied de page</a>."
       plan_disabled: "Aimeriez-vous configurer votre propre pied de page ? <a href=\"%{url}\" target=\"_blank\">Passez à l'offre Pro ou supérieure</a>."
       footer_style: "Style du pied de page"
       footer_links: "Liens du pied de page"
@@ -856,21 +856,21 @@ fr:
       link_title: "Libellé du lien"
       all: "Tout afficher"
     custom_script:
-      info_text: "Du script personnalisé peut être ajouté au tag <head> de chaque page et être utilisé pour insérer du code CSS, JavaScript ou HTML. <a href='%{url}' target='_blank'>En savoir plus sur le script personnalisé</a>."
+      info_text: "Du script personnalisé peut être ajouté au tag <head> de chaque page et être utilisé pour insérer du code CSS, JavaScript ou HTML. <a href='%{url}' class='external-link' target='_blank'>En savoir plus sur le script personnalisé</a>."
       custom_head_script: "CSS, JavaScript et/ou script HTML"
       custom_head_script_placeholder: "<script src=\"https://example.com/customscript.js\"></script>"
       custom_head_script_info_text: "Notez que de future mises à jour de Sharetribe Go pourraient rendre incompatible votre script."
     sharetribe:
-      info_text: "À Sharetribe, pour améliorer nos services et notre support, nous suivons l'activité des utilisateurs des places de marché. Nous ne collectons aucune données personnelles et ne partageons pas ces informations en dehors de l'équipe Sharetribe. <a href='%{url}' target='_blank'>En savoir plus</a>."
+      info_text: "À Sharetribe, pour améliorer nos services et notre support, nous suivons l'activité des utilisateurs des places de marché. Nous ne collectons aucune données personnelles et ne partageons pas ces informations en dehors de l'équipe Sharetribe. <a href='%{url}' class=\"external-link\" target='_blank'>En savoir plus</a>."
       end_user_analytics: "Permettre à Sharetribe de suivre l'activité des utilisateurs pour améliorer nos services"
     google:
-      info_text: "Google Analytics vous permet de suivre le trafic utilisateurs sur votre place de marché. Vous pourrez visualiser et analyser de nombreuses données : nombre de visiteurs, pages vues, temps passé sur votre place de marché, sources du trafic, etc. <a href='%{url}' target='_blank' >En savoir plus sur la configuration Google Analytics</a>."
+      info_text: "Google Analytics vous permet de suivre le trafic utilisateurs sur votre place de marché. Vous pourrez visualiser et analyser de nombreuses données : nombre de visiteurs, pages vues, temps passé sur votre place de marché, sources du trafic, etc. <a href='%{url}' class=\"external-link\" target='_blank' >En savoir plus sur la configuration Google Analytics</a>."
       google_analytics_key: "Code de suivi Google Analytics"
       google_analytics_key_placeholder: UA-12345678-9
       google_analytics_key_info_text: "Copier ici le code de suivi de votre compte Google Analytics"
     profile_pages:
       title: "Meta tags pour les pages de profils"
-      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" target=\"_blank\">En savoir plus sur les meta tags</a>."
+      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       profile_meta_title: "Meta tag pour le titre"
       profile_meta_title_placeholder: "Profil de {{user_display_name}} - {{marketplace_name}}"
       profile_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}."
@@ -879,7 +879,7 @@ fr:
       profile_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}."
     category_pages:
       title: "Meta tags pour les pages de catégories"
-      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" target=\"_blank\">En savoir plus sur les meta tags</a>."
+      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       category_meta_title: "Meta tag pour le titre"
       category_meta_title_placeholder: "{{category_name}} - {{marketplace_name}}"
       category_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{category_name}}."
@@ -888,7 +888,7 @@ fr:
       category_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{category_name}}."
     listing_pages:
       title: "Meta tags pour les pages d'annonces"
-      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" target=\"_blank\">En savoir plus sur les meta tags</a>."
+      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       listing_meta_title: "Meta tag pour le titre"
       listing_meta_title_placeholder: "{{listing_title}} - {{marketplace_name}}"
       listing_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}."
@@ -897,7 +897,7 @@ fr:
       listing_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}."
     search_pages:
       title: "Meta tags pour les pages de résultats de recherche sur votre place de marché"
-      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" target=\"_blank\">En savoir plus sur les meta tags</a>."
+      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       search_meta_title: "Meta tag pour le titre"
       search_meta_title_placeholder: "Résultats de la recherche - {{marketplace_name}}"
       search_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{keywords_searched}}, {{location_searched}}."
@@ -906,7 +906,7 @@ fr:
       search_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{keywords_searched}}, {{location_searched}}."
     landing_pages:
       title: "Meta tags pour la page d'accueil ou la page d'accueil personnalisée"
-      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" target=\"_blank\">En savoir plus sur les meta tags</a>."
+      title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       meta_title: "Meta tag pour le titre"
       meta_title_placeholder: "{{marketplace_name}} - {{marketplace_slogan}}"
       meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}."
@@ -918,10 +918,10 @@ fr:
       robots: Robots.txt
       sitemap_info_private: "Puisque votre place de marché est privée, il n'y a pas de sitemap."
       robots_info_private: "Puisque votre place de marché est privée, il n'y a pas de robots.txt."
-      sitemap_info_text_1: "Un sitemap est une fonctionnalité SEO qui aide les moteurs de recherche à parcourir votre site plus intelligemment et à afficher dans leurs résultats la bonne page pour une recherche donnée. <a href=\"%{url}\" target=\"_blank\">En savoir plus sur le fichier XML sitemap</a>."
-      sitemap_info_text_2: "Un fichier sitemap est généré automatiquement pour votre place de marché : il référence les 500 annonces les plus récentes sur votre site. Vous pouvez accéder à votre sitemap sur <a href=\"%{url}\" target=\"_blank\">%{url}</a>."
-      robots_info_text_1: "Un robots.txt est un fichier texte qui aide les robots web (principalement ceux des moteurs de recherche) à parcourir votre site efficacement. <a href=\"%{url}\" target=\"_blank\">En savoir plus sur le fichier robots.txt</a>."
-      robots_info_text_2: "Un fichier robots.txt est généré automatiquement pour votre place de marché. Vous pouvez accéder à votre robots.txt sur <a href=\"%{url}\" target=\"_blank\">%{url}</a>."
+      sitemap_info_text_1: "Un sitemap est une fonctionnalité SEO qui aide les moteurs de recherche à parcourir votre site plus intelligemment et à afficher dans leurs résultats la bonne page pour une recherche donnée. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur le fichier XML sitemap</a>."
+      sitemap_info_text_2: "Un fichier sitemap est généré automatiquement pour votre place de marché : il référence les 500 annonces les plus récentes sur votre site. Vous pouvez accéder à votre sitemap sur <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">%{url}</a>."
+      robots_info_text_1: "Un robots.txt est un fichier texte qui aide les robots web (principalement ceux des moteurs de recherche) à parcourir votre site efficacement. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur le fichier robots.txt</a>."
+      robots_info_text_2: "Un fichier robots.txt est généré automatiquement pour votre place de marché. Vous pouvez accéder à votre robots.txt sur <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">%{url}</a>."
     twitter:
       twitter_settings: "Paramètres Twitter"
       twitter_handle: "Nom Twitter"
@@ -933,7 +933,7 @@ fr:
       social_media_image: "Image pour les réseaux sociaux"
       social_media_tags: "Tags pour les réseaux sociaux"
       social_media_title: "Titre sur les réseaux sociaux"
-      social_media_title_info_text: "Ce texte est affiché lors du partage de votre place de marché sur Facebook, Twitter ou LinkedIn. Prévisualisez votre partage <a href=\"%{fb_url}\" target=\"_blank\">pour Facebook</a>, <a href=\"%{twitter_url}\" target=\"_blank\">pour Twitter</a> et <a href=\"%{link_url}\" target=\"_blank\">pour LinkedIn</a>."
+      social_media_title_info_text: "Ce texte est affiché lors du partage de votre place de marché sur Facebook, Twitter ou LinkedIn. Prévisualisez votre partage <a href=\"%{fb_url}\" class=\"external-link\" target=\"_blank\">pour Facebook</a>, <a href=\"%{twitter_url}\" class=\"external-link\" target=\"_blank\">pour Twitter</a> et <a href=\"%{link_url}\" class=\"external-link\" target=\"_blank\">pour LinkedIn</a>."
       social_media_description: "Description pour les réseaux sociaux"
     location:
       location_settings: "Paramètres de localisation"
@@ -961,14 +961,14 @@ fr:
       country_info_text: "Souhaitez-vous modifier le pays de votre place de marché ? <a href='#' show-intercom=true >Contactez l'équipe Sharetribe</a>."
       currency_info_text: "Souhaitez-vous changer la devise de votre place de marché ? <a href='#' show-intercom=true >Contactez l'équipe Sharetribe</a>."
       currency: Devise
-      support: "Sharetribe Go offre PayPal et Stripe comme plateforme de paiements. En savoir plus sur les pays et devises <a href=\"%{paypal_url}\" target=\"_blank\">supportés par PayPal</a> et <a href=\"%{stripe_url}\" target=\"_blank\"> supportés par Stripe</a>."
+      support: "Sharetribe Go offre PayPal et Stripe comme plateforme de paiements. En savoir plus sur les pays et devises <a href=\"%{paypal_url}\" class=\"external-link\" target=\"_blank\">supportés par PayPal</a> et <a href=\"%{stripe_url}\" class=\"external-link\" target=\"_blank\"> supportés par Stripe</a>."
       stripe_paypal_allowed: "Avec <strong>%{country_name}</strong> et <strong>%{currency}</strong> comme paramètres de votre place de marché, <strong>PayPal</strong> et <strong>Stripe</strong> peuvent être configurés comme plateformes de paiements sur votre place de marché."
       paypal_allowed: "Avec <strong>%{country_name}</strong> et <strong>%{currency}</strong> comme paramètres de votre place de marché, <strong>PayPal</strong> peut être configuré comme plateforme de paiements sur votre place de marché."
       stripe_allowed: "Avec <strong>%{country_name}</strong> et <strong>%{currency}</strong> comme paramètres de votre place de marché, <strong>Stripe</strong> peut être configuré comme plateforme de paiements sur votre place de marché."
       stripe_paypal_not_allowed: "Avec <strong>%{country_name}</strong> et <strong>%{currency}</strong> comme paramètres de votre place de marché, il n'y a hélas aucune plateforme de paiements disponible pour votre place de marché."
     automatic_newsletter:
       send_automatic_newsletter: "Envoyez une newsletter automatique"
-      send_automatic_newsletter_info_text: "Annoncez à vos utilisateurs les nouvelles annonces avec une newsletter quotidienne ou hebdomadaire. Les utilisateurs peut se désinscrire de la newsletter depuis les paramètres de leur compte. <a href=%{href} target=\"_blank\">En savoir plus sur la newsletter automatique</a>."
+      send_automatic_newsletter_info_text: "Annoncez à vos utilisateurs les nouvelles annonces avec une newsletter quotidienne ou hebdomadaire. Les utilisateurs peut se désinscrire de la newsletter depuis les paramètres de leur compte. <a href=%{href} class=\"external-link\" target=\"_blank\">En savoir plus sur la newsletter automatique</a>."
       automatic_newsletter_frequency: "Fréquence de la newsletter automatique"
       automatic_newsletter_frequency_info_text: "Définissez la fréquence par défaut de la newsletter automatique. Les utilisateurs peuvent se désabonner ou changer la fréquence à tout moment depuis leurs paramètres utilisateur."
       default_newsletter_frequency: "Fréquence par défaut de la newsletter automatique"
@@ -1012,12 +1012,12 @@ fr:
       signup_header: "Texte d'information lors de l'inscription"
       signup_info_text: "Ce texte d'information est affiché aux visiteurs sur la page d'inscription. Vous pouvez présenter à ces visiteurs des instructions pour s'inscrire, des informations pour obtenir une invitation, etc."
       google: Google
-      google_info_text: "Pour activer Google Sign-In, vous devez créer un projet Google pour votre place de marché depuis la <a target=\"_blank\" href=\"%{href}\">Google Developers Console</a>. Vous obtiendrez un ID et une clé secrète. Copiez et collez les ci-dessous. <a target=\"_blank\" href=\"%{href2}\">Lire les instructions pour configurer Google Sign-In</a>."
+      google_info_text: "Pour activer Google Sign-In, vous devez créer un projet Google pour votre place de marché depuis la <a target=\"_blank\" href=\"%{href}\">Google Developers Console</a>. Vous obtiendrez un ID et une clé secrète. Copiez et collez les ci-dessous. <a target=\"_blank\" class=\"external-link\" href=\"%{href2}\">Lire les instructions pour configurer Google Sign-In</a>."
       google_connect_id: "Google Client ID"
       google_connect_secret: "Google Client Secret"
       google_connect_enabled: "Les utilisateurs peuvent s'inscrire et se connecter avec leur compte Google"
       facebook: Facebook
-      facebook_info_text: "Pour activer Facebook Login, vous devez créer une application Facebook pour votre place de marché depuis le <a target=\"_blank\" href=\"%{href}\">Facebook Developers Dashboard</a>. Vous obtiendrez une App ID et une App Secret. Copiez et collez les ci-dessous. <a target=\"_blank\" href=\"%{href2}\">Lire les instructions pour configurer Facebook Login</a>."
+      facebook_info_text: "Pour activer Facebook Login, vous devez créer une application Facebook pour votre place de marché depuis le <a target=\"_blank\" class=\"external-link\" href=\"%{href}\">Facebook Developers Dashboard</a>. Vous obtiendrez une App ID et une App Secret. Copiez et collez les ci-dessous. <a target=\"_blank\" class=\"external-link\" href=\"%{href2}\">Lire les instructions pour configurer Facebook Login</a>."
       facebook_connect_id: "Facebook App ID"
       facebook_connect_secret: "Facebook App Secret"
       facebook_connect_enabled: "Les utilisateurs peuvent s'inscrire et se connecter avec leur compte Facebook"
@@ -1025,10 +1025,10 @@ fr:
       linkedin_connect_id: "LinkedIn Client ID"
       linkedin_connect_secret: "LinkedIn Client Secret"
       linkedin_connect_enabled: "Les utilisateurs peuvent s'inscrire et se connecter avec leur compte LinkedIn"
-      linkedin_info_text: "Pour activer LinkedIn Sign In, vous devez créer une app LinkedIn pour votre place de marché depuis le <a target=\"_blank\" href=\"%{href}\">LinkedIn Developers Dashboard</a>. Vous obtiendrez un ID et une clé secrète. Copiez et collez les ci-dessous. <a target=\"_blank\" href=\"%{href2}\">Lire les instructions pour configurer LinkedIn Sign In</a>."
+      linkedin_info_text: "Pour activer LinkedIn Sign In, vous devez créer une app LinkedIn pour votre place de marché depuis le <a target=\"_blank\" class=\"external-link\" href=\"%{href}\">LinkedIn Developers Dashboard</a>. Vous obtiendrez un ID et une clé secrète. Copiez et collez les ci-dessous. <a target=\"_blank\" class=\"external-link\" href=\"%{href2}\">Lire les instructions pour configurer LinkedIn Sign In</a>."
     cover_photos:
       preview_homepage: "Prévisualiser la page d'accueil"
-      description: "Vous n'avez pas de photo de couverture sous la main ? Vous pouvez retrouver des photos toutes prêtes ainsi que des liens vers des banques d'images gratuites et payantes <a href=\"%{href}\" target=\"_blank\">depuis le Help Center Go</a>."
+      description: "Vous n'avez pas de photo de couverture sous la main ? Vous pouvez retrouver des photos toutes prêtes ainsi que des liens vers des banques d'images gratuites et payantes <a href=\"%{href}\" class=\"external-link\" target=\"_blank\">depuis le Help Center Go</a>."
       cover_photo: "Photo de couverture principale"
       cover_photo_info_text: "La photo de couverture principale est affichée sur la page d'accueil pour les utilisateurs qui ne sont pas connectés. Ses dimensions doivent être de 1920x450 pixels."
       small_cover_photo: "Petite photo de couverture"

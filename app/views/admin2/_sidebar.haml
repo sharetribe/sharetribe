@@ -7,10 +7,19 @@
       / Dashboard
       %ul.category-title
         %li#dashboard{class: active_li('dashboard')}
+          %svg{:height => "17", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "#D8DCE6", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+              %path{:d => "M9.03519648 1.2220566c.30285853.00100529.59290483.12232442.80628167.33725373l7.18580605 7.18047928-2.2832951-.00073914.0003958 6.84943703H3.32988837l-.00089931-6.84943703-2.282.00073914 2.282-2.28473914.00089931-.00044306.00810069-.00855694 4.88871832-4.8920669c.21479019-.21351689.50563058-.3329198.8084891-.33192696z"}
+              %path{:d => "M11 14.8812393v-3c0-1.10456953-.8954305-2.00000003-2-2.00000003s-2 .8954305-2 2.00000003v3"}
           = link_to t('admin2.sidebar.dashboard'), admin2_path
       / General
       %ul.category-title
         %li
+          %svg{:height => "17", :width => "17", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "none", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round", :transform => "translate(.059)"}
+              %path{:d => "M7.178 1.66a1.332 1.332 0 001.98 0l.644-.707a1.333 1.333 0 012.32.962l-.048.953a1.333 1.333 0 001.397 1.398l.952-.049a1.333 1.333 0 01.96 2.322l-.71.64a1.334 1.334 0 000 1.98l.71.64a1.333 1.333 0 01-.962 2.32l-.953-.048a1.333 1.333 0 00-1.399 1.4l.048.952a1.333 1.333 0 01-2.315.96l-.64-.708a1.333 1.333 0 00-1.98 0l-.643.708a1.333 1.333 0 01-2.319-.958l.05-.953a1.333 1.333 0 00-1.4-1.4l-.953.049A1.333 1.333 0 01.953 9.8l.709-.64a1.334 1.334 0 000-1.98l-.71-.642a1.333 1.333 0 01.96-2.319l.953.048a1.333 1.333 0 001.4-1.402l-.045-.953A1.333 1.333 0 016.54.953l.64.706z"}
+              %path{:d => "M7.178 1.66a1.332 1.332 0 001.98 0l.644-.707a1.333 1.333 0 012.32.962l-.048.953a1.333 1.333 0 001.397 1.398l.952-.049a1.333 1.333 0 01.96 2.322l-.71.64a1.334 1.334 0 000 1.98l.71.64a1.333 1.333 0 01-.962 2.32l-.953-.048a1.333 1.333 0 00-1.399 1.4l.048.952a1.333 1.333 0 01-2.315.96l-.64-.708a1.333 1.333 0 00-1.98 0l-.643.708a1.333 1.333 0 01-2.319-.958l.05-.953a1.333 1.333 0 00-1.4-1.4l-.953.049A1.333 1.333 0 01.953 9.8l.709-.64a1.334 1.334 0 000-1.98l-.71-.642a1.333 1.333 0 01.96-2.319l.953.048a1.333 1.333 0 001.4-1.402l-.045-.953A1.333 1.333 0 016.54.953l.64.706z", :fill => "#D8DCE6"}
+              %circle{:cx => "8.168", :cy => "8.169", :fill => "#FFF", :r => "3.063"}
           = link_to t('admin2.sidebar.general_group'), '#general', class: %i[dropdown-toggle], 'aria-controls' => 'general', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#general.collapse.subtitle{class: expand_ul('general')}
         %li#essentials{class: active_li('essentials')}
@@ -27,6 +36,11 @@
       / Design
       %ul.category-title
         %li
+          %svg{:height => "18", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "none", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+              %path{:d => "M14.4117646 17.2352937H.64705877c.69575824-1.3917931 1.0582503-2.9263429 1.05882352-4.4823529v-.8117647H13.3529411v.8117647c.0005732 1.55601.3630653 3.0905598 1.0588235 4.4823529h0z", :fill => "#D8DCE6"}
+              %path{:d => "M9.33576465 6.61741135h0a16.0764706 16.0764706 0 00.31129411-3.14682353h0c0-1.16954417-.94810288-2.11764705-2.11764705-2.11764705h0c-1.16954418 0-2.11764706.94810288-2.11764706 2.11764705h0a16.0764706 16.0764706 0 00.31129411 3.14682353h0c.05351069.26732651-.01566992.54456088-.18850275.755406-.17283284.21084511-.43110303.33307999-.70373254.33306459H2.76470582c-1.16954417 0-2.11764706.94810288-2.11764706 2.11764706v1.5882353c0 .292386.23702572.5294118.52941177.5294118H13.8823529c.292386 0 .5294117-.2370258.5294117-.5294118V9.823529c0-1.16954418-.9481028-2.11764706-2.117647-2.11764706h-2.0661177c-.27262947.0000154-.53089966-.12221948-.7037325-.33306459-.17283283-.21084512-.24201343-.48807949-.18850275-.755406z", :fill => "#D8DCE6"}
+              %path{:d => "M11.2352941 17.2352937v-2.6470588M9.117647 17.2352937v-2.1176471", :fill => "#FFF"}
           = link_to t('admin2.sidebar.design_group'), '#design', class: %i[dropdown-toggle], 'aria-controls' => 'design', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#design.collapse.subtitle{class: expand_ul('design')}
         %li#logoscolor{class: active_li('logos_color')}
@@ -46,6 +60,12 @@
       / Users
       %ul.category-title
         %li
+          %svg{:height => "15", :width => "19", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "#D8DCE6", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round", :transform => "translate(.596 .734)"}
+              %circle{:cx => "13.235", :cy => "5.162", :r => "2.647"}
+              %path{:d => "M8.934 13.103a4.235 4.235 0 118.47 0h-8.47z"}
+              %circle{:cx => "5.36", :cy => "3.276", :r => "3.276"}
+              %path{:d => "M0 13.103a5.36 5.36 0 1110.72 0H0z"}
           = link_to t('admin2.sidebar.users_group'), '#users', class: %i[dropdown-toggle], 'aria-controls' => 'users', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#users.collapse.subtitle{class: expand_ul('users')}
         %li#manageusers{class: active_li('manage_users')}
@@ -61,6 +81,12 @@
       / Listings
       %ul.category-title
         %li
+          %svg{:height => "18", :width => "17", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "none", "fill-rule" => "evenodd"}
+              %g{:stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round", :transform => "translate(.059 .53)"}
+                %rect{:fill => "#D8DCE6", :height => "13.765", :rx => "1.5", :width => "13.765", :x => "2.647", :y => ".527"}
+                %path{:d => "M14.294 16.409H4.075c-2.676 0-3.546-.913-3.546-2.978V2.644"}
+                %path{:d => "M5.824 4.762h7.411M5.824 6.88h7.411M5.824 8.997h5.294", :fill => "#D8DCE6"}
           = link_to t('admin2.sidebar.listings_group'), '#listings', class: %i[dropdown-toggle], 'aria-controls' => 'listings', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#listings.collapse.subtitle{class: expand_ul('listings')}
         %li#managelistings{class: active_li('manage_listings')}
@@ -78,6 +104,10 @@
       / Transactions
       %ul.category-title
         %li
+          %svg{:height => "18", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "#D8DCE6", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+              %path{:d => "M6.412 16.772H1.647a1.059 1.059 0 01-1.059-1.058V4.596c0-.585.474-1.059 1.06-1.059h2.646a2.647 2.647 0 115.294 0h2.647c.585 0 1.06.474 1.06 1.059v1.588M3.765 6.174h5.294M3.765 8.29H8"}
+              %path{:d => "M12.727 8.605l1.088 2.873h2.118a.519.519 0 01.365.906l-1.835 1.281 1.018 2.34a.555.555 0 01-.79.693l-2.463-1.385-2.461 1.385a.555.555 0 01-.79-.694l1.019-2.339-1.836-1.281a.518.518 0 01.364-.906h2.117l1.09-2.873a.565.565 0 01.996 0zM6.941 3.008a.265.265 0 110 .53.265.265 0 010-.53"}
           = link_to t('admin2.sidebar.transactions_group'), '#transactionsreviews', class: %i[dropdown-toggle], 'aria-controls' => 'transactionsreviews', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#transactionsreviews.collapse.subtitle{class: expand_ul('transactions_reviews')}
         %li#managetransactions{class: active_li('manage_transactions')}
@@ -96,6 +126,11 @@
       - if paypal_allowed || stripe_allowed
         %ul.category-title
           %li
+            %svg{:height => "12", :style => "top: 0px;", :width => "17", :xmlns => "http://www.w3.org/2000/svg"}
+              %g{:fill => "none", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round", :transform => "translate(.059 .353)"}
+                %rect{:fill => "#D8DCE6", :height => "10.21", :rx => "1.5", :width => "15.315", :x => ".511", :y => ".34"}
+                %circle{:cx => "8.168", :cy => "5.445", :r => "2.042"}
+                %path{:d => "M3.063 2.638a.255.255 0 110 .51.255.255 0 010-.51M13.273 7.743a.255.255 0 110 .51.255.255 0 010-.51"}
             = link_to t('admin2.sidebar.payment_group'), '#paymentsystem', class: %i[dropdown-toggle], 'aria-controls' => 'paymentsystem', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#paymentsystem.collapse.subtitle{class: expand_ul('payment_system')}
           %li#countrycurrency{class: active_li('country_currencies')}
@@ -111,6 +146,10 @@
       / Email
       %ul.category-title
         %li
+          %svg{:height => "16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "#D8DCE6", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+              %path{:d => "M1.885 10.402A1.101 1.101 0 011.3 8.367L13.532.72a1.1 1.1 0 011.665 1.138l-2.382 12.688a1.101 1.101 0 01-1.963.457l-3.448-4.602h-5.52z"}
+              %path{:d => "M7.404 10.402H5.75v3.422a1.1 1.1 0 001.72.909l2.104-1.434-2.17-2.897zM7.404 10.402L14.736.747"}
           = link_to t('admin2.sidebar.emails_group'), '#emails', class: %i[dropdown-toggle], 'aria-controls' => 'emails', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#emails.collapse.subtitle{class: expand_ul('emails')}
         %li#emailusers{class: active_li('email_users')}
@@ -125,6 +164,10 @@
       - if FeatureFlagHelper.location_search_available
         %ul.category-title
           %li
+            %svg{:height => "16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+              %g{:fill => "#D8DCE6", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round", :transform => "translate(1.118 1)"}
+                %path{:d => "M8.801 8.868l4.964 4.963", "stroke-width" => "1.75"}
+                %ellipse{:cx => "6.022", :cy => "5.559", :rx => "5.824", :ry => "5.294"}
             = link_to t('admin2.sidebar.search_group'), '#searchlocation', class: %i[dropdown-toggle], 'aria-controls' => 'searchlocation', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
         %ul#searchlocation.collapse.subtitle{class: expand_ul('search_location')}
           %li#search{class: active_li('search')}
@@ -134,6 +177,12 @@
       / Social media
       %ul.category-title
         %li
+          %svg{:height => "17", :width => "17", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "none", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round", :transform => "translate(1.118 .824)"}
+              %circle{:cx => "2.779", :cy => "8.338", :fill => "#D8DCE6", :r => "2.779"}
+              %circle{:cx => "12.044", :cy => "12.044", :fill => "#D8DCE6", :r => "2.779"}
+              %circle{:cx => "12.044", :cy => "2.779", :fill => "#D8DCE6", :r => "2.779"}
+              %path{:d => "M5.157 6.911l4.509-2.705M5.359 9.371l4.106 1.642"}
           = link_to t('admin2.sidebar.social_media_group'), '#socialmedia', class: %i[dropdown-toggle], 'aria-controls' => 'socialmedia', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#socialmedia.collapse.subtitle{class: expand_ul('social_media')}
         %li#imagetags{class: active_li('image_tags')}
@@ -143,6 +192,11 @@
       / SEO
       %ul.category-title
         %li
+          %svg{:height => "17", :width => "17", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "#D8DCE6", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round", :transform => "translate(.059 .706)"}
+              %path{:d => "M14.4 5.462V1.49a.993.993 0 00-.993-.993H1.496a.993.993 0 00-.993.993v10.92c0 .547.444.992.993.992h3.97M.503 3.476H14.4"}
+              %path{:d => "M15.393 15.388l-2.507-2.506", "stroke-width" => "1.5"}
+              %circle{:cx => "10.429", :cy => "10.425", :r => "3.474"}
           = link_to t('admin2.sidebar.seo_group'), '#seo', class: %i[dropdown-toggle], 'aria-controls' => 'seo', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#seo.collapse.subtitle{class: expand_ul('seo')}
         %li#sitemaprobots{class: active_li('sitemap')}
@@ -162,6 +216,10 @@
       / Analytics
       %ul.category-title
         %li
+          %svg{:height => "17", :width => "17", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "none", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+              %path{:d => "M.58823576 14.8235296H16.4705887"}
+              %path{:d => "M4.29411812 7.41176494H2.17647106c-.29238605 0-.52941177.23702572-.52941177.52941177v6.88235289h3.17647059V7.94117671c0-.29238605-.23702572-.52941177-.52941176-.52941177zM9.58823576 1.05882376H7.47058871c-.29238605 0-.52941177.23702572-.52941177.52941177V14.8235296h3.17647056V1.58823553c0-.29238605-.23702569-.52941177-.52941174-.52941177zM14.8823534 4.23529435h-2.117647c-.2923861 0-.5294118.23702572-.5294118.52941177V14.8235296h3.1764706V4.76470612c0-.29238605-.2370257-.52941177-.5294118-.52941177z", :fill => "#D8DCE6"}
           = link_to t('admin2.sidebar.analytics_group'), '#analytics', class: %i[dropdown-toggle], 'aria-controls' => 'analytics', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#analytics.collapse.subtitle{class: expand_ul('analytics')}
         %li#googleanalytics{class: active_li('google')}
@@ -174,6 +232,10 @@
       / Advanced
       %ul.category-title
         %li
+          %svg{:height => "17", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+            %g{:fill => "#D8DCE6", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round", :transform => "translate(.058824 .470588)"}
+              %rect{:height => "14.8897059", :rx => "1.5", :width => "14.8897059", :x => ".49698529", :y => ".49632353"}
+              %path{:d => "M8.43816176 10.4227941H12.40875M3.47492647 10.4227941h1.98529412M8.43816176 10.4227941c0 .8222496-.66650052 1.4888487-1.48875009 1.4889704-.82224958.0001218-1.48894741-.6662799-1.48919108-1.4885294-.00024354-.82224955.66605932-1.48904613 1.48830882-1.48941172.3950142-.00017541.77390973.15662032 1.05328902.4358755.2793793.27925518.43634333.65808102.43634333 1.05309522h0zM9.43080882 5.45955882H3.47492647M12.40875 5.45955882c0-.82224958-.6665005-1.48884866-1.4887501-1.48897042-.8222496-.00012176-1.48894741.66627989-1.48919108 1.48852944-.00024353.82224955.66605928 1.48904613 1.48830878 1.48941157.8224429 0 1.489267-.6665278 1.4896324-1.48897059z"}
           = link_to t('admin2.sidebar.advanced_group'), '#advanced', class: %i[dropdown-toggle], 'aria-controls' => 'advanced', 'aria-expanded' => 'false', 'data-toggle' => 'collapse', role: :button
       %ul#advanced.collapse.subtitle{class: expand_ul('advanced')}
         %li#customscript{class: active_li('custom_scripts')}
@@ -188,10 +250,10 @@
       %li
         = link_to t('admin2.sidebar.subscription'), admin_plan_path, rel: :noopener
       %li
-        = link_to t('admin2.sidebar.help_center'), 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
+        = link_to t('admin2.sidebar.help_center'), 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank, class: %i[external-link]
       %li
-        = link_to t('admin2.sidebar.marketplace_guide'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
+        = link_to t('admin2.sidebar.marketplace_guide'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank, class: %i[external-link]
       %li
-        = link_to t('admin2.sidebar.what_new'), 'https://www.sharetribe.com/products/go/updates?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank
+        = link_to t('admin2.sidebar.what_new'), 'https://www.sharetribe.com/products/go/updates?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank, class: %i[external-link]
       %li
         = link_to t('admin2.sidebar.legacy_admin_panel'), admin_path
