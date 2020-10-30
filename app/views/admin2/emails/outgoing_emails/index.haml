@@ -23,7 +23,7 @@
           %strong
             = t('admin2.outgoing_address.upgrading', url: admin_plan_path).html_safe
       %p.ingress
-        = t('admin2.outgoing_address.info', url: 'https://help.sharetribe.com/en/articles/666096-how-to-define-and-edit-your-own-email-address-as-the-sender-of-all-outgoing-emails').html_safe
+        = t('admin2.outgoing_address.info', url: 'https://help.sharetribe.com/en/articles/666096').html_safe
       - waiting = user_defined_address && %i[none requested expired].include?(user_defined_address[:verification_status])
       - if waiting
         = render 'waiting', status_check_url: status_check_url, user_defined_address: user_defined_address
