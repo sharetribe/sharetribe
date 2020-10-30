@@ -19,6 +19,7 @@
 .form-group#category-listing-shapes-container
   - if shapes.size > 1
     %label= t('admin2.categories.order_types')
+    %small#categoriesOrderTypes-help.form-text= t('admin2.categories.add_more')
     - shapes.each do |shape|
       - checkbox_id = "listing_shape_checkbox_#{shape[:id].to_s}"
       .form-check
