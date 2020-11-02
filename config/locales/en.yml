@@ -1566,7 +1566,7 @@ en:
     confirmation_instructions_v2:
       headline: "confirm your email to join %{service_name}!"
       need_to_confirm: "Confirm your email address to complete your %{service_name} account. It's easy - just click the button below!"
-      confirmation_link_text: "Confirm %{email}"
+      confirmation_link_text: "Confirm email address"
     common:
       hey: "Hello %{name},"
       hi: "Hi %{name},"
@@ -3227,11 +3227,11 @@ en:
       last_name_kana: "Last name kana"
       first_name_kanji: "First name kanji"
       last_name_kanji: "Last name kanji"
-      country: Country
+      country: Country of residence
       birth_date: "Birth date"
       ssn_last_4: "SSN Last 4"
       personal_id_number: "Personal ID number"
-      address_country: Country
+      address_country: Country of residence
       address_state: State
       address_province: Province
       address_city: City
@@ -3264,6 +3264,9 @@ en:
       bank_routing_2: "Branch code"
       bank_currency: "Bank account currency"
       update_also_bank_account: "Update also Bank account"
+      bank_account_same_country: "Use a bank account located in my country of residence"
+      bank_country: "Bank account country"
+      bank_holder_name: "Bank account holder name"
       messages:
         account_number: "Account number"
         routing_number: "Routing number"
