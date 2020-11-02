@@ -1566,7 +1566,7 @@ es:
     confirmation_instructions_v2:
       headline: "confirma tu correo para unirte a %{service_name}."
       need_to_confirm: "Confirma tu correo para completar tu cuenta en %{service_name}. Es muy fácil - sólo haz click en el botón de abajo."
-      confirmation_link_text: "Confirmar %{email}"
+      confirmation_link_text: ~
     common:
       hey: "Hola %{name},"
       hi: "Hola %{name},"
@@ -3257,6 +3257,9 @@ es:
       bank_routing_2: "Código de la sucursal"
       bank_currency: "Divisa de la cuenta del banco"
       update_also_bank_account: "Modificar la cuenta de banco también"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: "Número de cuenta"
         routing_number: "Número de ruta/routing"

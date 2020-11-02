@@ -1567,7 +1567,7 @@ hu:
     confirmation_instructions_v2:
       headline: "Erősítse meg E-mail címét hogy csatlakozhasson a %{service_name} piactérhez."
       need_to_confirm: "Erősítse meg az E-mail címét, hogy befejezhesse a %{service_name} fiók szerkesztését. Ez egyszerű - csak kattintson az alábbi gombra!"
-      confirmation_link_text: "Erősítse meg E-mail címét %{email}"
+      confirmation_link_text: ~
     common:
       hey: "Üdvözöljük %{name}!"
       hi: "Üdvözöljük %{name},"
@@ -3237,6 +3237,9 @@ hu:
       bank_routing_2: Fiókkód
       bank_currency: "Bankszámla pénzneme"
       update_also_bank_account: "Frissítse a bankszámlát is"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: Számlaszám
         routing_number: Útvonalszám

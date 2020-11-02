@@ -3202,6 +3202,9 @@ it:
       bank_routing_2: ~
       bank_currency: "Valuta conto corrente"
       update_also_bank_account: ~
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: "Numero del conto"
         routing_number: ~

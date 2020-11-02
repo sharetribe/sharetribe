@@ -1566,7 +1566,7 @@ et:
     confirmation_instructions_v2:
       headline: "liitumiseks %{service_name}, kinnita oma e-posti aadress."
       need_to_confirm: "%{service_name} konto lõpuni täitmiseks kinnita oma e-posti aadress. See on lihtne - klõpsa allpool olevat nuppu!"
-      confirmation_link_text: "Kinnita %{email}"
+      confirmation_link_text: ~
     common:
       hey: "Tere, %{name}!"
       hi: "Tere %{name},"
@@ -3257,6 +3257,9 @@ et:
       bank_routing_2: "Filiaali kood"
       bank_currency: "Pangakonto valuuta"
       update_also_bank_account: "Uuenda ka pangakontot"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: "Konto number"
         routing_number: Suunakood
