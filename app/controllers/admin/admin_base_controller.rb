@@ -6,4 +6,10 @@ class Admin::AdminBaseController < ApplicationController
 
   #Allow admin to access admin panel before email confirmation
   skip_before_action :cannot_access_without_confirmation
+
+  before_action :admin2_banner
+
+  def admin2_banner
+    @admin2_banner = true
+  end
 end
