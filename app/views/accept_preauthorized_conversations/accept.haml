@@ -8,14 +8,15 @@
 
       btn.click(function() {
         disable_and_submit("#accept-reject-form", $("#accept-reject-form"), "false", '#{I18n.locale}');
-      })
+      });
 
       ST.initializeRadioButtons({
-        buttons: [".js-accept-radio-button", ".js-reject-radio-button"],
+        buttons: [".js-accept-radio-button", ".js-accept-close-radio-button", ".js-reject-radio-button"],
         input: ".js-accept-status",
         callback: function(selector) {
           switch(selector) {
             case ".js-accept-radio-button": btn.text('#{t("conversations.accept.accept")}'); break;
+            case ".js-accept-close-radio-button": btn.text('#{t("conversations.accept.accept")}'); break;
             case ".js-reject-radio-button": btn.text('#{t("conversations.accept.decline")}'); break;
           }
         }
@@ -161,6 +162,9 @@
     %a.radio-button-positive.js-accept-radio-button{ data: { :"radio-button-value" => "paid" }, class: preselected_action == "accept" ? "radio-button-selected" : "" }
       .radio-button-icon{class: icon_for("accepted")}
       .radio-button-label= t("conversations.accept.accept_request")
+    %a.radio-button-positive.js-accept-close-radio-button{ data: { :"radio-button-value" => 'paid_and_close' }, class: preselected_action == 'accept_and_close' ? 'radio-button-selected' : '' }
+      .radio-button-icon{class: icon_for('accepted')}
+      .radio-button-label= t('conversations.accept.accept_request_and_close')
     %a.radio-button-negative.js-reject-radio-button{ data: { :"radio-button-value" => "rejected" }, class: preselected_action == "reject" ? "radio-button-selected" : "" }
       .radio-button-icon{class: icon_for("rejected")}
       .radio-button-label= t("conversations.accept.reject_request")
