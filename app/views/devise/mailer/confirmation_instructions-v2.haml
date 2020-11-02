@@ -11,7 +11,7 @@
     %p
       = t("emails.confirmation_instructions_v2.need_to_confirm")
 
-= render :partial => "person_mailer/action_button-v2", :locals => { :text => t("emails.confirmation_instructions_v2.confirmation_link_text", :email => @email_address), :url => link }
+= render :partial => "person_mailer/action_button-v2", :locals => { :text => t("emails.confirmation_instructions_v2.confirmation_link_text", :url => link }
 
 %tr
   %td.email-action
