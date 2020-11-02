@@ -1584,7 +1584,7 @@ pl:
     confirmation_instructions_v2:
       headline: "potwierdź swój e-mail aby dołączyć do %{service_name}!"
       need_to_confirm: "Potwierdź swój adres e-mail aby dokończyć zakładanie Twojego konta na %{service_name}. To proste - po prostu kliknij poniższy przycisk!"
-      confirmation_link_text: "Potwierdź %{email}"
+      confirmation_link_text: ~
     common:
       hey: "Cześć %{name},"
       hi: "Cześć %{name},"
@@ -3306,6 +3306,9 @@ pl:
       bank_routing_2: "Kod/ nazwa oddziału banku"
       bank_currency: "Waluta rachunku bankowego"
       update_also_bank_account: "Zaktualizuj także rachunek bankowy"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: "Numer rachunku"
         routing_number: "Numer rozliczeniowy"

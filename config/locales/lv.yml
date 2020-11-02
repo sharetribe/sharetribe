@@ -1535,7 +1535,7 @@ lv:
     confirmation_instructions_v2:
       headline: "apstipriniet savu e-pastu, lai pievienotos %{service_name}!"
       need_to_confirm: "Apstiprini savu e-pasta adresi, lai pabeigtu %{service_name} konta izveidi. Tas ir vienkārši - tikai noklikšķiniet uz zemāk esošās pogas!"
-      confirmation_link_text: "Apstiprini %{email}"
+      confirmation_link_text: ~
     common:
       hey: "Sveicināti %{name},"
       hi: "Sveiki %{name},"
@@ -3220,6 +3220,9 @@ lv:
       bank_routing_2: "Filiāles kods"
       bank_currency: "Bankas konta valūta"
       update_also_bank_account: "Atjauniniet arī bankas kontu"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: "Konta numurs"
         routing_number: "“Routing” numurs"

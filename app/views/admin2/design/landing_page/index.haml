@@ -1,16 +1,9 @@
 - content_for :title do
   = t('admin2.sidebar.design.landing_page')
 
-.content-card-header
-  %h1.content-card-header-title
-    = t('admin2.sidebar.design.landing_page')
-.content-card-section-container
-  %section.content-card-section
-    %h2
-      = t('admin2.landing_page.header')
-    %p.ingress
-      = t('admin2.landing_page.info_text_1')
-    %p.ingress
-      = t('admin2.landing_page.info_text_2')
-  %section.content-card-terminal
-    = link_to t('admin2.landing_page.btn_text'), 'https://www.sharetribe.com/landingpage/', class: %i[external-link], target: :_blank
+.content-card-section-container.clp
+  %section.content-card-section.clp
+    %h2= t('admin2.landing_page.header')
+    %p.ingress= t('admin2.landing_page.info_text_1')
+    = link_to t('admin2.landing_page.btn_text'), 'https://www.sharetribe.com/products/go/landing-page/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=landingpagesection', target: :_blank, class: %i[btn btn-secondary]
+    .clp-bg

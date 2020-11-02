@@ -1546,7 +1546,7 @@ tr-TR:
     confirmation_instructions_v2:
       headline: "%{service_name} pazar yerine katılmak için e-posta adresinizi onaylayın!"
       need_to_confirm: "%{service_name} hesabınızı oluşturmak için e-posta adresinizi doğrulayın. Aşağıdaki düğmeye basmanız yeterli!"
-      confirmation_link_text: "%{email} adresini doğrula"
+      confirmation_link_text: ~
     common:
       hey: "Merhaba %{name}"
       hi: "Merhaba %{name},"
@@ -3204,6 +3204,9 @@ tr-TR:
       bank_routing_2: ~
       bank_currency: ~
       update_also_bank_account: ~
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: ~
         routing_number: ~

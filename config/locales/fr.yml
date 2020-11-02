@@ -677,38 +677,38 @@ fr:
         when_you_change_your_sharetribe_domain: "Lorsque vous changez votre domaine Sharetribe, toutes vos URLs seront automatiquement modifiées. Vous serez redirigé vers la nouvelle adresse de votre place de marché. Vous et vos utilisateurs devrez vous connecter de nouveau. L'ancien domaine de votre place de marché ne sera pas du tout lié ou redirigé vers le nouveau. L'ancien domaine sera rendu disponible pour quiconque souhaite l'utiliser."
         would_you_like_to_proceed: "Voulez-vous continuer ?"
         change: Changer
-        you_can_now_enable_a_custom_domain: ~
-        read_more_about_the_set_up_of_your_custom_domain: ~
-        set_custom_domain: ~
-        in_order_to_set_your_custom_domain: ~
-        instructions_to_point_your_domain: ~
-        main_domain: ~
-        main_domain_info_text: ~
-        main_domain_link_text: ~
-        check_domain: ~
-        domain_being_checked: ~
-        status: ~
-        checks_pending: ~
-        please_check_back: ~
-        checks_not_passed: ~
-        check_the_domain_again_info: ~
-        check_the_domain_again: ~
-        use_another_domain: ~
-        checks_passed: ~
-        domain_being_set_up: ~
-        setup_in_progress: ~
-        setup_check_back: ~
-        setup_check_back_critical_error: ~
-        setup_failed: ~
-        setup_the_domain_again_info: ~
-        setup_the_domain_again: ~
+        you_can_now_enable_a_custom_domain: "Avec votre offre actuelle, vous pouvez utiliser votre propre domain. Commençons la configuration !"
+        read_more_about_the_set_up_of_your_custom_domain: "En savoir plus sur la configuration du domaine personnalisé"
+        set_custom_domain: "Configurer le domaine personnalisé"
+        in_order_to_set_your_custom_domain: "Pour configurer votre domain personnalisé, nous devons d'abord vérifier que le domaine que vous avez choisi est bien dirigé vers les serveurs Sharetribe. Avant de continuer, veuillez vérifier que vous avez bien suivi %{link}."
+        instructions_to_point_your_domain: "les instructions pour pointer votre domaine vers nos serveurs"
+        main_domain: "Domaine principal"
+        main_domain_info_text: "Entrez le domaine précis que vous souhaitez utiliser. Vous pouvez choisi un domaine ou un sous-domain, à vous de choisir. Assurez-vous d'avoir modifié vos enregistrements DNS. %{link}"
+        main_domain_link_text: "En savoir plus sur la configuration des enregistrements DNS"
+        check_domain: "Vérifier le domaine"
+        domain_being_checked: "Domaine en cours de vérification :"
+        status: "Statut :"
+        checks_pending: "Vérifications en cours..."
+        please_check_back: "Veuillez essayer de nouveau dans quelques minutes, les vérifications seront bientôt terminées !"
+        checks_not_passed: "Les vérifications ont échouées !"
+        check_the_domain_again_info: "Assurez-vous que vos enregistrements DNS sont configurés correctement."
+        check_the_domain_again: "Vérifier le domaine de nouveau"
+        use_another_domain: "utiliser un autre domaine"
+        checks_passed: "Les vérifications ont réussies !"
+        domain_being_set_up: "Domaine en cours de configuration :"
+        setup_in_progress: "Configuration en cours..."
+        setup_check_back: "Veuillez essayer de nouveau dans quelques minutes, la configuration du domaine devrait être bientôt terminée !"
+        setup_check_back_critical_error: "La configuration du domaine va prendre plus longtemps que prévu. Essayez de nouveau un peu plus tard ou contactez-nous !"
+        setup_failed: "La configuration du domaine a échouée !"
+        setup_the_domain_again_info: "Les changements DNS pour votre domain ne sont probablement pas encore totalement propagés. Ceci peut parfois prendre jusqu'à 48 heures. Assurez-vous que vos enregistrements DNS sont correctement configurés et essayez de nouveau dans une heure. Contactez nous si le problème persiste."
+        setup_the_domain_again: "Essayez de nouveau la configuration du domaine"
         summary:
-          main_domain: ~
-          redirect: ~
-        check_another_domain: ~
-        checks_passed_with_warning: ~
-        this_domain_is_not_configured_correctly: ~
-        start_using_the_custom_domain: ~
+          main_domain: "Domaine principal :"
+          redirect: "Redirection :"
+        check_another_domain: "Vérifier un autre domaine"
+        checks_passed_with_warning: "Vérifications réussies - avec des alertes !"
+        this_domain_is_not_configured_correctly: "Ce domaine n'est pas configuré correctement. Ceci signifie que ce domaine ne redirigera pas vers votre place de marché. Assurez-vous que les enregistrements DNS de votre domaine sont configurés correctement et vérifiez les de nouveau si vous souhaitez que ce domaine redirige vers votre adresse principale. Si vous ne souhaitez pas de redirection, cliquez sur \"Utiliser le domaine personnalisé\"."
+        start_using_the_custom_domain: "Utiliser le domaine personnalisé"
       landing_pages:
         landing_pages: "Page d'accueil"
         info_1: "La page d'accueil est peut être la page la plus importante de votre place de marché. C'est la première page que vos visiteurs voient, un peu comme la porte d'entrée de votre maison. Vous n'avez que quelques secondes pour convaincre les nouveaux visiteurs qu'ils devraient parcourir votre site. Cette page doit être attirante et votre proposition claire et attractive."
@@ -1566,7 +1566,7 @@ fr:
     confirmation_instructions_v2:
       headline: "confirmez votre email pour rejoindre %{service_name} !"
       need_to_confirm: "Confirmez votre adresse email pour valider votre compte sur %{service_name}. C'est simple : il suffit de cliquer sur le bouton ci-dessous !"
-      confirmation_link_text: "Confirmer %{email}"
+      confirmation_link_text: "Confirmer l'adresse email"
     common:
       hey: "Bonjour %{name},"
       hi: "Bonjour %{name},"
@@ -3224,11 +3224,11 @@ fr:
       last_name_kana: "Nom kana"
       first_name_kanji: "Prénom kanji"
       last_name_kanji: "Nom kanji"
-      country: Pays
+      country: "Pays de résidence"
       birth_date: "Date de naissance"
       ssn_last_4: "Derniers 4 chiffres SSN"
       personal_id_number: "Numéro d'identifiant personnel"
-      address_country: Pays
+      address_country: "Pays de résidence"
       address_state: Etat
       address_province: Province
       address_city: Ville
@@ -3261,6 +3261,9 @@ fr:
       bank_routing_2: "Code branche"
       bank_currency: "Devise du compte en banque"
       update_also_bank_account: "Mettre à jour le numéro de compte bancaire"
+      bank_account_same_country: "Utiliser un compte bancaire domicilié dans mon pays de résidence"
+      bank_country: "Pays du compte bancaire"
+      bank_holder_name: "Nom du titulaire du compte bancaire"
       messages:
         account_number: "Numéro de compte"
         routing_number: "Numéro de routing"

@@ -1549,7 +1549,7 @@ pt-PT:
     confirmation_instructions_v2:
       headline: "Você precisa confirmar o seu endereço de e-mail para aderir à %{service_name}."
       need_to_confirm: "Confirme o seu endereço de email para completar o seu registo em %{service_name}. É fácil - clique no botão abaixo!"
-      confirmation_link_text: "Confirme %{email}"
+      confirmation_link_text: ~
     common:
       hey: "Olá %{name}"
       hi: "Olá %{name},"
@@ -3218,6 +3218,9 @@ pt-PT:
       bank_routing_2: ~
       bank_currency: ~
       update_also_bank_account: "Atualizar também os dados bancários"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: ~
         routing_number: ~

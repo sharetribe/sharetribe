@@ -3253,6 +3253,9 @@ sv:
       bank_routing_2: "Gren-kod (Branch code)"
       bank_currency: "Bankkontots valuta"
       update_also_bank_account: "Uppdatera också ditt bankkonto"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: Kontonummer
         routing_number: Clearingnummer

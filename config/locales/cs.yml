@@ -1575,7 +1575,7 @@ cs:
     confirmation_instructions_v2:
       headline: "potvrďte svůj email, abyste se spojil s %{service_name}"
       need_to_confirm: "Potvrďte svou emailovou adresu, abyste dokončil svůj %{service_name} účet. Je to jednoduché - stačí jen kliknout na tlačítko níže!"
-      confirmation_link_text: "Potvrdit %{email}"
+      confirmation_link_text: ~
     common:
       hey: "Ahoj %{name},"
       hi: "Ahoj %{name}."
@@ -3275,6 +3275,9 @@ cs:
       bank_routing_2: "Kód pobočky"
       bank_currency: "Měna bankovního účtu"
       update_also_bank_account: "Aktualizujte také bankovní účet"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: "Číslo účtu"
         routing_number: "Směrovací číslo"

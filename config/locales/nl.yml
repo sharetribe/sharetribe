@@ -1569,7 +1569,7 @@ nl:
     confirmation_instructions_v2:
       headline: "bevestig je email om je aan te sluiten bij %{service_name}!"
       need_to_confirm: "Bevestig je email om je account op %{service_name} te voltooien. Het is makkelijk - klik gewoon op de button hieronder!"
-      confirmation_link_text: "Bevestig %{email}"
+      confirmation_link_text: ~
     common:
       hey: "Hallo %{name},"
       hi: "Hi %{name},"
@@ -3260,6 +3260,9 @@ nl:
       bank_routing_2: Filiaalcode
       bank_currency: "Valuta bankrekening"
       update_also_bank_account: "Werk ook bankrekeningnummer bij"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: Bankrekeningnummer
         routing_number: "Routing nummer"

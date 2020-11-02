@@ -1555,7 +1555,7 @@ ja:
     confirmation_instructions_v2:
       headline: "%{service_name} に参加するためにはメールアドレスを確認してください。"
       need_to_confirm: "メールアドレスを確認し、%{service_name} のアカウントを完成させます。簡単にできます、下のボタンをクリックしてください！"
-      confirmation_link_text: "%{email} 確認"
+      confirmation_link_text: ~
     common:
       hey: "%{name}さん　こんにちは、"
       hi: "こんにちは、%{name} さん"
@@ -3223,6 +3223,9 @@ ja:
       bank_routing_2: 支店コード
       bank_currency: 通貨
       update_also_bank_account: 銀行口座も更新する
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: 口座番号
         routing_number: ルーティングナンバー

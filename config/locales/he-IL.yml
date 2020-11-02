@@ -1565,7 +1565,7 @@ he-IL:
       need_to_confirm: |-
           אשר את כתובת הדוא''ל כדי להשלים את חשבון ה ‎%{service_name}‎ .
           זה קל- פשוט לחץ על הכפתור!
-      confirmation_link_text: "אשר ‎%{email}‎ "
+      confirmation_link_text: ~
     common:
       hey: "‎%{name}‎ שלום"
       hi: ~
@@ -3277,6 +3277,9 @@ he-IL:
       bank_routing_2: סניף
       bank_currency: מטבע
       update_also_bank_account: "עדכן גם את חשבון הנבק"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: "מס חשבון"
         routing_number: "מס ניתוב"
