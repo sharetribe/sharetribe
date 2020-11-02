@@ -1592,8 +1592,8 @@ pt-BR:
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
-      has_rejected_your_request: ~
-      has_rejected_your_request_text: ~
+      has_rejected_your_request: "Infelizmente seu pedido foi rejeitado."
+      has_rejected_your_request_text: "%{accepter} rejeitou o seu pedido de %{listing}."
     invitation_to_kassi:
       hi: Oi!
       you_have_been_invited_to_kassi: "%{inviter} convidou você a fazer parte do %{service_name}."
@@ -1705,7 +1705,10 @@ pt-BR:
       settings_link_text: "Edite suas configurações de e-mail aqui"
       unsubscribe_link_text: "Cancelar inscrição"
     community_updates_v2:
-      headline: ~
+      headline: "confira as atividades mais recentes no %{service_name}."
+      intro_paragraph:
+        one: "Aqui estão alguns destaques que aconteceram em %{service_name} durante o últimos dia."
+        other: "Aqui estão alguns destaques que aconteceram em %{service_name} durante os últimos %{count} dias."
     newsletter:
       hi: "Oi %{name},"
       newest_offers: "O que atualmente as pessoas oferecem para os outros"

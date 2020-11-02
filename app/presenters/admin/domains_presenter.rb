@@ -30,10 +30,6 @@ class Admin::DomainsPresenter
     domain_used? ? "https://#{domain}" : "https://#{ident}.sharetribe.com"
   end
 
-  def feature_domain?
-    FeatureFlagHelper.feature_enabled?(:domain)
-  end
-
   def domain_setup_state
     community.domain_setup&.state
   end

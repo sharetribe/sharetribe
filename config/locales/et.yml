@@ -1581,7 +1581,7 @@ et:
       unsubscribe_from_these_emails: "E-maili tellimusest loobumine"
       unsubscribe_from_invitation_emails_info: "Saite selle meili, kuna %{service_name} liige on kutsunud Sind nendega liituma."
       unsubscribe_from_invitation_emails: "Loobuge %{service_name} e-posti teel saadetud liitumiskutsetetest"
-      here_is_your_receipt: "Siin on sinu kviitung."
+      here_is_your_receipt: "Siin on Sinu kviitung."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} aktsepteeris Sinu pakkumise %{listing}."
       has_accepted_your_request: "%{accepter} aktsepteeris Sinu päringu %{listing}."
@@ -1643,7 +1643,7 @@ et:
       stripe:
         you_have_received_new_payment: "<b>%{listing_title} </b> eest on tasunud summa <b>%{payment_sum} </b>, mille on maksnud %{payer_full_name}. Raha hoiab %{service_name} kuni tellimus märgitakse täidetuks. Siin on Sinu kviitung."
     payment_receipt_to_seller_v2:
-      headline: "%{payer_name} on teile maksnud %{payment_sum} %{listing_link}."
+      headline: "%{payer_name} on Sulle maksnud %{payment_sum} %{listing_link} eest."
       main_text_stripe: "%{service_name} hoiab raha kinni kuni ostja märgib tellimuse täidetuks."
       price_breakdown: "Hinna jaotus"
     payment_receipt_to_payer:
