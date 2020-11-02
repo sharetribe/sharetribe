@@ -61,14 +61,14 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       return
     end
 
-    res = accept_or_reject_tx(@current_community.id, tx_id, status, message, sender_id)
+    res = accept_or_reject_tx(@current_community.id, tx, status, message, sender_id)
 
     if res[:success]
       flash[:notice] = success_msg(res[:flow])
 
       record_event(
         flash,
-        status == :paid ? "PreauthorizedTransactionAccepted" : "PreauthorizedTransactionRejected",
+        status == (:paid || :paid_and_close) ? "PreauthorizedTransactionAccepted" : "PreauthorizedTransactionRejected",
         { listing_id: tx.listing_id,
           listing_uuid: UUIDUtils.parse_raw(tx.listing_uuid).to_s,
           transaction_id: tx.id })
@@ -82,19 +82,31 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   private
 
-  def accept_or_reject_tx(community_id, tx_id, status, message, sender_id)
-    if (status == :paid)
-      accept_tx(community_id, tx_id, message, sender_id)
-    elsif (status == :rejected)
-      reject_tx(community_id, tx_id, message, sender_id)
+  def accept_or_reject_tx(community_id, tx, status, message, sender_id)
+    if status == :paid
+      accept_tx(community_id, tx, message, sender_id)
+    elsif status == :paid_and_close
+      accept_tx_and_close(community_id, tx, message, sender_id)
+    elsif status == :rejected
+      reject_tx(community_id, tx, message, sender_id)
     else
-      {flow: :unknown, success: false}
+      { flow: :unknown, success: false }
     end
   end
 
-  def accept_tx(community_id, tx_id, message, sender_id)
+  def accept_tx_and_close(community_id, tx, message, sender_id)
+    result = accept_tx(community_id, tx, message, sender_id)
+    if result[:success]
+      tx.listing.update(open: false)
+      { flow: :accept_and_close, success: true }
+    else
+      result
+    end
+  end
+
+  def accept_tx(community_id, tx, message, sender_id)
     TransactionService::Transaction.complete_preauthorization(community_id: community_id,
-                                                              transaction_id: tx_id,
+                                                              transaction_id: tx.id,
                                                               message: message,
                                                               sender_id: sender_id)
       .maybe()
@@ -102,9 +114,9 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       .or_else({flow: :accept, success: false})
   end
 
-  def reject_tx(community_id, tx_id, message, sender_id)
+  def reject_tx(community_id, tx, message, sender_id)
     TransactionService::Transaction.reject(community_id: community_id,
-                                           transaction_id: tx_id,
+                                           transaction_id: tx.id,
                                            message: message,
                                            sender_id: sender_id)
       .maybe()
@@ -115,6 +127,8 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   def success_msg(flow)
     if flow == :accept
       t("layouts.notifications.request_accepted")
+    elsif flow == :accept_and_close
+      t('layouts.notifications.request_accepted_and_closed')
     elsif flow == :reject
       t("layouts.notifications.request_rejected")
     end
