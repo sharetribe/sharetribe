@@ -103,7 +103,7 @@ en:
     outgoing_address:
       outgoing_email_settings: 'Outgoing email settings'
       resend_verification_email: 'Resend verification email'
-      upgrading: 'Would you like to configure your own email address as the sender and remove all Sharetribe branding from outgoing emails? <a href="%{url}">Upgrade to the Pro plan or higher</a>.'
+      upgrading: '<b>Pro feature:</b> Would you like to set your own email address as the sender and remove all Sharetribe branding from outgoing emails? <a href="%{url}">Upgrade to the Pro plan or higher</a>.'
       info: 'This sender name and email address is used for emails sent from your marketplace to users. <a href="%{url}" class="external-link" target="_blank" >Learn more</a>.'
       expired_notice_email: 'The verification email sent to %{email} from Amazon Web Services has expired.'
       expired_notice_link: 'Please ask for a new one to verify your email address. %{link}.'
@@ -865,6 +865,7 @@ en:
       welcome_to_marketplace: "Welcome to %{service_name}! Glad to have you on board."
       love_marketplace_crew: "Love,<br/><i>%{service_name} crew</i>"
     footer:
+      footer_disabled: '<b>Pro feature:</b> Would you like to configure your own custom footer? <a href="%{url}">Upgrade to the Pro plan or higher</a>.'
       footer_enabling: 'Enable footer'
       footer_enabling_field: 'Enable the footer on all pages'
       footer_enabling_info_text: "In trial and Hobby plans, the footer is Sharetribe-branded and can't be customized. In Pro plans and higher, you can customize the footer. The footer is displayed on all pages of your marketplace.
