@@ -16,20 +16,24 @@
         = info_text.html_safe
 
       - if input_name == 'slogan'
-        .multiple-languages-language
+        .multiple-languages-language{class: "#{'disabled' if @clp_enabled}"}
           %span.color= t('admin2.essentials.color')
         .multiple-languages-input
-          = text_field_tag "community[slogan_color]", @current_community.slogan_color_string, id: 'colorpicker-slogan', class: 'multi-language-color', readonly: true
+          = text_field_tag "community[slogan_color]", @current_community.slogan_color_string, id: 'colorpicker-slogan', class: 'multi-language-color', readonly: true, disabled: @clp_enabled
+        - if @clp_enabled
+          %small.form-text= t('admin2.essentials.clp_enabled')
         .form-check
           = hidden_field_tag 'community[show_slogan]', 0, id: 'hidden_community_show_slogan'
           = check_box_tag "community[show_slogan]", 1, @current_community.show_slogan?, class: %i[form-check-input]
           = label_tag "community_show_slogan", t('admin2.essentials.show_slogan'), class: %i[form-check-label]
 
       - if input_name == 'description'
-        .multiple-languages-language
+        .multiple-languages-language{class: "#{'disabled' if @clp_enabled}"}
           %span.color= t('admin2.essentials.color')
         .multiple-languages-input
-          = text_field_tag "community[description_color]", @current_community.description_color_string, id: 'colorpicker-description', class: 'multi-language-color', readonly: true
+          = text_field_tag "community[description_color]", @current_community.description_color_string, id: 'colorpicker-description', class: 'multi-language-color', readonly: true, disabled: @clp_enabled
+        - if @clp_enabled
+          %small.form-text= t('admin2.essentials.clp_enabled')
         .form-check
           = hidden_field_tag 'community[show_description]', 0, id: 'hidden_community_show_description'
           = check_box_tag "community[show_description]", 1, @current_community.show_description?, class: %i[form-check-input]
@@ -55,8 +59,10 @@
       .d-flex
         = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
           class: input_classes, maxlength: defined?(maxlength) ? maxlength : nil, placeholder: defined?(placeholder) ? placeholder : '', style: 'padding-right: 86px'
-        = text_field_tag "community[slogan_color]", @current_community.slogan_color_string, id: 'colorpicker-slogan'
+        = text_field_tag "community[slogan_color]", @current_community.slogan_color_string, id: 'colorpicker-slogan', disabled: @clp_enabled
 
+      - if @clp_enabled
+        %small.form-text= t('admin2.essentials.clp_enabled')
       %small.form-text
         = info_text.html_safe
       .form-check
@@ -70,8 +76,10 @@
       .d-flex
         = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
           class: input_classes, maxlength: defined?(maxlength) ? maxlength : nil, placeholder: defined?(placeholder) ? placeholder : '', style: 'padding-right: 86px'
-        = text_field_tag "community[description_color]", @current_community.description_color_string, id: 'colorpicker-description'
+        = text_field_tag "community[description_color]", @current_community.description_color_string, id: 'colorpicker-description', disabled: @clp_enabled
 
+      - if @clp_enabled
+        %small.form-text= t('admin2.essentials.clp_enabled')
       %small.form-text
         = info_text.html_safe
       .form-check
