@@ -5,7 +5,7 @@
   %h1.content-card-header-title
     = t('admin2.sidebar.design.footer')
 
-- disabled = @service.plan_footer_disabled?
+- disabled = @service.plan_footer_disabled? || true
 .content-card-section-container
   = form_for @current_community, url: update_footer_admin2_design_footer_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
     %section.content-card-section

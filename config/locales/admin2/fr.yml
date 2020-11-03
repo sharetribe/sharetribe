@@ -103,7 +103,7 @@ fr:
     outgoing_address:
       outgoing_email_settings: "Paramètres de l'adresse email de l'expéditeur"
       resend_verification_email: "Renvoyer l'email de vérification"
-      upgrading: "Pour configurer votre propre adresse email comme l'expéditeur et supprimer toutes mentions de Sharetribe des emails, <a href=\"%{url}\">passez à l'offre Pro ou supérieure</a>."
+      upgrading: "Aimeriez-vous configurer votre propre adresse email comme expéditeur et supprimer toutes mentions de Sharetribe des emails ? <a href=\"%{url}\">Passez à l'offre Pro ou supérieure</a>."
       info: "Ce nom et cette adresse email sont utilisés pour les emails envoyés depuis votre place de marché aux utilisateurs. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\" >En savoir plus</a>."
       expired_notice_email: "L'email de vérification envoyé à %{email} par Amazon Web Services a expiré."
       expired_notice_link: "Veuillez en demander un nouveau pour vérifier votre adresse email. %{link}."
@@ -124,7 +124,7 @@ fr:
       unverified: "Non vérifiée"
       successfully_saved_name: "Le nom de l'expéditeur a bien été mis à jour"
       successfully_saved: "L'adresse email de l'expéditeur a bien été mise à jour. L'email de vérification va être envoyé sous peu."
-      invalid_email_error: "Format incorrect pour l'adresse email '%{email}'"
+      invalid_email_error: "Format incorrect pour l'adresse email \"%{email}\""
       invalid_email_address: "Veuillez entrer une adresse email valide"
       invalid_email_domain_read_more_link: "Lisez cet article sur le Help Center pour plus d'informations."
       invalid_email_domain: "L'adresse email '%{email}' utilise un fournisseur email non supporté : '%{domain}'. %{invalid_email_domain_read_more_link}"

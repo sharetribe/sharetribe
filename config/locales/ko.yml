@@ -1557,7 +1557,7 @@ ko:
     confirmation_instructions_v2:
       headline: "%{service_name} 가입을 위해 이메일을 인증해 주세요!"
       need_to_confirm: "%{service_name} 계정 생성을 완료하기 위해 이메일 인증이 필요합니다. 아래 버튼을 눌러 주시면 됩니다!"
-      confirmation_link_text: "%{email} 인증"
+      confirmation_link_text: ~
     common:
       hey: "%{name}님 안녕하세요,"
       hi: "안녕하세요 %{name}님,"
@@ -3223,6 +3223,9 @@ ko:
       bank_routing_2: "지점 코드"
       bank_currency: "은행 계좌 통화"
       update_also_bank_account: ~
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: "계좌 넘버"
         routing_number: "라우팅 번호"

@@ -1566,7 +1566,7 @@ de:
     confirmation_instructions_v2:
       headline: "bitte bestätige deine E-Mail-Adresse, um deine Registrierung bei %{service_name} abzuschließen."
       need_to_confirm: "Bestätige deine E-Mail-Adresse, um dein Konto für %{service_name} zu vervollständigen. Es ist einfach - du musst nur den Button unten klicken!"
-      confirmation_link_text: "%{email} bestätigen"
+      confirmation_link_text: ~
     common:
       hey: "Hallo %{name},"
       hi: "Hallo %{name},"
@@ -3257,6 +3257,9 @@ de:
       bank_routing_2: Branch/Filialcode
       bank_currency: "Währung des Bankkontos"
       update_also_bank_account: "Bankkonto ebenfalls aktualisieren"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: Kontonummer
         routing_number: Bankleitzahl

@@ -3254,6 +3254,9 @@ es-ES:
       bank_routing_2: "Código de la sucursal"
       bank_currency: "Divisa de la cuenta del banco"
       update_also_bank_account: "Modificar la cuenta de banco también"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: "Número de cuenta"
         routing_number: "Número de ruta/routing"

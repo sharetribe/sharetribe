@@ -1566,7 +1566,7 @@ fi:
     confirmation_instructions_v2:
       headline: "vahvista sähköpostisi liittyäksesi palveluun %{service_name}!"
       need_to_confirm: "Vahvista sähköpostiosoitteesi saattaaksesi %{service_name} -palvelun tilinluonti päätökseen. Se on helppoa - klikkaa vain alla olevaa nappia!"
-      confirmation_link_text: "Vahvista %{email}"
+      confirmation_link_text: ~
     common:
       hey: "Hei %{name},"
       hi: "Hei %{name},"
@@ -3258,6 +3258,9 @@ fi:
       bank_routing_2: "Pankin haaran koodi"
       bank_currency: "Pankkitilin valuutta"
       update_also_bank_account: "Päivitä myös tilinumero"
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
       messages:
         account_number: Tilinumero
         routing_number: Reititysnumero
