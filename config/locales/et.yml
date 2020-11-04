@@ -1293,7 +1293,8 @@ et:
       details: "Tellimuse üksikasjad"
       order_by: "Telli %{orderer_link}"
       accept_offer: "Aktsepteeri pakkumine"
-      accept_request: "Aktsepteeri tehing"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Mite see kord"
       reject_request: "Mitte seekord"
       close_listing: "Sulge kuulutus %{listing_title_link}"
@@ -2244,6 +2245,7 @@ et:
       reply_cannot_be_empty: "Tühja sõnumit ei saa saata"
       reply_sent: "Vastus edukalt saadetud"
       request_accepted: "Päring aktsepteeritud"
+      request_accepted_and_closed: ~
       request_confirmed: "Tellimus täidetud"
       request_rejected: "Päringust keeldutud"
       request_canceled: "Tellimus vaidlustatud"
@@ -3204,11 +3206,11 @@ et:
     paypal_connected: "PayPali konto on edukalt ühendatud!"
     paypal_can_accept: "Kõik on valmis raha PayPali kontole laekumiseks"
     paypal_connected_give_permission: "Seadistamise lõpuleviimiseks ja oma PayPali kontole %{email} raha saamise alustamiseks andke luba tehingutasu võtmiseks."
-    stripe_account_restricted: "Veebimaksete tegemine teie kontole on piiratud või peagi piiratud!"
-    stripe_account_restricted_info: "Makseteenuse pakkujale lisateabe saamiseks peaksite oma pangakonto üksikasju muutma."
+    stripe_account_restricted: "Maksete tegemine Sinu kontole on piiratud või peagi piiratud!"
+    stripe_account_restricted_info: "Makseteenuse pakkujale lisateabe andmiseks peaksid oma makseinfot täiendama."
     stripe_account_restricted_soon: "Online-makseid teie kontole piiratakse varsti."
-    stripe_account_restricted_soon_info: "Makseteenuse pakkujale lisateabe saamiseks peaksite oma pangakonto üksikasju muutma."
-    stripe_account_pending_verification: "Konto üksikasjad on edukalt salvestatud. Konto kinnituse ootamine makseteenuse pakkujalt."
+    stripe_account_restricted_soon_info: "Makseteenuse pakkujale lisateabe andmiseks peaksid oma makseinfot täiendama."
+    stripe_account_pending_verification: "Konto üksikasjad on edukalt salvestatud. Ootame konto kinnitust makseteenuse pakkujalt."
     stripe_account_pending_verification_info: "Vaata hiljem uuesti, et veenduda, kas kõik on korras."
     form_new:
       need_info: "Raha saatmiseks vajame Sinu kohta teavet"

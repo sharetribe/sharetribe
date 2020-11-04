@@ -1302,7 +1302,8 @@ hr:
       details: "Detalji narudžbe"
       order_by: "Narudžba od %{orderer_link}"
       accept_offer: "Prihvatiti ponudu"
-      accept_request: "Prihvatiti zahtjev"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Ne ovaj put"
       reject_request: "Ne ovaj put"
       close_listing: "Zatvoriti oglas %{listing_title_link}"
@@ -2252,6 +2253,7 @@ hr:
       reply_cannot_be_empty: "Ne možete poslati praznu poruku"
       reply_sent: "Odgovor je uspješno poslan"
       request_accepted: "Zahtjev je prihvaćen"
+      request_accepted_and_closed: ~
       request_confirmed: "Narudžba izvršena"
       request_rejected: "Zahtjev je odbijen"
       request_canceled: "Narudžba poništena."

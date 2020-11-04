@@ -1278,7 +1278,8 @@ lt:
       details: ~
       order_by: ~
       accept_offer: "Priimti pasiūlymą"
-      accept_request: "Priimti prašymą"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Ne šį kartą"
       reject_request: "Ne šį kartą"
       close_listing: "Uždaryti %{listing_title_link} skelbimą"
@@ -2226,6 +2227,7 @@ lt:
       reply_cannot_be_empty: "Negalite siųsti tuščios žinutės"
       reply_sent: "Atsakymas išsiųstas sėkmingai"
       request_accepted: "Prašymas priimtas"
+      request_accepted_and_closed: ~
       request_confirmed: "Užsakymas baigtas"
       request_rejected: "Prašymas atmestas"
       request_canceled: "Užsakymas atšauktas"

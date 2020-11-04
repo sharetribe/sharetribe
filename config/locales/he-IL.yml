@@ -1288,7 +1288,8 @@ he-IL:
       details: "פרטי הזמנה"
       order_by: "סדר לפי ‎%{orderer_link}‎ "
       accept_offer: "אשר את ההצעה"
-      accept_request: "אשר את הבקשה"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "לא כעת"
       reject_request: "לא כעת"
       close_listing: "‎%{listing_title_link}‎ לסגור את המודעה"
@@ -2249,6 +2250,7 @@ he-IL:
       reply_cannot_be_empty: "לא ניתן לשלוח הודעות ללא תוכן"
       reply_sent: "ההודעה נשלחה בהצלחה"
       request_accepted: "בקשתך אושרה"
+      request_accepted_and_closed: ~
       request_confirmed: "הזמנה הושלמה"
       request_rejected: "בקשתך נדחתה"
       request_canceled: "ההזמנה בוטלה"

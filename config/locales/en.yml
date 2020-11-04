@@ -1294,7 +1294,7 @@ en:
       order_by: "Order by %{orderer_link}"
       accept_offer: "Accept the offer"
       accept_request: "Accept the request and keep the listing open"
-      accept_request_and_close: 'Accept the request and close the listing'
+      accept_request_and_close: "Accept the request and close the listing"
       reject_offer: "Not this time"
       reject_request: "Not this time"
       close_listing: "Close the listing %{listing_title_link}"
@@ -3229,11 +3229,11 @@ en:
       last_name_kana: "Last name kana"
       first_name_kanji: "First name kanji"
       last_name_kanji: "Last name kanji"
-      country: Country of residence
+      country: "Country of residence"
       birth_date: "Birth date"
       ssn_last_4: "SSN Last 4"
       personal_id_number: "Personal ID number"
-      address_country: Country of residence
+      address_country: "Country of residence"
       address_state: State
       address_province: Province
       address_city: City

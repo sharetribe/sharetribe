@@ -1259,6 +1259,7 @@ id:
       order_by: ~
       accept_offer: ~
       accept_request: ~
+      accept_request_and_close: ~
       reject_offer: ~
       reject_request: ~
       close_listing: ~
@@ -2206,6 +2207,7 @@ id:
       reply_cannot_be_empty: "Anda tidak dapat mengirimkan pesan kosong"
       reply_sent: "Balasan sukses dikirimkan"
       request_accepted: "Permintaan diterima"
+      request_accepted_and_closed: ~
       request_confirmed: ~
       request_rejected: "Permintaan ditolak"
       request_canceled: ~

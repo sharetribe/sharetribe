@@ -1278,7 +1278,8 @@ th-TH:
       details: รายละเอียดใบสั่ง
       order_by: "เรียงลำดับโดย %{orderer_link}"
       accept_offer: ยอมรับข้อเสนอ
-      accept_request: ตอบรับออเดอร์
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: ไม่ใช่เวลานี้
       reject_request: ไม่ใช่เวลานี้
       close_listing: "ลบประกาศ %{listing_title_link}"
@@ -2226,6 +2227,7 @@ th-TH:
       reply_cannot_be_empty: คุณไม่สามารถที่จะส่งข้อความว่างเปล่าได้
       reply_sent: การตอบกลับได้ถูกส่งเรียบร้อยแล้ว
       request_accepted: ออเดอร์ได้รับการตอบรับแล้ว
+      request_accepted_and_closed: ~
       request_confirmed: การสั่งซื้อสินค้าเสร็จสมบูรณ์
       request_rejected: คำขอถูกปฎิเสธ
       request_canceled: การสั่งซื้อถูกยกเลิก

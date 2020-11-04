@@ -1262,7 +1262,8 @@ lv:
       details: "Pasūtījuma detaļas"
       order_by: "Pasūtīt pēc %{orderer_link}"
       accept_offer: "Pieņemt piedāvājumu"
-      accept_request: "Pieņemt pieprasījumu"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: Vēlāk
       reject_request: Vēlāk
       close_listing: "Aizvērt sludinājumu %{listing_title_link}"
@@ -2214,6 +2215,7 @@ lv:
       reply_cannot_be_empty: "Nevar nosūtīt tukšu vēstuli"
       reply_sent: "Atbilde nosūtīta"
       request_accepted: "Pieprasījums pieņemts"
+      request_accepted_and_closed: ~
       request_confirmed: "Pasūtījums izpildīts"
       request_rejected: "Pieprasījums noraidīts"
       request_canceled: "Pasūtījums atcelts"

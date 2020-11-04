@@ -1309,7 +1309,8 @@ ru:
       details: "Детали заказа"
       order_by: "Заказ %{orderer_link}"
       accept_offer: "Принять предложение"
-      accept_request: "Принять запрос"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Не сейчас"
       reject_request: "Не сейчас"
       close_listing: "Закрыть объявление %{listing_title_link}"
@@ -2272,6 +2273,7 @@ ru:
       reply_cannot_be_empty: "Нельзя отправить пустое сообщение"
       reply_sent: "Отзыв успешно отправлен"
       request_accepted: "Запрос подтверждён"
+      request_accepted_and_closed: ~
       request_confirmed: "Запрос выполнен"
       request_rejected: "Запрос отклонён"
       request_canceled: "Запрос отменен"

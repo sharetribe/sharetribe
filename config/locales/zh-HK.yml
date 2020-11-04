@@ -1276,7 +1276,8 @@ zh-HK:
       details: 交易細節
       order_by: "由%{orderer_link}請求"
       accept_offer: 接受
-      accept_request: 接受請求
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: 暫不需要
       reject_request: 暫時不需要了
       close_listing: "關閉此項訊息%{listing_title_link}"
@@ -2224,6 +2225,7 @@ zh-HK:
       reply_cannot_be_empty: 不能發送空白的訊息
       reply_sent: 你的回覆發送成功
       request_accepted: 你的請求已被接受
+      request_accepted_and_closed: ~
       request_confirmed: 請求已完成
       request_rejected: 你的請求已被拒絕
       request_canceled: 請求已取消

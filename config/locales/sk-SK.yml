@@ -1302,7 +1302,8 @@ sk-SK:
       details: "Podrobnosti o usporiadaní."
       order_by: "Zoradené podľa %{orderer_link}"
       accept_offer: "Prijať ponuku"
-      accept_request: "Prijať žiadosť"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Teraz nie"
       reject_request: "Teraz nie"
       close_listing: "Uzavrieť inzeráty %{listing_title_link}"
@@ -2254,6 +2255,7 @@ sk-SK:
       reply_cannot_be_empty: "Nemôžete poslať prázdnu správu"
       reply_sent: "Odpoveď bola úspešne odoslaná"
       request_accepted: "Žiadosť schválená"
+      request_accepted_and_closed: ~
       request_confirmed: "Objednávka bola vybavená."
       request_rejected: "Žiadosť odmietnutá"
       request_canceled: "Objednávka bola zrušená"

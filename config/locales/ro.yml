@@ -1282,7 +1282,8 @@ ro:
       details: "Detalii comandă"
       order_by: "Comanda %{orderer_link}"
       accept_offer: "Acceptați oferta"
-      accept_request: "Acceptați cererea"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Nu de data asta"
       reject_request: "Nu de data asta"
       close_listing: "Închideți anunțutile %{listing_title_link}"
@@ -2234,6 +2235,7 @@ ro:
       reply_cannot_be_empty: "Nu poți trimite un mesaj gol"
       reply_sent: "Răspuns trimis cu succes"
       request_accepted: "Cerere acceptată"
+      request_accepted_and_closed: ~
       request_confirmed: "Comandă finalizată"
       request_rejected: "Cerere respinsă"
       request_canceled: "Comandă anulată"

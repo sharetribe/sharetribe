@@ -1302,7 +1302,8 @@ cs:
       details: "Podobnosti o uspořádání"
       order_by: "Seřazeno dle %{orderer_link}"
       accept_offer: "Přijmout nabídku"
-      accept_request: "Přijmout žádost"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Teď ne"
       reject_request: "Teď ne"
       close_listing: "Uzavřít inzerát %{listing_title_link}"
@@ -2250,6 +2251,7 @@ cs:
       reply_cannot_be_empty: "Nemůžete odeslat prázdnou zprávu"
       reply_sent: "Odpověď byla úspěšně odeslána"
       request_accepted: "Žádost přijata"
+      request_accepted_and_closed: ~
       request_confirmed: "Žádost vyřízena"
       request_rejected: "Žádost odmítnuta"
       request_canceled: "Žádost zrušena"

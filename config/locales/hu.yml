@@ -1290,7 +1290,8 @@ hu:
       details: "Rendelés részletei"
       order_by: "Rendelés itt %{orderer_link}"
       accept_offer: "Ajánlat elfogadás"
-      accept_request: "Kérés elfogadása"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Nem most"
       reject_request: "Most nem"
       close_listing: "Zárja be a hirdetést %{listing_title_link}"
@@ -2246,6 +2247,7 @@ hu:
       reply_cannot_be_empty: "Nem küldhet üres üzenetet"
       reply_sent: "A válasz sikeresen elküldve"
       request_accepted: "Kérését elfogadták"
+      request_accepted_and_closed: ~
       request_confirmed: "Rendelés teljesítve"
       request_rejected: "Kérése elutasítva"
       request_canceled: "Rendelés törölve"

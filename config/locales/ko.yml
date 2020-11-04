@@ -1284,7 +1284,8 @@ ko:
       details: "주문 정보"
       order_by: "%{orderer_link} 주문"
       accept_offer: "제안 승인"
-      accept_request: "구매요청 승인"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "구매요청 거부"
       reject_request: "구매요청 거부"
       close_listing: "%{listing_title_link}를 비공개로 전환합니다."
@@ -2232,6 +2233,7 @@ ko:
       reply_cannot_be_empty: "빈 메시지는 보내실 수 없습니다."
       reply_sent: "답장을 보냈습니다."
       request_accepted: "구매요청을 수락했습니다."
+      request_accepted_and_closed: ~
       request_confirmed: "주문이 완료되었습니다"
       request_rejected: "요청을 거절했습니다."
       request_canceled: 분쟁건

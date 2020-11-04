@@ -1282,7 +1282,8 @@ ja:
       details: 注文情報
       order_by: "%{orderer_link}さんの注文内容"
       accept_offer: オファーを受け入れる
-      accept_request: リクエストを受け入れる
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: 今回はやめる
       reject_request: 今回はやめる
       close_listing: "%{listing_title_link}をクローズします"
@@ -2232,6 +2233,7 @@ ja:
       reply_cannot_be_empty: 空のメッセージを送れません
       reply_sent: 送信しました
       request_accepted: リクエストは受諾されました
+      request_accepted_and_closed: ~
       request_confirmed: リクエストは完了しました
       request_rejected: リクエストにお応えすることができませんでした
       request_canceled: リクエストはキャンセルされました

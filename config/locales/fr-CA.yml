@@ -1275,7 +1275,8 @@ fr-CA:
       details: "Détails de la commande"
       order_by: "Commande par %{orderer_link}"
       accept_offer: "Accepter l'offre"
-      accept_request: "Accepter la demande"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Pas cette fois"
       reject_request: "Pas cette fois"
       close_listing: "Clore l'annonce %{listing_title_link}"
@@ -2223,6 +2224,7 @@ fr-CA:
       reply_cannot_be_empty: "Vous ne pouvez pas envoyer un message vide"
       reply_sent: "Réponse envoyée avec succès"
       request_accepted: "Demande acceptée"
+      request_accepted_and_closed: ~
       request_confirmed: "Demande réalisée"
       request_rejected: "Demande refusée"
       request_canceled: "Demande annulée"

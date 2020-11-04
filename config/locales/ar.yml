@@ -1274,7 +1274,8 @@ ar:
       details: "تفاصيل الطلب"
       order_by: "‎%{orderer_link}‎ طلب بواسطة"
       accept_offer: "اقبل العرض"
-      accept_request: "اقبل الطلب"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "ليس الآن"
       reject_request: "ليس الآن"
       close_listing: "‎%{listing_title_link}‎ أغلق الإعلان"
@@ -2229,6 +2230,7 @@ ar:
       reply_cannot_be_empty: "لا يمكنك إرسال رسالة فارغة"
       reply_sent: "تم إرسال الرد بنجاح"
       request_accepted: "تم قبول الطلب بنجاح"
+      request_accepted_and_closed: ~
       request_confirmed: "تم إكمال الطلب"
       request_rejected: "تم رفض الطلب"
       request_canceled: "تم إلغاء الطلب"
