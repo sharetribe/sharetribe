@@ -35,7 +35,7 @@
           = form.label :require_verification_to_post_listings, t('admin2.user_rights.require_verification_to_post_listings'), class: %i[form-check-label]
       %p.ingress
         = community_posting_rights_content[:info_text]
-      .form-group.hide-content{class: form.object.require_verification_to_post_listings ? '' : :opacity_04}
+      .form-group.hide-content{class: form.object.require_verification_to_post_listings ? '' : :opacity_035}
         = render partial: 'admin2/users/user_rights/posting_rights', locals: community_posting_rights_content
 
     %section.content-card-terminal.remove-from-mercury

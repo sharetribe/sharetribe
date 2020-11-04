@@ -16,7 +16,7 @@
         .form-check
           = form.check_box :private, class: %i[form-check-input for-hide-content]
           = form.label :private, t('admin2.privacy.private'), class: %i[form-check-label]
-    %section.content-card-section.hide-content{class: form.object.private ? '' : :opacity_04}
+    %section.content-card-section.hide-content{class: form.object.private ? '' : :opacity_035}
       = render partial: 'admin2/locale_input_fields', locals: community_private_homepage_content.merge(form: form)
     %section.content-card-terminal.remove-from-mercury
       = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

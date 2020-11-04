@@ -31,7 +31,7 @@
           = form.check_box :transaction_agreement_in_use, class: %i[form-check-input for-hide-content hidden-required]
           = form.label :transaction_agreement_in_use, t('admin2.config_transactions.transaction_agreement_in_use'), class: %i[form-check-label]
 
-      %div.hide-content{class: form.object.transaction_agreement_in_use ? '' : :opacity_04}
+      %div.hide-content{class: form.object.transaction_agreement_in_use ? '' : :opacity_035}
         = render 'transaction_agreement', form: form, customizations: @customizations
 
     .content-card-terminal.without-margin
