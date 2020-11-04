@@ -1293,7 +1293,8 @@ en:
       details: "Order details"
       order_by: "Order by %{orderer_link}"
       accept_offer: "Accept the offer"
-      accept_request: "Accept the request"
+      accept_request: "Accept the request and keep the listing open"
+      accept_request_and_close: 'Accept the request and close the listing'
       reject_offer: "Not this time"
       reject_request: "Not this time"
       close_listing: "Close the listing %{listing_title_link}"
@@ -2244,6 +2245,7 @@ en:
       reply_cannot_be_empty: "You can't send an empty message"
       reply_sent: "Reply sent successfully"
       request_accepted: "Request accepted"
+      request_accepted_and_closed: "Request accepted and listing closed"
       request_confirmed: "Order completed"
       request_rejected: "Request rejected"
       request_canceled: "Order disputed"
