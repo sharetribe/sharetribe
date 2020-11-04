@@ -5,7 +5,7 @@
   %h1.content-card-header-title
     = t('admin2.sidebar.design.cover_photos')
 
-  = link_to t('admin2.cover_photos.preview_homepage'), '/?big_cover_photo=true', class: %i[content-card-header-link], target: :_blank
+  = link_to t('admin2.cover_photos.preview_homepage'), '/?big_cover_photo=true', class: %i[external-link content-card-header-link], target: :_blank
 .content-card-section-container
   = form_for @current_community, url: update_cover_photos_admin2_design_cover_photos_path, html: { multipart: true, class: %i[content-card-section-form] }, method: :patch do |form|
     %section.content-card-section

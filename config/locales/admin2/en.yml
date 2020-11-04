@@ -557,7 +557,7 @@ en:
       info_text: "Google Search Console offers tools and reports to help you measure your search traffic and performance and fix issues related to Google Search results."
       info_text_2: "It's a good idea to add your website to Google Search Console. It takes only a few minutes with <a href='%{url}' class='external-link' target='_blank'>these instructions</a>."
     invitations:
-      invite_new_users: 'Invite new users'
+      invite_new_users: '+ Invite new users'
       from: 'From'
       to: 'To'
       message: 'Message'
@@ -1072,7 +1072,7 @@ en:
       linkedin_connect_enabled: 'Users can sign up and login with their LinkedIn account'
       linkedin_info_text: 'To enable LinkedIn Sign In, you must create a LinkedIn app for your marketplace in the <a target="_blank" class="external-link" href="%{href}">LinkedIn Developers Dashboard</a>. You will get a generated ID and secret key. Copy and paste them below. <a target="_blank" class="external-link" href="%{href2}">See instructions for configuring LinkedIn Sign In</a>.'
     cover_photos:
-      preview_homepage: 'Preview homepage'
+      preview_homepage: 'View your current homepage as a visitor'
       description: "Don't have a cover picture on hand? You can find ready-made pictures and links to free and paid image banks <a href=\"%{href}\" class=\"external-link\" target=\"_blank\">in the Go Help Center</a>."
       cover_photo: 'Main cover photo'
       cover_photo_info_text: 'The main cover photo is shown on the homepage to users who are not logged in. Its dimensions should be 1920x450 pixels.'
@@ -1113,7 +1113,7 @@ en:
       info_text: 'This content is shown on your marketplace homepage to users who are not logged in. Here, you can describe your marketplace and the process to join it.'
       small_text: 'This is the content for %{language}. To view and edit the content in other languages, change the language from the top bar.'
     essentials:
-      header_link: 'Preview your marketplace'
+      header_link: 'View your current homepage as a visitor'
       header: 'Marketplace details'
       community_name: 'Marketplace name'
       community_info_text: 'Your marketplace name is shown to users in emails and many places on your site.'
