@@ -10,6 +10,6 @@ class Admin::AdminBaseController < ApplicationController
   before_action :admin2_banner
 
   def admin2_banner
-    @admin2_banner ||= FeatureFlagHelper.feature_enabled?(:admin2_banner)
+    @admin2_banner = true
   end
 end
