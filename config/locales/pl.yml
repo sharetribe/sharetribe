@@ -1311,7 +1311,8 @@ pl:
       details: "Szczegóły zamówienia"
       order_by: "Sortuj wg %{orderer_link}"
       accept_offer: "Zaakceptuj ofertę"
-      accept_request: "Zaakceptuj zapytanie"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Nie tym razem"
       reject_request: "Nie tym razem"
       close_listing: "Zamknij ofertę %{listing_title_link}"
@@ -2259,6 +2260,7 @@ pl:
       reply_cannot_be_empty: "Nie możesz wysłać pustej wiadomości"
       reply_sent: "Odpowiedź wysłana pomyślnie"
       request_accepted: "Zapytanie zaakceptowane"
+      request_accepted_and_closed: ~
       request_confirmed: "Zamówienie zakończone"
       request_rejected: "Zapytanie odrzucone"
       request_canceled: "Zamówienie unieważnione"

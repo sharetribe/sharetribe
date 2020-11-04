@@ -1285,7 +1285,8 @@ da-DK:
       details: Ordredetaljer
       order_by: "Ordre ved %{orderer_link}"
       accept_offer: "Accepter tilbud"
-      accept_request: "Accepter anmodningen"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Ikke denne gang"
       reject_request: "Ikke denne gang"
       close_listing: "Luk annoncen %{listing_title_link}"
@@ -2235,6 +2236,7 @@ da-DK:
       reply_cannot_be_empty: "Du kan ikke sende en tom besked"
       reply_sent: "Svar sendt"
       request_accepted: "Anmodning accepteret"
+      request_accepted_and_closed: ~
       request_confirmed: "Anmodning godkendt"
       request_rejected: "Anmodning afslået"
       request_canceled: "Anmodning annulleret"

@@ -1273,7 +1273,8 @@ tr-TR:
       details: "Sipariş Detayları"
       order_by: "%{orderer_link} göre listele"
       accept_offer: "Teklifi kabul et"
-      accept_request: "Talebi kabul et"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Bu sefer değil"
       reject_request: "Bu sefer değil"
       close_listing: "İlanı kapat %{listing_title_link}"
@@ -2223,6 +2224,7 @@ tr-TR:
       reply_cannot_be_empty: "Boş mesaj gönderemezsiniz."
       reply_sent: "Cevap başarıyla gönderildi"
       request_accepted: "Teklif kabul edildi"
+      request_accepted_and_closed: ~
       request_confirmed: "Talep tamamlandı"
       request_rejected: "Teklif reddedildi"
       request_canceled: "Talep iptal edildi"

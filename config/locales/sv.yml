@@ -1293,7 +1293,8 @@ sv:
       details: Orderinformation
       order_by: "Order av %{orderer_link}"
       accept_offer: "Acceptera erbjudande"
-      accept_request: "Acceptera förfrågan"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Inte den här gången"
       reject_request: "Inte den här gången"
       close_listing: "Stäng annonsen %{listing_title_link}"
@@ -2244,6 +2245,7 @@ sv:
       reply_cannot_be_empty: "Du kan inte skicka ett tomt meddelande"
       reply_sent: "Svar skickades"
       request_accepted: "Förfrågan accepterad"
+      request_accepted_and_closed: ~
       request_confirmed: "Förfrågan är slutförd"
       request_rejected: "Förfrågan avslagen"
       request_canceled: "Förfrågan avbruten"

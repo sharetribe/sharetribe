@@ -1287,7 +1287,8 @@ pt-BR:
       details: "Detalhes do pedido"
       order_by: "Ordernar por %{orderer_link}"
       accept_offer: "Aceitar a oferta"
-      accept_request: "Aceitar o pedido"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Não agora"
       reject_request: "Não agora"
       close_listing: "Encerrar o anúncio %{listing_title_link}"
@@ -2238,6 +2239,7 @@ pt-BR:
       reply_cannot_be_empty: "Você não pode enviar uma mensagem vazia"
       reply_sent: "Resposta enviada com sucesso!"
       request_accepted: "Pedido aceito"
+      request_accepted_and_closed: ~
       request_confirmed: "Pedido concluído"
       request_rejected: "Pedido rejeitado"
       request_canceled: "Pedido cancelado"

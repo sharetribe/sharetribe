@@ -1276,7 +1276,8 @@ ka:
       details: "შეკვეთის დეტალები"
       order_by: "შეკვეთა %{orderer_link}ს"
       accept_offer: "შემოთავაზებაზე დათანხმება"
-      accept_request: "მოთხოვნაზე დათანხმება"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "ამჯერად არა"
       reject_request: "ამჯერად არა"
       close_listing: "დახურე ჩამონათვალი %{listing_title_link}"
@@ -2226,6 +2227,7 @@ ka:
       reply_cannot_be_empty: "თქვენ არ შეგიძლიათ ცარიელი წერილის გაგზავნა"
       reply_sent: "პასუხი წარმატებით გაიგზავნა"
       request_accepted: "მოთხოვნა დადასტურებულია"
+      request_accepted_and_closed: ~
       request_confirmed: "შეკვეთა დასრულებულია"
       request_rejected: "მოთხოვნა უარყოფილია"
       request_canceled: "შეკვეთა გაუქმებულია"

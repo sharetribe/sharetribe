@@ -1285,7 +1285,8 @@ nb:
       details: Ordredetaljer
       order_by: "Ordre fra %{orderer_link}"
       accept_offer: "Godta tilbudet"
-      accept_request: "Godta forespørselen"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Ikke denne gang"
       reject_request: "Ikke denne gang"
       close_listing: "Stopp annonsen %{listing_title_link}"
@@ -2235,6 +2236,7 @@ nb:
       reply_cannot_be_empty: "Du kan ikke sende en tom melding"
       reply_sent: "Svar sendt"
       request_accepted: "Forespørsel godtatt"
+      request_accepted_and_closed: ~
       request_confirmed: "Forespørsel fullført"
       request_rejected: "Forespørsel avvist"
       request_canceled: "Forespørsel avbrutt."

@@ -1258,7 +1258,8 @@ es-CL:
       details: ~
       order_by: ~
       accept_offer: "Aceptar la oferta"
-      accept_request: "Aceptar la solicitud"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "No en este momento"
       reject_request: "No en este momento"
       close_listing: "Cerrar el listado %{listing_title_link}"
@@ -2213,6 +2214,7 @@ es-CL:
       reply_cannot_be_empty: "No puedes enviar un mensaje vacío"
       reply_sent: "Respuesta enviada satisfactoriamente"
       request_accepted: "Solicitud aceptada"
+      request_accepted_and_closed: ~
       request_confirmed: "Solicitud completa"
       request_rejected: "Solicitud rechazada"
       request_canceled: "Solicitud cancelada"

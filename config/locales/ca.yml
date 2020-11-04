@@ -1293,7 +1293,8 @@ ca:
       details: "Detalls de l'ordre"
       order_by: "Ordre realitzada per %{orderer_link}"
       accept_offer: "Acceptar l'oferta"
-      accept_request: "Acceptar sol·licitud"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Aquesta vegada no"
       reject_request: "Aquesta vegada no"
       close_listing: "Tancar la llista %{listing_title_link}"
@@ -2244,6 +2245,7 @@ ca:
       reply_cannot_be_empty: "No pots enviar un missatge buit"
       reply_sent: "Resposta enviada amb èxit"
       request_accepted: "Sol·licitud acceptada"
+      request_accepted_and_closed: ~
       request_confirmed: "Comanda completada"
       request_rejected: "Sol·licitud rebutjada"
       request_canceled: "Comanda disputada"

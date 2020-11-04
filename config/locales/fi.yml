@@ -1293,7 +1293,8 @@ fi:
       details: "Tilauksen tiedot"
       order_by: "Tilaus käyttäjältä %{orderer_link}"
       accept_offer: "Hyväksy tarjous"
-      accept_request: "Hyväksy pyyntö"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Ei tällä kertaa"
       reject_request: "Ei tällä kertaa"
       close_listing: "Sulje ilmoitus %{listing_title_link}"
@@ -2244,6 +2245,7 @@ fi:
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
       reply_sent: "Vastaus lähetetty"
       request_accepted: "Pyyntö hyväksytty"
+      request_accepted_and_closed: ~
       request_confirmed: "Pyyntö merkitty toteutuneeksi"
       request_rejected: "Pyyntö hylätty"
       request_canceled: "Pyyntö riitautettu"

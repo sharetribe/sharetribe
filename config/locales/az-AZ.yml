@@ -1258,7 +1258,8 @@ az-AZ:
       details: ~
       order_by: ~
       accept_offer: "Təklifi qəbul et"
-      accept_request: "İstəyi qəbul et"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Bu zaman yox"
       reject_request: "Bu zaman yox"
       close_listing: "%{listing_title_link} elanı bağla"
@@ -2206,6 +2207,7 @@ az-AZ:
       reply_cannot_be_empty: "Boş mesaj göndərə bilməzsiniz"
       reply_sent: "Cavab uğurla göndərildi"
       request_accepted: "İstək qəbul olundu"
+      request_accepted_and_closed: ~
       request_confirmed: "Sifariş tamamlandı"
       request_rejected: "İstək rədd edildi"
       request_canceled: "Sifariş ləğv olundu"

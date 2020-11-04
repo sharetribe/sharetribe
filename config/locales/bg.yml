@@ -1263,7 +1263,8 @@ bg:
       details: ~
       order_by: ~
       accept_offer: "Приемете офертата"
-      accept_request: "Приемете молбата"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Не този път"
       reject_request: "Не този път"
       close_listing: ~
@@ -2214,6 +2215,7 @@ bg:
       reply_cannot_be_empty: "Не може да изпратите празно съобщение"
       reply_sent: "Отговорът е изпратен успешно"
       request_accepted: "Запитването е прието"
+      request_accepted_and_closed: ~
       request_confirmed: ~
       request_rejected: "Запитването е отхвърлено"
       request_canceled: ~

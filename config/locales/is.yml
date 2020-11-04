@@ -1259,6 +1259,7 @@ is:
       order_by: ~
       accept_offer: ~
       accept_request: ~
+      accept_request_and_close: ~
       reject_offer: ~
       reject_request: ~
       close_listing: ~
@@ -2206,6 +2207,7 @@ is:
       reply_cannot_be_empty: "Þú getur ekki sent tóm skilaboð"
       reply_sent: "Skilaboðum hefur verið svarað"
       request_accepted: "Beiðni samþykkt"
+      request_accepted_and_closed: ~
       request_confirmed: ~
       request_rejected: "Beiðni var hafnað"
       request_canceled: ~

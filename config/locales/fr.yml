@@ -1293,7 +1293,8 @@ fr:
       details: "Détails de la commande"
       order_by: "Commande par %{orderer_link}"
       accept_offer: "Accepter l'offre"
-      accept_request: "Accepter la demande"
+      accept_request: "Accepter la demande et garder l'annonce en ligne"
+      accept_request_and_close: "Accepter la demande et clore l'annonce"
       reject_offer: "Pas cette fois"
       reject_request: "Pas cette fois"
       close_listing: "Clore l'annonce %{listing_title_link}"
@@ -2244,6 +2245,7 @@ fr:
       reply_cannot_be_empty: "Vous ne pouvez pas envoyer un message vide"
       reply_sent: "Message envoyé avec succès"
       request_accepted: "Demande acceptée"
+      request_accepted_and_closed: "Demande acceptée et annonce close"
       request_confirmed: "Commande réalisée"
       request_rejected: "Demande refusée"
       request_canceled: "Commande contestée"
@@ -2613,7 +2615,7 @@ fr:
       address_state: "Région / Etat / Province"
       address_street1: "Adresse *"
       address_street2: "Adresse (suite)"
-      address_postal_code: "Code postal"
+      address_postal_code: "Code postal *"
   mapview:
     index:
       all_categories: "Toutes les catégories"

@@ -1293,7 +1293,8 @@ de:
       details: Auftragsdetails
       order_by: "Sortieren nach %{orderer_link}"
       accept_offer: "Akzeptiere das Angebot"
-      accept_request: "Akzeptiere die Anfrage"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Nicht dieses Mal"
       reject_request: "Nicht dieses Mal"
       close_listing: "Schließe den Eintrag %{listing_title_link}"
@@ -2244,6 +2245,7 @@ de:
       reply_cannot_be_empty: "Du kannst keine leere Nachricht senden."
       reply_sent: "Nachricht erfolgreich gesendet"
       request_accepted: "Anfrage akzeptiert"
+      request_accepted_and_closed: ~
       request_confirmed: "Anfrage abgeschlossen"
       request_rejected: "Anfrage abgelehnt"
       request_canceled: "Anfrage angefochten"

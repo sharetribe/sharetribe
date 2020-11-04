@@ -1266,7 +1266,8 @@ it:
       details: "Dettagli dell'ordine"
       order_by: "Richiesto da %{orderer_link}"
       accept_offer: "Accetta l'offerta"
-      accept_request: "Accetta la richiesta"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Non questa volta"
       reject_request: "Non questa volta"
       close_listing: "Chiudi l'annucio %{listing_title_link}"
@@ -2214,6 +2215,7 @@ it:
       reply_cannot_be_empty: "Non puoi inviare un messaggio vuoto"
       reply_sent: "Risposta inviata con successo"
       request_accepted: "Richiesta accettata"
+      request_accepted_and_closed: ~
       request_confirmed: "Richiesta completata."
       request_rejected: "Richiesta respinta"
       request_canceled: "Ordine contestato."

@@ -1282,7 +1282,8 @@ vi:
       details: "Chi tiết đơn đặt hàng"
       order_by: "Đơn hàng bởi %{orderer_link}"
       accept_offer: "Chấp nhận đề nghị"
-      accept_request: "Chấp nhận yêu cầu"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Để lần sau"
       reject_request: "Để lần sau"
       close_listing: "Đóng  %{listing_title_link}"
@@ -2230,6 +2231,7 @@ vi:
       reply_cannot_be_empty: "Bạn không thể gửi thông điệp trống."
       reply_sent: "Trả lời đã gửi thành công."
       request_accepted: "Yêu cầu đã được chấp nhận"
+      request_accepted_and_closed: ~
       request_confirmed: ~
       request_rejected: "Yêu cầu đã bị từ chối"
       request_canceled: ~

@@ -1258,7 +1258,8 @@ ta-IN:
       details: ~
       order_by: ~
       accept_offer: "வியாபாரத்தை ஏற்கவும்"
-      accept_request: "வேண்டுகோளை ஏற்கவும்"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "இப்போது இல்லை"
       reject_request: "இப்போது இல்லை"
       close_listing: ~
@@ -2206,6 +2207,7 @@ ta-IN:
       reply_cannot_be_empty: "நீங்கள் ஒரு வெற்று செய்தியை அனுப்ப இயலாது"
       reply_sent: "வெற்றிகரமாக பதில் அனுப்பபட்டது"
       request_accepted: "வேண்டுதல் ஏற்று கொள்ளபட்டது"
+      request_accepted_and_closed: ~
       request_confirmed: "ஆர்டர் நிறைவடைந்தது"
       request_rejected: "வேண்டுதல் நிராகரிக்க பட்டது"
       request_canceled: ~

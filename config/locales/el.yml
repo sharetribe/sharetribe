@@ -1258,7 +1258,8 @@ el:
       details: "Λεπτομέρειες παραγγελίας"
       order_by: ~
       accept_offer: "Αποδεχτείτε την προσφορά"
-      accept_request: "Αποδεχτείτε το αίτημα"
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: "Όχι αυτή τη φορά"
       reject_request: "Όχι αυτή τη φορά"
       close_listing: "Απενεργοποιήστε την καταχώρηση \"%{listing_title_link}\""
@@ -2206,6 +2207,7 @@ el:
       reply_cannot_be_empty: "Δεν γίνεται να στείλεις κενό μήνυμα"
       reply_sent: "Η απάντησή σας εστάλη"
       request_accepted: "Το αίτημα έγινε δεκτό"
+      request_accepted_and_closed: ~
       request_confirmed: "Το αίτημα ολοκληρώθηκε"
       request_rejected: "Το αίτημα απορρίφθηκε"
       request_canceled: "Το αίτημα ακυρώθηκε"

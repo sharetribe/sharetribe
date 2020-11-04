@@ -1276,7 +1276,8 @@ zh:
       details: 订单明细
       order_by: "订购%{orderer_link}"
       accept_offer: 接受宝贝
-      accept_request: 接受请求
+      accept_request: ~
+      accept_request_and_close: ~
       reject_offer: 这次不行。
       reject_request: 这次不行。
       close_listing: "关闭这条信息%{listing_title_link}"
@@ -2224,6 +2225,7 @@ zh:
       reply_cannot_be_empty: 你不能发送空白消息
       reply_sent: 回复发送成功
       request_accepted: 你的请求已被接受
+      request_accepted_and_closed: ~
       request_confirmed: 请求完成。
       request_rejected: 请求已拒绝
       request_canceled: 请求已取消
