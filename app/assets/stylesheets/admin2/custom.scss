@@ -6,6 +6,9 @@
   opacity: 0.3
 }
 
+.opacity_035 {
+  opacity: 0.35
+}
 
 input#colorpicker-color {
   border: 0;
@@ -213,3 +216,6 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
 
 textarea.attention {
   border: 1px solid #FF4E36; }
+
+.form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled ~ .form-check-label {
+  opacity: 0.35; }
