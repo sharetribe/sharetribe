@@ -677,38 +677,38 @@ es:
         when_you_change_your_sharetribe_domain: "Cuando cambias tu dominio de Sharetribe, todas tus URL automáticamente cambian. Serás redirigido a la nueva dirección. Tus usuarios y tú tendrán que iniciar sesión nuevamente. Tu dominio anterior no estará conectado a tu nuevo dominio o hará redirección. Tu dominio viejo quedará disponible para otros usuarios."
         would_you_like_to_proceed: "¿Quieres continuar?"
         change: Cambiar
-        you_can_now_enable_a_custom_domain: ~
-        read_more_about_the_set_up_of_your_custom_domain: ~
-        set_custom_domain: ~
-        in_order_to_set_your_custom_domain: ~
-        instructions_to_point_your_domain: ~
-        main_domain: ~
-        main_domain_info_text: ~
-        main_domain_link_text: ~
-        check_domain: ~
-        domain_being_checked: ~
-        status: ~
-        checks_pending: ~
-        please_check_back: ~
-        checks_not_passed: ~
-        check_the_domain_again_info: ~
-        check_the_domain_again: ~
-        use_another_domain: ~
-        checks_passed: ~
-        domain_being_set_up: ~
-        setup_in_progress: ~
-        setup_check_back: ~
-        setup_check_back_critical_error: ~
-        setup_failed: ~
-        setup_the_domain_again_info: ~
-        setup_the_domain_again: ~
+        you_can_now_enable_a_custom_domain: "Con tu plan, puedes usar un dominio personalizado cuando quieras. Sigue estos paso para configurar tu dominio."
+        read_more_about_the_set_up_of_your_custom_domain: "Leer mas acerca de la configuración de dominio personalizado"
+        set_custom_domain: "Configurar dominio personalizado"
+        in_order_to_set_your_custom_domain: "Para configurar tu dominio personalizado, primero debes verificar que el dominio que quieres usar esté apuntando a los servidores de Sharetribe. Antes de continuar asegurate de haber seguido %{link}."
+        instructions_to_point_your_domain: "las instrucciones para apuntar tu dominio a nuestros servidores"
+        main_domain: "Dominio principal"
+        main_domain_info_text: "Escribe el dominio exactamente como lo quieres usar. Puedes usar el tu dominio básico o un subdominio, tú decides. Asegúrate de haber editado los registros DNS antes de esto. %{link}."
+        main_domain_link_text: "Lee más acerca de como configurar tus registros DNS."
+        check_domain: "Verificar dominio"
+        domain_being_checked: "Dominio en verificación:"
+        status: "Estatus:"
+        checks_pending: "Verificación pendiente..."
+        please_check_back: "Por favor, revisa nuevamente en unos minutos, la verificación se debería completar pronto."
+        checks_not_passed: "¡Verificación fallida!"
+        check_the_domain_again_info: "Asegurate que los registros DNS están configurados correctamente."
+        check_the_domain_again: "Verificar el dominio nuevamente"
+        use_another_domain: "usar otro dominio"
+        checks_passed: "¡Verificación exitosa!"
+        domain_being_set_up: "Dominio siendo configurado:"
+        setup_in_progress: "Configuración en progresso..."
+        setup_check_back: "Por favor, revisa nuevamente en unos minutos, la configuración del dominio se debería completar pronto."
+        setup_check_back_critical_error: "La configuración del dominio tomará más de lo esperado. Revisa de nuevo más tarde o contacta al equipo de Sharetribe."
+        setup_failed: "¡La configuración del dominio falló!"
+        setup_the_domain_again_info: "Es probable que los cambios de los registros DNS de tu dominio no se han propagado lo suficiente. Esto puede tomar hasta 48 horas. Asegúrate que tus registros DNS están configurados correctamente e intenta de nuevo en una hora. Contactanos, si el problema persiste."
+        setup_the_domain_again: "Intentar de nuevo"
         summary:
-          main_domain: ~
-          redirect: ~
-        check_another_domain: ~
-        checks_passed_with_warning: ~
-        this_domain_is_not_configured_correctly: ~
-        start_using_the_custom_domain: ~
+          main_domain: "Dominio principal:"
+          redirect: "Redirección:"
+        check_another_domain: "Verificar otro dominio"
+        checks_passed_with_warning: "Verificación exitosa - ¡con alertas!"
+        this_domain_is_not_configured_correctly: "El dominio no se ha configurado correctamente. Esto significa que este dominio no redirigirá a tu marketplace. Asegúrate que tus registros DNS están configurados correctamente e intenta la verificación de nuevo si quieres que este dominio redirigá a tu dominio principal. Si no quieres la redirección, y sólo quieres usar el dominio principal, haz clic en \"Empieza a usar to dominio personalizado\"."
+        start_using_the_custom_domain: "Empieza a usar to dominio personalizado"
       landing_pages:
         landing_pages: "Página de inicio"
         info_1: "La página de inicio es quizás la página más importante de tu marketplace. Es la primera página que los visitantes ven- casi como la fachada de tu casa. Tienes tan sólo unos segundos para convencer a nuevos visitantes para que exploren tu sitio. La página necesita ser atractiva y tu propuesta clara y tentadora."
@@ -1293,8 +1293,8 @@ es:
       details: "Detalles de la orden"
       order_by: "Orde realizada por %{orderer_link}"
       accept_offer: "Aceptar la oferta"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Aceptar solicitud y mantener el anuncio abierto"
+      accept_request_and_close: "Aceptar solicitud y cerrar el anuncio"
       reject_offer: "Rechazar la solicitud"
       reject_request: "Rechazar la solicitud"
       close_listing: "Cerrar el anuncio %{listing_title_link}"
@@ -1567,7 +1567,7 @@ es:
     confirmation_instructions_v2:
       headline: "confirma tu correo para unirte a %{service_name}."
       need_to_confirm: "Confirma tu correo para completar tu cuenta en %{service_name}. Es muy fácil - sólo haz click en el botón de abajo."
-      confirmation_link_text: ~
+      confirmation_link_text: "Confirmar la dirección de correo"
     common:
       hey: "Hola %{name},"
       hi: "Hola %{name},"
@@ -1617,11 +1617,11 @@ es:
       has_commented_listing_you_follow_in_kassi: "%{author} ha comentado en el anuncio '%{listing}' que estás siguiendo en %{service_name}."
     new_message:
       view_message: "Ver mensaje"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} te ha mandado un mensaje. Ve a %{service_name} pare responder."
+      you_have_a_new_message: "Tienes un nuevo mensaje de %{sender_name} en%{service_name}"
     new_message_v2:
       headline: "tienes un mensaje."
-      reply: ~
+      reply: "Haz clic aquí para responder a %{sender}"
     new_payment:
       new_payment: "Has recibido un nuevo pago"
       price_per_unit_type: "Precio por %{unit_type}"
@@ -2245,7 +2245,7 @@ es:
       reply_cannot_be_empty: "No puedes enviar un mensaje vacío"
       reply_sent: "Respuesta enviada satisfactoriamente"
       request_accepted: "Solicitud aceptada"
-      request_accepted_and_closed: ~
+      request_accepted_and_closed: "Solicitud aceptada y anuncio cerrado"
       request_confirmed: "Solicitud completada"
       request_rejected: "Solicitud rechazada"
       request_canceled: "Orden disputada"
@@ -2880,10 +2880,10 @@ es:
       newsletters: "Correos de los administradores"
       community_updates: "Actualizaciones de la comunidad"
       email_about_confirm_reminders: "...olvidé confirmar una solicitud como completada"
-      email_about_new_comments_to_own_listing: "...alguien hace un comentario en mi oferta o solicitud"
+      email_about_new_comments_to_own_listing: "...alguien hace un comentario en mi anuncio"
       email_about_new_messages: "...alguien me envía un mensaje"
       email_about_new_received_testimonials: "...alguien me dado una valoración"
-      email_about_testimonial_reminders: "...he olvidado dar una valoración sobre un evento"
+      email_about_testimonial_reminders: "...he olvidado dar una valoración en una transacción"
       email_daily_community_updates: "Envíame un correo de actualizaciones <b>diariamente</b> si hay nuevas publicaciones"
       email_weekly_community_updates: "Envíame un correo de actualizaciones <b>semanalmente</b> si hay nuevas publicaciones"
       do_not_email_community_updates: "No enviarme correos de actualizaciones"
@@ -3164,6 +3164,10 @@ es:
         zero: transacciones
         one: transacción
         other: transacciones
+      listing:
+        zero: anuncios
+        one: anuncio
+        other: anuncios
     previous_label: "&#8592; Anterior"
     next_label: "Siguiente &#8594;"
     page_gap: "&hellip;"
@@ -3222,11 +3226,11 @@ es:
       last_name_kana: "Apellido (Kana)"
       first_name_kanji: "Nombre (Kanji)"
       last_name_kanji: "Apellido (Kanji)"
-      country: País
+      country: "País de residencia"
       birth_date: "Fecha de nacimiento"
       ssn_last_4: "Últimos 4 dígitos del SSN"
       personal_id_number: "Numero personal de ID"
-      address_country: País
+      address_country: "País de residencia"
       address_state: Estado
       address_province: Provincia
       address_city: Ciudad
@@ -3259,9 +3263,9 @@ es:
       bank_routing_2: "Código de la sucursal"
       bank_currency: "Divisa de la cuenta del banco"
       update_also_bank_account: "Modificar la cuenta de banco también"
-      bank_account_same_country: ~
-      bank_country: ~
-      bank_holder_name: ~
+      bank_account_same_country: "Usar una cuenta bancaría en mi país de residencia"
+      bank_country: "País de la cuenta bancaria"
+      bank_holder_name: "Nombre del titular de la cuenta"
       messages:
         account_number: "Número de cuenta"
         routing_number: "Número de ruta/routing"

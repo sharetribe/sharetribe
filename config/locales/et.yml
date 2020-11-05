@@ -1293,8 +1293,8 @@ et:
       details: "Tellimuse üksikasjad"
       order_by: "Telli %{orderer_link}"
       accept_offer: "Aktsepteeri pakkumine"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Aktsepteeri tellimus ja hoia kuulutus avatuna"
+      accept_request_and_close: "Aktsepteeri tellimus ja sulge kuulutus"
       reject_offer: "Mite see kord"
       reject_request: "Mitte seekord"
       close_listing: "Sulge kuulutus %{listing_title_link}"
@@ -3284,8 +3284,8 @@ et:
       document_back: "Isikut tõendav dokument (pass, isikutunnistus) (dokumendi tagakülg)"
       send_verification: "Saada kinnitus"
       need_verification: "Vaja täiendavat kinnitust"
-      additional_document: "Dokument, mis näitab aadressi, kas passi, kohaliku ID-kaardi või tunnustatud kommunaalteenuste ettevõtte kommunaalarvet"
-      additional_document_back: "Dokument, mis näitab aadressi, passi, ID-kaardi või kommunaalteenuste ettevõtte kommunaalarve (dokumendi tagakülg)"
+      additional_document: "Dokument, mis näitab aadressi, kas kommunaalarve või isikuandmete päring rahvastikuregistrist."
+      additional_document_back: "Dokument, mis näitab aadressi, kas kommunaalarve või isikuandmed rahvastikuregistrist (dokumendi tagakülg)."
       files_need_to_be: "Failid peavad olema JPEG või PNG, mis on väiksemad kui 5 MB. PDF-e pole võimalik kontrollida. Failid peaksid olema värvilised, neid tuleb pöörata parempoolse küljega üles ja kogu teave peab olema selgesti loetav."
     form_pin:
       social_insurance_number: "Sotsiaalkindlustusnumbrit (SIN)"
