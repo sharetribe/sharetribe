@@ -1,8 +1,7 @@
 #buyer.breakdown-element
   .breakdown-overview
     .breakdown-overview-left
-      .breakdown-trigger-show +
-      .breakdown-trigger-hide –
+      %p.breakdown-trigger-show
       .breakdown-title= t('admin2.manage_transactions.buyer_pays')
     .breakdown-total-price= MoneyViewUtils.to_humanized(pr.total)
   .breakdown-detailed
