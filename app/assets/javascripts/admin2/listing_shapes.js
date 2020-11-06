@@ -154,7 +154,7 @@ window.ST.initializeListingShapeForm = function(formId) {
     };
 
     var toggleLabelEnabled = function(el, state) {
-        el.toggleClass('opacity_04', !state);
+        el.toggleClass('opacity_035', !state);
     };
 
     $('.js-price-enabled').change(function() {
