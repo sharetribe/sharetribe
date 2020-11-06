@@ -171,7 +171,7 @@ Rails.application.routes.draw do
       end
     end
 
-    namespace :admin2 do
+    scope module: "admin2", path: "/admin", as: "admin2" do
       get '' => "dashboard#index"
       namespace :general do
         resources :essentials, only: %i[index] do
@@ -482,7 +482,7 @@ Rails.application.routes.draw do
 
     # get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')
 
-    namespace :admin do
+    scope module: "admin", path: "/admin_old", as: "admin" do
       get '' => "getting_started_guide#index"
 
       # Payments
