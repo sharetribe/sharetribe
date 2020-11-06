@@ -1296,8 +1296,8 @@ nl:
       details: "Order details"
       order_by: "Sorteer op %{orderer_link}"
       accept_offer: "Aanvaard het aanbod"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Accepteer verzoek en hou advertentie open"
+      accept_request_and_close: "Accepteer het verzoek en sluit de advertentie"
       reject_offer: "Nu niet"
       reject_request: "Nu niet"
       close_listing: "Sluit advertentie %{listing_title_link}"
@@ -2248,7 +2248,7 @@ nl:
       reply_cannot_be_empty: "Je kunt geen leeg bericht sturen"
       reply_sent: "Reactie succesvol verstuurd"
       request_accepted: "Verzoek geaccepteerd"
-      request_accepted_and_closed: ~
+      request_accepted_and_closed: "Verzoek geaccepteerd en advertentie gesloten"
       request_confirmed: "Verzoek uitgevoerd"
       request_rejected: "Verzoek afgewezen"
       request_canceled: "Verzoek aangevochten"

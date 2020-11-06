@@ -1293,8 +1293,8 @@ es-ES:
       details: "Detalles de la orden"
       order_by: "Orde realizada por %{orderer_link}"
       accept_offer: "Aceptar la oferta"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Acceptar la solicitud y mantener el anuncio abierto"
+      accept_request_and_close: "Acceptar la solicitud y cerrar el anuncio"
       reject_offer: "Rechazar la solicitud"
       reject_request: "Rechazar la solicitud"
       close_listing: "Borrar el anuncio %{listing_title_link}"
@@ -2242,7 +2242,7 @@ es-ES:
       reply_cannot_be_empty: "No puedes enviar un mensaje vacío"
       reply_sent: "Respuesta enviada satisfactoriamente"
       request_accepted: "Solicitud aceptada"
-      request_accepted_and_closed: ~
+      request_accepted_and_closed: "Solicitud acceptada y anuncio cerrado"
       request_confirmed: "Solicitud completada"
       request_rejected: "Solicitud rechazada"
       request_canceled: "Solicitud cancelada"
