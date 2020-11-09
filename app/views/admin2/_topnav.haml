@@ -8,6 +8,14 @@
     %span
       = t('admin2.topnav.menu')
 
+  .mobilemenu-top-home
+    = link_to admin2_path do
+      %svg{:height => "17", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
+        %g{:fill => "#D8DCE6", "fill-rule" => "evenodd", :stroke => "#484B4A", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+          %path{:d => "M9.03519648 1.2220566c.30285853.00100529.59290483.12232442.80628167.33725373l7.18580605 7.18047928-2.2832951-.00073914.0003958 6.84943703H3.32988837l-.00089931-6.84943703-2.282.00073914 2.282-2.28473914.00089931-.00044306.00810069-.00855694 4.88871832-4.8920669c.21479019-.21351689.50563058-.3329198.8084891-.33192696z"}
+          %path{:d => "M11 14.8812393v-3c0-1.10456953-.8954305-2.00000003-2-2.00000003s-2 .8954305-2 2.00000003v3"}
+      %span.hide-small-mobile Home
+
   .topnav-list
     - if @current_user.is_admin?
       .nav-item
@@ -22,9 +30,4 @@
         = t('admin2.topnav.marketplace')
           
     = render partial: 'admin2/locals', locals: header_props
-
-    .nav-item.dropdown.avatar-menu
-      %a#header-user-desktop-anchor.nav-link{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown', href: '#', role: :button}
-        = image_tag avatar_url, class: %i[user-avatar], alt: t('admin2.topnav.avatar')
-      .dropdown-menu.dropdown-menu-right
-        = link_to t('admin2.topnav.logout'), logout_path, class: %i[dropdown-item]
+    = render partial: 'admin2/avatar', locals: header_props

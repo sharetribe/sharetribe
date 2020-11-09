@@ -1,6 +1,6 @@
 - if available_locales.size > 1
   .nav-item.dropdown.language-selector
-    %a.nav-link.dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-flip' => 'false', 'data-toggle' => 'dropdown', href: '#', role: 'button'}
+    %a.nav-link.dropdown-toggle.pr-0{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-flip' => 'false', 'data-toggle' => 'dropdown', href: '#', role: 'button'}
       = current_locale_code
     .dropdown-menu
       - locale_change_links.each do |locale_change_link|

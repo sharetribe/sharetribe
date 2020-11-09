@@ -714,7 +714,9 @@ module ApplicationHelper
   end
 
   def sort_link_direction(column)
-    params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
+    return unless params[:sort].eql?(column)
+
+    params[:direction].eql?("active-ascend") ? "active-descend" : "active-ascend"
   end
 
   def search_path(opts = {})

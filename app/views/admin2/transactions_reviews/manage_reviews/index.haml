@@ -17,9 +17,9 @@
           %th{scope: :col}= t('admin2.manage_reviews.actions')
       %tbody
         = render partial: 'review', collection: @service.transactions, as: :tx
-    .table-bottom
-      %p= page_entries_info(@service.transactions, model: t('admin2.manage_reviews.paginate')).html_safe
-      = will_paginate @service.transactions, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
+.table-bottom
+  %p= page_entries_info(@service.transactions, model: t('admin2.manage_reviews.paginate')).html_safe
+  = will_paginate @service.transactions, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
 
 - content_for :popup_layout do
   = render 'admin2/transactions_reviews/manage_reviews/read_popup'
