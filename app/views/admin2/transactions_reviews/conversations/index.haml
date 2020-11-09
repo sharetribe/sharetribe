@@ -21,6 +21,6 @@
       %tbody
         = render partial: 'admin2/transactions_reviews/conversations/conversation', collection: @service.conversations
 
-    .table-bottom
-      %p= page_entries_info(@service.conversations, model: 'Conversation').html_safe
-      = will_paginate @service.conversations, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
+.table-bottom
+  %p= page_entries_info(@service.conversations, model: 'Conversation').html_safe
+  = will_paginate @service.conversations, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]

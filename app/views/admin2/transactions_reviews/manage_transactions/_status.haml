@@ -3,7 +3,7 @@
     = t('admin2.manage_transactions.transaction_status')
     %span.transaction-status
       - if transaction.status == 'disputed'
-        = image_tag 'svg/dispute.svg', style: 'position: relative; top: -5px;', alt: 'dispute'
+        = image_tag 'svg/dispute.svg', style: 'position: relative; top: -2px;', alt: 'dispute'
       = t("admin2.manage_transactions.status_transaction.#{transaction.payment_gateway}.#{transaction.status}")
 
   - if transaction.status == 'paid'
@@ -34,5 +34,5 @@
   - if transaction.status == 'disputed'
     .transaction-admin-actions.admin-actions-inline-buttons
       = link_to t('admin2.manage_transactions.action_button.mark_as_refunded'), '#', class: %i[btn btn-secondary btn-sm], 'data-target' => '#transactionRefundedModal', 'data-toggle' => 'modal'
-      %span.admim-action-or or
+      %span.admin-action-or or
       = link_to t('admin2.manage_transactions.action_button.dismiss_and_payout'), '#', class: %i[btn btn-primary btn-sm], 'data-target' => '#transactionDismissModal', 'data-toggle' => 'modal'

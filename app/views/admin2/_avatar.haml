@@ -1,0 +1,5 @@
+.nav-item.dropdown.avatar-menu
+  %a#header-user-desktop-anchor.nav-link{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown', href: '#', role: :button}
+    = image_tag avatar_url, class: %i[user-avatar], alt: t('admin2.topnav.avatar')
+  .dropdown-menu.dropdown-menu-right
+    = link_to t('admin2.topnav.logout'), logout_path, class: %i[dropdown-item]
