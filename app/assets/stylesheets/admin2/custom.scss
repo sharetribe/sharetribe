@@ -234,3 +234,21 @@ textarea.attention {
 
 .form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled ~ .form-check-label {
   opacity: 0.35; }
+
+// Custom Mercury styles
+div[data-mercury='full'] {
+  border-radius: 4px;
+  border: 1px solid #d8dce6;
+  padding: 6px 16px;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  img {
+    max-width: 100%;
+  }
+}
+
+.opacity_04{
+  #edit_link {
+    pointer-events: none;
+  }
+}
