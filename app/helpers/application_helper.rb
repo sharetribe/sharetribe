@@ -714,12 +714,13 @@ module ApplicationHelper
   end
 
   def sort_link_direction(column)
-    return unless params[:sort].eql?(column)
-
-    params[:direction].eql?('asc') ? 'desc' : 'asc'
+    params[:sort].eql?(column) && params[:direction].eql?('asc') ? 'desc' : 'asc'
   end
 
-  def sort_class(direction)
+  def sort_class(direction, column)
+    return unless direction.present?
+    return unless params[:sort].eql?(column)
+
     "active-#{direction}end"
   end
 
