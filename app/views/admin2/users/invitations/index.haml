@@ -24,6 +24,6 @@
       %tbody
         = render partial: 'invitation', collection: @service.invitations
 
-  .table-bottom
-    %p= page_entries_info(@service.invitations, model: 'Invitation').html_safe
-    = will_paginate @service.invitations, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
+.table-bottom
+  %p= page_entries_info(@service.invitations, model: 'Invitation').html_safe
+  = will_paginate @service.invitations, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]

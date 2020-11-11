@@ -26,9 +26,9 @@
       %tbody
         = render partial: 'admin2/users/manage_users/membership', collection: @presenter.memberships
 
-  .table-bottom#admin_members_count
-    %p= AdminCommunityMembershipsViewUtils.community_members_entries_info(@presenter.community.id, @presenter.memberships).html_safe
-    = will_paginate @presenter.memberships, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
+.table-bottom#admin_members_count
+  %p= AdminCommunityMembershipsViewUtils.community_members_entries_info(@presenter.community.id, @presenter.memberships).html_safe
+  = will_paginate @presenter.memberships, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
 
 - content_for :popup_layout do
   = render 'admin2/users/manage_users/confirm_popup'

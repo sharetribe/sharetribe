@@ -3,9 +3,11 @@
     .mobilemenu-top
       .mobilemenu-top-logo
         = link_to admin2_path, class: :logo do
-          = image_tag 'gap-logo.png', width: 117, alt: t('admin2.topnav.logo')
+          = image_tag 'gap-logo-mobile.png', width: 117, alt: t('admin2.topnav.logo')
 
-      = render partial: 'admin2/locals', locals: header_props
+      .mobilemenu-top-right
+        = render partial: 'admin2/locals', locals: header_props
+        = render partial: 'admin2/avatar', locals: header_props
 
     .sidenav-container-top
       %h6

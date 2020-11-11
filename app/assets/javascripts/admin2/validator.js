@@ -18,6 +18,9 @@ jQuery.extend(jQuery.validator.defaults,
         },
         unhighlight: function(element, errorClass, validClass) {
             $(element).removeClass(errorClass).addClass(validClass).next('small.attention').removeClass('form-text');
+            if ($(element).parents('.multiple-languages-input').length) {
+                $(element).parents('.multiple-languages-input').find('.input-group-text').removeClass('attention');
+            }
         }
     });
 

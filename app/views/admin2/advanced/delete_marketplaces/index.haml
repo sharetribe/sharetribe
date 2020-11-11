@@ -11,7 +11,7 @@
 
 - if @presenter.can_delete_marketplace
   .content-card-section-container
-    = form_tag admin2_advanced_delete_marketplace_path(@presenter.community), method: :delete, html: { class: %i[content-card-section-form] } do
+    = form_tag admin2_advanced_delete_marketplace_path(@presenter.community), method: :delete, class: %i[content-card-section-form] do
       %section.content-card-section
         %h2= t('admin2.delete_marketplace.info_text_1')
         %p.ingress= t('admin2.delete_marketplace.info_text_2')

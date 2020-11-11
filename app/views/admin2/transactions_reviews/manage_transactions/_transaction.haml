@@ -11,7 +11,8 @@
   %td
     = l(transaction.last_activity, format: :short_date)
   %td
-    = t("admin2.manage_transactions.statuses.#{transaction.payment_gateway}.#{transaction.status}")
+    %span.badge{class: transaction_badge_class(transaction.status)}
+      = t("admin2.manage_transactions.statuses.#{transaction.payment_gateway}.#{transaction.status}")
   %td
     = transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ''
   %td
