@@ -11,10 +11,8 @@
   %td
     = l(transaction.last_activity, format: :short_date)
   %td
-    -#%span.badge.badge-pending Pending
-    -#%span.badge.badge-positive Completed
-    -#%span.badge.badge-skipped Rejected
-    = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
+    %span.badge{class: transaction_badge_class(transaction.status)}
+      = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
   %td
     = transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ''
   %td
