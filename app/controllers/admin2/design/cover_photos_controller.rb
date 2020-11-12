@@ -1,7 +1,9 @@
 module Admin2::Design
   class CoverPhotosController < Admin2::AdminBaseController
 
-    def index; end
+    def index
+      @clp_enabled = clp_enabled
+    end
 
     def update_cover_photos
       @current_community.update!(cover_photos_params)

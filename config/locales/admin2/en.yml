@@ -1076,8 +1076,9 @@ en:
       description: "Don't have a cover picture on hand? You can find ready-made pictures and links to free and paid image banks <a href=\"%{href}\" class=\"external-link\" target=\"_blank\">in the Go Help Center</a>."
       cover_photo: 'Main cover photo'
       cover_photo_info_text: 'The main cover photo is shown on the homepage to users who are not logged in. Its dimensions should be 1920x450 pixels.'
+      cover_photo_info_text_disabled: "As you have a Custom Landing Page enabled, the main cover photo isn't used. Instead, you can <a href='%{href}'>customize your Custom Landing Page Hero image</a>."
       small_cover_photo: 'Small cover photo'
-      small_cover_photo_info_text: 'The small cover photo is shown on all other pages to users who are not logged in. Its dimensions should be 1920x96 pixels.'
+      small_cover_photo_info_text: 'The small cover photo is shown on all pages except the homepage or Custom Landing Page to users who are not logged in. Its dimensions should be 1920x96 pixels.'
     logos_and_color:
       favicon: 'Favicon'
       favicon_info_text: "The favicon is shown on the browser's tab. Its dimensions should be 32x32 pixels."
