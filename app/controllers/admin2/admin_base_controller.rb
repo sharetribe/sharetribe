@@ -7,6 +7,11 @@ class Admin2::AdminBaseController < ApplicationController
   #Allow admin to access admin panel before email confirmation
   skip_before_action :cannot_access_without_confirmation
 
+  def clp_enabled
+    @current_plan.try(:[], :features).try(:[], :landing_page) &&
+      CustomLandingPage::LandingPageStore.enabled?(@current_community&.id)
+  end
+
   private
 
   def setup_seo_service

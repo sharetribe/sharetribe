@@ -13,14 +13,20 @@
         = t('admin2.sidebar.design.cover_photos')
       %p.ingress
         = t('admin2.cover_photos.description', href: 'https://help.sharetribe.com/en/articles/666084').html_safe
+
       .form-group
         %label
           = t('admin2.cover_photos.cover_photo')
         .custom-file
-          = form.file_field :cover_photo, accept: 'image/*', class: %i[change-file]
+          = form.file_field :cover_photo, accept: 'image/*', class: %i[change-file], disabled: @clp_enabled
         %small#coverphoto-help.form-text
-          = t('admin2.cover_photos.cover_photo_info_text')
-        = render 'admin2/filename', original_filename: form.object&.cover_photo&.original_filename, field_name: t('admin2.cover_photos.cover_photo')
+          - if @clp_enabled
+            = t('admin2.cover_photos.cover_photo_info_text_disabled', href: admin2_design_landing_page_index_path).html_safe
+          - else
+            = t('admin2.cover_photos.cover_photo_info_text')
+        - unless @clp_enabled
+          = render 'admin2/filename', original_filename: form.object&.cover_photo&.original_filename, field_name: t('admin2.cover_photos.cover_photo')
+
       .form-group
         %label
           = t('admin2.cover_photos.small_cover_photo')
