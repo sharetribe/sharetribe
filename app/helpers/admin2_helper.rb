@@ -118,6 +118,10 @@ module Admin2Helper
 
   def flash_messages(opts = {})
     flash.each do |msg_type, message|
+      # The flash is used to pass data (e.g. analytics events) in addition to UI
+      # messages. Only render flash contents that are meant to be UI messages
+      next unless [:success, :error, :alert, :notice].include?(msg_type.to_sym)
+
       concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)}", role: "alert") do
         concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
         concat message
