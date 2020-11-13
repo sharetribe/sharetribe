@@ -237,3 +237,41 @@ div[data-mercury='full'] {
     pointer-events: none;
   }
 }
+
+.loaderLarge,
+.loaderLargeRevert {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+  stroke-width: 3.5;
+  margin: 0 auto;
+}
+
+.loaderLargeRevert {
+  stroke: black;
+}
+
+.loaderCompleteLarge {
+  fill: none;
+  stroke: #FFF;
+  stroke-width: 2.5;
+  margin: 0 auto;
+  transform: scale(0.85);
+}
+
+button {
+  margin: 0 auto;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  height: 48px;
+  width: 160px !important;
+  background-color: #2ecc71;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+}
+
+#btn_waiting, #btn_completed, #error_save {
+  display: none;
+}

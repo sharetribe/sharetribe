@@ -8,7 +8,7 @@
     = t('admin2.logos_and_color.not_added', name: field_name.downcase)
 
 - content_for :popup_layout do
-  %div.modal{id: "#{field_name.downcase.parameterize(separator: "_")}DeleteModal", 'aria-hidden' => 'true', 'aria-labelledby' => "#{type}DeleteLabel", 'data-backdrop' => 'static', role: :dialog, tabindex: '-1'}
+  .modal{id: "#{field_name.downcase.parameterize(separator: "_")}DeleteModal", 'aria-hidden' => 'true', 'aria-labelledby' => "#{type}DeleteLabel", 'data-backdrop' => 'static', role: :dialog, tabindex: '-1'}
     .modal-dialog{role: :document}
       .modal-content
         .modal-header

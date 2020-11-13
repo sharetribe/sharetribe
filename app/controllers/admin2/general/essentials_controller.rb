@@ -36,15 +36,14 @@ module Admin2::General
         end
       end
       analytic.send_properties
+
       if update_results.all? && (!process_locales || enabled_locales_valid)
-        flash[:notice] = t('admin2.notifications.essentials_updated')
+        render json: { message: t('admin2.notifications.essentials_updated') }
       else
         raise t('admin2.notifications.essentials_update_failed')
       end
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_general_essentials_path
+      render json: { message: e.message }, status: 422
     end
 
     private
