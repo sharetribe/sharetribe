@@ -3,11 +3,9 @@
 <% else %>
   $('.content-card-section').remove();
   var render = '';
-  <%= form_for @current_community, url: update_logos_color_admin2_design_logos_color_index_path do |form| %>
+  '<%= form_for @current_community, url: update_logos_color_admin2_design_logos_color_index_path do |form| %>'
      render = render + "<%= j render 'logos', form: form %>";
-     render = render + "<%= j render 'color', form: form %>";
      render = render + "<%= j render 'favicon', form: form %>";
-  <% end %>
+  '<% end %>'
   $('.form-with-files').html(render);
-//  $(render).insertBefore('.content-card-terminal');
 <% end %>
