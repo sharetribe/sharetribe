@@ -22,14 +22,14 @@ function sortArray(nestedSortables) {
                 if (evt.to.attributes['data-id']) {
                     parent_elem_id = evt.to.attributes['data-id'].value;
                     $.post(change_url, {elem_id: elem_id, parent_elem_id: parent_elem_id});
-                    content.find('.list-group-item[data-id='+ elem_id +']').removeClass('nested-1').addClass('nested-2').addClass('field-data').addClass('subCategoryWrapper');
+                    content.find('.list-group-item[data-id='+ elem_id +']').removeClass('nested-1').addClass('nested-2');
                     content.find('.list-group-item[data-id='+ elem_id +']').find('.nested-sortable').remove();
                     content.find('.list-group-item[data-id='+ parent_elem_id +']').find('.nested-sortable').removeClass('empty-sortable');
                     cnt = content.find('.list-group-item[data-id='+ elem_id +']').find('.categoryNameWrapper').contents();
                     content.find('.list-group-item[data-id='+ elem_id +']').find('.categoryNameWrapper').replaceWith(cnt);
                 } else {
                     $.post(change_url, {elem_id: elem_id});
-                    content.find('.list-group-item[data-id='+ elem_id +']').addClass('nested-1').removeClass('nested-2').removeClass('field-data').removeClass('subCategoryWrapper');
+                    content.find('.list-group-item[data-id='+ elem_id +']').addClass('nested-1').removeClass('nested-2');
 
                     var main_elem = content.find('.list-group-item[data-id='+ elem_id +']');
                     if (main_elem.find('.nested-sortable').length === 0) {
