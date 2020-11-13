@@ -8,11 +8,9 @@ module Admin2::Design
     def update_topbar
       @current_community.update!(display_params)
       update_post_new_link!
-      flash[:notice] = t('admin2.notifications.topbar_updated')
+      render json: { message: t('admin2.notifications.topbar_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_design_topbar_index_path
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

@@ -6,7 +6,7 @@
     = t('admin2.transaction_size.info_header')
 
 .content-card-section-container
-  = form_tag save_admin2_payment_system_transaction_size_index_path, method: :patch, class: %i[content-card-section-form transaction-size] do
+  = form_tag save_admin2_payment_system_transaction_size_index_path, method: :patch, remote: true, class: %i[content-card-section-form transaction-size] do
     %section.content-card-section
       %h2= t('admin2.transaction_size.info_header')
       %p.ingress
@@ -20,7 +20,7 @@
         - if @current_fee.positive?
           %small.form-text= t('admin2.transaction_size.transaction_fee', fee: "#{@current_fee} #{@current_community.currency}")
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')
 
 :javascript
   $(function() {

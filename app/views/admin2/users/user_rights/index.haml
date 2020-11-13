@@ -6,7 +6,7 @@
     = t('admin2.sidebar.users.user_rights')
 
 .content-card-section-container
-  = form_for @current_community, url: update_user_rights_admin2_users_user_rights_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_user_rights_admin2_users_user_rights_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section.remove-from-mercury
       %h2
         = t('admin2.user_rights.invitation_rights')
@@ -39,7 +39,7 @@
         = render partial: 'admin2/users/user_rights/posting_rights', locals: community_posting_rights_content
 
     %section.content-card-terminal.remove-from-mercury
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')
 
 :javascript
     $(window).on('mercury:ready', function() {

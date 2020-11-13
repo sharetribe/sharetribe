@@ -5,11 +5,10 @@ module Admin2::Design
 
     def update_cover_photos
       @current_community.update!(cover_photos_params)
-      flash[:notice] = t('admin2.notifications.cover_photos_updated')
+      render layout: false
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_design_cover_photos_path
+      @error = e.message
+      render layout: false, status: :unprocessable_entity
     end
 
     private

@@ -6,7 +6,7 @@
     = t('admin2.sidebar.emails.welcome_email')
 
 .content-card-section-container
-  = form_for @current_community, url: update_email_admin2_emails_welcome_emails_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_email_admin2_emails_welcome_emails_path, html: { class: %i[content-card-section-form email-form], remote: true }, method: :patch do |form|
     = hidden_field_tag :test_email, 0
     %section.content-card-section
       %h2= t('admin2.welcome_email.title')
@@ -29,7 +29,7 @@
         %small#welcomeEmailContent-help.form-text
           = t('admin2.welcome_email.welcome_email_content_info_text', language: get_full_locale_name(I18n.locale))
     %section.content-card-terminal.remove-from-mercury
-      = link_to t('admin2.welcome_email.send_to_yourself'), '#', class: %i[btn btn-ghost], id: 'send-test-email'
+      = render 'admin2/submit_button_ghost', caption: t('admin2.welcome_email.send_to_yourself')
 
 - content_for :extra_javascript do
   :javascript

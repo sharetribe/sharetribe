@@ -6,11 +6,9 @@ module Admin2::Seo
 
     def update_profile_page
       @current_community.update!(profile_page_params)
-      flash[:notice] = t('admin2.notifications.profile_pages_updated')
+      render json: { message: t('admin2.notifications.profile_pages_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_seo_profile_pages_path
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

@@ -15,7 +15,7 @@
       = render partial: 'admin2/general/essentials/locale_input_fields', locals: community_description_hash
       = render partial: 'admin2/general/essentials/locale_selection',    locals: locale_selection_locals
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes'), disabled: false
 
 :javascript
   $(function(){

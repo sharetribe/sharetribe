@@ -9,11 +9,9 @@ module Admin2::SearchLocation
       unless @current_community.show_location
         @current_community.apply_main_search_keyword!
       end
-      flash[:notice] = t('admin2.notifications.location_updated')
+      render json: { message: t('admin2.notifications.location_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_search_location_locations_path
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

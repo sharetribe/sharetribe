@@ -36,6 +36,7 @@ module Admin2::General
         end
       end
       analytic.send_properties
+
       if update_results.all? && (!process_locales || enabled_locales_valid)
         flash[:notice] = t('admin2.notifications.essentials_updated')
       else

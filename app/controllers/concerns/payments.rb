@@ -247,12 +247,12 @@ module Payments
 
           flash[:show_onboarding_popup] = true
         end
-        flash[:notice] = t("admin.payment_preferences.transaction_fee_settings_updated")
+        t("admin.payment_preferences.transaction_fee_settings_updated")
       else
-        flash[:notice] = t("admin.payment_preferences.general_settings_updated")
+        t("admin.payment_preferences.general_settings_updated")
       end
     else
-      flash[:error] = form.errors.full_messages.join(", ")
+      raise form.errors.full_messages.join(", ")
     end
   end
 
@@ -326,13 +326,12 @@ module Payments
       if stripe_api.check_balance(community: @current_community.id)
         tx_settings_api.api_verified(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
         tx_settings_api.activate(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
-        flash[:notice] = t("admin.payment_preferences.stripe_verified")
       else
         tx_settings_api.disable(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
-        flash[:error] = t("admin.payment_preferences.invalid_api_keys")
+        raise t("admin.payment_preferences.invalid_api_keys")
       end
     else
-      flash[:error] = t("admin.payment_preferences.missing_api_keys")
+      raise t("admin.payment_preferences.missing_api_keys")
     end
   end
 

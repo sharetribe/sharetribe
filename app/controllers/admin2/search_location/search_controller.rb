@@ -7,11 +7,12 @@ module Admin2::SearchLocation
 
     def update_search
       if @service.update
-        flash[:notice] = t('admin2.notifications.search_updated')
+        render json: { message: t('admin2.notifications.search_updated') }
       else
-        flash[:error] = t('admin2.notifications.search_updated_failed')
+        raise t('admin2.notifications.search_updated_failed')
       end
-      redirect_to admin2_search_location_search_index_path
+    rescue StandardError => e
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

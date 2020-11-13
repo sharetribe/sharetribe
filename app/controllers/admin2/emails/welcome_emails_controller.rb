@@ -6,14 +6,12 @@ module Admin2::Emails
     def update_email
       if params[:test_email] == '1'
         MailCarrier.deliver_later(PersonMailer.welcome_email(@current_user, @current_community, true, true))
-        flash[:notice] = t('admin2.notifications.welcome_email_updated_and_sent', email: @current_user.confirmed_notification_emails_to)
+        render json: { message: t('admin2.notifications.welcome_email_updated_and_sent', email: @current_user.confirmed_notification_emails_to) }
       else
-        flash[:notice] = t('admin2.notifications.welcome_email_updated')
+        render json: { message: t('admin2.notifications.welcome_email_updated') }
       end
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_emails_welcome_emails_path
+      render json: { message: e.message }, status: :unprocessable_entity
     end
   end
 end
