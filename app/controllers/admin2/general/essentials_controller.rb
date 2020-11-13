@@ -17,7 +17,9 @@ module Admin2::General
 
     def update_essential
       update_results = []
-      slogan_and_description_before = slogan_and_description_present?(@current_community)
+
+      find_or_initialize_customizations(@current_community.locales)
+      slogan_and_description_before = slogan_and_description_present?(@current_community.community_customizations)
 
       analytic = AnalyticService::CommunityCustomizations.new(user: @current_user, community: @current_community)
       @current_community.locales.map do |locale|
@@ -38,7 +40,7 @@ module Admin2::General
       end
       analytic.send_properties
       if update_results.all? && (!process_locales || enabled_locales_valid)
-        slogan_and_description_after = slogan_and_description_present?(@current_community.reload)
+        slogan_and_description_after = slogan_and_description_present?(@current_community.community_customizations.reload)
         if !slogan_and_description_before && slogan_and_description_after
           record_event(flash, "km_record", {km_event: "Onboarding slogan/description created"})
         end
@@ -54,9 +56,9 @@ module Admin2::General
 
     private
 
-    def slogan_and_description_present?(community)
-      slogan_present = community.community_customizations.all? { |c| c.slogan.present? }
-      description_present = community.community_customizations.all? { |c| c.description.present? }
+    def slogan_and_description_present?(community_customizations)
+      slogan_present = community_customizations.all? { |c| c.slogan.present? }
+      description_present = community_customizations.all? { |c| c.description.present? }
       slogan_present && description_present
     end
 
