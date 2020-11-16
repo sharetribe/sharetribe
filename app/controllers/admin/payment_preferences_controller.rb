@@ -10,8 +10,8 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   end
 
   def common_update
-    process_update_stripe_keys
-    flash[:notice] = t("admin.payment_preferences.stripe_verified")
+    message = update_payment_preferences
+    flash[:notice] = message
   rescue StandardError => e
     flash[:error] = e.message
   ensure
@@ -20,7 +20,10 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   def update_stripe_keys
     process_update_stripe_keys
-
+    flash[:notice] = t("admin.payment_preferences.stripe_verified")
+  rescue StandardError => e
+    flash[:error] = e.message
+  ensure
     redirect_to action: :index
   end
 
