@@ -6,7 +6,7 @@
     = t('admin2.sidebar.design.topbar')
 
 .content-card-section-container#top_bar_div
-  = form_for @current_community, url: update_topbar_admin2_design_topbar_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_topbar_admin2_design_topbar_index_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2
         = t('admin2.topbar.top_bar_settings')
@@ -58,7 +58,7 @@
       %p.links.content-card-text
         = link_to_add_association t('admin2.topbar.new_custom_link'), form, :menu_links, data: {'association-insertion-method' => 'append', 'association-insertion-node' => '#simpleList' }
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')
 
 - content_for :extra_javascript do
   :javascript

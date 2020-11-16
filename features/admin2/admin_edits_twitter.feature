@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits twitter
 
   Background:
@@ -9,10 +10,4 @@ Feature: Admin edits twitter
     When I fill in "community_twitter_handle" with "twitterhandle"
      And I press submit
      And I refresh the page
-    Then I should see "twitterhandle" in the "community_twitter_handle" input
-
-  Scenario: Admin add twitter handle with @
-    When I fill in "community_twitter_handle" with "@twitterhandle"
-    And I press submit
-    And I refresh the page
     Then I should see "twitterhandle" in the "community_twitter_handle" input

@@ -5,11 +5,9 @@ module Admin2::Listings
 
     def update_listing_approval
       @current_community.update!(listing_approval_params)
-      flash[:notice] = t('admin2.notifications.listing_approval_updated')
+      render json: { message: t('admin2.notifications.listing_approval_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_listings_listing_approval_index_path
+      render json: { message: e.message }, status: 422
     end
 
     private

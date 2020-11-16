@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits search page meta
 
   Background:

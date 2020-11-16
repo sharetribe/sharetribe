@@ -6,11 +6,9 @@ module Admin2::TransactionsReviews
 
     def update_config
       @current_community.update!(config_params)
-      flash[:notice] = t('admin2.notifications.configure_transactions_updated')
+      render json: { message: t('admin2.notifications.configure_transactions_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_transactions_reviews_config_transactions_path
+      render json: { message: e.message }, status: 422
     end
 
     private

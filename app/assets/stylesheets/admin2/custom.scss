@@ -259,18 +259,15 @@ div[data-mercury='full'] {
   transform: scale(0.85);
 }
 
-button {
-  margin: 0 auto;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  height: 48px;
-  width: 160px !important;
-  background-color: #2ecc71;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-}
+//.btn-save-changes {
+//  margin: 0 auto;
+//  border-radius: 4px;
+//  border: none;
+//  height: 48px;
+//  width: 160px !important;
+//  background-color: #2ecc71;
+//  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+//}
 
 #btn_waiting, #btn_completed, #error_save {
   display: none;

@@ -16,11 +16,9 @@ module Admin2::PaymentSystem
         @current_community.update!(currency: base_params[:minimum_price_currency])
         TransactionService::API::Api.settings.update(base_params)
       end
-      flash[:notice] = t('admin2.notifications.country_currency_updated')
+      render json: { message: t('admin2.notifications.country_currency_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_payment_system_country_currencies_path
+      render json: { message: e.message }, status: 422
     end
 
     def verify_currency

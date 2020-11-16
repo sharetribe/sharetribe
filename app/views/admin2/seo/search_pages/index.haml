@@ -6,7 +6,7 @@
     = t('admin2.sidebar.seo.search_pages')
 
 .content-card-section-container
-  = form_for @current_community, url: update_search_pages_admin2_seo_search_pages_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_search_pages_admin2_seo_search_pages_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2
         = t('admin2.search_pages.title')
@@ -19,7 +19,7 @@
         = render 'many_languages', form: form, customizations: @customizations
 
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')
 
 - content_for :extra_javascript do
   :javascript

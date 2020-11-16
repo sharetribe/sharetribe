@@ -1,11 +1,11 @@
 <% if @error.present? %>
   errorSubmit('<%= j @error %>');
 <% else %>
-  $('.content-card-section').remove();
-  var render = '';
+  var logos, favicon;
   '<%= form_for @current_community, url: update_logos_color_admin2_design_logos_color_index_path do |form| %>'
-     render = render + "<%= j render 'logos', form: form %>";
-     render = render + "<%= j render 'favicon', form: form %>";
+      logos = "<%= j render 'logos', form: form %>";
+      favicon = "<%= j render 'favicon', form: form %>";
   '<% end %>'
-  $('.form-with-files').html(render);
+  $('.content-card-section-logos').replaceWith(logos);
+  $('.content-card-section-favicon').replaceWith(favicon);
 <% end %>

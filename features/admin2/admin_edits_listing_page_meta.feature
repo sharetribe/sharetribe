@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits listing page meta
 
   Background:

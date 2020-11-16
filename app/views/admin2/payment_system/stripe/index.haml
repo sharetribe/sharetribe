@@ -13,7 +13,7 @@
   - object = stripe_connected ? stripe_prefs_form : stripe_api_form
   - url = stripe_connected ? common_update_admin2_payment_system_stripe_index_path : update_stripe_keys_admin2_payment_system_stripe_index_path
 
-  = form_for object, url: url, method: :patch, html: { class: %i[transaction_preferences_form content-card-section-form] } do |form|
+  = form_for object, url: url, method: :patch, html: { class: %i[transaction_preferences_form content-card-section-form], remote: true } do |form|
     - if stripe_connected
       = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
       = hidden_field_tag 'gateway', 'stripe'
@@ -35,7 +35,7 @@
 
     - if stripe_enabled_by_admin
       %section.content-card-terminal
-        = form.button t('admin2.save_changes'), class: %i[btn btn-primary]
+        = render 'admin2/submit_button', caption: t('admin2.save_changes')
 
 - content_for :popup_layout do
   = render 'disable_stripe_popup'

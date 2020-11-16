@@ -17,8 +17,11 @@ module Admin2::PaymentSystem
     end
 
     def common_update
-      update_payment_preferences
-      redirect_to action: :index
+      message = update_payment_preferences
+
+      render json: { message: message }
+    rescue StandardError => e
+      render json: { message: e.message }, status: 422
     end
 
     def account_create

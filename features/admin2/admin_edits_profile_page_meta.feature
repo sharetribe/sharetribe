@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits profile page meta
 
   Background:

@@ -21,4 +21,4 @@
           %br
         .modal-footer
           = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-          = link_to t('admin2.logos_and_color.delete_popup.save_button', type: field_name.downcase, filename: original_filename), remove_files_admin2_design_logos_color_index_path(type: type), method: :delete, class: %i[btn btn-negative]
+          = link_to t('admin2.logos_and_color.delete_popup.save_button', type: field_name.downcase, filename: original_filename), remove_files_admin2_design_logos_color_index_path(type: type), method: :delete, remote: true, class: %i[btn btn-negative]

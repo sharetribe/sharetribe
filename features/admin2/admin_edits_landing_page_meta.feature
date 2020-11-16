@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits landing page meta
 
   Background:

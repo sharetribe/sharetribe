@@ -39,8 +39,7 @@ module Admin2::Emails
 
       if user_defined_address && user_defined_address[:email] == params[:email].to_s.downcase.strip
         EmailService::API::Api.addresses.update(community_id: @current_community.id, id: user_defined_address[:id], name: params[:name])
-        flash[:notice] = t('admin2.outgoing_address.successfully_saved_name')
-        redirect_to action: :index
+        render json: { message: t('admin2.outgoing_address.successfully_saved_name') }
         return
       end
 
@@ -52,7 +51,7 @@ module Admin2::Emails
         })
 
       if res.success
-        flash[:notice] = t('admin2.outgoing_address.successfully_saved')
+        render json: { message: t('admin2.outgoing_address.successfully_saved') }
       else
         error_message =
           case Maybe(res.data)[:error_code]
@@ -67,9 +66,10 @@ module Admin2::Emails
             t('admin2.outgoing_address.unknown_error')
           end
 
-        flash[:error] = error_message
+        raise error_message
       end
-      redirect_to action: :index
+    rescue StandardError => e
+      render json: { message: e.message }, status: 422
     end
 
     def check_email_status

@@ -6,7 +6,7 @@
     = t('admin2.sidebar.search_location.search')
 
 .content-card-section-container
-  = form_for @presenter.community, url: update_search_admin2_search_location_search_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @presenter.community, url: update_search_admin2_search_location_search_index_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2
         = t('admin2.search.search_type')
@@ -46,4 +46,4 @@
           = label_tag :limit_distance, t('admin2.search.limit_distance'), class: %i[form-check-label]
 
     %section.content-card-terminal.without-margin
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')

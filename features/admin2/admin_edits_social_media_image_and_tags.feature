@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits social media image and tags
 
   Background:

@@ -20,11 +20,12 @@ module Admin2::Advanced
                                       user_enabled: enabled_for_user, user_disabled: disabled_for_user,
                                       community_enabled: enabled_for_community, community_disabled: disabled_for_community)
       if Maybe(response)[:success].or_else(false)
-        flash[:notice] = t("layouts.notifications.community_updated")
+        render json: { message: t("layouts.notifications.community_updated") }
       else
-        flash[:error] = t("layouts.notifications.community_update_failed")
+        raise t("layouts.notifications.community_update_failed")
       end
-      redirect_to admin2_advanced_experimental_index_path
+    rescue StandardError => e
+      render json: { message: e.message }, status: 422
     end
 
     private

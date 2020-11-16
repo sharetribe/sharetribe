@@ -21,11 +21,9 @@ module Admin2::PaymentSystem
 
       tx_settings_api.update(base_params.merge(payment_gateway: :paypal)) if paypal_tx_settings.present?
       tx_settings_api.update(base_params.merge(payment_gateway: :stripe)) if stripe_tx_settings.present?
-      flash[:notice] = t('admin2.notifications.transaction_size_updated')
+      render json: { message: t('admin2.notifications.transaction_size_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_payment_system_transaction_size_index_path
+      render json: { message: e.message }, status: 422
     end
 
     def minimum_commission

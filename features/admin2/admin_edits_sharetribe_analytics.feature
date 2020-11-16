@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits sharetribe analytics page
 
   Background:

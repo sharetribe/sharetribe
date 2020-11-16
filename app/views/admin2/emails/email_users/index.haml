@@ -6,7 +6,7 @@
     = t('admin2.sidebar.emails.email_users')
 
 .content-card-section-container
-  = form_for :email, url: admin2_emails_email_users_path, html: { class: %i[content-card-section-form] } do |form|
+  = form_for :email, url: admin2_emails_email_users_path, html: { class: %i[content-card-section-form], remote: true } do |form|
     = hidden_field_tag :test_email, 0
     %section.content-card-section
       %h2= t('admin2.email_users.compose_email')
@@ -39,7 +39,7 @@
           = t('admin2.email_users.content_info_text')
 
     %section.content-card-terminal
-      = button_tag t('admin2.email_users.send_email'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.email_users.send_email')
       = link_to t('admin2.email_users.send_to_yourself'), '#', class: %i[btn btn-ghost], id: 'send-test-email'
 
 - content_for :extra_javascript do

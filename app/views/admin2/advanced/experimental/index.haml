@@ -6,7 +6,7 @@
     = t('admin2.sidebar.advanced.experimental')
 
 .content-card-section-container
-  = form_for @current_community, url: update_experimental_admin2_advanced_experimental_index_path, html: { class: %i[content-card-section-form] }, method: :patch do
+  = form_for @current_community, url: update_experimental_admin2_advanced_experimental_index_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do
     %section.content-card-section
       %h2
         = t('admin2.experimental.new_layout')
@@ -15,4 +15,4 @@
 
       = render partial: 'one_feature', collection: features, as: :feature
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')

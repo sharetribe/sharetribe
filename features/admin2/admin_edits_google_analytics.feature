@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits google analytics page
 
   Background:

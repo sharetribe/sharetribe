@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits custom script page
 
   Background:
