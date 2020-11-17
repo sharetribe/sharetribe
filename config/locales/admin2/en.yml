@@ -1099,7 +1099,7 @@ en:
         save_button: 'Delete the %{type} permanently'
     user_rights:
       invitation_rights: 'Invitation rights'
-      join_with_invite_only: 'Allow new users to sign up only with an invite from a registered user'
+      join_with_invite_only: 'Make marketplace invite-only (new users need an invitation from a registered user to sign up)'
       users_can_invite_new_users: 'Allow all registered users, and not only admins, to invite new users'
       allow_free_conversations: 'Allow users to message each other freely'
       require_verification_to_post_listings: 'Allow only users verified by admins to post listings'
@@ -1110,7 +1110,7 @@ en:
     privacy:
       private_marketplace: 'Private marketplace'
       header: 'Private marketplace landing page content'
-      private: 'Require users to log in to see listings and user profiles (make marketplace private)'
+      private: 'Make marketplace private (users must log in to browse listings and user profiles)'
       info_text: 'This content is shown on your marketplace homepage to users who are not logged in. Here, you can describe your marketplace and the process to join it.'
       small_text: 'This is the content for %{language}. To view and edit the content in other languages, change the language from the top bar.'
     essentials:
