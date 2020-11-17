@@ -7,7 +7,7 @@ Feature: Admin edits user rights page
 
   Scenario: Admin user can set join only with an invite from a registered user
     When I go to the admin2 user rights community "test"
-    And I check "Allow new users to sign up only with an invite from a registered user"
+    And I check "Make marketplace invite-only (new users need an invitation from a registered user to sign up)"
     And I press submit
     Then I log out
     And I go to the signup page
