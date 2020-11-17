@@ -1,6 +1,6 @@
 - transaction_link = link_to t("emails.transaction_commission_charge_failed.transaction_about",
   listing_title: @transaction.listing.title),
-  admin_community_transaction_url(@url_params.merge(community_id: @community.id, id: @transaction.id))
+  admin2_transactions_reviews_manage_transaction_url(@url_params.merge(id: @transaction.id))
 
 %tr
   %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"}
