@@ -29,4 +29,3 @@
 //= require paypal_account_settings
 //= require admin2/validator
 //= require admin2/submit_form
-//= require admin2/submit_form_email
