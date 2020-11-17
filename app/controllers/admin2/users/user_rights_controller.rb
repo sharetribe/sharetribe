@@ -9,7 +9,7 @@ module Admin2::Users
       @current_community.update!(update_user_params)
       render json: { message: t('admin2.notifications.user_rights_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

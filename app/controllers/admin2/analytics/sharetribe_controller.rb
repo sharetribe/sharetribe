@@ -8,7 +8,7 @@ module Admin2::Analytics
       @current_community.update!(sharetribe_params)
       render json: { message: t('admin2.notifications.sharetribe_analytics_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

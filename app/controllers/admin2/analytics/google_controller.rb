@@ -7,7 +7,7 @@ module Admin2::Analytics
       @current_community.update!(google_params)
       render json: { message: t('admin2.notifications.google_analytics_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

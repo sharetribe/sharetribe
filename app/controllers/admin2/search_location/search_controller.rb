@@ -12,7 +12,7 @@ module Admin2::SearchLocation
         raise t('admin2.notifications.search_updated_failed')
       end
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

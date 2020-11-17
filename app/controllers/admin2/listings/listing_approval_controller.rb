@@ -7,7 +7,7 @@ module Admin2::Listings
       @current_community.update!(listing_approval_params)
       render json: { message: t('admin2.notifications.listing_approval_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

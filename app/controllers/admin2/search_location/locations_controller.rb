@@ -11,7 +11,7 @@ module Admin2::SearchLocation
       end
       render json: { message: t('admin2.notifications.location_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

@@ -18,7 +18,7 @@ module Admin2::PaymentSystem
       end
       render json: { message: t('admin2.notifications.country_currency_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     def verify_currency

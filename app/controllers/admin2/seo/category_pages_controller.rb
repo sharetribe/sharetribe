@@ -8,7 +8,7 @@ module Admin2::Seo
       @current_community.update!(category_page_params)
       render json: { message: t('admin2.notifications.category_pages_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

@@ -69,7 +69,7 @@ module Admin2::Emails
         raise error_message
       end
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     def check_email_status

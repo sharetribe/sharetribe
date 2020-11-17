@@ -7,7 +7,7 @@ module Admin2::Users
       @current_community.update!(login_params)
       render json: { message: t('admin2.notifications.signup_login_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

@@ -9,7 +9,7 @@ Feature: Admin edits social media image and tags
   Scenario: Admin adds title and description for social media
   When I fill in "community_community_customizations_attributes_0_social_media_title" with "Custom title"
    And I fill in "community_community_customizations_attributes_3_social_media_description" with "Custom description"
-   And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "community_social_logo_attributes_image"
+   And I attach the file "./spec/fixtures/Australian_painted_lady.jpg" to "community_social_logo_attributes_image"
   Then I press submit
    And I refresh the page
   Then I should see "Custom title" in the "community_community_customizations_attributes_0_social_media_title" input
@@ -17,7 +17,7 @@ Feature: Admin edits social media image and tags
    And I should see "Australian_painted_lady.jpg"
 
   Scenario: Admin remove social logo file
-    When I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "community_social_logo_attributes_image"
+    When I attach the file "./spec/fixtures/Australian_painted_lady.jpg" to "community_social_logo_attributes_image"
     Then I press submit
     And I refresh the page
     And I should see "Australian_painted_lady.jpg"

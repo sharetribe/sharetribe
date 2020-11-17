@@ -7,7 +7,7 @@ module Admin2::General
       @current_community.update!(admin_notifications_params)
       render json: { message: t('admin2.notifications.admin_notifications_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

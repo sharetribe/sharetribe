@@ -7,7 +7,7 @@ module Admin2::Advanced
       @current_community.update!(script_params)
       render json: { message: t('admin2.notifications.custom_script_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

@@ -10,7 +10,7 @@ module Admin2::Design
       update_post_new_link!
       render json: { message: t('admin2.notifications.topbar_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

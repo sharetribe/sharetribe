@@ -8,7 +8,7 @@ module Admin2::Design
       render layout: false
     rescue StandardError => e
       @error = e.message
-      render layout: false, status: 422
+      render layout: false, status: :unprocessable_entity
     end
 
     def remove_files

@@ -25,7 +25,7 @@ module Admin2::Advanced
         raise t("layouts.notifications.community_update_failed")
       end
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

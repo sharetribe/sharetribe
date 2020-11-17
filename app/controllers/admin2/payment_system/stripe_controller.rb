@@ -14,7 +14,7 @@ module Admin2::PaymentSystem
       process_update_stripe_keys
       render json: { message: t("admin.payment_preferences.stripe_verified") }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     def common_update
@@ -22,7 +22,7 @@ module Admin2::PaymentSystem
 
       render json: { message: message }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
   end
 end

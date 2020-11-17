@@ -23,7 +23,7 @@ module Admin2::PaymentSystem
       tx_settings_api.update(base_params.merge(payment_gateway: :stripe)) if stripe_tx_settings.present?
       render json: { message: t('admin2.notifications.transaction_size_updated') }
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     def minimum_commission

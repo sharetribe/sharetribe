@@ -22,7 +22,7 @@ module Admin2::Emails
         render json: { message: t('admin2.notifications.email_sent') }
       end
     rescue StandardError => e
-      render json: { message: e.message }, status: 422
+      render json: { message: e.message }, status: :unprocessable_entity
     end
   end
 end

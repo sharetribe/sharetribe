@@ -9,7 +9,7 @@ module Admin2::SocialMedia
       render layout: false
     rescue StandardError => e
       @error = e.message
-      render layout: false, status: 422
+      render layout: false, status: :unprocessable_entity
     end
 
     private
