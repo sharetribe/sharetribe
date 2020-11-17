@@ -296,6 +296,10 @@ Rails.application.routes.draw do
             get :export
             get :export_status
           end
+          member do
+            get :approve
+            get :reject
+          end
         end
         resources :listing_approval, path: 'listing-approval', only: %i[index] do
           collection do

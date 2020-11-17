@@ -14,6 +14,16 @@ module Admin2::Listings
       render layout: false
     end
 
+    def approve
+      @service.approve
+      redirect_to listing_path(@service.listing)
+    end
+
+    def reject
+      @service.reject
+      redirect_to listing_path(@service.listing)
+    end
+
     def delete
       @service.delete
     rescue StandardError => e
