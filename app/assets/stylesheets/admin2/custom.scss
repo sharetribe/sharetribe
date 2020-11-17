@@ -239,7 +239,8 @@ div[data-mercury='full'] {
 }
 
 .loaderLarge,
-.loaderLargeRevert {
+.loaderLargeRevert,
+.loaderLargeSecondary {
   width: 24px;
   height: 24px;
   stroke: #fff;
@@ -247,11 +248,13 @@ div[data-mercury='full'] {
   margin: 0 auto;
 }
 
-.loaderLargeRevert {
+.loaderLargeRevert,
+.loaderLargeSecondary {
   stroke: black;
 }
 
-.loaderCompleteLarge {
+.loaderCompleteLarge,
+.loaderCompleteLargeSecondary {
   fill: none;
   stroke: #FFF;
   stroke-width: 2.5;
@@ -269,6 +272,12 @@ div[data-mercury='full'] {
 //  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
 //}
 
-#btn_waiting, #btn_completed, #error_save {
+.loaderLargeSecondary,
+.loaderCompleteLargeSecondary {
+  stroke: #2275d3;
+}
+
+#btn_waiting, #btn_completed, #error_save,
+#btn_waiting_send_email, #btn_completed_send_email {
   display: none;
 }

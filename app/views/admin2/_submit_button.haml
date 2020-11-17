@@ -1,4 +1,4 @@
-= button_tag class: %i[btn btn-primary], disabled: true do
+= button_tag class: %i[btn btn-primary], disabled: (defined?(disabled) ? disabled : true) do
   %span#btn_text
     = caption
   %svg#btn_waiting.loaderLarge{:preserveaspectratio => "xMidYMid", :viewbox => "0 0 30 30", :xmlns => "http://www.w3.org/2000/svg"}

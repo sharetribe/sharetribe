@@ -1,4 +1,3 @@
-@javascript
 Feature: Admin edits twitter
 
   Background:
@@ -6,6 +5,7 @@ Feature: Admin edits twitter
     And I am logged in as "kassi_testperson1"
     And I am on the social media twitter admin page
 
+  @javascript
   Scenario: Admin add twitter handle
     When I fill in "community_twitter_handle" with "twitterhandle"
      And I press submit
