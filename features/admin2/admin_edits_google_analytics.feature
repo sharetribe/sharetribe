@@ -9,5 +9,6 @@ Feature: Admin edits google analytics page
     When I go to the google analytics admin page
      And I fill in "community_google_analytics_key" with "google id"
     Then I press submit
+     And I wait for 1 seconds
      And I refresh the page
      And I should see "google id" in the "community_google_analytics_key" input

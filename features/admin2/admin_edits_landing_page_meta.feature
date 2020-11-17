@@ -10,6 +10,7 @@ Feature: Admin edits landing page meta
   When I fill in "community_community_customizations_attributes_0_meta_title" with "Custom title tag"
    And I fill in "community_community_customizations_attributes_2_meta_description" with "Custom description tag"
   Then I press submit
+   And I wait for 1 seconds
    And I refresh the page
   Then I should see "Custom title tag" in the "community_community_customizations_attributes_0_meta_title" input
    And I should see "Custom description tag" in the "community_community_customizations_attributes_2_meta_description" input

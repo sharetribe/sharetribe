@@ -10,6 +10,7 @@ Feature: Admin edits search page meta
   When I fill in "community_community_customizations_attributes_0_search_meta_title" with "Custom title search tag"
    And I fill in "community_community_customizations_attributes_2_search_meta_description" with "Custom description search tag"
   Then I press submit
+   And I wait for 1 seconds
    And I refresh the page
   Then I should see "Custom title search tag" in the "community_community_customizations_attributes_0_search_meta_title" input
    And I should see "Custom description search tag" in the "community_community_customizations_attributes_2_search_meta_description" input

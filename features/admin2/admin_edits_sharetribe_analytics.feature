@@ -9,5 +9,6 @@ Feature: Admin edits sharetribe analytics page
     When I go to the sharetribe analytics admin page
      And I check "community_end_user_analytics"
     Then I press submit
+     And I wait for 1 seconds
      And I refresh the page
      And the "community_end_user_analytics" checkbox should be checked
