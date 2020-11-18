@@ -18,7 +18,7 @@ export default (props) => {
     'person',
     'person_settings',
     'logout',
-    'admin',
+    'admin2',
     'login',
     'sign_up',
     'listings_person_settings',
