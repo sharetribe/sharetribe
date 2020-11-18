@@ -6,7 +6,7 @@
     = t('admin2.sidebar.analytics.sharetribe')
 
 .content-card-section-container
-  = form_for @current_community, url: update_sharetribe_admin2_analytics_sharetribe_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_sharetribe_admin2_analytics_sharetribe_index_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2
         = t('admin2.sidebar.analytics.sharetribe')
@@ -17,4 +17,4 @@
           = form.check_box :end_user_analytics, class: %i[form-check-input]
           = form.label :end_user_analytics, t('admin2.sharetribe.end_user_analytics'), class: %i[form-check-label]
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')

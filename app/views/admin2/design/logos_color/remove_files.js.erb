@@ -1,0 +1,29 @@
+<% if @error.present? %>
+  errorSubmit('<%= j @error %>');
+<% else %>
+  if ($('.cover-photo-div').length) {
+      var cover_photo, small_cover_photo;
+      '<%= form_for @current_community, url: update_cover_photos_admin2_design_cover_photos_path do |form| %>'
+      cover_photo = "<%= j render 'admin2/design/cover_photos/cover-photo', form: form %>";
+      small_cover_photo = "<%= j render 'admin2/design/cover_photos/small-cover-photo', form: form %>";
+      '<% end %>'
+      $('.cover-photo-div').html(cover_photo);
+      $('.small-cover-photo-div').html(small_cover_photo);
+  } else if ($('.social-logo-div').length) {
+      var logo;
+      '<%= form_for @current_community, url: update_image_admin2_social_media_image_tags_path do |form| %>'
+        logo = "<%= j render 'admin2/social_media/image_tags/social-logo', form: form %>";
+      '<% end %>'
+      $('.social-logo-div').html(logo);
+  } else {
+      var logos, favicon;
+      '<%= form_for @current_community, url: update_logos_color_admin2_design_logos_color_index_path do |form| %>'
+      logos = "<%= j render 'logos', form: form %>";
+      favicon = "<%= j render 'favicon', form: form %>";
+      '<% end %>'
+      $('.content-card-section-logos').replaceWith(logos);
+      $('.content-card-section-favicon').replaceWith(favicon);
+  }
+<% end %>
+
+$('#<%= @type %>DeleteModal').modal('hide');

@@ -6,11 +6,10 @@ module Admin2::SocialMedia
 
     def update_image
       @current_community.update!(image_params)
-      flash[:notice] = t('admin2.notifications.image_tags_updated')
+      render layout: false
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_social_media_image_tags_path
+      @error = e.message
+      render layout: false, status: :unprocessable_entity
     end
 
     private

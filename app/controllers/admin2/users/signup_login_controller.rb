@@ -5,11 +5,9 @@ module Admin2::Users
 
     def update_signup_login
       @current_community.update!(login_params)
-      flash[:notice] = t('admin2.notifications.signup_login_updated')
+      render json: { message: t('admin2.notifications.signup_login_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_users_signup_login_index_path
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

@@ -6,8 +6,8 @@
     = t('admin2.sidebar.design.footer')
 
 - disabled = @service.plan_footer_disabled?
-.content-card-section-container
-  = form_for @current_community, url: update_footer_admin2_design_footer_index_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+.content-card-section-container#footer_div
+  = form_for @current_community, url: update_footer_admin2_design_footer_index_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2= t('admin2.footer.footer_enabling')
       - if disabled
@@ -54,7 +54,7 @@
         = form.label :footer_copyright, t('admin2.footer.footer_copyright')
         = form.text_area :footer_copyright, class: %i[form-control], placeholder: t('admin2.footer.footer_copyright_placeholder'), disabled: disabled
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary], disabled: disabled
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')
 
 - content_for :extra_javascript do
   :javascript

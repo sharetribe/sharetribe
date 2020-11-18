@@ -1,0 +1,11 @@
+<% if @error.present? %>
+  errorSubmit('<%= j @error %>');
+<% else %>
+  var cover_photo, small_cover_photo;
+  '<%= form_for @current_community, url: update_cover_photos_admin2_design_cover_photos_path do |form| %>'
+    cover_photo = "<%= j render 'cover-photo', form: form %>";
+    small_cover_photo = "<%= j render 'small-cover-photo', form: form %>";
+  '<% end %>'
+  $('.cover-photo-div').html(cover_photo);
+  $('.small-cover-photo-div').html(small_cover_photo);
+<% end %>

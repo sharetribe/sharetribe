@@ -1,0 +1,7 @@
+= form.label :social_logo, t('admin2.image_tags.social_logo')
+.custom-file
+  = form.fields_for :social_logo, @current_community.social_logo || @current_community.build_social_logo do |sl|
+    = sl.file_field :image, accept: 'image/*', class: %i[change-file]
+    %small#socialMediaImage-help.form-text
+      = t('admin2.image_tags.social_logo_info_text')
+    = render 'admin2/filename', original_filename: sl.object&.image&.original_filename, field_name: t('admin2.image_tags.social_logo')

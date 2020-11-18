@@ -1,0 +1,9 @@
+<% if @error.present? %>
+  errorSubmit('<%= j @error %>');
+<% else %>
+  var logo;
+  '<%= form_for @current_community, url: update_image_admin2_social_media_image_tags_path do |form| %>'
+     logo = "<%= j render 'social-logo', form: form %>";
+  '<% end %>'
+  $('.social-logo-div').html(logo);
+<% end %>

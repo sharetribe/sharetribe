@@ -7,7 +7,7 @@
 
 - disable = show_branding_info || !can_set_sender_address
 .content-card-section-container
-  = form_tag post_sender_address_url, method: :post, class: 'content-card-section-form', id: :outgoing_email_form do
+  = form_tag post_sender_address_url, method: :post, class: %i[content-card-section-form], remote: true, id: :outgoing_email_form do
     %section.content-card-section
       %h2= t('admin2.outgoing_address.outgoing_email_settings')
       - if user_defined_address.present?
@@ -29,4 +29,4 @@
       = render 'unverified', user_defined_address: user_defined_address
 
     %section.content-card-terminal#save_changes_button{style: ('display:none' if waiting)}
-      = submit_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')

@@ -5,11 +5,9 @@ module Admin2::Analytics
 
     def update_google
       @current_community.update!(google_params)
-      flash[:notice] = t('admin2.notifications.google_analytics_updated')
+      render json: { message: t('admin2.notifications.google_analytics_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_analytics_google_index_path
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private
