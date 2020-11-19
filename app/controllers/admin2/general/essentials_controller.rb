@@ -38,12 +38,14 @@ module Admin2::General
       analytic.send_properties
 
       if update_results.all? && (!process_locales || enabled_locales_valid)
-        render json: { message: t('admin2.notifications.essentials_updated') }
+        flash[:notice] = t('admin2.notifications.essentials_updated')
       else
         raise t('admin2.notifications.essentials_update_failed')
       end
     rescue StandardError => e
-      render json: { message: e.message }, status: :unprocessable_entity
+      flash[:error] = e.message
+    ensure
+      redirect_to admin2_general_essentials_path
     end
 
     private
