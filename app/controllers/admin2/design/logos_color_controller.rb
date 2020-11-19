@@ -28,6 +28,7 @@ module Admin2::Design
         @current_community.social_logo.destroy
       end
       @current_community.save!
+      @clp_enabled = clp_enabled
     rescue StandardError => e
       @error = e.message
     ensure
