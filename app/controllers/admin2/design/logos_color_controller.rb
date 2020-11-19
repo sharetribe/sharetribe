@@ -28,6 +28,7 @@ module Admin2::Design
         @current_community.social_logo.destroy
       end
       @current_community.save!
+      @clp_enabled = clp_enabled
       flash[:notice] = t('admin2.notifications.file_was_deleted')
     rescue StandardError => e
       flash[:error] = e.message
