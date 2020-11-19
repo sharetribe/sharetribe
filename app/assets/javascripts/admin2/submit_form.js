@@ -19,6 +19,7 @@ $(function(){
         setTimeout(function() {
             btn_text.show();
             btn_completed.hide();
+            button.prop('disabled', true);
         }, 2000);
     }
 
@@ -34,7 +35,7 @@ $(function(){
         $(this).closest('form').find('button').prop('disabled', false);
     });
 
-    $('form:not(.email-form)').on('ajax:send', function(e, data, status, xhr){
+    $('form:not(.email-form):not(.form-with-files)').on('ajax:send', function(e, data, status, xhr){
         beforeSubmit();
     }).on('ajax:success', function(e, data, status, xhr){
         successSubmit();

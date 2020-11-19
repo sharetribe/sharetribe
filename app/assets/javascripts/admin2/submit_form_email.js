@@ -61,10 +61,6 @@ $(function(){
         error_div.show();
     };
 
-    // $(document).on('change keyup', 'form input, form select, form textarea', function(e) {
-    //     $(this).closest('form').find('button').prop('disabled', false);
-    // });
-
     $('form.email-form').on('ajax:send', function(e, data, status, xhr){
         if (test_email_val.val() === '1') {
             beforeSubmitTest();
@@ -81,23 +77,5 @@ $(function(){
     }).on('ajax:error',function(e, xhr, status, error){
         errorSubmit(xhr.responseJSON['message']);
         test_email_val.val('0');
-    });
-
-    $("form.form-with-files").submit(function(e) {
-        e.preventDefault();
-        beforeSubmit();
-        var formData = new FormData(this),
-            url = $(this).attr("action");
-        $.ajax({
-            url: url,
-            type: 'PATCH',
-            data: formData,
-            success: function (data) {
-                successSubmit();
-            },
-            cache: false,
-            contentType: false,
-            processData: false
-        });
     });
 });
