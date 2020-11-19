@@ -44,12 +44,14 @@ module Admin2::General
         if !slogan_and_description_before && slogan_and_description_after
           record_event(flash, "km_record", {km_event: "Onboarding slogan/description created"})
         end
-        render json: { message: t('admin2.notifications.essentials_updated') }
+        flash[:notice] = t('admin2.notifications.essentials_updated')
       else
         raise t('admin2.notifications.essentials_update_failed')
       end
     rescue StandardError => e
-      render json: { message: e.message }, status: :unprocessable_entity
+      flash[:error] = e.message
+    ensure
+      redirect_to admin2_general_essentials_path
     end
 
     private
