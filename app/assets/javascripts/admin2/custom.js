@@ -85,10 +85,10 @@ $(function(){
 
         if (value === 'keyword') {
             show_distance.prop('disabled', true);
-            show_distance_div.addClass('opacity_04');
+            show_distance_div.addClass('opacity_035');
         } else {
             show_distance.prop('disabled', false);
-            show_distance_div.removeClass('opacity_04');
+            show_distance_div.removeClass('opacity_035');
         }
     });
 
@@ -100,12 +100,15 @@ $(function(){
                 $('.top_bar_link_position').each(function( index ) {
                     $(this).find('.sort_priority_class').val(index);
                 });
-            },
+                $('#simpleList').closest('form').find('button').prop('disabled', false);
+            }
         });
-
-        $('#top_bar_div').on('cocoon:after-insert', function(e, insertedItem, originalEvent) {
+        $('#top_bar_div, #footer_div').on('cocoon:after-insert', function(e, insertedItem, originalEvent) {
             var index = $('.top_bar_link_position').length - 1;
             insertedItem.find('.sort_priority_class').val(index);
+        });
+        $('#top_bar_div, #footer_div').on('cocoon:after-remove', function(e, insertedItem, originalEvent) {
+            $('#simpleList').closest('form').find('button').prop('disabled', false);
         });
     }
 
@@ -117,6 +120,7 @@ $(function(){
                 $('.one-social-link').each(function( index ) {
                     $(this).find('.social-link-sort-prior').val(index);
                 });
+                $('#footerList').closest('form').find('button').prop('disabled', false);
             },
         });
     }
@@ -126,12 +130,12 @@ $(function(){
            private_content = $('.hide-content'),
            hidden_required = $(this).hasClass('hidden-required');
        if (checked) {
-           private_content.removeClass('opacity_04');
+           private_content.removeClass('opacity_035');
            if (hidden_required) {
                private_content.find('input, textarea').addClass('required');
            }
        } else {
-           private_content.addClass('opacity_04');
+           private_content.addClass('opacity_035');
            if (hidden_required) {
                private_content.find('input, textarea').removeClass('required');
            }

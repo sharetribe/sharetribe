@@ -6,7 +6,7 @@
     = t('admin2.sidebar.emails.automatic_newsletter')
 
 .content-card-section-container
-  = form_for @current_community, url: update_newsletter_admin2_emails_newsletters_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_newsletter_admin2_emails_newsletters_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2
         = t('admin2.automatic_newsletter.send_automatic_newsletter')
@@ -27,4 +27,4 @@
         = form.select :default_min_days_between_community_updates, options_for_select(period_emails_send, form.object.default_min_days_between_community_updates), {}, class: %i[form-control]
 
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')

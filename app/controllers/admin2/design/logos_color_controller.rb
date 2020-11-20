@@ -5,22 +5,22 @@ module Admin2::Design
 
     def update_logos_color
       @current_community.update!(logos_params)
-      flash[:notice] = t('admin2.notifications.logos_updated')
+      render layout: false
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_design_logos_color_index_path
+      @error = e.message
+      render layout: false, status: :unprocessable_entity
     end
 
     def remove_files
-      case params[:type]
+      @type = params[:type]
+      case @type
       when 'main_logo'
         @current_community.wide_logo.destroy
       when 'square_logo'
         @current_community.logo.destroy
       when 'favicon'
         @current_community.favicon.destroy
-      when 'cover_photo'
+      when 'main_cover_photo'
         @current_community.cover_photo.destroy
       when 'small_cover_photo'
         @current_community.small_cover_photo.destroy
@@ -29,11 +29,10 @@ module Admin2::Design
       end
       @current_community.save!
       @clp_enabled = clp_enabled
-      flash[:notice] = t('admin2.notifications.file_was_deleted')
     rescue StandardError => e
-      flash[:error] = e.message
+      @error = e.message
     ensure
-      redirect_back(fallback_location: admin2_path)
+      render layout: false
     end
 
     private

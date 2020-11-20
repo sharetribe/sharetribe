@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits custom script page
 
   Background:
@@ -8,5 +9,6 @@ Feature: Admin edits custom script page
     When I go to the custom script admin page
      And I fill in "community_custom_head_script" with "<script>test script</script>"
     Then I press submit
+     And I wait for 1 seconds
      And I refresh the page
      And I should see "<script>test script</script>" in the "community_custom_head_script" input

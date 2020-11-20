@@ -6,7 +6,7 @@
     = t('admin2.sidebar.transactions_reviews.config_transactions')
 
 .content-card-section-container
-  = form_for @current_community, url: update_config_admin2_transactions_reviews_config_transactions_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_config_admin2_transactions_reviews_config_transactions_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2
         = t('admin2.config_transactions.transaction_auto_completion')
@@ -35,7 +35,7 @@
         = render 'transaction_agreement', form: form, customizations: @customizations
 
     .content-card-terminal.without-margin
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')
 
 - content_for :extra_javascript do
   :javascript

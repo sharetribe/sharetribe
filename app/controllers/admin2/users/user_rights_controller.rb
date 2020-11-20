@@ -7,11 +7,9 @@ module Admin2::Users
 
     def update_user_rights
       @current_community.update!(update_user_params)
-      flash[:notice] = t('admin2.notifications.user_rights_updated')
+      render json: { message: t('admin2.notifications.user_rights_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_users_user_rights_path
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private
