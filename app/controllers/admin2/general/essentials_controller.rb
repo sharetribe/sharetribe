@@ -8,8 +8,7 @@ module Admin2::General
           translated_name: t("admin.communities.available_languages.#{l[:locale_key]}") }
       }.sort_by { |l| l[:translated_name] }
       enabled_locale_keys = available_locales.map(&:second)
-      @clp_enabled = @current_plan.try(:[], :features).try(:[], :landing_page) &&
-                     CustomLandingPage::LandingPageStore.enabled?(@current_community&.id)
+      @clp_enabled = clp_enabled
       render locals: { locale_selection_locals:
                          { all_locales: all_locales,
                            enabled_locale_keys: enabled_locale_keys,
