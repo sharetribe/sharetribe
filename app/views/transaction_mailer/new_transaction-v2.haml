@@ -8,7 +8,7 @@
   %td.email-content
     %table.new-tx-table
       %tbody
-        %trslogan_and_description
+        %tr
           %td{width: 100}= t("emails.new_transaction_v2.listing")
           %td
             = link_to listing_url(@url_params.merge(id: @transaction.listing_id)) do
