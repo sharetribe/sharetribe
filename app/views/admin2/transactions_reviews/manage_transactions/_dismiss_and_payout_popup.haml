@@ -1,5 +1,5 @@
 #transactionDismissModal.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'transactionDismissModalLabel', 'data-backdrop' => 'static', role: :dialog, tabindex: '-1'}
-  .modal-dialog{role: :document}
+  .modal-dialog.modal-md{role: :document}
     = form_tag dismiss_admin2_transactions_reviews_manage_transaction_path(transaction), method: :patch, class: %i[modal-content] do
       .modal-header
         %h2#transactionDismissModalLabel.modal-title= t('admin2.manage_transactions.popups.dismiss_and_payout.title')
