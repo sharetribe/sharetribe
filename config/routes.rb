@@ -485,7 +485,7 @@ Rails.application.routes.draw do
 
     end
 
-    # get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')
+    get '/:locale/admin2', to: redirect('/%{locale}/admin')
 
     scope module: "admin", path: "/admin_old", as: "admin" do
       get '' => "getting_started_guide#index"
