@@ -10441,8 +10441,16 @@ a.external-link:hover:after {
   background-color: rgba(255, 77, 85, 0.1); }
 
 .list-group > div > input {
-  width: calc(100% - 48px);
-  border-radius: 0 4px 4px 0; }
+  width: calc(100% - 54px);
+  border-radius: 4px;
+  float: left;
+  margin-bottom: 24px;
+  margin-right: 6px; }
+
+#footerList .actions {
+  position: relative;
+  top: 3px;
+  padding-right: 0; }
 
 .actions {
   padding: 0;
@@ -10536,8 +10544,9 @@ a.external-link:hover:after {
     min-height: auto; } }
 .modal-content button.close {
   font-size: 32px;
+  line-height: 30px;
   font-weight: 400;
-  padding: 4px 12px; }
+  padding: 8px 12px; }
 .modal-content button.close:hover {
   background-color: rgba(74, 144, 226, 0.1);
   border-radius: 4px; }
@@ -10592,6 +10601,15 @@ a.external-link:hover:after {
 @media (min-width: 769px) {
   .modal-body p.ingress {
     margin: 0; } }
+.modal-body p.modal-text,
+.modal-body h3.modal-subtitle {
+  margin-left: 20px;
+  margin-right: 20px; }
+@media (min-width: 769px) {
+  .modal-body p.modal-text,
+  .modal-body h3.modal-subtitle {
+    margin-left: 0;
+    margin-right: 0; } }
 
 .modal-footer {
   padding: 16px 24px;
@@ -11132,6 +11150,16 @@ h2 {
   h2 {
     font-size: 22px; } }
 
+h3.modal-subtitle {
+  font-size: 21px;
+  color: #484B4A;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  font-weight: 500; }
+
+p.modal-text {
+  margin-bottom: 32px; }
+
 h6 {
   color: #999;
   font-size: 10px;
@@ -11430,6 +11458,7 @@ li.active a {
   display: -ms-flexbox;
   display: flex; }
 .mobilemenu-top .avatar-menu img {
+  border-radius: 50%;
   margin-right: -16px;
   margin-top: -6px;
   width: 30px; }
@@ -11960,6 +11989,64 @@ small + .form-check {
   justify-content: center;
   min-width: 72px; }
 
+.footer-link-group {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #EAEDF3;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+@media (min-width: 1023px) {
+  .footer-link-group {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row; } }
+.footer-link-group:first-of-type {
+  padding-top: 0 !important; }
+.footer-link-group div {
+  width: 100%;
+  margin-bottom: 18px;
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2; }
+@media (min-width: 1023px) {
+  .footer-link-group div {
+    margin-bottom: 0;
+    width: 42%;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1; } }
+.footer-link-group > .actions {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+  top: -4px;
+  position: relative;
+  padding-right: 0;
+  margin-bottom: -30px;
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1; }
+@media (min-width: 1023px) {
+  .footer-link-group > .actions {
+    margin-bottom: 0; } }
+
 input {
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }
@@ -12065,9 +12152,9 @@ input[type='checkbox'] {
   border: 1px solid #D8DCE6;
   -webkit-box-shadow: 0 1px 1px 0 rgba(22, 29, 37, 0.05), inset 0 2px 0 0 rgba(255, 255, 255, 0.05);
   box-shadow: 0 1px 1px 0 rgba(22, 29, 37, 0.05), inset 0 2px 0 0 rgba(255, 255, 255, 0.05);
-  -webkit-transition: all 0.15s ease-in-out;
-  -o-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
+  -webkit-transition: border 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out;
   left: 20px; }
 @media (min-width: 1023px) {
   input[type='checkbox'] {
@@ -12102,9 +12189,9 @@ input[type='radio'] {
   border: 1px solid #D8DCE6;
   -webkit-box-shadow: 0 1px 1px 0 rgba(22, 29, 37, 0.05), inset 0 2px 0 0 rgba(255, 255, 255, 0.05);
   box-shadow: 0 1px 1px 0 rgba(22, 29, 37, 0.05), inset 0 2px 0 0 rgba(255, 255, 255, 0.05);
-  -webkit-transition: all 0.15s ease-in-out;
-  -o-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
+  -webkit-transition: border 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out;
   left: 20px; }
 @media (min-width: 1023px) {
   input[type='radio'] {
@@ -12162,9 +12249,11 @@ input[type='radio']:checked {
   padding: 10px 20px 10px;
   left: -20px;
   position: relative;
-  background-color: #2275d3;
-  border: 1px solid #2275d3;
-  color: #FFFFFF; }
+  background-color: #EAEDF3;
+  border: 1px solid #EAEDF3;
+  color: #484B4A; }
+.custom-file ::-webkit-file-upload-button:focus {
+  outline: none; }
 
 .multiple-languages {
   margin-left: 20px;
@@ -12262,6 +12351,13 @@ span.attention {
   margin-bottom: 18px;
   padding-bottom: 18px;
   border-bottom: 1px solid #EAEDF3; }
+.custom-links-container .actions {
+  margin-left: 12px;
+  margin-top: -46px; }
+@media (min-width: 1023px) {
+  .custom-links-container .actions {
+    margin-top: 0;
+    padding-right: 0; } }
 @media (min-width: 1023px) {
   .custom-links-container {
     margin-bottom: 32px;
@@ -12293,21 +12389,6 @@ span.attention {
     width: 100%;
     grid-column-start: 3;
     grid-column-end: 3; } }
-@media (min-width: 1023px) {
-  .custom-links-container .custom-links-actions {
-    grid-column-start: 4;
-    grid-column-end: 4; } }
-.custom-links-container span.remove {
-  background-position: 28px center;
-  top: -120px; }
-@media (min-width: 1023px) {
-  .custom-links-container span.remove {
-    top: 0; } }
-.custom-links-container span.handle-move {
-  top: -120px; }
-@media (min-width: 1023px) {
-  .custom-links-container span.handle-move {
-    top: 0; } }
 .custom-links-container .custom-links-title input {
   border-radius: 0;
   margin-bottom: 24px; }
@@ -12380,6 +12461,21 @@ span.attention {
   padding: 6px 0; }
 .field-data:hover {
   background: #f6f9fd; }
+.field-data .data-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+.field-data .field-data-image img {
+  width: 48px;
+  height: 48px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 4px; }
+
+.field-data-image-wrapper {
+  min-width: 52px;
+  max-width: 52px;
+  width: 52px; }
 
 .field-titles {
   position: relative;
@@ -12400,16 +12496,29 @@ span.attention {
 .form-group .user-fields-data .field-data div:nth-of-type(4) {
   width: 72px; }
 
-.add-new-unit-trigger {
+.add-new-unit-trigger,
+.add-new-category-trigger,
+.add-new-location-trigger,
+.add-new-footerLink-trigger {
   margin-top: 24px;
   padding-left: 1.25rem; }
 @media (min-width: 1023px) {
-  .add-new-unit-trigger {
+  .add-new-unit-trigger,
+  .add-new-category-trigger,
+  .add-new-location-trigger,
+  .add-new-footerLink-trigger {
     padding-left: 0; } }
 
 .add-new-unit-content,
 .remove-unit-content,
-.edit-unit-content {
+.edit-unit-content,
+.add-new-category-content,
+.remove-category-content,
+.edit-category-content,
+.add-new-location-content,
+.remove-location-content,
+.edit-location-content,
+.remove-footerLink-content {
   border: 1px solid #EAEDF3;
   -webkit-box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.05);
@@ -12417,13 +12526,27 @@ span.attention {
 @media (min-width: 1023px) {
   .add-new-unit-content,
   .remove-unit-content,
-  .edit-unit-content {
+  .edit-unit-content,
+  .add-new-category-content,
+  .remove-category-content,
+  .edit-category-content,
+  .add-new-location-content,
+  .remove-location-content,
+  .edit-location-content,
+  .remove-footerLink-content {
     padding: 40px 48px;
     margin-left: -48px;
     margin-right: -48px; } }
 .add-new-unit-content h2,
 .remove-unit-content h2,
-.edit-unit-content h2 {
+.edit-unit-content h2,
+.add-new-category-content h2,
+.remove-category-content h2,
+.edit-category-content h2,
+.add-new-location-content h2,
+.remove-location-content h2,
+.edit-location-content h2,
+.remove-footerLink-content h2 {
   font-size: 16px;
   font-weight: 400;
   color: #999;
@@ -12432,62 +12555,447 @@ span.attention {
 @media (min-width: 1023px) {
   .add-new-unit-content h2,
   .remove-unit-content h2,
-  .edit-unit-content h2 {
+  .edit-unit-content h2,
+  .add-new-category-content h2,
+  .remove-category-content h2,
+  .edit-category-content h2,
+  .add-new-location-content h2,
+  .remove-location-content h2,
+  .edit-location-content h2,
+  .remove-footerLink-content h2 {
     margin-bottom: 24px;
     font-size: 20px;
     padding-left: 0; } }
 .add-new-unit-content .add-new-unit-actions,
 .add-new-unit-content .edit-new-unit-actions,
+.add-new-unit-content .add-new-category-actions,
+.add-new-unit-content .edit-new-category-actions,
+.add-new-unit-content .add-new-location-actions,
+.add-new-unit-content .edit-new-location-actions,
 .remove-unit-content .add-new-unit-actions,
 .remove-unit-content .edit-new-unit-actions,
+.remove-unit-content .add-new-category-actions,
+.remove-unit-content .edit-new-category-actions,
+.remove-unit-content .add-new-location-actions,
+.remove-unit-content .edit-new-location-actions,
 .edit-unit-content .add-new-unit-actions,
-.edit-unit-content .edit-new-unit-actions {
+.edit-unit-content .edit-new-unit-actions,
+.edit-unit-content .add-new-category-actions,
+.edit-unit-content .edit-new-category-actions,
+.edit-unit-content .add-new-location-actions,
+.edit-unit-content .edit-new-location-actions,
+.add-new-category-content .add-new-unit-actions,
+.add-new-category-content .edit-new-unit-actions,
+.add-new-category-content .add-new-category-actions,
+.add-new-category-content .edit-new-category-actions,
+.add-new-category-content .add-new-location-actions,
+.add-new-category-content .edit-new-location-actions,
+.remove-category-content .add-new-unit-actions,
+.remove-category-content .edit-new-unit-actions,
+.remove-category-content .add-new-category-actions,
+.remove-category-content .edit-new-category-actions,
+.remove-category-content .add-new-location-actions,
+.remove-category-content .edit-new-location-actions,
+.edit-category-content .add-new-unit-actions,
+.edit-category-content .edit-new-unit-actions,
+.edit-category-content .add-new-category-actions,
+.edit-category-content .edit-new-category-actions,
+.edit-category-content .add-new-location-actions,
+.edit-category-content .edit-new-location-actions,
+.add-new-location-content .add-new-unit-actions,
+.add-new-location-content .edit-new-unit-actions,
+.add-new-location-content .add-new-category-actions,
+.add-new-location-content .edit-new-category-actions,
+.add-new-location-content .add-new-location-actions,
+.add-new-location-content .edit-new-location-actions,
+.remove-location-content .add-new-unit-actions,
+.remove-location-content .edit-new-unit-actions,
+.remove-location-content .add-new-category-actions,
+.remove-location-content .edit-new-category-actions,
+.remove-location-content .add-new-location-actions,
+.remove-location-content .edit-new-location-actions,
+.edit-location-content .add-new-unit-actions,
+.edit-location-content .edit-new-unit-actions,
+.edit-location-content .add-new-category-actions,
+.edit-location-content .edit-new-category-actions,
+.edit-location-content .add-new-location-actions,
+.edit-location-content .edit-new-location-actions,
+.remove-footerLink-content .add-new-unit-actions,
+.remove-footerLink-content .edit-new-unit-actions,
+.remove-footerLink-content .add-new-category-actions,
+.remove-footerLink-content .edit-new-category-actions,
+.remove-footerLink-content .add-new-location-actions,
+.remove-footerLink-content .edit-new-location-actions {
   padding-left: 1.25rem; }
 @media (min-width: 1023px) {
   .add-new-unit-content .add-new-unit-actions,
   .add-new-unit-content .edit-new-unit-actions,
+  .add-new-unit-content .add-new-category-actions,
+  .add-new-unit-content .edit-new-category-actions,
+  .add-new-unit-content .add-new-location-actions,
+  .add-new-unit-content .edit-new-location-actions,
   .remove-unit-content .add-new-unit-actions,
   .remove-unit-content .edit-new-unit-actions,
+  .remove-unit-content .add-new-category-actions,
+  .remove-unit-content .edit-new-category-actions,
+  .remove-unit-content .add-new-location-actions,
+  .remove-unit-content .edit-new-location-actions,
   .edit-unit-content .add-new-unit-actions,
-  .edit-unit-content .edit-new-unit-actions {
+  .edit-unit-content .edit-new-unit-actions,
+  .edit-unit-content .add-new-category-actions,
+  .edit-unit-content .edit-new-category-actions,
+  .edit-unit-content .add-new-location-actions,
+  .edit-unit-content .edit-new-location-actions,
+  .add-new-category-content .add-new-unit-actions,
+  .add-new-category-content .edit-new-unit-actions,
+  .add-new-category-content .add-new-category-actions,
+  .add-new-category-content .edit-new-category-actions,
+  .add-new-category-content .add-new-location-actions,
+  .add-new-category-content .edit-new-location-actions,
+  .remove-category-content .add-new-unit-actions,
+  .remove-category-content .edit-new-unit-actions,
+  .remove-category-content .add-new-category-actions,
+  .remove-category-content .edit-new-category-actions,
+  .remove-category-content .add-new-location-actions,
+  .remove-category-content .edit-new-location-actions,
+  .edit-category-content .add-new-unit-actions,
+  .edit-category-content .edit-new-unit-actions,
+  .edit-category-content .add-new-category-actions,
+  .edit-category-content .edit-new-category-actions,
+  .edit-category-content .add-new-location-actions,
+  .edit-category-content .edit-new-location-actions,
+  .add-new-location-content .add-new-unit-actions,
+  .add-new-location-content .edit-new-unit-actions,
+  .add-new-location-content .add-new-category-actions,
+  .add-new-location-content .edit-new-category-actions,
+  .add-new-location-content .add-new-location-actions,
+  .add-new-location-content .edit-new-location-actions,
+  .remove-location-content .add-new-unit-actions,
+  .remove-location-content .edit-new-unit-actions,
+  .remove-location-content .add-new-category-actions,
+  .remove-location-content .edit-new-category-actions,
+  .remove-location-content .add-new-location-actions,
+  .remove-location-content .edit-new-location-actions,
+  .edit-location-content .add-new-unit-actions,
+  .edit-location-content .edit-new-unit-actions,
+  .edit-location-content .add-new-category-actions,
+  .edit-location-content .edit-new-category-actions,
+  .edit-location-content .add-new-location-actions,
+  .edit-location-content .edit-new-location-actions,
+  .remove-footerLink-content .add-new-unit-actions,
+  .remove-footerLink-content .edit-new-unit-actions,
+  .remove-footerLink-content .add-new-category-actions,
+  .remove-footerLink-content .edit-new-category-actions,
+  .remove-footerLink-content .add-new-location-actions,
+  .remove-footerLink-content .edit-new-location-actions {
     padding-left: 0; } }
 .add-new-unit-content .add-new-unit-actions .cancel-action,
 .add-new-unit-content .edit-new-unit-actions .cancel-action,
+.add-new-unit-content .add-new-category-actions .cancel-action,
+.add-new-unit-content .edit-new-category-actions .cancel-action,
+.add-new-unit-content .add-new-location-actions .cancel-action,
+.add-new-unit-content .edit-new-location-actions .cancel-action,
 .remove-unit-content .add-new-unit-actions .cancel-action,
 .remove-unit-content .edit-new-unit-actions .cancel-action,
+.remove-unit-content .add-new-category-actions .cancel-action,
+.remove-unit-content .edit-new-category-actions .cancel-action,
+.remove-unit-content .add-new-location-actions .cancel-action,
+.remove-unit-content .edit-new-location-actions .cancel-action,
 .edit-unit-content .add-new-unit-actions .cancel-action,
-.edit-unit-content .edit-new-unit-actions .cancel-action {
+.edit-unit-content .edit-new-unit-actions .cancel-action,
+.edit-unit-content .add-new-category-actions .cancel-action,
+.edit-unit-content .edit-new-category-actions .cancel-action,
+.edit-unit-content .add-new-location-actions .cancel-action,
+.edit-unit-content .edit-new-location-actions .cancel-action,
+.add-new-category-content .add-new-unit-actions .cancel-action,
+.add-new-category-content .edit-new-unit-actions .cancel-action,
+.add-new-category-content .add-new-category-actions .cancel-action,
+.add-new-category-content .edit-new-category-actions .cancel-action,
+.add-new-category-content .add-new-location-actions .cancel-action,
+.add-new-category-content .edit-new-location-actions .cancel-action,
+.remove-category-content .add-new-unit-actions .cancel-action,
+.remove-category-content .edit-new-unit-actions .cancel-action,
+.remove-category-content .add-new-category-actions .cancel-action,
+.remove-category-content .edit-new-category-actions .cancel-action,
+.remove-category-content .add-new-location-actions .cancel-action,
+.remove-category-content .edit-new-location-actions .cancel-action,
+.edit-category-content .add-new-unit-actions .cancel-action,
+.edit-category-content .edit-new-unit-actions .cancel-action,
+.edit-category-content .add-new-category-actions .cancel-action,
+.edit-category-content .edit-new-category-actions .cancel-action,
+.edit-category-content .add-new-location-actions .cancel-action,
+.edit-category-content .edit-new-location-actions .cancel-action,
+.add-new-location-content .add-new-unit-actions .cancel-action,
+.add-new-location-content .edit-new-unit-actions .cancel-action,
+.add-new-location-content .add-new-category-actions .cancel-action,
+.add-new-location-content .edit-new-category-actions .cancel-action,
+.add-new-location-content .add-new-location-actions .cancel-action,
+.add-new-location-content .edit-new-location-actions .cancel-action,
+.remove-location-content .add-new-unit-actions .cancel-action,
+.remove-location-content .edit-new-unit-actions .cancel-action,
+.remove-location-content .add-new-category-actions .cancel-action,
+.remove-location-content .edit-new-category-actions .cancel-action,
+.remove-location-content .add-new-location-actions .cancel-action,
+.remove-location-content .edit-new-location-actions .cancel-action,
+.edit-location-content .add-new-unit-actions .cancel-action,
+.edit-location-content .edit-new-unit-actions .cancel-action,
+.edit-location-content .add-new-category-actions .cancel-action,
+.edit-location-content .edit-new-category-actions .cancel-action,
+.edit-location-content .add-new-location-actions .cancel-action,
+.edit-location-content .edit-new-location-actions .cancel-action,
+.remove-footerLink-content .add-new-unit-actions .cancel-action,
+.remove-footerLink-content .edit-new-unit-actions .cancel-action,
+.remove-footerLink-content .add-new-category-actions .cancel-action,
+.remove-footerLink-content .edit-new-category-actions .cancel-action,
+.remove-footerLink-content .add-new-location-actions .cancel-action,
+.remove-footerLink-content .edit-new-location-actions .cancel-action {
   margin-left: 24px;
   color: #999; }
 @media (min-width: 1023px) {
   .add-new-unit-content .add-new-unit-actions .cancel-action,
   .add-new-unit-content .edit-new-unit-actions .cancel-action,
+  .add-new-unit-content .add-new-category-actions .cancel-action,
+  .add-new-unit-content .edit-new-category-actions .cancel-action,
+  .add-new-unit-content .add-new-location-actions .cancel-action,
+  .add-new-unit-content .edit-new-location-actions .cancel-action,
   .remove-unit-content .add-new-unit-actions .cancel-action,
   .remove-unit-content .edit-new-unit-actions .cancel-action,
+  .remove-unit-content .add-new-category-actions .cancel-action,
+  .remove-unit-content .edit-new-category-actions .cancel-action,
+  .remove-unit-content .add-new-location-actions .cancel-action,
+  .remove-unit-content .edit-new-location-actions .cancel-action,
   .edit-unit-content .add-new-unit-actions .cancel-action,
-  .edit-unit-content .edit-new-unit-actions .cancel-action {
+  .edit-unit-content .edit-new-unit-actions .cancel-action,
+  .edit-unit-content .add-new-category-actions .cancel-action,
+  .edit-unit-content .edit-new-category-actions .cancel-action,
+  .edit-unit-content .add-new-location-actions .cancel-action,
+  .edit-unit-content .edit-new-location-actions .cancel-action,
+  .add-new-category-content .add-new-unit-actions .cancel-action,
+  .add-new-category-content .edit-new-unit-actions .cancel-action,
+  .add-new-category-content .add-new-category-actions .cancel-action,
+  .add-new-category-content .edit-new-category-actions .cancel-action,
+  .add-new-category-content .add-new-location-actions .cancel-action,
+  .add-new-category-content .edit-new-location-actions .cancel-action,
+  .remove-category-content .add-new-unit-actions .cancel-action,
+  .remove-category-content .edit-new-unit-actions .cancel-action,
+  .remove-category-content .add-new-category-actions .cancel-action,
+  .remove-category-content .edit-new-category-actions .cancel-action,
+  .remove-category-content .add-new-location-actions .cancel-action,
+  .remove-category-content .edit-new-location-actions .cancel-action,
+  .edit-category-content .add-new-unit-actions .cancel-action,
+  .edit-category-content .edit-new-unit-actions .cancel-action,
+  .edit-category-content .add-new-category-actions .cancel-action,
+  .edit-category-content .edit-new-category-actions .cancel-action,
+  .edit-category-content .add-new-location-actions .cancel-action,
+  .edit-category-content .edit-new-location-actions .cancel-action,
+  .add-new-location-content .add-new-unit-actions .cancel-action,
+  .add-new-location-content .edit-new-unit-actions .cancel-action,
+  .add-new-location-content .add-new-category-actions .cancel-action,
+  .add-new-location-content .edit-new-category-actions .cancel-action,
+  .add-new-location-content .add-new-location-actions .cancel-action,
+  .add-new-location-content .edit-new-location-actions .cancel-action,
+  .remove-location-content .add-new-unit-actions .cancel-action,
+  .remove-location-content .edit-new-unit-actions .cancel-action,
+  .remove-location-content .add-new-category-actions .cancel-action,
+  .remove-location-content .edit-new-category-actions .cancel-action,
+  .remove-location-content .add-new-location-actions .cancel-action,
+  .remove-location-content .edit-new-location-actions .cancel-action,
+  .edit-location-content .add-new-unit-actions .cancel-action,
+  .edit-location-content .edit-new-unit-actions .cancel-action,
+  .edit-location-content .add-new-category-actions .cancel-action,
+  .edit-location-content .edit-new-category-actions .cancel-action,
+  .edit-location-content .add-new-location-actions .cancel-action,
+  .edit-location-content .edit-new-location-actions .cancel-action,
+  .remove-footerLink-content .add-new-unit-actions .cancel-action,
+  .remove-footerLink-content .edit-new-unit-actions .cancel-action,
+  .remove-footerLink-content .add-new-category-actions .cancel-action,
+  .remove-footerLink-content .edit-new-category-actions .cancel-action,
+  .remove-footerLink-content .add-new-location-actions .cancel-action,
+  .remove-footerLink-content .edit-new-location-actions .cancel-action {
     margin-left: 0; } }
 .add-new-unit-content .add-new-unit-actions .cancel-action:hover,
 .add-new-unit-content .edit-new-unit-actions .cancel-action:hover,
+.add-new-unit-content .add-new-category-actions .cancel-action:hover,
+.add-new-unit-content .edit-new-category-actions .cancel-action:hover,
+.add-new-unit-content .add-new-location-actions .cancel-action:hover,
+.add-new-unit-content .edit-new-location-actions .cancel-action:hover,
 .remove-unit-content .add-new-unit-actions .cancel-action:hover,
 .remove-unit-content .edit-new-unit-actions .cancel-action:hover,
+.remove-unit-content .add-new-category-actions .cancel-action:hover,
+.remove-unit-content .edit-new-category-actions .cancel-action:hover,
+.remove-unit-content .add-new-location-actions .cancel-action:hover,
+.remove-unit-content .edit-new-location-actions .cancel-action:hover,
 .edit-unit-content .add-new-unit-actions .cancel-action:hover,
-.edit-unit-content .edit-new-unit-actions .cancel-action:hover {
+.edit-unit-content .edit-new-unit-actions .cancel-action:hover,
+.edit-unit-content .add-new-category-actions .cancel-action:hover,
+.edit-unit-content .edit-new-category-actions .cancel-action:hover,
+.edit-unit-content .add-new-location-actions .cancel-action:hover,
+.edit-unit-content .edit-new-location-actions .cancel-action:hover,
+.add-new-category-content .add-new-unit-actions .cancel-action:hover,
+.add-new-category-content .edit-new-unit-actions .cancel-action:hover,
+.add-new-category-content .add-new-category-actions .cancel-action:hover,
+.add-new-category-content .edit-new-category-actions .cancel-action:hover,
+.add-new-category-content .add-new-location-actions .cancel-action:hover,
+.add-new-category-content .edit-new-location-actions .cancel-action:hover,
+.remove-category-content .add-new-unit-actions .cancel-action:hover,
+.remove-category-content .edit-new-unit-actions .cancel-action:hover,
+.remove-category-content .add-new-category-actions .cancel-action:hover,
+.remove-category-content .edit-new-category-actions .cancel-action:hover,
+.remove-category-content .add-new-location-actions .cancel-action:hover,
+.remove-category-content .edit-new-location-actions .cancel-action:hover,
+.edit-category-content .add-new-unit-actions .cancel-action:hover,
+.edit-category-content .edit-new-unit-actions .cancel-action:hover,
+.edit-category-content .add-new-category-actions .cancel-action:hover,
+.edit-category-content .edit-new-category-actions .cancel-action:hover,
+.edit-category-content .add-new-location-actions .cancel-action:hover,
+.edit-category-content .edit-new-location-actions .cancel-action:hover,
+.add-new-location-content .add-new-unit-actions .cancel-action:hover,
+.add-new-location-content .edit-new-unit-actions .cancel-action:hover,
+.add-new-location-content .add-new-category-actions .cancel-action:hover,
+.add-new-location-content .edit-new-category-actions .cancel-action:hover,
+.add-new-location-content .add-new-location-actions .cancel-action:hover,
+.add-new-location-content .edit-new-location-actions .cancel-action:hover,
+.remove-location-content .add-new-unit-actions .cancel-action:hover,
+.remove-location-content .edit-new-unit-actions .cancel-action:hover,
+.remove-location-content .add-new-category-actions .cancel-action:hover,
+.remove-location-content .edit-new-category-actions .cancel-action:hover,
+.remove-location-content .add-new-location-actions .cancel-action:hover,
+.remove-location-content .edit-new-location-actions .cancel-action:hover,
+.edit-location-content .add-new-unit-actions .cancel-action:hover,
+.edit-location-content .edit-new-unit-actions .cancel-action:hover,
+.edit-location-content .add-new-category-actions .cancel-action:hover,
+.edit-location-content .edit-new-category-actions .cancel-action:hover,
+.edit-location-content .add-new-location-actions .cancel-action:hover,
+.edit-location-content .edit-new-location-actions .cancel-action:hover,
+.remove-footerLink-content .add-new-unit-actions .cancel-action:hover,
+.remove-footerLink-content .edit-new-unit-actions .cancel-action:hover,
+.remove-footerLink-content .add-new-category-actions .cancel-action:hover,
+.remove-footerLink-content .edit-new-category-actions .cancel-action:hover,
+.remove-footerLink-content .add-new-location-actions .cancel-action:hover,
+.remove-footerLink-content .edit-new-location-actions .cancel-action:hover {
   color: #484B4A; }
 .add-new-unit-content .add-new-unit-actions label,
 .add-new-unit-content .edit-new-unit-actions label,
+.add-new-unit-content .add-new-category-actions label,
+.add-new-unit-content .edit-new-category-actions label,
+.add-new-unit-content .add-new-location-actions label,
+.add-new-unit-content .edit-new-location-actions label,
 .remove-unit-content .add-new-unit-actions label,
 .remove-unit-content .edit-new-unit-actions label,
+.remove-unit-content .add-new-category-actions label,
+.remove-unit-content .edit-new-category-actions label,
+.remove-unit-content .add-new-location-actions label,
+.remove-unit-content .edit-new-location-actions label,
 .edit-unit-content .add-new-unit-actions label,
-.edit-unit-content .edit-new-unit-actions label {
+.edit-unit-content .edit-new-unit-actions label,
+.edit-unit-content .add-new-category-actions label,
+.edit-unit-content .edit-new-category-actions label,
+.edit-unit-content .add-new-location-actions label,
+.edit-unit-content .edit-new-location-actions label,
+.add-new-category-content .add-new-unit-actions label,
+.add-new-category-content .edit-new-unit-actions label,
+.add-new-category-content .add-new-category-actions label,
+.add-new-category-content .edit-new-category-actions label,
+.add-new-category-content .add-new-location-actions label,
+.add-new-category-content .edit-new-location-actions label,
+.remove-category-content .add-new-unit-actions label,
+.remove-category-content .edit-new-unit-actions label,
+.remove-category-content .add-new-category-actions label,
+.remove-category-content .edit-new-category-actions label,
+.remove-category-content .add-new-location-actions label,
+.remove-category-content .edit-new-location-actions label,
+.edit-category-content .add-new-unit-actions label,
+.edit-category-content .edit-new-unit-actions label,
+.edit-category-content .add-new-category-actions label,
+.edit-category-content .edit-new-category-actions label,
+.edit-category-content .add-new-location-actions label,
+.edit-category-content .edit-new-location-actions label,
+.add-new-location-content .add-new-unit-actions label,
+.add-new-location-content .edit-new-unit-actions label,
+.add-new-location-content .add-new-category-actions label,
+.add-new-location-content .edit-new-category-actions label,
+.add-new-location-content .add-new-location-actions label,
+.add-new-location-content .edit-new-location-actions label,
+.remove-location-content .add-new-unit-actions label,
+.remove-location-content .edit-new-unit-actions label,
+.remove-location-content .add-new-category-actions label,
+.remove-location-content .edit-new-category-actions label,
+.remove-location-content .add-new-location-actions label,
+.remove-location-content .edit-new-location-actions label,
+.edit-location-content .add-new-unit-actions label,
+.edit-location-content .edit-new-unit-actions label,
+.edit-location-content .add-new-category-actions label,
+.edit-location-content .edit-new-category-actions label,
+.edit-location-content .add-new-location-actions label,
+.edit-location-content .edit-new-location-actions label,
+.remove-footerLink-content .add-new-unit-actions label,
+.remove-footerLink-content .edit-new-unit-actions label,
+.remove-footerLink-content .add-new-category-actions label,
+.remove-footerLink-content .edit-new-category-actions label,
+.remove-footerLink-content .add-new-location-actions label,
+.remove-footerLink-content .edit-new-location-actions label {
   font-size: 14px; }
 @media (min-width: 1023px) {
   .add-new-unit-content .add-new-unit-actions label,
   .add-new-unit-content .edit-new-unit-actions label,
+  .add-new-unit-content .add-new-category-actions label,
+  .add-new-unit-content .edit-new-category-actions label,
+  .add-new-unit-content .add-new-location-actions label,
+  .add-new-unit-content .edit-new-location-actions label,
   .remove-unit-content .add-new-unit-actions label,
   .remove-unit-content .edit-new-unit-actions label,
+  .remove-unit-content .add-new-category-actions label,
+  .remove-unit-content .edit-new-category-actions label,
+  .remove-unit-content .add-new-location-actions label,
+  .remove-unit-content .edit-new-location-actions label,
   .edit-unit-content .add-new-unit-actions label,
-  .edit-unit-content .edit-new-unit-actions label {
+  .edit-unit-content .edit-new-unit-actions label,
+  .edit-unit-content .add-new-category-actions label,
+  .edit-unit-content .edit-new-category-actions label,
+  .edit-unit-content .add-new-location-actions label,
+  .edit-unit-content .edit-new-location-actions label,
+  .add-new-category-content .add-new-unit-actions label,
+  .add-new-category-content .edit-new-unit-actions label,
+  .add-new-category-content .add-new-category-actions label,
+  .add-new-category-content .edit-new-category-actions label,
+  .add-new-category-content .add-new-location-actions label,
+  .add-new-category-content .edit-new-location-actions label,
+  .remove-category-content .add-new-unit-actions label,
+  .remove-category-content .edit-new-unit-actions label,
+  .remove-category-content .add-new-category-actions label,
+  .remove-category-content .edit-new-category-actions label,
+  .remove-category-content .add-new-location-actions label,
+  .remove-category-content .edit-new-location-actions label,
+  .edit-category-content .add-new-unit-actions label,
+  .edit-category-content .edit-new-unit-actions label,
+  .edit-category-content .add-new-category-actions label,
+  .edit-category-content .edit-new-category-actions label,
+  .edit-category-content .add-new-location-actions label,
+  .edit-category-content .edit-new-location-actions label,
+  .add-new-location-content .add-new-unit-actions label,
+  .add-new-location-content .edit-new-unit-actions label,
+  .add-new-location-content .add-new-category-actions label,
+  .add-new-location-content .edit-new-category-actions label,
+  .add-new-location-content .add-new-location-actions label,
+  .add-new-location-content .edit-new-location-actions label,
+  .remove-location-content .add-new-unit-actions label,
+  .remove-location-content .edit-new-unit-actions label,
+  .remove-location-content .add-new-category-actions label,
+  .remove-location-content .edit-new-category-actions label,
+  .remove-location-content .add-new-location-actions label,
+  .remove-location-content .edit-new-location-actions label,
+  .edit-location-content .add-new-unit-actions label,
+  .edit-location-content .edit-new-unit-actions label,
+  .edit-location-content .add-new-category-actions label,
+  .edit-location-content .edit-new-category-actions label,
+  .edit-location-content .add-new-location-actions label,
+  .edit-location-content .edit-new-location-actions label,
+  .remove-footerLink-content .add-new-unit-actions label,
+  .remove-footerLink-content .edit-new-unit-actions label,
+  .remove-footerLink-content .add-new-category-actions label,
+  .remove-footerLink-content .edit-new-category-actions label,
+  .remove-footerLink-content .add-new-location-actions label,
+  .remove-footerLink-content .edit-new-location-actions label {
     font-size: 15px; } }
 
 .input-group > small.form-text.attention {
@@ -12521,57 +13029,312 @@ span.attention {
   margin-left: 6px; }
 
 .remove-unit-content,
-.edit-unit-content {
+.edit-unit-content,
+.remove-category-content,
+.edit-category-content,
+.remove-location-content,
+.edit-location-content,
+.remove-footerLink-content {
   margin-top: 12px;
   margin-bottom: 6px; }
 @media (min-width: 1023px) {
   .remove-unit-content,
-  .edit-unit-content {
+  .edit-unit-content,
+  .remove-category-content,
+  .edit-category-content,
+  .remove-location-content,
+  .edit-location-content,
+  .remove-footerLink-content {
     margin-top: 16px;
     margin-bottom: 8px; } }
 .remove-unit-content h2,
-.edit-unit-content h2 {
+.edit-unit-content h2,
+.remove-category-content h2,
+.edit-category-content h2,
+.remove-location-content h2,
+.edit-location-content h2,
+.remove-footerLink-content h2 {
   margin-bottom: 12px; }
 @media (min-width: 1023px) {
   .remove-unit-content h2,
-  .edit-unit-content h2 {
+  .edit-unit-content h2,
+  .remove-category-content h2,
+  .edit-category-content h2,
+  .remove-location-content h2,
+  .edit-location-content h2,
+  .remove-footerLink-content h2 {
     margin-bottom: 16px; } }
 .remove-unit-content p,
-.edit-unit-content p {
+.edit-unit-content p,
+.remove-category-content p,
+.edit-category-content p,
+.remove-location-content p,
+.edit-location-content p,
+.remove-footerLink-content p {
   padding-left: 1.25rem; }
 @media (min-width: 1023px) {
   .remove-unit-content p,
-  .edit-unit-content p {
+  .edit-unit-content p,
+  .remove-category-content p,
+  .edit-category-content p,
+  .remove-location-content p,
+  .edit-location-content p,
+  .remove-footerLink-content p {
     padding-left: 0; } }
 .remove-unit-content .remove-unit-actions,
 .remove-unit-content .edit-unit-actions,
+.remove-unit-content .remove-category-actions,
+.remove-unit-content .edit-category-actions,
+.remove-unit-content .remove-location-actions,
+.remove-unit-content .edit-location-actions,
+.remove-unit-content .remove-footerLink-actions,
 .edit-unit-content .remove-unit-actions,
-.edit-unit-content .edit-unit-actions {
+.edit-unit-content .edit-unit-actions,
+.edit-unit-content .remove-category-actions,
+.edit-unit-content .edit-category-actions,
+.edit-unit-content .remove-location-actions,
+.edit-unit-content .edit-location-actions,
+.edit-unit-content .remove-footerLink-actions,
+.remove-category-content .remove-unit-actions,
+.remove-category-content .edit-unit-actions,
+.remove-category-content .remove-category-actions,
+.remove-category-content .edit-category-actions,
+.remove-category-content .remove-location-actions,
+.remove-category-content .edit-location-actions,
+.remove-category-content .remove-footerLink-actions,
+.edit-category-content .remove-unit-actions,
+.edit-category-content .edit-unit-actions,
+.edit-category-content .remove-category-actions,
+.edit-category-content .edit-category-actions,
+.edit-category-content .remove-location-actions,
+.edit-category-content .edit-location-actions,
+.edit-category-content .remove-footerLink-actions,
+.remove-location-content .remove-unit-actions,
+.remove-location-content .edit-unit-actions,
+.remove-location-content .remove-category-actions,
+.remove-location-content .edit-category-actions,
+.remove-location-content .remove-location-actions,
+.remove-location-content .edit-location-actions,
+.remove-location-content .remove-footerLink-actions,
+.edit-location-content .remove-unit-actions,
+.edit-location-content .edit-unit-actions,
+.edit-location-content .remove-category-actions,
+.edit-location-content .edit-category-actions,
+.edit-location-content .remove-location-actions,
+.edit-location-content .edit-location-actions,
+.edit-location-content .remove-footerLink-actions,
+.remove-footerLink-content .remove-unit-actions,
+.remove-footerLink-content .edit-unit-actions,
+.remove-footerLink-content .remove-category-actions,
+.remove-footerLink-content .edit-category-actions,
+.remove-footerLink-content .remove-location-actions,
+.remove-footerLink-content .edit-location-actions,
+.remove-footerLink-content .remove-footerLink-actions {
   padding-left: 1.25rem;
   margin-top: 30px; }
 @media (min-width: 1023px) {
   .remove-unit-content .remove-unit-actions,
   .remove-unit-content .edit-unit-actions,
+  .remove-unit-content .remove-category-actions,
+  .remove-unit-content .edit-category-actions,
+  .remove-unit-content .remove-location-actions,
+  .remove-unit-content .edit-location-actions,
+  .remove-unit-content .remove-footerLink-actions,
   .edit-unit-content .remove-unit-actions,
-  .edit-unit-content .edit-unit-actions {
+  .edit-unit-content .edit-unit-actions,
+  .edit-unit-content .remove-category-actions,
+  .edit-unit-content .edit-category-actions,
+  .edit-unit-content .remove-location-actions,
+  .edit-unit-content .edit-location-actions,
+  .edit-unit-content .remove-footerLink-actions,
+  .remove-category-content .remove-unit-actions,
+  .remove-category-content .edit-unit-actions,
+  .remove-category-content .remove-category-actions,
+  .remove-category-content .edit-category-actions,
+  .remove-category-content .remove-location-actions,
+  .remove-category-content .edit-location-actions,
+  .remove-category-content .remove-footerLink-actions,
+  .edit-category-content .remove-unit-actions,
+  .edit-category-content .edit-unit-actions,
+  .edit-category-content .remove-category-actions,
+  .edit-category-content .edit-category-actions,
+  .edit-category-content .remove-location-actions,
+  .edit-category-content .edit-location-actions,
+  .edit-category-content .remove-footerLink-actions,
+  .remove-location-content .remove-unit-actions,
+  .remove-location-content .edit-unit-actions,
+  .remove-location-content .remove-category-actions,
+  .remove-location-content .edit-category-actions,
+  .remove-location-content .remove-location-actions,
+  .remove-location-content .edit-location-actions,
+  .remove-location-content .remove-footerLink-actions,
+  .edit-location-content .remove-unit-actions,
+  .edit-location-content .edit-unit-actions,
+  .edit-location-content .remove-category-actions,
+  .edit-location-content .edit-category-actions,
+  .edit-location-content .remove-location-actions,
+  .edit-location-content .edit-location-actions,
+  .edit-location-content .remove-footerLink-actions,
+  .remove-footerLink-content .remove-unit-actions,
+  .remove-footerLink-content .edit-unit-actions,
+  .remove-footerLink-content .remove-category-actions,
+  .remove-footerLink-content .edit-category-actions,
+  .remove-footerLink-content .remove-location-actions,
+  .remove-footerLink-content .edit-location-actions,
+  .remove-footerLink-content .remove-footerLink-actions {
     margin-top: 40px;
     padding-left: 0; } }
 .remove-unit-content .remove-unit-actions .cancel-action,
 .remove-unit-content .edit-unit-actions .cancel-action,
+.remove-unit-content .remove-category-actions .cancel-action,
+.remove-unit-content .edit-category-actions .cancel-action,
+.remove-unit-content .remove-location-actions .cancel-action,
+.remove-unit-content .edit-location-actions .cancel-action,
+.remove-unit-content .remove-footerLink-actions .cancel-action,
 .edit-unit-content .remove-unit-actions .cancel-action,
-.edit-unit-content .edit-unit-actions .cancel-action {
+.edit-unit-content .edit-unit-actions .cancel-action,
+.edit-unit-content .remove-category-actions .cancel-action,
+.edit-unit-content .edit-category-actions .cancel-action,
+.edit-unit-content .remove-location-actions .cancel-action,
+.edit-unit-content .edit-location-actions .cancel-action,
+.edit-unit-content .remove-footerLink-actions .cancel-action,
+.remove-category-content .remove-unit-actions .cancel-action,
+.remove-category-content .edit-unit-actions .cancel-action,
+.remove-category-content .remove-category-actions .cancel-action,
+.remove-category-content .edit-category-actions .cancel-action,
+.remove-category-content .remove-location-actions .cancel-action,
+.remove-category-content .edit-location-actions .cancel-action,
+.remove-category-content .remove-footerLink-actions .cancel-action,
+.edit-category-content .remove-unit-actions .cancel-action,
+.edit-category-content .edit-unit-actions .cancel-action,
+.edit-category-content .remove-category-actions .cancel-action,
+.edit-category-content .edit-category-actions .cancel-action,
+.edit-category-content .remove-location-actions .cancel-action,
+.edit-category-content .edit-location-actions .cancel-action,
+.edit-category-content .remove-footerLink-actions .cancel-action,
+.remove-location-content .remove-unit-actions .cancel-action,
+.remove-location-content .edit-unit-actions .cancel-action,
+.remove-location-content .remove-category-actions .cancel-action,
+.remove-location-content .edit-category-actions .cancel-action,
+.remove-location-content .remove-location-actions .cancel-action,
+.remove-location-content .edit-location-actions .cancel-action,
+.remove-location-content .remove-footerLink-actions .cancel-action,
+.edit-location-content .remove-unit-actions .cancel-action,
+.edit-location-content .edit-unit-actions .cancel-action,
+.edit-location-content .remove-category-actions .cancel-action,
+.edit-location-content .edit-category-actions .cancel-action,
+.edit-location-content .remove-location-actions .cancel-action,
+.edit-location-content .edit-location-actions .cancel-action,
+.edit-location-content .remove-footerLink-actions .cancel-action,
+.remove-footerLink-content .remove-unit-actions .cancel-action,
+.remove-footerLink-content .edit-unit-actions .cancel-action,
+.remove-footerLink-content .remove-category-actions .cancel-action,
+.remove-footerLink-content .edit-category-actions .cancel-action,
+.remove-footerLink-content .remove-location-actions .cancel-action,
+.remove-footerLink-content .edit-location-actions .cancel-action,
+.remove-footerLink-content .remove-footerLink-actions .cancel-action {
   margin-left: 24px;
   color: #999; }
 @media (min-width: 1023px) {
   .remove-unit-content .remove-unit-actions .cancel-action,
   .remove-unit-content .edit-unit-actions .cancel-action,
+  .remove-unit-content .remove-category-actions .cancel-action,
+  .remove-unit-content .edit-category-actions .cancel-action,
+  .remove-unit-content .remove-location-actions .cancel-action,
+  .remove-unit-content .edit-location-actions .cancel-action,
+  .remove-unit-content .remove-footerLink-actions .cancel-action,
   .edit-unit-content .remove-unit-actions .cancel-action,
-  .edit-unit-content .edit-unit-actions .cancel-action {
+  .edit-unit-content .edit-unit-actions .cancel-action,
+  .edit-unit-content .remove-category-actions .cancel-action,
+  .edit-unit-content .edit-category-actions .cancel-action,
+  .edit-unit-content .remove-location-actions .cancel-action,
+  .edit-unit-content .edit-location-actions .cancel-action,
+  .edit-unit-content .remove-footerLink-actions .cancel-action,
+  .remove-category-content .remove-unit-actions .cancel-action,
+  .remove-category-content .edit-unit-actions .cancel-action,
+  .remove-category-content .remove-category-actions .cancel-action,
+  .remove-category-content .edit-category-actions .cancel-action,
+  .remove-category-content .remove-location-actions .cancel-action,
+  .remove-category-content .edit-location-actions .cancel-action,
+  .remove-category-content .remove-footerLink-actions .cancel-action,
+  .edit-category-content .remove-unit-actions .cancel-action,
+  .edit-category-content .edit-unit-actions .cancel-action,
+  .edit-category-content .remove-category-actions .cancel-action,
+  .edit-category-content .edit-category-actions .cancel-action,
+  .edit-category-content .remove-location-actions .cancel-action,
+  .edit-category-content .edit-location-actions .cancel-action,
+  .edit-category-content .remove-footerLink-actions .cancel-action,
+  .remove-location-content .remove-unit-actions .cancel-action,
+  .remove-location-content .edit-unit-actions .cancel-action,
+  .remove-location-content .remove-category-actions .cancel-action,
+  .remove-location-content .edit-category-actions .cancel-action,
+  .remove-location-content .remove-location-actions .cancel-action,
+  .remove-location-content .edit-location-actions .cancel-action,
+  .remove-location-content .remove-footerLink-actions .cancel-action,
+  .edit-location-content .remove-unit-actions .cancel-action,
+  .edit-location-content .edit-unit-actions .cancel-action,
+  .edit-location-content .remove-category-actions .cancel-action,
+  .edit-location-content .edit-category-actions .cancel-action,
+  .edit-location-content .remove-location-actions .cancel-action,
+  .edit-location-content .edit-location-actions .cancel-action,
+  .edit-location-content .remove-footerLink-actions .cancel-action,
+  .remove-footerLink-content .remove-unit-actions .cancel-action,
+  .remove-footerLink-content .edit-unit-actions .cancel-action,
+  .remove-footerLink-content .remove-category-actions .cancel-action,
+  .remove-footerLink-content .edit-category-actions .cancel-action,
+  .remove-footerLink-content .remove-location-actions .cancel-action,
+  .remove-footerLink-content .edit-location-actions .cancel-action,
+  .remove-footerLink-content .remove-footerLink-actions .cancel-action {
     margin-left: 0; } }
 .remove-unit-content .remove-unit-actions .cancel-action:hover,
 .remove-unit-content .edit-unit-actions .cancel-action:hover,
+.remove-unit-content .remove-category-actions .cancel-action:hover,
+.remove-unit-content .edit-category-actions .cancel-action:hover,
+.remove-unit-content .remove-location-actions .cancel-action:hover,
+.remove-unit-content .edit-location-actions .cancel-action:hover,
+.remove-unit-content .remove-footerLink-actions .cancel-action:hover,
 .edit-unit-content .remove-unit-actions .cancel-action:hover,
-.edit-unit-content .edit-unit-actions .cancel-action:hover {
+.edit-unit-content .edit-unit-actions .cancel-action:hover,
+.edit-unit-content .remove-category-actions .cancel-action:hover,
+.edit-unit-content .edit-category-actions .cancel-action:hover,
+.edit-unit-content .remove-location-actions .cancel-action:hover,
+.edit-unit-content .edit-location-actions .cancel-action:hover,
+.edit-unit-content .remove-footerLink-actions .cancel-action:hover,
+.remove-category-content .remove-unit-actions .cancel-action:hover,
+.remove-category-content .edit-unit-actions .cancel-action:hover,
+.remove-category-content .remove-category-actions .cancel-action:hover,
+.remove-category-content .edit-category-actions .cancel-action:hover,
+.remove-category-content .remove-location-actions .cancel-action:hover,
+.remove-category-content .edit-location-actions .cancel-action:hover,
+.remove-category-content .remove-footerLink-actions .cancel-action:hover,
+.edit-category-content .remove-unit-actions .cancel-action:hover,
+.edit-category-content .edit-unit-actions .cancel-action:hover,
+.edit-category-content .remove-category-actions .cancel-action:hover,
+.edit-category-content .edit-category-actions .cancel-action:hover,
+.edit-category-content .remove-location-actions .cancel-action:hover,
+.edit-category-content .edit-location-actions .cancel-action:hover,
+.edit-category-content .remove-footerLink-actions .cancel-action:hover,
+.remove-location-content .remove-unit-actions .cancel-action:hover,
+.remove-location-content .edit-unit-actions .cancel-action:hover,
+.remove-location-content .remove-category-actions .cancel-action:hover,
+.remove-location-content .edit-category-actions .cancel-action:hover,
+.remove-location-content .remove-location-actions .cancel-action:hover,
+.remove-location-content .edit-location-actions .cancel-action:hover,
+.remove-location-content .remove-footerLink-actions .cancel-action:hover,
+.edit-location-content .remove-unit-actions .cancel-action:hover,
+.edit-location-content .edit-unit-actions .cancel-action:hover,
+.edit-location-content .remove-category-actions .cancel-action:hover,
+.edit-location-content .edit-category-actions .cancel-action:hover,
+.edit-location-content .remove-location-actions .cancel-action:hover,
+.edit-location-content .edit-location-actions .cancel-action:hover,
+.edit-location-content .remove-footerLink-actions .cancel-action:hover,
+.remove-footerLink-content .remove-unit-actions .cancel-action:hover,
+.remove-footerLink-content .edit-unit-actions .cancel-action:hover,
+.remove-footerLink-content .remove-category-actions .cancel-action:hover,
+.remove-footerLink-content .edit-category-actions .cancel-action:hover,
+.remove-footerLink-content .remove-location-actions .cancel-action:hover,
+.remove-footerLink-content .edit-location-actions .cancel-action:hover,
+.remove-footerLink-content .remove-footerLink-actions .cancel-action:hover {
   color: #484B4A; }
 
 .custom-switch,

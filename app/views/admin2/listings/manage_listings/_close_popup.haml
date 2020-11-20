@@ -1,5 +1,5 @@
 #listingCloseModal.modal{'data-backdrop' => 'static', 'aria-hidden' => 'true', 'aria-labelledby' => 'listingCloseModalLabel', role: 'dialog', tabindex: '-1'}
-  .modal-dialog{role: 'document'}
+  .modal-dialog.modal-md{role: 'document'}
     = form_tag close_admin2_listings_manage_listings_path, method: :patch, remote: true, class: %i[modal-content] do
       = hidden_field_tag :id, '', id: :listing_close_id
       .modal-header

@@ -1,5 +1,5 @@
 #userDeleteModal.modal{'data-backdrop' => 'static', 'aria-hidden' => 'true', 'aria-labelledby' => 'userDeleteModalLabel', role: :dialog, tabindex: '-1'}
-  .modal-dialog{role: 'document'}
+  .modal-dialog.modal-md{role: 'document'}
     = form_tag '#', method: :delete, remote: true, class: %i[modal-content], id: 'form-delete-user' do
       .modal-header
         %h2#userDeleteModalLabel.modal-title
