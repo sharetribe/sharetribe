@@ -212,7 +212,7 @@ sl:
         search_preferences: "Nastavitve iskanja"
         search_and_location_preferences: ~
         default_search_type: "Vrsta iskanja: %{select_search_type}"
-        keyword_search: "Iskanje po ključnih besedah:"
+        keyword_search: "Iskanje po ključnih besedah"
         keyword_and_location_search: ~
         location_search: "Iskanje lokacije"
         select_distance_unit: "Pokaži v razdalji %{distance_units_selector}"
@@ -270,9 +270,9 @@ sl:
         only_delete_disabled: ~
         delete_info1: ~
         delete_info2: ~
-        search: ~
+        search: Iskanje
         search_by_name_email: ~
-        reset_search: ~
+        reset_search: "Prikaži vse"
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
@@ -2020,7 +2020,7 @@ sl:
       comments: ~
     filters:
       show: "Filtriraj:"
-      search: Išči
+      search: Iskanje
       map: "Pokaži zemljevid"
       list: "Pokaži seznam"
       map_button: Zemljevid
@@ -2043,7 +2043,7 @@ sl:
       search: Išči
       signup: Registracija
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: Lokacija
     listings:
       no_listing_image: ~
   layouts:
@@ -2084,7 +2084,7 @@ sl:
     global-header:
       select_language: ~
     infos:
-      about: O
+      about: "O nas"
       how_to_use: "Kako deluje"
       info_about_kassi: "Informacije o %{service_name}"
       news: ~
@@ -2721,7 +2721,7 @@ sl:
     show:
       contact: ~
       about_me: ~
-      add_description: "Predstavi se in povej nekaj o sebi."
+      add_description: "Predstavi se in povej nekaj o sebi"
       add_location: ~
       add_phone_number: ~
       address: ~
@@ -3024,46 +3024,46 @@ sl:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "Podatkov o razpoložljivosti ne moremo prikazati. Poskusite znova naložiti stran."
+          saving_failed: "Sprememb o razpoložljivosti ne moremo shraniti. Poskusite znova naložiti stran."
         working_hours:
-          required: ~
-          overlaps: ~
-          covers: ~
+          required: obvezno
+          overlaps: prekrivanje
+          covers: zajema
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+        piece: kos
+        hour: ura
+        day: dan
+        night: noč
+        week: teden
+        month: mesec
+      edit_availability_header: Razpoložljivost
+      save_and_close_availability_editing: "Shrani in zapri"
+      confirm_discarding_unsaved_availability_changes_explanation: "Imate neshranjene spremembe podatkov o razpoložljivosti. Če nadaljujete, bodo te spremembe izgubljene."
+      confirm_discarding_unsaved_availability_changes_question: "Ali ste prepričani, da želite zavreči spremembe?"
+      edit_listing_availability: "Uredi razpoložljivost oglasa"
       working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
-        add_another_time_slot: ~
-        save: ~
+        default_schedule: "Privzeti urnik"
+        i_am_available_on: "Na voljo sem..."
+        start_time: "Začetni čas"
+        end_time: "Končni čas"
+        add_another_time_slot: "+ Dodaj še eno časovno režo"
+        save: Shrani
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Oprostite, za vaše iskalne kriterije ni mogoče najti nobenih rezultatov."
+      try_other_search_terms: "Poskusite z drugimi iskalnimi izrazi"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Dodaj sliko"
+      no_picture: "Brez slike"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Stran
+      page_of_pages: "od %{total_number_of_pages}"
     topbar:
       menu: Meni
       more: Več
-      search_placeholder: ~
-      search_location_placeholder: ~
-      user: ~
+      search_placeholder: Poišči...
+      search_location_placeholder: Lokacija
+      user: Uporabnik
       inbox: "Prejeta sporočila"
       profile: Profil
       manage_listings: "Uredi svoje objave"
@@ -3071,16 +3071,16 @@ sl:
       logout: "Odjavi se"
       login: Prijava
       signup: Registracija
-      admin_dashboard: ~
-      language: ~
-      listings: ~
+      admin_dashboard: "Skrbniška plošča"
+      language: Jezik
+      listings: "Moje objave"
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: mi
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} deluje na %{sharetribe_link} marketplace platformi."
+      create_own: "Želite ustvariti svoj lasten marketplace kot je %{service_name}? %{learn_more}."
+      learn_more: "Preberi več"
   will_paginate:
     previous_label: ~
     next_label: ~
