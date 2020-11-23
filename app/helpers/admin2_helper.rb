@@ -183,6 +183,19 @@ module Admin2Helper
     end
   end
 
+  def transaction_badge_class(status)
+    case status
+    when 'pending_ext', 'preauthorized', 'pending', 'initiated', 'payment_intent_requires_action'
+      'badge-pending'
+    when 'paid', 'confirmed', 'free', 'refunded', 'accepted'
+      'badge-positive'
+    when 'dismissed', 'rejected'
+      'badge-skipped'
+    when 'canceled', 'disputed', 'payment_intent_action_expired', 'payment_intent_failed'
+      'badge-negative'
+    end
+  end
+
   def date_format(date)
     base = "#{I18n.l(date, format: :short)} (UTC)"
     base.slice!(DateTime.current.year.to_s) if DateTime.current.year == date.year
