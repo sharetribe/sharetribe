@@ -39,6 +39,7 @@ module Admin2::General
         end
       end
       analytic.send_properties
+
       if update_results.all? && (!process_locales || enabled_locales_valid)
         slogan_and_description_after = slogan_and_description_present?(@current_community.community_customizations.reload)
         if !slogan_and_description_before && slogan_and_description_after
