@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits category page meta
 
   Background:

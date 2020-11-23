@@ -5,7 +5,7 @@
   %h1.content-card-header-title
     = t('admin2.sidebar.search_location.location')
 .content-card-section-container
-  = form_for @current_community, url: update_location_admin2_search_location_locations_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_location_admin2_search_location_locations_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2
         = t('admin2.location.location_settings')
@@ -19,4 +19,4 @@
           = form.check_box :fuzzy_location, class: %i[form-check-input], disabled: !@current_community.show_location?
           = form.label :fuzzy_location, t('admin2.location.fuzzy_location'), class: %i[form-check-label]
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')

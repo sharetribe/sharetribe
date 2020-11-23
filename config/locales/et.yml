@@ -1433,7 +1433,7 @@ et:
       waiting_for_listing_author_to_accept_request: "Ootan tellimuse aktsepteerimist %{listing_author_name} poolt. Kohe kui %{listing_author_name} tellimuse kinnitab, võetakse Sinult tasu."
       waiting_for_you_to_accept_request: "Ootan, et taotlus vastu võetaks"
       waiting_confirmation_from_requester: "Ootan, et kasutaja %{requester_name} märgiks tellimuse täidetuks"
-      waiting_confirmation_from_you: "Ootan, et tellimus täidetuks märgitaks"
+      waiting_confirmation_from_you: "Ootan, et tellimus märgitaks täidetuks"
       waiting_payment_from_requester: "Ootan, et kasutaja %{requester_name} teostaks makse"
       waiting_payment_from_you: "Ootan makset"
       waiting_feedback_from_you: "Ootan tagasisidet"
@@ -1663,8 +1663,8 @@ et:
       paypal_gateway_fee: "PayPali tasu:"
       money_will_be_transferred: "Raha kantakse kontole %{recipient_name}, kui a) olete märkinud, et taotlus on täidetud või b) %{automatic_confirmation_days} päeva on möödunud maksmisest."
     payment_receipt_to_payer_v2:
-      headline: "siin on sinu %{listing_link} kviitung."
-      you_have_made_new_payment: "Sa oled tasunud <b>%{payment_sum}</b> <b>%{listing_title}</b>"
+      headline: "siin on Sinu %{listing_link} kviitung."
+      you_have_made_new_payment: "Sa oled tasunud <b>%{payment_sum}</b> <b>%{listing_title}</b> eest"
     paypal_new_payment:
       paypal_gateway_fee: "PayPali tasu:"
       shipping_total: "Kohaletoimetamine:"
@@ -3284,8 +3284,8 @@ et:
       document_back: "Isikut tõendav dokument (pass, isikutunnistus) (dokumendi tagakülg)"
       send_verification: "Saada kinnitus"
       need_verification: "Vaja täiendavat kinnitust"
-      additional_document: "Dokument, mis näitab aadressi, kas kommunaalarve või isikuandmete päring rahvastikuregistrist."
-      additional_document_back: "Dokument, mis näitab aadressi, kas kommunaalarve või isikuandmed rahvastikuregistrist (dokumendi tagakülg)."
+      additional_document: "Dokument, mis näitab aadressi, kas tuntud teenusepakkuja kommunaalarve, isikuandmete päring rahvastikuregistrist või pangakonto andmete kuvatõmmis."
+      additional_document_back: "Dokument, mis näitab aadressi, kas tuntud teenusepakkuja kommunaalarve, isikuandmete päring rahvastikuregistrist või pangakonto andmete kuvatõmmis (dokumendi tagakülg)."
       files_need_to_be: "Failid peavad olema JPEG või PNG, mis on väiksemad kui 5 MB. PDF-e pole võimalik kontrollida. Failid peaksid olema värvilised, neid tuleb pöörata parempoolse küljega üles ja kogu teave peab olema selgesti loetav."
     form_pin:
       social_insurance_number: "Sotsiaalkindlustusnumbrit (SIN)"

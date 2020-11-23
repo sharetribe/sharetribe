@@ -1,0 +1,9 @@
+= link_to '#', class: %i[btn btn-ghost], id: 'send-test-email' do
+  %span#btn_text_send_email
+    = caption
+  %svg#btn_waiting_send_email.loaderLargeSecondary{:preserveaspectratio => "xMidYMid", :viewbox => "0 0 30 30", :xmlns => "http://www.w3.org/2000/svg"}
+    %circle{:cx => "15", :cy => "15", :fill => "none", :r => "12", "stroke-linecap" => "round"}
+      %animatetransform{:attributename => "transform", :begin => "0s", :calcmode => "linear", :dur => "0.9s", :keytimes => "0;0.5;1", :repeatcount => "indefinite", :type => "rotate", :values => "0 15 15;180 15 15;720 15 15"}
+      %animate{:attributename => "stroke-dasharray", :begin => "0s", :calcmode => "linear", :dur => "0.9s", :keytimes => "0;0.5;1", :repeatcount => "indefinite", :values => "9 56;46 14;9 56"}
+  %svg#btn_completed_send_email.loaderCompleteLargeSecondary{:height => "22", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+    %path{:d => "M22.6 1.2c-.4-.3-1-.2-1.3.2L7.8 19l-5.2-5c-.4-.4-1-.4-1.3 0-.4.3-.4.8 0 1l6 5.6.6.2s.2 0 .4-.4l14.3-18c.3-.5.2-1-.2-1"}

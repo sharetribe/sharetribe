@@ -6,7 +6,7 @@
     = t('admin2.sidebar.users.signup_login')
 
 .content-card-section-container
-  = form_for @current_community, url: update_signup_login_admin2_users_signup_login_index_path, html: { multipart: true, class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_signup_login_admin2_users_signup_login_index_path, html: { multipart: true, class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2
         = t('admin2.signup_login.signup_header')
@@ -29,7 +29,7 @@
     = render 'linked_in', form: form
 
     %section.content-card-terminal.without-margin.remove-from-mercury
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')
 
 - content_for :extra_javascript do
   :javascript

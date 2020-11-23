@@ -25,6 +25,6 @@ Feature: Admin manage stripe
     And I fill in "payment_preferences_form_commission_from_seller" with "12"
     And I fill in "payment_preferences_form_minimum_transaction_fee" with "0.75"
     And I press "Save changes"
-    Then I should see "Transaction fee settings updated"
+    Then I refresh the page
     And I should see "12" in the "payment_preferences_form_commission_from_seller" input
     And I should see "0.75" in the "payment_preferences_form_minimum_transaction_fee" input

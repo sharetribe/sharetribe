@@ -6,11 +6,9 @@ module Admin2::Seo
 
     def update_search_pages
       @current_community.update!(search_pages_params)
-      flash[:notice] = t('admin2.notifications.search_pages_updated')
+      render json: { message: t('admin2.notifications.search_pages_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_seo_search_pages_path
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

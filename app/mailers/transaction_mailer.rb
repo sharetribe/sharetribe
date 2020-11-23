@@ -193,10 +193,13 @@ class TransactionMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @community_name = community.full_name(recipient.locale)
       @skip_unsubscribe_footer = true
-      mail(to: recipient.confirmed_notification_emails_to,
-           from: community_specific_sender(community),
-           subject: t("emails.new_transaction.subject")) do |format|
-             format.html { render v2_template(community.id, 'new_transaction'), layout: v2_layout(community.id) }
+      address = recipient.confirmed_notification_emails_to
+      if address.present?
+        mail(to: address,
+             from: community_specific_sender(community),
+             subject: t("emails.new_transaction.subject")) do |format|
+               format.html { render v2_template(community.id, 'new_transaction'), layout: v2_layout(community.id) }
+        end
       end
     end
   end
@@ -211,10 +214,13 @@ class TransactionMailer < ActionMailer::Base
       @community_name = community.full_name(recipient.locale)
       @skip_unsubscribe_footer = true
       subject_key = is_admin ? 'subject_admin' : 'subject'
-      mail(to: recipient.confirmed_notification_emails_to,
-           from: community_specific_sender(community),
-           subject: t("emails.transaction_disputed.#{subject_key}")) do |format|
-             format.html { render v2_template(community.id, 'transaction_disputed'), layout: v2_layout(community.id) }
+      address = recipient.confirmed_notification_emails_to
+      if address.present?
+        mail(to: address,
+             from: community_specific_sender(community),
+             subject: t("emails.transaction_disputed.#{subject_key}")) do |format|
+               format.html { render v2_template(community.id, 'transaction_disputed'), layout: v2_layout(community.id) }
+        end
       end
     end
 

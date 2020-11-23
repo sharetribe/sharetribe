@@ -10,7 +10,7 @@
         = tr.text_field :title, class: %i[form-control required], placeholder: t('admin2.topbar.link_title'), disabled: defined?(disabled) && disabled
       .custom-links-url
         = tr.text_field :url, class: %i[form-control required], placeholder: 'https://', disabled: defined?(disabled) && disabled, url: true
-      - if index.zero?
+      - if index.zero? && ((defined?(disabled) && !disabled) || !defined?(disabled))
         .custom-links-actions
           %span.handle-move
           = link_to_remove_association f do

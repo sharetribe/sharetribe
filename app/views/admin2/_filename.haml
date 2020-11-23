@@ -8,7 +8,7 @@
     = t('admin2.logos_and_color.not_added', name: field_name.downcase)
 
 - content_for :popup_layout do
-  %div.modal{id: "#{field_name.downcase.parameterize(separator: "_")}DeleteModal", 'aria-hidden' => 'true', 'aria-labelledby' => "#{type}DeleteLabel", 'data-backdrop' => 'static', role: :dialog, tabindex: '-1'}
+  .modal{id: "#{field_name.downcase.parameterize(separator: "_")}DeleteModal", 'aria-hidden' => 'true', 'aria-labelledby' => "#{type}DeleteLabel", 'data-backdrop' => 'static', role: :dialog, tabindex: '-1'}
     .modal-dialog{role: :document}
       .modal-content
         .modal-header
@@ -21,4 +21,4 @@
           %br
         .modal-footer
           = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-          = link_to t('admin2.logos_and_color.delete_popup.save_button', type: field_name.downcase, filename: original_filename), remove_files_admin2_design_logos_color_index_path(type: type), method: :delete, class: %i[btn btn-negative]
+          = link_to t('admin2.logos_and_color.delete_popup.save_button', type: field_name.downcase, filename: original_filename), remove_files_admin2_design_logos_color_index_path(type: type), method: :delete, remote: true, class: %i[btn btn-negative]
