@@ -453,7 +453,7 @@ module TransactionHelper
         link_icon_with_text_classes: icon_for("reject_preauthorized"),
         link_text_with_icon: link_text_with_icon(transaction, "reject_preauthorized")
       }
-    ]);
+    ])
   end
 
   def feedback_pending_status(conversation)
