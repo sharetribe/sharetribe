@@ -73,6 +73,13 @@ class PlansController < ApplicationController
         Result::Success.new([])
       end
     }.on_success { |created_plans|
+
+      created_plans&.each do |plan|
+        if plan.dig(:features, :landing_page) == false
+          LandingPage.where(community_id: plan[:community_id]).update_all(enabled: false)
+        end
+      end
+
       logger.info("Created new plans based on the notification", nil, created_plans)
 
       response = NewPlansResponse.build(plans: created_plans.map { |plan_entity| from_entity(plan_entity) })
