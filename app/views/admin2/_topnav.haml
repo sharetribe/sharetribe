@@ -23,7 +23,7 @@
           %span.hide-mobile
             = t('admin2.topnav.marketplace_id', id: @current_community.id)
 
-    .nav-item{:data => {:intercom-target => 'Go to marketplace'}}
+    .nav-item{data: {intercom-target: 'Go to marketplace'}}
       = link_to homepage_with_locale_path, class: %i[nav-link] do
         %span.hide-mobile
           = t('admin2.topnav.go_to_your')
