@@ -74,7 +74,7 @@ class PlansController < ApplicationController
       end
     }.on_success { |created_plans|
 
-      created_plans.each do |plan|
+      created_plans&.each do |plan|
         if plan.dig(:features, :landing_page) == false
           LandingPage.where(community_id: plan[:community_id]).update_all(enabled: false)
         end
