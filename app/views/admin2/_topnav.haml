@@ -1,5 +1,5 @@
 %nav.topnav
-  .logo{:data-intercom-target => "Logo"}
+  .logo
     = link_to admin2_path, class: :logo do
       = image_tag 'gap-logo.png', width: 151, alt: t('admin2.topnav.logo')
 
@@ -23,7 +23,7 @@
           %span.hide-mobile
             = t('admin2.topnav.marketplace_id', id: @current_community.id)
 
-    .nav-item{data: {intercom-target: 'Go to marketplace'}}
+    .nav-item{:data => {:intercom-target => 'Go to marketplace'}}
       = link_to homepage_with_locale_path, class: %i[nav-link] do
         %span.hide-mobile
           = t('admin2.topnav.go_to_your')
