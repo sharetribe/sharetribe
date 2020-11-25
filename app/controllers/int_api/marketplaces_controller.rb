@@ -54,7 +54,7 @@ class IntApi::MarketplacesController < ApplicationController
         marketplace.id).data
 
     base_url = URI(marketplace.full_url)
-    url = admin_getting_started_guide_url(host: base_url.host, port: base_url.port)
+    url = admin2_url(host: base_url.host, port: base_url.port)
 
     # make the marketplace creator be logged in via Auth Token
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
