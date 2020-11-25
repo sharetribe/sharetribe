@@ -4,4 +4,4 @@
   .content-card-header-right
     %span#user_statuses_filter
       = render 'admin2/users/manage_users/statuses', presenter: @presenter, current: params[:status]
-    = link_to t('admin2.manage_users.export_csv'), { format: :csv }, class: %i[content-card-header-link] << ('opacity_04 is-disabled' if params[:status]&.any?{|s| s.present?} || params[:q].present?)
+    = link_to t('admin2.manage_users.export_csv'), { format: :csv }, :data => {:intercom_target => 'Export users CSV'}, class: %i[content-card-header-link] << ('opacity_04 is-disabled' if params[:status]&.any?{|s| s.present?} || params[:q].present?)
