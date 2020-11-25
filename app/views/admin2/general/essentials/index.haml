@@ -4,7 +4,7 @@
 .content-card-header
   %h1.content-card-header-title
     = t('admin2.sidebar.general.essentials')
-  = link_to t('admin2.essentials.header_link'), homepage_without_locale_path(big_cover_photo: true, locale: nil), class: %i[external-link content-card-header-link], target: :_blank
+  = link_to t('admin2.essentials.header_link'), homepage_without_locale_path(big_cover_photo: true, locale: nil), :data => {:intercom_target => 'View marketplace as visitor'}, class: %i[external-link content-card-header-link], target: :_blank
 
 .content-card-section-container
   = form_for @current_community, url: update_essential_admin2_general_essentials_path, html: { class: %i[content-card-section-form] }, method: :patch do

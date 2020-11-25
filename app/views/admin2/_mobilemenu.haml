@@ -9,7 +9,7 @@
         = render partial: 'admin2/locals', locals: header_props
         = render partial: 'admin2/avatar', locals: header_props
 
-    .sidenav-container-top
+    .sidenav-container-top{data: {intercom_target: 'Admin menu'}}
       %h6
         = t('admin2.topnav.admin_menu')
       .sidenav-links

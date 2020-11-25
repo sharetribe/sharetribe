@@ -70,7 +70,7 @@
 .dashboard-card.gopro
   = render "block_#{@block}"
 
-.dashboard-card.help
+.dashboard-card.help{data: {intercom_target: 'Home Help'}}
   .card-top
     %h2= t('admin2.home.block_3')
     %p= t('admin2.home.block_3_body_1')
