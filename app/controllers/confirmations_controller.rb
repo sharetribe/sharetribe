@@ -53,7 +53,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
       if @current_user&.has_admin_rights?(@current_community)
         record_event(flash, "admin_email_confirmed")
-        redirect_to admin_getting_started_guide_path and return
+        redirect_to admin2_path and return
       elsif @current_user # normal logged in user
         if session[:return_to]
           redirect_to session[:return_to]
