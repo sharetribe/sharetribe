@@ -2086,7 +2086,7 @@ en:
       no_listing_image: "No picture"
   layouts:
     admin:
-      admin: "%{service_name} admin panel"
+      admin: "%{service_name} Admin panel"
     branding:
       powered_by: "%{service_name} is powered by the %{sharetribe_link} marketplace platform."
       create_own: "Want to create your own online marketplace website like %{service_name}? %{learn_more}."
@@ -2099,7 +2099,7 @@ en:
       join_this_community: "Join marketplace"
       read_more: "Read more"
       feedback: "Your message to the %{service_name} team"
-      dont_use_to_contact_support: "We noticed you're an admin of %{service_name}. This form is what your users use to contact you. You cannot use this form to contact Sharetribe support. You can do that via the support widget in the bottom right corner of the admin panel instead."
+      dont_use_to_contact_support: "We noticed you're an admin of %{service_name}. This form is what your users use to contact you. You cannot use this form to contact Sharetribe support. You can do that via the support widget in the bottom right corner of your Admin panel instead."
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Contact us"
@@ -2298,7 +2298,7 @@ en:
       stripe_you_account_balance_is_not_0: "You account balance is not 0 so it cannot be deleted. This might mean that you have transactions waiting to be completed or that there is money waiting to be paid out to your bank account. Please contact the %{service_name} team to learn more."
       stripe_balance_for_username_is_not_0: "The Stripe balance for %{username} is not 0, so the account cannot be deleted. This might mean that they have transactions waiting to be completed or that there is money waiting to be paid out to their bank accounts. Please check your Stripe Dashboard for more information."
       visit_admin: "Would you like to %{link}?"
-      visit_admin_link: "visit your admin panel"
+      visit_admin_link: "visit your Admin panel"
       an_error_occurred_when_saving_your_information: "An error occurred when saving your information: \"%{message}\". Please check that all information is correct and try again."
     settings:
       account: Account
@@ -2840,7 +2840,7 @@ en:
       account_confirmation_instructions_title_admin: "Confirm your email address"
       before_full_access_you_need_to_confirm_email: "Before we can give you full access to your marketplace, there's just one more thing we need to do: confirm your email address."
       before_confirmation_only_access_admin_dashboard: "Before confirmation you can only access the %{admin_dashboard_link}."
-      admin_dashboard_link_text: "admin panel"
+      admin_dashboard_link_text: "Admin panel"
       account_confirmation_instructions_admin: "You should have received an email at %{email_address} with a confirmation link. If you don't see it, check your spam folder or click the button below to resend the email. Once it arrives, open the included link to confirm your address, after which you'll get full access to your marketplace. If you need any help, don't hesitate to %{support_link}."
       contact_support_link_text: "contact Sharetribe support"
   settings:
