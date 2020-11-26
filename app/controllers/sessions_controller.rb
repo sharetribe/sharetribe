@@ -53,7 +53,7 @@ class SessionsController < ApplicationController
     end
 
     login_successful = t("layouts.notifications.login_successful", person_name: view_context.link_to(PersonViewUtils.person_display_name_for_type(@current_user, "first_name_only"), person_path(@current_user)))
-    visit_admin = t('layouts.notifications.visit_admin', link: view_context.link_to(t('layouts.notifications.visit_admin_link'), admin_details_edit_path))
+    visit_admin = t('layouts.notifications.visit_admin', link: view_context.link_to(t('layouts.notifications.visit_admin_link'), admin2_path))
     flash[:notice] = "#{login_successful}#{@current_user.has_admin_rights?(@current_community) ? " #{visit_admin}" : ''}".html_safe
     if session[:return_to]
       redirect_to session[:return_to]

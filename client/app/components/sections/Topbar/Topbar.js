@@ -38,7 +38,7 @@ const profileActions = function profileActions(routes, username) {
     listingsAction: routes.listings_person_settings_path(username),
     profileAction: routes.person_path(username),
     settingsAction: routes.person_settings_path(username),
-    adminDashboardAction: routes.admin_path(),
+    adminDashboardAction: routes.admin2_path(),
     logoutAction: routes.logout_path(),
   } : null;
 };

@@ -17,7 +17,7 @@ const baseProps = {
     person_path: fakeRoute,
     person_settings_path: fakeRoute,
     logout_path: fakeRoute,
-    admin_path: fakeRoute,
+    admin2_path: fakeRoute,
   },
   logo: {
     href: 'http://example.com',

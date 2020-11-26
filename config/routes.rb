@@ -171,7 +171,7 @@ Rails.application.routes.draw do
       end
     end
 
-    namespace :admin2 do
+    scope module: "admin2", path: "/admin", as: "admin2" do
       get '' => "dashboard#index"
       namespace :general do
         resources :essentials, only: %i[index] do
@@ -295,6 +295,10 @@ Rails.application.routes.draw do
             delete :delete
             get :export
             get :export_status
+          end
+          member do
+            get :approve
+            get :reject
           end
         end
         resources :listing_approval, path: 'listing-approval', only: %i[index] do
@@ -482,7 +486,10 @@ Rails.application.routes.draw do
 
     # get '/:locale/admin2', to: redirect('/%{locale}/admin2/dashboard')
 
-    namespace :admin do
+    get '/admin2', to: redirect('/admin')
+    get '/:locale/admin2(*all)', to: redirect('/%{locale}/admin%{all}')
+    
+    scope module: "admin", path: "/admin_old", as: "admin" do
       get '' => "getting_started_guide#index"
 
       # Payments

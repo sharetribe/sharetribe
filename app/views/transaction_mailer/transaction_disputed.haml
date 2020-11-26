@@ -4,7 +4,7 @@
       - if @is_admin
         - transaction_link = link_to t("emails.transaction_disputed.order_about",
           listing_title: @transaction.listing.title),
-          admin_community_transaction_url(@url_params.merge(community_id: @community.id, id: @transaction.id))
+          admin2_transactions_reviews_manage_transaction_url(@url_params.merge(id: @transaction.id))
         = t("emails.transaction_disputed.the_order_between_buyer_and_seller_has_been_canceled",
           buyer: PersonViewUtils.person_display_name(@transaction.starter, @transaction.community),
           seller: PersonViewUtils.person_display_name(@transaction.author, @transaction.community),
@@ -27,7 +27,7 @@
 
 - if @is_admin
   = render "person_mailer/action_button", text: t("emails.transaction_disputed.review_the_transaction"),
-    url: admin_community_transaction_url(@url_params.merge(community_id: @community.id, id: @transaction.id))
+    url: admin2_transactions_reviews_manage_transaction_url(@url_params.merge(id: @transaction.id))
 - else
   = render "person_mailer/action_button", text: t("emails.transaction_disputed.contact_the_marketplace_team"),
     url: new_user_feedback_url(@url_params)

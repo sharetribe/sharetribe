@@ -8,7 +8,7 @@ Feature: Admin create, update, destroy listing shapes
     And I am logged in as "kassi_testperson1"
 
   Scenario: Admin user delete order type Selling
-    Given community "test" has order type "selling"
+    Given community "test" has order type "Selling"
     When I go to the edit "selling" order type admin page
     Then I should see "Edit order type 'Selling'"
     When I confirm alert popup

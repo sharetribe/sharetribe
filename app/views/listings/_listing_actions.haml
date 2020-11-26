@@ -106,11 +106,11 @@
               .text-part= t("listings.edit_links.listing_is_rejected")
         - if @listing_presenter.pending_admin_approval?
           .listing-view-admin-link
-            %a.icon-with-text-container{href: approve_admin_community_listing_path(@current_community, @listing)}
+            %a.icon-with-text-container{href: approve_admin2_listings_manage_listing_path(@listing)}
               = icon_tag("check", ["icon-part"])
               .text-part= t("listings.edit_links.approve_listing")
           .listing-view-admin-link
-            %a.icon-with-text-container{href: reject_admin_community_listing_path(@current_community, @listing)}
+            %a.icon-with-text-container{href: reject_admin2_listings_manage_listing_path(@listing)}
               = icon_tag("cross", ["icon-part"])
               .text-part= t("listings.edit_links.reject_listing")
       .listing-view-admin-link
