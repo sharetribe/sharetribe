@@ -36,10 +36,6 @@ sr:
         remove_category: "Ukloni kategoriju"
         remove_category_name: "Ukloni kategoriju '%{category_name}'"
         warning_remove_effects: "Upozorenje! Uklanjanje kategorije '%{category_name}' će za posledicu imati sledeće:"
-        select_new_category: "Odaberi novu kategoriju u koju će gore odabrane stavke biti pomerene:"
-        buttons:
-          remove: Ukloni
-          cancel: Otkaži
         warning_listing_will_be_moved:
           one: "Postoji %{count} oglas u kategoriji. On će biti pomeren u izabranu kategoriju."
           few: "Postoji %{count} oglasa u kategoriji. Oni će biti pomerein u izabranu kategoriju."
@@ -60,6 +56,10 @@ sr:
           few: "Postoji %{count} oglasa u kategoriji i podkategoriji. Oni će biti pomereni u izabranu kategoriju."
           many: "Postoji %{count} oglasa u kategoriji i podkategoriji. Oni će biti pomereni u izabranu kategoriju."
           other: "Postoji %{count} oglasa u kategoriji i podkategoriji. Oni će biti pomereni u izabranu kategoriju."
+        select_new_category: "Odaberi novu kategoriju u koju će gore odabrane stavke biti pomerene:"
+        buttons:
+          remove: Ukloni
+          cancel: Otkaži
     communities:
       edit_details:
         community_details: "Osnovni detalji"
@@ -332,7 +332,7 @@ sr:
         social_media_description: ~
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Korisničko ime Twitter naloga vašeg tržišta (ukoliko ga imate). Ono će biti pomenuto kada ljudi koriste tweet dugme na stranici oglasa."
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text_with_instructions: "Korisničko ime Twitter naloga vašeg tržišta (ukoliko ga imate). Ono će biti spomenuto kada ljudi koriste tweet dugme na stranici oglasa. %{instructions_link}."
         twitter_instructions_link_text: "Pročitaj više"
         twitter_handle_placeholder: korisničkoime
         invalid_twitter_handle: "Twitter handle treba da sadrži maksimalno 15 alfanumeričkih (slova A-Z i brojevi 0-9) karaktera."
@@ -1007,21 +1007,21 @@ sr:
       pricing_units_disabled_info: ~
       can_not_find_name: ~
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        listing_shapes: "Tipovi porudžbina"
+        description: "Tipovi porudžbina određuju kako se porudžbina procesira na vašem sajtu. Možete odlučiti da li vaši korisnici rentiraju ili prodaju, ili možda samo postavljaju obaveštenja i komuniciraju putem direktnih poruka."
+        read_more_about_order_types: "Pročitajte više o tipovima porudžbina"
+        add_new_shape: "Dodajte novi tip porudžbine: "
+        select_template: "Odaberite šablon..."
+        all_categories: "Sve kategorije"
+        no_categories: "Nema kategorija"
         category_count: ~
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Ime tipa porudžbine"
+          listing_shape_categories: "Kategorije u kojima se koristi"
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Sačuvavam porudžbinu"
+          save_order_successful: "Redosled tipova porudžbina uspešno sačuvan"
+          save_order_error: "Došlo je do greške prilikom sačuvavanja redosleda. Molimo osvežite stranicu i pokušajte ponovo."
       templates:
         selling_products: ~
         renting_products: ~
@@ -1037,33 +1037,33 @@ sr:
         create_success: ~
         create_failure: ~
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
+        edit_listing_shape: "Uredi tip porudžbine '%{shape}'"
+        update: Sačuvaj
+        cancel: Otkaži
+        update_success: "Promene na tipu porudžbine '%{shape}' su sačuvane"
+        update_failure: "Promene se nisu mogle sačuvati. Greška: %{error_msg}"
         delete: ~
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
+      listing_shape_name: Ime
       listing_shape_name_placeholder: ~
-      action_button_label: ~
+      action_button_label: "Oznaka dugmeta za naplatu"
       action_button_placeholder: ~
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: "Dozvoli prodavcima da definišu iznos za slanje"
       price_label: ~
-      units_title: ~
-      units_desc: ~
+      units_title: "Jedinice cene"
+      units_desc: "Ukoliko ste omogućili cene po stavkama, cena oglasa se prikazuje kao \"cena po stavki\". Na primer: \"500 din. po satu\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Po komadu"
+        hour: "Po satu"
+        day: "Po danu"
+        night: "Po noći"
+        week: "Po nedelji"
+        month: "Po mesecu"
         unit: ~
       can_not_find: ~
       add_custom_unit: ~
@@ -1083,7 +1083,7 @@ sr:
       marketplace_paypal_integration: "Preferencije platnog sistema"
       preferences_updated: "Preferencije platnog sistema osvežene."
       contact_support_link_text: ~
-      integration_info_text: ~
+      integration_info_text: "Platni sistem vašeg tržišta omogućuje PayPal. Kako biste dozvolili korisnicima da plaćaju koristeći vaše tržište, morate povezati vaš PayPal nalog. Nakon što ste povezali vaš nalog, možete izabrati minimalnu veličinu transakcije i mogući posrednički iznos."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       link_stripe_personal_account: ~
@@ -1094,12 +1094,12 @@ sr:
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
       marketplace_currency_label: ~
-      minimum_listing_price_label: ~
+      minimum_listing_price_label: "Minimalna veličina transakcije:"
       transaction_fee_label: ~
       minimum_transaction_fee_label: "Minimalni iznos transakcione provizije prodavca:"
       save_settings: "Sačuvaj podešavanja"
       minimum_listing_price_below_tx_fee: "Minimalni iznos transakcije mora biti jednak ili veći od minimalnog iznosa provizije za transakciju: %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_min: "Minimalna veličina transakcije mora biti veća od minimalne provizije %{minimum_commission}."
     payment_preferences:
       title: ~
       general_settings: ~
@@ -1212,7 +1212,7 @@ sr:
         you_should_investigate: ~
         learn_more: ~
   common:
-    edit_page: "Uredi stranice"
+    edit_page: "Uredi stranicu"
     default_community_slogan: "Zajednica "
     default_community_description: "Ovo je mesto gde možete prodati, iznajmiti, pozajmiti i podeliti dobra i sevise sa ostalim članovima zajednice."
     cancel: Otkaži
@@ -1265,10 +1265,12 @@ sr:
       paypal: ~
       info: ~
     paypal_fee_info:
-      title: ~
-      body_text: ~
+      title: "PayPal naknada za procesiranje uplate"
+      body_text: |-
+          Za PayPal plaćanja, %{service_name} naplaćuje proviziju od %{paypal_commission}%. Minimalni iznos naknade po transakciji je %{minimum_transaction_fee}. PayPal naknade nisu uključene u ovu proviziju, tako da uz naknadu %{service_name}, platićete i PayPal naknadu za svaku transakciju. PayPal naknada iznosi između 2% i 5% ukupne prodajne cene i zavisi od obima vaših transakciju i zemlje prebivališta kupca. Uglavnom, domaće kupovine imaju manje naknade od inostranih dok vam veći obim mesečnoh prodaja obezbeđuje popust na naknade. 
+          Možete videti tačne iznose nakon što se prijavite na vaš PayPal nalog i %{link_to_paypal}. Nakon svake kupovine ćete dobiti priznanicu koja prikazuje tačan iznos naknade.
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: ovde
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -1288,18 +1290,18 @@ sr:
       price_to_pay: "Ukupna cena za plaćanje"
       accept: Prihvati
       decline: Odbij
-      quantity_label: ~
-      sum_label: ~
-      service_fee_label: ~
+      quantity_label: "Količina:"
+      sum_label: "Iznos:"
+      service_fee_label: "%{service_name} naknada:"
       buyer_service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
+      you_will_get_label: "Vi dobijate:"
+      total_label: "Ukupno:"
+      total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee: ~
-      paypal_fee_info: ~
-      shipping_price_label: ~
+      paypal_fee_info: "* Isključuje %{link}"
+      shipping_price_label: "Slanje:"
       stripe-fee_label: ~
     confirm:
       confirm_description: "Ukoliko je vaša porudžbina ispunjena trebali biste da potvrdite da je završena. Zatim možete oceniti drugu stranu."
@@ -1384,8 +1386,8 @@ sr:
       total: "Ukupno: %{total}"
     status:
       payment_errored: "Plaćanje neuspešno. Molimo pokušajte ponovo."
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored_starter: "Plaćanje neuspešno. Molimo vas pokušajte ponovo. Ukoliko se problema nastavi, molimo vas kontaktirajte Sharetribe podršku."
+      payment_errored_author: "Plaćanje neuspešno. Molimo vas kontaktirajte %{starter_name} i pitajte ih da pokušaju ponovo."
       cancel_payed_transaction: Otkaži
       feedback_given: Odgovor
       feedback_skipped: "Preskočen odgovor"
@@ -1609,8 +1611,8 @@ sr:
       reply: ~
     new_payment:
       new_payment: "Primili ste novu uplatu"
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Cena po %{unit_type}"
+      quantity: Količina
       you_have_received_new_payment: "Isplaćeno vam je <b>%{payment_sum}</b> za <b>%{listing_title}</b> od strane %{payer_full_name}. U nastavku je vaš račun."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
@@ -1651,8 +1653,8 @@ sr:
       headline: ~
       you_have_made_new_payment: ~
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: "PayPal naknada:"
+      shipping_total: "Slanje:"
     braintree_new_payment:
       product: Proizvod
       price_payer_paid: "Iznos koji je %{payer_full_name} uplatio/la:"
@@ -1662,10 +1664,10 @@ sr:
       receipt_of_payment: "Račun za uplatu."
       you_have_made_new_payment: "Platili ste %{recipient_full_name} iznos od <b>%{payment_sum}</b> za <b>%{listing_title}</b>. U nastavku je račun za vašu uplatu."
       product: Proizvod
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Cena po %{unit_type}"
+      duration: Trajanje
+      quantity: Količina
+      subtotal: Iznos
       total: Ukupno
       price: Cena
       buyer_service_fee: ~
@@ -1893,7 +1895,7 @@ sr:
       on_or_before: "mora biti na ili pre %{restriction}"
       after: "mora biti posle %{restriction}"
       on_or_after: "mora biti na ili posle %{restriction}"
-      positive_number: ~
+      positive_number: "Ubacite broj."
       from_must_be_less_than_till: ~
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
@@ -2075,7 +2077,7 @@ sr:
       learn_more: ~
     no_tribe:
       inbox: "Prijemno sanduče"
-      settings: ~
+      settings: Podešavanja
       feedback: "Kontaktiraj %{service_name} tim."
     application:
       join_this_community: "Pristupi tržištu"
@@ -2327,7 +2329,7 @@ sr:
     map:
       open_in_google_maps: ~
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Nešto je pošlo naopako, šifra greške: %{error_code}"
       something_went_wrong_plain: ~
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
@@ -2391,15 +2393,15 @@ sr:
         time: "sat, dan, mesec, ..."
         long_time: "nedelja, mesec, ..."
         after_service_fee_you_will_get: "Posle provizije %{service_name} i platnog procesora, iznos koji ćete primiti je %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_paypal_text: "Cena će biti umanjena za %{paypal_fee_info_link}."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
         payment_fee_info_link_text: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        delivery: "Metod dostave:"
+        shipping: Slanje
+        shipping_price: "Naknada za slanje"
+        shipping_price_additional: "Dodatne stavke"
+        pickup: "Lično preuzimanje"
       origin:
         location: Lokacija
         origin: Poreklo
@@ -2493,7 +2495,7 @@ sr:
       listing: oglas
       selected_category: "Kategorija: %{category}"
       selected_subcategory: "Podkategorija: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Tip oglasa: %{transaction_type}"
       select_category: "Izaberi kategoriju"
       select_subcategory: "Odaberi podkategoriju"
       select_transaction_type: "Odaberi tip oglasa"
@@ -2504,15 +2506,15 @@ sr:
       community_not_configured_for_payments_admin: "%{service_name} nije konfigurisan da prima uplate i zato još uvek ne možete postavljati nove oglase. Idite na %{payment_settings_link} da popunite platne detalje."
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      hour: "Broj sati:"
+      day: "Broj dana:"
+      night: "Broj noći:"
+      week: "Broj nedelja:"
+      month: "Broj meseci:"
       unit: ~
-      custom: ~
+      custom: "Količina:"
       person: ~
-    quantity_placeholder: ~
+    quantity_placeholder: Količina
     please_comment: Komentar
     reply_link:
       listing_closed: "Oglas je neaktivan"
@@ -2548,20 +2550,20 @@ sr:
       price:
         per_quantity_unit: "po %{quantity_unit}"
         per_day: "po danu"
-      delivery: ~
-      shipping: ~
-      shipping_no_price: ~
-      shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
+      delivery: "Metod dostave:"
+      shipping: "Slanje (+%{price})"
+      shipping_no_price: Slanje
+      shipping_price_additional: "Slanje (+%{price}, dodatne stavke: +%{shipping_price_additional})"
+      pickup: "Lično preuzimanje"
+      pickup_no_price: "Lično preuzimanje"
       youtube_video_player: ~
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: komad
+      hour: sad
+      day: dan
+      night: noć
+      week: nedelja
+      month: mesec
       unit: ~
       person: ~
     verification_required:
@@ -2616,7 +2618,7 @@ sr:
       you_have_something_others_do_not: "Želite nešto da ponudite?"
     please_comment: Komentar
   mercury:
-    content_too_long: ~
+    content_too_long: "Umetnuti sadržaj je bio predugačak."
   okl:
     member_id: "Članski broj"
     member_id_or_email: "Korisničko ime ili e-mail"
@@ -2683,7 +2685,7 @@ sr:
     paypal_account_connected_summary: ~
     paypal_permission_granted_summary: ~
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "Nastavi ka plaćanju"
     checkout_with: ~
     or_pay_with_paypal: ~
     checkout_with_paypal: "Naplata putem PayPal"
@@ -2897,7 +2899,7 @@ sr:
       visible_to_registered_users: "(vidljivo prijavljenim korisnicima)"
       default_in_listing: "(koristi se kao osnovno prilikom kreiranja novog oglasa)"
       invisible: "(ne prikazuje se drugim korisnicima)"
-      image_is_processing: ~
+      image_is_processing: "Strpite se. Procesiramo vašu profilnu sliku. Biće spremna za par minuta."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
       format_markdown_link: ~
@@ -2906,7 +2908,7 @@ sr:
       username_description: ~
     save_information: "Sačuvaj informaciju"
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Adresa za slanje"
   tag_cloud:
     tag_used:
       with_tag: "Sadrži tag"
@@ -3027,22 +3029,22 @@ sr:
       other: "%{count} dana"
   transactions:
     initiate:
-      booked_days: ~
+      booked_days: "Bukirani dani:"
       booked_nights: ~
-      price_per_day: ~
+      price_per_day: "Cena po danu:"
       price_per_night: ~
       price_per_hour: ~
       price_per_unit: ~
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
+      quantity: "Količina:"
+      subtotal: "Iznos:"
+      shipping-price: "Slanje:"
       stripe-fee: ~
       start_end_time: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "Cena po %{unit_type}:"
+    price: "Cena:"
+    quantity: "Količina: %{quantity}"
+    unit_price: "Jedinična cena: %{unit_price}"
+    total: "Ukupno:"
     total_to_pay: ~
   unit:
     day: dan
@@ -3109,6 +3111,13 @@ sr:
       create_own: ~
       learn_more: ~
   will_paginate:
+    models:
+      person:
+        zero: korisnika
+        one: korisnik
+        few: korisnika
+        many: korisnika
+        other: korisnika
     previous_label: "&#8592; Prethodni"
     next_label: "Sledeći &#8594;"
     page_gap: "&hellip;"
@@ -3119,13 +3128,6 @@ sr:
       community_members_entries_info:
         multi_page: ~
         multi_page_html: ~
-    models:
-      person:
-        zero: korisnika
-        one: korisnik
-        few: korisnika
-        many: korisnika
-        other: korisnika
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~
