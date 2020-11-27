@@ -31,7 +31,7 @@
         %path{:d => "M13.944 2.056a2.123 2.123 0 00-3.016.02L2.47 10.535l-1.033 4.027 4.028-1.033 8.459-8.458a2.122 2.122 0 00.02-3.015zM10.687 2.318l2.995 2.995M2.471 10.534l2.997 2.993"}
     = t('admin2.manage_users.edit')
 
-  - if membership.can_post_listings && !member.banned?
+  - if @presenter.can_post_listing(membership) && !member.banned?
     = link_to new_person_listing_path(person_id: member.username), class: %i[dropdown-item neutral] do
       %svg{:height => "16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}>
         %g{:fill => "none", "fill-rule" => "evenodd", :transform => "translate(1)"}
