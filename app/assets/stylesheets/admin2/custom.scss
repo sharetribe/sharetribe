@@ -134,8 +134,8 @@ a.remove:hover {
 
 .tooltip { pointer-events: none; }
 
-a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opacity_04,
-.js-unit-label.remove.opacity_04{
+a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opacity_035,
+.js-unit-label.remove.opacity_035{
   pointer-events: none;
 }
 
@@ -219,3 +219,65 @@ textarea.attention {
 
 .form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled ~ .form-check-label {
   opacity: 0.35; }
+
+// Custom Mercury styles
+div[data-mercury='full'] {
+  border-radius: 4px;
+  border: 1px solid #d8dce6;
+  padding: 6px 16px;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  img {
+    max-width: 100%;
+  }
+}
+
+.opacity_04{
+  #edit_link {
+    pointer-events: none;
+  }
+}
+
+.loaderLarge,
+.loaderLargeRevert,
+.loaderLargeSecondary {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+  stroke-width: 3.5;
+  margin: 0 auto;
+}
+
+.loaderLargeRevert,
+.loaderLargeSecondary {
+  stroke: black;
+}
+
+.loaderCompleteLarge,
+.loaderCompleteLargeSecondary {
+  fill: none;
+  stroke: #FFF;
+  stroke-width: 2.5;
+  margin: 0 auto;
+  transform: scale(0.85);
+}
+
+//.btn-save-changes {
+//  margin: 0 auto;
+//  border-radius: 4px;
+//  border: none;
+//  height: 48px;
+//  width: 160px !important;
+//  background-color: #2ecc71;
+//  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+//}
+
+.loaderLargeSecondary,
+.loaderCompleteLargeSecondary {
+  stroke: #2275d3;
+}
+
+#btn_waiting, #btn_completed, #error_save,
+#btn_waiting_send_email, #btn_completed_send_email {
+  display: none;
+}

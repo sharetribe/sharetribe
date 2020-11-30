@@ -5,7 +5,7 @@
   %h1.content-card-header-title
     = t('admin2.sidebar.listings.listing_comments')
 .content-card-section-container
-  = form_for @current_community, url: update_listing_comments_admin2_listings_listing_comments_path, html: { class: %i[content-card-section-form] }, method: :patch do |form|
+  = form_for @current_community, url: update_listing_comments_admin2_listings_listing_comments_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
       %h2
         = t('admin2.sidebar.listings.listing_comments')
@@ -16,4 +16,4 @@
           = form.check_box :listing_comments_in_use, class: %i[form-check-input]
           = form.label :listing_comments_in_use, t('admin2.listing_comments.listing_comments_in_use'), class: %i[form-check-label]
     %section.content-card-terminal
-      = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')

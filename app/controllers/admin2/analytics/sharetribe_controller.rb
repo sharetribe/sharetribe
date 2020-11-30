@@ -6,11 +6,9 @@ module Admin2::Analytics
 
     def update_sharetribe
       @current_community.update!(sharetribe_params)
-      flash[:notice] = t('admin2.notifications.sharetribe_analytics_updated')
+      render json: { message: t('admin2.notifications.sharetribe_analytics_updated') }
     rescue StandardError => e
-      flash[:error] = e.message
-    ensure
-      redirect_to admin2_analytics_sharetribe_index_path
+      render json: { message: e.message }, status: :unprocessable_entity
     end
 
     private

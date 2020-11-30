@@ -68,6 +68,5 @@ Feature: User logging in and out
     When I fill in "main_person_login" with "kassi_testperson1@example.com"
     And I fill in "main_person_password" with "testi"
     And I click "#main_log_in_button"
-    Then I should see "Welcome, Kassi! Would you like to visit your admin panel?"
+    Then I should see "Welcome, Kassi! Would you like to visit your Admin panel?"
     Then I should be logged in
-

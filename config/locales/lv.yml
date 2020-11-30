@@ -2291,10 +2291,10 @@ lv:
       delete: dzēst
       are_you_sure: "Vai tiešām vēlaties izdzēst šo komentāru?"
     comment_form:
-      ask_a_question: "Komentējiet sludinājumu vai pieprasiet sīkāku informāciju. Visi pārējie lietotāji varēs redzēt Jūsu komentāru."
-      log_in: ienākt
+      ask_a_question: "Komentējiet šo sludinājumu vai sniedziet savu vērtējumu. Visi lietotāji varēs redzēt Jūsu rakstīto."
+      log_in: iereģistrēties
       send_comment: "Nosūtīt komentāru"
-      to_send_a_comment: "nosūtīt jaunu komentāru"
+      to_send_a_comment: ", lai nosūtītu jaunu komentāru"
       write_comment: "Rakstīt jaunu komentāru"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Jūs nevarat pievienot jaunus komentārus, jo šis sludinājums ir slēgts."
       you_must: "Jums vajag"
@@ -2511,7 +2511,7 @@ lv:
     show:
       add_your_phone_number: "Pievienot tālruņa numuru."
       add_profile_picture: "Pievienot profila bildi"
-      comments: Apspriest
+      comments: Komentāri
       contact_by_phone: "Telefons saziņai:"
       contact: "Nosūtīt ziņu"
       favor_offer: "Pakalpojumu piedāvājums"

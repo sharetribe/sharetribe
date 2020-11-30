@@ -8,130 +8,150 @@ sr:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Uredi kategoriju '%{category}'"
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        listing_categories: "Kategorije oglasa"
+        create_a_new_category: "+ Napravi novu kategoriju"
+        remove_category_confirmation: "Da li ste sigurni da želite da uklonite kategoriju '%{category_name}'? Ovo je nepovratno."
+        saving_order: "Sačuvavam redosled kategorija"
+        save_order_successful: "Uspešno sačuvan redosled kategorija"
+        save_order_error: "Došlo je do greške pri sačuvavanju redosleda kategorija. Molimo vas da osvežite stranicu i pokušate ponovo."
       new:
-        new_listing_category: ~
+        new_listing_category: "Nova kategorija oglasa"
       form:
         category_name:
-          category_title: ~
+          category_title: "Naslov kategorije"
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "Nadređena kategorija"
+          no_parent: "Nema nadređene kategorije"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "Tipovi porudžbina"
+          transaction_types_description: "Tip porudžbine definiše kakav tip procesa je dozvoljen sa oglasima u ovoj kategoriji. Na primer, da li se samo prodaje ili je dozvoljeno i rentiranje ili poklanjanje."
           select_all: ~
           clear_all: ~
         buttons:
-          save: ~
-          cancel: ~
+          save: Sačuvaj
+          cancel: Otkaži
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
-        select_new_category: ~
+        remove_category: "Ukloni kategoriju"
+        remove_category_name: "Ukloni kategoriju '%{category_name}'"
+        warning_remove_effects: "Upozorenje! Uklanjanje kategorije '%{category_name}' će za posledicu imati sledeće:"
+        warning_listing_will_be_moved:
+          one: "Postoji %{count} oglas u kategoriji. On će biti pomeren u izabranu kategoriju."
+          few: "Postoji %{count} oglasa u kategoriji. Oni će biti pomerein u izabranu kategoriju."
+          many: "Postoji %{count} oglasa u kategoriji. Oni će biti pomereni u izabranu kategoriju."
+          other: "Postoji %{count} oglasa u kategoriji. Oni će biti pomereni u izabranu kategoriju."
+        warning_custom_field_will_be_moved:
+          one: "Postoji %{count} polje u kategoriji. Ono će biti pomereno u izabranu kategoriju."
+          few: "Postoji %{count} polja u kategoriji. Ona će biti pomerena u izabranu kategoriju."
+          many: "Postoji %{count} polja u kategoriji. Ona će biti pomerena u izabranu kategoriju."
+          other: "Postoji %{count} polja u kategoriji. Ona će biti pomerena u izabranu kategoriju."
+        warning_subcategory_will_be_removed:
+          one: "Postoji %{count} podkategorija u kategoriji. Ona će biti pomerena u izabranu kategoriju."
+          few: "Postoji %{count} podkategorija u kategoriji. One će biti pomerene u izabranu kategoriju."
+          many: "Postoji %{count} podkategorija u kategoriji. One će biti pomerene u izabranu kategoriju."
+          other: "Postoji %{count} podkategorija u kategoriji. One će biti pomerene u izabranu kategoriju."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Postoji %{count} oglas u kategoriji i podkategoriji. On će biti pomeren u izabranu kategoriju."
+          few: "Postoji %{count} oglasa u kategoriji i podkategoriji. Oni će biti pomereni u izabranu kategoriju."
+          many: "Postoji %{count} oglasa u kategoriji i podkategoriji. Oni će biti pomereni u izabranu kategoriju."
+          other: "Postoji %{count} oglasa u kategoriji i podkategoriji. Oni će biti pomereni u izabranu kategoriju."
+        select_new_category: "Odaberi novu kategoriju u koju će gore odabrane stavke biti pomerene:"
         buttons:
-          remove: ~
-          cancel: ~
+          remove: Ukloni
+          cancel: Otkaži
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: "Osnovni detalji"
+        community_look_and_feel: Dizajn
+        edit_community: "Osnovni detalji"
         enabled_languages: ~
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
-        edit_community_name_description: ~
-        community_slogan: ~
+        community_name: "Ime tržišta"
+        edit_community_name_description: "Ime vašeg tržišta. Ovo je prikazano korisnicima u e-mailovima i raznim drugim mestima."
+        community_slogan: "Slogan tržišta"
         community_slogan_display: ~
-        edit_community_slogan_description: ~
+        edit_community_slogan_description: "Ovo se prikazuje na naslovnoj strani tržišta za korisnike koji nisu prijavljeni. %{see_how_it_looks_like}."
         edit_community_slogan_description_hideable: ~
-        community_description: ~
+        community_description: "Opis tržišta"
         community_description_display: ~
-        edit_community_description_description: ~
+        edit_community_description_description: "Ovo se prikazuje na naslovnoj strani tržišta korisnicima koji nisu prijavljeni. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: ~
-        community_search_placeholder: ~
-        edit_community_search_placeholder_description: ~
-        private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
-        update_information: ~
-        invite_people: ~
-        edit_signup_info: ~
-        edit_signup_info_description: ~
-        edit_info: ~
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
-        save: ~
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        community_search_placeholder: "Tekst pomoći za pretragu"
+        edit_community_search_placeholder_description: "Ovo se prikazuje na naslovnoj strani tržišta kao pozicija teksta u polju za pretragu. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Sadržaj naslovne stranice privatnog tržišta"
+        edit_private_community_homepage_content_description: "Ovaj sadržaj se prikazuje na naslovnoj strani privatnih tržišta korisnicima koji nisu prijavljeni. Ovde možete opisati vaše tržište kao i proces pristupanja. Takođe možete dodati slike, video zapise i HTML sadržaj. %{see_how_it_looks_like}."
+        update_information: "Sačuvaj podešavanja"
+        invite_people: "Pozovite nove korisnike"
+        edit_signup_info: "Detalji o registraciji"
+        edit_signup_info_description: "Ovo je infomativni tekst koji može biti prikazan korisnicima na stranici registracije. Tu možete dati korisnicima instrukcije za registraciju, informacije kako da dobiju pozivnicu i sl. Po osnovnom podešavanju nema nikakvih instrukcija."
+        edit_info: "Uredi informacije"
+        see_how_it_looks_like: "Pogledaj kako izgleda"
+        verification_to_post_listings_info_content: "Info text neverifikovanim korisnicima"
+        verification_to_post_listings_info_content_description: "Trenutno zahtevate od korisnika da se ručno verifikuju pre nego mogu postaviti oglas. Ovde možete postaviti tekst koji će se prikazivati neverifikovanim korisnicima kada probaju da postave novi oglas."
+        verification_to_post_listings_info_content_default: "%{service_name} zahteva ručnu verifikaciju novih korisnika od strane administratora pre nego što korisnici mogu postavljati oglase. Vi još uvek niste verifikovani. Molimo vas %{contact_admin_link} kako biste bili verifikovani."
+        contact_admin_link_text: "kontaktiraj %{service_name} tim"
+        save: "Sačuvaj podešavanja"
+        transaction_agreement: "Transakcioni sporazum"
+        transaction_agreement_checkbox: "Zahtevaj od korisnika da prihvate sporazum pre nego što započnu transakciju"
+        transaction_agreement_checkbox_header: "Oznaka o sporazumu"
+        transaction_agreement_checkbox_label_description: "Ovaj tekst će biti prikazan pored štiklirajuće opcije prilikom plaćanja. Korisnik mora štiklirati opciju kako bi nastavio sa transakcijom. Oznaka pored ove opcije bi bila nalik \"Štikliranjem ove opcije prihvatam sporazum\"."
+        transaction_agreement_text_header: "Tekst sporazuma"
+        transaction_agreement_description: "Ovo je sadržaj sporazuma koji korisnik mora prihvatiti. Sadržaj sporazuma se prikazuje kada korisnik klikne na \"%{read_more}\" link pored oznake sporazuma."
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
-        community_logo_icon: ~
+        edit_community_look_and_feel: "Uredi %{community_name} izgled i osećaj"
+        community_logo: Logo
+        community_logo_icon: "Logo za društvene mreže i mobilne uređaje"
         community_logo_icon_mobile: ~
-        community_cover_photo: ~
-        small_community_cover_photo: ~
-        favicon: ~
-        favicon_info_text: ~
-        community_custom_color1: ~
+        community_cover_photo: "Naslovna slika"
+        small_community_cover_photo: "Mala naslovna slika"
+        favicon: "Ikonica pregledača"
+        favicon_info_text: "Ikonica pregledača će zameniti osnovni Sharetribe logo. Dimenzije bi trebale biti 32x32 piksela i prikačena slika će biti smanjena ili uvećana na ovu dimenziju."
+        community_custom_color1: "Glavna boja tržišta"
         community_slogan_color: ~
         community_slogan_color_instructions_text: ~
         community_description_color: ~
         community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "Veličina logotipa bi trebala biti %{width}x%{height} piksela. Biće prikazan korisnicima sa većim ekranima."
         logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Ovaj kockasti logo će biti prikazan ljudima kada budu delili vaš sajt na Facebook-u, kada otvore sajt na mobilnom uređaju ili kada bookmark-uju vaš sajt na početni ekran njihovog mobilnog uređaja. Dimenzije bi trebale biti (minimalno) %{width}x%{height} piksela."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
         logo_mobile_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_visibility: "Naslovna slika je prikazana na naslovnoj strani korisnicima koji nisu prijavljeni."
+        cover_photo_instructions_text_with_dimensions: "Veličina slike će biti promenjena na %{width}x%{height} piksela i visoke slike će biti odsečene po sredini. %{see_how_it_looks_like}."
         we_have_you_covered: ~
         cover_photo_ready_made: ~
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
-        main_content_width: ~
-        custom_color1_instructions_text: ~
+        small_cover_photo_visibility: "Mala naslovna slike je prikazana na svim stranicama osim na naslovnoj strani korisnicima koji nisu prijavljeni."
+        small_cover_photo_instructions_text_with_dimensions: "Veličina slike će biti promenjena na %{width}x%{height} piksela i visoke slike će biti odsečene po sredini."
+        main_content_width: "Kada birate naslovne slike obratite pažnju da glavni sadržaj stranice nije širi od %{main_width} piksela. Ne zaboravite da proverite kako vaša naslovna slika izgleda na manjim ekranima (npr. koristeći uži prozor pregledača)."
+        custom_color1_instructions_text: "Možete promeniti glavnu boju korisničkog interfejsa unošenjem hex vrednosti boje. %{link} vam može pomoći da izaberete boju i dati vam hex vrednost. Tu vrednost možete iskopirati ovde."
         new_listing_button_instructions_text: ~
-        default_browse_view: ~
-        default_browse_view_instructions_text: ~
-        grid: ~
-        list: ~
-        map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
-        invalid_color_code: ~
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        default_browse_view: "Osnovni prikaz pregleda"
+        default_browse_view_instructions_text: "Osnovni prikaz pregleda se koristi na početnoj strani i podešava osnovni način prikazivanja oglasa."
+        grid: Mreža
+        list: Lista
+        map: Mapa
+        name_display_type: "Tip prikaza imena"
+        name_display_type_instructions_text: "Odaberite kako će se prikazivati ime svakog korisnika na sajtu."
+        full_name: "Puno ime (Ime Prezime)"
+        first_name_with_initial: "Ime sa inicijalom (Ime P)"
+        first_name_only: "Samo Ime (Ime)"
+        invalid_color_code: "Šifra boje bi trebala da sadrži 6 brojeva ili slova od A-F, na primer D96E21"
+        custom_head_script: "Prilagođena skripta"
+        custom_head_script_instructions_text: "Ova skripta se ubacuje unutar <head> tag-a svake strane i može se koristiti kako bi se ubacio prilagođeni CSS, JavaScript ili HTML. Molimo vas da obratite pažnju da buduće promene na Sharetribe platformi mogu učiniti da vaša skripta postane nekompatibilna."
         current_image: ~
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: "Tekstovi sa instrukcijama"
       edit_welcome_email:
-        welcome_email_content: ~
-        welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        welcome_email_content: "Sadržaj e-maila dobrodošlice"
+        welcome_email_content_description: "Poruka ispod će biti poslata svakom novom korisniku kada pristupe. Možete prilagoditi poruku kako bi više odgovarala vašem tržištu. Klikom na '%{send_test_message_link}' možete poslati prikaz ove poruke na vašu e-mail adresu, kako biste videli kako ona izgleda u e-mail klijentu."
+        edit_message: "Uredi poruku"
+        send_test_message: "Pošalji test poruku"
       outgoing_email:
         title: ~
         info: ~
@@ -171,7 +191,7 @@ sr:
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
-        getting_started: ~
+        getting_started: Počnite
       available_languages:
         cs: ~
         da-DK: ~
@@ -201,13 +221,13 @@ sr:
         zh: ~
         zh-TW: ~
       settings:
-        settings: ~
-        general: ~
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
+        settings: Podešavanja
+        general: Opšta
+        access: "Preferencije pristupa i kontakata"
+        join_with_invite_only: "Dozvoli novim korisnicima da pristupe samo ukoliko imaju pozivnicu od strane registrovanog korisnika"
+        users_can_invite_new_users: "Dozvoli svim registrovanim korisnicima, ne samo administratorima, da pozovu nove korisnike"
+        private: "Dozvoli samo registrovanim korisnicima da vide oglase i korisničke profile (napravi privatno tržište)"
+        require_verification_to_post_listings: "Dozvoli samo korisnicima verifikovanim od strane administratora da postavljaju nove oglase"
         allow_free_conversations: ~
         search_preferences: ~
         search_and_location_preferences: ~
@@ -221,23 +241,23 @@ sr:
         show_only_nearby: ~
         allow_users_to_add_location: ~
         fuzzy_location: ~
-        listing_preferences: ~
-        transaction_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        google_analytics_key: ~
-        twitter_handle: ~
-        update_settings: ~
-        automatically_confirmed_no_escrow: ~
+        listing_preferences: "Preferencije oglasa"
+        transaction_preferences: "Preferencije porudžbine"
+        show_listing_publishing_date: "Prikaži datum objavljivanja oglasa na stranici oglasa"
+        show_category_in_listing_list: "Prikaži tip oglasa u listi oglasa"
+        listing_comments_in_use: "Dozvoli korisnicima da komentarišu oglase (vidljivo svim drugim korisnicima)"
+        email_preferences: "E-mail preferencije"
+        automatic_newsletters: "Šalji automatski dnevni / nedeljni newsletter svim korisnicima (osim u slučaju da su se odjavili sa liste za slanje)"
+        email_admins_about_new_members: "Šalji e-mail administratorima svaki put kada se registruje novi korisnik"
+        google_analytics_key: "ID za praćenje Google Analytics"
+        twitter_handle: "Twitter handle (koristi se u sprezi sa tweet dugmetom na stranici oglasa)"
+        update_settings: "Sačuvaj podešavanja"
+        automatically_confirmed_no_escrow: "Narudžbina će automatski biti označena kao kompletirana %{days_dropdown} nakon što je uplata izvršena"
         automatically_confirmed_no_escrow_stripe_info: ~
         buyer_transaction_fees_are_only_supported_with_stripe: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        automatic_newsletter_frequency: "Pošalji automatski newsletter: %{frequency_dropdown}"
+        newsletter_daily: Dnevni
+        newsletter_weekly: Nedeljni
         delete_marketplace_title: ~
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
@@ -251,21 +271,21 @@ sr:
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
-        manage_members: ~
-        email: ~
-        name: ~
+        manage_members: Korisnici
+        email: E-mail
+        name: Ime
         display_name: ~
-        join_date: ~
-        admin: ~
-        posting_allowed: ~
-        ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
+        join_date: Pristupio
+        admin: Administrator
+        posting_allowed: "Postavljanje dozvoljeno"
+        ban_user: Onemogući
+        saving_user_status: Sačuvavam...
+        save_user_status_successful: Sačuvano
         export_all_as_csv: ~
-        save_user_status_error: ~
-        ban_user_confirmation: ~
+        save_user_status_error: "Sačuvavanje nije uspelo. Molimo vas osvežite stranicu i pokušajte ponovo."
+        ban_user_confirmation: "Ovo onemogućava korisnički nalog na tržištu i sprečava korisnika da opet pristupe sajtu koristeći ovaj nalog. Da li ste sigurni da želite da nastavite?"
         unban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: "Ne možete onemogućiti sopstveni nalog."
         have_ongoing_transactions: ~
         only_delete_disabled: ~
         delete_info1: ~
@@ -301,7 +321,7 @@ sr:
         searchpage: ~
         new_email_templates: ~
       social_media:
-        social_media: ~
+        social_media: "Društveni mediji"
         logo: ~
         logo_info: ~
         social_media_title: ~
@@ -310,23 +330,23 @@ sr:
         link_for_linkedin: ~
         link_for_twitter: ~
         social_media_description: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        facebook_connect: ~
+        twitter_handle: "Twitter handle"
+        twitter_handle_info_text: "Korisničko ime Twitter naloga vašeg tržišta (ukoliko ga imate). Ono će biti pomenuto kada ljudi koriste tweet dugme na stranici oglasa."
+        twitter_handle_info_text_with_instructions: "Korisničko ime Twitter naloga vašeg tržišta (ukoliko ga imate). Ono će biti spomenuto kada ljudi koriste tweet dugme na stranici oglasa. %{instructions_link}."
+        twitter_instructions_link_text: "Pročitaj više"
+        twitter_handle_placeholder: korisničkoime
+        invalid_twitter_handle: "Twitter handle treba da sadrži maksimalno 15 alfanumeričkih (slova A-Z i brojevi 0-9) karaktera."
+        facebook_connect: "Facebook prijava"
         facebook_developers_dashboard: ~
-        facebook_connect_info_text: ~
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
+        facebook_connect_info_text: "Kako biste omogućili Facebook prijavu, napravite prijavu za vaše tržište u %{dashboard_link}. Dodajte generisani ID i tajni ključ aplikacije ovde."
+        facebook_connect_info_text_with_instructions: "Kako biste omogućili Facebook prijavljivanje, kreirajte prijavu za vaše tržište preko %{dashboard_link}. Dodajte generisani ID i tajni ključ prijave ovde. %{instructions_link}"
+        facebook_instructions_link_text: "Pogledajte instrukcije za konfigurisanje Facebook prijave."
+        facebook_connect_id: "Facebook App ID"
+        invalid_facebook_connect_id: "App ID bi trebao sadržati samo brojeve."
+        facebook_connect_secret: "Facebook App tajni ključ"
+        invalid_facebook_connect_secret: "Tajni ključ bi trebao sadržati samo brojeve i slova od a do f."
         enable_facebook_login: ~
-        save: ~
+        save: "Sačuvaj podešavanja"
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -395,16 +415,16 @@ sr:
         google_search_console_paragraph2: ~
         save: ~
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        analytics: Analitika
+        google_analytics_key: "Tracking ID za Google Analytics"
+        google_analytics_key_info_text: "Tracking ID vašeg Google Analytics naloga."
+        google_analytics_key_info_text_with_instructions: "Tracking ID vašeg Google Analytics naloga. %{instructions_link}."
+        google_analytics_instructions_link_text: "Pročitajte više o povezivanje Google Analytics."
         sharetribe_analytics: ~
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
-        save: ~
+        save: "Sačuvaj podešavanja"
         google_tag_manager: ~
         gtm_paragraph_1: ~
         gtm_paragraph_2: ~
@@ -415,16 +435,16 @@ sr:
         url: ~
         placeholder: ~
       menu_links:
-        menu_links: ~
+        menu_links: "Prilagođeni linkovi menija"
         menu_links_display: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
-        empty: ~
+        save: "Sačuvaj podešavanja"
+        add_menu_link: "Dodaj novi link u meni"
+        title_placeholder: "Naslov linka"
+        url_placeholder: "https://www.naprimer.com/en"
+        title: Naslov
+        language: Jezik
+        url: URL
+        empty: "Nemate dodatnih linkova menija"
         max_number_of_links: ~
         all: ~
         max_number_of_links_info: ~
@@ -445,7 +465,7 @@ sr:
       transactions:
         export_all_as_csv: ~
         processing_export: ~
-        transactions: ~
+        transactions: Transakcije
         search_by_title_parties: "Traži po naslovu transakcije ili platiocu."
         search: Traži
         reset_search: "Prikaži sve"
@@ -465,27 +485,27 @@ sr:
           refunded: ~
           dismissed: ~
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: "Tema razgovora"
+          listing: Oglas
+          status: Status
+          sum: Suma
+          started: Počelo
+          last_activity: "Poslednja aktivnost"
+          initiated_by: Začetnik
+          other_party: Prodavac
         status:
           conversation: ~
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: "Besplatna transakcija"
+          pending: "Na čekanju"
+          preauthorized: Predautorizovano
+          accepted: Prihvaćeno
+          rejected: Odbijeno
+          paid: Plaćeno
+          confirmed: Kompletirano
+          canceled: Otkazano
           disputed: ~
-          initiated: ~
-          pending_ext: ~
+          initiated: "Čeka se PayPal uplata"
+          pending_ext: "Čeka se PayPal uplata"
           none:
             free: ~
           paypal:
@@ -859,58 +879,58 @@ sr:
           youtube_video_id_info: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Uredi polje oglasa '%{field_name}'"
       edit_price:
         description: ~
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        edit_price_field: "Uredi polje oglasa 'Cena'"
+        show_price_filter_homepage: "Prikaži filter na naslovnoj strani"
+        price_min: "Filtriraj po minimalnoj ceni"
+        price_max: "Filtriraj po maksimalnoj ceni"
       edit_location:
-        edit_location_field: ~
-        this_field_is_required: ~
+        edit_location_field: "Uredi polje oglasa 'Lokacija'"
+        this_field_is_required: "Ovo polje je obavezno"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
+          this_field_is_required: "Postavite kao obavezno popunjavanje ovog polja prilikom kreiranja novog oglasa"
+          this_field_is_required_checkbox: "Učini obaveznim popunjavanje ovog polja kada se kreira novi oglas (korisnik mora odabrati bar jednu opciju)"
         search_filter:
           search_filter: ~
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: ~
-        listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
+        listing_fields: "Filteri i polja oglasa"
+        listing_fields_help: "Ovde možete urediti polja koja korisnici moraju da popuna kada kreiraju novi oglas. Molimo vas da obratite pažnju da su neka polja unapred definisana i ne mogu se uređivati."
+        add_new_field: "Dodaj novo polje:"
+        remove_field_confirmation: "Da li si siguran da želiš da ukloniš polje pod nazivom '%{field_name}' i sve podatke istog? Ovo je nepovratno."
+        cancel: Otkaži
+        save: Sačuvaj
+        field_title: "Ime polja"
+        field_type: "Tip polja"
+        categories: "Kategorije oglasa u kojima se koristi ovo polje"
         select_all: ~
         clear_all: ~
-        options: ~
-        add_option: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
-        select_one: ~
-        continue: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        options: Opcije
+        add_option: "+ Dodaj opciju"
+        saving_order: "Sačuvaj redosled polja"
+        save_order_successful: "Uspešno sačuvan redosled polja"
+        save_order_error: "Došlo je do greške prilikom sačuvavanja redosleda polja. Molimo vas da osvežite stranicu i pokušate ponovo."
+        select_one: "Odaberi tip polja..."
+        continue: Nastavi
+        minimum_value: Minimum
+        maximum_value: Maksimum
+        allow_decimals: "Dozvoli decimale"
       new:
-        new_listing_field: ~
+        new_listing_field: "Novo polje oglasa"
       field_types:
-        text: ~
-        number: ~
-        dropdown: ~
-        checkbox_group: ~
-        date: ~
+        text: Tekst
+        number: Broj
+        dropdown: Padajući
+        checkbox_group: "Grupa opcija za čekiranje"
+        date: Datum
         file: ~
         location: ~
     person_custom_fields:
@@ -939,9 +959,9 @@ sr:
         edit_user_field: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        send_email: ~
+        send_email_to_members: "Pošalji e-mail korisnicima"
+        send_email_to_members_title: "Pošalji e-mail svojim korisnicima"
+        send_email: "Pošalji e-mail"
         send_email_or: ~
         send_test_email: ~
         test_sent: ~
@@ -956,23 +976,23 @@ sr:
             with_listing_no_payment: ~
             with_payment_no_listing: ~
             no_listing_no_payment: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        email_subject: "Subjekat e-maila"
+        email_content: "Sadržaj e-maila"
+        email_content_placeholder: "Šta želite da kažete vašim korisnicima?"
+        email_language: "Jezik primalaca e-maila"
+        any_language: "Bilo koji jezik"
+        message_will_be_sent_only_to_people_with_this_language: "E-mail će biti poslat samo korisnicima koji koriste %{service_name} na jeziku koji izaberete."
+        email_sent: "E-mail poslat"
         to_improve_email_deliverability: ~
         email_subject_text: ~
         firstname_cannot_be_removed: ~
         hello_firstname: ~
         hello_firstname_text: ~
     left_hand_navigation:
-      general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
+      general: Opšte
+      users_and_transactions: Upravljaj
+      configure: Podesi
+      emails_title: E-mailovi
       subscription: ~
       preview: ~
       whats_new: ~
@@ -987,21 +1007,21 @@ sr:
       pricing_units_disabled_info: ~
       can_not_find_name: ~
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        listing_shapes: "Tipovi porudžbina"
+        description: "Tipovi porudžbina određuju kako se porudžbina procesira na vašem sajtu. Možete odlučiti da li vaši korisnici rentiraju ili prodaju, ili možda samo postavljaju obaveštenja i komuniciraju putem direktnih poruka."
+        read_more_about_order_types: "Pročitajte više o tipovima porudžbina"
+        add_new_shape: "Dodajte novi tip porudžbine: "
+        select_template: "Odaberite šablon..."
+        all_categories: "Sve kategorije"
+        no_categories: "Nema kategorija"
         category_count: ~
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Ime tipa porudžbine"
+          listing_shape_categories: "Kategorije u kojima se koristi"
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Sačuvavam porudžbinu"
+          save_order_successful: "Redosled tipova porudžbina uspešno sačuvan"
+          save_order_error: "Došlo je do greške prilikom sačuvavanja redosleda. Molimo osvežite stranicu i pokušajte ponovo."
       templates:
         selling_products: ~
         renting_products: ~
@@ -1017,33 +1037,33 @@ sr:
         create_success: ~
         create_failure: ~
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
+        edit_listing_shape: "Uredi tip porudžbine '%{shape}'"
+        update: Sačuvaj
+        cancel: Otkaži
+        update_success: "Promene na tipu porudžbine '%{shape}' su sačuvane"
+        update_failure: "Promene se nisu mogle sačuvati. Greška: %{error_msg}"
         delete: ~
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
+      listing_shape_name: Ime
       listing_shape_name_placeholder: ~
-      action_button_label: ~
+      action_button_label: "Oznaka dugmeta za naplatu"
       action_button_placeholder: ~
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: "Dozvoli prodavcima da definišu iznos za slanje"
       price_label: ~
-      units_title: ~
-      units_desc: ~
+      units_title: "Jedinice cene"
+      units_desc: "Ukoliko ste omogućili cene po stavkama, cena oglasa se prikazuje kao \"cena po stavki\". Na primer: \"500 din. po satu\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Po komadu"
+        hour: "Po satu"
+        day: "Po danu"
+        night: "Po noći"
+        week: "Po nedelji"
+        month: "Po mesecu"
         unit: ~
       can_not_find: ~
       add_custom_unit: ~
@@ -1060,26 +1080,26 @@ sr:
           quantity_label: ~
           time_label: ~
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
+      marketplace_paypal_integration: "Preferencije platnog sistema"
+      preferences_updated: "Preferencije platnog sistema osvežene."
       contact_support_link_text: ~
-      integration_info_text: ~
+      integration_info_text: "Platni sistem vašeg tržišta omogućuje PayPal. Kako biste dozvolili korisnicima da plaćaju koristeći vaše tržište, morate povezati vaš PayPal nalog. Nakon što ste povezali vaš nalog, možete izabrati minimalnu veličinu transakcije i mogući posrednički iznos."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       link_stripe_personal_account: ~
       link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: ~
-      read_more_about_paypal: ~
+      read_more_about_paypal: "Pročitajte više o platnom sistemu"
       edit_payment_settings: ~
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
       marketplace_currency_label: ~
-      minimum_listing_price_label: ~
+      minimum_listing_price_label: "Minimalna veličina transakcije:"
       transaction_fee_label: ~
-      minimum_transaction_fee_label: ~
-      save_settings: ~
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_transaction_fee_label: "Minimalni iznos transakcione provizije prodavca:"
+      save_settings: "Sačuvaj podešavanja"
+      minimum_listing_price_below_tx_fee: "Minimalni iznos transakcije mora biti jednak ili veći od minimalnog iznosa provizije za transakciju: %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Minimalna veličina transakcije mora biti veća od minimalne provizije %{minimum_commission}."
     payment_preferences:
       title: ~
       general_settings: ~
@@ -1147,29 +1167,29 @@ sr:
         actions: ~
         payments_not_enabled: ~
     transaction_types:
-      sell: ~
+      sell: Prodaja
       sell_w_online_payment: ~
       sell_wo_online_payment: ~
-      rent: ~
+      rent: Rentiranje
       rent_w_online_payment: ~
       rent_wo_online_payment: ~
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
+      give: Poklanjanje
+      lend: Pozajmljivanje
+      swap: Zamena
+      service: Nuđenje
       service_w_online_payment: ~
       service_wo_online_payment: ~
-      request: ~
-      inquiry: ~
-      share_for_free: ~
+      request: Zahtevanje
+      inquiry: Obaveštenje
+      share_for_free: "Deli besplatno"
       event_w_online_payment: ~
       event_wo_online_payment: ~
       default_action_button_labels:
-        sell: ~
-        rent: ~
-        request: ~
-        offer: ~
-        inquiry: ~
+        sell: Kupi
+        rent: Iznajmi
+        request: Ponudi
+        offer: Zahtevaj
+        inquiry: Kontakt
         book: ~
     community_transactions:
       show:
@@ -1192,17 +1212,17 @@ sr:
         you_should_investigate: ~
         learn_more: ~
   common:
-    edit_page: ~
+    edit_page: "Uredi stranicu"
     default_community_slogan: "Zajednica "
     default_community_description: "Ovo je mesto gde možete prodati, iznajmiti, pozajmiti i podeliti dobra i sevise sa ostalim članovima zajednice."
     cancel: Otkaži
     fields_that_are_mandatory: "Polja označena zvezdicom (*) su neophodna."
     or: ili
     password: Lozinka
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
+      request: zahtev
+      offer: ponuda
       borrow: iznajmljivanje
       buy: kupovina
       give_away: poklon
@@ -1211,90 +1231,92 @@ sr:
       rent: iznajmiljivanje
       rent_out: rentiranje
       sell: prodati
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
+      offer_to_swap: zamena
+      request_to_swap: zamena
+      share_for_free: "deljenje besplatno"
       accept_for_free: ~
     categories:
-      item: ~
-      favor: ~
+      item: Stavke
+      favor: Usluge
       rideshare: ~
-      housing: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      housing: Prostori
+      tools: Alati
+      sports: Sportovi
+      music: Muzika
+      books: "Knjige & Časopisi"
+      games: "Igre & Igračke"
+      furniture: Nameštaj
+      outdoors: "Kampovanje & Outdoor"
+      food: "Hrana & Kuhinja"
+      electronics: Elektronika
+      pets: "Kućni ljubimci & Životinje"
+      film: "Snimci & Filmovi"
+      clothes: "Odeća & Aksesoari"
+      garden: Bašta
+      travel: Putovanja
+      other: Ostalo
     username: "Korisničko ime"
-    username_or_email: ~
+    username_or_email: E-mail
     what_is_this: "Šta je ovo?"
-    removed_user: ~
+    removed_user: "Korisnik uklonjen"
     payment_fee_info:
       title: ~
       stripe: ~
       paypal: ~
       info: ~
     paypal_fee_info:
-      title: ~
-      body_text: ~
+      title: "PayPal naknada za procesiranje uplate"
+      body_text: |-
+          Za PayPal plaćanja, %{service_name} naplaćuje proviziju od %{paypal_commission}%. Minimalni iznos naknade po transakciji je %{minimum_transaction_fee}. PayPal naknade nisu uključene u ovu proviziju, tako da uz naknadu %{service_name}, platićete i PayPal naknadu za svaku transakciju. PayPal naknada iznosi između 2% i 5% ukupne prodajne cene i zavisi od obima vaših transakciju i zemlje prebivališta kupca. Uglavnom, domaće kupovine imaju manje naknade od inostranih dok vam veći obim mesečnoh prodaja obezbeđuje popust na naknade. 
+          Možete videti tačne iznose nakon što se prijavite na vaš PayPal nalog i %{link_to_paypal}. Nakon svake kupovine ćete dobiti priznanicu koja prikazuje tačan iznos naknade.
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: ovde
     stripe_fee_info:
       title: ~
       body_text: ~
       link_to_stripe_text: ~
   conversations:
     accept:
-      details: ~
-      order_by: ~
-      accept_offer: ~
-      accept_request: ~
+      details: "Detalji porudžbine"
+      order_by: "Porudžbina od strane %{orderer_link}"
+      accept_offer: "Prihvati ponudu"
+      accept_request: "Prihvati zahtev i ostavi oglas da bude aktivan"
       accept_request_and_close: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
-      accept: ~
-      decline: ~
-      quantity_label: ~
-      sum_label: ~
-      service_fee_label: ~
+      reject_offer: "Ne ovaj put"
+      reject_request: "Ne ovaj put"
+      close_listing: "Deaktivirajte oglas %{listing_title_link}"
+      update_later: "Ostavi oglas u aktivnom stanju."
+      optional_message: "Opcionalna poruka"
+      price_to_pay: "Ukupna cena za plaćanje"
+      accept: Prihvati
+      decline: Odbij
+      quantity_label: "Količina:"
+      sum_label: "Iznos:"
+      service_fee_label: "%{service_name} naknada:"
       buyer_service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
+      you_will_get_label: "Vi dobijate:"
+      total_label: "Ukupno:"
+      total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee: ~
-      paypal_fee_info: ~
-      shipping_price_label: ~
+      paypal_fee_info: "* Isključuje %{link}"
+      shipping_price_label: "Slanje:"
       stripe-fee_label: ~
     confirm:
-      confirm_description: ~
+      confirm_description: "Ukoliko je vaša porudžbina ispunjena trebali biste da potvrdite da je završena. Zatim možete oceniti drugu stranu."
       cancel_description_team: ~
-      cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      cancel_payed_description: "Ukoliko je vaš zahtev prihvaćen ali se premišljate, možete još uvek otkazati zahtev pre plaćanja."
+      canceling_payed_transaction: "Otkaži transakciju"
+      confirm: "Označi kao kompletirano"
+      cancel: Spor
+      continue: Nastavi
+      give_feedback_to: "Oceni %{person_link}"
+      do_not_give_feedback: "Preskoči davanje ocene"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: dan
+      days: dana
+      price_per_day: "Cena po danu: %{price}"
     index:
       loading_more_messages: "Učitavanje poruka"
       message_partitive: poruka
@@ -1302,30 +1324,30 @@ sr:
       no_received_messages: "Nema poruka"
       no_sent_messages: "Nema poslatih poruka"
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      message_from: ~
-      about_listing: ~
-      free_message: ~
+      accepted_request: "Zahtev prihvaćen."
+      accepted_offer: "Ponuda prihvaćena."
+      rejected_request: "Zahtev odbijen."
+      rejected_offer: "Ponuda odbijena."
+      confirmed_request: "Porudžbina kompletirana."
+      confirmed_offer: "Ponuda kompletirana."
+      canceled_request: "Porudžbina u sporu."
+      canceled_offer: "Ponuda otkazana."
+      message_from: "Poruka od %{person}"
+      about_listing: "O oglasu %{listing_title}"
+      free_message: "Direktna poruka"
       message_content_not_available: ~
     message:
-      accepted_request: ~
+      accepted_request: "prihvatio zahtev"
       received_payment: ~
       received_payment_wo_sum: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_offer: "prihvation ponudu"
+      rejected_request: "odbio zahtev, otkazao plaćanje"
+      rejected_offer: "odbio ponudu"
+      confirmed_request: "označio porudžbinu kao kompletiranu"
+      confirmed_offer: "označio ponudu kao kompletiranu"
+      canceled_request: "otkazao porudžbinu"
+      canceled_offer: "otkazao ponudu"
+      paid: "platio %{sum}"
       payment_preauthorized: ~
       payment_preauthorized_wo_sum: ~
       stripe:
@@ -1338,76 +1360,76 @@ sr:
       payment_has_now_been_transferred: ~
     new:
       message: Poruka
-      message_to: ~
-      optional_message_to: ~
-      send_message: ~
-      send: ~
+      message_to: "Pošalji poruku %{author_name}"
+      optional_message_to: "Opciona poruka %{author_name}"
+      send_message: "Pošalji poruku"
+      send: Pošalji
       this_message_is_private: "Ova poruka je privatna između Vas i %{person}. %{person} će biti obavešten/a89iuoiopkčlo ovoj poruci putem e-maila."
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: "Dobićete obaveštenje e-mailom kada %{person} prihvati ili odbije vaš predlog."
+      you_will_get_notified: "Dobićete obaveštenje e-mailom kada vam %{person} odgovori."
       title: Naslov
-      send_message_to_user: ~
-      about_listing: ~
-      author_has_to_accept_request: ~
+      send_message_to_user: "Pošalji poruku %{person}"
+      about_listing: "O oglasu%{listing_title}"
+      author_has_to_accept_request: "%{author_name} mora da prihvati zahtev kako biste mogli da platite"
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: "o oglasu"
+      message_sent_by: "Poruka poslata od"
+      message_sent_to: "Poruka poslata"
       send_reply: "Pošalji odgovor"
       write_a_reply: "Napiši odgovor:"
-      conversation_about_listing: ~
-      conversation_with_user: ~
-      conversation_with: ~
-      last_message_at: ~
-      price: ~
-      sum: ~
-      total: ~
+      conversation_about_listing: "Sa %{person} u vezi sa %{listing}"
+      conversation_with_user: "Sa %{person}"
+      conversation_with: "Razgovor sa %{person}"
+      last_message_at: "(poslednja poruka %{time})"
+      price: "Cena: %{price}"
+      sum: "Ukupno: %{sum}"
+      total: "Ukupno: %{total}"
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
-      cancel_payed_transaction: ~
+      payment_errored: "Plaćanje neuspešno. Molimo pokušajte ponovo."
+      payment_errored_starter: "Plaćanje neuspešno. Molimo vas pokušajte ponovo. Ukoliko se problema nastavi, molimo vas kontaktirajte Sharetribe podršku."
+      payment_errored_author: "Plaćanje neuspešno. Molimo vas kontaktirajte %{starter_name} i pitajte ih da pokušaju ponovo."
+      cancel_payed_transaction: Otkaži
       feedback_given: Odgovor
       feedback_skipped: "Preskočen odgovor"
       give_feedback: Odgovori
       offer_accepted: Prihvaćeno
       offer_rejected: Odbijeno
-      offer_canceled: ~
-      offer_confirmed: ~
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
-      pay: ~
-      preauthorized: ~
-      paid: ~
+      offer_canceled: Otkazano
+      offer_confirmed: Potvrđena
+      offer_paid: "Plaćanje uspešno"
+      offer_preauthorized: "Plaćanje uspešno"
+      offer_waiting_for_payment: "Čeka se %{requester_name} da plati"
+      pay: Plati
+      preauthorized: "Plaćanje uspešno"
+      paid: "Plaćanje uspešno"
       pending_external:
         paypal:
-          multicurrency: ~
-          verify: ~
-          intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+          multicurrency: "Nismo mogli da procesiramo PayPal uplatu zato što vaš PayPal nalog nije podešen da prihvata novac u %{currency}. Idite na %{paypal_url} i prijavite se na vaš nalog da biste ručno izvršili ili odbili uplatu."
+          verify: "Ne možete prihvatiti ovu transakciju jer niste verifikovali vaš PayPal nalog. Idite na %{paypal_url} kako biste verifikovali vaš nalog."
+          intl: "Nismo mogli da procesiramo PayPal uplatu zato što vaš PayPal nalog nema mehanizam povlačenja sredstava. Idite na %{paypal_url} i prijavite se na vaš nalog da biste ručno prihvatili ili odbili uplatu."
+      waiting_for_current_user_to_deliver_listing: "Čekate se vi da popunite porudžbinu za %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Čeka se %{listing_author_name} kako biste ispunili porudžbinu za %{listing_title}"
       request_accepted: Prihvaćeno
       request_rejected: Odbijeno
-      request_confirmed: ~
-      request_canceled: ~
-      request_paid: ~
-      request_preauthorized: ~
+      request_confirmed: Kompletirano
+      request_canceled: Otkazano
+      request_paid: "Plaćanje uspešno"
+      request_preauthorized: "Plaćanje autorizovano"
       skip_feedback: "Preskoči odgovor"
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
-      waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
-      waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_for_listing_author_to_accept_offer: "Čeka se %{listing_author_name} da prihvati ponudu"
+      waiting_for_listing_author_to_accept_request: "Čeka se %{listing_author_name} da prihvati zahtev. Čim %{listing_author_name} prihvati, bićete zaduženi za navedeni iznos."
+      waiting_for_you_to_accept_request: "Čeka vas da prihvatite zahtev"
+      waiting_confirmation_from_requester: "Čeka se %{requester_name} da označi da je porudžbina kompletirana"
+      waiting_confirmation_from_you: "Čeka vas da označite porudžbinu kao kompletiranu"
+      waiting_payment_from_requester: "Čeka se %{requester_name} da plati"
+      waiting_payment_from_you: "Čeka vas da platite"
+      waiting_feedback_from_you: "Čeka vas da date ocenu"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
+          multicurrency: "Čekate se vi da prihvatite PayPal uplatu"
           intl: ~
-          unknown_reason: ~
-          verify: ~
+          unknown_reason: "Čeka se uplata. Prijavite se na vaš PayPal nalog kako biste videli još detalja."
+          verify: "Čekate se vi da verifikujete vaš PayPal nalog"
       stripe:
         waiting_confirmation_from_requester: ~
       order_canceled: ~
@@ -1427,12 +1449,12 @@ sr:
       accept_request: "Prihvati zahtev"
       reject_offer: "Ne ovoga puta"
       reject_request: "Ne ovoga puta"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      accept_preauthorized_offer: "Prihvati ponudu"
+      accept_preauthorized_request: "Prihvati zahtev"
+      reject_preauthorized_offer: "Ne ovaj put"
+      reject_preauthorized_request: "Ne ovaj put"
+      confirm: "Označi kao kompletirano"
+      cancel: Spor
       mark_as_refunded: ~
       dismiss: ~
   feedback:
@@ -1442,12 +1464,12 @@ sr:
     anonymous_user: ~
   community_memberships:
     access_denied:
-      access_denied: ~
-      you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      access_denied: "Pristup odbijen"
+      you_are_banned_in_this_community: "%{service_name} je onesposobio vaš nalog. Ukoliko želite da pošaljete poruku %{service_name} timu, možete %{link_to_contact_page}."
+      contact_page_link: "kontaktiraj ih"
     new:
-      welcome_fb_user: ~
-      fb_join_accept_terms: ~
+      welcome_fb_user: "Dobrodošli na %{service_name}, %{name}!"
+      fb_join_accept_terms: "Imate još jedan korak kako biste pristupili %{service_name}: morate prihvatiti uslove korišćenja."
       join_community: "Pridruži se "
       you_can_join: "Možete se pridružiti%{service_name} prihvatanjem uslova korišćenja klikom na 'Pridruži se%{service_name} "
       you_can_join_email_confirmation: "Da bi ste se pridružili%{service_name} potrebno je da imate validnu e-mail adresu koja se završava sa %{email_ending}. Možete se pridružiti popunjavanjem polja sa vašom e-mail adresom, prihavatanjem uslova korišćenja i klikom na 'Pridruži se %{service_name}, takođe potvrdite mail u vašem prijemnom sandućetu E-pošte."
@@ -1469,36 +1491,36 @@ sr:
       you_can_accept_or_reject_request_at: "Prihvati ili odbij zahtev na"
       you_have_not_yet_accepted_or_rejected_offer: "Još uvek niste prihvatili ili odbili ponudu za %{title} koju ste dobili %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Još uvek niste prihvatili ili odbili zahtev za %{title} koju ste dobili %{date}"
-      show_thread: ~
+      show_thread: "Prikaži prepisku"
     branding:
       powered_by: ~
       create_own: ~
       learn_more: ~
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
-      remember_to_confirm_request: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
-      automatic_confirmation: ~
+      you_have_not_yet_confirmed_or_canceled_request: "Još uvek niste kompletirali ili osporili porudžbinu %{request_link}. Ukoliko je porudžbina kompletirana, trebali biste to da povrdite. Posle toga možete oceniti %{other_party_given_name}."
+      remember_to_confirm_request: "Ne zaboravite da potvrdite ili otkažete zahtev"
+      if_will_not_happen_you_should_cancel: "Ukoliko mislite da se ova porudžbina neće realizovati iz bilo kog razloga, možete da %{cancel_it_link}."
+      cancel_it_link_text: "Pokreni spor"
+      automatic_confirmation: "Ukoliko ne potvrdite ili osporite porudžbinu u roku od %{days_to_automatic_confirmation} dana nakon što je zahtev prihvaćen, mi ćemo je automatski označiti kao kompletiranu."
     confirm_reminder_v2:
       headline: ~
       you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
-      please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      remember_to_add_payment_details: "Ne zaboravite da dodate vaše platne detalje kako biste mogli da primate uplate"
+      you_have_added_listing_with_payment: "Dodali ste oglas %{listing_link} sa plaćanjem. Međutim niste još uvek dodali detalje plaćanja. Kako biste primili uplatu, potrebno je da dodate informacije o plaćanju."
+      please_go_to_payment_settings: "Molim vas idite na vaše %{payment_settings_link} i popunite zahtevane detalje plaćanja."
+      payment_settings_link: "detalji plaćanja"
     payment_settings_reminder_v2:
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      here_is_a_message_from: "Ovo je poruka od %{other_party_given_name}:"
+      request_marked_as_confirmed: "Porudžbina kompletirana - ne zaboravite da ocenite"
+      request_marked_as_canceled: "Porudžbina u sporu"
+      has_marked_request_as_confirmed: "%{other_party_full_name} je označio porudžbinu o %{request} kao kompletiranu. Sada možete oceniti %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} je pokrenuo spor u vezi narudžbine '%{request}'. Još uvek možete oceniti %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Davanje ocene je uvek dobra ideja. Ukoliko je sve prošlo kako treba, trebali biste staviti drugima do znanja da se %{other_party_given_name} može verovati. Ukoliko je bilo nekih problema, dobro ideja je pomenuti i njih."
+      give_feedback_to: "Ocenite %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
@@ -1510,25 +1532,25 @@ sr:
       can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Porudžbina automatski kompletirana - ne zaboravite da ocenite"
+      we_have_marked_request_as_confirmed: "Označili smo porudžbinu %{request} kao kompletiranu. Porudžbina je automatski kompletirana jer je prošlo %{days_passed} dana od kada je zahtev prihvaćen."
     transaction_automatically_confirmed_v2:
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Porudžbine se automatski kompletiraju - ne zaboravite da ocenite"
+      we_have_marked_request_as_confirmed: "Označili smo porudžbinu u vezi '%{request}' kao kompletiranu. Zahtev je automatski kompletiran jer je prošao jedan dan nakon perioda bukiranja."
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      giving_feedback_is_good_idea: "Sada možete oceniti %{other_party_given_name}. Ocenjivanje je uvek dobra ideja. Ukoliko je sve proteklo kako treba, trebali biste drugim ljudima staviti do znanja da je %{other_party_given_name} osoba od poverenja. Ukoliko je bilo nekih problema, to je takođe dobro pomenuti."
+      give_feedback_to: "Ocenite %{other_party_given_name}"
+      show_thread: "Prikaži prepisku"
     confirmation_instructions:
       confirmation_instructions_signature: "Srdačan pozdrav,<br/>Vaš%{service_name} Tim."
       need_to_confirm: "Da bi ste se priključili%{service_name}, potvrdite svoju e-mail adresu kliknući na ovo dugme."
       confirmation_link_text: "Potvrdi moju adresu"
-      or_paste_link: ~
+      or_paste_link: "Alternativno, možete kopirati sledeći link u adresnu liniju vašeg pretraživača:"
     confirmation_instructions_v2:
       headline: ~
       need_to_confirm: ~
@@ -1538,13 +1560,13 @@ sr:
       hi: ~
       kassi_team: "%{service_name} tim"
       thanks: "Srdačno,"
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
-      or: ~
+      dont_want_to_receive_these_emails: "Ne želite da primate ove e-mailove?"
+      edit_your_email_settings_here: "Promenite vaša e-mail podešavanja ovde"
+      message_not_displaying_correctly: "Da li se ovaj e-mail ne prikazuje ispravno?"
+      view_it_in_your_browser: "Pregledaj u tvom browser-u"
+      or: ili
       unsubscribe_from_these_emails_info: ~
-      unsubscribe_from_these_emails: ~
+      unsubscribe_from_these_emails: "odjavi se sa ovih e-mailova"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
       here_is_your_receipt: ~
@@ -1553,14 +1575,14 @@ sr:
       has_accepted_your_request: "%{accepter} je prihvatio vaš zahtev %{listing}."
       has_rejected_your_offer: "%{accepter} je odbio vašu ponudu %{listing}."
       has_rejected_your_request: "%{accepter} je odbio vaš zahtev %{listing}."
-      view_thread: ~
+      view_thread: "Pogledaj prepisku"
       your_offer_was_accepted: "Vaša ponuda je prihvaćena"
       your_offer_was_rejected: "Vaša ponuda nije prihvaćena"
       your_request_was_accepted: "Vaš zahtev je prihvaćen"
       your_request_was_rejected: "Vaš zahtev nije prihvaćen"
-      you_can_now_pay_to: ~
-      pay_now: ~
-      remember_to_confirm: ~
+      you_can_now_pay_to: "Možete platiti %{payment_receiver} zahtevani iznos."
+      pay_now: "Plati odmah"
+      remember_to_confirm: "Kada je porudžbina ispunjena, ne zaboravite da je označite kao kompletiranu. Ukoliko porudžbina nije ispunjena imate %{days_to_automatic_confirmation} dana da je osporite. U suprotnom će ista biti automatski označena kao kompletirana."
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
@@ -1570,28 +1592,28 @@ sr:
       hi: "Zdravo! "
       you_have_been_invited_to_kassi: "%{inviter} Vas je pozvao u %{service_name}."
       here_is_a_message_from: "Ovde je lična poruka od%{inviter}:"
-      join_now: ~
-      invitation_code: ~
+      join_now: "Pristupi sada"
+      invitation_code: "Pozivni kod: %{code}"
     invitation_to_kassi_v2:
       headline: ~
     new_comment:
-      has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      has_commented_your_listing_in_kassi: "%{author} je komentarisa vaš oglas '%{listing}'."
+      view_comment: "Pogledaj komentar"
       you_have_a_new_comment: "%{author} je komentarisao vašu listu na %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} je komentarisao na listi koju vi pratite u %{service_name} "
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: "%{author} je komentarisao oglas '%{listing}' koji vi pratite na %{service_name}."
     new_message:
-      view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      view_message: "Pogledaj poruku"
+      has_sent_you_a_message_in_kassi: "%{sender} vam je poslao/la poruku. Idite na %{service_name} kako biste odgovorili."
+      you_have_a_new_message: "Imate novu poruku od %{sender_name} u %{service_name}"
     new_message_v2:
       headline: ~
       reply: ~
     new_payment:
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
-      you_have_received_new_payment: ~
+      new_payment: "Primili ste novu uplatu"
+      price_per_unit_type: "Cena po %{unit_type}"
+      quantity: Količina
+      you_have_received_new_payment: "Isplaćeno vam je <b>%{payment_sum}</b> za <b>%{listing_title}</b> od strane %{payer_full_name}. U nastavku je vaš račun."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
@@ -1631,23 +1653,23 @@ sr:
       headline: ~
       you_have_made_new_payment: ~
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: "PayPal naknada:"
+      shipping_total: "Slanje:"
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: Proizvod
+      price_payer_paid: "Iznos koji je %{payer_full_name} uplatio/la:"
+      service_fee: "%{service_name} provizija:"
+      you_will_get: "Ukupno:"
     receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
-      total: ~
-      price: ~
+      receipt_of_payment: "Račun za uplatu."
+      you_have_made_new_payment: "Platili ste %{recipient_full_name} iznos od <b>%{payment_sum}</b> za <b>%{listing_title}</b>. U nastavku je račun za vašu uplatu."
+      product: Proizvod
+      price_per_unit_type: "Cena po %{unit_type}"
+      duration: Trajanje
+      quantity: Količina
+      subtotal: Iznos
+      total: Ukupno
+      price: Cena
       buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
@@ -1658,24 +1680,24 @@ sr:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vas je ocenio na %{service_name}"
       you_can_give_feedback_to: "Još uvek niste ocenili %{name}"
-      view_feedback: ~
+      view_feedback: "Pogledaj ocenu"
     new_testimonial_v2:
       headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Lista koju Vi pratite je upravo ažuirana."
-      has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} je osvežio oglas '%{listing}' koji pratite na %{service_name}."
+      view_changes: "Pregledaj promene"
     community_updates:
-      added_offer: ~
-      added_request: ~
-      added_listing: ~
+      added_offer: "%{name_link} je dodao oglas:"
+      added_request: "%{name_link} je dodao oglas:"
+      added_listing: "%{name_link} je dodao oglas:"
       update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      reduce_email_footer_text: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Evo nekih stvari koje su se desile na %{community_link} tokom poslednjih %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name}"
+      reduce_email_footer_text: "Previše e-mailova? %{settings_link} ili %{unsubscribe_link}."
+      settings_link_text: "Promenite vaša e-mail podešavanja ovde"
+      unsubscribe_link_text: "odjavite se"
     community_updates_v2:
       headline: ~
     newsletter:
@@ -1694,34 +1716,34 @@ sr:
       you_have_not_given_feedback_yet: ~
       leave_feedback: ~
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester} je zainteresovan i odobrio je uplatu za %{listing_title} objavljen na %{service_name}"
+      transaction_requested_by_user: "Odlične vesti! %{requester} je zainteresovan za \"%{listing_title}\" i odobrio je uplatu za ovaj oglas."
       you_have_time_to_accept: ~
       if_you_do_accept: ~
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Klikni ovde da odgovoriš na zahtev"
     transaction_preauthorized_v2:
       headline: ~
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "Ne zaboravi da prihvatiš zahtev od %{requester} u vezi oglasa %{listing_title}"
+      remember_to_accept: "Ne zaboravi da odgovoriš na zahtev od %{requester} o oglasu \"%{listing_title}\". %{requester} je već platio za oglas. Morate prihvatiti zahtev kako biste mogli da primite uplatu."
+      one_day_left: "Ukoliko ne prihvatite zahtev u roku od jednog dana isti će biti automatski odbijen i nećete biti plaćeni."
+      click_here_to_reply: "Klikni ovde da odgovorite na zahtev"
     transaction_preauthorized_reminder_v2:
       headline: ~
       remember_to_accept: ~
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      welcome_email_subject: "Dobrodošli na %{service_name}"
+      welcome_to_marketplace: "Dobro došli na %{service_name}! Drago nam je da ste deo naše zajednice."
+      love_marketplace_crew: "Srdačan pozdrav, <br /><i>%{service_name} crew</i>"
+      welcome_email_footer_text: "Kakav tipe e-mailova želite da primate od %{service_name}? %{settings_link}"
+      settings_link_text: "Proverite vaša podešavanja"
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      subject: "%{author_name} je postavio novi oglas na %{service_name}"
+      has_posted_a_new_listing: "%{author_name} je postavio novi oglas:"
+      you_are_receiving_this_because: "Primili ste ovo obaveštenje zato što pratite %{author_name}."
+      view_listing: "Prikaži oglas"
     new_listing_by_followed_person_v2:
       headline: ~
       has_posted_a_new_listing: ~
@@ -1813,23 +1835,23 @@ sr:
       departure_time: "Vreme slanja treba da bude od sada pa do godinu dana."
       share_type: "Morate napraviti izbor."
       valid_until: "Datum treba da je od sada do narednih 6 meseci."
-      price: ~
-      minimum_price: ~
+      price: "Cena mora biti u obliku celog broja."
+      minimum_price: "Minimalna cena je %{minimum_price} %{currency}"
     testimonials:
       you_must_explain_not_neutral_feedback: "Ako želite da ocenite morate uneti pojašnjenje."
       you_must_select_a_grade: "Ocenite da li je iskustvo bilo pozitivno ili negativno."
     transaction_agreement:
-      required_error: ~
+      required_error: "Morate prihvatiti sporazum"
     paypal:
       transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
       seller_express_checkout_disabled_no_free: ~
-      generic_error: ~
-      cancel_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      generic_error: "Došlo je do greške prilikom procesa plaćanja. Nismo mogli da finaliziramo vašu PayPal uplatu."
+      cancel_error: "Došlo je do greške tokom spora. Spor se nije mogao okončati."
+      accept_authorization_error: "Došlo je do greške prilikom pokušaja prihvatanja predautorizacije PayPal uplate. Molimo vas pokušajte ponovo."
+      reject_authorization_error: "Došlo je do greške prilikom pokušaja odbijanja predautorizovane PayPal uplate. Molimo pokušajte ponovo."
     stripe:
       generic_error: ~
       accept_authorization_error: ~
@@ -1844,36 +1866,36 @@ sr:
       page_you_requested_can_not_be_found: "Tražena stranica ne postoji. Da li ste uneli tačnu adresu?"
     error_404_title: "stranica ne postoji"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
-    error_410_title: ~
+      page_removed: "Stranica uklonjena"
+      page_you_requested_has_been_removed: "Stranica koju ste tražili je uklonjena."
+      page_removed_reason: "Postoji nekoliko mogućih razloga zašto se ovo dešava. Na primer, korisnik je možda uklonio svoj nalog ili oglas."
+    error_410_title: "stranica uklonjena"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "Tržište trenutno nedostupno"
+      unable_to_process: "Nismo u mogućnosti da procesiramo vaš zahtev u ovom trenutku. Molimo pokušajte ponovo za par trenutaka."
+      we_hate_this: "Mrzimo kada se ovo desi! Informisani smo o situaciji i sređujemo problem."
+      refer_to_error_id: "Ukoliko želite da kontaktirate podršku u vezi ovog problema, molimo vas da uljučite ID greške \"%{error_id}\" u vašu poruku."
     error_500_title: "učitavanje stranice nije uspelo"
     error_description: "Opis greške"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript je isključen u vašem pretraživaču"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ne radi bez Javascripta. Aktivirajte Javascript u vašem pretraživaču a zatim osvežite stranicu."
-      contact_us: ~
+      contact_us: "kontaktirajte nas"
       send_feedback: "Pošalji poruku"
       your_feedback_to_admins: "Poruka za %{service_name} tim"
     send: Pošalji
     your_email_address: "Vaša email adresa"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
-      positive_number: ~
+      invalid_date: "nije važeći datum"
+      invalid_time: "nije važeće vreme"
+      invalid_datetime: "nije važeća vremenska oznaka"
+      is_at: "mora biti na %{restriction}"
+      before: "mora biti pre %{restriction}"
+      on_or_before: "mora biti na ili pre %{restriction}"
+      after: "mora biti posle %{restriction}"
+      on_or_after: "mora biti na ili posle %{restriction}"
+      positive_number: "Ubacite broj."
       from_must_be_less_than_till: ~
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
@@ -1909,20 +1931,20 @@ sr:
   header:
     about: Opis
     home: Naslov
-    members: ~
-    new_listing: ~
+    members: Zajednica
+    new_listing: "Novi oglas"
     mobile_version: "Verzija za mob"
     offers: Ponude
     requests: Zahtevi
     search_kassi: "Traži na %{service_name}"
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    create_new_marketplace: "Napravi novo tržište"
+    contact_us: "Kontaktiraj nas"
+    profile: Profil
     manage_listings: ~
-    invite: ~
-    login: ~
-    signup: ~
-    menu: ~
+    invite: "Pozovi nove članove"
+    login: "Prijavi se"
+    signup: "Registruj se"
+    menu: Meni
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Postoji <b>još jedna ponuda</b>,"
@@ -1956,24 +1978,24 @@ sr:
       some_private_offers_exist: "Imate <b>%{number_of_listings} ponuda</b>,"
       some_private_requests_exist: "Imate <b>%{number_of_listings} zahteva</b>,"
     custom_filters:
-      update_view: ~
-      min: ~
-      max: ~
+      update_view: "Osveži prikaz"
+      min: "Min:"
+      max: "Max:"
     event_feed:
       latest_events: "Šta se dešava na"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Obrađujem dodatu sliku...)"
     index:
-      no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
-      is: ~
-      are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
+      no_listings_with_your_search_criteria: "Izvinite, nismo pronašli nijedan oglas koji odgovara vašim kriterijumima pretrage. Možda da probate sa drugim kriterijumima?"
+      no_listings_notification: "Nema oglasa. %{add_listing_link}."
+      add_listing_link_text: "Dodaj novi oglas"
+      open_listing: "otvori oglas"
+      open_listings: "otvori oglase"
+      private_listing_notification_log_in: "prijavi se"
+      is: je
+      are: su
+      what_do_you_need: "Šta tražiš?"
+      post_new_listing: "Postavi novi oglas"
       are_offering: ponuda
       add_news_item: "Dodajte artikl"
       lend_rent_help_carpool: "Prodaj, iznajmi, uradi, podeli vožnju"
@@ -1988,23 +2010,23 @@ sr:
       requesting: potrebno
       tell_it_here: "Recite ovde."
       welcome_to_new_kassi: "Dobro došli na %{service_name}!"
-      no_reviews: ~
-      no_image: ~
-      filter: ~
-      this_is_private_community: ~
+      no_reviews: "Bez recenzija"
+      no_image: "Bez slike"
+      filter: Filter
+      this_is_private_community: "Morate se registrovati kako biste mogli da vidite sadržaj."
     invitation_form:
       email: "E-mail adresa/e"
       message: "Lična poruka"
       send_invitation: "Pošalji poziv"
-      add_email_addresses_description: ~
+      add_email_addresses_description: "Dodaj e-mail adrese ljudi koje pozivaš u polje ispod. Da dodaš više adresa, odvoji ih zarezom."
       add_lots_of_email_addresses: ~
       this_article_link: ~
-      invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: ~
-      errors_in_emails: ~
+      invitation_emails_field_placeholder: "prijatelj1@primer.com, prijatelj2@primer.com, ..."
+      invitation_message_field_placeholder: "Pristupio sam ovom sjajnom tržištu. I ti bi trebao!"
+      errors_in_emails: "Proveri da su e-mail adrese koje ste dodali tačne i ne sadrže bilo kakve neuobičajene karaktere. Ukoliko ste dodali više adresa, proverite da su odvojene zarezom."
     list_item:
-      review: ~
-      reviews: ~
+      review: recenzija
+      reviews: recenzije
       distance_away: ~
     news_item:
       show_less: "Prikaži manje"
@@ -2016,28 +2038,28 @@ sr:
       add_your_info_link: "Dodajte sada Vaše informacije."
     recent_listing:
       please_offer: Ponudi
-      comment: ~
-      comments: ~
+      comment: komentar
+      comments: komentari
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
-      map_button: ~
-      grid_button: ~
-      list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      show: "Filter:"
+      search: Pretraga
+      map: "Prikaži mapu"
+      list: "Prikaži listu"
+      map_button: Mapa
+      grid_button: Mreža
+      list_button: Lista
+      all_listing_types: "Svi tipovi oglasa"
+      all_categories: "Sve kategorije"
     errors:
       search_engine_not_responding: ~
   infos:
     about:
-      default_about_text_title: ~
-      default_about_text: ~
-      click_here_link_text: ~
+      default_about_text_title: "Šta je Sharetribe?"
+      default_about_text: "Ovo tržište je zasnovano na Sharetribe platformi. Sa Sharetribe lako možeš kreiratu sopstveni tržišni website. Besplatno je i potrebno je samo nekoliko minuta. %{click_here_link} da saznaš više!"
+      click_here_link_text: "Klikni ovde"
     how_to_use:
-      default_title: ~
-      default_content: ~
+      default_title: "Kako funkcioniše"
+      default_content: "Ovde možete naći informacije o tome kako %{marketplace_name} funkcioniše."
   landing_page:
     hero:
       search: ~
@@ -2054,12 +2076,12 @@ sr:
       create_own: ~
       learn_more: ~
     no_tribe:
-      inbox: ~
-      settings: ~
-      feedback: ~
+      inbox: "Prijemno sanduče"
+      settings: Podešavanja
+      feedback: "Kontaktiraj %{service_name} tim."
     application:
-      join_this_community: ~
-      read_more: ~
+      join_this_community: "Pristupi tržištu"
+      read_more: "Pročitaj još"
       feedback: "Vaša poruka za %{service_name} tim"
       dont_use_to_contact_support: ~
       feedback_forum: "Forum podška"
@@ -2069,20 +2091,20 @@ sr:
       send_feedback_to_admin: "Pošalji poruku"
       to_see_what_others_have_suggested: "da bi ste videli šta predlažu ostali korisnic, glasajte za predloge."
       your_email_address: "Vaša email adresa (kontakt)"
-      connect: ~
-      invite_your_friends: ~
-      invite_your_neighbors: ~
-      invite_your_friends_description: ~
-      invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
-      join_without_facebook_link: ~
+      connect: "Registruj se"
+      invite_your_friends: "Pozovi prijatelje!"
+      invite_your_neighbors: "Pozovite komšije!"
+      invite_your_friends_description: "Što više ljudi je na %{service_name}, to bolje."
+      invite_your_friends_invite_only_description: "Ljudi ne mogu pristupiti %{service_name} ukoliko nisu pozvani."
+      join_without_facebook: "Ili možete %{join_without_facebook_link}"
+      join_without_facebook_link: "Pristupi bez korišćenja Facebook-a"
     conversations:
       messages: Poruke
       notifications: Obaveštenja
       received: Primljeno
       sent: Poslato
     global-header:
-      select_language: ~
+      select_language: "Izaberi jezik"
     infos:
       about: Opis
       how_to_use: "Kako radi"
@@ -2132,12 +2154,12 @@ sr:
       settings: Podešavanja
       sign_up: "Registrujte se"
     notifications:
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
-      community_updated: ~
-      community_update_failed: ~
+      listing_could_not_be_saved: "Oglas nije mogao biti sačuvan. Molim pokušajte ponovo. Ukoliko problem i dalje postoji, molimo vas %{contact_admin_link}."
+      contact_admin_link_text: "kontaktirajte %{service_name} tim"
+      test_welcome_email_delivered_to: "Test e-mail je poslat na %{email}."
+      something_went_wrong: "Nešto je pošlo naopako"
+      community_updated: "Detalji osveženi."
+      community_update_failed: "Osvežavanje detalja neuspešno."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Nalog je uspešno napravljen. Da bi ste aktivirali vaš nalog kliknite na link koji vam je poslat."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Hvala Vam jer ste se pridružili serivisu %{service_name}. Sada je potrebno da potvrdite svoju e-mail adresu."
       comment_cannot_be_empty: "Morate nešto upisati za komentar"
@@ -2146,7 +2168,7 @@ sr:
       additional_email_confirmed: "E-mail koji ste uneli je sada potvrđen."
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: ~
-      create_new_listing: ~
+      create_new_listing: "Napravi još jedan oglas"
       create_one_here: "napravi novi"
       email_confirmation_sent_to_new_address: "Link za potvrdu vaše e-mail adrese je u vašem prijemnom sandučetu."
       email_not_found: "Email adresa koju ste uneli nije u %{service_name} bazi."
@@ -2164,8 +2186,8 @@ sr:
       inviting_new_users_is_not_allowed_in_this_community: "Pozivanje novih korisnika nije dozovoljeno."
       login_again: "Prijavite se ponovo."
       login_failed: "Neuspešna prijava. Unesite ispravne podatke."
-      account_creation_successful: ~
-      account_deleted: ~
+      account_creation_successful: "Dobrodošli na %{person_name}, %{service_name}!"
+      account_deleted: "Vaš nalog je sada obrisan."
       login_successful: "%{person_name} dobrodošli."
       logout_successful: "Uspešno ste se odjavili sa %{service_name}. Vidimo se uskoro."
       news_item_created: "Artikal je kreiran"
@@ -2174,23 +2196,23 @@ sr:
       news_item_updated: "Artikal je ažuriran"
       news_item_deleted: "Artikal je uklonjen"
       offer_accepted: "Ponuda prihvaćena."
-      offer_confirmed: ~
+      offer_confirmed: "Ponuda kompletirana"
       offer_closed: "Ponuda zatvorena."
-      listing_created_successfully: ~
+      listing_created_successfully: "Oglas napravljen uspešno. %{new_listing_link}."
       offer_rejected: "Ponuda je odbijena."
-      offer_canceled: ~
-      listing_updated_successfully: ~
+      offer_canceled: "Ponuda otkazana"
+      listing_updated_successfully: "Oglasi osveženi uspešno"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
       listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Samo vlasnik liste može da zatvori listu."
       only_listing_author_can_edit_a_listing: "Samo vlasnik liste može da izmeni listu."
-      payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
-      cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_successful: "Uplata uspešna"
+      payment_canceled: "Plaćanje otkazano"
+      error_in_payment: "Greška pri plaćanju. Ukoliko još uvek niste izvršili uplatu, pokušajte opet. Ukoliko jeste, molimo vas obavestite nas."
+      cannot_receive_payment: "Prodavac ne može da primi uplatu zbog greške. Molimo vas kontaktirajte %{service_name} tim kako bi razjasnili situaciju"
+      payment_waiting_for_later_accomplishment: "Kada budete uplatili, obavestićemo prodavca i dobićete račun putem e-maila"
       password_recovery_sent: "Uputstvo za promenu šifre je poslato na vašu email adresu."
       person_activated: "Korisnik je aktiviran"
       person_deactivated: "Korisnik je deaktiviran"
@@ -2208,10 +2230,10 @@ sr:
       reply_sent: "Odgovor je poslat."
       request_accepted: "Zahtev je prihvaćen."
       request_accepted_and_closed: ~
-      request_confirmed: ~
+      request_confirmed: "Porudžbina kompletirana"
       request_rejected: "Zahtev je odbijen."
-      request_canceled: ~
-      message_sent: ~
+      request_canceled: "Porudžbina u sporu"
+      message_sent: "Poruka poslata"
       message_not_sent: ~
       this_content_is_not_available_in_this_community: "Ovaj sadržaj nije dostupan."
       unknown_error: "Nepoznata greška. Kontaktirajte nas sa detaljima o problemu."
@@ -2220,15 +2242,15 @@ sr:
       you_are_not_authorized_to_do_this: "Nemate ovlašćenja."
       you_are_not_authorized_to_view_this_content: "Nemate ovlašćenja za uvid u sadržaj."
       listing_closed: ~
-      send_instructions: ~
+      send_instructions: "Primićete e-mail sa instrukcijama kako da resetujete svoju lozinku u narednih nekoliko minuta."
       you_cannot_reply_to_a_closed_offer: "Ne možete odgovoriti na zatvorenu ponudu."
-      you_cannot_send_message_to_yourself: ~
+      you_cannot_send_message_to_yourself: "Ne možete poslati poruku samom sebi"
       you_followed_listing: "Pratite ovu listu"
       you_have_already_given_feedback_about_this_event: "Već ste dobili povratni odgovor na o ovom događaju."
       you_are_now_member: "Dobrodošli na %{service_name}!"
       you_are_already_member: "Vi ste već član %{service_name}. Dobrodošli nazad! "
-      you_must_log_in_to_create_new_listing: ~
-      additional_email_confirmed_dashboard: ~
+      you_must_log_in_to_create_new_listing: "Morate se prijaviti na %{service_name} kako biste postavili novi oglas. Ukoliko nemate nalog, možete se %{sign_up_link}."
+      additional_email_confirmed_dashboard: "Vaš e-mail je sada potvrđen."
       you_must_log_in_to_give_feedback: "Morate se prijaviti pre nego ostavite poruku."
       you_must_log_in_to_invite_new_users: "Morate se ulogovati da bi ste pozvali nove korisnike u %{service_name} "
       you_must_log_in_to_send_a_comment: "Da bi poslali komentar morate se ulogovati."
@@ -2239,17 +2261,17 @@ sr:
       you_must_log_in_to_view_your_inbox: "Poruke možete videti samo kada ste prijavljeni na %{service_name}."
       you_must_log_in_to_view_your_settings: "Podešavanja su dostupna samo kada ste prijavljeni na %{service_name}."
       you_must_log_in_to_add_news_item: "Morate se ulogovati preko %{service_name} da biste dodali novi artikal"
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_change_profile_settings: "Morate se prijaviti na %{service_name} da biste promenili podešavanja profila"
+      you_must_log_in_to_accept_or_reject: "Morate se prijaviti kako biste prihvatili ili odbili transakciju"
+      you_must_log_in_to_confirm_or_cancel: "Morate se prijaviti kako biste osporili ili potvrdili transakciju"
       you_need_to_confirm_your_account_first: "Potrebno je da potvrdite svoju e-mail adresu.."
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: "Morate popuniti sva polja"
       you_unfollowed_listing: "Vi više ne pratite ovu listu"
       joining_community_failed: "Neusprešno pridruživanje"
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
-      listing_author_payment_details_missing: ~
+      can_not_delete_email: "Ne možete ukloniti e-mail adresu"
+      user_does_not_have_email_to_delete: "Nemate e-mail adresu koju pokušavate da uklonite"
+      email_deleted: "E-mail uklonjen"
+      listing_author_payment_details_missing: "Molim vas kontaktirajte autora kliktanjem na 'Kontakt' dugme ispod. Oni moraju urediti svoje podatke za uplatu kako bi primili istu."
       listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -2265,7 +2287,7 @@ sr:
       settings: Podešavanja
       paypal_payments: ~
       stripe_payments: ~
-      payments: ~
+      payments: Uplate
       listings: ~
       listings_search_placeholder: ~
       transactions_search_placeholder: ~
@@ -2274,31 +2296,31 @@ sr:
     bubble_listing_not_visible:
       listing_not_visible: "Nemate odobrenje da vidite ovu listu."
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: napisao
+      send_private_message: "Pošalji privatnu poruku %{person}"
       delete: ~
       are_you_sure: ~
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "Komentariši oglas ili pitaj za više detalja. Svi drugi korisnici će moći da vide tvoj komentar."
       log_in: "Prijavi se"
       send_comment: "Pošalji komentar"
       to_send_a_comment: "za slanje komentara."
       write_comment: "Napišite komentar:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Ne možeš slati nove komentare jer je ovaj oglas zatvoren."
       you_must: Morate
       subscribe_to_comments: "Obavesti me o novim komentarima i ažuirana."
     deleting_a_listing_cannot_be_undone: ~
     edit:
-      edit_listing: ~
+      edit_listing: "Uredi oglas"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
-      move_to_top: ~
-      show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      close_listing: "Deaktiviraj oglas"
+      edit_listing: "Uredi oglas"
+      reopen_listing: "Ponovo aktiviraj oglas"
+      move_to_top: "Premesti na vrh početne stranice"
+      show_in_updates_email: "Prikaži u sledećem newsletter-u"
+      show_in_updates_email_loading: Učitavam...
+      show_in_updates_email_error: "Ne mogu da kontaktiram server. Pokušajte opet posle osvežavanja stranice."
+      show_in_updates_email_success: "Ovaj oglas će biti prikazan u sledećem e-mailu poslatom korisnicima"
       listing_is_pending: ~
       listing_is_rejected: ~
       approve_listing: ~
@@ -2307,7 +2329,7 @@ sr:
     map:
       open_in_google_maps: ~
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Nešto je pošlo naopako, šifra greške: %{error_code}"
       something_went_wrong_plain: ~
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
@@ -2317,7 +2339,7 @@ sr:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "Odaberi jedan..."
       departure_time:
         at: Na
         departure_time: "Vreme polaska"
@@ -2349,43 +2371,43 @@ sr:
         remove_image: "Ukloni sliku"
         select_file: "Izaberi fajl"
         add_more: ~
-        removing: ~
-        processing: ~
-        loading_image: ~
+        removing: Uklanjam...
+        processing: Procesiram...
+        loading_image: Učitavam...
         image_uploading_in_progress: ~
         processing_takes_a_while: ~
-        this_may_take_a_while: ~
-        percentage_loaded: ~
-        uploading_failed: ~
+        this_may_take_a_while: "ovo će potrajati samo sekundu"
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Kačenje slike nije uspelo"
         image_processing_failed: ~
-        file_too_large: ~
-        accepted_formats: ~
+        file_too_large: "Fajl je prevelik"
+        accepted_formats: "Format slike mora biti GIF, JPG ili PNG."
         images_not_uploaded_confirm: ~
       location:
         location: Lokacija
       price:
-        price: ~
-        per: ~
-        per_day: ~
-        mass: ~
-        time: ~
-        long_time: ~
-        after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal_text: ~
+        price: Cena
+        per: od
+        per_day: "po danu"
+        mass: "komada, kg, l, m2, ..."
+        time: "sat, dan, mesec, ..."
+        long_time: "nedelja, mesec, ..."
+        after_service_fee_you_will_get: "Posle provizije %{service_name} i platnog procesora, iznos koji ćete primiti je %{sum_with_currency}"
+        no_service_fee_you_will_get_paypal_text: "Cena će biti umanjena za %{paypal_fee_info_link}."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
         payment_fee_info_link_text: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        delivery: "Metod dostave:"
+        shipping: Slanje
+        shipping_price: "Naknada za slanje"
+        shipping_price_additional: "Dodatne stavke"
+        pickup: "Lično preuzimanje"
       origin:
         location: Lokacija
         origin: Poreklo
         the_exact_location: ~
       send_button:
-        save_listing: ~
+        save_listing: "Postavi oglas"
         submit_for_review: ~
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
@@ -2401,22 +2423,22 @@ sr:
         rent_out: Iznajmljivanje
         request_type: Vrsta
         sell: Prodaja
-        share_for_free: ~
+        share_for_free: "Deljenje bez nadoknade"
         accept_for_free: ~
         trade: Zamena
       tag_list:
         comma_separate: (zapeta)
         tags: Tag
       title:
-        listing_title: ~
+        listing_title: "Naslov oglasa"
       valid_until:
         valid_until: "Datum isteka"
       valid_until_radio_buttons:
         for_the_time_being: "Za sad"
       privacy:
-        privacy: ~
-        private: ~
-        public: ~
+        privacy: Privatnost
+        private: "Privatno (samo prijavljeni korisnici mogu videti)"
+        public: "Javno (vidljivo korisnicima koji nisu prijavljeni)"
     help_texts:
       help_share_type_title: "Vrsta ponude ili zahteva"
       help_tags_title: Tag
@@ -2431,7 +2453,7 @@ sr:
       housing: Prostor
       items: Stvari
       list_view: lista
-      listings: ~
+      listings: Oglasi
       map_view: mapa
       offer_something: Objavite
       offer_type: "Tip ponude"
@@ -2455,13 +2477,13 @@ sr:
       rents: iznajmiljivanje
       rideshares: vožnja
       sells: prodati
-      share_for_frees: ~
+      share_for_frees: "Deljenje bez nadokane"
       accept_for_frees: ~
       trades: Zamena
     listing_actions:
-      booking_from: ~
-      booking_to: ~
-      how_paypal_works: ~
+      booking_from: Od
+      booking_to: Ka
+      how_paypal_works: "Kako PayPal funkcioniše"
       payment_help: ~
       unable_load_availability: ~
       booking_date: ~
@@ -2470,99 +2492,99 @@ sr:
       end_time: ~
       marketplace_fees_may_apply: ~
     new:
-      listing: ~
-      selected_category: ~
-      selected_subcategory: ~
-      selected_transaction_type: ~
-      select_category: ~
-      select_subcategory: ~
-      select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: ~
-      community_not_configured_for_payments: ~
-      payment_settings_link: ~
-      community_not_configured_for_payments_admin: ~
+      listing: oglas
+      selected_category: "Kategorija: %{category}"
+      selected_subcategory: "Podkategorija: %{subcategory}"
+      selected_transaction_type: "Tip oglasa: %{transaction_type}"
+      select_category: "Izaberi kategoriju"
+      select_subcategory: "Odaberi podkategoriju"
+      select_transaction_type: "Odaberi tip oglasa"
+      you_need_to_fill_payout_details_before_accepting: "Morate popuniti detalje isplate pre nego što možete postaviti oglas. Idite na %{payment_settings_link} da biste popunili detalje."
+      contact_admin_link_text: "kontaktiraj %{service_name} tim"
+      community_not_configured_for_payments: "%{service_name} nije konfigurisan da prima uplate i zato još uvek ne možete postavljati nove oglase. Molimo vas %{contact_admin_link} za detalje."
+      payment_settings_link: "podešavanja plaćanja"
+      community_not_configured_for_payments_admin: "%{service_name} nije konfigurisan da prima uplate i zato još uvek ne možete postavljati nove oglase. Idite na %{payment_settings_link} da popunite platne detalje."
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      hour: "Broj sati:"
+      day: "Broj dana:"
+      night: "Broj noći:"
+      week: "Broj nedelja:"
+      month: "Broj meseci:"
       unit: ~
-      custom: ~
+      custom: "Količina:"
       person: ~
-    quantity_placeholder: ~
+    quantity_placeholder: Količina
     please_comment: Komentar
     reply_link:
-      listing_closed: ~
+      listing_closed: "Oglas je neaktivan"
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
+      add_your_phone_number: "Dodajte vaš broj telefona"
+      add_profile_picture: "Dodajte profilnu sliku"
       comments: "Javna diskusija"
-      contact_by_phone: ~
-      contact: ~
+      contact_by_phone: "Telefonski kontakt:"
+      contact: Kontakt
       favor_offer: Ponude
       favor_request: Zahtev
-      inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
+      inquiry: Obaveštenje
+      item_offer_trade: "Ponuda za zamenu"
+      item_request_trade: "Zahtev za zamenu"
       no_description: "Ova lista nema opis"
-      no_image: ~
-      no_reviews: ~
+      no_image: "Nema slike"
+      no_reviews: "Nema primljenih recenzija"
       offer: Ponuda
-      listing_created: ~
-      open_until: ~
-      feedback: ~
+      listing_created: Kreiran
+      open_until: "Oglašeno do %{date}"
+      feedback: Ocene
       qr_code: "QR kod"
       request: Zahtev
       rideshare_offer: "Ponuda za vožnju"
       rideshare_request: "Zahtev za vožnju"
-      send_private_message: ~
+      send_private_message: "Pošalji privatnu poruku"
       tags: Tag
       time: vreme
       times: broj
       times_viewed: pregleda
-      processing_uploaded_image: ~
-      listing_created_at: ~
+      processing_uploaded_image: "(Obrađujem ubačenu sliku...)"
+      listing_created_at: "Oglas kreiran"
       price:
-        per_quantity_unit: ~
-        per_day: ~
-      delivery: ~
-      shipping: ~
-      shipping_no_price: ~
-      shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
+        per_quantity_unit: "po %{quantity_unit}"
+        per_day: "po danu"
+      delivery: "Metod dostave:"
+      shipping: "Slanje (+%{price})"
+      shipping_no_price: Slanje
+      shipping_price_additional: "Slanje (+%{price}, dodatne stavke: +%{shipping_price_additional})"
+      pickup: "Lično preuzimanje"
+      pickup_no_price: "Lično preuzimanje"
       youtube_video_player: ~
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: komad
+      hour: sad
+      day: dan
+      night: noć
+      week: nedelja
+      month: mesec
       unit: ~
       person: ~
     verification_required:
-      verification_required: ~
+      verification_required: "Verifikacija potrebna"
   listing_conversations:
     preauthorize:
       dates_not_available: ~
       error_in_checking_availability: ~
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
-      you_will_be_charged: ~
-      day: ~
-      days: ~
+      details: Detalji
+      by: "%{listing} od strane%{author}"
+      payment: Uplata
+      exp: "Ističe:"
+      you_will_be_charged: "Bićete zaduženi samo ukoliko %{author} prihvati transakciju. %{author} treba da prihvati transakciju u roku od %{expiration_period} dana. Ukoliko %{author} odbije ili ne odgovori, plaćanje neće biti izvršeno."
+      day: dan
+      days: dana
       night: ~
       nights: ~
       invalid_parameters: ~
       select_delivery_method: ~
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Pregledaj.
     stripe_payment:
       payment: ~
       pay_with_card: ~
@@ -2596,18 +2618,18 @@ sr:
       you_have_something_others_do_not: "Želite nešto da ponudite?"
     please_comment: Komentar
   mercury:
-    content_too_long: ~
+    content_too_long: "Umetnuti sadržaj je bio predugačak."
   okl:
     member_id: "Članski broj"
-    member_id_or_email: ~
+    member_id_or_email: "Korisničko ime ili e-mail"
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
+    payout_info_title: "Prima sredstva"
+    paypal_account_email_connected: "<del>Poveži PayPal nalog</del> Završeno!"
     payout_info_paypal: ~
-    paypal_billing_agreement_made: ~
+    paypal_billing_agreement_made: "<del>Dozvoli %{service_name} da naplati proviziju za transakciju</del> Završeno!"
     commission_permission_needed: ~
     create_paypal_account_link_text: ~
-    connected_account: ~
+    connected_account: "PayPal nalog '%{email}' je uspešno povezan."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
     paypal_receive_funds_info_australia_only: ~
@@ -2615,47 +2637,47 @@ sr:
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
+    you_are_ready_to_accept_payments: "Spremni ste da primate uplate!"
     commission: ~
     not_now: ~
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
-      contact_admin_link_text: ~
-      admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
-      paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      paypal_account_billing_agreement: ~
+      payout_info_you_need_to_connect: "Kako biste prihvatili uplate, morate povezati vaš PayPal nalog sa %{service_name}."
+      payout_info_text: "Molimo vas kompletirajte sledeće korako kako biste povezali vaš nalog."
+      contact_admin_link_text: "kontaktirajte %{service_name} tim"
+      admin_account_not_connected: "Povezivanje vašeg PayPal naloga nije moguće jer %{service_name} još uvek nije podesio plaćanja. Molimo %{contact_admin_link} za više detalja."
+      paypal_account_email: "Povežite svoj PayPal nalog"
+      paypal_account_email_placeholder: "Vaša PayPal e-mail adresa"
+      paypal_account_email_info_text: "Ukoliko nemate PayPal nalog, možete kreirati jedan klikom na %{create_paypal_account}. Ukoliko dobijete poruku o grešci prilikom povezivanja vašeg PayPal naloga, unapredite PayPal nalog na poslovni tip. Unapređivanje je besplatno i lako. Ukoliko ste individua, možete koristiti ime i prezime kao vaše \"poslovno ime\". Da unapredite nalog, posetite %{upgrade_paypal_account} i pronađite link za unapređenje."
+      create_paypal_account: "kliktanjem ovde"
+      upgrade_paypal_account: "prijavite se na vaš PayPal nalog"
+      paypal_account_billing_agreement: "Dozvoli %{service_name} da naplati proviziju za transakciju"
       follow_steps: ~
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
-      connect_paypal_account: ~
+      connect_paypal_account: "Povežite vaš PayPal nalog"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
-      something_went_wrong: ~
-      account_not_verified: ~
-      account_restricted: ~
+      billing_agreement_description: "Dozvoli %{service_name} da naplati proviziju za transakciju."
+      billing_agreement: Dozvoli
+      permissions_not_granted: "Dozvola da se izvrši povezivanje sa vašim PayPal nalogom nije data."
+      could_not_fetch_redirect_url: "Nismo mogli pribaviti redirekcioni URL za povezivanje sa vašim PayPal-om."
+      paypal_not_enabled: "PayPal uplate nisu omogućene."
+      billing_agreement_canceled: "Sporazum o naplati je otkazan"
+      billing_agreement_not_accepted: "Niste prihvatili sporazum o naplati u PayPal-u."
+      billing_agreement_wrong_account: "PayPal nalozi se ne slažu. Molimo vas da koristite isti PayPal nalog koji ste povezali u prvom koraku."
+      something_went_wrong: "Nešto je pošlo naopako. Molimo vas pokušajte ponovo. Ukoliko se problem opet javi, molimo vas da kontaktirate %{service_name} tim."
+      account_not_verified: "Niste verifikovali vaš PayPal nalog. Morate posetiti paypal.com i verifikovati vaš nalog pre nego nastavite."
+      account_restricted: "Vaš PayPal nalog je ograničen i ne može biti povezan. Molimo vas prijavite se na paypal.com kako biste saznali više ili stupite u kontakt sa PayPal korisničkom podrškom da rešite problem."
     paypal_account_connected_title: ~
     paypal_account_connected: ~
-    change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
+    change_account: "Promenite PayPal nalog"
+    missing: "Imate aktivne oglase ali vaš PayPal nalog nije podešen da prima uplate. Povežite vaš PayPal nalog, i idite na %{settings_link} kako biste dozvolili %{service_name} da naplati transakcionu proviziju."
+    from_your_payment_settings_link_text: "podešavanja plaćanja"
     redirect_message: ~
     redirect_link_text: ~
     paypal_account_all_set_up: ~
@@ -2663,16 +2685,16 @@ sr:
     paypal_account_connected_summary: ~
     paypal_permission_granted_summary: ~
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "Nastavi ka plaćanju"
     checkout_with: ~
     or_pay_with_paypal: ~
-    checkout_with_paypal: ~
-    cancel_succesful: ~
+    checkout_with_paypal: "Naplata putem PayPal"
+    cancel_succesful: "PayPal uplata uspešno otkazana."
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+      commission_payment_name: "Naplata provizije za %{listing_title}"
+      commission_payment_description: "Tržište %{service_name} je naplatilo ovu proviziju za oglas %{listing_title}"
+    wait_while_loading: "Molimo sačekajte."
+    chatting_with_paypal: "Četujemo sa PayPal."
   people:
     edit_links:
       activate: Aktiviraj
@@ -2681,8 +2703,8 @@ sr:
       feedback_description_title: Podrška
       help_invitation_code_title: "Potreban vam je poziv da bi ste se pridružili"
       terms_title: "Uslovi korišćenja %{service_name}"
-      invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      invite_only_help_text: "Izaberite ovu opciju kako biste omogućili novim članovima da pristupe samo ukoliko su pozvani od strane postojećeg korisnika."
+      invite_only_help_text_title: Samo-putem-poziva
     inactive_notification:
       this_person_is_not_active_in_kassi: "Ovaj korisnik više nije aktivan u%{service_name} "
       inactive_description: "Ovaj korisnik je prestao sa korišćenjem%{service_name} imena. Ne možete kontaktirati ovog korisnika, dati mu feedback ili komentarisati njegovu listu."
@@ -2709,17 +2731,17 @@ sr:
       visible_only_to_you: "vidljivo samo vama i članovimo %{service_name} tima"
       visible_to_everybody: "svima vidljivo"
       create_account_with_provider: ~
-      OR: ~
-      signup_with_email: ~
+      OR: ILI
+      signup_with_email: "Registruj se sa e-mailom"
       this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "stepen:"
-      and_gave_following_feedback: ~
+      and_gave_following_feedback: "i dao je sledecu ocenu"
     profile_listings:
-      no_image: ~
+      no_image: "Nema slike"
       manage_listings: ~
     show:
-      contact: ~
+      contact: "Kontaktiraj %{person}"
       about_me: "O meni:"
       add_description: "Podelite nešto o sebi"
       add_location: "Dodaj lokaciju"
@@ -2728,7 +2750,7 @@ sr:
       as_expected: Očekivano
       edit_profile_info: "Izmeni profil"
       exceeded_expectations: "Nadmašena očekivanja"
-      positive: ~
+      positive: pozitivno
       hide_description: "Prikaži manje"
       less_than_expected: "Lošije od očekivanog"
       phone_number: "Telefon:"
@@ -2738,31 +2760,31 @@ sr:
       slightly_better_than_expected: "Bolje od očekivanog"
       slightly_less_than_expected: "Lošije od očekivanog"
       what_are_these: "Šta je ovo?"
-      review: ~
-      reviews: ~
-      listing: ~
-      listings: ~
-      open_listing: ~
-      open_listings: ~
-      no_listings: ~
-      no_open_listings: ~
-      no_reviews: ~
-      show_all_listings: ~
-      show_all_open_listings: ~
-      show_all_reviews: ~
+      review: "primljena recenzija"
+      reviews: "primljene recenzije"
+      listing: oglas
+      listings: oglasi
+      open_listing: "aktivni oglas"
+      open_listings: "aktivni oglasi"
+      no_listings: "Nema oglasa"
+      no_open_listings: "Nema aktivnih oglasa"
+      no_reviews: "Nema recenzija"
+      show_all_listings: "Prikaži sve oglase"
+      show_all_open_listings: "Prikaži sve aktivne oglase"
+      show_all_reviews: "Prikaži sve recenzije"
       admin_actions: ~
       post_listing_as: ~
     followed_people:
-      you_follow_plural: ~
+      you_follow_plural: "Pratite %{count} osoba"
       you_follow_singular: ~
       they_follow_plural: ~
       they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      show_all_followed_people: "Prikaži sve praćene ljude"
+      no_followed_people: "Nema praćenih ljudi"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Prati
+      follow: Zaprati
+      unfollow: Odprati
   sessions:
     new:
       create_new_account: "Napravite novi nalog"
@@ -2771,14 +2793,14 @@ sr:
       login_to_kassi: "Prijavite se na %{service_name}"
       connect_your_facebook_to_kassi: "Povežite Vaš Facebook nalog sa %{service_name} "
       facebook_account: "Facebook Nalog:"
-      log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
-      account_creation_link_text: ~
-      cancle_facebook_connect: ~
-      facebook_cancel_link_text: ~
+      log_in_to_link_account: "Ukoliko već imate %{service_name} nalog, ulogujte se kako biste ga povezali sa vašim Facebook nalogom."
+      you_can_also_create_new_account: "Ukoliko nemate nalog u %{service_name}, %{accont_creation_link} da biste kreirali nalog sa svojim Facebook-om podacima."
+      account_creation_link_text: "Klikni ovde"
+      cancle_facebook_connect: "Ukoliko ne želite da povežete ovaj nalog, mozete da %{cancel_link}."
+      facebook_cancel_link_text: Otkaži
       log_in_with_your_provider_account: ~
-      or_sign_up_with_your_username: ~
-      we_will_not_post_without_asking_you: ~
+      or_sign_up_with_your_username: "...ili sa vašim e-mailom:"
+      we_will_not_post_without_asking_you: "Nikada nećemo post-ovati na Facebook bez da prvo pitamo vas."
     password_forgotten:
       email: Email
       password_recovery_instructions: "Unesite vašu email adresu kako bi ste primi email za promenu lozinke."
@@ -2790,76 +2812,76 @@ sr:
       resend_confirmation_instructions: "Ponovo pošalji uputstvo za potvrdu."
       your_current_email_is: "Vaš e-mail je %{email}."
       change_email: Promeni
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_title_admin: ~
+      confirm_your_email: "Molimo vas potvrdite vašu e-mail adresu"
+      account_confirmation_instructions: "Uskoro ćete primiti e-mail sa linkom putem kojeg možete potvrditi vašu e-mail adresu. Ne zaboravite da proverite vaš spam folder! Nakon što potvrdite vašu adresu, možete pristupiti %{service_name}."
+      account_confirmation_instructions_title_admin: "Potvrdite vašu e-mail adresu"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
       admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_admin: "Trebali ste da primite e-mail na adresu %{email_address} sa linkom za potvrdu. Ukoliko ne vidite taj e-mail, proverite vaš spam folder ili kliknite na dugme ispod kako biste ponovo poslali e-mail. Kada e-mail stigne, otvorite priključeni link kako biste potvrdili vašu adresu, nakon čega ćete dobiti puni pristup vašem tržištu. Ukoliko vam je potrebna pomoć, ne oklevajte da %{support_link}."
       contact_support_link_text: ~
   settings:
     account:
       change: Izmeni
       confirm_new_password: "Potvdite lozinku"
-      delete_account: ~
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
-      email_addresses: ~
+      delete_account: "Obriši nalog"
+      delete_account_button: "Trajno obriši moj nalog"
+      delete_account_confirmation_popup: "Da li ste zaista sigurni da želite da obrišete vaš korisnički nalog i zauvek izgubite sve podatke povezane sa njim? Brisanje naloge je nepovratno."
+      email_addresses: "E-mail adrese"
       new_email: "Nova email adresa"
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_personal_information: "Ukoliko obrišete svoj nalog, vaše lične informacije (ime, broj telefona, adresa, e-mail, profilna slika itd) će biti trajno uklonjene bez mogućnosti povrata. Svi oglasi koje ste kreirali će biti uklonjeni. Nećete moći da reaktivirate vaš nalog."
+      delete_information_others_involved: "Informacije koje se tiču drugih članova (konverzacije sa drugim ljudima, transakcije koje ste napravili, ocene koje ste dali itd) se ne uklanjaju kada obrišete svoj nalog. Međutim, vaše ime neće više biti prikazano uz ove informacije."
+      unfinished_transactions: "Vaš nalog se ne može obrisati jer imate tekuće transakcije. Molimo vas da kompletirate sve transakcije pre nego što obrišete nalog."
       only_admin: ~
       new_password: "Nova lozinka"
       save: Sačuvaj
       these_fields_are_shown_only_to_you: "Korisničko ime je prikazano u vašem profilu. Ostale informacije su vidljive samo vama."
-      email_already_confirmed: ~
+      email_already_confirmed: "Vaša e-mail adresa je već potvrđena."
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        address_title: Adresa
+        remove_title: Ukloni
+        remove_confirmation: "Da li ste sigurni da želite da uklonite ovu email adresu?"
+        receive_notifications_title_desktop: "Primaj obaveštenja"
+        receive_notifications_title_mobile: "Primaj obaveštenja"
+        receive_notifications_new_title_mobile: "Primaj obaveštenja"
+        add_new_with_plus: "+ Dodaj novu e-mail adresu"
+        add_new_cancel: Otkaži
+        confirmation_title_mobile: "Potvrda:"
+        confirmation_title_desktop: Potvrda
+        confirmation_resend: "Ponovo pošalji"
+        status_confirmed: Potvrđen
+        status_pending: "Čeka se"
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Pristajem da povremeno primam e-mailove od %{service_name} tima"
       i_want_to_get_email_notification_when: "Želim da primim email poruku..."
       newsletters: "E-mail-ovi od Administratora"
-      community_updates: ~
-      email_about_confirm_reminders: ~
+      community_updates: Newsletter-i
+      email_about_confirm_reminders: "... Zaboravio/la sam da potvrdim porudžbinu kao kompletiranu"
       email_about_new_comments_to_own_listing: "...neko je komentarisao moju ponudu ili zahtev"
       email_about_new_messages: "...neko mi je poslao poruku"
       email_about_new_received_testimonials: "...neko me je ocenio"
       email_about_testimonial_reminders: "...ako zaboravim da dam ocenu"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
+      email_daily_community_updates: "Pošalji mi <b>dnevni</b> newsletter ako ima novih oglasa"
+      email_weekly_community_updates: "Pošalji mi <b>nedeljni</b> newsletter ukoliko ima novih oglasa"
+      do_not_email_community_updates: "Ne šalji mi newsletter"
       email_when_conversation_accepted: "...neko je prihvatio moju ponudu ili zahtev"
       email_when_conversation_rejected: "...neko je odbio moju ponudu ili zahtev"
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
-      email_about_new_listings_by_followed_people: ~
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
-      unsuccessful_unsubscribe_info_text: ~
+      email_about_completed_transactions: "... neko označi moju porudžbinu kao kompletiranu"
+      email_about_new_payments: "... primim novu uplatu"
+      email_about_new_listings_by_followed_people: "...neko koga pratim je postavio novi oglas"
+      unsubscribe_succesful: "Odjava sa liste uspešna"
+      unsubscribe_info_text: "Više nećete primati ove e-mailova. Proverite vaša %{settings_link} kako biste izabrali koju vrstu e-mailova želite da primate od %{service_name}, ili se vratite na %{homepage_link}."
+      settings_link: podešavanja
+      homepage_link: "početna stranica"
+      unsubscribe_unsuccesful: "Greška pri odjavljivanju"
+      unsuccessful_unsubscribe_info_text: "Link za odjavljivanje sa liste je istekao. Ulogujte se da promenite vaša podešavanja za mail obaveštenja."
     profile:
       about_you: "O vama"
       city: Grad
       family_name: Prezime
       given_name: Ime
-      first_name_with_initial: ~
-      first_name_only: ~
+      first_name_with_initial: "(samo prvo slovo se prikazuje drugim korisnicima)"
+      first_name_only: "(ne prikazuje se drugim korisnicima)"
       display_name: ~
       display_name_description: ~
       location_description: |-
@@ -2867,7 +2889,7 @@ sr:
           "10117 Berlin, Germany" ili "2000 Sand Hill Road, CA, USA".
       profile_picture_description: ~
       phone_number: Telefon
-      profile_picture: ~
+      profile_picture: "Profilna slika"
       postal_code: "Poštanski broj"
       profile_page: "profilna stranica"
       profilemap: Mapa
@@ -2875,9 +2897,9 @@ sr:
       these_fields_are_shown_in_your: "Neke od informacija su vidljive za sve korisnike %{service_name}"
       visible_to_everybody: "svima vidljivo"
       visible_to_registered_users: "(vidljivo prijavljenim korisnicima)"
-      default_in_listing: ~
-      invisible: ~
-      image_is_processing: ~
+      default_in_listing: "(koristi se kao osnovno prilikom kreiranja novog oglasa)"
+      invisible: "(ne prikazuje se drugim korisnicima)"
+      image_is_processing: "Strpite se. Procesiramo vašu profilnu sliku. Biće spremna za par minuta."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
       format_markdown_link: ~
@@ -2886,7 +2908,7 @@ sr:
       username_description: ~
     save_information: "Sačuvaj informaciju"
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Adresa za slanje"
   tag_cloud:
     tag_used:
       with_tag: "Sadrži tag"
@@ -2918,70 +2940,70 @@ sr:
       slightly_better_than_expected: "Malo bolje od očekivanog"
       slightly_less_than_expected: "Malo lošije od očekivanog"
       textual_feedback: "Kakvi su vaši utisci?"
-      this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      this_will_be_shown_in_profile: "Ocena koju ste dali biće vidljiva drugim članovima na profilnoj stranici koja pripada %{person}. To im pomaže da procene da li je %{person} osoba od poverenja."
+      positive: Pozitivno
+      negative: Negativno
+      default_textual_feedback: "Sve je proteklo glatko, hvala puno!"
     testimonial:
-      about_listing: ~
+      about_listing: "o oglasu"
   date:
     formats:
       long_with_abbr_day_name: ~
     first_day_of_week: ~
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: nedelja
+      monday: ponedeljak
+      tuesday: utorak
+      wednesday: sreda
+      thursday: četvrtak
+      friday: petak
+      saturday: subota
     days_short:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: ned
+      monday: pon
+      tuesday: uto
+      wednesday: sre
+      thursday: čet
+      friday: pet
+      saturday: sub
     days_min:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: ne
+      monday: po
+      tuesday: ut
+      wednesday: sr
+      thursday: če
+      friday: pe
+      saturday: su
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: januar
+      february: februar
+      march: mart
+      april: april
+      may: maj
+      june: jun
+      july: jul
+      august: avgust
+      september: septembar
+      october: oktobar
+      november: novembar
+      december: decembar
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
-    today: ~
-    clear: ~
-    format: ~
+      january: jan
+      february: feb
+      march: mar
+      april: apr
+      may: maj
+      june: jun
+      july: jul
+      august: avg
+      september: sep
+      october: okt
+      november: nov
+      december: dec
+    today: danas
+    clear: Očisti
+    format: mm/dd/yyyy
   time:
     formats:
       short: vreme.format.prečica
@@ -3000,28 +3022,33 @@ sr:
     seconds_ago: "%{count} pre sekundi"
     year_ago: "%{count} pre godinu dana"
     years_ago: "pre %{count} godina"
+    days_since:
+      one: "%{count} dan"
+      few: "%{count} dana"
+      many: "%{count} dana"
+      other: "%{count} dana"
   transactions:
     initiate:
-      booked_days: ~
+      booked_days: "Bukirani dani:"
       booked_nights: ~
-      price_per_day: ~
+      price_per_day: "Cena po danu:"
       price_per_night: ~
       price_per_hour: ~
       price_per_unit: ~
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
+      quantity: "Količina:"
+      subtotal: "Iznos:"
+      shipping-price: "Slanje:"
       stripe-fee: ~
       start_end_time: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "Cena po %{unit_type}:"
+    price: "Cena:"
+    quantity: "Količina: %{quantity}"
+    unit_price: "Jedinična cena: %{unit_price}"
+    total: "Ukupno:"
     total_to_pay: ~
   unit:
-    day: ~
-    days: ~
+    day: dan
+    days: dana
   web:
     listings:
       errors:
@@ -3084,9 +3111,16 @@ sr:
       create_own: ~
       learn_more: ~
   will_paginate:
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    models:
+      person:
+        zero: korisnika
+        one: korisnik
+        few: korisnika
+        many: korisnika
+        other: korisnika
+    previous_label: "&#8592; Prethodni"
+    next_label: "Sledeći &#8594;"
+    page_gap: "&hellip;"
     page_entries_info:
       multi_page: ~
       multi_page_html: ~

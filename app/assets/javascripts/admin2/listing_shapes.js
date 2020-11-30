@@ -5,6 +5,10 @@ window.ST.initializeListingShapeForm = function(formId) {
         errorPlacement: function(error, element) {
             if (element.hasClass("js-custom-unit-kind-radio")) {
                 error.appendTo($(".js-custom-unit-kind-container"));
+            } else if ($(element).parents('.multiple-languages-input').length) {
+                $(error).insertAfter($(element).parents('.multiple-languages-input'));
+                error.addClass('form-text');
+                $(element).parents('.multiple-languages-input').find('.input-group-text').addClass('attention');
             } else {
                 error.insertAfter(element);
             }

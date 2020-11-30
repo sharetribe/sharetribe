@@ -82,7 +82,7 @@ fr:
         search: Recherche
         location: Localisation
       social_media:
-        image_tags: "Image & tags"
+        image_tags: "Image & Tags"
         twitter: Twitter
       seo:
         sitemap_robots: "Sitemap & Robots"
@@ -103,7 +103,7 @@ fr:
     outgoing_address:
       outgoing_email_settings: "Paramètres de l'adresse email de l'expéditeur"
       resend_verification_email: "Renvoyer l'email de vérification"
-      upgrading: "Aimeriez-vous configurer votre propre adresse email comme expéditeur et supprimer toutes mentions de Sharetribe des emails ? <a href=\"%{url}\">Passez à l'offre Pro ou supérieure</a>."
+      upgrading: "<b>Fonctionnalité Pro :</b> aimeriez-vous configurer votre propre adresse email comme expéditeur et supprimer toutes mentions de Sharetribe des emails ? <a href=\"%{url}\">Passez à l'offre Pro ou supérieure</a>."
       info: "Ce nom et cette adresse email sont utilisés pour les emails envoyés depuis votre place de marché aux utilisateurs. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\" >En savoir plus</a>."
       expired_notice_email: "L'email de vérification envoyé à %{email} par Amazon Web Services a expiré."
       expired_notice_link: "Veuillez en demander un nouveau pour vérifier votre adresse email. %{link}."
@@ -555,7 +555,7 @@ fr:
       info_text: "Google Search Console propose des outils et rapports pour vous aider à mesurer votre trafic et performances de recherche ainsi que de régler des problèmes liés aux résultats de recherches sur Google."
       info_text_2: "C'est une bonne idée d'ajouter votre site à Google Search Console. Cela ne prend que quelques minutes grâce à <a href='%{url}' class='external-link' target='_blank'>ces instructions</a>."
     invitations:
-      invite_new_users: "Inviter de nouveaux utilisateurs"
+      invite_new_users: "+ Inviter de nouveaux utilisateurs"
       from: De
       to: À
       message: Message
@@ -856,6 +856,7 @@ fr:
       welcome_to_marketplace: "Bienvenue sur %{service_name} ! Ravi que vous nous ayez rejoint."
       love_marketplace_crew: "Love,<br/><i>l'équipe %{service_name}</i>"
     footer:
+      footer_disabled: "<b>Fonctionnalité Pro :</b> aimeriez-vous configurer votre propre pied de page ? <a href=\"%{url}\">Passez à l'offre Pro ou supérieure</a>."
       footer_enabling: "Activer le pied de page"
       footer_enabling_field: "Activer le pied de page sur toutes les pages"
       footer_enabling_info_text: "Durant la période d'essai ou avec l'offre Hobby, le pied de page affiche le nom Sharetribe et ne peut être personnalisé. Avec les offres Pro et supérieures, vous pouvez personnaliser le pied de page. Le pied de page est affiché sur toutes les pages de votre place de marché. <br><br> Le pied de page donne aux visiteurs des raccourcies vers les pages importantes de votre place de marché et rend votre marque plus visible. Vous pouvez sélectionner un style sombre ou clair et ajouter du texts, des liens vers des réseaux sociaux et un copyright. <a href=\"%{url}\" class='external-link' target=\"_blank\">En savoir plus sur le pied de page</a>."
@@ -1059,12 +1060,13 @@ fr:
       linkedin_connect_enabled: "Les utilisateurs peuvent s'inscrire et se connecter avec leur compte LinkedIn"
       linkedin_info_text: "Pour activer LinkedIn Sign In, vous devez créer une app LinkedIn pour votre place de marché depuis le <a target=\"_blank\" class=\"external-link\" href=\"%{href}\">LinkedIn Developers Dashboard</a>. Vous obtiendrez un ID et une clé secrète. Copiez et collez les ci-dessous. <a target=\"_blank\" class=\"external-link\" href=\"%{href2}\">Lire les instructions pour configurer LinkedIn Sign In</a>."
     cover_photos:
-      preview_homepage: "Prévisualiser la page d'accueil"
+      preview_homepage: "Voir votre page d'accueil actuelle en tant que visiteur"
       description: "Vous n'avez pas de photo de couverture sous la main ? Vous pouvez retrouver des photos toutes prêtes ainsi que des liens vers des banques d'images gratuites et payantes <a href=\"%{href}\" class=\"external-link\" target=\"_blank\">depuis le Help Center Go</a>."
       cover_photo: "Photo de couverture principale"
       cover_photo_info_text: "La photo de couverture principale est affichée sur la page d'accueil pour les utilisateurs qui ne sont pas connectés. Ses dimensions doivent être de 1920x450 pixels."
+      cover_photo_info_text_disabled: "Puisque vous avez une page d'accueil personnalisée, la photo de couverture principale n'est pas utilisée. À la place, vous pouvez <a href='%{href}'>personnaliser l'image du Hero de votre page d'accueil personnalisée</a>."
       small_cover_photo: "Petite photo de couverture"
-      small_cover_photo_info_text: "La petite photo de couverture est affichée sur toute les autres pages pour les utilisateurs qui ne sont pas connectés. Ses dimensions doivent être de 1920x96 pixels."
+      small_cover_photo_info_text: "La petite photo de couverture est affichée sur toutes les pages, sauf la page d'accueil ou page d'accueil personnalisée, pour les utilisateurs qui ne sont pas connectés. Ses dimensions doivent être de 1920x96 pixels."
     logos_and_color:
       favicon: Favicon
       favicon_info_text: "Le favicon est affiché dans l'onglet du navigateur. Ses dimensions doivent être de 32x32 pixels."
@@ -1085,7 +1087,7 @@ fr:
         save_button: "Supprimer le %{type} définitivement"
     user_rights:
       invitation_rights: "Droits d'invitations"
-      join_with_invite_only: "Permettre aux nouveaux utilisateur de s'inscrire uniquement s'ils ont une invitation d'un utilisateur déjà inscrit"
+      join_with_invite_only: "Rendre la place de marché accessible uniquement sur invitation (les nouveaux utilisateurs doivent avoir une invitation d'un utilisateur déjà inscrit pour s'inscrire eux-mêmes)"
       users_can_invite_new_users: "Permettre à tous les utilisateurs déjà inscrits, et pas uniquement les administrateurs, d'inviter de nouveaux utilisateurs"
       allow_free_conversations: "Permettre aux utilisateurs de se contacter librement"
       require_verification_to_post_listings: "Permettre uniquement aux utilisateurs vérifiés par les administrateurs de déposer des annonces"
@@ -1096,11 +1098,11 @@ fr:
     privacy:
       private_marketplace: "Place de marché privée"
       header: "Contenu sur la page d'accueil d'une place de marché privée"
-      private: "Rendre obligatoire la connexion pour pouvoir voir les annonces et les profils utilisateurs (rendre la place de marché privée)"
+      private: "Rendre la place de marché privée (les utilisateurs doivent se connecter pour parcourir les annonces et les profils utilisateurs)"
       info_text: "Ce contenu est affiché sur la page d'accueil de votre place de marché pour les utilisateurs qui ne sont pas connectés. Ici, vous pouvez décrire votre place de marché et le processus pour la rejoindre."
       small_text: "Ceci est le contenu en %{language}. Pour voir et modifier le contenu dans d'autres languages, changez de langue depuis la barre de navigation."
     essentials:
-      header_link: "Prévisualiser votre place de marché"
+      header_link: "Voir votre page d'accueil actuelle en tant que visiteur"
       header: "Détails de la place de marché"
       community_name: "Nom de la place de marché"
       community_info_text: "Le nom de votre place de marché est affiché aux utilisateurs dans les emails et plusieurs autres emplacements sur votre site."
@@ -1111,6 +1113,7 @@ fr:
       default_language: "La première langue de la liste est utilisée par défaut. La langue par défaut de votre place de marché est %{language}."
       marketplace_languages: "Langues de la place de marché"
       color: Couleur
+      clp_enabled: "Puisque vous avez une page d'accueil personnalisée activée, cette couleur ne peut être modifiée."
       show_slogan: "Afficher le slogan sur la page d'accueil ou la page d'accueil personnalisée pour les utilisateurs qui ne sont pas connectés"
       show_description: "Afficher la description sur la page d'accueil ou la page d'accueil personnalisée pour les utilisateurs qui ne sont pas connectés"
     admin_notifications:
@@ -1127,10 +1130,9 @@ fr:
       terms_of_use: "Conditions d'utilisations"
       edit: Modifier
     landing_page:
-      header: "Page d'accueil personnalisée"
-      info_text_1: "La page d'accueil est la première page que voient les nouveaux visiteurs de votre place de marché. Une page d'accueil bien conçue vous aide à communiquer votre valeur ajoutée, à expliquer comment fonctionne votre site et encourage les visiteurs à s'inscrire."
-      info_text_2: "Vous pouvez ajouter à votre place de marché une page d'acceuil personnalisable pour $99 par mois."
-      btn_text: "En savoir plus sur l'extension page d'accueil personnalisée"
+      header: "Add-on : page d'accueil personnalisée - $99 par mois"
+      info_text_1: "Ajoutez une magnifique page d'accueil et impliquez les visiteurs dès qu'ils arrivent sur votre place de marché. Définissez le design de votre page d'accueil à partir d'un ensemble de blocs prédéfinis."
+      btn_text: "En savoir plus"
     display:
       grid: Grille
       list: Liste

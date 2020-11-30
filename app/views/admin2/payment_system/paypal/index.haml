@@ -13,7 +13,7 @@
 .content-card-section-container
   - url = paypal_connected ? common_update_admin2_payment_system_paypal_index_path : '#'
 
-  = form_for paypal_prefs_form, url: url, method: :patch, html: { class: %i[transaction_preferences_form content-card-section-form] } do |form|
+  = form_for paypal_prefs_form, url: url, method: :patch, html: { class: %i[transaction_preferences_form content-card-section-form], remote: true } do |form|
     - if paypal_connected
       = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
       = hidden_field_tag 'gateway', 'paypal'
@@ -34,7 +34,7 @@
 
     - if paypal_enabled_by_admin && paypal_connected
       %section.content-card-terminal
-        = form.button t('admin2.save_changes'), class: %i[btn btn-primary]
+        = render 'admin2/submit_button', caption: t('admin2.save_changes')
 
 - content_for :popup_layout do
   = render 'disable_paypal_popup'

@@ -118,6 +118,10 @@ module Admin2Helper
 
   def flash_messages(opts = {})
     flash.each do |msg_type, message|
+      # The flash is used to pass data (e.g. analytics events) in addition to UI
+      # messages. Only render flash contents that are meant to be UI messages
+      next unless [:success, :error, :alert, :notice].include?(msg_type.to_sym)
+
       concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)}", role: "alert") do
         concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
         concat message
@@ -180,6 +184,19 @@ module Admin2Helper
       'negative'
     when 'pending', 'preauthorized'
       'attention'
+    end
+  end
+
+  def transaction_badge_class(status)
+    case status
+    when 'pending_ext', 'preauthorized', 'pending', 'initiated', 'payment_intent_requires_action'
+      'badge-pending'
+    when 'paid', 'confirmed', 'free', 'refunded', 'accepted'
+      'badge-positive'
+    when 'dismissed', 'rejected'
+      'badge-skipped'
+    when 'canceled', 'disputed', 'payment_intent_action_expired', 'payment_intent_failed'
+      'badge-negative'
     end
   end
 

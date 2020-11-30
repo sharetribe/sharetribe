@@ -18,9 +18,9 @@
       %tbody
         = render partial: 'listing', collection: @presenter.listings, locals: { presenter: @presenter }
 
-    .table-bottom
-      %p= page_entries_info(@presenter.listings, model: 'Listing').html_safe
-      = will_paginate @presenter.listings, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
+.table-bottom
+  %p= page_entries_info(@presenter.listings, model: 'Listing').html_safe
+  = will_paginate @presenter.listings, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, next_label: t('admin2.next_step'), previous_label: t('admin2.prev_step'), list_classes: %w[pagination justify-content-end]
 
 - content_for :popup_layout do
   = render 'admin2/listings/manage_listings/approve_popup'

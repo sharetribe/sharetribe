@@ -82,7 +82,7 @@ en:
         search: 'Search'
         location: 'Location'
       social_media:
-        image_tags: 'Image & tags'
+        image_tags: 'Image & Tags'
         twitter: 'Twitter'
       seo:
         sitemap_robots: 'Sitemap & Robots'
@@ -371,7 +371,7 @@ en:
       shipping_label: "Allow sellers to define a shipping fee"
       price_label: "Allow sellers to add a price to their listings"
       units_title_with_availability: "Pricing units with availability management"
-      units_title_without_availability: 'Pricing units without availabilitymanagement'
+      units_title_without_availability: 'Pricing units without availability management'
       per_hour_availability: '"Per hour" availability'
       per_day_availability: '"Per day" availability'
       per_night_availability: '"Per night" availability'
@@ -1076,8 +1076,9 @@ en:
       description: "Don't have a cover picture on hand? You can find ready-made pictures and links to free and paid image banks <a href=\"%{href}\" class=\"external-link\" target=\"_blank\">in the Go Help Center</a>."
       cover_photo: 'Main cover photo'
       cover_photo_info_text: 'The main cover photo is shown on the homepage to users who are not logged in. Its dimensions should be 1920x450 pixels.'
+      cover_photo_info_text_disabled: "As you have a Custom Landing Page enabled, the main cover photo isn't used. Instead, you can <a href='%{href}'>customize your Custom Landing Page Hero image</a>."
       small_cover_photo: 'Small cover photo'
-      small_cover_photo_info_text: 'The small cover photo is shown on all other pages to users who are not logged in. Its dimensions should be 1920x96 pixels.'
+      small_cover_photo_info_text: 'The small cover photo is shown on all pages except the homepage or Custom Landing Page to users who are not logged in. Its dimensions should be 1920x96 pixels.'
     logos_and_color:
       favicon: 'Favicon'
       favicon_info_text: "The favicon is shown on the browser's tab. Its dimensions should be 32x32 pixels."
@@ -1098,7 +1099,7 @@ en:
         save_button: 'Delete the %{type} permanently'
     user_rights:
       invitation_rights: 'Invitation rights'
-      join_with_invite_only: 'Allow new users to sign up only with an invite from a registered user'
+      join_with_invite_only: 'Make marketplace invite-only (new users need an invitation from a registered user to sign up)'
       users_can_invite_new_users: 'Allow all registered users, and not only admins, to invite new users'
       allow_free_conversations: 'Allow users to message each other freely'
       require_verification_to_post_listings: 'Allow only users verified by admins to post listings'
@@ -1109,7 +1110,7 @@ en:
     privacy:
       private_marketplace: 'Private marketplace'
       header: 'Private marketplace landing page content'
-      private: 'Require users to log in to see listings and user profiles (make marketplace private)'
+      private: 'Make marketplace private (users must log in to browse listings and user profiles)'
       info_text: 'This content is shown on your marketplace homepage to users who are not logged in. Here, you can describe your marketplace and the process to join it.'
       small_text: 'This is the content for %{language}. To view and edit the content in other languages, change the language from the top bar.'
     essentials:
