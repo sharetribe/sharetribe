@@ -44,7 +44,7 @@
       - else
         = render partial: "search_bar"
 
-- content_for(:head) do
+-# - content_for(:head) do
   - if seo_pagination_links[:prev].present?
     %link{rel: "prev", href: seo_pagination_links[:prev]}
   - if seo_pagination_links[:next].present?
