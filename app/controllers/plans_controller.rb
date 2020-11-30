@@ -76,7 +76,7 @@ class PlansController < ApplicationController
 
       created_plans&.each do |plan|
         if plan.dig(:features, :landing_page) == false
-          LandingPage.where(community_id: plan[:community_id]).update_all(enabled: false)
+          LandingPage.where(community_id: plan[:community_id]).update_all(enabled: false) # rubocop:disable Rails/SkipsModelValidations
         end
       end
 

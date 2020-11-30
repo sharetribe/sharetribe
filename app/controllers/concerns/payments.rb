@@ -2,6 +2,10 @@ module Payments
   extend ActiveSupport::Concern
 
   def payment_index
+    render 'index', locals: form_locals
+  end
+
+  def form_locals
     more_locals = {}
 
     if @paypal_enabled
@@ -32,8 +36,7 @@ module Payments
       stripe_enabled_by_admin: !!stripe_tx_settings[:active],
       buyer_commission: buyer_commission
     }
-
-    render 'index', locals: view_locals.merge(payment_locals)
+    view_locals.merge(payment_locals)
   end
 
   def enable
@@ -67,7 +70,7 @@ module Payments
     @paypal_enabled = PaypalHelper.paypal_provisioned?(@current_community.id)
     @stripe_enabled = StripeHelper.stripe_provisioned?(@current_community.id)
     unless @paypal_enabled || @stripe_enabled
-      flash[:error] = t("admin.communities.settings.payments_not_enabled")
+      flash[:error] = t('admin.payment_preferences.index.payments_not_enabled')
       redirect_to admin_details_edit_path
     end
   end
