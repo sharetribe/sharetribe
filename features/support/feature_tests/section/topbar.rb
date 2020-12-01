@@ -10,8 +10,9 @@ module FeatureTests
       end
 
       def navigate_to_admin
-        open_menu
-        click_admin_link
+        visit("/admin_old")
+        # open_menu
+        # click_admin_link
       end
 
       def open_menu
