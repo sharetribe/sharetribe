@@ -111,6 +111,8 @@ module MarketplaceService
     "turnkey",
     "admin",
     "coronavirus",
+    "covid",
+    "bikerrrs",
   ]
 
   module_function
