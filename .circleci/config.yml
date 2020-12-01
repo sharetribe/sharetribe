@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   test:
-    parallelism: 8
+    parallelism: 12
     # Call bash as interactive login shell to make sure nvm is loaded through .bashrc
     shell: /bin/bash -ileo pipefail
     resource_class: small
