@@ -1,0 +1,6 @@
+<% if @error.present? %>
+  errorSubmit('<%= j @error %>');
+<% else %>
+  $('#body_stripe').html('<%= j render partial: 'admin2/payment_system/stripe/form_body', locals: @locals %>');
+  initSubmitForm();
+<% end %>

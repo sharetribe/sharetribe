@@ -1,5 +1,4 @@
-$(function(){
-
+function initSubmitForm() {
     var btn_waiting = $('#btn_waiting'),
         btn_text = $('#btn_text'),
         btn_completed = $('#btn_completed'),
@@ -60,4 +59,8 @@ $(function(){
             processData: false
         });
     });
+}
+
+$(function(){
+    initSubmitForm();
 });

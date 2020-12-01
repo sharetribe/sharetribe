@@ -12,9 +12,11 @@ module Admin2::PaymentSystem
 
     def update_stripe_keys
       process_update_stripe_keys
-      render json: { message: t("admin.payment_preferences.stripe_verified") }
+      @locals = form_locals
+      render layout: false
     rescue StandardError => e
-      render json: { message: e.message }, status: :unprocessable_entity
+      @error = e.message
+      render layout: false, status: :unprocessable_entity
     end
 
     def common_update

@@ -9,33 +9,8 @@
   %h1.content-card-header-title
     = t('admin2.stripe.info_header')
 
-.content-card-section-container
-  - object = stripe_connected ? stripe_prefs_form : stripe_api_form
-  - url = stripe_connected ? common_update_admin2_payment_system_stripe_index_path : update_stripe_keys_admin2_payment_system_stripe_index_path
-
-  = form_for object, url: url, method: :patch, html: { class: %i[transaction_preferences_form content-card-section-form], remote: true } do |form|
-    - if stripe_connected
-      = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
-      = hidden_field_tag 'gateway', 'stripe'
-    %section.content-card-section
-      %h2= t('admin2.stripe.transaction_fee_settings')
-      = render 'hint_title', stripe_connected: stripe_connected, stripe_enabled_by_admin: stripe_enabled_by_admin
-
-      - if stripe_connected
-        = render partial: 'form_stripe_connected', locals: local_assigns.merge(form: form)
-      - else
-        = render 'form_stripe', currency: currency
-
-    %section#stripe-api-settings.content-card-section
-      %h2= t('admin2.stripe.configure_api_keys')
-      - if stripe_connected
-        = render 'stripe_keys_connected', stripe_enabled_by_admin: stripe_enabled_by_admin, stripe_account: stripe_account
-      - else
-        = render 'stripe_keys', form: form
-
-    - if stripe_enabled_by_admin
-      %section.content-card-terminal
-        = render 'admin2/submit_button', caption: t('admin2.save_changes')
+.content-card-section-container#body_stripe
+  = render partial: 'admin2/payment_system/stripe/form_body', locals: local_assigns
 
 - content_for :popup_layout do
   = render 'disable_stripe_popup'
