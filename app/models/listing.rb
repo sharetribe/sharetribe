@@ -329,7 +329,7 @@ class Listing < ApplicationRecord
     # Delete all existing
     custom_field_value_ids = self.custom_field_values.map(&:id)
     CustomFieldOptionSelection.where(custom_field_value_id: custom_field_value_ids).delete_all
-    CustomFieldValue.where(id: custom_field_value_ids).delete_all
+    CustomFieldValue.unscoped.where(id: custom_field_value_ids).delete_all
 
     field_values = custom_field_params.map do |custom_field_id, answer_value|
       custom_field_value_factory(custom_field_id, answer_value) unless is_answer_value_blank(answer_value)
