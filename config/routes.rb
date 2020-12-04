@@ -190,6 +190,9 @@ Rails.application.routes.draw do
             patch :update_privacy
           end
         end
+        resources :domains, path: 'domain' do
+
+        end
       end
       namespace :design do
         resources :landing_page, path: 'landing-page', only: %i[index]
