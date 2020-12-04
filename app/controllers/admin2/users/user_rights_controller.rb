@@ -15,8 +15,7 @@ module Admin2::Users
     private
 
     def update_user_params
-      params.require(:community).permit(:join_with_invite_only,
-                                        :users_can_invite_new_users,
+      params.require(:community).permit(:users_can_invite_new_users,
                                         :allow_free_conversations,
                                         :require_verification_to_post_listings)
     end

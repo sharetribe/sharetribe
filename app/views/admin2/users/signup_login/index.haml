@@ -8,6 +8,13 @@
 .content-card-section-container
   = form_for @current_community, url: update_signup_login_admin2_users_signup_login_index_path, html: { multipart: true, class: %i[content-card-section-form], remote: true }, method: :patch do |form|
     %section.content-card-section
+      %h2= t('admin2.signup_login.invite_only')
+      .form-group
+        .form-check
+          = form.check_box :join_with_invite_only, class: %i[form-check-input]
+          = form.label :join_with_invite_only, t('admin2.user_rights.join_with_invite_only'), class: %i[form-check-label]
+
+    %section.content-card-section
       %h2
         = t('admin2.signup_login.signup_header')
       %p.ingress
