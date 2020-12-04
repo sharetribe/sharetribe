@@ -94,7 +94,8 @@ module Admin2Helper
       input_classes: 'form-control',
       info_text: t('admin2.essentials.community_slogan_info_text'),
       input_name: 'slogan',
-      translations: translations
+      translations: translations,
+      intercom_target: 'Marketplace slogan'
     }
   end
 
@@ -105,7 +106,8 @@ module Admin2Helper
       input_classes: 'form-control',
       info_text: t('admin2.essentials.community_description_info_text'),
       input_name: 'description',
-      translations: translations
+      translations: translations,
+      intercom_target: 'Marketplace description'
     }
   end
 

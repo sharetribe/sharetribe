@@ -1,8 +1,12 @@
 - multi_language = translations.count > 1
 - if multi_language
   .form-group
-    %label
-      = header
+    - if defined?(intercom_target)
+      %label{data: {intercom_target: intercom_target}}
+        = header
+    - else
+      %label
+        = header
 
     .multiple-languages-container
       - translations.each do |language_key, value|
@@ -54,7 +58,7 @@
         = info_text.html_safe
 
     - if input_name == 'slogan'
-      %label
+      %label{data: {intercom_target: intercom_target}}
         = header
       .d-flex
         = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],
@@ -71,7 +75,7 @@
         = label_tag "community_show_slogan", t('admin2.essentials.show_slogan'), class: %i[form-check-label]
 
     - if input_name == 'description'
-      %label
+      %label{data: {intercom_target: intercom_target}}
         = header
       .d-flex
         = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation],

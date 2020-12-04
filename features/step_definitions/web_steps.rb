@@ -112,6 +112,9 @@ end
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
   with_scope(selector) do
     fill_in(field, :with => value)
+    # This should help ensure input is fully completed before continuing with
+    # next step.
+    expect(find_field(field).value).to eq(value)
   end
 end
 
@@ -386,4 +389,3 @@ Then /^(?:|I )should see "([^"]*)" within field "([^"]*)"(?: within "([^"]*)")?$
     expect(page).to have_field(field, with: text)
   end
 end
-
