@@ -10,7 +10,7 @@ module Admin2Helper
 
   def expand_rules
     {
-      general: %w[essentials privacy static_content admin_notifications],
+      general: %w[essentials privacy static_content admin_notifications domains],
       design: %w[logos_color landing_page display cover_photos topbar footer],
       users: %w[manage_users signup_login user_rights invitations user_fields],
       listings: %w[listing_approval listing_comments manage_listings order_types categories listing_fields],

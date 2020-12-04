@@ -1,0 +1,20 @@
+%form.content-card-section-form
+  %section.content-card-section
+    %h2= t('admin2.domain.sharetribe_domain')
+    %p.ingress
+      = t('admin2.domain.domain_used_info', url: @presenter.ident_address, url_redirect: @presenter.domain).html_safe
+      %br
+      = t('admin2.domain.change_sharetribe_domain')
+  %section.content-card-section
+    %h2= t('admin2.domain.custom_domain')
+    %p.ingress
+      %strong= t('admin2.domain.your_marketplace_domain', url: @presenter.domain_address).html_safe
+    .form-group
+      = label_tag t('admin2.domain.custom_domain')
+      .statusbar.positive
+        %span
+          %strong= t('admin2.domain.configured_successfully', domain: @presenter.domain).html_safe
+      %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain}
+      %small#customDomain-help.form-text= t('admin2.domain.would_you_like_to_change_domain').html_safe
+  %section.content-card-terminal
+    = link_to t('admin2.domain.other_settings'), 'https://help.sharetribe.com/en/articles/4680152', target: :_blank, class: %i[btn btn-ghost]

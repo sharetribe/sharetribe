@@ -1,0 +1,24 @@
+%form.content-card-section-form
+  = render 'admin2/general/domains/header'
+  %section.content-card-section
+    %h2= t('admin2.domain.custom_domain')
+    %p.ingress
+      = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+    .form-group
+      = label_tag t('admin2.domain.custom_domain')
+      .statusbar.negative
+        %span
+          %strong= t('admin2.domain.domain_setup_failed')
+          %ul{style: 'margin-top: 8px'}
+            %li
+              %strong= @presenter.domain_checked
+              \-
+              = t('admin2.domain.error')
+              %ul
+                %li= t('admin2.domain.effect_dns_changes')
+          = t('admin2.domain.follow_instructions', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+          = t('admin2.domain.try_again').html_safe
+        = link_to t('admin2.domain.retry_domain_setup'), retry_domain_setup_admin2_general_domains_path, class: %i[btn-sm btn-secondary], style: 'margin-top: 16px'
+      %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain_checked}
+      %small#customDomain-help.form-text
+        = link_to t('admin2.domain.check_another_domain'), reset_domain_setup_admin2_general_domains_path

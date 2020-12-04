@@ -1,0 +1,27 @@
+= form_for @presenter.community, url: confirm_domain_setup_admin2_general_domains_path, html: { class: 'content-card-section-form' } do |form|
+  = render 'admin2/general/domains/header'
+  %section.content-card-section
+    %h2= t('admin2.domain.custom_domain')
+    %p.ingress
+      = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+    .form-group
+      = label_tag t('admin2.domain.custom_domain')
+      .statusbar.positive
+        %span
+          %strong= t('admin2.domain.dns_success', domain: @presenter.domain_checked)
+          %ul{style: 'margin-top: 8px'}
+            %li
+              = t('admin2.domain.main_domain')
+              %strong= @presenter.domain_checked
+              \-
+              = t('admin2.domain.success')
+            %li
+              = t('admin2.domain.redirect')
+              %strong= @presenter.domain_checked_for_redirect
+              \-
+              = t('admin2.domain.success')
+      %input#marketplaceName.form-control{"aria-describedby" => "customDomain", :disabled => "disabled", :placeholder => "www.example.com", :type => "text", :value => @presenter.domain_checked}
+      %small#customDomain-help.form-text
+        = link_to t('admin2.domain.check_another_domain'), reset_domain_setup_admin2_general_domains_path
+  %section.content-card-terminal
+    = button_tag t('admin2.domain.start_using', domain: @presenter.domain_checked), class: %i[btn btn-primary]
