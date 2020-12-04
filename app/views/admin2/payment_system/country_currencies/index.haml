@@ -32,3 +32,5 @@
 
     %section.content-card-terminal.without-margin
       = render 'admin2/submit_button', caption: t('admin2.save_changes')
+      = link_to 'Configure Stripe', 'pages/stripe.php', class: %i[btn btn-ghost]
+      = link_to 'Configure PayPal', 'pages/paypal.php', class: %i[btn btn-ghost]
