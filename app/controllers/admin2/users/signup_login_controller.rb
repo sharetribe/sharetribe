@@ -22,6 +22,7 @@ module Admin2::Users
                                         :linkedin_connect_id,
                                         :linkedin_connect_secret,
                                         :linkedin_connect_enabled,
+                                        :join_with_invite_only,
                                         community_customizations_attributes: %i[id signup_info_content])
     end
   end

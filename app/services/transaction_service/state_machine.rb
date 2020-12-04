@@ -27,7 +27,7 @@ module TransactionService
           state_machine.transition_to(new_status, metadata_hash)
         rescue StandardError
           # If transaction failed to transition to it's first state (e.g.
-          # :initialized or :free), mark it as delted. Reload is needed, in
+          # :initiated or :free), mark it as deleted. Reload is needed, in
           # order to get the clean state of the transaction that is recorded in
           # the db and ensure that the model does not contain leftover unsaved
           # data.

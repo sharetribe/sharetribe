@@ -12,9 +12,6 @@
         = t('admin2.user_rights.invitation_rights')
       .form-group
         .form-check
-          = form.check_box :join_with_invite_only, class: %i[form-check-input]
-          = form.label :join_with_invite_only, t('admin2.user_rights.join_with_invite_only'), class: %i[form-check-label]
-        .form-check
           = form.check_box :users_can_invite_new_users, class: %i[form-check-input]
           = form.label :users_can_invite_new_users, t('admin2.user_rights.users_can_invite_new_users'), class: %i[form-check-label]
 
