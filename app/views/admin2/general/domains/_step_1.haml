@@ -1,0 +1,23 @@
+- content_for :extra_javascript do
+  :javascript
+    validateDomainForm();
+
+= form_tag test_dns_admin2_general_domains_path, remote: true, class: 'content-card-section-form' do
+  %section.content-card-section
+    %h2= t('admin2.domain.sharetribe_domain')
+    %p.ingress
+      = t('admin2.domain.domain_adress', url: @presenter.domain_address).html_safe
+      %br
+      = t('admin2.domain.change_sharetribe_domain')
+  %section.content-card-section
+    %h2= t('admin2.domain.custom_domain')
+    %p.ingress
+      = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+    .form-group
+      = label_tag t('admin2.domain.custom_domain')
+      = text_field_tag :domain, '', placeholder: 'www.example.com', class:%i[form-control], remove_protocol: true, valid_domain: true, 'data-msg-valid_domain': t('errors.messages.domain_name_is_invalid')
+      %small#customDomain-help.form-text= t('admin2.domain.setup_domain_info')
+  %section.content-card-terminal
+    = button_tag t('admin2.domain.test_dns_settings'), class: %i[btn btn-secondary]
+
+= render 'admin2/general/domains/test_dns_popup', btn_text: t('admin2.domain.test_dns_popup.button'), url: create_domain_setup_admin2_general_domains_path

@@ -100,6 +100,49 @@ en:
         experimental: 'New features'
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
+    domain:
+      sharetribe_domain: 'Sharetribe domain'
+      custom_domain: 'Custom domain'
+      domain_adress: 'Your Sharetribe marketplace domain is <a href="%{url}">%{url}</a>.'
+      domain_used_info: 'Your Sharetribe marketplace domain <a href="%{url}">%{url}</a> is redirected to your custom domain, <a href="%{url_redirect}">%{url_redirect}</a>.'
+      your_marketplace_domain: 'Your marketplace domain is <a href="%{url}">%{url}</a>.'
+      configured_successfully: '%{domain} has been configured successfully.'
+      would_you_like_to_change_domain: 'Would you like to change your marketplace custom domain? <a href="#" show-intercom=true >Contact the Sharetribe team</a>.'
+      other_settings: 'Other settings to review after your domain setup'
+      change_sharetribe_domain: "You can't change the Sharetribe domain when the custom domain feature is enabled."
+      testing_dns: 'Status: Testing DNS settings for %{url}…'
+      setup_domain_info: 'You can use a root domain (example.com) or a subdomain (marketplace.example.com).'
+      test_dns_settings: 'Test DNS settings'
+      testing_dns_info: 'Testing takes 10-15 minutes to complete. Check back soon and refresh this page to check the status.'
+      during_dns_testing: "You can't change the custom domain during the DNS testing."
+      set_custom_domain_info: "To set your custom domain, we first need to check that the domain that you have chosen is pointing to Sharetribe's servers. Before moving forward, make sure that you have followed the <a class='external-link' href='%{url}' target='_blank'>instructions to point your domain to Sharetribe's servers.</a>"
+      main_domain: 'Main domain:'
+      redirect: 'Redirect:'
+      success: 'Success!'
+      error: 'Error:'
+      main_domain_error: 'This domain is not configured correctly. This domain will not redirect to your marketplace. Make sure that the domain DNS records are configured correctly.'
+      redirect_error: "This domain is not configured correctly. This domain will not redirect to your marketplace. Make sure that the domain DNS records are configured correctly and check again if you want to use this domain for redirecting purposes. If you don't want the redirect, you can ignore this error and proceed with the setup."
+      dns_success: 'Looking good! DNS settings for %{domain} have been configured successfully:'
+      start_using: 'Start using %{domain}'
+      check_another_domain: 'Check DNS settings of another domain.'
+      error_dns_info: 'Heads up! Errors were found in the DNS settings for %{domain}:'
+      retest_dns: 'Re-test DNS settings for %{domain}'
+      dns_not_configured: 'DNS settings for %{domain} have not been configured correctly:'
+      finalizing_domain_installation: 'Status: Finalizing domain installation and setting up %{domain}…'
+      production_setup: "You can't change the custom domain during the production setup."
+      critical_error_info: 'Hmm, the domain setup is taking longer than expected. Check back soon and refresh this page to check the status or <a href="#" show-intercom=true >contact the Sharetribe team</a>.'
+      follow_instructions: "Make sure that you have followed the <a class='external-link' href='%{url}' target='_blank'>instructions to point your domain to Sharetribe's servers</a>."
+      try_again: 'Try again after few hours and if the issue persists, <a href="#" show-intercom=true >contact the Sharetribe team</a>.'
+      effect_dns_changes: 'Your domain DNS changes might not have taken effect yet. Occasionally, this can take up to 48 hours.'
+      production_to_complete: 'Production setup takes 10-15 minutes to complete. Check back soon and refresh this page to check the status.'
+      retry_domain_setup: 'Retry domain setup'
+      domain_setup_failed: 'Domain setup failed:'
+      test_dns_popup:
+        title: 'Have DNS records for %{domain} been edited?'
+        info: "Have you already edited your DNS records and they are pointing to Sharetribe's servers?"
+        info_2: 'Due to technical limitations, you can check DNS records once per 15 minutes.'
+        button: 'Yes, DNS records are correct'
+        button_2: 'Yes, proceed with testing'
     outgoing_address:
       outgoing_email_settings: 'Outgoing email settings'
       resend_verification_email: 'Resend verification email'

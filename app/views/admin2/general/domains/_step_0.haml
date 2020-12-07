@@ -1,0 +1,32 @@
+%form.content-card-section-form
+
+  %section.content-card-section
+    %h2= t('admin2.domain.sharetribe_domain')
+    %p.ingress= t('admin2.domain.domain_adress', url: @presenter.domain_address).html_safe
+    .form-group
+      %label{:for => "sharetribeDomain"} Your Sharetribe domain
+      .input-group
+        %input#sharetribeDomain.form-control{"aria-label" => "Marketplace domain", :style => "border-radius: 4px 0 0 4px", :type => "text", :value => "bikerrrs"}/
+        .input-group-append
+          %span.input-group-text .sharetribe.com
+        %small#sharetribeDomain-help.form-text Only letters, numbers and hyphens can be used. Your old Sharetribe domain will become available for other marketplaces to use and it will not redirect to your new Sharetribe domain.
+
+  %section.content-card-section
+    %h2= t('admin2.domain.custom_domain')
+    .statusbar.business
+      %span
+        ✨
+        %b Pro feature:
+        Would you like to configure your own custom domain?
+        = succeed "." do
+          %a{:href => "/admin/plan", :target => "_blank"} Upgrade to the Pro plan or higher
+    %p.ingress
+      To set your custom domain, we first need to check that the domain that you have chosen is pointing to Sharetribe's servers. Before moving forward, make sure that you have followed the
+      %a.external-link{:href => "https://help.sharetribe.com/en/articles/666106", :target => "_blank"} instructions to point your domain to Sharetribe's servers.
+    .form-group
+      %label{:for => "customDomain"} Custom domain
+      %input#marketplaceName.form-control{"aria-describedby" => "customDomain", :disabled => "disabled", :placeholder => "https://www.example.com", :type => "text", :value => ""}/
+      %small#customDomain-help.form-text Only letters, numbers and hyphens can be used. You can use a root domain (example.com) or a subdomain (marketplace.example.com).
+
+  %section.content-card-terminal
+    %a.btn.btn-primary{"aria-hidden" => "true", "data-target" => "#sharetribeDomainChangeModal", "data-toggle" => "modal", :href => "#"} Save changes
