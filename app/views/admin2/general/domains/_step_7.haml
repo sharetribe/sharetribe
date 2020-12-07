@@ -14,8 +14,8 @@
       = label_tag t('admin2.domain.custom_domain')
       .statusbar.positive
         %span
-          %strong= t('admin2.domain.configured_successfully', domain: @presenter.domain_address).html_safe
-      %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain_address}
+          %strong= t('admin2.domain.configured_successfully', domain: @presenter.domain).html_safe
+      %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain}
       %small#customDomain-help.form-text= t('admin2.domain.would_you_like_to_change_domain').html_safe
   %section.content-card-terminal
     = link_to t('admin2.domain.other_settings'), 'https://help.sharetribe.com/en/articles/4680152', target: :_blank, class: %i[btn btn-ghost]

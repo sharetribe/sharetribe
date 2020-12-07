@@ -4,6 +4,23 @@ module Admin2::General
 
     def index; end
 
+    def update
+      if @service.update
+        redirect_to "#{APP_CONFIG.always_use_ssl ? 'https' : 'http'}://#{@service.ident}.#{APP_CONFIG.domain}"
+      else
+        redirect_to admin2_general_domains_path
+      end
+    rescue StandardError => e
+      flash[:error] = e.message
+      redirect_to admin2_general_domains_path
+    end
+
+    def check_availability
+      respond_to do |format|
+        format.json { render json: @service.ident_available? }
+      end
+    end
+
     def test_dns
       @domain = params[:domain] || @presenter.domain_checked
       render layout: false

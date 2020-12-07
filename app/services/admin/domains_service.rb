@@ -15,6 +15,7 @@ class Admin::DomainsService
 
   def white_label?
     !!plan.try(:[], :features).try(:[], :whitelabel)
+    false
   end
 
   def domain_possible?

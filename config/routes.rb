@@ -198,6 +198,7 @@ Rails.application.routes.draw do
             get :reset_domain_setup
             patch :confirm_domain_setup
             get :retry_domain_setup
+            get :check_availability
           end
         end
       end

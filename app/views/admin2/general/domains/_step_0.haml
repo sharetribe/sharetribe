@@ -1,12 +1,19 @@
-%form.content-card-section-form
+= form_for @presenter.community, { url: admin2_general_domains_path, class: %i[content-card-section-form] } do |form|
 
   %section.content-card-section
     %h2= t('admin2.domain.sharetribe_domain')
     %p.ingress= t('admin2.domain.domain_adress', url: @presenter.domain_address).html_safe
     .form-group
-      %label{:for => "sharetribeDomain"} Your Sharetribe domain
+      = label_tag t('admin2.domain.your_sharetribe_domain')
       .input-group
-        %input#sharetribeDomain.form-control{"aria-label" => "Marketplace domain", :style => "border-radius: 4px 0 0 4px", :type => "text", :value => "bikerrrs"}/
+        = form.text_field :ident, class: "form-control", minlength: 3, maxlength: 50,
+        required: true, exclude_reserved_domains: true,
+        style: 'border-radius: 4px 0 0 4px',
+        valid_ident: true,
+        remote: check_availability_admin_domain_path,
+        'data-msg-exclude_reserved_domains': t('errors.messages.domain_name_is_invalid'),
+        'data-msg-valid_ident': t('errors.messages.domain_name_is_invalid'),
+        'data-msg-remote': t('errors.messages.domain_name_is_invalid')
         .input-group-append
           %span.input-group-text .sharetribe.com
         %small#sharetribeDomain-help.form-text Only letters, numbers and hyphens can be used. Your old Sharetribe domain will become available for other marketplaces to use and it will not redirect to your new Sharetribe domain.
