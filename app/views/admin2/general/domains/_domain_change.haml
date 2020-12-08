@@ -1,0 +1,24 @@
+- content_for :popup_layout do
+  #sharetribeDomainChangeModal.modal{"aria-hidden" => "true", "aria-labelledby" => "sharetribeDomainChangeModalLabel", "data-backdrop" => "static", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-md{:role => "document"}
+      .modal-content
+        .modal-header
+          %h2#sharetribeDomainChangeModal.modal-title= t('admin2.domain.domain_change_popup.title')
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          %p.ingress= t('admin2.domain.domain_change_popup.info_body')
+          %br
+          %p.ingress
+          %ul
+            %li
+              %strong= t('admin2.domain.domain_change_popup.point_1')
+            %li
+              %strong= t('admin2.domain.domain_change_popup.point_2')
+            %li
+              %strong= t('admin2.domain.domain_change_popup.point_3')
+            %li
+              %strong= t('admin2.domain.domain_change_popup.point_4')
+        .modal-footer
+          = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          %button.btn.btn-primary#apply_changes_domain{type: :button}= t('admin2.domain.domain_change_popup.button')

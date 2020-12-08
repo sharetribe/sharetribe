@@ -190,6 +190,17 @@ Rails.application.routes.draw do
             patch :update_privacy
           end
         end
+        resources :domains, path: 'domain' do
+          collection do
+            match :test_dns, via: %i[post get]
+            patch :create_domain_setup
+            patch :recheck_domain_setup
+            get :reset_domain_setup
+            patch :confirm_domain_setup
+            get :retry_domain_setup
+            get :check_availability
+          end
+        end
       end
       namespace :design do
         resources :landing_page, path: 'landing-page', only: %i[index]

@@ -1,0 +1,29 @@
+- content_for :title do
+  = t('admin2.sidebar.general.domain')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.general.domain')
+
+.content-card-section-container#domain_step
+  - if @presenter.domain_disabled?
+    = render 'admin2/general/domains/step_0'
+  - elsif @presenter.domain_possible?
+    - unless @presenter.domain_used?
+      - case @presenter.domain_setup_state
+      - when DomainSetup::CHECK_PENDING
+        = render 'admin2/general/domains/step_2'
+      - when DomainSetup::CHECK_PASSED
+        = render 'admin2/general/domains/step_3'
+      - when DomainSetup::CHECK_PASSED_REDIRECT_WARNING
+        = render 'admin2/general/domains/step_4'
+      - when DomainSetup::CHECK_FAILED
+        = render 'admin2/general/domains/step_5'
+      - when DomainSetup::SETUP_PENDING
+        = render 'admin2/general/domains/step_6'
+      - when DomainSetup::SETUP_FAILED
+        = render 'admin2/general/domains/step_8'
+      - else
+        = render 'admin2/general/domains/step_1'
+  - elsif @presenter.domain_used?
+    = render 'admin2/general/domains/step_7'

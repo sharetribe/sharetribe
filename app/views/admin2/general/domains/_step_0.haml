@@ -1,0 +1,42 @@
+- content_for :extra_javascript do
+  :javascript
+    reserveDomainForm({
+      reserved_domains: #{MarketplaceService::RESERVED_DOMAINS.to_json.html_safe}
+    });
+
+= form_for @presenter.community, { method: :patch, url: admin2_general_domain_path(@current_community), class: %i[content-card-section-form], id: :domain_change_submit_form } do |form|
+
+  %section.content-card-section
+    %h2= t('admin2.domain.sharetribe_domain')
+    %p.ingress= t('admin2.domain.domain_adress', url: @presenter.domain_address).html_safe
+    .form-group
+      = label_tag t('admin2.domain.your_sharetribe_domain')
+      .input-group
+        = form.text_field :ident, class: %i[form-control], minlength: 3, maxlength: 50,
+        required: true, exclude_reserved_domains: true, style: 'border-radius: 4px 0 0 4px',
+        valid_ident: true, remote: check_availability_admin_domain_path,
+        'data-msg-exclude_reserved_domains': t('errors.messages.domain_name_is_invalid'),
+        'data-msg-valid_ident': t('errors.messages.domain_name_is_invalid'),
+        'data-msg-remote': t('errors.messages.domain_name_is_invalid')
+        .input-group-append
+          %span.input-group-text .sharetribe.com
+        %small#sharetribeDomain-help.form-text= t('admin2.domain.domain_validate_info')
+
+  %section.content-card-section
+    %h2= t('admin2.domain.custom_domain')
+    .statusbar.business
+      %span
+        ✨
+        %b= t('admin2.domain.pro_feature')
+        = t('admin2.domain.pro_upgrade', url: admin_plan_path).html_safe
+    %p.ingress
+      = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+    .form-group
+      = label_tag t('admin2.domain.custom_domain')
+      %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain}
+      %small#customDomain-help.form-text= t('admin2.domain.domain_validate_info_2')
+
+  %section.content-card-terminal
+    = form.submit t('admin2.save_changes'), class: %i[btn btn-primary]
+
+= render 'admin2/general/domains/domain_change'
