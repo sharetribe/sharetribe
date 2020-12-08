@@ -1,14 +1,14 @@
 - content_for :title do
   = t('admin2.sidebar.users.manage_users')
 
-= render 'admin2/users/manage_users/filter'
+= render 'admin2/users/manage_users/filter', intercom_target: 'Manage users - Search filter export', intercom_target_csv: 'Manage users - Export CSV'
 
 .content-card-section-container{style: 'padding: 0; max-width: none;'}
   .table-responsive
     %table.table.table-hover.manageusers#admin_members_list
       %thead
         %tr
-          %th{scope: :col}
+          %th{scope: :col, data: {intercom_target: 'Manage users - Name'}}
             = render 'sort_link', column: 'name', direction: sort_link_direction('name'), title: t('admin2.manage_users.name')
           %th{scope: :col}
             = render 'sort_link', column: 'email', direction: sort_link_direction('email'), title: t('admin2.manage_users.email')
@@ -21,7 +21,7 @@
             = t('admin2.manage_users.admin')
           -#%th{scope: :col}
             = t('admin2.manage_users.disable')
-          %th{scope: :col}
+          %th{scope: :col, data: {intercom_target: 'Manage users - Actions'}}
             = t('admin2.manage_users.actions')
       %tbody
         = render partial: 'admin2/users/manage_users/membership', collection: @presenter.memberships

@@ -1,5 +1,5 @@
 .form-group.select-language-admin
-  %label
+  %label{data: {intercom_target: 'Marketplace languages'}}
     = t('admin2.essentials.marketplace_languages')
   = select_tag 'enabled_locales[]', options_for_select(all_locales.map { |l| [l[:translated_name], l[:locale_key]] }, enabled_locale_keys), multiple: true, class: %i[form-control required], required: true
   %small#marketplaceLanguage-help.form-text
