@@ -1,10 +1,5 @@
 = form_for @presenter.community, url: confirm_domain_setup_admin2_general_domains_path, html: { class: 'content-card-section-form' } do |form|
-  %section.content-card-section
-    %h2= t('admin2.domain.sharetribe_domain')
-    %p.ingress
-      = t('admin2.domain.domain_adress', url: @presenter.domain_address).html_safe
-      %br
-      = t('admin2.domain.change_sharetribe_domain')
+  = render 'admin2/general/domains/header'
   %section.content-card-section
     %h2= t('admin2.domain.custom_domain')
     %p.ingress
