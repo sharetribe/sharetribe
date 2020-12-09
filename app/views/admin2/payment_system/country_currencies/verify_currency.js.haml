@@ -1,2 +1,11 @@
 :plain
   $("#payments_in_countries").html("#{j render 'country_payments', stripe_allowed: @stripe_allowed, paypal_allowed: @paypal_allowed, country_name: @country_name, currency: @currency}");
+- if @stripe_allowed && StripeHelper.stripe_provisioned?(@current_community.id)
+  $('#button_stripe').show();
+- else
+  $('#button_stripe').hide();
+
+- if @paypal_allowed && PaypalHelper.paypal_provisioned?(@current_community.id)
+  $('#button_paypal').show();
+- else
+  $('#button_paypal').hide();
