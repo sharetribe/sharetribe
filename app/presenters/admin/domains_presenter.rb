@@ -27,7 +27,11 @@ class Admin::DomainsPresenter
   end
 
   def domain_address
-    domain_used? ? "https://#{domain}" : "https://#{ident}.sharetribe.com"
+    domain_used? ? "https://#{domain}" : ident_address
+  end
+
+  def ident_address
+    "https://#{ident}.sharetribe.com"
   end
 
   def domain_setup_state

@@ -1,6 +1,10 @@
 - content_for :title do
   = t('admin2.sidebar.general.domain')
 
+- content_for :extra_javascript do
+  :javascript
+    initIntercom();
+
 .content-card-header
   %h1.content-card-header-title
     = t('admin2.sidebar.general.domain')
