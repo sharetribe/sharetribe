@@ -901,6 +901,7 @@ en:
       link_title: 'Link title'
       all: 'Show all'
     custom_script:
+      script_disabled: '<b>Pro feature:</b> Would you like to add your own custom script? <a href="%{url}">Upgrade to a paid plan</a>.'
       info_text: "Custom script can be added inside the <head> tag for every page and used to insert custom CSS, JavaScript or HTML. <a href='%{url}' class='external-link' target='_blank'>Learn more about Custom script</a>."
       custom_head_script: 'CSS, JavaScript and/or HTML script'
       custom_head_script_placeholder: '<script src="https://example.com/customscript.js"></script>'
@@ -1210,6 +1211,7 @@ en:
       listing_fields_update_price_failed: 'Price field editing failed'
       transaction_size_updated: 'Minimum listing price settings were updated'
       file_was_deleted: 'File was successfully deleted'
+      custom_script_disabled: 'Custom script is disabled. Please upgrade to a paid plan'
     seo:
       title: '%{title} | %{service_name} Go Admin panel'
       description: 'Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace'

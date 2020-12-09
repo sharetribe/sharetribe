@@ -189,7 +189,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       :custom_color2, :slogan_color, :description_color, :default_browse_view, :name_display_type,
       attachments_destroyer: []
     ]
-    permitted_params << :custom_head_script
     community_params = params.require(:community).permit(*permitted_params)
     analytic.process(@current_community, community_params)
 

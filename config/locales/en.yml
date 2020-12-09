@@ -138,7 +138,7 @@ en:
         first_name_only: "First name only (First)"
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
         custom_head_script: "Custom script"
-        custom_head_script_instructions_text: "This script is injected inside the <head> tag of every page and can be used to insert custom CSS, JavaScript or HTML. Please note that future changes to Sharetribe may render your script incompatible."
+        custom_head_script_instructions_text: "Custom script can be configured <a href='%{url}'>in your new Admin panel</a>."
         current_image: "Current image:"
       edit_text_instructions:
         edit_text_instructions: "Instruction texts"

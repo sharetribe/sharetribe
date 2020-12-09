@@ -24,7 +24,7 @@ module PlanService::API
         Plan.call(
         community_id: community_id,
         status: :active,
-        features: { deletable: true, admin_email: true, whitelabel: true },
+        features: { deletable: true, admin_email: true, whitelabel: true, custom_script: false },
         expires_at: nil,
         created_at: Time.now,
         updated_at: Time.now).merge(expired: false, closed: false)
