@@ -8,6 +8,7 @@ class Admin2::FooterService
   end
 
   def plan_footer_disabled?
+    return false
     return true unless plan
 
     !plan.dig(:features, :footer).present?

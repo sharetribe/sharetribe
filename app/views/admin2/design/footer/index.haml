@@ -31,8 +31,7 @@
     %section.content-card-section
       %h2= t('admin2.footer.footer_links')
       #simpleList.list-group
-        = form.fields_for :footer_menu_links do |footer_menu_link|
-          = render 'footer_menu_link_fields', f: footer_menu_link, disabled: disabled
+        = render 'admin2/design/footer/links', form: form, disabled: disabled
       - if disabled
         %p.links.content-card-text
           = t('admin2.footer.add_new_footer_link')

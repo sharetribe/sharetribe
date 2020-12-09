@@ -1,0 +1,9 @@
+<% if @error.present? %>
+  errorSubmit('<%= j @error %>');
+<% else %>
+  var links;
+  '<%= form_for @current_community, url: update_topbar_admin2_design_topbar_index_path do |form| %>'
+    links = "<%= j render 'admin2/design/topbar/links', form: form %>";
+  '<% end %>'
+  $('#simpleList').html(links);
+<% end %>
