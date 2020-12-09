@@ -85,7 +85,7 @@ describe Admin2::Design::FooterController, type: :controller do
       expect(community.footer_menu_links.count).to eq 0
       expect(community.social_links.count).to eq 0
       expect(community.footer_enabled).to eq false
-      patch :update_footer, params: params
+      patch :update_footer, params: params, xhr: true
       expect(community.footer_enabled).to eq true
       expect(community.reload.footer_menu_links.count).to eq 1
       expect(community.social_links.count).to eq 8
