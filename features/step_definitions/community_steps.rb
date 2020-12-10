@@ -289,6 +289,6 @@ Given /^community "(.*?)" has feature "(.*?)" in the plan$/ do |community, featu
     features: {}
   }
   plan[:features][feature.to_sym] = true
-  PlanService::Store::Plan.create(community_id: community.id, plan: plan)
+  PlanService::API::Api.plans.create(community_id: community.id, plan: plan)
 end
 
