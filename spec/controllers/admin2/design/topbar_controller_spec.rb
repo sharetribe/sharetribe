@@ -28,7 +28,7 @@ describe Admin2::Design::TopbarController, type: :controller do
       RequestStore.store[:clp_enabled] = false
       expect(TranslationService::API::Api.translations).to receive(:create)
         .with(@community.id, translations_group)
-      put :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, community: { configuration_attributes: { display_about_menu: 1 }}}
+      put :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, community: { configuration_attributes: { display_about_menu: 1 }}}, xhr: true
     end
 
     it "should not update Post new listing button text with an invalid translation param" do
@@ -37,7 +37,7 @@ describe Admin2::Design::TopbarController, type: :controller do
 
       RequestStore.store[:clp_enabled] = false
       expect(TranslationService::API::Api.translations).to_not receive(:create).with(anything)
-      patch :update_topbar, params: {post_new_listing_button: {fi: text_fi, en: text_en}, community: { configuration_attributes: { display_about_menu: 1 }}}
+      patch :update_topbar, params: {post_new_listing_button: {fi: text_fi, en: text_en}, community: { configuration_attributes: { display_about_menu: 1 }}}, xhr: true
     end
   end
 
@@ -48,7 +48,7 @@ describe Admin2::Design::TopbarController, type: :controller do
       RequestStore.store[:feature_flags] = nil
 
       menu_config = { configuration_attributes: {limit_priority_links: "-1", display_about_menu: "1", display_contact_menu: "1", display_invite_menu: "1"} }
-      patch :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, community: menu_config, enable_feature: "topbar_v1"}
+      patch :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, community: menu_config, enable_feature: "topbar_v1"}, xhr: true
       @community.reload
       expect(@community.configuration.display_about_menu).to eq true
       expect(@community.configuration.display_contact_menu).to eq true
@@ -64,7 +64,7 @@ describe Admin2::Design::TopbarController, type: :controller do
       expect(links).to eq(default_links)
 
       menu_config = { configuration_attributes: {limit_priority_links: "-1", display_about_menu: "0", display_contact_menu: "0", display_invite_menu: "0"}}
-      patch :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, community: menu_config, enable_feature: "topbar_v1"}
+      patch :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, community: menu_config, enable_feature: "topbar_v1"}, xhr: true
       @community.reload
       expect(@community.configuration.display_about_menu).to eq false
       expect(@community.configuration.display_contact_menu).to eq false
@@ -80,7 +80,7 @@ describe Admin2::Design::TopbarController, type: :controller do
       text_fi = "Modified fi"
       text_en = "Modified en"
 
-      patch :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, community: {logo_link: "http://example.com", configuration_attributes: {limit_priority_links: "-1"} } }
+      patch :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, community: {logo_link: "http://example.com", configuration_attributes: {limit_priority_links: "-1"} } }, xhr: true
       @community.reload
       expect(@community.logo_link).to eq "http://example.com"
     end

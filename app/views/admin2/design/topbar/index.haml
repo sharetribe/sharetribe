@@ -53,8 +53,7 @@
       %h2
         = t('admin2.topbar.custom_links')
       #simpleList.list-group
-        = form.fields_for :menu_links do |menu_link|
-          = render 'menu_link_fields', f: menu_link
+        = render 'admin2/design/topbar/links', form: form
       %p.links.content-card-text
         = link_to_add_association t('admin2.topbar.new_custom_link'), form, :menu_links, data: {'association-insertion-method' => 'append', 'association-insertion-node' => '#simpleList' }
     %section.content-card-terminal

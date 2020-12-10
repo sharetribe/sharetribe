@@ -1,6 +1,6 @@
 module Admin2::Design
   class TopbarController < Admin2::AdminBaseController
-    before_action :find_customizations, only: :index
+    before_action :find_customizations
     before_action :find_features, only: :index
 
     def index; end
@@ -8,9 +8,10 @@ module Admin2::Design
     def update_topbar
       @current_community.update!(display_params)
       update_post_new_link!
-      render json: { message: t('admin2.notifications.topbar_updated') }
+      render layout: false
     rescue StandardError => e
-      render json: { message: e.message }, status: :unprocessable_entity
+      @error = e.message
+      render layout: false, status: :unprocessable_entity
     end
 
     private

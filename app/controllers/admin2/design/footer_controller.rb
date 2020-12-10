@@ -1,6 +1,6 @@
 module Admin2::Design
   class FooterController < Admin2::AdminBaseController
-    before_action :find_customizations, only: :index
+    before_action :find_customizations
     before_action :set_service
 
     def index; end
@@ -11,9 +11,10 @@ module Admin2::Design
         raise t('admin2.notifications.footer_update_failed')
       end
 
-      render json: { message: t('admin2.notifications.footer_updated') }
+      render layout: false
     rescue StandardError => e
-      render json: { message: e.message }, status: :unprocessable_entity
+      @error = e.message
+      render layout: false, status: :unprocessable_entity
     end
 
     private
