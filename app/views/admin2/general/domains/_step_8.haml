@@ -20,5 +20,3 @@
           = t('admin2.domain.try_again').html_safe
         = link_to t('admin2.domain.retry_domain_setup'), retry_domain_setup_admin2_general_domains_path, class: %i[btn-sm btn-secondary], style: 'margin-top: 16px'
       %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain_checked}
-      %small#customDomain-help.form-text
-        = link_to t('admin2.domain.check_another_domain'), reset_domain_setup_admin2_general_domains_path
