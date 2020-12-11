@@ -120,13 +120,13 @@ en:
       test_dns_settings: 'Test DNS settings'
       testing_dns_info: 'Testing takes 10–15 minutes to complete. Refresh this page to check the status.'
       during_dns_testing: "You can't change the custom domain during DNS testing."
-      set_custom_domain_info: "Your custom domain needs to point to Sharetribe's servers. Before you start the DNS settings test, make sure you have followed the <a class='external-link' href='%{url}' target='_blank'>instructions to point your domain to Sharetribe's servers.</a>"
+      set_custom_domain_info: "Your custom domain needs to point to Sharetribe's servers. Before you start the DNS settings test, make sure you have followed the <a class='external-link' href='%{url}' target='_blank'>instructions to point your domain to Sharetribe's servers</a>."
       main_domain: 'Main domain:'
       redirect: 'Redirect:'
       success: 'Success!'
       error: 'Error:'
       main_domain_error: 'This domain is not configured correctly. This domain will not redirect to your marketplace. Make sure the domain DNS records are configured correctly.'
-      redirect_error: "This domain is not configured correctly. This domain will not redirect to your marketplace. Make sure the domain DNS records are configured correctly and run the test again if you want to redirect this domain to your marketplace. If you don't want the redirect, you can ignore this error and proceed with the setup."
+      redirect_error: "This domain is not configured correctly. This domain will not redirect to your marketplace. Make sure the domain DNS records are configured correctly and start the test again if you want to redirect this domain to your marketplace. If you don't want the redirect, you can ignore this error and proceed with the setup."
       dns_success: 'Test passed! DNS settings for %{domain} have been configured successfully:'
       start_using: 'Start using %{domain}'
       check_another_domain: 'Test DNS settings for another domain.'
@@ -145,15 +145,15 @@ en:
       test_dns_popup:
         title: 'Have DNS records for %{domain} been edited?'
         info: "Have you configured your DNS records to have them pointing to Sharetribe's servers?"
-        info_2: 'Due to technical limitations, you can check DNS records once per 15 minutes.'
+        info_2: 'Due to technical limitations, you can test DNS settings once per 15 minutes.'
         button: 'Yes, DNS records are correct'
         button_2: 'Yes, proceed with testing'
       domain_change_popup:
         title: 'Are you sure you want to change your Sharetribe domain?'
         info_body: 'When you change your Sharetribe domain, all marketplace URLs will automatically change and cause the following immediate changes:'
-        point_1: "You'll be redirected to the URL of your marketplace immediately."
+        point_1: "You'll be redirected to the new URL of your marketplace immediately."
         point_2: 'You and your users will have to log in to your marketplace again.'
-        point_3: 'Your previous marketplace domain will not be linked or redirected to the new domain.'
+        point_3: 'Your previous domain will not be linked or redirected to the new domain.'
         point_4: 'Your previous domain will become available to other marketplaces immediately.'
         button: "Yes, let's change the domain"
     outgoing_address:
