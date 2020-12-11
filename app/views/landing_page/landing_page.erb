@@ -71,7 +71,7 @@
     <%= yield :video_css %>
     <%= yield :locations_css %>
   </style>
-  <%= @current_community.custom_head_script.to_s.html_safe %>
+  <%= @current_community.custom_head_script.to_s.html_safe if @current_plan.try(:[], :features).try(:[], :custom_script) %>
 </head>
 <body onload="BrowserDetectVideoAutoplay()">
 
