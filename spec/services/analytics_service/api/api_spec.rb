@@ -10,8 +10,15 @@ describe AnalyticService::API::Api do
 
   context 'intercom' do
     before do
+      @admin_intercom_app_id_old = APP_CONFIG.admin_intercom_app_id
+      @admin_intercom_access_token_old = APP_CONFIG.admin_intercom_access_token
       APP_CONFIG.admin_intercom_app_id = '123'
       APP_CONFIG.admin_intercom_access_token = 'ABC'
+    end
+
+    after do
+      APP_CONFIG.admin_intercom_app_id = @admin_intercom_app_id_old
+      APP_CONFIG.admin_intercom_access_token = @admin_intercom_access_token_old
     end
 
     it '#send_event' do
@@ -29,4 +36,3 @@ describe AnalyticService::API::Api do
     end
   end
 end
-

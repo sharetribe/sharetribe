@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'active_support/core_ext/object'
 require 'possibly' # Maybe
 
