@@ -100,6 +100,62 @@ es:
         experimental: ~
         custom_script: ~
         delete_marketplace: ~
+    domain:
+      sharetribe_domain: ~
+      custom_domain: ~
+      your_sharetribe_domain: ~
+      pro_feature: ~
+      pro_upgrade: ~
+      domain_validate_info: ~
+      domain_validate_info_2: ~
+      domain_adress: ~
+      domain_used_info: ~
+      your_marketplace_domain: ~
+      configured_successfully: ~
+      would_you_like_to_change_domain: ~
+      other_settings: ~
+      change_sharetribe_domain: ~
+      testing_dns: ~
+      setup_domain_info: ~
+      test_dns_settings: ~
+      testing_dns_info: ~
+      during_dns_testing: ~
+      set_custom_domain_info: ~
+      main_domain: ~
+      redirect: ~
+      success: ~
+      error: ~
+      main_domain_error: ~
+      redirect_error: ~
+      dns_success: ~
+      start_using: ~
+      check_another_domain: ~
+      error_dns_info: ~
+      retest_dns: ~
+      dns_not_configured: ~
+      finalizing_domain_installation: ~
+      production_setup: ~
+      critical_error_info: ~
+      follow_instructions: ~
+      try_again: ~
+      effect_dns_changes: ~
+      production_to_complete: ~
+      retry_domain_setup: ~
+      domain_setup_failed: ~
+      test_dns_popup:
+        title: ~
+        info: ~
+        info_2: ~
+        button: ~
+        button_2: ~
+      domain_change_popup:
+        title: ~
+        info_body: ~
+        point_1: ~
+        point_2: ~
+        point_3: ~
+        point_4: ~
+        button: ~
     outgoing_address:
       outgoing_email_settings: ~
       resend_verification_email: ~
@@ -1021,6 +1077,7 @@ es:
       invalid_twitter_handle: ~
       invalid_facebook_connect_id: ~
       invalid_facebook_connect_secret: ~
+      invite_only: ~
       signup_header: ~
       signup_info_text: ~
       google: ~

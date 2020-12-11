@@ -1729,7 +1729,7 @@ fr:
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
     testimonial_reminder_v2:
       headline: "n'oubliez pas de donner votre avis sur %{other_name} !"
-      you_have_not_given_feedback_yet: "Donner votre avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
+      you_have_not_given_feedback_yet: "C'est toujours une bonne idée de donner votre avis. Si tout s'est bien passé, vous devriez signaler aux autres que %{name} est quelqu'un de confiance. S'il y a eu un problème, c'est également une bonne chose de le mentionner."
       leave_feedback: "Donner un avis sur %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} est intéressé(e) et a autorisé un paiement pour %{listing_title} posté sur %{service_name}"

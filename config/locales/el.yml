@@ -12,10 +12,10 @@ el:
       index:
         listing_categories: "Κατηγορίες καταχωρήσεων"
         create_a_new_category: "+ Δημιουργήστε νέα κατηγορία"
-        remove_category_confirmation: ~
+        remove_category_confirmation: "Είστε βέβαιοι ότι θέλετε να καταργήσετε την κατηγορία '%{category_name}'; Αυτό δεν μπορεί να αναιρεθεί."
         saving_order: "Αποθήκευση παραγγελίας κατηγορίας"
         save_order_successful: "Η παραγγελία κατηγορίας αποθηκεύτηκε με επιτυχία"
-        save_order_error: ~
+        save_order_error: "Παρουσιάστηκε σφάλμα κατά την αποθήκευση της παραγγελίας. Ανανεώστε τη σελίδα και προσπαθήστε ξανά."
       new:
         new_listing_category: "Νέα κατηγορία καταχώρησης"
       form:
@@ -23,10 +23,10 @@ el:
           category_title: "Τίτλος κατηγορίας"
         category_parent:
           category_parent: "Κύρια κατηγορία"
-          no_parent: ~
+          no_parent: "Χωρίς γονικό στοιχείο"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "Τύποι παραγγελιών"
+          transaction_types_description: "Οι τύποι των παραγγελιών καθορίζουν το είδος της παραγγελίας ανά κατηγορία. Για παράδειγμα, επιτρέπεται μόνο η πώληση, ή και η ενοικίαση και η δωρεάν παραχώρηση."
           select_all: "Επιλογή όλων"
           clear_all: "Διαγραφή όλων"
         buttons:
@@ -35,82 +35,97 @@ el:
       remove:
         remove_category: "Κατάργηση κατηγορίας"
         remove_category_name: "Αφαίρεση κατηγορίας '%{category_name}'"
-        warning_remove_effects: ~
+        warning_remove_effects: "Προειδοποίηση! Η κατάργηση της κατηγορίας '%{category_name}' θα έχει τα ακόλουθα αποτελέσματα:"
         select_new_category: "Επιλέξτε μια νέα κατηγορία όπου τα αντικείμενα που αναφέρονται παραπάνω θα μετακινηθούν:"
         buttons:
           remove: Αφαίρεση
           cancel: Ακύρωση
+        warning_listing_will_be_moved:
+          one: "Υπάρχει καταχώρηση %{count} στην κατηγορία. Θα μετακινηθεί στην επιλεγμένη κατηγορία."
+          other: "Υπάρχουν καταχωρήσεις %{count} στην κατηγορία. Θα μετακινηθούν στην επιλεγμένη κατηγορία."
+        warning_custom_field_will_be_moved:
+          one: "Υπάρχει προσαρμοσμένο πεδίο %{count} στην κατηγορία. Θα μετακινηθεί στην επιλεγμένη κατηγορία."
+          other: "Υπάρχουν προσαρμοσμένα πεδία %{count} στην κατηγορία. Θα μετακινηθούν στην επιλεγμένη κατηγορία."
+        warning_subcategory_will_be_removed:
+          one: "Υπάρχει  %{count} υποκατηγορία στην κατηγορία. Θα αφαιρεθεί."
+          other: "Υπάρχουν %{count} υποκατηγορίες στην κατηγορία. Θα αφαιρεθούν."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Υπάρχει  %{count} καταχώρηση στην κατηγορία και στις υποκατηγορίες. Θα μετακινηθεί στην επιλεγμένη κατηγορία."
+          other: "Υπάρχουν  %{count} καταχωρήσεις στην κατηγορία και στις υποκατηγορίες. Θα μετακινηθούν στην επιλεγμένη κατηγορία."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Υπάρχει %{count} προσαρμοσμένο πεδίο στην κατηγορία και στις υποκατηγορίες. Θα μετακινηθεί στην επιλεγμένη κατηγορία."
+          other: "Υπάρχουν %{count} προσαρμοσμένα πεδία στην κατηγορία και στις υποκατηγορίες. Θα μετακινηθούν subcategories στην επιλεγμένη κατηγορία."
     communities:
       edit_details:
         community_details: "Βασικά στοιχεία"
-        community_look_and_feel: Εμφάνιση
-        edit_community: "Επεξεργασία των στοιχείων της κοινότητας %{community_name}"
+        community_look_and_feel: Σχεδίαση
+        edit_community: "Βασικά στοιχεία"
         enabled_languages: "Ενεργοποιημένες γλώσσες"
         enabled_languages_description: "Το σύνολο των διαθέσιμων γλωσσών για τους χρήστες. Το πρώτο χρησιμοποιείται ως προεπιλογή."
         default_language: "Προεπιλεγμένη γλώσσα"
         language_selection_disabled: ~
-        community_name: Όνομα
-        edit_community_name_description: ~
-        community_slogan: Slogan
+        community_name: "Όνομα πλατφόρμας"
+        edit_community_name_description: "Το όνομα της πλατφόρμας σου. Έτσι εμφανίζεται στους χρήστες στα emails και σε διάφορα άλλα σημεία."
+        community_slogan: "Slogan πλατφόρμας"
         community_slogan_display: ~
-        edit_community_slogan_description: ~
+        edit_community_slogan_description: "Αυτό εμφανίζεται στην αρχική σελίδα της πλατφόρμας για τους χρήστες που δεν είναι συνδεδεμένοι.%{see_how_it_looks_like} "
         edit_community_slogan_description_hideable: ~
-        community_description: Περιγραφή
+        community_description: "Περιγραφή πλατφόρμας"
         community_description_display: ~
-        edit_community_description_description: ~
+        edit_community_description_description: "Αυτή η περιγραφή εμφανίζεται στην αρχική σελίδα της πλατφόρμας για τους χρήστες που δεν είναι συνδεδεμένοι %{see_how_it_looks_like} "
         edit_community_description_description_hideable: ~
         community_search_placeholder: "Αναζήτηση κειμένου βοήθειας"
-        edit_community_search_placeholder_description: ~
-        private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
-        update_information: "Ενημέρωση στοιχείων"
-        invite_people: "Καλέστε κόσμο σε αυτή την κοινότητα"
+        edit_community_search_placeholder_description: "Αυτό εμφανίζεται στην αρχική σελίδα της πλατφόρμας ως κείμενο κράτησης θέσης στη γραμμή αναζήτησης. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Περιεχόμενο αρχικής σελίδας ιδιωτικής πλατφόρμας"
+        edit_private_community_homepage_content_description: "Αυτό το περιεχόμενο εμφανίζεται στην αρχική σελίδα των ιδιωτικών πλατφορμών σε χρήστες που δεν είναι συνδεδεμένοι. Εδώ μπορείτε να περιγράψετε την πλατφόρμα σας και τη διαδικασία συμμετοχής σε αυτήν. Μπορείτε επίσης να προσθέσετε εικόνες, βίντεο και περιεχόμενο HTML εδώ. %{see_how_it_looks_like}."
+        update_information: "Αποθήκευση ρυθμίσεων"
+        invite_people: "Προσκαλέστε νέους χρήστες "
         edit_signup_info: "Πληροφορίες εγγραφής"
-        edit_signup_info_description: "Αυτό είναι ένα ενημερωτικό κείμενο που εμφανίζεται στους χρήστες στη σελίδα εγγραφής. Μέσω αυτού μπορείτε να δώσετε οδηγίες για την εγγγραφή, πληροφορίες για το που μπορούν να βρουν ένα κωδικό πρόσκλησης στην κοινότητα κ.α. Αρχικά δεν εμφανίζονται καθόλου οδηγίες μπορείτε όμως να προσθέσετε μερικές κάνοντας κλικ στον παρακάτω σύνδεσμο."
+        edit_signup_info_description: "Αυτό είναι ένα ενημερωτικό κείμενο που εμφανίζεται στους χρήστες στη σελίδα εγγραφής. Εκεί εμφαν'ιζονται οδηγίες για την εγγγραφή, πληροφορίες σχετικά με τις πρόσκλησης άλλω μελών κ.λπ. Αρχικά δεν εμφανίζονται καθόλου οδηγίες."
         edit_info: "Επεξεργασία πληροφοριών"
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        see_how_it_looks_like: "Δες πώς φαίνεται"
+        verification_to_post_listings_info_content: "Πληροφορίες κειμένου σε μη επαληθευμένους χρήστες"
+        verification_to_post_listings_info_content_description: "Προς το παρόν, απαιτείτε από τους χρήστες σας να επαληθεύονται από εσάς, για να μπορούν να δημοσιεύουν καταχωρήσεις. Εδώ μπορείτε να ορίσετε το προεπιλεγμένο κείμενο που εμφανίζεται σε μη επαληθευμένους χρήστες όταν προσπαθούν να δημοσιεύσουν μια νέα καταχώρηση."
+        verification_to_post_listings_info_content_default: "Το %{service_name} απαιτεί την επαλήθευση των ατόμων με μη αυτόματο τρόπο από το διαχειριστή, για να μπορούν να δημοσιεύουν καταχωρήσεις. Δεν έχετε ακόμα επαληθευτεί. Για επαλήθευση πατήστε %{contact_admin_link}."
         contact_admin_link_text: "Επικοινωνήστε με τον διαχειριστή"
         save: "Αποθήκευση ρυθμίσεων"
         transaction_agreement: "Συμφωνία συναλλαγής"
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        transaction_agreement_checkbox: "Απαίτηση αποδοχής της συμφωνίας από τους αγοραστές πριν τη συναλλαγή"
+        transaction_agreement_checkbox_header: "Ετικέτα συμφωνητικού"
+        transaction_agreement_checkbox_label_description: "Αυτό το κείμενο θα εμφανίζεται δίπλα σε ένα πλαίσιο ελέγχου στην αντίστοιχη φόρμα.. Ο χρήστης πρέπει να επιλέξει το πλαίσιο για να συνεχίσει τη συναλλαγή. Ένα παράδειγμα ετικέτας θα ήταν \"Κάνοντας κλικ σε αυτό το πλαίσιο αποδέχομαι το συμφωνητικό.\""
+        transaction_agreement_text_header: "Κείμενο συμφωνητικού"
+        transaction_agreement_description: "Αυτό είναι το περιεχόμενο της συμφωνίας που πρέπει να αποδεχτεί ο χρήστης. Το περιεχόμενο της συμφωνίας εμφανίζεται όταν ο χρήστης κάνει κλικ στη σύνδεση \"%{read_more}\" δίπλα στην ετικέτα του συμφωνητικού."
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: "Αλλαγή της εμφάνισης της κοινότητας \"%{community_name}\""
+        edit_community_look_and_feel: "Αλλαγή της εμφάνισης της πλατφόρμας \"%{community_name}\""
         community_logo: Λογότυπο
-        community_logo_icon: Λογότυπο
+        community_logo_icon: "Λογότυπο για τα κοινωνικά δίκτυα και τις κινητές συσκευές"
         community_logo_icon_mobile: ~
         community_cover_photo: Εξώφυλλο
         small_community_cover_photo: "Μικρή φωτογραφία"
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: "Κυρίως χρώμα"
+        community_custom_color1: "Κύριο χρώμα της πλατφόρμας"
         community_slogan_color: ~
         community_slogan_color_instructions_text: ~
         community_description_color: ~
         community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
-        logo_instructions_text_with_dimensions: "Το λογότυπο πρέπει να έχει μέγεθος %{width}x%{height}px."
-        logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: "Το μέγεθος του λογότυπου πρέπει να είναι %{width}x%{height} px."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions: "Το λογότυπο πρέπει να έχει μέγεθος %{width}x%{height} px."
+        logo_instructions_text_with_dimensions_no_placing: "Το μέγεθος του λογότυπου πρέπει να είναι %{width}x%{height} pixel."
+        logo_icon_instructions_text_with_dimensions: "Αυτό το λογότυπο θα εμφανίζεται όταν οι χρήστες μοιράζονται την ιστοσελίδα της πλατφόρμας στο Facebook ή σε κινητές συσκευές. Το μέγεθος του λογότυπου πρέπει να είναι τουλάχιστόν %{width}x%{height} px."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Αυτό το τετράγωνο λογότυπο θα εμφανίζεται όταν οι χρήστες μοιράζονται τον ιστότοπό σας στο Facebook ή όταν κάνουν σελιδοδείκτη τον ιστότοπό σας στην αρχική οθόνη της κινητής συσκευής τους. Οι διαστάσεις πρέπει να είναι (τουλάχιστον) %{width}x%{height} pixel."
         logo_mobile_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: "Το μέγεθος της φωτογραφίας εξώφυλλου θα γίνει %{width}x%{height} pixels και ψηλότερες εικόνες θα περικοπούν στο κέντρο."
+        cover_photo_visibility: "Η εικόνα του προφίλ φαίνεται στην αρχική σελίδα για τους μη-συνδεδεμένους χρήστες "
+        cover_photo_instructions_text_with_dimensions: "Το μέγεθος της φωτογραφίας του εξώφυλλου θα προσαρμοστεί στις διαστάσεις %{width}x%{height} pixels, ενώ οι ψηλότερες εικόνες θα περικοπούν στο κέντρο."
         we_have_you_covered: ~
         cover_photo_ready_made: ~
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
-        main_content_width: ~
+        small_cover_photo_visibility: "Οι μικρές εικόνες του προφίλ φαίνονται σε όλες τις σελίδες εκτός από την αρχική σελίδα για τους μη-συνδεδεμένους χρήστες "
+        small_cover_photo_instructions_text_with_dimensions: "Η φωτογραφία θα αλλάξει μέγεθος σε %{width}x%{height} και οι μεγαλύτρες εικόνες θα κοπούν στη μέση."
+        main_content_width: "Όταν επιλέγετε φωτογραφίες εξωφύλλου, σημειώστε ότι το κύριο περιεχόμενο της σελίδας έχει μέγιστο πλάτος %{main_width}. Μπορείτε να ελένξετε την εμφάνιση της φωτογραφίας στις μικρότερες οθόνες (π.χ. χρησιμοποιώντας ένα πιο στενό παράθυρο του προγράμματος περιήγησης)."
         custom_color1_instructions_text: "Μπορείτε να αλλάξετε το κυρίως χρώμα του περιβάλλοντος αυτής της κοινότητας εισάγοντας ένα χρώμα σε δεκαεξαδική μορφή. Στο <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> μπορείτε να βρείτε το χρώμα που θέλετε και να αντιγράψετε τον κατάλληλο κωδικό εδώ."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Μπορείτε να αλλάξετε το χρώμα του κουμπιού Δημοσίευση νέας καταχώρησης εισάγοντας μια hex τιμή χρώματος. Το %{link_to_colorpicker} μπορεί να σας βοηθήσει να επιλέξετε το χρώμα και να σας δώσει τον hex κωδικό. Στη συνέχεια, μπορείτε να αντιγράψετε τον κωδικό εδώ."
         default_browse_view: "Προεπιλεγμένη προβολή περιήγησης"
         default_browse_view_instructions_text: "Η προεπιλεγμένη προβολή περιήγησης χρησιμοποιείται στην αρχική σελίδα για να ορίσει τον τρόπο εμφάνισης των καταχωρήσεων από προεπιλογή"
         grid: Πλέγμα
@@ -126,10 +141,10 @@ el:
         custom_head_script_instructions_text: ~
         current_image: ~
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: "Κείμενα οδηγιών"
       edit_welcome_email:
         welcome_email_content: "Περιεχόμενο μηνύματος καλωσορίσματος"
-        welcome_email_content_description: "Αυτό είναι το μήνυμα ηλεκτρονικού ταχυδρομείου που στέλνεται σε κάθε νέο μέλος όταν εγγράφεται. Μπορείτε να το τροποποιήσετε για να ταιριάζει στην κοινότητα. Αν θέλετε να δείτε πως φαίνεται στους χρήστες, πατήστε \"%{send_test_message_link}\" για να σταλεί ένα μήνυμα στη δική σας διεύθυνση."
+        welcome_email_content_description: "Αυτό είναι το μήνυμα θα στέλνεται σε κάθε νέο μέλος όταν εγγράφεται. Μπορείτε να το τροποποιήσετε για να ταιριάζει στη δική σας πλατφόρμα. Αν θέλετε να δείτε πως φαίνεται στους χρήστες, πατήστε \"%{send_test_message_link}\" για να σταλεί ένα μήνυμα στη δική σας διεύθυνση."
         edit_message: "Επεξεργασία μηνύματος"
         send_test_message: "Αποστολή δοκιμαστικού μηνύματος"
       outgoing_email:
@@ -139,7 +154,7 @@ el:
         sender_address: ~
         sender_address_default: ~
         need_to_change: ~
-        contact_support_link_text: ~
+        contact_support_link_text: "Επικοινώνησε με την υποστήριξη της Sharetribe "
         set_sender_address: "Ορισμός διεύθυνσης αποστολέα"
         sender_name_label: Όνομα
         sender_name_placeholder: "Όνομα αποστολέα"
@@ -156,7 +171,7 @@ el:
         change_sender_prompt: ~
         status: ~
         status_verified: "Επαληθεύτηκε - σε χρήση"
-        status_error: ~
+        status_error: "Παρουσιάστηκε σφάλμα. Ανανεώστε τη σελίδα."
         status_requested: ~
         status_expired: ~
         status_resent: ~
@@ -164,14 +179,14 @@ el:
         invalid_email_error: ~
         invalid_email_address: "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου"
         invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
+        invalid_email_domain_read_more_link: "Διαβάστε το άρθρο στο Κέντρο Βοήθειας (Help Center) για περισσότερες πληροφορίες."
         unknown_error: "Κάποιο λάθος έγινε"
         white_label_offer: ~
-        upgrade_plan_link: ~
+        upgrade_plan_link: "Αναβαθμίστε στο Pro plan ή σε ανώτερο πακέτο"
         verification_sent_from: ~
         follow_the_instructions: "Ακολουθήστε τις οδηγίες στο email για να επαληθεύσετε τη διεύθυνσή σας."
       getting_started:
-        getting_started: ~
+        getting_started: Ξεκινήστε
       available_languages:
         cs: ~
         da-DK: Δανέζικα
@@ -191,7 +206,7 @@ el:
         nb: ~
         nl: Ολλανδικά
         pl: ~
-        pt-BR: ~
+        pt-BR: Πορτογαλικά
         pt-PT: Πορτογαλικά
         ru: Ρώσσικα
         sv: Σουηδικά
@@ -203,11 +218,11 @@ el:
       settings:
         settings: Ρυθμίσεις
         general: Γενικά
-        access: Πρόσβαση
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
+        access: "Πρόσβαση και προτιμήσεις επαφών"
+        join_with_invite_only: "Να επιτρέπεται σε νέους χρήστες να συμμετέχουν μόνο μετά από πρόσκληση από εγγεγραμμένο χρήστη"
+        users_can_invite_new_users: "Να επιτρέπεται σε όλους τους εγγεγραμμένους χρήστες, και όχι μόνο στους διαχειριστές, να προσκαλούν νέους χρήστες"
+        private: "Να επιτρέπεται μόνο στους εγγεγραμμένους χρήστες να βλέπουν καταχωρήσεις και προφίλ χρηστών (κάντε την πλατφόρμα ιδιωτική)"
+        require_verification_to_post_listings: "Να επιτρέπεται μόνο στους χρήστες που επαληθεύονται από τους διαχειριστές να δημοσιεύουν νέες καταχωρήσεις"
         allow_free_conversations: ~
         search_preferences: "Προτιμήσεις αναζήτησης"
         search_and_location_preferences: ~
@@ -222,17 +237,17 @@ el:
         allow_users_to_add_location: ~
         fuzzy_location: ~
         listing_preferences: "Προτιμήσεις Καταχωρήσεων"
-        transaction_preferences: ~
+        transaction_preferences: "Προτιμήσεις παραγγελίας"
         show_listing_publishing_date: "Εμφάνιση της ημερομηνίας δημοσίευσης της καταχώρησης στην σελίδα καταχώρησης"
-        show_category_in_listing_list: ~
+        show_category_in_listing_list: "Εμφάνιση του τύπου καταχώρησης σε μορφή λίστας"
         listing_comments_in_use: "Επιτρέψτε στους χρήστες να δημοσιεύουν σχόλια στις καταχωρήσεις (με δυνατότητα προβολής σε όλους τους άλλους χρήστες)"
         email_preferences: "Προτιμήσεις Email"
         automatic_newsletters: "Αποστολή αυτόματων ημερήσιων / εβδομαδιαίων ενημερωτικών δελτίων σε όλους τους χρήστες (εκτός εάν εξαιρεθούν)"
         email_admins_about_new_members: "Στείλτε στους διαχειριστές ένα email κάθε φορά που ένας νέος χρήστης εγγράφεται"
-        google_analytics_key: ~
+        google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
-        update_settings: ~
-        automatically_confirmed_no_escrow: ~
+        update_settings: "Αποθήκευση αλλαγών"
+        automatically_confirmed_no_escrow: "Η παραγγελία θα επισημανθεί αυτόματα ως ολοκληρωμένη, %{days_dropdown} ημέρες μετά την ολοκλήρωση της πληρωμής"
         automatically_confirmed_no_escrow_stripe_info: ~
         buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: ~
@@ -251,21 +266,21 @@ el:
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
-        manage_members: ~
+        manage_members: Χρήστες
         email: Email
         name: Όνομα
         display_name: ~
         join_date: Joined
         admin: Διαχειριστής
         posting_allowed: "Επιτρέπεται η δημοσίευση"
-        ban_user: ~
+        ban_user: Απενεργοποίηση
         saving_user_status: Αποθηκεύεται...
         save_user_status_successful: "Έγινε αποθήκευση"
         export_all_as_csv: ~
         save_user_status_error: "Η αποθήκευση απέτυχε. Ανανεώστε τη σελίδα και δοκιμάστε ξανά."
-        ban_user_confirmation: ~
+        ban_user_confirmation: "Αυτό απενεργοποιεί το λογαριασμό χρήστη από την πλατφόρμα και τους εμποδίζει να αποκτήσουν ξανά πρόσβαση στην τοποθεσία με αυτόν το λογαριασμό. Είστε βέβαιοι ότι θέλετε να συνεχίσετε;"
         unban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: "Δεν μπορείτε να απενεργοποιήσετε τον λογαριασμό σας."
         have_ongoing_transactions: ~
         only_delete_disabled: ~
         delete_info1: ~
@@ -298,7 +313,9 @@ el:
         enabled_for_you: "Ενεργοποιήθηκε για εσάς"
         enabled_for_all: "Ενεργοποιήθηκε για όλους"
         new_topbar: ~
-        searchpage: ~
+        searchpage: |+
+            Νέα σελίδα αναζήτησης (απαιτεί τη νέα επάνω γραμμή)
+            
         new_email_templates: ~
       social_media:
         social_media: "Μέσα Κοινωνικής Δικτύωσης "
@@ -312,19 +329,19 @@ el:
         social_media_description: ~
         twitter_handle: "Όνομα Χρήστη Twitter"
         twitter_handle_info_text: "Όνομα χρήστη του λογαριασμού Twitter του marketplace σας (εάν έχετε). Θα αναφέρεται όταν οι άνθρωποι χρησιμοποιούν το κουμπί tweet στη σελίδα καταχώρισης."
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text_with_instructions: "Το όνομα χρήστη του λογαριασμού Twitter της πλατφόρμας. Θα αναφερθεί όταν οι χρήστες κάνουν tweet στη σελίδα καταχώρησης. %{instructions_link}."
         twitter_instructions_link_text: "Διαβάστε περισσότερα"
         twitter_handle_placeholder: "όνομα χρήστη"
-        invalid_twitter_handle: ~
-        facebook_connect: ~
+        invalid_twitter_handle: "Η γραμμή του Twitter πρέπει να περιέχει κατά μέγιστο 15 χαρακτήρες (γράμματα A-Z και αριθμούς 0-9) ."
+        facebook_connect: "Σύνδεση με Facebook"
         facebook_developers_dashboard: ~
-        facebook_connect_info_text: ~
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
+        facebook_connect_info_text: "Για να ενεργοποιήσετε τη σύνδεση στο Facebook, δημιουργήστε μια εφαρμογή για την πλατφόρμα σας στο %{dashboard_link}. Προσθέστε εδώ το αναγνωριστικό ID και το μυστικό κλειδί που δημιουργήθηκε."
+        facebook_connect_info_text_with_instructions: "Για να ενεργοποιήσετε τη σύνδεση στο Facebook, δημιουργήστε την εφαρμογή για την πλατφόρμα σας στο %{dashboard_link}. Προσθέστε εδώ το ID που δημιουργήθηκε και το μυστικό κλειδί εδώ %{instructions_link} "
+        facebook_instructions_link_text: "Ανατρέξτε στις οδηγίες για τη ρύθμιση των παραμέτρων σύνδεσης στο Facebook."
+        facebook_connect_id: "Facebook App ID"
+        invalid_facebook_connect_id: "To App ID πρέπει να περιέχει μόνο αριθμούς."
+        facebook_connect_secret: "Facebook App Secret"
+        invalid_facebook_connect_secret: "To App Secret πρέπει να περιέχει μόνο αριθμούς και γράμματα από το a ως το f."
         enable_facebook_login: ~
         save: "Αποθήκευση ρυθμίσεων"
         google_connect: ~
@@ -395,11 +412,11 @@ el:
         google_search_console_paragraph2: ~
         save: ~
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
+        analytics: "Στατιστικά στοιχεία"
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "Αριθμός ID για τον λογαριασμό του Google Analytics."
         google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_instructions_link_text: "Διαβάστε περισσότερα σχετικά με τη σύνδεση στο Google Analytics"
         sharetribe_analytics: ~
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
@@ -415,12 +432,12 @@ el:
         url: ~
         placeholder: ~
       menu_links:
-        menu_links: ~
+        menu_links: "Προσαρμοσμένες συνδέσεις μενού"
         menu_links_display: ~
-        save: ~
+        save: "Αποθήκευσε τις ρυθμίσεις"
         add_menu_link: "Προσθέστε έναν νέο σύνδεσμο στο μενού"
         title_placeholder: ~
-        url_placeholder: ~
+        url_placeholder: "https://www.example.com/en"
         title: Τίτλος
         language: Γλώσσα
         url: ~
@@ -445,7 +462,7 @@ el:
       transactions:
         export_all_as_csv: ~
         processing_export: ~
-        transactions: ~
+        transactions: Συναλλαγές
         search_by_title_parties: ~
         search: ~
         reset_search: ~
@@ -472,20 +489,20 @@ el:
           started: Άρχισε
           last_activity: "Τελευταία δραστηριότητα"
           initiated_by: ~
-          other_party: ~
+          other_party: Πωλητής
         status:
           conversation: ~
-          free: ~
+          free: "Δωρεάν συναλλαγή"
           pending: Εκκρεμής
           preauthorized: Εξουσιοδοτημένο
           accepted: Δεκτό
           rejected: Απορρίφθηκε
           paid: Πληρωμένο
-          confirmed: ~
+          confirmed: Ολοκληρώθηκε
           canceled: Ακυρώθηκε
           disputed: ~
-          initiated: ~
-          pending_ext: ~
+          initiated: "Αναμονή για πληρωμή μέσω PayPal"
+          pending_ext: "Αναμονή για πληρωμή μέσω PayPal"
           none:
             free: ~
           paypal:
@@ -859,15 +876,15 @@ el:
           youtube_video_id_info: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Επεξεργασία πεδίου καταχώρησης '%{field_name}'"
       edit_price:
         description: ~
-        edit_price_field: ~
+        edit_price_field: "Επεξεργασία πεδίου καταχώρησης 'Τιμή'"
         show_price_filter_homepage: "Εμφάνιση φίλτρου τιμών στην αρχική σελίδα"
-        price_min: ~
-        price_max: ~
+        price_min: "Φίλτρο ελάχιστης τιμής"
+        price_max: "Φίλτρο μέγιστης τιμής"
       edit_location:
-        edit_location_field: ~
+        edit_location_field: "Επεξεργασία πεδίου καταχώρησης 'Τοποθεσία'"
         this_field_is_required: "Αυτό το πεδίο είναι υποχρεωτικό"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
@@ -875,17 +892,17 @@ el:
         enable: ~
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
+          this_field_is_required: "Κάνε υποχρεωτική τη συμπλήρωση αυτού του πεδίου κατά τη δημιουργία μιας νέας καταχώρησης"
+          this_field_is_required_checkbox: "Να είναι υποχρεωτική η συμπλήρωση αυτού του πεδίου κατά τη δημιουργία μιας νέας καταχώρησης (ο χρήστης πρέπει να επιλέξει τουλάχιστον μία επιλογή)"
         search_filter:
           search_filter: ~
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: ~
-        listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
+        listing_fields: "Πεδίο καταχωρήσεων & Φίλτρα"
+        listing_fields_help: "Εδώ μπορείτε να επεξεργαστείτε τα πεδία που πρέπει να συμπληρώσουν οι χρήστες όταν δημιουργούν μια νέα καταχώρηση. Σημειώστε ότι ορισμένα πεδία είναι προκαθορισμένα και δεν είναι δυνατή η επεξεργασία τους."
+        add_new_field: "Πρόσθεσε νέο πεδίο"
+        remove_field_confirmation: "Είστε βέβαιοι ότι θέλετε να καταργήσετε το πεδίο '%{field_name}' και όλα τα δεδομένα του; Αυτό δεν μπορεί να αναιρεθεί."
         cancel: Άκυρο
         save: Αποθήκευση
         field_title: "Τίτλος Πεδίου"
@@ -897,7 +914,7 @@ el:
         add_option: "+ Προσθήκη επιλογής"
         saving_order: "Αποθήκευση παραγγελίας πεδίου"
         save_order_successful: "Η παραγγελία πεδίου αποθηκεύτηκε με επιτυχία"
-        save_order_error: ~
+        save_order_error: "Παρουσιάστηκε σφάλμα κατά την αποθήκευση των πεδίων. Ανανεώστε τη σελίδα και προσπαθήστε ξανά"
         select_one: "Επιλογή τύπου πεδίου ..."
         continue: Συνέχεια
         minimum_value: Ελάχιστο
@@ -939,8 +956,8 @@ el:
         edit_user_field: ~
     emails:
       new:
-        send_email_to_members: "Στείλτε ένα μήνυμα ηλεκτρονικού ταχυδρομείου στα μέλη"
-        send_email_to_members_title: "Στείλτε ένα μήνυμα ηλεκτρονικού ταχυδρομείου σε όλα τα μέλη αυτής της κοινότητας"
+        send_email_to_members: "Στείλτε email στους χρήστες"
+        send_email_to_members_title: "Στείλτε email στα μέλη αυτής της πλατφόρμας"
         send_email: Αποστολή
         send_email_or: ~
         send_test_email: ~
@@ -958,10 +975,10 @@ el:
             no_listing_no_payment: ~
         email_subject: "Θέμα μηνύματος"
         email_content: "Περιεχόμενο μηνύματος"
-        email_content_placeholder: "Τι θέλετε να πείτε στα μέλη;"
+        email_content_placeholder: "Τι θέλετε να πείτε στους χρήστες της πλατφόρμας;"
         email_language: "Γλώσσα των παραληπτών"
         any_language: "Οποιαδήποτε γλώσσα"
-        message_will_be_sent_only_to_people_with_this_language: "Σημείωση: Το μήνυμα θα σταλεί μόνο στα μηνύματα που χρησιμοποιούν το %{service_name} στη γλώσσα που επιλέξατε."
+        message_will_be_sent_only_to_people_with_this_language: "Το μήνυμα θα σταλεί μόνο στους χρήστες που χρησιμοποιούν το %{service_name} στη γλώσσα επιλογής."
         email_sent: "Το μήνυμα στάλθηκε."
         to_improve_email_deliverability: ~
         email_subject_text: ~
@@ -970,8 +987,8 @@ el:
         hello_firstname_text: ~
     left_hand_navigation:
       general: Γενικά
-      users_and_transactions: ~
-      configure: ~
+      users_and_transactions: Διαχείριση
+      configure: Ρυθμίστε
       emails_title: Emails
       subscription: Συνδρομή
       preview: ~
@@ -980,7 +997,7 @@ el:
       availability_title: Διαθεσιμότητα
       read_more: "Διαβάστε περισσότερα σχετικά με την αυτόματη διαχείριση διαθεσιμότητας."
       read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
+      allow_providers_to_manage_availability: "Να επιτρέπεται στους πωλητές να διαχειρίζονται τη διαθεσιμότητά τους από το ημερολόγιο"
       per_hour_availability: ~
       per_day_availability: "Διαθεσιμότητα \"ανά ημέρα\""
       per_night_availability: "Διαθεσιμότητα \"ανά βραδιά\""
@@ -988,7 +1005,7 @@ el:
       can_not_find_name: ~
       index:
         listing_shapes: ~
-        description: ~
+        description: "Οι τύποι παραγγελιών καθορίζουν τη διαδικασία των παραγγελιών στην πλατφόρμα. Μπορείτε να αποφασίσετε αν οι χρήστες σας νοικιάζουν ή πωλούν, ή ίσως απλά δημοσιεύουν ανακοινώσεις και επικοινωνούν μέσω άμεσων μηνυμάτων."
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
@@ -997,18 +1014,18 @@ el:
         category_count: ~
         header:
           listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_categories: "Κατηγορίες όπου χρησιμοποιείται"
         order:
           saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          save_order_successful: "Η σειρά των τύπων παραγγελίας αποθηκεύτηκε με επιτυχία"
+          save_order_error: "Παρουσιάστηκε σφάλμα κατά την αποθήκευση της παραγγελίας. Ανανεώστε τη σελίδα και προσπαθήστε ξανά."
       templates:
         selling_products: "Πώληση προϊόντων"
         renting_products: "Ενοικίαση προϊόντων"
         offering_services: "Προσφέροντας υπηρεσίες"
         giving_things_away: ~
         requesting: ~
-        announcement: ~
+        announcement: "Δημοσίευση ανακοινώσεων"
         custom: ~
       new:
         create_listing_shape: ~
@@ -1032,9 +1049,9 @@ el:
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: "Τιμές & ολοκλήρωση αγοράς"
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
+      online_payments_label: "Να επιτρέπεται στους πωλητές να δέχονται ηλεκτρονικές πληρωμές"
+      shipping_label: "Επίτρεψε στους πωλητές να καθορίσουν τα τέλη αποστολής"
+      price_label: "Επιτρέψτε στους πωλητές να προσθέσουν τιμές για τις καταχωρίσεις τους"
       units_title: ~
       units_desc: ~
       units:
@@ -1060,26 +1077,26 @@ el:
           quantity_label: "Ποσότητα (ανά τεμάχιο, ανά κιλό, ανά άτομο, ανά περιήγηση 2 ωρών ...)"
           time_label: "Χρόνος (ανά 30 λεπτά, ανά 2 εβδομάδες, ανά έτος ...)"
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
-      contact_support_link_text: ~
-      integration_info_text: ~
+      marketplace_paypal_integration: "Προτιμήσεις στο σύστημα πληρωμών"
+      preferences_updated: "Ενημερώθηκαν οι προτιμήσεις του συστήματος πληρωμών"
+      contact_support_link_text: "Επικοινωνήστε με τη Βοήθεια"
+      integration_info_text: "Το σύστημα πληρωμών της πλατφόρμας σας υποστηρίζει πληρωμές μέσω PayPal. Για να επιτρέψετε στους χρήστες σας να πληρώνουν, πρέπει να συνδέσετε τον PayPal  λογαριασμό σας. Αφού τον συνδέσετε επιλέξτε ένα το ελάχιστο ποσό συναλλαγής και την πιθανή προμήθεια."
       link_paypal_personal_account_label: "Εσείς παρέχετε προϊόντα ή υπηρεσίες;"
       link_paypal_personal_account: ~
       link_stripe_personal_account: ~
       link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "ο προσωπικός σας λογαριασμός marketplace"
-      read_more_about_paypal: ~
+      read_more_about_paypal: "Διαβάστε περισσότερα για το σύστημα πληρωμών"
       edit_payment_settings: "Επεξεργασία ρυθμίσεων πληρωμής"
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
       marketplace_currency_label: "Το νόμισμα του marketplace"
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
-      minimum_transaction_fee_label: ~
+      minimum_listing_price_label: "Ελάχιστο ποσό συναλλαγής"
+      transaction_fee_label: "Προμήθεια συναλλαγής για τον πωλητή"
+      minimum_transaction_fee_label: "Ελάχιστο τέλος συναλλαγής πωλητή:"
       save_settings: "Αποθήκευση ρυθμίσεων"
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "Το ελάχιστο ποσό συναλλαγής πρέπει να είναι μεγαλύτερο ή ίσο με το ελάχιστο τέλος συναλλαγής: %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Το ελάχιστο μέγεθος συναλλαγής πρέπει να είναι μεγαλύτερο από την ελάχιστη προμήθεια %{minimum_commission}."
     payment_preferences:
       title: ~
       general_settings: ~
@@ -1160,7 +1177,7 @@ el:
       service_w_online_payment: ~
       service_wo_online_payment: ~
       request: αιτήματα
-      inquiry: ~
+      inquiry: Ανακοίνωση
       share_for_free: "δωρεάν παραχώρηση"
       event_w_online_payment: ~
       event_wo_online_payment: ~
@@ -1193,8 +1210,8 @@ el:
         learn_more: ~
   common:
     edit_page: "Επεξεργασία σελίδας"
-    default_community_slogan: "Δάνεισε, βοήθα, πούλα, μοιράσου"
-    default_community_description: "Εδώ μπορείτε να πουλήσετε, να νοικιάσετε, να ανταλλάξετε ή να μοιραστείτε αγαθά και να προσφέρετε υπηρεσίες σε άλλα μέλη αυτής της κοινότητας."
+    default_community_slogan: "Διαδικτυακή κοινότητα αγοραπωλησιών"
+    default_community_description: "Εδώ μπορείτε να πουλήσετε, να νοικιάσετε, να ανταλλάξετε ή να μοιραστείτε αγαθά και υπηρεσίες σε άλλα μέλη αυτής της πλατφόρμας."
     cancel: Άκυρο
     fields_that_are_mandatory: "Τα πεδία με το αστεράκι (*) είναι υποχρεωτικά."
     or: ή
@@ -1216,27 +1233,27 @@ el:
       share_for_free: "δωρεάν παραχώρηση"
       accept_for_free: "δωρεάν χρήση"
     categories:
-      item: αντικείμενα
-      favor: υπηρεσίες
-      rideshare: συνεπιβατισμός
-      housing: χώροι
-      tools: εργαλεία
-      sports: "αθλητικός εξοπλισμός"
-      music: μουσική
-      books: "βιβλία & περιοδικά"
-      games: παιχνίδια
-      furniture: έπιπλα
-      outdoors: "είδη κάμπινγκ"
-      food: "είδη κουζίνας & φαγητό"
-      electronics: ηλεκτρονικά
-      pets: κατοικίδια
-      film: ταινίες
-      clothes: "ρούχα & αξεσουάρ"
-      garden: "είδη κήπου"
-      travel: "ταξιδιωτικά είδη"
-      other: άλλα
+      item: Αντικείμενα
+      favor: Υπηρεσίες
+      rideshare: Συνεπιβατισμός
+      housing: Χώροι
+      tools: Εργαλεία
+      sports: Αθλήματα
+      music: Μουσική
+      books: "Βιβλία & Περιοδικά"
+      games: Παιχνίδια
+      furniture: Έπιπλα
+      outdoors: "Είδη κάμπινγκ"
+      food: "Είδη κουζίνας & φαγητό"
+      electronics: Ηλεκτρονικά
+      pets: Κατοικίδια
+      film: Ταινίες
+      clothes: "Ρούχα & αξεσουάρ"
+      garden: "Είδη κήπου"
+      travel: Ταξίδια
+      other: Λοιπά
     username: "Όνομα χρήστη"
-    username_or_email: "Ηλεκτρονική διεύθυνση ή όνομα χρήστη"
+    username_or_email: "Ηλεκτρονική διεύθυνση (Email)"
     what_is_this: "Τι είναι αυτό;"
     removed_user: "Χρήστης καταργήθηκε"
     payment_fee_info:
@@ -1245,8 +1262,10 @@ el:
       paypal: PayPal
       info: ~
     paypal_fee_info:
-      title: ~
-      body_text: ~
+      title: "Προμήθεια για πληρωμή μέσω PayPal"
+      body_text: |-
+          Για πληρωμές μέσω PayPal, το %{service_name} χρεώνει προμήθεια %{paypal_commission}%. Η ελάχιστη χρέωση ανά συναλλαγή είναι %{minimum_transaction_fee}. Οι αμοιβές της PayPal δεν περιλαμβάνονται σε αυτήν την προμήθεια, επομένως, εκτός από την προμήθεια %{service_name}, χρεώνεστε για την αμοιβή της PayPal. Η αμοιβή της PayPal είναι μεταξύ 2% και 5% της συνολικής τιμής πώλησης, ανάλογα με τον μηνιαίο όγκο πωλήσεών σας και τη χώρα κατοικίας του αγοραστή. Σε γενικές γραμμές, οι εγχώριες αγορές έχουν χαμηλότερα τέλη από τις διεθνείς, και οι υψηλότερες μηνιαίες πωλήσεις σας δίνουν μια έκπτωση στα τέλη. 
+          Μπορείτε να δείτε τις ακριβείς χρεώσεις, στον PayPal λογαριασμό σας και μεταβαίνοντας στο %{link_to_paypal}. Μετά από κάθε αγορά λαμβάνετε απόδειξη με την ακριβή χρέωση.
       body_text_accept: ~
       link_to_paypal_text: εδώ
     stripe_fee_info:
@@ -1256,9 +1275,9 @@ el:
   conversations:
     accept:
       details: "Λεπτομέρειες παραγγελίας"
-      order_by: ~
+      order_by: "Παραγγελία από %{orderer_link} "
       accept_offer: "Αποδεχτείτε την προσφορά"
-      accept_request: ~
+      accept_request: "Αποδέξου την πρόσκληση και διατήρησε την καταχώρηση ανοιχτή"
       accept_request_and_close: ~
       reject_offer: "Όχι αυτή τη φορά"
       reject_request: "Όχι αυτή τη φορά"
@@ -1270,7 +1289,7 @@ el:
       decline: Απόρριψη
       quantity_label: "Ποσότητα:"
       sum_label: "Υποσύνολο:"
-      service_fee_label: ~
+      service_fee_label: "Προμήθεια για %{service_name} "
       buyer_service_fee_label: ~
       you_will_get_label: "Θα πάρετε:"
       total_label: "Σύνολο:"
@@ -1278,16 +1297,16 @@ el:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee: ~
-      paypal_fee_info: ~
+      paypal_fee_info: "Εξαιρεί %{link} "
       shipping_price_label: "Αποστολή:"
       stripe-fee_label: "Χρέωση επεξεργασίας πληρωμών"
     confirm:
-      confirm_description: "Αν το αίτημά σας έχει εκπληρωθεί θα πρέπει να το επιβεβαιώσετε ως ολοκληρωμένο. Τότε μόνο μπορείτε να γράψετε κριτική για το άλλο μέλος της συναλλαγής."
+      confirm_description: "Αν η παραγγελία σας έχει εκπληρωθεί θα πρέπει να την επιβεβαιώσετε ως ολοκληρωμένη. Τότε μόνο μπορείτε να γράψετε κριτική για το άλλο μέλος της συναλλαγής."
       cancel_description_team: ~
       cancel_payed_description: "Αν το αίτημά σας έγινε δεκτό αλλά το ξανασκέφτεστε, μπορείτε να ακυρώσετε τη συναλλαγή πριν την πληρωμή."
       canceling_payed_transaction: "Ακύρωση συναλλαγής"
       confirm: Ολοκληρώθηκε
-      cancel: "Δεν πραγματοποιήθηκε"
+      cancel: Αμφισβήτηση
       continue: Συνέχεια
       give_feedback_to: "Γράψτε κριτική για το χρήστη %{person_link}"
       do_not_give_feedback: "Παραλείψτε την κριτική"
@@ -1306,24 +1325,24 @@ el:
       accepted_offer: "Η προσφορά έγινε δεκτή."
       rejected_request: "Το αίτημα απορρίφθηκε."
       rejected_offer: "Η προσφορά απορρίφθηκε."
-      confirmed_request: "Το αίτημα ολοκληρώθηκε."
+      confirmed_request: "Η παραγγελία ολοκληρώθηκε."
       confirmed_offer: "Η προσφορά ολοκληρώθηκε."
-      canceled_request: "Το αίτημα ακυρώθηκε."
+      canceled_request: "Η παραγγελία αμφισβητείται"
       canceled_offer: "Η προσφορά ακυρώθηκε."
       message_from: "Μήνυμα από %{person}"
       about_listing: "Σχετικά με καταχώρηση %{listing_title}"
-      free_message: ~
+      free_message: "Απευθείας μήνυμα"
       message_content_not_available: "Το περιεχόμενο του μηνύματος δεν είναι διαθέσιμο"
     message:
-      accepted_request: "δέχτηκε το αίτημα"
+      accepted_request: "Το αίτημα έγινε αποδεκτό"
       received_payment: ~
       received_payment_wo_sum: "αποδέχθηκε το αίτημα, έλαβε πληρωμή"
       accepted_offer: "δέχτηκε την προσφορά"
-      rejected_request: "απόρριψε το αίτημα"
+      rejected_request: "Το αίτημα απορρίφθηκε. Η πληρωμή ακυρώθηκε"
       rejected_offer: "απόρριψε την προσφορά"
-      confirmed_request: "δήλωσε ότι το αίτημα ολοκληρώθηκε"
+      confirmed_request: "Σημείωσε την παραγγελία ως ολοκληρωμένη"
       confirmed_offer: "δήλωσε ότι η προσφορά ολοκληρώθηκε"
-      canceled_request: "ακύρωση το αίτημα"
+      canceled_request: "Η παραγγελία ακυρώθηκε"
       canceled_offer: "ακύρωσε την προσφορά"
       paid: "πλήρωσε %{sum}"
       payment_preauthorized: ~
@@ -1347,7 +1366,7 @@ el:
       you_will_get_notified: "Θα λάβετε μια ειδοποίηση με email όταν ο/η %{person} σας απαντήσει."
       title: Τίτλος
       send_message_to_user: "Αποστολή μηνύματος στον/στην %{person}"
-      about_listing: ~
+      about_listing: "Σχετικά με την καταχώρηση %{listing_title}"
       author_has_to_accept_request: "%{author_name} πρέπει να αποδεχτείτε το αίτημα για να μπορέσετε να πληρώσετε"
     show:
       in_response_to_listing: "σχετικά με την καταχώρηση"
@@ -1360,12 +1379,12 @@ el:
       conversation_with: "Συνομιλία με  %{person}"
       last_message_at: "(τελευταίο μήνυμα %{time})"
       price: "Τιμή: %{price}"
-      sum: ~
+      sum: "Σύνολο:%{sum} "
       total: "Σύνολο: %{total}"
     status:
       payment_errored: "Η πληρωμή απέτυχε. Παρακαλώ προσπαθήστε ξανά."
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored_starter: "Η πληρωμή απέτυχε. Προσπαθήστε ξανά. Εάν το πρόβλημα συνεχιστεί, επικοινωνήστε με την υποστήριξη του Sharetribe."
+      payment_errored_author: "Η πληρωμή απέτυχε. Επικοινωνήστε με το %{starter_name} και ζητήστε τους να δοκιμάσουν ξανά την πληρωμή."
       cancel_payed_transaction: Άκυρο
       feedback_given: "Δόθηκε κριτική"
       feedback_skipped: "Η κριτική παραλείφθηκε"
@@ -1376,37 +1395,37 @@ el:
       offer_confirmed: Ολοκληρώθηκε
       offer_paid: "Επιτυχής Πληρωμή"
       offer_preauthorized: "Επιτυχής Πληρωμή"
-      offer_waiting_for_payment: ~
+      offer_waiting_for_payment: "Αναμονή για την πληρωμή του %{requester_name}"
       pay: Πληρωμή
       preauthorized: "Επιτυχής Πληρωμή"
       paid: "Επιτυχής πληρωμή"
       pending_external:
         paypal:
-          multicurrency: ~
+          multicurrency: "Δεν ήταν δυνατό να προχωρήσει η πληρωμή μέσω PayPal, επειδή ο λογαριασμός σας στο PayPal δεν έχει ρυθμιστεί για λήψη χρημάτων σε %{currency}. Μεταβείτε στο %{paypal_url} και συνδεθείτε στο λογαριασμό σας για να αποδεχτείτε ή να απορρίψετε την πληρωμή."
           verify: "Δεν μπορείτε να αποδεχτείτε αυτήν τη συναλλαγή επειδή δεν έχετε επαληθεύσει τον λογαριασμό σας στο PayPal. Πήγαινε στο %{paypal_url} για να επαληθεύσετε τον λογαριασμό σας."
-          intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+          intl: "Δεν ήταν δυνατό να προχωρήσει η πληρωμή μέσω PayPal, επειδή ο PayPal λογαριασμός σας δεν διαθέτει μηχανισμό ανάληψης. Μεταβείτε στο %{paypal_url} και συνδεθείτε στο λογαριασμό σας για να αποδεχτείτε ή να απορρίψετε την πληρωμή."
+      waiting_for_current_user_to_deliver_listing: "Αναμένουμε να ολοκληρώσετε την παραγγελία για %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Αναμονή για %{listing_author_name} να ολοκληρώσει την παραγγελια %{listing_title}"
       request_accepted: "Το αίτημα έγινε δεκτό"
       request_rejected: "Το αίτημα απορρίφθηκε"
       request_confirmed: Ολοκληρώθηκε
       request_canceled: Ακυρώθηκε
       request_paid: "Επιτυχής Πληρωμή"
-      request_preauthorized: ~
+      request_preauthorized: "Η πληρωμή εγκρίθηκε"
       skip_feedback: "Παράλειψε την κριτική"
       waiting_for_listing_author_to_accept_offer: "Αναμονή αποδοχής της προσφοράς από τον/την %{listing_author_name}"
-      waiting_for_listing_author_to_accept_request: "Αναμονή αποδοχής του αιτήματος από τον/την %{listing_author_name}"
+      waiting_for_listing_author_to_accept_request: "Αναμονή αποδοχής του αιτήματος από τον/την %{listing_author_name}. Μόλις ο/η %{listing_author_name}  αποδεχτεί, θα χρεωθείτε."
       waiting_for_you_to_accept_request: "Σας περιμένουμε να αποδεχτείτε το αίτημα"
-      waiting_confirmation_from_requester: "Αναμονή να δηλωθεί ως ολοκληρωμένο από τον/την %{requester_name}"
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_requester: "Αναμείνατε να δηλώσει ο/η %{requester_name} την παραγγελια ως ολοκληρωμένη"
+      waiting_confirmation_from_you: "Αναμονή για να επισημάνετε την ολοκλήρωση της παραγγελίας"
       waiting_payment_from_requester: "Αναμονή πληρωμής από τον/την %{requester_name}"
       waiting_payment_from_you: "Σας περιμένουμε να πληρώσετε"
       waiting_feedback_from_you: "Σας περιμένουμε να σχολιάσετε"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
+          multicurrency: "Αναμονή για αποδοχή της πληρωμής μέσω PayPal"
           intl: "Σας περιμένουμε να αποδεχτείτε την πληρωμή μέσω PayPal"
-          unknown_reason: ~
+          unknown_reason: "Η πληρωμή εκκρεμεί. Συνδεθείτε στον PayPal λογαριασμό σας για να δείτε περισσότερες λεπτομέρειες."
           verify: "Σας περιμένουμε να επαληθεύσετε τον λογαριασμό σας PayPal"
       stripe:
         waiting_confirmation_from_requester: ~
@@ -1432,7 +1451,7 @@ el:
       reject_preauthorized_offer: "Όχι αυτή την φορά"
       reject_preauthorized_request: "Όχι αυτή την φορά"
       confirm: Ολοκληρώθηκε
-      cancel: "Δεν πραγματοποιήθηκε"
+      cancel: Αμφισβήτηση
       mark_as_refunded: "Επισήμανση ως επιστροφή χρημάτων"
       dismiss: "Παράβλεψη και πληρωμή"
   feedback:
@@ -1443,24 +1462,24 @@ el:
   community_memberships:
     access_denied:
       access_denied: "Δεν επιτρέπεται η πρόσβαση"
-      you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      you_are_banned_in_this_community: "Η ομάδα %{service_name} έχει απενεργοποιήσει το λογαριασμό σας. Εάν θέλετε να στείλετε μήνυμα στην ομάδα %{service_name}, μπορείτε πατήστε εδω %{link_to_contact_page}."
+      contact_page_link: "Επικοινώνησε μαζί τους"
     new:
       welcome_fb_user: "Καλωσήρθες στο %{service_name}!"
-      fb_join_accept_terms: "Υπάρχει ένα ακόμα βήμα για να εγγραφείς στην κοινότητα: πρέπει να αποδεχτείς τους όρους χρήσης."
-      join_community: "Εγγραφή στην κοινότητα %{community}"
-      you_can_join: "Μπορείς να γραφτείς σε αυτή την κοινότητα αφού αποδεχτείς τους όρους χρήσης και κάνεις κλικ στο κουμπί \"Εγγραφή στην κοινότητα\"."
-      you_can_join_email_confirmation: "Για να γραφτείτε σε αυτή την κοινότητα πρέπει να έχετε μια έγκυρη ηλεκτρονική διεύθυνση που να έχει μια από τις καταλήξεις: %{email_ending}. Μπορείτε να γραφτείτε συμπληρώνοντας την ηλεκτρονική σας διεύθυνση, αποδεχόμενοι τους όρους χρήσης της κοινότητας και πατώντας \"Εγγραφή στην κοινότητα\"."
-      you_can_join_email_confirmation_multiple_addresses: "Για να γραφτείτε σε αυτή την κοινότητα πρέπει να έχετε μια έγκυρη ηλεκτρονική διεύθυνση που να έχει μια από τις καταλήξεις: %{email_endings}. Μπορείτε να γραφτείτε συμπληρώνοντας την ηλεκτρονική σας διεύθυνση, αποδεχόμενοι τους όρους χρήσης της κοινότητας και πατώντας \"Εγγραφή στην κοινότητα\"."
-      you_can_join_with_invite_only: "Πρέπει να έχεις πρόσκληση από ένα άλλο μέλος για να συμμετέχεις σε αυτή την κοινότητα. Αν έχεις κάποιο κωδικό πρόσκλησης μπορείς να τον εισάγεις παρακάτω, να αποδεχτείς τους όρους χρήσης της κοινότητας και να πατήσεις \"Εγγραφή στην κοινότητα\"."
-      if_want_to_view_content: "Αν θες να δεις το περιεχόμενο αυτής της κοινότητας χωρίς να συμμετέχεις σε αυτή, πρέπει να"
-      log_out: αποσυνδεθείς
-      join_community_button: "Εγγραφή στην κοινότητα"
+      fb_join_accept_terms: "Υπάρχει ένα ακόμα βήμα για να εγγραφείς στην πλατφόρμα %{service_name}: πρέπει να αποδεχτείς τους όρους χρήσης."
+      join_community: "Εγγραφή στην πλατφόρμα %{service_name} "
+      you_can_join: "Μπορείς να γραφτείς σε αυτή την κοινότητα αφού αποδεχτείς τους όρους χρήσης και κάνεις κλικ στο κουμπί \"Εγγραφή\"."
+      you_can_join_email_confirmation: "Για να γραφτείτε στην πλατφόρμα πρέπει να έχετε μια έγκυρη ηλεκτρονική διεύθυνση που να έχει μια από τις καταλήξεις: %{email_ending}. Μπορείτε να γραφτείτε συμπληρώνοντας την ηλεκτρονική σας διεύθυνση, αποδεχόμενοι τους όρους χρήσης και πατώντας \"Εγγραφή\"."
+      you_can_join_email_confirmation_multiple_addresses: "Για να γραφτείτε στην πλατφόρμα %{service_name} πρέπει να έχετε μια έγκυρη ηλεκτρονική διεύθυνση. Εγγραφείτε συμπληρώνοντας την ηλεκτρονική σας διεύθυνση, αποδεχόμενοι τους όρους χρήσης της %{service_name} και πατώντας \"Εγγραφή\"."
+      you_can_join_with_invite_only: "Πρέπει να έχεις πρόσκληση από μέλος της πλατφόρμας %{service_name} για να συμμετέχεις. Αν έχεις κάποιο κωδικό πρόσκλησης μπορείς να τον εισάγεις παρακάτω, να αποδεχτείς τους όρους χρήσης της %{service_name}  και να πατήσεις \"Εγγραφή\"."
+      if_want_to_view_content: "Αν θες να δεις το περιεχόμενο της %{service_name}  χωρίς να συμμετέχεις ως μέλος, πρέπει να"
+      log_out: Αποσυνδέθηκες
+      join_community_button: "Εγγραφή στην πλατφόρμα %{service_name} "
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Ο κωδικός πρόσκλησης δεν ήταν έγκυρος ή έχει ξαναχρησιμοποιηθεί."
+      email_not_allowed: "Αυτό το email δεν επιτρέπεται στο %{service_name}."
+      email_not_available: "Αυτό το email χρησιμοποιείται ήδη"
+      consent_not_given: "Δεν έχετε κάνει αποδεκτούς τους όρους"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Θυμηθείτε να αποδεχτείτε ή να απορρίψετε μία προσφορά από το χρήστη %{sender_name}"
@@ -1475,28 +1494,28 @@ el:
       create_own: ~
       learn_more: ~
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Δεν έχετε ακόμα επιβεβαιώσει ή ακυρώσει το αίτημα %{request_link} που λάβατε στις %{date} από το χρήστη %{other_party_full_name}. Αν το αίτημα έχει ολοκληρωθεί θα πρέπει να το επιβεβαιώσετε έτσι ώστε να μπορέσετε να κάνετε κριτική για το χρήστη %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Δεν έχετε ακόμα επιβεβαιώσει ή αμφισβητήσει το αίτημα %{request_link} που λάβατε στις %{date} από το χρήστη %{other_party_full_name}. Αν το αίτημα έχει ολοκληρωθεί θα πρέπει να το επιβεβαιώσετε έτσι ώστε να μπορέσετε να κάνετε κριτική για το χρήστη %{other_party_given_name}."
       remember_to_confirm_request: "Θυμηθείτε να επιβεβαιώσετε ή να ακυρώσετε ένα αίτημα"
-      if_will_not_happen_you_should_cancel: "Αν πιστεύετε ότι αυτό το αίτημα για οποιοδήποτε λόγο δεν θα ολοκληρωθεί, μπορείτε να %{cancel_it_link}."
-      cancel_it_link_text: "το ακυρώσετε"
-      automatic_confirmation: ~
+      if_will_not_happen_you_should_cancel: "Αν πιστεύετε ότι η παραγγελία για οποιοδήποτε λόγο δεν θα ολοκληρωθεί, μπορείτε να %{cancel_it_link}."
+      cancel_it_link_text: "Αμφισβητήστε το"
+      automatic_confirmation: "Εάν δεν επιβεβαιώσετε ή αμφισβητήσετε την παραγγελία εντός %{days_to_automatic_confirmation} ημερών μετά την αποδοχή της αίτησης, θα την επισημάνουμε αυτόματα ως ολοκληρωμένη."
     confirm_reminder_v2:
       headline: ~
       you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Μην ξεχάσετε να προσθέσετε τα στοιχεία σας για να λαμβάνετε πληρωμές"
       you_have_added_listing_with_payment: "Έχετε κάνει μια καταχώρηση \"%{listing_link}\" με πληρωμή όμως δεν έχετε ακόμα συμπληρώσει τα στοιχεία σας. Για να λάβετε την πληρωμή σας πρέπει να συμπληρώσετε τις απαραίτητες πληροφορίες."
-      please_go_to_payment_settings: "Παρακαλούμε δείτε τις %{payment_settings_link} και συμπληρώστε τις απαραίτητες πληροφορίες."
+      please_go_to_payment_settings: "Παρακαλούμε πηγένετε στο %{payment_settings_link} και συμπληρώστε τις απαραίτητες πληροφορίες."
       payment_settings_link: "ρυθμίσεις πληρωμών"
     payment_settings_reminder_v2:
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
       here_is_a_message_from: "Δείτε ένα μήνυμα από το χρήστη %{other_party_given_name}:"
-      request_marked_as_confirmed: "Το αίτημα ολοκληρώθηκε - θυμηθείτε να κάνετε κριτική για το άλλο μέλος"
-      request_marked_as_canceled: "Το αίτημα ακυρώθηκε"
-      has_marked_request_as_confirmed: "Ο/η %{other_party_full_name} επιβεβαίωσε ότι το αίτημά σας \"%{request}\" ολοκληρώθηκε. Τώρα μπορείτε να κάνετε κριτική για τον/την %{other_party_given_name}."
-      has_marked_request_as_canceled: "Ο/η %{other_party_full_name} ακύρωσε το αίτημά σας για \"%{request}\". Μπορείτε ωστόσο να κάνετε κριτική για τον/την %{other_party_given_name}."
+      request_marked_as_confirmed: "Η παραγγελία ολοκληρώθηκε - θυμηθείτε να κάνετε κριτική για το άλλο μέλος"
+      request_marked_as_canceled: "Η παραγγελία σας αμφισβητείται"
+      has_marked_request_as_confirmed: "Ο/η %{other_party_full_name} επιβεβαίωσε ότι το αίτημά σας \"%{request}\" ως ολοκληρωμένο. Τώρα μπορείτε να κάνετε κριτική για τον/την %{other_party_given_name}."
+      has_marked_request_as_canceled: "Ο/η %{other_party_full_name} αμφισβητεί το αίτημά σας σχετικά με \"%{request}\". Μπορείτε ωστόσο να κάνετε κριτική για τον/την %{other_party_given_name}."
       giving_feedback_is_good_idea: "Είναι πάντα καλή ιδέα να κάνετε κριτική. Αν όλα πήγαν καλά δείχνετε και στα υπόλοιπα μέλη ότι ο/η %{other_party_given_name} είναι έμπιστος/η. Ακόμα κι αν υπήρχαν προβλήματα, καλό είναι να τα αναφέρετε κι αυτά."
       give_feedback_to: "Κάντε κριτική στον/στην %{other_party_given_name}"
       stripe:
@@ -1510,24 +1529,24 @@ el:
       can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Η παραγγελία ολοκληρώθηκε αυτόματα - θυμηθείτε να αφήσετε σχόλια"
+      we_have_marked_request_as_confirmed: "Έχουμε επισημάνει την παραγγελία που έχει ολοκληρωθεί σχετικά με το '%{request}'. Η παραγγελία ολοκληρώθηκε αυτόματα, επειδή έχουν παρέλθει %{days_passed} ημέρες από την αποδοχή της αίτησης."
     transaction_automatically_confirmed_v2:
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Η παραγγελία ολοκληρώθηκε αυτόματα - θυμηθείτε να δώσετε σχόλια"
+      we_have_marked_request_as_confirmed: "Έχουμε επισημάνει την παραγγελία '%{request}' ως ολοκληρωμένη. Το αίτημα ολοκληρώθηκε αυτόματα, επειδή έχει παρέλθει μία ημέρα από τη λήξη της περιόδου κράτησης."
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      giving_feedback_is_good_idea: "Τώρα μπορείτε να κάνετε σχόλια στο %{other_party_given_name}. Τα σχόλια είναι πάντα μια καλή ιδέα. Εάν όλα πήγαν καλά, θα πρέπει να ενημερώσετε τους άλλους ότι ο %{other_party_given_name} είναι αξιόπιστος. Αν υπήρχαν προβλήματα, είναι καλό και αυτά να αναφέρουμε."
+      give_feedback_to: "Κάνε σχόλιο σε %{other_party_given_name}"
       show_thread: "Εμφάνιση συνομιλίας"
     confirmation_instructions:
       confirmation_instructions_signature: "Χαιρετισμούς,<br>Η Ομάδα του %{service_name}"
-      need_to_confirm: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
-      confirmation_link_text: "Επιβεβαίωσε το λογαριασμό μου"
+      need_to_confirm: "Επιβεβαιώστε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας.πατώντας το σύνδεσμο κάτω"
+      confirmation_link_text: "Επιβεβαίωσε τη διέυθυνσή μου"
       or_paste_link: "Εναλλακτικά μπορείτε να αντιγράψετε τον παρακάτω σύνδεσμο στην γραμμή διευθύνσεων του περιηγητή σας."
     confirmation_instructions_v2:
       headline: ~
@@ -1560,7 +1579,7 @@ el:
       your_request_was_rejected: "Το αίτημά σας απορρίφθηκε"
       you_can_now_pay_to: "Μπορείτε τώρα να πληρώσετε το ποσό στον/στην %{payment_receiver}."
       pay_now: "Πληρώστε τώρα"
-      remember_to_confirm: ~
+      remember_to_confirm: "Όταν η παραγγελία εκπληρωθεί, θυμηθείτε να την επισημάνετε ως ολοκληρωμένη. Εάν η παραγγελία δεν εκπληρωθεί, έχετε %{days_to_automatic_confirmation} ημέρες για να την αμφισβητήσετε. Διαφορετικά, θα επισημανθεί αυτόματα ως ολοκληρωμένη"
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
@@ -1568,7 +1587,7 @@ el:
       has_rejected_your_request_text: ~
     invitation_to_kassi:
       hi: Γεια!
-      you_have_been_invited_to_kassi: "Ο/Η %{inviter} σας προσκάλεσε στην κοινότητα του %{community}."
+      you_have_been_invited_to_kassi: "Ο/Η %{inviter} σας προσκάλεσε στην κοινότητα του %{service_name} "
       here_is_a_message_from: "Ο %{inviter} σου στέλνει ένα προσωπικό μήνυμα:"
       join_now: "Γίνετε μέλος"
       invitation_code: "Κωδικός πρόσκλησης: %{code}"
@@ -1582,14 +1601,14 @@ el:
       has_commented_listing_you_follow_in_kassi: "Ο/η %{author} σχολίασε στην καταχώρηση \"%{listing}\" την οποία παρακολουθείτε στο %{service_name}."
     new_message:
       view_message: "Δείτε το μήνυμα"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "Ο χρήστης %{sender} σας έστειλε ένα μήνυμα. Μεταβείτε στο %{service_name} για να απαντήσετε."
+      you_have_a_new_message: "Έχετε ένα νέο μήνυμα από %{sender_name} στο %{service_name}"
     new_message_v2:
       headline: ~
       reply: ~
     new_payment:
       new_payment: "Λάβατε μια νέα πληρωμή"
-      price_per_unit_type: ~
+      price_per_unit_type: "Τιμή ανά %{unit_type}"
       quantity: "Ποσότητα:"
       you_have_received_new_payment: "Πληρωθήκατε <b>%{payment_sum}</b> για το \"<b>%{listing_title}</b>\" από τον/την %{payer_full_name}. Ορίστε η απόδειξή σας."
       listing_per_unit_title: ~
@@ -1632,26 +1651,26 @@ el:
       you_have_made_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: "Τέλη του PayPal:"
-      shipping_total: ~
+      shipping_total: "Τέλη Αποστολής:"
     braintree_new_payment:
       product: "Προϊόν:"
       price_payer_paid: "Τιμή %{payer_full_name} πληρώθηκε:"
-      service_fee: ~
-      you_will_get: ~
+      service_fee: "%{service_name} χρέωση υπηρεσίας:"
+      you_will_get: "Σύνολο:"
     receipt_to_payer:
       receipt_of_payment: "Απόδειξη πληρωμής"
       you_have_made_new_payment: "Πληρώσατε <b>%{payment_sum}</b> για το <b>%{listing_title}</b> στον/στην %{recipient_full_name}. Ορίστε η απόδειξη πληρωμής."
       product: Προϊόν
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Τιμή ανά %{unit_type}"
+      duration: Διάρκεια
+      quantity: Ποσότητα
+      subtotal: "Μερικό Υπόλοιπο"
       total: Σύνολο
       price: Τιμή
       buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Τα χρήματα θα μεταφερθούν στο %{recipient_name} όταν α) έχετε επισημάνει το αίτημα ως ολοκληρωμένο, ή β) %{automatic_confirmation_days} ημέρες έχουν περάσει από την πληρωμή."
       listing_per_unit_title: ~
       stripe:
         you_have_made_new_payment: ~
@@ -1666,10 +1685,10 @@ el:
       has_updated_listing_you_follow_in_kassi: "Ο/η %{author} ενημέρωση την καταχώρηση \"%{listing}\" την οποία παρακολουθείτε στο %{service_name}."
       view_changes: "Δείτε τις αλλαγές"
     community_updates:
-      added_offer: "ο/η %{name_link} πρόσθεσε μια προσφορά:"
-      added_request: "ο/η %{name_link} πρόσθεσε ένα αίτημα:"
+      added_offer: "Ο/Η %{name_link} έκανε μια καταχώρηση:"
+      added_request: "Ο/Η %{name_link} έκανε καταχώρηση:"
       added_listing: "Ο/η %{name_link} πρόσθεσε μια καταχώρηση:"
-      update_mail_title: "Ενημερώσεις από το %{title_link}"
+      update_mail_title: "Ενημερώσεις από %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Δείτε κάποια από τα νέα του %{community_link} τις τελευταίες %{time_since_last_update}"
       intro_paragraph_link_text: "%{community_name}"
@@ -1694,33 +1713,33 @@ el:
       you_have_not_given_feedback_yet: ~
       leave_feedback: ~
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
-      you_have_time_to_accept: ~
+      subject: "%{requester} ενδιαφέρεται και έχει εγκρίνει την πληρωμή για %{listing_title} που δημοσιεύθηκε στο %{service_name}"
+      transaction_requested_by_user: "Εξαιρετικά νέα! Ο χρήστης %{requester} ενδιαφέρεται για το \"%{listing_title}\" και έχει εξουσιοδοτήσει την πληρωμή για αυτήν την καταχώρηση."
+      you_have_time_to_accept: "Πρέπει να αποδεχτείτε ή να απορρίψετε το αίτημα εντός του %{payment_expires_in}."
       if_you_do_accept: ~
       if_you_do_accept_stripe: ~
-      if_you_do_not_accept: ~
-      click_here_to_reply: ~
+      if_you_do_not_accept: "Εάν απορρίψετε το αίτημα ή δεν το αποδεχτείτε εντός του χρονικού πλαισίου, η συναλλαγή θα ακυρωθεί αυτόματα, ο %{requester} δεν θα χρεωθεί και δεν θα πληρωθείτε."
+      click_here_to_reply: "Κάντε κλικ εδώ για να απαντήσετε στο αίτημα"
     transaction_preauthorized_v2:
       headline: ~
     transaction_preauthorized_reminder:
       subject: "Θυμηθείτε να αποδεχτείτε το αίτημα από το %{requester} σχετικά με την καταχώριση %{listing_title}"
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      remember_to_accept: "Θυμηθείτε να αποδεχτείτε την αίτηση από τον %{αιτούντα} σχετικά με την καταχώρηση \"%{listing_title}\". Ο χρήστης %{requester} έχει ήδη πληρώσει για την καταχώρηση. Πρέπει να αποδεχτείτε το αίτημά του για να λάβετε την πληρωμή."
+      one_day_left: "Εάν δεν αποδεχτείτε το αίτημα εντός μίας ημέρας, το αίτημα θα απορριφθεί αυτόματα και δεν θα πληρωθείτε."
+      click_here_to_reply: "Κάντε κλικ εδώ για να απαντήσετε στο αίτημα"
     transaction_preauthorized_reminder_v2:
       headline: ~
       remember_to_accept: ~
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
+      welcome_email_subject: "Καλωσήρθατε στην %{service_name} "
+      welcome_to_marketplace: "Καλωσήρθατε στο %{service_name}! Είναι χαρά μας να σας έχουμε μαζί."
       love_marketplace_crew: "Με αγάπη,<br /><i>%{service_name} ομάδα </i>"
       welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
       settings_link_text: "Δείτε τις ρυθμίσεις σας"
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
+      subject: "%{author_name} έχει καταχωρήσει μια νέα καταχώρηση στο %{service_name}"
+      has_posted_a_new_listing: "%{author_name} έχει κάνει μια νέα καταχώρηση:"
+      you_are_receiving_this_because: "Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε %{author_name}."
       view_listing: "Προβολή καταχώρησης"
     new_listing_by_followed_person_v2:
       headline: ~
@@ -1826,10 +1845,10 @@ el:
       pending_review_error: ~
       seller_express_checkout_disabled: ~
       seller_express_checkout_disabled_no_free: ~
-      generic_error: ~
-      cancel_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      generic_error: "Παρουσιάστηκε σφάλμα κατά τη διαδικασία πληρωμής. Δεν ήταν δυνατή η οριστικοποίηση της πληρωμής μέσω PayPal."
+      cancel_error: "Παρουσιάστηκε σφάλμα κατά τη διάρκεια της διαφωνίας. Δεν ήταν δυνατή η οριστικοποίηση της διαφωνίας."
+      accept_authorization_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια προέγκρισης της πληρωμής μέσω PayPal  Παρακαλώ, προσπάθησε ξανά."
+      reject_authorization_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια απόρριψης της προέγκρισης της πληρωμής μέσω PayPal. Παρακαλώ, προσπάθησε ξανά."
     stripe:
       generic_error: "Παρουσιάστηκε σφάλμα κατά τη διαδικασία πληρωμής. Δεν ήταν δυνατή η οριστικοποίηση της πληρωμής Stripe."
       accept_authorization_error: ~
@@ -1840,7 +1859,7 @@ el:
     back_to_kassi_front_page: "Επιστροφή στην αρχική σελίδα"
     error_404:
       if_you_believe: "Αν πιστεύετε ότι αυτή η διεύθυνση είναι σωστή και θα έπρεπε να λειτουργεί, παρακαλούμε βοηθήστε μας να εντοπίσουμε το σφάλμα λέγοντάς μας στην παρακάτω φόρμα ποια διεύθυνση προκάλεσε το σφάλμα και τι θα έπρεπε να εμφανιστεί στη σελίδα."
-      page_can_not_be_found: "Ωχ! Η σελίδα δεν μπορεί να βρεθεί!"
+      page_can_not_be_found: "Η σελίδα δεν μπορεί να βρεθεί!"
       page_you_requested_can_not_be_found: "Η σελίδα που ζήτησες δεν μπορεί να βρεθεί. Είσαι σίγουρος ότι έγραψες σωστά τη διεύθυνση;"
     error_404_title: "η σελίδα δεν βρέθηκε"
     error_410:
@@ -1852,7 +1871,7 @@ el:
       temporary_unavailable: "Το Marketplace δεν είναι διαθέσιμο προσωρινά"
       unable_to_process: "Η υπηρεσία δεν είναι σε θέση να επεξεργαστεί το αίτημά σας αυτήν τη στιγμή. Δοκιμάστε ξανά σε λίγο."
       we_hate_this: "Συγνώμη για αυτό που συμβαίνει! Έχουμε ενημερωθεί για την κατάσταση και την επιδιορθώνουμε."
-      refer_to_error_id: ~
+      refer_to_error_id: "Εάν θέλετε να επικοινωνήσετε με την ομάδα υποστήριξης για αυτό το ζήτημα, συμπεριλάβετε το αναγνωριστικό σφάλματος \"%{error_id}\" στο μήνυμά σας."
     error_500_title: "η φόρτωση της σελίδας απέτυχε"
     error_description: "Περιγραφή του σφάλματος"
     no_javascript:
@@ -1860,7 +1879,7 @@ el:
       kassi_does_not_currently_work_without_javascript: "Δυστυχώς το %{service_name} δεν λειτουργεί -προς το παρόν- χωρίς Javascript. Προσπαθείστε να ενεργοποιήσετε το Javascript από τις ρυθμίσεις του περιηγητή σας και ανανεώστε τη σελίδα."
       contact_us: "επικοινωνήστε μαζί μας"
       send_feedback: "Αποστολή μηνύματος"
-      your_feedback_to_admins: ~
+      your_feedback_to_admins: "Το μήνυμά σας στην ομάδα %{service_name} "
     send: Αποστολή
     your_email_address: "Η διεύθυνση email σας"
   errors:
@@ -1868,7 +1887,7 @@ el:
       invalid_date: "δεν είναι έγκυρη ημερομηνία"
       invalid_time: "δεν είναι έγκυρη ώρα"
       invalid_datetime: "δεν είναι έγκυρη ημερομηνία κ ώρα"
-      is_at: ~
+      is_at: "πρέπει να είναι στο %{restriction} "
       before: ~
       on_or_before: ~
       after: ~
@@ -1918,9 +1937,9 @@ el:
     create_new_marketplace: "Δημιουργήστε μια καινούρια αγορά"
     contact_us: Επικοινωνία
     profile: Προφίλ
-    manage_listings: ~
-    invite: Πρόσκληση
-    login: ~
+    manage_listings: "Οι καταχωρήσεις μου"
+    invite: "Προσκάλεσε νέα μέλη"
+    login: Σύνδεση
     signup: Εγγραφή
     menu: Μενού
   homepage:
@@ -1944,14 +1963,14 @@ el:
       item_request_list: "εργαλεία, αθλητικό εξοπλισμό, βιβλία, εξοπλισμό camping"
       items_to_offer: "Αντικείμενα: "
       items_to_request: "Αντικείμενα: "
-      log_in: συνδεθείτε!
-      no_offers_visible_unless_logged_in: "Καμία προσφορά για αντικείμενο, χάρη ή οτοστόπ δεν είναι ορατή σε μη συνδεδεμένους χρήστες."
+      log_in: Συνδεθείτε!
+      no_offers_visible_unless_logged_in: "Καμία προσφορά για προϊον ή υπηρεσία δεν είναι ορατή σε μη συνδεδεμένους χρήστες."
       no_open_offers_currently: "Δεν υπάρχει καμία ενεργή προσφορά για αντικείμενο, βοήθεια ή οτοστόπ."
       no_open_requests_currently: "Δεν υπάρχει κανένα ενεργό αίτημα για αντικείμενο, βοήθεια ή οτοστόπ."
-      no_requests_visible_unless_logged_in: "Κανένα αίτημα για αντικείμενα, βοήθεια ή οτοστόπ δεν είναι ορατό σε μη συνδεδεμένους χρήστες."
+      no_requests_visible_unless_logged_in: "Κανένα αίτημα για προϊόντα ή υπηρεσίες δεν είναι ορατό σε μη συνδεδεμένους χρήστες."
       one_private_offer_exists: "Υπάρχει ήδη <b>μία προσφορά</b>,"
       one_private_request_exists: "Υπάρχει ήδη <b>ένα αίτημα</b>,"
-      ride_offer: "Μπορείτε να πάρετε άλλους μαζί σας πηγαίνοντας στη δουλειά, στη σχολή ή σε μια συναυλία"
+      ride_offer: "Μπορείτε να μεταφέρετε τα παιδιά άλλων στις δραστηριότητές τους"
       ride_request: "Να σε πάει κάποιος στη δουλειά ή στη σχολή"
       some_private_offers_exist: "Υπάρχουν ήδη <b>%{number_of_listings} προσφορές</b>"
       some_private_requests_exist: "Υπάρχουν ήδη  <b>%{number_of_listings} αιτήματα</b>"
@@ -1996,12 +2015,12 @@ el:
       email: "Ηλεκτρονικές διευθύνσεις"
       message: "Ένα προσωπικό μήνυμα"
       send_invitation: "Αποστολή πρόσκλησης"
-      add_email_addresses_description: "Γράψτε τις ηλεκτρονικές διευθύνσεις των φίλων σας στην παρακάτω φόρμα. Αν γράψετε πάνω από μία, χωρίστε τες με κόμμα."
-      add_lots_of_email_addresses: ~
+      add_email_addresses_description: "Προσθέστε τις ηλεκτρονικές διευθύνσεις των ατόμων που θέλετε να προσκαλέσετε στην παρακάτω φόρμα. Αν γράψετε πάνω από μία, χωρίστε τες με κόμμα."
+      add_lots_of_email_addresses: "Μια συμβουλή για τους διαχειριστές: αν σκοπεύετε να στείλετε πολλές προσκλήσεις, θα πρέπει να χρησιμοποιήσετε ένα εργαλείο ηλεκτρονικού ταχυδρομείου. Ανατρέξτε στο θέμα %{this_article_link} για να μάθετε περισσότερα σχετικά με τις κατάλληλες υπηρεσίες αποστολής ηλεκτρονικού ταχυδρομείου."
       this_article_link: "αυτό το άρθρο"
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "Είμαι μέλος αυτού του φανταστική marketplace. Έλα κι εσύ!"
-      errors_in_emails: "Ελέγξτε ότι τα email που γράψατε είναι έγκυρα και ότι χωρίζονται μεταξύ τους με κόμμα."
+      errors_in_emails: "Ελέγξτε ότι οι διευθύνσεις email που γράψατε είναι έγκυρα και ότι χωρίζονται μεταξύ τους με κόμμα."
     list_item:
       review: κριτική
       reviews: κριτικές
@@ -2037,7 +2056,7 @@ el:
       click_here_link_text: "Πατήστε εδώ"
     how_to_use:
       default_title: "Πώς δουλεύει"
-      default_content: ~
+      default_content: "Εδώ μπορείτε να βρείτε πληροφορίες σχετικά με τον τρόπο λειτουργίας του %{marketplace_name}."
   landing_page:
     hero:
       search: Αναζήτηση
@@ -2056,24 +2075,24 @@ el:
     no_tribe:
       inbox: Εισερχόμενα
       settings: Ρυθμίσεις
-      feedback: ~
+      feedback: "Επικοινωνήστε με την ομάδα %{service_name} "
     application:
-      join_this_community: "Εγγραφή στην κοινότητα"
+      join_this_community: "Συμμετοχή στην πλατφόρμα"
       read_more: "Διαβάστε περισσότερα"
-      feedback: "Το μύνημα σας στην ομάδα %{service_name}"
-      dont_use_to_contact_support: ~
+      feedback: "Το μήνυμα σας στην ομάδα %{service_name}"
+      dont_use_to_contact_support: "Παρατηρήσαμε ότι είστε διαχειριστής του %{service_name}. Αυτή είναι η φόρμα που χρησιμοποιούν οι χρήστες για να επικοινωνήσουν μαζί σας. Δεν μπορείτε να χρησιμοποιήσετε αυτήν τη φόρμα για να επικοινωνήσετε με την υποστήριξη του Sharetribe. Μπορείτε να το κάνετε αυτό μέσω του widget υποστήριξης στην κάτω δεξιά γωνία του πίνακα διαχειριστή."
       feedback_forum: "περιοχή σχολίων"
       feedback_handle: Ανατροφοδότηση
       give_feedback: "Επικοινωνήστε μαζί μας"
       or_check_our: "... ή δες την"
       send_feedback_to_admin: "Αποστολή μηνύματος"
       to_see_what_others_have_suggested: "για να δείτε τι έχουν προτείνει άλλοι και να ψηφίσετε τις ιδέες που υπάρχουν."
-      your_email_address: "Η διεύθυνση email σας (προαιρετική)"
+      your_email_address: "Η διεύθυνση email σας (για επικοινωνία μαζί σας)"
       connect: Σύνδεση
       invite_your_friends: "Προσκαλέστε φίλους!"
       invite_your_neighbors: "Προσκαλέστε τους γείτονές σας!"
       invite_your_friends_description: "Όσο περισσότεροι χρησιμοποιούν το %{service_name} τόσο πιο χρήσιμο γίνεται."
-      invite_your_friends_invite_only_description: "Οι εγγραφές σε αυτή την κοινότητα γίνονται μόνο με πρόσκληση"
+      invite_your_friends_invite_only_description: "Δεν μπορείτε να συμμετάσχετε στην πλατφόρμα %{service_name} παρά μόνο μετά από πρόσκληση"
       join_without_facebook: "... ή %{join_without_facebook_link}"
       join_without_facebook_link: "κάντε εγγραφή χωρίς το Facebook"
     conversations:
@@ -2085,10 +2104,10 @@ el:
       select_language: "Επιλέξτε γλώσσα"
     infos:
       about: Σχετικά
-      how_to_use: "Πώς δουλεύει"
+      how_to_use: "Πώς Λειτουργεί"
       info_about_kassi: "Σχετικά με το %{service_name}"
       news: Νέα
-      register_details: Ιδιωτικότητα
+      register_details: "Πολιτική απορρήτου "
       terms: "Όροι χρήσης"
     logged_in:
       admin: Admin
@@ -2133,16 +2152,16 @@ el:
       sign_up: Εγγραφή
     notifications:
       listing_could_not_be_saved: "Δεν ήταν δυνατή η αποθήκευση της καταχώρισης. Παρακαλώ δοκιμάστε ξανά. Εάν το πρόβλημα παραμένει, παρακαλώ %{contact_admin_link}."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "Επικοινωνήστε με την ομάδα %{service_name}"
       test_welcome_email_delivered_to: "Ένα δοκιμαστικό μήνυμα στάλθηκε στο %{email}."
       something_went_wrong: "Κάτι πήγε στραβά"
-      community_updated: "Οι πληροφορίες του tribe ενημερώθηκαν."
-      community_update_failed: "Απέτυχε η ενημέρωση."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Ο λογαριασμός σας δημιουργήθηκε επιτυχώς. Τώρα θα πρέπει να επιβεβαιώσετε την ηλεκτρονική σας διεύθυνση."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Είστε πλέον μέλος αυτής της κοινότητας. Τώρα πρέπει να επιβεβαιώσετε την διεύθυνση email σας."
+      community_updated: "Οι λεπτομέριες ενημερώθηκαν"
+      community_update_failed: "Η ενημέρωση των λεπτομεριών απέτυχε."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Ο λογαριασμός σας δημιουργήθηκε με επιτυχία. Τώρα πρέπει να επιβεβαιώσετε την ηλεκτρονική σας διεύθυνση."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Ευχαριστούμε για τη συμμετοχή σας στην %{service_name}. Τώρα πρέπει να επιβεβαιώσετε την διεύθυνση email σας."
       comment_cannot_be_empty: "Το σχόλιο δεν μπορεί να είναι κενό"
       comment_sent: "Το σχόλιο εστάλη"
-      confirmation_link_is_wrong_or_used: "Ο σύνδεσμος επιβεβαίωσης έχει χρησιμοποιηθεί ήδη ή δεν λειτουργεί για κάποιο άλλο λόγο. Προσπάθησε να συνδεθείς ή επικοινώνησε μαζί μας αν το πρόβλημα παραμένει."
+      confirmation_link_is_wrong_or_used: "Ο σύνδεσμος επιβεβαίωσης έχει χρησιμοποιηθεί ήδη ή δεν λειτουργεί για  άλλο λόγο. Προσπάθησε να συνδεθείς ή επικοινώνησε μαζί μας αν το πρόβλημα παραμένει."
       additional_email_confirmed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας επιβεβαιώθηκε."
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: ~
@@ -2161,20 +2180,20 @@ el:
       invitation_limit_reached: "Προσπαθήσατε να στείλετε πάρα πολλές προσκλήσεις. Το ημερήσιο όριο συμπληρώθηκε."
       invitation_sent: "Η πρόσκληση εστάλη επιτυχώς"
       invitation_successfully_unsubscribed: "Καταργήθηκε με επιτυχία η εγγραφή από τα email πρόσκλησης"
-      inviting_new_users_is_not_allowed_in_this_community: "Σε αυτή την κοινότητα δεν επιτρέπεται να προσκαλέσεις άλλους χρήστες"
+      inviting_new_users_is_not_allowed_in_this_community: "Δεν επιτρέπεται να προσκαλέσεις άλλους χρήστες"
       login_again: "Παρακαλούμε, συνδεθείτε ξανά."
       login_failed: "Η σύνδεση απέτυχε. Παρακαλούμε δώστε τα σωστά στοιχεία."
       account_creation_successful: "Καλωσήρθες στο %{service_name}!"
       account_deleted: "Ο λογαριασμός έχει διαγραφτεί"
       login_successful: "Καλωσήρθες στο %{service_name}!"
-      logout_successful: "Έχετε αποσυνδεθεί από το %{service_name}. Τα λέμε!"
+      logout_successful: "Έχετε αποσυνδεθεί από το %{service_name}. Καλή συνέχεια!"
       news_item_created: "Το άρθρο δημιουργήθηκε"
       news_item_creation_failed: "Η δημιουργία άρθρου απέτυχε"
       news_item_update_failed: "Η ενημέρωση του άρθρου απέτυχε"
       news_item_updated: "Το άρθρο ενημερώθηκε"
       news_item_deleted: "Το άρθρο καταργήθηκε"
       offer_accepted: "Η προσφορά έγινε δεκτή"
-      offer_confirmed: "Η προσφορά επιβεβαιώθηκε"
+      offer_confirmed: "Η προσφορά ολοκληρώθηκε"
       offer_closed: "Η προσφορά έκλεισε"
       listing_created_successfully: "Καταχωρήθηκε επιτυχώς. %{new_listing_link}."
       offer_rejected: "Η προσφορά απορρίφθηκε"
@@ -2189,7 +2208,7 @@ el:
       payment_successful: "Επιτυχής πληρωμή"
       payment_canceled: "Η πληρωμή ακυρώθηκε"
       error_in_payment: "Προέκυψε σφάλμα στην πληρωμή. Αν δεν την ολοκληρώσατε, δοκιμάστε ξανά. Διαφορετικά, επικοινωνήστε μαζί μας."
-      cannot_receive_payment: "Το άλλο μέλος της συναλλαγής δεν μπορεί να λάβει την πληρωμή λόγω κάποιου σφάλματος. Παρακαλούμε επικοινωνήστε με τους διαχειριστές για να βρεθεί μια λύση"
+      cannot_receive_payment: "Το άλλο μέλος της συναλλαγής δεν μπορεί να λάβει την πληρωμή λόγω κάποιου σφάλματος. Παρακαλούμε επικοινωνήστε με τους διαχειριστές %{service_name} για να βρεθεί μια λύση"
       payment_waiting_for_later_accomplishment: "Όταν πληρώσετε θα ενημερώσουμε τον πωλητή και θα λάβετε μια απόδειξη στο email σας"
       password_recovery_sent: "Έχουν σταλεί στο email σας οδηγίες για να αλλάξετε τον κωδικό σας."
       person_activated: "Ο χρήστης ενεργοποιήθηκε"
@@ -2203,17 +2222,17 @@ el:
       poll_updated: "Η δημοσκόπηση ενημερώθηκε"
       poll_deleted: "Η δημοσκόπηση αφαιρέθηκε"
       read_more: "Διάβασε περισσότερα!"
-      registration_considered_spam: "Η εγγραφή δεν έγινε κανονικά. Παρακαλούμε να επικοινωνήσετε μαζί μας από το μενού της κεφαλίδας (πάνω δεξιά) και να αναφέρετε το σφάλμα \"email2 error\"."
+      registration_considered_spam: "Η εγγραφή δεν έγινε κανονικά. Παρακαλούμε επικοινωνήστε μαζί μας σχετικά με το σφάλμα \"email2 error\"."
       reply_cannot_be_empty: "Δεν γίνεται να στείλεις κενό μήνυμα"
       reply_sent: "Η απάντησή σας εστάλη"
       request_accepted: "Το αίτημα έγινε δεκτό"
       request_accepted_and_closed: ~
-      request_confirmed: "Το αίτημα ολοκληρώθηκε"
+      request_confirmed: "Η παραγγελια ολοκληρώθηκε"
       request_rejected: "Το αίτημα απορρίφθηκε"
-      request_canceled: "Το αίτημα ακυρώθηκε"
+      request_canceled: "Η παραγγελία σας αμφισβητείται"
       message_sent: "Το μήνυμα εστάλη"
       message_not_sent: "Η αποστολή του μηνύματος απέτυχε. Παρακαλώ προσπαθήστε ξανά."
-      this_content_is_not_available_in_this_community: "Αυτό το περιεχόμενο δεν είναι διαθέσιμο σε αυτή την κοινότητα."
+      this_content_is_not_available_in_this_community: "Αυτό το περιεχόμενο δεν είναι διαθέσιμο "
       unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε επικοινωνήστε μαζί μας και πείτε μας τι συνέβη."
       update_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια ενημέρωσης των στοιχείων σας. Παρακαλούμε προσπαθήστε ξανά"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Δεν έχεις δικαίωμα να κάνεις κριτική για αυτό το συμβάν"
@@ -2225,27 +2244,27 @@ el:
       you_cannot_send_message_to_yourself: "Δε γίνεται να στείλετε μήνυμα στον εαυτό σας"
       you_followed_listing: "Παρακολουθείς αυτή την καταχώρηση"
       you_have_already_given_feedback_about_this_event: "Έχεις ήδη σχολιάσει σε αυτό το συμβάν"
-      you_are_now_member: "Γράφτηκες σε αυτή την κοινότητα. Καλωσήρθες!"
+      you_are_now_member: "Καλωσήρθες στην %{service_name} !"
       you_are_already_member: "Είσαι ήδη μέλος αυτής της κοινότητας %{service_name}. Καλωσήρθες ξανά!"
-      you_must_log_in_to_create_new_listing: "Πρέπει να συνδεθείτε στο %{service_name} για να κάνετε μια καταχώρηση. Αν δεν έχετε λογαριασμό μπορείτε να %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Πρέπει να συνδεθείτε στο %{service_name} για να δημιουργήσετε μια καταχώρηση. Αν δεν έχετε λογαριασμό μπορείτε να εγγραφείτε %{sign_up_link}."
       additional_email_confirmed_dashboard: "Η διεύθυνση email σας επιβεβαιώθηκε."
       you_must_log_in_to_give_feedback: "Πρέπει να συνδεθείτε για να κάνετε κριτική"
-      you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείτε για να προσκαλέσετε χρήστες στο %{service_name}"
+      you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείτε για να προσκαλέσετε νεόυς χρήστες στο %{service_name}"
       you_must_log_in_to_send_a_comment: "Πρέπει να συνδεθείτε για να σχολιάσετε"
       you_must_log_in_to_send_a_message: "Πρέπει να συνδεθείτε στο %{service_name} για να στείλετε μήνυμα σε άλλο χρήστη."
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Πρέπει να συνδεθείτε στο %{service_name} για να κάνετε μια συναλλαγή."
       you_must_log_in_to_view_this_content: "Πρέπει να συνδεθείτε για να δείτε αυτό το περιεχόμενο"
       you_must_log_in_to_view_this_page: "Πρέπει να συνδεθείτε για να δείτε αυτή τη σελίδα"
       you_must_log_in_to_view_your_inbox: "Πρέπει να συνδεθείτε στο %{service_name} για να δείτε τα εισερχόμενα σας."
       you_must_log_in_to_view_your_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να δείτε τις ρυθμίσεις σας."
       you_must_log_in_to_add_news_item: "Πρέπει να συνδεθείτε στο %{service_name} για να προσθέσετε ένα άρθρο."
-      you_must_log_in_to_change_profile_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να αλλάξετε τις ρυθμίσεις του προφίλ"
+      you_must_log_in_to_change_profile_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να αλλάξετε τις ρυθμίσεις του προφίλ σας"
       you_must_log_in_to_accept_or_reject: "Πρέπει να συνδεθείτε για να αποδεχτείτε ή να απορρίψετε τη συναλλαγή"
       you_must_log_in_to_confirm_or_cancel: "Πρέπει να συνδεθείτε για να αμφισβητήσετε ή να επιβεβαιώσετε τη συναλλαγή"
       you_need_to_confirm_your_account_first: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
       you_must_fill_all_the_fields: "Πρέπει να συμπληρώσετε όλα τα πεδία"
       you_unfollowed_listing: "Δεν παρακολουθείς πλέον αυτή την καταχώρηση"
-      joining_community_failed: "Η εγγραφή σε αυτή την κοινότητα απέτυχε"
+      joining_community_failed: "Η εγγραφή σας απέτυχε"
       can_not_delete_email: "Δεν μπορείτε να αφαιρέσετε αυτή τη διεύθυνση email"
       user_does_not_have_email_to_delete: "Δεν έχετε τη διεύθυνση email που προσπαθείτε να αφαιρέσετε"
       email_deleted: "Η διεύθυνση email αφαιρέθηκε"
@@ -2307,7 +2326,7 @@ el:
     map:
       open_in_google_maps: "Άνοιγμα στο Google Maps"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Κάτι πήγε στραβά, κωδικός σφάλματος: %{error_code}"
       something_went_wrong_plain: "Κάτι πήγε λάθος"
       create_failed_to_connect_to_booking_service: "Η δημιουργία καταχώρησης απέτυχε: Αποτυχία σύνδεσης στην υπηρεσία κράτησης. Παρακαλώ προσπαθήστε ξανά."
       update_failed_to_connect_to_booking_service: "Η ενημέρωση καταχώρησης απέτυχε: Αποτυχία σύνδεσης στην υπηρεσία κράτησης. Παρακαλώ προσπαθήστε ξανά."
@@ -2344,7 +2363,7 @@ el:
         googlemap_updatemap: "Ενημέρωση του χάρτη"
       images:
         image: Εικόνα
-        best_result: ~
+        best_result: "Για καλύτερα αποτελέσματα, χρησιμοποιήστε εικόνες JPG, GIF ή PNG %{width}x%{height} pixel "
         no_file_selected: "Δεν έχει επιλεγεί αρχείο"
         remove_image: "Κατάργηση εικόνας"
         select_file: "Επιλέξτε αρχείο"
@@ -2370,14 +2389,14 @@ el:
         mass: "κομμάτι, κιλό, λίτρο, τετραγωνικό μέτρο"
         time: "ώρα, ημέρα, εβδομάδα, ..."
         long_time: "εβδομάδα, μήνα, ..."
-        after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get: "Μετά το %{service_name} και τα τέλη επεξεργασίας θα λάβετε %{sum_with_currency}"
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} θα παρακρατηθεί απο την τιμή"
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
         payment_fee_info_link_text: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
+        delivery: "Μέθοδος παράδοσης"
+        shipping: "Τέλη Αποστολής"
+        shipping_price: "Κόστος μεταφορικών"
         shipping_price_additional: "Επιπρόσθετα αντικείμενα"
         pickup: Παραλαβή
       origin:
@@ -2385,7 +2404,7 @@ el:
         origin: Αφετηρία
         the_exact_location: "Η ακριβής τοποθεσία δεν θα εμφανίζεται σε άλλους χρήστες."
       send_button:
-        save_listing: Αποθήκευση
+        save_listing: "Καταχώρηση προϊόντος"
         submit_for_review: "Υποβολή για έλεγχο"
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
@@ -2473,15 +2492,15 @@ el:
       listing: καταχώρηση
       selected_category: "Κατηγορία: %{category}"
       selected_subcategory: "Υποκατηγορία: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Τύπος καταχώρησης: %{transaction_type}"
       select_category: "Επιλέξτε κατηγορία"
       select_subcategory: "Επιλέξτε υποκατηγορία"
       select_transaction_type: "Επιλέξτε τύπο καταχώρησης"
-      you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: ~
-      community_not_configured_for_payments: ~
+      you_need_to_fill_payout_details_before_accepting: "Πρέπει να συμπληρώσετε τα στοιχεία πληρωμής για να δημοσιεύσετε μια καταχώρηση. Μεταβείτε στο %{payment_settings_link} για να συμπληρώσετε τις λεπτομέρειες."
+      contact_admin_link_text: "Επικοινωνήστε με την ομάδα %{service_name} "
+      community_not_configured_for_payments: "Το %{service_name} δεν έχει ρυθμιστεί για πληρωμές, επομένως δεν μπορείτε να πραγματοποιήσετε νέες καταχωρήσεις ακόμα. Για λεπτομέρειες, επικοινωνήστε με %{contact_admin_link} "
       payment_settings_link: "ρυθμίσεις πληρωμής"
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} δεν έχει ρυθμιστεί για πληρωμές, οπότε δεν μπορείτε να δημοσιεύσετε νέες λίστες ακόμα. Πηγαίνετε στο %{payment_settings_link} για να συμπληρώσετε τα στοιχεία πληρωμών"
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Αριθμός ωρών:"
@@ -2507,7 +2526,7 @@ el:
       inquiry: Ανακοίνωση
       item_offer_trade: Ανταλλαγή
       item_request_trade: Ανταλλαγή
-      no_description: "Χωρίς περιγραφή"
+      no_description: "Καταχώρηση χωρίς περιγραφή"
       no_image: "Δεν επιλέχθηκε εικόνα"
       no_reviews: "Δεν υπάρχουν κριτικές"
       offer: Προσφορά
@@ -2526,17 +2545,17 @@ el:
       processing_uploaded_image: "(Γίνεται επεξεργασία της εικόνας...)"
       listing_created_at: "Κταχώρηση δημιουργήθηκε"
       price:
-        per_quantity_unit: ~
+        per_quantity_unit: "ανά %{quantity_unit} "
         per_day: "ανά μέρα"
       delivery: "Μέθοδος παράδοσης"
-      shipping: ~
+      shipping: "Μεταφορικά (%{price}) "
       shipping_no_price: Αποστολή
       shipping_price_additional: ~
-      pickup: ~
+      pickup: Παραλαβή
       pickup_no_price: Παραλαβή
       youtube_video_player: "YouTube video player"
     unit_types:
-      piece: ~
+      piece: Τεμάχιο
       hour: ώρα
       day: ημέρα
       night: βράδυ
@@ -2554,7 +2573,7 @@ el:
       by: ~
       payment: Πληρωμή
       exp: ~
-      you_will_be_charged: ~
+      you_will_be_charged: "Θα χρεωθείτε μόνο αν ο %{author} αποδεχτεί τη συναλλαγή. Ο χρήστης %{author} πρέπει να αποδεχτεί τη συναλλαγή εντός %{expiration_period} ημέρες. Εάν ο χρήστης %{author} αρνηθεί ή δεν απαντήσει, δεν γίνεται καμία χρέωση."
       day: μέρα
       days: μέρες
       night: βράδυ
@@ -2601,60 +2620,60 @@ el:
     member_id: "Ταυτότητα Μέλους"
     member_id_or_email: "ID μέλους ή email"
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
+    payout_info_title: "Λήψη χρηματικού ποσού"
+    paypal_account_email_connected: "<del> Η σύνδεση με τον PayPal λογαριασμό</del> Ολοκληρώθηκε!"
     payout_info_paypal: ~
-    paypal_billing_agreement_made: ~
+    paypal_billing_agreement_made: "<del> Άδεια της %{service_name} για χρέωση τέλους συναλλαγής</del> Ολοκληρώθηκε!"
     commission_permission_needed: ~
     create_paypal_account_link_text: "λογαριασμός PayPal"
     connected_account: "Ο λογαριασμός PayPal  '%{email}'  συνδέθηκε με επιτυχία."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
+    paypal_receive_funds_info_australia_only: "Εάν δείτε ένα σφάλμα κατά την προσπάθεια σύνδεσης του λογαριασμού σας με %{service_name}, είτε %{upgrade_paypal_account_link} ή (εάν είστε άτομο), δημιουργήστε ένα νέο λογαριασμό Premier. Και οι δύο τύποι λογαριασμών είναι εντελώς δωρεάν."
+    paypal_receive_funds_info: "Εάν εμφανιστεί σφάλμα κατά την προσπάθεια σύνδεσης στο λογαριασμό σας στο %{service_name}, %{upgrade_paypal_account_link}. Είναι δωρεάν και εύκολο. Εάν είστε άτομο, η PayPal συνιστά να χρησιμοποιήσετε το όνομά σας ως όνομα επιχείρησης."
+    upgrade_paypal_account_link_text: "Συνδεθείτε και αναβαθμίστε το λογαριασμό PayPal σε επαγγελματικό λογαριασμό"
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
+    contact_admin_link_text: "Επικοινωνησε με την ομάδα του %{service_name} "
+    you_are_ready_to_accept_payments: "Είστε έτοιμοι να δεχτείτε πληρωμές!"
     commission: ~
     not_now: ~
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
-      contact_admin_link_text: ~
-      admin_account_not_connected: ~
-      paypal_account_email: ~
+      payout_info_you_need_to_connect: "Για να αποδεχτείτε πληρωμές, πρέπει να συνδέσετε το λογαριασμό PayPal με το %{service_name}."
+      payout_info_text: "Για να συνδέσετε το λογαριασμό σας, παρακαλώ ολοκληρώστε τα παρακάτω βήματα."
+      contact_admin_link_text: "Επικοινωνήστε με την ομάδα %{service_name} "
+      admin_account_not_connected: "Η σύνδεση με λογαριασμό PayPal δεν είναι δυνατή, επειδή το %{service_name} δεν έχει ρυθμίσει ακόμα τις πληρωμές. Για λεπτομέρειες, παρακαλώ επικοινωνήστε με το %{contact_admin_link} "
+      paypal_account_email: "Συνδέστε τον PayPal λογαριασμό σας"
       paypal_account_email_placeholder: "Διεύθυνση ηλεκτρονικού ταχυδρομείου του PayPal"
-      paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      paypal_account_billing_agreement: ~
+      paypal_account_email_info_text: "Εάν δεν έχετε λογαριασμό PayPal, μπορείτε να δημιουργήσετε έναν από %{create_paypal_account}. Αν λάβετε ένα μήνυμα σφάλματος κατά τη σύνδεση του λογαριασμού PayPal, αναβαθμίστε το λογαριασμό PayPal σε επαγγελματικό λογαριασμό. Η αναβάθμιση είναι δωρεάν και εύκολη. Εάν είστε άτομο, μπορείτε να χρησιμοποιήσετε το όνομα και το επώνυμό σας ως το \"όνομα της επιχείρησής σας\". Για να αναβαθμίσετε το λογαριασμό σας, πατήστε %{upgrade_paypal_account} και βρείτε το σύνδεσμο."
+      create_paypal_account: "Κάνοντας κλικ εδώ"
+      upgrade_paypal_account: "Συνδεθήτε στον PayPal λογαριασμό σας"
+      paypal_account_billing_agreement: "Εκχώρηση δικαιώματος στην %{service_name} για χρέωση του τέλους συναλλαγής"
       follow_steps: ~
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
-      connect_paypal_account: ~
+      connect_paypal_account: "Συνδέστε τον PayPal λογαριασμό σας"
       paypal_account_billing_agreement_with_step: ~
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_both: "Αφού πραγματοποιήσετε μια πώληση στο %{service_name}, θα χρεωθεί ο  PayPal λογαριασμό σας ένα τέλος εξυπηρέτησης (%{commission_from_seller}, εκτός από την αποστολή και την ελάχιστη χρέωση %{minimum_commission}). Για να γίνει αυτό χρειάζεται να αποδεχτείτε τις πληρωμές στο %{service_name}. Το τέλος δεν περιλαμβάνει το %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Αφού πραγματοποιήσετε μια πώληση στο %{service_name}, θα χρεωθεί ο  PayPal λογαριασμό σας ένα τέλος εξυπηρέτησης (%{commission_from_seller}, εκτός από την αποστολή και την ελάχιστη χρέωση %{minimum_commission}). Για να γίνει αυτό χρειάζεται να αποδεχτείτε τις πληρωμές στο %{service_name}. Το τέλος δεν περιλαμβάνει το %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Αφού πραγματοποιήσετε μια πώληση στο %{service_name}, θα χρεωθεί ο  PayPal λογαριασμό σας ένα τέλος εξυπηρέτησης (%{commission_from_seller}, εκτός από την αποστολή και την ελάχιστη χρέωση %{minimum_commission}). Για να γίνει αυτό χρειάζεται να αποδεχτείτε τις πληρωμές στο %{service_name}. Το τέλος δεν περιλαμβάνει το %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: "Χρέωση επεξεργασίας πληρωμής του PayPal"
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
+      billing_agreement_description: "Εκχώρηση δικαιώματος στην %{service_name} για χρέωση του τέλους συναλλαγής."
+      billing_agreement: "Εκχώρηση δικαιώματος"
+      permissions_not_granted: "Δεν εκχωρήθηκε το δικαίωμα για σύνδεση στον PayPal λογαριασμό σας."
+      could_not_fetch_redirect_url: "Δεν ήταν δυνατή η ανακατεύθυνση στην URL για σύνδεση με το PayPal."
       paypal_not_enabled: "Η πληρωμές με PayPal δεν είναι ενεργοποιημένες."
-      billing_agreement_canceled: ~
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
-      something_went_wrong: ~
-      account_not_verified: ~
-      account_restricted: ~
+      billing_agreement_canceled: "Η σύμβαση χρέωσης ακυρώθηκε"
+      billing_agreement_not_accepted: "Δεν κάνατε αποδοχή της συμφωνίας χρέωσης στο PayPal."
+      billing_agreement_wrong_account: "Οι λογαριασμοί PayPal δεν ταιριάζουν. Χρησιμοποιήστε τον ίδιο λογαριασμό PayPal που συνδέσατε στο πρώτο βήμα."
+      something_went_wrong: "Κάτι πήγε στραβά. Προσπαθήστε ξανά. Εάν το πρόβλημα εξακολουθεί να υφίσταται, επικοινωνήστε με την ομάδα %{service_name}."
+      account_not_verified: "Δεν έχετε επαληθεύσει τον PayPal λογαριασμό σας. Πρέπει να μεταβείτε στο paypal.com και να επαληθεύσετε το λογαριασμό σας για να συνεχίσετε."
+      account_restricted: "Ο  PayPal λογαριασμός σας είναι σε περιορισμό και δεν είναι δυνατή η σύνδεση. Συνδεθείτε στο paypal.com για να μάθετε περισσότερα ή επικοινωνήστε με την υποστήριξη πελατών PayPal για να επιλύσετε το πρόβλημα."
     paypal_account_connected_title: ~
     paypal_account_connected: ~
-    change_account: ~
-    missing: ~
+    change_account: "Αλλαγή PayPal λογαριασμού"
+    missing: "Έχετε ανοιχτές καταχωρήσεις, αλλά ο  PayPal λογαριασμό σας δεν έχει ρυθμιστεί για να λαμβάνει πληρωμές. Συνδέστε το λογαριασμό PayPal και εκχωρήστε στο %{service_name} δικαιώματα για να χρεώσετε ένα τέλος συναλλαγής από το %{settings_link}."
     from_your_payment_settings_link_text: "ρυθμίσεις πληρωμής"
     redirect_message: ~
     redirect_link_text: εδώ
@@ -2666,11 +2685,11 @@ el:
     pay_with_paypal: "Προχωρήστε στην πληρωμή"
     checkout_with: ~
     or_pay_with_paypal: ~
-    checkout_with_paypal: ~
-    cancel_succesful: ~
+    checkout_with_paypal: "Ολοκλήρωση αγοράς με PayPal"
+    cancel_succesful: "Η πληρωμή μέσω PayPal  ακυρώθηκε με επιτυχία"
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_name: "Πληρωμή προμήθειας για %{listing_title}"
+      commission_payment_description: "Το %{service_name} έλαβε αυτήν την προμήθεια από τη συναλλαγή σχετικά με %{listing_title}"
     wait_while_loading: "Παρακαλώ περιμένετε."
     chatting_with_paypal: "Επικοινωνούμε με το PayPal."
   people:
@@ -2681,7 +2700,7 @@ el:
       feedback_description_title: Κριτική
       help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
       terms_title: "Όροι χρήσης του %{service_name}"
-      invite_only_help_text: "Επιλέξτε αν θέλετε νέα μέλη να συμμετέχουν σε αυτό το sharetribe μόνο εάν έχουν λάβει πρόσκληση από άλλα μέλη."
+      invite_only_help_text: "Επιλέξτε αν θέλετε τα νέα μέλη να συμμετέχουν μόνο εάν έχουν λάβει πρόσκληση από εγγεγραμμένα μέλη."
       invite_only_help_text_title: "Συμμετοχή μόνο με πρόσκληση"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο %{service_name}"
@@ -2690,12 +2709,12 @@ el:
       create_new_account: Εγγραφή
       email: "Διεύθυνση email:"
       email_is_in_use: "Το email που δώσατε χρησιμοποιείται ήδη."
-      email_is_in_use_or_not_allowed: "Αυτή η ηλεκτρονική διεύθυνση δεν επιτρέπεται σε αυτή την κοινότητα ή χρησιμοποιείται ήδη. Παρακαλούμε χρησιμοποιήστε μία ηλεκτρονική διεύθυνση που σχετίζεται με αυτή την κοινότητα (δείτε τις οδηγίες παραπάνω). Αν και πάλι δεν μπορείτε να συνδεθείτε επικοινωνήστε μαζί μας."
-      email_not_allowed: "Αυτή η διεύθυνση email δεν επιτρέπεται σε αυτή την κοινότητα. Παρακαλούμε, χρησιμοποιήστε μία διεύθυνση που να σχετίζεται με αυτή την κοινότητα. Αν και πάλι δεν μπορείτε να γραφτείτε, παρακαλούμε επικοινωνήστε μαζί μας."
+      email_is_in_use_or_not_allowed: "Αυτή η ηλεκτρονική διεύθυνση δεν επιτρέπεται ή χρησιμοποιείται ήδη. Αν δεν μπορείτε να συνδεθείτε επικοινωνήστε μαζί μας."
+      email_not_allowed: "Αυτή η διεύθυνση email δεν επιτρέπεται στην %{service_name} . Παρακαλούμε, χρησιμοποιήστε μία έγκυρη διεύθυνση. Αν πάλι δεν μπορείτε να γραφτείτε, παρακαλούμε επικοινωνήστε μαζί μας."
       invalid_username_or_email: "Το email δεν είναι έγκυρο ή χρησιμοποιείται ήδη"
       email_restriction_instructions:
-        one: "Αυτή η κοινότητα αφορά το %{community_name}. Για να συμμετέχετε πρέπει να έχετε διεύθυνση email της μορφής '%{allowed_emails}'."
-        other: "Αυτή η κοινότητα αφορά το %{community_name}. Για να εγγραφείτε πρέπει η διεύθυνση email σας να αποδεικνύει ότι μπορείτε να συμμετέχετε εδώ."
+        one: "Η πρόσβαση στην %{service_name} είναι κλειστή. Για να συμμετέχετε πρέπει να έχετε διεύθυνση email '%{allowed_emails}'."
+        other: "Η πρόσβαση στην %{service_name} είναι κλειστή. Για να συμμετέχετε πρέπει να έχετε διεύθυνση email '%{allowed_emails}'."
       family_name: Επώνυμο
       given_name: Όνομα
       i_accept_the_terms_and_privacy: ~
@@ -2709,7 +2728,7 @@ el:
       sign_up: "Δημιουργήστε λογαριασμό στο %{service_name}"
       terms: "Όροι Χρήσης"
       privacy: ~
-      visible_only_to_you: "ορατή μόνο σε σας και το διαχειριστή της κοινότητας"
+      visible_only_to_you: "Ορατή μόνο σε σας και την ομάδα διαχείρισης %{service_name} "
       visible_to_everybody: "ορατό σε όλους"
       create_account_with_provider: ~
       OR: Ή
@@ -2724,7 +2743,7 @@ el:
     show:
       contact: "Επικοινωνήστε μαζί του/της"
       about_me: "Περιγραφή:"
-      add_description: "Γράψτε κάτι για τον εαυτό σας"
+      add_description: "Γράψτε κάτι για εσάς"
       add_location: Τοποθεσία
       add_phone_number: Τηλέφωνο
       address: "Τοποθεσία:"
@@ -2757,9 +2776,9 @@ el:
       post_listing_as: ~
     followed_people:
       you_follow_plural: "Ακολουθείτε %{count} ατομα"
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
+      you_follow_singular: "Ακολουθείς %{count} άτομο"
+      they_follow_plural: "%{count} Ακόλουθοι"
+      they_follow_singular: "%{count} Ακόλουθος"
       show_all_followed_people: "Εμφάνιση όλων των ατόμων που ακολουθώ"
       no_followed_people: "Άτομα που δεν ακολουθώ "
     follow_button:
@@ -2774,13 +2793,13 @@ el:
       login_to_kassi: "Σύνδεση στο %{service_name}"
       connect_your_facebook_to_kassi: "Συνδέστε το λογαριασμό σας στο Facebook με το %{service_name}"
       facebook_account: "Λογαριασμός Facebook:"
-      log_in_to_link_account: "Αν έχετε ήδη λογαριασμό στο %{service_name}, συνδεθείτε για να τον συσχετίσετε με τον λογαριασμό σας στο Facebook."
+      log_in_to_link_account: "Αν έχετε ήδη λογαριασμό στο %{service_name}, μπορείτε να τον συδέσετε με τον λογαριασμό σας στο Facebook."
       you_can_also_create_new_account: "Αν δεν έχετε λογαριασμό στο %{service_name}, %{accont_creation_link} για να δημιουργήσετε ένα χρησιμοποιώντας το λογαριασμό σας στο Facebook."
       account_creation_link_text: "κάντε κλικ εδώ"
       cancle_facebook_connect: "Αν δεν θέλετε να συνδέσετε αυτό το λογαριασμό, μπορείτε να το %{cancel_link}."
       facebook_cancel_link_text: ακυρώσετε
       log_in_with_your_provider_account: ~
-      or_sign_up_with_your_username: "... ή με το όνομα χρήστη ή το email σας:"
+      or_sign_up_with_your_username: "... ή με το email σας:"
       we_will_not_post_without_asking_you: "Δε θα δημοσιευτεί τίποτα στο Facebook χωρίς την άδειά σας."
     password_forgotten:
       email: Email
@@ -2793,13 +2812,13 @@ el:
       resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
       your_current_email_is: "Η διεύθυνση email σας είναι %{email}."
       change_email: Αλλαγή
-      confirm_your_email: "Επιβεβαιώστε την ηλεκτρονική σας διεύθυνση"
-      account_confirmation_instructions: "Σύντομα θα λάβετε ένα email με ένα σύνδεσμο τον οποίο πρέπει να ακολουθήσετε για να επιβεβαιώσετε τη διεύθυνση email σας. Μετά την επιβεβαίωση θα μπορείτε να εγγραφείτε σε αυτή την κοινότητα."
-      account_confirmation_instructions_title_admin: ~
+      confirm_your_email: "Παρακαλώ επιβεβαιώστε την ηλεκτρονική σας διεύθυνση"
+      account_confirmation_instructions: "Σύντομα θα λάβετε email για να επιβεβαιώσετε τη διεύθυνσή σας. Μετά την επιβεβαίωση θα μπορείτε να εγγραφείτε στην %{service_name} ."
+      account_confirmation_instructions_title_admin: "Επιβεβαιώστε το email σας"
       before_full_access_you_need_to_confirm_email: "Προτού μπορέσουμε να σας δώσουμε πλήρη πρόσβαση στο marketplace σας, υπάρχει μόνο ένα ακόμη πράγμα που πρέπει να κάνετε: επιβεβαιώστε τη διεύθυνση email σας."
       before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: ~
+      admin_dashboard_link_text: "Πίνακας Διαχειριστή"
+      account_confirmation_instructions_admin: "Θα έπρεπε να έχετε λάβει ένα email στο %{email_address} με μια σύνδεση επιβεβαίωσης. Αν δεν το βλέπετε, ελέγξτε το φάκελο ανεπιθύμητης αλληλογραφίας ή κάντε κλικ στο παρακάτω κουμπί για να στείλετε ξανά το μήνυμα ηλεκτρονικού ταχυδρομείου. Μόλις φτάσει, ανοίξτε τον συμπεριλαμβανόμενο σύνδεσμο για να επιβεβαιώσετε τη διεύθυνσή σας με την οποία θα έχετε πλήρη πρόσβαση στην πλατφόρμα. Εάν χρειάζεστε βοήθεια, μην διστάσετε να στείλετε μήνυμα %{support_link}."
       contact_support_link_text: "επικοινωνήστε με την υποστήριξη της Sharetribe"
   settings:
     account:
@@ -2810,7 +2829,7 @@ el:
       delete_account_confirmation_popup: "Είστε σίγουροι ότι θέλετε να διαγράψετε το λογαριασμό σας και να διαγραφούν όλα τα δεδομένα που σχετίζονται με αυτόν; Η διαγραφή λογαριασμού είναι μη αναστρέψιμη."
       email_addresses: "Διευθύνσεις email"
       new_email: "Νέα διεύθυνση email"
-      delete_personal_information: ~
+      delete_personal_information: "Αν διαγράψετε το λογαριασμό σας, τα προσωπικά σας στοιχεία (όνομα, αριθμός τηλεφώνου, διεύθυνση, email, εικόνα προφίλ κ.λπ.) θα διαγραφούν οριστικά και δεν θα είναι δυνατή η ανάκτησή τους. Όλες οι καταχωρήσεις που έχετε δημιουργήσει θα καταργηθούν. Δεν θα μπορείτε να ενεργοποιήσετε ξανά το λογαριασμό σας."
       delete_information_others_involved: "Οι πληροφορίες όπου εμπλέκονται άλλα μέλη (συνομιλίες με άλλα άτομα, συναλλαγές που έχετε πραγματοποιήσει, κριτικές που έχετε δώσει σε άλλους κλπ.) δεν καταργούνται όταν διαγράφετε τον λογαριασμό σας. Ωστόσο, το όνομά σας δεν θα εμφανίζεται πλέον δίπλα σε αυτές τις πληροφορίες."
       unfinished_transactions: "Δεν είναι δυνατή η διαγραφή του λογαριασμού σας επειδή έχετε τρέχουσες συναλλαγές. Ολοκληρώστε όλες τις συναλλαγές πριν διαγράψετε τον λογαριασμό σας."
       only_admin: "Δεν είναι δυνατή η διαγραφή του λογαριασμού σας, επειδή είστε ο μόνος διαχειριστής του marketplace."
@@ -2833,27 +2852,27 @@ el:
         status_confirmed: Επιβεβαιώθηκε
         status_pending: "Εκκρεμεί επιβεβαίωση"
     notifications:
-      email_from_admins: "Θα ήθελα να λαμβάνω περιστασιακές ενημερώσεις από τους διαχειριστές αυτής της κοινότητας"
+      email_from_admins: "Θα ήθελα να λαμβάνω περιστασιακές ενημερώσεις από τους διαχειριστές του %{service_name} "
       i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
       newsletters: Newsletters
-      community_updates: "Νέα της κοινότητας"
-      email_about_confirm_reminders: "... έχω ξεχάσει να επιβεβαιώσω μια ολοκληρωμένη καταχώρηση"
-      email_about_new_comments_to_own_listing: "... κάποιος σχολιάζει την προσφορά ή το αίτημά μου"
-      email_about_new_messages: "... κάποιος μου στέλνει μήνυμα"
-      email_about_new_received_testimonials: "... κάποιος αφήνει ένα σχόλιο για μένα"
-      email_about_testimonial_reminders: "... έχω ξεχάσει να κάνω κριτική για κάποιο συμβάν"
-      email_daily_community_updates: "Να λαμβάνω ένα ενημερωτικό email <b>καθημερινά</b> αν υπάρχουν νέες καταχωρήσεις"
-      email_weekly_community_updates: "Να λαμβάνω ένα ενημερωτικό email <b>μια φορά την εβδομάδα</b> αν υπάρχουν νέες καταχωρήσεις"
-      do_not_email_community_updates: "Δε θέλω να λαμβάνω ενημερωτικά email"
-      email_when_conversation_accepted: "... κάποιος δέχεται την προσφορά ή το αίτημά μου"
-      email_when_conversation_rejected: "... κάποιος απορρίπτει την προσφορά ή το αίτημά μου"
-      email_about_completed_transactions: "... κάποιος δηλώνει ότι η προσφορά ή το αίτημά μου ολοκληρώθηκε"
+      community_updates: Newsletters
+      email_about_confirm_reminders: "... έχω ξεχάσει να επιβεβαιώσω την ολοκλήρωση μιας παραγγελίας"
+      email_about_new_comments_to_own_listing: "... κάποιος σχολιάζει την καταχώρησή μου"
+      email_about_new_messages: "... κάποιος μου έστειλε μήνυμα"
+      email_about_new_received_testimonials: "... κάποιος μου άφησε σχόλιο"
+      email_about_testimonial_reminders: "... έχω ξεχάσει να κάνω κριτική για παραγγελία"
+      email_daily_community_updates: "Να λαμβάνω ενημερωτικό email <b>καθημερινά</b> αν υπάρχουν νέες καταχωρήσεις"
+      email_weekly_community_updates: "Να λαμβάνω ενημερωτικό email <b>μια φορά την εβδομάδα</b> αν υπάρχουν νέες καταχωρήσεις"
+      do_not_email_community_updates: "Δεn θέλω να λαμβάνω ενημερωτικά emails"
+      email_when_conversation_accepted: "... κάποιος δέχτηκε την προσφορά ή το αίτημά μου"
+      email_when_conversation_rejected: "... κάποιος απέρριψε την προσφορά ή το αίτημά μου"
+      email_about_completed_transactions: "... κάποιος σημειωνεί την παραγγελίας μου ως ολοκληρωμένη"
       email_about_new_payments: "... λαμβάνω μια πληρωμή"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: ".. κάποιος που ακολουθώ καταχώρησε ένα νέο προϊον"
       unsubscribe_succesful: "Διαγραφήκατε από τη λίστα ενημερώσεων"
       unsubscribe_info_text: "Δεν θα ξαναλάβετε τέτοιο email. Ελέξτε τις %{settings_link} σας για να επιλέξετε ποια email θέλετε να λαμβάνετε ή επιστρέψτε στην %{homepage_link}."
       settings_link: ρυθμίσεις
-      homepage_link: "αρχική σελίδα"
+      homepage_link: "Αρχική σελίδα"
       unsubscribe_unsuccesful: "Σφάλμα με την απεγγραφή"
       unsuccessful_unsubscribe_info_text: "Πιθανόν ο σύνδεσμος απεγγραφής που χρησιμοποιήσατε να ήταν παλιός ή να μη λειτουργούσε για κάποιο λόγο. Επικοινωνήστε μαζί μας μέσω του κουμπιού \"Feedback\" στα αριστερά και θα σας διαγράψουμε εμείς. Μπορείτε επίσης να συνδεθείτε και να αλλάξετε τις ρυθμίσεις email σας."
     profile:
@@ -2864,8 +2883,8 @@ el:
       first_name_with_initial: "(εμφανίζεται μόνο το πρώτο γράμμα σε άλλους χρήστες)"
       first_name_only: "(δεν εμφανίζεται σε άλλους χρήστες)"
       display_name: Όνομα
-      display_name_description: ~
-      location_description: "Μπορείτε να συμπληρώσετε είτε την ακριβή τοποθεσία σας είτε μόνο τον ταχυδρομικό σας κωδικό. Παρακαλούμε να συμπληρώσετε τουλάχιστον τον ταχυδρομικό σας κωδικό. Εναλλακτικά, μπορείτε να διαλέξετε την τοποθεσία σας από τον χάρτη."
+      display_name_description: "Εάν εκπροσωπείτε έναν οργανισμό, μπορείτε να χρησιμοποιήσετε το όνομά του ως εμφανιζόμενο όνομα. Το όνομα εμφανίζεται σε άλλους χρήστες αντί για το όνομα και το επώνυμό σας."
+      location_description: "Μπορείτε να συμπληρώσετε την ακριβή τοποθεσία σας ή μόνο τον ταχυδρομικό σας κωδικό. "
       profile_picture_description: ~
       phone_number: Τηλέφωνο
       profile_picture: "Εικόνα προφίλ"
@@ -2878,7 +2897,7 @@ el:
       visible_to_registered_users: "(ορατό σε συνδεδεμένους χρήστες)"
       default_in_listing: "(χρησιμοποιείται μόνο ως προεπιλογή κατά τη δημιουργία μιας νέας καταχώρησης)"
       invisible: "(δεν εμφανίζεται σε άλλους χρήστες)"
-      image_is_processing: ~
+      image_is_processing: "Παρακαλώ περιμένετε. Επεξεργαζόμαστε την εικόνα του προφίλ σας. Θα είναι έτοιμο σε ένα ή δύο λεπτά."
       shown_in_your_public_profile: "(εμφανίζεται στο δημόσιο προφίλ σας)"
       editing_profile_of: ~
       format_markdown_link: ~
@@ -3014,13 +3033,13 @@ el:
       price_per_unit: ~
       quantity: "Ποσότητα:"
       subtotal: "Υποσύνολο:"
-      shipping-price: ~
+      shipping-price: "Τέλη Αποστολής:"
       stripe-fee: ~
       start_end_time: ~
     price_per_quantity: "Τιμή ανά: %{unit_type}"
     price: "Τιμή:"
     quantity: "Ποσότητα: %{quantity}"
-    unit_price: ~
+    unit_price: "Τιμή μονάδος: %{unit_price}"
     total: "Σύνολο:"
     total_to_pay: ~
   unit:
@@ -3072,12 +3091,12 @@ el:
       user: Χρήστης
       inbox: Μηνύματα
       profile: Προφίλ
-      manage_listings: ~
+      manage_listings: "Οι καταχωρήσεις μου"
       settings: Ρυθμίσεις
       logout: Αποσύνδεση
       login: Σύνδεση
       signup: Εγγραφή
-      admin_dashboard: ~
+      admin_dashboard: "Πίνακας Διαχειριστή"
       language: Γλώσσα
       listings: ~
     utils:
@@ -3098,6 +3117,11 @@ el:
       community_members_entries_info:
         multi_page: ~
         multi_page_html: ~
+    models:
+      person:
+        zero: "Κανένας χρήστης"
+        one: Χρήστης
+        other: Χρήστες
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~
