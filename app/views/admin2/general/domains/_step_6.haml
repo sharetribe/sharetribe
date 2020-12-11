@@ -1,0 +1,24 @@
+%form.content-card-section-form
+  = render 'admin2/general/domains/header'
+  %section.content-card-section
+    %h2= t('admin2.domain.custom_domain')
+    %p.ingress
+      = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
+    .form-group
+      = label_tag t('admin2.domain.custom_domain')
+      .statusbar.attention.withIcon
+        .spinner
+          %svg.spinnerSmall{:preserveaspectratio => "xMidYMid", :viewbox => "0 0 30 30", :xmlns => "http://www.w3.org/2000/svg"}
+            %circle{:cx => "15", :cy => "15", :fill => "none", :r => "12", "stroke-linecap" => "round"}
+              %animatetransform{:attributename => "transform", :begin => "0s", :calcmode => "linear", :dur => "1.8s", :keytimes => "0;0.5;1", :repeatcount => "indefinite", :type => "rotate", :values => "0 15 15;180 15 15;720 15 15"}
+              %animate{:attributename => "stroke-dasharray", :begin => "0s", :calcmode => "linear", :dur => "1.8s", :keytimes => "0;0.5;1", :repeatcount => "indefinite", :values => "9 56;46 14;9 56"}
+        %span
+          %strong= t('admin2.domain.finalizing_domain_installation', domain: @presenter.domain_checked)
+          %br
+          %small
+            - if @presenter.critical_error?
+              = t('admin2.domain.critical_error_info').html_safe
+            - else
+              = t('admin2.domain.production_to_complete')
+      %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain_checked}
+      %small#customDomain-help.form-text= t('admin2.domain.production_setup')

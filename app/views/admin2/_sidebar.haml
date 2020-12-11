@@ -24,8 +24,8 @@
       %ul#general.collapse.subtitle{class: expand_ul('general')}
         %li#essentials{class: active_li('essentials')}
           = link_to t('admin2.sidebar.general.essentials'), admin2_general_essentials_path
-        %li#domain
-          = link_to t('admin2.sidebar.general.domain'), admin_domain_path
+        %li#domain{class: active_li('domains')}
+          = link_to t('admin2.sidebar.general.domain'), admin2_general_domains_path
         %li#privacy{class: active_li('privacy')}
           = link_to t('admin2.sidebar.general.privacy'), admin2_general_privacy_index_path
         %li#staticcontent-mobile{class: active_li('static_content')}
