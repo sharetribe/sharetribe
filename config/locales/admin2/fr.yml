@@ -945,6 +945,7 @@ fr:
       link_title: "Libellé du lien"
       all: "Tout afficher"
     custom_script:
+      script_disabled: "<b>Fonctionnalité payante :</b> aimeriez-vous ajouter votre propre script personnalisé ? <a href=\"%{url}\">Passez à une offre payante</a>."
       info_text: "Du script personnalisé peut être ajouté au tag <head> de chaque page et être utilisé pour insérer du code CSS, JavaScript ou HTML. <a href='%{url}' class='external-link' target='_blank'>En savoir plus sur le script personnalisé</a>."
       custom_head_script: "CSS, JavaScript et/ou script HTML"
       custom_head_script_placeholder: "<script src=\"https://example.com/customscript.js\"></script>"
@@ -1254,6 +1255,7 @@ fr:
       listing_fields_update_price_failed: "La modification du champ de prix a échoué"
       transaction_size_updated: "Les paramètres du prix minimum d'annonce ont été mis à jour"
       file_was_deleted: "Le fichier a bien été supprimé"
+      custom_script_disabled: "Le script personnalisé est désactivé. Veuillez passer à une offre payante."
     seo:
       title: "%{title} | Panneau d'administration Go de %{service_name}"
       description: "Gérer les paramètres %{title} de votre place de marché Sharetribe Go %{service_name}"

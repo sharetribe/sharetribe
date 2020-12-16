@@ -1601,7 +1601,7 @@ ar:
       has_commented_listing_you_follow_in_kassi: "‎%{service_name}‎ الذي تتابعه في ‎%{listing}‎ علق على الإعلان ‎%{author}‎"
     new_message:
       view_message: "أظهر الرسالة"
-      has_sent_you_a_message_in_kassi: ~
+      has_sent_you_a_message_in_kassi: "‎%{sender}‎ أرسل إليك رسالة. إذهب الى‎%{service_name}‎ للرّد"
       you_have_a_new_message: ~
     new_message_v2:
       headline: ~
@@ -1676,7 +1676,7 @@ ar:
         you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ قام بإعطاء رأيه في ‎%{name}‎"
-      you_can_give_feedback_to: "‎%{name}‎ لم تقم بإعطاء رأيك عن"
+      you_can_give_feedback_to: "لم تقم بإعطاء رأيك عن ‎%{name}‎"
       view_feedback: "أظهر الرأي"
     new_testimonial_v2:
       headline: ~
@@ -1708,7 +1708,7 @@ ar:
       change_my_password: "تغيير كلمة المرور"
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: "‎%{name}‎ تذكير! قم بإعطاء رأيك عن"
+      remember_to_give_feedback_to: "تذكير! قم بإعطاء رأيك عن ‎%{name}‎"
       you_have_not_given_feedback_yet: "‎%{given_name}‎ تذكر بإعطاء رأيك عن. ‎‎%{event}‎ للحدث ‎%{name}‎ لم تقم بإعطاء رأيك لـ"
     testimonial_reminder_v2:
       headline: ~

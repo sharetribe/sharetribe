@@ -924,6 +924,7 @@ pl:
       link_title: ~
       all: ~
     custom_script:
+      script_disabled: ~
       info_text: ~
       custom_head_script: ~
       custom_head_script_placeholder: ~
@@ -1233,6 +1234,7 @@ pl:
       listing_fields_update_price_failed: ~
       transaction_size_updated: ~
       file_was_deleted: ~
+      custom_script_disabled: ~
     seo:
       title: ~
       description: ~
