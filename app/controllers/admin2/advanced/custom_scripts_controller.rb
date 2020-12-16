@@ -4,6 +4,8 @@ module Admin2::Advanced
     def index; end
 
     def update_script
+      raise t('admin2.notifications.custom_script_disabled') unless custom_script_enabled?
+
       @current_community.update!(script_params)
       render json: { message: t('admin2.notifications.custom_script_updated') }
     rescue StandardError => e

@@ -10,12 +10,20 @@
     %section.content-card-section
       %h2
         = t('admin2.sidebar.advanced.custom_script')
+
+      - unless custom_script_enabled?
+        .statusbar.business
+          %span
+            ✨
+            = t('admin2.custom_script.script_disabled', url: admin_plan_path).html_safe
+
       %p.ingress
         = t('admin2.custom_script.info_text', url: 'https://help.sharetribe.com/en/articles/666142').html_safe
       .form-group
         = form.label :custom_head_script, t('admin2.custom_script.custom_head_script')
-        = form.text_area :custom_head_script, class: %i[form-control], placeholder: t('admin2.custom_script.custom_head_script_placeholder')
+        = form.text_area :custom_head_script, class: %i[form-control], placeholder: t('admin2.custom_script.custom_head_script_placeholder'), disabled: !custom_script_enabled?
         %small#twitterHandle-help.form-text
           = t('admin2.custom_script.custom_head_script_info_text')
-    %section.content-card-terminal
-      = render 'admin2/submit_button', caption: t('admin2.save_changes')
+    - if custom_script_enabled?
+      %section.content-card-terminal
+        = render 'admin2/submit_button', caption: t('admin2.save_changes')

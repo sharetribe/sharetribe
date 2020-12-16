@@ -29,13 +29,6 @@ describe Admin::CommunitiesController, type: :controller do
       attempt_to_update_different_community_with(:update_look_and_feel, custom_color1: "8C1515")
     end
 
-    it "should allow changing custom_head_script" do
-      script = "<script/>"
-      put :update_look_and_feel, params: { id: @community.id, community: { custom_head_script: script } }
-      @community.reload
-      expect(@community.custom_head_script).to eql(script)
-    end
-
   end
 
   describe "#update_new_layout" do

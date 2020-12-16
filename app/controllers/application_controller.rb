@@ -483,6 +483,10 @@ class ApplicationController < ActionController::Base
     logger.add_metadata(metadata)
   end
 
+  helper_method def custom_script_enabled?
+    @current_plan && @current_plan[:features][:custom_script]
+  end
+
   def display_branding_info?
     !admin_controller? && !(@current_plan && @current_plan[:features][:whitelabel])
   end
