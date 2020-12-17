@@ -120,11 +120,7 @@ en:
       test_dns_settings: 'Test DNS settings'
       testing_dns_info: 'Testing takes 10–15 minutes to complete. Refresh this page to check the status.'
       during_dns_testing: "You can't change the custom domain during DNS testing."
-<<<<<<< HEAD
       set_custom_domain_info: "Your custom domain needs to point to Sharetribe's servers. Before you start the DNS settings test, make sure you have followed the <a class='external-link' href='%{url}' target='_blank'>instructions to point your domain to Sharetribe's servers.</a>"
-=======
-      set_custom_domain_info: "Your custom domain needs to point to Sharetribe's servers. Before you start the DNS settings test, make sure you have followed the <a class='external-link' href='%{url}' target='_blank'>instructions to point your domain to Sharetribe's servers</a>."
->>>>>>> admin2-domain-copy-texts-updates
       main_domain: 'Main domain:'
       redirect: 'Redirect:'
       success: 'Success!'
