@@ -242,7 +242,6 @@ Scenario: User creates a new listing with date field
     When I select "week" from "listing[unit]"
     And I press "Post listing"
     Then I should see "Sledgehammer" within "#listing-title"
-    Then I follow "close_x"
     When I follow "Edit listing"
     Then I should see selected "week" in the "listing[unit]" dropdown
     When I select "person" from "listing[unit]"
@@ -288,7 +287,6 @@ Scenario: User creates a new listing with date field
     And I fill in "listing_description" with "My description"
     And I press "Post listing"
     Then I should see "Sledgehammer" within "#listing-title"
-    Then I follow "close_x"
     When I follow "Edit listing"
     And I fill in "listing_title" with "On Cloud Nine"
     And I press "Post listing"

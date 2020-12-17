@@ -493,15 +493,17 @@ class ApplicationController < ActionController::Base
   helper_method :display_branding_info?
 
   def display_onboarding_topbar?
+    false
+
     # Don't show if user is not logged in
-    return false unless @current_user
-
-    # Show for super admins
-    return true if @current_user.is_admin?
-
-    # Show for admins if their status is accepted
-    @current_user.is_marketplace_admin?(@current_community) &&
-      @current_user.community_membership.accepted?
+    # return false unless @current_user
+    #
+    # # Show for super admins
+    # return true if @current_user.is_admin?
+    #
+    # # Show for admins if their status is accepted
+    # @current_user.is_marketplace_admin?(@current_community) &&
+    #   @current_user.community_membership.accepted?
   end
 
   helper_method :display_onboarding_topbar?
