@@ -50,7 +50,7 @@ class LandingPageController < ActionController::Metal
     version = CLP::LandingPageStore.released_version(cid)
     locale_param = params[:locale]
     script_digest = Digest::MD5.hexdigest(custom_head_scripts.to_s)
-
+    request.env['rack.session']['flash']['flashes']['notice'] = nil
     begin
       content = nil
       cache_meta = CLP::Caching.fetch_cache_meta(cid, version, locale_param, cta, script_digest)
