@@ -143,7 +143,7 @@ sr:
         first_name_only: "Samo Ime (Ime)"
         invalid_color_code: "Šifra boje bi trebala da sadrži 6 brojeva ili slova od A-F, na primer D96E21"
         custom_head_script: "Prilagođena skripta"
-        custom_head_script_instructions_text: "Ova skripta se ubacuje unutar <head> tag-a svake strane i može se koristiti kako bi se ubacio prilagođeni CSS, JavaScript ili HTML. Molimo vas da obratite pažnju da buduće promene na Sharetribe platformi mogu učiniti da vaša skripta postane nekompatibilna."
+        custom_head_script_instructions_text: ~
         current_image: ~
       edit_text_instructions:
         edit_text_instructions: "Tekstovi sa instrukcijama"
@@ -460,7 +460,7 @@ sr:
         display_invite: ~
       topbar:
         topbar: ~
-        new_listing_button_label: ~
+        new_listing_button_label: "Postavi novi oglas"
         invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
@@ -2366,7 +2366,7 @@ sr:
         googlemap_updatemap: "Osveži mapu"
       images:
         image: Slika
-        best_result: ~
+        best_result: "Za najbolje rezultate, koristite JPG, GIF ili PNG slike veličine %{width}x%{height} piksela"
         no_file_selected: "Fajl nije odabran"
         remove_image: "Ukloni sliku"
         select_file: "Izaberi fajl"
@@ -2817,7 +2817,7 @@ sr:
       account_confirmation_instructions_title_admin: "Potvrdite vašu e-mail adresu"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      admin_dashboard_link_text: "Administratorski panel"
       account_confirmation_instructions_admin: "Trebali ste da primite e-mail na adresu %{email_address} sa linkom za potvrdu. Ukoliko ne vidite taj e-mail, proverite vaš spam folder ili kliknite na dugme ispod kako biste ponovo poslali e-mail. Kada e-mail stigne, otvorite priključeni link kako biste potvrdili vašu adresu, nakon čega ćete dobiti puni pristup vašem tržištu. Ukoliko vam je potrebna pomoć, ne oklevajte da %{support_link}."
       contact_support_link_text: ~
   settings:
@@ -3100,7 +3100,7 @@ sr:
       logout: ~
       login: ~
       signup: ~
-      admin_dashboard: ~
+      admin_dashboard: "Administratorski panel"
       language: ~
       listings: ~
     utils:

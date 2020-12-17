@@ -148,7 +148,7 @@ pl:
         first_name_only: "Tylko imię (Pierwsze)"
         invalid_color_code: "Kod kolory powinien zawierać sześć cyfr lub liter od A do F, np. D96E21."
         custom_head_script: "Skrypt niestandardowy"
-        custom_head_script_instructions_text: "Ten skrypt jest osadzony wewnątrz tagu <head>  dla każdej strony i może być użyty do wstawienia niestandardowego kodu CSS, JavaScript czy HTML. Zwróć proszę uwagę, że przyszłe zmiany w Sharetribe mogą spowodować, ze Twój skrypt stanie się niekompatybilny."
+        custom_head_script_instructions_text: ~
         current_image: "Aktualne zdjęcie:"
       edit_text_instructions:
         edit_text_instructions: "Tekst instrukcji"

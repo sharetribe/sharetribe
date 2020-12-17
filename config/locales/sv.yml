@@ -138,7 +138,7 @@ sv:
         first_name_only: "Bara förnamn"
         invalid_color_code: "Färgkod bör innehålla 6 siffror eller bokstäver A-F t ex D96E21"
         custom_head_script: "Anpassat script"
-        custom_head_script_instructions_text: "Detta script finns under <head> taggen för varje sida och kan användas för att lägga in anpassad CSS, Javascript eller HTML. Vänligen notera att framtida ändringar av Sharetribe kan göra ditt script inkomplett."
+        custom_head_script_instructions_text: ~
         current_image: "Nuvarande bild:"
       edit_text_instructions:
         edit_text_instructions: Instruktionstext
@@ -2416,7 +2416,7 @@ sv:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} kommer att dras av från priset."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} kommer bli avdragen från priset."
         after_service_fee_you_will_get_payment_text: "När någon gör en beställning kommer du få denna summa minus %{payment_fee_info_link}"
-        payment_fee_info_link_text: "%{service_name}s avgift och en hanteringsavgift"
+        payment_fee_info_link_text: "%{service_name}s avgift"
         delivery: Leveransmetod
         shipping: Frakt
         shipping_price: Fraktkostnad

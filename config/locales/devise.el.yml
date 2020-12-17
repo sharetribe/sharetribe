@@ -51,7 +51,7 @@ el:
       failure: "Δεν μπορέσαμε να επιβεβαιώσουμε τον %{kind} λογαριασμό σας λόγω \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Οδηγίες επιβεβαίωσης"
+        subject: "Οδηγίες επιβεβαίωσης για να συνδεθείς %{service_name} "
       reset_password_instructions:
         subject: "Οδηγίες επαναφοράς κωδικού πρόσβασης"
       unlock_instructions:

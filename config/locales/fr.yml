@@ -138,7 +138,7 @@ fr:
         first_name_only: "Prénom seulement (Prénom)"
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
         custom_head_script: "Script personnalisé"
-        custom_head_script_instructions_text: "Ce script est inséré dans le tag <head> de chaque page et peut être utilisé pour insérer du contenu CSS, JavaScript ou HTML personnalisé. Notez que des futures évolutions de Sharetribe pourraient rendre votre script incompatible."
+        custom_head_script_instructions_text: "Le script personnalisé peut être configuré <a href='%{url}'>depuis votre nouveau panneau d'administration</a>."
         current_image: "Image actuelle :"
       edit_text_instructions:
         edit_text_instructions: "Instructions textuelles"
@@ -1729,7 +1729,7 @@ fr:
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
     testimonial_reminder_v2:
       headline: "n'oubliez pas de donner votre avis sur %{other_name} !"
-      you_have_not_given_feedback_yet: "Donner votre avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
+      you_have_not_given_feedback_yet: "C'est toujours une bonne idée de donner votre avis. Si tout s'est bien passé, vous devriez signaler aux autres que %{name} est quelqu'un de confiance. S'il y a eu un problème, c'est également une bonne chose de le mentionner."
       leave_feedback: "Donner un avis sur %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} est intéressé(e) et a autorisé un paiement pour %{listing_title} posté sur %{service_name}"

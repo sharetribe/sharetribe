@@ -493,6 +493,8 @@ class ApplicationController < ActionController::Base
   helper_method :display_branding_info?
 
   def display_onboarding_topbar?
+    return false
+
     # Don't show if user is not logged in
     return false unless @current_user
 
