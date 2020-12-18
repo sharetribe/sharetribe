@@ -7,7 +7,7 @@
     %meta{content: 'width=device-width, initial-scale=1 shrink-to-fit=no', name: 'viewport'}
     %meta{content: admin_description.html_safe, name: 'description'}
     %link{rel: 'shortcut icon', type: 'image/icon', href: @current_community.favicon}
-    = render :partial => 'analytics/head_scripts', locals: { community: @current_community, user: @current_user, plan: @current_plan }
+    = render partial: 'analytics/head_scripts', locals: { community: @current_community, user: @current_user, plan: @current_plan }
     = csrf_meta_tags
     - path_font = APP_CONFIG[:font_proximasoft_url]
     - if path_font.present?
@@ -39,4 +39,4 @@
       = render 'admin2/expired_popup_admin'
 
     = content_for :extra_javascript
-    = render :partial => 'analytics/bottom_scripts'
+    = render partial: 'analytics/bottom_scripts'
