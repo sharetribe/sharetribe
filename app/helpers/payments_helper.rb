@@ -74,6 +74,10 @@ module PaymentsHelper
       separator: "-",
       phone_number: '+852 1234 5678'
     },
+    HU: {
+      account_number: {title: 'IBAN', format: 'HU42117730161111101800000000', regexp: 'HU[0-9]{2}[0-9]{3}[0-9]{5}[0-9]{16}', test_regexp: 'HU'+TEST_IBAN },
+      phone_number: '+36 1 234 5678'
+    },
     IE: {
       account_number: {title: 'IBAN', format: 'IE29AIBK93115212345678', regexp: 'IE[0-9]{2}[A-Z0-9]{4}[0-9]{14}', test_regexp: 'IE'+TEST_IBAN },
       phone_number: '+353 1 234 5600'
