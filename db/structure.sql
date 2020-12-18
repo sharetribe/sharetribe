@@ -583,7 +583,7 @@ CREATE TABLE `domain_setups` (
   `community_id` bigint(20) DEFAULT NULL,
   `domain` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
-  `error` varchar(255) DEFAULT NULL,
+  `error` text,
   `critical_error` tinyint(1) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -2477,6 +2477,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20200303075727'),
 ('20200312062151'),
 ('20200312112018'),
-('20201012091009');
+('20201012091009'),
+('20201218151444');
 
 
