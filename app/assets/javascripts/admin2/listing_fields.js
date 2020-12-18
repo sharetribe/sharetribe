@@ -1,12 +1,16 @@
+function updateSort() {
+    $('.sort-options').each(function (index) {
+        $(this).val(index);
+    });
+}
+
 function sortOptions() {
     if ($('#optionsList').length) {
         Sortable.create(optionsList, {
             handle: '.handle-move',
             animation: 250,
             onEnd: function (/**Event*/evt) {
-                $('.sort-options').each(function (index) {
-                    $(this).val(index);
-                });
+                updateSort();
             },
         });
     }
