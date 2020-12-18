@@ -17,7 +17,7 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :content
 
     Delayed::Job.transaction do
       community_members(mode, current_community).pluck(:id).each do |recipient_id|
-        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient_id, community_id, content, locale), :priority => 9)
+        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient_id, community_id, content, locale), :priority => 20)
       end
     end
   end
