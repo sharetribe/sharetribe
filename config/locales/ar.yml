@@ -419,7 +419,7 @@ ar:
         menu_links_display: ~
         save: "حفظ الإعدادات"
         add_menu_link: ~
-        title_placeholder: ~
+        title_placeholder: "عنوان الرابط"
         url_placeholder: ~
         title: العنوان
         language: اللغة
@@ -1274,7 +1274,7 @@ ar:
       details: "تفاصيل الطلب"
       order_by: "‎%{orderer_link}‎ طلب بواسطة"
       accept_offer: "اقبل العرض"
-      accept_request: ~
+      accept_request: "اقبل الطلب واترك القائمة مفتوحة"
       accept_request_and_close: ~
       reject_offer: "ليس الآن"
       reject_request: "ليس الآن"
@@ -1379,7 +1379,7 @@ ar:
       sum: "‎%{sum}‎: المجموع"
       total: "‎%{total}‎: المجموع"
     status:
-      payment_errored: ~
+      payment_errored: "عملية دفع فاشلة. الرجاء المحاولة مرة أخرى "
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: إلغاء
@@ -1469,9 +1469,9 @@ ar:
       fb_join_accept_terms: "هنالك خطوة أخيرة وهي قبول شروط الإستخدام ‎%{service_name}‎ للإنضمام إلى"
       join_community: "‎%{service_name}‎ إنضم إلى"
       you_can_join: "في الأسفل ‎%{service_name}‎ بعد الموافقة على شروط ‎%{service_name}‎ يمكنك الإنضمام إلى"
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
+      you_can_join_email_confirmation: "للإنضمام ‎%{service_name}‎ يجب أن يكون لديك عنوان بريد إلكتروني صالح ينتهي بـ‎%{email_ending}‎ .يمكنك الانضمام عن طريق ملء عنوان بريدك الإلكتروني ، وقبول شروط الاستخدام والنقر على \"انضمام\" ‎%{service_name}‎ أدناه، وتأكيد بريدك الإلكتروني."
+      you_can_join_email_confirmation_multiple_addresses: "‎%{service_name}‎ قيود البريد الإلكتروني. يمكنك الانضمام فقط إذا كان لديك عنوان بريد إلكتروني مسموح به. يمكنك الانضمام عن طريق ملء عنوان بريدك الإلكتروني ، وقبول شروط الإستخدام ‎%{service_name}‎ والنقر على \"انضمام\" ‎%{service_name}‎ أدناهز"
+      you_can_join_with_invite_only: "يجب أن يكون لديك دعوة من عضو آخر للإنضمام ‎%{service_name}‎ . إذا كان لديك رمز دعوة , فيمكنك الإنضمام عن طريق كتابة الرمز في الحقل أدناه , وقبول شروط الإستخدام والنقر فوق \"إنضمام ‎%{service_name}‎ \" أدناه ."
       if_want_to_view_content: "دون أن تكون عضوا فيها يجب عليك ‎%{service_name}‎ إذا أردت عرض محتوى"
       log_out: "تسجيل الخروج"
       join_community_button: "‎%{service_name}‎ إنضم إلى"
@@ -1511,7 +1511,7 @@ ar:
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
+      here_is_a_message_from: "هذه رسالة من ‎%{other_party_given_name}‎:"
       request_marked_as_confirmed: "تم إتمام طلبك - تذكر بإعطاء رأيك"
       request_marked_as_canceled: "تم إلغاء الطلب"
       has_marked_request_as_confirmed: ~
@@ -1602,7 +1602,7 @@ ar:
     new_message:
       view_message: "أظهر الرسالة"
       has_sent_you_a_message_in_kassi: "‎%{sender}‎ أرسل إليك رسالة. إذهب الى‎%{service_name}‎ للرّد"
-      you_have_a_new_message: ~
+      you_have_a_new_message: "لديك رسالة جديدة من  %{sender_name} في %{service_name}"
     new_message_v2:
       headline: ~
       reply: ~
@@ -1706,7 +1706,7 @@ ar:
           هل باستطاعتك مشاركة ما يحتاجه الآخرين؟ أو هل أنت بحاجة إلى شيء موجود عند الآخرين؟ قم بعمل طلب أو عرض أو تصفح كل ما يطلبه أو يقدمه الآخرين في
     reset_password_instructions:
       change_my_password: "تغيير كلمة المرور"
-      reset_password_instructions: ~
+      reset_password_instructions: "‎<p>‎ لقد أشرت إلى أنك نسيت كلمة المرور الخاصة بك في ال‎%{service_name}‎  خدمة.‎</p><p>‎ إذا كنت بحاجة إلى إعادة تعيين كلمة المرور الخاصة بك ، فانقر فوق الارتباط التالي :‎ ‎%{password_reset_link}‎  ‎</p><br/><p>‎ إذا لم تطلب هذا , يرجى تجاهل هذا البريد الإلكتروني. لن تتغير كلمة مرورك حتى تصل إلى الرابط أعلاه وتنشئ كلمة مرور جديدة. ‎</p>‎"
     testimonial_reminder:
       remember_to_give_feedback_to: "تذكير! قم بإعطاء رأيك عن ‎%{name}‎"
       you_have_not_given_feedback_yet: "‎%{given_name}‎ تذكر بإعطاء رأيك عن. ‎‎%{event}‎ للحدث ‎%{name}‎ لم تقم بإعطاء رأيك لـ"
@@ -2157,7 +2157,7 @@ ar:
     notifications:
       listing_could_not_be_saved: "‎%{contact_admin_link}‎ فشل في حفظ الإعلان قم بالمحاولة مرة أخرى في حال استمرت المشكلة قم بالإتصال بنا"
       contact_admin_link_text: "‎%{service_name}‎ تواصل مع مشرف"
-      test_welcome_email_delivered_to: ~
+      test_welcome_email_delivered_to: "تم ارسال بريد الكتروني تجريبي الى ‎%{email}‎."
       something_went_wrong: "حصل خطأ ما"
       community_updated: "تم تحديث البيانات"
       community_update_failed: "فشل في تحديث البيانات"
@@ -2728,7 +2728,7 @@ ar:
       notification_is_mandatory: ~
       password_again: "تأكيد كلمة السر"
       show_my_name_to_others: "‎%{service_name}‎ أظهر الأسم لمستخدمي"
-      sign_up: "‎%{service_name}‎ قم بإنشاء حساب جديد في"
+      sign_up: "‎إنشاء حساب جديد ‎%{service_name}‎ "
       terms: "شروط الاستخدام"
       privacy: ~
       visible_only_to_you: "‎%{service_name}‎ مرئية فقط لك ولمشرفي"
@@ -2793,11 +2793,11 @@ ar:
       create_new_account: "إنشاء حساب جديد"
       i_forgot_my_password: "نسيت اسم المستخدم أو كلمة المرور"
       login: "تسجيل الدخول"
-      login_to_kassi: "‎%{service_name}‎ تسجيل الدخول لـ"
+      login_to_kassi: "تسجيل الدخول إلى ‎%{service_name}‎ "
       connect_your_facebook_to_kassi: "‎%{service_name}‎ قم بربط حسابك على فيسبوك لـ"
       facebook_account: "حساب فيسبوك:"
-      log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
+      log_in_to_link_account: "اذا كنت تمتلك حساب ‎%{service_name}‎  مسبقا, سجل دخولك لكي تربطه بحسابك على الفيسبوك."
+      you_can_also_create_new_account: "اذا كنت لا تمتلك حساب ‎%{service_name}‎ , ادخل على‎%{accont_creation_link}‎ للتسجيل بواسطة حسابك على الفيسبوك."
       account_creation_link_text: "اضغط هنا"
       cancle_facebook_connect: "‎%{cancel_link}‎ إذا لا تريد ربط هذا الحساب يمكنك"
       facebook_cancel_link_text: إلغاء
@@ -2924,7 +2924,7 @@ ar:
       terms_have_changed: "تم تغيير شروط الإستخدام"
       you_can_view_the_new_terms: "يمكنك عرض الشروط الجديدة"
       you_need_to_accept: "أهلا بك في  ‎%{service_name}‎!  يبدو أن هذه المرة الأولى لك. قبل البدأ يجب عليك القبول"
-      you_need_to_accept_new_terms: ~
+      you_need_to_accept_new_terms: "تغيرت شروط استخدام %{service_name}. يجب عليك قبول الشروط الجديدة من أجل الاستمرار في استخدام %{service_name}. تهدف الشروط الجديدة إلى تمكين صيانة الخدمة بعد انتهاء مشروع البحث."
   testimonials:
     index:
       all_testimonials: "جميع الآراء"
@@ -2941,7 +2941,7 @@ ar:
       slightly_better_than_expected: "أفضل من المتوقع بقليل"
       slightly_less_than_expected: "أسوأ من المتوقع بقليل"
       textual_feedback: "كيف سارت الأمور؟"
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "ستكون التعليقات التي تقدمها مرئية للأعضاء الآخرين في صفحة ملف التعريف الخاصة بـ ‎%{person}‎. يساعدهم على تقييم ما إذا كان ‎%{person}‎ شخص جدير بالثقة."
       positive: إيجابي
       negative: سلبي
       default_textual_feedback: "كل سار بشكل جيد. شكرا جزيلا"
@@ -3007,7 +3007,7 @@ ar:
     format: ~
   time:
     formats:
-      short: ~
+      short: "%b %e, %Y على %H:%M"
       shorter: "%b %e at %H:%M"
       short_date: ~
       hours_only: "%H:%M"

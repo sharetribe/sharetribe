@@ -2,9 +2,9 @@ el:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: ","
+        delimiter: "."
+        format: "%u%n"
   admin:
     categories:
       edit:
@@ -138,7 +138,7 @@ el:
         first_name_only: "Όνομα (μόνο)"
         invalid_color_code: "Ο κωδικός του χρώματος πρέπει να αποτελείται από 6 χαρακτήρες, αριθμούς ή γράμματα από A-F, για παράδειγμα D96E21."
         custom_head_script: "Προσαρμοσμένο script "
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: "Οι παράμετροι της προσαρμοσμένης δέσμης ενεργειών μπορούν να ρυθμιστούν <a href='%{url}'> στο νέο πίνακα διαχείρισης</a>."
         current_image: "Τρέχουσα εικόνα:"
       edit_text_instructions:
         edit_text_instructions: "Κείμενα οδηγιών"
@@ -422,7 +422,7 @@ el:
         sharetribe_analytics_instructions_link_text: "Διαβάστε περισσότερα σχετικά με τα στατιστικά στοιχεία του Sharetribe."
         end_user_analytics: "Επιτρέψτε στο Sharetribe να καταγράφει τη δραστηριότητα των μελών προκειμένου να βελτιώσει τις υπηρεσίες του"
         save: "Αποθήκευση ρυθμίσεων"
-        google_tag_manager: ~
+        google_tag_manager: "Google Tag Manager"
         gtm_paragraph_1: "Η χρήση ενός διαχειριστή ετικετών όπως το GTM είναι ένας καλός τρόπος για να διαχειριστείτε και να αναπτύξετε αποσπάσματα κώδικα ή tracking pixels  στον ιστότοπό σας χωρίς να χρειάζεται να τροποποιήσετε τον κώδικα."
         gtm_paragraph_2: "Επειδή το Sharetribe βασίζεται στο Google Tag Manager, θα πρέπει να %{link}."
         learn_how_to_configure_gtm: "μάθετε πώς μπορείτε να ρυθμίσετε τις παραμέτρους του GTM για την πλατφόρμα Go"
@@ -461,7 +461,7 @@ el:
         invalid_post_listing_button_label: "Δώστε ένα έγκυρο κείμενο για το κουμπί \"Δημοσίευση νέας καταχώρησης\""
       transactions:
         export_all_as_csv: "Εξαγωγή όλων ως CSV"
-        processing_export: ~
+        processing_export: "Επεξεργασία εξαγωγής σε CSV..."
         transactions: Συναλλαγές
         search_by_title_parties: "Αναζήτηση τίτλου συναλλαγής ή εμπλεκόμενων μερών"
         search: Αναζήτηση
@@ -488,7 +488,7 @@ el:
           sum: Σύνολο
           started: Άρχισε
           last_activity: "Τελευταία δραστηριότητα"
-          initiated_by: ~
+          initiated_by: Εκκινητής
           other_party: Πωλητής
         status:
           conversation: Συνομιλία
@@ -535,7 +535,7 @@ el:
             payment_intent_action_expired: Έληξε
             payment_intent_failed: "Η πληρωμή με το Stripe απέτυχε"
             refunded: "Επιστροφή χρημάτων"
-            dismissed: ~
+            dismissed: "Έχει διεκπεραιωθεί"
         not_available: "Δεν είναι διαθέσιμο"
       conversations:
         conversations: Συνομιλίες
@@ -544,7 +544,7 @@ el:
           status: Κατάσταση
           started: Ξεκινησε
           last_activity: "Τελευταία δραστηριότητα"
-          initiated_by: ~
+          initiated_by: Εκκινητής
           other_party: Πωλητής
         participants: "Συνομιλία %{starter} με %{author} "
         profile: "Προφίλ %{author} "
@@ -555,7 +555,7 @@ el:
       testimonials:
         testimonials: Κριτικές
         no_testimonials_found: "Δεν βρέθηκαν κριτικές"
-        displaying_xx_reviews: ~
+        displaying_xx_reviews: "Εμφάνιση <b>%{count}</b> κριτικές για συναλλαγές %{tx_from} - %{tx_to} από <b>%{all_count}</b> κριτικές στο σύνολο"
         search_keyword: "Αναζήτηση ονόματος ή λέξης-κλειδιού"
         search: Αναζήτηση
         reset_search: "Εμφάνιση όλων"
@@ -702,15 +702,15 @@ el:
         setup_check_back: "Παρακαλώ ελέγξτε πάλι σε λίγα λεπτά, η ρύθμιση της διεύθυνσης ιστοτόπου (domain) θα πρέπει να ολοκληρωθεί σύντομα!"
         setup_check_back_critical_error: "Η εγκατάσταση της διέυθυνσης ιστοτόπου (domain) θα διαρκέσει περισσότερο από το αναμενόμενο. Ελέγξτε ξανά αργότερα ή επικοινωνήστε μαζί μας!"
         setup_failed: "Η εγκατάσταση της διεύθυνσης ιστοτόπου (domain) απέτυχε!"
-        setup_the_domain_again_info: ~
-        setup_the_domain_again: ~
+        setup_the_domain_again_info: "Πιθανόν οι αλλαγές DNS του τομέα σας να μην έχουν ακόμη μεταδοθεί πλήρως. Αυτό μπορεί περιστασιακά να διαρκέσει έως και 48 ώρες. Βεβαιωθείτε ότι οι εγγραφές DNS έχουν ρυθμιστεί σωστά και ξαναπροσπαθήστε μετά από μία ώρα. Επικοινωνήστε μαζί μας, εάν το πρόβλημα εξακολουθεί να υφίσταται."
+        setup_the_domain_again: "Επανάληψη εγκατάστασης διεύθυνσης ιστοτόπου (domain)"
         summary:
-          main_domain: ~
-          redirect: ~
-        check_another_domain: ~
-        checks_passed_with_warning: ~
-        this_domain_is_not_configured_correctly: ~
-        start_using_the_custom_domain: ~
+          main_domain: "Κύρια διεύθυνση ιστοτόπου (domain)"
+          redirect: "Ανακατεύθυνση:"
+        check_another_domain: "Έλεγχος άλλης διεύθυνσης ιστότοπου (domain)"
+        checks_passed_with_warning: "Οι έλεγχοι πέρασαν - με προειδοποίηση!"
+        this_domain_is_not_configured_correctly: "Αυτή η διεύθυνση ιστοτόπου (domain) δεν έχει ρυθμιστεί σωστά. Αυτό σημαίνει ότι δεν θα ανακατευθύνει στην πλατφόρμα σας. Βεβαιωθείτε ότι οι εγγραφές DNS έχουν ρυθμιστεί σωστά και ελέγξτε το ξανά, εάν θέλετε αυτη η διεύθυνση ιστοτόπου να ανακατευθύνει στην κύρια διεύθυνσή σας. Εάν δεν θέλετε την ανακατεύθυνση, κάντε κλικ στην επιλογή \"Έναρξη χρήσης της προσαρμοσμένης διεύθυνσης ιστοτόπου\"."
+        start_using_the_custom_domain: "Έναρξη χρήσης της προσαρμοσμένης διεύθυνσης ιστοτόπου (domain)"
       landing_pages:
         landing_pages: "Κεντρική Σελίδα"
         info_1: "Η κεντρική σελίδα είναι ίσως η πιο σημαντική σελίδα της πλατφόρμας σας. Είναι η πρώτη σελίδα που βλέπουν οι επισκέπτες - κάτι σαν την μπροστινή πόρτα του σπιτιού σας. Έχετε μόνο λίγα δευτερόλεπτα για να πείσετε τους νέους επισκέπτες να εξερευνήσουν το site σας. Η σελίδα πρέπει να είναι ελκυστική και το περιεχόμενο πρέπει να είναι σαφές και δελεαστικό."
@@ -721,7 +721,7 @@ el:
         editor_title: "Επεξεργαστής κεντρικής σελίδας"
         editor_info: "Εδώ μπορείτε να επεξεργαστείτε τις ενότητες της κεντρικής σελίδας. Προς το παρόν είναι δυνατή η χρήση μόνο μίας γλώσσας. Η θέση των ενοτήτων «Hero» και «Υποσέλιδο» δεν μπορεί να τροποποιηθεί"
         preview: "Προεπισκόπηση κεντρικής σελίδας"
-        set_live: ~
+        set_live: "Ζωντανή εμφάνιση "
         add_new_section: "Προσθήκη νέας ενότητας:"
         select_section_type: "Επίλεξε τύπο ενότητας...."
         this_version_is_not_released: "Πρέπει να κάνετε αλλαγές για να ορίσετε μια νέα έκδοση της κεντρικής σελίδας "
@@ -873,7 +873,7 @@ el:
           autoplay_no: "Χώρις αυτόματη αναπαραγωγή"
           autoplay_muted: "Αυτόματη αναπαραγωγή σε σίγαση"
           info: "Αυτό το κείμενο θα εμφανιστεί εάν ενεργοποιήσετε την επιλογή \\\"Χώρις αυτόματη αναπαραγωγή\\\" ή όταν διακοπεί η λειτουργία του βίντεο."
-          youtube_video_id_info: ~
+          youtube_video_id_info: "Μπορείτε να λάβετε το αναγνωριστικό βίντεο από τη διεύθυνση URL του βίντεο. Είναι συνήθως το τελευταίο μέρος της διεύθυνσης URL. Για παράδειγμα, εάν η διεύθυνση URL του βίντεο είναι https://www.youtube.com/watch?v=UffchBUUIoI, το αναγνωριστικό θα είναι 'UffchBUUIoI'"
     custom_fields:
       edit:
         edit_listing_field: "Επεξεργασία πεδίου καταχώρησης '%{field_name}'"
@@ -926,7 +926,7 @@ el:
         text: Κείμενο
         number: Αριθμός
         dropdown: "Αναπτυσσόμενο μενού"
-        checkbox_group: ~
+        checkbox_group: "Ομάδα ελέγχου"
         date: Ημερομηνία
         file: Αρχείο
         location: Τοποθεσία
@@ -1047,7 +1047,7 @@ el:
         can_not_delete_only_one_in_categories: "Δεν μπορείτε να διαγράψετε αυτόν τον τύπο παραγγελίας, επειδή  είναι ο μόνος τύπος που χρησιμοποιείται: %{categories}"
       listing_shape_name: Όνομα
       listing_shape_name_placeholder: "Π.χ. πουλάω"
-      action_button_label: ~
+      action_button_label: "Ετικέτα του κουμπιού ολοκλήρωση αγορών"
       action_button_placeholder: "Π.χ. Αγοράζω"
       open_listings_warning:
         one: "Υπάρχει %{count} ανοιχτή καταχώρηση με αυτόν τον τύπο παραγγελίας. Εάν αλλάξετε οποιαδήποτε από τις παρακάτω ρυθμίσεις, αυτή η καταχώρηση θα διατηρήσει τις παλιές ρυθμίσεις. Η καταχώρηση μπορεί να αλλάξει στις νέες ρυθμίσεις με επεξεργασία. Αν δεν θέλετε να εμφανίζεται η καταχώρηση με τις παλιές ρυθμίσεις στον ιστότοπό σας, μπορείτε να την κλείσετε κάνοντας κλικ στο παρακάτω κουμπί."
@@ -1080,7 +1080,7 @@ el:
       custom_unit_form:
         title: "Νέα μονάδα τιμολόγησης"
         label_heading: Ετικέτα
-        selector_label_heading: ~
+        selector_label_heading: "Ετικέτα επιλογέα"
         label_placeholder: "π.χ. \"κιλά\", \"30 λεπτά\", \"άνθρωπος\""
         selector_placeholder: "π.χ. \"αριθμός ανθρώπων\", \"κιλά\""
         per: Ανά
@@ -1296,7 +1296,7 @@ el:
       order_by: "Παραγγελία από %{orderer_link} "
       accept_offer: "Αποδεχτείτε την προσφορά"
       accept_request: "Αποδέξου την πρόσκληση και διατήρησε την καταχώρηση ανοιχτή"
-      accept_request_and_close: ~
+      accept_request_and_close: "Αποδοχή του αιτήματος και κλείσιμο της καταχώρησης"
       reject_offer: "Όχι αυτή τη φορά"
       reject_request: "Όχι αυτή τη φορά"
       close_listing: "Απενεργοποιήστε την καταχώρηση \"%{listing_title_link}\""
@@ -1802,7 +1802,7 @@ el:
       a_new_transaction: "Μία νέα συναλλαγή"
       listing: "Καταχώρηση: %{title} "
       sum: "Σύνολο: %{amount} "
-      starter: ~
+      starter: "Εκκινητής: %{name} "
       provider: "Πωλητής: %{name} "
     new_transaction_v2:
       subject: "Νέα συναλλαγή στο %{service_name} "
@@ -1810,7 +1810,7 @@ el:
       a_new_transaction: "Μια νέα συναλλαγή"
       listing: "Καταχώρηση:"
       sum: "Σύνολο:"
-      starter: ~
+      starter: "Εκκινητής:"
       provider: "Πωλητής:"
       view_transaction: "Προβολή συναλλαγής"
     transaction_cancel_flow:
@@ -2247,7 +2247,7 @@ el:
       reply_cannot_be_empty: "Δεν γίνεται να στείλεις κενό μήνυμα"
       reply_sent: "Η απάντησή σας εστάλη"
       request_accepted: "Το αίτημα έγινε δεκτό"
-      request_accepted_and_closed: ~
+      request_accepted_and_closed: "Το αίτημα έγινε αποδεκτό και η καταχώρηση έκλεισε"
       request_confirmed: "Η παραγγελια ολοκληρώθηκε"
       request_rejected: "Το αίτημα απορρίφθηκε"
       request_canceled: "Η παραγγελία σας αμφισβητείται"
@@ -2597,7 +2597,7 @@ el:
       details: Λεπτομέρειες
       by: "%{listing} από %{author} "
       payment: Πληρωμή
-      exp: ~
+      exp: "Λήξη:"
       you_will_be_charged: "Θα χρεωθείτε μόνο αν ο %{author} αποδεχτεί τη συναλλαγή. Ο χρήστης %{author} πρέπει να αποδεχτεί τη συναλλαγή εντός %{expiration_period} ημέρες. Εάν ο χρήστης %{author} αρνηθεί ή δεν απαντήσει, δεν γίνεται καμία χρέωση."
       day: μέρα
       days: μέρες
@@ -2971,7 +2971,7 @@ el:
       about_listing: "σχετικά με την καταχώρηση"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
     first_day_of_week: 0
   datepicker:
     days:
@@ -3122,7 +3122,7 @@ el:
         i_am_available_on: "Είμαι διαθέσιμος ..."
         start_time: "Ώρα έναρξης"
         end_time: "Ώρα λήξης"
-        add_another_time_slot: ~
+        add_another_time_slot: "+ Προσθέστε και άλλη υποδοχή χρόνου"
         save: Αποθήκευση
     no_listings:
       sorry: "Λυπούμαστε, δεν βρέθηκαν καταχωρήσεις για τα κριτήρια αναζήτησής σας."
@@ -3166,6 +3166,10 @@ el:
         zero: Συναλλαγές
         one: Συναλλαγή
         other: Συναλλαγές
+      listing:
+        zero: Καταχώρηση
+        one: Καταχώρηση
+        other: Καταχωρήσεις
     previous_label: "&#8592; Προηγούμενο"
     next_label: "Επόμενο &#8594;"
     page_gap: "&hellip;"
@@ -3179,7 +3183,7 @@ el:
         one: "Βρέθηκε <b> 1</b> %{model} "
         other: "Βρέθηκαν όλα  <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Εμφάνιση του %{model} %{from} - %{to} του %{count} στο σύνολο"
-      multi_page_html: ~
+      multi_page_html: "Εμφάνιση %{model} <b> %{from} & nbsp - & nbsp ; %{to} </b> από <b> %{count} </b> στο σύνολό"
     person:
       community_members_entries_info:
         single_page:
@@ -3190,8 +3194,8 @@ el:
           zero: "Δεν βρέθηκε %{model} "
           one: "Εμφανίζεται <b> %{accepted_count} </b> αποδέχτηκε %{accepted_model} και %{other_count} άλλο %{other_model} "
           other: "Εμφανίζονται <b> %{accepted_count} </b> αποδέχτηκαν %{accepted_model} και %{other_count} άλλα %{other_model} "
-        multi_page: ~
-        multi_page_html: ~
+        multi_page: "Εμφάνιση%{model} %{from} %{to} από %{accepted_count} αποδεκτός/η %{accepted_model} και %{other_count} άλλο %{other_model} "
+        multi_page_html: "Εμφάνιση %{model} <b> %{from} & nbsp ; - & nbsp ; %{to} </b> από <b> %{accepted_count} </b> αποδεκτός/η%{accepted_model} και %{other_count} άλλο %{other_model} "
   stripe_accounts:
     admin_account_not_connected: "Η χρήση του συστήματος πληρωμών του %{service_name} δεν είναι δυνατή, επειδή οι πληρωμές δεν έχουν ρυθμιστεί. Για λεπτομέρειες, επικοινώνησε με %{contact_admin_link} "
     contact_admin_link_text: "Επικοινώνησε με την ομάδα %{service_name} "
@@ -3261,9 +3265,9 @@ el:
       bank_routing_2: "Κωδικός υποκαταστήματος"
       bank_currency: "Νόμισμα τραπεζικού λογαριασμού"
       update_also_bank_account: "Ενημέρωση επίσης τραπεζικού λογαριασμού"
-      bank_account_same_country: ~
-      bank_country: ~
-      bank_holder_name: ~
+      bank_account_same_country: "Χρήση τραπεζικού λογαριασμού που βρίσκεται στη χώρα διαμονής μου"
+      bank_country: "Χώρα τραπεζικού λογαριασμού"
+      bank_holder_name: "Όνομα κατόχου τραπεζικού λογαριασμού"
       messages:
         account_number: "Αριθμός λογαριασμού"
         routing_number: "Αριθμός δρομολόγησης"
@@ -3275,7 +3279,7 @@ el:
         bsb: "BSB "
         error_message: Ακύρωση
         clearing_code: "Κωδικός εκκαθάρισης"
-        sort_code: ~
+        sort_code: "Sort code "
         must_match: "πρέπει να έχει την ακόλουθη μορφή:"
         a_dash: "μία παύλα"
         digits: ψηφία
@@ -3295,7 +3299,7 @@ el:
       ssn_last_4: "Τα 4 τελευταία ψηφία του ΑΜΚΑ"
       hong_kong_identity_card: "Αριθμός ταυτότητας Χονγκ Κονγκ (HKID)"
       singapore_identity_card: "Εθνική ταυτότητα (NRIC) ή ξένος αριθμός ταυτότητας (FIN)"
-      mexico_id_number: ~
+      mexico_id_number: "Federal taxpayer registration number (RFC)"
       messages:
         social_insurance_number: "πρέπει να είναι έγκυρος AMKA"
   payment_settings:

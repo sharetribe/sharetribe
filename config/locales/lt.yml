@@ -65,9 +65,9 @@ lt:
         community_details: "Pagrindiniai nustatymai"
         community_look_and_feel: Dizainas
         edit_community: "Pagrindiniai nustatymai"
-        enabled_languages: ~
+        enabled_languages: "Įgalintos kalbos"
         enabled_languages_description: "Galimos kalbos. Pirmoji naudojamą kaip pagrindinė."
-        default_language: ~
+        default_language: "Numatyta kalba"
         language_selection_disabled: ~
         community_name: "Turgaus pavadinimas"
         edit_community_name_description: "Jūsų turgaus pavadinimas. Jis rodomas vartotojams el. laiškuose ir kitose vietose."
@@ -194,31 +194,31 @@ lt:
         getting_started: Pradėti
       available_languages:
         cs: ~
-        da-DK: ~
-        de: ~
+        da-DK: Danų
+        de: Vokiečių
         en: Anglų
-        en-AU: ~
-        en-GB: ~
-        es: ~
+        en-AU: "Anglų (Australija)"
+        en-GB: "Anglų (Jungtinė Karalystė)"
+        es: Ispanų
         es-ES: "Ispanų (Ispanija)"
-        fi: ~
+        fi: Suomių
         fr: Prancūzų
-        fr-CA: ~
-        el: ~
-        it: ~
-        ja: ~
+        fr-CA: "Prancūzų (Kanada)"
+        el: Graikų
+        it: Italų
+        ja: Japonų
         ko: ~
-        nb: ~
-        nl: ~
+        nb: Norvegų
+        nl: Olandų
         pl: ~
         pt-BR: "Portugalų (Brazilija)"
         pt-PT: ~
-        ru: ~
-        sv: ~
+        ru: Rusų
+        sv: Švedų
         th-TH: ~
-        tr-TR: ~
+        tr-TR: Turkų
         vi: ~
-        zh: ~
+        zh: Kinų
         zh-TW: ~
       settings:
         settings: Nustatymai
@@ -1005,85 +1005,85 @@ lt:
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
-      can_not_find_name: ~
+      can_not_find_name: "Nepavyksta rasti užsakymo tipo su vardu: %{name}"
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
-        category_count: ~
+        listing_shapes: "Užsakymo tipai"
+        description: "Užsakymų tipai nustato, kaip užsakymo procesas veikia jūsų svetainėje. Galite nuspręsti, ar jūsų vartotojai nuomoja ar parduoda, o gal tiesiog skelbia skelbimus ir bendrauja tiesioginiais pranešimais."
+        read_more_about_order_types: "Skaityti daugiau apie užsakymų tipus"
+        add_new_shape: "Pridėti naują užsakymo tipą: "
+        select_template: "Pasirinkti šabloną..."
+        all_categories: "Visos kategorijos"
+        no_categories: "Nėra kategorijų"
+        category_count: "%{category_count} kategorijos"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Užsakymo tipo pavadinimas"
+          listing_shape_categories: "Kategorijos, kuriose tai naudojama"
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Užsakymo įrašymas"
+          save_order_successful: "Sėkmingai įrašytas užsakymo tipo užsakymas"
+          save_order_error: "Įrašant užsakymą įvyko klaida. Atnaujinkite puslapį ir bandykite dar kartą."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Produktų pardavimas"
+        renting_products: "Produktų nuoma"
+        offering_services: "Paslaugų siūlymas"
+        giving_things_away: "Atiduoti daiktus"
+        requesting: Užklausimas
+        announcement: "Skelbimų registravimas"
+        custom: Pasirinktinis
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Kurti užsakymo tipą"
+        create: Kurti
+        cancel: Atšaukti
+        create_success: "Sukurtas naujas orderio tipas '%{shape}'"
+        create_failure: "Nepavyko sukurti naujo užsakymo tipo. Klaida:%{error_msg}"
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
-        delete: ~
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
+        edit_listing_shape: "Redaguoti užsakymo tipą %{shape}"
+        update: Išsaugoti
+        cancel: Atšaukti
+        update_success: "Įrašyti užsakymo tipo pakeitimai %{shape}"
+        update_failure: "Nepavyko įrašyti keitimų. Klaida: %{error_msg}"
+        delete: "Naikinti užsakymo tipą"
+        can_not_delete_last: "Negalite panaikinti šio užsakymo tipo, nes tai vienintelis tipas jūsų prekyvietėje."
+        can_not_delete_only_one_in_categories: "Negalite panaikinti šio užsakymo tipo, nes šiose kategorijose šis užsakymo tipas yra naudojamas vienintelis: %{categories}"
+      listing_shape_name: Vardas
+      listing_shape_name_placeholder: "Pvz., Parduoti"
+      action_button_label: "Išsiregistravimo mygtuko žymė"
+      action_button_placeholder: "Pvz., Pirkti"
+      successfully_closed: "Sėkmingai uždaryti sąrašai"
+      successfully_deleted: "Sėkmingai panaikintas užsakymo tipas '%{order_type}'"
+      pricing_and_checkout_title: "Kainodara ir išsiregistravimas"
+      online_payments_label: "Leisti pardavėjams priimti mokėjimus internetu"
+      shipping_label: "Leisti pardavėjams nustatyti siuntimo mokestį"
+      price_label: "Leisti pardavėjams įtraukti kainą į savo sąrašus"
       units_title: ~
       units_desc: ~
       units:
-        piece: ~
+        piece: "Už vienetą"
         hour: "Per valandą"
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        day: "Per dieną"
+        night: "Per naktį"
+        week: "Per savaitę"
+        month: "Per mėnesį"
         unit: ~
-      can_not_find: ~
+      can_not_find: "Nepavyksta rasti užsakymo tipo su id: %{id}"
       add_custom_unit: "+ Pridėti nestandartinį kainos vienetą…"
-      delete_custom_unit: ~
+      delete_custom_unit: naikinti
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: "Naujas kainodaros vienetas"
+        label_heading: Žymė
+        selector_label_heading: "Parinkiklio žymė"
+        label_placeholder: "Pvz. „kg“, „30 minučių“, „asmuo“, „klasė“"
+        selector_placeholder: "Pvz. „Žmonių skaičius“, „Suma kg“"
+        per: Už
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: "Vieneto tipas"
+          quantity_label: "Kiekis (už vienetą, už kg, vienam asmeniui, už 2 valandų kelionę...)"
+          time_label: "Laikas (per 30 minučių, per 2 savaites, per metus...)"
     paypal_accounts:
       marketplace_paypal_integration: "Mokėjimo sistemos nustatymai"
       preferences_updated: "Mokėjimo sistemos parinktys atnaujintos"
       contact_support_link_text: ~
-      integration_info_text: ~
+      integration_info_text: "Jūsų prekyvietės mokėjimo sistema yra parengta pagal PayPal. Norėdami leisti vartotojams mokėti naudojantis jūsų prekyviete, turite prijungti savo PayPal paskyrą. Prijungę savo PayPal paskyrą, galite pasirinkti minimalų operacijos dydį ir galimą komisinių mokestį:"
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       link_stripe_personal_account: ~
@@ -1276,7 +1276,7 @@ lt:
   conversations:
     accept:
       details: "Užsakymo informacija"
-      order_by: ~
+      order_by: "Užsakymas pagal %{orderer_link}"
       accept_offer: "Priimti pasiūlymą"
       accept_request: "Priimkite užklausą ir laikykite sąrašą atidarytą"
       accept_request_and_close: ~
@@ -1288,7 +1288,7 @@ lt:
       price_to_pay: "Bendra mokėjimo kaina"
       accept: Priimti
       decline: Atsisakyti
-      quantity_label: ~
+      quantity_label: "Kiekis:"
       sum_label: "Tarpinė suma:"
       service_fee_label: "%{service_name} mokestis:"
       buyer_service_fee_label: ~
@@ -1404,7 +1404,7 @@ lt:
         paypal:
           multicurrency: "Nepavyko apdoroti PayPal mokėjimo, nes jūsų PayPal paskyroje nenustatytas pinigų gavimas %{currency}. Eikite į %{paypal_url} ir prisijunkite prie savo paskyros, kad mechaniniu būdu galėtumėte priimti arba atmesti mokėjimą."
           verify: "Jūs negalite priimti šios operacijos, nes nepatvirtinote savo PayPal paskyros. Norėdami patvirtinti savo paskyrą, eikite į %{paypal_url}"
-          intl: ~
+          intl: "Negalime apdoroti jūsų PayPal mokėjimo, nes jūsų Paypal paskyra neturi pašalinimo mechanizmo. Eikite į %{paypal_url} ir prisijunkite prie savo paskyros, kad rankiniu būdu priimti ar atmesti mokėjimą."
       waiting_for_current_user_to_deliver_listing: "Laukiama, kol įvykdysi užsakymą %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Laukiama %{listing_author_name}, kad būtų įvykdytas užsakymas %{listing_title}"
       request_accepted: Priimtas
@@ -1609,8 +1609,8 @@ lt:
       reply: ~
     new_payment:
       new_payment: "Gavote naują mokėjimą"
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Kaina už %{unit_type}"
+      quantity: "Kiekis:"
       you_have_received_new_payment: "%{payer_full_name} jums buvo sumokėjo <b>%{payment_sum}</b> už <b>%{listing_title}</b>. Štai jūsų kvitas."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
@@ -1662,10 +1662,10 @@ lt:
       receipt_of_payment: "Mokėjimo kvitas"
       you_have_made_new_payment: "Jūs sumokėjote <b>%{payment_sum}</b> %{recipient_full_name} už <b>%{listing_title}</b>. Štai čia mokėjimo kvitas."
       product: Produktas
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Kaina už %{unit_type}"
+      duration: Trukmė
+      quantity: Kiekis
+      subtotal: "Tarpinė suma"
       total: "Iš viso"
       price: Kaina
       buyer_service_fee: ~
@@ -1716,7 +1716,7 @@ lt:
     transaction_preauthorized:
       subject: "%{requester} susidomėjo ir patvirtino mokėjimą dėl %{listing_title} skelbimo paskelbto %{service_name}."
       transaction_requested_by_user: "Geros naujienos! %{requester} susidomėjo \"%{listing_title}\" skelbimu ir patvirtino mokėjimą dėl šio skelbimo."
-      you_have_time_to_accept: ~
+      you_have_time_to_accept: "Turite priimti arba atmesti prašymą per %{payment_expires_in}."
       if_you_do_accept: ~
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
@@ -1893,7 +1893,7 @@ lt:
       on_or_before: "turi būti arba prieš %{restriction}"
       after: "turi būti po %{restriction}"
       on_or_after: "turi būti arba po %{restriction}"
-      positive_number: ~
+      positive_number: "Įterpti skaičių."
       from_must_be_less_than_till: "Pradžios laikas turi būti mažesnis negu Pabaigos laikas"
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
@@ -2327,7 +2327,7 @@ lt:
     map:
       open_in_google_maps: "Atidaryti Google žemėlapiuose"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Kažkas negerai, klaidos kodas: %{error_code}"
       something_went_wrong_plain: "Kažkas įvyko ne taip"
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
@@ -2391,14 +2391,14 @@ lt:
         time: "valandą, dieną, mėnesį, ..."
         long_time: "savaitę, mėnesį, ..."
         after_service_fee_you_will_get: "Po to kai %{service_name} ir mokėjimo apdorotojas nuims savo mokesčius, gausite %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} bus išskaičiuota iš kainos."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
         payment_fee_info_link_text: ~
         delivery: "Pristatymo būdas"
         shipping: Pristatymas
         shipping_price: "Pristatymo mokestis"
-        shipping_price_additional: ~
+        shipping_price_additional: "Papildomos prekės"
         pickup: Atsiėmimas
       origin:
         location: Vieta
@@ -2504,15 +2504,15 @@ lt:
       community_not_configured_for_payments_admin: "%{service_name} nesukonfigūruotas mokėjimams, todėl jūs negalite dar skelbti naujų sąrašų. Eikite į %{payment_settings_link}, kad užpildytumėte mokėjimo duomenis."
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      hour: "Valandų skaičius:"
+      day: "Dienų skaičius:"
+      night: "Nakčių skaičius:"
+      week: "Savaičių skaičius:"
+      month: "Mėnesių skaičius:"
       unit: "Vienetų kiekis:"
-      custom: ~
+      custom: "Kiekis:"
       person: ~
-    quantity_placeholder: ~
+    quantity_placeholder: Kiekis
     please_comment: Komentuoti
     reply_link:
       listing_closed: "Skelbimas deaktyvuotas"
@@ -2550,18 +2550,18 @@ lt:
         per_day: "už dieną"
       delivery: "Pristatymo būdas"
       shipping: "Siuntimas (+%{price})"
-      shipping_no_price: ~
+      shipping_no_price: Pristatymas
       shipping_price_additional: "Siuntimas (+%{price}, papildomi daiktai: +%{shipping_price_additional})"
       pickup: Atsiėmimas
-      pickup_no_price: ~
+      pickup_no_price: Atsiėmimas
       youtube_video_player: "YouTube video grotuvas"
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: vnt
+      hour: valanda
+      day: diena
+      night: naktis
+      week: savaitė
+      month: mėnesis
       unit: vienetas
       person: ~
     verification_required:
@@ -2659,7 +2659,7 @@ lt:
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
-      paypal_info_link_text: ~
+      paypal_info_link_text: "PayPal mokėjimo apdorojimo mokestis"
       billing_agreement_description: "Suteikti %{service_name} leidimą apmokėti operacijos mokestį."
       billing_agreement: "Suteikti leidimą"
       permissions_not_granted: "Leidimas prisijungti prie jūsų PayPal paskyros nesuteiktas"
@@ -2670,11 +2670,11 @@ lt:
       billing_agreement_wrong_account: "PayPal paskyros nesutampa. Naudokite tą pačią PayPal paskyrą, su kuria prisijungėte pirmajame žingsnyje."
       something_went_wrong: "Kažkas negerai. Bandykite dar kartą. Jeigu problema pasikartos, prašome kreiptis į %{service_name} komandą."
       account_not_verified: "Jūs nepatvirtinote savo PayPal paskyros. Prieš norėdami tęsti, jums reikia eiti į paypal.com ir patvirtinti savo paskyrą."
-      account_restricted: ~
+      account_restricted: "Jūsų PayPal paskyra yra apribota ir negali būti prijungta. Prisijunkite prie paypal.com ir sužinokite daugiau arba susisiekite su PayPal klientų aptarnavimo komanda, kad išspręstumėte problemą."
     paypal_account_connected_title: ~
     paypal_account_connected: ~
-    change_account: ~
-    missing: ~
+    change_account: "Keisti PayPal paskyrą"
+    missing: "Turite atidarytus sąrašus, bet jūsų PayPal paskyra nenustatyta mokėjimams gauti. Prijunkite savo PayPal paskyrą ir suteikite %{service_name} leidimą imti operacijos mokestį iš savo %{settings_link}."
     from_your_payment_settings_link_text: "mokėjimo nustatymai"
     redirect_message: ~
     redirect_link_text: ~
@@ -2831,8 +2831,8 @@ lt:
       delete_account_confirmation_popup: "Ar tikrai norite ištrinti savo paskyrą ir visam laikui prarasti su ja susijusius duomenis?"
       email_addresses: "El. pašto adresai"
       new_email: "Naujas el. pašto adresas"
-      delete_personal_information: ~
-      delete_information_others_involved: ~
+      delete_personal_information: "Jei ištrinsite savo paskyrą, jūsų asmeninė informacija (vardas, telefono numeris, adresas, el. paštas, profilio nuotrauka ir kt.) bus ištrinta visam laikui ir jos atkurti nepavyks. Visi jūsų sukurti sąrašai bus pašalinti. Negalėsite iš naujo suaktyvinti paskyros."
+      delete_information_others_involved: "Informacija, kurioje dalyvauja ir kiti nariai (pokalbiai su kitais žmonėmis, atlikti sandoriai, kitiems pateikti atsiliepimai ir t. t.), ištrinant paskyrą nepasišalina. Tačiau jūsų vardas nebebus rodomas šalia šios informacijos."
       unfinished_transactions: "Jūsų paskyra negali būti panaikinta, nes turite vykdomų operacijų. Prieš ištrindami paskyrą, prašome užbaigti visas operacijas."
       only_admin: ~
       new_password: "Naujas slaptažodis"
@@ -3028,22 +3028,22 @@ lt:
       other: "%{count} dienos"
   transactions:
     initiate:
-      booked_days: ~
+      booked_days: "Užsakytos dienos:"
       booked_nights: ~
-      price_per_day: ~
+      price_per_day: "Dienos kaina:"
       price_per_night: ~
       price_per_hour: "Valandos kaina:"
       price_per_unit: ~
-      quantity: ~
+      quantity: "Kiekis:"
       subtotal: "Tarpinė suma:"
       shipping-price: "Pristatymas:"
       stripe-fee: ~
       start_end_time: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "Kaina per %{unit_type}:"
+    price: "Kaina:"
+    quantity: "Kiekis: %{quantity}"
+    unit_price: "Vieneto kaina: %{unit_price}"
+    total: "Viso:"
     total_to_pay: ~
   unit:
     day: diena
