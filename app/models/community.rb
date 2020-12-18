@@ -275,12 +275,12 @@ class Community < ApplicationRecord
 
   # process_in_background definitions have to be after
   # after all attachments: https://github.com/jrgifford/delayed_paperclip/issues/129
-  process_in_background :logo
-  process_in_background :wide_logo
-  process_in_background :cover_photo
-  process_in_background :small_cover_photo
+  process_in_background :logo, priority: 1
+  process_in_background :wide_logo, priority: 1
+  process_in_background :cover_photo, priority: 1
+  process_in_background :small_cover_photo, priority: 1
 
-  process_in_background :favicon
+  process_in_background :favicon, priority: 1
 
   before_save :cache_previous_image_urls
 

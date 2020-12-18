@@ -223,7 +223,7 @@ class Person < ApplicationRecord
                       :thumb => "48x48#",
                       :original => "600x800>"}
 
-  process_in_background :image
+  process_in_background :image, priority: 1
 
   #validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 9.megabytes

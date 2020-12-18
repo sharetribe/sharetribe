@@ -460,7 +460,7 @@ class ListingsController < ApplicationController
   def notify_about_new_listing
     Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.id))
     if @current_community.follow_in_use? && !@listing.approval_pending?
-      Delayed::Job.enqueue(NotifyFollowersJob.new(@listing.id, @current_community.id), :run_at => NotifyFollowersJob::DELAY.from_now)
+      Delayed::Job.enqueue(NotifyFollowersJob.new(@listing.id, @current_community.id), :run_at => NotifyFollowersJob::DELAY.from_now, priority: 12)
     end
 
     flash[:notice] = t(

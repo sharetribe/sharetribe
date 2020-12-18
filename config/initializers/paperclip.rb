@@ -39,3 +39,16 @@ module Paperclip
   end
 end
 
+module DelayedPaperclip
+  class ProcessJob < ActiveJob::Base
+    def self.enqueue_delayed_paperclip(instance_klass, instance_id, attachment_name)
+      delayed_opts = instance_klass.constantize.paperclip_definitions[attachment_name][:delayed]
+
+      # DelayedPaperclip sets priority to 0 (highest) by default, so we switch
+      # the default to 5, as it is the default for all other jobs.
+      priority = delayed_opts[:priority] > 0 ? delayed_opts[:priority] : 5
+
+      set(:queue => delayed_opts[:queue_name], priority: priority).perform_later(instance_klass, instance_id, attachment_name.to_s)
+    end
+  end
+end
