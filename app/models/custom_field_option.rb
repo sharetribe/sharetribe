@@ -34,7 +34,8 @@ class CustomFieldOption < ApplicationRecord
     titles.each { |t| selector_label[t.locale] = t.value }
     { locals: titles.pluck(:locale),
       uniq: id,
-      selector_label: selector_label }
+      selector_label: selector_label,
+      sort_priority: sort_priority }
   end
 
   def title_attributes=(attributes)

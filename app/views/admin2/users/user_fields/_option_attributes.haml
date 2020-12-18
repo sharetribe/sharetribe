@@ -5,7 +5,7 @@
 
 .field-data
   = hidden_field_tag "custom_field[option_attributes][][id]", uniq
-  = hidden_field_tag "custom_field[option_attributes][][sort_priority]", uniq, class: %i[sort-options]
+  = hidden_field_tag "custom_field[option_attributes][][sort_priority]", data[:sort_priority] || uniq, class: %i[sort-options]
   - locals.each do |locale|
     = hidden_field_tag "custom_field[option_attributes][][title_attributes][#{locale}]", selector_label[locale], value: selector_label[locale]
   .option-name
