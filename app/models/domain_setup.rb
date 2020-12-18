@@ -6,7 +6,7 @@
 #  community_id   :bigint
 #  domain         :string(255)      not null
 #  state          :string(255)      not null
-#  error          :string(255)
+#  error          :text(65535)
 #  critical_error :boolean
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
