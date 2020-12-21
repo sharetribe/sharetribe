@@ -108,6 +108,8 @@
 #  email_admins_about_new_transactions        :boolean          default(FALSE)
 #  show_location                              :boolean          default(TRUE)
 #  fuzzy_location                             :boolean          default(FALSE)
+#  recaptcha_site_key                         :string(255)
+#  recaptcha_secret_key                       :string(255)
 #
 # Indexes
 #
@@ -359,6 +361,10 @@ class Community < ApplicationRecord
 
   def apply_main_search_keyword!
     configuration.update(main_search: :keyword)
+  end
+
+  def recaptcha_configured?
+    recaptcha_site_key.present? && recaptcha_secret_key.present?
   end
 
   # Wrapper for the various attachment images url methods
