@@ -480,6 +480,11 @@ Rails.application.routes.draw do
       end
 
       namespace :advanced do
+        resources :recaptcha, only: %i[index] do
+          collection do
+            patch :update_recaptcha
+          end
+        end
         resources :experimental, path: 'new-features', only: %i[index] do
           collection do
             patch :update_experimental

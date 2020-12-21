@@ -98,8 +98,14 @@ en:
         sharetribe: 'Sharetribe analytics'
       advanced:
         experimental: 'New features'
+        recaptcha: 'reCAPTCHA'
         custom_script: 'Custom script'
         delete_marketplace: 'Delete marketplace'
+    recaptcha:
+      recaptcha_site_key: 'reCAPTCHA site key'
+      recaptcha_secret_key: 'reCAPTCHA secret key'
+      info_text: "Add Google's reCAPTCHA solution to stops bots signing up and contacting you while approving valid users. This adds a \"I'm not a robot\" checkbox that users must click to indicate that they are not a robot. This will either pass the user immediately or challenge them to validate whether or not they are human."
+      info_text_2: 'The checkbox is added to the Sign-up page and the Contact us page, for users who are not logged in. <a class="external-link" href="%{url}" target="_blank">Learn more about the reCAPTCHA setup</a>.'
     domain:
       sharetribe_domain: 'Sharetribe domain'
       custom_domain: 'Custom domain'
