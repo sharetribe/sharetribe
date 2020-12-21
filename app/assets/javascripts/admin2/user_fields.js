@@ -51,6 +51,10 @@ $(function() {
     });
 
     $('#userFieldsAddModal').on('show.bs.modal', function (e) {
+        var popup = $('#userFieldsEditModal');
+        if (popup.length) {
+            popup.remove();
+        }
         $('#body_type').html('');
         $('#field_type').val('');
     });

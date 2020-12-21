@@ -10,7 +10,7 @@
   - custom_field.with(:dropdown) do
     .form-group
       %label= t('admin2.listing_fields.dropdown_list_options')
-      .list-group#optionsList
+      .list-group{id: "#{custom_field.new_record? ? 'optionsList' : 'optionsListEdit' }"}
         - custom_field.options.sorted.each do |option|
           = render 'admin2/listings/listing_fields/field_options', data: option.json_data
     = render 'add_new_option'
@@ -21,7 +21,7 @@
   - custom_field.with(:checkbox) do
     .form-group
       %label= t('admin2.listing_fields.checkbox_list_options')
-      .list-group#optionsList
+      .list-group{id: "#{custom_field.new_record? ? 'optionsList' : 'optionsListEdit' }"}
         - custom_field.options.sorted.each do |option|
           = render 'admin2/listings/listing_fields/field_options', data: option.json_data
     = render 'add_new_option'
