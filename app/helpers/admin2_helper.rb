@@ -21,7 +21,7 @@ module Admin2Helper
       social_media: %w[image_tags twitter],
       seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages google_console],
       analytics: %w[google sharetribe google_manager],
-      advanced: %w[custom_scripts delete_marketplaces experimental]
+      advanced: %w[custom_scripts delete_marketplaces experimental recaptcha]
     }
   end
 

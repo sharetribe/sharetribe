@@ -1,4 +1,6 @@
 class PeopleController < Devise::RegistrationsController
+  include ConfigRecaptcha
+
   skip_before_action :verify_authenticity_token, :only => [:create]
   skip_before_action :require_no_authentication, :only => [:new]
 
@@ -43,6 +45,11 @@ class PeopleController < Devise::RegistrationsController
   def create
     domain = @current_community ? @current_community.full_url : "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
+
+    unless validate_recaptcha(params['g-recaptcha-response'])
+      flash[:error] = t('layouts.notifications.recaptcha_verification_failure')
+      redirect_to error_redirect_path and return
+    end
 
     if params[:person].blank? || params[:person][:input_again].present? # Honey pot for spammerbots
       flash[:error] = t("layouts.notifications.registration_considered_spam")
