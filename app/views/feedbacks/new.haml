@@ -17,6 +17,7 @@
     = form.label :content, t("layouts.application.feedback")
     = form.text_area :content
     = form.hidden_field :url, :value => request.headers["HTTP_REFERER"] || request.original_url
-    - if @current_community.recaptcha_configured?
-      = recaptcha_tags(site_key: @current_community.recaptcha_site_key)
+    - if @current_community.recaptcha_configured? && !@current_user
+      .recaptcha
+        = recaptcha_tags(site_key: @current_community.recaptcha_site_key, hl: I18n.locale)
     = form.button t("layouts.application.send_feedback_to_admin")
