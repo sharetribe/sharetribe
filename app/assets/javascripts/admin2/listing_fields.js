@@ -1,12 +1,25 @@
+function updateSort() {
+    $('.sort-options').each(function (index) {
+        $(this).val(index);
+    });
+}
+
 function sortOptions() {
     if ($('#optionsList').length) {
         Sortable.create(optionsList, {
             handle: '.handle-move',
             animation: 250,
             onEnd: function (/**Event*/evt) {
-                $('.sort-options').each(function (index) {
-                    $(this).val(index);
-                });
+                updateSort();
+            },
+        });
+    }
+    if ($('#optionsListEdit').length) {
+        Sortable.create(optionsListEdit, {
+            handle: '.handle-move',
+            animation: 250,
+            onEnd: function (/**Event*/evt) {
+                updateSort();
             },
         });
     }
@@ -63,12 +76,6 @@ $(function() {
         }
     });
 
-    $(document).on('change', '#field_type', function() {
-        var url = $(this).data('url'),
-            value = $(this).val();
-        $.get(url, {field_type: value}, null, 'script');
-    });
-
     $(document).on('click', '#new-option-trigger', function(){
         $(".add-new-unit-content").show(200);
         $("#new-option-trigger").hide(0);
@@ -103,8 +110,13 @@ $(function() {
     });
 
     $('#listingFieldsAddModal').on('show.bs.modal', function (e) {
+        var popup = $('#listingFieldsEditModal');
+        if (popup.length) {
+            popup.remove();
+        }
         $('#body_type').html('');
         $('#field_type').val('');
+        sortOptions();
     });
 
     $(document).on('click', '.delete-option', function () {
