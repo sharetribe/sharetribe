@@ -109,7 +109,8 @@
         = form.label :admin_emails_consent, t('.admin_emails_consent'), :class => 'checkbox'
 
     - if @current_community.recaptcha_configured?
-      = recaptcha_tags(site_key: @current_community.recaptcha_site_key)
+      .recaptcha
+        = recaptcha_tags(site_key: @current_community.recaptcha_site_key, hl: I18n.locale)
     = button_tag t('.create_new_account')
 
 = render :partial => "help_texts", :collection => ["terms", "help_invitation_code", "privacy"], :as => :field

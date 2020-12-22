@@ -2,6 +2,7 @@ module ConfigRecaptcha
   extend ActiveSupport::Concern
 
   def validate_recaptcha(token)
+    return true if @current_user.present?
     return true unless @current_community.recaptcha_configured?
 
     verify_recaptcha!(response: token,

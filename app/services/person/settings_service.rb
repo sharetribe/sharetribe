@@ -39,7 +39,7 @@ class Person::SettingsService
     @person ||= if params[:person] # rubocop:disable Naming/MemoizedInstanceVariableName
       Person.new(params[:person].slice(:given_name, :family_name, :email, :username).permit!)
     else
-      Person.new()
+      Person.new
     end
   end
 

@@ -34,12 +34,16 @@ class PeopleController < Devise::RegistrationsController
     @selected_tribe_navi_tab = "members"
     redirect_to search_path if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
-    @service = Person::SettingsService.new(community: @current_community, params: params,
-                                           required_fields_only: true)
-    @service.new_person
-
+    service_init
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
+  end
+
+  def service_init
+    @service = Person::SettingsService.new(community: @current_community,
+                                           params: params,
+                                           required_fields_only: true)
+    @service.new_person
   end
 
   def create
@@ -48,7 +52,8 @@ class PeopleController < Devise::RegistrationsController
 
     unless validate_recaptcha(params['g-recaptcha-response'])
       flash[:error] = t('layouts.notifications.recaptcha_verification_failure')
-      redirect_to error_redirect_path and return
+      service_init
+      render :new and return
     end
 
     if params[:person].blank? || params[:person][:input_again].present? # Honey pot for spammerbots
