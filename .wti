@@ -18,7 +18,7 @@ api_key: proj_pub_sFyFJRPy8lu-r3AKvMcBEw # Sharetribe Go - Main interface
 # after_push:  "touch tmp/restart.txt"      # Command executed after pushing files
 
 # Silence SSL errors
-# silence_errors: trt
+# silence_errors: true
 
 
 
