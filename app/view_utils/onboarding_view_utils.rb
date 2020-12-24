@@ -29,6 +29,8 @@ module OnboardingViewUtils
   end
 
   def next_incomplete_step(setup_status)
+    return :all_done
+
     incomplete_steps = incomplete_steps(setup_status)
     STEPS.find { |s| incomplete_steps.include?(s) } || :all_done
   end
