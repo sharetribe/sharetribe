@@ -12,7 +12,7 @@
         = t('admin2.recaptcha.info_text')
         %br
         %br
-        = t('admin2.recaptcha.info_text_2')
+        = t('admin2.recaptcha.info_text_2', url: 'https://help.sharetribe.com/en/articles/4745916').html_safe
       .form-group
         = form.label :recaptcha_site_key, t('admin2.recaptcha.recaptcha_site_key')
         = form.text_field :recaptcha_site_key, class: %i[form-control]
