@@ -50,7 +50,7 @@ ar:
         default_language: "اللغة الأساسية"
         language_selection_disabled: ~
         community_name: "اسم السوق الإلكتروني"
-        edit_community_name_description: ~
+        edit_community_name_description: " يظهر اسم المتجر الخاص بك.للمستخدمين في رسائل البريد الإلكتروني وأماكن أخرى مختلفة."
         community_slogan: "شعار السوق الإلكتروني"
         community_slogan_display: ~
         edit_community_slogan_description: ~
@@ -62,7 +62,7 @@ ar:
         community_search_placeholder: "ابحث في نص المساعدة"
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
+        edit_private_community_homepage_content_description: "يتم عرض هذا المحتوى على الصفحة الرئيسية للمتجر الخاصة بالمستخدمين الذين لم يقوموا بتسجيل الدخول. هنا يمكنك وصف المتجر الخاص بك وكيفية عملية الانضمام إليه. يمكنك أيضًا إضافة الصور ومقاطع الفيديو ومحتوى‎%{see_how_it_looks_like}‎ HTML"
         update_information: "حفظ الإعدادات"
         invite_people: "‎%{service_name}‎ قم بدعوة مشتركين آخرين إلى"
         edit_signup_info: "معلومات الإشتراك"
@@ -129,7 +129,7 @@ ar:
         edit_text_instructions: تعليمات
       edit_welcome_email:
         welcome_email_content: "محتوى الرسالة الترحيبية"
-        welcome_email_content_description: ~
+        welcome_email_content_description: "سيتم إرسال الرسالة أدناه إلى كل مستخدم جديد عند انضمامه. يمكنك تخصيص الرسالة لتناسب المتجر الخاص بك. عن طريق النقر‎‎%{send_test_message_link}‎ يمكنك إرسال رسالة معاينة إلى عنوان بريدك الإلكتروني، حتى تتمكن من رؤية كيف تظهر في البريد الإلكتروني للعميل.  "
         edit_message: "تعديل الرسالة"
         send_test_message: "أرسل رسالة تجريبية"
       outgoing_email:
@@ -418,7 +418,7 @@ ar:
         menu_links: "روابط القائمة"
         menu_links_display: ~
         save: "حفظ الإعدادات"
-        add_menu_link: ~
+        add_menu_link: "إضافة رابط جديد الي القائمة"
         title_placeholder: "عنوان الرابط"
         url_placeholder: ~
         title: العنوان
@@ -1516,7 +1516,7 @@ ar:
       request_marked_as_canceled: "تم إلغاء الطلب"
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
+      giving_feedback_is_good_idea: "دائمًا ما يكون تقديم الملاحظات فكرة جيدة. إذا سارت الأمور على ما يرام ، يجب أن تدع الآخرين يعرفون أنه ‎%{other_party_given_name}‎ يمكن الوثوق بهم. إذا كانت هناك أي مشاكل ، فمن الجيد ذكرها أيضًا."
       give_feedback_to: "‎%{other_party_given_name}‎ أعط رأيك في"
       stripe:
         has_marked_request_as_confirmed: ~
@@ -1540,7 +1540,7 @@ ar:
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
+      giving_feedback_is_good_idea: "الان يمكنك إعطاء ملاحظات ‎%{other_party_given_name}‎ دائما ما يكون تقديم الملاحظات فكرة جيدة. إذا سارت الأمور على ما يرام ، يجب أن تدع الآخرين يعرفون أنه‎‎%{other_party_given_name}‎ يمكن الوثوق بهم. إذا كانت هناك أي مشاكل ، فمن الجيد ذكرها أيضًا‎. "
       give_feedback_to: "‎%{other_party_given_name}‎ أعط رأيك في"
       show_thread: "أظهر المحادثة"
     confirmation_instructions:
@@ -1869,7 +1869,9 @@ ar:
     error_410:
       page_removed: "تم إزالة الصفحة"
       page_you_requested_has_been_removed: "الصفحة المطلوبة تم حذفها"
-      page_removed_reason: ~
+      page_removed_reason: |+
+          هناك القليل من الأسباب المحتمله لذلك. على سبيل المثال، ربما المستخدم قام بإزالة الحساب أو ربما تم إزالة القائمة.
+          
     error_410_title: "تم حذف الصفحة"
     error_500:
       temporary_unavailable: "السوق غير متوفر حاليا"
@@ -2263,7 +2265,7 @@ ar:
       you_must_log_in_to_view_your_settings: ".لعرض الإعدادات الخاصة بك ‎%{service_name}‎ قم بتسجيل الدخول لـ"
       you_must_log_in_to_add_news_item: ".لتتمكن من إضافة مقال جديد ‎%{service_name}‎ يجب عليك تسجيل الدخول لـ"
       you_must_log_in_to_change_profile_settings: "لتعديل إعدادات الملف الشخصي ‎%{service_name}‎ قم بتسجيل الدخول لـ"
-      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_accept_or_reject: "عليك تسجيل الدخول لقبول او رفض المعاملة"
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "تحتاج إلى تأكيد بريدك الإلكتروني"
       you_must_fill_all_the_fields: "يجب عليك تعبأة كل الحقول"
@@ -2873,7 +2875,7 @@ ar:
       email_about_new_payments: "...لقد استقبلت دفعة جديدة"
       email_about_new_listings_by_followed_people: "...شخص أتابع إعلاناته الجديدة"
       unsubscribe_succesful: "تم الغاء الاشتراك بنجاح"
-      unsubscribe_info_text: ~
+      unsubscribe_info_text: "لن تتلقى رسائل البريد الإلكتروني هذه بعد الآن، تحقق من ‎‎%{settings_link}‎‎ لاختيار نوع رسائل البريد الإلكتروني التي تريد تلقيها من‎%{service_name}‎ او يمكنك العودة إلى ‎%{homepage_link}‎ "
       settings_link: إعدادات
       homepage_link: "الصفحة الرئيسية"
       unsubscribe_unsuccesful: "خطأ في إلغاء الاشتراك"

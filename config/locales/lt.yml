@@ -153,12 +153,12 @@ lt:
         edit_message: "Redaguoti žinutę"
         send_test_message: "Siųsti bandomąją žinutę"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
+        title: "Siunčiamas el. pašto adresas"
+        info: "Šis vardas ir adresas naudojamas siunčiamiems laiškams iš jūsų prekyvietės, nariams."
+        read_more: "Skaitykite daugiau apie siunčiamą el. pašto adresą"
+        sender_address: "Siuntėjo adresas:%{sender_address}"
+        sender_address_default: "Siuntėjo adresas: nenustatytas (naudojant numatytąjį adresą %{sender_address})"
+        need_to_change: "Jeigu jums reikia pakeisti el. pašto adresą, prašome %{contact_support_link}."
         contact_support_link_text: ~
         set_sender_address: ~
         sender_name_label: ~
@@ -258,15 +258,15 @@ lt:
         automatic_newsletter_frequency: "Siųsti automatinį naujienlaiškį: %{frequency_dropdown}"
         newsletter_daily: "Kas dieną"
         newsletter_weekly: "Kas savaitę"
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_marketplace_title: "Naikinti prekyvietę"
+        type_marketplace_domain: "Įveskite savo prekyvietės sritį (%{domain}) toliau pateiktame tekto lauke:"
+        type_marketplace_domain_placeholder: "Įveskite savo prekyvietės sritį čia"
+        once_you_delete: "Ištrynę prekyvietę, negalėsite prie jos prisijungti. Būkite atsargūs."
+        are_you_sure: "Ar jūs tuo tikras?"
+        i_understand_button: "Suprantu, kad paspaudus šį mygtuką mano prekyvietė bus panaikinta."
+        last_community_updates: "Atkreipkite dėmesį, kad ištrynę prekyvietę, jūs ir jūsų vartotojai vis tiek galės gauti paskutinius el. laiškus apie prekyvietės atnaujinimą."
+        you_will_be_redirected_to: "Ištrynę savo prekyvietę, jūs būsite nukreipti į %{destination}. Daugiau negalėsite patekti į savo prekyvietę."
+        delete_this_marketplace: "Naikinti šią prekyvietę"
         payment_preferences: ~
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
@@ -1346,7 +1346,7 @@ lt:
       canceled_request: "atšaukė užsakymą"
       canceled_offer: "atšaukė pasiūlymą"
       paid: "sumokėjo %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Įgaliotas mokėjimas:%{sum}"
       payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
@@ -2018,7 +2018,7 @@ lt:
       send_invitation: "Siųsti pakvietimą"
       add_email_addresses_description: "Įrašykite kviečiamų žmonių el. pašto adresus laukelyje žemiau. Pridedant keletą el. pašto adresų, atskirkite juos kableliais."
       add_lots_of_email_addresses: ~
-      this_article_link: ~
+      this_article_link: "šis straipsnis"
       invitation_emails_field_placeholder: "draugas1@pavyzdys.lt, draugė2@pavyzdys.lt, ..."
       invitation_message_field_placeholder: "Aš prisijungiau prie puikaus turgaus. Pamėgink ir tu!"
       errors_in_emails: "Patikrinkite ar el. pašto adresai, kuriuos pridėjote, neturi neįprastų simbolių. Jei pridėjote kelis adresus, įsitikinkite, kad jie atskirti kableliais."
@@ -2178,7 +2178,7 @@ lt:
       feedback_skipped: "Atsiliepimas praleistas"
       invitation_cannot_be_sent: "Pakvietimo kodas negali būti išsiųtas"
       invitation_cannot_unsubscribe: ~
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Bandėte išsiųsti per daug kvietimų. Pasiekta dienos riba."
       invitation_sent: "Pakvietimas išsiųstas sėkmingai"
       invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "Naujų narių pakvietimas neleidžiamas"
@@ -2666,7 +2666,7 @@ lt:
       could_not_fetch_redirect_url: "Nepavyko peradresuoti URL, kad galėtumėte prisijungti prie PayPal"
       paypal_not_enabled: "PayPal mokėjimai neįjungti."
       billing_agreement_canceled: "Atsiskaitymo sutartis buvo atšaukta"
-      billing_agreement_not_accepted: ~
+      billing_agreement_not_accepted: "Jūs nepriėmėte mokesčio susitarimo PayPal."
       billing_agreement_wrong_account: "PayPal paskyros nesutampa. Naudokite tą pačią PayPal paskyrą, su kuria prisijungėte pirmajame žingsnyje."
       something_went_wrong: "Kažkas negerai. Bandykite dar kartą. Jeigu problema pasikartos, prašome kreiptis į %{service_name} komandą."
       account_not_verified: "Jūs nepatvirtinote savo PayPal paskyros. Prieš norėdami tęsti, jums reikia eiti į paypal.com ir patvirtinti savo paskyrą."
