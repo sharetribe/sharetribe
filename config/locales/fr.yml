@@ -1603,7 +1603,7 @@ fr:
       has_rejected_your_request_text: "%{accepter} a refusé votre demande pour %{listing}."
     invitation_to_kassi:
       hi: "Bonjour !"
-      you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre %{service_name}."
+      you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre %{service_name}"
       here_is_a_message_from: "Voici un message personnel de %{inviter} :"
       join_now: Rejoindre
       invitation_code: "Code d'invitation : %{code}"
