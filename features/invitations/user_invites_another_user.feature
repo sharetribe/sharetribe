@@ -30,7 +30,7 @@ Feature: User joins invite only community
     And I fill in "invitation_email" with "test@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"
-    And I dismiss the onboarding wizard
+#    And I dismiss the onboarding wizard
     Then I should see "Invitation sent successfully"
     When the system processes jobs
     And "test@example.com" should receive an email
