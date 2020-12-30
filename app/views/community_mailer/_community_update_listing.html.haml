@@ -24,5 +24,5 @@
           = link_to(image_tag(listing.listing_images.first.image.url(:email), :class => "listing_main_image", :alt => listing.title, :height => "100", :width => "150", :style => "display:block;margin-left:30px;margin-bottom:20px;margin-top:4px;border:0", :align => "right"), listing_url(@url_params.merge({:id => listing.id})))
         - unless listing.description.blank?
           %p{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:100px; color:#898989;font-style: italic;line-height:22px;margin-top:0;margin-bottom:8px;"}
-            = truncate_html(markdown(listing.description), :length => 200, :omission => "...")
+            = strip_tags(truncate_html(markdown(listing.description), :length => 200, :omission => "..."))
 
