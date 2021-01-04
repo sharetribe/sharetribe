@@ -63,6 +63,7 @@ module NewLayoutViewUtils
         disabled: f[:disabled]
       })
     }
+    fs.delete_if { |a| a[:name] == :email_layout_v2 }
   end
 
   # Takes a map of features
