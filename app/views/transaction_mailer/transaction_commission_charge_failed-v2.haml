@@ -19,6 +19,6 @@
     %p.text-bold
       = t("emails.transaction_commission_charge_failed.if_you_would_like_to_investigate")
 
-= render "person_mailer/action_button-v2", text: t("emails.transaction_commission_charge_failed.contact_the_seller"),
-  url: person_url(@url_params.merge(username: @transaction.listing_author.username))
-
+- url = person_url(@url_params.merge(username: @transaction.listing_author.username))
+= render "person_mailer/action_button-v2", text: t("emails.transaction_commission_charge_failed.contact_the_seller"), url: url
+= render 'person_mailer/cant_click', url: url

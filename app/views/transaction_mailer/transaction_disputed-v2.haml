@@ -26,9 +26,11 @@
         = t("emails.transaction_disputed.the_marketplace_has_been_notified")
 
 - if @is_admin
-  = render "person_mailer/action_button-v2", text: t("emails.transaction_disputed.review_the_transaction"),
-    url: admin2_transactions_reviews_manage_transaction_url(@url_params.merge(id: @transaction.id))
+  - url = admin2_transactions_reviews_manage_transaction_url(@url_params.merge(id: @transaction.id))
+  = render "person_mailer/action_button-v2", text: t("emails.transaction_disputed.review_the_transaction"), url: url
+  = render 'person_mailer/cant_click', url: url
 - else
-  = render "person_mailer/action_button-v2", text: t("emails.transaction_disputed.contact_the_marketplace_team"),
-    url: new_user_feedback_url(@url_params)
+  - url = new_user_feedback_url(@url_params)
+  = render "person_mailer/action_button-v2", text: t("emails.transaction_disputed.contact_the_marketplace_team"), url: url
+  = render 'person_mailer/cant_click', url: url
 

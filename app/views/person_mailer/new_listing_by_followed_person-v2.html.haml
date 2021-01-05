@@ -11,13 +11,7 @@
         = render :partial => "community_mailer/community_update_listing-v2", :locals => { :listing => @listing }
 
 = render :partial => "action_button-v2", :locals => { :text => t("emails.new_listing_by_followed_person_v2.view_listing", title: @listing.title), :url => @listing_url}
-
-%tr
-  %td.email-content
-    %p.email-action-help
-      = t("emails.new_listing_by_followed_person_v2.cant_click")
-      %br
-      = link_to @listing_url, @listing_url
+= render 'person_mailer/cant_click', url: @listing_url
 
 - content_for :extra_notice do
   %p.email-action-help= t("emails.new_listing_by_followed_person_v2.you_are_receiving_this_because", :author_name => @author_name)
