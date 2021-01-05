@@ -15,6 +15,7 @@
     = render :partial => "quote-v2", locals: { quote: @testimonial.text }
 
 = render :partial => "action_button-v2", locals: { text: t("emails.new_testimonial.view_feedback"), url: view_url}
+= render 'person_mailer/cant_click', url: view_url
 
 - if @waiting_testimonial
   %tr
@@ -24,3 +25,4 @@
         = t("emails.transaction_confirmed.giving_feedback_is_good_idea", other_party_given_name: PersonViewUtils.person_display_name_for_type(@testimonial.author, "first_name_only"))
 
   = render :partial => "action_button-v2", locals: {text: t("emails.transaction_confirmed.give_feedback_to", other_party_given_name: PersonViewUtils.person_display_name_for_type(@testimonial.author, "first_name_only")), url: give_url}
+  = render 'person_mailer/cant_click', url: give_url

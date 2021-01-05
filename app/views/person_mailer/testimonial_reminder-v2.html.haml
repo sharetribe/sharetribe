@@ -13,3 +13,4 @@
       = t("emails.testimonial_reminder_v2.you_have_not_given_feedback_yet", :name => PersonViewUtils.person_display_name(@other_party, @conversation.community), :event => link_to(@conversation.listing_title, conversation_url), :given_name => PersonViewUtils.person_display_name_for_type(@other_party, "first_name_only")).html_safe
 
 = render :partial => "action_button-v2", :locals => { :text => t("emails.testimonial_reminder_v2.leave_feedback", :other_party_name => PersonViewUtils.person_display_name_for_type(@other_party, "first_name_only")), :url => give_url }
+= render 'person_mailer/cant_click', url: give_url
