@@ -75,7 +75,7 @@ class TransactionMailer < ActionMailer::Base
   def payment_receipt_to_seller(transaction, seller_model = nil, buyer_model = nil, community = nil)
     seller_model ||= Person.find(transaction.listing_author_id)
     buyer_model ||= Person.find(transaction.starter_id)
-    community ||= Community.find(transaction.community_id)
+    @community = community || Community.find(transaction.community_id)
 
     payment = TransactionService::Transaction.payment_details(transaction)
     payment_total = payment[:payment_total]
@@ -88,8 +88,8 @@ class TransactionMailer < ActionMailer::Base
     total -= buyer_service_fee if buyer_service_fee > 0
 
 
-    prepare_template(community, seller_model, "email_about_new_payments")
-    with_locale(seller_model.locale, community.locales.map(&:to_sym), community.id) do
+    prepare_template(@community, seller_model, "email_about_new_payments")
+    with_locale(seller_model.locale, @community.locales.map(&:to_sym), @community.id) do
 
       you_get = payment_total - service_fee - gateway_fee - buyer_service_fee
       MoneyViewUtils.to_humanized(-1 * Money.new(payment[:buyer_commission], payment_total.currency))
@@ -103,10 +103,10 @@ class TransactionMailer < ActionMailer::Base
       end
 
       mail(:to => seller_model.confirmed_notification_emails_to,
-           :from => community_specific_sender(community),
+           :from => community_specific_sender(@community),
            :subject => t("emails.new_payment.new_payment")) { |format|
         format.html {
-          render v2_template(community.id, "payment_receipt_to_seller"),
+          render v2_template(@community.id, "payment_receipt_to_seller"),
                  locals: {
                    conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction.id)),
                    listing_title: listing_title,
@@ -123,12 +123,12 @@ class TransactionMailer < ActionMailer::Base
                    payment_buyer_service_fee: buyer_service_fee > 0 ? MoneyViewUtils.to_humanized(-1 * buyer_service_fee) : nil,
                    payment_gateway_fee: MoneyViewUtils.to_humanized(-gateway_fee),
                    payment_seller_gets: MoneyViewUtils.to_humanized(you_get),
-                   payer_full_name: PersonViewUtils.person_display_name_for_type(buyer_model, "full_name"),
-                   payer_given_name: PersonViewUtils.person_display_name_for_type(buyer_model, "first_name_only"),
+                   payer_full_name: PersonViewUtils.person_display_name(buyer_model, @community),
+                   payer_given_name: PersonViewUtils.person_display_name(buyer_model, @community),
                    gateway: transaction.payment_gateway,
-                   community_name: community.name_with_separator(seller_model.locale)
+                   community_name: @community.name_with_separator(seller_model.locale)
                  },
-                 layout: v2_layout(community.id)
+                 layout: v2_layout(@community.id)
         }
       }
     end
@@ -138,14 +138,14 @@ class TransactionMailer < ActionMailer::Base
   def payment_receipt_to_buyer(transaction, seller_model = nil, buyer_model = nil, community = nil)
     seller_model ||= Person.find(transaction.listing_author_id)
     buyer_model ||= Person.find(transaction.starter_id)
-    community ||= Community.find(transaction.community_id)
+    @community = community || Community.find(transaction.community_id)
     payment = TransactionService::Transaction.payment_details(transaction)
     buyer_service_fee = if payment[:buyer_commission] && payment[:buyer_commission] > 0
                           MoneyViewUtils.to_humanized(Money.new(payment[:buyer_commission], payment[:payment_total].currency))
                         end
 
-    prepare_template(community, buyer_model, "email_about_new_payments")
-    with_locale(buyer_model.locale, community.locales.map(&:to_sym), community.id) do
+    prepare_template(@community, buyer_model, "email_about_new_payments")
+    with_locale(buyer_model.locale, @community.locales.map(&:to_sym), @community.id) do
 
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
       quantity_selector_label = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_quantity(t[:unit_type], t[:unit_selector_tr_key]) }.or_else(nil)
@@ -156,10 +156,10 @@ class TransactionMailer < ActionMailer::Base
       end
 
       mail(:to => buyer_model.confirmed_notification_emails_to,
-           :from => community_specific_sender(community),
+           :from => community_specific_sender(@community),
            :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
         format.html {
-          render v2_template(community.id, "payment_receipt_to_buyer"),
+          render v2_template(@community.id, "payment_receipt_to_buyer"),
                  locals: {
                    conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction.id})),
                    listing_title: listing_title,
@@ -172,15 +172,15 @@ class TransactionMailer < ActionMailer::Base
                    subtotal: MoneyViewUtils.to_humanized(transaction.item_total),
                    shipping_total: MoneyViewUtils.to_humanized(transaction.shipping_price),
                    payment_total: MoneyViewUtils.to_humanized(payment[:payment_total]),
-                   recipient_full_name: seller_model.name(community),
+                   recipient_full_name: seller_model.name(@community),
                    recipient_given_name: PersonViewUtils.person_display_name_for_type(seller_model, "first_name_only"),
                    automatic_confirmation_days: nil,
                    show_money_will_be_transferred_note: false,
                    gateway: transaction.payment_gateway,
-                   community_name: community.name_with_separator(buyer_model.locale),
+                   community_name: @community.name_with_separator(buyer_model.locale),
                    payment_buyer_service_fee: buyer_service_fee
                  },
-                 layout: v2_layout(community.id)
+                 layout: v2_layout(@community.id)
         }
       }
     end

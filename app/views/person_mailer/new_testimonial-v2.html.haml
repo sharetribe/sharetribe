@@ -4,7 +4,7 @@
 %tr
   %td.person-name
     %h1
-      = t("emails.common.hi", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'))
+      = t("emails.common.hi", name: PersonViewUtils.person_display_name(@recipient, @current_community))
       = t("emails.new_testimonial_v2.headline")
 
 %tr

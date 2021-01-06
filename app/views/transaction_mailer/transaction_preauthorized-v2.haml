@@ -3,7 +3,7 @@
 %tr
   %td.person-name
     - payer_name = PersonViewUtils.person_display_name(@transaction.starter, @transaction.community)
-    - seller_name = PersonViewUtils.person_display_name_for_type(@transaction.listing.author, 'first_name_only')
+    - seller_name = PersonViewUtils.person_display_name(@transaction.listing.author, @transaction.community)
     - listing_link = link_to @transaction.listing.title, listing_url(@url_params.merge(id: @transaction.listing_id))
     %h1
       = t("emails.common.hi", name: seller_name)
