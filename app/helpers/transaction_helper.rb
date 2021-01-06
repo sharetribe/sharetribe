@@ -493,7 +493,7 @@ module TransactionHelper
     key = conversation.payment_gateway == :stripe ? "conversations.status.stripe.waiting_confirmation_from_requester" : "conversations.status.waiting_confirmation_from_requester"
     link = t(key,
       :requester_name => link_to(
-        PersonViewUtils.person_display_name_for_type(conversation.other_party(@current_user), "first_name_only"),
+        PersonViewUtils.person_display_name(conversation.other_party(@current_user), conversation.community),
         conversation.other_party(@current_user)
       )
     ).html_safe
@@ -503,8 +503,8 @@ module TransactionHelper
 
   def waiting_for_author_to_accept_preauthorized(transaction)
     text = t("conversations.status.waiting_for_listing_author_to_accept_request",
-      :listing_author_name => link_to(
-        PersonViewUtils.person_display_name_for_type(transaction.author, "first_name_only"),
+      listing_author_name: link_to(
+        PersonViewUtils.person_display_name(transaction.author, transaction.community),
         transaction.author
       )
     ).html_safe

@@ -1,6 +1,6 @@
 %tr
   %td.person-name
-    - payer_name = PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only")
+    - payer_name = PersonViewUtils.person_display_name(@recipient, @community)
     - listing_link = link_to listing_title, listing_info_url
     - payment_sum = "<strong>#{payment_total}</strong>"
     %h1
