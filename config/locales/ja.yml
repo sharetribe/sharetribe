@@ -1282,8 +1282,8 @@ ja:
       details: 注文情報
       order_by: "%{orderer_link}さんの注文内容"
       accept_offer: オファーを受け入れる
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: リクエストを受け入れてリストを開いたままにします
+      accept_request_and_close: リクエストを受け入れてリストを閉じる
       reject_offer: 今回はやめる
       reject_request: 今回はやめる
       close_listing: "%{listing_title_link}をクローズします"
@@ -3095,10 +3095,10 @@ ja:
       edit_listing_availability: 投稿の利用可能日を編集する
       working_hours:
         default_schedule: デフォルトスケジュール
-        i_am_available_on: ~
+        i_am_available_on: 利用可能な曜日
         start_time: 開始時間
         end_time: 終了時間
-        add_another_time_slot: ~
+        add_another_time_slot: 時間を追加する
         save: 保存する
     no_listings:
       sorry: 申し訳ございません、お探しの条件の商品がみつかりませんでした。
