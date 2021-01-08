@@ -2,9 +2,9 @@ lt:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
   admin:
     categories:
       edit:
@@ -27,8 +27,8 @@ lt:
         category_transaction_types:
           transaction_types: "Užsakymų tipai"
           transaction_types_description: "Užsakymų tipai nustato leidžiamus užsakymų apdorojimus šioje kategorijoje. Pavyzdžiui, ar tai tik pardavimui, ar nuoma ir atidavimas nemokamai taip pat leidžiama."
-          select_all: ~
-          clear_all: ~
+          select_all: "Žymėti viską"
+          clear_all: "Valyti viską"
         buttons:
           save: Išsaugoti
           cancel: Atšaukti
@@ -68,7 +68,7 @@ lt:
         enabled_languages: "Įgalintos kalbos"
         enabled_languages_description: "Galimos kalbos. Pirmoji naudojamą kaip pagrindinė."
         default_language: "Numatyta kalba"
-        language_selection_disabled: ~
+        language_selection_disabled: "Jūsų prekyvietėje kalbos pasirinkimas yra išjungtas, nes naudojate šias neoficialias kalbas: %{languages}. Jei norite pakeisti kalbos parametrus, susisiekite su Sharetribe pagalba."
         community_name: "Turgaus pavadinimas"
         edit_community_name_description: "Jūsų turgaus pavadinimas. Jis rodomas vartotojams el. laiškuose ir kitose vietose."
         community_slogan: "Turgaus šūkis"
@@ -112,15 +112,15 @@ lt:
         favicon: Favicon
         favicon_info_text: "Favicon pakeis numatytą Sharetribe logo. Dydis turėtų būti 32x32 pikseliai, o įkeltas paveiksliuko dydis bus pakeistas į šį dydį."
         community_custom_color1: "Pagrindinė turgaus spalva"
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
-        community_description_color_instructions_text: ~
-        new_listing_button_custom_color: ~
+        community_slogan_color: "Prekyvietės šūkio spalva"
+        community_slogan_color_instructions_text: "Pagrindiniame puslapyje galite pakeisti šūkio spalvą įvesdami šešioliktainę spalvos reikšmę. Šūkis rodomas neprisiregistravusiems vartotojams. %{colorpicker} gali padėti pasirinkti spalvą ir suteikti šešioliktainį spalvos kodą. Tada galite nukopijuoti kodą čia. %{see_how_it_looks_like} ."
+        community_description_color: "Prekyvietės aprašo spalva"
+        community_description_color_instructions_text: "Pagrindiniame puslapyje galite pakeisti aprašo spalvą įvesdami šešioliktainę spalvos reikšmę. Aprašas rodomas neprisiregistravusiems vartotojams. %{colorpicker} gali padėti pasirinkti spalvą ir suteikti šešioliktainį spalvos kodą. Tada galite nukopijuoti kodą čia. %{see_how_it_looks_like}."
+        new_listing_button_custom_color: "Naujo sąrašo paskelbimo mygtuko spalva"
         logo_instructions_text_with_dimensions: "Logo dydis turi būti %{width}x%{height} pikseliai. Jis bus rodomas vartotojams didesniuose ekranuose."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "Logotipo dydis turi būti %{width}x%{height} pikselių."
         logo_icon_instructions_text_with_dimensions: "Kvadratinis logo bus rodomas, kai žmonės pasidalins puslapiu Facebook, kai puslapis bus žiūrimas mobiliuose įrenginiuose ar kai vartotojai išsaugos puslapio žymę mobiliojo įrenginio pagrindiniame ekrane. Dimensijos turi būti (bent) %{width}x%{height} pikselių."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Šis kvadratinis logotipas bus rodomas, kai žmonės pasidalins jūsų svetaine Facebook arba kai jie pažymės jūsų svetainę savo mobiliojo įrenginio pagrindiniame ekrane. Matmenys turėtų būti (bent jau) %{width} x%{height} pikseliai."
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Viršelio nuotrauka bus rodoma pagrindiniame puslapyje neprisijungusiems vartotojams."
         cover_photo_instructions_text_with_dimensions: "Fotografijos dydis bus pakeistas į %{width}x%{height} pikselių dydį, o aukštesnės nuotraukos bus kerpamos per vidurį. %{see_how_it_looks_like}"
@@ -130,7 +130,7 @@ lt:
         small_cover_photo_instructions_text_with_dimensions: "Nuotraukos dydis bus pakeistas į %{width}x%{height} pikselių dydį, o aukštesni paveiksliukai bus kerpami per vidurį."
         main_content_width: "Renkantis viršelio nuotrauką atkreipkite dėmesį, kad puslapio turinio didžiausias plotis yra %{main_width} pikseliai. Nepamirškite patikrinti kaip viršelio nuotrauka atrodo mažesniuose ekranuose (pvz. naudojant siauresnį naršyklės langą)."
         custom_color1_instructions_text: "Pagrindinę vartotojo sąsajos spalvą galite pakeisti įvedę 'hex' spalvos vertę. <a href=\"https://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> gali jums padėti pasirinkti spalvą ir pateiks spalvos kodą. Spalvos kodą galite įrašyti čia."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Įvesdami šešioliktainę spalvos reikšmę, galite keisti naujo sąrašo paskelbimo mygtuko spalvą. %{link_to_colorpicker} gali padėti pasirinkti spalvą ir suteikti šešioliktainį spalvos kodą. Tuomet galite nukopijuoti kodą čia."
         default_browse_view: "Numatytasis peržiūros rodymas"
         default_browse_view_instructions_text: "Numatytasis peržiūros rodymas naudojamas pagrindiniame puslapyje nustatant kaip bus rikiuojami skelbimai"
         grid: Tinklelis
@@ -143,7 +143,7 @@ lt:
         first_name_only: "Tik vardas (Vardas)"
         invalid_color_code: "Spalvos kodas privalo turėti 6 skaitmenis ar raides, pvz. D96E21."
         custom_head_script: "Nestandartinis skriptas"
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: "Pasirinktą scenarijų galima konfigūruoti <a href=„%{url}“> jūsų naujame administravimo skydelyje</a>."
         current_image: ~
       edit_text_instructions:
         edit_text_instructions: "Instrukcijų tekstai"
@@ -159,37 +159,37 @@ lt:
         sender_address: "Siuntėjo adresas:%{sender_address}"
         sender_address_default: "Siuntėjo adresas: nenustatytas (naudojant numatytąjį adresą %{sender_address})"
         need_to_change: "Jeigu jums reikia pakeisti el. pašto adresą, prašome %{contact_support_link}."
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        amazon_ses_notification: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        change_sender_email: ~
-        successfully_saved: ~
-        successfully_saved_name: ~
-        set_sender_name: ~
-        change_sender_name: ~
-        change_sender_prompt: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
+        contact_support_link_text: "susisiekite su Sharetribe palaikymo tarnyba"
+        set_sender_address: "Nustatyti siuntėjo adresą"
+        sender_name_label: Vardas
+        sender_name_placeholder: "Siuntėjo vardas"
+        sender_email_label: "El. pašto adresas"
+        sender_email_placeholder: sender-email@example.com
+        amazon_ses_notification: "Gausite el. laišką iš %{email_sender}, kad patvirtintumėte savo el. pašto adresą. El. pašto tema yra %{email_subject}. Vadovaudamiesi instrukcijomis patvirtinkite el. paštą."
+        this_is_how_it_will_look: "Štai kaip tai atrodys:"
+        send_verification_button: "Siųsti patvirtinimo el. laišką"
+        change_sender_email: "keisti siuntėjo el. paštą"
+        successfully_saved: "Siuntėjo adresas sėkmingai įrašytas. Patvirtinimo el. laiškas bus išsiųstas netrukus."
+        successfully_saved_name: "Siuntėjo vardas sėkmingai atnaujintas."
+        set_sender_name: "Keisti siuntėjo vardą"
+        change_sender_name: "Keisti siuntėjo vardą"
+        change_sender_prompt: "%{change_name_link} arba %{change_email_link}"
+        status: "Būsena: %{status}"
+        status_verified: "Patikrinta - naudojama"
+        status_error: "Įvyko klaida. Atnaujinkite puslapį."
+        status_requested: "Nepatikrintas - išsiųstas patvirtinimo el. laiškas į %{email} %{time_ago}. %{resend_link}"
+        status_expired: "%{email} tikrinimas baigėsi. %{resend_link}"
+        status_resent: "Patvirtinimo el. laiškas persiųstas į%{email}. %{resend_link}"
+        resend_link: Persiųsti
+        invalid_email_error: "Neleistinas el. pašto formatas, skirtas „%{email}“"
         invalid_email_address: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
-        white_label_offer: ~
-        upgrade_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        invalid_email_domain: "%{email} el. pašto adresas naudoja netinkamą el. pašto tiekėją: „%{domain}“. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Norėdami gauti daugiau informacijos, skaitykite pagalbos centro straipsnį."
+        unknown_error: "Kažkas negerai"
+        white_label_offer: "Nustatykite savo el. pašto adresą kaip siuntėją ir pašalinkite visus „Sharetribe“ prekės ženklus iš siunčiamų el. laiškų, kuriuos siunčia %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "atnaujinimas į „Pro“ planą arba didesnį"
+        verification_sent_from: "Patvirtinimo el. laiškas buvo išsiųstas iš %{verification_sender_name}."
+        follow_the_instructions: "Vadovaukitės el. laiške pateiktomis instrukcijomis, kad patvirtintumėte savo adresą."
       getting_started:
         getting_started: Pradėti
       available_languages:
@@ -212,7 +212,7 @@ lt:
         nl: Olandų
         pl: ~
         pt-BR: "Portugalų (Brazilija)"
-        pt-PT: ~
+        pt-PT: Portugalų
         ru: Rusų
         sv: Švedų
         th-TH: ~
@@ -229,16 +229,16 @@ lt:
         private: "Leisti tik registruotiems vartotojams matyti skelbimus ir vartotojų profilius (padaryti turgų privatų)"
         require_verification_to_post_listings: "Leisti tik administratorių patvirtintiems vartotojams kurti skelbimus"
         allow_free_conversations: ~
-        search_preferences: ~
+        search_preferences: "Ieškos nuostatos"
         search_and_location_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        keyword_and_location_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
-        show_only_nearby: ~
+        default_search_type: "Ieškos tipas: %{select_search_type}"
+        keyword_search: "Raktažodžių paieška"
+        keyword_and_location_search: "Raktinių žodžių ir vietos paieška"
+        location_search: "Vietos paieška"
+        select_distance_unit: "Rodyti atstumą %{distance_units_selector}"
+        km: kilometrais
+        miles: myliomis
+        show_only_nearby: "Rodyti tik netoliese esančius sąrašus su vietos paieška"
         allow_users_to_add_location: ~
         fuzzy_location: ~
         listing_preferences: "Skelbimų nustatymai"
@@ -267,21 +267,21 @@ lt:
         last_community_updates: "Atkreipkite dėmesį, kad ištrynę prekyvietę, jūs ir jūsų vartotojai vis tiek galės gauti paskutinius el. laiškus apie prekyvietės atnaujinimą."
         you_will_be_redirected_to: "Ištrynę savo prekyvietę, jūs būsite nukreipti į %{destination}. Daugiau negalėsite patekti į savo prekyvietę."
         delete_this_marketplace: "Naikinti šią prekyvietę"
-        payment_preferences: ~
+        payment_preferences: "Mokėjimo sistema"
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
         manage_members: Vartotojai
         email: "El. paštas"
         name: Vardas
-        display_name: ~
+        display_name: "Rodomas pavadinimas"
         join_date: Prisijungė
         admin: Administratorius
         posting_allowed: "Leidžiamas skelbimų įkėlimas"
         ban_user: Uždrausti
         saving_user_status: Saugoma...
         save_user_status_successful: Išsaugota
-        export_all_as_csv: ~
+        export_all_as_csv: "Eksportuoti visus kaip CSV"
         save_user_status_error: "Saugojimas nepavyko. Prašome perkraukite puslapį ir bandyti dar kartą."
         ban_user_confirmation: "Vartotojas bus pašalintas iš turgaus ir negalės patekti į puslapį su šia paskyra. Ar tikrai norite tęsti?"
         unban_user_confirmation: ~
@@ -290,9 +290,9 @@ lt:
         only_delete_disabled: ~
         delete_info1: ~
         delete_info2: ~
-        search: ~
-        search_by_name_email: ~
-        reset_search: ~
+        search: Paieška
+        search_by_name_email: "Vardo, el. pašto arba rodomo pavadinimo paieška"
+        reset_search: "Rodyti viską"
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
@@ -313,12 +313,12 @@ lt:
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
       new_layout:
-        new_layout: ~
-        description_roadmap_new: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
-        searchpage: ~
+        new_layout: "Naujas maketas"
+        description_roadmap_new: "Kai jūsų prekyvietei pateikiami nauji išdėstymo komponentai, galite pasirinkti, ar norite pradėti naudoti naują komponentą, ar toliau naudoti senąjį. Galite perjungti pažymėtą sritį bet kuriuo metu iš šio puslapio. Rekomenduojama visada naudoti naują versiją, nes senieji komponentai, tam tikru metu, gali būti palaipsniui panaikinti. Jei šiuo metu naudojamas komponentas bus palaipsniui sustabdytas, su jumis bus susisiekta iš anksto."
+        enabled_for_you: "Įgalinta jums"
+        enabled_for_all: "Įgalinta visiems"
+        new_topbar: "Nauja viršutinė juosta (matoma kiekviename puslapyje)"
+        searchpage: "Naujas paieškos puslapis (reikia naujos viršutinės juostos)"
         new_email_templates: ~
       social_media:
         social_media: "Socialiniai tinklai"
@@ -445,10 +445,10 @@ lt:
         language: Kalba
         url: URL
         empty: "Neturite papildomų meniu nuorodų"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Maksimalus viršutinėje juostoje rodomų saitų skaičius: %{select_max_number}"
+        all: Visi
+        max_number_of_links_info: "Saitas su %{about_page} visada rodomas kaip pirmasis meniu saitas"
+        about_page: "apie puslapį"
       default_menu_links:
         title: ~
         about_link_title: ~
@@ -459,11 +459,11 @@ lt:
         display_contact: ~
         display_invite: ~
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Viršutinė juosta"
+        new_listing_button_label: "Naujo sąrašo paskelbimo mygtuko tekstas"
+        invalid_post_listing_button_label: "Pateikite tinkamą paskelbti naują sąrašą mygtuko tekstą"
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: "Eksportuoti visus kaip CSV"
         processing_export: ~
         transactions: Sandoriai
         search_by_title_parties: ~
@@ -507,33 +507,33 @@ lt:
           initiated: "Laukiama PayPal mokėjimo"
           pending_ext: "Laukiama PayPal mokėjimo"
           none:
-            free: ~
+            free: "Nemokama operacija"
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            free: Pokalbis
+            pending: Laukiama
+            preauthorized: "Iš anksto autorizuotas"
+            accepted: Priimtas
+            rejected: Atmestas
+            paid: Mokama
+            confirmed: Baigtas
+            canceled: Atšauktas
             disputed: ~
-            initiated: ~
-            pending_ext: ~
+            initiated: "Laukiama PayPal mokėjimo"
+            pending_ext: "Laukiama PayPal mokėjimo"
             refunded: ~
             dismissed: ~
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            free: Pokalbis
+            pending: Laukiama
+            preauthorized: "Iš anksto autorizuotas"
+            accepted: Priimtas
+            rejected: Atmestas
+            paid: Mokama
+            confirmed: Baigtas
+            canceled: Atšauktas
             disputed: ~
-            initiated: ~
-            pending_ext: ~
+            initiated: "Laukiamas Stripe mokėjimas"
+            pending_ext: "Laukiamas Stripe mokėjimas"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
@@ -881,7 +881,7 @@ lt:
       edit:
         edit_listing_field: "Redaguoti skelbimo %{field_name} laukelį"
       edit_price:
-        description: ~
+        description: "Mažiausia ir didžiausia kaina turi įtakos tik filtrui. Jie nenustato kainų sąrašo apribojimų."
         edit_price_field: "Redaguoti skelbimo laukelį 'Kaina'"
         show_price_filter_homepage: "Rodyti kainos filtrą pagrindiniame puslapyje"
         price_min: "Filtro minimali kaina"
@@ -891,16 +891,16 @@ lt:
         this_field_is_required: "Šis laukelis yra privalomas"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
+        edit_expiration_field: "Redaguoti sąrašo lauką „Galiojimo data“"
+        enable: "Įgalinti galiojimo datą"
       form:
         field_required:
           this_field_is_required: "Padaryti laukelio užpildymą privalomu kuriant skelbimą"
           this_field_is_required_checkbox: "Kuriant skelbimą, laukelį padaryti privalomu užpildyti (vartotojas turi pasirinkti bent vieną galimybę)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Rodyti filtrą pagal šį laukelį pagrindiniame puslapyje"
+          date_cant_be_filtered: "Datos laukelyje nėra filtro."
+          text_cant_be_filtered: "Nėra filtro teksto laukelyje. Pagrindinė teksto ieška ieškoma teksto laukuose."
       index:
         listing_fields: "Skelbimų laukeliai ir filtrai"
         listing_fields_help: "Čia galite redaguoti laukelius, kuriuos vartotojas turės užpildyti kuriant skelbimą. Atkreipkite dėmesį, kad kai kurie laukeliai jau yra sukurti ir negali būti redaguojami."
@@ -911,8 +911,8 @@ lt:
         field_title: "Laukelio pavadinimas"
         field_type: "Laukelio tipas"
         categories: "Skelbimų kategorijos kur bus naudojamas filtras"
-        select_all: ~
-        clear_all: ~
+        select_all: "Žymėti viską"
+        clear_all: "Valyti viską"
         options: Parinktys
         add_option: "+ Pridėti pasirinkimą"
         saving_order: "Laukelių eiliškumas saugomas"
@@ -962,20 +962,20 @@ lt:
         send_email_to_members: "Siųsti laišką vartotojams"
         send_email_to_members_title: "Siųsti laišką vartotojams"
         send_email: "Siųsti laišką"
-        send_email_or: ~
-        send_test_email: ~
-        test_sent: ~
-        send_email_article_title: ~
-        send_email_article_text: ~
+        send_email_or: arba
+        send_test_email: "Siųskite bandomąjį el. laišką sau"
+        test_sent: "Bandomasis el. laiškas buvo išsiųstas į aplanką gauta"
+        send_email_article_title: "šis straipsnis"
+        send_email_article_text: "Galite sužinoti daugiau apie vartotojų segmentus %{article_link}."
         recipients:
-          title: ~
+          title: "Kam norite siųsti el. laišką?"
           options:
-            all_users: ~
+            all_users: "Visi vartotojai"
             posting_allowed: ~
-            with_listing: ~
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
+            with_listing: "Vartotojai, kurie paskelbė bent vieną įrašą"
+            with_listing_no_payment: "Vartotojai, kurie paskelbė bent vieną įrašą, bet nepridėjo savo mokėjimo informacijos"
+            with_payment_no_listing: "Vartotojai, kurie įtraukė išsamią mokėjimo informaciją, bet nepaskelbė įrašo"
+            no_listing_no_payment: "Vartotojai, kurie nepaskelbė įrašo ir nepridėjo savo mokėjimo informacijos"
         email_subject: "El. laiško tema"
         email_content: "El. laiško turinys"
         email_content_placeholder: "Ką norite pasakyti vartotojams?"
@@ -993,17 +993,17 @@ lt:
       users_and_transactions: Tvarkyti
       configure: Konfigūruoti
       emails_title: "El. laiškai"
-      subscription: ~
-      preview: ~
+      subscription: Prenumerata
+      preview: "Peržiūrėti svetainę"
       whats_new: ~
     listing_shapes:
-      availability_title: ~
-      read_more: ~
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
+      availability_title: Prieinamumas
+      read_more: "Skaitykite daugiau apie automatinį pasiekiamumo valdymą."
+      read_more_availability_management: "Skaitykite daugiau apie pasiekiamumo valdymą."
+      allow_providers_to_manage_availability: "Leisti pardavėjams valdyti pasiekiamumą iš kalendoriaus"
       per_hour_availability: "Užimtumas per valandą"
-      per_day_availability: ~
-      per_night_availability: ~
+      per_day_availability: "Per dieną prieinamumas"
+      per_night_availability: "Per naktį prieinamumas"
       pricing_units_disabled_info: ~
       can_not_find_name: "Nepavyksta rasti užsakymo tipo su vardu: %{name}"
       index:
@@ -1055,8 +1055,8 @@ lt:
       online_payments_label: "Leisti pardavėjams priimti mokėjimus internetu"
       shipping_label: "Leisti pardavėjams nustatyti siuntimo mokestį"
       price_label: "Leisti pardavėjams įtraukti kainą į savo sąrašus"
-      units_title: ~
-      units_desc: ~
+      units_title: "Kainodaros vienetai"
+      units_desc: "Jei įtraukėte kainų vienetus, sąrašo kaina rodoma kaip „kaina už kainų vienetą“. Pavyzdys: „39 USD per valandą“."
       units:
         piece: "Už vienetą"
         hour: "Per valandą"
@@ -1082,18 +1082,18 @@ lt:
     paypal_accounts:
       marketplace_paypal_integration: "Mokėjimo sistemos nustatymai"
       preferences_updated: "Mokėjimo sistemos parinktys atnaujintos"
-      contact_support_link_text: ~
+      contact_support_link_text: "susisiekite su pagalba"
       integration_info_text: "Jūsų prekyvietės mokėjimo sistema yra parengta pagal PayPal. Norėdami leisti vartotojams mokėti naudojantis jūsų prekyviete, turite prijungti savo PayPal paskyrą. Prijungę savo PayPal paskyrą, galite pasirinkti minimalų operacijos dydį ir galimą komisinių mokestį:"
-      link_paypal_personal_account_label: ~
-      link_paypal_personal_account: ~
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account_label: "Ar jūs patys teikiate produktus arba paslaugas?"
+      link_paypal_personal_account: "Jeigu taip, jūs, taip pat, turėsite prijungti savo PayPal paskyrą prie %{personal_payment_preferences_link}."
+      link_stripe_personal_account: "Jei taip, taip pat, turėsite įtraukti savo išmokėjimo informaciją į %{personal_payment_preferences_link}."
+      link_paypal_and_stripe_personal_account: "Jei taip, taip pat turėsite, prijungti savo PayPal arba Stripe paskyrą prie %{personal_payment_preferences_link}."
+      personal_payment_preferences_link_text: "jūsų asmeninė prekyvietės paskyra"
       read_more_about_paypal: "Skaityti daugiau apie mokėjimo sistemą"
-      edit_payment_settings: ~
+      edit_payment_settings: "Redaguoti mokėjimo nustatymus"
       supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      currency_change_warning_text: "Saugokitės: jei judėsite į priekį keisdami valiutą, nepamirškite paprašyti savo pardavėjų rankiniu būdu redaguoti esamus sąrašus, kad būtų atnaujinta valiuta."
+      marketplace_currency_label: "Prekyvietės valiuta:"
       minimum_listing_price_label: "Minimali sandorio suma:"
       transaction_fee_label: "Pardavėjo sandorio mokestis:"
       minimum_transaction_fee_label: "Minimalus pardavėjo operacijos mokestis:"
@@ -1101,71 +1101,71 @@ lt:
       minimum_listing_price_below_tx_fee: "Minimalus operacijos dydis turi būti didesnis arba lygus minimaliam operacijos mokesčiui: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Minimalus operacijos dydis turi būti didesnis už minimalų komisinį %{minimum_commission}."
     payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
+      title: "Mokėjimo sistemos nuostatos"
+      general_settings: "1. Bendrieji nustatymai"
+      connect_a_payment_provider: "2. Paslaugų teikėjo mokėjimo prijungimas"
+      contact_support: "kreipkitės į palaikymo tarnybą"
+      no_payments_link_text: čia
+      your_country: "Jūsų šalis:"
       you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
+      which_to_choose: "Kurį pasirinkti?"
+      you_can_use_stripe_or_paypal: "Galite naudoti Stripe, PayPal arba abu, kaip mokėjimo paslaugų teikėjus. %{choose_link}"
+      you_can_use_stripe_only: "Galite naudoti Stripe kaip mokėjimo paslaugų teikėją. %{read_more_link}"
+      read_more_stripe: "Skaitykite daugiau apie Stripe mokėjimus."
+      you_can_use_paypal_only: "Galite naudoti PayPal kaip mokėjimo paslaugų teikėją. %{read_more_link}"
+      read_more_paypal: "Skaitykite daugiau apie PayPal mokėjimus."
+      read_more_about_paypal_and_stripe: "Skaitykite daugiau apie mokėjimus internetu, Stripe ir PayPal"
+      general_settings_updated: "Atnaujinti mokėjimo sistemos bendrieji parametrai"
+      transaction_fee_settings_updated: "Atnaujinti operacijos mokesčio parametrai"
       choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      invalid_api_keys: "Neleistini Stripe API raktai"
+      missing_api_keys: "Trūksta Stripe API raktų"
+      stripe_verified: "Stripe API prieiga patvirtinta"
+      change_settings: "Parametrų keitimas ir mokesčiai"
+      configure_stripe: "Konfigūruoti Stripe"
+      configure_paypal: "Konfigūruoti PayPal"
+      transaction_fee_settings: "Operacijos mokesčio parametrai"
+      transaction_fee_save: Išsaugoti
+      stripe_fee: "Stripe mokesčiai"
+      stripe_fee_notice: "%{stripe_fee_link} bus išskaičiuotas iš jūsų imamo operacijos mokesčio."
+      fee_should_be_less_than_minimum_price: "Minimalus operacijos mokestis turi būti mažesnis už minimalų operacijos dydį"
       the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
       stripe_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
+        title: "Stripe prijungtas"
+        disable: "Išjungti Stripe"
+        disabled: "Stripe išjungtas"
+        enable: "Vėl įjungti Stripe"
       paypal_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
+        title: "PayPal prijungtas"
+        disable: "Išjungti PayPal"
+        disabled: "PayPal išjungtas"
+        enable: "Vėl įjungti PayPal"
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
       cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
-        publishable_key_example: ~
-        secret_key_example: ~
-        save_api_keys: ~
-        invalid_secret: ~
-        invalid_publishable: ~
+        add_your_api_keys: "Pridėkite savo Stripe API raktus"
+        how_to_get_these: "Kaip juos gauti?"
+        publishable_key_example: "Pavyzdžiui: %{api_publishable_key_example}"
+        secret_key_example: "Pavyzdžiui: %{api_secret_key_example}"
+        save_api_keys: "Išsaugoti Stripe API raktus"
+        invalid_secret: "Tai neatrodo teisinga %{secret_key}"
+        invalid_publishable: "Tai neatrodo teisinga %{publishable_key}"
       index:
-        header: ~
+        header: "Galimi mokėjimo nustatymai"
         info: ~
-        active: ~
+        active: Aktyvus
         gateway: ~
-        process: ~
-        commission: ~
-        minimum_price: ~
-        minimum_fee: ~
-        api_verified: ~
-        actions: ~
-        payments_not_enabled: ~
+        process: Procesas
+        commission: Komisija
+        minimum_price: "Minimali kaina"
+        minimum_fee: "Minimalus mokestis"
+        api_verified: "API patikrinta?"
+        actions: Veiksmai
+        payments_not_enabled: "Jūsų prekyvietėje mokėjimai neįjungti"
     transaction_types:
       sell: Parduodama
       sell_w_online_payment: ~
@@ -1266,12 +1266,14 @@ lt:
       info: ~
     paypal_fee_info:
       title: "PayPal mokėjimo aptarnavimo mokestis"
-      body_text: ~
+      body_text: |-
+          %{service_name} ima komisinį už Paypal mokėjimus %{paypal_commission}. Minimalus operacijos mokestis vienai operacijai yra %{minimum_transaction_fee}. PayPal mokesčiai į šį komisinį nėra įtraukti, todėl be %{service_name} komisinių, jūs, taip pat, mokėsite ir už PayPal mokesčius už kiekvieną. PayPal mokestis yra nuo 2% iki 5% nuo visos pardavimo kainos, priklausomai nuo jūsų mėnesio pardavimo apimties ir pirkėjo gyvenamosios vietos. Apskritai, vidaus pirkimai turi mažesnius mokesčius nei tarptautiniai, o didesni mėnesiniai pardavimai suteikia jums mokesčiams nuolaidą.
+          Tikslius mokesčius galite pamatyti prisijungę prie savo PayPal paskyros, eidami į %{link_to_paypal}. Po kiekvieno pirkimo gausite kvitą su tiksliu mokesčiu.
       body_text_accept: ~
       link_to_paypal_text: čia
     stripe_fee_info:
       title: "Stripe mokėjimo aptarnavimo mokestis"
-      body_text: ~
+      body_text: "Stripe mokėjimams %{service_name} taiko %{stripe_commission} komisinius. Minimalūs komisiniai už vieną operaciją yra %{minimum_transaction_fee}. Stripe mokesčiai yra įtraukti į šį komisinį."
       link_to_stripe_text: čia
   conversations:
     accept:
@@ -1295,12 +1297,12 @@ lt:
       you_will_get_label: "Jūs gausite:"
       total_label: "Bendrai:"
       total_value: "%{seller_gets}*"
-      total_value_paypal: ~
-      total_value_stripe: ~
+      total_value_paypal: "%{seller_gets}*"
+      total_value_stripe: "%{seller_gets}"
       paypal_fee: ~
       paypal_fee_info: "* Neįeina %{link}"
       shipping_price_label: "Pristatymas:"
-      stripe-fee_label: ~
+      stripe-fee_label: "Mokėjimo apdorojimo mokestis"
     confirm:
       confirm_description: "Jei jūsų užsakymas buvo įvykdytas, turėtumėte jį pažymėti kaip baigtą. Tada galėsite palikti atsiliepimą kitai pusei."
       cancel_description_team: ~
@@ -1333,10 +1335,10 @@ lt:
       message_from: "Žinutė nuo %{person}"
       about_listing: "Apie %{listing_title} skelbimą"
       free_message: "Tiesioginė žinutė"
-      message_content_not_available: ~
+      message_content_not_available: "Pranešimo turinys nepasiekiamas"
     message:
       accepted_request: "sutiko su prašymu"
-      received_payment: ~
+      received_payment: "priėmė užklausą, gavo mokėjimą už %{sum}"
       received_payment_wo_sum: ~
       accepted_offer: "sutiko su pasiūlymu"
       rejected_request: "atmetė prašymą, atšaukė mokėjimą"
@@ -1456,10 +1458,10 @@ lt:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Naujas kontakto formos įrašas %{service_name}"
+    feedback_body: "%{author_name_and_email} pateikė šį įrašą kontakto formoje %{service_name}. Šis pranešimas siunčiamas visiems %{service_name} administratoriams."
+    unlogged_user: "Neužsiregistravęs vartotojas"
+    anonymous_user: "Anoniminis vartotojas"
   community_memberships:
     access_denied:
       access_denied: "Priėjimas draudžiamas"
@@ -1477,10 +1479,10 @@ lt:
       log_out: atsijungti
       join_community_button: "Prisijungti prie %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
+      invitation_code_invalid_or_used: "Kvietimo kodas neleistinas arba jau naudojamas."
+      email_not_allowed: "Šis el. paštas neleidžiamas %{service_name}."
       email_not_available: "El. paštas, kurį nurodėte, jau naudojamas"
-      consent_not_given: ~
+      consent_not_given: "Sąlygos nebuvo priimtos."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Prisiminkite priimti arba atmesti %{sender_name} pasiūlymą"
@@ -1491,8 +1493,8 @@ lt:
       you_have_not_yet_accepted_or_rejected_request: "Jūs dar nepriėmėte arba neatmetėte prašymo %{title}, kurį gavote %{date}"
       show_thread: "Rodyti pokalbį"
     branding:
-      powered_by: ~
-      create_own: ~
+      powered_by: "%{service_name} parengta pagal %{sharetribe_link} prekyvietės platformą."
+      create_own: "Norite sukurti savo elektroninės prekyvietės svetainę, pvz., %{service_name}? %{learn_more}."
       learn_more: "Sužinoti daugiau"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Jūs dar nebaigėte ar neatšaukėte %{request_link} užsakymo. Jei užsakymas buvo baigtas, turėtumėte tai pavirtinti. Po to galite palikti atsiliepimą %{other_party_given_name}."
@@ -1563,9 +1565,9 @@ lt:
       message_not_displaying_correctly: "Šis laiškas atvaizduojamas neteisingai?"
       view_it_in_your_browser: "Peržiūrėti naršyklėje"
       or: ar
-      unsubscribe_from_these_emails_info: ~
+      unsubscribe_from_these_emails_info: "Gavote šį el. laišką, nes esate %{service_name} narys."
       unsubscribe_from_these_emails: "Atšaukti šių laiškų prenumeratą"
-      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails_info: "Gavote šį el. laišką, nes %{service_name} narys pakvietė jus prisijungti prie jų."
       unsubscribe_from_invitation_emails: ~
       here_is_your_receipt: ~
     conversation_status_changed:
@@ -1614,18 +1616,18 @@ lt:
       you_have_received_new_payment: "%{payer_full_name} jums buvo sumokėjo <b>%{payment_sum}</b> už <b>%{listing_title}</b>. Štai jūsų kvitas."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
-      payment_gateway_fee: ~
-      shipping_total: ~
-      product: ~
-      price_payer_paid: ~
+      payment_gateway_fee: "Mokėjimo apdorojimo mokestis:"
+      shipping_total: Pristatymas
+      product: "Prekė:"
+      price_payer_paid: "%{payer_full_name} sumokėta kaina:"
       subtotal: ~
-      service_fee: ~
+      service_fee: "%{service_name} aptarnavimo mokestis:"
       buyer_service_fee: ~
-      you_will_get: ~
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
-      you_have_received_new_payment: ~
+      you_will_get: "Viso:"
+      new_payment: "Gavote naują mokėjimą"
+      price_per_unit_type: "Kaina už %{unit_type}"
+      quantity: "Kiekis:"
+      you_have_received_new_payment: "Gavote mokėjima <b>%{payment_sum}</b>už<b>%{listing_title}</b>nuo %{payer_full_name}. Čia yra jūsų gavimas."
       stripe:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
@@ -1633,20 +1635,20 @@ lt:
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      receipt_of_payment: "Mokėjimo gavimas"
+      you_have_made_new_payment: "Sumokėjote <b>%{payment_sum}</b>už <b>%{listing_title}</b>%{recipient_full_name}. Čia yra mokėjimo gavimas."
+      product: Prekė
+      price_per_unit_type: "Kaina už %{unit_type}"
+      duration: Trukmė
+      quantity: Kiekis
+      subtotal: "Tarpinė suma"
       buyer_service_fee: ~
-      total: ~
-      price: ~
-      service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
-      money_will_be_transferred: ~
+      total: Viso
+      price: Kaina
+      service_fee: "Aptarnavimo mokestis"
+      stripe_gateway_fee: "Stripe mokestis"
+      paypal_gateway_fee: "PayPal mokestis"
+      money_will_be_transferred: "Pinigai bus pervesti į %{recipient_name}, kai a) pažymėsite, kad užklausa baigta arba b) %{automatic_confirmation_days} dienos praėjo nuo jūsų sumokėjimo."
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
@@ -1669,8 +1671,8 @@ lt:
       total: "Iš viso"
       price: Kaina
       buyer_service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      stripe_gateway_fee: "Stripe mokestis"
+      paypal_gateway_fee: "PayPal mokestis"
       money_will_be_transferred: "Pinigai bus pervesti į %{recipient_name}, kai a) jūs pažymėsite, kad užklausa baigta arba b) %{automatic_confirmation_days} dienos praėjo nuo jūsų mokėjimo."
       listing_per_unit_title: ~
       stripe:
@@ -1717,9 +1719,9 @@ lt:
       subject: "%{requester} susidomėjo ir patvirtino mokėjimą dėl %{listing_title} skelbimo paskelbto %{service_name}."
       transaction_requested_by_user: "Geros naujienos! %{requester} susidomėjo \"%{listing_title}\" skelbimu ir patvirtino mokėjimą dėl šio skelbimo."
       you_have_time_to_accept: "Turite priimti arba atmesti prašymą per %{payment_expires_in}."
-      if_you_do_accept: ~
-      if_you_do_accept_stripe: ~
-      if_you_do_not_accept: ~
+      if_you_do_accept: "Jei priimsite prašymą per šį laikotarpį, pinigus į savo sąskaitą gausite iš karto."
+      if_you_do_accept_stripe: "Jei priimsite užklausą per šį laikotarpį, mokėjimas bus atliktas. Pinigus gausite tiesiai į savo banko sąskaitą po to, kai pristatysite %{listing_title} į %{requester}."
+      if_you_do_not_accept: "Jei atmesite užklausą arba jos nepriimsite per šį laikotarpį, operacija bus automatiškai atšaukta, %{requester} nebus apmokestintas ir jums nebus sumokėta."
       click_here_to_reply: "Spauskite čia, kad atsakytumėte į prašymą"
     transaction_preauthorized_v2:
       headline: ~
@@ -1750,10 +1752,10 @@ lt:
       cant_click: ~
     new_member_notification:
       subject: ~
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "Naujas narys prisijungė prie %{community}. Jam vis tiek gali tekti patvirtinti savo el. pašto adresą."
+      this_is_automatic_message: "Tai automatinis pranešimas, siunčiamas %{community} administratoriams."
+      person_name: "Vardas:"
+      person_email: "El. paštas:"
     new_member_notification_v2:
       headline: ~
       new_member_has_joined: ~
@@ -1825,10 +1827,10 @@ lt:
       contact_the_seller: ~
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Rezervuoti nepavyko dėl nenumatytos klaidos. Pabandykite vėliau dar kartą. Jums nebuvo imamas mokestis."
+      double_booking_payment_voided: "Deja, jūsų pasirinktos datos nebepasiekiamos. Pasirinkite skirtingas datas. Jums nebuvo imamas mokestis."
     onboarding:
-      server_rendering: ~
+      server_rendering: "Nepavyko įkelti darbo pradžios vadovo. Mes buvome informuoti apie tokią padėtį ir ją taisome."
     listings:
       departure_time: "Išvykimo laiko tarpas privalo būti metai nuo dabar."
       share_type: "Privalote pasirinkti bent vieną."
@@ -1841,17 +1843,17 @@ lt:
     transaction_agreement:
       required_error: "Privalote priimti susitarimą"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Operacija negali būti baigta. Tai greičiausiai sukelia nepavykęs banko kreditinės kortelės autorizavimas. Bandykite pirkti dar kartą naudodami alternatyvų mokėjimo būdą"
       buyer_cannot_pay_error: "Šis mokėjimas buvo atmestas. Prašome susisiekti su su PayPal klientų aptarnavimu dėl platesnės informacijos: %{customer_service_link}"
       pending_review_error: "Mokėjimas buvo pateiktas, bet PayPal mokėjimą pažymėjo kaip 'reikalinga peržiūra'. Kai PayPal pabaigs peržiūrą, mokėjimas bus automatiškai patvirtintas."
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "PayPal Express Checkout buvo išjungtas iš autoriaus sąrašo PayPal paskyroje. Susisiekite su autoriumi ir praneškite jam, kad kyla problemų dėl jų PayPal paskyros ir patarkite susisiekti su PayPal klientų aptarnavimo tarnyba."
       seller_express_checkout_disabled_no_free: ~
       generic_error: "Mokėjimo metu įvyko klaida.Jūsų PayPal mokėjimas nebuvo baigtas."
       cancel_error: "Atšaukimo metu įvyko klaida. Atšaukimas nebaigtas."
       accept_authorization_error: "Bandant priimti iš anksto patvirtintą PayPal mokėjimą įvyko klaida. Prašome bandyti dar kartą."
       reject_authorization_error: "Bandant atmesti iš anksto patvirtintą PayPal mokėjimą įvyko klaida. Prašome bandyti dar kartą."
     stripe:
-      generic_error: ~
+      generic_error: "Mokėjimo proceso metu įvyko klaida. Nepavyko užbaigti Stripe mokėjimo."
       accept_authorization_error: ~
       reject_authorization_error: ~
       card_declined: ~
@@ -2017,7 +2019,7 @@ lt:
       message: "Asmeninė žinutė"
       send_invitation: "Siųsti pakvietimą"
       add_email_addresses_description: "Įrašykite kviečiamų žmonių el. pašto adresus laukelyje žemiau. Pridedant keletą el. pašto adresų, atskirkite juos kableliais."
-      add_lots_of_email_addresses: ~
+      add_lots_of_email_addresses: "Kadangi esate administratorius, štai patarimas: jei planuojate siųsti daug kvietimų, turėtumėte naudoti el. pašto įrankį. Peržiūrėkite %{this_article_link}, norėdami sužinoti išteklius apie tinkamas el. pašto paslaugas."
       this_article_link: "šis straipsnis"
       invitation_emails_field_placeholder: "draugas1@pavyzdys.lt, draugė2@pavyzdys.lt, ..."
       invitation_message_field_placeholder: "Aš prisijungiau prie puikaus turgaus. Pamėgink ir tu!"
@@ -2060,19 +2062,19 @@ lt:
       default_content: "Čia jūs galite rasti informacijos apie tai kaip %{marketplace_name} veikia."
   landing_page:
     hero:
-      search: ~
+      search: Paieška
       signup: Registruotis
-      search_placeholder: ~
-      search_location_placeholder: ~
+      search_placeholder: "Ko ieškote?"
+      search_location_placeholder: Vieta
     listings:
-      no_listing_image: ~
+      no_listing_image: "Nėra paveikslėlio"
   layouts:
     admin:
       admin: "%{service_name} administratoriaus pultas"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} parengta pagal %{sharetribe_link} prekyvietės platformą."
+      create_own: "Norite sukurti savo elektroninės prekyvietės svetainę, pvz., %{service_name}? %{learn_more}."
+      learn_more: "Sužinoti daugiau"
     no_tribe:
       inbox: "Pašto dėžutė"
       settings: Nustatymai
@@ -2081,7 +2083,7 @@ lt:
       join_this_community: "Prisijungti prie prekyvietės"
       read_more: "Skaityti daugiau"
       feedback: "Jūsų žinutė %{service_name} komandai"
-      dont_use_to_contact_support: ~
+      dont_use_to_contact_support: "Pastebėjome, kad esate %{service_name} administratorius. Šią formą vartotojai naudoja, kad galėtų su jumis susisiekti. Negalite naudoti šios formos norėdami susisiekti su „Sharetribe“ palaikymo tarnyba. Tai galite padaryti per palaikymo valdiklį apatiniame dešiniajame administratoriaus skydelio kampe."
       feedback_forum: "Atsiliepimo forumas"
       feedback_handle: Atsiliepimas
       give_feedback: "Susisiekite su mumis"
@@ -2200,8 +2202,8 @@ lt:
       offer_rejected: "Pasiūlymas atmestas"
       offer_canceled: "Užsakymas atšauktas"
       listing_updated_successfully: "Skelbimo atnaujinimas sėkmingas"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
+      listing_updated_availability_management_enabled: "Sąrašas sėkmingai atnaujintas. Prieinamumo valdymas įgalintas."
+      listing_updated_availability_management_disabled: "Sąrašas sėkmingai atnaujintas. Prieinamumo valdymas išjungtas."
       listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Prašome prisijungti su administratoriaus paskyra, kad šita vieta būtų prieinama"
       only_listing_author_can_close_a_listing: "Tik skelbimo autorius gali uždaryti skelbimą"
@@ -2232,14 +2234,14 @@ lt:
       request_rejected: "Prašymas atmestas"
       request_canceled: "Užsakymas atšauktas"
       message_sent: "Žinutė išsiųsta"
-      message_not_sent: ~
+      message_not_sent: "Išsiųsti pranešimo nepavyko. Bandykite dar kartą."
       this_content_is_not_available_in_this_community: "Turinys neprieinamas."
       unknown_error: "Nežinoma klaida. Prašome pasinaudoti 'Susisiekite su mumis' nuoroda ir atsiųsti detales apie tai kas atsitiko."
       update_error: "Bandant atnaujinti jūsų informaciją įvyko klaida. Prašome bandyti dar kartą"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Jūs nesate autorizuotas palikti atsiliepimą apie šį renginį"
       you_are_not_authorized_to_do_this: "Jūs nesate autorizuotas tai atlikti"
       you_are_not_authorized_to_view_this_content: "Jūs nesate autorizuotas žiūrėti ši turinį"
-      listing_closed: ~
+      listing_closed: "Šis sąrašas uždarytas"
       send_instructions: "Po kelių minučių gausite laišką su instrukcijomis kaip atstatyti slaptažodį."
       you_cannot_reply_to_a_closed_offer: "Negalite atsakyti uždarytam pasiūlymui"
       you_cannot_send_message_to_yourself: "Negalite siųsti žinutės sau"
@@ -2271,8 +2273,8 @@ lt:
       email_deleted: "El. paštas pašalintas"
       listing_author_payment_details_missing: "Prašome susisiekti su autoriumi paspausdami žemiau esantį mygtuką „Kontaktas“. Norėdami gauti mokėjimus, jiems reikia atnaujinti savo mokėjimo duomenis."
       listing_author_payment_details_missing_no_free: ~
-      images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      images_are_processing: "Mes apdorojame jūsų vaizdus. Duokite mums minutę ar dvi ir jie bus matomi."
+      automatically_logged_out_please_sign_in: "Jūs buvote automatiškai atsijungę. Prisijunkite dar kartą."
       stripe_you_account_balance_is_not_0: ~
       stripe_balance_for_username_is_not_0: ~
       visit_admin: ~
@@ -2283,8 +2285,8 @@ lt:
       notifications: Pranešimai
       profile: "Profilio informacija"
       settings: Nustatymai
-      paypal_payments: ~
-      stripe_payments: ~
+      paypal_payments: "PayPal mokėjimai"
+      stripe_payments: "Stripe mokėjimai"
       payments: Mokėjimai
       listings: Skelbimai
       listings_search_placeholder: ~
@@ -2329,8 +2331,8 @@ lt:
     error:
       something_went_wrong: "Kažkas negerai, klaidos kodas: %{error_code}"
       something_went_wrong_plain: "Kažkas įvyko ne taip"
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      create_failed_to_connect_to_booking_service: "Sąrašo sukurti nepavyko: nesėkmingas prisijungimas prie rezervavimo tarnybos. Bandykite dar kartą."
+      update_failed_to_connect_to_booking_service: "Sąrašo naujinimas nepavyko: nesėkmingas prisijungimas prie rezervavimo tarnybos. Bandykite dar kartą."
     follow_links:
       follow: "Gauti laiškus apie naujus komentarus"
       unfollow: "Negauti laiškų apie naujus komentarus"
@@ -2359,7 +2361,7 @@ lt:
         i_want_to_offer: "Noriu siūlyti..."
         i_want_to_request: "Man reikia..."
       googlemap:
-        googlemap_copy: ~
+        googlemap_copy: "Galutiniai taškai iš žemėlapio"
         googlemap_description: "Žemėlapio vaizdas"
         googlemap_updatemap: "Atnaujinti žemėlapį"
       images:
@@ -2392,9 +2394,9 @@ lt:
         long_time: "savaitę, mėnesį, ..."
         after_service_fee_you_will_get: "Po to kai %{service_name} ir mokėjimo apdorotojas nuims savo mokesčius, gausite %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} bus išskaičiuota iš kainos."
-        no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
-        payment_fee_info_link_text: ~
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} bus išskaičiuotas iš kainos."
+        after_service_fee_you_will_get_payment_text: "Kai kas nors atlieka užsakymą, gausite šią sumą atėmus %{payment_fee_info_link}"
+        payment_fee_info_link_text: "%{service_name} mokestis ir mokėjimo apdorojimo mokestis"
         delivery: "Pristatymo būdas"
         shipping: Pristatymas
         shipping_price: "Pristatymo mokestis"
@@ -2482,8 +2484,8 @@ lt:
       booking_from: Nuo
       booking_to: Kam
       how_paypal_works: "Kaip veikia PayPal"
-      payment_help: ~
-      unable_load_availability: ~
+      payment_help: "Mokėjimo žinynas"
+      unable_load_availability: "Nepavyko įkelti prieinamos informacijos. Bandykite dar kartą vėliau."
       booking_date: Data
       select_one: ~
       start_time: "Pradžios laikas"
@@ -2577,23 +2579,23 @@ lt:
       you_will_be_charged: "Pinigai bus nuskaičiuoti, tik jei %{author} sutiks su sandoriu. %{author} turi sutikti su sandoriu per %{expiration_period} dienas. Jei %{author} nesutiks ar neatsakys, mokestis nebus nuskaičiuotas."
       day: diena
       days: dienos
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      night: naktis
+      nights: naktys
+      invalid_parameters: "Neleistinos naujos operacijos reikšmės"
       select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Žiūrėti.
     stripe_payment:
-      payment: ~
-      pay_with_card: ~
-      address: ~
-      address_country: ~
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      payment: Mokėjimas
+      pay_with_card: "Mokėti kredito arba debeto kortele"
+      address: "Pristatymo adresas"
+      address_country: "Šalis *"
+      address_name: "Vardas ir pavardė *"
+      address_city: "Miestas *"
+      address_state: Valstybė
+      address_street1: "1 gatvės adreso eilutė *"
+      address_street2: "2 gatvės adreso eilutė *"
+      address_postal_code: "Pašto indeksas *"
   mapview:
     index:
       all_categories: "Visos kategorijos"
@@ -2623,21 +2625,21 @@ lt:
   paypal_accounts:
     payout_info_title: "Lėšų gavimas"
     paypal_account_email_connected: "<del>Prijungti PayPal paskyrą</del>Baigta!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} naudoja PayPal kaip mokėjimo paslaugų teikėją. Kad galėtumėte priimti mokėjimus už jūsų sąrašus, reikalingas %{create_paypal_account_link}, kuris turi būti prijungtas prie %{service_name}."
     paypal_billing_agreement_made: "<del> Suteikite %{service_name} leidimą apmokėti operacijos mokestį </del>Baigta!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    commission_permission_needed: "Taip pat turėsite suteikti %{service_name} leidimą imti operacijos mokestį."
+    create_paypal_account_link_text: "PayPal paskyra"
     connected_account: "PayPal paskyra %{email} sėkmingai prijungta."
-    paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    paypal_receive_funds_info_label_australia_only: "Jūsų PayPal paskyra turi galėti priimti mokėjimus. Tam gali reikėti Premium arba verslo paskyros."
+    paypal_receive_funds_info_label: "Jūsų PayPal paskyra turi galėti priimti mokėjimus. Tam gali prireikti verslo paskyros."
+    paypal_receive_funds_info_australia_only: "Jei bandydami prijungti savo paskyrą prie %{service_name} matote klaidą arba %{upgrade_paypal_account_link}, ar (jei esate asmuo), sukurkite naują Premium paskyrą. Abu paskyros tipai yra visiškai nemokami."
+    paypal_receive_funds_info: "Jei bandydami prijungti savo paskyrą prie %{service_name} matote klaidą, spauskite: %{upgrade_paypal_account_link}. Tai nemokama ir paprasta. Jei esate asmuo, PayPal rekomenduoja naudoti savo vardą kaip įmonės pavadinimą."
+    upgrade_paypal_account_link_text: "prisijunkite ir atnaujinkite savo PayPal paskyrą į verslo paskyrą"
+    admin_account_not_connected: "%{service_name} mokėjimo sistemos naudojimas mokėjimams gauti negalimas, nes mokėjimai nebuvo nustatyti. Išsamesnė informacija: %{contact_admin_link}."
+    contact_admin_link_text: "susisiekti su %{service_name} komanda"
     you_are_ready_to_accept_payments: "Jūs esate pasirengęs priimti mokėjimus!"
     commission: "%{commission} %"
-    not_now: ~
+    not_now: "Nenoriu dabar prisijungti prie PayPal paskyros"
     new:
       payout_info_you_need_to_connect: "Kad galėtumėte priimti mokėjimus, jūs turite prisijungti prie PayPal paskyros su %{service_name}."
       payout_info_text: "Norėdami prijungti savo paskyrą, prašome atlikti šiuos veiksmus."
@@ -2649,16 +2651,16 @@ lt:
       create_paypal_account: "spauskite čia"
       upgrade_paypal_account: "prisijungti prie PayPal paskyros"
       paypal_account_billing_agreement: "Suteikite %{service_name} leidimą apmokėti operacijos mokestį"
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
+      follow_steps: "Norėdami pradėti gauti lėšas, atlikite toliau nurodytus veiksmus:"
+      connect_paypal_account_title: "Prijunkite savo Paypal paskyrą"
+      connect_paypal_account_title_with_step: "Veiksmas %{current_step}/%{total_steps}: prijunkite savo PayPal paskyrą"
+      connect_paypal_account_instructions: "Spustelėkite toliau esantį mygtuką, kad prisijungtumėte prie PayPal ir prijungtumėte savo PayPal paskyrą prie %{service_name}."
       connect_paypal_account: "Prijunkite savo PayPal paskyrą"
-      paypal_account_billing_agreement_with_step: ~
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_with_step: "Veiksmas %{current_step}/%{total_steps}: Suteikti teisę imti operacijos mokestį"
+      paypal_account_billing_agreement_info_both: "Pardavus %{service_name}, aptarnavimo mokestis %{commission_from_seller} nuo bendros prekės kainos, neįskaitant siuntimo, minimalus mokestis %{minimum_commission} bus imamas iš jūsų PayPal paskyros. Norint priimti mokėjimus iš %{service_name}, reikia teisių tai daryti. Į mokestį neįtrauktas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Pardavus %{service_name}, %{minimum_commission} aptarnavimo mokestis bus imamas iš jūsų PayPal paskyros. Norint priimti mokėjimus iš %{service_name}, reikia teisių tai daryti. Į mokestį neįtrauktas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Pardavus %{service_name}, aptarnavimo mokestis %{commission_from_seller} nuo visos prekės kainos, neįskaitant siuntimo, bus imamas iš jūsų PayPal paskyros. Norint priimti mokėjimus %{service_name}, reikia teisių tai daryti. Į mokestį neįtrauktas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: "%{service_name} šiuo metu netaiko aptarnavimo mokesčio. Jeigu aptarnavimo mokesčiai įgalinti, turėsite suteikti %{service_name} teisę imti aptarnavimo mokestį, kad galėtumėte priimti mokėjimus. Į mokestį neįtrauktas %{paypal_info_link}."
       paypal_info_link_text: "PayPal mokėjimo apdorojimo mokestis"
       billing_agreement_description: "Suteikti %{service_name} leidimą apmokėti operacijos mokestį."
       billing_agreement: "Suteikti leidimą"
@@ -2671,26 +2673,26 @@ lt:
       something_went_wrong: "Kažkas negerai. Bandykite dar kartą. Jeigu problema pasikartos, prašome kreiptis į %{service_name} komandą."
       account_not_verified: "Jūs nepatvirtinote savo PayPal paskyros. Prieš norėdami tęsti, jums reikia eiti į paypal.com ir patvirtinti savo paskyrą."
       account_restricted: "Jūsų PayPal paskyra yra apribota ir negali būti prijungta. Prisijunkite prie paypal.com ir sužinokite daugiau arba susisiekite su PayPal klientų aptarnavimo komanda, kad išspręstumėte problemą."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "PayPal paskyra prijungta"
+    paypal_account_connected: "PayPal paskyros paštas <%{email}> susietas su %{service_name}."
     change_account: "Keisti PayPal paskyrą"
     missing: "Turite atidarytus sąrašus, bet jūsų PayPal paskyra nenustatyta mokėjimams gauti. Prijunkite savo PayPal paskyrą ir suteikite %{service_name} leidimą imti operacijos mokestį iš savo %{settings_link}."
     from_your_payment_settings_link_text: "mokėjimo nustatymai"
-    redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    redirect_message: "Peradresuoti jus į PayPal. Jei niekas neįvyksta, spustelėkite %{redirect_link}."
+    redirect_link_text: čia
+    paypal_account_all_set_up: "Valio, viskas yra nustatyta!"
+    can_receive_payments: "Dabar galite gauti mokėjimus už savo sąrašus."
+    paypal_account_connected_summary: "%{email} PayPal paskyra sėkmingai prijungta"
+    paypal_permission_granted_summary: "Suteiktas leidimas mokėti operacijų mokesčius"
   paypal:
     pay_with_paypal: "Pereiti prie mokėjimo"
-    checkout_with: ~
-    or_pay_with_paypal: ~
-    checkout_with_paypal: ~
+    checkout_with: "Išsiregistruoti su"
+    or_pay_with_paypal: arba
+    checkout_with_paypal: "Išsiregistruoti su PayPal"
     cancel_succesful: "PayPal mokėjimas sėkmingai atšauktas"
     transaction:
       commission_payment_name: "Komisinis mokėjimas už %{listing_title}"
-      commission_payment_description: ~
+      commission_payment_description: "Prekyvietė %{service_name} paėme šį komisinį iš operacijos, susijusios su %{listing_title}"
     wait_while_loading: "Prašome palaukti."
     chatting_with_paypal: "Mes kalbamės su PayPal."
   people:
@@ -2712,7 +2714,7 @@ lt:
       email_is_in_use: "El. paštas, kurį nurodėte jau naudojamas"
       email_is_in_use_or_not_allowed: "Šis el. paštas neleidžiamas arba jau naudojamas. Jei negalite prisijungti, susisiekite su mumis."
       email_not_allowed: "Šis el. paštas neleidžiamas %{service_name}. Prašome naudoti leidžiamą el. paštą. Jei negalite prisijungti, susisiekite su mumis."
-      invalid_username_or_email: ~
+      invalid_username_or_email: "El. paštas yra netinkamas arba jau naudojamas"
       email_restriction_instructions:
         one: "Priėjimas prie %{service_name} yra apribotas. Prisijungimui būtinas %{allowed_emails} el. pašto adresas."
         few: "Priėjimas prie %{service_name} yra apribotas. Jums reikia el. pašto adreso, kuris įrodo, kad galite prisijungti."
@@ -2724,7 +2726,7 @@ lt:
       invalid_invitation_code: "Pakvietimo kodas negalioja"
       invitation_code: "Pakvietimo kodas"
       not_required: ", neprivalomas"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Norėdami gauti pranešimus, turite pasirinkti bent vieną el. pašto adresą. Jei nenorite gauti el. laiškų iš %{service_name}, patikrinkite savo el. pašto pranešimų parametrus."
       password_again: "Pavirtinti slaptažodį"
       show_my_name_to_others: "Rodyti mano tikrą vardą kitiems %{service_name} vartotojams"
       sign_up: "Sukurtį naują %{service_name} paskyrą"
@@ -2817,11 +2819,11 @@ lt:
       confirm_your_email: "Prašome patvirtinti jūsų el. pašto adresą."
       account_confirmation_instructions: "Greitai gausite laišką su nuoroda jūsų el. pašto patvirtinimui. Nepamirškite patikrinti šlamšto aplanko. Patvirtinus el. paštą, galite prisijungti prie %{service_name}."
       account_confirmation_instructions_title_admin: "Patvirtinkite savo el. pašto adresą"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Kad galėtume suteikti jums visišką prieigą prie jūsų prekyvietės, turime padaryti dar vieną dalyką: patvirtinti jūsų el. pašto adresą."
+      before_confirmation_only_access_admin_dashboard: "Prieš patvirtinimą, galite pasiekti tik %{admin_dashboard_link}."
+      admin_dashboard_link_text: "Administravimo skydas"
       account_confirmation_instructions_admin: "Turėjote gauti laišką %{email_address} su patvirtinimo nuoroda. Jei nematote laiško, patikrinkite šlamšto aplanką arba paspauskite mygtuką apačioje pakartotinam laiško siuntimui. Gavus laišką, atidarykite nuorodą, kad patvirtintumėte el. pašto adresą ir gausite pilną priėjimą prie turgaus. Jei reikia pagalbos, nedvejokite %{support_link}."
-      contact_support_link_text: ~
+      contact_support_link_text: "susisiekite su „Sharetribe“ palaikymo tarnyba"
   settings:
     account:
       change: Keisti
@@ -2885,7 +2887,7 @@ lt:
       first_name_with_initial: "(kitiems vartotojams rodoma tik pirma raidė)"
       first_name_only: "(nerodoma kitiems vartotojams)"
       display_name: "Rodomas vardas"
-      display_name_description: ~
+      display_name_description: "Jei atstovaujate organizacijai, galite naudoti jos pavadinimą kaip rodomą pavadinimą. Rodomas pavadinimas rodomas kitiems vartotojams, vietoj jūsų vardo ir pavardės."
       location_description: "Galite pateikti gatvės adresą arba tik miestą ar pašto kodą. Taip pat rekomenduojama įtraukti ir šalį pridedant vietą. Pavyzdžiui: \"10117, Berlynas, Vokietija\" ar \"2000 Sand Hill Road, CA, USA\"."
       profile_picture_description: ~
       phone_number: "Telefono numeris"
@@ -2899,7 +2901,7 @@ lt:
       visible_to_registered_users: "(matoma prisijungusiems vartotojams)"
       default_in_listing: "(naudojama tik kaip numatytoji kuriant naują skelbimą)"
       invisible: "(nerodoma kitiems vartotojams)"
-      image_is_processing: ~
+      image_is_processing: "Luktelėkite. Mes apdorojame jūsų profilio nuotrauką. Ji bus paruošta per minutę ar dvi."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
       format_markdown_link: ~
@@ -3026,25 +3028,30 @@ lt:
       one: "%{count} diena"
       few: "%{count} dienos"
       other: "%{count} dienos"
+    time_to:
+      hours:
+        one: "%{count} valandai"
+        few: "%{count} valandoms"
+        other: "%{count} valanda"
   transactions:
     initiate:
       booked_days: "Užsakytos dienos:"
-      booked_nights: ~
+      booked_nights: "Užsakytos naktys:"
       price_per_day: "Dienos kaina:"
-      price_per_night: ~
+      price_per_night: "Kaina už naktį:"
       price_per_hour: "Valandos kaina:"
       price_per_unit: ~
       quantity: "Kiekis:"
       subtotal: "Tarpinė suma:"
       shipping-price: "Pristatymas:"
-      stripe-fee: ~
+      stripe-fee: "Stripe mokestis (apskaičiuotas):"
       start_end_time: ~
     price_per_quantity: "Kaina per %{unit_type}:"
     price: "Kaina:"
     quantity: "Kiekis: %{quantity}"
     unit_price: "Vieneto kaina: %{unit_price}"
     total: "Viso:"
-    total_to_pay: ~
+    total_to_pay: "Bendra mokėjimo suma:"
   unit:
     day: diena
     days: dienos
@@ -3052,23 +3059,23 @@ lt:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "Negalime rodyti prieinamos informacijos. Pabandykite iš naujo įkelti puslapį."
+          saving_failed: "Negalime išsaugoti prieinamos informacijos. Pabandykite iš naujo įkelti puslapį."
         working_hours:
           required: ~
           overlaps: ~
           covers: ~
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
+        piece: vienetas
+        hour: valanda
+        day: diena
+        night: naktis
+        week: savaitė
+        month: mėnesis
+      edit_availability_header: Pasiekiamumas
+      save_and_close_availability_editing: "Įrašyti ir uždaryti"
+      confirm_discarding_unsaved_availability_changes_explanation: "Turite neįrašytų pasikeitimų prie jūsų prieinamos informacijos. Jei tęsite, šie pakeitimai bus prarasti."
+      confirm_discarding_unsaved_availability_changes_question: "Ar tikrai norite atsisakyti pakeitimų?"
       edit_listing_availability: "Redaguoti skelbimo laiką"
       working_hours:
         default_schedule: ~
@@ -3078,20 +3085,20 @@ lt:
         add_another_time_slot: "+ Pridėti kitą laiko tarpą"
         save: ~
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Deja, nepavyko rasti paieškos kriterijų sąraše."
+      try_other_search_terms: "Galbūt pabandykite kitus paieškos terminus?"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Pridėti paveikslėlį"
+      no_picture: "Nėra paveikslėlio"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Puslapis
+      page_of_pages: "iš %{total_number_of_pages}"
     topbar:
-      menu: ~
+      menu: Meniu
       more: Daugiau
-      search_placeholder: ~
-      search_location_placeholder: ~
-      user: ~
+      search_placeholder: Paieška...
+      search_location_placeholder: Vieta
+      user: Vartotojas
       inbox: "Pašto dėžutė"
       profile: Profilis
       manage_listings: "Mano skelbimai"
@@ -3099,15 +3106,15 @@ lt:
       logout: Atsijungti
       login: Prisijungti
       signup: Registruotis
-      admin_dashboard: ~
-      language: ~
+      admin_dashboard: "Administravimo skydas"
+      language: Kalba
       listings: "Mano skelbimai"
     utils:
-      km: ~
-      mi: ~
+      km: kilometrai
+      mi: mylios
     branding:
-      powered_by: ~
-      create_own: ~
+      powered_by: "%{service_name} parengta pagal %{sharetribe_link} prekyvietės platformą."
+      create_own: "Norite sukurti savo elektroninės prekyvietės svetainę, pvz., %{service_name}? %{learn_more}."
       learn_more: "Sužinoti daugiau"
   will_paginate:
     models:
@@ -3129,24 +3136,24 @@ lt:
       multi_page_html: "Rodomi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> iš <b>%{count}</b>"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        multi_page: "Rodoma %{model} %{from} – %{to} iš %{accepted_count} priimta %{accepted_model} ir %{other_count} kita %{other_model}"
+        multi_page_html: "Rodoma %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> iš <b>%{accepted_count}</b> priimta %{accepted_model} ir %{other_count} kita %{other_model}"
   stripe_accounts:
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
-    pay_with_stripe: ~
-    add_and_pay: ~
-    card_not_stored: ~
-    missing_payment: ~
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
-    stripe_credit_card: ~
-    paypal: ~
-    paypal_connected: ~
-    paypal_can_accept: ~
-    paypal_connected_give_permission: ~
+    admin_account_not_connected: "Naudojant %{service_name}, mokėjimo sistemos naudojimas mokėjimams gauti negalimas, nes mokėjimai nebuvo nustatyti. Išsamesnė informacija %{contact_admin_link}."
+    contact_admin_link_text: "susisiekti su %{service_name} komanda"
+    you_are_ready_to_accept_payments: "Jūs esate pasirengę priimti mokėjimus!"
+    commission: "%{commission} %"
+    pay_with_stripe: "Mokėkite su Stripe naudodami %{card}"
+    add_and_pay: "Patvirtinkite mokėjimą"
+    card_not_stored: "Stripe saugiai apdoroja jūsų mokėjimą. %{service_name} nesaugo jūsų kredito/debeto kortelės informacijos."
+    missing_payment: "Turite atidarytus sąrašus, tačiau jūsų paskyroje nėra nustatytas pinigų gavimas. Norėdami sukonfigūruoti mokėjimo parametrus, apsilankykite %{settings_link}."
+    stripe_bank_connected: "Banko sąskaitos informacija sukonfigūruota sėkmingai!"
+    stripe_can_accept: "Dabar esate pasirengę gauti pinigus į savo banko sąskaitą"
+    stripe_credit_card: "Kreditinė kortelė"
+    paypal: PayPal
+    paypal_connected: "PayPal paskyra sėkmingai prijungta!"
+    paypal_can_accept: "Dabar esate pasirengę gauti pinigus į PayPal sąskaitą"
+    paypal_connected_give_permission: "Norėdami užbaigti sąranką ir pradėti gauti lėšas į %{email} PayPal sąskaitą, suteikite leidimą apmokestinti operacijos mokestį."
     stripe_account_restricted: ~
     stripe_account_restricted_info: ~
     stripe_account_restricted_soon: ~
@@ -3154,30 +3161,30 @@ lt:
     stripe_account_pending_verification: ~
     stripe_account_pending_verification_info: ~
     form_new:
-      need_info: ~
-      select_country: ~
-      legal_name: ~
+      need_info: "Mums reikia šiek tiek informacijos apie jus, kad galėtume jums atsiųsti pinigų."
+      select_country: "Pasirinkite šalį..."
+      legal_name: "Teisėtas vardas"
       first_name: ~
       last_name: ~
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
       last_name_kanji: ~
-      country: ~
-      birth_date: ~
-      ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
+      country: "Gyvenamoji šalis"
+      birth_date: "Gimimo data"
+      ssn_last_4: "Socialinės apsaugos numerio 4 paskutiniai skaičiai"
+      personal_id_number: "Asmens tapatybės dokumento numeris"
+      address_country: "Gyvenamoji šalis"
+      address_state: Valstybė
       address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
-      tos_link: ~
+      address_city: Miestas
+      address_postal_code: "Pašto kodas"
+      address_line1: "Gatvės adresas"
+      tos_link: "Pridėdami išsamią išmokėjimo informaciją, jūs sutinkate su %{stripe_link}."
       tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
+      save_details: "Išsaugoti detales"
+      edit: "Redaguoti detales"
+      cancel: Atšaukti
       gender: ~
       phone_number: ~
       phone_info_text: ~
@@ -3194,37 +3201,37 @@ lt:
       male: ~
       female: ~
     form_bank:
-      bank_account_number: ~
-      bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
+      bank_account_number: "Banko sąskaitos numeris"
+      bank_routing_number: "Maršruto numeris"
+      bank_routing_1: "Banko kodas"
+      bank_routing_2: "Filialo kodas"
+      bank_currency: "Banko sąskaitos valiuta"
       update_also_bank_account: ~
       bank_account_same_country: ~
       bank_country: ~
       bank_holder_name: ~
       messages:
-        account_number: ~
-        routing_number: ~
-        bank_code: ~
-        branch_code: ~
-        transit_number: ~
-        institution_number: ~
-        format_varies_by_bank: ~
-        bsb: ~
-        error_message: ~
+        account_number: "Sąskaitos numeris"
+        routing_number: "Maršruto numeris"
+        bank_code: "Banko kodas"
+        branch_code: "Filialo kodas"
+        transit_number: "Tranzito numeris"
+        institution_number: "Įstaigos numeris"
+        format_varies_by_bank: "Formatas skiriasi pagal banką"
+        bsb: "Banko valstybinis skyrius"
+        error_message: "Netinkamas formatas"
         clearing_code: ~
-        sort_code: ~
-        must_match: ~
-        a_dash: ~
-        digits: ~
-        digits_or_chars: ~
+        sort_code: "Banko filialo kodas"
+        must_match: "turi būti tokio formato:"
+        a_dash: brūkšnys
+        digits: skaitmenys
+        digits_or_chars: "skaitmenys arba simboliai nuo A iki Z"
     form_verification:
-      personal_id_number: ~
-      document: ~
+      personal_id_number: "Asmens tapatybės dokumento numeris"
+      document: "Asmens tapatybę patvirtinantis dokumentas (pasas, valstybės išduotas asmens tapatybės dokumentas)"
       document_back: ~
-      send_verification: ~
-      need_verification: ~
+      send_verification: "Siųsti patvirtinimą"
+      need_verification: "Reikia papildomo patvirtinimo"
       additional_document: ~
       additional_document_back: ~
       files_need_to_be: ~
@@ -3239,16 +3246,16 @@ lt:
         social_insurance_number: ~
   payment_settings:
     title: "Apmokėjimų pirmenybė"
-    bank_account: ~
-    paypal: ~
-    bank_account_details: ~
+    bank_account: "Banko sąskaita"
+    paypal: PayPal
+    bank_account_details: "Norėdami gauti pinigų į savo banko sąskaitą, turite pateikti savo banko duomenis. Jūsų klientai galės atsiskaityti kredito kortele."
     add_bank_details: "Pridėti banko detales"
-    can_accept_stripe_and_paypal: ~
-    to_accept_paypal: ~
-    connect_paypal: ~
-    wrong_setup: ~
-    invalid_bank_account_number: ~
-    invalid_postal_code: ~
+    can_accept_stripe_and_paypal: "Galite gauti pinigus į savo banko sąskaitą arba į PayPal sąskaitą."
+    to_accept_paypal: "Norėdami gauti pinigus į PayPal sąskaitą, turite prisijungti prie savo PayPal paskyros. Jūsų klientai galės atsiskaityti PayPal."
+    connect_paypal: "Prijunkite PayPal paskyrą"
+    wrong_setup: "Kažkas negerai nustatant mokėjimų sistemą šioje prekyvietėje: Stripe prisijungimas nebuvo įjungtas. Susisiekite su komanda ir praneškite jiems, kad jie turėtų įgalinti Stripe prisijungimą savo Stripe prietaisų skydelyje."
+    invalid_bank_account_number: "Patikrinkite, ar jūsų banko sąskaita įvesta teisingai ir atitinka jūsų šalį."
+    invalid_postal_code: "Netinkamas %{country} pašto kodas"
   seo_sections:
     you_can_use_variables: ~
     placeholder:

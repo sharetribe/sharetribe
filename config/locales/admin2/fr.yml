@@ -199,7 +199,7 @@ fr:
       block_1_point_4: "› Parcourir tous les articles sur la Marketplace Academy (en anglais)"
       block_2:
         a_title: "Passez à l'offre Pro"
-        a_body: "Utilisez votre propre domain, enlevez toutes les mentions de Sharetribe, et plus encore. Abonnez-vous à l'offre Pro, à partir de $119 par mois."
+        a_body: "Utilisez votre propre domaine, enlevez toutes les mentions de Sharetribe, et plus encore. Abonnez-vous à l'offre Pro, à partir de $119 par mois."
         a_link: "› Gérer votre abonnement"
         b_title: "Ajoutez une magnifique page d'accueil à votre place de marché"
         b_body: "Communiquez votre valeur ajoutée et impliquez vos visiteurs dès qu'ils arrivent sur votre place de marché. Ajouter une page d'accueil remarquable à votre place de marché. $99 par mois."
@@ -1137,11 +1137,11 @@ fr:
       main_logo_info_text: "Le logo principal est affiché dans la barre de navigation de votre place de marché et dans les notifications email automatiques. Ses dimensions doivent être de 336x80 pixels."
       square_logo: "Logo carré"
       square_logo_info_text: "Le logo carré est affiché comme votre photo de profil lorsque vous gérez une transaction au nom de l'un de vos utilisateur.  Il est également affiché lorsque les visiteurs mettent en favoris votre site sur l'écran d'accueil de leur appareil mobile. Ses dimensions doivent être d'au moins 600x600 pixels."
-      current_file: "L'image actuelle de %{type} est \"%{filename}\""
+      current_file: "L'image actuelle de %{type} est \"%{filename}\"."
       reset_to_default: "Revenir à l'image de %{type} par défaut"
       delete_popup:
         title: "Supprimer l'image de %{type}"
-        body: "Voulez-vous vraiment supprimer le \"%{filename}\" %{type} définitivement ? Ceci est irréversible."
+        body: "Voulez-vous vraiment supprimer \"%{filename}\" (%{type}) définitivement ? Ceci est irréversible."
         save_button: "Supprimer le %{type} définitivement"
     user_rights:
       invitation_rights: "Droits d'invitations"
