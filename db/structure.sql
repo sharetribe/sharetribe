@@ -574,7 +574,8 @@ CREATE TABLE `delayed_jobs` (
   PRIMARY KEY (`id`),
   KEY `index_delayed_jobs_on_attempts_and_run_at_and_priority` (`attempts`,`run_at`,`priority`) USING BTREE,
   KEY `index_delayed_jobs_on_locked_created` (`locked_at`,`created_at`) USING BTREE,
-  KEY `delayed_jobs_priority` (`priority`,`run_at`) USING BTREE
+  KEY `delayed_jobs_priority` (`priority`,`run_at`) USING BTREE,
+  KEY `delayed_jobs_pending_polling` (`failed_at`,`priority`,`run_at`,`queue`,`locked_at`,`locked_by`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `domain_setups`;
@@ -2481,6 +2482,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20200312112018'),
 ('20201012091009'),
 ('20201218151444'),
-('20201221132459');
-
-
+('20201221132459'),
+('20210108111345');
