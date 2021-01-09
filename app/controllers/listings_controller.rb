@@ -430,7 +430,7 @@ class ListingsController < ApplicationController
       t("listings.new.community_not_configured_for_payments_admin",
         payment_settings_link: view_context.link_to(
           t("listings.new.payment_settings_link"),
-          admin_payment_preferences_path()))
+          admin2_payment_system_country_currencies_path))
         .html_safe
     else
       t("listings.new.community_not_configured_for_payments",
