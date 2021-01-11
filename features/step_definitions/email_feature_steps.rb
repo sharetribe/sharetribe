@@ -13,7 +13,7 @@ Given(/^I click a link to unsubscribe$/) do
 end
 
 Then(/^I should see that I have successfully unsubscribed$/) do
-  expect(page).to have_content("Unsubscribe succesful")
+  expect(page).to have_content("Unsubscribe successful")
 end
 
 Then(/^I should not receive weekly updates email anymore$/) do
