@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-
+  include ConfigRecaptcha
   skip_before_action :cannot_access_if_banned
   skip_before_action :cannot_access_without_confirmation
   skip_before_action :ensure_consent_given
@@ -21,6 +21,11 @@ class FeedbacksController < ApplicationController
 
   def create
     feedback_form = FeedbackForm.new(params[:feedback])
+
+    unless validate_recaptcha(params['g-recaptcha-response'])
+      flash[:error] = t('layouts.notifications.recaptcha_verification_failure')
+      return render_form(feedback_form)
+    end
 
     unless feedback_form.valid?
       flash[:error] = t("layouts.notifications.feedback_not_saved")

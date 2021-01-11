@@ -319,6 +319,8 @@ CREATE TABLE `communities` (
   `email_admins_about_new_transactions` tinyint(1) DEFAULT '0',
   `show_location` tinyint(1) DEFAULT '1',
   `fuzzy_location` tinyint(1) DEFAULT '0',
+  `recaptcha_site_key` varchar(255) DEFAULT NULL,
+  `recaptcha_secret_key` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -2480,6 +2482,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20200312112018'),
 ('20201012091009'),
 ('20201218151444'),
+('20201221132459'),
 ('20210108111345');
-
-
