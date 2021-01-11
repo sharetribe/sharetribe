@@ -24,4 +24,4 @@
           %td= PersonViewUtils.person_display_name_for_type(@transaction.author, "first_name_with_initial")
 
 = render partial: 'person_mailer/action_button-v2', locals: {text: t("emails.new_transaction_v2.view_transaction"), url: url}
-
+= render 'person_mailer/cant_click', url: url

@@ -17,3 +17,4 @@
       = t("emails.transaction_preauthorized_reminder.one_day_left")
 
 = render :partial => "person_mailer/action_button-v2", :locals => { :text => t("emails.transaction_preauthorized_reminder.click_here_to_reply"), :url => reply_url}
+= render 'person_mailer/cant_click', url: reply_url

@@ -13,3 +13,4 @@
     = render :partial => "quote-v2", locals: {quote: @message.content}
 
 = render :partial => "action_button-v2", :locals => { text: action_text, url: url}
+= render 'person_mailer/cant_click', url: url

@@ -9,6 +9,7 @@
     %p= t("emails.new_member_notification_v2.new_member_has_joined", name: name, email: email_link, community: @community.full_name(@person.locale)).html_safe
 
 = render partial: 'action_button-v2', locals: {url: person_url(@person, @url_params), text: t("emails.new_member_notification_v2.view_profile")}
+= render 'person_mailer/cant_click', url: person_url(@person, @url_params)
 
 %tr
   %td.email-action

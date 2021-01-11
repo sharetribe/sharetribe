@@ -18,5 +18,4 @@
       = t("emails.confirm_reminder.automatic_confirmation", :days_to_automatic_confirmation => @conversation.automatic_confirmation_after_days).html_safe
 
 = render :partial => "action_button-v2", :locals => { :text => t("conversations.status_link.confirm"), :url => confirm_url}
-
-
+= render 'person_mailer/cant_click', url: confirm_url
