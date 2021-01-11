@@ -364,7 +364,7 @@ class Community < ApplicationRecord
   end
 
   def recaptcha_configured?
-    recaptcha_site_key.present? && recaptcha_secret_key.present?
+    recaptcha_site_key.present? && recaptcha_secret_key.present? && !Rails.env.test?
   end
 
   # Wrapper for the various attachment images url methods
