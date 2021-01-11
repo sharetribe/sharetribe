@@ -1754,7 +1754,7 @@ en:
       welcome_to_marketplace: "Welcome to %{service_name}! Glad to have you on board."
       love_marketplace_crew: "Love,<br /><i>%{service_name} crew</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: "Edit your email settings here"
+      settings_link_text: "Edit your email settings here."
     new_listing_by_followed_person:
       subject: "%{author_name} has posted a new listing in %{service_name}"
       has_posted_a_new_listing: "%{author_name} has posted a new listing:"
@@ -2892,7 +2892,7 @@ en:
       email_about_completed_transactions: "...someone marks my order as completed"
       email_about_new_payments: "...I receive a new payment"
       email_about_new_listings_by_followed_people: "...someone I follow posts a new listing"
-      unsubscribe_succesful: "Unsubscribe succesful"
+      unsubscribe_succesful: "Unsubscribe successful"
       unsubscribe_info_text: "You will no longer receive these emails. Check your %{settings_link} to choose what kind of emails you want to receive from %{service_name}, or return to the %{homepage_link}."
       settings_link: settings
       homepage_link: homepage
