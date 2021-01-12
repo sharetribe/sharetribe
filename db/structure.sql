@@ -367,6 +367,20 @@ CREATE TABLE `community_customizations` (
   KEY `index_community_customizations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `community_domain_checkers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `community_domain_checkers` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` bigint(20) DEFAULT NULL,
+  `domain` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT 'initial',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_community_domain_checkers_on_community_id` (`community_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_memberships`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -591,7 +605,6 @@ CREATE TABLE `domain_setups` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `index_domain_setups_on_domain` (`domain`),
   UNIQUE KEY `index_domain_setups_on_community_id` (`community_id`),
   KEY `index_domain_setups_on_state_and_updated_at` (`state`,`updated_at`),
   KEY `index_domain_setups_on_critical_error` (`critical_error`)
@@ -2477,6 +2490,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20200131111643'),
 ('20200213130051'),
 ('20200224080321'),
+('20200227111900'),
 ('20200303075727'),
 ('20200312062151'),
 ('20200312112018'),

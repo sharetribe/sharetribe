@@ -23,7 +23,7 @@
 
     %p
       = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name(@conversation.other_party(@recipient), @community))
-        
+
 = render :partial => "action_button-v2", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => PersonViewUtils.person_display_name(@conversation.other_party(@recipient), @community)), :url => url}
 = render 'person_mailer/cant_click', url: url
 
