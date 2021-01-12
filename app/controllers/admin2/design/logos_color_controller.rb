@@ -14,17 +14,17 @@ module Admin2::Design
     def remove_files
       @type = params[:type]
       case @type
-      when 'main_logo'
+      when 'wide_logo'
         @current_community.wide_logo.destroy
-      when 'square_logo'
+      when 'logo'
         @current_community.logo.destroy
       when 'favicon'
         @current_community.favicon.destroy
-      when 'main_cover_photo'
+      when 'cover_photo'
         @current_community.cover_photo.destroy
       when 'small_cover_photo'
         @current_community.small_cover_photo.destroy
-      when 'image_for_social_media'
+      when 'social_logo'
         @current_community.social_logo.destroy
       end
       @current_community.save!

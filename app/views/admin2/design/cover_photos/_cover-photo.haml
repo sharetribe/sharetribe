@@ -9,4 +9,4 @@
     = t('admin2.cover_photos.cover_photo_info_text')
 
 - unless @clp_enabled
-  = render 'admin2/filename', original_filename: form.object&.cover_photo&.original_filename, field_name: t('admin2.cover_photos.cover_photo')
+  = render 'admin2/filename', type: :cover_photo, original_filename: form.object&.cover_photo&.original_filename, field_name: t('admin2.cover_photos.cover_photo')

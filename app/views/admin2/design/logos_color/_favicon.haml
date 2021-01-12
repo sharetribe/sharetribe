@@ -8,4 +8,4 @@
       = form.file_field :favicon, accept: 'image/*', class: %i[change-file]
     %small#favicon-help.form-text
       = t('admin2.logos_and_color.favicon_info_text')
-    = render 'admin2/filename', original_filename: form.object&.favicon&.original_filename, field_name: t('admin2.logos_and_color.favicon')
+    = render 'admin2/filename', type: :favicon, original_filename: form.object&.favicon&.original_filename, field_name: t('admin2.logos_and_color.favicon')
