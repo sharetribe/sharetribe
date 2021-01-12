@@ -15,7 +15,6 @@
 #
 #  index_domain_setups_on_community_id          (community_id) UNIQUE
 #  index_domain_setups_on_critical_error        (critical_error)
-#  index_domain_setups_on_domain                (domain) UNIQUE
 #  index_domain_setups_on_state_and_updated_at  (state,updated_at)
 #
 
