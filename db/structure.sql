@@ -385,7 +385,8 @@ CREATE TABLE `community_memberships` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_community_memberships_on_person_id` (`person_id`) USING BTREE,
   KEY `index_community_memberships_on_community_id` (`community_id`) USING BTREE,
-  KEY `community_person_status` (`community_id`,`person_id`,`status`)
+  KEY `community_person_status` (`community_id`,`person_id`,`status`),
+  KEY `index_community_memberships_on_community_id_and_status` (`community_id`,`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_social_logos`;
@@ -2483,4 +2484,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20201012091009'),
 ('20201218151444'),
 ('20201221132459'),
-('20210108111345');
+('20210108111345'),
+('20210113100937');
