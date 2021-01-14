@@ -2172,6 +2172,7 @@ hu:
       settings: Beállítások
       sign_up: Feliratkozás
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "A hirdetés mentése sikertelen. Kérjük, próbálja újra. Ha a probléma továbbra is fennáll lépjen kapcsolatba a rendszergazdával %{contact_admin_link}."
       contact_admin_link_text: "Lépjen kapcsolatba a rendszergazdával"
       test_welcome_email_delivered_to: "Egy próba e-mailt küldtünk ide: %{email}"

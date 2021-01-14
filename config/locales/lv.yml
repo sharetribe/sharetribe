@@ -2140,6 +2140,7 @@ lv:
       settings: Uzstādījumi
       sign_up: Reģistrēties
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Sludinājumu nevarēja saglabāt. Lūdzu mēģiniet vēlreiz. Ja problēma joprojām pastāv, lūdzu, %{contact_admin_link}."
       contact_admin_link_text: "sazināties ar %{service_name} komandu"
       test_welcome_email_delivered_to: "Testa e-pasts tika nosūtīts uz %{email}."

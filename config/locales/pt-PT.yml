@@ -2153,6 +2153,7 @@ pt-PT:
       settings: configuração
       sign_up: "Criar conta"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "O anúncio não pôde ser salvo. Por favor, tente novamente. Se o problema persistir, por favor, %{contact_admin_link}."
       contact_admin_link_text: "Entre em contato com a equipa %{service_name}"
       test_welcome_email_delivered_to: "Foi enviado um e-mail de teste para %{email}"

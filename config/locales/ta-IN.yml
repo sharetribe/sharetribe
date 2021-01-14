@@ -2132,6 +2132,7 @@ ta-IN:
       settings: அமைப்புகள்
       sign_up: "பதிவு செய்"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "வியாபார விவரங்கள் சேமிக்க படவில்லை.தயவு செய்து மீணடும் முயற்சிக்கவும்.சிக்கல் தொடர்ந்தால்,%{contact_admin_link} தொடர்புகொள்ளவும்"
       contact_admin_link_text: "%{service_name} குழுவைத் தொடர்பு கொள்ளுங்கள்"
       test_welcome_email_delivered_to: "சோதனை மினஞ்சலானது %{email}க்கு அனுப்பப்பட்டுள்ளது."

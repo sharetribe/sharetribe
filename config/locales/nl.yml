@@ -2173,6 +2173,7 @@ nl:
       settings: Instellingen
       sign_up: Registreer
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Advertentie kon niet worden opgeslagen. Probeer het a.u.b. opnieuw. Als dit probleem zich blijft voordoen, %{contact_admin_link}."
       contact_admin_link_text: "neem contact op met het %{service_name} team"
       test_welcome_email_delivered_to: "Een testbericht is verzonden naar %{email}."

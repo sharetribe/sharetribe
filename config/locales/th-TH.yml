@@ -2152,6 +2152,7 @@ th-TH:
       settings: การตั้งค่า
       sign_up: สมัครสมาชิก
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "รายการไม่สามารถบันทึกได้ กรุณาลองอีกครั้ง หากยังคงมีปัญหาอยู่ กรุณา %{contact_admin_link}"
       contact_admin_link_text: "ติดต่อผู้ดูแลระบบ %{service_name}"
       test_welcome_email_delivered_to: "อีเมล์ทดสอบได้ถูกส่งไปยัง %{email}"

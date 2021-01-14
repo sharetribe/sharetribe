@@ -2185,6 +2185,7 @@ pl:
       settings: Ustawienia
       sign_up: "Załóż konto"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Oferta nie może być zapisana. Proszę spróbuj ponownie. Jeśli problem nadal będzie występował proszę %{contact_admin_link}."
       contact_admin_link_text: "skontaktuj się z zespołem %{service_name}"
       test_welcome_email_delivered_to: "Testowa wiadomość została wysłana do %{email}."

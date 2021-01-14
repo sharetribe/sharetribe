@@ -2188,6 +2188,7 @@ ru:
       settings: Настройки
       sign_up: Регистрация
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Объявление не сохранено. Попробуйте еще раз. Если проблема повторится, пожалуйста %{contact_admin_link}."
       contact_admin_link_text: "свяжитесь с администратором"
       test_welcome_email_delivered_to: "Тестовое сообщение было отправлено %{email}"

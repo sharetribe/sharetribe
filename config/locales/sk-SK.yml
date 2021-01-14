@@ -2180,6 +2180,7 @@ sk-SK:
       settings: Nastavenia
       sign_up: "Zaregistrovať sa"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Inzerát nemôže byť uložený. Prosím, skúste to znova. Pokiaľ problém pretrváva, prosím %{contact_admin_link}."
       contact_admin_link_text: "kontaktujte administrátora"
       test_welcome_email_delivered_to: "Testovacia správa bola odoslaná na adresu %{email}."

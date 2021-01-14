@@ -2132,6 +2132,7 @@ az-AZ:
       settings: Ayarlar
       sign_up: "Qeydiyyatdan keç"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Elan yadda saxlanıla bilmədi. Zəhmət olmasa bir daha cəhd edin. Problem davam edərsə, xahiş edirik %{contact_admin_link}."
       contact_admin_link_text: "%{service_name} komandasına müraciət edin"
       test_welcome_email_delivered_to: "Test mesaj %{email} ünvanına göndərildi."

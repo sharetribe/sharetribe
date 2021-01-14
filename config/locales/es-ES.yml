@@ -2167,6 +2167,7 @@ es-ES:
       settings: Opciones
       sign_up: Registrarse
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "El anuncio no se ha podido publicar. Por favor, inténtalo de nuevo y si vuelve a fallar, contacta con el administrador %{contact_admin_link}."
       contact_admin_link_text: "contacta al equipo de %{service_name}"
       test_welcome_email_delivered_to: "El mensaje de prueba ha sido enviado a %{email}"

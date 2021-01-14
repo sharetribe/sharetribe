@@ -2170,6 +2170,7 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Ilmoituksen tallentaminen ei onnistunut. Yritä uudelleen. Jos ongelma toistuu, %{contact_admin_link}."
       contact_admin_link_text: "ota yhteyttä palvelun %{service_name} ylläpitoon"
       test_welcome_email_delivered_to: "Testisähköposti lähetettiin osoitteeseen %{email}."

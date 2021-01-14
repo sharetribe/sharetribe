@@ -2170,6 +2170,7 @@ et:
       settings: Seaded
       sign_up: Registreeru
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Nimekirja ei saa salvestada. Proovi uuesti. Kui propleem püsib, palun %{contact_admin_link}."
       contact_admin_link_text: "Võta ühendust %{service_name} meeskonnaga"
       test_welcome_email_delivered_to: "Testmeil saadeti aadressile %{email}."

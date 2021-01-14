@@ -2154,6 +2154,7 @@ sr:
       settings: Podešavanja
       sign_up: "Registrujte se"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Oglas nije mogao biti sačuvan. Molim pokušajte ponovo. Ukoliko problem i dalje postoji, molimo vas %{contact_admin_link}."
       contact_admin_link_text: "kontaktirajte %{service_name} tim"
       test_welcome_email_delivered_to: "Test e-mail je poslat na %{email}."

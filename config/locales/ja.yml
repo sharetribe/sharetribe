@@ -1433,7 +1433,7 @@ ja:
           unknown_reason: お支払いは承認待ちの状態です。今一度、PayPalアカウントにログインして詳細をご確認ください。
           verify: あなたのPayPalアカウントの確認待ち
       stripe:
-        waiting_confirmation_from_requester: "%{requester_name}さんの取引完了待ちです。取引が完了して７営業日後に、代金はあなたの銀行口座に支払われます。"
+        waiting_confirmation_from_requester: "%{requester_name} さんの取引完了待ちです。取引が完了して７営業日後に、代金はあなたの銀行口座に支払われます。「取引が完了した後に、代金はあなたの銀行口座へ支払われます。」"
       order_canceled: リクエストはキャンセルされました
       waiting_for_marketplace_review: "%{service_name} 事務局が状況を確認するのを待っています。"
       marketplace_notified: "%{service_name} に通知されました。詳細を共有したい場合は%{contact_link} へ連絡することができます。"
@@ -1530,7 +1530,7 @@ ja:
       headline_confirmed: "%{other_party_full_name} さんが%{listing_link} の取引を完了しました。"
       headline_canceled: ~
       stripe:
-        has_marked_request_as_confirmed: この取引の支払はあなたの銀行口座に支払われました。
+        has_marked_request_as_confirmed: 「この取引は完了しました。」
       can_give_feedback: "%{other_party_given_name} さんの、取引の評価をレビューしてください。"
       team_title: "%{service_name} 事務局"
     transaction_automatically_confirmed:
@@ -2158,6 +2158,7 @@ ja:
       settings: 設定
       sign_up: 新規登録
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "リストは保存できませんでした。もう一度お試しください。問題が続くようでしたら、%{contact_admin_link}。"
       contact_admin_link_text: サイト管理者にお問い合わせ
       test_welcome_email_delivered_to: "テストメールを%{email}へお送りしました。"

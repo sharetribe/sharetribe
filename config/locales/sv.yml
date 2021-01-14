@@ -2170,6 +2170,7 @@ sv:
       settings: Inställningar
       sign_up: "Gå med"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Annonsen kunde inte sparas. Vänligen försök igen. Om problemet kvarstår, vänligen %{contact_admin_link}."
       contact_admin_link_text: "kontakta %{service_name}"
       test_welcome_email_delivered_to: "Ett testmeddelande skickades till %{email}."

@@ -1608,7 +1608,7 @@ el:
       join_now: "Γίνετε μέλος"
       invitation_code: "Κωδικός πρόσκλησης: %{code}"
     invitation_to_kassi_v2:
-      headline: "Γεια σας!"
+      headline: "Γεια σου!"
     new_comment:
       has_commented_your_listing_in_kassi: "Ο/Η %{author} σχολίασε την καταχώρησή σας \"%{listing}\"."
       view_comment: "Δείτε το σχόλιο"
@@ -2170,6 +2170,7 @@ el:
       settings: Ρυθμίσεις
       sign_up: Εγγραφή
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Δεν ήταν δυνατή η αποθήκευση της καταχώρισης. Παρακαλώ δοκιμάστε ξανά. Εάν το πρόβλημα παραμένει, παρακαλώ %{contact_admin_link}."
       contact_admin_link_text: "Επικοινωνήστε με την ομάδα %{service_name}"
       test_welcome_email_delivered_to: "Ένα δοκιμαστικό μήνυμα στάλθηκε στο %{email}."

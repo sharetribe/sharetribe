@@ -2178,6 +2178,7 @@ hr:
       settings: Postavke
       sign_up: "Registrirajte se"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Oglas nije mogao biti spremljen. Molimo pokušajte ponovno. Ako se greška nastavi, molimo %{contact_admin_link}."
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: "Test email će biti poslan prema %{email}."
