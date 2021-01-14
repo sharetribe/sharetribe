@@ -2150,6 +2150,7 @@ zh:
       settings: 设置
       sign_up: 注册
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "信息不能保存。请重试。如果问题依旧存在，请%{contact_admin_link}。"
       contact_admin_link_text: 联系管理员
       test_welcome_email_delivered_to: "测试邮件已发送到%{email}。"

@@ -2156,6 +2156,7 @@ vi:
       settings: "Cài đặt"
       sign_up: "Đăng ký"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Không thể lưu bài đăng. Vui lòng thử lại. Nếu vẫn tiếp tục gặp sự cố, xin vui lòng %{contact_admin_link}."
       contact_admin_link_text: "liên hệ quản lí"
       test_welcome_email_delivered_to: "Email thử nghiệm đã được gửi tới %{email}"

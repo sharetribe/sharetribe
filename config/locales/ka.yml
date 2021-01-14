@@ -2152,6 +2152,7 @@ ka:
       settings: პარამეტრები
       sign_up: დარეგისტრირება
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "ჩამონათვალის დამახსოვრება ვერ მოხერხდსა. გთხოვთ ცადეთ კიდევ ერთხელ. თუ პრობლემა არ გამოსწორდება გთხოვთ %{contact_admin_link}"
       contact_admin_link_text: "დაუკავშირდი ადმინისტრატორს"
       test_welcome_email_delivered_to: "ტესტი ელ. ფოსტა გაიგზავნა %{email}ზე."

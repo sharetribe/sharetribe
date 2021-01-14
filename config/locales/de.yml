@@ -2170,6 +2170,7 @@ de:
       settings: Einstellungen
       sign_up: Registrieren
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Der Eintrag konnte nicht gespeichert werden. Bitte versuche es noch einmal. Wenn das Problem fortbesteht, %{contact_admin_link}."
       contact_admin_link_text: "Administrator von %{service_name} kontaktieren"
       test_welcome_email_delivered_to: "Eine Test-Mail wurde gesendet an %{email}."

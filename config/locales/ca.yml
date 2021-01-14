@@ -688,7 +688,7 @@ ca:
         check_domain: "Comprovar domini"
         domain_being_checked: "Comprovant domini:"
         status: "Estat:"
-        checks_pending: "Comprovacions pendents:"
+        checks_pending: "Comprovacions pendents..."
         please_check_back: ~
         checks_not_passed: "Comprovacions no passades!"
         check_the_domain_again_info: "Assegureu-vos que els vostres registres DNS estan configurats correctament."
@@ -2170,6 +2170,7 @@ ca:
       settings: Opcions
       sign_up: Registre
     notifications:
+      recaptcha_verification_failure: "error de verificació de reCAPTCHA"
       listing_could_not_be_saved: "L'anunci no s'ha pogut publicar. Per favor, intenta-ho de nou i si torna a fallar, contacta amb l'administrador %{contact_admin_link}."
       contact_admin_link_text: "contacteu amb l’equip %{service_name}"
       test_welcome_email_delivered_to: "El missatge de prova a estat enviat a %{email}"

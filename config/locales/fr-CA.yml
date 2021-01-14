@@ -2149,6 +2149,7 @@ fr-CA:
       settings: Paramètres
       sign_up: S'inscrire
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "L'annonce n'as pas pu être sauvegardée. Veuillez essayer de nouveau. Si le problème persiste, veuillez %{contact_admin_link}."
       contact_admin_link_text: "contacter l'administrateur"
       test_welcome_email_delivered_to: "Un email de test a été envoyé à %{email}."

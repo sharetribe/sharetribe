@@ -2170,6 +2170,7 @@ fr:
       settings: Paramètres
       sign_up: S'inscrire
     notifications:
+      recaptcha_verification_failure: "Échec de la vérification reCAPTCHA"
       listing_could_not_be_saved: "L'annonce n'as pas pu être sauvegardée. Veuillez essayer de nouveau. Si le problème persiste, veuillez %{contact_admin_link}."
       contact_admin_link_text: "contacter l'équipe %{service_name}"
       test_welcome_email_delivered_to: "Un email de test a été envoyé à %{email}."

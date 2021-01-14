@@ -2161,6 +2161,7 @@ nb:
       settings: Innstillinger
       sign_up: "Registrer deg"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Annonsen kunne ikke lagres. Vennligst prøv igjen. Om problemet fortsette, vennligst %{contact_admin_link}"
       contact_admin_link_text: "Kontakt administrator"
       test_welcome_email_delivered_to: "En test e-post ble sendt til %{email}"

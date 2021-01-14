@@ -2150,6 +2150,7 @@ zh-HK:
       settings: 設定
       sign_up: 註冊
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "訊息不能保存。請重試。如果問題依然存在，請%{contact_admin_link}。"
       contact_admin_link_text: " 聯繋管理員"
       test_welcome_email_delivered_to: "測試郵件已發送到%{email}。"

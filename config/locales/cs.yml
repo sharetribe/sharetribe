@@ -2176,6 +2176,7 @@ cs:
       settings: Nastavení
       sign_up: Registrace
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Inzerát nemohl být uložen. Prosíme, zkuste to znovu. Pokud problémy přetrvají, prosíme, %{contact_admin_link}."
       contact_admin_link_text: "kontaktujte správce"
       test_welcome_email_delivered_to: "Zkušební e-mail byl odeslán na %{email}."

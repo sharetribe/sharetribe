@@ -2139,6 +2139,7 @@ es-CL:
       settings: Opciones
       sign_up: Registrarse
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: "Un mensaje de prueba ha sido enviado a %{email}"

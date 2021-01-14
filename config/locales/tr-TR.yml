@@ -2149,6 +2149,7 @@ tr-TR:
       settings: Ayarlar
       sign_up: "Kayıt ol"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "İlan kaydedilemedi. Lütfen tekrar deneyin. Sorun devam ederse, lütfen %{contact_admin_link}."
       contact_admin_link_text: "yöneticiye ulaşın"
       test_welcome_email_delivered_to: "Test mesajı %{email} adresine gönderildi."

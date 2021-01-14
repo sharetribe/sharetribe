@@ -2161,6 +2161,7 @@ da-DK:
       settings: Indstillinger
       sign_up: "Tilmeld dig"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Annoncen kunne ikke gemmes. Prøv venligst igen. Hvis problemet fortsætter, så %{contact_admin_link}."
       contact_admin_link_text: "kontakt os gerne"
       test_welcome_email_delivered_to: "En testbesked blev sendt til %{email}."

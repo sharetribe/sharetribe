@@ -235,7 +235,7 @@ pt-BR:
         miles: milhas
         show_only_nearby: "Mostrar apenas anúncios próximos com a busca de localização"
         allow_users_to_add_location: ~
-        fuzzy_location: ~
+        fuzzy_location: "Mostra um círculo ao invés da localização exata"
         listing_preferences: "Preferências de anúncios"
         transaction_preferences: "Transação - preferências"
         show_listing_publishing_date: "Data de publicação de exibição da lista na página de anúncio"
@@ -886,8 +886,8 @@ pt-BR:
         this_field_is_required: "Este campo é obrigatório"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
+        edit_expiration_field: "Editar o campo do anúncio 'Data de Expiração'"
+        enable: "Habilitar a data de expiração"
       form:
         field_required:
           this_field_is_required: "Este campo é obrigatório"
@@ -1000,7 +1000,7 @@ pt-BR:
       per_day_availability: "Disponibilidade \"por dia\""
       per_night_availability: "Disponibilidade \"por noite\""
       pricing_units_disabled_info: "As unidades de preço não podem ser usadas quando o calendário de disponibilidade está ativado."
-      can_not_find_name: ~
+      can_not_find_name: "Não é possível encontrar o tipo de pedido com o nome fornecido: %{name}"
       index:
         listing_shapes: "Pedidos por tipos"
         description: "O tipo da ordem define a forma como a ordem é processada no seu site. Você pode decidir se seus usuário poderão alugar ou vender ou talvez apenas criar anúncios e se comunicar através de mensagens gratuitas."
@@ -1287,7 +1287,7 @@ pt-BR:
       details: "Detalhes do pedido"
       order_by: "Ordernar por %{orderer_link}"
       accept_offer: "Aceitar a oferta"
-      accept_request: ~
+      accept_request: "Aceitar o pedido e manter o anúncio aberto"
       accept_request_and_close: ~
       reject_offer: "Não agora"
       reject_request: "Não agora"
@@ -1465,9 +1465,9 @@ pt-BR:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
+    feedback_subject: "Novo comentário do %{service_name}"
+    feedback_body: "%{author_name_and_email} enviou um comentário do %{service_name}. Esta notificação é enviada para todos os admins %{service_name}."
+    unlogged_user: "Usuário desconectado"
     anonymous_user: ~
   community_memberships:
     access_denied:
@@ -1612,7 +1612,7 @@ pt-BR:
     new_message:
       view_message: "Ver mensagem"
       has_sent_you_a_message_in_kassi: "%{sender} enviou uma mensagem para você. Vá para %{service_name} para responder."
-      you_have_a_new_message: ~
+      you_have_a_new_message: "Você tem uma nova de %{sender_name} in %{service_name}"
     new_message_v2:
       headline: ~
       reply: "Click aqui para responder para %{sender}"
@@ -2137,10 +2137,10 @@ pt-BR:
     logged_in_notifications_icon:
       notifications: Notificações
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
+      title: "Ajuda de formatação usando Markdown"
+      description: "Markdown é uma forma simples de formatar texto que fica bem em qualquer dispositivo. Não faz nada extravagante, como alterar o tamanho, cor ou tipo da fonte - apenas o essencial, usando símbolos de teclado que você já conhece."
+      formatting: Formatação
+      result: Resultado
       h1: ~
       h2: ~
       h3: ~
@@ -2164,6 +2164,7 @@ pt-BR:
       settings: Configurações
       sign_up: "Criar conta"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "O anúncio não pôde ser salvo. Por favor, tente novamente. Se o problema persistir, por favor, %{contact_admin_link}."
       contact_admin_link_text: "entre em contato com o administrador"
       test_welcome_email_delivered_to: "Um e-mail de teste foi enviado para %{email}"
@@ -2419,7 +2420,7 @@ pt-BR:
       origin:
         location: Local
         origin: Origem
-        the_exact_location: ~
+        the_exact_location: "A localização exata não será mostrada para os outros usuários."
       send_button:
         save_listing: "Salvar anúncio"
         submit_for_review: "Enviar para análise"
