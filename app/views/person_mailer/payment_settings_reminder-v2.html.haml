@@ -10,3 +10,4 @@
       = t("emails.payment_settings_reminder_v2.you_have_added_listing_with_payment", :listing_link => link_to(@listing.title, listing_link)).html_safe
 
 = render :partial => "action_button-v2", locals: { text: t("emails.payment_settings_reminder_v2.fill_payout_details"), url: @payment_settings_link}
+= render 'person_mailer/cant_click', url: @payment_settings_link

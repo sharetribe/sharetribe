@@ -16,6 +16,7 @@
       = render :partial => "quote-v2", :locals => { :quote => @invitation.message }
 
 = render :partial => "action_button-v2", :locals => { :text => t("emails.invitation_to_kassi.join_now"), :url => url}
+= render 'person_mailer/cant_click', url: url
 
 -if @invitation_code_required
   %tr

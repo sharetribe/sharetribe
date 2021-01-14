@@ -100,11 +100,11 @@
       padding: 0;
     }
 
-    .email-action-button {
+    a.email-action-button {
       border: 0;
       box-shadow: none;
       border-radius: 4px;
-      color: #fff;
+      color: #fff !important;
       display: block;
       font-weight: bold;
       line-height: 1.5;

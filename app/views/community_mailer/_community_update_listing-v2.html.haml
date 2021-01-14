@@ -14,5 +14,5 @@
       = listing.title
     - unless listing.description.blank?
       %p
-        - max_len =listing.listing_images.empty? ? 140 : 80
-        = truncate_html(markdown(listing.description), :length => max_len, :omission => "...")
+        - max_len = listing.listing_images.empty? ? 140 : 80
+        = strip_tags(truncate_html(markdown(listing.description), :length => max_len, :omission => "..."))
