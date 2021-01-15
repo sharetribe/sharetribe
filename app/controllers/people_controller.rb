@@ -96,7 +96,11 @@ class PeopleController < Devise::RegistrationsController
       membership.status = "pending_email_confirmation"
       membership.invitation = invitation if invitation.present?
       # If the community doesn't have any members, make the first one an admin
-      if @current_community.members.count == 0
+      # Use community_memberships for counting instead of .members in order to
+      # avoid join and improve query efficiency. In addition, count all
+      # memberships, not just accepted, so that admins with unconfirmed email
+      # don't result in other users becoming admins.
+      if @current_community.community_memberships.count == 0
         membership.admin = true
       end
       membership.save!
