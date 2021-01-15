@@ -194,8 +194,8 @@ pt-BR:
         en: Inglês
         en-AU: "Inglês (Austrália)"
         en-GB: "Inglês (Reino Unido)"
-        es: ~
-        es-ES: ~
+        es: Espanhol
+        es-ES: "Espanhol (Espanha)"
         fi: Filandês
         fr: Francês
         fr-CA: "Francês (Canadá)"
@@ -1125,28 +1125,28 @@ pt-BR:
       general_settings_updated: ~
       transaction_fee_settings_updated: ~
       choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      invalid_api_keys: "Chaves inválidas API Stripe"
+      missing_api_keys: "Chaves ausentes API Stripe"
+      stripe_verified: "Acesso verificado API Stripe"
+      change_settings: "Alterar configurações e taxas"
+      configure_stripe: "Configurar Stripe"
+      configure_paypal: "Configurar PayPal"
+      transaction_fee_settings: "Configurações da taxa de transação"
+      transaction_fee_save: Salvar
+      stripe_fee: "Taxas da Stripe"
+      stripe_fee_notice: "%{stripe_fee_link} será deduzida da taxa de transação que você está cobrando."
+      fee_should_be_less_than_minimum_price: "A taxa de transação mínima deve ser menor do que o tamanho mínimo da transação."
       the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
       stripe_connected:
-        title: ~
+        title: "Stripe conectado"
         disable: ~
         disabled: ~
         enable: ~
       paypal_connected:
-        title: ~
+        title: "PayPal conectado"
         disable: ~
         disabled: ~
         enable: ~
@@ -1154,11 +1154,11 @@ pt-BR:
       cannot_disable_gateway: ~
       cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
+        add_your_api_keys: "Adicione suas chaves da API da Stripe"
+        how_to_get_these: "Como obter isso?"
         publishable_key_example: ~
         secret_key_example: ~
-        save_api_keys: ~
+        save_api_keys: "Salve as chaves da API da Stripe"
         invalid_secret: ~
         invalid_publishable: ~
       index:
@@ -1276,7 +1276,9 @@ pt-BR:
       body_text: |-
           O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa situa-se entre 2% e 5 % do preço total de vendas, dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras nacionais têm taxas mais baixas do que as compras internacionais, e as vendas mensais mais elevadas pode beneficiar você com um desconto nestas taxas.
           Você pode ver as taxas exatas fazendo login em sua conta do PayPal e indo para %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
-      body_text_accept: ~
+      body_text_accept: |-
+          Esta transação é processada pelo PayPal. O PayPal cobra uma taxa de processamento para cada pagamento. A taxa fica entre 2% a 5% do preço total de vendas, dependendo do seu volume mensal de vendas e do país de origem do comprador. Em geral, compras domésticas tem taxas menores do que internacionais, e vendas mensais mais altas dão a você um desconto nas taxas.
+          Você pode ver as taxas exatas logando na sua conta do PayPal aqui %{link_to_paypal}. Depois de cada compra você terá um recibo mostrando a taxa aplicada.
       link_to_paypal_text: aqui
     stripe_fee_info:
       title: "Taxa de processamento do pagamento do Stripe"
@@ -1306,13 +1308,13 @@ pt-BR:
       total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee: ~
+      paypal_fee: "Taxa de processamento de pagamento do PayPal"
       paypal_fee_info: "* Exclui %{link}"
       shipping_price_label: "Envio:"
       stripe-fee_label: "Taxa de processamento do pagamento"
     confirm:
       confirm_description: "Se o seu pedido foi aceito, você deve confirmá-lo como concluído. Então você pode dar um feedback para a outra parte."
-      cancel_description_team: "Se o seu pedido não foi completado, você pode marcá-lo como disputado. A equipe %{service_name} analisará a situação e decidirá por reembolsar ou rejeitar sua solicitação de disputa."
+      cancel_description_team: "Se o seu pedido não foi realizado, você pode marcá-lo como disputado. A equipe %{service_name} analisará a situação e decidirá por reembolsar ou rejeitar sua solicitação de disputa."
       cancel_payed_description: "Se o seu pedido foi aceito, mas você está tendo dúvidas, você ainda pode cancelar o pedido antes do pagamento."
       canceling_payed_transaction: "Cancelar transação"
       confirm: "Marca concluida"
@@ -1337,7 +1339,7 @@ pt-BR:
       rejected_offer: "Oferta rejeitada."
       confirmed_request: "Pedido concluído."
       confirmed_offer: "Oferta concluída."
-      canceled_request: "Pedido cancelado."
+      canceled_request: "Pedido disputado."
       canceled_offer: "Oferta cancelada."
       message_from: "Mensagem de %{person}"
       about_listing: "Sobre o anúncio %{listing_title}"
@@ -1495,7 +1497,7 @@ pt-BR:
       remember_to_accept_offer: "Lembrar de aceitar ou rejeitar uma oferta de %{sender_name}"
       remember_to_accept_request: "Lembrar de aceitar ou rejeitar uma solicitação de %{sender_name}"
       you_can_accept_or_reject_offer_at: "Você pode aceitar ou rejeitar a oferta de"
-      you_can_accept_or_reject_request_at: "Você pode aceitar ou rejeitar a solicitação de"
+      you_can_accept_or_reject_request_at: "Você pode aceitar ou rejeitar a solicitação em"
       you_have_not_yet_accepted_or_rejected_offer: "Você ainda não aceitou nem rejeitou a oferta %{title} que recebeu em %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Você ainda não aceitou nem rejeitou a solicitação %{title} que recebeu em %{date}"
       show_thread: "Ver a conversa"
@@ -1507,11 +1509,11 @@ pt-BR:
       you_have_not_yet_confirmed_or_canceled_request: "Você ainda não confirmou ou cancelou o pedido %{request_link}. Se o pedido foi entregue, você deve confirmar isso. Depois disso, você pode avaliar %{other_party_given_name}."
       remember_to_confirm_request: "Lembre-se de confirmar ou cancelar um pedido"
       if_will_not_happen_you_should_cancel: "Se você acha que este pedido não será entregue por uma razão ou outra, você pode %{cancel_it_link}."
-      cancel_it_link_text: Cancelar
+      cancel_it_link_text: Disputá-lo
       automatic_confirmation: "Se você não confirmar ou cancelar o pedido no prazo de %{days_to_automatic_confirmation} dias depois de aceito, vamos marcá-lo automaticamente como concluído."
     confirm_reminder_v2:
       headline: "você ainda não completou ou disputou o pedido %{request_link}."
-      you_have_not_yet_confirmed_or_canceled_request: "Você deve confirmar se o pedido foi completado. Depois disto você pode dar feedback para %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Você deve confirmar se o pedido foi concluído. Depois disto você pode dar feedback para %{other_party_given_name}."
     payment_settings_reminder:
       remember_to_add_payment_details: "Lembre-se de configurar seus dados para receber pagamentos"
       you_have_added_listing_with_payment: "Você adicionou um anúncio %{listing_link}. No entanto você ainda não configurou seus dados para pagamento. Você precisa configurar essas informações para poder receber pagamentos."
@@ -1523,16 +1525,16 @@ pt-BR:
     transaction_confirmed:
       here_is_a_message_from: "Veja a mensagem de %{other_party_given_name} :"
       request_marked_as_confirmed: "Pedido realizado - deixe um comentário "
-      request_marked_as_canceled: "Pedido anulado"
+      request_marked_as_canceled: "Pedido disputado"
       has_marked_request_as_confirmed: "%{other_party_full_name} marcou o pedido '%{request}' como concluído. Agora você pode avaliar %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} cancelou o pedido '%{request}'. Você ainda pode dar um feedback para %{other_party_given_name}."
       giving_feedback_is_good_idea: "Dar feedback é sempre uma boa ideia. Se tudo correu bem, você deve deixar que os outros saibam que %{other_party_given_name} pode ser confiável. Se houve algum problema, é bom mencioná-lo também."
       give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
       stripe:
-        has_marked_request_as_confirmed: "%{other_party_full_name} marcou o pedido sobre %{request} como completado. O pagamento desta transação foi liberada em sua conta bancária. Agora você pode dar feedback para %{other_party_given_name}."
+        has_marked_request_as_confirmed: "%{other_party_full_name} marcou o pedido sobre %{request} como concluído. O pagamento desta transação foi liberada em sua conta bancária. Agora você pode dar feedback para %{other_party_given_name}."
       team_title: "a equipe %{service_name}"
     transaction_confirmed_v2:
-      headline_confirmed: "%{other_party_full_name} marcou o pedido de %{listing_link} como completado."
+      headline_confirmed: "%{other_party_full_name} marcou o pedido de %{listing_link} como concluído."
       headline_canceled: "%{other_party_full_name} disputou o pedido de%{listing_link}."
       stripe:
         has_marked_request_as_confirmed: "O pagamento por esta transação foi liberado para sua conta bancária."
@@ -1542,13 +1544,13 @@ pt-BR:
       subject: "Pedido concluído automaticamente - lembre-se de dar feedback"
       we_have_marked_request_as_confirmed: "Marcamos o pedido '%{request}' concluído. O pedido foi concluído automaticamente porque %{days_passed} dias se passaram desde que foi aceito."
     transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: "Você marcou o pedido de '%{request}' como completado."
-      order_automatically_confirmed: ~
+      we_have_marked_request_as_confirmed: "Você marcou o pedido de '%{request}' como concluído."
+      order_automatically_confirmed: "O pedido foi concluído automaticamente porque passaram %{days_passed} dias desde que o pedido foi aceito."
     booking_transaction_automatically_confirmed:
       subject: "Pedido concluído automaticamente - lembre-se de dar feedback"
-      we_have_marked_request_as_confirmed: "Marcamos o pedido '%{request}' concluído. O pedido foi automaticamente concluído porque passou um dia desde que o período de reserva terminou."
+      we_have_marked_request_as_confirmed: "Marcamos o pedido '%{request}' como concluído. O pedido foi automaticamente concluído porque passou um dia desde que o período de reserva terminou."
     booking_transaction_automatically_confirmed_v2:
-      order_automatically_confirmed: ~
+      order_automatically_confirmed: "O pedido foi concluído automaticamente porque passou um dia do prazo final da reserva."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Agora você pode dar o feedback para %{other_party_given_name}. Dar este retorno é sempre uma boa ideia. Se tudo ocorreu bem, você deve permitir que outros saibam que %{other_party_given_name} é confiável. Se houve algum problema, é bom mencionar que deu tudo certo."
       give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
@@ -1559,9 +1561,9 @@ pt-BR:
       confirmation_link_text: "Confirmar meu e-mail"
       or_paste_link: "Alternativamente, você pode copiar o seguinte link para a barra de endereços do seu navegador:"
     confirmation_instructions_v2:
-      headline: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      headline: "confirme o seu email para entrar em %{service_name}!"
+      need_to_confirm: "Confirme o seu email para concluir sua conta %{service_name}. É fácil - apenas clique no botão abaixo!"
+      confirmation_link_text: "Confirme seu endereço de email."
     common:
       hey: "Oi %{name}"
       hi: "Oi %{name},"
@@ -1589,10 +1591,10 @@ pt-BR:
       your_request_was_rejected: "Sua solicitação foi rejeitada"
       you_can_now_pay_to: "Agora você pode pagar o montante solicitado a %{payment_receiver}."
       pay_now: "Pagar agora"
-      remember_to_confirm: "Quando o pedido estiver completado, relembre de marcá-lo como completo. Se o pedido não o estiver, você terá %{days_to_automatic_confirmation} dias para cancelá-lo. Caso contrário ele irá ser automaticamente marcado como completo."
+      remember_to_confirm: "Quando o pedido estiver realizado, lembre de marcá-lo como concluído. Se o pedido não foi realizado, você terá %{days_to_automatic_confirmation} dias para disputá-lo. Caso contrário ele será marcado automaticamente como concluído."
     conversation_status_changed_v2:
-      has_accepted_your_request: ~
-      has_accepted_your_request_text: ~
+      has_accepted_your_request: "seu pedido foi aceito"
+      has_accepted_your_request_text: "%{accepter} aceitou seu pedido de %{listing}."
       has_rejected_your_request: "Infelizmente seu pedido foi rejeitado."
       has_rejected_your_request_text: "%{accepter} rejeitou o seu pedido de %{listing}."
     invitation_to_kassi:
@@ -1624,7 +1626,7 @@ pt-BR:
       listing_per_unit_title: "%{title}, por %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Taxa de processamento do pagamento:"
-      shipping_total: ~
+      shipping_total: "Entrega:"
       product: "Produto:"
       price_payer_paid: "Preço pago por %{payer_full_name} :"
       subtotal: "Subtotal:"
@@ -1636,10 +1638,10 @@ pt-BR:
       quantity: "Quantidade:"
       you_have_received_new_payment: "Você recebeu <b>%{payment_sum}</b> por <b>%{listing_title}</b> de %{payer_full_name}. Veja o recibo."
       stripe:
-        you_have_received_new_payment: "A quantia de <b> %{payment_sum}</b>  foi paga pelo <b>%{listing_title}</b> por %{payer_full_name}. O dinheiro será retido por %{service_name} até que o pedido seja marcado como completado. Aqui está o seu recibo."
+        you_have_received_new_payment: "A quantia de <b> %{payment_sum}</b>  foi paga pelo <b>%{listing_title}</b> por %{payer_full_name}. O dinheiro será retido por %{service_name} até que o pedido seja marcado como concluído. Aqui está o seu recibo."
     payment_receipt_to_seller_v2:
       headline: "Você recebeu %{payment_sum} por %{listing_link} de %{payer_name}."
-      main_text_stripe: ~
+      main_text_stripe: "O dinheiro está retido por %{service_name} até que o pedido seja marcado como concluído."
       price_breakdown: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Recibo de pagamento"
@@ -1655,7 +1657,7 @@ pt-BR:
       service_fee: "Taxa de serviço"
       stripe_gateway_fee: "Taxa da Stripe:"
       paypal_gateway_fee: "Taxa do PayPal:"
-      money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tiver marcado o pedido como completado ou b) %{automatic_confirmation_days} dias depois do pagamento."
+      money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tiver marcado o pedido como concluído ou b) %{automatic_confirmation_days} dias depois do pagamento."
     payment_receipt_to_payer_v2:
       headline: "Aqui está seu recibo por %{listing_link}."
       you_have_made_new_payment: ~
@@ -1683,7 +1685,7 @@ pt-BR:
       money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tenha marcado o pedido como concluído ou b) %{automatic_confirmation_days} dias se passaram desde que você pagou."
       listing_per_unit_title: "%{title}, por %{unit_type}"
       stripe:
-        you_have_made_new_payment: "Você pagou <b> %{payment_sum} </b> por <b> %{listing_title} </b>. O dinheiro está retido por %{service_name} e será liberado para %{recipient_full_name} assim que você marcar o pedido como completado. Aqui está o recibo do pagamento."
+        you_have_made_new_payment: "Você pagou <b> %{payment_sum} </b> por <b> %{listing_title} </b>. O dinheiro está retido por %{service_name} e será liberado para %{recipient_full_name} assim que você marcar o pedido como concluído. Aqui está o recibo do pagamento."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te avaliou %{service_name}"
       you_can_give_feedback_to: "Você ainda não avaliou %{name}"
@@ -1748,7 +1750,7 @@ pt-BR:
       welcome_to_marketplace: "Seja bem-vindo ao %{service_name}! Ficamos felizes em tê-lo a bordo."
       love_marketplace_crew: "Com carinho,<br/><i>Equipe %{service_name}</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Edite suas configurações de email aqui"
     new_listing_by_followed_person:
       subject: "%{author_name} publicou um novo anúncio no %{service_name}"
       has_posted_a_new_listing: "%{author_name} publicou um novo anúncio:"
@@ -1792,9 +1794,9 @@ pt-BR:
       subject: "Nova transação em %{service_name}"
       there_is_a_new_transaction: "Existe %{link} em %{service_name}."
       a_new_transaction: "Uma nova transação"
-      listing: ~
+      listing: "Anúncio: %{title}"
       sum: "Soma: %{amount}"
-      starter: ~
+      starter: "Iniciante: %{name}"
       provider: "Vendedor: %{name}"
     new_transaction_v2:
       subject: ~
@@ -1816,18 +1818,18 @@ pt-BR:
       order_about: "pedido sobre %{listing_title}"
       the_order_has_been_canceled: "A %{transaction_link} foi disputada."
       the_order_between_buyer_and_seller_has_been_canceled: "A %{transaction_link} entre %{buyer}  e %{seller} foi disputada."
-      the_marketplace_has_been_notified: "A equipe %{service_name} foi notificada e está analisando a situação. Você pode contatálos para dividir mais detalhes."
+      the_marketplace_has_been_notified: "A equipe %{service_name} foi notificada e está analisando a situação. Você pode contatá-los para dividir mais detalhes."
       contact_the_marketplace_team: "Contate a equipe %{service_name}"
       you_must_now_decide: "Você deve decidir agora se irá reembolsar ou rejeitar a disputa. Você pode %{learn_more_link}."
       learn_more_about: "saiba mais sobre o que fazer aqui"
       review_the_transaction: "Revisar a transação"
     transaction_refunded:
-      subject: ~
-      marketplace_team_has_approved_the_cancellation: ~
+      subject: "Pedido marcado como disputado - A equipe %{service_name} aprovou a disputa de %{buyer}"
+      marketplace_team_has_approved_the_cancellation: "A equipe %{service_name} aprovou a disputa por %{transaction_link} e marcou o pagamento como reembolsado."
       you_should_receive_a_refund_soon: ~
     transaction_cancellation_dismissed:
-      subject: ~
-      marketplace_team_has_rejected_the_cancellation: ~
+      subject: "Pedido disputado rejeitado - A equipe %{service_name} rejeitou a disputa de %{buyer}"
+      marketplace_team_has_rejected_the_cancellation: "A equipe %{service_name} rejeitou a disputa de %{transaction_link}."
     transaction_commission_charge_failed:
       subject: ~
       transaction_about: ~
@@ -1859,7 +1861,7 @@ pt-BR:
       seller_express_checkout_disabled: "O PayPal Express Checkout foi desabilitado para a conta PayPal do autor deste anúncio. Por favor contate o autor e informe-o que há um problema com sua conta PayPal e aconselhe-o a entrar em contato com o atendimento ao cliente do PayPal."
       seller_express_checkout_disabled_no_free: ~
       generic_error: "Ocorreu um erro durante o processo de pagamento. Não foi possível finalizar o seu pagamento PayPal."
-      cancel_error: "Um erro ocorreu durante o cancelamento. Não foi possível finalizar."
+      cancel_error: "Um erro ocorreu durante a disputa. Não foi possível finalizar."
       accept_authorization_error: "Ocorreu um erro durante a tentativa de aceitar pagamento pré-autorizado pelo Paypal. Por favor, tente novamente."
       reject_authorization_error: "Ocorreu um erro ao tentar rejeitar pagamento pré-autorizado Paypal. Por favor, tente novamente."
     stripe:
@@ -2243,7 +2245,7 @@ pt-BR:
       request_accepted_and_closed: ~
       request_confirmed: "Pedido concluído"
       request_rejected: "Pedido rejeitado"
-      request_canceled: "Pedido cancelado"
+      request_canceled: "Pedido disputado"
       message_sent: "Mensagem enviada"
       message_not_sent: "O envio de mensagem falhou. Por favor tente novamente."
       this_content_is_not_available_in_this_community: "Este conteúdo não está disponível"
@@ -2274,7 +2276,7 @@ pt-BR:
       you_must_log_in_to_add_news_item: "Você deve fazer log in no %{service_name} para adicionar um novo artigo."
       you_must_log_in_to_change_profile_settings: "Você deve entrar no %{service_name} para mudar as configurações de perfil."
       you_must_log_in_to_accept_or_reject: "Você deve conectar sua conta para aceitar ou rejeitar a transação"
-      you_must_log_in_to_confirm_or_cancel: "Você deve conectar sua conta para cancelar ou confirmar a transação"
+      you_must_log_in_to_confirm_or_cancel: "Você deve fazer log in para disputar ou confirmar a transação"
       you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
       you_must_fill_all_the_fields: "Você deve preencher todos os campos"
       you_unfollowed_listing: "Você já não estão seguindo este anúncio"
@@ -2678,7 +2680,7 @@ pt-BR:
       paypal_account_billing_agreement_info_fixed: "Depois de realizar uma venda no %{service_name}, uma taxa de %{minimum_commission} será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name}, você deve permitir essa cobrança automática. Esta taxa não inclui a %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Depois de realizar uma venda no %{service_name} uma taxa de %{commission_from_seller} do valor total, excluindo custo de envio, será cobrada através de sua conta no PayPal. Para aceitar pagamentos no %{service_name} você deve permitir essa cobrança automática. Esta taxa não inclui a %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: "Atualmente o %{service_name} não cobra taxa de serviço. Se essa opção for habilitada você precisará autorizar o %{service_name} a cobrar a taxa de serviço para poder receber seus pagamentos A taxa cobrada não inclui %{paypal_info_link}."
-      paypal_info_link_text: "taxa de processamento do pagamento do PayPal"
+      paypal_info_link_text: "Taxa de processamento de pagamento do PayPal"
       billing_agreement_description: "Conceder permissão a %{service_name} para cobrar uma taxa de transação."
       billing_agreement: "Conceder permissão"
       permissions_not_granted: "Permissões para conectar com a conta PayPal não são concedidas."

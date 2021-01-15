@@ -98,8 +98,14 @@ de:
         sharetribe: "Sharetribe analytics"
       advanced:
         experimental: ~
+        recaptcha: reCAPTCHA
         custom_script: ~
         delete_marketplace: ~
+    recaptcha:
+      recaptcha_site_key: "reCAPTCHA site key"
+      recaptcha_secret_key: "reCAPTCHA secret key"
+      info_text: ~
+      info_text_2: ~
     domain:
       sharetribe_domain: ~
       custom_domain: ~
@@ -1074,6 +1080,7 @@ de:
       title_searchpage_v1: ~
       description_searchpage_v1: ~
       title_email_layout_v2: ~
+      description_email_layout_v2: ~
     signup_login:
       invalid_twitter_handle: ~
       invalid_facebook_connect_id: ~
