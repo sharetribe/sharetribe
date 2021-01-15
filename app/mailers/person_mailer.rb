@@ -206,6 +206,7 @@ class PersonMailer < ActionMailer::Base
 
   def new_listing_by_followed_person(listing, recipient, community)
     set_up_layout_variables(recipient, community)
+    @email_type = 'email_about_new_listings_by_followed_people'
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @listing = listing
       @no_recipient_name = true
