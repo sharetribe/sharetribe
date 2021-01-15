@@ -193,8 +193,10 @@ class CommunityMembershipsController < ApplicationController
 
   def update_membership!(membership:, invitation_code:, email_address:, consent:, user:, community:)
     # Use community_memberships for counting instead of .members in order to
-    # avoid join and improve query efficiency.
-    make_admin = community.community_memberships.accepted.count == 0 # First member is the admin
+    # avoid join and improve query efficiency. In addition, count all
+    # memberships, not just accepted, so that admins with unconfirmed email
+    # don't result in other users becoming admins.
+    make_admin = community.community_memberships.count == 0 # First member is the admin
 
     begin
       ActiveRecord::Base.transaction do
