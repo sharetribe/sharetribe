@@ -95,10 +95,6 @@ class PeopleController < Devise::RegistrationsController
       membership = CommunityMembership.new(person: @person, community: @current_community, consent: @current_community.consent)
       membership.status = "pending_email_confirmation"
       membership.invitation = invitation if invitation.present?
-      # If the community doesn't have any members, make the first one an admin
-      if @current_community.members.count == 0
-        membership.admin = true
-      end
       membership.save!
       session[:invitation_code] = nil
     end
