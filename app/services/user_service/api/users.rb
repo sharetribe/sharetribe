@@ -64,7 +64,9 @@ module UserService::API
       membership.invitation = Invitation.find(invitation_id) if invitation_id.present?
 
       # If the community doesn't have any members, make the first one an admin
-      if community.members.count == 0
+      # Use community_memberships for counting instead of .members in order to
+      # avoid join and improve query efficiency.
+      if community.community_memberships.accepted.count == 0
         membership.admin = true
       end
       membership.save!

@@ -16,9 +16,10 @@
 #
 # Indexes
 #
-#  community_person_status                      (community_id,person_id,status)
-#  index_community_memberships_on_community_id  (community_id)
-#  index_community_memberships_on_person_id     (person_id) UNIQUE
+#  community_person_status                                 (community_id,person_id,status)
+#  index_community_memberships_on_community_id             (community_id)
+#  index_community_memberships_on_community_id_and_status  (community_id,status)
+#  index_community_memberships_on_person_id                (person_id) UNIQUE
 #
 
 class CommunityMembership < ApplicationRecord
