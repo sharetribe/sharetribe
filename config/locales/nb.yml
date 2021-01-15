@@ -1744,8 +1744,8 @@ nb:
       welcome_email_subject: "Velkommen til %{service_name}!"
       welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for å ha deg med."
       love_marketplace_crew: "Hilsen,<br /><i>%{service_name}</i>"
-      welcome_email_footer_text: "Ønsker du å endre hvilke e-poster du får fra %{service_name}? %{settings_link}"
-      settings_link_text: "Sjekk innstillingene dine."
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} har lagt ut en ny annonse på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har lagt ut en ny annonse:"

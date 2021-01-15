@@ -1715,7 +1715,7 @@ is:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: ~
+      welcome_email_footer_text: "%{settings_link}"
       settings_link_text: ~
     new_listing_by_followed_person:
       subject: ~

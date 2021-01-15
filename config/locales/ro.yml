@@ -1743,8 +1743,8 @@ ro:
       welcome_email_subject: "Bine ai venit pe %{service_name}"
       welcome_to_marketplace: "Bine ați venit la %{service_name}! Ne bucurăm să vă avem alături."
       love_marketplace_crew: "Cu drag, <br /> <i>%{service_name} echipa </i>"
-      welcome_email_footer_text: "Ce fel de emailuri doriţi să primiţi de la %{service_name}? %{settings_link}"
-      settings_link_text: "Verificați-vă setările"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} a postat o nouă înregistrare în %{service_name}"
       has_posted_a_new_listing: "%{author_name} a postat o nouă înregistrare:"

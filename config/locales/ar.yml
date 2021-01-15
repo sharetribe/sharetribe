@@ -1738,8 +1738,8 @@ ar:
       welcome_email_subject: "‎%{service_name}‎ أهلا بك في"
       welcome_to_marketplace: "سعداء بوجودك معنا ‎%{service_name}‎ أهلا بك في"
       love_marketplace_crew: "‎%{service_name}‎ مع كامل الاحترام والتقدير"
-      welcome_email_footer_text: "‎%{settings_link}‎ ؟‎%{service_name}‎ تحديث إشعارات"
-      settings_link_text: "تأكد من الإعدادات الخاصة بك"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "‎‎%{service_name}‎ قام بوضع إعلان جديد في ‎%{author_name}‎"
       has_posted_a_new_listing: ":قام بوضع إعلان جديد ‎%{author_name}‎"

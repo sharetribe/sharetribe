@@ -1743,8 +1743,8 @@ lt:
       welcome_email_subject: "Sveiki prisijungę prie %{service_name}"
       welcome_to_marketplace: "Sveiki prisijungę prie %{service_name}! Džiaugiamės jus turėdami."
       love_marketplace_crew: "Linkėjimai, <br /><i>%{service_name} komanda</i>"
-      welcome_email_footer_text: "Kokius laiškus norite gauti iš %{service_name}? %{settings_link}"
-      settings_link_text: "Patikrinkite savo nustatymus"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} įkėlė naują skelbimą į %{service_name}"
       has_posted_a_new_listing: "%{author_name} įkėlė naują skelbimą:"

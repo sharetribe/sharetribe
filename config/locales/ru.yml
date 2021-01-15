@@ -1771,8 +1771,8 @@ ru:
       welcome_email_subject: "Добро пожаловать в %{service_name}"
       welcome_to_marketplace: "Добро пожаловать в %{service_name}! Рады видеть вас с нами!"
       love_marketplace_crew: "С уважением, команда <br /><i>%{service_name}</i>"
-      welcome_email_footer_text: "Какие типы сообщение вы хотите получать от %{service_name}? %{settings_link}"
-      settings_link_text: "Проверьте настройки"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "Пользователь %{author_name} разместил новое объявление в %{service_name}"
       has_posted_a_new_listing: "Пользователь %{author_name} разместил новое объявление:"

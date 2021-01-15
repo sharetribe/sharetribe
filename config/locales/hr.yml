@@ -1761,8 +1761,8 @@ hr:
       welcome_email_subject: ~
       welcome_to_marketplace: "Dobrodošli na %{service_name}! Drago nam je da ste nam se pridružili."
       love_marketplace_crew: "Srdačno, <br /><i>%{service_name} tim </i>"
-      welcome_email_footer_text: "Kakve email poruke želite primati od %{service_name}? %{settings_link}"
-      settings_link_text: "Provjerite postavke"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} je postavio novi oglas na %{service_name}"
       has_posted_a_new_listing: "%{author_name} je postavio novi oglas:"

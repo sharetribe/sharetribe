@@ -1733,8 +1733,8 @@ zh:
       welcome_email_subject: "欢迎来到%{service_name}"
       welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
       love_marketplace_crew: "<br /><i>%{service_name}团队</i>  敬上"
-      welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
-      settings_link_text: 查看你的设置
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name}在%{service_name}发布了一则新的信息"
       has_posted_a_new_listing: "%{author_name}发布了一则新的信息："

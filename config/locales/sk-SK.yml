@@ -1763,8 +1763,8 @@ sk-SK:
       welcome_email_subject: "Vitajte v %{service_name}"
       welcome_to_marketplace: "Vitajte v %{service_name}! Sme radi, že ste sa k nám pridali."
       love_marketplace_crew: "S pozdravom,<br /><i>%{service_name} tím</i>"
-      welcome_email_footer_text: "Aký typ e-mailových správ chcete dostávať od %{service_name}? %{settings_link}"
-      settings_link_text: "Skontrolujte si nastavenia"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "užívateľ %{author_name} pridal nový inzerát v %{service_name}"
       has_posted_a_new_listing: "Užívateľ %{author_name} pridal nový inzerát"

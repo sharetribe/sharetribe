@@ -1715,8 +1715,8 @@ az-AZ:
       welcome_email_subject: "%{service_name} -a xoş gəlmişsiniz"
       welcome_to_marketplace: "%{service_name} -a xoş gəlmişsiniz! Bizimlə birlikdə olduğunuza görə çox şadıq!"
       love_marketplace_crew: "<br /> <i>%{service_name} komandası </i>"
-      welcome_email_footer_text: "%{service_name} -dən nə barədə məlumat almaq istəyirsiniz? %{settings_link}"
-      settings_link_text: "Ayarlarınızı yoxlayın"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} %{service_name} -da yeni bir elan vermişdir."
       has_posted_a_new_listing: "%{author_name} yeni elan vermişdir:"

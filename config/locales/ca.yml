@@ -1753,8 +1753,8 @@ ca:
       welcome_email_subject: "Benvingut a %{service_name}"
       welcome_to_marketplace: "Benvinguts a %{service_name}! Ens encanta que estiguis amb nosaltres."
       love_marketplace_crew: "Una salutació de l'equip de <br /><i>%{service_name}</i>"
-      welcome_email_footer_text: "Quina classe de correus desitja rebre de %{service_name}? %{settings_link}"
-      settings_link_text: "Revisa la teva configuració"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} ha publicat un nou anunci a%{service_name}"
       has_posted_a_new_listing: "%{author_name} ha publicat un nou anunci"

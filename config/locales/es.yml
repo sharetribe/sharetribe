@@ -1753,8 +1753,8 @@ es:
       welcome_email_subject: "Ya formas parte de %{service_name}"
       welcome_to_marketplace: "¡Bienvenido a %{service_name}! Nos encanta que estés con nosotros."
       love_marketplace_crew: "Un saludo del equipo de <br /><i>%{service_name} </i>"
-      welcome_email_footer_text: "¿Qué clase de correos deseas recibir de %{service_name}? %{settings_link}"
-      settings_link_text: "Revisa tu configuración"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} ha publicado un nuevo anuncio en %{service_name}"
       has_posted_a_new_listing: "%{author_name} ha publicado un nuevo anuncio"
