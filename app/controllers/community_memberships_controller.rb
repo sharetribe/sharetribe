@@ -192,36 +192,30 @@ class CommunityMembershipsController < ApplicationController
   end
 
   def update_membership!(membership:, invitation_code:, email_address:, consent:, user:, community:)
-    make_admin = community.members.count == 0 # First member is the admin
-
-    begin
-      ActiveRecord::Base.transaction do
-        if email_address.present?
-          Email.create!(person_id: user.id, address: email_address, community_id: community.id)
-        end
-
-        m_invitation = Maybe(invitation_code).map { |code| Invitation.find_by(code: code) }
-        m_invitation.each { |invitation|
-          invitation.use_once!
-        }
-
-        attrs = {
-          consent: consent,
-          invitation: m_invitation.or_else(nil),
-          status: "accepted"
-        }
-
-        attrs[:admin] = true if make_admin
-
-        membership.update!(attrs)
-        update_person_custom_fields(user)
+    ActiveRecord::Base.transaction do
+      if email_address.present?
+        Email.create!(person_id: user.id, address: email_address, community_id: community.id)
       end
 
-      Result::Success.new(membership)
-    rescue StandardError
-      errors = "#{membership.errors.full_messages} #{user.errors.full_messages}"
-      Result::Error.new("Updating membership failed", reason: :update_failed, errors: errors)
+      m_invitation = Maybe(invitation_code).map { |code| Invitation.find_by(code: code) }
+      m_invitation.each { |invitation|
+        invitation.use_once!
+      }
+
+      attrs = {
+        consent: consent,
+        invitation: m_invitation.or_else(nil),
+        status: "accepted"
+      }
+
+      membership.update!(attrs)
+      update_person_custom_fields(user)
     end
+
+    Result::Success.new(membership)
+  rescue StandardError
+    errors = "#{membership.errors.full_messages} #{user.errors.full_messages}"
+    Result::Error.new("Updating membership failed", reason: :update_failed, errors: errors)
   end
 
   def report_missing_membership(user, community)
