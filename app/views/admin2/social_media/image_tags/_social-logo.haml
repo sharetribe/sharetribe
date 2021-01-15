@@ -4,4 +4,4 @@
     = sl.file_field :image, accept: 'image/*', class: %i[change-file]
     %small#socialMediaImage-help.form-text
       = t('admin2.image_tags.social_logo_info_text')
-    = render 'admin2/filename', original_filename: sl.object&.image&.original_filename, field_name: t('admin2.image_tags.social_logo')
+    = render 'admin2/filename', type: :social_logo, original_filename: sl.object&.image&.original_filename, field_name: t('admin2.image_tags.social_logo')
