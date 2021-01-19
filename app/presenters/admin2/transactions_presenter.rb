@@ -43,6 +43,24 @@ class Admin2::TransactionsPresenter
     !exclude.include?(tx.current_state)
   end
 
+  def link_payment
+    case service.transaction.payment_gateway
+    when :stripe
+      "https://dashboard.stripe.com/search?query=#{service.transaction.id}"
+    when :paypal
+      'https://www.paypal.com/signin'
+    end
+  end
+
+  def text_link_payment
+    case service.transaction.payment_gateway
+    when :stripe
+      I18n.t('admin2.manage_transactions.view_in_stripe', id: service.transaction.id)
+    when :paypal
+      I18n.t('admin2.manage_transactions.view_in_paypal', id: service.transaction.id)
+    end
+  end
+
   def listing_title
     transaction.listing_title
   end
