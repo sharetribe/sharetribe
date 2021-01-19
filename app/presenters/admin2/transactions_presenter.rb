@@ -57,7 +57,7 @@ class Admin2::TransactionsPresenter
     when :stripe
       I18n.t('admin2.manage_transactions.view_in_stripe', id: service.transaction.id)
     when :paypal
-      I18n.t('admin2.manage_transactions.view_in_paypal')
+      I18n.t('admin2.manage_transactions.view_in_paypal', id: service.transaction.id)
     end
   end
 

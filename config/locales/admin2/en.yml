@@ -674,7 +674,7 @@ en:
       reject_popup_body: "This listing has not been reviewed yet. If you reject the listing it will not be public. The seller will be notified by email. Are you sure you want to proceed?"
     manage_transactions:
       view_in_stripe: "View transaction #%{id} in Stripe"
-      view_in_paypal: "View transaction in PayPal"
+      view_in_paypal: "View transaction #%{id} in PayPal"
       export_to_csv: "Export to CSV"
       search_placeholder: "Search transactions by listing title or users…"
       listing: Listing
