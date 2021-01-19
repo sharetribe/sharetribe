@@ -1715,8 +1715,8 @@ ta-IN:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: "%{service_name} இடமிருந்து எந்த வகையான மின்னஞ்சல்களைப் பெற விரும்புகிறீர்கள்?%{settings_link}"
-      settings_link_text: "உங்கள் அமைப்புகளைச் சரிபார்க்கவும்"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -2132,6 +2132,7 @@ ta-IN:
       settings: அமைப்புகள்
       sign_up: "பதிவு செய்"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "வியாபார விவரங்கள் சேமிக்க படவில்லை.தயவு செய்து மீணடும் முயற்சிக்கவும்.சிக்கல் தொடர்ந்தால்,%{contact_admin_link} தொடர்புகொள்ளவும்"
       contact_admin_link_text: "%{service_name} குழுவைத் தொடர்பு கொள்ளுங்கள்"
       test_welcome_email_delivered_to: "சோதனை மினஞ்சலானது %{email}க்கு அனுப்பப்பட்டுள்ளது."

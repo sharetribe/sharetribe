@@ -1739,8 +1739,8 @@ vi:
       welcome_email_subject: ~
       welcome_to_marketplace: "Chào mừng bạn đến với %{service_name}! Rất vui khi bạn gia nhập."
       love_marketplace_crew: "Yêu thích,<br /><i>%{service_name} đội</i>"
-      welcome_email_footer_text: "Bạn muốn nhận thông báo nào từ %{service_name} ? %{settings_link}"
-      settings_link_text: "Kiểm tra các thiết lập của bạn"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} đã đăng một bài đăng mới trong %{service_name}"
       has_posted_a_new_listing: "%{author_name} đã đăng một bài đăng mới:"
@@ -2156,6 +2156,7 @@ vi:
       settings: "Cài đặt"
       sign_up: "Đăng ký"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Không thể lưu bài đăng. Vui lòng thử lại. Nếu vẫn tiếp tục gặp sự cố, xin vui lòng %{contact_admin_link}."
       contact_admin_link_text: "liên hệ quản lí"
       test_welcome_email_delivered_to: "Email thử nghiệm đã được gửi tới %{email}"

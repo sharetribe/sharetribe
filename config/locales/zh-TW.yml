@@ -1737,8 +1737,8 @@ zh-TW:
       welcome_email_subject: "欢迎来到%{service_name}"
       welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
       love_marketplace_crew: "親愛的，<br /><i>%{service_name}團隊</i>"
-      welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
-      settings_link_text: 查看你的設定
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name}在%{service_name}发布了一则新的信息"
       has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
@@ -2154,6 +2154,7 @@ zh-TW:
       settings: 設定
       sign_up: 註冊
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "信息不能保存。请重试。如果问题依旧存在，请%{contact_admin_link}。"
       contact_admin_link_text: "聯絡%{service_name}團隊"
       test_welcome_email_delivered_to: "测试邮件已发送到%{email}。"

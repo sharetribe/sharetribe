@@ -1742,8 +1742,8 @@ da-DK:
       welcome_email_subject: "Velkommen til %{service_name}"
       welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for at have dig med."
       love_marketplace_crew: "Hilsen,<br /><i>Holdet bag %{service_name}</i>"
-      welcome_email_footer_text: "Hvilke typer emails vil du gerne modtage fra %{service_name}? %{settings_link}"
-      settings_link_text: "Tjek dine indstillinger"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} har oprettet en ny annonce på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har oprettet en ny annonce:"
@@ -2161,6 +2161,7 @@ da-DK:
       settings: Indstillinger
       sign_up: "Tilmeld dig"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Annoncen kunne ikke gemmes. Prøv venligst igen. Hvis problemet fortsætter, så %{contact_admin_link}."
       contact_admin_link_text: "kontakt os gerne"
       test_welcome_email_delivered_to: "En testbesked blev sendt til %{email}."

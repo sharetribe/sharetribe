@@ -1608,7 +1608,7 @@ el:
       join_now: "Γίνετε μέλος"
       invitation_code: "Κωδικός πρόσκλησης: %{code}"
     invitation_to_kassi_v2:
-      headline: "Γεια σας!"
+      headline: "Γεια σου!"
     new_comment:
       has_commented_your_listing_in_kassi: "Ο/Η %{author} σχολίασε την καταχώρησή σας \"%{listing}\"."
       view_comment: "Δείτε το σχόλιο"
@@ -1753,8 +1753,8 @@ el:
       welcome_email_subject: "Καλωσήρθατε στο %{service_name}"
       welcome_to_marketplace: "Καλωσήρθατε στο %{service_name}! Είναι χαρά μας να σας έχουμε μαζί."
       love_marketplace_crew: "Με αγάπη, ομάδα<br /><i>%{service_name}</i>"
-      welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
-      settings_link_text: "Δείτε τις ρυθμίσεις σας"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "Ο/Η %{author_name} έχει καταχωρήσει μια νέα καταχώρηση στο %{service_name}"
       has_posted_a_new_listing: "Ο/Η %{author_name} έχει κάνει μια νέα καταχώρηση:"
@@ -2170,6 +2170,7 @@ el:
       settings: Ρυθμίσεις
       sign_up: Εγγραφή
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Δεν ήταν δυνατή η αποθήκευση της καταχώρισης. Παρακαλώ δοκιμάστε ξανά. Εάν το πρόβλημα παραμένει, παρακαλώ %{contact_admin_link}."
       contact_admin_link_text: "Επικοινωνήστε με την ομάδα %{service_name}"
       test_welcome_email_delivered_to: "Ένα δοκιμαστικό μήνυμα στάλθηκε στο %{email}."

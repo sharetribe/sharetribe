@@ -1753,8 +1753,8 @@ et:
       welcome_email_subject: "Tere tulemast platvormile %{service_name}"
       welcome_to_marketplace: "Tere tulemast %{service_name} pardale."
       love_marketplace_crew: "Armastusega,<br /><i>%{service_name} meeskond</i>"
-      welcome_email_footer_text: "Millise sisuga e-maili sooviksid saada lehelt %{service_name}? %{settings_link}"
-      settings_link_text: "Kontrolli oma seadeid"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} postitas uue kuulutuse %{service_name}"
       has_posted_a_new_listing: "%{author_name} postitas uue kuulutuse:"
@@ -2170,6 +2170,7 @@ et:
       settings: Seaded
       sign_up: Registreeru
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Nimekirja ei saa salvestada. Proovi uuesti. Kui propleem püsib, palun %{contact_admin_link}."
       contact_admin_link_text: "Võta ühendust %{service_name} meeskonnaga"
       test_welcome_email_delivered_to: "Testmeil saadeti aadressile %{email}."

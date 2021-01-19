@@ -1732,8 +1732,8 @@ tr-TR:
       welcome_email_subject: "%{service_name} pazar yerine hoş geldiniz!"
       welcome_to_marketplace: "%{service_name} pazar yerine hoş geldiniz! Sizi aramızda görmekten mutluyuz."
       love_marketplace_crew: "Sevgiler, <br /><i>%{service_name} ekibi</i>"
-      welcome_email_footer_text: "%{service_name} üzerinden hangi e-postaları almak istiyorsunuz? %{settings_link}"
-      settings_link_text: "Ayarlarınızı kontrol ediniz"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} %{service_name} üzerinden yeni bir ilan yayınladı"
       has_posted_a_new_listing: "%{author_name} yeni bir ilan ekledi."
@@ -2149,6 +2149,7 @@ tr-TR:
       settings: Ayarlar
       sign_up: "Kayıt ol"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "İlan kaydedilemedi. Lütfen tekrar deneyin. Sorun devam ederse, lütfen %{contact_admin_link}."
       contact_admin_link_text: "yöneticiye ulaşın"
       test_welcome_email_delivered_to: "Test mesajı %{email} adresine gönderildi."

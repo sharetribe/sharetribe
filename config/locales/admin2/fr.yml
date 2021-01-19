@@ -98,8 +98,14 @@ fr:
         sharetribe: "Sharetribe analytics"
       advanced:
         experimental: "Nouvelles fonctionnalités"
+        recaptcha: reCAPTCHA
         custom_script: "Script personnalisé"
         delete_marketplace: "Suppression de la place de marché"
+    recaptcha:
+      recaptcha_site_key: "reCAPTCHA site key"
+      recaptcha_secret_key: "reCAPTCHA secret key"
+      info_text: "Ajoutez reCAPTCHA par Google pour empêcher des robots de s'inscrire et de vous contacter tout en autorisant les vrais utilisateurs. Ceci ajoute une case à cocher \"Je ne suis pas un robot\" que les utilisateurs doivent cliquer pour indiquer qu'ils ne sont pas des robots. Cela laissera passer les utilisateurs immédiatement ou leur fera passer un petit test pour définir s'ils sont ou non des humains."
+      info_text_2: "La case à cocher est ajoutée à la page S'inscrire et la page Nous contacter, pour les utilisateurs qui ne sont pas connectés. <a class=\"external-link\" href=\"%{url}\" target=\"_blank\">En savoir plus sur la configuration de reCAPTCHA</a>."
     domain:
       sharetribe_domain: "Domaine Sharetribe"
       custom_domain: "Domaine personnalisé"
@@ -1095,6 +1101,7 @@ fr:
       title_searchpage_v1: "Activer la nouvelle page de recherche pour"
       description_searchpage_v1: "La nouvelle page de recherche requiert la nouvelle barre de navigation."
       title_email_layout_v2: "Activer le nouveau design des emails pour"
+      description_email_layout_v2: "ATTENTION ! L'ancien design des emails sera rendu obsolète le 1er février 2021. C'est une bonne idée d'utiliser dès maintenant le nouveau design des emails."
     signup_login:
       invalid_twitter_handle: "Le nom Twitter doit être d'au maximum 15 caractères alphanumériques (lettres A-Z et chiffres 0-9)."
       invalid_facebook_connect_id: "L'app ID doit être uniquement composé de chiffres."

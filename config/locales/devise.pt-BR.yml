@@ -51,7 +51,7 @@ pt-BR:
       failure: "Não foi possivel autorizar para conta %{kind} por que '%{reason}'"
     mailer:
       confirmation_instructions:
-        subject: "Instruções de confirmação"
+        subject: "Instruções de confirmação para entrar %{service_name}"
       reset_password_instructions:
         subject: "Instruções para redefinição de senha"
       unlock_instructions:

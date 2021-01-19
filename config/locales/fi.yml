@@ -1753,8 +1753,8 @@ fi:
       welcome_email_subject: "Tervetuloa %{community}-palveluun"
       welcome_to_marketplace: "Tervetuloa %{service_name}-palvelun jäseneksi! Mukavaa kun liityit."
       love_marketplace_crew: "Terveisin,<br /><i>%{service_name}-tiimi</i>"
-      welcome_email_footer_text: "Millaisia sähköpostiviestejä haluat saada %{service_name}-palvelusta? %{settings_link}"
-      settings_link_text: "Tarkista sähköpostiasetuksesi"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} lisäsi ilmoituksen %{service_name}-palveluun"
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
@@ -2170,6 +2170,7 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Ilmoituksen tallentaminen ei onnistunut. Yritä uudelleen. Jos ongelma toistuu, %{contact_admin_link}."
       contact_admin_link_text: "ota yhteyttä palvelun %{service_name} ylläpitoon"
       test_welcome_email_delivered_to: "Testisähköposti lähetettiin osoitteeseen %{email}."

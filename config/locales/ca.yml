@@ -688,7 +688,7 @@ ca:
         check_domain: "Comprovar domini"
         domain_being_checked: "Comprovant domini:"
         status: "Estat:"
-        checks_pending: "Comprovacions pendents:"
+        checks_pending: "Comprovacions pendents..."
         please_check_back: ~
         checks_not_passed: "Comprovacions no passades!"
         check_the_domain_again_info: "Assegureu-vos que els vostres registres DNS estan configurats correctament."
@@ -1753,8 +1753,8 @@ ca:
       welcome_email_subject: "Benvingut a %{service_name}"
       welcome_to_marketplace: "Benvinguts a %{service_name}! Ens encanta que estiguis amb nosaltres."
       love_marketplace_crew: "Una salutació de l'equip de <br /><i>%{service_name}</i>"
-      welcome_email_footer_text: "Quina classe de correus desitja rebre de %{service_name}? %{settings_link}"
-      settings_link_text: "Revisa la teva configuració"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} ha publicat un nou anunci a%{service_name}"
       has_posted_a_new_listing: "%{author_name} ha publicat un nou anunci"
@@ -2170,6 +2170,7 @@ ca:
       settings: Opcions
       sign_up: Registre
     notifications:
+      recaptcha_verification_failure: "error de verificació de reCAPTCHA"
       listing_could_not_be_saved: "L'anunci no s'ha pogut publicar. Per favor, intenta-ho de nou i si torna a fallar, contacta amb l'administrador %{contact_admin_link}."
       contact_admin_link_text: "contacteu amb l’equip %{service_name}"
       test_welcome_email_delivered_to: "El missatge de prova a estat enviat a %{email}"

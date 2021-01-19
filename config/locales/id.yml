@@ -1715,7 +1715,7 @@ id:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: ~
+      welcome_email_footer_text: "%{settings_link}"
       settings_link_text: ~
     new_listing_by_followed_person:
       subject: ~
@@ -2132,6 +2132,7 @@ id:
       settings: Pengaturan
       sign_up: Daftar
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
