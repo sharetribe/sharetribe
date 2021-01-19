@@ -673,6 +673,8 @@ fr:
       confirm_popup_body: "Cette annonce n'a pas encore été vérifiée. Si vous approuvez cette annonce, elle sera rendue publique et visible par tous les utilisateurs. Le vendeur sera prévenu par email. Voulez-vous vraiment continuer ?"
       reject_popup_body: "Cette annonce n'a pas encore été vérifiée. Si vous la rejetez, elle ne sera pas rendue publique. Le vendeur sera prévenu par email. Voulez-vous vraiment continuer ?"
     manage_transactions:
+      view_in_stripe: "Voir la transaction #%{id} sur Stripe"
+      view_in_paypal: "Voir la transaction #%{id} sur PayPal"
       export_to_csv: "Exporter au format CSV"
       search_placeholder: "Rechercher une transaction par titre d'annonce ou utilisateur…"
       listing: Annonce
