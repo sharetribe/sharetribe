@@ -71,7 +71,52 @@ function initIntercom(){
   $('[show-intercom]').on('click', showIntercom);
 }
 
+function disableSelectAll() {
+    var btn_select = $('.select-all-checkbox');
+    if (btn_select.length) {
+        btn_select.each(function() {
+            var btn_select_all = $(this),
+                btn_unselect_all = $(this).closest('.form-group').find('.unselect-all-checkbox');
+            var total_checkbox = btn_select_all.closest('.form-group').find('input[type=checkbox]').length,
+                selected_checkbox = btn_select_all.closest('.form-group').find('input[type=checkbox]:checked').length;
+            if (total_checkbox === selected_checkbox) {
+                btn_select_all.prop('disabled', true);
+                btn_select_all.addClass('disabled');
+                btn_unselect_all.prop('disabled', false);
+                btn_unselect_all.removeClass('disabled');
+            } else {
+                btn_select_all.prop('disabled', false);
+                btn_select_all.removeClass('disabled');
+            }
+            if (!selected_checkbox) {
+                btn_unselect_all.prop('disabled', true);
+                btn_unselect_all.addClass('disabled');
+            } else {
+                btn_unselect_all.prop('disabled', false);
+                btn_unselect_all.removeClass('disabled');
+            }
+        });
+    }
+}
+
 $(function(){
+
+    $(document).on('change', '.with-select-all', function () {
+      disableSelectAll();
+    });
+
+    $(document).on('click', '.select-all-checkbox', function () {
+        $(this).closest('.form-group').find('input[type=checkbox]').prop('checked', true);
+        disableSelectAll();
+        return false;
+    });
+
+    $(document).on('click', '.unselect-all-checkbox', function () {
+        $(this).closest('.form-group').find('input[type=checkbox]').prop('checked', false);
+        disableSelectAll();
+        return false;
+    });
+
     $('.country-currency').on('change', function() {
         var url = $(this).data('url'),
             currency = $(this).val();
