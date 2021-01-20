@@ -40,6 +40,7 @@ function initValidate(locale, form_id) {
     sortOptions();
     validateOptions();
     init_admin2_number_custom_field(form_id, locale);
+    disableSelectAll();
 }
 
 $(function() {

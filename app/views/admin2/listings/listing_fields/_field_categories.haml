@@ -1,9 +1,15 @@
 .form-group#categories-container
   %label= t('admin2.listing_fields.listing_categories')
+  %div
+    %small
+      = t('admin2.select')
+      = link_to t('admin2.all'), '#', class: %i[select-all-checkbox]
+      |
+      = link_to t('admin2.none'), '#', class: %i[unselect-all-checkbox]
   - if @current_community.categories.size > 1
     - @current_community.leaf_categories.each do |category|
       .form-check
-        = check_box_tag 'custom_field[category_attributes][][category_id]', "#{category.id}", custom_field.categories.include?(category), id: "#{category.id}_checkbox", class: %i[form-check-input]
+        = check_box_tag 'custom_field[category_attributes][][category_id]', "#{category.id}", custom_field.categories.include?(category), id: "#{category.id}_checkbox", class: %i[form-check-input with-select-all]
         = label_tag "#{category.id}_checkbox", category.display_name(I18n.locale), class: %i[form-check-label]
   - else
     = hidden_field_tag 'custom_field[category_attributes][][category_id]', @current_community.categories.first.id

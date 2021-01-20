@@ -10351,6 +10351,14 @@ a.external-link:hover:after {
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='11' viewBox='0 0 12 11' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%230d2c4f' stroke-width='1.25' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.10437012.76923H1.83333333C1.37309604.76923 1 1.11362635 1 1.53846077v7.69230769c0 .42483442.37309604.76923077.83333333.76923077h8.33333334c.46023729 0 .83333333-.34439635.83333333-.76923077V7.03051681M7.4205317.78000087h3.20254469c.21241721 0 .38461538.17219818.38461538.38461539V4.345704M10.5 1.5L6 5.84615385'%3E%3C/path%3E%3C/g%3E%3C/svg%3E"); }
 
 @media (min-width: 1023px) {
+  button + a.btn {
+    margin-left: 20px; } }
+
+@media (min-width: 1023px) {
+  button + a.btn + a.btn {
+    margin-left: 20px; } }
+
+@media (min-width: 1023px) {
   button:not(:first-child) {
     margin-left: 20px; } }
 
