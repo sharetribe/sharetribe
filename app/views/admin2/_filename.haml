@@ -1,6 +1,6 @@
 %small.form-text
   - if original_filename.present?
-    = t('admin2.logos_and_color.current_file', type: field_name.downcase, filename: original_filename)
+    = t('admin2.logos_and_color.current_file', type: field_name.downcase, filename: original_filename).html_safe
     = succeed "." do
       = link_to t('admin2.logos_and_color.reset_to_default', type: field_name.downcase), '#', 'data-toggle': 'modal', 'data-target': "##{type}DeleteModal", class: %i[negative-link]
   - else
