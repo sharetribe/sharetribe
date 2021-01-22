@@ -172,7 +172,7 @@ gem 'uuidtools', '~> 2.1.5'
 gem 'transit-ruby', '~> 0.8.602'
 
 # Markdown parser
-gem 'redcarpet', '~> 3.4.0'
+gem 'redcarpet', '~> 3.5.1'
 
 gem 'intercom'
 
