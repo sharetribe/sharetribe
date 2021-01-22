@@ -64,13 +64,13 @@ es:
         enabled_languages_description: "Conjunto de idiomas disponibles para los usuarios. El primero en el orden se usa por defecto."
         default_language: "Idioma predeterminado"
         language_selection_disabled: "La selección de idioma está deshabilitada para tu comunidad porque estás usando los siguientes idiomas no oficiales: %{languages}. Por favor contacta al equipo de soporte de Sharetribe si quieres modificar tus ajustes de idiomas."
-        community_name: "Nombre de la comunidad:"
+        community_name: "Nombre de la comunidad"
         edit_community_name_description: "El nombre de tu comunidad. Este se muestra en correos electrónicos y en varios otros lugares."
-        community_slogan: "Eslogan de la comunidad:"
+        community_slogan: "Eslogan de la comunidad"
         community_slogan_display: "Mostrar el eslogan en la página de inicio o Custom landing page"
         edit_community_slogan_description: "Se muestra en la página de inicio de la comunidad a los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         edit_community_slogan_description_hideable: "Se muestra en navegadores, buscadores y social media. También puedes decidir mostrarlo en la página de inicio de tu marketplace para visitantes y usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
-        community_description: "Descripción de la comunidad:"
+        community_description: "Descripción de la comunidad"
         community_description_display: "Mostrar la descripción en la página de inicio o Custom landing page"
         edit_community_description_description: "Se muestra en la página de inicio para los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: "Se muestra en navegadores, buscadores y social media. También puedes decidir mostrarla en la página de inicio de tu marketplace para visitantes y usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
@@ -1676,7 +1676,7 @@ es:
     receipt_to_payer:
       receipt_of_payment: "Recibo de pago"
       you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b> a %{recipient_full_name}. Aquí está el recibo del pago."
-      product: "Producto:"
+      product: Producto
       price_per_unit_type: "Precio por %{unit_type}"
       duration: Duración
       quantity: Cantidad
@@ -2031,7 +2031,7 @@ es:
       filter: Filtrar
       this_is_private_community: "Debes crear una cuenta para poder ver todo el contenido."
     invitation_form:
-      email: "Dirección(es) de correo electrónico:"
+      email: "Dirección(es) de correo electrónico"
       message: "Mensaje personalizado:"
       send_invitation: "Enviar invitación"
       add_email_addresses_description: "Añade el/los correo/s de tu/s amigo/s en el campo más abajo. Si quieres añadir más de una dirección email, sepáralas con una coma."
@@ -2731,7 +2731,7 @@ es:
       inactive_description: "Este usuario ha dejado de utilizar %{service_name}. No puedes ponerte en contacto con él, hacerle sugerencias o comentar sus anuncios."
     new:
       create_new_account: "Crear una cuenta"
-      email: "Dirección de correo electrónico:"
+      email: "Dirección de correo electrónico"
       email_is_in_use: "El mail ingresado ya se encuentra registrado."
       email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Si no puedes ingresar a esta comunidad, por favor contáctanos."
       email_not_allowed: "Este correo electrónico no está permitido en %{service_name}. Por favor usa una dirección que esté permitida. Si aún así no puedes ingresar, contáctanos."
@@ -2740,14 +2740,14 @@ es:
         one: "El acceso a %{service_name} está restringido. Para unirte necesitas una dirección de correo electrónico con la siguiente terminación: '%{allowed_emails}'."
         other: "El acceso a %{service_name} está restringido. Para unirte necesitas una dirección de correo electrónico que sea válida en esta comunidad."
       family_name: Apellido
-      given_name: "Nombre:"
+      given_name: Nombre
       i_accept_the_terms_and_privacy: "Acepto los %{terms} y la %{privacy}"
       admin_emails_consent: "Acepto recibir correos del equipo de %{service_name} y entiendo que puedo cambiar de parecer en cualquier momento"
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
       notification_is_mandatory: "Debes elegir al menos una dirección de correo para recibir notificaciones. Si no deseas recibir correos de %{service_name}, revisa tus ajustes de notificaciones."
-      password_again: "Confirme la contraseña:"
+      password_again: "Confirme la contraseña"
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de %{service_name}"
       sign_up: "Crear una nueva cuenta en %{service_name}"
       terms: "Términos de uso"
@@ -2816,7 +2816,7 @@ es:
       login: "Iniciar sesión"
       login_to_kassi: "Iniciar sesión en %{service_name}"
       connect_your_facebook_to_kassi: "Conecta tu cuenta de Facebook a %{service_name}"
-      facebook_account: "Cuenta de Facebook"
+      facebook_account: "Cuenta de Facebook:"
       log_in_to_link_account: "Si ya tienes una cuenta en %{service_name}, inicia sesión para vincularla con tu cuenta de Facebook."
       you_can_also_create_new_account: "Si no tienes una cuenta en %{service_name}, %{accont_creation_link} para crear una con tu cuenta de Facebook."
       account_creation_link_text: "clic aquí"
@@ -2901,18 +2901,18 @@ es:
       unsuccessful_unsubscribe_info_text: "El enlace para cancelar la suscripción ha expirado. Es necesario iniciar sesión para cambiar la configuración de subscripción de su cuenta de correo electrónico."
     profile:
       about_you: "Sobre tí"
-      city: "Ciudad:"
+      city: Ciudad
       family_name: Apellido
-      given_name: "Nombre:"
+      given_name: Nombre
       first_name_with_initial: "(Sólo se mostrará tu inicial al resto de usuarios)"
       first_name_only: "(no se mostrará a otros usuarios)"
       display_name: "Nombre Personalizado"
       display_name_description: "Si representas a una organización, puedes utilizar este campo para añadir el nombre que quieres mostrar a los otros usuarios. El nombre personalizado se mostrará a los otros usuarios en lugar de tu nombre y apellido."
       location_description: "Puedes dar tu ubicación exacta o indicar sólo tu código postal. Es buena idea indicar tu país al momento de añadir tu ubicación. Ejemplos son: \"10117 Berlin, Alemania\" or \"2000 Sand Hill Road, CA, USA\". ."
       profile_picture_description: "La foto de perfil debe de ser en formato cuadrado (1:1), por ejemplo, 800x800 pixeles. De lo contrario será recortada para cuadrar."
-      phone_number: "Número de teléfono:"
+      phone_number: "Número de teléfono"
       profile_picture: "Foto de perfil"
-      postal_code: "Código postal:"
+      postal_code: "Código postal"
       profile_page: "en tu página de perfil"
       profilemap: "Vista de mapa"
       street_address: Ubicación
