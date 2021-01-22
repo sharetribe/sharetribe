@@ -76,6 +76,7 @@ function validateCategory() {
             } else {
                 error.insertAfter(element);
             }
+            error.addClass('form-text');
         }
     });
 }
