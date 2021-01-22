@@ -9,6 +9,10 @@ class Admin::DomainsService
     @params = params
   end
 
+  def community_url
+    "#{APP_CONFIG.always_use_ssl ? 'https' : 'http'}://#{ident}.#{APP_CONFIG.domain}"
+  end
+
   def ident_available?
     !Community.find_by(ident: params[:community][:ident])
   end
@@ -22,8 +26,17 @@ class Admin::DomainsService
   end
 
   def update
+    old = community_url.deep_dup
     community.ident = params[:community][:ident]&.downcase
-    community.save
+    if community.save
+      notice_about_new_ident(old, community_url)
+    end
+  end
+
+  def notice_about_new_ident(old, new)
+    return true if old == new
+
+    Delayed::Job.enqueue(IdentChangedJob.new(community.id, old, new))
   end
 
   def create_domain_setup

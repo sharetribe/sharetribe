@@ -322,6 +322,29 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
+  def new_ident_notification(community, admin, old, new)
+    @community = community
+    @url_params = build_url_params(community, admin, nil)
+    @new_url = new
+    @old_url = old
+    @admin_url = admin2_url(@url_params.except(:locale))
+    @admin_path = remove_url_protocol(@admin_url)
+    @comunity_old_path = remove_url_protocol(@old_url)
+    @comunity_new_path = remove_url_protocol(@new_url)
+
+    with_locale(admin.locale, community.locales.map(&:to_sym), community.id) do
+      address = admin.confirmed_notification_emails_to
+      return unless address.present?
+
+      mail(to: address,
+           from: community_specific_sender(community),
+           subject: t('emails.new_ident_notification.subject'),
+           layout: 'email-v2') do |format|
+        format.html { render layout: 'email-v2' }
+      end
+    end
+  end
+
   def email_confirmation(email, community)
     @current_community = community
     @no_settings = true
@@ -482,6 +505,10 @@ class PersonMailer < ActionMailer::Base
   end
 
   private
+
+  def remove_url_protocol(url)
+    url.split('//').drop(1).join('//')
+  end
 
   def feedback_author_name_and_email(author, email, community)
     present = ->(x) {x.present?}
