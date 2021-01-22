@@ -12,7 +12,7 @@
                                  allowed_template_variables: @seo_service.variables(:profile_meta_title).join(','),
                                 'data-msg-allowed_template_variables': t('admin2.seo.only_supported_variables'), autocomplete: :off
     %small.form-text
-      = t('admin2.profile_pages.profile_meta_title_info_text')
+      = t('admin2.profile_pages.profile_meta_title_info_text', vars: @seo_service.i18n_variables_admin2(:profile_meta_title)).html_safe
 
 .form-group
   %label
@@ -28,4 +28,4 @@
                                  allowed_template_variables: @seo_service.variables(:profile_meta_description).join(','),
                                 'data-msg-allowed_template_variables': t('admin2.seo.only_supported_variables'), autocomplete: :off
     %small.form-text
-      = t('admin2.profile_pages.profile_meta_description_info_text')
+      = t('admin2.profile_pages.profile_meta_description_info_text', vars: @seo_service.i18n_variables_admin2(:profile_meta_description)).html_safe
