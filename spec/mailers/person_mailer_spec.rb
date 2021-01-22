@@ -243,4 +243,17 @@ describe PersonMailer, type: :mailer do
       expect(email.body).to have_text("Proto has marked the order about 'Sledgehammer' completed. The payment for this transaction has now been released to your bank account. You can now give feedback to Proto.")
     end
   end
+
+  describe "#new_ident_notification" do
+    it 'change ident email' do
+      @community.ident = 'ident'
+
+      @person = Person.first
+      email = MailCarrier.deliver_now(PersonMailer.new_ident_notification(@community, @person, @community.ident, 'new_ident'))
+      assert !ActionMailer::Base.deliveries.empty?
+      assert_equal @person.confirmed_notification_email_addresses, email.to
+      assert_equal "Your marketplace address was changed", email.subject
+      expect(email).to have_body_text('new_ident')
+    end
+  end
 end

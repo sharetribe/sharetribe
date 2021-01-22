@@ -1766,6 +1766,15 @@ en:
       you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
       view_listing: "View %{title}"
       cant_click: "Can't click the button? Here's the link for your convenience:"
+    new_ident_notification:
+      subject: 'Your marketplace address was changed'
+      h1_body: 'The URL address of %{community_name} has been changed.'
+      p_line1: 'Your marketplace address has been changed'
+      p_line2: 'Old URL: %{link}'
+      p_line3: 'New URL: %{link}'
+      p_line4: 'New Admin panel URL: %{link}'
+      p_line5: 'You can log in to your marketplace with the same account as before.'
+      button: 'Go to %{text}'
     new_member_notification:
       subject: "New member in %{community}"
       new_member_has_joined: "A new member has joined %{community}. They may still have to confirm their email address."
