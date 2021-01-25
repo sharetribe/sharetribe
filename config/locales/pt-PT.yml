@@ -1749,6 +1749,15 @@ pt-PT:
       you_are_receiving_this_because: "Você recebeu esta notificação porque segue %{author_name}."
       view_listing: "Ver %{title}"
       cant_click: "Não consegue clicar no botão? Aqui está o link para lhe ajudar:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Novo membro em %{community}"
       new_member_has_joined: "Um novo membro se juntou ao %{community}. Eles ainda precisam confirmar o seu endereço de e-mail."

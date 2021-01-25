@@ -1745,6 +1745,15 @@ tr-TR:
       you_are_receiving_this_because: "Bu e-postayı %{author_name} isimli kullanıcıyı takip ettiğiniz için aldınız."
       view_listing: "%{title} ilanına göz at"
       cant_click: ~
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "%{community} platformuna yeni bir üye katıldı"
       new_member_has_joined: "%{community} topluluğuna yeni bir üye katıldı. Hala e-posta adresini doğrulaması gerekebilir."

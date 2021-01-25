@@ -1784,6 +1784,15 @@ ru:
       you_are_receiving_this_because: "Вы получили это уведомление, потому что подписаны на %{author_name}."
       view_listing: "Показать %{title}"
       cant_click: "Не можете нажать на кнопку? Для вашего удобства ссылка:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Новый участник в %{community}"
       new_member_has_joined: "Новый участник присоединился к %{community}. Возможно, им необходимо подтвердить их электронный адрес."

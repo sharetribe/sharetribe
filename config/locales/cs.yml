@@ -1772,6 +1772,15 @@ cs:
       you_are_receiving_this_because: "Obdrželi jste toto upozornění, protože sledujete uživatele %{author_name}."
       view_listing: "Prohlédnout si %{title}"
       cant_click: "Nemůžete kliknout na tlačítko? Zde je odkaz pro vaše pohodlí:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Nový člen v %{community}"
       new_member_has_joined: "Nový člen se připojil k webu %{community}. Zkontrolujte zda potvrdil svou mailovou adresu."

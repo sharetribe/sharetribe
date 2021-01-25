@@ -1766,6 +1766,15 @@ de:
       you_are_receiving_this_because: "Du hast diese Benachrichtigung bekommen, weil du %{author_name} folgst."
       view_listing: "%{title} anzeigen"
       cant_click: "Kannst du nicht auf den Button klicken? Hier ist ein direkter Link:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Neues Mitglied bei %{community}"
       new_member_has_joined: "Ein neues Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."

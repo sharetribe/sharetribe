@@ -1766,6 +1766,15 @@ et:
       you_are_receiving_this_because: "Sa said selle teavituse, sest jälgid %{author_name}."
       view_listing: "Kuva %{title}"
       cant_click: "Kas nuppu ei saa klikkida? Siin on ka link:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Uus liige %{community}"
       new_member_has_joined: "%{community} on liitunud uus liige. Võimalik, et nad peavad ikkagi oma e-posti aadressi kinnitama."

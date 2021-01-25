@@ -1043,16 +1043,23 @@ lt:
         update_success: "Įrašyti užsakymo tipo pakeitimai %{shape}"
         update_failure: "Nepavyko įrašyti keitimų. Klaida: %{error_msg}"
         delete: "Naikinti užsakymo tipą"
-        can_not_delete_last: "Negalite panaikinti šio užsakymo tipo, nes tai vienintelis tipas jūsų prekyvietėje."
-        can_not_delete_only_one_in_categories: "Negalite panaikinti šio užsakymo tipo, nes šiose kategorijose šis užsakymo tipas yra naudojamas vienintelis: %{categories}"
         confirm_delete_order_type:
           one: "Yra %{count} skelbimas su šiuo užsakymo būdu. Jei ištrinsite užsakymo būdą, bus panaikintas šis skelbimas. Esate tikri, kad norite ištrinti užsakymo būdą?"
           few: "Yra %{count} skelbimų su šiuo užsakymo būdu. Jei ištrinsite užsakymo būdą, bus panaikinti šie skelbimai. Esate tikri, kad norite ištrinti užsakymo būdą?"
           other: "Yra %{count} skelbimų su šiuo užsakymo būdu. Jei ištrinsite užsakymo būdą, bus panaikinti šie skelbimai. Esate tikri, kad norite ištrinti užsakymo būdą?"
+        can_not_delete_last: "Negalite panaikinti šio užsakymo tipo, nes tai vienintelis tipas jūsų prekyvietėje."
+        can_not_delete_only_one_in_categories: "Negalite panaikinti šio užsakymo tipo, nes šiose kategorijose šis užsakymo tipas yra naudojamas vienintelis: %{categories}"
       listing_shape_name: Vardas
       listing_shape_name_placeholder: "Pvz., Parduoti"
       action_button_label: "Išsiregistravimo mygtuko žymė"
       action_button_placeholder: "Pvz., Pirkti"
+      open_listings_warning:
+        one: "Yra %{count} galiojantis skelbimas su šiuo užsakymo būdu. Jei pakeisite nustatymus, šis skelbimas išlaikys senuosius nustatymus. Skelbimui gali būti taikomi nauji nustatymai pakoreguojant jį atskirai. Jei nenorite, kad skelbimas su senais nustatymais matytųsi jūsų paskyroje, galite panaikinti jį spausdami geltoną mygtuką žemiau."
+        few: "Yra %{count} galiojančių skelbimų su šiuo užsakymo būdu. Jei pakeisite nustatymus, šie skelbimai išlaikys senuosius nustatymus. Skelbimui gali būti taikomi nauji nustatymai pakoreguojant jį atskirai. Jei nenorite, kad skelbimas su senais nustatymais matytųsi jūsų paskyroje, galite panaikinti jį spausdami geltoną mygtuką žemiau."
+        other: "Yra %{count} galiojančių skelbimų su šiuo užsakymo būdu. Jei pakeisite nustatymus, šie skelbimai išlaikys senuosius nustatymus. Skelbimui gali būti taikomi nauji nustatymai pakoreguojant jį atskirai. Jei nenorite, kad skelbimas su senais nustatymais matytųsi jūsų paskyroje, galite panaikinti jį spausdami geltoną mygtuką žemiau."
+      confirm_close_listings_action:
+        one: "Ar tikrai norite uždaryti %{count} skelbimą?"
+        few: "Ar tikrai norite uždaryti %{count} skelbimus?"
       successfully_closed: "Sėkmingai uždaryti sąrašai"
       successfully_deleted: "Sėkmingai panaikintas užsakymo tipas '%{order_type}'"
       pricing_and_checkout_title: "Kainodara ir išsiregistravimas"
@@ -1083,13 +1090,6 @@ lt:
           heading: "Vieneto tipas"
           quantity_label: "Kiekis (už vienetą, už kg, vienam asmeniui, už 2 valandų kelionę...)"
           time_label: "Laikas (per 30 minučių, per 2 savaites, per metus...)"
-      open_listings_warning:
-        one: "Yra %{count} galiojantis skelbimas su šiuo užsakymo būdu. Jei pakeisite nustatymus, šis skelbimas išlaikys senuosius nustatymus. Skelbimui gali būti taikomi nauji nustatymai pakoreguojant jį atskirai. Jei nenorite, kad skelbimas su senais nustatymais matytųsi jūsų paskyroje, galite panaikinti jį spausdami geltoną mygtuką žemiau."
-        few: "Yra %{count} galiojančių skelbimų su šiuo užsakymo būdu. Jei pakeisite nustatymus, šie skelbimai išlaikys senuosius nustatymus. Skelbimui gali būti taikomi nauji nustatymai pakoreguojant jį atskirai. Jei nenorite, kad skelbimas su senais nustatymais matytųsi jūsų paskyroje, galite panaikinti jį spausdami geltoną mygtuką žemiau."
-        other: "Yra %{count} galiojančių skelbimų su šiuo užsakymo būdu. Jei pakeisite nustatymus, šie skelbimai išlaikys senuosius nustatymus. Skelbimui gali būti taikomi nauji nustatymai pakoreguojant jį atskirai. Jei nenorite, kad skelbimas su senais nustatymais matytųsi jūsų paskyroje, galite panaikinti jį spausdami geltoną mygtuką žemiau."
-      confirm_close_listings_action:
-        one: "Ar tikrai norite uždaryti %{count} skelbimą?"
-        few: "Ar tikrai norite uždaryti %{count} skelbimus?"
     paypal_accounts:
       marketplace_paypal_integration: "Mokėjimo sistemos nustatymai"
       preferences_updated: "Mokėjimo sistemos parinktys atnaujintos"
@@ -1767,6 +1767,15 @@ lt:
       you_are_receiving_this_because: "Gavote šį pranešimą, nes sekate %{author_name}."
       view_listing: "Peržiūrėti %{title}"
       cant_click: "Negalite spustelėti mygtuko? Jūsų patogumui pateikiama nuoroda:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Naujas %{community} narys"
       new_member_has_joined: "Naujas narys prisijungė prie %{community}. Jam vis tiek gali tekti patvirtinti savo el. pašto adresą."
@@ -3047,14 +3056,14 @@ lt:
       few: "%{count} dienos"
       other: "%{count} dienos"
     time_to:
-      hours:
-        one: "%{count} valandai"
-        few: "%{count} valandoms"
-        other: "%{count} valanda"
       minutes:
         one: "%{count} minutė"
         few: "%{count} minutės"
         other: "%{count} minutės"
+      hours:
+        one: "%{count} valandai"
+        few: "%{count} valandoms"
+        other: "%{count} valanda"
       days:
         one: "%{count} diena"
         few: "%{count} dienos"
@@ -3063,6 +3072,14 @@ lt:
     initiate:
       booked_days: "Užsakytos dienos:"
       booked_nights: "Užsakytos naktys:"
+      booked_days_label:
+        one: "Užsakyta diena:"
+        few: "Užsakytos dienos:"
+        other: "Užsakytos dienos:"
+      booked_nights_label:
+        one: "Užsakyta naktis:"
+        few: "Užsakytos naktys:"
+        other: "Užsakytos naktys:"
       price_per_day: "Dienos kaina:"
       price_per_night: "Kaina už naktį:"
       price_per_hour: "Valandos kaina:"
@@ -3072,14 +3089,6 @@ lt:
       shipping-price: "Pristatymas:"
       stripe-fee: "Stripe mokestis (apskaičiuotas):"
       start_end_time: "%{start_time} iki %{end_time}"
-      booked_days_label:
-        one: "Užsakyta diena:"
-        few: "Užsakytos dienos:"
-        other: "Užsakytos dienos:"
-      booked_nights_label:
-        one: "Užsakyta naktis:"
-        few: "Užsakytos naktys:"
-        other: "Užsakytos naktys:"
     price_per_quantity: "Kaina per %{unit_type}:"
     price: "Kaina:"
     quantity: "Kiekis: %{quantity}"

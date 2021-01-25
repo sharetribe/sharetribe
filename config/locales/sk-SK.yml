@@ -1776,6 +1776,15 @@ sk-SK:
       you_are_receiving_this_because: "Prijali ste toto upozornenie pretože sledujete %{author_name}."
       view_listing: "Pozrieť %{title}"
       cant_click: "Nemôžete kliknúť na tlačidlo? Tu je odkaz pre vaše pohodlie:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Nový užívateľ v %{community}"
       new_member_has_joined: "Nový užívateľ sa pripojil k %{community}. Stále ešte môžu čakať na potvrdenie e-mailovej adresy."

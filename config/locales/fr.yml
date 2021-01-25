@@ -1766,6 +1766,15 @@ fr:
       you_are_receiving_this_because: "Vous avez reçu ce message car vous suivez %{author_name}."
       view_listing: "Voir %{title}"
       cant_click: "Un problème avec le bouton ? Voici le lien direct : "
+    new_ident_notification:
+      subject: "L'adresse de votre place de marché a changé"
+      h1_body: "L'adresse URL de %{community_name} a été modifée."
+      p_line1: "L'adresse de votre place de marché a été modifiée."
+      p_line2: "Ancienne URL : %{link}"
+      p_line3: "Nouvelle URL : %{link}"
+      p_line4: "Nouvelle URL du panneau d'administration : %{link}"
+      p_line5: "Vous pouvez vous connecter à votre place de marché avec le même compte qu'auparavant."
+      button: "Aller sur %{text}"
     new_member_notification:
       subject: "Un nouveau membre sur %{community}"
       new_member_has_joined: "Un nouveau membre a rejoint %{community}. Il lui reste peut être encore à vérifier son adresse email."
