@@ -1769,7 +1769,7 @@ en:
     new_ident_notification:
       subject: 'Your marketplace address was changed'
       h1_body: 'The URL address of %{community_name} has been changed.'
-      p_line1: 'Your marketplace address has been changed'
+      p_line1: 'Your marketplace address has been changed.'
       p_line2: 'Old URL: %{link}'
       p_line3: 'New URL: %{link}'
       p_line4: 'New Admin panel URL: %{link}'

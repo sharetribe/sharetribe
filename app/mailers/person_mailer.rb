@@ -4,7 +4,7 @@ include ListingsHelper
 include TruncateHtmlHelper
 # rubocop:enable Style/MixinUsage
 
-class PersonMailer < ActionMailer::Base
+class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
   include MailUtils
 
   # Enable use of method to_date.
