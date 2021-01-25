@@ -1,0 +1,21 @@
+%tr
+  %td.person-name
+    %h1
+      = t('emails.new_ident_notification.h1_body', community_name: @community.name(@community.locales.first))
+%tr
+  %td.email-content
+    %p
+      = t('emails.new_ident_notification.p_line1')
+      %br
+      %br
+      = t('emails.new_ident_notification.p_line2', link: link_to(@comunity_old_path, @old_url)).html_safe
+      %br
+      %b
+        = t('emails.new_ident_notification.p_line3', link: link_to(@comunity_new_path, @new_url)).html_safe
+      %br
+      = t('emails.new_ident_notification.p_line4', link: link_to(@admin_path, @admin_url)).html_safe
+      %br
+      %br
+      = t('emails.new_ident_notification.p_line5')
+
+= render partial: 'action_button-v2', locals: { text: t('emails.new_ident_notification.button', text: @comunity_new_path), url: @new_url }
