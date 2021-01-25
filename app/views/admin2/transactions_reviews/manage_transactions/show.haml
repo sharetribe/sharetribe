@@ -25,6 +25,9 @@
     = render 'buyer_pays', pr: pr, transaction: transaction
     = render 'seller_receives', pr: pr, transaction: transaction
     = render 'marketplace_receives', pr: pr
+    - if pr.link_payment.present?
+      %br
+      = link_to pr.text_link_payment, pr.link_payment, class: %i[external-link], target: :_blank
 
 %section.transaction-conversation
   .conversation-wrapper

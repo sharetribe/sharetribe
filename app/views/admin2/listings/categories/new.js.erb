@@ -6,3 +6,4 @@ if (popup.length) {
 $('body').append('<%= j render 'admin2/listings/categories/add_popup', category: @category, shapes: @shapes, selected_shape_ids: @selected_shape_ids %>');
 $('#categoriesAddModal').modal('show');
 validateCategory();
+disableSelectAll();

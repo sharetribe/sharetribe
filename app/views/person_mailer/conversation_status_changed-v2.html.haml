@@ -20,3 +20,4 @@
         = t("emails.conversation_status_changed.remember_to_confirm", :days_to_automatic_confirmation => @transaction.automatic_confirmation_after_days)
 
 = render :partial => "action_button-v2", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => action_url}
+= render 'person_mailer/cant_click', url: action_url

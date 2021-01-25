@@ -1735,8 +1735,8 @@ ka:
       welcome_email_subject: "მოგესალმებით %{service_name}ზე"
       welcome_to_marketplace: "მოგესალმებით %{service_name}-ზე! მოხარული ვართ რომ ჩვენი გუნდის წევრი ხართ."
       love_marketplace_crew: "სიყვარული, <br /><i>%{service_name} ეკიპაჟი </i>"
-      welcome_email_footer_text: "რა სახის ელ. ფოსტა გინდათ რომ მიიღოთ %{service_name}-სგან? %{settings_link}"
-      settings_link_text: "შეამოწმე შენი პარამეტრები"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} გამოაქვეყნა ახალი ჩამონათვალი %{service_name}-ში"
       has_posted_a_new_listing: "%{author_name} დაპოსტა ახალი ჩამონათვალი"
@@ -2152,6 +2152,7 @@ ka:
       settings: პარამეტრები
       sign_up: დარეგისტრირება
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "ჩამონათვალის დამახსოვრება ვერ მოხერხდსა. გთხოვთ ცადეთ კიდევ ერთხელ. თუ პრობლემა არ გამოსწორდება გთხოვთ %{contact_admin_link}"
       contact_admin_link_text: "დაუკავშირდი ადმინისტრატორს"
       test_welcome_email_delivered_to: "ტესტი ელ. ფოსტა გაიგზავნა %{email}ზე."

@@ -1750,8 +1750,8 @@ en-NZ:
       welcome_email_subject: "Welcome to %{service_name}"
       welcome_to_marketplace: "Welcome to %{service_name}! Glad to have you on board."
       love_marketplace_crew: "Love,<br /><i>%{service_name} crew</i>"
-      welcome_email_footer_text: "What kind of emails do you want to receive from %{service_name}? %{settings_link}"
-      settings_link_text: "Check your settings"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} has posted a new listing in %{service_name}"
       has_posted_a_new_listing: "%{author_name} has posted a new listing:"
@@ -2167,6 +2167,7 @@ en-NZ:
       settings: Settings
       sign_up: "Sign up"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Listing could not be saved. Please try again. If the problem persists, please %{contact_admin_link}."
       contact_admin_link_text: "contact the %{service_name} team"
       test_welcome_email_delivered_to: "A test email was sent to %{email}."

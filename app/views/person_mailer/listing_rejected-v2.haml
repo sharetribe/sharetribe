@@ -12,3 +12,4 @@
         contact_link: contact_link).html_safe
 
 = render "action_button-v2", text: t("emails.listing_rejected.edit_the_listing"), url: @listing_url
+= render 'person_mailer/cant_click', url: @listing_url

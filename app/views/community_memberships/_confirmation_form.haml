@@ -3,7 +3,7 @@
 
 - email_to_confirm = @current_user.latest_pending_email_address(@current_community)
 - contact_support_link = link_to t("sessions.confirmation_pending.contact_support_link_text"), "mailto:#{support_email}"
-- admin_dashboard_link = link_to t("sessions.confirmation_pending.admin_dashboard_link_text"), admin_getting_started_guide_path
+- admin_dashboard_link = link_to t("sessions.confirmation_pending.admin_dashboard_link_text"), admin2_path
 
 - if @current_user.has_admin_rights?(@current_community)
   %h2= t("sessions.confirmation_pending.account_confirmation_instructions_title_admin")

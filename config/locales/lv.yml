@@ -1723,8 +1723,8 @@ lv:
       welcome_email_subject: "Laipni lūdzam %{service_name}"
       welcome_to_marketplace: "Laipni lūdzam %{service_name}! Priecājamies, ka esat ar mums."
       love_marketplace_crew: "Ar sveicieniem <br /><i>%{service_name} komanda</i>"
-      welcome_email_footer_text: "Kāda veida e-pastus Jūs vēlaties saņemt no %{service_name}? %{settings_link}"
-      settings_link_text: "Pārbaudiet savus iestatījumus."
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} ir pievienojis jaunu sludinājumu %{service_name}"
       has_posted_a_new_listing: "%{author_name} ir pievienojis jaunu sludinājumu:"
@@ -2140,6 +2140,7 @@ lv:
       settings: Uzstādījumi
       sign_up: Reģistrēties
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Sludinājumu nevarēja saglabāt. Lūdzu mēģiniet vēlreiz. Ja problēma joprojām pastāv, lūdzu, %{contact_admin_link}."
       contact_admin_link_text: "sazināties ar %{service_name} komandu"
       test_welcome_email_delivered_to: "Testa e-pasts tika nosūtīts uz %{email}."

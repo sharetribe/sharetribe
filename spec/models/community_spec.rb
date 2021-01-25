@@ -108,6 +108,8 @@
 #  email_admins_about_new_transactions        :boolean          default(FALSE)
 #  show_location                              :boolean          default(TRUE)
 #  fuzzy_location                             :boolean          default(FALSE)
+#  recaptcha_site_key                         :string(255)
+#  recaptcha_secret_key                       :string(255)
 #
 # Indexes
 #

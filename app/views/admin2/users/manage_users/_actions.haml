@@ -40,7 +40,9 @@
           %path{:d => "M4.853 12.794h-3.53a.861.861 0 01-.882-.882v-8.76a.916.916 0 01.883-.946h8.823c.504.018.899.44.882.945v2.584M3.088.441v3.53M5.735.441v3.53M8.382.441v3.53", "stroke-width" => "1.5"}
       = t('admin2.manage_users.post_listing')
 
-  %hr
+  - unless member.eql?(@current_user)
+    %hr
+
   - if accepted_or_banned && !member.eql?(@current_user) && !member.banned?
     - if member.is_marketplace_admin?(@presenter.community)
       = link_to '#', class: %i[dropdown-item negative revoke-admin remove-admin],
@@ -67,7 +69,7 @@
 
     %hr
 
-  - if accepted_or_banned && !member.banned?
+  - if accepted_or_banned && !member.banned? && !member.eql?(@current_user)
     = link_to '#', class: %i[dropdown-item negative revoke-admin ban-user],
                    data: {url: ban_admin2_users_manage_user_path(membership.id),
                           msg: t('admin2.manage_users.ban_msg'),
@@ -80,9 +82,10 @@
           %circle{:cx => "4.767", :cy => "9.1", :r => "1.3"}
       = t('admin2.manage_users.disable_user')
 
-  = link_to '#', class: 'delete-user dropdown-item negative', data: { name: t('admin2.manage_users.delete_user', username: @presenter.person_name(member)), url: admin2_users_manage_user_path(membership) } do
-    %svg{:height => "11", :width => "12", :xmlns => "http://www.w3.org/2000/svg"}>
-      %g{"fill-rule" => "nonzero"}
-        %rect{:height => "1.5", :rx => ".75", :transform => "rotate(45 5.834 5.48)", :width => "14", :x => "-1.166", :y => "4.73"}
-        %rect{:height => "1.5", :rx => ".75", :transform => "rotate(-45 5.48 5.48)", :width => "14", :x => "-1.52", :y => "4.73"}
-    = t('admin2.manage_users.delete')
+  - unless member.eql?(@current_user)
+    = link_to '#', class: 'delete-user dropdown-item negative', data: { name: t('admin2.manage_users.delete_user', username: @presenter.person_name(member)), url: admin2_users_manage_user_path(membership) } do
+      %svg{:height => "11", :width => "12", :xmlns => "http://www.w3.org/2000/svg"}>
+        %g{"fill-rule" => "nonzero"}
+          %rect{:height => "1.5", :rx => ".75", :transform => "rotate(45 5.834 5.48)", :width => "14", :x => "-1.166", :y => "4.73"}
+          %rect{:height => "1.5", :rx => ".75", :transform => "rotate(-45 5.48 5.48)", :width => "14", :x => "-1.52", :y => "4.73"}
+      = t('admin2.manage_users.delete')

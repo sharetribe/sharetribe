@@ -21,7 +21,7 @@
         = t('admin2.custom_script.info_text', url: 'https://help.sharetribe.com/en/articles/666142').html_safe
       .form-group
         = form.label :custom_head_script, t('admin2.custom_script.custom_head_script')
-        = form.text_area :custom_head_script, class: %i[form-control], placeholder: t('admin2.custom_script.custom_head_script_placeholder'), disabled: !custom_script_enabled?
+        = form.text_area :custom_head_script, maxlength: 65535, class: %i[form-control], placeholder: t('admin2.custom_script.custom_head_script_placeholder'), disabled: !custom_script_enabled?
         %small#twitterHandle-help.form-text
           = t('admin2.custom_script.custom_head_script_info_text')
     - if custom_script_enabled?

@@ -1,4 +1,4 @@
-%form.content-card-section-form
+= form_for @presenter.community, url: confirm_domain_setup_admin2_general_domains_path, html: { class: 'content-card-section-form' } do |form|
   = render 'admin2/general/domains/header'
   %section.content-card-section
     %h2= t('admin2.domain.custom_domain')

@@ -56,6 +56,7 @@ class PersonMailer < ActionMailer::Base
   def transaction_confirmed(conversation, community, send_to = :seller)
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation
+    @community = community
     @recipient_is_seller = send_to == :seller
     recipient = @recipient_is_seller ? conversation.seller : conversation.buyer
     set_up_layout_variables(recipient, community, @email_type)
@@ -98,6 +99,7 @@ class PersonMailer < ActionMailer::Base
 
   def new_testimonial(testimonial, community)
     @email_type =  "email_about_new_received_testimonials"
+    @community = community
     recipient = testimonial.receiver
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
@@ -206,6 +208,7 @@ class PersonMailer < ActionMailer::Base
 
   def new_listing_by_followed_person(listing, recipient, community)
     set_up_layout_variables(recipient, community)
+    @email_type = 'email_about_new_listings_by_followed_people'
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @listing = listing
       @no_recipient_name = true

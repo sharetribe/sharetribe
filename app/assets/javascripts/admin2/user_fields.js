@@ -40,6 +40,7 @@ function initValidate(locale, form_id) {
     sortOptions();
     validateOptions();
     init_admin2_number_custom_field(form_id, locale);
+    disableSelectAll();
 }
 
 $(function() {
@@ -51,6 +52,10 @@ $(function() {
     });
 
     $('#userFieldsAddModal').on('show.bs.modal', function (e) {
+        var popup = $('#userFieldsEditModal');
+        if (popup.length) {
+            popup.remove();
+        }
         $('#body_type').html('');
         $('#field_type').val('');
     });

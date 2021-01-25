@@ -1743,8 +1743,8 @@ ro:
       welcome_email_subject: "Bine ai venit pe %{service_name}"
       welcome_to_marketplace: "Bine ați venit la %{service_name}! Ne bucurăm să vă avem alături."
       love_marketplace_crew: "Cu drag, <br /> <i>%{service_name} echipa </i>"
-      welcome_email_footer_text: "Ce fel de emailuri doriţi să primiţi de la %{service_name}? %{settings_link}"
-      settings_link_text: "Verificați-vă setările"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} a postat o nouă înregistrare în %{service_name}"
       has_posted_a_new_listing: "%{author_name} a postat o nouă înregistrare:"
@@ -2160,6 +2160,7 @@ ro:
       settings: Setări
       sign_up: "Cont nou"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Afișarea nu a putut fi salvată. Vă rugăm să încercați din nou. Dacă problema persistă, vă rugăm să %{contact_admin_link}."
       contact_admin_link_text: "contactează echipa %{service_name}"
       test_welcome_email_delivered_to: "Mesaj test a fost trimis către %{email}."

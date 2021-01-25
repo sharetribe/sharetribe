@@ -1761,8 +1761,8 @@ hr:
       welcome_email_subject: ~
       welcome_to_marketplace: "Dobrodošli na %{service_name}! Drago nam je da ste nam se pridružili."
       love_marketplace_crew: "Srdačno, <br /><i>%{service_name} tim </i>"
-      welcome_email_footer_text: "Kakve email poruke želite primati od %{service_name}? %{settings_link}"
-      settings_link_text: "Provjerite postavke"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} je postavio novi oglas na %{service_name}"
       has_posted_a_new_listing: "%{author_name} je postavio novi oglas:"
@@ -2178,6 +2178,7 @@ hr:
       settings: Postavke
       sign_up: "Registrirajte se"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Oglas nije mogao biti spremljen. Molimo pokušajte ponovno. Ako se greška nastavi, molimo %{contact_admin_link}."
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: "Test email će biti poslan prema %{email}."

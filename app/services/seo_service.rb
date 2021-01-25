@@ -32,6 +32,10 @@ class SeoService
     I18n.t("seo_sections.you_can_use_variables", vars: vars.join(", "))
   end
 
+  def i18n_variables_admin2(section)
+    variables(section).map { |varname| '<code>{{'+varname+'}}</code>' }.join(', ')
+  end
+
   def placeholder(section, locale = I18n.locale)
     case section
     when :homepage_title, :meta_title

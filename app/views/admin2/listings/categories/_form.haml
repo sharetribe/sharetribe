@@ -19,11 +19,19 @@
 .form-group#category-listing-shapes-container
   - if shapes.size > 1
     %label= t('admin2.categories.order_types')
-    %small#categoriesOrderTypes-help.form-text= t('admin2.categories.add_more')
+    %div
+      %small
+        = t('admin2.select')
+        = link_to t('admin2.all'), '#', class: %i[select-all-checkbox]
+        |
+        = link_to t('admin2.none'), '#', class: %i[unselect-all-checkbox]
     - shapes.each do |shape|
       - checkbox_id = "listing_shape_checkbox_#{shape[:id].to_s}"
       .form-check
-        = check_box_tag 'category[listing_shapes][][listing_shape_id]', "#{shape[:id]}", selected_shape_ids.include?(shape[:id]), id: checkbox_id, class: %i[form-check-input]
+        = check_box_tag 'category[listing_shapes][][listing_shape_id]', "#{shape[:id]}", selected_shape_ids.include?(shape[:id]), id: checkbox_id, class: %i[form-check-input with-select-all]
         = label_tag checkbox_id, t(shape[:name_tr_key]), class: %i[form-check-label]
   - else
     = hidden_field_tag "category[listing_shapes][][listing_shape_id]", shapes.first[:id]
+
+- if shapes.size > 1
+  %small#categoriesOrderTypes-help.form-text= t('admin2.categories.add_more')

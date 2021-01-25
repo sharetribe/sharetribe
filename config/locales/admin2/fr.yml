@@ -8,6 +8,9 @@ fr:
     chooseText: Choisir
     cancelText: Annuler
     open_in_editor: "Modifier avec l'éditeur"
+    select: Sélectionner
+    all: Tous
+    none: Aucun
     notice_banner: "Votre panneau d'administration a un nouveau look ! Essayez le : <a href=\"%{url}\">allez dans votre nouveau panneau d'administration</a>."
     topnav:
       admin_menu: "Menu admin"
@@ -98,8 +101,14 @@ fr:
         sharetribe: "Sharetribe analytics"
       advanced:
         experimental: "Nouvelles fonctionnalités"
+        recaptcha: reCAPTCHA
         custom_script: "Script personnalisé"
         delete_marketplace: "Suppression de la place de marché"
+    recaptcha:
+      recaptcha_site_key: "reCAPTCHA site key"
+      recaptcha_secret_key: "reCAPTCHA secret key"
+      info_text: "Ajoutez reCAPTCHA par Google pour empêcher des robots de s'inscrire et de vous contacter tout en autorisant les vrais utilisateurs. Ceci ajoute une case à cocher \"Je ne suis pas un robot\" que les utilisateurs doivent cliquer pour indiquer qu'ils ne sont pas des robots. Cela laissera passer les utilisateurs immédiatement ou leur fera passer un petit test pour définir s'ils sont ou non des humains."
+      info_text_2: "La case à cocher est ajoutée à la page S'inscrire et la page Nous contacter, pour les utilisateurs qui ne sont pas connectés. <a class=\"external-link\" href=\"%{url}\" target=\"_blank\">En savoir plus sur la configuration de reCAPTCHA</a>."
     domain:
       sharetribe_domain: "Domaine Sharetribe"
       custom_domain: "Domaine personnalisé"
@@ -117,7 +126,7 @@ fr:
       change_sharetribe_domain: "Vous ne pouvez pas changer le domaine Sharetribe lorsque la fonctionnalité de domaine personnalisé est activée."
       testing_dns: "Statut : test des paramètres DNS pour %{url}…"
       setup_domain_info: "Vous pouvez utiliser un domaine racine (example.com) ou un sous-domaine (marketplace.example.com)."
-      test_dns_settings: "Tester les paramètres DNS"
+      test_dns_settings: "Tester les paramètres DNS et utiliser le domaine personnalisé"
       testing_dns_info: "Le test prend 10–15 minutes. Rafraîchissez cette page pour vérifier le statut."
       during_dns_testing: "Vous ne pouvez pas changer le domaine personnalisé pendant le test DNS."
       set_custom_domain_info: "Votre domaine personnalisé doit pointer vers les serveurs Sharetribe. Avant de commencer le test des paramètres DNS, assurez-vous d'avoir suivi les <a class='external-link' href='%{url}' target='_blank'>instructions pour pointer votre domaine vers les serveurs Sharetribe</a>."
@@ -131,7 +140,7 @@ fr:
       start_using: "Utiliser %{domain}"
       check_another_domain: "Tester les paramètres DNS pour un autre domaine."
       error_dns_info: "Attention ! Des erreurs ont été trouvées dans les paramètres DNS pour %{domain} :"
-      retest_dns: "Tester de nouveau les paramètres DNS pour %{domain}"
+      retest_dns: "Tester de nouveau les paramètres DNS et utiliser le domaine personnalisé %{domain}"
       dns_not_configured: "Les paramètres DNS pour %{domain} n'ont pas été configurés correctement :"
       finalizing_domain_installation: "Status : finalisation de la configuration du domaine %{domain}…"
       production_setup: "Vous ne pouvez pas changer le domaine personnalisé pendant sa configuration."
@@ -199,7 +208,7 @@ fr:
       block_1_point_4: "› Parcourir tous les articles sur la Marketplace Academy (en anglais)"
       block_2:
         a_title: "Passez à l'offre Pro"
-        a_body: "Utilisez votre propre domain, enlevez toutes les mentions de Sharetribe, et plus encore. Abonnez-vous à l'offre Pro, à partir de $119 par mois."
+        a_body: "Utilisez votre propre domaine, enlevez toutes les mentions de Sharetribe, et plus encore. Abonnez-vous à l'offre Pro, à partir de $119 par mois."
         a_link: "› Gérer votre abonnement"
         b_title: "Ajoutez une magnifique page d'accueil à votre place de marché"
         b_body: "Communiquez votre valeur ajoutée et impliquez vos visiteurs dès qu'ils arrivent sur votre place de marché. Ajouter une page d'accueil remarquable à votre place de marché. $99 par mois."
@@ -667,6 +676,8 @@ fr:
       confirm_popup_body: "Cette annonce n'a pas encore été vérifiée. Si vous approuvez cette annonce, elle sera rendue publique et visible par tous les utilisateurs. Le vendeur sera prévenu par email. Voulez-vous vraiment continuer ?"
       reject_popup_body: "Cette annonce n'a pas encore été vérifiée. Si vous la rejetez, elle ne sera pas rendue publique. Le vendeur sera prévenu par email. Voulez-vous vraiment continuer ?"
     manage_transactions:
+      view_in_stripe: "Voir la transaction #%{id} sur Stripe"
+      view_in_paypal: "Voir la transaction #%{id} sur PayPal"
       export_to_csv: "Exporter au format CSV"
       search_placeholder: "Rechercher une transaction par titre d'annonce ou utilisateur…"
       listing: Annonce
@@ -963,46 +974,46 @@ fr:
       title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       profile_meta_title: "Meta tag pour le titre"
       profile_meta_title_placeholder: "Profil de {{user_display_name}} - {{marketplace_name}}"
-      profile_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}."
+      profile_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
       profile_meta_description: "Meta tag pour la description"
       profile_meta_description_placeholder: "En savoir plus sur {{user_display_name}} sur {{marketplace_name}}"
-      profile_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{user_display_name}}."
+      profile_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
     category_pages:
       title: "Meta tags pour les pages de catégories"
       title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       category_meta_title: "Meta tag pour le titre"
       category_meta_title_placeholder: "{{category_name}} - {{marketplace_name}}"
-      category_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{category_name}}."
+      category_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
       category_meta_description: "Meta tag pour la description"
       category_meta_description_placeholder: "{{category_name}} sur {{marketplace_name}}"
-      category_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{category_name}}."
+      category_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
     listing_pages:
       title: "Meta tags pour les pages d'annonces"
       title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       listing_meta_title: "Meta tag pour le titre"
       listing_meta_title_placeholder: "{{listing_title}} - {{marketplace_name}}"
-      listing_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}."
+      listing_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
       listing_meta_description: "Meta tag pour la description"
       listing_meta_description_placeholder: "{{listing_title}} pour {{listing_price}} par {{listing_author}} sur {{marketplace_name}}"
-      listing_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{listing_title}}, {{listing_author}}, {{listing_price}}."
+      listing_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
     search_pages:
       title: "Meta tags pour les pages de résultats de recherche sur votre place de marché"
       title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       search_meta_title: "Meta tag pour le titre"
       search_meta_title_placeholder: "Résultats de la recherche - {{marketplace_name}}"
-      search_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{keywords_searched}}, {{location_searched}}."
+      search_meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
       search_meta_description: "Meta tag pour la description"
       search_meta_description_placeholder: "Résultats de la recherche pour : {{keywords_searched}} {{location_searched}} sur {{marketplace_name}}"
-      search_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}, {{keywords_searched}}, {{location_searched}}."
+      search_meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
     landing_pages:
       title: "Meta tags pour la page d'accueil ou la page d'accueil personnalisée"
       title_info_text: "Les meta tags définissent le titre et la description qui sont affichés lorsqu'une page de votre site apparaît sur les pages de résultats des moteurs de recherche. Optimiser les meta tags des pages les plus importantes de votre marché est important pour l'accessibilité et le SEO (Search Engine Optimization). Vous pouvez utiliser des variables pour définir les meilleures tags. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les meta tags</a>."
       meta_title: "Meta tag pour le titre"
       meta_title_placeholder: "{{marketplace_name}} - {{marketplace_slogan}}"
-      meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}."
+      meta_title_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
       meta_description: "Meta tag pour la description"
       meta_description_placeholder: "{{marketplace_description}} - {{marketplace_slogan}}"
-      meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : {{marketplace_name}}, {{marketplace_slogan}}, {{marketplace_description}}."
+      meta_description_info_text: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché sous le lien sur leurs pages de résultats. Vous pouvez utiliser les variables suivantes : %{vars}."
     sitemap_robots:
       sitemap: Sitemap
       robots: Robots.txt
@@ -1095,6 +1106,7 @@ fr:
       title_searchpage_v1: "Activer la nouvelle page de recherche pour"
       description_searchpage_v1: "La nouvelle page de recherche requiert la nouvelle barre de navigation."
       title_email_layout_v2: "Activer le nouveau design des emails pour"
+      description_email_layout_v2: "ATTENTION ! L'ancien design des emails sera rendu obsolète le 1er février 2021. C'est une bonne idée d'utiliser dès maintenant le nouveau design des emails."
     signup_login:
       invalid_twitter_handle: "Le nom Twitter doit être d'au maximum 15 caractères alphanumériques (lettres A-Z et chiffres 0-9)."
       invalid_facebook_connect_id: "L'app ID doit être uniquement composé de chiffres."
@@ -1137,11 +1149,11 @@ fr:
       main_logo_info_text: "Le logo principal est affiché dans la barre de navigation de votre place de marché et dans les notifications email automatiques. Ses dimensions doivent être de 336x80 pixels."
       square_logo: "Logo carré"
       square_logo_info_text: "Le logo carré est affiché comme votre photo de profil lorsque vous gérez une transaction au nom de l'un de vos utilisateur.  Il est également affiché lorsque les visiteurs mettent en favoris votre site sur l'écran d'accueil de leur appareil mobile. Ses dimensions doivent être d'au moins 600x600 pixels."
-      current_file: "L'image actuelle de %{type} est \"%{filename}\""
+      current_file: "L'image actuelle de %{type} est <code>%{filename}</code>."
       reset_to_default: "Revenir à l'image de %{type} par défaut"
       delete_popup:
         title: "Supprimer l'image de %{type}"
-        body: "Voulez-vous vraiment supprimer le \"%{filename}\" %{type} définitivement ? Ceci est irréversible."
+        body: "Voulez-vous vraiment supprimer \"%{filename}\" (%{type}) définitivement ? Ceci est irréversible."
         save_button: "Supprimer le %{type} définitivement"
     user_rights:
       invitation_rights: "Droits d'invitations"

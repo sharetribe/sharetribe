@@ -3,13 +3,13 @@
 
 %tr
   %td.person-name
-    - recipient_name = PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only')
+    - recipient_name = PersonViewUtils.person_display_name(@recipient, @community)
     - listing_link = link_to @conversation.listing.title, listing_url(@url_params.merge(id: @conversation.listing_id))
     - stripe_confirmed = @conversation.payment_gateway == :stripe && @conversation.status == 'confirmed'
     - if @conversation.last_transition_by_admin?
       - other_party_full_name = t('emails.transaction_confirmed.team_title')
     - else
-      - other_party_full_name = PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only")
+      - other_party_full_name = PersonViewUtils.person_display_name(@conversation.other_party(@recipient), @community)
     %h1
       = t("emails.common.hi", name: recipient_name)
       = t("emails.transaction_confirmed_v2.headline_#{@conversation.status}", other_party_full_name: other_party_full_name, listing_link: listing_link).html_safe
@@ -19,9 +19,10 @@
     %p.text-bold
       - if stripe_confirmed && @recipient_is_seller
         = t("emails.transaction_confirmed_v2.stripe.has_marked_request_as_confirmed", :request => @conversation.listing.title)
-      = t("emails.transaction_confirmed_v2.can_give_feedback", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"))
+      = t("emails.transaction_confirmed_v2.can_give_feedback", :other_party_given_name => PersonViewUtils.person_display_name(@conversation.other_party(@recipient), @community))
 
     %p
-      = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"))
+      = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name(@conversation.other_party(@recipient), @community))
 
-= render :partial => "action_button-v2", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only")), :url => url}
+= render :partial => "action_button-v2", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => PersonViewUtils.person_display_name(@conversation.other_party(@recipient), @community)), :url => url}
+= render 'person_mailer/cant_click', url: url

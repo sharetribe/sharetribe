@@ -21,7 +21,7 @@ module Admin2Helper
       social_media: %w[image_tags twitter],
       seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages google_console],
       analytics: %w[google sharetribe google_manager],
-      advanced: %w[custom_scripts delete_marketplaces experimental]
+      advanced: %w[custom_scripts delete_marketplaces experimental recaptcha]
     }
   end
 
@@ -123,6 +123,7 @@ module Admin2Helper
       # The flash is used to pass data (e.g. analytics events) in addition to UI
       # messages. Only render flash contents that are meant to be UI messages
       next unless [:success, :error, :alert, :notice].include?(msg_type.to_sym)
+      next unless message.present?
 
       concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)}", role: "alert") do
         concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })

@@ -1,4 +1,6 @@
 class PeopleController < Devise::RegistrationsController
+  include ConfigRecaptcha
+
   skip_before_action :verify_authenticity_token, :only => [:create]
   skip_before_action :require_no_authentication, :only => [:new]
 
@@ -32,17 +34,27 @@ class PeopleController < Devise::RegistrationsController
     @selected_tribe_navi_tab = "members"
     redirect_to search_path if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
-    @service = Person::SettingsService.new(community: @current_community, params: params,
-                                           required_fields_only: true)
-    @service.new_person
-
+    service_init
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
+  end
+
+  def service_init
+    @service = Person::SettingsService.new(community: @current_community,
+                                           params: params,
+                                           required_fields_only: true)
+    @service.new_person
   end
 
   def create
     domain = @current_community ? @current_community.full_url : "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
+
+    unless validate_recaptcha(params['g-recaptcha-response'])
+      flash[:error] = t('layouts.notifications.recaptcha_verification_failure')
+      service_init
+      render :new and return
+    end
 
     if params[:person].blank? || params[:person][:input_again].present? # Honey pot for spammerbots
       flash[:error] = t("layouts.notifications.registration_considered_spam")
@@ -83,10 +95,6 @@ class PeopleController < Devise::RegistrationsController
       membership = CommunityMembership.new(person: @person, community: @current_community, consent: @current_community.consent)
       membership.status = "pending_email_confirmation"
       membership.invitation = invitation if invitation.present?
-      # If the community doesn't have any members, make the first one an admin
-      if @current_community.members.count == 0
-        membership.admin = true
-      end
       membership.save!
       session[:invitation_code] = nil
     end

@@ -55,7 +55,7 @@ class CommunityMailer < ActionMailer::Base
     end
 
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
-
+      @email_type = 'community_updates'
       @number_of_days = time_difference_in_days(@recipient.last_community_updates_at)
       @time_since_last_update = t("timestamps.days_since",
                                   :count => @number_of_days)

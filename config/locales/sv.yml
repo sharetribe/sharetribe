@@ -1753,8 +1753,8 @@ sv:
       welcome_email_subject: "Välkommen till %{service_name}"
       welcome_to_marketplace: "Välkommen till %{service_name}! Kul att ha dig ombord."
       love_marketplace_crew: "Vänligen,<br /><i>%{service_name} teamet</i>"
-      welcome_email_footer_text: "Vilka typer av e-mail vill du få från %{service_name}?%{settings_link}"
-      settings_link_text: "Kontrollera dina inställningar"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} har skapat en ny annons på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har skapat en ny annons:"
@@ -2170,6 +2170,7 @@ sv:
       settings: Inställningar
       sign_up: "Gå med"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Annonsen kunde inte sparas. Vänligen försök igen. Om problemet kvarstår, vänligen %{contact_admin_link}."
       contact_admin_link_text: "kontakta %{service_name}"
       test_welcome_email_delivered_to: "Ett testmeddelande skickades till %{email}."

@@ -1723,8 +1723,8 @@ bg:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: "Какви имейли искате да получавате от %{service_name}? %{settings_link}"
-      settings_link_text: "Проверете настройките си"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} публикува нова обява в %{service_name}"
       has_posted_a_new_listing: "%{author_name} публикува нова обява:"
@@ -2140,6 +2140,7 @@ bg:
       settings: Настройки
       sign_up: "Регистрирай се"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~

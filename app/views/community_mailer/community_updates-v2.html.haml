@@ -15,4 +15,6 @@
       %tbody
         = render :partial => "community_update_listing-v2", :collection => @listings, :as => :listing
 
-= render :partial => "person_mailer/action_button-v2", :locals => { :text => t("homepage.index.post_new_listing"), :url => new_request_without_locale_url(@url_params.merge({:type => "offer"})), :align => "center"}
+- url = new_request_without_locale_url(@url_params.merge({:type => "offer"}))
+= render :partial => "person_mailer/action_button-v2", :locals => { :text => t("homepage.index.post_new_listing"), :url => url, :align => "center"}
+= render 'person_mailer/cant_click', url: url

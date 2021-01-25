@@ -1756,8 +1756,8 @@ he-IL:
       welcome_email_subject: "ברוכים הבאים אל ‎%{service_name}‎"
       welcome_to_marketplace: "ברוך הבא ל‎%{service_name}‎ ! שמחים שאתה כאן!"
       love_marketplace_crew: "באהבה,‎<br /><i>‎ ‎%{service_name}‎ "
-      welcome_email_footer_text: "איזה סוג של דוא\"ל אתה רוצה לקבל מ ‎%{service_name}‎? ‎%{settings_link}‎"
-      settings_link_text: "בדוק את ההגדרות שלך"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "‎%{author_name}‎ פרסם מודעה חדשה ב ‎%{service_name}‎"
       has_posted_a_new_listing: "‎%{author_name}‎ פרסם מודעה חדשה"
@@ -2175,6 +2175,7 @@ he-IL:
       settings: הגדרות
       sign_up: "הרשמו עכשיו"
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "המודעה לא נשמרה, נא נסה בשנית.אם הבעיה נמשכת אנא ‎%{contact_admin_link}‎ "
       contact_admin_link_text: "שלח/י הודעה לצוות האתר"
       test_welcome_email_delivered_to: "נשלח הודעת דוא\"ל לבדיקה אל ‎%{email}‎"

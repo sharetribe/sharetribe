@@ -1,6 +1,6 @@
 %tr
   %td.person-name
-    - payer_name = PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only")
+    - payer_name = PersonViewUtils.person_display_name(@recipient, @community)
     - listing_link = link_to listing_title, listing_info_url
     - payment_sum = "<strong>#{payment_total}</strong>"
     %h1
@@ -76,3 +76,4 @@
         = t("emails.receipt_to_payer.money_will_be_transferred", recipient_name: recipient_full_name, automatic_confirmation_days: automatic_confirmation_days)
 
 = render :partial => "person_mailer/action_button-v2", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}
+= render 'person_mailer/cant_click', url: conversation_url

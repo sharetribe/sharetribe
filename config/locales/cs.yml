@@ -1759,8 +1759,8 @@ cs:
       welcome_email_subject: "Vítejte v %{service_name}"
       welcome_to_marketplace: "Vítejte v %{service_name}! Jsme rádi, že jste se k nám připojili."
       love_marketplace_crew: "S pozdravem,<br /><i>%{service_name}</i>"
-      welcome_email_footer_text: "Jaký druh e-mailů chcete dostávat od %{service_name}? %{settings_link}"
-      settings_link_text: "Zkontrolujte si nastavení"
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: "Uživatel %{author_name} přidal nový inzerát v %{service_name}"
       has_posted_a_new_listing: "Uživatel %{author_name} přidal nový inzerát:"
@@ -2176,6 +2176,7 @@ cs:
       settings: Nastavení
       sign_up: Registrace
     notifications:
+      recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Inzerát nemohl být uložen. Prosíme, zkuste to znovu. Pokud problémy přetrvají, prosíme, %{contact_admin_link}."
       contact_admin_link_text: "kontaktujte správce"
       test_welcome_email_delivered_to: "Zkušební e-mail byl odeslán na %{email}."
