@@ -1510,7 +1510,7 @@ el:
       create_own: "Θέλετε να δημιουργήσετε τη δική σας πλατφόρμα διαδικτυακών αγορών, όπως το %{service_name}; %{learn_more}."
       learn_more: "Μάθετε περισσότερα"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Δεν έχετε ακόμα ολοκληρώσει ή αμφισβητήσει το αίτημα %{request_link}. Αν το αίτημα έχει ολοκληρωθεί θα πρέπει να το επιβεβαιώσετε. Έπειτα μπορειτε να αφήσετε σχόλια στον χρήστη %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Δεν έχετε ακόμα ολοκληρώσει ή αμφισβητήσει την παραγγελία %{request_link}. Εαν η παραγγελία έχει ολοκληρωθεί θα πρέπει να το επιβεβαιώσετε. Έπειτα μπορειτε να αφήσετε σχόλια στον χρήστη %{other_party_given_name}."
       remember_to_confirm_request: "Θυμηθείτε να επιβεβαιώσετε ή να ακυρώσετε ένα αίτημα"
       if_will_not_happen_you_should_cancel: "Αν πιστεύετε ότι η παραγγελία για οποιοδήποτε λόγο δεν θα ολοκληρωθεί, μπορείτε να %{cancel_it_link}."
       cancel_it_link_text: "Αμφισβητήστε το"
@@ -1530,7 +1530,7 @@ el:
       here_is_a_message_from: "Δείτε ένα μήνυμα από τον χρήστη %{other_party_given_name}:"
       request_marked_as_confirmed: "Η παραγγελία ολοκληρώθηκε - θυμηθείτε να κάνετε κριτική για το άλλο μέλος"
       request_marked_as_canceled: "Η παραγγελία σας αμφισβητείται"
-      has_marked_request_as_confirmed: "Ο/Η %{other_party_full_name} επιβεβαίωσε ότι το αίτημά σας \"%{request}\" ως ολοκληρωμένο. Τώρα μπορείτε να κάνετε κριτική στον/στην %{other_party_given_name}."
+      has_marked_request_as_confirmed: "Ο/Η %{other_party_full_name} επιβεβαίωσε την παραγγελία σχετικά με το \"%{request}\" ως ολοκληρωμένο. Τώρα μπορείτε να κάνετε κριτική στον/στην %{other_party_given_name}."
       has_marked_request_as_canceled: "Ο/Η %{other_party_full_name} αμφισβητεί το αίτημά σας σχετικά με \"%{request}\". Μπορείτε ωστόσο να κάνετε κριτική στον/στην %{other_party_given_name}."
       giving_feedback_is_good_idea: "Είναι πάντα καλή ιδέα να αφήνετε τις εντυπώσεις σας. Εάν όλα πήγαν καλά ενημερώστε και τα υπόλοιπα μέλη ότι ο/η %{other_party_given_name} είναι αξιόπιστος/η. Ακόμα κι αν υπήρχαν προβλήματα είναι καλό να τα αναφέρετε κι αυτά."
       give_feedback_to: "Κάντε κριτική στον/στην %{other_party_given_name}"
@@ -1702,7 +1702,7 @@ el:
       view_changes: "Δείτε τις αλλαγές"
     community_updates:
       added_offer: "Ο/Η %{name_link} έκανε μια καταχώρηση:"
-      added_request: "Ο/Η %{name_link} έκανε καταχώρηση:"
+      added_request: "Ο/Η %{name_link} έκανε μια καταχώρηση:"
       added_listing: "Ο/Η %{name_link} πρόσθεσε μια καταχώρηση:"
       update_mail_title: "Ενημερώσεις από %{title_link}"
       title_link_text: "%{community_name}"
@@ -1754,7 +1754,7 @@ el:
       welcome_to_marketplace: "Καλωσήρθατε στο %{service_name}! Είναι χαρά μας να σας έχουμε μαζί."
       love_marketplace_crew: "Με αγάπη, ομάδα<br /><i>%{service_name}</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Επεξεργαστείτε τις ρυθμίσεις του email σας εδώ"
     new_listing_by_followed_person:
       subject: "Ο/Η %{author_name} έχει καταχωρήσει μια νέα καταχώρηση στο %{service_name}"
       has_posted_a_new_listing: "Ο/Η %{author_name} έχει κάνει μια νέα καταχώρηση:"
@@ -1766,6 +1766,15 @@ el:
       you_are_receiving_this_because: "Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον/την %{author_name}."
       view_listing: "Προβολή %{title} "
       cant_click: "Δεν μπορείτε να κάνετε κλικ στο κουμπί; Εδώ είναι ο σύνδεσμος για την εξυπηρέτησή σας:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Νέο μέλος στο %{community}"
       new_member_has_joined: "Ένα νέο μέλος εντάχθηκε στο %{community}. Ίσως να μην έχουν επιβεβαιώσει ακόμα τη διεύθυνση email τους."
@@ -2170,7 +2179,7 @@ el:
       settings: Ρυθμίσεις
       sign_up: Εγγραφή
     notifications:
-      recaptcha_verification_failure: ~
+      recaptcha_verification_failure: "Αποτυχία επαλήθευσης reCAPTCHA"
       listing_could_not_be_saved: "Δεν ήταν δυνατή η αποθήκευση της καταχώρισης. Παρακαλώ δοκιμάστε ξανά. Εάν το πρόβλημα παραμένει, παρακαλώ %{contact_admin_link}."
       contact_admin_link_text: "Επικοινωνήστε με την ομάδα %{service_name}"
       test_welcome_email_delivered_to: "Ένα δοκιμαστικό μήνυμα στάλθηκε στο %{email}."

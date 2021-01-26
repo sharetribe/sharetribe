@@ -1754,7 +1754,7 @@ ca:
       welcome_to_marketplace: "Benvinguts a %{service_name}! Ens encanta que estiguis amb nosaltres."
       love_marketplace_crew: "Una salutació de l'equip de <br /><i>%{service_name}</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Edita la configuració de correu electrònic aquí"
     new_listing_by_followed_person:
       subject: "%{author_name} ha publicat un nou anunci a%{service_name}"
       has_posted_a_new_listing: "%{author_name} ha publicat un nou anunci"
@@ -1766,6 +1766,15 @@ ca:
       you_are_receiving_this_because: "Has rebut aquesta notificació perquè segueixes a %{author_name}"
       view_listing: "Veure %{title}"
       cant_click: "No pots fer clic al botó? Aquí hi ha un enllaç per la teva conveniència:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Nou membre a %{community}"
       new_member_has_joined: "Un nou membre s'ha unit a %{community}. És possible que encara hagin de confirma la seva adreça de correu electrònic."

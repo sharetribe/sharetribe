@@ -1754,6 +1754,15 @@ ko:
       you_are_receiving_this_because: ~
       view_listing: "%{title} 보기"
       cant_click: ~
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: ~
       new_member_has_joined: "새 회원이 %{community}에 가입했습니다. 이메일 주소를 확인해야 할 수도 있습니다."

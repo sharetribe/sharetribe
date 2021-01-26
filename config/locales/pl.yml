@@ -1781,6 +1781,15 @@ pl:
       you_are_receiving_this_because: "Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_name}."
       view_listing: "Wyświetl %{title}"
       cant_click: "Nie możesz kliknąć na przycisk? Tutaj jest link dla Twojej wygody:"
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
     new_member_notification:
       subject: "Nowy użytkownik na %{community}"
       new_member_has_joined: "Nowy członek dołączył do %{community}. Jednakże jeszcze mogli nie potwierdzić adresu email."
