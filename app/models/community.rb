@@ -667,8 +667,8 @@ class Community < ApplicationRecord
 
   def email_notification_types
     valid_types = Person::EMAIL_NOTIFICATION_TYPES.dup
-    if !follow_in_use?
-      valid_types.delete "email_about_new_listings_by_followed_people"
+    unless follow_in_use?
+      valid_types.delete('email_about_new_listings_by_followed_people')
     end
     valid_types
   end

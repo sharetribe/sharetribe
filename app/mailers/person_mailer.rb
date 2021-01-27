@@ -184,6 +184,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
 
   def new_comment_to_followed_listing_notification(comment, recipient, community)
     set_up_layout_variables(recipient, community)
+    @email_type = 'email_listing_new_comment'
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @comment = comment
       mail(:to => recipient.confirmed_notification_emails_to,
@@ -196,6 +197,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
 
   def new_update_to_followed_listing_notification(listing, recipient, community)
     set_up_layout_variables(recipient, community)
+    @email_type = 'email_listing_updated'
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @listing = listing
       mail(:to => recipient.confirmed_notification_emails_to,
