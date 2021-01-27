@@ -80,11 +80,11 @@ module StripeService::API
               result = stripe_api.perform_transfer(
                 community: tx.community_id,
                 account_id: seller_account[:stripe_seller_id],
-                amount_cents: seller_gets.cents,
+                amount_cents: divisible_100(seller_gets.cents, payment[:sum].currency),
                 amount_currency: payment[:sum].currency,
                 initial_amount: payment[:subtotal].cents,
                 charge_id: payment[:stripe_charge_id],
-                metadata: {sharetribe_transaction_id: tx.id}
+                metadata: { sharetribe_transaction_id: tx.id }
               )
             end
           when :destination
@@ -94,9 +94,9 @@ module StripeService::API
               result = stripe_api.perform_payout(
                 community: tx.community_id,
                 account_id: seller_account[:stripe_seller_id],
-                amount_cents: transfer.amount,
+                amount_cents: divisible_100(transfer.amount, transfer.currency),
                 currency: transfer.currency,
-                metadata: {shretribe_order_id: tx.id}
+                metadata: { shretribe_order_id: tx.id }
               )
             end
           end
@@ -126,6 +126,13 @@ module StripeService::API
       end
 
       private
+
+      # https://stripe.com/docs/currencies#special-cases
+      def divisible_100(sum, currency)
+        return sum unless currency == 'huf'
+
+        (sum.to_f / 100).floor.to_i * 100
+      end
 
       def wrap_in_report(tx:, start:, success:, failed:)
         report = StripeService::Report.new(tx: tx)

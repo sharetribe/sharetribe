@@ -43,6 +43,7 @@ MoneyRails.configure do |config|
                              default: nil
                            }
 
+
   config.default_format = {
     sign_before_symbol: true
   }
@@ -60,6 +61,21 @@ MoneyRails.configure do |config|
     :decimal_mark        => ".",
     :thousands_separator => ",",
     :iso_numeric         => "756"
+  }
+
+  config.register_currency = {
+    :priority => 100,
+    :iso_code => "HUF",
+    :name => "Hungarian Forint",
+    :symbol => "Ft",
+    :alternate_symbols => [],
+    :subunit => "Fillér",
+    :subunit_to_unit => 100,
+    :symbol_first => false,
+    :html_entity => "",
+    :decimal_mark => ",",
+    :thousands_separator => ".",
+    :iso_numeric => "348"
   }
 
   # Russian ruble is not yet available wide enough
