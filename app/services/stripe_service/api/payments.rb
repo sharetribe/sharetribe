@@ -127,6 +127,7 @@ module StripeService::API
 
       private
 
+      # https://stripe.com/docs/currencies#special-cases
       def divisible_100(sum, currency)
         return sum unless currency == 'huf'
 
