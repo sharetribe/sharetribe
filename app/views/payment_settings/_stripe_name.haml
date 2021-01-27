@@ -55,6 +55,6 @@
         = form.hidden_field :address_country, value: presenter.stripe_seller_account[:address_country]
       - else
         = form.label :address_country, t("stripe_accounts.form_new.address_country")+"*"
-        = form.select :address_country, presenter.stripe_available_countries, {prompt: t("stripe_accounts.form_new.select_country"), disabled: @presenter.disabled_countries}, {style: "min-width: 200px"}
+        = form.select :address_country, presenter.stripe_available_countries, {prompt: t("stripe_accounts.form_new.select_country"), disabled: @presenter.community.disabled_countries}, {style: "min-width: 200px"}
 
 

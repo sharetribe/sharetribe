@@ -703,6 +703,12 @@ class Community < ApplicationRecord
     admins.count == 1 && admins.first == person
   end
 
+  def disabled_countries
+    country = []
+    country << 'HU' unless currency == 'HUF'
+    country
+  end
+
   private
 
   def initialize_settings
