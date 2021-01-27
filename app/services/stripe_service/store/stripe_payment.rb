@@ -44,7 +44,7 @@ module StripeService::Store::StripePayment
   module_function
 
   def update(opts)
-    if(opts[:data].nil?)
+    if opts[:data].nil?
       raise ArgumentError.new("No data provided")
     end
 
