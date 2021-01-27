@@ -39,7 +39,7 @@ class Person::PaymentSettingsService
 
     stripe_account_form = StripeAccountForm.new(parse_create_params(params[:stripe_account_form]))
     presenter.stripe_account_form = stripe_account_form
-    if stripe_account_form.valid?
+    if stripe_account_form.valid? && !community.disabled_countries.include?(stripe_account_form.address_country)
       account_attrs = stripe_account_form.to_hash
       account_attrs[:email] =  person.confirmed_notification_email_addresses.first || person.primary_email.try(:address)
       result = stripe_accounts_api.create(community_id: community.id, person_id: person.id, body: account_attrs)

@@ -173,12 +173,6 @@ class Person::PaymentSettingsPresenter
     @stripe_available_countries ||= CountryI18nHelper.translate_list(StripeService::Store::StripeAccount::COUNTRIES)
   end
 
-  def disabled_countries
-    country = []
-    country << 'HU' unless community.currency == 'HUF'
-    country
-  end
-
   def stripe_account_form
     @stripe_account_form ||= StripeAccountForm.new(stripe_seller_account.merge(email: person_email))
   end
