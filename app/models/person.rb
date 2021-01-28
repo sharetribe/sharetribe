@@ -192,8 +192,9 @@ class Person < ApplicationRecord
     "email_about_testimonial_reminders",
     "email_about_completed_transactions",
     "email_about_new_payments",
-    "email_about_new_listings_by_followed_people"
-
+    "email_about_new_listings_by_followed_people",
+    "email_listing_new_comment",
+    "email_listing_updated"
     # These should not yet be shown in UI, although they might be stored in DB
     # "email_when_new_friend_request",
     # "email_when_new_feedback_on_transaction",
@@ -357,7 +358,7 @@ class Person < ApplicationRecord
 
   def password2
     if new_record?
-      return form_password2 || ""
+      form_password2 || ""
     end
   end
 
