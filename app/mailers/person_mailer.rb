@@ -403,7 +403,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
 
   # A message from the community admin to a community member
   def self.community_member_email_from_admin(sender, recipient, community, email_content, email_locale, test = false)
-    if recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
+    if test || (recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale)))
       subject = I18n.t('admin.emails.new.email_subject_text',
                        :service_name => community.name(email_locale), :locale => recipient.locale)
       subject = "[TEST] #{subject}" if test
