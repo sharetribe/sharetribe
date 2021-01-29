@@ -12,6 +12,7 @@
 # Indexes
 #
 #  index_messages_on_conversation_id  (conversation_id)
+#  index_messages_on_sender_id        (sender_id)
 #
 
 class Message < ApplicationRecord
