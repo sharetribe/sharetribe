@@ -1076,7 +1076,8 @@ CREATE TABLE `messages` (
   `updated_at` datetime DEFAULT NULL,
   `conversation_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_messages_on_conversation_id` (`conversation_id`) USING BTREE
+  KEY `index_messages_on_conversation_id` (`conversation_id`) USING BTREE,
+  KEY `index_messages_on_sender_id` (`sender_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `order_permissions`;
@@ -2483,6 +2484,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20201012091009'),
 ('20201218151444'),
 ('20201221132459'),
-('20210108111345');
+('20210108111345'),
+('20210129114823');
 
 
