@@ -231,7 +231,7 @@ class Listing < ApplicationRecord
       unless follower.id == current_user.id
         if update && follower.should_receive?('email_listing_updated')
           MailCarrier.deliver_now(PersonMailer.new_update_to_followed_listing_notification(self, follower, community))
-        elsif follower.should_receive?('email_listing_new_comment')
+        elsif !update && follower.should_receive?('email_listing_new_comment')
           MailCarrier.deliver_now(PersonMailer.new_comment_to_followed_listing_notification(comments.last, follower, community))
         end
       end
