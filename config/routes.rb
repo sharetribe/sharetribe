@@ -203,7 +203,15 @@ Rails.application.routes.draw do
         end
       end
       namespace :design do
-        resources :landing_page, path: 'landing-page', only: %i[index]
+        resources :landing_page_versions, path: 'landing-page' do
+          resources :sections, controller: 'landing_page_versions/sections'
+          member do
+            get :release
+          end
+          collection do
+            get :valid_listing
+          end
+        end
 
         resources :topbar, path: 'top-bar', only: %i[index] do
           collection do

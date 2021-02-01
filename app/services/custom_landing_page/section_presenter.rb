@@ -13,6 +13,12 @@ module CustomLandingPage
       @service = service
     end
 
+    def footer_themes
+      Community::FOOTER_THEMES.keys.map do |theme|
+        OpenStruct.new(key: theme, value: I18n.t("admin2.footer.style.#{theme}"))
+      end
+    end
+
     def section_info_single_column?
       section.is_a?(LandingPageVersion::Section::InfoSingleColumn)
     end
@@ -98,6 +104,14 @@ module CustomLandingPage
       return nil if asset_id.nil?
 
       asset_resolver.call('assets', asset_id, landing_page_version.parsed_content)
+    rescue StandardError
+      nil
+    end
+
+    def category_name(index)
+      return nil unless section.categories[index]
+
+      community.categories.find_by(id: section.categories[index].category_id)&.display_name('en')
     end
 
     def category_image_url(index)

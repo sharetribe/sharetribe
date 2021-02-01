@@ -1,0 +1,33 @@
+= render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_title', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_paragraph', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_cta_button', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_background', form: form, presenter: presenter
+
+#info1ColBackgroundImageWrapper
+  = render 'admin2/design/landing_page_versions/sections/background_image', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_background_color', form: form, presenter: presenter
+
+%h3.modal-subtitle= t('admin2.landing_page.sections.category.featured_categories')
+%p.modal-text= t('admin2.landing_page.sections.category.featured_categories_info')
+.form-group
+  #categoriesList.field-titles.field-data
+    .col.field-data-image-wrapper= t('admin2.landing_page.sections.category.image_column')
+    .col-10= t('admin2.landing_page.sections.category.category_column')
+    .col
+  #footerlinks.list-group
+    - @service.section.categories.each do |category|
+      = form.fields_for :categories, category do |fields|
+        = render 'admin2/design/landing_page_versions/sections/category', f: fields, disabled: false, presenter: presenter
+
+    - new_category = @service.section.new_category
+    = form.fields_for :categories, new_category, child_index: new_category.object_id do |fields|
+      %script{type: 'text/template', id: 'new-footer-menu-link-tmpl'}
+        = render 'admin2/design/landing_page_versions/sections/category', f: fields, disabled: false, presenter: presenter
+
+  .add-new-category
+    %p.add-new-category-trigger
+      = link_to t('admin2.landing_page.sections.category.add'), '#', data: {id: new_category.object_id, template_id: '#new-footer-menu-link-tmpl'}, id: 'new-footerLink-trigger'
+
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t('admin2.landing_page.sections.category.need_at_least_3_categories'), min: 3, 'counter-name': 'item_counter'}, 'count-validation': 'min', name: 'tc3'}
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t('admin2.landing_page.sections.category.need_at_most_7_categories'), max: 7, 'counter-name': 'item_counter'}, 'count-validation': 'max', name: 'tc7'}
