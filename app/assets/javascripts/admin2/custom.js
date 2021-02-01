@@ -14,6 +14,9 @@ function showSuccess(text) {
 
 function validateCommunityEdit(community_id) {
     $("#edit_community_" + community_id).validate({
+        rules: {
+            "community[automatic_confirmation_after_days]": {max: 85}
+        },
         errorPlacement: function (error, element) {
             var hint = $(element).next('small.form-text:not(.attention)');
             if (element.attr('id') === 'community_automatic_confirmation_after_days') {
