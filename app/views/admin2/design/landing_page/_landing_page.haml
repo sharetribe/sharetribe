@@ -1,0 +1,56 @@
+.content-card-header
+  %h1.content-card-header-title Landing Page
+
+.content-card-section-container
+  = form_for [:admin, @presenter.landing_page_version], class: %i[content-card-section-form] do |form|
+    %section.content-card-section
+      %h2 Landing Page Editor
+      %p.ingress
+        Define the layout of your landing page from a set of building blocks. These ready-made sections are the result of combining the best practices of the the most successful online marketplaces. For now, the Landing Page Editor only supports one language.
+        %br/
+        %br/
+        Learn everything you need to know about the Landing Page Editor
+        = succeed "." do
+          %a.external-link{:href => "https://help.sharetribe.com/en/collections/2142373", :target => "_blank"} in the Go Help Center
+      .form-group
+        #sectionList.field-titles.field-data
+          .col.col-lg-6 Section ID
+          .col.col-lg-4 Section type
+          .col
+
+        -#.list-group
+          #sectionList.field-data
+            .col.col-lg-6 #hero
+            .col.col-lg-4 Hero
+            .actions.col
+              %span.handle-move.disabled{"aria-hidden" => "true"}
+              %span.remove.disabled{"aria-hidden" => "true"}
+              %span.edit{"aria-hidden" => "true", "data-target" => "#landingPageEditHeroModal", "data-toggle" => "modal"}
+
+        #landingSection.list-group
+          = form.fields_for :section_positions do |position_form|
+            - position = position_form.object
+            - allow_move = position.removable?
+            #sectionList.field-data
+              .col.col-lg-6= position.id
+              .col.col-lg-4= position.kind
+              .actions.col
+                - if allow_move
+                  %span.handle-move{"aria-hidden" => "true"}
+                  %span.remove{"aria-hidden" => "true", "data-target" => "#landingPageDeleteModal", "data-toggle" => "modal"}
+                %span.edit{"aria-hidden" => "true", "data-target" => "#landingPageEditInfo1ColModal", "data-toggle" => "modal"}
+
+
+        -#.list-group
+          #sectionList.field-data
+            .col.col-lg-6 #footer
+            .col.col-lg-4 Footer
+            .actions.col
+              %span.handle-move.disabled{"aria-hidden" => "true"}
+              %span.remove.disabled{"aria-hidden" => "true"}
+              %span.edit{"aria-hidden" => "true", "data-target" => "#landingPageEditFooterModal", "data-toggle" => "modal"}
+      %p.add-new-link
+        %a{"data-target" => "#landingPageAddModal", "data-toggle" => "modal", :href => "#"} + Add a new section
+    %section.content-card-terminal
+      %button.btn.btn-primary{:href => "#"} Publish changes
+      %button.btn.btn-ghost{:href => "#"} Preview landing page
