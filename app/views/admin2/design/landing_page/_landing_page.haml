@@ -31,7 +31,7 @@
           = form.fields_for :section_positions do |position_form|
             - position = position_form.object
             - allow_move = position.removable?
-            #sectionList.field-data
+            .field-data{class: "allow_edit_#{allow_move}"}
               .col.col-lg-6= position.id
               .col.col-lg-4= position.kind
               .actions.col
