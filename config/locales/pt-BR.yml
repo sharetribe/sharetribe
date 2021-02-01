@@ -67,13 +67,13 @@ pt-BR:
         community_name: "Nome do Marketplace"
         edit_community_name_description: "O nome do seu marketplace. Será mostrado a usuários e em vários outros locais."
         community_slogan: "Slogan do Marketplace"
-        community_slogan_display: ~
+        community_slogan_display: "Exibir o slogan na página inicial ou na Landing Page personalizada"
         edit_community_slogan_description: "Isso é mostrado na página inicial do marketplace para os usuários que não estejam cadastrados. %{see_how_it_looks_like}."
-        edit_community_slogan_description_hideable: ~
+        edit_community_slogan_description_hideable: "Isso é mostrado em navegadores, mecanismos de pesquisa e mídia social. Você também pode exibi-lo na página inicial do seu marketplace para os usuários que não estão logados.%{see_how_it_looks_like}."
         community_description: "Descrição do Marketplace"
         community_description_display: ~
         edit_community_description_description: "Isso é mostrado na página inicial do marketplace para os usuários que não estejam cadastrados. %{see_how_it_looks_like}."
-        edit_community_description_description_hideable: ~
+        edit_community_description_description_hideable: "Isso é mostrado em navegadores, mecanismos de pesquisa e mídia social. Você também pode exibi-lo na página inicial do seu marketplace para os usuários que não estão logados.%{see_how_it_looks_like}."
         community_search_placeholder: "Auxílio na busca de texto"
         edit_community_search_placeholder_description: "Isso é mostrado na página inicial do marketplace como um texto de espaço reservado na barra de pesquisa. %{see_how_it_looks_like}."
         private_community_homepage_content: "Conteúdo privado da página inicial do marketplace"
@@ -116,7 +116,7 @@ pt-BR:
         logo_instructions_text_with_dimensions_no_placing: "O tamanho do logotipo deve ser %{width} x %{height} px."
         logo_icon_instructions_text_with_dimensions: "Este logo quadrado será exibido quando as pessoas compartilhem seu site no Facebook, quando visualizem seu site num dispositivo móvel ou quando criem um bookmark para seu site na tela de entrada de um dispositivo móvel. O tamanho deve ser de (pelo menos) %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions_no_placing: "Este logotipo será mostrado quando as pessoas compartilharem seu site no Facebook ou quando marcarem seu site para a tela inicial de seu dispositivo móvel. As dimensões devem ser (pelo menos) %{width} x %{height} px."
-        logo_mobile_icon_instructions_text_with_dimensions: ~
+        logo_mobile_icon_instructions_text_with_dimensions: "Este logotipo quadrado será mostrado quando você realizar algumas ações como administrador e quando as pessoas adicionarem seu site aos favoritos na tela inicial de seus dispositivos móveis. As dimensões devem ser (pelo menos) %{width}x%{height} pixels."
         cover_photo_visibility: "Foto da capa apresentada na página inicial para usuários não conectados."
         cover_photo_instructions_text_with_dimensions: "A foto será redimensionada para %{width} x %{height} pixel e imagens mais altas serão cortadas no meio. %{see_how_it_looks_like}"
         we_have_you_covered: ~
@@ -223,9 +223,9 @@ pt-BR:
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários para este marketplace"
         private: "Este marketplace é privado (apenas usuários cadastrados podem ver o conteúdo)"
         require_verification_to_post_listings: "Somente usuários verificados por administrador pode postar novos anúncios"
-        allow_free_conversations: ~
+        allow_free_conversations: "Permitir que os usuários enviem mensagens entre si livremente"
         search_preferences: "Preferências de Busca"
-        search_and_location_preferences: ~
+        search_and_location_preferences: "Preferências de pesquisa e localização"
         default_search_type: "Tipo de Busca: %{select_search_type}"
         keyword_search: "Palavra-Chave da Busca"
         keyword_and_location_search: "Busca por palavras chave e localização"
@@ -234,7 +234,7 @@ pt-BR:
         km: km
         miles: milhas
         show_only_nearby: "Mostrar apenas anúncios próximos com a busca de localização"
-        allow_users_to_add_location: ~
+        allow_users_to_add_location: "Permitir que os usuários adicionem localização aos seus perfis e anúncios e mostre uma visualização do mapa na página de pesquisa"
         fuzzy_location: "Mostra um círculo ao invés da localização exata"
         listing_preferences: "Preferências de anúncios"
         transaction_preferences: "Transação - preferências"
@@ -248,7 +248,7 @@ pt-BR:
         twitter_handle: "Twitter handle (usado com o botão de tweet na página de anúncio)"
         update_settings: "Salvar configurações"
         automatically_confirmed_no_escrow: "A operação será automaticamente marcada como concluída %{days_dropdown} dias após o pagamento ter sido confirmado"
-        automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_no_escrow_stripe_info: "Para transações processadas pelo Stripe, os pagamentos aos vendedores são atrasados ​​até que o pedido seja marcado como concluído. %{learn_more}."
         buyer_transaction_fees_are_only_supported_with_stripe: "As taxas de transação do comprador são suportadas apenas com Stripe. Você não poderá usar o PayPal se configurar uma taxa de transação do comprador com Stripe."
         automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
@@ -289,7 +289,7 @@ pt-BR:
         search_by_name_email: "Pesquisar por um nome, email ou nome exibido"
         reset_search: "Mostrar todos"
         for_search_terms: "por: %{terms}"
-        this_makes_the_user_an_admin: ~
+        this_makes_the_user_an_admin: "Isso torna o usuário um administrador. Você deve notificar o usuário sobre suas responsabilidades e que ele deve revisar os termos de uso da Sharetribe. Tem certeza de que deseja continuar?"
         status_filter:
           all: ~
           selected: ~
@@ -305,7 +305,7 @@ pt-BR:
         resend: ~
         cancel: ~
         confirm: Confirmar
-        user_didnt_complete_the_signup_process: ~
+        user_didnt_complete_the_signup_process: "Este usuário se inscreveu por meio de login social, mas não concluiu o processo de inscrição. Depois de conectar uma conta de login social, os usuários ainda precisam aceitar seus termos de uso e preencher todos os campos de usuário obrigatórios."
         pending_user: ~
       new_layout:
         new_layout: "Novo layout"
@@ -317,8 +317,8 @@ pt-BR:
         new_email_templates: "Novo layout para emails"
       social_media:
         social_media: "Mídia social"
-        logo: ~
-        logo_info: ~
+        logo: "Imagem de mídia social"
+        logo_info: "Esta imagem será exibida nas redes sociais do Facebook, Twitter e LinkedIn quando alguém compartilhar seu site. Para obter os melhores resultados, deve ter uma proporção de 2:1 e um tamanho mínimo de %{width}x%{height} pixels."
         social_media_title: ~
         social_media_title_info: ~
         link_for_facebook: ~
@@ -340,7 +340,7 @@ pt-BR:
         invalid_facebook_connect_id: "ID do cliente deve conter apenas números."
         facebook_connect_secret: "Segredo do cliente Facebook (client secret)"
         invalid_facebook_connect_secret: "Segredo do cliente deve conter apenas números e letras de A a F."
-        enable_facebook_login: ~
+        enable_facebook_login: "Permitir aos usuários fazerem log in com suas contas do Facebook"
         save: "Salvar definições"
         google_connect: ~
         google_instructions_link_text: ~
@@ -415,10 +415,10 @@ pt-BR:
         google_analytics_key_info_text: "ID de rastreamento da sua conta do \"Google Analytics\"."
         google_analytics_key_info_text_with_instructions: "ID de acompanhamento da sua conta do \"Google Analytics\". %{instructions_link}."
         google_analytics_instructions_link_text: "Leia mais sobre como conectar com o \"Google Analytics\""
-        sharetribe_analytics: ~
-        sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: ~
+        sharetribe_analytics: "Análise Sharetribe"
+        sharetribe_analytics_info_text_with_instructions: "Para melhorar os serviços e suporte da Sharetribe, rastreamos a atividade dos membros do marketplace. Os dados pessoais não são coletados e essas informações não são compartilhadas fora da equipe da Sharetribe. Este rastreamento pode ser totalmente desativado. % {instruções_link}"
+        sharetribe_analytics_instructions_link_text: "Leia mais sobre as análises da Sharetribe."
+        end_user_analytics: "Permitir que Sharetribe rastreie a atividade dos membros para melhorar os serviços da Sharetribe"
         save: "Salvar configurações"
         google_tag_manager: "Gerenciador de tags do Google"
         gtm_paragraph_1: "Usar um gerenciador de tags como o GTM é uma ótima maneira de gerenciar e implantar snippets de código ou pixels de rastreamento em seu site sem ter que modificar o código."
@@ -446,9 +446,9 @@ pt-BR:
         about_page: "Sobre nós"
       default_menu_links:
         title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
+        about_link_title: Sobre
+        contact_link_title: Contato
+        invite_link_title: "Convide novos membros"
         info: ~
         display_about: ~
         display_contact: ~
@@ -459,26 +459,26 @@ pt-BR:
         invalid_post_listing_button_label: "Forneça um texto válido para o botão \"Publicar um novo anúncio\""
       transactions:
         export_all_as_csv: "Exporte tudo como CSV"
-        processing_export: ~
+        processing_export: "Processando a exportação para CSV..."
         transactions: "Ver transações"
-        search_by_title_parties: ~
-        search: ~
+        search_by_title_parties: "Pesquise pelo título da transação ou pelas partes envolvidas"
+        search: Pesquisar
         reset_search: "Mostrar todos"
         status_filter:
           all: "Todos os Status"
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
+          selected: "Status selecionados: %{count}"
+          selected_js: "Status selecionados: "
+          free: "Transação livre"
+          confirmed: Concluída
+          paid: Paga
+          canceled: Cancelada
           disputed: Disputado
-          preauthorized: ~
+          preauthorized: Pré-autorizado
           rejected: ~
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
-          refunded: ~
-          dismissed: ~
+          refunded: Reembolsada
+          dismissed: Rejeitada
         headers:
           conversation: "Criou a conversa"
           listing: Anúncio
@@ -489,7 +489,7 @@ pt-BR:
           initiated_by: Iniciante
           other_party: "Outra parte"
         status:
-          conversation: ~
+          conversation: Conversação
           free: "Mensagem livre"
           pending: Pendente
           preauthorized: "Pagamento efetuado com sucesso"
@@ -532,63 +532,63 @@ pt-BR:
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
-            refunded: ~
-            dismissed: ~
+            refunded: Reembolsada
+            dismissed: Rejeitada
         not_available: Indisponível
       conversations:
-        conversations: ~
+        conversations: Conversações
         headers:
-          started_from: ~
-          status: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
-        participants: ~
-        profile: ~
-        search_by_keyword: ~
-        search: ~
+          started_from: "Iniciou em"
+          status: Status
+          started: Iniciada
+          last_activity: "Última atividade"
+          initiated_by: Iniciante
+          other_party: Vendedor
+        participants: "Conversação:%{starter} com %{author}"
+        profile: "Perfil de %{author}"
+        search_by_keyword: "Pesquise um nome, email ou palavra-chave"
+        search: Pesquisar
         reset_search: "Mostrar todos"
-        for_keyword: ~
+        for_keyword: "Por: <b>%{keyword}</b>"
       testimonials:
-        testimonials: ~
-        no_testimonials_found: ~
+        testimonials: Avaliações
+        no_testimonials_found: "Nenhuma avaliação foi encontrada"
         displaying_xx_reviews: ~
         search_keyword: ~
         search: ~
         reset_search: "Mostrar todos"
         for_keyword: ~
         headers:
-          transaction: ~
-          author: ~
-          receiver: ~
-          status: ~
+          transaction: Transação
+          author: Anunciante
+          receiver: Destinatário
+          status: Status
           grade: ~
-          text: ~
+          text: Texto
         status:
-          waiting: ~
-          skipped: ~
-          published: ~
-          blocked: ~
+          waiting: "Aguardando pela avaliação"
+          skipped: Ignorado
+          published: Publicado
+          blocked: Bloqueado
         status_filter:
           selected: ~
           all: ~
           published: ~
           positive: ~
           negative: ~
-          skipped: ~
+          skipped: Ignorado
           waiting: ~
           blocked: ~
           selected_js: ~
         form:
-          review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
+          review_text: "Texto de avaliação"
+          save: Salvar
+          cancel: Cancelar
+          delete_review: "Deletar avaliação"
           block_review: ~
-          confirm_modify: ~
-          deleting_info: ~
-          blocking_info: ~
+          confirm_modify: "Tem certeza que deseja modificar / excluir esta avaliação? Depois de editar / excluí-la não é possível recuperar nenhum dos dados antigos."
+          deleting_info: "A exclusão de uma avaliação permite que seu autor deixe outra para a mesma transação."
+          blocking_info: "Bloquear a avaliação após a exclusão evita que seu autor deixe outra para a mesma transação."
           unskip: ~
           if_you_unskip_the_review: ~
           they_will_not_be_notified_automatically: ~
@@ -605,7 +605,7 @@ pt-BR:
           date_sent: ~
       listings:
         listings: Anúncios
-        search_by_title_author_category: "Buscar um anúncio por título"
+        search_by_title_author_category: "Buscar um anúncio por título, anunciante ou nome da categoria"
         search: Buscar
         reset_search: "Mostrar todos"
         export_all_as_csv: ~
@@ -620,7 +620,7 @@ pt-BR:
           approval_rejected: ~
         headers:
           title: Título
-          author: ~
+          author: Anunciante
           created: "Criado em"
           updated: "Atualizado em"
           category: Categoria
@@ -637,10 +637,10 @@ pt-BR:
           reject: ~
           cancel: ~
       user_fields:
-        user_fields: ~
+        user_fields: "Campos do usuário"
       footer:
-        footer: ~
-        offer_pro: ~
+        footer: Rodapé
+        offer_pro: "Configure e remova todas as marcas da Sharetribe do rodapé de seu marketplace por %{upgrade_pro_plan_link}."
         upgrade_plan_link: ~
         menu_links: ~
         language: ~
@@ -664,12 +664,12 @@ pt-BR:
           url: ~
       domain:
         domain: ~
-        marketplace_domain: ~
+        marketplace_domain: "Domínio do marketplace"
         offer_pro: ~
         upgrade_pro_plan_link: ~
         your_marketplace_address_is: ~
         would_you_like_to_change_address: ~
-        contact_us: ~
+        contact_us: Contato
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
         change_your_sharetribe_domain: "Altere seu domínio da Sharetribe"
@@ -713,7 +713,7 @@ pt-BR:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_help_center: ~
+        info_2_help_center: "Artigo da Central de Ajuda"
         info_3: ~
         info_4: ~
         editor_title: ~
@@ -722,12 +722,12 @@ pt-BR:
         set_live: ~
         add_new_section: ~
         select_section_type: ~
-        this_version_is_not_released: ~
-        latest_version_released: ~
-        check_it_out: ~
+        this_version_is_not_released: "Você precisa fazer alterações para ativar uma nova versão da sua landing page"
+        latest_version_released: "Sua landing page foi atualizada! %{link}!"
+        check_it_out: Confira
         form:
           save: ~
-          cancel: ~
+          cancel: Cancelar
         sections:
           identifier: ~
           kind: ~
@@ -766,11 +766,11 @@ pt-BR:
     landing_page_versions:
       sections:
         content:
-          title: ~
+          title: "Conteúdo da seção"
         hero:
           hero_title: ~
           hero_description: ~
-          basic_details_tab: ~
+          basic_details_tab: "Guia 'Detalhes básicos'"
           cta_button: "Sessão call-to-action"
           cta_button_info: "Você não precisa editar o texto do botão. Você pode apenas deixar este campo vazio. Por padrão, o texto é \"Pesquisar\" para marketplaces públicos e \"Inscrever-se\" para marketplaces privados."
           button_type:
@@ -791,10 +791,10 @@ pt-BR:
           cta_enabled: ~
           cta_text: ~
           cta_url: ~
-          text_placeholder: ~
-          url_placeholder: ~
+          text_placeholder: Aqui!
+          url_placeholder: "https://www.exemplo.com"
         background_selector:
-          title: ~
+          title: Fundo
         background_image_overlay:
           background_image: ~
           background_image_info: ~
@@ -829,7 +829,7 @@ pt-BR:
           current_image: ~
           file_not_selected: ~
           image: ~
-          image_required: ~
+          image_required: "Você deve adicionar uma imagem a esta categoria"
           select_category: ~
         locations:
           add: ~
@@ -838,40 +838,40 @@ pt-BR:
           image: ~
           include_title: ~
           info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
+          need_at_least_3_locations: "Você deve ter no mínimo três localizações nesta seção"
+          need_at_most_7_locations: "Você pode ter no máximo setenta localizações nesta seção"
         location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
+          add_another_image: "Adicionar outra imagem"
+          location: Localização
+          current_image: "Imagem atual: %{filename}"
+          file_not_selected: "Não selecionado"
+          image: Imagem
+          image_required: "Você deve adicionar uma imagem a este local"
+          title: Titulo
+          title_placeholder: "Texto de localização"
+          url: URL
+          url_placeholder: "URL de localização"
         multi_column:
-          main_title: ~
-          column_header: ~
-          column_title: ~
-          column_icon_info: ~
+          main_title: "Título principal"
+          column_header: "Coluna %{index}"
+          column_title: "Título da coluna %{index}"
+          column_icon_info: "Adicionar ícones requer uma ação manual da equipe da Sharetribe. Por favor,%{link} para selecionar o ícone de sua escolha e compartilhá-lo com o suporte do Sharetribe."
           column_icon_info_link: "Siga as instruções neste artigo"
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
-          column_button_url: ~
+          column_icon: "Ícone da coluna %{index}"
+          column_paragraph: "Parágrafo da coluna %{index}"
+          column_button: "Botão da coluna %{index}"
+          column_button_text: "Texto do botão"
+          column_button_url: "https://www.exemplo.com"
         listings:
-          listings_to_feature: ~
-          you_need_to_add_the_listing_ids: ~
+          listings_to_feature: "Anúncios para apresentar"
+          you_need_to_add_the_listing_ids: "Você precisa adicionar os IDs dos anúncios que deseja apresentar nesta seção. Para encontrar o ID de um anùncio, basta ir para a página do anúncio e olhar o URL dele. O ID do anùncio é o número que vem logo após o URL principal. No exemplo https://www.example.com/listings/123456-listing-title, o ID do anúncio seria 123456."
         video:
-          text: ~
-          autoplay: ~
-          autoplay_no: ~
-          autoplay_muted: ~
-          info: ~
-          youtube_video_id_info: ~
+          text: Texto
+          autoplay: "Opções da reprodução automática"
+          autoplay_no: "Sem reprodução automática"
+          autoplay_muted: "Reprodução automática silenciada"
+          info: "Este texto será exibido se você selecionar a opção \\ \"Sem reprodução automática \\\" ou quando o vídeo for pausado."
+          youtube_video_id_info: "Você pode obter o ID do vídeo no URL do vídeo. Normalmente é a última parte do URL. Por exemplo, se o URL do vídeo for https://www.youtube.com/watch?v=UffchBUUIoI, o ID seria 'UffchBUUIoI'"
     custom_fields:
       edit:
         edit_listing_field: "Alterar anúncio '%{field_name}'"
@@ -884,7 +884,7 @@ pt-BR:
       edit_location:
         edit_location_field: "Editar campo 'Lugar'"
         this_field_is_required: "Este campo é obrigatório"
-        the_location_feature_can_be_enabled: ~
+        the_location_feature_can_be_enabled: "O recurso de localização pode ser habilitado na seção %{link} nas configurações do seu marketplace."
       edit_expiration:
         edit_expiration_field: "Editar o campo do anúncio 'Data de Expiração'"
         enable: "Habilitar a data de expiração"
@@ -926,32 +926,32 @@ pt-BR:
         dropdown: "Lista de opções"
         checkbox_group: "Caixa de verificação"
         date: Data
-        file: ~
-        location: ~
+        file: Arquivo
+        location: Localização
     person_custom_fields:
-      saving_failed: ~
+      saving_failed: "Falha ao salvar o campo do usuário"
       index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        signup: ~
-        public: ~
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        user_fields: "Campos do usuário"
+        field_title: "Título do campo"
+        field_type: "Tipo de campo"
+        signup: "Criar conta"
+        public: Público(a)
+        add_new_field: "Adicionar novo campo:"
+        save: Salvar
+        cancel: Cancelar
+        minimum_value: Mínimo
+        maximum_value: Máximo
+        allow_decimals: "Permitir decimais"
+        add_option: "Adicionar opção"
       new:
-        new_user_field: ~
+        new_user_field: "Novo campo de usuário"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
+          this_field_is_required: "Torne obrigatório o preenchimento deste campo ao se inscrever no marketplace"
+          this_field_is_required_checkbox: "Torne obrigatório o preenchimento deste campo ao se inscrever no marketplace (o usuário deve selecionar pelo menos uma opção)"
+          this_field_is_public: "Mostrar este campo na página de perfil público"
       edit:
-        edit_user_field: ~
+        edit_user_field: "Editar o campo de usuário '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Envie e-mail aos usuários"
@@ -1071,7 +1071,7 @@ pt-BR:
         night: "Por noite"
         week: "Por semana"
         month: "Por mês"
-        unit: ~
+        unit: "Por unidade"
       can_not_find: "Não pode ser definido um tipo de ordem com o id: %{id}"
       add_custom_unit: "+ Adicione uma unidade de preço personalizada"
       delete_custom_unit: apagar
@@ -1201,26 +1201,26 @@ pt-BR:
         request: Propor
         offer: Requisição
         inquiry: Contato
-        book: ~
+        book: Reserva
     community_transactions:
       show:
-        transaction_for: ~
-        status: ~
-        next_step: ~
-        waiting_for_provider_accept_or_reject: ~
-        waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
-        delivery: ~
-        shipping_to: ~
-        buyer_pays: ~
-        marketplace_collects: ~
-        buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
-        admin_info_text: ~
-        manage_reviews: ~
-        you_should_investigate: ~
+        transaction_for: "Transação #%{transaction_id} de %{link}"
+        status: "Status:"
+        next_step: "Próxima Etapa:"
+        waiting_for_provider_accept_or_reject: "Esperando que %{provider} aceite ou rejeite o pedido."
+        waiting_for_fulfill_and_complete: "Aguardando %{provider}  atender o pedido de %{listing_title} e por%{buyer} marcar o pedido como concluído."
+        buyer: "Comprador:"
+        provider: "Vendedor:"
+        delivery: "Método de entrega:"
+        shipping_to: "Frete para %{address}"
+        buyer_pays: "O comprador paga:"
+        marketplace_collects: "%{service_name} coleta:"
+        buyer_service_fee_label: "Comissão do comprador:"
+        service_fee_label: "Comissão do vendedor:"
+        provider_receives: "O vendedor recebe:"
+        admin_info_text: "Como administrador de%{service_name}, você pode realizar algumas ações para avançar esta transação:"
+        manage_reviews: "Gerenciar as avaliações"
+        you_should_investigate: "Você deve investigar a situação discutindo com ambas as partes e decidir reembolsar ou encerrar a disputa. %{learn_more_link}"
         learn_more: "Saber mais."
   common:
     edit_page: "Editar página"
@@ -1306,7 +1306,7 @@ pt-BR:
       quantity_label: "Quantidade:"
       sum_label: "Subtotal:"
       service_fee_label: "taxa de %{service_name}:"
-      buyer_service_fee_label: ~
+      buyer_service_fee_label: "%{service_name} taxa de serviço:"
       you_will_get_label: "Você receberá:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
@@ -1352,7 +1352,7 @@ pt-BR:
     message:
       accepted_request: "aceitou o pedido"
       received_payment: "O pedido foi aceito, pagamento de %{sum} recebido"
-      received_payment_wo_sum: ~
+      received_payment_wo_sum: "aceitou o pedido, recebeu o pagamento"
       accepted_offer: "aceitou a oferta"
       rejected_request: "rejeitou o pedido"
       rejected_offer: "rejeitou a oferta"
@@ -1362,10 +1362,10 @@ pt-BR:
       canceled_offer: "cancelou a oferta"
       paid: "pago %{sum}"
       payment_preauthorized: "Pagamento autorizado: %{sum}"
-      payment_preauthorized_wo_sum: ~
+      payment_preauthorized_wo_sum: "Pagamento autorizado"
       stripe:
         held_payment: "O pedido foi aceito.O pagamento para %{sum} foi retido por %{service_name} até que o pedido esteja setado como concluído."
-        held_payment_wo_sum: ~
+        held_payment_wo_sum: "O pedido foi aceito. O pagamento está sendo retido por %{service_name} até que o pedido seja marcado como concluído."
         confirmed_request: "O pedido foi setado como concluído. O pagamento foi transferido para a conta bancária de %{author_name} ou será transferido em breve."
       canceled_the_order: "Pedido disputado. A equipe %{service_name} foi notificada."
       marked_as_refunded: "Marcado como reembolsado"
@@ -1646,7 +1646,7 @@ pt-BR:
     payment_receipt_to_seller_v2:
       headline: "Você recebeu %{payment_sum} por %{listing_link} de %{payer_name}."
       main_text_stripe: "O dinheiro está retido por %{service_name} até que o pedido seja marcado como concluído."
-      price_breakdown: ~
+      price_breakdown: "Detalhamento do preço"
     payment_receipt_to_payer:
       receipt_of_payment: "Recibo de pagamento"
       you_have_made_new_payment: "Você recebeu <b>%{payment_sum}</b>  por <b> %{listing_title}</b>  de %{recipient_full_name}. Aqui está o recibo do pagamento."
@@ -1767,14 +1767,14 @@ pt-BR:
       view_listing: "Veja %{title}"
       cant_click: "Não consegue clicar no botão? Aqui está um link para acesso:"
     new_ident_notification:
-      subject: ~
-      h1_body: ~
-      p_line1: ~
-      p_line2: ~
-      p_line3: ~
-      p_line4: ~
-      p_line5: ~
-      button: ~
+      subject: "Seu endereço do marketplace foi alterado."
+      h1_body: "O endereço URL de %{community_name} foi alterado."
+      p_line1: "Seu endereço do marketplace foi alterado."
+      p_line2: "URL antigo:%{link}"
+      p_line3: "Novo URL: %{link}"
+      p_line4: "Novo URL do painel de administração: %{link}"
+      p_line5: "Você pode fazer log in no seu marketplace com a mesma conta de antes."
+      button: "Vá para %{text}"
     new_member_notification:
       subject: "Novo membro em %{community}"
       new_member_has_joined: "Um novo membro se juntou ao %{community}. Eles ainda precisam confirmar o seu endereço de e-mail."
@@ -1879,8 +1879,8 @@ pt-BR:
       reject_authorization_error: "Ocorreu um erro ao tentar rejeitar pagamento pré-autorizado Paypal. Por favor, tente novamente."
     stripe:
       generic_error: "Um erro ocorreu durante o processo de pagamento. Não foi possível finalizar seu pagamento Stripe."
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      accept_authorization_error: "Ocorreu um erro ao tentar aceitar o pagamento pré-autorizado da Stripe. Por favor, tente novamente."
+      reject_authorization_error: "Ocorreu um erro ao tentar rejeitar o pagamento pré-autorizado da Stripe. Por favor, tente novamente."
       card_declined: "Seu cartão foi recusado"
       expired_card: "O pagamento falhou porque este cartão expirou"
   error_pages:
@@ -1922,9 +1922,9 @@ pt-BR:
       on_or_after: "deve ser igual ou depois %{restriction}"
       positive_number: "Insira um número."
       from_must_be_less_than_till: "\"Data de início\" deve ser menor do que \"Data de término\""
-      section_with_this_id_already_exists: ~
-      listing_with_this_id_does_not_exist: ~
-      presence: ~
+      section_with_this_id_already_exists: "Este nome de seção já está em uso. Por favor, escolha outro nome."
+      listing_with_this_id_does_not_exist: "Este ID de anùncio não está disponível em seu marketplace. Talvez você tenha cometido um erro de digitação? Por favor, verifique e tente novamente."
+      presence: "Não pode ficar em branco"
       username_is_invalid: "Este nome de usuário é inválido ou indisponível"
       domain_name_is_invalid: "Este nome de domínio está inválido ou indisponível"
       only_supported_variables: "Certifique-se de adicionar somente variáveis suportadas"
@@ -2232,8 +2232,8 @@ pt-BR:
       listing_updated_availability_management_disabled: "Lista atualizada com êxito. Gerenciamento de disponibilidade desativado."
       listing_deleted: "Anúncio deletado"
       only_kassi_administrators_can_access_this_area: "Por favor, entre com uma conta de administrador para acessar esta área."
-      only_listing_author_can_close_a_listing: "Somente o autor do anúncio pode fechar o mesmo"
-      only_listing_author_can_edit_a_listing: "Somente o autor do anúncio pode editar o mesmo"
+      only_listing_author_can_close_a_listing: "Somente o anunciante pode fechar o anúncio"
+      only_listing_author_can_edit_a_listing: "Somente o anunciante pode editar o anúncio"
       payment_successful: "Pagamento efetuado com sucesso"
       payment_canceled: "Pagamento cancelado"
       error_in_payment: "Erro no pagamento. Se você não completar o pagamento, no entanto, tente novamente. Se você fez, por favor, envie-nos um feedback."
@@ -2519,7 +2519,7 @@ pt-BR:
       booking_date: "Data da reserva"
       select_one: "Selecione um"
       start_time: "Hora de início"
-      end_time: ~
+      end_time: "Data de término"
       marketplace_fees_may_apply: ~
     new:
       listing: anúncio
@@ -2541,9 +2541,9 @@ pt-BR:
       night: "Número de noites:"
       week: "Número de semanas:"
       month: "Número de meses:"
-      unit: ~
+      unit: "Quantidade de unidades:"
       custom: "Quantidade:"
-      person: ~
+      person: "Número de pessoas:"
     quantity_placeholder: Quantidade
     please_comment: Comentar
     reply_link:
@@ -2594,8 +2594,8 @@ pt-BR:
       night: noite
       week: semana
       month: mês
-      unit: ~
-      person: ~
+      unit: Unidade
+      person: pessoa
     verification_required:
       verification_required: "Verificação necessária"
   listing_conversations:
@@ -2768,7 +2768,7 @@ pt-BR:
       create_account_with_provider: ~
       OR: OU
       signup_with_email: "Registre-se com seu e-mail"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Este campo ficará visível publicamente)"
     profile_feedback:
       grade: "nota :"
       and_gave_following_feedback: "deu a opinião seguinte"
@@ -2776,7 +2776,7 @@ pt-BR:
       no_image: "Sem imagem"
       manage_listings: "Gerencie todos os meus anúncios"
     show:
-      contact: "Mande uma mensagem %{person}"
+      contact: "Mande uma mensagem para %{person}"
       about_me: "Sobre mim:"
       add_description: "Fale sobre você"
       add_location: "Adicionar local"
@@ -2867,7 +2867,7 @@ pt-BR:
       delete_personal_information: "Se você excluir sua conta, suas informações pessoais (nome, número de telefone, endereço, e-mail, foto do perfil, etc.) serão excluídas permanentemente e não poderão ser recuperadas. Todos os anúncios que você criou serão removidos. Você não será capaz de reativar a sua conta."
       delete_information_others_involved: "Informações que envolvem outros usuários (conversas com outras pessoas, transações que você fez, avaliações que você tenha feito dos outros, etc) não serão removidas quando você excluir sua conta. No entanto, seu nome não será mais exibido junto a essas informações."
       unfinished_transactions: "Sua conta não pode ser excluída porque você tem transações em andamento. Por favor, conclua todas as transações antes de excluir a sua conta."
-      only_admin: ~
+      only_admin: "Sua conta não pode ser excluída porque você é o único administrador do marketplace."
       new_password: "Nova senha"
       save: Salvar
       these_fields_are_shown_only_to_you: "Seu nome de usuário é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."
@@ -2982,7 +2982,7 @@ pt-BR:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d de %b de %Y"
-    first_day_of_week: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Domingo
@@ -3081,15 +3081,21 @@ pt-BR:
       booked_nights_label:
         one: "Noite reservada:"
         other: "Noites reservadas:"
+      booked_hours_label:
+        one: "Horário reservado:"
+        other: "Horários reservados:"
       price_per_day: "Preço por dia:"
       price_per_night: "Preço por noite:"
       price_per_hour: "Preço por hora:"
-      price_per_unit: ~
+      price_per_unit: "Preço por unidade:"
       quantity: "Quantidade:"
       subtotal: "Sub-total:"
       shipping-price: "Envio:"
       stripe-fee: "Taxa Stripe (estimada):"
-      start_end_time: ~
+      duration_in_hours:
+        one: "(1 hora)"
+        other: "(%{count} horas)"
+      start_end_time: "%{end_time} às %{start_time}"
     price_per_quantity: "Preço por %{unit_type}:"
     price: "Preço:"
     quantity: "Quantidade: %{quantity}"
@@ -3106,8 +3112,8 @@ pt-BR:
           something_went_wrong: "Não é possível exibir informações de disponibilidade. Tente recarregar a página."
           saving_failed: "Não é possível salvar as alterações de disponibilidade. Tente recarregar a página."
         working_hours:
-          required: ~
-          overlaps: ~
+          required: obrigatório
+          overlaps: sobreposições
           covers: ~
       pricing_units:
         piece: fração
@@ -3122,12 +3128,12 @@ pt-BR:
       confirm_discarding_unsaved_availability_changes_question: "Tem certeza de que deseja descartar suas alterações?"
       edit_listing_availability: "Editar a disponibilidade do anúncio"
       working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
+        default_schedule: "Programação padrão"
+        i_am_available_on: "Estou disponível em ..."
+        start_time: "Hora de início"
         end_time: "Data de término"
-        add_another_time_slot: ~
-        save: ~
+        add_another_time_slot: "+ Adicionar outro horário"
+        save: Save
     no_listings:
       sorry: "Lamentamos, mas não foi possível encontrar nenhum anúncio para a sua pesquisa."
       try_other_search_terms: "Que tal tentar outras expressões em sua busca?"
@@ -3190,6 +3196,8 @@ pt-BR:
       multi_page_html: "Visualização dos %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> por um total de <b>%{count}</b>\n"
     person:
       community_members_entries_info:
+        single_page:
+          zero: "Nenhum %{model} foi encontrado."
         multi_page: ~
         multi_page_html: ~
   stripe_accounts:
@@ -3218,19 +3226,19 @@ pt-BR:
       need_info: "Precisamos de alguma informação para poder enviar-lhe o seu dinheiro."
       select_country: "Selecione o país..."
       legal_name: "Nome legal"
-      first_name: ~
-      last_name: ~
-      first_name_kana: ~
-      last_name_kana: ~
-      first_name_kanji: ~
-      last_name_kanji: ~
+      first_name: "Primeiro nome"
+      last_name: "Último nome"
+      first_name_kana: "Primeiro nome Kana"
+      last_name_kana: "Último nome Kana"
+      first_name_kanji: "Primeiro nome Kanji"
+      last_name_kanji: "Último nome Kanji"
       country: País
       birth_date: "Data de nascimento"
       ssn_last_4: ~
       personal_id_number: "Número ID pessoal"
       address_country: País
       address_state: Estado
-      address_province: ~
+      address_province: Provincia
       address_city: Cidade
       address_postal_code: CEP
       address_line1: Endereço
@@ -3239,12 +3247,12 @@ pt-BR:
       save_details: "Salvar os detalhes"
       edit: "Editar os detalhes"
       cancel: Cancelar
-      gender: ~
-      phone_number: ~
+      gender: Gênero
+      phone_number: "Número de telefone"
       phone_info_text: "O número do telefone deve iniciar com o código do país, por exemplo"
-      address_kana_postal_code: ~
-      address_kana_state: ~
-      address_kana_city: ~
+      address_kana_postal_code: "CEP Kana"
+      address_kana_state: "Estado kana"
+      address_kana_city: "Cidade Kana"
       address_kana_town: ~
       address_kana_line1: ~
       address_kanji_postal_code: ~
@@ -3252,15 +3260,15 @@ pt-BR:
       address_kanji_city: ~
       address_kanji_town: ~
       address_kanji_line1: ~
-      male: ~
-      female: ~
+      male: masculino
+      female: feminimo
     form_bank:
       bank_account_number: "Número da conta bancária"
       bank_routing_number: "Número de roteamento"
       bank_routing_1: "Código do banco"
       bank_routing_2: "Código da agência"
       bank_currency: "Moeda da conta bancária"
-      update_also_bank_account: ~
+      update_also_bank_account: "Atualize também a conta bancária"
       bank_account_same_country: "Usar uma conta bancária localizada no meu país de residência"
       bank_country: "País da conta bancária"
       bank_holder_name: "Nome do proprietário da conta bancária"
@@ -3316,30 +3324,30 @@ pt-BR:
       search_results: ~
       search_results_for: "Resultados da pesquisa de: %{placeholder1} em %{placeholder2}"
       listing_description: ~
-      listing_description_without_price: ~
+      listing_description_without_price: "%{title} de %{author} em %{marketplace}"
       category_description: ~
       profile_title: ~
       profile_description: ~
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
+        id: "Nome exclusivo da seção"
+        title: Título
+        paragraph: Parágrafo
+        button_title: Texto
+        button_path: URL
+        button_path_string: URL
+        background_image: "Imagem de fundo"
+        background_image_variation: "Variação da imagem de fundo."
+        background_color: "Cor de fundo"
+        background_color_string: "Cor de fundo"
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: "Anúncio 1 ID"
+        listing_2_id: "Anúncio 2 ID"
+        listing_3_id: "Anúncio 3 ID"
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Texto
+        youtube_video_id: "ID do vídeo do youtube"
       landing_page_version/section/hero:
         cta_button_text: Texto
         cta_button_url: URL
