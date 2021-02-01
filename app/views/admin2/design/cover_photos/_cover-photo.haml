@@ -4,7 +4,7 @@
   = form.file_field :cover_photo, accept: 'image/*', class: %i[change-file], disabled: @clp_enabled
 %small#coverphoto-help.form-text
   - if @clp_enabled
-    = t('admin2.cover_photos.cover_photo_info_text_disabled', href: admin2_design_landing_page_index_path).html_safe
+    = t('admin2.cover_photos.cover_photo_info_text_disabled', href: admin2_design_landing_page_versions_path).html_safe
   - else
     = t('admin2.cover_photos.cover_photo_info_text')
 

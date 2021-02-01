@@ -1,0 +1,17 @@
+= render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_title', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_paragraph', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_cta_button', form: form, presenter: presenter
+
+%h3.modal-subtitle= t('admin2.landing_page.sections.listing.title')
+%p.modal-text
+  = t('admin2.landing_page.sections.listing.info').html_safe
+.form-group
+  = form.label :listing_1_id, t('admin2.landing_page.sections.listing.listing_1')
+  = form.text_field :listing_1_id, class: %i[form-control], valid_listing: true, data: {url: valid_listing_admin2_design_landing_page_versions_path}
+.form-group
+  = form.label :listing_2_id, t('admin2.landing_page.sections.listing.listing_2')
+  = form.text_field :listing_2_id, class: %i[form-control], valid_listing: true, data: {url: valid_listing_admin2_design_landing_page_versions_path}
+.form-group
+  = form.label :listing_3_id, t('admin2.landing_page.sections.listing.listing_3')
+  = form.text_field :listing_3_id, class: %i[form-control], valid_listing: true, data: {url: valid_listing_admin2_design_landing_page_versions_path}

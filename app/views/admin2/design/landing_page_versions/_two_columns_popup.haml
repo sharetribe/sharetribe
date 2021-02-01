@@ -1,0 +1,29 @@
+= form.hidden_field :multi_columns
+
+= render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_title', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_cta_button', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_background', form: form, presenter: presenter
+#info1ColBackgroundImageWrapper
+  = render 'admin2/design/landing_page_versions/sections/background_image', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_background_color', form: form, presenter: presenter
+
+- form.object.columns.each_with_index do |column, index|
+  %h3.modal-subtitle= t('admin2.landing_page.sections.multi_column.column', index: index + 1)
+  .form-group
+    = label_tag "section[columns][#{index}][icon]", t('admin2.landing_page.sections.multi_column.column_icon', index: index + 1)
+    = text_field_tag "section[columns][#{index}][icon]", column['icon'], class: %i[form-control]
+    %small.form-text
+      = t('admin2.landing_page.sections.multi_column.info', url: 'https://help.sharetribe.com/en/articles/3597471').html_safe
+  .form-group
+    = label_tag "section[columns][#{index}][title]", t('admin2.landing_page.sections.multi_column.column_title', index: index + 1)
+    = text_field_tag "section[columns][#{index}][title]", column['title'], class: %i[form-control]
+  .form-group
+    = label_tag "section[columns][#{index}][paragraph]", t('admin2.landing_page.sections.multi_column.column_paragraph', index: index + 1)
+    = text_area_tag "section[columns][#{index}][paragraph]", column['paragraph'], class: %i[form-control]
+  .form-group
+    = label_tag "section[columns][#{index}][button_title]", t('admin2.landing_page.sections.multi_column.column_button_label', index: index + 1)
+    = text_field_tag "section[columns][#{index}][button_title]", column['button_title'], class: %i[form-control]
+  .form-group
+    = label_tag "section[columns][#{index}][button_path][value]", t('admin2.landing_page.sections.multi_column.column_button_target', index: index + 1)
+    = text_field_tag "section[columns][#{index}][button_path][value]", column['button_path']&.[]('value'), url: true, class: %i[form-control]
