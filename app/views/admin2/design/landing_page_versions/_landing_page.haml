@@ -38,7 +38,8 @@
                 - if allow_move
                   %span.handle-move{"aria-hidden" => "true"}
                   %span.remove{"aria-hidden" => "true", "data-target" => "#landingPageDeleteModal", "data-toggle" => "modal"}
-                %span.edit{"aria-hidden" => "true", "data-target" => "#landingPageEditInfo1ColModal", "data-toggle" => "modal"}
+                = link_to edit_admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), remote: true do
+                  %span.edit{"aria-hidden" => "true", "data-target" => "#landingPageEditInfo1ColModal", "data-toggle" => "modal"}
 
 
         -#.list-group
@@ -54,3 +55,6 @@
     %section.content-card-terminal
       %button.btn.btn-primary{:href => "#"} Publish changes
       %button.btn.btn-ghost{:href => "#"} Preview landing page
+
+- content_for :popup_layout do
+  = render 'admin2/design/landing_page_versions/new_popup', presenter: @presenter

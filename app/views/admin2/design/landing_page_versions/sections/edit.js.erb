@@ -1,0 +1,11 @@
+var popup = $('#landingPageEditModal');
+if (popup.length) {
+    popup.remove();
+}
+
+$('#section_block').empty();
+
+$('body').append('<%= j render 'admin2/design/landing_page_versions/edit_popup', presenter: @presenter %>');
+$('#landingPageEditModal').modal('show');
+
+initLandingPage();

@@ -1,5 +1,5 @@
 module Admin2::Design
-  class LandingPageController < Admin2::AdminBaseController
+  class LandingPageVersionsController < Admin2::AdminBaseController
     before_action :set_service
     before_action :ensure_plan
 

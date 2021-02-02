@@ -1,0 +1,52 @@
+%p.modal-text
+  Set the background image for the Hero section. The slogan and description for the Hero are set from the
+  %a{:href => "/pages/essentials.php"} "Essentials"
+  page.
+.form-group
+  %label Unique Section ID
+  %input#heroColSectionID.form-control{"aria-describedby" => "heroColSectionID", :disabled => "disabled", :type => "text", :value => "#hero"}/
+.form-group
+  %label{:for => "heroBackgroundImage"} Background image
+  .custom-file
+    %input{:accept => "image/*", :name => "heroBackgroundImage", :type => "file"}/
+  %small#heroBackgroundImage-help.form-text The will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels.
+  %small#heroBackgroundImage-filename.form-text
+    The current background image filename is
+    = succeed "." do
+      %code my-great-background.jpg
+.form-group
+  %label{:for => "colorOverlayBackgroundImage"} Overlay for the background image
+  .form-radiobutton-wrapper
+    .form-radiobutton.form-check-inline
+      %input#Dark.form-check-input{:checked => "checked", :name => "colorOverlayBackgroundImage", :type => "radio", :value => "Dark"}/
+      %label.form-check-label{:for => "Dark"} Dark overlay
+    .form-radiobutton.form-check-inline
+      %input#Light.form-check-input{:name => "colorOverlayBackgroundImage", :type => "radio", :value => "Light"}/
+      %label.form-check-label{:for => "Light"} Light overlay
+    .form-radiobutton.form-check-inline
+      %input#Transparent.form-check-input{:name => "colorOverlayBackgroundImage", :type => "radio", :value => "Transparent"}/
+      %label.form-check-label{:for => "Transparent"} Transparent overlay
+.form-group
+  %label{:for => "heroCTAOption"} Hero call-to-action
+  .form-radiobutton-wrapper
+    .form-radiobutton.form-check-inline
+      %input#heroCTAOptionDefault.form-check-input{:checked => "checked", :name => "heroCTAOption", :type => "radio", :value => "Default"}/
+      %label.form-check-label{:for => "heroCTAOptionDefault"} Default action
+      %br/
+    .form-radiobutton.form-check-inline
+      %input#heroCTAOptionButton.form-check-input{:name => "heroCTAOption", :type => "radio", :value => "Button"}/
+      %label.form-check-label{:for => "heroCTAOptionButton"} Button
+    .form-radiobutton.form-check-inline
+      %input#heroCTAOptionNone.form-check-input{:name => "heroCTAOption", :type => "radio", :value => "None"}/
+      %label.form-check-label{:for => "heroCTAOptionNone"} None
+#heroCTADefaultTextWrapper.form-group
+  %label Text
+  %input#heroCTADefaultText.form-control{"aria-describedby" => "heroCTADefaultText", :type => "text", :value => ""}/
+  %small#heroCTADefaultText-help.form-text By default the text and action is "Search" for public marketplaces and "Sign up" for private marketplaces. You don't need to change the texts for the default actions. You can leave this field empty.
+#heroCTAButtonLabelURLWrapper
+  .form-group
+    %label Call-to-action button label
+    %input#heroCTAButtonLabel.form-control{"aria-describedby" => "heroCTAButtonLabel", :placeholder => "Learn more", :type => "text", :value => ""}/
+  .form-group
+    %label Call-to-action target URL
+    %input#heroCTAButtonURL.form-control{"aria-describedby" => "heroCTAButtonURL", :placeholder => "https://www.example.com", :type => "text", :value => ""}/

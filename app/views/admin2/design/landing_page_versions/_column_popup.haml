@@ -1,0 +1,64 @@
+.form-group
+  = form.label :id, 'Unique Section ID'
+  = form.text_field :id, disabled: presenter.section.persisted?, class: 'form-control required'
+  = form.hidden_field :previous_id
+  = form.hidden_field :kind, value: presenter.section.kind
+  = form.hidden_field :variation, value: presenter.section.variation
+.form-group
+  = form.label :title, 'Section title'
+  = form.text_field :title, class: 'form-control'
+.form-group
+  = form.label :paragraph, 'Section paragraph'
+  = form.text_area :paragraph, class: 'form-control'
+.form-group
+  .form-check
+    = form.check_box :cta_enabled, class: %i[form-check-input landing-page-section]
+    = form.label :cta_enabled, 'Show Call-to-action button'
+#info1ColCTALabelURLWrapper
+  .form-group
+    = form.label :button_title, 'Call-to-action label'
+    = form.text_field :button_title, class: 'form-control required'
+  .form-group
+    = form.label :button_path_string, 'Call-to-action target URL'
+    = form.text_field :button_path_string, url: true, class: 'form-control required'
+.form-group
+  %label{:for => "info1ColBackground"} Section background
+  .form-radiobutton-wrapper
+    .form-radiobutton.form-check-inline
+      = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_IMAGE, class: %i[landing-page-section form-check-input]
+      = form.label :background_style_image, 'Image', class: 'form-check-label'
+      %br
+    .form-radiobutton.form-check-inline
+      = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_COLOR, class: %i[landing-page-section form-check-input]
+      = form.label :background_style_color, 'Color', class: 'form-check-label'
+    .form-radiobutton.form-check-inline
+      = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_NONE, class: %i[landing-page-section form-check-input]
+      = form.label :background_style_none, 'None', class: 'form-check-label'
+#info1ColBackgroundImageWrapper
+  .form-group
+    %label Section Background image
+    .custom-file
+      = file_field_tag "bg_image", accept: 'image/*'
+    %small#info1ColBackgroundImage-help.form-text The will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels.
+    - if presenter.section_background_image_present?
+      %small#info1ColBackgroundImage-filename.form-text
+        The current background image filename is
+        = succeed "." do
+          %code=presenter.section_background_image_filename
+  .form-group
+    %label{:for => "colorOverlayBackgroundImageInfo1"} Overlay for the background image
+    .form-radiobutton-wrapper
+      .form-radiobutton.form-check-inline
+        = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_DARK, class: %i[landing-page-section form-check-input]
+        = form.label :background_image_variation_dark, 'Dark overlay', class: 'form-check-label'
+      .form-radiobutton.form-check-inline
+        = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_LIGHT, class: %i[landing-page-section form-check-input]
+        = form.label :background_image_variation_light, 'Light overlay', class: 'form-check-label'
+      .form-radiobutton.form-check-inline
+        = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_TRANSPARENT, class: %i[landing-page-section form-check-input]
+        = form.label :background_image_variation_transparent, 'Transparent overlay', class: 'form-check-label'
+#info1ColBackgroundColorWrapper.form-group
+  = form.label :background_color_string, 'Section background color'
+  .d-flex.single-field
+    = form.text_field :background_color_string, class: 'required'
+

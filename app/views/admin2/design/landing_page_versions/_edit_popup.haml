@@ -1,0 +1,17 @@
+#landingPageEditModal.modal{"aria-hidden" => "true", "aria-labelledby" => "landingPageEditModal", "data-backdrop" => "static", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg{:role => "document"}
+    .modal-content
+      = form_for presenter.section, url: admin2_design_landing_page_version_section_path(landing_page_version_id: presenter.landing_page_version.id, id: presenter.section.id), html: { multipart: true, class: %i[section-form content-card-section-form] } do |form|
+        .modal-header
+          %h2.modal-title
+            Edit
+            %strong
+              = presenter.section.id
+            section
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          = render 'admin2/design/landing_page_versions/body_section', form: form, presenter: presenter
+        .modal-footer
+          = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]

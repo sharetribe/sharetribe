@@ -1,0 +1,2 @@
+= form_for :section, url: admin2_design_landing_page_version_sections_path(landing_page_version_id: presenter.landing_page_version.id), html: {id: :new_section_form, multipart: true, method: :post, class: %i[section-form content-card-section-form] } do |form|
+  = render 'admin2/design/landing_page_versions/body_section', form: form, presenter: presenter

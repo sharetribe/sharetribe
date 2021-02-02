@@ -26,7 +26,7 @@ module Admin2Helper
   end
 
   def admin2_landing_page_path
-    @current_plan.try(:[], :features).try(:[], :landing_page) ? admin_landing_page_versions_path : admin2_design_landing_page_index_path
+    @current_plan.try(:[], :features).try(:[], :landing_page) ? admin_landing_page_versions_path : admin2_design_landing_page_version_index_path
   end
 
   def community_name_tag(locale)
