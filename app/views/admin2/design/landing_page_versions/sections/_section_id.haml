@@ -1,0 +1,6 @@
+.form-group
+  = form.label :id, 'Unique Section ID'
+  = form.text_field :id, disabled: presenter.section.persisted?, class: 'form-control required'
+  = form.hidden_field :previous_id
+  = form.hidden_field :kind, value: presenter.section.kind
+  = form.hidden_field :variation, value: presenter.section.variation

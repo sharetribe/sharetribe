@@ -1,0 +1,22 @@
+.form-group
+  %label Section Background image
+  .custom-file
+    = file_field_tag :bg_image, accept: 'image/*'
+  %small#info1ColBackgroundImage-help.form-text The will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels.
+  - if presenter.section_background_image_present?
+    %small#info1ColBackgroundImage-filename.form-text
+      The current background image filename is
+      = succeed "." do
+        %code= presenter.section_background_image_filename
+.form-group
+  %label Overlay for the background image
+  .form-radiobutton-wrapper
+    .form-radiobutton.form-check-inline
+      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_DARK, class: %i[landing-page-section form-check-input]
+      = form.label :background_image_variation_dark, 'Dark overlay', class: 'form-check-label'
+    .form-radiobutton.form-check-inline
+      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_LIGHT, class: %i[landing-page-section form-check-input]
+      = form.label :background_image_variation_light, 'Light overlay', class: 'form-check-label'
+    .form-radiobutton.form-check-inline
+      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_TRANSPARENT, class: %i[landing-page-section form-check-input]
+      = form.label :background_image_variation_transparent, 'Transparent overlay', class: 'form-check-label'

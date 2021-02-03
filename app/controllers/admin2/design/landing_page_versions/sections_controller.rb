@@ -29,6 +29,9 @@ class Admin2::Design::LandingPageVersions::SectionsController < Admin2::AdminBas
 
   def destroy
     @service.destroy
+  rescue StandardError => e
+    flash[:error] = e.message
+  ensure
     redirect_to admin2_design_landing_page_versions_path
   end
 

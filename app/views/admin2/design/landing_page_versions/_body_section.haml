@@ -2,6 +2,8 @@
   = render 'admin2/design/landing_page_versions/column_popup', presenter: presenter, form: form
 - elsif presenter.section_hero?
   = render 'admin2/design/landing_page_versions/hero_popup', presenter: presenter, form: form
+- elsif presenter.section_footer?
+  = render 'admin2/design/landing_page_versions/footer_popup', presenter: presenter, form: form
 -# - elsif presenter.section_footer?
 -#   = render 'footer', presenter: presenter, form: form
 -# - elsif presenter.section_info_multi_column?

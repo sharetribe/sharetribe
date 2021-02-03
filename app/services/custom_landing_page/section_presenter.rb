@@ -13,6 +13,12 @@ module CustomLandingPage
       @service = service
     end
 
+    def footer_themes
+      Community::FOOTER_THEMES.keys.map do |theme|
+        OpenStruct.new(key: theme, value: I18n.t("admin2.footer.style.#{theme}"))
+      end
+    end
+
     def section_info_single_column?
       section.is_a?(LandingPageVersion::Section::InfoSingleColumn)
     end

@@ -7,8 +7,8 @@
       %h2 Landing Page Editor
       %p.ingress
         Define the layout of your landing page from a set of building blocks. These ready-made sections are the result of combining the best practices of the the most successful online marketplaces. For now, the Landing Page Editor only supports one language.
-        %br/
-        %br/
+        %br
+        %br
         Learn everything you need to know about the Landing Page Editor
         = succeed "." do
           %a.external-link{:href => "https://help.sharetribe.com/en/collections/2142373", :target => "_blank"} in the Go Help Center
@@ -18,15 +18,6 @@
           .col.col-lg-4 Section type
           .col
 
-        -#.list-group
-          #sectionList.field-data
-            .col.col-lg-6 #hero
-            .col.col-lg-4 Hero
-            .actions.col
-              %span.handle-move.disabled{"aria-hidden" => "true"}
-              %span.remove.disabled{"aria-hidden" => "true"}
-              %span.edit{"aria-hidden" => "true", "data-target" => "#landingPageEditHeroModal", "data-toggle" => "modal"}
-
         #landingSection.list-group
           = form.fields_for :section_positions do |position_form|
             - position = position_form.object
@@ -35,21 +26,12 @@
               .col.col-lg-6= position.id
               .col.col-lg-4= position.kind
               .actions.col
-                - if allow_move
-                  %span.handle-move{"aria-hidden" => "true"}
-                  %span.remove{"aria-hidden" => "true", "data-target" => "#landingPageDeleteModal", "data-toggle" => "modal"}
+                %span.handle-move{class: ("disabled" unless allow_move),  "aria-hidden" => "true"}
+                = link_to '#', class: 'remove-landing-page', data: { url: admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), caption: 'Are you sure you want to remove the section #visionCLP and all its data?' } do
+                  %span.remove{class: ("disabled" unless allow_move), "aria-hidden" => "true", "data-target" => "#landingPageDeleteModal", "data-toggle" => "modal"}
                 = link_to edit_admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), remote: true do
                   %span.edit{"aria-hidden" => "true", "data-target" => "#landingPageEditInfo1ColModal", "data-toggle" => "modal"}
 
-
-        -#.list-group
-          #sectionList.field-data
-            .col.col-lg-6 #footer
-            .col.col-lg-4 Footer
-            .actions.col
-              %span.handle-move.disabled{"aria-hidden" => "true"}
-              %span.remove.disabled{"aria-hidden" => "true"}
-              %span.edit{"aria-hidden" => "true", "data-target" => "#landingPageEditFooterModal", "data-toggle" => "modal"}
       %p.add-new-link
         %a{"data-target" => "#landingPageAddModal", "data-toggle" => "modal", :href => "#"} + Add a new section
     %section.content-card-terminal
@@ -58,3 +40,4 @@
 
 - content_for :popup_layout do
   = render 'admin2/design/landing_page_versions/new_popup', presenter: @presenter
+  = render 'admin2/design/landing_page_versions/delete_popup'
