@@ -51,6 +51,18 @@ $.validator.addMethod("valid_listing",
     }
 );
 
+$.validator.addMethod('count-validation', function(value, element, params) {
+    var name = $(element).data("counter-name");
+    var count = $(".edit-dropdown-list-option-trigger:visible").size();
+    var min = $(element).data("min");
+    var max = $(element).data("max");
+    if (max) {
+        return count <= max;
+    } else {
+        return count >= min;
+    }
+});
+
 $.validator.addMethod("allowed_template_variables", function(value, element, param) {
     var variableRegex  = /\{\{(.*?)\}\}/g,
         variables = _.map(value.match(variableRegex), function(x) { return x.replace(/[\{\}]/g, '') }),
