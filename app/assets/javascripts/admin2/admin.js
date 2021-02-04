@@ -13,6 +13,8 @@
 //= require select2
 //= require admin2/sortable
 //= require admin2/manage_listings
+//= require translations
+//= require i18n/translations
 //= require cocoon
 //= require analytics
 //= require admin2/manage_users

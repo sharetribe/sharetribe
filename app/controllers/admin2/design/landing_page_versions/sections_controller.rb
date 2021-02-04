@@ -46,7 +46,7 @@ class Admin2::Design::LandingPageVersions::SectionsController < Admin2::AdminBas
 
   def ensure_plan
     unless @current_plan.try(:[], :features).try(:[], :landing_page)
-      redirect_to admin_landing_page_path and return
+      redirect_to admin2_design_landing_page_versions_path and return
     end
   end
 end

@@ -1,3 +1,5 @@
+window.ST = window.ST || {};
+
 function initFooter() {
 
     $("#remove-footerLink-cancel").click(function(){
@@ -14,20 +16,28 @@ function initFooter() {
         return event.preventDefault();
     });
 
-    $(document).on('click', '.remove-footerLink-trigger', function(event) {
-
-        var container = $(this).closest('.footer-link-group'),
+    $(document).on('click', '.remove-footer-link', function () {
+        var container = $(this).closest('.remove-footerLink-content').prev('.footer-link-group'),
             isNew = container.data('new');
+        container.find('.destroy-record').val('1');
+        if (isNew) {
+            container.remove();
+        } else {
+            container.hide();
+        }
+        $(this).closest('.remove-footerLink-content').hide();
+        return event.preventDefault();
+    });
 
-        $(".remove-footerLink-content").show(200);
-
-        // container.find('.destroy-record').val('1');
-        // if (isNew) {
-        //     container.remove();
-        // } else {
-        //     container.hide();
-        // }
-
+    $(document).on('click', '.remove-footerLink-trigger', function(event) {
+        var container = $(this).closest('.footer-link-group'),
+            title = container.find('.form-title').val();
+        var caption = I18n.translate("web.admin2.landing_page.footer_menu_link.remove_title", {'name': title}),
+            body = I18n.translate("web.admin2.landing_page.footer_menu_link.remove_body", {'name': title}),
+            remove_message_div = container.next('.remove-footerLink-content');
+        remove_message_div.find('.remove-title').html(caption);
+        remove_message_div.find('.remove-body').html(body);
+        remove_message_div.show(200);
         return event.preventDefault();
     });
 
@@ -42,6 +52,10 @@ function initFooter() {
             }
         });
     }
+
+    $(".remove-footerLink-cancel").click(function(){
+        $(this).closest(".remove-footerLink-content").hide(0);
+    });
 }
 
 function checkedLandingPage(){
@@ -90,8 +104,13 @@ function initLandingPage(){
     });
     checkedLandingPage();
     initFooter();
-    $("form.section-form").validate();
-
+    $("form.section-form").validate({
+        messages: {
+            "section[listing_1_id]": { valid_listing: I18n.translate("web.admin2.landing_page.listings.not_valid_id_error")},
+            "section[listing_2_id]": { valid_listing: I18n.translate("web.admin2.landing_page.listings.not_valid_id_error")},
+            "section[listing_3_id]": { valid_listing: I18n.translate("web.admin2.landing_page.listings.not_valid_id_error")}
+        }
+    });
 }
 $(function() {
 
@@ -105,6 +124,7 @@ $(function() {
 
     $('#landingPageAddModal').on('show.bs.modal', function (e) {
         $('#section_kind').val('');
+        $('#section_block').empty();
     });
 
     $(document).on('change', '.landing-page-section', function () {

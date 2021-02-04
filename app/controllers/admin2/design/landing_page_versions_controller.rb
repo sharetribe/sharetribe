@@ -1,10 +1,13 @@
 module Admin2::Design
   class LandingPageVersionsController < Admin2::AdminBaseController
-    before_action :set_service
-    before_action :ensure_plan
+    before_action :set_service, except: :valid_listing
+    before_action :ensure_plan, except: :valid_listing
 
-    def index
+    def index; end
 
+    def valid_listing
+      listing_exist = @current_community.listings.where(id: params[:id]).present?
+      render json: { listing_exist: listing_exist }
     end
 
     private

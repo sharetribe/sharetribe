@@ -1,0 +1,11 @@
+.form-group
+  .form-check
+    = form.check_box :cta_enabled, class: %i[form-check-input landing-page-section]
+    = form.label :cta_enabled, 'Show Call-to-action button'
+#info1ColCTALabelURLWrapper
+  .form-group
+    = form.label :button_title, 'Call-to-action label'
+    = form.text_field :button_title, class: 'form-control required'
+  .form-group
+    = form.label :button_path_string, 'Call-to-action target URL'
+    = form.text_field :button_path_string, url: true, class: 'form-control required'

@@ -1,0 +1,21 @@
+= render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_title', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_paragraph', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_cta_button', form: form, presenter: presenter
+
+%h3.modal-subtitle Featured listings
+%p.modal-text
+  Add the listing IDs of the listings you want to feature. To find the ID of a listing, go to the listing page and look at the listing URL. The listing ID is the number that comes after the main URL. In example,
+  = succeed "," do
+    %code www.example.com/listings/123456-listing-title
+  = succeed "." do
+    %code 123456
+.form-group
+  = form.label :listing_1_id, 'Listing 1 ID'
+  = form.text_field :listing_1_id, class: %i[form-control], valid_listing: true, data: {url: valid_listing_admin2_design_landing_page_versions_path}
+.form-group
+  = form.label :listing_2_id, 'Listing 2 ID'
+  = form.text_field :listing_2_id, class: %i[form-control], valid_listing: true, data: {url: valid_listing_admin2_design_landing_page_versions_path}
+.form-group
+  = form.label :listing_3_id, 'Listing 3 ID'
+  = form.text_field :listing_3_id, class: %i[form-control], valid_listing: true, data: {url: valid_listing_admin2_design_landing_page_versions_path}

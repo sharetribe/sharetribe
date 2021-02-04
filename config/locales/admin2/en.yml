@@ -1,4 +1,12 @@
 en:
+  web:
+    admin2:
+      landing_page:
+        listings:
+          not_valid_id_error: 'This listing ID is not available in your marketplace. Maybe you made a typo? Please verify and try again.'
+        footer_menu_link:
+          remove_title: 'Remove %{name}'
+          remove_body: 'Are you sure you want to remove the footer link <strong>"%{name}"</strong> from the landing page?'
   admin2:
     save_changes: "Save changes"
     next_step: Next
@@ -53,6 +61,7 @@ en:
         topbar: "Top bar"
         footer: Footer
         display: Arrangement
+        landing-page: 'Landing page'
       users:
         manage_users: "Manage users"
         signup_login: "Signup & Login"
@@ -1203,6 +1212,14 @@ en:
       header: "Add-on: Custom Landing Page - $99 per month"
       info_text_1: "Add a beautiful home page and engage your visitors the moment they arrive on your marketplace. Define the layout of your landing page from a set of building blocks."
       btn_text: "Learn more"
+      sections:
+        multi_column:
+          column: 'Column %{index}'
+          column_icon: 'Column %{index} icon'
+          column_title: 'Column %{index} title'
+          column_paragraph: 'Column %{index} paragraph'
+          column_button_label: 'Column %{index} button label'
+          column_button_target: 'Column %{index} button target URL'
     display:
       grid: Grid
       list: List

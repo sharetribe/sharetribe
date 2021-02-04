@@ -5,18 +5,18 @@
   = f.hidden_field :_destroy, class: 'destroy-record'
   %div
     %label Link label
-    = f.text_field :title, required: true, maxlength: 255, placeholder: t("admin.communities.footer.title_placeholder", locale: locale_value), disabled: disabled, class: %i[form-control]
+    = f.text_field :title, maxlength: 255, placeholder: t("admin.communities.footer.title_placeholder", locale: locale_value), disabled: disabled, class: %i[form-control form-title required]
   %div
     %label Link Target URL
-    = f.text_field :url, required: true, maxlength: 255, url: true, placeholder: t("admin.communities.footer.url_placeholder", locale: locale_value), disabled: disabled, class: %i[form-control]
+    = f.text_field :url, maxlength: 255, url: true, placeholder: t("admin.communities.footer.url_placeholder", locale: locale_value), disabled: disabled, class: %i[form-control required]
   .actions
     %span.handle-move{"aria-hidden" => "true"}
     = link_to '#', class: 'remove-footerLink-trigger' do
       %span.remove{"aria-hidden" => "true"}
 
 .remove-footerLink-content
-  %h2 Remove "Terms of use"
-  %p Are you sure you want to remove the footer link <strong> "Terms of use" </strong> from the landing page?
+  %h2.remove-title
+  %p.remove-body
   .remove-footerLink-actions
-    %button.btn.btn-negative{:type => "button"} Remove
-    %a.remove-footerLink-cancel.cancel-action{:href => "#"} Cancel
+    %button.btn.btn-negative.remove-footer-link{type: :button} Remove
+    %a.remove-footerLink-cancel.cancel-action{href: '#'} Cancel

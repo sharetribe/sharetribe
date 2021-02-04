@@ -1,38 +1,9 @@
 = render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
-.form-group
-  = form.label :title, 'Section title'
-  = form.text_field :title, class: 'form-control'
-.form-group
-  = form.label :paragraph, 'Section paragraph'
-  = form.text_area :paragraph, class: 'form-control'
-.form-group
-  .form-check
-    = form.check_box :cta_enabled, class: %i[form-check-input landing-page-section]
-    = form.label :cta_enabled, 'Show Call-to-action button'
-#info1ColCTALabelURLWrapper
-  .form-group
-    = form.label :button_title, 'Call-to-action label'
-    = form.text_field :button_title, class: 'form-control required'
-  .form-group
-    = form.label :button_path_string, 'Call-to-action target URL'
-    = form.text_field :button_path_string, url: true, class: 'form-control required'
-.form-group
-  %label Section background
-  .form-radiobutton-wrapper
-    .form-radiobutton.form-check-inline
-      = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_IMAGE, class: %i[landing-page-section form-check-input]
-      = form.label :background_style_image, 'Image', class: 'form-check-label'
-      %br
-    .form-radiobutton.form-check-inline
-      = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_COLOR, class: %i[landing-page-section form-check-input]
-      = form.label :background_style_color, 'Color', class: 'form-check-label'
-    .form-radiobutton.form-check-inline
-      = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_NONE, class: %i[landing-page-section form-check-input]
-      = form.label :background_style_none, 'None', class: 'form-check-label'
+= render 'admin2/design/landing_page_versions/sections/section_title', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_paragraph', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_cta_button', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_background', form: form, presenter: presenter
+
 #info1ColBackgroundImageWrapper
   = render 'admin2/design/landing_page_versions/sections/background_image', form: form, presenter: presenter
-#info1ColBackgroundColorWrapper.form-group
-  = form.label :background_color_string, 'Section background color'
-  .d-flex.single-field
-    = form.text_field :background_color_string, class: 'required'
-
+= render 'admin2/design/landing_page_versions/sections/section_background_color', form: form, presenter: presenter
