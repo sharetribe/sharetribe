@@ -1,0 +1,18 @@
+.add-new-category-content
+  %h2 Add a new category
+  .form-group
+    %label Category
+    %select#newFeaturedCategory.form-control{"aria-describedby" => "newFeaturedCategory"}
+      %option City bikes
+      %option Mountain bikes
+      %option Road bikes
+      %option Kids bikes
+      %option Electric bikes
+  .form-group
+    %label{:for => "newCategoryBackgroundImage"} Category Background image
+    .custom-file
+      %input{:accept => "image/*", :name => "newCategoryBackgroundImage", :type => "file"}/
+    %small#newCategoryBackgroundImage-help.form-text Recommended image size for category background images is 1000 x 667 pixels.
+  .add-new-category-actions
+    %button.btn.btn-secondary{:type => "button"} Add category
+    %a#add-new-category-cancel.cancel-action{:href => "#"} Cancel

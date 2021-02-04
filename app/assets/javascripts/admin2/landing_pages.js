@@ -1,4 +1,66 @@
-window.ST = window.ST || {};
+function readURL(input, render_img) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            render_img.attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function initCategory() {
+    $(document).off('click', ".edit-dropdown-list-option-trigger");
+    $(document).on('click', '.edit-dropdown-list-option-trigger', function () {
+        var container = $(this).closest('.categories-list').next('.edit-category-content');
+        if (container.is(":visible")) {
+            container.hide(200);
+        } else {
+            container.show(200);
+        }
+        return event.preventDefault();
+    });
+
+    $(document).off('change', '.category-image-render');
+    $(document).on('change', '.category-image-render', function () {
+        var empty_image = $(this).closest('.edit-category-content').prev('.categories-list').find('img');
+        readURL(this, empty_image);
+    });
+
+    $(document).off('change', '.category-category');
+    $(document).on('change', '.category-category', function () {
+        var container = $(this).closest('.edit-category-content').prev('.categories-list').find('.category-name-lp'),
+            value = $(this).find(":selected").text();
+        container.text($.trim(value));
+    });
+
+    $(document).off('click', ".edit-category-cancel");
+    $(document).on('click', ".edit-category-cancel", function(){
+        $(this).closest('.edit-category-content').hide(0);
+    });
+
+    $(document).on('click', '.remove-dropdown-list-option-trigger', function(e){
+        var container = $(this).closest('.categories-list').next('.edit-category-content').next('.remove-category-content');
+        container.show(200);
+        return e.preventDefault();
+    });
+
+    $(document).on('click', '.remove-category-cancel', function(){
+        $(this).closest('.remove-category-content').hide(0);
+    });
+
+    $(document).on('click', '.remove-category-btn', function(){
+        var container = $(this).closest('.remove-category-content').prev('.edit-category-content').prev('.categories-list'),
+            isNew = container.data('new');
+        container.find('.destroy-record').val('1');
+        if (isNew) {
+            container.remove();
+        } else {
+            container.hide();
+        }
+        $(this).closest('.remove-category-content').hide();
+        return event.preventDefault();
+    });
+}
 
 function initFooter() {
 
@@ -104,6 +166,7 @@ function initLandingPage(){
     });
     checkedLandingPage();
     initFooter();
+    initCategory();
     $("form.section-form").validate({
         messages: {
             "section[listing_1_id]": { valid_listing: I18n.translate("web.admin2.landing_page.listings.not_valid_id_error")},

@@ -104,6 +104,14 @@ module CustomLandingPage
       return nil if asset_id.nil?
 
       asset_resolver.call('assets', asset_id, landing_page_version.parsed_content)
+    rescue
+      nil
+    end
+
+    def category_name(index)
+      return nil unless section.categories[index]
+
+      community.categories.find_by(id: section.categories[index].category_id)&.display_name('en')
     end
 
     def category_image_url(index)
