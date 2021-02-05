@@ -29,4 +29,5 @@
     %p.add-new-category-trigger
       = link_to '+ Add a category', '#', data: {id: new_category.object_id, template_id: "#new-footer-menu-link-tmpl"}, id: 'new-footerLink-trigger'
 
-
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t(".need_at_least_3_categories"), min: 3, 'counter-name': 'item_counter'}, 'count-validation': 'min', name: 'tc3'}
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t(".need_at_most_7_categories"), max: 7, 'counter-name': 'item_counter'}, 'count-validation': 'max', name: 'tc7'}

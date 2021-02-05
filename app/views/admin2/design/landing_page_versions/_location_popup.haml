@@ -1,0 +1,34 @@
+= render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_title', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_paragraph', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_cta_button', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_background', form: form, presenter: presenter
+
+#info1ColBackgroundImageWrapper
+  = render 'admin2/design/landing_page_versions/sections/background_image', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/section_background_color', form: form, presenter: presenter
+
+%h3.modal-subtitle Featured locations
+%p.modal-text You can add three to seven locations to be featured in your landing page. Add an image to each location and provide location search URL for your marketplace.
+.form-group
+  #locationsList.field-titles.field-data
+    %div Image
+    %div Location label
+    %div Search URL
+    %div
+  #footerlinks.list-group
+    - @service.section.locations.each do |location|
+      = form.fields_for :locations, location do |fields|
+        = render 'admin2/design/landing_page_versions/sections/location', f: fields, disabled: false, presenter: presenter
+
+    - new_location = @service.section.new_location
+    = form.fields_for :locations, new_location, child_index: new_location.object_id do |fields|
+      %script{type: "text/template", id: "new-footer-menu-link-tmpl"}
+        = render 'admin2/design/landing_page_versions/sections/location', f: fields, disabled: false, presenter: presenter
+
+  .add-new-category
+    %p.add-new-category-trigger
+      = link_to '+ Add a location', '#', data: {id: new_location.object_id, template_id: "#new-footer-menu-link-tmpl"}, id: 'new-footerLink-trigger'
+
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t(".need_at_least_3_locations"), min: 3, 'counter-name': 'item_counter'}, 'count-validation': 'min', name: 'tc3'}
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t(".need_at_most_7_locations"), max: 7, 'counter-name': 'item_counter'}, 'count-validation': 'max', name: 'tc7'}

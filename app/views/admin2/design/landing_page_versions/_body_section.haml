@@ -10,7 +10,7 @@
   = render 'admin2/design/landing_page_versions/listing_popup', presenter: presenter, form: form
 - elsif presenter.section_categories?
   = render 'admin2/design/landing_page_versions/category_popup', presenter: presenter, form: form
--# - elsif presenter.section_locations?
--#   = render 'locations', presenter: presenter, form: form
+- elsif presenter.section_locations?
+  = render 'admin2/design/landing_page_versions/location_popup', presenter: presenter, form: form
 -# - elsif presenter.section_video?
 -#   = render 'video', presenter: presenter, form: form
