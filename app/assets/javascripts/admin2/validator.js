@@ -51,22 +51,6 @@ $.validator.addMethod("valid_listing",
     }
 );
 
-$.validator.addMethod('required_category', function(value, element, params) {
-    if ($(element).val()) {
-        return true
-    } else {
-        var main_row = $(element).closest('.edit-category-content').prev('.categories-list');
-        if (main_row.is(":visible"))
-        {
-            $(element).closest('.edit-category-content').show();
-            return false;
-        } else {
-            return true;
-        }
-    }
-},
-    $.validator.messages['required']);
-
 $.validator.addMethod('count-validation', function(value, element, params) {
     var name = $(element).data("counter-name");
     var count = $(".edit-dropdown-list-option-trigger:visible").length;

@@ -12,10 +12,10 @@
 %p.modal-text You can add three to seven locations to be featured in your landing page. Add an image to each location and provide location search URL for your marketplace.
 .form-group
   #locationsList.field-titles.field-data
-    %div Image
-    %div Location label
-    %div Search URL
-    %div
+    .col.field-data-image-wrapper Image
+    .col Location label
+    .col.data-overflow Search URL
+    .col
   #footerlinks.list-group
     - @service.section.locations.each do |location|
       = form.fields_for :locations, location do |fields|

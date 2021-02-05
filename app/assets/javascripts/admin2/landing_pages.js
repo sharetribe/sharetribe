@@ -47,13 +47,29 @@ function initCategory() {
         container.text($.trim(value));
     });
 
+    $(document).off('change', '.location-url-render');
+    $(document).on('change', '.location-url-render', function () {
+        var container = $(this).closest('.edit-category-content').prev('.categories-list').find('.location-url-lp'),
+            value = $(this).val();
+        container.text(value);
+    });
+
+    $(document).off('change', '.location-title-render');
+    $(document).on('change', '.location-title-render', function () {
+        var container = $(this).closest('.edit-category-content').prev('.categories-list').find('.location-name-lp'),
+            value = $(this).val();
+        container.text(value);
+    });
+
     $(document).off('click', ".edit-category-cancel");
     $(document).on('click', ".edit-category-cancel", function(){
         $(this).closest('.edit-category-content').hide(0);
     });
 
     $(document).on('click', '.remove-dropdown-list-option-trigger', function(event){
-        var container = $(this).closest('.categories-list').next('.edit-category-content').next('.remove-category-content');
+        var container = $(this).closest('.categories-list').next('.edit-category-content').next('.remove-category-content'),
+            edit = $(this).closest('.categories-list').next('.edit-category-content');
+        edit.hide(0);
         container.show(200);
         return event.preventDefault();
     });
@@ -186,11 +202,26 @@ function initLandingPage(){
     initCategory();
 
     $("form.section-form").validate({
-        ignore: ":hidden:not(.custom-validation, .category-image-render), .ignore-validation",
+        ignore: ":hidden:not(.custom-validation, .category-image-render, .location-url-render), .ignore-validation",
         messages: {
             "section[listing_1_id]": { valid_listing: I18n.translate("web.admin2.landing_page.listings.not_valid_id_error")},
             "section[listing_2_id]": { valid_listing: I18n.translate("web.admin2.landing_page.listings.not_valid_id_error")},
             "section[listing_3_id]": { valid_listing: I18n.translate("web.admin2.landing_page.listings.not_valid_id_error")}
+        },
+        invalidHandler: function(form, validator) {
+            var errors = validator.numberOfInvalids();
+            if (errors) {
+                $.each(validator.errorList, function (index, value) {
+
+                    var main_row =  $(value.element).closest('.edit-category-content').prev('.categories-list');
+                    if (main_row.is(":visible"))
+                    {
+                        $(value.element).closest('.edit-category-content').show();
+                    }
+
+                });
+
+            }
         }
     });
 }

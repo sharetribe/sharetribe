@@ -1,0 +1,27 @@
+= render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
+
+.form-group
+  = form.label :youtube_video_id, 'YouTube video ID'
+  .input-group
+    .input-group-append{:style => "border-radius: 4px 0 0 4px; margin-right: -1px"}
+      %span.input-group-text youtube.com/watch?v=
+    = form.text_field :youtube_video_id, required: true, class: 'form-control', placeholder: "dQw4w9WgXcQ"
+    %small#youtubeVideoID-help.form-text
+      You can get the video ID from the video's URL. For example if the video's URL is
+      = succeed "," do
+        %code youtube.com/watch?v=dQw4w9WgXcQ
+      %code dQw4w9WgXcQ
+
+.form-group
+  %label{:for => "videoSectionAutoplayOptions"} Autoplay
+  .form-radiobutton-wrapper
+    .form-radiobutton.form-check-inline
+      = form.radio_button :autoplay, false, class: %i[form-check-input]
+      = form.label :autoplay_false, 'No Autoplay', class: %i[form-check-label]
+    .form-radiobutton.form-check-inline
+      = form.radio_button :autoplay, LandingPageVersion::Section::Video::AUTOPLAY_MUTED, checked: !!form.object.autoplay, class: %i[form-check-input]
+      = form.label :autoplay_muted, 'Muted Autoplay', class: %i[form-check-label]
+.form-group
+  = form.label :text, 'Text'
+  = form.text_field :text, class: 'form-control'
+  %small#videoSectionText-help.form-text The text will be displayed if you have selected the "No autoplay" option or when the video is paused.

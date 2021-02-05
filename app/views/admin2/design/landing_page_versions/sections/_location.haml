@@ -5,13 +5,15 @@
   = f.hidden_field :asset_id
   = hidden_field_tag 'item_counter'
 
-  .field-data-image.col.field-data-image-wrapper
+  .col.field-data-image.col.field-data-image-wrapper
     - if presenter.location_image(f.index).present?
       %img{src: presenter.location_image_url(f.index)}
     - else
       %img
-  .col-10.category-name-lp
+  .col.location-name-lp
     = f.object.title
+  .col.data-overflow.location-url-lp
+    = f.object.url
   .actions.col
     %span.handle-move{"aria-hidden" => "true"}
     = link_to '#', class: 'remove-dropdown-list-option-trigger' do
@@ -22,17 +24,14 @@
   %h2 Edit location
   .form-group
     %label Location label
-    = f.text_field :title, class: 'form-control'
+    = f.text_field :title, class: 'form-control location-title-render'
   .form-group
     %label Search URL
-    = f.text_field :url, class: 'form-control'
+    = f.text_field :url, class: 'form-control location-url-render', url: true
   .form-group
     %label Location Background image
     .custom-file
-      - if presenter.location_image(f.index).present?
-        = f.file_field :image, accept: 'image/*', class: %i[category-image-render]
-      - else
-        = f.file_field :image, accept: 'image/*', class: %i[category-image-render], required_category: true
+      = f.file_field :image, accept: 'image/*', class: %i[category-image-render] << ('required' unless presenter.location_image(f.index).present?)
     %small#newCategoryBackgroundImage-help.form-text Recommended image size for location background images is 1000 x 667 pixels.
 
     - if presenter.location_image(f.index).present?

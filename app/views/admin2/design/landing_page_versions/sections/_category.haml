@@ -26,15 +26,12 @@
   %h2 Edit category
   .form-group
     %label Category
-    = f.select :category_id, presenter.categories_for_select(locale_value), {}, class: %i[form-control category-category], count_validation: true, required_category: true
+    = f.select :category_id, presenter.categories_for_select(locale_value), {}, class: %i[form-control category-category required], count_validation: true
 
   .form-group
     %label{:for => "newCategoryBackgroundImage"} Category Background image
     .custom-file
-      - if presenter.category_image(f.index).present?
-        = f.file_field :image, accept: 'image/*', class: %i[category-image-render]
-      - else
-        = f.file_field :image, accept: 'image/*', class: %i[category-image-render], required_category: true
+      = f.file_field :image, accept: 'image/*', class: %i[category-image-render] << ('required' unless presenter.category_image(f.index).present?)
     %small#newCategoryBackgroundImage-help.form-text Recommended image size for category background images is 1000 x 667 pixels.
 
     - if presenter.category_image(f.index).present?
