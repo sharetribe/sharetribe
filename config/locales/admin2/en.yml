@@ -1242,6 +1242,16 @@ en:
         delete_info: 'This action cannot be undone.'
         delete_section: 'Delete section'
         edit: 'Edit <strong>%{name}</strong> section'
+        type:
+          column_1: 'Info - One column'
+          column_2: 'Info - Two columns'
+          column_3: 'Info - Three columns'
+          hero: 'Hero'
+          footer: 'Footer'
+          listings: 'Listings'
+          categories: 'Categories'
+          locations: 'Locations'
+          video: 'Video'
         listing:
           title: 'Featured listings'
           info: 'Add the listing IDs of the listings you want to feature. To find the ID of a listing, go to the listing page and look at the listing URL. The listing ID is the number that comes after the main URL. In example, <code>www.example.com/listings/123456-listing-title</code>, the listing ID would be <code>123456</code>.'

@@ -24,7 +24,7 @@
               = position_form.hidden_field :id
               = position_form.hidden_field :position, class: 'hidden-position'
               .col.col-lg-6= position.id
-              .col.col-lg-4= position.kind
+              .col.col-lg-4= position.kind_info
               .actions.col
                 %span.handle-move{class: ("disabled" unless allow_move),  "aria-hidden" => "true"}
                 = link_to '#', class: 'remove-landing-page', data: { url: admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), caption: t('admin2.landing_page.remove_confirm', name: position.id) } do
