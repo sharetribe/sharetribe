@@ -60,6 +60,7 @@ module LandingPageVersion::DataStructure
 
       attrs = existing_section.slice('id', 'kind', 'variation')
       attrs['position'] = index
+      attrs['columns'] = existing_section['columns']&.count
       section_positions << LandingPageVersion::SectionPosition.new(attrs)
     end
     @section_positions = section_positions
