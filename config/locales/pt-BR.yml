@@ -95,8 +95,8 @@ pt-BR:
         transaction_agreement_checkbox_label_description: "Este texto será exibido próximo à caixa de seleção no formulário de finalização da compra. O usuário precisa marcar a caixa para prosseguir com a transação. Uma legenda de exemplo seria algo como \"Ao clicar nesta caixa aceito o contrato.\""
         transaction_agreement_text_header: "Texto de acordo"
         transaction_agreement_description: "Este é o conteúdo do acordo vigente que o usuário deve aceitar. O conteúdo do mesmo é exibido quando o usuário clica no link \"%{read_more}\" ao lado da legenda do acordo."
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
+        terms_privacy_policy_and_static_content: "Termos, política de privacidade e conteúdo estático"
+        terms_privacy_policy_and_static_content_infotext: "Você pode editar até quatro páginas de conteúdo estático. Os usuários podem encontrar as páginas clicando no link \"Sobre\" na barra superior."
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar o visual do marketplace da %{community_name}."
         community_logo: "Logo principal"
@@ -119,8 +119,8 @@ pt-BR:
         logo_mobile_icon_instructions_text_with_dimensions: "Este logotipo quadrado será mostrado quando você realizar algumas ações como administrador e quando as pessoas adicionarem seu site aos favoritos na tela inicial de seus dispositivos móveis. As dimensões devem ser (pelo menos) %{width}x%{height} pixels."
         cover_photo_visibility: "Foto da capa apresentada na página inicial para usuários não conectados."
         cover_photo_instructions_text_with_dimensions: "A foto será redimensionada para %{width} x %{height} pixel e imagens mais altas serão cortadas no meio. %{see_how_it_looks_like}"
-        we_have_you_covered: ~
-        cover_photo_ready_made: ~
+        we_have_you_covered: "Nós estamos com você"
+        cover_photo_ready_made: "Você está procurando fotos de capa prontas e otimizadas? Ou você gostaria de alguma inspiração e sites onde encontrá-las? %{link}!"
         small_cover_photo_visibility: "Foto pequena da capa mostrado para usuários não conectados."
         small_cover_photo_instructions_text_with_dimensions: "A foto será redimensionada para %{width} x %{height} pixel e imagens mais altas serão cortadas no meio."
         main_content_width: "Ao escolher fotos de capa, por favor, note que o conteúdo principal da página é %{main_width} pixels de largura, no máximo. Lembre-se de verificar também como a sua foto da capa parece nas telas menores (por exemplo, usando uma janela do navegador mais estreita)."
@@ -264,7 +264,7 @@ pt-BR:
         delete_this_marketplace: "Exclua este marketplace"
         payment_preferences: "Sistema de pagamento"
         pre_approved_listings: ~
-        email_admins_about_new_transactions: ~
+        email_admins_about_new_transactions: "Enviar um e-mail aos administradores sempre que uma nova transação começar"
       manage_members:
         manage_members: "Gerenciar usuários"
         email: E-mail
@@ -332,7 +332,7 @@ pt-BR:
         twitter_handle_placeholder: "nome de usuário"
         invalid_twitter_handle: "O nome Twitter deve conter no máximo 15 caracteres alfanuméricos (letras A-Z e números 0-9)."
         facebook_connect: Facebook
-        facebook_developers_dashboard: ~
+        facebook_developers_dashboard: "Painel de desenvolvedores do Facebook"
         facebook_connect_info_text: "A fim de permitir conectar-se via Facebook, crie um aplicativo para o seu marketplace no <a href='https://developers.facebook.com/'>painel de desenvolvedores do Facebook</a>. Adicione aqui o ID gerado e a chave secreta do aplicativo."
         facebook_connect_info_text_with_instructions: "A fim de permitir a conexão via Facebook, crie um aplicativo para o seu marketplace no %{dashboard_link}. Adicione o ID gerado e a chave secreta do aplicativo aqui. %{instructions_link}"
         facebook_instructions_link_text: "Veja as instruções para configurar o \"Facebook Connect\"."
@@ -344,7 +344,7 @@ pt-BR:
         save: "Salvar definições"
         google_connect: ~
         google_instructions_link_text: ~
-        google_developers_console: ~
+        google_developers_console: "Google Developers Console"
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -352,7 +352,7 @@ pt-BR:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
-        linkedin_developers_dashboard: ~
+        linkedin_developers_dashboard: "Painel de desenvolvedores do LinkedIn"
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -475,8 +475,8 @@ pt-BR:
           disputed: Disputado
           preauthorized: Pré-autorizado
           rejected: ~
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
+          payment_intent_requires_action: Pendente
+          payment_intent_action_expired: Expirada
           refunded: Reembolsada
           dismissed: Rejeitada
         headers:
@@ -529,9 +529,9 @@ pt-BR:
             disputed: Disputado
             initiated: "Aguardando pagamento no Stripe"
             pending_ext: "Aguardando pagamento no Stripe"
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
-            payment_intent_failed: ~
+            payment_intent_requires_action: Pendente
+            payment_intent_action_expired: Expirada
+            payment_intent_failed: "O pagamento da Stripe falhou"
             refunded: Reembolsada
             dismissed: Rejeitada
         not_available: Indisponível
@@ -589,9 +589,9 @@ pt-BR:
           confirm_modify: "Tem certeza que deseja modificar / excluir esta avaliação? Depois de editar / excluí-la não é possível recuperar nenhum dos dados antigos."
           deleting_info: "A exclusão de uma avaliação permite que seu autor deixe outra para a mesma transação."
           blocking_info: "Bloquear a avaliação após a exclusão evita que seu autor deixe outra para a mesma transação."
-          unskip: ~
-          if_you_unskip_the_review: ~
-          they_will_not_be_notified_automatically: ~
+          unskip: "Não pular"
+          if_you_unskip_the_review: "Se você não pular a avaliação, o usuário poderá avaliá-lo."
+          they_will_not_be_notified_automatically: "Eles não serão notificados automaticamente."
       invitations:
         invitations: ~
         used:
@@ -710,56 +710,56 @@ pt-BR:
         this_domain_is_not_configured_correctly: "Este domínio não está configurado corretamente, ele não irá redirecionar os acesso para o seu marketplace. Certifique-se de que os registros DNS do domínio estejam configurados corretamente e verifique novamente se desejar que este domínio redirecione para o seu endereço principal. Se você não quiser o redirecionamento, click em \"Comece a usar o dominio customizado\"."
         start_using_the_custom_domain: "Comece a usar o domínio customizado"
       landing_pages:
-        landing_pages: ~
-        info_1: ~
-        info_2: ~
+        landing_pages: "Landing page"
+        info_1: "A landing page é talvez a página mais importante do seu marketplace. É a primeira página que os visitantes veem - como a porta da frente de sua casa. Você tem apenas alguns segundos para convencer os novos visitantes de que eles devem explorar seu site. A página precisa ser atraente e sua proposta de valor deve ser clara e despertar interesse."
+        info_2: "Você pode usar este editor para modificar sua landing page sempre que quiser!"
         info_2_help_center: "Artigo da Central de Ajuda"
-        info_3: ~
-        info_4: ~
-        editor_title: ~
-        editor_info: ~
-        preview: ~
-        set_live: ~
-        add_new_section: ~
-        select_section_type: ~
+        info_3: "Se você deseja ter uma landing page totalmente customizada para o seu marketplace, pode adquiri-la como um add-on por US $ 99 por mês."
+        info_4: "Leia este %{link} para descobrir como o editor da landing page funciona, aprender sobre as diferentes seções e como editá-las."
+        editor_title: "Editor da landing page"
+        editor_info: "Aqui você pode editar as seções de sua landing page. No momento, só é possível usar um idioma para a landing page. A posição das seções 'Hero' e 'Rodapé' não pode ser alterada"
+        preview: "Visualizar landing page"
+        set_live: "Ao vivo"
+        add_new_section: "Adicione nova seção:"
+        select_section_type: "Selecione o tipo da seção..."
         this_version_is_not_released: "Você precisa fazer alterações para ativar uma nova versão da sua landing page"
         latest_version_released: "Sua landing page foi atualizada! %{link}!"
         check_it_out: Confira
         form:
-          save: ~
+          save: Salvar
           cancel: Cancelar
         sections:
-          identifier: ~
-          kind: ~
-          new: ~
-          edit: ~
-          remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: ~
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
+          identifier: "ID da Seção"
+          kind: "Tipo de seção"
+          new: "Nova seção"
+          edit: "Editar seção %{section_id}"
+          remove_section_confirmation: "Você tem certeza que deseja remover a seção '%{section_id}' e todos os seus dados? Esta ação não pode ser desfeita."
+          info_single_column: "Info - Uma coluna"
+          info_multi_column_2: "Info - Duas colunas"
+          info_multi_column_3: "Info - Três Colunas"
+          listings: Anúncios
+          categories: Categorias
+          hero: Herói
+          locations: Localizações
+          video: Vídeo
           new_section:
-            categories: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Adição da nova seção 'Categorias'"
+            info_single_column: "Adição da nova seção 'Info - Uma coluna'"
+            info_multi_column_2: "Adição da nova seção 'Info - Duas colunas'"
+            info_multi_column_3: "Adição da nova seção 'Info - Três colunas'"
+            listings: "Adição de nova seção 'Anúncios'"
+            locations: "Adição de nova seção 'Localização'"
+            video: "Adição da nova seção 'Vídeo'"
           edit_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Edição da seção 'Categorias'"
+            footer: "Edição da seção 'Rodapé'"
+            hero: "Edição da seção 'Hero'"
+            info_single_column: "Edição da seção 'Informações - Uma coluna'"
+            info_multi_column_2: "Edição da seção 'Informações - Duas colunas'"
+            info_multi_column_3: "Edição da seção 'Informações - Três colunas'"
+            listings: "Edição da seção 'Anúncios'"
+            locations: "Edição da seção 'Localizações'"
+            video: "Edição da seção 'Vídeo'"
       attachments:
         delete: "Exclua a atual %{title}"
         or_change: "Ou altere a %{title} para uma nova:"
@@ -768,8 +768,8 @@ pt-BR:
         content:
           title: "Conteúdo da seção"
         hero:
-          hero_title: ~
-          hero_description: ~
+          hero_title: Hero
+          hero_description: "Defina a imagem de fundo para a seção Hero. O slogan e a descrição são definidos a partir do %{link}."
           basic_details_tab: "Guia 'Detalhes básicos'"
           cta_button: "Sessão call-to-action"
           cta_button_info: "Você não precisa editar o texto do botão. Você pode apenas deixar este campo vazio. Por padrão, o texto é \"Pesquisar\" para marketplaces públicos e \"Inscrever-se\" para marketplaces privados."
@@ -780,64 +780,64 @@ pt-BR:
           button_content: "Conteúdo do botão"
           click_me: Aqui!
         footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
+          footer_title: Rodapé
+          footer_style: "Estilo de rodapé"
+          style_dark: Escuro
+          style_light: Claro
+          style_marketplace_color: "Cor principal do marketplace"
+          style_logo: Logo
         cta_button:
-          cta_button: ~
-          cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
+          cta_button: "Botão de ação"
+          cta_enabled: "Mostrar um botão"
+          cta_text: Etiqueta
+          cta_url: URL
           text_placeholder: Aqui!
           url_placeholder: "https://www.exemplo.com"
         background_selector:
           title: Fundo
         background_image_overlay:
-          background_image: ~
-          background_image_info: ~
-          add_another_image: ~
-          current_image: ~
-          file_not_selected: ~
-          background_image_overlay: ~
-          background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
+          background_image: "Imagem de fundo"
+          background_image_info: "Esta imagem será mostrada como imagem de fundo para a seção. Para obter os melhores resultados, deve ter um tamanho mínimo de 1600x1200 pixels."
+          add_another_image: "Adiconar outra imagem"
+          current_image: "Imagem atual: %{filename}"
+          file_not_selected: "Não selecionado"
+          background_image_overlay: "Sobreposição de imagem de fundo"
+          background_image_overlay_info: "Isso permite que você determine o quão escuro ou claro sua imagem de fundo será exibida. \"Transparente\" significa nenhuma sobreposição."
+          overlay_dark: Escuro
+          overlay_light: Claro
+          overlay_transparent: Transparente
         background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
+          background_style: "Estilo de fundo"
+          style_image: Imagem
+          style_color: Cor
+          style_none: Nenhum
         background_color:
-          background_color: ~
-          background_color_info: ~
+          background_color: "Cor de fundo"
+          background_color_info: "Você pode escolher a cor de fundo desta seção inserindo um valor de cor hexadecimal. %{link} pode ajudá-lo a escolher a cor e fornecer o código hexadecimal da cor. Você pode então copiar o código aqui."
         categories:
-          add: ~
-          category: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
+          add: "+ Adicionar uma nova categoria nesta seção"
+          category: Categoria
+          empty: "Você não tem categorias inclusas"
+          image: Imagem
+          include_title: "Categorias para apresentar"
+          info_text: "Você pode apresentar de três a sete categorias. Adicione uma imagem a cada categoria e selecione uma das categorias de seu marketplace. Para obter os melhores resultados, o tamanho de imagem recomendado é 1000 x 667 pixels."
+          need_at_least_3_categories: "Você deve ter pelo menos três categorias nesta seção"
+          need_at_most_7_categories: "Você deve ter no máximo sete categorias nesta seção"
         category:
-          add_another_image: ~
-          category: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
+          add_another_image: "Adicionar outra imagem"
+          category: Categoria
+          current_image: "Imagem atual: %{filename}"
+          file_not_selected: "Não selecionado"
+          image: Imagem
           image_required: "Você deve adicionar uma imagem a esta categoria"
-          select_category: ~
+          select_category: "Selecione a Categoria"
         locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
+          add: "+ Adicionar uma o nova localizaçã nesta seçãoa"
+          location: Localização
+          empty: "Você não tem nenhuma localização inclusa"
+          image: Imagem
+          include_title: "Localizações para apresentar"
+          info_text: "Você pode apresentar de três a sete localizações. Adicione uma imagem e forneça o URL de pesquisa da localização para o seu marketplace. Para obter os melhores resultados, o tamanho de imagem recomendado é 1000 x 667 pixels."
           need_at_least_3_locations: "Você deve ter no mínimo três localizações nesta seção"
           need_at_most_7_locations: "Você pode ter no máximo setenta localizações nesta seção"
         location:
@@ -990,7 +990,7 @@ pt-BR:
       emails_title: E-mails
       subscription: Assinatura
       preview: "Visualização do site"
-      whats_new: ~
+      whats_new: "O que há de novo?"
     listing_shapes:
       availability_title: Disponibilidade
       read_more: "Leia mais sobre o gerenciamento automático de disponibilidade."
@@ -1073,7 +1073,7 @@ pt-BR:
         month: "Por mês"
         unit: "Por unidade"
       can_not_find: "Não pode ser definido um tipo de ordem com o id: %{id}"
-      add_custom_unit: "+ Adicione uma unidade de preço personalizada"
+      add_custom_unit: "+ Adicionar uma unidade de preço customizada…"
       delete_custom_unit: apagar
       custom_unit_form:
         title: "Nova unidade de preço"
@@ -1447,8 +1447,8 @@ pt-BR:
         waiting_confirmation_from_requester: "Aguardando por %{requester_name} setar o pedido como concluído. Uma vez que o pedido é setado como concluído, o pagamento será realizado em sua conta bancária."
       order_canceled: "Pedido disputado"
       waiting_for_marketplace_review: "Esperando que a equipe %{service_name} analise a situação"
-      marketplace_notified: "A equipe %{service_name} foi notificada. Se você quiser dividir mais detalhes com a equipe, você pode também %{contact_link}."
-      contact_them: Contate-os
+      marketplace_notified: "A equipe %{service_name} foi notificada. Se você quiser dividir mais detalhes com a equipe, %{contact_link}."
+      contact_them: contate-os
       refunded: "Pedido marcado como reembolsado"
       dismissed: "Disputa de pedido rejeitada"
       order_refunded: "Pedido marcado como reembolsado. A equipe %{service_name} aprovou a disputa."
@@ -1487,7 +1487,7 @@ pt-BR:
       you_can_join: "Para participar de %{service_name} você deve aceitar os termos de uso e clicar em 'Entrar em %{service_name}' abaixo."
       you_can_join_email_confirmation: "Para participar %{service_name}, você precisa ter um endereço de e-mail válido, que termina com %{email_ending}. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso dessa comunidade e clicando em 'Participar da %{service_name}' abaixo, e confirmar seu e-mail."
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} tem restrições de e-mail. Você só pode entrar se você tiver um endereço de e-mail de uma organização que o administrador deste site tem efetuado permissão. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso %{service_name} e clicando em 'Participar da %{service_name}' abaixo."
-      you_can_join_with_invite_only: "Você tem que ter um convite de outro membro para participar em %{service_name}. Se você tem um código de convite, você pode participar desta comunidade, digitando o código no campo abaixo, aceitando os termos de uso dessa comunidade e clicando em 'Entrar em %{service_name}' abaixo."
+      you_can_join_with_invite_only: "Você tem que ter um convite de outro membro para participar em %{service_name}. Se você tem um código de convite, você pode participar desta comunidade, digitando o código no campo abaixo, aceitando os termos de uso dessa comunidade e clicando em 'Entrar em %{service_name}'."
       if_want_to_view_content: "Se você quiser ver o conteúdo do %{service_name} sem se registrar como membro você deve"
       log_out: sair
       join_community_button: "Entrar em %{service_name}"
@@ -2153,7 +2153,7 @@ pt-BR:
       notifications: Notificações
     markdown_help:
       title: "Ajuda de formatação usando Markdown"
-      description: "Markdown é uma forma simples de formatar texto que fica bem em qualquer dispositivo. Não faz nada extravagante, como alterar o tamanho, cor ou tipo da fonte - apenas o essencial, usando símbolos de teclado que você já conhece."
+      description: "Markdown é uma forma simples de formatar texto que fica bem em qualquer dispositivo. Não realiza grandes mudanças como alterar o tamanho, cor ou tipo da fonte - apenas o essencial, usando símbolos de teclado que você já conhece."
       formatting: Formatação
       result: Resultado
       h1: ~
@@ -2165,9 +2165,9 @@ pt-BR:
       strikethrough: ~
       inline_link: ~
       list: ~
-      one: ~
-      two: ~
-      three: ~
+      one: Um
+      two: Dois
+      three: Três
     mobile_logged_in:
       admin: Administrador
       go_to_your_profile_page: Perfil
@@ -2400,7 +2400,7 @@ pt-BR:
         no_file_selected: "Nenhum arquivo selecionado"
         remove_image: "Remover imagem"
         select_file: "Escolha o arquivo"
-        add_more: "+ Adicione mais"
+        add_more: "+ Adicionar mais"
         removing: Removendo...
         processing: Processando...
         loading_image: "Carregando ..."
@@ -2550,7 +2550,7 @@ pt-BR:
       listing_closed: "Anúncio está encerrado."
     show:
       add_your_phone_number: "Adicione seu número de telefone"
-      add_profile_picture: "Adicione uma foto ao seu perfil"
+      add_profile_picture: "Adicionar uma foto ao perfil"
       comments: "Discussão pública"
       contact_by_phone: "Contatar por telefone :"
       contact: Contato
@@ -2910,8 +2910,8 @@ pt-BR:
       homepage_link: "home page"
       unsubscribe_unsuccesful: "Erro no cancelamento da inscrição"
       unsuccessful_unsubscribe_info_text: "O link para o cancelamento expirou. Realize o login da sua conta para modificar a suas configurações de inscrição do e-mail."
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "...tem um novo comentário em um anúncio que eu sigo."
+      email_listing_updated: "... um anúncio que comentei foi atualizada"
     profile:
       about_you: "Sobre você"
       city: Cidade

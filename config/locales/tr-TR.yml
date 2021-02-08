@@ -282,9 +282,9 @@ tr-TR:
         only_delete_disabled: ~
         delete_info1: ~
         delete_info2: ~
-        search: ~
+        search: Ara
         search_by_name_email: ~
-        reset_search: ~
+        reset_search: "Hepsini göster"
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
@@ -460,7 +460,7 @@ tr-TR:
         transactions: "İşlemleri görüntüle"
         search_by_title_parties: ~
         search: Ara
-        reset_search: ~
+        reset_search: "Hepsini göster"
         status_filter:
           all: "Bütün Durumlar"
           selected: ~
@@ -544,16 +544,16 @@ tr-TR:
         participants: ~
         profile: ~
         search_by_keyword: ~
-        search: ~
-        reset_search: ~
+        search: Ara
+        reset_search: "Hepsini göster"
         for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
         search_keyword: ~
-        search: ~
-        reset_search: ~
+        search: Ara
+        reset_search: "Hepsini göster"
         for_keyword: ~
         headers:
           transaction: ~
@@ -603,8 +603,8 @@ tr-TR:
       listings:
         listings: İlanlar
         search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search: "Hepsini göster"
+        reset_search: "Hepsini göster"
         export_all_as_csv: "Tümünü CSV olarak dışa aktar"
         processing_export: ~
         status:
@@ -622,7 +622,7 @@ tr-TR:
           updated: "Güncellenme Tarihi"
           category: Kategori
           status: Durum
-        open: ~
+        open: Açık
         closed: ~
         expired: ~
         approved: ~
