@@ -1,16 +1,16 @@
 = form.hidden_field :previous_id
 = form.hidden_field :kind, value: presenter.section.kind
 
-%p.modal-text Custom Landing Footer will override footer settings in the Footer page.
+%p.modal-text= t('admin2.landing_page.sections.footer.info')
 .form-group
-  %label Footer style
+  %label= t('admin2.landing_page.sections.footer.theme')
   = form.select :theme, options_from_collection_for_select(presenter.footer_themes, :key, :value), {}, class: %i[form-control]
 
 .form-group
-  %label Footer copyright
+  %label= t('admin2.landing_page.sections.footer.copyright')
   = form.text_area :copyright, class: %i[form-control]
 
-%h3.modal-subtitle Footer links
+%h3.modal-subtitle= t('admin2.landing_page.sections.footer.links')
 #footerLinksList.list-group
 
   #footerlinks
@@ -20,13 +20,13 @@
 
   - new_footer_menu_link = @service.section.new_footer_menu_link
   = form.fields_for :links, new_footer_menu_link, child_index: new_footer_menu_link.object_id do |fields|
-    %script{type: "text/template", id: "new-footer-menu-link-tmpl"}
-      = render "admin2/design/landing_page_versions/sections/footer_menu_link", f: fields, disabled: false
+    %script{type: 'text/template', id: 'new-footer-menu-link-tmpl'}
+      = render 'admin2/design/landing_page_versions/sections/footer_menu_link', f: fields, disabled: false
 
   %p.add-new-footerLink-trigger
-    = link_to '+ Add a link', '#', data: {id: new_footer_menu_link.object_id, template_id: "#new-footer-menu-link-tmpl"}, id: 'new-footerLink-trigger'
+    = link_to t('admin2.landing_page.sections.footer.add_link'), '#', data: {id: new_footer_menu_link.object_id, template_id: '#new-footer-menu-link-tmpl'}, id: 'new-footerLink-trigger'
 
-%h3.modal-subtitle Footer social links
+%h3.modal-subtitle= t('admin2.landing_page.sections.footer.social_links')
 .form-group
   #footerSocialList.list-group
     - @service.section.social.each do |social_link|

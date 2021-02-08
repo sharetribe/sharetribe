@@ -205,6 +205,9 @@ Rails.application.routes.draw do
       namespace :design do
         resources :landing_page_versions, path: 'landing-page' do
           resources :sections, controller: 'landing_page_versions/sections'
+          member do
+            get :release
+          end
           collection do
             get :valid_listing
           end

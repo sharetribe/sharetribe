@@ -1,13 +1,13 @@
 .form-group
-  %label Section background
+  %label= t('admin2.landing_page.sections.background_style.title')
   .form-radiobutton-wrapper
     .form-radiobutton.form-check-inline
       = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_IMAGE, class: %i[landing-page-section form-check-input]
-      = form.label :background_style_image, 'Image', class: 'form-check-label'
+      = form.label :background_style_image, t('admin2.landing_page.sections.background_style.image'), class: 'form-check-label'
       %br
     .form-radiobutton.form-check-inline
       = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_COLOR, class: %i[landing-page-section form-check-input]
-      = form.label :background_style_color, 'Color', class: 'form-check-label'
+      = form.label :background_style_color, t('admin2.landing_page.sections.background_style.color'), class: 'form-check-label'
     .form-radiobutton.form-check-inline
       = form.radio_button :background_style, LandingPageVersion::Section::BACKGROUND_STYLE_NONE, class: %i[landing-page-section form-check-input]
-      = form.label :background_style_none, 'None', class: 'form-check-label'
+      = form.label :background_style_none, t('admin2.landing_page.sections.background_style.none'), class: 'form-check-label'

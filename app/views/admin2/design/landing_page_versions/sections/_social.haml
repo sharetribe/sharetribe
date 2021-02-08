@@ -3,8 +3,8 @@
 = f.hidden_field :provider
 - social_link = f.object
 %div
-  %label{:for => "socialMediaFacebook"}
+  %label
     = social_link_name(social_link.provider)
   = f.text_field :url, maxlength: 255, url: true, placeholder: social_link_placeholder(social_link.provider), provider: social_link.provider, class: 'form-control'
   .actions
-    %span.handle-move{"aria-hidden" => "true"}
+    %span.handle-move

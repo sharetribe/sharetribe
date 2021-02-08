@@ -1,22 +1,21 @@
-- locale_value = @current_community.default_locale
 .input-group.footer-link-group{id: f.index, data: { "field-id": f.index, new: f.object.new_record? ? 1 : nil }}
   = f.hidden_field :id
   = f.hidden_field :sort_priority, class: 'sort-priority'
   = f.hidden_field :_destroy, class: 'destroy-record'
   %div
-    %label Link label
-    = f.text_field :title, maxlength: 255, placeholder: t("admin.communities.footer.title_placeholder", locale: locale_value), disabled: disabled, class: %i[form-control form-title required]
+    %label= t('admin2.landing_page.sections.footer.link_label')
+    = f.text_field :title, maxlength: 255, disabled: disabled, class: %i[form-control form-title required]
   %div
-    %label Link Target URL
-    = f.text_field :url, maxlength: 255, url: true, placeholder: t("admin.communities.footer.url_placeholder", locale: locale_value), disabled: disabled, class: %i[form-control required]
+    %label= t('admin2.landing_page.sections.footer.link_target_url')
+    = f.text_field :url, maxlength: 255, url: true, disabled: disabled, class: %i[form-control required]
   .actions
-    %span.handle-move{"aria-hidden" => "true"}
+    %span.handle-move
     = link_to '#', class: 'remove-footerLink-trigger' do
-      %span.remove{"aria-hidden" => "true"}
+      %span.remove
 
 .remove-footerLink-content
   %h2.remove-title
   %p.remove-body
   .remove-footerLink-actions
-    %button.btn.btn-negative.remove-footer-link{type: :button} Remove
-    %a.remove-footerLink-cancel.cancel-action{href: '#'} Cancel
+    = button_tag t('admin2.remove'), class: %i[btn remove-footer-link btn-negative], type: :button
+    = link_to t('admin2.cancel'), '#', class: %i[remove-footerLink-cancel cancel-action]

@@ -1,51 +1,38 @@
 - locale_value = @current_community.default_locale
-.categories-list.field-data{id: f.index, data: {"field-id": f.index, new: f.object.new_record? ? '1' : nil}}
+.categories-list.field-data{id: f.index, data: { "field-id": f.index, new: f.object.new_record? ? 1 : nil }}
   = f.hidden_field :id
   = f.hidden_field :sort_priority, class: 'sort-priority'
   = f.hidden_field :_destroy, class: 'destroy-record'
   = f.hidden_field :asset_id
-  = hidden_field_tag 'item_counter'
-
+  = hidden_field_tag :item_counter
+  - cat_name = presenter.category_name(f.index).present? ? presenter.category_name(f.index) : presenter.categories_for_select(locale_value).first[0]
   .field-data-image.col.field-data-image-wrapper
-    - if presenter.category_image(f.index).present?
-      %img{src: presenter.category_image_url(f.index)}
-    - else
-      %img
+    %img{src: presenter.category_image(f.index).present? ? presenter.category_image_url(f.index) : nil}
   .col-10.category-name-lp
-    - if presenter.category_name(f.index).present?
-      = presenter.category_name(f.index)
-    - else
-      = presenter.categories_for_select(locale_value).first[0]
+    = cat_name
   .actions.col
-    %span.handle-move{"aria-hidden" => "true"}
+    %span.handle-move
     = link_to '#', class: 'remove-dropdown-list-option-trigger' do
-      %span.remove{"aria-hidden" => "true"}
-    %span.edit-dropdown-list-option-trigger.edit{"aria-hidden" => "true"}
+      %span.remove
+    %span.edit-dropdown-list-option-trigger.edit
 
 .edit-category-content
-  %h2 Edit category
+  %h2= t('admin2.landing_page.sections.category.edit_category')
   .form-group
-    %label Category
+    %label= t('admin2.landing_page.sections.category.category')
     = f.select :category_id, presenter.categories_for_select(locale_value), {}, class: %i[form-control category-category required], count_validation: true
-
   .form-group
-    %label{:for => "newCategoryBackgroundImage"} Category Background image
+    %label= t('admin2.landing_page.sections.category.background_image')
     .custom-file
       = f.file_field :image, accept: 'image/*', class: %i[category-image-render] << ('required' unless presenter.category_image(f.index).present?)
-    %small#newCategoryBackgroundImage-help.form-text Recommended image size for category background images is 1000 x 667 pixels.
-
+    %small.form-text= t('admin2.landing_page.sections.category.background_image_info')
     - if presenter.category_image(f.index).present?
-      %small#newCategoryBackgroundImage-filename.form-text
-        The current category background image filename is
-        = succeed "." do
-          %code= presenter.category_image_filename(f.index)
+      %small.form-text
+        = t('admin2.landing_page.sections.category.image', name: presenter.category_image_filename(f.index))
 
 .remove-category-content
-  %h2 Remove "City bikes"
-  %p
-    Are you sure you want to remove the category
-    %strong "City bikes"
-    from the landing page?
+  %h2.delete_header= t('web.admin2.landing_page.category.remove', name: cat_name)
+  %p.delete_body= t('web.admin2.landing_page.category.remove_confirm', name: cat_name).html_safe
   .remove-category-actions
-    %button.btn.remove-category-btn.btn-negative{type: :button} Remove
-    %a.remove-category-cancel.cancel-action{href: '#'} Cancel
+    = button_tag t('admin2.remove'), class: %i[btn remove-category-btn btn-negative], type: :button
+    = link_to t('admin2.cancel'), '#', class: %i[remove-category-cancel cancel-action]

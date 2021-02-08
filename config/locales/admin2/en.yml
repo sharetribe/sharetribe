@@ -2,6 +2,12 @@ en:
   web:
     admin2:
       landing_page:
+        location:
+          remove: 'Remove "%{name}"'
+          remove_confirm: 'Are you sure you want to remove the location <strong>"%{name}"</strong> from the landing page?'
+        category:
+          remove: 'Remove "%{name}"'
+          remove_confirm: 'Are you sure you want to remove the category <strong>"%{name}"</strong> from the landing page?'
         listings:
           not_valid_id_error: 'This listing ID is not available in your marketplace. Maybe you made a typo? Please verify and try again.'
         footer_menu_link:
@@ -13,6 +19,7 @@ en:
     prev_step: Previous
     cancel: Cancel
     delete: Delete
+    remove: Remove
     chooseText: Choose
     cancelText: Cancel
     open_in_editor: "Open in editor"
@@ -1210,10 +1217,111 @@ en:
       edit: Edit
     landing_page:
       header: "Add-on: Custom Landing Page - $99 per month"
+      lp_editor: 'Landing Page Editor'
+      lp_info_1: 'Define the layout of your landing page from a set of building blocks. These ready-made sections are the result of combining the best practices of the the most successful online marketplaces. For now, the Landing Page Editor only supports one language.'
+      lp_info_2: 'Learn everything you need to know about the Landing Page Editor <a class="external-link" target="_blank" href="%{url}">in the Go Help Center</a>.'
       info_text_1: "Add a beautiful home page and engage your visitors the moment they arrive on your marketplace. Define the layout of your landing page from a set of building blocks."
       btn_text: "Learn more"
+      section_id: 'Section ID'
+      section_type: 'Section type'
+      remove_confirm: 'Are you sure you want to remove the section %{name} and all its data?'
+      add_new_section: '+ Add a new section'
+      publish_changes: 'Publish changes'
+      preview_landing_page: 'Preview landing page'
+      check_it_out: 'Check it out'
+      latest_version_released: 'The latest version of your landing page has been set live! %{link}!'
+      this_version_is_not_released: 'You need to make changes to set live a new version of your landing page'
       sections:
+        add: 'Add a new section to your Landing Page'
+        new: 'New section type'
+        select: 'Select a section type...'
+        id: 'Unique Section ID'
+        paragraph: 'Section paragraph'
+        title: 'Section title'
+        background_color: 'Section background color'
+        delete_info: 'This action cannot be undone.'
+        delete_section: 'Delete section'
+        edit: 'Edit <strong>%{name}</strong> section'
+        listing:
+          title: 'Featured listings'
+          info: 'Add the listing IDs of the listings you want to feature. To find the ID of a listing, go to the listing page and look at the listing URL. The listing ID is the number that comes after the main URL. In example, <code>www.example.com/listings/123456-listing-title</code>, the listing ID would be <code>123456</code>.'
+          listing_1: 'Listing 1 ID'
+          listing_2: 'Listing 2 ID'
+          listing_3: 'Listing 3 ID'
+        hero:
+          call_to_action: 'Hero call-to-action'
+          button_text: 'Text'
+          cta_button_text: 'Call-to-action button label'
+          cta_button_url: 'Call-to-action target URL'
+          cta_button_info: "By default the text and action is \"Search\" for public marketplaces and \"Sign up\" for private marketplaces. You don't need to change the texts for the default actions. You can leave this field empty."
+          info: 'Set the background image for the Hero section. The slogan and description for the Hero are set from the %{url} page.'
+          button_default: 'Default action'
+          button_button: 'Button'
+          button_none: 'None'
+        cta_button:
+          cta_enabled: 'Show Call-to-action button'
+          button_title: 'Call-to-action label'
+          button_path_string: 'Call-to-action target URL'
+        footer:
+          info: 'Custom Landing Footer will override footer settings in the Footer page.'
+          theme: 'Footer style'
+          copyright: 'Footer copyright'
+          add_link: '+ Add a link'
+          social_links: 'Footer social links'
+          links: 'Footer links'
+          link_label: 'Link label'
+          link_target_url: 'Link Target URL'
+        location:
+          title: 'Featured locations'
+          info: 'You can add three to seven locations to be featured in your landing page. Add an image to each location and provide location search URL for your marketplace.'
+          image_column: 'Image'
+          label_column: 'Location label'
+          url_column: 'Search URL'
+          add: '+ Add a location'
+          edit_location: 'Edit location'
+          location_label: 'Location label'
+          search_url: 'Search URL'
+          background_image: 'Location Background image'
+          image_info: 'Recommended image size for location background images is 1000 x 667 pixels.'
+          image: 'The current location background image filename is <code>%{name}</code>.'
+          need_at_least_3_locations: 'You should have at least three locations in this section'
+          need_at_most_7_locations: 'You should have at most sevent locations in this section'
+        category:
+          add: '+ Add a category'
+          image_column: 'Image'
+          category_column: 'Category'
+          edit_category: 'Edit category'
+          featured_categories: 'Featured categories'
+          featured_categories_info: 'You can add three to seven categories to be featured in your landing page.'
+          category: 'Category'
+          background_image: 'Category Background image'
+          background_image_info: 'Recommended image size for category background images is 1000 x 667 pixels.'
+          image: 'The current category background image filename is <code>%{name}</code>.'
+          need_at_least_3_categories: 'You should have at least three categories in this section'
+          need_at_most_7_categories: 'You should have at most seven categories in this section'
+        background_style:
+          title: 'Section background'
+          image: 'Image'
+          color: 'Color'
+          none: 'None'
+        background_image:
+          title: 'Section Background image'
+          info: 'The will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels.'
+          image: 'The current background image filename is <code>%{name}</code>.'
+          overlay: 'Overlay for the background image'
+          dark_overlay: 'Dark overlay'
+          light_overlay: 'Light overlay'
+          transparent_overlay: 'Transparent overlay'
+        video:
+          youtube_video_id: 'YouTube video ID'
+          vide_id_info: "You can get the video ID from the video's URL. For example if the video's URL is <code>youtube.com/watch?v=dQw4w9WgXcQ</code>, the ID would be <code>dQw4w9WgXcQ</code>"
+          autoplay: 'Autoplay'
+          no_autoplay: 'No Autoplay'
+          muted_autoplay: 'Muted Autoplay'
+          text: 'Text'
+          text_info: 'The text will be displayed if you have selected the "No autoplay" option or when the video is paused.'
         multi_column:
+          info: 'Adding icons requires a manual step from the Sharetribe team. Please follow <a class="external-link" target="_blank" href="%{url}">the instructions in this article</a> to select the icon of your choice and share it with Sharetribe support.'
           column: 'Column %{index}'
           column_icon: 'Column %{index} icon'
           column_title: 'Column %{index} title'

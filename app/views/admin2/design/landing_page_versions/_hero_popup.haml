@@ -1,7 +1,5 @@
 %p.modal-text
-  Set the background image for the Hero section. The slogan and description for the Hero are set from the
-  %a{:href => "/pages/essentials.php"} "Essentials"
-  page.
+  = t('admin2.landing_page.sections.hero.info', url: (link_to "\"#{t('admin2.sidebar.general.essentials')}\"", admin2_general_essentials_path)).html_safe
 
 = render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
 = render 'admin2/design/landing_page_versions/sections/background_image', form: form, presenter: presenter
@@ -11,21 +9,21 @@
   .form-radiobutton-wrapper
     .form-radiobutton.form-check-inline
       = form.radio_button :cta_button_type, LandingPageVersion::Section::Hero::BUTTON_TYPE_DEFAULT, cta_button_type_radio: true, class: %i[form-check-input landing-page-section]
-      = form.label :cta_button_type_default, 'Default action', class: %i[form-check-label]
+      = form.label :cta_button_type_default, t('admin2.landing_page.sections.hero.button_default'), class: %i[form-check-label]
       %br
     .form-radiobutton.form-check-inline
       = form.radio_button :cta_button_type, LandingPageVersion::Section::Hero::BUTTON_TYPE_BUTTON, cta_button_type_radio: true, class: %i[form-check-input landing-page-section]
-      = form.label :cta_button_type_button, 'Button', class: %i[form-check-label]
+      = form.label :cta_button_type_button, t('admin2.landing_page.sections.hero.button_button'), class: %i[form-check-label]
     .form-radiobutton.form-check-inline
       = form.radio_button :cta_button_type, LandingPageVersion::Section::Hero::BUTTON_TYPE_NONE, cta_button_type_radio: true, class: %i[form-check-input landing-page-section]
-      = form.label :cta_button_type_none, 'None', class: %i[form-check-label]
+      = form.label :cta_button_type_none, t('admin2.landing_page.sections.hero.button_none'), class: %i[form-check-label]
 
 #heroCTAButtonLabelURLWrapper
   .form-group
-    %label.default-text-label Text
-    %label#buttonTextLabel Call-to-action button label
+    %label.default-text-label= t('admin2.landing_page.sections.hero.button_text')
+    %label#buttonTextLabel= t('admin2.landing_page.sections.hero.cta_button_text')
     = form.text_field :cta_button_text, required: form.object.cta_button_type_button? ? true : nil, class: %i[form-control]
-    %small.default-text-label.form-text By default the text and action is "Search" for public marketplaces and "Sign up" for private marketplaces. You don't need to change the texts for the default actions. You can leave this field empty.
+    %small.default-text-label.form-text= t('admin2.landing_page.sections.hero.cta_button_info')
   .form-group#heroCTADefaultTextWrapper
-    %label Call-to-action target URL
+    %label= t('admin2.landing_page.sections.hero.cta_button_url')
     = form.text_field :cta_button_url, url: true, required: form.object.cta_button_type_button?, class: %i[form-control]

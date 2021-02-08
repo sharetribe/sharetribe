@@ -1,21 +1,19 @@
 .content-card-header
-  %h1.content-card-header-title Landing Page
-
+  %h1.content-card-header-title
+    = t('admin2.sidebar.design.landing_page')
 .content-card-section-container
-  = form_for [:admin, @presenter.landing_page_version], class: %i[content-card-section-form] do |form|
+  = form_for [:admin, @presenter.landing_page_version], html: { class: %i[content-card-section-form landing-page-form] }, remote: true do |form|
     %section.content-card-section
-      %h2 Landing Page Editor
+      %h2= t('admin2.landing_page.lp_editor')
       %p.ingress
-        Define the layout of your landing page from a set of building blocks. These ready-made sections are the result of combining the best practices of the the most successful online marketplaces. For now, the Landing Page Editor only supports one language.
+        = t('admin2.landing_page.lp_info_1')
         %br
         %br
-        Learn everything you need to know about the Landing Page Editor
-        = succeed "." do
-          %a.external-link{:href => "https://help.sharetribe.com/en/collections/2142373", :target => "_blank"} in the Go Help Center
+        = t('admin2.landing_page.lp_info_2', url: 'https://help.sharetribe.com/en/collections/2142373').html_safe
       .form-group
         #sectionList.field-titles.field-data
-          .col.col-lg-6 Section ID
-          .col.col-lg-4 Section type
+          .col.col-lg-6= t('admin2.landing_page.section_id')
+          .col.col-lg-4= t('admin2.landing_page.section_type')
           .col
 
         #landingSection.list-group
@@ -23,20 +21,22 @@
             - position = position_form.object
             - allow_move = position.removable?
             .field-data{class: "allow_edit_#{allow_move}"}
+              = position_form.hidden_field :id
+              = position_form.hidden_field :position, class: 'hidden-position'
               .col.col-lg-6= position.id
               .col.col-lg-4= position.kind
               .actions.col
                 %span.handle-move{class: ("disabled" unless allow_move),  "aria-hidden" => "true"}
-                = link_to '#', class: 'remove-landing-page', data: { url: admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), caption: 'Are you sure you want to remove the section #visionCLP and all its data?' } do
-                  %span.remove{class: ("disabled" unless allow_move), "aria-hidden" => "true", "data-target" => "#landingPageDeleteModal", "data-toggle" => "modal"}
+                = link_to '#', class: 'remove-landing-page', data: { url: admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), caption: t('admin2.landing_page.remove_confirm', name: position.id) } do
+                  %span.remove{class: ("disabled" unless allow_move), 'aria-hidden' => true, 'data-target' => '#landingPageDeleteModal', 'data-toggle' => :modal}
                 = link_to edit_admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), remote: true do
-                  %span.edit{"aria-hidden" => "true", "data-target" => "#landingPageEditInfo1ColModal", "data-toggle" => "modal"}
+                  %span.edit
 
       %p.add-new-link
-        %a{"data-target" => "#landingPageAddModal", "data-toggle" => "modal", :href => "#"} + Add a new section
+        %a{'data-target' => '#landingPageAddModal', 'data-toggle' => :modal, href: '#'}= t('admin2.landing_page.add_new_section')
     %section.content-card-terminal
-      %button.btn.btn-primary{:href => "#"} Publish changes
-      %button.btn.btn-ghost{:href => "#"} Preview landing page
+      = link_to t('admin2.landing_page.publish_changes'), release_admin2_design_landing_page_version_path(@service.landing_page_version), class: %i[btn btn-primary]
+      = link_to t('admin2.landing_page.preview_landing_page'), landing_page_preview_path(preview_version: @service.landing_page_version.version), class: %i[btn btn-ghost], target: :_blank
 
 - content_for :popup_layout do
   = render 'admin2/design/landing_page_versions/new_popup', presenter: @presenter

@@ -1,6 +1,6 @@
 .form-group
-  = form.label :id, 'Unique Section ID'
-  = form.text_field :id, disabled: presenter.section.persisted?, class: 'form-control required'
+  = form.label :id, t('admin2.landing_page.sections.id')
+  = form.text_field :id, disabled: presenter.section.persisted?, class: %i[form-control required]
   = form.hidden_field :previous_id
   = form.hidden_field :kind, value: presenter.section.kind
   - if defined?(presenter.section.variation)

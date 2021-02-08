@@ -14,9 +14,7 @@
     = label_tag "section[columns][#{index}][icon]", t('admin2.landing_page.sections.multi_column.column_icon', index: index + 1)
     = text_field_tag "section[columns][#{index}][icon]", column['icon'], class: %i[form-control]
     %small.form-text
-      Adding icons requires a manual step from the Sharetribe team. Please follow
-      %a.external-link{:href => "https://help.sharetribe.com/en/articles/3597471", :target => "_blank"} the instructions in this article
-      to select the icon of your choice and share it with Sharetribe support.
+      = t('admin2.landing_page.sections.multi_column.info', url: 'https://help.sharetribe.com/en/articles/3597471').html_safe
   .form-group
     = label_tag "section[columns][#{index}][title]", t('admin2.landing_page.sections.multi_column.column_title', index: index + 1)
     = text_field_tag "section[columns][#{index}][title]", column['title'], class: %i[form-control]

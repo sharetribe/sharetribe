@@ -10,6 +10,22 @@ module Admin2::Design
       render json: { listing_exist: listing_exist }
     end
 
+    def release
+      if @service.release_landing_page_version
+        link = ActionController::Base.helpers.link_to I18n.t('admin2.landing_page.check_it_out'),
+                                                      landing_page_without_locale_path, target: :_blank, rel: :noopener
+        flash[:notice] = I18n.t('admin2.landing_page.latest_version_released', link: link).html_safe # rubocop:disable Rails/OutputSafety
+      else
+        flash[:error] = I18n.t('admin2.landing_page.this_version_is_not_released')
+      end
+      redirect_to admin2_design_landing_page_versions_path
+    end
+
+    def update
+      @service.update_landing_page_version
+      head :ok
+    end
+
     private
 
     def set_service
