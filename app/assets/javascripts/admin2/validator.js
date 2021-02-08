@@ -6,7 +6,7 @@ jQuery.extend(jQuery.validator.defaults,
             var hint = $(element).next('small.form-text:not(.attention)');
             if (hint.length) {
                 error.insertAfter(hint);
-            } else if ($(element).parents('.input-group').length) {
+            } else if ($(element).parents('.input-group').length && $(element).parents('.form-group').length) {
                 $(element).parents('.form-group').append(error)
             } else {
                 error.insertAfter(element);
@@ -30,6 +30,38 @@ $.validator.addMethod("regex",
         return re.test(value);
     }
 );
+
+$.validator.addMethod("valid_listing",
+    function(value, element, param) {
+       var url = $(element).data('url'),
+           id = $(element).val(),
+           result = false;
+
+        $.ajax({
+            url : url,
+            data: { id: id },
+            type : 'get',
+            async : false,
+            success : function(data) {
+                result = data['listing_exist'];
+            }
+        });
+
+        return result;
+    }
+);
+
+$.validator.addMethod('count-validation', function(value, element, params) {
+    var name = $(element).data("counter-name");
+    var count = $(".edit-dropdown-list-option-trigger:visible").length;
+    var min = $(element).data("min");
+    var max = $(element).data("max");
+    if (max) {
+        return count <= max;
+    } else {
+        return count >= min;
+    }
+});
 
 $.validator.addMethod("allowed_template_variables", function(value, element, param) {
     var variableRegex  = /\{\{(.*?)\}\}/g,

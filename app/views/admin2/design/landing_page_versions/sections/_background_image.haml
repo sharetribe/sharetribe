@@ -1,0 +1,20 @@
+.form-group
+  %label= t('admin2.landing_page.sections.background_image.title')
+  .custom-file
+    = file_field_tag :bg_image, accept: 'image/*'
+  %small#info1ColBackgroundImage-help.form-text= t('admin2.landing_page.sections.background_image.info')
+  - if presenter.section_background_image_present?
+    %small#info1ColBackgroundImage-filename.form-text
+      = t('admin2.landing_page.sections.background_image.image', name: presenter.section_background_image_filename).html_safe
+.form-group
+  %label= t('admin2.landing_page.sections.background_image.overlay')
+  .form-radiobutton-wrapper
+    .form-radiobutton.form-check-inline
+      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_DARK, class: %i[landing-page-section form-check-input]
+      = form.label :background_image_variation_dark, t('admin2.landing_page.sections.background_image.dark_overlay'), class: 'form-check-label'
+    .form-radiobutton.form-check-inline
+      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_LIGHT, class: %i[landing-page-section form-check-input]
+      = form.label :background_image_variation_light, t('admin2.landing_page.sections.background_image.light_overlay'), class: 'form-check-label'
+    .form-radiobutton.form-check-inline
+      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_TRANSPARENT, class: %i[landing-page-section form-check-input]
+      = form.label :background_image_variation_transparent, t('admin2.landing_page.sections.background_image.transparent_overlay'), class: 'form-check-label'

@@ -1,0 +1,43 @@
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.design.landing_page')
+.content-card-section-container
+  = form_for [:admin, @presenter.landing_page_version], html: { class: %i[content-card-section-form landing-page-form] }, remote: true do |form|
+    %section.content-card-section
+      %h2= t('admin2.landing_page.lp_editor')
+      %p.ingress
+        = t('admin2.landing_page.lp_info_1')
+        %br
+        %br
+        = t('admin2.landing_page.lp_info_2', url: 'https://help.sharetribe.com/en/collections/2142373').html_safe
+      .form-group
+        #sectionList.field-titles.field-data
+          .col.col-lg-6= t('admin2.landing_page.section_id')
+          .col.col-lg-4= t('admin2.landing_page.section_type')
+          .col
+
+        #landingSection.list-group
+          = form.fields_for :section_positions do |position_form|
+            - position = position_form.object
+            - allow_move = position.removable?
+            .field-data{class: "allow_edit_#{allow_move}"}
+              = position_form.hidden_field :id
+              = position_form.hidden_field :position, class: 'hidden-position'
+              .col.col-lg-6= position.id
+              .col.col-lg-4= position.kind
+              .actions.col
+                %span.handle-move{class: ("disabled" unless allow_move),  "aria-hidden" => "true"}
+                = link_to '#', class: 'remove-landing-page', data: { url: admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), caption: t('admin2.landing_page.remove_confirm', name: position.id) } do
+                  %span.remove{class: ("disabled" unless allow_move), 'aria-hidden' => true, 'data-target' => '#landingPageDeleteModal', 'data-toggle' => :modal}
+                = link_to edit_admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), remote: true do
+                  %span.edit
+
+      %p.add-new-link
+        %a{'data-target' => '#landingPageAddModal', 'data-toggle' => :modal, href: '#'}= t('admin2.landing_page.add_new_section')
+    %section.content-card-terminal
+      = link_to t('admin2.landing_page.publish_changes'), release_admin2_design_landing_page_version_path(@service.landing_page_version), class: %i[btn btn-primary]
+      = link_to t('admin2.landing_page.preview_landing_page'), landing_page_preview_path(preview_version: @service.landing_page_version.version), class: %i[btn btn-ghost], target: :_blank
+
+- content_for :popup_layout do
+  = render 'admin2/design/landing_page_versions/new_popup', presenter: @presenter
+  = render 'admin2/design/landing_page_versions/delete_popup'

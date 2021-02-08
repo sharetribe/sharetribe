@@ -1,0 +1,16 @@
+- if presenter.section_info_single_column?
+  = render 'admin2/design/landing_page_versions/column_popup', presenter: presenter, form: form
+- elsif presenter.section_hero?
+  = render 'admin2/design/landing_page_versions/hero_popup', presenter: presenter, form: form
+- elsif presenter.section_footer?
+  = render 'admin2/design/landing_page_versions/footer_popup', presenter: presenter, form: form
+- elsif presenter.section_info_multi_column?
+  = render 'admin2/design/landing_page_versions/two_columns_popup', presenter: presenter, form: form
+- elsif presenter.section_listings?
+  = render 'admin2/design/landing_page_versions/listing_popup', presenter: presenter, form: form
+- elsif presenter.section_categories?
+  = render 'admin2/design/landing_page_versions/category_popup', presenter: presenter, form: form
+- elsif presenter.section_locations?
+  = render 'admin2/design/landing_page_versions/location_popup', presenter: presenter, form: form
+- elsif presenter.section_video?
+  = render 'admin2/design/landing_page_versions/video_popup', presenter: presenter, form: form
