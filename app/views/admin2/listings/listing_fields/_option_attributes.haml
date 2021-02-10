@@ -27,15 +27,21 @@
 .edit-unit-content{data: { url: add_unit_admin2_listings_listing_fields_path }}
   = hidden_field_tag :uniq, uniq
   %h2= t('admin2.listing_fields.edit_option')
-  .form-group
-    %label= t('admin2.listing_fields.option_label')
-    .multiple-languages-container
-      - available_locales.each do |locale_name, locale|
-        .multiple-languages-language
-          %span.language
-            = locale_name
-        .multiple-languages-input
-          = text_field_tag "selector_label[#{locale}]", selector_label[locale], class: %i[form-control required selector-label]
+  - if available_locales.size == 1
+    - available_locales.each do |locale_name, locale|
+      .form-group
+        %label= t('admin2.listing_fields.option_label')
+        = text_field_tag "selector_label[#{locale}]", selector_label[locale], class: %i[form-control required selector-label]
+  - else
+    .form-group
+      %label= t('admin2.listing_fields.option_label')
+      .multiple-languages-container
+        - available_locales.each do |locale_name, locale|
+          .multiple-languages-language
+            %span.language
+              = locale_name
+          .multiple-languages-input
+            = text_field_tag "selector_label[#{locale}]", selector_label[locale], class: %i[form-control required selector-label]
 
   .edit-new-unit-actions
     = button_tag t('admin2.listing_fields.save_changes'), class: %i[btn btn-secondary], id: 'save-option', type: :button

@@ -3,9 +3,10 @@
   - @customizations.each_with_index do |customization, index|
     = f.fields_for :translations, f.object.translations.find_or_initialize_by(locale: customization.locale) do |tr|
       = tr.hidden_field :locale
-      .multiple-languages-language
-        %span.language
-          = local_name(customization.locale)
+      - if @customizations.size > 1
+        .multiple-languages-language
+          %span.language
+            = local_name(customization.locale)
       .custom-links-title
         = tr.text_field :title, class: %i[form-control required], placeholder: t('admin2.topbar.link_title'), disabled: defined?(disabled) && disabled
       .custom-links-url
@@ -15,4 +16,3 @@
           %span.handle-move
           = link_to_remove_association f do
             %span.remove
-
