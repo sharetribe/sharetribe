@@ -608,8 +608,8 @@ pt-BR:
         search_by_title_author_category: "Buscar um anúncio por título, anunciante ou nome da categoria"
         search: Buscar
         reset_search: "Mostrar todos"
-        export_all_as_csv: ~
-        processing_export: ~
+        export_all_as_csv: "Exportar todos como CSV"
+        processing_export: "Processando exportação para CSV..."
         status:
           all: "Todos os status"
           selected_js: ~
@@ -981,8 +981,8 @@ pt-BR:
         to_improve_email_deliverability: "Para melhorar a entrega de email o assunto do email é gerado automaticamente e não pode ser alterado."
         email_subject_text: "Nova mensagem da Equipe %{service_name}"
         firstname_cannot_be_removed: "\"Nome\" não pode ser removido e será substituído pelo primeiro nome atual de cada destinatário."
-        hello_firstname: "Oi Firstname,"
-        hello_firstname_text: "Oi %{person},"
+        hello_firstname: "Olá Firstname,"
+        hello_firstname_text: "Olá %{person},"
     left_hand_navigation:
       general: Geral
       users_and_transactions: "Usuários & transações"
@@ -1570,7 +1570,7 @@ pt-BR:
       confirmation_link_text: "Confirme seu endereço de email."
     common:
       hey: "Oi %{name}"
-      hi: "Oi %{name},"
+      hi: "Olá %{name},"
       kassi_team: "A equipe %{service_name}"
       thanks: "Obrigado,"
       dont_want_to_receive_these_emails: "Você deseja receber e-mails?"
@@ -1602,7 +1602,7 @@ pt-BR:
       has_rejected_your_request: "Infelizmente seu pedido foi rejeitado."
       has_rejected_your_request_text: "%{accepter} rejeitou o seu pedido de %{listing}."
     invitation_to_kassi:
-      hi: Oi!
+      hi: Olá!
       you_have_been_invited_to_kassi: "%{inviter} convidou você a fazer parte do %{service_name}."
       here_is_a_message_from: "Aqui está uma mensagem pessoal de %{inviter}"
       join_now: "Entrar agora"
@@ -1663,7 +1663,7 @@ pt-BR:
       paypal_gateway_fee: "Taxa do PayPal:"
       money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tiver marcado o pedido como concluído ou b) %{automatic_confirmation_days} dias depois do pagamento."
     payment_receipt_to_payer_v2:
-      headline: "Aqui está seu recibo por %{listing_link}."
+      headline: "aqui está seu recibo de %{listing_link}."
       you_have_made_new_payment: "Você recebeu <b> %{payment_sum} </b> por <b> %{listing_title} </b>."
     paypal_new_payment:
       paypal_gateway_fee: "Taxa do PayPal:"
@@ -1717,7 +1717,7 @@ pt-BR:
         one: "Aqui estão alguns destaques que aconteceram em %{service_name} durante o últimos dia."
         other: "Aqui estão alguns destaques que aconteceram em %{service_name} durante os últimos %{count} dias."
     newsletter:
-      hi: "Oi %{name},"
+      hi: "Olá %{name},"
       newest_offers: "O que atualmente as pessoas oferecem para os outros"
       newest_requests: "Do que as pessoas precisam atualmente"
       text_version_text: "Você poderia compartilhar algo que outros precisam? Ou você precisa de algo que outros já possuem? Adicionar uma oferta, um pedido ou verificar tudo o que outros estão oferecendo ou pedindo a %{url}"
@@ -2339,7 +2339,7 @@ pt-BR:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Você não pode enviar novos comentários pois este anúncio está fechado."
       you_must: "Você deve"
       subscribe_to_comments: "Avise-me quando houver novos comentários ou atualizações."
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "Um anúncio deletado não pode ser recuperado. Você tem certeza que deseja prosseguir?"
     edit:
       edit_listing: "Editar anúncio"
     edit_links:
@@ -2825,7 +2825,7 @@ pt-BR:
       create_new_account: "Criar uma nova conta"
       i_forgot_my_password: "Esqueci meu usuário ou a minha senha"
       login: "Log in"
-      login_to_kassi: "Faça log in no %{service_name}"
+      login_to_kassi: "Entrar em %{service_name}"
       connect_your_facebook_to_kassi: "Associar a sua conta Facebook à %{service_name}"
       facebook_account: "Conta Facebook :"
       log_in_to_link_account: "Se você já tem uma conta %{service_name}, faça log in para vinculá-la com a sua conta do Facebook."
