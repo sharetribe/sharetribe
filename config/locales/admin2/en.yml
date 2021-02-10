@@ -377,7 +377,7 @@ en:
         file: File
         location: Location
     listing_fields:
-      info_header: "Manage listing fields"
+      info_header: "Listing fields"
       info_text: "Here, you can edit the fields that users have to fill in when they create a new listing. Some fields are predefined and can't be edited."
       field_title: "Field name"
       field_type: "Field type"
@@ -940,8 +940,8 @@ en:
       love_marketplace_crew: "Love,<br/><i>%{service_name} crew</i>"
     footer:
       footer_disabled: "<b>Pro feature:</b> Would you like to configure your own custom footer? <a href=\"%{url}\">Upgrade to the Pro plan or higher</a>."
-      footer_enabling: "Enable footer"
-      footer_enabling_field: "Enable the footer on all pages"
+      footer_enabling: "Show footer"
+      footer_enabling_field: "Show the footer on all pages"
       footer_enabling_info_text: "In trial and Hobby plans, the footer is Sharetribe-branded and can't be customized. In Pro plans and higher, you can customize the footer. The footer is displayed on all pages of your marketplace. <br> <br> The footer gives your visitors more ways to access important pages on your marketplace and makes your brand more visible. You can select a dark or light footer style and add text, social media links, and a copyright text. <a href=\"%{url}\" class='external-link' target=\"_blank\">Learn more about the footer</a>."
       plan_disabled: "Would you like to configure your own own custom footer? <a href=\"%{url}\" target=\"_blank\">Upgrade to the Pro plan or higher</a>."
       footer_style: "Footer style"

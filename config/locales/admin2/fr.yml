@@ -361,7 +361,7 @@ fr:
         file: Fichier
         location: Localisation
     listing_fields:
-      info_header: "Gérer les champs d'annonces"
+      info_header: "Champs d'annonces"
       info_text: "Ici, vous pouvez modifier les champs que les utilisateurs doivent compléter quand ils postent une nouvelle annonce. Certains champs sont prédéfinis et ne peuvent pas être modifiés."
       field_title: "Nom du champ"
       field_type: "Type de champ"
@@ -924,8 +924,8 @@ fr:
       love_marketplace_crew: "Love,<br/><i>l'équipe %{service_name}</i>"
     footer:
       footer_disabled: "<b>Fonctionnalité Pro :</b> aimeriez-vous configurer votre propre pied de page ? <a href=\"%{url}\">Passez à l'offre Pro ou supérieure</a>."
-      footer_enabling: "Activer le pied de page"
-      footer_enabling_field: "Activer le pied de page sur toutes les pages"
+      footer_enabling: "Afficher le pied de page"
+      footer_enabling_field: "Afficher le pied de page sur toutes les pages"
       footer_enabling_info_text: "Durant la période d'essai ou avec l'offre Hobby, le pied de page affiche le nom Sharetribe et ne peut être personnalisé. Avec les offres Pro et supérieures, vous pouvez personnaliser le pied de page. Le pied de page est affiché sur toutes les pages de votre place de marché. <br><br> Le pied de page donne aux visiteurs des raccourcies vers les pages importantes de votre place de marché et rend votre marque plus visible. Vous pouvez sélectionner un style sombre ou clair et ajouter du texts, des liens vers des réseaux sociaux et un copyright. <a href=\"%{url}\" class='external-link' target=\"_blank\">En savoir plus sur le pied de page</a>."
       plan_disabled: "Aimeriez-vous configurer votre propre pied de page ? <a href=\"%{url}\" target=\"_blank\">Passez à l'offre Pro ou supérieure</a>."
       footer_style: "Style du pied de page"

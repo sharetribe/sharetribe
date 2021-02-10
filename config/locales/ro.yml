@@ -1282,7 +1282,7 @@ ro:
       details: "Detalii comandă"
       order_by: "Comanda %{orderer_link}"
       accept_offer: "Acceptați oferta"
-      accept_request: ~
+      accept_request: "Acceptă cererea și păstrează valabilă oferta."
       accept_request_and_close: ~
       reject_offer: "Nu de data asta"
       reject_request: "Nu de data asta"
@@ -1298,7 +1298,7 @@ ro:
       buyer_service_fee_label: ~
       you_will_get_label: "Vei primi:"
       total_label: "Total:"
-      total_value: ~
+      total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee: ~
@@ -1606,8 +1606,8 @@ ro:
       has_commented_listing_you_follow_in_kassi: "%{author} a comentat la listarea '%{listing}' pe care o urmaresti in %{service_name}."
     new_message:
       view_message: "Vedeți mesaj"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} ți-a trimis un mesaj. Accesează %{service_name} pentru a răspunde."
+      you_have_a_new_message: "Ai primit un mesaj nou de la %{sender_name} în %{service_name}"
     new_message_v2:
       headline: ~
       reply: ~
@@ -1669,7 +1669,7 @@ ro:
       price_per_unit_type: "Pret pe %{unit_type}"
       duration: "Durată nopți"
       quantity: Cantitate
-      subtotal: ~
+      subtotal: Subtotal
       total: Total
       price: Preț
       buyer_service_fee: ~
@@ -1744,7 +1744,7 @@ ro:
       welcome_to_marketplace: "Bine ați venit la %{service_name}! Ne bucurăm să vă avem alături."
       love_marketplace_crew: "Cu drag, <br /> <i>%{service_name} echipa </i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Editează de aici setările tale pentru poșta electronică"
     new_listing_by_followed_person:
       subject: "%{author_name} a postat o nouă înregistrare în %{service_name}"
       has_posted_a_new_listing: "%{author_name} a postat o nouă înregistrare:"
@@ -1889,7 +1889,7 @@ ro:
       temporary_unavailable: "Marketplace-ul este indisponibil momentan"
       unable_to_process: "Nu putem procesa cererea ta in acest moment. Te rugam sa incerci inca o data in cateva momente."
       we_hate_this: "Ne cerem scuze! Am fost informati despre aceasta eroare si lucram intens pentru o rezolvare rapida."
-      refer_to_error_id: ~
+      refer_to_error_id: "Dacă vei contacta serviciul de suport tehnic, te rugăm să incluzi în mesajul tău și codul de eroare %{error_id}"
     error_500_title: "incarcarea paginii nu a reusit"
     error_description: "Descrierea erorii"
     no_javascript:
@@ -2350,7 +2350,7 @@ ro:
     map:
       open_in_google_maps: "Deschide in Google Maps"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "A avut loc o eroare, având cod: %{error_code}"
       something_went_wrong_plain: ~
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
@@ -2369,7 +2369,7 @@ ro:
       description:
         detailed_description: "Descriere detaliată"
         youtube_info: "Dacă descrierea conține link-uri către YouTube, video-urile vor fi afișate la finalul descrierii."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Poti sa %{link} .Dacă descrierea conține link-uri către YouTube, video-urile vor fi afișate la finalul descrierii."
       destination:
         destination: Destinație
       form_content:
@@ -2421,7 +2421,7 @@ ro:
         delivery: "Metodă de livrare"
         shipping: Transport
         shipping_price: "Taxă transport"
-        shipping_price_additional: ~
+        shipping_price_additional: "Produse adiționale"
         pickup: Recepție
       origin:
         location: Oraș
@@ -2572,10 +2572,10 @@ ro:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "pe zi - 24h"
       delivery: "Metoda de livrare"
-      shipping: ~
+      shipping: "Transport (+%{price})"
       shipping_no_price: Livrare
-      shipping_price_additional: ~
-      pickup: ~
+      shipping_price_additional: "Transport (+%{price}, produse adiționale: +%{shipping_price_additional})"
+      pickup: "Ridicare sediu"
       pickup_no_price: Ridicare
       youtube_video_player: "YouTube video player"
     unit_types:
@@ -2639,7 +2639,7 @@ ro:
       you_have_something_others_do_not: "Ai ceva de oferit?"
     please_comment: Comenteaza
   mercury:
-    content_too_long: ~
+    content_too_long: "Textul introdus este prea lung."
   okl:
     member_id: "ID membru"
     member_id_or_email: "Member id sau e-mail"
@@ -2900,6 +2900,8 @@ ro:
       homepage_link: "Pagina principală"
       unsubscribe_unsuccesful: "Eroare la dezabonare"
       unsuccessful_unsubscribe_info_text: "Link-ul pentru dezabonare a expirat. Conectati-va pentru a modifica setarile abonamentului."
+      email_listing_new_comment: ~
+      email_listing_updated: ~
     profile:
       about_you: "Despre tine"
       city: Orasul
@@ -2931,7 +2933,7 @@ ro:
       username_description: ~
     save_information: "Salveaza informatia"
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Adresa de livrare"
   tag_cloud:
     tag_used:
       with_tag: "Cu eticheta"
@@ -2971,7 +2973,7 @@ ro:
       about_listing: "despre anunț"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
     first_day_of_week: 0
   datepicker:
     days:
@@ -3070,14 +3072,14 @@ ro:
       price_per_hour: ~
       price_per_unit: ~
       quantity: "Cantitate:"
-      subtotal: ~
-      shipping-price: ~
+      subtotal: "Subtotal:"
+      shipping-price: "Transport:"
       stripe-fee: ~
       start_end_time: ~
     price_per_quantity: "Pret pe %{unit_type}:"
     price: "Pret:"
     quantity: "Cantitate:%{quantity}"
-    unit_price: ~
+    unit_price: "Preț per unitate: %{unit_price}"
     total: "Total:"
     total_to_pay: "Suma totală:"
   unit:
