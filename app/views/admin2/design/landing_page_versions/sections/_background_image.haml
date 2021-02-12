@@ -1,5 +1,6 @@
+- caption = defined?(title) ? title : t('admin2.landing_page.sections.background_image.title')
 .form-group
-  %label= t('admin2.landing_page.sections.background_image.title')
+  %label= caption
   .custom-file
     = file_field_tag :bg_image, accept: 'image/*'
   %small#info1ColBackgroundImage-help.form-text= t('admin2.landing_page.sections.background_image.info')
