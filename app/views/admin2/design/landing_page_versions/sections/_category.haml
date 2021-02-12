@@ -28,7 +28,7 @@
     %small.form-text= t('admin2.landing_page.sections.category.background_image_info')
     - if presenter.category_image(f.index).present?
       %small.form-text
-        = t('admin2.landing_page.sections.category.image', name: presenter.category_image_filename(f.index))
+        = t('admin2.landing_page.sections.category.image', name: presenter.category_image_filename(f.index)).html_safe
 
 .remove-category-content
   %h2.delete_header= t('web.admin2.landing_page.category.remove', name: cat_name)

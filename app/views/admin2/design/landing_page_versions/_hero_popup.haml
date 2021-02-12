@@ -2,7 +2,7 @@
   = t('admin2.landing_page.sections.hero.info', url: (link_to "\"#{t('admin2.sidebar.general.essentials')}\"", admin2_general_essentials_path)).html_safe
 
 = render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
-= render 'admin2/design/landing_page_versions/sections/background_image', form: form, presenter: presenter
+= render 'admin2/design/landing_page_versions/sections/background_image', form: form, presenter: presenter, title: t('admin2.landing_page.sections.hero.background_image')
 
 .form-group
   %label Hero call-to-action
@@ -22,8 +22,8 @@
   .form-group
     %label.default-text-label= t('admin2.landing_page.sections.hero.button_text')
     %label#buttonTextLabel= t('admin2.landing_page.sections.hero.cta_button_text')
-    = form.text_field :cta_button_text, required: form.object.cta_button_type_button? ? true : nil, class: %i[form-control]
+    = form.text_field :cta_button_text, required: form.object.cta_button_type_button? ? true : nil, class: %i[form-control], placeholder: t('admin2.landing_page.sections.hero.button_placeholder')
     %small.default-text-label.form-text= t('admin2.landing_page.sections.hero.cta_button_info')
   .form-group#heroCTADefaultTextWrapper
     %label= t('admin2.landing_page.sections.hero.cta_button_url')
-    = form.text_field :cta_button_url, url: true, required: form.object.cta_button_type_button?, class: %i[form-control]
+    = form.text_field :cta_button_url, url: true, required: form.object.cta_button_type_button?, class: %i[form-control], placeholder: t('admin2.landing_page.sections.hero.url_placeholder')

@@ -11,7 +11,7 @@ en:
         listings:
           not_valid_id_error: 'This listing ID is not available in your marketplace. Maybe you made a typo? Please verify and try again.'
         footer_menu_link:
-          remove_title: 'Remove %{name}'
+          remove_title: 'Remove "%{name}"'
           remove_body: 'Are you sure you want to remove the footer link <strong>"%{name}"</strong> from the landing page?'
   admin2:
     save_changes: "Save changes"
@@ -1268,6 +1268,9 @@ en:
           button_default: 'Default action'
           button_button: 'Button'
           button_none: 'None'
+          background_image: 'Background image'
+          button_placeholder: 'Learn more'
+          url_placeholder: 'https://www.example.com'
         cta_button:
           cta_enabled: 'Show Call-to-action button'
           button_title: 'Call-to-action label'
