@@ -57,12 +57,19 @@ module TransactionService
       if stripe_in_use && !paypal_in_use
         commission = stripe_tx_settings[:commission_from_buyer] || 0
         minimum_fee_cents = stripe_tx_settings[:minimum_buyer_transaction_fee_cents] || 0
-        relative = (item_total.cents * (commission / 100.0)).to_i
+        relative = relative_calc(commission, listing.currency)
         fee = [relative, minimum_fee_cents].max
         @buyer_fee = MoneyUtil.to_money(fee, listing.currency)
       else
         @buyer_fee = nil
       end
+    end
+
+    def relative_calc(commission, currency)
+      total = (item_total.cents * (commission / 100.0))
+      return total if currency.to_s.casecmp('huf').zero?
+
+      total.to_i
     end
 
     def order_total

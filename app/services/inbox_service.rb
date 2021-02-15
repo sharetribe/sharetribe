@@ -190,6 +190,13 @@ module InboxService
     )
   end
 
+  # https://stripe.com/docs/currencies#special-cases
+  def divisible_100(sum, currency)
+    return sum unless currency.to_s.downcase == 'huf'
+
+    (sum.to_f / 100).floor.to_i * 100
+  end
+
   def extend_transaction(transaction)
     transitions = TransactionTransition.where(transaction_id: transaction[:transaction_id]).map do |transition_model|
       EntityUtils.model_to_hash(transition_model)
@@ -208,6 +215,7 @@ module InboxService
         tx_model = Transaction.find(transaction[:transaction_id])
         buyer_commission = tx_model.buyer_commission > 0
         stripe_payments.payment_details(tx_model)[:payment_total]
+        # divisible_100(stripe_payments.payment_details(tx_model)[:payment_total], tx_model.unit_price_currency)
       end
 
     should_notify =
