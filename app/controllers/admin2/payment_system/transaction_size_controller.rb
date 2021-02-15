@@ -27,11 +27,15 @@ module Admin2::PaymentSystem
     end
 
     def minimum_commission
-      @minimum_commission ||= if @paypal_enabled
-                                PaypalService::API::Api.minimum_commissions.get(currency) || 0
-                              else
-                                0
-                              end
+      @minimum_commission ||= [paypal_commission, stripe_commission].max
+    end
+
+    def paypal_commission
+      PaypalService::API::Api.minimum_commissions.get(currency) || 0
+    end
+
+    def stripe_commission
+      StripeService::API::Api.minimum_commissions.get(currency) || 0
     end
 
     def verify_price(tx_min_price)

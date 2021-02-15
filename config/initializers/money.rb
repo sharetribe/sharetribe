@@ -63,21 +63,6 @@ MoneyRails.configure do |config|
     :iso_numeric         => "756"
   }
 
-  config.register_currency = {
-    :priority => 100,
-    :iso_code => "HUF",
-    :name => "Hungarian Forint",
-    :symbol => "Ft",
-    :alternate_symbols => [],
-    :subunit => "Fillér",
-    :subunit_to_unit => 100,
-    :symbol_first => false,
-    :html_entity => "",
-    :decimal_mark => ",",
-    :thousands_separator => ".",
-    :iso_numeric => "348"
-  }
-
   # Russian ruble is not yet available wide enough
   # The Unicode consortium officially designated a code point, U+20BD RUBLE SIGN, ₽, for the new symbol in Unicode 7.0, released 2014-06-16
   config.register_currency = {
