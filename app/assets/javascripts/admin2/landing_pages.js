@@ -110,7 +110,6 @@ function initFooter() {
             templateId = $(this).data('templateId'),
             entry = $($(templateId).html().replace(regexp, time));
         $('#footerlinks').append(entry);
-        console.log($(entry)[2]);
         $($(entry)[2]).show(200);
         return event.preventDefault();
     });
@@ -158,7 +157,6 @@ function initFooter() {
       animation: 250,
       onEnd: function (/**Event*/evt) {
         $('.sort-priority-social').each(function (index) {
-          console.log('wwefwef');
           $(this).val(index);
         });
       }
@@ -213,7 +211,8 @@ function initLandingPage(){
         preferredFormat: "hex",
         showPalette: true,
         showSelectionPalette: false,
-        palette: [["#FFF", "#000", "#FF4E36", "#15778E", "#ff5a5f"]]
+        palette: [["#FFF", "#000", "#FF4E36", "#15778E", "#ff5a5f"]],
+        appendTo: '#landingPageEditModal'
     });
     checkedLandingPage();
     initFooter();
@@ -285,8 +284,6 @@ $(function() {
             },
             onEnd: function (/**Event*/evt) {
                 $('.hidden-position').each(function (index) {
-                    console.log($(this));
-                    console.log(index);
                     $(this).val(index);
                 });
                 $('form.landing-page-form').submit();
