@@ -104,7 +104,7 @@ module CustomLandingPage
       return nil if asset_id.nil?
 
       asset_resolver.call('assets', asset_id, landing_page_version.parsed_content)
-    rescue
+    rescue StandardError
       nil
     end
 
