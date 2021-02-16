@@ -87,13 +87,14 @@ function initCategory() {
 
     $(document).on('click', '.remove-category-btn', function(event){
         var container = $(this).closest('.remove-category-content').prev('.edit-category-content').prev('.categories-list'),
-            container_edit = $(this).closest('.remove-category-content').prev('.edit-category-content');
+            container_edit = $(this).closest('.remove-category-content').prev('.edit-category-content'),
             isNew = container.data('new');
         container.find('.destroy-record').val('1');
         if (isNew) {
             container_edit.remove();
             container.remove();
         } else {
+            container_edit.find('input').removeClass('required');
             container.hide();
         }
         $(this).closest('.remove-category-content').hide();
@@ -110,7 +111,6 @@ function initFooter() {
             templateId = $(this).data('templateId'),
             entry = $($(templateId).html().replace(regexp, time));
         $('#footerlinks').append(entry);
-        console.log($(entry)[2]);
         $($(entry)[2]).show(200);
         return event.preventDefault();
     });
@@ -158,7 +158,6 @@ function initFooter() {
       animation: 250,
       onEnd: function (/**Event*/evt) {
         $('.sort-priority-social').each(function (index) {
-          console.log('wwefwef');
           $(this).val(index);
         });
       }
@@ -207,14 +206,25 @@ function checkedLandingPage(){
         def_url.show();
     }
 }
-function initLandingPage(){
+function initLandingPage(edit){
+
+    var id;
+
+    if (edit) {
+      id = '#landingPageEditModal';
+    } else {
+      id = '#landingPageAddModal';
+    }
+
     $("#section_background_color_string").spectrum({
         showInput: true,
         preferredFormat: "hex",
         showPalette: true,
         showSelectionPalette: false,
-        palette: [["#FFF", "#000", "#FF4E36", "#15778E", "#ff5a5f"]]
+        palette: [["#FFF", "#000", "#FF4E36", "#15778E", "#ff5a5f"]],
+        appendTo: id
     });
+
     checkedLandingPage();
     initFooter();
     initCategory();
@@ -285,8 +295,6 @@ $(function() {
             },
             onEnd: function (/**Event*/evt) {
                 $('.hidden-position').each(function (index) {
-                    console.log($(this));
-                    console.log(index);
                     $(this).val(index);
                 });
                 $('form.landing-page-form').submit();
