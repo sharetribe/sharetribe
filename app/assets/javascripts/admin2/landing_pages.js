@@ -17,6 +17,12 @@ function renderDeleteBlock(elem, caption, body) {
     html_body.html(body);
 }
 
+function sortPriority() {
+  $('.sort-priority').each(function (index) {
+    $(this).val(index);
+  });
+}
+
 function initCategory() {
     $(document).off('click', ".edit-dropdown-list-option-trigger");
     $(document).on('click', '.edit-dropdown-list-option-trigger', function (event) {
@@ -112,6 +118,7 @@ function initFooter() {
             entry = $($(templateId).html().replace(regexp, time));
         $('#footerlinks').append(entry);
         $($(entry)[2]).show(200);
+        sortPriority();
         return event.preventDefault();
     });
 
@@ -145,9 +152,7 @@ function initFooter() {
             handle: '.handle-move',
             animation: 250,
             onEnd: function (/**Event*/evt) {
-                $('.sort-priority').each(function (index) {
-                    $(this).val(index);
-                });
+              sortPriority();
             }
         });
     }
