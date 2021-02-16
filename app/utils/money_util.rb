@@ -12,7 +12,8 @@ module MoneyUtil
     int_part = int_part_str.to_i || 0
     fract_part = fract_part_str.to_i || 0
 
-    (int_part * Money::Currency.new(currency).subunit_to_unit) + fract_part
+    sub_unit = Money::Currency.new(currency).subunit_to_unit
+    (int_part * sub_unit) + (sub_unit == 1 ? 0 : fract_part)
   end
 
   def parse_str_to_money(money_str, currency)
