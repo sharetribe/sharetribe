@@ -205,15 +205,25 @@ function checkedLandingPage(){
         def_url.show();
     }
 }
-function initLandingPage(){
+function initLandingPage(edit){
+
+    var id;
+
+    if (edit) {
+      id = '#landingPageEditModal';
+    } else {
+      id = '#landingPageAddModal';
+    }
+
     $("#section_background_color_string").spectrum({
         showInput: true,
         preferredFormat: "hex",
         showPalette: true,
         showSelectionPalette: false,
         palette: [["#FFF", "#000", "#FF4E36", "#15778E", "#ff5a5f"]],
-        appendTo: '#landingPageEditModal'
+        appendTo: id
     });
+
     checkedLandingPage();
     initFooter();
     initCategory();
