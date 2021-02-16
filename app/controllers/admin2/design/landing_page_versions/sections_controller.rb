@@ -9,6 +9,9 @@ class Admin2::Design::LandingPageVersions::SectionsController < Admin2::AdminBas
 
   def create
     @service.create
+    if @service.section.errors.present?
+      flash[:error] = @service.section.errors.full_messages.join(', ')
+    end
   rescue StandardError => e
     flash[:error] = e.message
   ensure
@@ -21,6 +24,9 @@ class Admin2::Design::LandingPageVersions::SectionsController < Admin2::AdminBas
 
   def update
     @service.update
+    if @service.section.errors.present?
+      flash[:error] = @service.section.errors.full_messages.join(', ')
+    end
   rescue StandardError => e
     flash[:error] = e.message
   ensure

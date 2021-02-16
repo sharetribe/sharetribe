@@ -87,13 +87,14 @@ function initCategory() {
 
     $(document).on('click', '.remove-category-btn', function(event){
         var container = $(this).closest('.remove-category-content').prev('.edit-category-content').prev('.categories-list'),
-            container_edit = $(this).closest('.remove-category-content').prev('.edit-category-content');
+            container_edit = $(this).closest('.remove-category-content').prev('.edit-category-content'),
             isNew = container.data('new');
         container.find('.destroy-record').val('1');
         if (isNew) {
             container_edit.remove();
             container.remove();
         } else {
+            container_edit.find('input').removeClass('required');
             container.hide();
         }
         $(this).closest('.remove-category-content').hide();
