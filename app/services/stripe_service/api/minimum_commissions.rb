@@ -11,9 +11,8 @@ class StripeService::API::MinimumCommissions
   private
 
   def monetize_commissions(commissions)
-    commissions.reduce({}) do |memo, (currency, cents)|
+    commissions.each_with_object({}) do |(currency, cents), memo|
       memo[currency] = Money.new(cents, currency)
-      memo
     end
   end
 end

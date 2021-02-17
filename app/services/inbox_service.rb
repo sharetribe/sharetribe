@@ -192,7 +192,7 @@ module InboxService
 
   # https://stripe.com/docs/currencies#special-cases
   def divisible_100(sum, currency)
-    return sum unless currency.to_s.downcase == 'huf'
+    return sum unless currency.to_s.casecmp('huf').zero?
 
     (sum.to_f / 100).floor.to_i * 100
   end
