@@ -13,4 +13,4 @@
           #section_block
         .modal-footer
           = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary], form: :new_section_form
+          = button_tag t('admin2.save_changes'), data: { disable_with: t('admin2.save_changes') }, class: %i[btn btn-primary], form: :new_section_form
