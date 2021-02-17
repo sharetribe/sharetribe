@@ -3,14 +3,20 @@
     = link_to t('admin2.listing_fields.add_option_link'), '#', id: 'new-option-trigger'
   .add-new-unit-content
     %h2= t('admin2.listing_fields.add_new_option')
-    .form-group
-      %label= t('admin2.listing_fields.option_label')
-      .multiple-languages-container
-        - available_locales.each do |locale_name, locale_value|
-          .multiple-languages-language
-            %span.language= locale_name
-          .multiple-languages-input
-            = text_field_tag "selector_label[#{locale_value}]", '', class: %i[form-control required]
+    - if available_locales.size == 1
+      - available_locales.each do |_locale_name, locale_value|
+        .form-group
+          %label= t('admin2.listing_fields.option_label')
+          = text_field_tag "selector_label[#{locale_value}]", '', class: %i[form-control required]
+    - else
+      .form-group
+        %label= t('admin2.listing_fields.option_label')
+        .multiple-languages-container
+          - available_locales.each do |locale_name, locale_value|
+            .multiple-languages-language
+              %span.language= locale_name
+            .multiple-languages-input
+              = text_field_tag "selector_label[#{locale_value}]", '', class: %i[form-control required]
     .add-new-unit-actions
       = button_tag t('admin2.listing_fields.save_option'), class: %i[btn btn-secondary], id: 'save-new-option', type: :button
       = link_to t('admin2.cancel'), '#', class: %i[cancel-action], id: 'add-new-unit-cancel'

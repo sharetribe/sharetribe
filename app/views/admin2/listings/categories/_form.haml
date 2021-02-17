@@ -1,12 +1,18 @@
-.form-group
-  = form.label :name_attributes, t('admin2.categories.category_name')
-  .multiple-languages-container
-    - available_locales.each do |locale_name, locale_value|
-      .multiple-languages-language
-        %span.language
-          = locale_name
-      .multiple-languages-input
-        = text_field_tag "category[translation_attributes][#{locale_value}][name]", category.display_name(locale_value), class: 'required form-control'
+- if available_locales.size == 1
+  - available_locales.each do |_locale_name, locale_value|
+    .form-group
+      = form.label :name_attributes, t('admin2.categories.category_name')
+      = text_field_tag "category[translation_attributes][#{locale_value}][name]", category.display_name(locale_value), class: 'required form-control'
+- else
+  .form-group
+    = form.label :name_attributes, t('admin2.categories.category_name')
+    .multiple-languages-container
+      - available_locales.each do |locale_name, locale_value|
+        .multiple-languages-language
+          %span.language
+            = locale_name
+        .multiple-languages-input
+          = text_field_tag "category[translation_attributes][#{locale_value}][name]", category.display_name(locale_value), class: 'required form-control'
 
 - if category.new_record?
   .form-group{style: 'margin-left:0;'}
