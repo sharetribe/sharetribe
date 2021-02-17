@@ -54,6 +54,7 @@ function validateOptions(){
 $(function() {
 
     $(document).on('click', '.submit-listing-field-form', function () {
+        $(this).prop('disabled', true);
         var form = $('form.listing-field-form'),
             success = true,
             min_l = $('#minimum_length'),
@@ -69,10 +70,13 @@ $(function() {
 
         if (form.valid() && success) {
             form.submit();
+        } else {
+            $(this).prop('disabled', false);
         }
 
         if (!success) {
            error_options.addClass('attention').show();
+           $(this).prop('disabled', false);
         }
     });
 
