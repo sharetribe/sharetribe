@@ -11,4 +11,4 @@
           = render 'admin2/listings/order_types/category_body', locals: locals
         .modal-footer
           = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-          = button_tag t('admin2.save_changes'), class: %i[btn btn-primary]
+          = button_tag t('admin2.save_changes'), data: { disable_with: t('admin2.save_changes') }, class: %i[btn btn-primary]

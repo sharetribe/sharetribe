@@ -15,4 +15,4 @@
           = render 'form', form: form, category: category, shapes: shapes, selected_shape_ids: selected_shape_ids
         .modal-footer
           = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-          = button_tag save_button_label, class: %i[btn btn-primary]
+          = button_tag save_button_label, data: { disable_with: save_button_label }, class: %i[btn btn-primary]
