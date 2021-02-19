@@ -47,6 +47,9 @@ module DeletePerson
           person.follower_relationships.destroy_all
           person.inverse_follower_relationships.destroy_all
 
+          # Delete followed listings relationships
+          person.followed_listings.destroy_all
+
           # Delete memberships
           person.community_membership.update(status: "deleted_user")
 
