@@ -5,6 +5,9 @@ class SendWelcomeEmail < Struct.new(:person_id, :community_id)
   def perform
     set_service_name!(community_id)
     person = Person.find(person_id)
+
+    return if person.deleted
+
     community = Community.find(community_id)
     unless person.has_admin_rights?(community)
       MailCarrier.deliver_now(PersonMailer.welcome_email(person, community))

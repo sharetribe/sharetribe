@@ -128,7 +128,7 @@ class Community < ApplicationRecord
 
   has_many :community_memberships, :dependent => :destroy
   has_many :members, -> { merge(CommunityMembership.accepted) }, :through => :community_memberships, :source => :person
-  has_many :admins, -> { merge(CommunityMembership.admin.not_banned) }, :through => :community_memberships, :source => :person
+  has_many :admins, -> { merge(CommunityMembership.admin.not_banned.not_deleted_user) }, :through => :community_memberships, :source => :person
   has_many :members_all_statuses, :through => :community_memberships, :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
