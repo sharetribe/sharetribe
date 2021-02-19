@@ -272,6 +272,7 @@ describe Person, type: :model do
       person.location = FactoryGirl.create(:location)
       person.followers << FactoryGirl.create(:person, member_of: community)
       person.followed_people << FactoryGirl.create(:person, member_of: community)
+      person.followed_listings << FactoryGirl.create(:listing, community: community)
       person.auth_tokens << FactoryGirl.create(:auth_token)
       person.custom_field_values << FactoryGirl.create(:custom_numeric_field_value,
                                                        question: field1,
@@ -299,7 +300,11 @@ describe Person, type: :model do
       expect(person.emails.count).to be > 0
       expect(person.followers.count).to be > 0
       expect(person.followed_people.count).to be > 0
+      expect(person.followed_listings.count).to be > 0
       expect(person.custom_field_values.count).to be > 0
+
+      followed_listing = person.followed_listings.first
+
       Person.delete_user(person.id)
       person.reload
       expect(person.deleted).to eq true
@@ -320,7 +325,11 @@ describe Person, type: :model do
       expect(person.emails.count).to eq 0
       expect(person.followers.count).to eq 0
       expect(person.followed_people.count).to eq 0
+      expect(person.followed_listings.count).to eq 0
       expect(person.custom_field_values.count).to eq 0
+
+      followed_listing.reload
+      expect(followed_listing.id).not_to eq nil
     end
   end
 
