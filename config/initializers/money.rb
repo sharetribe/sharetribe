@@ -43,6 +43,7 @@ MoneyRails.configure do |config|
                              default: nil
                            }
 
+
   config.default_format = {
     sign_before_symbol: true
   }

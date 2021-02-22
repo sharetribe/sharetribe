@@ -51,9 +51,9 @@ module ListingFormViewUtils
     listing_params.inject({}) do |hash, (k, v)|
       case k
       when "price"
-        hash.merge(:price_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
+        hash.merge(:price_cents => MoneyUtil.parse_str_to_subunits(v, currency))
       when "shipping_price"
-        hash.merge(:shipping_price_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
+        hash.merge(:shipping_price_cents => MoneyUtil.parse_str_to_subunits(v, currency))
       when "shipping_price_additional"
         hash.merge(:shipping_price_additional_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
       else

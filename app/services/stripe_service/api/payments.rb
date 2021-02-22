@@ -80,11 +80,11 @@ module StripeService::API
               result = stripe_api.perform_transfer(
                 community: tx.community_id,
                 account_id: seller_account[:stripe_seller_id],
-                amount_cents: seller_gets.cents,
+                amount_cents: multiply_100(seller_gets.cents, payment[:sum].currency),
                 amount_currency: payment[:sum].currency,
                 initial_amount: payment[:subtotal].cents,
                 charge_id: payment[:stripe_charge_id],
-                metadata: {sharetribe_transaction_id: tx.id}
+                metadata: { sharetribe_transaction_id: tx.id }
               )
             end
           when :destination
@@ -96,7 +96,7 @@ module StripeService::API
                 account_id: seller_account[:stripe_seller_id],
                 amount_cents: transfer.amount,
                 currency: transfer.currency,
-                metadata: {shretribe_order_id: tx.id}
+                metadata: { shretribe_order_id: tx.id }
               )
             end
           end
@@ -126,6 +126,13 @@ module StripeService::API
       end
 
       private
+
+      # https://stripe.com/docs/currencies#special-cases
+      def multiply_100(sum, currency)
+        return sum unless currency == 'huf'
+
+        sum * 100
+      end
 
       def wrap_in_report(tx:, start:, success:, failed:)
         report = StripeService::Report.new(tx: tx)
@@ -166,9 +173,9 @@ module StripeService::API
             community: tx.community_id,
             seller_account_id: seller_id,
             payment_method_id: payment_method_id,
-            amount: total.cents,
+            amount: multiply_100(total.cents, total.currency),
             currency: total.currency.iso_code,
-            fee: commission.cents + buyer_commission.cents,
+            fee: multiply_100(commission.cents + buyer_commission.cents, total.currency),
             description: description,
             metadata: metadata)
         else
