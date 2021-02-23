@@ -1767,14 +1767,14 @@ ca:
       view_listing: "Veure %{title}"
       cant_click: "No pots fer clic al botó? Aquí hi ha un enllaç per la teva conveniència:"
     new_ident_notification:
-      subject: ~
-      h1_body: ~
-      p_line1: ~
-      p_line2: ~
-      p_line3: ~
-      p_line4: ~
-      p_line5: ~
-      button: ~
+      subject: "L'adreça del teu mercat va canviar"
+      h1_body: "L'adreça URL de %{community_name} ha canviat."
+      p_line1: "L'adreça del teu mercat s'ha canviat"
+      p_line2: "Antiga URL: %{link}"
+      p_line3: "Nova URL: %{link}"
+      p_line4: "Nova URL del panell d'administració: %{link}"
+      p_line5: "Pots iniciar sessió al teu mercat amb el mateix compte que abans."
+      button: "Ves a %{text}"
     new_member_notification:
       subject: "Nou membre a %{community}"
       new_member_has_joined: "Un nou membre s'ha unit a %{community}. És possible que encara hagin de confirma la seva adreça de correu electrònic."

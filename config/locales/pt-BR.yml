@@ -460,7 +460,7 @@ pt-BR:
       transactions:
         export_all_as_csv: "Exporte tudo como CSV"
         processing_export: "Processando a exportação para CSV..."
-        transactions: "Ver transações"
+        transactions: Transações
         search_by_title_parties: "Pesquise pelo título da transação ou pelas partes envolvidas"
         search: Pesquisar
         reset_search: "Mostrar todos"
@@ -1402,9 +1402,9 @@ pt-BR:
       payment_errored_starter: "O pagamento falhou. Por favor, tente novamente. Se o problema persistir, entre em contato com o nosso suporte."
       payment_errored_author: "Falha no pagamento. Favor entrar em contato com %{starter_name} e pedir para tentar realizar o pagamento novamente."
       cancel_payed_transaction: Cancelar
-      feedback_given: "Feedback enviado"
-      feedback_skipped: "Feedback descartado"
-      give_feedback: "Dar feedback"
+      feedback_given: "Avaliação realizada"
+      feedback_skipped: "Avaliação descartada"
+      give_feedback: "Fazer a avaliação"
       offer_accepted: Aceito
       offer_rejected: Rejeitado
       offer_canceled: Cancelado
@@ -1428,7 +1428,7 @@ pt-BR:
       request_canceled: Cancelado
       request_paid: "Pagamento efetuado com sucesso"
       request_preauthorized: "Pagamento autorizado"
-      skip_feedback: "Não deixar opinião"
+      skip_feedback: "Não avaliar"
       waiting_for_listing_author_to_accept_offer: "Aguardando %{listing_author_name} aceitar a oferta"
       waiting_for_listing_author_to_accept_request: "Aguardando que %{listing_author_name} aceite seu pedido. Você somente será cobrado quando %{listing_author_name} aceitar o pedido."
       waiting_for_you_to_accept_request: "Esperando por você para aceitar o pedido"
@@ -1478,10 +1478,10 @@ pt-BR:
   community_memberships:
     access_denied:
       access_denied: "Acesso negado"
-      you_are_banned_in_this_community: "O administrador bloqueou seu acesso ao %{service_name}. Se você quiser entrar em contato com o administrador você pode enviar %{link_to_contact_page}."
+      you_are_banned_in_this_community: "A equipe %{service_name} desabilitou sua conta temporariamente. Se você quiser contatá-los basta enviar uma %{link_to_contact_page}."
       contact_page_link: Reposta
     new:
-      welcome_fb_user: "Seja bem-vindo ao %{service_name}, %{name} !"
+      welcome_fb_user: "Seja bem-vindo a %{service_name}, %{name}!"
       fb_join_accept_terms: "Última etapa para fazer parte de %{service_name} : você deve aceitar as condições de uso."
       join_community: "Entrar em %{service_name}"
       you_can_join: "Para participar de %{service_name} você deve aceitar os termos de uso e clicar em 'Entrar em %{service_name}' abaixo."
@@ -1599,11 +1599,11 @@ pt-BR:
     conversation_status_changed_v2:
       has_accepted_your_request: "seu pedido foi aceito"
       has_accepted_your_request_text: "%{accepter} aceitou seu pedido de %{listing}."
-      has_rejected_your_request: "Infelizmente seu pedido foi rejeitado."
+      has_rejected_your_request: "infelizmente seu pedido foi rejeitado."
       has_rejected_your_request_text: "%{accepter} rejeitou o seu pedido de %{listing}."
     invitation_to_kassi:
       hi: Olá!
-      you_have_been_invited_to_kassi: "%{inviter} convidou você a fazer parte do %{service_name}."
+      you_have_been_invited_to_kassi: "%{inviter} convidou você para fazer parte de %{service_name}."
       here_is_a_message_from: "Aqui está uma mensagem pessoal de %{inviter}"
       join_now: "Entrar agora"
       invitation_code: "Código do convite : %{code}"
@@ -1611,14 +1611,14 @@ pt-BR:
       headline: Olá!
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} comentou seu anúncio '%{listing}'."
-      view_comment: "Ver comentário"
+      view_comment: "Ver o comentário"
       you_have_a_new_comment: "%{author} comentou seu anúncio em %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} comentou um anúncio que você segue no %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} comentou o anúncio '%{listing}' que você segue no %{service_name}."
     new_message:
-      view_message: "Ver mensagem"
+      view_message: "Ver a mensagem"
       has_sent_you_a_message_in_kassi: "%{sender} enviou uma mensagem para você. Vá para %{service_name} para responder."
-      you_have_a_new_message: "Você tem uma nova mensagem de %{sender_name} in %{service_name}"
+      you_have_a_new_message: "Você tem uma nova mensagem de %{sender_name} em %{service_name}"
     new_message_v2:
       headline: "Você tem uma mensagem!"
       reply: "Click aqui para responder para %{sender}"
@@ -1691,11 +1691,11 @@ pt-BR:
       stripe:
         you_have_made_new_payment: "Você pagou <b> %{payment_sum} </b> por <b> %{listing_title} </b>. O dinheiro está retido por %{service_name} e será liberado para %{recipient_full_name} assim que você marcar o pedido como concluído. Aqui está o recibo do pagamento."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} te avaliou %{service_name}"
+      has_given_you_feedback_in_kassi: "%{name} te avaliou em %{service_name}"
       you_can_give_feedback_to: "Você ainda não avaliou %{name}"
-      view_feedback: "Ver opinião"
+      view_feedback: "Ver a avaliação"
     new_testimonial_v2:
-      headline: "você recebeu feedback!"
+      headline: "você recebeu uma avaliação!"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Um anúncio que você segue foi atualizado"
       has_updated_listing_you_follow_in_kassi: "%{author} atualizou o anúncio '%{listing}' você está seguindo em %{service_name}."
@@ -1704,7 +1704,7 @@ pt-BR:
       added_offer: "%{name_link} adicionou um anúncio:"
       added_request: "%{name_link} adicionou um anúncio :\n"
       added_listing: "%{name_link} adicionou um anúncio:"
-      update_mail_title: "%{title_link} atualização"
+      update_mail_title: "%{title_link} atualizações"
       title_link_text: "%{community_name}"
       intro_paragraph: "Veja algumas coisas que aconteceram no %{community_link} desde %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
@@ -1712,7 +1712,7 @@ pt-BR:
       settings_link_text: "Edite suas configurações de e-mail aqui"
       unsubscribe_link_text: "Cancelar inscrição"
     community_updates_v2:
-      headline: "confira as atividades mais recentes no %{service_name}."
+      headline: "confira as atividades mais recentes em %{service_name}."
       intro_paragraph:
         one: "Aqui estão alguns destaques que aconteceram em %{service_name} durante o últimos dia."
         other: "Aqui estão alguns destaques que aconteceram em %{service_name} durante os últimos %{count} dias."
@@ -1750,8 +1750,8 @@ pt-BR:
       headline: "lembre-se de aceitar o pedido de %{requester} sobre %{listing_link}."
       remember_to_accept: "%{requester} já pagou pelo anúncio. Você precisa aceitar o pedido para receber o pagamento."
     welcome_email:
-      welcome_email_subject: "Seja bem-vindo ao %{service_name}"
-      welcome_to_marketplace: "Seja bem-vindo ao %{service_name}! Ficamos felizes em tê-lo a bordo."
+      welcome_email_subject: "Seja bem-vindo a %{service_name}"
+      welcome_to_marketplace: "Seja bem-vindo a %{service_name}! Ficamos felizes em tê-lo a bordo."
       love_marketplace_crew: "Com carinho,<br/><i>Equipe %{service_name}</i>"
       welcome_email_footer_text: "%{settings_link}"
       settings_link_text: "Edite suas configurações de email aqui"
@@ -1907,7 +1907,7 @@ pt-BR:
       kassi_does_not_currently_work_without_javascript: "%{service_name} não funciona corretamente sem javascript. Tente habilitar o javascript nas configurações de seu navegador e recarregar a página novamente."
       contact_us: Contato
       send_feedback: "Enviar mensagem"
-      your_feedback_to_admins: "Sua mensagem para a equipe do %{service_name}"
+      your_feedback_to_admins: "Sua mensagem para a equipe %{service_name}"
     send: Enviar
     your_email_address: "Seu endereço de e-mail"
   errors:
@@ -2107,7 +2107,7 @@ pt-BR:
     application:
       join_this_community: "Juntar-se ao marketplace"
       read_more: "Ler o seguinte"
-      feedback: "Sua mensagem para a equipe do %{service_name}"
+      feedback: "Sua mensagem para a equipe %{service_name}"
       dont_use_to_contact_support: "Percebemos que você é um administrador em %{service_name}. Este formulário é utilizado para seus usuários entrarem em contato com você. Você não pode usar este formulário para contatar o suporte Sharetribe. Você pode fazer isso através do link Suporte no seu painel de administração."
       feedback_forum: "fórum de avaliações"
       feedback_handle: Avaliação
@@ -2200,10 +2200,10 @@ pt-BR:
       email_not_found: "O e-mail que você forneceu não existe no banco de dados do %{service_name}."
       error_with_session: "Erro na sessão."
       feedback_considered_spam: "Sua avaliação não foi salva devido a formatação. Tente novamente ou use o fórum de avaliações."
-      feedback_not_saved: "Avaliação não pôde ser enviada."
+      feedback_not_saved: "A avaliação não pôde ser enviada."
       feedback_saved: "Agradecemos seu contato! Retornaremos assim que possível."
-      feedback_sent_to: "Avaliação enviada para %{target_person}."
-      feedback_skipped: "Avaliação foi pulada."
+      feedback_sent_to: "A avaliação foi enviada para %{target_person}."
+      feedback_skipped: "A avaliação foi descartada."
       invitation_cannot_be_sent: "Convite não pôde ser enviado"
       invitation_cannot_unsubscribe: "Não é possível cancelar a assinatura de e-mails de convite"
       invitation_limit_reached: "Você tentou enviar convites demais. Seu limite diário foi excedido."
@@ -2212,7 +2212,7 @@ pt-BR:
       inviting_new_users_is_not_allowed_in_this_community: "Não é permitido convidar novos usuários."
       login_again: "Por favor, tente fazer log in novamente."
       login_failed: "Problemas ao conectar sua conta. Por favor entre com os dados corretos."
-      account_creation_successful: "Seja bem-vindo ao %{service_name}, %{person_name}!"
+      account_creation_successful: "Seja bem-vindo a %{service_name}, %{person_name}!"
       account_deleted: "Sua conta já está deletada."
       login_successful: "Bem-vindo(a), %{person_name}"
       logout_successful: "Você foi desconectado do %{service_name}. Nos vemos em breve!"
@@ -2272,8 +2272,8 @@ pt-BR:
       you_cannot_reply_to_a_closed_offer: "Você não pode responder a uma oferta fechada"
       you_cannot_send_message_to_yourself: "Você não pode enviar uma mensagem para si mesmo"
       you_followed_listing: "Você está agora seguindo este anúncio"
-      you_have_already_given_feedback_about_this_event: "Você já deixou sua opinião sobre este evento"
-      you_are_now_member: "Seja bem-vindo ao %{service_name}!"
+      you_have_already_given_feedback_about_this_event: "Você já deixou sua avaliação sobre este evento"
+      you_are_now_member: "Seja bem-vindo a %{service_name}!"
       you_are_already_member: "Você já é membro da %{service_name}. Bem-vindo(a) de volta!"
       you_must_log_in_to_create_new_listing: "Você deve estar conectado à plataforma %{service_name} para poder criar um novo anúncio. Se você não tem uma conta, você pode %{sign_up_link}."
       additional_email_confirmed_dashboard: "Seu e-mail está confirmado."
@@ -2392,13 +2392,13 @@ pt-BR:
         i_want_to_request: "Eu preciso de ..."
       googlemap:
         googlemap_copy: "Pontos final deste Mapa"
-        googlemap_description: "Ver mapa"
+        googlemap_description: "Ver o mapa"
         googlemap_updatemap: "Atualizar mapa"
       images:
         image: Imagem
         best_result: "Para um melhor resultado faça upload de imagens JPEG, GIF ou PNG de %{width}x%{height} pixels"
         no_file_selected: "Nenhum arquivo selecionado"
-        remove_image: "Remover imagem"
+        remove_image: "Remover a imagem"
         select_file: "Escolha o arquivo"
         add_more: "+ Adicionar mais"
         removing: Removendo...
@@ -2482,9 +2482,9 @@ pt-BR:
       favors: Serviços
       housing: Espaços
       items: Itens
-      list_view: "Ver lista"
+      list_view: "Ver o anúncio"
       listings: Anúncios
-      map_view: "Ver mapa"
+      map_view: "Ver o mapa"
       offer_something: "Deixe os outros saberem!"
       offer_type: "Tipo de oferta"
       offers: Ofertas
@@ -2530,7 +2530,7 @@ pt-BR:
       select_subcategory: "Selecionar uma sub-categoria"
       select_transaction_type: "Selecionar tipo de anúncio "
       you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link} para preencher os detalhes."
-      contact_admin_link_text: "contate o administrador"
+      contact_admin_link_text: "contate a equipe %{service_name}"
       community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, então você ainda não pode criar novos anúncios. Por favor, %{contact_admin_link} para mais detalhes."
       payment_settings_link: "configurações de pagamento"
       community_not_configured_for_payments_admin: "%{service_name} não foi configurado para receber os pagamentos, por isso você não pode criar novos anúncios. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
@@ -2638,8 +2638,8 @@ pt-BR:
       favors: Serviços
       housing: Espaços
       items: Itens
-      list_view: "Ver lista"
-      map_view: "Ver mapa"
+      list_view: "Ver o anúncio"
+      map_view: "Ver o mapa"
       offer_something: "Deixe os outros saberem!"
       offer_type: "Tipo de oferta"
       offers: Ofertas
@@ -2675,7 +2675,7 @@ pt-BR:
     new:
       payout_info_you_need_to_connect: "Para aceitar pagamentos você deve conectar a sua conta PayPal com %{service_name}."
       payout_info_text: "Por favor, realize os dois passos seguintes para se conectar a sua conta."
-      contact_admin_link_text: "contate o administrador"
+      contact_admin_link_text: "contate a equipe %{service_name}"
       admin_account_not_connected: "Você não pode conectar sua conta PayPal porque o administrador do marketplace %{service_name}  não finalizou as configurações necessárias do PayPal. Por favor, contate %{contact_admin_link} para mais informações."
       paypal_account_email: "1. Conecte sua conta PayPal"
       paypal_account_email_placeholder: "Seu endereço de e-mail PayPal"
@@ -2702,7 +2702,7 @@ pt-BR:
       billing_agreement_canceled: "A fatura foi cancelada."
       billing_agreement_not_accepted: "Você não aceitou o contrato de cobrança no PayPal."
       billing_agreement_wrong_account: "Contas PayPal não coincidem. Por favor, use a mesma conta PayPal que você conectou na primeira etapa."
-      something_went_wrong: "Algo deu errado. Por favor, tente novamente. Se o problema persistir, entre em contato com os administradores do site."
+      something_went_wrong: "Algo deu errado. Por favor, tente novamente. Se o problema persistir, entre em contato com a equipe %{service_name}."
       account_not_verified: "Você não verificou a sua conta PayPal. Você precisa ir para paypal.com e verificar a sua conta antes de continuar."
       account_restricted: "A sua conta do PayPal é restrita e não pode ser conectada. Por favor, conecte via paypal.com para saber mais o que isso significa ou entre em contato com o suporte ao cliente do PayPal para resolver o problema."
     paypal_account_connected_title: "Conta PayPal conectada"
@@ -2770,7 +2770,7 @@ pt-BR:
       signup_with_email: "Registre-se com seu e-mail"
       this_field_will_be_publicly_visible: "(Este campo ficará visível publicamente)"
     profile_feedback:
-      grade: "nota :"
+      grade: "nota:"
       and_gave_following_feedback: "deu a opinião seguinte"
     profile_listings:
       no_image: "Sem imagem"
@@ -2842,7 +2842,7 @@ pt-BR:
       request_new_password: "Pedir uma nova senha"
       change_your_password: "Alterar sua senha"
     confirmation_pending:
-      welcome_to_kassi: "Seja bem-vindo ao %{service_name} !"
+      welcome_to_kassi: "Seja bem-vindo a %{service_name}!"
       check_your_email: "Verifique sua caixa de entrada"
       resend_confirmation_instructions: "Reenviar instruções de confirmação"
       your_current_email_is: "Seu e-mail é %{email}"
@@ -2927,7 +2927,7 @@ pt-BR:
       profile_picture: "Foto do perfil"
       postal_code: CEP
       profile_page: "em sua página de perfil"
-      profilemap: "Ver mapa"
+      profilemap: "Ver o mapa"
       street_address: Local
       these_fields_are_shown_in_your: "Algumas destas informações pode ser vistas por todos os usuários %{service_name}"
       visible_to_everybody: "visível para todos"
@@ -3291,7 +3291,7 @@ pt-BR:
         digits: ~
         digits_or_chars: ~
     form_verification:
-      personal_id_number: ~
+      personal_id_number: "Número de ID pessoal"
       document: "Prova de identidade (passaporte, documento de identificação)"
       document_back: "Prova de identidade (passaporte, documento de identidade emitido pelo governo) (verso do documento)"
       send_verification: ~
