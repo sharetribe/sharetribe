@@ -283,13 +283,14 @@ div[data-mercury='full'] {
   display: none;
 }
 
+.small-margin {
+  position: absolute !important;
+  margin-top: 0 !important;
+}
+
 @media (min-width: 1023px) {
   a.btn#button_stripe + a.btn#button_paypal {
     margin-left: 20px;
   }
 }
 
-.small-margin {
-  position: absolute !important;
-  margin-top: 0 !important;
-}
