@@ -12,6 +12,9 @@ jQuery.extend(jQuery.validator.defaults,
                 error.insertAfter(element);
             }
             error.addClass('form-text');
+            if (element.hasClass('small-attention')) {
+              error.addClass('small-margin');
+            }
         },
         highlight: function(element, errorClass, validClass) {
             $(element).removeClass(validClass).addClass(errorClass).next('small.attention').addClass('form-text');
