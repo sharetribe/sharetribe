@@ -49,8 +49,8 @@ function initCategory() {
             value = $(this).find(":selected").text();
         container.text($.trim(value));
 
-        var caption = I18n.translate("web.admin2.landing_page.category.remove", {'name': $.trim(value)}),
-            body = I18n.translate("web.admin2.landing_page.category.remove_confirm", {'name': $.trim(value)});
+        var caption = I18n.translate("web.admin2.landing_page.category.remove", {'name': '"' + $.trim(value) + '"'}),
+            body = I18n.translate("web.admin2.landing_page.category.remove_confirm", {'name': '"' + $.trim(value) + '"'});
 
         renderDeleteBlock($(this), caption, body);
     });
@@ -67,6 +67,10 @@ function initCategory() {
         var container = $(this).closest('.edit-category-content').prev('.categories-list').find('.location-name-lp'),
             value = $(this).val();
         container.text(value);
+
+        if (value.length) {
+          value = '"' + value + '"';
+        }
 
         var caption = I18n.translate("web.admin2.landing_page.location.remove", {'name': value}),
             body = I18n.translate("web.admin2.landing_page.location.remove_confirm", {'name': value});
@@ -138,6 +142,10 @@ function initFooter() {
     $(document).on('click', '.remove-footerLink-trigger', function(event) {
         var container = $(this).closest('.footer-link-group'),
             title = container.find('.form-title').val();
+
+        if (title.length) {
+          title = '"' + title + '"';
+        }
         var caption = I18n.translate("web.admin2.landing_page.footer_menu_link.remove_title", {'name': title}),
             body = I18n.translate("web.admin2.landing_page.footer_menu_link.remove_body", {'name': title}),
             remove_message_div = container.next('.remove-footerLink-content');

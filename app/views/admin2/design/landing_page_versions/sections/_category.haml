@@ -31,7 +31,8 @@
         = t('admin2.landing_page.sections.category.image', name: presenter.category_image_filename(f.index)).html_safe
 
 .remove-category-content
-  %h2.delete_header= t('web.admin2.landing_page.category.remove', name: cat_name)
+  %h2.delete_header
+    = t('web.admin2.landing_page.category.remove', name: (cat_name.present? ? "\"#{cat_name}\"" : ''))
   %p.delete_body= t('web.admin2.landing_page.category.remove_confirm', name: cat_name).html_safe
   .remove-category-actions
     = button_tag t('admin2.remove'), class: %i[btn remove-category-btn btn-negative], type: :button

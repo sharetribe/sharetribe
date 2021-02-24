@@ -3,16 +3,16 @@ en:
     admin2:
       landing_page:
         location:
-          remove: 'Remove "%{name}"'
-          remove_confirm: 'Are you sure you want to remove the location <strong>"%{name}"</strong> from the landing page?'
+          remove: 'Remove %{name}'
+          remove_confirm: 'Are you sure you want to remove the location <strong>%{name}</strong> from the landing page?'
         category:
-          remove: 'Remove "%{name}"'
-          remove_confirm: 'Are you sure you want to remove the category <strong>"%{name}"</strong> from the landing page?'
+          remove: 'Remove %{name}'
+          remove_confirm: 'Are you sure you want to remove the category <strong>%{name}</strong> from the landing page?'
         listings:
           not_valid_id_error: 'This listing ID is not available in your marketplace. Maybe you made a typo? Please verify and try again.'
         footer_menu_link:
-          remove_title: 'Remove "%{name}"'
-          remove_body: 'Are you sure you want to remove the footer link <strong>"%{name}"</strong> from the landing page?'
+          remove_title: 'Remove %{name}'
+          remove_body: 'Are you sure you want to remove the footer link <strong>%{name}</strong> from the landing page?'
   admin2:
     save_changes: "Save changes"
     next_step: Next

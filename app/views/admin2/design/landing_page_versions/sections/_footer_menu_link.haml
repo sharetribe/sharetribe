@@ -7,7 +7,7 @@
     = f.text_field :title, maxlength: 255, disabled: disabled, class: %i[form-control form-title required]
   %div
     %label= t('admin2.landing_page.sections.footer.link_target_url')
-    = f.text_field :url, maxlength: 255, url: true, disabled: disabled, class: %i[form-control required]
+    = f.text_field :url, maxlength: 255, url: true, disabled: disabled, class: %i[form-control required small-attention]
   .actions
     %span.handle-move
     = link_to '#', class: 'remove-footerLink-trigger' do
