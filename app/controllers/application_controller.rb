@@ -359,18 +359,6 @@ class ApplicationController < ActionController::Base
 
   def fetch_community_plan_expiration_status
     @current_plan = request.env[:current_plan]
-    @current_plan = {
-      expired: false,
-      created_at: 2.days.ago,
-      updated_at: 2.days.ago,
-      expires_at: nil,
-      features: {
-        whitelabel: true,
-        admin_email: false,
-        footer: true,
-        landing_page: true
-      }
-    }
   end
 
   # Before filter for payments, shows notification if user is not ready for payments
