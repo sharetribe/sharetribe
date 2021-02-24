@@ -5,10 +5,10 @@ module StripeService::Store::StripeAccount
   StripeAccountModel = ::StripeAccount
 
   # Stripe is available only in some countries https://stripe.com/global, we restrict to US and EU only
-  ALL_STRIPE_COUNTRIES = ['US', 'GB', 'AT', 'BE', 'CH', 'DE', 'DK', 'ES', 'FI', 'FR', 'IE', 'IT', 'LU', 'NL', 'NO', 'PT', 'SE', 'CA', 'SG', 'HK', 'JP', 'BR', 'MX', 'AU', 'NZ', 'PR', 'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'CZ', 'RO', 'CY', 'MT', 'BG']
+  ALL_STRIPE_COUNTRIES = ['US', 'GB', 'AT', 'BE', 'CH', 'DE', 'DK', 'ES', 'FI', 'FR', 'IE', 'IT', 'LU', 'NL', 'NO', 'PT', 'SE', 'CA', 'SG', 'HK', 'JP', 'BR', 'MX', 'AU', 'NZ', 'PR', 'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'CZ', 'RO', 'CY', 'MT', 'BG', 'HU']
   COUNTRIES = ALL_STRIPE_COUNTRIES & ::TransactionService::AvailableCurrencies::COUNTRY_SET_STRIPE_AND_PAYPAL
 
-  VALID_BANK_CURRENCIES = ["CHF", "DKK", "EUR", "GBP", "NOK", "SEK", "USD", "JPY", "AUD", "HKD", "SGD", "NZD", "BRL", "MXN", "CAD", "PLN", "CZK", "RON", "BGN"]
+  VALID_BANK_CURRENCIES = ["CHF", "DKK", "EUR", "GBP", "NOK", "SEK", "USD", "JPY", "AUD", "HKD", "SGD", "NZD", "BRL", "MXN", "CAD", "PLN", "CZK", "RON", "BGN", "HUF"]
 
   StripeAccountCreate = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],

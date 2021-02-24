@@ -95,11 +95,6 @@ label.error {
 .margin-form.content-card-section-form {
   margin-top: 32px;
 }
-//
-//a.remove {
-//  background-position: 28px center;
-//  top: -120px;
-//}
 
 a.remove {
   width: 48px;
@@ -263,16 +258,6 @@ div[data-mercury='full'] {
   transform: scale(0.85);
 }
 
-//.btn-save-changes {
-//  margin: 0 auto;
-//  border-radius: 4px;
-//  border: none;
-//  height: 48px;
-//  width: 160px !important;
-//  background-color: #2ecc71;
-//  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-//}
-
 .loaderLargeSecondary,
 .loaderCompleteLargeSecondary {
   stroke: #2275d3;
@@ -287,3 +272,10 @@ div[data-mercury='full'] {
   position: absolute !important;
   margin-top: 0 !important;
 }
+
+@media (min-width: 1023px) {
+  a.btn#button_stripe + a.btn#button_paypal {
+    margin-left: 20px;
+  }
+}
+

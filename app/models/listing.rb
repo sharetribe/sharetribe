@@ -225,11 +225,13 @@ class Listing < ApplicationRecord
   # when the listing is updated (update=true) or a
   # new comment to the listing is created.
   def notify_followers(community, current_user, update)
+    return unless community.listing_comments_in_use
+
     followers.each do |follower|
       unless follower.id == current_user.id
-        if update
+        if update && follower.should_receive?('email_listing_updated')
           MailCarrier.deliver_now(PersonMailer.new_update_to_followed_listing_notification(self, follower, community))
-        else
+        elsif !update && follower.should_receive?('email_listing_new_comment')
           MailCarrier.deliver_now(PersonMailer.new_comment_to_followed_listing_notification(comments.last, follower, community))
         end
       end
@@ -242,7 +244,7 @@ class Listing < ApplicationRecord
 
   def prev_and_next_image_ids_by_id(id)
     listing_image_ids = listing_images.collect(&:id)
-    ArrayUtils.next_and_prev(listing_image_ids, id);
+    ArrayUtils.next_and_prev(listing_image_ids, id)
   end
 
   def has_image?

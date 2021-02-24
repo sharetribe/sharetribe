@@ -284,7 +284,8 @@ class LandingPageController < ActionController::Metal
   def render_landing_page(default_locale:, locale_param:, structure:, cta:)
     c = community(request)
 
-    landing_page_locale, sitename = structure["settings"].values_at("locale", "sitename")
+    sitename = structure["settings"]["sitename"]
+    landing_page_locale = default_locale
     topbar_locale = locale_param.presence || default_locale
 
     initialize_i18n!(c&.id, landing_page_locale)

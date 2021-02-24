@@ -8,8 +8,9 @@
       .multiple-languages-container
         - @current_community.locales.each do |locale|
           .multiple-languages-language
-            %span.language
-              = t("admin.communities.available_languages.#{locale}")
+            - if @current_community.locales.size > 1
+              %span.language
+                = t("admin.communities.available_languages.#{locale}")
           .multiple-languages-input
             .input-group.append-first
               .input-group-append
@@ -21,8 +22,9 @@
       .multiple-languages-container
         - @current_community.locales.each do |locale|
           .multiple-languages-language
-            %span.language
-              = t("admin.communities.available_languages.#{locale}")
+            - if @current_community.locales.size > 1
+              %span.language
+                = t("admin.communities.available_languages.#{locale}")
           .multiple-languages-input
             = text_field_tag "selector_label[#{locale}]", '', class: %i[form-control required], placeholder: t('admin2.order_types.unit_label_placeholder')
 

@@ -257,4 +257,18 @@ describe Community, type: :model do
       expect(community1.is_person_only_admin(person_admin1)).to eq false
     end
   end
+
+  describe "admins" do
+    let(:community1) { FactoryGirl.create(:community) }
+    let(:person_admin1) { FactoryGirl.create(:person, member_of: community1, member_is_admin: true) }
+    let(:person_admin2) { FactoryGirl.create(:person, member_of: community1, member_is_admin: true) }
+
+    it "deleted users are not admins" do
+      person_admin1
+      person_admin2
+      expect(community1.admins.count).to eq 2
+      Person.delete_user(person_admin2.id)
+      expect(community1.admins.count).to eq 1
+    end
+  end
 end

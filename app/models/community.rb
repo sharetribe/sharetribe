@@ -128,7 +128,7 @@ class Community < ApplicationRecord
 
   has_many :community_memberships, :dependent => :destroy
   has_many :members, -> { merge(CommunityMembership.accepted) }, :through => :community_memberships, :source => :person
-  has_many :admins, -> { merge(CommunityMembership.admin.not_banned) }, :through => :community_memberships, :source => :person
+  has_many :admins, -> { merge(CommunityMembership.admin.not_banned.not_deleted_user) }, :through => :community_memberships, :source => :person
   has_many :members_all_statuses, :through => :community_memberships, :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
@@ -667,8 +667,8 @@ class Community < ApplicationRecord
 
   def email_notification_types
     valid_types = Person::EMAIL_NOTIFICATION_TYPES.dup
-    if !follow_in_use?
-      valid_types.delete "email_about_new_listings_by_followed_people"
+    unless follow_in_use?
+      valid_types.delete('email_about_new_listings_by_followed_people')
     end
     valid_types
   end
@@ -701,6 +701,12 @@ class Community < ApplicationRecord
 
   def is_person_only_admin(person)
     admins.count == 1 && admins.first == person
+  end
+
+  def disabled_countries
+    country = []
+    country << 'HU' unless currency == 'HUF'
+    country
   end
 
   private

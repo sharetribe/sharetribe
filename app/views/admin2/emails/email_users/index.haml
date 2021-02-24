@@ -39,8 +39,8 @@
           = t('admin2.email_users.content_info_text')
 
     %section.content-card-terminal
-      = render 'admin2/submit_button', caption: t('admin2.email_users.send_email'), disabled: false
-      = render 'admin2/submit_button_ghost', caption: t('admin2.email_users.send_to_yourself')
+      = render 'admin2/submit_button', caption: t('admin2.email_users.send_email'), disabled: false do
+        = render 'admin2/submit_button_ghost', caption: t('admin2.email_users.send_to_yourself')
 
 - content_for :extra_javascript do
   :javascript

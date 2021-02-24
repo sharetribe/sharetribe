@@ -2,25 +2,35 @@
 - shape = locals[:shape]
 - uneditable_fields = locals[:uneditable_fields]
 
-.form-group
-  %label= t('admin2.order_types.name')
-  .multiple-languages-container
-    - shape[:name].map do |loc, translation|
-      .multiple-languages-language
-        %span.language
-          = locale_name_mapping[loc]
-      .multiple-languages-input
-        = text_field_tag "name[#{loc}]", translation, class: %i[required form-control], placeholder: t('admin2.order_types.listing_shape_name_placeholder')
+- if shape[:name].size > 1
+  .form-group
+    %label= t('admin2.order_types.name')
+    .multiple-languages-container
+      - shape[:name].map do |loc, translation|
+        .multiple-languages-language
+          %span.language
+            = locale_name_mapping[loc]
+        .multiple-languages-input
+          = text_field_tag "name[#{loc}]", translation, class: %i[required form-control], placeholder: t('admin2.order_types.listing_shape_name_placeholder')
 
-.form-group
-  %label= t('admin2.order_types.checkout_button')
-  .multiple-languages-container
-    - shape[:action_button_label].map do |loc, translation|
-      .multiple-languages-language
-        %span.language
-          = locale_name_mapping[loc]
-      .multiple-languages-input
-        = text_field_tag("action_button_label[#{loc}]", translation, class: %i[required form-control], placeholder: t('admin2.order_types.action_button_placeholder'))
+  .form-group
+    %label= t('admin2.order_types.checkout_button')
+    .multiple-languages-container
+      - shape[:action_button_label].map do |loc, translation|
+        .multiple-languages-language
+          %span.language
+            = locale_name_mapping[loc]
+        .multiple-languages-input
+          = text_field_tag("action_button_label[#{loc}]", translation, class: %i[required form-control], placeholder: t('admin2.order_types.action_button_placeholder'))
+- else
+  - shape[:name].map do |loc, translation|
+    .form-group
+      %label= t('admin2.order_types.name')
+      = text_field_tag "name[#{loc}]", translation, class: %i[required form-control], placeholder: t('admin2.order_types.listing_shape_name_placeholder')
+  - shape[:action_button_label].map do |loc, translation|
+    .form-group
+      %label= t('admin2.order_types.checkout_button')
+      = text_field_tag("action_button_label[#{loc}]", translation, class: %i[required form-control], placeholder: t('admin2.order_types.action_button_placeholder'))
 
 .form-group
   %label= t('admin2.order_types.pricing_checkout')

@@ -13,4 +13,4 @@
           %span#category-body
         .modal-footer
           = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
-          = button_tag t('admin2.order_types.save_order_type'), class: %i[btn btn-primary order-type-footer], disabled: true
+          = button_tag t('admin2.order_types.save_order_type'), data: { disable_with: t('admin2.order_types.save_order_type') }, class: %i[btn btn-primary order-type-footer], disabled: true

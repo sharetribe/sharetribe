@@ -144,7 +144,7 @@ class TransactionMailer < ActionMailer::Base
                           MoneyViewUtils.to_humanized(Money.new(payment[:buyer_commission], payment[:payment_total].currency))
                         end
 
-    prepare_template(@community, buyer_model, "email_about_new_payments")
+    prepare_template(@community, buyer_model, "email_when_conversation_accepted")
     with_locale(buyer_model.locale, @community.locales.map(&:to_sym), @community.id) do
 
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)

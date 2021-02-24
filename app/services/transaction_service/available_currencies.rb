@@ -94,6 +94,7 @@ module TransactionService::AvailableCurrencies
   # Czech Republic
   # Romania
   # Cyprus, Malta, Bulgaria
+  # Hungary
   COUNTRY_SET_STRIPE_AND_PAYPAL = ['AT', 'BE', 'DK', 'FI', 'FR', 'DE', 'IE', 'LU', 'NL', 'NO', 'ES', 'SE', 'CH', 'GB', 'US',
                                    'AU', 'CA', 'HK', 'NZ',
                                    'PT', 'IT',
@@ -101,7 +102,8 @@ module TransactionService::AvailableCurrencies
                                    'EE', 'LT', 'LV', 'GR', 'PL', 'SK', 'SI', 'MX',
                                    'CZ',
                                    'RO',
-                                   'CY', 'MT', 'BG']
+                                   'CY', 'MT', 'BG',
+                                   'HU']
 
   # Countries listed by Paypal
   # Brazil, Czech Republic, Hungary, Israel, Italy, Japan, Mexico, Malaysia, Poland, Philippines, Portugal, Russia, Singapore, Taiwan, Thailand
@@ -122,7 +124,6 @@ module TransactionService::AvailableCurrencies
     "GBP" => :country_sets,
     "HKD" => :country_sets,
     "HUF" => :country_sets,
-    "INR" => "IN", # INR is valid only for PayPal accounts in India
     "ILS" => :country_sets,
     "JPY" => :country_sets,
     "MXN" => :country_sets,

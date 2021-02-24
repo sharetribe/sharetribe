@@ -2908,6 +2908,8 @@ es:
       homepage_link: "página de inicio"
       unsubscribe_unsuccesful: "Error al cancelar la suscripción"
       unsuccessful_unsubscribe_info_text: "El enlace para cancelar la suscripción ha expirado. Es necesario iniciar sesión para cambiar la configuración de subscripción de su cuenta de correo electrónico."
+      email_listing_new_comment: ~
+      email_listing_updated: ~
     profile:
       about_you: "Sobre tí"
       city: Ciudad
@@ -3220,7 +3222,7 @@ es:
     paypal_connected: "¡Cuenta de PayPal conectada con éxito!"
     paypal_can_accept: "Estás listo para recibir dinero en tu cuenta de PayPal"
     paypal_connected_give_permission: "Para completar la configuración y empezar a recibir fondos en tu cuenta de PayPal <%{email}>, por favor da permiso para cargar una comisión o cuota."
-    stripe_account_restricted: "¡Los pagos en linea a tu cuenta están restringidos or lo estarán pronto!"
+    stripe_account_restricted: "¡Los pagos en línea a tu cuenta están restringidos o se restringirán pronto!"
     stripe_account_restricted_info: "Debes editar los datos de tu cuenta bancaria para proporcionar más información al proveedor de pagos."
     stripe_account_restricted_soon: "Pagos en línea a tu cuenta serán restringidos pronto."
     stripe_account_restricted_soon_info: "Debes editar los datos de tu cuenta bancaria para proporcionar más información al proveedor de pagos."
