@@ -1,20 +1,21 @@
-%p.ingress
-  - if stripe_enabled_by_admin
-    = image_tag 'svg/checkmark-green.svg', alt: 'checkmark-green'
-    %strong= t('admin2.stripe.stripe_connected')
-  - else
-    = image_tag 'svg/remove.svg', alt: 'remove'
-    %strong= t('admin2.stripe.stripe_disabled')
+- if stripe_allowed
+  %p.ingress
+    - if stripe_enabled_by_admin
+      = image_tag 'svg/checkmark-green.svg', alt: 'checkmark-green'
+      %strong= t('admin2.stripe.stripe_connected')
+    - else
+      = image_tag 'svg/remove.svg', alt: 'remove'
+      %strong= t('admin2.stripe.stripe_disabled')
 
-%p.small-ingress{style: 'padding-left: 16px; margin-bottom: 32px;'}
-  = t('admin2.stripe.need_to_change_stripe_keys').html_safe
-  %br
-  - if stripe_enabled_by_admin
-    - url = link_to t('admin2.stripe.disable_stripe'), '#', 'data-toggle': 'modal', 'data-target': '#disableStripeModal', class: %i[negative-link]
-    = t('admin2.stripe.disable_stripe_link', url: url).html_safe
-  - else
-    - url = link_to t('admin2.stripe.enable_stripe'), enable_admin2_payment_system_stripe_path(payment_gateway: :stripe), method: :patch
-    = t('admin2.stripe.enable_stripe_link', url: url).html_safe
+  %p.small-ingress{style: 'padding-left: 16px; margin-bottom: 32px;'}
+    = t('admin2.stripe.need_to_change_stripe_keys').html_safe
+    %br
+    - if stripe_enabled_by_admin
+      - url = link_to t('admin2.stripe.disable_stripe'), '#', 'data-toggle': 'modal', 'data-target': '#disableStripeModal', class: %i[negative-link]
+      = t('admin2.stripe.disable_stripe_link', url: url).html_safe
+    - else
+      - url = link_to t('admin2.stripe.enable_stripe'), enable_admin2_payment_system_stripe_path(payment_gateway: :stripe), method: :patch
+      = t('admin2.stripe.enable_stripe_link', url: url).html_safe
 
 .form-group
   %label= t('admin2.stripe.api_publishable_key')

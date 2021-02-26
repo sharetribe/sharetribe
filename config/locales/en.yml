@@ -1729,7 +1729,7 @@ en:
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     testimonial_reminder_v2:
       headline: "remember to leave feedback to %{other_name}!"
-      you_have_not_given_feedback_yet: "Giving feedback is always a good idea. If everything went well, let others know that %{name} can be trusted. If there were any problems, it's good to mention those as well"
+      you_have_not_given_feedback_yet: "Giving feedback is always a good idea. If everything went well, let others know that %{name} can be trusted. If there were any problems, it's good to mention those as well."
       leave_feedback: "Leave feedback for %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} is interested and has authorized payment for %{listing_title} published in %{service_name}"
