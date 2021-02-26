@@ -265,6 +265,7 @@ en:
       paypal_has_been_disabled: "Your PayPal account <strong>%{email}</strong> has been disconnected from %{service_name}."
       change_account: "Switch connection to another PayPal account"
       change_account_link: "%{url}."
+      not_allowed: 'Unfortunately, the PayPal integration is not available in <a href="%{url}">your marketplace country</a>.'
     stripe:
       info_header: Stripe
       info_text: "Commission is the service fee you charge for every payment users make through your marketplace. <a href='%{fee_url}' class=\"external-link\" target='_blank'>Stripe's fees</a> will be deducted from the commission you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' class=\"external-link\" target='_blank'> Learn more</a>."
@@ -304,6 +305,7 @@ en:
       need_to_change_stripe_keys: "Do you need to change your Stripe keys? <a href='#' show-intercom=true >Contact the Sharetribe team</a>."
       need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
       need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
+      not_allowed: 'Unfortunately, the Stripe integration is not available in <a href="%{url}">your marketplace country</a>.'
     transaction_size:
       info_header: "Minimum listing price"
       info_text: "If the payment system is enabled in your marketplace, you need to define a minimum listing price: the smallest price a listing on your marketplace can have. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about the minimum listing price</a>."

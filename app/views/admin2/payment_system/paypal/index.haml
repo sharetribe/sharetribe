@@ -20,17 +20,21 @@
 
     %section.content-card-section
       %h2= t('admin2.paypal.transaction_fee_settings')
-      = render 'hint_title', paypal_connected: paypal_connected, paypal_enabled_by_admin: paypal_enabled_by_admin
+      = render 'hint_title', paypal_connected: paypal_connected, paypal_enabled_by_admin: paypal_enabled_by_admin, paypal_allowed: paypal_allowed
       - if paypal_connected
         = render partial: 'form_paypal_connected', locals: local_assigns.merge(form: form)
       - else
         = render 'form_paypal', currency: currency
     %section#paypal-account-settings.content-card-section
       %h2= t('admin2.paypal.account_settings')
-      - if paypal_connected
-        = render 'paypal_keys_connected', paypal_enabled_by_admin: paypal_enabled_by_admin, paypal_account: paypal_account, order_permission_action: order_permission_action
+      - if paypal_allowed
+        - if paypal_connected
+          = render 'paypal_keys_connected', paypal_enabled_by_admin: paypal_enabled_by_admin, paypal_account: paypal_account, order_permission_action: order_permission_action
+        - else
+          = render 'paypal_keys', form: form
       - else
-        = render 'paypal_keys', form: form
+        = render 'admin2/payment_system/paypal/paypal_not_allowed'
+        = link_to t('admin2.paypal.connect_paypal'), 'javascript:void(0);', class: %i[btn btn-secondary disabled]
 
     - if paypal_enabled_by_admin && paypal_connected
       %section.content-card-terminal

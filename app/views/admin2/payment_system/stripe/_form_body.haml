@@ -7,20 +7,22 @@
     = hidden_field_tag 'gateway', 'stripe'
   %section.content-card-section
     %h2= t('admin2.stripe.transaction_fee_settings')
-    = render 'hint_title', stripe_connected: stripe_connected, stripe_enabled_by_admin: stripe_enabled_by_admin
+    = render 'hint_title', stripe_connected: stripe_connected, stripe_enabled_by_admin: stripe_enabled_by_admin, stripe_allowed: stripe_allowed
 
     - if stripe_connected
       = render partial: 'form_stripe_connected', locals: local_assigns.merge(form: form)
     - else
-      = render 'form_stripe', currency: currency
+      = render 'form_stripe', currency: currency, disabled: !stripe_allowed
 
   %section#stripe-api-settings.content-card-section
     %h2= t('admin2.stripe.configure_api_keys')
+    - unless stripe_allowed
+      = render 'stripe_not_allowed'
     - if stripe_connected
-      = render 'stripe_keys_connected', stripe_enabled_by_admin: stripe_enabled_by_admin, stripe_account: stripe_account
+      = render 'stripe_keys_connected', stripe_enabled_by_admin: stripe_enabled_by_admin, stripe_account: stripe_account, stripe_allowed: stripe_allowed
     - else
-      = render 'stripe_keys', form: form
+      = render 'stripe_keys', form: form, stripe_allowed: stripe_allowed
 
-  - if stripe_enabled_by_admin
+  - if stripe_enabled_by_admin && stripe_allowed
     %section.content-card-terminal
       = render 'admin2/submit_button', caption: t('admin2.save_changes')
