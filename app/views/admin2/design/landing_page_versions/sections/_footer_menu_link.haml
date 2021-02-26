@@ -4,7 +4,7 @@
   = f.hidden_field :_destroy, class: 'destroy-record'
   %div
     %label= t('admin2.landing_page.sections.footer.link_label')
-    = f.text_field :title, maxlength: 255, disabled: disabled, class: %i[form-control form-title required]
+    = f.text_field :title, maxlength: 255, disabled: disabled, class: %i[form-control form-title required required small-attention]
   %div
     %label= t('admin2.landing_page.sections.footer.link_target_url')
     = f.text_field :url, maxlength: 255, url: true, disabled: disabled, class: %i[form-control required small-attention]

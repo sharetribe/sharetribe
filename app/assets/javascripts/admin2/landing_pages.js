@@ -121,7 +121,9 @@ function initFooter() {
             templateId = $(this).data('templateId'),
             entry = $($(templateId).html().replace(regexp, time));
         $('#footerlinks').append(entry);
-        $($(entry)[2]).show(200);
+        if (!$($(entry)[2]).hasClass('remove-footerLink-content')) {
+          $($(entry)[2]).show(200);
+        }
         sortPriority();
         return event.preventDefault();
     });
