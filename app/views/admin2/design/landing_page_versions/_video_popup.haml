@@ -1,0 +1,24 @@
+= render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
+
+.form-group
+  = form.label :youtube_video_id, t('admin2.landing_page.sections.video.youtube_video_id')
+  .input-group
+    .input-group-append{style: 'border-radius: 4px 0 0 4px; margin-right: -1px'}
+      %span.input-group-text youtube.com/watch?v=
+    = form.text_field :youtube_video_id, required: true, class: 'form-control', placeholder: 'dQw4w9WgXcQ'
+    %small#youtubeVideoID-help.form-text
+      = t('admin2.landing_page.sections.video.vide_id_info').html_safe
+
+.form-group
+  %label= t('admin2.landing_page.sections.video.autoplay')
+  .form-radiobutton-wrapper
+    .form-radiobutton.form-check-inline
+      = form.radio_button :autoplay, false, class: %i[form-check-input]
+      = form.label :autoplay_false, t('admin2.landing_page.sections.video.no_autoplay'), class: %i[form-check-label]
+    .form-radiobutton.form-check-inline
+      = form.radio_button :autoplay, LandingPageVersion::Section::Video::AUTOPLAY_MUTED, checked: !!form.object.autoplay, class: %i[form-check-input]
+      = form.label :autoplay_muted, t('admin2.landing_page.sections.video.muted_autoplay'), class: %i[form-check-label]
+.form-group
+  = form.label :text, t('admin2.landing_page.sections.video.text')
+  = form.text_field :text, class: 'form-control'
+  %small#videoSectionText-help.form-text= t('admin2.landing_page.sections.video.text_info')

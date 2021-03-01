@@ -11,7 +11,7 @@ module Admin2Helper
   def expand_rules
     {
       general: %w[essentials privacy static_content admin_notifications domains],
-      design: %w[logos_color landing_page display cover_photos topbar footer],
+      design: %w[logos_color landing_page display cover_photos topbar footer landing_page_versions],
       users: %w[manage_users signup_login user_rights invitations user_fields],
       listings: %w[listing_approval listing_comments manage_listings order_types categories listing_fields],
       transactions_reviews: %w[config_transactions manage_transactions conversations manage_reviews],
@@ -26,7 +26,7 @@ module Admin2Helper
   end
 
   def admin2_landing_page_path
-    @current_plan.try(:[], :features).try(:[], :landing_page) ? admin_landing_page_versions_path : admin2_design_landing_page_index_path
+    @current_plan.try(:[], :features).try(:[], :landing_page) ? admin_landing_page_versions_path : admin2_design_landing_page_version_index_path
   end
 
   def community_name_tag(locale)

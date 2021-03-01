@@ -1,0 +1,13 @@
+#landingPageDeleteModal.modal{"aria-hidden" => "true", "aria-labelledby" => "landingPageDeleteModalTitle", "data-backdrop" => "static", role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-md{role: :document}
+    .modal-content
+      = form_tag '#', method: :delete, class: %i[content-card-section-form], id: 'delete-landing-page-form' do
+        .modal-header
+          %h2#landingPageDeleteModalTitle.modal-title
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: :button}
+            %span ×
+        .modal-body
+          %p.modal-text= t('admin2.landing_page.sections.delete_info')
+        .modal-footer
+          = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.landing_page.sections.delete_section'), class: %i[btn btn-negative]

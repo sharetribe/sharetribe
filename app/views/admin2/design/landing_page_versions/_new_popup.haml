@@ -1,0 +1,16 @@
+#landingPageAddModal.modal{"aria-hidden" => "true", "aria-labelledby" => "landingPageAddModal", "data-backdrop" => :static, role: :dialog, tabindex: '-1'}
+  .modal-dialog.modal-lg{role: :document}
+    .modal-content
+      .content-card-section-form
+        .modal-header
+          %h2.modal-title= t('admin2.landing_page.sections.add')
+          %button.close{"aria-label" => "Close", "data-dismiss" => :modal, type: :button}
+            %span ×
+        .modal-body
+          .form-group
+            %label= t('admin2.landing_page.sections.new')
+            = select_tag :section_kind, options_for_select(presenter.section_dropdown_options), prompt: t('admin2.landing_page.sections.select'), class: %i[form-control], data: { url: new_admin2_design_landing_page_version_section_path(landing_page_version_id: presenter.landing_page_version.id)}
+          #section_block
+        .modal-footer
+          = link_to t('admin2.manage_listings.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+          = button_tag t('admin2.save_changes'), data: { disable_with: t('admin2.save_changes') }, class: %i[btn btn-primary], form: :new_section_form

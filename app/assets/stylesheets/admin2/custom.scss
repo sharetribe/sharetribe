@@ -134,7 +134,7 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
   pointer-events: none;
 }
 
-.add-new-unit-content {
+.add-new-unit-content, .edit-category-content, .remove-category-content {
   display: none;
 }
 
@@ -205,7 +205,8 @@ a.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link.opaci
   stroke: black;
 }
 
-.expired_email, .sent_notice, .unverified_email {
+.expired_email, .sent_notice, .unverified_email,
+.remove-footerLink-content {
   display: none;
 }
 
@@ -267,8 +268,14 @@ div[data-mercury='full'] {
   display: none;
 }
 
+.small-margin {
+  position: absolute !important;
+  margin-top: 0 !important;
+}
+
 @media (min-width: 1023px) {
   a.btn#button_stripe + a.btn#button_paypal {
     margin-left: 20px;
   }
 }
+

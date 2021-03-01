@@ -1,0 +1,43 @@
+.categories-list.field-data{id: f.index, data: { "field-id": f.index, new: f.object.new_record? ? 1 : nil }}
+  = f.hidden_field :id
+  = f.hidden_field :sort_priority, class: 'sort-priority'
+  = f.hidden_field :_destroy, class: 'destroy-record'
+  = f.hidden_field :asset_id
+  = hidden_field_tag :item_counter
+
+  .col.field-data-image.col.field-data-image-wrapper
+    %img{src: presenter.location_image(f.index).present? ? presenter.location_image_url(f.index) : nil}
+  .col.location-name-lp
+    = f.object.title
+  .col.data-overflow.location-url-lp
+    = f.object.url
+  .actions.col
+    %span.handle-move
+    = link_to '#', class: 'remove-dropdown-list-option-trigger' do
+      %span.remove
+    %span.edit-dropdown-list-option-trigger.edit
+
+.edit-category-content
+  %h2= t('admin2.landing_page.sections.location.edit_location')
+  .form-group
+    %label= t('admin2.landing_page.sections.location.location_label')
+    = f.text_field :title, class: %i[form-control location-title-render]
+  .form-group
+    %label= t('admin2.landing_page.sections.location.search_url')
+    = f.text_field :url, class: %i[form-control location-url-render], url: true
+  .form-group
+    %label= t('admin2.landing_page.sections.location.background_image')
+    .custom-file
+      = f.file_field :image, accept: 'image/*', class: %i[category-image-render] << ('required' unless presenter.location_image(f.index).present?)
+    %small.form-text= t('admin2.landing_page.sections.location.image_info')
+    - if presenter.location_image(f.index).present?
+      %small.form-text
+        = t('admin2.landing_page.sections.location.image', name: presenter.location_image_filename(f.index)).html_safe
+
+.remove-category-content
+  %h2.delete_header
+    = t('web.admin2.landing_page.location.remove', name: (f.object.title.present? ? "\"#{f.object.title}\"" : ''))
+  %p.delete_body= t('web.admin2.landing_page.location.remove_confirm', name: f.object.title).html_safe
+  .remove-category-actions
+    = button_tag t('admin2.remove'), class: %i[btn remove-category-btn btn-negative], type: :button
+    = link_to t('admin2.cancel'), '#', class: %i[remove-category-cancel cancel-action]
