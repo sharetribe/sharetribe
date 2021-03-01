@@ -4,15 +4,15 @@ en:
       landing_page:
         location:
           remove: 'Remove %{name}'
-          remove_confirm: 'Are you sure you want to remove the location %{name} from the landing page?'
+          remove_confirm: "Are you sure you want to remove the location \"%{name}\" from the landing page?"
         category:
           remove: 'Remove %{name}'
-          remove_confirm: 'Are you sure you want to remove the category {name} from the landing page?'
+          remove_confirm: "Are you sure you want to remove the category \"%{name}\" from the landing page?"
         listings:
-          not_valid_id_error: 'This listing ID is not available on your marketplace. Maybe a typo? Please check the spelling and try again.'
+          not_valid_id_error: "This listing ID doesn't exist on your marketplace. Maybe a typo? Please check the ID and try again."
         footer_menu_link:
           remove_title: 'Remove %{name}'
-          remove_body: 'Are you sure you want to remove the footer link %{name} from the landing page?'
+          remove_body: "Are you sure you want to remove the footer link \"%{name}\" from the landing page?"
   admin2:
     save_changes: "Save changes"
     next_step: Next
@@ -349,7 +349,7 @@ en:
       add_new_user_field: "Add a user field"
       save_new_user_field: "Add the user field"
       new_user_field_type: "New user field type"
-      edit_field_type: "Edit user field: %{name} (%{field_type})"
+      edit_field_type: "Edit the user field \"%{name}\" (%{field_type})"
       required_field: "Make this field mandatory when signing up to the marketplace"
       public_field: "Show this field on the public profile page"
       required_field_title: "Required field"
@@ -440,7 +440,7 @@ en:
       add_new_order_type: "Add an order type"
       add_new: "+ Add an order type"
       new_order_type: "New order type template"
-      edit_order_type: "Edit order type: %{type}"
+      edit_order_type: "Edit the order type \"%{type}\""
       listing_shape_name_placeholder: "E.g. Sell"
       checkout_button: "Checkout button label"
       action_button_placeholder: "E.g. Buy"
@@ -975,7 +975,7 @@ en:
       script_disabled: "<b>Paid feature:</b> Would you like to add your own custom script? <a href=\"%{url}\">Upgrade to a paid plan</a>."
       info_text: "Custom script can be added inside the <head> tag for every page and used to insert custom CSS, JavaScript or HTML. <a href='%{url}' class='external-link' target='_blank'>Learn more about Custom script</a>."
       custom_head_script: "CSS, JavaScript and/or HTML script"
-      custom_head_script_placeholder: "<script src=\"https://example.com/customscript.js\"></script>"
+      custom_head_script_placeholder: "<script src=\"https://www.example.com/customscript.js\"></script>"
       custom_head_script_info_text: "Note that future updates to Sharetribe Go features may render your script incompatible."
     sharetribe:
       info_text: "To improve its services and support, Sharetribe tracks marketplace users' activity. We will never collect personal data or share this information outside the Sharetribe team. <a href='%{url}' class=\"external-link\" target='_blank'>Learn more</a>."
@@ -1241,7 +1241,7 @@ en:
         background_color: 'Section background color'
         delete_info: "You can't undo this action."
         delete_section: 'Delete section'
-        edit: "Edit the section \"%{name}\" section"
+        edit: "Edit the section \"%{name}\""
         type:
           column_1: 'Info - One column'
           column_2: 'Info - Two columns'
@@ -1254,19 +1254,19 @@ en:
           video: 'Video'
         listing:
           title: 'Featured listings'
-          info: 'Add the listing IDs of the listings you want to feature. To find the ID of a listing, go to the listing page and look at the listing URL. The listing ID is the number that comes after the main URL. For example, for the listing, <code>www.example.com/listings/123456-listing-title</code>, the listing ID is <code>123456</code>.'
+          info: 'Add the listing IDs of the listings you want to feature. To find the ID of a listing, go to the listing page and look at the listing URL. The listing ID is the number that comes after the main URL. For example, for the listing <code>www.example.com/listings/123456-listing-title</code>, the listing ID is <code>123456</code>.'
           listing_1: 'Listing 1 ID'
           listing_2: 'Listing 2 ID'
           listing_3: 'Listing 3 ID'
         hero:
-          call_to_action: 'Hero call-to-action'
-          button_text: 'Text'
+          call_to_action: 'Call-to-action'
+          button_text: 'Call-to-action button label'
           cta_button_text: 'Call-to-action button label'
           cta_button_url: 'Call-to-action target URL'
-          cta_button_info: "The default action is \"Search\" for public marketplaces and \"Sign up\" for private marketplaces. If that works for you, you can leave this field empty."
+          cta_button_info: "The default text is \"Search\" for a public marketplace and \"Sign up\" for a private marketplace. If that works for you, you can leave this field empty."
           info: 'Set the background image for the Hero section. The slogan and description for the Hero are set on the %{url} section.'
           button_default: 'Default action'
-          button_button: 'Button'
+          button_button: 'Link'
           button_none: 'None'
           background_image: 'Background image'
           button_placeholder: 'Learn more'
@@ -1276,7 +1276,7 @@ en:
           button_title: 'Call-to-action label'
           button_path_string: 'Call-to-action target URL'
         footer:
-          info: 'The Custom Landing Page has a unique footer, which you can edit here. Customize the footer for the rest of your marketplace pages in the %{url} section.'
+          info: 'Your Custom Landing Page has a unique footer, which you can edit here. Customize the footer for the rest of your marketplace pages in the %{url} section.'
           theme: 'Footer style'
           copyright: 'Footer copyright'
           add_link: '+ Add a link'
@@ -1327,7 +1327,7 @@ en:
           transparent_overlay: 'No overlay'
         video:
           youtube_video_id: 'YouTube video ID'
-          vide_id_info: "You can get the video ID from the video's URL. For example, for the video <code>youtube.com/watch?v=dQw4w9WgXcQ</code>, the ID is <code>dQw4w9WgXcQ</code>"
+          vide_id_info: "You can get the video ID from the video's URL. For example, for the video <code>youtube.com/watch?v=dQw4w9WgXcQ</code>, the ID is <code>dQw4w9WgXcQ</code>."
           autoplay: 'Autoplay'
           no_autoplay: 'No Autoplay'
           muted_autoplay: 'Muted Autoplay'
