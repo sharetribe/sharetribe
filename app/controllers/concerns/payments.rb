@@ -22,14 +22,13 @@ module Payments
     stripe_connected =  view_locals[:stripe_enabled] && view_locals[:stripe_account] && view_locals[:stripe_account][:api_verified]
     paypal_connected =  view_locals[:paypal_enabled] && view_locals[:paypal_account].present?
 
-    stripe_mode = stripe_api.charges_mode(@current_community.id)
     buyer_commission = stripe_tx_settings[:active] && (stripe_tx_settings[:commission_from_buyer].to_i > 0 || stripe_tx_settings[:minimum_buyer_transaction_fee_cents].to_i > 0)
     payment_locals = {
       stripe_connected: stripe_connected,
       paypal_connected: paypal_connected,
       payments_connected: stripe_connected || paypal_connected,
-      stripe_allowed: TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency, stripe_mode),
-      paypal_allowed: TransactionService::AvailableCurrencies.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency),
+      stripe_allowed: stripe_allowed,
+      paypal_allowed: paypal_allowed,
       stripe_ready: StripeHelper.community_ready_for_payments?(@current_community.id),
       paypal_ready: PaypalHelper.community_ready_for_payments?(@current_community.id),
       paypal_enabled_by_admin: !!paypal_tx_settings[:active],
@@ -37,6 +36,15 @@ module Payments
       buyer_commission: buyer_commission
     }
     view_locals.merge(payment_locals)
+  end
+
+  def stripe_allowed
+    stripe_mode = stripe_api.charges_mode(@current_community.id)
+    TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency, stripe_mode)
+  end
+
+  def paypal_allowed
+    TransactionService::AvailableCurrencies.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency)
   end
 
   def enable
