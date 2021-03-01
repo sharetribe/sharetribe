@@ -1,5 +1,5 @@
 %p.modal-text
-  = t('admin2.landing_page.sections.hero.info', url: (link_to "\"#{t('admin2.sidebar.general.essentials')}\"", admin2_general_essentials_path)).html_safe
+  = t('admin2.landing_page.sections.hero.info', url: (link_to "#{t('admin2.sidebar.general.essentials')}", admin2_general_essentials_path)).html_safe
 
 = render 'admin2/design/landing_page_versions/sections/section_id', form: form, presenter: presenter
 = render 'admin2/design/landing_page_versions/sections/background_image', form: form, presenter: presenter, title: t('admin2.landing_page.sections.hero.background_image')

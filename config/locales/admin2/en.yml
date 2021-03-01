@@ -1264,7 +1264,7 @@ en:
           cta_button_text: 'Call-to-action button label'
           cta_button_url: 'Call-to-action target URL'
           cta_button_info: "The default action is \"Search\" for public marketplaces and \"Sign up\" for private marketplaces. If that works for you, you can leave this field empty."
-          info: 'Set the background image for the Hero section. The slogan and description for the Hero are set on the %{url} page.'
+          info: 'Set the background image for the Hero section. The slogan and description for the Hero are set on the %{url} section.'
           button_default: 'Default action'
           button_button: 'Button'
           button_none: 'None'
@@ -1276,7 +1276,7 @@ en:
           button_title: 'Call-to-action label'
           button_path_string: 'Call-to-action target URL'
         footer:
-          info: 'The Custom Landing Page has a unique footer, which you can edit here. Customize the footer for the rest of your marketplace pages in the Footer section.'
+          info: 'The Custom Landing Page has a unique footer, which you can edit here. Customize the footer for the rest of your marketplace pages in the %{url} section.'
           theme: 'Footer style'
           copyright: 'Footer copyright'
           add_link: '+ Add a link'
