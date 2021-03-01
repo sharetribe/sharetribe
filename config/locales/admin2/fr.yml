@@ -281,6 +281,7 @@ fr:
       paypal_has_been_disabled: "Votre compte PayPal <strong>%{email}</strong> a été déconnecté de %{service_name}."
       change_account: "Changer la connexion pour un autre compte PayPal"
       change_account_link: "%{url}."
+      not_allowed: "Hélas, l'intégration PayPal n'est pas disponible pour <a href=\"%{url}\">le pays de votre place de marché</a>."
     stripe:
       info_header: Stripe
       info_text: "La commission est les frais de service que vous prélevez sur chaque paiement que vos utilisateurs réalisent sur votre place de marché. <a href='%{fee_url}' class=\"external-link\" target='_blank'>Les frais Stripe</a> seront déduits de la commission que vous facturez. Pour les transactions gérées par Stripe, le transfert de l'argent au vendeur est retenu jusqu'à ce que la transaction soit marquée comme réalisée. <a href='%{more_url}' class=\"external-link\" target='_blank'>En savoir plus</a>."
@@ -320,6 +321,7 @@ fr:
       need_to_change_stripe_keys: "Besoin de changer vos Stripe Keys ? <a href='#' show-intercom=true >Contactez l'équipe Sharetribe</a>."
       need_to_change_publishable_key: "Pour changer votre Publishable Key Stripe, <a href='#' show-intercom=true >contactez l'équipe Sharetribe</a>."
       need_to_change_secret_key: "Pour changer votre Secret Key Stripe, <a href='#' show-intercom=true >contactez l'équipe Sharetribe</a>."
+      not_allowed: "Hélas, l'intégration Stripe n'est pas disponible pour <a href=\"%{url}\">le pays de votre place de marché</a>."
     transaction_size:
       info_header: "Prix minimum d'annonce"
       info_text: "Si le système de paiements est activé dans votre place de marché, vous devez définir un prix minimum d'annonce: le prix le plus bas auquel doit être une annonce sur votre place de marché. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur le prix minimum d'annonce</a>."
@@ -596,7 +598,7 @@ fr:
       started: "Commencée le"
       latest_activity: "Dernière activité"
       actions: Actions
-      not_available: Indisponible
+      not_available: "Non disponible"
       profile: "Profil de %{author}"
       read: "Lire la conversation"
       listing: "Annonce \"%{listing}\""
