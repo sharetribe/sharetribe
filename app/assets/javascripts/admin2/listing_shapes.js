@@ -92,7 +92,7 @@ window.ST.initializeListingShapeForm = function(formId) {
 
     var toggleCustomUnitsEnabled = function(enabled) {
         toggleLabelEnabled($(".js-listing-shape-add-custom-unit-link"), enabled);
-        toggleInputEnabled($('.js-custom-unit input'), enabled);
+        toggleInputEnabled($('.hidden-unit-div input:hidden'), enabled);
     };
 
     var toggleAvailabilityEnabled = function(enabled) {
@@ -128,10 +128,8 @@ window.ST.initializeListingShapeForm = function(formId) {
     var toggleInputEnabled = function(el, state) {
         if(state) {
             el.prop('disabled', false);
-            $('.hidden-unit-div input:hidden').prop('disabled', false);
         } else {
             el.prop('disabled', true);
-            $('.hidden-unit-div input:hidden').prop('disabled', true);
         }
     };
 

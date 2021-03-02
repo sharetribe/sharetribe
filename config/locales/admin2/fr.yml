@@ -1,10 +1,25 @@
 fr:
+  web:
+    admin2:
+      landing_page:
+        location:
+          remove: "Supprimer %{name}"
+          remove_confirm: "Voulez-vous vraiment supprimer la localisation \"%{name}\" de la page d'accueil ?"
+        category:
+          remove: "Supprimer %{name}"
+          remove_confirm: "Voulez-vous vraiment supprimer la catégorie \"%{name}\" de la page d'accueil ?"
+        listings:
+          not_valid_id_error: "Cet identifiant d'annonce n'existe pas sur votre place de marché. Peut-être une faute de frappe ? Veuillez vérifier l'identifiant et essayez de nouveau."
+        footer_menu_link:
+          remove_title: "Supprimer %{name}"
+          remove_body: "Voulez-vous vraiment supprimer le lien de pied de page \"%{name}\" de votre place de marché ?"
   admin2:
     save_changes: "Enregistrer les modifications"
     next_step: Suivant
     prev_step: Précédent
     cancel: Annuler
     delete: Supprimer
+    remove: Supprimer
     chooseText: Choisir
     cancelText: Annuler
     open_in_editor: "Modifier avec l'éditeur"
@@ -53,6 +68,7 @@ fr:
         topbar: "Barre de navigation"
         footer: "Pied de page"
         display: Arrangement
+        landing-page: "Page d'accueil"
       users:
         manage_users: "Gérer les utilisateurs"
         signup_login: "Inscription & Connection"
@@ -146,7 +162,7 @@ fr:
       production_setup: "Vous ne pouvez pas changer le domaine personnalisé pendant sa configuration."
       critical_error_info: "La configuration du domaine prend plus longtemps que prévue. Veuillez rafraîchir cette page pour vérifier le statut ou <a href=\"#\" show-intercom=true >contactez l'équipe Sharetribe</a>."
       follow_instructions: "Assurez-vous d'avoir suivi les <a class='external-link' href='%{url}' target='_blank'>instructions pour pointer votre domaine vers les serveurs Sharetribe</a>."
-      try_again: "Essayez de nouveau dans quelques heures. Si le problème persist, <a href=\"#\" show-intercom=true >contactez l'équipe Sharetribe</a>."
+      try_again: "Essayez de nouveau dans quelques heures. Si le problème persiste, <a href=\"#\" show-intercom=true >contactez l'équipe Sharetribe</a>."
       effect_dns_changes: "Les modifications DNS pour votre domaine n'ont peut être pas encore été prises en compte. Ceci peut prendre jusqu'à 48 heures."
       production_to_complete: "La configuration prend 10–15 minutes. Rafraîchissez cette page pour vérifier le statut."
       retry_domain_setup: "Recommencer la configuration du domaine"
@@ -223,7 +239,7 @@ fr:
       day_to_day: "Au quotidien :"
       transactions_conversations: "Transactions et conversations :"
       chat_with_us: "› Nous envoyer un message (en anglais)"
-      online_payments: "Paiements en lignes :"
+      online_payments: "Paiements en ligne :"
       what_new: "Nouveautés :"
       sharetribe_go_updates: "› Nouveautés Sharetribe Go"
       free_and_practical: "Le guide pratique et étape par étape pour construire avec succès une place de marché en ligne."
@@ -265,6 +281,7 @@ fr:
       paypal_has_been_disabled: "Votre compte PayPal <strong>%{email}</strong> a été déconnecté de %{service_name}."
       change_account: "Changer la connexion pour un autre compte PayPal"
       change_account_link: "%{url}."
+      not_allowed: "Hélas, l'intégration PayPal n'est pas disponible pour <a href=\"%{url}\">le pays de votre place de marché</a>."
     stripe:
       info_header: Stripe
       info_text: "La commission est les frais de service que vous prélevez sur chaque paiement que vos utilisateurs réalisent sur votre place de marché. <a href='%{fee_url}' class=\"external-link\" target='_blank'>Les frais Stripe</a> seront déduits de la commission que vous facturez. Pour les transactions gérées par Stripe, le transfert de l'argent au vendeur est retenu jusqu'à ce que la transaction soit marquée comme réalisée. <a href='%{more_url}' class=\"external-link\" target='_blank'>En savoir plus</a>."
@@ -277,7 +294,7 @@ fr:
       how_to_get_publishable_key: "<a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Comment obtenir une Stripe Publishable Key?</a>"
       how_to_get_secret_key: "<a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Comment obtenir une Stripe Secret Key?</a>"
       publishable_key_example: "Par exemple : %{api_publishable_key_example}"
-      secret_key_example: "Par example : %{api_secret_key_example}"
+      secret_key_example: "Par exemple : %{api_secret_key_example}"
       invalid_secret: "Cela ne semble pas être une %{secret_key} correcte"
       invalid_publishable: "Cela ne semble pas être une %{publishable_key} correcte"
       api_publishable_key: "Stripe Publishable Key"
@@ -304,6 +321,7 @@ fr:
       need_to_change_stripe_keys: "Besoin de changer vos Stripe Keys ? <a href='#' show-intercom=true >Contactez l'équipe Sharetribe</a>."
       need_to_change_publishable_key: "Pour changer votre Publishable Key Stripe, <a href='#' show-intercom=true >contactez l'équipe Sharetribe</a>."
       need_to_change_secret_key: "Pour changer votre Secret Key Stripe, <a href='#' show-intercom=true >contactez l'équipe Sharetribe</a>."
+      not_allowed: "Hélas, l'intégration Stripe n'est pas disponible pour <a href=\"%{url}\">le pays de votre place de marché</a>."
     transaction_size:
       info_header: "Prix minimum d'annonce"
       info_text: "Si le système de paiements est activé dans votre place de marché, vous devez définir un prix minimum d'annonce: le prix le plus bas auquel doit être une annonce sur votre place de marché. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur le prix minimum d'annonce</a>."
@@ -333,7 +351,7 @@ fr:
       add_new_user_field: "Ajouter un champ d'utilisateur"
       save_new_user_field: "Ajouter le champ d'utilisateur"
       new_user_field_type: "Type du nouveau champ d'utilisateur"
-      edit_field_type: "Modifier le champ d'utilisateur : %{name} (%{field_type})"
+      edit_field_type: "Modifier le champ d'utilisateur \"%{name}\" (%{field_type})"
       required_field: "Rendre ce champ obligatoire lors de l'inscription à la place de marché"
       public_field: "Afficher ce champ sur la page de profil publique"
       required_field_title: "Champ requis"
@@ -424,7 +442,7 @@ fr:
       add_new_order_type: "Ajouter un type de transaction"
       add_new: "+ Ajouter un type de transaction"
       new_order_type: "Modèle du nouveau type de transaction"
-      edit_order_type: "Modifier le type de transaction: %{type}"
+      edit_order_type: "Modifier le type de transaction \"%{type}\""
       listing_shape_name_placeholder: "Par exemple : Vendre"
       checkout_button: "Libellé du bouton de transaction"
       action_button_placeholder: "Par exemple : Acheter"
@@ -580,7 +598,7 @@ fr:
       started: "Commencée le"
       latest_activity: "Dernière activité"
       actions: Actions
-      not_available: Indisponible
+      not_available: "Non disponible"
       profile: "Profil de %{author}"
       read: "Lire la conversation"
       listing: "Annonce \"%{listing}\""
@@ -959,7 +977,7 @@ fr:
       script_disabled: "<b>Fonctionnalité payante :</b> aimeriez-vous ajouter votre propre script personnalisé ? <a href=\"%{url}\">Passez à une offre payante</a>."
       info_text: "Du script personnalisé peut être ajouté au tag <head> de chaque page et être utilisé pour insérer du code CSS, JavaScript ou HTML. <a href='%{url}' class='external-link' target='_blank'>En savoir plus sur le script personnalisé</a>."
       custom_head_script: "CSS, JavaScript et/ou script HTML"
-      custom_head_script_placeholder: "<script src=\"https://example.com/customscript.js\"></script>"
+      custom_head_script_placeholder: "<script src=\"https://www.example.com/customscript.js\"></script>"
       custom_head_script_info_text: "Notez que de future mises à jour de Sharetribe Go pourraient rendre incompatible votre script."
     sharetribe:
       info_text: "À Sharetribe, pour améliorer nos services et notre support, nous suivons l'activité des utilisateurs des places de marché. Nous ne collectons aucune données personnelles et ne partageons pas ces informations en dehors de l'équipe Sharetribe. <a href='%{url}' class=\"external-link\" target='_blank'>En savoir plus</a>."
@@ -1201,8 +1219,130 @@ fr:
       edit: Modifier
     landing_page:
       header: "Add-on : page d'accueil personnalisée - $99 par mois"
+      lp_editor: "Éditeur de la page d'accueil personnalisé"
+      lp_info_1: "Construisez votre page d'accueil en utilisant un ensemble de blocs. Les types de sections que vous pouvez choisir ci-dessous couvrent les bonnes pratiques de certaines des places de marché les plus convaincantes. Pour le moment, la page d'accueil personnalisé ne supporte qu'une langue."
+      lp_info_2: "En savoir plus sur l'éditeur de page d'accueil <a class=\"external-link\" target=\"_blank\" href=\"%{url}\">sur le Help Center Go</a>."
       info_text_1: "Ajoutez une magnifique page d'accueil et impliquez les visiteurs dès qu'ils arrivent sur votre place de marché. Définissez le design de votre page d'accueil à partir d'un ensemble de blocs prédéfinis."
       btn_text: "En savoir plus"
+      section_id: "Identifiant de la section"
+      section_type: "Type de section"
+      remove_confirm: "Voulez-vous vraiment supprimer la section \"%{name}\" et toutes ses données ? Ceci est irréversible."
+      add_new_section: "+ Ajouter une nouvelle section"
+      publish_changes: "Publier les modifications"
+      preview_landing_page: "Prévisualiser la page d'accueil"
+      check_it_out: "Admirez la"
+      latest_version_released: "La dernière version de votre page d'accueil est en ligne ! %{link} !"
+      this_version_is_not_released: "Vous devez d'abord apporter des modifications avant de publier une nouvelle version de votre page d'accueil."
+      sections:
+        add: "Ajouter une nouvelle section à votre page d'accueil"
+        new: "Type de la nouvelle section"
+        select: "Choisissez un type de section…"
+        id: "Identifiant de la section"
+        paragraph: "Paragraphe de la section"
+        title: "Titre de la section"
+        background_color: "Couleur de fond de la section"
+        delete_info: "Ceci est irréversible"
+        delete_section: "Supprimer la section"
+        edit: "Modifier la section \"%{name}\""
+        type:
+          column_1: "Info - Une colonne"
+          column_2: "Info - Deux colonnes"
+          column_3: "Info - Trois colonnes"
+          hero: Hero
+          footer: "Pied de page"
+          listings: Annonces
+          categories: Catégories
+          locations: Localisations
+          video: Vidéo
+        listing:
+          title: "Annonces mises en avant"
+          info: "Ajoutez les identifiants des annonces que vous voulez mettre en avant. Pour trouver l'identifiant d'une annonce, allez sur la page de l'annonce et regardez l'URL de l'annonce. L'identifiant de l'annonce est la série de chiffres qui est affichée après l'URL principale. Par exemple, pour l'annonce <code>www.example.com/listings/123456-listing-title</code>, l'identifiant de l'annonce est <code>123456</code>."
+          listing_1: "Identifiant de l'annonce 1"
+          listing_2: "Identifiant de l'annonce 2"
+          listing_3: "Identifiant de l'annonce 3"
+        hero:
+          call_to_action: Bouton
+          button_text: "Libellé du bouton"
+          cta_button_text: "Libellé du bouton"
+          cta_button_url: "URL cible du bouton"
+          cta_button_info: "L'action par défaut est \"Rechercher\" pour une place de marché publique et \"S'inscrire\" pour une place de marché privée. Si cela vous convient, vous pouvez laisser ce champ vide."
+          info: "Configurez l'image d'arrière-plan de la section Hero. Le slogan et la description du Hero sont configurés dans la section %{url}."
+          button_default: "Action par défaut"
+          button_button: Lien
+          button_none: Aucun
+          background_image: "Image d'arrière-plan"
+          button_placeholder: "En savoir plus"
+          url_placeholder: "https://www.example.com"
+        cta_button:
+          cta_enabled: "Afficher un bouton"
+          button_title: "Libellé du bouton"
+          button_path_string: "URL cible du bouton"
+        footer:
+          info: "Votre page d'accueil personnalisée a un pied de page unique, que vous pouvez modifier ici. Personnalisez le pied de page pour le reste de votre place de marché depuis la section %{url}."
+          theme: "Style du pied de page"
+          copyright: "Copyright du pied de page"
+          add_link: "+ Ajouter un lien"
+          social_links: "Liens sociaux du pied de page"
+          links: "Liens du pied de page"
+          link_label: "Libellé du lien"
+          link_target_url: "Cible de l'URL du lien"
+        location:
+          title: "Localisations mises en avant"
+          info: "Vous pouvez mettre en avant entre trois et sept localisations sur votre page d'accueil. Ajoutez une image pour chaque localisation et liez la à la page de résultats de recherche sur votre place de marché pour cette localisation."
+          image_column: Image
+          label_column: "Libellé de la localisation"
+          url_column: "URL des résultats de recherche"
+          add: "+ Ajouter une localisation"
+          edit_location: "Modifier la localisation"
+          location_label: "Libellé de la localisation"
+          search_url: "URL de la recherche"
+          background_image: "Image d'arrière-plan de la localisation"
+          image_info: "La taille recommandée pour l'image d'arrière-plan de la localisation est de 1000x667 pixels."
+          image: "L'image actuelle d'arrière-plan de la localisation est <code>%{name}</code>."
+          need_at_least_3_locations: "Vous devez avoir au moins trois localisations dans cette section"
+          need_at_most_7_locations: "Vous pouvez avoir au plus sept localisations dans cette section"
+        category:
+          add: "+ Ajouter une catégorie"
+          image_column: Image
+          category_column: Catégorie
+          edit_category: "Modifier la catégorie"
+          featured_categories: "Catégories mises en avant"
+          featured_categories_info: "Vous pouvez mettre en avant entre trois et sept catégories sur votre page d'accueil."
+          category: Catégorie
+          background_image: "Image d'arrière-plan de la catégorie"
+          background_image_info: "La taille recommandée pour l'image d'arrière-plan de la catégorie est de 1000x667 pixels."
+          image: "L'image actuelle d'arrière-plan de la catégorie est <code>%{name}</code>."
+          need_at_least_3_categories: "Vous devez avoir au moins trois catégories cette section"
+          need_at_most_7_categories: "Vous pouvez avoir au plus sept catégories dans cette section"
+        background_style:
+          title: "Arrière-plan de la section"
+          image: Image
+          color: Couleur
+          none: Aucun
+        background_image:
+          title: "Image d'arrière-plan de la section"
+          info: "Cette image sera affichée comme image d'arrière-plan de cette section. Pour un résultat idéal, elle devrait avoir une taille minimum de 1600x1200 pixels."
+          image: "L'image actuelle d'arrière-plan est <code>%{name}</code>."
+          overlay: "Voile sur l'image d'arrière-plan"
+          dark_overlay: "Voile sombre"
+          light_overlay: "Voile léger"
+          transparent_overlay: "Aucun voile"
+        video:
+          youtube_video_id: "Identifiant de la vidéo YouTube"
+          vide_id_info: "Vous pouvez obtenir l'identifiant de la vidéo depuis l'URL de la vidéo. Par exemple, pour la vidéo <code>youtube.com/watch?v=dQw4w9WgXcQ</code>, l'identifiant est <code>dQw4w9WgXcQ</code>."
+          autoplay: "Lecture automatique"
+          no_autoplay: "Pas de lecture automatique"
+          muted_autoplay: "Lecture automatique sans son"
+          text: Texte
+          text_info: "Ce texte sera affiché si vous avez sélectionné l'option \"Pas de lecture automatique\" ou lorsque la vidéo est mise en pause."
+        multi_column:
+          info: "Ajouter des icônes nécessite une action manuelle de la part de l'équipe Sharetribe. Veuillez suivre <a class=\"external-link\" target=\"_blank\" href=\"%{url}\">les instructions dans cet article</a> pour sélectionner l'icône de votre choix et le partager avec l'équipe Sharetribe."
+          column: "Colonne %{index}"
+          column_icon: "Icône de la colonne %{index}"
+          column_title: "Titre de la colonne %{index}"
+          column_paragraph: "Paragraph de la colonne %{index}"
+          column_button_label: "Libellé du bouton de la colonne %{index}"
+          column_button_target: "Cible de l'URL de la colonne %{index}"
     display:
       grid: Grille
       list: Liste

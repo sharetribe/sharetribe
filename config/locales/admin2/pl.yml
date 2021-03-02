@@ -1,10 +1,25 @@
 pl:
+  web:
+    admin2:
+      landing_page:
+        location:
+          remove: ~
+          remove_confirm: ~
+        category:
+          remove: ~
+          remove_confirm: ~
+        listings:
+          not_valid_id_error: ~
+        footer_menu_link:
+          remove_title: ~
+          remove_body: ~
   admin2:
     save_changes: ~
     next_step: ~
     prev_step: ~
     cancel: ~
     delete: ~
+    remove: ~
     chooseText: ~
     cancelText: ~
     open_in_editor: ~
@@ -53,6 +68,7 @@ pl:
         topbar: ~
         footer: ~
         display: ~
+        landing-page: ~
       users:
         manage_users: ~
         signup_login: ~
@@ -265,6 +281,7 @@ pl:
       paypal_has_been_disabled: ~
       change_account: ~
       change_account_link: ~
+      not_allowed: ~
     stripe:
       info_header: ~
       info_text: ~
@@ -304,6 +321,7 @@ pl:
       need_to_change_stripe_keys: ~
       need_to_change_publishable_key: ~
       need_to_change_secret_key: ~
+      not_allowed: ~
     transaction_size:
       info_header: ~
       info_text: ~
@@ -1180,8 +1198,130 @@ pl:
       edit: ~
     landing_page:
       header: ~
+      lp_editor: ~
+      lp_info_1: ~
+      lp_info_2: ~
       info_text_1: ~
       btn_text: ~
+      section_id: ~
+      section_type: ~
+      remove_confirm: ~
+      add_new_section: ~
+      publish_changes: ~
+      preview_landing_page: ~
+      check_it_out: ~
+      latest_version_released: ~
+      this_version_is_not_released: ~
+      sections:
+        add: ~
+        new: ~
+        select: ~
+        id: ~
+        paragraph: ~
+        title: ~
+        background_color: ~
+        delete_info: ~
+        delete_section: ~
+        edit: ~
+        type:
+          column_1: ~
+          column_2: ~
+          column_3: ~
+          hero: ~
+          footer: ~
+          listings: ~
+          categories: ~
+          locations: ~
+          video: ~
+        listing:
+          title: ~
+          info: ~
+          listing_1: ~
+          listing_2: ~
+          listing_3: ~
+        hero:
+          call_to_action: ~
+          button_text: ~
+          cta_button_text: ~
+          cta_button_url: ~
+          cta_button_info: ~
+          info: ~
+          button_default: ~
+          button_button: ~
+          button_none: ~
+          background_image: ~
+          button_placeholder: ~
+          url_placeholder: ~
+        cta_button:
+          cta_enabled: ~
+          button_title: ~
+          button_path_string: ~
+        footer:
+          info: ~
+          theme: ~
+          copyright: ~
+          add_link: ~
+          social_links: ~
+          links: ~
+          link_label: ~
+          link_target_url: ~
+        location:
+          title: ~
+          info: ~
+          image_column: ~
+          label_column: ~
+          url_column: ~
+          add: ~
+          edit_location: ~
+          location_label: ~
+          search_url: ~
+          background_image: ~
+          image_info: ~
+          image: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        category:
+          add: ~
+          image_column: ~
+          category_column: ~
+          edit_category: ~
+          featured_categories: ~
+          featured_categories_info: ~
+          category: ~
+          background_image: ~
+          background_image_info: ~
+          image: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        background_style:
+          title: ~
+          image: ~
+          color: ~
+          none: ~
+        background_image:
+          title: ~
+          info: ~
+          image: ~
+          overlay: ~
+          dark_overlay: ~
+          light_overlay: ~
+          transparent_overlay: ~
+        video:
+          youtube_video_id: ~
+          vide_id_info: ~
+          autoplay: ~
+          no_autoplay: ~
+          muted_autoplay: ~
+          text: ~
+          text_info: ~
+        multi_column:
+          info: ~
+          column: ~
+          column_icon: ~
+          column_title: ~
+          column_paragraph: ~
+          column_button_label: ~
+          column_button_target: ~
     display:
       grid: ~
       list: ~
