@@ -4,15 +4,15 @@ en:
       landing_page:
         location:
           remove: 'Remove %{name}'
-          remove_confirm: 'Are you sure you want to remove the location <strong>%{name}</strong> from the landing page?'
+          remove_confirm: "Are you sure you want to remove the location \"%{name}\" from the landing page?"
         category:
           remove: 'Remove %{name}'
-          remove_confirm: 'Are you sure you want to remove the category <strong>%{name}</strong> from the landing page?'
+          remove_confirm: "Are you sure you want to remove the category \"%{name}\" from the landing page?"
         listings:
-          not_valid_id_error: 'This listing ID is not available in your marketplace. Maybe you made a typo? Please verify and try again.'
+          not_valid_id_error: "This listing ID doesn't exist on your marketplace. Maybe a typo? Please check the ID and try again."
         footer_menu_link:
           remove_title: 'Remove %{name}'
-          remove_body: 'Are you sure you want to remove the footer link <strong>%{name}</strong> from the landing page?'
+          remove_body: "Are you sure you want to remove the footer link \"%{name}\" from the landing page?"
   admin2:
     save_changes: "Save changes"
     next_step: Next
@@ -145,12 +145,12 @@ en:
       test_dns_settings: "Test DNS settings and start using the custom domain"
       testing_dns_info: "Testing takes 10–15 minutes to complete. Refresh this page to check the status."
       during_dns_testing: "You can't change the custom domain during DNS testing."
-      set_custom_domain_info: "Your custom domain needs to point to Sharetribe's servers. Before you start the DNS settings test, make sure you have followed the <a class='external-link' href='%{url}' target='_blank'>instructions to point your domain to Sharetribe's servers.</a>"
-      main_domain: 'Main domain:'
-      redirect: 'Redirect:'
-      success: 'Success!'
-      error: 'Error:'
-      main_domain_error: 'This domain is not configured correctly. This domain will not redirect to your marketplace. Make sure the domain DNS records are configured correctly.'
+      set_custom_domain_info: "Your custom domain needs to point to Sharetribe's servers. Before you start the DNS settings test, make sure you have followed the <a class='external-link' href='%{url}' target='_blank'>instructions to point your domain to Sharetribe's servers</a>."
+      main_domain: "Main domain:"
+      redirect: "Redirect:"
+      success: Success!
+      error: "Error:"
+      main_domain_error: "This domain is not configured correctly. This domain will not redirect to your marketplace. Make sure the domain DNS records are configured correctly."
       redirect_error: "This domain is not configured correctly. This domain will not redirect to your marketplace. Make sure the domain DNS records are configured correctly and start the test again if you want to redirect this domain to your marketplace. If you don't want the redirect, you can ignore this error and proceed with the setup."
       dns_success: "Test passed! DNS settings for %{domain} have been configured successfully:"
       start_using: "Start using %{domain}"
@@ -182,29 +182,29 @@ en:
         point_4: "Your previous domain will become available to other marketplaces immediately."
         button: "Yes, let's change the domain"
     outgoing_address:
-      outgoing_email_settings: 'Outgoing email settings'
-      resend_verification_email: 'Resend verification email'
-      info: 'This sender name and email address is used for emails sent from your marketplace to users. <a href="%{url}" class="external-link" target="_blank" >Learn more</a>.'
-      upgrading: '<b>Pro feature:</b> Would you like to set your own email address as the sender and remove all Sharetribe branding from outgoing emails? <a href="%{url}">Upgrade to the Pro plan or higher</a>.'
-      expired_notice_email: 'The verification email sent to %{email} from Amazon Web Services has expired.'
-      expired_notice_link: 'Please ask for a new one to verify your email address. %{link}.'
-      send_notice_email: 'A verification email was sent to %{email} from Amazon Web Services.'
-      send_notice_info: 'Make sure to check your spam folder. Please follow the instructions in the email to verify your email address.'
-      send_notice_info_link: 'Make sure to check your spam folder. Please follow the instructions in the email to verify your email address. %{link}.'
-      send_notice_info_2: 'Until you have verified your email address, the previous setup will be used.'
-      sent: 'Sent!'
-      name: 'Sender name'
-      verified_info: 'The email address marketplace users will receive the email from.'
-      name_info: 'The name shown to users in emails as the sender.'
-      sender_email_placeholder: 'sender-email@example.com'
-      sender_name_placeholder: 'Sender name'
-      email: 'Sender email'
-      email_verified: 'Sender email • '
-      verified: 'Verified'
-      expired: 'Expired'
-      unverified: 'Unverified'
-      successfully_saved_name: 'Sender name updated successfully.'
-      successfully_saved: 'Sender address saved successfully. The verification email will be sent soon.'
+      outgoing_email_settings: "Outgoing email settings"
+      resend_verification_email: "Resend verification email"
+      upgrading: "<b>Pro feature:</b> Would you like to set your own email address as the sender and remove all Sharetribe branding from outgoing emails? <a href=\"%{url}\">Upgrade to the Pro plan or higher</a>."
+      info: "This sender name and email address is used for emails sent from your marketplace to users. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\" >Learn more</a>."
+      expired_notice_email: "The verification email sent to %{email} from Amazon Web Services has expired."
+      expired_notice_link: "Please ask for a new one to verify your email address. %{link}."
+      send_notice_email: "A verification email was sent to %{email} from Amazon Web Services."
+      send_notice_info: "Make sure to check your spam folder. Please follow the instructions in the email to verify your email address."
+      send_notice_info_link: "Make sure to check your spam folder. Please follow the instructions in the email to verify your email address. %{link}."
+      send_notice_info_2: "Until you have verified your email address, the previous setup will be used."
+      sent: Sent!
+      name: "Sender name"
+      verified_info: "The email address marketplace users will receive the email from."
+      name_info: "The name shown to users in emails as the sender."
+      sender_email_placeholder: sender-email@example.com
+      sender_name_placeholder: "Sender name"
+      email: "Sender email"
+      email_verified: "Sender email • "
+      verified: Verified
+      expired: Expired
+      unverified: Unverified
+      successfully_saved_name: "Sender name updated successfully."
+      successfully_saved: "Sender address saved successfully. The verification email will be sent soon."
       invalid_email_error: "Invalid email format for \"%{email}\""
       invalid_email_address: "Please enter a valid email address"
       invalid_email_domain_read_more_link: "Read this Help Center article for more information."
@@ -351,7 +351,7 @@ en:
       add_new_user_field: "Add a user field"
       save_new_user_field: "Add the user field"
       new_user_field_type: "New user field type"
-      edit_field_type: "Edit user field: %{name} (%{field_type})"
+      edit_field_type: "Edit the user field \"%{name}\" (%{field_type})"
       required_field: "Make this field mandatory when signing up to the marketplace"
       public_field: "Show this field on the public profile page"
       required_field_title: "Required field"
@@ -442,7 +442,7 @@ en:
       add_new_order_type: "Add an order type"
       add_new: "+ Add an order type"
       new_order_type: "New order type template"
-      edit_order_type: "Edit order type: %{type}"
+      edit_order_type: "Edit the order type \"%{type}\""
       listing_shape_name_placeholder: "E.g. Sell"
       checkout_button: "Checkout button label"
       action_button_placeholder: "E.g. Buy"
@@ -696,77 +696,19 @@ en:
     manage_transactions:
       view_in_stripe: "View transaction #%{id} in Stripe"
       view_in_paypal: "View transaction #%{id} in PayPal"
-      export_to_csv: 'Export to CSV'
-      search_placeholder: 'Search transactions by listing title or users…'
-      listing: 'Listing'
-      customer: 'Buyer'
-      provider: 'Seller'
-      started: 'Started'
-      latest_activity: 'Latest'
-      status: 'Status'
-      amount: 'Amount'
-      actions: 'Actions'
-      view_details: 'View details'
-      all_transactions: 'All transactions (%{count})'
-      not_available: 'Not available'
-      status_filter:
-        free: "Free transaction"
-        confirmed: 'Completed'
-        paid: 'Paid'
-        canceled: 'Canceled'
-        disputed: 'Disputed'
-        preauthorized: 'Preauthorized'
-        rejected: 'Rejected'
-        payment_intent_requires_action: 'Pending'
-        payment_intent_action_expired: 'Expired'
-        refunded: 'Refunded'
-        dismissed: 'Dismissed'
-      statuses:
-        conversation: 'Conversation'
-        free: "Free transaction"
-        pending: 'Pending'
-        preauthorized: 'Preauthorized'
-        accepted: 'Accepted'
-        rejected: 'Rejected'
-        paid: 'Paid'
-        confirmed: 'Completed'
-        canceled: 'Canceled'
-        disputed: 'Disputed'
-        initiated: "Waiting PayPal payment"
-        pending_ext: "Waiting PayPal payment"
-        none:
-          free: "Free transaction"
-        paypal:
-          free: 'Conversation'
-          pending: 'Pending'
-          preauthorized: 'Preauthorized'
-          accepted: 'Accepted'
-          rejected: 'Rejected'
-          paid: 'Paid'
-          confirmed: 'Completed'
-          canceled: 'Canceled'
-          disputed: 'Disputed'
-          initiated: "Waiting PayPal payment"
-          pending_ext: "Waiting PayPal payment"
-          refunded: 'Refunded'
-          dismissed: 'Dismissed'
-        stripe:
-          free: 'Conversation'
-          pending: 'Pending'
-          preauthorized: 'Preauthorized'
-          accepted: 'Accepted'
-          rejected: 'Rejected'
-          paid: 'Paid'
-          confirmed: 'Completed'
-          canceled: 'Canceled'
-          disputed: 'Disputed'
-          initiated: "Waiting Stripe payment"
-          pending_ext: "Waiting Stripe payment"
-          payment_intent_requires_action: 'Pending'
-          payment_intent_action_expired: 'Expired'
-          payment_intent_failed: "Stripe payment failed"
-          refunded: 'Refunded'
-          dismissed: 'Dismissed'
+      export_to_csv: "Export to CSV"
+      search_placeholder: "Search transactions by listing title or users…"
+      listing: Listing
+      customer: Buyer
+      provider: Seller
+      started: Started
+      latest_activity: Latest
+      status: Status
+      amount: Amount
+      actions: Actions
+      view_details: "View details"
+      all_transactions: "All transactions (%{count})"
+      not_available: "Not available"
       transaction_for: "Transaction #%{transaction_id} for %{link}"
       waiting_for_provider_accept_or_reject: "Waiting for %{provider} to accept or reject the request."
       waiting_for_fulfill_and_complete: "Waiting for %{provider} to fulfill the order for %{listing_title} and for %{buyer} to mark the order as completed."
@@ -858,22 +800,80 @@ en:
           refunded: Refunded
           dismissed: Dismissed
         stripe:
-          free: 'Conversation'
-          pending: 'Pending'
-          preauthorized: 'Preauthorized'
-          accepted: 'Accepted'
-          rejected: 'Rejected'
-          paid: 'Paid'
-          confirmed: 'Completed'
-          canceled: 'Canceled'
-          disputed: 'Disputed'
-          initiated: 'Waiting Stripe payment'
-          pending_ext: 'Waiting Stripe payment'
-          payment_intent_requires_action: 'Pending'
-          payment_intent_action_expired: 'Expired'
-          payment_intent_failed: 'Stripe payment failed'
-          refunded: 'Refunded'
-          dismissed: 'Dismissed'
+          free: Conversation
+          pending: Pending
+          preauthorized: Preauthorized
+          accepted: Accepted
+          rejected: Rejected
+          paid: Paid
+          confirmed: Completed
+          canceled: Canceled
+          disputed: Disputed
+          initiated: "Waiting Stripe payment"
+          pending_ext: "Waiting Stripe payment"
+          payment_intent_requires_action: Pending
+          payment_intent_action_expired: Expired
+          payment_intent_failed: "Stripe payment failed"
+          refunded: Refunded
+          dismissed: Dismissed
+      status_filter:
+        free: "Free transaction"
+        confirmed: Completed
+        paid: Paid
+        canceled: Canceled
+        disputed: Disputed
+        preauthorized: Preauthorized
+        rejected: Rejected
+        payment_intent_requires_action: Pending
+        payment_intent_action_expired: Expired
+        refunded: Refunded
+        dismissed: Dismissed
+      statuses:
+        conversation: Conversation
+        free: "Free transaction"
+        pending: Pending
+        preauthorized: Preauthorized
+        accepted: Accepted
+        rejected: Rejected
+        paid: Paid
+        confirmed: Completed
+        canceled: Canceled
+        disputed: Disputed
+        initiated: "Waiting PayPal payment"
+        pending_ext: "Waiting PayPal payment"
+        none:
+          free: "Free transaction"
+        paypal:
+          free: Conversation
+          pending: Pending
+          preauthorized: Preauthorized
+          accepted: Accepted
+          rejected: Rejected
+          paid: Paid
+          confirmed: Completed
+          canceled: Canceled
+          disputed: Disputed
+          initiated: "Waiting PayPal payment"
+          pending_ext: "Waiting PayPal payment"
+          refunded: Refunded
+          dismissed: Dismissed
+        stripe:
+          free: Conversation
+          pending: Pending
+          preauthorized: Preauthorized
+          accepted: Accepted
+          rejected: Rejected
+          paid: Paid
+          confirmed: Completed
+          canceled: Canceled
+          disputed: Disputed
+          initiated: "Waiting Stripe payment"
+          pending_ext: "Waiting Stripe payment"
+          payment_intent_requires_action: Pending
+          payment_intent_action_expired: Expired
+          payment_intent_failed: "Stripe payment failed"
+          refunded: Refunded
+          dismissed: Dismissed
     expired_popup:
       title: "%{first_name}, your 30-day Sharetribe Go trial has expired."
       body: "Don't worry, your data has not been deleted. You can unlock your marketplace immediately by subscribing to a paid plan, starting from $79 per month."
@@ -977,7 +977,7 @@ en:
       script_disabled: "<b>Paid feature:</b> Would you like to add your own custom script? <a href=\"%{url}\">Upgrade to a paid plan</a>."
       info_text: "Custom script can be added inside the <head> tag for every page and used to insert custom CSS, JavaScript or HTML. <a href='%{url}' class='external-link' target='_blank'>Learn more about Custom script</a>."
       custom_head_script: "CSS, JavaScript and/or HTML script"
-      custom_head_script_placeholder: "<script src=\"https://example.com/customscript.js\"></script>"
+      custom_head_script_placeholder: "<script src=\"https://www.example.com/customscript.js\"></script>"
       custom_head_script_info_text: "Note that future updates to Sharetribe Go features may render your script incompatible."
     sharetribe:
       info_text: "To improve its services and support, Sharetribe tracks marketplace users' activity. We will never collect personal data or share this information outside the Sharetribe team. <a href='%{url}' class=\"external-link\" target='_blank'>Learn more</a>."
@@ -1219,31 +1219,31 @@ en:
       edit: Edit
     landing_page:
       header: "Add-on: Custom Landing Page - $99 per month"
-      lp_editor: 'Landing Page Editor'
-      lp_info_1: 'Define the layout of your landing page from a set of building blocks. These ready-made sections are the result of combining the best practices of the the most successful online marketplaces. For now, the Landing Page Editor only supports one language.'
-      lp_info_2: 'Learn everything you need to know about the Landing Page Editor <a class="external-link" target="_blank" href="%{url}">in the Go Help Center</a>.'
+      lp_editor: 'Custom Landing Page editor'
+      lp_info_1: 'Define your landing page layout using a set of building blocks. The section types you can select below combine the best practices of some of the most successful online marketplaces. For now, the Custom Landing Page only supports one language.'
+      lp_info_2: 'Learn more about using the landing page editor <a class="external-link" target="_blank" href="%{url}">in the Go Help Center</a>.'
       info_text_1: "Add a beautiful home page and engage your visitors the moment they arrive on your marketplace. Define the layout of your landing page from a set of building blocks."
       btn_text: "Learn more"
       section_id: 'Section ID'
       section_type: 'Section type'
-      remove_confirm: 'Are you sure you want to remove the section %{name} and all its data?'
+      remove_confirm: "Are you sure you want to delete the section \"%{name}\" and all its data?"
       add_new_section: '+ Add a new section'
       publish_changes: 'Publish changes'
       preview_landing_page: 'Preview landing page'
       check_it_out: 'Check it out'
-      latest_version_released: 'The latest version of your landing page has been set live! %{link}!'
-      this_version_is_not_released: 'You need to make changes to set live a new version of your landing page'
+      latest_version_released: 'The latest version of your landing page is live! %{link}!'
+      this_version_is_not_released: 'You need to make changes to publish a new version of your landing page.'
       sections:
-        add: 'Add a new section to your Landing Page'
+        add: 'Add a new section to your landing page'
         new: 'New section type'
-        select: 'Select a section type...'
-        id: 'Unique Section ID'
+        select: 'Select a section type…'
+        id: 'Section ID'
         paragraph: 'Section paragraph'
         title: 'Section title'
         background_color: 'Section background color'
-        delete_info: 'This action cannot be undone.'
+        delete_info: "You can't undo this action."
         delete_section: 'Delete section'
-        edit: 'Edit <strong>%{name}</strong> section'
+        edit: "Edit the section \"%{name}\""
         type:
           column_1: 'Info - One column'
           column_2: 'Info - Two columns'
@@ -1256,64 +1256,64 @@ en:
           video: 'Video'
         listing:
           title: 'Featured listings'
-          info: 'Add the listing IDs of the listings you want to feature. To find the ID of a listing, go to the listing page and look at the listing URL. The listing ID is the number that comes after the main URL. In example, <code>www.example.com/listings/123456-listing-title</code>, the listing ID would be <code>123456</code>.'
+          info: 'Add the listing IDs of the listings you want to feature. To find the ID of a listing, go to the listing page and look at the listing URL. The listing ID is the number that comes after the main URL. For example, for the listing <code>www.example.com/listings/123456-listing-title</code>, the listing ID is <code>123456</code>.'
           listing_1: 'Listing 1 ID'
           listing_2: 'Listing 2 ID'
           listing_3: 'Listing 3 ID'
         hero:
-          call_to_action: 'Hero call-to-action'
-          button_text: 'Text'
+          call_to_action: 'Call-to-action'
+          button_text: 'Call-to-action button label'
           cta_button_text: 'Call-to-action button label'
           cta_button_url: 'Call-to-action target URL'
-          cta_button_info: "By default the text and action is \"Search\" for public marketplaces and \"Sign up\" for private marketplaces. You don't need to change the texts for the default actions. You can leave this field empty."
-          info: 'Set the background image for the Hero section. The slogan and description for the Hero are set from the %{url} page.'
+          cta_button_info: "The default text is \"Search\" for a public marketplace and \"Sign up\" for a private marketplace. If that works for you, you can leave this field empty."
+          info: 'Set the background image for the Hero section. The slogan and description for the Hero are set on the %{url} section.'
           button_default: 'Default action'
-          button_button: 'Button'
+          button_button: 'Link'
           button_none: 'None'
           background_image: 'Background image'
           button_placeholder: 'Learn more'
           url_placeholder: 'https://www.example.com'
         cta_button:
-          cta_enabled: 'Show Call-to-action button'
+          cta_enabled: 'Show call-to-action button'
           button_title: 'Call-to-action label'
           button_path_string: 'Call-to-action target URL'
         footer:
-          info: 'Custom Landing Footer will override footer settings in the Footer page.'
+          info: 'Your Custom Landing Page has a unique footer, which you can edit here. Customize the footer for the rest of your marketplace pages in the %{url} section.'
           theme: 'Footer style'
           copyright: 'Footer copyright'
           add_link: '+ Add a link'
           social_links: 'Footer social links'
           links: 'Footer links'
           link_label: 'Link label'
-          link_target_url: 'Link Target URL'
+          link_target_url: 'Link target URL'
         location:
           title: 'Featured locations'
-          info: 'You can add three to seven locations to be featured in your landing page. Add an image to each location and provide location search URL for your marketplace.'
+          info: 'You can feature 3–7 locations on your landing page. Add an image for each location and link it to your marketplace search results page for that location.'
           image_column: 'Image'
           label_column: 'Location label'
-          url_column: 'Search URL'
+          url_column: 'Search results URL'
           add: '+ Add a location'
           edit_location: 'Edit location'
           location_label: 'Location label'
           search_url: 'Search URL'
-          background_image: 'Location Background image'
-          image_info: 'Recommended image size for location background images is 1000 x 667 pixels.'
-          image: 'The current location background image filename is <code>%{name}</code>.'
-          need_at_least_3_locations: 'You should have at least three locations in this section'
-          need_at_most_7_locations: 'You should have at most sevent locations in this section'
+          background_image: 'Location background image'
+          image_info: 'The recommended image size for location background images is 1000x667 pixels.'
+          image: 'The current location background image is <code>%{name}</code>.'
+          need_at_least_3_locations: 'You need at least three locations in this section'
+          need_at_most_7_locations: 'You can have at most seven locations in this section'
         category:
           add: '+ Add a category'
           image_column: 'Image'
           category_column: 'Category'
           edit_category: 'Edit category'
           featured_categories: 'Featured categories'
-          featured_categories_info: 'You can add three to seven categories to be featured in your landing page.'
+          featured_categories_info: 'You can feature 3–7 categories on your landing page.'
           category: 'Category'
-          background_image: 'Category Background image'
-          background_image_info: 'Recommended image size for category background images is 1000 x 667 pixels.'
+          background_image: 'Category background image'
+          background_image_info: 'The recommended image size for category background images is 1000x667 pixels.'
           image: 'The current category background image filename is <code>%{name}</code>.'
-          need_at_least_3_categories: 'You should have at least three categories in this section'
-          need_at_most_7_categories: 'You should have at most seven categories in this section'
+          need_at_least_3_categories: 'You need at least three categories in this section'
+          need_at_most_7_categories: 'You can have at most seven categories in this section'
         background_style:
           title: 'Section background'
           image: 'Image'
@@ -1321,22 +1321,22 @@ en:
           none: 'None'
         background_image:
           title: 'Section background image'
-          info: 'The will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels.'
+          info: 'The image will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels.'
           image: 'The current background image filename is <code>%{name}</code>.'
           overlay: 'Overlay for the background image'
           dark_overlay: 'Dark overlay'
           light_overlay: 'Light overlay'
-          transparent_overlay: 'Transparent overlay'
+          transparent_overlay: 'No overlay'
         video:
           youtube_video_id: 'YouTube video ID'
-          vide_id_info: "You can get the video ID from the video's URL. For example if the video's URL is <code>youtube.com/watch?v=dQw4w9WgXcQ</code>, the ID would be <code>dQw4w9WgXcQ</code>"
+          vide_id_info: "You can get the video ID from the video's URL. For example, for the video <code>youtube.com/watch?v=dQw4w9WgXcQ</code>, the ID is <code>dQw4w9WgXcQ</code>."
           autoplay: 'Autoplay'
           no_autoplay: 'No Autoplay'
           muted_autoplay: 'Muted Autoplay'
           text: 'Text'
-          text_info: 'The text will be displayed if you have selected the "No autoplay" option or when the video is paused.'
+          text_info: 'The text will be displayed if you have selected "No autoplay" or when the video is paused.'
         multi_column:
-          info: 'Adding icons requires a manual step from the Sharetribe team. Please follow <a class="external-link" target="_blank" href="%{url}">the instructions in this article</a> to select the icon of your choice and share it with Sharetribe support.'
+          info: 'Adding icons requires a manual step from the Sharetribe team. Please follow <a class="external-link" target="_blank" href="%{url}">the instructions in this article</a> to select the icon of your choice and share it with the Sharetribe team.'
           column: 'Column %{index}'
           column_icon: 'Column %{index} icon'
           column_title: 'Column %{index} title'

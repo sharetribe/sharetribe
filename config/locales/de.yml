@@ -1293,8 +1293,8 @@ de:
       details: Auftragsdetails
       order_by: "Sortieren nach %{orderer_link}"
       accept_offer: "Akzeptiere das Angebot"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Die Anfrage akzeptieren und den Eintrag aktiv halten"
+      accept_request_and_close: "Die Anfrage akzeptieren und den Eintrag deaktivieren"
       reject_offer: "Nicht dieses Mal"
       reject_request: "Nicht dieses Mal"
       close_listing: "Schließe den Eintrag %{listing_title_link}"
