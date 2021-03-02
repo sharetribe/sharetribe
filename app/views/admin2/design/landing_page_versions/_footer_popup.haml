@@ -3,9 +3,6 @@
 
 %p.modal-text= t('admin2.landing_page.sections.footer.info')
 
-%p.modal-text
-  = t('admin2.landing_page.sections.footer.info', url: (link_to "#{t('admin2.sidebar.design.footer')}", admin2_design_footer_index_path)).html_safe
-
 .form-group
   %label= t('admin2.landing_page.sections.footer.theme')
   = form.select :theme, options_from_collection_for_select(presenter.footer_themes, :key, :value, presenter.section.theme), {}, class: %i[form-control]
