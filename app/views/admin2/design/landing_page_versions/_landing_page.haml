@@ -27,7 +27,7 @@
               .col.col-lg-4= position.kind_info
               .actions.col
                 %span.handle-move{class: ("disabled" unless allow_move),  "aria-hidden" => "true"}
-                = link_to '#', class: (%i[remove-landing-page] << 'is-disabled' unless allow_move), data: { url: admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), caption: t('admin2.landing_page.remove_confirm', name: position.id) } do
+                = link_to '#', class: (%i[remove-landing-page] << ('is-disabled' unless allow_move)), data: { url: admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), caption: t('admin2.landing_page.remove_confirm', name: position.id) } do
                   %span.remove{class: ("disabled" unless allow_move), 'aria-hidden' => true, 'data-target' => '#landingPageDeleteModal', 'data-toggle' => :modal}
                 = link_to edit_admin2_design_landing_page_version_section_path(@presenter.landing_page_version.id, position.id), remote: true do
                   %span.edit
