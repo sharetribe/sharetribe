@@ -3,5 +3,5 @@
   = form.text_field :id, disabled: presenter.section.persisted?, class: %i[form-control required]
   = form.hidden_field :previous_id
   = form.hidden_field :kind, value: presenter.section.kind
-  - if defined?(presenter.section.variation)
+  - if defined?(presenter.section.variation) && presenter.section.kind != LandingPageVersion::Section::HERO
     = form.hidden_field :variation, value: presenter.section.variation
