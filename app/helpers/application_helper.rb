@@ -175,11 +175,11 @@ module ApplicationHelper
     controller.class.name.split("::").first=="Admin2"
   end
 
-  def facebook_like(recommend=false)
-    "<div class=\"fb-like\" data-send=\"true\" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\" #{recommend ? 'data-action="recommend"' : ''}></div>".html_safe
+  def facebook_like(recommend = false)
+    "<div class=\"fb-like\" data-send=\"true\" style=\"width:250px; #{recommend ? '' : 'margin-left: -7px;'} \" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\" #{recommend ? 'data-action="recommend"' : ''}></div>".html_safe
   end
 
-  def self.random_sting(length=6)
+  def self.random_sting(length = 6)
     chars = ("a".."z").to_a + ("0".."9").to_a
     random_string = ""
     1.upto(length) { |i| random_string << chars[rand(chars.size-1)] }
