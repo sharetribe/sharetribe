@@ -67,7 +67,8 @@ module LandingPageVersion::Section
       super(attributes)
       @kind = LandingPageVersion::Section::HERO
       DEFAULTS.each do |key, value|
-        unless self.send(key)
+        exist = self.send(key)
+        if !exist || (exist.is_a?(String) && value.is_a?(Hash))
           self.send("#{key}=", value)
         end
       end
