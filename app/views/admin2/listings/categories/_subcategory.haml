@@ -2,13 +2,13 @@
   .nestedItemWrapper
     .categoryName= subcategory.display_name(I18n.locale)
     .actions
-      %span.handle-move{'aria-hidden' => true}
+      %span.handle-move{'aria-hidden' => true, data: {intercom_target: t('admin2.categories.reorder_category')}}
       - if !subcategory.can_destroy?
       - elsif subcategory.remove_needs_caution?
-        = link_to remove_popup_admin2_listings_category_path(subcategory), remote: true do
+        = link_to remove_popup_admin2_listings_category_path(subcategory), data: { intercom_target: t('admin2.categories.delete_category_hint') }, remote: true do
           %span.remove
       - else
-        = link_to '#', class: 'remove-category', data: { url: admin2_listings_category_path(subcategory), caption: t('admin2.categories.delete_category', category: subcategory.display_name(I18n.locale)) } do
+        = link_to '#', class: 'remove-category', data: { intercom_target: t('admin2.categories.delete_category_hint'), url: admin2_listings_category_path(subcategory), caption: t('admin2.categories.delete_category', category: subcategory.display_name(I18n.locale)) } do
           %span.remove
       = link_to edit_admin2_listings_category_path(subcategory), remote: true do
-        %span.edit
+        %span.edit{data: {intercom_target: t('admin2.categories.edit_category_hint')}}
