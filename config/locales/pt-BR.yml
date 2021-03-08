@@ -1278,8 +1278,8 @@ pt-BR:
     paypal_fee_info:
       title: "Taxa de processamento do pagamento do PayPal"
       body_text: |-
-          O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa situa-se entre 2% e 5 % do preço total de vendas, dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras nacionais têm taxas mais baixas do que as compras internacionais, e as vendas mensais mais elevadas pode beneficiar você com um desconto nestas taxas.
-          Você pode ver as taxas exatas fazendo login em sua conta do PayPal e indo para %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
+          O PayPal cobra uma taxa de processamento para cada pagamento. Esta taxa situa-se entre 2% e 5 % do preço total de vendas, dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras nacionais têm taxas mais baixas do que as compras internacionais, e  vendas mensais mais elevadas podem beneficiar você com um desconto nestas taxas.
+          Você pode ver as taxas exatas fazendo login em sua conta do PayPal e indo %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
       body_text_accept: |-
           Esta transação é processada pelo PayPal. O PayPal cobra uma taxa de processamento para cada pagamento. A taxa fica entre 2% a 5% do preço total de vendas, dependendo do seu volume mensal de vendas e do país de origem do comprador. Em geral, compras domésticas tem taxas menores do que internacionais, e vendas mensais mais altas dão a você um desconto nas taxas.
           Você pode ver as taxas exatas logando na sua conta do PayPal %{link_to_paypal}. Depois de cada compra você terá um recibo mostrando a taxa aplicada.
