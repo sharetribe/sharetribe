@@ -9,9 +9,9 @@
     %link{rel: 'shortcut icon', type: 'image/icon', href: @current_community.favicon}
     = render partial: 'analytics/head_scripts', locals: { community: @current_community, user: @current_user, plan: @current_plan }
     = csrf_meta_tags
-    - path_font = APP_CONFIG[:font_proximasoft_url]
-    - if path_font.present?
-      = render 'layouts/fonts_admin_v2', path_font: path_font
+    - font_path = APP_CONFIG[:font_proximasoft_url]
+    - if font_path.present?
+      = render 'layouts/fonts', font_path: font_path, family_name: 'proxima_soft'
     = stylesheet_link_tag 'admin2/admin'
     = javascript_include_tag 'admin2/admin'
   %body
