@@ -1,7 +1,7 @@
 - join = ->(*parts) { File.join(parts.select(&:present?)) }
 :scss
   @font-face {
-    font-family: 'proxima_soft';
+    font-family: "#{family_name}";
     src: url("#{join.call(font_path, 'proximasoft-regular-webfont.eot')}");
     src: url("#{join.call(font_path, 'proximasoft-regular-webfont.eot?#iefix')}") format('embedded-opentype'),
       url("#{join.call(font_path, 'proximasoft-regular-webfont.woff2')}") format('woff2'),
@@ -13,7 +13,7 @@
   }
 
   @font-face {
-    font-family: 'proxima_soft';
+    font-family: "#{family_name}";
     src: url("#{join.call(font_path, 'proximasoft-medium-webfont.eot')}");
     src: url("#{join.call(font_path, 'proximasoft-medium-webfont.eot?#iefix')}") format('embedded-opentype'),
       url("#{join.call(font_path, 'proximasoft-medium-webfont.woff2')}") format('woff2'),
@@ -25,7 +25,7 @@
   }
 
   @font-face {
-    font-family: 'proxima_soft';
+    font-family: "#{family_name}";
     src: url("#{join.call(font_path, 'proximasoft-semibold-webfont.eot')}");
     src: url("#{join.call(font_path, 'proximasoft-semibold-webfont.eot?#iefix')}") format('embedded-opentype'),
       url("#{join.call(font_path, 'proximasoft-semibold-webfont.woff2')}") format('woff2'),
@@ -37,7 +37,7 @@
   }
 
   @font-face {
-    font-family: 'proxima_soft';
+    font-family: "#{family_name}";
     src: url("#{join.call(font_path, 'proximasoft-bold-webfont.eot')}");
     src: url("#{join.call(font_path, 'proximasoft-bold-webfont.eot?#iefix')}") format('embedded-opentype'),
       url("#{join.call(font_path, 'proximasoft-bold-webfont.woff2')}") format('woff2'),
