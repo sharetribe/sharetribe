@@ -104,6 +104,10 @@ function disableSelectAll() {
 
 $(function(){
 
+    $('#video').on('hidden.bs.modal', function () {
+      $("#video iframe").attr("src", $("#video iframe").attr("src"));
+    });
+
     $(document).on('change', '.with-select-all', function () {
       disableSelectAll();
     });
