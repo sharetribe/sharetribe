@@ -15,7 +15,7 @@
     @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin-ext);
 
   - font_path = APP_CONFIG[:font_proximasoft_url]
-  - if font_path.present? && FeatureFlagHelper.feature_enabled?(:topbar_v1)
+  - if font_path.present?
     = render partial: "layouts/fonts", locals: { font_path: font_path }
 
   %meta{content: "width=device-width, initial-scale=1.0, user-scalable=no", name: "viewport"}
