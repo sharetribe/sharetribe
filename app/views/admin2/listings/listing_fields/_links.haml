@@ -4,7 +4,7 @@
   %li
     = link_to t('admin2.listing_fields.watch_video'), 'https://www.youtube.com/watch?v=2krSj8e22lY', class: %i[link-video], 'data-target': '#video', 'data-toggle': :modal
   %li
-    = link_to t('admin2.listing_fields.take_tour'), 'https://bikerrrs.sharetribe.com/admin/users/manage-users?product_tour_id=123456', class: %i[link-tour]
+    = link_to t('admin2.listing_fields.take_tour'), "https://#{@current_community.ident}.sharetribe.com/admin/listings/listing_fields?product_tour_id=216057", class: %i[link-tour]
 
 - content_for :popup_layout do
   #video.modal{"aria-hidden" => true, 'aria-labelledby' => 'categoriesAddModalLabel', 'data-backdrop' => 'static', role: :dialog, tabindex: '-1'}
