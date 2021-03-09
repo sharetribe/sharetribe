@@ -43,12 +43,15 @@
 
 .listing-fb-like-button,
 .listing-tweet-button {
-  float: left;
   margin-right: lines(1);
 }
 
 .listing-tweet-button {
-  padding-top: 4px; // Extra top padding to align with fb like button
+  padding-top: 10px; // Extra top padding to align with fb like button
+}
+
+.fb-like.fb_iframe_widget iframe {
+  width: 250px !important;
 }
 
 // Listing price
