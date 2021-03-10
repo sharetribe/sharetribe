@@ -2435,7 +2435,7 @@ fi:
       origin:
         location: Sijainti
         origin: Lähtöpaikka
-        the_exact_location: ~
+        the_exact_location: "Tarkka sijainti ei näy muille käyttäjille."
       send_button:
         save_listing: "Tallenna ilmoitus"
         submit_for_review: "Lähetä arvioitavaksi"
