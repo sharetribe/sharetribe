@@ -1344,7 +1344,7 @@ hu:
       canceled_offer: "Ajánlat visszavonva"
       message_from: "Üzenet tőle: %{person}"
       about_listing: "A következő hirdetéssel kapcsolatban: %{listing_title}"
-      free_message: Kapcsolatfelvétel
+      free_message: Üzenet
       message_content_not_available: "Üzenet tartalom nem elérhető"
     message:
       accepted_request: "ajánlat elfogadva"
@@ -2431,7 +2431,7 @@ hu:
         shipping: Szállítás
         shipping_price: "Szállítási költség"
         shipping_price_additional: "Hozzáadott tételek"
-        pickup: Felvétel
+        pickup: "Személyes átvétel"
       origin:
         location: Hely
         origin: Eredet
@@ -2584,8 +2584,8 @@ hu:
       shipping: "Szállítás (+%{price})"
       shipping_no_price: Szállítás
       shipping_price_additional: "Házhozszállítás (+%{price}, hozzáadott tételek: +%{shipping_price_additional})"
-      pickup: Felvétel
-      pickup_no_price: Felvétel
+      pickup: "Személyes átvétel"
+      pickup_no_price: "Személyes átvétel"
       youtube_video_player: "YouTube videó lejátszó"
     unit_types:
       piece: darab
