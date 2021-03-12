@@ -2665,7 +2665,7 @@ pt-BR:
     paypal_receive_funds_info_label_australia_only: "Sua conta PayPal deve poder aceitar pagamentos. Talvez você precise de uma conta especifica para receber pagamentos."
     paypal_receive_funds_info_label: "Sua conta PayPal deve ser capaz de aceitar pagamentos. Por isso ela deve ser uma conta para \"Receber pagamentos com PayPal\"."
     paypal_receive_funds_info_australia_only: "Se você vir um erro ao tentar conectar sua conta %{service_name}, ou %{upgrade_paypal_account_link}, ou (se você for uma pessoa física), crie uma nova conta Premier. Ambos os tipos de conta são completamente gratuitas."
-    paypal_receive_funds_info: "Se você receber um erro quando tentar conectar sua conta com o %{service_name}, faça um upgrade da sua conta PayPal clicando em %{upgrade_paypal_account_link}. É fácil e rápido. Se você for pessoa física o PayPal recomenda que você use seu nome como nome da companhia."
+    paypal_receive_funds_info: "Se você receber um erro quando tentar conectar sua conta com o %{service_name}, faça um upgrade da sua conta PayPal %{upgrade_paypal_account_link}. É fácil e rápido. Se você for pessoa física o PayPal recomenda que você use seu nome como nome da companhia."
     upgrade_paypal_account_link_text: "entrando e clicando no link de upgrade"
     admin_account_not_connected: "Não é possível receber pagamentos pelo %{service_name}  porque o sistema ainda não foi configurado. Por favor %{contact_admin_link} para mais informações."
     contact_admin_link_text: "Entre em contato com a equipe de %{service_name}"

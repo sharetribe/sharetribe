@@ -670,7 +670,7 @@ hu:
         upgrade_pro_plan_link: "Váltás a Pro vagy további csomagunkra"
         your_marketplace_address_is: "Az Ön piactér címe: %{address}"
         would_you_like_to_change_address: "Szeretné megváltoztatni a piacterének címét? %{contact_us}"
-        contact_us: "Keressen minket"
+        contact_us: Kapcsolat
         you_can_now_use_a_custom_domain: "Jelenlegi tervével most engedélyezheti az egyéni domaint. Haladjunk tovább a telepítéssel. %{contact_us}"
         would_you_like_to_change_domain: "Szeretné megváltoztatni a piactér egyedi domainjét? %{contact_us}"
         change_your_sharetribe_domain: "Módosítsa a Sharetribe domainjét"
@@ -1344,7 +1344,7 @@ hu:
       canceled_offer: "Ajánlat visszavonva"
       message_from: "Üzenet tőle: %{person}"
       about_listing: "A következő hirdetéssel kapcsolatban: %{listing_title}"
-      free_message: Kapcsolatfelvétel
+      free_message: Üzenet
       message_content_not_available: "Üzenet tartalom nem elérhető"
     message:
       accepted_request: "ajánlat elfogadva"
@@ -1570,8 +1570,8 @@ hu:
       need_to_confirm: "Erősítse meg az E-mail címét, hogy befejezhesse a %{service_name} fiók szerkesztését. Ez egyszerű - csak kattintson az alábbi gombra!"
       confirmation_link_text: ~
     common:
-      hey: "Üdvözöljük %{name}!"
-      hi: "Üdvözöljük %{name},"
+      hey: "Szia %{name}!"
+      hi: "Szia %{name},"
       kassi_team: "A(z) %{service_name} Csapat"
       thanks: "Köszönjük,"
       dont_want_to_receive_these_emails: "Nem szeretné ezeket az e-maileket kapni?"
@@ -1717,7 +1717,7 @@ hu:
       intro_paragraph:
         other: "Íme néhány kiemelt esemény, amely a %{service_name} oldalon történt az elmúlt %{count} nap során."
     newsletter:
-      hi: "Üdvözöljük %{name}"
+      hi: "Szia %{name}"
       newest_offers: "Mit kínálnak a hirdetők a többi felhasználónak"
       newest_requests: "Mit keresnek jelenleg a felhasználók"
       text_version_text: "Tud Ön is olyat felkínálni amire másoknak szüksége lehet? Vagy esetleg olyanra van szüksége ami másoknak van? Itt feladhatja kínál vagy keres hirdetését vagy átböngészheti a mások által feladott hirdetéseket: %{url}"
@@ -1750,8 +1750,8 @@ hu:
       headline: "Ne felejtse el elfogadni a kérést %{requester} felhasználótól a %{listing_link} hirdetéssel kapcsolatban."
       remember_to_accept: "%{requester} már fizetett a hirdetésért. Annak érdekében, hogy az átutalás megtörténjen, fogadja el a kérést."
     welcome_email:
-      welcome_email_subject: "Üdvözöljük a %{service_name} oldalán!"
-      welcome_to_marketplace: "Üdvözöljük a %{service_name} oldalán! Örömmel fogadjuk hirdetőink között."
+      welcome_email_subject: "Üdvözlünk a %{service_name} oldalán!"
+      welcome_to_marketplace: "Üdvözlünk a %{service_name} oldalán! Örömmel látunk a fedélzeten."
       love_marketplace_crew: "Szeretettel, a %{service_name} csapata!"
       welcome_email_footer_text: "%{settings_link}"
       settings_link_text: ~
@@ -1963,7 +1963,7 @@ hu:
     requests: Kérések
     search_kassi: "%{service_name} keresés"
     create_new_marketplace: "Új piactér létrehozása"
-    contact_us: "Keressen minket"
+    contact_us: Kapcsolat
     profile: Profil
     manage_listings: "Hirdetések rendezése"
     invite: "Új tagok meghívása"
@@ -2111,7 +2111,7 @@ hu:
       dont_use_to_contact_support: "Látjuk hogy adminként van beállítva itt: %{service_name}. Ezt az űrlapot a felhasználók használják hogy kapcsolatba léphessenek Önnel. Sajnos nem használhatja ezt a felületet hogy a Sharetribe ügyfélszolgálatot elérje. Kérjük használja az admin panelon található Support linket."
       feedback_forum: "Értékelések fóruma"
       feedback_handle: Értékelés
-      give_feedback: "Keressen minket"
+      give_feedback: Kapcsolat
       or_check_our: "vagy elenőrizze a mi"
       send_feedback_to_admin: "Üzenet küldése"
       to_see_what_others_have_suggested: "itt láthatja milyen fejlesztési ötletei voltak a többi felhasználónak és szavazhat is rájuk"
@@ -2135,7 +2135,7 @@ hu:
       how_to_use: "Hogyan működik"
       info_about_kassi: "Tájékoztatás: %{service_name}"
       news: Újdonságok
-      register_details: Magán
+      register_details: "Adatkezelési szabályzat"
       terms: "Felhasználási feltételek"
     logged_in:
       admin: Adminisztrátor
@@ -2273,7 +2273,7 @@ hu:
       you_cannot_send_message_to_yourself: "Nem küldhet üzenetet saját magának"
       you_followed_listing: "Ön követi ezt a hirdetést"
       you_have_already_given_feedback_about_this_event: "Visszajelzését már elküldte"
-      you_are_now_member: "Üdvözöljük a %{service_name} oldalán!"
+      you_are_now_member: "Üdvözlünk a %{service_name} oldalán!"
       you_are_already_member: "Ön már tag a %{service_name} oldalán. Üdvözöljük újra!"
       you_must_log_in_to_create_new_listing: "Új hirdetés feladásához lépjen be a %{service_name} oldalára. Ha még nincs falhasználói fiókja kattintson ide: %{sign_up_link}"
       additional_email_confirmed_dashboard: "Az ön e-mailcíme megerősítve."
@@ -2431,7 +2431,7 @@ hu:
         shipping: Szállítás
         shipping_price: "Szállítási költség"
         shipping_price_additional: "Hozzáadott tételek"
-        pickup: Felvétel
+        pickup: "Személyes átvétel"
       origin:
         location: Hely
         origin: Eredet
@@ -2584,8 +2584,8 @@ hu:
       shipping: "Szállítás (+%{price})"
       shipping_no_price: Szállítás
       shipping_price_additional: "Házhozszállítás (+%{price}, hozzáadott tételek: +%{shipping_price_additional})"
-      pickup: Felvétel
-      pickup_no_price: Felvétel
+      pickup: "Személyes átvétel"
+      pickup_no_price: "Személyes átvétel"
       youtube_video_player: "YouTube videó lejátszó"
     unit_types:
       piece: darab
@@ -2848,7 +2848,7 @@ hu:
       change_email: Változás
       confirm_your_email: "Kérjük e-mailcíme jóváhagyását"
       account_confirmation_instructions: "Ön hamarosan egy e-mailt fog kapni és a benne található link segítségével megerősítheti e-mailcímét. Ellenőrizze a levélszemét (spam) mappáját is! Amint megnyitotta a linket már csatlakozhat is a %{service_name} piactérhez."
-      account_confirmation_instructions_title_admin: Üdvözöljük!
+      account_confirmation_instructions_title_admin: "Erősítsd meg az e-mail címed"
       before_full_access_you_need_to_confirm_email: "Mielőtt birtokba venné piacterét, már csak egy tennivalója maradt: kérem hitelesítse e-mail címét."
       before_confirmation_only_access_admin_dashboard: "A megerősítés nélkül elérhető:  %{admin_dashboard_link}"
       admin_dashboard_link_text: "Rendszergazda kezelőpult"

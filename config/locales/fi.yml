@@ -1567,7 +1567,7 @@ fi:
     confirmation_instructions_v2:
       headline: "vahvista sähköpostisi liittyäksesi palveluun %{service_name}!"
       need_to_confirm: "Vahvista sähköpostiosoitteesi saattaaksesi %{service_name} -palvelun tilinluonti päätökseen. Se on helppoa - klikkaa vain alla olevaa nappia!"
-      confirmation_link_text: ~
+      confirmation_link_text: "Vahvista sähköpostiosoite"
     common:
       hey: "Hei %{name},"
       hi: "Hei %{name},"
@@ -1617,7 +1617,7 @@ fi:
       has_commented_listing_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi ilmoitusta '%{listing}'."
     new_message:
       view_message: "Näytä viesti"
-      has_sent_you_a_message_in_kassi: ~
+      has_sent_you_a_message_in_kassi: "Olet saanut viestin käyttäjältä %{sender}. Siirry vastataksesi palveluun %{service_name}."
       you_have_a_new_message: ~
     new_message_v2:
       headline: "sinulle on viesti!"
@@ -2435,7 +2435,7 @@ fi:
       origin:
         location: Sijainti
         origin: Lähtöpaikka
-        the_exact_location: ~
+        the_exact_location: "Tarkka sijainti ei näy muille käyttäjille."
       send_button:
         save_listing: "Tallenna ilmoitus"
         submit_for_review: "Lähetä arvioitavaksi"
