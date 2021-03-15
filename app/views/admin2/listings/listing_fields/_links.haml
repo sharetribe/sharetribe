@@ -1,0 +1,18 @@
+%ul.page-resources
+  %li
+    = link_to t('admin2.listing_fields.get_started'), 'https://help.sharetribe.com/en/articles/1221105?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=ingresshelp', target: :_blank, class: %i[external-link link-help-center]
+  %li
+    = link_to t('admin2.listing_fields.watch_video'), 'https://www.youtube.com/watch?v=2krSj8e22lY', class: %i[link-video], 'data-target': '#video', 'data-toggle': :modal
+  %li
+    = link_to t('admin2.listing_fields.take_tour'), "#", onclick: "Intercom('startTour', 216057); return false;", class: %i[link-tour]
+
+- content_for :popup_layout do
+  #video.modal{"aria-hidden" => true, 'aria-labelledby' => 'categoriesAddModalLabel', 'data-backdrop' => 'static', role: :dialog, tabindex: '-1'}
+    .modal-dialog.modal-lg{role: :document}
+      .modal-content.modal-content-video
+        .modal-header-video
+          %button.close{'aria-label' => 'Close', 'data-dismiss' => :modal, type: :button}
+            %span{'aria-hidden' => true} ×
+        .modal-body-video
+          .embed-responsive.embed-responsive-16by9
+            %iframe#categoriesVideo.embed-responsive-item{allowfullscreen: '', height: 315, src: 'https://www.youtube.com/embed/2krSj8e22lY', width: 560}
