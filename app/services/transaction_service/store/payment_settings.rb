@@ -16,7 +16,7 @@ module TransactionService::Store::PaymentSettings
     [:api_client_id, :string],
     [:api_private_key, :string],
     [:api_publishable_key, :string],
-    [:commission_from_buyer, :fixnum],
+    [:commission_from_buyer, :fixnum, default: 0],
     [:minimum_buyer_transaction_fee_cents, :fixnum],
     [:minimum_buyer_transaction_fee_currency, :string],
     [:key_encryption_padding, :bool, default: true]
@@ -37,7 +37,7 @@ module TransactionService::Store::PaymentSettings
     [:api_private_key, :string],
     [:api_publishable_key, :string],
     [:confirmation_after_days_after_end_time, :fixnum],
-    [:commission_from_buyer, :fixnum],
+    [:commission_from_buyer, :fixnum, default: 0],
     [:minimum_buyer_transaction_fee_cents, :fixnum],
     [:minimum_buyer_transaction_fee_currency, :string],
     [:key_encryption_padding, :bool]
@@ -61,7 +61,7 @@ module TransactionService::Store::PaymentSettings
     [:api_visible_private_key, :string],
     [:api_verified, :to_bool],
     [:api_country, :string],
-    [:commission_from_buyer, :fixnum],
+    [:commission_from_buyer, :fixnum, default: 0],
     [:minimum_buyer_transaction_fee_cents, :fixnum],
     [:minimum_buyer_transaction_fee_currency, :string],
     [:key_encryption_padding, :bool]
