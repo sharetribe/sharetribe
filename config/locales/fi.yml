@@ -1618,10 +1618,10 @@ fi:
     new_message:
       view_message: "Näytä viesti"
       has_sent_you_a_message_in_kassi: "Olet saanut viestin käyttäjältä %{sender}. Siirry vastataksesi palveluun %{service_name}."
-      you_have_a_new_message: ~
+      you_have_a_new_message: "Sinulle on uusi viesti käyttäjältä %{sender_name} %{service_name}"
     new_message_v2:
       headline: "sinulle on viesti!"
-      reply: ~
+      reply: "Klikkaa tähän vastataksesi %{sender}"
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       price_per_unit_type: "Hinta per %{unit_type}"
