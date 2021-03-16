@@ -20,7 +20,7 @@
         %p.ingress= t('admin2.delete_marketplace.info_text_4')
         %p.ingress= t('admin2.delete_marketplace.info_text_5', domain: @current_community.ident)
         .form-group
-          = text_field_tag :delete_confirmation, '', placeholder: t('admin2.delete_marketplace.delete_confirmation_placeholder'), class: %i[form-control]
+          = text_field_tag :delete_confirmation, '', placeholder: @presenter.community.ident, class: %i[form-control]
         %p.ingress= t('admin2.delete_marketplace.info_text_6').html_safe
       %section.content-card-terminal
         = button_tag t('admin2.delete_marketplace.delete'), class: %i[btn btn-negative]
