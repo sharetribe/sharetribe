@@ -20,6 +20,78 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [10.1.0] - 2021-03-17
+
+### Added
+
+- New Admin panel, done through many many PRs that have `admin2` or `admin v2`in their title
+- Info text to Stripe form [#4118](https://github.com/sharetribe/sharetribe/pull/4118)
+- Stripe support for Cyprus [#4122](https://github.com/sharetribe/sharetribe/pull/4122)
+- Stripe support for Malta [#4123](https://github.com/sharetribe/sharetribe/pull/4123)
+- Stripe support for Bulgaria [#4124](https://github.com/sharetribe/sharetribe/pull/4124)
+- Add "paypal/stripe setup" in users csv export [#4003](https://github.com/sharetribe/sharetribe/pull/4003), [#4196](https://github.com/sharetribe/sharetribe/pull/4196)
+- UI for setting custom domain [#4227](https://github.com/sharetribe/sharetribe/pull/4227), [#4237](https://github.com/sharetribe/sharetribe/pull/4237), [#4241](https://github.com/sharetribe/sharetribe/pull/4241), [#4296](https://github.com/sharetribe/sharetribe/pull/4296), [#4312](https://github.com/sharetribe/sharetribe/pull/4312)
+- reCAPTCHA support [#4299](https://github.com/sharetribe/sharetribe/pull/4299)
+- Email notification to admins when changing the marketplace ident [#4326](https://github.com/sharetribe/sharetribe/pull/4326)
+- Missing settings for two email notifications [#4328](https://github.com/sharetribe/sharetribe/pull/4328)
+- Stripe support for Hungary [#4295](https://github.com/sharetribe/sharetribe/pull/4295)
+
+### Changed
+
+- Increase Facebook and Twitter meta images size [#4100](https://github.com/sharetribe/sharetribe/pull/4100)
+- Add more states to FINISHED_TX_STATES to allow user account deletion correctly [#4109](https://github.com/sharetribe/sharetribe/pull/4109)
+- Update airbrake and newrelic [#4111](https://github.com/sharetribe/sharetribe/pull/4111)
+- Remove default favicon and add type tag to favicon link [#4140](https://github.com/sharetribe/sharetribe/pull/4140)
+- Make active storage service configurable [#4143](https://github.com/sharetribe/sharetribe/pull/4143)
+- Specify the requested fields in Google Maps Places API query [#4146](https://github.com/sharetribe/sharetribe/pull/4146)
+- Review text is required in edits from admins [#4153](https://github.com/sharetribe/sharetribe/pull/4153)
+- Update Proxima font [#4177](https://github.com/sharetribe/sharetribe/pull/4177)
+- Adjust CircleCI configuration for faster test runs [#4274](https://github.com/sharetribe/sharetribe/pull/4274)
+- Make the Custom script plan_feature dependent [#4289](https://github.com/sharetribe/sharetribe/pull/4289)
+- Fix job priorities [#4294](https://github.com/sharetribe/sharetribe/pull/)
+- Email layout v2 - Link color consistency with marketplace color [#4303](https://github.com/sharetribe/sharetribe/pull/4303)
+- Optimize polling for pending delayed jobs [#4311](https://github.com/sharetribe/sharetribe/pull/4311)
+- Email layout v2 - Disable markdown formatting in listing description [#4305](https://github.com/sharetribe/sharetribe/pull/4305)
+- Improve efficiency of community membership counting [#4319](https://github.com/sharetribe/sharetribe/pull/4319)
+- Email layout v2 - Add note to email layout [#4318](https://github.com/sharetribe/sharetribe/pull/4318)
+- Email layout v2 - Disable markdown formatting in listing description [#4305](https://github.com/sharetribe/sharetribe/pull/4305)
+- Email layout v2 - Remove ability to change feature flag from Admin panel [#4307](https://github.com/sharetribe/sharetribe/pull/4307)
+- Use the community default locale for CLP [#4341](https://github.com/sharetribe/sharetribe/pull/4341)
+- Change the main font for Go UI to Proxima soft [#4353](https://github.com/sharetribe/sharetribe/pull/4353)
+
+### Removed
+
+- Sunset PayPal in India [#4338](https://github.com/sharetribe/sharetribe/pull/4338)
+
+### Fixed
+
+- Fixed query for booked dates in range [#4091](https://github.com/sharetribe/sharetribe/pull/4044)
+- Fixed error when using daily availability management datepicker [#4094](https://github.com/sharetribe/sharetribe/pull/4094)
+- Fixed confirming payment multiple times with Stripe [#4102](https://github.com/sharetribe/sharetribe/pull/4102)
+- Fixed inconsistent transaction left after transition fails [#4092](https://github.com/sharetribe/sharetribe/pull/4092)
+- Fixed CLP hero section with upload background image [#4101](https://github.com/sharetribe/sharetribe/pull/4101)
+- Fixed search with fuzzy location [#4103](https://github.com/sharetribe/sharetribe/pull/4103)
+- Fixed issue with error translation in some languages [#4132](https://github.com/sharetribe/sharetribe/pull/4132)
+- Fixed user display_name [#4130](https://github.com/sharetribe/sharetribe/pull/4130)
+- Fixed active map view on listing page [#4145](https://github.com/sharetribe/sharetribe/pull/4145)
+- Fixed default setting automatic newsletters [#4150](https://github.com/sharetribe/sharetribe/pull/4150)
+- Fixed bug with "Display name" not being used in transaction steps texts [#4155](https://github.com/sharetribe/sharetribe/pull/4155)
+- Fixed no listing location makes clicks on "Show in the next newsletter" impossible [#4181](https://github.com/sharetribe/sharetribe/pull/4181)
+- Fixed infinite scroll on homepage not working w/ Chromium 87 [#4273](https://github.com/sharetribe/sharetribe/pull/4273)
+- Fixed test email not sent to admin if they have unsubscribed [#4327](https://github.com/sharetribe/sharetribe/pull/4327)
+- Fixed inconsistency between the Unsubscribe link in the Receipt of payment email and the notification setting [#4329](https://github.com/sharetribe/sharetribe/pull/4329)
+- Fixed rels deleted users [#4340](https://github.com/sharetribe/sharetribe/pull/4340)
+- Fixed Facebook buttons cut off and misaligned [#4348](https://github.com/sharetribe/sharetribe/pull/4348)
+
+### Security
+
+- Updated fileupload plugin [#4136](https://github.com/sharetribe/sharetribe/pull/4136)
+- Update rails to 5.2.4.3 [#4141](https://github.com/sharetribe/sharetribe/pull/4141)
+- Update rails to 5.2.4.4 [#4231](https://github.com/sharetribe/sharetribe/pull/4231)
+- Upgrades node-sass and json [#4233](https://github.com/sharetribe/sharetribe/pull/4233)
+- Add tests ensuring csrf protection for omniauth auth paths [#4266](https://github.com/sharetribe/sharetribe/pull/4266)
+- Vulnerable dependencies updates - Axios, Nokogiri, Redcarpet [#4325](https://github.com/sharetribe/sharetribe/pull/4325)
+
 ## [10.0.0] - 2020-05-10
 
 ### Added
@@ -845,7 +917,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v10.0.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v10.1.0...HEAD
+[10.1.0]: https://github.com/sharetribe/sharetribe/compare/v10.0.0...v10.1.0
 [10.0.0]: https://github.com/sharetribe/sharetribe/compare/v9.1.0...v10.0.0
 [9.1.0]: https://github.com/sharetribe/sharetribe/compare/v9.0.0...v9.1.0
 [9.0.0]: https://github.com/sharetribe/sharetribe/compare/v8.1.0...v9.0.0
