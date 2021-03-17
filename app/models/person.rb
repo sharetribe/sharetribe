@@ -263,7 +263,7 @@ class Person < ApplicationRecord
   def set_emails_that_receive_notifications(email_ids)
     if email_ids
       emails.each do |email|
-        email.update_attribute(:send_notifications, email_ids.include?(email.id.to_s))
+        email.update_attribute(:send_notifications, (email_ids.include?(email.id.to_s) && email.confirmed_at))
       end
     end
   end
