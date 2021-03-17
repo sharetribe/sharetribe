@@ -379,6 +379,13 @@ fr:
         file: Fichier
         location: Localisation
     listing_fields:
+      remove_listing_field: ~
+      reorder_listing_field: ~
+      edit_listing_field: ~
+      add_listing_field: ~
+      get_started: "Bien commencer avec les champs d'annonces"
+      watch_video: "Regarder une vidéo"
+      take_tour: "Suivre une visite"
       info_header: "Champs d'annonces"
       info_text: "Ici, vous pouvez modifier les champs que les utilisateurs doivent compléter quand ils postent une nouvelle annonce. Certains champs sont prédéfinis et ne peuvent pas être modifiés."
       field_title: "Nom du champ"
@@ -433,6 +440,13 @@ fr:
         location: Localisation
         image: Image
     order_types:
+      add_type: ~
+      reorder_type: ~
+      delete_type: ~
+      edit_type: ~
+      get_started: "Bien commencer avec les types de transactions"
+      watch_video: "Regarder une vidéo"
+      take_tour: "Suivre une visite"
       info_text: "Les types de transaction définissent comment se déroule les processus de transaction sur votre place de marché. Utilisez les modèles prédéfinis pour louer, vendre, proposer des services, poster des annonces et bien plus, ou personnalisez votre propre processus de transaction."
       name: Nom
       used_in: "Utilisé dans"
@@ -501,6 +515,12 @@ fr:
       info_text: "Ici, vous pouvez modifier les catégories que les visiteurs utilisent pour naviguer parmi les offres sur votre place de marché. Lorsqu'ils postent une annonce, les vendeurs doivent choisir l'une des catégories que vous avez définies."
       add_category: "+ Ajouter une catégorie"
       add_category_popup: "Ajouter une catégorie"
+      reorder_category: ~
+      delete_category_hint: ~
+      edit_category_hint: ~
+      get_started: "Bien commencer avec les catégories"
+      watch_video: "Regarder une vidéo"
+      take_tour: "Suivre une visite"
       save_add_category_popup: "Ajouter la catégorie"
       edit_category: "Modifier la catégorie \"%{category}\""
       category_name: "Nom de la catégorie"
@@ -586,7 +606,6 @@ fr:
       info_text_4: "Après la suppression, vous et les utilisateurs de votre place de marché pourraient recevoir une dernière newsletter automatique envoyée par votre place de marché."
       info_text_5: "Pour supprimer définitivement votre place de marché, vous devez entrer le domaine de votre place de marché Sharetribe (%{domain}) dans le champ text ci-dessous."
       info_text_6: "Une dernière chose avant que vous ne supprimiez votre place de marché : y a t-il quoi que ce soit que nous puissions faire pour vous aider ? N'hésitez pas à <a href='#' show-intercom=true >contacter l'équipe Sharetribe</a> si vous avez la moindre question. Nous serons ravis de vous aider à utiliser Sharetribe Go au mieux !"
-      delete_confirmation_placeholder: "Entrez ici le domaine de votre place de marché Sharetribe…"
       delete: "Supprimer votre place de marché définitivement"
       cannot_delete: "Impossible de supprimer la place de marché."
       delete_info_text: "Souhaitez-vous annuler votre abonnement ou supprimer votre place de marché ? <a href='#' show-intercom=true >Contactez l'équipe Sharetribe</a>, nous serons ravis de vous aider !"
