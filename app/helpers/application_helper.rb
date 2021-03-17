@@ -31,7 +31,13 @@ module ApplicationHelper
         when 0..30    then t('timestamps.days_ago', :count => distance_in_days)
         when 31..50   then t('timestamps.month_ago', :count => 1)
         when 51..364  then t('timestamps.months_ago', :count => (distance_in_days.to_f / 30.0).round)
-        else               t('timestamps.years_ago', :count => (distance_in_days.to_f / 365.24).round)
+        else
+          years = (distance_in_days.to_f / 365.24).round
+          if years == 1
+            t('timestamps.year_ago', count: years)
+          else
+            t('timestamps.years_ago', count: years)
+          end
       end
     end
 

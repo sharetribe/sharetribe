@@ -379,6 +379,13 @@ de:
         file: ~
         location: ~
     listing_fields:
+      remove_listing_field: ~
+      reorder_listing_field: ~
+      edit_listing_field: ~
+      add_listing_field: ~
+      get_started: ~
+      watch_video: ~
+      take_tour: ~
       info_header: ~
       info_text: ~
       field_title: ~
@@ -433,6 +440,13 @@ de:
         location: ~
         image: ~
     order_types:
+      add_type: ~
+      reorder_type: ~
+      delete_type: ~
+      edit_type: ~
+      get_started: ~
+      watch_video: ~
+      take_tour: ~
       info_text: ~
       name: ~
       used_in: ~
@@ -498,6 +512,12 @@ de:
       info_text: ~
       add_category: ~
       add_category_popup: ~
+      reorder_category: ~
+      delete_category_hint: ~
+      edit_category_hint: ~
+      get_started: ~
+      watch_video: ~
+      take_tour: ~
       save_add_category_popup: ~
       edit_category: ~
       category_name: ~
@@ -568,7 +588,6 @@ de:
       info_text_4: ~
       info_text_5: ~
       info_text_6: ~
-      delete_confirmation_placeholder: ~
       delete: ~
       cannot_delete: ~
       delete_info_text: ~
