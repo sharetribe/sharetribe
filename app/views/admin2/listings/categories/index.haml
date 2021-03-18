@@ -16,7 +16,7 @@
         = render partial: 'category', collection: @categories
 
     %p.ingress
-      = link_to t('admin2.categories.add_category'), new_admin2_listings_category_path, remote: true, data: {intercom_target: t('admin2.categories.add_category_popup')}
+      = link_to t('admin2.categories.add_category'), new_admin2_listings_category_path, remote: true, data: {intercom_target: 'Add a category'}
 
 - content_for :popup_layout do
   = render 'admin2/listings/categories/delete_empty_popup'

@@ -19,7 +19,7 @@
           .col
         .list-group
           .field-data
-            .col.col-lg-6{data: {intercom_target: t('admin2.listing_fields.listing_title')}}= t('admin2.listing_fields.listing_title')
+            .col.col-lg-6{data: {intercom_target: 'Listing title'}}= t('admin2.listing_fields.listing_title')
             .col.col-lg-4= t('admin2.listing_fields.types.text')
             .actions.col
               %span.handle-move.disabled{'aria-hidden' => true}
@@ -27,15 +27,15 @@
               %span.edit.disabled{'aria-hidden' => true}
           - if @price_in_use
             .field-data
-              .col.col-lg-6{data: {intercom_target: t('admin2.listing_fields.types.price')}}= t('admin2.listing_fields.types.price')
+              .col.col-lg-6{data: {intercom_target: 'Price'}}= t('admin2.listing_fields.types.price')
               .col.col-lg-4= t('admin2.listing_fields.types.price')
               .actions.col
                 %span.handle-move.disabled{'aria-hidden' => true}
                 %span.remove.disabled{'aria-hidden' => true}
-                = link_to edit_price_admin2_listings_listing_fields_path, data: {intercom_target: t('admin2.listing_fields.edit_listing_field', name: t('admin2.listing_fields.types.price'))}, remote: true do
+                = link_to edit_price_admin2_listings_listing_fields_path, data: {intercom_target: 'Edit listing field'}, remote: true do
                   %span.edit
           .field-data
-            .col.col-lg-6{data: {intercom_target: t('admin2.listing_fields.detailed_description')}}= t('admin2.listing_fields.detailed_description')
+            .col.col-lg-6{data: {intercom_target: 'Detailed description'}}= t('admin2.listing_fields.detailed_description')
             .col.col-lg-4= t('admin2.listing_fields.types.text')
             .actions.col
               %span.handle-move.disabled{'aria-hidden' => true}
@@ -45,23 +45,23 @@
           = render 'custom'
 
           .field-data
-            .col.col-lg-6{data: {intercom_target: t('admin2.listing_fields.expiration_date')}}= t('admin2.listing_fields.expiration_date')
+            .col.col-lg-6{data: {intercom_target: 'Expiration date'}}= t('admin2.listing_fields.expiration_date')
             .col.col-lg-4= t('admin2.listing_fields.types.date')
             .actions.col
               %span.handle-move.disabled{'aria-hidden' => true}
               %span.remove.disabled{'aria-hidden' => true}
-              = link_to edit_expiration_admin2_listings_listing_fields_path, data: {intercom_target: t('admin2.listing_fields.edit_listing_field', name: t('admin2.listing_fields.expiration_date'))}, remote: true do
+              = link_to edit_expiration_admin2_listings_listing_fields_path, data: {intercom_target: 'Edit listing field'}, remote: true do
                 %span.edit
           .field-data
-            .col.col-lg-6{data: {intercom_target: t('admin2.listing_fields.types.location')}}= t('admin2.listing_fields.types.location')
+            .col.col-lg-6{data: {intercom_target: 'Location'}}= t('admin2.listing_fields.types.location')
             .col.col-lg-4= t('admin2.listing_fields.types.location')
             .actions.col
               %span.handle-move.disabled{'aria-hidden' => true}
               %span.remove.disabled{'aria-hidden' => true}
-              = link_to edit_location_admin2_listings_listing_fields_path, data: {intercom_target: t('admin2.listing_fields.edit_listing_field', name: t('admin2.listing_fields.types.location'))}, remote: true do
+              = link_to edit_location_admin2_listings_listing_fields_path, data: {intercom_target: 'Edit listing field'}, remote: true do
                 %span.edit
           .field-data
-            .col.col-lg-6{data: {intercom_target: t('admin2.listing_fields.types.image')}}= t('admin2.listing_fields.types.image')
+            .col.col-lg-6{data: {intercom_target: 'Image'}}= t('admin2.listing_fields.types.image')
             .col.col-lg-4= t('admin2.listing_fields.types.image')
             .actions.col
               %span.handle-move.disabled{'aria-hidden' => true}
@@ -69,7 +69,7 @@
               %span.edit.disabled{'aria-hidden' => true}
 
       %p.ingress
-        = link_to t('admin2.listing_fields.add_listing_type'), '#', data: { intercom_target: t('admin2.listing_fields.add_listing_field'), target: '#listingFieldsAddModal', toggle: :modal }
+        = link_to t('admin2.listing_fields.add_listing_type'), '#', data: { intercom_target: 'Add a new listing field', target: '#listingFieldsAddModal', toggle: :modal }
 
 - content_for :popup_layout do
   = render 'admin2/listings/listing_fields/add_popup'

@@ -4,8 +4,8 @@
   .col.col-lg-4
     = field_type_translation(custom_field.type)
   .actions.col
-    %span.handle-move{"aria-hidden" => "true", data: {intercom_target: t('admin2.listing_fields.reorder_listing_field', name: custom_field.name(I18n.locale))}}
-    = link_to delete_popup_admin2_listings_listing_field_path(custom_field), data: {intercom_target: t('admin2.listing_fields.remove_listing_field', name: custom_field.name(I18n.locale))}, remote: true, class: %i[custom-fields-action-remove] do
+    %span.handle-move{"aria-hidden" => "true", data: {intercom_target: 'Reorder listing field'}}
+    = link_to delete_popup_admin2_listings_listing_field_path(custom_field), data: {intercom_target: 'Delete listing field'}, remote: true, class: %i[custom-fields-action-remove] do
       %span.remove
-    = link_to edit_admin2_listings_listing_field_path(custom_field), data: {intercom_target: t('admin2.listing_fields.edit_listing_field', name: custom_field.name(I18n.locale))}, remote: true, id: "edit_custom_field_#{custom_field.id}", class: %i[custom-fields-action-edit] do
+    = link_to edit_admin2_listings_listing_field_path(custom_field), data: {intercom_target: 'Edit listing field'}, remote: true, id: "edit_custom_field_#{custom_field.id}", class: %i[custom-fields-action-edit] do
       %span.edit
