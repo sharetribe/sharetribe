@@ -30,16 +30,16 @@
                 = t('admin2.order_types.category_count', category_count: "#{shape.category_ids.size}/#{@category_count}")
             .actions.col
               - unless @listing_shapes.size == 1
-                %span.handle-move{data: {intercom_target: t('admin2.order_types.reorder_type')}, 'aria-hidden' => true}
+                %span.handle-move{data: {intercom_target: 'Reorder order type'}, 'aria-hidden' => true}
                 - if shape.can_delete_shape?
                   - confirm_opts = confirm_opts_order_type(shape)
                   = link_to '#', class: "listing-shape-delete-link delete_shape_#{shape.name} confirm-order-type-#{confirm_opts.present?}", data: confirm_opts do
                     %span.remove
-              = link_to edit_admin2_listings_order_type_path(shape), data: {intercom_target: t('admin2.order_types.edit_type')}, remote: true, class: "shape_#{shape.name}" do
+              = link_to edit_admin2_listings_order_type_path(shape), data: {intercom_target: 'Edit order type'}, remote: true, class: "shape_#{shape.name}" do
                 %span.edit
 
     %p.ingress
-      = link_to t('admin2.order_types.add_new'), '#', data: { intercom_target: t('admin2.order_types.add_type'), target: '#orderTypesAddModal', toggle: :modal }
+      = link_to t('admin2.order_types.add_new'), '#', data: { intercom_target: 'Add a new order type', target: '#orderTypesAddModal', toggle: :modal }
 
 - content_for :popup_layout do
   = render 'admin2/listings/order_types/add_popup', templates: @templates

@@ -379,9 +379,6 @@ en:
         file: File
         location: Location
     listing_fields:
-      remove_listing_field: 'Delete %{name} listing field'
-      reorder_listing_field: 'Reorder %{name} listing field'
-      edit_listing_field: 'Edit %{name} listing field'
       add_listing_field: 'Add a new listing field'
       get_started: 'Get started with listing fields'
       watch_video: 'Watch a video'
@@ -440,10 +437,7 @@ en:
         location: Location
         image: Image
     order_types:
-      add_type: 'Add a new order type'
-      reorder_type: 'Reorder order type'
       delete_type: 'Delete order type'
-      edit_type: 'Edit order type'
       get_started: 'Get started with order types'
       watch_video: 'Watch a video'
       take_tour: 'Take a tour'
@@ -515,9 +509,6 @@ en:
       info_text: "Here, you can edit the categories that visitors use to browse your marketplace offering. Sellers need to assign their listing to one of the categories you have specified."
       add_category: "+ Add a category"
       add_category_popup: "Add a category"
-      reorder_category: 'Reorder category'
-      delete_category_hint: 'Delete category'
-      edit_category_hint: 'Edit category'
       get_started: 'Get started with categories'
       watch_video: 'Watch a video'
       take_tour: 'Take a tour'
