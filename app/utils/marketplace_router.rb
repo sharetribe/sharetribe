@@ -85,15 +85,15 @@ module MarketplaceRouter
 
   ERROR_MESSAGES = {
     closed: {
-      title: "Whoops, the %{community_name} marketplace no longer exists!",
-      description: "Unfortunately the %{community_name} team has decided to close this platform, and it is no longer available.",
+      title: "Whoops, the %{community_name} marketplace no longer exists here!",
+      description: "Unfortunately the %{community_name} team has decided to close their Sharetribe-powered platform, and it is no longer available.",
       cta: "Create your own online marketplace",
       cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=qc-manual-redirect"
     },
 
     deleted: {
-      title: "Whoops, the %{community_name} marketplace no longer exists!",
-      description: "Unfortunately the %{community_name} team has decided to close this platform, and it is no longer available.",
+      title: "Whoops, the %{community_name} marketplace no longer exists here!",
+      description: "Unfortunately the %{community_name} team has decided to close their Sharetribe-powered platform, and it is no longer available.",
       cta: "Create your own online marketplace",
       cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=dl-manual-redirect"
     },
