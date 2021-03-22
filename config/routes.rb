@@ -173,6 +173,7 @@ Rails.application.routes.draw do
 
     scope module: "admin2", path: "/admin", as: "admin2" do
       get '' => "dashboard#index"
+      resource :plan, only: [:show]
       namespace :general do
         resources :essentials, only: %i[index] do
           collection do

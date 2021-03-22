@@ -259,8 +259,9 @@
     / Bottom links for branded links
     .sidenav-bottomLinks
       %ul.category-title
-        %li
-          = link_to t('admin2.sidebar.subscription'), admin_plan_path, rel: :noopener
+        - if APP_CONFIG.external_plan_service_in_use
+          %li
+            = link_to t('admin2.sidebar.subscription'), admin2_plan_path, rel: :noopener
         %li
           = link_to t('admin2.sidebar.help_center'), 'https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi', rel: :noopener, target: :_blank, class: %i[external-link]
         %li
