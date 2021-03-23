@@ -33,7 +33,7 @@
 
     - if logged_in? && @display_expiration_notice
       - if @current_user.has_admin_rights?(@current_community)
-        = render partial: "layouts/admin_expiration_notice", locals: {external_plan_service_login_url: admin_plan_path}
+        = render partial: "layouts/admin_expiration_notice", locals: {external_plan_service_login_url: admin2_plan_path}
       - else
         = render partial: "layouts/expiration_notice", locals: {contact_owner_link: new_user_feedback_path}
 
