@@ -70,7 +70,7 @@ Then /^I should not be able to remove notifications from "(.*?)"$/ do |email|
   find_notification_checkbox_for_email(email).click
   steps %Q{
     And I save email settings
-    Then I should see "You must pick at least one email address for receiving notifications"
+    Then I should see "You must pick at least one confirmed email address for receiving notifications"
   }
   # Rollback
   find_notification_checkbox_for_email(email).click

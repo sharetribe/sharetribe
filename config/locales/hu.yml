@@ -1570,8 +1570,8 @@ hu:
       need_to_confirm: "Erősítse meg az E-mail címét, hogy befejezhesse a %{service_name} fiók szerkesztését. Ez egyszerű - csak kattintson az alábbi gombra!"
       confirmation_link_text: ~
     common:
-      hey: "Szia %{name}!"
-      hi: "Szia %{name},"
+      hey: "Hello %{name}!"
+      hi: "Hello %{name},"
       kassi_team: "A(z) %{service_name} Csapat"
       thanks: "Köszönjük,"
       dont_want_to_receive_these_emails: "Nem szeretné ezeket az e-maileket kapni?"
@@ -1717,7 +1717,7 @@ hu:
       intro_paragraph:
         other: "Íme néhány kiemelt esemény, amely a %{service_name} oldalon történt az elmúlt %{count} nap során."
     newsletter:
-      hi: "Szia %{name}"
+      hi: "Hello %{name}"
       newest_offers: "Mit kínálnak a hirdetők a többi felhasználónak"
       newest_requests: "Mit keresnek jelenleg a felhasználók"
       text_version_text: "Tud Ön is olyat felkínálni amire másoknak szüksége lehet? Vagy esetleg olyanra van szüksége ami másoknak van? Itt feladhatja kínál vagy keres hirdetését vagy átböngészheti a mások által feladott hirdetéseket: %{url}"
