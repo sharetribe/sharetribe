@@ -329,7 +329,7 @@ class ListingsController < ApplicationController
     @listing.transaction_process_id = shape[:transaction_process_id]
     @listing.listing_shape_id = shape[:id]
 
-    payment_type = @current_community.active_payment_types
+    payment_type = @current_community.active_payment_types || :none
     allow_posting, error_msg = payment_setup_status(
                      community: @current_community,
                      user: @listing_presenter.new_listing_author,
@@ -416,7 +416,7 @@ class ListingsController < ApplicationController
       can_post = StripeHelper.community_ready_for_payments?(community.id)
       error_msg = make_error_msg(user, community)
       [can_post, error_msg]
-    when matches([[:paypal, :stripe]])
+    when matches([[:paypal, :stripe]]), matches([:none, :preauthorize])
       can_post = StripeHelper.community_ready_for_payments?(community.id) || PaypalHelper.community_ready_for_payments?(community.id)
       error_msg = make_error_msg(user, community)
       [can_post, error_msg]
