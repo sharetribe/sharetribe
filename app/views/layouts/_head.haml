@@ -16,7 +16,7 @@
 
   - font_path = APP_CONFIG[:font_proximasoft_url]
   - if font_path.present?
-    = Rails.cache.fetch("fonts_partial") { render partial: "layouts/fonts", locals: { font_path: font_path, family_name: 'Proxima Soft' } }
+    = render partial: "layouts/fonts", locals: { font_path: font_path, family_name: 'Proxima Soft' }
 
   %meta{content: "width=device-width, initial-scale=1.0, user-scalable=no", name: "viewport"}
   %meta{ :property => "og:type", :content =>"website"}

@@ -1351,7 +1351,7 @@ hu:
       received_payment: "a felkérés elfogadva, %{sum} összegű átutalás megérkezett"
       received_payment_wo_sum: "Kérés elfogadva, az átutalás megérkezett"
       accepted_offer: "Ajánlat elfogadva"
-      rejected_request: "a felkérés elutasítva, utalás törölve"
+      rejected_request: "az ajánlat elutasítva, az utalás törölve"
       rejected_offer: "Az ajánlat visszautasítva"
       confirmed_request: "a rendelés teljesítettnek jelölve"
       confirmed_offer: "Az ajánlat teljesítettként megjelölve"
@@ -1430,7 +1430,7 @@ hu:
       skip_feedback: "Visszajelzés küldés kihagyása"
       waiting_for_listing_author_to_accept_offer: "Várakozás %{listing_author_name}-ra, hogy elfogadja az ajánlatot"
       waiting_for_listing_author_to_accept_request: "Várakozás %{listing_author_name} felhasználóra, hogy elfogadja a felajánlást. Amint %{listing_author_name} elfogadja az ajánlatot, ön fizethet."
-      waiting_for_you_to_accept_request: "Várakozás önre, hogy elfogadja a felkérést"
+      waiting_for_you_to_accept_request: "Várakozás önre, hogy elfogadja az ajánlatot"
       waiting_confirmation_from_requester: "Várakozás %{requester_name} felhasználóra, hogy jelezze a rendelés teljesülését"
       waiting_confirmation_from_you: "Várakozás önre, hogy a rendelés teljesítését visszaigazolja"
       waiting_payment_from_requester: "Várakozás amíg %{requester_name} átutalja az vételárat"
@@ -1579,7 +1579,7 @@ hu:
       message_not_displaying_correctly: "Nem helyesen jelent meg az e-mail?"
       view_it_in_your_browser: "Megtekintés böngészőben"
       or: vagy
-      unsubscribe_from_these_emails_info: "Ön azért kapta ezt az E-mailt, mert tagja a %{service_name} csoportnak."
+      unsubscribe_from_these_emails_info: "Azért kaptad ezt az E-mailt, mert tagja vagy a %{service_name} közösségnek."
       unsubscribe_from_these_emails: "Leíratkozás ezekről az e-mailekről."
       unsubscribe_from_invitation_emails_info: "Ön azért kapta ezt az E-mailt, mert a %{service_name} csoport tagja meghívta Önt, hogy csatlakozzon a csoporthoz."
       unsubscribe_from_invitation_emails: "Leiratkozás a %{service_name} csoport meghívó E-mailjeiről."
@@ -1618,11 +1618,11 @@ hu:
       has_commented_listing_you_follow_in_kassi: "%{author} hozzászólt a hirdetéshez '%{listing}' amelyet ön is követ a %{service_name} oldalon."
     new_message:
       view_message: "Üzenet megtekintése"
-      has_sent_you_a_message_in_kassi: ~
+      has_sent_you_a_message_in_kassi: "%{sender} üzenetet küldött neked. A %{service_name}-on tudsz válaszolni."
       you_have_a_new_message: ~
     new_message_v2:
       headline: "Üzenete érkezett!"
-      reply: ~
+      reply: "Válaszolok neki : %{sender}"
     new_payment:
       new_payment: "Új utalást kellett kapjon"
       price_per_unit_type: "Ár: %{unit_type}"
@@ -1665,7 +1665,7 @@ hu:
       money_will_be_transferred: "Az összeg akkor utalódik %{recipient_name} számára amennyiben a) Ön a rendelést teljesítettnek jelölte vagy b) %{automatic_confirmation_days} nap eltelt amióta Ön fizetett."
     payment_receipt_to_payer_v2:
       headline: "Itt van a számla a %{listing_link} hirdetéshez."
-      you_have_made_new_payment: "Őn kifizette az <b>%{payment_sum}</b> összeget a <b>%{listing_title}</b> hirdetésben szereplő tételért."
+      you_have_made_new_payment: "Ön kifizette az <b>%{payment_sum}</b> összeget a <b>%{listing_title}</b> hirdetésben szereplő tételért."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal költségei"
       shipping_total: "Szállítás:"
@@ -1692,11 +1692,11 @@ hu:
       stripe:
         you_have_made_new_payment: "Ön kifizette az <b>%{payment_sum}</b> összeget a <b>%{listing_title}</b> hirdetésben szereplő tételért. Az összeg %{service_name} számláján marad és %{recipient_full_name} részére lesz átutalva, amint a megrendelése teljesítettnek nem lesz jelölve. Itt van róla a bizonylat."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} értékelte Önt itt: %{service_name}"
+      has_given_you_feedback_in_kassi: "%{name} értékelését itt találod: %{service_name}"
       you_can_give_feedback_to: "Ön még nem értékelte a következő usert: %{name}"
       view_feedback: "Értékelés megtekintése"
     new_testimonial_v2:
-      headline: "Ön kapott visszajelzést!"
+      headline: "Értékelést kaptál!"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Az ön által követett hirdetést frisssítették"
       has_updated_listing_you_follow_in_kassi: "%{author} frissítette a hirdetést '%{listing}' amelyet ön is követ a %{service_name} oldalon."
@@ -1742,9 +1742,9 @@ hu:
     transaction_preauthorized_v2:
       headline: "A %{requester} felhasználót érdekli a szolgáltatás és jóváhagyta a %{listing_link} kifizetését."
     transaction_preauthorized_reminder:
-      subject: "Ne feledje elfogadni %{requester} felkérését a %{listing_title} hirdetés ügyében"
-      remember_to_accept: "Ne feledje elfogadni %{requester} felkérését a \"%{listing_title}\" hirdetés ügyében. %{requester} már kifizette a hirdetésben szereplő összeget. Annak érdekében, hogy az átutalás megtörténjen fogadja el a felkérést."
-      one_day_left: "Amennyiben nem fogadja el a felkérést egy napon belül az automatikusan visszautasításra kerül és a kifizetés meghiúsul."
+      subject: "Ne feledje elfogadni %{requester} ajánlatát a %{listing_title} hirdetés ügyében"
+      remember_to_accept: "Ne feledje elfogadni %{requester} ajánlatát a \"%{listing_title}\" hirdetésre. %{requester} már kifizette a hirdetésben szereplő összeget. Annak érdekében, hogy az átutalás megtörténjen fogadja el az ajánlatot."
+      one_day_left: "Amennyiben nem fogadja el az ajánlatot egy napon belül, az automatikusan visszautasításra kerül és a kifizetés meghiúsul."
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
     transaction_preauthorized_reminder_v2:
       headline: "Ne felejtse el elfogadni a kérést %{requester} felhasználótól a %{listing_link} hirdetéssel kapcsolatban."
@@ -1754,7 +1754,7 @@ hu:
       welcome_to_marketplace: "Üdvözlünk a %{service_name} oldalán! Örömmel látunk a fedélzeten."
       love_marketplace_crew: "Szeretettel, a %{service_name} csapata!"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "E-mail beállítások szerkesztése itt"
     new_listing_by_followed_person:
       subject: "%{author_name} új hirdetést adott fel a %{service_name} oldalon."
       has_posted_a_new_listing: "%{author_name} új hirdetést adott fel:"
