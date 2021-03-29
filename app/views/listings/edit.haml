@@ -4,7 +4,13 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initialize_edit_listing_form_selectors("#{I18n.locale}", #{@listing_presenter.category_tree.to_json.html_safe}, #{@listing_presenter.listing_form_menu_titles().to_json.html_safe}, #{@listing_presenter.category_id.to_json.html_safe}, #{@listing_presenter.subcategory_id.to_json.html_safe}, #{@listing.listing_shape_id.to_json.html_safe}, #{@listing.id});
+      window.ST.initialize_edit_listing_form_selectors("#{I18n.locale}",
+                                                        #{@listing_presenter.category_tree.to_json.html_safe},
+                                                        #{@listing_presenter.listing_form_menu_titles.to_json.html_safe},
+                                                        #{@listing_presenter.category_id.to_json.html_safe},
+                                                        #{@listing_presenter.subcategory_id.to_json.html_safe},
+                                                        #{@listing_presenter.commission[:not_found_gateways] ? 'null' : @listing.listing_shape_id.to_json.html_safe},
+                                                        #{@listing.id});
     });
 
 - content_for :extra_javascript do
