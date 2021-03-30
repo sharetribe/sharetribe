@@ -1,0 +1,12 @@
+name: Deploy
+
+on: workflow_dispatch
+
+jobs:
+  enable-workflow:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enable workflow
+        run: echo "Enable workflow dispatch workflow"
