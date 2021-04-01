@@ -6,28 +6,23 @@ module FeatureTests
 
       module_function
 
-      def connect_marketplace_paypal(min_price: "2.0", commission: "5", min_commission: "1.0")
+      def connect_marketplace_paypal(min_price: "2.0", commission: "5", min_commission: "0.1")
         topbar = FeatureTests::Section::Topbar
         paypal_preferences = FeatureTests::Page::AdminPaypalPreferences
         admin_sidebar = FeatureTests::Section::AdminSidebar
-        onboarding_wizard = FeatureTests::Section::OnboardingWizard
 
         # Connect Paypal for admin
         topbar.navigate_to_admin
         admin_sidebar.click_payments_link
+        admin_sidebar.click_paypal_link
         paypal_preferences.connect_paypal_account
 
-        expect(page).to have_content("PayPal account connected")
+        expect(page).to have_content("Your PayPal account")
 
-        paypal_preferences.edit_payment_general_preferences(min_price: min_price)
-        paypal_preferences.click_button("Save settings")
-
-        #paypal_preferences.change_paypal_settings
         paypal_preferences.edit_payment_transaction_fee_preferences(commission: commission, min_commission: min_commission)
-        paypal_preferences.click_button("Save")
-        onboarding_wizard.dismiss_dialog
+        paypal_preferences.click_button("Save changes")
 
-        expect(page).to have_content("Transaction fee settings updated")
+        expect(page).to have_no_selector('#error_save', visible: true)
       end
 
       def connect_seller_paypal
@@ -36,6 +31,7 @@ module FeatureTests
         paypal_preferences = FeatureTests::Page::UserSettingsPayments
 
         # Connect Paypal for seller
+        topbar.navigate_home
         topbar.open_user_menu
         topbar.click_settings
         settings_sidebar.click_payments_link

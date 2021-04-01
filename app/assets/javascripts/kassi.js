@@ -832,17 +832,3 @@ function enableSamePageScroll() {
     return [];
   }
 }
-
-function autoSetMinimalPriceFromCountry() {
-    var _minimal_commissions = {USD: 50, AUD: 50, BRL: 50, GBP: 50, CAD: 50, CZK: 1500, DKK: 500, EUR: 50, HKD: 500, HUF: 10000, ILS: 200, JPY: 50, MXN: 500, MYR: 200, TWD: 1500, NZD: 50, NOK: 500, PHP: 2000, PLN: 200, RUB: 1500, SGD: 100, SEK: 500, CHF: 100, THB: 1500, TRY: 150};
-    var _min_price = $("#payment_preferences_form_minimum_listing_price");
-    $("#payment_preferences_form_marketplace_currency").change(function(){
-      var currency = $(this).val();
-      var min_tx = _minimal_commissions[currency] / 100;
-      var cur_tx = parseFloat(_min_price.val());
-      if(isNaN(cur_tx) || min_tx > cur_tx) {
-        _min_price.val(min_tx.toFixed(2))
-      }
-      _min_price.next(".paypal-preferences-currency-label").text(currency);
-    }).trigger('change');
-}

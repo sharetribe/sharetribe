@@ -172,13 +172,19 @@ module MarketplaceService
 
   def community_params(params, marketplace_name, locale)
     ident = available_ident_based_on(marketplace_name)
+    currency = country_currency(params[:marketplace_country].or_else("us"))
     {
       consent: "SHARETRIBE1.0",
       ident: ident,
       settings: {"locales" => [locale]},
-      currency: country_currency(params[:marketplace_country].or_else("us")),
-      country: params[:marketplace_country].upcase.or_else(nil)
+      currency: currency,
+      country: params[:marketplace_country].upcase.or_else(nil),
+      minimum_price_cents: fetch_minimum_price_cents(currency)
     }
+  end
+
+  def fetch_minimum_price_cents(currency)
+    PaypalService::API::Api.minimum_commissions.get(currency)&.cents || 0
   end
 
   def customization_params(marketplace_name, locale)

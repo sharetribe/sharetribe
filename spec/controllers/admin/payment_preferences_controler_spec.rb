@@ -36,14 +36,7 @@ describe Admin::PaymentPreferencesController, type: :controller do
       expect(stripe_setttings.minimum_price_cents).to eq 111
       expect(stripe_setttings.minimum_transaction_fee_cents).to eq 100
       post :common_update, params: {payment_preferences_form: {mode: 'general', minimum_listing_price: '1.45'}}
-      paypal_setttings.reload
-      stripe_setttings.reload
-      expect(paypal_setttings.commission_from_seller).to eq 11
-      expect(paypal_setttings.minimum_price_cents).to eq 145
-      expect(paypal_setttings.minimum_transaction_fee_cents).to eq 100
-      expect(stripe_setttings.commission_from_seller).to eq 22
-      expect(stripe_setttings.minimum_price_cents).to eq 145
-      expect(stripe_setttings.minimum_transaction_fee_cents).to eq 100
+      expect(response).to redirect_to(admin2_payment_system_country_currencies_path)
     end
 
     it 'update paypal preferences' do
@@ -63,14 +56,7 @@ describe Admin::PaymentPreferencesController, type: :controller do
         },
         gateway: 'paypal'
       }
-      paypal_setttings.reload
-      stripe_setttings.reload
-      expect(paypal_setttings.commission_from_seller).to eq 31
-      expect(paypal_setttings.minimum_price_cents).to eq 111
-      expect(paypal_setttings.minimum_transaction_fee_cents).to eq 50
-      expect(stripe_setttings.commission_from_seller).to eq 22
-      expect(stripe_setttings.minimum_price_cents).to eq 111
-      expect(stripe_setttings.minimum_transaction_fee_cents).to eq 100
+      expect(response).to redirect_to(admin2_payment_system_country_currencies_path)
     end
 
     it 'update stripe preferences' do
@@ -90,14 +76,7 @@ describe Admin::PaymentPreferencesController, type: :controller do
         },
         gateway: 'stripe'
       }
-      paypal_setttings.reload
-      stripe_setttings.reload
-      expect(paypal_setttings.commission_from_seller).to eq 11
-      expect(paypal_setttings.minimum_price_cents).to eq 111
-      expect(paypal_setttings.minimum_transaction_fee_cents).to eq 100
-      expect(stripe_setttings.commission_from_seller).to eq 23
-      expect(stripe_setttings.minimum_price_cents).to eq 111
-      expect(stripe_setttings.minimum_transaction_fee_cents).to eq 50
+      expect(response).to redirect_to(admin2_payment_system_country_currencies_path)
     end
   end
 end

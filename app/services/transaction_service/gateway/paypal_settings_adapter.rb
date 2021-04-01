@@ -26,7 +26,7 @@ module TransactionService::Gateway
     private
 
     def paypal_settings_configured?(settings)
-      settings[:payment_gateway] == :paypal && !!settings[:commission_from_seller] && !!settings[:minimum_price_cents]
+      settings[:payment_gateway] == :paypal && !!settings[:commission_from_seller]
     end
 
     def paypal_account_verified?(community_id:, person_id: nil, settings: Maybe(nil))

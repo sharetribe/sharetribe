@@ -196,6 +196,7 @@ Given /^community "(.*?)" has country "(.*?)" and currency "(.*?)"$/ do |communi
   community = Community.where(ident: community).first
   community.country = country
   community.currency = currency
+  community.minimum_price_cents = 1000
   community.save
 end
 
