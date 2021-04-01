@@ -210,7 +210,7 @@ class ListingPresenter < MemoisticPresenter
       {
         commission_from_seller: p_set[:commission_from_seller],
         minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
-        minimum_price_cents: p_set[:minimum_price_cents],
+        minimum_price_cents: @current_community.minimum_price_cents,
         payment_gateway: payment_type,
         paypal_commission: paypal_settings[:commission_from_seller],
         paypal_minimum_transaction_fee: Money.new(paypal_settings[:minimum_transaction_fee_cents], currency),

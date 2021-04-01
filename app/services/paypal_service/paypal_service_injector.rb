@@ -24,7 +24,7 @@ module PaypalService
     module_function
 
     def load_minimum_commissions
-      path = "#{Rails.root}/app/services/paypal_service/minimum_commissions.yml"
+      path = Rails.root.join('config', 'minimum_commissions.yml')
       YAML.load_file(path)
     end
 

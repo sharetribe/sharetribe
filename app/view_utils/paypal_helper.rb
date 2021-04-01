@@ -11,7 +11,7 @@ module PaypalHelper
     account_prepared_for_community?(community_id) &&
       Maybe(TransactionService::API::Api.settings.get_active_by_gateway(community_id: community_id, payment_gateway: :paypal))
       .map {|res| res[:success] ? res[:data] : nil}
-      .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
+      .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller]}
       .map {|_| true}
       .or_else(false)
   end

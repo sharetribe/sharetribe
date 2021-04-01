@@ -138,7 +138,7 @@ module Payments
     PaymentPreferencesForm.new(
       minimum_commission: minimum_commission,
       commission_from_seller: tx_settings[:commission_from_seller],
-      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], currency),
+      minimum_listing_price: Money.new(@current_community.minimum_price_cents, currency),
       minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], currency),
       marketplace_currency: currency,
       commission_from_buyer: tx_settings[:commission_from_buyer],
@@ -293,7 +293,7 @@ module Payments
     tx_fee =  parse_money_with_default(params[:minimum_transaction_fee], minimum_transaction_fee_cents, currency)
     tx_commission = params[:commission_from_seller] || tx_settings[:commission_from_seller]
     tx_commission = tx_commission.present? ? tx_commission.to_i : nil
-    tx_min_price = parse_money_with_default(params[:minimum_listing_price], tx_settings[:minimum_price_cents], currency)
+    tx_min_price = parse_money_with_default(params[:minimum_listing_price], @current_community.minimum_price_cents, currency)
 
     commission_from_buyer = params[:commission_from_buyer] || tx_settings[:commission_from_buyer]
     commission_from_buyer = commission_from_buyer.present? ? commission_from_buyer.to_i : nil
