@@ -1,0 +1,32 @@
+name: Mirror
+
+on:
+  push:
+    branches:
+      - sync-master
+
+jobs:
+  mirror:
+    name: Mirror
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: "sync-master"
+
+      - name: Write deploy key to file
+        run: |
+          mkdir -p /home/runner/.ssh/
+          echo "${{ secrets.SYNC_TEST_DEPLOY_KEY }}" >> /home/runner/.ssh/sync
+          chmod 600 /home/runner/.ssh/sync
+
+      - name: Synchronize to public repository
+        env:
+          GIT_SSH_COMMAND: ssh -i /home/runner/.ssh/sync
+        run: |
+          git remote add public git@github.com:sharetribe/go-test-syncing.git
+          git push -f public sync-master
+          git push -f public --tags
