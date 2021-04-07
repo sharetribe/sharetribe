@@ -1,12 +1,244 @@
 name: Deploy
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: The environment to deploy to
+        required: true
+        default: staging
+      git_ref:
+        description: Git ref to deploy
+        required: true
+        default: "*selected branch*"
+      run_migrations:
+        description: Run db migrations (yes/no)?
+        required: true
+        default: "no"
 
 jobs:
-  enable-workflow:
+  deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
-      - name: Enable workflow
-        run: echo "Enable workflow dispatch workflow"
+      - name: Echo deployment config
+        env:
+          DEPLOY_ENV: ${{ github.event.inputs.environment }}
+          DEPLOY_REF: ${{ github.event.inputs.git_ref }}
+          RUN_MIGRATIONS: ${{ github.event.inputs.run_migrations }}
+        run: |
+          echo "Deploying to: $DEPLOY_ENV"
+          echo "Deploying ref: $DEPLOY_REF"
+          echo "Using workflow definition from: $GITHUB_REF"
+          echo "Initiated by: $GITHUB_ACTOR"
+          echo "Run migrations: $RUN_MIGRATIONS"
+
+      - name: Set app and rack
+        id: convox_env
+        env:
+          DEPLOY_ENV: ${{ github.event.inputs.environment }}
+        run: |
+          case "$DEPLOY_ENV" in
+          production)
+            echo "::set-output name=app::anarchy"
+            echo "::set-output name=rack::sharetribe/production"
+            ;;
+          staging)
+            echo "::set-output name=app::anarchy"
+            echo "::set-output name=rack::sharetribe/staging"
+            ;;
+          *)
+            echo "Unknown deploy env"
+            exit 1
+            ;;
+          esac
+
+      - name: Resolve git ref
+        id: resolve_ref
+        env:
+          DEPLOY_REF: ${{ github.event.inputs.git_ref }}
+        run: if [ "${DEPLOY_REF}" = "*selected branch*" ] ; then echo "::set-output name=ref::$GITHUB_REF" ; else echo "::set-output name=ref::$DEPLOY_REF" ; fi
+
+      - name: Create GitHub deployment
+        uses: bobheadxi/deployments@d214e9228f80adbf4cc2f6e470f2e66ebac5a1b3
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: ${{ github.event.inputs.environment }}
+          ref: ${{ steps.resolve_ref.outputs.ref }}
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.resolve_ref.outputs.ref }}
+
+      - name: Resolve SHA
+        id: resolve_sha
+        run: echo "::set-output name=sha::$(git rev-parse HEAD)"
+
+      - name: Checkout toolbelt
+        uses: actions/checkout@v2
+        with:
+          repository: sharetribe/toolbelt
+          ref: master
+          # Path must be under the workspace. Take care that it is not included
+          # in build artifacts. For instance, make sure it is in .gitignore and
+          # .dockerignore.
+          path: .toolbelt
+          persist-credentials: false
+          ssh-key: ${{ secrets.TOOLBELT_SSH_DEPLOY_KEY }}
+
+      - name: Configure AWS credentials
+        id: configure_aws_credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Pre build hooks
+        env:
+          DEPLOY_ENV: ${{ github.event.inputs.environment }}
+        run: |
+          source .toolbelt/bin/common-definitions.sh
+          source .toolbelt/infra/projects/anarchy/deploy-hooks.sh
+          gh_deploy_hook_pre_build
+
+      - name: Set release name
+        id: set_release
+        env:
+          DEPLOY_ENV: ${{ github.event.inputs.environment }}
+        run: RELEASE="gh-${DEPLOY_ENV}-${GITHUB_SHA}" ; echo "::set-output name=release::$RELEASE"
+
+      - name: Set ECR image
+        id: set_ecr_image
+        env:
+          RELEASE: ${{ steps.set_release.outputs.release }}
+          AWS_ACCOUNT_ID: ${{ steps.configure_aws_credentials.outputs.aws-account-id }}
+        run: echo "::set-output name=image::${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${RELEASE}"
+
+      - name: Login to AWS ECR
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Asset cache
+        uses: actions/cache@v2
+        with:
+          path: ./assets.tar.gz
+          # The key should include hash of all files that affect the asset build
+          key: ${{ runner.os }}-assets-${{ hashFiles('app/assets/**', 'client/**', 'config/locales/**', 'package.json', 'vendor/assets/**', 'script/asset-variables.sh') }}
+
+      - name: Resolve latest ECR image
+        id: resolve_latest_ecr_image
+        env:
+          AWS_ACCOUNT_ID: ${{ steps.configure_aws_credentials.outputs.aws-account-id }}
+          DEPLOY_ENV: ${{ github.event.inputs.environment }}
+        run: |
+          latest_image_tag=$(aws ecr describe-images --repository-name anarchy --filter tagStatus=TAGGED --query "imageDetails[?starts_with(imageTags[0], 'gh-${DEPLOY_ENV}')] | sort_by(@,& imagePushedAt)[-1].imageTags[0]" --output text)
+          echo "Latest image tag: ${latest_image_tag}"
+          if [[ "${latest_image_tag}" != "None" ]] ; then
+            echo "::set-output name=image::${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${latest_image_tag}"
+          fi
+
+      - name: Pull latest image from ECR
+        if: ${{ steps.resolve_latest_ecr_image.outputs.image != null }}
+        env:
+          LATEST_IMAGE: ${{ steps.resolve_latest_ecr_image.outputs.image }}
+        run: docker pull "${LATEST_IMAGE}"
+
+      - name: Build image
+        env:
+          ECR_IMAGE: ${{ steps.set_ecr_image.outputs.image }}
+          CACHE_IMAGE: ${{ steps.resolve_latest_ecr_image.outputs.image }}
+        run: |
+          if [[ -z "${CACHE_IMAGE}" ]] ; then
+            docker build -t "${ECR_IMAGE}" .
+          else
+            docker build -t "${ECR_IMAGE}" --cache-from "${CACHE_IMAGE}" .
+          fi
+
+      - name: Post build hook
+        env:
+          DEPLOY_ENV: ${{ github.event.inputs.environment }}
+          ECR_IMAGE: ${{ steps.set_ecr_image.outputs.image }}
+        run: |
+          source .toolbelt/bin/common-definitions.sh
+          source .toolbelt/infra/projects/anarchy/deploy-hooks.sh
+          gh_deploy_hook_post_build
+
+      - name: Push to ECR
+        env:
+          ECR_IMAGE: ${{ steps.set_ecr_image.outputs.image }}
+        run: docker push "${ECR_IMAGE}"
+
+      - name: Pre deploy hook
+        env:
+          DEPLOY_ENV: ${{ github.event.inputs.environment }}
+        run: |
+          source .toolbelt/bin/common-definitions.sh
+          source .toolbelt/infra/projects/anarchy/deploy-hooks.sh
+          gh_deploy_hook_pre_deploy
+
+      - name: Download Convox binary
+        run: aws s3 cp s3://sharetribe-deployment/convox/bin/20210319134118/convox-linux ~/convox && chmod 755 ~/convox
+
+      - name: Update Convox manifest
+        env:
+          ECR_IMAGE: ${{ steps.set_ecr_image.outputs.image }}
+        run: 'sed -E -i "s|build: .*|image: ${ECR_IMAGE}|" "docker-compose.app.yml"'
+
+      - name: Create Convox release
+        id: convox_build
+        env:
+          CONVOX_HOST: console.convox.com
+          CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY }}
+          CONVOX_RACK: ${{ steps.convox_env.outputs.rack }}
+          CONVOX_APP: ${{ steps.convox_env.outputs.app }}
+          RELEASE: ${{ steps.set_release.outputs.release }}
+        run: |
+          source .toolbelt/bin/common-definitions.sh
+          ~/convox build --manifest docker-compose.app.yml --rack "${CONVOX_RACK}" --app "${CONVOX_APP}" --id --description "${RELEASE}" | tee out.txt
+          check_pipe_status && echo -e "\n::set-output name=release::$(tail -n1 out.txt)"
+
+      - name: Check pending migrations
+        if: ${{ github.event.inputs.run_migrations != 'yes' }}
+        env:
+          CONVOX_HOST: console.convox.com
+          CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY }}
+          CONVOX_RACK: ${{ steps.convox_env.outputs.rack }}
+          CONVOX_APP: ${{ steps.convox_env.outputs.app }}
+          CONVOX_RELEASE: ${{ steps.convox_build.outputs.release }}
+        run: |
+          if ! ~/convox run worker --release "${CONVOX_RELEASE}" --rack "${CONVOX_RACK}" --app "${CONVOX_APP}" bundle exec rake "sharetribe:db:migrate:ensure_latest" ; then
+            echo "There are pending migrations! Run deployment again with Run migrations (yes/no)?: yes."
+            exit 1
+          fi
+
+      - name: Run migrations
+        if: ${{ github.event.inputs.run_migrations == 'yes' }}
+        env:
+          CONVOX_HOST: console.convox.com
+          CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY }}
+          CONVOX_RACK: ${{ steps.convox_env.outputs.rack }}
+          CONVOX_APP: ${{ steps.convox_env.outputs.app }}
+          CONVOX_RELEASE: ${{ steps.convox_build.outputs.release }}
+        run: ~/convox run worker --release "${CONVOX_RELEASE}" --rack "${CONVOX_RACK}" --app "${CONVOX_APP}" bundle exec rake "sharetribe:db:migrate[pre-deploy]"
+
+      - name: Deploy
+        env:
+          CONVOX_HOST: console.convox.com
+          CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY }}
+          CONVOX_RACK: ${{ steps.convox_env.outputs.rack }}
+          CONVOX_APP: ${{ steps.convox_env.outputs.app }}
+          CONVOX_RELEASE: ${{ steps.convox_build.outputs.release }}
+        run: ~/convox releases promote "${CONVOX_RELEASE}" --rack "${CONVOX_RACK}" --app "${CONVOX_APP}" --wait
+
+      - name: Update GitHub deployment status
+        uses: bobheadxi/deployments@d214e9228f80adbf4cc2f6e470f2e66ebac5a1b3
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}

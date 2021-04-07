@@ -9,6 +9,10 @@ else
     # Set dummy database connection string
     export DATABASE_URL="mysql2://user:pass@127.0.0.1/dummy"
 
+    # Set dummy AWS credentials
+    export AWS_ACCESS_KEY_ID="dummy-id"
+    export AWS_SECRET_ACCESS_KEY="dummy-key"
+
     # Edit the script/asset-variables.sh file to e.g. set font locations, icon pack, etc.
     [ -f "script/asset-variables.sh" ] && source "script/asset-variables.sh"
 
