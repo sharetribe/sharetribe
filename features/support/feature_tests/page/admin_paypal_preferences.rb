@@ -6,19 +6,19 @@ module FeatureTests
       module_function
 
       def payment_settings
-        find(".payment-settings")
+        find(".content-card")
       end
 
       def connect_paypal_account
-        payment_settings.click_link("Configure PayPal")
-        payment_settings.click_button("Connect your PayPal account")
+        payment_settings.click_link("Connect PayPal")
+        # payment_settings.click_button("Connect your PayPal account")
       end
 
       def connect_stripe_account
-        payment_settings.click_link("Configure Stripe")
+        # payment_settings.click_link("Configure Stripe")
         payment_settings.fill_in("stripe_api_keys_form[api_publishable_key]", with: APP_CONFIG.feature_stripe_publishable_key)
         payment_settings.fill_in("stripe_api_keys_form[api_private_key]", with: APP_CONFIG.feature_stripe_private_key)
-        payment_settings.click_button("Save Stripe API keys")
+        payment_settings.click_button("Save changes")
       end
 
       def change_stripe_settings
