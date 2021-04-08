@@ -9,7 +9,7 @@
           %br
           %p.ingress= t('admin2.expired_popup.more_information', mailto: 'mailto:sales@sharetribe.com', expire_url: "https://sharetribe.typeform.com/to/UR8QPq?email=#{@current_user.primary_email.address}&marketplace_domain=#{@current_community.full_domain}&marketplace_id=#{@current_community.id}").html_safe
         .modal-footer
-          = link_to t('admin2.expired_popup.choose_plan'), admin_plan_path, class: %i[btn btn-primary]
+          = link_to t('admin2.expired_popup.choose_plan'), admin2_plan_path, class: %i[btn btn-primary]
 :javascript
   $(document).ready(function() {
     $('#expiredModal').modal({

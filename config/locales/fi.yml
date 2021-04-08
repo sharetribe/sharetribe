@@ -708,7 +708,7 @@ fi:
         check_another_domain: ~
         checks_passed_with_warning: ~
         this_domain_is_not_configured_correctly: ~
-        start_using_the_custom_domain: ~
+        start_using_the_custom_domain: "Aloita oman domainin käyttö"
       landing_pages:
         landing_pages: Landing-sivu
         info_1: "Landing-sivu on markkinapaikkasi mahdollisesti tärkein sivu. Se on vierailijoidesi ensiksi näkemä sivu, ikäänkuin etuovi taloosi. Sinulla on vain muutama sekunti aikaa vakuuttaa vierailija jäämään sivustollesi. Sivun tulee olla kutsuva ja kommunikoida sivustosi käyttäjille antama arvo selkeästi ja houkuttelevasti."
@@ -1293,8 +1293,8 @@ fi:
       details: "Tilauksen tiedot"
       order_by: "Tilaus käyttäjältä %{orderer_link}"
       accept_offer: "Hyväksy tarjous"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Hyväksy pyyntö ja pidä ilmoitus avoinna"
+      accept_request_and_close: "Hyväksy pyyntö ja sulje ilmoitus"
       reject_offer: "Ei tällä kertaa"
       reject_request: "Ei tällä kertaa"
       close_listing: "Sulje ilmoitus %{listing_title_link}"
@@ -1471,10 +1471,10 @@ fi:
       mark_as_refunded: "Merkitse takaisinmaksetuksi"
       dismiss: "Hylkää ja anna maksu myyjälle"
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Uusi yhteydenotto sivustolta %{service_name}"
+    feedback_body: "%{author_name_and_email} on kirjoittanut seuraavan viestin palvelun %{service_name} yhteydenottolomakkeella. Tämä ilmoitus lähetettiin kaikille palvelun %{service_name} ylläpitäjille."
+    unlogged_user: "Ei sisäänkirjautunut käyttäjä"
+    anonymous_user: "Anonyymi käyttäjä"
   community_memberships:
     access_denied:
       access_denied: "Pääsy estetty"
@@ -1567,7 +1567,7 @@ fi:
     confirmation_instructions_v2:
       headline: "vahvista sähköpostisi liittyäksesi palveluun %{service_name}!"
       need_to_confirm: "Vahvista sähköpostiosoitteesi saattaaksesi %{service_name} -palvelun tilinluonti päätökseen. Se on helppoa - klikkaa vain alla olevaa nappia!"
-      confirmation_link_text: ~
+      confirmation_link_text: "Vahvista sähköpostiosoite"
     common:
       hey: "Hei %{name},"
       hi: "Hei %{name},"
@@ -1617,11 +1617,11 @@ fi:
       has_commented_listing_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi ilmoitusta '%{listing}'."
     new_message:
       view_message: "Näytä viesti"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "Olet saanut viestin käyttäjältä %{sender}. Siirry vastataksesi palveluun %{service_name}."
+      you_have_a_new_message: "Sinulle on uusi viesti käyttäjältä %{sender_name} %{service_name}"
     new_message_v2:
       headline: "sinulle on viesti!"
-      reply: ~
+      reply: "Klikkaa tähän vastataksesi %{sender}"
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       price_per_unit_type: "Hinta per %{unit_type}"
@@ -1754,7 +1754,7 @@ fi:
       welcome_to_marketplace: "Tervetuloa %{service_name}-palvelun jäseneksi! Mukavaa kun liityit."
       love_marketplace_crew: "Terveisin,<br /><i>%{service_name}-tiimi</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Muokkaa sähköpostiasetuksiasi tästä"
     new_listing_by_followed_person:
       subject: "%{author_name} lisäsi ilmoituksen %{service_name}-palveluun"
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
@@ -1767,14 +1767,14 @@ fi:
       view_listing: "Näytä %{title}"
       cant_click: "Jos et voi klikata nappia, tässä on suora linkki:"
     new_ident_notification:
-      subject: ~
-      h1_body: ~
-      p_line1: ~
-      p_line2: ~
-      p_line3: ~
-      p_line4: ~
-      p_line5: ~
-      button: ~
+      subject: "Markkinapaikkasi osoite muutettiin"
+      h1_body: "Palvelun %{community_name} URL-osoite on muuttunut."
+      p_line1: "Markkinapaikkasi URL-osoite on muutettu."
+      p_line2: "Vanha URL: %{link}"
+      p_line3: "Uusi URL: %{link}"
+      p_line4: "Uusi ylläpitonäkymän URL: %{link}"
+      p_line5: "Voit kirjautua markkinapaikallesi samalla tunnuksella kuin ennenkin."
+      button: "Mene %{text}"
     new_member_notification:
       subject: "Uusi jäsen palvelussa %{community}"
       new_member_has_joined: "Uusi käyttäjä liittyi markkinapaikkaan %{community}. Käyttäjän pitää mahdollisesti vielä vahvistaa sähköpostiosoitteensa."
@@ -2179,7 +2179,7 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
-      recaptcha_verification_failure: ~
+      recaptcha_verification_failure: "reCAPTCHA -vahvistus epäonnistui"
       listing_could_not_be_saved: "Ilmoituksen tallentaminen ei onnistunut. Yritä uudelleen. Jos ongelma toistuu, %{contact_admin_link}."
       contact_admin_link_text: "ota yhteyttä palvelun %{service_name} ylläpitoon"
       test_welcome_email_delivered_to: "Testisähköposti lähetettiin osoitteeseen %{email}."
@@ -2255,7 +2255,7 @@ fi:
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
       reply_sent: "Vastaus lähetetty"
       request_accepted: "Pyyntö hyväksytty"
-      request_accepted_and_closed: ~
+      request_accepted_and_closed: "Pyyntö hyväksytty ja ilmoitus suljettu"
       request_confirmed: "Pyyntö merkitty toteutuneeksi"
       request_rejected: "Pyyntö hylätty"
       request_canceled: "Pyyntö riitautettu"
@@ -2435,7 +2435,7 @@ fi:
       origin:
         location: Sijainti
         origin: Lähtöpaikka
-        the_exact_location: ~
+        the_exact_location: "Tarkka sijainti ei näy muille käyttäjille."
       send_button:
         save_listing: "Tallenna ilmoitus"
         submit_for_review: "Lähetä arvioitavaksi"
@@ -2908,8 +2908,8 @@ fi:
       homepage_link: etusivulle
       unsubscribe_unsuccesful: "Sähköpostin poiskytkentä epäonnistui"
       unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit on ilmeisesti vanhentunut. Kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "...ilmoitukseen liittyvässä julkisessa keskustelussa, jota seuraan, on uusi kommentti"
+      email_listing_updated: "...ilmoitus jota olen kommentoinut on päivittynyt"
     profile:
       about_you: "Tietoa sinusta"
       city: Kaupunki
@@ -3177,6 +3177,10 @@ fi:
         zero: tilausta
         one: tilaus
         other: tilausta
+      listing:
+        zero: ilmoitusta
+        one: ilmoitus
+        other: ilmoitusta
     previous_label: "&#8592; Edellinen"
     next_label: "Seuraava &#8594;"
     page_gap: "&hellip;"
@@ -3252,7 +3256,7 @@ fi:
       cancel: Peruuta
       gender: Sukupuoli
       phone_number: Puhelinnumero
-      phone_info_text: ~
+      phone_info_text: "Puhelinnumeron tulisi alkaa maakoodilla, kuten esimerkiksi"
       address_kana_postal_code: "Postinumero kana"
       address_kana_state: "Osavaltio kana"
       address_kana_city: "Kaupunki kana"
@@ -3272,9 +3276,9 @@ fi:
       bank_routing_2: "Pankin haaran koodi"
       bank_currency: "Pankkitilin valuutta"
       update_also_bank_account: "Päivitä myös tilinumero"
-      bank_account_same_country: ~
-      bank_country: ~
-      bank_holder_name: ~
+      bank_account_same_country: "Käytä pankkitiliä, joka on asuinmaassani"
+      bank_country: "Pankkitilin maa"
+      bank_holder_name: "Pankkitilin omistajan nimi"
       messages:
         account_number: Tilinumero
         routing_number: Reititysnumero
@@ -3352,8 +3356,8 @@ fi:
         text: Teksti
         youtube_video_id: "YouTube-videon tunnus"
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: Teksti
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "British Columbia"

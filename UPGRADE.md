@@ -38,6 +38,10 @@ heroku config:set next_maintenance_at="2016-04-29 17:15:00 +0000" --app=<your ap
 
 See instructions how to set application in [maintenance mode in Heroku](https://devcenter.heroku.com/articles/maintenance-mode).
 
+## Upgrade from 10.0.0 to 10.1.0
+
+Nothing special. See the [General update instructions](#general-update-instructions).
+
 ## Upgrade from 9.1.0 to 10.0.0
 
 If you are not using [Harmony](/docs/configure_harmony.md) for availability

@@ -53,7 +53,6 @@ en:
       help_center: "Help Center"
       marketplace_guide: "Marketplace Guide"
       what_new: "What's new?"
-      legacy_admin_panel: "Legacy Admin panel"
       general:
         essentials: Essentials
         domain: Domain
@@ -379,6 +378,9 @@ en:
         file: File
         location: Location
     listing_fields:
+      get_started: 'Get started with listing fields'
+      watch_video: 'Watch a video'
+      take_tour: 'Take a tour'
       info_header: "Listing fields"
       info_text: "Here, you can edit the fields that users have to fill in when they create a new listing. Some fields are predefined and can't be edited."
       field_title: "Field name"
@@ -433,6 +435,9 @@ en:
         location: Location
         image: Image
     order_types:
+      get_started: 'Get started with order types'
+      watch_video: 'Watch a video'
+      take_tour: 'Take a tour'
       info_text: "Order types determine how the order process works on your marketplace. Use the ready-made templates for renting, selling, offering services, posting announcements, and more – or customize your own order process."
       name: Name
       used_in: "Used in"
@@ -501,6 +506,9 @@ en:
       info_text: "Here, you can edit the categories that visitors use to browse your marketplace offering. Sellers need to assign their listing to one of the categories you have specified."
       add_category: "+ Add a category"
       add_category_popup: "Add a category"
+      get_started: 'Get started with categories'
+      watch_video: 'Watch a video'
+      take_tour: 'Take a tour'
       save_add_category_popup: "Add the category"
       edit_category: "Edit the category \"%{category}\""
       category_name: "Category name"
@@ -586,7 +594,6 @@ en:
       info_text_4: "After deletion, you and your marketplace users may still receive one last automatic newsletter from your marketplace."
       info_text_5: "To permanently delete your marketplace, you must type your Sharetribe marketplace domain (%{domain}) in the text field below."
       info_text_6: "One last thing before you delete your marketplace: is there anything we can do to help? Don't hesitate to <a href='#' show-intercom=true >contact the Sharetribe team</a> if you have any questions. We'll be happy to help you get the most of Sharetribe Go!"
-      delete_confirmation_placeholder: "Type your Sharetribe marketplace domain here…"
       delete: "Delete your marketplace permanently"
       cannot_delete: "Could not delete marketplace."
       delete_info_text: "Would you like to cancel your subscription or delete your marketplace? <a href='#' show-intercom=true >Contact the Sharetribe team</a>, we'll be happy to help!"
@@ -613,11 +620,11 @@ en:
       receivers_languages: "Language of the email receivers"
       any_language: "Any language"
       subject: "Email subject"
-      subject_info_text: "To improve email deliverability the email subject is generated automatically and can't be changed."
+      subject_info_text: "To improve email deliverability the email subject is generated automatically and can't be changed. The email subject will be automatically translated in the recipient's selected language."
       email_subject_text: "A new message from the %{service_name} team"
       message_will_be_sent_only_to_people_with_this_language: "The email will be only sent to users who are using %{service_name} in the language you choose."
       content: "Email content"
-      content_info_text: "\"Firstname\" can't be removed and will be automatically replaced by the actual first name of each recipient."
+      content_info_text: "\"Firstname\" can't be removed and will be automatically replaced by the actual first name of each recipient. \"Hello\" will be automatically translated in the recipient's selected language."
       content_hello: "Hello Firstname,"
       content_placeholder: "What do you want to say to your users?"
       send_email: "Send email to users"

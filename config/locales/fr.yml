@@ -1211,8 +1211,8 @@ fr:
         waiting_for_fulfill_and_complete: "En attente de la réalisation par %{provider} de la commande pour %{listing_title} et de la confirmation par %{buyer}."
         buyer: "Acheteur :"
         provider: "Vendeur :"
-        delivery: "Livraison:"
-        shipping_to: "Envoi à %{address}"
+        delivery: "Mode de livraison :"
+        shipping_to: "Livraison à %{address}"
         buyer_pays: "L'acheteur paie :"
         marketplace_collects: "%{service_name} reçoit :"
         buyer_service_fee_label: "Commission prélevée sur l'acheteur :"
@@ -1314,7 +1314,7 @@ fr:
       total_value_stripe: "%{seller_gets}"
       paypal_fee: "frais de transaction PayPal"
       paypal_fee_info: "* Hors %{link}"
-      shipping_price_label: "Frais de livraison : "
+      shipping_price_label: "Frais de livraison :"
       stripe-fee_label: "Frais de service"
     confirm:
       confirm_description: "Si votre commande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
@@ -1667,7 +1667,7 @@ fr:
       you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b>."
     paypal_new_payment:
       paypal_gateway_fee: "Frais PayPal : "
-      shipping_total: "Frais de livraison : "
+      shipping_total: "Frais de livraison :"
     braintree_new_payment:
       product: "Produit : "
       price_payer_paid: "Prix payé par %{payer_full_name} : "
@@ -2427,8 +2427,8 @@ fr:
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} seront déduits du montant."
         after_service_fee_you_will_get_payment_text: "Lorsque quelqu'un passera commande, vous recevrez ce montant moins %{payment_fee_info_link}"
         payment_fee_info_link_text: "une commission %{service_name} et des frais de paiements"
-        delivery: Livraison
-        shipping: Envoi
+        delivery: "Mode de livraison"
+        shipping: Livraison
         shipping_price: "Frais de livraison"
         shipping_price_additional: "Eléments supplémentaires"
         pickup: Retrait
@@ -2580,10 +2580,10 @@ fr:
       price:
         per_quantity_unit: "par %{quantity_unit}"
         per_day: "par jour"
-      delivery: Livraison
-      shipping: "Envoi (+%{price})"
-      shipping_no_price: Envoi
-      shipping_price_additional: "Envoi (+%{price}, éléments supplémentaires : +%{shipping_price_additional})"
+      delivery: "Mode de livraison"
+      shipping: "Livraison (+%{price})"
+      shipping_no_price: Livraison
+      shipping_price_additional: "Livraison (+%{price}, éléments supplémentaires : +%{shipping_price_additional})"
       pickup: Retrait
       pickup_no_price: Retrait
       youtube_video_player: "lecteur vidéo YouTube"
@@ -2612,7 +2612,7 @@ fr:
       night: nuit
       nights: nuits
       invalid_parameters: "Valeurs non correctes pour une nouvelle transaction"
-      select_delivery_method: "Vous devez choisir le type de livraison"
+      select_delivery_method: "Vous devez choisir le mode de livraison"
     transaction_agreement_checkbox:
       read_more: Lire.
     stripe_payment:
@@ -2755,7 +2755,7 @@ fr:
       invalid_invitation_code: "Le code d'invitation n'est pas valide."
       invitation_code: "Code d'invitation"
       not_required: ", pas demandé"
-      notification_is_mandatory: "Vous devez choisir au moins une adresse email pour recevoir les notifications. Si vous ne souhaitez pas recevoir d'emails de %{service_name}, vérifiez vos paramètres de notifications."
+      notification_is_mandatory: "Vous devez choisir au moins une adresse email confirmée pour recevoir les notifications. Si vous ne souhaitez pas recevoir d'emails de %{service_name}, vérifiez vos paramètres de notifications."
       password_again: "Confirmer le mot de passe"
       show_my_name_to_others: "Montrer mon nom complet aux autres utilisateurs de %{service_name}"
       sign_up: "Créer un nouveau compte sur %{service_name}"

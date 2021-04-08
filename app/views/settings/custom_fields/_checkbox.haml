@@ -7,6 +7,6 @@
           - html_id = "person_custom_fields_#{index}_#{opt.id}"
           - selected = custom_field_value ? custom_field_value.selected_options.include?(opt) : false
           = check_box_tag "#{prefix}[selected_option_ids][]", opt.id, selected,
-            {id: html_id, class: "custom_field_checkbox #{custom_field.required? ? 'required' : ''}",
+            {id: html_id, class: "signup-custom-checkbox custom_field_checkbox #{custom_field.required? ? 'required' : ''}",
             input_group_id: "person_custom_fields_#{index}"}
           = label_tag html_id, "#{opt.title(I18n.locale)}", {class: "light"}

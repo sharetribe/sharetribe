@@ -361,7 +361,10 @@ function initialize_signup_form(locale, email_in_use_message, invalid_invitation
   //name_required = (name_required == 1) ? true : false
   $(form_id).validate({
     errorPlacement: function(errorLabel, element) {
-      if (( /radio|checkbox/i ).test( element[0].type )) {
+      if ($(element).hasClass("signup-custom-checkbox")) {
+         var container = $(element).parents('.checkbox-group-container').prevAll('.inline-label-container').first();
+         errorLabel.insertAfter(container);
+      } else if (( /radio|checkbox/i ).test( element[0].type )) {
         element.closest('.checkbox-container').append(errorLabel);
       } else {
         errorLabel.insertAfter( element );

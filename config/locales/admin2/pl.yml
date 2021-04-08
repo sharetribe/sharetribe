@@ -53,7 +53,6 @@ pl:
       help_center: ~
       marketplace_guide: ~
       what_new: ~
-      legacy_admin_panel: ~
       general:
         essentials: ~
         domain: ~
@@ -379,6 +378,9 @@ pl:
         file: ~
         location: ~
     listing_fields:
+      get_started: ~
+      watch_video: ~
+      take_tour: ~
       info_header: ~
       info_text: ~
       field_title: ~
@@ -433,6 +435,9 @@ pl:
         location: ~
         image: ~
     order_types:
+      get_started: ~
+      watch_video: ~
+      take_tour: ~
       info_text: ~
       name: ~
       used_in: ~
@@ -498,6 +503,9 @@ pl:
       info_text: ~
       add_category: ~
       add_category_popup: ~
+      get_started: ~
+      watch_video: ~
+      take_tour: ~
       save_add_category_popup: ~
       edit_category: ~
       category_name: ~
@@ -568,7 +576,6 @@ pl:
       info_text_4: ~
       info_text_5: ~
       info_text_6: ~
-      delete_confirmation_placeholder: ~
       delete: ~
       cannot_delete: ~
       delete_info_text: ~

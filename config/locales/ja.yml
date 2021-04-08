@@ -2032,7 +2032,7 @@ ja:
       message: パーソナル･メッセージを書いて下さい
       send_invitation: 招待状を送る
       add_email_addresses_description: 下の欄に招待したい方のメールアドレスを追加してください。メールアドレスが複数ある場合は、コンマで区切ってください。
-      add_lots_of_email_addresses: "管理者の方へ：もしたくさんの正体が送られているなら、emailツールを使ってください。チェックアウト%{this_article_link} 適切なemailサービスリソースを探してください。"
+      add_lots_of_email_addresses: "管理者の方へTIPS：大量の招待メールを送る場合には、一斉メール送信ツールを使うのがおすすめです。%{this_article_link} をご参考いただき、適切な一斉メール送信サービスをお探しください。"
       this_article_link: この記事
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: ○○さん、このサイト知っていますか？よかったら少しのぞいてみてください。

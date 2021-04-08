@@ -12,7 +12,7 @@ describe TransactionService::Store::PaymentSettings do
       api_verified: false,
       api_visible_private_key: nil,
       api_country: nil,
-      commission_from_buyer: nil,
+      commission_from_buyer: 0,
       minimum_buyer_transaction_fee_cents: nil,
       minimum_buyer_transaction_fee_currency: nil,
       key_encryption_padding: true
