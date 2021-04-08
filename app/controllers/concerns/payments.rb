@@ -79,7 +79,7 @@ module Payments
     @stripe_enabled = StripeHelper.stripe_provisioned?(@current_community.id)
     unless @paypal_enabled || @stripe_enabled
       flash[:error] = t('admin.payment_preferences.index.payments_not_enabled')
-      redirect_to admin_details_edit_path
+      redirect_to admin2_path
     end
   end
 

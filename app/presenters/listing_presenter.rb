@@ -180,6 +180,10 @@ class ListingPresenter < MemoisticPresenter
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: process_id)
 
     case [payment_type, process]
+    when matches([nil, :preauthorize])
+      {
+        not_found_gateways: true
+      }
     when matches([__, :none])
       {
         commission_from_seller: 0,
