@@ -18,7 +18,7 @@ module StripeService
       end
 
       def self.load_minimum_commissions
-        path = Rails.root.join('app', 'services', 'stripe_service', 'minimum_commissions.yml')
+        path = Rails.root.join('config', 'minimum_commissions.yml')
         YAML.load_file(path.to_s)
       end
     end
