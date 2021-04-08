@@ -3,7 +3,7 @@ module Admin2::PaymentSystem
     before_action :ensure_payments_enabled
 
     def index
-      @current_min_price = Money.new(active_tx_settings[:minimum_price_cents], currency)
+      @current_min_price = Money.new(@current_community.minimum_price_cents, currency)
       fee = [stripe_tx_settings[:minimum_transaction_fee_cents].to_i,
              stripe_tx_settings[:minimum_buyer_transaction_fee_cents].to_i,
              paypal_tx_settings[:minimum_transaction_fee_cents].to_i].max
@@ -12,15 +12,9 @@ module Admin2::PaymentSystem
 
     def save
       minimum_listing_price = params[:minimum_listing_price].presence
-      tx_min_price = parse_money_with_default(minimum_listing_price, active_tx_settings[:minimum_price_cents], currency)
+      tx_min_price = parse_money_with_default(minimum_listing_price, @current_community.minimum_price_cents, currency)
       verify_price(tx_min_price)
-
-      base_params = { community_id: @current_community.id,
-                      payment_process: :preauthorize,
-                      minimum_price_cents: tx_min_price.try(:cents) }.compact
-
-      tx_settings_api.update(base_params.merge(payment_gateway: :paypal)) if paypal_tx_settings.present?
-      tx_settings_api.update(base_params.merge(payment_gateway: :stripe)) if stripe_tx_settings.present?
+      @current_community.update!(minimum_price_cents: tx_min_price.try(:cents))
       render json: { message: t('admin2.notifications.transaction_size_updated') }
     rescue StandardError => e
       render json: { message: e.message }, status: :unprocessable_entity

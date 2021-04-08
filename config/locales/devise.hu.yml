@@ -28,7 +28,7 @@ hu:
     confirmations:
       send_paranoid_instructions: "Amennyiben az Ön e-mail címe már szerepel adatbázisunkban, hamarosan megkapja a regisztráció megerősítéséhez szükséges linket."
       send_instructions: "Pár percen belül e-mail-ben küldjük az instrukciókat amelynek segítségével megerősítheti regisztrációját."
-      confirmed: "Az Ön fiókja sikeresen vissza lett igazolva."
+      confirmed: "A fiókod sikeresen vissza lett igazolva."
     registrations:
       signed_up_but_unconfirmed: "A megerősítő linket elküldtük az e-mail címére. Kattintson a linkre a regisztráció véglegesítéséhez."
       signed_up_but_inactive: "A regisztráció sikeres volt. Jelenleg azonban még nem tud bejelentkezni, ehhez még szükség van egy megerősítésre."
@@ -39,7 +39,7 @@ hu:
         locked: Zárolt
       update_needs_confirmation: "A frissítés sikeres volt, de az új e-mail címét még meg kell erősítenie. Küldtünk Önnek ezzel kapcsolatban egy e-mail-t, kérjük kattintson az abban található linkre."
       signed_up: "Üdvözöljük! Sikeres regisztráció."
-      updated: "Az Ön fiókja sikeresen frissítve lett."
+      updated: "A fiókod sikeresen frissítve lett."
       destroyed: "Viszlát! Az Ön fiókját töröltük. Reméljük hamarosan viszontlátjuk."
     unlocks:
       send_paranoid_instructions: "Amennyiben az ön fiókja létező, néhány percen belül kapni fog egy e-mail-t amelynek segítségével feloldhatja a blokkolást."

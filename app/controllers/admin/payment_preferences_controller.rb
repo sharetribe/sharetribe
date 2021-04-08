@@ -2,8 +2,13 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   include Payments
 
+  before_action :redirect_to_new_admin
   before_action :ensure_payments_enabled
   before_action :ensure_params_payment_gateway, only: [:enable, :disable]
+
+  def redirect_to_new_admin
+    redirect_to admin2_payment_system_country_currencies_path
+  end
 
   def index
     payment_index

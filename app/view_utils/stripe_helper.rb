@@ -8,7 +8,7 @@ module StripeHelper
     stripe_active?(community_id) &&
       Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :stripe, payment_process: :preauthorize))
       .map {|res| res[:success] ? res[:data] : nil}
-      .select {|set| set[:commission_from_seller] && set[:minimum_price_cents]}
+      .select {|set| set[:commission_from_seller]}
       .map {|_| true}
       .or_else(false)
   end

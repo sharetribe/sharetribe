@@ -138,7 +138,7 @@ es:
         first_name_only: "Sólo el nombre"
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
         custom_head_script: "Script personalizado"
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: "Código personalizado se puede configurar <a href='%{url}'>en tu nuevo panel de administración</a>."
         current_image: "Imagen actual:"
       edit_text_instructions:
         edit_text_instructions: "Textos de instrucción"
@@ -1754,7 +1754,7 @@ es:
       welcome_to_marketplace: "¡Bienvenido a %{service_name}! Nos encanta que estés con nosotros."
       love_marketplace_crew: "Un saludo del equipo de <br /><i>%{service_name} </i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Edita tu configuración de correo aquí"
     new_listing_by_followed_person:
       subject: "%{author_name} ha publicado un nuevo anuncio en %{service_name}"
       has_posted_a_new_listing: "%{author_name} ha publicado un nuevo anuncio"
@@ -1767,14 +1767,14 @@ es:
       view_listing: "Ver %{title}"
       cant_click: "No puedes hacer click en el botón? Aquí hay un vínculo para tu conveniencia:"
     new_ident_notification:
-      subject: ~
-      h1_body: ~
-      p_line1: ~
-      p_line2: ~
-      p_line3: ~
-      p_line4: ~
-      p_line5: ~
-      button: ~
+      subject: "La dirección de tu marketplace cambió"
+      h1_body: "La dirección URL de %{community_name} ha sido cambiada."
+      p_line1: "La dirección de tu marketplace ha sido cambiada."
+      p_line2: "Dirección anterior: %{link}"
+      p_line3: "Dirección actual: %{link}"
+      p_line4: "Nueva dirección del panel de administración: %{link}"
+      p_line5: "Puedes acceder a tu marketplace con la misma cuenta de siempre."
+      button: "Ir a %{text}"
     new_member_notification:
       subject: "Un nuevo miembro en %{community}"
       new_member_has_joined: "Un nuevo miembro se ha unido a %{community}. Es posible que aún deban confirmar su dirección de correo electrónico."
@@ -2179,7 +2179,7 @@ es:
       settings: Opciones
       sign_up: Registrarse
     notifications:
-      recaptcha_verification_failure: ~
+      recaptcha_verification_failure: "La verificación de reCAPTCHA falló"
       listing_could_not_be_saved: "El anuncio no se ha podido publicar. Por favor, inténtalo de nuevo y si vuelve a fallar, contacta con el administrador %{contact_admin_link}."
       contact_admin_link_text: "contacta al equipo de %{service_name}"
       test_welcome_email_delivered_to: "El mensaje de prueba ha sido enviado a %{email}"
@@ -2308,7 +2308,7 @@ es:
       stripe_you_account_balance_is_not_0: "El balance de tu cuenta no es 0 y por lo tanto no puede ser eliminada. Esto puede significar que tienes transacciones esperando a ser completadas o que hay dinero esperando a ser transferido a tu cuenta de banco. Por favor contacta al equipo de %{service_name} si tienes alguna duda."
       stripe_balance_for_username_is_not_0: "El balance de Stripe de %{username} no es 0, por lo tanto la cuenta no puede ser eliminada. Esto puede significar que hay transacciones a la espera de ser completadas o que hay dinero por pagar a su cuenta de banco. Por favor, revisa tu Stripe Dashboard para más información."
       visit_admin: "¿ Quisieras %{link}?"
-      visit_admin_link: "visitar tu panel de administración"
+      visit_admin_link: "visitar tu Panel de administración"
       an_error_occurred_when_saving_your_information: "Hubo un problema al guardar tu información, el mensaje es: \"%{message}\". Por favor revisa que toda la información sea correcta e intenta de nuevo."
     settings:
       account: Cuenta
@@ -2850,7 +2850,7 @@ es:
       account_confirmation_instructions_title_admin: "Confirma tu dirección de correo electrónico"
       before_full_access_you_need_to_confirm_email: "Antes de darte acceso total a tu comunidad, es necesario que hagas sólo una cosa más: confirmar tu cuenta de correo electrónico."
       before_confirmation_only_access_admin_dashboard: "Antes de confirmar to correo electrónico sólo puedes tener acceso al %{admin_dashboard_link}."
-      admin_dashboard_link_text: "panel de administración"
+      admin_dashboard_link_text: "Panel de administración"
       account_confirmation_instructions_admin: "Hemos enviado un correo electrónico a %{email_address} con un vínculo para confirmar tu cuenta de correo. Si no lo ves, revisa tu carpeta de correo no deseado o haz click en el botón de re-enviar! Una vez que llegue, abre el vínculo par confirmar tu cuenta de correo; una vez que lo hayas hecho, tendrás access completo a tu comunidad. Si necesitas ayuda, %{support_link}."
       contact_support_link_text: "contacta al equipo de soporte de Sharetribe"
   settings:
@@ -2908,8 +2908,8 @@ es:
       homepage_link: "página de inicio"
       unsubscribe_unsuccesful: "Error al cancelar la suscripción"
       unsuccessful_unsubscribe_info_text: "El enlace para cancelar la suscripción ha expirado. Es necesario iniciar sesión para cambiar la configuración de subscripción de su cuenta de correo electrónico."
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "... la discusión de un anuncio que sigo tiene un nuevo comentario"
+      email_listing_updated: "...un anuncio que he comentado tiene una actualización"
     profile:
       about_you: "Sobre tí"
       city: Ciudad

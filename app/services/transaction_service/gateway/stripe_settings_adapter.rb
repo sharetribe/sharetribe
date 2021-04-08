@@ -31,7 +31,7 @@ module TransactionService::Gateway
     private
 
     def stripe_settings_configured?(settings)
-      settings[:payment_gateway] == :stripe && settings[:api_verified] && !!settings[:commission_from_seller] && !!settings[:minimum_price_cents]
+      settings[:payment_gateway] == :stripe && settings[:api_verified] && !!settings[:commission_from_seller]
     end
 
     def stripe_account_created?(community_id:, person_id: nil, settings: Maybe(nil))

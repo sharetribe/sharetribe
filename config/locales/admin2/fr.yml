@@ -53,7 +53,6 @@ fr:
       help_center: "Help Center"
       marketplace_guide: "Marketplace Guide"
       what_new: Nouveautés
-      legacy_admin_panel: "Ancien panneau d'administration"
       general:
         essentials: Essentiels
         domain: Domaine
@@ -379,10 +378,6 @@ fr:
         file: Fichier
         location: Localisation
     listing_fields:
-      remove_listing_field: ~
-      reorder_listing_field: ~
-      edit_listing_field: ~
-      add_listing_field: ~
       get_started: "Bien commencer avec les champs d'annonces"
       watch_video: "Regarder une vidéo"
       take_tour: "Suivre une visite"
@@ -440,10 +435,6 @@ fr:
         location: Localisation
         image: Image
     order_types:
-      add_type: ~
-      reorder_type: ~
-      delete_type: ~
-      edit_type: ~
       get_started: "Bien commencer avec les types de transactions"
       watch_video: "Regarder une vidéo"
       take_tour: "Suivre une visite"
@@ -515,9 +506,6 @@ fr:
       info_text: "Ici, vous pouvez modifier les catégories que les visiteurs utilisent pour naviguer parmi les offres sur votre place de marché. Lorsqu'ils postent une annonce, les vendeurs doivent choisir l'une des catégories que vous avez définies."
       add_category: "+ Ajouter une catégorie"
       add_category_popup: "Ajouter une catégorie"
-      reorder_category: ~
-      delete_category_hint: ~
-      edit_category_hint: ~
       get_started: "Bien commencer avec les catégories"
       watch_video: "Regarder une vidéo"
       take_tour: "Suivre une visite"

@@ -53,7 +53,7 @@ module PaymentsHelper
       phone_number: '+358 45 1234123'
     },
     FR: {
-      account_number: {title: 'IBAN', format: 'FR1420041010050500013M02606', regexp: 'FR[0-9]{2}[0-9]{10}[A-Z0-9]{11}[0-9]{2}', test_regexp: 'FR'+TEST_IBAN },
+      account_number: {title: 'IBAN', format: 'FR1420041010050500013M02606', regexp: '(FR|MQ|GP|RE|MF|GF|YT)[0-9]{2}[0-9]{10}[A-Z0-9]{11}[0-9]{2}', test_regexp: '(FR|MQ|GP|RE|MF|GF|YT)'+TEST_IBAN },
       phone_number: '+33 1 23 45 67 00'
     },
     DE: {

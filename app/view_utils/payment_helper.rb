@@ -13,7 +13,9 @@ module PaymentHelper
                         community_id: community_id,
                         author_id: user_id,
                         open: true,
+                        deleted: false,
                         transaction_process_id: payment_process_ids)
+                      .where.not(state: 'rejected')
                       .count
 
       listing_count > 0
