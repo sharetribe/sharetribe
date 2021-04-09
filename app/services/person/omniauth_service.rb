@@ -33,16 +33,18 @@ class Person::OmniauthService
   end
 
   def create_person
+    given_name = info.first_name.presence || 'N/A'
+    family_name = info.last_name.presence || 'N/A'
     username = UserService::API::Users.username_from_fb_data(
       username: data.username,
-      given_name: info.first_name,
-      family_name: info.last_name,
+      given_name: given_name,
+      family_name: family_name,
       community_id: community.id)
 
     person_hash = {
       :username => username,
-      :given_name => info.first_name,
-      :family_name => info.last_name,
+      :given_name => given_name,
+      :family_name => family_name,
       :locale => I18n.locale,
       :test_group_number => rand(1..4),
       :password => Devise.friendly_token[0,20],
