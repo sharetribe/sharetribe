@@ -17,10 +17,7 @@ module Admin2::General
 
     def update_essential
       update_results = []
-
-      find_or_initialize_customizations(@current_community.locales)
       slogan_and_description_before = slogan_and_description_present?(@current_community.community_customizations)
-
       analytic = AnalyticService::CommunityCustomizations.new(user: @current_user, community: @current_community)
       @current_community.locales.map do |locale|
         customizations = find_or_initialize_customizations_for_locale(locale)
@@ -84,6 +81,14 @@ module Admin2::General
                            unsupported_locale_name = Sharetribe::AVAILABLE_LOCALES.select { |l| l[:ident] == unsupported_locale_key }.map { |l| l[:name] }.first
                            { key: unsupported_locale_key, name: unsupported_locale_name }
                         }
+    end
+
+    def build_customization_with_defaults(locale)
+      @current_community.community_customizations.build(
+        slogan: @current_community.slogan,
+        description: @current_community.description,
+        locale: locale
+      )
     end
   end
 end
