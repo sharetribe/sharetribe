@@ -1,0 +1,58 @@
+name: WTI merge
+
+on:
+  pull_request_review:
+    types: [submitted, edited]
+
+jobs:
+  deploy:
+    name: WTI merge PR
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Check if WTI update branch
+        env:
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          if [[ "$BRANCH" =~ ^wti-update-gh- ]] ; then
+            echo "Branch matches WTI update branch naming scheme. Continuing."
+          else
+            echo "Branch does not match the WTI update branch naming scheme. Nothing to do."
+          fi
+
+      - name: Check PR review
+        if: ${{ startsWith(github.event.pull_request.head.ref, 'wti-update-gh-') }}
+        env:
+          REVIEW_STATE: ${{ github.event.review.state }}
+        run: |
+          if [ "$REVIEW_STATE" == 'approved' ] ; then
+            echo "PR has been approved. Will merge."
+          else
+            echo "PR has not been approved. Cannot merge."
+            exit 1
+          fi
+
+      - name: Merge PR
+        uses: actions/github-script@v3
+        # The branch pattern must match the one defined in the wti-update workflow
+        if: ${{ startsWith(github.event.pull_request.head.ref, 'wti-update-gh-') && github.event.review.state == 'approved' }}
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            })
+
+      - name: Delete branch
+        if: ${{ startsWith(github.event.pull_request.head.ref, 'wti-update-gh-') && github.event.review.state == 'approved' }}
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.git.deleteRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'heads/' + context.payload.pull_request.head.ref
+            })

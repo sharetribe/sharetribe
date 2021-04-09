@@ -1,0 +1,60 @@
+name: WTI update
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    name: WTI update
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install WTI
+        run: sudo gem install web_translate_it
+
+      - name: Create branch
+        id: branch
+        run: |
+          BRANCH="wti-update-gh-$(date +%Y-%m-%d-%H-%M-%S)"
+          echo "::set-output name=branch::$BRANCH"
+          git checkout -b "$BRANCH"
+
+      - name: Run WTI
+        id: wti_pull
+        run: |
+          wti pull
+          if [ -n "$(git status -s)" ] ; then
+            echo "::set-output name=changes::true"
+          else
+            echo "No new changes in translations."
+          fi
+
+      - name: Commit and push
+        if: ${{ steps.wti_pull.outputs.changes == 'true' }}
+        env:
+          WTI_BRANCH: ${{ steps.branch.outputs.branch }}
+        run: |
+          git config --global user.email "team@sharetribe.com"
+          git config --global user.name "Sharetribe Apps Automation"
+          git add --all
+          git commit -m 'WTI update'
+          git push origin "$WTI_BRANCH"
+
+      - name: Create PR
+        uses: actions/github-script@v3
+        if: ${{ steps.wti_pull.outputs.changes == 'true' }}
+        env:
+          WTI_BRANCH: ${{ steps.branch.outputs.branch }}
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.pulls.create({
+              title: 'WTI Update',
+              body: 'Please, review the PR. When the PR is approved with a review, it will be merged automatically.',
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: 'master',
+              head: `${ process.env.WTI_BRANCH }`
+            })
