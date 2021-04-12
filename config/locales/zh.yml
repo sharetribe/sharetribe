@@ -2728,8 +2728,8 @@ zh:
         other: "访问%{service_name}受限。你需要一个电子邮件地址来加入。"
       family_name: 姓
       given_name: 名
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "我同意接受 %{terms} 和 %{privacy}"
+      admin_emails_consent: "我同意接受 %{service_name} 团队 的电子邮件订阅，并且我了解我可以随时取消订阅"
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码
       not_required: ，不是必须的

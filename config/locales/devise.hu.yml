@@ -24,7 +24,7 @@ hu:
       updated: "A jelszóváltoztatás sikerült. Ön most be van jelentkezve."
     sessions:
       signed_in: "Sikeres bejelentkezés."
-      signed_out: "Ön kijelentkezett."
+      signed_out: "Sikeres kijelentkezés."
     confirmations:
       send_paranoid_instructions: "Amennyiben az Ön e-mail címe már szerepel adatbázisunkban, hamarosan megkapja a regisztráció megerősítéséhez szükséges linket."
       send_instructions: "Pár percen belül e-mail-ben küldjük az instrukciókat amelynek segítségével megerősítheti regisztrációját."
@@ -50,7 +50,7 @@ hu:
       failure: "Nem sikerült a megerősítés: %{kind}, ennek az oka: %{reason}"
     mailer:
       confirmation_instructions:
-        subject: "Megerősítési instrukciók."
+        subject: "e-mail cím visszaigazolás %{service_name}"
       reset_password_instructions:
         subject: "Jelszó visszaállítási instrukciók."
       unlock_instructions:

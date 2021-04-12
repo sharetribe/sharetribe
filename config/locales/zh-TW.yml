@@ -1391,7 +1391,7 @@ zh-TW:
       cancel_payed_transaction: 取消
       feedback_given: 已送出回饋
       feedback_skipped: 已跳過回饋
-      give_feedback: "對%{person}發表評價"
+      give_feedback: 發表反饋
       offer_accepted: 已接受
       offer_rejected: 已拒絕
       offer_canceled: 已取消
@@ -2732,8 +2732,8 @@ zh-TW:
         other: "訪問%{service_name}受限。請使用Email加入會員。"
       family_name: 姓
       given_name: 名
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "我同意接受 %{terms} 和 %{privacy}"
+      admin_emails_consent: "我同意接受 %{service_name} 團隊 的電子郵件訂閱，並且我了解我可以隨時取消訂閱"
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码
       not_required: ，不是必需的
