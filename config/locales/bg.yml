@@ -51,11 +51,11 @@ bg:
         language_selection_disabled: ~
         community_name: "Име на пазара"
         edit_community_name_description: ~
-        community_slogan: "Пазарен лозунг"
+        community_slogan: "Девиз на Продавалника"
         community_slogan_display: "Покажи слогана в своята начална страница"
         edit_community_slogan_description: ~
         edit_community_slogan_description_hideable: "Това се показва в браузери, търсачки и социални мрежи. Можеш също да го покажеш в своята начална страница за онези потребители които не са логнати. %{see_how_it_looks_like}"
-        community_description: "Описание на пазара"
+        community_description: "Описание на Продавалника"
         community_description_display: "Покажи описанието в своята начална страница"
         edit_community_description_description: ~
         edit_community_description_description_hideable: "Това се показва в браузери, търсачки и социални мрежи. Можеш също да го покажеш в своята начална страница за онези потребители които не са логнати. %{see_how_it_looks_like}"
@@ -83,15 +83,15 @@ bg:
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: "Редактирайте външния вид и усещането на пазара „%{community_name}“"
+        edit_community_look_and_feel: "Редактирайте облика на вашият Продавалник „%{community_name}“"
         community_logo: Лого
         community_logo_icon: ~
         community_logo_icon_mobile: "Лого за началния екран при мобилни устройства"
-        community_cover_photo: ~
+        community_cover_photo: Корица
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: "Основен цвят на пазара"
+        community_custom_color1: "Основен цвят на Продавалника"
         community_slogan_color: ~
         community_slogan_color_instructions_text: ~
         community_description_color: ~
@@ -109,7 +109,7 @@ bg:
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: "Можете да смените основния цвят на потребителкия интерфейс като влезете в hex colour value.%{link} може да ви помогне да изберете цвят и да ви предостави hex colour код. Можете да копирате кода тук"
         new_listing_button_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
@@ -1196,8 +1196,8 @@ bg:
         learn_more: ~
   common:
     edit_page: "Редактиране на страницата"
-    default_community_slogan: ~
-    default_community_description: "Това е място за продажба, отдаване под наем, замяна и споделяне на стоки и услуги с останалите членове на пазара."
+    default_community_slogan: Продавалник
+    default_community_description: "Това е място за продажба, отдаване под наем, замяна и споделяне на стоки и услуги с останалите членове на Продавалника."
     cancel: Отказ
     fields_that_are_mandatory: "Полетата маркирани със звезда (*) са задължителни."
     or: или
@@ -1216,7 +1216,7 @@ bg:
       sell: продаване
       offer_to_swap: размяна
       request_to_swap: размяна
-      share_for_free: "споделяне безплатно"
+      share_for_free: "сподели безплатно"
       accept_for_free: "желаещи да използват безплатно"
     categories:
       item: Предмети
@@ -1224,9 +1224,9 @@ bg:
       rideshare: ~
       housing: ~
       tools: Инструменти
-      sports: ~
-      music: ~
-      books: ~
+      sports: Спорт
+      music: Музика
+      books: "Книги и списания"
       games: "Игри и играчки"
       furniture: Мебели
       outdoors: ~
@@ -1263,13 +1263,13 @@ bg:
       details: ~
       order_by: ~
       accept_offer: "Приемете офертата"
-      accept_request: ~
+      accept_request: "Приеми заявката и остави списъка отворен"
       accept_request_and_close: ~
       reject_offer: "Не този път"
       reject_request: "Не този път"
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
+      close_listing: "Затваряне на списък %{listing_title_link}"
+      update_later: "Остави списъка отворен"
+      optional_message: "Съобщение по избор"
       price_to_pay: "Обща цена за плащане"
       accept: ~
       decline: Отказ
@@ -1290,12 +1290,12 @@ bg:
       confirm_description: "Ако вашата поръчка е изпълнена, трябва да я потвърдите като извършена. След това можете да дадете обратна връзка на другата страна."
       cancel_description_team: ~
       cancel_payed_description: "Ако заявката ви беше приета, но имате мисли за второ, все още можете да я отмените преди плащането."
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      canceling_payed_transaction: "Откажи транзакцията"
+      confirm: "Отбележи като завършено"
+      cancel: Оспори
+      continue: Продължи
+      give_feedback_to: "Подай обратна връзка на %{person_link}"
+      do_not_give_feedback: "Пропусни обратната връзка"
     details:
       day: ~
       days: ~
@@ -1307,30 +1307,30 @@ bg:
       no_received_messages: "Няма съобщения"
       no_sent_messages: "Няма изпратени съобщения"
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      accepted_request: "Заявката е приета."
+      accepted_offer: "Офертата е приета."
+      rejected_request: "Заявката е отхвърлена."
+      rejected_offer: "Офертата е отхвърлена."
+      confirmed_request: "Поръчката е завършена."
+      confirmed_offer: "Офертата е завършена."
+      canceled_request: "Поръчката е оспорена."
+      canceled_offer: "Офертата е отменена."
       message_from: ~
       about_listing: ~
       free_message: ~
       message_content_not_available: ~
     message:
-      accepted_request: ~
+      accepted_request: "прие заявката"
       received_payment: ~
       received_payment_wo_sum: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_offer: "прие офертата"
+      rejected_request: "отхвърли заявката, отмени плащането"
+      rejected_offer: "отхвърли офертата"
+      confirmed_request: "отбеляза поръчката като завършена"
+      confirmed_offer: "отбеляза офертата като завършена"
+      canceled_request: "отмени поръчката"
+      canceled_offer: "отмени офертата"
+      paid: "плати %{sum}"
       payment_preauthorized: ~
       payment_preauthorized_wo_sum: ~
       stripe:
@@ -1371,20 +1371,20 @@ bg:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: Отмени
       feedback_given: "Оценката е изпратена"
       feedback_skipped: "Оценката е отказана"
       give_feedback: "Напиши оценка"
       offer_accepted: Приета
       offer_rejected: Отхвърлена
-      offer_canceled: ~
-      offer_confirmed: ~
+      offer_canceled: Отменено
+      offer_confirmed: Завършено
       offer_paid: ~
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
-      pay: ~
+      pay: Плати
       preauthorized: ~
-      paid: ~
+      paid: "Плащането успешно"
       pending_external:
         paypal:
           multicurrency: ~
@@ -1394,17 +1394,17 @@ bg:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: Прието
       request_rejected: Отхвърлено
-      request_confirmed: ~
-      request_canceled: ~
+      request_confirmed: Завършено
+      request_canceled: Отменено
       request_paid: ~
       request_preauthorized: ~
       skip_feedback: "Откажи оценяването"
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_offer: "В очакване на %{listing_author_name} да приеме офертата"
+      waiting_for_listing_author_to_accept_request: "В очакване на %{listing_author_name} да приеме заявката. Веднага щом %{listing_author_name} приеме, ще бъдете таксувани."
       waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_requester: "В очакване на %{requester_name} да отбележи поръчката като завършена"
       waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
+      waiting_payment_from_requester: "В очакване на %{requester_name} да плати"
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
       pending_external_inbox:
@@ -1436,8 +1436,8 @@ bg:
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
       reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      confirm: "Отбележи като завършено"
+      cancel: Оспори
       mark_as_refunded: ~
       dismiss: ~
   feedback:
@@ -1455,10 +1455,10 @@ bg:
       fb_join_accept_terms: "Има още една стъпка, за да се присъедините към %{service_name}: трябва да приемете условията за ползване."
       join_community: "Присъединяване %{service_name}"
       you_can_join: "Можете да се присъедините към %{service_name}, като приемете условията за ползване и кликнете по-долу „Присъединете се към %{service_name}“."
-      you_can_join_email_confirmation: "За да се присъедините към %{service_name}, трябва да имате валиден имейл адрес, който завършва с %{email_ending}. Можете да се присъедините, като попълните имейл адреса си, приемете условията за ползване и щракнете върху „Присъединете се %{service_name}“ по-долу и потвърдете имейла си."
-      you_can_join_email_confirmation_multiple_addresses: "%{service_name} има ограничения за имейл. Можете да се присъедините само ако имате разрешен имейл адрес. Можете да се присъедините, като попълните имейл адреса си, приемете условията за ползване на %{service_name} и кликнете върху „Присъединяване на %{service_name}“ по-долу."
+      you_can_join_email_confirmation: "За да се присъедините към %{service_name}, трябва да имате валиден имейл адрес, който завършва с %{email_ending}. Можете да се присъедините, като попълните имейл адреса си, приемете условията за ползване и щракнете върху „Присъединете се %{service_name}“ по-долу а след това потвърдете имейла си."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} има ограничения за този имейл. Можете да се присъедините само ако имате разрешен имейл адрес. Можете да се присъедините, като попълните имейл адреса си, приемете условията за ползване на %{service_name} и кликнете върху „Присъединяване на %{service_name}“ по-долу."
       you_can_join_with_invite_only: "Трябва да имате покана от друг член, за да се присъедините към %{service_name}. Ако имате код на покана, можете да се присъедините, като напишете кода в полето по-долу, приемете условията за ползване и кликнете по-долу „Присъединете се %{service_name}“."
-      if_want_to_view_content: "Ако искате да видите съдържанието в %{service_name}, без да го присъедините  като член"
+      if_want_to_view_content: "Ако искате да видите съдържанието в %{service_name}, без да сте член, Вие трябва да"
       log_out: Изход
       join_community_button: "Присъединете се към %{service_name}"
     give_consent:
@@ -1474,16 +1474,16 @@ bg:
       you_can_accept_or_reject_request_at: "Можете да приемете или отхвърлите запитването до"
       you_have_not_yet_accepted_or_rejected_offer: "Още не сте приели или отхвърлили предложението %{title} , което получихте %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Още не сте приели или отхвърлили запитването %{title} , което получихте %{date}."
-      show_thread: ~
+      show_thread: "Покажи разговора"
     branding:
       powered_by: ~
       create_own: ~
       learn_more: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Все още не сте изпълнили или оспорили поръчката %{request_link}. Ако поръчката е приключила, трябва да потвърдите това. След това можете да дадете обратна връзка на %{other_party_given_name}."
-      remember_to_confirm_request: ~
+      remember_to_confirm_request: "Не забравяйте да потвърдите или отмените заявка"
       if_will_not_happen_you_should_cancel: "Ако смятате, че тази поръчка няма да бъде завършена по една или друга причина, можете да %{cancel_it_link}."
-      cancel_it_link_text: ~
+      cancel_it_link_text: оспорване
       automatic_confirmation: ~
     confirm_reminder_v2:
       headline: ~
@@ -1497,13 +1497,13 @@ bg:
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
+      here_is_a_message_from: "Съобщение от %{other_party_given_name}:"
+      request_marked_as_confirmed: "Поръчката е завършена - не забравяйте да оставите обратна връзка"
+      request_marked_as_canceled: "Поръчката е оспорена"
       has_marked_request_as_confirmed: "%{other_party_full_name} маркира поръчката за „%{request}“ завършена. Вече можете да дадете обратна връзка на %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} оспори поръчката за „%{request}“. Все още можете да дадете обратна връзка на %{other_party_given_name}."
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      giving_feedback_is_good_idea: "Винаги е добра идея да оставите обратна връзка. Ако всичко е било наред, нека и останалите разберат, че на %{other_party_given_name} може да се вярва. Ако е имало някакви проблеми, също е добре да ги споменете."
+      give_feedback_to: "Подай обратна връзка на %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
       team_title: ~
@@ -1545,7 +1545,7 @@ bg:
       thanks: "Благодаря,"
       dont_want_to_receive_these_emails: "Не искате да получавате тези имейли?"
       edit_your_email_settings_here: "Редактирайте настройките си за имейл тук"
-      message_not_displaying_correctly: "Този имейл не се показва правилно?"
+      message_not_displaying_correctly: "Този имейл показва ли се правилно?"
       view_it_in_your_browser: "Вижте го в браузъра си"
       or: или
       unsubscribe_from_these_emails_info: ~
@@ -1558,7 +1558,7 @@ bg:
       has_accepted_your_request: "%{accepter} прие вашата заявка за %{listing}."
       has_rejected_your_offer: "%{accepter} отхвърли вашата оферта за %{listing}."
       has_rejected_your_request: "%{accepter} отхвърли вашата заявка за %{listing}."
-      view_thread: ~
+      view_thread: "Виж разговора"
       your_offer_was_accepted: "Вашата оферта беше приета."
       your_offer_was_rejected: "Вашата оферта беше отхвърлена."
       your_request_was_accepted: "Вашата заявка беше приета."
@@ -1575,28 +1575,28 @@ bg:
       hi: Здравей
       you_have_been_invited_to_kassi: "%{inviter} ви покани на %{service_name}."
       here_is_a_message_from: "Това лично съобщение от %{inviter}:"
-      join_now: ~
+      join_now: "Присъедини се сега"
       invitation_code: ~
     invitation_to_kassi_v2:
       headline: Здравей!
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      view_comment: "Виж коментара"
       you_have_a_new_comment: "%{author}  ви остави коментар в %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} коментира обява, която следвате в%{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      view_message: "Виж съобщението"
+      has_sent_you_a_message_in_kassi: "%{sender} ви изпрати съобщение. За да отговорите, отидете на %{service_name}."
+      you_have_a_new_message: "Имате ново съобщение от %{sender_name} в %{service_name}"
     new_message_v2:
       headline: ~
       reply: ~
     new_payment:
-      new_payment: ~
+      new_payment: "Получихте ново плащане"
       price_per_unit_type: "Цена за %{unit_type}"
       quantity: ~
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "Бяха ви платени <b>%{payment_sum}</b> за <b>%{listing_title}</b> от %{payer_full_name}. Ето вашата разписка."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
@@ -1663,7 +1663,7 @@ bg:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} Ви оцени в %{service_name}."
       you_can_give_feedback_to: "Все още не сте оценили %{name}."
-      view_feedback: ~
+      view_feedback: "Виж обратната връзка"
     new_testimonial_v2:
       headline: ~
     new_update_to_listing:
@@ -1678,7 +1678,7 @@ bg:
       title_link_text: "%{community_name}"
       intro_paragraph: "Ето някои неща, които се случиха на %{community_link} през изминалия %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      reduce_email_footer_text: ~
+      reduce_email_footer_text: "Твърде много имейли? %{settings_link} или %{unsubscribe_link}."
       settings_link_text: "Редактирайте настройките си за имейл тук"
       unsubscribe_link_text: отписване
     community_updates_v2:
@@ -1693,7 +1693,9 @@ bg:
       text_version_text: "Ако имате информация която е полезна за други, споделите. Или имате нужда за това, което имат други? Добавете своята оферта или проверете това което предлагат и търсят други %{url}"
     reset_password_instructions:
       change_my_password: "Промяна на паролата"
-      reset_password_instructions: ~
+      reset_password_instructions: |-
+          <p>Ако сте забравили вашата парола в %{service_name}. </p><p>Ако желаета да получите нова парола последвайте%{password_reset_link}</p><br/><p>Ако не сте пожелали смяна на паролата, моля игнорирайте това писмо. Вашата парола няма да бъде сменена докато не последвате горния линк, който ще Ви пренасочи за нова такава.
+          </p> 
     testimonial_reminder:
       remember_to_give_feedback_to: "Напомняне: Оставете оценка на %{name}."
       you_have_not_given_feedback_yet: "Още не сте дали обратна връзка на %{name} за събитието \"%{event}\". Не забравяйте да дадете обратна връзка за това, как %{given_name} е провел събитието."
@@ -1724,7 +1726,7 @@ bg:
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Редактирайте имейл настройките си тук"
     new_listing_by_followed_person:
       subject: "%{author_name} публикува нова обява в %{service_name}"
       has_posted_a_new_listing: "%{author_name} публикува нова обява:"
@@ -1932,7 +1934,7 @@ bg:
     offers: Оферти
     requests: Заявки
     search_kassi: "Търсене в %{service_name}"
-    create_new_marketplace: "Създайте нов пазар"
+    create_new_marketplace: "Създайте нов Продавалник"
     contact_us: "Свържете се с нас"
     profile: Профил
     manage_listings: ~
@@ -1989,7 +1991,7 @@ bg:
       private_listing_notification_log_in: Вход
       is: е
       are: сте
-      what_do_you_need: "Какво търсиш?"
+      what_do_you_need: "Какво търсите?"
       post_new_listing: "Публикуване на нова обява"
       are_offering: предложение
       add_news_item: "Добавете статия"
@@ -2010,7 +2012,7 @@ bg:
       filter: ~
       this_is_private_community: "Трябва да сте регистриран преди да видите съдържанието."
     invitation_form:
-      email: ~
+      email: "Email адрес(и)"
       message: "Лично съобщение"
       send_invitation: "Изпрати покана"
       add_email_addresses_description: "Добавете имейл адресите на хората, които каните, в полето по-долу. За да добавите няколко имейл адреса, разделете ги със запетая."
@@ -2037,7 +2039,7 @@ bg:
       comments: коментари
     filters:
       show: "Филтър:"
-      search: ~
+      search: Търсене
       map: "Покажи карта"
       list: "Показване на списък"
       map_button: Карта
@@ -2071,7 +2073,7 @@ bg:
       create_own: ~
       learn_more: ~
     no_tribe:
-      inbox: Съобщения
+      inbox: "Входяща кутия"
       settings: Настройки
       feedback: "Свържете се с екипа на %{service_name}"
     application:
@@ -2089,7 +2091,7 @@ bg:
       connect: "Регистрирай се"
       invite_your_friends: "Покани приятели!"
       invite_your_neighbors: "Поканете съседите!"
-      invite_your_friends_description: "Колкото повече хора има в %{service_name}, толкова по-полезно е."
+      invite_your_friends_description: "Колкото повече хора има в %{service_name}, толкова е по-полезно."
       invite_your_friends_invite_only_description: "Хората не могат да се присъединят към %{service_name}, освен ако не са поканени."
       join_without_facebook: "... или алтернативно %{join_without_facebook_link}"
       join_without_facebook_link: "Регистрирай се без Facebook"
@@ -2155,9 +2157,9 @@ bg:
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: "Подробностите са актуализирани."
-      community_update_failed: "Подробното актуализиране не успешно."
+      community_update_failed: "Актуализирането не е успешно."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Вашият акаунт е създаден успешно. Сега трябва да потвърдите имейл адреса си."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Благодарим, че се присъединихте към %{service_name}. Сега трябва да потвърдите имейл адреса си."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Благодарим Ви, че се присъединихте към %{service_name}. Моля, потвърдете имейл адреса си."
       comment_cannot_be_empty: "Коментарът не може да бъде празен"
       comment_sent: "Коментарът е изпратен"
       confirmation_link_is_wrong_or_used: "Връзката за потвърждение вече е използвана или прекъсната по друг начин. Опитайте да влезете или да изпратите отзиви, ако проблемът продължава."
@@ -2166,7 +2168,7 @@ bg:
       social_network_email_unconfirmed: ~
       create_new_listing: ~
       create_one_here: "го създадете тук."
-      email_confirmation_sent_to_new_address: "Потвърждението по имейл вече се изпраща на новия адрес."
+      email_confirmation_sent_to_new_address: "Потвърждението е изпратено на новия адрес."
       email_not_found: "Даденият от вас имейл не бе намерен от базата данни %{service_name}."
       error_with_session: "Грешка при сесията."
       feedback_considered_spam: "Обратната връзка не е запазена поради форматирането и. Опитайте отново или използвайте форума за обратни връзки."
@@ -2241,11 +2243,11 @@ bg:
       send_instructions: "Ще получите имейл с инструкции как да нулирате паролата си след няколко минути."
       you_cannot_reply_to_a_closed_offer: "Не можете да отговорите на затворено предложение"
       you_cannot_send_message_to_yourself: "Не можете да изпратите съобщение до себе си"
-      you_followed_listing: "Сега следите този списък"
+      you_followed_listing: "Вие вече следите този списък"
       you_have_already_given_feedback_about_this_event: "Вече дадохте обратна връзка за това събитие"
       you_are_now_member: "Добре дошли в %{service_name}!"
-      you_are_already_member: "Вече сте член на %{service_name}. Добре дошъл обратно!"
-      you_must_log_in_to_create_new_listing: "Трябва да сте вписани в %{service_name}, за да създадете нова обява. Ако все още нямате акаунт, можете да %{sign_up_link}."
+      you_are_already_member: "Вече сте член на %{service_name}. Добре дошли обратно!"
+      you_must_log_in_to_create_new_listing: "Трябва да сте влезете в %{service_name}, за да създадете нова обява. Ако все още нямате акаунт, можете да %{sign_up_link}."
       additional_email_confirmed_dashboard: "Вашият имейл вече е потвърден."
       you_must_log_in_to_give_feedback: "Трябва да влезете, за да дадете обратна връзка"
       you_must_log_in_to_invite_new_users: "Трябва да влезете, за да поканите нови потребители на %{service_name}"
@@ -2253,10 +2255,10 @@ bg:
       you_must_log_in_to_send_a_message: "Трябва да влезете в %{service_name}, за да изпратите съобщение на друг потребител."
       you_must_log_in_to_do_a_transaction: "Трябва да сте вписани в %{service_name} за да осъществите желаното действие."
       you_must_log_in_to_view_this_content: "Трябва да влезете, за да видите това съдържание"
-      you_must_log_in_to_view_this_page: "Трябва да се вписани за да видите тази страница"
+      you_must_log_in_to_view_this_page: "Трябва да влезете в профила си за да видите тази страница"
       you_must_log_in_to_view_your_inbox: "Трябва да влезете в %{service_name}, за да видите входящата си поща."
       you_must_log_in_to_view_your_settings: "Трябва да влезете в %{service_name}, за да видите настройките си."
-      you_must_log_in_to_add_news_item: "Трябва да сте регистрирани в %{service_name} за да добавите обява."
+      you_must_log_in_to_add_news_item: "Трябва да влезете в профила си  %{service_name} за да добавите нова обява"
       you_must_log_in_to_change_profile_settings: "Трябва да влезете в %{service_name}, за да промените настройките на профила"
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
@@ -2419,7 +2421,7 @@ bg:
         rent_out: "Отдаване под наем"
         request_type: "Тип на заявката"
         sell: Продажба
-        share_for_free: "Споделяне безплатно"
+        share_for_free: "Сподели безплатно"
         accept_for_free: "Приемане безплатно"
         trade: Размяна
       tag_list:
@@ -2473,7 +2475,7 @@ bg:
       rents: Наемане
       rideshares: "Споделен превоз"
       sells: Продаване
-      share_for_frees: "Споделяне безплатно"
+      share_for_frees: "Сподели безплатно"
       accept_for_frees: "Приемане безплатно"
       trades: Размяна
     listing_actions:
@@ -2515,15 +2517,15 @@ bg:
     reply_link:
       listing_closed: ~
     show:
-      add_your_phone_number: "Добави телефонен номер"
-      add_profile_picture: "Добавете снимка на профила"
+      add_your_phone_number: "Добавете вашия телефонен номер"
+      add_profile_picture: "Добавете профилна снимка"
       comments: "Обществена дискусия"
-      contact_by_phone: "Контакт на телефона:"
+      contact_by_phone: "Свържи се чрез телефона:"
       contact: "Свържи се"
       favor_offer: "Предложение за услуга"
       favor_request: "Заявка за услуга"
       inquiry: ~
-      item_offer_trade: "Оферта за бартер"
+      item_offer_trade: "Оферта за размяна"
       item_request_trade: "Заявка за размяна"
       no_description: "Тази обява няма описание"
       no_image: ~
@@ -2712,7 +2714,7 @@ bg:
       email_not_allowed: "Този имейл не е разрешен в %{service_name}. Моля, използвайте имейл адрес, който е разрешен. Ако все още не можете да влезете, свържете се с нас."
       invalid_username_or_email: ~
       email_restriction_instructions:
-        one: "Достъпът до %{service_name} е ограниaccess access access access access чен. За да се присъедините, се нуждаете от имейл адрес '%{allowed_emails}'."
+        one: "Достъпът до %{service_name} е ограничен. За да се присъедините, се нуждаете от имейл адрес '%{allowed_emails}'."
         other: "Достъпът до %{service_name} е ограничен. Трябва ви имейл адрес, който доказва, че имате право да се присъедините."
       family_name: "Фамилно име"
       given_name: "Собствено име"
@@ -2792,11 +2794,11 @@ bg:
       login_to_kassi: "Влезте в %{service_name}"
       connect_your_facebook_to_kassi: "Свържете профила си във Facebook с %{service_name}"
       facebook_account: "Фейсбук профил:"
-      log_in_to_link_account: "Ако вече имате акаунт на %{service_name}, влезте, за да го свържете с вашия Facebook акаунт."
-      you_can_also_create_new_account: "Ако нямате акаунт в %{service_name}, %{accont_creation_link}, за да създадете вашия Facebook вход."
+      log_in_to_link_account: "Ако вече имате акаунт в%{service_name}, влезте, за да го свържете с вашия Facebook акаунт."
+      you_can_also_create_new_account: "Ако нямате акаунт в %{service_name}, %{accont_creation_link}, създайте чрез вашия Facebook профил."
       account_creation_link_text: "Натисни тук"
       cancle_facebook_connect: "Ако не искате да свържете този акаунт, можете да %{cancel_link}."
-      facebook_cancel_link_text: анулира
+      facebook_cancel_link_text: анулирайте
       log_in_with_your_provider_account: "Влезте с %{provider}"
       or_sign_up_with_your_username: "...или с вашия имейл адрес:"
       we_will_not_post_without_asking_you: "Никога няма да публикуваме във Facebook, без да ви питаме."
@@ -2809,10 +2811,10 @@ bg:
       welcome_to_kassi: "Добре дошли в %{service_name}!"
       check_your_email: "Провери си пощата"
       resend_confirmation_instructions: "Повторно изпращане на инструкции за потвърждаване"
-      your_current_email_is: "Вашият имейл %{email}"
-      change_email: промяна
+      your_current_email_is: "Вашият имейл е  %{email}"
+      change_email: променете
       confirm_your_email: "Моля, потвърдете имейл адреса си."
-      account_confirmation_instructions: "Скоро ще получите имейл с линк за потвърждение на имейл адреса ви. Не забравяйте да проверите вашата спам папка. След като потвърдите имейл адреса ви ще можете да се присъедините към %{service_name}."
+      account_confirmation_instructions: "Скоро ще получите имейл с линк за потвърждение на вашия имейл адрес. Не забравяйте да проверите и вашата спам папка. След като потвърдите имейл адреса си ще можете да се присъедините към %{service_name}."
       account_confirmation_instructions_title_admin: ~
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
@@ -2860,9 +2862,9 @@ bg:
       email_about_new_messages: "...някой ми изпраща съобщение"
       email_about_new_received_testimonials: "...някой ми дава обратна връзка"
       email_about_testimonial_reminders: "...забравих да дам отзиви за дадено събитие"
-      email_daily_community_updates: "Изпращайте ми бюлетин <b> всеки ден </b> ако има нови обяви"
-      email_weekly_community_updates: "Изпратете ми <b> седмичен </b> бюлетин, ако има нови обяви"
-      do_not_email_community_updates: "Не ми изпращайте бюлетини"
+      email_daily_community_updates: "Известявайте ме <b> всеки ден </b> при нови обяви"
+      email_weekly_community_updates: "Известявайте ме <b> седмичено </b> при нови обяви"
+      do_not_email_community_updates: "Не ме известявайте"
       email_when_conversation_accepted: "...някой приема моята оферта или молба"
       email_when_conversation_rejected: "...някой отхвърли моята оферта или молба"
       email_about_completed_transactions: ~
@@ -2891,7 +2893,7 @@ bg:
       profile_picture: "Профилна снимка"
       postal_code: "Пощенски код"
       profile_page: "в страницата на потребителския ви профил"
-      profilemap: ~
+      profilemap: "Изглед на картата"
       street_address: Местоположение
       these_fields_are_shown_in_your: "Част от тази информация е видима за всички потребители на %{service_name}"
       visible_to_everybody: "видим за всички"
@@ -3005,7 +3007,7 @@ bg:
     format: ~
   time:
     formats:
-      short: ~
+      short: "%b %e, %Y на %H:%M"
       shorter: "\n"
       short_date: ~
       hours_only: "%H:%M"
