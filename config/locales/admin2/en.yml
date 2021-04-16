@@ -327,8 +327,8 @@ en:
       minimum_transaction_size: "Minimum listing price"
       transaction_fee: "The minimum commission is currently set to %{fee}."
       errors:
-        minimum_listing_price_below_tx_fee: "The minimum listing price has to be greater than the minimum commission: %{minimum_transaction_fee}."
-        minimum_listing_price_below_min: "The minimum listing price has to be greater than the minimum commission %{minimum_commission}."
+        minimum_listing_price_below_tx_fee: "The minimum listing price has to be greater than the minimum commission currently set at %{minimum_transaction_fee}."
+        minimum_listing_price_below_min: "The minimum listing price has to be greater than %{minimum_commission}."
         payments_not_enabled: "The payment system is not enabled"
     user_fields:
       info_text: "Manage user fields"
