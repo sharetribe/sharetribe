@@ -327,8 +327,8 @@ fr:
       minimum_transaction_size: "Prix minimum d'annonce"
       transaction_fee: "La commission minimum est actuellement de %{fee}."
       errors:
-        minimum_listing_price_below_tx_fee: "Le prix minimum d'annonce doit être supérieur à la commission minimum : %{minimum_transaction_fee}"
-        minimum_listing_price_below_min: "Le prix minimum d'annonce doit être supérieur à la commission minimum : %{minimum_commission}"
+        minimum_listing_price_below_tx_fee: "Le prix minimum d'annonce doit être supérieur à la commission minimum qui est actuellement de %{minimum_transaction_fee}"
+        minimum_listing_price_below_min: "Le prix minimum d'annonce doit être supérieur à %{minimum_commission}"
         payments_not_enabled: "Le système de paiement n'est pas activé"
     user_fields:
       info_text: "Gérer les champs d'utilisateurs"
@@ -620,11 +620,11 @@ fr:
       receivers_languages: "Langue des destinataires de l'email"
       any_language: "Toutes les langues"
       subject: "Objet de l'email"
-      subject_info_text: "Pour améliorer la distribution des emails, l'objet est créé automatiquement et ne peut pas être modifié."
+      subject_info_text: "Pour améliorer la distribution des emails, l'objet est créé automatiquement et ne peut pas être modifié. L'objet sera automatiquement traduit dans la langue choisie par le destinataire."
       email_subject_text: "Un nouveau message de l'équipe %{service_name}"
       message_will_be_sent_only_to_people_with_this_language: "Cet email ne sera envoyé qu'aux utilisateurs de %{service_name} utilisant la langue que vous avez sélectionnée."
       content: "Contenu de l'email"
-      content_info_text: "\"Prénom\" ne peux pas être enlevé et sera automatiquement remplacé par le véritable prénom ou nom d'affichage de chaque destinataire."
+      content_info_text: "\"Prénom\" ne peux pas être enlevé et sera automatiquement remplacé par le véritable prénom ou nom d'affichage de chaque destinataire. \"Hello\" sera automatiquement traduit dans la langue choisie par le destinataire."
       content_hello: "Bonjour Prénom,"
       content_placeholder: "Que souhaitez-vous dire à vos utilisateurs ?"
       send_email: "Envoyer l'email aux utilisateurs"
@@ -1207,6 +1207,7 @@ fr:
       community_description_info_text: "La description est affichée dans les navigateurs, les résultats des moteurs de recherche et les réseaux sociaux."
       default_language: "La première langue de la liste est utilisée par défaut. La langue par défaut de votre place de marché est %{language}."
       marketplace_languages: "Langues de la place de marché"
+      language_selection_disabled: "Le choix des langues est désactivé pour votre place de marché car vous utilisez les languages suivants : %{languages}. Contactez l'équipe Sharetribe si vous souhaitez modifier les langues de votre place de marché."
       color: Couleur
       clp_enabled: "Puisque vous avez une page d'accueil personnalisée activée, cette couleur ne peut être modifiée."
       show_slogan: "Afficher le slogan sur la page d'accueil ou la page d'accueil personnalisée pour les utilisateurs qui ne sont pas connectés"
