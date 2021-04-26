@@ -1823,7 +1823,7 @@ et:
     transaction_cancel_flow:
       the_order_about: "Tellimusest %{listing_title}"
       you_can_contact_the_marketplace_team: "Kui teil on veel probleeme, võite võtta ühendust %{service_name} meeskonnaga."
-      you_can_now_give_feedback: "Nüüd võid jätta tagasisidet %{name}. Tagasiside andmine on alati hea mõte. Kui kõik läks hästi, peaksite teistele teatama, et %{recipient} saab usaldada. Kui esines probleem on hea ka nendest teavitada."
+      you_can_now_give_feedback: "Nüüd võid jätta tagasisidet %{name}. Tagasiside andmine on alati hea mõte. Kui kõik läks hästi, peaksite teistele teatama, et %{name} saab usaldada. Kui esines probleem on hea ka nendest teavitada."
       give_feedback_to: "Palun kirjuta tagasiside kasutajale %{name}"
     transaction_disputed:
       subject: "Tellimus vaidlustatud - meeskond %{service_name} vaatab olukorra üle"

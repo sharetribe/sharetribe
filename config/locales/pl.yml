@@ -1838,7 +1838,7 @@ pl:
     transaction_cancel_flow:
       the_order_about: "zamówienie %{listing_title}"
       you_can_contact_the_marketplace_team: "Możesz skontaktować się z zespołem %{service_name} jeśli masz jakieś pytania."
-      you_can_now_give_feedback: "Możesz teraz napisać opinię dla %{name}. Przekazywanie opinii jest bardzo dobrą praktyką. Jeżeli wszystko poszło sprawnie, daj znać innym, że %{recipient} jest godny zaufania. Jeżeli napotkałeś jakieś problemy, dobrze też o nich wspomnieć."
+      you_can_now_give_feedback: "Możesz teraz napisać opinię dla %{name}. Przekazywanie opinii jest bardzo dobrą praktyką. Jeżeli wszystko poszło sprawnie, daj znać innym, że %{name} jest godny zaufania. Jeżeli napotkałeś jakieś problemy, dobrze też o nich wspomnieć."
       give_feedback_to: "Przekaż opinię dla %{name}"
     transaction_disputed:
       subject: "Zamównienie unieważnione - zespół %{service_name} analizuje sytuację"

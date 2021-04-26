@@ -1823,7 +1823,7 @@ ca:
     transaction_cancel_flow:
       the_order_about: "l'ordre de %{listing_title}"
       you_can_contact_the_marketplace_team: "Pots contactar a l'equip de %{service_name} si hi ha algun altre problema."
-      you_can_now_give_feedback: "Ara pots escriure una valoració a %{name}. Deixar una valoració és sempre una bona idea. Si tot va anar bé, hauries de contar als altres que %{recipient} és de confiança. Si hi va haver algun problema, també és bo que ho mencionis."
+      you_can_now_give_feedback: "Ara pots escriure una valoració a %{name}. Deixar una valoració és sempre una bona idea. Si tot va anar bé, hauries de contar als altres que %{name} és de confiança. Si hi va haver algun problema, també és bo que ho mencionis."
       give_feedback_to: "Donar una valoració a %{name}"
     transaction_disputed:
       subject: "Ordre disputada - L'equip de %{service_name} està revisant la situació"

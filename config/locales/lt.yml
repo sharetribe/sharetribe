@@ -1824,7 +1824,7 @@ lt:
     transaction_cancel_flow:
       the_order_about: "užsakymas apie %{listing_title}"
       you_can_contact_the_marketplace_team: "Jei kyla kokių nors problemų, galite susisiekti su %{service_name} komanda."
-      you_can_now_give_feedback: "Dabar galite pateikti atsiliepimą apie %{name}. Atsiliepimo pateikimas visada yra gera idėja. Jei viskas pavyko gerai, turėtumėte pranešti kitiems, kad %{recipient} galima pasitikėti. Jei kilo kokių nors problemų, gerai paminėti ir tai."
+      you_can_now_give_feedback: "Dabar galite pateikti atsiliepimą apie %{name}. Atsiliepimo pateikimas visada yra gera idėja. Jei viskas pavyko gerai, turėtumėte pranešti kitiems, kad %{name} galima pasitikėti. Jei kilo kokių nors problemų, gerai paminėti ir tai."
       give_feedback_to: "Pateikite atsiliepimą apie %{name}"
     transaction_disputed:
       subject: "Užsakymas užginčytas - %{service_name} komanda peržiūri situaciją"
