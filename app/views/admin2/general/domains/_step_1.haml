@@ -3,7 +3,7 @@
     validateDomainForm();
 
 = form_tag test_dns_admin2_general_domains_path, remote: true, class: 'content-card-section-form' do
-  = render 'admin2/general/domains/header'
+  = render 'admin2/general/domains/header', contact_team: contact_team
   %section.content-card-section
     %h2= t('admin2.domain.custom_domain')
     %p.ingress

@@ -12,6 +12,7 @@ class Admin::DomainsPresenter
            :domain_possible?,
            :ident,
            :domain,
+           :trial?,
            to: :service, prefix: false
 
   def initialize(service:)
