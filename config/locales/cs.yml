@@ -1829,7 +1829,7 @@ cs:
     transaction_cancel_flow:
       the_order_about: "objednávka %{listing_title}"
       you_can_contact_the_marketplace_team: "Můžete kontaktovat %{service_name} tým, pokud vznikl další problém."
-      you_can_now_give_feedback: "Nyní můžete poskytnout zpětnou vazbu %{name}. Poskytnutí zpětné vazby je vždy užitečné. Pokud vše probíhalo dobře, měli byste dát ostatím vědět, že %{recipient} je důvěryhodný. Pokud se vyskytly nějaké problémy, je také dobré se o tom zmínit."
+      you_can_now_give_feedback: "Nyní můžete poskytnout zpětnou vazbu %{name}. Poskytnutí zpětné vazby je vždy užitečné. Pokud vše probíhalo dobře, měli byste dát ostatím vědět, že %{name} je důvěryhodný. Pokud se vyskytly nějaké problémy, je také dobré se o tom zmínit."
       give_feedback_to: "Dát zpětnou vazbu %{name}."
     transaction_disputed:
       subject: "Sporná objednávka - %{service_name} tým prověřuje situaci"

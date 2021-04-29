@@ -1823,7 +1823,7 @@ fr:
     transaction_cancel_flow:
       the_order_about: "la commande pour %{listing_title}"
       you_can_contact_the_marketplace_team: "Vous pouvez contacter l'équipe %{service_name} si vous avez le moindre problème."
-      you_can_now_give_feedback: "Vous pouvez désormais donner un avis sur %{name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{recipient} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
+      you_can_now_give_feedback: "Vous pouvez désormais donner un avis sur %{name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
       give_feedback_to: "Donner un avis sur %{name}"
     transaction_disputed:
       subject: "Commande contestée - L'équipe %{service_name} examine la situation"

@@ -1826,7 +1826,7 @@ nl:
     transaction_cancel_flow:
       the_order_about: "de order van %{listing_title}"
       you_can_contact_the_marketplace_team: "Je kunt contact opnemen met het %{service_name} team als er nog iets anders is."
-      you_can_now_give_feedback: "Je kan nu feedback geven aan %{name}. Het is altijd een goed idee om feedback te geven. Als alles goed is gegaan, kun je anderen laten weten dat %{recipient} een betrouwbare partij is. Als er problemen zijn geweest, is het zinvol om deze ook te vermelden."
+      you_can_now_give_feedback: "Je kan nu feedback geven aan %{name}. Het is altijd een goed idee om feedback te geven. Als alles goed is gegaan, kun je anderen laten weten dat %{name} een betrouwbare partij is. Als er problemen zijn geweest, is het zinvol om deze ook te vermelden."
       give_feedback_to: "Geef feedback aan %{name}"
     transaction_disputed:
       subject: "Order aangevochten - het %{service_name} zal de situatie bekijken."

@@ -1811,7 +1811,7 @@ ko:
     transaction_cancel_flow:
       the_order_about: "%{listing_title} 거래"
       you_can_contact_the_marketplace_team: "추가 문의 사항이 있으시면 %{service_name}에 연락 하실 수 있습니다."
-      you_can_now_give_feedback: "이제 %{name}님에게 피드백을 보낼 수 있습니다. 항상 피드백을 보내실 것을 권합니다. 거래에 문제가 없었다면 %{recipient}님이 신뢰할 수 있음을 다른 사람에게 알릴 수 있습니다."
+      you_can_now_give_feedback: "이제 %{name}님에게 피드백을 보낼 수 있습니다. 항상 피드백을 보내실 것을 권합니다. 거래에 문제가 없었다면 %{name}님이 신뢰할 수 있음을 다른 사람에게 알릴 수 있습니다."
       give_feedback_to: "%{name}님에게 피드백 보내기"
     transaction_disputed:
       subject: "분쟁건 - %{service_name}에서 거래내역을 검토중입니다."

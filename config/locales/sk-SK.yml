@@ -1833,7 +1833,7 @@ sk-SK:
     transaction_cancel_flow:
       the_order_about: "objednávka na %{listing_title}"
       you_can_contact_the_marketplace_team: "Môžete kontaktovať %{service_name} tím, ak máte ďalšie problémy."
-      you_can_now_give_feedback: "Teraz môžete dať spätnú väzbu na %{name}. Spätná väzba je vždy dobrý nápad. Ak všetko išlo dobre, mali by ste ostatným oznámiť, že %{recipient} je dôverzhodný. Ak sa vyskytli nejaké problémy, je dobré ich tiež spomenúť."
+      you_can_now_give_feedback: "Teraz môžete dať spätnú väzbu na %{name}. Spätná väzba je vždy dobrý nápad. Ak všetko išlo dobre, mali by ste ostatným oznámiť, že %{name} je dôverzhodný. Ak sa vyskytli nejaké problémy, je dobré ich tiež spomenúť."
       give_feedback_to: "Dať spätnú väzbu na %{name}"
     transaction_disputed:
       subject: "Sporná objednávka - tím %{service_name} prehodnocuje situáciu"

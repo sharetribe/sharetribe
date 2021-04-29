@@ -20,8 +20,7 @@
 %tr
   %td.email-content
     %p.text-bold
-      - recipient_name = PersonViewUtils.person_display_name(@recipient, @transaction.community)
-      = t("emails.transaction_cancel_flow.you_can_now_give_feedback", name: other_party_name, recipient: recipient_name)
+      = t("emails.transaction_cancel_flow.you_can_now_give_feedback", name: other_party_name)
 
 = render "person_mailer/action_button-v2", text: t("emails.transaction_cancel_flow.give_feedback_to", name: other_party_name), url: transaction_url
 = render 'person_mailer/cant_click', url: transaction_url

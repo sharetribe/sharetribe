@@ -1823,7 +1823,7 @@ fi:
     transaction_cancel_flow:
       the_order_about: "tilaus ilmoituksesta %{listing_title}"
       you_can_contact_the_marketplace_team: "Voit ottaa yhteyttä palvelun %{service_name} tiimiin mikäli mitään ongelmia ilmenee."
-      you_can_now_give_feedback: "Voit nyt antaa palautetta käyttäjälle %{name}. Palautteen antaminen on aina hyvä idea. Jos kaikki meni hyvin, voit kertoa että käyttäjään %{recipient} voi luottaa. Jos ongelmia ilmeni, niistä on myös hyvä mainta."
+      you_can_now_give_feedback: "Voit nyt antaa palautetta käyttäjälle %{name}. Palautteen antaminen on aina hyvä idea. Jos kaikki meni hyvin, voit kertoa että käyttäjään %{name} voi luottaa. Jos ongelmia ilmeni, niistä on myös hyvä mainta."
       give_feedback_to: "Anna palautetta käyttäjälle %{name}"
     transaction_disputed:
       subject: "Tilaus riitautettu - %{service_name} -palvelun tiimi tutkii tilannetta"
