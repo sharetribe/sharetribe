@@ -730,6 +730,7 @@ fr:
       show_transaction: Transactions
       payment_breakdown: "Détail du paiement"
       timeline_and_conversation: "Chronologie et conversation (%{count})"
+      commission_info: "Votre commission a été facturée mais ne sera pas visible sur votre compte PayPal. <a href=\"%{url}\" class='external-link' target=\"_blank\">En savoir plus</a>."
       buyer_pays: "L'acheteur paie :"
       booking_start: "Début de la réservation"
       booking_end: "Fin de la réservation"
