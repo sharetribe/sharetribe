@@ -21,6 +21,10 @@ class Admin::DomainsService
     !!plan.try(:[], :features).try(:[], :whitelabel)
   end
 
+  def trial?
+    plan.try(:[], :status) == :trial && !plan.try(:[], :expired)
+  end
+
   def domain_possible?
     white_label? && !use_domain?
   end

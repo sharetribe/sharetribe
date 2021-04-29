@@ -3,4 +3,8 @@
   %p.ingress
     = t('admin2.domain.domain_adress', url: @presenter.domain_address).html_safe
     %br
-    = t('admin2.domain.change_sharetribe_domain')
+    - if defined?(contact_team) && contact_team
+      = t('admin2.domain.not_change_sharetribe_domain').html_safe
+    - else
+      = t('admin2.domain.change_sharetribe_domain')
+
