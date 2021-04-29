@@ -44,15 +44,15 @@ describe "CommunityMailer", type: :mailer do
     end
 
     it "should have correct links" do
-      expect(@email).to have_body_text(/.*<a target=\"_blank\" href=\"http\:\/\/#{@c1.full_domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?ref=weeklymail.*/)
+      expect(@email).to have_body_text(/.*<a target=\"_blank\" class=\"email-listings-title\" href=\"http\:\/\/#{@c1.full_domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?ref=weeklymail.*/)
     end
 
     it "should include valid auth_token in links" do
-      expect(@email).to have_body_text("?auth=#{@p1_unsubscribe_token}")
+      expect(@email).to have_body_text("?auth=#{@unsubscribe_token}")
     end
 
     it "should contain correct service name in the link" do
-      expect(@email).to have_body_text(/that happened on <a href.+\">MarketTestPlace/)
+      expect(@email).to have_body_text(/MarketTestPlace/)
     end
   end
 
@@ -114,7 +114,7 @@ describe "CommunityMailer", type: :mailer do
       expect(ActionMailer::Base.deliveries.size).to eq(3)
       email = find_email_body_for(@p1.emails.first)
       email_body = email.html_part.body.to_s
-      expect(email_body.include?("during the past 1 day")).to be_truthy
+      expect(email_body.include?("during the past day")).to be_truthy
       email = find_email_body_for(@p2.emails.first)
       email_body = email.html_part.body.to_s
       expect(email_body.include?("during the past 14 day")).to be_truthy

@@ -19,7 +19,7 @@ describe UserService::API::Users do
 
     before { ActionMailer::Base.deliveries = [] }
 
-    before (:each) do
+    before(:each) do
       expect(ActionMailer::Base.deliveries).to be_empty
       @community = FactoryGirl.create(:community)
     end
@@ -51,7 +51,7 @@ describe UserService::API::Users do
       # simple check that link to right community exists
       email_body = email.html_part.body.to_s
       expect(email_body).to match @community.full_domain
-      expect(email_body).to match "Sharetribe team"
+      expect(email_body).to match "Confirm email address"
     end
 
     it "should send the confirmation email in right language" do

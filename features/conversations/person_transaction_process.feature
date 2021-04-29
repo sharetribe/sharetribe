@@ -23,7 +23,7 @@ Feature: Transaction process between two users
 
     # Replying
     When I open the email
-    And I follow "View message" in the email
+    And I follow "Click here to reply to Kassi" in the email
     And I log in as "kassi_testperson1"
     And I fill in "message[content]" with "Ok, that works!"
     And I press "Send reply"

@@ -179,7 +179,7 @@ describe IntApi::MarketplacesController, type: :controller do
     end
 
     it "should create a marketplace and assign feature flags" do
-      default_flags_for_trial = [:topbar_v1, :email_layout_v2]
+      default_flags_for_trial = [:topbar_v1]
       post :create, params: { admin_email: "eddie.admin@example.com",
                      admin_first_name: "Eddie",
                      admin_last_name: "Admin",

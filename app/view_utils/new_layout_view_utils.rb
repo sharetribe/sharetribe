@@ -25,11 +25,7 @@ module NewLayoutViewUtils
    [
     { title: t("admin.communities.new_layout.new_topbar"),
       name: :topbar_v1
-    },
-    { title: t("admin.communities.new_layout.new_email_templates"),
-      name: :email_layout_v2,
-      disabled: true
-    },
+    }
    ]
   end
 
@@ -50,7 +46,7 @@ module NewLayoutViewUtils
     person_flags = FeatureFlagService::API::Api.features.get_for_person(community_id: community_id, person_id: person_id).data[:features]
     community_flags = FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).data[:features]
 
-    fs = all_features(person_flags, community_flags, private_community, clp_enabled).reject { |a| a[:name] == :email_layout_v2 }
+    fs = all_features(person_flags, community_flags, private_community, clp_enabled)
 
     fs.map { |f|
       Feature.build({
