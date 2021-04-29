@@ -131,7 +131,7 @@ class PreauthorizeTransactionsController < ApplicationController
   def handle_tx_response(tx_response, gateway)
     if !tx_response[:success]
       render_error_response(request.xhr?, error_message(tx_response, gateway), action: :initiate)
-    elsif (tx_response[:data][:gateway_fields][:redirect_url])
+    elsif tx_response[:data][:gateway_fields][:redirect_url]
       xhr_json_redirect tx_response[:data][:gateway_fields][:redirect_url]
     elsif gateway == :stripe
       handle_tx_stripe_payment_intent(tx_response)
@@ -289,7 +289,7 @@ class PreauthorizeTransactionsController < ApplicationController
           delivery_method: opts[:delivery_method] || :none
     }
 
-    if(opts[:delivery_method] == :shipping)
+    if opts[:delivery_method] == :shipping
       transaction[:shipping_price] = opts[:shipping_price]
     end
     TransactionService::Transaction.create({

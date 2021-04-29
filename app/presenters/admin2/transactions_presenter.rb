@@ -61,6 +61,12 @@ class Admin2::TransactionsPresenter
     end
   end
 
+  def show_commission_info?
+    return false unless service.transaction.payment_gateway == :paypal
+
+    PaypalPayment.find_by(transaction_id: transaction.id)&.commission_status == 'seller_is_admin'
+  end
+
   def listing_title
     transaction.listing_title
   end

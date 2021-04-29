@@ -66,7 +66,8 @@ module TransactionService::Gateway
       { payment_total: payment_total,
         total_price: total_price,
         charged_commission: payment[:commission_total].or_else(nil),
-        payment_gateway_fee: payment[:fee_total].or_else(nil) }
+        payment_gateway_fee: payment[:fee_total].or_else(nil),
+        commission_status: payment[:commission_status].or_else(nil) }
     end
 
     private

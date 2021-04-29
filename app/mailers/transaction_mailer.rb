@@ -79,7 +79,8 @@ class TransactionMailer < ActionMailer::Base
 
     payment = TransactionService::Transaction.payment_details(transaction)
     payment_total = payment[:payment_total]
-    service_fee = Maybe(payment[:charged_commission]).or_else(Money.new(0, payment_total.currency))
+
+    service_fee = service_fee_calc(payment, transaction, payment_total)
     buyer_service_fee = payment[:buyer_commission] || Money.new(0, payment_total.currency)
     gateway_fee = payment[:payment_gateway_fee]
     shipping_price = Money.new(transaction.shipping_price_cents, payment_total.currency)
@@ -278,6 +279,14 @@ class TransactionMailer < ActionMailer::Base
   end
 
   private
+
+  def service_fee_calc(payment, transaction, payment_total)
+    if %i[errored failed seller_is_admin].include?(payment[:commission_status])
+      transaction.commission
+    else
+      Maybe(payment[:charged_commission]).or_else(Money.new(0, payment_total.currency))
+    end
+  end
 
   def premailer_mail(opts, &block)
     premailer(mail(opts, &block))

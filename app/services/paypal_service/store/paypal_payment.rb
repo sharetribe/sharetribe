@@ -73,7 +73,7 @@ module PaypalService::Store::PaypalPayment
   #
   # Return updated data or if no change, return nil
   def update(opts)
-    if(opts[:data].nil?)
+    if opts[:data].nil?
       raise ArgumentError.new("No data provided")
     end
 

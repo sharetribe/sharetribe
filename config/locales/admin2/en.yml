@@ -730,6 +730,7 @@ en:
       show_transaction: Transaction
       payment_breakdown: "Payment breakdown"
       timeline_and_conversation: "Timeline and conversation (%{count})"
+      commission_info: "Your commission was charged but will not be visible on your PayPal account. <a href=\"%{url}\" class='external-link' target=\"_blank\">Learn more</a>."
       buyer_pays: "Buyer pays:"
       booking_start: "Booking start"
       booking_end: "Booking end"

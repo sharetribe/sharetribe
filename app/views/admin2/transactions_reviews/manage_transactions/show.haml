@@ -28,6 +28,9 @@
     - if pr.link_payment.present?
       %br
       = link_to pr.text_link_payment, pr.link_payment, class: %i[external-link], target: :_blank
+    - if pr.show_commission_info?
+      %div
+        = t('admin2.manage_transactions.commission_info', url: 'https://help.sharetribe.com/en/articles/673554').html_safe
 
 %section.transaction-conversation
   .conversation-wrapper
