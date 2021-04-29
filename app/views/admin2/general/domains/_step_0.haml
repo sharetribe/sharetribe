@@ -10,7 +10,7 @@
     %h2= t('admin2.domain.sharetribe_domain')
     %p.ingress= t('admin2.domain.domain_adress', url: @presenter.domain_address).html_safe
     .form-group
-      = label_tag t('admin2.domain.your_sharetribe_domain')
+      = form.label :ident, t('admin2.domain.your_sharetribe_domain')
       .input-group
         = form.text_field :ident, class: %i[form-control], minlength: 3, maxlength: 50,
         required: true, exclude_reserved_domains: true, style: 'border-radius: 4px 0 0 4px',
@@ -32,7 +32,7 @@
     %p.ingress
       = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
     .form-group
-      = label_tag t('admin2.domain.custom_domain')
+      = label_tag :marketplaceName, t('admin2.domain.custom_domain')
       %input#marketplaceName.form-control{disabled: true, placeholder: 'www.example.com', type: 'text', value: @presenter.domain}
       %small#customDomain-help.form-text= t('admin2.domain.domain_validate_info_2')
 

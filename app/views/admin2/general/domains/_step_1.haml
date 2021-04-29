@@ -9,7 +9,7 @@
     %p.ingress
       = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
     .form-group
-      = label_tag t('admin2.domain.custom_domain')
+      = label_tag :domain, t('admin2.domain.custom_domain')
       = text_field_tag :domain, '', placeholder: 'www.example.com', class:%i[form-control], remove_protocol: true, valid_domain: true, 'data-msg-valid_domain': t('errors.messages.domain_name_is_invalid')
       %small#customDomain-help.form-text= t('admin2.domain.setup_domain_info')
   %section.content-card-terminal
