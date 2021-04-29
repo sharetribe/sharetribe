@@ -10,33 +10,48 @@ bg:
       edit:
         edit_listing_category: "Редактиране на категория %{category}"
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        listing_categories: "Категории обяви"
+        create_a_new_category: "+ Създайте нова категория"
+        remove_category_confirmation: "Сигурни ли сте, че желаете да изтриете тази категория %{category_name}? Веднъж направено няма да можете да я възтановите."
+        saving_order: "Запазване на реда на категориите"
+        save_order_successful: "Успешно запазихте реда на категориите"
+        save_order_error: "Изникна грешка докато запазвахте реда на категориите. Моля да обновите страницата и да опитате отново"
       new:
-        new_listing_category: ~
+        new_listing_category: "Нова категория обяви"
       form:
         category_name:
-          category_title: ~
+          category_title: "Заглавие на категорията"
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "източник на категорията"
+          no_parent: "няма източник"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "Видове поръчки"
+          transaction_types_description: "Видовете поръчки определят какъв вид начин на поръчки е позволен с обявите в тази категория. На пример, замо за продажба ли е или може и да се дава под наем или да се подарява"
           select_all: ~
           clear_all: ~
         buttons:
           save: Запомни
           cancel: Отказ
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
-        select_new_category: ~
+        remove_category: "Изтрийте категория"
+        remove_category_name: "Изтрийте категория %{category_name}"
+        warning_remove_effects: "Внимание! Изтриването на %{category_name} ще има следните последствия:"
+        warning_listing_will_be_moved:
+          one: "В тази категория има %{count} обява. Те ще бъдат преместени в избраната категория."
+          other: "В тази категория има %{count} обяви. Те ще бъдат преместени в избраната категория."
+        warning_custom_field_will_be_moved:
+          one: "В категорията има %{count} персонализирано поле. То ще бъде преместено в избраната категория."
+          other: "В категорията има %{count} персонализирани полета. Те ще бъдат преместени в избраната категория."
+        warning_subcategory_will_be_removed:
+          one: "В категорията има %{count} подкатегория. Тя ще бъде премахната."
+          other: "В категорията има %{count} подкатегории. Те ще бъдат премахнати."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "В категорията и подкатегориите има %{count} обява. Тя ще бъде преместена в избраната категория."
+          other: "В категорията и подкатегориите има %{count} обяви. Те ще бъдат преместени в избраната категория."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "В категорията и подкатегориите има %{count} персонализирано поле. То ще бъде преместено в избраната категория."
+          other: "В категорията и подкатегориите има %{count} персонализирани полета. Те ще бъдат преместени в избраната категория."
+        select_new_category: "Изберете нова категория, където изброените по-горе елементи да бъдат преместени:"
         buttons:
           remove: Премахни
           cancel: Отказ
@@ -50,30 +65,30 @@ bg:
         default_language: ~
         language_selection_disabled: ~
         community_name: "Име на пазара"
-        edit_community_name_description: ~
+        edit_community_name_description: "Името на вашата работилничка. Показва се на потребителите, електронните писма и на много други места."
         community_slogan: "Девиз на Продавалника"
         community_slogan_display: "Покажи слогана в своята начална страница"
-        edit_community_slogan_description: ~
+        edit_community_slogan_description: "Това се показва на страницата на пазара за потребители които не са влезли с профил. %{see_how_it_looks_like}"
         edit_community_slogan_description_hideable: "Това се показва в браузери, търсачки и социални мрежи. Можеш също да го покажеш в своята начална страница за онези потребители които не са логнати. %{see_how_it_looks_like}"
         community_description: "Описание на Продавалника"
         community_description_display: "Покажи описанието в своята начална страница"
-        edit_community_description_description: ~
+        edit_community_description_description: "Това се показва на страницата на пазара за потребители които не са влезли с профил. %{see_how_it_looks_like}"
         edit_community_description_description_hideable: "Това се показва в браузери, търсачки и социални мрежи. Можеш също да го покажеш в своята начална страница за онези потребители които не са логнати. %{see_how_it_looks_like}"
-        community_search_placeholder: ~
-        edit_community_search_placeholder_description: ~
-        private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
+        community_search_placeholder: "Търсене на помощни текстове"
+        edit_community_search_placeholder_description: "Това се показва в началната страница на магазина вместо текста в полето за търсене.%{see_how_it_looks_like}"
+        private_community_homepage_content: "Съдържание на началната страница на личния маркет"
+        edit_private_community_homepage_content_description: "Това съдържание се показва на началната страница на личен маркет на потребители които не са влезли с профил. Тук можете да опишете вашия маркет и как може някой да се присъедини към него. Тук ожете също да добавите снимки, видеа и HTML съдържание. %{see_how_it_looks_like}"
         update_information: "Запазване на настройките"
         invite_people: "Поканете нови потребители"
-        edit_signup_info: ~
-        edit_signup_info_description: ~
-        edit_info: ~
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
-        save: ~
+        edit_signup_info: "Информация за вписване"
+        edit_signup_info_description: "Това е информационнен текст, който може да бъде показван на потребителите на страницата за вписване. Там може да дадете инструкции за вписване, например от къде да намерят покана и т.н. По принцип там няма инструкции."
+        edit_info: "Редактирайте информацията"
+        see_how_it_looks_like: "Вижте как работи"
+        verification_to_post_listings_info_content: "Информационен текст за непотвърдени потребители"
+        verification_to_post_listings_info_content_description: "Понастоящем изисквате вашите потребители да бъдат ръчно потвърдени от вас, преди да могат да публикуват обяви. Тук можете да зададете текст по подразбиране, който се показва на непотвърдени потребители, когато се опитат да публикуват нова обява."
+        verification_to_post_listings_info_content_default: "%{service_name} изисква хората да бъдат потвърдени ръчно от администратор, преди да могат да публикуват обяви. Все още не сте потвърдени. За да получите потвърждение, моля %{contact_admin_link}."
+        contact_admin_link_text: "свържете се с екипа на %{service_name}"
+        save: "Запазете настройките"
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
@@ -85,53 +100,53 @@ bg:
       edit_look_and_feel:
         edit_community_look_and_feel: "Редактирайте облика на вашият Продавалник „%{community_name}“"
         community_logo: Лого
-        community_logo_icon: ~
+        community_logo_icon: "Лого за социалните мрежи и мобилните устройства"
         community_logo_icon_mobile: "Лого за началния екран при мобилни устройства"
         community_cover_photo: Корица
-        small_community_cover_photo: ~
-        favicon: ~
-        favicon_info_text: ~
+        small_community_cover_photo: "Малка снимка на корицата"
+        favicon: Фавикон
+        favicon_info_text: "Фавиконът ще замени логото на Sharetribe. Размерите му трябва да бъдат 32x32 пиксела, а каченото изображение ще бъде оразмерено"
         community_custom_color1: "Основен цвят на Продавалника"
         community_slogan_color: ~
         community_slogan_color_instructions_text: ~
         community_description_color: ~
         community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "Размерът на логото би трябвало да е %{width}x%{height} пиксела. Ще бъде показвано на потребители в по-големи монитори."
         logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Това квадратно лого ще бъде показвано когато някой сподели вашата страница във Фейсбук, когато разглеждат вашата страница на мобилно устройство или когато го запазят на работното пространство на мобилният телефон. Размерите трябва да бъдат (най-малко) %{width}x%{height} пиксела"
         logo_icon_instructions_text_with_dimensions_no_placing: ~
         logo_mobile_icon_instructions_text_with_dimensions: "Това квадратно лого ще бъде показано в мобилните устройства когато хората добавят Вашия сайт като любим \"bookmark\". Препоръчителните размери са %{width}x%{height}px."
-        cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_visibility: "Снимка на корицата се показва в началната страница за потребители, които не са влезли с профил."
+        cover_photo_instructions_text_with_dimensions: "Снимката ще бъде оразмерена на %{width}x%{height} пиксела а по-високите ще бъдат изрязани в средата.%{see_how_it_looks_like}"
         we_have_you_covered: ~
         cover_photo_ready_made: ~
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
-        main_content_width: ~
+        small_cover_photo_visibility: "Малка снимка на корицата се показва във всички страници с изключение на страниците за потребители които са влезли с профил."
+        small_cover_photo_instructions_text_with_dimensions: "Снимката ще бъде оразмерена на %{width} x %{height} пиксела и дългите изображения ще бъдат изрязани на средата."
+        main_content_width: "Когато избирате снимка на корицата имайте предвид, че в съдържанието на главната страница размера е %{main_width}. Моля, проверете как изглежда вашата корица на по-малки екрани ( т.е използвайте по-малък прозорец на браузъра)."
         custom_color1_instructions_text: "Можете да смените основния цвят на потребителкия интерфейс като влезете в hex colour value.%{link} може да ви помогне да изберете цвят и да ви предостави hex colour код. Можете да копирате кода тук"
         new_listing_button_instructions_text: ~
-        default_browse_view: ~
+        default_browse_view: "Изглед при разглеждане по подразбиране"
         default_browse_view_instructions_text: ~
-        grid: ~
-        list: ~
-        map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
-        invalid_color_code: ~
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        grid: Мрежа
+        list: Каталог
+        map: Карта
+        name_display_type: "Вид на показаното име"
+        name_display_type_instructions_text: "Изберете как да се показва името на всеки един от потребителите на сайта."
+        full_name: "Вашите имена (Име,Фамилия)"
+        first_name_with_initial: "Инициал на името (например Л)"
+        first_name_only: "Само първото име (Първо)"
+        invalid_color_code: "Цветния код трябва да съдържа 6 числа или букви от A-F, например D96E21"
+        custom_head_script: "Персонализиран текст"
+        custom_head_script_instructions_text: "Персонализираният текст може да бъде конфигуриран<a href='%{url}'>във вашия нов Администраторски панел</a>"
         current_image: ~
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: Инструкции
       edit_welcome_email:
-        welcome_email_content: ~
-        welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        welcome_email_content: "Поздравително писмо съдържание"
+        welcome_email_content_description: "Съобщението по-долу ще бъде изпращано на всеки нов потребител при тяхното присъединяване. Можете да нагодите съобщението така, че да отговаря на вашето магазинче. Натискайки %{send_test_message_link} можете да изпратите примерно писмо до вашия електронен адрес за да видите как ще изглежда"
+        edit_message: "Редактирайте съобщението"
+        send_test_message: "Изпратете тестово съобщение"
       outgoing_email:
         title: ~
         info: ~
@@ -201,13 +216,13 @@ bg:
         zh: ~
         zh-TW: ~
       settings:
-        settings: ~
-        general: ~
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
+        settings: Настройки
+        general: Основни
+        access: "Достъп и предпочитания за контакти"
+        join_with_invite_only: "Позволи на нови потребители да се присъединят само с покана от регистрирани потребители"
+        users_can_invite_new_users: "Разрешете на всички регистрирани потребители, не само администраторите, да канят нови потребители"
+        private: "Разрешете само на регистрирани потребители да виждат обявите  и потребителските профили ( направете магазина видим само за вас)"
+        require_verification_to_post_listings: "Разрешете само на потребители проверени от администратор да пускат нови обяви"
         allow_free_conversations: ~
         search_preferences: ~
         search_and_location_preferences: ~
@@ -221,23 +236,23 @@ bg:
         show_only_nearby: ~
         allow_users_to_add_location: ~
         fuzzy_location: ~
-        listing_preferences: ~
-        transaction_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        google_analytics_key: ~
-        twitter_handle: ~
-        update_settings: ~
+        listing_preferences: "Настройки на обявите"
+        transaction_preferences: "Предпочитания за поръчка"
+        show_listing_publishing_date: "Показвай датата на побликуването на обявата на страницата с обяви"
+        show_category_in_listing_list: "Покажи вида на обявата в изгледа на списъка"
+        listing_comments_in_use: "Разрешете на потребителите да коментират обявите ( видимо за всички други потребители)"
+        email_preferences: "Предпочитания за електронната поща"
+        automatic_newsletters: "Изпращайте автоматично всекидневен / седмичен бюлетин до всички потребители ( освен ако не са забранили опцията)"
+        email_admins_about_new_members: "Уведомяване на администраторите с електронно писмо при регистриране на нов потребител"
+        google_analytics_key: "Google Analytics проследяващо ID"
+        twitter_handle: "Потребителско име в Twitter ( излиза на страницата с обяви с връзка към Twitter)"
+        update_settings: "Запази настройките"
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
         buyer_transaction_fees_are_only_supported_with_stripe: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        automatic_newsletter_frequency: "Изпрати автоматичен бюлетин:%{frequency_dropdown}"
+        newsletter_daily: Всекидневно
+        newsletter_weekly: Седмично
         delete_marketplace_title: ~
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
@@ -251,19 +266,19 @@ bg:
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
-        manage_members: ~
-        email: ~
-        name: ~
+        manage_members: Потребители
+        email: Имейл
+        name: Име
         display_name: "Публично име"
-        join_date: ~
-        admin: ~
-        posting_allowed: ~
-        ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
+        join_date: Присъединен
+        admin: Администратор
+        posting_allowed: "Публикуването е разрешено"
+        ban_user: Изключи
+        saving_user_status: Запазване...
+        save_user_status_successful: Запазено
         export_all_as_csv: ~
-        save_user_status_error: ~
-        ban_user_confirmation: ~
+        save_user_status_error: "Неуспешно запазване на настройките. Моля, презаредете страницата и опитайте отново."
+        ban_user_confirmation: "Това деактивира потребителския профил от магазина и не позволява повече достъп до сайта. Сигурни ли сте,че искате да продължите?"
         unban_user_confirmation: ~
         ban_me_error: "Не можете да деактивирате собствения си акаунт."
         have_ongoing_transactions: ~
@@ -415,16 +430,16 @@ bg:
         url: URL
         placeholder: "https://www.example.com"
       menu_links:
-        menu_links: ~
+        menu_links: "Връзки за персонализиране на менюто"
         menu_links_display: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
-        empty: ~
+        save: "Запазете настройките"
+        add_menu_link: "Добавете нова връзка към менюто"
+        title_placeholder: "Заглавие на връзката"
+        url_placeholder: "https://www.example.com/bg"
+        title: Заглавие
+        language: Език
+        url: URL
+        empty: "Нямате никакви допълнителни връзки на менюто"
         max_number_of_links: ~
         all: ~
         max_number_of_links_info: ~
@@ -863,54 +878,54 @@ bg:
       edit_price:
         description: ~
         edit_price_field: "Редактиране на полето за обяви „Цена“"
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        show_price_filter_homepage: "Покажи ценовия филтър на началната страница"
+        price_min: "Филтрирай по най-ниска цена"
+        price_max: "Филтрирай по най-висока цена"
       edit_location:
-        edit_location_field: "Редактиране на полето за регистрация „Местоположение“"
-        this_field_is_required: ~
+        edit_location_field: "Редактиране на полето за обява „Местоположение“"
+        this_field_is_required: "Това поле е задължително"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Редактиране на полето за обява „Дата на изтичане“"
         enable: ~
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
+          this_field_is_required: "Направете задължително попълването на това поле при създаване на нова обява"
+          this_field_is_required_checkbox: "Направете задължително попълването на това поле когато създавате нова обява (потребителят трябва да избере поне една опция)"
         search_filter:
           search_filter: ~
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: ~
-        listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
+        listing_fields: "Полета с обяви и филтри"
+        listing_fields_help: "Тук можете да редактирате полетата, които потребителите трябва да попълнят при създаване на нова обява. Имайте предвид,че някои от полетата са защитени и не могат да се редактират."
+        add_new_field: "Добавете ново поле:"
+        remove_field_confirmation: "Сигурни ли сте, че желаета да изтриете полето %{field_name} и всичката прилежаща информация? Веднъж изтрито не може да бъде възтановено."
+        cancel: Отказ
+        save: Запази
+        field_title: "Заглавие на полето"
+        field_type: "Вид на полето"
+        categories: "Полета в които влизат категориите на обявите"
         select_all: ~
         clear_all: ~
-        options: ~
-        add_option: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
-        select_one: ~
-        continue: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        options: Настройки
+        add_option: "+ Добавете опции"
+        saving_order: "Запазване на подредбата на полето"
+        save_order_successful: "Успешно запазване на подредбата на полето"
+        save_order_error: "Изникна грешка при запазване на подредбата на полето. Моля да обновите страницата и да опитате отново."
+        select_one: "Изберете вид на полето"
+        continue: Продължете
+        minimum_value: Минимално
+        maximum_value: максимално
+        allow_decimals: "Разреши десетични знаци"
       new:
-        new_listing_field: ~
+        new_listing_field: "Ново поле за обяви"
       field_types:
-        text: ~
-        number: ~
-        dropdown: ~
-        checkbox_group: ~
-        date: ~
+        text: Текст
+        number: Номер
+        dropdown: "Падащо меню"
+        checkbox_group: "Група за отметки"
+        date: Дата
         file: ~
         location: Mестоположение
     person_custom_fields:
@@ -1150,21 +1165,21 @@ bg:
         actions: ~
         payments_not_enabled: ~
     transaction_types:
-      sell: ~
+      sell: Продажби
       sell_w_online_payment: ~
       sell_wo_online_payment: ~
-      rent: ~
+      rent: Наем
       rent_w_online_payment: ~
       rent_wo_online_payment: ~
-      give: ~
-      lend: ~
-      swap: ~
+      give: Подарък
+      lend: "На заем"
+      swap: Размяна
       service: Предлагащи
       service_w_online_payment: "Предлагане с онлайн плащане"
       service_wo_online_payment: "Предлагане без онлайн плащане"
       request: Търсещи
-      inquiry: ~
-      share_for_free: ~
+      inquiry: Обявление
+      share_for_free: "Безплатно споделяне"
       event_w_online_payment: ~
       event_wo_online_payment: ~
       default_action_button_labels:
@@ -1221,15 +1236,15 @@ bg:
     categories:
       item: Предмети
       favor: Услуги
-      rideshare: ~
-      housing: ~
+      rideshare: "Споделено пътуване"
+      housing: Места
       tools: Инструменти
       sports: Спорт
       music: Музика
       books: "Книги и списания"
       games: "Игри и играчки"
       furniture: Мебели
-      outdoors: ~
+      outdoors: "Къмпинг и На открито"
       food: "Храна и кухня"
       electronics: електроника
       pets: "Домашни любимци и животни"
@@ -1315,9 +1330,9 @@ bg:
       confirmed_offer: "Офертата е завършена."
       canceled_request: "Поръчката е оспорена."
       canceled_offer: "Офертата е отменена."
-      message_from: ~
-      about_listing: ~
-      free_message: ~
+      message_from: "Съобщение от%{person}"
+      about_listing: "Относно обявата%{listing_title}"
+      free_message: "Директно съобщение"
       message_content_not_available: ~
     message:
       accepted_request: "прие заявката"
@@ -1343,19 +1358,19 @@ bg:
       payment_has_now_been_transferred: ~
     new:
       message: Съобщение
-      message_to: ~
-      optional_message_to: ~
+      message_to: "Съобщение до%{author_name}"
+      optional_message_to: "Съобщение до %{author_name} по избор"
       send_message: "Изпрати съобщение"
-      send: ~
+      send: Изпрати
       this_message_is_private: "Това съобщение е частно между вас и %{person}. %{person} ще бъде уведомен за това съобщение по имейл."
       you_will_get_notified_of_acceptance: "Ще получите известие по имейл, когато %{person} приеме или отхвърли предложението ви."
       you_will_get_notified: "Ще получите известие по имейл, когато %{person} ви отговори."
       title: Заглавие
       send_message_to_user: "Изпрати съобщение на %{person}"
-      about_listing: ~
-      author_has_to_accept_request: "%{author_name} трябва да приеме заявката, преди да можете да платите"
+      about_listing: "Относно обявата %{listing_title}"
+      author_has_to_accept_request: "%{author_name} трябва да приеме заявката, преди да заплатите"
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: "относно обявата"
       message_sent_by: "Съобщение, изпратено от"
       message_sent_to: "Съобщение изпратено до"
       send_reply: "Изпрати отговор"
@@ -1365,8 +1380,8 @@ bg:
       conversation_with: "Разговор с %{person}"
       last_message_at: "(последно съобщение %{time})"
       price: "Цена: %{price}"
-      sum: ~
-      total: ~
+      sum: "Общо:%{sum}"
+      total: "Общо:%{total}"
     status:
       payment_errored: ~
       payment_errored_starter: ~
@@ -1383,7 +1398,7 @@ bg:
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
       pay: Плати
-      preauthorized: ~
+      preauthorized: "Плащането е успешно"
       paid: "Плащането успешно"
       pending_external:
         paypal:
@@ -1401,12 +1416,12 @@ bg:
       skip_feedback: "Откажи оценяването"
       waiting_for_listing_author_to_accept_offer: "В очакване на %{listing_author_name} да приеме офертата"
       waiting_for_listing_author_to_accept_request: "В очакване на %{listing_author_name} да приеме заявката. Веднага щом %{listing_author_name} приеме, ще бъдете таксувани."
-      waiting_for_you_to_accept_request: ~
+      waiting_for_you_to_accept_request: "Моля, приемете заявката"
       waiting_confirmation_from_requester: "В очакване на %{requester_name} да отбележи поръчката като завършена"
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_you: "Моля, отбележете поръчката като завършена"
       waiting_payment_from_requester: "В очакване на %{requester_name} да плати"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "Моля, платете."
+      waiting_feedback_from_you: "Моля, напишете отзив"
       pending_external_inbox:
         paypal:
           multicurrency: "Чакам да приемете плащането чрез PayPal"
@@ -1432,10 +1447,10 @@ bg:
       accept_request: "Приемане на поканата"
       reject_offer: "Този път не"
       reject_request: "Този път не"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Приеми оферта"
+      accept_preauthorized_request: "Приеми заявка"
+      reject_preauthorized_offer: "Не и този път"
+      reject_preauthorized_request: "Не и този път"
       confirm: "Отбележи като завършено"
       cancel: Оспори
       mark_as_refunded: ~
@@ -1447,9 +1462,9 @@ bg:
     anonymous_user: ~
   community_memberships:
     access_denied:
-      access_denied: ~
+      access_denied: "Достъпът е отказан"
       you_are_banned_in_this_community: "Екипът на %{service_name} деактивира вашия акаунт. Ако искате да изпратите съобщение на екипа на %{service_name}, можете да %{link_to_contact_page}."
-      contact_page_link: ~
+      contact_page_link: "свържете се с тях"
     new:
       welcome_fb_user: "Добре дошли в %{service_name}, %{name}"
       fb_join_accept_terms: "Има още една стъпка, за да се присъедините към %{service_name}: трябва да приемете условията за ползване."
@@ -1484,15 +1499,15 @@ bg:
       remember_to_confirm_request: "Не забравяйте да потвърдите или отмените заявка"
       if_will_not_happen_you_should_cancel: "Ако смятате, че тази поръчка няма да бъде завършена по една или друга причина, можете да %{cancel_it_link}."
       cancel_it_link_text: оспорване
-      automatic_confirmation: ~
+      automatic_confirmation: "При потвърдена заявка, ако не потвърдите или оспорите поръчката до %{days_to_automatic_confirmation} дни, тя ще бъде отбелязана автоматично като изпълнена."
     confirm_reminder_v2:
       headline: ~
       you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
-      please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      remember_to_add_payment_details: "Не забравяйте да добавите подробности за начина на плащане за да бъде възможно да получавате такива"
+      you_have_added_listing_with_payment: "Вие добавихте обявата %{listing_link} Тъй като не сте добавили подробноси за начина на заплащане, моля добавете ги към вашия профил."
+      please_go_to_payment_settings: "Моля отидете до вашия %{payment_settings_link} и попълнете задължителната информация за плащания."
+      payment_settings_link: "настройки на плащанията"
     payment_settings_reminder_v2:
       fill_payout_details: ~
       you_have_added_listing_with_payment: ~
@@ -1515,8 +1530,8 @@ bg:
       can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Поръчката е изпълнена автоматично- не забравяйте да напишете отзив"
+      we_have_marked_request_as_confirmed: "Отбелязахме поръчката %{request} като изпълнена, защото минаха %{days_passed} дни от както заявката бе приета."
     transaction_automatically_confirmed_v2:
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
@@ -1565,7 +1580,7 @@ bg:
       your_request_was_rejected: "Вашата заявка беше отхвърлена."
       you_can_now_pay_to: "Вече можете да платите исканата сума до %{payment_receiver}."
       pay_now: "Плати сега"
-      remember_to_confirm: ~
+      remember_to_confirm: "Когато изпълните поръчката, моля отбележете я като завършена. Ако поръчката не е изпълнена имате %{days_to_automatic_confirmation} дни да я оспорите, в противен случай тя ще бъде автоматично отбелязана като завършена."
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
@@ -1576,15 +1591,15 @@ bg:
       you_have_been_invited_to_kassi: "%{inviter} ви покани на %{service_name}."
       here_is_a_message_from: "Това лично съобщение от %{inviter}:"
       join_now: "Присъедини се сега"
-      invitation_code: ~
+      invitation_code: "Код за покана: %{code}"
     invitation_to_kassi_v2:
       headline: Здравей!
     new_comment:
-      has_commented_your_listing_in_kassi: ~
+      has_commented_your_listing_in_kassi: "%{author} коментира вашата обява %{listing}"
       view_comment: "Виж коментара"
       you_have_a_new_comment: "%{author}  ви остави коментар в %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} коментира обява, която следвате в%{service_name}"
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: "%{author} направи коментар на обявата %{listing}  вие следите %{service_name}"
     new_message:
       view_message: "Виж съобщението"
       has_sent_you_a_message_in_kassi: "%{sender} ви изпрати съобщение. За да отговорите, отидете на %{service_name}."
@@ -1639,19 +1654,19 @@ bg:
       paypal_gateway_fee: ~
       shipping_total: ~
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: "Продукт:"
+      price_payer_paid: "Цената за %{payer_full_name} е платена:"
+      service_fee: "%{service_name} такса за услугата:"
+      you_will_get: "Общо:"
     receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
+      receipt_of_payment: "Разписка за плащане"
+      you_have_made_new_payment: "Заплатихте <b>%{payment_sum}</b> за <b>%{listing_title}</b> на %{recipient_full_name}. Ето разписка за плащането."
+      product: "Продукт:"
       price_per_unit_type: "Цена за %{unit_type}"
       duration: ~
       quantity: ~
       subtotal: ~
-      total: ~
+      total: Общо
       price: Цена
       buyer_service_fee: ~
       stripe_gateway_fee: ~
@@ -1668,8 +1683,8 @@ bg:
       headline: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Списъкът, който следвате, е актуализиран"
-      has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} обнови обявата %{listing} вие следвате %{service_name}"
+      view_changes: "Виж промените"
     community_updates:
       added_offer: "%{name_link} добави обява:"
       added_request: "%{name_link} добави обява:"
@@ -1704,34 +1719,34 @@ bg:
       you_have_not_given_feedback_yet: ~
       leave_feedback: ~
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester} е заинтересуван и е позволил заплащането на%{listing_title} побликувано в %{service_name}"
+      transaction_requested_by_user: "Страхотна новина!%{requester} се интересува от %{listing_title} и желае да заплати."
       you_have_time_to_accept: ~
       if_you_do_accept: ~
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Натиснете тук за да отговорите на заявката"
     transaction_preauthorized_v2:
       headline: ~
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "Не забравяйте да приемете заявката от %{requester} относно обявата%{listing_title}"
+      remember_to_accept: "Не забравяйте да приемете заявката от %{requester} относно обявата%{listing_title}. %{requester}  е направил плащане. За да получите заплащането, Вие трябва да приемете заявката."
+      one_day_left: "В случай, че не приемете заявката до следващия ден то тя автоматично ще бъде отказана и няма да се извърши плащане."
+      click_here_to_reply: "Натиснете тук за да отговорите на заявката"
     transaction_preauthorized_reminder_v2:
       headline: ~
       remember_to_accept: ~
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
+      welcome_email_subject: "Добре дошли в %{service_name}"
+      welcome_to_marketplace: "Добре дошли в %{service_name}! Радваме се, че сте с нас."
       love_marketplace_crew: ~
       welcome_email_footer_text: "%{settings_link}"
       settings_link_text: "Редактирайте имейл настройките си тук"
     new_listing_by_followed_person:
       subject: "%{author_name} публикува нова обява в %{service_name}"
       has_posted_a_new_listing: "%{author_name} публикува нова обява:"
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      you_are_receiving_this_because: "Вие получавате това известие защото сте последовател на%{author_name}"
+      view_listing: "Погледни обявата"
     new_listing_by_followed_person_v2:
       headline: ~
       has_posted_a_new_listing: "%{author_name} публикува нова обява:"
@@ -1832,8 +1847,8 @@ bg:
       departure_time: "Времето за заминаване трябва да бъде до една година от днешната дата."
       share_type: "Трябва да изберете поне едно."
       valid_until: "Датата трябва да бъде между текущата и 6 месеца напред."
-      price: ~
-      minimum_price: ~
+      price: "Цената трябва да е цяло число."
+      minimum_price: "Минималната цена е %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Ако искате да дадете не-неутрална обратна връзка, трябва да обясните защо."
       you_must_select_a_grade: "Не забравяйте да кажете дали вашият опит е бил положителен или отрицателен."
@@ -1916,7 +1931,7 @@ bg:
       has_accepted_rent_out_housing: "%{offerer_name} се съгласи да наеме%{listing_title} на%{requester_name} %{time_ago}"
       has_accepted_rent_housing: "%{offerer_name} се съгласи да наеме%{listing_title} на %{requester_name} %{time_ago}"
       has_accepted_favor: "%{offerer_name} съгласен да предложи %{listing_title} на %{requester_name} %{time_ago}"
-      has_accepted_rideshare: ~
+      has_accepted_rideshare: "%{offerer_name} се съгласи да сподели пътуване %{listing_title} с %{requester_name} %{time_ago}."
     join:
       joined_kassi: "%{name} присъединиха %{service_name} %{time_ago}."
     login:
@@ -1941,7 +1956,7 @@ bg:
     invite: "Покани нови потребители"
     login: Вход
     signup: "Регистрирай се"
-    menu: ~
+    menu: Меню
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "В допълнение има <b>друго предложение</b>,"
@@ -1981,11 +1996,11 @@ bg:
     event_feed:
       latest_events: "Какво става"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(обработка на качената снимка)"
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: "Съжаляваме, но не успяхме да открием обяви базирани на вашите критерии. Защо не пробвате с други артикули?"
       no_listings_notification: "Няма обяви. %{add_listing_link}"
-      add_listing_link_text: ~
+      add_listing_link_text: "Добави нова обява"
       open_listing: "отворена обява"
       open_listings: "отворени обяви"
       private_listing_notification_log_in: Вход
@@ -2008,8 +2023,8 @@ bg:
       tell_it_here: "Разкажи го тук!"
       welcome_to_new_kassi: "Добре дошли в %{service_name}!"
       no_reviews: "Засега няма отзиви"
-      no_image: ~
-      filter: ~
+      no_image: "Няма снимка"
+      filter: Филтър
       this_is_private_community: "Трябва да сте регистриран преди да видите съдържанието."
     invitation_form:
       email: "Email адрес(и)"
@@ -2022,8 +2037,8 @@ bg:
       invitation_message_field_placeholder: "Присъединих се към този невероятен пазар. Вие също трябва!"
       errors_in_emails: "Проверете дали добавените от вас имейл адреси са валидни и не съдържат необичайни знаци. Ако сте добавили няколко адреса, уверете се, че те са разделени със запетая."
     list_item:
-      review: ~
-      reviews: ~
+      review: преглед
+      reviews: прегледи
       distance_away: ~
     news_item:
       show_less: "Покажи по-малко"
@@ -2051,9 +2066,9 @@ bg:
       search_engine_not_responding: ~
   infos:
     about:
-      default_about_text_title: ~
-      default_about_text: ~
-      click_here_link_text: ~
+      default_about_text_title: "Какво е Sharetribe?"
+      default_about_text: "Този магазин се захранва от платформата Sharetribe. Посредством Sharetribe можете лесно да създадете свой собствен уеб сайт магазин. Безплатно е и отнема само минута. %{click_here_link}, за да научите повече!"
+      click_here_link_text: "Натисни тук"
     how_to_use:
       default_title: ~
       default_content: "Тук можете да намерите информация за това как работи %{marketplace_name}."
@@ -2101,7 +2116,7 @@ bg:
       received: Получени
       sent: Изпратени
     global-header:
-      select_language: ~
+      select_language: "Изберете език"
     infos:
       about: Относно
       how_to_use: "Как работи"
@@ -2152,10 +2167,10 @@ bg:
       sign_up: "Регистрирай се"
     notifications:
       recaptcha_verification_failure: ~
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
+      listing_could_not_be_saved: "Обявата не може да бъде запазена. Моля, опитайте отново. Ако проблемът възникне отново моля, свържете се с администратора %{contact_admin_link}"
+      contact_admin_link_text: "свържете се с екипа %{service_name}"
+      test_welcome_email_delivered_to: "Тестовото електронно писмо беше изпратено до %{email}"
+      something_went_wrong: "Нещо се обърка"
       community_updated: "Подробностите са актуализирани."
       community_update_failed: "Актуализирането не е успешно."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Вашият акаунт е създаден успешно. Сега трябва да потвърдите имейл адреса си."
@@ -2166,7 +2181,7 @@ bg:
       additional_email_confirmed: "Въведеният от вас имейл е потвърден."
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: ~
-      create_new_listing: ~
+      create_new_listing: "Създайте нова обява"
       create_one_here: "го създадете тук."
       email_confirmation_sent_to_new_address: "Потвърждението е изпратено на новия адрес."
       email_not_found: "Даденият от вас имейл не бе намерен от базата данни %{service_name}."
@@ -2185,7 +2200,7 @@ bg:
       login_again: "Моля, влезте отново."
       login_failed: "Неуспешно влизане. Моля, въведете правилните данни за вход."
       account_creation_successful: "Добре дошли в %{service_name}, %{person_name}!"
-      account_deleted: ~
+      account_deleted: "Вашият акаунт е изтрит."
       login_successful: "Добре дошли, %{person_name}!"
       logout_successful: "Вече излязохте от %{service_name}. До скоро!"
       news_item_created: "Статията е създадена"
@@ -2194,23 +2209,23 @@ bg:
       news_item_updated: "Статията е актуализирана"
       news_item_deleted: "Статията е премахната"
       offer_accepted: "Предложението е прието"
-      offer_confirmed: ~
+      offer_confirmed: "Офертата е завършена"
       offer_closed: "Предложението е затворено"
       listing_created_successfully: "Обява е създадена успешно.  %{new_listing_link}."
       offer_rejected: "Предложението е отхвърлено"
-      offer_canceled: ~
-      listing_updated_successfully: ~
+      offer_canceled: "Офертата е отменена"
+      listing_updated_successfully: "Обявата е обновена успешно"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
       listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Моля, влезте с администраторски акаунт за достъп до тази зона"
       only_listing_author_can_close_a_listing: "Само авторът на обява може да я закрие"
       only_listing_author_can_edit_a_listing: "Само авторът на обява може да я редактира"
-      payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
-      cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_successful: "Плащането е успешно"
+      payment_canceled: "Плащането е отменено"
+      error_in_payment: "Грешка при плащането. Ако все още не сте извършили плащането, опитайте отново. Ако сте го направили, моля, изпратете ни обратна връзка."
+      cannot_receive_payment: "Продавачът не може да получи заплащането поради възникнала грешка. Моля свържете се с екипа на %{service_name} за да уточните ситуацията"
+      payment_waiting_for_later_accomplishment: "Когато платите, ние ще уведомим продавача и ще получите разписка по имейл"
       password_recovery_sent: "Инструкции за промяна на паролата ви бяха изпратени до вашия имейл."
       person_activated: "Потребителят се активира"
       person_deactivated: "Потребителят е деактивиран"
@@ -2228,9 +2243,9 @@ bg:
       reply_sent: "Отговорът е изпратен успешно"
       request_accepted: "Запитването е прието"
       request_accepted_and_closed: ~
-      request_confirmed: ~
+      request_confirmed: "Поръчката е завършена"
       request_rejected: "Запитването е отхвърлено"
-      request_canceled: ~
+      request_canceled: "Поръчката е оспорена"
       message_sent: "Съобщението е изпратено"
       message_not_sent: ~
       this_content_is_not_available_in_this_community: "Това съдържание не е достъпно."
@@ -2260,15 +2275,15 @@ bg:
       you_must_log_in_to_view_your_settings: "Трябва да влезете в %{service_name}, за да видите настройките си."
       you_must_log_in_to_add_news_item: "Трябва да влезете в профила си  %{service_name} за да добавите нова обява"
       you_must_log_in_to_change_profile_settings: "Трябва да влезете в %{service_name}, за да промените настройките на профила"
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_accept_or_reject: "За да приемете или откажете транзакцията, трябва да влезете в профила си"
+      you_must_log_in_to_confirm_or_cancel: "За да оспорите или потвърдите транзакцията, трябва да влезете в профила си"
       you_need_to_confirm_your_account_first: "Трябва да потвърдите имейла си."
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: "Трябва да попълните всички полета"
       you_unfollowed_listing: "Вече не следвате този списък"
       joining_community_failed: "Присъединяването не успешно"
       can_not_delete_email: "Не можете да премахнете имейл адреса"
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
+      user_does_not_have_email_to_delete: "Електронния адрес, който се опитвате да премахнете не е ваш"
+      email_deleted: "Електронният адрес е премахнат"
       listing_author_payment_details_missing: "Моля, свържете се с автора като натиснете бутона 'Свържи се'. Необходимо е да си настроят профила за приемане на плащания."
       listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
@@ -2285,7 +2300,7 @@ bg:
       settings: Настройки
       paypal_payments: ~
       stripe_payments: ~
-      payments: ~
+      payments: Плащания
       listings: ~
       listings_search_placeholder: ~
       transactions_search_placeholder: ~
@@ -2313,12 +2328,12 @@ bg:
     edit_links:
       close_listing: "Затваряне на обява"
       edit_listing: "Редактиране на обявата"
-      reopen_listing: ~
-      move_to_top: "Добави в ТОР оферта"
-      show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      reopen_listing: "Отворете отново обявата"
+      move_to_top: "Премести най-отгоре на началната страница"
+      show_in_updates_email: "Да се покаже в следващия бюлетин"
+      show_in_updates_email_loading: "Зарежда се..."
+      show_in_updates_email_error: "Няма връзка със сървъра. Обновете страницата и опитайте отново."
+      show_in_updates_email_success: "Тази обява ще бъде показана на потребителите в следващото автоматично генерирано електронно писмо"
       listing_is_pending: ~
       listing_is_rejected: ~
       approve_listing: ~
@@ -2337,7 +2352,7 @@ bg:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "Изберете едно..."
       departure_time:
         at: в
         departure_time: "Време на заминаване"
@@ -2369,17 +2384,17 @@ bg:
         remove_image: "Премахване на изображението"
         select_file: "Избери файл"
         add_more: ~
-        removing: ~
-        processing: ~
-        loading_image: ~
+        removing: Изтриване...
+        processing: "Обработва се..."
+        loading_image: Зареждане...
         image_uploading_in_progress: ~
         processing_takes_a_while: ~
         this_may_take_a_while: "това ще отнеме секунда"
-        percentage_loaded: ~
-        uploading_failed: ~
+        percentage_loaded: "%{percentage} %"
+        uploading_failed: "качването на изображението е неуспешно"
         image_processing_failed: ~
-        file_too_large: ~
-        accepted_formats: ~
+        file_too_large: "Файлът е твърде голям"
+        accepted_formats: "Форматът на изображението трябва да бъде GIF,JPG или PNG."
         images_not_uploaded_confirm: ~
       location:
         location: Mестоположение
@@ -2390,7 +2405,7 @@ bg:
         mass: "за kg, l, m2, ..."
         time: "час, ден, месец, ..."
         long_time: "седмица, месец, ..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "След %{service_name} и таксите вие ще ви бъде заплатено %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} ще се приспадне от цената."
         after_service_fee_you_will_get_payment_text: ~
@@ -2493,14 +2508,14 @@ bg:
       listing: обявата
       selected_category: "Категория: %{category}"
       selected_subcategory: "Подкатегория:%{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Тип обява %{transaction_type}"
       select_category: "Избери категория"
       select_subcategory: "Изберете подкатегория"
       select_transaction_type: "Изберете вид обява"
-      you_need_to_fill_payout_details_before_accepting: "Трябва да попълните данни за изплащанията, преди да можете да публикувате обява. Отидете на %{payment_settings_link}, за да попълните данните."
+      you_need_to_fill_payout_details_before_accepting: "Трябва да попълните данни за изплащанията, преди да можете да публикувате обява. Отидете на %{payment_settings_link}, за да ги попълните."
       contact_admin_link_text: ~
       community_not_configured_for_payments: "%{service_name} не е конфигуриран за плащания, така че все още не можете да публикувате нови списъци. Моля,%{contact_admin_link} за подробности."
-      payment_settings_link: ~
+      payment_settings_link: "настройки на плащанията"
       community_not_configured_for_payments_admin: "%{service_name} не е конфигуриран за плащания, така че все още не можете да публикувате нови списъци. Отидете на %{payment_settings_link} , за да попълните данните за плащането."
       you_are_now_posting_a_listing_on_behalf_of: "Сега публикувате списък от името на %{name}"
     quantity:
@@ -2515,7 +2530,7 @@ bg:
     quantity_placeholder: ~
     please_comment: Коментар
     reply_link:
-      listing_closed: ~
+      listing_closed: "Обявата вече не е активна"
     show:
       add_your_phone_number: "Добавете вашия телефонен номер"
       add_profile_picture: "Добавете профилна снимка"
@@ -2524,14 +2539,14 @@ bg:
       contact: "Свържи се"
       favor_offer: "Предложение за услуга"
       favor_request: "Заявка за услуга"
-      inquiry: ~
+      inquiry: Обявление
       item_offer_trade: "Оферта за размяна"
       item_request_trade: "Заявка за размяна"
       no_description: "Тази обява няма описание"
-      no_image: ~
-      no_reviews: ~
+      no_image: "Няма снимка"
+      no_reviews: "Нямате получени прегледи"
       offer: Предложение
-      listing_created: ~
+      listing_created: Създаден
       open_until: "Отворено до %{date}"
       feedback: "Обратна връзка"
       qr_code: "QR код"
@@ -2543,7 +2558,7 @@ bg:
       time: време
       times: пъти
       times_viewed: Преглеждани
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Обработва се каченото изображение...)"
       listing_created_at: "Обява е създадена"
       price:
         per_quantity_unit: "за %{quantity_unit}"
@@ -2565,16 +2580,16 @@ bg:
       unit: Единица
       person: ~
     verification_required:
-      verification_required: ~
+      verification_required: "Изисква се потвърждение"
   listing_conversations:
     preauthorize:
       dates_not_available: ~
       error_in_checking_availability: ~
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
-      you_will_be_charged: ~
+      details: Подробности
+      by: "%{listing} от%{author}"
+      payment: Плащане
+      exp: "Валидна до:"
+      you_will_be_charged: "Плащането ще се извърши само ако %{author} приеме транзакцията.%{author} трябва да приеме транзакцията до %{expiration_period} дни. В случай, че%{author} откаже или не отговори, плащането няма да се осъществи."
       day: ~
       days: ~
       night: ~
@@ -2763,25 +2778,25 @@ bg:
       what_are_these: "Какви са тези?"
       review: "получен отзив"
       reviews: "получени отзиви"
-      listing: ~
+      listing: обява
       listings: Обяви
       open_listing: "отвори обява"
       open_listings: "отворени обяви"
-      no_listings: ~
+      no_listings: "Няма обяви"
       no_open_listings: "Няма отворени обяви"
       no_reviews: "Засега няма отзиви"
-      show_all_listings: ~
+      show_all_listings: "Покажи всички обяви"
       show_all_open_listings: "Показване на всички отворени обяви"
       show_all_reviews: "Показване на всички отзиви"
       admin_actions: ~
       post_listing_as: "Списък с публикации като"
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: "Засега няма последвани профили"
+      you_follow_plural: "Вие следвате %{count} човека."
+      you_follow_singular: "Вие следвате %{count} човек"
+      they_follow_plural: "%{count} човека са следвани"
+      they_follow_singular: "%{count} следван човек"
+      show_all_followed_people: "Покажи всички хора със последователи"
+      no_followed_people: "Няма хора с последователи"
     follow_button:
       following: Последвай
       follow: Последвай
@@ -2827,8 +2842,8 @@ bg:
       confirm_new_password: "Потвърдете новата парола"
       delete_account: "Изтриване на акаунта"
       delete_account_button: "Изтрии профила завинаги."
-      delete_account_confirmation_popup: ~
-      email_addresses: ~
+      delete_account_confirmation_popup: "Сигурни ли сте, че искате да изтриете потребителския си акаунт и да загубите окончателно всички данни, свързани с него? Изтриването на акаунт не може да бъде отменено."
+      email_addresses: "Електронни адреси"
       new_email: "Нов имейл адрес"
       delete_personal_information: "Ако изтриете профила си, личната ви информация (име, телефонен номер, адрес, имейл, снимка на потребителския профил и т.н.) ще бъде изтрита за постоянно и не може да бъде възстановена. Всички създадени от вас обяви ще бъдат премахнати. Няма да можете да активирате отново профила си."
       delete_information_others_involved: ~
@@ -2839,25 +2854,25 @@ bg:
       these_fields_are_shown_only_to_you: "Потребителското име се показва във вашия профил, освен ако не сте посочили името си. Друга информация се показва само на вас."
       email_already_confirmed: ~
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
+        address_title: Адрес
+        remove_title: Изтрий
+        remove_confirmation: "Сигурни ли сте, че желаета да изтриете този електроннен адрес?"
+        receive_notifications_title_desktop: "Получавайте уведомления"
+        receive_notifications_title_mobile: "Получавайте уведомления"
+        receive_notifications_new_title_mobile: "Получавайте уведомления"
+        add_new_with_plus: "+ Добавете нов електроннен адрес"
+        add_new_cancel: Отказ
+        confirmation_title_mobile: "Потвърждение:"
+        confirmation_title_desktop: Потвърждение
+        confirmation_resend: Препрати
+        status_confirmed: Потвърдено
         status_pending: Чакащ
     notifications:
       email_from_admins: "Приемам да получавам случайни имейли от екипа на %{service_name}"
       i_want_to_get_email_notification_when: "Искам да получа известие по имейл, когато ..."
       newsletters: "Имейли от администраторите"
       community_updates: Бюлетини
-      email_about_confirm_reminders: ~
+      email_about_confirm_reminders: "...забравих да потвърдя поръчка като завършена"
       email_about_new_comments_to_own_listing: "...някой коментира моята оферта или молба"
       email_about_new_messages: "...някой ми изпраща съобщение"
       email_about_new_received_testimonials: "...някой ми дава обратна връзка"
@@ -2867,8 +2882,8 @@ bg:
       do_not_email_community_updates: "Не ме известявайте"
       email_when_conversation_accepted: "...някой приема моята оферта или молба"
       email_when_conversation_rejected: "...някой отхвърли моята оферта или молба"
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
+      email_about_completed_transactions: "...някой маркира поръчката ми като изпълнена"
+      email_about_new_payments: "...получавам ново плащане"
       email_about_new_listings_by_followed_people: "... някой, който следя публикува нова обява"
       unsubscribe_succesful: "Отписването е успешно"
       unsubscribe_info_text: "Вече няма да получавате тези имейли. Проверете вашата %{settings_link} , за да изберете какъв вид имейли искате да получавате от %{service_name} , или се върнете към %{homepage_link}"
@@ -2946,7 +2961,7 @@ bg:
       negative: отрицателен
       default_textual_feedback: "Всичко мина гладко, благодаря много!"
     testimonial:
-      about_listing: ~
+      about_listing: "относно списъка"
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -3009,7 +3024,7 @@ bg:
     formats:
       short: "%b %e, %Y на %H:%M"
       shorter: "\n"
-      short_date: ~
+      short_date: "%b %e,%Y"
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} преди ден"
@@ -3110,12 +3125,25 @@ bg:
       create_own: ~
       learn_more: ~
   will_paginate:
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    models:
+      person:
+        zero: потребители
+        one: потребител
+        other: потребители
+    previous_label: "&#8592; Предишен"
+    next_label: "Следващ &#8594;"
+    page_gap: "&hellip;"
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
+      single_page:
+        zero: "Не са намерени %{model}"
+        one: "Показване на 1 %{model}"
+        other: "Показване на всички %{count} %{model}"
+      single_page_html:
+        zero: "Не са намерени %{model}"
+        one: "Показване на <b>1</b> %{model}"
+        other: "Показване на <b>all&nbsp;%{count}</b> %{model}"
+      multi_page: "Показват се %{model} %{from} - %{to} общо %{count}"
+      multi_page_html: "Показват се %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>  <b>%{count}</b> общо"
     person:
       community_members_entries_info:
         multi_page: ~

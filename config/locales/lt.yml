@@ -3182,6 +3182,11 @@ lt:
         one: "Rodomas 1 %{model}"
         few: "Rodomi %{count} %{model}"
         other: "Rodomi %{count} %{model}"
+      single_page_html:
+        zero: " %{model} nėra"
+        one: "Rodomas <b>1</b> %{model}"
+        few: "Rodomi <b>%{count}</b> %{model} "
+        other: "Rodomi <b>visi&nbsp;%{count}</b> %{model}"
       multi_page: "Rodomi %{model} %{from} - %{to} iš %{count}"
       multi_page_html: "Rodomi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> iš <b>%{count}</b>"
     person:
