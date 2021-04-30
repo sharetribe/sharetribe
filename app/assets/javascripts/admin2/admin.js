@@ -34,3 +34,5 @@
 //= require admin2/submit_form_email
 //= require admin2/domains
 //= require admin2/landing_pages
+//= require admin2/custom_icons
+//= require jquery.fonticonpicker.min.js

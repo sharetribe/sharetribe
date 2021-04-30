@@ -12,9 +12,9 @@
   %h3.modal-subtitle= t('admin2.landing_page.sections.multi_column.column', index: index + 1)
   .form-group
     = label_tag "section[columns][#{index}][icon]", t('admin2.landing_page.sections.multi_column.column_icon', index: index + 1)
-    = text_field_tag "section[columns][#{index}][icon]", column['icon'], class: %i[form-control]
-    %small.form-text
-      = t('admin2.landing_page.sections.multi_column.info', url: 'https://help.sharetribe.com/en/articles/3597471').html_safe
+    %br
+    = text_field_tag "svg_icon_pack[#{index}][icon]", column['icon'], class: %i[form-control svg_renderer], data: {id: index}
+    = hidden_field_tag "section[columns][#{index}][icon]", column['icon'], class: %i[form-control hidden_svg_render], data: {id: index}
   .form-group
     = label_tag "section[columns][#{index}][title]", t('admin2.landing_page.sections.multi_column.column_title', index: index + 1)
     = text_field_tag "section[columns][#{index}][title]", column['title'], class: %i[form-control]

@@ -26,7 +26,7 @@ module LandingPageVersion::Section
     }
 
     COLUMN_DEFAULTS = {
-      icon: 'piggy-bank',
+      icon: nil,
       title: nil,
       paragraph: nil,
       button_title: nil,
