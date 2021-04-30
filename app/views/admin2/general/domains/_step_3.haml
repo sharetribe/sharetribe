@@ -5,7 +5,7 @@
     %p.ingress
       = t('admin2.domain.set_custom_domain_info', url: 'https://help.sharetribe.com/en/articles/666106').html_safe
     .form-group
-      = label_tag t('admin2.domain.custom_domain')
+      = label_tag :marketplaceName, t('admin2.domain.custom_domain')
       .statusbar.positive
         %span
           %strong= t('admin2.domain.dns_success', domain: @presenter.domain_checked)

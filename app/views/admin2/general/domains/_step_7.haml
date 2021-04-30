@@ -10,7 +10,7 @@
     %p.ingress
       %strong= t('admin2.domain.your_marketplace_domain', url: @presenter.domain_address).html_safe
     .form-group
-      = label_tag t('admin2.domain.custom_domain')
+      = label_tag :marketplaceName, t('admin2.domain.custom_domain')
       .statusbar.positive
         %span
           %strong= t('admin2.domain.configured_successfully', domain: @presenter.domain).html_safe
