@@ -1285,8 +1285,8 @@ nb:
       details: Ordredetaljer
       order_by: "Ordre fra %{orderer_link}"
       accept_offer: "Godta tilbudet"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Aksepter forespørselen og behold annonsen"
+      accept_request_and_close: "Aksepter forespørselen og deaktiver annonsen"
       reject_offer: "Ikke denne gang"
       reject_request: "Ikke denne gang"
       close_listing: "Stopp annonsen %{listing_title_link}"
@@ -2368,8 +2368,8 @@ nb:
         repeated: "Gjentatt (skriv tidspunkt og dager i feltet 'detaljert beskrivelse')"
       description:
         detailed_description: "Detaljert beskrivelse"
-        youtube_info: "Hvis beskrivelsen din inneholder en eller flere linker til YouTube-videoer, vil videoene vises under beskrivelsen."
-        youtube_info_markdown: ~
+        youtube_info: "Hvis beskrivelsen din inneholder YouTube-lenker, vil disse vises under beskrivelsen."
+        youtube_info_markdown: "Du kan %{link}. Hvis beskrivelsen din inneholder YouTube-lenker vil disse vises under beskrivelsen."
       destination:
         destination: Destinasjon
       form_content:
@@ -2416,7 +2416,7 @@ nb:
         after_service_fee_you_will_get: "Etter kostnad fra %{service_name} og betalingsleverandøren vil du motta %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil bli trukket fra prisen."
         no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: "Når noen leier vil du motta denne summen minus %{payment_fee_info_link} administrasjonsavgift."
         payment_fee_info_link_text: ~
         delivery: Leveringsmetode
         shipping: Frakt
@@ -2926,8 +2926,8 @@ nb:
       image_is_processing: "Ditt profilbilde er behandles nå. Vennligst last siden på nytt om et lite øyeblikk."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
-      format_markdown_link: ~
-      format_markdown: ~
+      format_markdown_link: "formatere beskrivelsen ved å bruke Markdown"
+      format_markdown: "Du kan %{link}."
       username: ~
       username_description: ~
     save_information: "Lagre innstillinger"
@@ -3185,7 +3185,7 @@ nb:
     you_are_ready_to_accept_payments: ~
     commission: ~
     pay_with_stripe: ~
-    add_and_pay: ~
+    add_and_pay: "Bekreft betaling"
     card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
