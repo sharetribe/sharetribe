@@ -89,12 +89,12 @@ bg:
         verification_to_post_listings_info_content_default: "%{service_name} изисква хората да бъдат потвърдени ръчно от администратор, преди да могат да публикуват обяви. Все още не сте потвърдени. За да получите потвърждение, моля %{contact_admin_link}."
         contact_admin_link_text: "свържете се с екипа на %{service_name}"
         save: "Запазете настройките"
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        transaction_agreement: "Споразумение за транзакции"
+        transaction_agreement_checkbox: "Нужно е купувачите да приемат споразумението преди да направят транзакция"
+        transaction_agreement_checkbox_header: "Етикет за споразумение"
+        transaction_agreement_checkbox_label_description: "Този текс ще се появи до квадратчето за отметка във формата за плащане. Потребителят трябва го отбележи за да продължи с транзакцията. Примерен етикет би могъл да бъде \"С отбелязването на тази отметка приемам споразумението\""
+        transaction_agreement_text_header: "Текст на споразумението"
+        transaction_agreement_description: "Това е съдържанието на споразумението, което потребителят трябва да приеме. Съдържанието се показва, когато потребителят натисне линка %{read_more} намиращ се до етикета за споразумение."
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
@@ -127,7 +127,7 @@ bg:
         custom_color1_instructions_text: "Можете да смените основния цвят на потребителкия интерфейс като влезете в hex colour value.%{link} може да ви помогне да изберете цвят и да ви предостави hex colour код. Можете да копирате кода тук"
         new_listing_button_instructions_text: ~
         default_browse_view: "Изглед при разглеждане по подразбиране"
-        default_browse_view_instructions_text: ~
+        default_browse_view_instructions_text: "Изгледът по подразбиране при разглеждане е използван на началната страница, за да се демонстрира как изглеждат обявите."
         grid: Мрежа
         list: Каталог
         map: Карта
@@ -460,7 +460,7 @@ bg:
       transactions:
         export_all_as_csv: ~
         processing_export: ~
-        transactions: ~
+        transactions: Транзакции
         search_by_title_parties: ~
         search: ~
         reset_search: ~
@@ -480,27 +480,27 @@ bg:
           refunded: ~
           dismissed: ~
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: "Хронология на разговора"
+          listing: Обява
+          status: Статус
+          sum: Сума
+          started: Започна
+          last_activity: "Последна активност"
+          initiated_by: Стартер
+          other_party: Продавач
         status:
           conversation: ~
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: "Безплатна транзакция"
+          pending: "още нерешен"
+          preauthorized: "Разрешено предварително"
+          accepted: Приет
+          rejected: Отказан
+          paid: Платен
+          confirmed: Завършен
+          canceled: Прекъснат
           disputed: ~
-          initiated: ~
-          pending_ext: ~
+          initiated: "Изчаква се плащане чрез PayPal"
+          pending_ext: "Изчаква се заплащане през PayPal"
           none:
             free: ~
           paypal:
@@ -1078,7 +1078,7 @@ bg:
           quantity_label: "Количество(за парче, за кг, за човек, за 2 часа тур..  )"
           time_label: "Време(за 30 минути, за 2 седмици, за година...)"
     paypal_accounts:
-      marketplace_paypal_integration: ~
+      marketplace_paypal_integration: "Предпочитания за разплащателната система"
       preferences_updated: ~
       contact_support_link_text: ~
       integration_info_text: ~
@@ -1312,8 +1312,8 @@ bg:
       give_feedback_to: "Подай обратна връзка на %{person_link}"
       do_not_give_feedback: "Пропусни обратната връзка"
     details:
-      day: ~
-      days: ~
+      day: ден
+      days: дни
       price_per_day: "Цена за ден: %{price}"
     index:
       loading_more_messages: "Зареди повече съобщения"
@@ -1394,25 +1394,25 @@ bg:
       offer_rejected: Отхвърлена
       offer_canceled: Отменено
       offer_confirmed: Завършено
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_paid: "Плащането е успешно"
+      offer_preauthorized: "Плащането е успешно"
+      offer_waiting_for_payment: "Изчакване на %{requester_name} да плати"
       pay: Плати
       preauthorized: "Плащането е успешно"
       paid: "Плащането успешно"
       pending_external:
         paypal:
-          multicurrency: ~
+          multicurrency: "Не успяхме да обработим плащането чрез PayPal защото вашият профил там не е настроен да получава %{currency} пари. Отидете на %{paypal_url} и влезте във вашият профил за ръчен отказ или потвърждаване на плащането."
           verify: "Не можете да приемете тази транзакция, защото не сте потвърдили вашия PayPal акаунт. Отидете на %{paypal_url}, за да потвърдите акаунта си."
-          intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+          intl: "Не успяхме да обработим плащането чрез PayPal защото вашият профил няма механизъм за теглене. Отидете на %{paypal_url} и влезте във вашия профил за ръчен отказ или потвърждаване на заплащането."
+      waiting_for_current_user_to_deliver_listing: "Моля, попълнете заявката за %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "В очакване на %{listing_author_name} да попълни заявката за%{listing_title}"
       request_accepted: Прието
       request_rejected: Отхвърлено
       request_confirmed: Завършено
       request_canceled: Отменено
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Плащането е успешно"
+      request_preauthorized: "Плащането е разрешено"
       skip_feedback: "Откажи оценяването"
       waiting_for_listing_author_to_accept_offer: "В очакване на %{listing_author_name} да приеме офертата"
       waiting_for_listing_author_to_accept_request: "В очакване на %{listing_author_name} да приеме заявката. Веднага щом %{listing_author_name} приеме, ще бъдете таксувани."
@@ -1536,14 +1536,14 @@ bg:
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Поръчката е изпълнена автоматично- моля изпратете отзив"
+      we_have_marked_request_as_confirmed: "Отбелязахме поръчката%{request} като изпълнена. Заявката бе автоматично изпълнена тъй като измина един ден откакто изтече срока на резервацията."
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Вече можете да дадете обратна връзка на %{other_party_given_name}. Даването на обратна връзка винаги е добра идея. Ако всичко вървеше добре, трябва да уведомите другите, че на %{other_party_given_name} може да се вярва. Ако имаше някакви проблеми, добре е да споменем и тези."
-      give_feedback_to: ~
-      show_thread: ~
+      give_feedback_to: "Изпратете отзив до %{other_party_given_name}"
+      show_thread: "Показване на разговорите"
     confirmation_instructions:
       confirmation_instructions_signature: "С най-добри пожелания, <br/> Екипът на %{service_name}"
       need_to_confirm: "За да се присъедините към %{service_name}, потвърдете имейл адреса си, като кликнете бутона по-долу."
@@ -1739,7 +1739,7 @@ bg:
     welcome_email:
       welcome_email_subject: "Добре дошли в %{service_name}"
       welcome_to_marketplace: "Добре дошли в %{service_name}! Радваме се, че сте с нас."
-      love_marketplace_crew: ~
+      love_marketplace_crew: "С обич,<br /><i> %{service_name} от екипа</i>"
       welcome_email_footer_text: "%{settings_link}"
       settings_link_text: "Редактирайте имейл настройките си тук"
     new_listing_by_followed_person:
@@ -1860,7 +1860,7 @@ bg:
       pending_review_error: ~
       seller_express_checkout_disabled: ~
       seller_express_checkout_disabled_no_free: ~
-      generic_error: ~
+      generic_error: "Изникна грешка. Заплащането през PayPal не успя да се осъществи."
       cancel_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
@@ -1899,14 +1899,14 @@ bg:
     your_email_address: "Вашият email адрес:"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: "не е валидна дата"
+      invalid_time: "не е валидно време"
+      invalid_datetime: "не е валиден формата за дата и час"
+      is_at: "трябва да е в %{restriction}"
+      before: "трябва да е преди%{restriction}"
+      on_or_before: "трябва да е или преди %{restriction}"
+      after: "трябва да е след %{restriction}"
+      on_or_after: "трябва да е на или след %{restriction}"
       positive_number: ~
       from_must_be_less_than_till: ~
       section_with_this_id_already_exists: ~
@@ -2494,8 +2494,8 @@ bg:
       accept_for_frees: "Приемане безплатно"
       trades: Размяна
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: От
+      booking_to: До
       how_paypal_works: ~
       payment_help: ~
       unable_load_availability: ~
@@ -2590,14 +2590,14 @@ bg:
       payment: Плащане
       exp: "Валидна до:"
       you_will_be_charged: "Плащането ще се извърши само ако %{author} приеме транзакцията.%{author} трябва да приеме транзакцията до %{expiration_period} дни. В случай, че%{author} откаже или не отговори, плащането няма да се осъществи."
-      day: ~
-      days: ~
+      day: ден
+      days: дни
       night: ~
       nights: ~
       invalid_parameters: ~
       select_delivery_method: ~
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Преглед
     stripe_payment:
       payment: ~
       pay_with_card: ~
@@ -2636,13 +2636,13 @@ bg:
     member_id: "Номер на id"
     member_id_or_email: "Идентификационен номер или имейл"
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
+    payout_info_title: "Получаване на финансови средства"
+    paypal_account_email_connected: "<del> Свързването на PayPal акаунта</del> Завършено!"
     payout_info_paypal: ~
-    paypal_billing_agreement_made: ~
+    paypal_billing_agreement_made: "<del> Дайте на%{service_name} разрешение да добави такса за транзакцията</del> Завършено!"
     commission_permission_needed: ~
     create_paypal_account_link_text: ~
-    connected_account: ~
+    connected_account: "Вашият PayPal профил %{email} бе свързан успешно."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
     paypal_receive_funds_info_australia_only: ~
@@ -2650,40 +2650,40 @@ bg:
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    you_are_ready_to_accept_payments: "Вече можете да получавате плащания"
+    commission: "%{commission} %"
     not_now: ~
     new:
       payout_info_you_need_to_connect: ~
-      payout_info_text: ~
+      payout_info_text: "За да свържете вашия профил, моля изпълнете следващите стъпки."
       contact_admin_link_text: ~
       admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
-      paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      paypal_account_billing_agreement: ~
+      paypal_account_email: "Свържете вашата PayPal сметка"
+      paypal_account_email_placeholder: "Вашия PayPal електроннен адрес"
+      paypal_account_email_info_text: "Ако нямате PayPal сметка, можете да я създадете от тук%{create_paypal_account}. Ако получите съобщение за грешка при свързването, това означава, че трябва да го надградите до Бизнес PayPal .Надграждането е безплатно и лесно. Ако сте самостоятелен търговец може да използвате име и фамилия  за вашето \"бизнес име\". За надграждане на вашата сметка, последвайте връзката и открийте линка за надграждане %{upgrade_paypal_account}"
+      create_paypal_account: "натискайки тук"
+      upgrade_paypal_account: "влезте във вашата PayPal профил"
+      paypal_account_billing_agreement: "Дайте позволение на %{service_name} да добави такса за транзакцията"
       follow_steps: ~
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: "Натиснете бутона по долу за да се впишете в PayPal и да свържете вашият PayPal профил с %{service_name}."
-      connect_paypal_account: ~
+      connect_paypal_account: "Свържете вашия PayPal профил"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
+      billing_agreement_description: "Разрешете на %{service_name} да таксува такса за транзакция"
+      billing_agreement: Разрешете
+      permissions_not_granted: "Не е разрешено да се свържете с вашия PayPal профил."
+      could_not_fetch_redirect_url: "Не може да се извлече URL адрес за пренасочване за свързване с PayPal"
+      paypal_not_enabled: "Заплащанията чрез PayPal не са включени"
+      billing_agreement_canceled: "Споразумението за плащане бе прекъснато"
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: ~
+      something_went_wrong: "моля, свържете се с екипа на %{service_name}"
       account_not_verified: ~
       account_restricted: ~
     paypal_account_connected_title: ~
@@ -2964,33 +2964,33 @@ bg:
       about_listing: "относно списъка"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "% a ,% b ,%d ,% Y"
     first_day_of_week: ~
   datepicker:
     days:
-      sunday: ~
+      sunday: Неделя
       monday: Понеделник
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      tuesday: Вторник
+      wednesday: Сряда
+      thursday: Четвъртък
+      friday: Петък
+      saturday: Събота
     days_short:
-      sunday: ~
+      sunday: Нед
       monday: Пон
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      tuesday: Вт
+      wednesday: Ср
+      thursday: Чет
+      friday: Пет
+      saturday: Съб
     days_min:
-      sunday: ~
+      sunday: Нед
       monday: Пн
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      tuesday: Вт
+      wednesday: Ср
+      thursday: Чет
+      friday: Пет
+      saturday: Съб
     months:
       january: Януари
       february: Февруари
@@ -3017,9 +3017,9 @@ bg:
       october: Окт
       november: Ное
       december: Дек
-    today: ~
-    clear: ~
-    format: ~
+    today: Днес
+    clear: Изчисти
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%b %e, %Y на %H:%M"
@@ -3061,8 +3061,8 @@ bg:
     total: ~
     total_to_pay: ~
   unit:
-    day: ~
-    days: ~
+    day: ден
+    days: дни
   web:
     listings:
       errors:
