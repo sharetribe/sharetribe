@@ -1538,10 +1538,10 @@ sv:
         has_marked_request_as_confirmed: "%{other_party_full_name} har markerad förfrågan på %{request} som slutförd. Betalningen för denna transaktion har nu överförts till ditt bankkonto. Du kan nu ge feedback till %{other_party_given_name}."
       team_title: ~
     transaction_confirmed_v2:
-      headline_confirmed: ~
+      headline_confirmed: "%{other_party_full_name} har markerat beställningen av %{listing_link} som genomförd."
       headline_canceled: ~
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "Betalning för tjänsten har nu släppts vidare för utbetalning till ditt bankkonto."
       can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
@@ -1644,7 +1644,7 @@ sv:
       stripe:
         you_have_received_new_payment: "Summan <b>%{payment_sum}</b> bar blivit betald för <b>%{listing_title}</b> av %{payer_full_name}. Pengarna hålls nu av %{service_name} tills förfrågan har blivit markerad som slutförd. Här är ditt kvitto."
     payment_receipt_to_seller_v2:
-      headline: ~
+      headline: "Du har erhållit %{payment_sum} som betalning för %{listing_link} av %{payer_name}."
       main_text_stripe: "Pengarna hålls av %{service_name} tills beställningen markeras som slutförd."
       price_breakdown: Prisspecifikation
     payment_receipt_to_payer:
