@@ -316,7 +316,7 @@ bg:
         searchpage: ~
         new_email_templates: ~
       social_media:
-        social_media: ~
+        social_media: "Социална медия"
         logo: Лого
         logo_info: "Тази снимка се използва когато някой споделя Вашия домейн в социалните мрежи (Facebook, Twitter, LinkedIn).За по-добри резултати е препоръчително да бъде в съотношение 2:1 и минимален размер от %{width} x %{height} px"
         social_media_title: ~
@@ -325,23 +325,23 @@ bg:
         link_for_linkedin: ~
         link_for_twitter: ~
         social_media_description: ~
-        twitter_handle: ~
+        twitter_handle: "Дръжка на Twitter"
         twitter_handle_info_text: "Потребителско име в Twitter на Вашият пазар(Ако имате такова). Ще бъде видимо, когато някой използва tweet бутона на страницата на Вашата обява."
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        facebook_connect: ~
+        twitter_handle_placeholder: "потребителско име"
+        invalid_twitter_handle: "Дръжката на Twitter  трябва да бъде до 15 знака (букви А-Я и числа 0-9)"
+        facebook_connect: "Вход във Фейсбук"
         facebook_developers_dashboard: ~
-        facebook_connect_info_text: ~
+        facebook_connect_info_text: "За да включите опцията за Вход във Фейсбук, създайте апликация за вашият магазин тук %{dashboard_link}. Добавете генерираният ID и таен ключ на апликацията тук."
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
+        facebook_connect_id: "ID на Фейсбук апликацията"
+        invalid_facebook_connect_id: "ID на апликацията трабва да съдържа само числа."
+        facebook_connect_secret: "Фейсбук апликация Тайна"
+        invalid_facebook_connect_secret: "Тайна апликация трябва да съдържа само числа и букви от а до ф"
         enable_facebook_login: ~
-        save: ~
+        save: "Запазете настройките"
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -410,16 +410,16 @@ bg:
         google_search_console_paragraph2: ~
         save: "Запази настройките"
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
+        analytics: Analytics
+        google_analytics_key: "Google Analytics  проследяващо ID"
+        google_analytics_key_info_text: "Проследяващото ID на вашия Google Analytics профил"
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
         sharetribe_analytics: ~
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
-        save: ~
+        save: "Запазете настройките"
         google_tag_manager: ~
         gtm_paragraph_1: ~
         gtm_paragraph_2: ~
@@ -985,9 +985,9 @@ bg:
         hello_firstname_text: ~
     left_hand_navigation:
       general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
+      users_and_transactions: Управление
+      configure: Конфигуриране
+      emails_title: "Електронни имейли"
       subscription: Aбонамент
       preview: ~
       whats_new: ~
@@ -1079,9 +1079,9 @@ bg:
           time_label: "Време(за 30 минути, за 2 седмици, за година...)"
     paypal_accounts:
       marketplace_paypal_integration: "Предпочитания за разплащателната система"
-      preferences_updated: ~
+      preferences_updated: "Предпочитанията системата за плащания е обновена"
       contact_support_link_text: ~
-      integration_info_text: ~
+      integration_info_text: "Системата за плащане на вашия магазин се поддържа от PayPal. За да разрешите на вашите потребители да плащат за вашия магазин, Вие трябва да свържете вашия PayPal профил, а когато го направите, може да изберете размера за минимална транзакция и еветнуална комисионна."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       link_stripe_personal_account: ~
@@ -1671,7 +1671,7 @@ bg:
       buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Парите ще бъдат изпратени на %{recipient_name} когато а) отбележите заявката като завършена или б) %{automatic_confirmation_days} дни са отминали откакто сте заплатили."
       listing_per_unit_title: ~
       stripe:
         you_have_made_new_payment: ~
@@ -1861,8 +1861,8 @@ bg:
       seller_express_checkout_disabled: ~
       seller_express_checkout_disabled_no_free: ~
       generic_error: "Изникна грешка. Заплащането през PayPal не успя да се осъществи."
-      cancel_error: ~
-      accept_authorization_error: ~
+      cancel_error: "Възникна грешка по време на оспорването и то не можа да бъде завършено."
+      accept_authorization_error: "Възникна грешка по време на приемане на разрешеното предварително Paypal плащане. Моля, опитайте отново."
       reject_authorization_error: ~
     stripe:
       generic_error: ~
@@ -2496,7 +2496,7 @@ bg:
     listing_actions:
       booking_from: От
       booking_to: До
-      how_paypal_works: ~
+      how_paypal_works: "Как работи PayPal"
       payment_help: ~
       unable_load_availability: ~
       booking_date: ~
@@ -2654,10 +2654,10 @@ bg:
     commission: "%{commission} %"
     not_now: ~
     new:
-      payout_info_you_need_to_connect: ~
+      payout_info_you_need_to_connect: "Ако искате да приемате плащания, то моля свържете вашият PayPal профил с %{service_name}"
       payout_info_text: "За да свържете вашия профил, моля изпълнете следващите стъпки."
       contact_admin_link_text: ~
-      admin_account_not_connected: ~
+      admin_account_not_connected: "Свързването с вашия PayPal профил не е възможно заради %{service_name} тъй като не е настроено плащането. Моля, %{contact_admin_link} за подробности."
       paypal_account_email: "Свържете вашата PayPal сметка"
       paypal_account_email_placeholder: "Вашия PayPal електроннен адрес"
       paypal_account_email_info_text: "Ако нямате PayPal сметка, можете да я създадете от тук%{create_paypal_account}. Ако получите съобщение за грешка при свързването, това означава, че трябва да го надградите до Бизнес PayPal .Надграждането е безплатно и лесно. Ако сте самостоятелен търговец може да използвате име и фамилия  за вашето \"бизнес име\". За надграждане на вашата сметка, последвайте връзката и открийте линка за надграждане %{upgrade_paypal_account}"
@@ -2701,11 +2701,11 @@ bg:
     pay_with_paypal: ~
     checkout_with: ~
     or_pay_with_paypal: ~
-    checkout_with_paypal: ~
-    cancel_succesful: ~
+    checkout_with_paypal: "Платете с PayPal"
+    cancel_succesful: "PayPal плащането е отказано успешно"
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_name: "Плащане на комисионна за %{listing_title}"
+      commission_payment_description: "Магазин %{service_name} начисли тази комисионна от транзакция относно %{listing_title}"
     wait_while_loading: ~
     chatting_with_paypal: ~
   people:
