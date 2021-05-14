@@ -43,9 +43,7 @@
       %h2= t('admin2.footer.footer_social_links')
       .form-group
         #footerList.list-group
-          - @service.social_links.each do |social_link|
-            = form.fields_for :social_links, social_link do |fields|
-              = render 'social_link_fields', f: fields, disabled: disabled
+          = render 'admin2/design/footer/social_links', service: @service, disabled: disabled, form: form
 
     %section.content-card-section
       %h2= t('admin2.footer.footer_copyright')
