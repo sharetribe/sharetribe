@@ -146,7 +146,7 @@ class TransactionsController < ApplicationController
 
     @transaction.mark_as_seen_by_current(@current_user.id)
 
-    is_author = m_admin || @transaction.listing_author_id == @current_user.id
+    is_author = @transaction.listing_author_id == @current_user.id
 
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,
