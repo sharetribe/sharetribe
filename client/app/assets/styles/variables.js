@@ -14,7 +14,7 @@ const fontSizeMobile = '17px';
 const fontWeightMedium = '500';
 const fontWeightSemibold = '600';
 
-const proximaFontFamily = "'Proxima Soft', Helvetica, sans";
+const proximaFontFamily = "'Proxima Soft', 'Source Sans Pro', helvetica, sans-serif";
 
 const lineHeight = 22;
 

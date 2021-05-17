@@ -11,7 +11,7 @@
     = csrf_meta_tags
     - font_path = APP_CONFIG[:font_proximasoft_url]
     - if font_path.present?
-      = render 'layouts/fonts', font_path: font_path, family_name: 'proxima_soft'
+      = render 'layouts/fonts', font_path: font_path
     = stylesheet_link_tag 'admin2/admin'
     = javascript_include_tag 'admin2/admin'
   %body

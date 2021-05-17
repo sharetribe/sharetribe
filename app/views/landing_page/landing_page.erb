@@ -55,7 +55,7 @@
   <%= favicon_link_tag community_context[:apple_touch_icon], rel: 'apple-touch-icon-precomposed', type: 'image/png' %>
 
   <% if font_path.present? %>
-    <%= render partial: "layouts/fonts", locals: { font_path: font_path, family_name: 'Proxima Soft' } %>
+    <%= render partial: "layouts/fonts", locals: { font_path: font_path } %>
   <% end %>
 
   <style type="text/css">

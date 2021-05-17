@@ -41,7 +41,7 @@ $container-max-widths: (
   --breakpoint-md: 769px;
   --breakpoint-lg: 1023px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "proxima_soft", Helvetica, Arial;
+  --font-family-sans-serif: 'Proxima Soft', 'Source Sans Pro', helvetica, sans-serif;
   --font-family-monospace: "Menlo", monospace; }
 
 *,
@@ -61,7 +61,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "proxima_soft", Helvetica, Arial;
+  font-family: 'Proxima Soft', 'Source Sans Pro', helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -5401,7 +5401,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "proxima_soft", Helvetica, Arial;
+  font-family: 'Proxima Soft', 'Source Sans Pro', helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5486,7 +5486,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "proxima_soft", Helvetica, Arial;
+  font-family: 'Proxima Soft', 'Source Sans Pro', helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -13643,7 +13643,7 @@ img.edit-icon {
 .sp-color,
 .sp-hue,
 .sp-clear {
-  font-family: "proxima_soft" !important;
+  font-family: "Proxima Soft" !important;
   font-size: 14px !important; }
 
 .multiple-languages .sp-replacer {

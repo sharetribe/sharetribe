@@ -4,7 +4,7 @@ $typography__main-color: #525961;
 // Basic fonts
 //
 
-$typography__font-family: 'Proxima Soft', Helvetica, sans;
+$typography__font-family: 'Proxima Soft', 'Source Sans Pro', helvetica, sans-serif;
 
 @mixin typography__regular {
   font-family: $typography__font-family;
