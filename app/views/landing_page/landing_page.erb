@@ -71,7 +71,15 @@
     <%= yield :video_css %>
     <%= yield :locations_css %>
   </style>
-  <%= @current_community.custom_head_script.to_s.html_safe if @current_plan.try(:[], :features).try(:[], :custom_script) %>
+  <% custom_script = @current_plan.try(:[], :features).try(:[], :custom_script) %>
+  <% if custom_script %>
+    <%= @current_community.custom_head_script.to_s.html_safe %>
+    <% if @current_community.custom_css_script.present? %>
+      <style>
+        <%= @current_community.custom_css_script.to_s.squish.html_safe %>
+      </style>
+    <% end %>
+  <% end %>
 </head>
 <body onload="BrowserDetectVideoAutoplay()">
 
@@ -131,6 +139,6 @@
                  props_endpoint: topbar[:props_endpoint],
                  container_id: "topbar-placeholder"} %>
   <% end %>
-
+  <%= @current_community.custom_body_script.to_s.html_safe if custom_script %>
 </body>
 </html>

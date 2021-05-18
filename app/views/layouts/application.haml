@@ -1,4 +1,4 @@
-= render :partial => 'layouts/head'
+= render 'layouts/head'
 
 %body
 
@@ -123,6 +123,6 @@
     :javascript
       $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
-    = render :partial => 'analytics/bottom_scripts'
-
-    = render :partial => "layouts/noscript"
+    = render 'analytics/bottom_scripts'
+    = render 'layouts/noscript'
+    = render 'layouts/body_script'

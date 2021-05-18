@@ -15,7 +15,9 @@ module Admin2::Advanced
     private
 
     def script_params
-      params.require(:community).permit(:custom_head_script)
+      params.require(:community).permit(:custom_head_script,
+                                        :custom_body_script,
+                                        :custom_css_script)
     end
   end
 end

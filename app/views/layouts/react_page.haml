@@ -98,9 +98,7 @@
 
   = auto_discovery_link_tag(:atom, atom_feed_url )
 
-  - unless @disable_custom_head_script || on_admin? || !custom_script_enabled?
-    = @current_community.custom_head_script.try(:html_safe)
-
+  = render 'layouts/head_script'
 %body
 
   -# Render railsContext here before any react component gets rendered
@@ -112,7 +110,7 @@
       - react_component_cache(name: "onboarding_topbar", props: props) do
         = react_component("OnboardingTopBar", props: props, prerender: true)
 
-  - if(search_mode != :keyword )
+  - if search_mode != :keyword
     - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
     - key_param = maps_key ? "&key=#{maps_key}" : ""
     = javascript_include_tag "//maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
@@ -139,4 +137,5 @@
       }
     }
 
-  = render :partial => "layouts/noscript"
+  = render 'layouts/noscript'
+  = render 'layouts/body_script'

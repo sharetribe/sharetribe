@@ -82,6 +82,8 @@
 #  default_min_days_between_community_updates :integer          default(7)
 #  listing_location_required                  :boolean          default(FALSE)
 #  custom_head_script                         :text(65535)
+#  custom_body_script                         :text(65535)
+#  custom_css_script                          :text(65535)
 #  follow_in_use                              :boolean          default(TRUE), not null
 #  logo_processing                            :boolean
 #  wide_logo_processing                       :boolean
