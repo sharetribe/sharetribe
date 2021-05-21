@@ -1,0 +1,159 @@
+/* fontIconPicker Bootstrap Theme {@link https://github.com/micc83/fontIconPicker} */
+@import 'variables';
+@import 'mixins';
+/* Main container */
+.#{$main-selector} {
+  // Themed scope
+  &.fip-bootstrap {
+    font-size: 16px;
+
+    /* Icon selector */
+    .selector {
+      border: 0 none;
+      background-color: transparent;
+      width: 102px;
+    }
+
+    /* Selector open button */
+    .selector-button {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 0 4px 4px 0;
+      background-image: linear-gradient(to bottom, #fff 0px, #e0e0e0 100%);
+      box-sizing: border-box;
+      width: 41px;
+      background-repeat: repeat-x;
+      /** open button icon */
+      i {
+        color: #aaa;
+        text-shadow: 0px 1px 0px #FFF;
+      }
+      /** hover */
+      &:hover {
+        background-color: #e0e0e0;
+        background-position: 0 -15px;
+        i {
+          color: #999;
+        }
+      }
+      /** active */
+      &:active {
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+      }
+    }
+
+    /* Selected icon */
+    .selected-icon {
+      border: 1px solid #ccc;
+      border-right: 0 none;
+      background-color: #fff;
+      border-radius: 4px 0 0 4px;
+      box-sizing: border-box;
+      i {
+        color: #404040;
+      }
+    }
+
+    /* IconPicker Popup */
+    .selector-popup {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    /* Search input & category selector */
+    .selector-search input[type="text"],
+    .selector-category select {
+      border: 1px solid #ccc;
+      color: #555;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      outline: none;
+      border-radius: 4px;
+
+      &:focus {
+        border-color: #66AFE9;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+      }
+    }
+
+    /** Input placeholder */
+    input::placeholder {
+      color:#aaa !important;
+    }
+
+    /* Search and cancel icon */
+    .selector-search i {
+      color: #aaa;
+    }
+
+    /* Icon Container inside Popup */
+    .fip-icons-container {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      /* Icon container loading */
+      .loading {
+        color:#ddd;
+      }
+    }
+
+    /* Single icon box */
+    .fip-box {
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      background-color: #eee;
+      &:hover {
+        background-color: #fff;
+        border-color: #66AFE9;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+        font-size: 1.6em;
+        text-shadow: 0 0 1px #fff;
+      }
+    }
+
+    /* Pagination and footer icons */
+    .selector-footer {
+      color: #428BCA;
+      i {
+        color: #428BCA;
+        /* Pagination arrows icons hover */
+        &:hover {
+          color: #2A6496;
+        }
+      }
+    }
+
+    /* Currently selected icon color */
+    span.current-icon,
+    span.current-icon:hover {
+      background-color: #428BCA;
+      color: #fff;
+      border: 1px solid #428BCA;
+    }
+    span.current-icon i,
+    span.current-icon:hover i {
+      color: #fff;
+    }
+
+    /* No icons found */
+    .icons-picker-error i:before {
+      color: #ccc;
+    }
+
+    /* Transitions */
+    .selector-search input[type="text"],
+    .selector-category select,
+    .fip-box {
+      transition: all 300ms ease-in-out;
+    }
+  }
+}
+
+
+
+
+
+

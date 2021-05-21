@@ -221,6 +221,31 @@ function checkedLandingPage(){
         def_url.show();
     }
 }
+
+function svgRenderIcon() {
+  $(".hidden_svg_render").each(function( index ) {
+    var item = $(this).val(),
+        id = $(this).data('id');
+
+    $('#svg_icon_pack_'+ id +'_icon').val(getKeysForValue(clpCustomIconToPath, item));
+  });
+
+  var hasSearchData = typeof clpCustomIconsSearch !== 'undefined';
+
+  $('.svg_renderer').fontIconPicker({
+    source: clpCustomIcons,
+    searchSource: hasSearchData ? clpCustomIconsSearch : false,
+    theme: 'fip-bootstrap',
+    iconGenerator: function( item, flipBoxTitle, index ) {
+      return '<i style="display: flex; align-items: center; justify-content: center; height: 100%;"><svg style="height: 32px; width: auto;" class="svg-icon ' + item + '"><use xlink:href="#' + item + '"></use></svg></i>';
+    }
+  }).on('change', function() {
+    var item = $(this).val(),
+        id = $(this).data('id');
+    $('#section_columns_'+ id +'_icon').val(clpCustomIconToPath[item]);
+  });
+}
+
 function initLandingPage(edit){
 
     var id;
@@ -230,7 +255,7 @@ function initLandingPage(edit){
     } else {
       id = '#landingPageAddModal';
     }
-
+    svgRenderIcon();
     $("#section_background_color_string").spectrum({
         showInput: true,
         preferredFormat: "hex",

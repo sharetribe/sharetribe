@@ -1,3 +1,14 @@
+function getKeysForValue(obj, value) {
+  var all;
+  $.each(obj, function(key, val){
+    if(val === value){
+      all = key;
+      return false;
+    }
+  });
+  return all;
+}
+
 function showError(text) {
     if ($('.ajax-update-notification').length) {
         $('.ajax-update-notification').remove();

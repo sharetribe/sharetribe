@@ -1,0 +1,226 @@
+/**
+ * CSS file for fontIconPicker
+ * This file holds the basic CSS
+ * {@link https://github.com/micc83/fontIconPicker}
+ */
+
+@import 'variables';
+@import 'mixins';
+
+/* Icons Fonts */
+
+.#{$main-selector} {
+  /** Reset box sizing */
+  @include box-sizing();
+
+  /** Reset (thx to Eric A. and Kathryn S. Meyer) */
+  * {
+    @include reset();
+  }
+
+  /* Display */
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+
+  /** Selector open button */
+  .selector-button {
+    width: 39px;
+    height: 100%;
+    display:block;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    /* Selector open button icon */
+    i {
+      line-height: 38px;
+      text-align: center;
+    }
+  }
+
+  /* Selected icon container */
+  .selected-icon {
+    display: block;
+    width: 60px;
+    height: 100%;
+    float: left;
+    text-align: center;
+    /* Selected icon */
+    i {
+      line-height: 40px;
+      font-size: 18px;
+      cursor: default;
+    }
+  }
+
+  /* IconPicker Popup Wrap */
+  .selector-popup-wrap,
+  &.selector-popup-wrap {
+    position: absolute;
+    z-index: 10000;
+    width: 352px;
+    height: auto;
+  }
+
+  /** selector popup */
+  .selector-popup {
+    margin-top:-1px;
+    padding: 5px;
+    width: 342px;
+    height: auto;
+    background-color: #fefefe;
+    position: absolute;
+  }
+
+  /* Icon selector */
+  .selector {
+    width: 100px;
+    height: 40px;
+  }
+
+  /* Search input & category selector */
+  .selector-search input[type="text"],
+  .selector-category select {
+    border: 0;
+    line-height: 20px;
+    padding: 10px 2.5%;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    font-size: 12px;
+    display: block; /* Fixes the positioning inside hidden/floated/text-aligned elements, where it would leave a margin */
+  }
+  .selector-category select {
+    height: 40px;
+    option {
+      padding: 10px;
+    }
+  }
+
+  /* Search input placeholder */
+  input::placeholder {
+    text-transform: uppercase;
+  }
+
+  /* Search and cancel icon */
+  .selector-search {
+    position: relative;
+    i {
+      position: absolute;
+      right: 10px;
+      top: 7px;
+    }
+  }
+
+  /* Icon Container inside Popup */
+  .fip-icons-container {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+
+    /* Icon container loading */
+    .loading {
+      font-size:24px;
+      margin:0 auto;
+      padding:20px 0;
+      text-align:center;
+      width:100%;
+    }
+  }
+
+  /* Single icon box */
+  .fip-box {
+    display: inline-block;
+    margin: 2px;
+    width: 60px;
+    line-height: 42px;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: top;
+    height: 40px;
+  }
+
+  /* Popup footer */
+  .selector-footer {
+    line-height: 12px;
+    padding: 5px 5px 0 5px;
+    text-align: center;
+    /* Pagination and footer icons */
+    font-size: 14px;
+    i {
+      font-size: 14px;
+    }
+    /** Pagination arrows container */
+    .selector-arrows {
+      float: right;
+      i {
+        cursor: pointer;
+      }
+    }
+    /** Pagination text */
+    .selector-pages {
+      font-size: 11px;
+      float: left;
+    }
+    em {
+      font-style: italic;
+    }
+  }
+
+  /* No icons found */
+  .icons-picker-error i:before {
+    color: #eee;
+  }
+
+  /** Icons */
+  [class^="fip-icon-"]:before,
+  [class*=" fip-icon-"]:before {
+    font-family: FontAwesome; // stylelint-disable-line
+    font-style: normal;
+    font-weight: normal;
+    speak: none; // stylelint-disable-line
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+  }
+  /* Search icon */
+  .fip-icon-search:before { content: '\f002';cursor: default; }
+  /* Cancel search icon */
+  .fip-icon-cancel:before { content: '\f05c';cursor: pointer; }
+  /* No icon set */
+  .fip-icon-block:before { content: '\f05e';color: #fed0d0; }
+  /* Open picker icon */
+  .fip-icon-down-dir:before { content: '\f063'; }
+  /* Close picker icon */
+  .fip-icon-up-dir:before { content: '\f062'; }
+  /* Prev page icon */
+  .fip-icon-left-dir:before { content: '\f060'; }
+  /* Next page icon */
+  .fip-icon-right-dir:before { content: '\f061'; }
+  /* Loading icon */
+  .fip-icon-spin3:before { content: '\e815'; }
+  .fip-icon-spin3 {
+    animation: spin 2s infinite linear;
+    display: inline-block;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
