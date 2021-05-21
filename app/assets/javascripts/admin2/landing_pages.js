@@ -230,8 +230,11 @@ function svgRenderIcon() {
     $('#svg_icon_pack_'+ id +'_icon').val(getKeysForValue(clpCustomIconToPath, item));
   });
 
+  var hasSearchData = typeof clpCustomIconsSearch !== 'undefined';
+
   $('.svg_renderer').fontIconPicker({
     source: clpCustomIcons,
+    searchSource: hasSearchData ? clpCustomIconsSearch : false,
     theme: 'fip-bootstrap',
     iconGenerator: function( item, flipBoxTitle, index ) {
       return '<i style="display: flex; align-items: center; justify-content: center; height: 100%;"><svg style="height: 32px; width: auto;" class="svg-icon ' + item + '"><use xlink:href="#' + item + '"></use></svg></i>';
