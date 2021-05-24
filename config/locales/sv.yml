@@ -1293,8 +1293,8 @@ sv:
       details: Orderinformation
       order_by: "Order av %{orderer_link}"
       accept_offer: "Acceptera erbjudande"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Acceptera förfrågan och behåll annonsen aktiv"
+      accept_request_and_close: "Acceptera förfrågan och avsluta annonsen"
       reject_offer: "Inte den här gången"
       reject_request: "Inte den här gången"
       close_listing: "Stäng annonsen %{listing_title_link}"
@@ -1532,7 +1532,7 @@ sv:
       request_marked_as_canceled: "Förfrågan avbruten"
       has_marked_request_as_confirmed: "%{other_party_full_name} har markerat denna förfrågan om %{request} som slutförd. Du kan nu ge feedback till %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} har avbrutit förfrågan om %{request}. Du kan fortfarande ge feedback till %{other_party_given_name}."
-      giving_feedback_is_good_idea: "Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
+      giving_feedback_is_good_idea: "Att lämna ett omdöme är alltid en bra idé. Om allt gick bra, låt andra veta att %{other_party_given_name} är pålitlig. Om det var några problem så är det bra att nämna dessa också."
       give_feedback_to: "Ge feedback till %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} har markerad förfrågan på %{request} som slutförd. Betalningen för denna transaktion har nu överförts till ditt bankkonto. Du kan nu ge feedback till %{other_party_given_name}."
@@ -1556,7 +1556,7 @@ sv:
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "Du kan nu ge feedback till %{other_party_given_name}. Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
+      giving_feedback_is_good_idea: "Du kan nu ge feedback till %{other_party_given_name}. Att lämna ett omdöme är alltid en bra idé. Om allt gick bra, låt andra veta att %{other_party_given_name} är pålitlig. Om det var några problem så är det bra att nämna dessa också."
       give_feedback_to: "Ge feedback till %{other_party_given_name}"
       show_thread: "Visa konversation"
     confirmation_instructions:
@@ -1728,9 +1728,9 @@ sv:
       remember_to_give_feedback_to: "Kom ihåg att lämna feedback till %{name}"
       you_have_not_given_feedback_yet: "Du har ännu inte lämnat någon feedback till %{name} angående händelsen '%{event}'. Kom ihåg att ge feedback om hur %{given_name} utfört händelsen."
     testimonial_reminder_v2:
-      headline: ~
-      you_have_not_given_feedback_yet: ~
-      leave_feedback: ~
+      headline: "glöm inte bort att lämna ett omdöme till %{other_name}!"
+      you_have_not_given_feedback_yet: "Att lämna ett omdöme är alltid en bra idé. Om allt gick bra, låt andra veta att %{name} är pålitlig. Om det var några problem så är det bra att nämna dessa också."
+      leave_feedback: "Lämna omdöme för %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} är intresserad och har auktoriserat betalningen för %{listing_title} som finns på %{service_name}"
       transaction_requested_by_user: "Goda nyheter! %{requester} är intresserad av %{listing_title} och har auktoriserat betalningen för annonsen."
@@ -1765,7 +1765,7 @@ sv:
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
       view_listing: ~
-      cant_click: ~
+      cant_click: "Kan du inte klicka på knappen? Då kan du använda länken nedan istället."
     new_ident_notification:
       subject: ~
       h1_body: ~
@@ -1823,7 +1823,7 @@ sv:
     transaction_cancel_flow:
       the_order_about: ~
       you_can_contact_the_marketplace_team: ~
-      you_can_now_give_feedback: ~
+      you_can_now_give_feedback: "Du kan nu ge feedback till %{name}. Att lämna ett omdöme är alltid en bra idé. Om allt gick bra, låt andra veta att %{name} är pålitlig. Om det var några problem så är det bra att nämna dessa också."
       give_feedback_to: ~
     transaction_disputed:
       subject: ~
