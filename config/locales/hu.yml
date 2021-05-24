@@ -2653,7 +2653,7 @@ hu:
   paypal_accounts:
     payout_info_title: "Kifizetések fogadása"
     paypal_account_email_connected: "<del>PayPal fiók csatlakoztatása</del> Sikeres!"
-    payout_info_paypal: "A %{service_name}  a PayPal-t használja fizetési szolgáltatónak. Ez azt jelenti, hogy egy érvényes %{create_paypal_account_link} fiók szükséges ahhoz, hogy hirdetéseidért az átutalásokat fogadhasd. Meglévő PayPal fiókodat csatlakoztatsd a %{service_name} oldalhoz."
+    payout_info_paypal: "A %{service_name}  a PayPal-t használja fizetési szolgáltatónak. Ez azt jelenti, hogy egy érvényes %{create_paypal_account_link} fiók szükséges ahhoz, hogy hirdetéseidért az átutalásokat fogadhasd. Meglévő PayPal fiókodat csatlakoztasd a %{service_name} oldalhoz."
     paypal_billing_agreement_made: "<del>Engedélyezés %{service_name} számára hogy tranzakciós díjat számoljon fel</del> Teljesítve!"
     commission_permission_needed: "Ezen felül engedélyezned kell a tranzakciós díj felszámítását a %{service_name} számára."
     create_paypal_account_link_text: "PayPal fiók"
