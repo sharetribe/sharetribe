@@ -2,9 +2,9 @@ bg:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: " "
+        delimiter: " "
+        format: "%u% n"
   admin:
     categories:
       edit:
@@ -27,8 +27,8 @@ bg:
         category_transaction_types:
           transaction_types: "Видове поръчки"
           transaction_types_description: "Видовете поръчки определят какъв вид начин на поръчки е позволен с обявите в тази категория. На пример, замо за продажба ли е или може и да се дава под наем или да се подарява"
-          select_all: ~
-          clear_all: ~
+          select_all: "Изберете всичко"
+          clear_all: "Изтрийте всичко"
         buttons:
           save: Запомни
           cancel: Отказ
@@ -107,15 +107,15 @@ bg:
         favicon: Фавикон
         favicon_info_text: "Фавиконът ще замени логото на Sharetribe. Размерите му трябва да бъдат 32x32 пиксела, а каченото изображение ще бъде оразмерено"
         community_custom_color1: "Основен цвят на Платформата"
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
-        community_description_color_instructions_text: ~
-        new_listing_button_custom_color: ~
+        community_slogan_color: "Цвят на слогана на магазина"
+        community_slogan_color_instructions_text: "Можете да промените цвета на слогана на заглавната страница като влезете в шестнадесетичната стойност на цвета. Слоганът се вижда от потребители които не са влезли в сайта.%{colorpicker} може да Ви помогне да изберете цвета и ви даде кода, след което можете да го копирате тук. %{see_how_it_looks_like}"
+        community_description_color: "Цвят за описване на магазина"
+        community_description_color_instructions_text: "Можете да промените цвета на слогана на заглавната страница като влезете в шестнадесетичната стойност на цвета. Слоганът се вижда от потребители които не са влезли в сайта.%{colorpicker} може да Ви помогне да изберете цвета и ви даде кода, след което можете да го копирате тук. %{see_how_it_looks_like}"
+        new_listing_button_custom_color: "Цвят на бутона Качване на нова обява"
         logo_instructions_text_with_dimensions: "Размерът на логото би трябвало да е %{width}x%{height} пиксела. Ще бъде показвано на потребители в по-големи монитори."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "Размерът на логото трябва да бъде %{width} x %{height} пиксела."
         logo_icon_instructions_text_with_dimensions: "Това квадратно лого ще бъде показвано когато някой сподели вашата страница във Фейсбук, когато разглеждат вашата страница на мобилно устройство или когато го запазят на работното пространство на мобилният телефон. Размерите трябва да бъдат (най-малко) %{width}x%{height} пиксела"
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Това квадратно лого ще бъде показано когато някого сподели вашия сайт във Фейсбук или когато го запазят за бърз достъп на екрана на мобилното устройство. Размерите трябва да бъдат (поне) %{width} x %{height} пиксела."
         logo_mobile_icon_instructions_text_with_dimensions: "Това квадратно лого ще бъде показано в мобилните устройства когато хората добавят Вашия сайт като любим \"bookmark\". Препоръчителните размери са %{width}x%{height}px."
         cover_photo_visibility: "Снимка на корицата се показва в началната страница за потребители, които не са влезли с профил."
         cover_photo_instructions_text_with_dimensions: "Снимката ще бъде оразмерена на %{width}x%{height} пиксела а по-високите ще бъдат изрязани в средата.%{see_how_it_looks_like}"
@@ -125,7 +125,7 @@ bg:
         small_cover_photo_instructions_text_with_dimensions: "Снимката ще бъде оразмерена на %{width} x %{height} пиксела и дългите изображения ще бъдат изрязани на средата."
         main_content_width: "Когато избирате снимка на корицата имайте предвид, че в съдържанието на главната страница размера е %{main_width}. Моля, проверете как изглежда вашата корица на по-малки екрани ( т.е използвайте по-малък прозорец на браузъра)."
         custom_color1_instructions_text: "Можете да смените основния цвят на потребителкия интерфейс като влезете в hex colour value.%{link} може да ви помогне да изберете цвят и да ви предостави hex colour код. Можете да копирате кода тук"
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Може да смените цвета на бутона за качване на нова обява като въведете  шестнадесетична стойност на цвета.%{link_to_colorpicker} може да Ви помогне да изберете цвят и предостави шестнадесетичната стойност на цвета. После, може да копирате кода тук."
         default_browse_view: "Изглед при разглеждане по подразбиране"
         default_browse_view_instructions_text: "Изгледът по подразбиране при разглеждане е използван на началната страница, за да се демонстрира как изглеждат обявите."
         grid: Мрежа
@@ -160,7 +160,7 @@ bg:
         sender_name_placeholder: "Име на изпращача"
         sender_email_label: ~
         sender_email_placeholder: ~
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Ще получите имейл от %{email_sender} за потвърждение. Заглавието на имейла е %{email_subject}. Последвайте инструкциите за да верефицирате вашия имейл."
         this_is_how_it_will_look: sender-email@example.com
         send_verification_button: "Изпратено писмо за потвърждение."
         change_sender_email: ~
@@ -173,18 +173,18 @@ bg:
         status_verified: "Проверено- използва се"
         status_error: "Изникна грешка. Моля обновете страницата."
         status_requested: "Непроверено- верификационен имейл е изпратен до %{email} %{time_ago}.%{resend_link}"
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
+        status_expired: "Верификацията на %{email} изтече.%{resend_link}"
+        status_resent: "Верификационният имейл бе изпратен отново до %{email}.%{resend_link}"
+        resend_link: "Изпрати отново"
+        invalid_email_error: "Невалиден имейл формат за %{email}"
         invalid_email_address: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
-        white_label_offer: ~
-        upgrade_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        invalid_email_domain: "%{email} имейл адрес използва неподдържан имейл провайдер.%{domain} .%{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Прочетете статиите в Центъра за Помощ за повече информация."
+        unknown_error: "Нещо се обърка"
+        white_label_offer: "Създайте собствен имейл адрес и изтрийте всички препратки към Sharetribe в изпращаните имейли%{upgrade_pro_plan_link}"
+        upgrade_plan_link: "вземете план Pro или по-висок"
+        verification_sent_from: "Верификационният имейл беше изпратен от %{verification_sender_name}."
+        follow_the_instructions: "Моля, последвайте инструкциите в имейла за да верифицирате адреса."
       getting_started:
         getting_started: Започнете
       available_languages:
@@ -207,7 +207,7 @@ bg:
         nl: Холандски
         pl: ~
         pt-BR: "Португалски (Бразилия)"
-        pt-PT: ~
+        pt-PT: Португалски
         ru: Руски
         sv: Шведски
         th-TH: ~
@@ -224,16 +224,16 @@ bg:
         private: "Разрешете само на регистрирани потребители да виждат обявите  и потребителските профили ( направете магазина видим само за вас)"
         require_verification_to_post_listings: "Разрешете само на потребители проверени от администратор да пускат нови обяви"
         allow_free_conversations: ~
-        search_preferences: ~
+        search_preferences: "Предпочитания за търсене"
         search_and_location_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        keyword_and_location_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
-        show_only_nearby: ~
+        default_search_type: "Видове търсене:%{select_search_type}"
+        keyword_search: "Търсене по ключова дума"
+        keyword_and_location_search: "Търсене по ключова дума и локация"
+        location_search: "Търсене по локация"
+        select_distance_unit: "Покажи растоянието в %{distance_units_selector}"
+        km: км
+        miles: мили
+        show_only_nearby: "Показване само на обявите наблизо с търсене по локация"
         allow_users_to_add_location: ~
         fuzzy_location: ~
         listing_preferences: "Настройки на обявите"
@@ -262,7 +262,7 @@ bg:
         last_community_updates: "Имайте предвид, че дори и да изтриете вашия магазин, вие и вашите потребители може да получават писма с новости"
         you_will_be_redirected_to: "След като изтриете вашия магазин ще бъдете препратени до%{destination}. Вие няма да имате вече достъп до вашия магазин."
         delete_this_marketplace: "Изтрийте този магазин"
-        payment_preferences: ~
+        payment_preferences: "Система за плащания"
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
@@ -276,7 +276,7 @@ bg:
         ban_user: Изключи
         saving_user_status: Запазване...
         save_user_status_successful: Запазено
-        export_all_as_csv: ~
+        export_all_as_csv: "Извлечи всичко като CSV"
         save_user_status_error: "Неуспешно запазване на настройките. Моля, презаредете страницата и опитайте отново."
         ban_user_confirmation: "Това деактивира потребителския профил от магазина и не позволява повече достъп до сайта. Сигурни ли сте,че искате да продължите?"
         unban_user_confirmation: ~
@@ -295,7 +295,7 @@ bg:
           selected: "Избрани статуси: %{count}"
           selected_js: "Избрани статуси: "
           admin: Администратор
-          banned: Забранено
+          banned: Изключено
           posting_allowed: "Публикуването позволено"
           accepted: Прието
           unconfirmed: Непотвърден
@@ -308,12 +308,12 @@ bg:
         user_didnt_complete_the_signup_process: "Този потребител се регистрира чрез Фейсбук но не довърши регистрационния процес. След свързването към своя Фейсбук профил, потребителите трябва също да приемат условията на ползване на сайта, както и да попълнят задължителните полета."
         pending_user: "Изчакване: %{name}"
       new_layout:
-        new_layout: ~
-        description_roadmap_new: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
-        searchpage: ~
+        new_layout: "Ново оформление"
+        description_roadmap_new: "Когато нови компоненти за оформление се появят като възможност за вашия магазин, Вие може да изберете дали да ги използвате, или да се придържате към старите. Може да превключвате към нов избор по всяко време от тази страница. Препоръчваме Ви да използвате винаги новата версия, тъй като старите компоненти може да отпаднат в някакъв момент. Ще бъдете уведомен в случай, че някой от компонентите бъде изключен.."
+        enabled_for_you: "Включено е за вас"
+        enabled_for_all: "Включено е за всички"
+        new_topbar: "Нова горна лента( видима за всяка страница)"
+        searchpage: "Нова страница за търсене (изисква се нова горна лента)"
         new_email_templates: ~
       social_media:
         social_media: "Социална медия"
@@ -440,10 +440,10 @@ bg:
         language: Език
         url: URL
         empty: "Нямате никакви допълнителни връзки на менюто"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Максимум линка показани горе:%{select_max_number}"
+        all: Всички
+        max_number_of_links_info: "Връзката към %{about_page} винаги се показва като линк на първото меню"
+        about_page: "относно страницата"
       default_menu_links:
         title: "Линкове на менюто по подразбиране"
         about_link_title: Относно
@@ -454,11 +454,11 @@ bg:
         display_contact: "Покажи линк към страницата <i> Contact us </i>"
         display_invite: "Покажи линк към страницата <i> Invite new members </i>"
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Горна лента"
+        new_listing_button_label: "Текст на бутона за качване на нова обява"
+        invalid_post_listing_button_label: "Моля, въведете валиден текст за бутона  \"Качване на нова обява\""
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: "Извлечи всичко като CSV"
         processing_export: ~
         transactions: Транзакции
         search_by_title_parties: ~
@@ -502,33 +502,33 @@ bg:
           initiated: "Изчаква се плащане чрез PayPal"
           pending_ext: "Изчаква се заплащане през PayPal"
           none:
-            free: ~
+            free: "Безплатни транзакции"
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            free: Разговор
+            pending: "В очакване"
+            preauthorized: "Предварително разрешен"
+            accepted: Прието
+            rejected: Отказано
+            paid: Платено
+            confirmed: Завършено
+            canceled: Прекъснато
             disputed: ~
-            initiated: ~
-            pending_ext: ~
+            initiated: "Очаква се плащане от PayPal"
+            pending_ext: "Очаква се плащане от PayPal"
             refunded: ~
             dismissed: ~
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
+            free: Беседа
+            pending: "В очакване"
+            preauthorized: "Предварително разрешен"
+            accepted: Приет
+            rejected: Отказан
+            paid: Платен
+            confirmed: Завършен
+            canceled: Прекъснат
             disputed: ~
-            initiated: ~
-            pending_ext: ~
+            initiated: "Очаква се плащане от Stripe"
+            pending_ext: "Очаква се плащане от Stripe"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
@@ -876,7 +876,7 @@ bg:
       edit:
         edit_listing_field: "Редактиране на полето за регистрация '%{field_name}'"
       edit_price:
-        description: ~
+        description: "Минималната и максималната цена имат ефект само върху филтъра. Те не въвеждат лимит за цените на обявите."
         edit_price_field: "Редактиране на полето за обяви „Цена“"
         show_price_filter_homepage: "Покажи ценовия филтър на началната страница"
         price_min: "Филтрирай по най-ниска цена"
@@ -887,15 +887,15 @@ bg:
         the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: "Редактиране на полето за обява „Дата на изтичане“"
-        enable: ~
+        enable: "Включете срок на годност"
       form:
         field_required:
           this_field_is_required: "Направете задължително попълването на това поле при създаване на нова обява"
           this_field_is_required_checkbox: "Направете задължително попълването на това поле когато създавате нова обява (потребителят трябва да избере поне една опция)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Показване на филтър базиран на това поле на главната страница"
+          date_cant_be_filtered: "Няма наличен филтър за полето с дати"
+          text_cant_be_filtered: "Няма филтер за полето с текст. Основният текст търси търсения от текстовите полета"
       index:
         listing_fields: "Полета с обяви и филтри"
         listing_fields_help: "Тук можете да редактирате полетата, които потребителите трябва да попълнят при създаване на нова обява. Имайте предвид,че някои от полетата са защитени и не могат да се редактират."
@@ -906,8 +906,8 @@ bg:
         field_title: "Заглавие на полето"
         field_type: "Вид на полето"
         categories: "Полета в които влизат категориите на обявите"
-        select_all: ~
-        clear_all: ~
+        select_all: "Изберете всичко"
+        clear_all: "Изтрийте всичко"
         options: Настройки
         add_option: "+ Добавете опции"
         saving_order: "Запазване на подредбата на полето"
@@ -957,20 +957,20 @@ bg:
         send_email_to_members: "имейл на потребител"
         send_email_to_members_title: "Изпратете имейл до потребителите си"
         send_email: "Изпратете имейла"
-        send_email_or: ~
-        send_test_email: ~
+        send_email_or: или
+        send_test_email: "Изпратете си тестов имейл"
         test_sent: "Тестовият имейл беше изпратен до вашата пощенска кутия"
-        send_email_article_title: ~
-        send_email_article_text: ~
+        send_email_article_title: "този артикул"
+        send_email_article_text: "Може да разберете повече за потребителските семгменти тук%{article_link}."
         recipients:
-          title: ~
+          title: "На кого искате да изпратите имейл?"
           options:
-            all_users: ~
+            all_users: "Всички потребители"
             posting_allowed: "Потребители които имат позволение да публикуват обяви"
-            with_listing: ~
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
+            with_listing: "Потребители които са пуснали поне една обява"
+            with_listing_no_payment: "Потребители, които са пуснали поне една обява но не са добавили подробности за плащанията"
+            with_payment_no_listing: "Потребители, които са добавили подробностите за плащания но не са пуснали обява"
+            no_listing_no_payment: "Потребители, които не са пуснали обява и не са добавили подробности за плащанията"
         email_subject: "Тема на имейла"
         email_content: "Съдържание по имейл"
         email_content_placeholder: "Какво искате да кажете на потребителите си?"
@@ -989,17 +989,17 @@ bg:
       configure: Конфигуриране
       emails_title: "Електронни имейли"
       subscription: Aбонамент
-      preview: ~
+      preview: "Преглед на страницата"
       whats_new: ~
     listing_shapes:
-      availability_title: ~
-      read_more: ~
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
+      availability_title: Наличност
+      read_more: "Прочетете повече за управлението на автоматичната наличност."
+      read_more_availability_management: "Прочетете повече за управлението на наличностите."
+      allow_providers_to_manage_availability: "Позволете на продавачите да управляват тяхната наличност чрез календара"
       per_hour_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      per_day_availability: "\"За ден\" наличност"
+      per_night_availability: "\"За нощувка\" наличност"
+      pricing_units_disabled_info: "Ценовите единици не могат да се използват при включен календар за наличност"
       can_not_find_name: "Вида на поръчката не може да бъде открит с това име :%{name}"
       index:
         listing_shapes: "Видове поръчки"
@@ -1089,18 +1089,18 @@ bg:
     paypal_accounts:
       marketplace_paypal_integration: "Предпочитания за разплащателната система"
       preferences_updated: "Предпочитанията системата за плащания е обновена"
-      contact_support_link_text: ~
+      contact_support_link_text: "свържете се с поддръжка"
       integration_info_text: "Системата за плащане на вашия магазин се поддържа от PayPal. За да разрешите на вашите потребители да плащат за вашия магазин, Вие трябва да свържете вашия PayPal профил, а когато го направите, може да изберете размера за минимална транзакция и еветнуална комисионна."
-      link_paypal_personal_account_label: ~
-      link_paypal_personal_account: ~
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account_label: "Сам ли доставяте продуктите или услугите?"
+      link_paypal_personal_account: "В такъв случай, трябва да свържете вашия PayPal акаунт към%{personal_payment_preferences_link}."
+      link_stripe_personal_account: "В такъ случай , трябва да добавите вашите детайли за изплащане на %{personal_payment_preferences_link}."
+      link_paypal_and_stripe_personal_account: "В такъв случай трябва да свържете вашия PayPal или Stripe акаунт към %{personal_payment_preferences_link}."
+      personal_payment_preferences_link_text: "вашият личен акаунт на магазина"
       read_more_about_paypal: "Прочетете повече за разплащателната система"
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      edit_payment_settings: "Редактирайте настройките за плащания"
+      supported_currencies_information_text: "Системата за плащания на Sharetribe поддържа 24 валути. Ако вашата валута не е в списъка моля, %{contact_support_link} .Ако промените вида на валутата в магазина, съществуващите обяви ще задържат старите парични единици. Трябва да редактирате всяка една обява за да поставите новия вид валута."
+      currency_change_warning_text: "Внимание: ако продължите с промяната на валутата, не забравяйте да уведомите вашите продавачи ръчно да редактират обявите си с новата валута."
+      marketplace_currency_label: "Валута на магазина:"
       minimum_listing_price_label: "Минимален размер на транзакцията:"
       transaction_fee_label: "Комисионна за превод на продавача:"
       minimum_transaction_fee_label: "Минимална такса за транзакция на продавача:"
@@ -1108,45 +1108,49 @@ bg:
       minimum_listing_price_below_tx_fee: "Минималният размер на транзакцията трябва да бъде по-голям или равен на минималната такса за транзакция:%{minimum_transaction_fee}"
       minimum_listing_price_below_min: "комисионна %{minimum_commission}."
     payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
-      you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
-      choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      title: "Система за плащане- предпочитания"
+      general_settings: "1. Главни настройки"
+      connect_a_payment_provider: "2. Свържете доставчик на плащания"
+      contact_support: "свържете се с поддръжка"
+      no_payments_link_text: тук
+      your_country: "Вашата страна:"
+      you_cannot_use_online_payments: "Не може да използвате онлайн плащания в %{country_name} със%{currency}. Моля, изберете друга валута или %{support_link} за да смените вашата държава. Можете да разберете повече за страните и валутите които поддържаме.%{help_link}. За в бъдеще обмисляме да добавим още доставчици на плащания и да поддържаме повече валути."
+      which_to_choose: "Кой да избера?"
+      you_can_use_stripe_or_paypal: "Можете да използвате Stripe, PayPal или и двете платформи за ваш доставчик на плащане.%{choose_link}"
+      you_can_use_stripe_only: "Може да използвате Stripe за ваш доставчик на плащане.%{read_more_link}"
+      read_more_stripe: "Прочетете още за плащанията с Stripe."
+      you_can_use_paypal_only: "Може да използвате PayPal за ваш доставчик на плащане.%{read_more_link}"
+      read_more_paypal: "Прочетете още за плащанията с PayPal."
+      read_more_about_paypal_and_stripe: "Прочетете още за онлайн плащанията,Stripe иPayPal"
+      general_settings_updated: "Генералните настойки на системата за плащания са обновени"
+      transaction_fee_settings_updated: "Настройките за таксата за транзакция са обновени"
+      choose_popup_text: |-
+          Ако желаете да разрешите на вашите потребители да приемат онлайн плащания, то трябва да изберете вида на валутата за вашия магазин, след това да свържете поне един от двата доставчици на плащания поддържани от Sharetribe:Stripe и PayPal. Можете също да изберете и двата, което означава, че вашите потребители ще приемат плащания и от двете платформи.
+           Можете да създадете нов акаунт с която от двете искате. Веднъж свързали акаунта, ще можете да избирате какава комисионна да взимате от всяка транзакция.
+          Каква е разликата между Stripe иPayPal? Stripe позволява да забавите плащане до три месеца и предлага един начин на плащане (кредитна/дебитна карта). Stripe също позволява на продавачите ви да получават пари директно в техните банкови сметки ако имат банковите им детайли.PayPal позволява два метода на плащане (кредитна карта и PayPal акаунт) и предлага програма за защита на купувача и продавача.Изисква се вашите продавачи да имат PayPal Business Account за да получават плащания.
+          Таксите на Stripe се приспадат от вашата комисионна, така че не забравяйте да сложите достатъчно висока минимална такса. Таксите на PayPal  се взимат директно от продавача, като допълнение към комисионната. Stripe иPayPal имат различна структура за таксуване. В повечето случаи таксите на Stripe са малко по-ниски.
+      invalid_api_keys: "Невалиден Stripe API ключ"
+      missing_api_keys: "Липсващ Stripe API ключ"
+      stripe_verified: "Stripe API достъп е верифициран"
+      change_settings: "Променете настройките и таксите"
+      configure_stripe: "Конфигуриране на Stripe"
+      configure_paypal: "Конфигуриране на PayPal"
+      transaction_fee_settings: "Настройки на таксите за транзакция"
+      transaction_fee_save: Запази
+      stripe_fee: "такси на Stripe"
+      stripe_fee_notice: "%{stripe_fee_link} ще бъде приспадната от вашата комисионна"
+      fee_should_be_less_than_minimum_price: "Минималната комисионна трябва да бъде по-ниска от размера на минималната транзакция"
       the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
       stripe_connected:
-        title: ~
+        title: "Stripe е свързан"
         disable: ~
         disabled: ~
         enable: ~
       paypal_connected:
-        title: ~
+        title: "PayPal е свързан"
         disable: ~
         disabled: ~
         enable: ~
@@ -1154,15 +1158,15 @@ bg:
       cannot_disable_gateway: ~
       cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
+        add_your_api_keys: "Добавете  вашия Stripe API ключ"
+        how_to_get_these: "Как да ги взема?"
         publishable_key_example: ~
         secret_key_example: ~
-        save_api_keys: ~
+        save_api_keys: "Запазете Stripe API ключ"
         invalid_secret: ~
         invalid_publishable: ~
       index:
-        header: ~
+        header: "Налични настройки за плащане"
         info: ~
         active: ~
         gateway: ~
@@ -1342,10 +1346,10 @@ bg:
       message_from: "Съобщение от%{person}"
       about_listing: "Относно обявата%{listing_title}"
       free_message: "Директно съобщение"
-      message_content_not_available: ~
+      message_content_not_available: "Съдържанието на съобщението не може да бъде показано"
     message:
       accepted_request: "прие заявката"
-      received_payment: ~
+      received_payment: "заявката е приета, получихте плащане на стойност %{sum}"
       received_payment_wo_sum: ~
       accepted_offer: "прие офертата"
       rejected_request: "отхвърли заявката, отмени плащането"
@@ -1465,10 +1469,10 @@ bg:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Нов контакт формира вписване на %{service_name}"
+    feedback_body: "%{author_name_and_email} е въвел следното вписване в %{service_name} форма за контакти. Това известие е изпратено до всички администратори на %{service_name}"
+    unlogged_user: "Невписан потребител"
+    anonymous_user: "Анонимен потребител"
   community_memberships:
     access_denied:
       access_denied: "Достъпът е отказан"
@@ -1486,10 +1490,10 @@ bg:
       log_out: Изход
       join_community_button: "Присъединете се към %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Кодът за покана е невалиден или вече е използван."
+      email_not_allowed: "Този имейл не е разрешен в %{service_name}."
+      email_not_available: "Имейлът е вече използван."
+      consent_not_given: "Не сте се съгласили с условията"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Не забравяйте да приемете или отхвърлите предложението от %{sender_name}"
@@ -1500,9 +1504,9 @@ bg:
       you_have_not_yet_accepted_or_rejected_request: "Още не сте приели или отхвърлили запитването %{title} , което получихте %{date}."
       show_thread: "Покажи разговора"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} се захранва от платформата %{sharetribe_link}"
+      create_own: "Искате ли да създадете ваша онлайн магазинна платформа като %{service_name}?%{learn_more}."
+      learn_more: "Разберете повече"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Все още не сте изпълнили или оспорили поръчката %{request_link}. Ако поръчката е приключила, трябва да потвърдите това. След това можете да дадете обратна връзка на %{other_party_given_name}."
       remember_to_confirm_request: "Не забравяйте да потвърдите или отмените заявка"
@@ -1731,9 +1735,9 @@ bg:
       subject: "%{requester} е заинтересуван и е позволил заплащането на%{listing_title} побликувано в %{service_name}"
       transaction_requested_by_user: "Страхотна новина!%{requester} се интересува от %{listing_title} и желае да заплати."
       you_have_time_to_accept: "Трябва да приемете или откажете заявката в рамките на %{payment_expires_in}"
-      if_you_do_accept: ~
+      if_you_do_accept: "Ако приемете заявкат в тази времева рамка, Вие ще получите моментално парите във вашия акаунт."
       if_you_do_accept_stripe: ~
-      if_you_do_not_accept: ~
+      if_you_do_not_accept: "Ако откажете заявката или не я приемете в тази времева рамка, транзакцията ще бъде автоматично прекъсната,%{requester} няма да бъде таксуван и няма да Ви се заплати."
       click_here_to_reply: "Натиснете тук за да отговорите на заявката"
     transaction_preauthorized_v2:
       headline: ~
@@ -1773,10 +1777,10 @@ bg:
       button: ~
     new_member_notification:
       subject: ~
-      new_member_has_joined: ~
+      new_member_has_joined: "Нов член се присъедини към %{community}.Те ще трябва да потвърдят имейл адреса си."
       this_is_automatic_message: "Това е автоматично съобщение, изпратено до администраторите на %{community}."
-      person_name: ~
-      person_email: ~
+      person_name: "Име:"
+      person_email: "Имейл:"
     new_member_notification_v2:
       headline: ~
       new_member_has_joined: ~
@@ -1848,10 +1852,10 @@ bg:
       contact_the_seller: ~
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Резервацията е неуспешна заради грешка. Моля опитайте отново по-късно. Няма извършено плащане."
+      double_booking_payment_voided: "За съжаление, датите които избрахте за заети. Моля, изберете други дати. Няма извършено плащане."
     onboarding:
-      server_rendering: ~
+      server_rendering: "Наръчникът за започване не успя да се зареди. Информирани сме за проблема и работим по въпроса."
     listings:
       departure_time: "Времето за заминаване трябва да бъде до една година от днешната дата."
       share_type: "Трябва да изберете поне едно."
@@ -1864,10 +1868,10 @@ bg:
     transaction_agreement:
       required_error: "Трябва да приемете споразумението"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Транзакцията не може да бъде извършена. Вероятната причина е, че кредитната карта не може да бъде използвана заради отказ на банката. Моля, опитайте да платите отново с алтернативен начин на плащане."
       buyer_cannot_pay_error: "Плащането беше отказано от PayPal. Моля, свържете се с Отдел Обслужване на %{customer_service_link}."
       pending_review_error: "Плащането беше подадено но отбелязано от PayPal като \" има нужда от преглед\". Когато PayPal завърши прегледа, плащането автоматично ще бъде разрешено."
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "PayPal Express Checkout е изключен за тази обява. Моля свържете се с автора и съобщете, че има проблем с неговия PayPal акаунт и го посъветвайте да се свърже с PayPal Customer Service."
       seller_express_checkout_disabled_no_free: ~
       generic_error: "Изникна грешка. Заплащането през PayPal не успя да се осъществи."
       cancel_error: "Възникна грешка по време на оспорването и то не можа да бъде завършено."
@@ -1961,7 +1965,7 @@ bg:
     create_new_marketplace: "Създайте нова Платформа"
     contact_us: "Свържете се с нас"
     profile: Профил
-    manage_listings: ~
+    manage_listings: "Моите обяви"
     invite: "Покани нови потребители"
     login: Вход
     signup: "Регистрирай се"
@@ -2048,7 +2052,7 @@ bg:
     list_item:
       review: преглед
       reviews: прегледи
-      distance_away: ~
+      distance_away: "%{distance} %{distance_unit} далече"
     news_item:
       show_less: "Покажи по-малко"
       show_more: "Покажи повече"
@@ -2072,7 +2076,7 @@ bg:
       all_listing_types: "Всички видове листинг"
       all_categories: "Всички категории"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "В момента не може да търсите, моля опитайте по-късно."
   infos:
     about:
       default_about_text_title: "Какво е Sharetribe?"
@@ -2083,19 +2087,19 @@ bg:
       default_content: "Тук можете да намерите информация за това как работи %{marketplace_name}."
   landing_page:
     hero:
-      search: ~
+      search: Търсене
       signup: "Регистрирай се"
-      search_placeholder: ~
+      search_placeholder: "Какво търсите?"
       search_location_placeholder: Mестоположение
     listings:
-      no_listing_image: ~
+      no_listing_image: "Няма снимка"
   layouts:
     admin:
       admin: "%{service_name} администраторски панел"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} се захранва от %{sharetribe_link} платформа за продажби"
+      create_own: "Желаете ли да създадете собствена платформа за продажби като %{service_name}?%{learn_more}"
+      learn_more: "Разберете повече"
     no_tribe:
       inbox: "Входяща кутия"
       settings: Настройки
@@ -2104,7 +2108,7 @@ bg:
       join_this_community: "Присъединете се към пазар"
       read_more: "Прочетете още"
       feedback: "Вашето съобщение до %{service_name} екип"
-      dont_use_to_contact_support: ~
+      dont_use_to_contact_support: "Забелязахме, че сте администратор на %{service_name}. Този формуляр е как другите потребители се свързват с вас. Не може да използвате този формуляр за да се свържете с поддръжката на Sharetribe. Може да го направите през уджета за поддръжка намиращ се в дъното от лявата страна на вашия администраторски панел."
       feedback_forum: "форум за препоръки"
       feedback_handle: Препоръка
       give_feedback: "Свържете се с нас"
@@ -2224,8 +2228,8 @@ bg:
       offer_rejected: "Предложението е отхвърлено"
       offer_canceled: "Офертата е отменена"
       listing_updated_successfully: "Обявата е обновена успешно"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
+      listing_updated_availability_management_enabled: "Обявата се обнови успешно. Управлението на наличностите е включено."
+      listing_updated_availability_management_disabled: "Обявата се обнови успешно. Управлението на наличностите е изключено."
       listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Моля, влезте с администраторски акаунт за достъп до тази зона"
       only_listing_author_can_close_a_listing: "Само авторът на обява може да я закрие"
@@ -2256,14 +2260,14 @@ bg:
       request_rejected: "Запитването е отхвърлено"
       request_canceled: "Поръчката е оспорена"
       message_sent: "Съобщението е изпратено"
-      message_not_sent: ~
+      message_not_sent: "Съобщението не може да бъде изпратено. Моля, опитайте отново."
       this_content_is_not_available_in_this_community: "Това съдържание не е достъпно."
       unknown_error: "Неизвестна грешка. Моля, използвайте връзката Свържете се с нас, за да изпратите подробности за случилото се."
       update_error: "При опита за актуализиране на информацията възникна грешка, моля, опитайте отново"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Не сте упълномощени да давате обратна връзка за това събитие"
       you_are_not_authorized_to_do_this: "Не сте упълномощени да правите това"
       you_are_not_authorized_to_view_this_content: "Не сте упълномощени да разглеждате това съдържание"
-      listing_closed: ~
+      listing_closed: "Тази обява беше затворена"
       send_instructions: "Ще получите имейл с инструкции как да нулирате паролата си след няколко минути."
       you_cannot_reply_to_a_closed_offer: "Не можете да отговорите на затворено предложение"
       you_cannot_send_message_to_yourself: "Не можете да изпратите съобщение до себе си"
@@ -2295,13 +2299,17 @@ bg:
       email_deleted: "Електронният адрес е премахнат"
       listing_author_payment_details_missing: "Моля, свържете се с автора като натиснете бутона 'Свържи се'. Необходимо е да си настроят профила за приемане на плащания."
       listing_author_payment_details_missing_no_free: ~
-      images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      images_are_processing: "Обработваме вашите снимки. Моля, дайте ни малко време."
+      automatically_logged_out_please_sign_in: "Вие автоматично излязохте от сайта. Моля влезте отново."
       stripe_you_account_balance_is_not_0: ~
       stripe_balance_for_username_is_not_0: ~
       visit_admin: "Желаете ли да %{link}?"
       visit_admin_link: "Посетете Вашия панел като Администратор"
       an_error_occurred_when_saving_your_information: ~
+      maintenance_mode:
+        zero: "Уеб сайтът ще бъде неактивен заради поддръжка"
+        one: "Уеб сайтът ще бъде неактивен заради поддръжка след %{count} минута"
+        other: "Уеб сайтът ще бъде неактивен заради поддръжка след %{count} минути"
     settings:
       account: Акаунт
       notifications: Известия
@@ -2320,8 +2328,8 @@ bg:
     comment:
       wrote: написах
       send_private_message: "Изпратете лично съобщение до %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: изтрийте
+      are_you_sure: "Сигурни ли сте, че искате да изтриете коментара?"
     comment_form:
       ask_a_question: "Коментирайте обява или поискайте повече подробности. Всички останали потребители ще могат да видят вашия коментар."
       log_in: "да влезете"
@@ -2349,12 +2357,12 @@ bg:
       reject_listing: ~
       delete_listing: "Изтриване на обява"
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Отворете в Гугъл карти"
     error:
       something_went_wrong: "Нещо се обърка, грешка:%{error_code}"
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      something_went_wrong_plain: "Нещо се обърка"
+      create_failed_to_connect_to_booking_service: "Създаването на обява е неуспешно. Неуспешен опит за връзка с услугата за резервации. Моля, опитайте отново."
+      update_failed_to_connect_to_booking_service: "Обновяването на обява е неуспешно. Неуспешен опит за връзка с услугата за резервации. Моля, опитайте отново."
     follow_links:
       follow: "Получавайте съобщения за нови коментари"
       unfollow: "Не получавайте съобщения за нови коментари"
@@ -2369,7 +2377,7 @@ bg:
         repeated: "Повтаряемо (добавете часове и дати в полето 'Допълнително описание')"
       description:
         detailed_description: "Подробно описание"
-        youtube_info: ~
+        youtube_info: "Ако в описанието има линк към YouTube, видеото ще бъде показано под описанието."
         youtube_info_markdown: "Можете да %{link}. Ако вашето описание съдържа YouTube линкове, видеото ще се покаже под описанието."
       destination:
         destination: Дестинация
@@ -2388,23 +2396,23 @@ bg:
         googlemap_updatemap: "Актуализиране на картата"
       images:
         image: Изображение
-        best_result: ~
+        best_result: "За най-добър резултат използвайте снимки в JPG,GIF или PNG формат с%{width}x %{height} пиксела"
         no_file_selected: "Не е избран файл"
         remove_image: "Премахване на изображението"
         select_file: "Избери файл"
-        add_more: ~
+        add_more: "+ Добавете още"
         removing: Изтриване...
         processing: "Обработва се..."
         loading_image: Зареждане...
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "качване на снимката..."
+        processing_takes_a_while: "Всички снимки са качени! Обработката им ще отнеме извесно време, но няма проблем да запазите обявата и продължите."
         this_may_take_a_while: "това ще отнеме секунда"
         percentage_loaded: "%{percentage} %"
         uploading_failed: "качването на изображението е неуспешно"
-        image_processing_failed: ~
+        image_processing_failed: "Изображението не можа да бъде обработено"
         file_too_large: "Файлът е твърде голям"
         accepted_formats: "Форматът на изображението трябва да бъде GIF,JPG или PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Снимките все още не са напълно качени. Наистина ли искате да продължите?"
       location:
         location: Mестоположение
       price:
@@ -2506,8 +2514,8 @@ bg:
       booking_from: От
       booking_to: До
       how_paypal_works: "Как работи PayPal"
-      payment_help: ~
-      unable_load_availability: ~
+      payment_help: "Помощ за плащания"
+      unable_load_availability: "Информацията за наличност не успя да се зареди. Моля, опитайте пак по-късно."
       booking_date: ~
       select_one: ~
       start_time: ~
@@ -2578,7 +2586,7 @@ bg:
       shipping_price_additional: "Доставка (+%{price}, допълнителни артикули: %{shipping_price_additional} )"
       pickup: "Взимане на място"
       pickup_no_price: Вдигни
-      youtube_video_player: ~
+      youtube_video_player: "YouTube video player"
     unit_types:
       piece: парче
       hour: час
@@ -2592,8 +2600,8 @@ bg:
       verification_required: "Изисква се потвърждение"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
-      error_in_checking_availability: ~
+      dates_not_available: "Избраните дни са заети"
+      error_in_checking_availability: "Не може да се провери възможността за избраните дати"
       details: Подробности
       by: "%{listing} от%{author}"
       payment: Плащане
@@ -2601,9 +2609,9 @@ bg:
       you_will_be_charged: "Плащането ще се извърши само ако %{author} приеме транзакцията.%{author} трябва да приеме транзакцията до %{expiration_period} дни. В случай, че%{author} откаже или не отговори, плащането няма да се осъществи."
       day: ден
       days: дни
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      night: нощ
+      nights: нощи
+      invalid_parameters: "невалидна стойност за нова транзакция"
       select_delivery_method: ~
     transaction_agreement_checkbox:
       read_more: Преглед
@@ -2647,18 +2655,18 @@ bg:
   paypal_accounts:
     payout_info_title: "Получаване на финансови средства"
     paypal_account_email_connected: "<del> Свързването на PayPal акаунта</del> Завършено!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} използва PayPal като доставчик за плащания.%{create_paypal_account_link}  се изисква за да приемате плащания за вашите обяви, също трябва да е свързан с %{service_name}"
     paypal_billing_agreement_made: "<del> Дайте на%{service_name} разрешение да добави такса за транзакцията</del> Завършено!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    commission_permission_needed: "Вие също трябва да разрешите на %{service_name} да взима комисионна."
+    create_paypal_account_link_text: "PayPal акаунт"
     connected_account: "Вашият PayPal профил %{email} бе свързан успешно."
-    paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    paypal_receive_funds_info_label_australia_only: "Ващият PayPal акаунт трябва да може да приема плащания. За целта трябва да имате Premier или Business акаунт."
+    paypal_receive_funds_info_label: "Вашият PayPal акаунт трябва да може да приема плащания. Може да се нуждаете от бизнес акаунт"
+    paypal_receive_funds_info_australia_only: "Ако излиза грешка при свързването Ви на акаунта с %{service_name} или с%{upgrade_paypal_account_link} или ( ако сте самонает), създайте нов Premier акаунт. И двата вида акаунти са напълно безплатни."
+    paypal_receive_funds_info: "Ако видите грешка при свързването на вашият акаунт с %{service_name},%{upgrade_paypal_account_link}. Безплатно и лесно. Ако сте самостоятелен PayPal препоръчва да използвате името си като бизнес име."
+    upgrade_paypal_account_link_text: "влезте и надградете вашия PayPal акаунт в бизнес акаунт"
+    admin_account_not_connected: "Използването на разплащателната система на%{service_name} не се използва в момента, защото няма настройки за плащания. Моля свържете се с %{contact_admin_link} за подробности."
+    contact_admin_link_text: "свържете се с екипа%{service_name}"
     you_are_ready_to_accept_payments: "Вече можете да получавате плащания"
     commission: "%{commission} %"
     not_now: ~
@@ -2673,16 +2681,16 @@ bg:
       create_paypal_account: "натискайки тук"
       upgrade_paypal_account: "влезте във вашата PayPal профил"
       paypal_account_billing_agreement: "Дайте позволение на %{service_name} да добави такса за транзакцията"
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
+      follow_steps: "Изпълнете следващите стъпки за да можете да получавате финансови средства"
+      connect_paypal_account_title: "Свържете вашия PayPal акаунт"
+      connect_paypal_account_title_with_step: "Стъпка%{current_step}/%{total_steps}: Свържете вашия PayPal акаунт"
       connect_paypal_account_instructions: "Натиснете бутона по долу за да се впишете в PayPal и да свържете вашият PayPal профил с %{service_name}."
       connect_paypal_account: "Свържете вашия PayPal профил"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Стъпка%{current_step}/%{total_steps}: Разрешете да се таксуват транзациите"
       paypal_account_billing_agreement_info_both: "След като направите продажба от %{service_name}, такса за услугата %{commission_from_seller} от сумата, без доставката и минималната такса %{minimum_commission}  ще бъде заплатена от вашия PayPal акаунт. Трябва да разрешите това за да може да получавате плащания през %{service_name}.Таксата не включва %{paypal_info_link}"
       paypal_account_billing_agreement_info_fixed: "След като направите продажба от %{service_name} такса за услугата от%{minimum_commission}  ще бъде заплатена от вашия PayPal акаунт. Трябва да разрешите това за да може да получавате плащания през %{service_name}. Таксата не включва %{paypal_info_link}"
       paypal_account_billing_agreement_info_relative: "След като осъществите продажба чрез %{service_name}, комисионна от( %{commission_from_seller} от цената на продукта, без доставката) де бъде заплатена от вашия PayPal акаунт. Това е задължително за да получавате плащания в %{service_name}. Комисионната не включва %{paypal_info_link}."
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "%{service_name} в момента не взима комисионна. Ако включите опцията за комисионни, ще трябва да дадете разрешение на %{service_name} да начислява комисионна за да се приемат плащания. Комисионната не включва %{paypal_info_link}."
       paypal_info_link_text: "Комисионна за плащане през PayPal"
       billing_agreement_description: "Разрешете на %{service_name} да таксува такса за транзакция"
       billing_agreement: Разрешете
@@ -2695,17 +2703,17 @@ bg:
       something_went_wrong: "моля, свържете се с екипа на %{service_name}"
       account_not_verified: "Вие не сте потвърдили вашия PayPal акаунт. Посетете paypal.com и го потвърдете преди да продължите."
       account_restricted: "Вашият PayPal акаунт е ограничен и не може да бъде свързан. Моля, влезте в paypal.com за да разберете повече или се свържете с връзка с клиенти на PayPal за да разрешите проблема."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
+    paypal_account_connected_title: "PayPal акаунтът е свързан"
+    paypal_account_connected: "PayPal акаунтът <%{email}> беше свързан с %{service_name}."
     change_account: "Сменете PayPal акаунта си"
     missing: "Вие имате отворена обява но вашият Paypal акаунт не е настроен да получава плащания. Свържете вашия Paypal акаунт и дайте разрешение на %{service_name} да надчислява такси за транзакции от вашия %{settings_link}"
     from_your_payment_settings_link_text: "настройки на плащанията"
-    redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    redirect_message: "Пренасочваме Ви към PayPal. Ако нищо не се случи, кликнете на %{redirect_link}"
+    redirect_link_text: тук
+    paypal_account_all_set_up: "Ура, всички настройки са направени!"
+    can_receive_payments: "Вече можете да получавате плащания за вашите обяви."
+    paypal_account_connected_summary: "PayPal акаунтът <%{email}>  бе свързан успешно"
+    paypal_permission_granted_summary: "Дадено е разрешение да се таксуват транзакциите"
   paypal:
     pay_with_paypal: "Придвижено за заплащане"
     checkout_with: ~
@@ -2747,7 +2755,7 @@ bg:
       invalid_invitation_code: "Кодът на поканата не е валиден."
       invitation_code: "Код на поканата"
       not_required: ", не е задължително"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Трябва да изберете поне един потвърден имейл адрес за получиени известия. Ако не желаете да получавате никакви имейли от %{service_name}, моля проверете вашите настройки за известия по имейл."
       password_again: "Потвърди паролата"
       show_my_name_to_others: "Показване на истинското ми име на други %{service_name} потребители"
       sign_up: "Създайте нов профил %{service_name}"
@@ -2840,11 +2848,11 @@ bg:
       confirm_your_email: "Моля, потвърдете имейл адреса си."
       account_confirmation_instructions: "Скоро ще получите имейл с линк за потвърждение на вашия имейл адрес. Не забравяйте да проверите и вашата спам папка. След като потвърдите имейл адреса си ще можете да се присъедините към %{service_name}."
       account_confirmation_instructions_title_admin: "Потвърдете вашия електронен адрес"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Остана само едно нещо да направите,преди да получите пълен достъп до вашия магазин: потвърдете вашия имейл адрес."
+      before_confirmation_only_access_admin_dashboard: "Докато не потвърдите ще имате достъп само до %{admin_dashboard_link}"
+      admin_dashboard_link_text: "Администраторски панел"
       account_confirmation_instructions_admin: "Би трябвало да сте получили електронно писмо на %{email_address} с линк за потвърждение. Ако не го откривате проверете папката със спам или натиснете бутона по-долу за да се изпрати писмото повторно. Когато го получите, отворете линка за да потвърдите вашия адрес, след което ще получите пълен достъп до вашия маркет. Ако имате нужда от помощ, свържете се с %{support_link}"
-      contact_support_link_text: ~
+      contact_support_link_text: "свържете се с поддръжката на Sharetribe"
   settings:
     account:
       change: Промяна
@@ -3066,9 +3074,9 @@ bg:
   transactions:
     initiate:
       booked_days: "Запазени дни:"
-      booked_nights: ~
+      booked_nights: "Резервирани нощувки:"
       price_per_day: "Цена на ден:"
-      price_per_night: ~
+      price_per_night: "Цена за нощувка"
       price_per_hour: ~
       price_per_unit: ~
       quantity: "Количество:"
@@ -3076,6 +3084,12 @@ bg:
       shipping-price: "Доставка:"
       stripe-fee: ~
       start_end_time: ~
+      booked_days_label:
+        one: "Резервиран ден:"
+        other: "Резервирани дни"
+      booked_nights_label:
+        one: "Резервирана нощувка:"
+        other: "Резервирани нощувки:"
     price_per_quantity: "Цена за %{unit_type}:"
     price: "Цена:"
     quantity: "Количество:%{quantity}"
@@ -3089,23 +3103,23 @@ bg:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "Нямаме възможност да покажем информация за наличността. Опитайте да презаредите страницата."
+          saving_failed: "Нямаме възможност да запазим промените в наличността. Опитайте да презаредите страницата."
         working_hours:
           required: ~
           overlaps: ~
           covers: ~
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
+        piece: парче
+        hour: час
+        day: ден
+        night: нощ
+        week: седмица
         month: месец
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_availability_header: Наличност
+      save_and_close_availability_editing: "Запази и затвори"
+      confirm_discarding_unsaved_availability_changes_explanation: "Не сте запазили промените във вашата информация за наличност. Ако продължите, тази информация ще бъде загубена."
+      confirm_discarding_unsaved_availability_changes_question: "Сигурни ли сте, че искате да отмените промените?"
       edit_listing_availability: "Редактиране на наличността на обявите"
       working_hours:
         default_schedule: ~
@@ -3115,37 +3129,37 @@ bg:
         add_another_time_slot: ~
         save: ~
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Съжаляваме но не успяхме да открием обява на базата на вашите критерии."
+      try_other_search_terms: "Защо не пробвате с други условия за търсене"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Добавете снимка"
+      no_picture: "Няма снимка"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Страница
+      page_of_pages: "от %{total_number_of_pages}"
     topbar:
-      menu: ~
-      more: ~
-      search_placeholder: ~
+      menu: Меню
+      more: Още
+      search_placeholder: Търси...
       search_location_placeholder: Mестоположение
-      user: ~
+      user: Потребител
       inbox: Входящи
       profile: Профил
-      manage_listings: ~
-      settings: ~
+      manage_listings: "Моите обяви"
+      settings: Настройки
       logout: Изход
       login: Вход
       signup: "Регистрирай се"
-      admin_dashboard: ~
-      language: ~
+      admin_dashboard: "Администраторски панел"
+      language: Език
       listings: "Моите обяви"
     utils:
-      km: ~
-      mi: ~
+      km: км
+      mi: мили
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} се поддържа от платформата за продажби %{sharetribe_link}"
+      create_own: "Искате ли да създадете ваш собствен онлайн магазин като %{service_name} ?%{learn_more}"
+      learn_more: "Разберете повече"
   will_paginate:
     models:
       person:
