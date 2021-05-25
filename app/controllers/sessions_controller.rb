@@ -13,6 +13,8 @@ class SessionsController < ApplicationController
   before_action :allow_params_authentication!, :only => :create
 
   def new
+    redirect_to search_path if logged_in?
+    
     if params[:return_to].present?
       session[:return_to] = params[:return_to]
     end
