@@ -1,0 +1,3 @@
+- service.social_links.each do |social_link|
+  = form.fields_for :social_links, social_link do |fields|
+    = render 'social_link_fields', f: fields, disabled: disabled

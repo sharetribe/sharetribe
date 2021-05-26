@@ -3,6 +3,7 @@
 <% else %>
   var links;
   '<%= form_for @current_community, url: update_footer_admin2_design_footer_index_path do |form| %>'
+    $('#footerList').html('<%= j render 'admin2/design/footer/social_links', service: @service, disabled: @service.plan_footer_disabled?, form: form %>');
     links = "<%= j render 'admin2/design/footer/links', form: form, disabled: @service.plan_footer_disabled? %>";
   '<% end %>'
   $('#simpleList').html(links);
