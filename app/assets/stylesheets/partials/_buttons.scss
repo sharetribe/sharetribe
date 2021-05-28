@@ -116,17 +116,30 @@
       position: relative;
       text-align: center;
       top: initial;
+      svg {
+        width: 21px;
+        height: 21px;
+      }
     }
 
     .google-icon {
       height: 40px;
       padding: 6px 0 0;
+      text-align: center;
+      svg {
+        width: 21px;
+        height: 21px;
+      }
     }
 
     .linkedin-icon {
       height: 22px;
       padding: 3px 0 0;
       text-align: center;
+      svg {
+        width: 21px;
+        height: 21px;
+      }
     }
     
     .fb-text,
