@@ -7,7 +7,7 @@ Feature: User views terms
   Scenario: User views terms in community Test
     Given I am not logged in
     And I am on the signup page
-    When I follow "Terms of Use"
+    When I follow "Terms of use"
     Then I should see "Rights of Content"
   
   
