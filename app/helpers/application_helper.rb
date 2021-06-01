@@ -174,7 +174,7 @@ module ApplicationHelper
   end
 
   def on_admin?
-    controller.class.name.split("::").first=="Admin"
+    controller.class.name.split("::").first=="Admin" || on_admin2?
   end
 
   def on_admin2?

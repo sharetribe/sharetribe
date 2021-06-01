@@ -431,6 +431,6 @@ class LandingPageController < ActionController::Metal
                            is_admin: Maybe(@current_user).is_admin?.or_else(false),
                            is_marketplace_admin: Maybe(@current_user).is_marketplace_admin?(@current_community).or_else(false))
 
-    @current_community.custom_head_script.to_s
+    @current_community.custom_head_script.to_s + @current_community.custom_body_script.to_s + @current_community.custom_css_script.to_s
   end
 end

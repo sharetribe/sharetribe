@@ -97,5 +97,4 @@
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
-- unless @disable_custom_head_script || on_admin? || !custom_script_enabled?
-  = @current_community.custom_head_script.try(:html_safe)
+= render 'layouts/head_script'

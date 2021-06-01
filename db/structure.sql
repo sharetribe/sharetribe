@@ -293,6 +293,8 @@ CREATE TABLE `communities` (
   `default_min_days_between_community_updates` int(11) DEFAULT '7',
   `listing_location_required` tinyint(1) DEFAULT '0',
   `custom_head_script` text,
+  `custom_body_script` text,
+  `custom_css_script` text,
   `follow_in_use` tinyint(1) NOT NULL DEFAULT '1',
   `logo_processing` tinyint(1) DEFAULT NULL,
   `wide_logo_processing` tinyint(1) DEFAULT NULL,
@@ -2485,6 +2487,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20201218151444'),
 ('20201221132459'),
 ('20210108111345'),
-('20210129114823');
+('20210129114823'),
+('20210517131520');
 
 

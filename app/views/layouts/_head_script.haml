@@ -1,0 +1,5 @@
+- unless @disable_custom_head_script || on_admin? || !custom_script_enabled?
+  = @current_community.custom_head_script.to_s.html_safe
+  - if @current_community.custom_css_script.present?
+    %style
+      = @current_community.custom_css_script.to_s.html_safe

@@ -984,10 +984,16 @@ en:
       all: "Show all"
     custom_script:
       script_disabled: "<b>Paid feature:</b> Would you like to add your own custom script? <a href=\"%{url}\">Upgrade to a paid plan</a>."
-      info_text: "Custom script can be added inside the <head> tag for every page and used to insert custom CSS, JavaScript or HTML. <a href='%{url}' class='external-link' target='_blank'>Learn more about Custom script</a>."
-      custom_head_script: "CSS, JavaScript and/or HTML script"
-      custom_head_script_placeholder: "<script src=\"https://www.example.com/customscript.js\"></script>"
-      custom_head_script_info_text: "Note that future updates to Sharetribe Go features may render your script incompatible."
+      info_text: "Custom script can be used to insert custom CSS, JavaScript or HTML. Note that future updates to Sharetribe Go features may render your script incompatible. <a href='%{url}' class='external-link' target='_blank'>Learn more about Custom script</a>."
+      custom_head_script: 'Custom head code'
+      custom_head_script_placeholder: '<script> ... </script>'
+      custom_head_script_info_text: "The code from that field will be added to the <code>&lt;head&gt;</code> tag of every page."
+      custom_body_script: 'Custom body code'
+      custom_body_script_placeholder: '<script> ... </script>'
+      custom_body_script_info_text: 'The code from that field will be added before the closing <code>&lt;body&gt;</code> tag of every page.'
+      custom_css_script: 'Custom CSS code'
+      custom_css_script_placeholder: '.class { ... }'
+      custom_css_script_info_text: 'The code from that field will be added to the <code>CSS</code> of every page.'
     sharetribe:
       info_text: "To improve its services and support, Sharetribe tracks marketplace users' activity. We will never collect personal data or share this information outside the Sharetribe team. <a href='%{url}' class=\"external-link\" target='_blank'>Learn more</a>."
       end_user_analytics: "Allow Sharetribe to track users' activity in order to improve its services"

@@ -28,7 +28,7 @@
 
   / Additional meta tags for SEO, etc.
   = content_for :head
-  = render :partial => "layouts/marketplace_head"
+  = render 'layouts/marketplace_head'
 
   - if @hide_referer
     %meta{name: "referrer", content: "no-referrer"}

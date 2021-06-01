@@ -82,6 +82,8 @@
 #  default_min_days_between_community_updates :integer          default(7)
 #  listing_location_required                  :boolean          default(FALSE)
 #  custom_head_script                         :text(65535)
+#  custom_body_script                         :text(65535)
+#  custom_css_script                          :text(65535)
 #  follow_in_use                              :boolean          default(TRUE), not null
 #  logo_processing                            :boolean
 #  wide_logo_processing                       :boolean
@@ -191,6 +193,8 @@ class Community < ApplicationRecord
   validates_format_of :slogan_color, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :description_color, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_length_of :custom_head_script, maximum: 65535
+  validates_length_of :custom_body_script, maximum: 65535
+  validates_length_of :custom_css_script, maximum: 65535
 
   VALID_BROWSE_TYPES = %w{grid map list}
   validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
