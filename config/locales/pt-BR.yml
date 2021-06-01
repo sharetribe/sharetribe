@@ -169,7 +169,7 @@ pt-BR:
         set_sender_name: "Alterar o nome do remetente"
         change_sender_name: "Alterar o nome do remetente"
         change_sender_prompt: "%{change_name_link} ou %{change_email_link}"
-        status: "Estado: %{status}"
+        status: "Status: %{status}"
         status_verified: "Verificado - em uso"
         status_error: "Aconteceu um erro. Por favor carregue a página novamente."
         status_requested: "Não verificado - e-mail de verificação enviado para %{email} %{time_ago}. %{resend_link}"
@@ -489,9 +489,9 @@ pt-BR:
         headers:
           conversation: "Criou a conversa"
           listing: Anúncio
-          status: Estado
+          status: Status
           sum: Soma
-          started: Iniciado
+          started: Iniciada
           last_activity: "Última atividade"
           initiated_by: Iniciante
           other_party: "Outra parte"
@@ -1824,7 +1824,7 @@ pt-BR:
       a_new_transaction: "uma nova transação"
       listing: "Anúncio:"
       sum: "Soma:"
-      starter: "Início:"
+      starter: "Iniciante:"
       provider: "Vendedor:"
       view_transaction: "Ver transação"
     transaction_cancel_flow:
@@ -2724,7 +2724,7 @@ pt-BR:
     paypal_account_connected_summary: "A conta PayPal <%{email}> foi conectada com sucesso"
     paypal_permission_granted_summary: "Autorizada a cobrança de taxa por transação"
   paypal:
-    pay_with_paypal: "Proceder ao pagamento"
+    pay_with_paypal: "Proceder pagamento"
     checkout_with: "Checkout com"
     or_pay_with_paypal: ou
     checkout_with_paypal: "Pagar com PayPal"

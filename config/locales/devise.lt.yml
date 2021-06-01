@@ -22,17 +22,17 @@ lt:
     passwords:
       updated_not_active: "Jūsų slaptažodis pakeistas sėkmingai."
       send_paranoid_instructions: "Jei jūsų el. paštas egzistuoja mūsų duombazėje, gausite slaptažodžio atstatymo nuorodą paštu."
-      send_instructions: "Po poros minučių gausite laišką su instrukcijomis, kaip atkurti slaptažodį."
-      updated: "Jūsų slaptažodis pakeistas sėkmingai. Prisijungta."
+      send_instructions: "Netrukus gausite laišką su instrukcijomis, kaip atkurti slaptažodį."
+      updated: "Jūsų slaptažodis pakeistas sėkmingai. Dabar esate prisijungę."
     sessions:
       signed_in: "Prisijungimas sėkmingas."
-      signed_out: "Atsijungimas sėkmingas."
+      signed_out: "Atsijungėte sėkmingai."
     confirmations:
       send_paranoid_instructions: "Jei jūsų el. paštas egzistuoja mūsų duombazėje, po poros minučių paštu gausite instrukcijas kaip patvirtinti paskyrą."
-      send_instructions: "Po poros minučių gausite laišką su instrukcijomis, kaip patvirtinti savo paskyrą."
+      send_instructions: "Netrukus gausite laišką su instrukcijomis, kaip patvirtinti savo paskyrą."
       confirmed: "Jūsų paskyra sėkmingai patvirtinta."
     registrations:
-      signed_up_but_unconfirmed: "Laiškas su patvirtinimo nuoroda buvo išsiųstas jūsų paštu. Atidarykite nuorodą, kad patvirtintumėte paskyrą."
+      signed_up_but_unconfirmed: "Laiškas su patvirtinimo nuoroda buvo išsiųstas jūsų el. paštu. Atidarykite nuorodą, kad patvirtintumėte paskyrą."
       signed_up_but_inactive: "Užsiregistravote sėkmingai. Deja, prisijungimas negalimas, nes jūsų paskyra vis dar neaktyvuota."
       signed_up_but_locked: "Užsiregistravote sėkmingai. Deja, prisijungimas negalimas, nes jūsų paskyra užrakinta."
       reasons:
@@ -45,14 +45,14 @@ lt:
       destroyed: "Iki! Jūsų paskyra sėkmingai išjungta. Tikimės greitai jus vėl pamatyti."
     unlocks:
       send_paranoid_instructions: "Jei jūsų paskyra egzistuoja, po poros minučių gausite laišką su instrukcijomis kaip ją atrakinti."
-      send_instructions: "Po poros minučių gausite laišką su instrukcijomis, kaip atrakinti savo paskyrą."
-      unlocked: "Jūsų paskyra atrakinta sėkmingai. Prašome prisijungti norint tęsti."
+      send_instructions: "Netrukus gausite laišką su instrukcijomis, kaip atrakinti savo paskyrą."
+      unlocked: "Jūsų paskyra atrakinta sėkmingai. Jei norite tęsti prašome prisijungti."
     omniauth_callbacks:
       success: "Sėkmingai autorizuota iš %{kind} paskyros."
       failure: "Autorizacija iš %{kind} nepavyko, nes \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Patvirtinimo instrukcijos prisijungti prie %{service_name}"
+        subject: "Patvirtinimo instrukcijos, kaip prisijungti prie %{service_name}"
       reset_password_instructions:
         subject: "Nurodymai, kaip atstatyti slaptažodį"
       unlock_instructions:
