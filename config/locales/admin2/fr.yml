@@ -984,10 +984,16 @@ fr:
       all: "Tout afficher"
     custom_script:
       script_disabled: "<b>Fonctionnalité payante :</b> aimeriez-vous ajouter votre propre script personnalisé ? <a href=\"%{url}\">Passez à une offre payante</a>."
-      info_text: "Du script personnalisé peut être ajouté au tag <head> de chaque page et être utilisé pour insérer du code CSS, JavaScript ou HTML. <a href='%{url}' class='external-link' target='_blank'>En savoir plus sur le script personnalisé</a>."
-      custom_head_script: "CSS, JavaScript et/ou script HTML"
-      custom_head_script_placeholder: "<script src=\"https://www.example.com/customscript.js\"></script>"
-      custom_head_script_info_text: "Notez que de future mises à jour de Sharetribe Go pourraient rendre incompatible votre script."
+      info_text: "Du script personnalisé peut être utilisé pour insérer du code CSS, JavaScript ou HTML. Notez que de future mises à jour de Sharetribe Go pourraient rendre incompatible votre script. <a href='%{url}' class='external-link' target='_blank'>En savoir plus sur le script personnalisé</a>."
+      custom_head_script: "Code \"head\" personnalisé"
+      custom_head_script_placeholder: "<script> ... </script>"
+      custom_head_script_info_text: "Le code de ce champ sera ajouté au tag <code>&lt;head&gt;</code> de chaque page."
+      custom_body_script: "Code \"body\" personnalisé"
+      custom_body_script_placeholder: "<script> ... </script>"
+      custom_body_script_info_text: "Le code de ce champ sera ajouté au tag <code>&lt;body&gt;</code> de chaque page."
+      custom_css_script: "Code \"CSS\" personnalisé"
+      custom_css_script_placeholder: ".class { ... }"
+      custom_css_script_info_text: "Le code de ce champ sera ajouté <code>CSS</code> de chaque page."
     sharetribe:
       info_text: "À Sharetribe, pour améliorer nos services et notre support, nous suivons l'activité des utilisateurs des places de marché. Nous ne collectons aucune données personnelles et ne partageons pas ces informations en dehors de l'équipe Sharetribe. <a href='%{url}' class=\"external-link\" target='_blank'>En savoir plus</a>."
       end_user_analytics: "Permettre à Sharetribe de suivre l'activité des utilisateurs pour améliorer nos services"
@@ -1346,7 +1352,6 @@ fr:
           text: Texte
           text_info: "Ce texte sera affiché si vous avez sélectionné l'option \"Pas de lecture automatique\" ou lorsque la vidéo est mise en pause."
         multi_column:
-          info: "Ajouter des icônes nécessite une action manuelle de la part de l'équipe Sharetribe. Veuillez suivre <a class=\"external-link\" target=\"_blank\" href=\"%{url}\">les instructions dans cet article</a> pour sélectionner l'icône de votre choix et le partager avec l'équipe Sharetribe."
           column: "Colonne %{index}"
           column_icon: "Icône de la colonne %{index}"
           column_title: "Titre de la colonne %{index}"

@@ -967,6 +967,12 @@ pl:
       custom_head_script: ~
       custom_head_script_placeholder: ~
       custom_head_script_info_text: ~
+      custom_body_script: ~
+      custom_body_script_placeholder: ~
+      custom_body_script_info_text: ~
+      custom_css_script: ~
+      custom_css_script_placeholder: ~
+      custom_css_script_info_text: ~
     sharetribe:
       info_text: ~
       end_user_analytics: ~
@@ -1325,7 +1331,6 @@ pl:
           text: ~
           text_info: ~
         multi_column:
-          info: ~
           column: ~
           column_icon: ~
           column_title: ~
