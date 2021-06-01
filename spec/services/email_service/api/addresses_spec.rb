@@ -54,7 +54,7 @@ describe EmailService::API::Addresses do
         expect(res.data).to eq(
                               type: :user_defined,
                               display_format: "Email Sender Name <hello@mymarketplace.invalid>",
-                              smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>")
+                              smtp_format: "#{addresses_wo_ses.encode_format('Email Sender Name')} <hello@mymarketplace.invalid>")
       end
 
       it "gets the last verified sender address" do
@@ -78,7 +78,7 @@ describe EmailService::API::Addresses do
           expect(res.data).to eq(
                                 type: :user_defined,
                                 display_format: "Email 2 Sender Name <hello2@mymarketplace.invalid>",
-                                smtp_format: "\"Email 2 Sender Name\" <hello2@mymarketplace.invalid>")
+                                smtp_format: "#{addresses_wo_ses.encode_format('Email 2 Sender Name')} <hello2@mymarketplace.invalid>")
         end
 
       end
@@ -106,7 +106,7 @@ describe EmailService::API::Addresses do
           community_id: 1, address: {
             name: "Hello",
             email: "hello@mymarketplace.invalid"
-          }).data[:smtp_format]).to eq("\"Hello\" <hello@mymarketplace.invalid>")
+          }).data[:smtp_format]).to eq("#{addresses_wo_ses.encode_format('Hello')} <hello@mymarketplace.invalid>")
 
         # User input: Hello "Hello" Hello
         # Expected print output: "Hello \"Hello\" Hello" <hello@mymarketplace.invalid>
@@ -114,7 +114,7 @@ describe EmailService::API::Addresses do
           community_id: 1, address: {
             name: "Hello \"Hello\" Hello",
             email: "hello@mymarketplace.invalid"
-          }).data[:smtp_format]).to eq("\"Hello \\\"Hello\\\" Hello\" <hello@mymarketplace.invalid>")
+          }).data[:smtp_format]).to eq("#{addresses_wo_ses.encode_format('Hello "Hello" Hello')} <hello@mymarketplace.invalid>")
 
         # User input: Hello \"Hello\" Hello
         # Expected print output: "Hello \\\"Hello\\\" Hello" <hello@mymarketplace.invalid>
@@ -122,7 +122,7 @@ describe EmailService::API::Addresses do
           community_id: 1, address: {
             name: "Hello \\\"Hello\\\" Hello",
             email: "hello@mymarketplace.invalid"
-          }).data[:smtp_format]).to eq("\"Hello \\\\\\\"Hello\\\\\\\" Hello\" <hello@mymarketplace.invalid>")
+          }).data[:smtp_format]).to eq("#{addresses_wo_ses.encode_format('Hello \"Hello\" Hello')} <hello@mymarketplace.invalid>")
 
         # User input: Hello \\"Hello\\" Hello
         # Expected print output: "Hello \\\\\"Hello\\\\\" Hello" <hello@mymarketplace.invalid>
@@ -130,7 +130,7 @@ describe EmailService::API::Addresses do
           community_id: 1, address: {
             name: "Hello \\\\\"Hello\\\\\" Hello",
             email: "hello@mymarketplace.invalid"
-          }).data[:smtp_format]).to eq("\"Hello \\\\\\\\\\\"Hello\\\\\\\\\\\" Hello\" <hello@mymarketplace.invalid>")
+          }).data[:smtp_format]).to eq("#{addresses_wo_ses.encode_format('Hello \\\\"Hello\\\\" Hello')} <hello@mymarketplace.invalid>")
       end
 
     end
@@ -200,7 +200,7 @@ describe EmailService::API::Addresses do
                     verification_status: :verified,
                     verification_requested_at: nil,
                     display_format: "Email Sender Name <hello@mymarketplace.invalid>",
-                    smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>"})
+                    smtp_format: "#{addresses_wo_ses.encode_format('Email Sender Name')} <hello@mymarketplace.invalid>"})
         end
       end
 
@@ -233,7 +233,7 @@ describe EmailService::API::Addresses do
                                    verification_requested_at: nil,
                                    updated_at: created[:updated_at],
                                    display_format: "Email 2 Sender Name <hello2@mymarketplace.invalid>",
-                                   smtp_format: "\"Email 2 Sender Name\" <hello2@mymarketplace.invalid>"})
+                                   smtp_format: "#{addresses_wo_ses.encode_format('Email 2 Sender Name')} <hello2@mymarketplace.invalid>"})
         end
       end
     end
