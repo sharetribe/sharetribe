@@ -637,7 +637,7 @@ lt:
           updated: Atnaujinta
           category: Kategorija
           status: Būsena
-        open: Atidaryti
+        open: Atidarytas
         closed: Uždarytas
         expired: Pasibaigęs
         approved: Patvirtintas
@@ -1285,7 +1285,7 @@ lt:
       title: "Komisiniai ir mokėjimo aptarnavimo mokestis"
       stripe: Stripe
       paypal: PayPal
-      info: "Mokėjimus %{service_name} tvarko toliau išvardinti mokėjimų šliuzai. %{service_name} ims komisinius, priklausomai nuo mokėjimo tinklų. Mokėjimo šliuzas taip pat gali imti mokestį už kiekvieną mokėjimą, kaip aprašyta toliau."
+      info: "Mokėjimus %{service_name} tvarko toliau išvardinti mokėjimų partneriai. %{service_name} ims komisinius, priklausomai nuo mokėjimo tinklų. Mokėjimo partneriai taip pat gali imti mokestį už kiekvieną mokėjimą, kaip aprašyta toliau."
     paypal_fee_info:
       title: "PayPal mokėjimo aptarnavimo mokestis"
       body_text: |-
@@ -1297,7 +1297,7 @@ lt:
       link_to_paypal_text: čia
     stripe_fee_info:
       title: "Stripe mokėjimo aptarnavimo mokestis"
-      body_text: "Stripe mokėjimams %{service_name} taiko %{stripe_commission} komisinius. Minimalūs komisiniai už vieną operaciją yra %{minimum_transaction_fee}. Stripe mokesčiai yra įtraukti į šį komisinį."
+      body_text: "Stripe mokėjimams %{service_name} taiko %{stripe_commission} % komisinius. Minimalūs komisiniai už vieną operaciją yra %{minimum_transaction_fee}. Stripe mokesčiai yra įtraukti į šį komisinį."
       link_to_stripe_text: čia
   conversations:
     accept:
@@ -2867,7 +2867,7 @@ lt:
       delete_account_confirmation_popup: "Ar tikrai norite ištrinti savo paskyrą ir visam laikui prarasti su ja susijusius duomenis?"
       email_addresses: "El. pašto adresai"
       new_email: "Naujas el. pašto adresas"
-      delete_personal_information: "Jei ištrinsite savo paskyrą, jūsų asmeninė informacija (vardas, telefono numeris, adresas, el. paštas, profilio nuotrauka ir kt.) bus ištrinta visam laikui ir jos atkurti nepavyks. Visi jūsų sukurti sąrašai bus pašalinti. Negalėsite iš naujo suaktyvinti paskyros."
+      delete_personal_information: "Jei ištrinsite savo paskyrą, jūsų asmeninė informacija (vardas, telefono numeris, adresas, el. paštas, profilio nuotrauka ir kt.) bus ištrinta visam laikui ir jos atkurti nepavyks. Visi jūsų sukurti skelbimai bus pašalinti. Negalėsite iš naujo suaktyvinti paskyros."
       delete_information_others_involved: "Informacija, kurioje dalyvauja ir kiti nariai (pokalbiai su kitais žmonėmis, atlikti sandoriai, kitiems pateikti atsiliepimai ir t. t.), ištrinant paskyrą nepasišalina. Tačiau jūsų vardas nebebus rodomas šalia šios informacijos."
       unfinished_transactions: "Jūsų paskyra negali būti panaikinta, nes turite vykdomų operacijų. Prieš ištrindami paskyrą, prašome užbaigti visas operacijas."
       only_admin: "Jūsų paskyros panaikinti negalima, nes esate vienintelis prekyvietės administratorius."
@@ -2914,7 +2914,7 @@ lt:
       unsubscribe_unsuccesful: "Klaida atsisakant prenumeratos"
       unsuccessful_unsubscribe_info_text: "Prenumeratos atsisakymo nuoroda nebegalioja. Prisijunkite, kad pakeistumėte jūsų prenumeratos laiškų nustatymus."
       email_listing_new_comment: "...skelbimai, kurios seku, buvo pakomentuoti"
-      email_listing_updated: "...mano pakomentuotas skelbimas buvo atnaujinatas"
+      email_listing_updated: "...skelbimas kurį pakomentavau buvo atnaujintas"
     profile:
       about_you: "Apie jus"
       city: Miestas
@@ -3180,6 +3180,11 @@ lt:
         one: transakcija
         few: transakcijos
         other: transakcijos
+      listing:
+        zero: "Uždaryti %{count} skelbimus"
+        one: skelbimas
+        few: skelbimas
+        other: skelbimai
     previous_label: "&#8592; Atgal"
     next_label: "Kitas &#8594;"
     page_gap: "&hellip;"
