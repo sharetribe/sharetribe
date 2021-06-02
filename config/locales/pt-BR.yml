@@ -1836,8 +1836,8 @@ pt-BR:
       subject: "Pedido disputado - A equipe %{service_name} está analisando a situação"
       subject_admin: "Uma transação foi disputada, você deve decidir o que acontece a seguir"
       order_about: "pedido sobre %{listing_title}"
-      the_order_has_been_canceled: "A %{transaction_link} foi disputada."
-      the_order_between_buyer_and_seller_has_been_canceled: "A %{transaction_link} entre %{buyer}  e %{seller} foi disputada."
+      the_order_has_been_canceled: "O %{transaction_link} foi disputado."
+      the_order_between_buyer_and_seller_has_been_canceled: "O %{transaction_link} entre %{buyer}  e %{seller} foi disputado."
       the_marketplace_has_been_notified: "A equipe %{service_name} foi notificada e está analisando a situação. Você pode contatá-los para dividir mais detalhes."
       contact_the_marketplace_team: "Contate a equipe %{service_name}"
       you_must_now_decide: "Você deve decidir agora se irá reembolsar ou rejeitar a disputa. Você pode %{learn_more_link}."
@@ -1845,7 +1845,7 @@ pt-BR:
       review_the_transaction: "Avaliar a transação"
     transaction_refunded:
       subject: "Pedido marcado como disputado - A equipe %{service_name} aprovou a disputa de %{buyer}"
-      marketplace_team_has_approved_the_cancellation: "A equipe %{service_name} aprovou a disputa por %{transaction_link} e marcou o pagamento como reembolsado."
+      marketplace_team_has_approved_the_cancellation: "A equipe %{service_name} aprovou a disputa do %{transaction_link} e marcou o pagamento como reembolsado."
       you_should_receive_a_refund_soon: "Você deve receber um reembolso em breve. Você pode contatar a equipe %{service_name} se houver qualquer outro problema."
     transaction_cancellation_dismissed:
       subject: "Pedido disputado rejeitado - A equipe %{service_name} rejeitou a disputa de %{buyer}"
@@ -1853,7 +1853,7 @@ pt-BR:
     transaction_commission_charge_failed:
       subject: "Uma comissão no seu marketplace não foi transferida para sua conta do PayPal"
       transaction_about: "transação de %{listing_title}"
-      the_commission_of_the_transaction: "A comissão da %{transaction_link} de %{seller} falhou ao ser transferida para sua conta do PayPal."
+      the_commission_of_the_transaction: "A comissão do %{transaction_link} de %{seller} falhou ao ser transferida para sua conta do PayPal."
       this_usually_means: "Isto significa normalmente que algo está bloqueando a comissão da conta do PayPal do vendedor. Na maioria dos casos, o problema é que o vendedor não tem uma fonte de financiamento válida e verificada conectada à sua conta do PayPal."
       if_you_would_like_to_investigate: "Se você quiser investigar isto mais a fundo, um bom primeiro passo é entrar em contato com o vendedor."
       contact_the_seller: "Contate o vendedor"
