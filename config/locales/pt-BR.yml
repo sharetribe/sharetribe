@@ -479,7 +479,7 @@ pt-BR:
           confirmed: Concluída
           paid: Paga
           canceled: Cancelada
-          disputed: Disputado
+          disputed: Contestado
           preauthorized: Pré-autorizado
           rejected: ~
           payment_intent_requires_action: Pendente
@@ -505,7 +505,7 @@ pt-BR:
           paid: Pago
           confirmed: Confirmado
           canceled: Cancelado
-          disputed: Disputado
+          disputed: Contestado
           initiated: "Aguardando pagamento PayPal"
           pending_ext: "Aguardando pagamento PayPal"
           none:
@@ -519,7 +519,7 @@ pt-BR:
             paid: Paga
             confirmed: Completada
             canceled: Cancelada
-            disputed: Disputado
+            disputed: Contestado
             initiated: "Aguardando pagamento no Paypal"
             pending_ext: "Aguardando pagamento no PayPal"
             refunded: Reembolsado
@@ -533,7 +533,7 @@ pt-BR:
             paid: Paga
             confirmed: Completada
             canceled: Cancelada
-            disputed: Disputado
+            disputed: Contestado
             initiated: "Aguardando pagamento no Stripe"
             pending_ext: "Aguardando pagamento no Stripe"
             payment_intent_requires_action: Pendente
@@ -1227,7 +1227,7 @@ pt-BR:
         provider_receives: "O vendedor recebe:"
         admin_info_text: "Como administrador de%{service_name}, você pode realizar algumas ações para avançar esta transação:"
         manage_reviews: "Gerenciar as avaliações"
-        you_should_investigate: "Você deve investigar a situação discutindo com ambas as partes e decidir reembolsar ou encerrar a disputa. %{learn_more_link}"
+        you_should_investigate: "Você deve investigar a situação discutindo com ambas as partes e decidir reembolsar ou encerrar a contestação. %{learn_more_link}"
         learn_more: "Saber mais."
   common:
     edit_page: "Editar página"
@@ -1325,11 +1325,11 @@ pt-BR:
       stripe-fee_label: "Taxa de processamento do pagamento"
     confirm:
       confirm_description: "Se o seu pedido foi aceito, você deve confirmá-lo como concluído. Então você pode dar um feedback para a outra parte."
-      cancel_description_team: "Se o seu pedido não foi realizado, você pode marcá-lo como disputado. A equipe %{service_name} analisará a situação e decidirá por reembolsar ou rejeitar sua solicitação de disputa."
+      cancel_description_team: "Se o seu pedido não foi realizado, você pode marcá-lo como disputado. A equipe %{service_name} analisará a situação e decidirá por reembolsar ou rejeitar sua solicitação de contestação."
       cancel_payed_description: "Se o seu pedido foi aceito, mas você está tendo dúvidas, você ainda pode cancelar o pedido antes do pagamento."
       canceling_payed_transaction: "Cancelar transação"
       confirm: "Marca concluida"
-      cancel: "Não aconteceu"
+      cancel: Contestar
       continue: Continua
       give_feedback_to: "Dar feedback a %{person_link}"
       do_not_give_feedback: "Não deixar opinião"
@@ -1350,7 +1350,7 @@ pt-BR:
       rejected_offer: "Oferta rejeitada."
       confirmed_request: "Pedido concluído."
       confirmed_offer: "Oferta concluída."
-      canceled_request: "Pedido disputado."
+      canceled_request: "Pedido contestado."
       canceled_offer: "Oferta cancelada."
       message_from: "Mensagem de %{person}"
       about_listing: "Sobre o anúncio %{listing_title}"
@@ -1374,9 +1374,9 @@ pt-BR:
         held_payment: "O pedido foi aceito.O pagamento para %{sum} foi retido por %{service_name} até que o pedido esteja setado como concluído."
         held_payment_wo_sum: "O pedido foi aceito. O pagamento está sendo retido por %{service_name} até que o pedido seja marcado como concluído."
         confirmed_request: "O pedido foi setado como concluído. O pagamento foi transferido para a conta bancária de %{author_name} ou será transferido em breve."
-      canceled_the_order: "Pedido disputado. A equipe %{service_name} foi notificada."
+      canceled_the_order: "Pedido contestado. A equipe %{service_name} foi notificada."
       marked_as_refunded: "Marcado como reembolsado"
-      dismissed_the_cancellation: "A disputa foi rejeitada."
+      dismissed_the_cancellation: "A contestação foi rejeitada."
       payment_has_now_been_transferred: "O pagamento foi transferido para conta bancária de %{seller} ou será transferido em breve."
     new:
       message: Mensagem
@@ -1452,18 +1452,18 @@ pt-BR:
           verify: "Aguardando você verificar sua conta PayPal"
       stripe:
         waiting_confirmation_from_requester: "Aguardando por %{requester_name} setar o pedido como concluído. Uma vez que o pedido é setado como concluído, o pagamento será realizado em sua conta bancária."
-      order_canceled: "Pedido disputado"
+      order_canceled: "Pedido contestado"
       waiting_for_marketplace_review: "Esperando que a equipe %{service_name} analise a situação"
       marketplace_notified: "A equipe %{service_name} foi notificada. Se você quiser dividir mais detalhes com a equipe, %{contact_link}."
       contact_them: contate-os
       refunded: "Pedido marcado como reembolsado"
-      dismissed: "Disputa de pedido rejeitada"
-      order_refunded: "Pedido marcado como reembolsado. A equipe %{service_name} aprovou a disputa."
+      dismissed: "Contestação de pedido rejeitada"
+      order_refunded: "Pedido marcado como reembolsado. A equipe %{service_name} aprovou a contestação."
       you_should_receive_refund_soon: "Você deve receber um reembolso em breve."
       issue_with_the_refund: "Algo errado? Problemas com o reembolso? %{contact_link}."
       do_you_disagree: "Algo errado? Você discorda? %{contact_link}"
       contact_the_marketpalce_team: "Contate a equipe %{service_name}"
-      order_cancellation_dismissed: "Disputa do pedido rejeitada. A equipe %{service_name} rejeitou a disputa."
+      order_cancellation_dismissed: "A contestação do pedido foi encerrada. A equipe %{service_name} rejeitou a constestação."
     status_link:
       accept_offer: "Aceitar oferta"
       accept_request: "Aceitar solicitação"
@@ -1474,7 +1474,7 @@ pt-BR:
       reject_preauthorized_offer: "Não agora"
       reject_preauthorized_request: "Não desta vez"
       confirm: "Marcar como concluída"
-      cancel: "Não aconteceu"
+      cancel: Contestar
       mark_as_refunded: "Marcar como reembolsada"
       dismiss: "Rejeitar e pagar"
   feedback:
@@ -1517,13 +1517,13 @@ pt-BR:
       create_own: "Quer criar o seu próprio marketplace como o %{service_name}? %{learn_more}."
       learn_more: "Saiba mais"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Você ainda não confirmou ou cancelou o pedido %{request_link}. Se o pedido foi entregue, você deve confirmar isso. Depois disso, você pode avaliar %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Você ainda não confirmou ou contestou o pedido %{request_link}. Se o pedido foi entregue, você deve confirmar isso. Depois disso, você pode avaliar %{other_party_given_name}."
       remember_to_confirm_request: "Lembre-se de confirmar ou cancelar um pedido"
       if_will_not_happen_you_should_cancel: "Se você acha que este pedido não será entregue por uma razão ou outra, você pode %{cancel_it_link}."
-      cancel_it_link_text: Disputá-lo
-      automatic_confirmation: "Se você não confirmar ou cancelar o pedido no prazo de %{days_to_automatic_confirmation} dias depois de aceito, vamos marcá-lo automaticamente como concluído."
+      cancel_it_link_text: Contestá-lo
+      automatic_confirmation: "Se você não confirmar ou contestar o pedido no prazo de %{days_to_automatic_confirmation} dias depois de aceito, vamos marcá-lo automaticamente como concluído."
     confirm_reminder_v2:
-      headline: "você ainda não completou ou disputou o pedido %{request_link}."
+      headline: "você ainda não completou ou contestou o pedido %{request_link}."
       you_have_not_yet_confirmed_or_canceled_request: "Você deve confirmar se o pedido foi concluído. Depois disto você pode dar feedback para %{other_party_given_name}."
     payment_settings_reminder:
       remember_to_add_payment_details: "Lembre-se de configurar seus dados para receber pagamentos"
@@ -1536,9 +1536,9 @@ pt-BR:
     transaction_confirmed:
       here_is_a_message_from: "Veja a mensagem de %{other_party_given_name} :"
       request_marked_as_confirmed: "Pedido realizado - Dê seu feedback"
-      request_marked_as_canceled: "Pedido disputado"
+      request_marked_as_canceled: "Pedido contestado"
       has_marked_request_as_confirmed: "%{other_party_full_name} marcou o pedido '%{request}' como concluído. Agora você pode avaliar %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} cancelou o pedido '%{request}'. Você ainda pode dar um feedback para %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} contestou o pedido '%{request}'. Você ainda pode dar um feedback para %{other_party_given_name}."
       giving_feedback_is_good_idea: "Dar feedback é sempre uma boa ideia. Se tudo correu bem, você deve deixar que os outros saibam que %{other_party_given_name} pode ser confiável. Se houve algum problema, é bom mencioná-lo também."
       give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
       stripe:
@@ -1546,7 +1546,7 @@ pt-BR:
       team_title: "a equipe %{service_name}"
     transaction_confirmed_v2:
       headline_confirmed: "%{other_party_full_name} marcou o pedido de %{listing_link} como concluído."
-      headline_canceled: "%{other_party_full_name} disputou o pedido de%{listing_link}."
+      headline_canceled: "%{other_party_full_name} contestou o pedido de%{listing_link}."
       stripe:
         has_marked_request_as_confirmed: "O pagamento por esta transação foi liberado para sua conta bancária."
       can_give_feedback: "Agora você já pode dar um feedback para %{other_party_given_name}."
@@ -1602,7 +1602,7 @@ pt-BR:
       your_request_was_rejected: "Sua solicitação foi rejeitada"
       you_can_now_pay_to: "Agora você pode pagar o montante solicitado a %{payment_receiver}."
       pay_now: "Pagar agora"
-      remember_to_confirm: "Quando o pedido estiver realizado, lembre de marcá-lo como concluído. Se o pedido não foi realizado, você terá %{days_to_automatic_confirmation} dias para disputá-lo. Caso contrário ele será marcado automaticamente como concluído."
+      remember_to_confirm: "Quando o pedido estiver realizado, lembre de marcá-lo como concluído. Se o pedido não foi realizado, você terá %{days_to_automatic_confirmation} dias para contestá-lo. Caso contrário ele será marcado automaticamente como concluído."
     conversation_status_changed_v2:
       has_accepted_your_request: "seu pedido foi aceito"
       has_accepted_your_request_text: "%{accepter} aceitou seu pedido de %{listing}."
@@ -1833,23 +1833,23 @@ pt-BR:
       you_can_now_give_feedback: "Você pode dar feedback agora para %{name}. Dar feedback é sempre uma boa ideia. Se tudo correu bem, você deixará os outros saberem que %{name} pode ser confiável. Se houve algum problema, é bom mencioná-lo também."
       give_feedback_to: "Dê feedback para %{name}"
     transaction_disputed:
-      subject: "Pedido disputado - A equipe %{service_name} está analisando a situação"
-      subject_admin: "Uma transação foi disputada, você deve decidir o que acontece a seguir"
+      subject: "Pedido contestado - A equipe %{service_name} está analisando a situação"
+      subject_admin: "Uma transação foi contestada, você deve decidir o que acontece a seguir"
       order_about: "pedido sobre %{listing_title}"
-      the_order_has_been_canceled: "O %{transaction_link} foi disputado."
-      the_order_between_buyer_and_seller_has_been_canceled: "O %{transaction_link} entre %{buyer}  e %{seller} foi disputado."
+      the_order_has_been_canceled: "O %{transaction_link} foi contestado."
+      the_order_between_buyer_and_seller_has_been_canceled: "O %{transaction_link} entre %{buyer}  e %{seller} foi contestado."
       the_marketplace_has_been_notified: "A equipe %{service_name} foi notificada e está analisando a situação. Você pode contatá-los para dividir mais detalhes."
       contact_the_marketplace_team: "Contate a equipe %{service_name}"
-      you_must_now_decide: "Você deve decidir agora se irá reembolsar ou rejeitar a disputa. Você pode %{learn_more_link}."
+      you_must_now_decide: "Você deve decidir agora se irá reembolsar ou rejeitar a contestação. Você pode %{learn_more_link}."
       learn_more_about: "saiba mais sobre o que fazer aqui"
       review_the_transaction: "Avaliar a transação"
     transaction_refunded:
-      subject: "Pedido marcado como disputado - A equipe %{service_name} aprovou a disputa de %{buyer}"
-      marketplace_team_has_approved_the_cancellation: "A equipe %{service_name} aprovou a disputa do %{transaction_link} e marcou o pagamento como reembolsado."
+      subject: "Pedido marcado como contestado - A equipe %{service_name} aprovou a contestação de %{buyer}"
+      marketplace_team_has_approved_the_cancellation: "A equipe %{service_name} aprovou a contestação do %{transaction_link} e marcou o pagamento como reembolsado."
       you_should_receive_a_refund_soon: "Você deve receber um reembolso em breve. Você pode contatar a equipe %{service_name} se houver qualquer outro problema."
     transaction_cancellation_dismissed:
-      subject: "Pedido disputado rejeitado - A equipe %{service_name} rejeitou a disputa de %{buyer}"
-      marketplace_team_has_rejected_the_cancellation: "A equipe %{service_name} rejeitou a disputa de %{transaction_link}."
+      subject: "A contestação do pedido foi encerrada - A equipe %{service_name} rejeitou a contestação de %{buyer}"
+      marketplace_team_has_rejected_the_cancellation: "A equipe %{service_name} rejeitou a contestação de %{transaction_link}."
     transaction_commission_charge_failed:
       subject: "Uma comissão no seu marketplace não foi transferida para sua conta do PayPal"
       transaction_about: "transação de %{listing_title}"
@@ -1881,7 +1881,7 @@ pt-BR:
       seller_express_checkout_disabled: "O PayPal Express Checkout foi desabilitado para a conta PayPal do autor deste anúncio. Por favor contate o autor e informe-o que há um problema com sua conta PayPal e aconselhe-o a entrar em contato com o atendimento ao cliente do PayPal."
       seller_express_checkout_disabled_no_free: "O PayPal Express Checkout foi desativado para a conta do PayPal do anunciante. Peça à equipe de %{service_name} para entrar em contato com o anunciante e aconselhá-lo a contatar o atendimento ao cliente do PayPal."
       generic_error: "Ocorreu um erro durante o processo de pagamento. Não foi possível finalizar o seu pagamento PayPal."
-      cancel_error: "Um erro ocorreu durante a disputa. Não foi possível finalizar."
+      cancel_error: "Um erro ocorreu durante a contextação. Não foi possível finalizar."
       accept_authorization_error: "Ocorreu um erro durante a tentativa de aceitar pagamento pré-autorizado pelo Paypal. Por favor, tente novamente."
       reject_authorization_error: "Ocorreu um erro ao tentar rejeitar pagamento pré-autorizado Paypal. Por favor, tente novamente."
     stripe:
@@ -2265,7 +2265,7 @@ pt-BR:
       request_accepted_and_closed: "Solicitação aceita e anúncio fechado"
       request_confirmed: "Pedido concluído"
       request_rejected: "Pedido rejeitado"
-      request_canceled: "Pedido disputado"
+      request_canceled: "Pedido contestado"
       message_sent: "Mensagem enviada"
       message_not_sent: "O envio de mensagem falhou. Por favor tente novamente."
       this_content_is_not_available_in_this_community: "Este conteúdo não está disponível"
@@ -2296,7 +2296,7 @@ pt-BR:
       you_must_log_in_to_add_news_item: "Você deve fazer log in no %{service_name} para adicionar um novo artigo."
       you_must_log_in_to_change_profile_settings: "Você deve entrar no %{service_name} para mudar as configurações de perfil."
       you_must_log_in_to_accept_or_reject: "Você deve conectar sua conta para aceitar ou rejeitar a transação"
-      you_must_log_in_to_confirm_or_cancel: "Você deve fazer log in para disputar ou confirmar a transação"
+      you_must_log_in_to_confirm_or_cancel: "Você deve fazer log in para contestar ou confirmar a transação"
       you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
       you_must_fill_all_the_fields: "Você deve preencher todos os campos"
       you_unfollowed_listing: "Você já não estão seguindo este anúncio"
