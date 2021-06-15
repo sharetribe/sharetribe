@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.6.5'
 
-gem 'rails', '5.2.4.5'
+gem 'rails', '5.2.6'
 
 gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier', '~> 3.2.0'
@@ -31,8 +31,8 @@ gem 'delayed_paperclip', '~> 3.0.1'
 gem 'image_processing', '~> 1.9.3'
 gem 'mini_magick', '~> 4.9.5'
 
-gem 'aws-sdk-s3', '~> 1'
-gem 'aws-sdk-ses', '~> 1'
+gem 'aws-sdk-s3', '~> 1.48'
+gem 'aws-sdk-ses', '~> 1.34'
 gem "will_paginate", '~> 3.1.7'
 gem 'dalli', '~> 2.7.10'
 gem "memcachier", '~> 0.0.2'
