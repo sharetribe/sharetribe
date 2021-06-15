@@ -9,6 +9,10 @@ module EmailService::API
       @ses_client = ses_client
     end
 
+    def encode_format(str)
+      '=?UTF-8?B?' + Base64.strict_encode64(str) + '?='
+    end
+
     def get_sender(community_id:)
       sender = Maybe(community_id).map {
         AddressStore.get_latest_verified(community_id: community_id)
@@ -112,10 +116,7 @@ module EmailService::API
 
     def quote(str, quotes)
       if quotes
-        # Use inspect to add quotes.
-        # Accoring to Ruby docs, inspect:
-        # "Returns a printable version of str, surrounded by quote marks, with special characters escaped"
-        str.inspect
+        encode_format(str)
       else
         str
       end

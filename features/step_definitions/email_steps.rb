@@ -79,6 +79,10 @@ module EmailHelpers
   def email_count
     mailbox_for(current_email_address).size
   end
+
+  def encode_format(str)
+    '=?UTF-8?B?' + Base64.strict_encode64(str) + '?='
+  end
 end
 
 World(EmailHelpers)
@@ -177,7 +181,10 @@ Then /^(?:I|they) should see \/([^"]*?)\/ in the email body$/ do |text|
 end
 
 Then /^(?:I|they) should see the email delivered from "([^"]*?)"$/ do |text|
-  expect(current_email).to be_delivered_from(text)
+  name = text.match(/^([^< ]+)/)[1]
+  email = text.match(/(<.*>)$/)[1]
+  current_email.header['From'].to_s # should be called before test
+  expect(current_email).to be_delivered_from("#{encode_format(name)} #{email}")
 end
 
 Then /^(?:I|they) should see "([^\"]*)" in the email "([^"]*?)" header$/ do |text, name|
