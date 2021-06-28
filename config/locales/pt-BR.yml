@@ -1325,7 +1325,7 @@ pt-BR:
       stripe-fee_label: "Taxa de processamento do pagamento"
     confirm:
       confirm_description: "Se o seu pedido foi aceito, você deve confirmá-lo como concluído. Então você pode dar um feedback para a outra parte."
-      cancel_description_team: "Se o seu pedido não foi realizado, você pode marcá-lo como disputado. A equipe %{service_name} analisará a situação e decidirá por reembolsar ou rejeitar sua solicitação de contestação."
+      cancel_description_team: "Se o seu pedido não foi realizado, você pode marcá-lo como contestado. A equipe %{service_name} analisará a situação e decidirá por reembolsar ou rejeitar sua solicitação de contestação."
       cancel_payed_description: "Se o seu pedido foi aceito, mas você está tendo dúvidas, você ainda pode cancelar o pedido antes do pagamento."
       canceling_payed_transaction: "Cancelar transação"
       confirm: "Marca concluida"

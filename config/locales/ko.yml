@@ -1276,7 +1276,7 @@ ko:
     paypal_fee_info:
       title: "PayPal 결제 수수료"
       body_text: |-
-          PayPal 결제를 위해 %{service_name}의 거래 수수료 %{paypal_commission}가 부과됩니다. 최소 거래 수수료는 %{minimum_transaction_fee} 입니다. PayPal 결제 수수료는 포함되어 있지 않습니다. 따라서 %{service_name} 수수료외에 PayPal 수수료가 별도록 부과됩니다. PayPal 수수료는 전체 결제 금액의 2 ~ 5%이며, 월매출 규모와 구매자의 거주 국가에 따라 상이합니다. 일반적으로 국내간 거래 수수료가 국제 거래 수수료 보다 적고, 월매출 규모가 클수록 수수료 할인이 적용됩니다.
+          PayPal 결제를 위해 %{service_name}의 거래 수수료 %{paypal_commission}가 부과됩니다. 최소 거래 수수료는 %{minimum_transaction_fee} % 입니다. PayPal 결제 수수료는 포함되어 있지 않습니다. 따라서 %{service_name} 수수료외에 PayPal 수수료가 별도록 부과됩니다. PayPal 수수료는 전체 결제 금액의 2 ~ 5%이며, 월매출 규모와 구매자의 거주 국가에 따라 상이합니다. 일반적으로 국내간 거래 수수료가 국제 거래 수수료 보다 적고, 월매출 규모가 클수록 수수료 할인이 적용됩니다.
           %{link_to_paypal}에서 PayPal 수수료 세부 내역을 확인하실 수 있습니다. 결제 처리때 마다 자세한 수수료가 정보가 포함된 영수증이 발행됩니다.
       body_text_accept: |-
           이 결제는 페이팔을 통해 처리됩니다. 페이팔은 결제 처리 건마다 이용 수수료를 부과합니다. 페이팔 이용 수수료는 보통 전체 결제 금액의 2 ~ 5%이며, 월간 매출 규모와 구매자의 거주 지역에 따라 달라집니다. 일반적으로 내국인 구매이거나 매출 규모가 클수록 낮은 수수료율이 적용됩니다.
@@ -2390,7 +2390,7 @@ ko:
         googlemap_updatemap: "지도를 갱신하십시요"
       images:
         image: 이미지
-        best_result: "%{height} x %{width} 픽셀의 JPG, GIF 또는 PNG 이미지를 사용하시는게 가장 좋습니다."
+        best_result: "%{width}x%{height} 픽셀의 JPG, GIF 또는 PNG 이미지를 사용하시는게 가장 좋습니다."
         no_file_selected: "파일이 선택되지 않았습니다"
         remove_image: "이미지를 제거해주세요"
         select_file: "파일을 선택하세요"
