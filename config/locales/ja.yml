@@ -1653,7 +1653,7 @@ ja:
       subtotal: 小計
       buyer_service_fee: "%{service_name}  サービス利用料:"
       total: 合計
-      price: 価格
+      price: 価格（半角数字でご入力ください）
       service_fee: サービス料
       stripe_gateway_fee: ストライプ手数料
       paypal_gateway_fee: PayPalの手数料
@@ -1678,7 +1678,7 @@ ja:
       quantity: 数量：
       subtotal: 小計：
       total: 合計
-      price: 価格
+      price: 価格（半角数字でご入力ください）
       buyer_service_fee: "%{service_name}  サービス利用料:"
       stripe_gateway_fee: ストライプ手数料
       paypal_gateway_fee: PayPalの支払い手数料
@@ -2410,7 +2410,7 @@ ja:
       location:
         location: "場所 （地区、郵便番号、市町区村名...）"
       price:
-        price: 価格
+        price: 価格（半角数字でご入力ください）
         per: につき
         per_day: 1日あたり
         mass: 個、キロ、リットル、坪
@@ -2419,7 +2419,7 @@ ja:
         after_service_fee_you_will_get: "%{service_name}のご利用手数料、支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料などが発生する場合は、送料込みの価格にしてください。"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}は料金から控除されます。"
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} は価格から差し引かれます。"
-        after_service_fee_you_will_get_payment_text: "誰かが注文すると、この金額から%{payment_fee_info_link} が差し引かれます。"
+        after_service_fee_you_will_get_payment_text: "誰かが注文すると、この金額から%{payment_fee_info_link} が差し引かれます。※金額は半角でご入力ください"
         payment_fee_info_link_text: "%{service_name} 利用料と支払い手数料"
         delivery: 配送
         shipping: 発送する
