@@ -100,7 +100,7 @@ module CustomLandingPage
       blob = ActiveStorage::Blob.new
       blob.filename = http_uploaded_file.original_filename
       blob.content_type = http_uploaded_file.content_type
-      blob.key = File.join('sites', community.ident, ActiveStorage::Blob.generate_unique_secure_token)
+      blob.key = File.join('sites', community.id.to_s, ActiveStorage::Blob.generate_unique_secure_token)
       blob.upload(io)
 
       blob.save
