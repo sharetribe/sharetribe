@@ -1676,7 +1676,7 @@ ko:
       you_have_made_new_payment: "<b> %{listing_title} </ b>에 대해 % {recipient_full_name}에 <b> %{payment_sum} </ b>을 지불했습니다. 여기에 결제 영수증이 있습니다."
       product: 제품
       price_per_unit_type: "%{unit_type} 당 가격 :"
-      duration: 존속기간
+      duration: "예약된 시간"
       quantity: 수량
       subtotal: 소계
       total: 총액
@@ -2547,7 +2547,7 @@ ko:
       add_profile_picture: "프로필 사진을 추가하세요"
       comments: 댓글달기
       contact_by_phone: "전화로 문의 :"
-      contact: 문의하기
+      contact: "메시지 보내기"
       favor_offer: "서비스 제안"
       favor_request: "서비스 요청"
       inquiry: 공지
@@ -2583,7 +2583,7 @@ ko:
       youtube_video_player: "YouTube 동영상 플레이어"
     unit_types:
       piece: 갯수
-      hour: 시
+      hour: 시간
       day: 일
       night: 밤
       week: 주
@@ -3102,7 +3102,7 @@ ko:
           covers: ~
       pricing_units:
         piece: 갯수
-        hour: 시
+        hour: 시간
         day: 일
         night: 박
         week: 주
