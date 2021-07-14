@@ -14,7 +14,8 @@
       .form-group
         %label= t('admin2.transaction_size.minimum_transaction_size')
         .input-group.minimum-listing-price-holder
-          = number_field_tag :minimum_listing_price, @current_min_price.amount, class: %i[form-control], min: @current_fee || 0
+          = number_field_tag :minimum_listing_price, @current_min_price.amount, class: %i[form-control], min: ((@current_fee.to_f || 0) + 0.01),
+            'data-msg-min': t('admin2.stripe.the_minimum_tx_fee', sum: @current_fee || 0)
           .input-group-append
             %span.input-group-text= @current_community.currency
         - if @current_fee.positive?

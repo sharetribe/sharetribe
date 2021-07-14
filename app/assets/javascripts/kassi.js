@@ -183,6 +183,16 @@ function add_validator_methods() {
     });
 
   $.validator.
+  addMethod("depend", function(value, element, dep) {
+    var this_value = $(element).val() || 0,
+        depend_value = $('#' + dep).val() || 0,
+        price = parseFloat($(element).attr('number_max_price') || 0);
+
+    var total = parseFloat(this_value) + parseFloat(depend_value);
+    return total < price;
+  });
+
+  $.validator.
     addMethod("email_remove_spaces", function(value, element) {
       value = value.trim();
       $(element).val(value);
