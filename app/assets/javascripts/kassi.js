@@ -39,6 +39,12 @@ function add_validator_methods() {
       }
     );
 
+  $.validator.
+  addMethod("google_analytics",
+    function(value, element, param) {
+      return $(element).val().startsWith("UA-");
+    }
+  );
 
   $.validator.
     addMethod("regex",
