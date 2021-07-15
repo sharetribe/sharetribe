@@ -20,7 +20,7 @@ module UserService::API
           username: username,
           locale: locale,
           test_group_number: rand(1..4),
-          community_id: community_id)
+          community_id: 1)
 
         email = Email.new(person: person, address: user_hash[:email].downcase, send_notifications: true, community_id: community_id)
 

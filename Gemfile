@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.6.5'
 
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+
 gem 'rails', '5.2.4.4'
 
 gem 'coffee-rails', '~> 4.2.2'
@@ -185,3 +187,13 @@ gem 'bootsnap', require: false
 gem "select2-rails"
 gem "cocoon"
 gem "fast-polylines"
+
+
+
+
+
+# API
+gem 'grape'
+gem 'rack-cors'
+gem 'grape-active_model_serializers'
+gem 'grape_on_rails_routes'

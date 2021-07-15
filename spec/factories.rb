@@ -53,6 +53,12 @@ class FactoryGirl::DefinitionProxy
 end
 
 FactoryGirl.define do
+  factory :api_key do
+    access_token "MyString"
+    expires_at "2021-07-10 18:41:55"
+    user_id 1
+    active false
+  end
   sequence :id do |_|
     SecureRandom.urlsafe_base64
   end

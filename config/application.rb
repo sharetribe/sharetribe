@@ -241,5 +241,17 @@ module Kassi
     config.after_initialize do
       require File.expand_path('../../lib/active_storage_decorator', __FILE__)
     end
+
+
+
+
+  config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+  config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+
+
+
+
   end
 end
+
+
