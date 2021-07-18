@@ -1,45 +1,41 @@
 module API
   module V1
-    class People < Grape::API
+    class Bookings < Grape::API
       include API::V1::Defaults
 
-      resource :people do
+      resource :bookings do
 
-        desc "Create a User / Person"
+        desc "Create a Booking"
         params do
-           requires :email, :type => String, :desc => "User email"
-           requires :fname, :type => String, :desc => "First name"
-           requires :lname, :type => String, :desc => "Last name"
-           requires :password, :type => String, :desc => "User password"
+           requires :booking, :type => Hash do
+           end
         end
         post do
-          user = UserService::API::Users.create_user({
-            given_name: params[:fname],
-            family_name: params[:lname],
-            email: params[:email],
-            password: params[:password],
-            locale: "en"},
-            1).data
-
-          present user
+          authenticate!
+          booking = Bookings.new
+          booking.start_on = params[:booking][:start_on] if params[:booking][:start_on]
+          booking.end_on = params[:booking][:end_on] if params[:booking][:end_on]
+          start_time = params[:booking][:start_time] if params[:booking][:start_time]
+          booking.start_time = start_time.to_datetime
+          booking.end_time = params[:booking][:end_time] if params[:booking][:end_time]
+          booking.per_hour = params[:booking][:per_hour] if params[:booking][:per_hour]
+          booking.transaction_id = params[:booking][:transaction_id] if params[:booking][:transaction_id]
+          booking.save!
+          present booking
         end
         
 
 
-        desc "Return User / Person"
+        desc "Return Booking"
         params do
-          requires :id, :type => String
+          requires :booking, :type => Hash do
+            requires :id, :type => String
+          end
         end
-        get  do
+        post do
           authenticate!
-          person = Person.find(params[:id])
-          present person
-        end
-
-        desc "Return all Users / People"
-        get '/all' do
-          authenticate!
-          Person.all
+          booking = Bookings.find(params[:booking][:id])
+          present booking
         end
 
 
@@ -48,7 +44,8 @@ module API
 
 
 
-        desc "Update User / Person"
+
+        desc "Update Booking"
         params do
           requires :person, type: Hash do
             requires :id, type: String
@@ -112,7 +109,7 @@ module API
 
 
 
-        desc 'Delete a person (via "delete" field)'
+        desc 'Delete a Booking (via "delete" field)'
         params do
           requires :id, type: String, desc: 'ID.'
         end

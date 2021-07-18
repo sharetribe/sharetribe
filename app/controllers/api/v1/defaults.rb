@@ -24,6 +24,13 @@ module API
             @permitted_params ||= declared(params, 
                include_missing: false)
           end
+          
+
+          def received_params
+            if @permitted_params !=null
+              return @permitted_params 
+            end
+          end
 
           def logger
             Rails.logger
