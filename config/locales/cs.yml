@@ -1309,8 +1309,8 @@ cs:
       details: "Podobnosti o uspořádání"
       order_by: "Seřazeno dle %{orderer_link}"
       accept_offer: "Přijmout nabídku"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Přijmout platbu a nechat inzerát aktivní"
+      accept_request_and_close: "Přijmout platbu a uzavřít inzerát"
       reject_offer: "Teď ne"
       reject_request: "Teď ne"
       close_listing: "Uzavřít inzerát %{listing_title_link}"
@@ -1662,7 +1662,7 @@ cs:
     payment_receipt_to_seller_v2:
       headline: "%{payer_name} vám zaplatil %{payment_sum} za %{listing_link}"
       main_text_stripe: "%{service_name} zadržel peníze do doby než bude objednávka označena jako dokončená"
-      price_breakdown: "Pokles ceny"
+      price_breakdown: "Rozpis ceny"
     payment_receipt_to_payer:
       receipt_of_payment: "Doklad o zaplacení"
       you_have_made_new_payment: "Zaplatili jste<b>%{payment_sum}</b> za <b>%{listing_title}</b> uživateli %{recipient_full_name}. Zde je stvrzenka provedené platby."
@@ -1729,6 +1729,8 @@ cs:
       unsubscribe_link_text: "se odhlašte"
     community_updates_v2:
       headline: "překontrolujte nejnovější aktivity na %{service_name}."
+      intro_paragraph:
+        other: "Podívejte se, co se na %{service_name} událo za posledních %{count} dní."
     newsletter:
       hi: "Ahoj %{name},"
       newest_offers: "To, co lidé právě nabízejí ostatním"
