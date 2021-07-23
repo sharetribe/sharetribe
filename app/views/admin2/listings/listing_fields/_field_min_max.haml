@@ -6,8 +6,8 @@
 
 .form-group
   = form.label :min, t('admin2.listing_fields.minimum_value')
-  = text_field_tag 'custom_field[min]', form.object.min || 0, class: %i[form-control required]
+  = text_field_tag 'custom_field[min]', form.object.display_min, class: %i[form-control required]
 
 .form-group
   = form.label :max, t('admin2.listing_fields.maximum_value')
-  = text_field_tag 'custom_field[max]', form.object.max || 9999, class: %i[form-control required]
+  = text_field_tag 'custom_field[max]', form.object.max.present? ? form.object.display_max : 9999, class: %i[form-control required]
