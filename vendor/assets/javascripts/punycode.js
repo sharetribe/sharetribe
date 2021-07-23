@@ -526,4 +526,6 @@ var punycode = {
 	'toUnicode': toUnicode
 };
 
-module.exports = punycode;
+if (typeof module !== 'undefined') {
+	module.exports = punycode;
+}
