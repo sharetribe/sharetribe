@@ -1671,7 +1671,7 @@ pt-BR:
       money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tiver marcado o pedido como concluído ou b) %{automatic_confirmation_days} dias depois do pagamento."
     payment_receipt_to_payer_v2:
       headline: "aqui está seu recibo de %{listing_link}."
-      you_have_made_new_payment: "Você recebeu <b> %{payment_sum} </b> por <b> %{listing_title} </b>."
+      you_have_made_new_payment: "Você pagou <b> %{payment_sum} </b> por <b> %{listing_title} </b>."
     paypal_new_payment:
       paypal_gateway_fee: "Taxa do PayPal:"
       shipping_total: "Envio:"
@@ -2464,7 +2464,7 @@ pt-BR:
         accept_for_free: "Aceitar gratuitamente"
         trade: Troca
       tag_list:
-        comma_separate: "(separados por uma vírgula)"
+        comma_separate: "(separado por vírgula)"
         tags: Tags
       title:
         listing_title: Título
