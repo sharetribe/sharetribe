@@ -1,9 +1,9 @@
 module API
   module V1
-    class People < Grape::API
+    class Feedback < Grape::API
       include API::V1::Defaults
 
-      resource :people do
+      resource :feedback do
 
         desc "Create a User / Person"
         params do
