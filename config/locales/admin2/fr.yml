@@ -1000,6 +1000,7 @@ fr:
     google:
       info_text: "Google Analytics vous permet de suivre le trafic utilisateurs sur votre place de marché. Vous pourrez visualiser et analyser de nombreuses données : nombre de visiteurs, pages vues, temps passé sur votre place de marché, sources du trafic, etc. <a href='%{url}' class='external-link' target='_blank' >En savoir plus sur la configuration Google Analytics</a>."
       google_analytics_key: "Code de suivi Google Analytics"
+      error_text: "Veuillez entrer un code de suivi Google Analytics commençant par \"UA-\""
       google_analytics_key_placeholder: UA-12345678-9
       google_analytics_key_info_text: "Copier ici le code de suivi de votre compte Google Analytics"
     profile_pages:
