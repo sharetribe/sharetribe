@@ -306,8 +306,10 @@ fr:
       minimum_transaction_size: "Le <a href=\"%{url}\">prix minimum d'annonce</a> est actuellement de %{sum}."
       the_transaction_fee_must_be_lower_than_100: "La commission doit être inférieure à 100%"
       the_buyer_transaction_fee_must_be_lower_than_100: "La commission sur l'achat doit être inférieure à 100%"
+      the_minimum_tx_fee: ~
       fee_should_be_less_than_minimum_price: "La commission minimum doit être inférieure au prix minimum d'annonce"
       buyer_fee_should_be_less_than_minimum_price: "La commission minimum sur l'achat doit être inférieure au prix minimum d'annonce"
+      total_fee_should_be_less_than_minimum_price: ~
       stripe_connected: "Stripe activé"
       stripe_disabled: "Stripe désactivé"
       disable_stripe: "Désactiver Stripe"
@@ -329,6 +331,7 @@ fr:
       transaction_fee: "La commission minimum est actuellement de %{fee}."
       errors:
         minimum_listing_price_below_tx_fee: "Le prix minimum d'annonce doit être supérieur à la commission minimum qui est actuellement de %{minimum_transaction_fee}"
+        sum_listing_price_below_tx_fee: ~
         minimum_listing_price_below_min: "Le prix minimum d'annonce doit être supérieur à %{minimum_commission}"
         payments_not_enabled: "Le système de paiement n'est pas activé"
     user_fields:
