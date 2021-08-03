@@ -309,7 +309,7 @@ en:
       the_minimum_tx_fee: "The minimum listing price has to be greater than the sum of the minimum commissions: %{sum}"
       fee_should_be_less_than_minimum_price: "Minimum commission must be lower than minimum listing price"
       buyer_fee_should_be_less_than_minimum_price: "Minimum buyer commission must be lower than minimum listing price"
-      total_fee_should_be_less_than_minimum_price: "The total of the minimum commissions must be lower than the minimum listing price"
+      total_fee_should_be_less_than_minimum_price: "The sum of the minimum commissions must be lower than the minimum listing price"
       stripe_connected: "Stripe enabled"
       stripe_disabled: "Stripe disabled"
       disable_stripe: "Disable Stripe"
