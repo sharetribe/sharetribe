@@ -81,10 +81,11 @@
     <% end %>
   <% end %>
 </head>
-<body onload="BrowserDetectVideoAutoplay()">
 
+<% video_section = sections.any? { |s| s["section"]["kind"] == "video" && s["section"]["variation"] == "youtube" } %>
+<body<%= ' onload=BrowserDetectVideoAutoplay() ' if video_section %>>
   <% if topbar[:enabled] %>
-  <div id="topbar-placeholder" class="topbar-placeholder"> </div>
+    <div id="topbar-placeholder" class="topbar-placeholder"> </div>
   <% end %>
 
   <%= yield :sections %>
@@ -99,7 +100,7 @@
     </script>
   <% end %>
 
-  <% if sections.any? { |s| s["section"]["kind"] == "video" && s["section"]["variation"] == "youtube" } %>
+  <% if video_section %>
     <script type="text/javascript">
       <%= render 'landing_page/modernizr_videoautoplay.erb' %>
       <%= render 'landing_page/browser_detect.erb' %>
