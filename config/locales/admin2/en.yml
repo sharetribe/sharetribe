@@ -1000,6 +1000,7 @@ en:
     google:
       info_text: "Google Analytics helps you track your marketplace traffic. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}' class='external-link' target='_blank' >Learn more about the Google Analytics setup</a>."
       google_analytics_key: "Google Analytics tracking ID"
+      error_text: 'Please enter a Google Analytics tracking ID that starts with "UA-"'
       google_analytics_key_placeholder: UA-12345678-9
       google_analytics_key_info_text: "Paste the tracking ID of your Google Analytics account here."
     profile_pages:
