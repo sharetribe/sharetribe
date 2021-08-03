@@ -4,8 +4,7 @@ module Admin2::PaymentSystem
 
     def index
       @current_min_price = Money.new(@current_community.minimum_price_cents, currency)
-      fee = [stripe_tx_settings[:minimum_transaction_fee_cents].to_i,
-             stripe_tx_settings[:minimum_buyer_transaction_fee_cents].to_i,
+      fee = [stripe_tx_settings[:minimum_transaction_fee_cents].to_i + stripe_tx_settings[:minimum_buyer_transaction_fee_cents].to_i,
              paypal_tx_settings[:minimum_transaction_fee_cents].to_i].max
       @current_fee = Money.new(fee, currency)
     end
@@ -37,7 +36,14 @@ module Admin2::PaymentSystem
         raise I18n.t('admin2.transaction_size.errors.minimum_listing_price_below_min', minimum_commission: minimum_commission)
       elsif minimum_transaction_fee && tx_min_price <= minimum_transaction_fee
         raise I18n.t('admin2.transaction_size.errors.minimum_listing_price_below_tx_fee', minimum_transaction_fee: minimum_transaction_fee)
+      elsif minimum_transaction_fee && tx_min_price <= sum_transaction_fee
+        raise I18n.t('admin2.transaction_size.errors.sum_listing_price_below_tx_fee', sum_transaction_fee: sum_transaction_fee)
       end
+    end
+
+    def sum_transaction_fee
+      sum_transaction_fee_cents = PaymentSettings.stripe_sum_transaction_fee(@current_community)
+      parse_money_with_default(nil, sum_transaction_fee_cents, currency)
     end
 
     def minimum_transaction_fee

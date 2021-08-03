@@ -50,5 +50,12 @@ class PaymentSettings < ApplicationRecord
         .compact
         .max
     end
+
+    def stripe_sum_transaction_fee(community)
+      stripe
+      .active
+      .where(community: community)
+      .sum('IFNULL(minimum_transaction_fee_cents, 0) + IFNULL(minimum_buyer_transaction_fee_cents, 0)')
+    end
   end
 end

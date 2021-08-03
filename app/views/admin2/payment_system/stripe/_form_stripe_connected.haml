@@ -16,8 +16,8 @@
   .input-group
     - max_tx_fee = payment_prefs_form.minimum_listing_price.to_f
     - max_tx_fee = max_tx_fee - 0.01 if max_tx_fee > 0.01
-    = form.text_field :minimum_transaction_fee, class: %i[form-control], required: true, number_max: max_tx_fee, number_min: 0, disabled: disabled_fee,
-                      'data-msg-number_max': t("admin2.stripe.fee_should_be_less_than_minimum_price"), style: 'border-radius: 4px 0 0 4px'
+    = form.text_field :minimum_transaction_fee, class: %i[form-control], required: true, depend: 'payment_preferences_form_minimum_buyer_transaction_fee', number_max_price: max_tx_fee, number_min: 0, disabled: disabled_fee,
+                      'data-msg-depend': t("admin2.stripe.total_fee_should_be_less_than_minimum_price"), style: 'border-radius: 4px 0 0 4px'
 
     .input-group-append{class: disabled_fee ? 'disabled' : ''}
       %span.input-group-text= currency
@@ -45,8 +45,8 @@
 .form-group
   = form.label :minimum_buyer_transaction_fee, t('admin2.stripe.minimum_buyer_transaction_fee')
   .input-group
-    = form.text_field :minimum_buyer_transaction_fee, class: %i[form-control], disabled: buyer_disabled, style: 'border-radius: 4px 0 0 4px',
-                      number_max: max_tx_fee, number_min: 0, 'data-msg-number_max': t("admin2.stripe.buyer_fee_should_be_less_than_minimum_price")
+    = form.text_field :minimum_buyer_transaction_fee, class: %i[form-control], depend: 'payment_preferences_form_minimum_transaction_fee', disabled: buyer_disabled, style: 'border-radius: 4px 0 0 4px',
+                      number_max_price: max_tx_fee, number_min: 0, 'data-msg-depend': t("admin2.stripe.total_fee_should_be_less_than_minimum_price")
 
     .input-group-append{class: buyer_disabled ? 'disabled' : ''}
       %span.input-group-text= currency

@@ -306,8 +306,10 @@ en:
       minimum_transaction_size: "<a href=\"%{url}\">Minimum listing price</a> is currently set to %{sum}."
       the_transaction_fee_must_be_lower_than_100: "The commission must be lower than 100%"
       the_buyer_transaction_fee_must_be_lower_than_100: "The buyer commission must be lower than 100%"
+      the_minimum_tx_fee: "The minimum transaction size has to be greater than the sum of the minimum transaction fees: %{sum}"
       fee_should_be_less_than_minimum_price: "Minimum commission must be lower than minimum listing price"
       buyer_fee_should_be_less_than_minimum_price: "Minimum buyer commission must be lower than minimum listing price"
+      total_fee_should_be_less_than_minimum_price: "The total of the minimum transaction fees must be lower than the minimum transaction size"
       stripe_connected: "Stripe enabled"
       stripe_disabled: "Stripe disabled"
       disable_stripe: "Disable Stripe"
@@ -329,6 +331,7 @@ en:
       transaction_fee: "The minimum commission is currently set to %{fee}."
       errors:
         minimum_listing_price_below_tx_fee: "The minimum listing price has to be greater than the minimum commission currently set at %{minimum_transaction_fee}."
+        sum_listing_price_below_tx_fee: "The minimum transaction size has to be greater than the sum of the minimum transaction fees: %{sum_transaction_fee}."
         minimum_listing_price_below_min: "The minimum listing price has to be greater than %{minimum_commission}."
         payments_not_enabled: "The payment system is not enabled"
     user_fields:
