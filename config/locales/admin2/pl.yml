@@ -306,8 +306,10 @@ pl:
       minimum_transaction_size: ~
       the_transaction_fee_must_be_lower_than_100: ~
       the_buyer_transaction_fee_must_be_lower_than_100: ~
+      the_minimum_tx_fee: ~
       fee_should_be_less_than_minimum_price: ~
       buyer_fee_should_be_less_than_minimum_price: ~
+      total_fee_should_be_less_than_minimum_price: ~
       stripe_connected: ~
       stripe_disabled: ~
       disable_stripe: ~
@@ -329,6 +331,7 @@ pl:
       transaction_fee: ~
       errors:
         minimum_listing_price_below_tx_fee: ~
+        sum_listing_price_below_tx_fee: ~
         minimum_listing_price_below_min: ~
         payments_not_enabled: ~
     user_fields:
@@ -979,6 +982,7 @@ pl:
     google:
       info_text: ~
       google_analytics_key: ~
+      error_text: ~
       google_analytics_key_placeholder: ~
       google_analytics_key_info_text: ~
     profile_pages:

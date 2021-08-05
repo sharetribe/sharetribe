@@ -4,7 +4,7 @@ fr:
       landing_page:
         location:
           remove: "Supprimer %{name}"
-          remove_confirm: "Voulez-vous vraiment supprimer la localisation \"%{name}\" de la page d'accueil ?"
+          remove_confirm: "Voulez-vous vraiment supprimer l'emplacement \"%{name}\" de la page d'accueil ?"
         category:
           remove: "Supprimer %{name}"
           remove_confirm: "Voulez-vous vraiment supprimer la catégorie \"%{name}\" de la page d'accueil ?"
@@ -45,7 +45,7 @@ fr:
       transactions_group: "Transactions & Avis"
       payment_group: "Système de paiement"
       emails_group: Emails
-      search_group: "Recherche & Localisation"
+      search_group: "Recherche & Adresse"
       seo_group: SEO
       analytics_group: Analytics
       advanced_group: Avancé
@@ -98,7 +98,7 @@ fr:
         custom_outgoing_address: "Adresse email de l'expéditeur"
       search_location:
         search: Recherche
-        location: Localisation
+        location: Adresse
       social_media:
         image_tags: "Image & Tags"
         twitter: Twitter
@@ -306,10 +306,10 @@ fr:
       minimum_transaction_size: "Le <a href=\"%{url}\">prix minimum d'annonce</a> est actuellement de %{sum}."
       the_transaction_fee_must_be_lower_than_100: "La commission doit être inférieure à 100%"
       the_buyer_transaction_fee_must_be_lower_than_100: "La commission sur l'achat doit être inférieure à 100%"
-      the_minimum_tx_fee: ~
+      the_minimum_tx_fee: "Le prix minimum d'annonce doit être supérieur à la somme des commissions minimum : %{sum}"
       fee_should_be_less_than_minimum_price: "La commission minimum doit être inférieure au prix minimum d'annonce"
       buyer_fee_should_be_less_than_minimum_price: "La commission minimum sur l'achat doit être inférieure au prix minimum d'annonce"
-      total_fee_should_be_less_than_minimum_price: ~
+      total_fee_should_be_less_than_minimum_price: "La somme des commissions minimum doit être inférieure au prix minimum d'annonce"
       stripe_connected: "Stripe activé"
       stripe_disabled: "Stripe désactivé"
       disable_stripe: "Désactiver Stripe"
@@ -331,7 +331,7 @@ fr:
       transaction_fee: "La commission minimum est actuellement de %{fee}."
       errors:
         minimum_listing_price_below_tx_fee: "Le prix minimum d'annonce doit être supérieur à la commission minimum qui est actuellement de %{minimum_transaction_fee}"
-        sum_listing_price_below_tx_fee: ~
+        sum_listing_price_below_tx_fee: "Le prix minimum d'annonce doit être supérieur à la somme des commissions minimum : %{sum_transaction_fee}"
         minimum_listing_price_below_min: "Le prix minimum d'annonce doit être supérieur à %{minimum_commission}"
         payments_not_enabled: "Le système de paiement n'est pas activé"
     user_fields:
@@ -347,7 +347,7 @@ fr:
       email_address: "Adresse email"
       profile_picture: "Photo de profil"
       file: Fichier
-      location: Localisation
+      location: Adresse
       display_name: "Nom d'affichage"
       phone_number: "Numéro de téléphone"
       about_you: "À propos de vous"
@@ -380,7 +380,7 @@ fr:
         checkbox_group: "Cases à cocher"
         date: Date
         file: Fichier
-        location: Localisation
+        location: Adresse
     listing_fields:
       get_started: "Bien commencer avec les champs d'annonces"
       watch_video: "Regarder une vidéo"
@@ -431,12 +431,12 @@ fr:
       listing_location_required: "Rendre ce champ obligatoire lors de la création ou l'édition d'une annonce"
       listing_expiration_enabled_title: "Activer la date d'expiration"
       listing_expiration_enabled: "Activer la date d'expiration"
-      edit_location_title: "Modifier le champ d'annonce \"Localisation\""
+      edit_location_title: "Modifier le champ d'annonce \"Adresse\""
       types:
         text: Texte
         price: Prix
         date: Date
-        location: Localisation
+        location: Adresse
         image: Image
     order_types:
       get_started: "Bien commencer avec les types de transactions"
@@ -1074,10 +1074,10 @@ fr:
       social_media_title_info_text: "Ce texte est affiché lors du partage de votre place de marché sur Facebook, Twitter ou LinkedIn. Prévisualisez votre partage <a href=\"%{fb_url}\" class=\"external-link\" target=\"_blank\">pour Facebook</a>, <a href=\"%{twitter_url}\" class=\"external-link\" target=\"_blank\">pour Twitter</a> et <a href=\"%{link_url}\" class=\"external-link\" target=\"_blank\">pour LinkedIn</a>."
       social_media_description: "Description pour les réseaux sociaux"
     location:
-      location_settings: "Paramètres de localisation"
-      location_settings_info_text: "La localisation est visible sur les pages d'annonces, les pages de profils et la page d'accueil. Vous pouvez afficher l'emplacement exact d'une annonce ou sa position approximative, ou encore désactiver entièrement l'utilisation de la localisation."
-      show_location: "Permettre aux utilisateurs d'ajouter leur localisation à leur profil et annonces. Ceci ajoute une vue carte sur la page de recherche."
-      fuzzy_location: "Afficher un cercle à la place de l'emplacement exact"
+      location_settings: "Paramètres d'adresse"
+      location_settings_info_text: "Les adresses sont visibles sur les pages d'annonces, les pages de profils et la page d'accueil. Vous pouvez afficher l'adresse exact d'une annonce ou sa position approximative, ou encore désactiver entièrement l'utilisation des adresses."
+      show_location: "Permettre aux utilisateurs d'ajouter une adresse sur leur profil et annonces. Ceci ajoute une vue carte sur la page de recherche."
+      fuzzy_location: "Afficher un cercle à la place de l'adresse exacte"
     search:
       keyword: Mots-clés
       location: Géographique
@@ -1085,7 +1085,7 @@ fr:
       imperial: Miles
       metric: Kilomètres
       search_type: "Type de recherche"
-      search_type_info_text: "La recherche géographique ne peut être utilisée que si la fonctionnalité de localisation est activée."
+      search_type_info_text: "La recherche géographique ne peut être utilisée que si la fonctionnalité d'adresse est activée."
       keyword_settings: "Texte d'aide à la recherche"
       location_settings: "Paramètres de la recherche géographique"
       show_distance: "Afficher la distance en"
@@ -1308,17 +1308,17 @@ fr:
           link_target_url: "Cible de l'URL du lien"
         location:
           title: "Localisations mises en avant"
-          info: "Vous pouvez mettre en avant entre trois et sept localisations sur votre page d'accueil. Ajoutez une image pour chaque localisation et liez la à la page de résultats de recherche sur votre place de marché pour cette localisation."
+          info: "Vous pouvez mettre en avant entre trois et sept emplacements sur votre page d'accueil. Ajoutez une image pour chaque emplacement et liez la à la page de résultats de recherche sur votre place de marché pour cet emplacement."
           image_column: Image
-          label_column: "Libellé de la localisation"
-          url_column: "URL des résultats de recherche"
-          add: "+ Ajouter une localisation"
-          edit_location: "Modifier la localisation"
-          location_label: "Libellé de la localisation"
-          search_url: "URL de la recherche"
-          background_image: "Image d'arrière-plan de la localisation"
-          image_info: "La taille recommandée pour l'image d'arrière-plan de la localisation est de 1000x667 pixels."
-          image: "L'image actuelle d'arrière-plan de la localisation est <code>%{name}</code>."
+          label_column: "Libellé de l'emplacement"
+          url_column: "URL de l'emplacement"
+          add: "+ Ajouter un emplacement"
+          edit_location: "Modifier l'emplacement"
+          location_label: "Libellé de l'emplacement"
+          search_url: "URL de l'emplacement"
+          background_image: "Image d'arrière-plan de l'emplacement"
+          image_info: "La taille recommandée pour l'image d'arrière-plan de l'emplacement est de 1000x667 pixels."
+          image: "L'image actuelle d'arrière-plan de l'emplacement est <code>%{name}</code>."
           need_at_least_3_locations: "Vous devez avoir au moins trois localisations dans cette section"
           need_at_most_7_locations: "Vous pouvez avoir au plus sept localisations dans cette section"
         category:
@@ -1396,7 +1396,7 @@ fr:
       payments_connected: "Les paiements sont déjà configurés"
       search_updated: "Les paramètres de recherche ont été mis à jour"
       search_updated_failed: "La mise à jour des paramètres de recherche a échoué"
-      location_updated: "Les paramètres de localisation ont été mis à jour"
+      location_updated: "Les paramètres d'adresse ont été mis à jour"
       image_tags_updated: "Les paramètres d'images & tags ont été mis à jour"
       twitter_updated: "Les paramètres Twitter ont été mis à jour"
       landing_pages_updated: "Les paramètres de meta tags de la page d'accueil ont été mis à jour"
@@ -1421,7 +1421,7 @@ fr:
       listing_field_updated: "Champ d'annonce mis à jour"
       listing_field_saving_failed: "L'enregistrement du champ d'annonce a échoué"
       listing_field_created: "Champ d'annonce créé"
-      listing_fields_update_location_failed: "La modification du champ de localisation a échoué"
+      listing_fields_update_location_failed: "La modification du champ d'adresse a échoué"
       listing_fields_update_expiration_failed: "La modification du champ de date d'expiration a échoué"
       listing_fields_update_price_failed: "La modification du champ de prix a échoué"
       transaction_size_updated: "Les paramètres du prix minimum d'annonce ont été mis à jour"
