@@ -232,7 +232,7 @@ fr:
         require_verification_to_post_listings: "Autoriser uniquement les utilisateurs validés par un administrateur à poster de nouvelles annonces"
         allow_free_conversations: "Autoriser les utilisateurs à se contacter directement"
         search_preferences: "Paramètres de recherche"
-        search_and_location_preferences: "Paramètres de recherche et de localisation"
+        search_and_location_preferences: "Paramètres de recherche et d'adresse"
         default_search_type: "Type de recherche : %{select_search_type}"
         keyword_search: "Recherche par mots-clés"
         keyword_and_location_search: "Recherche géographique et par mots-clés"
@@ -241,8 +241,8 @@ fr:
         km: km
         miles: miles
         show_only_nearby: "Afficher uniquement les résultats à proximité lorsque la recherche géographique est utilisée"
-        allow_users_to_add_location: "Autoriser les utilisateurs à ajouter un emplacement à leur profil et annonces, et afficher une vue carte sur la page de recherche"
-        fuzzy_location: "Afficher un cercle au lieu de l'emplacement exact"
+        allow_users_to_add_location: "Autoriser les utilisateurs à ajouter une adresse à leur profil et annonces, et afficher une vue carte sur la page de recherche"
+        fuzzy_location: "Afficher un cercle au lieu de l'adresse exacte"
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
@@ -891,7 +891,7 @@ fr:
       edit_location:
         edit_location_field: "Modifier le champ d'annonce 'Adresse'"
         this_field_is_required: "Ce champ est obligatoire"
-        the_location_feature_can_be_enabled: "La fonctionnalité de localisation peut être activée depuis la section %{link} dans les Paramètres de la place de marché."
+        the_location_feature_can_be_enabled: "La fonctionnalité d'adresse peut être activée depuis la section %{link} dans les Paramètres de la place de marché."
       edit_expiration:
         edit_expiration_field: "Modifier le champ d'annonce 'Date d'expiration'"
         enable: "Activer la date d'expiration"
@@ -2442,7 +2442,7 @@ fr:
       origin:
         location: Adresse
         origin: "Adresse de départ"
-        the_exact_location: "L'emplacement exact ne sera pas visible par les autres utilisateurs."
+        the_exact_location: "L'adresse exacte ne sera pas visible par les autres utilisateurs."
       send_button:
         save_listing: "Publier l'annonce"
         submit_for_review: "Soumettre pour vérification"
