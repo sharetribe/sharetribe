@@ -45,7 +45,7 @@ de:
     unlocks:
       send_paranoid_instructions: "Falls dein Konto existiert, erhältst du in wenigen Minuten eine E-Mail mit Anweisungen zum Entsperren deines Kontos."
       send_instructions: "In wenigen Minuten erhältst du eine E-Mail mit Anweisungen zum Entsperren deines Kontos."
-      unlocked: "Dein Konto wurde erfolgreich entsperrt. Bitte melde Dich an, um fortzufahren."
+      unlocked: "Dein Konto wurde erfolgreich entsperrt. Bitte melde dich an, um fortzufahren."
     omniauth_callbacks:
       success: "Erfolgreich vom %{kind} Konto autorisiert."
       failure: "Authentifizierung von %{kind} fehlgeschlagen wegen: \"%{reason}\"."

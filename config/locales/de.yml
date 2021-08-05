@@ -63,7 +63,7 @@ de:
         enabled_languages: "Aktivierte Sprachen"
         enabled_languages_description: "Die Sprachen, die die Nutzer wählen können. Die erste wird als Standard verwendet."
         default_language: Standardsprache
-        language_selection_disabled: "Die Sprachauswahl für Deinen Marktplatz ist deaktiviert, weil Du die folgenden nicht unterstützten Sprachen verwendest: %{languages}. Bitte kontaktiere den Kundendienst von Sharetribe wenn Du Deine Spracheinstellungen ändern möchtest."
+        language_selection_disabled: "Die Sprachauswahl für Deinen Marktplatz ist deaktiviert, weil du die folgenden nicht unterstützten Sprachen verwendest: %{languages}. Bitte kontaktiere den Kundendienst von Sharetribe wenn du Deine Spracheinstellungen ändern möchtest."
         community_name: "Name des Marktplatzes"
         edit_community_name_description: "Der Name deines Marktplatzes. Dieser wird allen Nutzern in E-Mails und an verschiedenen anderen Stellen angezeigt."
         community_slogan: "Slogan des Marktplatzes"
@@ -341,7 +341,7 @@ de:
         facebook_connect: "Facebook Login"
         facebook_developers_dashboard: "Facebook Developers Dashboard"
         facebook_connect_info_text: "Um Facebook Login zu aktivieren, bitte erstellen Sie einen App für Ihren Marktplatz auf dem %{dashboard_link}. Fügen Sie die generierte ID und den Geheimschlüssel der App hier ein."
-        facebook_connect_info_text_with_instructions: "Um Facebook Login zu aktivieren, bitte erstelle einen App für Deinen Marktplatz auf dem %{dashboard_link}. Füge die generierte ID und den Geheimschlüssel der App hier ein.%{instructions_link}"
+        facebook_connect_info_text_with_instructions: "Um Facebook Login zu aktivieren, bitte erstelle einen App für deinen Marktplatz auf dem %{dashboard_link}. Füge die generierte ID und den Geheimschlüssel der App hier ein.%{instructions_link}"
         facebook_instructions_link_text: "Siehe dir die Anleitung zum Konfigurieren des Facebook Logins an."
         facebook_connect_id: "Facebook App ID"
         invalid_facebook_connect_id: "Die App ID sollte nur aus Nummern bestehen."
@@ -1048,7 +1048,7 @@ de:
         confirm_delete_order_type:
           one: "Es gibt %{count} Eintrag mit dieser Auftragsart. Wenn Du die Auftragsart löschest, wird der Eintrag gekündigt. Bist Du sicher, dass Du die Auftragsart löschen willst? "
           other: "Es gibt %{count} Einträge mit dieser Auftragsart. Wenn du die Auftragsart löschst, werden die Einträge gekündigt. Bist Du sicher, dass Du die Auftragsart löschen willst?"
-        can_not_delete_last: "Du kannst diesen Auftragstyp nicht löschen weil er der einzige auf Deinem Marktplatz ist."
+        can_not_delete_last: "Du kannst diesen Auftragstyp nicht löschen weil er der einzige auf deinem Marktplatz ist."
         can_not_delete_only_one_in_categories: "Du kannst diesen Auftragstyp nicht löschen weil er in folgenden Kategorien der einzig verfügbare Auftragstyp ist: %{categories}"
       listing_shape_name: Name
       listing_shape_name_placeholder: "Zum Beispiel Verkaufen"
@@ -1070,7 +1070,7 @@ de:
       shipping_label: "Den Verkäufern erlauben, Versandkosten festzulegen"
       price_label: "Erlaube den Verkäufern, einen Preis für ihre Einträge festzustellen"
       units_title: Preiseinheiten
-      units_desc: "Wenn Du Preiseinheiten aktiviert hast, wird der Eintagspreis als \"Preis pro Preiseinheit\" angezeigt. Beispiel: \"39 € pro Stunde\"."
+      units_desc: "Wenn du Preiseinheiten aktiviert hast, wird der Eintagspreis als \"Preis pro Preiseinheit\" angezeigt. Beispiel: \"39 € pro Stunde\"."
       units:
         piece: "Pro Stück"
         hour: "Pro Stunde"
@@ -1285,7 +1285,7 @@ de:
     paypal_fee_info:
       title: PayPal-Zahlungsbearbeitungsgebühr
       body_text: |-
-          Für jede über PayPal durchgeführte Zahlung erhebt %{service_name} eine Vermittlungsprovision von %{paypal_commission}%. Die Mindestprovision für jede Transaktion beträgt %{minimum_transaction_fee}. Die PayPal Gebühren sind nicht in der Vermittlungsprovision enthalten, diese musst du zusätzlich zu der Vermittlungsprovisionen von %{service_name} zahlen. Abhängig von Deinem monatlichen Verkaufsvolumen und dem Herkunftsland des Käufers, liegt die PayPal Gebühr zwischen 2% und 5% des Verkaufspreises. In der Regel liegen die Gebühren für inländische Verkäufe unter denen für Verkäufe ins Ausland und höhere monatliche Verkaufsvolumen führen zu ermäßigten Gebühren. 
+          Für jede über PayPal durchgeführte Zahlung erhebt %{service_name} eine Vermittlungsprovision von %{paypal_commission}%. Die Mindestprovision für jede Transaktion beträgt %{minimum_transaction_fee}. Die PayPal Gebühren sind nicht in der Vermittlungsprovision enthalten, diese musst du zusätzlich zu der Vermittlungsprovisionen von %{service_name} zahlen. Abhängig von deinem monatlichen Verkaufsvolumen und dem Herkunftsland des Käufers, liegt die PayPal Gebühr zwischen 2% und 5% des Verkaufspreises. In der Regel liegen die Gebühren für inländische Verkäufe unter denen für Verkäufe ins Ausland und höhere monatliche Verkaufsvolumen führen zu ermäßigten Gebühren. 
           Wenn du dich bei deinem Paypal Account anmeldest, erhältst du unter dieser Adresse %{link_to_paypal} Informationen zu den Gebühren. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       body_text_accept: |-
           Diese Zahlung wird durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.
@@ -1424,9 +1424,9 @@ de:
       paid: "erfolgreiche Bezahlung"
       pending_external:
         paypal:
-          multicurrency: "Wir konnten die PayPal-Zahlung nicht verarbeiten, weil Dein PayPal-Konto noch nicht eingerichtet ist, um Geld in %{currency} zu empfangen. Gehe zu %{paypal_url} und melde Dich in deinem Konto an, um die Zahlung manuell zu akzeptieren oder abzulehnen."
+          multicurrency: "Wir konnten die PayPal-Zahlung nicht verarbeiten, weil dein PayPal-Konto noch nicht eingerichtet ist, um Geld in %{currency} zu empfangen. Gehe zu %{paypal_url} und melde dich in deinem Konto an, um die Zahlung manuell zu akzeptieren oder abzulehnen."
           verify: "Du kannst diese Transaktion nicht akzeptieren, weil du dein PayPal-Konto nicht verifiziert hast. Gehe zu %{paypal_url} um dein Konto zu verifizieren."
-          intl: "Wir konnten die PayPal-Zahlung nicht verarbeiten, weil Dein PayPal-Konto kein Rücktrittsmechanismus hat. Gehe zu %{paypal_url} und melde Dich in deinem Konto an, um die Zahlung manuell zu akzeptieren oder abzulehnen."
+          intl: "Wir konnten die PayPal-Zahlung nicht verarbeiten, weil dein PayPal-Konto kein Rücktrittsmechanismus hat. Gehe zu %{paypal_url} und melde dich in deinem Konto an, um die Zahlung manuell zu akzeptieren oder abzulehnen."
       waiting_for_current_user_to_deliver_listing: "Warten darauf, dass du die Leistung %{listing_title} erbringst"
       waiting_for_listing_author_to_deliver_listing: "Warte darauf, dass die Leistung %{listing_title} von %{listing_author_name} erbracht wird"
       request_accepted: "Anfrage akzeptiert"
@@ -1442,7 +1442,7 @@ de:
       waiting_confirmation_from_requester: "Warten bis %{requester_name} die Anfrage als erledigt markiert"
       waiting_confirmation_from_you: "Wartet darauf, dass du den Vorgang als abgeschlossen markierst"
       waiting_payment_from_requester: "Warten bis %{requester_name} bezahlt"
-      waiting_payment_from_you: "Wartet auf Deine Zahlung"
+      waiting_payment_from_you: "Wartet auf deine Zahlung"
       waiting_feedback_from_you: "Bitte noch die Bewertung abgeben"
       pending_external_inbox:
         paypal:
@@ -1451,7 +1451,7 @@ de:
           unknown_reason: "Zahlung ausstehend. Melde dich in deinem PayPal-Konto an, um mehr Details zu sehen."
           verify: "Warten, dass du dein PayPal Konto bestätigst"
       stripe:
-        waiting_confirmation_from_requester: "Warten bis %{requester_name} den Auftrag als erledigt markiert hat. Sobald der Auftrag als erledigt markiert wurde, erfolgt der Transfer der Zahlung auf Dein Bankkonto."
+        waiting_confirmation_from_requester: "Warten bis %{requester_name} den Auftrag als erledigt markiert hat. Sobald der Auftrag als erledigt markiert wurde, erfolgt der Transfer der Zahlung auf dein Bankkonto."
       order_canceled: "Anfrage angefochten"
       waiting_for_marketplace_review: "Es wird gewartet, dass das Team von %{service_name} die Lage untersucht"
       marketplace_notified: "Dem Team von %{service_name} wurde eine Nachricht geschickt. Du kannst sie auch %{contact_link}, wenn du mehr Details an sie schicken möchtest."
@@ -1542,7 +1542,7 @@ de:
       giving_feedback_is_good_idea: "Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, die auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
       stripe:
-        has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag \"%{request}\" als erledigt markiert. Die Überweisung der Zahlung auf Dein Bankkonto für diese Transaktion wurde soeben angestoßen. Du kannst %{other_party_given_name} nun ein Feedback geben."
+        has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag \"%{request}\" als erledigt markiert. Die Überweisung der Zahlung auf dein Bankkonto für diese Transaktion wurde soeben angestoßen. Du kannst %{other_party_given_name} nun ein Feedback geben."
       team_title: "das Team von %{service_name}"
     transaction_confirmed_v2:
       headline_confirmed: "%{other_party_full_name} hat die Anfrage über %{listing_link} als abgeschlossen markiert."
@@ -1649,7 +1649,7 @@ de:
       quantity: "Anzahl:"
       you_have_received_new_payment: "Du hast eine Zahlung in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> durch %{payer_full_name} erhalten. Hier ist deine Quittung."
       stripe:
-        you_have_received_new_payment: "Der Betrag in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> wurde von %{payer_full_name} gezahlt. Das Geld wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wird. Als Anlage erhältst Du Deinen Beleg."
+        you_have_received_new_payment: "Der Betrag in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> wurde von %{payer_full_name} gezahlt. Das Geld wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wird. Als Anlage erhältst du deinen Beleg."
     payment_receipt_to_seller_v2:
       headline: "du wurdest von %{payer_name} für %{listing_link} in Höhe von %{payment_sum} bezahlt."
       main_text_stripe: "Die Zahlung wird von %{service_name} verwahrt, bis die Anfrage als abgeschlossen markiert wird."
@@ -1693,7 +1693,7 @@ de:
       buyer_service_fee: "%{service_name} Servicegebühr"
       stripe_gateway_fee: "Gebühr von Stripe:"
       paypal_gateway_fee: "Gebühr von PayPal:"
-      money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) Du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
+      money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
       listing_per_unit_title: "%{title}, pro %{unit_type}"
       stripe:
         you_have_made_new_payment: "Du hast <b>%{payment_sum}</b> für <b>%{listing_title}</b> gezahlt. Das Geld wird vorübergehend von %{service_name} bewahrt. Sobald du den Auftrag als erledigt markiert hast, wird das Geld an %{recipient_full_name} überwiesen. Als Anlage erhältst du deinen Zahlungsbeleg."
@@ -1998,7 +1998,7 @@ de:
       item_request_list: "Werkzeuge, Sportausrüstung, Kostüme, Camping-Ausrüstung"
       items_to_offer: "Artikel zum Verleihen: "
       items_to_request: "Artikel zum Ausleihen: "
-      log_in: "Melde Dich an!"
+      log_in: "Melde dich an!"
       no_offers_visible_unless_logged_in: "Keine Einträge, Dienste oder Angebote für Fahrgemeinschaften sichtbar für nicht angemeldete Nutzer."
       no_open_offers_currently: "Keine angebote zu gegenständen, dienstleistungen oder mitfahrgelegenheiten vorhanden."
       no_open_requests_currently: "Keine anfragen zu gegenständen, dienstleistungen oder mitfahrgelegenheiten vorhanden."
@@ -2217,7 +2217,7 @@ de:
       invitation_sent: "Einladung erfolgreich gesendet"
       invitation_successfully_unsubscribed: "Email-Einladungen erfolgreich abbestellt."
       inviting_new_users_is_not_allowed_in_this_community: "Neue Benutzer einzuladen, ist nicht gestattet."
-      login_again: "Bitte melde Dich erneut an."
+      login_again: "Bitte melde dich erneut an."
       login_failed: "Anmeldung fehlgeschlagen. Bitte gib die korrekten Anmeldedaten ein."
       account_creation_successful: "Willkommen bei %{service_name}, %{person_name}!"
       account_deleted: "Dein Konto wurde nun gelöscht."
@@ -2314,7 +2314,7 @@ de:
       automatically_logged_out_please_sign_in: "Du wurdest automatisch ausgeloggt. Bitte melde dich erneut an."
       stripe_you_account_balance_is_not_0: "Dein Kontostand beträgt nicht 0 und kann daher nicht gelöscht werden. Möglicherweise müssen Transaktionen noch beendet werden oder Geld auf Dein Bankkonto überwiesen werden. Bitte kontaktiere das %{service_name} Team, um mehr zu erfahren."
       stripe_balance_for_username_is_not_0: "Das Stripe-Kontostand für %{username} beträgt nicht 0, also kann das Konto nicht gelöscht werden. Vielleicht bedeutet dies, dass sie noch aktive Transaktionen haben oder dass es Geld auf das Konto gibt, das noch nicht auf sein/ihr Bankkonto überwiesen wurde. Bitte prüfe Stripe Dashboard für mehr Informationen."
-      visit_admin: "Würdest Du gerne %{link}?"
+      visit_admin: "Würdest du gerne %{link}?"
       visit_admin_link: "Deinen Admin-Bereich besuchen"
       an_error_occurred_when_saving_your_information: "Ein Fehler ist aufgetreten, während deine Informationen gespeichert wurden: \"%{message}\". Bitte überprüfe, dass alle Informationen richtig sind und versuche es erneut."
     settings:
@@ -2336,7 +2336,7 @@ de:
       wrote: schrieb
       send_private_message: "Private Nachricht an %{person} senden"
       delete: löschen
-      are_you_sure: "Möchtest Du diesen Kommentar wirklich löschen?"
+      are_you_sure: "Möchtest du diesen Kommentar wirklich löschen?"
     comment_form:
       ask_a_question: "Kommentiere den Eintrag und frage nach mehr Details. Alle anderen Mitglieder werden deine Kommentare sehen."
       log_in: Anmelden
@@ -2538,9 +2538,9 @@ de:
       select_transaction_type: "Eintragstyp auswählen"
       you_need_to_fill_payout_details_before_accepting: "Du musst die Zahlungsdetails ausfüllen, bevor du ein Angebot erstellen kannst. Gehe zu %{payment_settings_link}, um die Angaben einzutragen."
       contact_admin_link_text: "kontaktiere den Administrator von %{service_name}"
-      community_not_configured_for_payments: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Einträge veröffentlichen. Bitte kontaktiere %{contact_admin_link} für Einzelheiten."
+      community_not_configured_for_payments: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst du keine Einträge veröffentlichen. Bitte kontaktiere %{contact_admin_link} für Einzelheiten."
       payment_settings_link: Zahlungseinstellungen
-      community_not_configured_for_payments_admin: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Einträge veröffentlichen. Gehe zu %{payment_settings_link} um die Zahlungsangaben einzutragen."
+      community_not_configured_for_payments_admin: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst du keine Einträge veröffentlichen. Gehe zu %{payment_settings_link} um die Zahlungsangaben einzutragen."
       you_are_now_posting_a_listing_on_behalf_of: "Du veröffentlichst jetzt einen Eintrag im Auftrag von %{name}"
     quantity:
       hour: "Anzahl Stunden:"
@@ -2662,7 +2662,7 @@ de:
   paypal_accounts:
     payout_info_title: Auszahlungsinformationen
     paypal_account_email_connected: "<del>Verknüpfung PayPal Konto</del> Abgeschlossen!"
-    payout_info_paypal: "%{service_name} nutzt PayPal als Zahlungsdienstleister. Ein %{create_paypal_account_link} ist nötig, um Zahlungen für Deine Angebote annehmen zu können. Dieses muss mit %{service_name} verbunden sein."
+    payout_info_paypal: "%{service_name} nutzt PayPal als Zahlungsdienstleister. Ein %{create_paypal_account_link} ist nötig, um Zahlungen für deine Angebote annehmen zu können. Dieses muss mit %{service_name} verbunden sein."
     paypal_billing_agreement_made: "<del>Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen</del> Abgeschlossen!"
     commission_permission_needed: "Du musst %{service_name} außerdem die Erlaubnis erteilen, eine Buchungsgebühr zu erheben."
     create_paypal_account_link_text: "PayPal Konto"
@@ -2689,15 +2689,15 @@ de:
       upgrade_paypal_account: "melde dich zu deinem PayPal-Konto an"
       paypal_account_billing_agreement: "Erteile dem Webservice %{service_name} die Erlaubnis eine Transaktionsgebühr zu berechnen"
       follow_steps: "Folge den unten stehenden Schritten, um Geld einnehmen zu können:"
-      connect_paypal_account_title: "Verbinde Dein PayPal Konto"
-      connect_paypal_account_title_with_step: "Schritt %{current_step}/%{total_steps}: Verbinde Dein PayPal Konto"
+      connect_paypal_account_title: "Verbinde dein PayPal Konto"
+      connect_paypal_account_title_with_step: "Schritt %{current_step}/%{total_steps}: Verbinde dein PayPal Konto"
       connect_paypal_account_instructions: "Klicke auf die Schaltfläche unten, um dich bei Paypal anzumelden und dein PayPal Konto mit %{service_name} zu verbinden."
       connect_paypal_account: "Verbinde deinen PayPal Account"
       paypal_account_billing_agreement_with_step: "Schritt %{current_step}/%{total_steps}: Erteile die Erlaubnis, eine Buchungsgebühr zu erheben"
-      paypal_account_billing_agreement_info_both: "Nachdem Du etwas auf %{service_name} verkauft hast, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten, Mindestgebühr %{minimum_commission}) von Deinem PayPal-Konto abgebucht. Um Zahlungen auf %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
-      paypal_account_billing_agreement_info_fixed: "Nachdem Du etwas auf %{service_name} verkauft hast, wird eine Servicegebühr in Höhe von %{minimum_commission} des Gesamtpreises von Deinem PayPal-Konto abgebucht. Um Zahlungen auf %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
-      paypal_account_billing_agreement_info_relative: "Nachdem Du etwas auf %{service_name} verkauft hast, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten) von Deinem PayPal-Konto abgebucht. Um Zahlungen auf %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}"
-      paypal_account_billing_agreement_info_none: "%{service_name} erhebt derzeit keine Buchungsgebühr. Wenn Buchungsgebühren aktiviert werden sollten, wird es nötig sein, dass Du %{service_name} die Erlaubnis zur Erhebung einer solchen Gebühr erteilst, um Zahlungen empfangen zu können. Die Buchungsgebühr enthält nicht %{paypal_info_link}."
+      paypal_account_billing_agreement_info_both: "Nachdem du etwas auf %{service_name} verkauft hast, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten, Mindestgebühr %{minimum_commission}) von deinem PayPal-Konto abgebucht. Um Zahlungen auf %{service_name} zu akzeptieren, musst du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Nachdem du etwas auf %{service_name} verkauft hast, wird eine Servicegebühr in Höhe von %{minimum_commission} des Gesamtpreises von deinem PayPal-Konto abgebucht. Um Zahlungen auf %{service_name} zu akzeptieren, musst du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Nachdem du etwas auf %{service_name} verkauft hast, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten) von deinem PayPal-Konto abgebucht. Um Zahlungen auf %{service_name} zu akzeptieren, musst du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}"
+      paypal_account_billing_agreement_info_none: "%{service_name} erhebt derzeit keine Buchungsgebühr. Wenn Buchungsgebühren aktiviert werden sollten, wird es nötig sein, dass du %{service_name} die Erlaubnis zur Erhebung einer solchen Gebühr erteilst, um Zahlungen empfangen zu können. Die Buchungsgebühr enthält nicht %{paypal_info_link}."
       paypal_info_link_text: PayPal-Zahlungsbearbeitungsgebühr
       billing_agreement_description: "Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen."
       billing_agreement: "Erteile die Erlaubnis"
@@ -2706,7 +2706,7 @@ de:
       paypal_not_enabled: "PayPal-Zahlungen ist nicht aktiviert."
       billing_agreement_canceled: "Die Zahlungsvereinbarung wurde zurückgezogen."
       billing_agreement_not_accepted: "Du hast die Zahlungsvereinbarung von PayPal nicht akzeptiert."
-      billing_agreement_wrong_account: "Die PayPal-Konten stimmen nicht überein. Bitte benutze das gleiche PayPal-Konto, das Du im ersten Schritt verbunden hast."
+      billing_agreement_wrong_account: "Die PayPal-Konten stimmen nicht überein. Bitte benutze das gleiche PayPal-Konto, das du im ersten Schritt verbunden hast."
       something_went_wrong: "Da lief was falsch. Bitte versuche es erneut. Wenn das Problem weiterhin besteht, kontaktiere bitte den Administrator von %{service_name}."
       account_not_verified: "Du hast dein PayPal-Konto nicht verifiziert. Du musst dein Konto bei paypal.com überprüfen und bestätigen, bevor du fortfahren kannst."
       account_restricted: "Dein PayPal-Konto ist eingeschränkt und kann nicht verbunden werden. Bitte melde dich bei paypal.com an, um mehr darüber zu erfahren, was das bedeutet oder nimm Kontakt mit dem PayPal Kundendienstauf, um das Problem zu lösen."
@@ -2718,7 +2718,7 @@ de:
     redirect_message: "Weiterleitung zu Paypal. Wenn nichts passiert, bitte diesen Link anklicken: %{redirect_link}"
     redirect_link_text: hier
     paypal_account_all_set_up: "Super! Alles ist fertig eingerichtet!"
-    can_receive_payments: "Du kannst jetzt Zahlungen für Deine Angebote empfangen."
+    can_receive_payments: "Du kannst jetzt Zahlungen für deine Angebote empfangen."
     paypal_account_connected_summary: "PayPal Konto <%{email}> erfolgreich verbunden"
     paypal_permission_granted_summary: "Erlaubnis für Buchungsgebühren erteilt"
   paypal:
@@ -2749,7 +2749,7 @@ de:
       create_new_account: "Konto erstellen"
       email: E-Mail-Adresse
       email_is_in_use: "Die angegebene E-Mail-Adresse wird bereits genutzt."
-      email_is_in_use_or_not_allowed: "Diese E-Mail-Adresse ist nicht erlaubt oder bereits in Verwendung. Wenn Du Dich nicht anmelden kannst, kontaktiere uns bitte."
+      email_is_in_use_or_not_allowed: "Diese E-Mail-Adresse ist nicht erlaubt oder bereits in Verwendung. Wenn du dich nicht anmelden kannst, kontaktiere uns bitte."
       email_not_allowed: "Diese E-Mail-Adresse ist für %{service_name} nicht gültig. Bitte verwende eine erlaubte Adresse. Wenn du dann immer noch keinen Zugang haben solltest, schicke uns eine Nachricht."
       invalid_username_or_email: "Die E-Mail-Adresse ist ungültig oder wird bereits verwendet"
       email_restriction_instructions:
@@ -2870,9 +2870,9 @@ de:
       email_addresses: E-Mail-Adressen
       new_email: "Neue E-Mail-Adresse"
       delete_personal_information: "Wenn du dein Konto löschst, werden deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote, die du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, dein Konto zu reaktivieren."
-      delete_information_others_involved: "Informationen, an denen andere Mitglieder beteiligt sind (Unterhaltungen mit anderen Menschen, Transaktionen, die Du durchgeführt hast, Bewertungen, die Du vorgenommen hast usw.) werden nicht entfernt, wenn Du Dein Konto löschst. Allerdings wird dein Name nicht mehr neben diesen Informationen angezeigt werden."
-      unfinished_transactions: "Dein Konto kann nicht gelöscht werden, weil Du laufende Transaktionen hast. Bitte schließe alle Transaktionen vor dem Löschen Deines Kontos ab."
-      only_admin: "Dein Konto kann nicht gelöscht werden, da Du der einzige Administrator in dem Marktplatz bist."
+      delete_information_others_involved: "Informationen, an denen andere Mitglieder beteiligt sind (Unterhaltungen mit anderen Menschen, Transaktionen, die du durchgeführt hast, Bewertungen, die du vorgenommen hast usw.) werden nicht entfernt, wenn du dein Konto löschst. Allerdings wird dein Name nicht mehr neben diesen Informationen angezeigt werden."
+      unfinished_transactions: "Dein Konto kann nicht gelöscht werden, weil du laufende Transaktionen hast. Bitte schließe alle Transaktionen vor dem Löschen deines Kontos ab."
+      only_admin: "Dein Konto kann nicht gelöscht werden, da du der einzige Administrator in dem Marktplatz bist."
       new_password: "Neues Passwort"
       save: Speichern
       these_fields_are_shown_only_to_you: "Dein Benutzername wird dir in deinem Profil angezeigt, es sei denn, du hast deinen Namen angegeben. Andere Informationen sind nur für dich sichtbar."
