@@ -10,7 +10,7 @@ module API
           requires :create_listing, type: Integer
           requires :listing, type: Hash do
             requires :title, type: String
-            requires :author_id, type: String
+            # requires :author_id, type: String
             requires :category_id, type: Integer
             requires :listing_shape_id, type: Integer
             optional :description, type: String
@@ -24,12 +24,13 @@ module API
           end
         end
         post '/create' do
+          authenticate!
           newListing = Listing.new
           newListing.community_id = 1;
           #newListing.id = params[:id] if id = params[:id]
           #newListing.created_at = params[:listing][:created_at] if params[:listing][:created_at]
           #newListing.updated_at = params[:listing][:updated_at] if params[:listing][:updated_at]
-          newListing.author_id = params[:listing][:author_id] if params[:listing][:author_id]
+          newListing.author_id = @current_user.id
           newListing.title = params[:listing][:title] if params[:listing][:title]
           newListing.category = params[:listing][:category] if params[:listing][:category]
           newListing.category_id = params[:listing][:category_id] if params[:listing][:category_id]
@@ -77,8 +78,9 @@ module API
 
         desc "Read all listings"
         get do
-            authenticate!
-            Listing.all
+            # authenticate!
+            Listing.where(deleted: 0)
+            
         end
 
         desc "Search listings"

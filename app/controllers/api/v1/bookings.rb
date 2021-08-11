@@ -78,6 +78,7 @@ module API
         params do
           requires :booking, type: Hash do
             requires :id, type: String
+          end
         end
         delete do
           authenticate!

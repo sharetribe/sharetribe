@@ -67,4 +67,14 @@
 #
 class ListingSerializer < ActiveModel::Serializer
    attributes :id, :author_id, :created_at, :updated_at, :title, :category, :category_id, :category_old, :times_viewed, :sort_date, :listing_type_old, :description, :origin, :destination, :valid_until, :delta, :open, :share_type_old, :privacy, :comments_count, :subcategory_old, :old_category_id, :share_type_id, :listing_shape_id, :transaction_process_id, :shape_name_tr_key, :action_button_tr_key, :price_cents, :currency, :quantity, :unit_type, :quantity_selector, :unit_tr_key, :deleted, :require_shipping_address, :pickup_enabled, :shipping_price_cents, :shipping_price_additional_cents, :availability, :per_hour_ready, :state, :approval_count
+
+   has_many :listing_images
+   # has_many :conversations
+   # has_many :comments
+   has_many :custom_field_values
+   has_many :custom_dropdown_field_values
+   has_many :custom_checkbox_field_values
+   has_one :location
+   has_one :origin_loc
+   has_one :destination_loc
 end

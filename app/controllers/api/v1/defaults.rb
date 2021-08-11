@@ -4,6 +4,7 @@ module API
       extend ActiveSupport::Concern
       include ActionController::HttpAuthentication::Token
 
+
       included do
         prefix "api"
         version "v1", using: :path

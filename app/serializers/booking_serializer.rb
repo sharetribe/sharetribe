@@ -18,7 +18,8 @@
 #  index_bookings_on_per_hour                              (per_hour)
 #  index_bookings_on_start_time                            (start_time)
 #  index_bookings_on_transaction_id                        (transaction_id)
-#  
+#  index_bookings_on_transaction_start_on_end_on_per_hour  (transaction_id,start_on,end_on,per_hour)
+#
 
 class BookingSerializer < ActiveModel::Serializer
     attributes :id, :transaction_id, :start_on, :end_on, :created_at, :updated_at, :start_time, :end_time, :per_hour

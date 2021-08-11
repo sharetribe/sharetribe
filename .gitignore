@@ -32,6 +32,9 @@ public/assets/
 app/assets/webfonts/
 app/assets/stylesheets/customizations-*
 app/assets/stylesheets/custom-style-*
+app/assets/images/
+app/assets/*
+app\assets\*
 app/views/custom_icons/*
 config/mangopay.pem
 log/*.log

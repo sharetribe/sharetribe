@@ -1,3 +1,6 @@
+ActiveModelSerializers.config.default_includes = "**"
+
+
 if Rails.env.development?
   ActiveSupport::Dependencies.explicitly_unloadable_constants << 'API::Base'
 

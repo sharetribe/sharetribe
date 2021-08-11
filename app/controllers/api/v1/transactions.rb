@@ -200,7 +200,7 @@ module API
             error!('You must be logged in as a party in the transaction.', 401)
           end
           
-        # end
+        end
 
 
 
