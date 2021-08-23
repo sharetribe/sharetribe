@@ -43,7 +43,7 @@ class HomepageController < ApplicationController
       @category_menu_enabled = @show_categories || @show_custom_fields
 
       if @show_categories
-        @category_display_names = category_display_names(@current_community, @main_categories, @categories)
+        @category_display_names = category_display_names(@current_community, @categories)
       end
     end
 
@@ -218,11 +218,11 @@ class HomepageController < ApplicationController
   # Time to cache category translations per locale
   CATEGORY_DISPLAY_NAME_CACHE_EXPIRE_TIME = 24.hours
 
-  def category_display_names(community, main_categories, categories)
+  def category_display_names(community, categories)
     Rails.cache.fetch(["catnames",
                        community,
                        I18n.locale,
-                       main_categories],
+                       categories],
                       expires_in: CATEGORY_DISPLAY_NAME_CACHE_EXPIRE_TIME) do
       cat_names = {}
       categories.each do |cat|
