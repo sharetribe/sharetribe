@@ -2,7 +2,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -11,11 +11,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 DROP TABLE IF EXISTS `active_sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `active_sessions` (
   `id` binary(16) NOT NULL,
   `person_id` varchar(22) COLLATE utf8_unicode_ci NOT NULL,
-  `community_id` int NOT NULL,
+  `community_id` int(11) NOT NULL,
   `refreshed_at` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -27,30 +27,30 @@ CREATE TABLE `active_sessions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `active_storage_attachments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `active_storage_attachments` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `record_type` varchar(255) NOT NULL,
-  `record_id` bigint NOT NULL,
-  `blob_id` bigint NOT NULL,
+  `record_id` bigint(20) NOT NULL,
+  `blob_id` bigint(20) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_active_storage_attachments_uniqueness` (`record_type`,`record_id`,`name`,`blob_id`),
   KEY `index_active_storage_attachments_on_blob_id` (`blob_id`),
-  CONSTRAINT `fk_rails_c3b3935057` FOREIGN KEY (`blob_id`) REFERENCES `active_storage_blobs` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `fk_rails_c3b3935057` FOREIGN KEY (`blob_id`) REFERENCES `active_storage_blobs` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `active_storage_blobs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `active_storage_blobs` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `key` varchar(255) NOT NULL,
   `filename` varchar(255) NOT NULL,
   `content_type` varchar(255) DEFAULT NULL,
   `metadata` text,
-  `byte_size` bigint NOT NULL,
+  `byte_size` bigint(20) NOT NULL,
   `checksum` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -59,7 +59,7 @@ CREATE TABLE `active_storage_blobs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ar_internal_metadata`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ar_internal_metadata` (
   `key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -70,14 +70,14 @@ CREATE TABLE `ar_internal_metadata` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `auth_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auth_tokens` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `token` varchar(255) DEFAULT NULL,
   `token_type` varchar(255) DEFAULT 'unsubscribe',
   `person_id` varchar(255) DEFAULT NULL,
   `expires_at` datetime DEFAULT NULL,
-  `usages_left` int DEFAULT NULL,
+  `usages_left` int(11) DEFAULT NULL,
   `last_use_attempt` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -88,10 +88,10 @@ CREATE TABLE `auth_tokens` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `billing_agreements`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `billing_agreements` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `paypal_account_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `paypal_account_id` int(11) NOT NULL,
   `billing_agreement_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -103,10 +103,10 @@ CREATE TABLE `billing_agreements` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `bookings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bookings` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `transaction_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `transaction_id` int(11) DEFAULT NULL,
   `start_on` date DEFAULT NULL,
   `end_on` date DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -124,15 +124,15 @@ CREATE TABLE `bookings` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categories` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `parent_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT NULL,
   `icon` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `community_id` int DEFAULT NULL,
-  `sort_priority` int DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
+  `sort_priority` int(11) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_categories_on_community_id` (`community_id`) USING BTREE,
@@ -142,11 +142,11 @@ CREATE TABLE `categories` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `category_custom_fields`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `category_custom_fields` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `category_id` int DEFAULT NULL,
-  `custom_field_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `custom_field_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -156,20 +156,20 @@ CREATE TABLE `category_custom_fields` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `category_listing_shapes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `category_listing_shapes` (
-  `category_id` int NOT NULL,
-  `listing_shape_id` int NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `listing_shape_id` int(11) NOT NULL,
   UNIQUE KEY `unique_listing_shape_category_joins` (`listing_shape_id`,`category_id`) USING BTREE,
   KEY `index_category_listing_shapes_on_category_id` (`category_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `category_translations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `category_translations` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `category_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
   `locale` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -182,9 +182,9 @@ CREATE TABLE `category_translations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `checkout_accounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkout_accounts` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `company_id_or_personal_id` varchar(255) DEFAULT NULL,
   `merchant_id` varchar(255) NOT NULL,
   `merchant_key` varchar(255) NOT NULL,
@@ -196,24 +196,24 @@ CREATE TABLE `checkout_accounts` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comments` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `author_id` varchar(255) DEFAULT NULL,
-  `listing_id` int DEFAULT NULL,
+  `listing_id` int(11) DEFAULT NULL,
   `content` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `community_id` int DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_comments_on_listing_id` (`listing_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `communities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `communities` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `uuid` binary(16) NOT NULL,
   `ident` varchar(255) DEFAULT NULL,
   `domain` varchar(255) DEFAULT NULL,
@@ -239,20 +239,20 @@ CREATE TABLE `communities` (
   `slogan` varchar(255) DEFAULT NULL,
   `description` text,
   `country` varchar(255) DEFAULT NULL,
-  `members_count` int DEFAULT '0',
-  `user_limit` int DEFAULT NULL,
+  `members_count` int(11) DEFAULT '0',
+  `user_limit` int(11) DEFAULT NULL,
   `monthly_price_in_euros` float DEFAULT NULL,
   `logo_file_name` varchar(255) DEFAULT NULL,
   `logo_content_type` varchar(255) DEFAULT NULL,
-  `logo_file_size` int DEFAULT NULL,
+  `logo_file_size` int(11) DEFAULT NULL,
   `logo_updated_at` datetime DEFAULT NULL,
   `cover_photo_file_name` varchar(255) DEFAULT NULL,
   `cover_photo_content_type` varchar(255) DEFAULT NULL,
-  `cover_photo_file_size` int DEFAULT NULL,
+  `cover_photo_file_size` int(11) DEFAULT NULL,
   `cover_photo_updated_at` datetime DEFAULT NULL,
   `small_cover_photo_file_name` varchar(255) DEFAULT NULL,
   `small_cover_photo_content_type` varchar(255) DEFAULT NULL,
-  `small_cover_photo_file_size` int DEFAULT NULL,
+  `small_cover_photo_file_size` int(11) DEFAULT NULL,
   `small_cover_photo_updated_at` datetime DEFAULT NULL,
   `custom_color1` varchar(255) DEFAULT NULL,
   `custom_color2` varchar(255) DEFAULT NULL,
@@ -263,7 +263,7 @@ CREATE TABLE `communities` (
   `service_logo_style` varchar(255) DEFAULT 'full-logo',
   `currency` varchar(3) NOT NULL,
   `facebook_connect_enabled` tinyint(1) DEFAULT '1',
-  `minimum_price_cents` int DEFAULT NULL,
+  `minimum_price_cents` int(11) DEFAULT NULL,
   `hide_expiration_date` tinyint(1) DEFAULT '1',
   `facebook_connect_id` varchar(255) DEFAULT NULL,
   `facebook_connect_secret` varchar(255) DEFAULT NULL,
@@ -277,20 +277,20 @@ CREATE TABLE `communities` (
   `default_browse_view` varchar(255) DEFAULT 'grid',
   `wide_logo_file_name` varchar(255) DEFAULT NULL,
   `wide_logo_content_type` varchar(255) DEFAULT NULL,
-  `wide_logo_file_size` int DEFAULT NULL,
+  `wide_logo_file_size` int(11) DEFAULT NULL,
   `wide_logo_updated_at` datetime DEFAULT NULL,
   `listing_comments_in_use` tinyint(1) DEFAULT '0',
   `show_listing_publishing_date` tinyint(1) DEFAULT '0',
   `require_verification_to_post_listings` tinyint(1) DEFAULT '0',
   `show_price_filter` tinyint(1) DEFAULT '0',
-  `price_filter_min` int DEFAULT '0',
-  `price_filter_max` int DEFAULT '100000',
-  `automatic_confirmation_after_days` int DEFAULT '14',
+  `price_filter_min` int(11) DEFAULT '0',
+  `price_filter_max` int(11) DEFAULT '100000',
+  `automatic_confirmation_after_days` int(11) DEFAULT '14',
   `favicon_file_name` varchar(255) DEFAULT NULL,
   `favicon_content_type` varchar(255) DEFAULT NULL,
-  `favicon_file_size` int DEFAULT NULL,
+  `favicon_file_size` int(11) DEFAULT NULL,
   `favicon_updated_at` datetime DEFAULT NULL,
-  `default_min_days_between_community_updates` int DEFAULT '7',
+  `default_min_days_between_community_updates` int(11) DEFAULT '7',
   `listing_location_required` tinyint(1) DEFAULT '0',
   `custom_head_script` text,
   `custom_body_script` text,
@@ -305,8 +305,8 @@ CREATE TABLE `communities` (
   `end_user_analytics` tinyint(1) DEFAULT '1',
   `show_slogan` tinyint(1) DEFAULT '1',
   `show_description` tinyint(1) DEFAULT '1',
-  `hsts_max_age` int DEFAULT NULL,
-  `footer_theme` int DEFAULT '0',
+  `hsts_max_age` int(11) DEFAULT NULL,
+  `footer_theme` int(11) DEFAULT '0',
   `footer_copyright` text,
   `footer_enabled` tinyint(1) DEFAULT '0',
   `logo_link` varchar(255) DEFAULT NULL,
@@ -331,10 +331,10 @@ CREATE TABLE `communities` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_customizations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `community_customizations` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) DEFAULT NULL,
   `locale` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `slogan` varchar(255) DEFAULT NULL,
@@ -371,16 +371,16 @@ CREATE TABLE `community_customizations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_memberships`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `community_memberships` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) NOT NULL,
-  `community_id` int NOT NULL,
+  `community_id` int(11) NOT NULL,
   `admin` tinyint(1) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `consent` varchar(255) DEFAULT NULL,
-  `invitation_id` int DEFAULT NULL,
+  `invitation_id` int(11) DEFAULT NULL,
   `last_page_load_date` datetime DEFAULT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'accepted',
   `can_post_listings` tinyint(1) DEFAULT '0',
@@ -392,13 +392,13 @@ CREATE TABLE `community_memberships` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_social_logos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `community_social_logos` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `community_id` bigint DEFAULT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` bigint(20) DEFAULT NULL,
   `image_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `image_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image_file_size` int DEFAULT NULL,
+  `image_file_size` int(11) DEFAULT NULL,
   `image_updated_at` datetime DEFAULT NULL,
   `image_processing` tinyint(1) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -409,10 +409,10 @@ CREATE TABLE `community_social_logos` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_translations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `community_translations` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
   `locale` varchar(16) NOT NULL,
   `translation_key` varchar(255) NOT NULL,
   `translation` text,
@@ -424,9 +424,9 @@ CREATE TABLE `community_translations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `contact_requests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contact_requests` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -438,15 +438,15 @@ CREATE TABLE `contact_requests` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `conversations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `conversations` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
-  `listing_id` int DEFAULT NULL,
+  `listing_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `last_message_at` datetime DEFAULT NULL,
-  `community_id` int DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
   `starting_page` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_conversations_on_community_id` (`community_id`) USING BTREE,
@@ -457,9 +457,9 @@ CREATE TABLE `conversations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_names`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `custom_field_names` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` varchar(255) DEFAULT NULL,
   `locale` varchar(255) DEFAULT NULL,
   `custom_field_id` varchar(255) DEFAULT NULL,
@@ -472,12 +472,12 @@ CREATE TABLE `custom_field_names` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_option_selections`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `custom_field_option_selections` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `custom_field_value_id` int DEFAULT NULL,
-  `custom_field_option_id` int DEFAULT NULL,
-  `listing_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `custom_field_value_id` int(11) DEFAULT NULL,
+  `custom_field_option_id` int(11) DEFAULT NULL,
+  `listing_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -487,12 +487,12 @@ CREATE TABLE `custom_field_option_selections` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_option_titles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `custom_field_option_titles` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` varchar(255) DEFAULT NULL,
   `locale` varchar(255) DEFAULT NULL,
-  `custom_field_option_id` int DEFAULT NULL,
+  `custom_field_option_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -502,11 +502,11 @@ CREATE TABLE `custom_field_option_titles` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_options`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `custom_field_options` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `custom_field_id` int DEFAULT NULL,
-  `sort_priority` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `custom_field_id` int(11) DEFAULT NULL,
+  `sort_priority` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -515,11 +515,11 @@ CREATE TABLE `custom_field_options` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_values`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `custom_field_values` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `custom_field_id` int DEFAULT NULL,
-  `listing_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `custom_field_id` int(11) DEFAULT NULL,
+  `listing_id` int(11) DEFAULT NULL,
   `text_value` text,
   `numeric_value` float DEFAULT NULL,
   `date_value` datetime DEFAULT NULL,
@@ -536,22 +536,22 @@ CREATE TABLE `custom_field_values` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_fields`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `custom_fields` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) DEFAULT NULL,
-  `sort_priority` int DEFAULT NULL,
+  `sort_priority` int(11) DEFAULT NULL,
   `search_filter` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `community_id` int DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
   `required` tinyint(1) DEFAULT '1',
   `min` float DEFAULT NULL,
   `max` float DEFAULT NULL,
   `allow_decimals` tinyint(1) DEFAULT '0',
-  `entity_type` int DEFAULT '0',
+  `entity_type` int(11) DEFAULT '0',
   `public` tinyint(1) DEFAULT '0',
-  `assignment` int DEFAULT '0',
+  `assignment` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_custom_fields_on_community_id` (`community_id`) USING BTREE,
   KEY `index_custom_fields_on_search_filter` (`search_filter`) USING BTREE
@@ -559,11 +559,11 @@ CREATE TABLE `custom_fields` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `delayed_jobs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `delayed_jobs` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `priority` int DEFAULT '0',
-  `attempts` int DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `priority` int(11) DEFAULT '0',
+  `attempts` int(11) DEFAULT '0',
   `handler` text,
   `last_error` text,
   `run_at` datetime DEFAULT NULL,
@@ -582,10 +582,10 @@ CREATE TABLE `delayed_jobs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `domain_setups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `domain_setups` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `community_id` bigint DEFAULT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` bigint(20) DEFAULT NULL,
   `domain` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
   `error` text,
@@ -601,11 +601,11 @@ CREATE TABLE `domain_setups` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `emails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `emails` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) DEFAULT NULL,
-  `community_id` int NOT NULL,
+  `community_id` int(11) NOT NULL,
   `address` varchar(255) NOT NULL,
   `confirmed_at` datetime DEFAULT NULL,
   `confirmation_sent_at` datetime DEFAULT NULL,
@@ -623,14 +623,14 @@ CREATE TABLE `emails` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `export_task_results`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `export_task_results` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `status` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `file_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `file_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `file_file_size` int DEFAULT NULL,
+  `file_file_size` int(11) DEFAULT NULL,
   `file_updated_at` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -639,10 +639,10 @@ CREATE TABLE `export_task_results` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `feature_flags`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `feature_flags` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
   `person_id` varchar(255) DEFAULT NULL,
   `feature` varchar(255) NOT NULL,
   `enabled` tinyint(1) NOT NULL DEFAULT '1',
@@ -654,25 +654,25 @@ CREATE TABLE `feature_flags` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `feedbacks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `feedbacks` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` text,
   `author_id` varchar(255) DEFAULT NULL,
   `url` varchar(2048) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `is_handled` int DEFAULT '0',
+  `is_handled` int(11) DEFAULT '0',
   `email` varchar(255) DEFAULT NULL,
-  `community_id` int DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `follower_relationships`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `follower_relationships` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) NOT NULL,
   `follower_id` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
@@ -685,10 +685,10 @@ CREATE TABLE `follower_relationships` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `invitation_unsubscribes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `invitation_unsubscribes` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `community_id` int DEFAULT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -699,12 +699,12 @@ CREATE TABLE `invitation_unsubscribes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `invitations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `invitations` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(255) DEFAULT NULL,
-  `community_id` int DEFAULT NULL,
-  `usages_left` int DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
+  `usages_left` int(11) DEFAULT NULL,
   `valid_until` datetime DEFAULT NULL,
   `information` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -720,11 +720,11 @@ CREATE TABLE `invitations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `landing_page_versions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `landing_page_versions` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
-  `version` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
+  `version` int(11) NOT NULL,
   `released` datetime DEFAULT NULL,
   `content` mediumtext NOT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -735,12 +735,12 @@ CREATE TABLE `landing_page_versions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `landing_pages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `landing_pages` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
   `enabled` tinyint(1) NOT NULL DEFAULT '0',
-  `released_version` int DEFAULT NULL,
+  `released_version` int(11) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_landing_pages_on_community_id` (`community_id`) USING BTREE
@@ -748,10 +748,10 @@ CREATE TABLE `landing_pages` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_blocked_dates`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `listing_blocked_dates` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `listing_id` bigint DEFAULT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `listing_id` bigint(20) DEFAULT NULL,
   `blocked_at` date DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -762,36 +762,36 @@ CREATE TABLE `listing_blocked_dates` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_followers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `listing_followers` (
   `person_id` varchar(255) DEFAULT NULL,
-  `listing_id` int DEFAULT NULL,
+  `listing_id` int(11) DEFAULT NULL,
   KEY `index_listing_followers_on_listing_id` (`listing_id`) USING BTREE,
   KEY `index_listing_followers_on_person_id` (`person_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `listing_images` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `listing_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `listing_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `image_file_name` varchar(255) DEFAULT NULL,
   `image_content_type` varchar(255) DEFAULT NULL,
-  `image_file_size` int DEFAULT NULL,
+  `image_file_size` int(11) DEFAULT NULL,
   `image_updated_at` datetime DEFAULT NULL,
   `image_processing` tinyint(1) DEFAULT NULL,
   `image_downloaded` tinyint(1) DEFAULT '0',
   `error` varchar(255) DEFAULT NULL,
-  `width` int DEFAULT NULL,
-  `height` int DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
   `author_id` varchar(255) DEFAULT NULL,
-  `position` int DEFAULT '0',
+  `position` int(11) DEFAULT '0',
   `email_image_file_name` varchar(255) DEFAULT NULL,
   `email_image_content_type` varchar(255) DEFAULT NULL,
-  `email_image_file_size` int DEFAULT NULL,
+  `email_image_file_size` int(11) DEFAULT NULL,
   `email_image_updated_at` datetime DEFAULT NULL,
   `email_hash` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -800,18 +800,18 @@ CREATE TABLE `listing_images` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_shapes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `listing_shapes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
-  `transaction_process_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
+  `transaction_process_id` int(11) NOT NULL,
   `price_enabled` tinyint(1) NOT NULL,
   `shipping_enabled` tinyint(1) NOT NULL,
   `availability` varchar(32) DEFAULT 'none',
   `name` varchar(255) NOT NULL,
   `name_tr_key` varchar(255) NOT NULL,
   `action_button_tr_key` varchar(255) NOT NULL,
-  `sort_priority` int NOT NULL DEFAULT '0',
+  `sort_priority` int(11) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted` tinyint(1) DEFAULT '0',
@@ -823,15 +823,15 @@ CREATE TABLE `listing_shapes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_units`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `listing_units` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `unit_type` varchar(32) NOT NULL,
   `quantity_selector` varchar(32) NOT NULL,
   `kind` varchar(32) NOT NULL,
   `name_tr_key` varchar(64) DEFAULT NULL,
   `selector_tr_key` varchar(64) DEFAULT NULL,
-  `listing_shape_id` int DEFAULT NULL,
+  `listing_shape_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -840,11 +840,11 @@ CREATE TABLE `listing_units` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_working_time_slots`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `listing_working_time_slots` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `listing_id` int DEFAULT NULL,
-  `week_day` int DEFAULT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `listing_id` int(11) DEFAULT NULL,
+  `week_day` int(11) DEFAULT NULL,
   `from` varchar(255) DEFAULT NULL,
   `till` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -855,15 +855,15 @@ CREATE TABLE `listing_working_time_slots` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `listings` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `uuid` binary(16) NOT NULL,
-  `community_id` int NOT NULL,
+  `community_id` int(11) NOT NULL,
   `author_id` varchar(255) DEFAULT NULL,
   `category_old` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `times_viewed` int DEFAULT '0',
+  `times_viewed` int(11) DEFAULT '0',
   `language` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updates_email_at` datetime DEFAULT NULL,
@@ -879,16 +879,16 @@ CREATE TABLE `listings` (
   `open` tinyint(1) DEFAULT '1',
   `share_type_old` varchar(255) DEFAULT NULL,
   `privacy` varchar(255) DEFAULT 'private',
-  `comments_count` int DEFAULT '0',
+  `comments_count` int(11) DEFAULT '0',
   `subcategory_old` varchar(255) DEFAULT NULL,
-  `old_category_id` int DEFAULT NULL,
-  `category_id` int DEFAULT NULL,
-  `share_type_id` int DEFAULT NULL,
-  `listing_shape_id` int DEFAULT NULL,
-  `transaction_process_id` int DEFAULT NULL,
+  `old_category_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `share_type_id` int(11) DEFAULT NULL,
+  `listing_shape_id` int(11) DEFAULT NULL,
+  `transaction_process_id` int(11) DEFAULT NULL,
   `shape_name_tr_key` varchar(255) DEFAULT NULL,
   `action_button_tr_key` varchar(255) DEFAULT NULL,
-  `price_cents` int DEFAULT NULL,
+  `price_cents` int(11) DEFAULT NULL,
   `currency` varchar(255) DEFAULT NULL,
   `quantity` varchar(255) DEFAULT NULL,
   `unit_type` varchar(32) DEFAULT NULL,
@@ -898,12 +898,12 @@ CREATE TABLE `listings` (
   `deleted` tinyint(1) DEFAULT '0',
   `require_shipping_address` tinyint(1) DEFAULT '0',
   `pickup_enabled` tinyint(1) DEFAULT '0',
-  `shipping_price_cents` int DEFAULT NULL,
-  `shipping_price_additional_cents` int DEFAULT NULL,
+  `shipping_price_cents` int(11) DEFAULT NULL,
+  `shipping_price_additional_cents` int(11) DEFAULT NULL,
   `availability` varchar(32) DEFAULT 'none',
   `per_hour_ready` tinyint(1) DEFAULT '0',
   `state` varchar(255) DEFAULT 'approved',
-  `approval_count` int DEFAULT '0',
+  `approval_count` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_listings_on_uuid` (`uuid`),
   KEY `index_listings_on_new_category_id` (`category_id`) USING BTREE,
@@ -921,19 +921,19 @@ CREATE TABLE `listings` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `locations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `locations` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `latitude` float DEFAULT NULL,
   `longitude` float DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `google_address` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `listing_id` int DEFAULT NULL,
+  `listing_id` int(11) DEFAULT NULL,
   `person_id` varchar(255) DEFAULT NULL,
   `location_type` varchar(255) DEFAULT NULL,
-  `community_id` int DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_locations_on_community_id` (`community_id`) USING BTREE,
   KEY `index_locations_on_listing_id` (`listing_id`) USING BTREE,
@@ -942,13 +942,13 @@ CREATE TABLE `locations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_configurations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marketplace_configurations` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
   `main_search` varchar(255) NOT NULL DEFAULT 'keyword',
   `distance_unit` varchar(255) NOT NULL DEFAULT 'metric',
-  `limit_priority_links` int DEFAULT NULL,
+  `limit_priority_links` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `limit_search_distance` tinyint(1) NOT NULL DEFAULT '1',
@@ -961,13 +961,13 @@ CREATE TABLE `marketplace_configurations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_plans`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marketplace_plans` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
   `status` varchar(22) DEFAULT NULL,
   `features` text,
-  `member_limit` int DEFAULT NULL,
+  `member_limit` int(11) DEFAULT NULL,
   `expires_at` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -978,10 +978,10 @@ CREATE TABLE `marketplace_plans` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_sender_emails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marketplace_sender_emails` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `verification_status` varchar(32) NOT NULL,
@@ -994,10 +994,10 @@ CREATE TABLE `marketplace_sender_emails` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_setup_steps`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marketplace_setup_steps` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
   `slogan_and_description` tinyint(1) NOT NULL DEFAULT '0',
   `cover_photo` tinyint(1) NOT NULL DEFAULT '0',
   `filter` tinyint(1) NOT NULL DEFAULT '0',
@@ -1012,10 +1012,10 @@ CREATE TABLE `marketplace_setup_steps` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_trials`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marketplace_trials` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
   `expires_at` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1026,10 +1026,10 @@ CREATE TABLE `marketplace_trials` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `menu_link_translations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `menu_link_translations` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `menu_link_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_link_id` int(11) DEFAULT NULL,
   `locale` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -1041,26 +1041,26 @@ CREATE TABLE `menu_link_translations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `menu_links`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `menu_links` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `sort_priority` int DEFAULT '0',
-  `entity_type` int DEFAULT '0',
+  `sort_priority` int(11) DEFAULT '0',
+  `entity_type` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_menu_links_on_community_and_sort` (`community_id`,`sort_priority`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `mercury_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mercury_images` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `image_file_name` varchar(255) DEFAULT NULL,
   `image_content_type` varchar(255) DEFAULT NULL,
-  `image_file_size` int DEFAULT NULL,
+  `image_file_size` int(11) DEFAULT NULL,
   `image_updated_at` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1069,14 +1069,14 @@ CREATE TABLE `mercury_images` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `messages` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `sender_id` varchar(255) DEFAULT NULL,
   `content` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `conversation_id` int DEFAULT NULL,
+  `conversation_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_messages_on_conversation_id` (`conversation_id`) USING BTREE,
   KEY `index_messages_on_sender_id` (`sender_id`)
@@ -1084,10 +1084,10 @@ CREATE TABLE `messages` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `order_permissions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `order_permissions` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `paypal_account_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `paypal_account_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `request_token` varchar(255) DEFAULT NULL,
@@ -1102,11 +1102,11 @@ CREATE TABLE `order_permissions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `participations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `participations` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) DEFAULT NULL,
-  `conversation_id` int DEFAULT NULL,
+  `conversation_id` int(11) DEFAULT NULL,
   `is_read` tinyint(1) DEFAULT '0',
   `is_starter` tinyint(1) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
@@ -1121,19 +1121,19 @@ CREATE TABLE `participations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `payment_settings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payment_settings` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL,
-  `community_id` int NOT NULL,
+  `community_id` int(11) NOT NULL,
   `payment_gateway` varchar(64) DEFAULT NULL,
   `payment_process` varchar(64) DEFAULT NULL,
-  `commission_from_seller` int DEFAULT NULL,
-  `minimum_price_cents` int DEFAULT NULL,
+  `commission_from_seller` int(11) DEFAULT NULL,
+  `minimum_price_cents` int(11) DEFAULT NULL,
   `minimum_price_currency` varchar(3) DEFAULT NULL,
-  `minimum_transaction_fee_cents` int DEFAULT NULL,
+  `minimum_transaction_fee_cents` int(11) DEFAULT NULL,
   `minimum_transaction_fee_currency` varchar(3) DEFAULT NULL,
-  `confirmation_after_days` int NOT NULL,
+  `confirmation_after_days` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `api_client_id` varchar(255) DEFAULT NULL,
@@ -1142,8 +1142,8 @@ CREATE TABLE `payment_settings` (
   `api_verified` tinyint(1) DEFAULT NULL,
   `api_visible_private_key` varchar(255) DEFAULT NULL,
   `api_country` varchar(255) DEFAULT NULL,
-  `commission_from_buyer` int DEFAULT NULL,
-  `minimum_buyer_transaction_fee_cents` int DEFAULT NULL,
+  `commission_from_buyer` int(11) DEFAULT NULL,
+  `minimum_buyer_transaction_fee_cents` int(11) DEFAULT NULL,
   `minimum_buyer_transaction_fee_currency` varchar(3) DEFAULT NULL,
   `key_encryption_padding` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -1152,11 +1152,11 @@ CREATE TABLE `payment_settings` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_accounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `paypal_accounts` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) DEFAULT NULL,
-  `community_id` int DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `payer_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -1170,9 +1170,9 @@ CREATE TABLE `paypal_accounts` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_ipn_messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `paypal_ipn_messages` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `body` text,
   `status` varchar(64) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -1182,26 +1182,26 @@ CREATE TABLE `paypal_ipn_messages` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `paypal_payments` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
-  `transaction_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
+  `transaction_id` int(11) NOT NULL,
   `payer_id` varchar(64) NOT NULL,
   `receiver_id` varchar(64) NOT NULL,
   `merchant_id` varchar(255) NOT NULL,
   `order_id` varchar(64) DEFAULT NULL,
   `order_date` datetime DEFAULT NULL,
   `currency` varchar(8) NOT NULL,
-  `order_total_cents` int DEFAULT NULL,
+  `order_total_cents` int(11) DEFAULT NULL,
   `authorization_id` varchar(64) DEFAULT NULL,
   `authorization_date` datetime DEFAULT NULL,
   `authorization_expires_date` datetime DEFAULT NULL,
-  `authorization_total_cents` int DEFAULT NULL,
+  `authorization_total_cents` int(11) DEFAULT NULL,
   `payment_id` varchar(64) DEFAULT NULL,
   `payment_date` datetime DEFAULT NULL,
-  `payment_total_cents` int DEFAULT NULL,
-  `fee_total_cents` int DEFAULT NULL,
+  `payment_total_cents` int(11) DEFAULT NULL,
+  `fee_total_cents` int(11) DEFAULT NULL,
   `payment_status` varchar(64) NOT NULL,
   `pending_reason` varchar(64) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -1210,9 +1210,9 @@ CREATE TABLE `paypal_payments` (
   `commission_payment_date` datetime DEFAULT NULL,
   `commission_status` varchar(64) NOT NULL DEFAULT 'not_charged',
   `commission_pending_reason` varchar(64) DEFAULT NULL,
-  `commission_total_cents` int DEFAULT NULL,
-  `commission_fee_total_cents` int DEFAULT NULL,
-  `commission_retry_count` int DEFAULT '0',
+  `commission_total_cents` int(11) DEFAULT NULL,
+  `commission_fee_total_cents` int(11) DEFAULT NULL,
+  `commission_retry_count` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_paypal_payments_on_transaction_id` (`transaction_id`) USING BTREE,
   UNIQUE KEY `index_paypal_payments_on_authorization_id` (`authorization_id`) USING BTREE,
@@ -1222,12 +1222,12 @@ CREATE TABLE `paypal_payments` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_process_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `paypal_process_tokens` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `process_token` varchar(64) NOT NULL,
-  `community_id` int NOT NULL,
-  `transaction_id` int NOT NULL,
+  `community_id` int(11) NOT NULL,
+  `transaction_id` int(11) NOT NULL,
   `op_completed` tinyint(1) NOT NULL DEFAULT '0',
   `op_name` varchar(64) NOT NULL,
   `op_input` text,
@@ -1241,13 +1241,13 @@ CREATE TABLE `paypal_process_tokens` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_refunds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `paypal_refunds` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `paypal_payment_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `paypal_payment_id` int(11) DEFAULT NULL,
   `currency` varchar(8) DEFAULT NULL,
-  `payment_total_cents` int DEFAULT NULL,
-  `fee_total_cents` int DEFAULT NULL,
+  `payment_total_cents` int(11) DEFAULT NULL,
+  `fee_total_cents` int(11) DEFAULT NULL,
   `refunding_id` varchar(64) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1257,22 +1257,22 @@ CREATE TABLE `paypal_refunds` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `paypal_tokens` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
   `token` varchar(64) DEFAULT NULL,
-  `transaction_id` int DEFAULT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
   `payment_action` varchar(32) DEFAULT NULL,
   `merchant_id` varchar(255) NOT NULL,
   `receiver_id` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `item_name` varchar(255) DEFAULT NULL,
-  `item_quantity` int DEFAULT NULL,
-  `item_price_cents` int DEFAULT NULL,
+  `item_quantity` int(11) DEFAULT NULL,
+  `item_price_cents` int(11) DEFAULT NULL,
   `currency` varchar(8) DEFAULT NULL,
   `express_checkout_url` varchar(255) DEFAULT NULL,
-  `shipping_total_cents` int DEFAULT NULL,
+  `shipping_total_cents` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_paypal_tokens_on_token` (`token`) USING BTREE,
   KEY `index_paypal_tokens_on_community_id` (`community_id`) USING BTREE,
@@ -1281,19 +1281,19 @@ CREATE TABLE `paypal_tokens` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `people`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
   `uuid` binary(16) NOT NULL,
-  `community_id` int NOT NULL,
+  `community_id` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `is_admin` int DEFAULT '0',
+  `is_admin` int(11) DEFAULT '0',
   `locale` varchar(255) DEFAULT 'fi',
   `preferences` text,
-  `active_days_count` int DEFAULT '0',
+  `active_days_count` int(11) DEFAULT '0',
   `last_page_load_date` datetime DEFAULT NULL,
-  `test_group_number` int DEFAULT '1',
+  `test_group_number` int(11) DEFAULT '1',
   `username` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `encrypted_password` varchar(255) NOT NULL DEFAULT '',
@@ -1301,7 +1301,7 @@ CREATE TABLE `people` (
   `reset_password_token` varchar(255) DEFAULT NULL,
   `reset_password_sent_at` datetime DEFAULT NULL,
   `remember_created_at` datetime DEFAULT NULL,
-  `sign_in_count` int DEFAULT '0',
+  `sign_in_count` int(11) DEFAULT '0',
   `current_sign_in_at` datetime DEFAULT NULL,
   `last_sign_in_at` datetime DEFAULT NULL,
   `current_sign_in_ip` varchar(255) DEFAULT NULL,
@@ -1314,13 +1314,13 @@ CREATE TABLE `people` (
   `description` text,
   `image_file_name` varchar(255) DEFAULT NULL,
   `image_content_type` varchar(255) DEFAULT NULL,
-  `image_file_size` int DEFAULT NULL,
+  `image_file_size` int(11) DEFAULT NULL,
   `image_updated_at` datetime DEFAULT NULL,
   `image_processing` tinyint(1) DEFAULT NULL,
   `facebook_id` varchar(255) DEFAULT NULL,
   `authentication_token` varchar(255) DEFAULT NULL,
   `community_updates_last_sent_at` datetime DEFAULT NULL,
-  `min_days_between_community_updates` int DEFAULT '1',
+  `min_days_between_community_updates` int(11) DEFAULT '1',
   `deleted` tinyint(1) DEFAULT '0',
   `cloned_from` varchar(22) DEFAULT NULL,
   `google_oauth2_id` varchar(255) DEFAULT NULL,
@@ -1343,7 +1343,7 @@ CREATE TABLE `people` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `schema_migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
   UNIQUE KEY `unique_schema_migrations` (`version`)
@@ -1351,9 +1351,9 @@ CREATE TABLE `schema_migrations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sessions` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `session_id` varchar(255) NOT NULL,
   `data` text,
   `created_at` datetime DEFAULT NULL,
@@ -1365,10 +1365,10 @@ CREATE TABLE `sessions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `shipping_addresses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `shipping_addresses` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `transaction_id` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `transaction_id` int(11) NOT NULL,
   `status` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
@@ -1387,13 +1387,13 @@ CREATE TABLE `shipping_addresses` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `social_links`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `social_links` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `community_id` int DEFAULT NULL,
-  `provider` int DEFAULT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) DEFAULT NULL,
+  `provider` int(11) DEFAULT NULL,
   `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sort_priority` int DEFAULT '0',
+  `sort_priority` int(11) DEFAULT '0',
   `enabled` tinyint(1) DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1403,11 +1403,11 @@ CREATE TABLE `social_links` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `stripe_accounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stripe_accounts` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) DEFAULT NULL,
-  `community_id` int DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
   `stripe_seller_id` varchar(255) DEFAULT NULL,
   `stripe_bank_id` varchar(255) DEFAULT NULL,
   `stripe_customer_id` varchar(255) DEFAULT NULL,
@@ -1422,27 +1422,27 @@ CREATE TABLE `stripe_accounts` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `stripe_payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stripe_payments` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `community_id` int DEFAULT NULL,
-  `transaction_id` int DEFAULT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) DEFAULT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
   `payer_id` varchar(255) DEFAULT NULL,
   `receiver_id` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `sum_cents` int DEFAULT NULL,
-  `commission_cents` int DEFAULT NULL,
+  `sum_cents` int(11) DEFAULT NULL,
+  `commission_cents` int(11) DEFAULT NULL,
   `currency` varchar(255) DEFAULT NULL,
   `stripe_charge_id` varchar(255) DEFAULT NULL,
   `stripe_transfer_id` varchar(255) DEFAULT NULL,
-  `fee_cents` int DEFAULT NULL,
-  `real_fee_cents` int DEFAULT NULL,
-  `subtotal_cents` int DEFAULT NULL,
+  `fee_cents` int(11) DEFAULT NULL,
+  `real_fee_cents` int(11) DEFAULT NULL,
+  `subtotal_cents` int(11) DEFAULT NULL,
   `transfered_at` datetime DEFAULT NULL,
   `available_on` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `buyer_commission_cents` int DEFAULT '0',
+  `buyer_commission_cents` int(11) DEFAULT '0',
   `stripe_payment_intent_id` varchar(255) DEFAULT NULL,
   `stripe_payment_intent_status` varchar(255) DEFAULT NULL,
   `stripe_payment_intent_client_secret` varchar(255) DEFAULT NULL,
@@ -1451,14 +1451,14 @@ CREATE TABLE `stripe_payments` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `testimonials`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `testimonials` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `grade` float DEFAULT NULL,
   `text` text,
   `author_id` varchar(255) DEFAULT NULL,
-  `participation_id` int DEFAULT NULL,
-  `transaction_id` int DEFAULT NULL,
+  `participation_id` int(11) DEFAULT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `receiver_id` varchar(255) DEFAULT NULL,
@@ -1471,12 +1471,12 @@ CREATE TABLE `testimonials` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transaction_process_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `transaction_process_tokens` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `process_token` binary(16) DEFAULT NULL,
-  `community_id` int NOT NULL,
-  `transaction_id` int NOT NULL,
+  `community_id` int(11) NOT NULL,
+  `transaction_id` int(11) NOT NULL,
   `op_completed` tinyint(1) NOT NULL DEFAULT '0',
   `op_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `op_input` text COLLATE utf8_unicode_ci,
@@ -1490,10 +1490,10 @@ CREATE TABLE `transaction_process_tokens` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transaction_processes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `transaction_processes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `community_id` int DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) DEFAULT NULL,
   `process` varchar(32) NOT NULL,
   `author_is_seller` tinyint(1) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -1504,13 +1504,13 @@ CREATE TABLE `transaction_processes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transaction_transitions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `transaction_transitions` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `to_state` varchar(255) DEFAULT NULL,
   `metadata` text,
-  `sort_key` int DEFAULT '0',
-  `transaction_id` int DEFAULT NULL,
+  `sort_key` int(11) DEFAULT '0',
+  `transaction_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `most_recent` tinyint(1) DEFAULT NULL,
@@ -1521,16 +1521,16 @@ CREATE TABLE `transaction_transitions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transactions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `transactions` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `starter_id` varchar(255) NOT NULL,
   `starter_uuid` binary(16) NOT NULL,
-  `listing_id` int NOT NULL,
+  `listing_id` int(11) NOT NULL,
   `listing_uuid` binary(16) NOT NULL,
-  `conversation_id` int DEFAULT NULL,
-  `automatic_confirmation_after_days` int NOT NULL,
-  `community_id` int NOT NULL,
+  `conversation_id` int(11) DEFAULT NULL,
+  `automatic_confirmation_after_days` int(11) NOT NULL,
+  `community_id` int(11) NOT NULL,
   `community_uuid` binary(16) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1538,27 +1538,27 @@ CREATE TABLE `transactions` (
   `author_skipped_feedback` tinyint(1) DEFAULT '0',
   `last_transition_at` datetime DEFAULT NULL,
   `current_state` varchar(255) DEFAULT NULL,
-  `commission_from_seller` int DEFAULT NULL,
-  `minimum_commission_cents` int DEFAULT '0',
+  `commission_from_seller` int(11) DEFAULT NULL,
+  `minimum_commission_cents` int(11) DEFAULT '0',
   `minimum_commission_currency` varchar(255) DEFAULT NULL,
   `payment_gateway` varchar(255) NOT NULL DEFAULT 'none',
-  `listing_quantity` int DEFAULT '1',
+  `listing_quantity` int(11) DEFAULT '1',
   `listing_author_id` varchar(255) NOT NULL,
   `listing_author_uuid` binary(16) NOT NULL,
   `listing_title` varchar(255) DEFAULT NULL,
   `unit_type` varchar(32) DEFAULT NULL,
-  `unit_price_cents` int DEFAULT NULL,
+  `unit_price_cents` int(11) DEFAULT NULL,
   `unit_price_currency` varchar(8) DEFAULT NULL,
   `unit_tr_key` varchar(64) DEFAULT NULL,
   `unit_selector_tr_key` varchar(64) DEFAULT NULL,
   `payment_process` varchar(31) DEFAULT 'none',
   `delivery_method` varchar(31) DEFAULT 'none',
-  `shipping_price_cents` int DEFAULT NULL,
+  `shipping_price_cents` int(11) DEFAULT NULL,
   `availability` varchar(32) DEFAULT 'none',
   `booking_uuid` binary(16) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT '0',
-  `commission_from_buyer` int DEFAULT NULL,
-  `minimum_buyer_fee_cents` int DEFAULT '0',
+  `commission_from_buyer` int(11) DEFAULT NULL,
+  `minimum_buyer_fee_cents` int(11) DEFAULT '0',
   `minimum_buyer_fee_currency` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_transactions_on_listing_id` (`listing_id`) USING BTREE,
