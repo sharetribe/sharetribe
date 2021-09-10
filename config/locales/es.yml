@@ -1625,7 +1625,7 @@ es:
     new_message:
       view_message: "Ver mensaje"
       has_sent_you_a_message_in_kassi: "%{sender} te ha mandado un mensaje. Ve a %{service_name} pare responder."
-      you_have_a_new_message: "Tienes un nuevo mensaje de %{sender_name} en%{service_name}"
+      you_have_a_new_message: "Tienes un nuevo mensaje de %{sender_name} en %{service_name}"
     new_message_v2:
       headline: "tienes un mensaje."
       reply: "Haz clic aquí para responder a %{sender}"
