@@ -2,7 +2,7 @@ FROM ruby:2.6.5-buster
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
-ENV REFRESHED_AT 2019-09-20
+ENV REFRESHED_AT 2021-09-10
 
 RUN apt-get update && apt-get dist-upgrade -y
 
