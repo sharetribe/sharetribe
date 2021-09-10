@@ -2,7 +2,7 @@ FROM ruby:2.6.5-buster
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
-ENV REFRESHED_AT 2019-09-20
+ENV REFRESHED_AT 2021-09-10
 
 RUN apt-get update && apt-get dist-upgrade -y
 
@@ -30,9 +30,8 @@ RUN set -ex \
     DD8F2338BAE7501E3DD5AC78C273792F7D83545D \
     A48C2BEE680E841632CD4E44F07496B3EB3C1762 \
   ; do \
-    gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key" || \
-    gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "$key" || \
-    gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
+    gpg --batch --keyserver hkp://keys.openpgp.org --recv-keys "$key" || \
+    gpg --batch --keyserver hkp://keyserver.ubuntu.com --recv-keys "$key" ; \
   done
 
 ENV NPM_CONFIG_LOGLEVEL info
