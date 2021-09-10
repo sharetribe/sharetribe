@@ -1575,10 +1575,10 @@ ro:
       view_it_in_your_browser: "Vizualizați-l în browserul dvs."
       or: sau
       unsubscribe_from_these_emails_info: "Primesti acest e-mail deoarece esti membru %{service_name}."
-      unsubscribe_from_these_emails: "dezabonați-vă de aceste e-mailul."
+      unsubscribe_from_these_emails: "dezabonați-vă de la aceste e-mailuri."
       unsubscribe_from_invitation_emails_info: "Ai primit acest e-mail deoarece un membru %{service_name} te-a invitat sa te inregistrezi."
       unsubscribe_from_invitation_emails: "Dezaboneaza-te de la email-urile de invitatie %{service_name}"
-      here_is_your_receipt: ~
+      here_is_your_receipt: "Chitanța este disponibilă în contul tău."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ți-a acceptat oferta %{listing}."
       has_accepted_your_request: "%{accepter} ți-a acceptat cererea %{listing}."
@@ -1641,8 +1641,8 @@ ro:
         you_have_received_new_payment: "Suma de %{payment_sum} pentru cererea de rezervare a lui %{payer_full_name} pentru %{listing_title} a fost autorizată. Suma este reținută de %{service_name} până la finalizarea cereri de rezervare. Chitanța aferentă acestei tranzacții este afișată mai jos."
     payment_receipt_to_seller_v2:
       headline: ~
-      main_text_stripe: ~
-      price_breakdown: ~
+      main_text_stripe: "Suma este reținută de către %{service_name} până când rezervarea este finalizată."
+      price_breakdown: "Sumar rezervare."
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1659,8 +1659,8 @@ ro:
       paypal_gateway_fee: "Comision PayPal:"
       money_will_be_transferred: "Banii vor fi transferati catre %{recipient_name} cand a) ai marcat tranzactia ca fiind completa b) %{automatic_confirmation_days} zile au trecut de cand ai platit."
     payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
+      headline: "a fost emisă chitanța pentru plata la %{listing_link}"
+      you_have_made_new_payment: "Ai plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b>"
     paypal_new_payment:
       paypal_gateway_fee: "Comision PayPal:"
       shipping_total: "Trimite:"
@@ -1762,7 +1762,7 @@ ro:
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
       view_listing: ~
-      cant_click: ~
+      cant_click: "Nu funcționează butonul? Dă click pe acest link"
     new_ident_notification:
       subject: ~
       h1_body: ~
