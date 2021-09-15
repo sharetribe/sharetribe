@@ -4,7 +4,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 DEB="mysql-apt-config_0.8.14-1_all.deb"
 
-apt-get update && apt-get install -y lsb-release
+apt-get update --allow-releaseinfo-change && apt-get install -y lsb-release
 
 wget -O "/tmp/$DEB" "http://repo.mysql.com/$DEB"
 
