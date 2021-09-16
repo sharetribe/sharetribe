@@ -36,3 +36,8 @@
 //= require admin2/landing_pages
 //= require admin2/custom_icons
 //= require jquery.fonticonpicker.min.js
+//= require codemirror
+//= require codemirror/modes/javascript
+//= require codemirror/modes/css
+//= require codemirror/modes/xml
+//= require codemirror/modes/htmlmixed

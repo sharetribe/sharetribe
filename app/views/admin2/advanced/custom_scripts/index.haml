@@ -21,22 +21,44 @@
         = t('admin2.custom_script.info_text', url: 'https://help.sharetribe.com/en/articles/666142').html_safe
       .form-group
         = form.label :custom_head_script, t('admin2.custom_script.custom_head_script')
-        = form.text_area :custom_head_script, maxlength: 65535, class: %i[form-control], placeholder: t('admin2.custom_script.custom_head_script_placeholder'), disabled: !custom_script_enabled?
+        .cm-resize-frame
+          = form.text_area :custom_head_script, maxlength: 65535, class: %i[form-control javascript], placeholder: t('admin2.custom_script.custom_head_script_placeholder'), disabled: !custom_script_enabled?
         %small#twitterHandle-help.form-text
           = t('admin2.custom_script.custom_head_script_info_text').html_safe
 
       .form-group
         = form.label :custom_body_script, t('admin2.custom_script.custom_body_script')
-        = form.text_area :custom_body_script, maxlength: 65535, class: %i[form-control], placeholder: t('admin2.custom_script.custom_body_script_placeholder'), disabled: !custom_script_enabled?
+        .cm-resize-frame
+          = form.text_area :custom_body_script, maxlength: 65535, class: %i[form-control javascript], placeholder: t('admin2.custom_script.custom_body_script_placeholder'), disabled: !custom_script_enabled?
         %small#twitterHandle-help.form-text
           = t('admin2.custom_script.custom_body_script_info_text').html_safe
 
       .form-group
         = form.label :custom_css_script, t('admin2.custom_script.custom_css_script')
-        = form.text_area :custom_css_script, maxlength: 65535, class: %i[form-control], placeholder: t('admin2.custom_script.custom_css_script_placeholder'), disabled: !custom_script_enabled?
+        .cm-resize-frame
+          = form.text_area :custom_css_script, maxlength: 65535, class: %i[form-control css], placeholder: t('admin2.custom_script.custom_css_script_placeholder'), disabled: !custom_script_enabled?
         %small#twitterHandle-help.form-text
           = t('admin2.custom_script.custom_css_script_info_text').html_safe
 
     - if custom_script_enabled?
-      %section.content-card-terminal
+      %section.content-card-terminal{style: 'z-index: 6'}
         = render 'admin2/submit_button', caption: t('admin2.save_changes')
+
+
+- if custom_script_enabled? && !Rails.env.test?
+  - content_for :extra_javascript do
+    :javascript
+      $("textarea.javascript").each(function() {
+        CodeMirror.fromTextArea($(this).get(0), {
+          lineNumbers: true,
+          lineWrapping: true,
+          mode: 'htmlmixed'
+        });
+      });
+      $("textarea.css").each(function() {
+        CodeMirror.fromTextArea($(this).get(0), {
+          lineNumbers: true,
+          lineWrapping: true,
+          mode: "text/css"
+        });
+      });
