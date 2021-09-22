@@ -11,12 +11,12 @@ pt-BR:
   devise:
     failure:
       already_authenticated: "Você já está conectado."
-      unauthenticated: "Você precisa se autenticar ou se cadastrar antes de continuar."
+      unauthenticated: "Você precisa fazer login ou se cadastrar antes de continuar."
       unconfirmed: "Você deve confirmar a sua conta antes de continuar."
       locked: "Sua conta está bloqueada."
       invalid: "E-mail ou senha inválida."
       invalid_token: "Dados para autenticação inválidos."
-      timeout: "Sua sessão expirou, por favor autentique-se novamente para continuar."
+      timeout: "Sua sessão expirou, por favor faça novamente o login para continuar."
       inactive: "Sua conta ainda não foi ativada."
     passwords:
       updated_not_active: "Sua senha foi alterada com sucesso."
@@ -45,7 +45,7 @@ pt-BR:
     unlocks:
       send_paranoid_instructions: "Se sua conta existir, você receberá um e-mail com instruções sobre como desbloqueá-lo em poucos minutos."
       send_instructions: "Você receberá um e-mail com instruções sobre como desbloquear a sua conta dentro de alguns minutos."
-      unlocked: "Sua conta foi desbloqueada com sucesso. Por favor, conecte para continuar."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Por favor, faça login para continuar."
     omniauth_callbacks:
       success: "Autorizado com sucesso para conta %{kind} ."
       failure: "Não foi possivel autorizar para conta %{kind} por que '%{reason}'"

@@ -138,7 +138,7 @@ de:
         first_name_only: "Nur der Vorname"
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
         custom_head_script: "Angepasstes Skript"
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: "Angepasstes Skript kann auf <a href='%{url}'>deinem neuen Admin-Bereich</a> bearbeitet werden."
         current_image: "Aktuelles Bild:"
       edit_text_instructions:
         edit_text_instructions: Anleitungstexte
@@ -188,8 +188,8 @@ de:
       getting_started:
         getting_started: Kurzanleitung
       available_languages:
-        bg: ~
-        ca: ~
+        bg: Bulgarisch
+        ca: Katalanisch
         cs: tschechisch
         da-DK: Dänisch
         de: Deutsch
@@ -199,23 +199,23 @@ de:
         en-GB: "Englisch (Großbritannien)"
         es: Spanisch
         es-ES: "Spanisch (Spanien)"
-        et: ~
+        et: Estnisch
         fi: Finnisch
         fr: Französisch
         fr-CA: "Französisch (Canada)"
-        hr: ~
-        hu: ~
+        hr: Kroatisch
+        hu: Ungarisch
         it: Italienisch
         ja: Japanisch
         ko: koreanisch
-        lt: ~
+        lt: Litauisch
         nb: "Norwegisch Bokmål"
         nl: Holländisch
         pl: polnisch
         pt-BR: "Portugiesisch (Brasilien)"
         pt-PT: Portugiesisch
         ru: Russisch
-        sk-SK: ~
+        sk-SK: Slowakisch
         sv: Schwedisch
         th-TH: "thailändisch (Thailand)"
         tr-TR: Türkisch
@@ -684,38 +684,38 @@ de:
         when_you_change_your_sharetribe_domain: "Wenn du deine Sharetribe-Domain änderst, werden alle deine URL-Adressen automatisch geändert. Du wirst zu deiner neuen Domain weitergeleitet. Du und deine Kunden müssen sich erneut einloggen. Deine alte Domain wird nicht mit der neuen verlinkt sein oder zu der neuen Domain weiterleiten. Die alte Domain wird wieder für anderen Verfügbar sein."
         would_you_like_to_proceed: "Möchtest du weitergehen?"
         change: Ändern
-        you_can_now_enable_a_custom_domain: ~
-        read_more_about_the_set_up_of_your_custom_domain: ~
-        set_custom_domain: ~
-        in_order_to_set_your_custom_domain: ~
-        instructions_to_point_your_domain: ~
-        main_domain: ~
-        main_domain_info_text: ~
-        main_domain_link_text: ~
-        check_domain: ~
-        domain_being_checked: ~
-        status: ~
-        checks_pending: ~
-        please_check_back: ~
-        checks_not_passed: ~
-        check_the_domain_again_info: ~
-        check_the_domain_again: ~
-        use_another_domain: ~
-        checks_passed: ~
-        domain_being_set_up: ~
-        setup_in_progress: ~
-        setup_check_back: ~
-        setup_check_back_critical_error: ~
-        setup_failed: ~
-        setup_the_domain_again_info: ~
-        setup_the_domain_again: ~
+        you_can_now_enable_a_custom_domain: "Mit deinem derzeitigen Plan kannst du eine benutzerdefinierte Domain aktivieren. Lass uns mit der Einrichtung fortfahren!"
+        read_more_about_the_set_up_of_your_custom_domain: "Lies mehr über die Einrichtung deiner benutzerdefinierten Domain"
+        set_custom_domain: "Benutzerdefinierte Domain einrichten"
+        in_order_to_set_your_custom_domain: "Um deine benutzerdefinierte Domain einzurichten, müssen wir zuerst prüften, dass die von dir gewählte Domain auf unsere Server verweist. Bevor du fortfährst, bitte sicherstellen, dass du die %{link} gefolgt hast."
+        instructions_to_point_your_domain: "Einleitung über die Verweisung deiner Domain auf unsere Server"
+        main_domain: Hauptdomain
+        main_domain_info_text: "Bitte die genaue Domain hinzufügen, die du verwenden möchtest. Du kannst nach deiner Wahl entweder eine Root-Domain oder Subdomain verwenden. Bitte sicherstellen, dass du bereits deine DNS-Einträge bearbeitet hast. %{link}."
+        main_domain_link_text: "Lies mehr über wie du deine DNS-Einträge einrichtest."
+        check_domain: "Domain überprüfen"
+        domain_being_checked: "Überprüfte Domain"
+        status: "Status:"
+        checks_pending: "Wird überprüft..."
+        please_check_back: "Bitte in einige Minuten zurückkommen, die Überprüfung sollte gleich fertig sein!"
+        checks_not_passed: "Überprüfung gescheitert!"
+        check_the_domain_again_info: "Bitte sicherstellen, dass deine DNS-Einträge richtig eingerichtet sind."
+        check_the_domain_again: "Domain erneut checken"
+        use_another_domain: "andere Domain verwenden"
+        checks_passed: "Überprüfung erfolgreich!"
+        domain_being_set_up: "Domain, die eingerichtet wird:"
+        setup_in_progress: "Wird eingerichtet..."
+        setup_check_back: "Bitte in einige Minuten zurückkommen, die Domaineinrichtung sollte gleich fertig sein!"
+        setup_check_back_critical_error: "Die Domaineinrichtung dauert länger als erwartet. Bitte später zurückkommen oder uns kontaktieren!"
+        setup_failed: "Einrichtung der Domain gescheitert!"
+        setup_the_domain_again_info: "Die DNS-Änderungen deiner Domain wurden höchstwahrscheinlich noch nicht richtig verbreitet. Dies kann manchmal bis zu 48 Stunden dauern. Bitte sicherstellen, dass deine DNS-Einträge richtig sind, und erneut in einer Stunde probieren. Kontaktiere uns, wenn das Problem besteht."
+        setup_the_domain_again: "Domaineinrichtung erneut probieren"
         summary:
-          main_domain: ~
-          redirect: ~
-        check_another_domain: ~
-        checks_passed_with_warning: ~
-        this_domain_is_not_configured_correctly: ~
-        start_using_the_custom_domain: ~
+          main_domain: "Hauptdomain:"
+          redirect: "Weiterleitung:"
+        check_another_domain: "Eine andere Domain überprüfen"
+        checks_passed_with_warning: "Überprüfung erfolgreich - mit Warnung!"
+        this_domain_is_not_configured_correctly: "Diese Domain ist nicht richtig eingerichtet. Das bedeutet, dass diese Domain wird nicht auf deinen Marktplatz weiterleiten. Bitte sicherstellen, dass die DNS-Einträge richtig eingerichtet sind und erneut probieren, wenn du möchtest, dass diese Domain auf deine Hauptdomain weiterleitet. Wenn du die Weiterleitung nicht brauchst, klicke auf \"Benutzerdefinierte Domain aktivieren\"."
+        start_using_the_custom_domain: "Benutzerdefinierte Domain aktivieren"
       landing_pages:
         landing_pages: "Landing Page"
         info_1: "Die Landing Page ist vielleicht die wichtigste Seite deines Marktplatzes. Sie ist die erste Seite, die deine Nutzer sehen, etwa wie die Eingangstür deines Hauses. Du hast nur einigen Sekunden, deine Kunden davon zu überzeugen, dass sie auf der Seite bleiben sollen. Die Seite sollte attraktiv sein, und das Leistungsversprechen deiner Seite sollte klar und verlockend sein."
@@ -862,8 +862,8 @@ de:
           main_title: Haupttitel
           column_header: "Spalte %{index}"
           column_title: "Spalte %{index} -Titel"
-          column_icon_info: ~
-          column_icon_info_link: ~
+          column_icon_info: "Das Sharetribe-Team muss manuell neue Icons hinzufügen. Bitte %{link} um das Icon zu wählen, und teile es dann mit dem Support-Team von Sharetribe."
+          column_icon_info_link: "die Einleitung auf diesem Artikel folgen"
           column_icon: "Spalte %{index} -Symbol"
           column_paragraph: "Spalte %{index} -Paragraph"
           column_button: "Spalte %{index} -Taste"
@@ -1574,7 +1574,7 @@ de:
     confirmation_instructions_v2:
       headline: "bitte bestätige deine E-Mail-Adresse, um deine Registrierung bei %{service_name} abzuschließen."
       need_to_confirm: "Bestätige deine E-Mail-Adresse, um dein Konto für %{service_name} zu vervollständigen. Es ist einfach - du musst nur den Button unten klicken!"
-      confirmation_link_text: ~
+      confirmation_link_text: "E-Mail Adresse bestätigen"
     common:
       hey: "Hallo %{name},"
       hi: "Hallo %{name},"
@@ -1610,7 +1610,7 @@ de:
       has_rejected_your_request_text: "%{accepter} hat deine Anfrage für %{listing} abgelehnt."
     invitation_to_kassi:
       hi: Hallo!
-      you_have_been_invited_to_kassi: "%{inviter} hat dich eingeladen, %{service_name} zu benutzen."
+      you_have_been_invited_to_kassi: "%{inviter} hat dich eingeladen, %{service_name} zu benutzen"
       here_is_a_message_from: "Persönliche Nachricht von %{inviter}:"
       join_now: "Jetzt Mitglied werden"
       invitation_code: "Einladungscode %{code}"
@@ -1624,11 +1624,11 @@ de:
       has_commented_listing_you_follow_in_kassi: "%{author} hat den Eintrag %{listing} kommentiert, dem du in %{service_name} folgst."
     new_message:
       view_message: "Nachricht ansehen"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} hat dir eine Nachricht geschickt. Gehe zu %{service_name} um zu antworten."
+      you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} auf %{service_name}"
     new_message_v2:
       headline: "du hast eine Nachricht!"
-      reply: ~
+      reply: "Hier klicken um an %{sender} zu antworten"
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
@@ -1761,7 +1761,7 @@ de:
       welcome_to_marketplace: "Willkommen bei %{service_name}! Schön, dass du dabei bist."
       love_marketplace_crew: "Herzliche Grüße,<br /><i>das %{service_name} Team</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Du kannst deine E-Mail Einstellungen hier bearbeiten"
     new_listing_by_followed_person:
       subject: "%{author_name} hat ein neues Angebot auf %{service_name} veröffentlicht"
       has_posted_a_new_listing: "%{author_name} hat ein neues Angebot veröffentlicht:"
@@ -1774,14 +1774,14 @@ de:
       view_listing: "%{title} anzeigen"
       cant_click: "Kannst du nicht auf den Button klicken? Hier ist ein direkter Link:"
     new_ident_notification:
-      subject: ~
-      h1_body: ~
-      p_line1: ~
-      p_line2: ~
-      p_line3: ~
-      p_line4: ~
-      p_line5: ~
-      button: ~
+      subject: "Die Adresse deines Marktplatzes wurde geändert"
+      h1_body: "Die URLL Adresse von %{community_name} wurde geändert."
+      p_line1: "Die Adresse deines Marktplatzes wurde geändert."
+      p_line2: "Alte URL: %{link}"
+      p_line3: "Neue URL: %{link}"
+      p_line4: "Neue Admin-Bereich URL: %{link}"
+      p_line5: "Du kannst in deinen Marktplatz mit deinem bestehenden Konto einloggen."
+      button: "Gehe zu %{text}"
     new_member_notification:
       subject: "Neues Mitglied bei %{community}"
       new_member_has_joined: "Ein neues Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
@@ -2115,7 +2115,7 @@ de:
       join_this_community: "Marktplatz beitreten"
       read_more: "Mehr lesen"
       feedback: "Deine Nachricht an das Team von %{service_name}"
-      dont_use_to_contact_support: "Wir haben gemerkt, dass du ein Administrator von %{service_name} bist. Durch dieses Formular werden deine Kunden dir Nachrichten senden. Du kannst dieses Formular nicht verwenden, um Sharetribe Support zu kontaktieren. Stattdessen kannst du den Support-Widget in der unterer rechten Ecke verwenden, um Sharetribe zu kontaktieren."
+      dont_use_to_contact_support: "Wir haben gemerkt, dass du ein Administrator von %{service_name} bist. Durch dieses Formular werden deine Kunden dir Nachrichten senden. Du kannst dieses Formular nicht verwenden, um Sharetribe Support zu kontaktieren. Stattdessen kannst du den Support-Widget in der unterer rechten Ecke deines Admin-Bereichs verwenden, um Sharetribe zu kontaktieren."
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
       give_feedback: Kontakt
@@ -2186,7 +2186,7 @@ de:
       settings: Einstellungen
       sign_up: Registrieren
     notifications:
-      recaptcha_verification_failure: ~
+      recaptcha_verification_failure: "reCAPTCHA überprüfungsfehler"
       listing_could_not_be_saved: "Der Eintrag konnte nicht gespeichert werden. Bitte versuche es noch einmal. Wenn das Problem fortbesteht, %{contact_admin_link}."
       contact_admin_link_text: "Administrator von %{service_name} kontaktieren"
       test_welcome_email_delivered_to: "Eine Test-Mail wurde gesendet an %{email}."
@@ -2262,7 +2262,7 @@ de:
       reply_cannot_be_empty: "Du kannst keine leere Nachricht senden."
       reply_sent: "Nachricht erfolgreich gesendet"
       request_accepted: "Anfrage akzeptiert"
-      request_accepted_and_closed: ~
+      request_accepted_and_closed: "Anfrage angenommen und Eintrag geschlossen"
       request_confirmed: "Anfrage abgeschlossen"
       request_rejected: "Anfrage abgelehnt"
       request_canceled: "Anfrage angefochten"
@@ -2315,7 +2315,7 @@ de:
       stripe_you_account_balance_is_not_0: "Dein Kontostand beträgt nicht 0 und kann daher nicht gelöscht werden. Möglicherweise müssen Transaktionen noch beendet werden oder Geld auf Dein Bankkonto überwiesen werden. Bitte kontaktiere das %{service_name} Team, um mehr zu erfahren."
       stripe_balance_for_username_is_not_0: "Das Stripe-Kontostand für %{username} beträgt nicht 0, also kann das Konto nicht gelöscht werden. Vielleicht bedeutet dies, dass sie noch aktive Transaktionen haben oder dass es Geld auf das Konto gibt, das noch nicht auf sein/ihr Bankkonto überwiesen wurde. Bitte prüfe Stripe Dashboard für mehr Informationen."
       visit_admin: "Würdest du gerne %{link}?"
-      visit_admin_link: "Deinen Admin-Bereich besuchen"
+      visit_admin_link: "deinen Admin-Bereich besuchen"
       an_error_occurred_when_saving_your_information: "Ein Fehler ist aufgetreten, während deine Informationen gespeichert wurden: \"%{message}\". Bitte überprüfe, dass alle Informationen richtig sind und versuche es erneut."
     settings:
       account: Konto
@@ -2762,7 +2762,7 @@ de:
       invalid_invitation_code: "Der Einladungs-Code ist ungültig."
       invitation_code: Einladungscode
       not_required: ", nicht erforderlich"
-      notification_is_mandatory: "Du musst wenigstens eine Email Adresse wählen, um Mitteilungen erhalten zu können. Wenn Du keine Emails von %{service_name} erhalten möchtest, kannst Du dies in den Einstellungen unter Benachrichtigungen anpassen."
+      notification_is_mandatory: "Du musst wenigstens eine Email Adresse wählen, um Mitteilungen erhalten zu können. Wenn du keine Emails von %{service_name} erhalten möchtest, kannst du dies in den Einstellungen unter Benachrichtigungen anpassen."
       password_again: "Passwort bestätigen"
       show_my_name_to_others: "Anderen %{service_name} Benutzern meinen richtigen Namen anzeigen"
       sign_up: "Ein neues Konto bei %{service_name} erstellen"
@@ -2897,7 +2897,7 @@ de:
       newsletters: "E-mails von Administratoren"
       community_updates: Newsletter
       email_about_confirm_reminders: "...ich vergessen habe, eine Anfrage als erledigt zu bestätigen"
-      email_about_new_comments_to_own_listing: "...jemand mein Angebot oder meine Anfrage kommentiert"
+      email_about_new_comments_to_own_listing: "...jemand meinen Eintrag kommentiert"
       email_about_new_messages: "...mir jemand eine Nachricht sendet"
       email_about_new_received_testimonials: "...mir jemand eine Bewertung gibt"
       email_about_testimonial_reminders: "...ich vergessen habe, jemandem zu einer Transaktion eine Bewertung zu geben"
@@ -3163,7 +3163,7 @@ de:
       logout: Abmelden
       login: Anmelden
       signup: Registrieren
-      admin_dashboard: "Administrator Dashboard"
+      admin_dashboard: Admin-Bereich
       language: Sprache
       listings: "Meine Einträge"
     utils:
@@ -3183,6 +3183,10 @@ de:
         zero: Transaktionen
         one: Transaktion
         other: Transaktionen
+      listing:
+        zero: Eintrag
+        one: Eintrag
+        other: Einträge
     previous_label: "&#8592; Zurück"
     next_label: "Vor &#8594;"
     page_gap: "&hellip;"
@@ -3241,11 +3245,11 @@ de:
       last_name_kana: "Nachname kana"
       first_name_kanji: "Vorname kanji"
       last_name_kanji: "Nachname kanji"
-      country: Land
+      country: Wohnsitzland
       birth_date: Geburtsdatum
       ssn_last_4: "Sozialversicherungsnummer, letzte 4 Ziffern"
       personal_id_number: Personalausweisnummer
-      address_country: Land
+      address_country: Wohnsitzland
       address_state: Staat
       address_province: Bundesland
       address_city: Stadt
@@ -3278,9 +3282,9 @@ de:
       bank_routing_2: Branch/Filialcode
       bank_currency: "Währung des Bankkontos"
       update_also_bank_account: "Bankkonto ebenfalls aktualisieren"
-      bank_account_same_country: ~
-      bank_country: ~
-      bank_holder_name: ~
+      bank_account_same_country: "Ein Bankkonto in meinem Wohnsitzland verwenden"
+      bank_country: "Land des Bankkontos"
+      bank_holder_name: "Name des Kontoinhabers"
       messages:
         account_number: Kontonummer
         routing_number: Bankleitzahl
@@ -3312,7 +3316,7 @@ de:
       ssn_last_4: "Die letzten 4 Ziffern der Sozialversicherungsnummer (SVNR)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID; Hong Kong Personalausweisnummer)"
       singapore_identity_card: "National Registration Identity Card (NRIC; Personalausweisnummer) oder Foreign Identification Number (Ausländeridentifikationsnummer)"
-      mexico_id_number: "Personal ID Code Number (CURP)"
+      mexico_id_number: "Föderale Steuerzahler-Registrierungsnummer (RFC)"
       messages:
         social_insurance_number: "muss eine gültige Social Insurance Number (SIN; Sozialversicherungsnummer) sein"
   payment_settings:
