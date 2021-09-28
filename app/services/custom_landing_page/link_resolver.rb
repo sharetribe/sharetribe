@@ -52,13 +52,13 @@ module CustomLandingPage
     end
 
     class AssetResolver
-      def initialize(asset_url, sitename)
-        unless sitename.present?
-          raise CustomLandingPage::LandingPageConfigurationError.new("Missing sitename.")
+      def initialize(asset_url, cid)
+        unless cid.present?
+          raise CustomLandingPage::LandingPageConfigurationError.new("Missing community id.")
         end
 
         @_asset_url = asset_url
-        @_sitename = sitename
+        @_cid = cid
       end
 
       def call(type, id, normalized_data)
@@ -77,8 +77,7 @@ module CustomLandingPage
       private
 
       def append_asset_path(asset)
-        host = @_asset_url || ""
-        src = URLUtils.join(@_asset_url, asset["src"]).sub("%{sitename}", @_sitename)
+        src = URLUtils.join(@_asset_url, asset["src"]).sub("%{sitename}", @_cid.to_s)
 
         asset.merge("src" => src)
       end

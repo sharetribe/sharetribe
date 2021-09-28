@@ -142,7 +142,7 @@ module CustomLandingPage
     private
 
     def asset_resolver
-      @asset_resolver ||= CustomLandingPage::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_url], community.ident)
+      @asset_resolver ||= CustomLandingPage::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_url], community.id)
     end
 
     def filename(item)
