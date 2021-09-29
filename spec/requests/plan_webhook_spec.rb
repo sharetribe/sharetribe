@@ -64,7 +64,8 @@ describe "plan provisioning", type: :request do
             "marketplace_id": 1234,
             "features": {
               "whitelabel": true,
-              "custom_script": true
+              "custom_script": true,
+              "landing_page_preview": true
             },
             "status": "active"
           },
@@ -86,7 +87,7 @@ describe "plan provisioning", type: :request do
         expect(plan1234.slice(:community_id, :features, :expires_at, :status)).to eq({
                                community_id: 1234,
                                status: :active,
-                               features: { deletable: false, admin_email: false, custom_script: true, whitelabel: true, footer: false, landing_page: false },
+                               features: { deletable: false, admin_email: false, custom_script: true, whitelabel: true, footer: false, landing_page: false, landing_page_preview: true },
                                expires_at: nil
                              })
 
@@ -95,7 +96,7 @@ describe "plan provisioning", type: :request do
         expect(plan5555.slice(:community_id, :features, :expires_at, :status)).to eq({
                                community_id: 5555,
                                status: :hold,
-                               features: { deletable: false, admin_email: true, custom_script: false, whitelabel: false, footer: false, landing_page: false },
+                               features: { deletable: false, admin_email: true, custom_script: false, whitelabel: false, footer: false, landing_page: false, landing_page_preview: true },
                                expires_at: Time.utc(2015, 10, 15, 15, 0, 0)
                              })
 
@@ -183,7 +184,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_plan_id: id222,
                                   marketplace_id: 222,
                                   status: :trial,
-                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false },
+                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false, landing_page_preview: true },
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 10, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 10, 15).in_time_zone,
@@ -193,7 +194,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_plan_id: id333,
                                   marketplace_id: 333,
                                   status: :trial,
-                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false },
+                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false, landing_page_preview: true },
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 11, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 11, 15).in_time_zone,
@@ -238,7 +239,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_plan_id: id111,
                                   marketplace_id: 111,
                                   status: :trial,
-                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false },
+                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false, landing_page_preview: true },
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 9, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 9, 15).in_time_zone,
@@ -259,7 +260,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_plan_id: id222,
                                   marketplace_id: 222,
                                   status: :trial,
-                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false },
+                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false, landing_page_preview: true },
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 10, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 10, 15).in_time_zone,
@@ -270,7 +271,7 @@ describe "plan provisioning", type: :request do
                                   marketplace_id: 333,
                                   status: :trial,
                                   member_limit: 300,
-                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false },
+                                  features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false, landing_page_preview: true },
                                   created_at: Time.utc(2015, 11, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 11, 15).in_time_zone,
                                   expires_at: nil
