@@ -2615,10 +2615,10 @@ ja:
       address: 配送先住所
       address_country: 国
       address_name: 氏名
-      address_city: 市町区村（例：千代田区）
+      address_city: 市町区村
       address_state: 都道府県
-      address_street1: 住所１（例：神田須田町）
-      address_street2: "住所２（例：1-34-4 神田グロウビル7F）\n"
+      address_street1: 住所１
+      address_street2: 住所２
       address_postal_code: 郵便番号
   mapview:
     index:
@@ -3214,7 +3214,7 @@ ja:
       address_country: 国
       address_state: 都道府県
       address_province: 都道府県
-      address_city: 市町区村（例：千代田区）
+      address_city: 市町区村
       address_postal_code: 郵便番号
       address_line1: 住所
       tos_link: "支払いの詳細を追加することによりあなたは%{stripe_link} を受け入れます。"
@@ -3223,7 +3223,7 @@ ja:
       edit: 詳細の編集
       cancel: キャンセル
       gender: 性別
-      phone_number: "電話番号：+81に続き頭の\"0\"を除いた番号をハイフンなしでご記載下さい。例：090-xxxx-xxxx --> +8190xxxxxxxx"
+      phone_number: 電話番号：+81に続き頭の"0"を除いた番号をハイフンなしでご記載下さい。
       phone_info_text: 電話番号は国際番号をつけて入力してください、例えば
       address_kana_postal_code: 郵便番号
       address_kana_state: "都道府県 (カナ)"
@@ -3232,9 +3232,9 @@ ja:
       address_kana_line1: 住所２（カナ）
       address_kanji_postal_code: 郵便番号
       address_kanji_state: 都道府県
-      address_kanji_city: 市町区村（例：千代田区）
-      address_kanji_town: 住所１（例：神田須田町）
-      address_kanji_line1: "住所２（例：1-34-4 神田グロウビル7F）\n"
+      address_kanji_city: 市町区村
+      address_kanji_town: 住所１
+      address_kanji_line1: 住所２
       male: 男性
       female: 女性
     form_bank:
