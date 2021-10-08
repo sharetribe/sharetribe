@@ -79,7 +79,7 @@ describe PlanService::API::Plans do
             plans_api.create(
               community_id: 123, plan: {
                 status: :active,
-                features: { whitelabel: true, admin_email: true },
+                features: { whitelabel: true, admin_email: true, landing_page_preview: true },
                 member_limit: 1000
               })
 
