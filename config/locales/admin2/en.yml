@@ -3,15 +3,15 @@ en:
     admin2:
       landing_page:
         location:
-          remove: 'Remove %{name}'
+          remove: "Remove %{name}"
           remove_confirm: "Are you sure you want to remove the location \"%{name}\" from the landing page?"
         category:
-          remove: 'Remove %{name}'
+          remove: "Remove %{name}"
           remove_confirm: "Are you sure you want to remove the category \"%{name}\" from the landing page?"
         listings:
           not_valid_id_error: "This listing ID doesn't exist on your marketplace. Maybe a typo? Please check the ID and try again."
         footer_menu_link:
-          remove_title: 'Remove %{name}'
+          remove_title: "Remove %{name}"
           remove_body: "Are you sure you want to remove the footer link \"%{name}\" from the landing page?"
   admin2:
     save_changes: "Save changes"
@@ -23,9 +23,9 @@ en:
     chooseText: Choose
     cancelText: Cancel
     open_in_editor: "Open in editor"
-    select: 'Select'
-    all: 'All'
-    none: 'None'
+    select: Select
+    all: All
+    none: None
     notice_banner: "Your marketplace Admin panel has been redesigned! Give it a try: <a href=\"%{url}\">visit your new Admin panel</a>."
     topnav:
       admin_menu: "Admin menu"
@@ -67,7 +67,7 @@ en:
         topbar: "Top bar"
         footer: Footer
         display: Arrangement
-        landing-page: 'Landing page'
+        landing-page: "Landing page"
       users:
         manage_users: "Manage users"
         signup_login: "Signup & Login"
@@ -115,15 +115,15 @@ en:
         google_manager: "Google Tag Manager"
         sharetribe: "Sharetribe analytics"
       advanced:
-        experimental: 'New features'
-        recaptcha: 'reCAPTCHA'
-        custom_script: 'Custom script'
-        delete_marketplace: 'Delete marketplace'
+        experimental: "New features"
+        recaptcha: reCAPTCHA
+        custom_script: "Custom script"
+        delete_marketplace: "Delete marketplace"
     recaptcha:
-      recaptcha_site_key: 'reCAPTCHA site key'
-      recaptcha_secret_key: 'reCAPTCHA secret key'
+      recaptcha_site_key: "reCAPTCHA site key"
+      recaptcha_secret_key: "reCAPTCHA secret key"
       info_text: "Add Google's reCAPTCHA solution to stops bots signing up and contacting you while approving valid users. This adds a \"I'm not a robot\" checkbox that users must click to indicate that they are not a robot. This will either pass the user immediately or challenge them to validate whether or not they are human."
-      info_text_2: 'The checkbox is added to the Sign-up page and the Contact us page, for users who are not logged in. <a class="external-link" href="%{url}" target="_blank">Learn more about the reCAPTCHA setup</a>.'
+      info_text_2: "The checkbox is added to the Sign-up page and the Contact us page, for users who are not logged in. <a class=\"external-link\" href=\"%{url}\" target=\"_blank\">Learn more about the reCAPTCHA setup</a>."
     domain:
       sharetribe_domain: "Sharetribe domain"
       custom_domain: "Custom domain"
@@ -281,7 +281,7 @@ en:
       paypal_has_been_disabled: "Your PayPal account <strong>%{email}</strong> has been disconnected from %{service_name}."
       change_account: "Switch connection to another PayPal account"
       change_account_link: "%{url}."
-      not_allowed: 'Unfortunately, the PayPal integration is not available in <a href="%{url}">your marketplace country</a>.'
+      not_allowed: "Unfortunately, the PayPal integration is not available in <a href=\"%{url}\">your marketplace country</a>."
     stripe:
       info_header: Stripe
       info_text: "Commission is the service fee you charge for every payment users make through your marketplace. <a href='%{fee_url}' class=\"external-link\" target='_blank'>Stripe's fees</a> will be deducted from the commission you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' class=\"external-link\" target='_blank'> Learn more</a>."
@@ -323,7 +323,7 @@ en:
       need_to_change_stripe_keys: "Do you need to change your Stripe keys? <a href='#' show-intercom=true >Contact the Sharetribe team</a>."
       need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
       need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
-      not_allowed: 'Unfortunately, the Stripe integration is not available in <a href="%{url}">your marketplace country</a>.'
+      not_allowed: "Unfortunately, the Stripe integration is not available in <a href=\"%{url}\">your marketplace country</a>."
     transaction_size:
       info_header: "Minimum listing price"
       info_text: "If the payment system is enabled in your marketplace, you need to define a minimum listing price: the smallest price a listing on your marketplace can have. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about the minimum listing price</a>."
@@ -382,9 +382,9 @@ en:
         file: File
         location: Location
     listing_fields:
-      get_started: 'Get started with listing fields'
-      watch_video: 'Watch a video'
-      take_tour: 'Take a tour'
+      get_started: "Get started with listing fields"
+      watch_video: "Watch a video"
+      take_tour: "Take a tour"
       info_header: "Listing fields"
       info_text: "Here, you can edit the fields that users have to fill in when they create a new listing. Some fields are predefined and can't be edited."
       field_title: "Field name"
@@ -439,9 +439,9 @@ en:
         location: Location
         image: Image
     order_types:
-      get_started: 'Get started with order types'
-      watch_video: 'Watch a video'
-      take_tour: 'Take a tour'
+      get_started: "Get started with order types"
+      watch_video: "Watch a video"
+      take_tour: "Take a tour"
       info_text: "Order types determine how the order process works on your marketplace. Use the ready-made templates for renting, selling, offering services, posting announcements, and more – or customize your own order process."
       name: Name
       used_in: "Used in"
@@ -510,9 +510,9 @@ en:
       info_text: "Here, you can edit the categories that visitors use to browse your marketplace offering. Sellers need to assign their listing to one of the categories you have specified."
       add_category: "+ Add a category"
       add_category_popup: "Add a category"
-      get_started: 'Get started with categories'
-      watch_video: 'Watch a video'
-      take_tour: 'Take a tour'
+      get_started: "Get started with categories"
+      watch_video: "Watch a video"
+      take_tour: "Take a tour"
       save_add_category_popup: "Add the category"
       edit_category: "Edit the category \"%{category}\""
       category_name: "Category name"
@@ -988,22 +988,22 @@ en:
     custom_script:
       script_disabled: "<b>Paid feature:</b> Would you like to add your own custom script? <a href=\"%{url}\">Upgrade to a paid plan</a>."
       info_text: "Custom script can be used to insert custom CSS, JavaScript or HTML. Note that future updates to Sharetribe Go features may render your script incompatible. <a href='%{url}' class='external-link' target='_blank'>Learn more about Custom script</a>."
-      custom_head_script: 'Custom head code'
-      custom_head_script_placeholder: '<script> ... </script>'
+      custom_head_script: "Custom head code"
+      custom_head_script_placeholder: "<script> ... </script>"
       custom_head_script_info_text: "The code from that field will be added to the <code>&lt;head&gt;</code> tag of every page."
-      custom_body_script: 'Custom body code'
-      custom_body_script_placeholder: '<script> ... </script>'
-      custom_body_script_info_text: 'The code from that field will be added before the closing <code>&lt;body&gt;</code> tag of every page.'
-      custom_css_script: 'Custom CSS code'
-      custom_css_script_placeholder: '.class { ... }'
-      custom_css_script_info_text: 'The code from that field will be added to the <code>CSS</code> of every page.'
+      custom_body_script: "Custom body code"
+      custom_body_script_placeholder: "<script> ... </script>"
+      custom_body_script_info_text: "The code from that field will be added before the closing <code>&lt;body&gt;</code> tag of every page."
+      custom_css_script: "Custom CSS code"
+      custom_css_script_placeholder: ".class { ... }"
+      custom_css_script_info_text: "The code from that field will be added to the <code>CSS</code> of every page."
     sharetribe:
       info_text: "To improve its services and support, Sharetribe tracks marketplace users' activity. We will never collect personal data or share this information outside the Sharetribe team. <a href='%{url}' class=\"external-link\" target='_blank'>Learn more</a>."
       end_user_analytics: "Allow Sharetribe to track users' activity in order to improve its services"
     google:
       info_text: "Google Analytics helps you track your marketplace traffic. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}' class='external-link' target='_blank' >Learn more about the Google Analytics setup</a>."
       google_analytics_key: "Google Analytics tracking ID"
-      error_text: 'Please enter a Google Analytics tracking ID that starts with "UA-"'
+      error_text: "Please enter a Google Analytics tracking ID that starts with \"UA-\""
       google_analytics_key_placeholder: UA-12345678-9
       google_analytics_key_info_text: "Paste the tracking ID of your Google Analytics account here."
     profile_pages:
@@ -1239,129 +1239,129 @@ en:
       edit: Edit
     landing_page:
       header: "Add-on: Custom Landing Page - $99 per month"
-      lp_editor: 'Custom Landing Page editor'
-      lp_info_1: 'Define your landing page layout using a set of building blocks. The section types you can select below combine the best practices of some of the most successful online marketplaces. For now, the Custom Landing Page only supports one language.'
-      lp_info_2: 'Learn more about using the landing page editor <a class="external-link" target="_blank" href="%{url}">in the Go Help Center</a>.'
+      lp_editor: "Custom Landing Page editor"
+      lp_info_1: "Define your landing page layout using a set of building blocks. The section types you can select below combine the best practices of some of the most successful online marketplaces. For now, the Custom Landing Page only supports one language."
+      lp_info_2: "Learn more about using the landing page editor <a class=\"external-link\" target=\"_blank\" href=\"%{url}\">in the Go Help Center</a>."
       info_text_1: "Add a beautiful home page and engage your visitors the moment they arrive on your marketplace. Define the layout of your landing page from a set of building blocks."
       btn_text: "Learn more"
-      section_id: 'Section ID'
-      section_type: 'Section type'
+      section_id: "Section ID"
+      section_type: "Section type"
       remove_confirm: "Are you sure you want to delete the section \"%{name}\" and all its data?"
-      add_new_section: '+ Add a new section'
-      publish_changes: 'Publish changes'
-      preview_landing_page: 'Preview landing page'
-      check_it_out: 'Check it out'
-      latest_version_released: 'The latest version of your landing page is live! %{link}!'
-      this_version_is_not_released: 'You need to make changes to publish a new version of your landing page.'
+      add_new_section: "+ Add a new section"
+      publish_changes: "Publish changes"
+      preview_landing_page: "Preview landing page"
+      check_it_out: "Check it out"
+      latest_version_released: "The latest version of your landing page is live! %{link}!"
+      this_version_is_not_released: "You need to make changes to publish a new version of your landing page."
       sections:
-        add: 'Add a new section to your landing page'
-        new: 'New section type'
-        select: 'Select a section type…'
-        id: 'Section ID'
-        paragraph: 'Section paragraph'
-        title: 'Section title'
-        background_color: 'Section background color'
+        add: "Add a new section to your landing page"
+        new: "New section type"
+        select: "Select a section type…"
+        id: "Section ID"
+        paragraph: "Section paragraph"
+        title: "Section title"
+        background_color: "Section background color"
         delete_info: "You can't undo this action."
-        delete_section: 'Delete section'
+        delete_section: "Delete section"
         edit: "Edit the section \"%{name}\""
         type:
-          column_1: 'Info - One column'
-          column_2: 'Info - Two columns'
-          column_3: 'Info - Three columns'
-          hero: 'Hero'
-          footer: 'Footer'
-          listings: 'Listings'
-          categories: 'Categories'
-          locations: 'Locations'
-          video: 'Video'
+          column_1: "Info - One column"
+          column_2: "Info - Two columns"
+          column_3: "Info - Three columns"
+          hero: Hero
+          footer: Footer
+          listings: Listings
+          categories: Categories
+          locations: Locations
+          video: Video
         listing:
-          title: 'Featured listings'
-          info: 'Add the listing IDs of the listings you want to feature. To find the ID of a listing, go to the listing page and look at the listing URL. The listing ID is the number that comes after the main URL. For example, for the listing <code>www.example.com/listings/123456-listing-title</code>, the listing ID is <code>123456</code>.'
-          listing_1: 'Listing 1 ID'
-          listing_2: 'Listing 2 ID'
-          listing_3: 'Listing 3 ID'
+          title: "Featured listings"
+          info: "Add the listing IDs of the listings you want to feature. To find the ID of a listing, go to the listing page and look at the listing URL. The listing ID is the number that comes after the main URL. For example, for the listing <code>www.example.com/listings/123456-listing-title</code>, the listing ID is <code>123456</code>."
+          listing_1: "Listing 1 ID"
+          listing_2: "Listing 2 ID"
+          listing_3: "Listing 3 ID"
         hero:
-          call_to_action: 'Call-to-action'
-          button_text: 'Call-to-action button label'
-          cta_button_text: 'Call-to-action button label'
-          cta_button_url: 'Call-to-action target URL'
+          call_to_action: Call-to-action
+          button_text: "Call-to-action button label"
+          cta_button_text: "Call-to-action button label"
+          cta_button_url: "Call-to-action target URL"
           cta_button_info: "The default text is \"Search\" for a public marketplace and \"Sign up\" for a private marketplace. If that works for you, you can leave this field empty."
-          info: 'Set the background image for the Hero section. The slogan and description for the Hero are set on the %{url} section.'
-          button_default: 'Default action'
-          button_button: 'Link'
-          button_none: 'None'
-          background_image: 'Background image'
-          button_placeholder: 'Learn more'
-          url_placeholder: 'https://www.example.com'
+          info: "Set the background image for the Hero section. The slogan and description for the Hero are set on the %{url} section."
+          button_default: "Default action"
+          button_button: Link
+          button_none: None
+          background_image: "Background image"
+          button_placeholder: "Learn more"
+          url_placeholder: "https://www.example.com"
         cta_button:
-          cta_enabled: 'Show call-to-action button'
-          button_title: 'Call-to-action label'
-          button_path_string: 'Call-to-action target URL'
+          cta_enabled: "Show call-to-action button"
+          button_title: "Call-to-action label"
+          button_path_string: "Call-to-action target URL"
         footer:
-          info: 'Your Custom Landing Page has a unique footer, which you can edit here. Customize the footer for the rest of your marketplace pages in the %{url} section.'
-          theme: 'Footer style'
-          copyright: 'Footer copyright'
-          add_link: '+ Add a link'
-          social_links: 'Footer social links'
-          links: 'Footer links'
-          link_label: 'Link label'
-          link_target_url: 'Link target URL'
+          info: "Your Custom Landing Page has a unique footer, which you can edit here. Customize the footer for the rest of your marketplace pages in the %{url} section."
+          theme: "Footer style"
+          copyright: "Footer copyright"
+          add_link: "+ Add a link"
+          social_links: "Footer social links"
+          links: "Footer links"
+          link_label: "Link label"
+          link_target_url: "Link target URL"
         location:
-          title: 'Featured locations'
-          info: 'You can feature 3–7 locations on your landing page. Add an image for each location and link it to your marketplace search results page for that location.'
-          image_column: 'Image'
-          label_column: 'Location label'
-          url_column: 'Location URL'
-          add: '+ Add a location'
-          edit_location: 'Edit location'
-          location_label: 'Location label'
-          search_url: 'Location URL'
-          background_image: 'Location background image'
-          image_info: 'The recommended image size for location background images is 1000x667 pixels.'
-          image: 'The current location background image is <code>%{name}</code>.'
-          need_at_least_3_locations: 'You need at least three locations in this section'
-          need_at_most_7_locations: 'You can have at most seven locations in this section'
+          title: "Featured locations"
+          info: "You can feature 3–7 locations on your landing page. Add an image for each location and link it to your marketplace search results page for that location."
+          image_column: Image
+          label_column: "Location label"
+          url_column: "Location URL"
+          add: "+ Add a location"
+          edit_location: "Edit location"
+          location_label: "Location label"
+          search_url: "Location URL"
+          background_image: "Location background image"
+          image_info: "The recommended image size for location background images is 1000x667 pixels."
+          image: "The current location background image is <code>%{name}</code>."
+          need_at_least_3_locations: "You need at least three locations in this section"
+          need_at_most_7_locations: "You can have at most seven locations in this section"
         category:
-          add: '+ Add a category'
-          image_column: 'Image'
-          category_column: 'Category'
-          edit_category: 'Edit category'
-          featured_categories: 'Featured categories'
-          featured_categories_info: 'You can feature 3–7 categories on your landing page.'
-          category: 'Category'
-          background_image: 'Category background image'
-          background_image_info: 'The recommended image size for category background images is 1000x667 pixels.'
-          image: 'The current category background image filename is <code>%{name}</code>.'
-          need_at_least_3_categories: 'You need at least three categories in this section'
-          need_at_most_7_categories: 'You can have at most seven categories in this section'
+          add: "+ Add a category"
+          image_column: Image
+          category_column: Category
+          edit_category: "Edit category"
+          featured_categories: "Featured categories"
+          featured_categories_info: "You can feature 3–7 categories on your landing page."
+          category: Category
+          background_image: "Category background image"
+          background_image_info: "The recommended image size for category background images is 1000x667 pixels."
+          image: "The current category background image filename is <code>%{name}</code>."
+          need_at_least_3_categories: "You need at least three categories in this section"
+          need_at_most_7_categories: "You can have at most seven categories in this section"
         background_style:
-          title: 'Section background'
-          image: 'Image'
-          color: 'Color'
-          none: 'None'
+          title: "Section background"
+          image: Image
+          color: Color
+          none: None
         background_image:
-          title: 'Section background image'
-          info: 'The image will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels.'
-          image: 'The current background image filename is <code>%{name}</code>.'
-          overlay: 'Overlay for the background image'
-          dark_overlay: 'Dark overlay'
-          light_overlay: 'Light overlay'
-          transparent_overlay: 'No overlay'
+          title: "Section background image"
+          info: "The image will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels."
+          image: "The current background image filename is <code>%{name}</code>."
+          overlay: "Overlay for the background image"
+          dark_overlay: "Dark overlay"
+          light_overlay: "Light overlay"
+          transparent_overlay: "No overlay"
         video:
-          youtube_video_id: 'YouTube video ID'
+          youtube_video_id: "YouTube video ID"
           vide_id_info: "You can get the video ID from the video's URL. For example, for the video <code>youtube.com/watch?v=dQw4w9WgXcQ</code>, the ID is <code>dQw4w9WgXcQ</code>."
-          autoplay: 'Autoplay'
-          no_autoplay: 'No Autoplay'
-          muted_autoplay: 'Muted Autoplay'
-          text: 'Text'
-          text_info: 'The text will be displayed if you have selected "No autoplay" or when the video is paused.'
+          autoplay: Autoplay
+          no_autoplay: "No Autoplay"
+          muted_autoplay: "Muted Autoplay"
+          text: Text
+          text_info: "The text will be displayed if you have selected \"No autoplay\" or when the video is paused."
         multi_column:
-          column: 'Column %{index}'
-          column_icon: 'Column %{index} icon'
-          column_title: 'Column %{index} title'
-          column_paragraph: 'Column %{index} paragraph'
-          column_button_label: 'Column %{index} button label'
-          column_button_target: 'Column %{index} button target URL'
+          column: "Column %{index}"
+          column_icon: "Column %{index} icon"
+          column_title: "Column %{index} title"
+          column_paragraph: "Column %{index} paragraph"
+          column_button_label: "Column %{index} button label"
+          column_button_target: "Column %{index} button target URL"
     display:
       grid: Grid
       list: List

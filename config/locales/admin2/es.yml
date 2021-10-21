@@ -956,7 +956,7 @@ es:
       footer_disabled: "<b>Función Pro:</b> ¿Quisieras poder usar tu propio pie de página? <a href=\"%{url}\">Subscríbete al plan Pro o a un plan superior</a>."
       footer_enabling: "Mostrar pie de página"
       footer_enabling_field: "Mostrar el pie de página en todas las páginas"
-      footer_enabling_info_text: "En el periodo de prueba o el plan Hobby, el pie de página tiene información acerca de Sharetribe y no es posible personalizarlo. En el plan Pro o superior, puedes personalizar el pie de página. <br> <br> El pie de página le da a los visitantes más maneras de acceder a distintas páginas dentro (o fuera) de tu marketplace y hace más visible to marca. Puedes seleccionar distintos estilos para el pie de página y añadir vínculos de texto, vínculos de redes sociales y un texto de derechos. <a href=\"%{url}\" class='external-link' target=\"_blank\">Aprende más acerca del pie de página</a>."
+      footer_enabling_info_text: "En el periodo de prueba o el plan Hobby, el pie de página tiene información acerca de Sharetribe y no es posible personalizarlo. En el plan Pro o superior, puedes personalizar el pie de página. <br> <br> El pie de página le da a los visitantes más maneras de acceder a distintas páginas dentro (o fuera) de tu marketplace y hace más visible tu marca. Puedes seleccionar distintos estilos para el pie de página y añadir vínculos de texto, vínculos de redes sociales y un texto de derechos. <a href=\"%{url}\" class='external-link' target=\"_blank\">Aprende más acerca del pie de página</a>"
       plan_disabled: "¿Quisieras configurar tu propio pie de página? <a href=\"%{url}\" target=\"_blank\"> Subscríbete al plan Pro o a un plan superior</a>."
       footer_style: "Estilo del pie de página"
       footer_links: "Vínculos del pie de página"
@@ -1173,7 +1173,7 @@ es:
       cover_photo_info_text: "La foto de portada principal se muestra en la página de inicio a usuarios que no han iniciado sesión. Las dimensiones deben ser 1920x450 pixeles."
       cover_photo_info_text_disabled: "Debido a que la página de inicio personalizada está activa, la foto de portada no se usa. En su lugar, puedes <a href='%{href}'>personalizar la imagen de la sección Hero de tu página de inicio</a>."
       small_cover_photo: "Foto de portada pequeña"
-      small_cover_photo_info_text: "La foto de portada pequeña se muestra en todas las páginas excepto en la página inicial a usuarios que no han iniciado sesión. Las dimensiones deben ser 1920x450 pixeles."
+      small_cover_photo_info_text: "La foto de portada pequeña se muestra en todas las páginas excepto en la página inicial a usuarios que no han iniciado sesión. Las dimensiones deben ser 1920x96 pixeles."
     logos_and_color:
       favicon: Favicon
       favicon_info_text: "El Favicon se muestra en la pestaña del navegador. Sus dimensiones deben ser 32x32 pixeles."
@@ -1311,11 +1311,11 @@ es:
           info: "Puedes exhibir de 3 a 7 ubicaciones en tu página de inicio. Añadir una imagen y un vínculo para cada ubicación."
           image_column: Imagen
           label_column: "Texto de la ubicación"
-          url_column: "Resultados de la búsqueda URL"
+          url_column: "Búsqueda URL"
           add: "+Añadir una ubicación"
           edit_location: "Editar ubicación"
           location_label: "Texto de la ubicación"
-          search_url: Dirección
+          search_url: "Búsqueda URL"
           background_image: "Imagen de fondo de la ubicación"
           image_info: "El tamaño recomendado para la imagen de fondo es 1000x667 pixeles."
           image: "La imagen de fondo actual es <code>%{name}</code>."
