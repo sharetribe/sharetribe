@@ -80,7 +80,8 @@ body {
   <div class="description <%= message[:reason] %>"><%= message[:description] %></div>
   <% if message[:cta].present? %>
     <div class="cta-wrapper">
-      <a class="cta" href="<%= message[:cta_url] %>"><%= message[:cta] %></a>
+      <p class="description"><%= message[:cta_intro] %></p>
+      <a class="cta" href="<%= message[:cta_url] %>" rel="nofollow"><%= message[:cta] %></a>
     </div>
   <% end %>
 </body>
