@@ -49,7 +49,7 @@ lv:
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
+        community_name: "Mājaslapas nosaukums"
         edit_community_name_description: ~
         community_slogan: "Platformas sauklis"
         community_slogan_display: ~
@@ -893,8 +893,8 @@ lv:
         listing_fields_help: ~
         add_new_field: ~
         remove_field_confirmation: ~
-        cancel: ~
-        save: ~
+        cancel: Atcelt
+        save: Saglabāt
         field_title: ~
         field_type: ~
         categories: ~
@@ -946,8 +946,8 @@ lv:
         edit_user_field: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
+        send_email_to_members: "E-pasta lietotāji"
+        send_email_to_members_title: "Sūtīt e-pastu taviem lietotājiem"
         send_email: ~
         send_email_or: ~
         send_test_email: ~
@@ -969,7 +969,7 @@ lv:
         email_language: ~
         any_language: ~
         message_will_be_sent_only_to_people_with_this_language: "E-pasts tiks nosūtīts tikai tiem lietotājiem, kuri jūsu izvēlētajā valodā izmanto %{service_name}."
-        email_sent: ~
+        email_sent: "E-pasts ir nosūtīts."
         to_improve_email_deliverability: ~
         email_subject_text: "Jauna ziņa no %{service_name} komandas"
         firstname_cannot_be_removed: ~
@@ -1593,7 +1593,7 @@ lv:
       has_commented_listing_you_follow_in_kassi: "%{author} komentēja sludinājumu '%{listing}' kuram Jūs sekojat %{service_name}."
     new_message:
       view_message: "Skatīt vēstuli"
-      has_sent_you_a_message_in_kassi: ~
+      has_sent_you_a_message_in_kassi: "%{sender} ir atsūtījis tev ziņu. Dodies uz  %{service_name}, lai atbildētu."
       you_have_a_new_message: ~
     new_message_v2:
       headline: ~
@@ -1731,7 +1731,7 @@ lv:
       welcome_to_marketplace: "Laipni lūdzam %{service_name}! Priecājamies, ka esat ar mums."
       love_marketplace_crew: "Ar sveicieniem <br /><i>%{service_name} komanda</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Veic izmaiņas sava e-pasta iestatījumos šeit"
     new_listing_by_followed_person:
       subject: "%{author_name} ir pievienojis jaunu sludinājumu %{service_name}"
       has_posted_a_new_listing: "%{author_name} ir pievienojis jaunu sludinājumu:"
@@ -1975,7 +1975,7 @@ lv:
       no_requests_visible_unless_logged_in: "Preču vai pakalpojumu pieprasījumi nav redzami lietotājiem, kuri nav ienākuši vietnē."
       one_private_offer_exists: "Jau ir pieejams <b>viens piedāvājums</b>,"
       one_private_request_exists: "Jau ir <b>viens pieprasījums</b>,"
-      ride_offer: ~
+      ride_offer: "Aizved citu bērnus līdz viņu hobijiem"
       ride_request: "Brauciens uz darbu"
       some_private_offers_exist: "Pieejami jau <b>%{number_of_listings} piedāvājumi</b>,"
       some_private_requests_exist: "Pieejami jau <b>%{number_of_listings} pieprasījumi</b>,"

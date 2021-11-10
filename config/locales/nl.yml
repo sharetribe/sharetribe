@@ -1577,7 +1577,7 @@ nl:
     confirmation_instructions_v2:
       headline: "bevestig je email om je aan te sluiten bij %{service_name}!"
       need_to_confirm: "Bevestig je email om je account op %{service_name} te voltooien. Het is makkelijk - klik gewoon op de button hieronder!"
-      confirmation_link_text: ~
+      confirmation_link_text: "Bevestig e-mailadres"
     common:
       hey: "Hallo %{name},"
       hi: "Hi %{name},"
@@ -1764,7 +1764,7 @@ nl:
       welcome_to_marketplace: "Welkom, bij %{service_name}! We zijn blij dat je er bent."
       love_marketplace_crew: "Groeten,<br /><i>%{service_name} team</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Wijzig uw e-mail instellingen hier"
     new_listing_by_followed_person:
       subject: "%{author_name} heeft een nieuwe advertentie gepost in %{service_name}"
       has_posted_a_new_listing: "%{author_name} heeft een nieuwe advertentie gepost:"

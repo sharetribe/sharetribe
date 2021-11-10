@@ -2,47 +2,47 @@ uk:
   errors:
     messages:
       expired: ~
-      not_found: ~
+      not_found: "не знайдено"
       already_confirmed: ~
       not_locked: ~
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
+      already_authenticated: "Ви вже війшли"
+      unauthenticated: "Вам потрібно увійти або зареєструватись перед тим, як продовжити"
+      unconfirmed: "Вам потрібно підтвердити ваш профіль перед тим, як продовжити"
+      locked: "Ваш профіль заблоковано"
+      invalid: "Неправильний email або пароль"
       invalid_token: ~
-      timeout: ~
-      inactive: ~
+      timeout: "Час сесії вичерпано. Будь ласка, увійдіть в обліковий запис, щоб продовжити"
+      inactive: "Ваш профіль ще не було активовано"
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Ваш пароль було успішно змінено"
+      send_paranoid_instructions: "Якщо адреса Вашої електронної пошти є в нашій базі даних, то ви отримаєте посилання на зміну паролю на вашу електронну адресу"
+      send_instructions: "Ви отримаєте електронного листа з інструкціями як змінити пароль за декілька хвилин"
+      updated: "Ваш пароль було успішно змінено. Ви ввішли успішно"
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Ви успішно ввійшли"
+      signed_out: "Ви успішно вийшли"
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Якщо адреса Вашої електронної пошти є в нашій базі даних, то ви отримаєте електронного листа з інструкціями як підтвердити ваш профіль протягом декількох хвилин"
+      send_instructions: "Ви отримаєте електронного листа з інструкціями як підтвердити ваш обліковий запис протягом декількох хвилин"
+      confirmed: "Ваш профіль було успішно підтверджено"
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "На вашу електронну адресу надіслано повідомлення з посиланням для підтвердження. Будь ласка, відкрийте посилання, щоб активувати свій обліковий запис."
+      signed_up_but_inactive: "Ви успішно зареєструвалися. Однак вам не вдалося увійти, оскільки ваш обліковий запис ще не активовано."
+      signed_up_but_locked: "Ви успішно зареєструвалися. Однак нам не вдалося увійти, оскільки ваш обліковий запис заблоковано."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: Неактивний
+        unconfirmed: непідтверждений
+        locked: заблокований
+      update_needs_confirmation: "Ви успішно оновили свій обліковий запис, але нам потрібно підтвердити вашу нову адресу електронної пошти. Перевірте свою електронну пошту та натисніть посилання для підтвердження, щоб завершити підтвердження нової адреси електронної пошти."
+      signed_up: "Вітаємо! Ви успішно зареєструвалися"
+      updated: "Ви успішно оновили свій обликовий запис"
+      destroyed: "До побачення! Ваш обліковий запис успішно скасовано. Сподіваємося, що скоро побачимося знову."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Якщо ваш обліковий запис існує, ви отримаєте електронний лист із інструкціями щодо його розблокування за кілька хвилин."
+      send_instructions: "Через кілька хвилин ви отримаєте електронний лист із інструкціями щодо розблокування облікового запису."
+      unlocked: "Ваш обліковий запис успішно розблоковано. Будь ласка, увійдіть, щоб продовжити."
     omniauth_callbacks:
       success: ~
       failure: ~
@@ -50,6 +50,6 @@ uk:
       confirmation_instructions:
         subject: ~
       reset_password_instructions:
-        subject: ~
+        subject: "Інструкції зі скидання пароля"
       unlock_instructions:
         subject: ~
