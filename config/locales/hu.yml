@@ -1426,7 +1426,7 @@ hu:
               Ön nem tud utalást fogadni mert még nem hitelesítette a PayPal fiókját. 
                A fiókja hitelesítéséhez kattintson ide:%{paypal_url}
           intl: "A PayPal-os utalását nem tudtuk teljesíteni mert az ön PayPal fiókja nem rendelkezik levonási mechanizmussal. Lépjen be a PayPal fiókjába és manuálisan engedélyezze vagy utasítsa el a kifizetést %{paypal_url}."
-      waiting_for_current_user_to_deliver_listing: "Várakozás önre, hogy teljesítse a felkérést a következő hirdetésre vonatkozóan: %{listing_title}"
+      waiting_for_current_user_to_deliver_listing: "Várakozás, hogy teljesítsd a felkérést a következő hirdetésre vonatkozóan: %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Várakozás %{listing_author_name} hirdetőre, hogy teljesítse a felkérést a következő hirdetésre vonatkozőan: %{listing_title}"
       request_accepted: Elfogadva
       request_rejected: Elutasítva
@@ -1437,18 +1437,18 @@ hu:
       skip_feedback: "Visszajelzés küldés kihagyása"
       waiting_for_listing_author_to_accept_offer: "Várakozás %{listing_author_name}-ra, hogy elfogadja az ajánlatot"
       waiting_for_listing_author_to_accept_request: "Várakozás %{listing_author_name} felhasználóra, hogy elfogadja a felajánlást. Amint %{listing_author_name} elfogadja az ajánlatot, ön fizethet."
-      waiting_for_you_to_accept_request: "Várakozás önre, hogy elfogadja az ajánlatot"
+      waiting_for_you_to_accept_request: "Várakozás, hogy elfogadd az ajánlatot"
       waiting_confirmation_from_requester: "Várakozás %{requester_name} felhasználóra, hogy jelezze a rendelés teljesülését"
-      waiting_confirmation_from_you: "Várakozás önre, hogy a rendelés teljesítését visszaigazolja"
+      waiting_confirmation_from_you: "Várakozás, hogy visszaigazold a rendelés teljesítését"
       waiting_payment_from_requester: "Várakozás amíg %{requester_name} átutalja az vételárat"
       waiting_payment_from_you: "Várjuk az utalását"
-      waiting_feedback_from_you: "Várakozás önre, hogy adjon értékelést"
+      waiting_feedback_from_you: "Várakozás, hogy írj értékelést"
       pending_external_inbox:
         paypal:
-          multicurrency: "Várakozás önre, hogy elfogadja a PayPal-os kifizetést"
-          intl: "Várakozás önre, hogy elfogadja a PayPal-os kifizetést"
+          multicurrency: "Várakozás, hogy elfogadd a PayPal-os kifizetést"
+          intl: "Várakozás, hogy elfogadd a PayPal-os kifizetést"
           unknown_reason: "A kifizetés függőben. További információért lépjen be a PayPal fiókjába."
-          verify: "Várakozás önre, hogy hitelesítse a PayPal fiókját"
+          verify: "Várakozás, hogy hitelesítsd a PayPal fiókod"
       stripe:
         waiting_confirmation_from_requester: "Várakozás arra, hogy %{requester_name} jelezze a rendelés teljesülését. Amint a megrendelés teljesítettként lesz jelölve, az összeg kifizetésre kerül a bankszámlájára."
       order_canceled: "Vitatott megrendelés"
@@ -2941,7 +2941,7 @@ hu:
       image_is_processing: "A profilképed feldolgozása folyamatban van. Egy kis türelmet kérünk, hamarosan elkészül."
       shown_in_your_public_profile: "(látható a nyilvános profilon)"
       editing_profile_of: "Ön most %{name} profilját szerkeszti"
-      format_markdown_link: "Formázza a leírását a Markdown segítségével"
+      format_markdown_link: "Formázd a leírást a Markdown segítségével"
       format_markdown: "Ide kattintva %{link}."
       username: Felhasználónév
       username_description: "A felhasználóneved a profilod egyedi URL-jének részeként kerül felhasználásra. Felhasználónévéhez csak betűket és számokat használhatsz, szóköz nélkül. Ha megváltoztatod a felhasználóneved, akkor az URL automatikusan megváltozik, és az előző URL-t nem irányítják át. A régi felhasználónév más felhasználók számára is elérhető lesz."
