@@ -110,7 +110,8 @@ jobs:
         id: set_release
         env:
           DEPLOY_ENV: ${{ github.event.inputs.environment }}
-        run: RELEASE="gh-${DEPLOY_ENV}-${GITHUB_SHA}" ; echo "::set-output name=release::$RELEASE"
+          RESOLVED_SHA: ${{ steps.resolve_sha.outputs.sha }}
+        run: RELEASE="gh-${DEPLOY_ENV}-${RESOLVED_SHA}" ; echo "::set-output name=release::$RELEASE"
 
       - name: Set ECR image
         id: set_ecr_image
