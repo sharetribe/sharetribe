@@ -75,8 +75,7 @@ RUN useradd -m -s /bin/bash app \
 
 WORKDIR /opt/app
 
-COPY Gemfile /opt/app
-COPY Gemfile.lock /opt/app
+COPY Gemfile Gemfile.lock /opt/app/
 
 ENV RAILS_ENV production
 
@@ -85,7 +84,7 @@ USER app
 RUN bundle install --deployment --without test,development
 
 COPY package.json /opt/app/
-COPY client/package.json /opt/app/client/
+COPY client/package.json client/package-lock.json /opt/app/client/
 
 ENV NODE_ENV production
 ENV NPM_CONFIG_LOGLEVEL error
