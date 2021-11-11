@@ -75,8 +75,7 @@ RUN useradd -m -s /bin/bash app \
 
 WORKDIR /opt/app
 
-COPY Gemfile /opt/app
-COPY Gemfile.lock /opt/app
+COPY Gemfile Gemfile.lock /opt/app/
 
 ENV RAILS_ENV production
 
