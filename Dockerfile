@@ -85,7 +85,7 @@ USER app
 RUN bundle install --deployment --without test,development
 
 COPY package.json /opt/app/
-COPY client/package.json /opt/app/client/
+COPY client/package.json client/package-lock.json /opt/app/client/
 
 ENV NODE_ENV production
 ENV NPM_CONFIG_LOGLEVEL error
