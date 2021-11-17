@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'tempfile'
 
 describe "Amazon Bounces", type: :request do
 
@@ -6,8 +7,79 @@ describe "Amazon Bounces", type: :request do
     @community = FactoryGirl.create(:community, :domain => "market.custom.org")
   end
 
-  describe "test notifications" do
+  describe "subscription confirmations" do
+    context "sns_notification_token is unset" do
+      before(:all) do
+        @sns_notification_token = APP_CONFIG.sns_notification_token
+        APP_CONFIG.sns_notification_token = nil
+      end
 
+      after(:all) do
+        APP_CONFIG.sns_notification_token = @sns_notification_token
+      end
+
+      it 'does not open subscription notification url' do
+        incoming_data = JSON.parse('{
+            "SubscribeURL":"https://subscribe.example.com/confirm"
+          }')
+
+        stub_request(:get, "https://subscribe.example.com/confirm").to_return(status: 200, body: "", headers: {})
+
+        post "https://market.custom.org/bounces?sns_notification_token=#{APP_CONFIG.sns_notification_token}", params: incoming_data.to_json.to_s, headers: { 'x-amz-sns-message-type' => 'subscriptionconfirmation'}
+
+        expect(response.status).to eq(200)
+
+        assert_not_requested :get, "https://subscribe.example.com/confirm"
+      end
+    end
+
+    context "sns_notification_token is set" do
+      it 'opens valid subscription notification url' do
+        incoming_data = JSON.parse('{
+            "SubscribeURL":"https://subscribe.example.com/confirm"
+          }')
+
+        stub_request(:get, "https://subscribe.example.com/confirm").to_return(status: 200, body: "", headers: {})
+
+        post "https://market.custom.org/bounces?sns_notification_token=#{APP_CONFIG.sns_notification_token}", params: incoming_data.to_json.to_s, headers: { 'x-amz-sns-message-type' => 'subscriptionconfirmation'}
+        expect(response.status).to eq(200)
+        assert_requested :get, "https://subscribe.example.com/confirm"
+      end
+
+      it 'does not open non-http schemes' do
+        incoming_data = JSON.parse('{
+            "SubscribeURL":"file://foo"
+          }')
+
+        post "https://market.custom.org/bounces?sns_notification_token=#{APP_CONFIG.sns_notification_token}", params: incoming_data.to_json.to_s, headers: { 'x-amz-sns-message-type' => 'subscriptionconfirmation'}
+        expect(response.status).to eq(400)
+      end
+
+      context "code_execution" do
+        before(:all) do
+          @tmp_file = Tempfile.new("ses_test")
+        end
+
+        after(:all) do
+          @tmp_file.close!
+        end
+
+        it 'does not allow code execution' do
+          incoming_data = JSON.parse("{
+              \"SubscribeURL\":\"| echo foo >  #{@tmp_file.path}\"
+            }")
+
+          post "https://market.custom.org/bounces?sns_notification_token=#{APP_CONFIG.sns_notification_token}", params: incoming_data.to_json.to_s, headers: { 'x-amz-sns-message-type' => 'subscriptionconfirmation'}
+          expect(response.status).to eq(400)
+          # Need to allow some time for the execution to happen, it seems
+          sleep 2
+          expect(@tmp_file.size()).to eq(0)
+        end
+      end
+    end
+  end
+
+  describe "test notifications" do
     it "when notificationType is bounce" do
       # Prepare
       @person = FactoryGirl.create(:person, id: "123abc", min_days_between_community_updates: 4)
