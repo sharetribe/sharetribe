@@ -72,7 +72,7 @@ class AmazonBouncesController < ApplicationController
   end
 
   def check_sns_token
-    if APP_CONFIG.sns_notification_token != params['sns_notification_token']
+    if APP_CONFIG.sns_notification_token.nil? || APP_CONFIG.sns_notification_token != params['sns_notification_token']
       return head :ok
     end
   end
