@@ -20,6 +20,44 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [10.2.0] - 2021-11-18
+
+### Added
+
+- New Admin panel additions and fixes, done through many many commits/PRs/branches that have `admin2` or `admin v2`in their title
+- Support for French overseas departments/regions IBAN [#4369](https://github.com/sharetribe/sharetribe/pull/4369)
+- Custom Landing Page icon picker [#12adad](https://github.com/sharetribe/sharetribe/commit/12adadc7734d22f0be610440b5e9f721114a9284)
+- Add new body and css fields to the Custom script feature [#46a066](https://github.com/sharetribe/sharetribe/commit/46a0660a5ff3fc864ba8f9e68a0fafd35aa83a5f)
+- Redirect an already logged in user to the home page when they visit the login page [#603eee](https://github.com/sharetribe/sharetribe/commit/603eeedad224376166d0b4a6ea7a9253f4fc1d3b)
+- Validation for the Google Analytics tracking ID field [#46aff6](https://github.com/sharetribe/sharetribe/commit/46aff666845a56787a7e2801acba8a54370c6ef6)
+
+### Changed
+
+- Don't display payment details banner reminder for deleted listings [#4371](https://github.com/sharetribe/sharetribe/pull/4371)
+- Cache fonts partial to avoid scss rendering on every page load [#4367](https://github.com/sharetribe/sharetribe/pull/4367) and [#f158cb9](https://github.com/sharetribe/sharetribe/commit/f158cb9dc61186d5fe9e785d0c738eb54e7d023f)
+- Minimum listing price refactor [#08b61a](https://github.com/sharetribe/sharetribe/commit/08b61af6d26613cf1d132d7c6b237b2161df1e5c)
+- Default first and last names values [#20b662](https://github.com/sharetribe/sharetribe/commit/20b66261753ce95a857fd72b8725e7887fa14874)
+- Update Facebook API graph version [#0a90bb](https://github.com/sharetribe/sharetribe/commit/0a90bb4801d12fd92826a457163bc5d8d1226d78)
+- Update font-family to use the same one everywhere [#41212e](https://github.com/sharetribe/sharetribe/commit/41212e8d1f08b4e73a967aa1231ed2b4f6cbb523)
+
+### Fixed
+- Fixed error message in incorrect location in signup form [#4360](https://github.com/sharetribe/sharetribe/pull/4360)
+- Fixed email notifications can be configured to use an unconfirmed address [#4362](https://github.com/sharetribe/sharetribe/pull/4362)
+- Fixed incorrect use of plural in a review date text on Profile pages [#4361](https://github.com/sharetribe/sharetribe/pull/4361)
+- Fixed wrong name in email notifications [#d66b90](https://github.com/sharetribe/sharetribe/commit/d66b900be0fce2b549f8f348b2eb244619e5ae0c)
+- Fixed UI overlay issue with profile picture on profile pages [#2075e9](https://github.com/sharetribe/sharetribe/commit/2075e9a093dea23d5c574397d679619cd1d50026)
+- Fixed incorrect commission fee shown on the transaction page for buyers if they are also admins [#9e0176](https://github.com/sharetribe/sharetribe/commit/9e017670a8d8e2afd87836be00e46b054a3e6256)
+- Fixed Facebook & LinkedIn logos too small on signup and login pages [#3fdff2](https://github.com/sharetribe/sharetribe/commit/3fdff202ca1e03e8c33d2948de5ff545ee34bc7e)
+- Fixed email sending feature producing error with certain sender names [#5b4a40](https://github.com/sharetribe/sharetribe/commit/5b4a40870e972239d2b6241710f03e592a3309bc)
+- Fixed Custom Landing Page - BrowserDetectVideoAutoplay is not defined [#55352e](https://github.com/sharetribe/sharetribe/commit/55352e769790571d8e25bb739facd87e84b03808)
+- Fixed checkout fails when the total of minimum seller + buyer fees is higher than the listing price [#fc077e](https://github.com/sharetribe/sharetribe/commit/fc077e123f05b1dda9e3463bc4f7efe819590a3f)
+- Fixed module is not defined error [#64f7d7](https://github.com/sharetribe/sharetribe/commit/64f7d7a3acbdbde8bbad2552471735666685aaf2)
+
+### Security
+
+- Upgrade Rails to 5.2.4.5 as well as gems [#4366](https://github.com/sharetribe/sharetribe/pull/4366)
+- Dependencies update [#4373](https://github.com/sharetribe/sharetribe/pull/4373), [#037932](https://github.com/sharetribe/sharetribe/commit/037932af4fda4edea518200391b3a74d301c2bec), [b1c10a](https://github.com/sharetribe/sharetribe/commit/b1c10a4bf5f44ae06f549f3a6b1951f4a8c59626), [#3e00b7](https://github.com/sharetribe/sharetribe/commit/3e00b77c89c006c279fc3758b692ab883677427c), [#cbf815](https://github.com/sharetribe/sharetribe/commit/cbf815a5fbbeeb5c7b3675ef69616d91363b826b), [#7e0eb9](https://github.com/sharetribe/sharetribe/commit/7e0eb94d2bc01ebe5f8e27c6e510631d004c8409), [#1b9d66](https://github.com/sharetribe/sharetribe/commit/1b9d669c05b7023246ce027cf4f7abca65ecde1b)
+
 ## [10.1.0] - 2021-03-17
 
 ### Added
