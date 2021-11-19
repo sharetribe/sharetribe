@@ -9,8 +9,11 @@ class AmazonBouncesController < ApplicationController
     amz_message_type = request.headers['x-amz-sns-message-type']
 
     if amz_message_type.to_s.downcase == 'subscriptionconfirmation'
-      send_subscription_confirmation request.raw_post
-      head :ok and return
+      if send_subscription_confirmation request.raw_post
+        head :ok and return
+      else
+        head :bad_request and return
+      end
     end
 
     if amz_message_type.to_s.downcase == 'notification'
@@ -34,10 +37,17 @@ class AmazonBouncesController < ApplicationController
   private
 
   def send_subscription_confirmation(request_body)
-    require 'open-uri'
     json = JSON.parse(request_body)
-    subscribe_url = json['SubscribeURL']
-    open(subscribe_url) # rubocop:disable Security/Open
+    subscribe_url = URI.parse(json['SubscribeURL'])
+    if ['http', 'https'].include?(subscribe_url.scheme)
+      subscribe_url.open
+    end
+  rescue URI::InvalidURIError => e
+    logger.info "SES send_subscription_confirmation: URI::InvalidURIError: #{e.message}"
+    return
+  rescue StandardError => e
+    logger.info "SES send_subscription_confirmation: #{e.message}"
+    return
   end
 
   def handle_bounces(msg)
@@ -62,7 +72,7 @@ class AmazonBouncesController < ApplicationController
   end
 
   def check_sns_token
-    if APP_CONFIG.sns_notification_token != params['sns_notification_token']
+    if APP_CONFIG.sns_notification_token.nil? || APP_CONFIG.sns_notification_token != params['sns_notification_token']
       return head :ok
     end
   end
