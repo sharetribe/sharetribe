@@ -1205,7 +1205,7 @@ es:
     privacy:
       private_marketplace: "Marketplace privado"
       header: "Contenido de la página de inicio del marketplace privado"
-      private: "Hacer el marketplace exclusivo con invitación (nuevos usuarios necesitan una invitación de otro usuario para poder registrarse)"
+      private: "Hacer el marketplace privado (usuarios deben iniciar sesión para poder ver los anuncios y los perfiles de otros usuarios)"
       info_text: "Este contenido se muestra en la página de inicio a los visitantes que no han iniciado sesión. Aquí puedes describir tu marketplace y el proceso para unirse."
       small_text: "Este es el contenido para %{language}. Para ver y editar el contenido en otros idiomas, cambia el idioma desde la barra de navegación."
     essentials:
