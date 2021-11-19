@@ -20,9 +20,13 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [10.2.1] - 2021-11-19
+
+### Security
+
 - [Critical] Fix OS command injection vulnerability in installations of
   Sharetribe Go that do not set explicitly the `sns_notification_token`
-  configuration variable (which is unset by default).
+  configuration variable (which is unset by default). Discoverer/Credits: Wang Sheng of State Grid Sichuan Electric Power Research Institute. [#5b844f](https://github.com/sharetribe/sharetribe/commit/5b844f8108c5458d89f0d7ba974f42d7917b5f80)
 
 ## [10.2.0] - 2021-11-18
 
