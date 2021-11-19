@@ -31,11 +31,35 @@ When you are ready to release a new version, follow these steps:
     git push origin :refs/tags/latest
     git tag -f -a latest -m latest
     ```
-
-1.  Push the tag
+	
+1.  Push the tags to the private Go repository:
 
     ```bash
-    git push --tags
+    git push origin refs/tags/v1.2.3
+    git push -f origin refs/tags/latest
+    ```
+    
+1.  Make sure you have a Git remote for the public Go repository:
+
+    ```bash
+    $ git remote -v
+    origin    git@github.com:sharetribe/go.git (fetch)
+    origin    git@github.com:sharetribe/go.git (push)
+    public    git@github.com:sharetribe/sharetribe.git (fetch)
+    public    git@github.com:sharetribe/sharetribe.git (push)
+    ```
+    
+    If not, add one:
+    
+    ```bash
+    git remote add public git@github.com:sharetribe/sharetribe.git
+    ```
+
+1.  Push the tags to the public Go repository:
+
+    ```bash
+    git push public refs/tags/v1.2.3
+    git push -f public refs/tags/latest
     ```
 
 1.  Go to [Github releases and draft a new release](https://github.com/sharetribe/sharetribe/releases/new)
