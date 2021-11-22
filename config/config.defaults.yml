@@ -163,11 +163,6 @@ default: &default_settings
   # This setting here is the server wide default, and it's used if no community specific setting is found.
   default_locale: en
 
-  # Facebook Connect
-  # If you want to use Facebook connect, enter the credentials here
-  fb_connect_id:
-  fb_connect_secret:
-
   # You can use Airbrake to track errors if you want.
   # You need to register an account and get an API key from airbrake.io
   use_airbrake: false
@@ -565,10 +560,6 @@ test:
   # Note above, if running tests disconnected from the internet
   login_domain:
   #"http://login.lvh.me:9887"
-
-  # Facebook Connect dummy credentials for tests
-  fb_connect_id: "123456789012345"
-  fb_connect_secret: "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456"
 
   # normally no point of submiting events from tests to Kissmetrics
   use_kissmetrics: false

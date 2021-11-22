@@ -236,8 +236,8 @@ class Person::OmniauthService
           strategy.options[:info_fields] = "name,email,last_name,first_name"
 
           if community.facebook_connect_enabled?
-            strategy.options[:client_id] = community.facebook_connect_id || APP_CONFIG.fb_connect_id
-            strategy.options[:client_secret] = community.facebook_connect_secret || APP_CONFIG.fb_connect_secret
+            strategy.options[:client_id] = community.facebook_connect_id
+            strategy.options[:client_secret] = community.facebook_connect_secret
           else
             # to prevent plain requests to /people/auth/facebook even when "login with Facebook" button is hidden
             strategy.options[:client_id] = ""
