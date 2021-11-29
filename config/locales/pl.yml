@@ -1498,7 +1498,7 @@ pl:
   feedback:
     feedback_subject: ~
     feedback_body: ~
-    unlogged_user: ~
+    unlogged_user: "Niezalogowany użytkownik"
     anonymous_user: ~
   community_memberships:
     access_denied:
@@ -1642,8 +1642,8 @@ pl:
       has_commented_listing_you_follow_in_kassi: "%{author} dodał komentarz do oferty %{listing}, którą obserwujesz w %{service_name}"
     new_message:
       view_message: "Zobacz wiadomość"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} wysłał Ci wiadomość. Odwiedź %{service_name} aby na nią odpowiedzieć."
+      you_have_a_new_message: "Masz nową wiadomość od %{sender_name} na %{service_name}"
     new_message_v2:
       headline: "masz wiadomość!"
       reply: ~
@@ -1776,7 +1776,7 @@ pl:
       welcome_to_marketplace: "Witaj w %{service_name}! Cieszymy się, że do nas dołączyłeś."
       love_marketplace_crew: "Pozdrawiamy, <br /><i>Ekipa %{service_name}</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Edytuj swoje ustawienia wiadomości tutaj"
     new_listing_by_followed_person:
       subject: "%{author_name} dodał nową ofertę w %{service_name}"
       has_posted_a_new_listing: "%{author_name} dodał nową ofertę:"
