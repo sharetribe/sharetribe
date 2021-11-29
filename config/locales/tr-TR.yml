@@ -1266,9 +1266,8 @@ tr-TR:
     paypal_fee_info:
       title: "PayPal işlem ücreti"
       body_text: |-
-          PayPal'i kullanarak ürün ödemelerini almak için geçerli olan standart oran %3,4 + 0,45 TL tutarındadır. PayPal ile aylık 4.500,00 TL tutarından daha fazla satış yapıyorsanız %2,4 + 0,45 TL gibi daha düşük oranlardan yararlanabilirsiniz. PayPal satış ücret oranlarını ve diğer indirimli oran ve ücretleri detaylı olarak incelemek için lütfen %{link_to_paypal} ziyaret ediniz.
-          
-          PayPal her alışverişten sonra size komisyon oranlarını detaylı gösteren bir eposta göndermektedir.
+          PayPal ödemelerinde %{service_name}  %{paypal_commission} komisyon alır. Her bir işlem başına minimum ücret %{minimum_transaction_fee} ABD dolarıdır. PayPal'ın ücretleri bu komisyona dahil değildir, bu nedenle %{service_name}  komisyonuna ek olarak her biri işlem için PayPal'ın ücretini de ödersiniz. PayPal'ın ücreti, aylık satış hacminize ve alıcının ikamet ettiği ülkeye bağlı olarak toplam satış fiyatının %2 ila %5'i arasındadır. Genel olarak, yurt içi satın alımların ücretleri uluslararası olanlardan daha düşüktür ve daha yüksek aylık satışlar size ücretlerde indirim sağlar.
+          PayPal hesabınıza giriş yapıp buraya %{link_to_paypal}  giderek tam ücretleri görebilirsiniz. Her satın alma işleminden sonra, tam ücreti gösteren bir makbuz alacaksınız.
       body_text_accept: ~
       link_to_paypal_text: buradan
     stripe_fee_info:
@@ -2093,7 +2092,7 @@ tr-TR:
     application:
       join_this_community: "Pazara katılın"
       read_more: "Devamını oku"
-      feedback: "%{service_name}'a mesaj gönder"
+      feedback: "%{service_name} ekibine mesaj gönder"
       dont_use_to_contact_support: ~
       feedback_forum: "geribildirim forumu"
       feedback_handle: Geribildirim
@@ -2407,7 +2406,7 @@ tr-TR:
         after_service_fee_you_will_get: "%{service_name} hizmet bedeli düşüldükten sonra %{sum_with_currency} tutarında ödeme alacaksınız."
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} toplam ücretten kesilecektir..."
         no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: "Biri ödeme yaptığında, bu tutar eksiltilerek hesabınıza geçer %{payment_fee_info_link}"
+        after_service_fee_you_will_get_payment_text: "Biri ödeme yaptığında, bu tutar  %{payment_fee_info_link} eksiltilerek hesabınıza geçer"
         payment_fee_info_link_text: "%{service_name} servis ücreti ve ödeme işlemleri ücreti"
         delivery: "Teslim Yöntemi"
         shipping: "Kargo:"
@@ -2637,15 +2636,15 @@ tr-TR:
   paypal_accounts:
     payout_info_title: "Ödeme bilgileri"
     paypal_account_email_connected: "<del>1. PayPal hesabını bağla</del> Tamamlandı!"
-    payout_info_paypal: "%{service_name}, ödeme kuruluşu PayPal ile çalışmaktadır. Bir %{create_paypal_account_link}  ilanlarınızdan ödeme almanız için zorunludur ve %{service_name} 'a bağlanması gerekir."
+    payout_info_paypal: "%{service_name}, ödeme kuruluşu PayPal ile çalışmaktadır. Bir %{create_paypal_account_link}  ilanlarınız dan ödeme almanız için zorunludur ve %{service_name} pazar yerine bağlanması gerekir."
     paypal_billing_agreement_made: "<del>2. %{service_name} pazar yerine işletim ücreti kesme izni ver</del> Tamamlandı!"
-    commission_permission_needed: "Ayrıca bir işlem ücreti alınması için %{service_name}'a izin vermeniz gerekir."
+    commission_permission_needed: "Ayrıca bir işlem ücreti alınması için %{service_name} pazar yerine izin vermeniz gerekir."
     create_paypal_account_link_text: "PayPal hesabı"
     connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: "PayPal hesabınız ödeme kabul ediyor olmalıdır. PayPal ticari hesabı gerekebilir."
     paypal_receive_funds_info_australia_only: "Hesabınızı %{service_name} 'a bağlamaya çalışırken bir hata görürseniz ya da %{upgrade_paypal_account_link} 'e veyahut (eğer şahıs iseniz), yeni bir Premier hesabı oluşturun. Her iki hesap türü de tamamen ücretsizdir."
-    paypal_receive_funds_info: "Hesabınızı %{service_name}'a bağlamaya çalışırken bir hata görürseniz %{upgrade_paypal_account_link} Ücretsiz ve kolaydır. Şahıs iseniz, PayPal adınızı İşletme adı olarak kullanmanız önerilir."
+    paypal_receive_funds_info: "Hesabınızı %{service_name} pazar yerine bağlamaya çalışırken bir hata görürseniz %{upgrade_paypal_account_link} Ücretsiz ve kolaydır. Şahıs iseniz, PayPal adınızı İşletme adı olarak kullanmanız önerilir."
     upgrade_paypal_account_link_text: "oturum açın ve PayPal hesabınızı bir işletme hesabına yükseltin"
     admin_account_not_connected: ~
     contact_admin_link_text: ~
@@ -2666,7 +2665,7 @@ tr-TR:
       follow_steps: "Ödeme almaya başlamak için aşağıdaki adımları izleyin:"
       connect_paypal_account_title: "PayPal hesabınızı bağlayın"
       connect_paypal_account_title_with_step: "Adım%{current_step}/%{total_steps}: PayPal hesabınızı bağlayın"
-      connect_paypal_account_instructions: "PayPal'da oturum açmak ve PayPal hesabınızı bağlamak için aşağıdaki butona tıklayın %{service_name} ."
+      connect_paypal_account_instructions: "PayPal'e giriş yapmak ve PayPal hesabınızı %{service_name} pazar yerine bağlamak için aşağıdaki butona tıklayın."
       connect_paypal_account: "PayPal hesabınızı bağlayın"
       paypal_account_billing_agreement_with_step: "Adım%{current_step}/%{total_steps}: İşlem ücreti için izin verin"
       paypal_account_billing_agreement_info_both: "%{service_name} sitesinde satış yaptıktan sonra, toplamın %{commission_from_seller} oranında servis ücreti, kargo ücreti hariç, ve minimum ücret olan %{minimum_commission} PayPal hesabınızdan düşülecektir. %{service_name} sitesinde ödeme alabilmek için buna izin vermeniz gerekmektedir. Ücrete %{paypal_info_link} dahil değildir."
@@ -2866,31 +2865,31 @@ tr-TR:
         status_confirmed: Onaylandı
         status_pending: Beklemede
     notifications:
-      email_from_admins: "%{service_name} sitesinden iletişim emailleri almak istiyorum."
+      email_from_admins: "%{service_name} ekibinden ara sıra e-posta almayı kabul ediyorum"
       i_want_to_get_email_notification_when: "...e-posta ile haberdar edilmek istiyorum."
       newsletters: Bültenler
       community_updates: Bültenler
-      email_about_confirm_reminders: "...bir talebin tamamlandığını onaylamayı unuttum"
-      email_about_new_comments_to_own_listing: "...biri teklif veya talebime yorum yaptı"
-      email_about_new_messages: "...biri bana mesaj gönderdi"
-      email_about_new_received_testimonials: "...biri bana geri bildirim yaptı"
-      email_about_testimonial_reminders: "...bir etkinliğe geri bildirim bırakmayı unuttum"
+      email_about_confirm_reminders: "...bir talebin tamamlandığını onaylamayı unuttuğumda"
+      email_about_new_comments_to_own_listing: "...biri ilanıma yorum yaparken"
+      email_about_new_messages: "...biri bana mesaj gönderirken"
+      email_about_new_received_testimonials: "...biri bana geri bildirim yaparken"
+      email_about_testimonial_reminders: "...bir talebe geri bildirim yapmayı unuttuğumda"
       email_daily_community_updates: "Yeni ilanlardan beni günlük olarak email ile bilgilendir"
       email_weekly_community_updates: "Yeni ilanlardan beni haftalık olarak email ile bilgilendir"
-      do_not_email_community_updates: "Bana güncelleme emaili gönderme"
-      email_when_conversation_accepted: "...biri teklif ya da talebimi kabul etti"
-      email_when_conversation_rejected: "...biri teklif ya da talebimi reddetti"
-      email_about_completed_transactions: "...biri teklif ya da talebimi tamamlandı olarak işaretledi"
-      email_about_new_payments: "...yeni ödeme aldım"
-      email_about_new_listings_by_followed_people: "...takip ettiğim bir kişi yeni bir ilan ekleyince"
+      do_not_email_community_updates: "Bana haber bültenleri gönderme"
+      email_when_conversation_accepted: "...biri teklif veya isteğimi kabul ederken"
+      email_when_conversation_rejected: "...biri teklif veya isteğimi reddederken"
+      email_about_completed_transactions: "...biri siparişimi tamamlandı olarak işaretlerken"
+      email_about_new_payments: "...yeni bir ödeme alırken"
+      email_about_new_listings_by_followed_people: "...takip ettiğim biri yeni bir ilan eklerken"
       unsubscribe_succesful: "Abonelik sonlandırıldı"
       unsubscribe_info_text: "Artık bu e-postaları almayacaksınız. %{service_name}'den hangi e-postaları almak istediğinizi düzenlemek için %{settings_link}'e göz atın ya da %{homepage_link}'ya dönün."
       settings_link: ayarlar
       homepage_link: anasayfa
       unsubscribe_unsuccesful: "Abonelik sonlandırılamadı"
       unsuccessful_unsubscribe_info_text: "Bunun sebebi abonelik sonlandırma linkinin eski ya da bozuk olması olabilir. Soldaki butondan bize ulaşın ve aboneliğinizi sonlandıralım ya da email ayarlarının düzenlemek için giriş yapın."
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "...takip ettiğim tartışma ilanına yeni bir yorum yapılırken"
+      email_listing_updated: "...yorum yaptığım bir ilana güncelleme yapılırken"
     profile:
       about_you: Hakkınızda
       city: Şehir

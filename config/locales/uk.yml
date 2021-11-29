@@ -52,13 +52,13 @@ uk:
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
-        community_slogan_display: ~
+        community_slogan_display: "Показати слоган на головній сторінці або Custom Landing Page"
         edit_community_slogan_description: ~
-        edit_community_slogan_description_hideable: ~
+        edit_community_slogan_description_hideable: "Це показано у браузерах, пошукових системах та соціальних мережах. Ви також можете відобразити його на головній сторінці вашого маркетплейсу для користувачів, які не увійшли до системи. %{see_how_it_looks_like}."
         community_description: ~
-        community_description_display: ~
+        community_description_display: "Показати опис на головній сторінці або Custom Landing Page"
         edit_community_description_description: ~
-        edit_community_description_description_hideable: ~
+        edit_community_description_description_hideable: "Це показано у браузерах, пошукових системах та соціальних мережах. Ви також можете відобразити його на головній сторінці маркетплейсу для користувачів, які не увійшли до системи.%{see_how_it_looks_like}."
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
@@ -80,8 +80,8 @@ uk:
         transaction_agreement_checkbox_label_description: ~
         transaction_agreement_text_header: ~
         transaction_agreement_description: ~
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
+        terms_privacy_policy_and_static_content: "Умови, політика конфіденційності та статичний контент"
+        terms_privacy_policy_and_static_content_infotext: "Можна редагувати до чотирьох сторінок статичного контенту. Користувачі можуть знайти сторінки, натиснувши посилання \"Про програму\" у верхній панелі."
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -104,8 +104,8 @@ uk:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
-        we_have_you_covered: ~
-        cover_photo_ready_made: ~
+        we_have_you_covered: "Ми вас піддтримаємо"
+        cover_photo_ready_made: "Ви шукаєте готові та оптимізовані зображення обкладинки? Або ви хотіли б отримати натхнення та веб-сайти, де можна знайти чудові обкладинки?%{link}!"
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
@@ -175,7 +175,7 @@ uk:
       available_languages:
         bg: Болгарська
         ca: Каталонська
-        cs: ~
+        cs: Чеська
         da-DK: ~
         de: ~
         el: ~
@@ -192,21 +192,21 @@ uk:
         hu: Угорська
         it: ~
         ja: ~
-        ko: ~
+        ko: Корейська
         lt: Литовська
         nb: ~
         nl: ~
-        pl: ~
+        pl: Польська
         pt-BR: ~
         pt-PT: ~
         ru: ~
         sk-SK: Словацька
         sv: ~
-        th-TH: ~
+        th-TH: "Тайська (Таїланд)"
         tr-TR: ~
-        vi: ~
+        vi: В'єтнамська
         zh: ~
-        zh-TW: ~
+        zh-TW: "Китайський (Тайвань)"
       settings:
         settings: ~
         general: ~
@@ -215,7 +215,7 @@ uk:
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
-        allow_free_conversations: ~
+        allow_free_conversations: "Дозволити користувачам вільно спілкуватися один з одним"
         search_preferences: ~
         search_and_location_preferences: ~
         default_search_type: ~
@@ -241,7 +241,7 @@ uk:
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
-        buyer_transaction_fees_are_only_supported_with_stripe: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: "Плата за транзакції покупця підтримується лише зі Stripe. Ви не зможете використовувати PayPal, якщо ви налаштуєте комісію за транзакцію для покупця за допомогою Stripe."
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -255,8 +255,8 @@ uk:
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
         payment_preferences: ~
-        pre_approved_listings: ~
-        email_admins_about_new_transactions: ~
+        pre_approved_listings: "Перевірте всі оголошення до публікації"
+        email_admins_about_new_transactions: "При кожному запуску нової транзакції надсилати адміністраторам email-и"
       manage_members:
         manage_members: ~
         email: ~
@@ -283,22 +283,22 @@ uk:
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          admin: ~
-          banned: ~
-          posting_allowed: ~
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
-        this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
+          all: "Усі статуси"
+          selected: "Вибрані статуси: %{count}"
+          selected_js: "Вибрані статуси: "
+          admin: Адмін
+          banned: Відключено
+          posting_allowed: "Розміщення дозволено"
+          accepted: Прийнято
+          unconfirmed: "Не підтверджено"
+          pending: Очікується
+        this_user_hasnt_confirmed_their_email_address: "Цей користувач не підтвердив свою адресу електронної пошти. Можливо, користувач не отримав підтвердження електронною поштою. Натисніть кнопку повторного надсилання, якщо ви хочете відправити його знову."
+        unconfirmed_user: "не підтверджений користувач: %{name}"
+        resend: "Надіслати повторно"
+        cancel: Відмінити
         confirm: Підтвердити
-        user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+        user_didnt_complete_the_signup_process: "Цей користувач зареєструвався через соціальний обліковий запис, але не завершив процес реєстрації. Після підключення облікового запису для входу до системи користувачам все одно необхідно прийняти умови використання та заповнити всі обов'язкові поля користувача."
+        pending_user: "В очікуванні: %{name}"
       new_layout:
         new_layout: ~
         description_roadmap_new: "Коли нові компоненти стануть доступними для вашого маркетплейсу, ви можете вибрати, чи хочете розпочати використання нового компонента чи продовжити використання старого. Ви можете змінити вибір у будь-який момент на цій сторінці. Рекомендується завжди використовувати нову версію, оскільки в якийсь момент старі компоненти можуть більше не використовуватись. Якщо компонент, який ви зараз використовуєте, планують прибрати, з вами зв’яжуться заздалегідь."
@@ -311,12 +311,12 @@ uk:
         social_media: ~
         logo: ~
         logo_info: ~
-        social_media_title: ~
-        social_media_title_info: ~
-        link_for_facebook: ~
-        link_for_linkedin: ~
-        link_for_twitter: ~
-        social_media_description: ~
+        social_media_title: "Назва соціальної мережі"
+        social_media_title_info: "Цей текст буде відображатися у соціальних мережах для Facebook, Twitter та LinkedIn, як тільки хтось опублікує ваш сайт. Ви можете переглянути, як він виглядає %{facebook_preview_link}, %{twitter_preview_link} та %{linkedin_preview_link}."
+        link_for_facebook: "для Facebook"
+        link_for_linkedin: "для LinkedIn"
+        link_for_twitter: "для Twitter"
+        social_media_description: "Опис соціальної мережі"
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -324,7 +324,7 @@ uk:
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
-        facebook_developers_dashboard: ~
+        facebook_developers_dashboard: "Панель розробників Facebook"
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
@@ -334,73 +334,73 @@ uk:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
-        google_connect: ~
-        google_instructions_link_text: ~
-        google_developers_console: ~
-        google_connect_info_text_with_instructions: ~
-        google_connect_info_text: ~
-        enable_google_login: ~
-        google_connect_id: ~
-        google_connect_secret: ~
-        linkedin_connect: ~
-        linkedin_instructions_link_text: ~
-        linkedin_developers_dashboard: ~
-        linkedin_connect_info_text_with_instructions: ~
-        linkedin_connect_info_text: ~
-        enable_linkedin_login: ~
-        linkedin_connect_id: ~
-        linkedin_connect_secret: ~
+        google_connect: "Google Sign-In"
+        google_instructions_link_text: "Зверніться до інструкцій з налаштування до Google Sign-In."
+        google_developers_console: "Приставка розробників Google"
+        google_connect_info_text_with_instructions: "Щоб увімкнути Google Sign-In, створіть проект для свого ринку в %{dashboard_link}. Додайте згенерований ID та секретний ключ проекту сюди.%{instructions_link}"
+        google_connect_info_text: "Щоб увімкнути Google Sign-In, створіть проект для свого ринку в %{dashboard_link}. Додайте згенерований ID та секретний ключ проекту сюди."
+        enable_google_login: "Дозволити користувачам входити до свого облікового запису Google"
+        google_connect_id: "Google Client ID"
+        google_connect_secret: "Google Client secret"
+        linkedin_connect: "LinkedIn Sign In"
+        linkedin_instructions_link_text: "Дивитися інструкції з налаштування входу до LinkedIn."
+        linkedin_developers_dashboard: "Панель інструментів розробників LinkedІn"
+        linkedin_connect_info_text_with_instructions: "Щоб увімкнути LinkedIn Sign-In, створіть проект для свого ринку в:%{dashboard_link}. Додайте згенерований ID та секретний ключ проекту сюди.%{instructions_link}"
+        linkedin_connect_info_text: "Щоб увімкнути LinkedIn Sign-In, створіть проект для свого ринку в %{dashboard_link}. Додайте згенерований ID та секретний ключ проекту сюди."
+        enable_linkedin_login: "Дозволити користувачам входити до системи зі своїм аккаунтом LinkedIn"
+        linkedin_connect_id: "ID клієнта LinkedIn"
+        linkedin_connect_secret: "LinkedIn Client Secret"
       seo_settings:
-        seo: ~
+        seo: SEO
         title: ~
         meta_title_label: ~
-        meta_title_info: ~
-        meta_title_link_text: ~
+        meta_title_info: "Вміст цього тега пропонується пошуковим системам та відображається на сторінках результатів у вигляді клікабельного заголовка. %{link} %{vars}."
+        meta_title_link_text: "Дізнайтесь більше про метатеги."
         meta_description_label: ~
-        meta_description_info: ~
-        meta_description_link_text: ~
-        search_title: ~
-        search_meta_title_label: ~
-        search_meta_title_info: ~
-        search_meta_title_link_text: ~
-        search_meta_description_label: ~
-        search_meta_description_info: ~
-        search_meta_description_link_text: ~
-        listing_title: ~
-        listing_meta_title_label: ~
-        listing_meta_title_info: ~
-        listing_meta_title_link_text: ~
-        listing_meta_description_label: ~
-        listing_meta_description_info: ~
-        listing_meta_description_link_text: ~
-        category_title: ~
-        category_meta_title_label: ~
-        category_meta_title_info: ~
-        category_meta_title_link_text: ~
-        category_meta_description_label: ~
-        category_meta_description_info: ~
-        category_meta_description_link_text: ~
-        profile_title: ~
-        profile_meta_title_label: ~
-        profile_meta_title_info: ~
-        profile_meta_title_link_text: ~
-        profile_meta_description_label: ~
-        profile_meta_description_info: ~
-        profile_meta_description_link_text: ~
-        sitemap_label: ~
-        sitemap_info: ~
-        sitemap_info_link_text: ~
-        sitemap_info_public: ~
-        sitemap_info_private: ~
-        robots_label: ~
-        robots_info: ~
-        robots_info_link_text: ~
-        robots_info_2: ~
+        meta_description_info: "Вміст цього тега пропонується пошуковим системам і відображається під синіми клікабельними посиланнями на сторінці результатів пошуку.%{link} %{vars}."
+        meta_description_link_text: "Дізнайтесь більше про метатеги."
+        search_title: "Сторінка результатів пошуку"
+        search_meta_title_label: "Метатег заголовка сторінки результатів пошуку"
+        search_meta_title_info: "Вміст цього тега пропонується пошуковим системам та відображається на сторінках результатів у вигляді клікабельного заголовка. %{link} %{vars}."
+        search_meta_title_link_text: "Дізнайтесь більше про метатеги."
+        search_meta_description_label: "Метатег опису сторінки результатів пошуку"
+        search_meta_description_info: "Вміст цього тега пропонується пошуковим системам і відображається під синіми клікабельними посиланнями на сторінці результатів пошуку.%{link} %{vars}."
+        search_meta_description_link_text: "Дізнайтесь більше про метатеги."
+        listing_title: "Сторінка оголошень"
+        listing_meta_title_label: "Метатег заголовка сторінки оголошення"
+        listing_meta_title_info: "Вміст цього тега пропонується пошуковим системам та відображається на сторінках результатів у вигляді клікабельного заголовка. %{link} %{vars}."
+        listing_meta_title_link_text: "Дізнайтесь більше про метатеги."
+        listing_meta_description_label: "Метатег опису сторінки оголошень"
+        listing_meta_description_info: "Вміст цього тега пропонується пошуковим системам і відображається під синіми клікабельними посиланнями на сторінці результатів пошуку.%{link} %{vars}."
+        listing_meta_description_link_text: "Дізнайтесь більше про метатеги."
+        category_title: "Сторінка категорії"
+        category_meta_title_label: "Метатег заголовка сторінки категорії"
+        category_meta_title_info: "Вміст цього тега пропонується пошуковим системам та відображається на сторінках результатів у вигляді клікабельного заголовка. %{link} %{vars}."
+        category_meta_title_link_text: "Дізнайтесь більше про метатеги."
+        category_meta_description_label: "Метатег опису сторінки категорії"
+        category_meta_description_info: "Вміст цього тега пропонується пошуковим системам і відображається під синіми клікабельними посиланнями на сторінці результатів пошуку. %{link} %{vars} ."
+        category_meta_description_link_text: "Дізнайтесь більше про метатеги."
+        profile_title: "Сторінка профілю"
+        profile_meta_title_label: "Метатег заголовка сторінки профілю"
+        profile_meta_title_info: "Вміст цього тега пропонується пошуковим системам і відображається на сторінках результатів у вигляді клікабельного заголовка.%{link} %{vars}."
+        profile_meta_title_link_text: "Дізнайтеся більше про метатеги."
+        profile_meta_description_label: "Метатег опису сторінки профілю"
+        profile_meta_description_info: "Вміст цього тега пропонується пошуковим системам і відображається під синіми клікабельними посиланнями на сторінці результатів пошуку.%{link} %{vars}."
+        profile_meta_description_link_text: "Дізнайтеся більше про метатеги."
+        sitemap_label: "Карта сайту"
+        sitemap_info: "Карти сайту - це простий спосіб інформувати пошукові системи про сторінки вашого сайту, доступні для сканування.%{link}."
+        sitemap_info_link_text: "Докладніше про файл XML Sitemap"
+        sitemap_info_public: "Карта сайту автоматично створюється для вашого ринку: вона містить до 500 останніх записів на вашому сайті. Ви можете отримати доступ до своєї картки сайту за адресою %{link}."
+        sitemap_info_private: "Оскільки ваш ринок є приватним, мапа сайту відсутня."
+        robots_label: Robots.txt
+        robots_info: "Robots.txt - це текстовий файл, який інструктує веб-роботів (зазвичай роботи пошукових систем), як сканувати сторінки на вашому сайті.%{link}."
+        robots_info_link_text: "Дізнайтесь більше про файл robots.txt"
+        robots_info_2: "Файл robots.txt створюється автоматично для вашого ринку. Ви можете отримати доступ до robots.txt на адресу %{link}."
         google_search_console: "Google Search Console"
         google_search_console_paragraph1: "Google Search Console пропонує інструменти та звіти, які допоможуть вам оцінити пошуковий трафік і ефективність вашого сайту, а також вирішити проблеми, пов’язані з результатами пошуку Google."
         google_search_console_these_instructions: "ці інструкції"
         google_search_console_paragraph2: "Хороша ідея - додати свій веб-сайт до Google Search Console. Це займає лише кілька хвилин із %{link}."
-        save: ~
+        save: "Зберегти налаштування"
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -417,13 +417,13 @@ uk:
         gtm_paragraph_2: "Оскільки Sharetribe також покладається на Менеджер тегів Google, вам слід %{link}"
         learn_how_to_configure_gtm: "дізнайтеся, як налаштувати GTM для вашого Go Marketplace"
       logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
+        title: "Лінк на логотип"
+        info: "Ви можете налаштувати посилання на логотип (і домашню кнопку за замовчуванням у верхній панелі меню). За замовчуванням логотип переносить користувачів на домашню сторінку або цільову сторінку користувача."
+        url: URL
+        placeholder: "https://www.example.com"
       menu_links:
         menu_links: ~
-        menu_links_display: ~
+        menu_links_display: "Відображення посилань меню"
         save: ~
         add_menu_link: ~
         title_placeholder: ~
@@ -437,14 +437,14 @@ uk:
         max_number_of_links_info: ~
         about_page: ~
       default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
+        title: "Посилання меню за замовчуванням"
+        about_link_title: "Про нас"
+        contact_link_title: "Зв'яжіться з нами"
+        invite_link_title: "Запросіть нових учасників"
+        info: "За промовчанням посилання на наступні сторінки більше не відображаються ніде на вашому ринку: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Показати посилання на <i>About</i> та інші статичні сторінки"
+        display_contact: "Показати посилання на сторінці<i> Зв'язатися з нами</i>сторінка"
+        display_invite: "Показати посилання на сторінку<i>Запросити нових учасників</i>сторінка"
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -453,22 +453,22 @@ uk:
         export_all_as_csv: ~
         processing_export: ~
         transactions: ~
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search_by_title_parties: "Пошук назви транзакції чи залучених сторін"
+        search: Пошук
+        reset_search: "Показати усі"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
+          all: "Усі статуси"
+          selected: "Вибрані статуси:  %{count}"
+          selected_js: "Вибрані статуси: "
+          free: "Безкоштовна транзакція"
+          confirmed: Завершено
+          paid: Оплачено
+          canceled: Відхилено
           disputed: Оскаржено
-          preauthorized: ~
-          rejected: ~
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
+          preauthorized: "Попередньо авторизований"
+          rejected: Відхилено
+          payment_intent_requires_action: Очікується
+          payment_intent_action_expired: "Термін дії закінчився"
           refunded: "Кошти повернуто"
           dismissed: Відхилено
         headers:
@@ -521,9 +521,9 @@ uk:
             disputed: Оскаржено
             initiated: ~
             pending_ext: ~
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
-            payment_intent_failed: ~
+            payment_intent_requires_action: Очікується
+            payment_intent_action_expired: "Термін дії закінчився"
+            payment_intent_failed: "Stripe оплата не вдалась"
             refunded: "Кошти повернуто"
             dismissed: Відхилено
         not_available: ~
@@ -538,18 +538,18 @@ uk:
           other_party: ~
         participants: ~
         profile: ~
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
+        search_by_keyword: "Пошук на ім'я, електронну пошту або ключове слово"
+        search: Пошук
+        reset_search: "Показати усі"
+        for_keyword: "для: <b>%{keyword}</b>"
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
-        search_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
+        search_keyword: "Пошук на ім'я або ключове слово"
+        search: Пошук
+        reset_search: "Показати усі"
+        for_keyword: "для: <b>%{keyword}</b>"
         headers:
           transaction: ~
           author: ~
@@ -563,15 +563,15 @@ uk:
           published: ~
           blocked: ~
         status_filter:
-          selected: ~
-          all: ~
-          published: ~
-          positive: ~
-          negative: ~
-          skipped: ~
-          waiting: ~
-          blocked: ~
-          selected_js: ~
+          selected: "Вибрані фільтри: %{count}"
+          all: Фільтри
+          published: Опубліковано
+          positive: Позитивний
+          negative: Негативний
+          skipped: Пропущено
+          waiting: Очікується
+          blocked: Заблоковано
+          selected_js: "Вибрані фільтри: "
         form:
           review_text: ~
           save: ~
@@ -581,35 +581,35 @@ uk:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
-          unskip: ~
-          if_you_unskip_the_review: ~
-          they_will_not_be_notified_automatically: ~
+          unskip: Скасувати
+          if_you_unskip_the_review: "Якщо ви скасуєте відгук, користувач зможе опублікувати ще один відгук."
+          they_will_not_be_notified_automatically: "Вони не будуть автоматично оповіщені."
       invitations:
-        invitations: ~
+        invitations: Запрошення
         used:
-          "yes": ~
-          "no": ~
+          "yes": Так
+          "no": Ні
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: "Відправлено від"
+          message: Повідомлення
+          sent_to: "Відправити на"
+          used: Використано
+          date_sent: "Дата відправки"
       listings:
         listings: ~
-        search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
-        export_all_as_csv: ~
-        processing_export: ~
+        search_by_title_author_category: "Пошук за назвою оголошення, автором або назвою категорії"
+        search: Пошук
+        reset_search: "Показати усі"
+        export_all_as_csv: "Експортувати всі як CSV"
+        processing_export: "Обробка експорту до CSV ..."
         status:
-          all: ~
-          selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
-          approval_pending: ~
-          approval_rejected: ~
+          all: "Усі статуси"
+          selected_js: "Вибрані статуси: "
+          open: Відчинено
+          closed: Зачинено
+          expired: "Термін дії закінчився"
+          approval_pending: Очікується
+          approval_rejected: Відхилено
         headers:
           title: ~
           author: ~
@@ -620,50 +620,50 @@ uk:
         open: ~
         closed: ~
         expired: ~
-        approved: ~
-        approval_pending: ~
-        approval_rejected: ~
+        approved: Схвалено
+        approval_pending: Очікується
+        approval_rejected: Відхилено
         form:
-          this_listing_has_not_not_been_approved_yet: ~
-          approve: ~
-          reject: ~
-          cancel: ~
+          this_listing_has_not_not_been_approved_yet: "Це оголошення ще не було схвалено. Тепер ви можете вирішити схвалити або відхилити оголошення. Якщо ви затвердите оголошення, воно буде доступним всім користувачам. Якщо ви відхиляєте оголошення, воно не буде публічним."
+          approve: Схвалити
+          reject: Відмовити
+          cancel: Відмінити
       user_fields:
         user_fields: ~
       footer:
-        footer: ~
-        offer_pro: ~
-        upgrade_plan_link: ~
-        menu_links: ~
-        language: ~
-        title: ~
-        url: ~
-        add: ~
-        save: ~
-        footer_style: ~
-        footer_copyright: ~
-        footer_enabled: ~
-        social_links: ~
-        title_placeholder: ~
-        url_placeholder: ~
+        footer: "Нижній колонтитул"
+        offer_pro: "Налаштуйте та видаліть всі бренди Sharetribe з нижнього колонтитулу вашого маркетплейсу за допомогою %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "оновлення до Pro плану або вище"
+        menu_links: "Лінки нижнього колонтитулу"
+        language: Мова
+        title: Назва
+        url: URL
+        add: "Додати нове посилання в нижній колонтитул"
+        save: "Зберегти налаштування"
+        footer_style: "Стиль нижнього колонтитулу"
+        footer_copyright: "Авторське право нижнього колонтитулу"
+        footer_enabled: "Нижній колонтитул увімкнено"
+        social_links: "Соціальні лінки нижнього колонтитулу"
+        title_placeholder: "Назва лінку"
+        url_placeholder: "https://www.example.com/username"
         style:
-          dark: ~
-          light: ~
-          marketplace_color: ~
-          logo: ~
+          dark: Темний
+          light: Світлий
+          marketplace_color: "Основний колір маркетплейсу"
+          logo: Логотип
         social:
-          title: ~
-          url: ~
+          title: Назва
+          url: URL
       domain:
-        domain: ~
-        marketplace_domain: ~
-        offer_pro: ~
-        upgrade_pro_plan_link: ~
-        your_marketplace_address_is: ~
-        would_you_like_to_change_address: ~
-        contact_us: ~
-        you_can_now_use_a_custom_domain: ~
-        would_you_like_to_change_domain: ~
+        domain: Домен
+        marketplace_domain: "Домен маркетплейсу"
+        offer_pro: "Налаштувати власний домен за допомогою %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "оновлення до Pro плану або вище"
+        your_marketplace_address_is: "Адреса вашого проекту: %{address}"
+        would_you_like_to_change_address: "Чи хотіли б ви змінити адресу свого проекту? %{contact_us}!"
+        contact_us: "Зв'яжіться з нами"
+        you_can_now_use_a_custom_domain: "З вашим поточним планом ви можете тепер включити власний домен. Продовжуйте налаштувати. %{contact_us}!"
+        would_you_like_to_change_domain: "Бажаєте змінити свій домен користувача на маркетплейсі? %{contact_us}!"
         change_your_sharetribe_domain: "Змініть свій домен Sharetribe"
         only_letters_numbers_and_hyphens_can_be_used: "Можна використовувати лише літери, цифри та дефіси. Будьте обережні! Ваш старий домен стане доступним для використання всіма, і він не буде перенаправляти на новий домен."
         when_you_change_your_sharetribe_domain: "Коли ви змінюєте домен Sharetribe, всі ваші URL-адреси автоматично змінюються. Ви будете перенаправлені на нову адресу вашого маркетплейсу. Вам і користувачам доведеться знову ввійти в аккаунти. Ваш попередній домен маркетплейсу жодним чином не буде пов’язано або перенаправлено на новий. Старий домен стане доступним для використання іншими."
@@ -702,56 +702,56 @@ uk:
         this_domain_is_not_configured_correctly: "Цей домен налаштовано неправильно. Це означає, що цей домен не буде переадресовувати на ваш маркетплейс. Переконайтеся, що записи DNS домену налаштовані правильно, і перевірте це ще раз, якщо ви хочете, щоб цей домен переадресовував на вашу основну адресу. Якщо ви не хочете переадресації, натисніть «Почати використовувати користувацький домен»."
         start_using_the_custom_domain: "Почати використовувати користувацький домен"
       landing_pages:
-        landing_pages: ~
+        landing_pages: Лендінг
         info_1: "Стартова торінка, мабуть, найважливіша сторінка вашого макретплейсу. Це перша сторінка, яку бачать відвідувачі – наче вхідні двері вашого будинку. У вас є лише кілька секунд, щоб переконати нових відвідувачів, що їм слід ознайомитися з вашим сайтом. Сторінка має бути привабливою, а ваша цінна пропозиція має бути зрозумілою та привабливою."
-        info_2: ~
+        info_2: "Використовуйте цей редактор для того, щоб змінити сторінку лендінгу, коли забажаєте!"
         info_2_help_center: "Стаття довідкового центру"
-        info_3: ~
-        info_4: ~
-        editor_title: ~
-        editor_info: ~
-        preview: ~
-        set_live: ~
-        add_new_section: ~
-        select_section_type: ~
+        info_3: "Якщо ви бажаєте мати повністю налаштовану під вашу мету посадкову сторінку для свого маркетплейсу, ви можете придбати розширення за 99 доларів на місяць."
+        info_4: "Прочитайте %{link}, щоб вивчити, як працює редактор посадкової сторінки, дізнатися про різні розділи та про те, як їх редагувати."
+        editor_title: "Редактор лендінгу"
+        editor_info: "Тут можна відредагувати розділи лендінгу. На даний момент для лендінгу можна використовувати лише одну мову. Розташування розділів \"Hero\" та \"Footer\" змінити не можна"
+        preview: "Попередній перегляд лендінгу"
+        set_live: Опублікувати
+        add_new_section: "Додати новий розділ:"
+        select_section_type: "Виберіть тип розділу..."
         this_version_is_not_released: "Вам потрібно внести зміни, щоб запустити нову версію лендінгу"
         latest_version_released: "Останню версію вашо лендінгу запущено! %{link}!"
-        check_it_out: ~
+        check_it_out: "Перевірте це"
         form:
-          save: ~
+          save: Зберегти
           cancel: Відміна
         sections:
-          identifier: ~
-          kind: ~
-          new: ~
-          edit: ~
-          remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: ~
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
+          identifier: "ID розділу"
+          kind: "Тип розділу"
+          new: "Новий розділ"
+          edit: "Редагувати розділ %{section_id}"
+          remove_section_confirmation: "Видалити розділ %{section_id} та його дані? Цю операцію не можна скасувати."
+          info_single_column: "Інформація - Одна колонка"
+          info_multi_column_2: "Інформація - Дві колонки"
+          info_multi_column_3: "Інформація - Три колонки"
+          listings: Списки
+          categories: Категорії
+          hero: Персонаж
+          locations: Розташування
+          video: Відео
           new_section:
-            categories: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Додавання нового розділу \"Категорії\""
+            info_single_column: "Додавання нового розділу \"Інформація - Одна колонка\""
+            info_multi_column_2: "Додавання нового розділу \"Інформація - Дві колонки\""
+            info_multi_column_3: "Додавання нового розділу \"Інформація - Три колонки\""
+            listings: "Додавання нового розділу \"Оголошення\""
+            locations: "Додавання нового розділу \"Розташування\""
+            video: "Додавання нового розділу \"Відео\""
           edit_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
+            categories: "Редагування розділу \"Категорії\""
+            footer: "Редагування розділу \"Нижній колонтитул\""
+            hero: "\"Персонаж\" варіант розділу"
+            info_single_column: "\"Інформація - Одна колонка\" варіант розділу"
+            info_multi_column_2: "\"Інформація - Дві колонки\" варіант розділу"
+            info_multi_column_3: "\"Інформація - Три колонки\" варіант розділу"
+            listings: "\"Список\" варіант розділу"
+            locations: "\"Місце розташування\" варіант розділу"
+            video: "\"Відео\" варіант розділу"
       attachments:
         delete: "Видалити поточний %{title}"
         or_change: "Або змінити %{title} на новий"
@@ -760,8 +760,8 @@ uk:
         content:
           title: "Зміст розділу"
         hero:
-          hero_title: ~
-          hero_description: ~
+          hero_title: Персонаж
+          hero_description: "Встановіть фонове зображення у розділі Персонаж. Слоган та опис взяті з %{link}"
           basic_details_tab: "Вкладка «Основні деталі»."
           cta_button: "Розділ із закликом до дії"
           cta_button_info: "Вам не потрібно редагувати текст кнопки. Ви можете просто залишити це поле порожнім. За замовчуванням текст «Пошук» для публічних маркетплейсів і «Зареєструватися» для приватних маркетплейсів."
@@ -772,93 +772,93 @@ uk:
           button_content: "Зміст кнопки"
           click_me: "Натисни мене!"
         footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
+          footer_title: "нижній колонтитул"
+          footer_style: "Стиль нижнього колонтитулу"
+          style_dark: Темний
+          style_light: Світлий
+          style_marketplace_color: "Головний колір маркетплейсу"
+          style_logo: Логотип
         cta_button:
-          cta_button: ~
-          cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
+          cta_button: "Кнопка \"Закликання до дії\""
+          cta_enabled: "Показати кнопку"
+          cta_text: Ярлик
+          cta_url: URL
           text_placeholder: "Натисни мене!"
           url_placeholder: "https://www.example.com"
         background_selector:
           title: Фон
         background_image_overlay:
-          background_image: ~
-          background_image_info: ~
-          add_another_image: ~
-          current_image: ~
-          file_not_selected: ~
-          background_image_overlay: ~
-          background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
+          background_image: "Фоновий малюнок"
+          background_image_info: "Це зображення буде фоном розділу. Для найкращого результату мінімальний розмір зображення має становити 1600х1200 пікселів."
+          add_another_image: "Додати інше зображення"
+          current_image: "Поточне зображення: %{filename}"
+          file_not_selected: "Не вибрано"
+          background_image_overlay: "Накладення фонового зображення"
+          background_image_overlay_info: "Це дозволяє визначити, наскільки темним або світлим буде відображатися ваше фонове зображення. \"Прозорий\" означає відсутність накладання."
+          overlay_dark: Темний
+          overlay_light: Світлий
+          overlay_transparent: Прозорий
         background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
+          background_style: "Стиль фону"
+          style_image: Зображення
+          style_color: Колір
+          style_none: Жоден
         background_color:
-          background_color: ~
-          background_color_info: ~
+          background_color: "Фоновий колір"
+          background_color_info: "Ввівши шістнадцяткове значення кольору, можна вибрати колір фону цього розділу. %{link} може допомогти вам вибрати колір та показати вам шістнадцятковий код кольору. Потім ви можете копіювати код сюди."
         categories:
-          add: ~
-          category: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
+          add: "+ Додати нову категорію до цього розділу"
+          category: Категорія
+          empty: "У вас немає включених сюди категорій"
+          image: Зображення
+          include_title: "Категорії показу"
+          info_text: "Ви можете виділити від трьох до семи категорій. Додайте зображення до кожної категорії та виберіть одну з категорій у своєму маркетплейсі. Для досягнення найкращих результатів рекомендований розмір зображення становитиме 1000 x 667 пікселів."
+          need_at_least_3_categories: "У вас має бути щонайменше три категорії в цьому розділі"
+          need_at_most_7_categories: "У цьому розділі має бути не більше семи категорій"
         category:
-          add_another_image: ~
-          category: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          select_category: ~
+          add_another_image: "Додати інше зображення"
+          category: Категорія
+          current_image: "Поточне зображення: %{filename}"
+          file_not_selected: "Не вибрано"
+          image: Зображення
+          image_required: "Ви повинні додати зображення для цієї категорії"
+          select_category: "Обрати категорію"
         locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
+          add: "+ Додати нове розташування для цього розділу"
+          location: Розташування
+          empty: "У вас немає включених сюди місць"
+          image: Зображення
+          include_title: "Розташування для показу"
+          info_text: "Ви можете вказати від трьох до семи позицій. Додайте зображення для кожного розташування та вкажіть URL-адресу пошуку вашого маркетплейсу. Для досягнення найкращих результатів рекомендований розмір зображення становить 1000 x 667 пікселів."
+          need_at_least_3_locations: "У вас має бути щонайменше три розташування в цьому розділі"
+          need_at_most_7_locations: "У вас має бути не більше семи місць у цьому розділі"
         location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
+          add_another_image: "Додати інше зображення"
+          location: Розташування
+          current_image: "Поточне зображення: %{filename}"
+          file_not_selected: "Не вибрано"
+          image: Зображення
+          image_required: "Ви повинні додати зображення для цього розташування"
+          title: Заголовок
+          title_placeholder: "Мітка розташування"
+          url: URL
+          url_placeholder: "URL розташування"
         multi_column:
-          main_title: ~
-          column_header: ~
-          column_title: ~
-          column_icon_info: ~
+          main_title: "Головний заголовок"
+          column_header: "Колонка %{index}"
+          column_title: "Заголовок колонки %{index}"
+          column_icon_info: "Додавання зображень вимагає втручання команди Sharetribe. Будь ласка, перейдіть на %{link}, щоб вибрати значок і поділіться ним зі службою підтримки Sharetribe."
           column_icon_info_link: "дотримуйтесь інструкцій у цій статті"
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
-          column_button_url: ~
+          column_icon: "Значок колонки %{index}"
+          column_paragraph: "Стовпець %{index} абзац"
+          column_button: "Стовпець %{index} кнопка"
+          column_button_text: "Ярлик кнопки"
+          column_button_url: "https://www.example.com"
         listings:
           listings_to_feature: "Оголошення для показу"
           you_need_to_add_the_listing_ids: ~
         video:
-          text: ~
+          text: Текст
           autoplay: ~
           autoplay_no: ~
           autoplay_muted: ~
@@ -982,7 +982,7 @@ uk:
       emails_title: ~
       subscription: ~
       preview: ~
-      whats_new: ~
+      whats_new: "Що нового?"
     listing_shapes:
       availability_title: ~
       read_more: ~
@@ -1125,10 +1125,10 @@ uk:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
-      the_transaction_fee_must_be_lower_than_100: ~
+      the_transaction_fee_must_be_lower_than_100: "Комісія за транзакцію має бути нижчою за 100%"
       confirm_disable: ~
-      commission_from_buyer_label: ~
-      minimum_buyer_transaction_fee_label: ~
+      commission_from_buyer_label: "Комісія за транзакцію покупця:"
+      minimum_buyer_transaction_fee_label: "Мінімальна комісія за транзакцію для покупця:"
       stripe_connected:
         title: ~
         disable: ~
@@ -1141,7 +1141,7 @@ uk:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
-      cannot_enable_gateway_because_of_buyer_commission: ~
+      cannot_enable_gateway_because_of_buyer_commission: "Неможливо включити платіжний шлюз%{gateway}, оскільки використовується комісія покупця"
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1291,13 +1291,13 @@ uk:
       quantity_label: ~
       sum_label: ~
       service_fee_label: ~
-      buyer_service_fee_label: ~
+      buyer_service_fee_label: "%{service_name} комісія сервісу:"
       you_will_get_label: ~
       total_label: ~
       total_value: ~
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee: ~
+      paypal_fee: "PayPal комісія за обробку платежу"
       paypal_fee_info: ~
       shipping_price_label: ~
       stripe-fee_label: ~
@@ -1337,7 +1337,7 @@ uk:
     message:
       accepted_request: ~
       received_payment: ~
-      received_payment_wo_sum: ~
+      received_payment_wo_sum: "запит прийнято, платіж отримано"
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
@@ -1347,10 +1347,10 @@ uk:
       canceled_offer: ~
       paid: ~
       payment_preauthorized: ~
-      payment_preauthorized_wo_sum: ~
+      payment_preauthorized_wo_sum: "Оплату виконано успішно"
       stripe:
         held_payment: ~
-        held_payment_wo_sum: ~
+        held_payment_wo_sum: "Запит прийнято. Платіж утримується%{service_name} доти, доки замовлення не буде позначено як виконане."
         confirmed_request: ~
       canceled_the_order: "Замовлення оскаржене. Команда %{service_name} сповіщена."
       marked_as_refunded: "Помічено як \"Повернення коштів\""
@@ -1618,9 +1618,9 @@ uk:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
-      subtotal: ~
+      subtotal: "Попередній підсумок:"
       service_fee: ~
-      buyer_service_fee: ~
+      buyer_service_fee: "%{service_name} комісія сервісу:"
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1640,7 +1640,7 @@ uk:
       duration: ~
       quantity: ~
       subtotal: ~
-      buyer_service_fee: ~
+      buyer_service_fee: "%{service_name} комісія сервісу:"
       total: ~
       price: ~
       service_fee: ~
@@ -1668,7 +1668,7 @@ uk:
       subtotal: ~
       total: ~
       price: ~
-      buyer_service_fee: ~
+      buyer_service_fee: "%{service_name} комісія сервісу:"
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
@@ -1758,7 +1758,7 @@ uk:
       p_line5: "Ви можете увійти на свій маркетплейс, використовуючи той самий обліковий запис, що й раніше."
       button: "Перейти до %{text}"
     new_member_notification:
-      subject: ~
+      subject: "Новий учасник %{community}"
       new_member_has_joined: ~
       this_is_automatic_message: ~
       person_name: ~
@@ -1768,31 +1768,31 @@ uk:
       new_member_has_joined: "%{name} (%{email}) приєднався/приєдналась до %{community}. Можливо, їм все ще потрібно підтвердити електронну пошту."
       view_profile: "Показати профіль"
     listing_submited_for_review:
-      subject: ~
-      there_is_a_new_listing_to_review: ~
-      review_the_listing: ~
-      this_is_automatic_message: ~
+      subject: "Нове оголошення для перегляду: \"%{listing_title}\" від%{author_name}в%{community}"
+      there_is_a_new_listing_to_review: "З'явилося нове оголошення для перегляду: %{listing_title} від %{author_name}. Тепер ви повинні схвалити чи відхилити це оголошення."
+      review_the_listing: "Переглянути нове оголошення"
+      this_is_automatic_message: "Це автоматичне повідомлення, надіслане адміністраторам%{community}"
     listing_approved:
-      subject: ~
-      listing_has_been_approved: ~
-      view_the_listing: ~
+      subject: "Команда %{community} схвалила ваше оголошення \"%{listing_title}''"
+      listing_has_been_approved: "Чудові новини! Ваше оголошення %{listing_title} було розглянуто та схвалено командою %{community}. Воно вже опубліковане."
+      view_the_listing: "Перегляньте оголошення"
     listing_rejected:
-      subject: ~
-      listing_has_been_rejected: ~
-      contact_link: ~
-      edit_the_listing: ~
+      subject: "Команда %{community} відхилила ваше оголошення \"%{listing_title}\""
+      listing_has_been_rejected: "На жаль, команда %{community} відхилила ваше оголошення \"%{listing_title}\" після ретельного розгляду. Ви можете %{contact_link} дізнатися більше або відредагувати своє оголошення та надіслати його на новий розгляд."
+      contact_link: "зв'яжіться з командою %{community}"
+      edit_the_listing: "Редагувати оголошення"
     edited_listing_submited_for_review:
-      subject: ~
-      there_is_a_edited_listing_to_review: ~
-      review_the_listing: ~
+      subject: "Відредаговане оголошення для перевірки: \"%{listing_title}\" %{author_name} у %{community}"
+      there_is_a_edited_listing_to_review: "З'явилося нове оголошення для перевірки: %{listing_title} від %{author_name}. Тепер ви повинні схвалити чи відхилити це оголошення."
+      review_the_listing: "Перегляньте відредаговане оголошення"
     new_transaction:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
+      subject: "Нова транзакція у %{service_name}"
+      there_is_a_new_transaction: "Тут є посилання %{link} у %{service_name}."
+      a_new_transaction: "нова транзакція"
+      listing: "Оголошення: %{title}"
+      sum: "Сума: %{amount}"
+      starter: "Вступний: %{name}"
+      provider: "Продавець: %{name}"
     new_transaction_v2:
       subject: "Нова транзакція в %{service_name}"
       there_is_a_new_transaction: "Тут %{link} в %{service_name}"
@@ -1854,7 +1854,7 @@ uk:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
-      seller_express_checkout_disabled_no_free: ~
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout вимкнено для облікового запису автора PayPal. Будь ласка, попросіть %{service_name} зв'язатися з автором лістингу та порадити їм зв'язатися зі службою підтримки PayPal."
       generic_error: ~
       cancel_error: ~
       accept_authorization_error: ~
@@ -1903,10 +1903,10 @@ uk:
       after: ~
       on_or_after: ~
       positive_number: ~
-      from_must_be_less_than_till: ~
+      from_must_be_less_than_till: "''Час старту'' має бути меншим, ніж ''Час закінчення''"
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
-      presence: ~
+      presence: "Не може бути порожнім"
       username_is_invalid: "Це ім’я користувача недійсне або недоступне"
       domain_name_is_invalid: "Це доменне ім’я недійсне або недоступне"
       only_supported_variables: "Обов’язково додайте лише підтримувані змінні"
@@ -2134,22 +2134,22 @@ uk:
     logged_in_notifications_icon:
       notifications: Сповіщення
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
-      h1: ~
-      h2: ~
-      h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      title: "Допомога у форматуванні з використанням Markdown"
+      description: "Markdown - це простий спосіб форматування тексту, який чудово виглядає на будь-якому пристрої. Він не робить нічого незвичайного, наприклад, змінює розмір, колір або тип шрифту – лише найнеобхідніше, використовуючи вже відомі вам символи клавіатури."
+      formatting: Форматування
+      result: Результат
+      h1: Н1
+      h2: Н2
+      h3: Н3
+      italic: курсив
+      bold: "жирний шрифт"
+      underline: підкреслити
+      strikethrough: закреслити
+      inline_link: "Вбудоване посилання"
+      list: Список
+      one: Один
+      two: Два
+      three: Три
     mobile_logged_in:
       admin: Адміністрування
       go_to_your_profile_page: Профіль
@@ -2174,8 +2174,8 @@ uk:
       comment_sent: "Коментар надіслано"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
-      could_not_get_email_from_social_network: ~
-      social_network_email_unconfirmed: ~
+      could_not_get_email_from_social_network: "Не вдалося отримати адресу електронної пошти від %{provider} і неможливо створити обліковий запис без електронної пошти."
+      social_network_email_unconfirmed: "Адреса електронної пошти \"%{email}\", пов'язана з вашим обліковим записом%{provider}, вже використовується, але ще не підтверджена. Будь ласка, підтвердіть адресу електронної пошти, перш ніж увійти до системи за допомогою %{provider}."
       create_new_listing: ~
       create_one_here: "створити його тут"
       email_confirmation_sent_to_new_address: ~
@@ -2212,7 +2212,7 @@ uk:
       listing_updated_successfully: ~
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      listing_deleted: ~
+      listing_deleted: "Оголошення видалено"
       only_kassi_administrators_can_access_this_area: "Будь ласка, увійдіть за допомогою облікового запису адміністратора, щоб отримати доступ до цієї області"
       only_listing_author_can_close_a_listing: "Тільки автор списку може закрити список"
       only_listing_author_can_edit_a_listing: "Тільки автор списку може редагувати список"
@@ -2280,7 +2280,7 @@ uk:
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
       listing_author_payment_details_missing: ~
-      listing_author_payment_details_missing_no_free: ~
+      listing_author_payment_details_missing_no_free: "Будь ласка, зв'яжіться з командою %{service_name}, щоб попросити їх зв'язатися та порадити автору лістингу оновити свої платіжні реквізити для отримання платежів."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
       stripe_you_account_balance_is_not_0: ~
@@ -2296,8 +2296,8 @@ uk:
       paypal_payments: ~
       stripe_payments: ~
       payments: ~
-      listings: ~
-      listings_search_placeholder: ~
+      listings: Оголошення
+      listings_search_placeholder: "Пошук за назвою оголошення"
       transactions_search_placeholder: "Шукайте назву транзакції або іншу залучену сторону"
       transactions: Транзакції
   listings:
@@ -2317,7 +2317,7 @@ uk:
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: "Ви повинні"
       subscribe_to_comments: ~
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "Видалення списку не можна скасувати. Ви впевнені, що хочете продовжити?"
     edit:
       edit_listing: ~
     edit_links:
@@ -2329,11 +2329,11 @@ uk:
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
-      listing_is_pending: ~
-      listing_is_rejected: ~
-      approve_listing: ~
-      reject_listing: ~
-      delete_listing: ~
+      listing_is_pending: "Оголошення проходить модерацію"
+      listing_is_rejected: "Оголошення відхилено"
+      approve_listing: "Схвалити оголошення"
+      reject_listing: "Відхилити оголошення"
+      delete_listing: "Видалити оголошення"
     map:
       open_in_google_maps: ~
     error:
@@ -2356,7 +2356,7 @@ uk:
       description:
         detailed_description: "Детальний опис"
         youtube_info: ~
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Ви можете %{link}. Якщо ваше оголошення містить посилання на YouTube, відео буде показано під описом."
       destination:
         destination: "Пункт призначення"
       form_content:
@@ -2416,9 +2416,9 @@ uk:
         the_exact_location: ~
       send_button:
         save_listing: ~
-        submit_for_review: ~
-        will_be_reviewed: ~
-        we_noticed_youre_an_admin: ~
+        submit_for_review: "На модерацію"
+        will_be_reviewed: "Всі оголошення %{service_name} модеруються до публікації. Як тільки ваше оголошення буде схвалено, ви будете інформовані через email і воно буде доступне всім."
+        we_noticed_youre_an_admin: "Ми помітили, що ви є адміністратором %{service_name}. Ваші зміни будуть застосовані автоматично та не потребують перевірки чи схвалення."
       share_type:
         select: ~
         borrow: Запозичення
@@ -2498,7 +2498,7 @@ uk:
       select_one: ~
       start_time: ~
       end_time: ~
-      marketplace_fees_may_apply: ~
+      marketplace_fees_may_apply: "Може стягуватися плата у розмірі %{service_name}"
     new:
       listing: ~
       selected_category: ~
@@ -2512,7 +2512,7 @@ uk:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
-      you_are_now_posting_a_listing_on_behalf_of: ~
+      you_are_now_posting_a_listing_on_behalf_of: "Ви публікуєте оголошення від імені %{name}"
     quantity:
       hour: ~
       day: ~
@@ -2738,7 +2738,7 @@ uk:
       privacy: ~
       visible_only_to_you: ~
       visible_to_everybody: ~
-      create_account_with_provider: ~
+      create_account_with_provider: "Зареєструйтесь з %{provider}"
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
@@ -2747,7 +2747,7 @@ uk:
       and_gave_following_feedback: ~
     profile_listings:
       no_image: ~
-      manage_listings: ~
+      manage_listings: "Керувати всіма моїми оголошеннями"
     show:
       contact: ~
       about_me: ~
@@ -2780,8 +2780,8 @@ uk:
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
-      admin_actions: ~
-      post_listing_as: ~
+      admin_actions: "Дії адміністратора"
+      post_listing_as: "Розмістити оголошення як"
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -2806,7 +2806,7 @@ uk:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_provider_account: ~
+      log_in_with_your_provider_account: "Увійти з %{provider}"
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
@@ -2909,9 +2909,9 @@ uk:
       invisible: ~
       image_is_processing: ~
       shown_in_your_public_profile: ~
-      editing_profile_of: ~
-      format_markdown_link: ~
-      format_markdown: ~
+      editing_profile_of: "Ви зараз редагуєте профіль %{name}"
+      format_markdown_link: "форматувати ваш опис використовуючи Markdown"
+      format_markdown: "Ви можете %{link}."
       username: "Ім'я користувача"
       username_description: "Ваше ім’я користувача використовується як частина унікальної URL-адреси сторінки вашого профілю. Ви можете використовувати лише літери та цифри для свого імені користувача без пробілів. Коли ви зміните своє ім’я користувача, ваша URL-адреса автоматично зміниться, і перенаправлення з попередньої URL-адреси не буде. Старе ім’я користувача стане доступним для інших користувачів."
     save_information: ~
@@ -3105,7 +3105,7 @@ uk:
       signup: ~
       admin_dashboard: ~
       language: ~
-      listings: ~
+      listings: "Мої оголошення"
     utils:
       km: ~
       mi: ~
@@ -3147,12 +3147,12 @@ uk:
     paypal_connected: ~
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
-    stripe_account_restricted: ~
-    stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
-    stripe_account_pending_verification: ~
-    stripe_account_pending_verification_info: ~
+    stripe_account_restricted: "Онлайн-платежі на ваш рахунок обмежені!"
+    stripe_account_restricted_info: "Ви повинні змінити дані банківського рахунку, щоб надати додаткову інформацію постачальнику платежів."
+    stripe_account_restricted_soon: "Онлайн-платежі на ваш рахунок будуть скоро обмежені."
+    stripe_account_restricted_soon_info: "Ви повинні змінити дані банківського рахунку, щоб надати додаткову інформацію постачальнику платежів."
+    stripe_account_pending_verification: "Ці облікові записи успішно збережені. Очікування підтвердження облікового запису від постачальника платежу."
+    stripe_account_pending_verification_info: "Зайдіть пізніше, щоб переконатися, що все гаразд."
     form_new:
       need_info: ~
       select_country: ~
@@ -3178,8 +3178,8 @@ uk:
       save_details: ~
       edit: ~
       cancel: ~
-      gender: ~
-      phone_number: ~
+      gender: Стать
+      phone_number: "Номер телефону"
       phone_info_text: "Номер телефону має починатися з коду країни, наприклад"
       address_kana_postal_code: ~
       address_kana_state: ~
@@ -3191,8 +3191,8 @@ uk:
       address_kanji_city: ~
       address_kanji_town: ~
       address_kanji_line1: ~
-      male: ~
-      female: ~
+      male: чоловічий
+      female: жіночий
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
@@ -3250,35 +3250,35 @@ uk:
     invalid_bank_account_number: ~
     invalid_postal_code: ~
   seo_sections:
-    you_can_use_variables: ~
+    you_can_use_variables: "Ви можете використовувати такі варіанти: %{vars}"
     placeholder:
-      search_results: ~
-      search_results_for: ~
-      listing_description: ~
-      listing_description_without_price: ~
-      category_description: ~
-      profile_title: ~
-      profile_description: ~
+      search_results: "Результати пошуку %{variable}"
+      search_results_for: "Результати пошуку для:%{placeholder1} на%{placeholder2}"
+      listing_description: "%{title} за %{price} від %{author} до %{marketplace}"
+      listing_description_without_price: "%{title} від %{author} до %{marketplace}"
+      category_description: "%{category}на %{marketplace}"
+      profile_title: "Профіль%{user}-%{marketplace}"
+      profile_description: "Докладніше про %{user} на%{marketplace}"
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
+        id: "Унікальне ім'я розділу"
+        title: Заголовок
+        paragraph: Абзац
+        button_title: Текст
+        button_path: URL
+        button_path_string: URL
+        background_image: "Фонове зображення"
+        background_image_variation: "Різновид фонового зображення"
+        background_color: "Фоновий колір"
+        background_color_string: "Фоновий колір"
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: "Оголошення 1 ID"
+        listing_2_id: "Оголошення 2 ID"
+        listing_3_id: "Оголошення 3 ID"
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: Текст
+        youtube_video_id: "Youtube відео ID"
       landing_page_version/section/hero:
         cta_button_text: Текст
         cta_button_url: URL
