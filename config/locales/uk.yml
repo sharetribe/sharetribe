@@ -86,7 +86,7 @@ uk:
         edit_community_look_and_feel: ~
         community_logo: ~
         community_logo_icon: ~
-        community_logo_icon_mobile: ~
+        community_logo_icon_mobile: "Квадратний логотип"
         community_cover_photo: ~
         small_community_cover_photo: ~
         favicon: ~
@@ -101,7 +101,7 @@ uk:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
-        logo_mobile_icon_instructions_text_with_dimensions: ~
+        logo_mobile_icon_instructions_text_with_dimensions: "Цей квадратний логотип буде відображатися, коли ви будете робити публікації як адмін і коли люди додадуть ваш сайт до закладок на головному екрані свого мобільного пристрою. Розміри повинні становити (як мінімум)%{width} x%{height} пікселів."
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
         we_have_you_covered: "Ми вас піддтримаємо"
@@ -124,7 +124,7 @@ uk:
         invalid_color_code: ~
         custom_head_script: ~
         custom_head_script_instructions_text: ~
-        current_image: ~
+        current_image: "Поточне зображення:"
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
@@ -281,7 +281,7 @@ uk:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
-        this_makes_the_user_an_admin: ~
+        this_makes_the_user_an_admin: "Це робить користувача адміністратором. Ви повинні повідомити користувача про їх обов'язки та про те, що він повинен ознайомитись з умовами використання Sharetribe. Ви впевнені, що хочете продовжити?"
         status_filter:
           all: "Усі статуси"
           selected: "Вибрані статуси: %{count}"
@@ -309,8 +309,8 @@ uk:
         new_email_templates: "Новий макет для електронних листів"
       social_media:
         social_media: ~
-        logo: ~
-        logo_info: ~
+        logo: "зображення у соціальних мережах"
+        logo_info: "Це зображення відображатиметься у соціальних мережах для Facebook, Twitter та LinkedIn, коли хтось опублікує ваш сайт. Для досягнення найкращих результатів він повинен мати співвідношення сторін 2:1 та мінімальний розмір у пікселях %{width} x%{height}."
         social_media_title: "Назва соціальної мережі"
         social_media_title_info: "Цей текст буде відображатися у соціальних мережах для Facebook, Twitter та LinkedIn, як тільки хтось опублікує ваш сайт. Ви можете переглянути, як він виглядає %{facebook_preview_link}, %{twitter_preview_link} та %{linkedin_preview_link}."
         link_for_facebook: "для Facebook"
@@ -332,7 +332,7 @@ uk:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
-        enable_facebook_login: ~
+        enable_facebook_login: "Дозволити користувачам входити до системи зі свого облікового запису Facebook"
         save: ~
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Зверніться до інструкцій з налаштування до Google Sign-In."
@@ -407,10 +407,10 @@ uk:
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
-        sharetribe_analytics: ~
-        sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: ~
+        sharetribe_analytics: "Аналітика Sharetribe"
+        sharetribe_analytics_info_text_with_instructions: "Щоб покращити послуги та підтримку Sharetribe, Sharetribe відстежує активність учасників маркетплейсу. Особисті дані не збираються, і ця інформація не передається за межами команди Sharetribe. Це відстеження може бути повністю вимкнено. %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Дізнайтеся більше про аналітику Sharetribe."
+        end_user_analytics: "Дозволити Sharetribe відстежувати активність учасників з метою покращення послуг Sharetribe"
         save: ~
         google_tag_manager: "Менеджер тегів Google"
         gtm_paragraph_1: ~
@@ -451,7 +451,7 @@ uk:
         invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
-        processing_export: ~
+        processing_export: "Обробка експорту до CSV ..."
         transactions: ~
         search_by_title_parties: "Пошук назви транзакції чи залучених сторін"
         search: Пошук
@@ -543,25 +543,25 @@ uk:
         reset_search: "Показати усі"
         for_keyword: "для: <b>%{keyword}</b>"
       testimonials:
-        testimonials: ~
-        no_testimonials_found: ~
-        displaying_xx_reviews: ~
+        testimonials: Відгуки
+        no_testimonials_found: "Відгуків не знайдено"
+        displaying_xx_reviews: "Відображення <b>%{count}</b>відгуків у транзакціях %{tx_from} - %{tx_to} з <b>%{all_count}</b>відгуків в загальному"
         search_keyword: "Пошук на ім'я або ключове слово"
         search: Пошук
         reset_search: "Показати усі"
         for_keyword: "для: <b>%{keyword}</b>"
         headers:
-          transaction: ~
-          author: ~
-          receiver: ~
-          status: ~
-          grade: ~
-          text: ~
+          transaction: Транзакція
+          author: Автор
+          receiver: Отримувач
+          status: Статус
+          grade: Оцінка
+          text: Текст
         status:
-          waiting: ~
-          skipped: ~
-          published: ~
-          blocked: ~
+          waiting: "Чекає на розгляд"
+          skipped: Пропущено
+          published: Опубліковано
+          blocked: Заблоковано
         status_filter:
           selected: "Вибрані фільтри: %{count}"
           all: Фільтри
@@ -573,14 +573,14 @@ uk:
           blocked: Заблоковано
           selected_js: "Вибрані фільтри: "
         form:
-          review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
-          block_review: ~
-          confirm_modify: ~
-          deleting_info: ~
-          blocking_info: ~
+          review_text: "Переглянути текст"
+          save: Зберегти
+          cancel: Відмінити
+          delete_review: "Видалити відгук"
+          block_review: "Блокувати відгук"
+          confirm_modify: "Ви впевнені, що хочете змінити/видалити цей відгук? Після того, як ви відредагуєте/видалите відгук, відновити старі дані неможливо."
+          deleting_info: "Видалення відгуку дозволяє його автору залишити інший для тієї ж транзакції."
+          blocking_info: "Блокування відгуку після видалення не дозволяє автору залишити інший відгук для тієї ж транзакції."
           unskip: Скасувати
           if_you_unskip_the_review: "Якщо ви скасуєте відгук, користувач зможе опублікувати ще один відгук."
           they_will_not_be_notified_automatically: "Вони не будуть автоматично оповіщені."
@@ -596,7 +596,7 @@ uk:
           used: Використано
           date_sent: "Дата відправки"
       listings:
-        listings: ~
+        listings: Оголошення
         search_by_title_author_category: "Пошук за назвою оголошення, автором або назвою категорії"
         search: Пошук
         reset_search: "Показати усі"
@@ -611,15 +611,15 @@ uk:
           approval_pending: Очікується
           approval_rejected: Відхилено
         headers:
-          title: ~
-          author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
-        expired: ~
+          title: Назва
+          author: Автор
+          created: Створено
+          updated: Оновлено
+          category: Категорія
+          status: Статус
+        open: Відчинено
+        closed: Зачинено
+        expired: "Tермін дії закінчився"
         approved: Схвалено
         approval_pending: Очікується
         approval_rejected: Відхилено
@@ -629,7 +629,7 @@ uk:
           reject: Відмовити
           cancel: Відмінити
       user_fields:
-        user_fields: ~
+        user_fields: "Поля користувачів"
       footer:
         footer: "Нижній колонтитул"
         offer_pro: "Налаштуйте та видаліть всі бренди Sharetribe з нижнього колонтитулу вашого маркетплейсу за допомогою %{upgrade_pro_plan_link}."
@@ -918,32 +918,32 @@ uk:
         dropdown: ~
         checkbox_group: ~
         date: ~
-        file: ~
-        location: ~
+        file: Файл
+        location: Місцерозташування
     person_custom_fields:
-      saving_failed: ~
+      saving_failed: "Помилка збереження поля користувача"
       index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        signup: ~
-        public: ~
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        user_fields: "Поля користувачів"
+        field_title: "Назва поля"
+        field_type: "Тип поля"
+        signup: Зареєструватись
+        public: Публічний
+        add_new_field: "Додати нове поле"
+        save: Зберегти
+        cancel: Відмінити
+        minimum_value: Мінімум
+        maximum_value: Максимум
+        allow_decimals: "Дозволено десяткові значення"
+        add_option: "Додати опцію"
       new:
-        new_user_field: ~
+        new_user_field: "Нове поле користувача"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
+          this_field_is_required: "Зробіть обов'язковим заповнити це поле під час реєстрації на маркетплейсі"
+          this_field_is_required_checkbox: "Зробіть обов'язковим заповнити це поле під час реєстрації на маркетплейсі (користувач повинен вибрати хоча б один варіант)"
+          this_field_is_public: "Показати це поле на загальнодоступній сторінці профілю"
       edit:
-        edit_user_field: ~
+        edit_user_field: "Змінити поле користувача \"%{field_name}\""
     emails:
       new:
         send_email_to_members: ~
@@ -958,7 +958,7 @@ uk:
           title: ~
           options:
             all_users: ~
-            posting_allowed: ~
+            posting_allowed: "Користувачі, яким дозволено розміщувати оголошення"
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -970,11 +970,11 @@ uk:
         any_language: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-        to_improve_email_deliverability: ~
-        email_subject_text: ~
-        firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        to_improve_email_deliverability: "Для покращення доставки електронної пошти тема електронної пошти створюється автоматично та не може бути змінена."
+        email_subject_text: "Нове повідомлення від команди %{service_name}"
+        firstname_cannot_be_removed: "\"Ім'я\" не може бути видалено та буде замінено фактичним ім'ям кожного одержувача."
+        hello_firstname: "Вітаю Ім'я,"
+        hello_firstname_text: "Вітаю%{person},"
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -1056,7 +1056,7 @@ uk:
         night: ~
         week: ~
         month: ~
-        unit: ~
+        unit: "За штуку"
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -1164,17 +1164,17 @@ uk:
         payments_not_enabled: ~
     transaction_types:
       sell: ~
-      sell_w_online_payment: ~
-      sell_wo_online_payment: ~
+      sell_w_online_payment: "Продажа з онлайн-оплатою"
+      sell_wo_online_payment: "Продаж без онлайн-оплати"
       rent: ~
-      rent_w_online_payment: ~
-      rent_wo_online_payment: ~
+      rent_w_online_payment: "Здача в оренду з онлайн-оплатою"
+      rent_wo_online_payment: "Здача в оренду без онлайн-оплати"
       give: ~
       lend: ~
       swap: ~
       service: ~
-      service_w_online_payment: ~
-      service_wo_online_payment: ~
+      service_w_online_payment: "Пропозиція з онлайн-оплатою"
+      service_wo_online_payment: "Пропозиція без онлайн-оплати"
       request: ~
       inquiry: ~
       share_for_free: ~
@@ -1349,9 +1349,9 @@ uk:
       payment_preauthorized: ~
       payment_preauthorized_wo_sum: "Оплату виконано успішно"
       stripe:
-        held_payment: ~
+        held_payment: "Прийняв запит. Платіж на %{sum} утримується%{service_name} доти, доки замовлення не буде позначено як виконане."
         held_payment_wo_sum: "Запит прийнято. Платіж утримується%{service_name} доти, доки замовлення не буде позначено як виконане."
-        confirmed_request: ~
+        confirmed_request: "Позначено замовлення як виконане. Тепер платіж переведено на банківський рахунок%{author_name} або буде переведено найближчим часом."
       canceled_the_order: "Замовлення оскаржене. Команда %{service_name} сповіщена."
       marked_as_refunded: "Помічено як \"Повернення коштів\""
       dismissed_the_cancellation: "Оскарження відхилене"
@@ -1429,7 +1429,7 @@ uk:
           unknown_reason: ~
           verify: ~
       stripe:
-        waiting_confirmation_from_requester: ~
+        waiting_confirmation_from_requester: "Очікування %{requester_name}, щоб відзначити виконане замовлення. Як тільки замовлення буде позначено як виконане, платіж буде зарахований на ваш банківський рахунок"
       order_canceled: "Замовлення оскаржене"
       waiting_for_marketplace_review: "Чекаємо, поки команда %{service_name} розгляне ситуацію"
       marketplace_notified: "Команда %{service_name} сповіщена. Ви також можете %{contact_link}, якщо хочете поділитися з ними більш детальною інформацією."
@@ -1520,7 +1520,7 @@ uk:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "%{other_party_full_name} позначив замовлення на виконання '%{request}'. Платіж за цю транзакцію було переведено на ваш банківський рахунок. Тепер ви можете залишити відгук про користувача %{other_party_given_name}."
       team_title: "%{service_name} команда"
     transaction_confirmed_v2:
       headline_confirmed: "%{other_party_full_name} відзначив/відзначила замовлення щодо %{listing_link} як виконане."
@@ -1627,7 +1627,7 @@ uk:
       quantity: ~
       you_have_received_new_payment: ~
       stripe:
-        you_have_received_new_payment: ~
+        you_have_received_new_payment: "Сума <b>%{payment_sum}</b>була сплачена за <b>%{listing_title}</b> від %{payer_full_name}. Гроші утримуються %{service_name}доки замовлення не буде позначено як виконане. Ось ваш чек."
     payment_receipt_to_seller_v2:
       headline: "вам заплатили %{payment_sum} за %{listing_link} від %{payer_name}."
       main_text_stripe: "Кошти зберігаються у %{service_name}, доки замовлення не буде позначено як виконане."
@@ -1674,7 +1674,7 @@ uk:
       money_will_be_transferred: ~
       listing_per_unit_title: ~
       stripe:
-        you_have_made_new_payment: ~
+        you_have_made_new_payment: "Ви сплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b>. Гроші утримуються %{service_name}і будуть повернуті до%{recipient_full_name}, як тільки ви позначите замовлення як виконане. Ось квитанція про оплату."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} залишив відгук про вас в %{service_name}"
       you_can_give_feedback_to: "Ви ще не залишили відгук для %{name}."
@@ -1861,8 +1861,8 @@ uk:
       reject_authorization_error: ~
     stripe:
       generic_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      accept_authorization_error: "Виникла помилка при спробі прийняти попередньо авторизований платіж Stripe. Будь ласка, спробуйте ще раз."
+      reject_authorization_error: "Виникла помилка при спробі відхилити попередньо авторизований платіж Stripe. Будь ласка, спробуйте ще раз."
       card_declined: "Вашу картку було відхилено"
       expired_card: "Не вдалося здійснити платіж, оскільки термін дії картки закінчився"
   error_pages:
@@ -2283,10 +2283,10 @@ uk:
       listing_author_payment_details_missing_no_free: "Будь ласка, зв'яжіться з командою %{service_name}, щоб попросити їх зв'язатися та порадити автору лістингу оновити свої платіжні реквізити для отримання платежів."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
-      stripe_you_account_balance_is_not_0: ~
+      stripe_you_account_balance_is_not_0: "Баланс вашого облікового запису не дорівнює 0, тому його не можна видалити. Це може означати, що у вас є транзакції, які очікують на завершення або що є гроші, що очікують виплати на ваш банківський рахунок. Будь ласка, зв'яжіться з %{service_name}, щоб дізнатися більше"
       stripe_balance_for_username_is_not_0: "Баланс Stripe для %{username} не дорівнює 0, тому обліковий запис не можна видалити. Це може означати, що у них є транзакції, які очікують на завершення, або є гроші, які чекають на виплату на їхні банківські рахунки. Будь ласка, перевірте свою панель інструментів Stripe для отримання додаткової інформації."
-      visit_admin: ~
-      visit_admin_link: ~
+      visit_admin: "Бажаєте %{link}?"
+      visit_admin_link: "зайти у вашу панель адміністратора"
       an_error_occurred_when_saving_your_information: "Під час збереження вашої інформації сталася помилка: \"%{message}\". Перевірте, правильність інформації і повторіть спробу."
     settings:
       account: "Обліковий запис"
@@ -2519,7 +2519,7 @@ uk:
       night: ~
       week: ~
       month: ~
-      unit: ~
+      unit: "Кількість штук:"
       custom: ~
       person: "Кількість людей:"
     quantity_placeholder: ~
@@ -2572,7 +2572,7 @@ uk:
       night: ~
       week: ~
       month: ~
-      unit: ~
+      unit: штука
       person: Особа
     verification_required:
       verification_required: ~
@@ -2725,8 +2725,8 @@ uk:
       invalid_username_or_email: ~
       family_name: ~
       given_name: ~
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "Я приймаю %{terms} та %{privacy}"
+      admin_emails_consent: "Я хотів би іноді отримувати оповіщення від адміністраторів %{service_name} і розумію, що я можу змінити свою думку в будь-який час."
       invalid_invitation_code: ~
       invitation_code: ~
       not_required: ~
@@ -2735,13 +2735,13 @@ uk:
       show_my_name_to_others: ~
       sign_up: ~
       terms: ~
-      privacy: ~
+      privacy: "Правила конфіденційності"
       visible_only_to_you: ~
       visible_to_everybody: ~
       create_account_with_provider: "Зареєструйтесь з %{provider}"
       OR: ~
       signup_with_email: ~
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Це поле буде публічним)"
     profile_feedback:
       grade: ~
       and_gave_following_feedback: ~
@@ -2840,7 +2840,7 @@ uk:
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
-      only_admin: ~
+      only_admin: "Ваш обліковий запис не можна видалити, тому що ви є єдиним адміністратором маркетплейсу."
       new_password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~
@@ -2895,7 +2895,7 @@ uk:
       display_name: ~
       display_name_description: ~
       location_description: ~
-      profile_picture_description: ~
+      profile_picture_description: "Зображення профілю має бути у квадратному форматі (співвідношення 1: 1), наприклад, 800×800 пікселів. В іншому випадку він буде обрізаний."
       phone_number: ~
       profile_picture: ~
       postal_code: ~
@@ -2908,7 +2908,7 @@ uk:
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "(відображається у вашому загальнодоступному профілі)"
       editing_profile_of: "Ви зараз редагуєте профіль %{name}"
       format_markdown_link: "форматувати ваш опис використовуючи Markdown"
       format_markdown: "Ви можете %{link}."
@@ -3059,9 +3059,9 @@ uk:
           something_went_wrong: ~
           saving_failed: ~
         working_hours:
-          required: ~
-          overlaps: ~
-          covers: ~
+          required: потрібно
+          overlaps: співпадіння
+          covers: перекриття
       pricing_units:
         piece: ~
         hour: ~
@@ -3075,12 +3075,12 @@ uk:
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
       working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
-        add_another_time_slot: ~
-        save: ~
+        default_schedule: "Розклад за замовчуванням"
+        i_am_available_on: "Я доступний на ..."
+        start_time: Початок
+        end_time: Кінець
+        add_another_time_slot: "+ Додати інший часовий інтервал"
+        save: Зберегти
     no_listings:
       sorry: ~
       try_other_search_terms: ~
@@ -3157,8 +3157,8 @@ uk:
       need_info: ~
       select_country: ~
       legal_name: ~
-      first_name: ~
-      last_name: ~
+      first_name: Ім'я
+      last_name: Прізвище
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
@@ -3169,7 +3169,7 @@ uk:
       personal_id_number: ~
       address_country: ~
       address_state: ~
-      address_province: ~
+      address_province: Область
       address_city: ~
       address_postal_code: ~
       address_line1: ~
@@ -3199,7 +3199,7 @@ uk:
       bank_routing_1: ~
       bank_routing_2: ~
       bank_currency: ~
-      update_also_bank_account: ~
+      update_also_bank_account: "Оновити номер банківського рахунку"
       bank_account_same_country: "Використовувати банківський рахунок, розташований у країні мого проживання"
       bank_country: "Країна банківського рахунку"
       bank_holder_name: "Ім'я власника банківського рахунку"
@@ -3231,7 +3231,7 @@ uk:
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
-      ssn_last_4: ~
+      ssn_last_4: "Останні 4 цифри номера соціального страхування (SSN)"
       hong_kong_identity_card: ~
       singapore_identity_card: ~
       mexico_id_number: "Федеральний реєстраційний номер платника податків (RFC)"
