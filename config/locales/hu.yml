@@ -3186,29 +3186,29 @@ hu:
         multi_page: ~
         multi_page_html: ~
   stripe_accounts:
-    admin_account_not_connected: "A %{service_name} oldal fizetési rendszerének használata és utalások fogadása nem lehetséges mert a fizetési funkciók mégnincsenek beállítva. Részletekért lépjen kapcsolatba a rendszergadával %{contact_admin_link}."
-    contact_admin_link_text: "Lépjen kapcsolatba a %{service_name} csapattal"
-    you_are_ready_to_accept_payments: "Ön kész fizetések fogadására"
+    admin_account_not_connected: "A %{service_name} oldal fizetési rendszerének használata és utalások fogadása nem lehetséges mert a fizetési funkciók még nincsenek beállítva. Részletekért lépj kapcsolatba a rendszergadával %{contact_admin_link}."
+    contact_admin_link_text: "Lépj kapcsolatba a %{service_name} csapattal"
+    you_are_ready_to_accept_payments: "Készen állsz a kifizetések fogadására!"
     commission: "%{commission} %"
     pay_with_stripe: "Fizetés Stripe-pal a %{card}kártyát használva."
     add_and_pay: "Fizetés jóváhagyása"
     card_not_stored: "Fizetését a Stripe biztonságosan feldolgozta. A %{service_name}  nem tárolja hitel- / bankkártya-adatait."
     missing_payment: "Hirdetést már sikeresen feladtál, de a fiókod még nem lett beállítva az átutalások fogadásához. A fizetési beállításokhoz kérünk látogass a %{settings_link} oldalra."
     stripe_bank_connected: "A bankszámla adatai sikeresen beállítva!"
-    stripe_can_accept: "Most már minden készen áll, hogy pénz érkezzen a bankszámlájára."
+    stripe_can_accept: "Most már minden készen áll, hogy pénz érkezhessen a bankszámládra."
     stripe_credit_card: Bankkártya
     paypal: PayPal
     paypal_connected: "Sikeresen csatlakozott PayPal fiókjához!"
     paypal_can_accept: "Most már minden készen áll arra, hogy pénzt kapjon a PayPal-számlájára"
-    paypal_connected_give_permission: "A telepítés befejezéséhez és az utalások fogadásának megkezdéséhez a <%{email} PayPal-számlára kérjük, adjon engedélyt tranzakciós díj felszámítására."
+    paypal_connected_give_permission: "A telepítés befejezéséhez és az utalások fogadásának megkezdéséhez a <%{email} PayPal-számlára kérjük, adj engedélyt tranzakciós díj felszámítására."
     stripe_account_restricted: "Számlájára történő online fizetések korlátozottak vagy hamarosan korlátozottak lesznek!"
     stripe_account_restricted_info: "Kérjük adja meg a bankszámla adatait, hogy további információkat nyújtson a fizetési szolgáltatónak."
     stripe_account_restricted_soon: "A számlájára történő online fizetéseket hamarosan korlátozzuk."
     stripe_account_restricted_soon_info: "Kérjük adja meg a bankszámla adatait, hogy további információkat nyújtson a fizetési szolgáltatónak."
     stripe_account_pending_verification: "A számlaadatok sikeresen mentésre kerültek. A fizetési szolgáltató ellenőrzi az adatokat."
-    stripe_account_pending_verification_info: "Ellenőrizze később, hogy megbizonyosodjon arról, hogy minden rendben van-e."
+    stripe_account_pending_verification_info: "Erre a feladatra adj egy kis időt, de később gyere vissza és ellenőrizd, hogy minden rendben van-e."
     form_new:
-      need_info: "A pénzküldéshez szükség lesz néhány információra Önről."
+      need_info: "Ahhoz, hogy az eladott áru értékét át tudjuk majd utalni neked, szügségünk lesz néhány plusz információra."
       select_country: "Válasszon országot..."
       legal_name: "Hivatalos név"
       first_name: Keresztnév
@@ -3226,8 +3226,8 @@ hu:
       address_province: Tartomány
       address_city: Város
       address_postal_code: Irányítószám
-      address_line1: "Cím, utcaszám"
-      tos_link: "Kifizetési adatainak hozzáadásával elfogadja a %{stripe_link} feltételeit."
+      address_line1: "Utcanév, házszám"
+      tos_link: "Kifizetési adataid hozzáadásával elfogadod a %{stripe_link} feltételeit."
       tos_link_title: "Stripe-pal kötött számlaszerződés"
       save_details: "Adatok mentése"
       edit: "Adatok szerkesztése"

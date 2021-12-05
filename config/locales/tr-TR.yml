@@ -2638,7 +2638,7 @@ tr-TR:
     paypal_account_email_connected: "<del>1. PayPal hesabını bağla</del> Tamamlandı!"
     payout_info_paypal: "%{service_name}, ödeme kuruluşu PayPal ile çalışmaktadır. Bir %{create_paypal_account_link}  ilanlarınız dan ödeme almanız için zorunludur ve %{service_name} pazar yerine bağlanması gerekir."
     paypal_billing_agreement_made: "<del>2. %{service_name} pazar yerine işletim ücreti kesme izni ver</del> Tamamlandı!"
-    commission_permission_needed: "Ayrıca bir işlem ücreti alınması için %{service_name} pazar yerine izin vermeniz gerekir."
+    commission_permission_needed: "Ayrıca bir işlem ücreti alması için %{service_name} pazar yerine izin vermeniz gerekir."
     create_paypal_account_link_text: "PayPal hesabı"
     connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
     paypal_receive_funds_info_label_australia_only: ~
@@ -2870,26 +2870,26 @@ tr-TR:
       newsletters: Bültenler
       community_updates: Bültenler
       email_about_confirm_reminders: "...bir talebin tamamlandığını onaylamayı unuttuğumda"
-      email_about_new_comments_to_own_listing: "...biri ilanıma yorum yaparken"
-      email_about_new_messages: "...biri bana mesaj gönderirken"
-      email_about_new_received_testimonials: "...biri bana geri bildirim yaparken"
+      email_about_new_comments_to_own_listing: "...biri ilanıma yorum yaptığında"
+      email_about_new_messages: "...biri bana mesaj gönderdiğinde"
+      email_about_new_received_testimonials: "...biri ilanıma geri bildirim yaptığında"
       email_about_testimonial_reminders: "...bir talebe geri bildirim yapmayı unuttuğumda"
       email_daily_community_updates: "Yeni ilanlardan beni günlük olarak email ile bilgilendir"
       email_weekly_community_updates: "Yeni ilanlardan beni haftalık olarak email ile bilgilendir"
       do_not_email_community_updates: "Bana haber bültenleri gönderme"
-      email_when_conversation_accepted: "...biri teklif veya isteğimi kabul ederken"
-      email_when_conversation_rejected: "...biri teklif veya isteğimi reddederken"
-      email_about_completed_transactions: "...biri siparişimi tamamlandı olarak işaretlerken"
-      email_about_new_payments: "...yeni bir ödeme alırken"
-      email_about_new_listings_by_followed_people: "...takip ettiğim biri yeni bir ilan eklerken"
+      email_when_conversation_accepted: "...biri teklif veya isteğimi kabul ettiğinde"
+      email_when_conversation_rejected: "...biri teklif veya isteğimi reddettiğinde"
+      email_about_completed_transactions: "...biri siparişimi tamamlandı olarak işaretlediğin de"
+      email_about_new_payments: "...yeni bir ödeme aldığımda"
+      email_about_new_listings_by_followed_people: "...takip ettiğim biri yeni bir ilan eklediğinde"
       unsubscribe_succesful: "Abonelik sonlandırıldı"
       unsubscribe_info_text: "Artık bu e-postaları almayacaksınız. %{service_name}'den hangi e-postaları almak istediğinizi düzenlemek için %{settings_link}'e göz atın ya da %{homepage_link}'ya dönün."
       settings_link: ayarlar
       homepage_link: anasayfa
       unsubscribe_unsuccesful: "Abonelik sonlandırılamadı"
       unsuccessful_unsubscribe_info_text: "Bunun sebebi abonelik sonlandırma linkinin eski ya da bozuk olması olabilir. Soldaki butondan bize ulaşın ve aboneliğinizi sonlandıralım ya da email ayarlarının düzenlemek için giriş yapın."
-      email_listing_new_comment: "...takip ettiğim tartışma ilanına yeni bir yorum yapılırken"
-      email_listing_updated: "...yorum yaptığım bir ilana güncelleme yapılırken"
+      email_listing_new_comment: "...takip ettiğim tartışma ilanına yeni bir yorum yapıldığında"
+      email_listing_updated: "...yorum yaptığım bir ilana güncelleme yapıldığında"
     profile:
       about_you: Hakkınızda
       city: Şehir

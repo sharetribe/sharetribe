@@ -1,14 +1,14 @@
 ro:
   errors:
     messages:
-      expired: "a expirat, încearcă din nou"
+      expired: "a expirat, vă rugăm să solicitați unul nou"
       not_found: inexistent
       already_confirmed: "a fost deja confirmat, încearcă să te conectezi"
       not_locked: "nu a fost blocat"
       not_saved:
-        one: "%{count} eroare a impiedicat această %{resource} sa fie salvată:"
+        one: "O eroare a impiedicat această %{resource} sa fie salvată:"
         few: "%{count} erori au impiedicat aceste %{resource} sa fie salvate:"
-        other: "%{count} erori au impiedicat aceste %{resource} sa fie salvate:"
+        other: "%{count} erori au interzis salvarea acestei %{resurse}:"
   devise:
     failure:
       already_authenticated: "Sunteti deja conectat."
@@ -39,12 +39,12 @@ ro:
         inactive: inactiv
         unconfirmed: neconfirmat
         locked: blocat
-      update_needs_confirmation: "V-ati actualizat cu succes, dar trebuie să verificăm noua adresă de e-mail. Vă rugăm să verificați adresa, click pe link-ul de confirmare."
+      update_needs_confirmation: "V-ați actualizat contul cu succes, dar trebuie să vă verificăm noua adresă de e-mail. Vă rugăm să vă verificați e-mailul și să faceți clic pe linkul de confirmare pentru a finaliza confirmarea noii adrese de e-mail."
       signed_up: "Bine ați venit! Te-ai înregistrat cu succes."
       updated: "Cont actualizat cu succes."
       destroyed: "La revedere! Contul dvs. a fost dezactivat cu succes. Sperăm sa ne revedem în curând."
     unlocks:
-      send_paranoid_instructions: "În cazul în care contul dumneavoastră există, veţi primi un e-mail cu instrucţiuni despre cum să deblocați în câteva minute."
+      send_paranoid_instructions: "În cazul în care contul dumneavoastră există, veţi primi un e-mail cu instrucţiuni despre cum să-l deblocați în câteva minute."
       send_instructions: "Veți primi un e-mail cu instrucțiuni despre cum să deblocați contul în câteva minute."
       unlocked: "Contul dvs. a fost deblocat cu succes. Conectați-vă pentru a continua."
     omniauth_callbacks:
