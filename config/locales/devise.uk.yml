@@ -53,7 +53,7 @@ uk:
       failure: "Ви не можете увійти в систему з обліковим записом %{kind}, через %{reason}."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Інструкції з підтвердження облікового запису щоб доєднатись до %{service_name}"
       reset_password_instructions:
         subject: "Інструкції зі скидання пароля"
       unlock_instructions:

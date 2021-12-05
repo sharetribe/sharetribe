@@ -2,9 +2,9 @@ ro:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
   admin:
     categories:
       edit:
@@ -26,7 +26,7 @@ ro:
           no_parent: "Nicio categorie superioara"
         category_transaction_types:
           transaction_types: "Tipuri de comenzi"
-          transaction_types_description: ~
+          transaction_types_description: "Tipurile de comandă determină ce fel de proces de comandă este permis cu listele din această categorie. De exemplu, se vinde doar sau se închiriază și se oferă gratuit."
           select_all: "Selectează tot"
           clear_all: "Șterge tot"
         buttons:
@@ -65,10 +65,10 @@ ro:
         community_details: "Detalii de bază"
         community_look_and_feel: Design
         edit_community: "Detalii de bază"
-        enabled_languages: ~
-        enabled_languages_description: ~
+        enabled_languages: "Limbi activate"
+        enabled_languages_description: "Setul de limbi disponibile pentru utilizatori. Primul este folosit implicit."
         default_language: "Limba de bază"
-        language_selection_disabled: ~
+        language_selection_disabled: "Selectarea limbii este dezactivată pentru piața dvs. deoarece utilizați următoarele limbi neoficiale: %{languages}. Vă rugăm să contactați asistența Sharetribe dacă doriți să vă modificați setările de limbă."
         community_name: "Numele Marketplace-ului"
         edit_community_name_description: "Numele marketplace-ului dvs. Acest lucru este afișat utilizatorilor în e-mailuri și în diverse alte locuri."
         community_slogan: "Sloganul Marketplace-ului"
@@ -80,7 +80,7 @@ ro:
         edit_community_description_description: "Aceasta apare in pagina de start a marketplace-ului pentru utilizatorii care nu s-au autentificat. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: ~
         community_search_placeholder: "Căutați textul de ajutor"
-        edit_community_search_placeholder_description: ~
+        edit_community_search_placeholder_description: "Acesta este afișat pe pagina de pornire a marketplace ca text substituent în bara de căutare. %{see_how_it_looks_like}."
         private_community_homepage_content: "Continutul paginii de start a marketplace-ului privat"
         edit_private_community_homepage_content_description: "Acest continut apare in pagina de start a marketplace-urilor private catre utilizatorii care nu sunt autentificati. Aici iti poti descrie marketplace-ul si procesul de inscriere. De asemenea poti adauga aici imagini, continut video si cod HTML. %{see_how_it_looks_like}."
         update_information: "Salvare setări"
@@ -90,7 +90,7 @@ ro:
         edit_info: "Editați informația"
         see_how_it_looks_like: "Vedeți cum arată"
         verification_to_post_listings_info_content: "Textul de informare utilizatorilor care nu au fost verificați"
-        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content_description: "În prezent, solicitați ca utilizatorii dvs. să fie verificați manual de dvs. înainte ca aceștia să poată posta înregistrări. Aici puteți seta textul implicit care este afișat utilizatorilor neverificați atunci când încearcă să posteze o nouă înregistrare."
         verification_to_post_listings_info_content_default: "%{service_name} solicita ca datele persoanelor sa fie verificate manual de catre administratori inainte de a lista produse. Inca nu ai fost verificat. Te rugam sa %{contact_admin_link} pentru verificare."
         contact_admin_link_text: "Contactează echipa %{service_name}"
         save: "Salvează setările"
@@ -106,22 +106,22 @@ ro:
         edit_community_look_and_feel: "Editați aspectul marketplace-ului \"%{community_name}\""
         community_logo: Logo
         community_logo_icon: "Logo pentru rețele sociale și dispozitive mobile"
-        community_logo_icon_mobile: ~
+        community_logo_icon_mobile: "Logo pătrat"
         community_cover_photo: "Imaginea de cover"
         small_community_cover_photo: "Poza de cover mică"
         favicon: Favicon
         favicon_info_text: "Favicon va înlocui logo-ul implicit Sharetribe. Dimensiunile trebuie să fie de 32x32 pixeli, iar imaginea încărcată va fi redimensionată la aceste dimensiuni."
         community_custom_color1: "Culoarea principala"
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
-        community_description_color_instructions_text: ~
-        new_listing_button_custom_color: ~
+        community_slogan_color: "Culoarea sloganului marketplace-ul"
+        community_slogan_color_instructions_text: "Puteți schimba culoarea sloganului de pe pagina principală introducând o valoare de culoare hexadecimal. Sloganul este afișat utilizatorilor care nu sunt autentificați. %{colorpicker} vă poate ajuta să alegeți culoarea și vă poate oferi codul de culoare hexadecimal. Apoi puteți copia codul aici. %{see_how_it_looks_like}."
+        community_description_color: "Culoarea descrierii marketplace-ul"
+        community_description_color_instructions_text: "Puteți schimba culoarea descrierii de pe pagina de pornire introducând o valoare de culoare hexadecimal. Descrierea este afișată utilizatorilor care nu sunt autentificați. %{colorpicker} vă poate ajuta să alegeți culoarea și vă poate oferi codul de culoare hexadecimal. Apoi puteți copia codul aici. %{see_how_it_looks_like}."
+        new_listing_button_custom_color: "Postați o nouă culoare pentru butonul de înregistrare"
         logo_instructions_text_with_dimensions: "Dimensiunea logo-ului ar trebui să fie %{width} x%{height} pixeli. Acesta va fi afișat utilizatorilor cu ecrane mai mari."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "Dimensiunea logo-ului trebuie să fie de %{width}x%{height} pixeli."
         logo_icon_instructions_text_with_dimensions: "Acest logo pătrat va fi afișat când utilizatorii vor distribui site-ul dvs. pe Facebook, atunci când vă vor vedea site-ul pe un dispozitiv mobil sau când vor marca site-ul dvs. pe ecranul de pornire al dispozitivului mobil. Dimensiunile trebuie să fie (cel puțin) %{width}x%{height} pixeli."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
-        logo_mobile_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Această siglă pătrată va fi afișată atunci când utilizatorii vă distribuie site-ul pe Facebook sau când vă marchează site-ul pe ecranul de pornire al dispozitivului lor mobil. Dimensiunile trebuie să fie (cel puțin) %{width}x%{height} pixeli."
+        logo_mobile_icon_instructions_text_with_dimensions: "Această siglă pătrată va fi afișată atunci când efectuați anumite acțiuni în calitate de administrator și când oamenii vă marchează site-ul pe ecranul de pornire al dispozitivului lor mobil. Dimensiunile trebuie să fie (cel puțin) %{width}x%{height} pixeli."
         cover_photo_visibility: "Fotografia de pe copertă este afișată în pagina de pornire pentru utilizatorii care nu sunt conectați."
         cover_photo_instructions_text_with_dimensions: "Fotografia va fi redimensionată la rezoluţia %{width}x%{height} pixeli, iar imaginile mai mari vor fi tăiate la mijloc. %{see_how_it_looks_like}."
         we_have_you_covered: ~
@@ -129,10 +129,10 @@ ro:
         small_cover_photo_visibility: "Fotografia cu copertă mică este afișată în toate paginile, cu excepția paginii de pornire pentru utilizatorii care nu sunt conectați."
         small_cover_photo_instructions_text_with_dimensions: "Fotografia va fi redimensionată la rezoluţia %{width}x%{height} pixeli, iar imaginile mai mari vor fi tăiate la mijloc."
         main_content_width: "Când alegeți fotografii de copertă, rețineți că conținutul principal al paginii este cel mult %{main_width} pixeli. Amintiți-vă, de asemenea, să verificați modul în care imaginea de pe copertă arată pe ecranele mai mici (de exemplu, utilizând o fereastră mai îngustă a browserului)."
-        custom_color1_instructions_text: "Puteți modifica culoarea principală a interfeței de utilizator introducând o valoare pentru culoarea hexagonală. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\"> WebFx.com </a> vă poate ajuta să alegeți culoarea și să obtineti codul culorii hexagonale. Puteți apoi copia codul aici."
-        new_listing_button_instructions_text: ~
-        default_browse_view: "Vizualizarea implicită a parcurgerii"
-        default_browse_view_instructions_text: "Afișarea implicită a parcurgerii este utilizată în pagina de pornire pentru a stabili modul în care listele sunt afișate în mod prestabilit."
+        custom_color1_instructions_text: "Puteți modifica culoarea principală a interfeței de utilizator introducând o valoare pentru culoarea hexagonală.  %{link} vă poate ajuta să alegeți culoarea și să obtineti codul culorii hexagonale. Puteți apoi copia codul aici."
+        new_listing_button_instructions_text: "Puteți schimba culoarea butonului Publicați o nouă listă introducând o valoare de culoare hexadecimal. %{link_to_colorpicker} vă poate ajuta să alegeți culoarea și să vă ofere codul de culoare hexadecimal. Apoi puteți copia codul aici."
+        default_browse_view: "Vizualizare implicită a browser-ul"
+        default_browse_view_instructions_text: "Afișarea implicită a browser-ul este utilizată în pagina de pornire pentru a stabili modul în care listele sunt afișate în mod prestabilit."
         grid: Grilă
         list: Listă
         map: Hartă
@@ -143,51 +143,51 @@ ro:
         first_name_only: "Doar Prenume (Prenume)"
         invalid_color_code: "Codul culoarii ar trebui să conţină 6 numere sau litere A-F, de exemplu D96E21"
         custom_head_script: "Script personalizat"
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: "Scriptul personalizat poate fi configurat <a href='%{url}'>în noul panou de administrare</a>."
         current_image: "Imaginea actuala:"
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: "Texte de instrucțiuni"
       edit_welcome_email:
         welcome_email_content: "Continut e-mail de \"Bun venit\""
         welcome_email_content_description: "Mesajul de mai jos va fi trimis fiecarui utilizator nou cand se alatura. Puteți personaliza mesajul astfel încât să se potrivească marketplace-ului dvs. Făcând clic pe \"%{send_test_message_link}\" puteți trimite un mesaj de previzualizare la adresa dvs. de e-mail, astfel încât să puteți vedea cum arată într-un client de e-mail."
         edit_message: "Editați mesaj"
         send_test_message: "Trimiteți mesaj test"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
+        title: "Adresă de e-mail de expediere"
+        info: "Acest nume și adresă sunt folosite pentru e-mailurile trimise de pe piața dvs. către membri."
+        read_more: "Citiți mai multe despre adresa de e-mail de expediere"
+        sender_address: "Adresa expeditorului: %{sender_address}"
+        sender_address_default: "Adresa expeditorului: nu este setată (folosind adresa implicită %{sender_address})"
+        need_to_change: "Dacă trebuie să schimbați adresa de e-mail, vă rugăm să %{contact_support_link}."
+        contact_support_link_text: "contactați asistența Sharetribe"
+        set_sender_address: "Setați adresa expeditorului"
         sender_name_label: Nume
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        amazon_ses_notification: ~
-        this_is_how_it_will_look: "Așa arată:"
+        sender_name_placeholder: "Numele expeditorului"
+        sender_email_label: "Adresa de e-mail"
+        sender_email_placeholder: sender-email@example.com
+        amazon_ses_notification: "Veți primi un e-mail de la %{email_sender} pentru a vă confirma adresa de e-mail. Subiectul e-mailului este „%{email_subject}”. Urmați instrucțiunile pentru a vă verifica adresa de e-mail."
+        this_is_how_it_will_look: "Așa va arată:"
         send_verification_button: "Trimite email de verificare"
-        change_sender_email: ~
-        successfully_saved: ~
-        successfully_saved_name: ~
-        set_sender_name: ~
-        change_sender_name: ~
-        change_sender_prompt: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
+        change_sender_email: "schimba e-mailul expeditorului"
+        successfully_saved: "Adresa expeditorului a fost salvată cu succes. E-mailul de verificare va fi trimis în curând."
+        successfully_saved_name: "Numele expeditorului a fost actualizat cu succes."
+        set_sender_name: "Schimbați numele expeditorului"
+        change_sender_name: "Schimbați numele expeditorului"
+        change_sender_prompt: "%{change_name_link} sau %{change_email_link}"
+        status: "Status: %{status}"
+        status_verified: "Verificat - în uz"
+        status_error: "A aparut o eroare. Vă rugăm să reîmprospătați pagina."
+        status_requested: "Neverificat - e-mail de verificare trimis la %{email} %{time_ago}. %{resend_link}"
+        status_expired: "Verificarea %{email} a expirat. %{resend_link}"
+        status_resent: "E-mailul de verificare a fost reintrodus către %{email}. %{resend_link}"
         resend_link: Retrimite
-        invalid_email_error: ~
+        invalid_email_error: "Format de e-mail nevalid pentru „%{email}”"
         invalid_email_address: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: "Ceva nu a funcționat"
-        white_label_offer: ~
-        upgrade_plan_link: ~
+        invalid_email_domain: "Adresa de e-mail „%{email}” folosește un furnizor de e-mail neacceptat: „%{domain}”. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Citiți articolul din Centrul de ajutor pentru mai multe informații."
+        unknown_error: "Ceva n-a mers bine"
+        white_label_offer: "Setați propria adresă de e-mail ca expeditor și eliminați toate mărcile Sharetribe din mesajele de e-mail trimise până la %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "trecerea la planul Pro sau la o versiune superioară"
         verification_sent_from: "E-mailul de verificare a fost trimis de %{verification_sender_name}."
         follow_the_instructions: "Te rugăm urmează instrucțiunile si verifică adresa de email"
       getting_started:
@@ -196,60 +196,60 @@ ro:
         bg: ~
         ca: ~
         cs: Ceha
-        da-DK: ~
-        de: ~
-        el: ~
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        es: ~
-        es-ES: ~
+        da-DK: Daneza
+        de: Germana
+        el: Greacă
+        en: Engleză
+        en-AU: "Engleză (Australia)"
+        en-GB: "Engleza (Regatul Unit)"
+        es: Spaniolă
+        es-ES: "Spaniolă (Spania)"
         et: ~
-        fi: ~
-        fr: ~
-        fr-CA: ~
+        fi: Finlandeză
+        fr: Franceza
+        fr-CA: "Franceza (Canada)"
         hr: ~
         hu: ~
-        it: ~
-        ja: ~
+        it: Italiană
+        ja: Japoneză
         ko: Coreeana
         lt: ~
-        nb: ~
-        nl: ~
+        nb: "Norvegiana Bokmål"
+        nl: Olandeză
         pl: Polona
-        pt-BR: ~
-        pt-PT: ~
-        ru: ~
+        pt-BR: "Portugheză (Brazilia)"
+        pt-PT: Portugheză
+        ru: Rusă
         sk-SK: ~
-        sv: ~
+        sv: Suedeza
         th-TH: "Thailandeza (Thailanda)"
-        tr-TR: ~
+        tr-TR: Turcă
         vi: Vietnameza
-        zh: ~
+        zh: Chineză
         zh-TW: "Chineza (Taiwan)"
       settings:
         settings: Setări
         general: General
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
+        access: "Preferințe de acces și de contact"
+        join_with_invite_only: "Permiteți noilor utilizatori să se alăture numai cu o invitație de la un utilizator înregistrat"
+        users_can_invite_new_users: "Permiteți tuturor utilizatorilor înregistrați, și nu numai administratorilor, să invite utilizatori noi"
+        private: "Permiteți numai utilizatorilor înregistrați să vadă listări și profiluri de utilizatori (faceți piața privată)"
+        require_verification_to_post_listings: "Permiteți numai utilizatorilor verificați de administratori să posteze noi înregistrări"
         allow_free_conversations: ~
-        search_preferences: ~
+        search_preferences: "Preferințe de căutare"
         search_and_location_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
+        default_search_type: "Tip de căutare: %{select_search_type}"
+        keyword_search: "Căutare prin cuvinte cheie"
         keyword_and_location_search: "Caută dupa locație sau nume"
         location_search: "Caută locația"
-        select_distance_unit: ~
+        select_distance_unit: "Afișați distanța în %{distance_units_selector}"
         km: Km
         miles: Mile
         show_only_nearby: "Arată-mi listările din jurul meu"
         allow_users_to_add_location: ~
         fuzzy_location: ~
         listing_preferences: "Preferinte de listare"
-        transaction_preferences: ~
+        transaction_preferences: "Preferințe de comandă"
         show_listing_publishing_date: "Afișeaza data publicării înregistrării pe pagina de înscriere"
         show_category_in_listing_list: "Afișați tipul de listă în vizualizarea listei"
         listing_comments_in_use: "Permiteți utilizatorilor să posteze comentarii în liste (vizibile tuturor celorlalți utilizatori)"
@@ -260,28 +260,28 @@ ro:
         twitter_handle: "Suport Twitter (folosit cu butonul tweet în pagina de înscriere)"
         update_settings: "Salvează setările"
         automatically_confirmed_no_escrow: "Comanda va fi automat marcată ca fiind completă după %{days_dropdown} zile ce plata a fost făcută."
-        automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_no_escrow_stripe_info: "Pentru tranzacțiile procesate de Stripe, plățile către vânzători sunt întârziate până când comanda este marcată ca finalizată. %{Aflați mai multe}."
         buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Trimiteți buletinul informativ automat: %{frequency_dropdown}"
         newsletter_daily: Zilnic
         newsletter_weekly: Săptămânal
         delete_marketplace_title: "Șterge marketplace"
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
+        type_marketplace_domain: "Introduceți domeniul marketplace-ul dvs. (%{domain}) în câmpul text de mai jos:"
+        type_marketplace_domain_placeholder: "Introduceți domeniul pieței dvs. aici"
+        once_you_delete: "Odată ce ștergeți piața, nu o veți mai putea accesa. Atenție."
         are_you_sure: "Esti sigur?"
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
-        payment_preferences: ~
+        i_understand_button: "Înțeleg că făcând clic pe acest buton, piața mea va fi ștearsă"
+        last_community_updates: "Rețineți că, după ștergere, dvs. și utilizatorii pieței dvs. puteți primi în continuare ultimele e-mailuri de actualizare a pieței."
+        you_will_be_redirected_to: "După ce ți-ai șters piața, vei fi redirecționat către %{destination}. Nu veți mai putea accesa piața dvs."
+        delete_this_marketplace: "Ștergeți această marketplace"
+        payment_preferences: "Sistem de plata"
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
         manage_members: Utilizatori
         email: Email
         name: Nume
-        display_name: "Nume publicat"
+        display_name: "Numele afisat"
         join_date: Inscris
         admin: Administrator
         posting_allowed: "Listarea permisă"
@@ -291,17 +291,17 @@ ro:
         export_all_as_csv: "Exportă tot in format CSV"
         save_user_status_error: "Salvarea a eșuat. Actualizați pagina și încercați din nou."
         ban_user_confirmation: "Aceasta dezactiveaza contul utilizatorului si restrictioneaza accesul acestora in viitor cu acest cont pe acest site. Esti sigur ca vrei sa continui?"
-        unban_user_confirmation: ~
-        ban_me_error: ~
+        unban_user_confirmation: "Acest lucru permite contul de utilizator pe piață și le permite să acceseze din nou site-ul cu acest cont. Sunteți sigur că doriți să continuați?"
+        ban_me_error: "Nu vă puteți dezactiva propriul cont."
         have_ongoing_transactions: ~
         only_delete_disabled: ~
         delete_info1: ~
         delete_info2: ~
-        search: ~
+        search: Căutare
         search_by_name_email: "Cauta dupa nume, e-mail sau nume publicat"
-        reset_search: ~
-        for_search_terms: ~
-        this_makes_the_user_an_admin: ~
+        reset_search: "Arata tot"
+        for_search_terms: "pentru: %{terms}"
+        this_makes_the_user_an_admin: "Acest lucru face utilizatorul un administrator. Trebuie să anunțați utilizatorul cu privire la responsabilitățile sale și că ar trebui să revizuiască termenii de utilizare Sharetribe. Sunteți sigur că doriți să continuați?"
         status_filter:
           all: "Toate conditiile"
           selected: "Conditii selectate: %{count}"
@@ -320,17 +320,17 @@ ro:
         user_didnt_complete_the_signup_process: "Acest utilizator s-a inscris prin Facebook dar nu a completat procesul de inscriere. Dupa ce conecteaza un cont Facebook, utilizatorii trebuie sa accepte Termenii de utilizare si sa completeze orice alt camp obligatoriu."
         pending_user: "In asteptare: %{name}"
       new_layout:
-        new_layout: ~
-        description_roadmap_new: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
-        searchpage: ~
+        new_layout: "Aspect nou"
+        description_roadmap_new: "Când componente noi de aspect sunt disponibile pentru piața dvs., puteți alege dacă doriți să începeți să utilizați noua componentă sau să continuați să o utilizați pe cea veche. Puteți comuta selecția în orice moment din această pagină. Este recomandat să folosiți întotdeauna noua versiune, deoarece componentele vechi ar putea fi eliminate treptat la un moment dat. În cazul în care o componentă pe care o utilizați în prezent va fi eliminată treptat, veți fi contactat în avans."
+        enabled_for_you: "Activat pentru tine"
+        enabled_for_all: "Activat pentru toți"
+        new_topbar: "Top bar nouă (vizibilă pe fiecare pagină)"
+        searchpage: "Noua pagină de căutare (necesită noua bară de sus)"
         new_email_templates: ~
       social_media:
         social_media: "Retele sociale"
         logo: ~
-        logo_info: ~
+        logo_info: "Această imagine va fi afișată în rețelele sociale pentru Facebook, Twitter și LinkedIn atunci când cineva vă distribuie site-ul. Pentru cele mai bune rezultate, ar trebui să aibă un raport de aspect de 2:1 și o dimensiune minimă de %{width}x%{height} pixeli."
         social_media_title: "Titlu retele sociale"
         social_media_title_info: "Acest text va fi afisat pe retelele sociale Facebook, Twitter si LinkedIn cand cineva distribuie site-ul tau. Poti sa previzualizezi aspectul %{facebook_preview_link}, %{twitter_preview_link} si %{linkedin_preview_link}."
         link_for_facebook: "pentru Facebook"
@@ -339,19 +339,19 @@ ro:
         social_media_description: "Descriere retele sociale"
         twitter_handle: "Nume utilizator Twitter"
         twitter_handle_info_text: "Numele de utilizator al contului Twitter pentru platforma dumneavoastra (daca aveti unul). Va fi mentionat cand oamenii folosesc butonul de tweet pe pagina de afisari."
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text_with_instructions: "Numele de utilizator al contului de Twitter al marketplace dvs. (dacă aveți unul). Acesta va fi menționat atunci când oamenii folosesc butonul de tweet de pe pagina de listare. %{instructions_link}."
         twitter_instructions_link_text: "Vezi mai mult"
         twitter_handle_placeholder: "nume utilizator"
-        invalid_twitter_handle: ~
+        invalid_twitter_handle: "Manerul Twitter trebuie să conțină numai maximum 15 caractere alfanumerice (litere A-Z și numere 0-9)."
         facebook_connect: "Login Facebook"
         facebook_developers_dashboard: ~
-        facebook_connect_info_text: ~
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
+        facebook_connect_info_text: "Pentru a activa Conectarea cu Facebook, creați o aplicație pentru marketplace dvs. în %{dashboard_link}. Adăugați aici ID-ul generat și cheia secretă a aplicației."
+        facebook_connect_info_text_with_instructions: "Pentru a activa Conectarea Facebook, creați o aplicație pentru marketplace dvs. în %{dashboard_link}. Adăugați aici ID-ul generat și cheia secretă a aplicației. %{instructions_link}"
+        facebook_instructions_link_text: "Consultați instrucțiunile pentru configurarea Login-ului Facebook."
+        facebook_connect_id: "Facebook App ID"
+        invalid_facebook_connect_id: "ID-ul aplicației ar trebui să conțină numai numere."
+        facebook_connect_secret: "Facebook App Secret"
+        invalid_facebook_connect_secret: "App Secret ar trebui să conțină numai numere și litere de la a la f."
         enable_facebook_login: "Permiteti utilizatorilor sa se autentifice folosind contul de Facebook"
         save: "Salveaza setarile"
         google_connect: "Conectare cu Google"
@@ -425,12 +425,12 @@ ro:
         analytics: Analiza
         google_analytics_key: "Cod de urmarire Google Analytics"
         google_analytics_key_info_text: "Numarul de identificare al contului dumneavoastra de Google Analytics"
-        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_key_info_text_with_instructions: "Tracking ID al contului dvs. Google Analytics. %{instructions_link}."
         google_analytics_instructions_link_text: "Citește mai mult despre Google Analytics"
-        sharetribe_analytics: ~
-        sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: ~
+        sharetribe_analytics: "Sharetribe analytics"
+        sharetribe_analytics_info_text_with_instructions: "Pentru a îmbunătăți serviciile și asistența Sharetribe, Sharetribe urmărește activitatea membrilor pieței. Datele personale nu sunt colectate și aceste informații nu sunt partajate în afara echipei Sharetribe. Această urmărire poate fi dezactivată complet. %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Citiți mai multe despre statisticile Sharetribe."
+        end_user_analytics: "Permiteți lui Sharetribe să urmărească activitatea membrilor pentru a îmbunătăți serviciile Sharetribe"
         save: "Salveaza setari"
         google_tag_manager: ~
         gtm_paragraph_1: ~
@@ -442,7 +442,7 @@ ro:
         url: URL
         placeholder: "https://www.exemplu.com"
       menu_links:
-        menu_links: "Legături in meniu"
+        menu_links: "Link-uri de meniu personalizate"
         menu_links_display: ~
         save: "Salvare setări"
         add_menu_link: "Adăugați un nou link în meniu"
@@ -451,11 +451,11 @@ ro:
         title: Titlu
         language: Limba
         url: URL
-        empty: "Nu aveți legături suplimentare in meniu"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        empty: "Nu aveți link-uri suplimentare in meniu"
+        max_number_of_links: "Numărul maxim de linkuri afișate în top bar: %{select_max_number}"
+        all: Toate
+        max_number_of_links_info: "Linkul către %{about_page} este întotdeauna afișat ca primul link de meniu"
+        about_page: "despre pagina"
       default_menu_links:
         title: ~
         about_link_title: ~
@@ -466,12 +466,12 @@ ro:
         display_contact: ~
         display_invite: ~
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Top bar"
+        new_listing_button_label: "Postați un nou text pentru butonul de înregistrare"
+        invalid_post_listing_button_label: "Vă rugăm să furnizați un text valid pentru butonul „Postați o nouă înregistrare”."
       transactions:
         export_all_as_csv: "Exportă tot in formatul CSV"
-        processing_export: ~
+        processing_export: "Se procesează exportul în CSV..."
         transactions: Tranzactii
         search_by_title_parties: ~
         search: ~
@@ -484,7 +484,7 @@ ro:
           confirmed: ~
           paid: Plătit
           canceled: ~
-          disputed: "Rezervare contestată"
+          disputed: Contestată
           preauthorized: ~
           rejected: ~
           payment_intent_requires_action: ~
@@ -499,48 +499,48 @@ ro:
           started: Început
           last_activity: "Ultima activitate"
           initiated_by: Inițiator
-          other_party: "Parte contractuala"
+          other_party: Vânzător
         status:
-          conversation: ~
-          free: ~
+          conversation: Conversaţie
+          free: "Tranzacție gratuită"
           pending: "În așteptare"
           preauthorized: Pre-autorizat
           accepted: "Acceptat / ă"
           rejected: "Respins / ă"
           paid: "Plătit /ă"
-          confirmed: ~
+          confirmed: Efectuat
           canceled: "Anulat /ă"
-          disputed: "Rezervare contestată"
+          disputed: Contestată
           initiated: "Plata prin PayPal in desfasurare"
           pending_ext: "Plata prin PayPal in desfasurare"
           none:
-            free: ~
+            free: "Tranzacție gratuită"
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
+            free: Conversaţie
+            pending: "In asteptarea"
+            preauthorized: Preautorizat
+            accepted: Accetapt
+            rejected: Refuzat
             paid: Plătit
-            confirmed: ~
-            canceled: ~
-            disputed: "Rezervare contestată"
-            initiated: ~
-            pending_ext: ~
+            confirmed: Finalizat
+            canceled: Anulat
+            disputed: Contestată
+            initiated: "Se așteaptă plata prin PayPal"
+            pending_ext: "Se așteaptă plata prin PayPal"
             refunded: ~
             dismissed: ~
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
+            free: Conversaţie
+            pending: "In asteptarea"
+            preauthorized: Preautorizat
+            accepted: Acceptat
+            rejected: Refuzat
             paid: Plătit
-            confirmed: ~
-            canceled: ~
-            disputed: "Rezervare contestată"
-            initiated: ~
-            pending_ext: ~
+            confirmed: Finalizat
+            canceled: Anulat
+            disputed: Contestată
+            initiated: "Se așteaptă plata Stripe"
+            pending_ext: "Se așteaptă plata Stripe"
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
@@ -548,40 +548,40 @@ ro:
             dismissed: ~
         not_available: Indisponibil
       conversations:
-        conversations: ~
+        conversations: Conversații
         headers:
-          started_from: ~
-          status: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
-        participants: ~
-        profile: ~
+          started_from: "A început de la"
+          status: stare
+          started: "A început"
+          last_activity: "Ultima activitate"
+          initiated_by: Incepator
+          other_party: Vânzător
+        participants: "Conversație: %{starter} cu %{author}"
+        profile: "Profilul lui %{author}"
         search_by_keyword: ~
         search: ~
         reset_search: ~
         for_keyword: ~
       testimonials:
         testimonials: Recenzii
-        no_testimonials_found: ~
-        displaying_xx_reviews: ~
+        no_testimonials_found: "Nu au fost găsite recenzii"
+        displaying_xx_reviews: "Se afișează <b>%{count}</b> recenzii în tranzacțiile %{tx_from} - %{tx_to} din <b>%{all_count}</b> recenzii în total"
         search_keyword: ~
         search: ~
         reset_search: ~
         for_keyword: ~
         headers:
-          transaction: ~
-          author: ~
-          receiver: ~
-          status: ~
-          grade: ~
-          text: ~
+          transaction: Tranzacţie
+          author: Autor
+          receiver: Receptor
+          status: Stare
+          grade: Nota
+          text: Text
         status:
           waiting: "Asteptam recenzie"
-          skipped: ~
-          published: ~
-          blocked: ~
+          skipped: Sărit
+          published: Publicat
+          blocked: Blocat
         status_filter:
           selected: ~
           all: ~
@@ -593,14 +593,14 @@ ro:
           blocked: ~
           selected_js: ~
         form:
-          review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
-          block_review: ~
-          confirm_modify: ~
-          deleting_info: ~
-          blocking_info: ~
+          review_text: "Examinați textul"
+          save: Salvați
+          cancel: Anulare
+          delete_review: "Șterge recenzia"
+          block_review: "Blocați recenzia"
+          confirm_modify: "Sigur doriți să modificați/ștergeți această recenzie? Odată ce editați/ștergeți o recenzie, nu este posibil să recuperați niciuna dintre datele vechi."
+          deleting_info: "Ștergerea unei recenzii permite autorului acesteia să lase o alta pentru aceeași tranzacție."
+          blocking_info: "Blocarea revizuirii după ștergere împiedică autorul său să lase altul pentru aceeași tranzacție."
           unskip: ~
           if_you_unskip_the_review: ~
           they_will_not_be_notified_automatically: ~
@@ -616,7 +616,7 @@ ro:
           used: Utilizat
           date_sent: "Data expedierii"
       listings:
-        listings: ~
+        listings: Listări
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
@@ -631,15 +631,15 @@ ro:
           approval_pending: ~
           approval_rejected: ~
         headers:
-          title: ~
-          author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
-        expired: ~
+          title: Titlu
+          author: Autor
+          created: Creată
+          updated: Actualizat
+          category: Categorie
+          status: Stare
+        open: Deschis
+        closed: Inchis
+        expired: Expirat
         approved: ~
         approval_pending: ~
         approval_rejected: ~
@@ -649,7 +649,7 @@ ro:
           reject: ~
           cancel: ~
       user_fields:
-        user_fields: ~
+        user_fields: "Câmpuri de utilizator"
       footer:
         footer: ~
         offer_pro: ~
@@ -669,7 +669,7 @@ ro:
         style:
           dark: ~
           light: ~
-          marketplace_color: "Culoarea marketplace-ului"
+          marketplace_color: "Culoarea principală  marketplace-ului"
           logo: Logo
         social:
           title: ~
@@ -888,29 +888,29 @@ ro:
       edit:
         edit_listing_field: "Editați câmpul %{field_name}"
       edit_price:
-        description: ~
+        description: "Prețul minim și maxim afectează doar filtrul. Ele nu stabilesc o limită pentru prețurile de listare."
         edit_price_field: "Editati campul pret"
         show_price_filter_homepage: "Afisati filtrul pret pe pagina de start"
-        price_min: ~
-        price_max: ~
+        price_min: "Filtru prețul minim"
+        price_max: "Filtrați prețul maxim"
       edit_location:
-        edit_location_field: ~
+        edit_location_field: "Editați câmpul de înregistrare „Locație”"
         this_field_is_required: "Acest câmp este obligatoriu"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
+        edit_expiration_field: "Editați câmpul de înregistrare „Data de expirare”"
+        enable: "Activați data de expirare"
       form:
         field_required:
           this_field_is_required: "Cere ca acest camp sa fie obligatoriu cand se creaza o noua listare"
-          this_field_is_required_checkbox: ~
+          this_field_is_required_checkbox: "Faceți obligatoriu completarea acestui câmp atunci când creați o nouă înregistrare (utilizatorul trebuie să selecteze cel puțin o opțiune)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Afișați un filtru bazat pe acest câmp pe pagina de pornire"
+          date_cant_be_filtered: "Nu există niciun filtru disponibil pentru câmpul de dată."
+          text_cant_be_filtered: "Nu există niciun filtru pentru câmpul de text. Principala căutare de text caută din câmpurile de text."
       index:
         listing_fields: "Campuri de listare si filtre"
-        listing_fields_help: ~
+        listing_fields_help: "Aici puteți edita câmpurile pe care utilizatorii trebuie să le completeze atunci când creează o nouă înregistrare. Vă rugăm să rețineți că unele câmpuri sunt predefinite și nu pot fi editate."
         add_new_field: "Adăugare câmp nou:"
         remove_field_confirmation: "Sunteti sigur ca vreti sa stergeti campul %{field_name}?"
         cancel: Anulare
@@ -918,8 +918,8 @@ ro:
         field_title: "Titlu câmp"
         field_type: "Tip de câmp"
         categories: "Listarea categoriilor în care este utilizat câmpul"
-        select_all: ~
-        clear_all: ~
+        select_all: "Selectează tot"
+        clear_all: "Sterge tot"
         options: Opțiuni
         add_option: "+ Adăugare opțiune"
         saving_order: "Se salvează ordinea spațiilor"
@@ -938,51 +938,51 @@ ro:
         dropdown: Derulant
         checkbox_group: "Bifați caseta de verificare"
         date: Dată
-        file: ~
+        file: Fişier
         location: Oras
     person_custom_fields:
-      saving_failed: ~
+      saving_failed: "Salvarea câmpului utilizatorului nu a reușit"
       index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        signup: ~
-        public: ~
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        user_fields: "Câmpuri de utilizator"
+        field_title: "Titlul câmpului"
+        field_type: "Tipul câmpului"
+        signup: Inscrie-te
+        public: Public
+        add_new_field: "Adăugați un câmp nou:"
+        save: Salvați
+        cancel: Anulare
+        minimum_value: Minim
+        maximum_value: Maxim
+        allow_decimals: "Permite zecimale"
+        add_option: "Adăugați opțiunea"
       new:
-        new_user_field: ~
+        new_user_field: "Câmp utilizator nou"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
+          this_field_is_required: "Faceți obligatoriu să completați acest câmp atunci când vă înscrieți pe piață"
+          this_field_is_required_checkbox: "Faceți obligatoriu completarea acestui câmp atunci când vă înscrieți pe piață (utilizatorul trebuie să selecteze cel puțin o opțiune)"
+          this_field_is_public: "Afișați acest câmp în pagina de profil publică"
       edit:
-        edit_user_field: ~
+        edit_user_field: "Editați câmpul utilizator „%{field_name}”"
     emails:
       new:
         send_email_to_members: "Email utilizatori"
         send_email_to_members_title: "Trimite e-mail utilizatorilor tai"
         send_email: "Trimiteți e-mailul"
-        send_email_or: ~
+        send_email_or: sau
         send_test_email: "Trimite un e-mail de test catre tine"
         test_sent: "Acest email a fost trimis catre casuta ta postala."
-        send_email_article_title: ~
-        send_email_article_text: ~
+        send_email_article_title: "acest articol"
+        send_email_article_text: "Puteți afla mai multe despre segmentele de utilizatori în %{article_link}."
         recipients:
-          title: ~
+          title: "Cui vrei să trimiți un e-mail?"
           options:
-            all_users: ~
-            posting_allowed: ~
-            with_listing: ~
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
+            all_users: "Toți utilizatorii"
+            posting_allowed: "Utilizatori cărora li se permite să posteze listări"
+            with_listing: "Utilizatori care au postat cel puțin o înregistrare"
+            with_listing_no_payment: "Utilizatori care au postat cel puțin o înregistrare, dar nu și-au adăugat detaliile de plată"
+            with_payment_no_listing: "Utilizatori care și-au adăugat detaliile de plată, dar nu au postat o listă"
+            no_listing_no_payment: "Utilizatori care nu au postat o înregistrare și nu și-au adăugat detaliile de plată"
         email_subject: "Subiectul e-mailului"
         email_content: "Conținutul e-mailului"
         email_content_placeholder: "Ce vrei să le spui utilizatorilor tăi?"
@@ -990,7 +990,7 @@ ro:
         any_language: "Orice limbă"
         message_will_be_sent_only_to_people_with_this_language: "E-mailul va fi trimis numai utilizatorilor care utilizează %{service_name} în limba pe care o alegeți."
         email_sent: "E-mailul a fost trimis"
-        to_improve_email_deliverability: ~
+        to_improve_email_deliverability: "Pentru a îmbunătăți capacitatea de livrare a e-mailului, subiectul e-mailului este generat automat și nu poate fi modificat."
         email_subject_text: "Un mesaj nou de la echipa %{service_name}"
         firstname_cannot_be_removed: "\"Prenume\" nu poate fi sters si va fi inlocuit cu prenumele fiecarui utilizator."
         hello_firstname: "Salut \"Prenume\","
@@ -1005,18 +1005,18 @@ ro:
       whats_new: ~
     listing_shapes:
       availability_title: Disponibilitate
-      read_more: ~
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
-      per_hour_availability: ~
+      read_more: "Citiți mai multe despre gestionarea automată a disponibilității"
+      read_more_availability_management: "Citiți mai multe despre gestionarea disponibilității."
+      allow_providers_to_manage_availability: "Permiteți vânzătorilor să își gestioneze disponibilitatea dintr-un calendar"
+      per_hour_availability: "Disponibilitate „pe oră”."
       per_day_availability: "Disponibilitate pe zi"
       per_night_availability: "Disponibilitate \"Pe noapte\""
-      pricing_units_disabled_info: ~
-      can_not_find_name: ~
+      pricing_units_disabled_info: "Unitățile de preț nu pot fi utilizate când calendarul de disponibilitate este activat."
+      can_not_find_name: "Nu se găsește tipul de comandă cu numele dat: %{name}"
       index:
         listing_shapes: "Tip de comanda"
-        description: ~
-        read_more_about_order_types: ~
+        description: "Tipurile de comandă determină cum funcționează procesul de comandă pe site-ul dvs. Puteți decide dacă utilizatorii dvs. închiriază sau vând, sau poate doar postează anunțuri și comunică prin mesaje directe."
+        read_more_about_order_types: "Citiți mai multe despre tipurile de comenzi"
         add_new_shape: "Adaugă nou tip de comandă:"
         select_template: "Selectează template..."
         all_categories: "Toate categoriile"
@@ -1024,10 +1024,10 @@ ro:
         category_count: "%{category_count} categorii"
         header:
           listing_shape_name: "Numele tipului comenzii"
-          listing_shape_categories: ~
+          listing_shape_categories: "Categoriile în care este folosit"
         order:
           saving_order: "Ordinea salvărilor"
-          save_order_successful: ~
+          save_order_successful: "Comanda de tip comandă a fost salvată"
           save_order_error: "S-a produs o eroare în timpul salvarii. Vă rugăm să reincarcarti pagina și să incercați din nou."
       templates:
         selling_products: "Vânzare produse"
@@ -1041,29 +1041,45 @@ ro:
         create_listing_shape: "Crează tipul de comandă"
         create: Crează
         cancel: Anulare
-        create_success: ~
-        create_failure: ~
+        create_success: "A fost creat un nou tip de comandă „%{shape}”."
+        create_failure: "Nu s-a putut crea un nou tip de comandă. Eroare: %{error_msg}"
       edit:
         edit_listing_shape: "Editează tipul de comandă %{shape}"
         update: Salvează
         cancel: Anulare
-        update_success: ~
-        update_failure: ~
+        update_success: "Modificările aduse tipului de comandă „%{shape}” au fost salvate"
+        update_failure: "Modificările nu au putut fi salvate. Eroare: %{error_msg}"
         delete: "Șterge tipul comandei"
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
+        confirm_delete_order_type:
+          one: "Există %{count} listare cu acest tip de comandă. Dacă ștergeți tipul comenzii, această listă va fi închisă. Sigur doriți să ștergeți tipul de comandă?"
+          few: "Există %{count} înregistrări cu acest tip de comandă. Dacă ștergeți tipul de comandă, acele listări vor fi închise. Sigur doriți să ștergeți tipul de comandă?"
+          other: "Există %{count} înregistrări cu acest tip de comandă. Dacă ștergeți tipul de comandă, acele listări vor fi închise. Sigur doriți să ștergeți tipul de comandă?"
+        can_not_delete_last: "Nu puteți șterge acest tip de comandă, deoarece este singurul tip de pe piața dvs."
+        can_not_delete_only_one_in_categories: "Nu puteți șterge acest tip de comandă, deoarece în următoarele categorii, acest tip de comandă este singurul utilizat: %{categories}"
       listing_shape_name: Nume
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
+      listing_shape_name_placeholder: "De exemplu: Vinde"
+      action_button_label: "Eticheta butonului de finalizare a comenzii"
+      action_button_placeholder: "De exemplu: Cumpără"
+      open_listings_warning:
+        one: "Există %{count} înregistrare deschisă cu acest tip de comandă. Dacă modificați oricare dintre setările de mai jos, lista respectivă va păstra setările vechi. Lista poate fi modificată la noile setări prin editarea manuală. Dacă nu doriți să aveți lista cu setările vechi vizibile pe site-ul dvs., o puteți închide făcând clic pe butonul de mai jos."
+        few: "Există %{count} înregistrări deschise cu acest tip de comandă. Dacă modificați oricare dintre setările de mai jos, acele listări vor păstra setările vechi. Acele listări pot fi modificate la noile setări prin editarea lor manuală. Dacă nu doriți să aveți nicio listă cu setările vechi vizibile pe site-ul dvs., le puteți închide făcând clic pe butonul de mai jos."
+        other: "Există %{count} înregistrări deschise cu acest tip de comandă. Dacă modificați oricare dintre setările de mai jos, acele listări vor păstra setările vechi. Acele listări pot fi modificate la noile setări prin editarea lor manuală. Dacă nu doriți să aveți nicio listă cu setările vechi vizibile pe site-ul dvs., le puteți închide făcând clic pe butonul de mai jos."
+      close_listings_action:
+        one: "Închideți lista %{count}"
+        few: "Închideți %{count} înregistrări"
+        other: "Închideți %{count} înregistrări"
+      confirm_close_listings_action:
+        one: "Sigur doriți să închideți lista %{count}?"
+        few: "Sigur doriți să închideți %{count} înregistrări?"
+        other: "Sigur doriți să închideți %{count} înregistrări?"
       successfully_closed: "Listarea sa închis cu succes"
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
+      successfully_deleted: "Tipul de comandă „%{order_type}” a fost șters cu succes"
+      pricing_and_checkout_title: "Preț și finalizare"
+      online_payments_label: "Permiteți vânzătorilor să accepte plăți online"
+      shipping_label: "Permiteți vânzătorilor să definească o taxă de expediere"
+      price_label: "Permiteți vânzătorilor să adauge un preț la înregistrările lor"
       units_title: "Unități de prețuri"
-      units_desc: ~
+      units_desc: "Dacă ați activat unitățile de preț, prețul de listare este afișat ca „preț pe unitate de preț”. Un exemplu: „39 USD pe oră”."
       units:
         piece: "pe bucată"
         hour: "pe oră"
@@ -1071,123 +1087,127 @@ ro:
         night: "Pe noapte"
         week: "Pe saptamana"
         month: "Pe luna"
-        unit: ~
-      can_not_find: ~
-      add_custom_unit: ~
+        unit: "Pe unitate"
+      can_not_find: "Nu se găsește tipul de comandă cu id: %{id}"
+      add_custom_unit: "+ Adăugați o unitate de preț personalizată..."
       delete_custom_unit: șterge
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
+        title: "+ Adăugați o unitate de preț personalizată..."
+        label_heading: Eticheta
+        selector_label_heading: "Eticheta selectoare"
+        label_placeholder: "de exemplu: „kg”, „30 minute”, „persoană”, „clasă”"
+        selector_placeholder: "de exempl:. „kg”, „30 minute”, „persoană”, „clasă”"
         per: Pe
         unit_type:
-          heading: ~
-          quantity_label: ~
+          heading: "Tip de unitate"
+          quantity_label: "Cantitate (pe bucată, pe kg, pe persoană, pe tur de 2 ore...)"
           time_label: "Timp (pe 30 minute, pe 2 saptamani, pe an...)"
     paypal_accounts:
       marketplace_paypal_integration: "Preferintele sistemului de plata"
       preferences_updated: "Preferintele sistemului de plata actualizate"
       contact_support_link_text: "Contactează suport"
       integration_info_text: "Plăţile pe Sharetribe se realizează prin intermediul PayPal. Pentru a permite utilizatorilor să plătească în cadrul marketplace-ului dumneavoastră, trebuie să vă conectaţi contul PayPal. Odata conectat contul PayPal, puteţi alege o limită minimă a unei tranzacţii şi un posibil comision."
-      link_paypal_personal_account_label: ~
-      link_paypal_personal_account: ~
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
+      link_paypal_personal_account_label: "Furnizi singur produse sau servicii?"
+      link_paypal_personal_account: "Dacă da, va trebui să vă conectați contul PayPal la %{personal_payment_preferences_link}."
+      link_stripe_personal_account: "Dacă da, va trebui să adăugați și detaliile de plată la %{personal_payment_preferences_link}."
+      link_paypal_and_stripe_personal_account: "Dacă da, va trebui să vă conectați contul PayPal sau Stripe la %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "contul tău personal din markeplace"
       read_more_about_paypal: "Citește mai mult despre sistemul de plată."
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      edit_payment_settings: "Editați setările de plată"
+      supported_currencies_information_text: "Sistemul de plată online al Sharetribe acceptă 24 de valute. Dacă moneda dvs. nu este pe listă, vă rugăm %{contact_support_link}. Dacă schimbați moneda pieței, înregistrările existente își vor păstra moneda veche. Trebuie să editați aceste listări individual pentru a le converti în noua monedă."
+      currency_change_warning_text: "Atenție: dacă mergeți mai departe cu această schimbare a monedei, nu uitați să le cereți vânzătorilor să-și editeze manual înregistrările existente pentru a obține actualizarea monedei."
+      marketplace_currency_label: "Moneda marketplace::"
       minimum_listing_price_label: "Dimensiunea minima a tranzactiei:"
-      transaction_fee_label: "Comision:"
-      minimum_transaction_fee_label: ~
+      transaction_fee_label: "Taxa de tranzacție a vânzătorului:"
+      minimum_transaction_fee_label: "Taxa minimă de tranzacție a vânzătorului:"
       save_settings: "Salvati setarile"
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "Taxa minimă de tranzacție a vânzătorului:%{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Pretul minim a tranzacției trebuie să fie mai mare decât comisionul minim %{minimum_commission}."
     payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
+      title: "Preferințele sistemului de plată"
+      general_settings: "1. Setări generale"
+      connect_a_payment_provider: "2. Conectați furnizorul de plăți"
+      contact_support: "contactați asistența"
       no_payments_link_text: aici
       your_country: Țara
-      you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
-      choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      you_cannot_use_online_payments: "Nu puteți utiliza plăți online în %{country_name} cu %{currency}. Vă rugăm să alegeți o altă monedă sau %{support_link} pentru a vă schimba țara. Puteți citi mai multe despre țările și monedele acceptate %{help_link}. În viitor, s-ar putea să adăugăm mai mulți furnizori de plăți și să acceptăm mai multe valute"
+      which_to_choose: "Pe care să o aleg?"
+      you_can_use_stripe_or_paypal: "Puteți utiliza Stripe, PayPal sau ambele ca furnizori de plată. %{choose_link}"
+      you_can_use_stripe_only: "Puteți utiliza Stripe ca furnizor de plăți. %{read_more_link}"
+      read_more_stripe: "Citiți mai multe despre plățile Stripe."
+      you_can_use_paypal_only: "Puteți utiliza PayPal ca furnizor de plăți. %{read_more_link}"
+      read_more_paypal: "Citiți mai multe despre plățile PayPal."
+      read_more_about_paypal_and_stripe: "Citiți mai multe despre plăți online, Stripe și PayPal"
+      general_settings_updated: "Setările generale ale sistemului de plată au fost actualizate"
+      transaction_fee_settings_updated: "Setările taxelor de tranzacție au fost actualizate"
+      choose_popup_text: |-
+          Dacă doriți să permiteți utilizatorilor să accepte plăți online, trebuie să alegeți moneda pentru piața dvs. și apoi să vă conectați cel puțin unul dintre cei doi furnizori de plăți acceptați de Sharetribe: Stripe și PayPal. De asemenea, puteți alege să utilizați ambele, ceea ce înseamnă că utilizatorii dvs. vor putea accepta plăți cu oricare dintre metodele de plată.
+          Puteți crea un cont nou cu oricare dintre servicii dacă nu aveți deja unul. După ce ați conectat un cont, puteți alege o posibilă taxă pe care o percepeți pentru fiecare tranzacție.
+          Care este diferența dintre Stripe și PayPal? Stripe vă permite să întârziați plata către vânzător cu până la 3 luni și oferă o metodă de plată (card de credit/debit). Stripe permite, de asemenea, vânzătorilor tăi să primească bani direct în contul lor bancar, pur și simplu furnizând detaliile lor bancare. PayPal oferă două metode de plată (card de credit și cont PayPal) și oferă un program de protecție pentru cumpărători și vânzători. Este necesar ca vânzătorii dvs. să creeze un cont de afaceri PayPal pentru a accepta plăți.
+          Dacă utilizați Stripe, taxele sale vor fi deduse din taxa de tranzacție, așa că nu uitați să setați o taxă minimă suficient de mare. Dacă utilizați PayPal, taxele acestuia vor fi percepute de la vânzător separat, în plus față de taxa de tranzacție. Stripe și PayPal au o structură a taxelor puțin diferită. În majoritatea cazurilor, taxele Stripe sunt puțin mai mici.
+      invalid_api_keys: "Chei Stripe API nevalide"
+      missing_api_keys: "Cheile Stripe API lipsesc"
+      stripe_verified: "Accesul API Stripe a fost verificat"
+      change_settings: "Modificați setările și taxele"
+      configure_stripe: "Configurați Stripe"
+      configure_paypal: "Configurați PayPal"
+      transaction_fee_settings: "Setări de taxe de tranzacție"
+      transaction_fee_save: Salvați
+      stripe_fee: "Taxele Stripe"
+      stripe_fee_notice: "%{stripe_fee_link} va fi dedus din taxa de tranzacție pe care o percepeți."
+      fee_should_be_less_than_minimum_price: "Taxa minimă de tranzacție trebuie să fie mai mică decât dimensiunea minimă a tranzacției"
       the_transaction_fee_must_be_lower_than_100: ~
-      confirm_disable: ~
+      confirm_disable: "Sigur doriți să dezactivați %{gateway}? Dacă o dezactivați, vânzătorii nu vor mai putea primi bani, iar cumpărătorii nu vor mai putea plăti prin această metodă de plată. Dacă vânzătorii nu au configurat o altă metodă de plată, cumpărătorii nu vor putea cumpăra de la ei."
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
       stripe_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
+        title: "Stripe conectat"
+        disable: "Dezactivează Stripe"
+        disabled: "Stripe dezactivat"
+        enable: "Activați Stripe din nou"
       paypal_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
-      cannot_enable_gateway: ~
-      cannot_disable_gateway: ~
+        title: "PayPal conectat"
+        disable: "Dezactivează PayPal"
+        disabled: "PayPal dezactivat"
+        enable: "Activați PayPal din nou"
+      cannot_enable_gateway: "Nu se poate activa gateway-ul de plată %{gateway}."
+      cannot_disable_gateway: "Nu se poate dezactiva gateway-ul de plată %{gateway}."
       cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
-        publishable_key_example: ~
-        secret_key_example: ~
-        save_api_keys: ~
-        invalid_secret: ~
-        invalid_publishable: ~
+        add_your_api_keys: "Adăugați cheile Stripe API"
+        how_to_get_these: "Cum să obțineți acestea?"
+        publishable_key_example: "De exemplu: %{api_publishable_key_example}"
+        secret_key_example: "De exemplu: %{api_secret_key_example}"
+        save_api_keys: "Salvați cheile Stripe API"
+        invalid_secret: "Nu pare o %{secret_key} corectă"
+        invalid_publishable: "Nu pare o %{publishable_key} corectă"
       index:
-        header: ~
-        info: ~
-        active: ~
-        gateway: ~
-        process: ~
-        commission: ~
-        minimum_price: ~
-        minimum_fee: ~
-        api_verified: ~
-        actions: ~
-        payments_not_enabled: ~
+        header: "Setări de plată disponibile"
+        info: "Puteți configura gateway-uri de plată disponibile pentru a fi utilizate pe piața dvs. În prezent, sunt acceptate PayPal și Stripe."
+        active: Activ
+        gateway: Gateway
+        process: Proces
+        commission: Comision
+        minimum_price: "Preț minim"
+        minimum_fee: "Taxa min"
+        api_verified: "API verificat?"
+        actions: Acțiuni
+        payments_not_enabled: "Plățile nu sunt activate pentru marketplace marketplace dvs"
     transaction_types:
       sell: Vânzare
-      sell_w_online_payment: ~
-      sell_wo_online_payment: ~
+      sell_w_online_payment: "Se vinde cu plata online"
+      sell_wo_online_payment: "Se vinde fara plata online"
       rent: Inchiriere
-      rent_w_online_payment: ~
-      rent_wo_online_payment: ~
+      rent_w_online_payment: "Inchiriere cu plata online"
+      rent_wo_online_payment: "Închiriere fără plată online"
       give: Donatie
       lend: Imprumut
       swap: Schimb
       service: Dăruire
-      service_w_online_payment: ~
-      service_wo_online_payment: ~
+      service_w_online_payment: "Oferta cu plata online"
+      service_wo_online_payment: "Ofertă fără plată online"
       request: Solicita
-      inquiry: ~
+      inquiry: Anunţ
       share_for_free: "Partajare gratuita"
       event_w_online_payment: ~
       event_wo_online_payment: ~
@@ -1205,15 +1225,15 @@ ro:
         next_step: "Urmatorii pasi:"
         waiting_for_provider_accept_or_reject: ~
         waiting_for_fulfill_and_complete: "Asteptam ca %{provider} sa predea produsul %{listing_title}. La returnarea produsului, %{buyer} trebuie sa marcheze comanda ca fiind completa."
-        buyer: "Chirias:"
-        provider: "Proprietar:"
+        buyer: "Cumpărător:"
+        provider: "Vânzător:"
         delivery: ~
         shipping_to: ~
-        buyer_pays: "Chiriasul plateste:"
+        buyer_pays: "Cumpărătorul plătește:"
         marketplace_collects: "%{service_name} colecteaza:"
         buyer_service_fee_label: ~
-        service_fee_label: "Comision de la proprietar:"
-        provider_receives: "Proprietarul primeste:"
+        service_fee_label: "Comision de la vânzător:"
+        provider_receives: "Vanzatorul primeste:"
         admin_info_text: ~
         manage_reviews: ~
         you_should_investigate: "Ar trebui să investigați contestația, discutând cu ambele părți, și apoi să confirmați / infirmați disputa. %{learn_more_link} "
@@ -1223,7 +1243,7 @@ ro:
     default_community_slogan: "Platformă de intermediere online a comunității"
     default_community_description: "Acesta este un loc în care puteți vinde, închiria și partaja bunuri sau servicii cu altț membrii ai platformei online."
     cancel: Anulează
-    fields_that_are_mandatory: "Campurile cu stea (*) sunt obligatorii."
+    fields_that_are_mandatory: "Campurile marcate cu stea (*) sunt obligatorii."
     or: sau
     password: Parola
     service_name: "%{service_name}"
@@ -1231,7 +1251,7 @@ ro:
       request: cerere
       offer: ofertă
       borrow: împrumutare
-      buy: cumpărați
+      buy: cumpărare
       give_away: donație
       lend: împrumut
       receive: gratuit
@@ -1255,21 +1275,21 @@ ro:
       furniture: Mobilier
       outdoors: "Camping și activități în aer liber"
       food: "Mâncare și bucătărie"
-      electronics: Electrocasnice
-      pets: "Animale de companie"
+      electronics: Electronică
+      pets: "Animale de companie și animale"
       film: "Filme și Cinema"
       clothes: "Îmbrăcăminte și Accesorii"
-      garden: Grădinărit
+      garden: Grădină
       travel: Călătorii
       other: Altele
     username: "Nume utilizator"
-    username_or_email: "E-mail sau nume utilizator"
+    username_or_email: E-mail
     what_is_this: "Ce înseamnă asta?"
     removed_user: "Utilizator șters"
     payment_fee_info:
       title: "Comisioane și taxe de procesare plăți"
-      stripe: ~
-      paypal: ~
+      stripe: Stripe
+      paypal: PayPal
       info: "Pe %{service_name} plățile sunt procesate folosind procesatorul de plăți menționat mai jos. %{service_name} va debita un comision, în funcție de procesatorul de plăți. Procesatorul de plăți poate să debiteze de asemenea o taxă pentru fiecare tranzacție, dupa cum descriem mai jos."
     paypal_fee_info:
       title: "Comisionul procesatorului de plăți PayPal"
@@ -1281,8 +1301,8 @@ ro:
           Poți să vezi exact aceste comisioane, autentificându-te in contul tău Paypal și accesând acest link: %{link_to_paypal}. După fiecare tranzacție vei primi un extras care îți va menționa comisionul exact.
       link_to_paypal_text: "Comisioane Paypal"
     stripe_fee_info:
-      title: ~
-      body_text: ~
+      title: "Taxa de procesare a plăților Stripe"
+      body_text: "Pentru plățile Stripe, %{service_name} percepe un comision de %{stripe_commission}%. Comisionul minim pe tranzacție este de %{minimum_transaction_fee}. Taxele Stripe sunt incluse în acest comision."
       link_to_stripe_text: aici
   conversations:
     accept:
@@ -1293,7 +1313,7 @@ ro:
       accept_request_and_close: ~
       reject_offer: "Nu de data asta"
       reject_request: "Nu de data asta"
-      close_listing: "Închideți anunțutile %{listing_title_link}"
+      close_listing: "Închideți anunțul %{listing_title_link}"
       update_later: "Părăsiți anunțul deschis"
       optional_message: "Mesaj opțional"
       price_to_pay: "Preţul total de plătit"
@@ -1306,11 +1326,11 @@ ro:
       you_will_get_label: "Vei primi:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
-      total_value_paypal: ~
-      total_value_stripe: ~
+      total_value_paypal: "%{seller_gets}"
+      total_value_stripe: "%{seller_gets}"
       paypal_fee: ~
       paypal_fee_info: "* Exclude %{link}"
-      shipping_price_label: "Trimite:"
+      shipping_price_label: "Transport:"
       stripe-fee_label: "Comision procesare plati"
     confirm:
       confirm_description: "Te rugăm să confirmi plata și finalizarea procesului de rezervare. De asemenea, puteți oferi o recenzie proprietarului."
@@ -1339,23 +1359,23 @@ ro:
       rejected_offer: "Oferta respinsă."
       confirmed_request: "Cererea de rezervare a fost finalizată."
       confirmed_offer: "Rezervare finalizată."
-      canceled_request: "Comanda anulata."
+      canceled_request: "Comanda contestata."
       canceled_offer: "Oferta anulată."
       message_from: "Mesaj de la %{person}"
       about_listing: "Despre listarea %{listing_title}"
-      free_message: ~
+      free_message: "Mesaj direct"
       message_content_not_available: "Mesajul nu este disponibil"
     message:
       accepted_request: "a acceptat cererea"
       received_payment: "Rezervare acceptata, plata de %{sum} a fost primita. "
       received_payment_wo_sum: ~
-      accepted_offer: "acceptat oferta"
+      accepted_offer: "a acceptat oferta"
       rejected_request: "a refuzat cererea, a anulat plata"
-      rejected_offer: "respins oferta"
+      rejected_offer: "a respins oferta"
       confirmed_request: "a marcat comanda ca fiind finalizata"
       confirmed_offer: "a marcat oferta ca finalizat"
       canceled_request: "a anulat comanda"
-      canceled_offer: "anulat oferta"
+      canceled_offer: "a anulat oferta"
       paid: "plătit %{sum}"
       payment_preauthorized: "Plata autorizata: %{sum}"
       payment_preauthorized_wo_sum: ~
@@ -1373,7 +1393,7 @@ ro:
       optional_message_to: "Mesaj opțional pentru %{author_name}"
       send_message: "Trimite mesaj"
       send: Trimiteți
-      this_message_is_private: "Acest mesaj este privat intre tine si %{person}. Persoana %{person} va fi notificata de acest mesaj prin email"
+      this_message_is_private: "Acest mesaj este privat intre tine si %{person}. %{person} va fi notificata de acest mesaj prin email"
       you_will_get_notified_of_acceptance: "Vei primi un email de notificare cand %{person} accepta sau refuza propunerea ta."
       you_will_get_notified: "Vei primi un email de notificare cand %{person} iti va raspunde."
       title: Titlu
@@ -1406,7 +1426,7 @@ ro:
       offer_canceled: Anulat
       offer_confirmed: Finalizat
       offer_paid: "Plata a fost procesată cu succes."
-      offer_preauthorized: "Plata efectuata cu suuces"
+      offer_preauthorized: "Plata a fost procesată cu succes."
       offer_waiting_for_payment: "Plata efectuate de %{requester_name} in asteptare"
       pay: Plata
       preauthorized: "Plata realizată cu succes"
@@ -1419,19 +1439,19 @@ ro:
       waiting_for_current_user_to_deliver_listing: "Așteptăm ca cererea de rezervare pentru %{listing_title} să fie marcată ca finalizată"
       waiting_for_listing_author_to_deliver_listing: "Asteptam ca %{listing_author_name} sa valideze rezervarea pentru %{listing_title}"
       request_accepted: "Cerere acceptată"
-      request_rejected: Refuzat
-      request_confirmed: "Rezervare finalizată"
+      request_rejected: "Cerere respinsă"
+      request_confirmed: Finalizatăt
       request_canceled: Anulat
       request_paid: "Plata a fost procesată cu succes."
       request_preauthorized: "Plata a fost autorizată"
       skip_feedback: "Omiteti recenzia"
-      waiting_for_listing_author_to_accept_offer: "Aşteptam ca %{listing_author_name} sa accepte oferta"
-      waiting_for_listing_author_to_accept_request: "Așteaptă ca %{listing_author_name} să accepte rezervarea în termen de maxim 3 zile. Imediat ce %{listing_author_name} acceptă rezervarea, suma îți va fi debitată."
+      waiting_for_listing_author_to_accept_offer: "Se așteaptă ca %{listing_author_name} să accepte oferta"
+      waiting_for_listing_author_to_accept_request: "Se așteaptă ca %{listing_author_name} să accepte solicitarea. De îndată ce %{listing_author_name} acceptă, veți fi taxat."
       waiting_for_you_to_accept_request: "Te asteapta sa accepti solicitarea"
-      waiting_confirmation_from_requester: "Asteptam ca %{requester_name} sa marcheze comanda ca finalizata"
+      waiting_confirmation_from_requester: "Se așteaptă ca %{requester_name} sa marcheze comanda ca finalizata"
       waiting_confirmation_from_you: "Te așteptăm să marchezi rezervarea ca fiind completa, confirmând plata"
-      waiting_payment_from_requester: "Aşteptare pentru %{requester_name} să plătească"
-      waiting_payment_from_you: "Vă aștept să plătiți"
+      waiting_payment_from_requester: "Se așteaptă ca %{requester_name} să plătească"
+      waiting_payment_from_you: "In asteptare să plătiți"
       waiting_feedback_from_you: "Asteptam sa oferiti o recenzie"
       pending_external_inbox:
         paypal:
@@ -1441,9 +1461,9 @@ ro:
           verify: "Asteptam sa va verificati contul PayPal"
       stripe:
         waiting_confirmation_from_requester: "Așteptăm ca %{requester_name} să finalizeze rezervarea. Odată ce rezervarea este finalizată, suma va fi trimisă către contul tău bancar, în termen de 7 zile."
-      order_canceled: "Rezervare contestată"
+      order_canceled: "Comanda contestata"
       waiting_for_marketplace_review: ~
-      marketplace_notified: "Echipa %{service_name} a fost notificată. "
+      marketplace_notified: "Echipa %{service_name} a fost notificată. De asemenea, puteți să %{contact_link} dacă doriți să le împărtășiți mai multe detalii."
       contact_them: ~
       refunded: ~
       dismissed: ~
@@ -1456,21 +1476,21 @@ ro:
     status_link:
       accept_offer: "Acceptă ofertă"
       accept_request: "Acceptă cererea"
-      reject_offer: "Respinge oferta"
+      reject_offer: "Nu acuma"
       reject_request: "Nu acum"
       accept_preauthorized_offer: "Accepta oferta"
       accept_preauthorized_request: "Acceptă cererea"
       reject_preauthorized_offer: "Refuza cererea"
       reject_preauthorized_request: "Nu de data aceasta"
-      confirm: "Confirm Plata"
+      confirm: "Confirm PlataMarcheaza ca completat"
       cancel: Disputa
       mark_as_refunded: ~
       dismiss: ~
   feedback:
     feedback_subject: "Mesaj nou de pe formularul de contact %{service_name} "
     feedback_body: "%{author_name_and_email} a trimis următorul mesaj de pe formularul de contact %{service_name}. Acest mesaj este trimis automat tuturor administratorilor ai %{service_name} "
-    unlogged_user: ~
-    anonymous_user: ~
+    unlogged_user: "Un utilizator neconectat"
+    anonymous_user: "Un utilizator anonim"
   community_memberships:
     access_denied:
       access_denied: "Acces interzis"
@@ -1488,13 +1508,13 @@ ro:
       log_out: ieșiți
       join_community_button: "Alăturați-vă %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
+      invitation_code_invalid_or_used: "Codul de invitație a fost nevalid sau deja folosit."
+      email_not_allowed: "Acest e-mail nu este permis în %{service_name}."
       email_not_available: "Adresa de email pe care ai furnizat-o este deja folosită"
       consent_not_given: "Termenii nu au fost acceptați"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "Nu uita sa accepti sau sa respingi oferta de la %{sender_name}"
+      remember_to_accept_offer: "Nu uitați să acceptați sau să respingeți o ofertă de la %{sender_name}"
       remember_to_accept_request: "Amintește-ți să accepți sau să refuzi cererea de la %{sender_name}."
       you_can_accept_or_reject_offer_at: "Poți accepta sau refuza oferta la"
       you_can_accept_or_reject_request_at: "Poți accepta sau refuza oferta la"
@@ -1506,11 +1526,11 @@ ro:
       create_own: "Vrei sa-ti creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
       learn_more: "Vezi mai mult"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Încă nu ați finalizat sau nu ați anulat comanda %{request_link}. Dacă comanda a fost finalizată ar trebui să confirmați acest pas. Apoi puteți oferi o recenzie către %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Încă nu ați finalizat sau nu ați contestat comanda %{request_link}. Dacă comanda a fost finalizată ar trebui să confirmați acest pas. Apoi puteți oferi o recenzie către %{other_party_given_name}."
       remember_to_confirm_request: "Nu uitați să confirmați sau să revocați o solicitare"
       if_will_not_happen_you_should_cancel: "Dacă credeți că această comandă nu va fi finalizată dintr-un motiv sau altul, puteți %{cancel_it_link}."
-      cancel_it_link_text: anulați-l
-      automatic_confirmation: ~
+      cancel_it_link_text: contesta-l
+      automatic_confirmation: "Dacă nu confirmați sau contestați comanda în %{days_to_automatic_confirmation} zile de la acceptarea cererii, o vom marca automat ca finalizată."
     confirm_reminder_v2:
       headline: ~
       you_have_not_yet_confirmed_or_canceled_request: ~
@@ -1525,9 +1545,9 @@ ro:
     transaction_confirmed:
       here_is_a_message_from: "Iată un mesaj de la %{other_party_given_name}:"
       request_marked_as_confirmed: "Comandă finalizată - nu uita să oferi o recenzie."
-      request_marked_as_canceled: "Comanda anulata"
+      request_marked_as_canceled: "Comanda contestata"
       has_marked_request_as_confirmed: "%{other_party_full_name} a marcat comanda pentru %{request} ca fiind finalizata. Poti oferi acum o recenzie pentru %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} a anulat comanda pentru %{request}. Totusi, puteti oferi feedback catre %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} a contestat comanda despre „%{request}”. Puteți încă să oferiți feedback lui %{other_party_given_name}."
       giving_feedback_is_good_idea: "Feedback-ul este întotdeauna o idee bună. Dacă totul a decurs bine comunitatea ar trebui să știe că %{other_party_given_name} este de încredere. Dacă au fost probleme este bine să menționezi și aceste aspecte."
       give_feedback_to: "Oferiti o recenzie pentru %{other_party_given_name}"
       stripe:
@@ -1542,7 +1562,7 @@ ro:
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti o recenzie"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "Am marcat comanda despre „%{request}” finalizată. Comanda a fost finalizată automat deoarece au trecut %{days_passed} zile de când solicitarea a fost acceptată."
     transaction_automatically_confirmed_v2:
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
@@ -1578,7 +1598,7 @@ ro:
       unsubscribe_from_these_emails: "dezabonați-vă de la aceste e-mailuri."
       unsubscribe_from_invitation_emails_info: "Ai primit acest e-mail deoarece un membru %{service_name} te-a invitat sa te inregistrezi."
       unsubscribe_from_invitation_emails: "Dezaboneaza-te de la email-urile de invitatie %{service_name}"
-      here_is_your_receipt: "Chitanța este disponibilă în contul tău."
+      here_is_your_receipt: "Chitanța dumneavoastră."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ți-a acceptat oferta %{listing}."
       has_accepted_your_request: "%{accepter} ți-a acceptat cererea %{listing}."
@@ -1591,7 +1611,7 @@ ro:
       your_request_was_rejected: "Cererea ți-a fost refuzată."
       you_can_now_pay_to: "Acum puteţi plăti suma solicitată de %{payment_receiver}."
       pay_now: "Plătiți acum"
-      remember_to_confirm: ~
+      remember_to_confirm: "Când comanda este îndeplinită, nu uitați să o marcați ca finalizată. Dacă comanda nu este onorată, aveți %{days_to_automatic_confirmation} zile pentru a o contesta. În caz contrar, va fi marcat automat ca finalizat."
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
@@ -1623,39 +1643,39 @@ ro:
       price_per_unit_type: "Pret pe %{unit_type}"
       quantity: "Cantitate:"
       you_have_received_new_payment: "Ai incasat <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> de la %{payer_full_name}. Ai aici chitanţa:"
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, per %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Comision procesare plati:"
-      shipping_total: ~
+      shipping_total: "Livrare:"
       product: "Produs:"
       price_payer_paid: "Preț plătit de %{payer_full_name}:"
       subtotal: ~
       service_fee: "Comision %{service_name}:"
       buyer_service_fee: ~
-      you_will_get: ~
-      new_payment: ~
+      you_will_get: "Total:"
+      new_payment: "Ați primit o nouă plată"
       price_per_unit_type: "Pret pe %{unit_type}"
-      quantity: ~
+      quantity: "Cantitate:"
       you_have_received_new_payment: "Ai incasat <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> de la %{payer_full_name}. Ai aici chitanţa:"
       stripe:
         you_have_received_new_payment: "Suma de %{payment_sum} pentru cererea de rezervare a lui %{payer_full_name} pentru %{listing_title} a fost autorizată. Suma este reținută de %{service_name} până la finalizarea cereri de rezervare. Chitanța aferentă acestei tranzacții este afișată mai jos."
     payment_receipt_to_seller_v2:
       headline: ~
       main_text_stripe: "Suma este reținută de către %{service_name} până când rezervarea este finalizată."
-      price_breakdown: "Sumar rezervare."
+      price_breakdown: "Defalcare de preț"
     payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
+      receipt_of_payment: "Chitanța plății"
+      you_have_made_new_payment: "Ați plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> către %{recipient_full_name}. Iată o chitanță a plății."
+      product: Produs
       price_per_unit_type: "Pret pe %{unit_type}"
       duration: "Durată nopți"
-      quantity: ~
-      subtotal: ~
+      quantity: Cantitate
+      subtotal: Subtotal
       buyer_service_fee: ~
-      total: ~
-      price: ~
+      total: Total
+      price: Preț
       service_fee: Comision
-      stripe_gateway_fee: ~
+      stripe_gateway_fee: "Taxa Stripe:"
       paypal_gateway_fee: "Comision PayPal:"
       money_will_be_transferred: "Banii vor fi transferati catre %{recipient_name} cand a) ai marcat tranzactia ca fiind completa b) %{automatic_confirmation_days} zile au trecut de cand ai platit."
     payment_receipt_to_payer_v2:
@@ -1663,7 +1683,7 @@ ro:
       you_have_made_new_payment: "Ai plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b>"
     paypal_new_payment:
       paypal_gateway_fee: "Comision PayPal:"
-      shipping_total: "Trimite:"
+      shipping_total: "Transport:"
     braintree_new_payment:
       product: "Produs:"
       price_payer_paid: "Preț plătit de %{payer_full_name}:"
@@ -1674,16 +1694,16 @@ ro:
       you_have_made_new_payment: "Ai plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> catre %{recipient_full_name}. Aici este dovada plății."
       product: Produs
       price_per_unit_type: "Pret pe %{unit_type}"
-      duration: "Durată nopți"
+      duration: Durată
       quantity: Cantitate
       subtotal: Subtotal
       total: Total
       price: Preț
       buyer_service_fee: ~
-      stripe_gateway_fee: ~
+      stripe_gateway_fee: "Taxa Stripe:"
       paypal_gateway_fee: "Comision PayPal:"
       money_will_be_transferred: "Banii vor fi transferati catre %{recipient_name} cand a) ai marcat cererea ca fiind completa sau b) %{automatic_confirmation_days} zile au trecut de cand ai platit."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, per %{unit_type}"
       stripe:
         you_have_made_new_payment: "Ai plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> catre %{recipient_full_name}. Aceasta este dovada plății. Adresa locației este: %{listing_origin_loc_attributes_address}. Suma achitată a fost blocată de către  %{service_name} si va fi transferata către %{recipient_full_name} deîndată ce vei marca completă rezervarea."
     new_testimonial:
@@ -1722,8 +1742,8 @@ ro:
       change_my_password: "Modifica-mi parola"
       reset_password_instructions: "<p>Ai indicat că ai uitat parola sau numele de utilizator pentru serviciul %{service_name}.</p><p>Dacă trebuie să resetezi parola, fă click pe link-ul%{password_reset_link}</p><br/><p>Dacă nu ai cerut asta, ignoră acest email. Parola ta nu se va schimba până nu accesezi link-ul de mai sus și până când nu creezi una nouă.</p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: "Memento: nu uitati sa oferiti o recenzie pentru %{name}"
-      you_have_not_given_feedback_yet: "Inca nu ati oferit recenzie pentru %{name} cu privire la tranzactia %{event}. Nu uitati sa oferiti feedback despre modul in care %{given_name} a colaborat in tranzactie."
+      remember_to_give_feedback_to: "Memento: nu uitați să îi oferiți feedback %{name}"
+      you_have_not_given_feedback_yet: "Nu i-ați oferit încă feedback lui %{name} despre evenimentul „%{event}”. Nu uitați să oferiți feedback cu privire la performanța %{given_name} în cadrul evenimentului."
     testimonial_reminder_v2:
       headline: ~
       you_have_not_given_feedback_yet: ~
@@ -1732,7 +1752,7 @@ ro:
       subject: "%{requester} a solicitat o cerere de rezervare și a autorizat plata pentru %{listing_title} publicat pe %{service_name}"
       transaction_requested_by_user: "Avem vesti bune! %{requester} ți-a trimis o cerere de rezervare pentru \"%{listing_title}\" și a autorizat plata."
       you_have_time_to_accept: "Trebuie să accepți sau să refuzi cererea de rezervare și autorizarea plății în termen de %{payment_expires_in}."
-      if_you_do_accept: "Daca accepti cererea in acest termen, vei primi banii imediat in cont."
+      if_you_do_accept: "Dacă acceptați solicitarea în acest interval de timp, veți primi banii imediat în contul dvs."
       if_you_do_accept_stripe: "Dacă accepți cererea de rezervare în acest interval de 3 zile, plata va fi procesată. Vei primi suma aferentă în contul tău bancar în termen de 7 zile de la procesarea plății, sau, după finalizarea campării lui %{requester} la %{listing_title}. Comisionul CAMPatME este de 9% din valoarea rezervării."
       if_you_do_not_accept: "Dacă refuzi cererea de rezervare și autorizarea plății sau dacă nu răspunzi în termenul menționat, tranzacția va fi anulată automat. %{requester} nu va plăti, iar tu nu vei încasa nicio suma."
       click_here_to_reply: "Apasa aici pentru a raspunde cererii"
@@ -1774,8 +1794,8 @@ ro:
       button: ~
     new_member_notification:
       subject: ~
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
+      new_member_has_joined: "Un nou membru s-a alăturat %{community}. Este posibil ca aceștia să fie nevoiți să-și confirme adresa de e-mail."
+      this_is_automatic_message: "Acesta este un mesaj automat trimis administratorilor %{community}."
       person_name: "Nume:"
       person_email: "E-mail:"
     new_member_notification_v2:
@@ -1826,13 +1846,13 @@ ro:
       subject: "Rezervare contestată - Echipa %{service_name} analizează disputa."
       subject_admin: "O rezervare a fost contestată, trebuie să analizezi disputa, și să o confirmi sau infirmi."
       order_about: ~
-      the_order_has_been_canceled: "Cererea de rezervare %{transaction_link} a fost disputată."
+      the_order_has_been_canceled: "%{transaction_link} a fost contestat."
       the_order_between_buyer_and_seller_has_been_canceled: "Tranzacția%{transaction_link} dintre %{buyer} și %{seller} a fost contestată. "
       the_marketplace_has_been_notified: ~
       contact_the_marketplace_team: ~
       you_must_now_decide: "Contestația trebuie analizată, și confirmată sau infirmată. Mai multe detalii aici: %{learn_more_link} "
       learn_more_about: ~
-      review_the_transaction: "Analizează disputa"
+      review_the_transaction: "Examinați tranzacția"
     transaction_refunded:
       subject: ~
       marketplace_team_has_approved_the_cancellation: ~
@@ -1849,44 +1869,44 @@ ro:
       contact_the_seller: ~
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Rezervarea a eșuat din cauza unei erori neașteptate. Vă rugăm să încercați din nou mai târziu. Nu ai fost taxat."
+      double_booking_payment_voided: "Din păcate datele pe care le-ați ales nu mai sunt disponibile. Vă rugăm să alegeți date diferite. Nu ați fost taxat."
     onboarding:
-      server_rendering: ~
+      server_rendering: "Ghidul introductiv nu s-a încărcat. Am fost informați despre situație și o remediem."
     listings:
       departure_time: "Timpul de plecare trebuie sa fie intre timpul actual si un an de acum incolo."
-      share_type: "Trebuie sa faci o selectie."
-      valid_until: "Data indicata trebuie sa fie intre acum si 6 luni de acum."
+      share_type: "Trebuie să selectați unul."
+      valid_until: "Această dată trebuie să fie între ora curentă și 6 luni de acum înainte."
       price: "Preţul trebuie să fie un număr întreg."
       minimum_price: "Prețul minim este %{minimum_price} %{currency}"
     testimonials:
-      you_must_explain_not_neutral_feedback: "Daca vreti sa lasati un feedback non-neutru, trebuie sa explicati de ce."
-      you_must_select_a_grade: "Nu uita sa precizezi daca experienta ta a fost una pozitiva sau negativa."
+      you_must_explain_not_neutral_feedback: "Dacă doriți să oferiți feedback non-neutru, trebuie să explicați de ce."
+      you_must_select_a_grade: "Nu uita sa precizezi daca experienta ta a fost una pozitiva sau negativa.Nu uita să spui dacă experiența ta a fost pozitivă sau negativă"
     transaction_agreement:
       required_error: "Trebuie sa accepti termenii din acord"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Tranzacția nu poate fi finalizată. Acest lucru este cel mai probabil cauzat de cardul de credit care nu a autorizat banca. Vă rugăm să încercați să cumpărați din nou cu o metodă de plată alternativă."
       buyer_cannot_pay_error: "Plata a fost refuzata de catre PayPal. Pentru mai multe informatii, va rugam contactati serviciul lor de relatii cu clientii: %{customer_service_link}"
-      pending_review_error: ~
-      seller_express_checkout_disabled: ~
+      pending_review_error: "Plata a fost trimisă, dar a fost semnalată de PayPal ca „necesită o examinare”. Când PayPal finalizează revizuirea, plata va fi autorizată automat."
+      seller_express_checkout_disabled: "PayPal Express Checkout a fost dezactivat pentru contul PayPal al autorului listei. Vă rugăm să contactați autorul și să-i spuneți că există o problemă cu contul său PayPal și sfătuiți-l să contacteze Serviciul Clienți PayPal."
       seller_express_checkout_disabled_no_free: ~
       generic_error: "O eroare a aparut in timpul platii. Plata ta prin PayPal nu a fost finalizata"
-      cancel_error: "Am intalnit o eroare in timpul anularii. Nu am putut finaliza anularea."
+      cancel_error: "A apărut o eroare în timpul disputei. Nu s-a putut finaliza disputa."
       accept_authorization_error: "Am intalnit o eroare in timpul acceptarii pre-autorizarii PayPal. Te rugam sa incerci din nou."
       reject_authorization_error: "O eroare a intervenit in timp ce plata Paypal a fost respinsă. Te rugăm sa încerci din nou."
     stripe:
-      generic_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      generic_error: "A apărut o eroare în timpul procesului de plată. Nu s-a putut finaliza plata Stripe."
+      accept_authorization_error: "A apărut o eroare la încercarea de a accepta plata preautorizată Stripe. Vă rugăm să încercați din nou."
+      reject_authorization_error: "A apărut o eroare la încercarea de a respinge plata preautorizată Stripe. Vă rugăm să încercați din nou."
       card_declined: "Cardul a fost refuzat"
       expired_card: "Plata a eșuat deoarece cardul este expirat"
   error_pages:
-    back_to_kassi_front_page: "Inapoi la pagina principala"
+    back_to_kassi_front_page: "Înapoi la prima pagină"
     error_404:
-      if_you_believe: "Daca crezi ca adresa este corecta si ar trebui sa functioneze, te rog sa ne ajuti sa localizam eroarea indicandu-ne care adresa a cauzat eroarea si ce ar putea fi vazut pe pagina cu formularul de mai jos."
+      if_you_believe: "Dacă considerați că adresa este corectă și ar trebui să funcționeze, vă rugăm să ne ajutați să găsim eroarea, anunțându-ne ce adresă a cauzat eroarea și ce ar trebui să fie văzut pe pagina cu formularul de mai jos"
       page_can_not_be_found: "Pagina nu a fost gasită!"
       page_you_requested_can_not_be_found: "Pagina pe care ați solicitat-o nu poate fi găsită. Sigur ați scris adresa corect?"
-    error_404_title: "pagina inexistenta"
+    error_404_title: "Pagina nu a fost gasită!"
     error_410:
       page_removed: "Pagină ștearsă"
       page_you_requested_has_been_removed: "Pagina solicitată a fost eliminată."
@@ -1903,7 +1923,7 @@ ro:
       javascript_is_disabled_in_your_browser: "JavaScript este dezactivat pentru browserul tau."
       kassi_does_not_currently_work_without_javascript: "%{service_name}nu funcţionează optim fără JavaScript. Încercaţi să activaţi JavaScript din preferinţele browserului dumneavoastră şi reîncărcaţi pagina."
       contact_us: contactați-ne
-      send_feedback: "Trimiteti mesaj"
+      send_feedback: "Trimite mesaj"
       your_feedback_to_admins: "Mesajul dvs. către echipa %{service_name}"
     send: Trimite
     your_email_address: "Adresa ta de e-mail"
@@ -1969,19 +1989,19 @@ ro:
     menu: Meniu
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "În plus, mai există <b>o încă o altă ofertă</b>,"
-      additionally_one_private_request_exists: "În plus, mai există <b>o încă o altă ofertă</b>"
+      additionally_one_private_offer_exists: "În plus, mai există <b>o altă ofertă</b>,"
+      additionally_one_private_request_exists: "În plus, există <b>o altă solicitare</b>,"
       additionally_some_private_offers_exist: "În plus, mai există <b>%{number_of_listings} alte oferte</b>,"
       additionally_some_private_requests_exist: "În plus, mai există <b>%{number_of_listings} alte solicitări</b>,"
     blank_slate:
-      add_first: Adaugă!
-      but_that_is_visible_only_to_registered_members: "dar vizibilitatea e activată numai pentru utilizatorii înregistrați."
-      but_those_are_visible_only_to_registered_members: "dar vizibilitatea e activată numai pentru utilizatorii înregistrați."
-      create_new_account_for_yourself: "Creează un cont nou"
+      add_first: "Adaugă unu!"
+      but_that_is_visible_only_to_registered_members: "dar asta este vizibil doar pentru membrii înregistrați."
+      but_those_are_visible_only_to_registered_members: "dar acestea sunt vizibile doar pentru membrii înregistrați."
+      create_new_account_for_yourself: "Creați-vă un cont nou"
       examples_of_what_you_could_offer_to_others: "Ce ai putea oferi altora"
-      examples_of_what_you_could_request_to_others: "Ce ai putea solicita altora"
-      favor_offer_list: "asistenta cu calculatorul, servicii de croitorie, gătit, reparatii de biciclete"
-      favor_request_list: "babysitting, lectii de pian, plimbat caini, tuns iarba"
+      examples_of_what_you_could_request_to_others: "Ce ai putea cere celorlalti"
+      favor_offer_list: "asistenta computer, reparatii haine, gătit, reparare biciclete"
+      favor_request_list: "babysitting, lectii de pian, plimbat caini, tunderea gazonului"
       favors_to_offer: "Ajutor: "
       favors_to_request: "Ajutor: "
       item_offer_list: "unelte, articole sportive, costume, echipament de camping"
@@ -1989,13 +2009,13 @@ ro:
       items_to_offer: "Bunuri de închiriat: "
       items_to_request: "Bunuri de imprumutat: "
       log_in: Autentifică-te!
-      no_offers_visible_unless_logged_in: "Bunuri, servicii sau oferte de ridesharing nu sunt vizibile utilizatorilor neconectați în cont."
+      no_offers_visible_unless_logged_in: "Bunuri, servicii sau oferte de ridesharing nu sunt vizibile pentru utilizatorii care nu sunt autentificati."
       no_open_offers_currently: "Niciun bun disponibil, servicii sau oferte de car-sharing."
       no_open_requests_currently: "Niciun bun disponibil, servicii sau oferte de car-sharing."
-      no_requests_visible_unless_logged_in: "Bunuri, servicii sau cereri de ridesharing nu sunt vizibile utilizatorilor neconectati in cont."
+      no_requests_visible_unless_logged_in: "Bunuri, servicii sau cereri de ridesharing nu sunt vizibile pentru utilizatorii care nu sunt autentificati."
       one_private_offer_exists: "Există deja <b>o ofertă</b>,"
       one_private_request_exists: "Există deja <b>o solicitare</b>,"
-      ride_offer: "Insoteste copii la activitatile lor preferate"
+      ride_offer: "Sa aduci copiii altora la hobby-urile lor"
       ride_request: "O cursa pana la munca"
       some_private_offers_exist: "Există deja <b>%{number_of_listings} oferte</b>,"
       some_private_requests_exist: "Există deja <b>%{number_of_listings} solicitări</b>,"
@@ -2020,18 +2040,18 @@ ro:
       post_new_listing: "Postează un anunț nou"
       are_offering: oferta
       add_news_item: "Adaugă un articol"
-      lend_rent_help_carpool: "Vinde, împrumută, ajută, share rides"
+      lend_rent_help_carpool: "Vindeți, împrumutați, ajutați, împărțiți cursele"
       loading_more_content: "Se incarca mai mult continut"
       more_events: "Mai multe evenimente..."
       news: Stiri
       no_news: "Nicio noutate"
       more_news: "Mai multe noutăți"
-      or: sau
+      or: și
       or_see_what_the_others: "...sau vedeți ceea ce alții"
       recent_events: "Evenimente recente"
       requesting: nevoie
       tell_it_here: "Spune aici!"
-      welcome_to_new_kassi: "Bine ai venit la %{service_name}"
+      welcome_to_new_kassi: "Bun venit la noul %{service_name}!"
       no_reviews: "Fără recenzii"
       no_image: "Fără imagine"
       filter: Filtru
@@ -2049,7 +2069,7 @@ ro:
     list_item:
       review: recenzie
       reviews: recenzii
-      distance_away: ~
+      distance_away: "%{distance} %{distance_unit} distanță"
     news_item:
       show_less: "Arată mai puțin"
       show_more: "Arată mai mult"
@@ -2066,14 +2086,14 @@ ro:
       show: "Filtru:"
       search: Căutare
       map: "Arată harta"
-      list: "Arată anunț"
+      list: "Arată lista"
       map_button: Hartă
       grid_button: Grilă
       list_button: Listă
       all_listing_types: "Toate tipurile de anunțuri"
       all_categories: "Toate categoriile"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Căutarea este momentan indisponibilă. Încercați să căutați din nou în curând."
   infos:
     about:
       default_about_text_title: "Ce este Sharetribe?"
@@ -2092,7 +2112,7 @@ ro:
       no_listing_image: "Fără poză"
   layouts:
     admin:
-      admin: "%{service_name} panou de administrare"
+      admin: "Panoul de administrare %{service_name}"
     branding:
       powered_by: "%{service_name} este dezvoltat de platforma de marketplace-uri %{sharetribe_link}."
       create_own: "Vrei să-ți creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
@@ -2105,14 +2125,14 @@ ro:
       join_this_community: "Alătură-te marketplace-ului"
       read_more: "Citiți mai mult"
       feedback: "Mesajul către echipa %{service_name}"
-      dont_use_to_contact_support: "Esti administratorul %{service_name}. Acest formular va fi folosit de către utilizatori pentru a te contacta. Nu poți folosi acest formular pentru a contacta Sharetribe. În schimb, poți să contactezi Sharetribe prin widgetul de suport din partea dreapta-jos a panoului de administrator."
+      dont_use_to_contact_support: "Esti administratorul %{service_name}. Acest formular va fi folosit de către utilizatori pentru a te contacta. Nu poți folosi acest formular pentru a contacta Sharetribe. În schimb, poți să contactezi Sharetribe prin widgetul de suport din partea dreapta-jos a panoului de administrator.Am observat că ești administrator al %{service_name}. Acest formular este pe care utilizatorii dvs. îl folosesc pentru a vă contacta. Nu puteți utiliza acest formular pentru a contacta asistența Sharetribe. Puteți face acest lucru prin intermediul widget-ului de asistență din colțul din dreapta jos al panoului de administrare."
       feedback_forum: "forum de feedback"
       feedback_handle: Feedback
       give_feedback: Contact
       or_check_our: "...sau verifică"
       send_feedback_to_admin: "Trimite mesaj"
       to_see_what_others_have_suggested: "pentru a vedea ceea ce au sugerat alții și pentru a vota acele idei."
-      your_email_address: "Adresa ta e-mail (pentru a te contacta)"
+      your_email_address: "Adresa ta de e-mail (pentru a te contacta)"
       connect: "Cont nou"
       invite_your_friends: "Invită-ți prietenii!"
       invite_your_neighbors: "Invită-ți vecinii!"
@@ -2141,7 +2161,7 @@ ro:
       login: Autentificare
       logout: Deconectare
       notifications: Notificări
-      requests: "Cereri prietenie"
+      requests: "Cereri de prietenie"
       settings: Setări
       sign_up: "Creare cont"
     logged_in_messages_icon:
@@ -2174,12 +2194,12 @@ ro:
       notifications: Notificari
       requests: "Cereri prietenie"
       settings: Setări
-      sign_up: "Cont nou"
+      sign_up: Inscrie-te
     notifications:
       recaptcha_verification_failure: ~
       listing_could_not_be_saved: "Afișarea nu a putut fi salvată. Vă rugăm să încercați din nou. Dacă problema persistă, vă rugăm să %{contact_admin_link}."
       contact_admin_link_text: "contactează echipa %{service_name}"
-      test_welcome_email_delivered_to: "Mesaj test a fost trimis către %{email}."
+      test_welcome_email_delivered_to: "Mesaj de test a fost trimis către %{email}."
       something_went_wrong: "Ceva nu a funcționat"
       community_updated: "Detalii actualizate"
       community_update_failed: "Actualizarea detaliilor a eșuat."
@@ -2192,7 +2212,7 @@ ro:
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: "Adresa de email %{email} asociată cu %{provider} este deja folosită însă nu este confirmată. Confirmă adresa de email înainte de te autentifica prin %{provider}."
       create_new_listing: "Creați o altă postare"
-      create_one_here: creează
+      create_one_here: "creați unul aici"
       email_confirmation_sent_to_new_address: "Email-ul de confirmare a fost trimis la noua adresă."
       email_not_found: "Emailul pe care l-ai indicat nu a fost găsit în baza de date de la %{service_name}"
       error_with_session: "Eroare în această sesiune."
@@ -2203,7 +2223,7 @@ ro:
       feedback_skipped: "Feedback omis"
       invitation_cannot_be_sent: "Invitația nu a putut fi trimisă"
       invitation_cannot_unsubscribe: "Nu te putem dezabona de la email-urile de invitație"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Încercați să trimiteți prea multe invitații. Limita zilnică a fost atinsă."
       invitation_sent: "Invitația a fost trimisă cu succes"
       invitation_successfully_unsubscribed: "Dezabonare cu succes"
       inviting_new_users_is_not_allowed_in_this_community: "Nu este permisă invitarea noilor utilizatori."
@@ -2212,13 +2232,13 @@ ro:
       account_creation_successful: "Bine ai venit pe %{service_name}, %{person_name}!"
       account_deleted: "Contul a fost șters."
       login_successful: "Bine ai venit, %{person_name}!"
-      logout_successful: "Ești deconectat/ă din %{service_name}. Pe curând!"
+      logout_successful: "Acum ați fost deconectat de la %{service_name}. Ne vedem în curând!"
       news_item_created: "Articol creat"
       news_item_creation_failed: "Crearea articolului a eșuat"
       news_item_update_failed: "Actualizarea articolului a eșuat"
       news_item_updated: "Articol actualizat"
       news_item_deleted: "Articol șters"
-      offer_accepted: "Cerere de rezervare acceptată"
+      offer_accepted: "Oferta acceptata"
       offer_confirmed: "Ofertă finalizată"
       offer_closed: "Ofertă închisă"
       listing_created_successfully: "Anunț creat cu succes. %{new_listing_link}"
@@ -2228,7 +2248,7 @@ ro:
       listing_updated_availability_management_enabled: "Anunț actualizat. Modificarea disponibilității activă."
       listing_updated_availability_management_disabled: "Anunț actualizat. Modificarea disponibilității inactivă."
       listing_deleted: "Listare ștearsă"
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "Vă rugăm să vă conectați cu un cont de administrator pentru a accesa această zonă"
       only_listing_author_can_close_a_listing: "Numai autorul anunțului poate să închidă acest anunț"
       only_listing_author_can_edit_a_listing: "Numai autorul anunțului poate edita acest anunț"
       payment_successful: "Plata cu succes"
@@ -2255,7 +2275,7 @@ ro:
       request_accepted_and_closed: ~
       request_confirmed: "Comandă finalizată"
       request_rejected: "Cerere respinsă"
-      request_canceled: "Comandă anulată"
+      request_canceled: "Comanda contestata"
       message_sent: "Mesaj trimis"
       message_not_sent: "Mesajul nu a fost trimis. Încearcă din nou."
       this_content_is_not_available_in_this_community: "Acest conținut nu este disponibil."
@@ -2296,17 +2316,17 @@ ro:
       email_deleted: "Adresa de e-mail ștearsă"
       listing_author_payment_details_missing: "Te rugăm să contactezi furnizorul prin apăsarea butonului \"Contact\" de mai jos în vederea actualizării detaliilor de plată"
       listing_author_payment_details_missing_no_free: ~
-      images_are_processing: ~
+      images_are_processing: "Vă procesăm imaginile. Dă-ne un minut sau două și vor fi vizibile."
       maintenance_mode:
         zero: "Site-ul este offline pentru mentenanță."
         one: "Site-ul este offline pentru mentenanță pentru %{count} minut."
         few: "Site-ul este offline pentru mentenanță pentru %{count} minute."
         other: "Site-ul este offline pentru mentenanță pentru %{count} minute."
       automatically_logged_out_please_sign_in: "Ai fost deconectat/ă automat. Te rugăm să te conectezi din nou."
-      stripe_you_account_balance_is_not_0: ~
+      stripe_you_account_balance_is_not_0: "Soldul contului tău nu este 0, așa că nu poate fi șters. Acest lucru ar putea însemna că aveți tranzacții care așteaptă să fie finalizate sau că există bani care așteaptă să fie plătiți în contul dvs. bancar. Contactați echipa %{service_name} pentru a afla mai multe."
       stripe_balance_for_username_is_not_0: ~
-      visit_admin: "Vrei să %{link}?"
-      visit_admin_link: "Tabloul de Administrare"
+      visit_admin: "Doriți să %{link}?"
+      visit_admin_link: "accesați panoul de administrare"
       an_error_occurred_when_saving_your_information: "Eroare la salvarea:  %{message}.  Verifică dacă este corect și încearcă din nou."
     settings:
       account: Cont
@@ -2314,7 +2334,7 @@ ro:
       profile: "Informații profil"
       settings: Configurare
       paypal_payments: "Plăți PayPal"
-      stripe_payments: ~
+      stripe_payments: "Plăți Stripe"
       payments: Plăți
       listings: Listări
       listings_search_placeholder: "Caută după titlu listării"
@@ -2346,7 +2366,7 @@ ro:
       reopen_listing: "Reactivare listare"
       move_to_top: "Mergeți înapoi în pagina de pornire"
       show_in_updates_email: "Include în următorul newsletter"
-      show_in_updates_email_loading: Încarcă...
+      show_in_updates_email_loading: "Se incarcă..."
       show_in_updates_email_error: "Nu s-a putut ajunge la server. Încercați din nou după reîncărcarea paginii."
       show_in_updates_email_success: "Acest produs va fi inclus în următorul email automat ce va fi trimis către utilizatori"
       listing_is_pending: ~
@@ -2358,9 +2378,9 @@ ro:
       open_in_google_maps: "Deschide in Google Maps"
     error:
       something_went_wrong: "A avut loc o eroare, având cod: %{error_code}"
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      something_went_wrong_plain: "Ceva n-a mers bine"
+      create_failed_to_connect_to_booking_service: "Crearea înregistrării a eșuat: nu s-a putut conecta la serviciul de rezervare. Vă rugăm să încercați din nou."
+      update_failed_to_connect_to_booking_service: "Actualizarea înregistrării a eșuat: nu s-a putut conecta la serviciul de rezervare. Vă rugăm să încercați din nou."
     follow_links:
       follow: "Acceptă email-uri despre comentarii noi"
       unfollow: "Nu accepta email-uri despre comentarii noi"
@@ -2401,16 +2421,16 @@ ro:
         add_more: "+ Adaugă"
         removing: "Se elimină..."
         processing: "Se procesează..."
-        loading_image: Încarcă...
-        image_uploading_in_progress: "Imaginea se încarcă"
-        processing_takes_a_while: ~
-        this_may_take_a_while: ~
+        loading_image: "Se încarcă..."
+        image_uploading_in_progress: "Se încarcă imaginea..."
+        processing_takes_a_while: "Toate imaginile au fost încărcate! Procesarea lor va dura ceva timp, dar este ok să salvați lista și să continuați."
+        this_may_take_a_while: "asta durează doar cateva secunde"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Încărcarea imaginii a eșuat"
         image_processing_failed: "Eroare la procesarea imaginii"
         file_too_large: "Greutatea fișierului este prea mare"
         accepted_formats: "Imaginea trebuie să fie GIF, JPG sau PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Toate imaginile nu au terminat încărcarea. Chiar vrei să continui?"
       location:
         location: Oraș
       price:
@@ -2432,7 +2452,7 @@ ro:
         pickup: Recepție
       origin:
         location: Oraș
-        origin: origine
+        origin: Origine
         the_exact_location: ~
       send_button:
         save_listing: "Publicare listare"
@@ -2441,14 +2461,14 @@ ro:
         we_noticed_youre_an_admin: ~
       share_type:
         select: Selectează
-        borrow: împrumut
-        buy: cumpărare
-        give_away: donație
+        borrow: Împrumutarea
+        buy: Cumpărare
+        give_away: Donație
         lend: împrumut
         offer_type: "tip de ofertă"
-        receive: "Acceptă gratuit"
+        receive: "Se acceptă gratuit"
         rent: Închiriere
-        rent_out: Închiriere
+        rent_out: Închiriat
         request_type: "Tip de cerere"
         sell: Vânzare
         share_for_free: "Partajare gratuită"
@@ -2456,26 +2476,26 @@ ro:
         trade: Schimb
       tag_list:
         comma_separate: "(separate prin virgulă)"
-        tags: etichete
+        tags: Etichete
       title:
         listing_title: "Titlul anunțului"
       valid_until:
-        valid_until: "data expirării"
+        valid_until: "Data expirării"
       valid_until_radio_buttons:
-        for_the_time_being: "pentru moment"
+        for_the_time_being: Deocamdată
       privacy:
         privacy: Confidenţialitate
         private: "Privat (numai utilizatorii care sunt conectați pot vedea)"
         public: "Public (vizibil pentru utilizatorii care nu sunt conectați)"
     help_texts:
-      help_share_type_title: "tipul de ofertă sau cerere"
-      help_tags_title: etichete
-      help_valid_until_title: "data expirării"
+      help_share_type_title: "Tipul de ofertă sau cerere"
+      help_tags_title: Etichete
+      help_valid_until_title: "Data expirării"
     index:
-      all_categories: "toate categoriile"
-      all_offer_types: "toate tipurile de oferte"
-      all_request_types: "toate tipurile de cereri"
-      category: categorie
+      all_categories: "Toate categoriile"
+      all_offer_types: "Toate tipurile de oferte"
+      all_request_types: "Toate tipurile de cereri"
+      category: Categorie
       did_not_found_what_you_were_looking_for: "Nu ai gasit ce cautai?"
       favors: Servicii
       housing: Spatii
@@ -2512,12 +2532,12 @@ ro:
       booking_from: "De la"
       booking_to: La
       how_paypal_works: "Cum funcționează PayPal"
-      payment_help: ~
-      unable_load_availability: ~
-      booking_date: ~
-      select_one: ~
-      start_time: ~
-      end_time: ~
+      payment_help: "Ajutor lpentru plată"
+      unable_load_availability: "Nu s-au putut încărca informațiile despre disponibilitate. Vă rugăm să încercați din nou mai târziu."
+      booking_date: "Data rezervarii"
+      select_one: "Alege unul"
+      start_time: "Ora de începere"
+      end_time: "Sfârșitul timpului"
       marketplace_fees_may_apply: ~
     new:
       listing: Anunț
@@ -2539,7 +2559,7 @@ ro:
       night: "Număr de nopți"
       week: "Număr de săptămâni:"
       month: "Număr de luni:"
-      unit: ~
+      unit: "Număr de unități:"
       custom: "Cantitate:"
       person: ~
     quantity_placeholder: Cantitate
@@ -2554,7 +2574,7 @@ ro:
       contact: "Verifică disponibilitatea"
       favor_offer: "Ofertă serviciu"
       favor_request: "Cerere serviciu"
-      inquiry: ~
+      inquiry: Anunţ
       item_offer_trade: "Ofertă pentru schimb"
       item_request_trade: "Cerere pentru schimb"
       no_description: "Listarea nu are o descriere"
@@ -2592,7 +2612,7 @@ ro:
       night: noapte
       week: săptămâna
       month: lună
-      unit: ~
+      unit: unitate
       person: ~
     verification_required:
       verification_required: "Verificare necesară"
@@ -2609,14 +2629,14 @@ ro:
       days: zile
       night: noapte
       nights: nopți
-      invalid_parameters: ~
+      invalid_parameters: "Valori nevalide pentru tranzacția nouă"
       select_delivery_method: "Selectează tipul de livrare"
     transaction_agreement_checkbox:
       read_more: Afișează.
     stripe_payment:
       payment: Plată
       pay_with_card: "Plată cu card"
-      address: ~
+      address: "Adresa de transport"
       address_country: Țară*
       address_name: "Prenume și nume*"
       address_city: Oraș*
@@ -2628,14 +2648,14 @@ ro:
     index:
       all_categories: "Toate categoriile"
       all_offer_types: "Toate tipurile de oferte"
-      all_request_types: "Toate tipurile de solicitari"
+      all_request_types: "Toate tipurile de cereri"
       category: Categorie
-      did_not_found_what_you_were_looking_for: "Ai gasit ceea ce cautai?"
+      did_not_found_what_you_were_looking_for: "Nu ai găsit ceea ce ai nevoie?"
       favors: Servicii
       housing: Spatii
-      items: Itemi
-      list_view: "Vedeți în listă"
-      map_view: "Afișați pe hartă"
+      items: Articole
+      list_view: "Vizualizare ca listă"
+      map_view: "Vizualizare pe hartă"
       offer_something: "Spuneți-le și altora!"
       offer_type: "Tip de oferta"
       offers: Oferte
@@ -2660,14 +2680,14 @@ ro:
     connected_account: "%{email} pentru contul PayPal conectat cu succes"
     paypal_receive_funds_info_label_australia_only: "Contul tău PayPal trebuie sa accepte plăți. Acesta poate fi solicitat sa fie un cont Premier sau Business."
     paypal_receive_funds_info_label: "Contul tau PayPal trebuie sa fie capabil sa accepte plati. Acest lucru poate presupune crearea unui cont PayPal Business."
-    paypal_receive_funds_info_australia_only: ~
+    paypal_receive_funds_info_australia_only: "Dacă vedeți o eroare când încercați să vă conectați contul la %{service_name}, fie %{upgrade_paypal_account_link}, fie (dacă sunteți persoană fizică), creați un nou cont Premier. Ambele tipuri de conturi sunt complet gratuite."
     paypal_receive_funds_info: "Daca vezi o eroare cand incerci sa iti conectezi contul cu %{service_name}, %{upgrade_paypal_account_link}. Este gratuit si usor. Daca esti persoana fizica, PayPal recomanda sa folosesti numele tau complet in campul in care se solicita numele afacerii \"Business name\"."
     upgrade_paypal_account_link_text: "conecteaza-te la PayPal si modifica-ti contul intr-unul de business."
-    admin_account_not_connected: ~
+    admin_account_not_connected: "Utilizarea sistemului de plată al lui %{service_name} pentru a primi plăți nu este posibilă, deoarece plățile nu au fost configurate. Vă rugăm să %{contact_admin_link} pentru detalii."
     contact_admin_link_text: "contactati echipa %{service_name}"
     you_are_ready_to_accept_payments: "Nu sunteti pregatit sa acceptati plati!"
     commission: "%{commission} %"
-    not_now: ~
+    not_now: "Nu vreau să conectez contul PayPal acum"
     new:
       payout_info_you_need_to_connect: "Pentru a accepta plati trebuie sa va conectati contul PayPal cu %{service_name}."
       payout_info_text: "Pentru a va conecta contul, va rugam sa completati pasii urmatori"
@@ -2686,9 +2706,9 @@ ro:
       connect_paypal_account: "Conectati-va contul PayPal"
       paypal_account_billing_agreement_with_step: "Pasul %{current_step}/%{total_steps}: Acorda permisiunea pentru debitare comision"
       paypal_account_billing_agreement_info_both: "Dupa ce realizezi o tranzactie pe %{service_name}, un comision (%{commission_from_seller} din pretul total, minimum %{minimum_commission}) va fi debitat din contul tau de PayPal. Permisiunea de a debita acest comision este necesara pentru a accepta plati pe %{service_name}. Comisionul nu include %{paypal_info_link}."
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_fixed: "După ce faceți o vânzare pe %{service_name}, o taxă de serviciu de %{minimum_commission} va fi percepută din contul dvs. PayPal. Este necesară permisiunea pentru a face acest lucru pentru a accepta plăți în %{service_name}. Taxa nu include %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "După ce faceți o vânzare pe %{service_name}, o taxă de serviciu (%{commission_from_seller} din prețul total al articolului, excluzând transportul) va fi percepută din contul dvs. PayPal. Este necesară permisiunea pentru a face acest lucru pentru a accepta plăți în %{service_name}. Taxa nu include %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: "%{service_name} nu percepe în prezent o taxă de serviciu. Dacă taxele de serviciu sunt activate, va trebui să acordați %{service_name} permisiunea de a percepe o taxă de serviciu pentru a accepta plăți. Taxa nu include %{paypal_info_link}."
       paypal_info_link_text: "Comisioanele de procesare plati PayPal"
       billing_agreement_description: "Permiteti %{service_name} sa incaseze un comision din tranzactie."
       billing_agreement: Permiteti
@@ -2714,8 +2734,8 @@ ro:
     paypal_permission_granted_summary: "Permisiunea pentru comision acordata"
   paypal:
     pay_with_paypal: "Continua cu plata"
-    checkout_with: ~
-    or_pay_with_paypal: ~
+    checkout_with: "Checkout cu"
+    or_pay_with_paypal: sau
     checkout_with_paypal: "Finalizeaza tranzactia prin PayPal"
     cancel_succesful: "Plata PayPal a fost anulata cu succes"
     transaction:
@@ -2742,7 +2762,7 @@ ro:
       email_is_in_use: "Adresa de email pe care ai furnizat-o este deja folosita"
       email_is_in_use_or_not_allowed: "Acest e-mail nu este permis sau este deja utilizat. Dacă nu puteți intra, contactați-ne."
       email_not_allowed: "Acest e-mail nu este permis în %{service_name}. Utilizați o adresă de e-mail care este permisă. Dacă tot nu puteți intra, contactați-ne."
-      invalid_username_or_email: "Numele de utilizator sau email-ul sunt invalide sau sunt deja folosite"
+      invalid_username_or_email: "E-mailul este invalid sau este deja utilizat"
       email_restriction_instructions:
         one: "Accesul la %{service_name}  este restricţionat.  Pentru a vă alătura aveţi nevoie de o '%{allowed_emails}' adresă de e-mail."
         few: "Accesul la %{service_name} sunt restricționate. Aveți nevoie de o adresă de e-mail ce dovedește că aveți dreptul de a vă alătura."
@@ -2750,11 +2770,11 @@ ro:
       family_name: Nume
       given_name: Prenume
       i_accept_the_terms_and_privacy: "Accept %{terms} si %{privacy}"
-      admin_emails_consent: "Accept sa primesc ocazional emailuri de la echipa %{service_name} si inteleg ca pot sa ma razgandesc in orice moment in aceasta privinta"
+      admin_emails_consent: "Sunt de acord să primesc e-mailuri ocazionale de la echipa %{service_name} și înțeleg că mă pot răzgândi oricând"
       invalid_invitation_code: "Codul de invitatie nu este valid."
       invitation_code: "Codul de invitatie"
       not_required: ", nu este necesar"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Trebuie să alegeți cel puțin o adresă de e-mail confirmată pentru a primi notificări. Dacă nu doriți să primiți niciun e-mail de la %{service_name}, verificați setările de notificare prin e-mail."
       password_again: "Confirma parola"
       show_my_name_to_others: "Arata numele meu real altor utilizatori ai serviciului %{service_name}"
       sign_up: "Creati un cont nou pe %{service_name}"
@@ -2765,7 +2785,7 @@ ro:
       create_account_with_provider: "Inscrie-te cu %{provider}"
       OR: SAU
       signup_with_email: "Inregistrare cu email"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Acest câmp va fi vizibil public)"
     profile_feedback:
       grade: "nota:"
       and_gave_following_feedback: "și a oferit următorul feedback"
@@ -2775,7 +2795,7 @@ ro:
     show:
       contact: "Contact %{person}"
       about_me: "Despre mine:"
-      add_description: "Postati ceva despre Dumneavoastra"
+      add_description: "Postati ceva despre tine"
       add_location: "Adauga locatia"
       add_phone_number: "Adaugati numarul de telefon"
       address: "Oras:"
@@ -2801,7 +2821,7 @@ ro:
       no_listings: "Nici o postare"
       no_open_listings: "Nu se deschid anunțurile"
       no_reviews: "Fără recenzii"
-      show_all_listings: "Arătați toate postările"
+      show_all_listings: "Afișați toate listările"
       show_all_open_listings: "Arătați toate anunțurile deschise"
       show_all_reviews: "Arătați toate recenziile"
       admin_actions: "Actiuni admin"
@@ -2820,7 +2840,7 @@ ro:
   sessions:
     new:
       create_new_account: "Creează un cont nou"
-      i_forgot_my_password: "Ai uitat numele de utilizator sau parola"
+      i_forgot_my_password: "Ai uitat parola"
       login: Autentificare
       login_to_kassi: "Autentificați-vă pe %{service_name}"
       connect_your_facebook_to_kassi: "Conecteaza-ti contul de Facebook la %{service_name}"
@@ -2831,13 +2851,13 @@ ro:
       cancle_facebook_connect: "Daca nu vrei sa conectezi acest cont, poti anula folosing %{cancel_link}"
       facebook_cancel_link_text: Anulare
       log_in_with_your_provider_account: "Autentifica-te cu %{provider}"
-      or_sign_up_with_your_username: "...sau cu numele de utilizator sau adresa de email:"
+      or_sign_up_with_your_username: "...sau cu adresa ta de email:"
       we_will_not_post_without_asking_you: "Noi nu vom posta pe Facebook fără acordul dvs."
     password_forgotten:
       email: E-mail
-      password_recovery_instructions: "Introdu adresa ta pentru resetarea parolei."
+      password_recovery_instructions: "Introduceți adresa de e-mail pentru a vă reseta parola."
       request_new_password: "Cere o parola nouă"
-      change_your_password: "Schimba-ti parola"
+      change_your_password: "Schimbați-vă parola"
     confirmation_pending:
       welcome_to_kassi: "Bine ați venit la %{service_name}!"
       check_your_email: "Verifica-ti casuta postala"
@@ -2847,11 +2867,11 @@ ro:
       confirm_your_email: "Vă rugăm să confirmați adresa de e-mail"
       account_confirmation_instructions: "Veți primi în curând un e-mail cu un link pentru confirmarea adresei dvs. de e-mail. Nu uitați să verificați dosarul dvs. de spam! După confirmarea adresei dvs., vă puteți alătura %{service_name}."
       account_confirmation_instructions_title_admin: "Confirmati adresa de email"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
+      before_full_access_you_need_to_confirm_email: "Înainte de a vă putea oferi acces deplin la piața dvs., mai trebuie să facem un singur lucru: vă confirmați adresa de e-mail."
+      before_confirmation_only_access_admin_dashboard: "Înainte de confirmare, puteți accesa numai %{admin_dashboard_link}."
       admin_dashboard_link_text: "tablou administrativ"
       account_confirmation_instructions_admin: "Ar fi trebuit sa primiti un email la %{email_address} cu un link de confirmare. Daca nu il vedeti, verificati in spam sau faceti click pe butonul de mai jos pentru a retrimite email-ul. Cand il primiti apasati pe link-ul inclus pentru a va confirma adresa de email, dupa care veti primi acces deplin pe platforma. Daca aveti nevoie de ajutor nu ezitati %{support_link}."
-      contact_support_link_text: ~
+      contact_support_link_text: "contactați asistența Sharetribe"
   settings:
     account:
       change: Modificati
@@ -2889,19 +2909,19 @@ ro:
       newsletters: "Emailuri de la administratori"
       community_updates: "Buletine informative"
       email_about_confirm_reminders: "... am uitat să confirm o cerere de rezervare ca fiind finalizată"
-      email_about_new_comments_to_own_listing: "...comentariile cuiva despre oferta sau cererea mea"
-      email_about_new_messages: "...cineva îmi trimite un mesaj"
-      email_about_new_received_testimonials: "...cineva îmi oferă feedback"
-      email_about_testimonial_reminders: "...am uitat să ofer feedback despre o locație"
+      email_about_new_comments_to_own_listing: "...cineva comentează pe lista mea"
+      email_about_new_messages: "...cineva ma trimis un mesaj"
+      email_about_new_received_testimonials: "...cineva m-a dat un feedback"
+      email_about_testimonial_reminders: "Am uitat să dau feedback la o comandă"
       email_daily_community_updates: "Trimiteți-mi un buletin informativ <b> zilnic </b> dacă există înregistrări noi"
       email_weekly_community_updates: "Trimiteți-mi un buletin informativ <b> săptămânal </b> dacă există înregistrări noi"
       do_not_email_community_updates: "Nu-mi trimiteti buletine de știri"
-      email_when_conversation_accepted: "...cineva acceptă oferta sau cererea mea"
+      email_when_conversation_accepted: "...cineva a acceptat oferta sau cererea mea"
       email_when_conversation_rejected: "...cineva respinge oferta sau cererea mea"
       email_about_completed_transactions: "... cineva marchează cererea mea ca fiind finalizată"
       email_about_new_payments: "... primesc o nouă plată"
       email_about_new_listings_by_followed_people: "...o persoană pe care o urmăresc postează o locație nouă"
-      unsubscribe_succesful: "Dezabonare cu succes"
+      unsubscribe_succesful: "Dezabonare reușită"
       unsubscribe_info_text: "Nu veţi mai primi aceste e-mailuri.Verificați %{settings_link} pentru a alege ce fel de e-mailuri doriți să primiți de la %{service_name}, sau reveniți la %{homepage_link}."
       settings_link: setări
       homepage_link: "Pagina principală"
@@ -2916,7 +2936,7 @@ ro:
       given_name: Prenume
       first_name_with_initial: "(numai prima literă afișată altor utilizatori)"
       first_name_only: "(nu este afișat altor utilizatori)"
-      display_name: "Nume publicat"
+      display_name: "Numele afisat"
       display_name_description: "Daca reprezinti o organizatie, poti sa folosesti numele organizatiei ca nume publicat. Numele publicat este afisat celorlati utilizatori in locul prenumelui."
       location_description: "Puteți să furnizați fie adresa dvs. stradală, fie doar un oraș sau un cod poștal. Este bine să vă adăugați și țara când vă adăugați locația. Exemple: \"10117 Berlin, Germania\" sau \"2000 Sand Hill Road, CA, SUA\"."
       profile_picture_description: "Imaginea de profil trebuie sa fie in format patrat (aspect 1:1), de exemplu 800x800 pixeli. In caz contrar, va fi decupata."
@@ -2932,7 +2952,7 @@ ro:
       default_in_listing: "(utilizat numai ca implicit la crearea unei listari noi)"
       invisible: "(nu este afișat altor utilizatori)"
       image_is_processing: "Aveti rabdare. Procesam poza dvs. de profil . Va fi gata in cateva minute"
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "(afisat in profilul tau public)"
       editing_profile_of: "Acum editezi profilul %{name}"
       format_markdown_link: ~
       format_markdown: ~
@@ -3040,7 +3060,7 @@ ro:
     formats:
       short: "%b %e, %Y at %H:%M"
       shorter: "%b %e at %H:%M"
-      short_date: ~
+      short_date: "%b %e, %Y"
       hours_only: "%H:%M"
   timestamps:
     day_ago: "acum %{count} zi"
@@ -3059,6 +3079,18 @@ ro:
       few: "%{count} zile "
       other: "%{count} zile "
     time_to:
+      seconds:
+        one: "%{count} secundă"
+        few: "%{count} secunde"
+        other: "%{count} secunde"
+      minutes:
+        one: "%{count} minut"
+        few: "%{count} minute"
+        other: "%{count} minute"
+      hours:
+        one: "%{count} oră"
+        few: "%{count} ore"
+        other: "%{count} ore"
       days:
         one: "%{count} zi"
         few: "%{count} zile"
@@ -3074,15 +3106,24 @@ ro:
       booked_nights_label:
         one: "Noapte rezervată"
         few: "Nopți rezervate"
+        other: "Nopți rezervate"
+      booked_hours_label:
+        one: "Ora rezervata:"
+        few: "Orele rezervate:"
+        other: "Orele rezervate:"
       price_per_day: "Pret pe zi - 24h:"
       price_per_night: "Preț pe noapte"
-      price_per_hour: ~
-      price_per_unit: ~
+      price_per_hour: "Pret pe ora:"
+      price_per_unit: "Pret pe bucata:"
       quantity: "Cantitate:"
       subtotal: "Subtotal:"
       shipping-price: "Transport:"
-      stripe-fee: ~
-      start_end_time: ~
+      stripe-fee: "Taxa Stripe (estimată):"
+      duration_in_hours:
+        one: "(1 oră)"
+        few: "(%{count} ore)"
+        other: "(%{count} ore)"
+      start_end_time: "%{start_time} până la %{end_time}"
     price_per_quantity: "Pret pe %{unit_type}:"
     price: "Pret:"
     quantity: "Cantitate:%{quantity}"
@@ -3103,7 +3144,7 @@ ro:
           overlaps: suprapune
           covers: acoperă
       pricing_units:
-        piece: ~
+        piece: bucată
         hour: oră
         day: zi
         night: noapte
@@ -3113,14 +3154,14 @@ ro:
       save_and_close_availability_editing: Salvează
       confirm_discarding_unsaved_availability_changes_explanation: "Modificări nesalvate. Sigur vrei să continui?"
       confirm_discarding_unsaved_availability_changes_question: "Renunți la modificări?"
-      edit_listing_availability: "Ajustează disponibilitatea produsului"
+      edit_listing_availability: "Editați disponibilitatea înregistrării"
       working_hours:
         default_schedule: "Orar standard"
         i_am_available_on: "Disponibil în"
         start_time: "Timp de start"
         end_time: "Timp de finalizare"
         add_another_time_slot: "+ Adaugă alt intervar orar"
-        save: ~
+        save: Salvați
     no_listings:
       sorry: "Nu există anunț pentru căutarea făcută."
       try_other_search_terms: "Încearcă o altă căutare."
@@ -3147,8 +3188,8 @@ ro:
       language: Limba
       listings: "Listările mele"
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: ml
     branding:
       powered_by: "%{service_name} este dezvoltat de platforma de marketplace-uri %{sharetribe_link}."
       create_own: "Vrei să-ți creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
@@ -3160,6 +3201,11 @@ ro:
         one: utilizator
         few: utilizatori
         other: utilizatori
+      transaction:
+        zero: tranzacţii
+        one: tranzacţie
+        few: tranzacţii
+        other: tranzacţii
     previous_label: "&#8592; Anterior"
     next_label: "Urmatorul &#8594;"
     page_gap: "&hellip"
@@ -3178,25 +3224,35 @@ ro:
       multi_page_html: "Se afiseaza %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> din <b>%{count}</b> in total"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        single_page:
+          zero: "Nu s-a găsit %{model}"
+          one: "Se afișează %{accepted_count} acceptat %{accepted_model} și %{other_count} alt %{other_model}"
+          few: "Se afișează %{accepted_count} acceptat %{accepted_model} și %{other_count} alt %{other_model}"
+          other: "Se afișează %{accepted_count} acceptat %{accepted_model} și %{other_count} alt %{other_model}"
+        single_page_html:
+          zero: "Nu s-a găsit %{model}"
+          one: "Se afișează <b>%{accepted_count}</b> acceptat %{accepted_model} și %{other_count} alt %{other_model}"
+          few: "Se afișează <b>%{accepted_count}</b> acceptat %{accepted_model} și %{other_count} alt %{other_model}"
+          other: "Se afișează <b>%{accepted_count}</b> acceptat %{accepted_model} și %{other_count} alt %{other_model}"
+        multi_page: "Se afișează %{model} %{from} - %{to} din %{accepted_count} acceptat %{accepted_model} și %{other_count} alt %{other_model}"
+        multi_page_html: "Se afișează %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> din <b>%{accepted_count}</b> acceptat %{accepted_model} și %{other_count} încă %{ alt_model}"
   stripe_accounts:
-    admin_account_not_connected: ~
+    admin_account_not_connected: "Utilizarea sistemului de plată al lui %{service_name} pentru a primi plăți nu este posibilă, deoarece plățile nu au fost configurate. Vă rugăm să %{contact_admin_link} pentru detalii."
     contact_admin_link_text: "Contactează echipa %{service_name}"
-    you_are_ready_to_accept_payments: ~
-    commission: ~
-    pay_with_stripe: ~
+    you_are_ready_to_accept_payments: "Sunteți gata să acceptați plăți!"
+    commission: "%{commission} %"
+    pay_with_stripe: "Plătiți cu Stripe folosind %{card}"
     add_and_pay: "Autorizează plata"
     card_not_stored: "Plata dvs. este procesată în siguranță de către Stripe. %{service_name} nu salvează datele cardului dvs. "
     missing_payment: "Ai produse listate insa contul tau nu este setat pentru a incasa bani. Ca sa iti configurezi preferintele de plati, viziteaza %{settings_link}"
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
-    stripe_credit_card: ~
-    paypal: ~
-    paypal_connected: ~
+    stripe_bank_connected: "Detaliile contului bancar au fost configurate cu succes!"
+    stripe_can_accept: "Acum sunteți gata să primiți bani în contul dvs. bancar"
+    stripe_credit_card: "Card de credit"
+    paypal: PayPal
+    paypal_connected: "Cont PayPal conectat cu succes!"
     paypal_can_accept: "Acum ai toate setarile corecte pentru a primi bani in contul tau PayPal"
-    paypal_connected_give_permission: ~
-    stripe_account_restricted: "Platile online catre contul tau sunt restrictionate!"
+    paypal_connected_give_permission: "Pentru a finaliza configurarea și a începe să primiți fonduri în contul dvs. PayPal <%{email}>, acordați permisiunea de a percepe o taxă de tranzacție."
+    stripe_account_restricted: "Plățile online către contul dvs. sunt restricționate sau vor fi restricționate în curând!"
     stripe_account_restricted_info: "Vă rugăm să editați detaliile contului dvs. bancar pentru a oferi mai multe informații furnizorului de plăți."
     stripe_account_restricted_soon: ~
     stripe_account_restricted_soon_info: "Vă rugăm să editați detaliile contului dvs. bancar pentru a oferi mai multe informații furnizorului de plăți."
@@ -3204,98 +3260,98 @@ ro:
     stripe_account_pending_verification_info: "Reveniți mai târziu pentru a vă asigura că totul este în ordine și pentru a adăuga actele de confirmare a identității."
     form_new:
       need_info: "Avem nevoie de câteva informații despre dvs. pentru a vă putea transfera bani."
-      select_country: ~
-      legal_name: ~
+      select_country: "Selecteaza tara..."
+      legal_name: "Nume legal"
       first_name: Prenume
       last_name: Nume
-      first_name_kana: ~
-      last_name_kana: ~
-      first_name_kanji: ~
-      last_name_kanji: ~
-      country: Țara
+      first_name_kana: "Prenumele kana"
+      last_name_kana: "Nume de familie kana"
+      first_name_kanji: "Prenumele kanji"
+      last_name_kanji: "Nume de familie kanji"
+      country: "Țara de resedinta"
       birth_date: "Data nașterii"
-      ssn_last_4: ~
-      personal_id_number: ~
-      address_country: Țara
-      address_state: ~
-      address_province: ~
+      ssn_last_4: "SSN ultimele 4"
+      personal_id_number: "Număr personal de identificare"
+      address_country: "Țara de resedinta"
+      address_state: Stat
+      address_province: Provincie
       address_city: Oraș
       address_postal_code: "Cod poștal"
       address_line1: Adresa
-      tos_link: ~
-      tos_link_title: ~
+      tos_link: "Adăugând detaliile de plată, acceptați %{stripe_link}."
+      tos_link_title: "Acord de cont Stripe Connected"
       save_details: "Salvați detaliile"
-      edit: ~
-      cancel: ~
-      gender: ~
+      edit: "Editează detaliile"
+      cancel: Anulare
+      gender: Gen
       phone_number: "Număr de telefon"
       phone_info_text: "Numărul de telefon trebuie să înceapă cu prefixul țării, de exemplu"
-      address_kana_postal_code: ~
-      address_kana_state: ~
-      address_kana_city: ~
-      address_kana_town: ~
-      address_kana_line1: ~
-      address_kanji_postal_code: ~
-      address_kanji_state: ~
-      address_kanji_city: ~
-      address_kanji_town: ~
-      address_kanji_line1: ~
-      male: ~
-      female: ~
+      address_kana_postal_code: "Cod poștal kana"
+      address_kana_state: "Stat kana"
+      address_kana_city: "Orașul kana"
+      address_kana_town: "Orașul kana"
+      address_kana_line1: "Adresa stradala kana"
+      address_kanji_postal_code: "Cod poștal kanji"
+      address_kanji_state: "Stat kanji"
+      address_kanji_city: "Orașul kanji"
+      address_kanji_town: "Orașul kanji"
+      address_kanji_line1: "Adresa stradala kanji"
+      male: masculin
+      female: Femeie
     form_bank:
-      bank_account_number: ~
+      bank_account_number: "Numarul contului bancar"
       bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
-      update_also_bank_account: "Actualizați și contul bancar"
+      bank_routing_1: "Cod bancar"
+      bank_routing_2: "Codul filialei"
+      bank_currency: "Moneda contului bancar"
+      update_also_bank_account: "Editați numărul contului bancar"
       bank_account_same_country: ~
       bank_country: ~
       bank_holder_name: ~
       messages:
-        account_number: ~
+        account_number: "Numar de cont"
         routing_number: ~
-        bank_code: ~
-        branch_code: ~
-        transit_number: ~
-        institution_number: ~
-        format_varies_by_bank: ~
-        bsb: ~
-        error_message: ~
-        clearing_code: ~
-        sort_code: ~
-        must_match: ~
-        a_dash: ~
-        digits: ~
-        digits_or_chars: ~
+        bank_code: "cod bancar"
+        branch_code: "Codul filialei"
+        transit_number: "Numărul tranzatie"
+        institution_number: "Numărul instituției"
+        format_varies_by_bank: "Formatul variază în funcție de bancă"
+        bsb: BSB
+        error_message: "Format invalid"
+        clearing_code: "Cod de golire"
+        sort_code: "Cod de sortare"
+        must_match: "trebuie să fie în următorul format:"
+        a_dash: "o liniuță"
+        digits: cifre
+        digits_or_chars: "cifre sau caractere A-Z"
     form_verification:
-      personal_id_number: ~
+      personal_id_number: "Număr personal de identificare"
       document: "Dovada identității (pașaport, permis de conducere, carte de identitate)"
       document_back: "Dovada identității (pașaport, permis de conducere, carte de identitate)(partea verso)"
-      send_verification: ~
+      send_verification: "Trimiteți verificarea"
       need_verification: "Este nevoie de verificări suplimentare"
       additional_document: "Un document care arată adresa, fie o carte de identitate sau o factură de utilitate de la o companie de utilități cunoscută."
       additional_document_back: "Un document care arată adresa, fie o carte de identitate sau o factură de utilitate de la o companie de utilități cunoscută(verso document)"
       files_need_to_be: "Fișierele trebuie să fie în format JPEG sau PNG mai mici de 5MB. Nu este posibilă verificarea PDF-urilor. Fișierele trebuie să fie în culori, să fie rotite cu imaginea în partea dreaptă în sus și să aibă toate informațiile clar lizibile."
     form_pin:
-      social_insurance_number: ~
-      social_security_number: ~
-      ssn_last_4: ~
-      hong_kong_identity_card: ~
-      singapore_identity_card: ~
+      social_insurance_number: "Număr de asigurări sociale (SIN)"
+      social_security_number: "Număr de securitate socială (SSN)"
+      ssn_last_4: "Ultimele 4 cifre ale numărului de securitate socială (SSN)"
+      hong_kong_identity_card: "Numărul cărții de identitate din Hong Kong (HKID)"
+      singapore_identity_card: "Cartea de identitate pentru înregistrarea națională (NRIC) sau numărul de identificare străin (FIN)"
       mexico_id_number: ~
       messages:
-        social_insurance_number: ~
+        social_insurance_number: "trebuie să fie un număr de asigurări sociale (SIN) valid"
   payment_settings:
     title: "Setarea Plăților"
     bank_account: "Cont bancar"
-    paypal: ~
+    paypal: PayPal
     bank_account_details: "Pentru tranzacții în contul bancar trebuie să adaugi informațiile bancare. Clienții tăi vor putea plăti folosind cardul."
     add_bank_details: "Adăuga informațiile bancare"
     can_accept_stripe_and_paypal: "Poți folosi contul de PayPal sau contul bancar."
     to_accept_paypal: "Pentru a primi tranzacții în contul de PayPal trebuie să te conectezi. Clienții tăi vor putea plăti folosind PayPal."
     connect_paypal: "Conectează contul de PayPal"
-    wrong_setup: ~
+    wrong_setup: "Există ceva în neregulă cu configurarea sistemului de plată pe această piață: Stripe Connect nu a fost activat. Contactați echipa pentru a le informa că ar trebui să activeze Stripe Connect în tabloul de bord Stripe."
     invalid_bank_account_number: "Verifică dacă informațiile bancare sunt corecte."
     invalid_postal_code: "Cod poștal incorect pentru %{country}"
   seo_sections:
