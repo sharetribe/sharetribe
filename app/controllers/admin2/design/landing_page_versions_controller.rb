@@ -11,7 +11,7 @@ module Admin2::Design
     end
 
     def release
-      if @service.release_landing_page_version
+      if @allowed_lp && @service.release_landing_page_version
         link = ActionController::Base.helpers.link_to I18n.t('admin2.landing_page.check_it_out'),
                                                       landing_page_without_locale_path, target: :_blank, rel: :noopener
         flash[:notice] = I18n.t('admin2.landing_page.latest_version_released', link: link).html_safe # rubocop:disable Rails/OutputSafety
@@ -38,6 +38,7 @@ module Admin2::Design
 
     def ensure_plan
       @allowed_lp = @current_plan.try(:[], :features).try(:[], :landing_page)
+      @allowed_lp_preview = @current_plan.try(:[], :features).try(:[], :landing_page_preview)
     end
   end
 end

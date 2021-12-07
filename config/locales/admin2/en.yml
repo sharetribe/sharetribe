@@ -1249,10 +1249,15 @@ en:
       remove_confirm: "Are you sure you want to delete the section \"%{name}\" and all its data?"
       add_new_section: "+ Add a new section"
       publish_changes: "Publish changes"
+      subscribe: 'Subscribe to enable publishing'
       preview_landing_page: "Preview landing page"
+      preview_landing_page_free: "Preview landing page (free)"
       check_it_out: "Check it out"
       latest_version_released: "The latest version of your landing page is live! %{link}!"
       this_version_is_not_released: "You need to make changes to publish a new version of your landing page."
+      statusbar:
+        paid_on: 'Paid add-on:'
+        info: 'Improve visitor engagement on your marketplace with a Custom Landing Page. Test how your landing page could look and publish it by subscribing to the add-on.'
       sections:
         add: "Add a new section to your landing page"
         new: "New section type"
