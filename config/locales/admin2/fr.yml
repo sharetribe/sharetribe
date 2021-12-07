@@ -1249,10 +1249,15 @@ fr:
       remove_confirm: "Voulez-vous vraiment supprimer la section \"%{name}\" et toutes ses données ?"
       add_new_section: "+ Ajouter une nouvelle section"
       publish_changes: "Publier les modifications"
+      subscribe: "S'abonner pour publier"
       preview_landing_page: "Prévisualiser la page d'accueil"
+      preview_landing_page_free: "Prévisualiser la page d'accueil (gratuit)"
       check_it_out: "Admirez la"
       latest_version_released: "La dernière version de votre page d'accueil est en ligne ! %{link} !"
       this_version_is_not_released: "Vous devez d'abord apporter des modifications avant de publier une nouvelle version de votre page d'accueil."
+      statusbar:
+        paid_on: "Extension payante : "
+        info: "Améliorez l'engagement de vos visiteurs sur votre place de marché avec une page d'accueil personnalisée. Voyez à quoi votre page d'accueil pourrait ressembler et publiez la en vous abonnant à l'extension."
       sections:
         add: "Ajouter une nouvelle section à votre page d'accueil"
         new: "Type de la nouvelle section"

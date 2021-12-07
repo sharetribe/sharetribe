@@ -1228,10 +1228,15 @@ pl:
       remove_confirm: ~
       add_new_section: ~
       publish_changes: ~
+      subscribe: ~
       preview_landing_page: ~
+      preview_landing_page_free: ~
       check_it_out: ~
       latest_version_released: ~
       this_version_is_not_released: ~
+      statusbar:
+        paid_on: ~
+        info: ~
       sections:
         add: ~
         new: ~

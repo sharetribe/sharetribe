@@ -1249,10 +1249,15 @@ es:
       remove_confirm: "¿Realmente quieres eliminar la sección \"%{name}\" y toda la información relacionada?"
       add_new_section: "+ Añadir una nueva sección"
       publish_changes: "Publicar cambios"
+      subscribe: ~
       preview_landing_page: "Ver la vista previa de la página"
+      preview_landing_page_free: ~
       check_it_out: Revísala
       latest_version_released: "¡La nueva version de tu página de inicio está en vivo! ¡%{link}!"
       this_version_is_not_released: "Necesitas hacer y guardar cambios para poder publicar una nueva versión de tu página de inicio."
+      statusbar:
+        paid_on: ~
+        info: ~
       sections:
         add: "Añade una nueva sección a tu página de inicio"
         new: "Tipo de la nueva sección"
