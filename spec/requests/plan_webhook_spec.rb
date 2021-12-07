@@ -96,7 +96,7 @@ describe "plan provisioning", type: :request do
         expect(plan5555.slice(:community_id, :features, :expires_at, :status)).to eq({
                                community_id: 5555,
                                status: :hold,
-                               features: { deletable: false, admin_email: true, custom_script: false, whitelabel: false, footer: false, landing_page: false, landing_page_preview: false },
+                               features: { deletable: false, admin_email: true, custom_script: false, whitelabel: false, footer: false, landing_page: false, landing_page_preview: true },
                                expires_at: Time.utc(2015, 10, 15, 15, 0, 0)
                              })
 
