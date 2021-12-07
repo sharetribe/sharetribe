@@ -33,7 +33,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               status: :trial,
-                                              features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false },
+                                              features: { deletable: true, admin_email: false, custom_script: false, whitelabel: false, footer: false, landing_page: false, landing_page_preview: true },
                                               expires_at: expires_at,
                                               member_limit: 300,
                                               created_at: Time.now,
@@ -51,7 +51,7 @@ describe PlanService::API::Plans do
             plans_api.create(
               community_id: 123, plan: {
                 status: :active,
-                features: { whitelabel: true, admin_email: true, custom_script: true },
+                features: { whitelabel: true, admin_email: true, custom_script: true, landing_page_preview: true },
                 member_limit: 100000,
                 expires_at: expires_at
               })
@@ -63,7 +63,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               status: :active,
-                                              features: { deletable: false, admin_email: true, custom_script: true, whitelabel: true, footer: false, landing_page: false  },
+                                              features: { deletable: false, admin_email: true, custom_script: true, whitelabel: true, footer: false, landing_page: false, landing_page_preview: true  },
                                               member_limit: 100000,
                                               expires_at: expires_at,
                                               created_at: Time.now,
@@ -79,7 +79,7 @@ describe PlanService::API::Plans do
             plans_api.create(
               community_id: 123, plan: {
                 status: :active,
-                features: { whitelabel: true, admin_email: true },
+                features: { whitelabel: true, admin_email: true, landing_page_preview: true },
                 member_limit: 1000
               })
 
@@ -90,7 +90,7 @@ describe PlanService::API::Plans do
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               status: :active,
-                                              features: { deletable: false, admin_email: true, custom_script: false, whitelabel: true, footer: false, landing_page: false  },
+                                              features: { deletable: false, admin_email: true, custom_script: false, whitelabel: true, footer: false, landing_page: false, landing_page_preview: true  },
                                               member_limit: 1000,
                                               expires_at: nil,
                                               created_at: Time.now,

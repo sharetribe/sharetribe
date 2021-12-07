@@ -5,7 +5,8 @@ module PlanService::DataTypes
     [:whitelabel, :bool, default: false],
     [:footer, :bool, default: false],
     [:landing_page, :bool, default: false],
-    [:custom_script, :bool, default: false]
+    [:custom_script, :bool, default: false],
+    [:landing_page_preview, :bool, default: false]
   )
 
   Configuration = EntityUtils.define_builder(
