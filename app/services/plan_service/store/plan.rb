@@ -94,7 +94,7 @@ module PlanService::Store::Plan
       Plan.call(EntityUtils.model_to_hash(m).merge(
         member_limit: 300,
         status: :trial,
-        features: { deletable: true, landing_page_preview: true }))
+        features: { deletable: true }))
     }.or_else(nil)
   end
 

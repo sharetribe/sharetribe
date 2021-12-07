@@ -38,7 +38,6 @@ module Admin2::Design
 
     def ensure_plan
       @allowed_lp = @current_plan.try(:[], :features).try(:[], :landing_page)
-      @allowed_lp_preview = @current_plan.try(:[], :features).try(:[], :landing_page_preview)
     end
   end
 end
