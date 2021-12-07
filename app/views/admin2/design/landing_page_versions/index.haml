@@ -1,7 +1,4 @@
 - content_for :title do
   = t('admin2.sidebar.design.landing_page')
 
-- if @allowed_lp || @allowed_lp_preview
-  = render 'landing_page'
-- else
-  = render 'not_allowed'
+= render 'landing_page'

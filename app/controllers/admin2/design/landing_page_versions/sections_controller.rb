@@ -1,5 +1,4 @@
 class Admin2::Design::LandingPageVersions::SectionsController < Admin2::AdminBaseController
-  before_action :ensure_plan
   before_action :set_service
 
   def new
@@ -48,11 +47,5 @@ class Admin2::Design::LandingPageVersions::SectionsController < Admin2::AdminBas
       community: @current_community,
       params: params)
     @presenter = CustomLandingPage::SectionPresenter.new(service: @service)
-  end
-
-  def ensure_plan
-    if !@current_plan.try(:[], :features).try(:[], :landing_page) && !@current_plan.try(:[], :features).try(:[], :landing_page_preview)
-      redirect_to admin2_design_landing_page_versions_path and return
-    end
   end
 end
