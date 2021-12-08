@@ -1262,11 +1262,11 @@ tr-TR:
       title: "Komisyon ve Ödeme işlem ücreti"
       stripe: Stripe
       paypal: Paypal
-      info: "%{service_name} 'da ödemeler, aşağıda belirtilen ödeme ağ geçidi tarafından işlenmektedir. %{service_name} , ödeme ağ geçidine bağlı olarak bir komisyon tahsil edecektir. Ödeme ağ geçidi ayrıca aşağıda açıklandığı üzere her ödeme için bir ücret alabilir."
+      info: "%{service_name} pazar yerinde ödemeler, aşağıda belirtilen ödeme ağ geçidi tarafından işlenmektedir. %{service_name}, ödeme ağ geçidine bağlı olarak bir komisyon tahsil edecektir. Ödeme ağ geçidi ayrıca aşağıda açıklandığı üzere her ödeme için bir ücret alabilir."
     paypal_fee_info:
       title: "PayPal işlem ücreti"
       body_text: |-
-          PayPal ödemelerinde %{service_name}  %{paypal_commission} komisyon alır. Her bir işlem başına minimum ücret %{minimum_transaction_fee} ABD dolarıdır. PayPal'ın ücretleri bu komisyona dahil değildir, bu nedenle %{service_name}  komisyonuna ek olarak her biri işlem için PayPal'ın ücretini de ödersiniz. PayPal'ın ücreti, aylık satış hacminize ve alıcının ikamet ettiği ülkeye bağlı olarak toplam satış fiyatının %2 ila %5'i arasındadır. Genel olarak, yurt içi satın alımların ücretleri uluslararası olanlardan daha düşüktür ve daha yüksek aylık satışlar size ücretlerde indirim sağlar.
+          PayPal ödemelerinde %{service_name}%{paypal_commission} komisyon alır. Her bir işlem başına minimum ücret %{minimum_transaction_fee} ABD dolarıdır. PayPal'ın ücretleri bu komisyona dahil değildir, bu nedenle %{service_name}  komisyonuna ek olarak her biri işlem için PayPal'ın ücretini de ödersiniz. PayPal'ın ücreti, aylık satış hacminize ve alıcının ikamet ettiği ülkeye bağlı olarak toplam satış fiyatının %2 ila %5'i arasındadır. Genel olarak, yurt içi satın alımların ücretleri uluslararası olanlardan daha düşüktür ve daha yüksek aylık satışlar size ücretlerde indirim sağlar.
           PayPal hesabınıza giriş yapıp buraya %{link_to_paypal}  giderek tam ücretleri görebilirsiniz. Her satın alma işleminden sonra, tam ücreti gösteren bir makbuz alacaksınız.
       body_text_accept: ~
       link_to_paypal_text: buradan
