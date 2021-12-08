@@ -1378,7 +1378,7 @@ ro:
       canceled_offer: "a anulat oferta"
       paid: "plătit %{sum}"
       payment_preauthorized: "Plata autorizata: %{sum}"
-      payment_preauthorized_wo_sum: ~
+      payment_preauthorized_wo_sum: "Plata autorizata"
       stripe:
         held_payment: "Plata a fost procesată. Suma de %{sum} este reținută de %{service_name} până când rezervarea va fi finalizată."
         held_payment_wo_sum: ~
@@ -1649,7 +1649,7 @@ ro:
       shipping_total: "Livrare:"
       product: "Produs:"
       price_payer_paid: "Preț plătit de %{payer_full_name}:"
-      subtotal: ~
+      subtotal: "Subtotal:"
       service_fee: "Comision %{service_name}:"
       buyer_service_fee: ~
       you_will_get: "Total:"
@@ -1810,12 +1810,12 @@ ro:
     listing_approved:
       subject: "Echipa %{community} ti-a aprobat listarea \"%{listing_title}\""
       listing_has_been_approved: "Avem vesti bune! Listarea ta \"%{listing_title}\" a fost evaluata si aprobata de catre echipa %{community}."
-      view_the_listing: ~
+      view_the_listing: "Vizualizare anunt"
     listing_rejected:
       subject: "Echipa %{community} nu ti-a aprobat listarea \"%{listing_title}\""
       listing_has_been_rejected: "Din nefericire, dupa o evaluare atenta, echipa %{community} nu ti-a aprobat listarea \"%{listing_title}\". Poti sa %{contact_link} ca sa afli motivul sau poti sa editezi listarea si sa o retrimiti spre evaluare."
       contact_link: "contactează echipa %{community}"
-      edit_the_listing: ~
+      edit_the_listing: "Editeaza anuntul"
     edited_listing_submited_for_review:
       subject: ~
       there_is_a_edited_listing_to_review: ~
