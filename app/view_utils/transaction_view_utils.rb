@@ -184,7 +184,7 @@ module TransactionViewUtils
     message = case state
     when "preauthorized"
       if show_sum
-        t("conversations.message.payment_preauthorized", sum: amount)
+        t("conversations.message.payment_preauthorized")
       else
         t("conversations.message.payment_preauthorized_wo_sum")
       end
@@ -196,12 +196,12 @@ module TransactionViewUtils
     when preauthorize_accepted
       if payment_gateway == :stripe
         if show_sum
-          t("conversations.message.stripe.held_payment", sum: amount)
+          t("conversations.message.stripe.held_payment")
         else
           t("conversations.message.stripe.held_payment_wo_sum")
         end
       elsif show_sum
-        t("conversations.message.received_payment", sum: amount)
+        t("conversations.message.received_payment")
       else
         t("conversations.message.received_payment_wo_sum")
       end

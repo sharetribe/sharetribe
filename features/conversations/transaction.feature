@@ -33,7 +33,7 @@ Feature: Single transaction
     Then I should see "Total: €100" within ".initiate-transaction-total-wrapper"
     Then I should see "Payment authorized" within "#transaction_status"
     Then I should see "Waiting for Kassi T to accept the request. As soon as Kassi T accepts, you will be charged." within "#transaction_status"
-    Then I should see "Payment authorized: €100" within ".message-row:nth-child(1)"
+    Then I should see "Payment authorized" within ".message-row:nth-child(1)"
     Then I should see "Hear, Hear" within ".message-row:nth-child(2)"
 
   Scenario: Buyer sees paid transaction per hour
@@ -51,7 +51,7 @@ Feature: Single transaction
     Then I should see "Total: €4.65" within ".initiate-transaction-total-wrapper"
     Then I should see "Payment authorized" within "#transaction_status"
     Then I should see "Waiting for Kassi T to accept the request. As soon as Kassi T accepts, you will be charged." within "#transaction_status"
-    Then I should see "Payment authorized: €4.65" within ".message-row:nth-child(1)"
+    Then I should see "Payment authorized" within ".message-row:nth-child(1)"
     Then I should see "Hands Down" within ".message-row:nth-child(2)"
 
   Scenario: Seller sees free transaction
@@ -75,7 +75,7 @@ Feature: Single transaction
     Then I should see "Payment authorized" within "#transaction_status"
     Then I should see "Accept request" within "#transaction_status"
     Then I should see "Not this time" within "#transaction_status"
-    Then I should see "Payment authorized: €100" within ".message-row:nth-child(1)"
+    Then I should see "Payment authorized" within ".message-row:nth-child(1)"
     Then I should see "Hear, Hear" within ".message-row:nth-child(2)"
 
   Scenario: Seller sees paid transaction per hour
@@ -96,7 +96,7 @@ Feature: Single transaction
     Then I should see "Payment authorized" within "#transaction_status"
     Then I should see "Accept request" within "#transaction_status"
     Then I should see "Not this time" within "#transaction_status"
-    Then I should see "Payment authorized: €4.65" within ".message-row:nth-child(1)"
+    Then I should see "Payment authorized" within ".message-row:nth-child(1)"
     Then I should see "Hands Down" within ".message-row:nth-child(2)"
 
   Scenario: Buyer sees paid transaction with buyer commisssion

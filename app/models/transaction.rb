@@ -362,6 +362,14 @@ class Transaction < ApplicationRecord
     (unit_price * quantity) + shipping_price + buyer_commission
   end
 
+  def payment_total_personal(user)
+    if user.id == starter_id
+      payment_total
+    else
+      payment_total - buyer_commission
+    end
+  end
+
   def last_transition_by_admin?
     transition = transaction_transitions.last
     transition && transition[:metadata] && transition[:metadata]['executed_by_admin']
