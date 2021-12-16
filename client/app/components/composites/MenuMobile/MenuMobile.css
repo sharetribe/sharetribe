@@ -128,6 +128,12 @@
   padding: 0 0 0 0.5em;
 }
 
+.offScreenHeaderNewListingButtonMobile span {
+  height: var(--MobileMenu_offscreenHeaderItemHeight);
+  line-height: var(--MobileMenu_offscreenHeaderItemHeight);
+  padding: 0 0 0 0;
+}
+
 .offScreenMain {
   flex-grow: 1;
   flex-shrink: 0;
