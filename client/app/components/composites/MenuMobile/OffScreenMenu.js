@@ -16,16 +16,13 @@ class OffScreenMenu extends Component {
     const headerItemHeight = variables['--MobileMenu_offscreenHeaderItemHeight'];
 
     const avatarExtras = { imageHeight: headerItemHeight };
-    const buttonExtras = { className: css.offScreenHeaderNewListingButton, customColor: this.props.color };
     const buttonExtrasNewPost = { className: css.offScreenHeaderNewListingButtonMobile, customColor: this.props.color };
     const header = this.props.avatar ? [
       this.props.avatar ? div({ className: css.avatarSpacer }, r(Avatar, { ...this.props.avatar, ...avatarExtras })) : null,
-      this.props.newListingButton ? r(AddNewListingButton, { ...this.props.newListingButton, ...buttonExtras }) : null,
     ] : [
       r(LoginLinks, this.props.loginLinks),
     ];
-    const newButton = this.props.avatar ? null :
-        this.props.newListingButton ? r(AddNewListingButton, { ...this.props.newListingButton, ...buttonExtrasNewPost }) : null;
+    const newButton = this.props.newListingButton ? r(AddNewListingButton, { ...this.props.newListingButton, ...buttonExtrasNewPost }) : null;
     const languagesMobile = this.props.languages ?
       r(LanguagesMobile, this.props.languages) : null;
 

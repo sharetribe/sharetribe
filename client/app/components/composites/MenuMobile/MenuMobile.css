@@ -131,7 +131,8 @@
 .offScreenHeaderNewListingButtonMobile span {
   height: var(--MobileMenu_offscreenHeaderItemHeight);
   line-height: var(--MobileMenu_offscreenHeaderItemHeight);
-  padding: 0 0 0 0;
+  padding: 0;
+  font-weight: 400;
 }
 
 .offScreenMain {
