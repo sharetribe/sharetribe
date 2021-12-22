@@ -1,88 +1,1654 @@
 zh-HK:
-  number:
-    currency:
-      format:
-        separator: ~
-        delimiter: ~
-        format: ~
-  admin:
+  common:
+    cancel: 取消
+    fields_that_are_mandatory: 標有星號（*）的為必填項。
+    or: 或
+    share_types:
+      borrow: 借用
+      buy: 購買
+      give_away: 贈送
+      lend: 出借
+      receive: 免費
+      rent: 出租
+      rent_out: 出租
+      sell: 出售
+      share_for_free: 免費共享
+      accept_for_free: 想要免費使用
+      request: 請求
+      offer: ~
+      offer_to_swap: 交換
+      request_to_swap: 交換
+    what_is_this: 這是什麼？
+    password: 密碼
+    username: 帳號
+    default_community_slogan: 市集
+    default_community_description: 這是一個出售、出租、交換和共享商品與服務給其他成員的網站。
+    username_or_email: 電郵或用戶名稱
     categories:
-      edit:
-        edit_listing_category: "編輯類別“%{category}”"
-      index:
-        listing_categories: 訊息分類
-        create_a_new_category: "+ 新增新類別"
-        remove_category_confirmation: "你確定要移除分類“%{category_name}”嗎？"
-        saving_order: 保存分類順序
-        save_order_successful: 成功保存分類的順序
-        save_order_error: 保存分類順序時發生錯誤。請刷新頁面後重試。
-      new:
-        new_listing_category: 新訊息類別
-      form:
-        category_name:
-          category_title: 分類標題
-        category_parent:
-          category_parent: 母分類
-          no_parent: 無上級分類
-        category_transaction_types:
-          transaction_types: 交易類別
-          transaction_types_description: 交易類別決定了在該類別中的發佈的訊息的訂購流程。例如是否只能出售，或者允許出租以及免費贈送。
-          select_all: 全選
-          clear_all: 全部清除
-        buttons:
-          save: ~
-          cancel: ~
-      remove:
-        remove_category: 移除類別
-        remove_category_name: "移除類別“%{category_name}”"
-        warning_remove_effects: "警告！移除類別“%{category_name}”將會有以下影響："
-        warning_listing_will_be_moved:
-          other: "這個類別中有%{count}個訊息。他們將會被移至所選的類別。"
-        warning_custom_field_will_be_moved:
-          other: "此類別中有%{count}個自訂的範圍。他們將會被移至所選類別。"
-        warning_subcategory_will_be_removed:
-          other: "此類別中有%{count}個子分類。他們將會被移至所選類別。"
-        warning_with_subcategories_listing_will_be_moved:
-          other: "這個類別和子分類中有%{count}個訊息。他們將會被移至所選的類別。"
-        warning_with_subcategories_custom_field_will_be_moved:
-          other: "此類別和子分類中有%{count}個自訂的範圍。他們將會被移至所選類別。"
-        select_new_category: 為上面將要移動的項目選擇一個新的類別：
-        buttons:
-          remove: ~
-          cancel: ~
+      item: 物品
+      favor: 服務
+      rideshare: ~
+      housing: ~
+      tools: 工具
+      sports: 运动
+      music: 音樂
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
+    service_name: ~
+    edit_page: 编輯頁面
+    removed_user: ~
+    paypal_fee_info:
+      title: PayPal的款項處理費
+      body_text: "PayPal將對每筆付款收取一筆處理費。該費用介乎於總銷售價格的2%到5%之間，取決於你每月的銷售量和買家所在國家。大致上，國內的購買比國際的購買的費用為低，而愈高的每月銷售額則可以獲得折扣。你可以透過登入你的PayPal帳戶，到%{link_to_paypal}來查看詳細費用。在每次購買之後你將得到一張收據以顯示實際的費用。"
+      link_to_paypal_text: ~
+      body_text_accept: ~
+    payment_fee_info:
+      title: ~
+      stripe: ~
+      paypal: ~
+      info: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
+  conversations:
+    index:
+      loading_more_messages: 載入更多訊息
+      message_partitive: 訊息
+      messages_partitive: 訊息
+      no_received_messages: 沒有新訊息
+      no_sent_messages: 沒有已發送的訊息
+    new:
+      message: 訊息
+      title: 標題
+      this_message_is_private: "此為你和%{person}之間的私密訊息。%{person}將收到郵件通知。"
+      send_message: 發送訊息
+      you_will_get_notified_of_acceptance: "當%{person}接受或拒絕你的提議時，你將會收到電郵通知。"
+      you_will_get_notified: "當%{person}回覆你時，你將會收到電郵通知。"
+      send_message_to_user: "發送訊息到%{person}"
+      send: 發送
+      about_listing: "關於%{listing_title}"
+      message_to: "發送給%{author_name}的訊息"
+      author_has_to_accept_request: "你需要在%{author_name}接受請求後才能付款"
+      optional_message_to: "發送自選訊息至%{author_name}"
+    show:
+      send_reply: 傳送回覆
+      write_a_reply: 回覆
+      conversation_about_listing: "與%{person}關於%{listing}"
+      conversation_with_user: "與%{person}"
+      last_message_at: "(最近的訊息%{time})"
+      in_response_to_listing: 關於發佈的訊息
+      message_sent_by: 消息發送者
+      message_sent_to: 消息發送到
+      sum: "總共：%{sum}"
+      conversation_with: "與%{person}的對话"
+      price: "價錢：%{price}"
+      total: "總共：%{total}"
+    status:
+      feedback_given: 評價已發送
+      feedback_skipped: 已跳過評價
+      give_feedback: 給予評價
+      offer_accepted: 被接納
+      offer_rejected: 被拒絕
+      request_accepted: 被接納
+      request_rejected: 被拒絕
+      skip_feedback: 跳過評價
+      cancel_payed_transaction: 取消
+      offer_canceled: 已取消
+      offer_confirmed: 已完成
+      pay: 付款
+      paid: 付款成功
+      request_confirmed: 完成
+      request_canceled: 已取消
+      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_request: "正在等待%{listing_author_name}接受請求，當%{listing_author_name}接受後，你將會被扣款。"
+      waiting_confirmation_from_requester: "等候%{requester_name}將請求標記為已完成"
+      waiting_payment_from_requester: "正在等待%{requester_name}付款"
+      waiting_for_you_to_accept_request: 正等待你接受請求
+      waiting_confirmation_from_you: 正在等待你標記請求為完成
+      waiting_payment_from_you: 正在等待你付款
+      waiting_feedback_from_you: 正等待你給予回應
+      preauthorized: 付款成功
+      offer_paid: 付款成功
+      offer_preauthorized: 付款成功
+      offer_waiting_for_payment: "正在等待%{requester_name}付款"
+      request_paid: 付款成功
+      request_preauthorized: 已授權付款
+      waiting_for_current_user_to_deliver_listing: "正在等待你完成%{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "正在等待%{listing_author_name}完成%{listing_title}"
+      pending_external:
+        paypal:
+          multicurrency: "我們不能移至PayPal的付款程序，因為你的帳戶並未啓用接收以%{currency}作單位的款項。請登錄到%{paypal_url}以接受或拒絕款項。"
+          verify: "因為你還没有驗証PayPal帳號，你不能接受這筆交易。點撃%{paypal_url}驗証你的帳號。"
+          intl: "我們不能移至PayPal的付款程序，因為你的帳戶沒有退出機制。請登錄到%{paypal_url}以接受或拒絕款項。"
+      pending_external_inbox:
+        paypal:
+          multicurrency: 正等待你接受PayPal的款項
+          intl: 正等待你接受PayPal的款項
+          verify: 正在等待確認你的Paypal帳號
+          unknown_reason: 正等待款項。請登入你的PayPal帳戶查看詳情。
+      payment_errored: 付款失敗，請稍後再試。
+      payment_errored_starter: 付款失敗，請稍後再試。若問題持續發生，請聯絡我們以得到支援。
+      payment_errored_author: "付款失敗，請聯絡%{starter_name}並請他再嘗試付款。"
+      stripe:
+        waiting_confirmation_from_requester: ~
+      order_canceled: ~
+      waiting_for_marketplace_review: ~
+      marketplace_notified: ~
+      contact_them: ~
+      refunded: ~
+      dismissed: ~
+      order_refunded: ~
+      you_should_receive_refund_soon: ~
+      issue_with_the_refund: ~
+      do_you_disagree: ~
+      contact_the_marketpalce_team: ~
+      order_cancellation_dismissed: ~
+    status_link:
+      accept_offer: 接受議價
+      accept_request: 接受要求
+      reject_offer: 這次不被接納
+      reject_request: 這次不被接納
+      confirm: 標記為已完成
+      cancel: ~
+      accept_preauthorized_offer: 接受交易
+      accept_preauthorized_request: 接受請求
+      reject_preauthorized_offer: 暫不需要
+      reject_preauthorized_request: 暫不需要
+      mark_as_refunded: ~
+      dismiss: ~
+    accept:
+      accept_offer: 接受
+      accept_request: ~
+      reject_offer: 暫不需要
+      reject_request: 暫時不需要了
+      close_listing: "關閉此項訊息%{listing_title_link}"
+      update_later: 保持公開訊息
+      optional_message: 可選擇的訊息
+      price_to_pay: 所需要支付的總額
+      accept: ~
+      decline: ~
+      details: 交易細節
+      order_by: "由%{orderer_link}請求"
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: "總計:"
+      total_value: ~
+      paypal_fee_info: "* 不包括 %{link}"
+      shipping_price_label: ~
+      quantity_label: ~
+      total_value_paypal: ~
+      total_value_stripe: ~
+      stripe-fee_label: ~
+      buyer_service_fee_label: ~
+      paypal_fee: ~
+      accept_request_and_close: ~
+    confirm:
+      confirm_description: 如果你的訂購已完成，你應該確認完成。然後你可以給予其他人回應。
+      cancel_payed_description: 如果你的請求被接受但是你有其他的想法，你仍然可以在付款前取消請求。
+      canceling_payed_transaction: 取消交易
+      confirm: 標記已完成
+      cancel: 提出爭議
+      continue: 繼續
+      give_feedback_to: "向%{person_link}給予評語"
+      do_not_give_feedback: 跳過評價
+      cancel_description_team: ~
+    conversation:
+      accepted_request: 已接受請求。
+      accepted_offer: 已接受。
+      rejected_request: 已拒絕請求。
+      rejected_offer: 已拒絕。
+      confirmed_request: 請求已完成。
+      confirmed_offer: 已完成。
+      canceled_request: 請求已取消。
+      canceled_offer: 已取消。
+      message_from: "來自%{person}的訊息"
+      about_listing: "關於%{listing_title}"
+      free_message: 站内短信
+      message_content_not_available: ~
+    message:
+      accepted_request: 已接受請求
+      accepted_offer: 已接納貨品
+      rejected_request: 拒絕請求，取消付款
+      rejected_offer: 已拒絕
+      confirmed_request: 標記請求為完成
+      confirmed_offer: 標示為完成
+      canceled_request: 已取消請求
+      canceled_offer: 已取消
+      paid: "已支付%{sum}"
+      payment_preauthorized: "已授權款項：%{sum}"
+      received_payment: "接受請求，已收取款項%{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
+        held_payment_wo_sum: ~
+      received_payment_wo_sum: ~
+      payment_preauthorized_wo_sum: ~
+      canceled_the_order: ~
+      marked_as_refunded: ~
+      dismissed_the_cancellation: ~
+      payment_has_now_been_transferred: ~
+    details:
+      day: ~
+      days: ~
+      price_per_day: ~
+  emails:
+    accept_reminder:
+      remember_to_accept_offer: "請記得接受或拒絕來自%{sender_name}提供的出價"
+      remember_to_accept_request: "請記得接受或拒絕來自%{sender_name}的要求"
+      you_can_accept_or_reject_offer_at: 你可在此接受或拒絕此議價
+      you_can_accept_or_reject_request_at: 你可在此接受或拒絕此要求
+      you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒絕你在%{date}收到的%{title}議價"
+      you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒絕你在%{date}收到的%{title}要求"
+      show_thread: 顯示對話
+    common:
+      hey: "%{name} 你好 ,"
+      kassi_team: "%{service_name} 團隊"
+      thanks: 謝謝！
+      dont_want_to_receive_these_emails: 不想收到這些郵件？
+      edit_your_email_settings_here: 在此編輯你的電郵設置
+      message_not_displaying_correctly: 郵件顯示正確嗎？
+      view_it_in_your_browser: 在你的瀏覽器中觀看
+      or: 或
+      unsubscribe_from_these_emails: 取消訂閱這些電郵
+      unsubscribe_from_these_emails_info: ~
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
+      hi: ~
+      here_is_your_receipt: ~
+    conversation_status_changed:
+      has_accepted_your_offer: "%{accepter} 已經接受了你的%{listing}"
+      has_accepted_your_request: "%{accepter}已經接受了你的%{listing}"
+      has_rejected_your_offer: "%{accepter} 已經拒絕了你的%{listing}"
+      has_rejected_your_request: "%{accepter} 已經拒絕了你的%{listing}"
+      your_offer_was_accepted: 你的議價已被接受
+      your_offer_was_rejected: 你的議價已被拒絕
+      your_request_was_accepted: 你的要求已被接受
+      your_request_was_rejected: 你的要求已被拒絕
+      view_thread: 查看對話
+      you_can_now_pay_to: "你現在可以支付請求的金額予%{payment_receiver}。"
+      pay_now: 現在付款
+      remember_to_confirm: "當交易完成後，請把它標記為「已完成」。若交易未完成，你可在%{days_to_automatic_confirmation}內取消它。否則它將會自動被標示為已完成。"
+    new_comment:
+      you_have_a_new_comment: "%{author} 在%{service_name}的項目留言"
+      listing_you_follow_has_a_new_comment: "%{author}在你關注的%{service_name}中發表了一則留言。"
+      view_comment: 查看評論
+      has_commented_your_listing_in_kassi: "%{author}已在你的%{listing}留下評論。"
+      has_commented_listing_you_follow_in_kassi: "%{author}在你關注的%{service_name}中，於%{listing}留下了評論。"
+    new_message:
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
+      view_message: 查閱訊息
+    new_testimonial:
+      has_given_you_feedback_in_kassi: "%{name}已在%{service_name}對您作出評價。"
+      you_can_give_feedback_to: "您還未對%{name}作出評價。"
+      view_feedback: 查看回應
+    testimonial_reminder:
+      remember_to_give_feedback_to: "提示：請不要忘記對%{name}作出評價。"
+      you_have_not_given_feedback_yet: "你尚未就%{event}對%{name}作出評價。請不要忘記對%{given_name}在該活動的表現作出評價。"
+    newsletter:
+      hi: "%{name}, 你好!"
+      newest_offers: 大家最近提出的交易
+      newest_requests: 大家最近發出的請求
+      text_version_text: "你可以分享一些其他人可能需要的東西嗎？或者別人擁有一些你可能需要的東西？請點擊%{url}提出一個交易或者查看其他人當前提供的或者請求的東西。"
+    confirmation_instructions:
+      confirmation_instructions_signature: "%{service_name}團隊向你致以問候。"
+      confirmation_link_text: 確認我的電郵
+      need_to_confirm: 請確認你的電郵地址。
+      or_paste_link: 或者你可以複製以下的連結到你的瀏覽器：
+    new_update_to_listing:
+      listing_you_follow_has_been_updated: 你所關注的訊息已更新
+      view_changes: 查看變更
+      has_updated_listing_you_follow_in_kassi: "%{author}在你關注的%{service_name}中，更新了%{listing}中的訊息。"
+    invitation_to_kassi:
+      here_is_a_message_from: "這是來自%{inviter}的訊息"
+      hi: 你好！
+      you_have_been_invited_to_kassi: "%{inviter}邀請你使用%{service_name}。"
+      join_now: 立刻加入
+      invitation_code: "邀請碼：%{code}"
+    reset_password_instructions:
+      change_my_password: 更改我的密碼
+      reset_password_instructions: "<p>你曾告訴我們你忘記了你的密碼 或 你在%{service_name}註冊的帳戶名稱。</p><p>如果你需要重置你的密碼，請按以下的連結：%{password_reset_link}</p><br/><p>如果你不曾向我們發出這要求，請忽略這個電郵。除非你訪問上面的連結及更改你的密碼，否則你的密碼將不會改變。</p>"
+    community_updates:
+      added_offer: "%{name_link}新增了一個訊息："
+      added_request: "%{name_link}新增了一個訊息："
+      update_mail_title: "%{title_link}的更新"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "在過去的%{time_since_last_update}，%{community_link}有以下的活動。"
+      intro_paragraph_link_text: "%{community_name}"
+      reduce_email_footer_text: "太多郵件？你可以%{settings_link}或%{unsubscribe_link}。"
+      settings_link_text: 在此編輯你的電郵設置
+      unsubscribe_link_text: 取消訂閱
+      added_listing: "%{name_link}新增了一個訊息："
+    welcome_email:
+      welcome_email_footer_text: "%{settings_link}"
+      settings_link_text: ~
+      welcome_email_subject: "歡迎來到%{service_name}！"
+      welcome_to_marketplace: "歡迎來到%{service_name}！恭喜你成功註冊。"
+      love_marketplace_crew: "親愛的%{service_name}團隊敬上"
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: "你尚未確認取消%{request_link}的請求。若你已完成交易，你應該確認，然後向%{other_party_given_name}作出回應。"
+      remember_to_confirm_request: 請記得確認或取消請求
+      if_will_not_happen_you_should_cancel: "如果你認為由於某種原因無法完成這個請求，你可以%{cancel_it_link}。"
+      cancel_it_link_text: 取消
+      automatic_confirmation: "如果你不能在請求被接受後%{days_to_automatic_confirmation}內確認或取消交易，我們將自動把它標記為已完成。"
+    transaction_confirmed:
+      here_is_a_message_from: "這裡有一個%{other_party_given_name}給你的訊息:"
+      request_marked_as_confirmed: 請求已完成——請不要忘記給予回應
+      request_marked_as_canceled: 取消請求
+      has_marked_request_as_confirmed: "%{other_party_full_name}已經把「%{request}」標示作已完成。現在你可以向%{other_party_given_name}作出回應。"
+      has_marked_request_as_canceled: "%{other_party_full_name}已經把「%{request}」取消。你仍可以向%{other_party_given_name}作出回應。"
+      giving_feedback_is_good_idea: "你可以給予回應。你應該讓其他人知道你與%{other_party_given_name}的交易愉快。如果有任何問題，你也可以在評論中提及。"
+      give_feedback_to: "向%{other_party_given_name}作出回應"
+      stripe:
+        has_marked_request_as_confirmed: ~
+      team_title: ~
+    new_payment:
+      new_payment: 你收到一筆新的款項
+      you_have_received_new_payment: "你已經為<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>給%{payer_full_name}。這是你的收據。"
+      price_per_unit_type: "每%{unit_type}的價格"
+      quantity: 數量：
+      listing_per_unit_title: ~
+    receipt_to_payer:
+      you_have_made_new_payment: "你已經為<b>%{listing_title}</b> 支付了 <b>%{payment_sum}</b> 給 %{recipient_full_name}。這是付款的收據。"
+      receipt_of_payment: 付款收據
+      product: 產品
+      total: 總計
+      price: 價格
+      money_will_be_transferred: "以下兩種情況發生時，款項將被轉帳至%{recipient_name}： a) 你標記請求為完成後；或 b) 在你付款%{automatic_confirmation_days}天後。"
+      price_per_unit_type: "每%{unit_type}的價格"
+      duration: 期間：
+      quantity: 數量：
+      subtotal: 小計：
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
+      buyer_service_fee: ~
+    payment_settings_reminder:
+      remember_to_add_payment_details: 請記得填寫付款詳情以接收付款
+      you_have_added_listing_with_payment: "你已新增了一個需要付款的訊息：%{listing_link}。然而，你尚未填寫你的付款詳情。請填寫付款的資料以接收款項。"
+      please_go_to_payment_settings: "請至%{payment_settings_link}並填寫所需的付款資訊。"
+      payment_settings_link: 付款設置
+    braintree_new_payment:
+      product: 產品：
+      price_payer_paid: "%{payer_full_name}所支付的價錢："
+      service_fee: "%{service_name}的服務費："
+      you_will_get: 總計：
+    transaction_automatically_confirmed:
+      subject: 交易自動完成——不要忘記給予回應
+      we_have_marked_request_as_confirmed: "我們已經把「%{request}」標示作已完成。此交易已自動完成，因為在請求被接受後%{days_passed}天已經過去。"
+    transaction_preauthorized:
+      subject: "%{requester}已請求及授權為%{listing_title}付款。"
+      transaction_requested_by_user: "%{requester}已請求及授權為「%{listing_title}」付款。"
+      click_here_to_reply: 按此以回應請求
+      you_have_time_to_accept: "你需要在%{payment_expires_in}天內接受或拒絕請求。如果在該期限內接受，你將會收到付款。如果你在該期限內沒有接受，請求將自動被拒絕，你將無法收到款項。"
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
+      if_you_do_accept_stripe: ~
+    transaction_preauthorized_reminder:
+      subject: "不要忘記接受來自%{requester}有關%{listing_title}的請求"
+      remember_to_accept: "不要忘記接受來自%{requester}有關%{listing_title}的請求。%{requester}已為此請求付款。你需要接受請求以收取款項。"
+      one_day_left: 如果你不能在一天內接受請求，這請求將會被自動取消，你亦不會收到款項。
+      click_here_to_reply: 按此以回應請求
+    new_listing_by_followed_person:
+      subject: "%{author_name}已經在%{service_name}發表了一個新訊息"
+      has_posted_a_new_listing: "%{author_name}已經發表了一個新的訊息："
+      you_are_receiving_this_because: "你關注了%{author_name}所以收到這個通知。"
+      view_listing: 查看訊息
+    booking_transaction_automatically_confirmed:
+      subject: "交易已自動完成 ——不要忘記給予評價"
+      we_have_marked_request_as_confirmed: "我們已把關於「%{request}」的交易標記成已完成。由於在預訂期限結束後一天已過去，此請求已自動完成。"
+    automatically_confirmed_footer:
+      giving_feedback_is_good_idea: "你現在可以向%{other_party_given_name}給予回應。若一切順利，你可以讓其它人知道%{other_party_given_name}是可靠的。若有任何問題發生，你也可向其它人提出。"
+      give_feedback_to: "向%{other_party_given_name}給予回應"
+      show_thread: 顯示對話
+    paypal_new_payment:
+      paypal_gateway_fee: PayPal的費用：
+      shipping_total: 運費：
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
+    new_member_notification:
+      new_member_has_joined: ~
+      this_is_automatic_message: ~
+      person_name: ~
+      person_email: ~
+      subject: ~
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
+      subtotal: ~
+      buyer_service_fee: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
+      buyer_service_fee: ~
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
+    edited_listing_submited_for_review:
+      subject: ~
+      there_is_a_edited_listing_to_review: ~
+      review_the_listing: ~
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+    confirm_reminder_v2:
+      headline: ~
+      you_have_not_yet_confirmed_or_canceled_request: ~
+    payment_settings_reminder_v2:
+      fill_payout_details: ~
+      you_have_added_listing_with_payment: ~
+    transaction_confirmed_v2:
+      headline_confirmed: ~
+      headline_canceled: ~
+      stripe:
+        has_marked_request_as_confirmed: ~
+      team_title: ~
+      can_give_feedback: ~
+    transaction_automatically_confirmed_v2:
+      we_have_marked_request_as_confirmed: ~
+      order_automatically_confirmed: ~
+    booking_transaction_automatically_confirmed_v2:
+      order_automatically_confirmed: ~
+    confirmation_instructions_v2:
+      headline: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+    conversation_status_changed_v2:
+      has_accepted_your_request: ~
+      has_accepted_your_request_text: ~
+      has_rejected_your_request: ~
+      has_rejected_your_request_text: ~
+    invitation_to_kassi_v2:
+      headline: ~
+    new_message_v2:
+      reply: ~
+      headline: ~
+    payment_receipt_to_seller_v2:
+      headline: ~
+      main_text_stripe: ~
+      price_breakdown: ~
+    payment_receipt_to_payer_v2:
+      headline: ~
+      you_have_made_new_payment: ~
+    new_testimonial_v2:
+      headline: ~
+    community_updates_v2:
+      headline: ~
+    testimonial_reminder_v2:
+      headline: ~
+      you_have_not_given_feedback_yet: ~
+      leave_feedback: ~
+    transaction_preauthorized_v2:
+      headline: ~
+    transaction_preauthorized_reminder_v2:
+      headline: ~
+      remember_to_accept: ~
+    new_listing_by_followed_person_v2:
+      headline: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+      cant_click: ~
+    new_member_notification_v2:
+      headline: ~
+      new_member_has_joined: ~
+      view_profile: ~
+    new_transaction_v2:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
+      view_transaction: ~
+    transaction_cancel_flow:
+      the_order_about: ~
+      you_can_contact_the_marketplace_team: ~
+      you_can_now_give_feedback: ~
+      give_feedback_to: ~
+    transaction_disputed:
+      subject: ~
+      subject_admin: ~
+      order_about: ~
+      the_order_has_been_canceled: ~
+      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_marketplace_has_been_notified: ~
+      contact_the_marketplace_team: ~
+      you_must_now_decide: ~
+      learn_more_about: ~
+      review_the_transaction: ~
+    transaction_refunded:
+      subject: ~
+      marketplace_team_has_approved_the_cancellation: ~
+      you_should_receive_a_refund_soon: ~
+    transaction_cancellation_dismissed:
+      subject: ~
+      marketplace_team_has_rejected_the_cancellation: ~
+    transaction_commission_charge_failed:
+      subject: ~
+      transaction_about: ~
+      the_commission_of_the_transaction: ~
+      this_usually_means: ~
+      if_you_would_like_to_investigate: ~
+      contact_the_seller: ~
+    new_ident_notification:
+      subject: ~
+      h1_body: ~
+      p_line1: ~
+      p_line2: ~
+      p_line3: ~
+      p_line4: ~
+      p_line5: ~
+      button: ~
+  error_messages:
+    listings:
+      departure_time: 出發日期必須定於現在時間至一年後之間。
+      share_type: 您必須選擇一項。
+      valid_until: 此日期須為現在時間至六個月後之間。
+      price: 價錢必須為整數。
+      minimum_price: "最低的價格是%{minimum_price}%{currency}。"
+    testimonials:
+      you_must_explain_not_neutral_feedback: 如果您想要提出非中立評價，您必須解釋原因。
+      you_must_select_a_grade: 請不要忘記就您該次的經驗評價為正面或負面。
+    paypal:
+      generic_error: 在付款途中發生錯誤。未能完成你的PayPal付款過程。
+      cancel_error: ~
+      accept_authorization_error: 在接受預先授權的PayPal付款時發生錯誤。請稍後再試。
+      reject_authorization_error: 當拒絕預先授權的PayPal付款時癹生錯誤。請稍後再試。
+      pending_review_error: 款項已經提交但被Paypal標記為‘需要檢查’。當Paypal完成檢查後，該支款將會被自動授權。
+      buyer_cannot_pay_error: "該支付款項被Paypal拒絕。請聯絡他們的客戶服務部以獲得更多訊息：%{customer_service_link}"
+      seller_express_checkout_disabled: PayPal快速結帳已暫停此訊息發佈者的PayPal帳戶。請聯絡發佈者及讓他們知道自己的PayPal帳戶發生問題，並提議他們聯絡PayPal的客戶服務。
+      transaction_cannot_complete: ~
+      seller_express_checkout_disabled_no_free: ~
+    transaction_agreement:
+      required_error: ~
+    onboarding:
+      server_rendering: ~
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
+    stripe:
+      generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
+      card_declined: ~
+      expired_card: ~
+  error_pages:
+    back_to_kassi_front_page: 返回到主頁
+    error_404:
+      if_you_believe: 假如你相信該地址為正確和有效的，請替我們把錯處指出，以便我們找出造成錯誤的地址，與及知道在頁面該顯示的正確資料。
+      page_can_not_be_found: 找不到頁面！
+      page_you_requested_can_not_be_found: 找不到你所尋求的頁面，請確認輸入地址沒有出錯。
+    error_404_title: 找不到頁面
+    error_500_title: 頁面加載失敗
+    error_description: 錯誤描述
+    no_javascript:
+      javascript_is_disabled_in_your_browser: 你的瀏覽器禁示使用Javascript
+      kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在沒有javascript下提供服務。請在瀏覽器首選中打開javascript，然後刷新頁面。"
+      send_feedback: ~
+      your_feedback_to_admins: ~
+      contact_us: 聯絡我們
+    send: 傳送
+    your_email_address: 您的電郵地址
+    error_500:
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: 這種情况有幾種可能的原因。例如，某用户可能删除了他的帳號或發布的訊息已被删除。
+    error_410_title: ~
+  header:
+    about: 關於
+    home: 主頁
+    mobile_version: 行動裝置版本
+    offers: 放售
+    requests: 要求
+    search_kassi: "搜尋%{service_name}"
+    members: 社群
+    create_new_marketplace: 建立一個新的網站
+    contact_us: 聯繫我們
+    profile: 個人檔案
+    new_listing: 發佈新訊息
+    invite: 邀請新朋友
+    login: 登入
+    signup: 註冊
+    menu: 功能目錄
+    manage_listings: 管理訊息
+  homepage:
+    additional_private_listings_slate:
+      additionally_one_private_offer_exists: 除此以外，還有<b>另一個放售貨品</b>
+      additionally_one_private_request_exists: 除此以外，還有<b>另一個貨品要求</b>
+      additionally_some_private_offers_exist: "除此以外，還有<b>另外%{number_of_listings}個貨品放售</b>"
+      additionally_some_private_requests_exist: "除此以外，還有<b>另外%{number_of_listings}個貨品要求</b>"
+    blank_slate:
+      add_first: 請增加一個！
+      but_that_is_visible_only_to_registered_members: 但只有註冊用戶才能夠查看。
+      but_those_are_visible_only_to_registered_members: 但只有註冊用戶才能夠查看。
+      create_new_account_for_yourself: 註冊新用戶
+      examples_of_what_you_could_offer_to_others: 您有什麼能夠提供予其他用戶
+      examples_of_what_you_could_request_to_others: 您有什麼想向其他用戶要求
+      favor_offer_list: 電腦援助、衣物縫補、烘焙、單車維修
+      favor_request_list: ~
+      favors_to_offer: "支援: "
+      favors_to_request: "支援: "
+      item_offer_list: 工具、體育用品、服裝、露營裝備
+      item_request_list: 工具、體育用品、服裝、露營裝備
+      items_to_offer: "可借出的物品： "
+      items_to_request: "可借入的物品： "
+      log_in: 請登入
+      no_offers_visible_unless_logged_in: 沒有對遊客公開的售賣品及服務。
+      no_open_offers_currently: 目前沒有公開的售賣品及服務。
+      no_open_requests_currently: 目前沒有公開的要求。
+      no_requests_visible_unless_logged_in: 沒有對遊客公開的訊息。
+      one_private_offer_exists: "已經有<b>一個供應</b>,"
+      one_private_request_exists: "己經有<b>一個徵求</b>,"
+      ride_offer: ~
+      ride_request: ~
+      some_private_offers_exist: "已經有<b>%{number_of_listings}個供應</b>,"
+      some_private_requests_exist: "已經有<b>%{number_of_listings}個徵求</b>,"
+    index:
+      are_offering: 貨品
+      lend_rent_help_carpool: ~
+      loading_more_content: 正在加載更多內容
+      more_events: 更多事件...
+      news: 新聞
+      or: 及
+      or_see_what_the_others: "......或者看看其他的"
+      recent_events: 最近的事項
+      requesting: 需要
+      tell_it_here: 在這裡發表吧!
+      welcome_to_new_kassi: "歡迎來到新的%{service_name}!"
+      add_news_item: 增添一個物件
+      no_news: 沒有更新
+      more_news: 載入新訊息
+      what_do_you_need: 您想要找尋什麼?
+      post_new_listing: 發佈新訊息
+      private_listing_notification_log_in: 登入
+      is: 是
+      are: 是
+      no_listings_notification: "沒有訊息。%{add_listing_link}"
+      open_listing: 公開訊息
+      open_listings: 公開訊息
+      no_listings_with_your_search_criteria: 抱歉，我們無法找到任何匹配你的搜索條件的結果。或者使用其它搜尋字眼再試？
+      add_listing_link_text: 發佈新的訊息
+      no_reviews: 沒有評論
+      no_image: 沒有圖片
+      filter: 篩選
+      this_is_private_community: 查看內容前請先登錄。
+    recent_listing:
+      please_offer: 貨品
+      comment: 留言
+      comments: 留言
+    invitation_form:
+      email: 電郵地址
+      message: 一個私人訊息
+      send_invitation: 發送邀請
+      add_email_addresses_description: 請在下方輸入你想邀請的人的電郵。若你想輸入多於一個電郵，請以逗號來分隔它們。
+      invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
+      invitation_message_field_placeholder: 我加入了這個很棒的網站。你也應該加入！
+      errors_in_emails: 請檢查你所輸入的電郵地址是否有效。若你輸入多於一個電郵地址，請使用逗號來分隔它們。
+      add_lots_of_email_addresses: "如果你想要發送大量的邀請，你應該使用郵件工具。查看%{this_article_link}可能會找到適合的電郵服務。"
+      this_article_link: 這篇文章
+    profile_info_empty_notification:
+      add_your_info: 加入你的聯絡資訊
+      add_your_info_link: 加入你的個人資訊
+      you_have_not_added_your_info: 你尚未添加你的聯絡方式。請添加聯絡方式以方便他人聯繫你。同時請添加個人資料照片從而得到其他人的關注。
+      add_a_profile_picture: 添加個人頭像
+    news_item:
+      show_less: 隱藏
+      show_more: 顯示更多
+    event_feed:
+      latest_events: 最近熱選話題
+    filters:
+      show: 篩選
+      search: 搜尋
+      map: 顯示地圖
+      list: 顯示列表
+      all_listing_types: 所有列表種類
+      all_categories: 所有分類
+      map_button: 地圖
+      grid_button: 格線
+      list_button: 列表
+    grid_item:
+      processing_uploaded_image: (正在處理上傳圖片……)
+    list_item:
+      review: 評論
+      reviews: 評論
+      distance_away: "距離%{distance}%{distance_unit}以外"
+    custom_filters:
+      update_view: 更新顯示
+      min: 最小：
+      max: 最大：
+    errors:
+      search_engine_not_responding: 不能使用搜尋功能。請稍後再試。
+  layouts:
+    admin:
+      admin: "%{service_name}管理員版面"
+    application:
+      feedback: ~
+      feedback_forum: 反饋論壇
+      feedback_handle: 回應
+      give_feedback: 聯絡我們
+      or_check_our: "......或者查看我們的"
+      send_feedback_to_admin: ~
+      to_see_what_others_have_suggested: 觀看其它用戶的提議，並投選合適的提議。
+      your_email_address: "您的電郵地址 (用作聯絡閣下)"
+      read_more: 讀取更多
+      connect: 註冊
+      invite_your_friends: 邀請朋友！
+      invite_your_friends_description: "越多人加入%{service_name}，網站就越有用。"
+      join_without_facebook: "......或者選擇%{join_without_facebook_link}"
+      join_without_facebook_link: 不使用Facebook帳戶註冊
+      join_this_community: 加入網站
+      invite_your_neighbors: 邀請鄰舍！
+      invite_your_friends_invite_only_description: ~
+      dont_use_to_contact_support: ~
+    conversations:
+      messages: 私訊
+      notifications: 通知
+      received: 已接收
+      sent: 已送出
+    infos:
+      about: 關於
+      how_to_use: 如何使用
+      info_about_kassi: "有關%{service_name}的資訊"
+      register_details: 私隱
+      terms: 使用條款
+      news: 最新資訊
+    logged_in:
+      admin: 管理員
+      go_to_your_profile_page: 個人專頁
+      hi: 您好
+      login: 登入
+      logout: 登出
+      notifications: 通知
+      requests: 好友請求
+      settings: 設定
+      sign_up: 創建帳號
+    logged_in_messages_icon:
+      messages: 私訊
+    logged_in_notifications_icon:
+      notifications: 通知
+    mobile_logged_in:
+      admin: 管理員
+      go_to_your_profile_page: 個人專頁
+      hi: 您好
+      login: 登入
+      logout: 登出
+      notifications: 通知
+      requests: 好友請求
+      sign_up: 註冊
+      settings: 設定
+    notifications:
+      comment_cannot_be_empty: 留言不能為空白
+      comment_sent: 已送出留言
+      create_one_here: 在這裡建立一個
+      email_not_found: "無法在%{service_name}中找到你所提供的電郵。"
+      error_with_session: 內容錯誤
+      feedback_considered_spam: 由於格式錯誤，無法提出回應。請重試或使用反饋論壇。
+      feedback_not_saved: 未能發出回應。
+      feedback_saved: ~
+      feedback_sent_to: "回應已發送至%{target_person}。"
+      feedback_skipped: 跳過回應
+      login_again: 請重新登入。
+      login_failed: 登入失敗。請輸入正確的用戶名稱及密碼。
+      login_successful: "歡迎您,%{person_name}！"
+      logout_successful: "您已退出了%{service_name}，歡迎再次使用我們的服務！"
+      offer_accepted: 已接受貨品
+      offer_closed: 貨品停止供應
+      offer_rejected: 貨品被拒絕
+      only_kassi_administrators_can_access_this_area: ~
+      only_listing_author_can_close_a_listing: 僅作者能關閉發佈的訊息
+      only_listing_author_can_edit_a_listing: 僅作者能編輯發佈的訊息
+      password_recovery_sent: 更改密碼的說明已發送至你的電郵。
+      person_updated_successfully: 已更新訊息
+      read_more: 閱讀更多！
+      reply_cannot_be_empty: 不能發送空白的訊息
+      reply_sent: 你的回覆發送成功
+      request_accepted: 你的請求已被接受
+      request_rejected: 你的請求已被拒絕
+      unknown_error: 發生未知錯誤。請透過”聯繫我們“向我們報告問題。
+      update_error: 更新訊息時發生錯誤，請重試
+      you_are_not_allowed_to_give_feedback_on_this_transaction: 你沒有發表回應的權限
+      you_are_not_authorized_to_do_this: 你沒有進行此操作的權限
+      you_are_not_authorized_to_view_this_content: 你沒有查看此內容的權限
+      you_cannot_reply_to_a_closed_offer: 你不能對已關閉的交易進行回覆
+      you_have_already_given_feedback_about_this_event: 你已經對此事件發表回應
+      you_must_log_in_to_give_feedback: 你必需登入以發表回應
+      you_must_log_in_to_send_a_comment: 你必需登入以發表新的評論
+      you_must_log_in_to_send_a_message: "你必需登入%{service_name}以向其它用戶發送訊息。"
+      you_must_log_in_to_view_this_content: 你必需登入以查看內容
+      you_must_log_in_to_view_your_inbox: "你必需登入%{service_name}以查看你的收件箱。"
+      you_must_log_in_to_view_your_settings: "你必需登入%{service_name}以查看你的設定。"
+      person_activated: 你的帳號已經啟用
+      person_deactivated: 你的帳號已被停用
+      this_content_is_not_available_in_this_community: 不存在此內容。
+      account_creation_succesful_you_still_need_to_confirm_your_email: 成功建立賬號。下一步，請確認你的電郵地址。
+      confirmation_link_is_wrong_or_used: 確認鏈接已被使用或失效。請嘗試登錄，如果問題依然存在請向我們發送回應。
+      you_need_to_confirm_your_account_first: 請確認你的電郵地址。
+      you_unfollowed_listing: 你不再關注這則訊息
+      invitation_cannot_be_sent: 未發出邀請
+      invitation_sent: 已成功發出邀請
+      inviting_new_users_is_not_allowed_in_this_community: 不允許邀請新用戶
+      you_must_log_in_to_invite_new_users: "你必須先登入才能邀請新用戶到%{service_name}"
+      registration_considered_spam: "不能註冊，請透過最上方的功能目錄來聯絡我們，並請輸入\"email2 error\"。"
+      news_item_created: 已建立的文章
+      news_item_creation_failed: 文章建立失敗
+      news_item_update_failed: 文章更新失敗
+      news_item_updated: 文章已經更新完成
+      news_item_deleted: 文章已經被刪除
+      poll_answered: 問卷調查已回答
+      poll_could_not_be_answered: 問卷調查不能被回答
+      poll_created: 問卷調查已建立
+      poll_creation_failed: 問卷調查建立失敗
+      poll_update_failed: 問卷調查更新失敗
+      poll_updated: 問卷調查已更新
+      poll_deleted: 問卷調查已删除
+      you_must_log_in_to_add_news_item: "你必須登入%{service_name}以建立新訊息。"
+      you_followed_listing: 你沒有關注這個訊息
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "感謝你加入%{service_name}。你現在需要確認你的電郵地址。"
+      you_are_now_member: "歡迎來到%{service_name}！"
+      you_are_already_member: "你已經成為%{service_name}的會員了。歡迎回來！"
+      you_must_log_in_to_view_this_page: 你必須登入才能夠閱覽此頁
+      joining_community_failed: 加入失敗
+      email_confirmation_sent_to_new_address: 確認電郵的信件已發送至新地址。
+      additional_email_confirmed: 你所輸入的電郵已被確認。
+      send_instructions: 幾分鐘後，您將收到重置密碼的電子郵件。
+      additional_email_confirmed_dashboard: 你的電郵已被確認。
+      message_sent: 訊息已經發送
+      you_cannot_send_message_to_yourself: 你不能夠給自己發信息。
+      community_updated: 詳情已更新。
+      community_update_failed: 詳細資料更新失敗。
+      account_creation_successful: "%{person_name}，歡迎來到%{service_name}！"
+      you_must_log_in_to_create_new_listing: "你必須先登入%{service_name}才可以建立新訊息。如果你沒有帳號，可以點擊%{sign_up_link}進行註冊。"
+      something_went_wrong: 出錯了
+      offer_confirmed: 已確定交易
+      listing_created_successfully: "成功發布了新訊息。%{new_listing_link}"
+      offer_canceled: 已取消交易
+      payment_successful: 付款成功
+      request_confirmed: 請求已完成
+      request_canceled: 請求已取消
+      create_new_listing: 發布另一條消息
+      listing_updated_successfully: 訊息更新成功
+      payment_canceled: 付款已取消
+      error_in_payment: 發生付款錯誤。如果你還沒有完成付款，請重試。如果已完成，請聯繫我們。
+      payment_waiting_for_later_accomplishment: 當你完成付款後，我們將會通知賣家，同時你會在電郵中收到收據
+      account_deleted: 你的帳戶已被删除
+      test_welcome_email_delivered_to: "測試郵件已發送到%{email}。"
+      cannot_receive_payment: 由於發生某些錯誤，另一交易方無法收款。請聯絡管理員並說明情況。
+      you_must_fill_all_the_fields: 你必須填寫所有表單項
+      you_must_log_in_to_change_profile_settings: "你必須登入%{service_name}以修改個人設定"
+      can_not_delete_email: 你不能移除電郵地址
+      user_does_not_have_email_to_delete: 你想要移除的電郵地址並不存在
+      email_deleted: 已删除電郵
+      listing_could_not_be_saved: "訊息不能保存。請重試。如果問題依然存在，請%{contact_admin_link}。"
+      contact_admin_link_text: " 聯繋管理員"
+      you_must_log_in_to_accept_or_reject: 你必須登入以接受或拒絕此交易
+      you_must_log_in_to_confirm_or_cancel: 你必須登入以取消或確認此交易
+      listing_author_payment_details_missing: 請點擊下面的‘聯繫’來聯絡賣家。他們需要更新付款詳情來接收付款。
+      you_must_log_in_to_do_a_transaction: "你必需登入至%{service_name}以進行交易。"
+      invitation_limit_reached: 你發送了太多的邀請。，並已達到每日的上限。
+      listing_closed: 該訊息已被關閉
+      message_not_sent: 未能傳送訊息，請稍後再試。
+      maintenance_mode:
+        zero: 網站即將關閉以進行維護
+        other: "網站即將在%{count}內關閉以進行維護"
+      automatically_logged_out_please_sign_in: 你已自動登出，請再次登入。
+      images_are_processing: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
+      invitation_cannot_unsubscribe: ~
+      invitation_successfully_unsubscribed: ~
+      stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
+      listing_deleted: ~
+      listing_author_payment_details_missing_no_free: ~
+      an_error_occurred_when_saving_your_information: ~
+      stripe_balance_for_username_is_not_0: ~
+      request_accepted_and_closed: ~
+      recaptcha_verification_failure: ~
+    settings:
+      account: 帳戶
+      notifications: 通知
+      profile: 個人資料
+      settings: 設定
+      payments: 款項
+      paypal_payments: ~
+      stripe_payments: ~
+      listings: ~
+      listings_search_placeholder: ~
+      transactions_search_placeholder: ~
+      transactions: ~
+    no_tribe:
+      inbox: 收件箱
+      settings: 設定
+      feedback: ~
+    global-header:
+      select_language: 選擇語言
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
+  listings:
+    comment_form:
+      log_in: 登入
+      send_comment: 發出留言
+      to_send_a_comment: 發出一個新留言
+      write_comment: 填寫一個新的留言
+      you_must: 您必需要
+      subscribe_to_comments: 若有新的評論或更新，請通知我
+      ask_a_question: 在訊息中留下評論或查詢更多詳情。其它用戶也將看到你的評論。
+      you_cannot_send_a_new_comment_because_listing_is_closed: 你不能發送新的評論，因為此訊息已關閉
+    form:
+      departure_time:
+        at: 於
+        departure_time: 離開時間
+      description:
+        detailed_description: 詳細資料
+        youtube_info: 如果你的描述內容包含YouTube的連結，該影片將會在描述的下方顯示。
+        youtube_info_markdown: ~
+      destination:
+        destination: 目的地
+      form_content:
+        favor: 幫助
+        housing: 空間
+        item: 物品
+        offer_something: 提出交易
+        request_something: 提出要求
+        rideshare: ~
+        i_want_to_offer: 我想提供......
+        i_want_to_request: 我需要......
+      googlemap:
+        googlemap_copy: 地圖上的終點
+        googlemap_description: 地圖註解
+        googlemap_updatemap: 更新地圖
+      images:
+        image: 圖像
+        no_file_selected: 未選擇任何檔案
+        remove_image: 移除圖像
+        select_file: 選擇檔案
+        removing: 移除中...
+        processing: 處理中...
+        this_may_take_a_while: 這可能會花一些時間
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: 上傳圖片出錯
+        accepted_formats: "圖片格式必須是GIF, JPG 或 PNG。"
+        file_too_large: 檔案太大
+        loading_image: 載入中...
+        best_result: "為達至最佳效果，請使用像素為%{width}x%{height}的JPG, GIF或PNG圖片"
+        image_uploading_in_progress: 圖片正在上傳中......
+        processing_takes_a_while: 所有圖片已上傳！我們可能要花一點時間處理它們，但你可以儲存此訊息及繼續。
+        images_not_uploaded_confirm: 所有圖片已完成上傳。你希望繼續嗎？
+        add_more: "+ 增加"
+        image_processing_failed: 圖片處理失敗
+      location:
+        location: 地點
+      origin:
+        location: 地點
+        origin: 來源
+        the_exact_location: ~
+      share_type:
+        borrow: 借入
+        buy: 購買
+        give_away: 贈送
+        lend: 出借
+        offer_type: 交易類別
+        receive: 免費獲得
+        rent: 出租
+        rent_out: 出租
+        request_type: 請求類別
+        sell: 出售
+        trade: 交換
+        select: 選擇
+        share_for_free: 免費共享
+        accept_for_free: 免費獲取
+      tag_list:
+        comma_separate: (分隔)
+        tags: 標籤
+      valid_until:
+        valid_until: 有效日期
+      valid_until_radio_buttons:
+        for_the_time_being: 目前為止
+      departure_time_radio_buttons:
+        repeated: "重複輸入 (請在「詳細描述」中加入時間及日子)"
+      privacy:
+        privacy: 私隱
+        private: 非公開（只有已登入用戶才可見）
+        public: 公開（所有用戶皆可見）
+      price:
+        price: 價格
+        per: 每
+        mass: 件，公斤，升，平方米，……
+        time: 小時，日，月，……
+        long_time: 星期，月，……
+        after_service_fee_you_will_get: "在支付%{service_name}和付款處理費之後你將得到%{sum_with_currency}"
+        per_day: 每天
+        delivery: 配送方式
+        shipping: 郵寄
+        shipping_price: 運費
+        pickup: 自取
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}會從價格中扣除。"
+        shipping_price_additional: 附加物品
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
+        payment_fee_info_link_text: ~
+      title:
+        listing_title: 訊息標題
+      send_button:
+        save_listing: 儲存訊息
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
+      custom_field_partials:
+        dropdown:
+          select_one___: 選擇一個......
+    help_texts:
+      help_share_type_title: 交易或請求的類別
+      help_tags_title: 標籤
+      help_valid_until_title: 有效日期
+    index:
+      all_categories: 全部類別
+      all_offer_types: 全部交易類別
+      all_request_types: 全部請求類別
+      category: 類別
+      did_not_found_what_you_were_looking_for: 找不到你需要的東西嗎?
+      favors: 服務
+      housing: 空間
+      items: 物品
+      list_view: 清單檢視
+      map_view: 地圖註解
+      offer_something: 讓其它人知道吧！
+      offer_type: 交易類別
+      offers: 交易
+      request_something: 提出你的請求！
+      request_type: 請求類別
+      requests: 請求
+      rideshare: 順風車
+      you_have_something_others_do_not: 想提出交易？
+      listings: 信息列表
+      feed_title: "在%{service_name}%{optional_category}中的%{listing_type}"
+    left_panel_link:
+      borrows: 信入
+      buys: 購買
+      favors: 服務
+      give_aways: 贈送
+      housings: 空間
+      items: 物品
+      lends: 出借
+      receives: 免費
+      rent_outs: 出租
+      rents: 出租
+      rideshares: ~
+      sells: 出售
+      trades: 交換
+      share_for_frees: 免費共享
+      accept_for_frees: 免費獲取
+    please_comment: 評論
+    show:
+      comments: 公開討論
+      favor_offer: 提供服務
+      favor_request: 請求服務
+      no_description: 沒有對此訊息的描述
+      offer: 交易
+      request: 請求
+      rideshare_offer: ~
+      rideshare_request: ~
+      tags: 標籤
+      time: 時間
+      times: 次數
+      times_viewed: 已瀏覽
+      qr_code: "QR 碼"
+      add_your_phone_number: 加入你的個人電話號碼
+      add_profile_picture: 加入個人頭像
+      contact_by_phone: "透過電話聯絡:"
+      item_offer_trade: 交換貨品
+      item_request_trade: 交換要求產品
+      feedback: 評價
+      send_private_message: 發送私人訊息
+      open_until: "開放至%{date}"
+      listing_created: 已建立
+      processing_uploaded_image: （正在處理上傳的圖片……）
+      contact: 聯絡資訊
+      no_image: 沒有圖片
+      no_reviews: 沒有收到評論
+      listing_created_at: 訊息發佈於
+      inquiry: 公告
+      price:
+        per_quantity_unit: "每%{quantity_unit}"
+        per_day: 每天
+      delivery: 配送方式
+      shipping: "郵寄 (+%{price})"
+      pickup: 自取
+      shipping_no_price: 郵寄
+      shipping_price_additional: "郵寄（+%{price}）, 附加物品: +%{shipping_price_additional}"
+      pickup_no_price: 自取
+      youtube_video_player: YouTube播放器
+    bubble_listing_not_visible:
+      listing_not_visible: 你無權查閱此訊息。
+    follow_links:
+      follow: 接收關於新評論的電郵
+      unfollow: 不要接收關於新評論的電郵
+    comment:
+      wrote: 已編寫
+      send_private_message: "發送私人信息到%{person}"
+      delete: 刪除
+      are_you_sure: 你確定要刪除這個評論嗎?
+    new:
+      listing: 訊息
+      selected_category: "類別：%{category}"
+      selected_subcategory: "子分類：%{subcategory}"
+      select_category: 選擇類別
+      selected_transaction_type: "顯示類型：%{transaction_type}"
+      select_subcategory: 選擇子分類
+      select_transaction_type: 選擇交易類別
+      you_need_to_fill_payout_details_before_accepting: "在發佈訊息前你需要填寫支款詳情。點擊%{payment_settings_link}來填寫。"
+      payment_settings_link: 付款設置
+      contact_admin_link_text: 聯絡管理員
+      community_not_configured_for_payments: "%{service_name}未有配置支付方式，所以你不能發佈新的訊息，請到%{contact_admin_link}查詢詳情。"
+      community_not_configured_for_payments_admin: "%{service_name}未有配置支付方式，所以你不能發佈新的訊息。請到%{payment_settings_link}填寫詳細的付款詳情。"
+      you_are_now_posting_a_listing_on_behalf_of: ~
+    edit:
+      edit_listing: 編輯訊息
+    edit_links:
+      close_listing: 關閉訊息
+      edit_listing: 編輯訊息
+      reopen_listing: 重新開放訊息
+      move_to_top: 移至主頁頂端
+      show_in_updates_email: 在下一封自動發送的電郵中顯示
+      show_in_updates_email_loading: 下載中...
+      show_in_updates_email_error: 不能連至伺服器。請刷新頁面後再試。
+      show_in_updates_email_success: 這個訊息將被顯示在下一封自動發送給用戶的郵件中。
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
+      delete_listing: ~
+    reply_link:
+      listing_closed: 訊息已關閉
+    verification_required:
+      verification_required: 需要驗証
+    listing_actions:
+      booking_from: 從
+      booking_to: 到
+      how_paypal_works: PayPal如何運作
+      payment_help: 付款說明
+      unable_load_availability: ~
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
+      marketplace_fees_may_apply: ~
+    quantity_placeholder: 數量
+    unit_types:
+      piece: 件
+      hour: 小時
+      day: 日
+      night: 晚
+      week: 星期
+      month: 月
+      unit: ~
+      person: ~
+    quantity:
+      hour: 小時：
+      day: 日：
+      night: 晚：
+      week: 星期：
+      month: 月：
+      custom: 數量：
+      unit: ~
+      person: ~
+    error:
+      something_went_wrong: "發生錯誤,代碼: %{error_code}"
+      something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
+    map:
+      open_in_google_maps: "在Google Maps開啓"
+    deleting_a_listing_cannot_be_undone: ~
+  mapview:
+    index:
+      all_categories: 全部類別
+      all_offer_types: 全部交易類別
+      all_request_types: 全部請求類別
+      category: 類別
+      did_not_found_what_you_were_looking_for: 找不到你需要的東西嗎?
+      favors: 服務
+      housing: 空間
+      items: 物品
+      list_view: 清單檢視
+      map_view: 地圖註解
+      offer_something: 讓其它人知道吧！
+      offer_type: 交易類別
+      offers: 交易
+      request_something: 提出你的請求！
+      request_type: 請求類別
+      requests: 請求
+      rideshare: ~
+      you_have_something_others_do_not: 想提出交易？
+    please_comment: 評論
+  people:
+    help_texts:
+      feedback_description_title: 回應
+      terms_title: "%{service_name}的使用條款"
+      help_invitation_code_title: 你需要被邀請才能加入
+      invite_only_help_text: 如果你希望新用戶通過被已有用戶邀請的方式加入，請選擇這個選項。
+      invite_only_help_text_title: 僅允許邀請
+    new:
+      create_new_account: 建立帳戶
+      email: 電郵地址
+      email_is_in_use: 你所提供的電郵已被使用。
+      family_name: 姓
+      given_name: 名
+      not_required: 不需要
+      password_again: 確認密碼
+      sign_up: "建立一個新的%{service_name}帳戶"
+      terms: 使用條款
+      visible_only_to_you: 僅你和管理員可見
+      visible_to_everybody: 所有人皆可見
+      invalid_invitation_code: 此邀請碼無效。
+      invitation_code: 邀請碼
+      email_is_in_use_or_not_allowed: 此電郵地址不允許使用或已被註冊。如果你無法註冊，請聯絡我們。
+      show_my_name_to_others: "向其它%{service_name}用戶顯示我的真實姓名"
+      email_not_allowed: "這電郵地址不被允許於%{service_name}中使用。請使用一個允許的電郵地址。若你預到什麼問題，請聯繫我們。"
+      email_restriction_instructions:
+        other: "你已被限制加入%{service_name}。你需要一個有效的電郵地址以加入我們。"
+      OR: 或者
+      signup_with_email: 以電郵來註冊
+      notification_is_mandatory: "你必須挑選至少一個電郵地址用於接收通知。如果你不想收到來自%{service_name}的電郵，在你的電郵通知設置中修改。"
+      invalid_username_or_email: ~
+      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: ~
+      privacy: ~
+      this_field_will_be_publicly_visible: ~
+      create_account_with_provider: ~
+    profile_feedback:
+      grade: 評分：
+      and_gave_following_feedback: 並且給予以下回應
+    show:
+      about_me: "關於我:"
+      address: "位置:"
+      as_expected: 合乎期望
+      edit_profile_info: 編輯個人檔案
+      exceeded_expectations: 超出預期
+      hide_description: 隱藏描述
+      less_than_expected: 不合乎期望
+      phone_number: "電話號碼:"
+      show_all_feedback: 顯示所有回應
+      show_all_testimonials: 顯示所有回應
+      show_full_description: 顯示更多
+      slightly_better_than_expected: 超出預期
+      slightly_less_than_expected: 不合乎期望
+      what_are_these: 這些是甚麼?
+      add_description: 更新個人資料
+      add_location: 添加地點
+      add_phone_number: 添加個人電話號碼
+      positive: 正面
+      contact: "聯絡%{person}"
+      review: 收到的評論
+      reviews: 已收到的評價
+      open_listing: 公開信息
+      open_listings: 公開訊息
+      no_open_listings: 未公開訊息
+      no_reviews: 沒有評價
+      show_all_open_listings: 顯示所有公開訊息
+      show_all_reviews: 展示所有評價
+      listing: 發布的訊息
+      listings: 訊息
+      no_listings: 沒有訊息
+      show_all_listings: 顯示所有已發布的訊息
+      admin_actions: ~
+      post_listing_as: ~
+    edit_links:
+      activate: 啟動
+      deactivate: 關閉
+    inactive_notification:
+      inactive_description: "該用戶已停用%{service_name}。你不能聯絡此用戶、給予回應或者評價他們的發佈的訊息。"
+      this_person_is_not_active_in_kassi: "此用戶已不再存在於%{service_name}"
+    profile_listings:
+      no_image: 沒有圖片
+      manage_listings: ~
+    followed_people:
+      you_follow_plural: "你關注了%{count}個人"
+      you_follow_singular: "你關注了%{count}個人"
+      they_follow_plural: "%{count}個關注者"
+      they_follow_singular: "%{count}個關注者"
+      show_all_followed_people: 顯示所有關注者
+      no_followed_people: 沒有關注者
+    follow_button:
+      following: 正在關注
+      follow: 關注
+      unfollow: 取消關注
+  sessions:
+    new:
+      create_new_account: 註冊新用戶
+      i_forgot_my_password: 忘記用戶名稱或密碼
+      login: 登入
+      login_to_kassi: "登入至%{service_name}"
+      connect_your_facebook_to_kassi: "連接您的Facebook帳號到%{service_name}"
+      facebook_account: "Facebook帳戶:"
+      log_in_to_link_account: "如果你已經擁有一個%{service_name}帳戶，請登錄並連接你的Facebook帳戶。"
+      you_can_also_create_new_account: "如果你沒有%{service_name}的帳戶, 點擊%{accont_creation_link}以你的Facebook來建立一個帳戶。"
+      account_creation_link_text: 點擊這裡
+      cancle_facebook_connect: "如果你不想連接這個帳戶，你可以%{cancel_link}。"
+      facebook_cancel_link_text: 取消
+      or_sign_up_with_your_username: "... 或使用你的用戶名稱 或 電郵："
+      we_will_not_post_without_asking_you: 我們不會在未經你的同意前在Facebook上允許發佈任何訊息。
+      log_in_with_your_provider_account: ~
+    password_forgotten:
+      email: 電郵
+      password_recovery_instructions: 請輸入註冊時的電郵地址，你會收到你的用戶名稱及重設密碼的指示。
+      request_new_password: 請輸入新的密碼
+      change_your_password: 更改你的密碼
+    confirmation_pending:
+      check_your_email: 查看你的收件箱
+      resend_confirmation_instructions: 再次傳送確認訊息
+      welcome_to_kassi: "歡迎來到%{service_name}！"
+      your_current_email_is: "你的電郵是%{email}。"
+      change_email: 變更
+      confirm_your_email: 請確認你的電郵地址。
+      account_confirmation_instructions: "你將會收到一封電郵以確認你的電郵地址。電郵可能被存放在垃圾郵件箱中。確認你的電郵後，你便能夠加入%{service_name}。"
+      account_confirmation_instructions_title_admin: 歡迎來到你的集市！
+      account_confirmation_instructions_admin: "你將會收到一封電郵以確認你的電郵地址。電郵可能被存放在垃圾郵件箱中。確認你的電郵後，你便能夠加入%{service_name}。"
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
+      contact_support_link_text: ~
+  settings:
+    account:
+      change: 更改
+      confirm_new_password: 確認新密碼
+      new_email: 新的電郵地址
+      new_password: 新密碼
+      save: 儲存
+      these_fields_are_shown_only_to_you: 除非你已提供姓名，否則用戶名稱將會被顯示在個人檔案頁面中。其他資料只有你才能閱覽。
+      delete_account: 刪除帳號
+      delete_account_button: 永久删除我的帳戶
+      delete_account_confirmation_popup: 你確認要永久刪除你的帳戶及其相關數據？刪除了的帳號將無法恢復。
+      email_addresses: 電郵地址
+      email:
+        address_title: 地址
+        remove_title: 移除
+        remove_confirmation: 你確定要移除這個電郵地址嗎？
+        add_new_with_plus: "+ 新增電郵地址"
+        add_new_cancel: 取消
+        confirmation_title_mobile: 確認：
+        confirmation_title_desktop: 確認
+        confirmation_resend: 重新發送
+        status_confirmed: 已確認
+        status_pending: 待定
+        receive_notifications_title_desktop: 接收通知
+        receive_notifications_title_mobile: 接收通知
+        receive_notifications_new_title_mobile: 接收通知
+      delete_personal_information: 如果你刪除你的帳號，你的個人信息（姓名，電話號碼，地址，電郵，個人資料圖片等等）都將被永久刪除且不能恢復。所有你發表的訊息將被刪除。你將不能重新啓動你的帳號。
+      delete_information_others_involved: 涉及其他會員的訊息（和其他人的對話，你完成的交易，你给其他人的評論等）在你删除賑號後是不能被删除的。但是，你的名字將不會出現在這些訊息中。
+      unfinished_transactions: "因你有正在進行中的交易，所以你的賬號不能被删除。 請在删除帳戶前完成所有交易。"
+      email_already_confirmed: 你的電郵地址已被確認。
+      only_admin: ~
+    notifications:
+      email_about_new_comments_to_own_listing: "... 有人評論了我的交易或請求"
+      email_about_new_messages: "... 有人發送了一則訊息給我"
+      email_about_new_received_testimonials: "... 有人發送了一個回應給我"
+      email_about_testimonial_reminders: "... 我忘記回應一個活動"
+      email_when_conversation_accepted: "... 有人接受了我的交易或請求"
+      email_when_conversation_rejected: "... 有人拒絕了我的交易或請求"
+      i_want_to_get_email_notification_when: 當...的時候請寄給我一封電郵通知
+      newsletters: 電子通訊
+      community_updates: 關於更新訊息的電郵
+      email_daily_community_updates: 如果有更新的訊息，請<b>每天</b>以電郵通知我。
+      email_weekly_community_updates: 如果有更新的訊息，請<b>每週</b>以電郵通知我。
+      do_not_email_community_updates: 請不要以電郵通知我關於更新的訊息。
+      unsubscribe_succesful: 取消訂閱不成功
+      unsubscribe_info_text: "你將不再接收到這些電郵。請查看你的%{settings_link}以選取你想從%{service_name}得到的電郵通知類型，或者回到%{homepage_link}。"
+      settings_link: 設定
+      homepage_link: 主頁
+      unsubscribe_unsuccesful: 取消訂閱出現錯誤
+      unsuccessful_unsubscribe_info_text: 取消訂閱的連結已失效。請登入以更改你的訂閱電郵設置。
+      email_from_admins: 我願意接收偶爾來自管理員的更新訊息。
+      email_about_confirm_reminders: "... 我忘記了確認已完成的請求"
+      email_about_completed_transactions: "... 有人將交易標示作已完成"
+      email_about_new_payments: "... 我收到一筆新的付款"
+      email_about_new_listings_by_followed_people: "... 我關注的人發佈了一則新的訊息"
+      email_listing_new_comment: ~
+      email_listing_updated: ~
+    profile:
+      about_you: 關於你
+      city: 城市
+      family_name: 姓
+      given_name: 名
+      phone_number: 電話號碼
+      postal_code: 郵遞區號
+      profile_page: 點擊查看你的個人訊息版面
+      profilemap: 地圖註解
+      street_address: 位置
+      these_fields_are_shown_in_your: "這訊息開放給所有%{service_name}用戶"
+      visible_to_everybody: 所有人皆可見
+      visible_to_registered_users: (只開放給已登入之用戶)
+      location_description: 您可以選擇提供你的確實地址，或只提供您的郵政編號。請至少提供您的郵政編號。您也可以通過以下地圖選擇一個地點。
+      profile_picture: 個人頭像
+      invisible: （不顯示给其他用户）
+      first_name_with_initial: （只將首字母顯示给其他用户）
+      first_name_only: (不顯示给其他用户）
+      default_in_listing: （只有在發布新訊息時作默認使用）
+      image_is_processing: "我們正在處理你的個人頭像, 請於稍後時間重新整理頁面  "
+      display_name: ~
+      display_name_description: ~
+      shown_in_your_public_profile: ~
+      profile_picture_description: ~
+      editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
+      username: ~
+      username_description: ~
+    save_information: 保存訊息
+  tag_cloud:
+    tag_used:
+      with_tag: 有標籤
+      without_tag: 沒有標籤
+  terms:
+    show:
+      accept_terms: "接受%{service_name}的使用條款"
+      here: 請按這裡
+      i_accept_new_terms: 我接受新的條款
+      i_accept_terms: 我接受條款
+      terms: "%{service_name}的使用條款"
+      terms_have_changed: 使用條款已更變
+      you_can_view_the_new_terms: 你可以查看新的條款
+      you_need_to_accept: "歡迎來到%{service_name}！這是你第一次使用此服務。在開始前你必須接受"
+      you_need_to_accept_new_terms: "%{service_name}的使用條款已更變。你必須接受新條款以繼續使用%{service_name}。新條款在研究項目結束後仍繼續保持服務。"
+  testimonials:
+    index:
+      all_testimonials: 所有回應
+      feedback_altogether: 回覆全部
+      loading_more_testimonials: 載入更多評價
+      no_testimonials: 沒有收到回覆
+    new:
+      as_expected: 符合期望
+      exceeded_expectations: 比預期的好
+      give_feedback_to: "回應%{person}"
+      grade: 你整體的感覺如何?
+      less_than_expected: 不合乎期望
+      send_feedback: 發出評價
+      slightly_better_than_expected: 比預期稍好
+      slightly_less_than_expected: 比預期稍差
+      textual_feedback: 事情進展如何？
+      this_will_be_shown_in_profile: "你给予的評價將在%{person}的資料頁面顯示並供予其他會員參閱。這將幫助其他會員評估%{person}是否是一個值得信賴的會員。"
+      positive: 正面
+      negative: 負面的
+      default_textual_feedback: 一切順利，非常感謝！
+    testimonial:
+      about_listing: 關於發佈的訊息
+  time:
+    formats:
+      short: "%e %b %Y %I:%M%p"
+      shorter: "%e %b %Ｈ:%M"
+      short_date: ~
+      hours_only: "%H:%M"
+  timestamps:
+    day_ago: "%{count} 天前"
+    days_ago: "%{count} 天前"
+    hour_ago: "%{count} 小時前"
+    hours_ago: "%{count} 小時前"
+    minute_ago: "%{count} 分鐘前"
+    minutes_ago: "%{count} 分鐘前"
+    month_ago: "%{count} 月前"
+    months_ago: "%{count} 月前"
+    seconds_ago: "%{count} 秒前"
+    year_ago: "%{count} 年前"
+    years_ago: "%{count} 年前"
+    days_since:
+      other: "%{count}天前"
+  okl:
+    member_id: 會員號碼
+    member_id_or_email: 會員ID或電郵
+  event_feed_events:
+    accept:
+      has_accepted_lend_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 借給 %{requester_name} 。"
+      has_accepted_borrow_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 借給 %{requester_name} 。"
+      has_accepted_rent_out_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 租給 %{requester_name} 。"
+      has_accepted_rent_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 租給 %{requester_name} 。"
+      has_accepted_give_away_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 送給 %{requester_name} 。"
+      has_accepted_receive_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 送給 %{requester_name} 。"
+      has_accepted_sell_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 出售給 %{requester_name} 。"
+      has_accepted_buy_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 出售給 %{requester_name} 。"
+      has_accepted_trade_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title}與 %{requester_name} 交換。"
+      has_accepted_sell_housing: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 出售給 %{requester_name} 。"
+      has_accepted_buy_housing: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 出售給 %{requester_name} 。"
+      has_accepted_rent_out_housing: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 租給 %{requester_name} 。"
+      has_accepted_rent_housing: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 租給 %{requester_name} 。"
+      has_accepted_favor: "%{time_ago}前 %{offerer_name} 同意與 %{requester_name} 提出%{listing_title}的交易。"
+      has_accepted_rideshare: ~
+    join:
+      joined_kassi: "%{name}在%{time_ago}前加入了%{service_name}。"
+    login:
+      logged_in_to_kassi: "%{name}在%{time_ago}前登入了%{service_name}。"
+    comment:
+      commented: "%{commenter_name}%{time_ago}前評論了%{listing_title}。"
+      offer_partitive: 交易
+      request_partitive: 請求
+  community_memberships:
+    new:
+      join_community: "加入%{service_name}"
+      you_can_join: "你可以通過點擊\"加入%{service_name}\"並接受使用條款，以加入%{service_name}。"
+      you_can_join_email_confirmation: "你需要一個以%{email_ending}結尾的有效電郵地址以加入%{service_name}。你可以透過輸入你的電郵、接受使用條款，及在下方點擊「加入%{service_name}」，以確認你的電郵地址。"
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name}有電郵地址的限制，你只能用被允許的電郵加入我們。你可以透過輸入你的電郵、接受%{service_name}的使用條款，及在下方點擊「加入%{service_name}」，以加入我們。"
+      you_can_join_with_invite_only: "你需要其它人的邀請才能加入%{service_name}。如果你有邀請碼，請把它輸入到以下欄位，接受我們的使用條款及按「加入%{service_name}」。"
+      if_want_to_view_content: "如果你想查看%{service_name}的內容而不加入為成員，你需要"
+      log_out: 退出
+      join_community_button: "加入%{service_name}"
+      welcome_fb_user: "%{name}，歡迎來到%{service_name}！"
+      fb_join_accept_terms: "加入%{service_name}還有一个步驟：你需要接受使用條款。"
+    access_denied:
+      access_denied: 訪問被拒絕
+      you_are_banned_in_this_community: "管理員阻止你訪問%{service_name}。如果你想聯繋管理員，可以點擊 %{link_to_contact_page}。"
+      contact_page_link: 用户意見
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: "這電郵地址不被允許於%{service_name}中使用。"
+      email_not_available: 你所提供的電郵已被使用。
+      consent_not_given: ~
+  admin:
     communities:
       edit_details:
         community_details: 基本資料
         community_look_and_feel: 設計
         edit_community: 基本資料
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
-        language_selection_disabled: "語言的選擇項無法啟動，因為你正在使用下面這些非官方的語言：%{languages}。請聯系Sharetribe的支持團隊來修改你的語言設置。"
         community_name: 市集名稱
-        edit_community_name_description: 你的集市名稱。它將在郵件和其他不同地方顯示給用戶。
         community_slogan: 市集標語
-        community_slogan_display: ~
-        edit_community_slogan_description: "這將顯示在未登錄用戶的集市主頁。%{see_how_it_looks_like}"
-        edit_community_slogan_description_hideable: ~
         community_description: 市集描述
-        community_description_display: ~
-        edit_community_description_description: "這將顯示在未登錄用戶的集市主頁。%{see_how_it_looks_like}"
-        edit_community_description_description_hideable: ~
-        community_search_placeholder: ~
-        edit_community_search_placeholder_description: "這將在集市的主頁以佔位符文本顯示在搜索欄。%{see_how_it_looks_like}"
-        private_community_homepage_content: 不公開市集主頁的內容
-        edit_private_community_homepage_content_description: "這個內容將在未公開的主頁顯示給未登錄用戶。你可以在這裡描述你的集市及加入的流程。你也可以在這裡新增圖片，視頻和HTML內容。%{see_how_it_looks_like}"
         update_information: 保存設定
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
+        edit_community_name_description: 你的集市名稱。它將在郵件和其他不同地方顯示給用戶。
+        edit_community_slogan_description: "這將顯示在未登錄用戶的集市主頁。%{see_how_it_looks_like}"
+        edit_community_description_description: "這將顯示在未登錄用戶的集市主頁。%{see_how_it_looks_like}"
         edit_info: ~
         see_how_it_looks_like: ~
+        private_community_homepage_content: 不公開市集主頁的內容
+        edit_private_community_homepage_content_description: "這個內容將在未公開的主頁顯示給未登錄用戶。你可以在這裡描述你的集市及加入的流程。你也可以在這裡新增圖片，視頻和HTML內容。%{see_how_it_looks_like}"
         verification_to_post_listings_info_content: 未驗證用戶的訊息文本
         verification_to_post_listings_info_content_description: 你目前要求你的用戶通過人工驗證才能發佈新的訊息。你可以在這裡設置在未驗證用戶嘗試發布新的信息時顯示的默認文字。
         verification_to_post_listings_info_content_default: "%{service_name}需要使用者通過管理員的驗証後才能發佈新訊息。你尚未通過驗証。請%{contact_admin_link}以通過驗証。"
         contact_admin_link_text: ~
+        community_search_placeholder: ~
+        edit_community_search_placeholder_description: "這將在集市的主頁以佔位符文本顯示在搜索欄。%{see_how_it_looks_like}"
         save: 保存設定
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
@@ -90,37 +1656,32 @@ zh-HK:
         transaction_agreement_checkbox_label_description: ~
         transaction_agreement_text_header: ~
         transaction_agreement_description: "這是用户需要接受的實際協議内容。該協議内容會在用户點擊協議標簽旁的“%{read_more}”連結時出現。"
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
+        language_selection_disabled: "語言的選擇項無法啟動，因為你正在使用下面這些非官方的語言：%{languages}。請聯系Sharetribe的支持團隊來修改你的語言設置。"
+        community_slogan_display: ~
+        edit_community_slogan_description_hideable: ~
+        community_description_display: ~
+        edit_community_description_description_hideable: ~
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "修改市集%{community_name}的外觀"
         community_logo: 卓面標示
-        community_logo_icon: ~
-        community_logo_icon_mobile: ~
         community_cover_photo: 封面照片
-        small_community_cover_photo: ~
-        favicon: ~
-        favicon_info_text: ~
         community_custom_color1: 主色調
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
-        community_description_color_instructions_text: ~
-        new_listing_button_custom_color: ~
+        custom_color1_instructions_text: "你可以通過輸入十六進制色彩值改變用戶接口的主體顏色。<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>可以幫助你選擇顏色並且復制色彩代碼。"
+        invalid_color_code: 颜色代码需要包含6个数字或者字符A-F，比如D96E21
+        community_logo_icon: ~
         logo_instructions_text_with_dimensions: ~
-        logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "當人們在Facebook分享你的網站時，或者當他們在行動裝置上查看你的網站，又或者他們把你的網站收藏在他們的行動裝置首頁中，皆將會顯示這個方形的圖示。它的尺寸必須（至少）是%{width}x%{height}像素。"
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
-        logo_mobile_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: 封面照片將顯示在未登錄用戶的首頁
         cover_photo_instructions_text_with_dimensions: ~
-        we_have_you_covered: ~
-        cover_photo_ready_made: ~
+        small_community_cover_photo: ~
+        cover_photo_visibility: 封面照片將顯示在未登錄用戶的首頁
         small_cover_photo_visibility: 小的封面照片將顯示在未登錄用戶的首頁之外的所有頁面。
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: "你可以通過輸入十六進制色彩值改變用戶接口的主體顏色。<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>可以幫助你選擇顏色並且復制色彩代碼。"
-        new_listing_button_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: 主頁使用默認瀏覽的顯示來設置訊息的默認展示方式。
         grid: ~
@@ -131,166 +1692,48 @@ zh-HK:
         full_name: ~
         first_name_with_initial: ~
         first_name_only: ~
-        invalid_color_code: 颜色代码需要包含6个数字或者字符A-F，比如D96E21
+        favicon: ~
+        favicon_info_text: ~
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+        new_listing_button_custom_color: ~
+        new_listing_button_instructions_text: ~
+        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         current_image: ~
-      edit_text_instructions:
-        edit_text_instructions: ~
+        community_logo_icon_mobile: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
+        cover_photo_ready_made: ~
+        we_have_you_covered: ~
       edit_welcome_email:
         welcome_email_content: 歡迎電郵內容
         welcome_email_content_description: "每個新用戶加入時將會收到以下的訊息。你可以自行編輯這訊息。通過點擊“%{send_test_message_link}”你可以發送一條預覽訊息到你的電子郵件地址，來看看它在郵件客戶端中的將如何被顯示。"
         edit_message: 編輯訊息
         send_test_message: 發送測試通知
-      outgoing_email:
-        title: 發送郵件的地址
-        info: 這個名稱和地址是用於從你的集市發送郵件給用戶。
-        read_more: 名稱和地址是用於從你的集市發送郵件給用戶。
-        sender_address: "發送者的地址：%{sender_address}"
-        sender_address_default: "發送者的地址：沒有設置（使用默認地址%{sender_address}）"
-        need_to_change: "如果你需要更改你的電郵地址，請%{contact_support_link}"
-        contact_support_link_text: 聯絡我們的支援人員
-        set_sender_address: 設定發送者電郵地址
-        sender_name_label: 名稱
-        sender_name_placeholder: 發送者名稱
-        sender_email_label: 電郵地址
-        sender_email_placeholder: sender-email@example.com
-        amazon_ses_notification: ~
-        this_is_how_it_will_look: 這是預覽：
-        send_verification_button: 發送驗証電郵
-        change_sender_email: ~
-        successfully_saved: 已成功儲存發送者的地址。驗証電郵將很快寄出。
-        successfully_saved_name: ~
-        set_sender_name: ~
-        change_sender_name: ~
-        change_sender_prompt: ~
-        status: "狀態：%{status}"
-        status_verified: "已認証 – 使用中"
-        status_error: 發生錯誤。請刷新這個頁面。
-        status_requested: "未認証 – 驗証電郵已在%{time_ago}發送至%{email}。重新發送：%{resend_link}"
-        status_expired: "%{email}的驗証已過期。重新發送：%{resend_link}"
-        status_resent: "已重新發送驗証電郵至%{email}。%{resend_link}"
-        resend_link: 重新發送
-        invalid_email_error: "郵件地址%{email}的格式不正確"
-        invalid_email_address: ~
-        invalid_email_domain: "電郵地址%{email}來自不被支持的電郵提供商：‘%{domain}’。%{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: 通過資料庫的文章獲得更多訊息。
-        unknown_error: 發生問題了
-        white_label_offer: ~
-        upgrade_plan_link: ~
-        verification_sent_from: "此驗証電郵是由%{verification_sender_name}發出。"
-        follow_the_instructions: 請按電郵中的說明來驗證你的電郵地址。
-      getting_started:
-        getting_started: ~
-      available_languages:
-        bg: ~
-        ca: ~
-        cs: ~
-        da-DK: ~
-        de: ~
-        el: ~
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        es: ~
-        es-ES: ~
-        et: ~
-        fi: ~
-        fr: ~
-        fr-CA: ~
-        hr: ~
-        hu: ~
-        it: ~
-        ja: ~
-        ko: ~
-        lt: ~
-        nb: ~
-        nl: ~
-        pl: ~
-        pt-BR: ~
-        pt-PT: ~
-        ru: ~
-        sk-SK: ~
-        sv: ~
-        th-TH: ~
-        tr-TR: ~
-        vi: ~
-        zh: ~
-        zh-TW: ~
-      settings:
-        settings: 設定
-        general: 普通
-        access: 訪問偏好
-        join_with_invite_only: 用戶只能通過其他用戶的邀請才能加入這個集市
-        users_can_invite_new_users: 所有用戶都可以邀請新用戶來到這個網站
-        private: 這個集市是私人的（只有注冊用戶可以看到內容）
-        require_verification_to_post_listings: 只有經管理員驗證的用戶才可以發佈新的訊息
-        allow_free_conversations: ~
-        search_preferences: 搜尋偏好
-        search_and_location_preferences: ~
-        default_search_type: "搜尋類型：%{select_search_type}"
-        keyword_search: 關鍵字搜尋
-        keyword_and_location_search: ~
-        location_search: 地區搜尋
-        select_distance_unit: "使用%{distance_units_selector}顯示距離"
-        km: 公里
-        miles: 英里
-        show_only_nearby: ~
-        allow_users_to_add_location: ~
-        fuzzy_location: ~
-        listing_preferences: 訊息展示頁面偏好設置訊
-        transaction_preferences: 交易偏好
-        show_listing_publishing_date: 在信息展示頁面顯示信息的發布日期
-        show_category_in_listing_list: 在訊息列表中顯示訊息類型
-        listing_comments_in_use: 允許用戶對訊息發表評論（所有其他用戶皆可見）
-        email_preferences: 電郵偏好設置
-        automatic_newsletters: 自動發送每日/每周電子報給所有用戶（除非用戶選擇不接收）
-        email_admins_about_new_members: 當新用戶註冊時向管理員發送一封電郵
-        google_analytics_key: "Google Analytics跟踪ID"
-        twitter_handle: Twitter用戶名（使用在信息頁面的tweet按鈕）
-        update_settings: 保存設定
-        automatically_confirmed_no_escrow: "在付款後%{days_dropdown}天內交易將被自動標記為完成。"
-        automatically_confirmed_no_escrow_stripe_info: ~
-        buyer_transaction_fees_are_only_supported_with_stripe: ~
-        automatic_newsletter_frequency: "自動發送電子報: %{frequency_dropdown}"
-        newsletter_daily: 每日
-        newsletter_weekly: 每周
-        delete_marketplace_title: 删除集市
-        type_marketplace_domain: "在下面的輸入框中填入你的集市的域名(%{domain})"
-        type_marketplace_domain_placeholder: 在這裡輸入你的集市域名
-        once_you_delete: 請小心。一旦刪除了集市，你將再也無法訪問它。
-        are_you_sure: 你確定嗎？
-        i_understand_button: 我明白點擊這個按鈕將刪除我的集市
-        last_community_updates: 請注意在刪除後，你和你的集市的用戶可能仍然會收到最後的集市更新郵件。
-        you_will_be_redirected_to: "當你刪除了你的集市，你會被重定向到%{destination}。你將再也無法訪問你的集市。"
-        delete_this_marketplace: 刪除這個集市。
-        payment_preferences: ~
-        pre_approved_listings: ~
-        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: ~
         email: 電郵
         name: ~
-        display_name: ~
         join_date: ~
-        admin: ~
         posting_allowed: ~
-        ban_user: ~
         saving_user_status: 儲存中...
         save_user_status_successful: ~
-        export_all_as_csv: ~
         save_user_status_error: ~
+        admin: ~
+        ban_user: ~
         ban_user_confirmation: 這將會把用戶從集市中刪除並阻止他們使用這個帳號再次訪問該站點。你確認要繼續嗎？
-        unban_user_confirmation: ~
         ban_me_error: ~
-        have_ongoing_transactions: ~
-        only_delete_disabled: ~
-        delete_info1: ~
-        delete_info2: ~
+        export_all_as_csv: ~
+        display_name: ~
         search: ~
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        unban_user_confirmation: ~
         this_makes_the_user_an_admin: ~
         status_filter:
           all: ~
@@ -306,134 +1749,65 @@ zh-HK:
         unconfirmed_user: ~
         resend: ~
         cancel: ~
-        confirm: ~
         user_didnt_complete_the_signup_process: ~
         pending_user: ~
-      new_layout:
-        new_layout: ~
-        description_roadmap_new: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
-        searchpage: ~
-        new_email_templates: ~
-      social_media:
-        social_media: ~
-        logo: ~
-        logo_info: ~
-        social_media_title: ~
-        social_media_title_info: ~
-        link_for_facebook: ~
-        link_for_linkedin: ~
-        link_for_twitter: ~
-        social_media_description: ~
-        twitter_handle: ~
-        twitter_handle_info_text: 當人們使用信息頁面上的tweet按鈕時，你的集市Twitter帳號的用戶名（如果你有的話）將被提及。
-        twitter_handle_info_text_with_instructions: "當人們使用信息頁面上的Tweet按鈕時，你的集市Twitter帳號的用戶名（如果你有的話）將被提及。%{instructions_link}"
-        twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        facebook_connect: ~
-        facebook_developers_dashboard: ~
-        facebook_connect_info_text: "為了啟用Facebook登錄，在<a href='https://developers.facebook.com/'>Facebook開發者Dashboard</a>中為你的集市創建一個應用。在這裡添加應用生成的ID和密鑰。"
-        facebook_connect_info_text_with_instructions: "為了啟用Facebook登錄，在<a href='https://developers.facebook.com/'>Facebook開發者Dashboard</a>中為你的集市創建一個應用。在這裡添加應用生成的ID和密鑰。%{instructions_link}"
-        facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        enable_facebook_login: ~
-        save: 保存設定
-        google_connect: ~
-        google_instructions_link_text: ~
-        google_developers_console: ~
-        google_connect_info_text_with_instructions: ~
-        google_connect_info_text: ~
-        enable_google_login: ~
-        google_connect_id: ~
-        google_connect_secret: ~
-        linkedin_connect: ~
-        linkedin_instructions_link_text: ~
-        linkedin_developers_dashboard: ~
-        linkedin_connect_info_text_with_instructions: ~
-        linkedin_connect_info_text: ~
-        enable_linkedin_login: ~
-        linkedin_connect_id: ~
-        linkedin_connect_secret: ~
-      seo_settings:
-        seo: ~
-        title: ~
-        meta_title_label: ~
-        meta_title_info: ~
-        meta_title_link_text: ~
-        meta_description_label: ~
-        meta_description_info: ~
-        meta_description_link_text: ~
-        search_title: ~
-        search_meta_title_label: ~
-        search_meta_title_info: ~
-        search_meta_title_link_text: ~
-        search_meta_description_label: ~
-        search_meta_description_info: ~
-        search_meta_description_link_text: ~
-        listing_title: ~
-        listing_meta_title_label: ~
-        listing_meta_title_info: ~
-        listing_meta_title_link_text: ~
-        listing_meta_description_label: ~
-        listing_meta_description_info: ~
-        listing_meta_description_link_text: ~
-        category_title: ~
-        category_meta_title_label: ~
-        category_meta_title_info: ~
-        category_meta_title_link_text: ~
-        category_meta_description_label: ~
-        category_meta_description_info: ~
-        category_meta_description_link_text: ~
-        profile_title: ~
-        profile_meta_title_label: ~
-        profile_meta_title_info: ~
-        profile_meta_title_link_text: ~
-        profile_meta_description_label: ~
-        profile_meta_description_info: ~
-        profile_meta_description_link_text: ~
-        sitemap_label: ~
-        sitemap_info: ~
-        sitemap_info_link_text: ~
-        sitemap_info_public: ~
-        sitemap_info_private: ~
-        robots_label: ~
-        robots_info: ~
-        robots_info_link_text: ~
-        robots_info_2: ~
-        google_search_console: ~
-        google_search_console_paragraph1: ~
-        google_search_console_these_instructions: ~
-        google_search_console_paragraph2: ~
-        save: ~
-      analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: "追蹤你的Google Analytics帳號。"
-        google_analytics_key_info_text_with_instructions: "你的Google Analytics帳號的Tracking ID。%{instructions_link}。"
-        google_analytics_instructions_link_text: ~
-        sharetribe_analytics: ~
-        sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: ~
-        save: 保存設定
-        google_tag_manager: ~
-        gtm_paragraph_1: ~
-        gtm_paragraph_2: ~
-        learn_how_to_configure_gtm: ~
-      logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
+        confirm: ~
+      settings:
+        settings: 設定
+        general: 普通
+        access: 訪問偏好
+        join_with_invite_only: 用戶只能通過其他用戶的邀請才能加入這個集市
+        users_can_invite_new_users: 所有用戶都可以邀請新用戶來到這個網站
+        private: 這個集市是私人的（只有注冊用戶可以看到內容）
+        require_verification_to_post_listings: 只有經管理員驗證的用戶才可以發佈新的訊息
+        listing_preferences: 訊息展示頁面偏好設置訊
+        show_listing_publishing_date: 在信息展示頁面顯示信息的發布日期
+        show_category_in_listing_list: 在訊息列表中顯示訊息類型
+        listing_comments_in_use: 允許用戶對訊息發表評論（所有其他用戶皆可見）
+        email_preferences: 電郵偏好設置
+        automatic_newsletters: 自動發送每日/每周電子報給所有用戶（除非用戶選擇不接收）
+        email_admins_about_new_members: 當新用戶註冊時向管理員發送一封電郵
+        google_analytics_key: "Google Analytics跟踪ID"
+        twitter_handle: Twitter用戶名（使用在信息頁面的tweet按鈕）
+        update_settings: 保存設定
+        automatic_newsletter_frequency: "自動發送電子報: %{frequency_dropdown}"
+        newsletter_daily: 每日
+        newsletter_weekly: 每周
+        transaction_preferences: 交易偏好
+        automatically_confirmed_no_escrow: "在付款後%{days_dropdown}天內交易將被自動標記為完成。"
+        delete_marketplace_title: 删除集市
+        type_marketplace_domain: "在下面的輸入框中填入你的集市的域名(%{domain})"
+        type_marketplace_domain_placeholder: 在這裡輸入你的集市域名
+        once_you_delete: 請小心。一旦刪除了集市，你將再也無法訪問它。
+        are_you_sure: 你確定嗎？
+        i_understand_button: 我明白點擊這個按鈕將刪除我的集市
+        last_community_updates: 請注意在刪除後，你和你的集市的用戶可能仍然會收到最後的集市更新郵件。
+        you_will_be_redirected_to: "當你刪除了你的集市，你會被重定向到%{destination}。你將再也無法訪問你的集市。"
+        delete_this_marketplace: 刪除這個集市。
+        search_preferences: 搜尋偏好
+        default_search_type: "搜尋類型：%{select_search_type}"
+        keyword_search: 關鍵字搜尋
+        location_search: 地區搜尋
+        select_distance_unit: "使用%{distance_units_selector}顯示距離"
+        km: 公里
+        miles: 英里
+        show_only_nearby: ~
+        keyword_and_location_search: ~
+        payment_preferences: ~
+        automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
+        pre_approved_listings: ~
+        allow_free_conversations: ~
+        email_admins_about_new_transactions: ~
+        search_and_location_preferences: ~
+        allow_users_to_add_location: ~
+        fuzzy_location: ~
       menu_links:
         menu_links: 目錄連結
-        menu_links_display: ~
         save: 保存設定
         add_menu_link: 新增連結到功能目錄
         title_placeholder: 連結名稱
@@ -446,41 +1820,11 @@ zh-HK:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
-      default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
-      topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        menu_links_display: ~
+      edit_text_instructions:
+        edit_text_instructions: ~
       transactions:
-        export_all_as_csv: ~
-        processing_export: ~
         transactions: 查閱交易記錄
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
-        status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
-          disputed: ~
-          preauthorized: ~
-          rejected: ~
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
-          refunded: ~
-          dismissed: ~
         headers:
           conversation: 對話
           listing: 訊息
@@ -491,7 +1835,6 @@ zh-HK:
           initiated_by: 發起人
           other_party: 其他參與者
         status:
-          conversation: ~
           free: 對話
           pending: 等待中
           preauthorized: 已預先授權
@@ -500,7 +1843,6 @@ zh-HK:
           paid: 已支付
           confirmed: 已確認
           canceled: 已取消
-          disputed: ~
           initiated: 等待PayPal的款項
           pending_ext: 等待PayPal的款項
           none:
@@ -514,9 +1856,9 @@ zh-HK:
             paid: ~
             confirmed: ~
             canceled: ~
-            disputed: ~
             initiated: ~
             pending_ext: ~
+            disputed: ~
             refunded: ~
             dismissed: ~
           stripe:
@@ -528,15 +1870,182 @@ zh-HK:
             paid: ~
             confirmed: ~
             canceled: ~
-            disputed: ~
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: ~
             payment_intent_action_expired: ~
             payment_intent_failed: ~
+            disputed: ~
             refunded: ~
             dismissed: ~
+          conversation: ~
+          disputed: ~
         not_available: ~
+        export_all_as_csv: ~
+        processing_export: ~
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
+          disputed: ~
+          refunded: ~
+          dismissed: ~
+      social_media:
+        social_media: ~
+        twitter_handle: ~
+        twitter_handle_info_text: 當人們使用信息頁面上的tweet按鈕時，你的集市Twitter帳號的用戶名（如果你有的話）將被提及。
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        facebook_connect: ~
+        facebook_connect_info_text: "為了啟用Facebook登錄，在<a href='https://developers.facebook.com/'>Facebook開發者Dashboard</a>中為你的集市創建一個應用。在這裡添加應用生成的ID和密鑰。"
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
+        save: 保存設定
+        twitter_handle_info_text_with_instructions: "當人們使用信息頁面上的Tweet按鈕時，你的集市Twitter帳號的用戶名（如果你有的話）將被提及。%{instructions_link}"
+        twitter_instructions_link_text: ~
+        facebook_connect_info_text_with_instructions: "為了啟用Facebook登錄，在<a href='https://developers.facebook.com/'>Facebook開發者Dashboard</a>中為你的集市創建一個應用。在這裡添加應用生成的ID和密鑰。%{instructions_link}"
+        facebook_instructions_link_text: ~
+        enable_facebook_login: ~
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+        facebook_developers_dashboard: ~
+        google_developers_console: ~
+        linkedin_developers_dashboard: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: "追蹤你的Google Analytics帳號。"
+        save: 保存設定
+        google_analytics_key_info_text_with_instructions: "你的Google Analytics帳號的Tracking ID。%{instructions_link}。"
+        google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
+      getting_started:
+        getting_started: ~
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
+        en-AU: ~
+        en-GB: ~
+        fr-CA: ~
+        es: ~
+        pt-PT: ~
+        cs: ~
+        ko: ~
+        pl: ~
+        th-TH: ~
+        vi: ~
+        zh-TW: ~
+        bg: ~
+        ca: ~
+        et: ~
+        hr: ~
+        hu: ~
+        lt: ~
+        sk-SK: ~
+      outgoing_email:
+        title: 發送郵件的地址
+        info: 這個名稱和地址是用於從你的集市發送郵件給用戶。
+        read_more: 名稱和地址是用於從你的集市發送郵件給用戶。
+        sender_address: "發送者的地址：%{sender_address}"
+        sender_address_default: "發送者的地址：沒有設置（使用默認地址%{sender_address}）"
+        need_to_change: "如果你需要更改你的電郵地址，請%{contact_support_link}"
+        contact_support_link_text: 聯絡我們的支援人員
+        set_sender_address: 設定發送者電郵地址
+        sender_name_label: 名稱
+        sender_name_placeholder: 發送者名稱
+        sender_email_label: 電郵地址
+        sender_email_placeholder: sender-email@example.com
+        this_is_how_it_will_look: 這是預覽：
+        send_verification_button: 發送驗証電郵
+        successfully_saved: 已成功儲存發送者的地址。驗証電郵將很快寄出。
+        status: "狀態：%{status}"
+        status_verified: "已認証 – 使用中"
+        status_error: 發生錯誤。請刷新這個頁面。
+        status_requested: "未認証 – 驗証電郵已在%{time_ago}發送至%{email}。重新發送：%{resend_link}"
+        status_expired: "%{email}的驗証已過期。重新發送：%{resend_link}"
+        resend_link: 重新發送
+        invalid_email_error: "郵件地址%{email}的格式不正確"
+        unknown_error: 發生問題了
+        verification_sent_from: "此驗証電郵是由%{verification_sender_name}發出。"
+        follow_the_instructions: 請按電郵中的說明來驗證你的電郵地址。
+        status_resent: "已重新發送驗証電郵至%{email}。%{resend_link}"
+        invalid_email_domain: "電郵地址%{email}來自不被支持的電郵提供商：‘%{domain}’。%{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: 通過資料庫的文章獲得更多訊息。
+        white_label_offer: ~
+        upgrade_plan_link: ~
+        amazon_ses_notification: ~
+        change_sender_email: ~
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
+        invalid_email_address: ~
+      new_layout:
+        new_layout: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
+        searchpage: ~
+        description_roadmap_new: ~
+        new_email_templates: ~
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
       conversations:
         conversations: ~
         headers:
@@ -554,12 +2063,6 @@ zh-HK:
         for_keyword: ~
       testimonials:
         testimonials: ~
-        no_testimonials_found: ~
-        displaying_xx_reviews: ~
-        search_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
         headers:
           transaction: ~
           author: ~
@@ -572,16 +2075,8 @@ zh-HK:
           skipped: ~
           published: ~
           blocked: ~
-        status_filter:
-          selected: ~
-          all: ~
-          published: ~
-          positive: ~
-          negative: ~
-          skipped: ~
-          waiting: ~
-          blocked: ~
-          selected_js: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         form:
           review_text: ~
           save: ~
@@ -594,32 +2089,22 @@ zh-HK:
           unskip: ~
           if_you_unskip_the_review: ~
           they_will_not_be_notified_automatically: ~
-      invitations:
-        invitations: ~
-        used:
-          "yes": ~
-          "no": ~
-        headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
-      listings:
-        listings: ~
-        search_by_title_author_category: ~
+        search_keyword: ~
         search: ~
         reset_search: ~
-        export_all_as_csv: ~
-        processing_export: ~
-        status:
+        for_keyword: ~
+        status_filter:
+          selected: ~
           all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
           selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
-          approval_pending: ~
-          approval_rejected: ~
+      listings:
+        listings: ~
         headers:
           title: ~
           author: ~
@@ -630,6 +2115,17 @@ zh-HK:
         open: ~
         closed: ~
         expired: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         approved: ~
         approval_pending: ~
         approval_rejected: ~
@@ -638,6 +2134,8 @@ zh-HK:
           approve: ~
           reject: ~
           cancel: ~
+        export_all_as_csv: ~
+        processing_export: ~
       user_fields:
         user_fields: ~
       footer:
@@ -654,8 +2152,6 @@ zh-HK:
         footer_copyright: ~
         footer_enabled: ~
         social_links: ~
-        title_placeholder: ~
-        url_placeholder: ~
         style:
           dark: ~
           light: ~
@@ -664,6 +2160,33 @@ zh-HK:
         social:
           title: ~
           url: ~
+        title_placeholder: ~
+        url_placeholder: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       domain:
         domain: ~
         marketplace_domain: ~
@@ -711,11 +2234,61 @@ zh-HK:
         checks_passed_with_warning: ~
         this_domain_is_not_configured_correctly: ~
         start_using_the_custom_domain: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
       landing_pages:
         landing_pages: ~
         info_1: ~
         info_2: ~
-        info_2_help_center: ~
         info_3: ~
         info_4: ~
         editor_title: ~
@@ -724,9 +2297,6 @@ zh-HK:
         set_live: ~
         add_new_section: ~
         select_section_type: ~
-        this_version_is_not_released: ~
-        latest_version_released: ~
-        check_it_out: ~
         form:
           save: ~
           cancel: ~
@@ -762,13 +2332,381 @@ zh-HK:
             listings: ~
             locations: ~
             video: ~
+        info_2_help_center: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
       attachments:
         delete: ~
         or_change: ~
+    emails:
+      new:
+        send_email_to_members: 發送通知郵件給用戶
+        send_email_to_members_title: 發送電子郵件給所有用戶
+        email_subject: 電郵主旨
+        email_content: 電郵內容
+        email_content_placeholder: 你想和你的用戶說些什麼？
+        email_language: 郵件接收者使用的語言
+        any_language: 任何語言
+        send_email: 發送電郵
+        message_will_be_sent_only_to_people_with_this_language: "注意：電子郵件只會以你選擇的語言發送給使用%{service_name}的用戶。"
+        email_sent: 郵件已發送
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
+            posting_allowed: ~
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
+    custom_fields:
+      index:
+        listing_fields: ~
+        add_new_field: 添加新字段：
+        cancel: 取消
+        save: 儲存
+        field_title: 欄位標題：
+        field_type: 欄位類型
+        categories: 顯示欄位使用的類別
+        remove_field_confirmation: "你確認要移除欄目%{field_name}嗎？"
+        add_option: ＋增加選項
+        saving_order: 保存字段順序
+        save_order_successful: 成功保存字段順序
+        save_order_error: 保存字段順序時發生錯誤。請刷新頁面後重試。
+        select_one: 選擇字段類型
+        continue: 繼續
+        minimum_value: 最小值
+        maximum_value: 最大值
+        allow_decimals: 允許小數
+        options: 選項
+        listing_fields_help: 你可以在這裡編輯用戶在創建新的訊息時必須填入的字段。請注意某些預定義字段不能被編輯。
+        select_all: 全選
+        clear_all: 全部清除
+      field_types:
+        dropdown: ~
+        text: ~
+        number: ~
+        checkbox_group: ~
+        date: ~
+        file: ~
+        location: ~
+      edit:
+        edit_listing_field: ~
+      new:
+        new_listing_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+        search_filter:
+          search_filter: 以此範圍為基準，在主頁顯示篩選
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: 在主頁顯示價格篩選
+        price_min: ~
+        price_max: ~
+        description: ~
+      edit_location:
+        edit_location_field: ~
+        this_field_is_required: ~
+        the_location_feature_can_be_enabled: ~
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
+    transaction_types:
+      sell: 出售
+      rent: 出租
+      give: 贈送
+      lend: 出借
+      swap: 交換
+      service: 提出交易
+      request: 請求
+      share_for_free: 免費分享
+      default_action_button_labels:
+        sell: 購買
+        rent: 出租
+        request: 交易
+        offer: 請求
+        inquiry: 聯絡資訊
+        book: ~
+      inquiry: 公告
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
+    categories:
+      edit:
+        edit_listing_category: "編輯類別“%{category}”"
+      index:
+        listing_categories: 訊息分類
+        create_a_new_category: "+ 新增新類別"
+        remove_category_confirmation: "你確定要移除分類“%{category_name}”嗎？"
+        saving_order: 保存分類順序
+        save_order_successful: 成功保存分類的順序
+        save_order_error: 保存分類順序時發生錯誤。請刷新頁面後重試。
+      new:
+        new_listing_category: 新訊息類別
+      form:
+        category_name:
+          category_title: 分類標題
+        category_parent:
+          category_parent: 母分類
+          no_parent: 無上級分類
+        category_transaction_types:
+          transaction_types: 交易類別
+          transaction_types_description: 交易類別決定了在該類別中的發佈的訊息的訂購流程。例如是否只能出售，或者允許出租以及免費贈送。
+          select_all: 全選
+          clear_all: 全部清除
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: 移除類別
+        remove_category_name: "移除類別“%{category_name}”"
+        warning_remove_effects: "警告！移除類別“%{category_name}”將會有以下影響："
+        warning_listing_will_be_moved:
+          other: "這個類別中有%{count}個訊息。他們將會被移至所選的類別。"
+        warning_custom_field_will_be_moved:
+          other: "此類別中有%{count}個自訂的範圍。他們將會被移至所選類別。"
+        warning_subcategory_will_be_removed:
+          other: "此類別中有%{count}個子分類。他們將會被移至所選類別。"
+        warning_with_subcategories_listing_will_be_moved:
+          other: "這個類別和子分類中有%{count}個訊息。他們將會被移至所選的類別。"
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "此類別和子分類中有%{count}個自訂的範圍。他們將會被移至所選類別。"
+        select_new_category: 為上面將要移動的項目選擇一個新的類別：
+        buttons:
+          remove: ~
+          cancel: ~
+    paypal_accounts:
+      marketplace_paypal_integration: 付款偏好
+      preferences_updated: 已更新付款偏好設定
+      integration_info_text: Sharetribe的付款由PayPal提供。你必需連接至你的PayPal帳戶以允許你用戶使用你的網站。當你連接你的PayPal帳戶後，你可以選擇最少的交易額和一個可行的佣金金額。
+      minimum_listing_price_label: 最小交易規模：
+      transaction_fee_label: 交易費用：
+      save_settings: 保存設定
+      read_more_about_paypal: 了解更多關於Sharetribe的支付系統
+      minimum_transaction_fee_label: 最低交易費用：
+      minimum_listing_price_below_tx_fee: "最少的交易額至少等於最低交易費用%{minimum_transaction_fee}。"
+      minimum_listing_price_below_min: "最少的交易額必須高於最低佣金%{minimum_commission}。"
+      contact_support_link_text: 聯絡Sharetribe支援
+      link_paypal_personal_account_label: 你是否親自提供自己的產品或服務？
+      link_paypal_personal_account: "假如這樣的話，你仍需要連接你的PayPal帳戶至%{personal_payment_preferences_link}。"
+      personal_payment_preferences_link_text: 你的個人網站帳戶
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      marketplace_currency_label: ~
+      currency_change_warning_text: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: 電郵
+      general: ~
+      subscription: ~
+      preview: ~
+      whats_new: ~
+    listing_shapes:
+      index:
+        listing_shapes: 交易類別
+        description: 交易類型決定了網站上訂單如何處理。通過交易類型可以決定用戶可以出租或者出售，或者只是讓用戶發布一些公告然後通過免費的消息進行溝通。
+        header:
+          listing_shape_name: 交易類別名稱
+          listing_shape_categories: 使用該交易類型的分類
+        read_more_about_order_types: 了解更多關於交易類型
+        add_new_shape: "添加新的交易類型： "
+        select_template: 選擇樣板...
+        all_categories: 全部類別
+        no_categories: 沒有類別
+        order:
+          saving_order: 保存交易
+          save_order_successful: 成功保存交易类型順序
+          save_order_error: 保存順序時發生錯誤。請刷新頁面後重試。
+        category_count: "%{category_count}類別"
+      edit:
+        edit_listing_shape: "修改交易類型‘%{shape}’"
+        update: ~
+        cancel: ~
+        update_success: "交易類型‘%{shape}’的修改已保存"
+        update_failure: ~
+        delete: 删除交易類型
+        can_not_delete_last: 因為這是唯一的一個交易類型，所以你不能刪除這個交易類型。
+        can_not_delete_only_one_in_categories: "你不能刪除這個交易類型，因為該交易類型是下面這些分類正在使用的唯一的交易類型：%{categories}"
+        confirm_delete_order_type:
+          other: "這裡有%{count}個訊息符合此交易類別。如果你移除了交易類別，這些訊息將會關閉。你確定要這樣做嗎？"
+      listing_shape_name: ~
+      action_button_label: ~
+      shipping_label: ~
+      units_title: ~
+      units_desc: ~
+      units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+        unit: ~
+      templates:
+        selling_products: ~
+        renting_products: ~
+        offering_services: ~
+        giving_things_away: ~
+        requesting: ~
+        announcement: ~
+        custom: ~
+      new:
+        create_listing_shape: 創建交易類型
+        create: ~
+        cancel: ~
+        create_success: "已創建新的交易類型‘%{shape}’"
+        create_failure: "不能創建新的交易類型。錯誤訊息：%{error_msg}"
+      successfully_closed: 成功關閉訊息
+      successfully_deleted: "成功删除交易類型%{order_type}"
+      pricing_and_checkout_title: ~
+      online_payments_label: 允許賣家接受網上支款
+      price_label: 允許賣家給發布的訊息添加價格
+      can_not_find: "找不到id是%{id}的交易類型"
+      can_not_find_name: ~
+      listing_shape_name_placeholder: ~
+      action_button_placeholder: ~
+      add_custom_unit: "+ 增加一個自定義的價錢單位"
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: ~
+          quantity_label: "數量(每件，每公斤，每個人，每2小時..,)"
+          time_label: 時間(每30分鐘，每2星期，每年...)
+      delete_custom_unit: ~
+      open_listings_warning:
+        other: "這裡有%{count}個訊息符合此交易類別。如果你更變了以下任何一個設置，這些訊息將會維持舊有的設定。這些設定透過手動更改來變更。如果你不想有任何仍是舊設定的訊息顯示在你的網站中，你可以按下面的按鈕來關閉它們。"
+      close_listings_action:
+        other: "關閉%{count}個訊息"
+      confirm_close_listings_action:
+        other: "你確定要關閉%{count}個訊息嗎？"
+      availability_title: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
+      read_more: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      paypal_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        publishable_key_example: ~
+        secret_key_example: ~
+        invalid_secret: ~
+        invalid_publishable: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
+      confirm_disable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
+      the_transaction_fee_must_be_lower_than_100: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+        signup: ~
+        public: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     landing_page_versions:
       sections:
-        content:
-          title: ~
         hero:
           hero_title: ~
           hero_description: ~
@@ -795,8 +2733,6 @@ zh-HK:
           cta_url: ~
           text_placeholder: ~
           url_placeholder: ~
-        background_selector:
-          title: ~
         background_image_overlay:
           background_image: ~
           background_image_info: ~
@@ -858,15 +2794,15 @@ zh-HK:
           column_header: ~
           column_title: ~
           column_icon_info: ~
-          column_icon_info_link: ~
           column_icon: ~
           column_paragraph: ~
           column_button: ~
           column_button_text: ~
           column_button_url: ~
+          column_icon_info_link: ~
         listings:
-          listings_to_feature: ~
           you_need_to_add_the_listing_ids: ~
+          listings_to_feature: ~
         video:
           text: ~
           autoplay: ~
@@ -874,328 +2810,10 @@ zh-HK:
           autoplay_muted: ~
           info: ~
           youtube_video_id_info: ~
-    custom_fields:
-      edit:
-        edit_listing_field: ~
-      edit_price:
-        description: ~
-        edit_price_field: ~
-        show_price_filter_homepage: 在主頁顯示價格篩選
-        price_min: ~
-        price_max: ~
-      edit_location:
-        edit_location_field: ~
-        this_field_is_required: ~
-        the_location_feature_can_be_enabled: ~
-      edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
-      form:
-        field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-        search_filter:
-          search_filter: 以此範圍為基準，在主頁顯示篩選
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
-      index:
-        listing_fields: ~
-        listing_fields_help: 你可以在這裡編輯用戶在創建新的訊息時必須填入的字段。請注意某些預定義字段不能被編輯。
-        add_new_field: 添加新字段：
-        remove_field_confirmation: "你確認要移除欄目%{field_name}嗎？"
-        cancel: 取消
-        save: 儲存
-        field_title: 欄位標題：
-        field_type: 欄位類型
-        categories: 顯示欄位使用的類別
-        select_all: 全選
-        clear_all: 全部清除
-        options: 選項
-        add_option: ＋增加選項
-        saving_order: 保存字段順序
-        save_order_successful: 成功保存字段順序
-        save_order_error: 保存字段順序時發生錯誤。請刷新頁面後重試。
-        select_one: 選擇字段類型
-        continue: 繼續
-        minimum_value: 最小值
-        maximum_value: 最大值
-        allow_decimals: 允許小數
-      new:
-        new_listing_field: ~
-      field_types:
-        text: ~
-        number: ~
-        dropdown: ~
-        checkbox_group: ~
-        date: ~
-        file: ~
-        location: ~
-    person_custom_fields:
-      saving_failed: ~
-      index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        signup: ~
-        public: ~
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
-      new:
-        new_user_field: ~
-      form:
-        field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
-      edit:
-        edit_user_field: ~
-    emails:
-      new:
-        send_email_to_members: 發送通知郵件給用戶
-        send_email_to_members_title: 發送電子郵件給所有用戶
-        send_email: 發送電郵
-        send_email_or: ~
-        send_test_email: ~
-        test_sent: ~
-        send_email_article_title: ~
-        send_email_article_text: ~
-        recipients:
+        content:
           title: ~
-          options:
-            all_users: ~
-            posting_allowed: ~
-            with_listing: ~
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
-        email_subject: 電郵主旨
-        email_content: 電郵內容
-        email_content_placeholder: 你想和你的用戶說些什麼？
-        email_language: 郵件接收者使用的語言
-        any_language: 任何語言
-        message_will_be_sent_only_to_people_with_this_language: "注意：電子郵件只會以你選擇的語言發送給使用%{service_name}的用戶。"
-        email_sent: 郵件已發送
-        to_improve_email_deliverability: ~
-        email_subject_text: ~
-        firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
-    left_hand_navigation:
-      general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: 電郵
-      subscription: ~
-      preview: ~
-      whats_new: ~
-    listing_shapes:
-      availability_title: ~
-      read_more: ~
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
-      per_hour_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
-      can_not_find_name: ~
-      index:
-        listing_shapes: 交易類別
-        description: 交易類型決定了網站上訂單如何處理。通過交易類型可以決定用戶可以出租或者出售，或者只是讓用戶發布一些公告然後通過免費的消息進行溝通。
-        read_more_about_order_types: 了解更多關於交易類型
-        add_new_shape: "添加新的交易類型： "
-        select_template: 選擇樣板...
-        all_categories: 全部類別
-        no_categories: 沒有類別
-        category_count: "%{category_count}類別"
-        header:
-          listing_shape_name: 交易類別名稱
-          listing_shape_categories: 使用該交易類型的分類
-        order:
-          saving_order: 保存交易
-          save_order_successful: 成功保存交易类型順序
-          save_order_error: 保存順序時發生錯誤。請刷新頁面後重試。
-      templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
-      new:
-        create_listing_shape: 創建交易類型
-        create: ~
-        cancel: ~
-        create_success: "已創建新的交易類型‘%{shape}’"
-        create_failure: "不能創建新的交易類型。錯誤訊息：%{error_msg}"
-      edit:
-        edit_listing_shape: "修改交易類型‘%{shape}’"
-        update: ~
-        cancel: ~
-        update_success: "交易類型‘%{shape}’的修改已保存"
-        update_failure: ~
-        delete: 删除交易類型
-        confirm_delete_order_type:
-          other: "這裡有%{count}個訊息符合此交易類別。如果你移除了交易類別，這些訊息將會關閉。你確定要這樣做嗎？"
-        can_not_delete_last: 因為這是唯一的一個交易類型，所以你不能刪除這個交易類型。
-        can_not_delete_only_one_in_categories: "你不能刪除這個交易類型，因為該交易類型是下面這些分類正在使用的唯一的交易類型：%{categories}"
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
-      open_listings_warning:
-        other: "這裡有%{count}個訊息符合此交易類別。如果你更變了以下任何一個設置，這些訊息將會維持舊有的設定。這些設定透過手動更改來變更。如果你不想有任何仍是舊設定的訊息顯示在你的網站中，你可以按下面的按鈕來關閉它們。"
-      close_listings_action:
-        other: "關閉%{count}個訊息"
-      confirm_close_listings_action:
-        other: "你確定要關閉%{count}個訊息嗎？"
-      successfully_closed: 成功關閉訊息
-      successfully_deleted: "成功删除交易類型%{order_type}"
-      pricing_and_checkout_title: ~
-      online_payments_label: 允許賣家接受網上支款
-      shipping_label: ~
-      price_label: 允許賣家給發布的訊息添加價格
-      units_title: ~
-      units_desc: ~
-      units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-        unit: ~
-      can_not_find: "找不到id是%{id}的交易類型"
-      add_custom_unit: "+ 增加一個自定義的價錢單位"
-      delete_custom_unit: ~
-      custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
-        unit_type:
-          heading: ~
-          quantity_label: "數量(每件，每公斤，每個人，每2小時..,)"
-          time_label: 時間(每30分鐘，每2星期，每年...)
-    paypal_accounts:
-      marketplace_paypal_integration: 付款偏好
-      preferences_updated: 已更新付款偏好設定
-      contact_support_link_text: 聯絡Sharetribe支援
-      integration_info_text: Sharetribe的付款由PayPal提供。你必需連接至你的PayPal帳戶以允許你用戶使用你的網站。當你連接你的PayPal帳戶後，你可以選擇最少的交易額和一個可行的佣金金額。
-      link_paypal_personal_account_label: 你是否親自提供自己的產品或服務？
-      link_paypal_personal_account: "假如這樣的話，你仍需要連接你的PayPal帳戶至%{personal_payment_preferences_link}。"
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
-      personal_payment_preferences_link_text: 你的個人網站帳戶
-      read_more_about_paypal: 了解更多關於Sharetribe的支付系統
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
-      minimum_listing_price_label: 最小交易規模：
-      transaction_fee_label: 交易費用：
-      minimum_transaction_fee_label: 最低交易費用：
-      save_settings: 保存設定
-      minimum_listing_price_below_tx_fee: "最少的交易額至少等於最低交易費用%{minimum_transaction_fee}。"
-      minimum_listing_price_below_min: "最少的交易額必須高於最低佣金%{minimum_commission}。"
-    payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
-      you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
-      choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
-      the_transaction_fee_must_be_lower_than_100: ~
-      confirm_disable: ~
-      commission_from_buyer_label: ~
-      minimum_buyer_transaction_fee_label: ~
-      stripe_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
-      paypal_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
-      cannot_enable_gateway: ~
-      cannot_disable_gateway: ~
-      cannot_enable_gateway_because_of_buyer_commission: ~
-      stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
-        publishable_key_example: ~
-        secret_key_example: ~
-        save_api_keys: ~
-        invalid_secret: ~
-        invalid_publishable: ~
-      index:
-        header: ~
-        info: ~
-        active: ~
-        gateway: ~
-        process: ~
-        commission: ~
-        minimum_price: ~
-        minimum_fee: ~
-        api_verified: ~
-        actions: ~
-        payments_not_enabled: ~
-    transaction_types:
-      sell: 出售
-      sell_w_online_payment: ~
-      sell_wo_online_payment: ~
-      rent: 出租
-      rent_w_online_payment: ~
-      rent_wo_online_payment: ~
-      give: 贈送
-      lend: 出借
-      swap: 交換
-      service: 提出交易
-      service_w_online_payment: ~
-      service_wo_online_payment: ~
-      request: 請求
-      inquiry: 公告
-      share_for_free: 免費分享
-      event_w_online_payment: ~
-      event_wo_online_payment: ~
-      default_action_button_labels:
-        sell: 購買
-        rent: 出租
-        request: 交易
-        offer: 請求
-        inquiry: 聯絡資訊
-        book: ~
+        background_selector:
+          title: ~
     community_transactions:
       show:
         transaction_for: ~
@@ -1205,8 +2823,6 @@ zh-HK:
         waiting_for_fulfill_and_complete: ~
         buyer: ~
         provider: ~
-        delivery: ~
-        shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
@@ -1214,689 +2830,61 @@ zh-HK:
         provider_receives: ~
         admin_info_text: ~
         manage_reviews: ~
+        delivery: ~
+        shipping_to: ~
         you_should_investigate: ~
         learn_more: ~
-  common:
-    edit_page: 编輯頁面
-    default_community_slogan: 市集
-    default_community_description: 這是一個出售、出租、交換和共享商品與服務給其他成員的網站。
-    cancel: 取消
-    fields_that_are_mandatory: 標有星號（*）的為必填項。
-    or: 或
-    password: 密碼
-    service_name: ~
-    share_types:
-      request: 請求
-      offer: ~
-      borrow: 借用
-      buy: 購買
-      give_away: 贈送
-      lend: 出借
-      receive: 免費
-      rent: 出租
-      rent_out: 出租
-      sell: 出售
-      offer_to_swap: 交換
-      request_to_swap: 交換
-      share_for_free: 免費共享
-      accept_for_free: 想要免費使用
-    categories:
-      item: 物品
-      favor: 服務
-      rideshare: ~
-      housing: ~
-      tools: 工具
-      sports: 运动
-      music: 音樂
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
-    username: 帳號
-    username_or_email: 電郵或用戶名稱
-    what_is_this: 這是什麼？
-    removed_user: ~
-    payment_fee_info:
-      title: ~
-      stripe: ~
-      paypal: ~
-      info: ~
-    paypal_fee_info:
-      title: PayPal的款項處理費
-      body_text: "PayPal將對每筆付款收取一筆處理費。該費用介乎於總銷售價格的2%到5%之間，取決於你每月的銷售量和買家所在國家。大致上，國內的購買比國際的購買的費用為低，而愈高的每月銷售額則可以獲得折扣。你可以透過登入你的PayPal帳戶，到%{link_to_paypal}來查看詳細費用。在每次購買之後你將得到一張收據以顯示實際的費用。"
-      body_text_accept: ~
-      link_to_paypal_text: ~
-    stripe_fee_info:
-      title: ~
-      body_text: ~
-      link_to_stripe_text: ~
-  conversations:
-    accept:
-      details: 交易細節
-      order_by: "由%{orderer_link}請求"
-      accept_offer: 接受
-      accept_request: ~
-      accept_request_and_close: ~
-      reject_offer: 暫不需要
-      reject_request: 暫時不需要了
-      close_listing: "關閉此項訊息%{listing_title_link}"
-      update_later: 保持公開訊息
-      optional_message: 可選擇的訊息
-      price_to_pay: 所需要支付的總額
-      accept: ~
-      decline: ~
-      quantity_label: ~
-      sum_label: ~
-      service_fee_label: ~
-      buyer_service_fee_label: ~
-      you_will_get_label: ~
-      total_label: "總計:"
-      total_value: ~
-      total_value_paypal: ~
-      total_value_stripe: ~
-      paypal_fee: ~
-      paypal_fee_info: "* 不包括 %{link}"
-      shipping_price_label: ~
-      stripe-fee_label: ~
-    confirm:
-      confirm_description: 如果你的訂購已完成，你應該確認完成。然後你可以給予其他人回應。
-      cancel_description_team: ~
-      cancel_payed_description: 如果你的請求被接受但是你有其他的想法，你仍然可以在付款前取消請求。
-      canceling_payed_transaction: 取消交易
-      confirm: 標記已完成
-      cancel: 提出爭議
-      continue: 繼續
-      give_feedback_to: "向%{person_link}給予評語"
-      do_not_give_feedback: 跳過評價
-    details:
+  infos:
+    about:
+      default_about_text_title: 什麼是Sharetribe？
+      default_about_text: "該網站由Sharetribe平台提供技術支持。通過Sharetribe你可以容易的創建自己的網站。這只需要一分鐘並且是免費的。點擊%{click_here_link}了解更多！"
+      click_here_link_text: 點撃這裏
+    how_to_use:
+      default_title: ~
+      default_content: ~
+  will_paginate:
+    models:
+      person:
+        zero: 用戶
+        other: 用戶
+    previous_label: "&#8592;上一頁"
+    next_label: "下一頁 &#8594;"
+    page_gap: ~
+    page_entries_info:
+      multi_page: "顯示 %{model} %{from} - %{to} 總共 %{count} 个"
+      multi_page_html: "顯示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> 總共 <b>%{count}</b> 個"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
+  listing_conversations:
+    preauthorize:
+      details: 詳情
+      by: ~
+      payment: 款項
+      exp: ~
+      you_will_be_charged: "只有%{author}接受了交易後你才會被支取費用。%{author}需要於%{expiration_period}內接受交易。若%{author}拒絕或沒有回應，這並不會產生任何費用。"
       day: ~
       days: ~
-      price_per_day: ~
-    index:
-      loading_more_messages: 載入更多訊息
-      message_partitive: 訊息
-      messages_partitive: 訊息
-      no_received_messages: 沒有新訊息
-      no_sent_messages: 沒有已發送的訊息
-    conversation:
-      accepted_request: 已接受請求。
-      accepted_offer: 已接受。
-      rejected_request: 已拒絕請求。
-      rejected_offer: 已拒絕。
-      confirmed_request: 請求已完成。
-      confirmed_offer: 已完成。
-      canceled_request: 請求已取消。
-      canceled_offer: 已取消。
-      message_from: "來自%{person}的訊息"
-      about_listing: "關於%{listing_title}"
-      free_message: 站内短信
-      message_content_not_available: ~
-    message:
-      accepted_request: 已接受請求
-      received_payment: "接受請求，已收取款項%{sum}"
-      received_payment_wo_sum: ~
-      accepted_offer: 已接納貨品
-      rejected_request: 拒絕請求，取消付款
-      rejected_offer: 已拒絕
-      confirmed_request: 標記請求為完成
-      confirmed_offer: 標示為完成
-      canceled_request: 已取消請求
-      canceled_offer: 已取消
-      paid: "已支付%{sum}"
-      payment_preauthorized: "已授權款項：%{sum}"
-      payment_preauthorized_wo_sum: ~
-      stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
-        confirmed_request: ~
-      canceled_the_order: ~
-      marked_as_refunded: ~
-      dismissed_the_cancellation: ~
-      payment_has_now_been_transferred: ~
-    new:
-      message: 訊息
-      message_to: "發送給%{author_name}的訊息"
-      optional_message_to: "發送自選訊息至%{author_name}"
-      send_message: 發送訊息
-      send: 發送
-      this_message_is_private: "此為你和%{person}之間的私密訊息。%{person}將收到郵件通知。"
-      you_will_get_notified_of_acceptance: "當%{person}接受或拒絕你的提議時，你將會收到電郵通知。"
-      you_will_get_notified: "當%{person}回覆你時，你將會收到電郵通知。"
-      title: 標題
-      send_message_to_user: "發送訊息到%{person}"
-      about_listing: "關於%{listing_title}"
-      author_has_to_accept_request: "你需要在%{author_name}接受請求後才能付款"
-    show:
-      in_response_to_listing: 關於發佈的訊息
-      message_sent_by: 消息發送者
-      message_sent_to: 消息發送到
-      send_reply: 傳送回覆
-      write_a_reply: 回覆
-      conversation_about_listing: "與%{person}關於%{listing}"
-      conversation_with_user: "與%{person}"
-      conversation_with: "與%{person}的對话"
-      last_message_at: "(最近的訊息%{time})"
-      price: "價錢：%{price}"
-      sum: "總共：%{sum}"
-      total: "總共：%{total}"
-    status:
-      payment_errored: 付款失敗，請稍後再試。
-      payment_errored_starter: 付款失敗，請稍後再試。若問題持續發生，請聯絡我們以得到支援。
-      payment_errored_author: "付款失敗，請聯絡%{starter_name}並請他再嘗試付款。"
-      cancel_payed_transaction: 取消
-      feedback_given: 評價已發送
-      feedback_skipped: 已跳過評價
-      give_feedback: 給予評價
-      offer_accepted: 被接納
-      offer_rejected: 被拒絕
-      offer_canceled: 已取消
-      offer_confirmed: 已完成
-      offer_paid: 付款成功
-      offer_preauthorized: 付款成功
-      offer_waiting_for_payment: "正在等待%{requester_name}付款"
-      pay: 付款
-      preauthorized: 付款成功
-      paid: 付款成功
-      pending_external:
-        paypal:
-          multicurrency: "我們不能移至PayPal的付款程序，因為你的帳戶並未啓用接收以%{currency}作單位的款項。請登錄到%{paypal_url}以接受或拒絕款項。"
-          verify: "因為你還没有驗証PayPal帳號，你不能接受這筆交易。點撃%{paypal_url}驗証你的帳號。"
-          intl: "我們不能移至PayPal的付款程序，因為你的帳戶沒有退出機制。請登錄到%{paypal_url}以接受或拒絕款項。"
-      waiting_for_current_user_to_deliver_listing: "正在等待你完成%{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: "正在等待%{listing_author_name}完成%{listing_title}"
-      request_accepted: 被接納
-      request_rejected: 被拒絕
-      request_confirmed: 完成
-      request_canceled: 已取消
-      request_paid: 付款成功
-      request_preauthorized: 已授權付款
-      skip_feedback: 跳過評價
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: "正在等待%{listing_author_name}接受請求，當%{listing_author_name}接受後，你將會被扣款。"
-      waiting_for_you_to_accept_request: 正等待你接受請求
-      waiting_confirmation_from_requester: "等候%{requester_name}將請求標記為已完成"
-      waiting_confirmation_from_you: 正在等待你標記請求為完成
-      waiting_payment_from_requester: "正在等待%{requester_name}付款"
-      waiting_payment_from_you: 正在等待你付款
-      waiting_feedback_from_you: 正等待你給予回應
-      pending_external_inbox:
-        paypal:
-          multicurrency: 正等待你接受PayPal的款項
-          intl: 正等待你接受PayPal的款項
-          unknown_reason: 正等待款項。請登入你的PayPal帳戶查看詳情。
-          verify: 正在等待確認你的Paypal帳號
-      stripe:
-        waiting_confirmation_from_requester: ~
-      order_canceled: ~
-      waiting_for_marketplace_review: ~
-      marketplace_notified: ~
-      contact_them: ~
-      refunded: ~
-      dismissed: ~
-      order_refunded: ~
-      you_should_receive_refund_soon: ~
-      issue_with_the_refund: ~
-      do_you_disagree: ~
-      contact_the_marketpalce_team: ~
-      order_cancellation_dismissed: ~
-    status_link:
-      accept_offer: 接受議價
-      accept_request: 接受要求
-      reject_offer: 這次不被接納
-      reject_request: 這次不被接納
-      accept_preauthorized_offer: 接受交易
-      accept_preauthorized_request: 接受請求
-      reject_preauthorized_offer: 暫不需要
-      reject_preauthorized_request: 暫不需要
-      confirm: 標記為已完成
-      cancel: ~
-      mark_as_refunded: ~
-      dismiss: ~
-  feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
-  community_memberships:
-    access_denied:
-      access_denied: 訪問被拒絕
-      you_are_banned_in_this_community: "管理員阻止你訪問%{service_name}。如果你想聯繋管理員，可以點擊 %{link_to_contact_page}。"
-      contact_page_link: 用户意見
-    new:
-      welcome_fb_user: "%{name}，歡迎來到%{service_name}！"
-      fb_join_accept_terms: "加入%{service_name}還有一个步驟：你需要接受使用條款。"
-      join_community: "加入%{service_name}"
-      you_can_join: "你可以通過點擊\"加入%{service_name}\"並接受使用條款，以加入%{service_name}。"
-      you_can_join_email_confirmation: "你需要一個以%{email_ending}結尾的有效電郵地址以加入%{service_name}。你可以透過輸入你的電郵、接受使用條款，及在下方點擊「加入%{service_name}」，以確認你的電郵地址。"
-      you_can_join_email_confirmation_multiple_addresses: "%{service_name}有電郵地址的限制，你只能用被允許的電郵加入我們。你可以透過輸入你的電郵、接受%{service_name}的使用條款，及在下方點擊「加入%{service_name}」，以加入我們。"
-      you_can_join_with_invite_only: "你需要其它人的邀請才能加入%{service_name}。如果你有邀請碼，請把它輸入到以下欄位，接受我們的使用條款及按「加入%{service_name}」。"
-      if_want_to_view_content: "如果你想查看%{service_name}的內容而不加入為成員，你需要"
-      log_out: 退出
-      join_community_button: "加入%{service_name}"
-    give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: "這電郵地址不被允許於%{service_name}中使用。"
-      email_not_available: 你所提供的電郵已被使用。
-      consent_not_given: ~
-  emails:
-    accept_reminder:
-      remember_to_accept_offer: "請記得接受或拒絕來自%{sender_name}提供的出價"
-      remember_to_accept_request: "請記得接受或拒絕來自%{sender_name}的要求"
-      you_can_accept_or_reject_offer_at: 你可在此接受或拒絕此議價
-      you_can_accept_or_reject_request_at: 你可在此接受或拒絕此要求
-      you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒絕你在%{date}收到的%{title}議價"
-      you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒絕你在%{date}收到的%{title}要求"
-      show_thread: 顯示對話
-    branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
-    confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "你尚未確認取消%{request_link}的請求。若你已完成交易，你應該確認，然後向%{other_party_given_name}作出回應。"
-      remember_to_confirm_request: 請記得確認或取消請求
-      if_will_not_happen_you_should_cancel: "如果你認為由於某種原因無法完成這個請求，你可以%{cancel_it_link}。"
-      cancel_it_link_text: 取消
-      automatic_confirmation: "如果你不能在請求被接受後%{days_to_automatic_confirmation}內確認或取消交易，我們將自動把它標記為已完成。"
-    confirm_reminder_v2:
-      headline: ~
-      you_have_not_yet_confirmed_or_canceled_request: ~
-    payment_settings_reminder:
-      remember_to_add_payment_details: 請記得填寫付款詳情以接收付款
-      you_have_added_listing_with_payment: "你已新增了一個需要付款的訊息：%{listing_link}。然而，你尚未填寫你的付款詳情。請填寫付款的資料以接收款項。"
-      please_go_to_payment_settings: "請至%{payment_settings_link}並填寫所需的付款資訊。"
-      payment_settings_link: 付款設置
-    payment_settings_reminder_v2:
-      fill_payout_details: ~
-      you_have_added_listing_with_payment: ~
-    transaction_confirmed:
-      here_is_a_message_from: "這裡有一個%{other_party_given_name}給你的訊息:"
-      request_marked_as_confirmed: 請求已完成——請不要忘記給予回應
-      request_marked_as_canceled: 取消請求
-      has_marked_request_as_confirmed: "%{other_party_full_name}已經把「%{request}」標示作已完成。現在你可以向%{other_party_given_name}作出回應。"
-      has_marked_request_as_canceled: "%{other_party_full_name}已經把「%{request}」取消。你仍可以向%{other_party_given_name}作出回應。"
-      giving_feedback_is_good_idea: "你可以給予回應。你應該讓其他人知道你與%{other_party_given_name}的交易愉快。如果有任何問題，你也可以在評論中提及。"
-      give_feedback_to: "向%{other_party_given_name}作出回應"
-      stripe:
-        has_marked_request_as_confirmed: ~
-      team_title: ~
-    transaction_confirmed_v2:
-      headline_confirmed: ~
-      headline_canceled: ~
-      stripe:
-        has_marked_request_as_confirmed: ~
-      can_give_feedback: ~
-      team_title: ~
-    transaction_automatically_confirmed:
-      subject: 交易自動完成——不要忘記給予回應
-      we_have_marked_request_as_confirmed: "我們已經把「%{request}」標示作已完成。此交易已自動完成，因為在請求被接受後%{days_passed}天已經過去。"
-    transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: ~
-      order_automatically_confirmed: ~
-    booking_transaction_automatically_confirmed:
-      subject: "交易已自動完成 ——不要忘記給予評價"
-      we_have_marked_request_as_confirmed: "我們已把關於「%{request}」的交易標記成已完成。由於在預訂期限結束後一天已過去，此請求已自動完成。"
-    booking_transaction_automatically_confirmed_v2:
-      order_automatically_confirmed: ~
-    automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "你現在可以向%{other_party_given_name}給予回應。若一切順利，你可以讓其它人知道%{other_party_given_name}是可靠的。若有任何問題發生，你也可向其它人提出。"
-      give_feedback_to: "向%{other_party_given_name}給予回應"
-      show_thread: 顯示對話
-    confirmation_instructions:
-      confirmation_instructions_signature: "%{service_name}團隊向你致以問候。"
-      need_to_confirm: 請確認你的電郵地址。
-      confirmation_link_text: 確認我的電郵
-      or_paste_link: 或者你可以複製以下的連結到你的瀏覽器：
-    confirmation_instructions_v2:
-      headline: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
-    common:
-      hey: "%{name} 你好 ,"
-      hi: ~
-      kassi_team: "%{service_name} 團隊"
-      thanks: 謝謝！
-      dont_want_to_receive_these_emails: 不想收到這些郵件？
-      edit_your_email_settings_here: 在此編輯你的電郵設置
-      message_not_displaying_correctly: 郵件顯示正確嗎？
-      view_it_in_your_browser: 在你的瀏覽器中觀看
-      or: 或
-      unsubscribe_from_these_emails_info: ~
-      unsubscribe_from_these_emails: 取消訂閱這些電郵
-      unsubscribe_from_invitation_emails_info: ~
-      unsubscribe_from_invitation_emails: ~
-      here_is_your_receipt: ~
-    conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} 已經接受了你的%{listing}"
-      has_accepted_your_request: "%{accepter}已經接受了你的%{listing}"
-      has_rejected_your_offer: "%{accepter} 已經拒絕了你的%{listing}"
-      has_rejected_your_request: "%{accepter} 已經拒絕了你的%{listing}"
-      view_thread: 查看對話
-      your_offer_was_accepted: 你的議價已被接受
-      your_offer_was_rejected: 你的議價已被拒絕
-      your_request_was_accepted: 你的要求已被接受
-      your_request_was_rejected: 你的要求已被拒絕
-      you_can_now_pay_to: "你現在可以支付請求的金額予%{payment_receiver}。"
-      pay_now: 現在付款
-      remember_to_confirm: "當交易完成後，請把它標記為「已完成」。若交易未完成，你可在%{days_to_automatic_confirmation}內取消它。否則它將會自動被標示為已完成。"
-    conversation_status_changed_v2:
-      has_accepted_your_request: ~
-      has_accepted_your_request_text: ~
-      has_rejected_your_request: ~
-      has_rejected_your_request_text: ~
-    invitation_to_kassi:
-      hi: 你好！
-      you_have_been_invited_to_kassi: "%{inviter}邀請你使用%{service_name}。"
-      here_is_a_message_from: "這是來自%{inviter}的訊息"
-      join_now: 立刻加入
-      invitation_code: "邀請碼：%{code}"
-    invitation_to_kassi_v2:
-      headline: ~
-    new_comment:
-      has_commented_your_listing_in_kassi: "%{author}已在你的%{listing}留下評論。"
-      view_comment: 查看評論
-      you_have_a_new_comment: "%{author} 在%{service_name}的項目留言"
-      listing_you_follow_has_a_new_comment: "%{author}在你關注的%{service_name}中發表了一則留言。"
-      has_commented_listing_you_follow_in_kassi: "%{author}在你關注的%{service_name}中，於%{listing}留下了評論。"
-    new_message:
-      view_message: 查閱訊息
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
-    new_message_v2:
-      headline: ~
-      reply: ~
-    new_payment:
-      new_payment: 你收到一筆新的款項
-      price_per_unit_type: "每%{unit_type}的價格"
-      quantity: 數量：
-      you_have_received_new_payment: "你已經為<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>給%{payer_full_name}。這是你的收據。"
-      listing_per_unit_title: ~
-    payment_receipt_to_seller:
-      payment_gateway_fee: ~
-      shipping_total: ~
-      product: ~
-      price_payer_paid: ~
-      subtotal: ~
-      service_fee: ~
-      buyer_service_fee: ~
-      you_will_get: ~
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
-      you_have_received_new_payment: ~
-      stripe:
-        you_have_received_new_payment: ~
-    payment_receipt_to_seller_v2:
-      headline: ~
-      main_text_stripe: ~
-      price_breakdown: ~
-    payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
-      buyer_service_fee: ~
-      total: ~
-      price: ~
-      service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
-      money_will_be_transferred: ~
-    payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
-    paypal_new_payment:
-      paypal_gateway_fee: PayPal的費用：
-      shipping_total: 運費：
-    braintree_new_payment:
-      product: 產品：
-      price_payer_paid: "%{payer_full_name}所支付的價錢："
-      service_fee: "%{service_name}的服務費："
-      you_will_get: 總計：
-    receipt_to_payer:
-      receipt_of_payment: 付款收據
-      you_have_made_new_payment: "你已經為<b>%{listing_title}</b> 支付了 <b>%{payment_sum}</b> 給 %{recipient_full_name}。這是付款的收據。"
-      product: 產品
-      price_per_unit_type: "每%{unit_type}的價格"
-      duration: 期間：
-      quantity: 數量：
-      subtotal: 小計：
-      total: 總計
-      price: 價格
-      buyer_service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
-      money_will_be_transferred: "以下兩種情況發生時，款項將被轉帳至%{recipient_name}： a) 你標記請求為完成後；或 b) 在你付款%{automatic_confirmation_days}天後。"
-      listing_per_unit_title: ~
-      stripe:
-        you_have_made_new_payment: ~
-    new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name}已在%{service_name}對您作出評價。"
-      you_can_give_feedback_to: "您還未對%{name}作出評價。"
-      view_feedback: 查看回應
-    new_testimonial_v2:
-      headline: ~
-    new_update_to_listing:
-      listing_you_follow_has_been_updated: 你所關注的訊息已更新
-      has_updated_listing_you_follow_in_kassi: "%{author}在你關注的%{service_name}中，更新了%{listing}中的訊息。"
-      view_changes: 查看變更
-    community_updates:
-      added_offer: "%{name_link}新增了一個訊息："
-      added_request: "%{name_link}新增了一個訊息："
-      added_listing: "%{name_link}新增了一個訊息："
-      update_mail_title: "%{title_link}的更新"
-      title_link_text: "%{community_name}"
-      intro_paragraph: "在過去的%{time_since_last_update}，%{community_link}有以下的活動。"
-      intro_paragraph_link_text: "%{community_name}"
-      reduce_email_footer_text: "太多郵件？你可以%{settings_link}或%{unsubscribe_link}。"
-      settings_link_text: 在此編輯你的電郵設置
-      unsubscribe_link_text: 取消訂閱
-    community_updates_v2:
-      headline: ~
-    newsletter:
-      hi: "%{name}, 你好!"
-      newest_offers: 大家最近提出的交易
-      newest_requests: 大家最近發出的請求
-      text_version_text: "你可以分享一些其他人可能需要的東西嗎？或者別人擁有一些你可能需要的東西？請點擊%{url}提出一個交易或者查看其他人當前提供的或者請求的東西。"
-    reset_password_instructions:
-      change_my_password: 更改我的密碼
-      reset_password_instructions: "<p>你曾告訴我們你忘記了你的密碼 或 你在%{service_name}註冊的帳戶名稱。</p><p>如果你需要重置你的密碼，請按以下的連結：%{password_reset_link}</p><br/><p>如果你不曾向我們發出這要求，請忽略這個電郵。除非你訪問上面的連結及更改你的密碼，否則你的密碼將不會改變。</p>"
-    testimonial_reminder:
-      remember_to_give_feedback_to: "提示：請不要忘記對%{name}作出評價。"
-      you_have_not_given_feedback_yet: "你尚未就%{event}對%{name}作出評價。請不要忘記對%{given_name}在該活動的表現作出評價。"
-    testimonial_reminder_v2:
-      headline: ~
-      you_have_not_given_feedback_yet: ~
-      leave_feedback: ~
-    transaction_preauthorized:
-      subject: "%{requester}已請求及授權為%{listing_title}付款。"
-      transaction_requested_by_user: "%{requester}已請求及授權為「%{listing_title}」付款。"
-      you_have_time_to_accept: "你需要在%{payment_expires_in}天內接受或拒絕請求。如果在該期限內接受，你將會收到付款。如果你在該期限內沒有接受，請求將自動被拒絕，你將無法收到款項。"
-      if_you_do_accept: ~
-      if_you_do_accept_stripe: ~
-      if_you_do_not_accept: ~
-      click_here_to_reply: 按此以回應請求
-    transaction_preauthorized_v2:
-      headline: ~
-    transaction_preauthorized_reminder:
-      subject: "不要忘記接受來自%{requester}有關%{listing_title}的請求"
-      remember_to_accept: "不要忘記接受來自%{requester}有關%{listing_title}的請求。%{requester}已為此請求付款。你需要接受請求以收取款項。"
-      one_day_left: 如果你不能在一天內接受請求，這請求將會被自動取消，你亦不會收到款項。
-      click_here_to_reply: 按此以回應請求
-    transaction_preauthorized_reminder_v2:
-      headline: ~
-      remember_to_accept: ~
-    welcome_email:
-      welcome_email_subject: "歡迎來到%{service_name}！"
-      welcome_to_marketplace: "歡迎來到%{service_name}！恭喜你成功註冊。"
-      love_marketplace_crew: "親愛的%{service_name}團隊敬上"
-      welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
-    new_listing_by_followed_person:
-      subject: "%{author_name}已經在%{service_name}發表了一個新訊息"
-      has_posted_a_new_listing: "%{author_name}已經發表了一個新的訊息："
-      you_are_receiving_this_because: "你關注了%{author_name}所以收到這個通知。"
-      view_listing: 查看訊息
-    new_listing_by_followed_person_v2:
-      headline: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
-      cant_click: ~
-    new_ident_notification:
-      subject: ~
-      h1_body: ~
-      p_line1: ~
-      p_line2: ~
-      p_line3: ~
-      p_line4: ~
-      p_line5: ~
-      button: ~
-    new_member_notification:
-      subject: ~
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
-    new_member_notification_v2:
-      headline: ~
-      new_member_has_joined: ~
-      view_profile: ~
-    listing_submited_for_review:
-      subject: ~
-      there_is_a_new_listing_to_review: ~
-      review_the_listing: ~
-      this_is_automatic_message: ~
-    listing_approved:
-      subject: ~
-      listing_has_been_approved: ~
-      view_the_listing: ~
-    listing_rejected:
-      subject: ~
-      listing_has_been_rejected: ~
-      contact_link: ~
-      edit_the_listing: ~
-    edited_listing_submited_for_review:
-      subject: ~
-      there_is_a_edited_listing_to_review: ~
-      review_the_listing: ~
-    new_transaction:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
-    new_transaction_v2:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
-      view_transaction: ~
-    transaction_cancel_flow:
-      the_order_about: ~
-      you_can_contact_the_marketplace_team: ~
-      you_can_now_give_feedback: ~
-      give_feedback_to: ~
-    transaction_disputed:
-      subject: ~
-      subject_admin: ~
-      order_about: ~
-      the_order_has_been_canceled: ~
-      the_order_between_buyer_and_seller_has_been_canceled: ~
-      the_marketplace_has_been_notified: ~
-      contact_the_marketplace_team: ~
-      you_must_now_decide: ~
-      learn_more_about: ~
-      review_the_transaction: ~
-    transaction_refunded:
-      subject: ~
-      marketplace_team_has_approved_the_cancellation: ~
-      you_should_receive_a_refund_soon: ~
-    transaction_cancellation_dismissed:
-      subject: ~
-      marketplace_team_has_rejected_the_cancellation: ~
-    transaction_commission_charge_failed:
-      subject: ~
-      transaction_about: ~
-      the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
-      contact_the_seller: ~
-  error_messages:
-    booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
-    onboarding:
-      server_rendering: ~
-    listings:
-      departure_time: 出發日期必須定於現在時間至一年後之間。
-      share_type: 您必須選擇一項。
-      valid_until: 此日期須為現在時間至六個月後之間。
-      price: 價錢必須為整數。
-      minimum_price: "最低的價格是%{minimum_price}%{currency}。"
-    testimonials:
-      you_must_explain_not_neutral_feedback: 如果您想要提出非中立評價，您必須解釋原因。
-      you_must_select_a_grade: 請不要忘記就您該次的經驗評價為正面或負面。
-    transaction_agreement:
-      required_error: ~
-    paypal:
-      transaction_cannot_complete: ~
-      buyer_cannot_pay_error: "該支付款項被Paypal拒絕。請聯絡他們的客戶服務部以獲得更多訊息：%{customer_service_link}"
-      pending_review_error: 款項已經提交但被Paypal標記為‘需要檢查’。當Paypal完成檢查後，該支款將會被自動授權。
-      seller_express_checkout_disabled: PayPal快速結帳已暫停此訊息發佈者的PayPal帳戶。請聯絡發佈者及讓他們知道自己的PayPal帳戶發生問題，並提議他們聯絡PayPal的客戶服務。
-      seller_express_checkout_disabled_no_free: ~
-      generic_error: 在付款途中發生錯誤。未能完成你的PayPal付款過程。
-      cancel_error: ~
-      accept_authorization_error: 在接受預先授權的PayPal付款時發生錯誤。請稍後再試。
-      reject_authorization_error: 當拒絕預先授權的PayPal付款時癹生錯誤。請稍後再試。
-    stripe:
-      generic_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
-      card_declined: ~
-      expired_card: ~
-  error_pages:
-    back_to_kassi_front_page: 返回到主頁
-    error_404:
-      if_you_believe: 假如你相信該地址為正確和有效的，請替我們把錯處指出，以便我們找出造成錯誤的地址，與及知道在頁面該顯示的正確資料。
-      page_can_not_be_found: 找不到頁面！
-      page_you_requested_can_not_be_found: 找不到你所尋求的頁面，請確認輸入地址沒有出錯。
-    error_404_title: 找不到頁面
-    error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: 這種情况有幾種可能的原因。例如，某用户可能删除了他的帳號或發布的訊息已被删除。
-    error_410_title: ~
-    error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
-    error_500_title: 頁面加載失敗
-    error_description: 錯誤描述
-    no_javascript:
-      javascript_is_disabled_in_your_browser: 你的瀏覽器禁示使用Javascript
-      kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在沒有javascript下提供服務。請在瀏覽器首選中打開javascript，然後刷新頁面。"
-      contact_us: 聯絡我們
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: 傳送
-    your_email_address: 您的電郵地址
+      invalid_parameters: ~
+      night: ~
+      nights: ~
+      dates_not_available: ~
+      error_in_checking_availability: ~
+      select_delivery_method: ~
+    transaction_agreement_checkbox:
+      read_more: ~
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   errors:
     messages:
       invalid_date: ~
@@ -1915,1055 +2903,6 @@ zh-HK:
       username_is_invalid: ~
       domain_name_is_invalid: ~
       only_supported_variables: ~
-  event_feed_events:
-    accept:
-      has_accepted_lend_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 借給 %{requester_name} 。"
-      has_accepted_borrow_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 借給 %{requester_name} 。"
-      has_accepted_rent_out_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 租給 %{requester_name} 。"
-      has_accepted_rent_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 租給 %{requester_name} 。"
-      has_accepted_give_away_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 送給 %{requester_name} 。"
-      has_accepted_receive_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 送給 %{requester_name} 。"
-      has_accepted_sell_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 出售給 %{requester_name} 。"
-      has_accepted_buy_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 出售給 %{requester_name} 。"
-      has_accepted_trade_item: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title}與 %{requester_name} 交換。"
-      has_accepted_sell_housing: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 出售給 %{requester_name} 。"
-      has_accepted_buy_housing: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 出售給 %{requester_name} 。"
-      has_accepted_rent_out_housing: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 租給 %{requester_name} 。"
-      has_accepted_rent_housing: "%{time_ago}前 %{offerer_name} 同意將 %{listing_title} 租給 %{requester_name} 。"
-      has_accepted_favor: "%{time_ago}前 %{offerer_name} 同意與 %{requester_name} 提出%{listing_title}的交易。"
-      has_accepted_rideshare: ~
-    join:
-      joined_kassi: "%{name}在%{time_ago}前加入了%{service_name}。"
-    login:
-      logged_in_to_kassi: "%{name}在%{time_ago}前登入了%{service_name}。"
-    comment:
-      commented: "%{commenter_name}%{time_ago}前評論了%{listing_title}。"
-      offer_partitive: 交易
-      request_partitive: 請求
-  header:
-    about: 關於
-    home: 主頁
-    members: 社群
-    new_listing: 發佈新訊息
-    mobile_version: 行動裝置版本
-    offers: 放售
-    requests: 要求
-    search_kassi: "搜尋%{service_name}"
-    create_new_marketplace: 建立一個新的網站
-    contact_us: 聯繫我們
-    profile: 個人檔案
-    manage_listings: 管理訊息
-    invite: 邀請新朋友
-    login: 登入
-    signup: 註冊
-    menu: 功能目錄
-  homepage:
-    additional_private_listings_slate:
-      additionally_one_private_offer_exists: 除此以外，還有<b>另一個放售貨品</b>
-      additionally_one_private_request_exists: 除此以外，還有<b>另一個貨品要求</b>
-      additionally_some_private_offers_exist: "除此以外，還有<b>另外%{number_of_listings}個貨品放售</b>"
-      additionally_some_private_requests_exist: "除此以外，還有<b>另外%{number_of_listings}個貨品要求</b>"
-    blank_slate:
-      add_first: 請增加一個！
-      but_that_is_visible_only_to_registered_members: 但只有註冊用戶才能夠查看。
-      but_those_are_visible_only_to_registered_members: 但只有註冊用戶才能夠查看。
-      create_new_account_for_yourself: 註冊新用戶
-      examples_of_what_you_could_offer_to_others: 您有什麼能夠提供予其他用戶
-      examples_of_what_you_could_request_to_others: 您有什麼想向其他用戶要求
-      favor_offer_list: 電腦援助、衣物縫補、烘焙、單車維修
-      favor_request_list: ~
-      favors_to_offer: "支援: "
-      favors_to_request: "支援: "
-      item_offer_list: 工具、體育用品、服裝、露營裝備
-      item_request_list: 工具、體育用品、服裝、露營裝備
-      items_to_offer: "可借出的物品： "
-      items_to_request: "可借入的物品： "
-      log_in: 請登入
-      no_offers_visible_unless_logged_in: 沒有對遊客公開的售賣品及服務。
-      no_open_offers_currently: 目前沒有公開的售賣品及服務。
-      no_open_requests_currently: 目前沒有公開的要求。
-      no_requests_visible_unless_logged_in: 沒有對遊客公開的訊息。
-      one_private_offer_exists: "已經有<b>一個供應</b>,"
-      one_private_request_exists: "己經有<b>一個徵求</b>,"
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: "已經有<b>%{number_of_listings}個供應</b>,"
-      some_private_requests_exist: "已經有<b>%{number_of_listings}個徵求</b>,"
-    custom_filters:
-      update_view: 更新顯示
-      min: 最小：
-      max: 最大：
-    event_feed:
-      latest_events: 最近熱選話題
-    grid_item:
-      processing_uploaded_image: (正在處理上傳圖片……)
-    index:
-      no_listings_with_your_search_criteria: 抱歉，我們無法找到任何匹配你的搜索條件的結果。或者使用其它搜尋字眼再試？
-      no_listings_notification: "沒有訊息。%{add_listing_link}"
-      add_listing_link_text: 發佈新的訊息
-      open_listing: 公開訊息
-      open_listings: 公開訊息
-      private_listing_notification_log_in: 登入
-      is: 是
-      are: 是
-      what_do_you_need: 您想要找尋什麼?
-      post_new_listing: 發佈新訊息
-      are_offering: 貨品
-      add_news_item: 增添一個物件
-      lend_rent_help_carpool: ~
-      loading_more_content: 正在加載更多內容
-      more_events: 更多事件...
-      news: 新聞
-      no_news: 沒有更新
-      more_news: 載入新訊息
-      or: 及
-      or_see_what_the_others: "......或者看看其他的"
-      recent_events: 最近的事項
-      requesting: 需要
-      tell_it_here: 在這裡發表吧!
-      welcome_to_new_kassi: "歡迎來到新的%{service_name}!"
-      no_reviews: 沒有評論
-      no_image: 沒有圖片
-      filter: 篩選
-      this_is_private_community: 查看內容前請先登錄。
-    invitation_form:
-      email: 電郵地址
-      message: 一個私人訊息
-      send_invitation: 發送邀請
-      add_email_addresses_description: 請在下方輸入你想邀請的人的電郵。若你想輸入多於一個電郵，請以逗號來分隔它們。
-      add_lots_of_email_addresses: "如果你想要發送大量的邀請，你應該使用郵件工具。查看%{this_article_link}可能會找到適合的電郵服務。"
-      this_article_link: 這篇文章
-      invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
-      invitation_message_field_placeholder: 我加入了這個很棒的網站。你也應該加入！
-      errors_in_emails: 請檢查你所輸入的電郵地址是否有效。若你輸入多於一個電郵地址，請使用逗號來分隔它們。
-    list_item:
-      review: 評論
-      reviews: 評論
-      distance_away: "距離%{distance}%{distance_unit}以外"
-    news_item:
-      show_less: 隱藏
-      show_more: 顯示更多
-    profile_info_empty_notification:
-      add_your_info: 加入你的聯絡資訊
-      add_a_profile_picture: 添加個人頭像
-      you_have_not_added_your_info: 你尚未添加你的聯絡方式。請添加聯絡方式以方便他人聯繫你。同時請添加個人資料照片從而得到其他人的關注。
-      add_your_info_link: 加入你的個人資訊
-    recent_listing:
-      please_offer: 貨品
-      comment: 留言
-      comments: 留言
-    filters:
-      show: 篩選
-      search: 搜尋
-      map: 顯示地圖
-      list: 顯示列表
-      map_button: 地圖
-      grid_button: 格線
-      list_button: 列表
-      all_listing_types: 所有列表種類
-      all_categories: 所有分類
-    errors:
-      search_engine_not_responding: 不能使用搜尋功能。請稍後再試。
-  infos:
-    about:
-      default_about_text_title: 什麼是Sharetribe？
-      default_about_text: "該網站由Sharetribe平台提供技術支持。通過Sharetribe你可以容易的創建自己的網站。這只需要一分鐘並且是免費的。點擊%{click_here_link}了解更多！"
-      click_here_link_text: 點撃這裏
-    how_to_use:
-      default_title: ~
-      default_content: ~
-  landing_page:
-    hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
-    listings:
-      no_listing_image: ~
-  layouts:
-    admin:
-      admin: "%{service_name}管理員版面"
-    branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
-    no_tribe:
-      inbox: 收件箱
-      settings: 設定
-      feedback: ~
-    application:
-      join_this_community: 加入網站
-      read_more: 讀取更多
-      feedback: ~
-      dont_use_to_contact_support: ~
-      feedback_forum: 反饋論壇
-      feedback_handle: 回應
-      give_feedback: 聯絡我們
-      or_check_our: "......或者查看我們的"
-      send_feedback_to_admin: ~
-      to_see_what_others_have_suggested: 觀看其它用戶的提議，並投選合適的提議。
-      your_email_address: "您的電郵地址 (用作聯絡閣下)"
-      connect: 註冊
-      invite_your_friends: 邀請朋友！
-      invite_your_neighbors: 邀請鄰舍！
-      invite_your_friends_description: "越多人加入%{service_name}，網站就越有用。"
-      invite_your_friends_invite_only_description: ~
-      join_without_facebook: "......或者選擇%{join_without_facebook_link}"
-      join_without_facebook_link: 不使用Facebook帳戶註冊
-    conversations:
-      messages: 私訊
-      notifications: 通知
-      received: 已接收
-      sent: 已送出
-    global-header:
-      select_language: 選擇語言
-    infos:
-      about: 關於
-      how_to_use: 如何使用
-      info_about_kassi: "有關%{service_name}的資訊"
-      news: 最新資訊
-      register_details: 私隱
-      terms: 使用條款
-    logged_in:
-      admin: 管理員
-      go_to_your_profile_page: 個人專頁
-      hi: 您好
-      login: 登入
-      logout: 登出
-      notifications: 通知
-      requests: 好友請求
-      settings: 設定
-      sign_up: 創建帳號
-    logged_in_messages_icon:
-      messages: 私訊
-    logged_in_notifications_icon:
-      notifications: 通知
-    markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
-      h1: ~
-      h2: ~
-      h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
-    mobile_logged_in:
-      admin: 管理員
-      go_to_your_profile_page: 個人專頁
-      hi: 您好
-      login: 登入
-      logout: 登出
-      notifications: 通知
-      requests: 好友請求
-      settings: 設定
-      sign_up: 註冊
-    notifications:
-      recaptcha_verification_failure: ~
-      listing_could_not_be_saved: "訊息不能保存。請重試。如果問題依然存在，請%{contact_admin_link}。"
-      contact_admin_link_text: " 聯繋管理員"
-      test_welcome_email_delivered_to: "測試郵件已發送到%{email}。"
-      something_went_wrong: 出錯了
-      community_updated: 詳情已更新。
-      community_update_failed: 詳細資料更新失敗。
-      account_creation_succesful_you_still_need_to_confirm_your_email: 成功建立賬號。下一步，請確認你的電郵地址。
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "感謝你加入%{service_name}。你現在需要確認你的電郵地址。"
-      comment_cannot_be_empty: 留言不能為空白
-      comment_sent: 已送出留言
-      confirmation_link_is_wrong_or_used: 確認鏈接已被使用或失效。請嘗試登錄，如果問題依然存在請向我們發送回應。
-      additional_email_confirmed: 你所輸入的電郵已被確認。
-      could_not_get_email_from_social_network: ~
-      social_network_email_unconfirmed: ~
-      create_new_listing: 發布另一條消息
-      create_one_here: 在這裡建立一個
-      email_confirmation_sent_to_new_address: 確認電郵的信件已發送至新地址。
-      email_not_found: "無法在%{service_name}中找到你所提供的電郵。"
-      error_with_session: 內容錯誤
-      feedback_considered_spam: 由於格式錯誤，無法提出回應。請重試或使用反饋論壇。
-      feedback_not_saved: 未能發出回應。
-      feedback_saved: ~
-      feedback_sent_to: "回應已發送至%{target_person}。"
-      feedback_skipped: 跳過回應
-      invitation_cannot_be_sent: 未發出邀請
-      invitation_cannot_unsubscribe: ~
-      invitation_limit_reached: 你發送了太多的邀請。，並已達到每日的上限。
-      invitation_sent: 已成功發出邀請
-      invitation_successfully_unsubscribed: ~
-      inviting_new_users_is_not_allowed_in_this_community: 不允許邀請新用戶
-      login_again: 請重新登入。
-      login_failed: 登入失敗。請輸入正確的用戶名稱及密碼。
-      account_creation_successful: "%{person_name}，歡迎來到%{service_name}！"
-      account_deleted: 你的帳戶已被删除
-      login_successful: "歡迎您,%{person_name}！"
-      logout_successful: "您已退出了%{service_name}，歡迎再次使用我們的服務！"
-      news_item_created: 已建立的文章
-      news_item_creation_failed: 文章建立失敗
-      news_item_update_failed: 文章更新失敗
-      news_item_updated: 文章已經更新完成
-      news_item_deleted: 文章已經被刪除
-      offer_accepted: 已接受貨品
-      offer_confirmed: 已確定交易
-      offer_closed: 貨品停止供應
-      listing_created_successfully: "成功發布了新訊息。%{new_listing_link}"
-      offer_rejected: 貨品被拒絕
-      offer_canceled: 已取消交易
-      listing_updated_successfully: 訊息更新成功
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
-      listing_deleted: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: 僅作者能關閉發佈的訊息
-      only_listing_author_can_edit_a_listing: 僅作者能編輯發佈的訊息
-      payment_successful: 付款成功
-      payment_canceled: 付款已取消
-      error_in_payment: 發生付款錯誤。如果你還沒有完成付款，請重試。如果已完成，請聯繫我們。
-      cannot_receive_payment: 由於發生某些錯誤，另一交易方無法收款。請聯絡管理員並說明情況。
-      payment_waiting_for_later_accomplishment: 當你完成付款後，我們將會通知賣家，同時你會在電郵中收到收據
-      password_recovery_sent: 更改密碼的說明已發送至你的電郵。
-      person_activated: 你的帳號已經啟用
-      person_deactivated: 你的帳號已被停用
-      person_updated_successfully: 已更新訊息
-      poll_answered: 問卷調查已回答
-      poll_could_not_be_answered: 問卷調查不能被回答
-      poll_created: 問卷調查已建立
-      poll_creation_failed: 問卷調查建立失敗
-      poll_update_failed: 問卷調查更新失敗
-      poll_updated: 問卷調查已更新
-      poll_deleted: 問卷調查已删除
-      read_more: 閱讀更多！
-      registration_considered_spam: "不能註冊，請透過最上方的功能目錄來聯絡我們，並請輸入\"email2 error\"。"
-      reply_cannot_be_empty: 不能發送空白的訊息
-      reply_sent: 你的回覆發送成功
-      request_accepted: 你的請求已被接受
-      request_accepted_and_closed: ~
-      request_confirmed: 請求已完成
-      request_rejected: 你的請求已被拒絕
-      request_canceled: 請求已取消
-      message_sent: 訊息已經發送
-      message_not_sent: 未能傳送訊息，請稍後再試。
-      this_content_is_not_available_in_this_community: 不存在此內容。
-      unknown_error: 發生未知錯誤。請透過”聯繫我們“向我們報告問題。
-      update_error: 更新訊息時發生錯誤，請重試
-      you_are_not_allowed_to_give_feedback_on_this_transaction: 你沒有發表回應的權限
-      you_are_not_authorized_to_do_this: 你沒有進行此操作的權限
-      you_are_not_authorized_to_view_this_content: 你沒有查看此內容的權限
-      listing_closed: 該訊息已被關閉
-      send_instructions: 幾分鐘後，您將收到重置密碼的電子郵件。
-      you_cannot_reply_to_a_closed_offer: 你不能對已關閉的交易進行回覆
-      you_cannot_send_message_to_yourself: 你不能夠給自己發信息。
-      you_followed_listing: 你沒有關注這個訊息
-      you_have_already_given_feedback_about_this_event: 你已經對此事件發表回應
-      you_are_now_member: "歡迎來到%{service_name}！"
-      you_are_already_member: "你已經成為%{service_name}的會員了。歡迎回來！"
-      you_must_log_in_to_create_new_listing: "你必須先登入%{service_name}才可以建立新訊息。如果你沒有帳號，可以點擊%{sign_up_link}進行註冊。"
-      additional_email_confirmed_dashboard: 你的電郵已被確認。
-      you_must_log_in_to_give_feedback: 你必需登入以發表回應
-      you_must_log_in_to_invite_new_users: "你必須先登入才能邀請新用戶到%{service_name}"
-      you_must_log_in_to_send_a_comment: 你必需登入以發表新的評論
-      you_must_log_in_to_send_a_message: "你必需登入%{service_name}以向其它用戶發送訊息。"
-      you_must_log_in_to_do_a_transaction: "你必需登入至%{service_name}以進行交易。"
-      you_must_log_in_to_view_this_content: 你必需登入以查看內容
-      you_must_log_in_to_view_this_page: 你必須登入才能夠閱覽此頁
-      you_must_log_in_to_view_your_inbox: "你必需登入%{service_name}以查看你的收件箱。"
-      you_must_log_in_to_view_your_settings: "你必需登入%{service_name}以查看你的設定。"
-      you_must_log_in_to_add_news_item: "你必須登入%{service_name}以建立新訊息。"
-      you_must_log_in_to_change_profile_settings: "你必須登入%{service_name}以修改個人設定"
-      you_must_log_in_to_accept_or_reject: 你必須登入以接受或拒絕此交易
-      you_must_log_in_to_confirm_or_cancel: 你必須登入以取消或確認此交易
-      you_need_to_confirm_your_account_first: 請確認你的電郵地址。
-      you_must_fill_all_the_fields: 你必須填寫所有表單項
-      you_unfollowed_listing: 你不再關注這則訊息
-      joining_community_failed: 加入失敗
-      can_not_delete_email: 你不能移除電郵地址
-      user_does_not_have_email_to_delete: 你想要移除的電郵地址並不存在
-      email_deleted: 已删除電郵
-      listing_author_payment_details_missing: 請點擊下面的‘聯繫’來聯絡賣家。他們需要更新付款詳情來接收付款。
-      listing_author_payment_details_missing_no_free: ~
-      images_are_processing: ~
-      maintenance_mode:
-        zero: 網站即將關閉以進行維護
-        other: "網站即將在%{count}內關閉以進行維護"
-      automatically_logged_out_please_sign_in: 你已自動登出，請再次登入。
-      stripe_you_account_balance_is_not_0: ~
-      stripe_balance_for_username_is_not_0: ~
-      visit_admin: ~
-      visit_admin_link: ~
-      an_error_occurred_when_saving_your_information: ~
-    settings:
-      account: 帳戶
-      notifications: 通知
-      profile: 個人資料
-      settings: 設定
-      paypal_payments: ~
-      stripe_payments: ~
-      payments: 款項
-      listings: ~
-      listings_search_placeholder: ~
-      transactions_search_placeholder: ~
-      transactions: ~
-  listings:
-    bubble_listing_not_visible:
-      listing_not_visible: 你無權查閱此訊息。
-    comment:
-      wrote: 已編寫
-      send_private_message: "發送私人信息到%{person}"
-      delete: 刪除
-      are_you_sure: 你確定要刪除這個評論嗎?
-    comment_form:
-      ask_a_question: 在訊息中留下評論或查詢更多詳情。其它用戶也將看到你的評論。
-      log_in: 登入
-      send_comment: 發出留言
-      to_send_a_comment: 發出一個新留言
-      write_comment: 填寫一個新的留言
-      you_cannot_send_a_new_comment_because_listing_is_closed: 你不能發送新的評論，因為此訊息已關閉
-      you_must: 您必需要
-      subscribe_to_comments: 若有新的評論或更新，請通知我
-    deleting_a_listing_cannot_be_undone: ~
-    edit:
-      edit_listing: 編輯訊息
-    edit_links:
-      close_listing: 關閉訊息
-      edit_listing: 編輯訊息
-      reopen_listing: 重新開放訊息
-      move_to_top: 移至主頁頂端
-      show_in_updates_email: 在下一封自動發送的電郵中顯示
-      show_in_updates_email_loading: 下載中...
-      show_in_updates_email_error: 不能連至伺服器。請刷新頁面後再試。
-      show_in_updates_email_success: 這個訊息將被顯示在下一封自動發送給用戶的郵件中。
-      listing_is_pending: ~
-      listing_is_rejected: ~
-      approve_listing: ~
-      reject_listing: ~
-      delete_listing: ~
-    map:
-      open_in_google_maps: "在Google Maps開啓"
-    error:
-      something_went_wrong: "發生錯誤,代碼: %{error_code}"
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
-    follow_links:
-      follow: 接收關於新評論的電郵
-      unfollow: 不要接收關於新評論的電郵
-    form:
-      custom_field_partials:
-        dropdown:
-          select_one___: 選擇一個......
-      departure_time:
-        at: 於
-        departure_time: 離開時間
-      departure_time_radio_buttons:
-        repeated: "重複輸入 (請在「詳細描述」中加入時間及日子)"
-      description:
-        detailed_description: 詳細資料
-        youtube_info: 如果你的描述內容包含YouTube的連結，該影片將會在描述的下方顯示。
-        youtube_info_markdown: ~
-      destination:
-        destination: 目的地
-      form_content:
-        favor: 幫助
-        housing: 空間
-        item: 物品
-        offer_something: 提出交易
-        request_something: 提出要求
-        rideshare: ~
-        i_want_to_offer: 我想提供......
-        i_want_to_request: 我需要......
-      googlemap:
-        googlemap_copy: 地圖上的終點
-        googlemap_description: 地圖註解
-        googlemap_updatemap: 更新地圖
-      images:
-        image: 圖像
-        best_result: "為達至最佳效果，請使用像素為%{width}x%{height}的JPG, GIF或PNG圖片"
-        no_file_selected: 未選擇任何檔案
-        remove_image: 移除圖像
-        select_file: 選擇檔案
-        add_more: "+ 增加"
-        removing: 移除中...
-        processing: 處理中...
-        loading_image: 載入中...
-        image_uploading_in_progress: 圖片正在上傳中......
-        processing_takes_a_while: 所有圖片已上傳！我們可能要花一點時間處理它們，但你可以儲存此訊息及繼續。
-        this_may_take_a_while: 這可能會花一些時間
-        percentage_loaded: "%{percentage}%"
-        uploading_failed: 上傳圖片出錯
-        image_processing_failed: 圖片處理失敗
-        file_too_large: 檔案太大
-        accepted_formats: "圖片格式必須是GIF, JPG 或 PNG。"
-        images_not_uploaded_confirm: 所有圖片已完成上傳。你希望繼續嗎？
-      location:
-        location: 地點
-      price:
-        price: 價格
-        per: 每
-        per_day: 每天
-        mass: 件，公斤，升，平方米，……
-        time: 小時，日，月，……
-        long_time: 星期，月，……
-        after_service_fee_you_will_get: "在支付%{service_name}和付款處理費之後你將得到%{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}會從價格中扣除。"
-        no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
-        payment_fee_info_link_text: ~
-        delivery: 配送方式
-        shipping: 郵寄
-        shipping_price: 運費
-        shipping_price_additional: 附加物品
-        pickup: 自取
-      origin:
-        location: 地點
-        origin: 來源
-        the_exact_location: ~
-      send_button:
-        save_listing: 儲存訊息
-        submit_for_review: ~
-        will_be_reviewed: ~
-        we_noticed_youre_an_admin: ~
-      share_type:
-        select: 選擇
-        borrow: 借入
-        buy: 購買
-        give_away: 贈送
-        lend: 出借
-        offer_type: 交易類別
-        receive: 免費獲得
-        rent: 出租
-        rent_out: 出租
-        request_type: 請求類別
-        sell: 出售
-        share_for_free: 免費共享
-        accept_for_free: 免費獲取
-        trade: 交換
-      tag_list:
-        comma_separate: (分隔)
-        tags: 標籤
-      title:
-        listing_title: 訊息標題
-      valid_until:
-        valid_until: 有效日期
-      valid_until_radio_buttons:
-        for_the_time_being: 目前為止
-      privacy:
-        privacy: 私隱
-        private: 非公開（只有已登入用戶才可見）
-        public: 公開（所有用戶皆可見）
-    help_texts:
-      help_share_type_title: 交易或請求的類別
-      help_tags_title: 標籤
-      help_valid_until_title: 有效日期
-    index:
-      all_categories: 全部類別
-      all_offer_types: 全部交易類別
-      all_request_types: 全部請求類別
-      category: 類別
-      did_not_found_what_you_were_looking_for: 找不到你需要的東西嗎?
-      favors: 服務
-      housing: 空間
-      items: 物品
-      list_view: 清單檢視
-      listings: 信息列表
-      map_view: 地圖註解
-      offer_something: 讓其它人知道吧！
-      offer_type: 交易類別
-      offers: 交易
-      request_something: 提出你的請求！
-      request_type: 請求類別
-      requests: 請求
-      rideshare: 順風車
-      you_have_something_others_do_not: 想提出交易？
-      feed_title: "在%{service_name}%{optional_category}中的%{listing_type}"
-    left_panel_link:
-      borrows: 信入
-      buys: 購買
-      favors: 服務
-      give_aways: 贈送
-      housings: 空間
-      items: 物品
-      lends: 出借
-      receives: 免費
-      rent_outs: 出租
-      rents: 出租
-      rideshares: ~
-      sells: 出售
-      share_for_frees: 免費共享
-      accept_for_frees: 免費獲取
-      trades: 交換
-    listing_actions:
-      booking_from: 從
-      booking_to: 到
-      how_paypal_works: PayPal如何運作
-      payment_help: 付款說明
-      unable_load_availability: ~
-      booking_date: ~
-      select_one: ~
-      start_time: ~
-      end_time: ~
-      marketplace_fees_may_apply: ~
-    new:
-      listing: 訊息
-      selected_category: "類別：%{category}"
-      selected_subcategory: "子分類：%{subcategory}"
-      selected_transaction_type: "顯示類型：%{transaction_type}"
-      select_category: 選擇類別
-      select_subcategory: 選擇子分類
-      select_transaction_type: 選擇交易類別
-      you_need_to_fill_payout_details_before_accepting: "在發佈訊息前你需要填寫支款詳情。點擊%{payment_settings_link}來填寫。"
-      contact_admin_link_text: 聯絡管理員
-      community_not_configured_for_payments: "%{service_name}未有配置支付方式，所以你不能發佈新的訊息，請到%{contact_admin_link}查詢詳情。"
-      payment_settings_link: 付款設置
-      community_not_configured_for_payments_admin: "%{service_name}未有配置支付方式，所以你不能發佈新的訊息。請到%{payment_settings_link}填寫詳細的付款詳情。"
-      you_are_now_posting_a_listing_on_behalf_of: ~
-    quantity:
-      hour: 小時：
-      day: 日：
-      night: 晚：
-      week: 星期：
-      month: 月：
-      unit: ~
-      custom: 數量：
-      person: ~
-    quantity_placeholder: 數量
-    please_comment: 評論
-    reply_link:
-      listing_closed: 訊息已關閉
-    show:
-      add_your_phone_number: 加入你的個人電話號碼
-      add_profile_picture: 加入個人頭像
-      comments: 公開討論
-      contact_by_phone: "透過電話聯絡:"
-      contact: 聯絡資訊
-      favor_offer: 提供服務
-      favor_request: 請求服務
-      inquiry: 公告
-      item_offer_trade: 交換貨品
-      item_request_trade: 交換要求產品
-      no_description: 沒有對此訊息的描述
-      no_image: 沒有圖片
-      no_reviews: 沒有收到評論
-      offer: 交易
-      listing_created: 已建立
-      open_until: "開放至%{date}"
-      feedback: 評價
-      qr_code: "QR 碼"
-      request: 請求
-      rideshare_offer: ~
-      rideshare_request: ~
-      send_private_message: 發送私人訊息
-      tags: 標籤
-      time: 時間
-      times: 次數
-      times_viewed: 已瀏覽
-      processing_uploaded_image: （正在處理上傳的圖片……）
-      listing_created_at: 訊息發佈於
-      price:
-        per_quantity_unit: "每%{quantity_unit}"
-        per_day: 每天
-      delivery: 配送方式
-      shipping: "郵寄 (+%{price})"
-      shipping_no_price: 郵寄
-      shipping_price_additional: "郵寄（+%{price}）, 附加物品: +%{shipping_price_additional}"
-      pickup: 自取
-      pickup_no_price: 自取
-      youtube_video_player: YouTube播放器
-    unit_types:
-      piece: 件
-      hour: 小時
-      day: 日
-      night: 晚
-      week: 星期
-      month: 月
-      unit: ~
-      person: ~
-    verification_required:
-      verification_required: 需要驗証
-  listing_conversations:
-    preauthorize:
-      dates_not_available: ~
-      error_in_checking_availability: ~
-      details: 詳情
-      by: ~
-      payment: 款項
-      exp: ~
-      you_will_be_charged: "只有%{author}接受了交易後你才會被支取費用。%{author}需要於%{expiration_period}內接受交易。若%{author}拒絕或沒有回應，這並不會產生任何費用。"
-      day: ~
-      days: ~
-      night: ~
-      nights: ~
-      invalid_parameters: ~
-      select_delivery_method: ~
-    transaction_agreement_checkbox:
-      read_more: ~
-    stripe_payment:
-      payment: ~
-      pay_with_card: ~
-      address: ~
-      address_country: ~
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
-  mapview:
-    index:
-      all_categories: 全部類別
-      all_offer_types: 全部交易類別
-      all_request_types: 全部請求類別
-      category: 類別
-      did_not_found_what_you_were_looking_for: 找不到你需要的東西嗎?
-      favors: 服務
-      housing: 空間
-      items: 物品
-      list_view: 清單檢視
-      map_view: 地圖註解
-      offer_something: 讓其它人知道吧！
-      offer_type: 交易類別
-      offers: 交易
-      request_something: 提出你的請求！
-      request_type: 請求類別
-      requests: 請求
-      rideshare: ~
-      you_have_something_others_do_not: 想提出交易？
-    please_comment: 評論
-  mercury:
-    content_too_long: ~
-  okl:
-    member_id: 會員號碼
-    member_id_or_email: 會員ID或電郵
-  paypal_accounts:
-    payout_info_title: 接受資金
-    paypal_account_email_connected: "完成<del>連接 PayPal 帳號</del>！"
-    payout_info_paypal: "%{service_name}使用PayPal作為他們的付款系統。你需要%{create_paypal_account_link}來接收從你交易所得的款項，以及必需連接至%{service_name}。"
-    paypal_billing_agreement_made: "<del>完成授權%{service_name}收取交易費</del> ！"
-    commission_permission_needed: "你需要授權%{service_name}向你支取交易費用。"
-    create_paypal_account_link_text: PayPal帳戶
-    connected_account: "已成功連結PayPal帳戶%{email}。"
-    paypal_receive_funds_info_label_australia_only: 你的PayPal帳戶必需能夠接收款項。這或者需要一個高級帳戶或商業帳戶。
-    paypal_receive_funds_info_label: 你的PayPal帳戶必需能夠接收款項。這或者需要一個高級帳戶。
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: "當你嘗試連接你的帳戶至%{service_name}時發生錯誤，請按%{upgrade_paypal_account_link}升級你的PayPal帳戶。這個過程是簡單且免費的。假如你以個人身份使用PayPal，我們提議你使用你的個人姓名作商業登記。"
-    upgrade_paypal_account_link_text: 登入及前往升級
-    admin_account_not_connected: "因為未設立款項，未能使用%{service_name}的付款系統以接收款項。請聯絡%{contact_admin_link}以瞭解詳情。"
-    contact_admin_link_text: 聯絡網站管理員
-    you_are_ready_to_accept_payments: 你可隨時接收款項！
-    commission: "%{commission}%"
-    not_now: ~
-    new:
-      payout_info_you_need_to_connect: "為接收款項，你需要連接你的PayPal帳戶到%{service_name}。"
-      payout_info_text: 請完成下列兩個步驟来連接你的帳號
-      contact_admin_link_text: 聯絡管理員
-      admin_account_not_connected: "不能連接你的PayPal帳戶，因為%{service_name}並未設立付款。請%{contact_admin_link}以瞭解詳情。"
-      paypal_account_email: "連接你的 PayPal 帳號"
-      paypal_account_email_placeholder: "你的 PayPal 電郵地址"
-      paypal_account_email_info_text: "如果你沒有PayPal帳號，你可以用%{create_paypal_account}來建立一個。如果你在連接PayPal帳號時遇到錯誤訊息，那你需要升級到商業帳號。升級過程免費且快捷。如果你是個人用戶，你只需要在PayPal詢問”商業名稱“時填入姓名。要升級帳號，請通過%{upgrade_paypal_account}查找升級鏈結。"
-      create_paypal_account: 請按這裡
-      upgrade_paypal_account: 登入你的PayPal帳號
-      paypal_account_billing_agreement: "授權%{service_name}收取交易費"
-      follow_steps: 使用以下的步驟開始接收資金：
-      connect_paypal_account_title: 連接你的PayPal帳號
-      connect_paypal_account_title_with_step: "步驟%{current_step}/%{total_steps}：連接你的PayPal帳戶"
-      connect_paypal_account_instructions: "使用以下按鈕登入PayPal，及連接你的PayPal帳戶至%{service_name}。"
-      connect_paypal_account: 連接你的PayPal帳號
-      paypal_account_billing_agreement_with_step: "步驟%{current_step}/%{total_steps}：授權支取交易費用"
-      paypal_account_billing_agreement_info_both: "當你在%{service_name}完成一個交易後，服務費（%{commission_from_seller}的商品總價，不包括運費，最少的費用為%{minimum_commission}）將從你的Paypal賬號中扣除。要在%{service_name}中接受付款，你必須允許收取此費用。該費用不包括%{paypal_info_link}。"
-      paypal_account_billing_agreement_info_fixed: "當你在%{service_name}完成一個交易後，服務費%{minimum_commission}將從你的PayPal帳號中扣除。要在%{service_name}中接受付款，你必須允許收取此費用。該費用不包括%{paypal_info_link}。"
-      paypal_account_billing_agreement_info_relative: "當你在%{service_name}完成一個交易後，服務費（%{commission_from_seller}的商品總價，不包括運費）將從你的Paypal賬號中扣除。要在%{service_name}中接受付款，你必須允許收取此費用。該費用不包括%{paypal_info_link}"
-      paypal_account_billing_agreement_info_none: "%{service_name}現沒有收取服務費。如果啓用了服務費，你接收款項時將需要允許%{service_name}來收取服務費。該費用不包括%{paypal_info_link}。"
-      paypal_info_link_text: PayPal的款項處理費
-      billing_agreement_description: "授權%{service_name}收取交易費用。"
-      billing_agreement: 授予權限
-      permissions_not_granted: 没有得到Paypal授權連接帳號
-      could_not_fetch_redirect_url: 未能獲得重新連接到PayPal的連結。
-      paypal_not_enabled: 不能使用PayPal付款。
-      billing_agreement_canceled: 已取消賬單
-      billing_agreement_not_accepted: 你沒有在PayPal接受賬單協議。
-      billing_agreement_wrong_account: PayPal賬號不正確。請使用初次在本站連結的相同PayPal賬號。
-      something_went_wrong: 發生錯誤，請再試一次。如果這個問題仍然存在，請聯絡網站管理員。
-      account_not_verified: 你還没有驗証你的PayPal帳號。請先登錄paypal.com並確認你的帳號方可繼續。
-      account_restricted: 你的PayPal帳號受到限制且不能被連接。請登錄paypal.com以了解更多或聯繋PayPal的客户服務解决問題。
-    paypal_account_connected_title: 已成功連結PayPal帳戶
-    paypal_account_connected: "%{email}的PayPal帳戶已連接至%{service_name}。"
-    change_account: 更改帳戶
-    missing: "你有開放的訊息，但是並沒有連接你的PayPal帳戶以接收款項。通過你的%{settings_link}來連接你的Paypal帳戶並授權%{service_name}來收取交易的費用。"
-    from_your_payment_settings_link_text: 付款設置
-    redirect_message: "將重新導向至PayPal。若沒有任何事情發生，請按%{redirect_link}。"
-    redirect_link_text: 這裡
-    paypal_account_all_set_up: 太好了！一切已經搞定了！
-    can_receive_payments: 你現在可以接受來自你的交易的款項。
-    paypal_account_connected_summary: "已成功連結PayPal帳戶%{email}。"
-    paypal_permission_granted_summary: 已授權收取交易費
-  paypal:
-    pay_with_paypal: 繼續付款
-    checkout_with: ~
-    or_pay_with_paypal: ~
-    checkout_with_paypal: 用PayPal结帳
-    cancel_succesful: 已成功取消PayPal付款
-    transaction:
-      commission_payment_name: "%{listing_title}的佣金"
-      commission_payment_description: "%{service_name}在%{listing_title}的交易中收取了佣金"
-    wait_while_loading: ~
-    chatting_with_paypal: 我們正與PayPal聯繋。
-  people:
-    edit_links:
-      activate: 啟動
-      deactivate: 關閉
-    help_texts:
-      feedback_description_title: 回應
-      help_invitation_code_title: 你需要被邀請才能加入
-      terms_title: "%{service_name}的使用條款"
-      invite_only_help_text: 如果你希望新用戶通過被已有用戶邀請的方式加入，請選擇這個選項。
-      invite_only_help_text_title: 僅允許邀請
-    inactive_notification:
-      this_person_is_not_active_in_kassi: "此用戶已不再存在於%{service_name}"
-      inactive_description: "該用戶已停用%{service_name}。你不能聯絡此用戶、給予回應或者評價他們的發佈的訊息。"
-    new:
-      create_new_account: 建立帳戶
-      email: 電郵地址
-      email_is_in_use: 你所提供的電郵已被使用。
-      email_is_in_use_or_not_allowed: 此電郵地址不允許使用或已被註冊。如果你無法註冊，請聯絡我們。
-      email_not_allowed: "這電郵地址不被允許於%{service_name}中使用。請使用一個允許的電郵地址。若你預到什麼問題，請聯繫我們。"
-      invalid_username_or_email: ~
-      email_restriction_instructions:
-        other: "你已被限制加入%{service_name}。你需要一個有效的電郵地址以加入我們。"
-      family_name: 姓
-      given_name: 名
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
-      invalid_invitation_code: 此邀請碼無效。
-      invitation_code: 邀請碼
-      not_required: 不需要
-      notification_is_mandatory: "你必須挑選至少一個電郵地址用於接收通知。如果你不想收到來自%{service_name}的電郵，在你的電郵通知設置中修改。"
-      password_again: 確認密碼
-      show_my_name_to_others: "向其它%{service_name}用戶顯示我的真實姓名"
-      sign_up: "建立一個新的%{service_name}帳戶"
-      terms: 使用條款
-      privacy: ~
-      visible_only_to_you: 僅你和管理員可見
-      visible_to_everybody: 所有人皆可見
-      create_account_with_provider: ~
-      OR: 或者
-      signup_with_email: 以電郵來註冊
-      this_field_will_be_publicly_visible: ~
-    profile_feedback:
-      grade: 評分：
-      and_gave_following_feedback: 並且給予以下回應
-    profile_listings:
-      no_image: 沒有圖片
-      manage_listings: ~
-    show:
-      contact: "聯絡%{person}"
-      about_me: "關於我:"
-      add_description: 更新個人資料
-      add_location: 添加地點
-      add_phone_number: 添加個人電話號碼
-      address: "位置:"
-      as_expected: 合乎期望
-      edit_profile_info: 編輯個人檔案
-      exceeded_expectations: 超出預期
-      positive: 正面
-      hide_description: 隱藏描述
-      less_than_expected: 不合乎期望
-      phone_number: "電話號碼:"
-      show_all_feedback: 顯示所有回應
-      show_all_testimonials: 顯示所有回應
-      show_full_description: 顯示更多
-      slightly_better_than_expected: 超出預期
-      slightly_less_than_expected: 不合乎期望
-      what_are_these: 這些是甚麼?
-      review: 收到的評論
-      reviews: 已收到的評價
-      listing: 發布的訊息
-      listings: 訊息
-      open_listing: 公開信息
-      open_listings: 公開訊息
-      no_listings: 沒有訊息
-      no_open_listings: 未公開訊息
-      no_reviews: 沒有評價
-      show_all_listings: 顯示所有已發布的訊息
-      show_all_open_listings: 顯示所有公開訊息
-      show_all_reviews: 展示所有評價
-      admin_actions: ~
-      post_listing_as: ~
-    followed_people:
-      you_follow_plural: "你關注了%{count}個人"
-      you_follow_singular: "你關注了%{count}個人"
-      they_follow_plural: "%{count}個關注者"
-      they_follow_singular: "%{count}個關注者"
-      show_all_followed_people: 顯示所有關注者
-      no_followed_people: 沒有關注者
-    follow_button:
-      following: 正在關注
-      follow: 關注
-      unfollow: 取消關注
-  sessions:
-    new:
-      create_new_account: 註冊新用戶
-      i_forgot_my_password: 忘記用戶名稱或密碼
-      login: 登入
-      login_to_kassi: "登入至%{service_name}"
-      connect_your_facebook_to_kassi: "連接您的Facebook帳號到%{service_name}"
-      facebook_account: "Facebook帳戶:"
-      log_in_to_link_account: "如果你已經擁有一個%{service_name}帳戶，請登錄並連接你的Facebook帳戶。"
-      you_can_also_create_new_account: "如果你沒有%{service_name}的帳戶, 點擊%{accont_creation_link}以你的Facebook來建立一個帳戶。"
-      account_creation_link_text: 點擊這裡
-      cancle_facebook_connect: "如果你不想連接這個帳戶，你可以%{cancel_link}。"
-      facebook_cancel_link_text: 取消
-      log_in_with_your_provider_account: ~
-      or_sign_up_with_your_username: "... 或使用你的用戶名稱 或 電郵："
-      we_will_not_post_without_asking_you: 我們不會在未經你的同意前在Facebook上允許發佈任何訊息。
-    password_forgotten:
-      email: 電郵
-      password_recovery_instructions: 請輸入註冊時的電郵地址，你會收到你的用戶名稱及重設密碼的指示。
-      request_new_password: 請輸入新的密碼
-      change_your_password: 更改你的密碼
-    confirmation_pending:
-      welcome_to_kassi: "歡迎來到%{service_name}！"
-      check_your_email: 查看你的收件箱
-      resend_confirmation_instructions: 再次傳送確認訊息
-      your_current_email_is: "你的電郵是%{email}。"
-      change_email: 變更
-      confirm_your_email: 請確認你的電郵地址。
-      account_confirmation_instructions: "你將會收到一封電郵以確認你的電郵地址。電郵可能被存放在垃圾郵件箱中。確認你的電郵後，你便能夠加入%{service_name}。"
-      account_confirmation_instructions_title_admin: 歡迎來到你的集市！
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: "你將會收到一封電郵以確認你的電郵地址。電郵可能被存放在垃圾郵件箱中。確認你的電郵後，你便能夠加入%{service_name}。"
-      contact_support_link_text: ~
-  settings:
-    account:
-      change: 更改
-      confirm_new_password: 確認新密碼
-      delete_account: 刪除帳號
-      delete_account_button: 永久删除我的帳戶
-      delete_account_confirmation_popup: 你確認要永久刪除你的帳戶及其相關數據？刪除了的帳號將無法恢復。
-      email_addresses: 電郵地址
-      new_email: 新的電郵地址
-      delete_personal_information: 如果你刪除你的帳號，你的個人信息（姓名，電話號碼，地址，電郵，個人資料圖片等等）都將被永久刪除且不能恢復。所有你發表的訊息將被刪除。你將不能重新啓動你的帳號。
-      delete_information_others_involved: 涉及其他會員的訊息（和其他人的對話，你完成的交易，你给其他人的評論等）在你删除賑號後是不能被删除的。但是，你的名字將不會出現在這些訊息中。
-      unfinished_transactions: "因你有正在進行中的交易，所以你的賬號不能被删除。 請在删除帳戶前完成所有交易。"
-      only_admin: ~
-      new_password: 新密碼
-      save: 儲存
-      these_fields_are_shown_only_to_you: 除非你已提供姓名，否則用戶名稱將會被顯示在個人檔案頁面中。其他資料只有你才能閱覽。
-      email_already_confirmed: 你的電郵地址已被確認。
-      email:
-        address_title: 地址
-        remove_title: 移除
-        remove_confirmation: 你確定要移除這個電郵地址嗎？
-        receive_notifications_title_desktop: 接收通知
-        receive_notifications_title_mobile: 接收通知
-        receive_notifications_new_title_mobile: 接收通知
-        add_new_with_plus: "+ 新增電郵地址"
-        add_new_cancel: 取消
-        confirmation_title_mobile: 確認：
-        confirmation_title_desktop: 確認
-        confirmation_resend: 重新發送
-        status_confirmed: 已確認
-        status_pending: 待定
-    notifications:
-      email_from_admins: 我願意接收偶爾來自管理員的更新訊息。
-      i_want_to_get_email_notification_when: 當...的時候請寄給我一封電郵通知
-      newsletters: 電子通訊
-      community_updates: 關於更新訊息的電郵
-      email_about_confirm_reminders: "... 我忘記了確認已完成的請求"
-      email_about_new_comments_to_own_listing: "... 有人評論了我的交易或請求"
-      email_about_new_messages: "... 有人發送了一則訊息給我"
-      email_about_new_received_testimonials: "... 有人發送了一個回應給我"
-      email_about_testimonial_reminders: "... 我忘記回應一個活動"
-      email_daily_community_updates: 如果有更新的訊息，請<b>每天</b>以電郵通知我。
-      email_weekly_community_updates: 如果有更新的訊息，請<b>每週</b>以電郵通知我。
-      do_not_email_community_updates: 請不要以電郵通知我關於更新的訊息。
-      email_when_conversation_accepted: "... 有人接受了我的交易或請求"
-      email_when_conversation_rejected: "... 有人拒絕了我的交易或請求"
-      email_about_completed_transactions: "... 有人將交易標示作已完成"
-      email_about_new_payments: "... 我收到一筆新的付款"
-      email_about_new_listings_by_followed_people: "... 我關注的人發佈了一則新的訊息"
-      unsubscribe_succesful: 取消訂閱不成功
-      unsubscribe_info_text: "你將不再接收到這些電郵。請查看你的%{settings_link}以選取你想從%{service_name}得到的電郵通知類型，或者回到%{homepage_link}。"
-      settings_link: 設定
-      homepage_link: 主頁
-      unsubscribe_unsuccesful: 取消訂閱出現錯誤
-      unsuccessful_unsubscribe_info_text: 取消訂閱的連結已失效。請登入以更改你的訂閱電郵設置。
-      email_listing_new_comment: ~
-      email_listing_updated: ~
-    profile:
-      about_you: 關於你
-      city: 城市
-      family_name: 姓
-      given_name: 名
-      first_name_with_initial: （只將首字母顯示给其他用户）
-      first_name_only: (不顯示给其他用户）
-      display_name: ~
-      display_name_description: ~
-      location_description: 您可以選擇提供你的確實地址，或只提供您的郵政編號。請至少提供您的郵政編號。您也可以通過以下地圖選擇一個地點。
-      profile_picture_description: ~
-      phone_number: 電話號碼
-      profile_picture: 個人頭像
-      postal_code: 郵遞區號
-      profile_page: 點擊查看你的個人訊息版面
-      profilemap: 地圖註解
-      street_address: 位置
-      these_fields_are_shown_in_your: "這訊息開放給所有%{service_name}用戶"
-      visible_to_everybody: 所有人皆可見
-      visible_to_registered_users: (只開放給已登入之用戶)
-      default_in_listing: （只有在發布新訊息時作默認使用）
-      invisible: （不顯示给其他用户）
-      image_is_processing: "我們正在處理你的個人頭像, 請於稍後時間重新整理頁面  "
-      shown_in_your_public_profile: ~
-      editing_profile_of: ~
-      format_markdown_link: ~
-      format_markdown: ~
-      username: ~
-      username_description: ~
-    save_information: 保存訊息
-  shipping_address:
-    shipping_address: ~
-  tag_cloud:
-    tag_used:
-      with_tag: 有標籤
-      without_tag: 沒有標籤
-  terms:
-    show:
-      accept_terms: "接受%{service_name}的使用條款"
-      here: 請按這裡
-      i_accept_new_terms: 我接受新的條款
-      i_accept_terms: 我接受條款
-      terms: "%{service_name}的使用條款"
-      terms_have_changed: 使用條款已更變
-      you_can_view_the_new_terms: 你可以查看新的條款
-      you_need_to_accept: "歡迎來到%{service_name}！這是你第一次使用此服務。在開始前你必須接受"
-      you_need_to_accept_new_terms: "%{service_name}的使用條款已更變。你必須接受新條款以繼續使用%{service_name}。新條款在研究項目結束後仍繼續保持服務。"
-  testimonials:
-    index:
-      all_testimonials: 所有回應
-      feedback_altogether: 回覆全部
-      loading_more_testimonials: 載入更多評價
-      no_testimonials: 沒有收到回覆
-    new:
-      as_expected: 符合期望
-      exceeded_expectations: 比預期的好
-      give_feedback_to: "回應%{person}"
-      grade: 你整體的感覺如何?
-      less_than_expected: 不合乎期望
-      send_feedback: 發出評價
-      slightly_better_than_expected: 比預期稍好
-      slightly_less_than_expected: 比預期稍差
-      textual_feedback: 事情進展如何？
-      this_will_be_shown_in_profile: "你给予的評價將在%{person}的資料頁面顯示並供予其他會員參閱。這將幫助其他會員評估%{person}是否是一個值得信賴的會員。"
-      positive: 正面
-      negative: 負面的
-      default_textual_feedback: 一切順利，非常感謝！
-    testimonial:
-      about_listing: 關於發佈的訊息
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -3022,38 +2961,96 @@ zh-HK:
     today: ~
     clear: ~
     format: ~
-  time:
-    formats:
-      short: "%e %b %Y %I:%M%p"
-      shorter: "%e %b %Ｈ:%M"
-      short_date: ~
-      hours_only: "%H:%M"
-  timestamps:
-    day_ago: "%{count} 天前"
-    days_ago: "%{count} 天前"
-    hour_ago: "%{count} 小時前"
-    hours_ago: "%{count} 小時前"
-    minute_ago: "%{count} 分鐘前"
-    minutes_ago: "%{count} 分鐘前"
-    month_ago: "%{count} 月前"
-    months_ago: "%{count} 月前"
-    seconds_ago: "%{count} 秒前"
-    year_ago: "%{count} 年前"
-    years_ago: "%{count} 年前"
-    days_since:
-      other: "%{count}天前"
+  unit:
+    day: ~
+    days: ~
+  paypal_accounts:
+    payout_info_title: 接受資金
+    paypal_account_email_connected: "完成<del>連接 PayPal 帳號</del>！"
+    paypal_billing_agreement_made: "<del>完成授權%{service_name}收取交易費</del> ！"
+    new:
+      payout_info_text: 請完成下列兩個步驟来連接你的帳號
+      paypal_account_email: "連接你的 PayPal 帳號"
+      paypal_account_email_placeholder: "你的 PayPal 電郵地址"
+      paypal_account_email_info_text: "如果你沒有PayPal帳號，你可以用%{create_paypal_account}來建立一個。如果你在連接PayPal帳號時遇到錯誤訊息，那你需要升級到商業帳號。升級過程免費且快捷。如果你是個人用戶，你只需要在PayPal詢問”商業名稱“時填入姓名。要升級帳號，請通過%{upgrade_paypal_account}查找升級鏈結。"
+      create_paypal_account: 請按這裡
+      upgrade_paypal_account: 登入你的PayPal帳號
+      connect_paypal_account: 連接你的PayPal帳號
+      paypal_account_billing_agreement: "授權%{service_name}收取交易費"
+      billing_agreement: 授予權限
+      permissions_not_granted: 没有得到Paypal授權連接帳號
+      could_not_fetch_redirect_url: 未能獲得重新連接到PayPal的連結。
+      paypal_not_enabled: 不能使用PayPal付款。
+      billing_agreement_description: "授權%{service_name}收取交易費用。"
+      billing_agreement_canceled: 已取消賬單
+      something_went_wrong: 發生錯誤，請再試一次。如果這個問題仍然存在，請聯絡網站管理員。
+      payout_info_you_need_to_connect: "為接收款項，你需要連接你的PayPal帳戶到%{service_name}。"
+      admin_account_not_connected: "不能連接你的PayPal帳戶，因為%{service_name}並未設立付款。請%{contact_admin_link}以瞭解詳情。"
+      account_not_verified: 你還没有驗証你的PayPal帳號。請先登錄paypal.com並確認你的帳號方可繼續。
+      billing_agreement_not_accepted: 你沒有在PayPal接受賬單協議。
+      billing_agreement_wrong_account: PayPal賬號不正確。請使用初次在本站連結的相同PayPal賬號。
+      contact_admin_link_text: 聯絡管理員
+      account_restricted: 你的PayPal帳號受到限制且不能被連接。請登錄paypal.com以了解更多或聯繋PayPal的客户服務解决問題。
+      paypal_account_billing_agreement_info_both: "當你在%{service_name}完成一個交易後，服務費（%{commission_from_seller}的商品總價，不包括運費，最少的費用為%{minimum_commission}）將從你的Paypal賬號中扣除。要在%{service_name}中接受付款，你必須允許收取此費用。該費用不包括%{paypal_info_link}。"
+      paypal_account_billing_agreement_info_fixed: "當你在%{service_name}完成一個交易後，服務費%{minimum_commission}將從你的PayPal帳號中扣除。要在%{service_name}中接受付款，你必須允許收取此費用。該費用不包括%{paypal_info_link}。"
+      paypal_account_billing_agreement_info_relative: "當你在%{service_name}完成一個交易後，服務費（%{commission_from_seller}的商品總價，不包括運費）將從你的Paypal賬號中扣除。要在%{service_name}中接受付款，你必須允許收取此費用。該費用不包括%{paypal_info_link}"
+      paypal_info_link_text: PayPal的款項處理費
+      follow_steps: 使用以下的步驟開始接收資金：
+      connect_paypal_account_title: 連接你的PayPal帳號
+      connect_paypal_account_title_with_step: "步驟%{current_step}/%{total_steps}：連接你的PayPal帳戶"
+      connect_paypal_account_instructions: "使用以下按鈕登入PayPal，及連接你的PayPal帳戶至%{service_name}。"
+      paypal_account_billing_agreement_with_step: "步驟%{current_step}/%{total_steps}：授權支取交易費用"
+      paypal_account_billing_agreement_info_none: "%{service_name}現沒有收取服務費。如果啓用了服務費，你接收款項時將需要允許%{service_name}來收取服務費。該費用不包括%{paypal_info_link}。"
+    commission: "%{commission}%"
+    you_are_ready_to_accept_payments: 你可隨時接收款項！
+    connected_account: "已成功連結PayPal帳戶%{email}。"
+    missing: "你有開放的訊息，但是並沒有連接你的PayPal帳戶以接收款項。通過你的%{settings_link}來連接你的Paypal帳戶並授權%{service_name}來收取交易的費用。"
+    from_your_payment_settings_link_text: 付款設置
+    change_account: 更改帳戶
+    redirect_message: "將重新導向至PayPal。若沒有任何事情發生，請按%{redirect_link}。"
+    redirect_link_text: 這裡
+    payout_info_paypal: "%{service_name}使用PayPal作為他們的付款系統。你需要%{create_paypal_account_link}來接收從你交易所得的款項，以及必需連接至%{service_name}。"
+    commission_permission_needed: "你需要授權%{service_name}向你支取交易費用。"
+    create_paypal_account_link_text: PayPal帳戶
+    paypal_receive_funds_info_label: 你的PayPal帳戶必需能夠接收款項。這或者需要一個高級帳戶。
+    paypal_receive_funds_info: "當你嘗試連接你的帳戶至%{service_name}時發生錯誤，請按%{upgrade_paypal_account_link}升級你的PayPal帳戶。這個過程是簡單且免費的。假如你以個人身份使用PayPal，我們提議你使用你的個人姓名作商業登記。"
+    upgrade_paypal_account_link_text: 登入及前往升級
+    admin_account_not_connected: "因為未設立款項，未能使用%{service_name}的付款系統以接收款項。請聯絡%{contact_admin_link}以瞭解詳情。"
+    contact_admin_link_text: 聯絡網站管理員
+    paypal_account_connected_title: 已成功連結PayPal帳戶
+    paypal_account_connected: "%{email}的PayPal帳戶已連接至%{service_name}。"
+    paypal_account_all_set_up: 太好了！一切已經搞定了！
+    can_receive_payments: 你現在可以接受來自你的交易的款項。
+    paypal_account_connected_summary: "已成功連結PayPal帳戶%{email}。"
+    paypal_permission_granted_summary: 已授權收取交易費
+    paypal_receive_funds_info_label_australia_only: 你的PayPal帳戶必需能夠接收款項。這或者需要一個高級帳戶或商業帳戶。
+    paypal_receive_funds_info_australia_only: ~
+    not_now: ~
+  paypal:
+    checkout_with_paypal: 用PayPal结帳
+    cancel_succesful: 已成功取消PayPal付款
+    transaction:
+      commission_payment_name: "%{listing_title}的佣金"
+      commission_payment_description: "%{service_name}在%{listing_title}的交易中收取了佣金"
+    wait_while_loading: ~
+    chatting_with_paypal: 我們正與PayPal聯繋。
+    pay_with_paypal: 繼續付款
+    checkout_with: ~
+    or_pay_with_paypal: ~
+  shipping_address:
+    shipping_address: ~
   transactions:
     initiate:
-      booked_days: ~
-      booked_nights: ~
-      price_per_day: ~
-      price_per_night: ~
-      price_per_hour: ~
-      price_per_unit: ~
-      quantity: ~
       subtotal: ~
       shipping-price: ~
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
+      booked_nights: ~
+      price_per_night: ~
       stripe-fee: ~
+      price_per_hour: ~
+      price_per_unit: ~
       start_end_time: ~
     price_per_quantity: ~
     price: "總共:"
@@ -3061,52 +3058,25 @@ zh-HK:
     unit_price: ~
     total: "總共:"
     total_to_pay: ~
-  unit:
-    day: ~
-    days: ~
-  web:
-    listings:
-      errors:
-        availability:
-          something_went_wrong: ~
-          saving_failed: ~
-        working_hours:
-          required: ~
-          overlaps: ~
-          covers: ~
-      pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
-      working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
-        add_another_time_slot: ~
-        save: ~
-    no_listings:
-      sorry: ~
-      try_other_search_terms: ~
-    listing_card:
-      add_picture: ~
-      no_picture: ~
-    search:
-      page: ~
-      page_of_pages: ~
-    topbar:
-      menu: ~
-      more: ~
+  mercury:
+    content_too_long: ~
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
       search_placeholder: ~
       search_location_placeholder: ~
+    listings:
+      no_listing_image: ~
+  web:
+    topbar:
+      search_placeholder: ~
+      menu: ~
       user: ~
       inbox: ~
       profile: ~
@@ -3117,29 +3087,59 @@ zh-HK:
       signup: ~
       admin_dashboard: 管理員控制台
       language: ~
+      more: ~
+      search_location_placeholder: ~
       listings: ~
-    utils:
-      km: ~
-      mi: ~
     branding:
       powered_by: ~
       create_own: ~
       learn_more: ~
-  will_paginate:
-    models:
-      person:
-        zero: 用戶
-        other: 用戶
-    previous_label: "&#8592;上一頁"
-    next_label: "下一頁 &#8594;"
-    page_gap: ~
-    page_entries_info:
-      multi_page: "顯示 %{model} %{from} - %{to} 總共 %{count} 个"
-      multi_page_html: "顯示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> 總共 <b>%{count}</b> 個"
-    person:
-      community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+    listing_card:
+      no_picture: ~
+      add_picture: ~
+    utils:
+      km: ~
+      mi: ~
+    listings:
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
+        working_hours:
+          required: ~
+          overlaps: ~
+          covers: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
+    search:
+      page: ~
+      page_of_pages: ~
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~
@@ -3147,38 +3147,23 @@ zh-HK:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
-    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
     stripe_credit_card: ~
     paypal: ~
     paypal_connected: ~
-    paypal_can_accept: ~
     paypal_connected_give_permission: ~
-    stripe_account_restricted: ~
-    stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
-    stripe_account_pending_verification: ~
-    stripe_account_pending_verification_info: ~
     form_new:
       need_info: ~
       select_country: ~
       legal_name: ~
-      first_name: ~
-      last_name: ~
-      first_name_kana: ~
-      last_name_kana: ~
-      first_name_kanji: ~
-      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
-      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~
@@ -3187,9 +3172,15 @@ zh-HK:
       save_details: ~
       edit: ~
       cancel: ~
+      first_name: ~
+      last_name: ~
+      address_province: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       gender: ~
       phone_number: ~
-      phone_info_text: ~
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~
@@ -3202,16 +3193,13 @@ zh-HK:
       address_kanji_line1: ~
       male: ~
       female: ~
+      phone_info_text: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
       bank_routing_1: ~
       bank_routing_2: ~
       bank_currency: ~
-      update_also_bank_account: ~
-      bank_account_same_country: ~
-      bank_country: ~
-      bank_holder_name: ~
       messages:
         account_number: ~
         routing_number: ~
@@ -3228,29 +3216,39 @@ zh-HK:
         a_dash: ~
         digits: ~
         digits_or_chars: ~
+      update_also_bank_account: ~
+      bank_account_same_country: ~
+      bank_country: ~
+      bank_holder_name: ~
     form_verification:
       personal_id_number: ~
       document: ~
-      document_back: ~
       send_verification: ~
       need_verification: ~
       additional_document: ~
+      document_back: ~
       additional_document_back: ~
       files_need_to_be: ~
+    card_not_stored: ~
+    paypal_can_accept: ~
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
-      ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
-      mexico_id_number: ~
       messages:
         social_insurance_number: ~
+      ssn_last_4: ~
+      mexico_id_number: ~
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
   payment_settings:
     title: ~
-    bank_account: ~
     paypal: ~
-    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~
@@ -3258,16 +3256,18 @@ zh-HK:
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~
+    bank_account: ~
+    bank_account_details: ~
   seo_sections:
     you_can_use_variables: ~
     placeholder:
       search_results: ~
       search_results_for: ~
       listing_description: ~
-      listing_description_without_price: ~
       category_description: ~
       profile_title: ~
       profile_description: ~
+      listing_description_without_price: ~
   activemodel:
     attributes:
       landing_page_version/section/base:
