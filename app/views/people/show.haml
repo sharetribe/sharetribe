@@ -27,8 +27,8 @@
       - elsif current_user?(person)
         %a{href: person_settings_path(person)}
           .icon-with-text-container
-            .ss-chat.icon-part
-            .ss.text-part= t(".add_description")
+            = icon_tag("chat_bubble", ["icon-part"])
+            .text-part= t(".add_description")
 
     - if @service.community_person_custom_fields.any?
       -  @service.community_person_custom_fields.each do |custom_field|
