@@ -67,6 +67,7 @@ module Sharetribe
     {ident: "sl", name: "Slovenščina", language: "sl", region: "SI", fallback: nil}, # Slovenian
     {ident: "sw", name: "Kiswahili", language: "sw", region: "KE", fallback: nil}, # Swahili (Kenya)
     {ident: "ti", name: "Tigrinya", language: "ti", region: "ER", fallback: nil}, # Tigrinya
+    {ident: "uk", name: "Yкраї́нська", language: "uk", region: "UA", fallback: nil}, # Ukrainian (Ukraine)
     {ident: "zh-HK", name: "繁體中文(香港澳門)", language: "zh", region: "HK", fallback: "zh"} # Chinese (Hong Kong)
   ]
 
