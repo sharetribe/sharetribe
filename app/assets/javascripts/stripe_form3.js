@@ -133,6 +133,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
         last_name_kana: getValue('last_name_kana'),
         first_name_kanji: getValue('first_name_kanji'),
         last_name_kanji: getValue('last_name_kanji'),
+        email: getValue('email'),
         phone: getValue('phone')
       };
       if (!options.update) {

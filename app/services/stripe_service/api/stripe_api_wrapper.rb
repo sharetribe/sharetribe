@@ -93,6 +93,7 @@ class StripeService::API::StripeApiWrapper
         data[:requested_capabilities] = ['card_payments', 'transfers']
         data[:business_profile] = {
           mcc: DEFAULT_MCC,
+          product_description: "#{account_info[:first_name]} #{account_info[:last_name]}",
           url: account_info[:url]
         }
         data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)

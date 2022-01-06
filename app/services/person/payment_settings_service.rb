@@ -46,6 +46,7 @@ class Person::PaymentSettingsService
       if result[:success]
         presenter.reload_from_stripe
       else
+        presenter.stripe_seller_account[:address_country] = presenter.stripe_account_form.address_country
         @stripe_error = true
         @stripe_error_message = result[:error_msg]
       end
