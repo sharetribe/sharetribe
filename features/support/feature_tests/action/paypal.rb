@@ -98,7 +98,7 @@ module FeatureTests
 
         # Transaction conversation page
         expect(page).to have_content("Waiting for you to mark the order completed")
-        page.click_link("accepted the request, received payment for")
+        page.click_link("accepted the request, received payment")
         page.click_link("Mark completed")
 
         choose("Skip feedback")

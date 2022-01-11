@@ -28,7 +28,7 @@ Feature: Inbox list of transactions
     And there is a "preauthorized" transaction from "kassi_testperson2" with message "Swinging For the Fences" about that listing
     Given I am logged in as "kassi_testperson2"
     When I go to the messages page
-    Then I should see "Payment authorized: €100"
+    Then I should see "Payment authorized"
     Then I should see "About listing car spare parts"
     Then I should see "Waiting for Kassi T to accept the request. As soon as Kassi T accepts, you will be charged"
 
@@ -40,7 +40,7 @@ Feature: Inbox list of transactions
     And there is a "preauthorized" transaction from "kassi_testperson2" with message "When the Rubber Hits the Road" about that listing
     Given I am logged in as "kassi_testperson2"
     When I go to the messages page
-    Then I should see "Payment authorized: €4.65"
+    Then I should see "Payment authorized"
     Then I should see "About listing Massage"
     Then I should see "Waiting for Kassi T to accept the request. As soon as Kassi T accepts, you will be charged."
 
@@ -57,7 +57,7 @@ Feature: Inbox list of transactions
     And there is a "preauthorized" transaction from "kassi_testperson2" with message "Swinging For the Fences" about that listing
     Given I am logged in as "kassi_testperson1"
     When I go to the messages page
-    Then I should see "Payment authorized: €100"
+    Then I should see "Payment authorized"
     Then I should see "About listing car spare parts"
     Then I should see "Waiting for you to accept the request"
 
@@ -69,7 +69,7 @@ Feature: Inbox list of transactions
     And there is a "preauthorized" transaction from "kassi_testperson2" with message "When the Rubber Hits the Road" about that listing
     Given I am logged in as "kassi_testperson1"
     When I go to the messages page
-    Then I should see "Payment authorized: €4.65"
+    Then I should see "Payment authorized"
     Then I should see "About listing Massage"
     Then I should see "Waiting for you to accept the request"
 

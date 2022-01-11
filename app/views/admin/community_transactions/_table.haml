@@ -50,7 +50,10 @@
               = link_to status, admin_community_transaction_path(id: transaction.id)
           - else
             = status
-        %td=transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ""
+        - if @transactions_presenter.personal?
+          %td=transaction.payment_total_personal(@current_user) ? MoneyViewUtils.to_humanized(transaction.payment_total_personal(@current_user)) : ""
+        - else
+          %td=transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ""
         %td=l(transaction.created_at, format: :short_date)
         %td=l(transaction.last_activity, format: :short_date)
         %td=Maybe(transaction.starter).map { |p| link_to_unless(p.deleted, PersonViewUtils.person_display_name(p, @current_community),person_path(p.username)) }.or_else("")
