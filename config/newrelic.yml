@@ -78,7 +78,7 @@ common: &default_settings
   browser_monitoring:
       # By default the agent automatically injects the monitoring JavaScript
       # into web pages. Set this attribute to false to turn off this behavior.
-      auto_instrument: true
+      auto_instrument: false
 
   # Proxy settings for connecting to the service.
   #
