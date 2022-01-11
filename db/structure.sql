@@ -262,7 +262,7 @@ CREATE TABLE `communities` (
   `stylesheet_needs_recompile` tinyint(1) DEFAULT '0',
   `service_logo_style` varchar(255) DEFAULT 'full-logo',
   `currency` varchar(3) NOT NULL,
-  `facebook_connect_enabled` tinyint(1) DEFAULT '1',
+  `facebook_connect_enabled` tinyint(1) DEFAULT '0',
   `minimum_price_cents` int(11) DEFAULT NULL,
   `hide_expiration_date` tinyint(1) DEFAULT '1',
   `facebook_connect_id` varchar(255) DEFAULT NULL,
@@ -2488,6 +2488,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20201221132459'),
 ('20210108111345'),
 ('20210129114823'),
-('20210517131520');
+('20210517131520'),
+('20211124070123');
 
 

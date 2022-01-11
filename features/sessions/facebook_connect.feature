@@ -6,6 +6,7 @@ Feature: Facebook connect
 
   Background:
     Given provider "facebook" is mocked
+    And community "test" has facebook app configured
 
   @javascript
   Scenario: Facebook connect first time, with same email in Sharetribe DB

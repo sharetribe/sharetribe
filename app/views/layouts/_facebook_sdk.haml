@@ -3,7 +3,7 @@
 window.fbAsyncInit = function() {
 // init the FB JS SDK
 FB.init({
-appId      : '#{Maybe(@current_community).facebook_connect_id.or_else(APP_CONFIG.fb_connect_id)}', // Community App ID if availble or else the one from the app dashboard
+appId      : '#{Maybe(@current_community).facebook_connect_id.or_else('')}', // Community App ID if availble or else the one from the app dashboard
 channelUrl : '//#{@current_community ? @current_community.full_domain : "www." + APP_CONFIG.domain}/channel.html', // Channel file for x-domain comms
 status     : false,                                 // Check Facebook Login status
 xfbml      : true,                                  // Look for social plugins on the page
