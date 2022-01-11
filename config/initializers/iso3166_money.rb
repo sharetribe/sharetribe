@@ -1,0 +1,1 @@
+ISO3166.configuration.enable_currency_extension!
