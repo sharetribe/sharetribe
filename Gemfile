@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.6.5'
+ruby '2.7.5'
 
 gem 'rails', '5.2.6'
 
@@ -8,7 +8,7 @@ gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier', '~> 3.2.0'
 
 gem 'sass-rails', '~> 5.0.6'
-gem 'compass-rails', '~> 3.0.2'
+gem 'compass-rails', '~> 4.0.0'
 
 gem 'jquery-rails', '~> 4.3.1'
 
@@ -181,8 +181,9 @@ gem 'memoist'
 gem 'biz'
 gem 'ffi', '>= 1.9.25'
 gem 'rubyzip', '~> 1.3.0'
-gem 'bootsnap', require: false
+gem 'bootsnap', '~> 1.4.5', require: false
 gem "select2-rails"
 gem "cocoon"
 gem "fast-polylines"
 gem "codemirror-rails"
+gem 'rb-inotify', '~> 0.10'
