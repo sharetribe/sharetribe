@@ -2737,8 +2737,8 @@ ka:
         other: "%{service_name}-ზე შესვლა არძალულია. დასარეგისტრირებლად გჭირდებათ %{allowed_emails} ელ. ფოსტა."
       family_name: გვარი
       given_name: სახელი
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "ვეთანხმები %{terms} და %{privacy}"
+      admin_emails_consent: "თანახმა ვარ, მივიღო პერიოდული ელ.წერილი %{service_name} ის გუნდისგან და მესმის, რომ ნებისმიერ დროს შემიძლია აზრის შეცვლა"
       invalid_invitation_code: "მოწვევის კოდი არ არის სწორი"
       invitation_code: "მოწვევის კოდი"
       not_required: "არ არის მოთხოვნილი"
