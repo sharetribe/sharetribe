@@ -3,7 +3,6 @@ require:
   - rubocop-rails
 
 inherit_from: .rubocop_todo.yml
-inherit_from: .rubocop_rails.yml
 
 # Double negation is the most convenient way in Ruby to convert any value to boolean. Allow the use of it.
 DoubleNegation:
