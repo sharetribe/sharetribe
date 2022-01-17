@@ -114,7 +114,7 @@ group :staging, :production do
 end
 
 group :development, :test do
-  gem 'rubocop', '~> 0.67.2', require: false
+  gem 'rubocop', '~> 1.24', require: false
   gem 'factory_girl_rails', '~> 4.8.0'
 end
 
@@ -133,7 +133,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.16.2'
+  gem 'capybara', '~> 3.36'
   gem "rspec-rails", '~> 3.8.2'
 
   gem 'cucumber-rails', '~> 1.6.0', require: false # require: false is needed for cucumber-rails
