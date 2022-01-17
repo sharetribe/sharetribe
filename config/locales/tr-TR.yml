@@ -1552,8 +1552,8 @@ tr-TR:
       or_paste_link: "Ya da aşağıdaki linki tarayıcınızın adres çubuğuna kopyalayabilirsiniz."
     confirmation_instructions_v2:
       headline: "%{service_name} pazar yerine katılmak için e-posta adresinizi onaylayın!"
-      need_to_confirm: "%{service_name} hesabınızı oluşturmak için e-posta adresinizi doğrulayın. Aşağıdaki düğmeye basmanız yeterli!"
-      confirmation_link_text: ~
+      need_to_confirm: "%{service_name} hesabınızın tamamlanması için aşağıdaki butonu tıklamanız yeterli!"
+      confirmation_link_text: "Email adresini doğrulayın"
     common:
       hey: "Merhaba %{name}"
       hi: "Merhaba %{name},"
@@ -2200,7 +2200,7 @@ tr-TR:
       account_creation_successful: "%{person_name}, %{service_name} platformuna hoş geldin!"
       account_deleted: "Hesabınız silindi."
       login_successful: "Hoş geldin, %{person_name}!"
-      logout_successful: "%{service_name} platformundan başarıyla çıkış yaptınız. Yeniden bekleriz!"
+      logout_successful: "%{service_name} pazar yerinden başarıyla çıkış yaptınız. Yeniden bekleriz!"
       news_item_created: "Metin oluşturuldu"
       news_item_creation_failed: "Metin oluşturma başarısız oldu"
       news_item_update_failed: "Metin güncellemesi başarısız oldu"
@@ -2492,8 +2492,8 @@ tr-TR:
       accept_for_frees: "Ücretsiz olarak kabul etmek"
       trades: "Değiş tokuş etmek"
     listing_actions:
-      booking_from: "Giriş tarihi"
-      booking_to: "Çıkış tarihi"
+      booking_from: "Giriş: ay/gün/yıl"
+      booking_to: "Çıkış: ay/gün/yıl"
       how_paypal_works: "PayPal Nasıl Çalışır"
       payment_help: "Ödeme yardımı"
       unable_load_availability: "Kullanılabilirlik bilgileri yüklenemedi. Lütfen daha sonra tekrar deneyiniz"
@@ -2643,7 +2643,7 @@ tr-TR:
     connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: "PayPal hesabınız ödeme kabul ediyor olmalıdır. PayPal ticari hesabı gerekebilir."
-    paypal_receive_funds_info_australia_only: "Hesabınızı %{service_name} 'a bağlamaya çalışırken bir hata görürseniz ya da %{upgrade_paypal_account_link} 'e veyahut (eğer şahıs iseniz), yeni bir Premier hesabı oluşturun. Her iki hesap türü de tamamen ücretsizdir."
+    paypal_receive_funds_info_australia_only: "Hesabınızı %{service_name} pazar yerine bağlamaya çalışırken bir hata görürseniz ya da %{upgrade_paypal_account_link} 'e veyahut (eğer şahıs iseniz), yeni bir Premier hesabı oluşturun. Her iki hesap türü de tamamen ücretsizdir."
     paypal_receive_funds_info: "Hesabınızı %{service_name} pazar yerine bağlamaya çalışırken bir hata görürseniz %{upgrade_paypal_account_link} Ücretsiz ve kolaydır. Şahıs iseniz, PayPal adınızı İşletme adı olarak kullanmanız önerilir."
     upgrade_paypal_account_link_text: "oturum açın ve PayPal hesabınızı bir işletme hesabına yükseltin"
     admin_account_not_connected: ~
@@ -2731,14 +2731,14 @@ tr-TR:
       family_name: Soyad
       given_name: Ad
       i_accept_the_terms_and_privacy: "%{terms} ve %{privacy}  kabul ediyorum"
-      admin_emails_consent: "%{service_name} ekibinden aldığım hizmetle alakalı e-mailler alabileceğimi kabul ediyorum ve iletişim iznimi istediğim zaman değiştirebileceğimi anladım."
+      admin_emails_consent: "%{service_name} ekibinden ara sıra e-posta almayı kabul ediyorum ve fikrimi istediğim zaman değiştirebileceğimi anladım"
       invalid_invitation_code: "Davet kodu geçerli değil."
       invitation_code: "Davet kodu"
       not_required: ", gerekmemektedir"
       notification_is_mandatory: "Bildirimleri almak için en az 1 email adresi belirtmelisiniz. Eğer %{service_name} bildirimlerini almak istemiyorsanız email bildirim ayarlarınızı kontrol edin."
       password_again: "Şifreyi doğrula"
       show_my_name_to_others: "Diğer %{service_name} kullanıcılarına gerçek adımı göster"
-      sign_up: "Yeni %{service_name} hesabı oluştur."
+      sign_up: "Yeni bir %{service_name} hesabı oluştur"
       terms: "Kullanım Koşulları"
       privacy: "Gizlilik politikası"
       visible_only_to_you: "yalnızca siz ve %{service_name} yöneticisi görebilir"
@@ -2803,7 +2803,7 @@ tr-TR:
       create_new_account: "Yeni hesap oluştur"
       i_forgot_my_password: "Kullanıcı adımı ya da şifremi unuttum"
       login: "Oturum aç"
-      login_to_kassi: "%{service_name} platformuna giriş yap."
+      login_to_kassi: "%{service_name} pazar yerine giriş yap"
       connect_your_facebook_to_kassi: "Facebook hesabınızı %{service_name} pazar yerine bağlayın"
       facebook_account: "Facebook hesabı:"
       log_in_to_link_account: "Eğer %{service_name} hesabınız varsa, Facebook hesabınıza bağlamak için giriş yapın."
@@ -2822,11 +2822,11 @@ tr-TR:
     confirmation_pending:
       welcome_to_kassi: "%{service_name} pazar yerine hoş geldiniz!"
       check_your_email: "Gelen kutunuzu kontrol edin"
-      resend_confirmation_instructions: "Doğrulama yönergelerini tekrar gönder"
+      resend_confirmation_instructions: "Doğrulama için e-postayı tekrar gönder"
       your_current_email_is: "E-posta adresiniz: %{email}"
       change_email: Değiştir
       confirm_your_email: "Email adresinizi doğrulayın"
-      account_confirmation_instructions: "Birkaç dakika içinde girdiğiniz email adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, %{service_name} pazar yerine katılabilirsiniz."
+      account_confirmation_instructions: "Birkaç dakika içerisinde girdiğiniz e-mail adresini doğrulamanız için bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, %{service_name} pazar yerine katılabilirsiniz"
       account_confirmation_instructions_title_admin: "E-posta adresinizi doğrulayın"
       before_full_access_you_need_to_confirm_email: "Pazarınıza bütünüyle erişim sağlamadan önce tamamlamanız gereken bir adım daha bulunuyor: e-posta adresinizi doğrulamanız."
       before_confirmation_only_access_admin_dashboard: "Doğrulamadan önce yalnızca %{admin_dashboard_link} kısmına erişebilirsiniz."

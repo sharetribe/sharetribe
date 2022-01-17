@@ -1358,7 +1358,7 @@ pt-BR:
       message_content_not_available: "O conteúdo da mensagem não está disponível"
     message:
       accepted_request: "aceitou o pedido"
-      received_payment: ~
+      received_payment: "Pedido aceito, pagamento recebido"
       received_payment_wo_sum: "aceitou o pedido, recebeu o pagamento"
       accepted_offer: "aceitou a oferta"
       rejected_request: "rejeitou o pedido, cancelou o pagamento"
@@ -1368,11 +1368,11 @@ pt-BR:
       canceled_request: "cancelou o pedido"
       canceled_offer: "cancelou a oferta"
       paid: "pago %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Pagamento autorizado"
       payment_preauthorized_wo_sum: "Pagamento autorizado"
       stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
+        held_payment: "Pedido aceito. Pagamento está sendo mantido por %{service_name} até que a ordem seja marcada como concluída."
+        held_payment_wo_sum: "Pedido aceito. Pagamento está sendo mantido por %{service_name} até que a ordem seja marcada como concluída."
         confirmed_request: "O pedido foi setado como concluído. O pagamento foi transferido para a conta bancária de %{author_name} ou será transferido em breve."
       canceled_the_order: "Pedido contestado. A equipe %{service_name} foi notificada."
       marked_as_refunded: "Marcado como reembolsado"
