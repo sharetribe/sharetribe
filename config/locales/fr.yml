@@ -1215,7 +1215,7 @@ fr:
         status: "Statut :"
         next_step: "Etape suivante :"
         waiting_for_provider_accept_or_reject: "En attente de l'acceptation ou rejet de la requête par %{provider}."
-        waiting_for_fulfill_and_complete: "En attente de la réalisation par %{provider} de la commande pour %{listing_title} et de la confirmation par %{buyer}."
+        waiting_for_fulfill_and_complete: "En attente de la réalisation de la commande relative à %{listing_title} par %{provider} et de la confirmation par %{buyer}."
         buyer: "Acheteur :"
         provider: "Vendeur :"
         delivery: "Mode de livraison :"
@@ -1428,7 +1428,7 @@ fr:
           verify: "Vous ne pouvez accepter cette transaction car vous n'avez pas vérifié votre compte PayPal. Rendez-vous sur %{paypal_url} pour vérifier votre compte."
           intl: "Nous n'avons pu traiter votre paiement PayPal car votre compte PayPal ne dispose pas d'un système d'annulation. Rendez-vous sur %{paypal_url} et connectez-vous à votre compte pour accepter ou rejeter manuellement le paiement."
       waiting_for_current_user_to_deliver_listing: "En attente de votre réalisation de la commande relative à %{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: "En attente de %{listing_author_name} de la réalisation de la commande relative à %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "En attente de la réalisation de la commande relative à %{listing_title} par %{listing_author_name}"
       request_accepted: Acceptée
       request_rejected: Refusée
       request_confirmed: Terminée
@@ -1460,8 +1460,8 @@ fr:
       dismissed: "Contestation écartée"
       order_refunded: "Commande marquée comme remboursée. L'équipe %{service_name} a approuvé votre contestation."
       you_should_receive_refund_soon: "Vous devriez recevoir un remboursement très bientôt."
-      issue_with_the_refund: "Un souci ? Un problème avec le remboursement ?%{contact_link}."
-      do_you_disagree: "Un souci ? Un désaccord ?%{contact_link}."
+      issue_with_the_refund: "Un souci ? Un problème avec le remboursement ? %{contact_link}."
+      do_you_disagree: "Un souci ? Un désaccord ? %{contact_link}."
       contact_the_marketpalce_team: "Contacter l'équipe %{service_name}"
       order_cancellation_dismissed: "Contestation écartée. L'équipe %{service_name} a rejeté votre contestation."
     status_link:

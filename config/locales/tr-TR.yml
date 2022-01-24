@@ -1511,7 +1511,7 @@ tr-TR:
       payment_settings_link: "ödeme ayarları"
     payment_settings_reminder_v2:
       fill_payout_details: ~
-      you_have_added_listing_with_payment: ~
+      you_have_added_listing_with_payment: "Ödemeli bir ilan eklediniz %{listing_link} Ödeme bilgilerinizin henüz girilmediğini fark ettik. Ödeme almanız için ödeme bilgi detaylarını girmeniz gerekmektedir."
     transaction_confirmed:
       here_is_a_message_from: "%{other_party_given_name} tarafından bir mesaj var:"
       request_marked_as_confirmed: "Talep tamamlandı - geri bildirim bırakmayı unutmayın"
@@ -1603,11 +1603,11 @@ tr-TR:
       has_commented_listing_you_follow_in_kassi: "%{author} %{service_name} üzerinde takip ettiğiniz %{listing} ilanına yorum yaptı."
     new_message:
       view_message: "Mesajı görüntüle"
-      has_sent_you_a_message_in_kassi: ~
+      has_sent_you_a_message_in_kassi: "%{sender} size bir mesaj gönderdi. Yanıtlamak için %{service_name} adresine gidin."
       you_have_a_new_message: ~
     new_message_v2:
       headline: "bir mesajın var!"
-      reply: ~
+      reply: "Cevaplamak için buraya tıklayın %{sender}"
     new_payment:
       new_payment: "Yeni bir ödeme aldınız"
       price_per_unit_type: "%{unit_type} başına fiyat"
@@ -1739,7 +1739,7 @@ tr-TR:
       welcome_to_marketplace: "%{service_name} pazar yerine hoş geldiniz! Sizi aramızda görmekten mutluyuz."
       love_marketplace_crew: "Sevgiler, <br /><i>%{service_name} ekibi</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "E-posta ayarlarınızı buradan düzenleyin"
     new_listing_by_followed_person:
       subject: "%{author_name} %{service_name} üzerinden yeni bir ilan yayınladı"
       has_posted_a_new_listing: "%{author_name} yeni bir ilan ekledi."
@@ -1750,7 +1750,7 @@ tr-TR:
       has_posted_a_new_listing: "%{author_name} yeni bir ilan ekledi:"
       you_are_receiving_this_because: "Bu e-postayı %{author_name} isimli kullanıcıyı takip ettiğiniz için aldınız."
       view_listing: "%{title} ilanına göz at"
-      cant_click: ~
+      cant_click: "Butonu tıklayamıyor musunuz? İşte size kolaylık olması için bağlantı:"
     new_ident_notification:
       subject: ~
       h1_body: ~
@@ -2282,8 +2282,8 @@ tr-TR:
       can_not_delete_email: "E-posta adresini kaldıramazsınız."
       user_does_not_have_email_to_delete: "Kaldırmaya çalıştığınız e-posta adresi mevcut değildir."
       email_deleted: "E-posta adresi kaldırıldı"
-      listing_author_payment_details_missing: "Bu ilanın sahibi ödeme bilgilerini eklemediği için şu an ödeme alamıyor. Lütfen ilan sahibine veya bize ulaşın."
-      listing_author_payment_details_missing_no_free: ~
+      listing_author_payment_details_missing: "Lütfen aşağıdaki 'İletişim' düğmesine basarak ilan sahibi ile iletişime geçin. Ödeme alabilmeleri için ödeme ayrıntılarını güncellemeleri gerekiyor."
+      listing_author_payment_details_missing_no_free: "Lütfen %{service_name} ekibiyle iletişime geçerek, ilan sahibinin ödeme alabilmesi için ödeme  detaylarını güncellemesini tavsiye etmelerini isteyin."
       images_are_processing: "Görseller yükleniyor. Kısa süre içinde görünecekler."
       automatically_logged_out_please_sign_in: "Otomatik olarak çıkış yaptınız. Lütfen tekrar giriş yapın."
       stripe_you_account_balance_is_not_0: ~
