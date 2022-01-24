@@ -1721,8 +1721,8 @@ en:
     community_updates_v2:
       headline: "check out the latest activity on %{service_name}."
       intro_paragraph:
-        one: "Here are some highlights that happened on %{service_name} during the past day."
-        other: "Here are some highlights that happened on %{service_name} during the past %{count} days."
+        one: "Here are some highlights from %{service_name} over the past day."
+        other: "Here are some highlights from %{service_name} over the past %{count} days."
     newsletter:
       hi: "Hi %{name},"
       newest_offers: "What people currently offer to others"
