@@ -7,7 +7,7 @@ Capybara.register_driver :selenium_chrome_headless do |app|
     "--disable-gpu" # https://developers.google.com/web/updates/2017/04/headless-chrome
   ].each { |arg| options.add_argument(arg) }
 
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options)
 end
 
 if false # rubocop:disable Lint/LiteralAsCondition
