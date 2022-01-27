@@ -1358,7 +1358,7 @@ en:
       message_content_not_available: "Message content not available"
     message:
       accepted_request: "accepted the request"
-      received_payment: "accepted the request, received payment for %{sum}"
+      received_payment: "accepted the request, received payment"
       received_payment_wo_sum: "accepted the request, received payment"
       accepted_offer: "accepted the offer"
       rejected_request: "rejected the request, canceled the payment"
@@ -1368,10 +1368,10 @@ en:
       canceled_request: "canceled the order"
       canceled_offer: "canceled the offer"
       paid: "paid %{sum}"
-      payment_preauthorized: "Payment authorized: %{sum}"
+      payment_preauthorized: "Payment authorized"
       payment_preauthorized_wo_sum: "Payment authorized"
       stripe:
-        held_payment: "Accepted the request. Payment for %{sum} is being held by %{service_name} until the order is marked as completed."
+        held_payment: "Accepted the request. Payment is being held by %{service_name} until the order is marked as completed."
         held_payment_wo_sum: "Accepted the request. Payment is being held by %{service_name} until the order is marked as completed."
         confirmed_request: "Marked the order as completed. The payment has now been transferred to %{author_name} bank account or will be transferred soon."
       canceled_the_order: "Disputed the order. The %{service_name} team has been notified."
@@ -1721,8 +1721,8 @@ en:
     community_updates_v2:
       headline: "check out the latest activity on %{service_name}."
       intro_paragraph:
-        one: "Here are some highlights that happened on %{service_name} during the past day."
-        other: "Here are some highlights that happened on %{service_name} during the past %{count} days."
+        one: "Here are some highlights from %{service_name} over the past day."
+        other: "Here are some highlights from %{service_name} over the past %{count} days."
     newsletter:
       hi: "Hi %{name},"
       newest_offers: "What people currently offer to others"

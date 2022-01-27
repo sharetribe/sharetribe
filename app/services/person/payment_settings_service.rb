@@ -106,8 +106,7 @@ class Person::PaymentSettingsService
       else
         @stripe_error = true
         @stripe_error_message = result[:error_msg]
-        presenter.stripe_seller_account[:bank_number_info] = (params[:stripe_bank_form].try(:[], :bank_account_number_common) ||
-                                                     params[:stripe_bank_form].try(:[], :bank_account_number))
+        presenter.stripe_seller_account[:bank_number_info] = params[:stripe_bank_form].try(:[], :bank_account_number)
       end
     else
       @stripe_error_message = bank_form.errors.messages.flatten.join(' ')
@@ -134,7 +133,7 @@ class Person::PaymentSettingsService
       }
       if form_params.present?
         result.merge!({
-          bank_account_number: parse_bank_account_number,
+          bank_account_number: form_params[:bank_account_number],
           bank_routing_number: parse_bank_routing_number,
           bank_routing_1: form_params[:bank_routing_1],
           bank_routing_2: form_params[:bank_routing_2]
@@ -144,24 +143,12 @@ class Person::PaymentSettingsService
     end
 
     def parse_bank_routing_number
-      if bank_country == 'NZ'
-        bank_number, bank_branch, = form_params[:bank_account_number_common].split('-')
-        "#{bank_number}#{bank_branch}"
-      elsif bank_country == 'JP'
+      if bank_country == 'JP'
         [form_params[:bank_routing_1], form_params[:bank_routing_2]].join('')
       elsif form_params[:bank_routing_1].present?
         [form_params[:bank_routing_1], form_params[:bank_routing_2]].join("-")
       else
         form_params[:bank_routing_number]
-      end
-    end
-
-    def parse_bank_account_number
-      if bank_country == 'NZ'
-        _, _, account, sufix = form_params[:bank_account_number_common].split('-')
-        "#{account}#{sufix}"
-      else
-        form_params[:bank_account_number]
       end
     end
 

@@ -15,18 +15,11 @@
       = form.label :bank_routing_number, t("stripe_accounts.form_bank.bank_routing_number")+"*"
       = form.text_field :bank_routing_number, class: 'required', country_regexp: 'routing_number',
         'stripe-bank-account-ready': stripe_account_ready
-  .row.bank-account-number.country-dependent{"data-country-except" => "NZ"}
+  .row.bank-account-number
     .col-12
       = form.label :bank_account_number, t("stripe_accounts.form_bank.bank_account_number")+"*"
       = form.text_field :bank_account_number, class: 'required',
         value: presenter.stripe_seller_account[:bank_number_info] || form.object.bank_account_number,
-        country_regexp: 'account_number',
-        'stripe-bank-account-ready': stripe_account_ready
-  .row.bank-account-number.country-dependent{"data-country-only" => "NZ"}
-    .col-12
-      = form.label :bank_account_number_common, t("stripe_accounts.form_bank.bank_account_number")+"*"
-      = form.text_field :bank_account_number_common, class: 'required',
-        value: presenter.stripe_seller_account[:bank_number_info] || form.object.bank_account_number_common,
         country_regexp: 'account_number',
         'stripe-bank-account-ready': stripe_account_ready
   - if stripe_account_ready

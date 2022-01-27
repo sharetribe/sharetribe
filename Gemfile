@@ -68,7 +68,7 @@ gem 'mercury-rails',
   branch: 'master',
   ref: '1a9d4ac5a0a5fd0d459ff1986f9f05e617415b16'
 
-gem 'countries', '~> 2.0.8'
+gem 'countries', '~> 4.1.1', require: 'countries/global'
 gem "mail_view", '~> 2.0.4'
 gem 'statesman', '~> 7.1.0'
 gem "premailer-rails", '~> 1.10.3'

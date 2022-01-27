@@ -21,7 +21,10 @@ Feature: Admin configures social media details
   Then I should see "mycommunity" in the Twitter handle field
 
   Scenario: Admin adds facebook credentials
-  When I fill in "Facebook App ID" with "1234567890123456"
+  When I check "community_facebook_connect_enabled"
+  And I press submit
+  And I refresh the page
+  Then I fill in "Facebook App ID" with "1234567890123456"
   And I fill in "Facebook App Secret" with "c4ca4238a0b923820dcc509a6f75849b"
   And I press submit
   And I refresh the page
