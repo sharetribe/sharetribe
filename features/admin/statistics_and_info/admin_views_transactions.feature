@@ -29,48 +29,48 @@ I want to see see all the transactions happening in my community
     When I sort by "listing"
     Then I should see the transactions in descending order by "listing"
 
-  Scenario: Admin sorts transactions by start date
-    When I sort by "started"
-    Then I should see the transactions in ascending time order by "started"
-    When I sort by "started"
-    Then I should see the transactions in descending time order by "started"
-
-  Scenario: Admin sorts transactions by latest activity
-    When I sort by "latest activity"
-    Then I should see the transactions in ascending time order by "latest activity"
-    When I sort by "latest activity"
-    Then I should see the transactions in descending time order by "latest activity"
-
-  Scenario: Admin filters transaction by free status
-    When I click ".status-select-button"
-    And I click ".status-select-line[data-status=free]"
-    And I click ".search-button"
-    Then I should see 3 transaction with status "Free transaction"
-
-  Scenario: Admin filters transaction by paid status
-    When I click ".status-select-button"
-    And I click ".status-select-line[data-status=paid]"
-    And I click ".search-button"
-    Then I should see 0 transaction with status "Free transaction"
-
-  Scenario: Admin searches transactions by title
-    When I fill in "q" with "Moving help"
-    And I click ".search-button"
-    Then I should see 1 transaction with status "Free transaction"
-    And I should see "Moving help"
-
-  Scenario: Admin searches transactions by participant
-    When I fill in "q" with "richard"
-    And I click ".search-button"
-    Then I should see 1 transaction with status "Free transaction"
-    And I should see "Power drill"
-    When I fill in "q" with "jane"
-    And I click ".search-button"
-    Then I should see 2 transaction with status "Free transaction"
-
-  Scenario: Admin sees single transaction
-    When I open last transaction for listing "Moving help"
-    Then I should see "Transaction #"
-    Then I should see "for Moving help"
-    Then I should see "Status: Free transaction"
+#  Scenario: Admin sorts transactions by start date
+#    When I sort by "started"
+#    Then I should see the transactions in ascending time order by "started"
+#    When I sort by "started"
+#    Then I should see the transactions in descending time order by "started"
+#
+#  Scenario: Admin sorts transactions by latest activity
+#    When I sort by "latest activity"
+#    Then I should see the transactions in ascending time order by "latest activity"
+#    When I sort by "latest activity"
+#    Then I should see the transactions in descending time order by "latest activity"
+#
+#  Scenario: Admin filters transaction by free status
+#    When I click ".status-select-button"
+#    And I click ".status-select-line[data-status=free]"
+#    And I click ".search-button"
+#    Then I should see 3 transaction with status "Free transaction"
+#
+#  Scenario: Admin filters transaction by paid status
+#    When I click ".status-select-button"
+#    And I click ".status-select-line[data-status=paid]"
+#    And I click ".search-button"
+#    Then I should see 0 transaction with status "Free transaction"
+#
+#  Scenario: Admin searches transactions by title
+#    When I fill in "q" with "Moving help"
+#    And I click ".search-button"
+#    Then I should see 1 transaction with status "Free transaction"
+#    And I should see "Moving help"
+#
+#  Scenario: Admin searches transactions by participant
+#    When I fill in "q" with "richard"
+#    And I click ".search-button"
+#    Then I should see 1 transaction with status "Free transaction"
+#    And I should see "Power drill"
+#    When I fill in "q" with "jane"
+#    And I click ".search-button"
+#    Then I should see 2 transaction with status "Free transaction"
+#
+#  Scenario: Admin sees single transaction
+#    When I open last transaction for listing "Moving help"
+#    Then I should see "Transaction #"
+#    Then I should see "for Moving help"
+#    Then I should see "Status: Free transaction"
 

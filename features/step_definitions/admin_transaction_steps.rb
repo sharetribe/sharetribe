@@ -87,7 +87,7 @@ Then(/^I should see (\d+) transaction with status "(.*?)"$/) do |count, status_t
 end
 
 When(/^I sort by "(.*?)"$/) do |column|
-  find_column(column).find("a").click
+  find_column(column).click
 end
 
 Then(/^I should see the transactions in ascending order by "(.*?)"$/) do |column|

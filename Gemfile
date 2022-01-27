@@ -139,8 +139,9 @@ group :test do
   gem "rspec-rails", '~> 3.8.2'
 
   gem 'cucumber-rails', '~> 1.6.0', require: false # require: false is needed for cucumber-rails
+  gem 'cucumber', '3.1.2'
 
-  gem 'selenium-webdriver', '~> 3.141.0'
+  gem 'selenium-webdriver', '~> 4.1'
 
   # Launchy is needed by Capybara, e.g. save_and_open command needs Launchy to open a browser
   gem 'launchy', '~> 2.1'
@@ -156,7 +157,7 @@ group :test do
   gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: '56fe73dc420d161ecf9842739af7d857031ca1b2'
   gem 'poltergeist'
   gem 'puma'
-  gem 'webdrivers'
+  gem 'webdrivers', '~> 5.0'
 end
 
 group :development, :test do
