@@ -12,38 +12,6 @@ Feature: Admin lists members
     And "kassi_testperson1" has admin rights in community "test"
     And I am on the manage members admin page
 
-  @wip
-  Scenario: Admin views & sorts list of members
-    Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
-    When I sort by "Name"
-    Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
-    When I follow "Name"
-    Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
-    When I follow "Email"
-    Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
-    When I follow "Joined"
-    Then I should see list of users with the following details:
-      | Name               | Email               | Joined      | Posting allowed | Remove User |
-      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
-      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
-
   Scenario: Admin views member count
     Given there are 3 banned users with name prefix "Hazel" "Banned %d"
     Given there are 2 unconfirmed users with name prefix "Bertha" "Unconfirmed %d"
