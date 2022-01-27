@@ -192,8 +192,8 @@ zh:
         en: 英文
         en-AU: 英文(澳大利亚)
         en-GB: 英文(英国)
-        es: ~
-        es-ES: ~
+        es: 西班牙文
+        es-ES: 西班牙文（西班牙）
         et: ~
         fi: 芬兰文
         fr: 法文
@@ -226,13 +226,13 @@ zh:
         private: 这个集市是私有的（只有注册用户可以看到内容）
         require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
         allow_free_conversations: ~
-        search_preferences: ~
+        search_preferences: 个性化搜索
         search_and_location_preferences: ~
-        default_search_type: ~
+        default_search_type: "搜索类型：%{select_search_type}"
         keyword_search: 按关键词搜索
         keyword_and_location_search: ~
         location_search: 按地点搜索
-        select_distance_unit: ~
+        select_distance_unit: "显示距离 %{distance_units_selector}"
         km: 千米
         miles: 英里
         show_only_nearby: ~
@@ -265,13 +265,13 @@ zh:
         you_will_be_redirected_to: "当你删除了你的集市，你会被重定向到%{destination}。你将再也无法访问你的集市。"
         delete_this_marketplace: 删除这个集市。
         payment_preferences: ~
-        pre_approved_listings: ~
+        pre_approved_listings: 上架之前先审核商品
         email_admins_about_new_transactions: ~
       manage_members:
         manage_members: 管理用户
         email: 电子邮件
         name: 姓名
-        display_name: ~
+        display_name: 名字显示
         join_date: 已加入
         admin: 管理员
         posting_allowed: 允许发布
@@ -287,9 +287,9 @@ zh:
         only_delete_disabled: ~
         delete_info1: ~
         delete_info2: ~
-        search: ~
+        search: 搜索
         search_by_name_email: ~
-        reset_search: ~
+        reset_search: 显示全部
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
@@ -312,8 +312,8 @@ zh:
       new_layout:
         new_layout: 新布局
         description_roadmap_new: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
+        enabled_for_you: 已为您激活
+        enabled_for_all: 全部已激活
         new_topbar: "新的顶部条 (所有页面可见)"
         searchpage: ~
         new_email_templates: ~
@@ -376,7 +376,7 @@ zh:
         search_meta_description_label: ~
         search_meta_description_info: ~
         search_meta_description_link_text: ~
-        listing_title: ~
+        listing_title: 商品列表页数
         listing_meta_title_label: ~
         listing_meta_title_info: ~
         listing_meta_title_link_text: ~
@@ -464,10 +464,10 @@ zh:
         processing_export: ~
         transactions: 查看交易记录
         search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search: 搜索
+        reset_search: 显示全部
         status_filter:
-          all: ~
+          all: 全部情况
           selected: ~
           selected_js: ~
           free: ~
@@ -549,8 +549,8 @@ zh:
         participants: ~
         profile: ~
         search_by_keyword: ~
-        search: ~
-        reset_search: ~
+        search: 搜索
+        reset_search: 显示全部
         for_keyword: ~
       testimonials:
         testimonials: ~
@@ -558,7 +558,7 @@ zh:
         displaying_xx_reviews: ~
         search_keyword: ~
         search: ~
-        reset_search: ~
+        reset_search: 显示全部
         for_keyword: ~
         headers:
           transaction: ~
@@ -608,8 +608,8 @@ zh:
       listings:
         listings: ~
         search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search: 搜索
+        reset_search: 显示全部
         export_all_as_csv: ~
         processing_export: ~
         status:
@@ -739,7 +739,7 @@ zh:
           info_single_column: ~
           info_multi_column_2: ~
           info_multi_column_3: ~
-          listings: ~
+          listings: 商品
           categories: ~
           hero: ~
           locations: ~
@@ -959,7 +959,7 @@ zh:
         send_email_to_members: 发送电子邮件给用户
         send_email_to_members_title: 发送电子邮件给所有用户
         send_email: 发送邮件
-        send_email_or: ~
+        send_email_or: 或
         send_test_email: ~
         test_sent: ~
         send_email_article_title: ~
@@ -1002,7 +1002,7 @@ zh:
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
-      can_not_find_name: ~
+      can_not_find_name: "找不到此类型：%{name}"
       index:
         listing_shapes: 交易类型
         description: 交易类型决定了网站上订单如何处理。通过交易类型可以决定用户可以出租或者出售，或者只是让用户发布一些公告然后通过免费的消息进行沟通。
@@ -1090,7 +1090,7 @@ zh:
       contact_support_link_text: "联系 Sharetribe 的支持人员"
       integration_info_text: Sharetribe的支付系统由PayPal提供支持。如果你想使用你的用户名在你的集市上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
       link_paypal_personal_account_label: 你是自己提供产品或者服务吗？
-      link_paypal_personal_account: ~
+      link_paypal_personal_account: "如果确认，您将连接您的 Paypal 账号到%{personal_payment_preferences_link}"
       link_stripe_personal_account: ~
       link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: 你的个人集市账户
@@ -1261,11 +1261,11 @@ zh:
       travel: 旅游
       other: 其他
     username: 用户名
-    username_or_email: Email或用户名
+    username_or_email: 电邮
     what_is_this: 这是什么？
     removed_user: 已删除的用户
     payment_fee_info:
-      title: ~
+      title: 佣金与付款手续费
       stripe: ~
       paypal: ~
       info: ~
@@ -1275,16 +1275,16 @@ zh:
       body_text_accept: ~
       link_to_paypal_text: 这里
     stripe_fee_info:
-      title: ~
+      title: "Stripe 手续费"
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: 这
   conversations:
     accept:
       details: 订单明细
       order_by: "订购%{orderer_link}"
       accept_offer: 接受宝贝
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: 接受请求并保留此项目
+      accept_request_and_close: 接受请求并关闭此商品
       reject_offer: 这次不行。
       reject_request: 这次不行。
       close_listing: "关闭这条信息%{listing_title_link}"
@@ -1305,9 +1305,9 @@ zh:
       paypal_fee: ~
       paypal_fee_info: "* 不包括 %{link}"
       shipping_price_label: "运费:"
-      stripe-fee_label: ~
+      stripe-fee_label: 付款手续费
     confirm:
-      confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
+      confirm_description: 如果你的订单已完成，你应该标记为完成。然后你可以给对方反馈。
       cancel_description_team: ~
       cancel_payed_description: 如果你的请求被接受但是你有其他的想法，你仍然可以在付款前取消请求。
       canceling_payed_transaction: 取消交易
@@ -1331,27 +1331,27 @@ zh:
       accepted_offer: 宝贝已接受。
       rejected_request: 请求已拒绝。
       rejected_offer: 宝贝已拒绝。
-      confirmed_request: 请求已完成。
+      confirmed_request: 订单已完成。
       confirmed_offer: 宝贝已完成。
-      canceled_request: 请求已取消。
+      canceled_request: 订单有争议。
       canceled_offer: 宝贝已取消。
       message_from: "来自%{person}的消息"
       about_listing: "关于%{listing_title}"
       free_message: 站内短信
-      message_content_not_available: ~
+      message_content_not_available: 信息内容不存在
     message:
       accepted_request: 已接受请求
-      received_payment: ~
+      received_payment: 已接受请求及接收付款
       received_payment_wo_sum: ~
       accepted_offer: 已接受的宝贝
-      rejected_request: 已拒绝的请求
+      rejected_request: 请求已拒绝，付款已取消
       rejected_offer: 已拒绝的宝贝
-      confirmed_request: 标记请求为完成
+      confirmed_request: 标记为已完成
       confirmed_offer: 标记宝贝为完成
-      canceled_request: 已取消请求
+      canceled_request: 已取消订单
       canceled_offer: 已取消宝贝
       paid: "支付了%{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: 付款已确认
       payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
@@ -1461,10 +1461,10 @@ zh:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "新的联系表格输入%{service_name}"
+    feedback_body: "%{author_name_and_email} 已提交%{service_name} 的联系表格。已通知所有%{service_name} 的管理者。"
+    unlogged_user: 未登入的用户
+    anonymous_user: 隐身的用户
   community_memberships:
     access_denied:
       access_denied: 访问被拒绝
@@ -1483,7 +1483,7 @@ zh:
       join_community_button: "加入%{service_name}"
     give_consent:
       invitation_code_invalid_or_used: 邀请代码无效或已经被使用
-      email_not_allowed: ~
+      email_not_allowed: "此电邮并不能使用于 %{service_name}"
       email_not_available: 此邮箱地址已经被使用
       consent_not_given: 你还没有接受条款
   emails:
@@ -1503,7 +1503,7 @@ zh:
       you_have_not_yet_confirmed_or_canceled_request: "你还没有确认或者取消请求%{request_link}。如果请求已经完成，你应该确认。之后你可以评论给%{other_party_given_name}。"
       remember_to_confirm_request: 记得确认或取消请求
       if_will_not_happen_you_should_cancel: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。"
-      cancel_it_link_text: 取消
+      cancel_it_link_text: 有争议
       automatic_confirmation: "如果你不在请求被接受后%{days_to_automatic_confirmation}天确认或取消请求，我们将自动标记请求为完成。"
     confirm_reminder_v2:
       headline: ~
@@ -1515,25 +1515,25 @@ zh:
       payment_settings_link: 付款设置
     payment_settings_reminder_v2:
       fill_payout_details: ~
-      you_have_added_listing_with_payment: ~
+      you_have_added_listing_with_payment: "您已添加一个可收款的商品%{listing_link} 。我们发现您还未添加您的收款资料。为了能够收取款项，您必须提供您的收款方式资料。"
     transaction_confirmed:
       here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
       request_marked_as_confirmed: 交易成功——請记得给予评价
-      request_marked_as_canceled: 请求已取消
+      request_marked_as_canceled: 订单有争议
       has_marked_request_as_confirmed: "%{other_party_full_name}以确认您对“%{request}”的请求已成功完成。您现在可以对%{other_party_given_name}评论了。"
       has_marked_request_as_canceled: "%{other_party_full_name}取消了关于“%{request}”的请求，不過你仍然可以對%{other_party_given_name}做出评论。"
       giving_feedback_is_good_idea: "我们建议您对此次的经验给予评论。如果一切顺利，你应该让其他人知道%{other_party_given_name}是可以被信任的。任何问题也可以同时在评论中提到。"
       give_feedback_to: "给%{other_party_given_name}反馈"
       stripe:
         has_marked_request_as_confirmed: ~
-      team_title: ~
+      team_title: "%{service_name} 团队"
     transaction_confirmed_v2:
-      headline_confirmed: ~
-      headline_canceled: ~
+      headline_confirmed: "%{other_party_full_name} 已将%{listing_link} 订单标记为“已完成”"
+      headline_canceled: "%{other_party_full_name} 已将%{listing_link} 订单标记为“待解决”"
       stripe:
         has_marked_request_as_confirmed: ~
       can_give_feedback: ~
-      team_title: ~
+      team_title: "%{service_name} 团队"
     transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我们已经将关于“%{request}”的请求标记为完成。自动标记完成是因为在请求被接受后已经过了%{days_passed}天。"
@@ -1588,9 +1588,9 @@ zh:
       remember_to_confirm: "当请求实现之后，记得标记其为完成。如果请求没有实现你有%{days_to_automatic_confirmation}时间来取消。否则它将自动被标记为完成。"
     conversation_status_changed_v2:
       has_accepted_your_request: ~
-      has_accepted_your_request_text: ~
+      has_accepted_your_request_text: "%{accepter} 已接受关于 %{listing} 的请求"
       has_rejected_your_request: ~
-      has_rejected_your_request_text: ~
+      has_rejected_your_request_text: "%{accepter} 已拒绝关于%{listing} 的请求"
     invitation_to_kassi:
       hi: 你好！
       you_have_been_invited_to_kassi: "%{inviter}邀请你使用%{service_name}"
@@ -1607,8 +1607,8 @@ zh:
       has_commented_listing_you_follow_in_kassi: "%{author}评价了你在%{service_name}中关注的“%{listing}”。"
     new_message:
       view_message: 查看消息
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} 发了一则简讯给您。点击%{service_name} 回复"
+      you_have_a_new_message: "您有新的简讯，来自 %{sender_name} 的服务 %{service_name}"
     new_message_v2:
       headline: ~
       reply: ~
@@ -1617,9 +1617,9 @@ zh:
       price_per_unit_type: "每%{unit_type}的价格"
       quantity: "数量:"
       you_have_received_new_payment: "你已经为<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>给%{payer_full_name}。这是你的收据。"
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title} ，每%{unit_type}"
     payment_receipt_to_seller:
-      payment_gateway_fee: ~
+      payment_gateway_fee: 付款手续费：
       shipping_total: ~
       product: ~
       price_payer_paid: ~
@@ -1629,32 +1629,32 @@ zh:
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
-      quantity: ~
-      you_have_received_new_payment: ~
+      quantity: 数量：
+      you_have_received_new_payment: "从 %{payer_full_name} 已收到 <b>%{payment_sum}</b> 关于 <b>%{listing_title}</b> . 这是您的收据"
       stripe:
-        you_have_received_new_payment: ~
+        you_have_received_new_payment: "%{payer_full_name} 已支付 <b>%{payment_sum}</b> 关于 <b>%{listing_title}</b> . 金额正停留在 %{service_name} 直到订单被标记为完成。这是您的收据。"
     payment_receipt_to_seller_v2:
-      headline: ~
+      headline: "%{payer_name} 已支付%{payment_sum} 于%{listing_link} 的商品"
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
+      receipt_of_payment: 收据
+      you_have_made_new_payment: "您已成功支付 <b>%{payment_sum}</b> 给 %{recipient_full_name} 关于 <b>%{listing_title}</b> . 这是您的收据"
+      product: 产品
       price_per_unit_type: ~
       duration: ~
       quantity: ~
-      subtotal: ~
+      subtotal: 共
       buyer_service_fee: ~
-      total: ~
+      total: 总共
       price: ~
-      service_fee: ~
+      service_fee: 服务费
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
     payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
+      headline: "这是关于 %{listing_link} 的收据"
+      you_have_made_new_payment: "已收到<b>%{listing_title}</b>的付款<b>%{payment_sum}</b>"
     paypal_new_payment:
       paypal_gateway_fee: PayPal的费用：
       shipping_total: "运费:"
@@ -1677,9 +1677,9 @@ zh:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "以下两种情况发生时，钱将被转给%{recipient_name} a)你标记请求为完成 b)你付款之后的%{automatic_confirmation_days}天。"
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title} ，每%{unit_type}"
       stripe:
-        you_have_made_new_payment: ~
+        you_have_made_new_payment: "您已支付<b>%{payment_sum}</b> 关于 <b>%{listing_title}</b>. 金额正停留在 %{service_name} ，直到订单被标记为完成，金额将会汇给 %{recipient_full_name} 。这是您的收据。"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}在%{service_name}给了你反馈"
       you_can_give_feedback_to: "你还没有對%{name} 评价"
@@ -1723,36 +1723,36 @@ zh:
       transaction_requested_by_user: "%{requester}已经请求并授权支付了%{listing_title}"
       you_have_time_to_accept: "你需要在%{payment_expires_in}天内接受或拒绝请求。如果在该期限内接受，你会收到付款。如果你在该期限内没有接受，请求将自动被拒绝，你将无法收到支付款项。"
       if_you_do_accept: ~
-      if_you_do_accept_stripe: ~
+      if_you_do_accept_stripe: "在指定时间内接受请求，款项将会成功通过。完成 %{requester} 的%{listing_title} 订单后，款项将会汇进您的银行账号。"
       if_you_do_not_accept: ~
       click_here_to_reply: 点击这里回应请求
     transaction_preauthorized_v2:
-      headline: ~
+      headline: "%{requester} 对您的商品%{listing_link} 有兴趣，已进行了付款"
     transaction_preauthorized_reminder:
       subject: "记得接受来自%{requester}的关于%{listing_title}的请求"
       remember_to_accept: "记住接受来自%{requester}关于“%{listing_title}”信息的请求。%{requester}已经为该宝贝付款。你必须接受请求以接受付款。"
       one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
       click_here_to_reply: 点击这里回应请求
     transaction_preauthorized_reminder_v2:
-      headline: ~
-      remember_to_accept: ~
+      headline: "请记得接受%{requester} 关于%{listing_link} 的请求"
+      remember_to_accept: "%{requester} 已支付了商品。请您接受请求以便收取款项。"
     welcome_email:
       welcome_email_subject: "欢迎来到%{service_name}"
       welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
       love_marketplace_crew: "<br /><i>%{service_name}团队</i>  敬上"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: 编辑您的电邮设置
     new_listing_by_followed_person:
       subject: "%{author_name}在%{service_name}发布了一则新的信息"
       has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
       you_are_receiving_this_because: "你收到这个通知是由于你关注了%{author_name}。"
       view_listing: 查看发布的信息
     new_listing_by_followed_person_v2:
-      headline: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
-      cant_click: ~
+      headline: "%{author} 添加了新商品！"
+      has_posted_a_new_listing: "%{author_name} 刚添加了新商品："
+      you_are_receiving_this_because: "您收到此通知，因为您跟随 %{author_name}"
+      view_listing: "看 %{title}"
+      cant_click: 点击不到按钮？这是链接
     new_ident_notification:
       subject: ~
       h1_body: ~
@@ -1773,28 +1773,28 @@ zh:
       new_member_has_joined: ~
       view_profile: ~
     listing_submited_for_review:
-      subject: ~
-      there_is_a_new_listing_to_review: ~
-      review_the_listing: ~
-      this_is_automatic_message: ~
+      subject: "新商品待审核：\"%{listing_title}\" 由 %{author_name} 在 %{community}"
+      there_is_a_new_listing_to_review: "有新商品等待审核：\"%{listing_title}\" 由 %{author_name}. 您可以批准或者拒绝该商品。"
+      review_the_listing: 审核新商品
+      this_is_automatic_message: "此信息自动发送至 %{community} 的管理者。"
     listing_approved:
-      subject: ~
-      listing_has_been_approved: ~
-      view_the_listing: ~
+      subject: "%{community} 已批准您的商品%{listing_title}"
+      listing_has_been_approved: "好消息！您的商品 “%{listing_title} ”已通过%{community} 审核。已成功发布。"
+      view_the_listing: 看商品
     listing_rejected:
-      subject: ~
-      listing_has_been_rejected: ~
-      contact_link: ~
-      edit_the_listing: ~
+      subject: "%{community} 团队已拒绝了您的新商品%{listing_title}"
+      listing_has_been_rejected: "不幸的，%{community} 团队在斟酌考虑后，已拒绝了您的商品%{listing_title} 。您可以联系 %{contact_link} 了解更多或者编辑您的商品，然后提交重新审核。"
+      contact_link: "联系 %{community} 团队"
+      edit_the_listing: 编辑商品
     edited_listing_submited_for_review:
-      subject: ~
-      there_is_a_edited_listing_to_review: ~
-      review_the_listing: ~
+      subject: "已被编辑的商品待审核：\"%{listing_title}\" 由 %{author_name} 在 %{community}"
+      there_is_a_edited_listing_to_review: "有一个被编辑的商品%{listing_title} 由%{author_name} 正等待审核。您可以批准或者拒绝该商品。"
+      review_the_listing: 审核被编辑的商品
     new_transaction:
       subject: ~
       there_is_a_new_transaction: ~
       a_new_transaction: ~
-      listing: ~
+      listing: "商品：%{title}"
       sum: ~
       starter: ~
       provider: ~
@@ -1802,20 +1802,20 @@ zh:
       subject: ~
       there_is_a_new_transaction: ~
       a_new_transaction: ~
-      listing: ~
+      listing: 商品：
       sum: ~
       starter: ~
       provider: ~
       view_transaction: ~
     transaction_cancel_flow:
-      the_order_about: ~
+      the_order_about: "关于 %{listing_title}  的订单"
       you_can_contact_the_marketplace_team: ~
       you_can_now_give_feedback: ~
       give_feedback_to: ~
     transaction_disputed:
       subject: ~
       subject_admin: ~
-      order_about: ~
+      order_about: "关于 %{listing_title} 的订单"
       the_order_has_been_canceled: ~
       the_order_between_buyer_and_seller_has_been_canceled: ~
       the_marketplace_has_been_notified: ~
@@ -1832,7 +1832,7 @@ zh:
       marketplace_team_has_rejected_the_cancellation: ~
     transaction_commission_charge_failed:
       subject: ~
-      transaction_about: ~
+      transaction_about: "关于 %{listing_title} 的交易"
       the_commission_of_the_transaction: ~
       this_usually_means: ~
       if_you_would_like_to_investigate: ~
@@ -1855,7 +1855,7 @@ zh:
     transaction_agreement:
       required_error: 你需要接受协议
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: 交易不成功。可能是信用卡信息确认失败。请尝试使用别的付款方式。
       buyer_cannot_pay_error: " 该支付被Paypal拒绝。请联系他们的客服获得更多信息：%{customer_service_link}"
       pending_review_error: 支付已经提交，但是被Paypal标记为‘需要检查’。当Paypal完成检查后，该支付将会被自动授权。
       seller_express_checkout_disabled: ~
@@ -1912,7 +1912,7 @@ zh:
       section_with_this_id_already_exists: ~
       listing_with_this_id_does_not_exist: ~
       presence: ~
-      username_is_invalid: ~
+      username_is_invalid: 此用户名不能使用。
       domain_name_is_invalid: ~
       only_supported_variables: ~
   event_feed_events:
@@ -1952,7 +1952,7 @@ zh:
     create_new_marketplace: 创建一个新的集市
     contact_us: 联系我们
     profile: 个人主页
-    manage_listings: 信息管理
+    manage_listings: 我的商品
     invite: 邀请新成员
     login: 登录
     signup: 注册
@@ -1979,10 +1979,10 @@ zh:
       items_to_offer: "可借出的物品： "
       items_to_request: "可借入的物品： "
       log_in: 登录！
-      no_offers_visible_unless_logged_in: 没有对游客公开的信息。
+      no_offers_visible_unless_logged_in: 没有对访客公开的信息。
       no_open_offers_currently: 当前没有公开的信息。
       no_open_requests_currently: 当前没有公开的信息。
-      no_requests_visible_unless_logged_in: 没有对游客公开的信息。
+      no_requests_visible_unless_logged_in: 没有对访客公开的信息。
       one_private_offer_exists: "已有<b>一个宝贝</b>,"
       one_private_request_exists: "已有<b>一个请求</b>,"
       ride_offer: 帮助其他人照管孩子
@@ -2039,7 +2039,7 @@ zh:
     list_item:
       review: 评论
       reviews: 评论
-      distance_away: ~
+      distance_away: "距离%{distance} %{distance_unit}"
     news_item:
       show_less: 显示更少
       show_more: "显示更多\n"
@@ -2139,22 +2139,22 @@ zh:
     logged_in_notifications_icon:
       notifications: 通知
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
+      title: "Markdown 格式使用协助"
+      description: Markdown是一个简单的文字编辑格式。它不会改变字体大小，颜色或字形——单纯只是您已熟悉的重要的符号。
+      formatting: 格式化
+      result: 成绩
       h1: ~
       h2: ~
       h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      italic: 斜体
+      bold: 粗体
+      underline: 画下线
+      strikethrough: 中割线
+      inline_link: 链接
+      list: 列表
+      one: 一
+      two: 二
+      three: 三
     mobile_logged_in:
       admin: 后台管理
       go_to_your_profile_page: 个人主页
@@ -2209,16 +2209,16 @@ zh:
       news_item_updated: 文章更新
       news_item_deleted: 移除文章
       offer_accepted: 宝贝被接受
-      offer_confirmed: 宝贝已确认
+      offer_confirmed: 优惠已完成
       offer_closed: 宝贝已关闭
       listing_created_successfully: "成功发布了新信息。%{new_listing_link}"
       offer_rejected: 宝贝被拒绝
-      offer_canceled: 宝贝已取消
+      offer_canceled: 优惠已取消
       listing_updated_successfully: 信息更新成功
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
       listing_deleted: ~
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: 请使用管理者的账号来访这里
       only_listing_author_can_close_a_listing: 仅作者可以关闭发布的信息
       only_listing_author_can_edit_a_listing: 仅作者可以编辑发布的信息
       payment_successful: 付款成功
@@ -2242,12 +2242,12 @@ zh:
       reply_cannot_be_empty: 你不能发送空白消息
       reply_sent: 回复发送成功
       request_accepted: 你的请求已被接受
-      request_accepted_and_closed: ~
+      request_accepted_and_closed: 请求已接受，商品已关闭
       request_confirmed: 请求完成。
       request_rejected: 请求已拒绝
-      request_canceled: 请求已取消
+      request_canceled: 优惠有争议
       message_sent: 消息已发出
-      message_not_sent: ~
+      message_not_sent: 发送简讯失败。请再尝试。
       this_content_is_not_available_in_this_community: 此内容不可用。
       unknown_error: 发生未知错误。请点击”联系我们“向我们报告问题。
       update_error: 更新你的信息时发生错误，请重试
@@ -2289,7 +2289,7 @@ zh:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: 你已被自动登出。请重新登录。
       stripe_you_account_balance_is_not_0: ~
-      stripe_balance_for_username_is_not_0: ~
+      stripe_balance_for_username_is_not_0: "%{username} 用户的Stripe 余额不等于0，所以账号不能被关闭。这可能是因为有其他的交易正在进行中，或者金额正等待被汇到银行账号。请查询您的 Stripe 账号以获取更多资料。"
       visit_admin: ~
       visit_admin_link: ~
       an_error_occurred_when_saving_your_information: ~
@@ -2301,10 +2301,10 @@ zh:
       paypal_payments: ~
       stripe_payments: ~
       payments: 付款
-      listings: ~
-      listings_search_placeholder: ~
-      transactions_search_placeholder: ~
-      transactions: ~
+      listings: 商品列表
+      listings_search_placeholder: 搜索商品名字
+      transactions_search_placeholder: 搜索交易或交易的人
+      transactions: 交易
   listings:
     bubble_listing_not_visible:
       listing_not_visible: 你无权查看此信息。
@@ -2334,16 +2334,16 @@ zh:
       show_in_updates_email_loading: 加载……
       show_in_updates_email_error: 不能访问服务器。页面刷新后重试。
       show_in_updates_email_success: 这个发布的信息将被显示在下一封自动发送给用户的邮件中。
-      listing_is_pending: ~
-      listing_is_rejected: ~
-      approve_listing: ~
-      reject_listing: ~
+      listing_is_pending: 商品待审核
+      listing_is_rejected: 商品被拒绝
+      approve_listing: 商品被批准
+      reject_listing: 拒绝商品
       delete_listing: 删除该信息
     map:
       open_in_google_maps: 在Google地图中打开
     error:
       something_went_wrong: "出错了，错误代码：%{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: 有错误
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
     follow_links:
@@ -2361,7 +2361,7 @@ zh:
       description:
         detailed_description: 详细描述
         youtube_info: "如果您的描述包括Youtube连结, 该影片将会在描述栏下方显示."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "您可放 %{link} 链接。如果链接是 YouTube影片，影片将会显示在说明下方。"
       destination:
         destination: 目的地
       form_content:
@@ -2407,9 +2407,9 @@ zh:
         long_time: 周，月，……
         after_service_fee_you_will_get: "在%{service_name}和付款处理费之后你将得到%{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}会从价格中扣除"
-        no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
-        payment_fee_info_link_text: ~
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} 将会被扣除"
+        after_service_fee_you_will_get_payment_text: "当有人确认了订单，您将收到这个数额扣除%{payment_fee_info_link}"
+        payment_fee_info_link_text: "%{service_name} 费用和付款手续费"
         delivery: 配送方式
         shipping: 配送
         shipping_price: 运费
@@ -2421,7 +2421,7 @@ zh:
         the_exact_location: ~
       send_button:
         save_listing: 发布
-        submit_for_review: ~
+        submit_for_review: 提交以审查
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
       share_type:
@@ -2451,7 +2451,7 @@ zh:
       privacy:
         privacy: 隐私
         private: 私密的（只对登录用户可见）
-        public: 公共的（对所有用户可见）
+        public: 公开的（对所有用户可见）
     help_texts:
       help_share_type_title: 宝贝或者请求的信息的类型
       help_tags_title: 标签
@@ -2503,7 +2503,7 @@ zh:
       select_one: ~
       start_time: ~
       end_time: ~
-      marketplace_fees_may_apply: ~
+      marketplace_fees_may_apply: "可能需付 %{service_name} 费用"
     new:
       listing: 信息
       selected_category: "分类：%{category}"
@@ -2517,14 +2517,14 @@ zh:
       community_not_configured_for_payments: "%{service_name}没有配置支付方式，所以你不能发布新的信息。详情请联系%{contact_admin_link}。"
       payment_settings_link: 付款设置
       community_not_configured_for_payments_admin: "%{service_name}没有配置支付方式，所以你不能发布新的信息。点击%{payment_settings_link}填写详细付款信息。"
-      you_are_now_posting_a_listing_on_behalf_of: ~
+      you_are_now_posting_a_listing_on_behalf_of: "您在为 %{name} 添加商品"
     quantity:
       hour: "小时数:"
       day: "天数:"
       night: "夜晚数量:"
       week: "周数:"
       month: "月数:"
-      unit: ~
+      unit: 单位数
       custom: "数量:"
       person: ~
     quantity_placeholder: 数量
@@ -2577,7 +2577,7 @@ zh:
       night: 晚
       week: 周
       month: 月
-      unit: ~
+      unit: 单位
       person: ~
     verification_required:
       verification_required: 要求验证
@@ -2697,13 +2697,13 @@ zh:
     redirect_message: "正在将你重定向到 PayPal. 如果你的浏览器没有自动跳转, 请点击 %{redirect_link}"
     redirect_link_text: 这里
     paypal_account_all_set_up: 太棒了，一切就绪！
-    can_receive_payments: 现在你可以为你的列表接收付款了。
+    can_receive_payments: 现在你可以为你的商品接收付款了。
     paypal_account_connected_summary: "PayPal 账户 %{email} 连接成功"
     paypal_permission_granted_summary: 手续费连接通过
   paypal:
     pay_with_paypal: 进行支付
     checkout_with: ~
-    or_pay_with_paypal: ~
+    or_pay_with_paypal: 或
     checkout_with_paypal: 用PayPal结帐
     cancel_succesful: PayPal付款成功取消
     transaction:
@@ -2730,7 +2730,7 @@ zh:
       email_is_in_use: 此邮箱已使用。
       email_is_in_use_or_not_allowed: 此Email不允许使用或已被注册。如果你无法注册，请联系我们。
       email_not_allowed: "该电子邮件不允许在%{service_name}中使用。请使用允许的电子邮件地址。如果你还是不能进入，发送反馈给我们。"
-      invalid_username_or_email: ~
+      invalid_username_or_email: 电邮无效或已被使用。
       email_restriction_instructions:
         other: "访问%{service_name}受限。你需要一个电子邮件地址来加入。"
       family_name: 姓
@@ -2757,7 +2757,7 @@ zh:
       and_gave_following_feedback: 并且给出以下反馈
     profile_listings:
       no_image: 没有图片
-      manage_listings: ~
+      manage_listings: 管理我的商品
     show:
       contact: "联系%{person}"
       about_me: 关于我：
@@ -2791,7 +2791,7 @@ zh:
       show_all_open_listings: 显示所有公开的信息
       show_all_reviews: 显示所有评论
       admin_actions: ~
-      post_listing_as: ~
+      post_listing_as: 添加商品为
     followed_people:
       you_follow_plural: "你关注了%{count}个人"
       you_follow_singular: "你关注了%{count}个人"
@@ -2835,7 +2835,7 @@ zh:
       account_confirmation_instructions_title_admin: 欢迎来到你的集市！
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      admin_dashboard_link_text: 管理者区域
       account_confirmation_instructions_admin: 您很快会收到一封确认邮件，请点击邮件中的链接激活您的账号。如果您在收件箱没有找到确认邮件，请检查您的垃圾邮件文件夹。在确认邮件之后您就可以开启您的集市了。
       contact_support_link_text: ~
   settings:
@@ -2870,21 +2870,21 @@ zh:
         status_confirmed: 已确认
         status_pending: 待定
     notifications:
-      email_from_admins: 我愿意接收偶尔来自管理员的更新信息。
+      email_from_admins: "我同意接收偶尔来自%{service_name} 的更新信息。"
       i_want_to_get_email_notification_when: 寄给我一封Email通知当…
-      newsletters: 简报
-      community_updates: 更新电子邮件
+      newsletters: 来自管理者的电邮
+      community_updates: 简报
       email_about_confirm_reminders: ……我忘记了确认已完成的请求
-      email_about_new_comments_to_own_listing: …有人评论了我的宝贝或请求
+      email_about_new_comments_to_own_listing: …有人评论了我的商品
       email_about_new_messages: …有人发给我一条消息
       email_about_new_received_testimonials: …有人给我了一条评价
       email_about_testimonial_reminders: …我忘记评价一个活动
-      email_daily_community_updates: 如果有新发布的信息，<b>每日</b>发送给我一封更新的邮件
-      email_weekly_community_updates: 如果有新发布的信息，<b>每周</b>发送给我一封更新的邮件
-      do_not_email_community_updates: 不要给我发送有更新消息的电子邮件
+      email_daily_community_updates: 如果有新发布的信息，<b>每日</b>发送给我一份简报
+      email_weekly_community_updates: 如果有新发布的信息，<b>每周</b>发送给我我一份简报
+      do_not_email_community_updates: 不要给我发送有更新消息的简报
       email_when_conversation_accepted: …有人接受了我的宝贝或请求
       email_when_conversation_rejected: …有人拒绝了我的请求
-      email_about_completed_transactions: ……有人将我的宝贝或请求标记为已完成
+      email_about_completed_transactions: ……有人将我的订单标记为已完成
       email_about_new_payments: ……我收到一笔新的付款
       email_about_new_listings_by_followed_people: ……我关注的人发布了一则新的信息
       unsubscribe_succesful: 退订成功
@@ -2902,8 +2902,8 @@ zh:
       given_name: 名
       first_name_with_initial: （只将首字母显示给其他用户）
       first_name_only: （不显示给其他用户）
-      display_name: ~
-      display_name_description: ~
+      display_name: 名字显示
+      display_name_description: 如果您是代表一个组织，您可以用该名字。此名字显示将取代您的姓和名字。
       location_description: 你可以选择提供你的准确住址或仅仅提供邮政编码。请至少填写邮政编码。你也可以通过地图选择一个地点。
       profile_picture_description: ~
       phone_number: 电话号码
@@ -2918,12 +2918,12 @@ zh:
       default_in_listing: （只有在发布新信息时作为默认值使用）
       invisible: （不显示给其他用户）
       image_is_processing: 你的个人头像图片正在准备。请过一会重新刷新页面。
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: (显示在您的公开账号)
       editing_profile_of: ~
-      format_markdown_link: ~
-      format_markdown: ~
-      username: ~
-      username_description: ~
+      format_markdown_link: "利用 Markdown格式化您的说明。"
+      format_markdown: "您可放链接 %{link}"
+      username: 用户名
+      username_description: 您的用户名将用于您的特殊账号链接。你只能用字母或数字在您的用户名，不能使用空白键。如果您换了用户名，您的特殊账号链接也会自动更新，然而您的旧的链接将会失效。旧的用户名将可以用于其他用户。
     save_information: 保存信息
   shipping_address:
     shipping_address: 送货地址
@@ -3084,16 +3084,16 @@ zh:
           overlaps: ~
           covers: ~
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: 个
+        hour: 小时
+        day: 天
+        night: 夜
+        week: 星期
+        month: 月
       edit_availability_header: ~
-      save_and_close_availability_editing: ~
+      save_and_close_availability_editing: 保存并关闭
       confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
+      confirm_discarding_unsaved_availability_changes_question: 您确定要抛弃您的更改吗？
       edit_listing_availability: ~
       working_hours:
         default_schedule: ~
@@ -3103,14 +3103,14 @@ zh:
         add_another_time_slot: ~
         save: ~
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: 抱歉，找不到您要找的
+      try_other_search_terms: 不如尝试别的搜索？
     listing_card:
       add_picture: ~
-      no_picture: ~
+      no_picture: 无图像
     search:
-      page: ~
-      page_of_pages: ~
+      page: 页面
+      page_of_pages: "共%{total_number_of_pages} 页"
     topbar:
       menu: 菜单
       more: 更多
@@ -3126,19 +3126,25 @@ zh:
       signup: 注册
       admin_dashboard: 管理员空间
       language: 语言
-      listings: ~
+      listings: 我的商品
     utils:
-      km: ~
-      mi: ~
+      km: 公里
+      mi: 里
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: 了解更多
   will_paginate:
     models:
       person:
         zero: 用户
         other: 用戶
+      transaction:
+        zero: 交易
+        other: 交易
+      listing:
+        zero: 商品
+        other: 商品
     previous_label: "&#8592;上一页"
     next_label: "下一页 &#8594;"
     page_gap: "&hellip;"
@@ -3161,12 +3167,12 @@ zh:
     you_are_ready_to_accept_payments: ~
     commission: ~
     pay_with_stripe: ~
-    add_and_pay: ~
-    card_not_stored: ~
-    missing_payment: ~
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
-    stripe_credit_card: ~
+    add_and_pay: 确认付款
+    card_not_stored: "您的付款将通过 Stripe 安全地处理。%{service_name} 并不会保存您的银行卡、信用卡资料。"
+    missing_payment: "您有活跃的商品但是您的账号尚未设置收款资料。请到%{settings_link} 设置您的收款资料。"
+    stripe_bank_connected: 银行资料设置成功
+    stripe_can_accept: 您已经准备好收钱进银行户口了
+    stripe_credit_card: 信用卡
     paypal: ~
     paypal_connected: ~
     paypal_can_accept: ~
@@ -3178,30 +3184,30 @@ zh:
     stripe_account_pending_verification: ~
     stripe_account_pending_verification_info: ~
     form_new:
-      need_info: ~
-      select_country: ~
-      legal_name: ~
+      need_info: 我们需要您的资料以便可以汇款给您。
+      select_country: 选择国家
+      legal_name: 法定名字
       first_name: ~
       last_name: ~
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
       last_name_kanji: ~
-      country: ~
-      birth_date: ~
+      country: 居住的国家
+      birth_date: 生日
       ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
+      personal_id_number: 身份证号码
+      address_country: 居住的国家
+      address_state: 州属
       address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
-      tos_link: ~
-      tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
+      address_city: 城市
+      address_postal_code: 邮编码
+      address_line1: 街址
+      tos_link: "添加您的汇款方式，您接受%{stripe_link}"
+      tos_link_title: "Stripe 账号连接同意书"
+      save_details: 保存资料
+      edit: 编辑资料
+      cancel: 取消
       gender: ~
       phone_number: ~
       phone_info_text: ~
@@ -3218,25 +3224,25 @@ zh:
       male: ~
       female: ~
     form_bank:
-      bank_account_number: ~
-      bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
+      bank_account_number: 银行户口号码
+      bank_routing_number: 汇款路径号码
+      bank_routing_1: 银行码
+      bank_routing_2: 分行码
+      bank_currency: 银行账号货币
       update_also_bank_account: ~
       bank_account_same_country: ~
       bank_country: ~
       bank_holder_name: ~
       messages:
-        account_number: ~
-        routing_number: ~
-        bank_code: ~
-        branch_code: ~
+        account_number: 账号号码
+        routing_number: 路由号码
+        bank_code: 银行码
+        branch_code: 分行码
         transit_number: ~
         institution_number: ~
         format_varies_by_bank: ~
         bsb: ~
-        error_message: ~
+        error_message: 格式不正确
         clearing_code: ~
         sort_code: ~
         must_match: ~
@@ -3262,7 +3268,7 @@ zh:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
+    title: 取款的设定
     bank_account: ~
     paypal: ~
     bank_account_details: ~
@@ -3278,18 +3284,18 @@ zh:
     placeholder:
       search_results: ~
       search_results_for: ~
-      listing_description: ~
-      listing_description_without_price: ~
+      listing_description: "由%{author} 的%{title} 价格%{price} 在%{marketplace}"
+      listing_description_without_price: "由%{author} 的%{title} 在%{marketplace}"
       category_description: ~
-      profile_title: ~
+      profile_title: "%{user} 账号 - %{marketplace}"
       profile_description: ~
   activemodel:
     attributes:
       landing_page_version/section/base:
         id: ~
-        title: ~
+        title: 标题
         paragraph: ~
-        button_title: ~
+        button_title: 文字
         button_path: ~
         button_path_string: ~
         background_image: ~

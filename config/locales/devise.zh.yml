@@ -51,7 +51,7 @@ zh:
       failure: "因为%{reason}，所以你无法从%{kind}获得授权."
     mailer:
       confirmation_instructions:
-        subject: 确认信息
+        subject: "确认信息加入 %{service_name}"
       reset_password_instructions:
         subject: 重置密码信息
       unlock_instructions:

@@ -74,7 +74,7 @@ it:
         edit_signup_info: Informazioni
         edit_signup_info_description: ~
         edit_info: ~
-        see_how_it_looks_like: ~
+        see_how_it_looks_like: "Guarda come appare"
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: "Questo marketplace richiede che l'amministratore verifichi manualmente ogni utente prima che questo possa pubblicare un'inserzione. Qui puoi impostare il testo predefinito che verrà mostrato agli utenti non verificati quando proveranno a pubblicare una nuova inserzione."
         verification_to_post_listings_info_content_default: ~
@@ -130,7 +130,7 @@ it:
         invalid_color_code: "Il codice del colore deve contenere 6 numeri o lettere A-F, per esempio D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
-        current_image: ~
+        current_image: "Immagine attuale:"
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
@@ -281,7 +281,7 @@ it:
         ban_me_error: ~
         have_ongoing_transactions: ~
         only_delete_disabled: ~
-        delete_info1: ~
+        delete_info1: "Se elimini l'account, i tuoi dati personali (nome, numero di telefono, indirizzo, email, foto del profilo, ecc) verranno eliminati in modo permanente e non potranno essere recuperati. Tutte le inserzioni che hai creato verranno rimosse. Non sarai in grado di riattivare il tuo account."
         delete_info2: ~
         search: Cerca
         search_by_name_email: ~
@@ -295,7 +295,7 @@ it:
           admin: ~
           banned: ~
           posting_allowed: ~
-          accepted: ~
+          accepted: Accettato
           unconfirmed: ~
           pending: "In attesa"
         this_user_hasnt_confirmed_their_email_address: ~
@@ -468,21 +468,21 @@ it:
           selected_js: ~
           free: ~
           confirmed: ~
-          paid: ~
-          canceled: ~
-          disputed: ~
-          preauthorized: ~
+          paid: Pagata
+          canceled: Annullato
+          disputed: Contestato
+          preauthorized: Preautorizzata
           rejected: Rifiutato
           payment_intent_requires_action: "In attesa"
           payment_intent_action_expired: Scaduto
-          refunded: ~
-          dismissed: ~
+          refunded: Rimborsato
+          dismissed: Rimossa
         headers:
           conversation: ~
           listing: Inserzione
           status: Stato
           sum: Importo
-          started: ~
+          started: "Iniziata il"
           last_activity: "Attività più recenti"
           initiated_by: ~
           other_party: Venditore
@@ -496,7 +496,7 @@ it:
           paid: Pagata
           confirmed: Confermata
           canceled: Cancellata
-          disputed: ~
+          disputed: Contestato
           initiated: "In attesa del pagamento di PayPal"
           pending_ext: "In attesa del pagamento di PayPal"
           none:
@@ -504,41 +504,41 @@ it:
           paypal:
             free: ~
             pending: "In attesa"
-            preauthorized: ~
+            preauthorized: Preautorizzata
             accepted: ~
             rejected: Rifiutato
-            paid: ~
+            paid: Pagata
             confirmed: ~
-            canceled: ~
-            disputed: ~
+            canceled: Annullato
+            disputed: Contestato
             initiated: ~
             pending_ext: ~
-            refunded: ~
-            dismissed: ~
+            refunded: Rimborsato
+            dismissed: Rimossa
           stripe:
             free: ~
             pending: "In attesa"
-            preauthorized: ~
+            preauthorized: Preautorizzata
             accepted: ~
             rejected: Rifiutato
-            paid: ~
+            paid: Pagata
             confirmed: ~
-            canceled: ~
-            disputed: ~
+            canceled: Annullato
+            disputed: Contestato
             initiated: ~
             pending_ext: ~
             payment_intent_requires_action: "In attesa"
             payment_intent_action_expired: Scaduto
             payment_intent_failed: ~
-            refunded: ~
-            dismissed: ~
+            refunded: Rimborsato
+            dismissed: Rimossa
         not_available: "Non disponibile"
       conversations:
         conversations: ~
         headers:
-          started_from: ~
+          started_from: "Iniziata da"
           status: ~
-          started: ~
+          started: "Iniziata il"
           last_activity: ~
           initiated_by: ~
           other_party: ~
@@ -797,7 +797,7 @@ it:
           background_image: ~
           background_image_info: ~
           add_another_image: ~
-          current_image: ~
+          current_image: "Immagine attuale: %{filename}"
           file_not_selected: ~
           background_image_overlay: ~
           background_image_overlay_info: ~
@@ -824,7 +824,7 @@ it:
         category:
           add_another_image: ~
           category: ~
-          current_image: ~
+          current_image: "Immagine attuale: %{filename}"
           file_not_selected: ~
           image: ~
           image_required: ~
@@ -841,7 +841,7 @@ it:
         location:
           add_another_image: ~
           location: ~
-          current_image: ~
+          current_image: "Immagine attuale: %{filename}"
           file_not_selected: ~
           image: ~
           image_required: ~
@@ -872,7 +872,7 @@ it:
           youtube_video_id_info: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Modifica il campo '%{field_name}'"
       edit_price:
         description: ~
         edit_price_field: ~
@@ -897,17 +897,17 @@ it:
       index:
         listing_fields: ~
         listing_fields_help: ~
-        add_new_field: ~
+        add_new_field: "Aggiungi un nuovo campo:"
         remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
+        cancel: Annulla
+        save: Salva
+        field_title: "Nome del campo"
+        field_type: "Tipo di campo"
+        categories: "Categorie dove viene utilizzato il campo"
         select_all: ~
         clear_all: ~
         options: ~
-        add_option: ~
+        add_option: "+Aggiungi opzione"
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
@@ -1262,7 +1262,9 @@ it:
       body_text: |-
           PayPal applica una tassa di elaborazione ad ogni pagamento. Questa tassa è compresa tra il 2% e il 5% del prezzo totale di vendita, a seconda del volume di vendite mensile e del paese di residenza dell'acquirente (in Italia 3,4%+0,35€). In generale, per gli acquisti nazionali si applicano costi inferiori rispetto a quelli internazionali, e vendite mensili elevati offrono uno sconto sulla tassa di elaborazione.
           Puoi vedere le tariffe esatte accedendo al tuo conto PayPal andando %{link_to_paypal} . Dopo ogni acquisto si otterrà una ricevuta che visualizza la quota esatta.
-      body_text_accept: ~
+      body_text_accept: |-
+          Questa transazione viene elaborata da PayPal. PayPal applica una commissione sull'elaborazione di ogni pagamento. Questa commissione è tra il 2% e il 5% del prezzo totale di vendita, a seconda del volume di vendite mensile e del paese di residenza dell'acquirente (in Italia 3,4%+0,35€). In generale, per gli acquisti nazionali si applicano costi inferiori rispetto a quelli internazionali, e vendite mensili elevati offrono uno sconto sulla tassa di elaborazione.
+          Puoi vedere le tariffe esatte accedendo al tuo conto PayPal andando %{link_to_paypal} . Dopo ogni acquisto si otterrà una ricevuta che visualizza la quota esatta.
       link_to_paypal_text: qui
     stripe_fee_info:
       title: "Commissione di Stripe per ordine processato"
@@ -1273,7 +1275,7 @@ it:
       details: "Dettagli dell'ordine"
       order_by: "Richiesto da %{orderer_link}"
       accept_offer: "Accetta l'offerta"
-      accept_request: ~
+      accept_request: "Accetta la richiesta e mantieni aperta l'inserzione"
       accept_request_and_close: ~
       reject_offer: "Non questa volta"
       reject_request: "Non questa volta"
@@ -1292,7 +1294,7 @@ it:
       total_value: ~
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee: ~
+      paypal_fee: "Commissione di elaborazione del pagamento di PayPal"
       paypal_fee_info: "* Esclusi i %{link}"
       shipping_price_label: "Spedizione:"
       stripe-fee_label: "Tariffe per pagamento processato"
@@ -1331,8 +1333,8 @@ it:
       message_content_not_available: ~
     message:
       accepted_request: "Richiesta accettata."
-      received_payment: ~
-      received_payment_wo_sum: ~
+      received_payment: "Richiesta accettata, pagamento ricevuto"
+      received_payment_wo_sum: "Richiesta accettata, pagamento ricevuto"
       accepted_offer: "Offerta accettata"
       rejected_request: "Richiesta respinta"
       rejected_offer: "Offerta respinta"
@@ -1341,14 +1343,14 @@ it:
       canceled_request: "Ordine cancellato"
       canceled_offer: "Offerta cancellata"
       paid: "pagati %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Pagamento autorizzato"
       payment_preauthorized_wo_sum: "Pagamento autorizzato"
       stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
+        held_payment: "Richiesta accettata. Il pagamento è trattenuto da %{service_name} fino a che l'ordine non viene contrassegnato come completato."
+        held_payment_wo_sum: "Richiesta accettata. Il pagamento è trattenuto da %{service_name} fino a che l'ordine non viene contrassegnato come completato."
         confirmed_request: "Contrassegnato l'ordine come completato. Il pagamento verrà ora trasferito al conto corrente di %{author_name}."
       canceled_the_order: ~
-      marked_as_refunded: ~
+      marked_as_refunded: "Contrassegna come rimborsato"
       dismissed_the_cancellation: ~
       payment_has_now_been_transferred: ~
     new:
@@ -1425,18 +1427,18 @@ it:
           verify: "In attesa che tu verifichi il tuo conto PayPal"
       stripe:
         waiting_confirmation_from_requester: "In attesa che %{requester_name} contrassegni l'ordine come completato. Una volta che l'ordine sarà contrassegnato, il pagamento verrà trasferito sul tuo conto corrente."
-      order_canceled: ~
+      order_canceled: "Ordine contestato"
       waiting_for_marketplace_review: ~
       marketplace_notified: ~
       contact_them: ~
-      refunded: ~
+      refunded: "Ordine contrassegnato come rimborsato"
       dismissed: ~
-      order_refunded: ~
+      order_refunded: "Ordine contrassegnato come rimborsato. Il team %{service_name} ha approvato la contestazione."
       you_should_receive_refund_soon: ~
       issue_with_the_refund: ~
       do_you_disagree: ~
       contact_the_marketpalce_team: ~
-      order_cancellation_dismissed: ~
+      order_cancellation_dismissed: "La contestazione sull'ordine è stata rimossa. Il team %{service_name} ha respinto la contestazione."
     status_link:
       accept_offer: "Accetta offerta"
       accept_request: "Accetta richiesta"
@@ -1448,13 +1450,13 @@ it:
       reject_preauthorized_request: "Non questa volta"
       confirm: "Segna come completato"
       cancel: Contesta
-      mark_as_refunded: ~
+      mark_as_refunded: "Contrassegna come rimborsato"
       dismiss: ~
   feedback:
     feedback_subject: ~
     feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    unlogged_user: "Un utente che non ha effettuato l'accesso"
+    anonymous_user: "Un utente anonimo"
   community_memberships:
     access_denied:
       access_denied: "Accesso negato"
@@ -1496,8 +1498,8 @@ it:
       cancel_it_link_text: contesta
       automatic_confirmation: "Se non confermi o contesti la richiesta entro %{days_to_automatic_confirmation} giorni dopo che la richiesta è stata accettata, la considereremo automaticamente come completata."
     confirm_reminder_v2:
-      headline: ~
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      headline: "non hai ancora completato o contestato l'ordine %{request_link}."
+      you_have_not_yet_confirmed_or_canceled_request: "Se l'ordine è stato completato, dovresti confermarlo. Dopodiché puoi dare un feedback a %{other_party_given_name}."
     payment_settings_reminder:
       remember_to_add_payment_details: "Ricordati di aggiungere i dettagli per il pagamento per ricevere i pagamenti"
       you_have_added_listing_with_payment: "Hai aggiunto un annuncio %{listing_link} con prezzo. Tuttavia, non hai ancora aggiunto i dettagli per il pagamento. Per ricevere pagamenti è necessario aggiungere le informazioni."
@@ -1505,7 +1507,7 @@ it:
       payment_settings_link: "impostazioni dei pagamenti"
     payment_settings_reminder_v2:
       fill_payout_details: ~
-      you_have_added_listing_with_payment: ~
+      you_have_added_listing_with_payment: "Hai inserito un'inserzione %{listing_link} con pagamento. Abbiamo notato che non hai ancora aggiunto dettagli in merito ai pagamenti. Per ricevere il denaro è necessario fornire queste informazioni."
     transaction_confirmed:
       here_is_a_message_from: "Ecco un messaggio da %{other_party_given_name}:"
       request_marked_as_confirmed: "Richiesta completata - ricordati di dare il tuo feedback"
@@ -1519,7 +1521,7 @@ it:
       team_title: ~
     transaction_confirmed_v2:
       headline_confirmed: ~
-      headline_canceled: ~
+      headline_canceled: "%{other_party_full_name} ha contestato l'ordine %{listing_link}."
       stripe:
         has_marked_request_as_confirmed: ~
       can_give_feedback: ~
@@ -1529,7 +1531,7 @@ it:
       we_have_marked_request_as_confirmed: "Abbiamo confermato la richiesta per '%{request}'. La richiesta è stata completata automaticamente perché sono trascorsi %{days_passed} giorni da quando la richiesta è stata accettata."
     transaction_automatically_confirmed_v2:
       we_have_marked_request_as_confirmed: ~
-      order_automatically_confirmed: ~
+      order_automatically_confirmed: "L'ordine è stato automaticamente contrassegnato come completato perché sono passati %{days_passed} giorni da quando la richiesta è stata accettata."
     booking_transaction_automatically_confirmed:
       subject: "Richiesta completata automaticamente -  ricordati di dare il tuo feedback"
       we_have_marked_request_as_confirmed: "Abbiamo confermato la richiesta per '%{request}'. La richiesta è stata completata automaticamente perché è trascorso un giorno da quando il periodo di prenotazione è concluso."
@@ -1545,9 +1547,9 @@ it:
       confirmation_link_text: "Conferma la tua email"
       or_paste_link: "Altrimenti puoi copiare il seguente link nella barra degli indirizzi del tuo browser:"
     confirmation_instructions_v2:
-      headline: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      headline: "conferma la tua email per unirti a %{service_name}!"
+      need_to_confirm: "Conferma il tuo indirizzo email per completare il tuo account su %{service_name}. È facile: basta fare clic sul pulsante di seguito!"
+      confirmation_link_text: "Conferma il tuo indirizzo email"
     common:
       hey: "Ciao %{name},"
       hi: ~
@@ -1577,10 +1579,10 @@ it:
       pay_now: "Paga ora"
       remember_to_confirm: "Quando la richiesta è stata completata con successo, ricordati di contrassegnarla come completata. Se la richiesta non è stata completata hai %{days_to_automatic_confirmation} giorni per cancellarla. Altrimenti sarà considerata automaticamente come completata."
     conversation_status_changed_v2:
-      has_accepted_your_request: ~
-      has_accepted_your_request_text: ~
-      has_rejected_your_request: ~
-      has_rejected_your_request_text: ~
+      has_accepted_your_request: "tua richiesta è stata accettata."
+      has_accepted_your_request_text: "%{accepter} ha accettato la tua richiesta per %{listing}."
+      has_rejected_your_request: "sfotrunatamente la tua richiesta è stata respinta."
+      has_rejected_your_request_text: "%{accepter} ha rifiutato la tua proposta per %{listing}."
     invitation_to_kassi:
       hi: Ciao!
       you_have_been_invited_to_kassi: "%{inviter} ti ha invitato ad accedere a %{service_name}"
@@ -1597,8 +1599,8 @@ it:
       has_commented_listing_you_follow_in_kassi: "%{author} ha lasciato un commento sull'inserzione '%{listing}' che stai seguendo su %{service_name}."
     new_message:
       view_message: "Mostra messaggio"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} ti ha inviato un messaggio. Vai su %{service_name} per rispondere."
+      you_have_a_new_message: "Hai un nuovo messaggio da %{sender_name} in %{service_name}"
     new_message_v2:
       headline: ~
       reply: ~
@@ -1613,9 +1615,9 @@ it:
       shipping_total: "Spedizione:"
       product: "Prodotto:"
       price_payer_paid: "Prezzo pagato da %{payer_full_name}:"
-      subtotal: ~
+      subtotal: "Subtotale:"
       service_fee: "Commissione di %{service_name}:"
-      buyer_service_fee: ~
+      buyer_service_fee: "costo del servizio %{service_name}:"
       you_will_get: Totale
       new_payment: "Hai ricevuto un nuovo pagamento"
       price_per_unit_type: "Prezzo per %{unit_type}"
@@ -1624,8 +1626,8 @@ it:
       stripe:
         you_have_received_new_payment: "La somma di <b>%{payment_sum}</b> è stata pagata per <b>%{listing_title}</b> da %{payer_full_name}. Il denaro è tenuto da %{service_name} finchè l'ordine non sarà contrassegnato come completato. Ecco la tua ricevuta"
     payment_receipt_to_seller_v2:
-      headline: ~
-      main_text_stripe: ~
+      headline: "Hai ricevuto %{payment_sum} per l'inserzione %{listing_link} da %{payer_name}."
+      main_text_stripe: "Il denaro è trattenuto da %{service_name} fino a quando l'ordine non è contrassegnato come completato."
       price_breakdown: "Dettaglio costi"
     payment_receipt_to_payer:
       receipt_of_payment: "Ricevuta di pagamento"
@@ -1635,13 +1637,13 @@ it:
       duration: "Periodo:"
       quantity: Quantità
       subtotal: Subtotale
-      buyer_service_fee: ~
+      buyer_service_fee: "costo del servizio%{service_name}:"
       total: Totale
       price: Prezzo
       service_fee: Commissione
       stripe_gateway_fee: "Tariffa di Stripe:"
       paypal_gateway_fee: "Tariffa di Paypal"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Il denaro verrà iniviato a %{recipient_name} quando a) contrassegni la richiesta come completata o b) dopo che sono passati %{automatic_confirmation_days} giorni da quando hai pagato."
     payment_receipt_to_payer_v2:
       headline: "ecco la tua ricevuta di pagamento per %{listing_link}."
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> a <b>%{listing_title}</b>."
@@ -1663,7 +1665,7 @@ it:
       subtotal: "Subtotale:"
       total: Totale
       price: Prezzo
-      buyer_service_fee: ~
+      buyer_service_fee: "costo del servizio %{service_name}"
       stripe_gateway_fee: "Tariffa di Stripe:"
       paypal_gateway_fee: "Tariffa di Paypal"
       money_will_be_transferred: "I soldi saranno trasferiti a %{recipient_name} quando a) avrai segnato la richiesta completata or b) %{automatic_confirmation_days} giorni sono passati da quando hai pagato."
@@ -1692,7 +1694,10 @@ it:
       settings_link_text: "Modifica le tue preferenze email qui"
       unsubscribe_link_text: "Annulla sottoscrizione"
     community_updates_v2:
-      headline: ~
+      headline: "scopri le ultime attività su %{service_name}."
+      intro_paragraph:
+        one: "Ecco alcuni momenti salienti che si sono verificati su %{service_name} durante l'ultimo giorno."
+        other: "Ecco alcuni momenti salienti che si sono verificati su %{service_name} durante gli ultimi %{count} giorni."
     newsletter:
       hi: "Ciao %{name},"
       newest_offers: "Quello che le persone attualmente offrono agli altri"
@@ -1717,32 +1722,32 @@ it:
       if_you_do_not_accept: "Se rifiuti o non accetti in questo periodo di tempo, la transazione sarà automaticamente cancellata, a %{requester} non avrà addebito e tu non riceverai il pagamento."
       click_here_to_reply: "Clicca qui per rispondere alla richiesta"
     transaction_preauthorized_v2:
-      headline: ~
+      headline: "%{requester} è interessato ed ha autorizzato il pagamento per %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Ricordati di accettare la richiesta di %{requester} per l'annuncio %{listing_title}"
       remember_to_accept: "Ricordati di accettare la richiesta di %{requester} per l'annuncio %{listing_title}. %{requester} ha già pagato per questo annuncio. Devi accettare la richiesta per ricevere il pagamento."
       one_day_left: "Se non accetti la richiesta entro un giorno, la richiesta sarà negata e non sarai pagato"
       click_here_to_reply: "Clicca qui per rispondere alla richiesta"
     transaction_preauthorized_reminder_v2:
-      headline: ~
-      remember_to_accept: ~
+      headline: "Ricordati di accettare la richiesta da %{requester} in merito a %{listing_link}."
+      remember_to_accept: "%{requester} ha già pagato per l'annuncio. Devi accettare la richiesta per ricevere il pagamento."
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: "Benvenuto su %{service_name}!"
       love_marketplace_crew: "Con affetto,<br /><i>il team di %{service_name}</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Modifica le impostazione della tua email qui"
     new_listing_by_followed_person:
       subject: "%{author_name} ha pubblicato un nuovo annuncio su %{service_name}"
       has_posted_a_new_listing: "%{author_name} ha pubblicato un nuovo annuncio:"
       you_are_receiving_this_because: "Hai ricevuto una notifica perchè segui %{author_name}."
       view_listing: "Mostra annuncio"
     new_listing_by_followed_person_v2:
-      headline: ~
+      headline: "%{author} ha appena aggiunto un'inserzione!"
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
       view_listing: ~
-      cant_click: ~
+      cant_click: "Non riesci a cliccare il tasto? Di seguito il link per comodità:"
     new_ident_notification:
       subject: ~
       h1_body: ~
@@ -1754,8 +1759,8 @@ it:
       button: ~
     new_member_notification:
       subject: ~
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
+      new_member_has_joined: "Un nuovo utente si è unito a %{community}. Potrebbero dover ancora confermare il loro indirizzo email."
+      this_is_automatic_message: "Questo è un messaggio automatico che viene inviato agli amministratori di %{community}."
       person_name: ~
       person_email: ~
     new_member_notification_v2:
@@ -1772,8 +1777,8 @@ it:
       listing_has_been_approved: ~
       view_the_listing: ~
     listing_rejected:
-      subject: ~
-      listing_has_been_rejected: ~
+      subject: "Il team di %{community} ha respinto il tuo annuncio \"%{listing_title}\""
+      listing_has_been_rejected: "Sfortunatamente il team %{community} ha respinto il tuo annuncio \"%{listing_title}\" dopo averla visionata attentamente. Puoi %{contact_link} per saperne di più e modificare la tua inserzione e risottometerla per una nuova revisione."
       contact_link: ~
       edit_the_listing: ~
     edited_listing_submited_for_review:
@@ -1806,20 +1811,20 @@ it:
       subject: ~
       subject_admin: ~
       order_about: ~
-      the_order_has_been_canceled: ~
-      the_order_between_buyer_and_seller_has_been_canceled: ~
+      the_order_has_been_canceled: "La %{transaction_link} è stata contestata."
+      the_order_between_buyer_and_seller_has_been_canceled: "La %{transaction_link} tra %{buyer} e %{seller} è stata contestata."
       the_marketplace_has_been_notified: ~
       contact_the_marketplace_team: ~
       you_must_now_decide: ~
       learn_more_about: ~
       review_the_transaction: ~
     transaction_refunded:
-      subject: ~
-      marketplace_team_has_approved_the_cancellation: ~
-      you_should_receive_a_refund_soon: ~
+      subject: "Ordine contrassegnato come rimborsato. Il team %{service_name} ha approvato la contestazione da %{buyer}."
+      marketplace_team_has_approved_the_cancellation: "Il team %{service_name} ha approvato la contestazione per %{transaction_link} ed ha contrassegnato il pagamento come rimborsato."
+      you_should_receive_a_refund_soon: "Riceverai presto il rimborso. Puoi contattare il team %{service_name} per qualsiasi ulteriore problema."
     transaction_cancellation_dismissed:
-      subject: ~
-      marketplace_team_has_rejected_the_cancellation: ~
+      subject: "La contestazione è stata rimossa. Il team %{service_name} ha respinto la contestazione di %{buyer}"
+      marketplace_team_has_rejected_the_cancellation: "Il team %{service_name} ha respinto la contestazione per %{transaction_link}."
     transaction_commission_charge_failed:
       subject: ~
       transaction_about: "Transazione per %{listing_title}"
@@ -1856,8 +1861,8 @@ it:
       reject_authorization_error: "Si è verificato un errore durante il tentativo di respingere la preautorizzazione del pagamento di Paypal. Per favore, provare di nuovo."
     stripe:
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento con Stripe"
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      accept_authorization_error: "Si è verificato un errore durante il tentativo di accettare il pagamento Stripe. Per favore riprova."
+      reject_authorization_error: "Si è verificato un errore durante il tentativo di rifiutare il pagamento Stripe. Per favore riprova."
       card_declined: "La carta è stata rifiutata"
       expired_card: "Il pagamento è fallito perché la carta è scaduta"
   error_pages:
@@ -2129,10 +2134,10 @@ it:
     logged_in_notifications_icon:
       notifications: Notifiche
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
+      title: "Guida alla formattazione usando Markdown"
+      description: "Markdown è un modo semplice per formattare il testo e sta benissimo su qualsiasi dispositivo. Non permette di cambiare la dimensione, il colore o il tipo del carattere - solo l'essenziale, usando i simboli della tastiera che già conosci."
+      formatting: Formattazione
+      result: Risultato
       h1: ~
       h2: ~
       h3: ~
@@ -2164,7 +2169,7 @@ it:
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account creato con successo. Ora devi confermare il tuo indirizzo email."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Grazie per esserti unito a %{service_name}. Devi adesso confermare il tuo indirizzo email."
       comment_cannot_be_empty: "Il campo commenti non può rimanere vuoto"
       comment_sent: "Commento inviato"
       confirmation_link_is_wrong_or_used: "Il link di conferma è già stato utilizzato o altrimenti non funziona. Prova ad accedere nuovamente, o inviaci un'email se il problema persiste."
@@ -2232,7 +2237,7 @@ it:
       reply_cannot_be_empty: "Non puoi inviare un messaggio vuoto"
       reply_sent: "Risposta inviata con successo"
       request_accepted: "Richiesta accettata"
-      request_accepted_and_closed: ~
+      request_accepted_and_closed: "Richiesta accettata e inserzione chiusa"
       request_confirmed: "Richiesta completata."
       request_rejected: "Richiesta respinta"
       request_canceled: "Ordine contestato."
@@ -2332,7 +2337,7 @@ it:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: ~
+      delete_listing: "Elimina l'inserzione"
     map:
       open_in_google_maps: "Apri in Google Maps"
     error:
@@ -2355,7 +2360,7 @@ it:
       description:
         detailed_description: "Descrizione dettagliata"
         youtube_info: "Se la tua descrizione contiene dei link di YouTube, i video saranno mostrati in fondo alla descrizione."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Puoi %{link}. Se la tua descrizione contiene link di YouTube, i video verranno mostrati sotto la descrizione."
       destination:
         destination: Destinazione
       form_content:
@@ -2743,7 +2748,7 @@ it:
       create_account_with_provider: ~
       OR: O
       signup_with_email: "Iscriviti con l'indirizzo e-mail"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Questo campo sarà visibile a tutti)"
     profile_feedback:
       grade: "grado:"
       and_gave_following_feedback: "e dare il successivo feedback"
@@ -2887,8 +2892,8 @@ it:
       homepage_link: homepage
       unsubscribe_unsuccesful: "Errore nella cancellazione della sottoscrizione"
       unsuccessful_unsubscribe_info_text: ~
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "...una discussione pubblica di un'inserzione che seguo ha un nuovo commento"
+      email_listing_updated: "...un'inserzione sulla quale ho lasciato un commento viene aggiornata"
     profile:
       about_you: "Su di te"
       city: Città
@@ -2899,7 +2904,7 @@ it:
       display_name: "Nome da mostrare"
       display_name_description: "Se rappresenti un'organizzazione, puoi scegliere di visualizzarne il nome. Il nome dell'organizzazione è utilizzato e visualizzato dagli altri utenti al posto del tuo nome e cognome ."
       location_description: "Puoi specificare la tua posizione esatta o, per esempio, solo il codice di avviamento postale. Per favore, aggiungi almeno il tuo CAP. Puoi anche selezionare una posizione dalla mappa sotto."
-      profile_picture_description: ~
+      profile_picture_description: "L'immagine di profilo deve essere in un formato che sia un quadrato (con rapporto 1:1), ad esempio, 800x800 pixel. Altrimenti, verrà ritagliata per adattarsi."
       phone_number: "Numero di telefono"
       profile_picture: "Immagine del profilo"
       postal_code: CAP
@@ -2912,10 +2917,10 @@ it:
       default_in_listing: "(usato solo come impostazione di base quando crei un nuovo annuncio)"
       invisible: "(non visibile ad altri utenti)"
       image_is_processing: "L'immagine di profilo è pronta. Per favore, ricarica tra un po' di tempo la pagina."
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "(visibile sul tuo profilo pubblico)"
       editing_profile_of: ~
-      format_markdown_link: ~
-      format_markdown: ~
+      format_markdown_link: "formattare la tua descrizione usando Markdown"
+      format_markdown: "Puoi %{link}."
       username: "Nome utente"
       username_description: "Il nome utente è utilizzato come parte unica dell'URL della tua pagina profilo. Può contenere solamente lettere e numeri, senza spazi."
     save_information: "Salva le informazioni"
@@ -3168,8 +3173,8 @@ it:
     stripe_credit_card: "Carta di credito"
     paypal: ~
     paypal_connected: "L'account PayPal è stato connesso con successo!"
-    paypal_can_accept: ~
-    paypal_connected_give_permission: ~
+    paypal_can_accept: "Ora sei pronto per ricevere denaro sul tuo conto PayPal"
+    paypal_connected_give_permission: "Per completare la configurazione e iniziare a ricevere i soldi sul tuo conto PayPal <%{email}>, concedi l'autorizzazione ad addebitare una commissione sulla transazione."
     stripe_account_restricted: "I pagamenti online sul tuo conto sono limitati o lo saranno presto!"
     stripe_account_restricted_info: "Dovresti modificare i dati del tuo conto bancario per fornire maggiori informazioni al servizio di pagamento."
     stripe_account_restricted_soon: ~
@@ -3180,9 +3185,9 @@ it:
       need_info: "Abbiamo bisogno di alcune informazioni su di te per poterti inviare denaro"
       select_country: "Scegli nazione"
       legal_name: Nome
-      first_name: ~
-      last_name: ~
-      first_name_kana: ~
+      first_name: Nome
+      last_name: Cognome
+      first_name_kana: Nome
       last_name_kana: ~
       first_name_kanji: ~
       last_name_kanji: ~
@@ -3202,7 +3207,7 @@ it:
       edit: "Modifica dettagli"
       cancel: Cancella
       gender: ~
-      phone_number: ~
+      phone_number: "Numero di telefono"
       phone_info_text: "Il numero di telefono deve iniziare con il prefisso del paese, ad esempio"
       address_kana_postal_code: ~
       address_kana_state: ~
