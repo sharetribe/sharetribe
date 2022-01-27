@@ -12,13 +12,14 @@ Feature: Admin lists members
     And "kassi_testperson1" has admin rights in community "test"
     And I am on the manage members admin page
 
+  @wip
   Scenario: Admin views & sorts list of members
     Then I should see list of users with the following details:
       | Name               | Email               | Joined      | Posting allowed | Remove User |
       | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
       | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
       | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
-    When I follow "Name"
+    When I sort by "Name"
     Then I should see list of users with the following details:
       | Name               | Email               | Joined      | Posting allowed | Remove User |
       | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
