@@ -2193,7 +2193,7 @@ hu:
       something_went_wrong: "Hiba történt"
       community_updated: "Részletek frissítve."
       community_update_failed: "Részletek frissítése sikertelen."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "A fiókod sikeresen elkészült. Most igazod vissza az e-mail címed."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "A fiókod sikeresen elkészült. Most igazold vissza az e-mail címed."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Köszönjük, hogy csatlakoztál a %{service_name} oldalához. Most igazold vissza az e-mail címed."
       comment_cannot_be_empty: "A megjegyzés rovat nem maradhat üresen"
       comment_sent: "Megjegyzés elküldve"
@@ -3176,6 +3176,8 @@ hu:
     page_entries_info:
       single_page:
         other: "Az összes megmutatása %{count} %{model}"
+      single_page_html:
+        other: ""
       multi_page: "%{model}%{from}-%{to} vagy %{count} végösszeg megjelenítése"
       multi_page_html: "Megjelenítés %{model}<b>%{from}&nbsp-&nbsp;%{to}</b> az összesből amely <b>%{count}</b>"
     person:

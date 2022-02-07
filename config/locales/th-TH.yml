@@ -3136,6 +3136,8 @@ th-TH:
       create_own: ~
       learn_more: ~
   will_paginate:
+    models:
+      person: ~
     previous_label: "&#8592; ก่อนหน้านี้"
     next_label: "ถัดไป &#8594;"
     page_gap: "&hellip;"
