@@ -540,7 +540,7 @@ ka:
       conversations:
         conversations: ~
         headers:
-          started_from: ~
+          started_from: დაიწყო
           status: ~
           started: ~
           last_activity: ~
@@ -555,7 +555,7 @@ ka:
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
-        displaying_xx_reviews: ~
+        displaying_xx_reviews: "ნაჩვენებია <b>%{count}</b> მიმოხილვა ტრანზაქციებში %{tx_from} - %{tx_to} სულ <b>%{all_count}</b> მიმოხილვებიდან"
         search_keyword: ~
         search: ~
         reset_search: ~
@@ -981,7 +981,7 @@ ka:
         message_will_be_sent_only_to_people_with_this_language: "შენიშვნა: ელ-ფოსტა გადაეგზავნება მხოლოდ იმ წევრებს, რომლებიც იყენებენ %{service_name}-ს იმ ენაზე რომელიც თქვენ აირჩიეთ."
         email_sent: "ელ. ფოსტა გაგზავნილია"
         to_improve_email_deliverability: ~
-        email_subject_text: ~
+        email_subject_text: "ახალი შეტყობინება %{service_name}  გუნდისგან"
         firstname_cannot_be_removed: ~
         hello_firstname: ~
         hello_firstname_text: ~
@@ -1272,7 +1272,9 @@ ka:
     paypal_fee_info:
       title: "PayPal-ით გადახდის საფასური"
       body_text: "PayPal არიცხავს გადახდის საფასურს ყოველი გადახდიდან. ეს გადასახადი მერყეობს 2%-დან 5%-მდე მთლიანი გაყიდული ფასიდან, დამოკიდებულია თვიური გაყიდვების მოცულობიდან და გამყიდველის ქვეყნიდან გამომდინარე. ზოგადად, ადგილობრივ გაყიდვებს აქვს უფრო დაბალი გადასახადი ვიდრე საერთაშორისოებს და მაღალი თვიური გაყიდვები გაძლევს ფასდაკლებას გადასახადზე. თქვენ შეგიძლიათ ზუსტი გადასახადი ნახოთ PayPal-ის ანგარიშზე შესვლით და %{link_to_paypal}-ზე გადასვლით. ყოველი გაყიდვის შემდეგ მიიღებთ საფასურს რომელზეც ეწერება ზუსტი რაოდენობა."
-      body_text_accept: ~
+      body_text_accept: |-
+          ეს ტრანზაქცია მუშავდება PayPal-ის მიერ. PayPal იხდის დამუშავების საფასურს თითოეული გადახდისგან. ეს საკომისიო შეადგენს გაყიდვების მთლიანი ფასის 2%-დან 5%-მდე, თქვენი ყოველთვიური გაყიდვების მოცულობისა და მყიდველის რეზიდენციის ქვეყნიდან გამომდინარე. ზოგადად, შიდა შესყიდვებს უფრო დაბალი საკომისიო აქვს, ვიდრე საერთაშორისო, და უფრო მაღალი ყოველთვიური გაყიდვები გაძლევთ ფასდაკლებას გადასახადებზე.
+          ზუსტი საკომისიოების ნახვა შეგიძლიათ თქვენს PayPal ანგარიშში შესვლით და %{link_to_paypal} -ზე გადასვლით. ყოველი შეძენის შემდეგ თქვენ მიიღებთ ქვითარს, რომელშიც მითითებულია ზუსტი საფასური.
       link_to_paypal_text: აქ
     stripe_fee_info:
       title: ~
@@ -1434,7 +1436,7 @@ ka:
           unknown_reason: "გადახდა პროცესშია. შედი PayPal-ის ანგარიშზე რომ ნახო დეტალები."
           verify: "გელოდებით რომ დაადასტუროთ PayPal-ს ანგარიში"
       stripe:
-        waiting_confirmation_from_requester: ~
+        waiting_confirmation_from_requester: "ელოდება %{requester_name}  შეკვეთის დასრულებულად მონიშვნას. მას შემდეგ, რაც შეკვეთა მონიშნულია დასრულებულად, გადახდა დაირიცხება თქვენს საბანკო ანგარიშზე."
       order_canceled: ~
       waiting_for_marketplace_review: ~
       marketplace_notified: ~
@@ -1570,10 +1572,10 @@ ka:
       message_not_displaying_correctly: "ეს ელ. ფოსტა არ არის ნაჩვენები სწორად?"
       view_it_in_your_browser: "ნახეთ ეს თქვენ ბრაუზერში"
       or: ან
-      unsubscribe_from_these_emails_info: ~
+      unsubscribe_from_these_emails_info: "თქვენ მიიღეთ ეს ელფოსტა, რადგან ხართ %{service_name} -ის წევრი."
       unsubscribe_from_these_emails: "ამ ელ. ფოსტისგან გამოწერის გაუქმება"
       unsubscribe_from_invitation_emails_info: ~
-      unsubscribe_from_invitation_emails: ~
+      unsubscribe_from_invitation_emails: "გააუქმეთ მოწვევის ელფოსტის გამოწერა %{service_name} -თან შესაერთებლად"
       here_is_your_receipt: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} დაეთანხმა თქვენ შემოთავაზებას %{listing}."
@@ -1610,7 +1612,7 @@ ka:
     new_message:
       view_message: "ნახე წერილი"
       has_sent_you_a_message_in_kassi: "%{sender} გამოგიგზავნათ შეტყობინება. გადადით %{service_name} საპასუხოდ."
-      you_have_a_new_message: ~
+      you_have_a_new_message: "თქვენ გაქვთ ახალი შეტყობინება %{sender_name} -%{service_name} -ში"
     new_message_v2:
       headline: ~
       reply: "დააწკაპუნეთ აქ პასუხის გასაცემად %{sender}"
@@ -2412,7 +2414,7 @@ ka:
         long_time: "კვირა, თვე, ..."
         after_service_fee_you_will_get: "%{service_name}-ს და გადახდის პროცესორის საფასურის შემდგომ თქვენ მიიღებთ %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} დაიქვითება ფასიდან."
-        no_service_fee_you_will_get_payment_text: ~
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link}  ჩამოიჭრება ფასიდან."
         after_service_fee_you_will_get_payment_text: "როდესაც ვინმე შეკვეთას გააკეთებს, %{payment_fee_info_link} თქვენ მიიღებთ ამ თანხას მინუს"
         payment_fee_info_link_text: "%{service_name} საკომისიო და გადახდის დამუშავების საკომისიო"
         delivery: "მიტანის მეთოდი"
@@ -2895,8 +2897,8 @@ ka:
       homepage_link: "მთავარი გვერდი"
       unsubscribe_unsuccesful: "გამოწერის გაუქმების შეცდომა"
       unsuccessful_unsubscribe_info_text: "გამოწერის გაუქმების ბმულს ვადა გაუვიდა. შედი სისტემაში, რომ შეცვალოთ ელ. ფოსტის გამოწერის პარამეტრები"
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "...საჯარო დისკუსიის ჩამონათვალს, რომელსაც მე მივყვები, აქვს ახალი კომენტარი"
+      email_listing_updated: "...სია, რომელზეც კომენტარი გავაკეთე, განახლებულია"
     profile:
       about_you: "შენს შესახებ"
       city: ქალაქი
@@ -3090,7 +3092,7 @@ ka:
           overlaps: ~
           covers: ~
       pricing_units:
-        piece: ""
+        piece: ~
         hour: საათი
         day: დღე
         night: ღამე

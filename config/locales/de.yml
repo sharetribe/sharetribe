@@ -1215,7 +1215,7 @@ de:
         status: "Status:"
         next_step: "Nächster Schritt:"
         waiting_for_provider_accept_or_reject: "Es wird gewartet, dass %{provider} die Anfrage annimmt or ablehnt."
-        waiting_for_fulfill_and_complete: "Es wird gewartet, dass %{listing_title} von %{provider} erbracht wird, and dass %{buyer} die Anfrage als erledigt markiert."
+        waiting_for_fulfill_and_complete: "Es wird gewartet, dass %{listing_title} von %{provider} erbracht wird, and dass %{buyer} den Auftrag als erledigt markiert."
         buyer: "Käufer:"
         provider: "Verkäufer:"
         delivery: "Lieferungsmethode:"
@@ -1324,8 +1324,8 @@ de:
       shipping_price_label: "Versand:"
       stripe-fee_label: Zahlungsbearbeitungsgebühr
     confirm:
-      confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du den Anderen bewerten."
-      cancel_description_team: "Wenn die Anfrage nicht erfüllt wurde, kannst du sie als 'Angefochten' markieren. Das Team von %{service_name} wird die Lage untersuchen und die Anfechtung entweder erstatten oder ablehnen."
+      confirm_description: "Wenn dein Auftrag abgeschlossen ist, solltest du ihn als erledigt markieren. Dann kannst du den Anderen bewerten."
+      cancel_description_team: "Wenn der Auftrag nicht erfüllt wurde, kannst du ihn als 'Angefochten' markieren. Das Team von %{service_name} wird die Lage untersuchen und die Anfechtung entweder erstatten oder ablehnen."
       cancel_payed_description: "Wenn deine Anfrage akzeptiert wurde, du aber noch einmal darüber nachdenken willst, kannst du deine Anfrage vor der Bezahlung immer noch ablehnen."
       canceling_payed_transaction: "Transaktion abbrechen"
       confirm: erledigt
@@ -1348,9 +1348,9 @@ de:
       accepted_offer: "Angebot angenommen"
       rejected_request: "Anfrage abgelehnt"
       rejected_offer: "Angebot abgelehnt"
-      confirmed_request: "Anfrage abgeschlossen"
+      confirmed_request: "Auftrag abgeschlossen"
       confirmed_offer: "Angebot abgeschlossen"
-      canceled_request: "Anfrage angefochten"
+      canceled_request: "Auftrag angefochten"
       canceled_offer: "Angebot abgebrochen"
       message_from: "Nachricht von %{person}"
       about_listing: "In Bezug auf %{listing_title}"
@@ -1358,23 +1358,23 @@ de:
       message_content_not_available: "Nachrichteninhalt nicht verfügbar"
     message:
       accepted_request: "Anfrage akzeptiert"
-      received_payment: ~
+      received_payment: "Anfrage akzeptiert, Zahlung empfangen"
       received_payment_wo_sum: "hat die Anfrage angenommen, und Zahlung erhalten"
       accepted_offer: "Angebot akzeptieren"
       rejected_request: "Anfrage abgelehnt, Bezahlung widerrufen"
       rejected_offer: "Angebot ablehnen"
-      confirmed_request: "hat die Anfrage als erledigt markiert"
+      confirmed_request: "hat den Auftrag als erledigt markiert"
       confirmed_offer: "hat das Angebot als erledigt markiert"
-      canceled_request: "Anfrage abgebrochen"
+      canceled_request: "Auftrag abgebrochen"
       canceled_offer: "Angebot abgebrochen"
       paid: "bezahlt %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Zahlung autorisiert"
       payment_preauthorized_wo_sum: "Zahlung erfolgreich"
       stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
+        held_payment: "Anfrage angenommen. Zahlung wird von %{service_name} behalten bis der Auftrag als erledigt markiert ist."
+        held_payment_wo_sum: "Anfrage angenommen. Zahlung wird von %{service_name} behalten bis der Auftrag als erledigt markiert ist."
         confirmed_request: "Hat den Auftrag als erledigt markiert. Die Zahlung wurde oder wird in Kürze auf das Bankkonto von %{author_name} transferiert."
-      canceled_the_order: "Anfrage angefochten. Das Team von %{service_name} wurde kontaktiert."
+      canceled_the_order: "Auftrag angefochten. Das Team von %{service_name} wurde kontaktiert."
       marked_as_refunded: "Als erstattet markiert"
       dismissed_the_cancellation: "Anfechtung abgelehnt."
       payment_has_now_been_transferred: "Die Zahlung wurde jetzt an das Bankkonto von %{seller} bezahlt, oder wird bald bezahlt."
@@ -1390,7 +1390,7 @@ de:
       title: Titel
       send_message_to_user: "Nachricht an %{person} senden"
       about_listing: "In Bezug auf %{listing_title}"
-      author_has_to_accept_request: "%{author_name} muss den Auftrag annehmen, bevor Sie zahlen können"
+      author_has_to_accept_request: "%{author_name} muss die Anfrage annehmen, bevor Sie zahlen können"
     show:
       in_response_to_listing: "über den Eintrag"
       message_sent_by: "Nachricht gesendet von"
@@ -1439,7 +1439,7 @@ de:
       waiting_for_listing_author_to_accept_offer: "Warte bis %{listing_author_name} das Angebt annimmt"
       waiting_for_listing_author_to_accept_request: "Warten auf Annahme der Anfrage durch %{listing_author_name}. Erst wenn %{listing_author_name} akzeptiert hat, wird Dein Konto belastet."
       waiting_for_you_to_accept_request: "Wartet, dass du die Anfrage akzeptierst"
-      waiting_confirmation_from_requester: "Warten bis %{requester_name} die Anfrage als erledigt markiert"
+      waiting_confirmation_from_requester: "Warten bis %{requester_name} den Auftrag als erledigt markiert"
       waiting_confirmation_from_you: "Wartet darauf, dass du den Vorgang als abgeschlossen markierst"
       waiting_payment_from_requester: "Warten bis %{requester_name} bezahlt"
       waiting_payment_from_you: "Wartet auf deine Zahlung"
@@ -1452,13 +1452,13 @@ de:
           verify: "Warten, dass du dein PayPal Konto bestätigst"
       stripe:
         waiting_confirmation_from_requester: "Warten bis %{requester_name} den Auftrag als erledigt markiert hat. Sobald der Auftrag als erledigt markiert wurde, erfolgt der Transfer der Zahlung auf dein Bankkonto."
-      order_canceled: "Anfrage angefochten"
+      order_canceled: "Auftrag angefochten"
       waiting_for_marketplace_review: "Es wird gewartet, dass das Team von %{service_name} die Lage untersucht"
       marketplace_notified: "Dem Team von %{service_name} wurde eine Nachricht geschickt. Du kannst sie auch %{contact_link}, wenn du mehr Details an sie schicken möchtest."
       contact_them: kontaktieren
-      refunded: "Anfrage als erstattet markiert"
+      refunded: "Auftrag als erstattet markiert"
       dismissed: "Anfechtung abgelehnt"
-      order_refunded: "Anfrage als erstattet markiert. Das Team von %{service_name} hat die Anfechtung angenommen."
+      order_refunded: "Auftrag als erstattet markiert. Das Team von %{service_name} hat die Anfechtung angenommen."
       you_should_receive_refund_soon: "Du solltest bald eine Erstattung bekommen."
       issue_with_the_refund: "Ist etwas schiefgelaufen? Probleme mit der Erstattung? %{contact_link}."
       do_you_disagree: "Ist etwas schiefgelaufen? Bist du nicht einverstanden? %{contact_link}."
@@ -1517,14 +1517,14 @@ de:
       create_own: "Willst du deine eigene Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
       learn_more: "Erfahre mehr"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Du hast die Anfrage %{request_link} noch nicht bestätigt oder angefochten. Wenn die Anfrage erledigt ist, solltest du dies bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
+      you_have_not_yet_confirmed_or_canceled_request: "Du hast den Auftrag %{request_link} noch nicht bestätigt oder angefochten. Wenn der Auftrag erledigt ist, solltest du dies bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
       remember_to_confirm_request: "Denke daran, deine Anfrage zu bestätigen oder abzulehnen"
-      if_will_not_happen_you_should_cancel: "Wenn du denkst, dass diese Anfrage wegen irgendeinem Grund nicht erledigt wird, kannst du %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel: "Wenn du denkst, dass dieser Auftrag wegen irgendeinem Grund nicht erledigt wird, kannst du %{cancel_it_link}."
       cancel_it_link_text: anfechten
       automatic_confirmation: "Wenn du den Auftrag nicht innerhalb von %{days_to_automatic_confirmation} Tagen bestätigst oder anfechtest, nachdem die Anfrage akzeptiert wurde, werden wir sie automatisch als erledigt markieren."
     confirm_reminder_v2:
-      headline: "du hast die Anfrage %{request_link} noch nicht erfüllt oder angefochten."
-      you_have_not_yet_confirmed_or_canceled_request: "Wenn die Anfrage erledigt wurde, solltest du dies bestätigen. Danach kannst du %{other_party_given_name} ein Feedback geben."
+      headline: "du hast den Auftrag %{request_link} noch nicht erfüllt oder angefochten."
+      you_have_not_yet_confirmed_or_canceled_request: "Wenn der Auftrag erledigt wurde, solltest du dies bestätigen. Danach kannst du %{other_party_given_name} ein Feedback geben."
     payment_settings_reminder:
       remember_to_add_payment_details: "Denke daran, deine Zahlungsdetails hinzuzufügen, um Zahlungen erhalten zu können"
       you_have_added_listing_with_payment: "Du hast unter %{listing_link} einen Eintrag mit Bezahlung hinzugefügt. Leider hast du noch keine Zahlungsinformationen angegeben. Um Geld zu erhalten, musst du noch deine Kontoverbindung eingeben."
@@ -1535,31 +1535,31 @@ de:
       you_have_added_listing_with_payment: "Du hast die Anzeige %{listing_link} mit Zahlung hinzugefügt. Wir haben festgestellt, dass du deine Zahlungsdetails noch nicht hinzugefügt hast. Um Geld zu erhalten, musst du deine Kontoverbindung eingeben."
     transaction_confirmed:
       here_is_a_message_from: "Dies ist eine Nachricht von %{other_party_given_name}."
-      request_marked_as_confirmed: "Anfrage erledigt. Denke daran, Feedback zu geben."
-      request_marked_as_canceled: "Anfrage angefochten"
-      has_marked_request_as_confirmed: "%{other_party_full_name} hat die Anfrage '%{request}' als \"erledigt\" markiert. Du kannst nun %{other_party_given_name} Feedback geben."
-      has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage '%{request}' angefochten. Du kannst trotzdem %{other_party_given_name} ein Feedback geben."
+      request_marked_as_confirmed: "Auftrag erledigt. Denke daran, Feedback zu geben."
+      request_marked_as_canceled: "Auftrag angefochten"
+      has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag '%{request}' als \"erledigt\" markiert. Du kannst nun %{other_party_given_name} Feedback geben."
+      has_marked_request_as_canceled: "%{other_party_full_name} hat deinen Auftrag '%{request}' angefochten. Du kannst trotzdem %{other_party_given_name} ein Feedback geben."
       giving_feedback_is_good_idea: "Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, die auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag \"%{request}\" als erledigt markiert. Die Überweisung der Zahlung auf dein Bankkonto für diese Transaktion wurde soeben angestoßen. Du kannst %{other_party_given_name} nun ein Feedback geben."
       team_title: "das Team von %{service_name}"
     transaction_confirmed_v2:
-      headline_confirmed: "%{other_party_full_name} hat die Anfrage über %{listing_link} als abgeschlossen markiert."
-      headline_canceled: "%{other_party_full_name} hat die Anfrage %{listing_link} angefochten."
+      headline_confirmed: "%{other_party_full_name} hat den Auftrag über %{listing_link} als abgeschlossen markiert."
+      headline_canceled: "%{other_party_full_name} hat den Auftrag %{listing_link} angefochten."
       stripe:
         has_marked_request_as_confirmed: "Die Zahlung für diese Transaktion wurde jetzt auf dein Bankkonto freigelassen."
       can_give_feedback: "Du kannst jetzt %{other_party_given_name} ein Feedback geben."
       team_title: "das Team von %{service_name}"
     transaction_automatically_confirmed:
-      subject: "Anfrage wurde automatisch abgeschlossen - bitte denk daran, Feedback zu geben."
-      we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu '%{request}' als erledigt markiert. Der Auftrag wurde automatisch erledigt, weil %{days_passed} Tage vergangen sind, seit der Antrag angenommen wurde."
+      subject: "Auftrag wurde automatisch abgeschlossen - bitte denk daran, Feedback zu geben."
+      we_have_marked_request_as_confirmed: "Wir haben den Auftrag zu '%{request}' als erledigt markiert. Der Auftrag wurde automatisch erledigt, weil %{days_passed} Tage vergangen sind, seit die Anfrage angenommen wurde."
     transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: "Wir haben die Anfrage über '%{request}' als abgeschlossen markiert."
-      order_automatically_confirmed: "Die Anfrage wurde automatisch abgeschlossen, denn %{days_passed} tag sind vergangen nachdem die Anfrage angenommen wurde."
+      we_have_marked_request_as_confirmed: "Wir haben den Auftrag über '%{request}' als abgeschlossen markiert."
+      order_automatically_confirmed: "Der Auftrag wurde automatisch abgeschlossen, denn %{days_passed} tag sind vergangen nachdem der Auftrag angenommen wurde."
     booking_transaction_automatically_confirmed:
       subject: "Angebot automatisch abgeschlossen - bitte denk daran, Feedback zu geben"
-      we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu %{request} als abgeschlossen markiert. Der Antrag wurde automatisch beendet, weil ein Tag ist vergangen, seitdem die  Buchungsperiode beendet ist."
+      we_have_marked_request_as_confirmed: "Wir haben den Auftrag zu %{request} als abgeschlossen markiert. Der Antrag wurde automatisch beendet, weil ein Tag ist vergangen, seitdem die  Buchungsperiode beendet ist."
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: "Die Anfrage wurde automatisch abgeschlossen, denn ein Tag ist vergangen nach dem Ende der Buchungsperiode."
     automatically_confirmed_footer:
@@ -1652,7 +1652,7 @@ de:
         you_have_received_new_payment: "Der Betrag in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> wurde von %{payer_full_name} gezahlt. Das Geld wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wird. Als Anlage erhältst du deinen Beleg."
     payment_receipt_to_seller_v2:
       headline: "du wurdest von %{payer_name} für %{listing_link} in Höhe von %{payment_sum} bezahlt."
-      main_text_stripe: "Die Zahlung wird von %{service_name} verwahrt, bis die Anfrage als abgeschlossen markiert wird."
+      main_text_stripe: "Die Zahlung wird von %{service_name} verwahrt, bis der Auftrag als abgeschlossen markiert wird."
       price_breakdown: Preisstruktur
     payment_receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
@@ -1750,7 +1750,7 @@ de:
       headline: "%{requester} interessiert sich und hat eine Zahlung für %{listing_link} autorisiert."
     transaction_preauthorized_reminder:
       subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."
-      remember_to_accept: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren. %{requester} hat bereits für das Angebot gezahlt. Du musst die Anfrage akzeptieren um die Zahlung zu erhalten."
+      remember_to_accept: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren. %{requester} hat bereits für das Angebot gezahlt. Du musst den Auftrag akzeptieren um die Zahlung zu erhalten."
       one_day_left: "Wenn du die Anfrage nicht innerhalb eines Tages akzeptierst, wird sie automatisch abgelehnt und du wirst nicht bezahlt."
       click_here_to_reply: "Klicke hier, um auf die Anfrage zu antworten"
     transaction_preauthorized_reminder_v2:
@@ -1828,14 +1828,14 @@ de:
       provider: "Verkäufer:"
       view_transaction: "Transaktion anzeigen"
     transaction_cancel_flow:
-      the_order_about: "die Anfrage über %{listing_title}"
+      the_order_about: "der Auftrag über %{listing_title}"
       you_can_contact_the_marketplace_team: "Du kannst das Team von %{service_name} kontaktieren, falls es irgendwelche weiteren Probleme gibt."
       you_can_now_give_feedback: "Du kannst jetzt %{name} ein Feedback geben. Es ist immer eine gute Idee, Feedback zu geben. Wenn alles gut gelaufen ist, kannst du den anderen erzählen, dass %{name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, diese auch zu erwähnen."
       give_feedback_to: "%{name} ein Feedback geben"
     transaction_disputed:
-      subject: "Anfrage angefochten - Das Team von %{service_name} untersucht die Situation"
+      subject: "Auftrag angefochten - Das Team von %{service_name} untersucht die Situation"
       subject_admin: "Eine Transaktion wurde angefochten, du musst entscheiden was als nächstes passiert"
-      order_about: "Anfrage über %{listing_title}"
+      order_about: "Auftrag über %{listing_title}"
       the_order_has_been_canceled: "%{transaction_link} wurde angefochten."
       the_order_between_buyer_and_seller_has_been_canceled: "%{transaction_link} zwischen %{buyer} und %{seller} wurde angefochten."
       the_marketplace_has_been_notified: "Dem Team von %{service_name} wurde eine Nachricht geschickt und sie untersuchen die Situation. Du kannst sie kontaktieren, um mehr zu erfahren."
@@ -1844,7 +1844,7 @@ de:
       learn_more_about: "hier mehr darüber erfahren, was du tun kannst"
       review_the_transaction: "Transaktion überprüfen"
     transaction_refunded:
-      subject: "Anfrage als erstattet markiert - Das Team von %{service_name} hat die Anfechtung von %{buyer} angenommen"
+      subject: "Auftrag als erstattet markiert - Das Team von %{service_name} hat die Anfechtung von %{buyer} angenommen"
       marketplace_team_has_approved_the_cancellation: "Das Team von %{service_name} hat die Anfechtung von %{transaction_link} angenommen und die Zahlung als erstattet markiert."
       you_should_receive_a_refund_soon: "Du solltest bald eine Erstattung bekommen. Du kannst das Team von %{service_name} kontaktieren, wenn es irgendeine weitere Probleme gibt."
     transaction_cancellation_dismissed:
@@ -2263,9 +2263,9 @@ de:
       reply_sent: "Nachricht erfolgreich gesendet"
       request_accepted: "Anfrage akzeptiert"
       request_accepted_and_closed: "Anfrage angenommen und Eintrag geschlossen"
-      request_confirmed: "Anfrage abgeschlossen"
+      request_confirmed: "Auftrag abgeschlossen"
       request_rejected: "Anfrage abgelehnt"
-      request_canceled: "Anfrage angefochten"
+      request_canceled: "Auftrag angefochten"
       message_sent: "Nachricht gesendet"
       message_not_sent: "Senden der Nachricht fehlgeschlagen. Bitte versuche es nochmal."
       this_content_is_not_available_in_this_community: "Dieser Inhalt ist nicht verfügbar."
@@ -2896,7 +2896,7 @@ de:
       i_want_to_get_email_notification_when: "Ich möchte eine E-Mail-Benachrichtigung erhalten, wenn..."
       newsletters: "E-mails von Administratoren"
       community_updates: Newsletter
-      email_about_confirm_reminders: "...ich vergessen habe, eine Anfrage als erledigt zu bestätigen"
+      email_about_confirm_reminders: "...ich vergessen habe, einen Auftrag als erledigt zu bestätigen"
       email_about_new_comments_to_own_listing: "...jemand meinen Eintrag kommentiert"
       email_about_new_messages: "...mir jemand eine Nachricht sendet"
       email_about_new_received_testimonials: "...mir jemand eine Bewertung gibt"
@@ -2906,7 +2906,7 @@ de:
       do_not_email_community_updates: "Schickt mir keine Newsletter"
       email_when_conversation_accepted: "...jemand mein Angebot oder meine Anfrage akzeptiert"
       email_when_conversation_rejected: "...jemand mein Angebot oder meine Anfrage ablehnt"
-      email_about_completed_transactions: "...jemand mein Angebot oder meine Anfrage als erledigt markiert"
+      email_about_completed_transactions: "...jemand mein Angebot oder meinen Auftrag als erledigt markiert"
       email_about_new_payments: "...ich eine neue Zahlung erhalte"
       email_about_new_listings_by_followed_people: "... jemand dem ich folge, einen neuen Eintrag veröffentlicht"
       unsubscribe_succesful: "Abbestellen erfolgreich"
