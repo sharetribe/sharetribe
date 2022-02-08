@@ -8,38 +8,38 @@ sl:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Uredi kategorijo '%{category}'"
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        listing_categories: "Seznam kategorij"
+        create_a_new_category: "+ Ustvari novo kategorijo"
+        remove_category_confirmation: "Ali ste prepričani, da želite odstraniti kategorijo '%{category_name}'? Tega ni mogoče razveljaviti."
+        saving_order: "Shranjevanje vrstnega reda kategorij"
+        save_order_successful: "Vrstni red kategorij je bil uspešno shranjen"
+        save_order_error: "Pri shranjevanju vrstnega reda kategorij je prišlo do napake. Osvežite stran in poskusite znova."
       new:
-        new_listing_category: ~
+        new_listing_category: "Nova kategorija objav"
       form:
         category_name:
-          category_title: ~
+          category_title: "Naslov kategorije"
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "Je podkategorija naslednji:"
+          no_parent: "Ni podkategorija"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "Vrste naročil"
+          transaction_types_description: "Vrste naročil določajo, kakšen postopek naročila je dovoljen pri oglasih v tej kategoriji. Na primer, ali je dovoljeno samo prodajanje ali je dovoljeno tudi brezplačno najem in oddajanje."
           select_all: ~
           clear_all: ~
         buttons:
-          save: ~
-          cancel: ~
+          save: Shrani
+          cancel: Prekliči
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
-        select_new_category: ~
+        remove_category: "Odstrani kategorijo"
+        remove_category_name: "Odstrani kategorijo '%{category_name}'"
+        warning_remove_effects: "Opozorilo! Odstranitev kategorije »%{category_name}« bo imela naslednje učinke:"
+        select_new_category: "Izberite novo kategorijo, kamor bodo premaknjeni zgoraj navedeni predmeti:"
         buttons:
-          remove: ~
-          cancel: ~
+          remove: Odstrani
+          cancel: Prekliči
     communities:
       edit_details:
         community_details: "Osnovni podatki"
@@ -59,27 +59,27 @@ sl:
         community_description_display: ~
         edit_community_description_description: "To je prikazano na domači strani tržnice za uporabnike, ki niso prijavljeni. %{see_how_it_looks_like}."
         edit_community_description_description_hideable: ~
-        community_search_placeholder: ~
-        edit_community_search_placeholder_description: ~
-        private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
+        community_search_placeholder: "Poiščite besedilo pomoči"
+        edit_community_search_placeholder_description: "To je prikazano na domači strani tržnice kot nadomestno besedilo v iskalni vrstici. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Vsebina domače strani zasebne tržnice"
+        edit_private_community_homepage_content_description: "Ta vsebina je prikazana na domači strani zasebnih tržnic uporabnikom, ki niso prijavljeni. Tukaj lahko opišete svojo tržnico in postopek za pridružitev. Tukaj lahko dodate tudi slike, videoposnetke in vsebino HTML. %{see_how_it_looks_like}."
         update_information: "Shranite nastavitve"
         invite_people: "Povabite nove uporabnike"
         edit_signup_info: "Podatki o prijavi"
         edit_signup_info_description: "To je informacija, ki se lahko prikaže uporabnikom na strani za prijavo. Tam lahko uporabnikom daste navodila za prijavo, informacije, na primer, kje dobiti povabilo itd. Privzeto ni navodil."
-        edit_info: ~
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: ~
+        edit_info: "Uredite informacije"
+        see_how_it_looks_like: "Preverite kako izgleda"
+        verification_to_post_listings_info_content: "Info tekst nepotrjenim uporabnikom"
+        verification_to_post_listings_info_content_description: "Trenutno zahtevate, da vaše uporabnike ročno preverite, preden lahko objavljajo objave. Tukaj lahko nastavite privzeto besedilo, ki se prikaže nepreverjenim uporabnikom, ko poskušajo objaviti nov seznam."
         verification_to_post_listings_info_content_default: "Na %{service_name} ti mora administrator osebno odobriti dodajanje objav. Trenutno žal nimaš te pravice. Prosim, kontaktiraj %{contact_admin_link}, da ti odobri dostop."
-        contact_admin_link_text: ~
-        save: ~
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        contact_admin_link_text: "kontaktirajte ekipo %{service_name}"
+        save: "Shrani nastavitve"
+        transaction_agreement: "Transakcijska pogodba"
+        transaction_agreement_checkbox: "Od kupcev zahtevajte, da pred začetkom transakcije sprejmejo dogovor"
+        transaction_agreement_checkbox_header: "Oznaka sporazuma"
+        transaction_agreement_checkbox_label_description: "To besedilo bo prikazano poleg potrditvenega polja v obrazcu za blagajno. Uporabnik mora potrditi polje, da nadaljuje s transakcijo. Primer oznake bi bil nekaj takega kot »S klikom na to polje sprejemam pogodbo«."
+        transaction_agreement_text_header: "Besedilo pogodbe"
+        transaction_agreement_description: "To je vsebina dejanske pogodbe, ki jo mora uporabnik sprejeti. Vsebina pogodbe se prikaže, ko uporabnik klikne povezavo »%{read_more}« poleg oznake pogodbe."
         terms_privacy_policy_and_static_content: ~
         terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
@@ -89,8 +89,8 @@ sl:
         community_logo_icon_mobile: ~
         community_cover_photo: "Naslovna slika"
         small_community_cover_photo: "Majhna naslovna fotografija"
-        favicon: ~
-        favicon_info_text: ~
+        favicon: Favicon
+        favicon_info_text: "Favicon bo nadomestil privzeti logotip Sharetribe. Dimenzije naj bodo 32 x 32 slikovnih pik, velikost naložene slike pa bo spremenjena na te dimenzije."
         community_custom_color1: "Marketplace glavna barva"
         community_slogan_color: ~
         community_slogan_color_instructions_text: ~
@@ -111,25 +111,25 @@ sl:
         main_content_width: "Pri izbiri naslovnih fotografij upoštevajte, da je glavna vsebina strani široka največ %{main_width} slikovnih pik. Ne pozabite preveriti tudi, kako je vaša naslovna fotografija videti na manjših zaslonih (npr. z uporabo ožjega okna brskalnika)."
         custom_color1_instructions_text: "Glavno barvo uporabniškega vmesnika lahko spremenite tako, da vnesete hex vrednost barve. %{link} vam lahko pomaga izbrati barvo in vam poda hex barvno kodo. Nato lahko kodo kopirate tukaj."
         new_listing_button_instructions_text: ~
-        default_browse_view: ~
-        default_browse_view_instructions_text: ~
+        default_browse_view: "Privzeti pogled za brskanje"
+        default_browse_view_instructions_text: "Privzeti pogled za brskanje se uporablja na domači strani za nastavitev, kako so objave privzeto prikazane."
         grid: Mreža
-        list: ~
-        map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
+        list: Seznam
+        map: Zemljevid
+        name_display_type: "Vrsta prikaza imena"
+        name_display_type_instructions_text: "Izberite, kako bo ime posameznega uporabnika prikazano na spletnem mestu."
+        full_name: "Polno ime (ime, priimek)"
+        first_name_with_initial: "Ime z začetnico (prvo L)"
+        first_name_only: "Samo ime (prvo)"
         invalid_color_code: "Barvna koda mora vsebovati 6 številk ali črk A-F, na primer D96E21"
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        custom_head_script: "Skripta po meri"
+        custom_head_script_instructions_text: "Skripto po meri lahko konfigurirate <a href='%{url}'>v novi skrbniški plošči</a>."
         current_image: ~
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: "Besedila navodil"
       edit_welcome_email:
-        welcome_email_content: ~
-        welcome_email_content_description: ~
+        welcome_email_content: "Vsebina prve e-pošte za dobrodošlico"
+        welcome_email_content_description: "Spodnje sporočilo bo poslano vsakemu novemu uporabniku, ko se pridruži. Sporočilo lahko prilagodite svojemu trgu. S klikom na '%{send_test_message_link}' lahko pošljete sporočilo za predogled na svoj e-poštni naslov, tako da si lahko ogledate, kako izgleda v e-poštnem odjemalcu."
         edit_message: "Uredi sporočilo"
         send_test_message: "Pošlji testno sporočilo"
       outgoing_email:
@@ -208,13 +208,13 @@ sl:
         zh: ~
         zh-TW: ~
       settings:
-        settings: ~
-        general: ~
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
+        settings: Nastavitve
+        general: Splošno
+        access: "Nastavitve dostopa in kontaktiranja"
+        join_with_invite_only: "Novim uporabnikom dovoli, da se pridružijo samo s povabilom registriranega uporabnika"
+        users_can_invite_new_users: "Dovoli vsem registriranim uporabnikom in ne samo skrbnikom, da povabijo nove uporabnike"
+        private: "Omogoči samo registriranim uporabnikom ogled objav in uporabniških profilov (naredi tržnico zasebno)"
+        require_verification_to_post_listings: "Dovoli samo uporabnikom, ki so jih preverili skrbniki, da objavljajo nove objave"
         allow_free_conversations: ~
         search_preferences: "Nastavitve iskanja"
         search_and_location_preferences: ~
@@ -228,23 +228,23 @@ sl:
         show_only_nearby: ~
         allow_users_to_add_location: ~
         fuzzy_location: ~
-        listing_preferences: ~
-        transaction_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        google_analytics_key: ~
-        twitter_handle: ~
-        update_settings: ~
+        listing_preferences: "Nastavitve objav"
+        transaction_preferences: "Nastavitve naročila"
+        show_listing_publishing_date: "Prikaži datum objave vnosa na strani z vnosom"
+        show_category_in_listing_list: "Prikaz objav v pogledu seznama"
+        listing_comments_in_use: "Dovoli uporabnikom, da komentirajo objave (vidno vsem drugim uporabnikom)"
+        email_preferences: "Nastavitve e-pošte"
+        automatic_newsletters: "Pošiljanje samodejnih dnevnih/tedenskih glasil vsem uporabnikom (razen če se odjavijo)"
+        email_admins_about_new_members: "Skrbnikom pošljite e-pošto vsakič, ko se prijavi nov uporabnik"
+        google_analytics_key: "ID za sledenje Google Analytics"
+        twitter_handle: "Twitter handle (uporablja se z gumbom za tweet na strani s seznamom)"
+        update_settings: "Shrani nastavitve"
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
         buyer_transaction_fees_are_only_supported_with_stripe: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        automatic_newsletter_frequency: "Samodejno pošlji e-novico: %{frequency_dropdown}"
+        newsletter_daily: Dnevno
+        newsletter_weekly: Tedensko
         delete_marketplace_title: ~
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
@@ -258,19 +258,19 @@ sl:
         pre_approved_listings: ~
         email_admins_about_new_transactions: ~
       manage_members:
-        manage_members: ~
-        email: ~
-        name: ~
+        manage_members: Uporabniki
+        email: E-pošta
+        name: Ime
         display_name: ~
-        join_date: ~
-        admin: ~
-        posting_allowed: ~
-        ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
+        join_date: Pridružen
+        admin: Admin
+        posting_allowed: "Objavljanje dovoljeno"
+        ban_user: Onemogoči
+        saving_user_status: "Shranjevanje ..."
+        save_user_status_successful: Shranjeno
         export_all_as_csv: ~
-        save_user_status_error: ~
-        ban_user_confirmation: ~
+        save_user_status_error: "Shranjevanje ni uspelo. Osvežite stran in poskusite znova."
+        ban_user_confirmation: "To onemogoči uporabniški račun iz trgovine in jim prepreči ponovni dostop do spletnega mesta s tem računom. Ali ste prepričani, da želite nadaljevati?"
         unban_user_confirmation: ~
         ban_me_error: ~
         have_ongoing_transactions: ~
@@ -308,7 +308,7 @@ sl:
         searchpage: ~
         new_email_templates: ~
       social_media:
-        social_media: ~
+        social_media: "Socialni mediji"
         logo: ~
         logo_info: ~
         social_media_title: ~
@@ -317,23 +317,23 @@ sl:
         link_for_linkedin: ~
         link_for_twitter: ~
         social_media_description: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
+        twitter_handle: "Twitter handle"
+        twitter_handle_info_text: "Uporabniško ime Twitter računa vaše tržnice (če ga imate). Omenjeno bo, ko bodo ljudje uporabili gumb za tweet na strani s seznamom."
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
         twitter_handle_placeholder: "uporabniško ime"
-        invalid_twitter_handle: ~
-        facebook_connect: ~
+        invalid_twitter_handle: "Handle Twitterja mora vsebovati največ 15 alfanumeričnih (črke A-Z in številke 0-9) znakov."
+        facebook_connect: "Facebook Prijava"
         facebook_developers_dashboard: ~
-        facebook_connect_info_text: ~
+        facebook_connect_info_text: "Če želite omogočiti Facebook prijavo, ustvarite aplikacijo za vašo tržnico v %{dashboard_link}. Tukaj dodajte ustvarjeni ID in skrivni ključ aplikacije."
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
+        facebook_connect_id: "ID aplikacije Facebook"
+        invalid_facebook_connect_id: "ID aplikacije mora vsebovati samo številke."
+        facebook_connect_secret: "Skrivnost aplikacije Facebook"
+        invalid_facebook_connect_secret: "Skrivnost aplikacije mora vsebovati samo številke in črke od a do f."
         enable_facebook_login: ~
-        save: ~
+        save: "Shrani nastavitve"
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -402,16 +402,16 @@ sl:
         google_search_console_paragraph2: ~
         save: ~
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
+        analytics: Analitika
+        google_analytics_key: "ID za sledenje Google Analytics"
+        google_analytics_key_info_text: "ID za sledenje vašega računa Google Analytics."
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
         sharetribe_analytics: ~
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
-        save: ~
+        save: "Shrani nastavitve"
         google_tag_manager: ~
         gtm_paragraph_1: ~
         gtm_paragraph_2: ~
@@ -422,16 +422,16 @@ sl:
         url: ~
         placeholder: ~
       menu_links:
-        menu_links: ~
+        menu_links: "Povezave do menija po meri"
         menu_links_display: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
-        empty: ~
+        save: "Shrani nastavitve"
+        add_menu_link: "Dodajte novo povezavo v meni"
+        title_placeholder: "Naslov povezave"
+        url_placeholder: "https://www.example.com/en"
+        title: Naslov
+        language: Jezik
+        url: URL
+        empty: "Nimate nobenih dodatnih povezav do menija"
         max_number_of_links: ~
         all: ~
         max_number_of_links_info: ~
@@ -452,7 +452,7 @@ sl:
       transactions:
         export_all_as_csv: ~
         processing_export: ~
-        transactions: ~
+        transactions: Transakcije
         search_by_title_parties: ~
         search: ~
         reset_search: ~
@@ -472,27 +472,27 @@ sl:
           refunded: ~
           dismissed: ~
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: Pogovor
+          listing: Seznam
+          status: Stanje
+          sum: Vsota
+          started: Začelo
+          last_activity: "Zadnja aktivnost"
+          initiated_by: Zaganjalnik
+          other_party: Prodajalec
         status:
           conversation: ~
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: "Brezplačna transakcija"
+          pending: "V teku"
+          preauthorized: "Predhodno pooblaščeno"
+          accepted: Sprejeto
+          rejected: Zavrnjeno
+          paid: Plačano
+          confirmed: Dokončano
+          canceled: Prekinjeno
           disputed: ~
-          initiated: ~
-          pending_ext: ~
+          initiated: "Čakanje na plačilo PayPal"
+          pending_ext: "Čakanje na plačilo PayPal"
           none:
             free: ~
           paypal:
@@ -866,58 +866,58 @@ sl:
           youtube_video_id_info: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Uredi polje vnosa '%{field_name}'"
       edit_price:
         description: ~
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        edit_price_field: "Uredi polje vnosa 'Cena'"
+        show_price_filter_homepage: "Prikaži filter cen na začetni strani"
+        price_min: "Filtrirajte najnižjo ceno"
+        price_max: "Filtrirajte najvišjo ceno"
       edit_location:
-        edit_location_field: ~
-        this_field_is_required: ~
+        edit_location_field: "Uredi polje 'Lokacija'"
+        this_field_is_required: "To polje je obvezno"
         the_location_feature_can_be_enabled: ~
       edit_expiration:
         edit_expiration_field: ~
         enable: ~
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
+          this_field_is_required: "Naj bo obvezno izpolnjevanje tega polja pri ustvarjanju nove objave"
+          this_field_is_required_checkbox: "Naj bo obvezno izpolnjevanje tega polja pri ustvarjanju novega seznama (uporabnik mora izbrati vsaj eno možnost)"
         search_filter:
           search_filter: ~
           date_cant_be_filtered: "Za datumsko polje ni na voljo nobenega filtra."
           text_cant_be_filtered: "Filter besedila ni na voljo. Glavno iskanje besedila išče iz besedilnih polj."
       index:
         listing_fields: "Polja & filtri objav"
-        listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
+        listing_fields_help: "Tukaj lahko urejate polja, ki jih morajo uporabniki izpolniti, ko ustvarijo nov seznam. Upoštevajte, da so nekatera polja vnaprej določena in jih ni mogoče urejati."
+        add_new_field: "Dodajte novo polje:"
+        remove_field_confirmation: "Ali ste prepričani, da želite odstraniti polje »%{field_name}« in vse njegove podatke? Tega ni mogoče razveljaviti."
+        cancel: Prekliči
+        save: Shrani
+        field_title: "Naslov polja"
+        field_type: "Vrsta polja"
+        categories: "Seznam kategorij, kjer se uporablja polje"
         select_all: ~
         clear_all: ~
-        options: ~
-        add_option: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
-        select_one: ~
-        continue: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        options: Možnosti
+        add_option: "+ Dodaj možnost"
+        saving_order: "Shranjevanje vrstnega reda polja"
+        save_order_successful: "Uspešno shranjen vrstni red polj"
+        save_order_error: "Pri shranjevanju vrstnega reda polja je prišlo do napake. Osvežite stran in poskusite znova."
+        select_one: "Izberite vrsto polja ..."
+        continue: Nadaljuj
+        minimum_value: Najmanj
+        maximum_value: Največ
+        allow_decimals: "Dovoli decimalke"
       new:
-        new_listing_field: ~
+        new_listing_field: "Novo vnosno polje"
       field_types:
-        text: ~
-        number: ~
-        dropdown: ~
-        checkbox_group: ~
-        date: ~
+        text: Besedilo
+        number: Številka
+        dropdown: "Spustni meni"
+        checkbox_group: "Skupina potrditvenih polj"
+        date: Datum
         file: ~
         location: ~
     person_custom_fields:
@@ -977,9 +977,9 @@ sl:
         hello_firstname_text: ~
     left_hand_navigation:
       general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
+      users_and_transactions: Upravljaj
+      configure: Konfiguriraj
+      emails_title: E-pošta
       subscription: ~
       preview: ~
       whats_new: ~
@@ -1067,7 +1067,7 @@ sl:
           quantity_label: ~
           time_label: ~
     paypal_accounts:
-      marketplace_paypal_integration: ~
+      marketplace_paypal_integration: "Nastavitve plačilnega sistema"
       preferences_updated: ~
       contact_support_link_text: ~
       integration_info_text: ~
@@ -1154,29 +1154,29 @@ sl:
         actions: ~
         payments_not_enabled: ~
     transaction_types:
-      sell: ~
+      sell: Prodaja
       sell_w_online_payment: ~
       sell_wo_online_payment: ~
-      rent: ~
+      rent: "Oddajanje v najem"
       rent_w_online_payment: ~
       rent_wo_online_payment: ~
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
+      give: Oddajanje
+      lend: Posojanje
+      swap: Izmenjevanje
+      service: Ponujanje
       service_w_online_payment: ~
       service_wo_online_payment: ~
-      request: ~
-      inquiry: ~
-      share_for_free: ~
+      request: Zahtevanje
+      inquiry: Obvestilo
+      share_for_free: "Deljenje zastonj"
       event_w_online_payment: ~
       event_wo_online_payment: ~
       default_action_button_labels:
-        sell: ~
-        rent: ~
-        request: ~
-        offer: ~
-        inquiry: ~
+        sell: Nakup
+        rent: Najem
+        request: Ponudba
+        offer: Zahteva
+        inquiry: Kontakt
         book: ~
     community_transactions:
       show:
@@ -1243,7 +1243,7 @@ sl:
       travel: Potovanje
       other: Drugo
     username: "Uporabniško ime"
-    username_or_email: "E-naslov ali uporabniško ime"
+    username_or_email: E-naslov
     what_is_this: "Kaj je to?"
     removed_user: ~
     payment_fee_info:
@@ -1294,14 +1294,14 @@ sl:
       cancel_payed_description: "Če je bila vaša zahteva sprejeta, vendar še premišljujete, lahko še vedno prekličete zahtevo pred plačilom."
       canceling_payed_transaction: "Prekliči transakcijo"
       confirm: "Označi dokončano"
-      cancel: ~
+      cancel: Spor
       continue: Nadaljevati
       give_feedback_to: "Pošljite povratne informacije %{person_link}"
       do_not_give_feedback: "Preskoči povratne informacije"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: dan
+      days: dnevi
+      price_per_day: "Cena na dan: %{price}"
     index:
       loading_more_messages: "Nalaganje več sporočil"
       message_partitive: sporočilo
@@ -1317,9 +1317,9 @@ sl:
       confirmed_offer: "Ponudba zaključena."
       canceled_request: "Naročilo je sporno."
       canceled_offer: "Ponudba preklicana."
-      message_from: ~
-      about_listing: ~
-      free_message: ~
+      message_from: "Sporočilo od %{person}"
+      about_listing: "O seznamu %{listing_title}"
+      free_message: "Neposredno sporočilo"
       message_content_not_available: ~
     message:
       accepted_request: "sprejel zahtevo"
@@ -1345,8 +1345,8 @@ sl:
       payment_has_now_been_transferred: ~
     new:
       message: Sporočilo
-      message_to: ~
-      optional_message_to: ~
+      message_to: "Sporočilo %{author_name}"
+      optional_message_to: "Možnost sporočila za %{author_name}"
       send_message: "Pošlji sporočilo"
       send: Pošlji
       this_message_is_private: "To sporočilo je zasebno med vami in %{person}. %{person} bo o tem sporočilu obveščen po e-pošti."
@@ -1354,8 +1354,8 @@ sl:
       you_will_get_notified: "Ko vam odgovori %{person}, boste prejeli e-poštno obvestilo."
       title: Naslov
       send_message_to_user: "Pošlji sporočilo %{person}"
-      about_listing: ~
-      author_has_to_accept_request: ~
+      about_listing: "O seznamu %{listing_title}"
+      author_has_to_accept_request: "%{author_name} mora sprejeti zahtevo, preden lahko plačate"
     show:
       in_response_to_listing: "o objavi"
       message_sent_by: "Sporočilo je poslal"
@@ -1364,11 +1364,11 @@ sl:
       write_a_reply: "Napišite odgovor:"
       conversation_about_listing: "Z %{person} o %{listing}"
       conversation_with_user: "Z %{person}"
-      conversation_with: ~
+      conversation_with: "Pogovor z %{person}"
       last_message_at: "(zadnje sporočilo %{time})"
-      price: ~
-      sum: ~
-      total: ~
+      price: "Cena: %{price}"
+      sum: "Skupaj: %{sum}"
+      total: "Skupaj: %{total}"
     status:
       payment_errored: ~
       payment_errored_starter: ~
@@ -1381,40 +1381,40 @@ sl:
       offer_rejected: Zavrnjeno
       offer_canceled: Preklicano
       offer_confirmed: Dokončano
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_paid: "Plačilo uspešno"
+      offer_preauthorized: "Plačilo uspešno"
+      offer_waiting_for_payment: "Čakanje, da %{requester_name} plača"
       pay: Plačati
-      preauthorized: ~
+      preauthorized: "Plačilo uspešno"
       paid: "Plačilo uspešno"
       pending_external:
         paypal:
-          multicurrency: ~
-          verify: ~
-          intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+          multicurrency: "Plačila PayPal nismo mogli obdelati, ker vaš račun PayPal ni nastavljen za prejemanje denarja v %{currency}. Pojdite na %{paypal_url} in se prijavite v svoj račun, da ročno sprejmete ali zavrnete plačilo."
+          verify: "Te transakcije ne morete sprejeti, ker niste preverili svojega računa PayPal. Pojdite na %{paypal_url}, da preverite svoj račun."
+          intl: "Plačila PayPal nismo mogli obdelati, ker vaš račun PayPal nima mehanizma za dvig. Pojdite na %{paypal_url} in se prijavite v svoj račun, da ročno sprejmete ali zavrnete plačilo."
+      waiting_for_current_user_to_deliver_listing: "Čakam, da izpolnite naročilo za %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Čakam, da %{listing_author_name} izpolni naročilo za %{listing_title}"
       request_accepted: Sprejeto
       request_rejected: Zavrnjeno
       request_confirmed: Dokončano
       request_canceled: Preklicano
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Plačilo uspešno"
+      request_preauthorized: "Plačilo odobreno"
       skip_feedback: "Preskočite povratne informacije"
       waiting_for_listing_author_to_accept_offer: "Čakam, da %{listing_author_name} sprejme ponudbo"
       waiting_for_listing_author_to_accept_request: "Čakam, da %{listing_author_name} sprejme zahtevo. Takoj, ko %{listing_author_name} sprejme, vam bomo zaračunali."
-      waiting_for_you_to_accept_request: ~
+      waiting_for_you_to_accept_request: "Čakam, da sprejmete zahtevo"
       waiting_confirmation_from_requester: "Čakanje, da %{requester_name} označi naročilo kot dokončano"
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_you: "Čakam, da označite naročilo kot dokončano"
       waiting_payment_from_requester: "Čakanje, da %{requester_name} plača"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "Čakam, da plačaš"
+      waiting_feedback_from_you: "Čakam na povratne informacije"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
+          multicurrency: "Čakam, da sprejmete plačilo s PayPal"
+          intl: "Čakamo, da sprejmete plačilo s PayPal"
           unknown_reason: ~
-          verify: ~
+          verify: "Čakamo, da preverite svoj PayPal račun"
       stripe:
         waiting_confirmation_from_requester: ~
       order_canceled: ~
@@ -1434,12 +1434,12 @@ sl:
       accept_request: "Sprejmite zahtevo"
       reject_offer: "Ne tokrat"
       reject_request: "Ne tokrat"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Sprejmi ponudbo"
+      accept_preauthorized_request: "Sprejmi zahtevo"
+      reject_preauthorized_offer: "Ne tokrat"
+      reject_preauthorized_request: "Ne tokrat"
       confirm: "Označi dokončano"
-      cancel: ~
+      cancel: Spor
       mark_as_refunded: ~
       dismiss: ~
   feedback:
@@ -1482,18 +1482,18 @@ sl:
       create_own: "Bi rad tudi ti ustvaril svoj spletni marketplace kot je %{service_name}? %{learn_more}"
       learn_more: "Izvedi več"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request: "Naročila %{request_link} še niste dokončali ali izpodbijali. Če je naročilo zaključeno, morate to potrditi. Po tem lahko pošljete povratne informacije %{other_party_given_name}."
       remember_to_confirm_request: "Ne pozabite potrditi ali preklicati zahteve"
       if_will_not_happen_you_should_cancel: "Če menite, da to naročilo iz enega ali drugega razloga ne bo dokončano, lahko %{cancel_it_link}."
       cancel_it_link_text: "oporekajte temu"
-      automatic_confirmation: ~
+      automatic_confirmation: "Če naročila ne potrdite ali oporekate v %{days_to_automatic_confirmation} dni po sprejetju zahteve, ga bomo samodejno označili kot dokončano."
     confirm_reminder_v2:
       headline: ~
       you_have_not_yet_confirmed_or_canceled_request: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Za prejemanje plačil ne pozabite dodati svojih podatkov o plačilu"
-      you_have_added_listing_with_payment: ~
-      please_go_to_payment_settings: ~
+      you_have_added_listing_with_payment: "Dodali ste objavo %{listing_link} s plačilom. Vendar še niste dodali svojih podatkov o plačilu. Če želite prejeti plačilo, morate dodati svoje podatke za plačilo."
+      please_go_to_payment_settings: "Pojdite na vaš %{payment_settings_link} in izpolnite zahtevane podatke za plačilo."
       payment_settings_link: "nastavitve plačila"
     payment_settings_reminder_v2:
       fill_payout_details: ~
@@ -1502,8 +1502,8 @@ sl:
       here_is_a_message_from: "Tukaj je sporočilo od %{other_party_given_name}:"
       request_marked_as_confirmed: "Naročilo zaključeno - ne pozabite poslati povratnih informacij"
       request_marked_as_canceled: "Naročilo je sporno"
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      has_marked_request_as_confirmed: "%{other_party_full_name} je naročilo o '%{request}' označil kot dokončano. Zdaj lahko pošljete povratne informacije %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} je izpodbijal naročilo o »%{request}«. Še vedno lahko pošljete povratne informacije %{other_party_given_name}."
       giving_feedback_is_good_idea: "Posredovanje povratnih informacij je vedno dobra ideja. Če je šlo vse v redu, povejte drugim, da lahko %{other_party_given_name} zaupate. Če so bile težave, je dobro omeniti tudi te."
       give_feedback_to: "Pošljite povratne informacije %{other_party_given_name}"
       stripe:
@@ -1517,20 +1517,20 @@ sl:
       can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Naročilo je samodejno zaključeno – ne pozabite poslati povratnih informacij"
+      we_have_marked_request_as_confirmed: "Naročilo o '%{request}' smo označili kot dokončano. Naročilo je bilo samodejno zaključeno, ker je od sprejetja zahteve minilo %{days_passed} dni."
     transaction_automatically_confirmed_v2:
       we_have_marked_request_as_confirmed: ~
       order_automatically_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Naročilo je samodejno zaključeno – ne pozabite poslati povratnih informacij"
+      we_have_marked_request_as_confirmed: "Naročilo o '%{request}' smo označili kot dokončano. Zahteva je bila samodejno zaključena, ker je minil en dan od konca obdobja rezervacije."
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: ~
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      giving_feedback_is_good_idea: "Zdaj lahko pošljete povratne informacije %{other_party_given_name}. Posredovanje povratnih informacij je vedno dobra ideja. Če je šlo vse v redu, povejte drugim, da lahko %{other_party_given_name} zaupajo. Če so bile težave, je dobro omeniti tudi te."
+      give_feedback_to: "Pošljite povratne informacije %{other_party_given_name}"
+      show_thread: "Pokaži pogovor"
     confirmation_instructions:
       confirmation_instructions_signature: "Lep pozdrav, <br/> ekipa %{service_name}"
       need_to_confirm: "Če se želite pridružiti %{service_name}, potrdite svoj e-poštni naslov s klikom na spodnji gumb."
@@ -1567,7 +1567,7 @@ sl:
       your_request_was_rejected: "Vaša zahteva je bila zavrnjena"
       you_can_now_pay_to: "Zdaj lahko plačate zahtevani znesek %{payment_receiver}."
       pay_now: "Plačaj zdaj"
-      remember_to_confirm: ~
+      remember_to_confirm: "Ko je naročilo izpolnjeno, ga ne pozabite označiti kot dokončano. Če naročilo ni izpolnjeno, imate %{days_to_automatic_confirmation} dni, da ga izpodbijate. V nasprotnem primeru bo samodejno označena kot dokončana."
     conversation_status_changed_v2:
       has_accepted_your_request: ~
       has_accepted_your_request_text: ~
@@ -1658,7 +1658,7 @@ sl:
       buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Denar bo nakazan %{recipient_name}, ko a) označite zahtevo kot dokončano ali b) poteče %{automatic_confirmation_days} dni, odkar ste plačali."
       listing_per_unit_title: ~
       stripe:
         you_have_made_new_payment: ~
@@ -1701,34 +1701,34 @@ sl:
       you_have_not_given_feedback_yet: ~
       leave_feedback: ~
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester} se zanima in je odobril plačilo za %{listing_title}, objavljeno v %{service_name}"
+      transaction_requested_by_user: "Odlična novica! %{requester} se zanima za »%{listing_title}« in je odobril plačilo za ta seznam."
       you_have_time_to_accept: ~
       if_you_do_accept: ~
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Kliknite tukaj, da odgovorite na zahtevo"
     transaction_preauthorized_v2:
       headline: ~
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "Ne pozabite sprejeti zahteve %{requester} o objavi %{listing_title}"
+      remember_to_accept: "Ne pozabite sprejeti zahteve %{requester} o objavi na seznam »%{listing_title}«. %{requester} je že plačal vnos. Za prejem plačila morate sprejeti zahtevo."
+      one_day_left: "Če zahteve ne sprejmete v enem dnevu, bo zahteva samodejno zavrnjena in ne boste prejeli plačila."
+      click_here_to_reply: "Kliknite tukaj, da odgovorite na zahtevo"
     transaction_preauthorized_reminder_v2:
       headline: ~
       remember_to_accept: ~
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
+      welcome_email_subject: "Dobrodošli v %{service_name}"
+      welcome_to_marketplace: "Dobrodošli v %{service_name}! Veseli smo, da ste z nami."
+      love_marketplace_crew: "Lep pozdrav,<br /><i>ekipa %{service_name} </i>"
       welcome_email_footer_text: "%{settings_link}"
       settings_link_text: "Tukaj uredite svoje e-poštne nastavitve"
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      subject: "%{author_name} je objavil nov seznam v %{service_name}"
+      has_posted_a_new_listing: "%{author_name} je objavil nov seznam:"
+      you_are_receiving_this_because: "To obvestilo ste prejeli, ker sledite %{author_name}."
+      view_listing: "Oglejte si seznam"
     new_listing_by_followed_person_v2:
       headline: ~
       has_posted_a_new_listing: ~
@@ -1842,7 +1842,7 @@ sl:
       pending_review_error: ~
       seller_express_checkout_disabled: ~
       seller_express_checkout_disabled_no_free: ~
-      generic_error: ~
+      generic_error: "Med postopkom plačila je prišlo do napake. Vašega plačila PayPal ni bilo mogoče dokončati."
       cancel_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
@@ -1881,14 +1881,14 @@ sl:
     your_email_address: "Vaš e-poštni naslov"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: "ni veljaven datum"
+      invalid_time: "ni veljaven čas"
+      invalid_datetime: "ni veljaven datum in čas"
+      is_at: "mora biti na %{restriction}"
+      before: "mora biti pred %{restriction}"
+      on_or_before: "mora biti na ali pred %{restriction}"
+      after: "mora biti po %{restriction}"
+      on_or_after: "mora biti na ali po %{restriction}"
       positive_number: ~
       from_must_be_less_than_till: ~
       section_with_this_id_already_exists: ~
@@ -1934,7 +1934,7 @@ sl:
     create_new_marketplace: "Ustvarite nov Marketplace"
     contact_us: Kontakt
     profile: Profil
-    manage_listings: "Upravljanje seznamov"
+    manage_listings: "Upravljanje objav"
     invite: "Povabi nove člane"
     login: Prijava
     signup: Registracija
@@ -2007,7 +2007,7 @@ sl:
       no_reviews: "Brez mnenj"
       no_image: "Brez slike"
       filter: Filtriraj
-      this_is_private_community: ~
+      this_is_private_community: "Preden si lahko ogledate vsebino, se morate prijaviti."
     invitation_form:
       email: E-naslov(i)
       message: "Osebno sporočilo"
@@ -2149,8 +2149,8 @@ sl:
       sign_up: Registracija
     notifications:
       recaptcha_verification_failure: ~
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
+      listing_could_not_be_saved: "Oglasa ni bilo mogoče shraniti. Prosim poskusite ponovno. Če se težava ponovi, prosimo %{contact_admin_link}."
+      contact_admin_link_text: "kontaktirajte ekipo %{service_name}"
       test_welcome_email_delivered_to: "Testna e-pošta je bila poslana na %{email}."
       something_went_wrong: "Nekaj je šlo narobe"
       community_updated: "Podatki posodobljeni."
@@ -2257,8 +2257,8 @@ sl:
       you_must_log_in_to_view_your_settings: "Za ogled vaših nastavitev, se morate prijaviti v %{service_name}."
       you_must_log_in_to_add_news_item: "Če želite dodati nov članek, se morate prijaviti v %{service_name}."
       you_must_log_in_to_change_profile_settings: "Če želite spremeniti nastavitve profila, se morate prijaviti v %{service_name}"
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_accept_or_reject: "Če želite sprejeti ali zavrniti transakcijo, se morate prijaviti"
+      you_must_log_in_to_confirm_or_cancel: "Za izpodbijanje ali potrditev transakcije se morate prijaviti"
       you_need_to_confirm_your_account_first: "Potrditi moraš svoj e-naslov."
       you_must_fill_all_the_fields: "Izpolniti morate vsa polja"
       you_unfollowed_listing: "Ne sledite več tej ponudbi"
@@ -2266,7 +2266,7 @@ sl:
       can_not_delete_email: "E-poštnega naslova ne morete odstraniti"
       user_does_not_have_email_to_delete: "Nimate e-poštnega naslova, ki ga poskušate odstraniti"
       email_deleted: "E-pošta je odstranjena"
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: "Obrnite se na avtorja s pritiskom na spodnji gumb 'Kontakt'. Za prejemanje plačil morajo posodobiti svoje podatke o plačilu."
       listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
@@ -2311,11 +2311,11 @@ sl:
       close_listing: "Zapri objavo"
       edit_listing: "Uredi objavo"
       reopen_listing: "Ponovno odprite seznam"
-      move_to_top: ~
-      show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      move_to_top: "Premakni se na vrh začetne strani"
+      show_in_updates_email: "Pokaži v naslednjih e-novicah"
+      show_in_updates_email_loading: Nalaganje...
+      show_in_updates_email_error: "Strežnika ni bilo mogoče doseči. Poskusite znova po osvežitvi strani."
+      show_in_updates_email_success: "Ta seznam bo prikazan v naslednjem e-poštnem sporočilu za samodejno posodobitev, poslanem uporabnikom"
       listing_is_pending: ~
       listing_is_rejected: ~
       approve_listing: ~
@@ -2366,28 +2366,28 @@ sl:
         remove_image: "Odstranite sliko"
         select_file: "Izberite datoteko"
         add_more: "+ Dodaj več"
-        removing: ~
-        processing: ~
-        loading_image: ~
+        removing: "Odstranjevanje ..."
+        processing: Obdelava...
+        loading_image: Nalaganje...
         image_uploading_in_progress: "Slike se nalagajo ..."
         processing_takes_a_while: "Vse slike so naložene! Trajalo bo sicer še nekaj časa, da bojo vidne, ampak lahko shraniš objavo in nadaljuješ."
-        this_may_take_a_while: ~
-        percentage_loaded: ~
-        uploading_failed: ~
+        this_may_take_a_while: "to traja le sekundo"
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Nalaganje slike ni uspelo"
         image_processing_failed: ~
-        file_too_large: ~
-        accepted_formats: ~
+        file_too_large: "Datoteka je prevelika"
+        accepted_formats: "Format slike mora biti GIF, JPG ali PNG."
         images_not_uploaded_confirm: ~
       location:
         location: Lokacija
       price:
         price: Cena
         per: za
-        per_day: ~
+        per_day: "na dan"
         mass: "kos, kg, l, m2, ..."
         time: "ura, dan, mesec, ..."
         long_time: "teden, mesec, ..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "Po stroških %{service_name} in stroških plačilnega procesorja boste prejeli %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
@@ -2476,8 +2476,8 @@ sl:
       accept_for_frees: "Brezplačno sprejemanje"
       trades: Izmenjava
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: Od
+      booking_to: Do
       how_paypal_works: ~
       payment_help: ~
       unable_load_availability: ~
@@ -2492,12 +2492,12 @@ sl:
       selected_subcategory: "Podkategorija: %{subcategory}"
       selected_transaction_type: "Vrsta objave: %{transaction_type}"
       select_category: "Izberi kategorijo"
-      select_subcategory: ~
+      select_subcategory: "Izberite podkategorijo"
       select_transaction_type: "Izberi vrsto objave"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Preden lahko objavite seznam, morate izpolniti podatke o izplačilu. Pojdite na %{payment_settings_link}, da izpolnite podrobnosti."
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
-      payment_settings_link: ~
+      payment_settings_link: "nastavitve plačila"
       community_not_configured_for_payments_admin: ~
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
@@ -2521,7 +2521,7 @@ sl:
       contact: Kontakt
       favor_offer: "Ponudba storitev"
       favor_request: "Zahteva za storitev"
-      inquiry: ~
+      inquiry: Obvestilo
       item_offer_trade: "Zamenjajte ponudbo"
       item_request_trade: "Zahteva za zamenjavo"
       no_description: "Ta izdelek nima opisa"
@@ -2544,7 +2544,7 @@ sl:
       listing_created_at: "Datum objave"
       price:
         per_quantity_unit: za
-        per_day: ~
+        per_day: "na dan"
       delivery: ~
       shipping: ~
       shipping_no_price: ~
@@ -2567,19 +2567,19 @@ sl:
     preauthorize:
       dates_not_available: ~
       error_in_checking_availability: ~
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
-      you_will_be_charged: ~
-      day: ~
-      days: ~
+      details: Podrobnosti
+      by: "%{listing} avtorja %{author}"
+      payment: Plačilo
+      exp: "Exp:"
+      you_will_be_charged: "Zaračunali vam bomo le, če %{author} sprejme transakcijo. %{author} mora sprejeti transakcijo v %{expiration_period} dneh. Če %{author} zavrne ali se ne odzove, se ne zaračuna."
+      day: dan
+      days: dnevi
       night: ~
       nights: ~
       invalid_parameters: ~
       select_delivery_method: ~
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Pogled.
     stripe_payment:
       payment: ~
       pay_with_card: ~
@@ -2618,13 +2618,13 @@ sl:
     member_id: "ID člana"
     member_id_or_email: "ID uporabnika ali e-pošta"
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
+    payout_info_title: "Prejemanje sredstev"
+    paypal_account_email_connected: "<del>Poveži račun PayPal</del> Končano!"
     payout_info_paypal: ~
-    paypal_billing_agreement_made: ~
+    paypal_billing_agreement_made: "<del>Podelite %{service_name} dovoljenje za zaračunavanje transakcijske provizije</del> Končano!"
     commission_permission_needed: ~
     create_paypal_account_link_text: ~
-    connected_account: ~
+    connected_account: "PayPal račun '%{email}' je uspešno povezan."
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
     paypal_receive_funds_info_australia_only: ~
@@ -2632,40 +2632,40 @@ sl:
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    you_are_ready_to_accept_payments: "Pripravljeni ste sprejeti plačila!"
+    commission: "%{commission} %"
     not_now: ~
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
+      payout_info_you_need_to_connect: "Če želite sprejemati plačila, morate svoj račun PayPal povezati z %{service_name}."
+      payout_info_text: "Če želite povezati svoj račun, izvedite naslednje korake."
       contact_admin_link_text: ~
-      admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
-      paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      paypal_account_billing_agreement: ~
+      admin_account_not_connected: "Povezava z vašim računom PayPal ni mogoča, ker %{service_name} ni nastavil plačil. Prosimo %{contact_admin_link} za podrobnosti."
+      paypal_account_email: "Povežite svoj račun PayPal"
+      paypal_account_email_placeholder: "Vaš PayPal e-poštni naslov"
+      paypal_account_email_info_text: "Če nimate računa PayPal, ga lahko ustvarite pri %{create_paypal_account}. Če se prikaže sporočilo o napaki, ko povezujete svoj račun PayPal, nadgradite svoj račun PayPal na poslovni račun. Nadgradnja je brezplačna in enostavna. Če ste fizična oseba, lahko kot \"ime podjetja\" uporabite svoje ime in priimek. Če želite nadgraditi svoj račun, %{upgrade_paypal_account} in poiščite povezavo za nadgradnjo."
+      create_paypal_account: "kliknite tukaj"
+      upgrade_paypal_account: "prijavite se v svoj račun PayPal"
+      paypal_account_billing_agreement: "Podajte %{service_name} dovoljenje za zaračunavanje transakcijske provizije"
       follow_steps: ~
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
-      connect_paypal_account: ~
+      connect_paypal_account: "Povežite svoj račun PayPal"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
+      billing_agreement_description: "Podajte %{service_name} dovoljenje za zaračunavanje transakcijske provizije."
+      billing_agreement: "Podajte dovoljenje"
+      permissions_not_granted: "Dovoljenja za povezavo z vašim računom PayPal niso bila odobrena."
+      could_not_fetch_redirect_url: "URL-ja za preusmeritev za povezavo s PayPalom ni bilo mogoče pridobiti."
+      paypal_not_enabled: "PayPal plačila niso omogočena."
+      billing_agreement_canceled: "Pogodba o obračunu je bila preklicana"
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: ~
+      something_went_wrong: "Nekaj je šlo narobe. Prosim poskusite ponovno. Če se težava ponovi, se obrnite na ekipo %{service_name}."
       account_not_verified: ~
       account_restricted: ~
     paypal_account_connected_title: ~
@@ -2683,7 +2683,7 @@ sl:
     pay_with_paypal: ~
     checkout_with: ~
     or_pay_with_paypal: ~
-    checkout_with_paypal: ~
+    checkout_with_paypal: "Naročite s PayPalom"
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
@@ -2726,7 +2726,7 @@ sl:
       visible_only_to_you: "vidno samo vam in ekipi %{service_name}"
       visible_to_everybody: "Vidno vsem"
       create_account_with_provider: ~
-      OR: ~
+      OR: ALI
       signup_with_email: "Registriraj se z e-naslovom"
       this_field_will_be_publicly_visible: ~
     profile_feedback:
@@ -2770,16 +2770,16 @@ sl:
       admin_actions: ~
       post_listing_as: ~
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
-      show_all_followed_people: ~
+      you_follow_plural: "Spremljate %{count} oseb"
+      you_follow_singular: "Spremljate %{count} osebo"
+      they_follow_plural: "%{count} sledenih ljudi"
+      they_follow_singular: "%{count} sledenih oseb"
+      show_all_followed_people: "Pokaži vse sledene osebe"
       no_followed_people: "Ne spremlja objav nobene osebe"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Sledi
+      follow: Sledite
+      unfollow: "Prekliči sledenje"
   sessions:
     new:
       create_new_account: "Ustvarite nov račun"
@@ -2794,7 +2794,7 @@ sl:
       cancle_facebook_connect: "Če ne želite povezati tega računa, lahko %{cancel_link}."
       facebook_cancel_link_text: preklic
       log_in_with_your_provider_account: ~
-      or_sign_up_with_your_username: "... ali s svojim uporabniškim imenom ali e-naslovom:"
+      or_sign_up_with_your_username: "... ali s svojim e-naslovom:"
       we_will_not_post_without_asking_you: "Nikoli ne bomo objavili na Facebooku, ne da bi vas vprašali."
     password_forgotten:
       email: E-pošta
@@ -2824,7 +2824,7 @@ sl:
       delete_account_confirmation_popup: "Ali si res prepričan, da želiš trajno izbrisati svoj uporabniški račun in s tem izgubiti vse podatke in informacije, povezane s tem računom? Izbrisanega računa namreč ne moremo obnoviti."
       email_addresses: "Tvoji e-naslovi"
       new_email: "Nov e-naslov"
-      delete_personal_information: "Če izbrišeš svoj uporabniški račun, se bojo vse tvoje osebne informacije (ime, telefon, e-naslov, profilna fotografija itd.) izbrisale trajno in jih ne bo možno ponovno obnoviti. Tudi vse tvoje objave bojo odstranjene. Računa ne boš mogel obnoviti sam."
+      delete_personal_information: "Če izbrišeš svoj uporabniški račun, se bodo vse tvoje osebne informacije (ime, telefon, e-naslov, profilna fotografija itd.) izbrisale trajno in jih ne bo možno ponovno obnoviti. Tudi vse tvoje objave bojo odstranjene. Računa ne boš mogel obnoviti sam."
       delete_information_others_involved: ~
       unfinished_transactions: ~
       only_admin: ~
@@ -2863,7 +2863,7 @@ sl:
       email_when_conversation_rejected: "...nekdo zavrne mojo ponudbo ali prošnjo"
       email_about_completed_transactions: "...nekdo označi moje naročilo kot dokončano"
       email_about_new_payments: "...Prejel sem novo plačilo"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: "...nekdo, ki ga sledim, objavi nov seznam"
       unsubscribe_succesful: "Odjava je uspela"
       unsubscribe_info_text: "Teh e-poštnih sporočil ne boste več prejemali. Preverite svoj %{settings_link}, da izberete, kakšno e-pošto želite prejemati od %{service_name}, ali se vrnite na %{homepage_link}."
       settings_link: nastavitve
@@ -2877,7 +2877,7 @@ sl:
       city: Kraj
       family_name: Priimek
       given_name: Ime
-      first_name_with_initial: ~
+      first_name_with_initial: "(drugim uporabnikom je prikazana samo prva črka)"
       first_name_only: "(ni vidno drugim uporabnikom)"
       display_name: ~
       display_name_description: ~
@@ -2943,33 +2943,33 @@ sl:
       about_listing: "o objavi"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
     first_day_of_week: ~
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Nedelja
+      monday: Ponedeljek
+      tuesday: Torek
+      wednesday: Sreda
+      thursday: Četrtek
+      friday: Petek
+      saturday: Sobota
     days_short:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Ned
+      monday: Pon
+      tuesday: Tor
+      wednesday: Sre
+      thursday: Čet
+      friday: Pet
+      saturday: Sob
     days_min:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Ne
+      monday: Po
+      tuesday: To
+      wednesday: Sr
+      thursday: Če
+      friday: Pe
+      saturday: So
     months:
       january: Januar
       february: Februar
@@ -2996,14 +2996,14 @@ sl:
       october: Okt
       november: Nov
       december: Dec
-    today: ~
-    clear: ~
-    format: ~
+    today: Danes
+    clear: Počisti
+    format: mm/dd/llll
   time:
     formats:
       short: "%b %e, %Y at %H:%M"
       shorter: "%b %e at %H:%M"
-      short_date: ~
+      short_date: "%b %e, %Y"
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dan nazaj"
@@ -3042,8 +3042,8 @@ sl:
     total: ~
     total_to_pay: ~
   unit:
-    day: ~
-    days: ~
+    day: dan
+    days: dnevi
   web:
     listings:
       errors:
@@ -3090,7 +3090,7 @@ sl:
       user: Uporabnik
       inbox: "Prejeta sporočila"
       profile: Profil
-      manage_listings: "Uredi svoje objave"
+      manage_listings: "Moje objave"
       settings: Nastavitve
       logout: "Odjavi se"
       login: Prijava
@@ -3106,12 +3106,25 @@ sl:
       create_own: "Želite ustvariti svoj lasten marketplace kot je %{service_name}? %{learn_more}."
       learn_more: "Preberi več"
   will_paginate:
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    models:
+      person:
+        zero: Uporabniki
+        one: Uporabnik
+        two: Uporabnika
+        few: Uporabniki
+        other: Uporabnik
+    previous_label: "&#8592; Prejšnji"
+    next_label: "Naprej &#8594;"
+    page_gap: "&hellip;"
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
+      single_page:
+        zero: "%{model} ni bilo mogoče najti"
+        one: "%{model} ni bilo mogoče najti"
+        two: "%{model} ni bilo mogoče najti"
+        few: "Nekaj %{model} ni bilo mogoče najti"
+        other: "%{model} ni bilo mogoče najti"
+      multi_page: "Prikaz %{model} %{from} - %{to} od %{count} skupaj"
+      multi_page_html: "Prikaz %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> od <b>%{count}</b> skupaj"
     person:
       community_members_entries_info:
         multi_page: ~
