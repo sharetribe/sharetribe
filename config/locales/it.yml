@@ -279,10 +279,10 @@ it:
         ban_user_confirmation: ~
         unban_user_confirmation: ~
         ban_me_error: ~
-        have_ongoing_transactions: ~
+        have_ongoing_transactions: "Questo account non può essere cancellato perché ci sono transazioni in corso. Per favore, completa tutte le transazioni prima di cancellare l'account."
         only_delete_disabled: ~
         delete_info1: "Se elimini l'account, i tuoi dati personali (nome, numero di telefono, indirizzo, email, foto del profilo, ecc) verranno eliminati in modo permanente e non potranno essere recuperati. Tutte le inserzioni che hai creato verranno rimosse. Non sarai in grado di riattivare il tuo account."
-        delete_info2: ~
+        delete_info2: "Le informazioni dove sono coinvolti altri membri (conversazione con altre persone, transazioni che hanno effettuato, recensioni che hanno lasciato ad altri, ecc...) non vengono rimosse quando viene cancellato questo account. Comunque, il nome non sarà più visibile vicino a queste informazioni."
         search: Cerca
         search_by_name_email: ~
         reset_search: "Mostra tutti"
@@ -1014,7 +1014,7 @@ it:
         order:
           saving_order: ~
           save_order_successful: ~
-          save_order_error: ~
+          save_order_error: "Si è verificato un errore durante il salvataggio dell'ordine. Per favore, ricarica la pagina e riprova."
       templates:
         selling_products: "Vendendo prodotti"
         renting_products: "Noleggiare prodotti"
@@ -1192,14 +1192,14 @@ it:
         waiting_for_provider_accept_or_reject: ~
         waiting_for_fulfill_and_complete: ~
         buyer: ~
-        provider: ~
+        provider: "Venditore:"
         delivery: ~
         shipping_to: ~
         buyer_pays: ~
         marketplace_collects: ~
         buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
+        service_fee_label: "Commissione dal venditore:"
+        provider_receives: "Il venditore riceve:"
         admin_info_text: ~
         manage_reviews: ~
         you_should_investigate: ~
@@ -1352,7 +1352,7 @@ it:
       canceled_the_order: ~
       marked_as_refunded: "Contrassegna come rimborsato"
       dismissed_the_cancellation: ~
-      payment_has_now_been_transferred: ~
+      payment_has_now_been_transferred: "Il pagamento è stato trasferito sul conto bancario di %{seller} o verrà trasferito a breve."
     new:
       message: Messaggio
       message_to: "Messaggio a %{author_name}"
@@ -1435,8 +1435,8 @@ it:
       dismissed: ~
       order_refunded: "Ordine contrassegnato come rimborsato. Il team %{service_name} ha approvato la contestazione."
       you_should_receive_refund_soon: ~
-      issue_with_the_refund: ~
-      do_you_disagree: ~
+      issue_with_the_refund: "Qualcosa non va? Un problema con il rimborso? %{contact_link}."
+      do_you_disagree: "Qualcosa non va? Non sei d'accordo? %{contact_link}."
       contact_the_marketpalce_team: ~
       order_cancellation_dismissed: "La contestazione sull'ordine è stata rimossa. Il team %{service_name} ha respinto la contestazione."
     status_link:
@@ -1506,7 +1506,7 @@ it:
       please_go_to_payment_settings: "Per favore vai alle tue %{payment_settings_link} e inserisci le informazioni richieste."
       payment_settings_link: "impostazioni dei pagamenti"
     payment_settings_reminder_v2:
-      fill_payout_details: ~
+      fill_payout_details: "Compila i dettagli di pagamento"
       you_have_added_listing_with_payment: "Hai inserito un'inserzione %{listing_link} con pagamento. Abbiamo notato che non hai ancora aggiunto dettagli in merito ai pagamenti. Per ricevere il denaro è necessario fornire queste informazioni."
     transaction_confirmed:
       here_is_a_message_from: "Ecco un messaggio da %{other_party_given_name}:"
@@ -1523,7 +1523,7 @@ it:
       headline_confirmed: ~
       headline_canceled: "%{other_party_full_name} ha contestato l'ordine %{listing_link}."
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "Il pagamento per questa transazione è stata ora sbloccata verso il tuo conto corrente."
       can_give_feedback: ~
       team_title: ~
     transaction_automatically_confirmed:
@@ -1552,7 +1552,7 @@ it:
       confirmation_link_text: "Conferma il tuo indirizzo email"
     common:
       hey: "Ciao %{name},"
-      hi: ~
+      hi: "Ciao %{name},"
       kassi_team: "Il Team di %{service_name}"
       thanks: "Grazie,"
       dont_want_to_receive_these_emails: "Non vuoi ricevere queste email?"
@@ -1562,7 +1562,7 @@ it:
       or: o
       unsubscribe_from_these_emails_info: "Hai ricevuto questa mail perché ti sei iscritto a %{service_name}."
       unsubscribe_from_these_emails: "Rimuovi la sottoscrizione da queste email"
-      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails_info: "Hai ricevuto questa email perché un membro di %{service_name} ti ha invitato ad unirti a loro"
       unsubscribe_from_invitation_emails: ~
       here_is_your_receipt: "Questa è la tua ricevuta."
     conversation_status_changed:
@@ -1590,7 +1590,7 @@ it:
       join_now: "Iscriviti ora"
       invitation_code: "Codice di invito: %{code}"
     invitation_to_kassi_v2:
-      headline: ~
+      headline: Ciao!
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} ha lasciato un commento sulla tua inserzione '%{listing}'."
       view_comment: "Mostra commento"
@@ -1711,7 +1711,7 @@ it:
       you_have_not_given_feedback_yet: "NOn hai ancora lasciato feedback a %{name} per l'evento %{event}. Ricordati di lasciare il feedback su come %{given_name} ha condotto l'evento."
     testimonial_reminder_v2:
       headline: ~
-      you_have_not_given_feedback_yet: ~
+      you_have_not_given_feedback_yet: "Lasciare un feedback è sempre una buona idea. Se tutto è andato bene, dovresti farlo sapere agli altri che %{name} è affidabile. Se ci sono stati dei problemi, è bene menzionare anche quelli."
       leave_feedback: ~
     transaction_preauthorized:
       subject: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
@@ -1745,7 +1745,7 @@ it:
     new_listing_by_followed_person_v2:
       headline: "%{author} ha appena aggiunto un'inserzione!"
       has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
+      you_are_receiving_this_because: "Hai ricevuto questa notifica perché segui %{author_name}."
       view_listing: ~
       cant_click: "Non riesci a cliccare il tasto? Di seguito il link per comodità:"
     new_ident_notification:
@@ -1792,7 +1792,7 @@ it:
       listing: ~
       sum: ~
       starter: ~
-      provider: ~
+      provider: "Venditore: %{name}"
     new_transaction_v2:
       subject: ~
       there_is_a_new_transaction: ~
@@ -1800,12 +1800,12 @@ it:
       listing: ~
       sum: ~
       starter: ~
-      provider: ~
+      provider: "Venditore:"
       view_transaction: ~
     transaction_cancel_flow:
       the_order_about: ~
       you_can_contact_the_marketplace_team: ~
-      you_can_now_give_feedback: ~
+      you_can_now_give_feedback: "Puoi ora lasciare un feedback a %{name}. Lasciare un feedback è sempre una buona idea. Se tutto è andato bene, dovresti farlo sapere agli altri che %{name} è affidabile. Se ci sono stati dei problemi, è bene menzionare anche quelli."
       give_feedback_to: ~
     transaction_disputed:
       subject: ~
@@ -1828,9 +1828,9 @@ it:
     transaction_commission_charge_failed:
       subject: ~
       transaction_about: "Transazione per %{listing_title}"
-      the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
+      the_commission_of_the_transaction: "la commissione su %{transaction_link} dal venditore %{seller} non è andata a buon fine e non è stata trasferita sul tuo conto PayPal."
+      this_usually_means: "Questo di solito si verifica quando c'è qualcosa che blocca la commissione dal conto PayPal del venditore. Nella maggior parte dei casi il problema è che il venditore non ha una fonte di finanziamento valida e verificata collegata al proprio conto PayPal."
+      if_you_would_like_to_investigate: "Se vuoi indagare ulteriormente, un buon primo passo è quello di contattare il venditore in merito."
       contact_the_seller: "Contatta il venditore"
   error_messages:
     booking:
@@ -1908,7 +1908,7 @@ it:
       listing_with_this_id_does_not_exist: ~
       presence: ~
       username_is_invalid: "Il nome utente non è valido o non è disponibile"
-      domain_name_is_invalid: ~
+      domain_name_is_invalid: "Il nome del dominio è invalido o non disponibile"
       only_supported_variables: "Aggiungi solo variabili supportate."
   event_feed_events:
     accept:
@@ -1980,7 +1980,7 @@ it:
       no_requests_visible_unless_logged_in: "Nessuna richiesta di beni, servizi o passaggi è visibile ad utenti non registrati."
       one_private_offer_exists: "Esiste già <b>una offerta</b>,"
       one_private_request_exists: "Esiste già <b>una richiesta</b>,"
-      ride_offer: ""
+      ride_offer: ~
       ride_request: "Un passaggio a lavoro"
       some_private_offers_exist: "Ci sono già <b>%{number_of_listings} offerte</b>,"
       some_private_requests_exist: "Ci sono già <b>%{number_of_listings} richieste</b>,"
@@ -2058,7 +2058,7 @@ it:
       all_listing_types: "Tutte le inserzioni"
       all_categories: "Scegli tra le categorie"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "La ricerca è al momento non disponibile. Riprova più tardi."
   infos:
     about:
       default_about_text_title: "Che cos'è Sharetribe?"

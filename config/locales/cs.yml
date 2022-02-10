@@ -1377,11 +1377,11 @@ cs:
       canceled_request: "zrušená žádost"
       canceled_offer: "zrušená nabídka"
       paid: "zaplaceno %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Platba byla povolena"
       payment_preauthorized_wo_sum: "Platba povolena"
       stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
+        held_payment: "Žádost byla přijata. Dokud nebude objednávka označena jako dokončená, platbu bude držet %{service_name}"
+        held_payment_wo_sum: "Žádost byla přijata. Dokud nebude objednávka označena jako dokončená, platbu bude držet %{service_name}"
         confirmed_request: "Objednávka byla označena jako dokončená. Platba byla nyní převedena na bankovní účet %{author_name}  nebo bude brzy převedena."
       canceled_the_order: "Sporná objednávka. %{service_name} tým byl informován."
       marked_as_refunded: "Označeno jako vrácené"
@@ -1633,11 +1633,11 @@ cs:
       has_commented_listing_you_follow_in_kassi: "Uživatel %{author} okomentoval inzerát %{listing}, který sledujete v %{service_name}."
     new_message:
       view_message: "Zobrazit zprávu"
-      has_sent_you_a_message_in_kassi: ~
+      has_sent_you_a_message_in_kassi: "%{sender} vám poslal/a zprávu. Navštivte %{service_name} a odpovězte."
       you_have_a_new_message: ~
     new_message_v2:
       headline: "máte zprávu!"
-      reply: ~
+      reply: "Klikněte, abyste odpověděli %{sender}"
     new_payment:
       new_payment: "Obdrželi jste novou platbu"
       price_per_unit_type: "Cena za %{unit_type}"
@@ -2925,8 +2925,8 @@ cs:
       homepage_link: "domovská stránka"
       unsubscribe_unsuccesful: "Chyba při odhlašování"
       unsuccessful_unsubscribe_info_text: "Důvodem může být, že odhlašovací odkaz, na který jste klikli, byl starý nebo poškozený. Kontaktujte nás prostřednictvím tlačítka nalevo \"napište nám\" a my Vás odhlásíme nebo přihlásíme."
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "...veřejná diskuze, kterou sleduji, má nový komentář"
+      email_listing_updated: "...inzerát, který jsem okomentoval, byl aktualizován"
     profile:
       about_you: "O Vás"
       city: Město
@@ -2952,7 +2952,7 @@ cs:
       image_is_processing: "Váš profilový obrázek se připravuje. Prosíme, aktualizujte stránku po chvíli."
       shown_in_your_public_profile: "( zobrazeno ve vašem veřejném profilu)"
       editing_profile_of: "Nyní upravujete profil %{name}"
-      format_markdown_link: "naformátujte svůj popis pomocí Markdown"
+      format_markdown_link: "naformátovat svůj popis pomocí Markdown"
       format_markdown: "Můžete %{link}."
       username: "Uživatelské jméno"
       username_description: "Vaše uživatelské jméno je využíváno jako součást unikátního URL vaší profilové stránky. K tvorbě vašeho uživatelského jména použijte pouze písmena a číslice, bez mezer. Když změníte vaše uživatelské jméno, vaše URL se automaticky změní a předchozí URL nebude přesměrováno. Staré uživatelské jméno bude k dispozici ostatním uživatelům."
@@ -3252,7 +3252,7 @@ cs:
     stripe_account_pending_verification: "Detaily o účtu byly úspěšně uloženy. Čeká se na ověření účtu od poskytovatele plateb."
     stripe_account_pending_verification_info: "Zkontrolujte to později, abyste se ujistil, že je vše v pořádku."
     form_new:
-      need_info: "Potřebujeme nějaké informace o tom, abyste mohli poslat peníze."
+      need_info: "Potřebujeme nějaké informace k tomu, abyste mohli přijímat peníze."
       select_country: "Vyberte zemi ..."
       legal_name: "Legální jméno"
       first_name: Jméno
@@ -3278,7 +3278,7 @@ cs:
       cancel: Zrušit
       gender: Pohlaví
       phone_number: "Telefonní číslo"
-      phone_info_text: ~
+      phone_info_text: "Vložte telefonní číslo s předvolbou, např."
       address_kana_postal_code: PSČ
       address_kana_state: Stát
       address_kana_city: Město

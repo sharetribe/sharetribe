@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.6.5'
+ruby '2.7.5'
 
 gem 'rails', '5.2.6'
 
@@ -8,7 +8,7 @@ gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier', '~> 3.2.0'
 
 gem 'sass-rails', '~> 5.0.6'
-gem 'compass-rails', '~> 3.0.2'
+gem 'compass-rails', '~> 4.0.0'
 
 gem 'jquery-rails', '~> 4.3.1'
 
@@ -114,7 +114,9 @@ group :staging, :production do
 end
 
 group :development, :test do
-  gem 'rubocop', '~> 0.67.2', require: false
+  gem 'rubocop', '~> 1.24', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
   gem 'factory_girl_rails', '~> 4.8.0'
 end
 
@@ -133,12 +135,13 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.16.2'
+  gem 'capybara', '~> 3.36'
   gem "rspec-rails", '~> 3.8.2'
 
   gem 'cucumber-rails', '~> 1.6.0', require: false # require: false is needed for cucumber-rails
+  gem 'cucumber', '3.1.2'
 
-  gem 'selenium-webdriver', '~> 3.141.0'
+  gem 'selenium-webdriver', '~> 4.1'
 
   # Launchy is needed by Capybara, e.g. save_and_open command needs Launchy to open a browser
   gem 'launchy', '~> 2.1'
@@ -154,7 +157,7 @@ group :test do
   gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: '56fe73dc420d161ecf9842739af7d857031ca1b2'
   gem 'poltergeist'
   gem 'puma'
-  gem 'webdrivers'
+  gem 'webdrivers', '~> 5.0'
 end
 
 group :development, :test do
@@ -181,8 +184,9 @@ gem 'memoist'
 gem 'biz'
 gem 'ffi', '>= 1.9.25'
 gem 'rubyzip', '~> 1.3.0'
-gem 'bootsnap', require: false
+gem 'bootsnap', '~> 1.4.5', require: false
 gem "select2-rails"
 gem "cocoon"
 gem "fast-polylines"
 gem "codemirror-rails"
+gem 'rb-inotify', '~> 0.10'

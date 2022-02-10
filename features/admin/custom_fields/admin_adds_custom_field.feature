@@ -32,4 +32,4 @@ Feature: Admin adds a custom field
   @javascript
   Scenario: Admin adds numeric field with invalid data
     When I add a new numeric field "Area" with min value 100 and max value 99
-    Then I should see 2 validation errors
+    Then I should see 1 validation errors

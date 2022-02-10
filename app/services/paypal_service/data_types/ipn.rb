@@ -242,7 +242,7 @@ module PaypalService
 
       ## Privates
       #
-      # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+      # rubocop:disable Lint/RedundantCopDisableDirective
       def msg_type(txn_type, payment_status, pending_reason, invoice_num)
         txn_type = txn_type.to_s.downcase
         status, reason = payment_status.to_s.downcase, pending_reason.to_s.downcase

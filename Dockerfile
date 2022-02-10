@@ -1,4 +1,4 @@
-FROM ruby:2.6.5-buster
+FROM ruby:2.7.5-buster
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 

@@ -11,14 +11,13 @@ namespace :export do
 
     released_version = CustomLandingPage::LandingPageStore.released_version(community_id)
     structure = CustomLandingPage::LandingPageStore.load_structure(community_id, released_version)
-    sitename = structure["settings"]["sitename"]
 
     # Build direct S3 URL, instead of the CDN one, so that image paths maintain
-    # the sites/SITENAME prefix. This helps the data export script to organize
-    # the downloaded images correctly.
+    # the sites/COMMUNITY_ID prefix. This helps the data export script to
+    # organize the downloaded images correctly.
     assets = structure["assets"]
     assets.select { |a| a["content_type"].match(/^image\//) }.map do |image|
-      puts "https://#{APP_CONFIG.clp_s3_bucket_name}.s3.amazonaws.com/sites/#{sitename}/#{image['src']}"
+      puts "https://#{APP_CONFIG.clp_s3_bucket_name}.s3.amazonaws.com/sites/#{community_id}/#{image['src']}"
     end
   end
 

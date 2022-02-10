@@ -2163,9 +2163,9 @@ fr:
       description: "Markdown est une solution facile pour mettre en page du texte, pour n'importe quel appareil. Cela ne permet pas des choses incroyables telles que changer la police de caractères ou les couleurs mais donne le contrôle sur les essentiels, uniquement grâce à des symboles que vous connaissez déjà."
       formatting: "Mise en page"
       result: Rendu
-      h1: T1
-      h2: T2
-      h3: T3
+      h1: "Votre titre H1"
+      h2: "Votre titre H2"
+      h3: "Votre titre H3"
       italic: italique
       bold: gras
       underline: souligné
@@ -3336,7 +3336,7 @@ fr:
     placeholder:
       search_results: "Résultats de la recherche - %{variable}"
       search_results_for: "Résultats de la recherche pour : %{placeholder1} sur %{placeholder2}"
-      listing_description: "%{title} pour%{price} par %{author} sur %{marketplace}"
+      listing_description: "%{title} pour %{price} par %{author} sur %{marketplace}"
       listing_description_without_price: "%{title} par %{author} sur %{marketplace}"
       category_description: "%{category} sur %{marketplace}"
       profile_title: "Profil de %{user} - %{marketplace}"

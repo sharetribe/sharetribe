@@ -60,7 +60,7 @@ module Admin2::Emails
           when Some(:invalid_email_address)
             t('admin2.outgoing_address.invalid_email_address')
           when Some(:invalid_domain)
-            kb_link = view_context.link_to(t('admin2.outgoing_address.invalid_email_domain_read_more_link'), "#{APP_CONFIG.knowledge_base_url}/configuration-and-how-to/how-to-define-your-own-address-as-the-sender-of-all-outgoing-emails", class: "flash-error-link") # rubocop:disable Metrics/LineLength
+            kb_link = view_context.link_to(t('admin2.outgoing_address.invalid_email_domain_read_more_link'), "#{APP_CONFIG.knowledge_base_url}/configuration-and-how-to/how-to-define-your-own-address-as-the-sender-of-all-outgoing-emails", class: "flash-error-link") # rubocop:disable Layout/LineLength
             t('admin2.outgoing_address.invalid_email_domain', email: res.data[:email], domain: res.data[:domain], invalid_email_domain_read_more_link: kb_link).html_safe # rubocop:disable Rails/OutputSafety
           else
             t('admin2.outgoing_address.unknown_error')

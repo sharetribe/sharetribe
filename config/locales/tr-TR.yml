@@ -232,7 +232,7 @@ tr-TR:
         search_and_location_preferences: "Arama ve yer tercihleri"
         default_search_type: ~
         keyword_search: "Anahtar kelime arama"
-        keyword_and_location_search: "Anahtar kelime ve lokasyon araması"
+        keyword_and_location_search: "Anahtar kelime ve konum araması"
         location_search: "Konum arama"
         select_distance_unit: ~
         km: km
@@ -744,7 +744,7 @@ tr-TR:
           listings: İlanlar
           categories: ~
           hero: ~
-          locations: ~
+          locations: Konumlar
           video: ~
           new_section:
             categories: ~
@@ -837,22 +837,22 @@ tr-TR:
           select_category: ~
         locations:
           add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
+          location: Konum
+          empty: "Dahil edilen konumunuz yok"
+          image: Resim
+          include_title: "Öne çıkarılacak yerler"
+          info_text: "Üç ila yedi konum belirtebilirsiniz. Lütfen her konuma bir resim ekleyin ve pazar yeriniz için konum arama URL'si sağlayın. En iyi sonuçlar için önerilen görüntü boyutu 1000 x 667 pikseldir."
           need_at_least_3_locations: ~
           need_at_most_7_locations: ~
         location:
           add_another_image: ~
-          location: ~
+          location: Konum
           current_image: "Geçerli resim%{filename} "
           file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
+          image: Resim
+          image_required: "Bu konuma bir resim eklemelisiniz"
+          title: Başlık
+          title_placeholder: "Konum etiketi"
           url: ~
           url_placeholder: ~
         multi_column:
@@ -2075,7 +2075,7 @@ tr-TR:
       search: Ara
       signup: "Kayıt ol"
       search_placeholder: "Ne arıyorsun?"
-      search_location_placeholder: Lokasyon/Konum
+      search_location_placeholder: Konum
     listings:
       no_listing_image: "Resim yok"
   layouts:
@@ -2557,7 +2557,7 @@ tr-TR:
       times: defa
       times_viewed: Görüldü
       processing_uploaded_image: "(Yüklenen görsel işleniyor...)"
-      listing_created_at: "İlan verilme tarihi"
+      listing_created_at: "İlan tarihi"
       price:
         per_quantity_unit: "%{quantity_unit} her bir"
         per_day: "her bir gün"

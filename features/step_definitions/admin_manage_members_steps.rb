@@ -158,5 +158,5 @@ Then(/^I should see that I can not remove admin rights of "(.*?)"$/) do |full_na
 end
 
 Then(/^I should see that I can remove admin rights of "(.*?)"$/) do |full_name|
-  expect(find_admin_checkbox_for_person(full_name)['disabled']).to be_falsey
+  expect(find_admin_checkbox_for_person(full_name)['disabled']) == false
 end
