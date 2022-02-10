@@ -1,3 +1,7 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
 inherit_from: .rubocop_todo.yml
 
 # Double negation is the most convenient way in Ruby to convert any value to boolean. Allow the use of it.
@@ -16,7 +20,7 @@ AllCops:
     - 'vendor/bundle/**/*'
     - '.pryrc'
     - 'Procfile.spec'
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.7.5
 
 Style/RegexpLiteral:
   Enabled: false

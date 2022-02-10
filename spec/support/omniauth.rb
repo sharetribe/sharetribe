@@ -20,7 +20,7 @@ module OmniAuthTestHelpers
     data.dup.deep_merge(options)
   end
 
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   def oauth_facebook_data
     {
       provider: 'facebook',
@@ -273,7 +273,7 @@ module OmniAuthTestHelpers
   def png_image
     Base64.decode64('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HgAGgwJ/lK3Q6wAAAABJRU5ErkJggg==')
   end
-  # rubocop:enable Metrics/MethodLength, Metrics/LineLength
+  # rubocop:enable Metrics/MethodLength, Layout/LineLength
 end
 
 RSpec.configure do |config|
