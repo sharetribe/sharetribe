@@ -20,7 +20,7 @@ Feature: Admin add a listing fields
     And I fill in "selector_label[fi]" with "Asunto"
     And I press "Save option"
     And I press submit
-    And I wait for 3 seconds
+    And I wait for 5 seconds
     Then I should see "House type" within ".custom-field-title"
 
   @javascript
@@ -59,7 +59,7 @@ Feature: Admin add a listing fields
     And I fill in "selector_label[fi]" with "Asunto"
     And I press "Save option"
     And I press submit
-    And I wait for 3 seconds
+    And I wait for 5 seconds
     Then I should see "Checkbox type" within ".custom-field-title"
 
   @javascript
