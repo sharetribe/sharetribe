@@ -1540,7 +1540,7 @@ hu:
       request_marked_as_canceled: "Rendelés törölve"
       has_marked_request_as_confirmed: "%{other_party_full_name} teljesítettnek jelölte a rendelést '%{request}' felkérés ügyében. Most írhatsz egy visszajelzést %{other_party_given_name} számára."
       has_marked_request_as_canceled: "%{other_party_full_name} törölte a rendelést '%{request}' felkérésre vonatkozóan. Te viszont továbbra is adhatsz visszajelzést %{other_party_given_name} számára."
-      giving_feedback_is_good_idea: "Mindig jó ötlet, értékelést írni. Ha minden rendben ment, tudathatod másokkal is hogy, %{other_party_given_name} megbízható. Az is hasznos lehet, ha így jelzed, hogy valamilyen probléma merült fel."
+      giving_feedback_is_good_idea: "Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{other_party_given_name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
       give_feedback_to: "Írj értékelést a következő felhasználóról: %{other_party_given_name} "
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} teljesítettnek jelölte a rendelést : '%{request}'. A tranzakcióért kifizetett összeg felszabadult, átutaljuk a bankszámládra. Most már írhatsz visszajelzést is %{other_party_given_name} számára."
@@ -1549,7 +1549,7 @@ hu:
       headline_confirmed: "A %{listing_link} megrendelést %{other_party_full_name} teljesítettnek jelölte."
       headline_canceled: "%{other_party_full_name} reklamációt nyújtott be a %{listing_link} rendeléssel kapcsolatban."
       stripe:
-        has_marked_request_as_confirmed: "A tranzakcióért fizetett összeg át lett utalva a bankszámlájára."
+        has_marked_request_as_confirmed: "A tranzakcióért fizetett összeg át lett utalva a bankszámládra."
       can_give_feedback: "Most már írhatsz visszajelzést %{other_party_given_name} számára."
       team_title: "a %{service_name} csapat"
     transaction_automatically_confirmed:
@@ -1564,7 +1564,7 @@ hu:
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: "A kérés automatikusan teljesült, mivel egy nap telt el a foglalási időszak vége óta."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "Most írhasz értékelést %{other_party_given_name} számára. Mindig jó ötlet, értékelést írni. Ha minden rendben ment, tudathatod másokkal is, hogy %{other_party_given_name} megbízható. Az is hasznos lehet, ha így jelzed, hogy valamilyen probléma merült fel.\n"
+      giving_feedback_is_good_idea: "Most írhasz értékelést %{other_party_given_name} számára. Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{other_party_given_name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
       give_feedback_to: "Adjon értékelést %{other_party_given_name} felhasználóról"
       show_thread: "Mutassa a beszélgetéseket"
     confirmation_instructions:
@@ -1739,15 +1739,15 @@ hu:
       you_have_not_given_feedback_yet: "Mindig jó, ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is hogy, %{name} megbízható. Az is hasznos lehet, ha jelzi amennyiben problémája merült fel."
       leave_feedback: "Adjon visszajelzést %{other_party_name} számára."
     transaction_preauthorized:
-      subject: "%{requester} érdekli a %{service_name} hirdetésed : %{listing_title} és jóváhagyta a banki átutalást"
+      subject: "%{requester} ajánlatot tett a %{service_name} hirdetésedre : %{listing_title} és jóváhagyta a banki átutalást."
       transaction_requested_by_user: "%{requester} ajánlatot tett és jóváhagyta a banki átutalást a \"%{listing_title}\" hirdetésben szereplő tételért."
       you_have_time_to_accept: "Kérjük engedélyezd vagy utasítsd el az ajánlatot a lejárai idő előtt : %{payment_expires_in}. Ha a lejárati idő előtt elfogadod az ajánlatot, megtörténik a banki átutalás. Amennyiben nem fogadod el, az ajánlat automatikusan elutasításra kerül és az átutalás meghiúsul."
       if_you_do_accept: "Ha elfogadod a kérést erre az időszakra vonatkozóan, a pénzt azonnal megkapod a számládra"
       if_you_do_accept_stripe: "Ha ezen az időkereten belül elfogadod az ajánlatot, akkor a kifizetés teljesül. A pénz közvetlenül a bankszámládra érkezik majd, miután kézbesítetted %{listing_title} megrendelést %{requester} megrendelőnek."
-      if_you_do_not_accept: "Amennyiben elutasítod az ajánlatot, vagy nem fogadod el ezen az időkereten belül, a tranzakció automatikusan törlődik. Tehát az összeg %{requester} felhasználótól nem nem kerül levonásra valamint nem érkezik meg a bankszámládra."
+      if_you_do_not_accept: "Amennyiben elutasítod az ajánlatot, vagy nem fogadod el ezen az időkereten belül, a tranzakció automatikusan törlődik. Tehát az összeg %{requester} felhasználótól nem kerül levonásra valamint nem érkezik meg a bankszámládra."
       click_here_to_reply: "Kattints ide a válaszhoz"
     transaction_preauthorized_v2:
-      headline: "%{requester} felhasználót érdekli a %{listing_link} és engedélyezte az utalást."
+      headline: "%{requester} felhasználót érdekli a %{listing_link} és engedélyezte a banki átutalást."
     transaction_preauthorized_reminder:
       subject: "Ne feledd elfogadni %{requester} ajánlatát a %{listing_title} hirdetésre"
       remember_to_accept: "Ne feledd elfogadni %{requester} ajánlatát a \"%{listing_title}\" hirdetésre. %{requester} már kifizette a hirdetésben szereplő összeget. Annak érdekében, hogy az átutalás megtörténjen fogadd el az ajánlatot."
