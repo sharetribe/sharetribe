@@ -30,7 +30,7 @@ If you're looking for a customizable and extendable marketplace solution, [check
 
 ## Technology stack
 
-- Ruby 2.6
+- Ruby 2.7
 - Ruby on Rails 5.2.3
 - MySQL 5.7
 - React + jQuery
@@ -55,7 +55,7 @@ If you're looking for a customizable and extendable marketplace solution, [check
 ### Requirements
 
 Before you get started, the following needs to be installed:
-  * **Ruby**. Version 2.6.5 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
+  * **Ruby**. Version 2.7.5 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
   * [**RubyGems**](http://rubygems.org/)
   * **Bundler**: `gem install bundler`
   * **Node**. Version 10.15 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n), [nvm](https://github.com/creationix/nvm), or [nenv](https://github.com/ryuone/nenv).
