@@ -19,7 +19,7 @@ jobs:
           BUNDLE_JOBS: 4
           BUNDLE_RETRY: 3
           RUBYOPT: "-W0"
-      - image: mysql:5.7.27
+      - image: mysql:5.7.38
         environment:
           MYSQL_ROOT_PASSWORD=very-secret
     steps:
