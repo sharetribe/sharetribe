@@ -1,4 +1,4 @@
-FROM ruby:2.7.5-buster
+FROM ruby:2.7.5-bullseye
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
