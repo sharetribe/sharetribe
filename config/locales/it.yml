@@ -1524,13 +1524,13 @@ it:
       headline_canceled: "%{other_party_full_name} ha contestato l'ordine %{listing_link}."
       stripe:
         has_marked_request_as_confirmed: "Il pagamento per questa transazione è stata ora sbloccata verso il tuo conto corrente."
-      can_give_feedback: ~
+      can_give_feedback: "Puoi ora lasciare un feedback a %{other_party_given_name}."
       team_title: ~
     transaction_automatically_confirmed:
       subject: "Richiesta completata automaticamente -  ricordati di dare il tuo feedback"
       we_have_marked_request_as_confirmed: "Abbiamo confermato la richiesta per '%{request}'. La richiesta è stata completata automaticamente perché sono trascorsi %{days_passed} giorni da quando la richiesta è stata accettata."
     transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "Abbiamo contrassegnato l'ordine su %{request} come completato."
       order_automatically_confirmed: "L'ordine è stato automaticamente contrassegnato come completato perché sono passati %{days_passed} giorni da quando la richiesta è stata accettata."
     booking_transaction_automatically_confirmed:
       subject: "Richiesta completata automaticamente -  ricordati di dare il tuo feedback"
@@ -1677,7 +1677,7 @@ it:
       you_can_give_feedback_to: "non hai ancora lasciato un feedback a %{name}"
       view_feedback: "Mostra feedback"
     new_testimonial_v2:
-      headline: ~
+      headline: "hai ricevuto un feedback!"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "L'inserzione che stai seguendo è stata aggiornato"
       has_updated_listing_you_follow_in_kassi: "%{author} ha aggiornato l'inserzione '%{listing}' che stai seguendo su %{service_name}."
@@ -1710,9 +1710,9 @@ it:
       remember_to_give_feedback_to: "Promemoria: ricordati di lasciare feedback a %{name}"
       you_have_not_given_feedback_yet: "NOn hai ancora lasciato feedback a %{name} per l'evento %{event}. Ricordati di lasciare il feedback su come %{given_name} ha condotto l'evento."
     testimonial_reminder_v2:
-      headline: ~
+      headline: "ricordati di lasciare un feedback a %{other_name}!"
       you_have_not_given_feedback_yet: "Lasciare un feedback è sempre una buona idea. Se tutto è andato bene, dovresti farlo sapere agli altri che %{name} è affidabile. Se ci sono stati dei problemi, è bene menzionare anche quelli."
-      leave_feedback: ~
+      leave_feedback: "Lascia un feedback a %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
       transaction_requested_by_user: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
@@ -1806,7 +1806,7 @@ it:
       the_order_about: ~
       you_can_contact_the_marketplace_team: ~
       you_can_now_give_feedback: "Puoi ora lasciare un feedback a %{name}. Lasciare un feedback è sempre una buona idea. Se tutto è andato bene, dovresti farlo sapere agli altri che %{name} è affidabile. Se ci sono stati dei problemi, è bene menzionare anche quelli."
-      give_feedback_to: ~
+      give_feedback_to: "Lascia un feedback a %{name}"
     transaction_disputed:
       subject: ~
       subject_admin: ~

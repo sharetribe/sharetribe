@@ -1096,7 +1096,7 @@ sl:
         night: "Na noč"
         week: "Na teden"
         month: "Na mesec"
-        unit: "Na enoto"
+        unit: "Na kos"
       can_not_find: "Ni mogoče najti vrste naročila z ID-jem: %{id}"
       add_custom_unit: "+ Dodajte enoto po meri..."
       delete_custom_unit: izbriši
@@ -1371,7 +1371,7 @@ sl:
       canceled_request: "Naročilo je sporno."
       canceled_offer: "Ponudba preklicana."
       message_from: "Sporočilo od %{person}"
-      about_listing: "O seznamu %{listing_title}"
+      about_listing: "O oglasu %{listing_title}"
       free_message: "Neposredno sporočilo"
       message_content_not_available: "Vsebina sporočila ni na voljo"
     message:
@@ -1406,12 +1406,12 @@ sl:
       you_will_get_notified_of_acceptance: "Ko %{person} sprejme ali zavrne vaš predlog, boste prejeli e-poštno obvestilo."
       you_will_get_notified: "Ko vam odgovori %{person}, boste prejeli e-poštno obvestilo."
       title: Naslov
-      send_message_to_user: "Pošlji sporočilo %{person}"
-      about_listing: "O seznamu %{listing_title}"
+      send_message_to_user: "Pošlji sporočilo osebi %{person}"
+      about_listing: "O oglasu %{listing_title}"
       author_has_to_accept_request: "%{author_name} mora sprejeti zahtevo, preden lahko plačate"
     show:
       in_response_to_listing: "o objavi"
-      message_sent_by: "Sporočilo je poslal"
+      message_sent_by: "Sporočilo je poslal/a"
       message_sent_to: "Sporočilo je poslano"
       send_reply: "Pošlji odgovor"
       write_a_reply: "Napišite odgovor:"
@@ -1497,7 +1497,7 @@ sl:
       dismiss: "Prezri in izplačaj"
   feedback:
     feedback_subject: "Nov vnos kontaktnega obrazca na %{service_name}"
-    feedback_body: "%{author_name_and_email} je poslal naslednji vnos v kontaktni obrazec %{service_name}. To obvestilo je poslano vsem skrbnikom %{service_name}."
+    feedback_body: "%{author_name_and_email} je poslal/a naslednji vnos v kontaktni obrazec %{service_name}. To obvestilo je poslano vsem skrbnikom %{service_name}."
     unlogged_user: "Neodjavljen uporabnik."
     anonymous_user: "Anonimni uporabnik"
   community_memberships:
@@ -1604,7 +1604,7 @@ sl:
       view_it_in_your_browser: "Oglejte si v brskalniku"
       or: ali
       unsubscribe_from_these_emails_info: "To e-pošto ste prejeli, ker ste član %{service_name}."
-      unsubscribe_from_these_emails: "se odjavi od teh sporočil"
+      unsubscribe_from_these_emails: "pa se odjavite od teh sporočil"
       unsubscribe_from_invitation_emails_info: "To e-pošto ste prejeli, ker vas je član %{service_name} povabil, da se jim pridružite."
       unsubscribe_from_invitation_emails: "Odjavite se od e-pošte, da se pridružite %{service_name}"
       here_is_your_receipt: "Tukaj je vaš račun."
@@ -1628,21 +1628,21 @@ sl:
       has_rejected_your_request_text: "%{accepter} je zavrnil vašo zahtevo za %{listing}."
     invitation_to_kassi:
       hi: Živijo!
-      you_have_been_invited_to_kassi: "%{inviter} te je povabila v %{service_name}."
+      you_have_been_invited_to_kassi: "%{inviter} te je povabil/a v %{service_name}."
       here_is_a_message_from: "Tukaj je osebno sporočilo od %{inviter}:"
       join_now: "Pridruži se"
       invitation_code: "Koda povabiila: %{code}"
     invitation_to_kassi_v2:
       headline: Živijo!
     new_comment:
-      has_commented_your_listing_in_kassi: "%{author} je komentiral vaš seznam '%{listing}'."
+      has_commented_your_listing_in_kassi: "%{author} je komentiral/a vaš oglas '%{listing}'."
       view_comment: "Poglej komentar"
-      you_have_a_new_comment: "%{author} je komentiral vaš vnos v %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} je komentiral objavo, ki jo spremljate v %{service_name}"
-      has_commented_listing_you_follow_in_kassi: "%{author} je komentiral objavo '%{listing}', ki jo spremljate v %{service_name}."
+      you_have_a_new_comment: "%{author} je komentiral/a vaš vnos v %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} je komentiral/a objavo, ki jo spremljate v %{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} je komentiral/a objavo '%{listing}', ki jo spremljate v %{service_name}."
     new_message:
       view_message: "Oglej si sporočilo"
-      has_sent_you_a_message_in_kassi: "%{sender} vam je poslal sporočilo. Pojdite na %{service_name}, da odgovorite."
+      has_sent_you_a_message_in_kassi: "%{sender} vam je poslal/a sporočilo. Pojdite na %{service_name}, da odgovorite."
       you_have_a_new_message: "Imate novo sporočilo od %{sender_name} v %{service_name}"
     new_message_v2:
       headline: "imate sporočilo!"
@@ -1977,7 +1977,7 @@ sl:
     login:
       logged_in_to_kassi: "%{name} se je prijavil v %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} je komentiral objavo %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} je komentiral/a objavo %{listing_title} %{time_ago}."
       offer_partitive: Ponudba
       request_partitive: Zahteva
   header:
@@ -2180,7 +2180,7 @@ sl:
       notifications: Obvestila
     markdown_help:
       title: "Pomoč za oblikovanje z uporabo Markdowna"
-      description: "Markdown je preprost način za oblikovanje besedila, ki je videti odlično v kateri koli napravi. Ne naredi nič posebnega, kot so spreminjanje velikosti, barve ali vrste pisave – samo bistvenega stvari, z uporabo simbolov tipkovnice, ki jih že poznate."
+      description: "Markdown je preprost način za oblikovanje besedila, ki je videti odlično v kateri koli napravi. Ne naredi nič posebnega, kot so spreminjanje velikosti, barve ali vrste pisave – samo bistvene stvari, z uporabo simbolov, ki jih že poznate."
       formatting: Formatiranje
       result: Rezultat
       h1: "Vaše H1 besedilo gre sem"
@@ -2348,7 +2348,7 @@ sl:
       stripe_payments: "Stripe plačila"
       payments: Plačila
       listings: Oglasi
-      listings_search_placeholder: "Poiščite naslov oglas"
+      listings_search_placeholder: "Poiščite naslov oglasa"
       transactions_search_placeholder: "Poiščite naslov transakcije ali drugo vpleteno stranko"
       transactions: Transakcije
   listings:
@@ -2363,10 +2363,10 @@ sl:
       ask_a_question: "Komentirajte objavo ali vprašajte za več podrobnosti. Vsi ostali uporabniki bodo lahko videli vaš komentar."
       log_in: Prijava
       send_comment: "Pošlji komentar"
-      to_send_a_comment: "poslati nov komentar."
+      to_send_a_comment: ",da poslješ nov komentar."
       write_comment: "Napišite nov komentar:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Ne morete pošiljati novih komentarjev, ker je ta seznam zaprt."
-      you_must: "Vi morate"
+      you_must: Klikni
       subscribe_to_comments: "Obvesti me o novih komentarjih in posodobitvah"
     deleting_a_listing_cannot_be_undone: "Brisanja oglas ni mogoče razveljaviti. Ali ste prepričani, da želite nadaljevati?"
     edit:
@@ -2375,7 +2375,7 @@ sl:
       close_listing: "Zapri objavo"
       edit_listing: "Uredi objavo"
       reopen_listing: "Ponovno odprite seznam"
-      move_to_top: "Premakni se na vrh začetne strani"
+      move_to_top: "Izpostavi oglas na vrhu začetne strani"
       show_in_updates_email: "Pokaži v naslednjih e-novicah"
       show_in_updates_email_loading: Nalaganje...
       show_in_updates_email_error: "Strežnika ni bilo mogoče doseči. Poskusite znova po osvežitvi strani."
@@ -2466,7 +2466,7 @@ sl:
         origin: Izvor
         the_exact_location: "Natančna lokacija ne bo prikazana drugim uporabnikom."
       send_button:
-        save_listing: "Shrani objavo"
+        save_listing: Objavi
         submit_for_review: "Pošlji v pregled"
         will_be_reviewed: "Vsi oglasi na %{service_name} bodo pregledani pred objavo. Ko bo vaš oglas odobren, boste obveščeni po e-pošti in bo viden vsem."
         we_noticed_youre_an_admin: "Opazili smo, da ste skrbnik %{service_name}. Vaše spremembe bodo samodejno uporabljene in ne potrebujejo pregleda ali odobritve."
@@ -2580,7 +2580,7 @@ sl:
     show:
       add_your_phone_number: "Dodajte svojo telefonsko številko"
       add_profile_picture: "Dodaj profilno sliko"
-      comments: "Javna razprava"
+      comments: Komentarji
       contact_by_phone: "Kontakt po telefonu:"
       contact: Kontakt
       favor_offer: "Ponudba storitev"
@@ -2623,7 +2623,7 @@ sl:
       night: noč
       week: teden
       month: mesec
-      unit: enota
+      unit: kos
       person: Oseba
     verification_required:
       verification_required: "Potrebna je odobritev"
@@ -2805,7 +2805,7 @@ sl:
       no_image: "Brez slike"
       manage_listings: "Upravljaj vse moje oglase"
     show:
-      contact: "Kontakt %{person}"
+      contact: "%{person} kontakt"
       about_me: "Kdo sem jaz:"
       add_description: "Predstavi se in povej nekaj o sebi"
       add_location: "Dodaj lokacijo"
@@ -2846,8 +2846,8 @@ sl:
       show_all_followed_people: "Pokaži vse sledene osebe"
       no_followed_people: "Ne spremlja objav nobene osebe"
     follow_button:
-      following: Sledi
-      follow: Sledite
+      following: "Sedaj sledim osebi"
+      follow: "Sledite osebi"
       unfollow: "Prekliči sledenje"
   sessions:
     new:
@@ -2893,7 +2893,7 @@ sl:
       delete_account_confirmation_popup: "Ali si res prepričan, da želiš trajno izbrisati svoj uporabniški račun in s tem izgubiti vse podatke in informacije, povezane s tem računom? Izbrisanega računa namreč ne moremo obnoviti."
       email_addresses: "Tvoji e-naslovi"
       new_email: "Nov e-naslov"
-      delete_personal_information: "Če izbrišeš svoj uporabniški račun, se bodo vse tvoje osebne informacije (ime, telefon, e-naslov, profilna fotografija itd.) izbrisale trajno in jih ne bo možno ponovno obnoviti. Tudi vse tvoje objave bojo odstranjene. Računa ne boš mogel obnoviti sam."
+      delete_personal_information: "Če izbrišeš svoj uporabniški račun, se bodo vse tvoje osebne informacije (ime, telefon, e-naslov, profilna fotografija itd.) izbrisale trajno in jih ne bo možno ponovno obnoviti. Tudi vse tvoje objave bodo odstranjene. Računa ne boš mogel obnoviti."
       delete_information_others_involved: "Podatki, v katerih so vključeni drugi člani (pogovori z drugimi ljudmi, transakcije, ki ste jih opravili, ocene, ki ste jih dali drugim, itd.), se ne odstranijo, ko izbrišete svoj račun. Vendar pa vaše ime ne bo več prikazano poleg teh podatkov"
       unfinished_transactions: "Vašega računa ni mogoče izbrisati, ker imate transakcije v teku. Prosimo, da dokončate vse transakcije, preden izbrišete svoj račun"
       only_admin: "Vašega računa ni mogoče izbrisati, ker ste edini skrbnik spletne tržnice."
@@ -2919,28 +2919,28 @@ sl:
       email_from_admins: "Strinjam se s prejemanjem občasnih e-poštnih sporočil od ekipe %{service_name}"
       i_want_to_get_email_notification_when: "Želim prejeti e-poštno obvestilo, ko ..."
       newsletters: "E-poštna sporočila skrbnikov"
-      community_updates: Glasila
-      email_about_confirm_reminders: "... Pozabil sem potrditi naročilo kot dokončano"
+      community_updates: E-novice
+      email_about_confirm_reminders: "... sem pozabil potrditi naročilo kot dokončano"
       email_about_new_comments_to_own_listing: "...nekdo komentira mojo objavo"
-      email_about_new_messages: "...nekdo mi pošlje sporočilo"
-      email_about_new_received_testimonials: "...nekdo mi da povratne informacije"
-      email_about_testimonial_reminders: "... Pozabil sem dati povratne informacije o naročilu"
-      email_daily_community_updates: "Pošlji mi <b>dnevni </b> newsletter, če so novi oglasi"
-      email_weekly_community_updates: "Pošlji mi <b>tedenski</b> newsletter, če so novi oglasi"
+      email_about_new_messages: "...mi nekdo pošlje sporočilo"
+      email_about_new_received_testimonials: "...mi da nekdo povratne informacije"
+      email_about_testimonial_reminders: "... sem pozabil dati povratne informacije o naročilu"
+      email_daily_community_updates: "Pošlji mi <b>dnevne </b> e-novice, če so novi oglasi"
+      email_weekly_community_updates: "Pošlji mi <b>tedenske</b> e-novice, če so novi oglasi"
       do_not_email_community_updates: "Ne pošiljajte mi e-novic"
       email_when_conversation_accepted: "...nekdo sprejme mojo ponudbo ali prošnjo"
       email_when_conversation_rejected: "...nekdo zavrne mojo ponudbo ali prošnjo"
       email_about_completed_transactions: "...nekdo označi moje naročilo kot dokončano"
-      email_about_new_payments: "...Prejel sem novo plačilo"
-      email_about_new_listings_by_followed_people: "...nekdo, ki ga sledim, objavi nov seznam"
+      email_about_new_payments: "...sem prejel novo plačilo"
+      email_about_new_listings_by_followed_people: "...nekdo, ki ga sledim, objavi nov oglas"
       unsubscribe_succesful: "Odjava je uspela"
       unsubscribe_info_text: "Teh e-poštnih sporočil ne boste več prejemali. Preverite svoj %{settings_link}, da izberete, kakšno e-pošto želite prejemati od %{service_name}, ali se vrnite na %{homepage_link}."
       settings_link: nastavitve
       homepage_link: "domača stran"
       unsubscribe_unsuccesful: "Napaka pri odjavi"
       unsuccessful_unsubscribe_info_text: "Povezava za odjavo je potekla. Prijavite se, če želite spremeniti nastavitve naročnine na e-pošto."
-      email_listing_new_comment: "...javna razprava o oglasu, ki ga spremljam, ima nov komentar"
-      email_listing_updated: "... oglas, ki sem ga komentiral, je bil posodobljen"
+      email_listing_new_comment: "...oglas, ki ga spremljam, ima nov komentar"
+      email_listing_updated: "... je oglas, ki sem ga komentiral, bil posodobljen"
     profile:
       about_you: "O tebi"
       city: Kraj
@@ -2950,8 +2950,8 @@ sl:
       first_name_only: "(ni vidno drugim uporabnikom)"
       display_name: "Prikazno ime"
       display_name_description: "Če predstavljate organizacijo, lahko njeno ime uporabite kot prikazno ime. Prikazno ime je prikazano drugim uporabnikom namesto vašega imena in priimka."
-      location_description: "Navedete lahko svoj ulični naslov ali samo mesto ali poštno številko. Ko dodajate svojo lokacijo, je dobro dodati tudi svojo državo. Primeri: \"1000 Ljubljana, Slovenija\""
-      profile_picture_description: "Slika profila mora biti v kvadratnem formatu (razmerje 1:1), na primer 800x800 slikovnih pik. V nasprotnem primeru bo obrezan, da se prilega."
+      location_description: "Navedete lahko svoj ulični naslov ali samo mesto ali poštno številko. Ko dodajate svojo lokacijo, je dobro dodati tudi svojo državo. Primer: \"1000 Ljubljana, Slovenija\""
+      profile_picture_description: "Profilna slika mora biti v kvadratnem formatu (razmerje 1:1), na primer 800x800 slikovnih pik. V nasprotnem primeru bo obrezana, da se prilega."
       phone_number: "Telefonska številka"
       profile_picture: "Tvoja profilna slika"
       postal_code: "Poštna številka"
@@ -3134,7 +3134,7 @@ sl:
       price_per_day: "Cena na dan:"
       price_per_night: "Cena na noč:"
       price_per_hour: "Cena na uro:"
-      price_per_unit: "Cena na enoto:"
+      price_per_unit: "Cena na kos:"
       quantity: Količina
       subtotal: "Vmesni znesek"
       shipping-price: Poštnina
@@ -3148,7 +3148,7 @@ sl:
     price_per_quantity: "Cena na %{unit_type}:"
     price: "Cena:"
     quantity: "Količina: %{quantity}"
-    unit_price: "Cena na enoto: %{unit_price}"
+    unit_price: "Cena na kos: %{unit_price}"
     total: "Skupno:"
     total_to_pay: "Skupno plačilo:"
   unit:
@@ -3224,11 +3224,11 @@ sl:
         few: Uporabniki
         other: Uporabnik
       transaction:
-        zero: transakcij
-        one: transakcija
-        two: transakciji
-        few: transakcije
-        other: transakcij
+        zero: Transakcij
+        one: Transakcija
+        two: Transakciji
+        few: Transakcije
+        other: Transakcij
       listing:
         zero: oglasov
         one: oglas
@@ -3247,10 +3247,10 @@ sl:
         other: "%{model} ni bilo mogoče najti"
       single_page_html:
         zero: "%{model} ni bilo mogoče najti"
-        one: "Prikaz <b>1</b> %{model}"
-        two: "Prikaz <b>dveh&nbsp;%{count}</b> %{model}"
-        few: "Prikaz <b>vseh&nbsp;%{count}</b> %{model}"
-        other: "Prikaz <b>vseh&nbsp;%{count}</b> %{model}"
+        one: "Prikazan <b>1</b> %{model}"
+        two: "Prikazana <b>%{count}</b> %{model}"
+        few: "Prikazani <b>%{count}</b> %{model}"
+        other: "Prikazanih <b>%{count}</b> %{model}"
       multi_page: "Prikaz %{model} %{from} - %{to} od %{count} skupaj"
       multi_page_html: "Prikaz %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> od <b>%{count}</b> skupaj"
     person:

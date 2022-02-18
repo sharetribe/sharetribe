@@ -1328,7 +1328,7 @@ hu:
       confirm: Teljesített
       cancel: "Hiba jelzés"
       continue: Folytatás
-      give_feedback_to: "Adjon értékelést %{person_link}ről"
+      give_feedback_to: "Írj értékelést %{person_link} felhasználóról."
       do_not_give_feedback: "Értékelés kihagyása"
     details:
       day: nap
@@ -1370,7 +1370,7 @@ hu:
       stripe:
         held_payment: "Ajánlat elfogadva, az összeget a %{service_name} őrzi amíg a megrendelés teljesül."
         held_payment_wo_sum: "Ajánlat elfogadva, az összeget a %{service_name} őrzi amíg a megrendelés teljesül."
-        confirmed_request: "A rendelés teljesítettnek jelölve. Az összeg átutalása megtörtént, vagy hamarosan átutalásra kerül %{author_name} bankszámlájára."
+        confirmed_request: "A rendelés teljesítettnek jelölve. Az összeg átutalása megtörtént, hamarosan %{author_name} bankszámlájára kerül."
       canceled_the_order: "Reklamáció a rendeléssel kapcsolatban. A %{service_name} csapat kapott erről értesítést."
       marked_as_refunded: "Visszatérítettként megjelölve"
       dismissed_the_cancellation: "Elutasította a reklamációt."
@@ -1516,16 +1516,14 @@ hu:
       create_own: "Szeretne ön is egy online piacteret mint %{service_name}? Tudjon meg többet itt:%{learn_more}"
       learn_more: Bővebben
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: |
-          Még nem igazoltad vissza és/vagy nem is törölted a rendelést %{request_link}.
-          Amennyiben a rendelés teljesült, azt vissza kell igazolnod. Ezt követően adhatsz visszajelzést a másik felhasználóról: %{other_party_given_name}.
+      you_have_not_yet_confirmed_or_canceled_request: "Még nem igazoltad vissza és/vagy nem is törölted a rendelést %{request_link}. Amennyiben a rendelés teljesült, azt vissza kell igazolnod. Ezt követően írhatsz visszajelzést %{other_party_given_name} felhasználóról."
       remember_to_confirm_request: "Kérését ne feledje megerősíteni vagy törölni"
       if_will_not_happen_you_should_cancel: "Amennyiben úgy gondolod, hogy különböző okokból ez a rendelés nem fog teljesülni, lehetőseged van törölni azt %{cancel_it_link}."
       cancel_it_link_text: töröl
       automatic_confirmation: "Amennyiben nem erősíted meg és/vagy nem is törlöd a rendelést %{days_to_automatic_confirmation} napon belül miután az ajánlat elfogadásra került, automatikusan teljesültnek fogjuk azt jelölni."
     confirm_reminder_v2:
       headline: "Ön még nem teljesítette vagy nem reklamálta meg a %{request_link} foglalást."
-      you_have_not_yet_confirmed_or_canceled_request: "Amennyiben a megrendelés teljesült, akkor ezt Önnek meg kell erősítenie. Ezt követően visszajelzést adhat %{other_party_given_name} számára."
+      you_have_not_yet_confirmed_or_canceled_request: "Amennyiben a megrendelés teljesült, akkor ezt kérünk erősítsd meg. Ezt követően írhatsz értékelést %{other_party_given_name} számára."
     payment_settings_reminder:
       remember_to_add_payment_details: "Ne felejts pontos fizetési adatokat megadni, hogy a bankszámládra érkezzenek az utalások"
       you_have_added_listing_with_payment: "A következő hirdetést adtad fel: %{listing_link}, de még nem adtál meg fizetési információt. Annak érdekében, hogy megkapd a neked szánt átutalásokat, kérjük adj meg pontos fizetési információt."
@@ -1543,7 +1541,7 @@ hu:
       giving_feedback_is_good_idea: "Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{other_party_given_name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
       give_feedback_to: "Írj értékelést a következő felhasználóról: %{other_party_given_name} "
       stripe:
-        has_marked_request_as_confirmed: "%{other_party_full_name} teljesítettnek jelölte a rendelést : '%{request}'. A tranzakcióért kifizetett összeg felszabadult, átutaljuk a bankszámládra. Most már írhatsz visszajelzést is %{other_party_given_name} számára."
+        has_marked_request_as_confirmed: "%{other_party_full_name} teljesítettnek jelölte a rendelést : '%{request}'. A tranzakcióért kifizetett összeg felszabadult, hamarosan átutaljuk a bankszámládra. Most már írhatsz visszajelzést is %{other_party_given_name} számára."
       team_title: "a %{service_name} csapat"
     transaction_confirmed_v2:
       headline_confirmed: "A %{listing_link} megrendelést %{other_party_full_name} teljesítettnek jelölte."
@@ -1565,7 +1563,7 @@ hu:
       order_automatically_confirmed: "A kérés automatikusan teljesült, mivel egy nap telt el a foglalási időszak vége óta."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Most írhasz értékelést %{other_party_given_name} számára. Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{other_party_given_name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
-      give_feedback_to: "Adjon értékelést %{other_party_given_name} felhasználóról"
+      give_feedback_to: "Írj értékelést %{other_party_given_name} felhasználóról"
       show_thread: "Mutassa a beszélgetéseket"
     confirmation_instructions:
       confirmation_instructions_signature: "Üdvözlettel,<br/>A %{service_name} csapata"
@@ -1697,7 +1695,7 @@ hu:
       money_will_be_transferred: "Az átutalás akkor történik meg %{recipient_name} számára amennyiben a) a rendelést teljesítettnek jelölted, vagy b) %{automatic_confirmation_days} nap eltelt amióta elindítottad a kifizetést."
       listing_per_unit_title: "%{title}, / %{unit_type}"
       stripe:
-        you_have_made_new_payment: "Ön kifizette az <b>%{payment_sum}</b> összeget a <b>%{listing_title}</b> hirdetésben szereplő tételért. Az összeg %{service_name} számláján marad és %{recipient_full_name} részére lesz átutalva, amint a megrendelése teljesítettnek nem lesz jelölve. Itt van róla a bizonylat."
+        you_have_made_new_payment: "Kifizettél <b>%{payment_sum}</b> -ot a <b>%{listing_title}</b> hirdetésben szereplő tételért. Az összeget a %{service_name} őrzi és amint a megrendelése teljesítettnek lesz jelölve %{recipient_full_name} részére lesz átutalva. Itt találod az erről szóló tájékoztatót."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} értékelését itt találod: %{service_name}"
       you_can_give_feedback_to: "Még nem értékelted a következő felhasználót: %{name}"
@@ -1735,8 +1733,8 @@ hu:
       remember_to_give_feedback_to: "Emlékeztető: kérjük értékeld a következő felhasználót: %{name}"
       you_have_not_given_feedback_yet: "Még nem értékelted %{name}-t ezzel az ügylettel kapcsolatban: %{event}. Kérjük értékeld %{given_name} milyen partnerként viselkedett."
     testimonial_reminder_v2:
-      headline: "Ne felejtsen el visszajelzés adni %{other_name} számára!"
-      you_have_not_given_feedback_yet: "Mindig jó, ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is hogy, %{name} megbízható. Az is hasznos lehet, ha jelzi amennyiben problémája merült fel."
+      headline: "Ne felejts el értékelést írni %{other_name} felhasználóról!"
+      you_have_not_given_feedback_yet: "Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
       leave_feedback: "Adjon visszajelzést %{other_party_name} számára."
     transaction_preauthorized:
       subject: "%{requester} ajánlatot tett a %{service_name} hirdetésedre : %{listing_title} és jóváhagyta a banki átutalást."
@@ -1830,8 +1828,8 @@ hu:
     transaction_cancel_flow:
       the_order_about: "a rendelés a %{listing_title} hirdetés ügyében"
       you_can_contact_the_marketplace_team: "Ha további probléma merül fel, vegye fel a kapcsolatot a %{service_name} csapattal."
-      you_can_now_give_feedback: "Most írhat egy visszajelzést %{name} számára. Mindig jó ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is, hogy %{name} megbízható. Az is hasznos lehet, ha jelzi, amennyiben problémája merült fel."
-      give_feedback_to: "Adjon visszajelzést %{name} részére"
+      you_can_now_give_feedback: "Most írhatsz visszajelzést %{name} számára. Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
+      give_feedback_to: "Írj értékelést %{name} részére"
     transaction_disputed:
       subject: "Megreklamált foglalás - a %{service_name} csapat vizsgálja a szituációt"
       subject_admin: "Egy tranzakciót megreklamáltak, el kell döntenie, hogy mi történjen ezután"
@@ -1887,7 +1885,7 @@ hu:
     stripe:
       generic_error: "Hiba történt a fizetési folyamat során. Nem sikerült befejezni a Stripe fizetést."
       accept_authorization_error: "Hiba történt az előzetesen engedélyezett Stripe fizetés elfogadásakor. Kérjük próbáld újra."
-      reject_authorization_error: "Hiba történt az előzetesen engedélyezett Stripe-fizetés elutasításakor. Kérjük próbálja újra."
+      reject_authorization_error: "Hiba történt az előzetesen engedélyezett Stripe-fizetés elutasításakor. Kérjük próbáld újra."
       card_declined: "Az Ön kártyája el lett utasítva"
       expired_card: "A fizetés meghiúsult mivel a kártya lejárt"
   error_pages:
@@ -2055,7 +2053,7 @@ hu:
       this_article_link: "ez a termék"
       invitation_emails_field_placeholder: "barat1@pelda.com, barat2@pelda.com, ..."
       invitation_message_field_placeholder: "Csatlakoztam ehhez a bámulatos piactérhez. Csatlakozz te is!"
-      errors_in_emails: "Ellenőrizze, hogy az ön által megadott e-mail címek érvényességét. Ha több címet adott meg, győződjön meg róla, hogy vesszővel vannak elválasztva."
+      errors_in_emails: "Ellenőrizd, hogy a megadott e-mail címek érvényesek-e. Ha több címet adtál meg, győződj meg róla, hogy vesszővel vannak elválasztva."
     list_item:
       review: vélemény
       reviews: Vélemények
@@ -2206,7 +2204,7 @@ hu:
       email_confirmation_sent_to_new_address: "E-mail megerősítését elküldtük az új címre"
       email_not_found: "Az megadott e-mail nem található az %{service_name} adatbázisában."
       error_with_session: Hiba
-      feedback_considered_spam: "A visszajelzés nem lett elmentve, problémák vannak a formátumával. Próbálja újra vagy használja a fórumot."
+      feedback_considered_spam: "A visszajelzés nem lett elmentve, problémák vannak a formátumával. Próbáld újra vagy használd a fórumot."
       feedback_not_saved: "Az értékelést nem sikerült elküldeni"
       feedback_saved: "Köszönjük az üzenetet! Hamarosan jelentkezünk."
       feedback_sent_to: "Visszajelzés elküldve neki: %{target_person}"
@@ -3196,7 +3194,7 @@ hu:
     add_and_pay: "Fizetés jóváhagyása"
     card_not_stored: "A tranzakciót a Stripe biztonságos rendszere dolgozza fel. A %{service_name}  nem tárolja hitel- / bankkártya-adataidat."
     missing_payment: "Hirdetést már sikeresen feladtál, de a fiókod még nem lett beállítva az átutalások fogadásához. A fizetési beállításokhoz kérünk látogass a %{settings_link} oldalra."
-    stripe_bank_connected: "A bankszámla adatai sikeresen beállítva!"
+    stripe_bank_connected: "Bankszámla adataid sikeresen beállítva!"
     stripe_can_accept: "Most már minden készen áll, hogy pénz érkezhessen a bankszámládra."
     stripe_credit_card: Bankkártya
     paypal: PayPal
@@ -3204,9 +3202,9 @@ hu:
     paypal_can_accept: "Most már minden készen áll arra, hogy pénzt kapjon a PayPal-számlájára"
     paypal_connected_give_permission: "A telepítés befejezéséhez és az utalások fogadásának megkezdéséhez a <%{email} PayPal-számlára kérjük, adj engedélyt tranzakciós díj felszámítására."
     stripe_account_restricted: "Számlájára történő online fizetések korlátozottak vagy hamarosan korlátozottak lesznek!"
-    stripe_account_restricted_info: "Kérjük adja meg a bankszámla adatait, hogy további információkat nyújtson a fizetési szolgáltatónak."
+    stripe_account_restricted_info: "Kérjük frissítsd bankszámla adataid, hogy további információkat adhass a fizetési szolgáltatónak."
     stripe_account_restricted_soon: "A számlájára történő online fizetéseket hamarosan korlátozzuk."
-    stripe_account_restricted_soon_info: "Kérjük adja meg a bankszámla adatait, hogy további információkat nyújtson a fizetési szolgáltatónak."
+    stripe_account_restricted_soon_info: "Kérjük frissítsd bankszámla adataid, hogy további információkat adhass a fizetési szolgáltatónak."
     stripe_account_pending_verification: "A számlaadatok sikeresen mentésre kerültek. A fizetési szolgáltató ellenőrzi az adatokat."
     stripe_account_pending_verification_info: "Erre a feladatra adj egy kis időt, de később gyere vissza és ellenőrizd, hogy minden rendben van-e."
     form_new:
@@ -3219,11 +3217,11 @@ hu:
       last_name_kana: Vezetéknév
       first_name_kanji: Keresztnév
       last_name_kanji: Vezetéknév
-      country: Ország
+      country: "Lakóhely szerinti ország"
       birth_date: "Születési dátum"
       ssn_last_4: "SSN Utolsó 4"
       personal_id_number: "Személyi azonosító szám"
-      address_country: Ország
+      address_country: "Lakóhely szerinti ország"
       address_state: Állam
       address_province: Tartomány
       address_city: Város
@@ -3256,9 +3254,9 @@ hu:
       bank_routing_2: Fiókkód
       bank_currency: "Bankszámla pénzneme"
       update_also_bank_account: "Frissítsd a bankszámlát is"
-      bank_account_same_country: ~
-      bank_country: ~
-      bank_holder_name: ~
+      bank_account_same_country: "Lakóhely szerinti országban bejegyzett bankszámla használata"
+      bank_country: "Bankszámla bejegyzett ország"
+      bank_holder_name: "Számlatulajdonos neve"
       messages:
         account_number: Számlaszám
         routing_number: Útvonalszám
