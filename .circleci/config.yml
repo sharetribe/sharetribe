@@ -6,7 +6,7 @@ jobs:
     shell: /bin/bash -ileo pipefail
     resource_class: small
     docker:
-      - image: circleci/ruby:2.7.5-buster-browsers-legacy
+      - image: cimg/ruby:2.7.5-browsers
         environment:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
