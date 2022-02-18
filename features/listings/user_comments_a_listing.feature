@@ -74,6 +74,7 @@ Feature: User comments a listing
     And I am logged in as "kassi_testperson2"
     When I follow "Massage"
     Then I should see "Public discussion" within "#comments"
+    And I have "click" event handler on "#send_comment_button"
     And I press "Send comment"
     Then I should see "This field is required." within "#new_comment"
 

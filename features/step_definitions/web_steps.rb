@@ -59,6 +59,29 @@ module FindHelpers
 end
 World(FindHelpers)
 
+module AsyncHelpers
+
+  # Run block, which is expected to contain some expectations until all
+  # expectations are met or until timeout occurs. Useful when the expectation
+  # depends on some asynchronous behavior.
+  def eventually(timeout: 5, &block)
+    end_t = Time.now + timeout
+
+    loop do
+      result = block.call
+    rescue RSpec::Expectations::ExpectationNotMetError => e
+      if Time.now >= end_t
+        raise e
+      else
+        sleep 0.1
+      end
+    else
+      return result
+    end
+  end
+end
+World(AsyncHelpers)
+
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -358,6 +381,13 @@ end
 
 When /^I hover "([^"]*)"$/ do |selector|
   find(selector).hover
+end
+
+When /^I have "([^"]*)" event handler on "([^"]*)"/ do |event, selector|
+  eventually do
+    events = page.evaluate_script("$._data($(\"#{selector}\")[0], \"events\")")
+    expect(events).to include(event)
+  end
 end
 
 Then(/^"([^"]*)" should have CSS property "([^"]*)" with value "([^"]*)"$/) do |selector, property, value|
