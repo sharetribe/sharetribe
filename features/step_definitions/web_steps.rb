@@ -201,6 +201,12 @@ Then /^(?:|I )should see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
     expect(page).to have_content(text, normalize_ws: true)
   end
+rescue RSpec::Expectations::ExpectationNotMetError
+  puts "Timeout waiting for content '#{text}' within '#{selector}'. Will wait 10s and retry one more time."
+  sleep 10
+  with_scope(selector) do
+    expect(page).to have_content(text, normalize_ws: true)
+  end
 end
 
 Then /^Page should contain "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
