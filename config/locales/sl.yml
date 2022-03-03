@@ -95,7 +95,7 @@ sl:
         edit_info: "Uredite informacije"
         see_how_it_looks_like: "Preverite kako izgleda"
         verification_to_post_listings_info_content: "Info tekst nepotrjenim uporabnikom"
-        verification_to_post_listings_info_content_description: "Trenutno zahtevate, da vaše uporabnike ročno preverite, preden lahko objavljajo objave. Tukaj lahko nastavite privzeto besedilo, ki se prikaže nepreverjenim uporabnikom, ko poskušajo objaviti nov seznam."
+        verification_to_post_listings_info_content_description: "Trenutno zahtevate, da vaše uporabnike ročno preverite, preden lahko objavljajo objave. Tukaj lahko nastavite privzeto besedilo, ki se prikaže nepreverjenim uporabnikom, ko poskušajo objaviti nov oglas."
         verification_to_post_listings_info_content_default: "Na %{service_name} ti mora administrator osebno odobriti dodajanje objav. Trenutno žal nimaš te pravice. Prosim, kontaktiraj %{contact_admin_link}, da ti odobri dostop."
         contact_admin_link_text: "kontaktirajte ekipo %{service_name}"
         save: "Shrani nastavitve"
@@ -135,11 +135,11 @@ sl:
         small_cover_photo_instructions_text_with_dimensions: "Velikost fotografije bo spremenjena na velikost slikovnih pik %{width}x%{height}, višje slike pa bodo izrezane na sredini."
         main_content_width: "Pri izbiri naslovnih fotografij upoštevajte, da je glavna vsebina strani široka največ %{main_width} slikovnih pik. Ne pozabite preveriti tudi, kako je vaša naslovna fotografija videti na manjših zaslonih (npr. z uporabo ožjega okna brskalnika)."
         custom_color1_instructions_text: "Glavno barvo uporabniškega vmesnika lahko spremenite tako, da vnesete hex vrednost barve. %{link} vam lahko pomaga izbrati barvo in vam poda hex barvno kodo. Nato lahko kodo kopirate tukaj."
-        new_listing_button_instructions_text: "Barvo gumba Objavi nov seznam lahko spremenite tako, da vnesete šestnajstiško vrednost barve. %{link_to_colorpicker} vam lahko pomaga izbrati barvo in vam poda šestnajstiško barvno kodo. Nato lahko kodo kopirate sem."
+        new_listing_button_instructions_text: "Barvo gumba Objavi nov oglas lahko spremenite tako, da vnesete šestnajstiško vrednost barve. %{link_to_colorpicker} vam lahko pomaga izbrati barvo in vam poda šestnajstiško barvno kodo. Nato lahko kodo kopirate sem."
         default_browse_view: "Privzeti pogled za brskanje"
         default_browse_view_instructions_text: "Privzeti pogled za brskanje se uporablja na domači strani za nastavitev, kako so objave privzeto prikazane."
         grid: Mreža
-        list: Seznam
+        list: Oglas
         map: Zemljevid
         name_display_type: "Vrsta prikaza imena"
         name_display_type_instructions_text: "Izberite, kako bo ime posameznega uporabnika prikazano na spletnem mestu."
@@ -262,7 +262,7 @@ sl:
         automatic_newsletters: "Pošiljanje samodejnih dnevnih/tedenskih glasil vsem uporabnikom (razen če se odjavijo)"
         email_admins_about_new_members: "Skrbnikom pošljite e-pošto vsakič, ko se prijavi nov uporabnik"
         google_analytics_key: "ID za sledenje Google Analytics"
-        twitter_handle: "Twitter handle (uporablja se z gumbom za tweet na strani s seznamom)"
+        twitter_handle: "Twitter handle (uporablja se z gumbom za tweet na strani z oglasom)"
         update_settings: "Shrani nastavitve"
         automatically_confirmed_no_escrow: "Naročilo bo samodejno označeno kot dokončano %{days_dropdown} dni po opravljenem plačilu"
         automatically_confirmed_no_escrow_stripe_info: "Za transakcije, ki jih obdeluje Stripe, so plačila prodajalcem odložena, dokler naročilo ni označeno kot dokončano.%{learn_more}"
@@ -343,8 +343,8 @@ sl:
         link_for_twitter: "za Twitter"
         social_media_description: "Opis družbenih medijev"
         twitter_handle: "Twitter handle"
-        twitter_handle_info_text: "Uporabniško ime Twitter računa vaše tržnice (če ga imate). Omenjeno bo, ko bodo ljudje uporabili gumb za tweet na strani s seznamom."
-        twitter_handle_info_text_with_instructions: "Uporabniško ime Twitter računa vaše spletne tržnice (če ga imate). Omenjeno bo, ko bodo ljudje uporabili gumb za tweet na strani s seznamom. %{instructions_link}."
+        twitter_handle_info_text: "Uporabniško ime Twitter računa vaše tržnice (če ga imate). Omenjeno bo, ko bodo ljudje uporabili gumb za tweet na strani z oglasom."
+        twitter_handle_info_text_with_instructions: "Uporabniško ime Twitter računa vaše spletne tržnice (če ga imate). Omenjen bo, ko bodo ljudje uporabili gumb za tweet na strani z oglasom. %{instructions_link}."
         twitter_instructions_link_text: "Preberi več"
         twitter_handle_placeholder: "uporabniško ime"
         invalid_twitter_handle: "Handle Twitterja mora vsebovati največ 15 alfanumeričnih (črke A-Z in številke 0-9) znakov."
@@ -472,7 +472,7 @@ sl:
         display_invite: "Prikaži povezavo do strani <i>Povabi nove člane</i>"
       topbar:
         topbar: "Zgornja vrstica"
-        new_listing_button_label: "Objavite novo besedilo gumba na seznamu"
+        new_listing_button_label: "Objavite novo besedilo gumba za oglas"
         invalid_post_listing_button_label: "Navedite veljavno besedilo za gumb »Objavi nov oglas«."
       transactions:
         export_all_as_csv: "Izvozi vse kot CSV"
@@ -498,7 +498,7 @@ sl:
           dismissed: Odpuščeno
         headers:
           conversation: Pogovor
-          listing: Seznam
+          listing: Oglas
           status: Stanje
           sum: Vsota
           started: Začelo
@@ -908,14 +908,14 @@ sl:
       form:
         field_required:
           this_field_is_required: "Naj bo obvezno izpolnjevanje tega polja pri ustvarjanju nove objave"
-          this_field_is_required_checkbox: "Naj bo obvezno izpolnjevanje tega polja pri ustvarjanju novega seznama (uporabnik mora izbrati vsaj eno možnost)"
+          this_field_is_required_checkbox: "Naj bo obvezno izpolnjevanje tega polja pri ustvarjanju novega oglasa (uporabnik mora izbrati vsaj eno možnost)"
         search_filter:
           search_filter: "Na domači strani prikažite filter na podlagi tega polja"
           date_cant_be_filtered: "Za datumsko polje ni na voljo nobenega filtra."
           text_cant_be_filtered: "Filter besedila ni na voljo. Glavno iskanje besedila išče iz besedilnih polj."
       index:
         listing_fields: "Polja & filtri objav"
-        listing_fields_help: "Tukaj lahko urejate polja, ki jih morajo uporabniki izpolniti, ko ustvarijo nov seznam. Upoštevajte, da so nekatera polja vnaprej določena in jih ni mogoče urejati."
+        listing_fields_help: "Tukaj lahko urejate polja, ki jih morajo uporabniki izpolniti, ko ustvarijo nov oglas. Upoštevajte, da so nekatera polja vnaprej določena in jih ni mogoče urejati."
         add_new_field: "Dodajte novo polje:"
         remove_field_confirmation: "Ali ste prepričani, da želite odstraniti polje »%{field_name}« in vse njegove podatke? Tega ni mogoče razveljaviti."
         cancel: Prekliči
@@ -998,8 +998,8 @@ sl:
         to_improve_email_deliverability: "Za izboljšanje dostave e-pošte se zadeva e-pošte ustvari samodejno in je ni mogoče spremeniti."
         email_subject_text: "Novo sporočilo ekipe %{service_name}"
         firstname_cannot_be_removed: "\"Imena\" ni mogoče odstraniti in bo zamenjan z dejanskim imenom vsakega prejemnika."
-        hello_firstname: "Pozdravljeni ime,"
-        hello_firstname_text: "Pozdravljeni %{person},"
+        hello_firstname: "Hej ime,"
+        hello_firstname_text: "Hej %{person},"
     left_hand_navigation:
       general: Splošno
       users_and_transactions: Upravljaj
@@ -1318,12 +1318,12 @@ sl:
       details: "Podrobnosti naročila"
       order_by: "Naroči po %{orderer_link}"
       accept_offer: "Sprejmite ponudbo"
-      accept_request: "Sprejmite zahtevo in obdržite seznam odprt"
+      accept_request: "Sprejmite zahtevo in obdržite oglas odprt"
       accept_request_and_close: "Sprejmite zahtevo in zaprite oglas"
       reject_offer: "Ne tokrat"
       reject_request: "Ne tokrat"
-      close_listing: "Zaprite seznam %{listing_title_link}"
-      update_later: "Pustite seznam odprt"
+      close_listing: "Zapri oglas %{listing_title_link}"
+      update_later: "Pusti oglas odprt"
       optional_message: "Neobvezno sporočilo"
       price_to_pay: "Skupna cena, ki jo je treba plačati"
       accept: Sprejmi
@@ -1594,7 +1594,7 @@ sl:
       need_to_confirm: "Potrdite svoj e-poštni naslov, da dokončate svoj račun %{service_name}. To je enostavno - samo kliknite spodnji gumb!"
       confirmation_link_text: "Potrdi e-poštni naslov"
     common:
-      hey: "Pozdravljeni %{name},"
+      hey: "Hej %{name},"
       hi: "Hej %{name},"
       kassi_team: "%{service_name} ekipa"
       thanks: "Hvala,"
@@ -1726,10 +1726,10 @@ sl:
       has_updated_listing_you_follow_in_kassi: "%{author} je posodobil objavo '%{listing}', ki jo spremljate v %{service_name}."
       view_changes: "Oglejte si spremembe"
     community_updates:
-      added_offer: "%{name_link} je dodal seznam:"
-      added_request: "%{name_link} je dodal seznam:"
-      added_listing: "%{name_link} je dodal seznam:"
-      update_mail_title: "%{title_link} nadgradnja"
+      added_offer: "%{name_link} je dodal oglas:"
+      added_request: "%{name_link} je dodal oglas:"
+      added_listing: "%{name_link} je dodal oglas:"
+      update_mail_title: "Novo na %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Tukaj je nekaj stvari, ki so se zgodile na %{community_link} v zadnjem času %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
@@ -1737,12 +1737,12 @@ sl:
       settings_link_text: "Tukaj uredite svoje e-poštne nastavitve"
       unsubscribe_link_text: "odjaviti se"
     community_updates_v2:
-      headline: "preverite najnovejšo dejavnost na %{service_name}."
+      headline: "preverite najnovejšo ponudbo na %{service_name}."
       intro_paragraph:
-        one: "Tukaj je nekaj utrinkov %{service_name} od preteklega dne."
-        two: "Tukaj je nekaj utrinkov %{service_name} iz zadnjih %{count} dni."
-        few: "Tukaj je nekaj utrinkov %{service_name} iz zadnjih %{count} dni."
-        other: "Tukaj je nekaj utrinkov %{service_name} iz zadnjih %{count} dni."
+        one: "Tukaj je nekaj utrinkov iz spletne tržnice %{service_name} od preteklega dne."
+        two: "Tukaj je nekaj utrinkov iz spletne tržnice %{service_name} iz zadnjih %{count} dni."
+        few: "Tukaj je nekaj utrinkov iz spletne tržnice %{service_name} iz zadnjih %{count} dni."
+        other: "Tukaj je nekaj utrinkov iz spletne tržnice %{service_name} iz zadnjih %{count} dni."
     newsletter:
       hi: "Živijo %{name},"
       newest_offers: "Kaj ljudje trenutno ponujajo drugim"
@@ -1760,7 +1760,7 @@ sl:
       leave_feedback: "Pustite povratne informacije za %{other_party_name}"
     transaction_preauthorized:
       subject: "%{requester} se zanima in je odobril plačilo za %{listing_title}, objavljeno v %{service_name}"
-      transaction_requested_by_user: "Odlična novica! %{requester} se zanima za »%{listing_title}« in je odobril plačilo za ta seznam."
+      transaction_requested_by_user: "Odlična novica! %{requester} se zanima za »%{listing_title}« in je odobril plačilo za ta oglas."
       you_have_time_to_accept: "Zahtevo morate sprejeti ali zavrniti v %{payment_expires_in}."
       if_you_do_accept: "Če v tem roku sprejmete zahtevo, boste denar takoj prejeli na svoj račun."
       if_you_do_accept_stripe: "Če v tem roku sprejmete zahtevo, bo plačilo izvedeno. Denar boste prejeli neposredno na svoj bančni račun, ko boste %{listing_title} dostavili %{requester}."
@@ -1770,7 +1770,7 @@ sl:
       headline: "%{requester} se zanima in je odobril plačilo za %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Ne pozabite sprejeti zahteve %{requester} o objavi %{listing_title}"
-      remember_to_accept: "Ne pozabite sprejeti zahteve %{requester} o objavi na seznam »%{listing_title}«. %{requester} je že plačal vnos. Za prejem plačila morate sprejeti zahtevo."
+      remember_to_accept: "Ne pozabite sprejeti zahteve %{requester} o oglasu »%{listing_title}«. %{requester} je že plačal. Za prejem plačila morate sprejeti zahtevo."
       one_day_left: "Če zahteve ne sprejmete v enem dnevu, bo zahteva samodejno zavrnjena in ne boste prejeli plačila."
       click_here_to_reply: "Kliknite tukaj, da odgovorite na zahtevo"
     transaction_preauthorized_reminder_v2:
@@ -1783,10 +1783,10 @@ sl:
       welcome_email_footer_text: "%{settings_link}"
       settings_link_text: "Tukaj uredite svoje e-poštne nastavitve"
     new_listing_by_followed_person:
-      subject: "%{author_name} je objavil nov seznam v %{service_name}"
-      has_posted_a_new_listing: "%{author_name} je objavil nov seznam:"
+      subject: "%{author_name} je objavil nov oglas v %{service_name}"
+      has_posted_a_new_listing: "%{author_name} je objavil nov oglas:"
       you_are_receiving_this_because: "To obvestilo ste prejeli, ker sledite %{author_name}."
-      view_listing: "Oglejte si seznam"
+      view_listing: "Oglejte si oglas"
     new_listing_by_followed_person_v2:
       headline: "%{author} je pravkar dodal nov oglas!"
       has_posted_a_new_listing: "%{author_name} je objavil nov oglas:"
@@ -1828,7 +1828,7 @@ sl:
       edit_the_listing: "Uredite oglas"
     edited_listing_submited_for_review:
       subject: "Urejen oglas za pregled: \"%{listing_title}\" avtorja %{author_name} v %{community}"
-      there_is_a_edited_listing_to_review: "Obstaja urejen oglas za pregled: \"%{listing_title}\" avtorja %{author_name}. Zdaj morate ta seznam odobriti ali zavrniti."
+      there_is_a_edited_listing_to_review: "Obstaja urejen oglas za pregled: \"%{listing_title}\" avtorja %{author_name}. Zdaj morate ta oglas odobriti ali zavrniti."
       review_the_listing: "Preglejte urejen oglas"
     new_transaction:
       subject: "Nova transakcija v %{service_name}"
@@ -1920,7 +1920,7 @@ sl:
     error_410:
       page_removed: "Stran odstranjena"
       page_you_requested_has_been_removed: "Zahtevana stran je odstranjena."
-      page_removed_reason: "Za to je nekaj možnih razlogov. Uporabnik je na primer morda odstranil svoj račun ali pa je bil odstranjen seznam."
+      page_removed_reason: "Za to je nekaj možnih razlogov. Uporabnik je na primer morda odstranil svoj račun ali pa je bil oglas odstranjen."
     error_410_title: "Stran odstranjena"
     error_500:
       temporary_unavailable: "Spletna tržnica trenutno ni na voljo"
@@ -2096,10 +2096,10 @@ sl:
       show: "Filtriraj:"
       search: Iskanje
       map: "Pokaži zemljevid"
-      list: "Pokaži seznam"
+      list: "Pokaži oglas"
       map_button: Zemljevid
       grid_button: Mreža
-      list_button: Seznam
+      list_button: Oglas
       all_listing_types: "Vse vrste objav"
       all_categories: "Vse kategorije"
     errors:
@@ -2191,7 +2191,7 @@ sl:
       underline: podčrtaj
       strikethrough: prečrtano
       inline_link: "Inline povezava"
-      list: Seznam
+      list: Oglas
       one: Ena
       two: Dva
       three: Tri
@@ -2241,7 +2241,7 @@ sl:
       login_failed: "Prijava ni bila uspešna. Prosimo vnesite pravilne podatke."
       account_creation_successful: "Dobrodošli v %{service_name}, %{person_name}!"
       account_deleted: "Vaš račun je zdaj izbrisan."
-      login_successful: "Dobrodošli/a %{person_name}!"
+      login_successful: "Živjo %{person_name}!"
       logout_successful: "Sedaj ste odjavljeni iz %{service_name}. Se vidimo kmalu!"
       news_item_created: "Članek kreiran"
       news_item_creation_failed: "Kreacija članka ni uspela"
@@ -2255,8 +2255,8 @@ sl:
       offer_rejected: "Ponudba zavrnjena"
       offer_canceled: "Ponudba preklicana"
       listing_updated_successfully: "Objava je uspešno osvežena"
-      listing_updated_availability_management_enabled: "Seznam je bil uspešno posodobljen. Upravljanje razpoložljivosti je omogočeno."
-      listing_updated_availability_management_disabled: "Seznam je bil uspešno posodobljen. Upravljanje razpoložljivosti je onemogočeno."
+      listing_updated_availability_management_enabled: "Oglas je bil uspešno posodobljen. Upravljanje razpoložljivosti je omogočeno."
+      listing_updated_availability_management_disabled: "Oglas je bil uspešno posodobljen. Upravljanje razpoložljivosti je onemogočeno."
       listing_deleted: "Oglas je izbrisan"
       only_kassi_administrators_can_access_this_area: "Za dostop do tega območja, se prijavite z administratorskim računom"
       only_listing_author_can_close_a_listing: "Samo avtor oglasa lahko zapre oglas"
@@ -2365,7 +2365,7 @@ sl:
       send_comment: "Pošlji komentar"
       to_send_a_comment: ",da poslješ nov komentar."
       write_comment: "Napišite nov komentar:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "Ne morete pošiljati novih komentarjev, ker je ta seznam zaprt."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Ne morete pošiljati novih komentarjev, ker je ta oglas zaprt."
       you_must: Klikni
       subscribe_to_comments: "Obvesti me o novih komentarjih in posodobitvah"
     deleting_a_listing_cannot_be_undone: "Brisanja oglas ni mogoče razveljaviti. Ali ste prepričani, da želite nadaljevati?"
@@ -2379,7 +2379,7 @@ sl:
       show_in_updates_email: "Pokaži v naslednjih e-novicah"
       show_in_updates_email_loading: Nalaganje...
       show_in_updates_email_error: "Strežnika ni bilo mogoče doseči. Poskusite znova po osvežitvi strani."
-      show_in_updates_email_success: "Ta seznam bo prikazan v naslednjem e-poštnem sporočilu za samodejno posodobitev, poslanem uporabnikom"
+      show_in_updates_email_success: "Ta oglas bo prikazan v naslednjem avtomatskem e-poštnem sporočilu poslanem uporabnikom"
       listing_is_pending: "Oglas čaka na odobritev"
       listing_is_rejected: "Oglas je zavrnjen"
       approve_listing: "Sprejmi oglas"
@@ -2391,7 +2391,7 @@ sl:
       something_went_wrong: "Nekaj je šlo narobe, napaka: %{error_code}"
       something_went_wrong_plain: "Nekaj je šlo narobe"
       create_failed_to_connect_to_booking_service: "Ustvarjanje vnosa ni uspelo: povezava s storitvijo rezervacije ni uspela. Prosim poskusite ponovno."
-      update_failed_to_connect_to_booking_service: "Posodobitev seznama ni uspela: povezava s storitvijo rezervacije ni uspela. Prosim poskusite ponovno."
+      update_failed_to_connect_to_booking_service: "Posodobitev oglasa ni uspela: povezava s storitvijo rezervacije ni uspela. Prosim poskusite ponovno."
     follow_links:
       follow: "Prejemajte e-pošto o novih komentarjih"
       unfollow: "Ne prejemajte e-poštnih sporočil o novih komentarjih"
@@ -2511,8 +2511,8 @@ sl:
       favors: Storitve
       housing: Prostori
       items: Izdelki
-      list_view: "Prikaz na seznamu"
-      listings: Seznami
+      list_view: "Prikaz oglasa"
+      listings: Oglasi
       map_view: "Prikaz na zemljevidu"
       offer_something: "Sporočite ostalim!"
       offer_type: "Vrsta ponudbe"
@@ -2558,7 +2558,7 @@ sl:
       select_category: "Izberi kategorijo"
       select_subcategory: "Izberite podkategorijo"
       select_transaction_type: "Izberi vrsto objave"
-      you_need_to_fill_payout_details_before_accepting: "Preden lahko objavite seznam, morate izpolniti podatke o izplačilu. Pojdite na %{payment_settings_link}, da izpolnite podrobnosti."
+      you_need_to_fill_payout_details_before_accepting: "Preden lahko objavite oglas, morate izpolniti podatke o izplačilu. Pojdite na %{payment_settings_link}, da izpolnite podrobnosti."
       contact_admin_link_text: "kontaktirajte %{service_name} ekipo"
       community_not_configured_for_payments: "%{service_name} ni bil konfiguriran za plačila, zato še ne morete objavljati novih oglasov. Prosimo %{contact_admin_link} za podrobnosti."
       payment_settings_link: "nastavitve plačila"
@@ -2665,7 +2665,7 @@ sl:
       favors: Storitve
       housing: Prostori
       items: Izdelki
-      list_view: "Pogled na seznamu"
+      list_view: "Pogled oglasa"
       map_view: "Pogled na zemljevidu"
       offer_something: "Sporočite drugim!"
       offer_type: "Vrsta ponudbe"
