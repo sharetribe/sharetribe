@@ -1322,7 +1322,7 @@ hu:
       stripe-fee_label: "Fizetés feldolgozási díj"
     confirm:
       confirm_description: "Amennyiben teljesült a rendelésed, kérjük itt jelezd. Utána írhatsz visszajelzést a másik félnek."
-      cancel_description_team: "Amennyiben a rendelése nem teljesült, azt megjelölheti „vitatottnak”. A %{service_name} csapata megvizsgálja a helyzetet és eldönti, hogy visszatéríti vagy elutasítja a vitakérelmét."
+      cancel_description_team: "Amennyiben a rendelésd nem teljesült, a „Hiba jelzés” -re kattintva vitatottnak jelölheted. A %{service_name} csapata megvizsgálja a helyzetet és eldönti, hogy visszatéríti vagy elutasítja a vitakérelmed."
       cancel_payed_description: "Kérése elfogadása után, ha kétsége merőlne fel akkor még a kifizetés előtt visszavonhatja a kérését."
       canceling_payed_transaction: "Tranzakció megszakítása"
       confirm: Teljesített
@@ -1728,14 +1728,14 @@ hu:
       text_version_text: "Tud Ön is olyat felkínálni amire másoknak szüksége lehet? Vagy esetleg olyanra van szüksége ami másoknak van? Itt feladhatja kínál vagy keres hirdetését vagy átböngészheti a mások által feladott hirdetéseket: %{url}"
     reset_password_instructions:
       change_my_password: "Megváltoztatom a jelszavamat"
-      reset_password_instructions: "<p> Ön jelezte, hogy elfelejtette a jelszavát vagy a felhasználónevét %{service_name} oldalunkhoz. </p><p>Amennyiben meg kell változtatnia a jelszavát, kattintson a következő linkre: %{password_reset_link}</p><br/><p>Amennyiben ön ezt nem kérte, hagyja figyelmen kívül e-mailünket. Az ön jelszava nem fog változni addig amíg a fenti liket használva ön egy újat nem igényel.</p>"
+      reset_password_instructions: "<p> Jelezted, hogy elfelejtetted a jelszavad vagy a felhasználóneved itt: %{service_name}. </p><p>Amennyiben meg szeretnéd változtatni a jelszavad, kattints a következő linkre: %{password_reset_link}</p><br/><p>Amennyiben ezt nem te kérted, hagyd figyelmen kívül ezt az email-t. A jelszavad nem fog változni addig amíg a fenti liket használva egy újat nem igényelsz.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Emlékeztető: kérjük értékeld a következő felhasználót: %{name}"
       you_have_not_given_feedback_yet: "Még nem értékelted %{name}-t ezzel az ügylettel kapcsolatban: %{event}. Kérjük értékeld %{given_name} milyen partnerként viselkedett."
     testimonial_reminder_v2:
       headline: "Ne felejts el értékelést írni %{other_name} felhasználóról!"
       you_have_not_given_feedback_yet: "Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
-      leave_feedback: "Adjon visszajelzést %{other_party_name} számára."
+      leave_feedback: "Értékelés %{other_party_name} részére."
     transaction_preauthorized:
       subject: "%{requester} ajánlatot tett a %{service_name} hirdetésedre : %{listing_title} és jóváhagyta a banki átutalást."
       transaction_requested_by_user: "%{requester} ajánlatot tett és jóváhagyta a banki átutalást a \"%{listing_title}\" hirdetésben szereplő tételért."
@@ -2062,10 +2062,10 @@ hu:
       show_less: "Mutass kevesebbet"
       show_more: "Mutass többet"
     profile_info_empty_notification:
-      add_your_info: "Adja meg elérhetőségét"
+      add_your_info: "Add meg az elérhetőséged"
       add_a_profile_picture: "Profilkép hozzáadása"
-      you_have_not_added_your_info: "Nem adta meg elérhetőségeit. Kérem adja meg, hogy mások könnyebben kapcsolatba léphessenek önnel. Mellékelje hozzá fényképét, ami növeli a bizalmat ön iránt."
-      add_your_info_link: "Adja meg az adatait most"
+      you_have_not_added_your_info: "Még nem adtál meg elérhetőséget. Kérjük, ezt pótold, hogy mások könnyebben kapcsolatba léphessenek veled. Tölts fel fényképet, amivel növelheted a többi felhasználó bizalmát."
+      add_your_info_link: "Add meg az adataidat most"
     recent_listing:
       please_offer: Ajánlat
       comment: Hozzászólás
@@ -2532,7 +2532,7 @@ hu:
       select_category: "Válassz kategóriát"
       select_subcategory: "Válassz alkategóriát"
       select_transaction_type: "Válassza ki a hirdetés típusát"
-      you_need_to_fill_payout_details_before_accepting: "A hirdetés feladásához kérjük adja meg fizetési információit. Kattintson ide %{payment_settings_link} az adatok kitoltéséhez."
+      you_need_to_fill_payout_details_before_accepting: "A hirdetés feladásához kérjük adj meg pontos fizetési információkat. Kattints ide %{payment_settings_link} az adatok kitöltéséhez."
       contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
       community_not_configured_for_payments: "%{service_name} oldalon a fizetési lehetőségek még nincsenek beállítva ezért ön még nem tud hirdetést feladni. Kérjük vegye fel a kapcsolatot a rendszergazdával %{contact_admin_link} a részletekért."
       payment_settings_link: "Fizetési beállítások"
@@ -2552,7 +2552,7 @@ hu:
     reply_link:
       listing_closed: "Hirdetés törölve"
     show:
-      add_your_phone_number: "Adja meg telefonszámát"
+      add_your_phone_number: "Add meg a telefonszámod"
       add_profile_picture: "Profilkép hozzáadása"
       comments: "Publikus megjegyzés"
       contact_by_phone: "Telefonon:"
@@ -2781,8 +2781,8 @@ hu:
       contact: "Lépjen kapcsolatba ezzel a személlyel: %{person}"
       about_me: "Rólam:"
       add_description: "Töltsd ki a profilodat"
-      add_location: "Adja meg lakóhelyét (legalább a település nevét)"
-      add_phone_number: "Adja meg telefonszámát"
+      add_location: "Add meg a lakóhelyed"
+      add_phone_number: "Add meg a telefonszámod"
       address: "Hely:"
       as_expected: "Elvárásoknak megfelelő"
       edit_profile_info: "Profil szerkesztése"
@@ -2840,9 +2840,9 @@ hu:
       we_will_not_post_without_asking_you: "Soha nem posztolunk az Ön Facebookján a beleegyezése nélkül"
     password_forgotten:
       email: E-mail
-      password_recovery_instructions: "Adja meg e-mail címét, hogy visszaállíthassa jelszavát."
+      password_recovery_instructions: "Add meg az e-mail címed, hogy visszaállíthassuk a jelszavad."
       request_new_password: "Új jelszó kérése"
-      change_your_password: "Változtasson jelszót"
+      change_your_password: "Változtasd meg a jelszavad"
     confirmation_pending:
       welcome_to_kassi: "Üdvözöljük az %{service_name}n"
       check_your_email: "Ellenőrizd a beérkező leveleidet"
@@ -2897,7 +2897,7 @@ hu:
       email_about_new_comments_to_own_listing: "Hozzászólás érkezett az ajánlatomra vagy ajánlatkérésemre"
       email_about_new_messages: "Üzenetem érkezett"
       email_about_new_received_testimonials: "Értékelést kaptam"
-      email_about_testimonial_reminders: "Elfelejtettem értékelést készíteni egy eseményről"
+      email_about_testimonial_reminders: "Elfelejtettem értékelést írni egy tranzakcióról"
       email_daily_community_updates: "Új hirdetések megjelenésekor küldjön hírlevelet <b>naponta</b>"
       email_weekly_community_updates: "Új hirdetések megjelenése esetén küldjön hírlevelet <b>hetente</b>"
       do_not_email_community_updates: "Ne küldjön hírlevelet"
@@ -2912,8 +2912,8 @@ hu:
       homepage_link: Honlap
       unsubscribe_unsuccesful: "Hiba a leiratkozásnál"
       unsuccessful_unsubscribe_info_text: "A leíratkozás linkje megszűnt. Jelentkezzen be, hogy meg tudja változtatni a a felíratkozás beállításait."
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "az általam követett hirdetés nyilvános fórumára új hozzászólást írtak"
+      email_listing_updated: "frissült a hirdetés amihez én is hozzászóltam"
     profile:
       about_you: Magadról
       city: Város

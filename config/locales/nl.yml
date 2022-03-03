@@ -138,7 +138,7 @@ nl:
         first_name_only: "Enkel voornaam (Voornaam)"
         invalid_color_code: "Kleurencode moet 6 nummer of letters A-F bevatten. Bijvoorbeeld: D96E21"
         custom_head_script: "Aangepast script"
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: "Custom script kan worden geconfigureerd <a href='%{url}'> in je nieuwe beheerder dashboard</a>."
         current_image: "Huidige afbeelding:"
       edit_text_instructions:
         edit_text_instructions: "Teksten instructies"
@@ -190,8 +190,8 @@ nl:
       getting_started:
         getting_started: "Begin hier"
       available_languages:
-        bg: ~
-        ca: ~
+        bg: Bulgaars
+        ca: Catalaans
         cs: Tsjechisch
         da-DK: Deens
         de: Duits
@@ -201,23 +201,23 @@ nl:
         en-GB: "Engels (Groot-Brittanie)"
         es: Spaans
         es-ES: "Spaans (Spanje)"
-        et: ~
+        et: Estlands
         fi: Fins
         fr: Frans
         fr-CA: "Frans (Canada)"
-        hr: ~
-        hu: ~
+        hr: Kroatisch
+        hu: Hongaars
         it: Italiaans
         ja: Japans
         ko: Koreaans
-        lt: ~
+        lt: Lets
         nb: "Noors Bokmål"
         nl: Nederlands
         pl: Pools
         pt-BR: "Portugees (Brazilliaans)"
         pt-PT: Portugees
         ru: Russisch
-        sk-SK: ~
+        sk-SK: Slowakisch
         sv: Zweeds
         th-TH: "Thais (Thailand)"
         tr-TR: Turks
@@ -290,8 +290,8 @@ nl:
         ban_user_confirmation: "Dit blokkeert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
         unban_user_confirmation: "Dit heft de blokkering van de gebruiker van de marktplaats op, en herstelt de toegang tot de site voor dit account. Weet je zeker dat je wilt doorgaan?"
         ban_me_error: "Je kunt jezelf niet blokkeren."
-        have_ongoing_transactions: ~
-        only_delete_disabled: ~
+        have_ongoing_transactions: "Dit account kan niet worden verwijderd om dat er nog transacties gaande zijn. Voer alle transacties uit alvorens het account te verwijderen."
+        only_delete_disabled: "Je kunt alleen gebruikers verwijderen die uitgeschakeld zijn. Schakel eerst een gebruiker uit, alvorens hun account te verwijderen"
         delete_info1: ~
         delete_info2: ~
         search: Zoek
@@ -864,7 +864,7 @@ nl:
           main_title: Hoofdtitel
           column_header: "Kolom %{index}"
           column_title: "Kolom %{index} titel"
-          column_icon_info: ~
+          column_icon_info: "Het toevoegen van iconen vereist een handmatige handeling van het Sharetribe team. %{link} om je gekozen icoon te selecteren en met de technische ondersteuning van Sharetribe te delen."
           column_icon_info_link: ~
           column_icon: "Kolom %{index}  icoon"
           column_paragraph: "Kolom %{index} paragraaf"
@@ -1361,7 +1361,7 @@ nl:
       message_content_not_available: "Inhoud bericht niet beschikbaar"
     message:
       accepted_request: "heeft het verzoek aanvaard"
-      received_payment: ~
+      received_payment: "heeft het verzoek geaccepteerd, betaling ontvangen"
       received_payment_wo_sum: "Verzoek geaccepteerd, betaling ontvangen."
       accepted_offer: "heeft het voorstel aanvaard"
       rejected_request: "heeft het verzoek niet aanvaard, betaling geannuleerd"
@@ -1371,11 +1371,11 @@ nl:
       canceled_request: "heeft het verzoek geannuleerd"
       canceled_offer: "heeft het voorstel geannuleerd"
       paid: "betaald %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Betaling geauthoriseerd"
       payment_preauthorized_wo_sum: "Betaling geautoriseerd"
       stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
+        held_payment: "heeft het verzoek geaccepteerd. Betaling wordt vastgehouden door %{service_name} totdat het verzoek als uitgevoerd is gemarkeerd."
+        held_payment_wo_sum: "heeft het verzoek geaccepteerd. Betaling wordt vastgehouden door %{service_name} totdat het verzoek als uitgevoerd is gemarkeerd."
         confirmed_request: "Bestelling is gemarkeerd als voltooid. De betaling is nu of zal spoedig worden overgemaakt naar %{author_name}'s rekening."
       canceled_the_order: "Heeft de order aangevochten. Het %{service_name} team is hiervan op de hoogte gesteld."
       marked_as_refunded: "Gemarkeerd als teruggestort."
@@ -1481,10 +1481,10 @@ nl:
       mark_as_refunded: "Markeer als teruggestort."
       dismiss: "Wijs af en betaal uit."
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Nieuw bericht in het contact formulier op %{service_name}"
+    feedback_body: "%{author_name_and_email} heeft het volgende ingevuld op het %{service_name} contact formulier. Deze notificatie is verzonden naar alle beheerders van %{service_name}."
+    unlogged_user: "Een niet ingelogde gebruiker"
+    anonymous_user: "Een anonieme gebruiker"
   community_memberships:
     access_denied:
       access_denied: "Toegang geweigerd"
@@ -1627,11 +1627,11 @@ nl:
       has_commented_listing_you_follow_in_kassi: "%{author} heeft feedback gelaten op de advertentie '%{listing}' dat je volgt op %{service_name}."
     new_message:
       view_message: "Bekijk bericht"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} heeft je een bericht gestuurd. Ga naar %{service_name} om te antwoorden."
+      you_have_a_new_message: "Je hebt een nieuw bericht van %{sender_name} in %{service_name}"
     new_message_v2:
       headline: "je hebt een bericht!"
-      reply: ~
+      reply: "Klik hier om %{sender} te beantwoorden"
     new_payment:
       new_payment: "Je hebt een nieuwe betaling ontvangen"
       price_per_unit_type: "Prijs per %{unit_type}"
@@ -1777,14 +1777,14 @@ nl:
       view_listing: "Bekijk %{title}"
       cant_click: "Kun je niet op de button klikken? Hier is de link voor je gemaakt:"
     new_ident_notification:
-      subject: ~
-      h1_body: ~
-      p_line1: ~
-      p_line2: ~
-      p_line3: ~
-      p_line4: ~
-      p_line5: ~
-      button: ~
+      subject: "Je marktplaats adres is gewijzigd"
+      h1_body: "Het URL address van %{community_name} is gewijzigd."
+      p_line1: "Je marktplaats adres is gewijzigd"
+      p_line2: "Oude URL: %{link}"
+      p_line3: "Nieuwe URL: %{link}"
+      p_line4: "Nieuwe URL beheerders dashboard: %{link}"
+      p_line5: "Je kunt inloggen op de marktplaats met het zelfde account als voorheen."
+      button: "Ga naar %{text}"
     new_member_notification:
       subject: "Nieuw lid in %{community}"
       new_member_has_joined: "Een nieuw lid heeft zich aangesloten bij %{community}. Hij/zij moet wellicht nog zijn/haar emailadres bevestigen."
@@ -1854,12 +1854,12 @@ nl:
       subject: "Klacht over order afgewezen - Het %{service_name} team heeft de klacht van %{buyer} afgewezen"
       marketplace_team_has_rejected_the_cancellation: "het %{service_name} team heeft de klacht over %{transaction_link} afgewezen."
     transaction_commission_charge_failed:
-      subject: ~
-      transaction_about: ~
-      the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
-      contact_the_seller: ~
+      subject: "Een commissie in je marktplaats is niet naar je Paypal rekening gestuurd"
+      transaction_about: "transactie voor %{listing_title}"
+      the_commission_of_the_transaction: "de commissie van de %{transaction_link} van %{seller} is er niet in geslaagd om naar je Paypal rekening gestuurd te worden."
+      this_usually_means: "Dit betekent normaliter dat iets de commissie van de verkoper's Paypal rekening blokkeert. In de meeste gevallen wordt dat veroorzaakt door dat de verkoper geen geldige en geverifieerde financieringsbron aan de Paypal account heeft verbonden."
+      if_you_would_like_to_investigate: "Als je dit verder wilt onderzoeken is een goede eerste stap om contact op te nemen met de verkoper."
+      contact_the_seller: "Neem contact op met de verkoper"
   error_messages:
     booking:
       booking_failed_payment_voided: "Boeking mislukt door een onverwachte fout. Probeer het later opnieuw. Er is niets in rekening gebracht."
@@ -1937,7 +1937,7 @@ nl:
       presence: "Kan niet blanco zijn"
       username_is_invalid: "Deze gebruikersnaam is niet geldig of niet beschikbaar"
       domain_name_is_invalid: "Deze domeinnaam is ongeldig of niet beschikbaar."
-      only_supported_variables: ~
+      only_supported_variables: "Zorg ervoor alleen ondersteunde variabelen toe te voegen"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
@@ -2105,7 +2105,7 @@ nl:
       no_listing_image: "Geen foto"
   layouts:
     admin:
-      admin: "%{service_name} dashboard beheerder"
+      admin: "%{service_name} beheerder dashboard"
     branding:
       powered_by: "%{service_name} wordt aangedreven door het %{sharetribe_link} platform voor marktplaatsen."
       create_own: "Wil je je eigen marktplaats creëren, net als %{service_name}? %{learn_more}."
@@ -2118,7 +2118,7 @@ nl:
       join_this_community: "Sluit aan bij marktplaats"
       read_more: "Lees meer"
       feedback: "Jouw bericht naar %{service_name} team"
-      dont_use_to_contact_support: "We merkten op dat jij een beheerder bent van %{service_name}. Dit formulier is wat gebruikers gebruiken om in contact te komen met jou. Je kunt dit formulier niet gebruiken om in contact te komen met de Sharetribe helpdesk. Dat kun je doen via de link \"Support\" in je beheerder paneel."
+      dont_use_to_contact_support: "We merkten op dat jij een beheerder bent van %{service_name}. Dit formulier is wat gebruikers gebruiken om in contact te komen met jou. Je kunt dit formulier niet gebruiken om in contact te komen met de Sharetribe helpdesk. Dat kun je doen via de link \"Support\" in je beheerder dashboard."
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Neem contact op"
@@ -2166,9 +2166,9 @@ nl:
       description: "Markdown is een simpele manier om tekst op te maken dat er altijd goed uitziet, op ieder apparaat. Het doet geen bijzondere opmaak, zoals  veranderen van lettergrootte, kleur of lettertype, maar juist heel simpel, met gebruik van reeds bekende symbolen op het toetsenbord."
       formatting: Opmaak
       result: Resultaat
-      h1: H1
-      h2: H2
-      h3: H3
+      h1: "De H1 tekst komt hier"
+      h2: "De H2 tekst komt hier"
+      h3: "De H3 tekst komt hier"
       italic: cursief
       bold: vet
       underline: onderstrepen
@@ -2189,7 +2189,7 @@ nl:
       settings: Instellingen
       sign_up: Registreer
     notifications:
-      recaptcha_verification_failure: ~
+      recaptcha_verification_failure: "reCAPTCHA verificatie mislukking"
       listing_could_not_be_saved: "Advertentie kon niet worden opgeslagen. Probeer het a.u.b. opnieuw. Als dit probleem zich blijft voordoen, %{contact_admin_link}."
       contact_admin_link_text: "neem contact op met het %{service_name} team"
       test_welcome_email_delivered_to: "Een testbericht is verzonden naar %{email}."
@@ -2316,9 +2316,9 @@ nl:
         other: "De website gaat over %{count} minuten offline voor onderhoud"
       automatically_logged_out_please_sign_in: "Je bent automatisch uitgelogd. Log opnieuw in."
       stripe_you_account_balance_is_not_0: "Je accountbalans is niet 0 en kan dus niet worden verwijdered. Dit kan betekenen dat je nog transacties hebt die moeten worden afgerond, of dat er nog geld is dat moet worden uitbetaald op jouw rekening. Gelieve contact op te nemen met het team van %{service_name} om meer te weten te komen."
-      stripe_balance_for_username_is_not_0: ~
+      stripe_balance_for_username_is_not_0: "De Stripe balans voor %{username} is niet 0, en het account kan derhalve niet worden verwijderd. Dit betekent wellicht dat er nog transactie gaande zijn, of dat er nog geld moet worden uitbetaald aan hun bankrekening. Raadpleeg je Stripe Dashboard voor meer informatie."
       visit_admin: "Wil je je %{link}?"
-      visit_admin_link: "beheerderpaneel bezoeken"
+      visit_admin_link: "beheerderdashboard bezoeken"
       an_error_occurred_when_saving_your_information: "Er is een fout opgetreden terwijl je informatie werd opgeslagen: \"%{message}\". Kijk of alle informatie correct is en probeer het opnieuw."
     settings:
       account: Account
@@ -2445,7 +2445,7 @@ nl:
       origin:
         location: Locatie
         origin: Oorsprong
-        the_exact_location: ~
+        the_exact_location: "De exacte locatie word niet aan andere gebruikers getoond."
       send_button:
         save_listing: "Plaats advertentie"
         submit_for_review: "Zend in voor controle"
@@ -2765,7 +2765,7 @@ nl:
       invalid_invitation_code: "Deze invitatie code is niet geldig."
       invitation_code: "Invitatie code"
       not_required: ", niet vereist"
-      notification_is_mandatory: "Je moet ten minste één email-adres kiezen om notificaties te ontvangen. Als je geen emails wilt onvangen van %{service_name}, kijk dan de instellingen na  van de email-notificaties."
+      notification_is_mandatory: "Je moet ten minste één email-adres kiezen om notificaties te ontvangen. Als je geen emails wilt onvangen van %{service_name}, kijk dan de instellingen na van de email-notificaties."
       password_again: "Bevestig wachtwoord"
       show_my_name_to_others: "Toon mijn echte naam aan andere %{service_name} gebruikers"
       sign_up: "Maak een nieuwe account op %{service_name}"
@@ -2918,8 +2918,8 @@ nl:
       homepage_link: "Home pagina"
       unsubscribe_unsuccesful: "Fout bij uitschrijven"
       unsuccessful_unsubscribe_info_text: "De reden is mogelijk dat de uitschrijf-link is verouderd of niet langer geldig is. Neem contact met ons en we zullen je uitschrijven of log in en wijzig je e-mail instellingen."
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "...een nieuwe opmerking is geplaatst bij een discussie die ik volg"
+      email_listing_updated: "...een advertentie waarop ik heb gereageerd is bijgewerkt"
     profile:
       about_you: "Over jou"
       city: Stad
@@ -3186,6 +3186,10 @@ nl:
         zero: transacties
         one: transactie
         other: transacties
+      listing:
+        zero: advertenties
+        one: advertentie
+        other: advertenties
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"
     page_gap: "&hellip;"
@@ -3244,11 +3248,11 @@ nl:
       last_name_kana: "Achternaam (in Kana)"
       first_name_kanji: "Voornaam (in Kanji)"
       last_name_kanji: "Achternaam (in Kanji)"
-      country: Land
+      country: "Land van verblijf"
       birth_date: Geboortedatum
       ssn_last_4: Sofinummer
       personal_id_number: "Persoonlijk ID nummer"
-      address_country: Land
+      address_country: "Land van verblijf"
       address_state: Staat/Provincie
       address_province: Provincie
       address_city: Plaats
@@ -3261,7 +3265,7 @@ nl:
       cancel: Annuleer
       gender: Geslacht
       phone_number: Telefoonnummer
-      phone_info_text: ~
+      phone_info_text: "Het telefoonnummer dient te starten met de landcode, bijvoorbeeld"
       address_kana_postal_code: "Postcode (in Kana)"
       address_kana_state: "Staat (in Kana)"
       address_kana_city: "Stad (in Kana)"
@@ -3280,10 +3284,10 @@ nl:
       bank_routing_1: Bankcode
       bank_routing_2: Filiaalcode
       bank_currency: "Valuta bankrekening"
-      update_also_bank_account: "Werk ook bankrekeningnummer bij"
-      bank_account_same_country: ~
-      bank_country: ~
-      bank_holder_name: ~
+      update_also_bank_account: "Werk bankrekeningnummer bij"
+      bank_account_same_country: "Gebruik een bankrekening in mijn land van verblijf"
+      bank_country: "Bankrekening land"
+      bank_holder_name: "Naam van de bankrekeninghouder"
       messages:
         account_number: Bankrekeningnummer
         routing_number: "Routing nummer"
@@ -3308,7 +3312,7 @@ nl:
       need_verification: "Aanvullende verificatie nodig"
       additional_document: "Een document dat een adres toont, een paspoort, identiteitskaart of een energierekening van een bekend energiebedrijf"
       additional_document_back: "Een document dat een adres toont, het zij een paspoort, identiteitskaart, of een energierekening van een bekend energiebedrijf (achterkant van het document)"
-      files_need_to_be: ~
+      files_need_to_be: "Bestanden dienen JPEGs of PNGs te zijn en kleiner dan 5MB. Het is niet mogelijk om PDFs te verificieren. Bestanden dienen in kleur te zijn, geroteerd met afbeelding naar boven en alle informatie duidelijk leesbaar."
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"
@@ -3361,8 +3365,8 @@ nl:
         text: Tekst
         youtube_video_id: "YouTube video ID"
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: Tekst
+        cta_button_url: URL
   canada_states:
     AB: Alberta
     BC: "British Columbia"
