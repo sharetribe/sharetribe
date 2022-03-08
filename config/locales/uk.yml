@@ -1375,8 +1375,8 @@ uk:
       free_message: "Особисте повідомлення"
       message_content_not_available: "Вміст повідомлення недоступний"
     message:
-      accepted_request: "прийняти запит"
-      received_payment: ~
+      accepted_request: "запит прийнято"
+      received_payment: "запит прийнято, платіж отримано"
       received_payment_wo_sum: "запит прийнято, платіж отримано"
       accepted_offer: "прийняти пропозицію"
       rejected_request: "запит відхилений, відмова від оплати"
@@ -1389,8 +1389,8 @@ uk:
       payment_preauthorized: ~
       payment_preauthorized_wo_sum: "Оплату виконано успішно"
       stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
+        held_payment: "Платіж буде утримуватися %{service_name}, поки замовлення не буде позначено як виконане."
+        held_payment_wo_sum: "Платіж буде утримуватися %{service_name}, поки замовлення не буде позначено як виконане."
         confirmed_request: "Позначено замовлення як виконане. Тепер платіж переведено на банківський рахунок%{author_name} або буде переведено найближчим часом."
       canceled_the_order: "Замовлення оскаржене. Команда %{service_name} сповіщена."
       marked_as_refunded: "Помічено як \"Повернення коштів\""
@@ -1452,7 +1452,7 @@ uk:
       request_confirmed: Виконано
       request_canceled: Відмінено
       request_paid: "Оплата успішна"
-      request_preauthorized: "Оплата авторизована"
+      request_preauthorized: "Оплату виконано успішно"
       skip_feedback: "Пропустити відгук"
       waiting_for_listing_author_to_accept_offer: "Очікування від %{listing_author_name} прийняття пропозиції"
       waiting_for_listing_author_to_accept_request: "Очікування від %{listing_author_name} прийняти запит. Як тільки %{listing_author_name} прийме його, з вас зніметься оплата."
@@ -2213,7 +2213,7 @@ uk:
       something_went_wrong: "Щось пішло не так"
       community_updated: "Деталі оновлено."
       community_update_failed: "Деталі не вдалось оновити."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Ваш рахунок був створений успішно. Підтвердіть електронну адресу"
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Ваш профіль був строрений успішно. Підтвердіть електронну адресу"
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Тепер ви є учасником %{service_name}. Далі вам необхідно підтвердити свою адресу електронної пошти."
       comment_cannot_be_empty: "Коментар не може бути пустим"
       comment_sent: "Коментар надіслано"
