@@ -1,4 +1,5 @@
 require 'fast-polylines'
+require 'base64'
 
 class ListingPresenter < MemoisticPresenter
   include ListingAvailabilityManage
@@ -347,18 +348,30 @@ class ListingPresenter < MemoisticPresenter
     end
   end
 
-  def static_google_map_params
+  def static_google_maps_url
     lat, lon = MapService.obfuscated_coordinates(@listing.id,
                                                  @listing.location&.latitude,
                                                  @listing.location&.longitude)
-    StaticGoogleMapParams.new(
+
+    key = MarketplaceHelper.google_maps_key(@current_community.id)
+
+    params = StaticGoogleMapParams.new(
       lat: lat,
       lng: lon,
-      key: MarketplaceHelper.google_maps_key(@current_community.id)).params
+      key: key)
+
+    if APP_CONFIG.google_maps_signing_secret && key == APP_CONFIG.google_maps_key
+      params.signed_url(APP_CONFIG.google_maps_signing_secret)
+    else
+      params.url
+    end
   end
 
   class StaticGoogleMapParams
     attr_reader :lat, :lng, :key, :color, :fillcolor, :weight, :radius
+
+    STATIC_MAPS_BASE_URL = "https://maps.googleapis.com"
+    STATIC_MAPS_BASE_PATH = "/maps/api/staticmap"
 
     def initialize(lat:, lng:, key:)
       @lat = lat
@@ -379,6 +392,20 @@ class ListingPresenter < MemoisticPresenter
         size: '500x358',
         zoom: 13
       }
+    end
+
+    def url
+      "#{STATIC_MAPS_BASE_URL}#{STATIC_MAPS_BASE_PATH}?#{params.to_query}"
+    end
+
+    def signed_url(signing_secret)
+      url = "#{STATIC_MAPS_BASE_PATH}?#{params.to_query}"
+      secret_bytes = Base64.urlsafe_decode64(signing_secret)
+
+      digest = OpenSSL::Digest.new('sha1')
+      signature = Base64.urlsafe_encode64(OpenSSL::HMAC.digest(digest, secret_bytes, url))
+
+      "#{STATIC_MAPS_BASE_URL}#{url}&signature=#{signature}"
     end
 
     private

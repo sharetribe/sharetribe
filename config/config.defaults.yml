@@ -360,6 +360,11 @@ default: &default_settings
   # Default is not to use Google Maps API key
   google_maps_key:
 
+  # Default Google Maps Static API signing secret. Used in combination with the
+  # API key set above. See
+  # https://developers.google.com/maps/documentation/maps-static/digital-signature
+  google_maps_signing_secret:
+
   # Path or URL for landing page assets.
   #
   # Because a directory is expected, it's recommended to include trailing slash.
