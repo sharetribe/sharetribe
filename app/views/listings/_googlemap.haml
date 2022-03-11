@@ -1,7 +1,7 @@
 .googlemap
   - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
   - if @current_community.fuzzy_location
-    %img.static-map#static-map{src: "https://maps.googleapis.com/maps/api/staticmap?#{@listing_presenter.static_google_map_params.to_query}", alt: "" }
+    %img.static-map#static-map{src: @listing_presenter.static_google_maps_url, alt: "" }
     .jsmap.listing-map#dynamic-map-canvas{class: @current_community.fuzzy_location ? 'hidden' : ''}
   - else
     .embed-container
