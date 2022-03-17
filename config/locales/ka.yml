@@ -2428,8 +2428,8 @@ ka:
         the_exact_location: ~
       send_button:
         save_listing: "დაიმახსოვრე ჩამონათვალი"
-        submit_for_review: ~
-        will_be_reviewed: ~
+        submit_for_review: "გაგზავნეთ განსახილველად"
+        will_be_reviewed: "ყველა ჩამონათვალი განიხილება %{service_name} -ის  გუნდის მიერ გამოქვეყნებამდე. თქვენი განცხადების დამტკიცების შემდეგ, თქვენ მიიღებთ შეტყობინებას ელექტრონული ფოსტით და ყველასთვის იქნება ხილული."
         we_noticed_youre_an_admin: ~
       share_type:
         select: მონიშვნა
