@@ -79,7 +79,10 @@ module API
         desc "Read all listings"
         get do
             # authenticate!
+            
             Listing.where(deleted: 0)
+            #.includes(:custom_field_option_selection)
+            # render to_json json: Listing.where(deleted: 0)
             
         end
 

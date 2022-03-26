@@ -25,12 +25,12 @@
 
 class CustomFieldSerializer < ActiveModel::Serializer
     attributes :id
-    #, :type, :sort_priority, :search_filter, :created_at, :updated_at, :community_id, :required, :min, :max, :allow_decimals, :entity_type, :public, :assignment
+     #, :type, :sort_priority, :search_filter, :created_at, :updated_at, :community_id, :required, :min, :max, :allow_decimals, :entity_type, :public, :assignment
 
     has_many :names, class_name: "CustomFieldName"
     has_many :category_custom_fields
-    has_many :categories
+    #has_many :categories
   
     # has_many :answers, class_name: "CustomFieldValue"
-    # has_many :options, class_name: "CustomFieldOption"
+    has_many :options, class_name: "CustomFieldOption"
 end

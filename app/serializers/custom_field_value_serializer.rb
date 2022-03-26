@@ -21,13 +21,20 @@
 #  index_custom_field_values_on_type        (type)
 #
 class CustomFieldValueSerializer < ActiveModel::Serializer
-   attributes :id, :custom_field_id, :listing_id, :text_value, :numeric_value, :date_value, :type, :delta, :person_id
+   attributes :id, :custom_field_id, :listing_id, :text_value, :numeric_value, :date_value, :type, :delta, :person_id, :selections
    
-   # def init 
-   #    if :type == CheckboxField do
-   #       has_many :custom_field_option_selections, class_name: "CustomFieldOptionSelection"
-   #    end
-   # end
-   has_many :custom_field_option_selections, class_name: "CustomFieldOptionSelection"
+
+   def selections
+      if object.type == "CheckboxFieldValue" 
+        #return CustomFieldOptionSelection.find_all_by(listing_id: object.listing_id, custom_field_value_id: object.id).custom_field_option_id
+        return CustomFieldOptionSelection.where(listing_id: object.listing_id).where(custom_field_value_id: object.id).pluck(:custom_field_option_id)
+      else
+         return
+      end
+   end
+
+   #has_many :custom_field_option_selections
+   
+   
    # belongs_to :question, :class_name => "CustomField", :foreign_key => "custom_field_id"
 end
