@@ -1776,7 +1776,7 @@ it:
       review_the_listing: ~
       this_is_automatic_message: ~
     listing_approved:
-      subject: ~
+      subject: "Il Team di %{community} ha approvato la tua inserzione \"%{listing_title}\""
       listing_has_been_approved: ~
       view_the_listing: ~
     listing_rejected:
@@ -2309,7 +2309,7 @@ it:
       transactions: Transazioni
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Non hai il permesso per visualizzare questo annuncio."
+      listing_not_visible: "Non hai il permesso per visualizzare questo inserzione."
     comment:
       wrote: scritto
       send_private_message: "Invia un messaggio privato a %{person}"
