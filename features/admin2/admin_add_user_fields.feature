@@ -60,10 +60,7 @@ Feature: Admin add a listing fields
     And I press "Save option"
     Then I should see "Appartment" within "#optionsList"
     And I press submit
-<<<<<<< HEAD
     And I wait for 5 seconds
-=======
->>>>>>> master
     Then I should see "Checkbox type" within ".custom-field-title"
 
   @javascript
