@@ -214,11 +214,14 @@ fr:
         pl: Polonais
         pt-BR: "Portuguais (Brésil)"
         pt-PT: Portugais
+        ro: Roumain
         ru: Russe
         sk-SK: Slovaque
+        sl: Slovène
         sv: Suédois
         th-TH: "Thaïlandais (Thaïlande)"
         tr-TR: Turc
+        uk: Ukrainien
         vi: Vietnamien
         zh: Chinois
         zh-TW: "Chinois (Taïwan)"
@@ -1694,7 +1697,7 @@ fr:
       stripe_gateway_fee: "Frais Stripe :"
       paypal_gateway_fee: "Frais PayPal :"
       money_will_be_transferred: "L'argent sera transféré à %{recipient_name} quand a) vous aurez marqué la demande comme réalisée ou quand b) %{automatic_confirmation_days} jours auront passé après votre paiement."
-      listing_per_unit_title: "%{title}, %{unit_type}"
+      listing_per_unit_title: "%{title}, par %{unit_type}"
       stripe:
         you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> à %{service_name}. Le paiement est retenu par %{service_name} et sera transféré à %{recipient_full_name} une fois que vous aurez marqué la commande comme réalisée. Voici le reçu de votre paiement."
     new_testimonial:
@@ -2288,7 +2291,7 @@ fr:
       you_must_log_in_to_invite_new_users: "Vous devez vous connecter pour pouvoir inviter de nouveaux utilisateurs sur %{service_name}"
       you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour déposer un nouveau commentaire"
       you_must_log_in_to_send_a_message: "Vous devez vous connecter à %{service_name} pour envoyer un message à un autre utilisateur."
-      you_must_log_in_to_do_a_transaction: "Vous devez vous connecter à %{service_name} pour réaliser une transaction."
+      you_must_log_in_to_do_a_transaction: "Vous devez vous connecter à %{service_name} pour réaliser cette action."
       you_must_log_in_to_view_this_content: "Vous devez vous connecter pour voir ce contenu"
       you_must_log_in_to_view_this_page: "Vous devez vous connecter pour voir cette page"
       you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à %{service_name} pour consulter votre messagerie."

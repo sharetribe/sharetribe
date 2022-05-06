@@ -2,7 +2,7 @@
   %h1.content-card-header-title
     = t('admin2.sidebar.design.landing_page')
 .content-card-section-container
-  = form_for [:admin, @presenter.landing_page_version], html: { class: %i[content-card-section-form landing-page-form] }, remote: true do |form|
+  = form_for [:admin2, :design, @presenter.landing_page_version], html: { class: %i[content-card-section-form landing-page-form] }, remote: true do |form|
     %section.content-card-section
       %h2= t('admin2.landing_page.lp_editor')
       - if !@allowed_lp

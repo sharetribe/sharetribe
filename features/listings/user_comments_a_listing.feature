@@ -73,8 +73,10 @@ Feature: User comments a listing
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson2"
     When I follow "Massage"
+    Then I should see "Public discussion" within "#comments"
+    And I have "click" event handler on "#send_comment_button"
     And I press "Send comment"
-    Then I should see "This field is required."
+    Then I should see "This field is required." within "#new_comment"
 
   @javascript
   Scenario: Trying to add a comment without logging in

@@ -215,11 +215,14 @@ hu:
         pl: Lengyel
         pt-BR: "Portugál (Brazil)"
         pt-PT: Portugál
+        ro: ~
         ru: Orosz
         sk-SK: Szlovák
+        sl: ~
         sv: Svéd
         th-TH: "Thai (Thaiföld)"
         tr-TR: Török
+        uk: ~
         vi: Vietnámi
         zh: Kínai
         zh-TW: "Kínai (Taiwan)"
@@ -494,8 +497,8 @@ hu:
           sum: Össz
           started: Elkezdve
           last_activity: "Legutolsó tevékenység"
-          initiated_by: Kezdő
-          other_party: "Egyéb party"
+          initiated_by: Kezdeményező
+          other_party: Kereskedő
         status:
           conversation: Beszélgetés
           free: Üzenetváltás
@@ -550,8 +553,8 @@ hu:
           status: Állapot
           started: Elkezdve
           last_activity: "Utolsó aktivitás"
-          initiated_by: Kezdő
-          other_party: Eladó
+          initiated_by: Kezdeményező
+          other_party: Kereskedő
         participants: "Beszélgetés: %{starter} és %{author} között"
         profile: "%{author} profilja"
         search_by_keyword: "Keresés névre, E-mail címre vagy kulcsszóra"
@@ -1297,13 +1300,13 @@ hu:
       details: "Rendelés részletei"
       order_by: "Rendelés itt %{orderer_link}"
       accept_offer: "Ajánlat elfogadás"
-      accept_request: ~
-      accept_request_and_close: ~
+      accept_request: "Ajánlat elfogadása, a hirdetés maradjon aktív"
+      accept_request_and_close: "Ajánlat elfogadása, a hirdetés lezárása"
       reject_offer: "Nem most"
       reject_request: "Most nem"
       close_listing: "Zárja be a hirdetést %{listing_title_link}"
       update_later: "Maradjon a hirdetés aktív"
-      optional_message: "Választható üzenet"
+      optional_message: "Itt küldhetsz üzenetet"
       price_to_pay: "Teljes ár fizetendő"
       accept: Elfogad
       decline: Visszautasít
@@ -1321,14 +1324,14 @@ hu:
       shipping_price_label: "Szállítás:"
       stripe-fee_label: "Fizetés feldolgozási díj"
     confirm:
-      confirm_description: "Amennyiben az ön rendelése teljesült ezt igazolnia kell. Majd adhat visszajelzést a másik félnek."
-      cancel_description_team: "Amennyiben a rendelése nem teljesült, azt megjelölheti „vitatottnak”. A %{service_name} csapata megvizsgálja a helyzetet és eldönti, hogy visszatéríti vagy elutasítja a vitakérelmét."
+      confirm_description: "Amennyiben teljesült a rendelésed, kérjük itt jelezd. Utána írhatsz visszajelzést a másik félnek."
+      cancel_description_team: "Amennyiben a rendelésd nem teljesült, a „Hiba jelzés” -re kattintva vitatottnak jelölheted. A %{service_name} csapata megvizsgálja a helyzetet és eldönti, hogy visszatéríti vagy elutasítja a vitakérelmed."
       cancel_payed_description: "Kérése elfogadása után, ha kétsége merőlne fel akkor még a kifizetés előtt visszavonhatja a kérését."
       canceling_payed_transaction: "Tranzakció megszakítása"
-      confirm: Megjelölve
-      cancel: Vitat
+      confirm: Teljesített
+      cancel: "Hiba jelzés"
       continue: Folytatás
-      give_feedback_to: "Adjon értékelést %{person_link}ről"
+      give_feedback_to: "Írj értékelést %{person_link} felhasználóról."
       do_not_give_feedback: "Értékelés kihagyása"
     details:
       day: nap
@@ -1355,7 +1358,7 @@ hu:
       message_content_not_available: "Üzenet tartalom nem elérhető"
     message:
       accepted_request: "ajánlat elfogadva"
-      received_payment: ~
+      received_payment: "Ajánlat elfogadva, a tranzakció megtörtént"
       received_payment_wo_sum: "Kérés elfogadva, az átutalás megérkezett"
       accepted_offer: "Ajánlat elfogadva"
       rejected_request: "az ajánlat elutasítva, az utalás törölve"
@@ -1365,12 +1368,12 @@ hu:
       canceled_request: "a rendelés törölve"
       canceled_offer: "Ajánlat törlése"
       paid: "Fizetve %{sum}"
-      payment_preauthorized: ~
-      payment_preauthorized_wo_sum: "Fizetés engedélyezett"
+      payment_preauthorized: "Tranzakció engedélyezve"
+      payment_preauthorized_wo_sum: "Tranzakció engedélyezve"
       stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
-        confirmed_request: "A rendelés teljesítettnek jelölve. Az összeg átutalása megtörtént %{author_name}  bankszámlájára vagy hamarosan átutalásra kerül."
+        held_payment: "Ajánlat elfogadva, az összeget a %{service_name} őrzi amíg a megrendelés teljesül."
+        held_payment_wo_sum: "Ajánlat elfogadva, az összeget a %{service_name} őrzi amíg a megrendelés teljesül."
+        confirmed_request: "A rendelés teljesítettnek jelölve. Az összeg átutalása megtörtént, hamarosan %{author_name} bankszámlájára kerül."
       canceled_the_order: "Reklamáció a rendeléssel kapcsolatban. A %{service_name} csapat kapott erről értesítést."
       marked_as_refunded: "Visszatérítettként megjelölve"
       dismissed_the_cancellation: "Elutasította a reklamációt."
@@ -1378,7 +1381,7 @@ hu:
     new:
       message: Üzenet
       message_to: "Üzenet neki: %{author_name}"
-      optional_message_to: "Választható üzenet %{author_name} számára"
+      optional_message_to: "Itt küldhetsz üzenetet %{author_name} számára"
       send_message: "Üzenet küldése"
       send: Elküld
       this_message_is_private: "Ez egy privát üzenet ön és %{person} között. %{person} e-mailben fog kapni értesítést erről az üzenetről."
@@ -1413,8 +1416,8 @@ hu:
       offer_rejected: Elutasítva
       offer_canceled: Törölve
       offer_confirmed: Teljesítve
-      offer_paid: "Fizetés sikeres"
-      offer_preauthorized: "Fizetés sikeres"
+      offer_paid: "Sikeres fizetés"
+      offer_preauthorized: "Sikeres fizetés"
       offer_waiting_for_payment: "Várakozás amíg %{requester_name} átutalja az vételárat"
       pay: Fizet
       preauthorized: "Sikeres fizetés"
@@ -1432,11 +1435,11 @@ hu:
       request_rejected: Elutasítva
       request_confirmed: Kész
       request_canceled: Törölve
-      request_paid: "Fizetés sikeres"
-      request_preauthorized: "Fizetésre felhatalmazva"
+      request_paid: "Sikeres fizetés"
+      request_preauthorized: "Tranzakció engedélyezve"
       skip_feedback: "Visszajelzés küldés kihagyása"
-      waiting_for_listing_author_to_accept_offer: "Várakozás %{listing_author_name}-ra, hogy elfogadja az ajánlatot"
-      waiting_for_listing_author_to_accept_request: "Várakozás %{listing_author_name} felhasználóra, hogy elfogadja a felajánlást. Amint %{listing_author_name} elfogadja az ajánlatot, ön fizethet."
+      waiting_for_listing_author_to_accept_offer: "Várakozás %{listing_author_name} felhasználóra, hogy elfogadja az ajánlatot"
+      waiting_for_listing_author_to_accept_request: "Várakozás %{listing_author_name} felhasználóra, hogy elfogadja az ajánlatot. Amint %{listing_author_name} elfogadja az ajánlatot, a kifizetés teljesül."
       waiting_for_you_to_accept_request: "Várakozás, hogy elfogadd az ajánlatot"
       waiting_confirmation_from_requester: "Várakozás %{requester_name} felhasználóra, hogy jelezze a rendelés teljesülését"
       waiting_confirmation_from_you: "Várakozás, hogy visszaigazold a rendelés teljesítését"
@@ -1450,7 +1453,7 @@ hu:
           unknown_reason: "A kifizetés függőben. További információért lépjen be a PayPal fiókjába."
           verify: "Várakozás, hogy hitelesítsd a PayPal fiókod"
       stripe:
-        waiting_confirmation_from_requester: "Várakozás arra, hogy %{requester_name} jelezze a rendelés teljesülését. Amint a megrendelés teljesítettként lesz jelölve, az összeg kifizetésre kerül a bankszámlájára."
+        waiting_confirmation_from_requester: "Várakozás arra, hogy %{requester_name} a megrendelést teljesítettnek jelölje. Amint a megrendelés teljesül, az összeg kifizetésre kerül a bankszámládra."
       order_canceled: "Vitatott megrendelés"
       waiting_for_marketplace_review: "A %{service_name} csapatra várva, hogy megvizsgálják a szituációt"
       marketplace_notified: "A %{service_name} csapat értesítést kapott. Felveheti velük a kapcsolatot %{contact_link}, ha további részleteket szeretne megosztani velük."
@@ -1465,15 +1468,15 @@ hu:
       order_cancellation_dismissed: "A megrendeléssel kapcsolatos reklamáció elutasításra került. A %{service_name} csapat elutasította a reklamációt."
     status_link:
       accept_offer: "Ajánlat elfogadása"
-      accept_request: "Ajánlatkérés elfogadása"
+      accept_request: "Ajánlat elfogadása"
       reject_offer: "Most nem"
       reject_request: "Most nem"
       accept_preauthorized_offer: "Ajánlat elfogadása"
-      accept_preauthorized_request: "Kérés elfogadása"
+      accept_preauthorized_request: "Ajánlat elfogadása"
       reject_preauthorized_offer: "Ezúttal nem"
       reject_preauthorized_request: "Ezúttal nem"
-      confirm: Megjelölve
-      cancel: Vitat
+      confirm: Teljesített
+      cancel: "Hiba jelzés"
       mark_as_refunded: "Jelölje visszatérítettként"
       dismiss: "Elutasítás és kifizetés"
   feedback:
@@ -1509,51 +1512,49 @@ hu:
       you_can_accept_or_reject_offer_at: "Elfogadhatod vagy elutasíthatod az ajánlatot itt"
       you_can_accept_or_reject_request_at: "Elfogadhatod vagy elutasíthatod az ajánlatkérést itt"
       you_have_not_yet_accepted_or_rejected_offer: "Még nem történt meg a %{date}-i %{title} ajánlat elfogadása vagy elutasítása."
-      you_have_not_yet_accepted_or_rejected_request: "Még nem történt meg a %{date}-i %{title} ajánlatkérés elfogadása vagy elutasítása."
+      you_have_not_yet_accepted_or_rejected_request: "Még nem történt meg a %{date} tett ajánlat elfogadása vagy elutasítása erre a hirdetésedre : %{title}."
       show_thread: "Beszélgetés megmutatása"
     branding:
       powered_by: "A %{service_name} oldalát a %{sharetribe_link} piactér platform támogatja."
       create_own: "Szeretne ön is egy online piacteret mint %{service_name}? Tudjon meg többet itt:%{learn_more}"
       learn_more: Bővebben
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: |
-          Még nem igazoltad vissza és/vagy nem is törölted a rendelést %{request_link}.
-          Amennyiben a rendelés teljesült, azt vissza kell igazolnod. Ezt követően adhatsz visszajelzést a másik felhasználóról: %{other_party_given_name}.
+      you_have_not_yet_confirmed_or_canceled_request: "Még nem igazoltad vissza és/vagy nem is törölted a rendelést %{request_link}. Amennyiben a rendelés teljesült, azt vissza kell igazolnod. Ezt követően írhatsz visszajelzést %{other_party_given_name} felhasználóról."
       remember_to_confirm_request: "Kérését ne feledje megerősíteni vagy törölni"
       if_will_not_happen_you_should_cancel: "Amennyiben úgy gondolod, hogy különböző okokból ez a rendelés nem fog teljesülni, lehetőseged van törölni azt %{cancel_it_link}."
       cancel_it_link_text: töröl
       automatic_confirmation: "Amennyiben nem erősíted meg és/vagy nem is törlöd a rendelést %{days_to_automatic_confirmation} napon belül miután az ajánlat elfogadásra került, automatikusan teljesültnek fogjuk azt jelölni."
     confirm_reminder_v2:
       headline: "Ön még nem teljesítette vagy nem reklamálta meg a %{request_link} foglalást."
-      you_have_not_yet_confirmed_or_canceled_request: "Amennyiben a megrendelés teljesült, akkor ezt Önnek meg kell erősítenie. Ezt követően visszajelzést adhat %{other_party_given_name} számára."
+      you_have_not_yet_confirmed_or_canceled_request: "Amennyiben a megrendelés teljesült, akkor ezt kérünk erősítsd meg. Ezt követően írhatsz értékelést %{other_party_given_name} számára."
     payment_settings_reminder:
-      remember_to_add_payment_details: "Ne felejts megadni pontos fizetési információkat, annak érdekében, hogy megkapd a neked küldött átutalásokat"
+      remember_to_add_payment_details: "Ne felejts pontos fizetési adatokat megadni, hogy a bankszámládra érkezzenek az utalások"
       you_have_added_listing_with_payment: "A következő hirdetést adtad fel: %{listing_link}, de még nem adtál meg fizetési információt. Annak érdekében, hogy megkapd a neked szánt átutalásokat, kérjük adj meg pontos fizetési információt."
       please_go_to_payment_settings: "Kérjük, töltsd ki a fizetési információkat ide kattintva: %{payment_settings_link}."
       payment_settings_link: "Fizetési beállítások"
     payment_settings_reminder_v2:
-      fill_payout_details: "Töltse ki a kifizetési adatokat"
-      you_have_added_listing_with_payment: "A következő hirdetést adtad fel: %{listing_link}, de úgy tűnik, még nem töltötted ki a fizetési információkat. Annak érdekében, hogy a neked szánt átutalásokat megkapd, kérjük adj meg pontos fizetési információt."
+      fill_payout_details: "Fizetési adatok kitöltése"
+      you_have_added_listing_with_payment: "A következő hirdetést sikeresen feladtad: %{listing_link}. Azonban még nem töltöttél ki minden fizetési adatot. Ahhoz, hogy a kifizetett átutalások megérkezzenek a bankszámládra, kérjük adj meg pontos fizetési információt."
     transaction_confirmed:
       here_is_a_message_from: "%{other_party_given_name} üzenetet küldött:"
-      request_marked_as_confirmed: "A rendelés teljesítve - ne feledj értékelést írni"
+      request_marked_as_confirmed: "A rendelés teljesítve - ne felejts el értékelést írni"
       request_marked_as_canceled: "Rendelés törölve"
       has_marked_request_as_confirmed: "%{other_party_full_name} teljesítettnek jelölte a rendelést '%{request}' felkérés ügyében. Most írhatsz egy visszajelzést %{other_party_given_name} számára."
       has_marked_request_as_canceled: "%{other_party_full_name} törölte a rendelést '%{request}' felkérésre vonatkozóan. Te viszont továbbra is adhatsz visszajelzést %{other_party_given_name} számára."
-      giving_feedback_is_good_idea: "Mindig jó ötlet, értékelést írni. Ha minden rendben ment, tudathatod másokkal is hogy, %{other_party_given_name} megbízható. Az is hasznos lehet, ha így jelzed, hogy valamilyen probléma merült fel."
+      giving_feedback_is_good_idea: "Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{other_party_given_name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
       give_feedback_to: "Írj értékelést a következő felhasználóról: %{other_party_given_name} "
       stripe:
-        has_marked_request_as_confirmed: "%{other_party_full_name} teljesítettnek jelölte a rendelést '%{request}' felkérés ügyében. A tranzakcióért fizetett összeget már átutalták a bankszámlájára. Most adhat visszajelzést %{other_party_given_name} számára."
+        has_marked_request_as_confirmed: "%{other_party_full_name} teljesítettnek jelölte a rendelést : '%{request}'. A tranzakcióért kifizetett összeg felszabadult, hamarosan átutaljuk a bankszámládra. Most már írhatsz visszajelzést is %{other_party_given_name} számára."
       team_title: "a %{service_name} csapat"
     transaction_confirmed_v2:
-      headline_confirmed: "%{other_party_full_name} a megrendelést a %{listing_link} hirdetésről teljesítettként jelölte."
+      headline_confirmed: "A %{listing_link} megrendelést %{other_party_full_name} teljesítettnek jelölte."
       headline_canceled: "%{other_party_full_name} reklamációt nyújtott be a %{listing_link} rendeléssel kapcsolatban."
       stripe:
-        has_marked_request_as_confirmed: "A tranzakcióért fizetett összeg át lett utalva a bankszámlájára."
-      can_give_feedback: "Most adhat visszajelzést %{other_party_given_name} számára."
+        has_marked_request_as_confirmed: "A tranzakcióért fizetett összeg át lett utalva a bankszámládra."
+      can_give_feedback: "Most már írhatsz visszajelzést %{other_party_given_name} számára."
       team_title: "a %{service_name} csapat"
     transaction_automatically_confirmed:
-      subject: "A rendelés automatikusan teljesítve - ne feledj értékelést írni"
+      subject: "A rendelés automatikusan teljesítve - ne felejts el értékelést írni"
       we_have_marked_request_as_confirmed: "Ezen felkérést '%{request}' teljesítését befejezettnek jelöltük. A felkérés azért lett automatikusan teljesítve mert %{days_passed} nap eltelt mióta a felkérés elfogadásra került."
     transaction_automatically_confirmed_v2:
       we_have_marked_request_as_confirmed: "Teljesítettként jelöltük a rendelést a %{request} kéréssel kapcsolatban."
@@ -1564,8 +1565,8 @@ hu:
     booking_transaction_automatically_confirmed_v2:
       order_automatically_confirmed: "A kérés automatikusan teljesült, mivel egy nap telt el a foglalási időszak vége óta."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "Most írhasz értékelést %{other_party_given_name} számára. Mindig jó ötlet, értékelést írni. Ha minden rendben ment, tudathatod másokkal is, hogy %{other_party_given_name} megbízható. Az is hasznos lehet, ha így jelzed, hogy valamilyen probléma merült fel.\n"
-      give_feedback_to: "Adjon értékelést %{other_party_given_name} felhasználóról"
+      giving_feedback_is_good_idea: "Most írhasz értékelést %{other_party_given_name} számára. Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{other_party_given_name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
+      give_feedback_to: "Írj értékelést %{other_party_given_name} felhasználóról"
       show_thread: "Mutassa a beszélgetéseket"
     confirmation_instructions:
       confirmation_instructions_signature: "Üdvözlettel,<br/>A %{service_name} csapata"
@@ -1590,7 +1591,7 @@ hu:
       unsubscribe_from_these_emails: "Leíratkozás ezekről az e-mailekről."
       unsubscribe_from_invitation_emails_info: "Ön azért kapta ezt az E-mailt, mert a %{service_name} csoport tagja meghívta Önt, hogy csatlakozzon a csoporthoz."
       unsubscribe_from_invitation_emails: "Leiratkozás a %{service_name} csoport meghívó E-mailjeiről."
-      here_is_your_receipt: "Itt találod a sikeres fizetésről szóló tájékoztatást."
+      here_is_your_receipt: "Itt találod a sikeres fizetésről szóló tájékoztatót."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} elfogadta %{listing} ajánlatod."
       has_accepted_your_request: "%{accepter} elfogadta a %{listing} ajánlatkérésed."
@@ -1605,7 +1606,7 @@ hu:
       pay_now: "Fizetés most"
       remember_to_confirm: "Amennyiben a rendelés teljesült, ne feledje ezt visszaigazolni. Abban az esetben ha nem teljesült %{days_to_automatic_confirmation} nap áll rendelkezésére, hogy törölje azt. Egyébként autómatikusan teljesítettnek lesz jelölve."
     conversation_status_changed_v2:
-      has_accepted_your_request: "Kérését elfogadták."
+      has_accepted_your_request: "Az ajánlatodat elfogadták."
       has_accepted_your_request_text: "%{accepter} elfogadta kérését a %{listing} hirdetésre."
       has_rejected_your_request: "Kérését sajnos elutasították."
       has_rejected_your_request_text: "%{accepter} elutasította kérését a %{listing} hirdetésre."
@@ -1640,7 +1641,7 @@ hu:
       payment_gateway_fee: "Fizetés feldolgozási díj:"
       shipping_total: Szállítás
       product: "Termék:"
-      price_payer_paid: "Ár %{payer_full_name} fizetve:"
+      price_payer_paid: "Összeg amit %{payer_full_name} kifizetett:"
       subtotal: "Részösszeg:"
       service_fee: "%{service_name} szolgáltatási díj"
       buyer_service_fee: "%{service_name} szolgáltatási díj:"
@@ -1648,12 +1649,12 @@ hu:
       new_payment: "Új kifizetés érkezett számlájára."
       price_per_unit_type: "Ár/ %{unit_type}"
       quantity: "Mennyiség:"
-      you_have_received_new_payment: "%{payer_full_name} kifizetett  <b>%{payment_sum}</b>  összeget a <b>%{listing_title}</b>  hirdetésben szereplő tételért. Itt találod a sikeres fizetésről szóló tájékoztatót."
+      you_have_received_new_payment: "%{payer_full_name} átutalt  <b>%{payment_sum}</b>  -ot a <b>%{listing_title}</b>  hirdetésben szereplő tételért. Itt találod a sikeres fizetésről szóló tájékoztatót."
       stripe:
-        you_have_received_new_payment: "%{payer_full_name} fizetett a <b>%{listing_title}</b> hirdetésben szereplő tételért, <b>%{payment_sum}</b> összeget. A pénz a %{service_name} személynél marad, amíg a megrendelés nem lesz teljesítettként jelölve. Itt van róla a bizonylat."
+        you_have_received_new_payment: "%{payer_full_name} átutalt  <b>%{payment_sum}</b> -ot a  <b>%{listing_title}</b> hirdetésben szereplő tételért. Az összeget a %{service_name} őrzi, amíg a megrendelés nem lesz teljesítettként jelölve. Itt találod a sikeres fizetésről szóló a tájékoztatót."
     payment_receipt_to_seller_v2:
-      headline: "%{payer_name} kifizetett %{payment_sum} összeget a %{listing_link} hirdetésért."
-      main_text_stripe: "Az összeg a %{service_name} személynél marad, amíg a megrendelés nem lesz teljesítettként jelölve."
+      headline: "%{payer_name} átutalt %{payment_sum} -ot a %{listing_link} -ért"
+      main_text_stripe: "Az összeget a %{service_name} őrzi, amíg a megrendelés nem lesz teljesítettként jelölve."
       price_breakdown: Árbontás
     payment_receipt_to_payer:
       receipt_of_payment: "Tájékoztató sikeres fizetésről"
@@ -1671,7 +1672,7 @@ hu:
       paypal_gateway_fee: "PayPal díja:"
       money_will_be_transferred: "Az átutalás akkor történik meg %{recipient_name} számára amennyiben a) a rendelést teljesítettnek jelölted, vagy b) %{automatic_confirmation_days} nap eltelt amióta fizetettél."
     payment_receipt_to_payer_v2:
-      headline: "Itt találod a sikeres fizetésről szóló tájékoztatást a %{listing_link} hirdetéshez."
+      headline: "Itt találod a sikeres fizetésről szóló tájékoztatót a %{listing_link} hirdetéshez."
       you_have_made_new_payment: "Kifizettél <b>%{payment_sum}</b> összeget a <b>%{listing_title}</b> hirdetésben szereplő tételért."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal költségei"
@@ -1697,7 +1698,7 @@ hu:
       money_will_be_transferred: "Az átutalás akkor történik meg %{recipient_name} számára amennyiben a) a rendelést teljesítettnek jelölted, vagy b) %{automatic_confirmation_days} nap eltelt amióta elindítottad a kifizetést."
       listing_per_unit_title: "%{title}, / %{unit_type}"
       stripe:
-        you_have_made_new_payment: "Ön kifizette az <b>%{payment_sum}</b> összeget a <b>%{listing_title}</b> hirdetésben szereplő tételért. Az összeg %{service_name} számláján marad és %{recipient_full_name} részére lesz átutalva, amint a megrendelése teljesítettnek nem lesz jelölve. Itt van róla a bizonylat."
+        you_have_made_new_payment: "Kifizettél <b>%{payment_sum}</b> -ot a <b>%{listing_title}</b> hirdetésben szereplő tételért. Az összeget a %{service_name} őrzi és amint a megrendelése teljesítettnek lesz jelölve %{recipient_full_name} részére lesz átutalva. Itt találod az erről szóló tájékoztatót."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} értékelését itt találod: %{service_name}"
       you_can_give_feedback_to: "Még nem értékelted a következő felhasználót: %{name}"
@@ -1730,24 +1731,24 @@ hu:
       text_version_text: "Tud Ön is olyat felkínálni amire másoknak szüksége lehet? Vagy esetleg olyanra van szüksége ami másoknak van? Itt feladhatja kínál vagy keres hirdetését vagy átböngészheti a mások által feladott hirdetéseket: %{url}"
     reset_password_instructions:
       change_my_password: "Megváltoztatom a jelszavamat"
-      reset_password_instructions: "<p> Ön jelezte, hogy elfelejtette a jelszavát vagy a felhasználónevét %{service_name} oldalunkhoz. </p><p>Amennyiben meg kell változtatnia a jelszavát, kattintson a következő linkre: %{password_reset_link}</p><br/><p>Amennyiben ön ezt nem kérte, hagyja figyelmen kívül e-mailünket. Az ön jelszava nem fog változni addig amíg a fenti liket használva ön egy újat nem igényel.</p>"
+      reset_password_instructions: "<p> Jelezted, hogy elfelejtetted a jelszavad vagy a felhasználóneved itt: %{service_name}. </p><p>Amennyiben meg szeretnéd változtatni a jelszavad, kattints a következő linkre: %{password_reset_link}</p><br/><p>Amennyiben ezt nem te kérted, hagyd figyelmen kívül ezt az email-t. A jelszavad nem fog változni addig amíg a fenti liket használva egy újat nem igényelsz.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Emlékeztető: kérjük értékeld a következő felhasználót: %{name}"
       you_have_not_given_feedback_yet: "Még nem értékelted %{name}-t ezzel az ügylettel kapcsolatban: %{event}. Kérjük értékeld %{given_name} milyen partnerként viselkedett."
     testimonial_reminder_v2:
-      headline: "Ne felejtsen el visszajelzés adni %{other_name} számára!"
-      you_have_not_given_feedback_yet: "Mindig jó, ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is hogy, %{name} megbízható. Az is hasznos lehet, ha jelzi amennyiben problémája merült fel."
-      leave_feedback: "Adjon visszajelzést %{other_party_name} számára."
+      headline: "Ne felejts el értékelést írni %{other_name} felhasználóról!"
+      you_have_not_given_feedback_yet: "Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
+      leave_feedback: "Értékelés %{other_party_name} részére."
     transaction_preauthorized:
-      subject: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a %{listing_title} hirdetésben szereplő tételért."
-      transaction_requested_by_user: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a \"%{listing_title}\" hirdetésben szereplő tételért."
-      you_have_time_to_accept: "Kérjük engedélyezze vagy utasítsa el az ajánlatot a lejárat előtt %{payment_expires_in}. Ha a lejárat előtt megadja az engedélyt, az utalás meg fog valósulni. Amennyiben nem engedélyezi, az ajánlat automatikusan elutasításra kerül és az átutalás meghiúsul."
+      subject: "%{requester} ajánlatot tett a %{service_name} hirdetésedre : %{listing_title} és jóváhagyta a banki átutalást."
+      transaction_requested_by_user: "%{requester} ajánlatot tett és jóváhagyta a banki átutalást a \"%{listing_title}\" hirdetésben szereplő tételért."
+      you_have_time_to_accept: "Kérjük engedélyezd vagy utasítsd el az ajánlatot a lejárai idő előtt : %{payment_expires_in}. Ha a lejárati idő előtt elfogadod az ajánlatot, megtörténik a banki átutalás. Amennyiben nem fogadod el, az ajánlat automatikusan elutasításra kerül és az átutalás meghiúsul."
       if_you_do_accept: "Ha elfogadod a kérést erre az időszakra vonatkozóan, a pénzt azonnal megkapod a számládra"
-      if_you_do_accept_stripe: "Ha ezen időkereten belül elfogadja az ajánlatot, akkor a fizetés teljesül. A pénzt közvetlenül a bankszámlájára kapja meg, miután kézbesítette a megrendelést %{listing_title} a megrendelőnek %{requester}."
-      if_you_do_not_accept: "Amennyiben elutasítja a kérést vagy nem fogadja el ezen időkereten belül, a tranzakció automatikusan törlődik, a %{requester}  nem kerül levonásra és Ön nem kapja meg az összeget."
+      if_you_do_accept_stripe: "Ha ezen az időkereten belül elfogadod az ajánlatot, akkor a kifizetés teljesül. A pénz közvetlenül a bankszámládra érkezik majd, miután kézbesítetted %{listing_title} megrendelést %{requester} megrendelőnek."
+      if_you_do_not_accept: "Amennyiben elutasítod az ajánlatot, vagy nem fogadod el ezen az időkereten belül, a tranzakció automatikusan törlődik. Tehát az összeg %{requester} felhasználótól nem kerül levonásra valamint nem érkezik meg a bankszámládra."
       click_here_to_reply: "Kattints ide a válaszhoz"
     transaction_preauthorized_v2:
-      headline: "A %{requester} felhasználót érdekli a szolgáltatás és jóváhagyta a %{listing_link} kifizetését."
+      headline: "%{requester} felhasználót érdekli a %{listing_link} és engedélyezte a banki átutalást."
     transaction_preauthorized_reminder:
       subject: "Ne feledd elfogadni %{requester} ajánlatát a %{listing_title} hirdetésre"
       remember_to_accept: "Ne feledd elfogadni %{requester} ajánlatát a \"%{listing_title}\" hirdetésre. %{requester} már kifizette a hirdetésben szereplő összeget. Annak érdekében, hogy az átutalás megtörténjen fogadd el az ajánlatot."
@@ -1816,7 +1817,7 @@ hu:
       a_new_transaction: "egy új tranzakció"
       listing: "Hirdetés: %{title}"
       sum: "Összeg: %{amount}"
-      starter: "Kezdő: %{name}"
+      starter: "Kezdeményező: %{name}"
       provider: "Eladó: %{name}"
     new_transaction_v2:
       subject: "Új tranzakció a %{service_name} szolgáltatásban"
@@ -1824,14 +1825,14 @@ hu:
       a_new_transaction: "egy új tranzakció"
       listing: "Hirdetés:"
       sum: "Összeg:"
-      starter: "Kezdő:"
+      starter: "Kezdeményező:"
       provider: "Eladó:"
       view_transaction: "Tekintse meg a tranzakciót"
     transaction_cancel_flow:
       the_order_about: "a rendelés a %{listing_title} hirdetés ügyében"
       you_can_contact_the_marketplace_team: "Ha további probléma merül fel, vegye fel a kapcsolatot a %{service_name} csapattal."
-      you_can_now_give_feedback: "Most írhat egy visszajelzést %{name} számára. Mindig jó ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is, hogy %{name} megbízható. Az is hasznos lehet, ha jelzi, amennyiben problémája merült fel."
-      give_feedback_to: "Adjon visszajelzést %{name} részére"
+      you_can_now_give_feedback: "Most írhatsz visszajelzést %{name} számára. Mindig érdemes értékelést írni. Ha minden rendben ment, az értékelésben tudathatod másokkal is hogy, %{name} megbízható. Illetve azt is így jelzheted, hogyha valamilyen probléma merült fel."
+      give_feedback_to: "Írj értékelést %{name} részére"
     transaction_disputed:
       subject: "Megreklamált foglalás - a %{service_name} csapat vizsgálja a szituációt"
       subject_admin: "Egy tranzakciót megreklamáltak, el kell döntenie, hogy mi történjen ezután"
@@ -1844,7 +1845,7 @@ hu:
       learn_more_about: "Tudjon meg többet arról, hogy mi itt a teendő"
       review_the_transaction: "Tekintse át a tranzakciót"
     transaction_refunded:
-      subject: "Megrendelés visszatérítettként megjelölve - A %{service_name} csapat jóváhagyta a reklamációt a %{buyer} vásárlónak."
+      subject: "Megrendelés visszatérítettként megjelölve - A %{service_name} csapat jóváhagyta a reklamációt %{buyer} vásárlónak."
       marketplace_team_has_approved_the_cancellation: "A %{service_name} csapat jóváhagyta a %{transaction_link} tranzakcióval kapcsolatos reklamációt és a kifizetést visszatérítettnek jelölte."
       you_should_receive_a_refund_soon: "Hamarosan meg kell kapnia a visszatérítést. Ha további probléma merül fel, vegye fel a kapcsolatot a %{service_name} csapattal."
     transaction_cancellation_dismissed:
@@ -1886,8 +1887,8 @@ hu:
       reject_authorization_error: "Hiba történt a PayPal-os utalás elutasításakor. Kérem, próbálja újra!"
     stripe:
       generic_error: "Hiba történt a fizetési folyamat során. Nem sikerült befejezni a Stripe fizetést."
-      accept_authorization_error: "Hiba történt az előzetesen engedélyezett Stripe fizetés elfogadásakor. Kérjük próbálja újra."
-      reject_authorization_error: "Hiba történt az előzetesen engedélyezett Stripe-fizetés elutasításakor. Kérjük próbálja újra."
+      accept_authorization_error: "Hiba történt az előzetesen engedélyezett Stripe fizetés elfogadásakor. Kérjük próbáld újra."
+      reject_authorization_error: "Hiba történt az előzetesen engedélyezett Stripe-fizetés elutasításakor. Kérjük próbáld újra."
       card_declined: "Az Ön kártyája el lett utasítva"
       expired_card: "A fizetés meghiúsult mivel a kártya lejárt"
   error_pages:
@@ -2055,7 +2056,7 @@ hu:
       this_article_link: "ez a termék"
       invitation_emails_field_placeholder: "barat1@pelda.com, barat2@pelda.com, ..."
       invitation_message_field_placeholder: "Csatlakoztam ehhez a bámulatos piactérhez. Csatlakozz te is!"
-      errors_in_emails: "Ellenőrizze, hogy az ön által megadott e-mail címek érvényességét. Ha több címet adott meg, győződjön meg róla, hogy vesszővel vannak elválasztva."
+      errors_in_emails: "Ellenőrizd, hogy a megadott e-mail címek érvényesek-e. Ha több címet adtál meg, győződj meg róla, hogy vesszővel vannak elválasztva."
     list_item:
       review: vélemény
       reviews: Vélemények
@@ -2064,10 +2065,10 @@ hu:
       show_less: "Mutass kevesebbet"
       show_more: "Mutass többet"
     profile_info_empty_notification:
-      add_your_info: "Adja meg elérhetőségét"
+      add_your_info: "Add meg az elérhetőséged"
       add_a_profile_picture: "Profilkép hozzáadása"
-      you_have_not_added_your_info: "Nem adta meg elérhetőségeit. Kérem adja meg, hogy mások könnyebben kapcsolatba léphessenek önnel. Mellékelje hozzá fényképét, ami növeli a bizalmat ön iránt."
-      add_your_info_link: "Adja meg az adatait most"
+      you_have_not_added_your_info: "Még nem adtál meg elérhetőséget. Kérjük, ezt pótold, hogy mások könnyebben kapcsolatba léphessenek veled. Tölts fel fényképet, amivel növelheted a többi felhasználó bizalmát."
+      add_your_info_link: "Add meg az adataidat most"
     recent_listing:
       please_offer: Ajánlat
       comment: Hozzászólás
@@ -2206,7 +2207,7 @@ hu:
       email_confirmation_sent_to_new_address: "E-mail megerősítését elküldtük az új címre"
       email_not_found: "Az megadott e-mail nem található az %{service_name} adatbázisában."
       error_with_session: Hiba
-      feedback_considered_spam: "A visszajelzés nem lett elmentve, problémák vannak a formátumával. Próbálja újra vagy használja a fórumot."
+      feedback_considered_spam: "A visszajelzés nem lett elmentve, problémák vannak a formátumával. Próbáld újra vagy használd a fórumot."
       feedback_not_saved: "Az értékelést nem sikerült elküldeni"
       feedback_saved: "Köszönjük az üzenetet! Hamarosan jelentkezünk."
       feedback_sent_to: "Visszajelzés elküldve neki: %{target_person}"
@@ -2261,7 +2262,7 @@ hu:
       registration_considered_spam: "A regisztráció sikertelen. Kérjük lépj velünk kapcsolatba a fejléc menüt használva és jelezd, hogy \"e-mail2 hiba\" történt."
       reply_cannot_be_empty: "Üres üzenetet nem tudsz küldeni"
       reply_sent: "A válasz sikeresen elküldve"
-      request_accepted: "Kérését elfogadták"
+      request_accepted: "Ajánlat elfogadva"
       request_accepted_and_closed: "Ajánlat elfogadva, a hírdetés lezárva"
       request_confirmed: "Rendelés teljesítve"
       request_rejected: "Kérése elutasítva"
@@ -2291,7 +2292,7 @@ hu:
       you_must_log_in_to_do_a_transaction: "Lépj be a %{service_name} oldalára a tranzakcióhoz."
       you_must_log_in_to_view_this_content: "Csak bejelentkezés után láthatod ezt a tartalmat"
       you_must_log_in_to_view_this_page: "Az oldal megtekintéséhez lépj be"
-      you_must_log_in_to_view_your_inbox: "Jelentkezz be : %{service_name}, hogy láthasd az üzeneteket."
+      you_must_log_in_to_view_your_inbox: "Jelentkezz be itt: %{service_name}, hogy láthasd az üzeneteket."
       you_must_log_in_to_view_your_settings: "Jelentkezz be : %{service_name}, hogy láthasd a beállításokat."
       you_must_log_in_to_add_news_item: "Lépj be a %{service_name} oldalára, hogy újabb hirdetést tudj feladni."
       you_must_log_in_to_change_profile_settings: "Lépj be a %{service_name} oldalára, ha változtatni szeretnél profilod beállításain."
@@ -2332,7 +2333,7 @@ hu:
       listing_not_visible: "Ehhez a hirdetéshez nincs hozzáférése"
     comment:
       wrote: Írt
-      send_private_message: "Küldjön privát üzenetet %{person} felhasználónak"
+      send_private_message: "Küldj privát üzenetet %{person} felhasználónak"
       delete: töröl
       are_you_sure: "Biztosan törölni szeretné a hozzászólást?"
     comment_form:
@@ -2534,7 +2535,7 @@ hu:
       select_category: "Válassz kategóriát"
       select_subcategory: "Válassz alkategóriát"
       select_transaction_type: "Válassza ki a hirdetés típusát"
-      you_need_to_fill_payout_details_before_accepting: "A hirdetés feladásához kérjük adja meg fizetési információit. Kattintson ide %{payment_settings_link} az adatok kitoltéséhez."
+      you_need_to_fill_payout_details_before_accepting: "A hirdetés feladásához kérjük adj meg pontos fizetési információkat. Kattints ide %{payment_settings_link} az adatok kitöltéséhez."
       contact_admin_link_text: "Lépjen kapcsolatba az adminisztrátorral"
       community_not_configured_for_payments: "%{service_name} oldalon a fizetési lehetőségek még nincsenek beállítva ezért ön még nem tud hirdetést feladni. Kérjük vegye fel a kapcsolatot a rendszergazdával %{contact_admin_link} a részletekért."
       payment_settings_link: "Fizetési beállítások"
@@ -2554,7 +2555,7 @@ hu:
     reply_link:
       listing_closed: "Hirdetés törölve"
     show:
-      add_your_phone_number: "Adja meg telefonszámát"
+      add_your_phone_number: "Add meg a telefonszámod"
       add_profile_picture: "Profilkép hozzáadása"
       comments: "Publikus megjegyzés"
       contact_by_phone: "Telefonon:"
@@ -2575,7 +2576,7 @@ hu:
       request: Kérés
       rideshare_offer: "Telekocsi ajánlat"
       rideshare_request: "Telekocsi ajánlatkérés"
-      send_private_message: "Küldjön privát üzenetet"
+      send_private_message: "Küldj privát üzenetet"
       tags: Címkék
       time: Idő
       times: Idő
@@ -2611,7 +2612,7 @@ hu:
       by: "%{listing} %{author} hirdetőtől"
       payment: Fizetés
       exp: "Lejárat:"
-      you_will_be_charged: "Ön akkor fog fizetni ha %{author} elfogadja a tranzakciót. %{expiration_period} napon belül kell %{author} felhasználónak elfogadnia a tranzakciót. Amennyiben %{author} felhasználó elutasítja a tranzakciót vagy nem válaszol, nem kerül sor utalásra."
+      you_will_be_charged: "A kifizetésre csak akkor kerül sor, ha %{author} elfogadja az ajánlatot. %{author} felhasználónak %{expiration_period} napon belül kell ezt megtennie. Amennyiben %{author} elutasítja az ajánlatot vagy nem válaszol, az átutalás nem történik meg."
       day: day
       days: napok
       night: éjszaka
@@ -2783,8 +2784,8 @@ hu:
       contact: "Lépjen kapcsolatba ezzel a személlyel: %{person}"
       about_me: "Rólam:"
       add_description: "Töltsd ki a profilodat"
-      add_location: "Adja meg lakóhelyét (legalább a település nevét)"
-      add_phone_number: "Adja meg telefonszámát"
+      add_location: "Add meg a lakóhelyed"
+      add_phone_number: "Add meg a telefonszámod"
       address: "Hely:"
       as_expected: "Elvárásoknak megfelelő"
       edit_profile_info: "Profil szerkesztése"
@@ -2842,9 +2843,9 @@ hu:
       we_will_not_post_without_asking_you: "Soha nem posztolunk az Ön Facebookján a beleegyezése nélkül"
     password_forgotten:
       email: E-mail
-      password_recovery_instructions: "Adja meg e-mail címét, hogy visszaállíthassa jelszavát."
+      password_recovery_instructions: "Add meg az e-mail címed, hogy visszaállíthassuk a jelszavad."
       request_new_password: "Új jelszó kérése"
-      change_your_password: "Változtasson jelszót"
+      change_your_password: "Változtasd meg a jelszavad"
     confirmation_pending:
       welcome_to_kassi: "Üdvözöljük az %{service_name}n"
       check_your_email: "Ellenőrizd a beérkező leveleidet"
@@ -2868,9 +2869,9 @@ hu:
       delete_account_confirmation_popup: "Biztos benne, hogy törölni akarja fiókját melynek következtében minden kapcsolódó adatot el fog veszíteni? A fiók törlése végleges."
       email_addresses: E-mailcímek
       new_email: "Új e-mail cím"
-      delete_personal_information: "Amennyiben törölné a fiókját, a személyes adatai (név, telefonszám, cím, e-mailcím, profilkép stb.) véglegesen törlődnek. Az összes ön által feladott hirdetés törléslődni fog. A fiókot nem lesz módjában újraaktiválni."
-      delete_information_others_involved: "Információ melynek más felhasználók is részesei voltak (társalgások, tranzakciók, értékelések, stb) nem törlődik a fiók törlésekor. De az ön neve már nem lesz feltűntetve ezek megjelenítésekor."
-      unfinished_transactions: "Az ön fiókját a folyamatban lévő tranzakciók miatt nem lehet törölni. Kérjük fejezze be tranzakcióit a fiók törlése előtt."
+      delete_personal_information: "Amennyiben törölnéd a fiókot, személyes adataid (név, telefonszám, cím, e-mailcím, profilkép stb.) véglegesen törlődnek. Az összes általad feladott hirdetés eltűnik. A fiókot nem lesz módodban újraaktiválni."
+      delete_information_others_involved: "Olyan információk melynek más felhasználók is részesei voltak (társalgások, tranzakciók, értékelések, stb) nem törlődnek a fiók törlésekor. De a te neved már nem lesz feltűntetve ezek megjelenítésekor."
+      unfinished_transactions: "A fiókodat a folyamatban lévő tranzakciók miatt nem lehet törölni. Kérjük fejezd be az összes tranzakciót mielőtt törölnéd a fiókot."
       only_admin: "Fiókját nem lehet törölni, mert Ön a piactér egyetlen adminisztrátora."
       new_password: "Új jelszó"
       save: Mentés
@@ -2899,7 +2900,7 @@ hu:
       email_about_new_comments_to_own_listing: "Hozzászólás érkezett az ajánlatomra vagy ajánlatkérésemre"
       email_about_new_messages: "Üzenetem érkezett"
       email_about_new_received_testimonials: "Értékelést kaptam"
-      email_about_testimonial_reminders: "Elfelejtettem értékelést készíteni egy eseményről"
+      email_about_testimonial_reminders: "Elfelejtettem értékelést írni egy tranzakcióról"
       email_daily_community_updates: "Új hirdetések megjelenésekor küldjön hírlevelet <b>naponta</b>"
       email_weekly_community_updates: "Új hirdetések megjelenése esetén küldjön hírlevelet <b>hetente</b>"
       do_not_email_community_updates: "Ne küldjön hírlevelet"
@@ -2914,8 +2915,8 @@ hu:
       homepage_link: Honlap
       unsubscribe_unsuccesful: "Hiba a leiratkozásnál"
       unsuccessful_unsubscribe_info_text: "A leíratkozás linkje megszűnt. Jelentkezzen be, hogy meg tudja változtatni a a felíratkozás beállításait."
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      email_listing_new_comment: "az általam követett hirdetés nyilvános fórumára új hozzászólást írtak"
+      email_listing_updated: "frissült a hirdetés amihez én is hozzászóltam"
     profile:
       about_you: Magadról
       city: Város
@@ -3194,9 +3195,9 @@ hu:
     commission: "%{commission} %"
     pay_with_stripe: "Fizetés Stripe-pal a %{card}kártyát használva."
     add_and_pay: "Fizetés jóváhagyása"
-    card_not_stored: "Fizetését a Stripe biztonságosan feldolgozta. A %{service_name}  nem tárolja hitel- / bankkártya-adatait."
+    card_not_stored: "A tranzakciót a Stripe biztonságos rendszere dolgozza fel. A %{service_name}  nem tárolja hitel- / bankkártya-adataidat."
     missing_payment: "Hirdetést már sikeresen feladtál, de a fiókod még nem lett beállítva az átutalások fogadásához. A fizetési beállításokhoz kérünk látogass a %{settings_link} oldalra."
-    stripe_bank_connected: "A bankszámla adatai sikeresen beállítva!"
+    stripe_bank_connected: "Bankszámla adataid sikeresen beállítva!"
     stripe_can_accept: "Most már minden készen áll, hogy pénz érkezhessen a bankszámládra."
     stripe_credit_card: Bankkártya
     paypal: PayPal
@@ -3204,9 +3205,9 @@ hu:
     paypal_can_accept: "Most már minden készen áll arra, hogy pénzt kapjon a PayPal-számlájára"
     paypal_connected_give_permission: "A telepítés befejezéséhez és az utalások fogadásának megkezdéséhez a <%{email} PayPal-számlára kérjük, adj engedélyt tranzakciós díj felszámítására."
     stripe_account_restricted: "Számlájára történő online fizetések korlátozottak vagy hamarosan korlátozottak lesznek!"
-    stripe_account_restricted_info: "Kérjük adja meg a bankszámla adatait, hogy további információkat nyújtson a fizetési szolgáltatónak."
+    stripe_account_restricted_info: "Kérjük frissítsd bankszámla adataid, hogy további információkat adhass a fizetési szolgáltatónak."
     stripe_account_restricted_soon: "A számlájára történő online fizetéseket hamarosan korlátozzuk."
-    stripe_account_restricted_soon_info: "Kérjük adja meg a bankszámla adatait, hogy további információkat nyújtson a fizetési szolgáltatónak."
+    stripe_account_restricted_soon_info: "Kérjük frissítsd bankszámla adataid, hogy további információkat adhass a fizetési szolgáltatónak."
     stripe_account_pending_verification: "A számlaadatok sikeresen mentésre kerültek. A fizetési szolgáltató ellenőrzi az adatokat."
     stripe_account_pending_verification_info: "Erre a feladatra adj egy kis időt, de később gyere vissza és ellenőrizd, hogy minden rendben van-e."
     form_new:
@@ -3219,11 +3220,11 @@ hu:
       last_name_kana: Vezetéknév
       first_name_kanji: Keresztnév
       last_name_kanji: Vezetéknév
-      country: Ország
+      country: "Lakóhely szerinti ország"
       birth_date: "Születési dátum"
       ssn_last_4: "SSN Utolsó 4"
       personal_id_number: "Személyi azonosító szám"
-      address_country: Ország
+      address_country: "Lakóhely szerinti ország"
       address_state: Állam
       address_province: Tartomány
       address_city: Város
@@ -3255,10 +3256,10 @@ hu:
       bank_routing_1: "Banki hitelesítési kód"
       bank_routing_2: Fiókkód
       bank_currency: "Bankszámla pénzneme"
-      update_also_bank_account: "Frissítse a bankszámlát is"
-      bank_account_same_country: ~
-      bank_country: ~
-      bank_holder_name: ~
+      update_also_bank_account: "Frissítsd a bankszámlát is"
+      bank_account_same_country: "Lakóhely szerinti országban bejegyzett bankszámla használata"
+      bank_country: "Bankszámla bejegyzett ország"
+      bank_holder_name: "Számlatulajdonos neve"
       messages:
         account_number: Számlaszám
         routing_number: Útvonalszám

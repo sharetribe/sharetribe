@@ -211,11 +211,14 @@ tr-TR:
         pl: "Polonya dili"
         pt-BR: "Portekizce (Brezilya)"
         pt-PT: Portekizce
+        ro: ~
         ru: Rusça
         sk-SK: ~
+        sl: ~
         sv: İsveççe
         th-TH: "Tai dili (Tayland)"
         tr-TR: Türkçe
+        uk: ~
         vi: "Vietnam dili"
         zh: Çince
         zh-TW: "Çince (Tayvan)"
@@ -1510,7 +1513,7 @@ tr-TR:
       please_go_to_payment_settings: "Lütfen %{payment_settings_link} sayfasına gidip gerekli ödeme bilgilerini ekleyin."
       payment_settings_link: "ödeme ayarları"
     payment_settings_reminder_v2:
-      fill_payout_details: ~
+      fill_payout_details: "Ödeme detaylarını girin"
       you_have_added_listing_with_payment: "Ödemeli bir ilan eklediniz %{listing_link} Ödeme bilgilerinizin henüz girilmediğini fark ettik. Ödeme almanız için ödeme bilgi detaylarını girmeniz gerekmektedir."
     transaction_confirmed:
       here_is_a_message_from: "%{other_party_given_name} tarafından bir mesaj var:"
@@ -2056,7 +2059,7 @@ tr-TR:
       map: "Haritada göster"
       list: "Listeyi göster"
       map_button: Harita
-      grid_button: Kare
+      grid_button: Izgara
       list_button: Liste
       all_listing_types: "Tüm ilan türleri"
       all_categories: "Tüm kategoriler"
@@ -2312,7 +2315,7 @@ tr-TR:
       delete: sil
       are_you_sure: "Yorumu silmek istediğinize emin misiniz?"
     comment_form:
-      ask_a_question: "İlanı değerlendirin ya da daha fazla detay sorun. Diğer tüm kullanıcılar yorumunuzu görebilecek."
+      ask_a_question: "İlanı / ilan sahibini değerlendirin ya da ilan hakkında daha fazla detay sorun. Diğer tüm kullanıcılar yorumlarınızı görebilecek."
       log_in: "oturum açın"
       send_comment: "Yorum gönder"
       to_send_a_comment: "ve yorumunuzu yazın."

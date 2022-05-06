@@ -29,6 +29,6 @@ else
 end
 
 
-Capybara.default_max_wait_time = 20
+Capybara.default_max_wait_time = 30
 Capybara.ignore_hidden_elements = true
 Capybara.default_selector = :css

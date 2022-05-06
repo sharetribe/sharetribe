@@ -209,11 +209,14 @@ ka:
         pl: ~
         pt-BR: "პორტუგალიური (ბრაზილიური)"
         pt-PT: პორტუგალიური
+        ro: ~
         ru: რუსული
         sk-SK: ~
+        sl: ~
         sv: შვედური
         th-TH: ~
         tr-TR: თურქული
+        uk: ~
         vi: ~
         zh: ჩინური
         zh-TW: ~
@@ -1516,7 +1519,7 @@ ka:
       please_go_to_payment_settings: "გთხოვთ შედით თქვენ %{payment_settings_link}ში და შეაფსეთ მოთხოვნილი გადახდის ინფორმაცია."
       payment_settings_link: "გადახდის პარამეტრები"
     payment_settings_reminder_v2:
-      fill_payout_details: ~
+      fill_payout_details: "შეავსეთ გადახდის დეტალები"
       you_have_added_listing_with_payment: "თქვენ დაამატეთ ფასიანი განცხადება %{listing_link}  ჩვენ შევამჩნიეთ, რომ თქვენი გადახდის ინფორმაცია ჯერ არ იყო შეყვანილი. გადახდის მისაღებად, თქვენ უნდა შეიყვანოთ გადახდის ინფორმაციის დეტალები."
     transaction_confirmed:
       here_is_a_message_from: "აქ არის წერილი %{other_party_given_name}სგან"
@@ -2428,8 +2431,8 @@ ka:
         the_exact_location: ~
       send_button:
         save_listing: "დაიმახსოვრე ჩამონათვალი"
-        submit_for_review: ~
-        will_be_reviewed: ~
+        submit_for_review: "გაგზავნეთ განსახილველად"
+        will_be_reviewed: "ყველა ჩამონათვალი განიხილება %{service_name} -ის  გუნდის მიერ გამოქვეყნებამდე. თქვენი განცხადების დამტკიცების შემდეგ, თქვენ მიიღებთ შეტყობინებას ელექტრონული ფოსტით და ყველასთვის იქნება ხილული."
         we_noticed_youre_an_admin: ~
       share_type:
         select: მონიშვნა

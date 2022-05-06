@@ -219,11 +219,14 @@ cs:
         pl: Polština
         pt-BR: "Portugalština (Brazílie)"
         pt-PT: Portugalština
+        ro: ~
         ru: Ruština
         sk-SK: ~
+        sl: ~
         sv: Švédština
         th-TH: "Thajsky (thajština)"
         tr-TR: Turečtina
+        uk: ~
         vi: Vietnamsky
         zh: Čínština
         zh-TW: "Čínština (Tchaj-wan)"
@@ -1383,7 +1386,7 @@ cs:
         held_payment: "Žádost byla přijata. Dokud nebude objednávka označena jako dokončená, platbu bude držet %{service_name}"
         held_payment_wo_sum: "Žádost byla přijata. Dokud nebude objednávka označena jako dokončená, platbu bude držet %{service_name}"
         confirmed_request: "Objednávka byla označena jako dokončená. Platba byla nyní převedena na bankovní účet %{author_name}  nebo bude brzy převedena."
-      canceled_the_order: "Sporná objednávka. %{service_name} tým byl informován."
+      canceled_the_order: "Sporná objednávka. Tým %{service_name} byl informován."
       marked_as_refunded: "Označeno jako vrácené"
       dismissed_the_cancellation: "Zamítnutá námitka"
       payment_has_now_been_transferred: "Platba byla nyní převedena na bankovní účet %{seller} nebo bude brzy převedena."
@@ -1462,17 +1465,17 @@ cs:
       stripe:
         waiting_confirmation_from_requester: "Vyčkejte prosím na %{requester_name}, aby označil objednávku jako kompletní. Jakmile bude objednávka označena jako kompletní, bude platba uvolněna na váš bankovní účet."
       order_canceled: "Objednávka byla zpochybněna"
-      waiting_for_marketplace_review: "Čeká se na %{service_name} tým, který prověří situaci"
-      marketplace_notified: "%{service_name} tým byl informován. Pokud chcete získat více podrobností od servisního týmu, můžete jej kontaktovat na %{contact_link}."
+      waiting_for_marketplace_review: "Čeká se na tým %{service_name}, který prověří situaci"
+      marketplace_notified: "Tým %{service_name} byl informován. Pokud chcete získat více podrobností od servisního týmu, můžete jej kontaktovat na %{contact_link}."
       contact_them: "kontaktujte je"
       refunded: "Objednávka byla označena jako vrácená."
       dismissed: "Sporná objednávka byla zamítnuta"
-      order_refunded: "Objednávka byla označena jako vrácená. %{service_name} tým spor potvrdil."
+      order_refunded: "Objednávka byla označena jako vrácená. Tým %{service_name} spor potvrdil."
       you_should_receive_refund_soon: "Brzy byste měl obdržet vrácené peníze."
       issue_with_the_refund: "Něco je špatně? Je problém s vrácením peněz? %{contact_link}"
       do_you_disagree: "Něco je špatně? Nesouhlasíte? %{contact_link}."
-      contact_the_marketpalce_team: "Kontaktujte prosím %{service_name} tým"
-      order_cancellation_dismissed: "Spor o objednávku byl zamítnut.%{service_name} tým odmítl spor."
+      contact_the_marketpalce_team: "Kontaktujte prosím tým %{service_name}"
+      order_cancellation_dismissed: "Spor o objednávku byl zamítnut. Tým %{service_name} odmítl spor."
     status_link:
       accept_offer: "Přijmout nabídku"
       accept_request: "Přijmout žádost"
@@ -1552,14 +1555,14 @@ cs:
       give_feedback_to: "Ohodnotit uživatele %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} označil objednávku ohledně %{request} za dokončenou. Platba za tuto trasakci byla nyní uvolněna na váš bankovní účet. Nyní můžete dát zpětnou vazbu %{other_party_given_name}."
-      team_title: "%{service_name} tým"
+      team_title: "tým %{service_name}"
     transaction_confirmed_v2:
       headline_confirmed: "%{other_party_full_name} označil objednávku %{listing_link} jako dokončenou."
       headline_canceled: "%{other_party_full_name} zpochynil objednávku %{listing_link}"
       stripe:
         has_marked_request_as_confirmed: "Platba za tuto transakci byla nyní uvolněna na váš bankovní účet."
       can_give_feedback: "Nyní můžete poskytnout zpětnou vazbu %{other_party_given_name}."
-      team_title: "%{service_name} tým"
+      team_title: "tým %{service_name}"
     transaction_automatically_confirmed:
       subject: "Žádost byla automaticky vyřízena - nezapomeňte poskytnout zpětnou vazbu"
       we_have_marked_request_as_confirmed: "Žádost %{request} byla označena jako vyřízená. Žádost byla automaticky dokončena protože uplynulo %{days_passed} dní od doby, kdy byla žádost přijata."
@@ -1581,9 +1584,9 @@ cs:
       confirmation_link_text: "Potvrdit můj e-mail"
       or_paste_link: "Případně můžete zkopírovat následující odkaz do adresního řádku Vašeho prohlížeče:"
     confirmation_instructions_v2:
-      headline: "potvrďte svůj email, abyste se spojil s %{service_name}"
-      need_to_confirm: "Potvrďte svou emailovou adresu, abyste dokončil svůj %{service_name} účet. Je to jednoduché - stačí jen kliknout na tlačítko níže!"
-      confirmation_link_text: ~
+      headline: "potvrďte svůj email, abyste se spojil/a s %{service_name}"
+      need_to_confirm: "Potvrďte svou emailovou adresu, abyste dokončil/a svůj účet %{service_name} . Je to jednoduché - stačí jen kliknout na tlačítko níže!"
+      confirmation_link_text: "Potvrdit e-mail"
     common:
       hey: "Ahoj %{name},"
       hi: "Ahoj %{name}."
@@ -1812,7 +1815,7 @@ cs:
     listing_rejected:
       subject: "Tým %{community} zamítl váš zápis \"%{listing_title}\""
       listing_has_been_rejected: "Tým %{community} bohužel zamítl váš zápis \"%{listing_title}\" poté, co byl pečlivě zkontrolován. Více můžete zjistit na %{contact_link} nebo můžete váš zápis upravit a předložit jej k nové kontrole."
-      contact_link: "Kontaktujte %{community} tým"
+      contact_link: "Kontaktujte tým %{community}"
       edit_the_listing: "Upravit zápis"
     edited_listing_submited_for_review:
       subject: "Upravený zápis ke kontrole: \"%{listing_title}\" od %{author_name} v %{community}"
@@ -1837,27 +1840,27 @@ cs:
       view_transaction: "Prohlédnout transakci"
     transaction_cancel_flow:
       the_order_about: "objednávka %{listing_title}"
-      you_can_contact_the_marketplace_team: "Můžete kontaktovat %{service_name} tým, pokud vznikl další problém."
+      you_can_contact_the_marketplace_team: "Můžete kontaktovat tým %{service_name}, pokud vznikl další problém."
       you_can_now_give_feedback: "Nyní můžete poskytnout zpětnou vazbu %{name}. Poskytnutí zpětné vazby je vždy užitečné. Pokud vše probíhalo dobře, měli byste dát ostatím vědět, že %{name} je důvěryhodný. Pokud se vyskytly nějaké problémy, je také dobré se o tom zmínit."
       give_feedback_to: "Dát zpětnou vazbu %{name}."
     transaction_disputed:
-      subject: "Sporná objednávka - %{service_name} tým prověřuje situaci"
+      subject: "Sporná objednávka - tým %{service_name} prověřuje situaci"
       subject_admin: "Transakce byla sporná, musíte rozhodnout co se stane dál"
       order_about: "objednávka %{listing_title}"
       the_order_has_been_canceled: "%{transaction_link} byla zpochyběna"
       the_order_between_buyer_and_seller_has_been_canceled: "%{transaction_link} mazi %{buyer} a %{seller} byla zpochybněna."
-      the_marketplace_has_been_notified: "%{service_name} tým byl informován a prověřuje situaci. Můžete tým kontaktovat a sdílet s ním další podorbnosti."
-      contact_the_marketplace_team: "Prosím, kontaktujte %{service_name} tým"
+      the_marketplace_has_been_notified: "Tým %{service_name} byl informován a prověřuje situaci. Můžete tým kontaktovat a sdílet s ním další podorbnosti."
+      contact_the_marketplace_team: "Prosím, kontaktujte tým %{service_name}"
       you_must_now_decide: "Nyní musíte rozhodnout, zda dojde k vrácení peněz nebo spor zamítnete. Více %{learn_more_link}."
       learn_more_about: "zde zjistíte více o tom, co dělat"
       review_the_transaction: "Prověřte transakci"
     transaction_refunded:
-      subject: "Objednávka byla označená jako vrácená - %{service_name} tým schválil spor od %{buyer}"
-      marketplace_team_has_approved_the_cancellation: "%{service_name} tým schválil spor o %{transaction_link} a platbu označil jako vrácenou."
+      subject: "Objednávka byla označená jako vrácená - tým %{service_name} schválil spor od %{buyer}"
+      marketplace_team_has_approved_the_cancellation: "Tým %{service_name} schválil spor o %{transaction_link} a platbu označil jako vrácenou."
       you_should_receive_a_refund_soon: "Brzy byste měli obdržet vrácenou platbu. Můžete kontaktovat %{service_name}, pokud existuje nějaký další problém."
     transaction_cancellation_dismissed:
-      subject: "Spor o objednávku byl zamítnut. %{service_name} tým odmítl spor od %{buyer}"
-      marketplace_team_has_rejected_the_cancellation: "%{service_name} tým odmítl spor o %{transaction_link}."
+      subject: "Spor o objednávku byl zamítnut. Tým %{service_name} odmítl spor od %{buyer}"
+      marketplace_team_has_rejected_the_cancellation: "Tým %{service_name} odmítl spor o %{transaction_link}."
     transaction_commission_charge_failed:
       subject: ~
       transaction_about: ~
@@ -1922,7 +1925,7 @@ cs:
       kassi_does_not_currently_work_without_javascript: "%{service_name} nepracuje správně bez Javascriptu. Zkuste povolit Javascript v nastavení ve Vašem prohlížeči, a potom znovu aktualizujte tuto stránku."
       contact_us: "kontaktujte nás"
       send_feedback: "Poslat zprávu"
-      your_feedback_to_admins: "Tvoje zpráva pro %{service_name} tým"
+      your_feedback_to_admins: "Tvoje zpráva pro tým %{service_name}"
     send: Poslat
     your_email_address: "Vaše a-mailová adresa"
   errors:
@@ -2118,11 +2121,11 @@ cs:
     no_tribe:
       inbox: "Doručená pošta"
       settings: Nastavení
-      feedback: "Kontaktovat %{service_name} tým"
+      feedback: "Kontaktovat tým %{service_name}"
     application:
       join_this_community: "Připojit se k tržišti"
       read_more: "Přečtete si více"
-      feedback: "Tvoje zpráva pro %{service_name} tým"
+      feedback: "Tvoje zpráva pro tým %{service_name}"
       dont_use_to_contact_support: "Zjistili jsme, že jste správcem %{service_name}. Tento formulář je to, co uživatelé používají k tomu, aby vás kontaktovali. Tento formulář nelze použít ke kontaktování podpory služby Sharetribe. Můžete to udělat pomocí widgetu podpory v pravém dolním rohu administračního panelu."
       feedback_forum: "Diskuzní fórum"
       feedback_handle: "Napište nám"
@@ -3272,7 +3275,7 @@ cs:
       address_postal_code: PSČ
       address_line1: Ulice
       tos_link: "Přidáním údajů o výplatě přijmete %{stripe_link}"
-      tos_link_title: "Dohoda o účtu společnosti Stripe."
+      tos_link_title: "dohodu o účtu společnosti Stripe"
       save_details: "Uložit podrobnosti"
       edit: "Upravit detaily"
       cancel: Zrušit
