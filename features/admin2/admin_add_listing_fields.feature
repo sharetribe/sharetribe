@@ -53,7 +53,7 @@ Feature: Admin add a listing fields
   @javascript
   Scenario: Admin adds Checkbox custom field
     When I follow "+ Add a listing field"
-    And I select "Checkbox" from "field_type"
+    And I select "Checkbox group" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "Checkbox type"
     And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
     And I toggle category "Spaces"

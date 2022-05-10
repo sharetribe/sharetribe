@@ -21,6 +21,7 @@ Feature: Admin add a listing fields
     And I press "Save option"
     Then I should see "Appartment" within "#optionsList"
     And I press submit
+    And I wait for 5 seconds
     Then I should see "House type" within ".custom-field-title"
 
   @javascript
@@ -46,7 +47,7 @@ Feature: Admin add a listing fields
   @javascript
   Scenario: Admin adds Checkbox custom field
     When I follow "+ Add a user field"
-    And I select "Checkbox" from "field_type"
+    And I select "Checkbox group" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "Checkbox type"
     And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
     Then I follow "+ Add an option"
@@ -59,6 +60,7 @@ Feature: Admin add a listing fields
     And I press "Save option"
     Then I should see "Appartment" within "#optionsList"
     And I press submit
+    And I wait for 5 seconds
     Then I should see "Checkbox type" within ".custom-field-title"
 
   @javascript
