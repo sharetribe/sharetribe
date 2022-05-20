@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.3.0
 jobs:
   test:
     parallelism: 12
@@ -23,6 +25,13 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD=very-secret
     steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          name: Check install
+          command: |
+            google-chrome --version
+            chromedriver --version
       - checkout
       - restore_cache:
           keys:
