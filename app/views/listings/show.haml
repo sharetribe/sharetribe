@@ -107,7 +107,7 @@
               = facebook_like(current_user?(@listing.author))
             .listing-tweet-button
               - twitter_params =  {count: "horizontal", via: (@current_community.twitter_handle), text: @listing.title }.compact
-              = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data" => twitter_params)
+              = link_to("", "https://twitter.com/intent/tweet", :class => "twitter-share-button", "data" => twitter_params)
               - content_for :extra_javascript do
                 :javascript
                   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
