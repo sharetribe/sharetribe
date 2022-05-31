@@ -116,6 +116,13 @@ module API
           present transaction
         end
 
+        desc "Get All Transactions"
+        params do
+        end
+        get do
+          #authenticate!
+          Transaction.all
+        end
 
 
 
