@@ -39,8 +39,12 @@ module API
         end
 
 
-
-
+        desc "Return all bookings"
+        params do
+        end
+        get do
+          Booking.all
+        end
 
 
 
