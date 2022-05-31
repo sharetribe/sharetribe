@@ -77,4 +77,6 @@ class ListingSerializer < ActiveModel::Serializer
    has_one :location
    has_one :origin_loc
    has_one :destination_loc
+   has_many :working_time_slots
+   #listing_working_time_slots
 end
