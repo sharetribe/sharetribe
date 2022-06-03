@@ -9,7 +9,7 @@ ar:
         zero: "حدث خطأ اثناء عملية الحفظ"
   devise:
     failure:
-      already_authenticated: "لقدم تم تسجيل دخولك مسبقا"
+      already_authenticated: "لقد تم تسجيل دخولك مسبقا"
       unauthenticated: "رجاء قم بتسجيل الدخول لحسابك أو إنشاء حساب جديد قبل المتابعة"
       unconfirmed: "يجب عليك تأكيد حسابك عبر بريدك الإلكتروني قبل المتابعة"
       locked: "لقد تم تجميد حسابك"

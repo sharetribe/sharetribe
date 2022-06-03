@@ -2371,7 +2371,7 @@ ka:
       description:
         detailed_description: "დეტალური აღწერა"
         youtube_info: "თუ თქვენი დახასიათება მოიცავს YouTube-ს ბმულს, ვიდეო ნაჩვენები იქნება ქვემოთ დახასიათებაში."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "შეგიძლიათ %{link}. თუ თქვენი აღწერა შეიცავს YouTube ბმულებს, ვიდეოები ნაჩვენები იქნება აღწერილობის ქვემოთ."
       destination:
         destination: დანიშნულება
       form_content:
