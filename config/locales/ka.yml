@@ -510,7 +510,7 @@ ka:
             free: ~
           paypal:
             free: ~
-            pending: ~
+            pending: მომლოდინე
             preauthorized: ~
             accepted: ~
             rejected: ~
@@ -1564,7 +1564,7 @@ ka:
     confirmation_instructions_v2:
       headline: ~
       need_to_confirm: ~
-      confirmation_link_text: ~
+      confirmation_link_text: "დაადასტურეთ ელფოსტის მისამართი"
     common:
       hey: "გამარჯობა %{name},"
       hi: ~

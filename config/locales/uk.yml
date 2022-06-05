@@ -3,7 +3,7 @@ uk:
     currency:
       format:
         separator: "."
-        delimiter: "."
+        delimiter: " "
         format: "%u%n"
   admin:
     categories:
@@ -3070,7 +3070,7 @@ uk:
       december: Гру
     today: Сьогодні
     clear: Очистити
-    format: м/д/рік
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%b %e, %Y at %H:%M"
