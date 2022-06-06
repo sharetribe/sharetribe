@@ -14,6 +14,10 @@ wget -O "/tmp/$DEB" "http://repo.mysql.com/$DEB"
 # to select 5.7. The package uses debconf, so we need to pass the correct
 # selections non-interactively.
 
+# Note that buster (previous debian stable) is selected in the config below,
+# because the MySQL APT repository doesn't yet have packages for bullseye. The
+# client packages for buster seem to wor.
+
 debconf-set-selections <<HERE
 mysql-apt-config mysql-apt-config/tools-component string mysql-tools
 mysql-apt-config mysql-apt-config/repo-codename select buster
@@ -26,6 +30,23 @@ mysql-apt-config mysql-apt-config/preview-component string
 mysql-apt-config mysql-apt-config/select-tools select Enabled
 mysql-apt-config mysql-apt-config/repo-distro select debian
 mysql-apt-config mysql-apt-config/select-product select Ok
+HERE
+
+cat <<HERE > /etc/apt/preferences.d/mysql
+Package: libmysqlclient-dev
+Pin: version 5.7*
+Pin: origin repo.mysql.com
+Pin-Priority: 1001
+
+Package: mysql-common
+Pin: version 5.7*
+Pin: origin repo.mysql.com
+Pin-Priority: 1001
+
+Package: mysql-community-client
+Pin: version 5.7*
+Pin: origin repo.mysql.com
+Pin-Priority: 1001
 HERE
 
 dpkg -i "/tmp/$DEB"
