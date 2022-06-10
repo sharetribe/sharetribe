@@ -1,14 +1,14 @@
-# Sharetribe
+# AVA ONE
 
-[![CircleCI](https://circleci.com/gh/sharetribe/sharetribe/tree/master.svg?style=svg)](https://circleci.com/gh/sharetribe/sharetribe/tree/master) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe)
+[![CircleCI](https://circleci.com/gh/AVA ONE/AVA ONE/tree/master.svg?style=svg)](https://circleci.com/gh/AVA ONE/AVA ONE/tree/master) [![Code Climate](https://codeclimate.com/github/AVA ONE/AVA ONE.png)](https://codeclimate.com/github/AVA ONE/AVA ONE)
 
-Sharetribe develops advanced marketplace software for every business life cycle stage.
+AVA ONE develops advanced marketplace software for every business life cycle stage.
 
-Sharetribe Go gives you the complete feature set to launch a marketplace for rentals, services, events, or products. The platform is source-available under the Sharetribe Community Public License.
+AVA ONE Go gives you the complete feature set to launch a marketplace for rentals, services, events, or products. The platform is source-available under the AVA ONE Community Public License.
 
-To launch your marketplace in minutes without touching code or worrying about hosting and backups, [head to the SaaS version of Sharetribe Go](https://www.sharetribe.com/products/go).
+To launch your marketplace in minutes without touching code or worrying about hosting and backups, [head to the SaaS version of AVA ONE Go](https://www.AVA ONE.com/products/go).
 
-If you're looking for a customizable and extendable marketplace solution, [check out Sharetribe Flex](https://www.sharetribe.com/products/flex). Flex is an API-based marketplace solution designed with a developers-first mindset. It allows you to develop your marketplace with the programming language of your choice, build a mobile app, design a customized transaction flow, and easily integrate third party services.
+If you're looking for a customizable and extendable marketplace solution, [check out AVA ONE Flex](https://www.AVA ONE.com/products/flex). Flex is an API-based marketplace solution designed with a developers-first mindset. It allows you to develop your marketplace with the programming language of your choice, build a mobile app, design a customized transaction flow, and easily integrate third party services.
 
 
 ### Contents
@@ -71,8 +71,8 @@ Before you get started, the following needs to be installed:
 1.  Get the code. Clone this git repository and check out the latest release:
 
     ```bash
-    git clone git://github.com/sharetribe/sharetribe.git
-    cd sharetribe
+    git clone git://github.com/AVA ONE/AVA ONE.git
+    cd AVA ONE
     git checkout latest
     ```
 
@@ -147,7 +147,7 @@ Before you get started, the following needs to be installed:
     ```
 
 
-Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000 or http://lvh.me:5000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
+Congratulations! AVA ONE should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000 or http://lvh.me:5000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
 ### Mailcatcher
 
@@ -190,7 +190,7 @@ Tests are handled by [RSpec](http://rspec.info/) for unit tests and [Cucumber](h
 
 Remember to follow *all* the steps listed in the [Setting up the development environment](#setting-up-the-development-environment) paragraph before running tests because some tests depend on webpack assets.
 
-1.  Navigate to the root directory of the sharetribe project
+1.  Navigate to the root directory of the AVA ONE project
 
 1.  Initialize your test database:
 
@@ -228,7 +228,7 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
 
 ### Working with React, Webpack and Foreman
 
-Some components are created with React (see [documentation](https://github.com/sharetribe/sharetribe/blob/master/client/README.md)) and they need to be built with Webpack. We have [Foreman](http://theforeman.org/) Procfiles that can be used to run both Rails and Webpack:
+Some components are created with React (see [documentation](https://github.com/AVA ONE/AVA ONE/blob/master/client/README.md)) and they need to be built with Webpack. We have [Foreman](http://theforeman.org/) Procfiles that can be used to run both Rails and Webpack:
 
 1.  React component static build
 
@@ -242,7 +242,7 @@ Some components are created with React (see [documentation](https://github.com/s
     foreman start -f Procfile.hot
     ```
 
-1.  If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process.
+1.  If you need to debug the Rails parts of AVA ONE with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process.
 
 1.  React component static build, React client only
 
@@ -256,7 +256,7 @@ Some components are created with React (see [documentation](https://github.com/s
     foreman start -f Procfile.client-hot
     ```
 
-### Setting up Sharetribe for production
+### Setting up AVA ONE for production
 
 Before starting these steps, perform [steps 1-5 from above](#setting-up-the-development-environment).
 
@@ -343,15 +343,15 @@ If you want to use S3 to host your images, you need to do a bit more configurati
 
 1. Create a IAM role which has full S3 access.  Save the AWS access and secret keys.
 
-1. In the S3 console, create two buckets, one for upload and one for permanent storage.  For example `your-sharetribe-images` and `your-sharetribe-images-tmp`.
+1. In the S3 console, create two buckets, one for upload and one for permanent storage.  For example `your-AVA ONE-images` and `your-AVA ONE-images-tmp`.
 
-1. Set the upload bucket (`your-sharetribe-images-tmp`) to have an expiration (for example, of 14 days) using [lifecycle management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
+1. Set the upload bucket (`your-AVA ONE-images-tmp`) to have an expiration (for example, of 14 days) using [lifecycle management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
 
 1. [Enable CORS on the upload bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html).
 
-1. Set the following configuration in your sharetribe `config.yml`: `s3_bucket_name: "your-sharetribe-images"` `s3_upload_bucket_name:  "your-sharetribe-images-tmp"`
+1. Set the following configuration in your AVA ONE `config.yml`: `s3_bucket_name: "your-AVA ONE-images"` `s3_upload_bucket_name:  "your-AVA ONE-images-tmp"`
 
-1. Add your AWS keys to the sharetribe app.  The best way to do that is via environment variables, rather than checking them into your `config.yml`.  Set the `aws_access_key_id` and `aws_secret_access_key` environment variables to the values for the IAM user.
+1. Add your AWS keys to the AVA ONE app.  The best way to do that is via environment variables, rather than checking them into your `config.yml`.  Set the `aws_access_key_id` and `aws_secret_access_key` environment variables to the values for the IAM user.
 
 1. (Optional) When you enable S3, uploaded images are linked directly to the S3 bucket. If you want to serve these assets through CDN, you can set the `user_asset_host` configuration option in addition to `asset_host` in `config/config.yml`.
 
@@ -381,23 +381,23 @@ Here's a sample CORS configuration that allows anyone to post to your bucket.  N
 
 Default configuration settings are stored in `config/config.default.yml`. If you need to change these, use the `config/config.yml` file to override the defaults. You can also set configuration values to environment variables.
 
-React components can be created using hot module replacement HMR technique in Styleguide (http://localhost:9001/) path in local development environment. Webpack is used to bundle React components for deployments and hot loading. Related webpack configs can be found from folder sharetribe/client/
+React components can be created using hot module replacement HMR technique in Styleguide (http://localhost:9001/) path in local development environment. Webpack is used to bundle React components for deployments and hot loading. Related webpack configs can be found from folder AVA ONE/client/
 
 ### Unofficial installation instructions
 
-Use these instructions to set up and deploy Sharetribe for production in different environments. They have been put together by the developer community, and are not officially maintained by the Sharetribe core team. The instructions might be somewhat out of date.
+Use these instructions to set up and deploy AVA ONE for production in different environments. They have been put together by the developer community, and are not officially maintained by the AVA ONE core team. The instructions might be somewhat out of date.
 
-If you have installation instructions that you would like to share, don't hesitate to share them at the [Sharetribe community forum](https://www.sharetribe.com/community).
+If you have installation instructions that you would like to share, don't hesitate to share them at the [AVA ONE community forum](https://www.AVA ONE.com/community).
 
-- [Deploying Sharetribe to Heroku](https://gist.github.com/svallory/d08e9baa88e18d691605) by [svallory](https://github.com/svallory)
-- [How to install Sharetribe on Centos 7.x](https://medium.com/@resilientbeast/how-to-install-sharetribe-on-centos-7-x-cbdb6d0366e5) by [Arek Hukalowicz](https://www.linkedin.com/in/arek-hukalowicz-8ab0228a/)
+- [Deploying AVA ONE to Heroku](https://gist.github.com/svallory/d08e9baa88e18d691605) by [svallory](https://github.com/svallory)
+- [How to install AVA ONE on Centos 7.x](https://medium.com/@resilientbeast/how-to-install-AVA ONE-on-centos-7-x-cbdb6d0366e5) by [Arek Hukalowicz](https://www.linkedin.com/in/arek-hukalowicz-8ab0228a/)
 
 
 ## Payments
 
 PayPal and Stripe are the two available payment gateways integrated.
 
-PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the source available version of Sharetribe Go in the future.
+PayPal payments are only available on marketplaces hosted at [AVA ONE.com](https://www.AVA ONE.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the source available version of AVA ONE Go in the future.
 
 Stripe can be used in the source available version, as long as your country and currency are supported.
 
@@ -417,13 +417,13 @@ and
 
 ## Custom Landing Page
 
-Sharetribe Go includes a Custom Landing Page add-on and editor. You can [learn more about it here](https://www.sharetribe.com/products/go/landing-page/).
+AVA ONE Go includes a Custom Landing Page add-on and editor. You can [learn more about it here](https://www.AVA ONE.com/products/go/landing-page/).
 
-The Custom Landing Page Editor should be available automatically, from [v9.1.0](https://github.com/sharetribe/sharetribe/releases/tag/v9.1.0). If this is not the case, you can find plenty of useful information in the *[Landing Pages for Idiots Like Me](https://www.sharetribe.com/community/t/landing-pages-for-idiots-like-me/2788)* post written by [Jeremy D Evans](https://github.com/jeremyevans6). 
+The Custom Landing Page Editor should be available automatically, from [v9.1.0](https://github.com/AVA ONE/AVA ONE/releases/tag/v9.1.0). If this is not the case, you can find plenty of useful information in the *[Landing Pages for Idiots Like Me](https://www.AVA ONE.com/community/t/landing-pages-for-idiots-like-me/2788)* post written by [Jeremy D Evans](https://github.com/jeremyevans6). 
 
 ## Versioning
 
-Sharetribe follows [Semantic Versioning](http://semver.org/) where possible.
+AVA ONE follows [Semantic Versioning](http://semver.org/) where possible.
 
 Given a version number MAJOR.MINOR.PATCH, increment the:
 
@@ -431,7 +431,7 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
-See the document [How Sharetribe applies Semantic Versioning](docs/semantic-versioning.md) to read more how Semantic Versioning is applied in practice.
+See the document [How AVA ONE applies Semantic Versioning](docs/semantic-versioning.md) to read more how Semantic Versioning is applied in practice.
 
 ## Changes
 
@@ -446,7 +446,7 @@ For production use we recommend you to upgrade only when new version is released
 
 ## Contribute
 
-Would you like to make Sharetribe better?
+Would you like to make AVA ONE better?
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps to contribute.
 
@@ -457,18 +457,18 @@ See [RELEASE.md](RELEASE.md) for information about how to make a new release.
 
 ## Translation
 
-Sharetribe uses [WebTranslateIt (WTI)](https://webtranslateit.com/en) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to [info@sharetribe.com](mailto:info@sharetribe.com) and mention that you would like to become a translator.
+AVA ONE uses [WebTranslateIt (WTI)](https://webtranslateit.com/en) for translations. If you'd like to translate AVA ONE to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to [info@AVA ONE.com](mailto:info@AVA ONE.com) and mention that you would like to become a translator.
 
 All language additions and modifications (except for English) should be done through the WTI tool. We do not accept Pull Requests that add or modify languages (except English).
 
 
 ## Bug tracker
 
-Browse open issues and submit new ones in [Github Issues](http://github.com/sharetribe/sharetribe/issues).
+Browse open issues and submit new ones in [Github Issues](http://github.com/AVA ONE/AVA ONE/issues).
 
-We are dedicating the Github Issue only for bugs in the Sharetribe codebase. For general questions, start a new thread in the [Community forum](https://www.sharetribe.com/community/) instead of opening a new Issue.
+We are dedicating the Github Issue only for bugs in the AVA ONE codebase. For general questions, start a new thread in the [Community forum](https://www.AVA ONE.com/community/) instead of opening a new Issue.
 
-After you have opened a new issue, the team will handle it according to these instructions: [How to handle Github Issues](https://github.com/sharetribe/sharetribe/blob/master/docs/how-to-handle-github-issues.md)
+After you have opened a new issue, the team will handle it according to these instructions: [How to handle Github Issues](https://github.com/AVA ONE/AVA ONE/blob/master/docs/how-to-handle-github-issues.md)
 
 
 ## Documentation
@@ -478,11 +478,11 @@ More detailed technical documentation is located in [docs/](docs/)
 
 ## Community forum
 
-The Sharetribe Community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/).
+The AVA ONE Community forum is located at [https://www.AVA ONE.com/community/](https://www.AVA ONE.com/community/).
 
 The forum is a great place to ask support and help for example with issues during the installation.
 
 
 ## License
 
-Sharetribe Go is source-available under the Sharetribe Community Public License. See [LICENSE](LICENSE) for details.
+AVA ONE Go is source-available under the AVA ONE Community Public License. See [LICENSE](LICENSE) for details.
