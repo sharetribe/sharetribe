@@ -105,4 +105,17 @@
 //= require stripe_payment
 //= require confirm_conversation
 //= require punycode
+
+//= require jquery-3.6.0.min
+
+//= require bootstrap.bundle.min
+//= require waypoints.min
+//= require swiper-bundle.min
+//= require countdown.min
+//= require jquery.counterup.min
+//= require wow.min
+//= require jquery.simpleLoadMore.min
+//= require isotope.pkgd.min
+//= require functions
+
 //= require_self

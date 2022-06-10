@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <link rel="icon" type="image/png" href=<%=image_url "favicon.png" %>>
+  <title>AvaOne</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <title>AVA ONE | HOME</title>
+</head>
+
+<body class="home-1">
+<div class="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-icon">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+<%= yield %>
+</body>
+</html>

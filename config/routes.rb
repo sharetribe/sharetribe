@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   mount Mercury::Engine => '/'
+  root to: 'dashboard#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

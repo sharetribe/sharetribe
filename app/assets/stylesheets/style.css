@@ -1,0 +1,5119 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Seccion
+   ========================================================================== */
+/**
+ * remover margen
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * renderizado
+ */
+main {
+  display: block;
+}
+
+/**
+ * correccion fuente
+ * `articulo contexto en firefox
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Contenido grupo
+   ========================================================================== */
+/**
+ * 1. agregar firefox
+ * 2. Mostrar la collecion en Edge
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. correccion de la inerencia en las fuente.
+ * 2. correct la etiqueta em del tamaño de la fuente
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Tamaño del texto
+   ========================================================================== */
+/**
+ * Remover gradiente en el fondo de las IE.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remueve el borde del boton en Chrome
+ * 2. Adiciona una correccion del decorado del textos en los navegadores.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * adiciona un corrector de fuente para el grosor in chrome
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. correciona la inerehencia y el escalado de las fuentes en todos los navegadores.
+ * 2. correct la etiqueta em del tamaño de la fuente
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Correcion del tamaño de fuente .
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * previene el escalado del texto por fuera de los limites.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Contenido embebido
+   ========================================================================== */
+/**
+ * Remover el boder de las imagenes
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. cambiar el estilo en todos los navegadores.
+ * 2. remover el marge en Firefox y Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * mostrar la colecciòn en IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * remover transformacion texto.
+ * remover transformacion texto en firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * correccion de stilo en clicks.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * remover el border interno.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * restaurar el estilo.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correccion del padding.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. correccion wrapping.
+ * 2. Correcion del color fieldset.
+ * 3. remover padding para desarrolladores.
+ * 4. correccion `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * correccion de las alineacion .
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * remover scrollbar vertical predeterminado IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. correcion del tamaño de la caja IE 10.
+ * 2. remover el tamaño IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * cursor estilo.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. antigua apariencia.
+ * 2. delineado corrector.
+ */
+[type=search] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ *remover el padding interno.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. estilo para correccion cursor.
+ * 2. cambio del estilo Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interaccion
+   ========================================================================== */
+/*
+ * correcta visualizacion.
+ */
+details {
+  display: block;
+}
+
+/*
+ * correcion visualizacion en navegadores.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Correcion IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Adiciona correcion display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+/**
+ * tipografia basica
+ */
+body {
+  color: #6f7d95;
+  font-size: 1rem;
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f6f9;
+  -webkit-font-smoothing: antialiased;
+}
+body.home-2 {
+  background-color: #f4f6f9;
+}
+body.home-5 {
+  background-color: #f4f6f9;
+  background-image: url(../images/texture/texture.png);
+  background-repeat: repeat;
+  background-position: left top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #030e35;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  margin: initial;
+}
+
+h1 {
+  font-size: calc(1.5rem + 3vw);
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 3.75rem;
+  }
+}
+
+h2 {
+  font-size: calc(1.425rem + 2.1vw);
+}
+@media (min-width: 1200px) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+  h3 {
+    font-size: 1.875rem;
+  }
+}
+
+h4 {
+  font-size: calc(1.275rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  h4 {
+    font-size: 1.5rem;
+  }
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1.125rem;
+}
+
+a > h1,
+a > h2,
+a > h3,
+a > h4,
+a > h5,
+a > h6 {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+a {
+  color: #6f7d95;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+a:hover {
+  color: #822cff;
+  text-decoration: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+@keyframes scrollUp {
+  0% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes scrollUp-ulta {
+  0% {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+/* @@@@@@@@@@@@@  Extension propiedad CSS start here  @@@@@@@@@@@@@@ */
+.contact-info-wrapper .contact-info-content .contact-info-item .contact-info-inner, .contact-item, .comment-respond .add-comment .comment-form, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags, .blog-section .main-blog .blog-wrapper .post-item .tags-section, .blog-section .post-item-inner .blog-footer, .coming-wrapper .event-count .rounded-circle, .account-form .form-group .checkgroup, .variation-items, .item-details-countdown .item-countdown-list, .nft-item-title, .item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info, .crypto-page, .info-card .info-card-content .info-list li, .profile-section .member-profile .profile-item .profile-information .profile-contact li a, .profile-section .member-profile .profile-item .profile-information .profile-contact, .profile-section .member-profile .profile-item .profile-information, .header-title, .seller-section .seller-wrapper, .auction-section .section-header .header-title, .header__search button, .header__search, .widget.letest-product .widget-wrapper ul li, .widget.widget-tags ul.widget-wrapper, .explore-filter, .explore-category .excat-item a, .paginations ul li a, .wallet-content, .wallet-tab, .seller-item .assets-owner, .seller-item .seller-part, .seller-item .seller-inner, .nft-item-bottom .nft-thumb .nft-countdown, .nft-item.blog-item .nft-content .meta-info, .section-header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-link-item .footer-link-list .footer-link, .footer-top form, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span, .blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive, .blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider, .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content blockquote p, .error-section .section-wrapper .error-item .error-thumb, .or span, .or, .item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item, .item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info .item-info-title, .item-desc-part .item-desc-content .nav-tabs .nav-link, .help-item.style-2, .media-wrapper .tab-content .tab-pane .media-content .album .album-thumb, .media-wrapper .nav-tp-abs .nav-item .nav-link.active span, .media-wrapper .nav-tp-abs .nav-item .nav-link.active, .media-wrapper .nav-tp-abs .nav-item .nav-link span, .info-card .info-card-content .info-list li .info-name, .profile-details .profile-nav .nav-tabs .dropdown, .profile-details .profile-nav .nav-tabs .nav-link.active, .profile-details .profile-nav .nav-tabs .nav-link .item-number, .profile-section .member-profile .profile-item .profile-information .profile-pic, .profile-section .member-profile .profile-item .profile-cover, .banner-section.style-1 .banner-wrapper, .banner-section, .live-icon, .page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li a, .header__nav-menu a, .header__nav-link[data-bs-toggle=dropdown], .header__nav-item, .header__nav, .header__content, .select-wrapper.arrow-orange, .select-wrapper.arrow-blue, .widget.widget-search .search-wrapper, .scrollToTop i, .paginations ul li a, .custom-upload, .seller-icon, .veryfied, .nft-item-bottom .nft-thumb, .nft-item, .default-btn {
+  position: relative;
+}
+
+.footer-link-item .footer-link-list .footer-link:before, .footer-top form button, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span::after, .blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-prev,
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-next, .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content blockquote p::before, .or::before, .or::after, .item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item::before, .item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info .item-info-title:after, .item-desc-part .item-desc-content .nav-tabs .nav-link.active:after, .help-item.style-2 span, .media-wrapper .tab-content .tab-pane .media-content .album .album-thumb::after, .media-wrapper .tab-content .tab-pane .media-content .album .album-thumb:before, .media-wrapper .nav-tp-abs .nav-item .nav-link.active span:before, .media-wrapper .nav-tp-abs .nav-item .nav-link span:before, .info-card .info-card-content .info-list li .info-name:after, .profile-section .member-profile .profile-item .profile-information .profile-pic .custom-upload, .profile-section .member-profile .profile-item .profile-cover .custom-upload, .banner_shape__1, .banner_shape__2, .live-icon svg, .page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li a::before, .header__nav-link[data-bs-toggle=dropdown]:after, .header__nav-link[data-bs-toggle=dropdown]:before, .header__search button, .header__search, .header__btn, .select-wrapper.arrow-orange:after, .select-wrapper.arrow-blue:after, .widget.widget-search .search-wrapper button, .nft-search-input button, .preloader .preloader-inner .preloader-icon span, .preloader .preloader-inner, .custom-upload input[type=file], .seller-icon:after, .veryfied:after, .nft-item-bottom .nft-thumb .nft-countdown {
+  position: absolute;
+  content: "";
+}
+
+.footer-section, .comments .comment-list .comment .com-content, .comments .comment-list .comment .com-image, .comments .comment-list .comment, .blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive, .blog-section .post-item-inner .post-thumb, .variation-item, .media-wrapper .tab-content .tab-pane .media-content .media-thumb, .profile-section .member-profile .profile-item .profile-information .profile-pic, .profile-section .member-profile .profile-item .profile-cover, .banner-section, .hot-section .hot-holder, .auction-section .auction-holder, .page-header-section.style-1, .widget.letest-product .widget-wrapper ul li .product-thumb, .widget.recipe-categori, .widget.widget-instagram ul.widget-wrapper li a, .widget .widget-header, .profile-widget .widget-title, .preloader, .custom-upload, .nft-item.collection-item .nft-coll-thumb, .nft-item, .default-btn, .nft-item.blog-item .nft-content h4 a, .nft-item .single-author h6 a, .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content h3 a, .blog-section .post-item-inner .post-content h3 > a,
+.blog-section .post-item-inner .post-content h4 > a, .widget.widget-post ul.widget-wrapper li .post-content a h6 {
+  overflow: hidden;
+}
+
+.comment-respond .add-comment .comment-form .default-btn, .blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-prev,
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-next, .account-form .form-group .checkgroup label, .account-form .form-group .checkgroup input[type=checkbox], .account-form .form-group .checkgroup, .create-nft .item-category-field .item-cat-list .item-cat-btn, .widget.widget-search .search-wrapper button, .custom-upload input[type=file], .custom-upload .file-btn, .custom-upload, .wallet-tab {
+  cursor: pointer;
+}
+
+.footer-top form input, .contact-info-wrapper .contact-info-content .contact-info-item, .blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive iframe, .blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive, .blog-section .post-item-inner .post-thumb a img, .or::before, .or::after, .account-form .form-group button, .account-form .form-group input, .crypto-page, .media-wrapper .tab-content .tab-pane .media-content .album .album-thumb img, .profile-section .member-profile .profile-item .profile-information .profile-pic img, .profile-section .member-profile .profile-item .profile-cover img, .explore-section .section-header .nft-filter .form-floating, .explore-section .section-header .nft-filter h3, .explore-section .section-header .nft-filter, .assets-section .nft-item, .header__nav, .header__search, .header__content, .widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu, .widget.shop-widget .widget-wrapper .shop-menu li a, .widget.widget-post ul.widget-wrapper li .post-thumb a img, .preloader, .explore-filter, .explore-category .excat-item a, .nft-item-bottom .nft-thumb img, .nft-item.collection-item .nft-coll-thumb .single-thumb img, .nft-item.blog-item .nft-thumb img, .nft-item.style-2 .nft-thumb img {
+  width: 100%;
+}
+
+.or::before, .or::after, .profile-section .member-profile .profile-item .profile-information .profile-pic img, .banner_shape__1 img, .banner_shape__2 img, .banner_shape__1, .banner_shape__2, .header__actions, .header__logo, .widget.widget-post ul.widget-wrapper li .post-thumb a, .preloader, .explore-category .excat-item a {
+  height: 100%;
+}
+
+.footer-top form button, .footer-top form input, .comments .comment-list .comment .com-content .com-title .reply a, .blog-section .main-blog .blog-wrapper .post-item.code-post .post-item-inner .post-thumb .code-content p, .coming-wrapper .event-count .rounded-circle span, .item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item p a, .assets-section .section-header .header-content .asset-filter-list .asset-filter-btn, .view-all-btn, .page-header-section.style-1 .page-header-content .page-header-inner .page-title .title-text, .page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li a {
+  font-weight: 700;
+}
+
+.blog-section .post-item-inner .blog-footer .blog-comment, .page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li.active {
+  font-weight: 400;
+}
+
+.variation-items, .explore-section .section-header, .seller-section .seller-wrapper, .page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb, .header__search button, .widget.widget-tags ul.widget-wrapper, .explore-category .excat-item a, .paginations ul li a, .wallet-tab {
+  justify-content: center;
+}
+
+.comments .comment-list .comment .com-content .com-title, .blog-section .main-blog .blog-wrapper .post-item .tags-section, .blog-section .post-item-inner .blog-footer, .crypto-page, .header__content, .seller-item .seller-inner, .section-header {
+  justify-content: space-between;
+}
+
+.header__nav-menu a, .header__nav-link, .header__search, .header__logo {
+  justify-content: flex-start;
+}
+
+.header__actions {
+  justify-content: flex-end;
+}
+
+.contact-info-wrapper .contact-info-content .contact-info-item .contact-info-inner, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags, .blog-section .main-blog .blog-wrapper .post-item .tags-section, .blog-section .post-item-inner .blog-footer, .account-form .form-group .checkgroup, .item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info, .profile-details .tab-content .activity-page .activity-tab .nav, .profile-details .profile-nav .nav-tabs, .profile-section .member-profile .profile-item .profile-information .profile-contact li a, .profile-section .member-profile .profile-item .profile-information, .header-title, .auction-section .section-header .header-title, .col-author, .header__nav-menu a, .header__nav-link, .header__search button, .header__search, .wallet-btn a, .header__actions, .header__logo, .header__content, .explore-category .excat-item a, .paginations ul li a, .wallet-content, .wallet-tab, .seller-item .assets-owner, .seller-item .seller-part, .seller-item .seller-inner, .nft-item-bottom .nft-thumb .nft-countdown, .nft-item.blog-item .nft-content .meta-info, .section-header {
+  align-items: center;
+}
+
+.blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive, .blog-section .post-item-inner .post-content .meta, .blog-section .post-item-inner .post-thumb a img, .blog-section .post-item-inner .post-thumb a, .item-details-countdown .item-countdown-list li .days,
+.item-details-countdown .item-countdown-list li .hours,
+.item-details-countdown .item-countdown-list li .minutes,
+.item-details-countdown .item-countdown-list li .seconds, .item-desc-part .item-desc-thumb img, .sponsor-section .sponsor-img, .header__btn, .header, .widget.shop-widget .widget-wrapper .shop-menu li a {
+  display: block;
+}
+
+.comments .comment-list .comment .com-content .com-title .com-title-meta span, .blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li a, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li a, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span i, .account-bottom .social-media li a, .item-desc-part .item-desc-content .bids-tab span, .view-all-btn span, .header__action--profile .dropdown-toggle span:nth-of-type(1), .preloader .preloader-inner .preloader-icon span, .preloader .preloader-inner .preloader-icon, .custom-upload, .nft-item-bottom .nft-content .nft-bid, .nft-item.style-2 .nft-content .author-thumb, .nft-item .nft-item-top .more-part .dropstart > a i, .nft-item .nft-item-top .more-part .dropstart > a, .default-btn {
+  display: inline-block;
+}
+
+.media-wrapper .tab-content .tab-pane .media-content .media-upload .upload-now .custom-upload, .media-wrapper .nav-tp-abs .nav-item .nav-link.active span, .media-wrapper .nav-tp-abs .nav-item .nav-link span, .media-wrapper .nav-tp-abs .nav-item .nav-link, .media-wrapper .nav-tp-abs, .info-card, .profile-details .tab-content .activity-page .activity-tab .nav .custom-select select, .profile-details .profile-nav .nav-tabs .nav-link .item-number {
+  border-radius: 2px;
+}
+
+/* @@@@@@@@@@@@@  Extension propiedad CSS Writing Now  @@@@@@@@@@@@@@ */
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content h3 a, .blog-section .post-item-inner .post-content h3 > a,
+.blog-section .post-item-inner .post-content h4 > a, .widget.widget-post ul.widget-wrapper li .post-content a h6 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.nft-item.blog-item .nft-content h4 a, .nft-item .single-author h6 a {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+/* @@@@@@@@@@@@@  Extension propiedad CSS Writing Now  @@@@@@@@@@@@@@ */
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li a:hover, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span::after, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span, .blog-section .main-blog .blog-wrapper .post-item.code-post .post-item-inner .post-thumb, .blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-prev:hover,
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-next:hover, .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content blockquote, .or::before, .or::after, .or, .account-form .form-group button, .crypto-page #cryptoCopy, .load-btn .lab-btn, .media-wrapper .tab-content .tab-pane .media-content .media-upload .upload-now .custom-upload, .media-wrapper .nav-tp-abs .nav-item .nav-link.active, .media-wrapper .nav-tp-abs .nav-item .nav-link span, .profile-details .tab-content .activity-page .activity-tab .nav .nav-item .nav-link.active, .profile-details .profile-nav .nav-tabs .dropdown ul li .dropdown-item:hover, .profile-details .profile-nav .nav-tabs .nav-link .item-number, .profile-section .member-profile .profile-item .profile-information .profile-contact li a .icon, .widget.widget-tags ul.widget-wrapper li a.active, .widget.widget-tags ul.widget-wrapper li a:hover, .paginations ul li a.active, .paginations ul li a:hover {
+  background: #822cff;
+}
+
+.media-wrapper .tab-content .tab-pane, .media-wrapper .nav-tp-abs .nav-item .nav-link.active span, .media-wrapper .nav-tp-abs {
+  background: #1d1d1eed;
+}
+
+.footer-top .social-list .social-link a, .blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li a, .blog-section .main-blog .blog-wrapper .post-item.code-post .post-item-inner .post-thumb .code-content, .blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-prev,
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-next, .error-section .section-wrapper .error-item, .account-bottom .social-media li a, .account-wrapper, .variation-item, .create-nft .upload-item, .item-details-countdown .item-countdown-list li, .item-desc-part .item-desc-content .bids-tab, .load-btn, .profile-section .member-profile .profile-item .profile-information .profile-contact li a .icon, .profile-section .member-profile .profile-item .profile-information .profile-name, .explore-section .section-header .nft-filter h3, .hot-section .section-header .header-content .hot-nav .hot-prev,
+.hot-section .section-header .header-content .hot-nav .hot-next, .auction-section .section-header .header-content .auction-nav .auction-prev,
+.auction-section .section-header .header-content .auction-nav .auction-next, .cat-inner, .page-header-section.style-1, .header__action--profile .dropdown-toggle span:nth-of-type(1), .scrollToTop, .nft-item-bottom .nft-thumb .nft-countdown li, .nft-item.style-2 .nft-content, .nft-item .nft-item-top .more-part .dropstart > a, .section-header .arrow-right,
+.section-header .arrow-left {
+  text-align: center;
+}
+
+.comments .comment-list .comment, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li {
+  list-style: none;
+}
+
+/* @@@@@@@@@@@@@  Extension propiedad Margin 10 - 30 CSS Writing Now  @@@@@@@@@@@@@@ */
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags, .account-form .form-group .checkgroup label, .page-header-section.style-1, .widget.letest-product .widget-wrapper ul li .product-content h6, .widget.letest-product .widget-wrapper ul, .widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu, .widget.shop-widget .widget-wrapper .shop-menu, .widget.widget-post ul.widget-wrapper li .post-content p, .profile-widget .widget-content, .paginations ul {
+  margin: 0;
+}
+
+.media-wrapper .tab-content .tab-pane .media-content .album .album-thumb {
+  margin: 30px;
+}
+
+.footer-link-item .footer-link-list, .contact-info-wrapper .contact-info-content .contact-info-item .contact-info-inner .contact-info-details p, .comment-respond h5, .comments .comment-list .comment .com-content .com-title .com-title-meta h6, .comments .widget-title h5, .blog-section .main-blog .blog-wrapper .post-item.code-post .post-item-inner .post-thumb .code-content p, .item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item p, .item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info p, .wallet-title p, .media-wrapper .tab-content .tab-pane .media-title h2, .info-card .info-card-content .info-list li p, .info-card .info-card-content p, .info-card .info-card-title h6, .profile-section .member-profile .profile-item .profile-information .profile-contact li a .text p, .page-header-section.style-1 .page-header-content .page-header-inner .page-title p, .widget.letest-product .widget-wrapper ul li .product-content p, .widget .widget-wrapper, .widget .widget-header .title, .widget:last-child, .profile-widget .widget-title h5, .profile-widget:last-child, .wallet-item .wallet-content p, .activity-item .lab-inner .lab-content p, .seller-item .seller-inner p, .nft-item-bottom .nft-content p, .nft-item-bottom .nft-thumb .nft-countdown, .nft-item.collection-item .collection-title p, .nft-item.blog-item .nft-content .meta-info date,
+.nft-item.blog-item .nft-content .meta-info p, .nft-item.style-3 .nft-content p, .nft-item.style-2 .nft-content .author-details p, .nft-item .nft-item-top .author-part .author-list, .section-header .arrows {
+  margin-bottom: 0;
+}
+
+.item-details-countdown .item-countdown-list li .days,
+.item-details-countdown .item-countdown-list li .hours,
+.item-details-countdown .item-countdown-list li .minutes,
+.item-details-countdown .item-countdown-list li .seconds, .widget.widget-post ul.widget-wrapper li .post-content a h6, .profile-widget.search-widget .widget-content .nft-search-input, .nft-item.collection-item .collection-title h5, .nft-item.blog-item .nft-content h4 {
+  margin-bottom: 5px;
+}
+
+.comments .comment-list .comment .com-content .com-title .com-title-meta span, .buying-btns, .item-price h4, .item-desc-part .item-desc-content .bids-tab span, .wallet-title h4, .media-wrapper .tab-content .tab-pane .media-content .media-upload, .accordion-body .form-check:not(:last-child), .terms-header h4, .wallet-item .wallet-content h5, .activity-item .lab-inner .lab-content h4, .nft-item.blog-item .nft-thumb, .nft-item.style-2 .nft-content .author-details h5 {
+  margin-bottom: 10px;
+}
+
+.contact-info-wrapper .contact-info-title h4, .contact-form-wrapper .contact-form h4, .blog-section .main-blog .blog-wrapper .post-item.code-post .post-item-inner .post-thumb .code-content img, .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content h3, .account-bottom .subtitle, .item-details-countdown h4, .related-linklist li:not(:last-child), .terms-text ul li h5,
+.terms-text ol li h5, .wallet-item .wallet-thumb, .nft-item.blog-item .nft-content .meta-info, .nft-item.style-3 .nft-content h5 {
+  margin-bottom: 15px;
+}
+
+.footer-link-item h5, .footer-top .ft-header, .comments .comment-list .comment .com-content, .comments .comment-list .comment .com-image, .error-section .section-wrapper .error-item .error-content h3, .account-wrapper .title, .create-nft .item-category-field h4, .item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item, .item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info, .item-desc-part .item-desc-content .details-tab > p, .cant-find-content > p, .cant-find-content h4, .h4-title, .banner-content h2, .assets-section .nft-item, .page-header-section.style-1 .page-header-content .page-header-inner .page-title, .header__nav-item, .terms-text ul li:not(:last-child),
+.terms-text ol li:not(:last-child), .explore-filter .nft-item, .wallet-content .wallet-desc h5, .nft-item-bottom .nft-thumb {
+  margin-bottom: 20px;
+}
+
+.account-form .form-group, .item-desc-part .item-desc-content .details-tab .author-profile, .item-desc-part .item-desc-content .nav-tabs, .related-help h5, .terms-header {
+  margin-bottom: 25px;
+}
+
+.comments, .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content blockquote, .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content p, .blog-section .main-blog .blog-wrapper .post-item .post-item-inner, .error-section .section-wrapper .error-item .error-content p, .nft-item-title, .wallet-title, .collection-brn-content h2, .widget, .profile-widget, .wallet-content .wallet-desc .default-btn, .nft-item.style-3 .nft-thumb, .section-header, .mb-30 {
+  margin-bottom: 30px;
+}
+
+.item-price, .item-details-countdown, .item-desc-part .item-desc-thumb, .wallet-tab-list {
+  margin-bottom: 40px;
+}
+
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list {
+  margin-top: 0;
+}
+
+.media-wrapper .tab-content .tab-pane, .profile-section .member-profile .profile-item .profile-information .profile-name {
+  margin-top: 10px;
+}
+
+.load-more__counter {
+  margin-top: 20px;
+}
+
+.comment-respond, .load-btn {
+  margin-top: 30px;
+}
+
+.blog-section .post-item-inner .blog-footer .viewall {
+  margin-left: 0;
+}
+
+.crypto-page #cryptoCopy, .info-card .info-card-content .info-list li .info-name:after {
+  margin-left: 5px;
+}
+
+.load-btn .lab-btn i, .media-wrapper .nav-tp-abs .nav-item .nav-link.active span, .media-wrapper .nav-tp-abs .nav-item .nav-link span, .profile-details .profile-nav .nav-tabs .nav-link .item-number, .page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li.active {
+  margin-left: 10px;
+}
+
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li:last-child, .account-bottom .social-media li:last-child, .profile-section .member-profile .profile-item .profile-information .profile-pic .custom-upload .file-btn i, .widget.shop-widget .widget-wrapper .shop-menu li.menu-item-has-children {
+  margin-right: 0;
+}
+
+.blog-section .post-item-inner .blog-footer .blog-comment i, .profile-section .member-profile .profile-item .profile-information .profile-contact li a .icon, .wallet-btn a span, .header__action--profile .dropdown-toggle span:nth-of-type(1), .widget.widget-archive .widget-wrapper li a i, .widget.widget-category .widget-wrapper li a i, .accordion-button i, .custom-upload i, .nft-item.blog-item .nft-content .meta-info date i,
+.nft-item.blog-item .nft-content .meta-info p i {
+  margin-right: 5px;
+}
+
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li, .account-bottom .social-media li, .nft-item-bottom .nft-content .currency-img {
+  margin-right: 10px;
+}
+
+.account-form .form-group .checkgroup input[type=checkbox], .profile-details .tab-content .activity-page .activity-tab .nav .custom-select {
+  margin-right: 15px;
+}
+
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span, .header__actions {
+  margin-right: 20px;
+}
+
+/* @@@@@@@@@@@@@  Extension propiedad padding 10 - 30 CSS Writing Now  @@@@@@@@@@@@@@ */
+.comments .comment-list .comment .com-content:last-child, .blog-section .main-blog .blog-wrapper .post-item .tags-section .tags, .blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive, .page-header-section.style-1, .widget.letest-product, .widget.shop-widget, .widget.recipe-categori, .widget.widget-tags ul.widget-wrapper li, .widget.widget-tags, .widget.widget-instagram ul.widget-wrapper li, .widget.widget-instagram, .widget.widget-post ul.widget-wrapper, .widget.widget-post, .widget.widget-archive .widget-wrapper li, .widget.widget-category .widget-wrapper li, .widget.widget-search .search-wrapper button, .preloader .preloader-inner .preloader-icon {
+  padding: 0;
+}
+
+.profile-details .tab-content .activity-page .activity-tab .nav .custom-select select {
+  padding: 5px;
+}
+
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li a, .nft-item.blog-item .nft-content, .nft-item.blog-item .nft-inner {
+  padding: 10px;
+}
+
+.media-wrapper .nav-tp-abs, .wallet-tab {
+  padding: 15px;
+}
+
+.media-wrapper .tab-content .tab-pane .media-content, .profile-widget .widget-content, .wallet-content, .wallet-item {
+  padding: 20px;
+}
+
+.contact-form-wrapper, .comment-respond .add-comment .comment-form, .ranking-wrapper, .info-card .info-card-content {
+  padding: 30px;
+}
+
+.account-wrapper {
+  padding: 40px;
+}
+
+.comments .comment-list .comment:last-child {
+  padding-bottom: 0;
+}
+
+.blog-section .post-item-inner .post-content .meta {
+  padding-bottom: 5px;
+}
+
+.widget.widget-post ul.widget-wrapper {
+  padding-bottom: 10px;
+}
+
+.widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu {
+  padding-bottom: 15px;
+}
+
+.profile-section .member-profile .profile-item .profile-information {
+  padding-bottom: 20px;
+}
+
+.page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb {
+  padding-top: 0;
+}
+
+.widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu {
+  padding-top: 15px;
+}
+
+.page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb {
+  padding-left: 0;
+}
+
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-next i, .blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-prev i {
+  padding-left: 5px;
+}
+
+.crypto-page #cryptoLink {
+  padding-left: 10px;
+}
+
+.item-desc-part .item-desc-content .history-tab, .widget.letest-product .widget-wrapper ul li .product-content {
+  padding-left: 14px;
+}
+
+.item-desc-part .item-desc-content .history-tab .item-histo-list {
+  padding-left: 20px;
+}
+
+.footer-link-item .footer-link-list .footer-link {
+  padding-left: 25px;
+}
+
+.widget.widget-archive .widget-wrapper li a.active, .widget.widget-archive .widget-wrapper li a:hover, .widget.widget-category .widget-wrapper li a.active, .widget.widget-category .widget-wrapper li a:hover {
+  padding-left: 30px;
+}
+
+.theme-color {
+  color: #822cff;
+}
+
+.yellow-color {
+  color: #00edc5;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.gap-15 {
+  gap: 15px;
+}
+
+.fs-36 {
+  font-size: calc(1.35rem + 1.2vw);
+}
+@media (min-width: 1200px) {
+  .fs-36 {
+    font-size: 2.25rem;
+  }
+}
+
+.mb-70 {
+  margin-bottom: 70px;
+}
+
+.mt-70 {
+  margin-top: 70px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+.default-btn {
+  text-decoration: none;
+  color: #fff;
+  padding: 0 1.7rem;
+  line-height: 40px;
+  border-radius: 4px;
+  font-size: 1rem;
+  transform-origin: right;
+  transition: all 0.3s ease;
+  background: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .default-btn {
+    padding: 0 2.25rem;
+    line-height: 50px;
+  }
+}
+.default-btn span {
+  position: inherit;
+  z-index: 1;
+}
+.default-btn.small-btn {
+  padding: 0 1rem;
+  line-height: 40px;
+  font-size: 0.875rem;
+}
+.default-btn.move-right:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  transition: transform 0.5s;
+  transform-origin: right;
+  transform: scaleX(0);
+  z-index: 0;
+}
+.default-btn.move-right:hover:before {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+.default-btn.move-left:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  transition: transform 0.5s;
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 0;
+}
+.default-btn.move-left:hover:before {
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+.default-btn.move-bottom:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  transition: transform 0.5s;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  z-index: 0;
+}
+.default-btn.move-bottom:hover:before {
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform 0.5s;
+}
+.default-btn.move-top:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  transition: transform 0.5s;
+  transform-origin: top;
+  transform: scaleY(0);
+  z-index: 0;
+}
+.default-btn.move-top:hover:before {
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 0.5s;
+}
+.default-btn.style-2 {
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  color: #fff;
+  border-radius: 4px;
+}
+.default-btn:hover {
+  color: #f4f6f9;
+}
+
+.padding-top {
+  padding-top: 90px;
+}
+@media (min-width: 992px) {
+  .padding-top {
+    padding-top: 140px;
+  }
+}
+
+.padding-bottom {
+  padding-bottom: 85px;
+}
+@media (min-width: 992px) {
+  .padding-bottom {
+    padding-bottom: 135px;
+  }
+}
+
+.pb-120 {
+  padding-bottom: 80px;
+}
+@media (min-width: 992px) {
+  .pb-120 {
+    padding-bottom: 120px;
+  }
+}
+
+.pb-100 {
+  padding-bottom: 70px;
+}
+@media (min-width: 992px) {
+  .pb-100 {
+    padding-bottom: 100px;
+  }
+}
+
+/*---------------* Section header start here *------------------*/
+.section-header {
+  gap: 15px;
+  padding-block: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.section-header .header-content {
+  line-height: 0;
+}
+.section-header .arrows {
+  gap: 5px;
+  padding: 0.5rem 0.75rem;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.section-header .arrow-right,
+.section-header .arrow-left {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  background: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+  color: #fff;
+  border-radius: 50%;
+}
+.section-header .arrow-right {
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+}
+
+/*---------------* Section header end here *------------------*/
+/*-------- --------------nft item start here------- -------*/
+.nft-item {
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+.nft-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+.nft-item .nft-inner {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(83, 4, 119, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.nft-item .nft-item-top {
+  padding: 15px;
+}
+.nft-item .nft-item-top .more-part .dropstart > a {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #6f7d95;
+  border-radius: 50%;
+}
+.nft-item .nft-item-top .more-part .dropstart > a i {
+  font-size: 14px;
+  transition: all 0.1s ease;
+}
+.nft-item .nft-item-top .more-part .dropstart > a:before {
+  display: none;
+}
+.nft-item .nft-item-top .more-part .dropstart > a:focus-visible {
+  outline: none;
+}
+.nft-item .nft-item-top .more-part .dropstart > a.show i {
+  transform: rotate(-90deg);
+}
+.nft-item .nft-item-top .more-part .dropstart > a:hover {
+  color: #030e35;
+}
+.nft-item .nft-item-top .more-part .dropstart .dropdown-menu {
+  min-width: 8rem;
+  background: #f4f6f9;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+}
+.nft-item .nft-item-top .more-part .dropstart .dropdown-menu li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.nft-item .nft-item-top .more-part .dropstart .dropdown-menu li:last-child {
+  border-bottom: none;
+}
+.nft-item .nft-item-top .more-part .dropstart .dropdown-menu li .dropdown-item {
+  color: #6f7d95;
+}
+.nft-item .nft-item-top .more-part .dropstart .dropdown-menu li .dropdown-item:hover {
+  background: transparent;
+  color: #822cff;
+}
+.nft-item .single-author {
+  gap: 10px;
+}
+.nft-item .single-author a img {
+  border: 1px solid #f4f6f9;
+  border-radius: 50%;
+  max-width: 44px;
+  object-fit: cover;
+}
+.nft-item .single-author:nth-child(2) {
+  transform: translateX(-12px);
+}
+.nft-item .single-author:nth-child(3) {
+  transform: translateX(-25px);
+}
+.nft-item .single-author h6 a {
+  color: #030e35;
+}
+.nft-item.style-2 .nft-content .author-thumb {
+  transform: translateY(-50%);
+}
+.nft-item.style-2 .nft-content .author-thumb img {
+  border-radius: 50%;
+  border: 2px solid #f4f6f9;
+  max-width: 65px;
+}
+.nft-item.style-2 .nft-content .author-thumb .veryfied:after {
+  width: 18px;
+  height: 18px;
+  font-size: 15px;
+}
+.nft-item.style-2 .nft-content .author-details {
+  margin-top: -20px;
+  padding: 0 20px 20px;
+}
+.nft-item.style-2 .nft-content .author-details h5 a {
+  color: #030e35;
+}
+.nft-item.style-2 .nft-content .author-details h5:hover a {
+  color: #822cff;
+}
+.nft-item.style-2 .nft-content .author-details p {
+  font-size: 1.125rem;
+  font-family: "Manrope", sans-serif;
+  color: #822cff;
+}
+.nft-item.style-3 .nft-inner {
+  padding-inline: 35px;
+  padding-block: 35px;
+}
+@media (min-width: 992px) {
+  .nft-item.style-3 .nft-inner {
+    padding-inline: 60px;
+    padding-block: 45px;
+  }
+}
+.nft-item.blog-item .nft-thumb img {
+  transition: all 0.3s ease;
+}
+.nft-item.blog-item .nft-content h4 a {
+  color: #030e35;
+}
+.nft-item.blog-item .nft-content .meta-info {
+  gap: 10px;
+}
+.nft-item.blog-item:hover .nft-content h4 a {
+  color: #822cff;
+}
+.nft-item.collection-item .badge {
+  background-color: #f4f6f9;
+  top: 10px;
+  right: 25px;
+  color: #6f7d95;
+  font-size: 14px;
+}
+.nft-item.collection-item .badge i {
+  color: #ff5757;
+}
+.nft-item.collection-item .coll-thumb-wrapper {
+  padding: 1rem;
+}
+.nft-item.collection-item .nft-coll-thumb {
+  cursor: w-resize;
+}
+.nft-item.collection-item .nft-coll-thumb .single-thumb img {
+  border-radius: 4px;
+}
+.nft-item.collection-item .collection-title {
+  padding: 1rem;
+}
+.nft-item.collection-item .collection-title h5 a {
+  color: #030e35;
+}
+.nft-item.collection-item .collection-title h5 a:hover {
+  color: #822cff;
+}
+.nft-item.collection-item .author-details {
+  padding: 1rem;
+  border-top: 1px solid #f5f5f5;
+}
+.nft-item:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.nft-item-bottom .nft-thumb {
+  padding-inline: 15px;
+}
+.nft-item-bottom .nft-thumb img {
+  border-radius: 10px;
+}
+.nft-item-bottom .nft-thumb .nft-countdown {
+  width: 92%;
+  left: 25px;
+  top: 10px;
+  gap: 10px;
+}
+.nft-item-bottom .nft-thumb .nft-countdown span {
+  font-size: 14px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+.nft-item-bottom .nft-thumb .nft-countdown li {
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 50%;
+}
+.nft-item-bottom .nft-thumb .badge {
+  background-color: #fff;
+  top: 10px;
+  right: 25px;
+  color: #6f7d95;
+  font-size: 14px;
+}
+.nft-item-bottom .nft-thumb .badge i {
+  color: #ff5757;
+}
+.nft-item-bottom .nft-content .content-title {
+  padding-inline: 15px;
+}
+.nft-item-bottom .nft-content .content-title h5 a {
+  color: #030e35;
+}
+.nft-item-bottom .nft-content .price-like {
+  padding: 15px;
+  border-top: 1px solid #f5f5f5;
+}
+.nft-item-bottom .nft-content .nft-status {
+  padding: 10px 15px;
+  font-weight: 600;
+}
+.nft-item-bottom .nft-content .nft-price p {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.nft-item-bottom .nft-content .nft-bid {
+  background-image: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 24px;
+  padding-inline: 0.5rem;
+  border-radius: 99px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .nft-item-bottom .nft-content .nft-bid {
+    padding-inline: 1rem;
+  }
+}
+.nft-item-bottom .nft-content .nft-bid:hover {
+  background-image: linear-gradient(-315deg, #734ae8 0%, #00d3c5 74%);
+}
+
+.veryfied:after {
+  content: "";
+  font-family: "IcoFont";
+  font-weight: 400;
+  color: #fff;
+  font-size: 12px;
+  right: 0;
+  bottom: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+  text-align: center;
+  border: 1px solid #fff;
+  line-height: 1.1;
+}
+
+/*----------------------------- objecto nft-----------*/
+/*--------------------------Objecto vendido----------------------------------*/
+.bg-blue {
+  background-image: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+}
+
+.bg-orange {
+  background-image: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+}
+
+.seller-item {
+  background: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.seller-item .badge {
+  font-size: 1rem;
+}
+.seller-item .seller-inner {
+  padding: 15px 10px;
+  gap: 10px;
+}
+@media (min-width: 576px) {
+  .seller-item .seller-inner {
+    padding: 15px 20px;
+  }
+}
+.seller-item .seller-inner p {
+  font-family: "Manrope", sans-serif;
+}
+.seller-item .seller-part {
+  gap: 10px;
+}
+.seller-item .assets-number {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #822cff;
+}
+.seller-item .assets-owner {
+  gap: 15px;
+}
+.seller-item .assets-owner p {
+  color: #ff5757;
+}
+.seller-item .assets-owner .owner-thumb {
+  width: 60px;
+  height: 60px;
+}
+.seller-item .assets-owner .owner-thumb.veryfied:after {
+  width: 18px;
+  height: 18px;
+  font-size: 16px;
+  right: 1px;
+  bottom: 5px;
+}
+.seller-item .assets-owner .owner-thumb img {
+  border: 2px solid #f4f6f9;
+  border-radius: 50%;
+}
+.seller-item .assets-owner .owner-content h6 a {
+  color: #030e35;
+}
+.seller-item .assets-owner .owner-content h6 a:hover {
+  color: #822cff;
+}
+.seller-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.seller-icon {
+  background: #822cff;
+  width: 30px;
+  height: 20px;
+  border-radius: 2px;
+}
+.seller-icon:after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #822cff transparent transparent transparent;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+}
+
+/*--------------------------seller item end here ----------------------------------*/
+/*--------------------------artwork section start here ----------------------------------*/
+.artwork-section .arrow-blue:focus-within:after {
+  background-image: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+}
+
+/*--------------------------artwork section end here ----------------------------------*/
+/*--------------------------activity item start here ----------------------------------*/
+.activity-item .lab-inner {
+  background-color: #fff;
+  border-radius: 4px;
+}
+.activity-item .lab-inner .lab-thumb {
+  width: 130px;
+}
+.activity-item .lab-inner .lab-thumb img {
+  border-radius: 4px;
+}
+@media (min-width: 768px) {
+  .activity-item .lab-inner .lab-thumb {
+    width: auto;
+  }
+}
+.activity-item .lab-inner .lab-content {
+  width: calc(100% - 150px);
+}
+@media (min-width: 768px) {
+  .activity-item .lab-inner .lab-content {
+    width: calc(100% - 200px);
+  }
+}
+@media (min-width: 768px) {
+  .activity-item .lab-inner .lab-content h4,
+.activity-item .lab-inner .lab-content p {
+    max-width: 70%;
+  }
+}
+.activity-item .lab-inner .lab-content h4 a {
+  color: #030e35;
+}
+.activity-item .lab-inner .lab-content h4 a:hover {
+  color: #822cff;
+}
+@media (max-width: 575px) {
+  .activity-item .lab-inner .lab-content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.activity-item .lab-inner .lab-content p a {
+  font-weight: 700;
+}
+
+/*--------------------------activity item end here ----------------------------------*/
+/*--------------------------wallet item start here ----------------------------------*/
+.wallet-item {
+  background: #1d1d1eed;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+.wallet-item .wallet-content p {
+  line-height: 1.3;
+}
+.wallet-item:hover {
+  border-color: rgba(130, 44, 255, 0.6);
+}
+
+.wallet-tab-list {
+  gap: 15px;
+}
+
+.wallet-tab {
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  min-inline-size: 100px;
+  gap: 10px;
+}
+.wallet-tab img {
+  width: 50px;
+  height: 50px;
+}
+.wallet-tab span {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #6f7d95;
+}
+@media (min-width: 1200px) {
+  .wallet-tab {
+    min-inline-size: 150px;
+  }
+}
+.wallet-tab.active {
+  background-color: #fff !important;
+  border-color: #822cff !important;
+}
+.wallet-tab.active span {
+  color: #822cff !important;
+}
+
+.wallet-content {
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  border-radius: 5px;
+  max-inline-size: 80%;
+  margin: auto;
+  gap: 30px;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .wallet-content {
+    padding: 50px;
+    flex-direction: row;
+    text-align: inherit;
+  }
+}
+.wallet-content .wallet-img {
+  width: 150px;
+  flex: 1;
+}
+.wallet-content .wallet-img img {
+  width: 150px;
+  height: 150px;
+}
+.wallet-content .wallet-desc {
+  flex: 3;
+}
+.wallet-content .wallet-desc a:not(.default-btn) {
+  display: block;
+  text-decoration: underline;
+}
+
+/*--------------------------wallet item end here ----------------------------------*/
+/*--------------------------Custom Upload button ----------------------------------*/
+.custom-upload .file-btn {
+  border-radius: 5px;
+  color: #fff;
+}
+.custom-upload input[type=file] {
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+/*--------------------------------
+Pagination css start here
+------------------------------------*/
+.paginations {
+  margin: 40px 0;
+}
+@media (min-width: 992px) {
+  .paginations {
+    margin-bottom: 0;
+  }
+}
+.paginations ul li {
+  padding: 5px;
+}
+.paginations ul li a {
+  width: 46px;
+  height: 46px;
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.15);
+  color: #6f7d95;
+  background-color: #fff;
+  z-index: 1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.paginations ul li a.active, .paginations ul li a:hover {
+  color: #fff;
+}
+.paginations ul li a.dot {
+  box-shadow: none;
+}
+.paginations ul li a.dot:hover {
+  background: transparent;
+  color: #6f7d95;
+}
+
+/*===== scroll to top css =====*/
+.scrollToTop {
+  position: fixed;
+  bottom: -30%;
+  right: 5%;
+  z-index: 9;
+  font-size: calc(1.35rem + 1.2vw);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+@media (min-width: 1200px) {
+  .scrollToTop {
+    font-size: 2.25rem;
+  }
+}
+.scrollToTop i {
+  color: #000000;
+  z-index: 1;
+  transform: 0.3s all linear;
+}
+.scrollToTop:hover i {
+  color: #822cff;
+}
+
+.explore-category .excat-item {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.explore-category .excat-item a {
+  flex-direction: column;
+  padding: 20px;
+  gap: 5px;
+}
+.explore-category .excat-item a i {
+  font-size: calc(1.375rem + 1.5vw);
+}
+@media (min-width: 1200px) {
+  .explore-category .excat-item a i {
+    font-size: 2.5rem;
+  }
+}
+.explore-category .excat-item:hover, .explore-category .excat-item.active {
+  background-color: #fff;
+}
+.explore-category .excat-item:hover a, .explore-category .excat-item.active a {
+  color: #822cff;
+}
+
+.explore-filter .nft-item {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .explore-filter .nft-item {
+    width: calc(100% / 2 - 15px);
+  }
+}
+@media (min-width: 992px) {
+  .explore-filter .nft-item {
+    width: calc(100% / 3 - 15px);
+  }
+}
+@media (min-width: 1200px) {
+  .explore-filter .nft-item {
+    width: calc(100% / 4 - 15px);
+  }
+}
+
+.explore-page .nft-item {
+  transition: none;
+}
+.explore-page .nft-item:hover {
+  transform: none;
+}
+
+.terms-content {
+  background-color: #fff;
+  padding: 2rem 1rem;
+  border-radius: 5px;
+}
+@media (min-width: 768px) {
+  .terms-content {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .terms-header {
+    margin-bottom: 35px;
+  }
+}
+.terms-text ul,
+.terms-text ol {
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+.terms-text ul li::marker,
+.terms-text ol li::marker {
+  color: #822cff;
+  font-weight: 700;
+}
+.terms-text ol {
+  list-style: lower-roman;
+}
+.terms-text ul {
+  list-style-type: disc;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: #f4f6f9;
+}
+.preloader .preloader-inner {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.preloader .preloader-inner .preloader-icon {
+  width: 72px;
+  height: 72px;
+}
+.preloader .preloader-inner .preloader-icon span {
+  width: 72px;
+  height: 72px;
+  border-radius: 100%;
+  background: #822cff;
+  -webkit-animation: preloader-fx 1.6s linear infinite;
+  animation: preloader-fx 1.6s linear infinite;
+}
+.preloader .preloader-inner .preloader-icon span:last-child {
+  animation-delay: -0.8s;
+  -webkit-animation-delay: -0.8s;
+}
+
+@keyframes preloader-fx {
+  0% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes preloader-fx {
+  0% {
+    -webkit-transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+/* @@@@@@@@@@@@@  Widget Section Start Here  @@@@@@@@@@@@@@ */
+aside {
+  position: sticky;
+  top: 130px;
+}
+
+.accordion-button {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.accordion-button:not(.collapsed) {
+  background-color: rgba(130, 44, 255, 0.2);
+  color: #822cff;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.profile-widget {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(26, 25, 25, 0.1);
+  border-radius: 5px;
+}
+.profile-widget .widget-title {
+  padding: 20px;
+  border-bottom: 1px solid #f4f6f9;
+}
+.profile-widget .widget-title h5 {
+  text-transform: capitalize;
+  font-size: 1.125rem;
+}
+.nft-search-input input {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #6f7d95;
+  padding-right: 45px !important;
+}
+.nft-search-input input:focus {
+  border-color: rgba(130, 44, 255, 0.4);
+  box-shadow: none;
+}
+.nft-search-input button {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.nft-search-input button i {
+  font-size: 1.2rem;
+  color: #000000;
+}
+
+.widget {
+  padding: 25px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.widget .widget-header {
+  padding: 20px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.widget .widget-header .title {
+  font-size: 1.125rem;
+  text-transform: capitalize;
+}
+.widget .widget-wrapper {
+  padding: 15px 0;
+}
+.widget .widget-wrapper li {
+  list-style: none;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 15px 20px;
+}
+.widget .widget-wrapper li:last-child {
+  border-bottom: none;
+}
+@media (max-width: 991px) {
+  .widget.widget-search {
+    margin-top: 30px;
+  }
+}
+.widget.widget-search .search-wrapper input {
+  height: 50px;
+  padding-left: 10px;
+  line-height: 50px;
+  margin-bottom: 0;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+.widget.widget-search .search-wrapper button {
+  top: 0;
+  right: 0;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+}
+.widget.widget-archive, .widget.widget-category {
+  padding: 0;
+}
+.widget.widget-archive .widget-wrapper li a, .widget.widget-category .widget-wrapper li a {
+  color: #030e35;
+  padding: 15px 20px;
+}
+.widget.widget-archive .widget-wrapper li a.active, .widget.widget-archive .widget-wrapper li a:hover, .widget.widget-category .widget-wrapper li a.active, .widget.widget-category .widget-wrapper li a:hover {
+  color: #822cff;
+}
+.widget.widget-post ul.widget-wrapper li .post-thumb {
+  width: 70px;
+  height: 70px;
+}
+.widget.widget-post ul.widget-wrapper li .post-thumb a {
+  display: inline-flex;
+}
+.widget.widget-post ul.widget-wrapper li .post-thumb a img {
+  border-radius: 5px;
+}
+.widget.widget-post ul.widget-wrapper li .post-content {
+  width: calc(100% - 85px);
+}
+.widget.widget-post ul.widget-wrapper li .post-content a h6 {
+  line-height: 1.2;
+  font-weight: 500;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.widget.widget-post ul.widget-wrapper li .post-content a h6:hover {
+  color: #822cff;
+}
+.widget.widget-post ul.widget-wrapper li .post-content p {
+  font-size: 14px;
+}
+.widget.widget-instagram ul.widget-wrapper {
+  padding: 25px 20px;
+  column-gap: 10px;
+  row-gap: 2px;
+}
+.widget.widget-instagram ul.widget-wrapper li {
+  width: calc(100% / 3 - 7px);
+  border: none;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .widget.widget-instagram ul.widget-wrapper li {
+    width: calc(100% / 6 - 7px);
+  }
+}
+.widget.widget-instagram ul.widget-wrapper li a {
+  border-radius: 5px;
+}
+.widget.widget-instagram ul.widget-wrapper li a img {
+  transition: 0.6s all cubic-bezier(0.23, 1, 0.32, 1);
+}
+.widget.widget-instagram ul.widget-wrapper li a:hover img {
+  transform: scale(1.1) rotate(3deg);
+}
+.widget.widget-tags ul.widget-wrapper {
+  padding: 20px;
+}
+.widget.widget-tags ul.widget-wrapper li {
+  border: none;
+}
+.widget.widget-tags ul.widget-wrapper li a {
+  padding: 5px 10px;
+  border: 1px solid #f5f5f5;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+.widget.widget-tags ul.widget-wrapper li a.active, .widget.widget-tags ul.widget-wrapper li a:hover {
+  color: #fff;
+}
+.widget.recipe-categori .widget-wrapper {
+  padding: 25px 15px;
+}
+.widget.recipe-categori .widget-wrapper .recipe-item {
+  border: 1px dotted #f5f5f5;
+  border-width: 1px;
+  border-top: none;
+  border-right: none;
+  margin: 5px;
+}
+.widget.shop-widget {
+  box-shadow: 0 0 10px rgba(136, 136, 136, 0.1);
+  margin-top: 35px;
+}
+.widget.shop-widget .widget-wrapper .shop-menu li {
+  list-style: none;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 12px 15px;
+}
+.widget.shop-widget .widget-wrapper .shop-menu li:last-child {
+  border-bottom: none;
+}
+.widget.shop-widget .widget-wrapper .shop-menu li.open > a {
+  color: #822cff;
+}
+.widget.shop-widget .widget-wrapper .shop-menu li a {
+  color: #030e35;
+  font-weight: 500;
+}
+.widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu {
+  margin: 0;
+  display: none;
+}
+.widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu li {
+  padding: 2px 0;
+  border-bottom: none;
+}
+.widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu li.open > a {
+  color: #822cff;
+}
+.widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu li a {
+  color: #030e35;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu li a.active, .widget.shop-widget .widget-wrapper .shop-menu li .shop-submenu li a:hover {
+  color: #822cff;
+}
+.widget.letest-product {
+  margin-top: 35px;
+  box-shadow: 0 0 10px rgba(136, 136, 136, 0.1);
+}
+.widget.letest-product .widget-wrapper ul li {
+  padding: 15px;
+  list-style: none;
+  border-bottom: 1px solid #f5f5f5;
+}
+.widget.letest-product .widget-wrapper ul li:last-child {
+  border-bottom: none;
+}
+.widget.letest-product .widget-wrapper ul li:hover .product-thumb img {
+  transform: scale(1.1);
+}
+.widget.letest-product .widget-wrapper ul li:hover .product-content h6 a {
+  color: #822cff;
+}
+.widget.letest-product .widget-wrapper ul li .product-thumb {
+  width: 70px;
+  height: 70px;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .widget.letest-product .widget-wrapper ul li .product-thumb {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 15px;
+  }
+}
+.widget.letest-product .widget-wrapper ul li .product-thumb img {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.widget.letest-product .widget-wrapper ul li .product-content {
+  width: calc(100% - 70px);
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .widget.letest-product .widget-wrapper ul li .product-content {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+.widget.letest-product .widget-wrapper ul li .product-content h6 a {
+  color: #030e35;
+  font-weight: 500;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.widget.letest-product .widget-wrapper ul li .product-content p i {
+  font-size: 12px;
+  color: #e9ba17;
+}
+.widget.letest-product .widget-wrapper ul li .product-content p span {
+  font-size: 14px;
+}
+
+.select-wrapper.arrow-blue:after {
+  content: attr(data-icon);
+  font-family: icoFont !important;
+  color: #fff;
+  font-size: 0.875rem;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-image: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.select-wrapper.arrow-orange:after {
+  content: attr(data-icon);
+  font-family: icoFont !important;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-image: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form-select {
+  background-color: #fff;
+  color: #030e35;
+  border: 1px solid #f5f5f5;
+  background-image: none;
+  background-size: 25px;
+}
+.form-select:focus {
+  outline: none;
+  border-color: rgba(130, 44, 255, 0.4);
+  box-shadow: none;
+}
+
+/*============ Seccion cabecera css start here ==============*/
+/*==============================
+	Header
+==============================*/
+.header {
+  box-shadow: 0 0 10px rgba(83, 4, 119, 0.2);
+  border-bottom: 1px solid #f5f5f5;
+  height: 70px;
+  background-color: #fff;
+}
+@media (min-width: 1200px) {
+  .header {
+    height: 100px;
+  }
+}
+.header.header-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 99;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header__content {
+  display: flex;
+  height: 70px;
+}
+@media (min-width: 1200px) {
+  .header__content {
+    height: 100px;
+  }
+}
+@media (min-width: 768px) {
+  .header__content {
+    padding-inline: 5%;
+  }
+}
+
+.header__logo {
+  display: inline-flex;
+  border-right: 1px solid #f5f5f5;
+  padding-right: 1rem;
+  margin-right: 1rem;
+}
+@media (min-width: 768px) {
+  .header__logo {
+    padding-right: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+
+.header__actions {
+  display: inline-flex;
+  width: auto;
+}
+@media (min-width: 768px) {
+  .header__actions {
+    margin-left: 5%;
+  }
+}
+
+.header__action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 22px;
+  position: relative;
+  margin-left: 20px;
+}
+
+.header__action:first-child {
+  margin-left: 0;
+}
+
+.header__action--profile {
+  width: auto;
+  border-left: 1px solid #f5f5f5;
+  border-right: 1px solid #f5f5f5;
+  padding-inline: 1rem;
+}
+@media (min-width: 768px) {
+  .header__action--profile {
+    padding-inline: 1.5rem;
+  }
+}
+.header__action--profile .dropdown-toggle:after {
+  display: none;
+}
+.header__action--profile .dropdown-toggle span:nth-of-type(1) {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  border-radius: 50%;
+}
+.header__action--profile .dropdown-toggle span:nth-of-type(1) i {
+  color: #f4f6f9;
+  font-size: 14px;
+}
+.header__action--profile .dropdown-toggle.show {
+  color: #822cff;
+}
+.header__action--profile .dropdown-menu {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.header__action--profile .dropdown-menu .dropdown-item {
+  color: #6f7d95;
+}
+.header__action--profile .dropdown-menu .dropdown-item:hover {
+  background: transparent;
+  color: #822cff;
+}
+.header__action--profile .dropdown-menu hr {
+  height: 0;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.wallet-btn {
+  padding-left: 1rem;
+}
+@media (min-width: 768px) {
+  .wallet-btn {
+    padding-left: 1.5rem;
+  }
+}
+.wallet-btn a {
+  display: inline-flex;
+}
+.wallet-btn a span i {
+  font-size: 1.7rem;
+  background: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header__action-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+@media (max-width: 320px) {
+  .header__action-btn {
+    margin-left: 20px;
+  }
+}
+.header__action-btn span {
+  display: none;
+}
+.header__action-btn i {
+  color: #6f7d95;
+  font-size: 20px;
+}
+.header__action-btn i:hover {
+  color: #822cff;
+}
+
+.header__btn {
+  background: transparent;
+  border: none;
+  width: 22px;
+  height: 22px;
+  right: 0;
+  top: 0;
+}
+
+/*---------test--------*/
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all 0.4s;
+  box-sizing: border-box;
+}
+
+.menu-trigger {
+  position: relative;
+  width: 25px;
+  height: 20px;
+  background: none;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  margin-right: 1%;
+}
+
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #030e35;
+  border-radius: 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+
+.menu-trigger span:nth-of-type(2) {
+  top: 9px;
+}
+
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+#menu05.header__btn--active span:nth-of-type(1) {
+  transform: translateY(9px) rotate(-45deg);
+  background: #822cff;
+}
+
+#menu05.header__btn--active span:nth-of-type(2) {
+  left: 50%;
+  opacity: 0;
+  animation: active-menu05-bar02 0.8s forwards;
+}
+
+@keyframes active-menu05-bar02 {
+  100% {
+    height: 0;
+  }
+}
+#menu05.header__btn--active span:nth-of-type(3) {
+  transform: translateY(-9px) rotate(45deg);
+  background: #822cff;
+}
+
+.header__search {
+  left: 0;
+  top: -71px;
+  height: 70px;
+  background-color: #f4f6f9;
+  z-index: 1;
+  padding: 0 15px;
+  transition: top 0.5s ease;
+  border-radius: 5px;
+}
+.header__search input {
+  width: calc(100% - 30px);
+  height: 50px;
+  background-color: transparent;
+  color: #6f7d95;
+  font-size: 14px;
+  border-radius: 99px;
+  border: none;
+  padding: 0 45px 0 20px;
+  font-weight: 400;
+  border: 1px solid #f5f5f5;
+  outline: none;
+}
+.header__search input:focus {
+  box-shadow: 0 0 10px rgba(83, 4, 119, 0.2);
+  border-color: rgba(130, 44, 255, 0.4);
+}
+.header__search input::placeholder {
+  color: #6f7d95;
+}
+.header__search button {
+  right: 60px;
+  top: 15px;
+  height: 40px;
+  width: auto;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.header__search button i {
+  color: #6f7d95;
+  transition: all 0.3s ease;
+}
+.header__search button i:hover {
+  color: #822cff;
+}
+.header__search button svg {
+  width: 20px;
+  height: auto;
+  fill: #bdbdbd;
+  transition: 0.5s ease;
+}
+.header__search button svg:hover {
+  fill: #822cff;
+}
+
+.header__search button.close {
+  right: 15px;
+}
+
+.header__search--active {
+  top: 0;
+}
+
+.header__menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: fixed;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f6f9;
+  z-index: 99;
+  width: 280px;
+  padding: 25px 25px 0;
+  transform: translate3d(281px, 0, 0);
+  transition: transform 0.5s ease;
+  border-left: 1px solid #f5f5f5;
+}
+@media (max-width: 1199px) {
+  .header__menu {
+    overflow-y: auto;
+  }
+}
+
+.header__menu--active {
+  transform: translate3d(0, 0, 0);
+}
+
+.header__nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.header__nav-item:last-child .header__nav-link:after, .header__nav-item:last-child .header__nav-link:before {
+  display: none;
+}
+
+.header__nav-link {
+  font-size: 18px;
+  font-family: "Manrope", sans-serif;
+  height: 22px;
+  font-weight: 500;
+  display: inline-flex;
+  flex-direction: row;
+}
+.header__nav-link[data-bs-toggle=dropdown]:before {
+  width: 10px;
+  height: 1.5px;
+  background: #6f7d95;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -15px;
+  transition: all 0.3s ease;
+}
+.header__nav-link[data-bs-toggle=dropdown]:after {
+  height: 10px;
+  width: 1.5px;
+  background: #6f7d95;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -10px;
+  transition: all 0.3s ease;
+}
+@media (min-width: 1440px) {
+  .header__nav-link[data-bs-toggle=dropdown]:after {
+    right: -11px;
+  }
+}
+.header__nav-link[data-bs-toggle=dropdown]:hover:after, .header__nav-link[data-bs-toggle=dropdown]:hover:before {
+  background: #822cff;
+}
+.header__nav-link.active {
+  color: #822cff;
+}
+.header__nav-link.active svg {
+  fill: #822cff;
+}
+.header__nav-link.active:after, .header__nav-link.active:before {
+  background-color: #822cff;
+}
+.header__nav-link.active.home-2 {
+  color: #822cff;
+}
+.header__nav-link.active.home-2:after, .header__nav-link.active.home-2:before {
+  background-color: #822cff;
+}
+
+.header__nav-link svg {
+  width: 1.75rem;
+  height: auto;
+  transition: fill 0.5s ease;
+  margin-left: 1px;
+  margin-top: 2px;
+}
+
+.header__nav-link--menu svg {
+  width: 20px;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.header__nav-link--active {
+  color: #822cff;
+  cursor: default;
+  font-weight: 500;
+}
+
+.header__nav-link--active:hover {
+  color: #822cff !important;
+}
+
+.header__nav-link[aria-expanded=true] {
+  color: #822cff;
+}
+.header__nav-link[aria-expanded=true]::before {
+  background-color: #822cff;
+}
+.header__nav-link[aria-expanded=true]:after {
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.header__nav-link[aria-expanded=true]:hover {
+  color: #822cff;
+}
+
+.header__nav-link:hover svg,
+.header__nav-link[aria-expanded=true] svg {
+  fill: #822cff;
+}
+
+.header__nav-menu {
+  display: block;
+  position: absolute !important;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 200px;
+  transition: opacity 0.5s ease;
+  transform: translate3d(0px, 22px, 0px);
+  margin-top: 10px;
+  height: auto;
+  border: 1px solid #f5f5f5;
+}
+
+.header__nav-menu .header__nav-menu {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.header__nav-menu li {
+  position: relative;
+  padding-block: 10px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.header__nav-menu li:last-child {
+  border-bottom: none;
+}
+
+.header__nav-menu a {
+  display: flex;
+  flex-direction: row;
+  color: #6f7d95;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.5s ease;
+}
+
+.drop-down-item.active {
+  color: #822cff;
+}
+.drop-down-item.active.home-2 {
+  color: #822cff;
+}
+
+.header__nav-menu a svg {
+  fill: #bdbdbd;
+  width: 14px;
+  height: auto;
+  transition: 0.5s ease;
+  margin-left: 1px;
+  margin-top: 2px;
+}
+
+.header__nav-menu a:hover,
+.header__nav-menu a[aria-expanded=true] {
+  color: #822cff;
+}
+
+.header__nav-menu a:hover svg,
+.header__nav-menu a[aria-expanded=true] svg {
+  fill: #6164ff;
+}
+
+.header__nav-menu.show {
+  z-index: 1000;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.header__profile-btn {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 0 6px 0 6px;
+  height: 54px;
+  border-left: 1px solid #f5f5f5;
+  border-right: 1px solid #f5f5f5;
+}
+
+.header__profile-btn img {
+  display: none;
+  width: 40px !important;
+  height: 40px;
+  border-radius: 12px;
+  margin-right: 6px;
+}
+
+.header__profile-btn div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 6px;
+}
+
+.header__profile-btn p {
+  margin-bottom: 0;
+  line-height: 22px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.header__profile-btn span {
+  font-size: 12px;
+  color: #bdbdbd;
+  line-height: 18px;
+}
+
+.header__profile-btn svg {
+  fill: #bdbdbd;
+  width: 16px;
+  height: auto;
+  transition: fill 0.5s ease;
+  margin-left: 6px;
+  margin-top: 2px;
+}
+
+.header__profile-btn:hover svg,
+.header__profile-btn[aria-expanded=true] svg {
+  fill: #6164ff;
+}
+
+.header__profile-menu {
+  display: block;
+  position: absolute !important;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  background-color: #16151a;
+  border-radius: 16px;
+  padding: 20px;
+  min-width: 180px;
+  transition: opacity 0.5s ease;
+  transform: translate3d(0px, 54px, 0px) !important;
+  height: auto;
+  border: 1px solid #222227;
+  right: 0 !important;
+  left: auto !important;
+  margin-top: 2px;
+}
+
+.header__profile-menu li {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.header__profile-menu li:last-child {
+  margin-bottom: 0;
+}
+
+.header__profile-menu li:last-child {
+  padding-top: 15px;
+  border-top: 1px solid #222227;
+}
+
+.header__profile-menu a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: #bdbdbd;
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.5s ease;
+  position: relative;
+}
+
+.header__profile-menu a svg {
+  fill: #fff;
+  width: 20px;
+  height: auto;
+  transition: fill 0.5s ease;
+  margin-right: 10px;
+}
+
+.header__profile-menu a:hover {
+  color: #fff;
+}
+
+.header__profile-menu a:hover svg {
+  fill: #6164ff;
+}
+
+.header__profile-menu.show {
+  z-index: 1000;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+@media (min-width: 576px) {
+  .header__search {
+    padding: 0 30px;
+  }
+
+  .header__search button {
+    right: 75px;
+  }
+
+  .header__search button.close {
+    right: 30px;
+  }
+
+  .header__profile-btn img {
+    display: block;
+  }
+
+  .header__profile-btn--verified:after {
+    display: block;
+  }
+}
+@media (min-width: 1200px) {
+  .header__logo {
+    width: auto;
+  }
+
+  .header__btn {
+    display: none;
+  }
+
+  .header__actions {
+    margin-right: 0;
+  }
+
+  .header__action--search {
+    display: none;
+  }
+
+  .header__search {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 30%;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  .header__search input {
+    padding: 0 60px 0 20px;
+    width: 100%;
+  }
+
+  .header__search button {
+    right: 20px;
+  }
+
+  .header__search button.close {
+    display: none;
+  }
+
+  .header__search--active {
+    top: auto;
+  }
+
+  .header__menu {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    padding: 0;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    background-color: transparent;
+    transform: translate3d(0, 0, 0);
+    border: none;
+    transition: transform 0s ease;
+  }
+
+  .header__nav {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+  }
+
+  .header__nav-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 70px;
+    margin-bottom: 0;
+    margin-left: 30px;
+  }
+}
+@media (min-width: 1200px) and (min-width: 1600px) {
+  .header__nav-item {
+    margin-left: 40px;
+  }
+}
+@media (min-width: 1200px) {
+  .header__nav-menu {
+    transform: translate3d(0px, 46px, 0px);
+  }
+}
+@media (min-width: 1200px) {
+  .header__nav-menu .header__nav-menu {
+    transform: translate3d(0px, 22px, 0px);
+  }
+}
+/*============ Seccion cabecera css end here ==============*/
+/*============ Page Header  css start here ==============*/
+.page-header-section {
+  background-image: url(../images/banner/page-banner.jpg);
+  background-size: cover;
+}
+.page-header-section.style-1 {
+  border: none;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media (min-width: 992px) {
+  .page-header-section.style-1 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+.page-header-section.style-1 .page-header-content .page-header-inner .page-title h2 {
+  font-weight: 600;
+}
+.page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li {
+  margin: 0 5px;
+  text-transform: capitalize;
+  font-size: 1.125rem;
+}
+.page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li a {
+  color: #030e35;
+  padding: 0 5px;
+  outline: none;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li a:hover {
+  color: #822cff;
+}
+.page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li a::before {
+  background: #6f7d95;
+  width: 8px;
+  height: 1px;
+  transform: translateY(-50%);
+  top: 50%;
+  right: -10px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.page-header-section.style-1 .page-header-content .page-header-inner .breadcrumb li:first-child {
+  margin-left: 0;
+}
+.page-header-section.style-1 .page-header-content .page-header-inner .page-title .title-text {
+  font-size: 24px;
+  color: #fff;
+  text-transform: capitalize;
+}
+@media (min-width: 768px) {
+  .page-header-section.style-1 .page-header-content .page-header-inner .page-title .title-text {
+    font-size: 3.5rem;
+    line-height: 4.125rem;
+  }
+}
+.page-header-section.style-1 .page-header-content .page-header-inner .page-title .title-text span {
+  color: #822cff;
+}
+.page-header-section.style-1 .page-header-content .page-header-inner .page-title p {
+  color: #fff;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.cat-item {
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  min-width: 129px;
+}
+.cat-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+.cat-item.blured {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px) saturate(100%);
+  -webkit-backdrop-filter: blur(20px) saturate(100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+.cat-item.blured .cat-content h6 a {
+  color: #030e35;
+  font-weight: 700;
+}
+
+.cat-inner {
+  padding: 30px 10px;
+}
+.cat-inner .badge {
+  right: 10px;
+  top: 10px;
+}
+
+.cat-thumb {
+  padding-block: 20px;
+}
+
+.cat-content h6 a {
+  color: #030e35;
+  font-size: 1rem;
+}
+
+.collection-banner {
+  padding-block: 100px;
+  background-image: url(../images/category/banner-bg.png);
+  background-size: cover;
+}
+
+.col-author {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.col-author img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+}
+.col-author span {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #000000;
+}
+
+/*--------------
+Home page css start here
+------------------*/
+/*------------ Seccion de Subasta start here --------------*/
+.auction-section .section-header .header-title {
+  gap: 10px;
+}
+.auction-section .section-header .header-content .auction-nav {
+  gap: 10px;
+}
+.auction-section .section-header .header-content .auction-nav .auction-prev,
+.auction-section .section-header .header-content .auction-nav .auction-next {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+.auction-section .section-header .header-content .auction-nav .auction-prev:hover,
+.auction-section .section-header .header-content .auction-nav .auction-next:hover {
+  background: #822cff;
+}
+.auction-section .auction-holder {
+  cursor: e-resize;
+}
+
+.live-icon {
+  background: #822cff;
+  width: 30px;
+  height: 15px;
+  border-radius: 2px;
+}
+.live-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: #822cff;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.live-icon svg path {
+  animation: wave 2s infinite;
+}
+.live-icon svg path:nth-child(1) {
+  animation-delay: -0.35s;
+}
+.live-icon svg path:nth-child(2) {
+  animation-delay: -0.25s;
+}
+.live-icon svg path:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes wave {
+  25% {
+    fill: transparent;
+  }
+}
+
+/*------------ Seccion de Subasta end here --------------*/
+/*------------ Seccion de ventas start here --------------*/
+.filter-group {
+  gap: 10px;
+}
+
+.view-all-btn {
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: #822cff;
+  font-family: "Manrope", sans-serif;
+}
+.view-all-btn span {
+  transition: all 0.3s ease;
+}
+.view-all-btn:hover span {
+  transform: rotate(360deg);
+}
+
+/*------------ Seccion de ventas end here --------------*/
+/*------------ Seccion de assets stat here --------------*/
+.assets-section .section-header .header-content .asset-filter-list {
+  gap: 20px;
+}
+@media (min-width: 1200px) {
+  .assets-section .section-header .header-content .asset-filter-list {
+    gap: 40px;
+  }
+}
+.assets-section .section-header .header-content .asset-filter-list .asset-filter-btn {
+  font-size: 16px;
+  cursor: pointer;
+}
+.assets-section .section-header .header-content .asset-filter-list .asset-filter-btn.is-checked {
+  color: #822cff;
+}
+.assets-section .nft-item {
+  transition: none;
+}
+.assets-section .nft-item:hover:after, .assets-section .nft-item:hover:before {
+  display: inherit;
+}
+@media (min-width: 576px) {
+  .assets-section .nft-item {
+    width: calc(100% / 2 - 15px);
+  }
+}
+@media (min-width: 992px) {
+  .assets-section .nft-item {
+    width: calc(100% / 3 - 15px);
+  }
+}
+@media (min-width: 1200px) {
+  .assets-section .nft-item {
+    width: calc(100% / 4 - 15px);
+  }
+}
+
+/*------------ Seccion de assets end here --------------*/
+/*------------ Seccion caliente start here --------------*/
+.header-title {
+  gap: 10px;
+}
+.header-title span i {
+  color: #822cff;
+  font-size: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+  .header-title span i {
+    font-size: 1.875rem;
+  }
+}
+
+.hot-section .section-header .header-content .hot-nav {
+  gap: 10px;
+}
+.hot-section .section-header .header-content .hot-nav .hot-prev,
+.hot-section .section-header .header-content .hot-nav .hot-next {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+.hot-section .section-header .header-content .hot-nav .hot-prev:hover,
+.hot-section .section-header .header-content .hot-nav .hot-next:hover {
+  background: #822cff;
+}
+/*------------ Seccion caliente end here --------------*/
+/*------------Seccion Sponsor end here --------------*/
+.sponsor-section .sponsor-wrapper {
+  border: 1px solid #f5f5f5;
+  box-shadow: 0 0 10px rgba(83, 4, 119, 0.2);
+  padding: 40px 20px;
+  border-radius: 15px;
+}
+.sponsor-section .sponsor-img img {
+  transition: 0.3s all cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.sponsor-section .sponsor-img:hover img {
+  transform: scale(1.07);
+}
+
+/*------------Seccion Sponsor end here --------------*/
+/*------------ Seccion explorador start here --------------*/
+.explore-section .section-header {
+  gap: 15px;
+}
+.explore-section .section-header .nft-filter {
+  gap: 10px;
+}
+@media (min-width: 768px) {
+  .explore-section .section-header .nft-filter {
+    gap: 15px;
+  }
+}
+@media (min-width: 992px) {
+  .explore-section .section-header .nft-filter {
+    width: auto;
+  }
+}
+@media (min-width: 992px) {
+  .explore-section .section-header .nft-filter h3 {
+    width: auto;
+    text-align: left;
+  }
+}
+@media (min-width: 576px) {
+  .explore-section .section-header .nft-filter .form-floating {
+    width: 45%;
+  }
+}
+@media (min-width: 992px) {
+  .explore-section .section-header .nft-filter .form-floating {
+    width: auto;
+  }
+}
+@media (min-width: 992px) {
+  .explore-section .section-header {
+    padding: 15px;
+    justify-content: space-between;
+  }
+}
+.explore-section .nft-search-input input {
+  min-width: 230px;
+}
+@media (min-width: 992px) {
+  .explore-section .nft-search-input input {
+    min-width: 280px;
+  }
+}
+@media (max-width: 575px) {
+  .explore-section .nft-search {
+    width: 100%;
+  }
+}
+
+/*------------ Seccion explorador end here --------------*/
+/*======================================================
+
+***************** Home-2 Css  *****************
+
+========================================================*/
+.banner-section {
+  background-size: cover;
+  background-position: center;
+}
+.banner-section.style-1 .banner-wrapper {
+  z-index: 1;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+@media (min-width: 992px) {
+  .banner-section.style-1 .banner-wrapper {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+}
+.banner-section.style-1 .banner-wrapper .banner-content > p {
+  margin-bottom: 45px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .banner-section.style-1 .banner-wrapper .banner-content > p {
+    max-inline-size: 35ch;
+    margin: auto auto 45px;
+  }
+}
+
+.banner-slider {
+  overflow: hidden;
+  padding: 30px;
+}
+.banner-slider .nft-item {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.banner-slider .nft-item .nft-inner {
+  background-color: #fff;
+}
+.banner-slider .nft-item:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.banner_shape {
+  display: none;
+}
+@media (min-width: 768px) {
+  .banner_shape {
+    display: inherit;
+  }
+}
+.banner_shape__item img {
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+.banner_shape__1, .banner_shape__2 {
+  width: 500px;
+}
+.banner_shape__1 {
+  top: 0;
+  left: -45%;
+  animation: scrollUp 50s ease-in-out 0s infinite backwards;
+}
+.banner_shape__2 {
+  top: 0;
+  right: -45%;
+  animation: scrollUp 50s ease-in-out 2s infinite backwards;
+}
+@media (min-width: 992px) {
+  .banner_shape__1 {
+    left: -35%;
+  }
+  .banner_shape__2 {
+    right: -35%;
+  }
+}
+@media (min-width: 1200px) {
+  .banner_shape__1 {
+    left: -15%;
+  }
+  .banner_shape__2 {
+    right: -15%;
+  }
+}
+@media (min-width: 1440px) {
+  .banner_shape__1 {
+    left: -10%;
+  }
+  .banner_shape__2 {
+    right: -10%;
+  }
+}
+@media (min-width: 1600px) {
+  .banner_shape__1 {
+    left: -5%;
+  }
+  .banner_shape__2 {
+    right: -5%;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .banner_shape__1 {
+    left: 0;
+  }
+  .banner_shape__2 {
+    right: 0;
+  }
+}
+
+.banner-wrapper {
+  padding-block: 80px;
+}
+
+.banner-content .search-bar {
+  margin: auto;
+  max-inline-size: 700px;
+}
+.banner-content .search-bar input {
+  padding: 1rem 2rem;
+  border: 2px solid rgba(130, 44, 255, 0.2);
+}
+@media (min-width: 992px) {
+  .banner-content .search-bar button {
+    padding: 1rem 2.5rem;
+  }
+}
+.banner-content h2 {
+  font-weight: 800;
+}
+.banner-content p {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #030e35;
+  font-family: "Manrope", sans-serif;
+}
+.banner-content .banner-btns {
+  gap: 30px;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.gradient-text-blue {
+  background: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-orange {
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*======@@@@@@ Seccion de perfil start here  @@@@@@@@======= */
+.profile-section .member-profile .profile-item .profile-cover {
+  border-radius: 10px;
+}
+.profile-section .member-profile .profile-item .profile-cover img {
+  min-height: 150px;
+}
+@media (min-width: 576px) {
+  .profile-section .member-profile .profile-item .profile-cover img {
+    min-height: 200px;
+  }
+}
+.profile-section .member-profile .profile-item .profile-cover .custom-upload {
+  top: 20px;
+  right: 20px;
+  width: max-content;
+  height: max-content;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: #822cff;
+  opacity: 0;
+  transform: translateY(-5px);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.profile-section .member-profile .profile-item .profile-cover:hover .custom-upload {
+  opacity: 1;
+  transform: translateY(0);
+}
+.profile-section .member-profile .profile-item .profile-information {
+  flex-direction: column;
+  margin-top: -85px;
+}
+@media (min-width: 992px) {
+  .profile-section .member-profile .profile-item .profile-information {
+    background: transparent;
+    padding-bottom: 0;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: -205px;
+  }
+}
+@media (min-width: 1200px) {
+  .profile-section .member-profile .profile-item .profile-information {
+    margin-top: -245px;
+  }
+}
+.profile-section .member-profile .profile-item .profile-information .profile-pic {
+  width: 140px;
+  height: 140px;
+  border: 5px solid #f4f6f9;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+@media (min-width: 992px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-pic {
+    width: auto;
+    height: auto;
+    border-radius: 15px;
+    height: 250px;
+    width: 200px;
+    transform: translate(10px, 10px);
+  }
+}
+@media (min-width: 1200px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-pic {
+    height: 270px;
+    width: 220px;
+    transform: translate(20px, 20px);
+  }
+}
+.profile-section .member-profile .profile-item .profile-information .profile-pic img {
+  object-fit: cover;
+}
+.profile-section .member-profile .profile-item .profile-information .profile-pic .custom-upload {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  width: max-content;
+  height: max-content;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(244, 246, 249, 0.5);
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.profile-section .member-profile .profile-item .profile-information .profile-pic .custom-upload .file-btn i {
+  color: #000000;
+}
+@media (min-width: 992px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-pic .custom-upload .file-btn i {
+    margin-right: 5px;
+  }
+}
+.profile-section .member-profile .profile-item .profile-information .profile-pic:hover .custom-upload {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+@media (min-width: 992px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-name,
+.profile-section .member-profile .profile-item .profile-information .profile-contact {
+    transform: translateY(-70px);
+  }
+}
+@media (min-width: 1200px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-name,
+.profile-section .member-profile .profile-item .profile-information .profile-contact {
+    transform: translateY(-50px);
+  }
+}
+.profile-section .member-profile .profile-item .profile-information .profile-name h4 {
+  margin-bottom: 2px;
+}
+@media (min-width: 992px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-name {
+    margin-left: 30px;
+  }
+  .profile-section .member-profile .profile-item .profile-information .profile-name p {
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-name {
+    margin-left: 45px;
+  }
+}
+.profile-section .member-profile .profile-item .profile-information .profile-contact {
+  justify-content: space-evenly;
+  gap: 15px;
+}
+@media (min-width: 768px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-contact {
+    margin-left: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-contact {
+    margin-left: 40px;
+  }
+}
+@media (max-width: 575px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-contact .crypto-copy {
+    width: 80%;
+    margin-right: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .profile-section .member-profile .profile-item .profile-information .profile-contact li {
+    margin-right: 25px;
+  }
+}
+.profile-section .member-profile .profile-item .profile-information .profile-contact li a .icon {
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  font-size: 1rem;
+  border-radius: 50%;
+  color: #fff;
+}
+@media (min-width: 992px) {
+  .profile-details {
+    margin-top: -50px;
+  }
+}
+@media (min-width: 1200px) {
+  .profile-details {
+    margin-top: -26px;
+  }
+}
+.profile-details .profile-nav {
+  background-color: #fff;
+  margin-bottom: 60px;
+  border-radius: 10px;
+}
+@media (min-width: 1200px) {
+  .profile-details .profile-nav {
+    padding-left: 23%;
+  }
+}
+.profile-details .profile-nav .nav-tabs {
+  padding: 18px 0;
+  border-bottom: none;
+}
+@media (min-width: 992px) {
+  .profile-details .profile-nav .nav-tabs {
+    padding: 18px 0;
+    padding-left: 220px;
+  }
+}
+@media (min-width: 1200px) {
+  .profile-details .profile-nav .nav-tabs {
+    padding-left: 0;
+  }
+}
+.profile-details .profile-nav .nav-tabs .nav-link {
+  border: none;
+  color: #6f7d95;
+  font-weight: 600;
+}
+@media (min-width: 1200px) {
+  .profile-details .profile-nav .nav-tabs .nav-link {
+    margin-right: 10px;
+    font-size: 1.125rem;
+  }
+}
+.profile-details .profile-nav .nav-tabs .nav-link .item-number {
+  color: #fff;
+  padding: 0px 5px;
+  font-size: 12px;
+  font-family: "Manrope", sans-serif;
+}
+.profile-details .profile-nav .nav-tabs .nav-link .item-number:before {
+  position: absolute;
+  content: "";
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 8.7px 5px 0;
+  border-color: transparent #822cff transparent transparent;
+}
+.profile-details .profile-nav .nav-tabs .nav-link.active {
+  color: #822cff;
+  background-color: transparent;
+  border: none;
+}
+@media (min-width: 1200px) {
+  .profile-details .profile-nav .nav-tabs .nav-link.active:after {
+    position: absolute;
+    content: "";
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 13px 15px 13px;
+    border-color: transparent transparent #f4f6f9 transparent;
+  }
+}
+.profile-details .profile-nav .nav-tabs .nav-link:hover {
+  color: #822cff;
+}
+.profile-details .profile-nav .nav-tabs .dropdown .btn {
+  color: #6f7d95;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.profile-details .profile-nav .nav-tabs .dropdown ul {
+  background: #fff;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.profile-details .profile-nav .nav-tabs .dropdown ul li .dropdown-item {
+  color: #6f7d95;
+}
+.profile-details .profile-nav .nav-tabs .dropdown ul li .dropdown-item:hover {
+  color: #fff;
+}
+.profile-details .tab-content .activity-page .activity-tab .nav {
+  border-radius: 5px;
+  background-color: #fff;
+}
+.profile-details .tab-content .activity-page .activity-tab .nav .nav-item {
+  padding: 10px 5px;
+}
+@media (min-width: 768px) {
+  .profile-details .tab-content .activity-page .activity-tab .nav .nav-item {
+    padding: 15px 5px;
+  }
+}
+@media (min-width: 992px) {
+  .profile-details .tab-content .activity-page .activity-tab .nav .nav-item:first-child {
+    margin-left: 13px;
+  }
+}
+.profile-details .tab-content .activity-page .activity-tab .nav .nav-item .nav-link {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #6f7d95;
+  font-family: "Manrope", sans-serif;
+}
+@media (min-width: 576px) {
+  .profile-details .tab-content .activity-page .activity-tab .nav .nav-item .nav-link {
+    padding: 10px 18px;
+  }
+}
+.profile-details .tab-content .activity-page .activity-tab .nav .nav-item .nav-link.active {
+  color: #fff;
+}
+.profile-details .tab-content .activity-page .activity-tab .nav .custom-select {
+  width: auto;
+  margin-left: auto;
+}
+.profile-details .tab-content .activity-page .activity-tab .nav .custom-select select {
+  font-family: "Manrope", sans-serif;
+  color: #6f7d95;
+  outline: none;
+  background-color: #f4f6f9 !important;
+  border: none;
+}
+
+.info-card {
+  background-color: #fff;
+}
+.info-card .info-card-title {
+  padding: 20px 30px;
+  border-bottom: 1px solid #f4f6f9;
+}
+.info-card .info-card-content .info-list li {
+  padding: 10px 0;
+}
+.info-card .info-card-content .info-list li .info-name {
+  width: 40%;
+}
+@media (min-width: 768px) {
+  .info-card .info-card-content .info-list li .info-name {
+    width: 30%;
+  }
+}
+.info-card .info-card-content .info-list li .info-name:after {
+  content: ":";
+  right: 10px;
+  top: 0;
+}
+.info-card .info-card-content .info-list li .info-details {
+  width: 60%;
+}
+@media (min-width: 768px) {
+  .info-card .info-card-content .info-list li .info-details {
+    width: 70%;
+  }
+}
+
+.media-wrapper .nav-tp-abs {
+  border: none;
+  justify-content: space-evenly;
+  row-gap: 10px;
+}
+.media-wrapper .nav-tp-abs .nav-item .nav-link {
+  outline: none;
+  box-shadow: none;
+  border: none !important;
+  border-bottom: 1px solid transparent !important;
+  padding: 0.4rem 0.7rem;
+}
+@media (min-width: 992px) {
+  .media-wrapper .nav-tp-abs .nav-item .nav-link {
+    padding: 0.5rem 1rem;
+  }
+}
+.media-wrapper .nav-tp-abs .nav-item .nav-link span {
+  padding: 2px 6px;
+  font-size: 14px;
+}
+.media-wrapper .nav-tp-abs .nav-item .nav-link span:before {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 8.7px 5px 0;
+  border-color: transparent #822cff transparent transparent;
+}
+.media-wrapper .nav-tp-abs .nav-item .nav-link:focus, .media-wrapper .nav-tp-abs .nav-item .nav-link:hover, .media-wrapper .nav-tp-abs .nav-item .nav-link:focus-visible {
+  border-bottom-color: #822cff !important;
+}
+.media-wrapper .nav-tp-abs .nav-item .nav-link.active {
+  color: #fff;
+  border-color: #822cff;
+  outline: none;
+  box-shadow: none;
+}
+@media (min-width: 768px) {
+  .media-wrapper .nav-tp-abs .nav-item .nav-link.active:after {
+    position: p-absolute;
+    content: "";
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+    border-color: #822cff transparent transparent transparent;
+  }
+}
+.media-wrapper .nav-tp-abs .nav-item .nav-link.active span {
+  padding: 2px 6px;
+  font-size: 14px;
+}
+.media-wrapper .nav-tp-abs .nav-item .nav-link.active span:before {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 8.7px 5px 0;
+  border-color: transparent #ff5757 transparent transparent;
+}
+.media-wrapper .nav-tp-abs .nav-item .nav-link.active:focus, .media-wrapper .nav-tp-abs .nav-item .nav-link.active:hover, .media-wrapper .nav-tp-abs .nav-item .nav-link.active:focus-visible {
+  border-color: #822cff;
+}
+.media-wrapper .tab-content .tab-pane .media-title {
+  border-bottom: 1px solid #f4f6f9;
+  padding: 5px 20px;
+}
+.media-wrapper .tab-content .tab-pane .media-content .media-upload .upload-now .custom-upload {
+  padding: 0.5rem 1rem;
+}
+.media-wrapper .tab-content .tab-pane .media-content .media-thumb {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.media-wrapper .tab-content .tab-pane .media-content .media-thumb img {
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.media-wrapper .tab-content .tab-pane .media-content .media-thumb:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.media-wrapper .tab-content .tab-pane .media-content .media-thumb:hover img {
+  transform: scale(1.02);
+}
+.media-wrapper .tab-content .tab-pane .media-content .album {
+  width: max-content;
+  height: max-content;
+  margin: 0 auto;
+}
+.media-wrapper .tab-content .tab-pane .media-content .album .album-thumb {
+  height: 170px;
+  width: 170px;
+  box-shadow: 5px solid #fff;
+  z-index: 9;
+  object-fit: cover;
+}
+.media-wrapper .tab-content .tab-pane .media-content .album .album-thumb img {
+  border: 4px solid #fff;
+}
+.media-wrapper .tab-content .tab-pane .media-content .album .album-thumb:before {
+  height: 170px;
+  width: 170px;
+  background: #e0043b;
+  border: 4px solid #fff;
+  z-index: -1;
+  top: 0px;
+  left: -10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transform: rotate(-4deg);
+  -webkit-backface-visibility: hidden;
+}
+.media-wrapper .tab-content .tab-pane .media-content .album .album-thumb::after {
+  height: 170px;
+  width: 170px;
+  background: #ffd900;
+  border: 4px solid #fff;
+  z-index: -1;
+  top: 5px;
+  left: 0px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transform: rotate(7deg);
+  -webkit-backface-visibility: hidden;
+}
+
+.h4-title {
+  background-color: #fff;
+  color: #030e35;
+  padding: 15px 20px;
+}
+
+.wallet-title p {
+  max-width: 350px;
+  font-size: 1.125rem;
+  line-height: 1.3;
+}
+.wallet-title p a {
+  color: #822cff;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.wallet-title p a:hover {
+  transform: translateX(3px);
+}
+
+.wallet-notice {
+  font-size: 1.125rem;
+  display: inline-flex;
+}
+.wallet-notice span i {
+  font-size: 20px;
+}
+@media (min-width: 768px) {
+  .wallet-notice {
+    max-width: 500px;
+  }
+}
+
+/*======= css =======*/
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  color: #822cff;
+  opacity: 0.8;
+}
+
+.load-btn .lab-btn {
+  padding: 0 60px;
+}
+.load-btn .lab-btn i {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.load-btn .lab-btn:hover i {
+  animation: rotate-2 3s linear infinite;
+}
+
+.crypto-page {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.07);
+}
+.crypto-page #cryptoLink {
+  font-size: 1rem;
+  color: #6f7d95;
+  background-color: transparent;
+  border: none;
+  border: 1px solid transparent;
+  max-width: 145px;
+}
+@media (max-width: 575px) {
+  .crypto-page #cryptoLink {
+    width: calc(100% - 35px);
+    max-width: 100%;
+  }
+}
+.crypto-page #cryptoLink:focus-visible {
+  outline: none;
+  border: 1px solid rgba(130, 44, 255, 0.2);
+}
+.crypto-page #cryptoCopy {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #f4f6f9;
+  border-radius: 5px;
+}
+.crypto-page #cryptoCopy i {
+  display: block;
+  line-height: 30px;
+  position: relative;
+  color: #fff;
+}
+.crypto-page #cryptoCopy i::before {
+  display: block;
+  width: 15px;
+  margin: 0 auto;
+}
+.crypto-page #cryptoCopy i.copied::after {
+  position: absolute;
+  top: 0px;
+  right: 35px;
+  height: 30px;
+  line-height: 25px;
+  display: block;
+  content: "copied";
+  font-size: 1rem;
+  padding: 2px 10px;
+  color: #fff;
+  background-color: #822cff;
+  border-radius: 3px;
+  opacity: 1;
+  will-change: opacity, transform;
+  animation: showcopied 1.5s ease;
+}
+.crypto-page #cryptoCopy:hover {
+  cursor: pointer;
+  background-color: #7313ff;
+  transition: background-color 0.3s ease-in;
+}
+
+@keyframes showcopied {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*======@@@@@@ Seccion de perfil end here  @@@@@@@@======= */
+/*----------------------- Pagina Centro de Ayuda Start here------------------------------------*/
+.help-search {
+  background: linear-gradient(180deg, #1270e3 0%, #59c2ff 100%);
+}
+.help-search h2 {
+  font-size: calc(1.375rem + 1.5vw);
+}
+@media (min-width: 1200px) {
+  .help-search h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.search-bar input,
+.search-bar button {
+  border: none;
+}
+.search-bar input:focus,
+.search-bar button:focus {
+  box-shadow: none;
+}
+.search-bar input {
+  padding: 1rem;
+}
+.search-bar button {
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  color: #fff;
+  padding: 1rem 1.5rem;
+}
+
+.help-item {
+  background-color: #fff;
+  padding: 1.75rem;
+  border-radius: 5px;
+  display: block;
+  color: #030e35;
+  text-align: center;
+}
+.help-item.style-2 {
+  padding: 3rem 1.75rem;
+}
+.help-item.style-2 span {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #822cff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.help-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.cant-find {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background-image: radial-gradient(circle, white 0%, #f9f3e6 77%);
+}
+.cant-find-content ul {
+  gap: 10px;
+}
+.cant-find-content ul li a {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.cant-find-content ul li a span {
+  margin-inline-end: 3px;
+}
+.cant-find-content ul li a:hover {
+  background-color: #822cff;
+  color: #fff;
+  border-color: transparent;
+}
+
+.help-text {
+  background-color: #fff;
+}
+.related-help {
+  background-color: #f4f6f9;
+  padding: 2rem 1.5rem;
+  border-radius: 5px;
+}
+.related-link:hover {
+  text-decoration: underline;
+}
+@media (min-width: 992px) {
+  .related-link {
+    max-inline-size: 30ch;
+  }
+}
+
+/*===========================  Paginas de Detalles de Items CSS start here=====================================*/
+@media (min-width: 992px) {
+  .item-desc-part .item-desc-thumb {
+    margin-bottom: 50px;
+  }
+}
+.item-desc-part .item-desc-thumb img {
+  border-radius: 10px;
+  margin: auto;
+}
+.item-desc-part .item-desc-content {
+  border-radius: 10px;
+}
+.item-desc-part .item-desc-content .nav-tabs {
+  background: #fff;
+  border-bottom: none;
+  padding-block: 5px;
+}
+.item-desc-part .item-desc-content .nav-tabs .nav-link {
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  color: #030e35;
+  font-weight: 500;
+}
+.item-desc-part .item-desc-content .nav-tabs .nav-link.active {
+  background: transparent;
+  color: #822cff;
+}
+.item-desc-part .item-desc-content .nav-tabs .nav-link.active:after {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 8px 10px 8px;
+  border-color: transparent transparent #f4f6f9 transparent;
+}
+@media (min-width: 992px) {
+  .item-desc-part .item-desc-content .details-tab > p {
+    max-width: 95%;
+  }
+}
+.item-desc-part .item-desc-content .details-tab .author-p-thumb {
+  width: 60px;
+  height: 60px;
+}
+.item-desc-part .item-desc-content .details-tab .author-p-thumb img {
+  border-radius: 50%;
+  border: 2px solid #530477;
+}
+.item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info .item-info-title {
+  width: 30%;
+}
+@media (min-width: 576px) {
+  .item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info .item-info-title {
+    width: 35%;
+  }
+}
+.item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info .item-info-title:after {
+  content: ":";
+  right: 10px;
+  top: 0;
+}
+.item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info .item-info-details {
+  width: 70%;
+}
+@media (min-width: 576px) {
+  .item-desc-part .item-desc-content .details-tab .other-info-list .item-other-info .item-info-details {
+    width: 65%;
+  }
+}
+.item-desc-part .item-desc-content .details-tab .other-info-list .crypto-page {
+  background: #fff;
+}
+.item-desc-part .item-desc-content .details-tab .other-info-list #cryptoLink {
+  max-width: 100%;
+  width: 80%;
+  color: #6f7d95;
+}
+.item-desc-part .item-desc-content .details-tab .other-info-list .copy-icon i {
+  color: #fff;
+}
+.item-desc-part .item-desc-content .bids-tab span i {
+  font-size: calc(1.375rem + 1.5vw);
+}
+@media (min-width: 1200px) {
+  .item-desc-part .item-desc-content .bids-tab span i {
+    font-size: 2.5rem;
+  }
+}
+.item-desc-part .item-desc-content .bids-tab p {
+  font-size: 1.125rem;
+}
+.item-desc-part .item-desc-content .history-tab .item-histo-list {
+  border-left: 1px dashed #822cff;
+}
+.item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item::before {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #822cff;
+  left: -25px;
+  top: 5px;
+}
+.item-desc-part .item-desc-content .history-tab .item-histo-list .histo-item time {
+  font-size: 14px;
+}
+
+.item-buy-part {
+  position: sticky;
+  top: 95px;
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 10px;
+}
+
+.nft-item-title h3 {
+  width: 85%;
+}
+.nft-item-title .share-btn {
+  width: 15%;
+  text-align: right;
+}
+.nft-item-title .share-btn .dropdown-toggle i {
+  font-size: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+  .nft-item-title .share-btn .dropdown-toggle i {
+    font-size: 1.875rem;
+  }
+}
+.nft-item-title .share-btn .dropdown-toggle:before {
+  display: none;
+}
+.nft-item-title .share-btn .dropdown-menu {
+  background-color: #f4f6f9;
+}
+.nft-item-title .share-btn .dropdown-item {
+  color: #6f7d95;
+}
+.nft-item-title .share-btn .dropdown-item:hover {
+  color: #822cff;
+  background: transparent;
+}
+
+.item-details-countdown .item-countdown-list {
+  gap: 15px;
+}
+.item-details-countdown .item-countdown-list li .days,
+.item-details-countdown .item-countdown-list li .hours,
+.item-details-countdown .item-countdown-list li .minutes,
+.item-details-countdown .item-countdown-list li .seconds {
+  font-size: calc(1.275rem + 0.3vw);
+  font-weight: 600;
+  background: #f4f6f9;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+@media (min-width: 1200px) {
+  .item-details-countdown .item-countdown-list li .days,
+.item-details-countdown .item-countdown-list li .hours,
+.item-details-countdown .item-countdown-list li .minutes,
+.item-details-countdown .item-countdown-list li .seconds {
+    font-size: 1.5rem;
+  }
+}
+
+.item-price p span {
+  font-size: calc(1.275rem + 0.3vw);
+  font-weight: 600;
+}
+@media (min-width: 1200px) {
+  .item-price p span {
+    font-size: 1.5rem;
+  }
+}
+.item-price p span i {
+  color: #822cff;
+}
+
+.buying-btns {
+  gap: 30px;
+}
+
+.create-nft {
+  background: #fff;
+  border-radius: 10px;
+}
+.create-nft .create-nft-form input,
+.create-nft .create-nft-form select,
+.create-nft .create-nft-form textarea {
+  background: #f4f6f9;
+  color: #6f7d95;
+  border: 1px solid #f5f5f5;
+}
+.create-nft .create-nft-form input:focus,
+.create-nft .create-nft-form select:focus,
+.create-nft .create-nft-form textarea:focus {
+  box-shadow: none;
+  border-color: rgba(130, 44, 255, 0.4);
+}
+.create-nft .create-nft-form textarea {
+  height: 200px;
+}
+.create-nft .upload-item {
+  border: 2px dashed rgba(130, 44, 255, 0.5);
+  padding: 30px 15px;
+  border-radius: 15px;
+  background: rgba(244, 246, 249, 0.15);
+  transition: all 0.3s ease;
+}
+@media (min-width: 768px) {
+  .create-nft .upload-item {
+    padding: 50px 15px;
+  }
+}
+.create-nft .upload-item .custom-upload {
+  background: #822cff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.create-nft .upload-item .custom-upload:hover {
+  background: #7313ff;
+  transform: translateY(-3px);
+}
+.create-nft .upload-item:hover {
+  background: rgba(244, 246, 249, 0.5);
+}
+.create-nft .item-category-field .item-cat-list {
+  gap: 10px;
+}
+.create-nft .item-category-field .item-cat-list .item-cat-btn {
+  background: #f4f6f9;
+  border: 1px solid #f5f5f5;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+.create-nft .item-category-field .item-cat-list .item-cat-btn.active, .create-nft .item-category-field .item-cat-list .item-cat-btn:hover {
+  background: #822cff;
+  border-color: transparent;
+  color: #fff;
+}
+.create-nft .submit-btn-field button {
+  background: #822cff;
+  border: none;
+  color: #fff;
+  padding: 1.125rem 2rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.create-nft .submit-btn-field button:hover {
+  background: #6a03ff;
+}
+
+.variation-content > p {
+  margin: auto;
+  margin-bottom: 40px;
+}
+@media (min-width: 992px) {
+  .variation-content > p {
+    max-inline-size: 80%;
+  }
+}
+
+.variation-items {
+  gap: 5%;
+}
+
+.variation-item {
+  min-inline-size: 40%;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 8% 5%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.variation-item img {
+  transition: all 0.3s ease;
+}
+.variation-item:hover {
+  border-color: rgba(130, 44, 255, 0.5);
+}
+.variation-item:hover img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1));
+}
+
+/*Seccion de Cuenta Starts Here*/
+.account-wrapper {
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  background-color: #fff;
+}
+.account-wrapper .title {
+  text-transform: capitalize;
+}
+.account-wrapper .cate {
+  font-style: normal;
+}
+.account-wrapper .cate a {
+  font-weight: 600;
+}
+.account-wrapper .cate a:hover {
+  color: #822cff;
+}
+
+@media (min-width: 576px) {
+  .account-bottom .subtitle {
+    font-size: 20px;
+  }
+}
+.account-bottom .social-media li a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #fff;
+}
+.account-bottom .social-media li a.facebook {
+  background: #3b5998;
+}
+.account-bottom .social-media li a.twitter {
+  background: #55acee;
+}
+.account-bottom .social-media li a.linkedin {
+  background: #007bb5;
+}
+.account-bottom .social-media li a.instagram {
+  background: #e4405f;
+}
+.account-bottom .social-media li a.pinterest {
+  background: #c8232c;
+}
+.account-bottom .social-media li a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.account-form .form-group input {
+  border: 1px solid rgba(130, 44, 255, 0.3);
+  outline: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background: #f4f6f9;
+  box-shadow: 0px 2px 2px 0px rgba(130, 44, 255, 0.1);
+  padding: 0.6rem 1rem;
+}
+.account-form .form-group .checkgroup {
+  flex-wrap: nowrap;
+}
+.account-form .form-group .checkgroup input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 575px) {
+  .account-form .form-group .checkgroup input[type=checkbox] {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+  }
+}
+.account-form .form-group .checkgroup label {
+  color: #030e35;
+}
+@media (max-width: 575px) {
+  .account-form .form-group .checkgroup label {
+    font-size: 14px;
+  }
+}
+.account-form .form-group a {
+  color: #030e35;
+  text-decoration: underline;
+}
+@media (max-width: 575px) {
+  .account-form .form-group a {
+    font-size: 14px;
+  }
+}
+.account-form .form-group a:hover {
+  color: #822cff;
+}
+.account-form .form-group button {
+  box-shadow: none;
+  border: none;
+}
+@media (max-width: 575px) {
+  .account-form .form-group button {
+    margin-top: 24px;
+  }
+}
+.account-form .form-floating input {
+  background: #f4f6f9;
+  border: 1px solid #f5f5f5;
+  color: #000000;
+}
+.account-form .form-floating input:focus {
+  border-color: rgba(130, 44, 255, 0.3);
+  outline: none;
+  box-shadow: none;
+}
+
+.or {
+  display: block;
+  margin: 24px auto 40px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+}
+.or span {
+  z-index: 1;
+}
+.or::before, .or::after {
+  top: 50%;
+  left: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: rgba(130, 44, 255, 0.3);
+  animation: pulse 2.5s linear infinite;
+  -webkit-animation: pulse 2.5s linear infinite;
+  -moz-animation: pulse 2.5s linear infinite;
+  opacity: 0;
+}
+.or::before {
+  animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    -ms-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
+    -webkit-transform: translate(-50%, -50%) scale(1.8);
+    -ms-transform: translate(-50%, -50%) scale(1.8);
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(2);
+    -ms-transform: translate(-50%, -50%) scale(2);
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+/*----------------------- Pagina de Error Start here------------------------------------*/
+.error-section .section-wrapper .error-item {
+  background-color: #fff;
+  padding: 30px 25px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+@media (min-width: 768px) {
+  .error-section .section-wrapper .error-item {
+    padding: 60px;
+  }
+}
+.ranking-wrapper {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.rank-table {
+  vertical-align: middle;
+  text-align: center;
+}
+.rank-table thead {
+  background-color: #822cff;
+  color: #fff;
+}
+.rank-table th,
+.rank-table td {
+  padding: 1rem;
+}
+.rank-table td {
+  font-weight: 600;
+  color: #030e35;
+}
+
+.rank-col-inner,
+.rank-vol-inner {
+  gap: 5px;
+  min-width: max-content;
+}
+
+.rank-col-thumb {
+  width: 40px;
+  height: 40px;
+}
+
+.rank-vol-thumb {
+  width: 25px;
+  height: 25px;
+}
+
+.rank-col-content a {
+  color: #030e35;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: rgba(130, 44, 255, 0.1);
+  --bs-table-accent-bg: none;
+}
+
+.coming-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.coming-wrapper .event-count {
+  gap: 10px;
+}
+.coming-wrapper .event-count .rounded-circle {
+  border: 2px solid #822cff;
+  height: 80px;
+  width: 80px;
+  flex-direction: column;
+  justify-content: center;
+}
+.coming-wrapper .event-count .rounded-circle span {
+  font-size: 24px;
+  font-family: "Manrope", sans-serif;
+  line-height: 1;
+}
+.coming-wrapper h1 {
+  font-size: 40px;
+}
+@media (min-width: 768px) {
+  .coming-wrapper h1 {
+    font-size: 55px;
+  }
+}
+
+/* @@@@@@@@@@@@@  Seccion Blog Start Here  @@@@@@@@@@@@@@ */
+.blog-section .post-item-inner {
+  margin-bottom: 40px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+@media (min-width: 1200px) {
+  .blog-section .post-item-inner {
+    margin-bottom: 0;
+  }
+}
+.blog-section .post-item-inner .post-thumb a img {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.blog-section .post-item-inner .post-content {
+  padding: 35px 30px 5px 30px;
+  background-color: #fff;
+}
+.blog-section .post-item-inner .post-content .meta {
+  font-size: 16px;
+  color: #822cff;
+}
+.blog-section .post-item-inner .post-content .meta a {
+  font-weight: 500;
+  color: #822cff;
+}
+.blog-section .post-item-inner .post-content h3 > a,
+.blog-section .post-item-inner .post-content h4 > a {
+  margin-bottom: 2px;
+  color: #030e35;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.blog-section .post-item-inner .blog-footer {
+  padding: 17px 30px;
+  border-top: 1px solid #f4f6f9;
+  background-color: #fff;
+}
+.blog-section .post-item-inner .blog-footer .viewall {
+  color: #030e35;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.blog-section .post-item-inner .blog-footer .blog-comment {
+  font-size: 16px;
+  color: #6f7d95;
+}
+.blog-section .post-item-inner .blog-footer .blog-comment:hover {
+  color: #822cff;
+}
+.blog-section .post-item-inner:hover {
+  box-shadow: 0px 15px 10px 0px rgba(136, 136, 136, 0.1);
+}
+.blog-section .post-item-inner:hover h4 > a {
+  color: #822cff;
+}
+.blog-section .post-item-inner:hover .viewall {
+  color: #822cff;
+}
+.blog-section .post-item-inner:hover .post-thumb a img {
+  transform: scale(1.07);
+}
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner:hover .post-content h3 a {
+  color: #822cff;
+}
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content h3 a {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content blockquote {
+  padding: 35px;
+}
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content blockquote p {
+  margin-bottom: 0 !important;
+  color: #fff;
+  padding-top: 50px;
+}
+@media (min-width: 768px) {
+  .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content blockquote p {
+    padding-left: 60px;
+    padding-top: 0;
+  }
+}
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content blockquote p::before {
+  content: url(../../assets/images/blog/icon/b-code.png);
+  left: 50%;
+  top: 7px;
+  transform: translateX(-50%);
+}
+@media (min-width: 768px) {
+  .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .post-content blockquote p::before {
+    left: 0px;
+    top: 7px;
+    transform: translateX(0%);
+  }
+}
+@media (max-width: 575px) {
+  .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .blog-footer .right {
+    margin-top: 10px;
+  }
+}
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner .blog-footer .right .blog-heart {
+  padding: 0 20px;
+  color: #6f7d95;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+@media (max-width: 575px) {
+  .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .blog-footer .right .blog-heart {
+    padding-left: 0;
+  }
+}
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner .blog-footer .right .blog-heart i {
+  padding: 0 5px;
+}
+@media (max-width: 575px) {
+  .blog-section .main-blog .blog-wrapper .post-item .post-item-inner .blog-footer .right .blog-heart i {
+    padding-left: 0;
+  }
+}
+.blog-section .main-blog .blog-wrapper .post-item .post-item-inner .blog-footer .right .blog-heart:hover {
+  color: #822cff;
+}
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner:hover .post-thumb img {
+  transform: scale(1);
+}
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-prev,
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-next {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background: #fff;
+  color: #030e35;
+}
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-prev:hover,
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-next:hover {
+  color: #fff;
+}
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-prev {
+  left: 20px;
+  transform: rotate(180deg) translateY(50%);
+}
+.blog-section .main-blog .blog-wrapper .post-item.post-slider .post-item-inner .post-thumb .blog-slider .blog-slider-next {
+  right: 20px;
+}
+.blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive iframe {
+  height: 170px;
+}
+@media (min-width: 576px) {
+  .blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive iframe {
+    height: 250px;
+  }
+}
+@media (min-width: 768px) {
+  .blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive iframe {
+    height: 335px;
+  }
+}
+@media (min-width: 1200px) {
+  .blog-section .main-blog .blog-wrapper .post-item.video-post .post-item-inner .post-thumb .embed-responsive iframe {
+    height: 360px;
+  }
+}
+.blog-section .main-blog .blog-wrapper .post-item.code-post .post-item-inner:hover .post-thumb .code-content img {
+  transform: scale(1);
+}
+.blog-section .main-blog .blog-wrapper .post-item.code-post .post-item-inner .post-thumb {
+  padding: 40px;
+}
+.blog-section .main-blog .blog-wrapper .post-item.code-post .post-item-inner .post-thumb .code-content p {
+  color: #fff;
+  font-style: italic;
+  line-height: 30px;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section {
+  padding: 15px 30px;
+  border-top: 1px solid #f4f6f9;
+  background-color: #fff;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li {
+  padding: 5px 0;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span {
+  padding: 10px 15px;
+  color: #fff;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span::after {
+  top: 50%;
+  right: 0;
+  transform: rotate(45deg) translateY(-50%);
+  width: 15px;
+  height: 15px;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li span i {
+  transform: rotate(90deg);
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li a {
+  outline: none;
+  margin: 0 3px;
+  border: 1px solid rgba(130, 44, 255, 0.3);
+  color: #030e35;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .tags li a:hover {
+  color: #fff;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li {
+  padding: 5px 0;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li a {
+  background-color: #822cff;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li a.facebook {
+  background: #3b5998;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li a.dribble {
+  background: #ea4c89;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li a.twitter {
+  background: #55acee;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li a.linkedin {
+  background: #007bb5;
+}
+.blog-section .main-blog .blog-wrapper .post-item .tags-section .social-link-list li a:hover {
+  border-radius: 50%;
+  color: #fff;
+}
+
+.comments {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 3px;
+}
+.comments .widget-title h5 {
+  border-bottom: 1px solid #f4f6f9;
+  padding: 20px 30px;
+}
+.comments .comment-list {
+  padding: 10px 30px;
+}
+.comments .comment-list .comment {
+  padding: 20px 0px;
+}
+.comments .comment-list .comment .com-image {
+  height: 69px;
+  width: 69px;
+  border: 2px solid #f4f6f9;
+  border-radius: 50%;
+  float: left;
+}
+@media (min-width: 576px) {
+  .comments .comment-list .comment .com-image {
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+}
+.comments .comment-list .comment .com-content {
+  border-bottom: 1px solid #f4f6f9;
+}
+@media (max-width: 575px) {
+  .comments .comment-list .comment .com-content {
+    width: 100%;
+  }
+}
+.comments .comment-list .comment .com-content:last-child {
+  border: none;
+}
+.comments .comment-list .comment .com-content .com-title {
+  display: flex;
+}
+.comments .comment-list .comment .com-content .com-title .com-title-meta h6 a {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #030e35;
+}
+.comments .comment-list .comment .com-content .com-title .com-title-meta h6 a:hover {
+  color: #822cff;
+}
+.comments .comment-list .comment .com-content .com-title .reply a {
+  color: #822cff;
+}
+@media (min-width: 576px) {
+  .comments .comment-list .comment .comment-list {
+    padding-left: 30px;
+  }
+}
+
+.comment-respond {
+  border-radius: 5px;
+  background-color: #fff;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.06));
+}
+.comment-respond h5 {
+  border-bottom: 1px solid #f4f6f9;
+  padding: 20px 30px;
+}
+.comment-respond .add-comment .comment-form {
+  justify-content: space-between;
+}
+.comment-respond .add-comment .comment-form input,
+.comment-respond .add-comment .comment-form textarea {
+  color: #6f7d95;
+  background: #f4f6f9;
+  border: 1px solid #f5f5f5;
+  outline: none;
+  box-shadow: none;
+}
+.comment-respond .add-comment .comment-form input:focus,
+.comment-respond .add-comment .comment-form textarea:focus {
+  border-color: rgba(130, 44, 255, 0.3);
+}
+.comment-respond .add-comment .comment-form textarea {
+  width: 100%;
+  border-radius: 5px;
+  height: 200px;
+}
+.comment-respond .add-comment .comment-form .default-btn {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: auto;
+  margin: 15px auto 0;
+}
+
+/*Intems de Contacto Css Start here*/
+.contact-item {
+  width: 100%;
+  padding: 30px 25px;
+  margin-bottom: 25px;
+  background: #fff;
+  box-shadow: 0 5px 5px rgba(136, 136, 136, 0.05);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.contact-item:hover {
+  box-shadow: 0 5px 5px rgba(136, 136, 136, 0.12);
+}
+.contact-item .contact-icon {
+  width: 72px;
+}
+.contact-item .contact-icon i {
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 100%;
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 24px;
+  background: #f85b82;
+}
+.contact-item .contact-details {
+  width: calc(100% - 72px);
+}
+.contact-item .contact-details p {
+  margin: 0;
+}
+
+.col-12:nth-child(2) .contact-item .contact-icon i {
+  background: #822cff;
+}
+.col-12:nth-child(3) .contact-item .contact-icon i {
+  background: #5ce1b9;
+}
+
+/*Intems de Contacto Css end here*/
+/* @@@@@@@@@@@@@  Contact Us Section Start Here  @@@@@@@@@@@@@@ */
+@media (max-width: 991px) {
+  .location-map {
+    margin-bottom: 15px;
+  }
+}
+.location-map #map {
+  height: 435px;
+  width: 100%;
+}
+.location-map #map iframe {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.contact-form-wrapper {
+  background-color: #fff;
+  border-radius: 5px;
+}
+.contact-form-wrapper .contact-form p {
+  max-width: 610px;
+}
+.contact-form-wrapper .contact-form form input,
+.contact-form-wrapper .contact-form form textarea {
+  background: #f4f6f9;
+  border: 1px solid #f5f5f5;
+  color: #000000;
+  box-shadow: none;
+}
+.contact-form-wrapper .contact-form form textarea {
+  height: 190px;
+}
+.contact-form-wrapper .contact-form form .default-btn {
+  margin-top: 25px;
+  border-radius: 5px;
+  border: none;
+}
+@media (min-width: 992px) {
+  .contact-form-wrapper .contact-form form .default-btn {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+.contact-info-wrapper {
+  border-radius: 5px;
+}
+@media (max-width: 991px) {
+  .contact-info-wrapper {
+    margin-top: 50px;
+  }
+}
+.contact-info-wrapper .contact-info-title h4 {
+  font-family: "Manrope", sans-serif;
+}
+.contact-info-wrapper .contact-info-title p {
+  max-width: 280px;
+  margin-bottom: 30px;
+}
+@media (max-width: 991px) {
+  .contact-info-wrapper .contact-info-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.contact-info-wrapper .contact-info-content .contact-info-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+.contact-info-wrapper .contact-info-content .contact-info-item:last-child {
+  margin-bottom: 0;
+}
+.contact-info-wrapper .contact-info-content .contact-info-item .contact-info-inner .contact-info-thumb {
+  margin-bottom: 0;
+  margin-right: 15px;
+}
+.contact-info-wrapper .contact-info-content .contact-info-item .contact-info-inner .contact-info-details span {
+  color: #030e35;
+}
+/*=======  Seccion de pie  css start here =========*/
+.footer-top {
+  background-size: cover;
+  background-position: center;
+}
+.footer-top .footer-newsletter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-block: 50px;
+}
+@media (min-width: 992px) {
+  .footer-top .footer-newsletter {
+    padding-block: 60px;
+  }
+}
+@media (min-width: 992px) {
+  .footer-top .ft-header {
+    margin-bottom: 30px;
+  }
+}
+.footer-top form input {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  height: 60px;
+  padding: 0.5rem 1.5rem;
+  color: #6f7d95;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+.footer-top form input::placeholder {
+  color: #6f7d95;
+}
+.footer-top form input,
+.footer-top form button {
+  outline: none;
+  box-shadow: none;
+}
+.footer-top form button {
+  border: none;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50px;
+  padding-inline: 1.5rem;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+  color: #fff;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.footer-top form button:hover {
+  background: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+}
+.footer-top .social-list {
+  gap: 20px;
+}
+.footer-top .social-list .social-link a {
+  background: linear-gradient(315deg, #734ae8 0%, #00d3c5 74%);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  font-size: 20px;
+}
+@media (min-width: 992px) {
+  .footer-top .social-list .social-link a {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+  }
+}
+.footer-top .social-list .social-link a:hover {
+  background-image: linear-gradient(90deg, #a200ff 0%, #ff7c6e 100%);
+}
+
+.footer-link-item .footer-link-list .footer-link {
+  padding-block: 5px;
+}
+.footer-link-item .footer-link-list .footer-link:before {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #822cff;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.footer-section.style-2 .footer-top form button {
+  background-color: #822cff;
+  color: #000000;
+}
+.footer-section.style-2 .footer-top form button:hover {
+  background-color: #6500f8;
+}
+.footer-section.style-2 .footer-top .social-link a {
+  background-color: #822cff;
+  color: #000000;
+}
+.footer-section.style-2 .footer-top .social-link a:hover {
+  background-color: #6500f8;
+}
+.footer-section.style-2 .footer-link-item .footer-link:hover {
+  color: #822cff;
+}
+.footer-section.style-2 .footer-link-item .footer-link:before {
+  border-color: #822cff;
+}
+.footer-section.style-2 .footer-bottom a:hover {
+  color: #822cff;
+}
+
+/*# sourceMappingURL=style.scss.map */
