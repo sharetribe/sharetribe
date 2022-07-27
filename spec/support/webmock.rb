@@ -9,6 +9,6 @@ allowed_sites = lambda do |uri|
     whitelist << 'api.stripe.com'
     whitelist << 'js.stripe.com'
   end
-  whitelist.include?(uri.host) || uri.host =~ /scontent[.\w-]+\.fbcdn.net/
+  whitelist.include?(uri.host) || uri.host =~ /(scontent|static)[.\w-]+\.fbcdn.net/
 end
 WebMock.disable_net_connect!(allow: allowed_sites)
