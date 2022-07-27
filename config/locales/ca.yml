@@ -1371,7 +1371,7 @@ ca:
       canceled_request: "va cancel·lar la comanda"
       canceled_offer: "va cancel·lar l'oferta"
       paid: "va pagar %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Payment authorized \n"
       payment_preauthorized_wo_sum: "Pagament autoritzat"
       stripe:
         held_payment: ~

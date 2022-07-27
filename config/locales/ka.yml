@@ -288,7 +288,7 @@ ka:
         ban_me_error: "თქვენ ვერ დაბლოკავთ საკუთარ თავს."
         have_ongoing_transactions: ~
         only_delete_disabled: ~
-        delete_info1: ~
+        delete_info1: "თუ ამ ანგარიშს წაშლით, პერსონალური ინფორმაცია (სახელი, ტელეფონის ნომერი, მისამართი, ელფოსტა, პროფილის სურათი და ა.შ.) სამუდამოდ წაიშლება და ვერ აღდგება. ყველა სია, რომელიც მათ შექმნეს, წაიშლება. თქვენ ვერ შეძლებთ ამ ანგარიშის ხელახლა გააქტიურებას."
         delete_info2: ~
         search: ~
         search_by_name_email: ~
@@ -609,7 +609,7 @@ ka:
           used: ~
           date_sent: ~
       listings:
-        listings: ~
+        listings: განცხადებები
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
@@ -2311,10 +2311,10 @@ ka:
       paypal_payments: ~
       stripe_payments: ~
       payments: გადახდები
-      listings: ~
-      listings_search_placeholder: ~
+      listings: განცხადებები
+      listings_search_placeholder: "მოძებნეთ ჩამონათვალის სათაური"
       transactions_search_placeholder: ~
-      transactions: ~
+      transactions: გარიგებები
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "თქვენ არ გაქვთ წვდომა ამ ჩამონათვლის სანახავად"
@@ -2332,7 +2332,7 @@ ka:
       you_cannot_send_a_new_comment_because_listing_is_closed: "თქვენ არ შეგიძლიათ კომენტარის გაგზავნა, რადგან ეს ჩამონათვალი დახურულია. "
       you_must: "თქვენ უნდა"
       subscribe_to_comments: "შემატყობინეთ ახალი კომენტარების და განახლებების შესახებ"
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "სიის წაშლა შეუძლებელია. დარწმუნებული ხართ, რომ გსურთ გაგრძელება?"
     edit:
       edit_listing: "დაარედაქტირე განცხადება"
     edit_links:
@@ -2344,10 +2344,10 @@ ka:
       show_in_updates_email_loading: იტვირთება
       show_in_updates_email_error: "ვერ დავუკავშირდით სერვერს. გვერდის გადატვირთის შემდეგ ცადეთ კიდევ ერთხელ"
       show_in_updates_email_success: "ჩამონათვალი გამოჩნდება შემდეგ განახლებულ წერილში, რომელიც დაეგზავნება ყველა მომხმარებელს"
-      listing_is_pending: ~
-      listing_is_rejected: ~
-      approve_listing: ~
-      reject_listing: ~
+      listing_is_pending: "ჩამონათვალი ელოდება დამტკიცებას"
+      listing_is_rejected: "ჩამონათვალი უარყოფილია"
+      approve_listing: "ჩამონათვალის დამტკიცება"
+      reject_listing: "უარი თქვას ჩამონათვალზე"
       delete_listing: "წაშალე განცხადება"
     map:
       open_in_google_maps: "გახსენი Google Maps-ში"
@@ -2428,7 +2428,7 @@ ka:
       origin:
         location: ადგილმდებარეობა
         origin: თავდაპირველი
-        the_exact_location: ~
+        the_exact_location: "ზუსტი მდებარეობა არ იქნება ნაჩვენები სხვა მომხმარებლებს."
       send_button:
         save_listing: "დაიმახსოვრე ჩამონათვალი"
         submit_for_review: "გაგზავნეთ განსახილველად"
@@ -2509,11 +2509,11 @@ ka:
       how_paypal_works: "როგორ მუშაობს PayPal"
       payment_help: "გადახდის დახმარება"
       unable_load_availability: "ვერ მოხდა ჩატვირთვა ხელმისაწვდომობაზე. გთხოვთ თავიდან სცადოთ."
-      booking_date: ~
-      select_one: ~
-      start_time: ~
+      booking_date: "დაჯავშნის თარიღი"
+      select_one: "აირჩიეთ ერთი"
+      start_time: "დაწყების დრო"
       end_time: ~
-      marketplace_fees_may_apply: ~
+      marketplace_fees_may_apply: "შეიძლება დაწესდეს %{service_name} საკომისიო"
     new:
       listing: სია
       selected_category: "კატეგორია: %{category}"
@@ -2588,7 +2588,7 @@ ka:
       week: კვირა
       month: თვე
       unit: ~
-      person: ~
+      person: პირი
     verification_required:
       verification_required: "ვერიფიკაცია სავალდებულოა"
   listing_conversations:
