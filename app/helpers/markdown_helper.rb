@@ -1,7 +1,7 @@
 module MarkdownHelper
   def markdown(text)
     if text.is_a?(String)
-      markdown_renderer.render(text).html_safe # rubocop:disable Rails/OutputSafety
+      markdown_renderer.render(text).html_safe
     end
   end
 
@@ -25,7 +25,7 @@ module MarkdownHelper
       lines = ArrayUtils.trim(text.split(/\n/))
       lines.map do |line|
         markdown_renderer.render(line)
-      end.join(' ').html_safe # rubocop:disable Rails/OutputSafety
+      end.join(' ').html_safe
     end
   end
 end

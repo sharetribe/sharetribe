@@ -72,7 +72,7 @@ class StripeService::CapabilitiesUpdate
       account_id: stripe_account.stripe_seller_id
     )
     if result
-      stripe_account.update_column(:api_version, StripeService::API::StripeApiWrapper::API_2019_12_03) # rubocop:disable Rails/SkipsModelValidations
+      stripe_account.update_column(:api_version, StripeService::API::StripeApiWrapper::API_2019_12_03)
     end
   end
 

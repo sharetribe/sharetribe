@@ -92,7 +92,7 @@ module Admin2::Listings
       url_name = shape.name
       raise t('admin2.order_types.errors.cannot_delete_msg', error_msg: shape.delete_shape_msg) unless shape.can_delete_shape?
 
-      @current_community.listings.where(listing_shape_id: shape.id).update_all(open: false, listing_shape_id: nil) # rubocop:disable Rails/SkipsModelValidations
+      @current_community.listings.where(listing_shape_id: shape.id).update_all(open: false, listing_shape_id: nil)
       deleted_shape = @current_community.shapes.by_name(url_name).first
       raise t('admin2.order_types.errors.cannot_delete') unless deleted_shape
 

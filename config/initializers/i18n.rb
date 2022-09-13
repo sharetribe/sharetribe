@@ -64,8 +64,8 @@ I18n::Locale::Tag.implementation = I18n::Locale::Tag::DefinedFallbacksOnly
 
 # Set the fallback mapping
 Sharetribe::AVAILABLE_LOCALES
-  .select { |locale| locale[:fallback].present? }
-  .each { |locale| I18n.fallbacks.map(locale[:ident] => locale[:fallback]) }
+  # .select { |locale| locale[:fallback].present? }
+  .each { |locale| I18n.fallbacks.map(locale[:ident] => (locale[:fallback] || I18n.default_locale)) }
 
 module I18n
   def self.with_locale(locale, &block)
@@ -110,7 +110,7 @@ end
 module I18n::Backend::Pluralization
   alias_method :pluralizer_original, :pluralizer
   def pluralizer(locale)
-    if (locale == :'tr-TR')
+    if locale == :'tr-TR'
       original_locales = I18n.available_locales
       I18n.available_locales += [:tr]
       p = pluralizer_original('tr')

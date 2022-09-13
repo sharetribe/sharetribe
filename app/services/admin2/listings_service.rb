@@ -31,12 +31,12 @@ class Admin2::ListingsService
   end
 
   def approve
-    listing.update_column(:state, Listing::APPROVED) # rubocop:disable Rails/SkipsModelValidations
+    listing.update_column(:state, Listing::APPROVED)
     self.class.send_listing_approved(listing.id)
   end
 
   def reject
-    listing.update_column(:state, Listing::APPROVAL_REJECTED) # rubocop:disable Rails/SkipsModelValidations
+    listing.update_column(:state, Listing::APPROVAL_REJECTED)
     self.class.send_listing_rejected(listing.id)
   end
 

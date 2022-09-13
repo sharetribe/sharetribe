@@ -2,6 +2,13 @@ Paperclip::UriAdapter.register
 Paperclip::DataUriAdapter.register
 Paperclip::HttpUrlProxyAdapter.register
 
+
+module URI
+  def self.escape(url)
+    URI::Parser.new.escape(url)
+  end
+end
+
 # Paperclip (via the OS file util) discovers CSV as application/csv, which
 # conflicts with the default MIME type text/csv. We override the default to
 # prevent Paperclip from considering this a content type spoof. The CSV files
@@ -9,6 +16,7 @@ Paperclip::HttpUrlProxyAdapter.register
 Paperclip.options[:content_type_mappings] = {
   csv: %w(application/csv)
 }
+
 
 module Paperclip
   Attachment.class_eval do
