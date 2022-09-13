@@ -43,9 +43,9 @@ module CustomLandingPage
       end
       section.update = update
       if params['bg_image'].present?
-        asset = community.landing_page_assets.attach(create_blob(params[:bg_image]))
-        if asset
-          section.asset_added(community.landing_page_assets.last)
+        asset = community.landing_page_assets.attach(create_blob(params[:bg_image])).first
+        if asset.valid?
+          section.asset_added(asset)
         end
       end
       section.save
@@ -113,8 +113,7 @@ module CustomLandingPage
       patch = {}
       params.each do |key, value|
         if value.respond_to?(:open)
-          community.landing_page_assets.attach(create_blob(value))
-          patch[key] = community.landing_page_assets.last
+          patch[key] = community.landing_page_assets.attach(create_blob(value)).first
         elsif value.is_a?(Hash) || value.is_a?(ActionController::Parameters)
           upload_assets(value)
         end

@@ -49,7 +49,7 @@ class PaymentSettingsController < ApplicationController
       flash[:warning] = t("stripe_accounts.admin_account_not_connected",
                             contact_admin_link: view_context.link_to(
                               t("stripe_accounts.contact_admin_link_text"),
-                                new_user_feedback_path)).html_safe
+                                new_user_feedback_path)).html_safe # rubocop:disable Rails/OutputSafety
       redirect_to person_settings_path
     end
   end

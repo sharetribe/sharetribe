@@ -48,13 +48,17 @@ class Admin2::MembershipService
   end
 
   def promote_admin
+    # rubocop:disable Rails/SkipsModelValidations
     resource_scope.where(person_id: params[:add_admin]).update_all("admin = 1")
     resource_scope.where(person_id: params[:remove_admin]).update_all("admin = 0")
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   def posting_allowed
+    # rubocop:disable Rails/SkipsModelValidations
     resource_scope.where(person_id: params[:allowed_to_post]).update_all("can_post_listings = 1")
     resource_scope.where(person_id: params[:disallowed_to_post]).update_all("can_post_listings = 0")
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   def resend_confirmation
@@ -83,7 +87,7 @@ class Admin2::MembershipService
       Person.delete_user(person.id)
       Listing.delete_by_author(person.id)
       PaypalAccount.where(person_id: person.id, community_id: person.community_id).delete_all
-      Invitation.where(community: person.community, inviter: person).update_all(deleted: true)
+      Invitation.where(community: person.community, inviter: person).update_all(deleted: true) # rubocop:disable Rails/SkipsModelValidations
     end
   end
 

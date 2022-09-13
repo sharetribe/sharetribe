@@ -20,7 +20,6 @@ module.exports = {
   },
   plugins: [],
   optimization: {
-    minimize: false,
     splitChunks: {
       chunks: 'all',
       cacheGroups: {

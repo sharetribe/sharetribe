@@ -29,7 +29,7 @@ class TransactionProcessStateMachine
   transition from: :disputed,                       to: [:refunded, :dismissed]
 
   after_transition do |transaction, transition|
-    transaction.update_columns(
+    transaction.update_columns( # rubocop:disable Rails/SkipsModelValidations
       current_state: transition.to_state,
       last_transition_at: Time.current)
   end
@@ -129,7 +129,7 @@ class TransactionProcessStateMachine
     end
 
     def reject_transaction(transaction)
-      transaction.update_column(:deleted, true)
+      transaction.update_column(:deleted, true) # rubocop:disable Rails/SkipsModelValidations
     end
 
     def handle_preauthorized(transaction)

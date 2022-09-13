@@ -96,7 +96,7 @@ Rails.application.configure do
     end
 
   # Compress JavaScript and CSS
-  config.assets.js_compressor = Uglifier.new(harmony: true)
+  config.assets.js_compressor = :uglifier
 
   # Don't fallback to assets pipeline
   config.assets.compile = false
@@ -149,7 +149,4 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.active_storage.service = APP_CONFIG.active_storage_service.to_sym
-
-  # List of classes deemed safe to be deserialized from YAML.
-  config.active_record.yaml_column_permitted_classes = [Symbol, ActiveSupport::HashWithIndifferentAccess]
 end

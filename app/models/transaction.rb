@@ -352,7 +352,7 @@ class Transaction < ApplicationRecord
     self.conversation
       .participations
       .where("person_id = '#{person_id}'")
-      .update_all(is_read: true)
+      .update_all(is_read: true) # rubocop:disable Rails/SkipsModelValidations
   end
 
   def payment_total

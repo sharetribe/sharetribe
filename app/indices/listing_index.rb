@@ -24,8 +24,8 @@ if APP_CONFIG.use_thinking_sphinx_indexing.to_s.casecmp("true") == 0
     has category(:id), :as => :category_id
     has listing_shape_id
     has community_id
-    has custom_dropdown_field_values.selected_options.id, as: :custom_dropdown_field_options, type: :integer, multi: true
-    has custom_checkbox_field_values.selected_options.id, as: :custom_checkbox_field_options, type: :integer, multi: true
+    has custom_dropdown_field_values.selected_options.id, :as => :custom_dropdown_field_options, :type => :integer, :multi => true
+    has custom_checkbox_field_values.selected_options.id, :as => :custom_checkbox_field_options, :type => :integer, :multi => true
 
     set_property :enable_star => true
 

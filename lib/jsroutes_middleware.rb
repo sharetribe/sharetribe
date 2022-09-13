@@ -68,11 +68,13 @@ class JsRoutes
     end
 
     def cache
-      @cache ||= if cache_path.exist?
-                   YAML.load_file(cache_path) || {}
-                 else
-                   {}
-                 end
+      @cache ||= begin
+        if cache_path.exist?
+          YAML.load_file(cache_path) || {}
+        else
+          {}
+        end
+      end
     end
 
     def clear_cache

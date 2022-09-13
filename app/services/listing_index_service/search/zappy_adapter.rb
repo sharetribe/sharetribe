@@ -100,7 +100,7 @@ module ListingIndexService::Search
       Maybe(l_ids).map { |ids|
         Listing
           .where(id: ids)
-          .order(Arel.sql("field(listings.id, #{ids.join ','})"))
+          .order("field(listings.id, #{ids.join ','})")
           .map { |l|
             distance_hash = parse_distance(data_by_id[l.id])
             ListingIndexService::Search::Converters.listing_hash(l, includes, distance_hash)

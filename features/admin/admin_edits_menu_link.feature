@@ -16,7 +16,7 @@ Feature: Admin edits menu link
     And I am on the top bar admin page
 
   Scenario: Admin edits menu link
-    And  I wait for 1 seconds
+    And  I wait for 1 seconds # Translations cache has 1sec step
     And I change field "Blog link" to "Sharetribe Blog"
     And I change field "Verkkopäiväkirja" to "Sharetriben blogi"
     And I change field "Homepage link" to "Sharetribe Homepage"

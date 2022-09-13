@@ -112,7 +112,7 @@ module Admin
     def transition_to!(new_state)
       return false unless can_transition_to?(new_state)
 
-      transaction.update_column(:current_state, new_state)
+      transaction.update_column(:current_state, new_state) #rubocop:disable Rails/SkipsModelValidations
       state_machine.transition_to!(new_state, metadata)
     end
 

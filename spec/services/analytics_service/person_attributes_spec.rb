@@ -93,15 +93,15 @@ describe AnalyticService::PersonAttributes do
     end
 
     it 'payment providers available' do
-      country = ISO3166::Country.find_country_by_any_name('Finland')
+      country = ISO3166::Country.find_country_by_name('Finland')
       community.update_columns(country: country.alpha2, currency: country.currency.iso_code)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['payment_providers_available']).to eq 'stripe,paypal'
-      country = ISO3166::Country.find_country_by_any_name('Brasil')
+      country = ISO3166::Country.find_country_by_name('Brasil')
       community.update_columns(country: country.alpha2, currency: country.currency.iso_code)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['payment_providers_available']).to eq 'paypal'
-      country = ISO3166::Country.find_country_by_any_name('Burkina Faso')
+      country = ISO3166::Country.find_country_by_name('Burkina Faso')
       community.update_columns(country: country.alpha2, currency: country.currency.iso_code)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['payment_providers_available']).to eq 'none'

@@ -38,7 +38,7 @@ module I18n
             init_translations unless initialized?
           end
         end
-        all_translations.deep_merge!(selected_backend.send(:translations)) rescue nil
+        all_translations.deep_merge!(selected_backend.send(:translations))
       end
 
       all_translations.slice(*::I18n.available_locales)

@@ -57,7 +57,7 @@ class OmniauthController < ApplicationController
       @new_person = service.create_person
 
       sign_in(:person, @new_person)
-      flash[:notice] = t("layouts.notifications.login_successful", person_name: view_context.link_to(PersonViewUtils.person_display_name_for_type(@new_person, "first_name_only"), person_path(@new_person))).html_safe
+      flash[:notice] = t("layouts.notifications.login_successful", person_name: view_context.link_to(PersonViewUtils.person_display_name_for_type(@new_person, "first_name_only"), person_path(@new_person))).html_safe # rubocop:disable Rails/OutputSafety
 
 
       session[:fb_join] = "pending_analytics"

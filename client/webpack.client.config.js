@@ -21,7 +21,7 @@ config.module.rules.push(
   {
     test: /\.js$/,
     loader: 'babel-loader',
-    exclude: [/node_modules/],
+    exclude: [/node_modules/, /routes\/routes.js/],
   },
   {
     test: /\.css$/,

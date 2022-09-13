@@ -1,14 +1,12 @@
 require_relative './common.rb'
-require "active_support/core_ext/integer/time"
-
-# The test environment is used exclusively to run your application's
-# test suite. You never need to work with it otherwise. Remember that
-# your test database is "scratch space" for the test suite and is wiped
-# and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over those in config/environment.rb
 
+  # The test environment is used exclusively to run your application's
+  # test suite.  You never need to work with it otherwise.  Remember that
+  # your test database is "scratch space" for the test suite and is wiped
+  # and recreated between test runs.  Don't rely on the data there!
   config.cache_classes = true
 
   # Do not eager load code on boot. This avoids loading your whole application
@@ -22,10 +20,9 @@ Rails.application.configure do
     'Cache-Control' => "public, max-age=#{1.hour.to_i}"
   }
 
-  # Show full error reports and disable caching.
+  # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-  # config.cache_store = :null_store
 
   # Raise exceptions instead of rendering exception templates
   config.action_dispatch.show_exceptions = true
@@ -62,9 +59,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Raises error for missing translations
-  config.i18n.raise_on_missing_translations = false
-  # ActiveStorage::Current.host = 'test.lvh.me:9887'
-
-  # List of classes deemed safe to be deserialized from YAML.
-  config.active_record.yaml_column_permitted_classes = [Symbol, ActiveSupport::HashWithIndifferentAccess]
+  config.action_view.raise_on_missing_translations = false
+  ActiveStorage::Current.host = 'test.lvh.me:9887'
 end

@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 ruby '2.7.5'
 
-gem 'rails', '6.1.6.1'
+gem 'rails', '5.2.6'
 
-gem 'coffee-rails'
-gem 'uglifier'
+gem 'coffee-rails', '~> 4.2.2'
+gem 'uglifier', '~> 3.2.0'
 
 gem 'sass-rails', '~> 5.0.6'
-gem 'compass-rails', '~> 3.0.0'
+gem 'compass-rails', '~> 4.0.0'
 
 gem 'jquery-rails', '~> 4.3.1'
 
@@ -17,54 +17,50 @@ gem 'jquery-rails', '~> 4.3.1'
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
 gem "passenger", '~> 6.0.14'
 
-gem "mysql2"
-gem "bcrypt"
-gem 'haml'
+gem "mysql2", '0.4.10'
+gem "bcrypt", '3.1.12'
+gem 'haml', '~> 5.0.4'
+gem 'sass', '~> 3.4.24'
+gem 'rack-attack', '~> 6.0.0'
+gem 'rest-client', '~> 2.0.2'
 
-gem 'sass', '3.4.24'
-# gem 'compass', '0.12.2'
-
-# gem 'sass', '3.4.25'
-gem 'rack-attack'
-gem 'rest-client'
-
-gem 'paperclip'
-gem 'delayed_paperclip'
+gem 'paperclip', '~> 6.0.0'
+gem 'delayed_paperclip', '~> 3.0.1'
 
 # Active Storage
-gem 'image_processing'
-gem 'mini_magick'
+gem 'image_processing', '~> 1.9.3'
+gem 'mini_magick', '~> 4.9.5'
 
-gem 'aws-sdk-s3'
-gem 'aws-sdk-ses'
-gem "will_paginate"
+gem 'aws-sdk-s3', '~> 1.48'
+gem 'aws-sdk-ses', '~> 1.34'
+gem "will_paginate", '~> 3.1.7'
 gem 'dalli', '~> 2.7.10'
-gem "memcachier"
-gem 'redis'
-gem 'hiredis'
+gem "memcachier", '~> 0.0.2'
+gem 'redis', '~> 4.1', '>= 4.1.1'
+gem 'hiredis', '~> 0.6.3'
 gem 'thinking-sphinx', '~> 3.3.0'
 gem 'flying-sphinx', '~> 1.2.0'
 # Use patched v2.0.2
 # Fixes issues: Create a new delayed delta job if there is an existing delta job which has failed
 gem 'ts-delayed-delta', '2.1.0'
-gem 'possibly'
+gem 'possibly', '~> 1.0.1'
 
 gem 'delayed_job', '~> 4.1.3'
 gem 'delayed_job_active_record', '~> 4.1.3'
 
-gem 'web_translate_it'
-gem 'rails-i18n', '~> 6.0'
-gem 'devise'
-gem 'devise-encryptable'
-gem "omniauth-facebook"
-gem "omniauth-google-oauth2"
-gem "omniauth-linkedin-oauth2"
-gem "omniauth-rails_csrf_protection"
+gem 'web_translate_it', '~> 2.4.1'
+gem 'rails-i18n', '~> 5.0.4'
+gem 'devise', '>= 4.7.1'
+gem 'devise-encryptable', '~> 0.2.0'
+gem "omniauth-facebook", '~> 5.0.0'
+gem "omniauth-google-oauth2", '>= 0.6.0'
+gem "omniauth-linkedin-oauth2", '>= 1.0.0'
+gem "omniauth-rails_csrf_protection", '~> 0.1.2'
 
 # Dynamic form adds helpers that are needed, e.g. error_messages
-gem 'dynamic_form'
-gem "truncate_html"
-gem 'money-rails'
+gem 'dynamic_form', '~> 1.1.4'
+gem "truncate_html", '~> 0.9.3'
+gem 'money-rails', '~> 1.8.0'
 
 # Modified version with Rails 5 fixes
 gem 'mercury-rails',
@@ -72,90 +68,88 @@ gem 'mercury-rails',
   branch: 'master',
   ref: '1a9d4ac5a0a5fd0d459ff1986f9f05e617415b16'
 
-gem 'countries', require: 'countries/global'
-gem "mail_view"
-gem 'statesman'
-gem "premailer-rails"
-gem "css_parser"
-gem 'stringex'
-gem 'paypal-sdk-permissions'
-gem 'paypal-sdk-merchant'
+gem 'countries', '~> 4.1.1', require: 'countries/global'
+gem "mail_view", '~> 2.0.4'
+gem 'statesman', '~> 7.1.0'
+gem "premailer-rails", '~> 1.10.3'
+gem "css_parser", '~> 1.7.0'
+gem 'stringex', '~> 2.7.1'
+gem 'paypal-sdk-permissions', '~> 1.96.4'
+gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~> 10.0.4'
-gem 'stripe'
+gem 'stripe', '~> 4.9.0'
 
-gem 'lograge'
-gem 'public_suffix' # Needed currently to set GA hostname right, probably not
+gem 'lograge', '~> 0.10.0'
+gem 'public_suffix', '~> 2.0.5' # Needed currently to set GA hostname right, probably not
 # needed anymore when GA script updated.
 
 # Session store was removed from Rails 4
-gem 'activerecord-session_store'
+gem 'activerecord-session_store', '~> 2.0.0'
 
-gem 'faraday'
-gem 'faraday_middleware'
-gem 'faraday-encoding'
+gem 'faraday', '~> 0.13.0'
+gem 'faraday_middleware', '~> 0.11.0'
+gem 'faraday-encoding', '~> 0.0.4'
 
 gem "react_on_rails", ">= 11.3.0"
 
-gem 'sitemap_generator'
+gem 'sitemap_generator', '~> 5.3.1'
 
-gem "i18n-js", '~> 3.9'
-
-gem 'oj', '~> 3.13'
+gem "i18n-js", '~> 3.0.0'
 
 # A store scoped to the request object for caching
-gem "request_store"
+gem "request_store", '~> 1.3.2'
 
 # ActionMailer dependency that needs forced update for security patch
-gem 'mail'
+gem 'mail', '~> 2.6.6.rc1'
 
-gem 'tzinfo-data'
+gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.2'
 
-gem 'recaptcha'
+gem 'recaptcha', '~> 5.5'
 
-gem 'simpleidn'
+gem 'simpleidn', '~> 0.1'
 
 group :staging, :production do
-  gem 'newrelic_rpm'
-  gem 'rails_12factor'
+  gem 'newrelic_rpm', '~> 6.11.0'
+  gem 'rails_12factor', '~> 0.0.3'
 end
 
 group :development, :test do
-  gem 'rubocop',  require: false
+  gem 'rubocop', '~> 1.24', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.8.0'
 end
 
 group :development, :staging do
-  # gem 'meta_request'
+  gem 'meta_request', '~> 0.6.0'
 end
 
 group :development do
-  gem 'rb-fsevent', require: false
-  gem 'guard-rspec', require: false
-  gem 'listen'
-  gem 'annotate'
-  gem 'zeus', require: false
-  # gem 'web-console'
-  gem 'awesome_print'
+  gem 'rb-fsevent', '~> 0.9.8', require: false
+  gem 'guard-rspec', '~> 4.7.3', require: false
+  gem 'listen', '~> 3.1.5'
+  gem 'annotate', '~> 2.7.5'
+  gem 'zeus', '~> 0.15.13', require: false
+  gem 'web-console', '~> 3.7.0'
+  gem 'awesome_print', '~> 1.7.0'
 end
 
 group :test do
-  gem 'capybara'
-  gem "rspec-rails"
+  gem 'capybara', '~> 3.36'
+  gem "rspec-rails", '~> 3.8.2'
 
-  gem 'cucumber-rails', '~> 2.2.0', require: false # require: false is needed for cucumber-rails
+  gem 'cucumber-rails', '~> 1.6.0', require: false # require: false is needed for cucumber-rails
   gem 'cucumber', '3.1.2'
 
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 4.1'
 
   # Launchy is needed by Capybara, e.g. save_and_open command needs Launchy to open a browser
-  gem 'launchy'
-  gem 'email_spec'
-  gem 'timecop'
-  gem 'database_cleaner'
-  gem 'connection_pool'
-  gem 'rails-controller-testing'
+  gem 'launchy', '~> 2.1'
+  gem 'email_spec', '~> 2.1.1'
+  gem 'timecop', '~> 0.8.1'
+  gem 'database_cleaner', '~> 1.6.1'
+  gem 'connection_pool', '~> 2.2.1'
+  gem 'rails-controller-testing', '~> 1.0.2'
 
   # required for CircleCI automatic test balancing
   gem 'rspec_junit_formatter'
@@ -163,8 +157,7 @@ group :test do
   gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: '56fe73dc420d161ecf9842739af7d857031ca1b2'
   gem 'poltergeist'
   gem 'puma'
-  gem 'webdrivers'
-  gem 'multi_test', '0.1.2'
+  gem 'webdrivers', '~> 5.0'
 end
 
 group :development, :test do
@@ -172,24 +165,25 @@ group :development, :test do
 end
 
 
-# gem 'mini_racer', '~> 0.6.0', platforms: :ruby
-gem 'js-routes'
-# Color utilities needed for landing page
-gem 'color'
+gem 'mini_racer', platforms: :ruby
+gem 'js-routes', '~> 1.3.3'
 
-gem 'uuidtools'
-gem 'transit-ruby', git: 'https://github.com/Charly3X/transit-ruby.git'
+# Color utilities needed for landing page
+gem 'color', '~> 1.8'
+
+gem 'uuidtools', '~> 2.1.5'
+gem 'transit-ruby', '~> 0.8.602'
 
 # Markdown parser
-gem 'redcarpet'
+gem 'redcarpet', '~> 3.5.1'
 
 gem 'intercom'
 
 gem 'twitter_cldr'
 gem 'memoist'
 gem 'biz'
-gem 'ffi'
-gem 'rubyzip'
+gem 'ffi', '>= 1.9.25'
+gem 'rubyzip', '~> 1.3.0'
 gem 'bootsnap', '~> 1.4.5', require: false
 gem "select2-rails"
 gem "cocoon"

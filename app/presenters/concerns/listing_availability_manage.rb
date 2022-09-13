@@ -233,7 +233,7 @@ module ListingAvailabilityManage
     result = []
     (0..24).each do |x|
       value = format("%02d:00", x)
-      name = I18n.locale == :en ? Time.parse("#{x}:00").strftime("%l:00 %P") : value
+      name = I18n.locale == :en ? Time.parse("#{x}:00").strftime("%l:00 %P") : value # rubocop:disable Rails/TimeZone
       result.push(value: value, label: name)
     end
     result

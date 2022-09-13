@@ -65,7 +65,7 @@ class ListingImagesController < ApplicationController
 
   def reorder
     params[:ordered_ids].split(",").each_with_index do |image_id, index|
-      ListingImage.where(listing_id: params[:listing_id], id: image_id).update_all(position: index+1)
+      ListingImage.where(listing_id: params[:listing_id], id: image_id).update_all(position: index+1) # rubocop:disable Rails/SkipsModelValidations
     end
     render plain: "OK"
   end

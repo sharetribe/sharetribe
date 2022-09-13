@@ -16,7 +16,7 @@ class TransactionMailer < ActionMailer::Base
   default :from => APP_CONFIG.sharetribe_mail_from_address
   layout 'email'
 
-  helper EmailTemplateHelper
+  add_template_helper(EmailTemplateHelper)
 
   def transaction_preauthorized(transaction)
     @transaction = transaction

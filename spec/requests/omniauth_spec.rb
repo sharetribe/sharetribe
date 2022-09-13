@@ -35,6 +35,6 @@ describe "omniauth csrf protection", type: :request do
 
   it 'refused with invalid CSRF token' do
     post "https://#{domain}/people/auth/facebook", params: {authenticity_token: "foobar"}
-    expect(response.status).to eq 302
+    expect(response.status).to eq 422
   end
 end

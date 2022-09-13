@@ -4,7 +4,7 @@ class IntApi::ListingsController < ApplicationController
   before_action :ensure_current_user_is_listing_author
 
   def update_working_time_slots
-    listing.update_column(:per_hour_ready, true)
+    listing.update_column(:per_hour_ready, true) # rubocop:disable Rails/SkipsModelValidations
     listing.update(working_time_slots_params)
     respond_with listing.working_hours_as_json, location: nil
   end
