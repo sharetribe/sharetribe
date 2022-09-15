@@ -11,7 +11,7 @@ module ListingIndexService::API
     end
 
     def search(community_id:, search:, includes: [], engine: :sphinx, raise_errors: false)
-
+     
       unless includes.to_set <= RELATED_RESOURCES
         return Result::Error.new("Unknown included resources: #{(includes.to_set - RELATED_RESOURCES).to_a}")
       end

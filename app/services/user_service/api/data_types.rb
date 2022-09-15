@@ -5,6 +5,8 @@ module UserService::API::DataTypes
     [:given_name, :string],
     [:family_name, :string],
     [:locale, :string],
+    #[:RC_id, :string]
+    
   )
 
   module_function

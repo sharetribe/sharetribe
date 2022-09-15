@@ -57,22 +57,6 @@ CREATE TABLE `active_storage_blobs` (
   UNIQUE KEY `index_active_storage_blobs_on_key` (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `api_keys`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `api_keys` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `access_token` varchar(255) NOT NULL,
-  `expires_at` datetime NOT NULL,
-  `user_id` varchar(255) NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `index_api_keys_on_access_token` (`access_token`),
-  KEY `index_api_keys_on_user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ar_internal_metadata`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -1357,6 +1341,18 @@ CREATE TABLE `people` (
   KEY `index_people_on_community_id_and_linkedin_id` (`community_id`,`linkedin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `rocket_chat_ids`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `rocket_chat_ids` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `RC_id` varchar(255) DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `schema_migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -1587,6 +1583,16 @@ CREATE TABLE `transactions` (
   KEY `index_transactions_on_listing_author_id` (`listing_author_id`) USING BTREE,
   KEY `community_starter_state` (`community_id`,`starter_id`,`current_state`),
   KEY `index_transactions_on_listing_id_and_current_state` (`listing_id`,`current_state`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `user_rocketchat_id`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_rocketchat_id` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `RC_id` varchar(255) DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2499,10 +2505,15 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20200303075727'),
 ('20200312062151'),
 ('20200312112018'),
+('20201012091009'),
 ('20201218151444'),
 ('20201221132459'),
 ('20210108111345'),
 ('20210129114823'),
-('20210517131520');
+('20210517131520'),
+('20220801140933'),
+('20220913152645'),
+('20220913214404'),
+('20220914194836');
 
 

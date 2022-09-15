@@ -23,6 +23,7 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
 
   def show
+    
     @service = Person::ShowService.new(community: @current_community, params: params, current_user: @current_user)
     redirect_to landing_page_path and return unless @service.person
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
@@ -47,9 +48,10 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def create
+    puts "hdkdkdkdkdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
     domain = @current_community ? @current_community.full_url : "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
-
+    
     unless validate_recaptcha(params['g-recaptcha-response'])
       flash[:error] = t('layouts.notifications.recaptcha_verification_failure')
       service_init
@@ -272,11 +274,11 @@ class PeopleController < Devise::RegistrationsController
     initial_params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     initial_params[:person][:test_group_number] = rand(1..4)
     initial_params[:person][:community_id] = current_community.id
-
+    puts "here at new person one"
     params = person_create_params(initial_params)
     admin_emails_consent = params[:admin_emails_consent]
     person = Person.new
-
+    
     email = Email.new(:person => person, :address => params[:email].downcase, :send_notifications => true, community_id: current_community.id)
     params.delete(:email)
 
@@ -293,7 +295,7 @@ class PeopleController < Devise::RegistrationsController
     person.set_default_preferences
     person.preferences["email_from_admins"] = (admin_emails_consent == "on")
     person.save
-
+    
     [person, email]
   end
 

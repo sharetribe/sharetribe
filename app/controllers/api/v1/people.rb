@@ -11,16 +11,30 @@ module API
            requires :fname, :type => String, :desc => "First name"
            requires :lname, :type => String, :desc => "Last name"
            requires :password, :type => String, :desc => "User password"
+           optional :RC_id, :type => String, :desc => "rocket chat id number"
         end
         post do
+          
           user = UserService::API::Users.create_user({
             given_name: params[:fname],
             family_name: params[:lname],
             email: params[:email],
             password: params[:password],
+            RC_id: params[:RC_id],
+            
+            
+	          
             locale: "en"},
             1).data
-
+            rc_id = RocketChatId.new(RC_id: params[:RC_id], person_id: user[:id])
+            puts rc_id, "SUCCESSFULL NEW RCID"
+            rc_id.save!
+            puts rc_id, "SUCCESSFULL NEW RCID22222222222222222222222"
+            
+            
+           
+           
+            
           present user
         end
         
@@ -31,14 +45,16 @@ module API
           requires :id, :type => String
         end
         get  do
-          authenticate!
+         # authenticate!
+         puts "before person find"
           person = Person.find(params[:id])
+          puts person,"after person find"
           present person
         end
 
         desc "Return all Users / People"
         get '/all' do
-          authenticate!
+         # authenticate!
           Person.all
         end
 

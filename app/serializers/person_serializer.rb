@@ -65,4 +65,7 @@
 
 class PersonSerializer < ActiveModel::Serializer
    attributes :id, :created_at, :updated_at, :is_admin, :username, :email, :given_name, :family_name, :display_name, :phone_number, :description, :image_file_name, :image_content_type, :authentication_token, :deleted
+
+  has_one :RC_id
+  has_many :emails
 end

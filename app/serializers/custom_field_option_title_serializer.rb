@@ -1,26 +1,18 @@
 # == Schema Information
 #
-# Table name: custom_fields
+# Table name: custom_field_option_titles
 #
-#  id             :integer          not null, primary key
-#  type           :string(255)
-#  sort_priority  :integer
-#  search_filter  :boolean          default(TRUE), not null
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  community_id   :integer
-#  required       :boolean          default(TRUE)
-#  min            :float(24)
-#  max            :float(24)
-#  allow_decimals :boolean          default(FALSE)
-#  entity_type    :integer          default("for_listing")
-#  public         :boolean          default(FALSE)
-#  assignment     :integer          default("unassigned")
+#  id                     :integer          not null, primary key
+#  value                  :string(255)
+#  locale                 :string(255)
+#  custom_field_option_id :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
 #
 # Indexes
 #
-#  index_custom_fields_on_community_id   (community_id)
-#  index_custom_fields_on_search_filter  (search_filter)
+#  index_custom_field_option_titles_on_custom_field_option_id  (custom_field_option_id)
+#  locale_index                                                (custom_field_option_id,locale)
 #
 class CustomFieldOptionTitleSerializer < ActiveModel::Serializer
    attributes :value

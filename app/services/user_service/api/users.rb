@@ -2,17 +2,20 @@ module UserService::API
   module Users
 
     module_function
-
+    puts "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
     # TODO make people controller use this method too
     # The challenge for that is the devise connections
     def create_user(user_hash, community_id, invitation_id = nil)
-
+      puts user_hash, "under create user"
       raise ArgumentError.new("Email #{user_hash[:email]} is already in use.") unless Email.email_available?(user_hash[:email], community_id)
 
       begin
+        puts "after begin"
+        #just send username made by rocketchat
+        #NEED TO CHANGE USERN NAME GENERATION
         username = generate_username(user_hash[:given_name], user_hash[:family_name], community_id)
         locale = user_hash[:locale] || APP_CONFIG.default_locale # don't access config like this, require to be passed in in ctor
-
+        puts locale, "local area"
         person = Person.new(
           given_name: user_hash[:given_name],
           family_name: user_hash[:family_name],
@@ -20,18 +23,43 @@ module UserService::API
           username: username,
           locale: locale,
           test_group_number: rand(1..4),
-          community_id: 1)
-
+          community_id: 1,
+          
+          
+          )
+        puts person, "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        
+       
+        
         email = Email.new(person: person, address: user_hash[:email].downcase, send_notifications: true, community_id: community_id)
 
         person.emails << email
         person.inherit_settings_from(Community.find(community_id)) if community_id
 
-        ActiveRecord::Base.transaction do
-          person.save!
-          person.set_default_preferences
+        
+       # rc_id = RocketChatId.new(RC_id: user_hash[:RC_id], person_id: "jfkdlsjfldsjfd")
 
+       # puts rc_id, "SUCCESSFULL NEW RCID"
+        #rc_id.save!
+        #puts rc_id, "SUCCESSFULL NEW RCID22222222222222222222222"
+        #person.RC_id << rc_id
+
+        ActiveRecord::Base.transaction do
+
+
+
+
+          
+          person.save! #its failing here when trying to change the user id
+         
+          
+          person.set_default_preferences
+          
+         
           user = from_model(person)
+          
+          
+          
 
           # The first member will be made admin
           make_user_a_member_of_community(user[:id], community_id, invitation_id)
@@ -45,8 +73,9 @@ module UserService::API
           else
             Email.send_confirmation(email, community)
           end
-
+          
           Result::Success.new(user)
+
         end
       rescue StandardError
         Result::Error.new("Failed to create a new user")
@@ -54,9 +83,11 @@ module UserService::API
     end
 
     def make_user_a_member_of_community(user_id, community_id, invitation_id=nil)
-
+      
       # Fetching the models would not be necessary, but that validates the ids
+      
       user = Person.find(user_id)
+      
       community = Community.find(community_id)
 
       membership = CommunityMembership.new(:person => user, :community => community, :consent => community.consent)
@@ -75,10 +106,16 @@ module UserService::API
     end
 
     def from_model(person)
+      
       hash = HashUtils.compact(
         EntityUtils.model_to_hash(person).merge({
             # This is a spot to modify hash contents if needed
+            
           }))
+
+          puts hash, "here is the hashhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+      
+      
       return UserService::API::DataTypes.create_user(hash)
     end
 
@@ -102,6 +139,8 @@ module UserService::API
       base = (given_name.strip + family_name.strip[0].to_s).gsub(/[^-\p{L}\p{Nl}\p{Nd}\p{Pc}]/, '-').to_url.delete('-')[0...18]
       generate_username_from_base(base.presence || default_username, community_id)
     end
+    
+
 
     # private
 

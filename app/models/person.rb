@@ -69,13 +69,15 @@ require "open-uri"
 
 # This class represents a person (a user of Sharetribe).
 class Person < ApplicationRecord
-
+  
   include ErrorsHelper
   include ApplicationHelper
   include DeletePerson
   include Person::ToView
-
+  
   self.primary_key = "id"
+  
+  
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
@@ -94,7 +96,7 @@ class Person < ApplicationRecord
   attr_accessor :login
 
   has_many :listings, -> { exist }, :dependent => :destroy, :foreign_key => "author_id", :inverse_of => :author
-  has_many :emails, :dependent => :destroy, :inverse_of => :person
+  has_many :emails, :class_name => "Email", :foreign_key => "person_id",  :dependent => :destroy, :inverse_of => :person
 
   has_one :location, -> { where(location_type: :person) }, :dependent => :destroy, :inverse_of => :person
 
@@ -117,7 +119,7 @@ class Person < ApplicationRecord
   has_many :followers, :through => :follower_relationships, :foreign_key => "person_id"
   has_many :inverse_follower_relationships, :class_name => "FollowerRelationship", :foreign_key => "follower_id", :dependent => :destroy, :inverse_of => :follower
   has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
-
+  
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
   has_many :custom_field_values, :dependent => :destroy
   has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue", :dependent => :destroy
@@ -127,6 +129,10 @@ class Person < ApplicationRecord
   has_many :starter_transactions, :class_name => "Transaction", :foreign_key => "starter_id", :dependent => :destroy, :inverse_of => :starter
   has_many :payer_stripe_payments, :class_name => "StripePayment", :foreign_key => "payer_id", :dependent => :destroy, :inverse_of => :payer
   has_many :receiver_stripe_payments, :class_name => "StripePayment", :foreign_key => "receiver_id", :dependent => :destroy, :inverse_of => :receiver
+  has_one :RC_id, :class_name => "RocketChatId", :foreign_key => "person_id", :dependent => :destroy
+
+   
+
 
   deprecate communities: "Use accepted_community instead.",
             community_memberships: "Use community_membership instead.",
@@ -139,6 +145,7 @@ class Person < ApplicationRecord
       .where("#{Person.search_by_pattern_sql('people')}
         OR emails.address like :pattern", pattern: pattern)
   }
+  
   scope :has_listings, ->(community) do
     joins("INNER JOIN `listings` ON `listings`.`author_id` = `people`.`id` AND `listings`.`community_id` = #{community.id} AND `listings`.`deleted` = 0").distinct
   end
@@ -172,10 +179,12 @@ class Person < ApplicationRecord
   scope :username_exists, ->(username, community) do
     where("username = :username AND (is_admin = '1' OR community_id = :cid)", username: username, cid: community.id)
   end
+  
 
   accepts_nested_attributes_for :custom_field_values
 
   def to_param
+    
     username
   end
 
@@ -232,11 +241,16 @@ class Person < ApplicationRecord
                                     :content_type => IMAGE_CONTENT_TYPE
 
   before_validation(:on => :create) do
+    
     self.id = SecureRandom.urlsafe_base64
+
+    #look here later
+
+    
     self.username = self.username.presence || UserService::API::Users.generate_username(given_name, family_name, community_id)
     set_default_preferences unless self.preferences
   end
-
+  
   after_initialize :add_uuid
   def add_uuid
     self.uuid ||= UUIDUtils.create_raw
@@ -249,6 +263,10 @@ class Person < ApplicationRecord
       UUIDUtils.parse_raw(self[:uuid])
     end
   end
+
+ # def set_rcid
+  #  puts self[:RC_id], "hfhfhfhfhfhhfhfhfhfhhhhhh"
+ # end
 
   # Creates a new email
   def email_attributes=(attributes)
@@ -439,6 +457,7 @@ class Person < ApplicationRecord
   end
 
   def has_email?(address)
+    
     Email.find_by_address_and_person_id(address, self.id).present?
   end
 
@@ -616,7 +635,7 @@ class Person < ApplicationRecord
   def logger_metadata
     { person_uuid: uuid }
   end
-
+  
   class << self
     def search_by_pattern_sql(table, pattern=':pattern')
       "(#{table}.given_name LIKE #{pattern} OR #{table}.family_name LIKE #{pattern} OR #{table}.display_name LIKE #{pattern})"

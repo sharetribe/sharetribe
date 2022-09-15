@@ -89,7 +89,7 @@ module ListingIndexService::DataTypes
 
   def create_search_params(h)
     fields = parse_fields(h[:fields])
-
+    
     SearchParams.call(
       h.merge(fields: fields)
     )

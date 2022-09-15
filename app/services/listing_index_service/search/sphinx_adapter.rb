@@ -1,23 +1,25 @@
 module ListingIndexService::Search
 
   class SphinxAdapter < SearchEngineAdapter
-
+    
     # http://pat.github.io/thinking-sphinx/advanced_config.html
     SPHINX_MAX_MATCHES = 1000
-
+    
     INCLUDE_MAP = {
       listing_images: :listing_images,
       author: :author,
       num_of_reviews: {author: :received_testimonials},
       location: :location
     }
-
+    
     def search(community_id:, search:, includes:)
+      
+      
       included_models = includes.map { |m| INCLUDE_MAP[m] }
-
+      
       # rename listing_shape_ids to singular so that Sphinx understands it
       search = HashUtils.rename_keys({:listing_shape_ids => :listing_shape_id}, search)
-
+      
       if DatabaseSearchHelper.needs_db_query?(search) && DatabaseSearchHelper.needs_search?(search)
         return Result::Error.new(ArgumentError.new("Both DB query and search engine would be needed to fulfill the search"))
       end
@@ -79,7 +81,9 @@ module ListingIndexService::Search
         }
 
         models = Listing.search(
+          
           Riddle::Query.escape(search[:keywords] || ""),
+          
           sql: {
             include: included_models
           },
@@ -91,6 +95,7 @@ module ListingIndexService::Search
           order: 'sort_date DESC',
           max_query_time: 1000 # Timeout and fail after 1s
         )
+        
 
         begin
           DatabaseSearchHelper.success_result(models.total_entries, models, includes)

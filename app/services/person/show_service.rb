@@ -8,6 +8,7 @@ class Person::ShowService
   end
 
   def person
+    
     return @person if defined?(@person)
 
     person = Person.find_by!(username: params[:username], community_id: community.id)

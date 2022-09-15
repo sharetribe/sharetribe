@@ -2,6 +2,7 @@ module HashUtils
   module_function
 
   def compact(h)
+    
     h.reject { |k, v| v.nil? }
   end
 

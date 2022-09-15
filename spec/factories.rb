@@ -53,6 +53,10 @@ class FactoryGirl::DefinitionProxy
 end
 
 FactoryGirl.define do
+  factory :rocket_chat_id do
+    RC_id "MyString"
+    person_id "MyString"
+  end
   factory :api_key do
     access_token "MyString"
     expires_at "2021-07-10 18:41:55"

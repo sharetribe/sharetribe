@@ -1,26 +1,18 @@
 # == Schema Information
 #
-# Table name: custom_fields
+# Table name: custom_field_option_selections
 #
-#  id             :integer          not null, primary key
-#  type           :string(255)
-#  sort_priority  :integer
-#  search_filter  :boolean          default(TRUE), not null
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  community_id   :integer
-#  required       :boolean          default(TRUE)
-#  min            :float(24)
-#  max            :float(24)
-#  allow_decimals :boolean          default(FALSE)
-#  entity_type    :integer          default("for_listing")
-#  public         :boolean          default(FALSE)
-#  assignment     :integer          default("unassigned")
+#  id                     :integer          not null, primary key
+#  custom_field_value_id  :integer
+#  custom_field_option_id :integer
+#  listing_id             :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
 #
 # Indexes
 #
-#  index_custom_fields_on_community_id   (community_id)
-#  index_custom_fields_on_search_filter  (search_filter)
+#  index_custom_field_option_selections_on_custom_field_option_id  (custom_field_option_id)
+#  index_selected_options_on_custom_field_value_id                 (custom_field_value_id)
 #
 class CustomFieldOptionSelections < ActiveModel::Serializer
    attributes :id, :custom_field_value_id, :custom_field_option_id, :listing_id
