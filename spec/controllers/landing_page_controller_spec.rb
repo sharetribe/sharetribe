@@ -57,5 +57,18 @@ describe LandingPageController, type: :controller do
       expect(response.body).to match("<meta property=\"og:image\" content=\"#{url}\" />")
       expect(response.body).to match("<meta name=\"twitter:image\" content=\"#{url}\" />")
     end
+
+    it 'renders preview with current user' do
+      user = create_admin_for(community)
+      sign_in_for_spec(user)
+
+      get :preview, params: { preview_version: 1 }
+      expect(response.body).to match("Rain on Your Parade")
+    end
+
+    it 'renders preview without current user' do
+      get :preview, params: { preview_version: 1 }
+      expect(response.status).to eq(302)
+    end
   end
 end
