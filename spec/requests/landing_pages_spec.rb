@@ -120,11 +120,6 @@ describe "Landing page", type: :request do
     it "preview routes to landing page preview" do
       expect_controller("http://#{@domain}/_lp_preview?preview_version=1", "landing_page", "preview")
     end
-
-    it "renders correct preview" do
-      expect_string("http://#{@domain}/_lp_preview?preview_version=1", "<title>Title version 1</title>")
-      expect_string("http://#{@domain}/_lp_preview?preview_version=2", "<title>Title version 2</title>")
-    end
   end
 
   context "when released" do

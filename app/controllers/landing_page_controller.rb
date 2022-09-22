@@ -125,8 +125,10 @@ class LandingPageController < ActionController::Metal
     is_private = com.private?
     user_logged_in = user(request).present?
     cta = is_private && !user_logged_in ? "signup" : "search" # cta: Call to action
-
     default_locale = community(request).default_locale
+
+    redirect_url = ensure_is_admin
+    redirect_to redirect_url and return if redirect_url.present?
 
     preview_version = parse_int(params[:preview_version])
     locale_param = params[:locale]
@@ -150,9 +152,22 @@ class LandingPageController < ActionController::Metal
   end
 
   include ActionView::Helpers::JavaScriptHelper
-
+  include ApplicationHelper
+  include ActionController::Flash
 
   private
+
+  def ensure_is_admin
+    return if @user&.has_admin_rights?(@current_community)
+
+    flash[:error] = I18n.t("layouts.notifications.only_kassi_administrators_can_access_this_area")
+    if @user.present?
+      search_path
+    else
+      session[:return_to] = request.fullpath
+      login_path
+    end
+  end
 
   def perform_redirect!
     redirect_params = {

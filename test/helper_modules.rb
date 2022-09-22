@@ -159,6 +159,7 @@ module TestHelpers
 
   def sign_in_for_spec(person)
     allow(request.env['warden']).to receive_messages(authenticate!: person)
+    allow(request.env['warden']).to receive_messages(user: person)
     allow(controller).to receive_messages(current_person: person)
   end
 
