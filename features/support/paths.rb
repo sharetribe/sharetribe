@@ -52,6 +52,8 @@ module NavigationHelpers
       admin2_users_signup_login_index_path(locale: "en")
     when /^the admin2 design display community "(.*)"$/i
       admin2_design_display_index_path(locale: "en")
+    when /^the admin2 logos and color community "(.*)"$/i
+      admin2_design_logos_color_index_path(locale: "en")
     when /^the admin2 general admin notifications community "(.*)"$/i
       admin2_general_admin_notifications_path(locale: "en")
     when /^the admin2 configure transactions community "(.*)"$/i

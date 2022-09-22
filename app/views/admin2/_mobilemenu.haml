@@ -3,7 +3,8 @@
     .mobilemenu-top
       .mobilemenu-top-logo
         = link_to admin2_path, class: :logo do
-          = image_tag 'gap-logo-mobile.png', width: 117, alt: t('admin2.topnav.logo')
+          = image_tag logo_image, alt: t('admin2.topnav.logo')
+          = image_tag 'logo-adminpanel-text-only.svg', alt: t('admin2.topnav.logo')
 
       .mobilemenu-top-right
         = render partial: 'admin2/locals', locals: header_props

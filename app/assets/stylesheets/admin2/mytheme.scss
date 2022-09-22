@@ -11409,6 +11409,15 @@ li.active a {
 @media (min-width: 1023px) {
   .topnav .logo, .topnav .language-selector {
     display: block; } }
+.topnav .logo > img {
+  image-rendering: auto; }
+.topnav .logo > img:first-of-type {
+  margin-right: 8px;
+  height: 26px; }
+.topnav .logo > img:nth-of-type(2) {
+  height: 21px;
+  top: 1px;
+  position: relative; }
 .topnav .logo:hover {
   opacity: 0.9; }
 .topnav .nav-link {
@@ -11500,12 +11509,21 @@ li.active a {
   justify-content: space-between;
   border-bottom: 1px solid #EAEDF3;
   margin: -24px -24px 17px;
-  padding: 9px 24px 0;
-  height: 56px; }
+  padding: 9px 24px 5px;
+  min-height: 56px; }
 .mobilemenu-top .language-selector {
   font-size: 13px; }
 .mobilemenu-top .mobilemenu-top-logo {
   padding-top: 4px; }
+.mobilemenu-top .mobilemenu-top-logo > img {
+  image-rendering: auto; }
+.mobilemenu-top .mobilemenu-top-logo > img:first-of-type {
+  margin-right: 8px;
+  height: 20px; }
+.mobilemenu-top .mobilemenu-top-logo > img:nth-of-type(2) {
+  height: 16px;
+  top: 1px;
+  position: relative; }
 .mobilemenu-top .mobilemenu-top-logo:hover img {
   opacity: 0.85; }
 .mobilemenu-top .mobilemenu-top-right {

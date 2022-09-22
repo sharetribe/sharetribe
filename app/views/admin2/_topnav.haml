@@ -1,7 +1,8 @@
 %nav.topnav
   .logo
     = link_to admin2_path, class: :logo do
-      = image_tag 'gap-logo.png', width: 151, alt: t('admin2.topnav.logo')
+      = image_tag logo_image, alt: t('admin2.topnav.logo')
+      = image_tag 'logo-adminpanel-text-only.svg', alt: t('admin2.topnav.logo')
 
   #sidebarCollapse.mobilemenu-button
     = image_tag 'svg/hamburger-menu.svg'

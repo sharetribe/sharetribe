@@ -214,4 +214,8 @@ module Admin2Helper
   def layout_class
     controller_name == 'dashboard' ? 'dashboard-content-wrapper' : 'content-card'
   end
+
+  def logo_image
+    @current_community.favicon.path.present? ? @current_community.favicon.url : 'logo-symbol-only.svg'
+  end
 end
