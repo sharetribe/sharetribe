@@ -1,0 +1,1228 @@
+ca:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: "Editar categoria '%{category}'"
+      index:
+        listing_categories: "Categories d'anuncis"
+        create_a_new_category: "+ Crear nova categoria"
+        remove_category_confirmation: "Esteu segur que voleu suprimir la categoria '%{category_name}'? Això no es pot desfer."
+        saving_order: "Guardant l'ordre de les categories"
+        save_order_successful: "Ordre de les categories guardat amb èxit"
+        save_order_error: "S'ha produït un error en desar la categoria de la comanda. Actualitza la pàgina i torna-ho a provar."
+      new:
+        new_listing_category: "Nova categoria d'anuncis"
+      form:
+        category_name:
+          category_title: "Títol de la categoria"
+        category_parent:
+          category_parent: "Categoria superior"
+          no_parent: "Pàgina principal (sense superior)"
+        category_transaction_types:
+          transaction_types: "Tipus de comanda"
+          transaction_types_description: "Els tipus de comanda determinen quin tipus de procés de comanda es permet amb els anuncis d'aquesta categoria. Per exemple, només es permet vendre o bé llogar i regalar gratuïtament."
+          select_all: "Seleccionar tot"
+          clear_all: "Borrar tot"
+        buttons:
+          save: Guardar
+          cancel: Cancelar
+      remove:
+        remove_category: "Eliminar categoria"
+        remove_category_name: "Eliminar categoria '%{category_name}'"
+        warning_remove_effects: "Atenció! Esborrar la categoria '%{category_name}' tendrà el següent resultat:"
+        warning_listing_will_be_moved:
+          one: "Hi ha %{count} anunci en aquesta categoria. Es mourà a la categoria seleccionada."
+          other: "Hi ha %{count} anuncis en aquesta categoria. Es mouran a la categoria seleccionada."
+        warning_custom_field_will_be_moved:
+          one: "Hi ha %{count} camp personalitzat en aquesta categoria. Es mourà a la categoria seleccionada."
+          other: "Hi ha %{count} camps personalitzats en aquesta categoria. Es mouran a la categoria seleccionada."
+        warning_subcategory_will_be_removed:
+          one: "Hi ha %{count} subcategoria dins de la categoria i serà eliminada. "
+          other: "Hi ha %{count} subcategories dins de la categoria i seran eliminades. "
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Hi ha %{count} anunci a la categoria i la subcategoria. Es mourà a la categoria seleccionada."
+          other: "Hi ha %{count} anuncis a la categoria i la subcategoria. Es mouran a la categoria seleccionada."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Hi ha %{count} camp personalitzat a la categoria i subcategoria. Es mourà a la categoria seleccionada."
+          other: "Hi ha %{count} camps personalitzats a la categoria i subcategoria. Es mouran a la categoria seleccionada."
+        select_new_category: "Selecciona una nova categoria a la qual vulguis moure els registres que apareixen a dalt."
+        buttons:
+          remove: Eliminar
+          cancel: Canceŀla
+    communities:
+      edit_details:
+        community_details: "Detalls bàsics"
+        community_look_and_feel: Disseny
+        edit_community: "Detalls bàsics"
+        enabled_languages: "Idiomes habilitats"
+        enabled_languages_description: "Conjunt d'idiomes disponibles per als usuaris. El primer en l'ordre s'empra per defecte."
+        default_language: "Idioma predeterminat"
+        language_selection_disabled: "La selecció d'idioma està deshabilitada per la teva comunitat perquè estàs emprant els següents idiomes no oficials: %{languages}. Si us plau contacta a l'equip de suport de Sharetribe si vols modificar els teus ajuntaments d'idiomes."
+        community_name: "Nom del mercat"
+        edit_community_name_description: "El nom del vostre mercat. Això es mostra als usuaris en els correus electrònics i en altres llocs."
+        community_slogan: "Eslògan del mercat"
+        community_slogan_display: "Mostrar l'eslògan a la pàgina d'inici"
+        edit_community_slogan_description: "Això es mostra a la pàgina principal del mercat per als usuaris que no tenen sessió iniciada.%{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "Es mostra en navegadors, cercadors i mitjans socials. També pots decidir mostrar-lo a la pàgina d'inici del teu marketplace per a visitants i usuaris que no han iniciat sessió %{see_how_it_looks_like}."
+        community_description: "Descripció del mercat"
+        community_description_display: "Mostrar la descripció a la pàgina d'inici"
+        edit_community_description_description: "Això es mostra a la pàgina principal del mercat per als usuaris que no tenen sessió iniciada.%{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "Es mostra en navegadors, cercadors i mitjans socials. També pots decidir mostrar-la a la pàgina d'inici del teu marketplace per a visitants i usuaris que no han iniciat sessió %{see_how_it_looks_like}."
+        community_search_placeholder: Ajuda
+        edit_community_search_placeholder_description: "Així es mostra a la pàgina principal del mercat com a text de marcador de posició a la barra de cerca. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Contingut de la pàgina principal del mercat privat"
+        edit_private_community_homepage_content_description: "Aquest contingut es mostra a la pàgina principal dels mercats privats als usuaris que no tenen sessió d'inici. Aquí podeu descriure el vostre mercat i el procés per unir-s'hi. També podeu afegir imatges, vídeos i contingut HTML aquí. %{see_how_it_looks_like}."
+        update_information: "Guardar configuració"
+        invite_people: "Convida usuaris nous"
+        edit_signup_info: "Informació de registre"
+        edit_signup_info_description: "Aquest és un text informatiu que pot mostrar-se als usuaris a la pàgina de registre. Aquí pots donar-los instruccions per iniciar sessió, informació sobre com aconseguir una invitació, etc. Per defecte, no hi ha instruccions per mostrar."
+        edit_info: "Editar informació"
+        see_how_it_looks_like: "Veure com es veu"
+        verification_to_post_listings_info_content: "Text d'informació per a usuaris no verificats"
+        verification_to_post_listings_info_content_description: "Actualment, necessiteu que els usuaris us ho verifiquin manualment abans que puguin publicar anuncis. Aquí podeu definir el text predeterminat que es mostra als usuaris no verificats quan intenten publicar un anunci nou."
+        verification_to_post_listings_info_content_default: "%{service_name} requereix que les persones es verifiquen manualment per l'administrador abans que puguin publicar anuncis. Encara no haveu estat verificats. Si us plau, per verificar %{contact_admin_link}."
+        contact_admin_link_text: "contacteu amb l’equip %{service_name}"
+        save: "Guardar configuració"
+        transaction_agreement: "Acord de transacció"
+        transaction_agreement_checkbox: "Requerir als usuaris que acceptin l'acord abans de realitzar una transacció."
+        transaction_agreement_checkbox_header: "Acceptar acord"
+        transaction_agreement_checkbox_label_description: "Aquest text es mostrarà junt a una casella de verificació en el formulari. L'usuari ha de marcar la casella de verificació abans de poder procedir amb la transacció. Un exemple seria \"Al marcar aquesta casella acceptes el present acord i els termes i condicions d'ús.\""
+        transaction_agreement_text_header: "Text de l'acord"
+        transaction_agreement_description: "Aquest és el contingut del text de l'acord que els usuaris han d'acceptar. El text del present acord es mostrarà quan els usuaris hagi fet clic en l'enllaç %{read_more}."
+        terms_privacy_policy_and_static_content: "Termes, política de privacitat i contingut estàtic"
+        terms_privacy_policy_and_static_content_infotext: "Pots editar fins a quatre pàgines de contingut estàtic. Els usuaris poden trobar les pàgines fent clic a l’enllaç \"Sobre\" de la barra superior."
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Editar l'aparença del mercat \"%{community_name}\""
+        community_logo: Logotip
+        community_logo_icon: "Logo per a xarxes socials i dispositius mòbils"
+        community_logo_icon_mobile: "Logotip quadrat"
+        community_cover_photo: "Fotografia de portada"
+        small_community_cover_photo: "Imatge de capçalera petita"
+        favicon: Favicon
+        favicon_info_text: "El Favicó reemplaçarà el logotip predeterminat de Sharetribe. Les dimensions hauran de ser de 32x32 píxels i la imatge que pugis es retallarà a aquest tamany."
+        community_custom_color1: "Color principal del mercat"
+        community_slogan_color: "Color de l'eslògan"
+        community_slogan_color_instructions_text: "Així pots canviar el color de l'eslògan que apareix a la pàgina d'inici. Necessites ingressar un valor de color hexadecimal. L'eslògan només es mostra als usuaris que no han iniciat sessió. A %{colorpicker} pots triar el color i després copiar aquí el codi que es generi allà. %{see_how_it_looks_like}."
+        community_description_color: "Color de la descripció de la teva comunitat"
+        community_description_color_instructions_text: "Aquí pots canviar el color de la descripció que apareix a la pàgina d'inici. Necessites ingressar un valor de color hexadecimal. La descripció es mostra només als usuaris que no han iniciat cap sessió. En %{colorpicker} pots triar el color i després pots copiar aquí el codi que es generi allà. %{see_how_it_looks_like}."
+        new_listing_button_custom_color: "Color del botó de \"Publicar anunci\""
+        logo_instructions_text_with_dimensions: "La mida del logotip hauria de ser %{width}x%{height} píxels. Es mostrarà als usuaris amb pantalles més grans."
+        logo_instructions_text_with_dimensions_no_placing: "El logotip ha de tenir una resolució de %{width}x%{height} píxels."
+        logo_icon_instructions_text_with_dimensions: "Aquest logotip quadrat es mostrarà quan les persones comparteixen el vostre lloc a Facebook, quan vegin el vostre lloc en un dispositiu mòbil o quan marquin el vostre lloc a la pantalla inicial del dispositiu mòbil. Les dimensions han de ser (almenys) %{width}x%{height} píxels."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Aquest logotip es mostrarà quan les persones comparteixin el teu lloc a Facebook o quan guardin un accés al teu lloc als seus dispositius mòbils. Les dimensions han de ser (al manco) %{width}x%{height} píxels."
+        logo_mobile_icon_instructions_text_with_dimensions: "Aquest logotip quadrat es mostrarà als usuaris quan facis accions com a administrador i als usuaris que guardin l'enllaç de la teva comunitat a la pàgina d'inici d'un dispositiu mòbil. Les dimensions de la imatge han de ser (almenys) %{width} x %{height} píxels."
+        cover_photo_visibility: "La foto de portada es mostra a la pàgina principal dels usuaris que no inicien la sessió."
+        cover_photo_instructions_text_with_dimensions: "La foto es redimensionarà a %{width}x%{height} píxels i les imatges més altes es tallaran al centre. %{see_how_it_looks_like}."
+        we_have_you_covered: "Et tenim cobert"
+        cover_photo_ready_made: "Cerques algunes fotografies de portada ja optimitzades i preparades? O us agradaria una mica d'inspiració i llocs web on trobar imatges de portada fantàstiques? %{link}!"
+        small_cover_photo_visibility: "La petita imatge de portada es mostra a totes les pàgines, excepte a la pàgina d'inici per als usuaris que no hagin accedit."
+        small_cover_photo_instructions_text_with_dimensions: "La foto es redimensionarà a %{width}x%{height} píxels i les imatges més altes es tallaran al centre."
+        main_content_width: "Quan escullis les fotografies de portada has de tenir present que el contingut principal de la pàgina és de màxim %{main_width} píxels d'ample. Recorda també revisar com es veu la teva fotografia de portada en altres dispositius amb pantalles més petites (pots utilitzar una finestra de navegació més estreta per a comprovar-ho)."
+        custom_color1_instructions_text: "Podeu canviar el color principal de la interfície d'usuari si introduïu un valor de color hex. %{link}  us pot ajudar a triar el color i us proporcionarà el codi de color hex. Podeu copiar el codi aquí."
+        new_listing_button_instructions_text: "Pots canviar el color del botó de Publicar Anunci escrivint un codi de color hexadecimal. A %{link_to_colorpicker} pots triar el color i després pots copiar el codi del color aquí."
+        default_browse_view: "Vista per defecte del buscador"
+        default_browse_view_instructions_text: "La vista seleccionada s'usa en la pàgina principal per elegir com es mostren els resultats per defecte."
+        grid: Graella
+        list: Llista
+        map: Mapa
+        name_display_type: "Tipus de vista"
+        name_display_type_instructions_text: "Escull com es mostrarà el nom de cada usuari a la web"
+        full_name: "Nom complet (Cognom primer)"
+        first_name_with_initial: "Primer nom amb inicial (Primer L)"
+        first_name_only: "Només el nom (Primer)"
+        invalid_color_code: "El codi de color ha de contenir 6 caràcters, nombres o lletres de la A a la F, per exemple D96E21"
+        custom_head_script: "Script personalitzat"
+        custom_head_script_instructions_text: "Es pot configurar un script personalitzat <a href='%{url}'> al teu nou tauler d'administració </a>."
+        current_image: "Imatge actual:"
+      edit_text_instructions:
+        edit_text_instructions: "Textos d’instrucció"
+      edit_welcome_email:
+        welcome_email_content: "Contingut del correu electrònic de benvinguda."
+        welcome_email_content_description: "El missatge següent s’enviarà a tots els usuaris nous quan s’uneixin. Podeu personalitzar el missatge perquè s’adapti al vostre mercat. Fent clic a '%{send_test_message_link}' podeu enviar un missatge de previsualització a la vostra adreça de correu electrònic, de manera que podreu veure com es veu en un de correu electrònic d'un client."
+        edit_message: "Editar missatge"
+        send_test_message: "Enviar missatge de prova"
+      outgoing_email:
+        title: "Adreça d'enviament de correus electrònics"
+        info: "Aquest nom i adreça s'empren pels correus electrònics enviats des de la teva comunitat als membres."
+        read_more: "Llegir més sobre l'adreça d'enviament de correu electrònic"
+        sender_address: "Adreça del remitent: %{sender_address}"
+        sender_address_default: "Adreça del remitent: no establerta (s'empra l'adreça per defecte %{sender_address})"
+        need_to_change: "Si necessites canviar l'adreça de correu electrònic, si us plau %{contact_support_link}"
+        contact_support_link_text: "contacta a l'equip de suport de Sharetribe"
+        set_sender_address: "Establir una adreça d'enviament"
+        sender_name_label: Nom
+        sender_name_placeholder: "Nom del remitent"
+        sender_email_label: "Correu electrònic"
+        sender_email_placeholder: remitent-ecorreu@exemple.com
+        amazon_ses_notification: "Rebràs un correu de %{email_sender} per confirmar aquesta adreça de correu electrònic. El títol del correu és %{email_subject}. Segueix les instruccions en el correu per verificar la teva adreça."
+        this_is_how_it_will_look: "Així és com es veurà:"
+        send_verification_button: "Enviar correu de verificació"
+        change_sender_email: "canviar el nom del remitent"
+        successfully_saved: "Adreça de remitent guardada correctament. El coreu de verificació s'enviarà aviat."
+        successfully_saved_name: "El nom del remitent ha estat modificat."
+        set_sender_name: "Canviar el nom del remitent"
+        change_sender_name: "Canviar el nom del remitent"
+        change_sender_prompt: "%{change_name_link} o %{change_email_link}"
+        status: "Estat: %{status}"
+        status_verified: "Verificat - En ús"
+        status_error: "Hi ha hagut un error. Si us plau actualitza la pàgina."
+        status_requested: "Sense verificar - El correu de verificació es va enviar a %{email} %{time_ago}. %{resend_link}"
+        status_expired: "La verificació del correu %{email} ha expirat. %{resend_link}"
+        status_resent: "Correu de verificació reenviat a %{email}. %{resend_link}"
+        resend_link: Reenviar
+        invalid_email_error: "Format de correu electrònic per a '%{email}' és invàlid"
+        invalid_email_address: "Si us plau, introdueixi una adreça de correu vàlida"
+        invalid_email_domain: "L'adreça de correu '%{email}'  empra un proveïdor no suportat pel nostre sistema: '%{domain}'. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Llegeix l'article en el nostre centre d'ajuda per obtenir més informació."
+        unknown_error: "Qualque cosa ha sortit malament"
+        white_label_offer: "Configura la teva pròpia adreça de correu electrònic en enviar missatges i elimina tota menció a Sharetribe dels correus enviats des de la teva comunitat al %{upgrade_pro_plan_link}"
+        upgrade_plan_link: "subscriu-te al pla Pro o a un pla superior"
+        verification_sent_from: "El correu de verificació es va enviar des de %{verification_sender_name}"
+        follow_the_instructions: "Si us plau segueixi les instruccions que t'enviam en el correu per verificar la teva adreça"
+      getting_started:
+        getting_started: "Comença aquí"
+      available_languages:
+        bg: ~
+        ca: ~
+        cs: Txec
+        da-DK: Danès
+        de: Alemany
+        el: Grec
+        en: Anglés
+        en-AU: "Anglés (Australia)"
+        en-GB: "Anglés (Regne Unit)"
+        es: Espanyol
+        es-ES: "Espanyol (Espanya)"
+        et: ~
+        fi: Finlandès
+        fr: Francès
+        fr-CA: "Francès (Canadá)"
+        hr: ~
+        hu: ~
+        it: Italià
+        ja: Japonès
+        ko: Coreà
+        lt: ~
+        nb: "Norueg Bokmål"
+        nl: Holandès
+        pl: Polac
+        pt-BR: "Portuguès (Brasil)"
+        pt-PT: Portugués
+        ro: ~
+        ru: Rus
+        sk-SK: ~
+        sl: ~
+        sv: Suec
+        th-TH: "Tailandès (Tailàndia)"
+        tr-TR: Turc
+        uk: ~
+        vi: Vietnamita
+        zh: Xinès
+        zh-TW: "Xinès (Taiwan)"
+      settings:
+        settings: Configuració
+        general: General
+        access: "Preferències d’accés i contacte"
+        join_with_invite_only: "Permet que els usuaris nous s’uneixin només amb una invitació d’un usuari registrat"
+        users_can_invite_new_users: "Permet que tots els usuaris registrats i, no només els administradors, convidin a usuaris nous"
+        private: "Permet només als usuaris registrats veure fitxes i perfils d’usuaris (fer que el mercat sigui privat)"
+        require_verification_to_post_listings: "Permet que només els usuaris verificats pels administradors puguin publicar fitxes noves"
+        allow_free_conversations: "Permet que els usuaris es puguin enviar missatges lliurement"
+        search_preferences: "Preferències de búsqueda"
+        search_and_location_preferences: "Preferències de búsqueda i ubicació"
+        default_search_type: "Tipus de búsqueda: %{select_search_type}"
+        keyword_search: "Búsqueda per paraules clau"
+        keyword_and_location_search: "Búsqueda per ubicació i paraules clau"
+        location_search: "Búsqueda per ubicació"
+        select_distance_unit: "Mostrar distància a %{distance_units_selector}"
+        km: km
+        miles: milles
+        show_only_nearby: "Mostrar només anuncis propers a la búsqueda per ubicació"
+        allow_users_to_add_location: "Permetre als usuaris afegir ubicació als seus perfils i anuncis, i mostrar la vista del mapa a la pàgina de resultats de cerca"
+        fuzzy_location: "Mostra un cercle en comptes de la ubicació exacta"
+        listing_preferences: "Preferències dels anuncis"
+        transaction_preferences: "Preferències de la comanda"
+        show_listing_publishing_date: "Mostrar data de publicació de l'anunci a la descripció de l'anunci"
+        show_category_in_listing_list: "Mostrar el tipus d'ordre a la vista de l'anunci"
+        listing_comments_in_use: "Tots els usuaris poden publicar comentaris en els anuncis (visibles per a la resta dels usuaris)"
+        email_preferences: "Preferències de correus"
+        automatic_newsletters: "Enviar el butlletí informatiu diari/setmanal a tots els usuaris (excepte si no han acceptat l'enviament de missatges automàtics)"
+        email_admins_about_new_members: "Enviar un correu electrònic a l'administrador cada vegada que un usuari es registra"
+        google_analytics_key: "Tracking ID de Google Analytics"
+        twitter_handle: "Publicar a Twitter (a través del botó \"twittear\" a la pàgina de l'anunci)"
+        update_settings: "Guardar configuració"
+        automatically_confirmed_no_escrow: "La transacció es marcarà automàticament com a completada %{days_dropdown} dies després que es realitzi del pagament."
+        automatically_confirmed_no_escrow_stripe_info: "En transaccions processades per Stripe, els pagaments als venedors són retardats fins que la transacció és marcada com a completa. %{learn_more}."
+        buyer_transaction_fees_are_only_supported_with_stripe: "Les despeses de transacció del comprador només són compatibles amb Stripe. No podreu utilitzar PayPal si configureu una taxa de transacció del comprador amb Stripe."
+        automatic_newsletter_frequency: "Enviar el butlletí automàticament: %{frequency_dropdown}"
+        newsletter_daily: Diàriament
+        newsletter_weekly: Setmanalment
+        delete_marketplace_title: "Eliminar comunitat"
+        type_marketplace_domain: "Introdueix el domini de la teva comunitat (%{domain}) en el següent camp de text:"
+        type_marketplace_domain_placeholder: "Introdueix aquí el domini de la teva comunitat"
+        once_you_delete: "Ves alerta! una vegada que eliminis la teva comunitat, ja no podràs tornar a accedir a ella. Ves alerta."
+        are_you_sure: "Estàs segur?"
+        i_understand_button: "Entenc i accept que en fer clic en aquest botó la meva comunitat serà eliminada"
+        last_community_updates: "Si us plau tingues present que després d'eliminat, tú i els usuaris de la teva comunitat encara podran rebre els darrers correus electrònics d'actualització de la teva comunitat."
+        you_will_be_redirected_to: "Després que eliminis la teva comunitat seràs redirigit a %{destination}. Ja no podràs tornar a accedir al teu marketplace."
+        delete_this_marketplace: "Eliminar aquesta comunitat"
+        payment_preferences: "Sistema de pagaments"
+        pre_approved_listings: "Reviseu tots els llistats abans que es publiquin"
+        email_admins_about_new_transactions: "Envieu un correu electrònic als administradors sempre que s'iniciï una nova transacció"
+      manage_members:
+        manage_members: Usuaris
+        email: "Correu electrònic"
+        name: Nom
+        display_name: "Nom personalitzat"
+        join_date: "Data de registre"
+        admin: Admin
+        posting_allowed: "Publicació permesa"
+        ban_user: Desactivar
+        saving_user_status: Desant...
+        save_user_status_successful: Guardat
+        export_all_as_csv: "Exportar-ho tot com CSV"
+        save_user_status_error: "No s'han guardat els canvis. Si us plau, actualitza la pàgina i torna a intentar-ho."
+        ban_user_confirmation: "Això desactiva el compte d’usuari del mercat i impedeix que tornin a accedir al lloc amb aquest compte. Esteu segur que voleu continuar?"
+        unban_user_confirmation: "Això habilita el compte de l'usuari a la comunitat i li permetrà accedir una altra vegada al seu compte. Està segur que vols continuar?"
+        ban_me_error: "No et pots deshabilitar a tu mateix."
+        have_ongoing_transactions: "Aquest compte no es pot suprimir perquè tenen transaccions en curs. Completeu totes les transaccions abans de suprimir el compte."
+        only_delete_disabled: "Només podeu suprimir els usuaris que s’han desactivat. Desactiveu primer un usuari per eliminar el seu compte"
+        delete_info1: "Si elimines aquest compte, la informació personal (nom, número de telèfon, adreça, correu electrònic, imatge de perfil, etc.) s'eliminarà permanentment i no podrà ser recuperada. Tots els anuncis que han creat s'eliminaran del portal. No podràs reactivar aquest compte."
+        delete_info2: "La informació en la que estan involucrats altres membres (conversacions amb altra gent, transaccions que s'han realitzat, revisions que s'han donat a altres, etc) no s'eliminaran quan cancel·lis aquest compte. No obstant, el nom no apareixerà junt a aquesta informació."
+        search: Buscar
+        search_by_name_email: "Buscar per nom, adreça o nom personalitzat"
+        reset_search: "Mostrar tots"
+        for_search_terms: "relacionats amb: %{terms}"
+        this_makes_the_user_an_admin: "Això farà a aquest usuari un administrador. Li has de fer saber les seves responsabilitats i demanar-li que revisi els termes d'ús de Sharetribe així com el del teu marketplace. Estàs segur que vols continuar?"
+        status_filter:
+          all: Tot
+          selected: "Estatus seleccionats: %{count}"
+          selected_js: "Estatus seleccionats: "
+          admin: Admin
+          banned: Deshabilitat
+          posting_allowed: "Publicació permesa"
+          accepted: Acceptat
+          unconfirmed: "No confirmat"
+          pending: Pendent
+        this_user_hasnt_confirmed_their_email_address: "Aquest usuari no ha confirmat la seva adreça de correu electrònic. És possible que l'usuari no hagi rebut el correu de confirmació. Fes clic al botó de reenviar si ho vols enviar una altra vegada."
+        unconfirmed_user: "Usuari no confirmat: %{name}"
+        resend: Reenviar
+        cancel: Cancel·lar
+        confirm: Confirmar
+        user_didnt_complete_the_signup_process: "Aquest usuari es va registrar per mitjà de xarxes socials però no ha completat  el procés de registre. Després de connectar un compte de xarxes socials, els usuaris han d'acceptar els termes d'ús i omplir els camps obligatoris."
+        pending_user: "Pendent: %{name}"
+      new_layout:
+        new_layout: "Nou disseny"
+        description_roadmap_new: "Quan hi ha nous components de disseny disponibles, pots triar entre fer servir un nou component o continuar usant el vell. Pots canviar la selecció en qualsevol moment, en aquesta pàgina. És recomanable sempre utilitzar el component més nou, ja que els components vells podran ser eliminats en el futur. En cas que estiguis emprant algun component que haguem d'eliminar, et contactarem abans."
+        enabled_for_you: "Habilitar només per tu"
+        enabled_for_all: "Habilitar per a tots"
+        new_topbar: "Nova barra superior (visible a totes les pàgines)"
+        searchpage: "Nova pàgina de búsqueda (requereix de la nova barra superior)"
+        new_email_templates: "Nou disseny de correus"
+      social_media:
+        social_media: "Mitjans socials"
+        logo: "Imatge pels mitjans socials"
+        logo_info: "Aquesta imatge es mostrarà a xarxes socials (Facebook, Twitter, LinkedIn) quan algú comparteixi el teu domini. Per a millors resultats, la imatge ha de tenir una proporció de 2:1 i una mida mínima de %{width} x%{height} píxels."
+        social_media_title: "Títol per a xarxes socials"
+        social_media_title_info: "Aquest text es mostrarà a xarxes socials (Facebook, Twitter i LinkedIn) quan algú comparteixi el teu lloc. Pots veure com es veu a %{facebook_preview_link}, a %{twitter_preview_link}  i a %{linkedin_preview_link}"
+        link_for_facebook: "per a Facebook"
+        link_for_linkedin: "per a LinkedIn"
+        link_for_twitter: "per a Twitter"
+        social_media_description: "Descripció per a xarxes socials"
+        twitter_handle: Twitter
+        twitter_handle_info_text: "El nom d'usuari del compte de Twitter de la teva comunitat (si és que en tens un). Serà mencionat quan algú publiqui el seu anunci a Twitter."
+        twitter_handle_info_text_with_instructions: "El nom d'usuari del teu compte de Twitter en el teu marketplace (si és que en tens un), serà mencionat quan algú empri el botó per twittear des de la pàgina de l'anunci. %{instructions_link}"
+        twitter_instructions_link_text: "Llegir més"
+        twitter_handle_placeholder: Usuari
+        invalid_twitter_handle: "Twitter handle ha de tenir un màxim de 15 caràcters alfanumèrics (lletres de l'A-Z i números del 0-9). "
+        facebook_connect: "Accés al Facebook"
+        facebook_developers_dashboard: "Facebook Developers Dashboard"
+        facebook_connect_info_text: "Per habilitar Facebook Login, has de crear una aplicació pel teu marketplace al %{dashboard_link}. Afegeix aquí l'ID i la clau secreta que s'hagin generat."
+        facebook_connect_info_text_with_instructions: "Per habilitar Facebook Login, has de crear una aplicació pel teu marketplace al %{dashboard_link}. Afegeix aquí l'ID i la clau secreta que s'hagin generat. %{instructions_link}"
+        facebook_instructions_link_text: "Veure instruccions per configurar Facebook Login."
+        facebook_connect_id: "App ID de Facebook"
+        invalid_facebook_connect_id: "L'app ID ha d'incloure només números."
+        facebook_connect_secret: "App Secret de Facebook"
+        invalid_facebook_connect_secret: "L'App Secret ha d'incloure només números i lletres de la a a la f."
+        enable_facebook_login: "Permetre als usuaris connectar-se amb el seu compte de Facebook"
+        save: "Guardar configuració"
+        google_connect: "Google Sign-In"
+        google_instructions_link_text: "Veure les instruccions per configurar Google Sign-In."
+        google_developers_console: "Google Developers Console"
+        google_connect_info_text_with_instructions: "Per habilitar Google Sign-In, has de crear un projecte pel teu marketplace a la %{dashboard_link}. Afegeix aquí la ID i la clau secreta que es genera en el projecte. %{instructions_link}"
+        google_connect_info_text: "Per habilitar Google Sign-In, has de crear un projecte pel teu marketplace a la %{dashboard_link}. Afegeix aquí la ID i la clau secreta que es genera en el projecte."
+        enable_google_login: "Permetre als usuaris que iniciïn sessió amb el seu compte de Google "
+        google_connect_id: "Client ID de Google"
+        google_connect_secret: "Clau secreta (client secret) de Google"
+        linkedin_connect: "LinkedIn Sign Sign In"
+        linkedin_instructions_link_text: "Consulteu instruccions per configurar l'inici de sessió a LinkedIn."
+        linkedin_developers_dashboard: "LinkedIn Developers Dashboard"
+        linkedin_connect_info_text_with_instructions: "Per habilitar l'inici de sessió de LinkedIn, creeu una aplicació per al vostre mercat al %{dashboard_link}. Afegiu aquí el ID generat i la clau secreta de l'aplicació. %{instructions_link}"
+        linkedin_connect_info_text: "Per habilitar l'inici de sessió de LinkedIn, creeu una aplicació per al vostre mercat al %{dashboard_link}. Afegiu aquí el ID  generat i la clau secreta de l'aplicació."
+        enable_linkedin_login: "Permet als usuaris iniciar sessió amb el seu compte de LinkedIn"
+        linkedin_connect_id: "LinkedIn Client ID"
+        linkedin_connect_secret: "LinkedIn Client Secret"
+      seo_settings:
+        seo: SEO
+        title: "Pàgina principal o Custom Landing Page"
+        meta_title_label: "Pàgina principal o Custom Landing Page meta tag del títol"
+        meta_title_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i es mostra a les pàgines de resultats com a titular clicable. %{link} %{vars}."
+        meta_title_link_text: "Aprendre més sobre els meta tags."
+        meta_description_label: "Pàgina principal o Custom Landing Page descripció meta tag"
+        meta_description_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i apareix a sota dels enllaços clicables de color blau de la pàgina de resultats del motor de cerca. %{link} %{vars}."
+        meta_description_link_text: "Aprendre més sobre els meta tags."
+        search_title: "Pàgina de resultats de la cerca"
+        search_meta_title_label: "Etiqueta meta meta del títol de la pàgina de resultats de la cerca"
+        search_meta_title_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i es mostra a les pàgines de resultats com a titular clickable. %{link} %{vars}."
+        search_meta_title_link_text: "Aprendre més sobre els meta tags."
+        search_meta_description_label: "Etiqueta meta descripció de la pàgina de resultats de la cerca"
+        search_meta_description_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i apareix a sota dels enllaços clicables de color blau de la pàgina de resultats del motor de cerca. %{link} %{vars}."
+        search_meta_description_link_text: "Aprendre més sobre els meta tags."
+        listing_title: "Pàgina de fitxa"
+        listing_meta_title_label: "Etiqueta meta tag del títol de la pàgina"
+        listing_meta_title_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i es mostra a les pàgines de resultats com a titular clicable. %{link} %{vars}."
+        listing_meta_title_link_text: "Aprendre més sobre els meta tags."
+        listing_meta_description_label: "Etiqueta meta tag de la descripció de la pàgina"
+        listing_meta_description_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i apareix a sota dels enllaços clicables de color blau de la pàgina de resultats del motor de cerca. %{link} %{vars}."
+        listing_meta_description_link_text: "Aprendre més sobre els meta tags."
+        category_title: "Pàgina de categories"
+        category_meta_title_label: "Etiqueta meta del títol de la pàgina de la categoria"
+        category_meta_title_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i es mostra a les pàgines de resultats com a titular clicable. %{link} %{vars}."
+        category_meta_title_link_text: "Aprendre més sobre els meta tags."
+        category_meta_description_label: "Etiqueta meta de la descripció de la pàgina de la categoria"
+        category_meta_description_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i apareix a sota dels enllaços clicables de color blau de la pàgina de resultats del motor de cerca. %{link} %{vars}."
+        category_meta_description_link_text: "Aprendre més sobre les etiquetes meta tags."
+        profile_title: "Pàgina de perfil"
+        profile_meta_title_label: "Etiqueta meta del títol de la pàgina de perfil"
+        profile_meta_title_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i es mostra a les pàgines de resultats com a titular clicable. %{link} %{vars}."
+        profile_meta_title_link_text: "Aprendre més sobre les etiquetes meta tags."
+        profile_meta_description_label: "Etiqueta meta descripció de la pàgina de perfil"
+        profile_meta_description_info: "El contingut d'aquesta etiqueta es suggereix als motors de cerca i apareix a sota dels enllaços clicables de color blau de la pàgina de resultats del motor de cerca. %{link} %{vars}."
+        profile_meta_description_link_text: "Aprendre més sobre les etiquetes meta tags."
+        sitemap_label: "Mapa del lloc"
+        sitemap_info: "Els mapes del lloc són una forma senzilla d’informar els motors de cerca sobre les pàgines del vostre lloc disponibles per a rastreig. %{link}."
+        sitemap_info_link_text: "Aprendre més sobre el fitxer de mapa de lloc XML"
+        sitemap_info_public: "Es genera automàticament un mapa del lloc per al vostre mercat: fa referència fins als 500 anuncis més recents del vostre lloc web. Podeu accedir al vostre mapa del lloc a %{link}."
+        sitemap_info_private: "Com que el vostre mercat és privat, no hi ha cap mapa del lloc."
+        robots_label: Robots.txt
+        robots_info: "Robots.txt és un fitxer de text per instruir els robots web (normalment els robots dels motors de cerca) com explorar les pàgines del vostre lloc web. %{link}."
+        robots_info_link_text: "Aprendre més sobre l'arxiu robots.txt"
+        robots_info_2: "Es genera automàticament un fitxer robots.txt per al vostre mercat. Podeu accedir als vostres robots.txt a %{link}"
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "Google Search Console ofereix eines i informes per ajudar-vos a mesurar el trànsit i el rendiment de cerca del vostre lloc i solucionar problemes relacionats amb els resultats de la Cerca de Google."
+        google_search_console_these_instructions: "aquestes instruccions"
+        google_search_console_paragraph2: "És una bona idea afegir el vostre lloc web a Google Search Console. Només triguen uns minuts %{link}"
+        save: "Guardar configuració"
+      analytics:
+        analytics: Analytics
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "Tracking ID del teu compte de Google Analytics."
+        google_analytics_key_info_text_with_instructions: "Tracking ID del teu compte de Google Analytics.%{instructions_link}"
+        google_analytics_instructions_link_text: "Llegir més sobre la connexió amb Google Analytics."
+        sharetribe_analytics: "Anàlisi de Sharetribe"
+        sharetribe_analytics_info_text_with_instructions: "Per millorar els serveis i el suport de Sharetribe, rastrejam l'activitat dels membres del marketplace. No recollim informació personal i no compartim la informació que obtenim del rastreig fora de l'equip de Sharetribe. Aquest rastreig es pot deshabilitar per complet. %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Llegir més sobre els anàlisis de Sharetribe"
+        end_user_analytics: "Permetre a Sharetribe rastrejar l'activitat dels membres per poder millorar els serveis de Sharetribe"
+        save: "Guardar configuració"
+        google_tag_manager: "Google Tag Manager"
+        gtm_paragraph_1: "Emprar un sistema de gestió d'etiquetes com GTM és un gran forma d'afegir i administrar fragments de codi o codis de seguiment al teu lloc web sense la necessitat de modificar el codi completament."
+        gtm_paragraph_2: "Com que Sharetribe també empra GoogleT ag Manager, has de %{link}."
+        learn_how_to_configure_gtm: "aprendre com configurar GTM al teu marketplace de Go"
+      logo_link:
+        title: "Enllaç del logotip"
+        info: "Pots personalitzar l'enllaç del logotip (i el botó d'inici per defecte del menú de la barra superior). Per defecte, el logotip porta els usuaris a la pàgina principal o a la Custom Landing Page."
+        url: URL
+        placeholder: "https://www.exemple.com"
+      menu_links:
+        menu_links: "Enllaços de menú personalitzats"
+        menu_links_display: "Visualització dels enllaços del menú"
+        save: "Guardar configuració"
+        add_menu_link: "Afegir un nou enllaç al menú"
+        title_placeholder: "Títol de l'enllaç"
+        url_placeholder: "https://www.exemple.com/en"
+        title: Títol
+        language: Idioma
+        url: URL
+        empty: "No tens cap menú d'enllaços addicionals"
+        max_number_of_links: "Nombre de vincles que es mostren a la barra superior: %{select_max_number}"
+        all: Tots
+        max_number_of_links_info: "Vincle per a la %{about_page} es mostra sempre com el primer vincle del menú."
+        about_page: "sobre la pàgina"
+      default_menu_links:
+        title: "Enllaços predeterminats"
+        about_link_title: Sobre
+        contact_link_title: Contacta'ns
+        invite_link_title: "Invitar a nous membres"
+        info: "De manera predeterminada, els enllaços a les pàgines següents no es mostren en cap altre lloc del vostre mercat: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Mostrar enllaç a <i>Sobre</i> i unes altres pàgines estàtiques"
+        display_contact: "Mostrar l'enllaç a la pàgina <i>Contactar</i>"
+        display_invite: "Mostrar l'enllaç a la pàgina <i>Convidar a nous membres</i>"
+      topbar:
+        topbar: "Barra superior"
+        new_listing_button_label: "Text del botó per a Publicar Anunci"
+        invalid_post_listing_button_label: "Proporciona un text vàlid per al botó de \"Publicar Anunci\""
+      transactions:
+        export_all_as_csv: "Exportar-ho tot com CSV"
+        processing_export: "Processant l'exportació a CSV..."
+        transactions: Transaccions
+        search_by_title_parties: "Busca per títol de transacció o nom d'usuaris"
+        search: Buscar
+        reset_search: "Mostrar totes"
+        status_filter:
+          all: Tot
+          selected: "Estatus seleccionats: %{count}"
+          selected_js: "Estatus seleccionats: "
+          free: Gratuïta
+          confirmed: Completada
+          paid: Pagada
+          canceled: Cancel·lada
+          disputed: Disputada
+          preauthorized: Preautoritzada
+          rejected: Rebutjada
+          payment_intent_requires_action: Pendent
+          payment_intent_action_expired: Expirat
+          refunded: Reembolsada
+          dismissed: Descartada
+        headers:
+          conversation: Conversa
+          listing: Anunci
+          status: Estat
+          sum: Suma
+          started: Inici
+          last_activity: "Última activitat"
+          initiated_by: "Iniciada per"
+          other_party: Venedor
+        status:
+          conversation: Conversa
+          free: "Transacció gratuïta"
+          pending: Pendent
+          preauthorized: Pre-autoritzada
+          accepted: Acceptada
+          rejected: Rebutjada
+          paid: Pagat
+          confirmed: Completat
+          canceled: Cancel·lada
+          disputed: Disputada
+          initiated: "Esperant el pagament de PayPal"
+          pending_ext: "Esperant el pagament de PayPal"
+          none:
+            free: "Transacció gratuïta"
+          paypal:
+            free: Conversa
+            pending: Pendent
+            preauthorized: Preautoritzada
+            accepted: Acceptada
+            rejected: Rebutjada
+            paid: Pagat
+            confirmed: Completat
+            canceled: Cancel·lada
+            disputed: Disputada
+            initiated: "Esperant el pagament PayPal"
+            pending_ext: "Esperant el pagament PayPal"
+            refunded: Reembolsada
+            dismissed: Descartada
+          stripe:
+            free: Conversa
+            pending: Pendent
+            preauthorized: Preautoritzada
+            accepted: Acceptada
+            rejected: Rebutjada
+            paid: Pagada
+            confirmed: Completada
+            canceled: Cancel·lada
+            disputed: Disputada
+            initiated: "Esperan el pagament d'Stripe"
+            pending_ext: "Esperant el pagament d'Stripe"
+            payment_intent_requires_action: Pendent
+            payment_intent_action_expired: Expirat
+            payment_intent_failed: "El pagament de Stripe ha fallat"
+            refunded: Reembolsada
+            dismissed: Descartada
+        not_available: "No disponible"
+      conversations:
+        conversations: Converses
+        headers:
+          started_from: "Iniciat des de"
+          status: Estat
+          started: Iniciat
+          last_activity: "Última activitat"
+          initiated_by: "Iniciat per"
+          other_party: Venedor
+        participants: "Conversa: %{starter} amb %{author}"
+        profile: "Perfil del %{author}"
+        search_by_keyword: "Buscar per nom, correu electrònic o paraula clau"
+        search: Buscar
+        reset_search: "Mostrar totes"
+        for_keyword: "per a: <b>%{keyword}</b>"
+      testimonials:
+        testimonials: Ressenyes
+        no_testimonials_found: "No hi ha comentaris"
+        displaying_xx_reviews: "Mostrant <b>%{count}</b> comentaris a les transaccions %{tx_from} - %{tx_to} de <b>%{all_count}</b> comentaris en total"
+        search_keyword: "Busca  per nom, correu electrònic o paraula clau"
+        search: Buscar
+        reset_search: "Mostrar totes"
+        for_keyword: "per a: <b>%{keyword}</b>"
+        headers:
+          transaction: Transacció
+          author: Autor
+          receiver: Receptor
+          status: Estatus
+          grade: Qualificació
+          text: Text
+        status:
+          waiting: "Esperant ressenya"
+          skipped: Omesa
+          published: Publicada
+          blocked: Bloqueada
+        status_filter:
+          selected: "Filtres seleccionats: %{count}"
+          all: Filtres
+          published: Publicada
+          positive: Positiva
+          negative: Negativa
+          skipped: Saltada
+          waiting: Esperant
+          blocked: Bloqueada
+          selected_js: "Filtres seleccionats: "
+        form:
+          review_text: "Text de la ressenya"
+          save: Desar
+          cancel: Cancel·lar
+          delete_review: "Esborrar ressenya"
+          block_review: "Bloquejar ressenya"
+          confirm_modify: "Estàs segur que vols modificar/esborrar aquesta ressenya? Una vegada modificada/esborrada no és possible recuperar la informació en el futur."
+          deleting_info: "Esborrar la ressenya li permet a l'autor deixar-ne una altra per a la mateixa transacció."
+          blocking_info: "Bloquejar la ressenya després d'esborrar-la, prevé a l'autor la possibilitat de deixar una altra ressenya."
+          unskip: Desmarcar
+          if_you_unskip_the_review: "Si no desmarques la revisió, l'usuari podrà publicar-ne una."
+          they_will_not_be_notified_automatically: "No seran notificades automàticament."
+      invitations:
+        invitations: Invitacions
+        used:
+          "yes": Sí
+          "no": "No"
+        headers:
+          sent_by: Remitent
+          message: Missatge
+          sent_to: Destinatari
+          used: Usada
+          date_sent: Data
+      listings:
+        listings: Anuncis
+        search_by_title_author_category: "Buscar per títol de l'anunci, autor o categoria"
+        search: Buscar
+        reset_search: "Mostrar tots"
+        export_all_as_csv: "Exportau tot com a CSV"
+        processing_export: "Processant l'exportació a CSV"
+        status:
+          all: Tots
+          selected_js: "Estatus seleccionats: "
+          open: Obert
+          closed: Tancat
+          expired: Expirat
+          approval_pending: Pendent
+          approval_rejected: Rebutjat
+        headers:
+          title: Títol
+          author: Autor
+          created: Creació
+          updated: Modificació
+          category: Categoria
+          status: Estatus
+        open: Obert
+        closed: Tancat
+        expired: Expirat
+        approved: Aprovat
+        approval_pending: Pendent
+        approval_rejected: Rebutjat
+        form:
+          this_listing_has_not_not_been_approved_yet: "Aquest llistat encara no s'ha aprovat. Ara podeu decidir aprovar o rebutjar la fitxa. Si aproves la fitxa, aquesta serà pública i visible per a tots els usuaris. Si rebutgeu la fitxa, aquesta no serà pública."
+          approve: Aprovar
+          reject: Rebutjar
+          cancel: Cancel·lar
+      user_fields:
+        user_fields: "Dades d'usuaris"
+      footer:
+        footer: "Peu de pàgina"
+        offer_pro: "Configura el peu de pàgina i treu la marca de Sharetribe del teu marketplace al %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "subscriu-te al pla Pro o millor"
+        menu_links: Vincles
+        language: Idioma
+        title: Títol
+        url: URL
+        add: "Afegeix un nou vincle"
+        save: Desar
+        footer_style: Estil
+        footer_copyright: "Text per drets d'autor"
+        footer_enabled: "Habilitar peu de pàgina"
+        social_links: "Vincles de mitjans socials"
+        title_placeholder: Títol
+        url_placeholder: "http://www.exemple.com/nom_d_usuari"
+        style:
+          dark: Obscur
+          light: Clar
+          marketplace_color: "Color del marketplace"
+          logo: Logotip
+        social:
+          title: Títol
+          url: URL
+      domain:
+        domain: Domini
+        marketplace_domain: "Domini del marketplace"
+        offer_pro: "Configura el teu propi domini a %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "subscriu-te al pla Pro o superior"
+        your_marketplace_address_is: "L'adreça del teu marketplace és: %{address}"
+        would_you_like_to_change_address: "T'agradaria canviar l'adreça del teu marketplace? %{contact_us}!"
+        contact_us: Contacta'ns
+        you_can_now_use_a_custom_domain: "Amb el teu pla actual, pots habilitar un domini personalitzat. Vols fer-ho? %{contact_us}!"
+        would_you_like_to_change_domain: "T'agradaria canviar el domini personalitzat del teu marketplace? %{contact_us}!"
+        change_your_sharetribe_domain: "Canvia el teu domini de Sharetribe"
+        only_letters_numbers_and_hyphens_can_be_used: "Només es poden utilitzar lletres, números i guionets. Ves amb compte! El vostre domini antic estarà disponible per a tothom que el faci servir i no el redirigirà al nou."
+        when_you_change_your_sharetribe_domain: "Quan canvieu el domini de Sharetribe, tots els vostres URL canviaran automàticament. Se us redirigirà a la nova adreça del vostre mercat. Vostè i els usuaris hauran de tornar a iniciar la sessió. El vostre domini anterior del mercat no serà en cap cas enllaçat ni redirigit al nou. El domini antic quedarà disponible per a que l’utilitzin altres."
+        would_you_like_to_proceed: "Voleu continuar?"
+        change: Canviar
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: "Domini principal"
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: "Comprovar domini"
+        domain_being_checked: "Comprovant domini:"
+        status: "Estat:"
+        checks_pending: "Comprovacions pendents..."
+        please_check_back: ~
+        checks_not_passed: "Comprovacions no passades!"
+        check_the_domain_again_info: "Assegureu-vos que els vostres registres DNS estan configurats correctament."
+        check_the_domain_again: "Comprovar el domini altre cop"
+        use_another_domain: "Utilitzar un altre domini"
+        checks_passed: "Comprovacions passades!"
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: "Comprovar un altre domini"
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
+      landing_pages:
+        landing_pages: "Pàgina de destinació"
+        info_1: "És possible que la pàgina de destinació sigui la pàgina més important del vostre mercat. És la primera pàgina que veuen els visitants, com la porta principal de casa vostra. Només tens uns segons per convèncer els nous visitants que explorin el vostre lloc. La pàgina ha de ser atractiva i la vostra proposta de valor ha de ser clara i atractiva."
+        info_2: "Podeu utilitzar aquest editor per modificar la pàgina de destinació quan vulgueu."
+        info_2_help_center: "article del nostre Centre d'Ajuda"
+        info_3: "Si voleu tenir una pàgina de destinació completament personalitzada per al vostre mercat, podeu comprar-la com a complement per 99 dòlars al mes."
+        info_4: "Llegiu aquest %{link} per saber com funciona l'editor de pàgines de destinació, per aprendre sobre les diferents seccions i com editar-les."
+        editor_title: "Editor de pàgines de destinació"
+        editor_info: "Aquí pots editar les seccions de la pàgina de destinació. De moment només és possible utilitzar un idioma per a la pàgina de destinació. La posició de \"Hero\" i \"Footer\" no es pot modificar"
+        preview: "Vista prèvia de la pàgina de destinació"
+        set_live: "Posada en directe"
+        add_new_section: "Afegeix una secció nova:"
+        select_section_type: "Selecciona el tipus de secció ..."
+        this_version_is_not_released: "Per poder posar en viu una nova versió de la teva pàgina d'inici necessites fer-li canvis."
+        latest_version_released: "L'última versió de la teva pàgina d'inici ha estat posada en viu! %{link}!"
+        check_it_out: Chécala
+        form:
+          save: Desa
+          cancel: Cancelar
+        sections:
+          identifier: "Secció ID"
+          kind: "Tipus de secció"
+          new: "Nova secció"
+          edit: "Edita secció %{section_id}"
+          remove_section_confirmation: "Estàs segur que vols eliminar la secció \"%{section_id}\" i totes les seves dades? Això no es pot desfer."
+          info_single_column: "Info - Una columna"
+          info_multi_column_2: "Info - Dues columnes"
+          info_multi_column_3: "Info - Tres columnes"
+          listings: Anuncis
+          categories: Categories
+          hero: Hero
+          locations: Ubicacions
+          video: Vídeo
+          new_section:
+            categories: "Nova secció Categories"
+            info_single_column: "Nova secció Informació - Una columna"
+            info_multi_column_2: "Nova secció Informació - Dues columnes"
+            info_multi_column_3: "Nova secció Informació - Tres columnes"
+            listings: "Nova secció Anuncis"
+            locations: "Nova secció Ubicacions"
+            video: "Nova secció Vídeo"
+          edit_section:
+            categories: "Editar secció Categories"
+            footer: "Editar secció Peu de pàgina"
+            hero: "Editar secció Hero"
+            info_single_column: "Editar secció Informació - Una columna"
+            info_multi_column_2: "Editar secció Informació - Dues columnes"
+            info_multi_column_3: "Editar secció Informació - Tres columnes"
+            listings: "Editar secció Anuncis"
+            locations: "Editar secció  Ubicacions"
+            video: "Editar secció Vídeo"
+      attachments:
+        delete: "Esborrar el %{title} actual"
+        or_change: "O canvia el %{title} per un de nou:"
+    landing_page_versions:
+      sections:
+        content:
+          title: "Contingut de la secció"
+        hero:
+          hero_title: Hero
+          hero_description: "Determina la imatge de fons per a la secció Hero. L'eslògan i la descripció vénen directament de la secció de %{link}."
+          basic_details_tab: "la secció de 'Detalls bàsics'"
+          cta_button: "Secció cridada a l'acció"
+          cta_button_info: "No cal que editis el text del botó. Només pots deixar aquest camp buit. De manera predeterminada, el text és \"Cerca\" per a mercats públics i \"Registre\" per a mercats privats."
+          button_type:
+            default: "Per defecte"
+            button: Botó
+            none: Cap
+          button_content: "Contingut del botó"
+          click_me: Clica'm
+        footer:
+          footer_title: "Peu de pàgina"
+          footer_style: "Estil del peu de pàgina"
+          style_dark: Obscur
+          style_light: Clar
+          style_marketplace_color: "Color del mercat"
+          style_logo: Logotip
+        cta_button:
+          cta_button: Botó
+          cta_enabled: "Mostrar un botó"
+          cta_text: Etiqueta
+          cta_url: URL
+          text_placeholder: "Fes clic!"
+          url_placeholder: "https://www.exemple.com"
+        background_selector:
+          title: Fons
+        background_image_overlay:
+          background_image: "Imatge de fons"
+          background_image_info: "Aquesta imatge és el fons d'aquesta secció. Es veurà millor i donarà millors resultats amb una mida mínima de 1600x1200 píxels."
+          add_another_image: "Afegir una altra imatge"
+          current_image: "Imatge actual: %{filename}"
+          file_not_selected: "Sense seleccionar"
+          background_image_overlay: "Superposició de la imatge de fons"
+          background_image_overlay_info: "Això et permet determinar com d'obscura o clara es veurà la teva imatge. \"Transparent\" vol dir que no té ombra."
+          overlay_dark: Obscur
+          overlay_light: Clar
+          overlay_transparent: Transparent
+        background_style:
+          background_style: "Estil de fons"
+          style_image: Imatge
+          style_color: Color
+          style_none: Cap
+        background_color:
+          background_color: "Color de fons"
+          background_color_info: "Pots canviar el color de fons d'aquesta secció per mitjà d'un valor de color hexadecimal. Tria el color a %{link}. Copia el codi hex del color i enganxa'l aquí."
+        categories:
+          add: "+ Afegir una nova categoria"
+          category: Categoria
+          empty: "No has inclòs cap categoria"
+          image: Imatge
+          include_title: "Categories a mostrar"
+          info_text: "Pots presentar de tres a set categories en aquesta secció. Si us plau afegeix una imatge a cada categoria i selecciona la categoria adequada. La mida recomanada és de 1000 x 667 píxels."
+          need_at_least_3_categories: "Has de tenir almenys tres categories en la secció"
+          need_at_most_7_categories: "No pots tenir més de set categories en aquesta secció"
+        category:
+          add_another_image: "Afegeix una altra imatge"
+          category: Categoria
+          current_image: "Imatge actual: %{filename}"
+          file_not_selected: "No seleccionat"
+          image: Imatge
+          image_required: "Hauries d'afegir una imatge a aquesta categoria"
+          select_category: "Selecciona categoria"
+        locations:
+          add: "+ Afegeix una nova localització a aquesta secció"
+          location: Localització
+          empty: "No tens cap localització inclosa"
+          image: Imatge
+          include_title: "Ubicacions de la secció"
+          info_text: "Pots presentar de tres a set ubicacions en aquesta secció. Si us plau afegeix una imatge a cada ubicació, un títol i un enllaç. La mida recomanada és de 1000 x 667 píxels."
+          need_at_least_3_locations: "Has de tenir almenys tres ubicacions a la secció"
+          need_at_most_7_locations: "No pots tenir més de 7 ubicacions en aquesta secció"
+        location:
+          add_another_image: "Afegeix un altra imatge"
+          location: Localització
+          current_image: "Imatge actual: %{filename}"
+          file_not_selected: "No seleccionat"
+          image: Imatge
+          image_required: "Hauries d'afegir una altra imatge a aquesta localització"
+          title: Títol
+          title_placeholder: "Etiqueta de localització"
+          url: URL
+          url_placeholder: "URL de localització"
+        multi_column:
+          main_title: "Títol principal"
+          column_header: "Columna %{index}"
+          column_title: "Títol de la columna %{index}"
+          column_icon_info: "Per afegir icones cal un pas manual per part de l’equip de Sharetribe. Si us plau, %{link} per seleccionar la icona que hagueu triat i compartiu-la amb l'assistència de Sharetribe."
+          column_icon_info_link: "seguiu les instruccions d'aquest article"
+          column_icon: "Icona de la columna %{index}"
+          column_paragraph: "Paràgraf de la columna %{index}"
+          column_button: "Botó de la columna %{index}"
+          column_button_text: "Text de botó"
+          column_button_url: "https://www.exemple.com"
+        listings:
+          listings_to_feature: "Anuncis per mostrar"
+          you_need_to_add_the_listing_ids: "Necessites afegir l'ID de l'anunci que vols incloure en aquesta secció. Per trobar l'ID, ves a la pàgina de l'anunci i mira la URL. L'ID de l'anunci és el número que ve després de la URL principal. En l'exemple https://www.exemple.com/listings/123456-listing-title, l'ID seria: 123456."
+        video:
+          text: Text
+          autoplay: "Opcions de reproducció automàtica"
+          autoplay_no: "No hi ha reproducció automàtica"
+          autoplay_muted: "Reproducció automàtica silenciada"
+          info: "Aquest text es mostrarà si tries l'opció de \\ \"Sense reproducció automàtica \\\" o quan el vídeo sigui pausat."
+          youtube_video_id_info: "Pots obtenir l'ID de el vídeo des de l'URL del vídeo. Normalment és l'última part de l'URL. Per exemple en el vídeo amb URL: https://www.youtube.com/watch?v=UffchBUUIoI, l'ID seria 'UffchBUUIoI'"
+    custom_fields:
+      edit:
+        edit_listing_field: "Editar camp '%{field_name}'"
+      edit_price:
+        description: "El preu mínim i màxim només afecta al filtre. No estableix un límit per als preus dels anuncis."
+        edit_price_field: "Edita el camp de l'anunci 'Preu'"
+        show_price_filter_homepage: "Mostrar filtre per preu a la pàgina principal"
+        price_min: "Filtre per preu mínim"
+        price_max: "Filtre per preu màxim"
+      edit_location:
+        edit_location_field: "Edita el camp de la fitxa 'Ubicació'"
+        this_field_is_required: "Camp obligatori"
+        the_location_feature_can_be_enabled: "La funció d'ubicació pot ser habilitada des de la secció de %{link} a la configuració del teu marketplace."
+      edit_expiration:
+        edit_expiration_field: "Editar el camp \"Data d'expiració\""
+        enable: "Habilitar la data d'expiració"
+      form:
+        field_required:
+          this_field_is_required: "És obligatori omplir aquest camp quan creeu un anunci nou"
+          this_field_is_required_checkbox: "Fa obligatori omplir aquest camp quan creeu un anunci nou (l’usuari ha de seleccionar almenys una opció)"
+        search_filter:
+          search_filter: "Crear un filtre basat en aquest camp a la pàgina d'inici"
+          date_cant_be_filtered: "No hi ha filtres disponibles per al campo de data."
+          text_cant_be_filtered: "No hi ha filtres disponibles per al camp de text. La barra de búsqueda principal busca en els camps de text."
+      index:
+        listing_fields: "Llistar camps i filtres"
+        listing_fields_help: "Aquí podeu editar els camps que han d’omplir els usuaris quan creen un anunci nou. Si us plau, tingueu en compte que alguns camps estan predefinits i no es poden modificar."
+        add_new_field: "Afegir un camp nou:"
+        remove_field_confirmation: "Esteu segur que voleu eliminar el camp '%{field_name}' i totes les seves dades? Això no es pot desfer."
+        cancel: Cancel·lar
+        save: Guardar
+        field_title: "Títol del camp"
+        field_type: "Tipus de camp"
+        categories: "Categories on es mostra el camp"
+        select_all: "Seleccionar tot"
+        clear_all: "Borrar tot"
+        options: Opcions
+        add_option: "+ Afegir opció"
+        saving_order: "Guardant ordre dels camps en el formulari"
+        save_order_successful: "Camps ordenats correctament"
+        save_order_error: "S'ha produït un error en desar el camp de la comanda. Actualitza la pàgina i torna-ho a provar."
+        select_one: "Selecciona el tipus de camp..."
+        continue: Continuar
+        minimum_value: Mínim
+        maximum_value: Màxim
+        allow_decimals: "Permetre decimals"
+      new:
+        new_listing_field: "Nou camp"
+      field_types:
+        text: Text
+        number: Número
+        dropdown: Desplegable
+        checkbox_group: "Selecció de grup"
+        date: Data
+        file: Arxiu
+        location: Ubicació
+    person_custom_fields:
+      saving_failed: "No es pot guardar el camp"
+      index:
+        user_fields: "Dades d'usuaris"
+        field_title: "Títol del camp"
+        field_type: "Tipus de camp"
+        signup: Registre
+        public: Públic
+        add_new_field: "Afegir un camp nou:"
+        save: Desar
+        cancel: cancel·lar
+        minimum_value: Mínim
+        maximum_value: Màxim
+        allow_decimals: "Permetre decimals"
+        add_option: "Afegir opció"
+      new:
+        new_user_field: "Nou camp d'usuari"
+      form:
+        field_required:
+          this_field_is_required: "Fer aquest camp obligatori quan es registrin"
+          this_field_is_required_checkbox: "Fer aquest camp obligatori quan es registrin (l'usuari ha de triar al manco una opció)"
+          this_field_is_public: "Mostrar aquest camp en el perfil públic dels usuaris"
+      edit:
+        edit_user_field: "Editar el camp '%{field_name}'"
+    emails:
+      new:
+        send_email_to_members: "Escriu un correu electrònic als usuaris"
+        send_email_to_members_title: "Envia un correu electrònic als teus usuaris"
+        send_email: Enviar
+        send_email_or: o
+        send_test_email: "Enviar un correu de prova al teu compte"
+        test_sent: "El correu de prova ha estat enviat"
+        send_email_article_title: "aquest article"
+        send_email_article_text: "Pots aprendre més dels segments d'usuaris a %{article_link}"
+        recipients:
+          title: "A qui li vols enviar el correu?"
+          options:
+            all_users: "Tots els usuaris"
+            posting_allowed: "Usuaris que poden publicar anuncis"
+            with_listing: "Usuaris que han publicat al manco un anunci"
+            with_listing_no_payment: "Usuaris que han publicat al manco un anunci però que no han afegit els seus detalls de pagament"
+            with_payment_no_listing: "Usuaris que han afegit els seus detalls de pagament però que no han publicat encara cap anunci"
+            no_listing_no_payment: "Usuaris que no han publicat cap anunci i que no han afegit els seus detalls de pagament"
+        email_subject: Assumpte
+        email_content: Contingut
+        email_content_placeholder: "Què vols dir als teus usuaris?"
+        email_language: "Idioma dels usuaris que rebran el correu"
+        any_language: "Qualsevol idioma"
+        message_will_be_sent_only_to_people_with_this_language: "El correu electrònic només s’enviarà als usuaris que utilitzin %{service_name} en l’idioma que trieu."
+        email_sent: "Missatge enviat."
+        to_improve_email_deliverability: "Per millorar l'enviament i recepció de correus, l'assumpte del correu és generat automàticament i no pot ser canviat."
+        email_subject_text: "Un missatge nou de part de l'equip de %{service_name}"
+        firstname_cannot_be_removed: "\"Nom\" no es pot eliminar i serà reemplaçat pel nom de cada usuari"
+        hello_firstname: "Hola Nom,"
+        hello_firstname_text: "Hola %{person},"
+    left_hand_navigation:
+      general: General
+      users_and_transactions: Administrar
+      configure: Configurar
+      emails_title: "Correus electrònics"
+      subscription: Subscripció
+      preview: "Vista prèvia"
+      whats_new: "Què hi ha de nou?"
+    listing_shapes:
+      availability_title: Disponibilitat
+      read_more: "Llegeix més sobre l'administració automàtica de disponibilitat"
+      read_more_availability_management: "Llegeixi més sobre le maneig de la disponibilitat."
+      allow_providers_to_manage_availability: "Permetre als venedors administrar la seva disponibilitat"
+      per_hour_availability: "Disponibilitat \"Per hora\""
+      per_day_availability: "Disponibilitat \"per dia\""
+      per_night_availability: "Disponibilitat \"per nit\""
+      pricing_units_disabled_info: "Les unitats de preu no poden ser emprades quan el calendari de disponibilitat està habilitat"
+      can_not_find_name: "No s'ha trobat el tipus d'ordre amb el nom: %{name}"
+      index:
+        listing_shapes: "Tipus d'Ordre"
+        description: "Els tipus d'ordre determinen com funciona el procés en la teva comunitat. Pots decidir si els teus usuaris alquilaran o vendran, o inclús si només publicaran anuncis i es comunicaran per mitja de missatges directes."
+        read_more_about_order_types: "Llegir més sobre tipus d'ordres"
+        add_new_shape: "Afegir un nou tipus d'ordre: "
+        select_template: "Seleccionar plantilla..."
+        all_categories: "Totes les categories"
+        no_categories: "Sense categories"
+        category_count: "%{category_count} categories"
+        header:
+          listing_shape_name: "Nom del tipus d'ordre"
+          listing_shape_categories: "Categories en les quals s'empra"
+        order:
+          saving_order: "Guardant ordre"
+          save_order_successful: "L'ordre ha estat guardada correctament"
+          save_order_error: "Ha ocorregut un error mentre s'estava guardant la comanda. Si us plau, actualitzi la pàgina i torni a intentar-ho."
+      templates:
+        selling_products: "Productes en venda"
+        renting_products: "Productes en lloguer"
+        offering_services: "Oferta de serveis"
+        giving_things_away: "Productes regalats"
+        requesting: Sol·licitant
+        announcement: "Publicar anunci"
+        custom: Personalitzat
+      new:
+        create_listing_shape: "Crear tipus d'ordre"
+        create: Crear
+        cancel: Cancelar
+        create_success: "Nou tipus d'ordre '%{shape}' creat"
+        create_failure: "No es pot crear un nou tipus d'ordre. Erro: %{error_msg}"
+      edit:
+        edit_listing_shape: "Editar el tipus d'ordre '%{shape}'"
+        update: Desar
+        cancel: Cancel·lar
+        update_success: "S'han guardat els canvis al tipus d'ordre '%{shape}'"
+        update_failure: "No s'han pogut guardar els canvis. Error:%{error_msg}"
+        delete: "Borrar tipus d'ordre"
+        confirm_delete_order_type:
+          one: "Hi ha un registre de %{count} amb aquest tipus de comanda. Si suprimiu el tipus de comanda, aquest llistat es tancarà. Esteu segur que voleu suprimir el tipus de comanda?"
+          other: "Hi ha %{count} llistats amb aquest tipus de comanda. Si suprimiu el tipus de comanda, aquests llistats es tancaran. Esteu segur que voleu suprimir el tipus de comanda?"
+        can_not_delete_last: "No pots eliminar aquest tipus d'ordre perquè és l'únic tipus d'ordre que existeix a la teva comunitat."
+        can_not_delete_only_one_in_categories: "No pots eliminar aquest tipus d'ordre perquè en les següents categories només s'empra aquest tipus d'ordre: %{categories}"
+      listing_shape_name: Nom
+      listing_shape_name_placeholder: "ex: Vendre"
+      action_button_label: "Etiqueta el botó de checkout"
+      action_button_placeholder: "ex: Comprar"
+      open_listings_warning:
+        one: "Hi ha %{count} anunci obert amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquest anunci no s'actualitzarà i mantindrà els ajustaments anteriors. Pots actualitzar els paràmetres de l'anunci editant-lo manualment. En cas que no vulguis que aquest anunci amb la configuració desactualitzats sigui visible en la teva comunitat, pots tancar-lo (desactivar-lo) fent clic al botó de sota."
+        other: "Hi ha %{count}  anuncis oberts amb aquest tipus d'ordre. Si canvies qualsevol dels ajustaments de baix, aquests anuncis no s'actualitzaran i mantindran els ajustaments anteriors. Pots actualitzar la configuració dels anuncis editant -los manualment. En cas que no vulguis que aquests anuncis amb la configuració desactualitzats siguin visibles a la teva comunitat, pots tancar-los (desactivar-los) fent clic al botó de sota."
+      close_listings_action:
+        one: "Tanca l'anunci de %{count}"
+        other: "Tanca els anuncis de %{count}"
+      confirm_close_listings_action:
+        one: "Esteu segur que voleu tancar l'anunci %{count}?"
+        other: "Esteu segur que voleu tancar els anuncis de %{count}?"
+      successfully_closed: "Anuncis tancats correctament"
+      successfully_deleted: "Tipus d'ordre '%{order_type}' eliminat correctament"
+      pricing_and_checkout_title: "Preu & pagament"
+      online_payments_label: "Permetre als usuaris acceptar pagaments en línia"
+      shipping_label: "Permetre als venedors definir una tarifa d'enviament"
+      price_label: "Permetre als usuaris afegir preu als seus anuncis"
+      units_title: "Unitats de preu"
+      units_desc: "Si habilita les unitats de preu, el preu de l'anunci es mostrarà com \"preu per unitat de preu\". Per exemple: \"$39 per hora\"."
+      units:
+        piece: "Per peça"
+        hour: "Per hora"
+        day: "Per dia"
+        night: "Per nit"
+        week: "Per setmana"
+        month: "Per mes"
+        unit: "Per unitat"
+      can_not_find: "No es pot trobar el tipus d'ordre amb id: %{id}"
+      add_custom_unit: "+ Añadir una unidad de precio personalizada..."
+      delete_custom_unit: esborrar
+      custom_unit_form:
+        title: "Nova unitat de preu"
+        label_heading: Etiqueta
+        selector_label_heading: "Etiqueta del selector"
+        label_placeholder: "ex: \"Kg\", \"30 minuts\", \"persona\", \"classe\""
+        selector_placeholder: "ex: \"Nombre de persones\", \"Quantitat en Kg\""
+        per: Per
+        unit_type:
+          heading: "Tipus d'unitat"
+          quantity_label: "Quantitat (per peça, per kg, per persona, per 2 hores de tour...)"
+          time_label: "Temps (per 30 minuts, per 2 setmanes, per any...)"
+    paypal_accounts:
+      marketplace_paypal_integration: "Preferències del sistema de pagaments"
+      preferences_updated: "Preferències del sistema de pagaments actualitzades"
+      contact_support_link_text: "Contactar amb suport"
+      integration_info_text: "El sistema de pagaments de la teva comunitat es basa en PayPal. Si vols permetre als teus usuaris fer pagaments a través de la teva comunitat, has de connectar el teu compte de PayPal. Després d'això, pots decidir el preu mínim per a les transaccions, així com la comissió i/o quota per transacció que vols rebre."
+      link_paypal_personal_account_label: "Vendràs productes o oferiràs productes en la teva comunitat?"
+      link_paypal_personal_account: "Si és així, també necessitaràs connectar la seva compte PayPal a %{personal_payment_preferences_link}"
+      link_stripe_personal_account: "Si és així, també has d'afegir els teus detalls de pagament %{personal_payment_preferences_link}"
+      link_paypal_and_stripe_personal_account: "Si és així, també has de connectar el teu compte de PayPal o Stripe a %{personal_payment_preferences_link}"
+      personal_payment_preferences_link_text: "el seu compte personal de la comunitat"
+      read_more_about_paypal: "Llegir més sobre els sistema de pagaments."
+      edit_payment_settings: "Modificar la configuració de pagaments"
+      supported_currencies_information_text: "El sistema de pagaments en línia de Sharetribe soporta 24 divises distintes. Si la teva divisa no apareix a la llista, si us plau %{contact_support_link}. Si canvies la divisa de la teva comunitat, els anuncis existents mantindran la divisa anterior. Necessites editar aquests anuncis per actualitzar el seu preu a la nova divisa."
+      currency_change_warning_text: "Alerta: si procedeixes amb el canvi, no oblidis demanar-li als teus usuaris que actualitzin els seus anuncis per a que la divisa canviï en aquests anuncis."
+      marketplace_currency_label: "Divisa de la comunitat:"
+      minimum_listing_price_label: "Preu mínim per anunci:"
+      transaction_fee_label: "Comissió per transacció pel venedor:"
+      minimum_transaction_fee_label: "Comissió mínima per transacció del venedor:"
+      save_settings: "Guardar configuració"
+      minimum_listing_price_below_tx_fee: "el preu mínim de transacció ha de ser major o igual a la quota mínima per transacció: %{minimum_transaction_fee}"
+      minimum_listing_price_below_min: "El preu mínim de transacció ha de ser superior a la comissió mínima %{minimum_commission}"
+    payment_preferences:
+      title: "Preferències del sistema de pagaments"
+      general_settings: "1. Configuració general"
+      connect_a_payment_provider: "2. Connecta un proveïdor de sistema de pagaments"
+      contact_support: "contacta a l'equip de suport"
+      no_payments_link_text: aquí
+      your_country: "El teu país:"
+      you_cannot_use_online_payments: "No pots emprar el sistema de pagaments a %{country_name} amb %{currency}. Si us plau tria una moneda diferent o %{support_link} per canviar el país. Pots llegir més sobre els països i les monedes que pots emprar %{help_link}. En el futur potser afegirem nous sistemes de pagament i suportarem més divises."
+      which_to_choose: "Quin triar?"
+      you_can_use_stripe_or_paypal: "Pots emprar Stripe, Paypal o ambdós com als teus proveïdors del sistema de pagaments. %{choose_link}"
+      you_can_use_stripe_only: "Pots emprar Stripe com a proveïdor del sistema de pagaments. %{read_more_link}"
+      read_more_stripe: "Llegeix més sobre els pagaments amb Stripe."
+      you_can_use_paypal_only: "Pots emprar Stripe com a proveïdor del sistema de pagaments. %{read_more_link}"
+      read_more_paypal: "Llegir més sobre els pagaments amb PayPal"
+      read_more_about_paypal_and_stripe: "Llegir més sobre els pagaments en línia amb Stripe i PayPal"
+      general_settings_updated: "Configuració general del sistema de pagaments modificada"
+      transaction_fee_settings_updated: "Configuració de la quota de servei modificada"
+      choose_popup_text: |-
+          Si vols permetre que els teus usuaris acceptin pagaments en línia, primer has de triar una moneda per a la teva comunitat i després connectar almenys un dels dos sistemes de pagament disponibles a Sharetribe: Stripe i PayPal. Podeu fer servir tots dos, el que significaria que els teus usuaris poden acceptar pagaments amb qualsevol dels dos mètodes de pagament.
+          Si no tens un compte amb cap dels dos serveis, en pots crear una totalment nova. Un cop hagis connectat un compte, pots triar la quota / comissió que cobraràs per cada transacció.
+          Quina és la diferència entre Stripe i PayPal? Stripe et permet retardar pagaments al venedor fins per 3 mesos i ofereix un mètode de pagament (targeta de crèdit o dèbit). Stripe també permet als venedors rebre diners directament al seu compte bancari. Simplement han de proveir la seva informació de compte bancari. PayPal ofereix dos mètodes de pagament (targeta de crèdit / dèbit i compte de PayPal) i ofereix un programa de protecció per a compradors i venedors. Els teus venedors necessiten crear un compte Business de PayPal per poder rebre pagaments.
+          Si fas servir Stripe, les quotes que Stripe cobra seran deduïdes de les teves quotes de transacció, així que recorda posar una quota / comissió mínima de transacció prou alta. Si fas servir PayPal, les quotes que PayPal cobra seran carregades a el proveïdor de manera separada de la teva quota o comissió de transacció. Stripe i PayPal tenen quotes diferents. En la majoria dels casos les quotes d'Stripe són una mica més baixes.
+      invalid_api_keys: "API keys de Stripe invàlides"
+      missing_api_keys: "Falten les API keys de Stripe"
+      stripe_verified: "Accés a API de Stripe verificat"
+      change_settings: "Canviar la configuració i les quotes"
+      configure_stripe: "Configurar Stripe"
+      configure_paypal: "Configurar PayPal"
+      transaction_fee_settings: "Configuració de la quota de transacció"
+      transaction_fee_save: Desa
+      stripe_fee: "Quotes de Stripe"
+      stripe_fee_notice: "%{stripe_fee_link} serà reduïda de la quota/comissió de transacció que estàs carregant."
+      fee_should_be_less_than_minimum_price: "La quota mínima de transacció ha de ser menor que el preu mínim de transacció"
+      the_transaction_fee_must_be_lower_than_100: "La quota de transacció ha de ser inferior al 100%"
+      confirm_disable: "Estàs segur que vols deshabilitar %{gateway}? Si ho deshabilites, els teus venedors no podran rebre diners en línia i els compradors no podran pagar amb aquest mètode de pagament. Si els venedors no han configurat un altre sistema de pagaments, els compradors no podran comprar-los res."
+      commission_from_buyer_label: "Quota pel comprador:"
+      minimum_buyer_transaction_fee_label: "Taxa de transacció mínima del comprador:"
+      stripe_connected:
+        title: "Stripe connectat"
+        disable: "Deshabilitar Stripe"
+        disabled: "Stripe deshabilitat"
+        enable: "Habilitar Stripe una altra vegada"
+      paypal_connected:
+        title: "PayPal connectat"
+        disable: "Deshabilitar PayPal"
+        disabled: "PayPal deshabilitat"
+        enable: "Habilitar PayPal una altra vegada"
+      cannot_enable_gateway: "No és possible habilitar %{gateway}"
+      cannot_disable_gateway: "No és possible habilitar %{gateway}"
+      cannot_enable_gateway_because_of_buyer_commission: "No es pot habilitar la passarel·la de pagament %{gateway} perquè s'utilitza la comissió del comprador"
+      stripe_form:
+        add_your_api_keys: "Afegeix els teus API keys de Stripe"
+        how_to_get_these: "Com obtenir-les?"
+        publishable_key_example: "Per exemple: %{api_publishable_key_example}"
+        secret_key_example: "Per exemple %{api_secret_key_example}"
+        save_api_keys: "Guardar les API keys de Stripe"
+        invalid_secret: "Això no pareix una %{secret_key} correcta"
+        invalid_publishable: "Això no pareix una %{publishable_key} correcta"
+      index:
+        header: "Configuració de pagaments disponible"
+        info: "Pots configurar els sistemes de pagament que s'usaran en la teva comunitat. Els dos sistemes que estan disponible són PayPal i Stripe."
+        active: Actiu
+        gateway: "Plataforma de pagaments"
+        process: Procés
+        commission: Comissió
+        minimum_price: Preu.mín
+        minimum_fee: Quota.mín
+        api_verified: "API verificat?"
+        actions: Accions
+        payments_not_enabled: "Pagaments en línia no estan habilitats per a la teva comunitat"
+    transaction_types:
+      sell: Venta
+      sell_w_online_payment: "Venda amb pagaments en línia"
+      sell_wo_online_payment: "Venda sense pagaments en línia"
+      rent: Llogant
+      rent_w_online_payment: "Renda amb pagaments en línia"
+      rent_wo_online_payment: "Renda sense pagaments en línia"
+      give: Regalant
+      lend: Deixant
+      swap: Intercanvi
+      service: Oferta
+      service_w_online_payment: "Oferta amb pagaments en línia"
+      service_wo_online_payment: "Oferta sense pagaments en línia"
+      request: Sol·licitant
+      inquiry: Anunci
+      share_for_free: "Compartit gratuïtament"
+      event_w_online_payment: "Esdeveniment amb pagaments en línia"
+      event_wo_online_payment: "Esdeveniment sense pagaments en línia"
+      default_action_button_labels:
+        sell: Comprar
+        rent: Llogar
+        request: Oferir
+        offer: Sol·licitar
+        inquiry: Contactar
+        book: Reservar
+    community_transactions:
+      show:
+        transaction_for: "Traducció #%{transaction_id} per %{link}"
+        status: "Estat:"
+        next_step: "Següent pas:"
+        waiting_for_provider_accept_or_reject: "Esperant que %{provider} accepti or rebutgi la sol·licitud."
+        waiting_for_fulfill_and_complete: "Esperant que %{buyer} marqui l'ordre com a completada un cop que %{provider} completi l'ordre de %{listing_title}."
+        buyer: Comprador
+        provider: Venedor
+        delivery: "Mètode d'enviament:"
+        shipping_to: "Enviament a %{address}"
+        buyer_pays: "El comprador paga:"
+        marketplace_collects: "%{service_name} reb:"
+        buyer_service_fee_label: "Comissió del comprador:"
+        service_fee_label: "Comissió del venedor:"
+        provider_receives: "El venedor reb:"
+        admin_info_text: "Com l'administrador de %{service_name} pots dur a terme algunes accions per fer avançar aquesta transacció:"
+        manage_reviews: "Administrar ressenyes"
+        you_should_investigate: "Has d'investigar la situació i comunicar-te amb les dues parts. Després d'això pots decidir si reemborsar els diners o descartar la disputa. %{learn_more_link}"
+        learn_more: "Aprendre més."

@@ -1,0 +1,1215 @@
+pt-PT:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: "Nova categoria de anúncios"
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: "Os tipos de transação determinam quais as operações que são permitidas através desta categoria de anúncios. Numa categoria pode, por exemplo, só ser possível vender ou alugar, enquanto noutra pode ser também possível doar."
+          select_all: ~
+          clear_all: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        warning_listing_will_be_moved:
+          one: "Há %{count} anúncio na categoria. Será movido para a categoria selecionada."
+          other: "Há %{count} anúncios na categoria. Serão movidos para a categoria selecionada."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Há %{count} anúncio na categoria e subcategorias. Será movido para a categoria selecionada."
+          other: "Há %{count} anúncios na categoria e subcategorias. Serão movidos para a categoria selecionada."
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
+    communities:
+      edit_details:
+        community_details: "Detalhes básicos"
+        community_look_and_feel: "Editar visual"
+        edit_community: "Detalhes básicos"
+        enabled_languages: ~
+        enabled_languages_description: "O conjunto de idiomas disponíveis para os utilizadores. O primeiro é utilizado como padrão."
+        default_language: ~
+        language_selection_disabled: ~
+        community_name: "Nome do mercado virtual"
+        edit_community_name_description: "O nome do seu mercado virtual. Será mostrado a utilizadores e em vários outros locais."
+        community_slogan: "Slogan do mercado virtual"
+        community_slogan_display: ~
+        edit_community_slogan_description: "Isso é mostrado na página inicial do mercado virtual para os utilizadores que não estejam cadastrados. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
+        community_description: "Descrição do mercado virtual"
+        community_description_display: ~
+        edit_community_description_description: "Isso é mostrado na página inicial do mercado virtual para os utilizadores que não estejam cadastrados. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
+        community_search_placeholder: "Auxílio na busca de texto"
+        edit_community_search_placeholder_description: ~
+        private_community_homepage_content: ~
+        edit_private_community_homepage_content_description: "Este conteúdo é mostrado para utilizadores não cadastrados na página inicial dos mercados virtuais privados. Aqui você pode descrever o seu mercado virtual e o processo para se juntar a ele. Você também pode adicionar imagens, vídeos e conteúdo HTML aqui. %{see_how_it_looks_like}."
+        update_information: "Salvar configuração"
+        invite_people: "Convide novos utilizadores para o %{service_name}"
+        edit_signup_info: "Informações de registo"
+        edit_signup_info_description: "Este é um texto de informação que pode ser mostrado aos utilizadores na página de inscrição. Lá pode dar instruções sobre como se inscrever, onde conseguir um convite, etc. Não há instruções por defeito."
+        edit_info: "Editar informação"
+        see_how_it_looks_like: "Veja como fica"
+        verification_to_post_listings_info_content: "Informações de texto para utilizadores não verificados"
+        verification_to_post_listings_info_content_description: "Este mercado exige que as pessoas sejam verificadas manualmente por administrador antes de postar anúncios. Aqui você pode definir o texto padrão que é mostrado para os utilizadores não-verificados quando tentar postar um novo anúncio."
+        verification_to_post_listings_info_content_default: "%{service_name} exige que as pessoas sejam verificadas manualmente por administrador antes de postar anúncios. Você ainda não foi verificado. Por favor, %{contact_admin_link} para que seja verificado."
+        contact_admin_link_text: "contacte a equipa %{service_name}"
+        save: "Salvar configurações"
+        transaction_agreement: "Acordo de transação"
+        transaction_agreement_checkbox: "Exigir que os utilizadores aceitem um acordo antes da transação"
+        transaction_agreement_checkbox_header: "Etiqueta de acordo"
+        transaction_agreement_checkbox_label_description: "Este texto será exibido próximo à caixa de seleção no formulário de finalização da compra. O utilizador precisa marcar a caixa para prosseguir com a transação. Uma legenda de exemplo seria algo como \"Ao clicar nesta caixa aceito o contrato.\""
+        transaction_agreement_text_header: "Texto de acordo"
+        transaction_agreement_description: "Este é o conteúdo do acordo vigente que o utilizador deve aceitar. O conteúdo do mesmo é exibido quando o utilizador clica no link \"%{read_more}\" ao lado da legenda do acordo."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Editar o visual do mercado virtual %{community_name}."
+        community_logo: Logo
+        community_logo_icon: ~
+        community_logo_icon_mobile: ~
+        community_cover_photo: "Foto de capa"
+        small_community_cover_photo: ~
+        favicon: ~
+        favicon_info_text: ~
+        community_custom_color1: "Cor principal"
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
+        new_listing_button_custom_color: ~
+        logo_instructions_text_with_dimensions: "Área de Trabalho tamanho do logotipo deve ser %{width}x%{height} px. Ele será exibido para os utilizadores com telas maiores."
+        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
+        cover_photo_visibility: "Foto da capa apresentada na página inicial para utilizadores não conectados."
+        cover_photo_instructions_text_with_dimensions: ~
+        we_have_you_covered: ~
+        cover_photo_ready_made: ~
+        small_cover_photo_visibility: "Foto pequena da capa mostrado para utilizadores não conectados."
+        small_cover_photo_instructions_text_with_dimensions: "A imagem será redimensionada para %{width}x%{height} pixels e imagens maiores serão cortadas ao meio."
+        main_content_width: "Ao escolher fotos de capa, por favor, note que o conteúdo principal da página é %{main_width} pixels de largura, no máximo. Lembre-se de verificar também como a sua foto da capa parece nas telas menores (por exemplo, usando uma janela do navegador mais estreita)."
+        custom_color1_instructions_text: "Você pode mudar a cor principal da interface de utilizador desta comunidade, inserindo um valor de cor hex. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\"> ColorPicker.com </a> pode ajudar você a escolher a cor e copie o código aqui."
+        new_listing_button_instructions_text: ~
+        default_browse_view: ~
+        default_browse_view_instructions_text: "A visualização de navegação padrão é usada na página inicial para definir a forma como os anúncios são exibidos por defeito."
+        grid: Grelha
+        list: Lista
+        map: Mapa
+        name_display_type: "Tipo de exibição do nome utilizador."
+        name_display_type_instructions_text: "Escolha como o nome de cada utilizador será mostrado no site"
+        full_name: ~
+        first_name_with_initial: ~
+        first_name_only: ~
+        invalid_color_code: "O código da cor edveria conter 6 números ou letras A-F, por exemplo D96E21"
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
+        current_image: ~
+      edit_text_instructions:
+        edit_text_instructions: "Texto de instrução"
+      edit_welcome_email:
+        welcome_email_content: "Conteúdo do email de boas vindas"
+        welcome_email_content_description: "A mensagem abaixo será enviada para cada novo usuário que se registar. Você pode customizar a mensagem para melhor se adequar à sua plataforma. Ao clicar em \"%{send_test_message_link}\" você pode enviar a si mesmo uma prévia de como a mensagem será vista pelo usuário."
+        edit_message: "Editar mensagem"
+        send_test_message: "Enviar mensagem de teste"
+      outgoing_email:
+        title: ~
+        info: "Este nome e endereço é usado para os e-mails enviados para os utilizadores pelo seu marketplace."
+        read_more: ~
+        sender_address: ~
+        sender_address_default: ~
+        need_to_change: ~
+        contact_support_link_text: ~
+        set_sender_address: ~
+        sender_name_label: ~
+        sender_name_placeholder: ~
+        sender_email_label: ~
+        sender_email_placeholder: ~
+        amazon_ses_notification: ~
+        this_is_how_it_will_look: ~
+        send_verification_button: ~
+        change_sender_email: ~
+        successfully_saved: ~
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
+        status: "Estado: %{status}"
+        status_verified: ~
+        status_error: ~
+        status_requested: ~
+        status_expired: ~
+        status_resent: ~
+        resend_link: ~
+        invalid_email_error: ~
+        invalid_email_address: ~
+        invalid_email_domain: ~
+        invalid_email_domain_read_more_link: ~
+        unknown_error: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
+        verification_sent_from: ~
+        follow_the_instructions: ~
+      getting_started:
+        getting_started: ~
+      available_languages:
+        bg: ~
+        ca: ~
+        cs: ~
+        da-DK: ~
+        de: ~
+        el: ~
+        en: ~
+        en-AU: ~
+        en-GB: ~
+        es: ~
+        es-ES: ~
+        et: ~
+        fi: ~
+        fr: ~
+        fr-CA: ~
+        hr: ~
+        hu: ~
+        it: ~
+        ja: ~
+        ko: ~
+        lt: ~
+        nb: ~
+        nl: ~
+        pl: ~
+        pt-BR: ~
+        pt-PT: ~
+        ro: ~
+        ru: ~
+        sk-SK: ~
+        sl: ~
+        sv: ~
+        th-TH: ~
+        tr-TR: ~
+        uk: ~
+        vi: ~
+        zh: ~
+        zh-TW: ~
+      settings:
+        settings: Configurações
+        general: Geral
+        access: "Preferências de acesso e contacto"
+        join_with_invite_only: "Novos utilizadores só podem se cadastrar neste mercado virtual com o convite de outro utilizador"
+        users_can_invite_new_users: "Todos os utilizadores podem convidar novos utilizadores para este mercado virtual"
+        private: "Este mercado virtual é privado (apenas utilizadores cadastrados podem ver o conteúdo)"
+        require_verification_to_post_listings: "Só utilizadores verificados por administrador podem postar."
+        allow_free_conversations: ~
+        search_preferences: ~
+        search_and_location_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        keyword_and_location_search: ~
+        location_search: ~
+        select_distance_unit: ~
+        km: ~
+        miles: ~
+        show_only_nearby: "Mostrar apenas anúncios próximos, com a busca de localização"
+        allow_users_to_add_location: ~
+        fuzzy_location: ~
+        listing_preferences: "Preferências de anúncios"
+        transaction_preferences: "Preferências da transação"
+        show_listing_publishing_date: "Mostrar data de publicação do anúncio na página do anúncio"
+        show_category_in_listing_list: "Mostrar o tipo de anúncio na visualização em forma de lista"
+        listing_comments_in_use: "Permitir aos utilizadores comentarem nos anúncios (visível a todos os outros utilizadores)"
+        email_preferences: "Preferências de email"
+        automatic_newsletters: "Enviar automáticamente boletins diários / semanais para todos os utilizadores (a menos que optar por sair)"
+        email_admins_about_new_members: "Envie um e-mail sempre para adminstrador quando um novo utilizador se cadastrar"
+        google_analytics_key: ~
+        twitter_handle: "Twitter handle (usado com o botão de tweet na página de anúncio)"
+        update_settings: ~
+        automatically_confirmed_no_escrow: "A operação será automaticamente marcada como concluída %{days_dropdown} dias após o pagamento ter sido confirmado"
+        automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
+        automatic_newsletter_frequency: ~
+        newsletter_daily: ~
+        newsletter_weekly: ~
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: ~
+        i_understand_button: ~
+        last_community_updates: "Por favor note que após a exclusão, você e os utilizadores do seu marketplace podem ainda receber alguns e-mails do marketplace."
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
+        payment_preferences: ~
+        pre_approved_listings: ~
+        email_admins_about_new_transactions: ~
+      manage_members:
+        manage_members: "Gerir utilizadores"
+        email: ~
+        name: Nome
+        display_name: ~
+        join_date: "Registou-se em"
+        admin: ~
+        posting_allowed: "Publicação permitida"
+        ban_user: "Banir utilizador"
+        saving_user_status: "A salvar..."
+        save_user_status_successful: Salvo
+        export_all_as_csv: ~
+        save_user_status_error: "O salvamento falhou. Por favor atualize a págine e tente novamente."
+        ban_user_confirmation: "Isso remove o utilizador do mercado virtual e o impede de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
+        unban_user_confirmation: ~
+        ban_me_error: ~
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
+        this_makes_the_user_an_admin: ~
+        status_filter:
+          all: "Todos os estados"
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: Pendente
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        confirm: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: "Pendente: %{name}"
+      new_layout:
+        new_layout: ~
+        description_roadmap_new: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
+        searchpage: "Nova página de pesquisa (requer a nova barra superior)"
+        new_email_templates: ~
+      social_media:
+        social_media: ~
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
+        twitter_handle: ~
+        twitter_handle_info_text: "Nome de utilizador da conta do Twitter do seu mercado virtual (se tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
+        twitter_handle_info_text_with_instructions: "Nome de utilizador da conta de Twitter do seu mercado virtual (se tiver um). Será mencionado quando as pessoas clicarem o botão 'tweet' na página de anúncios. %{instructions_link}."
+        twitter_instructions_link_text: "Ler mais"
+        twitter_handle_placeholder: "nome de utilizador"
+        invalid_twitter_handle: ~
+        facebook_connect: ~
+        facebook_developers_dashboard: ~
+        facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
+        enable_facebook_login: ~
+        save: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_developers_console: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
+        save: "Salvar configurações"
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
+        save: ~
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
+      menu_links:
+        menu_links: ~
+        menu_links_display: ~
+        save: ~
+        add_menu_link: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        title: ~
+        language: ~
+        url: ~
+        empty: ~
+        max_number_of_links: ~
+        all: ~
+        max_number_of_links_info: ~
+        about_page: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
+      transactions:
+        export_all_as_csv: ~
+        processing_export: ~
+        transactions: Transações
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: "Todos os estados"
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          disputed: ~
+          preauthorized: ~
+          rejected: Recusada
+          payment_intent_requires_action: Pendente
+          payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
+        headers:
+          conversation: "Toda a conversa"
+          listing: Anúncio
+          status: Estado
+          sum: Soma
+          started: Iniciado
+          last_activity: "Última actividade"
+          initiated_by: Iniciante
+          other_party: ~
+        status:
+          conversation: ~
+          free: ~
+          pending: Pendente
+          preauthorized: Pré-autorizado
+          accepted: Aceite
+          rejected: Recusada
+          paid: Pago
+          confirmed: Concluída
+          canceled: Cancelado
+          disputed: ~
+          initiated: ~
+          pending_ext: ~
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: Pendente
+            preauthorized: ~
+            accepted: ~
+            rejected: Recusada
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            disputed: ~
+            initiated: ~
+            pending_ext: ~
+            refunded: ~
+            dismissed: ~
+          stripe:
+            free: ~
+            pending: Pendente
+            preauthorized: ~
+            accepted: ~
+            rejected: Recusada
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            disputed: ~
+            initiated: ~
+            pending_ext: ~
+            payment_intent_requires_action: Pendente
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
+        not_available: "Não disponível"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: Estado
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+      testimonials:
+        testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          text: ~
+        status:
+          waiting: "A espera de uma avaliação"
+          skipped: ~
+          published: ~
+          blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
+        form:
+          review_text: ~
+          save: Salvar
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
+      listings:
+        listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
+        status:
+          all: "Todos os estados"
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+          approval_pending: Pendente
+          approval_rejected: Recusada
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
+        expired: ~
+        approved: ~
+        approval_pending: Pendente
+        approval_rejected: Recusada
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
+      user_fields:
+        user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: "Salvar configurações"
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_help_center: ~
+        info_3: ~
+        info_4: ~
+        editor_title: ~
+        editor_info: ~
+        preview: ~
+        set_live: ~
+        add_new_section: ~
+        select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
+        form:
+          save: Salvar
+          cancel: ~
+        sections:
+          identifier: ~
+          kind: ~
+          new: ~
+          edit: ~
+          remove_section_confirmation: ~
+          info_single_column: ~
+          info_multi_column_2: ~
+          info_multi_column_3: ~
+          listings: ~
+          categories: ~
+          hero: ~
+          locations: ~
+          video: ~
+          new_section:
+            categories: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+          edit_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+      attachments:
+        delete: ~
+        or_change: ~
+    landing_page_versions:
+      sections:
+        content:
+          title: ~
+        hero:
+          hero_title: ~
+          hero_description: ~
+          basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
+        footer:
+          footer_title: ~
+          footer_style: ~
+          style_dark: ~
+          style_light: ~
+          style_marketplace_color: ~
+          style_logo: ~
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: ~
+          cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
+        background_image_overlay:
+          background_image: ~
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: ~
+          title_placeholder: ~
+          url: ~
+          url_placeholder: ~
+        multi_column:
+          main_title: ~
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon_info_link: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          listings_to_feature: ~
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
+          youtube_video_id_info: ~
+    custom_fields:
+      edit:
+        edit_listing_field: "Alterar anúncio '%{field_name}'"
+      edit_price:
+        description: "Os preços máximo e mínimo afetam apenas o filtro. Não impõem um limite para o preço indicado nos anúncios."
+        edit_price_field: "Editar o campo \"Preço\" do anúncio"
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
+      edit_location:
+        edit_location_field: ~
+        this_field_is_required: "Este campo é obrigatório"
+        the_location_feature_can_be_enabled: ~
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: "Este campo é obrigatório (o utilizador deve selecionar pelo menos uma opção)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
+      index:
+        listing_fields: "Campos de anúncios & filtros"
+        listing_fields_help: "Aqui pode editar os campos que os utilizadores têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
+        add_new_field: "Adicione um novo campo:"
+        remove_field_confirmation: "Tem certeza que deseja remover o campo %{field_name} e todos os seus dados? Esta ação não pode ser revertida."
+        cancel: Cancelar
+        save: Salvar
+        field_title: "Título do campo"
+        field_type: "Tipo do campo"
+        categories: "Categorias de anúncio onde o campo é usado"
+        select_all: ~
+        clear_all: ~
+        options: ~
+        add_option: "+ Adicionar opção"
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+        select_one: ~
+        continue: Continuar
+        minimum_value: Mínimo
+        maximum_value: Máximo
+        allow_decimals: "Permitir decimais"
+      new:
+        new_listing_field: "Novo anúncio"
+      field_types:
+        text: ~
+        number: ~
+        dropdown: "Lista de opções"
+        checkbox_group: ~
+        date: ~
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        signup: ~
+        public: ~
+        add_new_field: ~
+        save: Salvar
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
+    emails:
+      new:
+        send_email_to_members: "Envie e-mail aos utilizadores"
+        send_email_to_members_title: "Enviar e-mail para todos os utilizadores"
+        send_email: "Envie o seu email"
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            posting_allowed: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
+        email_subject: "Assunto do email"
+        email_content: "Conteúdo do email"
+        email_content_placeholder: "O que você gostaria de dizer aos utilizadores?"
+        email_language: "Idioma dos receptores do email"
+        any_language: "Qualquer idioma"
+        message_will_be_sent_only_to_people_with_this_language: "Nota: o e-mail será enviado apenas aos utilizadores que utilizam a %{service_name} no idioma que você escolheu."
+        email_sent: "Email enviado."
+        to_improve_email_deliverability: ~
+        email_subject_text: "Uma nova mensagem da equipa %{service_name}"
+        firstname_cannot_be_removed: ~
+        hello_firstname: "Olá Firstname,"
+        hello_firstname_text: "Olá %{person},"
+    left_hand_navigation:
+      general: ~
+      users_and_transactions: "Utilizadores & transações"
+      configure: ~
+      emails_title: ~
+      subscription: ~
+      preview: ~
+      whats_new: ~
+    listing_shapes:
+      availability_title: ~
+      read_more: "Leia mais sobre o gerenciamento automático de disponibilidade."
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
+      per_hour_availability: "Dispinibilidade !por hora\""
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
+      can_not_find_name: ~
+      index:
+        listing_shapes: "Pedidos por tipos"
+        description: "O tipo da ordem define a forma como a ordem é processada no seu site. Você pode decidir se seus utilizador poderão alugar ou vender ou talvez apenas criar anúncios e se comunicar através de mensagens gratuitas."
+        read_more_about_order_types: ~
+        add_new_shape: ~
+        select_template: ~
+        all_categories: "Todas as categorias"
+        no_categories: ~
+        category_count: ~
+        header:
+          listing_shape_name: "Pedidos por nomes"
+          listing_shape_categories: "Pedidos por categorias"
+        order:
+          saving_order: ~
+          save_order_successful: ~
+          save_order_error: ~
+      templates:
+        selling_products: ~
+        renting_products: ~
+        offering_services: ~
+        giving_things_away: ~
+        requesting: ~
+        announcement: ~
+        custom: ~
+      new:
+        create_listing_shape: ~
+        create: ~
+        cancel: ~
+        create_success: ~
+        create_failure: ~
+      edit:
+        edit_listing_shape: ~
+        update: Salvar
+        cancel: Cancelar
+        update_success: ~
+        update_failure: ~
+        delete: ~
+        confirm_delete_order_type:
+          one: "Existe %{count} anúncio com este tipo de ordem. Se excluir este tipo de ordem o anúncio será encerrado. Tem a certeza que deseja excluir este tipo de ordem?"
+          other: "Existem %{count} anúncios com este tipo de ordem. Se excluir este tipo de ordem so anúncios serão encerrados. Tem a certeza que deseja excluir este tipo de ordem?"
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
+      listing_shape_name: Nome
+      listing_shape_name_placeholder: ~
+      action_button_label: ~
+      action_button_placeholder: ~
+      open_listings_warning:
+        one: "Existe %{count} anúncio ativo com este tipo de ordem. Se modificar alguma das configurações abaixo este anúncio manterá a configuração anterior. O anúncio deve ser editado manualmente para usar as novas configurações. Se não quiser ter o anúncio visível com a antiga configuração deve fechá-lo clicando no botão abaixo."
+        other: "Existem %{count} anúncios ativos com este tipo de ordem. Se modificar alguma das configurações abaixo estes anúncios manterão a configuração anterior. Os anúncios devem ser editados manualmente para usar as novas configurações. Se não quiser ter os anúncios visíveis com a antiga configuração deve fechá-los clicando no botão abaixo."
+      close_listings_action:
+        one: "Fechar %{count} anúncio"
+        other: "Fechar %{count} anúncios"
+      confirm_close_listings_action:
+        one: "Tem a certeza que deseja fechar %{count} anúncio?"
+        other: "Tem a certeza que deseja fechar %{count} anúncios?"
+      successfully_closed: "Anúncios encerrados com sucesso"
+      successfully_deleted: ~
+      pricing_and_checkout_title: ~
+      online_payments_label: ~
+      shipping_label: ~
+      price_label: ~
+      units_title: ~
+      units_desc: "Se você habilitou unidades de preço o valor do anúncio é mostrado como \"valor por unidade de preço\". Por exemplo:\"$39 por hora\""
+      units:
+        piece: ~
+        hour: "Por hora"
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+        unit: "Por unidade"
+      can_not_find: ~
+      add_custom_unit: ~
+      delete_custom_unit: ~
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: "Tipo de unidade"
+          quantity_label: ~
+          time_label: ~
+    paypal_accounts:
+      marketplace_paypal_integration: ~
+      preferences_updated: ~
+      contact_support_link_text: ~
+      integration_info_text: "O sistema de pagamento de Sharetribe é gerido pelo PayPal. Se quiser permitir que os seus utilizadores façam pagamentos através do seu mercado virtual, deve conectar-se à sua conta PayPal e decidir o valor mínimo da transação e a taxa que quer ganhar com cada transação."
+      link_paypal_personal_account_label: ~
+      link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
+      personal_payment_preferences_link_text: ~
+      read_more_about_paypal: ~
+      edit_payment_settings: "Editar configurações de pagamento"
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
+      minimum_listing_price_label: "Preço mínimo de transação:"
+      transaction_fee_label: ~
+      minimum_transaction_fee_label: ~
+      save_settings: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      the_transaction_fee_must_be_lower_than_100: ~
+      confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
+      stripe_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      paypal_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        publishable_key_example: ~
+        secret_key_example: ~
+        save_api_keys: ~
+        invalid_secret: ~
+        invalid_publishable: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
+    transaction_types:
+      sell: ~
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
+      rent: ~
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
+      request: ~
+      inquiry: Anúncio
+      share_for_free: ~
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
+      default_action_button_labels:
+        sell: ~
+        rent: ~
+        request: ~
+        offer: ~
+        inquiry: Contacto
+        book: ~
+    community_transactions:
+      show:
+        transaction_for: ~
+        status: ~
+        next_step: ~
+        waiting_for_provider_accept_or_reject: ~
+        waiting_for_fulfill_and_complete: ~
+        buyer: ~
+        provider: ~
+        delivery: ~
+        shipping_to: ~
+        buyer_pays: ~
+        marketplace_collects: ~
+        buyer_service_fee_label: ~
+        service_fee_label: ~
+        provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~

@@ -1,0 +1,1228 @@
+de:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: "Kategorie '%{category}' bearbeiten"
+      index:
+        listing_categories: Kategorien
+        create_a_new_category: "+ Neue Kategorie erstellen"
+        remove_category_confirmation: "Bist du sicher, dass du die Kategorie '%{category_name}' entfernen möchtest? Dies kann nicht rückgängig gemacht werden."
+        saving_order: "Reihenfolge der Kategorien speichern"
+        save_order_successful: "Reihenfolge der Kategorien erfolgreich gespeichert"
+        save_order_error: "Während des Speicherns der Kategorienreihenfolge ist ein Fehler aufgetreten. Bitte lade die Seite neu und versuche es noch einmal."
+      new:
+        new_listing_category: "Neue Eintragskategorie"
+      form:
+        category_name:
+          category_title: Kategorie-Titel
+        category_parent:
+          category_parent: Oberkategorie
+          no_parent: "Keine Oberkategorie"
+        category_transaction_types:
+          transaction_types: Auftragsarten
+          transaction_types_description: "Auftragsarten bestimmen, welche Art von Aufträgen mit Einträgen in dieser Kategorie erlaubt sind. Zum Beispiel ob nur der Verkauf erlaubt ist oder das Vermieten und Verschenken ebenfalls."
+          select_all: "Alle auswählen"
+          clear_all: "Alle löschen"
+        buttons:
+          save: Speichern
+          cancel: Abbrechen
+      remove:
+        remove_category: "Kategorie entfernen"
+        remove_category_name: "Kategorie '%{category_name}' entfernen"
+        warning_remove_effects: "Warnung! Das Entfernen der Kategorie '%{category_name}' wird folgende Auswirkungen haben:"
+        warning_listing_will_be_moved:
+          one: "Es gibt %{count} Eintrag in dieser Kategorie. Dieser wird in die ausgewählte Kategorie verschoben."
+          other: "Es gibt %{count} Einträge in dieser Kategorie. Diese werden in die ausgewählte Kategorie verschoben."
+        warning_custom_field_will_be_moved:
+          one: "Es gibt %{count} benutzerdefiniertes Feld in dieser Kategorie. Es wird in die ausgewählte Kategorie verschoben."
+          other: "Es gibt %{count} benutzerdefinierte Felder in dieser Kategorie. Sie werden in die ausgewählte Kategorie verschoben."
+        warning_subcategory_will_be_removed:
+          one: "Es gibt %{count} Subkategorie in der Kategorie. Sie wird entfernt."
+          other: "Es gibt %{count} Subkategorien in der Kategorie. Sie werden entfernt."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Es gibt %{count} Eintrag in der Kategorie und den Subkategorien. Sie wird in die ausgewählte Kategorie verschoben."
+          other: "Es gibt %{count} Einträge in der Kategorie und den Subkategorien. Sie werden in die ausgewählte Kategorie verschoben."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Es gibt %{count} benutzerdefiniertes Feld in der Kategorie und Subkategorie. Es wird in die ausgewählte Kategorie verschoben."
+          other: "Es gibt %{count} benutzerdefinierte Einstellungsfelder in der Kategorie und Subkategorie. Sie werden in die ausgewählte Kategorie verschoben."
+        select_new_category: "Wähle eine neue Kategorie aus, in die die oberen Einträge verschoben werden:"
+        buttons:
+          remove: Entfernen
+          cancel: Abbrechen
+    communities:
+      edit_details:
+        community_details: Grundangaben
+        community_look_and_feel: Design
+        edit_community: Grundangaben
+        enabled_languages: "Aktivierte Sprachen"
+        enabled_languages_description: "Die Sprachen, die die Nutzer wählen können. Die erste wird als Standard verwendet."
+        default_language: Standardsprache
+        language_selection_disabled: "Die Sprachauswahl für Deinen Marktplatz ist deaktiviert, weil du die folgenden nicht unterstützten Sprachen verwendest: %{languages}. Bitte kontaktiere den Kundendienst von Sharetribe wenn du Deine Spracheinstellungen ändern möchtest."
+        community_name: "Name des Marktplatzes"
+        edit_community_name_description: "Der Name deines Marktplatzes. Dieser wird allen Nutzern in E-Mails und an verschiedenen anderen Stellen angezeigt."
+        community_slogan: "Slogan des Marktplatzes"
+        community_slogan_display: "Slogan auf der Startseite oder Custom Landing Page anzeigen"
+        edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        community_description: "Beschreibung des Marktplatzes"
+        community_description_display: "Beschreibung auf der Startseite oder Custom Landing Page anzeigen"
+        edit_community_description_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        community_search_placeholder: "Hilfe-Text der Suchleiste"
+        edit_community_search_placeholder_description: "Dies wird auf der Homepage des Marktes als Platzhaltertext in der Suchleiste angezeigt. %{see_how_it_looks_like}"
+        private_community_homepage_content: "Privater Inhalt der Marktplatz Startseite"
+        edit_private_community_homepage_content_description: "Dieser Content ist nur bei privaten Marktplätzen sichtbar. User, die nicht eingeloggt sind, sehen den Text auf der Startseite. Beschreibe hier deinen Marktplatz und wie man ihm beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
+        update_information: "Einstellungen speichern"
+        invite_people: "Lade Leute ein"
+        edit_signup_info: Anmeldedaten
+        edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, wie z.B. Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardgemäß gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
+        edit_info: "Angaben bearbeiten"
+        see_how_it_looks_like: "Sieh es dir an"
+        verification_to_post_listings_info_content: "Infotext für nicht verifizierte Benutzer"
+        verification_to_post_listings_info_content_description: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Hier kannst du den Standardtext festlegen, der nicht-verifizierten Benutzern angezeigt wird, wenn sie versuchen, einen neuen Eintrag zu erstellen."
+        verification_to_post_listings_info_content_default: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Du bist noch nicht verifiziert. Bitte %{contact_admin_link}, um dich verifizieren zu lassen."
+        contact_admin_link_text: "Administrator von %{service_name} kontaktieren"
+        save: "Einstellungen speichern"
+        transaction_agreement: "Die Allgemeinen Geschäftsbedingungen (AGBs)"
+        transaction_agreement_checkbox: "Käufer müssen Bedingungen vor der Transaktion akzeptieren"
+        transaction_agreement_checkbox_header: "Allgemeine Geschäftsbedingungen Label"
+        transaction_agreement_checkbox_label_description: "Dieser Text wird neben einer Checkbox beim Checkout angezeigt. Der Nutzer muss mit einem Haken in der Checkbox zustimmen, um die Transaktion abzuschließen. Ein Beispiel wäre etwa \"Mit Klicken dieser Box akzeptiere ich die Vereinbarung.\""
+        transaction_agreement_text_header: "Allgemeine Geschäftsbedingungen"
+        transaction_agreement_description: "Dies ist der Inhalt der Allgemeinen Geschäftsbedingungen (AGBs), die der Anwender akzeptieren muss. Der Inhalt der AGBs wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Allgemeinen Geschäftsbedingungen klickt."
+        terms_privacy_policy_and_static_content: "Nutzungsbedingungen, Datenschutz, und Inhaltsseiten"
+        terms_privacy_policy_and_static_content_infotext: "Du kannst bis zu vier Inhaltsseiten bearbeiten. Die Benutzer können die Seiten mit hilfe des \"Über\"-links auf dem Top Bar finden."
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" des Marktplatzes %{community_name}"
+        community_logo: Logo
+        community_logo_icon: "Logo für soziale Netzwerke und Mobilgeräte"
+        community_logo_icon_mobile: Quadrat-Logo
+        community_cover_photo: Titelbild
+        small_community_cover_photo: "Kleines Titelbild"
+        favicon: Favicon
+        favicon_info_text: "Das Favicon ersetzt das Standard Sharetribe Logo. Es sollte 32x32 Pixel groß sein. Hochgeladene Bilder werden auf diese Größe geändert."
+        community_custom_color1: "Hauptfarbe des Marktplatzes"
+        community_slogan_color: "Farbe des Marktplatz-Slogans"
+        community_slogan_color_instructions_text: "Du kannst die Farbe des Slogans ändern, indem du den Hex-Wert einer Farbe eingibst. Der Slogan wird den nicht angemeldeten Benutzern angezeigt. %{colorpicker} kann dir helfen, die Farbe zu wählen und den Hex-Wert dieser Farbe zu bekommen. Danach kannst du den Hex-Wert hier kopieren. %{see_how_it_looks_like}."
+        community_description_color: "Farbe der Marktplatz-Beschreibung"
+        community_description_color_instructions_text: "Du kannst die Farbe der Beschreibung ändern, indem du den Hex-Wert einer Farbe eingibst. Die Beschreibung wird den nicht angemeldeten Benutzern angezeigt. %{colorpicker} kann dir helfen, die Farbe zu wählen und den Hex-Wert dieser Farbe zu bekommen. Danach kannst du den Hex-Wert hier kopieren. %{see_how_it_looks_like}."
+        new_listing_button_custom_color: "Farbe der \"Neuen Eintrag erstellen\" Taste"
+        logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height} Pixel betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
+        logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height} Pixel betragen."
+        logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf sozialen Netzwerken teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräts anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height} Pixel betragen."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixel betragen."
+        logo_mobile_icon_instructions_text_with_dimensions: "Dieses viereckige Logo wird auf dem Mobil-Startbildschirm von deinen Benutzern angezeigt, wenn sie ein Lesezeichen für deinen Marktplatz auf ihren Mobilgeräten erstellen. Das Logo wird auch angezeigt, wenn du als Admin einige Maßnahmen ergreifst. Die Größe sollte (zumindest) %{width} x%{height} px betragen."
+        cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
+        cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
+        we_have_you_covered: "Wir können helfen"
+        cover_photo_ready_made: "Suchst du nach fertige und optimierte Titelbilder? Oder möchtest du inspirert werden und einige Webseiten ansehen, wo man gute Titelbilder finden kann? %{link}!"
+        small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
+        small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
+        main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite höchstens %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht (z.B wenn du einen schmaleren Browser benutzt)."
+        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. %{link} kann dir helfen die Farbe auszuwählen, und den Hex-Wert der Farbe zu finden. Kopiere den Code hier ein."
+        new_listing_button_instructions_text: "Du kannst die Farbe des \"Neuen Eintrag erstellen\" Knopfes ändern, indem du den Hex-Wert einer neuen Farbe eingibst. %{link_to_colorpicker} kann dir helfen, eine Farbe zu wählen, und den Hex-Code der Farbe zu finden. Du musst nur den Code hier einfügen!"
+        default_browse_view: Standardansicht
+        default_browse_view_instructions_text: "Die Standardansicht legt fest, wie die Einträge auf der Webseite standardmäßig angezeigt werden."
+        grid: Gitter
+        list: Liste
+        map: Karte
+        name_display_type: "Art der Namensdarstellung"
+        name_display_type_instructions_text: "Entscheide, wie der Name jedes Benutzers auf der Seite angezeigt werden soll."
+        full_name: "Ganzer Name (Vorname Nachname)"
+        first_name_with_initial: "Vorname mit Initial (erster Buchstabe)"
+        first_name_only: "Nur der Vorname"
+        invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
+        custom_head_script: "Angepasstes Skript"
+        custom_head_script_instructions_text: "Angepasstes Skript kann auf <a href='%{url}'>deinem neuen Admin-Bereich</a> bearbeitet werden."
+        current_image: "Aktuelles Bild:"
+      edit_text_instructions:
+        edit_text_instructions: Anleitungstexte
+      edit_welcome_email:
+        welcome_email_content: "Inhalt der Begrüßungsmail"
+        welcome_email_content_description: "Die folgende Nachricht wird zur Begrüßung an jedes neue Mitglied gesendet. Du kannst die Nachricht so bearbeiten, dass sie zu deinem Marktplatz passt. Indem du auf '%{send_test_message_link}' klickst, kannst du eine Testnachricht zu dir selbst schicken und dadurch sehen, wie sie in einem E-Mail-Client aussieht."
+        edit_message: "Nachricht bearbeiten"
+        send_test_message: "Test-Nachricht senden"
+      outgoing_email:
+        title: "Absender Email Adresse"
+        info: "Diese Absender Informationen werden für die Emails verwendet, die Dein Marktplatz an die Mitglieder verschickt."
+        read_more: "Lese mehr über die Absender Email Adresse"
+        sender_address: "Absender Adresse: %{sender_address}"
+        sender_address_default: "Absender Adresse: nicht festgelegt (verwendet wird die Standard Email %{sender_address})"
+        need_to_change: "Wenn Du die Email Adresse ändern möchtest, kontaktiere bitte %{contact_support_link}."
+        contact_support_link_text: "kontaktiere Sharetribe Support"
+        set_sender_address: "Lege eine absender adresse fest"
+        sender_name_label: Name
+        sender_name_placeholder: Absender
+        sender_email_label: "Email Adresse"
+        sender_email_placeholder: absender-email@beispiel.de
+        amazon_ses_notification: "Du wirst eine E-mail von %{email_sender} erhalten, für die Bestätigung deiner E-mail. Der Betreff von dieser E-mail ist '%{email_subject}'. Bitte folge die Anweisungen in dieser E-mail um deine E-mail-Adresse zu bestätigen."
+        this_is_how_it_will_look: "So wird es aussehen:"
+        send_verification_button: "Sende Verifizierungsmail"
+        change_sender_email: "Absender Email Adresse ändern"
+        successfully_saved: "Absender Adresse erfolgreich gespeichert. Die Verifizierungsmail wird demnächst verschickt."
+        successfully_saved_name: "Absender Email Adresse erfolgreich geändert."
+        set_sender_name: "Absender Email Adresse ändern"
+        change_sender_name: "Absender Email Adresse ändern"
+        change_sender_prompt: "%{change_name_link} oder %{change_email_link}"
+        status: "Status: %{status}"
+        status_verified: "Verifiziert - In Verwendung"
+        status_error: "Ein Fehler ist aufgetreten. Bitte lade die Seite neu."
+        status_requested: "Nicht verifiziert - Verifizierungsmail wurde an %{email} geschickt (%{time_ago}). %{resend_link}"
+        status_expired: "Verifizierung von %{email} ist abgelaufen. %{resend_link}"
+        status_resent: "Verifizierungsmail erneut gesendet an %{email}. %{resend_link}"
+        resend_link: "Erneut senden"
+        invalid_email_error: "Ungültiges Email Format für '%{email}'"
+        invalid_email_address: "Bitte eine gültige Email-Adresse eingeben"
+        invalid_email_domain: "Die \"%{email}\" Email Adresse nutzt einen nicht unterstützten Email Provider: \"%{domain}\". %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Lies den Artikel im Help Center für mehr Informationen."
+        unknown_error: "Da ist etwas schief gelaufen"
+        white_label_offer: "Lege Deine eigene E-Mail-Adresse als Absender fest und entferne das Sharetribe Branding von ausgehenden E-Mail-Nachrichten durch %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "Upgrade auf unseren Pro Plan oder höher"
+        verification_sent_from: "Die Verifizierungsmail wurde gesendet von %{verification_sender_name}."
+        follow_the_instructions: "Bitte folge den Anweisungen in der Email, um Deine Adresse zu verifizieren."
+      getting_started:
+        getting_started: Kurzanleitung
+      available_languages:
+        bg: Bulgarisch
+        ca: Katalanisch
+        cs: tschechisch
+        da-DK: Dänisch
+        de: Deutsch
+        el: Griechisch
+        en: Englisch
+        en-AU: "Englisch (Australien)"
+        en-GB: "Englisch (Großbritannien)"
+        es: Spanisch
+        es-ES: "Spanisch (Spanien)"
+        et: Estnisch
+        fi: Finnisch
+        fr: Französisch
+        fr-CA: "Französisch (Canada)"
+        hr: Kroatisch
+        hu: Ungarisch
+        it: Italienisch
+        ja: Japanisch
+        ko: koreanisch
+        lt: Litauisch
+        nb: "Norwegisch Bokmål"
+        nl: Holländisch
+        pl: polnisch
+        pt-BR: "Portugiesisch (Brasilien)"
+        pt-PT: Portugiesisch
+        ro: ~
+        ru: Russisch
+        sk-SK: Slowakisch
+        sl: ~
+        sv: Schwedisch
+        th-TH: "thailändisch (Thailand)"
+        tr-TR: Türkisch
+        uk: ~
+        vi: vietnamesisch
+        zh: Chinesisch
+        zh-TW: "chinesisch (Taiwan)"
+      settings:
+        settings: Einstellungen
+        general: Allgemein
+        access: "Zugriff- und Kontakteinstellungen"
+        join_with_invite_only: "Neue Benutzer können diesem Marktplatz nur mit der Einladung eines Mitglieds beitreten"
+        users_can_invite_new_users: "Alle Mitglieder, nicht nur Admins, können neue Benutzer zu diesem Marktplatz einladen"
+        private: "Dieser Marktplatz ist privat (nur registrierte Benutzer können den Inhalt sehen)"
+        require_verification_to_post_listings: "Nur von einem Admin verifizierte Benutzer können neue Einträge veröffentlichen"
+        allow_free_conversations: "Erlaube es allen Benutzern, einander frei zu kontaktieren"
+        search_preferences: Sucheinstellungen
+        search_and_location_preferences: "Such- und Standortoptionen"
+        default_search_type: "Suchtyp: %{select_search_type}"
+        keyword_search: Schlagwortsuche
+        keyword_and_location_search: "Schlagwort- und Umgebungssuche"
+        location_search: Umgebungssuche
+        select_distance_unit: "Zeige die Entfernung im %{distance_units_selector}"
+        km: km
+        miles: Meilen
+        show_only_nearby: "Mit Umgebungssuche nur Einträge in der Nähe zeigen"
+        allow_users_to_add_location: "Den Benutzern erlauben, einen Standort zu ihrem Profil und ihren Angeboten hinzufügen, und zeige eine Karte auf der Suchseite"
+        fuzzy_location: "Einen Kreis anstatt des genauen Standortes anzeigen"
+        listing_preferences: Eintragseinstellungen
+        transaction_preferences: Auftragspräferenzen
+        show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Eintragsseite darstellen"
+        show_category_in_listing_list: "Die Art der Kategorien in der Übersicht darstellen"
+        listing_comments_in_use: "Benutzern erlauben, Einträge zu kommentieren (für alle anderen Benutzer sichtbar)"
+        email_preferences: E-Mail-Einstellungen
+        automatic_newsletters: "Automatisch tägliche / wöchentliche Newsletter an alle Benutzer versenden (es sei denn, sie melden sich ab)"
+        email_admins_about_new_members: "Den Administratoren eine E-Mail schicken, wenn sich ein neuer Benutzer anmeldet"
+        google_analytics_key: "Google Analytics Tracking ID"
+        twitter_handle: "Twittername (wird mit dem Tweet-Button auf der Eintragsseite verwendet)"
+        update_settings: "Einstellungen speichern"
+        automatically_confirmed_no_escrow: "Der Auftrag wird automatisch als \"erledigt\" %{days_dropdown} Tage nach der Bezahlung markiert."
+        automatically_confirmed_no_escrow_stripe_info: "Kreditkartenzahlungen über Stripe werden erst auf das Verkäufer-Bankkonto übertragen, sobald der Käufer die Transaktion als \"erledigt\" gekennzeichnet hat.%{learn_more}."
+        buyer_transaction_fees_are_only_supported_with_stripe: "Transaktionsgebühren für die Käufer werden nur mit Stripe unterstützt. Du kannst PayPal nicht verwenden, wenn du Transaktionsgebühren für die Käufer mit Stripe aktivierst."
+        automatic_newsletter_frequency: "Newsletter automatisch verschicken: %{frequency_dropdown}"
+        newsletter_daily: Täglich
+        newsletter_weekly: Wöchentlich
+        delete_marketplace_title: "Diesen Marktplatz löschen"
+        type_marketplace_domain: "Schreibe den Marktplatz-Domainname (%{domain}) in das Textfeld unten:"
+        type_marketplace_domain_placeholder: "Schreibe den Name deiner Marktplatz-Domain hier"
+        once_you_delete: "Vorsicht - sobald Du den Marktplatz löschst, kannst Du auf ihn nicht mehr zugreifen. Sei vorsichtig."
+        are_you_sure: "Bist du sicher?"
+        i_understand_button: "Ich verstehe, dass durch Klicken dieser Taste mein Marktplatz gelöscht wird"
+        last_community_updates: "Bitte achte darauf, dass Du und die Nutzer Deines Marktplatzes können noch die letzten Update-E-Mails von deinem Marktplatz empfangen."
+        you_will_be_redirected_to: "Nachdem Du Deinen Marktplatz gelöscht hast wirst Du zu %{destination} umgeleitet. Du hast dann keinen Zugriff mehr zu Deinem Marktplatz."
+        delete_this_marketplace: "Diesen Marktplatz löschen"
+        payment_preferences: Zahlungssystem
+        pre_approved_listings: "Alle Einträge überprüfen, bevor sie veröffentlicht werden"
+        email_admins_about_new_transactions: "Admins eine Email schicken, sobald eine neue Transaktion stattfindet"
+      manage_members:
+        manage_members: Benutzer
+        email: E-Mail
+        name: Name
+        display_name: Anzeigename
+        join_date: Beigetreten
+        admin: Administrator
+        posting_allowed: "Veröffentlichen von Einträgen erlaubt"
+        ban_user: Deaktiviere
+        saving_user_status: Speichern...
+        save_user_status_successful: Gespeichert
+        export_all_as_csv: "Exportiere Alles als CSV Datei"
+        save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
+        ban_user_confirmation: "Dies deaktiviert das Konto von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
+        unban_user_confirmation: "Damit wird der Benutzer des Marktplatzes entsperrt und erhält wieder Zugang zu seinem Konto. Möchtest du fortfahren?"
+        ban_me_error: "Du kannst dein eigenes Konto nicht deaktivieren."
+        have_ongoing_transactions: "Das Konto kann nicht gelöscht werden, denn sie haben einige nicht vollgebrachte Transaktionen. Stelle bitte sicher, dass alle Transaktionen abgeschlossen sind, bevor du das Konto löschst."
+        only_delete_disabled: "Du kannst nur Benutzer, die deaktiviert sind, löschen. Deaktiviere das Konto vor dem Löschen."
+        delete_info1: "Wenn du das Konto löschst, werden die persönlichen Informationen (Name, Telefonnummer, Adresse, Email, Profilbild, usw.) dauerhaft gelöscht und können nicht wiederhergestellt werden. Alle seine/ihre Einträge werden gelöscht. Du kannst das Konto nicht wieder aktivieren."
+        delete_info2: "Informationen mit anderen Beteiligten (Unterhaltungen mit anderen Nutzern, Transaktionen, Bewertungen an anderen) werden nicht mit dem Konto gelöscht. Der Name des Nutzers wird jedoch auch hier den anderen nicht mehr gezeigt."
+        search: Suchen
+        search_by_name_email: "Nach einem Nahmen, einer E-Mail Adresse, oder einem Anzeigenamen suchen"
+        reset_search: "Alle anzeigen"
+        for_search_terms: "für: %{terms}"
+        this_makes_the_user_an_admin: "Das macht den Nutzer zu einem Administrator. Du solltest den Nutzer über seinen Verantwortung informieren und auf die Sharetribe Nutzungsbedingungen hinweisen. Möchtest Du fortfahren?"
+        status_filter:
+          all: "Alle Status"
+          selected: "Gewählte Status: %{count}"
+          selected_js: "Gewählte Status: "
+          admin: Administrator
+          banned: Deaktiviert
+          posting_allowed: "Veröffentlichen von Einträgen erlaubt"
+          accepted: Genehmigt
+          unconfirmed: Unbestätigt
+          pending: Ausstehend
+        this_user_hasnt_confirmed_their_email_address: "Dieser Benutzer hat nicht seine/ihre E-Mail-Adresse bestätigt. Möglicherweise hat er/sie die Bestätigungsmail nicht bekommen. Klicke bitte auf 'Erneut senden' om du sie erneut senden möchtest."
+        unconfirmed_user: "Unbestätigter Benutzer: %{name}"
+        resend: "Erneut senden"
+        cancel: Abbrechen
+        confirm: Bestätigen
+        user_didnt_complete_the_signup_process: "Der/Die Benutzer registrierte sich mit einem Socialnetzwerk, hat aber nicht den Registrierungsprozess beendet. Nachdem man sich mit einem Socialnetzwerk registriert, muss man noch die Nutzungsbedingungen akzeptieren und die obligatorischen Benutzerfelder ausfüllen."
+        pending_user: "Ausstehend: %{name}"
+      new_layout:
+        new_layout: "Neues Layout"
+        description_roadmap_new: "Sobald neue Layout-Komponenten für deinen Marktplatz verfügbar sind, kannst du wählen, ob du die neue Komponente verwenden möchtest, oder ob du weiterhin die alte verwenden willst. Du kannst die Auswahl auf dieser Seite jederzeit ändern. Es ist empfohlen, jederzeit die neuen Komponente zu verwenden, denn die alten Komponente können in der Zukunft auslaufen. Wenn eine Komponente, die du verwendest, auslaufen wird, werden wir jedoch dir im Voraus natürlich eine Nachricht schicken."
+        enabled_for_you: "Für dich aktiviert"
+        enabled_for_all: "Für alle aktiviert"
+        new_topbar: "Neuer Top Bar (auf jeder Seite angezeigt)"
+        searchpage: "Neue Suchseite (benötigt das neue Top Bar)"
+        new_email_templates: "Neues Layout für Emails"
+      social_media:
+        social_media: "Social media"
+        logo: "Bild für soziale Netzwerke"
+        logo_info: "Dieses Bild wird auf sozialen Netzwerken (Facebook, Twitter, Linkedin) angezeigt, wenn jemand deine Domain teilt. Optimal sollte das Bild ein Seitenverhältnis von 2:1 haben, und eine minimale Größe von %{width} x %{height} Pixel."
+        social_media_title: "Soziale Netzwerke -Titel"
+        social_media_title_info: "Dieser Text wird auf den sozialen Netzwerken Facebook, Twitter, und Linkedin angezeigt, wenn jemand deinen Marktplatz teilt. Du kannst eine Vorschau ansehen %{facebook_preview_link}, %{twitter_preview_link} und %{linkedin_preview_link}."
+        link_for_facebook: "für Facebook"
+        link_for_linkedin: "für Linkedin"
+        link_for_twitter: "für Twitter"
+        social_media_description: "Soziales Netzwerk -Beschreibung"
+        twitter_handle: Twittername
+        twitter_handle_info_text: "Der Twitter Nutzername deines Marktplatzes (wenn du einen hast). Er wird genannt, wenn jemand den Tweet Button auf einer Eintragsseite klickt."
+        twitter_handle_info_text_with_instructions: "Der Twitter Nutzername deines Marktplatzes (wenn du einen hast). Er wird genannt, wenn jemand den Tweet Button auf einer Eintragsseite klickt. %{instructions_link}."
+        twitter_instructions_link_text: Weiterlesen
+        twitter_handle_placeholder: Benutzername
+        invalid_twitter_handle: "Ihr Twitter-Nutzername sollte höchstens 15 alphanumerische (Buchstaben A-Z und Nummern 0-9) Zeichen lang sein."
+        facebook_connect: "Facebook Login"
+        facebook_developers_dashboard: "Facebook Developers Dashboard"
+        facebook_connect_info_text: "Um Facebook Login zu aktivieren, bitte erstellen Sie einen App für Ihren Marktplatz auf dem %{dashboard_link}. Fügen Sie die generierte ID und den Geheimschlüssel der App hier ein."
+        facebook_connect_info_text_with_instructions: "Um Facebook Login zu aktivieren, bitte erstelle einen App für deinen Marktplatz auf dem %{dashboard_link}. Füge die generierte ID und den Geheimschlüssel der App hier ein.%{instructions_link}"
+        facebook_instructions_link_text: "Siehe dir die Anleitung zum Konfigurieren des Facebook Logins an."
+        facebook_connect_id: "Facebook App ID"
+        invalid_facebook_connect_id: "Die App ID sollte nur aus Nummern bestehen."
+        facebook_connect_secret: "Facebook App Geheimnisschlüssel"
+        invalid_facebook_connect_secret: "Der App-Secret sollte nur aus Nummern und Buchstaben a-f bestehen."
+        enable_facebook_login: "Facebook-Anmeldung für deine Benutzer aktivieren"
+        save: "Einstellungen speichern"
+        google_connect: "Google Sign-In"
+        google_instructions_link_text: "Siehe dir die Anleitung zum Konfigurieren des Google Logins an."
+        google_developers_console: "Google Developers Console"
+        google_connect_info_text_with_instructions: "Um Google Sign-In zu aktivieren, bitte erstelle ein Projekt für deinen Marktplatz auf %{dashboard_link}. Füge die generierte ID und Clientschlüssel des Projektes hier ein. %{instructions_link}"
+        google_connect_info_text: "Um Google Sign-In zu aktivieren, bitte erstelle ein Projekt für deinen Marktplatz auf %{dashboard_link}. Füge die generierte ID und Clientschlüssel des Projektes hier ein."
+        enable_google_login: "Google-Anmeldung für deine Benutzer aktivieren"
+        google_connect_id: "Google Client-ID"
+        google_connect_secret: "Google Clientschlüssel"
+        linkedin_connect: "LinkedIn Sign In"
+        linkedin_instructions_link_text: "Siehe dir die Anleitung zum Konfigurieren des LinkedIn Logins an."
+        linkedin_developers_dashboard: "LinkedIn Developers Dashboard"
+        linkedin_connect_info_text_with_instructions: "Um LinkedIn Sign-In zu aktivieren, bitte erstelle eine App für deinen Marktplatz auf dem %{dashboard_link}. Füge die generierte ID und Geheimschlüssel des Projektes hier ein. %{instructions_link}"
+        linkedin_connect_info_text: "Um LinkedIn Sign-In zu aktivieren, bitte erstelle eine App für deinen Marktplatz auf dem %{dashboard_link}. Füge die generierte ID und Geheimschlüssel des Projektes hier ein."
+        enable_linkedin_login: "LinkedIn-Anmeldung für deine Benutzer aktivieren"
+        linkedin_connect_id: "LinkedIn Client ID"
+        linkedin_connect_secret: "LinkedIn Clientschlüssel"
+      seo_settings:
+        seo: SEO
+        title: "Homepage oder Custom Landing Page"
+        meta_title_label: "Meta-Tag des Homepage- oder Custom Landing Page -Titels"
+        meta_title_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und wird auf Suchmaschine-Ergebnissen als der klickbare Titel dargestellt. %{link} %{vars}."
+        meta_title_link_text: "Mehr über Meta-Tags erfahren."
+        meta_description_label: "Homepage oder Custom Landing Page Beschreibung Meta-Tag"
+        meta_description_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und wird unter die blauen Links auf Suchmaschinen-Ergebnissen gezeigt. %{link} %{vars}."
+        meta_description_link_text: "Mehr über Meta-Tags erfahren."
+        search_title: Suchergebnisseite
+        search_meta_title_label: "Meta-Tag für den Titel der Suchergebnisseite"
+        search_meta_title_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und auf der Ergebnissenseiten als klickbare Überschrift angezeigt. %{link} %{vars}."
+        search_meta_title_link_text: "Mehr über Meta-Tags erfahren."
+        search_meta_description_label: "Meta-Tag für die Beschreibung der Suchergebnisseite"
+        search_meta_description_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und auf der Ergebnissenseiten unter die blauen klickbaren Links angezeigt. %{link} %{vars}."
+        search_meta_description_link_text: "Mehr über Meta-Tags erfahren"
+        listing_title: Eintragsseite
+        listing_meta_title_label: "Meta-Tag für den Titel der Eintragsseite"
+        listing_meta_title_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und auf der Ergebnissenseiten als klickbare Überschrift angezeigt. %{link} %{vars}."
+        listing_meta_title_link_text: "Mehr über Meta-Tags erfahren."
+        listing_meta_description_label: "Meta-Tag für die Beschreibung der Eintragsseite"
+        listing_meta_description_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und auf der Ergebnissenseiten unter die blauen klickbaren Links angezeigt. %{link} %{vars}."
+        listing_meta_description_link_text: "Mehr über Meta-Tags erfahren."
+        category_title: Kategorienseite
+        category_meta_title_label: "Meta-Tag für den Titel der Kategorienseite"
+        category_meta_title_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und auf der Ergebnissenseiten als klickbare Überschrift angezeigt. %{link} %{vars}."
+        category_meta_title_link_text: "Mehr über Meta-Tags erfahren."
+        category_meta_description_label: "Meta-Tag für die Beschreibung der Kategorienseite"
+        category_meta_description_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und auf der Ergebnissenseiten unter die blauen klickbaren Links angezeigt. %{link} %{vars}."
+        category_meta_description_link_text: "Mehr über Meta-Tags erfahren."
+        profile_title: Profilseite
+        profile_meta_title_label: "Meta-Tag für den Titel der Profilseite"
+        profile_meta_title_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und auf der Ergebnissenseiten als klickbare Überschrift angezeigt. %{link} %{vars}."
+        profile_meta_title_link_text: "Mehr über Meta-Tags erfahren."
+        profile_meta_description_label: "Meta-Tag für die Beschreibung der Profilseite"
+        profile_meta_description_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und auf der Ergebnissenseiten unter die blauen klickbaren Links angezeigt. %{link} %{vars}."
+        profile_meta_description_link_text: "Mehr über Meta-Tags erfahren."
+        sitemap_label: Sitemap
+        sitemap_info: "Sitemaps informieren die Suchmaschinen auf eine einfache Weise über die Seiten auf deiner Website die Verfügbar fürs Durchsuchen (aka Crawling) sind. %{link}."
+        sitemap_info_link_text: "Mehr über die XML Sitemap-Datei erfahren"
+        sitemap_info_public: "Eine Sitemap wird automatisch für deinen Marktplatz generiert: sie referenziert bis zu 500 von den neuesten Einträgen auf deiner Website. Du kannst deine Sitemap hier ansehen: %{link}"
+        sitemap_info_private: "Weil dein Marktplatz privat ist, gibt es keine Sitemap."
+        robots_label: Robots.txt
+        robots_info: "Robots.txt ist eine Textdatei, die Web-Roboter (normalerweise Suchmaschine-Roboter) informiert, wie sie die Seiten deiner Website durchsucht (aka Crawling). %{link}."
+        robots_info_link_text: "Mehr über die robots.txt Datei erfahren"
+        robots_info_2: "Eine robots.txt Datei wird automatisch für deinen Marktplatz generiert. Du kannst deine robots.txt Datei hier ansehen: %{link}"
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "Google Search Console hat Werkzeuge und Berichte die dir dabei helfen, die Suchverkehr und Leistung deiner Website zu betrachten und Fehler mit Google-Suchergebnissen zu beheben."
+        google_search_console_these_instructions: "dieser Anleitung"
+        google_search_console_paragraph2: "Es ist eine gute Idee, Google Search Console zu deiner Website hinzuzufügen. Es dauert nur ein paar minuten mit %{link}."
+        save: "Einstellungen speichern"
+      analytics:
+        analytics: Analytics
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "Tracking ID deines Google Analytics Kontos."
+        google_analytics_key_info_text_with_instructions: "Tracking ID deines Google Analytics Kontos. %{instructions_link}"
+        google_analytics_instructions_link_text: "Mehr über die Anbindung von Google Analytics hier lesen."
+        sharetribe_analytics: "Sharetribe Analytics"
+        sharetribe_analytics_info_text_with_instructions: "Um den Sharetribe Service und Support zu verbessern, werden die Aktivitäten der Marktplatz Mitglieder aufgezeichnet. Es werden keine persönlichen Informationen gesammelt und die Daten werden keinen weiteren Parteien außerhalb des Sharetribe Teams bereitgestellt. %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Mehr über Sharetribe Analytics erfahren."
+        end_user_analytics: "Sharetribe die Aufzeichnung von Mitglieder Aktivitäten zur Verbesserung des Sharetribe Services erlauben."
+        save: "Einstellungen speichern"
+        google_tag_manager: "Google Tag Manager"
+        gtm_paragraph_1: "Ein Tag Manager wie GTM ist sehr nützlich um Codeschnipsel oder Tracking-Pixel auf deine Website zu verwenden, ohne den Code ändern zu müssen."
+        gtm_paragraph_2: "Weil Sharetribe auch Google Tag Manager verwendet, solltest du %{link}."
+        learn_how_to_configure_gtm: "lernen, wie du GTM für deinen Go-Marktplatz konfigurieren kannst"
+      logo_link:
+        title: Logo-Link
+        info: "Du kannst den Link des Logos anpassen (und die standardmäßige Home-Taste auf dem Top Bar). Normalerweise leitet das Logo zu der Homeseite oder zu dem Landing Page."
+        url: URL
+        placeholder: "https://www.example.com"
+      menu_links:
+        menu_links: "Benutzerdefinierte Menü-Links"
+        menu_links_display: "Darstellung der Menü-Links"
+        save: "Einstellungen speichern"
+        add_menu_link: "Einen neuen Link zum Menü hinzufügen"
+        title_placeholder: "Link Titel"
+        url_placeholder: "https://example.com/de"
+        title: Titel
+        language: Sprache
+        url: URL
+        empty: "Du hast keine zusätzlichen Menü-Links"
+        max_number_of_links: "Maximale Anzahl von Links die auf dem Top-Bar angezeigt werden: %{select_max_number}"
+        all: Alle
+        max_number_of_links_info: "Der Link zu %{about_page} wird immer als der erste Menu-Link angezeigt."
+        about_page: "Über uns Seite"
+      default_menu_links:
+        title: "Standard Menü-Links"
+        about_link_title: Über
+        contact_link_title: Kontakt
+        invite_link_title: "Neue Mitglieder einladen"
+        info: "Links zu den folgenden Seiten werden standardmäßig nicht anderswo auf deinem Marktplatz angezeigt: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Link zu der <i>Info</i>-Seite und anderen statischen Seiten anzeigen"
+        display_contact: "Link zu der <i>Kontakt</i>-Seite anzeigen"
+        display_invite: "Link zu der <i>neue Mitglieder einladen</i>-Seite anzeigen"
+      topbar:
+        topbar: "Top Bar"
+        new_listing_button_label: "Text auf der \"Neuen Eintrag erstellen\" Taste"
+        invalid_post_listing_button_label: "Bitte einen gültigen Text für die \"Neuen Eintrag erstellen\" Taste eingeben."
+      transactions:
+        export_all_as_csv: "Exportiere Alles als CSV Datei"
+        processing_export: "CSV Export wird erstellt..."
+        transactions: Transaktionen
+        search_by_title_parties: "Nach einem Tltel der Transaktion oder beteiligten Parteien suchen"
+        search: Suchen
+        reset_search: "Alle anzeigen"
+        status_filter:
+          all: "Alle Status"
+          selected: "Gewählte Status: %{count}"
+          selected_js: "Gewählte Status: "
+          free: Unterhaltung
+          confirmed: Bestätigt
+          paid: Bezahlt
+          canceled: Abgebrochen
+          disputed: Angefochten
+          preauthorized: Vorautorisiert
+          rejected: Abgelehnt
+          payment_intent_requires_action: Ausstehend
+          payment_intent_action_expired: Abgelaufen
+          refunded: Erstattet
+          dismissed: Abgelehnt
+        headers:
+          conversation: Unterhaltungsverlauf
+          listing: Eintrag
+          status: Status
+          sum: Summe
+          started: Gestartet
+          last_activity: "Letzte Aktivität"
+          initiated_by: Starter
+          other_party: Verkäufer
+        status:
+          conversation: Unterhaltung
+          free: Unterhaltung
+          pending: Ausstehend
+          preauthorized: Vorautorisiert
+          accepted: Akzeptiert
+          rejected: Abgelehnt
+          paid: Bezahlt
+          confirmed: Bestätigt
+          canceled: Abgebrochen
+          disputed: Angefochten
+          initiated: "Warten auf die Paypal Zahlung"
+          pending_ext: "Warten auf die Paypal Zahlung"
+          none:
+            free: Unterhaltung
+          paypal:
+            free: Unterhaltung
+            pending: Ausstehend
+            preauthorized: Vorautorisiert
+            accepted: Akzeptiert
+            rejected: Abgelehnt
+            paid: Bezahlt
+            confirmed: Bestätigt
+            canceled: Abgebrochen
+            disputed: Angefochten
+            initiated: "Warte auf PayPal-Zahlung"
+            pending_ext: "Warte auf PayPal-Zahlung"
+            refunded: Erstattet
+            dismissed: Abgelehnt
+          stripe:
+            free: Unterhaltung
+            pending: Ausstehend
+            preauthorized: Vorautorisiert
+            accepted: Akzeptiert
+            rejected: Abgelehnt
+            paid: Bezahlt
+            confirmed: Bestätigt
+            canceled: Abgebrochen
+            disputed: Angefochten
+            initiated: "Warte auf Stripe-Bezahlung"
+            pending_ext: "Warte auf Stripe-Bezahlung"
+            payment_intent_requires_action: Ausstehend
+            payment_intent_action_expired: Abgelaufen
+            payment_intent_failed: "Stripe-Zahlung gescheitert"
+            refunded: Erstattet
+            dismissed: Abgelehnt
+        not_available: "nicht verfügbar"
+      conversations:
+        conversations: Unterhaltungen
+        headers:
+          started_from: "Gestartet aus"
+          status: Status
+          started: Gestartet
+          last_activity: "Neueste Aktivität"
+          initiated_by: "Begonnen von"
+          other_party: Verkäufer
+        participants: "Unterhaltung: %{starter} mit %{author}"
+        profile: "%{author}s Profil"
+        search_by_keyword: "Nach Name, E-mail oder Schlagwort suchen"
+        search: Suchen
+        reset_search: "Alle anzeigen"
+        for_keyword: "für: <b>%{keyword}</b>"
+      testimonials:
+        testimonials: Bewertungen
+        no_testimonials_found: "Keine Bewertungen gefunden."
+        displaying_xx_reviews: "<b>%{count}</b> Bewertungen werden angezeigt, unter Transaktionen %{tx_from} - %{tx_to} von insgesamt <b>%{all_count}</b> Transaktionen."
+        search_keyword: "Nach Name oder Schlagwort suchen"
+        search: Suche
+        reset_search: "Alle anzeigen"
+        for_keyword: "für: <b>%{keyword}</b>"
+        headers:
+          transaction: Transaktion
+          author: Author
+          receiver: Empfänger
+          status: Status
+          grade: Note
+          text: Text
+        status:
+          waiting: "Bewertung ausstehend"
+          skipped: Übersprungen
+          published: Veröffentlicht
+          blocked: Gesperrt
+        status_filter:
+          selected: "Gewählte Filter: %{count}"
+          all: Filter
+          published: Veröffentlicht
+          positive: Positiv
+          negative: Negativ
+          skipped: Übersprungen
+          waiting: Wartend
+          blocked: Gesperrt
+          selected_js: "Gewählte Filter: "
+        form:
+          review_text: Bewertungstext
+          save: Speichern
+          cancel: Abbrechen
+          delete_review: "Bewertung löschen"
+          block_review: "Bewertung sperren"
+          confirm_modify: "Bist du sicher, dass du die Bewertung ändern/löschen möchtest? Wenn sie die Bewertung ändern/löschen, ist es danach nicht mehr möglich, die alten Daten wiederherzustellen."
+          deleting_info: "Wird die Bewertung gelöscht, kann der/die Käufer/in eine neue Bewertung für dieselbe Transaktion schreiben."
+          blocking_info: "Wird die Bewertung gesperrt, kann der/die Käufer/in nicht mehr eine neue Bewertung für dieselbe Transaktion schreiben."
+          unskip: Zurücksetzen
+          if_you_unskip_the_review: "Wenn du den Bewertungsstatus zurücksetzt, kann der Benutzer eine Bewertung schreiben."
+          they_will_not_be_notified_automatically: "Der Benutzer wird nicht automatisch davon benachrichtigt."
+      invitations:
+        invitations: Einladungen
+        used:
+          "yes": Ja
+          "no": Nein
+        headers:
+          sent_by: "Gesendet von"
+          message: Nachricht
+          sent_to: "Gesendet an"
+          used: Verwendet
+          date_sent: Sendungsdatum
+      listings:
+        listings: Einträge
+        search_by_title_author_category: "Nach dem Titel oder Autor des Eintrags, oder Kategoriename suchen"
+        search: Suchen
+        reset_search: "Alle anzeigen"
+        export_all_as_csv: "Alles as CSV exportieren"
+        processing_export: "Exportiere auf CSV..."
+        status:
+          all: "Alle Status"
+          selected_js: "Gewählte Status: "
+          open: Geöffnet
+          closed: Geschlossen
+          expired: Abgelaufen
+          approval_pending: Ausstehend
+          approval_rejected: Abgelehnt
+        headers:
+          title: Titel
+          author: Author
+          created: Erstellt
+          updated: Aktualisiert
+          category: Kategorie
+          status: Status
+        open: Geöffnet
+        closed: Geschlossen
+        expired: Abgelaufen
+        approved: Angenommen
+        approval_pending: Ausstehend
+        approval_rejected: Abgelehnt
+        form:
+          this_listing_has_not_not_been_approved_yet: "Dieser Eintrag wurde noch nicht angenommen. Du kannst dich jetzt entscheiden, ob du den Eintrag annehmen oder ablehnen willst. Wenn du den Eintrag annimmst, wird er veröffentlicht und für alle Benutzer sichtbar. Wenn du den Eintrag ablehnst, wird er nicht veröffentlicht."
+          approve: Annehmen
+          reject: Ablehnen
+          cancel: Abbrechen
+      user_fields:
+        user_fields: Benutzerfelder
+      footer:
+        footer: Fußzeile
+        offer_pro: "Sharetribe-Branding aus der Fußzeile entfernen und die Fußzeile konfigurieren durch %{upgrade_pro_plan_link}"
+        upgrade_plan_link: "ein Upgrade auf den Pro Plan oder höher"
+        menu_links: Fußzeile-Links
+        language: Sprache
+        title: Titel
+        url: URL
+        add: "Füge einen Link der Fußzeile hinzu"
+        save: "Einstellungen speichern"
+        footer_style: "Stil der Fußzeile"
+        footer_copyright: "Urheberrecht (Fußzeilentext)"
+        footer_enabled: "Fußzeile aktiviert"
+        social_links: "Sozial-Links der Fußzeile"
+        title_placeholder: "Link Titel"
+        url_placeholder: "https://beispiel.de/benutzername"
+        style:
+          dark: Dunkel
+          light: Hell
+          marketplace_color: "Hauptfarbe des Marktplatzes"
+          logo: Logo
+        social:
+          title: Titel
+          url: URL
+      domain:
+        domain: Domain
+        marketplace_domain: "Domain des Marktplatzes"
+        offer_pro: "Richte deine eigene benutzerdefinierte Domain ein durch %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "ein Upgrade auf den Pro Plan oder höher"
+        your_marketplace_address_is: "Die Adresse deines Marktplatzes ist: %{address}"
+        would_you_like_to_change_address: "Möchtest du die Adresse deines Marktplatzes ändern? %{contact_us}!"
+        contact_us: "Kontaktiere uns"
+        you_can_now_use_a_custom_domain: "Mit deinem derzeitigen Plan kannst du eine benutzerdefinierte Domain aktivieren! Fangen wir mit der Einrichtung an. %{contact_us}!"
+        would_you_like_to_change_domain: "Möchtest du deine benutzerdefinierte Domain ändern? %{contact_us}!"
+        change_your_sharetribe_domain: "Deine Sharetribe-Domain ändern"
+        only_letters_numbers_and_hyphens_can_be_used: "Nur Buchstaben, Nummern und Bindestriche sind erlaubt. Vorsicht! Deine alte Domain wird anderen zur Verfügung gestellt und wird nicht zu deiner neuen Domain weiterleiten."
+        when_you_change_your_sharetribe_domain: "Wenn du deine Sharetribe-Domain änderst, werden alle deine URL-Adressen automatisch geändert. Du wirst zu deiner neuen Domain weitergeleitet. Du und deine Kunden müssen sich erneut einloggen. Deine alte Domain wird nicht mit der neuen verlinkt sein oder zu der neuen Domain weiterleiten. Die alte Domain wird wieder für anderen Verfügbar sein."
+        would_you_like_to_proceed: "Möchtest du weitergehen?"
+        change: Ändern
+        you_can_now_enable_a_custom_domain: "Mit deinem derzeitigen Plan kannst du eine benutzerdefinierte Domain aktivieren. Lass uns mit der Einrichtung fortfahren!"
+        read_more_about_the_set_up_of_your_custom_domain: "Lies mehr über die Einrichtung deiner benutzerdefinierten Domain"
+        set_custom_domain: "Benutzerdefinierte Domain einrichten"
+        in_order_to_set_your_custom_domain: "Um deine benutzerdefinierte Domain einzurichten, müssen wir zuerst prüften, dass die von dir gewählte Domain auf unsere Server verweist. Bevor du fortfährst, bitte sicherstellen, dass du die %{link} gefolgt hast."
+        instructions_to_point_your_domain: "Einleitung über die Verweisung deiner Domain auf unsere Server"
+        main_domain: Hauptdomain
+        main_domain_info_text: "Bitte die genaue Domain hinzufügen, die du verwenden möchtest. Du kannst nach deiner Wahl entweder eine Root-Domain oder Subdomain verwenden. Bitte sicherstellen, dass du bereits deine DNS-Einträge bearbeitet hast. %{link}."
+        main_domain_link_text: "Lies mehr über wie du deine DNS-Einträge einrichtest."
+        check_domain: "Domain überprüfen"
+        domain_being_checked: "Überprüfte Domain"
+        status: "Status:"
+        checks_pending: "Wird überprüft..."
+        please_check_back: "Bitte in einige Minuten zurückkommen, die Überprüfung sollte gleich fertig sein!"
+        checks_not_passed: "Überprüfung gescheitert!"
+        check_the_domain_again_info: "Bitte sicherstellen, dass deine DNS-Einträge richtig eingerichtet sind."
+        check_the_domain_again: "Domain erneut checken"
+        use_another_domain: "andere Domain verwenden"
+        checks_passed: "Überprüfung erfolgreich!"
+        domain_being_set_up: "Domain, die eingerichtet wird:"
+        setup_in_progress: "Wird eingerichtet..."
+        setup_check_back: "Bitte in einige Minuten zurückkommen, die Domaineinrichtung sollte gleich fertig sein!"
+        setup_check_back_critical_error: "Die Domaineinrichtung dauert länger als erwartet. Bitte später zurückkommen oder uns kontaktieren!"
+        setup_failed: "Einrichtung der Domain gescheitert!"
+        setup_the_domain_again_info: "Die DNS-Änderungen deiner Domain wurden höchstwahrscheinlich noch nicht richtig verbreitet. Dies kann manchmal bis zu 48 Stunden dauern. Bitte sicherstellen, dass deine DNS-Einträge richtig sind, und erneut in einer Stunde probieren. Kontaktiere uns, wenn das Problem besteht."
+        setup_the_domain_again: "Domaineinrichtung erneut probieren"
+        summary:
+          main_domain: "Hauptdomain:"
+          redirect: "Weiterleitung:"
+        check_another_domain: "Eine andere Domain überprüfen"
+        checks_passed_with_warning: "Überprüfung erfolgreich - mit Warnung!"
+        this_domain_is_not_configured_correctly: "Diese Domain ist nicht richtig eingerichtet. Das bedeutet, dass diese Domain wird nicht auf deinen Marktplatz weiterleiten. Bitte sicherstellen, dass die DNS-Einträge richtig eingerichtet sind und erneut probieren, wenn du möchtest, dass diese Domain auf deine Hauptdomain weiterleitet. Wenn du die Weiterleitung nicht brauchst, klicke auf \"Benutzerdefinierte Domain aktivieren\"."
+        start_using_the_custom_domain: "Benutzerdefinierte Domain aktivieren"
+      landing_pages:
+        landing_pages: "Landing Page"
+        info_1: "Die Landing Page ist vielleicht die wichtigste Seite deines Marktplatzes. Sie ist die erste Seite, die deine Nutzer sehen, etwa wie die Eingangstür deines Hauses. Du hast nur einigen Sekunden, deine Kunden davon zu überzeugen, dass sie auf der Seite bleiben sollen. Die Seite sollte attraktiv sein, und das Leistungsversprechen deiner Seite sollte klar und verlockend sein."
+        info_2: "Mit diesem Editor können Sie Ihre Zielseite jederzeit ändern!"
+        info_2_help_center: Hilfecenter
+        info_3: "Wenn du eine komplett angepasste Landing Page für deinen Marktplatz erwerben möchten, kannst du sie als Add-On für einen monatlichen Preis im Höhe von $99 kaufen."
+        info_4: "%{link} lesen um herauszufinden, wie der Custom Landing Page Editor funktioniert, was die verschiedenen Abschnitte sind, und wie man sie bearbeitet."
+        editor_title: "Landing Page Editor"
+        editor_info: "Hier kannst du die verschiedenen Abschnitte deiner Landing Page bearbeiten. Zur Zeit ist es nur möglich, eine Sprache auf die Landing Page zu verwenden. Die 'Hero' und 'Footer' -Abschnitte können nicht bewogen werden."
+        preview: "Landing Page-Vorschau"
+        set_live: "Live machen"
+        add_new_section: "Neuen Abschnitt hinzufügen:"
+        select_section_type: "Abschnittstyp wählen..."
+        this_version_is_not_released: "Du musst Änderungen vornehmen, um eine neue Version deiner Landing Page live setzen zu können"
+        latest_version_released: "Die neueste Version deiner Landing Page ist jetzt live! %{link} !"
+        check_it_out: "Probiere es aus!"
+        form:
+          save: Speichern
+          cancel: Abbrechen
+        sections:
+          identifier: "Abschnitt ID"
+          kind: Abschnittstyp
+          new: "Neuer Abschnitt"
+          edit: "Abschnitt %{section_id} bearbeiten"
+          remove_section_confirmation: "Bist du sicher, dass du den Abschnitt '%{section_id}' und die enthaltenen Daten löschen möchtest? Dies kann nicht ruckgängig gemacht werden."
+          info_single_column: "Info - 1 Spalte"
+          info_multi_column_2: "Info - 2 Spalten"
+          info_multi_column_3: "Info - 3 Spalten"
+          listings: Angebote
+          categories: Kategorien
+          hero: Hero
+          locations: Standorte
+          video: Video
+          new_section:
+            categories: "Neuer 'Kategorien' Abschnitt"
+            info_single_column: "Neuer \"Info - 1 Spalte\" Abschnitt"
+            info_multi_column_2: "Neuer \"Info - 2 Spalten\" Abschnitt"
+            info_multi_column_3: "Neuer \"Info - 3 Spalten\" Abschnitt"
+            listings: "Neuer 'Angebote' Abschnitt"
+            locations: "Neuer 'Standorte' Abschnitt"
+            video: "Neuer 'Video' Abschnitt"
+          edit_section:
+            categories: "'Kategorien' Abschnitt bearbeiten"
+            footer: "'Footer' Abschnitt bearbeiten"
+            hero: "'Hero' Abschnitt bearbeiten"
+            info_single_column: "Abschnitt 'Info - 1 Spalte' bearbeiten"
+            info_multi_column_2: "Abschnitt 'Info - 2 Spalten' bearbeiten"
+            info_multi_column_3: "Abschnitt 'Info - 3 Spalten' bearbeiten"
+            listings: "'Angebote' Abschnitt bearbeiten"
+            locations: "'Standorte' Abschnitt bearbeiten"
+            video: "'Video' Abschnitt bearbeiten"
+      attachments:
+        delete: "%{title} löschen"
+        or_change: "Oder %{title} zu etwas neuem ändern:"
+    landing_page_versions:
+      sections:
+        content:
+          title: "Inhalt des Abschnitts"
+        hero:
+          hero_title: Hero
+          hero_description: "Stelle das Hintegrundbild für den Hero-Abschnitt fest. Der Slogan und die Beschreibung werden konfiguriert auf %{link}."
+          basic_details_tab: "'Grundangaben' -Tab"
+          cta_button: Call-to-Action-Abschnitt
+          cta_button_info: "Der Text des Knopfes muss nicht bearbeitet werden. Du kannst dieses Feld einfach leer lassen. Normalerwise ist der Text \"Suchen\" auf öffentlichen Marktplätzen, und \"Registrieren\" auf privaten Marktplätzen."
+          button_type:
+            default: Standard
+            button: Taste
+            none: Nichts
+          button_content: "Inhalt der Taste"
+          click_me: "Hier klicken!"
+        footer:
+          footer_title: Footer
+          footer_style: Footer-Stil
+          style_dark: Dunkel
+          style_light: Hell
+          style_marketplace_color: "Hauptfarbe des Marktplatzes"
+          style_logo: Logo
+        cta_button:
+          cta_button: "Call To Action -Taste"
+          cta_enabled: "Taste anzeigen"
+          cta_text: Text
+          cta_url: URL
+          text_placeholder: "Hier klicken!"
+          url_placeholder: "https://www.beispiel.de"
+        background_selector:
+          title: Hintergrund
+        background_image_overlay:
+          background_image: Hintergrundbild
+          background_image_info: "Dieses Bild wird als Hintergrundbild für den Abschnitt verwendet. Für die besten Ergebnisse, sollte es mindestens 1600x1200 Pixel groß sein."
+          add_another_image: "Zusätzliches Bild hinzufugen"
+          current_image: "Derzeitiges Bild: %{filename}"
+          file_not_selected: "Nicht gewählt"
+          background_image_overlay: Hintergrundbild-Overlay
+          background_image_overlay_info: "Hier kannst du bestimmen, wie dunkel oder hell dein Hintergrundbild aussieht. \"Durchsichtig\" bedeutet, dass keine Overlay verwendet wird."
+          overlay_dark: Dunkel
+          overlay_light: Hell
+          overlay_transparent: Durchsichtig
+        background_style:
+          background_style: Hintergrundstil
+          style_image: Bild
+          style_color: Farbe
+          style_none: Keine
+        background_color:
+          background_color: Hintergrundfarbe
+          background_color_info: "Du kannst die Hintergrundfarbe dieses Abschnitts wählen, indem du einen Hex-Wert eingibst. %{link}  kann dir dabei helfen, eine Farbe zu wählen, und den Hex-Code der Farbe zu finden. Dann kannst du den Code hier eingeben."
+        categories:
+          add: "+ Neue Kategorie zu diesem Abschnitt hinzufügen"
+          category: Kategorie
+          empty: "Du hast keine gewählten Kategorien"
+          image: Bild
+          include_title: "Gewählte Kategorien"
+          info_text: "Du kannst zwischen 3 und 7 Kategorien werben. Bitte füge ein Bild zu jeder Kategorie und wähle eine der Kategorien auf deinem Marktplatz. Die empfohlene Größe ist 1000 x 667 Pixel."
+          need_at_least_3_categories: "Du solltest mindestens 3 Kategorien in diesem Abschnitt haben"
+          need_at_most_7_categories: "Du solltest höchstens 7 Kategorien in diesem Abschnitt haben"
+        category:
+          add_another_image: "Zusätzliches Bild hinzufugen"
+          category: Kategorie
+          current_image: "Derzeitiges Bild: %{filename}"
+          file_not_selected: "Nicht gewählt"
+          image: Bild
+          image_required: "Du solltest ein Bild zu dieser Kategorie hinzufügen"
+          select_category: "Kategorie wählen"
+        locations:
+          add: "+ Einen neuen Standort zu diesem Abschnitt hinzufügen"
+          location: Standort
+          empty: "Du hast keine hinzugefügten Standorte"
+          image: Bild
+          include_title: "Gewählte Standorte"
+          info_text: "Du kannst von drei bis sieben Standorte wählen. Bitte ein Bild zu jedem Standort hinzufügen, und eine Standortsuche-URLauch hinzufügen. Für die beste Qualität wird eine Bildgröße von 1000 x 667 Pixel empfohlen."
+          need_at_least_3_locations: "Du solltest mindestens 3 Standorte in diesem Abschnitt haben"
+          need_at_most_7_locations: "Du solltest höchstens 7 Standorte in diesem Abschnitt haben"
+        location:
+          add_another_image: "Zusätzliches Bild hinzufugen"
+          location: Standort
+          current_image: "Derzeitiges Bild: %{filename}"
+          file_not_selected: "Nicht gewählt"
+          image: Bild
+          image_required: "Du solltest ein Bild zu diesem Standort hinzufügen"
+          title: Titel
+          title_placeholder: Standort-Text
+          url: URL
+          url_placeholder: "Standort-Link URL"
+        multi_column:
+          main_title: Haupttitel
+          column_header: "Spalte %{index}"
+          column_title: "Spalte %{index} -Titel"
+          column_icon_info: "Das Sharetribe-Team muss manuell neue Icons hinzufügen. Bitte %{link} um das Icon zu wählen, und teile es dann mit dem Support-Team von Sharetribe."
+          column_icon_info_link: "die Einleitung auf diesem Artikel folgen"
+          column_icon: "Spalte %{index} -Symbol"
+          column_paragraph: "Spalte %{index} -Paragraph"
+          column_button: "Spalte %{index} -Taste"
+          column_button_text: "Text auf der Taste"
+          column_button_url: "https://www.beispiel.de"
+        listings:
+          listings_to_feature: "Gewählte Anzeigen"
+          you_need_to_add_the_listing_ids: "Du musst die Anzeige-IDs der Anzeigen, die du hinzufügen willst, hier einfügen. Um die ID einer Anzeige zu finden, gehe einfach auf die Anzeigeseite und prüfe die Anzeige-URL. Die ID der Anzeige ist die Nummer, die gleich nach der URL-Adresse angezeigt wird. Zum Beispiel auf der Anzeige https://www.beispiel.de/listings/123456-titel-der-anzeige ist 123456 die ID der Anzeige."
+        video:
+          text: Text
+          autoplay: Wiedergabealternativen
+          autoplay_no: "Kein Autoplay"
+          autoplay_muted: "Autoplay ohne Audio"
+          info: "Dieser Text wird angezeigt, wenn du \\\"Kein Autoplay\\\" wählst oder das Video pausiert wird"
+          youtube_video_id_info: "Du siehst die Video ID auf der URL Adresse des Videos. Es ist normalweise das letzte Teil der Adresse. Ist die URL Adresse des Videos zum beispiel https://www.youtube.com/watch?v=UffchBUUIoI, wäre die ID 'UffchBUUIoI'"
+    custom_fields:
+      edit:
+        edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
+      edit_price:
+        description: "Der Mindest- und Höchstpreis wirkt sich nur auf den Filter aus. Angebotspreise werden in ihrer Höhe nicht limitiert."
+        edit_price_field: "Preisfeld bearbeiten"
+        show_price_filter_homepage: "Preisfilter auf der Homepage anzeigen"
+        price_min: Mindestpreis
+        price_max: Höchstpreis
+      edit_location:
+        edit_location_field: "Standort bearbeiten"
+        this_field_is_required: "Dieses Feld ist erforderlich"
+        the_location_feature_can_be_enabled: "Die Standort-Funktionalität kann auf dem %{link} Abschnitt deines Administrator Dashboards aktiviert werden"
+      edit_expiration:
+        edit_expiration_field: "Eintragsfeld 'Ablaufdatum' bearbeiten"
+        enable: "Ablaufdatum aktivieren"
+      form:
+        field_required:
+          this_field_is_required: "Dieses Feld ist erforderlich"
+          this_field_is_required_checkbox: "Dieses Feld ist erforderlich beim Erstellen eines neuen Eintrags (der Nutzer muss zumindest eine Alternative wählen)"
+        search_filter:
+          search_filter: "Als Filter auf der Homepage anzeigen"
+          date_cant_be_filtered: "Es ist kein Filter für das Datum verfügbar"
+          text_cant_be_filtered: "Es gibt keinen Filter für Text Felder. Die allgemeine Suchfunktion durchsucht Text Felder."
+      index:
+        listing_fields: "Eintragsfelder & Filter"
+        listing_fields_help: "Hier kannst du die Felder bearbeiten, die Nutzer ausfüllen müssen, wenn sie einen neuen Eintrag erstellen. Bitte beachte, dass einige Felder vorgegeben sind und nicht geändert werden können."
+        add_new_field: "Neues Feld hinzufügen:"
+        remove_field_confirmation: "Willst du das Feld '%{field_name}' und sämtliche Inhalte wirklich entfernen? Dies kann nicht rückgängig gemacht werden."
+        cancel: Abbrechen
+        save: Speichern
+        field_title: "Name des Feldes"
+        field_type: "Art des Feldes"
+        categories: "Kategorien, in denen das Feld angewendet wird"
+        select_all: "Alle auswählen"
+        clear_all: "Alle löschen"
+        options: Optionen
+        add_option: "+ Auswahl hinzufügen"
+        saving_order: "Feldreihenfolge speichern"
+        save_order_successful: "Reihenfolge der Felder erfolgreich gespeichert"
+        save_order_error: "Während des Speicherns der Feldreihenfolge ist ein Fehler aufgetreten. Bitte lade die Seite neu und versuche es noch einmal."
+        select_one: "Art des Feldes auswählen..."
+        continue: Weiter
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Dezimalzahlen erlauben"
+      new:
+        new_listing_field: "Neues Eintragsfeld"
+      field_types:
+        text: Text
+        number: Anzahl
+        dropdown: Dropdown-Menü
+        checkbox_group: "Checkbox Gruppe"
+        date: Datum
+        file: Datei
+        location: Standort
+    person_custom_fields:
+      saving_failed: "Speicherung der Benutzerfelder fehlgeschlagen"
+      index:
+        user_fields: Benutzerfelder
+        field_title: "Feld Name"
+        field_type: "Feld Typ"
+        signup: Anmeldung
+        public: Öffentlich
+        add_new_field: "Neues Feld hinzufügen:"
+        save: Speichern
+        cancel: Abbrechen
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Dezimalstellen erlauben"
+        add_option: "Option hinzufügen"
+      new:
+        new_user_field: "Neues Benutzerfeld"
+      form:
+        field_required:
+          this_field_is_required: "Dieses Feld zum Pflichtfeld machen, wenn eine Registrierung auf dem Marktplatz erfolgt"
+          this_field_is_required_checkbox: "Dieses Feld zum Pflichtfeld machen, wenn eine Registrierung auf dem Marktplatz erfolgt (Nutzer muss mindestens eine Option auswählen)"
+          this_field_is_public: "Dieses Feld in der öffentlichen Profilseite anzeigen"
+      edit:
+        edit_user_field: "Benutzerfeld %{field_name} anpassen"
+    emails:
+      new:
+        send_email_to_members: "E-Mail an alle Mitglieder senden"
+        send_email_to_members_title: "Sende E-Mail an alle Mitglieder"
+        send_email: "E-Mail senden"
+        send_email_or: oder
+        send_test_email: "Eine Test-E-Mail zu dir selber schicken"
+        test_sent: "Die Test-E-Mail wurde zu deiner E-Mail-Adresse geschickt"
+        send_email_article_title: "diesen Artikel"
+        send_email_article_text: "Du kannst %{article_link} lesen, um mehr über Nutzersegmente zu erfahren."
+        recipients:
+          title: "Wem willst du eine E-Mail schicken?"
+          options:
+            all_users: "Alle Benutzer"
+            posting_allowed: "Nutzer die Anzeigen veröffentlichen dürfen"
+            with_listing: "Benutzer, die mindestens einen Eintrag erstellt haben"
+            with_listing_no_payment: "Benutzer, die mindestens einen Eintrag erstellt haben, aber ihre Zahlungsdaten nicht eingetragen haben"
+            with_payment_no_listing: "Benutzer, die ihre Zahlungsdaten eingetragen haben, aber keine Einträge erstellt haben"
+            no_listing_no_payment: "Benutzer, die keine Einträge erstellt haben, und ihre Zahlungsdaten auch nicht eingetragen haben"
+        email_subject: "E-Mail Betreff"
+        email_content: E-Mail-Inhalt
+        email_content_placeholder: "Was willst du den Mitgliedern mitteilen?"
+        email_language: "Sprache der E-Mail-Empfänger"
+        any_language: "Beliebige Sprache"
+        message_will_be_sent_only_to_people_with_this_language: "Die E-Mail wird nur an Mitglieder von %{service_name} verschickt, die auch die Sprache, die du gewählt hast, gewählt haben."
+        email_sent: "E-Mail gesendet."
+        to_improve_email_deliverability: "Zur Verbesserung der Email Zustellbarkeit wird der Email Betreff automatisch generiert und kann nicht geändert werden."
+        email_subject_text: "Eine neue Nachricht vom %{service_name} Team"
+        firstname_cannot_be_removed: "Vorname kann nicht entfernt werden. Es wird der tatsächliche Vorname des jeweiligen Empfängers eingesetzt."
+        hello_firstname: "Hallo Vorname,"
+        hello_firstname_text: "Hallo %{person},"
+    left_hand_navigation:
+      general: Allgemein
+      users_and_transactions: Verwalten
+      configure: Konfiguration
+      emails_title: E-Mails
+      subscription: Abonnement
+      preview: "Seitenvorschau anzeigen"
+      whats_new: "Was ist neu?"
+    listing_shapes:
+      availability_title: Verfügbarkeit
+      read_more: "Mehr über automatische Verfügbarkeitsverwaltung lesen."
+      read_more_availability_management: "Mehr über Verfügbarkeitsverwaltung lesen."
+      allow_providers_to_manage_availability: "Erlaube den Verkäufern, ihre Verfügbarkeit mit Hilfe eines Kalenders zu verwalten"
+      per_hour_availability: "\"Pro Stunde\" Verfügbarkeit"
+      per_day_availability: "\"Pro Tag\" Verfügbarkeit"
+      per_night_availability: "\"Pro Nacht\" Verfügbarkeit"
+      pricing_units_disabled_info: "Preiseinheiten können nicht verwendet werden wenn der Terminkalender eingeschaltet ist."
+      can_not_find_name: "Keine Auftragsart mit dem folgenden Namen gefunden: %{name}"
+      index:
+        listing_shapes: Auftragsarten
+        description: "Auftragsarten bestimmen wie der Auftragsprozess auf deiner Seite funktioniert. Du kannst bestimmen ob deine Nutzer vermieten oder verkaufen, oder nur einfach Einträge veröffentlichen und danach miteinander mithilfe von Nachrichten kommunizieren."
+        read_more_about_order_types: "Lies mehr über Auftragsarten"
+        add_new_shape: "Füge neue Auftragsart hinzu: "
+        select_template: "Template wählen ..."
+        all_categories: "Alle Kategorien"
+        no_categories: "Keine Kategorien"
+        category_count: "%{category_count} Categories"
+        header:
+          listing_shape_name: "Name der Auftragsart"
+          listing_shape_categories: "Kategorien wo es verwendet wird"
+        order:
+          saving_order: Speicherreihenfolge
+          save_order_successful: "Reihenfolge der Auftragsarten erfolgreich gespeichert"
+          save_order_error: "Beim Speichern der Reihenfolge ist ein Fehler aufgetreten. Bitte aktualisiere die Seite und versuche es erneut."
+      templates:
+        selling_products: "Verkauf von Produkten"
+        renting_products: "Vermietung von Produkten"
+        offering_services: "Angebot von Dienstleistungen"
+        giving_things_away: "Dinge weggeben"
+        requesting: Anfordern
+        announcement: Ankündigung
+        custom: Eigene
+      new:
+        create_listing_shape: "Erstelle Auftragsart"
+        create: Anlegen
+        cancel: Abbrechen
+        create_success: "Neuer Auftragsart %{shape} erstellt"
+        create_failure: "Neue Auftragsart konnte nicht erstellt werden. Fehler: %{error_msg}"
+      edit:
+        edit_listing_shape: "Auftragsart \"%{shape}\" bearbeiten"
+        update: Speichern
+        cancel: Abbrechen
+        update_success: "Veränderungen zu der Auftragsart \"%{shape}\" wurden gespeichert"
+        update_failure: "Veränderungen konnten nicht gespeichert werden. Fehler: %{error_msg}"
+        delete: "Auftragsart löschen"
+        confirm_delete_order_type:
+          one: "Es gibt %{count} Eintrag mit dieser Auftragsart. Wenn Du die Auftragsart löschest, wird der Eintrag gekündigt. Bist Du sicher, dass Du die Auftragsart löschen willst? "
+          other: "Es gibt %{count} Einträge mit dieser Auftragsart. Wenn du die Auftragsart löschst, werden die Einträge gekündigt. Bist Du sicher, dass Du die Auftragsart löschen willst?"
+        can_not_delete_last: "Du kannst diesen Auftragstyp nicht löschen weil er der einzige auf deinem Marktplatz ist."
+        can_not_delete_only_one_in_categories: "Du kannst diesen Auftragstyp nicht löschen weil er in folgenden Kategorien der einzig verfügbare Auftragstyp ist: %{categories}"
+      listing_shape_name: Name
+      listing_shape_name_placeholder: "Zum Beispiel Verkaufen"
+      action_button_label: "Kennzeichnung der Checkout-Taste"
+      action_button_placeholder: "Zum Beispiel Kaufen"
+      open_listings_warning:
+        one: "Es gibt %{count} offenen Eintrag mit dieser Auftragsart. Wenn du die Einstellungen unten änderst, wird dieser Eintrag die alten Einstellungen behalten. Der Eintrag kann manuell zu den neuen Einstellungen bearbeitet werden. Wenn du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst du diese kündigen, indem du auf die Taste unterhalb klickst."
+        other: "Es gibt %{count} offene Einträge mit dieser Auftragsart. Wenn du die Einstellungen unten änderst, werden diese Einträge die alten Einstellungen behalten. Die Einträge können manuell zu den neuen Einstellungen bearbeitet werden. Wenn du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst du diese kündigen, indem du auf die Taste unterhalb klickst."
+      close_listings_action:
+        one: "%{count} Eintrag schließen"
+        other: "%{count} Einträge schließen"
+      confirm_close_listings_action:
+        one: "Bist Du sicher, dass Du %{count} Eintrag schließen willst?"
+        other: "Bist Du sicher, dass Du %{count} Einträge schließen willst?"
+      successfully_closed: "Einträge erfolgreich geschlossen."
+      successfully_deleted: "Auftragsart '%{order_type}' erfolgreich gelöscht"
+      pricing_and_checkout_title: "Preise & Kasse"
+      online_payments_label: "Erlaube den Verkäufern, Online-Zahlungen entgegenzunehmen"
+      shipping_label: "Den Verkäufern erlauben, Versandkosten festzulegen"
+      price_label: "Erlaube den Verkäufern, einen Preis für ihre Einträge festzustellen"
+      units_title: Preiseinheiten
+      units_desc: "Wenn du Preiseinheiten aktiviert hast, wird der Eintagspreis als \"Preis pro Preiseinheit\" angezeigt. Beispiel: \"39 € pro Stunde\"."
+      units:
+        piece: "Pro Stück"
+        hour: "Pro Stunde"
+        day: "Pro Tag"
+        night: "Pro Nacht"
+        week: "Pro Woche"
+        month: "Pro Monat"
+        unit: "Pro Einheit"
+      can_not_find: "Kann die Auftragsart mit dieser ID nicht finden: %{id}"
+      add_custom_unit: "+ Füge eine angepasste Preis Einheit hinzu"
+      delete_custom_unit: löschen
+      custom_unit_form:
+        title: "Neue Preis Einheit"
+        label_heading: Label
+        selector_label_heading: Wählschalter-Kennzeichnung
+        label_placeholder: "Zum Beispiel \"kg\", \"30 Minuten\", \"Person\", \"Klasse\""
+        selector_placeholder: "Zum Beispiel \"Menge der Leute\", \"Menge in kg\""
+        per: Pro
+        unit_type:
+          heading: Einheitstyp
+          quantity_label: "Menge (pro Stück, pro kg, pro Person, pro 2-Stunden Reise)"
+          time_label: "Zeit (pro 30 Minuten, pro 2 Wochen, pro Jahr...)"
+    paypal_accounts:
+      marketplace_paypal_integration: Zahlungseinstellungen
+      preferences_updated: "Zahlungseinstellungen aktualisiert"
+      contact_support_link_text: "kontaktiere Support"
+      integration_info_text: "Bezahlungen auf deinem Marktplatz werden über PayPal durchgeführt. Um deinen Kunden die Bezahlung auf deinem Marktplatz zu ermöglichen musst du dein PayPal-Konto verbinden. Nachdem du dein PayPal-Konto verbunden hast, kannst du den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
+      link_paypal_personal_account_label: "Bietest du selbst Produkte oder Dienstleistungen an?"
+      link_paypal_personal_account: "Wenn ja, dann musst Du auch Dein PayPal Konto mit %{personal_payment_preferences_link} verbinden."
+      link_stripe_personal_account: "Wenn ja, dann musst du auch dein Stripe-Konto mit %{personal_payment_preferences_link} verbinden."
+      link_paypal_and_stripe_personal_account: "Wenn ja, dann musst du auch dein PayPal- oder Stripe-Konto mit %{personal_payment_preferences_link} verbinden."
+      personal_payment_preferences_link_text: "deinem Konto"
+      read_more_about_paypal: "Mehr über das Zahlungssystem lesen"
+      edit_payment_settings: "Zahlungseinstellungen bearbeiten"
+      supported_currencies_information_text: "Der Zahlungssystem von Sharetribe unterstützt 24 Währungen. Wenn deine Währung nicht auf der Liste ist, bitte %{contact_support_link}. Wenn du die Währung des Marktplatzes wechselst, werden bestehende Anzeigen die alte Währung behalten. Du musst diese Anzeigen manuell bearbeiten so dass sie die neue Währung bekommen."
+      currency_change_warning_text: "Aufpassen: Wenn du die Währung wechselst, vergiss nicht das deinen Benutzern zu erwählen und sie zu bitten, ihre bestehenden Einträge zu bearbeiten. Dadurch werden sie auch die neue Währung bekommen."
+      marketplace_currency_label: "Währung des Marktplatzes:"
+      minimum_listing_price_label: "Der Mindestbetrag einer Transaktion:"
+      transaction_fee_label: "Transaktionsgebühr des Verkäufers:"
+      minimum_transaction_fee_label: "Mindestgebühr für die Transaktion für Verkäufer:"
+      save_settings: "Einstellungen speichern"
+      minimum_listing_price_below_tx_fee: "Der Mindestbetrag einer Transaktion muss größer oder gleich Mindestgebühr für die Transaktion sein: %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Die Mindestmenge der Transaktion muss größer als die Mindestprovision %{minimum_commission} sein."
+    payment_preferences:
+      title: Zahlungseinstellungen
+      general_settings: "1. Allgemeine Einstellungen"
+      connect_a_payment_provider: "2. Ein Zahlungssystem verbinden"
+      contact_support: "Support kontaktieren"
+      no_payments_link_text: hier
+      your_country: "Dein Land:"
+      you_cannot_use_online_payments: "Du kannst Online-Zahlungen in %{country_name} mit der Währung %{currency} nicht verwenden. Bitte wähle eine andere Währung oder %{support_link}, um dein Land zu ändern. Du kannst mehr über die unterstützten Ländern und Währungen %{help_link} lesen. Wir werden möglicherweise in der Zukunft mehr Zahlungsanbieter und Währungen unterstützen."
+      which_to_choose: "Wie soll ich wählen?"
+      you_can_use_stripe_or_paypal: "Du kannst entweder Stripe, Paypal, oder beides als Zahlungsanbieter verwenden. %{choose_link}"
+      you_can_use_stripe_only: "Du kannst Stripe als Zahlungsanbieter verwenden. %{read_more_link}"
+      read_more_stripe: "Mehr über Stripe-Zahlungen lesen."
+      you_can_use_paypal_only: "Du kannst PayPal als Zahlungsanbieter verwenden. %{read_more_link}"
+      read_more_paypal: "Mehr über PayPal-Zahlungen lesen."
+      read_more_about_paypal_and_stripe: "Mehr über Online-Zahlungen, Stripe und PayPal lesen"
+      general_settings_updated: "Allgemeine Einstellungen des Zahlungssystems aktualisiert"
+      transaction_fee_settings_updated: "Einstellungen für Transaktionsgebühre aktualisiert"
+      choose_popup_text: |-
+          Wenn du es deinen Kunden erlauben willst, Online Zahlungen entgegenzunehmen, musst du die Währung für deinen Marktplatz wählen, und danach entweder Stripe or PayPal verbinden. Du kannst auch beides wählen; damit können deine Kunden die Entscheidung treffen, welches System sie verwenden möchten.
+          Du kannst ein neues Konto mit beiden Systemen eröffnen, falls du noch keins hast. Nachdem du ein Konto verbunden hast, kannst du eine Transaktionsgebühr feststellen.
+          Der Unterschied zwischen PayPal und Stripe? Stripe erlaubt das Verzögern der Zahlung bis zu 3 Monaten, und bietet eine Zahlungsmethode (Kredit/Debitkarte). Mit Stripe können deine Verkäufer auch Geld direkt auf ihre Bankkonten bekommen, wenn sie ihre Kontodetails eingeben. PayPal bietet zwei Zahlungsmethoden (Kreditkarte und PayPal Konto) und bietet Käufer/Verkäuferschutz. Es ist nötig, ein Business Konto auf PayPal einzurichten, um Kreditkartenzahlungen entgegenzunehmen.
+          Wenn du Stripe verwendest, werden die Gebühren von Stripe von deiner Transaktionsgebühr abgezogen, also bitte bestimmen sie eine Transaktionsgebühr, die hoch genug ist. Wenn du PayPal verwendest, werden die Gebühren von PayPal direkt von dem Verkäufer abgezogen, sowie deine Transaktionsgebühr. Stripe und PayPal haben auch verschiedene Gebühren. In der Regel sind die Gebühren von Stripe normalerweise etwas günstiger.
+      invalid_api_keys: "Ungültige Stripe API Keys"
+      missing_api_keys: "Fehlende Stripe API Keys"
+      stripe_verified: "Stripe API Zugang bestätigt"
+      change_settings: "Einstellungen ändern"
+      configure_stripe: "Stripe konfigurieren"
+      configure_paypal: "PayPal konfigurieren"
+      transaction_fee_settings: "Einstellungen für Transaktionsgebühren"
+      transaction_fee_save: Speichern
+      stripe_fee: Stripe-Gebühren
+      stripe_fee_notice: "%{stripe_fee_link} werden von deiner Transaktionsgebühr abgezogen."
+      fee_should_be_less_than_minimum_price: "Der Mindestgebühr muss weniger als der Mindestbetrag einer Transaktion sein"
+      the_transaction_fee_must_be_lower_than_100: "Die Transaktionsgebühr muss weniger als 100% betragen"
+      confirm_disable: "Bist du sicher, dass du %{gateway} deaktivieren willst? Wenn du es deaktivierst, können Verkäufer und Käufer es nicht mehr verwenden, um Geld zu empfangen oder zu bezahlen. Wenn ein Verkäufer keine alternative Bezahlungsmethode eingerichtet hat, können Käufer nicht mehr von ihnen kaufen."
+      commission_from_buyer_label: "Transaktionsgebühr des Käufers:"
+      minimum_buyer_transaction_fee_label: "Mindestgebühr des Käufers für die Transaktion:"
+      stripe_connected:
+        title: "Stripe verbunden"
+        disable: "Stripe deaktivieren"
+        disabled: "Stripe deaktiviert"
+        enable: "Stripe erneut aktivieren"
+      paypal_connected:
+        title: "PayPal verbunden"
+        disable: "PayPal deaktivieren"
+        disabled: "PayPal deaktiviert"
+        enable: "PayPal erneut aktivieren"
+      cannot_enable_gateway: "Das Aktivieren von %{gateway} ist fehlgeschlagen."
+      cannot_disable_gateway: "Das Deaktivieren von %{gateway} ist fehlgeschlagen."
+      cannot_enable_gateway_because_of_buyer_commission: "%{gateway} kann nicht aktiviert werden, weil Transaktionsgebühren für Käufer aktiviert sind"
+      stripe_form:
+        add_your_api_keys: "Deine Stripe API Keys hinzufügen"
+        how_to_get_these: "Wie bekomme ich sie?"
+        publishable_key_example: "Zum Beispiel: %{api_publishable_key_example}"
+        secret_key_example: "Zum Beispiel: %{api_secret_key_example}"
+        save_api_keys: "Stripe API Keys speichern"
+        invalid_secret: "Das sieht nicht aus wie eine richtige %{secret_key}"
+        invalid_publishable: "Das sieht nicht aus wie eine richtige %{publishable_key}"
+      index:
+        header: "Verfügbare Zahlungseinstellungen"
+        info: "Du kannst bestimmen, welche Zahlungssysteme auf deinem Marktplatz verfügbar sind. Zur Zeit werden PayPal und Stripe unterstützt."
+        active: Aktiv
+        gateway: Zahlungssystem
+        process: Prozess
+        commission: Transaktionsgebühr
+        minimum_price: "Min. Preis"
+        minimum_fee: "Min. Gebühr"
+        api_verified: "API Bestätigt?"
+        actions: Aktionen
+        payments_not_enabled: "Zahlungen sind nicht für diesen Marktplatz aktiviert"
+    transaction_types:
+      sell: Verkaufen
+      sell_w_online_payment: "Verkaufen mit Online-Zahlungen"
+      sell_wo_online_payment: "Verkaufen ohne Online-Zahlungen"
+      rent: Vermieten
+      rent_w_online_payment: "Vermieten mit Online-Zahlungen"
+      rent_wo_online_payment: "Vermieten ohne Online-Zahlungen"
+      give: "Umsonst abzugeben"
+      lend: Verleihen
+      swap: Tauschen
+      service: Angebot
+      service_w_online_payment: "Angebot mit Online-Zahlungen"
+      service_wo_online_payment: "Angebot ohne Online-Zahlungen"
+      request: Anfragen
+      inquiry: Anfrage
+      share_for_free: "Kostenlos teilen"
+      event_w_online_payment: "Transaktion ohne Online-Zahlung"
+      event_wo_online_payment: "Transaktion mit Online-Zahlung"
+      default_action_button_labels:
+        sell: Kaufen
+        rent: Mieten
+        request: Anbieten
+        offer: Anfragen
+        inquiry: Kontakt
+        book: Buchen
+    community_transactions:
+      show:
+        transaction_for: "Transaction #%{transaction_id} für %{link}"
+        status: "Status:"
+        next_step: "Nächster Schritt:"
+        waiting_for_provider_accept_or_reject: "Es wird gewartet, dass %{provider} die Anfrage annimmt or ablehnt."
+        waiting_for_fulfill_and_complete: "Es wird gewartet, dass %{listing_title} von %{provider} erbracht wird, and dass %{buyer} den Auftrag als erledigt markiert."
+        buyer: "Käufer:"
+        provider: "Verkäufer:"
+        delivery: "Lieferungsmethode:"
+        shipping_to: "Versand an %{address}"
+        buyer_pays: "Käufer zählt:"
+        marketplace_collects: "%{service_name} bekommt:"
+        buyer_service_fee_label: "Zahlungsgebühr vom Käufer:"
+        service_fee_label: "Zahlungsgebühr vom Verkäufer:"
+        provider_receives: "Verkäufer bekommt:"
+        admin_info_text: "Als Admin von %{service_name} kannst du einige Maßnahmen ergreifen, damit diese Transaktion weitergeht:"
+        manage_reviews: "Bewertungen verwalten"
+        you_should_investigate: "Du solltest die Lage untersuchen, indem du mit den beiden Beteiligten diskutierst und danach entscheiden, ob du die Anfechtung ablehnst oder erstattest. %{learn_more_link}"
+        learn_more: "Mehr erfahren."

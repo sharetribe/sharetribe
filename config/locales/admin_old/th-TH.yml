@@ -1,0 +1,1215 @@
+th-TH:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: "แก้ไขหมวดหมู่ '%{category}'"
+      index:
+        listing_categories: หมวดหมู่รายการ
+        create_a_new_category: "+ สร้างหมวดหมู่ใหม่"
+        remove_category_confirmation: "คุณแน่ใจหรือว่าต้องการลบหมวดหมู่ '%{category_name}'?"
+        saving_order: บันทึกการเรียงลำดับหมวดหมู่
+        save_order_successful: บันทึกการเรียงลำดับหมวดหมู่สำเร็จแล้ว
+        save_order_error: "เกิดข้อผิดพลาดในขณะที่กำลังบันทึกการเรียงลำดับข้อมูล กรุณารีเฟรชหน้าเว็บ และลองอีกครั้ง"
+      new:
+        new_listing_category: หมวดหมู่รายการใหม่
+      form:
+        category_name:
+          category_title: ชื่อหมวดหมู่
+        category_parent:
+          category_parent: หมวดหมู่หลัก
+          no_parent: ไม่มีหมวดหมู่หลัก
+        category_transaction_types:
+          transaction_types: ประเภทการเรียงลำดับ
+          transaction_types_description: "ประเภทการเรียงลำดับจะตรวจสอบว่าการเรียงลำดับประเภทไหนที่จะได้สิทธิในการเรียงลำดับของรายการในหมวดหมู่นี้ ยกตัวอย่างเช่น เฉพาะการขายเท่านั้น หรือการให้เช่าและให้เปล่าก็ได้รับสิทธิด้วย"
+          select_all: ~
+          clear_all: ~
+        buttons:
+          save: บันทึก
+          cancel: ยกเลิก
+      remove:
+        remove_category: ลบหมวดหมู่
+        remove_category_name: "ลบหมวดหมู่ '%{category_name}'"
+        warning_remove_effects: "คำเตือน! การลบหมวดหมู่ '%{category_name}' จะมีผลกระทบดังต่อไปนี้:"
+        warning_listing_will_be_moved:
+          other: "มี %{count} รายการในหมวดหมู่ ที่จะถูกย้ายไปยังหมวดหมู่ที่เลือก"
+        warning_custom_field_will_be_moved:
+          other: "มี %{count} รายการที่กำหนดเองอยู่ในหมวดหมู่นี้ รายการดังกล่าวจะถูกย้ายไปยังหมวดหมู่ที่เลือก"
+        warning_subcategory_will_be_removed:
+          other: "มี %{count} หมวดหมู่ย่อยในหมวดหมู่ที่จะถูกลบ"
+        warning_with_subcategories_listing_will_be_moved:
+          other: "มี %{count} รายการในหมวดหมู่ และหมวดหมู่ย่อย รายการจะถูกย้ายไปยังหมวดหมู่ที่เลือก"
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "มี %{count} ข้อมูลที่กำหนดเองอยู่ในหมวดหมู่ และหมวดหมู่ย่อย มันจะถูกย้ายไปยัง หมวดหมู่ที่ถูกเลือก"
+        select_new_category: "เลือกหมวดหมู่ใหม่ที่รายการดังกล่าวข้างต้นจะถูกย้ายไป :"
+        buttons:
+          remove: ย้าย
+          cancel: ยกเลิก
+    communities:
+      edit_details:
+        community_details: รายละเอียดพื้นฐาน
+        community_look_and_feel: ดีไซน์
+        edit_community: รายละเอียดพื้นฐาน
+        enabled_languages: เปิดใช้งานภาษา
+        enabled_languages_description: "ชุดภาษาที่ใช้ได้สำหรับผู้ใช้ รายการแรกใช้เป็นค่าเริ่มต้น"
+        default_language: ภาษาเริ่มต้น
+        language_selection_disabled: "การเลือกภาษาถูกปิดการใช้งานในตลาดของคุณ เพราะคุณกำลังใช้ภาษาที่ไม่เป็นทางการต่อไปนี้ : %{languages} โปรดติดต่อฝ่ายสนับสนุนของ Sharetribe หากคุณต้องการที่จะปรับเปลี่ยนการตั้งค่าภาษาของคุณ"
+        community_name: ชื่อตลาด
+        edit_community_name_description: "ชื่อตลาดของคุณ ซึ่งจะปรากฏต่อผู้ใช้ในอีเมล์และที่อื่น ๆ "
+        community_slogan: สโลแกนตลาด
+        community_slogan_display: ~
+        edit_community_slogan_description: "นี่จะปรากฏในหน้าแรกของตลาดสำหรับผู้ใช้ที่ไม่ได้เข้าสู่ระบบ %{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
+        community_description: คำอธิบายตลาด
+        community_description_display: ~
+        edit_community_description_description: "นี่จะปรากฏในหน้าแรกของตลาดสำหรับผู้ใช้ที่ไม่ได้เข้าสู่ระบบ %{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
+        community_search_placeholder: คำใบ้ในกล่องค้นหา
+        edit_community_search_placeholder_description: "นี่จะปรากฏในหน้าแรกของตลาด ซึ่งเป็นข้อความตัวยึดในแถบค้นหา %{see_how_it_looks_like}"
+        private_community_homepage_content: เนื้อหาในหน้าแรกของตลาดส่วนตัว
+        edit_private_community_homepage_content_description: "เนื้อหานี้จะปรากฏในหน้าแรกของตลาดส่วนตัว ให้กับผู้ใช้ที่ไม่ได้เข้าสู่ระบบ ที่นี่ คุณสามารถอธิบายตลาดของคุณ และกระบวนการที่จะเข้าร่วมได้ นอกจากนี้คุณยังสามารถเพิ่มรูปภาพ วิดีโอ และเนื้อหา HTML ได้ที่นี่ %{see_how_it_looks_like}"
+        update_information: บันทึกการตั้งค่า
+        invite_people: "เชิญผู้ใช้ใหม่เพื่อเข้าร่วม %{service_name}"
+        edit_signup_info: ข้อมูลลงทะเบียน
+        edit_signup_info_description: "นี่คือข้อความข้อมูลที่จะปรากฎต่อผู้ใช้ในหน้าการสมัคร คุณสามารถให้คำแนะนำแก่ผู้ใช้ในการลงทะเบียน ข้อมูลเช่น ผู้ใช้จะได้รับเชิญจากไหน ฯลฯ โดยค่าเริ่มต้นนั้นจะไม่มีคำแนะนำ"
+        edit_info: แก้ไขข้อมูล
+        see_how_it_looks_like: แสดงให้เห็นว่ามีลักษณะอย่างไร
+        verification_to_post_listings_info_content: ข้อความข้อมูลแก่ผู้ใช้ที่ไม่ได้รับการตรวจสอบ
+        verification_to_post_listings_info_content_description: "คุณกำลังร้องขอผู้ใช้ของคุณให้ได้รับการยืนยันด้วยตนเองจากคุณ ก่อนที่ผู้ใช้จะสามารถ โพสต์รายการ ที่นี่คุณสามารถตั้งค่าข้อความเริ่มต้นที่จะแสดงให้ผู้ใช้ที่ไม่ได้รับการยืนยันได้เห็น ในขณะที่พวกเขากำลังพยายามที่จะโพสต์รายการใหม่."
+        verification_to_post_listings_info_content_default: "%{service_name} ร้องขอให้ต้องมีคนได้รับการยืนยันด้วยตนเองโดยผู้ดูแลระบบก่อน จึงจะสามารถโพสต์รายการได้ คุณยังไม่ได้รับการยืนยัน กรุณา%{contact_admin_link}เพื่อขอรับการยืนยัน"
+        contact_admin_link_text: "ติดต่อผู้ดูแลระบบ %{service_name}"
+        save: บันทึกการตั้งค่า
+        transaction_agreement: ข้อตกลงก่อนการทำธุรกรรมทางการเงิน
+        transaction_agreement_checkbox: ผู้ใช้จะต้องยอมรับข้อตกลงจึงจะสามารถทำธุรกรรมทางการเงินได้
+        transaction_agreement_checkbox_header: ฉลากข้อตกลง
+        transaction_agreement_checkbox_label_description: "ข้อความนี้จะปรากฎถัดจากช่องทำเครื่องหมายในแบบฟอร์มการชำระเงิน ผู้ใช้จำเป็นต้อง ทำเครื่องหมายในกล่อง เพื่อที่จะดำเนินการกับการทำธุรกรรม เช่นป้ายตัวอย่างบอกว่า \"โดยการคลิกที่กล่องนี้ ฉันขอยอมรับข้อตกลง\" เป็นต้น"
+        transaction_agreement_text_header: ข้อความข้อตกลง
+        transaction_agreement_description: "นี่คือเนื้อหาของข้อตกลงอย่างเป็นทางการที่ผู้ใช้จำเป็นต้องยอมรับ เนื้อหาข้อตกลงจะปรากฏขึ้นเมื่อผู้ใช้คลิกที่ลิงค์ \"%{read_more}\" ข้างฉลากข้อตกลง"
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: "แก้ไขรูปลักษณ์และความรู้สึกของตลาด \"%{community_name}\""
+        community_logo: โลโก้
+        community_logo_icon: โลโก้สำหรับเครือข่ายทางสังคมและอุปกรณ์มือถือ
+        community_logo_icon_mobile: ~
+        community_cover_photo: รูปภาพหน้าปก
+        small_community_cover_photo: ภาพปกขนาดเล็ก
+        favicon: Favicon
+        favicon_info_text: "Favicon จะแทนที่โลโก้เริ่มต้นของ Sharetribe  ขนาดควรจะเป็น 32x32 พิกเซล ภาพ ที่อัปโหลดจะถูกปรับขนาดเท่านี้"
+        community_custom_color1: สีหลัก
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
+        new_listing_button_custom_color: ~
+        logo_instructions_text_with_dimensions: "โลโก้ควรมีขนาด %{width}x %{height} px ซึ่งจะแสดงต่อผู้ใช้ที่มีหน้าจอขนาดใหญ่"
+        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions: "โลโก้ขนาดจัตุรัสนี้จะปรากฎเมื่อมีคนแชร์เว็บไซต์ของคุณใน Facebook เมื่อมีคนดูเว็บไซต์ของคุณบนอุปกรณ์มือถือ หรือเมื่อมีการบุ๊คมาร์คเว็บไซต์ของคุณในหน้าจอหลักของอุปกรณ์มือถือ ขนาดที่แนะนำ (อย่างน้อย) คือ %{width}x%{height} px"
+        logo_icon_instructions_text_with_dimensions_no_placing: "โลโก้ขนาดจัตุรัสนี้จะปรากฎเมื่อมีคนแชร์เว็บไซต์ของคุณใน Facebook เมื่อมีคนดูเว็บไซต์ของคุณบนอุปกรณ์มือถือ หรือเมื่อมีการบุ๊คมาร์คเว็บไซต์ของคุณในหน้าจอหลักของอุปกรณ์มือถือ ขนาดที่แนะนำ (อย่างน้อย) คือ %{width}x%{height} px"
+        logo_mobile_icon_instructions_text_with_dimensions: ~
+        cover_photo_visibility: รูปภาพหน้าปกจะแสดงในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน
+        cover_photo_instructions_text_with_dimensions: "ขนาดโลโก้จะถูกย่อขนาดเหลือ %{width} x %{height} px ภาพที่มีขนาดสูงกว่าจะถูกตัดจากตรงกลาง %{see_how_it_looks_like}"
+        we_have_you_covered: ~
+        cover_photo_ready_made: ~
+        small_cover_photo_visibility: "ภาพปกขนาดเล็กจะถูกแสดงในหน้าเว็บทั้งหมด ยกเว้นในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน"
+        small_cover_photo_instructions_text_with_dimensions: "รูปภาพจะถูกย่อขนาดเหลือ %{width} x %{height} px ภาพที่มีขนาดสูงกว่าจะถูกตัดจากตรงกลาง "
+        main_content_width: "เมื่อเลือกภาพปก โปรดทราบว่าความกว้างสูงสุดของเนื้อหาหลักคือ%{main_width} px  อย่าลืมตรวจสอบว่าภาพปกของคุณจะมีลักษณะใดบนหน้าจอขนาดเล็ก (เช่น โดยใช้ หน้าต่างเบราว์เซอร์ที่แคบขึ้น)"
+        custom_color1_instructions_text: "คุณสามารถเปลี่ยนสีหลักของอินเตอร์เฟซผู้ใช้ โดยการป้อนค่าสี hex <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> สามารถช่วยให้คุณเลือกสี และคัดลอกโค้ด hex มาที่นี่"
+        new_listing_button_instructions_text: ~
+        default_browse_view: มุมมองเริ่มต้น
+        default_browse_view_instructions_text: มุมมองเริ่มต้นจะถูกใช้ในหน้าแรกเพื่อกำหนดรูปลักษณ์การแสดงรายการโดยค่าเริ่มต้น
+        grid: ตาราง
+        list: รายการ
+        map: แผนที่
+        name_display_type: ประเภทรูปลักษณ์ของชื่อ
+        name_display_type_instructions_text: เลือกวิธีที่ชื่อของผู้ใช้แต่ละคนจะปรากฏบนเว็บไซต์
+        full_name: "ชื่อเต็ม (ชื่อ นามสกุล)"
+        first_name_with_initial: "ชื่อกับอักษรแรกของนามสกุล (ชื่อ น)"
+        first_name_only: "เฉพาะชื่อ (ชื่อ)"
+        invalid_color_code: "รหัสสี ควรมีตัวเลข หรือตัวอักษร A -F รวม 6 ตัว เช่น D96E21"
+        custom_head_script: สคริปต์ที่กำหนดเอง
+        custom_head_script_instructions_text: ~
+        current_image: ~
+      edit_text_instructions:
+        edit_text_instructions: ข้อความแนะนำ
+      edit_welcome_email:
+        welcome_email_content: เนื้อหาของอีเมล์ยินดีต้อนรับ
+        welcome_email_content_description: "ข้อความด้านล่างนี้จะถูกส่งไปยังผู้ใช้ใหม่ทุกคน เมื่อพวกเขาเข้าสมัคร คุณสามารถปรับแต่งข้อความให้เหมาะสมกับตลาดของคุณได้ โดยการคลิก '%{send_test_message_link}' คุณสามารถส่งข้อความตัวอย่างไปยังที่อยู่อีเมล์ของคุณ เพื่อให้คุณสามารถดูลักษณะของมันได้ในอีเมล์ "
+        edit_message: แก้ไขข้อความ
+        send_test_message: ส่งข้อความทดสอบ
+      outgoing_email:
+        title: อีเมลที่ใช้ในการส่งออก
+        info: "ชื่อและอีเมลนี้ จะใช้สำหรับอีเมลที่ส่งจากตลาดของคุณไปยังสมาชิก"
+        read_more: อ่านเพิ่มเติมเกี่ยวกับการส่งอีเมล
+        sender_address: "อีเมลผู้ส่ง: %{sender_address}"
+        sender_address_default: "อีเมลผู้ส่ง: ไม่ได้ระบุ (ตอนนี้ใช้ %{sender_address})"
+        need_to_change: "หากคุณต้องการเปลี่ยนอีเมลโปรดติดต่อ %{contact_support_link}"
+        contact_support_link_text: "ติดต่อศูนย์บริการ Sharetribe"
+        set_sender_address: ตั้งค่าอีเมลผู้ส่ง
+        sender_name_label: ชื่อ
+        sender_name_placeholder: ชื่อผู้ส่ง
+        sender_email_label: อีเมล
+        sender_email_placeholder: sender-email@example.com
+        amazon_ses_notification: ~
+        this_is_how_it_will_look: "นี่คือรูปลักษณ์ที่จะเห็น:"
+        send_verification_button: ส่งอีเมลเพื่อทำการยืนยัน
+        change_sender_email: ~
+        successfully_saved: "ได้ทำการบันทึกค่าอีเมลผู้ส่งเรียบร้อยแล้ว อีเมลทำการยืนยันจะถูกส่งไปในเร็วๆนี้"
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
+        status: "สถานะ: %{status}"
+        status_verified: "ได้ทำการยืนยันแล้ว - ใช้งานอยู่"
+        status_error: "มีข้อผิดพลาดเกิดขึ้น กรุณารีเฟรชหน้า"
+        status_requested: "ยังไม่ได้ทำการยืนยัน - ส่งอีเมลเพื่อทำการยืนยันได้ส่งไปที่ %{email} เมื่อตอน %{time_ago} หากต้องการส่งใหม่กรุณากด %{resend_link}"
+        status_expired: "เวลาในการยืนยันอีเมล %{email} หมดลงแล้ว เพื่อส่งอีเมลอีกครั้งกรุณากด %{resend_link}"
+        status_resent: "อีเมลเพื่อทำการยืนยันได้ส่งไปที่ %{email} อีกครั้ง หากต้องการส่งใหม่กรุณากด %{resend_link}"
+        resend_link: ส่งอีกครั้ง
+        invalid_email_error: "อีเมลไม่ถูกต้องสำหรับ '%{email}'"
+        invalid_email_address: ~
+        invalid_email_domain: ~
+        invalid_email_domain_read_more_link: ~
+        unknown_error: เกิดข้อผิดพลาดบางอย่าง
+        white_label_offer: ~
+        upgrade_plan_link: ~
+        verification_sent_from: "อีเมลเพื่อทำการยืนยันจะมาจากอีเมล %{verification_sender_name}"
+        follow_the_instructions: โปรดทำตามขั้นตอนในอีเมลเพื่อยืนยันอีเมลของคุณ
+      getting_started:
+        getting_started: เริ่มต้นการใช้งาน
+      available_languages:
+        bg: ~
+        ca: ~
+        cs: ~
+        da-DK: เดนมาร์ก
+        de: เยอรมัน
+        el: กรีก
+        en: อังกฤษ
+        en-AU: "อังกฤษ (ออสเตรเลีย)"
+        en-GB: "อังกฤษ (สหราชอาณาจักร)"
+        es: ~
+        es-ES: ~
+        et: ~
+        fi: ฟินแลนด์
+        fr: ฝรั่งเศส
+        fr-CA: "ฝรั่งเศส (แคนาดา)"
+        hr: ~
+        hu: ~
+        it: อิตาลี
+        ja: ญี่ปุ่น
+        ko: ~
+        lt: ~
+        nb: นอร์เวย์บุคมอล
+        nl: ดัตช์
+        pl: ~
+        pt-BR: "โปรตุเกส (บราซิล)"
+        pt-PT: ~
+        ro: ~
+        ru: รัสเซีย
+        sk-SK: ~
+        sl: ~
+        sv: สวีเดน
+        th-TH: ~
+        tr-TR: ตุรกี
+        uk: ~
+        vi: ~
+        zh: จีน
+        zh-TW: ~
+      settings:
+        settings: ตั้งค่า
+        general: ทั่วไป
+        access: การกำหนดค่าการเข้าถึงข้อมูล
+        join_with_invite_only: อนุญาตให้ผู้ที่จะเข้าร่วมเฉพาะด้วยคำเชิญจากผู้ใช้คนอื่นเท่านั้น
+        users_can_invite_new_users: อนุญาตให้ผู้ใช้ทุกคนสามารถเชิญผู้ใช้ใหม่ได้
+        private: "อนุญาตให้ผู้ใช้ที่ลงทะเบียนแล้วเท่านั้นที่จะเห็นรายการและโปรไฟล์ของผู้ใช้ (ทำให้เป็นตลาดส่วนตัว)"
+        require_verification_to_post_listings: อนุญาตให้เฉพาะผู้ใช้ที่ได้รับการตรวจสอบแล้วจากผู้ดูแลระบบในการโพสต์รายการใหม่
+        allow_free_conversations: ~
+        search_preferences: ~
+        search_and_location_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        keyword_and_location_search: ~
+        location_search: ~
+        select_distance_unit: ~
+        km: ~
+        miles: ~
+        show_only_nearby: ~
+        allow_users_to_add_location: ~
+        fuzzy_location: ~
+        listing_preferences: การกำหนดค่ารายการ
+        transaction_preferences: การตั้งค่าการสั่งซื้อสินค้า
+        show_listing_publishing_date: แสดงวันที่เผยแพร่รายการในหน้ารายการ
+        show_category_in_listing_list: แสดงประเภทรายการในรูปแบบรายการ
+        listing_comments_in_use: "ให้สิทธิผู้ใช้ในการแสดงความคิดเห็นแก่รายการ (ผู้ใช้อื่น ๆ ทั้งหมดสามารถดูได้)"
+        email_preferences: การกำหนดค่าอีเมล์
+        automatic_newsletters: "ส่งจดหมายข่าวรายวัน / สัปดาห์โดยอัตโนมัติไปยังผู้ใช้ทั้งหมด (ยกเว้นกรณีที่พวกเขา เลือกที่จะไม่รับ)"
+        email_admins_about_new_members: " ส่งอีเมล์ไปหาผู้ดูแลระบบ เมื่อใดก็ตามที่ผู้ลงทะเบียนใหม่"
+        google_analytics_key: " ID ติดตามของ Google Analytics"
+        twitter_handle: "การจัดการ Twitter (ใช้กับปุ่มทวีตในหน้ารายการ)"
+        update_settings: บันทึกการตั้งค่า
+        automatically_confirmed_no_escrow: "คำสั่งซื้อจะถูกทำเครื่องหมายว่าเสร็จสมบูรณ์ภายใน %{days_dropdown} วันหลังจากวันที่ชำระเงินเสร็จสิ้น"
+        automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
+        automatic_newsletter_frequency: "ส่งจดหมายข่าวโดยอัตโนมัติ: %{frequency_dropdown}"
+        newsletter_daily: รายวัน
+        newsletter_weekly: รายสัปดาห์
+        delete_marketplace_title: ลบตลาดนี้ทิ้ง
+        type_marketplace_domain: "พิมพ์โดเมนตลาดของคุณ (%{domain}) ลงในฟิลด์ข้อความด้านล่าง:"
+        type_marketplace_domain_placeholder: พิมพ์โดเมนตลาดของคุณที่นี่
+        once_you_delete: "เมื่อคุณลบตลาดแล้วคุณจะไม่สามารถเข้าถึงได้อีกต่อไป โปรดระวัง."
+        are_you_sure: คุณแน่ใจหรือไม่
+        i_understand_button: ฉันเข้าใจว่าการคลิกปุ่มนี้จะทำตลาดของฉันถูกลบ
+        last_community_updates: "โปรดทราบว่าหลังจากการลบนี้ คุณและผู้ใช้ตลาดของคุณอาจยังได้รับอีเมลการปรับปรุงตลาดครั้งล่าสุด"
+        you_will_be_redirected_to: "หลังจากที่คุณได้ลบตลาดของคุณแล้ว คุณจะถูกส่งต่อไปยัง %{destination} คุณจะไม่สามารถเข้าถึงตลาดของคุณได้อีกต่อไป"
+        delete_this_marketplace: ลบตลาดนี้
+        payment_preferences: ~
+        pre_approved_listings: ~
+        email_admins_about_new_transactions: ~
+      manage_members:
+        manage_members: จัดการผู้ใช้
+        email: อีเมล์
+        name: ชื่อ
+        display_name: ชื่อที่แสดง
+        join_date: เข้าร่วมแล้ว
+        admin: ผู้ดูแลระบบ
+        posting_allowed: การโพสต์ที่ได้รับอนุญาต
+        ban_user: แบนผู้ใช้
+        saving_user_status: กำลังบันทึก...
+        save_user_status_successful: บันทึกเรียบร้อยแล้ว
+        export_all_as_csv: ~
+        save_user_status_error: "การบันทึกล้มเหลว โปรดรีเฟรชหน้าเว็บ และลองอีกครั้ง"
+        ban_user_confirmation: "การกระทำเช่นนี้จะย้ายผู้ใช้ออกจากตลาด และป้องกันไม่ให้พวกเขาเข้าถึงเว็บไซต์ได้อีกครั้ง กับบัญชีนี้ คุณแน่ใจหรือว่าต้องการดำเนินการต่อ?"
+        unban_user_confirmation: ~
+        ban_me_error: คุณไม่สามารถแบนตัวเองได้
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
+        this_makes_the_user_an_admin: "ทำให้ผู้ใช้เป็นผู้ดูแลระบบ คุณควรแจ้งให้ผู้ใช้ทราบถึงความรับผิดชอบของตนและควรทบทวนข้อกำหนดในการให้บริการของ Sharetribe คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?"
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        confirm: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap_new: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
+        searchpage: ~
+        new_email_templates: ~
+      social_media:
+        social_media: โซเชียลมีเดีย
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
+        twitter_handle: "การจัดการ Twitter"
+        twitter_handle_info_text: "ชื่อผู้ใช้บัญชี Twitter ในตลาดของคุณ (ถ้ามี) ซึ่งจะได้รับการกล่าวถึงเมื่อมีคนใช้ปุ่มทวีตบนหน้ารายการ"
+        twitter_handle_info_text_with_instructions: "ชื่อผู้ใช้ของบัญชี Twitter ของตลาดของคุณ (ถ้าคุณมี) จะมีการกล่าวถึงเมื่อผู้คนใช้ปุ่ม tweet บนหน้ารายการ %{instructions_link}"
+        twitter_instructions_link_text: อ่านเพิ่มเติม...
+        twitter_handle_placeholder: ชื่อผู้ใช้
+        invalid_twitter_handle: "การจัดการ Twitter ควรมีตัวเลขและอักษรมากที่สุด 15 ตัว (อักษร A-Z เลข 0-9)"
+        facebook_connect: Facebook
+        facebook_developers_dashboard: ~
+        facebook_connect_info_text: "ในการเปิดการใช้งานเข้าสู่ระบบ Facebook กรุณาสร้างแบบฟอร์มสำหรับตลาดของคุณใน <a href='https://developers.facebook.com/'>แดชบอร์ดนักพัฒนา Facebook</a> เพิ่ม ID และรหัสลับของแอพลิเคชันโดยอัตโนมัติได้ที่นี่"
+        facebook_connect_info_text_with_instructions: "ในการเปิดการใช้งานเข้าสู่ระบบ Facebook กรุณาสร้างแบบฟอร์มสำหรับตลาดของคุณใน <a href='https://developers.facebook.com/'>แดชบอร์ดนักพัฒนา Facebook</a> เพิ่ม ID และรหัสลับของแอพลิเคชันโดยอัตโนมัติได้ที่นี่ %{instructions_link}"
+        facebook_instructions_link_text: "ดูคำแนะนำสำหรับการกำหนดค่าเข้าสู่ระบบด้วย Facebook Connect"
+        facebook_connect_id: "รหัสลูกค้า Facebook"
+        invalid_facebook_connect_id: รหัสลูกค้าควรมีแต่ตัวเลขเท่านั้น
+        facebook_connect_secret: "รหัสลับของลูกค้า Facebook"
+        invalid_facebook_connect_secret: "รหัสลับลูกค้าควรมีเฉพาะตัวเลขและตัวอักษรจาก A ถึง F"
+        enable_facebook_login: ~
+        save: บันทึกการตั้งค่า
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_developers_console: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
+        save: ~
+      analytics:
+        analytics: การวิเคราะห์ข้อมูลหรือสถิติ
+        google_analytics_key: " ID ติดตามของ Google Analytics"
+        google_analytics_key_info_text: "รหัสการติดตามของบัญชี Google Analytics"
+        google_analytics_key_info_text_with_instructions: "รหัสการติดตามบัญชี Google Analytics ของคุณ %{instructions_link}"
+        google_analytics_instructions_link_text: "อ่านเพิ่มเติมเกี่ยวกับการเชื่อมต่อ Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: "อ่านข้อมูลเพิ่มเติมเกี่ยวกับการวิเคราะห์ของ Sharetribe"
+        end_user_analytics: ~
+        save: บันทึกการตั้งค่า
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
+      menu_links:
+        menu_links: ลิงค์เมนู
+        menu_links_display: ~
+        save: บันทึกการตั้งค่า
+        add_menu_link: เพิ่มลิงค์ใหม่ในเมนู
+        title_placeholder: ชื่อลิงค์
+        url_placeholder: "http://example.com/en"
+        title: ชื่อ
+        language: ภาษา
+        url: URL
+        empty: "คุณไม่มีการเชื่อมโยงกับเมนูใด ๆ เพิ่มเติม"
+        max_number_of_links: ~
+        all: ~
+        max_number_of_links_info: "ลิ้งเชื่อมโยงไปยัง %{about_page} จะปรากฏเป็นลิงก์เมนูแรกเสมอ"
+        about_page: หน้าเกี่ยวกับเรา
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
+      transactions:
+        export_all_as_csv: ~
+        processing_export: ~
+        transactions: แสดงรายการธุรกรรม
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          disputed: ~
+          preauthorized: ~
+          rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
+        headers:
+          conversation: บทสนทนา
+          listing: รายการ
+          status: สถานะ
+          sum: รวม
+          started: เริ่มต้น
+          last_activity: กิจกรรมล่าสุด
+          initiated_by: ตัวเริ่ม
+          other_party: กลุ่มอื่น
+        status:
+          conversation: ~
+          free: การสนทนา
+          pending: กำลังรอดำเนินการ
+          preauthorized: ให้อนุญาตมาก่อนแล้ว
+          accepted: ยอมรับแล้ว
+          rejected: ถูกปฎิเสธ
+          paid: ชำระเงินแล้ว
+          confirmed: ยืนยันแล้ว
+          canceled: ถูกยกเลิก
+          disputed: ~
+          initiated: "กำลังรอการชำระเงิน PayPal"
+          pending_ext: "กำลังรอการชำระเงิน PayPal"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            disputed: ~
+            initiated: ~
+            pending_ext: ~
+            refunded: ~
+            dismissed: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            disputed: ~
+            initiated: ~
+            pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
+        not_available: ไม่พบข้อมูล
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+      testimonials:
+        testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          text: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
+          blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
+      listings:
+        listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+          approval_pending: ~
+          approval_rejected: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
+        expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
+      user_fields:
+        user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_help_center: ~
+        info_3: ~
+        info_4: ~
+        editor_title: ~
+        editor_info: ~
+        preview: ~
+        set_live: ~
+        add_new_section: ~
+        select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
+        form:
+          save: ~
+          cancel: ~
+        sections:
+          identifier: ~
+          kind: ~
+          new: ~
+          edit: ~
+          remove_section_confirmation: ~
+          info_single_column: ~
+          info_multi_column_2: ~
+          info_multi_column_3: ~
+          listings: ~
+          categories: ~
+          hero: ~
+          locations: ~
+          video: ~
+          new_section:
+            categories: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+          edit_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+      attachments:
+        delete: ~
+        or_change: ~
+    landing_page_versions:
+      sections:
+        content:
+          title: ~
+        hero:
+          hero_title: ~
+          hero_description: ~
+          basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
+        footer:
+          footer_title: ~
+          footer_style: ~
+          style_dark: ~
+          style_light: ~
+          style_marketplace_color: ~
+          style_logo: ~
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: ~
+          cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
+        background_image_overlay:
+          background_image: ~
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: ~
+          title_placeholder: ~
+          url: ~
+          url_placeholder: ~
+        multi_column:
+          main_title: ~
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon_info_link: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          listings_to_feature: ~
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
+          youtube_video_id_info: ~
+    custom_fields:
+      edit:
+        edit_listing_field: "แก้ไขข้อมูลรายการ '%{field_name}'"
+      edit_price:
+        description: ~
+        edit_price_field: แก้ไขข้อมูลราคา
+        show_price_filter_homepage: แสดงตัวกรองราคาบนหน้าแรก
+        price_min: กรองราคาต่ำสุด
+        price_max: กรองราคาสูงสุด
+      edit_location:
+        edit_location_field: แก้ไขข้อมูลตำแหน่ง
+        this_field_is_required: ข้อมูลนี้จำเป็น
+        the_location_feature_can_be_enabled: ~
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
+      form:
+        field_required:
+          this_field_is_required: บังคับให้กรอกข้อมูลในช่องนี้เมื่อมีการสร้างรายการใหม่
+          this_field_is_required_checkbox: "บังคับให้กรอกข้อมูลในช่องนี้ เมื่อมีการสร้างรายการใหม่ (ผู้ใช้จะต้องเลือกอย่างน้อยหนึ่งตัวเลือก)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
+      index:
+        listing_fields: "รายการข้อมูล และตัวกรอง"
+        listing_fields_help: "ที่นี่คุณสามารถแก้ไขเขตข้อมูลที่ผู้ใช้จะต้องกรอกเมื่อสร้างรายการใหม่ โปรดทราบว่า บางเขตข้อมูลนั้น จะมีการกำหนดไว้ล่วงหน้าแล้ว และไม่สามารถแก้ไขได้"
+        add_new_field: "เพิ่มข้อมูลใหม่:"
+        remove_field_confirmation: "คุณแน่ใจหรือว่าจะลบข้อมูลนี้ '%{field_name}'?"
+        cancel: ยกเลิก
+        save: บันทึก
+        field_title: ชื่อข้อมูล
+        field_type: ประเภทข้อมูล
+        categories: หมวดหมู่รายการที่ข้อมูลจะถูกใช้
+        select_all: ~
+        clear_all: ~
+        options: ตัวเลือก
+        add_option: "+ เพิ่มตัวเลือก"
+        saving_order: บันทึกการเรียงลำดับข้อมูล
+        save_order_successful: บันทึกการเรียงลำดับข้อมูลสำเร็จแล้ว
+        save_order_error: "เกิดข้อผิดพลาดในขณะที่กำลังบันทึกการเรียงลำดับข้อมูล กรุณารีเฟรชหน้าเว็บ และลองอีกครั้ง"
+        select_one: เลือกประเภทข้อมูล...
+        continue: ดำเนินการต่อไป
+        minimum_value: น้อยที่สุด
+        maximum_value: มากที่สุด
+        allow_decimals: อนุญาตให้มีทศนิยม
+      new:
+        new_listing_field: ข้อมูลรายการใหม่
+      field_types:
+        text: ข้อความ
+        number: ตัวเลข
+        dropdown: Dropdown
+        checkbox_group: กลุ่มกล่องกาเครื่องหมาย
+        date: วันที่
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        signup: ~
+        public: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
+    emails:
+      new:
+        send_email_to_members: ส่งอีเมล์ไปหาผู้ใช้
+        send_email_to_members_title: ส่งอีเมล์ไปหาผู้ใช้ทุกคน
+        send_email: ส่งอีเมล์
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: "คุณสามารถเรียนรู้เพิ่มเติมเกี่ยวกับกลุ่มผู้ใช้ได้จาก %{article_link}"
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            posting_allowed: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
+        email_subject: หัวข้ออีเมล์
+        email_content: เนื้อหาของอีเมล์
+        email_content_placeholder: "คุณต้องการที่จะบอกอะไรกับผู้ใช้ของคุณ ?"
+        email_language: ภาษาของผู้รับอีเมล์
+        any_language: ภาษาใดก็ได้
+        message_will_be_sent_only_to_people_with_this_language: "หมายเหตุ: อีเมล์จะถูกส่งไปยังเฉพาะผู้ใช้ที่กำลังใช้ %{service_name} ในภาษาที่คุณ เลือก"
+        email_sent: ส่งอีเมล์สำเร็จแล้ว
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
+    left_hand_navigation:
+      general: ทั่วไป
+      users_and_transactions: จัดการ
+      configure: ตั้งค่า
+      emails_title: อีเมล์
+      subscription: ~
+      preview: ~
+      whats_new: ~
+    listing_shapes:
+      availability_title: ~
+      read_more: อ่านเพิ่มเติมเกี่ยวกับการจัดการความพร้อมใช้งานโดยอัตโนมัติ
+      read_more_availability_management: อ่านเพิ่มเติมเกี่ยวกับการจัดการความพร้อมใช้งาน
+      allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
+      can_not_find_name: "ไม่พบประเภทคำสั่งซื้อที่มีชื่อ: %{name}"
+      index:
+        listing_shapes: ประเภทการสั่งซื้อ
+        description: "ประเภทคำสั่งซื้อจะกำหนดว่ากระบวนการสั่งซื้อทำงานอย่างไรในไซต์ของคุณ คุณสามารถตัดสินใจได้ว่าผู้ใช้ของคุณกำลังเช่าหรือขายหรือเพียงแค่โพสต์ประกาศและสื่อสารผ่านทางข้อความโดยตรง"
+        read_more_about_order_types: อ่านเพิ่มเติมเกี่ยวกับประเภทการสั่งซื้อ
+        add_new_shape: "เพิ่มประเภทคำสั่งซื้อใหม่: "
+        select_template: เลือกเทมเพลต...
+        all_categories: หมวดหมู่ทั้งหมด
+        no_categories: ไม่มีหมวดหมู่
+        category_count: "%{category_count} หมวดหมู่"
+        header:
+          listing_shape_name: ชื่อชนิดของรายการ
+          listing_shape_categories: หมวดหมู่ที่ใช้งาน
+        order:
+          saving_order: กำลังบันทึกคำสั่งซื้อ
+          save_order_successful: บันทึกคำสั่งซื้อตามลำดับเรียบร้อยแล้ว
+          save_order_error: "เกิดข้อผิดพลาดในขณะที่กำลังบันทึกการเรียงลำดับข้อมูล กรุณารีเฟรชหน้าเว็บ และลองอีกครั้ง"
+      templates:
+        selling_products: ขายสินค้า
+        renting_products: การให้เช่าสินค้า
+        offering_services: การเสนอบริการ
+        giving_things_away: ปล่อยของฟรี
+        requesting: กำลังร้องขอ
+        announcement: โพสต์ประกาศ
+        custom: กำหนดเอง
+      new:
+        create_listing_shape: สร้างประเภทคำสั่งซื้อ
+        create: สร้าง
+        cancel: ยกเลิก
+        create_success: "สร้างประเภทคำสั่งซื้อใหม่ '%{shape}' แล้ว"
+        create_failure: "ไม่สามารถบันทึกการเปลี่ยนแปลงได้ ข้อผิดพลาด: %{error_msg}"
+      edit:
+        edit_listing_shape: "แก้ไขประเภทคำสั่งซื้อ '%{shape}'"
+        update: บันทึก
+        cancel: ยกเลิก
+        update_success: "เปลี่ยนประเภทคำสั่งซื้อ '%{shape}' แล้ว"
+        update_failure: "ไม่สามารถบันทึกการเปลี่ยนแปลงได้ ข้อผิดพลาด: %{error_msg}"
+        delete: ลบประเภทคำสั่งซื้อ
+        confirm_delete_order_type:
+          other: "มี %{count} รายการที่มีคำสั่งประเภทนี้อยู่ ถ้าคุณลบประเภทคำสั่ง รายการนี้จะถูกปิด คุณแน่ใจหรือว่าต้องการลบประเภทคำสั่งนี้?"
+        can_not_delete_last: คุณไม่สามารถลบประเภทคำสั่งซื้อนี้เนื่องจากเป็นประเภทเดียวในตลาดของคุณ
+        can_not_delete_only_one_in_categories: "คุณไม่สามารถลบประเภทใบสั่งซื้อได้เนื่องจากในประเภทต่อไปนี้ประเภทคำสั่งซื้อนี้มีเพียงประเภทเดียวที่ใช้งานอยู่: %{categories}"
+      listing_shape_name: ชื่อ
+      listing_shape_name_placeholder: "เช่น ขาย"
+      action_button_label: ชื่อปุ่มสั่งซื้อ
+      action_button_placeholder: "เช่น ซื้อ"
+      open_listings_warning:
+        other: "มี %{count} ประกาศที่ใช้งานอยู่ ที่สัมพันธ์กับชนิดของคำสั่งนี้ หากคุณเปลี่ยนการตั้งค่าด้านล่าง ประกาศนั้นจะยังคงมีการตั้งค่าแบบเก่าอยู่ ประกาศสามารถเปลี่ยนการตั้งค่าใหม่ได้โดยการแก้ไขรายการด้วยตนเอง หากคุณไม่ต้องการที่จะมีประกาศที่มีการตั้งค่าเก่าปรากฏอยู่บนเว็บไซต์ คุณสามารถปิดได้โดยคลิกที่ปุ่มด้านล่าง"
+      close_listings_action:
+        other: "ปิด %{count} รายการ"
+      confirm_close_listings_action:
+        other: "คุณแน่ใจหรือไม่ว่าต้องการปิด %{count} รายการ?"
+      successfully_closed: ปิดรายการเรียบร้อยแล้ว
+      successfully_deleted: "ลบประเภทคำสั่งซื้อ '%{order_type}' เรียบร้อยแล้ว"
+      pricing_and_checkout_title: ราคาและเช็คเอาท์
+      online_payments_label: อนุญาตให้ผู้ขายยอมรับการชำระเงินทางออนไลน์
+      shipping_label: "อนุญาตให้ผู้ขายกำหนด ค่าจัดส่ง ได้"
+      price_label: อนุญาตผู้ขายสามารถใส่ราคาลงในรายการของพวกเขาได้
+      units_title: หน่วยราคา
+      units_desc: "หากคุณเปิดใช้หน่วยการกำหนดราคาราคาในรายการจะแสดงเป็น \"ราคาต่อหน่วยการกำหนดราคา\" ตัวอย่าง: \"39 บาทต่อชั่วโมง\""
+      units:
+        piece: ต่อชิ้น
+        hour: ต่อชั่วโมง
+        day: ต่อวัน
+        night: ต่อคืน
+        week: ต่อสัปดาห์
+        month: ต่อเดือน
+        unit: ~
+      can_not_find: "ไม่พบประเภทใบสั่งที่มีรหัส: %{id}"
+      add_custom_unit: "+ เพิ่มหน่วยราคาเอง…"
+      delete_custom_unit: ลบ
+      custom_unit_form:
+        title: กำหนดหน่วยราคาใหม่
+        label_heading: ป้ายกำกับ
+        selector_label_heading: เลือกป้ายกำกับ
+        label_placeholder: "เช่น. \"กก.\", \"30 นาที\", \"คน\", \"ชั้นเรียน\""
+        selector_placeholder: "เช่น. \"จำนวนคน\", \"จำนวนเงินในกก.\""
+        per: ต่อ
+        unit_type:
+          heading: ประเภทหน่วย
+          quantity_label: "จำนวน (ต่อชิ้น, ต่อกิโลกรัม, ต่อคน,  2 ชั่วโมงต่อทัวร์...)"
+          time_label: "เวลา (ต่อ 30 นาทีม, ต่อ 2 สัปดาห์, ต่อปี...)"
+    paypal_accounts:
+      marketplace_paypal_integration: การตั้งค่าระบบการชำระเงิน
+      preferences_updated: อัปเดตการตั้งค่าระบบการชำระเงินแล้ว
+      contact_support_link_text: ~
+      integration_info_text: "ระบบการชำระเงินในตลาดของคุณจะถูกขับเคลื่อนโดย PayPal เพื่อให้ผู้ใช้ของคุณ ชำระเงินในตลาดของคุณ ฉะนั้นคุณต้องเชื่อมต่อบัญชี PayPal ของคุณ เมื่อคุณได้เชื่อมต่อบัญชี PayPal ของคุณแล้ว คุณจึงจะสามารถเลือกจำนวนขึ้นต่ำในการชำระเงินและ จำนวนเป็นไปได้ของค่าธรรมเนียมได้"
+      link_paypal_personal_account_label: ~
+      link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
+      personal_payment_preferences_link_text: ~
+      read_more_about_paypal: อ่านเพิ่มเติมเกี่ยวกับระบบการชำระเงิน
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
+      minimum_listing_price_label: "รายการขั้นต่ำ:"
+      transaction_fee_label: "ค่าธรรมเนียมการทำธุรกรรม:"
+      minimum_transaction_fee_label: "ค่าธรรมเนียมการทำธุรกรรมขั้นต่ำ:"
+      save_settings: บันทึกการตั้งค่า
+      minimum_listing_price_below_tx_fee: "รายการชำระเงินขั้นต่ำต้องสูงกว่าหรือเท่ากับค่าธรรมเนียมการทำธุรกรรมขั้นต่ำ: %{minimum_transaction_fee}"
+      minimum_listing_price_below_min: "รายการชำระเงินต้องสูงกว่าค่าคอมมิชชั่นขั้นต่ำ %{minimum_commission}"
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: "คุณไม่สามารถใช้งานชำระเงินออนไลน์ใน %{country_name} กับ %{currency} ได้ โปรดเลือกสกุลเงินอื่นหรือ %{support_link} เพื่อเปลี่ยนประเทศของคุณ คุณสามารถอ่านเพิ่มเติมเกี่ยวกับประเทศและสกุลเงินที่สนับสนุน %{help_link} ในอนาคตเราอาจเพิ่มผู้ให้บริการด้านการชำระเงินและสนับสนุนสกุลเงินเพิ่มเติม"
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: "อ่านเพิ่มเติมเกี่ยวกับการชำระเงินด้วย Stripe"
+      you_can_use_paypal_only: ~
+      read_more_paypal: "อ่านเพิ่มเติมเกี่ยวกับการชำระเงินผ่าน PayPal"
+      read_more_about_paypal_and_stripe: "อ่านเพิ่มเติมเกี่ยวกับการชำระเงินออนไลน์, Stripe และ PayPal"
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      the_transaction_fee_must_be_lower_than_100: ~
+      confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
+      stripe_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      paypal_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        publishable_key_example: ~
+        secret_key_example: ~
+        save_api_keys: ~
+        invalid_secret: ~
+        invalid_publishable: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
+    transaction_types:
+      sell: ขาย
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
+      rent: ให้เช่า
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
+      give: ให้เปล่า
+      lend: ให้ยืม
+      swap: แลก
+      service: ให้ข้อเสนอ
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
+      request: ต้องการ
+      inquiry: ประกาศ
+      share_for_free: แบ่งปันฟรี
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
+      default_action_button_labels:
+        sell: ซื้อ
+        rent: เช่า
+        request: เสนอ
+        offer: คำขอ
+        inquiry: ติดต่อ
+        book: ~
+    community_transactions:
+      show:
+        transaction_for: ~
+        status: ~
+        next_step: ~
+        waiting_for_provider_accept_or_reject: ~
+        waiting_for_fulfill_and_complete: ~
+        buyer: ~
+        provider: ~
+        delivery: ~
+        shipping_to: ~
+        buyer_pays: ~
+        marketplace_collects: ~
+        buyer_service_fee_label: ~
+        service_fee_label: ~
+        provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~

@@ -1,0 +1,1211 @@
+ar:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: "‎%{category}‎ تعديل القسم"
+      index:
+        listing_categories: "أقسام الإعلان"
+        create_a_new_category: "+ أضف قسم جديد"
+        remove_category_confirmation: "؟‎%{category_name}‎ هل أنت متأكد من حذف القسم"
+        saving_order: "حفظ ترتيب القسم"
+        save_order_successful: "تم حفظ ترتيب القسم بنجاح"
+        save_order_error: "فشل في الحفظ. رجاء قم بإعادة تهيئة الصفحة وأعد المحاولة مرة أخرى."
+      new:
+        new_listing_category: "قسم إعلان جديد"
+      form:
+        category_name:
+          category_title: "اسم القسم"
+        category_parent:
+          category_parent: "قسم متفرع"
+          no_parent: "قسم رئيسي"
+        category_transaction_types:
+          transaction_types: "نوع الطلبات"
+          transaction_types_description: ~
+          select_all: "تحديد الكل"
+          clear_all: "إلغاء تحديد الكل"
+        buttons:
+          save: حفظ
+          cancel: إلغاء
+      remove:
+        remove_category: "حذف القسم"
+        remove_category_name: "‎%{category_name}‎ حذف القسم"
+        warning_remove_effects: ":سيؤثر على ‎%{category_name}‎ تحذير! حذف القسم"
+        select_new_category: "اختر قسم جديد الذي سيتم نقل العناصر المدرجة أعلاه إليه:"
+        buttons:
+          remove: حذف
+          cancel: إلغاء
+    communities:
+      edit_details:
+        community_details: "التفاصيل الأساسية"
+        community_look_and_feel: التصميم
+        edit_community: "التفاصيل الأساسية"
+        enabled_languages: "تفعيل اللغات"
+        enabled_languages_description: "قم بتحديد اللغ الأساسية للمستخدمين الخيار الأول يكون الأساسي"
+        default_language: "اللغة الأساسية"
+        language_selection_disabled: ~
+        community_name: "اسم السوق الإلكتروني"
+        edit_community_name_description: " يظهر اسم المتجر الخاص بك.للمستخدمين في رسائل البريد الإلكتروني وأماكن أخرى مختلفة."
+        community_slogan: "شعار السوق الإلكتروني"
+        community_slogan_display: ~
+        edit_community_slogan_description: ~
+        edit_community_slogan_description_hideable: ~
+        community_description: "وصف السوق الإلكتروني"
+        community_description_display: ~
+        edit_community_description_description: ~
+        edit_community_description_description_hideable: ~
+        community_search_placeholder: "ابحث في نص المساعدة"
+        edit_community_search_placeholder_description: ~
+        private_community_homepage_content: ~
+        edit_private_community_homepage_content_description: "يتم عرض هذا المحتوى على الصفحة الرئيسية للمتجر الخاصة بالمستخدمين الذين لم يقوموا بتسجيل الدخول. هنا يمكنك وصف المتجر الخاص بك وكيفية عملية الانضمام إليه. يمكنك أيضًا إضافة الصور ومقاطع الفيديو ومحتوى‎%{see_how_it_looks_like}‎ HTML"
+        update_information: "حفظ الإعدادات"
+        invite_people: "‎%{service_name}‎ قم بدعوة مشتركين آخرين إلى"
+        edit_signup_info: "معلومات الإشتراك"
+        edit_signup_info_description: ~
+        edit_info: "تعديل المعلومات"
+        see_how_it_looks_like: "شاهد كيف تظهر"
+        verification_to_post_listings_info_content: "تعليمات للمستخدمين الغير مؤكدين"
+        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content_default: ~
+        contact_admin_link_text: "‎%{service_name}‎ تواصل مع مشرف"
+        save: "حفظ الإعدادات"
+        transaction_agreement: "اتفاق العملية"
+        transaction_agreement_checkbox: "اجبار المستخدم على قبول اتفاق قبل العملية"
+        transaction_agreement_checkbox_header: "عنوان الاتفاق"
+        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_text_header: "محتوى الاتفاق"
+        transaction_agreement_description: ~
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: "‎%{community_name}‎ تحرير مظهر السوق الإلكتروني"
+        community_logo: الشعار
+        community_logo_icon: "شعار لوسائل التواصل الاجتماعي وأجهزة المحمول"
+        community_logo_icon_mobile: ~
+        community_cover_photo: "صورة الواجهة"
+        small_community_cover_photo: "صورة غطاء صغيرة"
+        favicon: "شعار المتصفح"
+        favicon_info_text: ~
+        community_custom_color1: "اللون الرئيسي"
+        community_slogan_color: "لون شعار السوق الإلكتروني"
+        community_slogan_color_instructions_text: ~
+        community_description_color: "لون وصف السوق الإلكتروني"
+        community_description_color_instructions_text: ~
+        new_listing_button_custom_color: "لون زر الإضافة الجديدة"
+        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
+        cover_photo_visibility: "صورة الغطاء تظهر في الصفحة الرئيسية للمستخدمين الغير مسجلين."
+        cover_photo_instructions_text_with_dimensions: ~
+        we_have_you_covered: ~
+        cover_photo_ready_made: ~
+        small_cover_photo_visibility: "صورة الغطاء المصغرة تظهر في كل الصفحات ما عدا الصفحة الرئيسية للمستخدمين المسجلين"
+        small_cover_photo_instructions_text_with_dimensions: ~
+        main_content_width: ~
+        custom_color1_instructions_text: ~
+        new_listing_button_instructions_text: ~
+        default_browse_view: "عرض كمتصفح عادي"
+        default_browse_view_instructions_text: ~
+        grid: شبكة
+        list: قائمة
+        map: خارطة
+        name_display_type: "نوع عرض الإسم"
+        name_display_type_instructions_text: "اختر كيف سيتم عرض اسم المستخدم في الموقع"
+        full_name: "كامل الإسم (الأول والأخير)"
+        first_name_with_initial: "عرض جزئي (الأول ...)"
+        first_name_only: "الإسم الأول فقط (الأول)"
+        invalid_color_code: "رمز اللون يجب أن يحتوي على ٦ أرقام أو أحرف A-F، مثال: D96E21"
+        custom_head_script: "كود مخصص"
+        custom_head_script_instructions_text: ~
+        current_image: ~
+      edit_text_instructions:
+        edit_text_instructions: تعليمات
+      edit_welcome_email:
+        welcome_email_content: "محتوى الرسالة الترحيبية"
+        welcome_email_content_description: "سيتم إرسال الرسالة أدناه إلى كل مستخدم جديد عند انضمامه. يمكنك تخصيص الرسالة لتناسب المتجر الخاص بك. عن طريق النقر‎‎%{send_test_message_link}‎ يمكنك إرسال رسالة معاينة إلى عنوان بريدك الإلكتروني، حتى تتمكن من رؤية كيف تظهر في البريد الإلكتروني للعميل.  "
+        edit_message: "تعديل الرسالة"
+        send_test_message: "أرسل رسالة تجريبية"
+      outgoing_email:
+        title: "الإيميل المرسل"
+        info: ~
+        read_more: ~
+        sender_address: "‎%{sender_address}‎ :إيميل المرسل"
+        sender_address_default: ~
+        need_to_change: "‎%{contact_support_link}‎ إذا أردت تغيير البريد الإلكتروني تواصل مع الدعم الفني"
+        contact_support_link_text: "اتصل بالدعم الفني الخاص بـ Sharetribe"
+        set_sender_address: "تعيين عنوان المرسل"
+        sender_name_label: الإسم
+        sender_name_placeholder: "اسم المرسل"
+        sender_email_label: "البريد الإلكتروني"
+        sender_email_placeholder: sender-email@example.com
+        amazon_ses_notification: ~
+        this_is_how_it_will_look: "هكذا تبدو:"
+        send_verification_button: "أرسل رسالة التأكيد"
+        change_sender_email: "تغيير البريد الإلكتروني للمرسل"
+        successfully_saved: "تم حفظ بريد المرسل بنجاح، سيتم إرسال رسالة التأكيد حالا"
+        successfully_saved_name: "تم تحديث اسم المرسل بنجاح"
+        set_sender_name: "تغيير اسم المرسل"
+        change_sender_name: "تغيير اسم المرسل"
+        change_sender_prompt: "‎%{change_email_link}‎ أو ‎%{change_name_link}‎"
+        status: "‎%{status}‎ :الحالة"
+        status_verified: مؤكد-مستخدم
+        status_error: "حصل خطأ ما. يرجى إعادة تهيئة الصفحة."
+        status_requested: ~
+        status_expired: ~
+        status_resent: "تم ارسال رابط التأكيد مرة أخري ‎%{email}‎ ‎%{resend_link}‎"
+        resend_link: "إعادة الإرسال"
+        invalid_email_error: "خطأ في البريد الإلكتروني \"‎%{email}‎\""
+        invalid_email_address: ~
+        invalid_email_domain: ~
+        invalid_email_domain_read_more_link: ~
+        unknown_error: "حصل خطأ ما"
+        white_label_offer: ~
+        upgrade_plan_link: ~
+        verification_sent_from: "تم ارسال رسالة التأكيد عبر ‎%{verification_sender_name}‎"
+        follow_the_instructions: "يرجى اتباع التعليمات في البريد الإلكتروني لتأكيد عنوانك"
+      getting_started:
+        getting_started: ~
+      available_languages:
+        bg: ~
+        ca: ~
+        cs: ~
+        da-DK: ~
+        de: ~
+        el: ~
+        en: ~
+        en-AU: ~
+        en-GB: ~
+        es: ~
+        es-ES: ~
+        et: ~
+        fi: ~
+        fr: ~
+        fr-CA: ~
+        hr: ~
+        hu: ~
+        it: ~
+        ja: ~
+        ko: ~
+        lt: ~
+        nb: ~
+        nl: ~
+        pl: ~
+        pt-BR: ~
+        pt-PT: ~
+        ro: ~
+        ru: ~
+        sk-SK: ~
+        sl: ~
+        sv: ~
+        th-TH: ~
+        tr-TR: ~
+        uk: ~
+        vi: ~
+        zh: ~
+        zh-TW: ~
+      settings:
+        settings: إعدادات
+        general: عام
+        access: "قبول التفضيلات"
+        join_with_invite_only: "كل المشتركين يحق لهم الإشتراك إذا قام مشتركين مسجلين سابقا بدعوتهم"
+        users_can_invite_new_users: "السماح لكل المشتركين بدعوة الآخرين"
+        private: "السماح فقط للمشتركين المسجلين بمشاهدة الإعلانات والملفات الشخصية، اجعل هذا السوق خاص"
+        require_verification_to_post_listings: "السماح فقط للمشتركين المؤكدين من المشرف بإضافة إعلانات"
+        allow_free_conversations: ~
+        search_preferences: "تفضيلات البحث"
+        search_and_location_preferences: ~
+        default_search_type: "‎%{select_search_type}‎ :نوع البحث"
+        keyword_search: "بحث بالكلمة"
+        keyword_and_location_search: "طرق البحث بالكلمة والموقع"
+        location_search: "بحث بالموقع"
+        select_distance_unit: "أظهر المسافة بـ ‎%{distance_units_selector}‎"
+        km: كلم
+        miles: ميل
+        show_only_nearby: "أظهر فقط الإعلانات القريبة عند البحث بواسطة الموقع"
+        allow_users_to_add_location: ~
+        fuzzy_location: ~
+        listing_preferences: "تفضيلات الإعلان"
+        transaction_preferences: "تفضيلات الطلب"
+        show_listing_publishing_date: ~
+        show_category_in_listing_list: ~
+        listing_comments_in_use: ~
+        email_preferences: "تفضيلات البريد الإلكتروني"
+        automatic_newsletters: ~
+        email_admins_about_new_members: ~
+        google_analytics_key: ~
+        twitter_handle: ~
+        update_settings: "حفظ الإعدادات"
+        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow_stripe_info: "للعمليات الشرائية التي تتم من خلال سترب يتم تأخير الدفعات لمزود الخدمة إلى أن يتم تحديد الطلب بالمكتمل. ‎%{learn_more}‎"
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
+        automatic_newsletter_frequency: "‎%{frequency_dropdown}‎: أرسل نشرات إخبارية تلقائيا"
+        newsletter_daily: يومي
+        newsletter_weekly: أسبوعي
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: "هل أنت متأكد؟"
+        i_understand_button: ~
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
+        payment_preferences: "نظام الدفع"
+        pre_approved_listings: ~
+        email_admins_about_new_transactions: ~
+      manage_members:
+        manage_members: "إدارة المستخدمين"
+        email: "بريد إلكتروني"
+        name: الإسم
+        display_name: "الأسم المعروض"
+        join_date: "تم الإنضمام"
+        admin: المشرف
+        posting_allowed: "النشر مسموح"
+        ban_user: حظر
+        saving_user_status: "جاري الحفظ..."
+        save_user_status_successful: "تم الحفظ"
+        export_all_as_csv: "استخرج الكل في ملف إكسل"
+        save_user_status_error: "فشل في الحفظ. رجاء قم بإعادة تهيئة الصفحة وأعد المحاولة مرة أخرى."
+        ban_user_confirmation: ~
+        unban_user_confirmation: "سوف يلغى الحظر عن هذا الحساب وسيتمكن من التسجيل مرة أخرى في السوق عبر نفس الحساب. هل أنت متأكد من ذلك؟"
+        ban_me_error: "لا يمكنك حظر نفسك"
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
+        search: بحث
+        search_by_name_email: "ابحث عن اسم أو بريد إلكتروني أو اسم معروض"
+        reset_search: "أظهر الكل"
+        for_search_terms: ~
+        this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        confirm: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
+      new_layout:
+        new_layout: "تصميم جديد"
+        description_roadmap_new: ~
+        enabled_for_you: "مفعل لك فقط"
+        enabled_for_all: "تفعيل للكل"
+        new_topbar: "قائمة علوية جديدة (متوفر على كل صفحة)"
+        searchpage: "صفحة بحث جديدة تحتاج إلى شريط علوي جديد"
+        new_email_templates: ~
+      social_media:
+        social_media: "وسائل التواصل الاجتماعي"
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: "إقرأ المزيد"
+        twitter_handle_placeholder: "اسم المستخدم"
+        invalid_twitter_handle: ~
+        facebook_connect: فيسبوك
+        facebook_developers_dashboard: ~
+        facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
+        enable_facebook_login: ~
+        save: "حفظ الإعدادات"
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_developers_console: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
+        save: ~
+      analytics:
+        analytics: تحليلات
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
+        save: "حفظ الإعدادات"
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
+      menu_links:
+        menu_links: "روابط القائمة"
+        menu_links_display: ~
+        save: "حفظ الإعدادات"
+        add_menu_link: "إضافة رابط جديد الي القائمة"
+        title_placeholder: "عنوان الرابط"
+        url_placeholder: ~
+        title: العنوان
+        language: اللغة
+        url: الرابط
+        empty: ~
+        max_number_of_links: ~
+        all: "إظهار الكل"
+        max_number_of_links_info: ~
+        about_page: نبذة
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
+      topbar:
+        topbar: "القائمة العلوية"
+        new_listing_button_label: "أدخل نص جديد لزر الإضافة الجديدة"
+        invalid_post_listing_button_label: "يرجى إعطاء نص صحيح لزر \"إدراج إعلان جديد\""
+      transactions:
+        export_all_as_csv: "استخرج الكل في ملف إكسل"
+        processing_export: "جاري المعالجة..."
+        transactions: "أظهر العملية"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          disputed: ~
+          preauthorized: ~
+          rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
+          refunded: ~
+          dismissed: ~
+        headers:
+          conversation: ~
+          listing: إعلان
+          status: الحالة
+          sum: المجموع
+          started: بدأ
+          last_activity: "التفاعل الأخير"
+          initiated_by: البداية
+          other_party: "جهة أخرى"
+        status:
+          conversation: محادثه
+          free: محادثة
+          pending: "قيد الإنتظار"
+          preauthorized: مخول
+          accepted: مقبول
+          rejected: مرفوض
+          paid: مدفوع
+          confirmed: "تم إنجازه"
+          canceled: ملغى
+          disputed: ~
+          initiated: ~
+          pending_ext: ~
+          none:
+            free: المحادثات
+          paypal:
+            free: المحادثات
+            pending: "قيد الانتظار"
+            preauthorized: "مخول مسبقا"
+            accepted: مقبول
+            rejected: مرفوض
+            paid: مدفوع
+            confirmed: مؤكد
+            canceled: ملغي
+            disputed: ~
+            initiated: "انتظار دفع باي بال"
+            pending_ext: "انتظار دفع باي بال"
+            refunded: ~
+            dismissed: ~
+          stripe:
+            free: محادثات
+            pending: "قيد الانتظار"
+            preauthorized: "مخول مسبقا"
+            accepted: مقبول
+            rejected: مرفوض
+            paid: مدفوع
+            confirmed: مؤكد
+            canceled: ملغي
+            disputed: ~
+            initiated: "انتظار دفع سترب"
+            pending_ext: "انتظار دفع سترب"
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
+            refunded: ~
+            dismissed: ~
+        not_available: "غير متوفر"
+      conversations:
+        conversations: "أظهر المحادثات"
+        headers:
+          started_from: "بدأت من"
+          status: الحاله
+          started: بدأت
+          last_activity: "آخر نشاط"
+          initiated_by: البداية
+          other_party: "الجهة الأخرى"
+        participants: "‎%{author}‎ مع ‎%{starter}‎ :المحادثه"
+        profile: "الشخصي ‎%{author}‎‎ ملف"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+      testimonials:
+        testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          text: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
+          blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
+      listings:
+        listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+          approval_pending: ~
+          approval_rejected: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
+        expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
+      user_fields:
+        user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_help_center: ~
+        info_3: ~
+        info_4: ~
+        editor_title: ~
+        editor_info: ~
+        preview: ~
+        set_live: ~
+        add_new_section: ~
+        select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
+        form:
+          save: ~
+          cancel: ~
+        sections:
+          identifier: ~
+          kind: ~
+          new: ~
+          edit: ~
+          remove_section_confirmation: ~
+          info_single_column: ~
+          info_multi_column_2: ~
+          info_multi_column_3: ~
+          listings: ~
+          categories: ~
+          hero: ~
+          locations: ~
+          video: ~
+          new_section:
+            categories: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+          edit_section:
+            categories: ~
+            footer: ~
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+      attachments:
+        delete: ~
+        or_change: ~
+    landing_page_versions:
+      sections:
+        content:
+          title: ~
+        hero:
+          hero_title: ~
+          hero_description: ~
+          basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
+        footer:
+          footer_title: ~
+          footer_style: ~
+          style_dark: ~
+          style_light: ~
+          style_marketplace_color: ~
+          style_logo: ~
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: ~
+          cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
+        background_image_overlay:
+          background_image: ~
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: ~
+          title_placeholder: ~
+          url: ~
+          url_placeholder: ~
+        multi_column:
+          main_title: ~
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon_info_link: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          listings_to_feature: ~
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: ~
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
+          youtube_video_id_info: ~
+    custom_fields:
+      edit:
+        edit_listing_field: "‎%{field_name}‎ تعديل حقل الإعلان"
+      edit_price:
+        description: "أقل وأكبر قيمة للسعر فقط تؤثر على الفرز. ولا تحدد سعر الإعلان"
+        edit_price_field: "تعديل حقل 'السعر'"
+        show_price_filter_homepage: "أضف فرز بالسعر إلى الصفحة الرئيسية"
+        price_min: "أقل قيمة لفرز السعر"
+        price_max: "أكبر قيمة لفرز السعر"
+      edit_location:
+        edit_location_field: "تحرير حقل الإعلان \"الموقع\""
+        this_field_is_required: "هذا الحقل إجباري"
+        the_location_feature_can_be_enabled: ~
+      edit_expiration:
+        edit_expiration_field: "تحرير حقل الإعلان \"تاريخ الانتهاء\""
+        enable: "تفعيل تاريخ الانتهاء"
+      form:
+        field_required:
+          this_field_is_required: "اجعل هذا الحقل إجباري عندما يتم إنشاء إعلان جديد"
+          this_field_is_required_checkbox: ~
+        search_filter:
+          search_filter: "عرض طريقة الفرز باستخدام هذا الحقل في الصفحة الرئيسية"
+          date_cant_be_filtered: "لا يوجد طريقة فرز لتاريخ حقل"
+          text_cant_be_filtered: "لا يوجد طريقة فرز لحقل كلمة. حقل البحث في الموقع يؤدي غرض البحث عن كلمة."
+      index:
+        listing_fields: "فرز وحقول الإعلانات"
+        listing_fields_help: ~
+        add_new_field: "أضف حقل جديد"
+        remove_field_confirmation: "؟‎%{field_name}‎ هل أنت متأكد من حذف الحقل"
+        cancel: إلغاء
+        save: حفظ
+        field_title: "عنوان الحقل"
+        field_type: "نوع الحقل"
+        categories: "أقسام الأعلانات حيث سيتم استخدام الحقل"
+        select_all: "تحديد الكل"
+        clear_all: "إلغاء تحديد الكل"
+        options: خيارات
+        add_option: "+أضف خيارات"
+        saving_order: "حفظ ترتيب الحقل"
+        save_order_successful: "تم حفظ ترتيب الحقل بنجاح"
+        save_order_error: "فشل في الحفظ. رجاء قم بإعادة تهيئة الصفحة وأعد المحاولة مرة أخرى."
+        select_one: "حدد نوع الحقل"
+        continue: استمرار
+        minimum_value: أقل
+        maximum_value: أكثر
+        allow_decimals: "السماح بـالأرقام العشرية"
+      new:
+        new_listing_field: "حقل إعلان جديد"
+      field_types:
+        text: نص
+        number: رقم
+        dropdown: "قائمة عرض"
+        checkbox_group: "اختيار متعدد"
+        date: تاريخ
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        signup: ~
+        public: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
+    emails:
+      new:
+        send_email_to_members: "أرسل رسالة إلى مستخدمين"
+        send_email_to_members_title: "أرسل رسالة إلى جميع المستخدمين"
+        send_email: "أرسل الرسالة"
+        send_email_or: أو
+        send_test_email: "أرسل رسالة تجريبية لنفسك"
+        test_sent: "تم ارسال الرسالة التجريبية لصندوق البريد الخاص بك"
+        send_email_article_title: "هذا الموضوع"
+        send_email_article_text: "‎%{article_link}‎ لتفاصيل أكثر عن قطاع المستخدم"
+        recipients:
+          title: "لمن تريد أن ترسل الرسالة؟"
+          options:
+            all_users: "كل المستخدمين"
+            posting_allowed: ~
+            with_listing: "االمستخدمون الذين وضعو إعلان واحد على الأقل"
+            with_listing_no_payment: "المستخدمون الذين وضعو إعلان واحد على الأقل ولكن دون تفاصيل طريقة الدفع"
+            with_payment_no_listing: "المستخدمون الذين وضعو تفاصيل طريقة الدفع ولكن دون الإعلان"
+            no_listing_no_payment: "المستخدمون الذين لم يضعوا إعلان ولا تفاصيل طريقة الدفع"
+        email_subject: "موضوع الرسالة"
+        email_content: "محتوى الرسالة"
+        email_content_placeholder: "ماذا تود أن تقول لهذا المستخدم؟"
+        email_language: "لغة مستقبلي الرسالة"
+        any_language: "أي لغة"
+        message_will_be_sent_only_to_people_with_this_language: "حسب اللغة التي تختارها سترسل الرسالة لمستخدمي ‎%{service_name}‎"
+        email_sent: "تم إرسال الرسالة"
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
+    left_hand_navigation:
+      general: عام
+      users_and_transactions: "المستخدمين والعمليات"
+      configure: تعديل
+      emails_title: "عناوين بريدية"
+      subscription: الإشتراك
+      preview: "معاينة الموقع"
+      whats_new: ~
+    listing_shapes:
+      availability_title: الإتاحة
+      read_more: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
+      per_day_availability: "متاح باليوم"
+      per_night_availability: "متاح بالليلة"
+      pricing_units_disabled_info: "لا يمكن استخدام وحدات الأسعار عندما يكون التقويم مفعل."
+      can_not_find_name: ~
+      index:
+        listing_shapes: "أنواع الطلب"
+        description: ~
+        read_more_about_order_types: ~
+        add_new_shape: ~
+        select_template: ~
+        all_categories: "كل الأقسام"
+        no_categories: "لا يوجد أقسام"
+        category_count: "قسم ‎%{category_count}‎"
+        header:
+          listing_shape_name: "اسم نوع الطلب"
+          listing_shape_categories: "الأقسام التي سيستخدم فيها"
+        order:
+          saving_order: "حفظ الطلب"
+          save_order_successful: "تم حفظ نوع الطلب بنجاح"
+          save_order_error: ~
+      templates:
+        selling_products: "بيع منتج"
+        renting_products: "تأجير منتج"
+        offering_services: "عرض خدمة"
+        giving_things_away: "العرض مجانا"
+        requesting: طلب
+        announcement: "إعلان عام"
+        custom: مخصص
+      new:
+        create_listing_shape: "إنشاء نوع طلب"
+        create: إنشاء
+        cancel: إلغاء
+        create_success: "‎%{shape}‎ تم انشاء نوع طلب جديد"
+        create_failure: ~
+      edit:
+        edit_listing_shape: "‎%{shape}‎ تحرير نوع الطلب"
+        update: حفظ
+        cancel: إلغاء
+        update_success: "تم حفظها ‎%{shape}‎ تغييرات إلى نوع الطلب"
+        update_failure: ~
+        delete: "حذف نوع الطلب"
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
+      listing_shape_name: الإسم
+      listing_shape_name_placeholder: "مثال. بيع"
+      action_button_label: "تسمية زر المحاسبة"
+      action_button_placeholder: "مثال. شراء"
+      close_listings_action:
+        zero: "إعلان ‎%{count}‎ إغلاق"
+        one: "إعلان ‎%{count}‎ إغلاق"
+        two: "إعلان ‎%{count}‎ إغلاق"
+        few: "إعلانات ‎%{count}‎ إغلاق"
+        many: "إعلان ‎%{count}‎ إغلاق"
+        other: "إعلان ‎%{count}‎ إغلاق"
+      confirm_close_listings_action:
+        zero: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        one: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        two: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        few: "إعلانات ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        many: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+        other: "إعلان ‎%{count}‎ هل أنت متأكد من إغلاق عدد"
+      successfully_closed: "تم إغلاق الإعلان بنجاح"
+      successfully_deleted: ~
+      pricing_and_checkout_title: "التسعير والخروج"
+      online_payments_label: "السماح للبائعين باستقبال دفعات عبر الإنترنت"
+      shipping_label: "السماح للبائعين بتحديد سعر الشحن"
+      price_label: "السماح للبائعين بوضع سعر لإعلاناتهم"
+      units_title: "وحدة التسعير"
+      units_desc: ~
+      units:
+        piece: بالقطعة
+        hour: بالساعة
+        day: باليوم
+        night: بالليلة
+        week: بالأسبوع
+        month: بالشهر
+        unit: ~
+      can_not_find: ~
+      add_custom_unit: "+أضف وحدة سعر خاصة..."
+      delete_custom_unit: حذف
+      custom_unit_form:
+        title: "وحدة سعر جديدة"
+        label_heading: تسمية
+        selector_label_heading: "محدد التسمية"
+        label_placeholder: "مثال. \"كيلو\"، \"٣٠ دقيقة\"، \"شخص\"، \"حصة\""
+        selector_placeholder: "مثال. \"عدد الأشخاص\" ، \"الكمية بالكيلو\""
+        per: بـ
+        unit_type:
+          heading: "نوع الوحدة"
+          quantity_label: "الكمية (بالقطعة، بالكيلو، بالشخص، بالساعة...)"
+          time_label: "الوقت (بالـ ٣٠ دقيقة، بالثلاثة أسابيع، بالسنة...)"
+    paypal_accounts:
+      marketplace_paypal_integration: "مفضلات نظام الدفع"
+      preferences_updated: "تم تحديث تفضيلات نظام الدفع"
+      contact_support_link_text: "اتصل بالدعم الفني"
+      integration_info_text: ~
+      link_paypal_personal_account_label: "هل تقوم بتقديم خدمات أو منتجات بنفسك؟"
+      link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
+      personal_payment_preferences_link_text: "حسابك الخاص في السوق الإلكتروني"
+      read_more_about_paypal: ~
+      edit_payment_settings: "تعديل إعدادات طريقة الدفع"
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ":عملة السوق الإلكتروني"
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      minimum_transaction_fee_label: ~
+      save_settings: "حفظ الإعدادات"
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
+    payment_preferences:
+      title: "تفضيلات نظام الدفع"
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      the_transaction_fee_must_be_lower_than_100: ~
+      confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
+      stripe_connected:
+        title: ~
+        disable: "تعطيل سترب"
+        disabled: "سترب غير مفعل"
+        enable: "إعادة تفعيل سترب"
+      paypal_connected:
+        title: ~
+        disable: "تعطيل باي بال"
+        disabled: "باي بال غير مفعل"
+        enable: "إعادة تفعيل باي بال"
+      cannot_enable_gateway: "‎%{gateway}‎ لا يمكنك تفعيل طريقة الدفع ."
+      cannot_disable_gateway: "‎%{gateway}‎ لا يمكنك تعطيل طريقة الدفع ."
+      cannot_enable_gateway_because_of_buyer_commission: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        publishable_key_example: "‎%{api_publishable_key_example}‎ على سبيل المثال:"
+        secret_key_example: "‎%{api_secret_key_example}‎ على سبيل المثال:"
+        save_api_keys: ~
+        invalid_secret: "صحيح ‎%{secret_key}‎ هذا لا يظهر بأنه"
+        invalid_publishable: "صحيح ‎%{publishable_key}‎ هذا لا يضهر بأنه"
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
+    transaction_types:
+      sell: بيع
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
+      rent: تأجير
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
+      give: مجانا
+      lend: إعارة
+      swap: مبادلة
+      service: عرض
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
+      request: طلب
+      inquiry: تصريح
+      share_for_free: "المشاركة مجانا"
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
+      default_action_button_labels:
+        sell: شراء
+        rent: تأجير
+        request: عرض
+        offer: طلب
+        inquiry: اتصال
+        book: ~
+    community_transactions:
+      show:
+        transaction_for: ~
+        status: ~
+        next_step: ~
+        waiting_for_provider_accept_or_reject: ~
+        waiting_for_fulfill_and_complete: ~
+        buyer: ~
+        provider: ~
+        delivery: ~
+        shipping_to: ~
+        buyer_pays: ~
+        marketplace_collects: ~
+        buyer_service_fee_label: ~
+        service_fee_label: ~
+        provider_receives: ~
+        admin_info_text: ~
+        manage_reviews: ~
+        you_should_investigate: ~
+        learn_more: ~
