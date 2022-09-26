@@ -78,6 +78,10 @@ class PlansController < ApplicationController
         if plan.dig(:features, :landing_page) == false
           LandingPage.where(community_id: plan[:community_id]).update_all(enabled: false) # rubocop:disable Rails/SkipsModelValidations
         end
+
+        if plan.dig(:features, :whitelabel) == false
+          Community.find_by(id: plan[:community_id])&.update(use_domain: false)
+        end
       end
 
       logger.info("Created new plans based on the notification", nil, created_plans)
