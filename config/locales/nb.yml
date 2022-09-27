@@ -5,1229 +5,6 @@ nb:
         separator: ","
         delimiter: " "
         format: "%u %n"
-  admin:
-    categories:
-      edit:
-        edit_listing_category: "Rediger kategori`%{category}`"
-      index:
-        listing_categories: "Annonse kategorier"
-        create_a_new_category: "+opprett ny kategori"
-        remove_category_confirmation: "Er du sikker på at du ønsker å fjerne kategori`%{category_name}`"
-        saving_order: "Lagrer rekkefølge på kategorier"
-        save_order_successful: "Rekkefølge på kategorier lagret"
-        save_order_error: "Det var en feil ved lagring av kategorier. Vennligst oppdater siden og forsøk igjen"
-      new:
-        new_listing_category: "Ny annonse kategori"
-      form:
-        category_name:
-          category_title: "Kategori tittel"
-        category_parent:
-          category_parent: "Hoved kategori"
-          no_parent: "Ingen hovedkategori"
-        category_transaction_types:
-          transaction_types: Transaksjonstyper
-          transaction_types_description: "Transaksjonstyper bestemmer hvilke type transaksjoner som er tillatt for annonser i denne kategorien. For eksempel kun salg eller også mulig å leie ut og gi bort."
-          select_all: "Merk alle"
-          clear_all: "Fjern alle"
-        buttons:
-          save: Lagre
-          cancel: Avbryt
-      remove:
-        remove_category: "Fjern kategori"
-        remove_category_name: "Fjern kategori`%{category_name}`"
-        warning_remove_effects: "Advarsel! Fjerning av kategori`%{category_name}`vil ha følgende konsekvenser:"
-        warning_listing_will_be_moved:
-          one: "Det er %{count} annonse i kategorien. Den vil bli flyttet til valgte kategori."
-          other: "Det er %{count} annonser i kategoriern. De vil bli flyttet til valgte kategori."
-        warning_custom_field_will_be_moved:
-          one: "Det er %{count} spesialfelt i kategorien. Det vil bli flyttet til valgt kategori."
-          other: "Det er %{count} spesialfelt i kategorien. De vil bli flyttet til valgt kategori."
-        warning_subcategory_will_be_removed:
-          one: "Det er %{count} underkategori i kategorien. Den vil bli fjernet."
-          other: "Det er %{count} underkategorier i kategorien. De vil bli fjernet."
-        warning_with_subcategories_listing_will_be_moved:
-          one: "Det er%{count} annonse i kategorien og underkategoriene. Den vil bli flyttet til valgt kategori."
-          other: "Det er%{count} annonser i kategorien og underkategoriene. De vil bli flyttet til valgt kategori."
-        warning_with_subcategories_custom_field_will_be_moved:
-          one: "Det er %{count} spesialfelt i kategorien og underkategoriene. Det vil bli flyttet til valgt kategori."
-          other: "Det er %{count} spesialfelt i kategorien og underkategoriene. De vil bli flyttet til valgt kategori."
-        select_new_category: "Velg en ny kategori hvor det listet over skal flyttes til:"
-        buttons:
-          remove: Fjern
-          cancel: Avbryt
-    communities:
-      edit_details:
-        community_details: "Grunnleggende informasjon"
-        community_look_and_feel: Design
-        edit_community: "Grunnleggende informasjon"
-        enabled_languages: "Aktiverte språk"
-        enabled_languages_description: "Språk tilgjengelige for brukere. Det første brukes som standard."
-        default_language: Standardspråk
-        language_selection_disabled: "Språkvalg er deaktivert på din markedsplass fordi du bruker følgende uoffisielle språk: %{languages}. Vennligst kontakt Sharetribe kundeservice hvis du vil endre dine språkvalg."
-        community_name: "Navn markedsplass"
-        edit_community_name_description: "Navnet på din markedsplass er vist til brukere i epost og forskjellige andre steder."
-        community_slogan: "Slogan markedsplass"
-        community_slogan_display: ~
-        edit_community_slogan_description: "Dette vises på din forside for brukere på din markedsplass som ikke er logget inn. %{see_how_it_looks_like}"
-        edit_community_slogan_description_hideable: ~
-        community_description: "Beskrivelse markedsplass"
-        community_description_display: ~
-        edit_community_description_description: "Dette vises på din forside for brukere på din markedsplass som ikke er logget inn. %{see_how_it_looks_like}"
-        edit_community_description_description_hideable: ~
-        community_search_placeholder: "Søk hjelpe tekst"
-        edit_community_search_placeholder_description: "Dette vises på forsiden som forklaringstekst i søkefeltet. %{see_how_it_looks_like}."
-        private_community_homepage_content: "Privat markedsplassinhold"
-        edit_private_community_homepage_content_description: "Dette innholdet vises til brukere som ikke er logget inn på forsiden av private markedsplasser. Her kan du beskrive markedsplassen og hvordan bli medlem. Du kan også legge til bilder, videoer og HTML-innhold her. %{see_how_it_looks_like}."
-        update_information: "Lagre innstillinger"
-        invite_people: "Invitér nye brukere"
-        edit_signup_info: Registreringsinformasjon
-        edit_signup_info_description: "Dette er en info side som kan bli vist til brukere på signup siden. På den siden kan du gi brukerne instruksjoner for signup, informasjon som hvor få en invitasjon, etc. Som default er der ingen restriksjoner."
-        edit_info: "Redigere informasjon"
-        see_how_it_looks_like: "Se hvordan det ser ut"
-        verification_to_post_listings_info_content: "Infotekst til uverifiserte brukere"
-        verification_to_post_listings_info_content_description: "For øyeblikket må brukerne dine bli verifisert av deg manuelt før de kan legge ut annonser. Her kan du velge standardmelding som uverifiserte brukere får se når de forsøker å opprette annonse."
-        verification_to_post_listings_info_content_default: "%{service_name} krever at brukere manuelt godkjennes før de kan legge ut annonser. Du er foreløpig ikke godkjent. Vennligst %{contact_admin_link} for å bli godkjent."
-        contact_admin_link_text: "Kontakt admin"
-        save: "Lagre innstillinger"
-        transaction_agreement: Transaksjonsavtale
-        transaction_agreement_checkbox: "Kreve at brukere aksepterer en avtale før transaksjonen"
-        transaction_agreement_checkbox_header: Vilkårmerke
-        transaction_agreement_checkbox_label_description: "Denne teksten vil bli vist med en avkrysningsboks ved utsjekk. Brukeren må krysse av boksen for å gjennomføre transaksjonen. Eksempel på tekst er \"Ved å krysse av denne boksen aksepterer jeg vilkårene.\""
-        transaction_agreement_text_header: "Avtale tekst"
-        transaction_agreement_description: "Dette innholdet er vilkårene brukeren må akseptere. Vilkårne er vist når bruker trykker på \"%{read_more}\"-lenken ved siden av vilkårmerket."
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
-      edit_look_and_feel:
-        edit_community_look_and_feel: "Redigere markedsplass \"%{community_name}\" uttrykk og følelse"
-        community_logo: Skrivebordslogo
-        community_logo_icon: "Logo for sosiale nettverk og mindre skjermer."
-        community_logo_icon_mobile: ~
-        community_cover_photo: Forsidebilde
-        small_community_cover_photo: "Lite forsidebilde"
-        favicon: Favicon
-        favicon_info_text: "Favicon vil erstatte Sharetribe standardlogo. Størrelsen bør være 32x32 piksler. Bilder som lastes opp blir endret i størrelse til disse målene."
-        community_custom_color1: Hovedfarge
-        community_slogan_color: "Farge på markedsplassens slagord"
-        community_slogan_color_instructions_text: "Du kan endre fargen på slagordet på forsiden ved å angi en fargekode i heksadesimaler. Slagordet vises til brukere som ikke er logget inn. %{colorpicker} kan hjelpe deg å velge en farge og gir deg også heksadesimalkoden på fargen. Du kan så lime inn koden her. %{see_how_it_looks_like}."
-        community_description_color: "Farge på markedsplassens beskrivelse"
-        community_description_color_instructions_text: "Du kan endre fargen på beskrivelsen på forsiden ved å angi en fargekode i heksadesimaler. Beskrivelsen vises til brukere som ikke er logget inn. %{colorpicker} kan hjelpe deg å velge en farge og gir deg også heksadesimalkoden på fargen. Du kan så lime inn koden her. %{see_how_it_looks_like}."
-        new_listing_button_custom_color: "Farge på knappen for å opprette ny annonse"
-        logo_instructions_text_with_dimensions: "Desktop logo størrelse skal være %{height}x%{width}px. Blir vist til brukere med større skjermer."
-        logo_instructions_text_with_dimensions_no_placing: "Størrelsen på logoen burde være %{height} x %{width} piksler."
-        logo_icon_instructions_text_with_dimensions: "Denne firkantede logoen blir vist når siden blir delt på Facebook, vist på moblie enheter og når de bokmerker siden på mobil. Dimensjonene bør (minst) være %{width}x%{height}px."
-        logo_icon_instructions_text_with_dimensions_no_placing: "Denne kvadratiske logoen blir vist når siden blir delt på Facebook, vist på moblie enheter og når de bokmerker siden på mobil. Dimensjonene bør være (minst) %{width} x %{height} piskler."
-        logo_mobile_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: "Forsidebildet vises på forsiden for brukere som ikke er logget inn."
-        cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten. %{see_how_it_looks_like}"
-        we_have_you_covered: ~
-        cover_photo_ready_made: ~
-        small_cover_photo_visibility: "Mindre forsidebilde vises på alle sider bortsett fra forsiden for brukere som ikke er logget inn."
-        small_cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten."
-        main_content_width: "Vær obs på at hovedinnholdet på siden er %{main_width} piksler bred på det meste når du velger forsidebilde. Husk også å sjekke hvordan forsidebildet ser ut på mindre skjermer (for eksempel ved å endre størrelsen på nettleservinduet)."
-        custom_color1_instructions_text: "Du kan endre hovedfargen på brukergrensesnittet ved å skrive inn en hex-kode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan hjelpe deg med å finne en farge og kopiere koden hit."
-        new_listing_button_instructions_text: "Du kan endre fargen på knappen for å opprette en ny annonse ved å angi en fargekode i heksadesimaler. %{link_to_colorpicker} kan hjelpe deg å velge farge. Kopier koden og lim den inn her."
-        default_browse_view: Standardvisning
-        default_browse_view_instructions_text: "Standardvisning er brukt på forsiden for å velge hvordan annonser vises som standard."
-        grid: Rutenett
-        list: Annonse
-        map: Kart
-        name_display_type: "Visningstype navn"
-        name_display_type_instructions_text: "Velg hvordan navnet til hver bruker er vist på siden."
-        full_name: "Fullt navn (Fornavn Etternavn)"
-        first_name_with_initial: "Fornavn med initialer (Fornavn E)"
-        first_name_only: "Kun fornavn (Fornavn)"
-        invalid_color_code: "Fargekode skal inneholde 6 tall eller bokstaver A-F, for eksempel D96E21"
-        custom_head_script: "Custom script"
-        custom_head_script_instructions_text: ~
-        current_image: ~
-      edit_text_instructions:
-        edit_text_instructions: Instruksjonstekster
-      edit_welcome_email:
-        welcome_email_content: "Innhold i velkomstmelding"
-        welcome_email_content_description: "Meldingen nedenfor blir sendt ut til alle nye brukere når de registrerer seg. Du kan tilpasse meldingen slik at den passer din markedsplass. Ved å trykke på '%{send_test_message_link}' kan du forhåndsvise meldingen ved å sende en test til din egen epost."
-        edit_message: "Rediger melding"
-        send_test_message: "Send test melding"
-      outgoing_email:
-        title: "Utgående epostadresse"
-        info: "Dette navnet og adressen brukes for eposter som sendes fra din markedsplass til medlemmene."
-        read_more: "Les mer om utgående epostadresse."
-        sender_address: "Avsender: %{sender_address}"
-        sender_address_default: "Avsender: ikke satt (bruker standardadresse %{sender_address})"
-        need_to_change: "Hvis du ønsker å endre epostadressen vennligst %{contact_support_link}"
-        contact_support_link_text: "kontakt vår support"
-        set_sender_address: "Sett avsender"
-        sender_name_label: Navn
-        sender_name_placeholder: Avsendernavn
-        sender_email_label: Epostadresse
-        sender_email_placeholder: din-markedplass@eksempel.no
-        amazon_ses_notification: "Du vil motta en e-post fra %{email_sender} for å bekrefte e-postadressen din. I emnefeltet vi det stå '%{email_subject}'. Følg instruksjonen i e-posten for å bekrefte e-postadressen din."
-        this_is_how_it_will_look: "Slik vil det se ut:"
-        send_verification_button: "Send bekreftelses-epost"
-        change_sender_email: ~
-        successfully_saved: "Avsender lagret. Bekreftelses-epost vil bli sendt snart."
-        successfully_saved_name: ~
-        set_sender_name: ~
-        change_sender_name: ~
-        change_sender_prompt: ~
-        status: "Status: %{status}"
-        status_verified: "Bekreftet - i bruk"
-        status_error: "En feil oppstod. Vennligst last siden på nytt."
-        status_requested: "Ubekreftet - bekreftelses-epost ble sendt til %{email} %{time_ago}. %{resend_link}"
-        status_expired: "Bekreftelse for %{email} har utgått. %{resend_link}"
-        status_resent: "Bekreftelses-epost sendt på nytt til %{email}. %{resend_link}"
-        resend_link: "Send på nytt"
-        invalid_email_error: "Ugyldig epostformat for '%{email}'"
-        invalid_email_address: ~
-        invalid_email_domain: "Epostadressen '%{email}' bruker en epostleverandør vi ikke støtter: '%{domain}'. %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: "Les mer i denne artikkelen."
-        unknown_error: "Noe gikk galt"
-        white_label_offer: "Bruk din egen e-postadresse som avsender og fjern Sharetribes merkenavn fra utgående e-poster ved å %{upgrade_pro_plan_link}."
-        upgrade_plan_link: "oppgraderer til vår Pro-plan eller høyere"
-        verification_sent_from: "Bekreftelses-eposten ble sendt fra %{verification_sender_name}."
-        follow_the_instructions: "Følg instruksjonen i eposten for å bekrefte din adresse."
-      getting_started:
-        getting_started: "Kom i gang"
-      available_languages:
-        bg: ~
-        ca: ~
-        cs: ~
-        da-DK: Dansk
-        de: Tysk
-        el: Gresk
-        en: Engelsk
-        en-AU: "Engelsk (Australia)"
-        en-GB: "Engelsk (Storbritannia)"
-        es: Spansk
-        es-ES: ~
-        et: ~
-        fi: Finsk
-        fr: Fransk
-        fr-CA: "Fransk (Canada)"
-        hr: ~
-        hu: ~
-        it: Italiensk
-        ja: Japansk
-        ko: ~
-        lt: ~
-        nb: Norsk
-        nl: Nederlandsk
-        pl: ~
-        pt-BR: Portugisisk
-        pt-PT: Portugisisk
-        ro: ~
-        ru: Russisk
-        sk-SK: ~
-        sl: ~
-        sv: Svensk
-        th-TH: ~
-        tr-TR: Tyrkisk
-        uk: ~
-        vi: ~
-        zh: Kinesisk
-        zh-TW: ~
-      settings:
-        settings: Innstillinger
-        general: Generelt
-        access: Tilgang
-        join_with_invite_only: "Brukere kan kun bli med i denne markedsplassen med en invitasjon fra en annen bruker"
-        users_can_invite_new_users: "Alle brukere kan invitere nye brukere til denne markedsplassen"
-        private: "Denne markedsplassen er privat(kun registrerte brukere kan se dets innhold)"
-        require_verification_to_post_listings: "Kun brukere som er godkjent av admin kan legge ut annonser"
-        allow_free_conversations: ~
-        search_preferences: Søkeinnstillinger
-        search_and_location_preferences: ~
-        default_search_type: "Søketype: %{select_search_type}"
-        keyword_search: Nøkkelord-søk
-        keyword_and_location_search: "Steds- og nøkkelordsøk"
-        location_search: Stedsnavn-søk
-        select_distance_unit: "Vis avstand i %{distance_units_selector}"
-        km: km
-        miles: miles
-        show_only_nearby: "Vis kun annonser i nærområdet med stedssøk"
-        allow_users_to_add_location: ~
-        fuzzy_location: ~
-        listing_preferences: Annonseinnstillinger
-        transaction_preferences: Transaksjonsinnstillinger
-        show_listing_publishing_date: "Vis dato annonsen ble publisert"
-        show_category_in_listing_list: "Vis annonsetype som listevisning"
-        listing_comments_in_use: "Tillatt at brukere kan kommentere på annonser(synlig for alle brukere)"
-        email_preferences: Epost-innstillinger
-        automatic_newsletters: "Send automatisk daglig/ukentlig nyhetsbrev til alle brukere (om de ikke velger aktivt å ikke motta)"
-        email_admins_about_new_members: "Send admin en epost hver gang en ny bruker melder seg inn"
-        google_analytics_key: "Google Analytics tracking ID"
-        twitter_handle: "Twitternavn (brukt med tweet-knapp på annonsesiden)"
-        update_settings: "Lagre innstillinger"
-        automatically_confirmed_no_escrow: "Transaksjoner vil automatisk bli satt som utført %{days_dropdown} dager etter at betaling er utført"
-        automatically_confirmed_no_escrow_stripe_info: ~
-        buyer_transaction_fees_are_only_supported_with_stripe: ~
-        automatic_newsletter_frequency: "Send automatisk nyhetsbrev:%{frequency_dropdown}"
-        newsletter_daily: Daglig
-        newsletter_weekly: Ukentlig
-        delete_marketplace_title: "Slett markedsplass"
-        type_marketplace_domain: "Skriv inn ditt domene til markedplassen (%{domain}) i tekstfeltet under:"
-        type_marketplace_domain_placeholder: "Skriv ditt domene til markedsplassen her"
-        once_you_delete: "Etter at du har slettet din markedplass vil du ikke kunne få tilgang igjen. Vær forsiktig."
-        are_you_sure: "Er du sikker?"
-        i_understand_button: "Jeg forstår at ved å klikke på denne knappen vil markedsplassen min slettes"
-        last_community_updates: "Vær obs på at det er mulig at du og brukerne dine vil motta en siste nyhetsmelding fra markedsplassen."
-        you_will_be_redirected_to: "Etter du har slettet markedsplassen din vil du bli videresendt til %{destination}. Du vil ikke kunne få tilgang til markedsplassen din mer."
-        delete_this_marketplace: "Slett denne markedsplassen"
-        payment_preferences: Betalingssystem
-        pre_approved_listings: ~
-        email_admins_about_new_transactions: ~
-      manage_members:
-        manage_members: "Administrer brukere"
-        email: E-post
-        name: Navn
-        display_name: Visningsnavn
-        join_date: Registert
-        admin: Admin
-        posting_allowed: "Annonsering tillatt"
-        ban_user: "Forby bruker"
-        saving_user_status: "Lagrer ..."
-        save_user_status_successful: Lagret
-        export_all_as_csv: "Eksportér alle i CSV-fil"
-        save_user_status_error: "Lagring feilet. Vennligst oppdater siden på nytt og prøv igjen."
-        ban_user_confirmation: "Dette fjerner bruker fra denne markedsplassen og hindrer vedkommende tilgang med denne bruker kontoen igjen. Er du sikker på at du ønsker å fortsette?"
-        unban_user_confirmation: ~
-        ban_me_error: "Du kan ikke forby deg selv."
-        have_ongoing_transactions: ~
-        only_delete_disabled: ~
-        delete_info1: ~
-        delete_info2: ~
-        search: ~
-        search_by_name_email: ~
-        reset_search: ~
-        for_search_terms: ~
-        this_makes_the_user_an_admin: ~
-        status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          admin: ~
-          banned: ~
-          posting_allowed: ~
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
-        this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
-        confirm: ~
-        user_didnt_complete_the_signup_process: ~
-        pending_user: ~
-      new_layout:
-        new_layout: "Ny layout"
-        description_roadmap_new: "Når nye layout-komponenter er tilgjengelige for markedsplassen din, kan du velge om du vil begynne å bruke de nye komponentene eller fortsette å bruke de gamle. Du kan aktivere valgene dine når som helst på denne siden. Det er anbefalt å alltid bruke nyeste versjon, siden de gamle komponentene kan bli faset ut etter hvert. Hvis en komponent som du bruker vil bli faset ut, vil du bli kontaktet i forkant."
-        enabled_for_you: "Tilgjengelig for deg"
-        enabled_for_all: "Tilgjengelig for alle"
-        new_topbar: "Ny toppmeny (synlig på alle sider)"
-        searchpage: "Ny søkeside (krever toppmeny)"
-        new_email_templates: ~
-      social_media:
-        social_media: "Sosiale medier"
-        logo: ~
-        logo_info: ~
-        social_media_title: ~
-        social_media_title_info: ~
-        link_for_facebook: ~
-        link_for_linkedin: ~
-        link_for_twitter: ~
-        social_media_description: ~
-        twitter_handle: Twitternavn
-        twitter_handle_info_text: "Twitternavn til din markedsplass (hvis du har). Det vil bli mentioned når brukere bruker tweet-knappen på annonsesiden."
-        twitter_handle_info_text_with_instructions: "Twitternavn til din markedsplass (hvis du har). Det vil bli mentioned når brukere bruker tweet-knappen på annonsesiden. %{instructions_link}."
-        twitter_instructions_link_text: "Les mer"
-        twitter_handle_placeholder: brukernavn
-        invalid_twitter_handle: "Twitternavn inneholder maks 15 tegn (bokstaver A-Z og tall 0-9)."
-        facebook_connect: Facebook
-        facebook_developers_dashboard: ~
-        facebook_connect_info_text: "For å aktivere Facebook-innlogging må du opprette en applikasjon for din arkedsplass i <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Legg inn generated id og secret key for applikasjonen her."
-        facebook_connect_info_text_with_instructions: "For å aktivere Facebook-innlogging må du opprette en applikasjon for din markedsplass i <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Legg inn generated id og secret key for applikasjonen her. %{instructions_link}"
-        facebook_instructions_link_text: "Se instruksjoner for å konfigurere Facebook Connect."
-        facebook_connect_id: "Facebook client id"
-        invalid_facebook_connect_id: "Client id kan kun inneholde tall."
-        facebook_connect_secret: "Facebook client secret"
-        invalid_facebook_connect_secret: "Client secret kan kun inneholde tall og bokstaver fra a til f."
-        enable_facebook_login: ~
-        save: "Lagre innstillinger"
-        google_connect: ~
-        google_instructions_link_text: ~
-        google_developers_console: ~
-        google_connect_info_text_with_instructions: ~
-        google_connect_info_text: ~
-        enable_google_login: ~
-        google_connect_id: ~
-        google_connect_secret: ~
-        linkedin_connect: ~
-        linkedin_instructions_link_text: ~
-        linkedin_developers_dashboard: ~
-        linkedin_connect_info_text_with_instructions: ~
-        linkedin_connect_info_text: ~
-        enable_linkedin_login: ~
-        linkedin_connect_id: ~
-        linkedin_connect_secret: ~
-      seo_settings:
-        seo: ~
-        title: ~
-        meta_title_label: ~
-        meta_title_info: ~
-        meta_title_link_text: ~
-        meta_description_label: ~
-        meta_description_info: ~
-        meta_description_link_text: ~
-        search_title: ~
-        search_meta_title_label: ~
-        search_meta_title_info: ~
-        search_meta_title_link_text: ~
-        search_meta_description_label: ~
-        search_meta_description_info: ~
-        search_meta_description_link_text: ~
-        listing_title: ~
-        listing_meta_title_label: ~
-        listing_meta_title_info: ~
-        listing_meta_title_link_text: ~
-        listing_meta_description_label: ~
-        listing_meta_description_info: ~
-        listing_meta_description_link_text: ~
-        category_title: ~
-        category_meta_title_label: ~
-        category_meta_title_info: ~
-        category_meta_title_link_text: ~
-        category_meta_description_label: ~
-        category_meta_description_info: ~
-        category_meta_description_link_text: ~
-        profile_title: ~
-        profile_meta_title_label: ~
-        profile_meta_title_info: ~
-        profile_meta_title_link_text: ~
-        profile_meta_description_label: ~
-        profile_meta_description_info: ~
-        profile_meta_description_link_text: ~
-        sitemap_label: ~
-        sitemap_info: ~
-        sitemap_info_link_text: ~
-        sitemap_info_public: ~
-        sitemap_info_private: ~
-        robots_label: ~
-        robots_info: ~
-        robots_info_link_text: ~
-        robots_info_2: ~
-        google_search_console: ~
-        google_search_console_paragraph1: ~
-        google_search_console_these_instructions: ~
-        google_search_console_paragraph2: ~
-        save: ~
-      analytics:
-        analytics: Analytics
-        google_analytics_key: "Google Analytics tracking ID"
-        google_analytics_key_info_text: "Tracking ID til din Google Analytics-konto."
-        google_analytics_key_info_text_with_instructions: "Tracking-ID til din Google Analytics-konto. %{instructions_link}."
-        google_analytics_instructions_link_text: "Les mer hvordan knytte til Google Analytics"
-        sharetribe_analytics: ~
-        sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: ~
-        save: "Lagre innstillinger"
-        google_tag_manager: ~
-        gtm_paragraph_1: ~
-        gtm_paragraph_2: ~
-        learn_how_to_configure_gtm: ~
-      logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
-      menu_links:
-        menu_links: "Meny linker"
-        menu_links_display: ~
-        save: "Lagre innstillinger"
-        add_menu_link: "Legg til ny lenke i menyen"
-        title_placeholder: Lenketittel
-        url_placeholder: "http://eksempel.no/en"
-        title: Tittel
-        language: Språk
-        url: URL
-        empty: "Du har ingen ekstra menylenker"
-        max_number_of_links: "Maks antall linker vist i toppmenylinjen: %{select_max_number}"
-        all: Alle
-        max_number_of_links_info: "Link til %{about_page} er alltid først i menyen"
-        about_page: om-side
-      default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
-      topbar:
-        topbar: Toppmeny
-        new_listing_button_label: "Tekst på knappen for å opprette ny annonse"
-        invalid_post_listing_button_label: "Vennligst oppgi en gyldig tekst for knappen \"Opprett ny annonse\""
-      transactions:
-        export_all_as_csv: "Eksportér alle i CSV-fil"
-        processing_export: ~
-        transactions: "Vis transaksjoner"
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
-        status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
-          disputed: ~
-          preauthorized: ~
-          rejected: ~
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
-          refunded: ~
-          dismissed: ~
-        headers:
-          conversation: "Samtale tråd"
-          listing: Annonse
-          status: Status
-          sum: Sum
-          started: Startet
-          last_activity: "Siste aktivitet"
-          initiated_by: "Startet av"
-          other_party: "Andre part"
-        status:
-          conversation: ~
-          free: Samtale
-          pending: Venter
-          preauthorized: Forhåndsautorisert
-          accepted: Godkjent
-          rejected: Avvist
-          paid: Betalt
-          confirmed: Bekreftet
-          canceled: Avbrutt
-          disputed: ~
-          initiated: "Venter på PayPal betaling"
-          pending_ext: "Venter på PayPal betaling"
-          none:
-            free: "Gratis transaksjon"
-          paypal:
-            free: Samtale
-            pending: Venter
-            preauthorized: Forhåndsgodkjent
-            accepted: Akseptert
-            rejected: Avvist
-            paid: Betalt
-            confirmed: Fullført
-            canceled: Avbrutt
-            disputed: ~
-            initiated: ~
-            pending_ext: ~
-            refunded: ~
-            dismissed: ~
-          stripe:
-            free: Meldinger
-            pending: Avventer
-            preauthorized: ~
-            accepted: Akseptert
-            rejected: Avvist
-            paid: Betalt
-            confirmed: Fullført
-            canceled: Avbrutt
-            disputed: ~
-            initiated: "Venter Stripebetaling"
-            pending_ext: "Venter Stripebetaling"
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
-            payment_intent_failed: ~
-            refunded: ~
-            dismissed: ~
-        not_available: "Ikke tilgjengelig"
-      conversations:
-        conversations: ~
-        headers:
-          started_from: "Start fra"
-          status: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
-        participants: ~
-        profile: ~
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
-      testimonials:
-        testimonials: ~
-        no_testimonials_found: ~
-        displaying_xx_reviews: ~
-        search_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
-        headers:
-          transaction: ~
-          author: ~
-          receiver: ~
-          status: ~
-          grade: ~
-          text: ~
-        status:
-          waiting: ~
-          skipped: ~
-          published: ~
-          blocked: ~
-        status_filter:
-          selected: ~
-          all: ~
-          published: ~
-          positive: ~
-          negative: ~
-          skipped: ~
-          waiting: ~
-          blocked: ~
-          selected_js: ~
-        form:
-          review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
-          block_review: ~
-          confirm_modify: ~
-          deleting_info: ~
-          blocking_info: ~
-          unskip: ~
-          if_you_unskip_the_review: ~
-          they_will_not_be_notified_automatically: ~
-      invitations:
-        invitations: ~
-        used:
-          "yes": ~
-          "no": ~
-        headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
-      listings:
-        listings: ~
-        search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
-        export_all_as_csv: ~
-        processing_export: ~
-        status:
-          all: ~
-          selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
-          approval_pending: ~
-          approval_rejected: ~
-        headers:
-          title: ~
-          author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
-        expired: ~
-        approved: ~
-        approval_pending: ~
-        approval_rejected: ~
-        form:
-          this_listing_has_not_not_been_approved_yet: ~
-          approve: ~
-          reject: ~
-          cancel: ~
-      user_fields:
-        user_fields: ~
-      footer:
-        footer: ~
-        offer_pro: ~
-        upgrade_plan_link: ~
-        menu_links: ~
-        language: ~
-        title: ~
-        url: ~
-        add: ~
-        save: ~
-        footer_style: ~
-        footer_copyright: ~
-        footer_enabled: ~
-        social_links: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        style:
-          dark: ~
-          light: ~
-          marketplace_color: ~
-          logo: ~
-        social:
-          title: ~
-          url: ~
-      domain:
-        domain: ~
-        marketplace_domain: ~
-        offer_pro: ~
-        upgrade_pro_plan_link: ~
-        your_marketplace_address_is: ~
-        would_you_like_to_change_address: ~
-        contact_us: ~
-        you_can_now_use_a_custom_domain: ~
-        would_you_like_to_change_domain: ~
-        change_your_sharetribe_domain: ~
-        only_letters_numbers_and_hyphens_can_be_used: ~
-        when_you_change_your_sharetribe_domain: ~
-        would_you_like_to_proceed: ~
-        change: ~
-        you_can_now_enable_a_custom_domain: ~
-        read_more_about_the_set_up_of_your_custom_domain: ~
-        set_custom_domain: ~
-        in_order_to_set_your_custom_domain: ~
-        instructions_to_point_your_domain: ~
-        main_domain: ~
-        main_domain_info_text: ~
-        main_domain_link_text: ~
-        check_domain: ~
-        domain_being_checked: ~
-        status: ~
-        checks_pending: ~
-        please_check_back: ~
-        checks_not_passed: ~
-        check_the_domain_again_info: ~
-        check_the_domain_again: ~
-        use_another_domain: ~
-        checks_passed: ~
-        domain_being_set_up: ~
-        setup_in_progress: ~
-        setup_check_back: ~
-        setup_check_back_critical_error: ~
-        setup_failed: ~
-        setup_the_domain_again_info: ~
-        setup_the_domain_again: ~
-        summary:
-          main_domain: ~
-          redirect: ~
-        check_another_domain: ~
-        checks_passed_with_warning: ~
-        this_domain_is_not_configured_correctly: ~
-        start_using_the_custom_domain: ~
-      landing_pages:
-        landing_pages: ~
-        info_1: ~
-        info_2: ~
-        info_2_help_center: ~
-        info_3: ~
-        info_4: ~
-        editor_title: ~
-        editor_info: ~
-        preview: ~
-        set_live: ~
-        add_new_section: ~
-        select_section_type: ~
-        this_version_is_not_released: ~
-        latest_version_released: ~
-        check_it_out: ~
-        form:
-          save: ~
-          cancel: ~
-        sections:
-          identifier: ~
-          kind: ~
-          new: ~
-          edit: ~
-          remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: ~
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
-          new_section:
-            categories: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
-          edit_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
-      attachments:
-        delete: ~
-        or_change: ~
-    landing_page_versions:
-      sections:
-        content:
-          title: ~
-        hero:
-          hero_title: ~
-          hero_description: ~
-          basic_details_tab: ~
-          cta_button: ~
-          cta_button_info: ~
-          button_type:
-            default: ~
-            button: ~
-            none: ~
-          button_content: ~
-          click_me: ~
-        footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
-        cta_button:
-          cta_button: ~
-          cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
-          text_placeholder: ~
-          url_placeholder: ~
-        background_selector:
-          title: ~
-        background_image_overlay:
-          background_image: ~
-          background_image_info: ~
-          add_another_image: ~
-          current_image: ~
-          file_not_selected: ~
-          background_image_overlay: ~
-          background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
-        background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
-        background_color:
-          background_color: ~
-          background_color_info: ~
-        categories:
-          add: ~
-          category: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
-        category:
-          add_another_image: ~
-          category: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          select_category: ~
-        locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
-        location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
-        multi_column:
-          main_title: ~
-          column_header: ~
-          column_title: ~
-          column_icon_info: ~
-          column_icon_info_link: ~
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
-          column_button_url: ~
-        listings:
-          listings_to_feature: ~
-          you_need_to_add_the_listing_ids: ~
-        video:
-          text: ~
-          autoplay: ~
-          autoplay_no: ~
-          autoplay_muted: ~
-          info: ~
-          youtube_video_id_info: ~
-    custom_fields:
-      edit:
-        edit_listing_field: "Rediger annonse felt'%{field_name}'"
-      edit_price:
-        description: "Minimums- og maksimumsprisen påvirker kun filteret. De angir ikke en grense for selve annonseprisen."
-        edit_price_field: "Rediger pris felt"
-        show_price_filter_homepage: "Vis pris filter på hjemmeside"
-        price_min: "Minimums pris"
-        price_max: "Maksimum pris"
-      edit_location:
-        edit_location_field: "Endre stedsfelt"
-        this_field_is_required: "Dette feltet er påkrevd"
-        the_location_feature_can_be_enabled: ~
-      edit_expiration:
-        edit_expiration_field: "Endre feltet 'utløpsdato'"
-        enable: "Slå på utløpsdato"
-      form:
-        field_required:
-          this_field_is_required: "Dette feltet er påkrevd"
-          this_field_is_required_checkbox: "Dette feltet er påkrevd(bruker må velge minst ett valg)"
-        search_filter:
-          search_filter: "Vis et filter på forsiden basert på dette feltet"
-          date_cant_be_filtered: "Filter for dato-felt er ikke tilgjengelig."
-          text_cant_be_filtered: "Det er ikke noe filter for tekstfelt. Søk fra hovedsøkefeltet viser treff fra tekstfeltene."
-      index:
-        listing_fields: "Annonse felt & filter"
-        listing_fields_help: "Her kan du endre feltene brukere må fylle inn når de oppretter en annonse. Noen av feltene er predefinerte og kan ikke endres."
-        add_new_field: "Legg til nytt felt:"
-        remove_field_confirmation: "Er du sikker på at du ønsker å fjerne '%{field_name}'?"
-        cancel: Avbryt
-        save: Lagre
-        field_title: "Tittel på felt"
-        field_type: Felttype
-        categories: "Annonsekategorier hvor feltet er brukt"
-        select_all: "Merk alle"
-        clear_all: "Fjern alle"
-        options: Valg
-        add_option: "+Legg til valg"
-        saving_order: "Lagrer rekkefølgen på felt"
-        save_order_successful: "Rekkefølgen på felt lagret"
-        save_order_error: "Det var en feil ved lagring av siden. Vennligst oppdater siden og forsøk igjen"
-        select_one: "Velg felttype…"
-        continue: Fortsett
-        minimum_value: Minimum
-        maximum_value: Maksimum
-        allow_decimals: "Tillat desimaler"
-      new:
-        new_listing_field: "Nytt annonsefelt"
-      field_types:
-        text: tekst
-        number: Tall
-        dropdown: Nedtrekksmeny
-        checkbox_group: Avkrysningsgruppe
-        date: Dato
-        file: ~
-        location: ~
-    person_custom_fields:
-      saving_failed: ~
-      index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        signup: ~
-        public: ~
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
-      new:
-        new_user_field: ~
-      form:
-        field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
-      edit:
-        edit_user_field: ~
-    emails:
-      new:
-        send_email_to_members: "Send e-post til brukere"
-        send_email_to_members_title: "Send e-post til alle brukere"
-        send_email: "Send epost"
-        send_email_or: eller
-        send_test_email: "Send en e-post til deg selv"
-        test_sent: ~
-        send_email_article_title: "denne artikkelen"
-        send_email_article_text: ~
-        recipients:
-          title: ~
-          options:
-            all_users: "Alle brukere"
-            posting_allowed: ~
-            with_listing: "Brukere som har postet minst én annonse"
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
-        email_subject: "E-post emne"
-        email_content: "E-post innhold"
-        email_content_placeholder: "Hva vil du si til dine brukere?"
-        email_language: "Språk til epostmottakere"
-        any_language: "Alle språk"
-        message_will_be_sent_only_to_people_with_this_language: "Ps: e-posten sendes kun til brukere av %{service_name} i det språket du har valgt."
-        email_sent: "Epost sendt."
-        to_improve_email_deliverability: ~
-        email_subject_text: ~
-        firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
-    left_hand_navigation:
-      general: Generelt
-      users_and_transactions: "Brukere og transaksjoner"
-      configure: Innstillinger
-      emails_title: E-poster
-      subscription: Påmelding
-      preview: "Forhåndsvis mitt nettsted"
-      whats_new: ~
-    listing_shapes:
-      availability_title: Tilgjengelighet
-      read_more: "Les mer om automatisert tilgjengelighets-administrasjon."
-      read_more_availability_management: "Les mer om tilgjengelighets-håndtering."
-      allow_providers_to_manage_availability: "Tillat tilbyderne å endre tilgjengeligheten fra en kalender."
-      per_hour_availability: ~
-      per_day_availability: "\"Per dag\"-tilgjengelighet"
-      per_night_availability: "\"Per natt\"-tilgjengelighet"
-      pricing_units_disabled_info: "Pris-enheter kan ikke brukes når tilgjengelighetskalenderen er aktivert."
-      can_not_find_name: ~
-      index:
-        listing_shapes: Annonsetype
-        description: "Annonsetypene bestemmer hvordan bestillingsprosessen fungerer på din markedsplass. Du kan velge om dine brukere skal kunne leie eller selge, eller kanskje bare legge ut annonser og kommunisere via meldinger."
-        read_more_about_order_types: "Les mer om transaksjonstyper"
-        add_new_shape: "Legg til ny type transaksjon: "
-        select_template: "Velg mal…"
-        all_categories: "Alle kategorier"
-        no_categories: "Ingen kategorier"
-        category_count: "%{category_count} kategorier"
-        header:
-          listing_shape_name: "Navn på annonsetype"
-          listing_shape_categories: "Kategorier der det benyttes"
-        order:
-          saving_order: "Rekkefølge på lagring"
-          save_order_successful: "Rekkefølge lagret"
-          save_order_error: "Feil ved lagring av rekkefølge. Vennligst last siden på nytt og prøv igjen."
-      templates:
-        selling_products: "Selger produkter"
-        renting_products: "Leier produkter"
-        offering_services: "Tilbyr tjenester"
-        giving_things_away: "Gir bort ting"
-        requesting: Forespør
-        announcement: Kunngjøring
-        custom: Tilpasset
-      new:
-        create_listing_shape: "Opprett din type transaksjon"
-        create: Opprett
-        cancel: Avbryt
-        create_success: "Ny transaksjonstype '%{shape}' opprettet"
-        create_failure: "Kunne ikke opprette ny transaksjonstype. Feil: %{error_msg}"
-      edit:
-        edit_listing_shape: "Endre annonsetype '%{shape}'"
-        update: Lagre
-        cancel: Avbryt
-        update_success: "Endring i annonsetype '%{shape}' lagret"
-        update_failure: "Kunne ikke lagre endringene. Feil: %{error_msg}"
-        delete: "Fjern transaksjonstype"
-        confirm_delete_order_type:
-          one: "Det er %{count} annonse med denne ordretypen. Hvis du seltter ordretypen vil disse annonsene stoppes. Er du sikker på at du vil fortsette?"
-          other: "Det er %{count} annonser med denne ordretypen. Hvis du seltter ordretypen vil disse annonsene stoppes. Er du sikker på at du vil fortsette?"
-        can_not_delete_last: "Du kan ikke fjerne denne transaksjonstypen fordi det er den eneste typen i din markedsplass."
-        can_not_delete_only_one_in_categories: "Du kan ikke fjerne denne transaksjonstypen fordi det er eneste type for følgende kategorier i bruk: %{categories}"
-      listing_shape_name: Navn
-      listing_shape_name_placeholder: "F.eks. Selg"
-      action_button_label: "Etikett på utsjekksknappen"
-      action_button_placeholder: "F.eks. Kjøp"
-      open_listings_warning:
-        one: "Det er %{count} åpen annonse med denne ordretypen. Hvis du endrer noen av innstillingene under vil annonsen beholde de gamle innstillingene. Hvis du ikke vil at annonsen skal være synlig med gamle innstillinger kan du stoppe den ved å trykke på knappen under."
-        other: "Det er %{count} åpne annonser med denne ordretypen. Hvis du endrer noen av innstillingene under vil annonsene beholde de gamle innstillingene. Hvis du ikke vil at annonsene skal være synlig med gamle innstillinger kan du stoppe dem ved å trykke på knappen under."
-      close_listings_action:
-        one: "Stopp %{count} annonse"
-        other: "Stopp %{count} annonser"
-      confirm_close_listings_action:
-        one: "Er du sikker på at du vil lukke %{count} annonse?"
-        other: "Er du sikker på at du vil lukke %{count} annonser?"
-      successfully_closed: "Annonser lukket"
-      successfully_deleted: "Fjernet transaksjonstype '%{order_type}'"
-      pricing_and_checkout_title: "Priser og betaling"
-      online_payments_label: "Bruk online betalingssystem"
-      shipping_label: "Tillat selgere å definere en shippingavgift"
-      price_label: "Vis prisfelt"
-      units_title: Prisenheter
-      units_desc: "Hvis du har aktivert ulike prisenheter, vil annonseprisen vises som \"pris per enhet\", for eksempel \"39 kr per time\"."
-      units:
-        piece: "Per stk."
-        hour: "Per time"
-        day: "Per dag"
-        night: "Per natt"
-        week: "Per uke"
-        month: "Per måned"
-        unit: ~
-      can_not_find: "Kan ikke finne transaksjonstype med ID: %{id}"
-      add_custom_unit: "+ Legg til en spesiell prisenhet…"
-      delete_custom_unit: slette
-      custom_unit_form:
-        title: "Ny prisenhet"
-        label_heading: Etikett
-        selector_label_heading: Valgetikett
-        label_placeholder: "eks.: kg, 30 minutter, person, klasse"
-        selector_placeholder: "eks.: antall personer, mengde i kg"
-        per: Per
-        unit_type:
-          heading: "Type enhet"
-          quantity_label: "Antall (per stk, per kg, per person, per 2-timers tur…)"
-          time_label: "Tid (per 30 minutter, per 2 uker, per år…)"
-    paypal_accounts:
-      marketplace_paypal_integration: Betalingsinnstillinger
-      preferences_updated: "Betalingsinnstillinger oppdatert"
-      contact_support_link_text: "kontakt Sharetribes support"
-      integration_info_text: "Betalingssystemet i Sharetribe er laget av PayPal. Hvis du vil gjøre det mulig for brukere å ta betalt i din markedsplass må du koble til din PayPal-konto og velge minimumsstørrelse på transaksjonene samt din tjenestekostnad for hver transaksjon."
-      link_paypal_personal_account_label: "Selger du selv produkter eller tjenester?"
-      link_paypal_personal_account: "I så tilfelle må du koble din PayPal-konto til %{personal_payment_preferences_link}."
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
-      personal_payment_preferences_link_text: "din personlige markedsplass-konto"
-      read_more_about_paypal: "Les mer om Sharetribe`s betalingssystem"
-      edit_payment_settings: "Endre betalingsopplysninger"
-      supported_currencies_information_text: "Sharetribes betalingsløsning støtter 24 valutaer. Hvis din valuta ikke er på listen, vennligst %{contact_support_link}. Hvis du endrer valutaen på markedsplassen, vil eksisterende annonser beholde opprinnelig valuta. Du må endre disse annonsene individuelt for å konvertere dem til den nye valutaen."
-      currency_change_warning_text: "Et tips: Hvis du foretar denne valuta-endringen, husk å be selgerne på markedsplassen din om å oppdatere annonsene sine for å aktivere den nye valutaen."
-      marketplace_currency_label: "Valuta på markedsplassen:"
-      minimum_listing_price_label: "Minimum transaksjonsstørrelse:"
-      transaction_fee_label: "Transaksjonskostnad:"
-      minimum_transaction_fee_label: "Minimum transaksjonskostnad:"
-      save_settings: "Lagre innstillinger"
-      minimum_listing_price_below_tx_fee: "må være minst det samme som minimum transaksjonskostnad %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "må være mer enn minimum transaksjonsprovisjon %{minimum_commission}."
-    payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
-      you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
-      choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
-      the_transaction_fee_must_be_lower_than_100: ~
-      confirm_disable: ~
-      commission_from_buyer_label: ~
-      minimum_buyer_transaction_fee_label: ~
-      stripe_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
-      paypal_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
-      cannot_enable_gateway: ~
-      cannot_disable_gateway: ~
-      cannot_enable_gateway_because_of_buyer_commission: ~
-      stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
-        publishable_key_example: ~
-        secret_key_example: ~
-        save_api_keys: ~
-        invalid_secret: ~
-        invalid_publishable: ~
-      index:
-        header: ~
-        info: ~
-        active: ~
-        gateway: ~
-        process: ~
-        commission: ~
-        minimum_price: ~
-        minimum_fee: ~
-        api_verified: ~
-        actions: ~
-        payments_not_enabled: ~
-    transaction_types:
-      sell: Selger
-      sell_w_online_payment: ~
-      sell_wo_online_payment: ~
-      rent: "Leier ut"
-      rent_w_online_payment: ~
-      rent_wo_online_payment: ~
-      give: "Gis bort"
-      lend: låner
-      swap: Bytter
-      service: Tilbyr
-      service_w_online_payment: ~
-      service_wo_online_payment: ~
-      request: Forespør
-      inquiry: Forespørsel
-      share_for_free: "Deler gratis"
-      event_w_online_payment: ~
-      event_wo_online_payment: ~
-      default_action_button_labels:
-        sell: Kjøp
-        rent: Lei
-        request: Tilby
-        offer: Forespør
-        inquiry: Kontakt
-        book: ~
-    community_transactions:
-      show:
-        transaction_for: ~
-        status: ~
-        next_step: ~
-        waiting_for_provider_accept_or_reject: ~
-        waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
-        delivery: ~
-        shipping_to: ~
-        buyer_pays: ~
-        marketplace_collects: ~
-        buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
-        admin_info_text: ~
-        manage_reviews: ~
-        you_should_investigate: ~
-        learn_more: ~
   common:
     edit_page: "Rediger side"
     default_community_slogan: Markedsplass
@@ -1277,10 +54,10 @@ nb:
     what_is_this: "Hva er dette?"
     removed_user: "Fjernet bruker"
     payment_fee_info:
-      title: ~
-      stripe: ~
-      paypal: ~
-      info: ~
+      title: "Provisjon og gebyr for behandling av betalingsprosess"
+      stripe: Stripe
+      paypal: PayPal
+      info: "Betalinger i %{service_name} behandles av betalingsportal som er oppført nedenfor. %{service_name} vil belaste en provisjon avhengig av betalingsportalen. Betalingsportalen kan også kreve et gebyr for hver betaling, som beskrevet nedenfor."
     paypal_fee_info:
       title: "PayPals transaksjonskostnad"
       body_text: "PayPal tar betalt ved hver betaling. Denne kostnaden er mellom 2-5% av salgsprisen, avhenging av ditt månedlige salgsvolum og land. Vanligvis er det billigere innenlands og et høyere volum gir lavere priser. Du kan se nøyaktige priser ved å logge inn på din PayPal-konto og gå til %{link_to_paypal}. Du vil motta en kvittering etter hver transaksjon med alle detaljer."
@@ -1317,7 +94,7 @@ nb:
       paypal_fee: ~
       paypal_fee_info: "* ekskludert %{link}"
       shipping_price_label: "Frakt:"
-      stripe-fee_label: ~
+      stripe-fee_label: "Gebyr for behandling av betaling"
     confirm:
       confirm_description: "Dersom din forespørsel er utført, må du bekrefte den som utført. Du kan så gi vurdering av den andre parten."
       cancel_description_team: ~
@@ -1353,7 +130,7 @@ nb:
       message_content_not_available: "Meldingsinnhold ikke tilgjengelig"
     message:
       accepted_request: "godtok forespørselen"
-      received_payment: ~
+      received_payment: "aksepterte forespørselen, mottok betaling"
       received_payment_wo_sum: ~
       accepted_offer: "Tilbud godtatt"
       rejected_request: "avslå forespørselen"
@@ -1363,7 +140,7 @@ nb:
       canceled_request: "avslo forespørselen"
       canceled_offer: "avslo tilbudet"
       paid: "betalte %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Betaling godkjent"
       payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
@@ -1473,10 +250,10 @@ nb:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Ny kontaktskjema oppføring på %{service_name}"
+    feedback_body: "%{author_name_and_email} har sendt inn følgende oppføring på %{service_name} kontaktskjemaet. Dette varselet sendes til alle %{service_name} administratorer."
+    unlogged_user: "En bruker som ikke er innlogget"
+    anonymous_user: "En anonym bruker"
   community_memberships:
     access_denied:
       access_denied: "Tilgang avvist"
@@ -1621,8 +398,8 @@ nb:
       has_commented_listing_you_follow_in_kassi: "%{author} har kommentert på annonsen '%{listing}' du følger på %{service_name}"
     new_message:
       view_message: "Vis melding"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} har sendt deg en melding. Gå til %{service_name} for å svare."
+      you_have_a_new_message: "Du har en ny melding fra %{sender_name} i %{service_name}"
     new_message_v2:
       headline: ~
       reply: ~
@@ -1636,15 +413,15 @@ nb:
       payment_gateway_fee: ~
       shipping_total: ~
       product: ~
-      price_payer_paid: ~
+      price_payer_paid: "Pris %{payer_full_name} betalte:"
       subtotal: ~
-      service_fee: ~
+      service_fee: "%{service_name} tjenestegebyr:"
       buyer_service_fee: ~
-      you_will_get: ~
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
-      you_have_received_new_payment: ~
+      you_will_get: "Totalt:"
+      new_payment: "Du har mottatt en ny betaling"
+      price_per_unit_type: "Pris pr %{unit_type}"
+      quantity: "Antall:"
+      you_have_received_new_payment: "Du har fått betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> fra %{payer_full_name}. Her er kvitteringen din."
       stripe:
         you_have_received_new_payment: ~
     payment_receipt_to_seller_v2:
@@ -1652,20 +429,20 @@ nb:
       main_text_stripe: ~
       price_breakdown: ~
     payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      receipt_of_payment: "Kvittering for betaling"
+      you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> til %{recipient_full_name}. Her er en kvittering for betalingen."
+      product: Produkt
+      price_per_unit_type: "Pris pr %{unit_type}"
+      duration: Varighet
+      quantity: Antall
+      subtotal: Delsum
       buyer_service_fee: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      total: Totalt
+      price: Pris
+      service_fee: Tjenestegebyr
       stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
-      money_will_be_transferred: ~
+      paypal_gateway_fee: "PayPal gebyr:"
+      money_will_be_transferred: "Pengene vil bli overført til %{recipient_name} når a) du har merket forespørselen som fullført eller b) %{automatic_confirmation_days} dager har gått siden du betalte."
     payment_receipt_to_payer_v2:
       headline: ~
       you_have_made_new_payment: ~
@@ -1689,7 +466,7 @@ nb:
       price: Pris
       buyer_service_fee: ~
       stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: "PayPal gebyr:"
       money_will_be_transferred: "Pengene blir overført til %{recipient_name} når a) du har huket av for at forespørselen er utført eller b) %{automatic_confirmation_days} dager har gått fra du betalte."
       listing_per_unit_title: ~
       stripe:
@@ -1737,7 +514,7 @@ nb:
       transaction_requested_by_user: "%{requester} har etterspurt og betalt for %{listing_title}"
       you_have_time_to_accept: "Du må akseptere eller avslå forespørselen innen %{payment_expires_in}. Hvis du aksepterer innen tidsfristen vil betalingen gjennomføres. Hvis du avslår vil forespørselen automatisk avbrytes og du vil ikke få betaling."
       if_you_do_accept: "Hvis du aksepterer forespørselen innen denne tidsfristen, vil du øyeblikkelig motta pengene til din konto."
-      if_you_do_accept_stripe: ~
+      if_you_do_accept_stripe: "Hvis du godtar forespørselen innen denne tidsrammen, vil betalingen gå gjennom. Du vil motta pengene direkte til bankkontoen din etter at du har levert %{listing_title} til %{requester}."
       if_you_do_not_accept: "Hvis du avslår forespørselen eller ikke aksepterer den innen denne tidsfristen, vil transaksjonen bli avbrutt automatisk. %{requester} vil ikke bli belastet, og du vil ikke få betalt."
       click_here_to_reply: "Klikk her for å svare på forespørselen"
     transaction_preauthorized_v2:
@@ -1755,7 +532,7 @@ nb:
       welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for å ha deg med."
       love_marketplace_crew: "Hilsen,<br /><i>%{service_name}</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Endre epost instillinger her"
     new_listing_by_followed_person:
       subject: "%{author_name} har lagt ut en ny annonse på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har lagt ut en ny annonse:"
@@ -1879,7 +656,7 @@ nb:
       accept_authorization_error: "En feil oppstod med PayPal-betalingen. Vennligst prøv igjen."
       reject_authorization_error: "En feil oppstod med PayPal-betaling. Vennlist prøv igjen."
     stripe:
-      generic_error: ~
+      generic_error: "Det oppstod en feil under betalingsprosessen. Kunne ikke fullføre Stripe-betalingen."
       accept_authorization_error: ~
       reject_authorization_error: ~
       card_declined: ~
@@ -2316,13 +1093,13 @@ nb:
       notifications: Varslinger
       profile: Profil
       settings: Innstillinger
-      paypal_payments: ~
+      paypal_payments: "PayPal betalinger"
       stripe_payments: ~
       payments: Betalinger
-      listings: ~
+      listings: Oppføringer
       listings_search_placeholder: ~
       transactions_search_placeholder: ~
-      transactions: ~
+      transactions: Transaksjoner
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du har ikke tillatelse til å se denne annonsen."
@@ -2425,9 +1202,9 @@ nb:
         long_time: "uke, måned, ..."
         after_service_fee_you_will_get: "Etter kostnad fra %{service_name} og betalingsleverandøren vil du motta %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil bli trukket fra prisen."
-        no_service_fee_you_will_get_payment_text: ~
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} vil bli trukket fra prisen."
         after_service_fee_you_will_get_payment_text: "Når noen leier vil du motta denne summen minus %{payment_fee_info_link} administrasjonsavgift."
-        payment_fee_info_link_text: ~
+        payment_fee_info_link_text: "%{service_name} gebyr og et gebyr for behandling av betalingen"
         delivery: Leveringsmetode
         shipping: Frakt
         shipping_price: Fraktkostnad
@@ -2617,16 +1394,16 @@ nb:
     transaction_agreement_checkbox:
       read_more: Vis.
     stripe_payment:
-      payment: ~
-      pay_with_card: ~
-      address: ~
-      address_country: ~
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      payment: Betaling
+      pay_with_card: "Betal med kreditt eller debetkort"
+      address: Leveringsadresse
+      address_country: Land*
+      address_name: "Fornavn og etternavn*"
+      address_city: Sted*
+      address_state: Fylke
+      address_street1: "Adresse linje 1*"
+      address_street2: "Adresse linje 2"
+      address_postal_code: Postnummer*
   mapview:
     index:
       all_categories: "Alle kategorier"
@@ -2670,7 +1447,7 @@ nb:
     contact_admin_link_text: "kontakt markedsplassens administrator"
     you_are_ready_to_accept_payments: "Du er klar til å motta betaling!"
     commission: "%{commission} %"
-    not_now: ~
+    not_now: "Jeg vil ikke koble til PayPal-kontoen nå"
     new:
       payout_info_you_need_to_connect: "For å motta betaling må du knytte din PayPal-konto sammen med %{service_name}"
       payout_info_text: "Vennligst fullfør følgende steg for koble opp din konto."
@@ -2717,8 +1494,8 @@ nb:
     paypal_permission_granted_summary: "Tillatelse er gitt for å trekke betalingsgebyr"
   paypal:
     pay_with_paypal: "Gå til betaling"
-    checkout_with: ~
-    or_pay_with_paypal: ~
+    checkout_with: "Betal med"
+    or_pay_with_paypal: eller
     checkout_with_paypal: "Betal med PayPal"
     cancel_succesful: "PayPal-betaling avbrutt"
     transaction:
@@ -2938,7 +1715,7 @@ nb:
       editing_profile_of: ~
       format_markdown_link: "formatere beskrivelsen ved å bruke Markdown"
       format_markdown: "Du kan %{link}."
-      username: ~
+      username: Brukernavn
       username_description: ~
     save_information: "Lagre innstillinger"
   shipping_address:
@@ -3096,7 +1873,7 @@ nb:
     quantity: "Antall: %{quantity}"
     unit_price: "Stykk pris: %{unit_price}"
     total: "Totalt:"
-    total_to_pay: ~
+    total_to_pay: "Totalt å betale:"
   unit:
     day: dag
     days: dager
@@ -3171,6 +1948,10 @@ nb:
         zero: transaksjoner
         one: transaksjon
         other: transaksjoner
+      listing:
+        zero: oppføringer
+        one: oppføring
+        other: oppføringer
     previous_label: "&#8592; Forrige"
     next_label: "Neste &#8594;"
     page_gap: "&hellip;"
@@ -3190,21 +1971,21 @@ nb:
         multi_page: ~
         multi_page_html: ~
   stripe_accounts:
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    admin_account_not_connected: "Å bruke %{service_name}s betalingssystem for å motta betalinger er ikke mulig siden betalinger ikke er satt opp. Vennligst %{contact_admin_link} for detaljer."
+    contact_admin_link_text: "kontakt %{service_name}"
+    you_are_ready_to_accept_payments: "Du er klar til å ta imot betalinger!"
+    commission: "%{commission} %"
     pay_with_stripe: ~
     add_and_pay: "Bekreft betaling"
     card_not_stored: ~
     missing_payment: ~
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
-    stripe_credit_card: ~
-    paypal: ~
-    paypal_connected: ~
+    stripe_bank_connected: "Bankkontodetaljer konfigurert!"
+    stripe_can_accept: "Du er nå klar til å motta penger til bankkontoen din"
+    stripe_credit_card: Kredittkort
+    paypal: PayPal
+    paypal_connected: "PayPal-kontoen er tilkoblet!"
     paypal_can_accept: ~
-    paypal_connected_give_permission: ~
+    paypal_connected_give_permission: "For å fullføre oppsettet og begynne å motta penger til PayPal-kontoen din <%{email}>, vennligst gi tillatelse til å belaste et transaksjonsgebyr."
     stripe_account_restricted: ~
     stripe_account_restricted_info: ~
     stripe_account_restricted_soon: ~
@@ -3212,30 +1993,30 @@ nb:
     stripe_account_pending_verification: ~
     stripe_account_pending_verification_info: ~
     form_new:
-      need_info: ~
-      select_country: ~
-      legal_name: ~
+      need_info: "Vi trenger litt informasjon om deg for å kunne sende deg penger."
+      select_country: "Velg land..."
+      legal_name: "Korrekt navn"
       first_name: ~
       last_name: ~
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
       last_name_kanji: ~
-      country: ~
-      birth_date: ~
+      country: Bostedsland
+      birth_date: Bursdag
       ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
+      personal_id_number: "Personlig ID-nummer"
+      address_country: Bostedsland
+      address_state: Fylke
       address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
-      tos_link: ~
-      tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
+      address_city: Sted
+      address_postal_code: Postnummer
+      address_line1: Adresse
+      tos_link: "Ved å legge til utbetalingsdetaljene godtar du %{stripe_link}."
+      tos_link_title: "Stripe Connected kontoavtale"
+      save_details: "Lagre detaljer"
+      edit: "Rediger detaljer"
+      cancel: Avbryt
       gender: ~
       phone_number: ~
       phone_info_text: ~
@@ -3252,11 +2033,11 @@ nb:
       male: ~
       female: ~
     form_bank:
-      bank_account_number: ~
-      bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
+      bank_account_number: "Kontonummer bank"
+      bank_routing_number: Routingnummer
+      bank_routing_1: Bankkode
+      bank_routing_2: Branchkode
+      bank_currency: "Bankkonto valuta"
       update_also_bank_account: ~
       bank_account_same_country: ~
       bank_country: ~
@@ -3296,11 +2077,11 @@ nb:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
+    title: Utbetalingspreferanser
     bank_account: ~
-    paypal: ~
+    paypal: PayPal
     bank_account_details: ~
-    add_bank_details: ~
+    add_bank_details: "Legg til bankdetaljer"
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~
     connect_paypal: ~
