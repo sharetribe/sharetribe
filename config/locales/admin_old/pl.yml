@@ -1,0 +1,1246 @@
+pl:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: "Edytuj kategorię: %{category}"
+      index:
+        listing_categories: "Kategorie ofert"
+        create_a_new_category: "+ Dodaj nową kategorię"
+        remove_category_confirmation: "Czy jesteś pewien, że chcesz usunąć kategorię '%{category_name}'? Tej akcji nie można cofnąć."
+        saving_order: "Zapisywanie kolejności kategorii"
+        save_order_successful: "Zapisywanie kategorii zakończyło się pomyślnie"
+        save_order_error: "Wystąpił błąd w zapisywaniu porządku kategorii. Proszę odśwież stronę i spróbuj ponownie."
+      new:
+        new_listing_category: "Nowa kategoria ofert"
+      form:
+        category_name:
+          category_title: "Tytuł kategorii"
+        category_parent:
+          category_parent: "Nadrzędna kategoria"
+          no_parent: "Brak nadrzędnej"
+        category_transaction_types:
+          transaction_types: "Rodzaje zamówień"
+          transaction_types_description: "Rodzaje transakcji określają jaki rodzaj transakcji jest dostępny dla ofert w tej kategorii. Na przykład - czy jest to tylko sprzedaż, czy także wypożyczanie lub oddawanie za darmo jest możliwe."
+          select_all: "Zaznacz wszystko"
+          clear_all: "Wyczyść wszystko"
+        buttons:
+          save: Zapisz
+          cancel: Anuluj
+      remove:
+        remove_category: "Usuń kategorię"
+        remove_category_name: "Usuń kategorię '%{category_name}'"
+        warning_remove_effects: "Uwaga! Usunięcie kategorii '%{category_name}' będzie miało następujące efekty:"
+        warning_listing_will_be_moved:
+          one: "W kategorii jest %{count} oferta. Będzie ona przeniesiona do wybranej kategorii."
+          few: "W kategorii są %{count} oferty. Będą one przeniesione do wybranej kategorii."
+          many: "W kategorii jest %{count} ofert. Będą one przeniesione do wybranej kategorii."
+          other: "W kategorii jest %{count} ofert. Będą one przeniesione do wybranej kategorii."
+        warning_custom_field_will_be_moved:
+          one: "W kategorii jest %{count} pole użytkownika. Będzie ono przeniesione do wybranej kategorii."
+          few: "W kategorii są %{count} pola użytkownika. Będą one przeniesione do wybranej kategorii."
+          many: "W kategorii jest %{count} pól użytkownika. Będą one przeniesione do wybranej kategorii."
+          other: "W kategorii jest %{count} pól użytkownika. Będą one przeniesione do wybranej kategorii."
+        warning_subcategory_will_be_removed:
+          one: "W tej kategorii jest %{count} podkategoria. Będzie ona usunięta. "
+          few: "W tej kategorii są %{count} podkategorie. Będą one usunięte. "
+          many: "W tej kategorii jest %{count} podkategorii. Będą one usunięte. "
+          other: "W tej kategorii jest %{count} podkategorii. Będą one usunięte. "
+        warning_with_subcategories_listing_will_be_moved:
+          one: "W tej kategorii i jej podkategoriach jest %{count} oferta. Będzie ona przeniesiona do wybranej kategorii. "
+          few: "W tej kategorii i jej podkategoriach są %{count} oferty. Będą one przeniesione do wybranej kategorii. "
+          many: "W tej kategorii i jej podkategoriach jest %{count} ofert. Będą one przeniesione do wybranej kategorii. "
+          other: "W tej kategorii i jej podkategoriach jest %{count} ofert. Będą one przeniesione do wybranej kategorii. "
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "W tej kategorii i jej podkategoriach jest %{count} pole użytkownika. Będzie ono przeniesione do wybranej kategorii."
+          few: "W tej kategorii i jej podkategoriach są %{count} pola użytkownika. Będą one przeniesione do wybranej kategorii."
+          many: "W tej kategorii i jej podkategoriach jest %{count} pól użytkownika. Będą one przeniesione do wybranej kategorii."
+          other: "W tej kategorii i jej podkategoriach jest %{count} pól użytkownika. Będą one przeniesione do wybranej kategorii."
+        select_new_category: "Wybierz nową kategorię gdzie elementy wymienione powyżej zostaną przeniesione:"
+        buttons:
+          remove: Usuń
+          cancel: Anuluj
+    communities:
+      edit_details:
+        community_details: "Podstawowe informacje"
+        community_look_and_feel: Wygląd
+        edit_community: "Podstawoowe informacje"
+        enabled_languages: "Włączone języki"
+        enabled_languages_description: "Zestaw języków dostępny dla użytkowników. Pierwszy używany jest jako domyślny."
+        default_language: "Domyślny język"
+        language_selection_disabled: "Wybór języka jest zablokowany dla Twojej platformy, ponieważ używasz następujących nieoficjalnych języków: %{languages}. Proszę skontaktuj się z obsługą Sharetribe jeśli chcesz zmodyfikować swoje ustawienia językowe."
+        community_name: "Nazwa platformy"
+        edit_community_name_description: "Nazwa Twojej platformy. To jest wyświetlane dla użytkowników w wiadomościach email i różnych, innych miejscach."
+        community_slogan: "Slogan platformy"
+        community_slogan_display: "Wyświetlaj slogan na stronie głównej lub na stronie docelowej"
+        edit_community_slogan_description: "Ta zawartość jest pokazywana na stronie głównej platformy tym użytkownikom, którzy nie są zalogowani. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "To będzie wyświetlone w przeglądarkach internetowych, wyszukiwarkach i na mediach społecznościowych. Możesz również to wyświetlić na stronie głównej swojego serwisu, dla niezalogowanych użytkowników. %{see_how_it_looks_like}."
+        community_description: "Opis platformy"
+        community_description_display: "Wyświetlaj napis na stronie głównej"
+        edit_community_description_description: "Ta zawartość jest pokazywana na stronie głównej platformy tym użytkownikom, którzy nie są zalogowani. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "To będzie wyświetlone w przeglądarkach internetowych, wyszukiwarkach i na mediach społecznościowych. Możesz również to wyświetlić na stronie głównej swojego serwisu, dla niezalogowanych użytkowników. %{see_how_it_looks_like}."
+        community_search_placeholder: "Przeszukaj treść pomocy"
+        edit_community_search_placeholder_description: "Ta zawartość jest pokazywana na stronie głównej platformy jako tekst wypełniający w pasku wyszukiwania. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Treść prywatnej strony głównej platformy"
+        edit_private_community_homepage_content_description: "Ta zawartość jest pokazywana na stronie głównej prywatnych platform tym użytkownikom, którzy nie są zalogowani. Tutaj możesz opisać swoją platformę oraz jak do niej dołączyć. Możesz dodać zdjęcia, wideo i treść HTML tutaj. %{see_how_it_looks_like}"
+        update_information: "Zapisz ustawienia"
+        invite_people: "Zaproś nowych użytkowników"
+        edit_signup_info: "Dane rejestracji"
+        edit_signup_info_description: "To jest tekst informacyjny, który może zostać wyświetlony dla użytkowników na stronie rejestracji. Tutaj możesz dodać instrukcje dotyczące rejestracji, jak otrzymać zaproszenie i inne. Domyślnie, nie ma instrukcji."
+        edit_info: "Edytuj informacje"
+        see_how_it_looks_like: "Zobacz, jak to będzie wyglądać"
+        verification_to_post_listings_info_content: "Tekst informacyjny dla użytkowników niezweryfikowanych"
+        verification_to_post_listings_info_content_description: "Aktualnie wymagasz aby użytkownicy zostali przez Ciebie ręcznie zaakceptowani zanim będą oni mogli publikować oferty. Tutaj możesz określić domyślną wiadomość wyświetlaną niezaakceptowanym użytkownikom, kiedy próbują oni publikować nowe oferty."
+        verification_to_post_listings_info_content_default: "%{service_name} wymaga ręcznej akceptacji użytkowników przez administratora zanim będą oni mogli publikować oferty. Nie zostałeś/aś jeszcze zaakceptowany/a. Proszę, %{contact_admin_link} aby zostać zaakceptowanym/ą."
+        contact_admin_link_text: "skontaktuj się z zespołem %{service_name}"
+        save: "Zapisz ustawienia"
+        transaction_agreement: "Umowa transakcji"
+        transaction_agreement_checkbox: "Wymaga od użytkowników zaakceptowania umowy przed rozpoczęciem transakcji"
+        transaction_agreement_checkbox_header: "Etykieta umowy"
+        transaction_agreement_checkbox_label_description: "Ten tekst będzie wyświetlony obok pola akceptacji przy podsumowaniu transakcji. użytkownik musi zaznaczyć to pole, aby kontynuować realizację transakcji. Przykładowa etykieta może wyglądać następująco: \"Poprzez zaznaczenie kratki akceptuję umowę.\""
+        transaction_agreement_text_header: "Tekst umowy"
+        transaction_agreement_description: "To jest treść właściwej umowy, jaką użytkownik powinien zaakceptować. Zawartość umowy jest wyświetlana gdy użytkownik kliknie link %{read_more} znajdujący się obok etykiety umowy."
+        terms_privacy_policy_and_static_content: "Zasady użytkowania, polityka prywatności i treść stała"
+        terms_privacy_policy_and_static_content_infotext: "Możesz edytować aż do czterech stron treści stałej. Użytkownicy mogą znaleźć te strony poprzez kliknięcie na \"O nas\" na pasku nawigacyjnym."
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Edytuj wygląd platformy %{community_name}"
+        community_logo: Logo
+        community_logo_icon: "Logo dla sieci społecznościowych i urządzeń mobilnych"
+        community_logo_icon_mobile: "Logo dla strony głównej na urządzenia przenośne."
+        community_cover_photo: "Zdjęcie w tle"
+        small_community_cover_photo: "Małe zdjęcie w tle"
+        favicon: "Ikona strony, tzw. favicon"
+        favicon_info_text: "Favicon zastąpi domyślne logo Sharetribe. Wymiary powinny wynosić 32x32 piksele więc załadowany obrazek będzie przycięty do tych wymiarów."
+        community_custom_color1: "Główny kolor strony"
+        community_slogan_color: "Kolor sloganu platformy"
+        community_slogan_color_instructions_text: "Możesz zmienić kolor sloganu na stronie głównej poprzez wpisanie kodu koloru. Slogan jest pokazywany użytkownikom niezalogowanym. %{colorpicker} może ci pomóc wybrać kolor i poda ci kod koloru. Możesz następnie skopiować ten kod tutaj. %{see_how_it_looks_like}."
+        community_description_color: "Kolor opisu platformy"
+        community_description_color_instructions_text: "Możesz zmienić kolor opisu na stronie głównej poprzez wpisanie kodu koloru. Opis jest pokazywany użytkownikom niezalogowanym. %{colorpicker} może ci pomóc wybrać kolor i poda ci kod koloru. Możesz następnie skopiować ten kod tutaj. %{see_how_it_looks_like}."
+        new_listing_button_custom_color: "Opublikuj nowy kolor oferty"
+        logo_instructions_text_with_dimensions: "Rozmiar logo powinien wynosić %{width} na %{height} pikseli. Będzie ono wyświetlane użytkownikom z większym ekranem."
+        logo_instructions_text_with_dimensions_no_placing: "Wielkość logotypu powinna mieścić się w przedziale %{width} na %{height} pikseli."
+        logo_icon_instructions_text_with_dimensions: "To kwadratowe logo będzie pojawiało się, gdy Twoja strona zostanie udostępniona na Facebooku, użytkownikom przeglądającym Twoją stronę na urządzeniu mobilnym lub, gdy Twoja strona zostanie zapisana w ich zakładce ekranu głównego na urządzeniu mobilnym. Rozmiary powinny mieścić się (przynajmniej) w %{width} na %{height} pikseli."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Ten kwadratowy logotyp będzie pojawiał się, gdy ludzie udostępnią Twoją stronę na Facebooku lub, gdy zapiszą Twoją stronę na głównej witrynie ich urządzenia mobilnego. Rozmiary powinny mieścić się (przynajmniej) w %{width} na %{height} pikseli."
+        logo_mobile_icon_instructions_text_with_dimensions: "Ten kwadratowy logotyp będzie pojawiał się, gdy ludzie  zapiszą Twoją stronę na głównej witrynie ich urządzenia mobilnego. Rekomendowane rozmiary to: %{width} na %{height} pikseli."
+        cover_photo_visibility: "Zdjęcie w tle jest wyświetlane na stronie głównej dla użytkowników, którzy nie są zalogowani."
+        cover_photo_instructions_text_with_dimensions: "Zdjęcie będzie zmniejszone do %{width} na %{height} pikseli i wyższe zdjęcia będą przycięte po środku. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
+        cover_photo_ready_made: "Szukasz gotowych i zoptymalizowanych teł? Lub może potzebujesz inspiracji i stron na których możesz znaleźć świetne tła? %{link}!"
+        small_cover_photo_visibility: "Małe zdjęcie profilowe jest wyświetlane na wszystkich stronach poza stroną główną dla użytkowników, którzy nie są zalogowani."
+        small_cover_photo_instructions_text_with_dimensions: "Zdjęcie będzie zmniejszone do %{width} na %{height} pikseli i wyższe zdjęcia będą ucięte w połowie."
+        main_content_width: "Wybierając zdjęcie tytułowe zwróć uwagę, że szerokość głównej strony jest maksymalnie %{main_width} pikseli. Pamiętaj także, aby sprawdzić, jak Twoje zdjęcie tytułowe wygląda na mniejszych ekranach (np. używając węższych okien przeglądarki)."
+        custom_color1_instructions_text: "Możesz zmienić główny kolor interfejsu wprowadzając jego wartość HEX. %{link} może pomóc Ci wybrać kolor w wartości HEX. Następnie możesz wkleić kod tutaj."
+        new_listing_button_instructions_text: "Możesz zmienić kolor przycisku \"umieść nową ofertę\" poprzez wprowadzenie heksadecymalnego kodu koloru. %{link_to_colorpicker} może Ci pomóc wybrać kolor i skopiować odpowiedni kod tutaj."
+        default_browse_view: "Domyślny widok przeglądarki"
+        default_browse_view_instructions_text: "Domyślny widok przeglądarki jest używany na stronie głównej, aby określić w jaki sposób oferty są domyślnie wyświetlane."
+        grid: Siatka
+        list: Lista
+        map: Mapa
+        name_display_type: "Rodzaj wyświetlanej nazwy"
+        name_display_type_instructions_text: "Wybierz w jaki sposób imiona użytkowników będą wyświetlanie w serwisie."
+        full_name: "Pełne imię (pierwsze nazwisko)"
+        first_name_with_initial: "Pierwsze imię z inicjałem (Pierwsza Litera)"
+        first_name_only: "Tylko imię (Pierwsze)"
+        invalid_color_code: "Kod kolory powinien zawierać sześć cyfr lub liter od A do F, np. D96E21."
+        custom_head_script: "Skrypt niestandardowy"
+        custom_head_script_instructions_text: ~
+        current_image: "Aktualne zdjęcie:"
+      edit_text_instructions:
+        edit_text_instructions: "Tekst instrukcji"
+      edit_welcome_email:
+        welcome_email_content: "Treść wiadomości email"
+        welcome_email_content_description: "Wiadomość poniżej zostanie wysłana do każdego nowego użytkownika, gdy dołączą. Możesz dostosować wiadomość, aby pasowała do Twojej platformy. Klikając na %{send_test_message_link} możesz wysłać wiadomość testową na swój adres email, aby zobaczyć czy wszystko wygląda w porządku."
+        edit_message: "Edytuj wiadomość"
+        send_test_message: "Wyślij wiadomość testową"
+      outgoing_email:
+        title: "Adres mailingowy"
+        info: "Ta nazwa i adres jest wykorzystywany do wysyłania e-maili od Twojej platformy do użytkowników."
+        read_more: "Przeczytaj więcej na temat adresu mailingowego."
+        sender_address: "Adres nadawcy: %{sender_address}"
+        sender_address_default: "Adres nadawcy: nie ustawiony (wykorzystanie domyślnego adresu %{sender_address})"
+        need_to_change: "Jeśli potrzebujesz zmienić adres e-mail, proszę %{contact_support_link}."
+        contact_support_link_text: "skontaktuj się ze wsparciem Sharetribe"
+        set_sender_address: "Ustaw adres nadawcy"
+        sender_name_label: Nazwa
+        sender_name_placeholder: "Nazwa nadawcy"
+        sender_email_label: "Adres e-mail"
+        sender_email_placeholder: email-nadawcy@przyklad.com
+        amazon_ses_notification: "Otrzymasz e-maila od %{email_sender} w celu potwierdzenia twojego adresu e-mailowego. Temat e-maila brzmi %{email_subject}. Postępuj zgodnie z instrukcjami w celu potwierdzenia adresu e-mailowego."
+        this_is_how_it_will_look: "Tak to będzie wyglądało:"
+        send_verification_button: "Wyślij e-mail weryfikacyjny"
+        change_sender_email: "Zmień adres e-mail wysyłającego"
+        successfully_saved: "Adres nadawcy zachowany. E-mail weryfikacyjny będzie wysłany wkrótce."
+        successfully_saved_name: "Adres e-mail wysyłającego został poprawnie zaktualizowany."
+        set_sender_name: "Zmień nazwę wysyłającego"
+        change_sender_name: "Zmień nazwę wysyłającego"
+        change_sender_prompt: "%{change_name_link} lub %{change_email_link}"
+        status: "Status: %{status}"
+        status_verified: "Zweryfikowane - w użyciu"
+        status_error: "Wystąpił błąd. Proszę odświeżyć stronę."
+        status_requested: "Niezweryfikowany - e-mail weryfikacyjny wysłany został %{time_ago} do %{email}. %{resend_link}"
+        status_expired: "Czas na weryfikację %{email} upłynął. %{resend_link}"
+        status_resent: "E-mail weryfikacyjny wysłany ponownie do %{email}. %{resend_link}"
+        resend_link: "Wyślij ponownie"
+        invalid_email_error: "Nieprawidłowy format e-maila dla '%{email}'"
+        invalid_email_address: "Proszę podać poprawny adres e-mail"
+        invalid_email_domain: "Adres e-mailowy '%{email}' używa niewspieranej domeny: '%{domain}'. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Przeczytaj artykuł aby uzyskać więcej informacji"
+        unknown_error: "Coś poszło źle"
+        white_label_offer: "Ustaw swój własny adres e-mail jako nadawcę i usuń cały branding Sharetribe z wychodzących wiadomości e-mail poprzez %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "podniesienie licencji do wersji Pro lub wyższej"
+        verification_sent_from: "E-mail weryfikacyjny był wysłany z %{verification_sender_name}"
+        follow_the_instructions: "Proszę postępuj zgodnie z instrukcjami w e-mailu aby zweryfikować swój adres."
+      getting_started:
+        getting_started: "Poradnik początkujących"
+      available_languages:
+        bg: ~
+        ca: ~
+        cs: Czeski
+        da-DK: Duński
+        de: Niemiecki
+        el: Grecki
+        en: Angielski
+        en-AU: "Angielski (Australia)"
+        en-GB: "Angielski (Wielka Brytania)"
+        es: Hiszpański
+        es-ES: "Hiszpański (Hiszpania)"
+        et: ~
+        fi: Fiński
+        fr: Francuski
+        fr-CA: "Francuski (Kanada)"
+        hr: ~
+        hu: ~
+        it: Włoski
+        ja: Japoński
+        ko: Koreański
+        lt: ~
+        nb: "Norweski Bokmål"
+        nl: Holenderski
+        pl: Polski
+        pt-BR: "Portugalski (Brazylijski)"
+        pt-PT: Portugalski
+        ro: ~
+        ru: Rosyjski
+        sk-SK: ~
+        sl: ~
+        sv: Szwedzki
+        th-TH: "Tajlandzki (Tajlandia)"
+        tr-TR: Turecki
+        uk: ~
+        vi: Wietnamski
+        zh: Chiński
+        zh-TW: "Chiński (Tajwan)"
+      settings:
+        settings: Ustawienia
+        general: Główne
+        access: "Preferencje dotyczące dostępu i kontaktów"
+        join_with_invite_only: "Pozwól dołączyć nowym użytkownikom tylko z zaproszeniem od zarejestrowanych użytkowników"
+        users_can_invite_new_users: "Pozwól wszystkim zarejestrowanym użytkownikom, nie tylko administratorom, zapraszać nowych użytkowników"
+        private: "Pozwól wyłącznie zarejestrowanym użytkownikom wyświetlać oferty i profile innych (ustaw platformę jako \"prywatną\")"
+        require_verification_to_post_listings: "Pozwól tylko zweryfikowanym przez administrację użytkownikom na dodawanie nowych ofert"
+        allow_free_conversations: "Pozwól użytkownikom swobodnie wysyłać wiadomości"
+        search_preferences: "Preferencje wyszukiwania"
+        search_and_location_preferences: ~
+        default_search_type: "Typ wyszukiwania: %{select_search_type}"
+        keyword_search: "Wyszukiwanie tekstu"
+        keyword_and_location_search: "Słowo kluczowe i wyszukiwanie po lokalizacji"
+        location_search: "Wyszukiwanie lokalizacji"
+        select_distance_unit: "Pokazuj odległość w %{distance_units_selector}"
+        km: km
+        miles: milach
+        show_only_nearby: "Pokaż tylko najbliższe oferty przy użyciu wyszukiwania po lokalizacji"
+        allow_users_to_add_location: "Pozwól użytkownikom dodać lokalizację do ich profili i ofert i pokaż widok mapy na stronie wyszukiwania"
+        fuzzy_location: "Pokaż koło, zamiast dokładnej lokalizacji"
+        listing_preferences: "Preferencje wyświetlania"
+        transaction_preferences: "Preferencje dot. zamówień"
+        show_listing_publishing_date: "Wyświetl datę publikacji oferty na liście ofert"
+        show_category_in_listing_list: "Wyświetl rodzaj oferty na widoku listy"
+        listing_comments_in_use: "Pozwól użytkownikom dodawać komentarze do ofert (widoczne dla wszystkich pozostałych użytkowników)"
+        email_preferences: "Preferencje email"
+        automatic_newsletters: "Wysyłaj automatyczne newslettery: dzienne / tygodniowe do wszystkich użytkowników (jeżeli nie zrezygnowali z ich otrzymywania)"
+        email_admins_about_new_members: "Wyślij administratorom wiadomość email za każdym razem, gdy rejestruje się nowy użytkownik"
+        google_analytics_key: "ID śledzenia z usługi Google Analytics"
+        twitter_handle: "Nick z Twittera (używany przez guzik twitnięcia na stronie oferty)"
+        update_settings: "Zapisz ustawienia"
+        automatically_confirmed_no_escrow: "Zlecenie zostanie automatycznie oznaczone jako zrealizowane %{days_dropdown} dni po dokonaniu płatności"
+        automatically_confirmed_no_escrow_stripe_info: "Jeśli realizujesz płatności za pomocą Stripe, pamiętaj, że płatności są opóźnione aż do momentu poinformowania o zrealizowanej usłudze. %{learn_more}"
+        buyer_transaction_fees_are_only_supported_with_stripe: "Prowizja od kupującego jest tylko wspierana w Stripe. Nie będziesz mógł użyć PayPala, jeśli ustalisz prowizję dla kupującego z Stripe."
+        automatic_newsletter_frequency: "Wysyłaj automatycznie newsletter: %{frequency_dropdown}"
+        newsletter_daily: Codziennie
+        newsletter_weekly: Tygodniowo
+        delete_marketplace_title: "Usuń platformę"
+        type_marketplace_domain: "Wprowadź domenę swojej platformy (%{domain}) w pole tekstowe poniżej:"
+        type_marketplace_domain_placeholder: "Wprowadź domenę swojej platformy tutaj"
+        once_you_delete: "Kiedy skasujesz swoją platformę nie będziesz miał więcej możliwości dostępu do niej. Bądź ostrożny."
+        are_you_sure: "Czy jesteś pewien?"
+        i_understand_button: "Rozumiem, że poprzez naciśnięcie tego przycisku moja platforma zostanie skasowana."
+        last_community_updates: "Miej świadomość, że po skasowaniu Ty i użytkownicy Twojej platformy możecie nadal otrzymywać ostatnie e-maile aktualizacyjne dotyczące platformy."
+        you_will_be_redirected_to: "Po skasowaniu swojej platformy zostaniesz przeniesiony do %{destination}. Nie będziesz mógł więcej dostać się do swojej platformy."
+        delete_this_marketplace: "Usuń tę platformę"
+        payment_preferences: "System płatności"
+        pre_approved_listings: "Zatwierdź wszystkie oferty zanim zostaną opublikowane."
+        email_admins_about_new_transactions: "Wyślij adminom e-mail, gdy rozpocznie się nowa transakcja"
+      manage_members:
+        manage_members: Użytkownicy
+        email: "Adres email"
+        name: Imię
+        display_name: "Imię wyświetlane"
+        join_date: Dołączył
+        admin: Administrator
+        posting_allowed: "Postowanie dozwolone"
+        ban_user: "Zablokuj użytkownika"
+        saving_user_status: "Trwa zapisywanie..."
+        save_user_status_successful: Zapisane
+        export_all_as_csv: "Wyeksportuj wszystko do CSV"
+        save_user_status_error: "Zapis nie udał się. Proszę odśwież stronę i spróbuj ponownie."
+        ban_user_confirmation: "Ta akcja spowoduje zablokowanie użytkownika w Twoim serwisie i nie pozwoli mu na ponowne użycie tego konta. Czy jesteś pewien, że chcesz kontynuować?"
+        unban_user_confirmation: "To aktywuje konto użytkownika na platformie i pozwala za jego pomocą na dostęp do strony. Czy chcesz kontynuować?"
+        ban_me_error: "Nie możesz wyrzucić samego siebie."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
+        search: Szukaj
+        search_by_name_email: "Szukaj nazwy, adresu e-mail lub wyświetlanej nazwy"
+        reset_search: "Pokaż wszystkie"
+        for_search_terms: "dla: %{terms}"
+        this_makes_the_user_an_admin: "To czyni z użytkownika administratora. Powinieneś powiadomić użytkownika o przypisanej mu odpowiedzialności i przypomnieć, że powinien zapoznać się ponownie z Regulaminem. Czy na pewno chcesz kontynuować?"
+        status_filter:
+          all: "Wszystkie statusy"
+          selected: "Wybrane statusy:%{count}"
+          selected_js: "Wybrane statusy "
+          admin: Admin
+          banned: Wyłączone
+          posting_allowed: "Można umieszczać oferty"
+          accepted: Zatwierdzne
+          unconfirmed: Niepotwierdzone
+          pending: Oczekujące
+        this_user_hasnt_confirmed_their_email_address: "Ten użytkownik nie potwierdził swojego adresu e-mial. Możliwe, że nie otrzymał e-maila potwierdzającego. Kliknij przycisk \"wyślij ponownie\" jeśli chcesz wysłać widomość raz jeszcze."
+        unconfirmed_user: "Niepotwierdzony użytkownik: %{name}"
+        resend: "Wyślij ponownie"
+        cancel: Anuluj
+        confirm: Potwierdź
+        user_didnt_complete_the_signup_process: "Ten użytkownik zalogował się za pomocą Facebook'a ale nie dokończył procesu rejestracji. Po połączeniu się z kontem Facebook, użytkownicy nadal muszą zaakceptować regulamin oraz wypełnić wszystkie konieczne pola."
+        pending_user: "Oczekuje: %{name}"
+      new_layout:
+        new_layout: "Nowy układ"
+        description_roadmap_new: "Kiedy nowy elementy układu graficznego będą dostępne dla Twojej platformy, możesz wybrać czy chcesz zacząć używać nowego elementu, czy pozostać przy starym. Możesz zmienić ten wybór zawsze na tej stronie. Rekomenduje się zawsze używanie nowych wersji, gdyż stare mogą stać się niepasujące w pewnym momencie. W przypadku gdy element, którego używasz stanie się niepasujący zostaniesz powiadomiony z wyprzedzeniem."
+        enabled_for_you: "Włączone dla Ciebie"
+        enabled_for_all: "Włączone dla wszystkich"
+        new_topbar: "Nowy pasek górny (widoczny na każdej stronie)"
+        searchpage: "Nowa strona wyszukiwania (wymaga nowego górnego paska)"
+        new_email_templates: "Nowy szablon dla e-maili"
+      social_media:
+        social_media: "Media społecznościowe"
+        logo: logo
+        logo_info: "To zdjęcie jest używane kiedy ktoś udostępnia Twoją strona w social media (Facebook, Twitter, Linkedin). Dla Lepszego rezultatu powinno mieć rozmiar : 2:1, a minimalny rozmiar %{width} x %{height} px"
+        social_media_title: "Nazwa mediów społecznościowych"
+        social_media_title_info: "Tekst będzie wyświetlany w mediach społecznościowych dla Facebook'a, Twitter'a oraz LinkedIn wtedy kiedy ktoś udostępni Twoją stronę internetową. Zobacz jak to wygląda  %{facebook_preview_link}, %{twitter_preview_link} and %{linkedin_preview_link}."
+        link_for_facebook: "dla Facebook'a"
+        link_for_linkedin: "dla LinkedIn"
+        link_for_twitter: "dla Twitter'a"
+        social_media_description: "Opis mediów społecznościowych"
+        twitter_handle: "Obsługa Twitter"
+        twitter_handle_info_text: "Nazwa konta Twitter Twojej platformy (jeśli takie masz). Będzie wspomniana gdy ludzie użyją przycisku \"Tweet\" na stronie oferty."
+        twitter_handle_info_text_with_instructions: "Nazwa konta Twitter Twojej platformy (jeśli takie masz). Będzie wspomniana gdy ludzie użyją przycisku \"Tweet\" na stronie oferty. %{instructions_link}"
+        twitter_instructions_link_text: "Czytaj więcej"
+        twitter_handle_placeholder: "Nazwa użytkownika"
+        invalid_twitter_handle: "Kod obsługi Twitter powinien zawierać wyłącznie maksymalnie 15 alfanumerycznych znaków (litery A-Z i cyfry 0-9)."
+        facebook_connect: "Facebook Login"
+        facebook_developers_dashboard: "Kosnola Deweloperksa Facebook"
+        facebook_connect_info_text: "Aby umożliwić logowanie poprzez Facebook, stwórz aplikację dla swojej platformy w <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodaj wygenerowane id oraz tajny klucz aplikacji tutaj."
+        facebook_connect_info_text_with_instructions: "Aby umożliwić logowanie poprzez Facebook, stwórz aplikację dla swojej platformy w <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodaj wygenerowane id oraz tajny klucz aplikacji tutaj. %{instructions_link}"
+        facebook_instructions_link_text: "Zobacz instrukcje konfiguracji loginu za pomocą Facebooka."
+        facebook_connect_id: "Facebook App ID"
+        invalid_facebook_connect_id: "Id klienta powinno zawierać wyłącznie liczby."
+        facebook_connect_secret: "Facebook App Secret"
+        invalid_facebook_connect_secret: "Tajny klucz klienta powinien zawierać wyłącznie liczby oraz litery od a do f"
+        enable_facebook_login: "Pozwól użytkownikom zalogować się za pomocą konta Facebook"
+        save: "Zapisz ustawienia"
+        google_connect: "Loguj się za pomocą Google"
+        google_instructions_link_text: "Zapoznaj się z instrukcją aby zalogować się za pomocą konta Google."
+        google_developers_console: "Konsola Deweloperska Google"
+        google_connect_info_text_with_instructions: "Aby aktywować login za pomocą Google, stwórz projekt dla Twojego serwisu w %{dashboard_link}. Dodaj wygenerowane ID i secret key Twojego projektu tutaj. %{instructions_link}"
+        google_connect_info_text: "Aby aktywować login za pomocą Google, stwórz projekt dla Twojego serwisu w %{dashboard_link}. Dodaj wygenerowane ID i secret key Twojego projektu tutaj."
+        enable_google_login: "Zezwól użytkownikom na logowanie się za pomocą konta Google"
+        google_connect_id: "Identyfikator Google"
+        google_connect_secret: "Google Client secret"
+        linkedin_connect: "Zaloguj się za pomocą LinkedIn"
+        linkedin_instructions_link_text: "Zapoznaj się z instrukcją aby zalogować się za pomocą LinkedIn."
+        linkedin_developers_dashboard: "Konsola Deweloperska LinkedIn"
+        linkedin_connect_info_text_with_instructions: "Aby aktywować login za pomocą Google, stwórz projekt dla Twojego serwisu w %{dashboard_link}. Dodaj wygenerowane ID i secret key Twojego projektu tutaj. %{instructions_link}"
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: "Zezwól użytkownikom na logowanie się za pomocą konta LinkedIn"
+        linkedin_connect_id: "Identyfikator klienta LinkedIn"
+        linkedin_connect_secret: "LinkedIn Client Secret"
+      seo_settings:
+        seo: Pozycjonowanie
+        title: "Strona główna lub strona \"o nas\""
+        meta_title_label: "Metatag strony głównej lub strony docelowej"
+        meta_title_info: "Treść tego tagu jest sugerowana wyszukiwarkom i jest wyświetlana w rezultatach wyszukiwania jako klikalny nagłówek. %{link} %{vars}"
+        meta_title_link_text: "Dowiedz się więcej o metatagach."
+        meta_description_label: "Metatag strony głównej lub strony docelowej"
+        meta_description_info: "Treść tego tagu jest sugerowana wyszukiwarkom i pojawia się pod niebieskimi kilkalnymi linkami w rezultatach wyszukiwania. %{link} %{vars}."
+        meta_description_link_text: "Dowiedz się więcej o metatagach."
+        search_title: "Strona z wynikami wyszukiwania"
+        search_meta_title_label: "Metatag tytułu strony wyników wyszukiwania"
+        search_meta_title_info: "Treść tego tagu jest sugerowana wyszukiwarkom i jest wyświetlana w rezultatach wyszukiwania jako klikalny nagłówek. %{link} %{vars}"
+        search_meta_title_link_text: "Dowiedz się więcej o metatagach."
+        search_meta_description_label: "Metatag opisu strony wyników wyszukiwania"
+        search_meta_description_info: "Treść tego tagu jest sugerowana wyszukiwarkom i pojawia się pod niebieskimi kilkalnymi linkami w rezultatach wyszukiwania. %{link} %{vars}."
+        search_meta_description_link_text: "Dowiedz się więcej o metatagach."
+        listing_title: "Strona z ofertami"
+        listing_meta_title_label: "Metatag tytułu oferty"
+        listing_meta_title_info: "Treść tego tagu jest sugerowana wyszukiwarkom i jest wyświetlana w rezultatach wyszukiwania jako klikalny nagłówek. %{link} %{vars}"
+        listing_meta_title_link_text: "Dowiedz się więcej o metatagach."
+        listing_meta_description_label: "Metatag opisu oferty"
+        listing_meta_description_info: "Treść tego tagu jest sugerowana wyszukiwarkom i pojawia się pod niebieskimi kilkalnymi linkami w rezultatach wyszukiwania. %{link} %{vars}."
+        listing_meta_description_link_text: "Dowiedz się więcej o metatagach."
+        category_title: "Strona z kategoriami"
+        category_meta_title_label: "Metatag strony z kategoriami"
+        category_meta_title_info: "Treść tego tagu jest sugerowana wyszukiwarkom i jest wyświetlana w rezultatach wyszukiwania jako klikalny nagłówek. %{link} %{vars}"
+        category_meta_title_link_text: "Dowiedz się więcej o metatagach."
+        category_meta_description_label: "Metatag opisu strony z kategoriami"
+        category_meta_description_info: "Treść tego tagu jest sugerowana wyszukiwarkom i pojawia się pod niebieskimi kilkalnymi linkami w rezultatach wyszukiwania. %{link} %{vars}."
+        category_meta_description_link_text: "Dowiedz się więcej o metatagach."
+        profile_title: "Strona porfilowa"
+        profile_meta_title_label: "Metatag tytułu strony profilowej"
+        profile_meta_title_info: "Treść tego tagu jest sugerowana wyszukiwarkom i jest wyświetlana w rezultatach wyszukiwania jako klikalny nagłówek. %{link} %{vars}"
+        profile_meta_title_link_text: "Dowiedz się więcej o metatagach."
+        profile_meta_description_label: "Metatag opisu strony profilowej"
+        profile_meta_description_info: "Treść tego tagu jest sugerowana wyszukiwarkom i pojawia się pod niebieskimi kilkalnymi linkami w rezultatach wyszukiwania. %{link} %{vars}."
+        profile_meta_description_link_text: "Dowiedz się więcej o metatagach."
+        sitemap_label: "Mapa strony"
+        sitemap_info: "Sitemaps są łatwym sposobem na poinformowanie wyszukiwarek o stronach Twojego serwisu, które są dostępne dla robotów indeksujących. %{link}."
+        sitemap_info_link_text: "Dowiedz się więcej o wersji XML pliku mapy strony"
+        sitemap_info_public: "Mapa jest wygenerowana automatycznie dla Twojej platformy. Oznacza do 500 najnowszych ofert na Twojej stronie. Możesz mieć dostęp do mapy pod linkiem %{link}"
+        sitemap_info_private: "Ponieważ Twoja platforma jest prywatna, nie posiada mapy strony."
+        robots_label: Robots.txt
+        robots_info: "Robots.txt jest to plik tekstowy, który przekazuje informacje internetowym robotom (mechanizmom wyszukiwania) w jaki sposób przeszukiwać strony na twojej platformie.%{link}."
+        robots_info_link_text: "Dowiedz się więcej na temat pliku robots.txt"
+        robots_info_2: "Robots.txt jest plikiem automatycznie tworzonym dla Twojej platformy. Możesz się do niego dostać na %{link}."
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: "the instrukcje"
+        google_search_console_paragraph2: ~
+        save: "Zapisz ustawienia"
+      analytics:
+        analytics: Analizy
+        google_analytics_key: "ID śledzenia z usługi Google Analytics"
+        google_analytics_key_info_text: "ID śledzenia Twojego konta Google Analytics"
+        google_analytics_key_info_text_with_instructions: "ID śledzenia Twojego konta Google Analytics. %{instructions_link}"
+        google_analytics_instructions_link_text: "Czytaj więcej na temat połączenia Google Analytics"
+        sharetribe_analytics: "Analityka Sharetribe"
+        sharetribe_analytics_info_text_with_instructions: "Aby doskonalić usługi  platformy, Sharetribe śledzi aktywność użytkowników platformy. Dane osobowe nie są zbierane a informacje pozostają tylko do wiadomości zespołu Sharetribe. To śledzenie może być wyłączone całkowicie %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Dowiedz się więcej o Analitykach Sharetribe."
+        end_user_analytics: "Pozwól Sharetribe obserwować aktywność użytkowników aby doskonalić usługi platformy."
+        save: "Zapisz ustawienia"
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
+      logo_link:
+        title: "Link do logotypu"
+        info: "Możesz dostosować do swoich potrzeb link logotypy (oraz domyślnie przycisk kierujący do strony głównej w górnym menu). Domyślnie logotyp przekierowuje użytkowników do strony głównej lub strony \"o nas\""
+        url: URL
+        placeholder: "https://www.przykład.com"
+      menu_links:
+        menu_links: "Spersonalizowane linki menu"
+        menu_links_display: "Wyświetlanie linków w menu"
+        save: "Zapisz ustawienia"
+        add_menu_link: "Dodaj nowy link do menu"
+        title_placeholder: "Nazwa linku"
+        url_placeholder: "https://www.przyklad.pl/pl"
+        title: Nazwa
+        language: Język
+        url: "Adres URL"
+        empty: "Nie posiadasz żadnych więcej łączy menu."
+        max_number_of_links: "Liczba maksymalnie wyświetlanych linków w górnym pasku: %{select_max_number}"
+        all: Wszystkie
+        max_number_of_links_info: "Link do %{about_page} jest zawsze wyświetlany jako pierwszy w menu"
+        about_page: "o stronie"
+      default_menu_links:
+        title: "Domyślne linki w menu"
+        about_link_title: "O nas"
+        contact_link_title: Kontakt
+        invite_link_title: "Zaproś nowych użytkowników"
+        info: "Linki do tych stron domyślnie nie wyświetlają się nigdzie indziej na platformie: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Wyświetl link do <i>About</i> i innych stron statycznych"
+        display_contact: "Wyświetl link do  strony <i>Contact us</i>"
+        display_invite: "Wyświetl link do strony <i>Invite new members</i> page"
+      topbar:
+        topbar: "Górny pasek"
+        new_listing_button_label: "Opublikuj nowy tekst na guziku oferty"
+        invalid_post_listing_button_label: "Proszę podaj poprawny tekst dla guzika \"Opublikuj nową ofertę\""
+      transactions:
+        export_all_as_csv: "Wyeksportuj wszystko do CSV"
+        processing_export: "Trwa eksport do pliku CSV..."
+        transactions: Transakcje
+        search_by_title_parties: "Wyszukaj transakcje lub zainteresowne konta"
+        search: Szukaj
+        reset_search: "Pokaż wszystkie"
+        status_filter:
+          all: "Wszystkie statusy"
+          selected: "Wybrane statusy:%{count}"
+          selected_js: "Wybrane statusy: "
+          free: "Bezpłatna transakcja"
+          confirmed: Zakończone
+          paid: Zapłacone
+          canceled: Anulowane
+          disputed: Unieważnione
+          preauthorized: Preautoryzacja
+          rejected: Odrzucone
+          payment_intent_requires_action: "W trakcie"
+          payment_intent_action_expired: Wygasłe
+          refunded: "Zwrot pieniędzy"
+          dismissed: ~
+        headers:
+          conversation: "Wątek konwersacji"
+          listing: Oferta
+          status: Status
+          sum: Suma
+          started: Założono
+          last_activity: "Ostatnia aktywność"
+          initiated_by: Starter
+          other_party: Sprzedawca
+        status:
+          conversation: Rozmowa
+          free: "Bezpłatna transakcja"
+          pending: "W trakcie"
+          preauthorized: Pre-autoryzacja
+          accepted: Zaakceptowano
+          rejected: Odrzucono
+          paid: Zapłacono
+          confirmed: Potwierdzono
+          canceled: Anulowano
+          disputed: Unieważnione
+          initiated: "Oczekiwanie na płatność PayPal"
+          pending_ext: "Oczekiwanie na płatność PayPal"
+          none:
+            free: "Darmowa transakcja"
+          paypal:
+            free: Rozmowa
+            pending: Oczekujące
+            preauthorized: Preautoryzacja
+            accepted: Zaakceptowano
+            rejected: Odrzucono
+            paid: Zapłacono
+            confirmed: Ukończono
+            canceled: Anulowane
+            disputed: Unieważnione
+            initiated: "Oczekiwanie na płatność PayPal"
+            pending_ext: "Oczekiwanie na płatność PayPal"
+            refunded: "Zwrot pieniędzy"
+            dismissed: ~
+          stripe:
+            free: Rozmowa
+            pending: "W trakcie"
+            preauthorized: Preautoryzacja
+            accepted: Zaakceptowano
+            rejected: Odrzucono
+            paid: Zapłacono
+            confirmed: Ukończono
+            canceled: Anulowane
+            disputed: Unieważnione
+            initiated: "Oczekiwanie na płatność Stripe"
+            pending_ext: "Oczekiwanie na płatność Stripe"
+            payment_intent_requires_action: "W trakcie"
+            payment_intent_action_expired: Wygasłe
+            payment_intent_failed: "Płatność za pomocą Stripe nie powiodła się"
+            refunded: "Zwrot pieniędzy"
+            dismissed: ~
+        not_available: "Nie dostępne"
+      conversations:
+        conversations: Rozmowy
+        headers:
+          started_from: "Począwszy od"
+          status: Status
+          started: "Rozpoczęło się"
+          last_activity: "Ostatnia aktywność"
+          initiated_by: Kupujący
+          other_party: Dostawca
+        participants: "Rozmowa: %{starter} z %{author}"
+        profile: "Profil %{author}"
+        search_by_keyword: "Szukaj po nazwie, e-mailu lub słowie kluczowym"
+        search: Szukaj
+        reset_search: "Pokaż wszystkie"
+        for_keyword: "dla: <b>%{keyword}</b>"
+      testimonials:
+        testimonials: Opinie
+        no_testimonials_found: "Brak opinii"
+        displaying_xx_reviews: "Wyświetlono <b>%{count}</b> opinii w transakcjach %{tx_from} - %{tx_to} z <b>%{all_count}</b> opinii łącznie"
+        search_keyword: "Szukaj po nazwie, e-mailu lub słowie kluczowym"
+        search: Szukaj
+        reset_search: "Pokaż wszystkie"
+        for_keyword: "dla: <b>%{keyword}</b>"
+        headers:
+          transaction: Transakcja
+          author: Autor
+          receiver: Otrzymujący
+          status: Status
+          grade: Stopień
+          text: Tekst
+        status:
+          waiting: "Czeka na opinię"
+          skipped: Pominięte
+          published: Opublikowane
+          blocked: zablokowany
+        status_filter:
+          selected: "Wybrane filtry: %{count}"
+          all: Filtry
+          published: Opublikowane
+          positive: Pozytywne
+          negative: Negatywne
+          skipped: Pominięte
+          waiting: Oczekujące
+          blocked: Zablokowane
+          selected_js: "Wybrane filtry: "
+        form:
+          review_text: "treść opinii"
+          save: Zapisz
+          cancel: kasuj
+          delete_review: "Skasuj opinię"
+          block_review: "Blokuj opinię"
+          confirm_modify: "Czy jesteś pewny, że chcesz skasować/modyfikować tą recenzję? Jeśli zmodyfikujesz lub skasujesz recenzję nie będzie możliwe przywrócenie wcześniejszej treści."
+          deleting_info: "Skasowanie opini pozwala autorowi wystawić kolejną za tą samą transakcję"
+          blocking_info: "Zablokowanie opinii po jej usunięciu, uniemożliwia jej autorowi zostawienia kolejnej opinii dla tej samej transakcji."
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: "Nie będą oni powiadomieni automatycznie."
+      invitations:
+        invitations: Zaproszenia
+        used:
+          "yes": Tak
+          "no": Nie
+        headers:
+          sent_by: "Wysłane przez"
+          message: Wiadomość
+          sent_to: "Wysłane do"
+          used: Wykorzystane
+          date_sent: "Data wysłania"
+      listings:
+        listings: Oferty
+        search_by_title_author_category: "Wyszukaj po nazwie oferty, autorze lub kategorii"
+        search: Szukaj
+        reset_search: "Pokaż wszystkie"
+        export_all_as_csv: "Eksportuj wszystkie jako plik CSV"
+        processing_export: "Przetwarzanie eksportu do pliku CSV"
+        status:
+          all: "Wszystkie statusy:"
+          selected_js: "Wybrane statusy: "
+          open: Otwarte
+          closed: Zamknięte
+          expired: Wygasło
+          approval_pending: Oczekujące
+          approval_rejected: Odrzucone
+        headers:
+          title: Tytuł
+          author: Autor
+          created: Stworzone
+          updated: Zaktualizowane
+          category: Kategoria
+          status: Status
+        open: Otwarta
+        closed: Zamknięte
+        expired: Wygasło
+        approved: Zatwierdzone
+        approval_pending: Oczekujące
+        approval_rejected: Odrzucone
+        form:
+          this_listing_has_not_not_been_approved_yet: "Oferta nie została jeszcze zatwierdzona. Możesz teraz zdecydować, czy zatwierdzić czy odrzucić ofertę. Jeśli ją zatwierdzisz będzie widoczna dla wszystkich użytkowników. Jeśli ją odrzucisz nie będzie widoczna publicznie."
+          approve: Zatwierdź
+          reject: Odrzuć
+          cancel: Anuluj
+      user_fields:
+        user_fields: "Pola użytkownika"
+      footer:
+        footer: Stopka
+        offer_pro: "Skonfiguruj i usuń zupełnie branding Sharetribe ze stopki swojego serwisu przez %{upgrade_pro_plan_link}."
+        upgrade_plan_link: ~
+        menu_links: "Linki w stopce"
+        language: Język
+        title: Nazwa
+        url: URL
+        add: "Dodaj nowy link do stopki"
+        save: "Zapisz ustawienia"
+        footer_style: "Styl stopki"
+        footer_copyright: "Prawa autorskie"
+        footer_enabled: "Stopka włączona"
+        social_links: "Stopka z linkami do mediów społecznościowych"
+        title_placeholder: "Nazwa linku"
+        url_placeholder: "https://example.com/username"
+        style:
+          dark: Ciemna
+          light: Jasne
+          marketplace_color: "Kolor platformy"
+          logo: Logotyp
+        social:
+          title: Nazwa
+          url: URL
+      domain:
+        domain: Domena
+        marketplace_domain: "Domena platformy"
+        offer_pro: "Skonfiguruj swoją własną domenę poprzez %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "Przejdź na Pro Plan lub wyższy pakiet"
+        your_marketplace_address_is: "Adres Twojej platformy to: %{address}"
+        would_you_like_to_change_address: "Czy chciałbyś zmienić adres Twojej platformy? %{contact_us}!"
+        contact_us: Kontakt
+        you_can_now_use_a_custom_domain: "Z Twoim aktualnym planem możesz ustawić standardową domenę. Kontynuuj aby skonfigurować ustawienia. %{contact_us}!"
+        would_you_like_to_change_domain: "Czy chciałbyś zmienić nazwę domeny swojej platformy?%{contact_us}!"
+        change_your_sharetribe_domain: "Zmień swoją domenę Sharetribe"
+        only_letters_numbers_and_hyphens_can_be_used: "Tylko litery, cyfry i myślniki mogą być użyte. Uważaj! Twoja stara domena będzie dostępna dla innych i nie będzie przekierowywyała do Twojej nowej domeny."
+        when_you_change_your_sharetribe_domain: "Gdy zmienisz swoją domenę Sharetribe, wszystkie linki URL Twojego serwisu zostaną automatycznie zmienione. Zostaniesz przekierowany do nowego adresu swojego serwisu. Twoi użytkownicy będą musieli się ponownie zalogować. Twoja poprzednia domena nie będzie połączona, ani nie będzie w żaden sposób przekierowywała do Twojej nowej domeny. Twoja stara domena będzie dostępna dla innych."
+        would_you_like_to_proceed: "Chcesz kontynuować?"
+        change: Zmień
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
+      landing_pages:
+        landing_pages: "Strona docelowa"
+        info_1: "Strona docelowa jest prawdopodobnie najważniejszą stroną Twojego serwisu. Jest to pierwsza strona, którą zobaczą użytkownicy odwiedzający Twój serwis - trochę jak drzwi wejściowe do Twojego domu. Masz tylko kilka sekund, aby przekonać nowych użytkowników do przejrzenia Twojego serwisu. Strona docelowa musi być atrakcyjna i główny cel serwisu w niej zawarty powinien być jasny i przyciągający."
+        info_2: "Możesz skorzystać z tego edytora do zmodyfikowania treści strony docelowej kiedy tylko zechcesz!"
+        info_2_help_center: "Artykuł Centrum Pomocy"
+        info_3: "Jeśli chcesz posiadać całkowicie spersonalizowaną stronę docelowej dla Twojego serwisu, możesz zakupić ją jako dodatek w cenie $99/ miesiąc."
+        info_4: "Zajrzyj tutaj %{link}, aby dowiedzieć się więcej o tym jak działa strona docelowa, dowiedzieć się więcej o jej różnych sekcjach i jak je edytować."
+        editor_title: "Edytor strony docelowej"
+        editor_info: "Tutaj możesz edytować sekcje swojej strony docelowej. Aktualnie, możliwe jest tylko użycie jednego języka na stronę docelową. Pozycji sekcji \"Baner główny\" i \"Stopka\" nie można zmienić."
+        preview: "Podgląd strony docelowej"
+        set_live: Opublikuj
+        add_new_section: "Dodaj nową sekcję:"
+        select_section_type: "Wybierz rodzaj sekcji..."
+        this_version_is_not_released: "Musisz zrobić zmiany, aby opublikować nową wersję swojej strony docelowej"
+        latest_version_released: "Najnowsza wersja Twojej strony docelowej została opublikowana! %{link}!"
+        check_it_out: ~
+        form:
+          save: Zapisz
+          cancel: Anuluj
+        sections:
+          identifier: "Identyfikator sekcji"
+          kind: "Rodzaj sekcji"
+          new: "Nowa sekcja"
+          edit: "Edytuj sekcję %{section_id}"
+          remove_section_confirmation: "Jesteś pewien, że chcesz usunąć sekcję %{section_id} i wszystkie jej dane? Tej akcji nie można cofnąć."
+          info_single_column: "Info - Jedna kolumna"
+          info_multi_column_2: "Info - Dwie kolumny"
+          info_multi_column_3: "Info - Trzy kolumny"
+          listings: Oferty
+          categories: Kategorie
+          hero: "Baner główny"
+          locations: Lokalizacje
+          video: Lokalizacje
+          new_section:
+            categories: "Nowy dodatek do sekcji \"Kategorie\""
+            info_single_column: "Nowy dodatek do sekcji \"Info - jedna kolumna\""
+            info_multi_column_2: "Nowy dodatek do sekcji \"Info - Dwie kolumny\""
+            info_multi_column_3: "Nowy dodatek do sekcji \"Info - Trzy kolumny\""
+            listings: "Nowy dodatek do sekcji \"Oferty\""
+            locations: "Nowy dodatek do sekcji \"Lokalizacje\""
+            video: "Nowy dodatek do sekcji \"Wideo\""
+          edit_section:
+            categories: "Edycja sekcji \"Kategorie\""
+            footer: "Edycja sekcji \"Stopka\""
+            hero: "Edycja sekcji \"Baner główny\""
+            info_single_column: "Edycja sekcji \"Info - Jedna kolumna\""
+            info_multi_column_2: "Edycja sekcji \"Info - Dwie kolumny\""
+            info_multi_column_3: "Edycja sekcji \"Info - Trzy kolumny\""
+            listings: "Edycja sekcji \"Oferty\""
+            locations: "Edycja sekcji \"Lokalizacje\""
+            video: "Edycja sekcji \"Wideo\""
+      attachments:
+        delete: "Usuń obecny %{title}"
+        or_change: "Lub zmień %{title} na nowy:"
+    landing_page_versions:
+      sections:
+        content:
+          title: "Treść sekcji"
+        hero:
+          hero_title: "Baner główny"
+          hero_description: "Ustaw tło dla sekcji \"Baner główny\". Slogan i opis możesz ustawić tutaj %{link}."
+          basic_details_tab: "Podstawowe detale"
+          cta_button: ~
+          cta_button_info: "Nie musisz edytować tekstu dla tego przycisku. Możesz zwyczajnie pozostawić to pole puste. Domyślny tekst dla publicznych stron to \"Szukaj\" i \"Zarejestruj się\" dla prywatnych stron."
+          button_type:
+            default: Domyślny
+            button: Przycisk
+            none: Brak
+          button_content: "Zawartość przycisku"
+          click_me: "Kliknij mnie!"
+        footer:
+          footer_title: Stopka
+          footer_style: "Styl stopki"
+          style_dark: Ciemny
+          style_light: Jasny
+          style_marketplace_color: "Główny kolor serwisu"
+          style_logo: Logo
+        cta_button:
+          cta_button: ~
+          cta_enabled: ~
+          cta_text: Etykieta
+          cta_url: URL
+          text_placeholder: "Kliknij mnie!"
+          url_placeholder: "https://www.example.com"
+        background_selector:
+          title: Tło
+        background_image_overlay:
+          background_image: Tło
+          background_image_info: "Ten obraz zostanie pokazany jako tło dla tej sekcji. Dla najlepszych rezultatów tło powinno mieć rozmiar 1600 na 1200 pikseli."
+          add_another_image: "Dodaj kolejny obraz"
+          current_image: "Obecny obraz: %{filename}"
+          file_not_selected: "Nie wybrano"
+          background_image_overlay: "Nakładka tła"
+          background_image_overlay_info: "To pozwala Ci wybrać jak ciemne lub jasne będzie Twoje tło. \"Przeźroczysty\" oznacza brak jakiejkolwiek nakładki."
+          overlay_dark: Ciemny
+          overlay_light: Jasny
+          overlay_transparent: Przeźroczysty
+        background_style:
+          background_style: "Styl tła"
+          style_image: Obraz
+          style_color: Kolor
+          style_none: Żaden
+        background_color:
+          background_color: "Kolor tła"
+          background_color_info: "Możesz wybrać kolor tła tej sekcji podając wartość koloru w formacie hex. %{link} może Ci pomóc w wyborze koloru i podać Ci jego wartość w formacie hex. Następnie możesz skopiować tą wartość tutaj."
+        categories:
+          add: "+ Dodaj nową kategorię do tej sekcji"
+          category: Kategoria
+          empty: "Nie posiadasz żadnych załączonych kategorii"
+          image: Obraz
+          include_title: "Kategorie do zawarcia"
+          info_text: "Możesz dodać od trzech do siedmiu kategorii. Proszę, dodaj obraz dla każdej kategorii i wybierz jedną z kategorii za swojego serwisu. Dla najlepszych rezultatów polecany rozmiar obrazy to 1000 na 667 pikseli."
+          need_at_least_3_categories: "Powinieneś mieć przynajmniej trzy kategorie w tej sekcji"
+          need_at_most_7_categories: "Powinieneś mieć maksymalnie siedem kategorii w tej sekcji"
+        category:
+          add_another_image: "Dodaj kolejny obraz"
+          category: Kategoria
+          current_image: "Obecny obraz: %{filename}"
+          file_not_selected: "Nie wybrano"
+          image: Obraz
+          image_required: "Powinieneś dodać obraz do tej kategorii"
+          select_category: "Wybierz kategorię"
+        locations:
+          add: "+ Dodaj nową lokalizację do tej sekcji"
+          location: Lokalizacja
+          empty: "Nie masz żadnych załączonych lokalizacji"
+          image: Obraz
+          include_title: "Lokalizacje do zawarcia"
+          info_text: "Możesz dodać od trzech do siedmiu lokalizajci. Proszę, dodaj obraz dla każdej lokalizacji i dodaj URL lokalizacji z Twojego serwisu. Dla najlepszych rezultatów polecany rozmiar obrazy to 1000 na 667 pikseli."
+          need_at_least_3_locations: "Powinieneś mieć przynajmniej trzy lokalizacje w tej sekcji"
+          need_at_most_7_locations: "Powinieneś mieć maksymalnie siedem lokalizacji w tej sekcji"
+        location:
+          add_another_image: "Dodaj kolejny obraz"
+          location: Lokalizacja
+          current_image: "Obecny obraz: %{filename}"
+          file_not_selected: "Nie wybrano"
+          image: Obraz
+          image_required: "Powinieneś dodać obraz do tej lokalizacji"
+          title: Tytuł
+          title_placeholder: "Etykieta lokalizacji"
+          url: URL
+          url_placeholder: "URL lokalizacji"
+        multi_column:
+          main_title: "Główny tytuł"
+          column_header: "%{index} kolumny"
+          column_title: "Tytuł %{index} kolumny"
+          column_icon_info: ~
+          column_icon_info_link: ~
+          column_icon: "Ikona %{index} kolumny"
+          column_paragraph: "Paragraf %{index} kolumny"
+          column_button: "Przycisk %{index} kolumny"
+          column_button_text: "Etykieta przycisku"
+          column_button_url: "https://www.example.com"
+        listings:
+          listings_to_feature: ~
+          you_need_to_add_the_listing_ids: "Musisz podać identyfikatory ofert, które chcesz uwzględnić w tej sekcji. Aby znaleźć identyfikator oferty, przejdź do jej strony i spójrz na jej URL. Identyffikator oferty jest numerem, który ukazuje się zaraz po głównym linku, na przykład dla \"https://www.example/com/listings/123456-listing-title\" identyfikator oferty to 123456."
+        video:
+          text: Tekst
+          autoplay: "Opcje automatycznego odtwarzania"
+          autoplay_no: "Brak autoodtwarzania"
+          autoplay_muted: "Wyciszone autoodtwarzanie"
+          info: "Ten tekst będzie się wyświetlał jeśli wybierzesz opcję \\\"Brak autoodtwarzania\" lub jeśli wideo jest zatrzymane."
+          youtube_video_id_info: ~
+    custom_fields:
+      edit:
+        edit_listing_field: "Edytuje pole %{field_name} oferty"
+      edit_price:
+        description: "Najmniejsza i największa cena dotyczy tylko filtra. Nie ograniczają one ceny oferty."
+        edit_price_field: "Edytuj pole 'Cena'"
+        show_price_filter_homepage: "Pokaż filtr ceny na stronie głównej"
+        price_min: "Filtruj po cenie minimalnej"
+        price_max: "Filtruj po cenie maksymalnej"
+      edit_location:
+        edit_location_field: "Edytuj pole lokalizacji"
+        this_field_is_required: "To pole jest wymagane"
+        the_location_feature_can_be_enabled: "Funkcja lokalizacji może być aktywowana w sekcji %{link} w ustawieniach Twojego serwisu."
+      edit_expiration:
+        edit_expiration_field: "Edytuj pole oferty \"Data wygaśnięcia\""
+        enable: "Włącz datę wygaśnięcia"
+      form:
+        field_required:
+          this_field_is_required: "Ustaw to pole jako wymagane, gdy tworzona jest nowa oferta"
+          this_field_is_required_checkbox: "Ustaw to pole jako wymagane w trakcie tworzenia nowej oferty (użytkownik będzie musiał wybrać przynajmniej jedną opcję)"
+        search_filter:
+          search_filter: "Wyświetla filtr oparty o to pole na stronie głównej"
+          date_cant_be_filtered: "Dla pól typu data nie są dostępne filtry."
+          text_cant_be_filtered: "Nie ma filtrów dla pól tekstowych. Główne wyszukiwanie tekstowe wyszukuje po wszystkich polach tekstowych."
+      index:
+        listing_fields: "Pola oferty i filtry"
+        listing_fields_help: "W tym miejscu możesz edytować pola, które użytkownicy muszą wypełnić, kiedy tworzą nową ofertę. Zwróć uwagę, że niektóre pola są predefiniowane i nie mogą być edytowane."
+        add_new_field: "Dodaj nowe pole:"
+        remove_field_confirmation: "Na pewno chcesz usunąć pole '%{field_name} i wszystkie informacje z nim związane? Tej akcji nie można cofnąć."
+        cancel: Anuluj
+        save: Zapisz
+        field_title: "Tytuł pola"
+        field_type: "Rodzaj pola"
+        categories: "Kategorie ofert, w których pola są użyte"
+        select_all: "Zaznacz wszystko"
+        clear_all: "Wyczyść wszystko"
+        options: Opcje
+        add_option: "+ dodaj opcję"
+        saving_order: "Zapisz porządek pól"
+        save_order_successful: "Zapisywanie porządku pól zakończyło się sukcesem"
+        save_order_error: "Wystąpił błąd w zapisywaniu porządku pól. Proszę odśwież stronę i spróbuj ponownie."
+        select_one: "Wpisz rodzaje pól..."
+        continue: Kontynuuj
+        minimum_value: Minimum
+        maximum_value: Maksimum
+        allow_decimals: "Pozwól na ułamki"
+      new:
+        new_listing_field: "Nowe pole oferty"
+      field_types:
+        text: Tekst
+        number: Numer
+        dropdown: "Pokazuj jako rozwijalne menu"
+        checkbox_group: "Pole wybory grupy"
+        date: Data
+        file: Plik
+        location: Lokalizacja
+    person_custom_fields:
+      saving_failed: "Zapisanie pola użytkownika nie powiodło się"
+      index:
+        user_fields: "Pola użytkownika"
+        field_title: "Nazwa pola"
+        field_type: "Rodzaj pola"
+        signup: "Zarejestruj się"
+        public: Publiczne
+        add_new_field: "Dodaj nowe pole:"
+        save: Zapisz
+        cancel: Anuluj
+        minimum_value: Minimum
+        maximum_value: Maksimum
+        allow_decimals: "Pozwól na liczby dziesiętne"
+        add_option: "Dodaj opcję"
+      new:
+        new_user_field: "Nowe pole użytkownika"
+      form:
+        field_required:
+          this_field_is_required: "Oznacz to pole jako konieczne do wypełnienia podczas rejestracji do platformy."
+          this_field_is_required_checkbox: "Oznacz to pole jako konieczne podczas rejestracji do platformy (użytkownik musi wybrać co najmniej jedną opcję)"
+          this_field_is_public: "Pokaż to pole na profilu publicznym"
+      edit:
+        edit_user_field: "Edytuj pole użytkownika '%{field_name}'"
+    emails:
+      new:
+        send_email_to_members: "Wyślij wiadomość do użytkowników"
+        send_email_to_members_title: "Wyślij wiadomość do swoich użytkowników"
+        send_email: "Wyślij wiadomość email"
+        send_email_or: lub
+        send_test_email: "Wyślij do siebie testową wiadomość e-mail"
+        test_sent: "Testowa wiadomość e-mail została przesłana na Twoją skrzynkę pocztową"
+        send_email_article_title: "ten artykuł"
+        send_email_article_text: "Możesz dowiedzieć się więcej o rodzajach użytkowników w %{article_link}"
+        recipients:
+          title: "Do kogo chcesz wysłać e-mail?"
+          options:
+            all_users: "Wszyscy użytkownicy"
+            posting_allowed: "użytkownicy, którzy mogą dodawać ogłoszenia"
+            with_listing: "Użytkownicy którzy zamieścili przynajmniej jedno ogłoszenie"
+            with_listing_no_payment: "Użytkownicy którzy zamieścili przynajmniej jedno ogłoszenie ale nie dodali konta bankowego"
+            with_payment_no_listing: "Użytkownicy którzy dodali swoje konto bankowe, ale nie dodali żadnego ogłoszenia"
+            no_listing_no_payment: "Użytkownicy którzy nie dodali żadnego ogłoszenia ani konta bankowego"
+        email_subject: "Tytuł wiadomości email"
+        email_content: "Treść wiadomości email"
+        email_content_placeholder: "Co chcesz powiedzieć do swoich użytkowników?"
+        email_language: "Język, którym posługują się odbiorcy"
+        any_language: "Dowolny język"
+        message_will_be_sent_only_to_people_with_this_language: "Uwaga: ta wiadomość email zostanie wysłana tylko do użytkowników platformy %{service_name}, którzy korzystają z niej w języku, który wskazałeś."
+        email_sent: "Wiadomość email wysłana"
+        to_improve_email_deliverability: "Aby poprawić dostarczalność wiadomości e-mail temat wiadomości jest generowany automatycznie i nie może zostać zmieniony"
+        email_subject_text: "Nowa wiadomość od zespołu %{service_name}"
+        firstname_cannot_be_removed: "\"Imię\" nie może być usunięte i będzie zastąpione właściwym imieniem każdego z odbiorców"
+        hello_firstname: "Cześć Imię,"
+        hello_firstname_text: "Cześć %{person},"
+    left_hand_navigation:
+      general: Ogólne
+      users_and_transactions: Zarządzaj
+      configure: Konfiguruj
+      emails_title: E-maile
+      subscription: Subskrypcja
+      preview: "Podgląd strony"
+      whats_new: "Co nowego?"
+    listing_shapes:
+      availability_title: Dostępność
+      read_more: "Czytaj więcej na temat automatycznego zarządzania dostępnością."
+      read_more_availability_management: "Czytaj więcej na temat zarządzania dostępnością."
+      allow_providers_to_manage_availability: "Pozwól dostawcom na zarządzanie dostępnością z kalendarza"
+      per_hour_availability: "Dostępność \"godzinowa\""
+      per_day_availability: "Dostępność \"per dzień\""
+      per_night_availability: "Dostępność \"per noc\""
+      pricing_units_disabled_info: "Jednostki nie mogą być wykorzystywane gdy włączono kalendarz dostępności."
+      can_not_find_name: "Nie może znaleźć po tej nazwie rodzaju zamówienia.%{name}"
+      index:
+        listing_shapes: "Rodzaje zamówień"
+        description: "Rodzaje zleceń określają jak przetwarzanie zamówień działa na Twojej platformie. Możesz zdecydować, czy użytkownicy wypożyczają, sprzedają, czy tylko umieszczają ogłoszenia i komunikują się za pomocą darmowych wiadomości."
+        read_more_about_order_types: "Czytaj więcej na temat rodzajów zamówień"
+        add_new_shape: "Dodaj nowy rodzaj zlecenia: "
+        select_template: "Wybierz szablon..."
+        all_categories: "Wszystkie kategorie"
+        no_categories: "Brak kategorii"
+        category_count: "%{category_count} kategorii"
+        header:
+          listing_shape_name: "Nazwa rodzaju zlecenia"
+          listing_shape_categories: "Kategorie w których to jest użyte"
+        order:
+          saving_order: "Zapisywanie kolejności"
+          save_order_successful: "Zapisano kolejność rodzajów zamówień"
+          save_order_error: "Wystąpił błąd w zapisywaniu kolejności. Proszę odśwież stronę i spróbuj ponownie."
+      templates:
+        selling_products: "Sprzedawanie produktów"
+        renting_products: "Wypożyczanie produktów"
+        offering_services: "Oferowanie usług"
+        giving_things_away: "Oddawanie przedmiotów za darmo"
+        requesting: Żądanie
+        announcement: "Umieszczanie ogłoszeń"
+        custom: Dowolne
+      new:
+        create_listing_shape: "Utwórz rodzaj zamówień"
+        create: Utwórz
+        cancel: Anuluj
+        create_success: "Nowy rodzaj zamówień '%{shape}' został utworzony"
+        create_failure: "Nie udało się utworzyć nowego rodzaju zamówień. Błąd: %{error_msg}"
+      edit:
+        edit_listing_shape: "Edytuj rodzaj zlecenia '%{shape}'"
+        update: Zapisz
+        cancel: Anuluj
+        update_success: "Zmiany do rodzaju zlecenia '%{shape}' zachowane"
+        update_failure: "Nie można było zapisać zmian. Błąd: %{error_msg}"
+        delete: "Usuń rodzaj zamówień"
+        confirm_delete_order_type:
+          one: "Istnieje %{count} oferta w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, ta oferta zostanie zamknięta. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
+          few: "Istnieją %{count} oferty w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, te oferty zostaną zamknięte. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
+          many: "Istnieje %{count} ofert w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, te oferty zostaną zamknięte. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
+          other: "Istnieje %{count} ofert w ramach tego rodzaju zamówień. Jeśli usuniesz ten rodzaj zamówień, te oferty zostaną zamknięte. Czy jesteś pewien, że chcesz usunąć ten rodzaj zamówień?"
+        can_not_delete_last: "Nie możesz usunąć tego rodzaju zamówień, gdyż jest to jedyny rodzaj na Twojej platformie."
+        can_not_delete_only_one_in_categories: "Nie możesz usunąć tego rodzaju zamówienia, ponieważ w następujących kategoriach ten rodzaj zamówienia jest jedynym: %{categories}"
+      listing_shape_name: Nazwa
+      listing_shape_name_placeholder: "np. Sprzedaż"
+      action_button_label: "Etykieta przycisku 'Zapłać'"
+      action_button_placeholder: "np. Zakup"
+      open_listings_warning:
+        one: "Jest %{count} aktywna oferta w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, ta oferta zachowa dotychczasowe ustawienia. Oferta może być zmieniona do nowych ustawień poprzez ręczną jej edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć ją klikając przycisk poniżej."
+        few: "Są %{count} aktywne oferty w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
+        many: "Jest %{count} aktywnych ofert w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
+        other: "Jest %{count} aktywnych ofert w ramach tego rodzaju zamówienia. Jeśli zmienisz jakiekolwiek z poniższych ustawień, te oferty zachowają dotychczasowe ustawienia. Oferty mogą być zmienione do nowych ustawień poprzez ręczną ich edycję. Jeśli nie chcesz mieć ofert ze starymi ustawieniami na swojej platformie, możesz zamknąć je klikając przycisk poniżej."
+      close_listings_action:
+        one: "Zamknij %{count} ofertę"
+        few: "Zamknij %{count} oferty"
+        many: "Zamknij %{count} ofert"
+        other: "Zamknij %{count} ofert"
+      confirm_close_listings_action:
+        one: "Czy jesteś pewien, że chcesz zamknąć %{count} ofertę?"
+        few: "Czy jesteś pewien, że chcesz zamknąć %{count} oferty?"
+        many: "Czy jesteś pewien, że chcesz zamknąć %{count} ofert?"
+        other: "Czy jesteś pewien, że chcesz zamknąć %{count} ofert?"
+      successfully_closed: "Zamknięto oferty"
+      successfully_deleted: "Usunięto rodzaj zamówień '%{order_type}'"
+      pricing_and_checkout_title: "Wycena i płatność"
+      online_payments_label: "Pozwól sprzedawcom akceptować płatności online"
+      shipping_label: "Pozwól sprzedawcom określić opłatę za transport"
+      price_label: "Pozwól sprzedawcom dodawać cenę do ich ofert"
+      units_title: Jednostki
+      units_desc: "Jeśli włączyłeś jednostki, cena oferty będzie wyświetlana jako \"cena za jednostkę\". Przykład: \"50 zł za godzinę\"."
+      units:
+        piece: "Za sztukę"
+        hour: "Za godzinę"
+        day: Dziennie
+        night: "Za noc"
+        week: Tygodniowo
+        month: Miesięcznie
+        unit: "na jednostkę"
+      can_not_find: "Nie można znaleźć rodzaju zamówienia o id: %{id}"
+      add_custom_unit: "+ Dodaj dowolną jednostkę..."
+      delete_custom_unit: usuń
+      custom_unit_form:
+        title: "Nowa jednostka"
+        label_heading: Etykieta
+        selector_label_heading: "Etykieta selektora"
+        label_placeholder: "np. \"kg\", \"30 minut\", \"osobę\", \"zajęcia\""
+        selector_placeholder: "np. \"Liczba ludzi\", \"Ilość w kg\""
+        per: Za
+        unit_type:
+          heading: "Rodzaj jednostki"
+          quantity_label: "Ilość (na sztuki, na osoby, na dwugodzinne wycieczki...)"
+          time_label: "Czas (na 30 minut, na 2 tygodnie, na rok)"
+    paypal_accounts:
+      marketplace_paypal_integration: "Preferencje systemu płatności"
+      preferences_updated: "Preferencje systemu płatności zaktualizowane"
+      contact_support_link_text: "skontaktuj się ze wsparciem"
+      integration_info_text: "System płatności Twojej platformy jest obsługiwany przez PayPal. Aby umożliwić Twoim użytkownikom płacenie za pomocą platformy musisz połączyć ją ze swoim kontem PayPal. Po zrobieniu tego będzie możliwe ustawienie minimalnej wielkości transakcji i możliwej wysokości prowizji."
+      link_paypal_personal_account_label: "Czy udostępniasz produkty lub usługi?"
+      link_paypal_personal_account: "Jeśli tak, będziesz także musiał połączyć swoje konto PayPal do %{personal_payment_preferences_link}."
+      link_stripe_personal_account: "Jeśli tak, będziesz musiał dodać szczegóły wypłaty do %{personal_payment_preferences_link}"
+      link_paypal_and_stripe_personal_account: "Jeśli tak, będziesz musiał połączyć się ze swoim kontem PayPal lub Stripe do %{personal_payment_preferences_link}."
+      personal_payment_preferences_link_text: "twoje osobiste konto platformy"
+      read_more_about_paypal: "Czytaj więcej na temat systemu płatności"
+      edit_payment_settings: "Edytuj ustawienia płatności"
+      supported_currencies_information_text: "System płatności online Sharetribe wspiera 24 waluty. Jeśli Twojej waluty nie ma na liście, proszę %{contact_support_link}. Jeśli zmienisz walutę platformy, istniejące oferty zachowają dotychczasową walutę. Musisz edytować te oferty indywidualnie, aby dostosować je do nowej waluty."
+      currency_change_warning_text: "Uwaga: jeśli będziesz kontynuować ze zmianą waluty, nie zapomnij poprosić swoich sprzedawców aby ręcznie edytowali swoje istniejące oferty w celu zaktualizowania waluty."
+      marketplace_currency_label: "Waluta platformy:"
+      minimum_listing_price_label: "Minimalna wartość transakcji:"
+      transaction_fee_label: "Opłata za transakcję:"
+      minimum_transaction_fee_label: "Minimalna wartość opłaty za transakcję:"
+      save_settings: "Zapisz ustawienia"
+      minimum_listing_price_below_tx_fee: "Minimalna wartość transakcji musi być większa lub równa minimalnej wartości opłaty za transakcję: %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Minimalna wartość transakcji musi być większa niż minimalna prowizja %{minimum_commission}."
+    payment_preferences:
+      title: "Preferencje systemu płatności"
+      general_settings: "Ustawienia ogólne"
+      connect_a_payment_provider: "2. Połącz system płatniczy"
+      contact_support: "Skontaktuj się z administratorem"
+      no_payments_link_text: tutaj
+      your_country: "Twój kraj:"
+      you_cannot_use_online_payments: "Nie możesz korzystać z płatności online w %{country_name} za pomocą %{currency}. Proszę wybierz inną walutę albo %{support_link} aby zmienić kraj. Możesz przeczytać więcej o państwach i ich walutach %{help_link}. W przyszłości być może dodamy więcej systemów płatniczych oraz walut."
+      which_to_choose: "Które wybrać?"
+      you_can_use_stripe_or_paypal: "Możesz wybrać dwie bramki płatnicze Stripe albo PayPal. %{choose_link}"
+      you_can_use_stripe_only: "Możesz wybrać bramkę płatniczą Stripe. %{read_more_link}"
+      read_more_stripe: "Dowiedz się więcej na temat płatności za pomocą Stripe."
+      you_can_use_paypal_only: "Możesz wybrać bramkę płatniczą PayPal. %{read_more_link}"
+      read_more_paypal: "Dowiedz się więcej na temat płatności za pomocą PayPal."
+      read_more_about_paypal_and_stripe: "Dowiedz się więcej na temat bramek płatniczych, Stripe i PayPal."
+      general_settings_updated: "Ogólne ustawienia systemów płatniczych zostały zaktualizowane."
+      transaction_fee_settings_updated: "Ustawienia opłaty transakcyjnej zostały zaktualizowane."
+      choose_popup_text: |-
+          Jeśli pozwolisz swoim użytkownikom akceptować płatności online, musisz wybrać walutę dla swojej platformy i połączyć co najmniej jedną z dwóch wspieranych przez Sharetribe bramek płatniczych: Stripe lub PayPal. Możesz także zdecydować, że będziesz wykorzystywał obydwie. To oznacza, że Twoi użytkownicy będą mogli realizować płatności za pomocą dwóch wymienionych bramek.
+          Jeśli jeszcze nie masz konta w Stripe lub PayPal możesz takie stworzyć. Jak już podłączysz konto, możesz wybrać odpowiednią opłatę za każdą transakcję.
+          Jaka jest różnica między Stripe i PayPal? Stripe pozwala na odroczenie wypłaty sprzedającemu do 3 miesięcy i oferuje jedną metodę płatniczą (karta kredytowa/debetowa). Stripe pozwala także aby Twoi sprzedawcy otrzymywali pieniądze bezpośrednio na konto w banku, dzięki podaniu szczegółów rachunku bankowego. PayPal zapewnia dwa rodzaje płatności (karta kredytowa i konto PayPal), oferuje także system zabezpieczający dla kupujących i sprzedających. PayPal wymaga od sprzedawców aby założyli konto biznesowe w PayPal aby móc otrzymywać płatności. 
+          Jeśli korzystasz ze Stripe, opłaty będą pobierane z twojej opłaty transakcyjnej, więc pamiętaj aby ustanowić ją na odpowiednim poziomie. Jeśli korzystasz z PayPal opłata będzie pobierana od sprzedawcy, niezależnie od Twojej opłaty transakcyjnej. Stripe i PayPal mają trochę różną strukturę opłat, w większości przypadków opłaty Stripe są trochę niższe.
+      invalid_api_keys: "Nieważny klucz Stripe API"
+      missing_api_keys: "Brakuje klucza Stripe API"
+      stripe_verified: "Dostęp do Stripe API sprawdzony"
+      change_settings: "Zmień ustawienia i opłaty"
+      configure_stripe: "Skonfiguruj Stripe"
+      configure_paypal: "Skonfiguruj PayPal"
+      transaction_fee_settings: "Ustawienia opłaty transakcyjnej"
+      transaction_fee_save: Zapisz
+      stripe_fee: "Opłaty Stripe"
+      stripe_fee_notice: "%{stripe_fee_link} zostanie potrącona z pobieranej przez Ciebie opłaty transakcyjnej."
+      fee_should_be_less_than_minimum_price: "Minimalna opłata transakcyjna musi być niższa niż minimalny koszt transakcji"
+      the_transaction_fee_must_be_lower_than_100: "Prowizja musi być niższa niż 100%"
+      confirm_disable: "Czy jesteś pewien, że chcesz wyłączyć %{gateway}? Jeśli to zrobisz, sprzedawcy nie będą mogli otrzymywać płatności a kupcy nie będą w stanie płacić online. Jeśli sprzedawcy nie ustanowią innej metody płatności, kupujący nie będą mogli od nich kupować."
+      commission_from_buyer_label: "Opłata transakcyjna po stronie kupującego:"
+      minimum_buyer_transaction_fee_label: "Minimalna opłata transakcyjna po stronie kupującego:"
+      stripe_connected:
+        title: "Połączono z Stripe"
+        disable: "Wyłącz Stripe"
+        disabled: "Stripe wyłączony"
+        enable: "Włącz ponownie Stripe"
+      paypal_connected:
+        title: "Połączono z PayPal"
+        disable: "Wyłącz PayPal"
+        disabled: "PayPal wyłączony"
+        enable: "Włącz ponownie PayPal"
+      cannot_enable_gateway: "Nie można podłączyć bramki płatniczej %{gateway}."
+      cannot_disable_gateway: "Nie można wyłączyć bramki płatniczej %{gateway}."
+      cannot_enable_gateway_because_of_buyer_commission: "Nie można aktywować bramki płatności %{gateway}, ponieważ prowizja od kupującego jest w użyciu."
+      stripe_form:
+        add_your_api_keys: "Dodaj swój klucz Stripe API"
+        how_to_get_these: "Jak je otrzymać?"
+        publishable_key_example: "Na przykład: %{api_publishable_key_example}"
+        secret_key_example: "Na przykład: %{api_secret_key_example}"
+        save_api_keys: "Zapisz klucz Stripe API"
+        invalid_secret: "Wygląda na to, że pojawił się błąd %{secret_key}"
+        invalid_publishable: "Wygląda na to, że pojawił się błąd %{publishable_key}"
+      index:
+        header: "Dostępne ustawienia płatności"
+        info: "Możesz skonfigurować dostępne bramki płatnicze na swojej platformie. Aktualnie współpracujemy z PayPal i Stripe."
+        active: Aktywne
+        gateway: Bramka
+        process: Realizacja
+        commission: Prowizja
+        minimum_price: "Minimalna cena"
+        minimum_fee: "Minimalna opłata"
+        api_verified: "API sprawdzone?"
+        actions: Działania
+        payments_not_enabled: "Płatności nie są aktywowane w Twoim serwisie."
+    transaction_types:
+      sell: Sprzedawanie
+      sell_w_online_payment: "Sprzedaż z płatnościami online"
+      sell_wo_online_payment: "Sprzedaż bez płatności online"
+      rent: Wynajmowanie
+      rent_w_online_payment: "Wypożyczenie z płatnościami online"
+      rent_wo_online_payment: "Wypożyczenie bez płatności online"
+      give: Rozdawanie
+      lend: Pożyczanie
+      swap: Wymienianie
+      service: Oferowanie
+      service_w_online_payment: "Oferowanie z płatnościami online"
+      service_wo_online_payment: "Oferowanie bez płatności online"
+      request: Żądanie
+      inquiry: Ogłoszenie
+      share_for_free: "Współdzielone za darmo"
+      event_w_online_payment: "Oferta z aktywowaną bramką płatności"
+      event_wo_online_payment: "Oferta z dezaktywowaną bramką płatności"
+      default_action_button_labels:
+        sell: Zakup
+        rent: Wynajem
+        request: Oferta
+        offer: Zapytanie
+        inquiry: "Skontaktuj się"
+        book: Zarezerwuj
+    community_transactions:
+      show:
+        transaction_for: "Transakcja #%{transaction_id} dla %{link}"
+        status: "Status:"
+        next_step: "Następny krok:"
+        waiting_for_provider_accept_or_reject: "Oczekuje na zaakceptowanie lub odrzucenie zapytania przez %{provider}."
+        waiting_for_fulfill_and_complete: "Oczekuje na wykonanie zlecenia %{listing_title} przez %{provider} i na oznaczenie zlecenia jako zakończone przez %{buyer}."
+        buyer: "Kupujący:"
+        provider: "Sprzedawca:"
+        delivery: "Opcja dostarczenia:"
+        shipping_to: "Wysyłka do %{address}"
+        buyer_pays: "Kupujący płaci:"
+        marketplace_collects: "%{service_name} pobiera:"
+        buyer_service_fee_label: "Prowizja od kupującego:"
+        service_fee_label: "Prowizja od sprzedawcy:"
+        provider_receives: "Sprzedawca otrzymuje:"
+        admin_info_text: "Jako admin serwisu %{service_name}, możesz wykonać kilka kroków aby przyśpieszyć tą transakcję:"
+        manage_reviews: "Zarządzaj opiniami"
+        you_should_investigate: ~
+        learn_more: "Dowiedz się więcej."

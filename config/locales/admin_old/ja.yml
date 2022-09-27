@@ -1,0 +1,1219 @@
+ja:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: "カテゴリ「%{category}」を編集する"
+      index:
+        listing_categories: カテゴリ
+        create_a_new_category: "+ 新しいカテゴリを追加する"
+        remove_category_confirmation: "カテゴリ「%{category_name}」を本当に削除しますか。"
+        saving_order: カテゴリの順番を保存する
+        save_order_successful: 正常にカテゴリの順番を保存しました
+        save_order_error: カテゴリの順番を保存する際にエラーが発生しました。ページを更新して再実行してください。
+      new:
+        new_listing_category: 新しいカテゴリー
+      form:
+        category_name:
+          category_title: カテゴリー名
+        category_parent:
+          category_parent: 親カテゴリー
+          no_parent: 親カテゴリーなし
+        category_transaction_types:
+          transaction_types: 課金タイプ
+          transaction_types_description: カテゴリーの中の投稿がどの課金タイプに該当するかを決めます。例えば、「売ります」だけにする場合、「貸します」と「あげます」「ご自由にどうぞ」にも適用する場合。
+          select_all: 全て選択
+          clear_all: 全て削除
+        buttons:
+          save: 保存する
+          cancel: キャンセル
+      remove:
+        remove_category: カテゴリーを削除する
+        remove_category_name: "カテゴリ「%{category_name}」を削除する"
+        warning_remove_effects: "警告！カテゴリー「%{category_name}」削除にあたり下記の影響があります："
+        warning_listing_will_be_moved:
+          other: "%{count}個の投稿が、そのカテゴリーにあります。選択したカテゴリーへ移動します。"
+        warning_custom_field_will_be_moved:
+          other: "%{count}個のカスタム項目が、そのカテゴリーとサブカテゴリにあります。選択れたカスタム項目の方へ移動します。"
+        warning_subcategory_will_be_removed:
+          other: "%{count}個のサブカテゴリが、カテゴリにあります。それらは削除されます。"
+        warning_with_subcategories_listing_will_be_moved:
+          other: "%{count}個の投稿が、そのカテゴリーとサブカテゴリにあります。選択されたカテゴリの方へ移動します。"
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "%{count}個のリストが、そのカテゴリーとサブカテゴリにあります。選択れたカテゴリの方へ移動します。"
+        select_new_category: 新しいカテゴリを選択すると上記のリストはそちらへ移動されます：
+        buttons:
+          remove: 削除する
+          cancel: キャンセル
+    communities:
+      edit_details:
+        community_details: 基本情報
+        community_look_and_feel: デザイン
+        edit_community: 基本情報
+        enabled_languages: 有効な言語
+        enabled_languages_description: ユーザー側が利用できる言語。1番目の言語がデフォルトとなります。
+        default_language: デフォルト言語
+        language_selection_disabled: "非公式の言語%{languages}を使用しているため、マーケットプレイスにおける言語選択ができません。言語設定を変更したい場合はSharetribe のサポートにお問い合わせください。"
+        community_name: マーケットプレイスの名前
+        edit_community_name_description: これはユーザへのメールや色々な場所で表示されます。
+        community_slogan: マーケットプレイスのスローガン
+        community_slogan_display: スローガンをホームページに表示してみる
+        edit_community_slogan_description: "これはログインしていないユーザのマーケットプレイスのトップページに表示されます。%{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
+        community_description: マーケットプレイスの詳細内容
+        community_description_display: 詳細内容をホームページに表示してみる
+        edit_community_description_description: "これはログインしていないユーザのマーケットプレイスのトップページに表示されます。%{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
+        community_search_placeholder: ヘルプを検索
+        edit_community_search_placeholder_description: "これはマーケットプレイスのトップページに表示される検索バーの中にとりあえず入れておくテキストです。%{see_how_it_looks_like}"
+        private_community_homepage_content: プライベートマーケットプレイスホームページコンテンツ
+        edit_private_community_homepage_content_description: "このコンテンツは、プライベートマーケットプレイスの、ログインしていないユーザに表示されます。ここで、このプライベートマーケットプレイスへの参加を明記できます。イメージ画像や、ビデオ、HTMLなどのコンテンツも使用できます。%{see_how_it_looks_like}"
+        update_information: 設定を保存する
+        invite_people: 新しいユーザを招待
+        edit_signup_info: ご登録情報
+        edit_signup_info_description: これはユーザが新規登録するときに表示されます。登録のための説明を提示できます。情報は、どこで招待を受けられるか...などです。初期設定では説明がありません。
+        edit_info: 情報を編集する
+        see_how_it_looks_like: 見え方を確認
+        verification_to_post_listings_info_content: 確認が取れていないユーザへの文章
+        verification_to_post_listings_info_content_description: 現在、あなたのユーザがリストを投稿するには、その前にあなたによって手動で承認する必要があります。もし彼らが新規投稿する際、確認が取れていないユーザに見せるための文章を、ここで用意しておくことが出来ます。
+        verification_to_post_listings_info_content_default: "リストを投稿するには、その前に%{service_name}のサイト管理者によって手動で承認される必要があります。あなたはまだ確認が取れていません。%{contact_admin_link}で承認申請してください。"
+        contact_admin_link_text: サイト管理者にお問い合わせ
+        save: 設定を保存する
+        transaction_agreement: 課金時にユーザに求める同意書
+        transaction_agreement_checkbox: ユーザはお支払い前に、同意書を受け入れる必要があります
+        transaction_agreement_checkbox_header: 同意書のタイトル
+        transaction_agreement_checkbox_label_description: この本文はお支払い時のチェックボックスの横に表示されます。ユーザは取引の際に、ボックスにチェックを入れる必要があります。タイトル例としては、「このボックスをクリックすることで、同意書を受け入れることになります。」のようになるでしょう。
+        transaction_agreement_text_header: 同意書本文
+        transaction_agreement_description: "こちらはユーザが承認する必要のある、実際の同意書のコンテンツです。同意書の本文はユーザが、同意書のタイトルの横のリンク、「%{read_more}」をクリックすると表示されます。"
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: "%{community_name}のカスタマイズ"
+        community_logo: デスクトップロゴ
+        community_logo_icon: モバイル用ロゴ
+        community_logo_icon_mobile: スクエアロゴ
+        community_cover_photo: カバー写真
+        small_community_cover_photo: 小さいカバー写真
+        favicon: ファビコン
+        favicon_info_text: ファビコンは初期ではSharetribeロゴに置き換えられています。32x32ピクセルにしてアップロードしていない場合は、リサイズされます
+        community_custom_color1: 第一カラー
+        community_slogan_color: マーケットプレイスのテーマカラー
+        community_slogan_color_instructions_text: ~
+        community_description_color: マーケットプレイスのデスクリプションカラー
+        community_description_color_instructions_text: ~
+        new_listing_button_custom_color: 新しい投稿ボタンのカラーを設定
+        logo_instructions_text_with_dimensions: "デスクトップロゴは%{width}ｘ%{height}ピクセルにしてください。それは特に大きいスクリーンを使用しているユーザに表示されます。"
+        logo_instructions_text_with_dimensions_no_placing: "ロゴサイズは、%{height} x%{width} ピクセルにしてください"
+        logo_icon_instructions_text_with_dimensions: "モバイル用ロゴは出来れば、%{width}ｘ%{height}ピクセルの正方形にしてください。それは特に小さいスクリーンを使用しているユーザに表示されます。"
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
+        cover_photo_visibility: カバー写真はログイン前のユーザに表示されます
+        cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます%{see_how_it_looks_like}。"
+        we_have_you_covered: ~
+        cover_photo_ready_made: ~
+        small_cover_photo_visibility: 小さいカバー写真はログイン前のユーザを除いて、すべてのページに表示されます。
+        small_cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます。"
+        main_content_width: "カバー写真を選ぶとき最大幅%{main_width}ピクセルであることに注意してください。カバー写真は小さいスクリーンでどのように見えるか、一応確認してください（例、ブラウザの幅を狭くしてみる）。"
+        custom_color1_instructions_text: "ユーザインターフェイスの（ボタンなどに使われる）メインカラーを、カラーコードを入力することにより変更できます。<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">カラーコード表</a>からご確認の上コードをコピーしてご利用ください。"
+        new_listing_button_instructions_text: ~
+        default_browse_view: 初期ブラウザ表示
+        default_browse_view_instructions_text: 初期ブラウザ表示は、初めての訪問者に、リストをどのように表示させるかを選択できます。
+        grid: 画像表示
+        list: リスト
+        map: 地図表示
+        name_display_type: 表示タイプ名
+        name_display_type_instructions_text: 各ユーザの名前の表示方法を選択する
+        full_name: フルネーム（名、姓）
+        first_name_with_initial: 名前とイニシャル（名、イニシャル）
+        first_name_only: 名前だけ（名）
+        invalid_color_code: "カラーコードは6つの数字とアルファベットA-Fで構成されます、例 D96E21"
+        custom_head_script: カスタムスクリプト
+        custom_head_script_instructions_text: ~
+        current_image: "現在の画像:"
+      edit_text_instructions:
+        edit_text_instructions: 新規登録前の説明テキスト
+      edit_welcome_email:
+        welcome_email_content: 新規ユーザへメールの内容
+        welcome_email_content_description: "下記のメッセージは新規登録されたすべてのユーザに送信されます。あなたのマーケットプレイスに合うようにカスタマイズしてみてください。「%{send_test_message_link}」をクリックするとメッセージをあなたのメールアドレス宛でプレビューが出来、お客様にどのように見えているか確認が出来ます。"
+        edit_message: メッセージを編集する
+        send_test_message: テストメッセージを送信する
+      outgoing_email:
+        title: 送信先メールアドレス
+        info: ~
+        read_more: 送信メールアドレスをもっと読む
+        sender_address: "送信者のアドレス: %{sender_address}"
+        sender_address_default: "送信者アドレス：設定できていません（既定のアドレスを使用しています%{sender_address} ）"
+        need_to_change: "アドレスを変更する場合%{contact_support_link} へご連絡ください。"
+        contact_support_link_text: Sharetribeサポートに問い合わせる
+        set_sender_address: 送信者アドレスを設定する
+        sender_name_label: 名前
+        sender_name_placeholder: 送信者名
+        sender_email_label: メールアドレス
+        sender_email_placeholder: sender-email@example.com
+        amazon_ses_notification: "Eメールアドレスを確認するために%{email_sender} からEメールを受け取ります。メールの件名は%{email_subject} です。指示に従ってメールを確認してください"
+        this_is_how_it_will_look: このようになります：
+        send_verification_button: 認証メールを送信
+        change_sender_email: emailの送り主を変更する
+        successfully_saved: 送信者アドレスの保存に成功しました。認証メールが間もなく送信されます。
+        successfully_saved_name: 送り主の名前が正しく変更されました
+        set_sender_name: 送り主の名前を変更する
+        change_sender_name: 送り主の名前を変更する
+        change_sender_prompt: "%{change_email_link} または%{change_name_link} "
+        status: "ステータス: %{status}"
+        status_verified: "認証済 - 利用中"
+        status_error: エラーが発生しました。ページを更新してください。
+        status_requested: ~
+        status_expired: ~
+        status_resent: ~
+        resend_link: 再送
+        invalid_email_error: "無効なEメールのフォーマットです'%{email} '"
+        invalid_email_address: ~
+        invalid_email_domain: ~
+        invalid_email_domain_read_more_link: 詳細についてはヘルプセンターの記事をご覧ください。
+        unknown_error: エラーが起きました
+        white_label_offer: ~
+        upgrade_plan_link: プロプランまたはより上良いプランへのアップグレード
+        verification_sent_from: "確認メールは%{verification_sender_name} から送信されました。"
+        follow_the_instructions: メールの指示に従って住所を確認してください。
+      getting_started:
+        getting_started: 「開始するには」ガイド
+      available_languages:
+        bg: ~
+        ca: ~
+        cs: ~
+        da-DK: デンマーク語
+        de: ドイツ語
+        el: ギリシャ語
+        en: 英語
+        en-AU: 英語(オーストラリア)
+        en-GB: 英語(イギリス)
+        es: スペイン語
+        es-ES: スペイン語（スペイン）
+        et: ~
+        fi: フィンランド語
+        fr: フランス語
+        fr-CA: フランス語(カナダ)
+        hr: ~
+        hu: ~
+        it: イタリア語
+        ja: 日本語
+        ko: ~
+        lt: ~
+        nb: ノルウェー語
+        nl: オランダ語
+        pl: ~
+        pt-BR: ポルトガル語(ブラジル)
+        pt-PT: ポルトガル語
+        ro: ~
+        ru: ロシア語
+        sk-SK: ~
+        sl: ~
+        sv: スウェーデン語
+        th-TH: ~
+        tr-TR: トルコ語
+        uk: ~
+        vi: ~
+        zh: 中国語
+        zh-TW: ~
+      settings:
+        settings: 設定
+        general: 一般
+        access: アクセス
+        join_with_invite_only: 他のユーザより招待されたユーザのみ、このマーケットプレイスに参加可能です
+        users_can_invite_new_users: 全てのユーザはこのマーケットプレイスに招待できます
+        private: このマーケットプレイスはプライベートです（登録済みユーザのみこの情報を閲覧できます）
+        require_verification_to_post_listings: サイト管理者によって承認されたユーザのみが新しいリストを投稿できます
+        allow_free_conversations: ~
+        search_preferences: 検索条件
+        search_and_location_preferences: ~
+        default_search_type: "検索タイプ:%{select_search_type}"
+        keyword_search: キーワード検索
+        keyword_and_location_search: キーワードと位置で検索
+        location_search: 位置検索
+        select_distance_unit: "距離表示%{distance_units_selector}"
+        km: km
+        miles: miles
+        show_only_nearby: 位置検索で近隣の投稿のみ表示する
+        allow_users_to_add_location: ~
+        fuzzy_location: ~
+        listing_preferences: 優先リスト
+        transaction_preferences: 課金の設定
+        show_listing_publishing_date: リストページのリストの掲載日の日付を表示
+        show_category_in_listing_list: リストの種類を一覧にする
+        listing_comments_in_use: リストに対するコメントの投稿を許可してください（すべてのユーザに表示されます）
+        email_preferences: 自動メール送信設定
+        automatic_newsletters: 毎日・毎週、自動メールを全てのユーザに送信する（ユーザが拒否しない限り）
+        email_admins_about_new_members: 新規ユーザが登録したとき、メールアドレスを管理者に送信する
+        google_analytics_key: "Google アナリティクス トラッキング コード"
+        twitter_handle: "Twitter ハンドルネーム （リストページのtweetボタンを使用します）"
+        update_settings: 設定を保存する
+        automatically_confirmed_no_escrow: "お支払いは%{days_dropdown}日後、完了済みとして処理されます。"
+        automatically_confirmed_no_escrow_stripe_info: "Stripeによって処理された取引の場合、売り手への支払いは、注文が完了とマークされるまで保留されます。%{learn_more} 。"
+        buyer_transaction_fees_are_only_supported_with_stripe: 買い手の取引手数料はStripeだけで利用可能です。Stripeで買い手の取引手数料を設定している場合は、PayPalを使用することはできません。
+        automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
+        newsletter_daily: 毎日
+        newsletter_weekly: 毎週
+        delete_marketplace_title: マーケットプレイスを削除
+        type_marketplace_domain: "入力欄にマーケットプレイスのドメイン (%{domain})を入力してください。"
+        type_marketplace_domain_placeholder: マーケットプレイスのドメインを入力
+        once_you_delete: マーケットプレイスを削除すると、二度と復旧できません。ご注意ください。
+        are_you_sure: 実行しますか？
+        i_understand_button: 私はこのボタンをクリックすることで、このサイトが削除されることを理解しています。
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: マーケットプレイスを削除
+        payment_preferences: お支払い
+        pre_approved_listings: リスティングはすべて公開前にチェックする
+        email_admins_about_new_transactions: ~
+      manage_members:
+        manage_members: ユーザを管理
+        email: メールアドレス
+        name: 名前
+        display_name: 表示名
+        join_date: 参加日
+        admin: 管理人用
+        posting_allowed: 投稿は許可されました
+        ban_user: アカウント停止ユーザ
+        saving_user_status: 保存中...
+        save_user_status_successful: 保存しました
+        export_all_as_csv: CSVで全て出力
+        save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
+        ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、今後二度とこのアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
+        unban_user_confirmation: これにより、マーケット内のユーザーのアクセスが禁止され、このアカウントでサイトに再度アクセスできるようになります。続行してよろしいですか？
+        ban_me_error: 自分自身をアカウント停止ユーザに出来ません。
+        have_ongoing_transactions: "取引が継続しているため、このアカウントは削除できません。 アカウントを削除する前に、すべての取引を完了してください。"
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
+        search: 検索
+        search_by_name_email: ~
+        reset_search: 全件表示
+        for_search_terms: ~
+        this_makes_the_user_an_admin: ~
+        status_filter:
+          all: 全てのステータス
+          selected: "選択されたステータス:%{count} "
+          selected_js: "選択されたステータス:"
+          admin: 管理者
+          banned: 無効
+          posting_allowed: 投稿が許可されました
+          accepted: 受け付けました
+          unconfirmed: 確認できません
+          pending: 保留中
+        this_user_hasnt_confirmed_their_email_address: emailアドレスが確認できませんでした。ユーザーが確認メールを受け取っていないとしたら、確認用メールを再送信ボタンを押してください。
+        unconfirmed_user: "未確認のユーザー：%{name} "
+        resend: 再送信
+        cancel: キャンセル
+        confirm: 確認
+        user_didnt_complete_the_signup_process: このユーザーはソーシャルログインで登録しましたが、登録プロセスを完了していません。ソーシャルアカウントと接続後、ユーザーはまだユーザー項目の登録や、規約の確認が必要です。
+        pending_user: "保留中：%{name} "
+      new_layout:
+        new_layout: 新レイアウト
+        description_roadmap_new: ~
+        enabled_for_you: 有効にした
+        enabled_for_all: 有効にした
+        new_topbar: 新トップメニュー(全てのページで適用)
+        searchpage: 新検索ページ(新トップメニューが必要)
+        new_email_templates: ~
+      social_media:
+        social_media: ソーシャルメディア
+        logo: ソーシャルメディアの画像
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
+        twitter_handle: Twitterのハンドル
+        twitter_handle_info_text: "あなたのマーケットプレイスのTwitterのユーザー名 (お持ちであれば) 。投稿ページのツイートボタンを使うときに言及されます。"
+        twitter_handle_info_text_with_instructions: "あなたのマーケットプレイスのツイッターのユーザ名（お持ちの場合）。ツイートボタンを使ってツイートすることが出来ます。%{instructions_link}。"
+        twitter_instructions_link_text: 続きを読む
+        twitter_handle_placeholder: Twitterのユーザー名
+        invalid_twitter_handle: ツイッターのハンドルネームは、15文字以内のアルファベット（A-Zの半角文字と0-9の数字）が使用できます。
+        facebook_connect: Facebook
+        facebook_developers_dashboard: ~
+        facebook_connect_info_text: "Facebookでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のFacebookダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。"
+        facebook_connect_info_text_with_instructions: "Facebookでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のFacebookダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。%{instructions_link}"
+        facebook_instructions_link_text: Facebookに接続するするための説明を見る。
+        facebook_connect_id: フェイスプックのユーザーID
+        invalid_facebook_connect_id: ユーザーIDは数字のみで構成されています
+        facebook_connect_secret: フェイスプックユーザーの秘密
+        invalid_facebook_connect_secret: フェイスプックユーザーの秘密は、数字とアルファベットaからｆを含むものです。
+        enable_facebook_login: ~
+        save: 設定を保存する
+        google_connect: "Google ログイン"
+        google_instructions_link_text: ~
+        google_developers_console: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: SEO
+        title: ホームページまたは、カスタムランディングページ
+        meta_title_label: ホームページまたは、カスタムランディングページタイトルmetaタグ
+        meta_title_info: ~
+        meta_title_link_text: メタタグについて調べる
+        meta_description_label: ホームページまたはカスタムランディングページデスクリプションmetaタグ
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: リスティングページ
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: カテゴリーページ
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: プロフィールページ
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: サイトマップ
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        google_search_console: ~
+        google_search_console_paragraph1: ~
+        google_search_console_these_instructions: ~
+        google_search_console_paragraph2: ~
+        save: 設定の保存
+      analytics:
+        analytics: アナリティクス
+        google_analytics_key: "Google アナリティクス トラッキング コード"
+        google_analytics_key_info_text: "Google アナリティクスアカウントの トラッキング コード"
+        google_analytics_key_info_text_with_instructions: "お持ちのGoogle アナリティクスのトラッキング コード。%{instructions_link}。"
+        google_analytics_instructions_link_text: "Google アナリティクスを接続についてさらに読む"
+        sharetribe_analytics: Sharetribeアナリティクス
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: " Sharetribeの分析をもっと読む"
+        end_user_analytics: ~
+        save: 設定を保存する
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
+      logo_link:
+        title: ロゴリンク
+        info: ~
+        url: URL
+        placeholder: ~
+      menu_links:
+        menu_links: メニューにリンクを追加
+        menu_links_display: メニューリンクの表示
+        save: 設定を保存する
+        add_menu_link: メニューにリンクを追加する
+        title_placeholder: リンクタイトル
+        url_placeholder: "http://example.com/ja"
+        title: タイトル
+        language: 言語
+        url: URL
+        empty: 追加メニューリンクはありません
+        max_number_of_links: ~
+        all: すべて
+        max_number_of_links_info: ~
+        about_page: ページについて
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: お問い合わせ
+        invite_link_title: メンバーを招待
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
+      topbar:
+        topbar: トップメニュー
+        new_listing_button_label: 新しい投稿ボタンのテキストを設定
+        invalid_post_listing_button_label: ~
+      transactions:
+        export_all_as_csv: CSVで全て出力
+        processing_export: ~
+        transactions: お支払い履歴の表示
+        search_by_title_parties: お支払い履歴のタイトルまたは商品を検索する
+        search: 検索
+        reset_search: 全件表示
+        status_filter:
+          all: すべてのステータス
+          selected: "選択されたステータス: %{count} "
+          selected_js: "選択されたステータス :"
+          free: 無料の取引
+          confirmed: 完了しました
+          paid: 支払済み
+          canceled: キャンセルされた
+          disputed: 異議あり
+          preauthorized: 事前に承認済み
+          rejected: 拒否されました
+          payment_intent_requires_action: 保留中
+          payment_intent_action_expired: 期限切れ
+          refunded: 返金済み
+          dismissed: 却下
+        headers:
+          conversation: 会話のスレッド
+          listing: 投稿
+          status: ステータス
+          sum: 合計
+          started: 開始日
+          last_activity: 更新日
+          initiated_by: 買い手
+          other_party: 相手
+        status:
+          conversation: 会話
+          free: 会話
+          pending: 保留中
+          preauthorized: 仮承認済み
+          accepted: 承認済み
+          rejected: 取下げ
+          paid: 支払い済み
+          confirmed: 確定済み
+          canceled: キャンセル済
+          disputed: 異議あり
+          initiated: PayPalの支払いを待っています
+          pending_ext: PayPalの支払いを待っています
+          none:
+            free: 無料の取引
+          paypal:
+            free: 会話
+            pending: 保留中
+            preauthorized: 仮承認済み
+            accepted: 承認済み
+            rejected: 却下されました
+            paid: 支払い済み
+            confirmed: 完了しました
+            canceled: キャンセル
+            disputed: 異議あり
+            initiated: PayPal決済待ち
+            pending_ext: ペイパル支払い待ち
+            refunded: 返金済み
+            dismissed: 却下
+          stripe:
+            free: 会話
+            pending: 保留中
+            preauthorized: 事前承認済み
+            accepted: 承認済み
+            rejected: 却下されました
+            paid: 支払済み
+            confirmed: 完了しました
+            canceled: キャンセルされました
+            disputed: 異議あり
+            initiated: Stripe支払い待ち
+            pending_ext: Stripe支払い待ち
+            payment_intent_requires_action: 保留中
+            payment_intent_action_expired: 期限切れ
+            payment_intent_failed: ~
+            refunded: 返金済み
+            dismissed: 却下
+        not_available: ご利用できません
+      conversations:
+        conversations: 会話
+        headers:
+          started_from: ~
+          status: ステータス
+          started: ~
+          last_activity: 最近の活動
+          initiated_by: ~
+          other_party: 売り主
+        participants: "会話：%{starter} と%{author}"
+        profile: "%{author} のプロフィール"
+        search_by_keyword: 名前、メールアドレス、キーワード検索
+        search: 検索
+        reset_search: 全件表示
+        for_keyword: ~
+      testimonials:
+        testimonials: レビュー
+        no_testimonials_found: レビューがありません
+        displaying_xx_reviews: ~
+        search_keyword: 名前または、キーワード検索
+        search: 検索
+        reset_search: 全件表示
+        for_keyword: ~
+        headers:
+          transaction: 取引
+          author: 作成者
+          receiver: レシーバー
+          status: ステータス
+          grade: ~
+          text: テキスト
+        status:
+          waiting: レビューを待っています
+          skipped: スキップ
+          published: 一般公開
+          blocked: ブロック
+        status_filter:
+          selected: "フィルターの選択 :%{count} "
+          all: フィルター
+          published: 公開
+          positive: 高評価
+          negative: 低評価
+          skipped: スキップ
+          waiting: 待ち
+          blocked: ブロック
+          selected_js: "フィルター選択:"
+        form:
+          review_text: レビュー文章
+          save: 保存する
+          cancel: キャンセル
+          delete_review: レビューを削除する
+          block_review: レビューをブロックする
+          confirm_modify: このレビューを変更または削除してもよろしいですか？レビューを編集/削除すると、古いデータを元に戻すことはできません。
+          deleting_info: ~
+          blocking_info: ~
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
+      invitations:
+        invitations: 招待
+        used:
+          "yes": はい
+          "no": いいえ
+        headers:
+          sent_by: 送信元
+          message: メッセージ
+          sent_to: 送信先
+          used: 登録済
+          date_sent: 送信日
+      listings:
+        listings: リスティング
+        search_by_title_author_category: 投稿のタイトル、作者、カテゴリー名を検索する
+        search: 検索
+        reset_search: 全件表示
+        export_all_as_csv: ~
+        processing_export: ~
+        status:
+          all: すべてのステータス
+          selected_js: "選択されたステータス:"
+          open: 公開
+          closed: 非公開
+          expired: 期限切れ
+          approval_pending: ~
+          approval_rejected: 却下されました
+        headers:
+          title: タイトル
+          author: 作成者
+          created: 作成日
+          updated: 更新日
+          category: カテゴリ
+          status: ステータス
+        open: 公開
+        closed: 非公開
+        expired: 期限切れ
+        approved: ~
+        approval_pending: 保留中
+        approval_rejected: 却下されました
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: 承認
+          reject: 却下
+          cancel: キャンセル
+      user_fields:
+        user_fields: ユーザー項目
+      footer:
+        footer: フッター
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: フッターリンク
+        language: 言語
+        title: タイトル
+        url: URL
+        add: フッターに新しいリンクを追加する
+        save: 設定を保存する
+        footer_style: フッターStyle
+        footer_copyright: フッターのコピーライト
+        footer_enabled: フッターの有効化
+        social_links: フッターのソーシャルリンク
+        title_placeholder: リンクタイトル
+        url_placeholder: ~
+        style:
+          dark: ダーク
+          light: ライト
+          marketplace_color: ~
+          logo: ロゴ
+        social:
+          title: タイトル
+          url: URL
+      domain:
+        domain: ドメイン
+        marketplace_domain: マーケットプレイスのドメイン
+        offer_pro: ~
+        upgrade_pro_plan_link: プロもしくはより上位のプランにアップグレードする
+        your_marketplace_address_is: "あなたのマーケットプレイスのアドレス：%{address}"
+        would_you_like_to_change_address: "マーケットプレイスのアドレス変更を希望しますか？%{contact_us}"
+        contact_us: お問い合わせ
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: "マーケットプレイスのカスタムドメイン変更を希望しますか？%{contact_us}"
+        change_your_sharetribe_domain: ~
+        only_letters_numbers_and_hyphens_can_be_used: ~
+        when_you_change_your_sharetribe_domain: ~
+        would_you_like_to_proceed: ~
+        change: ~
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
+      landing_pages:
+        landing_pages: ~
+        info_1: ~
+        info_2: ~
+        info_2_help_center: ~
+        info_3: ~
+        info_4: ~
+        editor_title: ~
+        editor_info: ~
+        preview: ~
+        set_live: ~
+        add_new_section: ~
+        select_section_type: ~
+        this_version_is_not_released: ~
+        latest_version_released: ~
+        check_it_out: ~
+        form:
+          save: 保存
+          cancel: キャンセル
+        sections:
+          identifier: セクションID
+          kind: セクションタイプ
+          new: 新しいセクション
+          edit: "セクションを編集 %{section_id} "
+          remove_section_confirmation: ~
+          info_single_column: ~
+          info_multi_column_2: ~
+          info_multi_column_3: ~
+          listings: リスティング
+          categories: カテゴリー
+          hero: ~
+          locations: ~
+          video: ビデオ
+          new_section:
+            categories: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+          edit_section:
+            categories: ~
+            footer: フッターセクション編集
+            hero: ~
+            info_single_column: ~
+            info_multi_column_2: ~
+            info_multi_column_3: ~
+            listings: ~
+            locations: ~
+            video: ~
+      attachments:
+        delete: ~
+        or_change: ~
+    landing_page_versions:
+      sections:
+        content:
+          title: ~
+        hero:
+          hero_title: ~
+          hero_description: ~
+          basic_details_tab: ~
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
+        footer:
+          footer_title: フッター
+          footer_style: フッタースタイル
+          style_dark: ダーク
+          style_light: ライト
+          style_marketplace_color: マーケットプレイスメインカラー
+          style_logo: ロゴ
+        cta_button:
+          cta_button: "Call to Actionボタン"
+          cta_enabled: ボタンを表示
+          cta_text: ラベル
+          cta_url: ~
+          text_placeholder: ~
+          url_placeholder: ~
+        background_selector:
+          title: ~
+        background_image_overlay:
+          background_image: 背景画像
+          background_image_info: ~
+          add_another_image: ~
+          current_image: ~
+          file_not_selected: ~
+          background_image_overlay: ~
+          background_image_overlay_info: ~
+          overlay_dark: ~
+          overlay_light: ~
+          overlay_transparent: ~
+        background_style:
+          background_style: ~
+          style_image: ~
+          style_color: ~
+          style_none: ~
+        background_color:
+          background_color: ~
+          background_color_info: ~
+        categories:
+          add: ~
+          category: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_categories: ~
+          need_at_most_7_categories: ~
+        category:
+          add_another_image: ~
+          category: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          select_category: ~
+        locations:
+          add: ~
+          location: ~
+          empty: ~
+          image: ~
+          include_title: ~
+          info_text: ~
+          need_at_least_3_locations: ~
+          need_at_most_7_locations: ~
+        location:
+          add_another_image: ~
+          location: ~
+          current_image: ~
+          file_not_selected: ~
+          image: ~
+          image_required: ~
+          title: タイトル
+          title_placeholder: ~
+          url: URL
+          url_placeholder: ~
+        multi_column:
+          main_title: メインタイトル
+          column_header: ~
+          column_title: ~
+          column_icon_info: ~
+          column_icon_info_link: ~
+          column_icon: ~
+          column_paragraph: ~
+          column_button: ~
+          column_button_text: ~
+          column_button_url: ~
+        listings:
+          listings_to_feature: ~
+          you_need_to_add_the_listing_ids: ~
+        video:
+          text: テキスト
+          autoplay: ~
+          autoplay_no: ~
+          autoplay_muted: ~
+          info: ~
+          youtube_video_id_info: ~
+    custom_fields:
+      edit:
+        edit_listing_field: "「%{field_name}」項目を編集する"
+      edit_price:
+        description: 最低価格と最高価格はフィルタにのみ影響します。上限価格に制限はありません。
+        edit_price_field: 価格項目の編集
+        show_price_filter_homepage: ホームページに価格の検索フィルターを設置
+        price_min: 最低価格
+        price_max: 最高価格
+      edit_location:
+        edit_location_field: 場所を編集
+        this_field_is_required: この項目は入力必須です
+        the_location_feature_can_be_enabled: ~
+      edit_expiration:
+        edit_expiration_field: リスティングフィールド「有効期限」を編集します
+        enable: 期限を有効にします
+      form:
+        field_required:
+          this_field_is_required: この項目は入力必須です
+          this_field_is_required_checkbox: この項目は必須です（ユーザは少なくてもひとつ選択しなければなりません）
+        search_filter:
+          search_filter: このフィールドに基づいてホームページにフィルタを表示する
+          date_cant_be_filtered: 日付フィールドに使用できるフィルタはありません。
+          text_cant_be_filtered: テキストフィールドにはフィルタがありません。メインテキスト検索はテキストフィールドから検索します。
+      index:
+        listing_fields: 投稿の項目とフィルターの設定
+        listing_fields_help: ここにユーザが、リストを作成する時に記入する記入項目を設定できます。いくつかの項目は所定の位置にあり編集が出来ないので注意してください。
+        add_new_field: 新しい項目を追加
+        remove_field_confirmation: "%{field_name}を本当に削除しますか。"
+        cancel: キャンセル
+        save: 保存する
+        field_title: 項目のタイトル
+        field_type: 項目の種類
+        categories: 項目が使用される投稿のカテゴリ
+        select_all: 全て選択
+        clear_all: 全て削除
+        options: オプション
+        add_option: "+ オプションを追加する"
+        saving_order: 項目の順番を保存する
+        save_order_successful: 項目の順番を保存しました
+        save_order_error: 項目の順番を保存する際にエラーが発生しました。ページを再読込して再実行してください。
+        select_one: 項目のタイプを選択...
+        continue: 続ける
+        minimum_value: 最小
+        maximum_value: 最高
+        allow_decimals: 小数点を許可
+      new:
+        new_listing_field: 新しい項目
+      field_types:
+        text: テキスト
+        number: 数字
+        dropdown: ドロップダウン・メニュー
+        checkbox_group: チェックボックス
+        date: 日付
+        file: ファイル
+        location: 場所
+    person_custom_fields:
+      saving_failed: ユーザー項目の保存に失敗しました
+      index:
+        user_fields: ユーザー項目
+        field_title: 項目名
+        field_type: 項目タイプ
+        signup: 登録する
+        public: 一般公開
+        add_new_field: "新しい項目を追加する:"
+        save: 保存する
+        cancel: キャンセル
+        minimum_value: 最低
+        maximum_value: 最高
+        allow_decimals: ~
+        add_option: オプションを追加する
+      new:
+        new_user_field: 新しいユーザーフィールド
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: "ユーザー項目の編集:%{field_name} "
+    emails:
+      new:
+        send_email_to_members: ユーザーにメールを送信
+        send_email_to_members_title: ユーザーに一斉メールを送信する
+        send_email: メールを送信する
+        send_email_or: または
+        send_test_email: テストメールを自分に送信します
+        test_sent: テストメールが受信トレイに送信されました
+        send_email_article_title: この記事
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: すべてのユーザー
+            posting_allowed: リストの投稿を許可されているユーザー
+            with_listing: 少なくとも1つのリスティングを投稿したユーザー
+            with_listing_no_payment: 少なくとも1つのリスティングを投稿したが支払いの詳細を追加していないユーザー
+            with_payment_no_listing: 支払いの詳細を追加したのにリスティングを投稿していないユーザー
+            no_listing_no_payment: リスティングを投稿しておらず、支払いの詳細も追加していないユーザー
+        email_subject: メール件名
+        email_content: メール内容
+        email_content_placeholder: ユーザ様に何をお伝えしたいですか。
+        email_language: メール受信者の主要言語
+        any_language: 全ての言語
+        message_will_be_sent_only_to_people_with_this_language: "注意： メールは、あなたが選択した言語を使用している%{service_name}内のユーザのみに、送信されます。"
+        email_sent: メールを送信しました。
+        to_improve_email_deliverability: ~
+        email_subject_text: "%{service_name} チームからの新しいメッセージ"
+        firstname_cannot_be_removed: ~
+        hello_firstname: こんにちは
+        hello_firstname_text: "%{person} さん、こんにちは"
+    left_hand_navigation:
+      general: 一般
+      users_and_transactions: ユーザと課金処理履歴
+      configure: 設定
+      emails_title: メールアドレス
+      subscription: サブスクリプション
+      preview: サイトプレビュー
+      whats_new: ~
+    listing_shapes:
+      availability_title: 利用可能日
+      read_more: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
+      per_day_availability: "\"1日あたり\"の空き状況"
+      per_night_availability: "\"1泊あたり\"有効化"
+      pricing_units_disabled_info: ~
+      can_not_find_name: ~
+      index:
+        listing_shapes: 課金タイプ
+        description: 注文タイプとは、注文がどのように処理されるかを定義するものです。ユーザーが貸そうとしているのか売ろうとしているのか、あるいは単に広告を載せてダイレクトメッセージを通してやりとりをしようとしているのか、決める事ができます。
+        read_more_about_order_types: 課金タイプについてもっと読む
+        add_new_shape: "新しい課金タイプを追加: "
+        select_template: テンプレートを選択...
+        all_categories: すべてのカテゴリー
+        no_categories: カテゴリーなし
+        category_count: "%{category_count} カテゴリ"
+        header:
+          listing_shape_name: 課金タイプ名称
+          listing_shape_categories: 使用されているカテゴリ
+        order:
+          saving_order: 項目の順番を保存する
+          save_order_successful: 課金タイプの順序を保存しました
+          save_order_error: 項目の順番を保存する際にエラーが発生しました。ページを再読込して再実行してください。
+      templates:
+        selling_products: 売ります
+        renting_products: 物のレンタル
+        offering_services: サービスの提供
+        giving_things_away: あげます
+        requesting: リクエストします
+        announcement: 広告を掲載中
+        custom: その他
+      new:
+        create_listing_shape: 課金タイプを新規作成
+        create: 作成
+        cancel: キャンセル
+        create_success: "新しい課金タイプ'%{shape}'を作成しました"
+        create_failure: "新しい課金タイプを作成できませんでした。エラー: %{error_msg}"
+      edit:
+        edit_listing_shape: "課金タイプを編集 '%{shape}'"
+        update: 保存する
+        cancel: キャンセル
+        update_success: "課金タイプの変更 '%{shape}' は保存されました"
+        update_failure: "変更を保存できませんでした。エラー: %{error_msg}"
+        delete: 課金タイプを削除
+        confirm_delete_order_type:
+          other: "この注文タイプには%{count}件の投稿があります。注文タイプを削除すると、これらの投稿も一緒に削除されます。削除してよろしいですか？"
+        can_not_delete_last: あなたのマーケットプレイスには一つしか注文タイプがないため、注文タイプを削除できません。
+        can_not_delete_only_one_in_categories: "カテゴリ%{categories}には注文タイプが一つしかないため、注文タイプを削除できません。"
+      listing_shape_name: 名前
+      listing_shape_name_placeholder: 例：売ります
+      action_button_label: チェックアウトボタンのラベル
+      action_button_placeholder: 例：買います
+      open_listings_warning:
+        other: "この注文タイプのオープンリストは%{count} あります。以下の設定を変更した場合、そのリストには古い設定が保持されます。手動で編集することで、リストを新しい設定に変更できます。あなたのサイトに古い設定のリストを表示したくない場合は、下のボタンをクリックしてそれを閉じることができます。"
+      close_listings_action:
+        other: "%{count}件の投稿を非公開にする"
+      confirm_close_listings_action:
+        other: "%{count}件の投稿を非公開にしてよろしいですか？"
+      successfully_closed: 投稿を非公開にしました。
+      successfully_deleted: "課金タイプ'%{order_type}'を削除しました"
+      pricing_and_checkout_title: 料金の確認と支払い手続き
+      online_payments_label: 売り手のネット決済の受け付けを可能にする
+      shipping_label: 売り手に配送料を決める事を許可
+      price_label: 投稿に価格を付けることを売り手に許可する
+      units_title: 通貨単位
+      units_desc: 価格単位を有効にした場合、掲載価格は「価格単位あたりの価格」として表示されます。例：「時間あたり$39」
+      units:
+        piece: １点
+        hour: １時間
+        day: １日
+        night: １泊
+        week: １週
+        month: １ヵ月
+        unit: 1個あたり
+      can_not_find: "id: %{id} の課金タイプは見つかりません"
+      add_custom_unit: +独自の価格単位を追加…
+      delete_custom_unit: 削除
+      custom_unit_form:
+        title: 価格単位の新規作成
+        label_heading: ラベル
+        selector_label_heading: セレクターのラベル
+        label_placeholder: 例：「キロ」、「30分」、「人」、「クラス」
+        selector_placeholder: 例：「参加人数」、「キログラム」
+        per: /
+        unit_type:
+          heading: 単位タイプ
+          quantity_label: "量の単位 (一個あたり、キロあたり、1人あたり、ツアー2時間あたり)"
+          time_label: "時間の単位 (30分あたり、2週間あたり、1年あたり...)"
+    paypal_accounts:
+      marketplace_paypal_integration: お支払い方法
+      preferences_updated: お支払い情報は更新されました
+      contact_support_link_text: サポートにお問い合わせ
+      integration_info_text: Sharetribeのお支払いシステムはPayPalを導入しています。あなたのマーケットプレイスで、お支払いが発生するようなサービスをご検討の場合は、PayPalと連携させる必要がございます。最小価格を設定し、取引毎にいただく手数料を設定します。
+      link_paypal_personal_account_label: ~
+      link_paypal_personal_account: "もしそうなら、あなたのPayPalアカウントを%{personal_payment_preferences_link} に接続する必要があります。"
+      link_stripe_personal_account: "もしその場合あなたは支払いの詳細を%{personal_payment_preferences_link} に加える必要があります。"
+      link_paypal_and_stripe_personal_account: "その場合は、PayPalアカウントまたはStripeアカウントを%{personal_payment_preferences_link} に接続する必要があります。"
+      personal_payment_preferences_link_text: あなた個人のマーケットプレイスアカウント
+      read_more_about_paypal: Sharetribeのお支払い方法にについてさらに読む
+      edit_payment_settings: 支払い設定を編集する
+      supported_currencies_information_text: "Sharetribeのオンライン支払いシステム は24の通貨をサポートしています。もしあなたの通貨がこのリストになければ、こちらからおしてください。%{contact_support_link} もしあなたがマーケットプレイスの通貨を変更するのであれば、リストに存在する古い通貨を選択してください。あたらしい通貨に変更する手続きが後ほど必要になります。"
+      currency_change_warning_text: ~
+      marketplace_currency_label: 使用通貨：
+      minimum_listing_price_label: 最低価格：
+      transaction_fee_label: "売り手 取引手数料："
+      minimum_transaction_fee_label: "売り手 最小取引手数料額："
+      save_settings: 設定を保存する
+      minimum_listing_price_below_tx_fee: "最小でも、%{minimum_transaction_fee}と同じ値にしてください。"
+      minimum_listing_price_below_min: "最小手数料は、%{minimum_commission}より大きい値にしてください。"
+    payment_preferences:
+      title: 支払いシステムの設定
+      general_settings: １．一般設定
+      connect_a_payment_provider: 2．決済サービスに接続する
+      contact_support: サポートに連絡する
+      no_payments_link_text: こちら
+      your_country: 国：
+      you_cannot_use_online_payments: "あなたは%{currency} で%{country_name} において、オンライン決済を使用することができません。別の通貨を選ぶか、別の国を選択してください。%{support_link} あなたはサポートされた国、通貨について確認することができます。%{help_link} 将来的にさらに通過をサポートしていきたいと思います。"
+      which_to_choose: どちらを選びますか？
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: Stripeについてもっと読む
+      you_can_use_paypal_only: ~
+      read_more_paypal: PayPal決済について読む
+      read_more_about_paypal_and_stripe: StripeとPayPal決済について読む
+      general_settings_updated: 決済システムの設定が更新されました
+      transaction_fee_settings_updated: 取引手数料設定が更新されました
+      choose_popup_text: |-
+          ユーザーにオンライン支払いを許可するには、マーケットプレイスの通貨を選択してから、Sharetribeでサポートされている2つの支払いプロバイダー、StripeとPayPalのうち少なくとも1つを接続する必要があります。両方を使用することも選択できます。つまり、ユーザーはどちらの支払い方法でも支払いを受け付けることができます。
+          まだアカウントを持っていない場合は、どちらのサービスでも新しいアカウントを作成できます。アカウントを接続したら、各取引から請求する可能性のある料金を選択できます。
+          StripeとPayPalの違いは何ですか？ Stripeでは、売り手への支払いを最大3ヶ月遅らせることができ、支払い方法を1つ提供しています（クレジット/デビットカード）。 Stripeはまたあなたの売り手が単に彼らの銀行詳細を提供することによって彼らの銀行口座に直接お金を受け取ることを可能にします。 PayPalは2つの支払い方法（クレジットカードとPayPalアカウント）を提供し、買い手と売り手のための保護プログラムを提供します。それはあなたの売り手が支払いを受け取るためにPayPalビジネスアカウントを作成することを要求します。
+          あなたがStripeを使うならば、その手数料はあなたの取引手数料から差し引かれるでしょう、それで十分に高い最低手数料を設定することを忘れないでください。あなたがPayPalを使うならば、あなたの取引手数料に加えて、その手数料は売り手から別に請求されます。 StripeとPayPalでは、料金体系が少し異なります。ほとんどの場合、Stripeの手数料は少し低くなります。
+      invalid_api_keys: SripeのAPIキーが無効です
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: 設定と料金を変更する
+      configure_stripe: Stripeを設定する
+      configure_paypal: " PayPalを設定する"
+      transaction_fee_settings: 取引手数料設定
+      transaction_fee_save: 保存する
+      stripe_fee: Stripeの手数料
+      stripe_fee_notice: "請求している取引手数料から%{stripe_fee_link} が差し引かれます。"
+      fee_should_be_less_than_minimum_price: ~
+      the_transaction_fee_must_be_lower_than_100: ~
+      confirm_disable: ~
+      commission_from_buyer_label: "買い手 取引手数料："
+      minimum_buyer_transaction_fee_label: "買い手 最小取引手数料額："
+      stripe_connected:
+        title: Stripeに接続されました
+        disable: ストライプを無効にする
+        disabled: ストライプが無効になりました
+        enable: ストライプを有効にする
+      paypal_connected:
+        title: PayPalと接続しました
+        disable: PayPalを無効にする
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: "購入者のコミッションが使用されているため、ペイメントゲートウェイ%{gateway} が使用できませんでした"
+      stripe_form:
+        add_your_api_keys: StripeAPIキーを追加する
+        how_to_get_these: どのようにして手に入れますか？
+        publishable_key_example: "例：%{api_publishable_key_example} "
+        secret_key_example: "例：%{api_secret_key_example} "
+        save_api_keys: ストライプAPIキーを保存する
+        invalid_secret: "正しい%{secret_key} ではないようです"
+        invalid_publishable: "正しい%{publishable_key} ではないようです"
+      index:
+        header: ~
+        info: ~
+        active: アクティブ
+        gateway: ゲートウェイ
+        process: プロセス
+        commission: コミッション
+        minimum_price: 最低価格
+        minimum_fee: 最低のフィ
+        api_verified: ~
+        actions: アクション
+        payments_not_enabled: ~
+    transaction_types:
+      sell: 売ります
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
+      rent: 貸します
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
+      give: あげます
+      lend: 無料で貸します
+      swap: 交換したいです
+      service: オファーします
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
+      request: リクエストします
+      inquiry: 質問します
+      share_for_free: 無料でシェアします
+      event_w_online_payment: ~
+      event_wo_online_payment: ~
+      default_action_button_labels:
+        sell: 買います
+        rent: 借ります
+        request: オファーします
+        offer: リクエストします
+        inquiry: お問い合わせ
+        book: ~
+    community_transactions:
+      show:
+        transaction_for: "%{link} の取引＃%{transaction_id} "
+        status: ステータス：
+        next_step: 次のステップ：
+        waiting_for_provider_accept_or_reject: "%{provider} がリクエストを承認または拒否するのを待っています。"
+        waiting_for_fulfill_and_complete: "%{provider} が%{listing_title} の注文を処理し、%{buyer} が注文完了のマークをするのを待っています。"
+        buyer: 購入者：
+        provider: 販売者：
+        delivery: 配送：
+        shipping_to: "%{address} へ配送"
+        buyer_pays: 購入者支払い
+        marketplace_collects: 手数料：
+        buyer_service_fee_label: 購入者からの手数料：
+        service_fee_label: 販売者からの手数料：
+        provider_receives: 販売利益：
+        admin_info_text: "%{service_name} の管理者は、この取引を進めるためにアクションを実行できます。"
+        manage_reviews: ~
+        you_should_investigate: "両者で協議し状況を調査して払い戻しまたは却下する必要があります。詳細はこちら：%{learn_more_link} "
+        learn_more: もっと詳しく

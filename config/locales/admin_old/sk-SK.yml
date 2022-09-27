@@ -1,0 +1,1237 @@
+sk-SK:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: "Uprav kategóriu '%{category}'"
+      index:
+        listing_categories: "Kategórie inzerátov"
+        create_a_new_category: "+ Vytvoriť novú kategóriu"
+        remove_category_confirmation: "Ste si istý, že chcete odstrániť kategóriu '%{category_name}'?"
+        saving_order: "Uložiť usporiadanie kategórii"
+        save_order_successful: "Usporiadanie kategórii bolo úspešne uložené"
+        save_order_error: "Pri ukladaní usporiadania kategórii nastala chyba. Prosím obnovte stránku a skúste to znova."
+      new:
+        new_listing_category: "Nová kategória inzerátu"
+      form:
+        category_name:
+          category_title: "Názov kategórie"
+        category_parent:
+          category_parent: "Nadriadená kategória"
+          no_parent: "Žiadna nadriadená kategória"
+        category_transaction_types:
+          transaction_types: "Typy objednávok"
+          transaction_types_description: "Typy objednávok určujú, aký druh objednávok bude povolený pre inzeráty v tejto kategórii. Napríklad povolené iba pre predám, prenajmem alebo pre darujem."
+          select_all: "Vybrať všetko"
+          clear_all: "Zrušiť všetko"
+        buttons:
+          save: Uložiť
+          cancel: Zruš
+      remove:
+        remove_category: "Odobrať kategóriu"
+        remove_category_name: "Odobrať kategóriu '%{category_name}'"
+        warning_remove_effects: "Upozornenie! Odstránenie kategórie '%{category_name}' bude mať nasledujúci efekt:"
+        warning_listing_will_be_moved:
+          one: "V tejto kategórii je %{count} inzerát. Inzerát bude presunutý do vybranej kategórie."
+          few: "V tejto kategórii sú %{count} inzeráty. Inzeráty budú presunuté do vybranej kategórie."
+          other: "V tejto kategórii je %{count} inzerátov. Inzeráty budú presunuté do vybranej kategórie."
+        warning_custom_field_will_be_moved:
+          one: "V tejto kategórii je %{count} vlastné pole. Toto pole bude presunuté do vybranej kategórie."
+          few: "V tejto kategórii sú %{count} vlastné polia. Tieto polia budú presunuté do vybranej kategórie."
+          other: "V tejto kategórii je %{count} vlastných polí. Tieto polia budú presunuté do vybranej kategórie."
+        warning_subcategory_will_be_removed:
+          one: "V tejto kategórii je %{count} podkategória, ktorá bude odstránená."
+          few: "V tejto kategórii sú %{count} podkategórie, ktoré budú odstránené."
+          other: "V tejto kategórii je %{count} podkategórií, ktoré budú odstránené."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "V tejto kategórii a podkategórií je %{count} inzerát, ktorý bude presunutý do vybranej kategórie."
+          few: "V tejto kategórii a podkategórií sú %{count} inzeráty, ktoré budú presunuté do vybranej kategórie."
+          other: "V tejto kategórii a podkategórií je %{count} inzerátov, ktoré budú presunuté do vybranej kategórie."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "V tejto kategórii a podkategórií je %{count} vlastné pole, ktoré bude presunuté do vybranej kategórie."
+          few: "V tejto kategórii a podkategórií sú %{count} vlatné polia, ktoré budú presunuté do vybranej kategórie."
+          other: "V tejto kategórii a podkategórií je %{count} vlasntých polí, ktoré budú presunuté do vybranej kategórie."
+        select_new_category: "Vyberte novú kategóriu, kam budú všetky položky presunuté:"
+        buttons:
+          remove: Odstrániť
+          cancel: Zrušiť
+    communities:
+      edit_details:
+        community_details: "Základné detaily"
+        community_look_and_feel: Dizajn
+        edit_community: "Základné detaily"
+        enabled_languages: "Povolené jazyky"
+        enabled_languages_description: "Zoznam dostupných jazykov pre užívateľov. Prvý vybraný je použitý ako východiskový."
+        default_language: "Východiskový jazyk"
+        language_selection_disabled: "Výber jazyka je pre Vaše trhovisko zakázaný, pretože používate nasledujúci neoficiálny jazyk: %{languages}. Prosíme, kontaktujte podporu Sharetribe, pokiaľ chcete zmeniť nastavenia Vašeho jazyka."
+        community_name: "Názov trhoviska"
+        edit_community_name_description: "Názov Vašeho trhoviska. Tento názov sa zobrazí v e-mailových správach a na iných miestach."
+        community_slogan: Slogan
+        community_slogan_display: "Zobraziť slogan na domovskej stránke"
+        edit_community_slogan_description: "Toto sa zobrazí na domovskej stránke všetkým neprihláseným užívateľom. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "Toto je zobrazené v prehliadačoch, vyhľadávačoch a sociálnych médiách. Môžete ho zobraziť aj na domovskej stránke svojho trhoviska pre používateľov, ktorí nie sú prihlásení. %{see_how_it_looks_like}."
+        community_description: "Popis trhoviska"
+        community_description_display: "Zobraziť popis na domovskej stránke"
+        edit_community_description_description: "Toto sa zobrazí na domovskej stránke všetkým neprihláseným užívateľom. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "Toto je zobrazené v prehliadačoch, vyhľadávačoch a sociálnych médiách. Môžete ho tiež zobraziť na domovskej stránke svojho trhoviska pre používateľov, ktorí nie sú prihlásení. %{see_how_it_looks_like}."
+        community_search_placeholder: "Pomocný text vyhľadavánia"
+        edit_community_search_placeholder_description: "Toto sa zobrazí na domovskej stránke trhoviska ako podporný text vo vyhľadávaní. %{see_how_it_looks_like}"
+        private_community_homepage_content: "Obsah domovskej stránky súkromného trhoviska"
+        edit_private_community_homepage_content_description: "Tento obsah je zobrazený na domovskej stránke súkromného trhoviska neprihláseným užívateľom. Tu môžete opísať Vaše trhovisko a postup ako sa pripojiť. Taktiež sem môžete pridávať obrázky, videá a HTML obsah. %{see_how_it_looks_like}."
+        update_information: "Uložiť nastavenia"
+        invite_people: "Pozvať nových užívateľov"
+        edit_signup_info: "Prihlasovacie údaje"
+        edit_signup_info_description: "Toto je informačný text, ktorý sa zobrazuje iba užívateľom pri registrácii. Tu môžete napísať užívateľom inštrukcie k registrácii, ako napríklad, kde získať pozvánku atď. V základnom nastavení nie sú k dispozícii akékoľvek inštrukcie."
+        edit_info: "Uprav informácie"
+        see_how_it_looks_like: "Zobraziť náhľad"
+        verification_to_post_listings_info_content: "Informácie pre neoverených užívateľov"
+        verification_to_post_listings_info_content_description: "Užívatelia predtým, než budú môcť zadávať príspevky musia byť Vami manuálne overení. Tu môžete nastaviť základný text, ktorý se zobrazí neovereným užívateľom, keď sa budú snažiť pridať nový príspevok."
+        verification_to_post_listings_info_content_default: "%{service_name} vyžaduje, aby boli ľudia ručne overení správcom predtým, než budú môcť pridávať príspevky. Ešte ste neboli overený/á. Prosíme, %{contact_admin_link} pre overenie."
+        contact_admin_link_text: "kontaktujte administrátora"
+        save: "Uložiť nastavenia"
+        transaction_agreement: "Súhlas s transakciou"
+        transaction_agreement_checkbox: "Požiadať užívateľa, aby potvrdil zmluvu pred prevedením transakcie"
+        transaction_agreement_checkbox_header: "Popis dohody"
+        transaction_agreement_checkbox_label_description: "Tento text sa zobrazí vedľa zaškrtávacieho poľa vo formulári. Užívateľ musí zaškrtnúť pole, aby mohla byť transakcia prevedená. Príkladom pomenovania by mohlo byť niečo ako \"Kliknutím na toto pole súhlasím s podmienkami.\""
+        transaction_agreement_text_header: "Text dohody"
+        transaction_agreement_description: "Toto je obsah aktuálnych podmienok, ktorý musí užívateľ potvrdiť. Obsah sa zobrazí, keď užívateľ klikne na odkaz %{read_more} vedľa textu dohody."
+        terms_privacy_policy_and_static_content: "Podmienky, zásady ochrany osobných údajov a statický obsah"
+        terms_privacy_policy_and_static_content_infotext: "Môžete upraviť až štyri stránky statického obsahu. Používatelia môžu nájsť stránky kliknutím na odkaz „O nás“ na hornom paneli."
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Upraviť vzhľad trhoviska %{community_name}"
+        community_logo: Logo
+        community_logo_icon: "Logo pre sociálne siete a mobilné zariadenia"
+        community_logo_icon_mobile: "Logo pre domácu obrazovku na mobilných zariadeniach"
+        community_cover_photo: "Úvodná fotografia"
+        small_community_cover_photo: "Malá úvodná fotografia"
+        favicon: "Ikonka webovej stránky"
+        favicon_info_text: "Ikonka webovej stránky nahradí základné Sharetribe logo. Rozmery by mali byť 32x32 pixelov a nahratý súbor bude prispôsobený týmto rozmerom."
+        community_custom_color1: "Základná farba"
+        community_slogan_color: "Farba sloganu trhu"
+        community_slogan_color_instructions_text: "Môžete zmeniť farbu sloganu na domovskej stránke zadaním hodnoty hexadecimálnej farby. Slogan sa zobrazuje používateľom, ktorí nie sú prihlásení. %{colorpicker} vám môže pomôcť zvoliť farbu a poskytnúť vám hexadecimálny farebný kód. Potom môžete kód skopírovať sem %{see_how_it_looks_like}."
+        community_description_color: "Farba písma trhu"
+        community_description_color_instructions_text: "Farbu popisu na domovskej stránke môžete zmeniť zadaním hodnoty hexadecimálnej farby. Popis sa zobrazuje používateľom, ktorí nie sú prihlásení. %{colorpicker} vám môže pomôcť zvoliť farbu a poskytnúť vám hexadecimálny farebný kód. Potom môžete kód skopírovať sem %{see_how_it_looks_like}."
+        new_listing_button_custom_color: "Farba tlačítka Pridať nový inzerát"
+        logo_instructions_text_with_dimensions: "Veľkosť loga by mala byť %{width}x%{height} pixelov. Toto logo sa zobrazí užívateľom s veľkou obrazovkou."
+        logo_instructions_text_with_dimensions_no_placing: "Veľkosť loga by mala byť %{width}x%{height} pixelov."
+        logo_icon_instructions_text_with_dimensions: "Toto štvorcové logo sa zobrazí v prípade zdieľania Vašej stránky na Facebooku, na mobilnom zariadení, alebo v prípade nastavenia Vašej stránky ako domovskej na mobilnom zariadení. Rozmery by mali byť (aspoň) %{width}x%{height} px."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Toto štvorcové logo sa zobrazí, keď ľudia zdieľajú vaše stránky na Facebooku alebo keď označia vaše stránky záložkou na domovskej obrazovke svojho mobilného zariadenia. Rozmery by mali byť (aspoň) %{width}x%{height} pixelov."
+        logo_mobile_icon_instructions_text_with_dimensions: "Toto štvorcové logo sa zobrazí, keď si ľudia označia váš web ako záložku na domovskej obrazovke svojho mobilného zariadenia. Rozmery by mali byť (aspoň) %{width}x%{height} pixelov."
+        cover_photo_visibility: "Úvodná fotografia sa zobrazí na domovskej stránke neprihláseným užívateľom."
+        cover_photo_instructions_text_with_dimensions: "Fotografie budú prispôsobené veľkosti %{width}x%{height} pixelov a väčšie snímky budú orezané. %{see_how_it_looks_like}."
+        we_have_you_covered: "Podržíme Vás"
+        cover_photo_ready_made: "Hľadáte hotové a optimalizované obrázky? Alebo by ste chceli nejakú inšpiráciu a webové stránky, kde nájdete skvelé obrázky? %{link}!"
+        small_cover_photo_visibility: "Malá úvodná fotografia sa zobrazí neprihláseným užívateľom na všetkých stránkach okrem domovskej stránky."
+        small_cover_photo_instructions_text_with_dimensions: "Fotografia bude prispôsobená veľkosti %{width}x%{height} pixelov a väčšie obrázky budú orezané."
+        main_content_width: "Pri výbere úvodných fotiek berte na vedomie, že rozlíšenie hlavnej stránky je maximálne %{main_width} pixelov na šírku. Nezabudnite tiež skontrolovať, ako bude Vaša úvodná fotografia vyzerať na menších obrazovkách."
+        custom_color1_instructions_text: "Môžete zmeniť základnú farbu užívateľského rozhrania zadaním hexadecimálnej hodnoty farby. Na %{link} si môžete vybrať farbu a následne sem bude skopírovaný kód farby."
+        new_listing_button_instructions_text: "Farbu tlačidla Odoslať nový inzerát môžete zmeniť zadaním hodnoty hexadecimálnej farby. %{link_to_colorpicker} vám môže pomôcť vybrať farbu a dať vám hexadecimálny farebný kód. Potom môžete kód skopírovať."
+        default_browse_view: "Východzie zobrazenie prehliadača"
+        default_browse_view_instructions_text: "Východzie zobrazenie prehliadača sa používa na domovskej stránke k nastaveniu, ako majú byť inzeráty zobrazené vo východzom nastavení."
+        grid: Mriežka
+        list: Zoznam
+        map: Mapa
+        name_display_type: "Názov typu zobrazenia"
+        name_display_type_instructions_text: "Vyberte si ako sa má meno každého užívateľa zobrazovať na stránke."
+        full_name: "Meno a priezvisko"
+        first_name_with_initial: "Meno a počiatočné písmeno priezviska"
+        first_name_only: "Iba meno"
+        invalid_color_code: "Kód farby by mal obsahovať 6 čísiel alebo písmen A až F, napríklad D69E21"
+        custom_head_script: "Vlastný skript"
+        custom_head_script_instructions_text: ~
+        current_image: "Aktuálny obrázok:"
+      edit_text_instructions:
+        edit_text_instructions: Návody
+      edit_welcome_email:
+        welcome_email_content: "Obsah uvítacieho e-mailu."
+        welcome_email_content_description: "Nižšie uvedená správa bude odoslaná novým užívateľom, keď sa pripoja. Správu môžete upraviť podľa Vašej potreby. Kliknutím na %{send_test_message_link} môžete odoslať na Váš e-mail náhľad správy, takže budete vidieť ako bude vyzerať v prijatej e-mailovej správe."
+        edit_message: "Upraviť správu"
+        send_test_message: "Odoslať testovaciu správu"
+      outgoing_email:
+        title: "Odchádzajúca e-mailová adresa"
+        info: "Toto meno a adresa sa používa pre e-maily poslané členom z Vašeho trhoviska."
+        read_more: "Čítať viac o odchádzajúcej e-mailovej adrese."
+        sender_address: "Adresa odosielateľa: %{sender_address}"
+        sender_address_default: "Adresa odosielateľa: nebola nastavená (bude použitá východisková adresa %{sender_address})"
+        need_to_change: "Prosím %{contact_support_link} pokiaľ potrebujete zmeniť e-mailovú adresu."
+        contact_support_link_text: "Kontaktovať Sharetribe podporu"
+        set_sender_address: "Nastaviť adresu odosielateľa"
+        sender_name_label: Meno
+        sender_name_placeholder: "Meno odosielateľa"
+        sender_email_label: "E-mailová adresa"
+        sender_email_placeholder: odosielatel-email@priklad.sk
+        amazon_ses_notification: "Od %{email_sender} dostanete e-mail s potvrdením svojej e-mailovej adresy. Predmet e-mailu je '%{email_subject}'. Svoj e-mail overte podľa pokynov."
+        this_is_how_it_will_look: "Takto to bude vyzerať:"
+        send_verification_button: "Poslať overovací e-mail"
+        change_sender_email: "zmena e-mailu odosielateľa"
+        successfully_saved: "Adresa odosielateľa bola úspešne uložená. Overovací e-mail bude o chvíľu odoslaný."
+        successfully_saved_name: "Meno odosielateľa úspešne zmenené"
+        set_sender_name: "Zmeniť meno odosielateľa"
+        change_sender_name: "Zmeniť meno odosielateľa"
+        change_sender_prompt: "%{change_name_link} alebo %{change_email_link}"
+        status: "Stav: %{status}"
+        status_verified: "Overený - používa sa"
+        status_error: "Nastala chyba. Prosím obnovte stránku."
+        status_requested: "Neoverený - overovací e-mail odoslaný %{email} %{time_ago} %{resend_link}"
+        status_expired: "Overenie e-mailovej adresy %{email} vypršalo. %{resend_link}"
+        status_resent: "Overovací e-mail bol znovu odoslaný na %{email}. %{resend_link}"
+        resend_link: "Znovu poslať"
+        invalid_email_error: "Nesprávny formát e-mailu %{email}"
+        invalid_email_address: ~
+        invalid_email_domain: "E-mailová adresa %{email} využíva nepodporovaného poskytovateľa e-mailu: \"%{domain}\". %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Ďalšie informácie nájdete v článku Centrum pomoci."
+        unknown_error: "Niečo sa pokazilo"
+        white_label_offer: "Nastavte vlastnú e-mailovú adresu odosielateľa a odstránte všetky Sharetribe značky z odchádzajúcich e-mailov s %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "upgrade na plán Pro alebo vyšší"
+        verification_sent_from: "Overovací e-mail bol odoslaný užívateľom %{verification_sender_name}"
+        follow_the_instructions: "Pre overenie postupujte prosím podľa pokynov uvedených v e-mailovej správe"
+      getting_started:
+        getting_started: "Príručka pre začiatočníkov"
+      available_languages:
+        bg: ~
+        ca: ~
+        cs: Česky
+        da-DK: Dánčina
+        de: Nemčina
+        el: Gréčtina
+        en: Angličtina
+        en-AU: "Angličtina (Austrália)"
+        en-GB: "Angličtina (Spojené Kráľovstvo)"
+        es: Španielčina
+        es-ES: "Španielčina (španielsky)"
+        et: ~
+        fi: Fínčina
+        fr: Francúzština
+        fr-CA: "Francúzština (Kanada)"
+        hr: ~
+        hu: ~
+        it: Taliančina
+        ja: Japončina
+        ko: Kórejský
+        lt: ~
+        nb: Nórčina
+        nl: Holandčina
+        pl: Polsky
+        pt-BR: "Portugalčina (Brazílska)"
+        pt-PT: Portugalčina
+        ro: ~
+        ru: Ruština
+        sk-SK: ~
+        sl: ~
+        sv: Švédčina
+        th-TH: "Thajčina (Thajsko)"
+        tr-TR: Turečtina
+        uk: ~
+        vi: Vietnamsky
+        zh: Čínština
+        zh-TW: Čínsky(Tajwan)
+      settings:
+        settings: Nastavenia
+        general: Všeobecné
+        access: Prístup
+        join_with_invite_only: "Iba užívatelia s pozvánkou od iného užívateľa sa môžu pripojiť"
+        users_can_invite_new_users: "Všetci užívatelia môžu pozvať nových užívateľov"
+        private: "Toto trhovisko je súkromné (iba registrovaní užívatelia môžu zobraziť obsah)"
+        require_verification_to_post_listings: "Iba správcom overení užívatelia môžu pridávať inzeráty"
+        allow_free_conversations: "Umožnite používateľom voľne si písať"
+        search_preferences: "Nastavenie vyhľadávania"
+        search_and_location_preferences: "Nastavenia vyhľadávania a polohy"
+        default_search_type: "Typ vyhľadávania: %{select_search_type}"
+        keyword_search: "Vyhľadávanie pomocou kľúčového slova"
+        keyword_and_location_search: "Kľúčové slovo a vyhľadávanie podľa polohy"
+        location_search: "Vyhľadávanie pomocou lokality"
+        select_distance_unit: "Zobraziť vzdialenosť v %{distance_units_selector}"
+        km: km
+        miles: míľach
+        show_only_nearby: "Zobraziť iba inzeráty z okolia"
+        allow_users_to_add_location: "Umožniť používateľom pridať polohu do svojho profilu a inzerátov a zobraziť mapu vo vyhľadávaní"
+        fuzzy_location: ~
+        listing_preferences: "Nastavenia inzerátu"
+        transaction_preferences: "Nastavenia transakcií"
+        show_listing_publishing_date: "Zobraziť dátum zverejnenia na stránke inzerátu"
+        show_category_in_listing_list: "Zobraziť typ inzerátu v zozname"
+        listing_comments_in_use: "Povoliť užívateľom pridávať komentáre k inzerátom (viditeľné pre všetkých)"
+        email_preferences: "Nastavenia e-mailu"
+        automatic_newsletters: "Posielať automaticky denne / týždenne novinky všetkým užívateľom (pokiaľ nezrušia zasielanie)"
+        email_admins_about_new_members: "Poslať e-mail administrátorovi pri novej registrácii užívateľa"
+        google_analytics_key: "Google Analytics tracking ID"
+        twitter_handle: "Twitter (používa se tweet tlačítkom na strane)"
+        update_settings: "Uložiť nastavenia"
+        automatically_confirmed_no_escrow: "Transakcia bude automaticky označená ako vybavená za %{days_dropdown} dní od doby, kedy bola platba prevedená."
+        automatically_confirmed_no_escrow_stripe_info: "V prípade transakcií spracovaných spoločnosťou Stripe sú platby predajcom oneskorené, kým nie je objednávka označená ako dokončená. %{learn_more}"
+        buyer_transaction_fees_are_only_supported_with_stripe: "Transakčné poplatky kupujúceho sú podporované iba pomocou služby Stripe. Ak nakonfigurujete transakčný poplatok Kupujúceho pomocou služby Stripe, nebudete môcť používať službu PayPal."
+        automatic_newsletter_frequency: "Automaticky posielať novinky: %{frequency_dropdown}"
+        newsletter_daily: Denne
+        newsletter_weekly: Týždenne
+        delete_marketplace_title: "Vymazať trhovisko"
+        type_marketplace_domain: "Napíšte doménu Vašeho trhoviska (%{domain}) do textového poľa nižšie:"
+        type_marketplace_domain_placeholder: "Napíšte doménu Vášho trhoviska sem"
+        once_you_delete: "Pokiaľ vymažete trhovisko, už nikdy nebude možné ho obnoviť, buďte opatrný."
+        are_you_sure: "Ste si istý?"
+        i_understand_button: "Som oboznámený, že kliknutím na toto tlačítko bude moje trhovisko vymazané."
+        last_community_updates: "Vezmite na vedomie, že po vymazaní vy a Vaši užívatelia budú stále dostávať e-mailové správy s novinkami."
+        you_will_be_redirected_to: "Potom, čo zmažete Vaše trhovisko budete presmerovaný do %{destination}. Už nikdy nebudete mať prístup do Vašeho trhoviska."
+        delete_this_marketplace: "Zmazať trhovisko"
+        payment_preferences: "Platobný systém"
+        pre_approved_listings: "Pred zverejnením skontrolujte všetky inzeráty"
+        email_admins_about_new_transactions: "Poslať adminovi email vždy, keď prebehne nová transakcia"
+      manage_members:
+        manage_members: Používatelia
+        email: E-mail
+        name: Meno
+        display_name: "Zobrazované Meno"
+        join_date: "Dátum registrácie"
+        admin: Administrátor
+        posting_allowed: "Povolené pridávanie príspevkov"
+        ban_user: "Zakázať užívateľa"
+        saving_user_status: Ukladám...
+        save_user_status_successful: Uložené
+        export_all_as_csv: "Exportovať všetko do CSV"
+        save_user_status_error: "Pri ukladaní nastala chyba. Prosím, obnovte stránku a skúste to znova."
+        ban_user_confirmation: "Týmto bude užívateľ odstránený z trhoviska a nebude už pod týmto účtom pristupovať na túto stránku. Ste si istý, že chcete pokračovať?"
+        unban_user_confirmation: "Toto umožňuje používateľskému účtu znova pristupovať na stránku pomocou tohto účtu. Naozaj chcete pokračovať?"
+        ban_me_error: "Nemôžete seba samého vylúčiť."
+        have_ongoing_transactions: ~
+        only_delete_disabled: ~
+        delete_info1: ~
+        delete_info2: ~
+        search: Hľadať
+        search_by_name_email: "Hľadanie podľa mena, e-mailu alebo zobrazovaného názvu"
+        reset_search: "Zobraziť všetko"
+        for_search_terms: "pre: %{terms}"
+        this_makes_the_user_an_admin: "Vďaka tomu je používateľ správcom. Mali by ste informovať používateľa o jeho povinnostiach a že by si mali prečítať podmienky používania Sharetribe. Naozaj chcete pokračovať?"
+        status_filter:
+          all: "Všetky stavy"
+          selected: "Vybrané stavy:%{count}"
+          selected_js: "Vybrané stavy: "
+          admin: Správca
+          banned: Deaktivovaní
+          posting_allowed: "Pridávanie príspevkov je povolené"
+          accepted: Prijatí
+          unconfirmed: Nepotvrdení
+          pending: Zadržaní
+        this_user_hasnt_confirmed_their_email_address: "Tento používateľ nepotvrdil svoju e-mailovú adresu. Je možné, že používateľ nedostal potvrdzovací e-mail. Ak ho chcete znova odoslať, kliknite na tlačidlo Znova odoslať."
+        unconfirmed_user: "Nepotvrdený používateľ: %{name}"
+        resend: "Znovu odoslať"
+        cancel: Zrušiť
+        confirm: ~
+        user_didnt_complete_the_signup_process: "Tento používateľ sa zaregistroval prostredníctvom sociálneho prihlásenia, ale nedokončil proces registrácie. Po pripojení sociálneho prihlasovacieho účtu musia používatelia naďalej akceptovať vaše podmienky používania a vyplniť všetky povinné polia používateľov"
+        pending_user: "Čaká sa: %{name}"
+      new_layout:
+        new_layout: "Nový vzhľad"
+        description_roadmap_new: "Keď sú pre váš trh k dispozícii nové komponenty, môžete si zvoliť či chcete používať nový komponent alebo použiť stávajúci. Voľbu môžete kedykoľvek prepínať z tejto stránky. Odporúčame používať vždy novú verziu, pretože staré súčasti môžu byť vyradené. Budete kontaktovaný vopred v prípade, že súčasť, ktorú používate ma byť vyradená."
+        enabled_for_you: "Sprístupnené pre Vás"
+        enabled_for_all: "Sprístupnené pre všetkých"
+        new_topbar: "Nová horná lišta (viditeľná na každej stránke)"
+        searchpage: "Nové vyhľadávanie (vyžaduje nový horný riadok)"
+        new_email_templates: "Nové rozloženie pre e-maily"
+      social_media:
+        social_media: "Sociálne médiá"
+        logo: "Obrázok sociálnych médií"
+        logo_info: "Tento obrázok sa zobrazí na sociálnych médiách pre Facebook, Twitter a LinkedIn, keď niekto zdieľa Vaše webové stránky. Pre najlepšie výsledky by mali byť v pomere strán 2: 1 a minimálnej veľkosti %{width}x%{height} pixelov."
+        social_media_title: "Názov sociálnych médií"
+        social_media_title_info: "Tento text sa zobrazí na sociálnych médiách pre Facebook, Twitter a LinkedIn, keď niekto zdieľa vaše webové stránky. Môžete si zobraziť ukážku vzhľadu %{facebook_preview_link}, %{twitter_preview_link} a %{linkedin_preview_link}."
+        link_for_facebook: "pre Facebook"
+        link_for_linkedin: "pre LinkedIn"
+        link_for_twitter: "pre Twitter"
+        social_media_description: "Popis sociálnych médií"
+        twitter_handle: "Twitter účet"
+        twitter_handle_info_text: "Užívateľské meno Twitter účtu Vašeho trhoviska (pokiaľ nejaké máte). To sa zobrazí ľuďom, ktorý používajú Twitter tlačítko na stránke."
+        twitter_handle_info_text_with_instructions: "Užívateľské meno Twitter účtu Vašeho trhoviska (pokiaľ nejaké máte). To sa zobrazí ľuďom, ktorí používajú Twitter tlačítko na stránke. %{instructions_link}."
+        twitter_instructions_link_text: "Celý článok"
+        twitter_handle_placeholder: "užívateľské meno"
+        invalid_twitter_handle: "Užívateľské meno Twitter účtu by malo obsahovať maximálne 15 alfanumerických znakov (písmená A-Z a čísla 0-9)."
+        facebook_connect: Facebook
+        facebook_developers_dashboard: "Facebook vývojarský panel"
+        facebook_connect_info_text: "Aby ste sa mohli prihlásiť cez Facebook, je potrebné vytvoriť aplikáciu pre Vaše trhovisko na <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Následne vyplňte pridelené identifikačné číslo a heslo aplikácie."
+        facebook_connect_info_text_with_instructions: "Aby ste sa mohli prihlásiť cez Facebook, je potrebné vytvoriť aplikáciu pre Vaše trhovisko na <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Následne vyplňte pridelené identifikačné číslo a heslo aplikácie sem. %{instructions_link}"
+        facebook_instructions_link_text: "Zobraziť pokyny pre nastavenie prihlásenia cez Facebook."
+        facebook_connect_id: "Identifikačné číslo Facebook klienta"
+        invalid_facebook_connect_id: "Klientské číslo by malo obsahovať iba čísla."
+        facebook_connect_secret: "Heslo pre prihlásenie cez Facebook"
+        invalid_facebook_connect_secret: "Heslo by malo obsahovať iba číslice a písmená od A do F."
+        enable_facebook_login: "Povoliť používateľom prihlásiť sa pomocou svojho Facebook účtu"
+        save: "Uložiť nastavenia"
+        google_connect: "Prihlásenie do Google"
+        google_instructions_link_text: "Prečítajte si pokyny na konfiguráciu prihlásenia Google."
+        google_developers_console: "Google vývojarský panel"
+        google_connect_info_text_with_instructions: "Vytvorte projekt pre svoj tu %{dashboard_link}, ak chcete povoliť prihlásenie Google}. Sem pridajte vygenerovaný ID a tajný kľúč projektu. %{instructions_link}"
+        google_connect_info_text: "Vytvorte projekt pre svoj tu %{dashboard_link}, ak chcete povoliť prihlásenie Google}. Sem pridajte vygenerovaný ID a tajný kľúč projektu."
+        enable_google_login: "Povoliť používateľom prihlásiť sa pomocou svojho účtu Google"
+        google_connect_id: "ID klienta Google"
+        google_connect_secret: "Šifra klienta Google"
+        linkedin_connect: "Prihlásiť sa do LinkedIn"
+        linkedin_instructions_link_text: "Prečítajte si pokyny na konfiguráciu prihlásenia do LinkedIn."
+        linkedin_developers_dashboard: "LinkedIn vývojarský panel"
+        linkedin_connect_info_text_with_instructions: "Vytvorte aplikáciu pre svoje trhovisko v %{dashboard_link}, ak chcete povoliť prihlásenie do LinkedIn, Sem pridajte vygenerovaný identifikátor a tajný kľúč aplikácie. %{instructions_link}"
+        linkedin_connect_info_text: "Vytvorte aplikáciu pre svoje trhovisko v %{dashboard_link}, ak chcete povoliť prihlásenie do LinkedIn, Sem pridajte vygenerovaný identifikátor a tajný kľúč aplikácie."
+        enable_linkedin_login: "Povoliť používateľom prihlásiť sa pomocou svojho účtu LinkedIn"
+        linkedin_connect_id: "ID klienta LinkedIn"
+        linkedin_connect_secret: "Šifra klienta LinkedIn"
+      seo_settings:
+        seo: SEO
+        title: "Domovská stránka alebo vlastná vstupná stránka"
+        meta_title_label: "Metaznačka názvu domovskej stránky alebo vlastnej cieľovej stránky"
+        meta_title_info: "Obsah tejto značky sa navrhuje pre vyhľadávače a zobrazuje sa na stránkach s výsledkami ako nadpis, na ktorý sa dá kliknúť. %{link} %{vars}."
+        meta_title_link_text: "Viac informácií o metaznačkách."
+        meta_description_label: "Metaznačka popisu domovskej stránky alebo vlastnej vstupnej stránky"
+        meta_description_info: "Obsah tejto značky je navrhnutý pre vyhľadávače a zobrazuje sa pod modrými odkazmi, na ktoré je možné kliknúť na stránke s výsledkami vyhľadávacieho nástroja. %{link} %{vars}."
+        meta_description_link_text: "Viac informácií o metaznačkách."
+        search_title: "Stránka s výsledkami vyhľadávania"
+        search_meta_title_label: "Metaznačka názvu stránky s výsledkami vyhľadávania"
+        search_meta_title_info: "Obsah tejto značky sa navrhuje pre vyhľadávače a zobrazuje sa na stránkach s výsledkami ako nadpis, na ktorý sa dá kliknúť. %{link} %{vars}."
+        search_meta_title_link_text: "Viac informácií o metaznačkách."
+        search_meta_description_label: "Meta tag popis stránky s výsledkami vyhľadávania"
+        search_meta_description_info: "Obsah tejto značky je navrhnutý pre vyhľadávače a zobrazuje sa pod modrými odkazmi, na ktoré je možné kliknúť na stránke s výsledkami vyhľadávacieho nástroja. %{link} %{vars}."
+        search_meta_description_link_text: "Viac informácií o metaznačkách."
+        listing_title: "Stránka s inzerátmi"
+        listing_meta_title_label: "Meta tag názvu stránky"
+        listing_meta_title_info: "Obsah tejto značky sa navrhuje pre vyhľadávače a zobrazuje sa na stránkach s výsledkami ako nadpis, na ktorý sa dá kliknúť. %{link} %{vars}."
+        listing_meta_title_link_text: "Viac informácií o metaznačkách."
+        listing_meta_description_label: "Značka metaznačky s popisom stránky"
+        listing_meta_description_info: "Obsah tejto značky je navrhnutý pre vyhľadávače a zobrazuje sa pod modrými odkazmi, na ktoré je možné kliknúť na stránke s výsledkami vyhľadávacieho nástroja. %{link} %{vars}."
+        listing_meta_description_link_text: "Viac informácií o metaznačkách."
+        category_title: "Stránka kategórie"
+        category_meta_title_label: "Metaznačka názvu stránky kategórie"
+        category_meta_title_info: "Obsah tejto značky sa navrhuje pre vyhľadávače a zobrazuje sa na stránkach s výsledkami ako nadpis, na ktorý sa dá kliknúť. %{link} %{vars}."
+        category_meta_title_link_text: "Viac informácií o metaznačkách."
+        category_meta_description_label: "Meta tag popis stránky"
+        category_meta_description_info: "Obsah tejto značky je navrhnutý pre vyhľadávače a zobrazuje sa pod modrými odkazmi, na ktoré je možné kliknúť na stránke s výsledkami vyhľadávacieho nástroja. %{link} %{vars}."
+        category_meta_description_link_text: "Viac informácií o metaznačkách."
+        profile_title: "Stránka profilu"
+        profile_meta_title_label: "Meta tag názvu stránky profilu"
+        profile_meta_title_info: "Obsah tejto značky sa navrhuje pre vyhľadávače a zobrazuje sa na stránkach s výsledkami ako nadpis, na ktorý sa dá kliknúť. %{link} %{vars}."
+        profile_meta_title_link_text: "Viac informácií o metaznačkách."
+        profile_meta_description_label: "Meta tag popis stránky s profilom"
+        profile_meta_description_info: "Obsah tejto značky je navrhnutý pre vyhľadávače a zobrazuje sa pod modrými odkazmi, na ktoré je možné kliknúť na stránke s výsledkami vyhľadávacieho nástroja. %{link} %{vars}."
+        profile_meta_description_link_text: "Viac informácií o metaznačkách."
+        sitemap_label: "Mapa stránky"
+        sitemap_info: "Súbory Sitemap predstavujú jednoduchý spôsob informovania vyhľadávacích nástrojov o stránkach na Vašom webe, ktoré sú k dispozícii na indexové prehľadávanie. %{link}."
+        sitemap_info_link_text: "Prečítajte si viac informácií o súbore XML Sitemap"
+        sitemap_info_public: "Pre Vaše trhovisko sa automaticky vygeneruje mapa stránok: odkazuje na 500 najnovších inzerátov na Vašom webe. K svojmu súboru Sitemap máte prístup na stránke %{link}."
+        sitemap_info_private: "Keďže je vaše trhovisko súkromné, neexistuje mapa stránok."
+        robots_label: Robots.txt
+        robots_info: "Robots.txt je textový súbor, ktorý webovým robotom (zvyčajne robotom vyhľadávacích strojov) dá pokyn, ako prehľadávať stránky na vašom webe. %{link}."
+        robots_info_link_text: "Viac informácií o súbore robots.txt"
+        robots_info_2: "Pre Vaše trhovisko sa automaticky vygeneruje súbor robots.txt. Prístup k súboru robots.txt nájdete na adrese %{link}."
+        google_search_console: "Google vyhľadávacia konzola"
+        google_search_console_paragraph1: "Konzola Google Search Console ponúka nástroje a prehľady, ktoré vám pomôžu zmerať návštevnosť a výkonnosť vyhľadávania a problémy súvisiace s výsledkami vyhľadávania vo Vašom webe."
+        google_search_console_these_instructions: "tieto pokyny"
+        google_search_console_paragraph2: "Je dobré pridať svoj web do Konzoly Google Search Console. %{link}  trvá iba pár minút."
+        save: "Uložiť nastavenia"
+      analytics:
+        analytics: "Google Analytics"
+        google_analytics_key: "Google Analytics sledovacie ID"
+        google_analytics_key_info_text: "Sledovacie číslo Vašeho Google Analytics účtu"
+        google_analytics_key_info_text_with_instructions: "Sledovacie číslo Vašeho Google Analytics účtu.%{instructions_link}."
+        google_analytics_instructions_link_text: "Čítať viac o pripojení Google Analytics"
+        sharetribe_analytics: "Sharetribe analýza"
+        sharetribe_analytics_info_text_with_instructions: "Na zlepšenie služieb a podpory spoločnosti Sharetribe sleduje spoločnosť Sharetribe činnosť členov trhu. Osobné údaje sa nezhromažďujú a tieto informácie sa zdieľajú mimo tímu Sharetribe. Toto sledovanie je možné úplne zakázať. %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Prečítajte si viac o analýze spoločnosti Sharetribe."
+        end_user_analytics: "Umožnite spoločnosti Sharetribe sledovať činnosť členov s cieľom zlepšiť služby spoločnosti Sharetribe"
+        save: "Uložiť nastavenia"
+        google_tag_manager: ~
+        gtm_paragraph_1: ~
+        gtm_paragraph_2: ~
+        learn_how_to_configure_gtm: ~
+      logo_link:
+        title: "Odkaz na logo"
+        info: "Môžete prispôsobiť odkaz na logo (a predvolené tlačidlo domovskej ponuky v hornej lište). Logo v predvolenom nastavení privádza používateľov na domovskú stránku alebo na vlastnú vstupnú stránku."
+        url: URL
+        placeholder: "https://www.priklad.com"
+      menu_links:
+        menu_links: Odkazy
+        menu_links_display: "Zobraz odkazy na menu"
+        save: "Uložiť nastavenia"
+        add_menu_link: "Pridať nový odkaz do menu"
+        title_placeholder: "Názov odkazu"
+        url_placeholder: "http://priklad.sk/sk"
+        title: Názov
+        language: Jazyk
+        url: URL
+        empty: "Nemáte žiadne menu odkazy"
+        max_number_of_links: "Maximálny počet odkazov zobrazených v hornej lište: %{select_max_number}"
+        all: Všetky
+        max_number_of_links_info: "Odkaz na %{about_page} je vždy zobrazený ako prvá možnosť v menu."
+        about_page: "o nás"
+      default_menu_links:
+        title: "Predvolené menu odkazy"
+        about_link_title: "O nás"
+        contact_link_title: "Kontaktujte nás"
+        invite_link_title: "Pozvať nových členov"
+        info: "V predvolenom nastavení sa odkazy na nasledujúce stránky nezobrazujú nikde inde na vašej stránke: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Zobraziť odkaz na <i>O nás</i> a ďalšie statické stránky"
+        display_contact: "Zobraziť odkaz na stránku <i>Kontaktujte nás</i>"
+        display_invite: "Zobraziť odkaz na stránku <i>Pozvať nových členov</i>"
+      topbar:
+        topbar: "Horná lišta"
+        new_listing_button_label: "Text tlačítka Pridať nový inzerát"
+        invalid_post_listing_button_label: "Prosím zadajte platný text pre tlačítko \"Pridať nový inzerát\""
+      transactions:
+        export_all_as_csv: "Exportovať všetko do CSV"
+        processing_export: "Spracováva sa export do súboru CSV ..."
+        transactions: "Zobraziť platby"
+        search_by_title_parties: "Vyhľadajte názov transakcie alebo zúčastnené strany"
+        search: Hľadať
+        reset_search: Všetko
+        status_filter:
+          all: "Všetky stavy"
+          selected: "Vybrané stavy: %{count}"
+          selected_js: "Vybrané stavy: "
+          free: "Bezplatná transakcia"
+          confirmed: Dokončené
+          paid: Zaplatené
+          canceled: Zrušené
+          disputed: Sporné
+          preauthorized: Predschválených
+          rejected: Odmietnuté
+          payment_intent_requires_action: Zadržané
+          payment_intent_action_expired: Vypršané
+          refunded: Vrátené
+          dismissed: Zamietnuté
+        headers:
+          conversation: "Vlákno konverzácie"
+          listing: Inzerát
+          status: Stav
+          sum: Čiastka
+          started: Zahájené
+          last_activity: "Posledná aktivita"
+          initiated_by: Zahájené
+          other_party: "Ďalšia strana"
+        status:
+          conversation: Konverzácia
+          free: Konverzácia
+          pending: "Čaká na vybavenie"
+          preauthorized: Predschválené
+          accepted: Prijaté
+          rejected: Zamietnuté
+          paid: Zaplatené
+          confirmed: Potvrdené
+          canceled: Zrušené
+          disputed: Sporná
+          initiated: "Čaká sa na PayPal platbu"
+          pending_ext: "Čaká sa na PayPal platbu"
+          none:
+            free: "Bez poplatkov"
+          paypal:
+            free: Konverzácia
+            pending: Nevykonané
+            preauthorized: "Pred autorizáciou"
+            accepted: Prijaté
+            rejected: Odmietnuté
+            paid: Zaplatené
+            confirmed: Potvrdené
+            canceled: Zrušené
+            disputed: Sporné
+            initiated: "čaká sa na Paypal platbu"
+            pending_ext: "čaká sa na Paypal platbu"
+            refunded: Vratené
+            dismissed: Zamietnuté
+          stripe:
+            free: Konverzácia
+            pending: Nevykonané
+            preauthorized: "Pred autorizáciou"
+            accepted: Prijaté
+            rejected: Odmietnuté
+            paid: Zaplatené
+            confirmed: Potvrdené
+            canceled: Zrušené
+            disputed: Sporné
+            initiated: "Čaká sa na Stripe platbu"
+            pending_ext: "Čaká sa na Stripe platbu"
+            payment_intent_requires_action: Zadržané
+            payment_intent_action_expired: Vypršané
+            payment_intent_failed: "Stripe platba zlyhala"
+            refunded: Vrátené
+            dismissed: Zamietnuté
+        not_available: "Teraz k dispozicií"
+      conversations:
+        conversations: Konverzácie
+        headers:
+          started_from: "Začal od"
+          status: Stav
+          started: Začal
+          last_activity: "Posledná aktivita"
+          initiated_by: Zahájené
+          other_party: Poskytovateľ
+        participants: "Konverzácie: %{starter} s %{author}"
+        profile: "Profil %{author}"
+        search_by_keyword: "Vyhľadajte meno, e-mail alebo kľúčové slovo"
+        search: Vyhľadávanie
+        reset_search: Všetko
+        for_keyword: "pre: <b>%{keyword}</b>"
+      testimonials:
+        testimonials: Recenzie
+        no_testimonials_found: "Neboli nájdené žiadne recenzie"
+        displaying_xx_reviews: "Zobrazuje sa <b>%{count} </b> recenzií v transakciách %{tx_from} - %{tx_to} z <b>%{all_count}</b> všetkých recenzií"
+        search_keyword: "Vyhľadajte meno, e-mail alebo kľúčové slovo"
+        search: Vyhľadávanie
+        reset_search: Všetko
+        for_keyword: "pre: <b>%{keyword}</b>"
+        headers:
+          transaction: Transakcia
+          author: Autor
+          receiver: Príjemca
+          status: Stav
+          grade: Akosť
+          text: Text
+        status:
+          waiting: "Čaká sa na kontrolu"
+          skipped: Vynechané
+          published: Zverejnené
+          blocked: Blokované
+        status_filter:
+          selected: "Vybrané filtre: %{count}"
+          all: Filtre
+          published: Zverejnené
+          positive: Pozitívne
+          negative: Negatívne
+          skipped: Vynechané
+          waiting: Čakajúce
+          blocked: Blokované
+          selected_js: "Vybrané filtre: "
+        form:
+          review_text: "Skontrolovať text"
+          save: Uložiť
+          cancel: Zrušiť
+          delete_review: "Odstrániť recenziu"
+          block_review: "Blokovať recenziu"
+          confirm_modify: "Naozaj chcete upraviť alebo odstrániť túto recenziu? Po úprave alebo odstránení recenzie nie je možné obnoviť žiadne zo starých údajov."
+          deleting_info: "Odstránenie recenzie umožňuje jej autorovi zanechať iného pre tú istú transakciu."
+          blocking_info: "Blokovanie kontroly po vymazaní zabráni jej autorovi v tom, aby pre tú istú transakciu opustil iného."
+          unskip: Späť
+          if_you_unskip_the_review: "Ak resetujete hodnotenie, používateľ môže napísať nové."
+          they_will_not_be_notified_automatically: "Nebudú oboznámení automaticky."
+      invitations:
+        invitations: Pozvánky
+        used:
+          "yes": Áno
+          "no": Nie
+        headers:
+          sent_by: "Odoslané od"
+          message: Správa
+          sent_to: "Odoslané na"
+          used: Použité
+          date_sent: "Dátum odoslania"
+      listings:
+        listings: Inzeráty
+        search_by_title_author_category: "Vyhľadajte názov inzerátu, autora alebo názov kategórie"
+        search: Hľadať
+        reset_search: Všetko
+        export_all_as_csv: "Exportovať všetko ako CSV"
+        processing_export: "Spracováva sa export do súboru CSV ..."
+        status:
+          all: "Všetky stavy"
+          selected_js: "Vybrané stavy: "
+          open: Otvorené
+          closed: Uzatvorené
+          expired: Vypršané
+          approval_pending: Zadržané
+          approval_rejected: Odmietnuté
+        headers:
+          title: Názov
+          author: Autor
+          created: Vytvorené
+          updated: Aktualizované
+          category: Kategória
+          status: Stav
+        open: Otvorené
+        closed: Uzatvorené
+        expired: Vypršala
+        approved: Schválené
+        approval_pending: Zadržané
+        approval_rejected: Odmietnuté
+        form:
+          this_listing_has_not_not_been_approved_yet: "Tento inzerát ešte nebol schválený. Teraz sa môžete rozhodnúť schváliť alebo zamietnuť inzerát. Ak inzerát schválite, bude verejný a viditeľný pre všetkých používateľov. Ak inzerát odmietnete, nebude verejný."
+          approve: Scvháliť
+          reject: Odmietnuť
+          cancel: Zrušiť
+      user_fields:
+        user_fields: "Polia používateľov"
+      footer:
+        footer: Footer
+        offer_pro: "Nakonfigurujte a odstráňte všetky značky Sharetribe z päty vášho trhu pomocou %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "upgrade na Pro plán alebo vyšší"
+        menu_links: "Footer odkazy"
+        language: Jazyk
+        title: Nadpis
+        url: URL
+        add: "Pridať odkaz na footer"
+        save: "Uložiť nastavenia"
+        footer_style: "Footer štýl"
+        footer_copyright: "Footer autorské práva"
+        footer_enabled: "Footer povolený"
+        social_links: "Footer sociálne odkazy"
+        title_placeholder: "Názov odkazu"
+        url_placeholder: "https://priklad.com/uzivatelskemeno"
+        style:
+          dark: Tmavý
+          light: Svetlý
+          marketplace_color: "Farba trhu"
+          logo: Logo
+        social:
+          title: Názov
+          url: URL
+      domain:
+        domain: Doména
+        marketplace_domain: "Doména trhoviska"
+        offer_pro: "Nakonfigurujte svoju vlastnú doménu pomocou %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "upgrade na Pro plán alebo vyšší"
+        your_marketplace_address_is: "Adresa Vášho trhoviska je: %{address}"
+        would_you_like_to_change_address: "Chcete zmeniť adresu svojho trhoviska? %{contact_us}!"
+        contact_us: "Kontaktuj nás"
+        you_can_now_use_a_custom_domain: "S aktuálnym plánom teraz môžete povoliť vlastnú doménu. Pokračujeme ďalej v nastaveniach. %{contact_us}!"
+        would_you_like_to_change_domain: "Chcete zmeniť doménu trhoviska na vlastnú? %{contact_us}!"
+        change_your_sharetribe_domain: "Zmeňte svoju doménu Sharetribe"
+        only_letters_numbers_and_hyphens_can_be_used: "Môžu sa používať písmená, číslice a spojovníky. Buďte opatrní! Vaša stará doména bude k dispozícii všetkým na použitie a nebude presmerovaná na Vašu novú."
+        when_you_change_your_sharetribe_domain: "Keď zmeníte svoju doménu Sharetribe, všetky vaše adresy URL sa automaticky zmenia. Budete presmerovaný na novú adresu svojho trhoviska. Vy a používatelia sa budete musieť znova prihlásiť. Vaša predchádzajúca doména na trhu nebude nijako prepojená ani presmerovaná na novú. Stará doména bude k dispozícii pre ďalšie použitie"
+        would_you_like_to_proceed: "Chcete pokračovať?"
+        change: Zmeniť
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
+      landing_pages:
+        landing_pages: "Uvítacia stránka"
+        info_1: "Práve uvítacia stránka je možno tou najdôležitejšou stránkou na Vašom trhovisku. Rovnako ako dvere na Vašom dome - je to to prvé, čo návštevník vidí. Máte iba pár sekúnd, aby ste zaujali nových návštevníkov a presvedčili ich, aby Vašu stránku spoznali viac. Uvítacia stránka by preto mala jasne prezentovať hodnoty, ktoré vyznávate a zároveň musí byť prehľadná a lákavá."
+        info_2: "Na úpravu uvítacej stránky môžete kedykoľvek použiť editor!"
+        info_2_help_center: "Článok Centrum pomoci"
+        info_3: "Ak si chcete upraviť uvítaciu obrazovku svojej stránky podľa svojich predstáv, môžete si túto možnosť zakúpiť ako doplnok za 99$ mesačne."
+        info_4: "Prečítať viac %{link} o tom ako funguje editor uvítacej obrazovky s jednotlivými sekciami a ako ich upravovať."
+        editor_title: "Editor uvítacej obrazovky"
+        editor_info: "Tu môžete upraviť jednotlivé sekcie vašej uvítacej stránky. Momentálne je možné použiť len jeden jazyk pre uvítaciu obrazovku. 'Hero' a 'Päta' sekcie nie je môžné upraviť."
+        preview: "Ukážka uvítacej obrazovky."
+        set_live: Publikovať
+        add_new_section: "Pridať novú sekciu:"
+        select_section_type: "Vybrať sekciu..."
+        this_version_is_not_released: "Ak chcete nastaviť novú verziu vstupnej stránky, musíte vykonať zmeny"
+        latest_version_released: "Posledná verzia uvítacej obrazovky bola nastavená! %{link}!"
+        check_it_out: "Skontrolujte to"
+        form:
+          save: Uložiť
+          cancel: Zrušiť
+        sections:
+          identifier: "ID sekcie"
+          kind: "Typ sekcie"
+          new: "Nová sekcia"
+          edit: "Upraviť sekciu %{section_id}"
+          remove_section_confirmation: "Ste si istí, že chcete vymazať sekciu %{section_id} a všetky jej dáta? Tento krok nie je možné vrátiť späť."
+          info_single_column: "Informácie - Jeden stĺpec"
+          info_multi_column_2: "Informácie - Dva stĺpce"
+          info_multi_column_3: "Informácie - Tri stĺpce"
+          listings: Inzeráty
+          categories: Kategórie
+          hero: Hero
+          locations: Polohy
+          video: Video
+          new_section:
+            categories: "Pridanie novej sekcie 'Kategórie'"
+            info_single_column: "Pridanie novej sekcie 'Informácie - Jeden stĺpec'"
+            info_multi_column_2: "Pridanie novej sekcie 'Informácie - Dva stĺpce'"
+            info_multi_column_3: "Pridanie novej sekcie 'Informácie - Tri stĺpce'"
+            listings: "Pridanie novej sekcie 'Inzeráty'"
+            locations: "Pridanie novej sekcie 'Polohy'"
+            video: "Pridanie novej sekcie 'Video'"
+          edit_section:
+            categories: "Úprava sekcie 'Kategórie'"
+            footer: "Úprava sekcie 'Päta'"
+            hero: "Úprava sekcie 'Hero'"
+            info_single_column: "Úprava sekcie 'Informácie - jeden stĺpec'"
+            info_multi_column_2: "Úprava sekcie 'Informácie - Dva stĺpce'"
+            info_multi_column_3: "Úprava sekcie 'Informácie - Tri stĺpce'"
+            listings: "Úprava sekcie 'Inzeráty'"
+            locations: "Úprava sekcie 'Polohy'"
+            video: "Úprava sekcie 'Video'"
+      attachments:
+        delete: ~
+        or_change: ~
+    landing_page_versions:
+      sections:
+        content:
+          title: "Obsah časti"
+        hero:
+          hero_title: Hero
+          hero_description: "Nastaviť obrázok pozadia pre Hero sekciu. Slogan a popis sú nastavené z %{link}"
+          basic_details_tab: "Záložka 'Základné detaily'"
+          cta_button: ~
+          cta_button_info: ~
+          button_type:
+            default: ~
+            button: ~
+            none: ~
+          button_content: ~
+          click_me: ~
+        footer:
+          footer_title: Päta
+          footer_style: "Štýl časti Päta"
+          style_dark: Tmavý
+          style_light: Svetlý
+          style_marketplace_color: "Hlavná farba stránky"
+          style_logo: Logo
+        cta_button:
+          cta_button: "Akčné tlačítko"
+          cta_enabled: "Ukázať tlačítko"
+          cta_text: Popis
+          cta_url: URL
+          text_placeholder: "Klikni sem!"
+          url_placeholder: "https://www.priklad.com"
+        background_selector:
+          title: Pozadie
+        background_image_overlay:
+          background_image: Pozadie
+          background_image_info: "Tento obrázok bude zobrazený ako obrázok pozadia. Pre najlepší výsledok by mal mať veľkosť minimálne 1600x1200 pixelov."
+          add_another_image: "Pridať ďalší obrázok"
+          current_image: "Aktuálny obrázok: %{filename}"
+          file_not_selected: "Nie je vybraný"
+          background_image_overlay: "Prekrytie obrázku pozadia"
+          background_image_overlay_info: "Určuje ako bude obrázok pozadia tmavý alebo svetlý. 'Priehľadný' je bez prekrytia."
+          overlay_dark: Tmavý
+          overlay_light: Svetlý
+          overlay_transparent: Priehľadný
+        background_style:
+          background_style: "Štýl pozadia"
+          style_image: Obrázok
+          style_color: Farba
+          style_none: Žiadny
+        background_color:
+          background_color: "Farba pozadia"
+          background_color_info: "Môžete zvoliť farbu pozadia tejto sekcie zadaním HEX kódu farby. %{link} Vám môže pomôcť vybrať farbu a jej HEX kód, ktorý môžete vložiť sem."
+        categories:
+          add: "+ Pridať novú kategóriu do tejto sekcie"
+          category: Kategória
+          empty: "Nemáte žiadne zahrnúté kategórie"
+          image: Obrázok
+          include_title: "Vybrané kategórie"
+          info_text: "Môžte vybrať 3 až 7 kategórií. Prosím, vložte obrázok ku každej kategórii a vyberte jednu kategóriu z vašej ponuky. Pre najlepšie výsledky je odporúčaná veľkosť obrázku 1000 x 667 pixelov."
+          need_at_least_3_categories: "Mali by ste mať aspoň 3 kategórie v tejto sekcii."
+          need_at_most_7_categories: "Mali by ste mať najviac 7 kategórií v tejto sekcii."
+        category:
+          add_another_image: "Pridať daľší obrázok"
+          category: Kategória
+          current_image: "Aktuálny obrázok: %{filename}"
+          file_not_selected: Nevybrané
+          image: Obrázok
+          image_required: "Mali by ste pridať obrázok do tejto kategórie"
+          select_category: "Vyberte kategóriu"
+        locations:
+          add: "+ Pridať novú lokáciu do tejto sekcie"
+          location: Poloha
+          empty: "Nemáte žiadne pridané lokácie"
+          image: Obrázok
+          include_title: "Vybraté miesta"
+          info_text: "Môžete uviesť tri až sedem miest. Pridajte obrázok na každé miesto a uveďte adresu URL vyhľadávania polohy pre svoje trhovisko. Pre dosiahnutie najlepších výsledkov je odporúčaná veľkosť obrázka 1 000 x 667 pixelov."
+          need_at_least_3_locations: "V tejto časti by ste mali mať aspoň tri miesta"
+          need_at_most_7_locations: "V tejto časti by ste mali mať najviac 7 miest"
+        location:
+          add_another_image: "Pridať ďalší obrázok"
+          location: Poloha
+          current_image: "Aktuálny obrázok: %{filename}"
+          file_not_selected: "Nie je vybraný"
+          image: Obrázok
+          image_required: "Mali by ste pridať obrázok k tejto polohe"
+          title: Názov
+          title_placeholder: "Popis polohy"
+          url: URL
+          url_placeholder: "URL polohy"
+        multi_column:
+          main_title: "Hlavný nadpis"
+          column_header: "Stĺpec %{index}"
+          column_title: "Stĺpec %{index} nadpis"
+          column_icon_info: ~
+          column_icon_info_link: ~
+          column_icon: "Stĺpec %{index} ikona"
+          column_paragraph: "Stĺpec %{index} odstavec"
+          column_button: "Stĺpec %{index} tlačidlo"
+          column_button_text: "Popis tlačidla"
+          column_button_url: "https://www.priklad.com"
+        listings:
+          listings_to_feature: "Inzeráty, ktoré sa majú zobraziť"
+          you_need_to_add_the_listing_ids: "V tejto časti musíte pridať identifikátory inzerátov s inzerátmi, ktoré chcete používať. Ak chcete nájsť ID inzerátu, jednoducho prejdite na stránku so inzerátom a pozrite sa na webovú adresu inzerátu. ID inzerátu je číslo, ktoré nasleduje hneď za hlavnou adresou URL. Napríklad https://www.example.com/listings/123456-listing-title by bolo ID inzerátu 123456."
+        video:
+          text: Text
+          autoplay: "Nastavenia automatického prehrávania"
+          autoplay_no: "Bez automatického prehrávania"
+          autoplay_muted: "Stlmené automatické prehrávanie"
+          info: "Tento text sa zobrazí ak zvolíte možnosť 'Bez automatického prehrávania' alebo ak je video stopnuté."
+          youtube_video_id_info: "ID videa môžete získať z adresy URL videa. Zvyčajne ide o poslednú časť adresy URL. Ak je napríklad adresa URL videa https://www.youtube.com/watch?v=UffchBUUIoI, ID by bolo „UffchBUUIoI“"
+    custom_fields:
+      edit:
+        edit_listing_field: "Upraviť pole inzerátu '%{field_name}'"
+      edit_price:
+        description: "Minimálna a maximálna cena ovplyvňuje iba filter. Nenastavuje limit pre cenu inzerátov."
+        edit_price_field: "Upraviť pole 'Cena'"
+        show_price_filter_homepage: "Zobraziť cenový filter na domovskej stránke"
+        price_min: "Filtrovať minimálnu cenu"
+        price_max: "Filtrovať maximálnu cenu"
+      edit_location:
+        edit_location_field: "Upraviť umiestnenie poľa 'Poloha'"
+        this_field_is_required: "Toto pole je povinné"
+        the_location_feature_can_be_enabled: "Funkciu určovania polohy je možné povoliť v časti %{link} v nastaveniach Vášho trhoviska."
+      edit_expiration:
+        edit_expiration_field: "Upraviť pole ' Vypršanie dátumu platnosti'"
+        enable: "Povoliť vypršanie dátumu platnosti."
+      form:
+        field_required:
+          this_field_is_required: "Označiť toto pole ako povinné pri vytváraní nového inzeruát"
+          this_field_is_required_checkbox: "Použiť ako povinné pole pri vytváraní nového inzerátu (užívateľ musí vybrať aspoň jednu možnosť)"
+        search_filter:
+          search_filter: "Zobraziť filter na základe tohoto poľa na domovskej stránke"
+          date_cant_be_filtered: "Filter pre dátum nie je k dispozícií."
+          text_cant_be_filtered: "Filter pre text nie je k dispozícií. Hlavné textové vyhľadávanie vyhľadáva v textových poliach."
+      index:
+        listing_fields: "Zoznam polí a filtrov"
+        listing_fields_help: "Tu môžete upraviť polia, ktoré užívatelia musia vyplniť pri vytváraní nového inzerátu. Vezmite na vedomie, že niektoré polia sú predvolené a nemôžu byť upravené."
+        add_new_field: "Pridať nové pole:"
+        remove_field_confirmation: "Ste si istý, že chcete vymazať pole %{field_name}?"
+        cancel: Zrušiť
+        save: Uložiť
+        field_title: "Názov poľa"
+        field_type: "Typ poľa"
+        categories: "Zoznam kategórií, kde sa pole používa"
+        select_all: "Vybrať všetko"
+        clear_all: "Zrušiť všetko"
+        options: Možnosti
+        add_option: "+ Pridať možnosť"
+        saving_order: "Ukladám pole objednávky"
+        save_order_successful: "Pole objednávky bolo úspešne uložené"
+        save_order_error: "Pri ukladaní pola objednávky nastala chyba. Prosím, obnovte stránku a skúste to znova."
+        select_one: "Vyberte typ pola..."
+        continue: Pokračovať
+        minimum_value: Minimum
+        maximum_value: Maximálne
+        allow_decimals: "Povoliť desatinné miesta"
+      new:
+        new_listing_field: "Nové pole inzerátu"
+      field_types:
+        text: Text
+        number: Číslo
+        dropdown: "Rozbaľovací výpis"
+        checkbox_group: "Zaškrtávacie pole"
+        date: Dátum
+        file: Súbor
+        location: Miesto
+    person_custom_fields:
+      saving_failed: "Uloženie poľa používateľa zlyhalo"
+      index:
+        user_fields: "Polia používateľov"
+        field_title: "Názov pola"
+        field_type: "Typ pola"
+        signup: Povinné
+        public: Verejné
+        add_new_field: "Pridať nové pole:"
+        save: Uložiť
+        cancel: Zrušiť
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Povoliť desatinné miesta"
+        add_option: "Pridať možnosť"
+      new:
+        new_user_field: "Nové užívateľské pole"
+      form:
+        field_required:
+          this_field_is_required: "Pri registrácii na trh je povinné vyplniť toto pole"
+          this_field_is_required_checkbox: "Pri registrácii na trh je povinné vyplniť toto pole (používateľ musí vybrať aspoň jednu možnosť)"
+          this_field_is_public: "Zobraziť toto pole na stránke verejného profilu"
+      edit:
+        edit_user_field: "Upraviť pole používateľa '%{field_name}'"
+    emails:
+      new:
+        send_email_to_members: "Poslať e-mail užívateľom"
+        send_email_to_members_title: "Poslať e-mail všetkým svojim užívateľom"
+        send_email: "Odoslať e-mailovú správu"
+        send_email_or: alebo
+        send_test_email: "Pošlite si testovací e-mail."
+        test_sent: "Testovací e-mail bol odoslaný do vašej schránky"
+        send_email_article_title: "tento článok"
+        send_email_article_text: "ďalšie informácie o užívateľských segmentoch nájdete v článku %{article_link}"
+        recipients:
+          title: "Kto chce poslať e-mail?"
+          options:
+            all_users: "Všetci užívatelia"
+            posting_allowed: "Používatelia, ktorí majú povolenie zverejňovať inzeráty"
+            with_listing: "Užívatelia, ktorí zverejnili aspoň jeden inzerát"
+            with_listing_no_payment: "Užívatelia, ktorí zverejnili aspoň jeden inzerát, ale neposkytli svoje platobné údaje"
+            with_payment_no_listing: "Užívatelia, ktorí poskytli svoje platobné údaje, ale nezverejnili žiadny inzerát"
+            no_listing_no_payment: "Užívatelia, ktorí zverejnili inzerát a neposkytli svoje platobné údaje"
+        email_subject: "Predmet e-mailovej správy"
+        email_content: "Obsah e-mailovej správy"
+        email_content_placeholder: "Čo by ste chceli povedať svojim užívateľom?"
+        email_language: "Jazyk príjemcov e-mailových správ"
+        any_language: "Akýkoľvek jazyk"
+        message_will_be_sent_only_to_people_with_this_language: "Poznámka: e-mail bude odoslaný iba užívateľom, ktorý používajú %{service_name} v jazyku, ktorý vyberiete."
+        email_sent: "E-mailová správa bola odoslaná."
+        to_improve_email_deliverability: "Predmet e-mailu sa generuje automaticky a nedá sa zmeniť."
+        email_subject_text: "Nová správa od tímu %{service_name}"
+        firstname_cannot_be_removed: "„Krstné meno“ nie je možné odstrániť a bude nahradené skutočným menom každého príjemcu."
+        hello_firstname: "Dobrý deň,"
+        hello_firstname_text: "Dobrý deň, %{person},"
+    left_hand_navigation:
+      general: Všeobecné
+      users_and_transactions: "Užívatelia a platby"
+      configure: Nastavenia
+      emails_title: E-maily
+      subscription: "Predplatné služieb"
+      preview: "Náhľad stránky"
+      whats_new: "Čo je nové?"
+    listing_shapes:
+      availability_title: Dostupnosť
+      read_more: "Prečítajte si viac o automatickej správe dostupnosti."
+      read_more_availability_management: "Prečítajte si viac o správe dostupnosti."
+      allow_providers_to_manage_availability: "Umožniť poskytovateľom spravovať dostupnosť kalendára."
+      per_hour_availability: "Dostupnosť \"Za hodinu\""
+      per_day_availability: "\"za deň\" dostupnosť"
+      per_night_availability: "\"za noc\" dostupnosť"
+      pricing_units_disabled_info: "Cena jednotky je nedostupná, pokiaľ je zapnutý kalendár dostupnosti."
+      can_not_find_name: "Nedá sa zistiť typ objednávky s menom: %{name}"
+      index:
+        listing_shapes: "Typy objednávok"
+        description: "Typy objednávok určujú, ako proces objednávky fungujú na vašom webe. Môžete sa rozhodnúť, či vaši používatelia prenajímajú alebo predávajú, alebo iba zverejňujú oznámenia a komunikujú prostredníctvom priamych správ."
+        read_more_about_order_types: "Čítať viac o type objednávok"
+        add_new_shape: "Pridať nový typ objednávky: "
+        select_template: "Vyberte šablónu..."
+        all_categories: "Všetky kategórie"
+        no_categories: "Žiadna kategória"
+        category_count: "%{category_count} kategórií"
+        header:
+          listing_shape_name: "Názov typu objednávok"
+          listing_shape_categories: "Kategórie v ktorých sa používa"
+        order:
+          saving_order: "Ukladám objednávku"
+          save_order_successful: "Typ objednávky bol úspešne uložený"
+          save_order_error: "Došlo k chybe pri ukladaní objednávky. Prosím, obnovte stránku a skúste to znova."
+      templates:
+        selling_products: "Predáva produkty"
+        renting_products: "Prenajíma produkty"
+        offering_services: "Ponúka služby"
+        giving_things_away: Daruje
+        requesting: Žiada
+        announcement: "Zverejňuje oznamy"
+        custom: Vlastné
+      new:
+        create_listing_shape: "Vytvoriť typ objednávky"
+        create: Vytvoriť
+        cancel: Zrušiť
+        create_success: "Nový typ objednávky '%{shape}' bol vytvorený"
+        create_failure: "Nepodarilo sa vytvoriť nový typ objednávky. Chyba: %{error_msg}"
+      edit:
+        edit_listing_shape: "Upraviť typ objednávky '%{shape}'"
+        update: Uložiť
+        cancel: Zrušiť
+        update_success: "Zmena typu objednávky '%{shape}' bola uložená"
+        update_failure: "Nepodarilo sa uložiť zmeny. Chyba: %{error_msg}"
+        delete: "Vymazať typ objednávky"
+        confirm_delete_order_type:
+          one: "K dispozícií je %{count} inzerát s týmto typom objednávky. Tento inzerát bude uzavretý, pokiaľ odstránite typ objednávky. Ste si istý, že chcete odstrániť typ objednávky?"
+          few: "K dispozícií sú%{count} inzeráty s týmto typom objednávky. Tieto inzeráty budú uzavreté, pokiaľ odstránite typ objednávky. Ste si istý, že chcete odstrániť typ objednávky?"
+          other: "K dispozícií je %{count} inzerátov s týmto typom objednávky. Tieto inzeráty budú uzavreté, pokiaľ odstránite typ objednávky. Ste si istý, že chcete odstrániť typ objednávky?"
+        can_not_delete_last: "Nemôžete vymazať tento typ objednávky, pretože je to jediný typ objednávky vo Vašom trhovisku."
+        can_not_delete_only_one_in_categories: "Nemôže zmazať tento typ objednávky, pretože v nasledovných kategóriách %{categories} sa tento typ objednávky používa."
+      listing_shape_name: Meno
+      listing_shape_name_placeholder: "Napr. predať"
+      action_button_label: "Popis tlačítka"
+      action_button_placeholder: "Napr. kúpiť"
+      open_listings_warning:
+        one: "K dispozícií je %{count} otvorený inzerát. Tento inzerát si zachová staré nastavenia, pokiaľ zmeníte niektoré z nižšie uvedených nastavení. Inzerát sa dá zmeniť ručnou úpravou na nové nastavenia. Pokiaľ nechcete, aby bol inzerát so starým nastavením na Vašej stránke viditeľný, môžete ho uzavrieť kliknutím na tlačítko nižšie."
+        few: "K dispozícií sú %{count} otvorené inzeráty. Tieto inzeráty si zachovajú staré nastavenia, pokiaľ zmeníte niektoré z nižšie uvedených nastavení. Inzeráty sa dajú zmeniť ručnou úpravou na nové nastavenia. Pokiaľ nechcete, aby boli inzeráty so starým nastavením na Vašej stránke viditeľné, môžete ich uzavrieť kliknutím na tlačítko nižšie."
+        other: "K dispozícií je %{count} otvorených inzerátov. Tieto inzeráty si zachovajú staré nastavenia, pokiaľ zmeníte niektoré z nižšie uvedených nastavení. Inzeráty sa dajú zmeniť ručnou úpravou na nové nastavenia. Pokiaľ nechcete, aby boli inzeráty so starým nastavením na Vašej stránke viditeľné, môžete ich uzavrieť kliknutím na tlačítko nižšie."
+      close_listings_action:
+        one: "Zavrieť %{count} inzerát"
+        few: "Zavrieť %{count} inzeráty"
+        other: "Zavrieť %{count} inzerátov"
+      confirm_close_listings_action:
+        one: "Ste si istý, že chcete zavrieť %{count} inzerát?"
+        few: "Ste si istý, že chcete zavrieť %{count} inzeráty?"
+        other: "Ste si istý, že chcete zavrieť %{count} inzerátov?"
+      successfully_closed: "Inzezráty boli úspešne uzavreté"
+      successfully_deleted: "Typ objednávky %{order_type} bol úspešne vymazaný"
+      pricing_and_checkout_title: "Cena a pokladňa"
+      online_payments_label: "Povoliť užívateľom prijímať platby online"
+      shipping_label: "Umožniť predajcom určiť výšku ceny za dopravu"
+      price_label: "Povoliť užívateľom pridávať cenu do inzerátov"
+      units_title: "Cenové jednotky"
+      units_desc: "Pokiaľ ste povolili cenové jednotky, cena za inzerát se zobrazuje ako \"cena za cenovú jednotku\". Napr.: \"39 eur za hodinu\"."
+      units:
+        piece: "Za kus"
+        hour: "Za hodinu"
+        day: "Za deň"
+        night: "Za noc"
+        week: "Za týždeň"
+        month: "Za mesiac"
+        unit: "Za jednotku"
+      can_not_find: "Typ objednávky s id: %{id} nebol nájdený"
+      add_custom_unit: "+ Pridať vlastnú cenovú jednotku…"
+      delete_custom_unit: Vymazať
+      custom_unit_form:
+        title: "Nová cenová jednotka"
+        label_heading: Označenie
+        selector_label_heading: "Výber označení"
+        label_placeholder: "napr. \"kg\", \"30 minút\", \"osoba\", \"kurz\""
+        selector_placeholder: "napr. \"počet ľudí\", \"počet kíl\""
+        per: Za
+        unit_type:
+          heading: "Typ jednotky"
+          quantity_label: "Množstvo (za kus, za kg, za osobu, za dve hodiny výletu...)"
+          time_label: "Čas (za 30 minút, za 2 týždne, za rok...)"
+    paypal_accounts:
+      marketplace_paypal_integration: "Nastavenia platobného systému"
+      preferences_updated: "Nastavenia platobného systému boli upravené"
+      contact_support_link_text: "kontaktovať podporu"
+      integration_info_text: "Platobný systém vašeho trhoviska je založený na PayPal. Pokiaľ chcete užívateľom umožniť, aby prevádzali platby cez vaše trhovisko, musíte sa pripojiť k Vašemu PayPal účtu, zadať minimálnu veľkosť transakcie a poplatok z každej prevedenej transakcie."
+      link_paypal_personal_account_label: "Ponúkate tovar alebo poskytujete služby?"
+      link_paypal_personal_account: "pokiaľ áno, tak sa musíte pripojiť na Váš PayPal účet. %{personal_payment_preferences_link}"
+      link_stripe_personal_account: "Pokiaľ áno, musíte zadať vaše údaje o výplate na %{personal_payment_preferences_link}"
+      link_paypal_and_stripe_personal_account: "Pokiaľ áno, budete musieť prepojiť váš Paypal alebo Stripe účet s %{personal_payment_preferences_link}"
+      personal_payment_preferences_link_text: "Váš osobný účet"
+      read_more_about_paypal: "Čítať viac o platobnom systéme"
+      edit_payment_settings: "Upraviť nastavenia platieb"
+      supported_currencies_information_text: "Online platobný systém Sharetribe podporuje 24 mien. Pokiaľ sa vaša mena nenachádza v tomto zozname, kontaktujte prosím %{contact_support_link}. Keď zmeníte menu, zostávajúce položky ostanú v pôvodnej mene. U týchto položiek musíte menu zmeniť ručne."
+      currency_change_warning_text: "Upozornenie: nezabudnite požiadať predajcu, aby ručne upravil ostávajúce inzeráty, pokiaľ budete pokračovať s touto zmenou meny, aby aktualizoval menu."
+      marketplace_currency_label: "Mena trhoviska:"
+      minimum_listing_price_label: "Minimálna čiastka transakcie:"
+      transaction_fee_label: "Transakčný poplatok:"
+      minimum_transaction_fee_label: "Minimálny transakčný poplatok:"
+      save_settings: "Uložiť nastavenia"
+      minimum_listing_price_below_tx_fee: "Minimálna veľkosť transakcie musí byť aspoň rovnaká ako minimálny transakčný poplatok %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Minimálna veľkosť transakcie musí byť väčšia než minimálna prirážka %{minimum_commission}."
+    payment_preferences:
+      title: "Nastavenie platieb"
+      general_settings: "1. Obecné nastavenia"
+      connect_a_payment_provider: "2. Pripojenie poskytovateľa platieb"
+      contact_support: "kontaktujte podporu"
+      no_payments_link_text: tu
+      your_country: "Vaša krajina:"
+      you_cannot_use_online_payments: "Nemôžete používať online platby v %{country_name} s %{currency}. Ak chcete zmeniť svoju krajinu, vyberte inú menu alebo kontaktujte %{support_link}. Viac informácií o podporovaných krajinách a menách si prečítate %{help_link}. V budúcnosti by sme mohli pridať ďalších poskytovateľov platieb a podporiť viac mien"
+      which_to_choose: "Ktorý z nich si vyberiete?"
+      you_can_use_stripe_or_paypal: "Ako poskytovateľa platieb môžete použiť Stripe, Paypal alebo oboje %{choose_link}"
+      you_can_use_stripe_only: "Môžete použiť Stripe ako svoju platobnú bránu. %{read_more_link}"
+      read_more_stripe: "Zistiť viac o Stripe platbách."
+      you_can_use_paypal_only: "Môžete pripojiť Paypal ako svoju platobnú bránu. %{read_more_link}"
+      read_more_paypal: "Zistiť viac o Paypal platbách."
+      read_more_about_paypal_and_stripe: "Zistiť viac o online platbách, Stripe a Paypal"
+      general_settings_updated: "Aktualizácia obecného nastavenia platobného systému"
+      transaction_fee_settings_updated: "Aktualizácia nastavenia transakčných poplatkov"
+      choose_popup_text: |-
+          Ak chcete svojim používateľom povoliť prijímanie online platieb, musíte si zvoliť menu pre svoje trhovisko a potom sa pripojiť aspoň k jednému z dvoch poskytovateľov platieb podporovaných Sharetribe: Stripe a PayPal. Môžete sa tiež rozhodnúť použiť obidve možnosti, čo znamená, že vaši používatelia budú môcť prijímať platby ľubovoľným spôsobom platby.
+          Ak už nemáte účet, môžete si vytvoriť nový účet pomocou ktorejkoľvek služby. Po pripojení účtu si môžete vybrať možný poplatok, ktorý účtujete z každej transakcie.
+          Aký je rozdiel medzi Stripe a PayPal? Stripe vám umožňuje odložiť platbu predajcovi až o 3 mesiace a ponúka jeden spôsob platby (kreditná / debetná karta). Stripe tiež umožňuje predajcom prijímať peniaze priamo na svoj bankový účet jednoduchým poskytnutím svojich bankových údajov. PayPal poskytuje dva spôsoby platby (kreditnú kartu a účet PayPal) a ponúka ochranný program pre kupujúcich a predávajúcich. Vyžaduje, aby vaši predajcovia vytvorili obchodný účet PayPal na prijímanie platieb.
+          Ak používate Stripe, jeho poplatky sa odpočítajú z vášho transakčného poplatku, takže nezabudnite nastaviť dostatočne vysoký minimálny poplatok. Ak používate PayPal, jeho poplatky budú účtované od predajcu osobitne, okrem vášho transakčného poplatku. Stripe a PayPal majú trochu inú štruktúru poplatkov. Vo väčšine prípadov sú poplatky Stripe o niečo nižšie.
+      invalid_api_keys: "Neplatný Stripe API kľúč"
+      missing_api_keys: "Chýba Stripe API kľúč"
+      stripe_verified: "Stripe API prístup bol overený"
+      change_settings: "Zmeňte nastavenia a poplatky"
+      configure_stripe: "Nastavenie Stripe"
+      configure_paypal: "Nastavenie Paypal"
+      transaction_fee_settings: "Nastavenie transakčných poplatkov"
+      transaction_fee_save: Uložiť
+      stripe_fee: "Stripe poplatky"
+      stripe_fee_notice: "%{stripe_fee_link} bude odčítaný od poplatku, ktorý účtujete."
+      fee_should_be_less_than_minimum_price: "Minimálny transakčný poplatok musí byť nižší než minimálna transakcia"
+      the_transaction_fee_must_be_lower_than_100: "Transakčný poplatok musí byť nižší ako 100%"
+      confirm_disable: "Naozaj chcete zakázať %{gateway}? Zakázaním predávajúci už nebudú môcť prijímať peniaze a zákazníci už nebudú môcť platiť prostredníctvom tejto platobnej metódy. Ak predávajúci nenakonfigurovali iný spôsob platby, zákazníci od nich nebudú môcť kupovať."
+      commission_from_buyer_label: "Transakčný poplatok kupujúceho:"
+      minimum_buyer_transaction_fee_label: "Minimálny transakčný poplatok kupujúceho:"
+      stripe_connected:
+        title: "Stripe pripojený"
+        disable: "Zakázať Stripe"
+        disabled: "Stripe zakázaný"
+        enable: "Znovu povoliť Stripe"
+      paypal_connected:
+        title: "Paypal pripojený"
+        disable: "Zakázať PayPal"
+        disabled: "PayPal bol zakázaný"
+        enable: "Znovu povoliť PayPal"
+      cannot_enable_gateway: "Nemožno povoliť platobnú bránu %{gateway}"
+      cannot_disable_gateway: "Nemožno zakázať platobnú bránu %{gateway}"
+      cannot_enable_gateway_because_of_buyer_commission: "Nie je možné povoliť platobnú bránu %{gateway}, pretože sa používa provízia kupujúceho"
+      stripe_form:
+        add_your_api_keys: "Vložte váš Stripe API kľúč"
+        how_to_get_these: "Ako ich získať?"
+        publishable_key_example: "Napríklad: %{api_publishable_key_example}"
+        secret_key_example: "Napríklad: %{api_secret_key_example}"
+        save_api_keys: "Uložte Stripe API kľúč"
+        invalid_secret: "To nevyzerá ako správny %{secret_key}"
+        invalid_publishable: "To nevyzerá ako správny %{publishable_key}"
+      index:
+        header: "Dostupné nastavenia platby"
+        info: "Môžete nakonfigurovať dostupné platobné brány na použitie na vašom trhu. Momentálne sú podporované služby PayPal a Stripe."
+        active: Aktívne
+        gateway: Brána
+        process: Proces
+        commission: Provízia
+        minimum_price: "Minimálna cena"
+        minimum_fee: "Minimálny poplatok"
+        api_verified: "Bolo overené API?"
+        actions: Akcia
+        payments_not_enabled: "Platby nie sú pre Vaše trhovisko povolené"
+    transaction_types:
+      sell: Predám
+      sell_w_online_payment: "Predaj prostredníctvom online platby"
+      sell_wo_online_payment: "Predaj bez platby online"
+      rent: Prenajmem
+      rent_w_online_payment: "Prenájom s online platbou"
+      rent_wo_online_payment: "Prenájom bez platenia online"
+      give: Darujem
+      lend: Požičiam
+      swap: Vymením
+      service: Ponúkam
+      service_w_online_payment: "Ponuka s online platbou"
+      service_wo_online_payment: "Ponuka bez online platby"
+      request: Žiadam
+      inquiry: Oznamy
+      share_for_free: "Zdieľanie zdarma"
+      event_w_online_payment: "Udalosť s online platbou"
+      event_wo_online_payment: "Udalosť bez online platby"
+      default_action_button_labels:
+        sell: Kúpiť
+        rent: Prenajať
+        request: Ponúknuť
+        offer: Požiadať
+        inquiry: Kontaktovať
+        book: Kniha
+    community_transactions:
+      show:
+        transaction_for: "Transakcia #%{transaction_id} pre %{link}"
+        status: "Status:"
+        next_step: "Ďalší krok:"
+        waiting_for_provider_accept_or_reject: "Čakanie na akceptáciu alebo zamiestnutie požiadavky od %{provider}"
+        waiting_for_fulfill_and_complete: "Čakanie na %{provider} kvôli vyplneniu objednávky %{listing_title} a označenie objednávky ako ukončenej od %{buyer}"
+        buyer: "Kupujúci:"
+        provider: "Predávajúci:"
+        delivery: "Spôsob doručenia:"
+        shipping_to: "Doručenie na %{address}"
+        buyer_pays: "Kupujúci platí:"
+        marketplace_collects: "%{service_name} zbiera:"
+        buyer_service_fee_label: "Provízia od kupujúceho:"
+        service_fee_label: "Provízia od predajcu:"
+        provider_receives: "Predajca dostane:"
+        admin_info_text: "Ako administrátor %{service_name} môžete robiť vybrané akcie na posunutie tejto transakcie vpred:"
+        manage_reviews: "Spravovať hodnotenia"
+        you_should_investigate: "Situáciu by ste mali vyšetriť tak, že prediskutujete s oboma stranami a rozhodnete sa spor vrátiť alebo zamietnuť. %{learn_more_link}"
+        learn_more: "Zistiť viac."

@@ -1,0 +1,1227 @@
+hu:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: "Kategória szerkesztése '%{category}'"
+      index:
+        listing_categories: "Hirdetési kategóriák"
+        create_a_new_category: "+ Hozzon létre új kategóriát"
+        remove_category_confirmation: "Biztos ki akar lépni a %{category_name} kategóriából?"
+        saving_order: "Kategória sorrendjének mentése"
+        save_order_successful: "Sikeresen mentett kategória sorrend"
+        save_order_error: "Hiba történt a kategóriák sorrendjének mentésének során. Kérjük frissítse az oldalt és próbálkozzon újra."
+      new:
+        new_listing_category: "Új hirdetési kategória"
+      form:
+        category_name:
+          category_title: "Kategória elnevezés"
+        category_parent:
+          category_parent: "Alap kategória"
+          no_parent: "Nincs alap kategória"
+        category_transaction_types:
+          transaction_types: Ajánlattípusok
+          transaction_types_description: "Az ajánlattípusok meghatározzák milyen típusú ajánlatok megengedettek a hirdetésekben a kategórián belül. Például: csak adás-vétel, vagy bérlés és ingyenes elajándékozás is megengedett."
+          select_all: "Mindet kijelöl"
+          clear_all: "Mindet töröl"
+        buttons:
+          save: Mentés
+          cancel: Mégse
+      remove:
+        remove_category: "Kategória eltávolítása"
+        remove_category_name: "Kategória törlése '%{category_name}'"
+        warning_remove_effects: "Figyelmeztetés! Ezen kategória '%{category_name}' törlése a következőket eredményezheti:"
+        warning_listing_will_be_moved:
+          other: "A kategóriában %{count} számú hirdetés van. Ezek a kiválasztott kategóriába lesznek áthelyezve."
+        warning_custom_field_will_be_moved:
+          other: "%{count} számú egyedi mező van a kategóriában. A kiválasztott kategóriába fog átkerülni."
+        warning_subcategory_will_be_removed:
+          other: "%{count} számú alkategória van a kategórián belül. Ez törlésre fog kerülni."
+        warning_with_subcategories_listing_will_be_moved:
+          other: "%{count} számú hirdetés található a kategóriában és alkategóriákban. Ez a kiválasztott kategóriába fog kerülni."
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "%{count} számú egyedi mező található a kategóriában és az alkategóriákban. A kiválasztott kategóriába fog átkerülni."
+        select_new_category: "Válasszon egy új kategóriát amelyben a fent listázott tételek törölve lesznek:"
+        buttons:
+          remove: Eltávolít
+          cancel: Mégse
+    communities:
+      edit_details:
+        community_details: "Alapvető részletek"
+        community_look_and_feel: Dizájn
+        edit_community: "Alapvető részletek"
+        enabled_languages: "Választható nyelvek"
+        enabled_languages_description: "Választható nyelvek felhasználók részére. Az első lesz az alapértelmezett."
+        default_language: "Alapértelmezett nyelv"
+        language_selection_disabled: "A nyelv kiválasztása tiltva lett az ön piacterén mert ön nem hivatalos nyelveket használ: %{languages}. Kérjük vegye fel a kapcsolatot a Sharetribe-bal ha változtatni szeretne a nyelvi beállításokon."
+        community_name: "Piactér neve"
+        edit_community_name_description: "A piactere neve. Ez megjelenik a felhasználóknak e-mailekben és több más helyen."
+        community_slogan: "Piactér jelmondata"
+        community_slogan_display: "Jelenítse meg a szlogent a honlapon vagy az egyéni kezdőlapon"
+        edit_community_slogan_description: "A nem bejelentkezett felhasználók ezt fogják látni a honlapon. %{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: "Ez jelenik meg a böngészőkben, a keresésekben és a közösségi médiában. A nem bejelentkezett felhasználók is láthatják a piactér honlapján. %{see_how_it_looks_like}"
+        community_description: "A piactér bemutatása"
+        community_description_display: "Jelenítse meg a leírást a honlapon vagy az egyéni kezdőlapon"
+        edit_community_description_description: "A nem bejelentkezett felhasználók ezt fogják látni a honlapon. %{see_how_it_looks_like}"
+        edit_community_description_description_hideable: "Ez jelenik meg a böngészőkben, a keresésekben és a közösségi médiában. A nem bejelentkezett felhasználók is láthatják a piactér honlapján. %{see_how_it_looks_like}"
+        community_search_placeholder: "Segítő szöveg keresése"
+        edit_community_search_placeholder_description: "Ez piactér kezdőlapján a böngészőben fog megjelenni mint helyőrző szöveg %{see_how_it_looks_like}."
+        private_community_homepage_content: "Magán piactér honlap tartalom"
+        edit_private_community_homepage_content_description: "Ez a tartalom a privát piacterek kezdőlapján lesz megjelenínetve a nem bejelentkezett felhasználók számára. Itt bemutathatja a piacterét és útmutatót adhat a csatlakozáshoz. Továbbá képeket, videókat és HTML tartalmat is hozzáadhat. %{see_how_it_looks_like}"
+        update_information: "Beállítások mentése"
+        invite_people: "Új felhasználók meghívása"
+        edit_signup_info: "Regisztráció info"
+        edit_signup_info_description: |-
+            Ez egy információs szöveg amit a felhasználók olvashatnak a felíratkozáskor.
+            Itt felvilágosítást adhat a felhasználóknak a felíratkozásról, valamint arról hogy hogyan kaphatnak meghívást stb. Az alapértelmezés szerint nincs megadva utasítás.
+        edit_info: "Információk változtatása"
+        see_how_it_looks_like: Előnézet
+        verification_to_post_listings_info_content: "Info ablak az ellenőrizetlen használóknak"
+        verification_to_post_listings_info_content_description: "Jelenleg ön manuálisan hitelesíti a felhasználóit mielőtt ők hirdetést tudnának feladni. Itt megadhat egy alapértelmezett írásbeli magyarázatot amely a még nem hitelesített felhasználóknak fog megjelenni amikor hirdetést próbálnak feladni."
+        verification_to_post_listings_info_content_default: "A %{service_name} oldalán a felhasználók manuálisan lesznek jóváhagyva a rendszergazda által mielőtt hirdetést tudnának feladni. Ön még nem került jóváhagyásra. Kattintson ide: %{contact_admin_link}"
+        contact_admin_link_text: "Lépjen kapcsolatba a rendszergazdával"
+        save: "Beállítások mentése"
+        transaction_agreement: "Tranzakciós megállapodás"
+        transaction_agreement_checkbox: "Felhasználók kérése, a felhasználási feltételek elfogadására a tranzakció előtt"
+        transaction_agreement_checkbox_header: "Használati feltételek"
+        transaction_agreement_checkbox_label_description: |-
+            Ez a szöveg a jelölőnégyzet mellett lesz feltüntetve az ellenőrző űrlapon. A felhasználóknak ki kell töltenie a jelölőnégyzetet a tranzakció folytatásához. 
+            A címke például lehet: "A jelölőnégyzetre kattintva elfogadom a feltételeket."
+        transaction_agreement_text_header: "Felhasználói feltételek"
+        transaction_agreement_description: "A használati feltételek tartalmát a felhasználónak tudomásul kell vennie. A használati feltételek tartalma akkor kerül megjelenésre ha a felhasználó  rákattint a \"%{read_more}\" linkre amely használati feltételek címke mellett található."
+        terms_privacy_policy_and_static_content: "Feltételek, adatvédelmi irányelvek és statikus tartalom"
+        terms_privacy_policy_and_static_content_infotext: "Legfeljebb négy oldalas statikus tartalmat szerkeszthet. A felhasználók az oldalakat a felső sávban található „Névjegy” linkre kattintva találhatják meg."
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Piactér szerkesztése \"%{community_name}\" nézet és érzet"
+        community_logo: Logó
+        community_logo_icon: "Logó közösségi hálózatokhoz és mobil eszközökhöz."
+        community_logo_icon_mobile: "Négyzet alakú logó"
+        community_cover_photo: Háttérkép
+        small_community_cover_photo: "Kis háttérkép"
+        favicon: Favicon
+        favicon_info_text: "A favicon az alapértelmezett Sharetribe logo helyébe fog lépni. Nagyága 32x32 pixel lehet és a feltöltött kép is ekkorára lesz újraméretezve."
+        community_custom_color1: "Fő szín"
+        community_slogan_color: "Marketplace szlogen szín"
+        community_slogan_color_instructions_text: "Ön megváltoztathatja a kezdőlapon a szlogen színét egy hex színérték megadásával. A szlogen a be nem jelentkezett felhasználók számára jelenik meg. A %{colorpicker} segít kiválasztani a színt és megadni a hex színkódot. Majd ide átmásolhatja a kódot %{see_how_it_looks_like}"
+        community_description_color: "A piactér leírásának színe"
+        community_description_color_instructions_text: "A hex színérték megadásával megváltoztathatja a leírás színét a honlapon. A leírás a be nem jelentkezett felhasználók számára jelenik meg. A %{colorpicker} segít kiválasztani a színt és megadni a hex színkódot. Majd ide átmásolhatja a kódot. %{see_how_it_looks_like}"
+        new_listing_button_custom_color: "Új listázó gomb szín"
+        logo_instructions_text_with_dimensions: "A logó mérete %{width}x%{height}px legyen. Ezt a nagyobb képernyőt használók láthatják majd."
+        logo_instructions_text_with_dimensions_no_placing: "A logó megfelelő mérete a következő:%{width}x%{height}px"
+        logo_icon_instructions_text_with_dimensions: "Ez a négyzet alakú logó jelenik majd meg amikor a felhasználók megosztják oldalát a Facebook-on. Valamint amikor mobil eszközön tekintik meg az oldalt vagy könyvjelzővel a mobil eszközük kezdőlapján. A méretek (legalább) %{width}x%{height}pixel nagyságúak legyenek."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Ez a négyzet alakú logó jelenik majd meg amikor a felhasználók megosztják oldalát a Facebook-on. Valamint amikor mobil eszközön tekintik meg az oldalt vagy könyvjelzővel a mobil eszközük kezdőlapján. A méretek (legalább) %{width}x%{height}pixel nagyságúak legyenek."
+        logo_mobile_icon_instructions_text_with_dimensions: "Ez a négyzet alakú logó akkor jelenik meg, ha néhány változtatást eszközöl adminként és amikor az emberek könyvjelzővel jelölik webhelyét a mobil eszközük kezdőképernyőjén. A méretnek (legalább) %{width} x %{height} pixelnek kell lennie."
+        cover_photo_visibility: "A borítókép a nyitóoldalon jelenik meg azok számára akik nincsenek bejelentkezve."
+        cover_photo_instructions_text_with_dimensions: "A kép újr lesz méretve %{width}x%{height} pixel nagyságúra és a magasabb képek félbe lesznek vágva. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
+        cover_photo_ready_made: "Kész és optimalizált borítóképeket keres? Vagy szeretne inspirációt és webhelyeket találni, ahol remek borítóképeket talál? %{link}"
+        small_cover_photo_visibility: "A kis borítókép az összes oldalon megjelenik a nyitóoldal kivételével ahol a felhasználók nincsenek bejelentkezve."
+        small_cover_photo_instructions_text_with_dimensions: "A kép újra lesz méretve %{width}x%{height} pixel nagyságúra és a magasabb képek félbe lesznek vágva."
+        main_content_width: "A fedőkép  kiválasztásakor vegye figyelembe, hogy az oldal maximálisan %{main_width} pixel szélességű. Ellenőrizze kisebb képernyőn is a fedőkép megjelenítését (pl: egy sokkal keskenyebb keresőablakot használva)."
+        custom_color1_instructions_text: |-
+            Ön megváltoztathatja az oldal elsődleges színét egy színkód megadásával.<a href="http://www.colorpicker.com/?colorcode=D96E21" target="_blank" rel="noreferrer">
+            A ColorPicker.com</a>  segítségével kiválaszthatja a színt és bemásohatja a színkódot ide.
+        new_listing_button_instructions_text: "Megváltoztathatja az Új hirdetés feladása gomb színét amennyiben megadja a szín értékét. A Színválasztó - %{link_to_colorpicker} segít ebben."
+        default_browse_view: "Alapértelmezett keresési nézet"
+        default_browse_view_instructions_text: "Az alapértelmezett keresési nézet a kezdőlapon arra használható, hogy beállítsuk a hirdetések alapértelmezett nézetét."
+        grid: "Magazin nézet"
+        list: "Lista nézet"
+        map: "Térkép nézet"
+        name_display_type: "Kijelző típusának megadása"
+        name_display_type_instructions_text: "Válassza ki felhasználók nevének megjelenítési formáját."
+        full_name: "Teljes név (keresztnév először)"
+        first_name_with_initial: "Keresztnév és vezetéknév kezdőbetűje (Keresztnév L)"
+        first_name_only: "Keresztnév csak"
+        invalid_color_code: "A színkód 6 számból vagy betűből kell álljon A-F, például D96E21"
+        custom_head_script: "Egyedi leírás"
+        custom_head_script_instructions_text: ~
+        current_image: "Jelenlegi kép:"
+      edit_text_instructions:
+        edit_text_instructions: "Útmutató szöveg"
+      edit_welcome_email:
+        welcome_email_content: "Üdvözlő üzenet tartalma"
+        welcome_email_content_description: "Az alábbi üzenet minden új felhasználónak el lesz küldve csatlakozásukkor. Lehetősége van az üzenetet úgy formálni, hogy a piactere számára a legmegfelelőbb legyen. Ide kattintva: '%{send_test_message_link}' egy privát üzenetet tud küldeni a saját e-mailcímére ahol megnézheti, hogyan fog az üzenet e-mailben megjelenni."
+        edit_message: "Üzenet szerkesztése"
+        send_test_message: "Tesztüzenet küldése"
+      outgoing_email:
+        title: "Kimenő e-mailcím"
+        info: "Ez a név és cím a piactérrtől a felhasználóknak küldött e-mailekben szerepel."
+        read_more: "További információ kimenő e-mailekkel kapcsolatban."
+        sender_address: "Feladó címe: %{sender_address}"
+        sender_address_default: "Feladó címe: nincs beállítva (alapértelmezett cím használata %{sender_address})"
+        need_to_change: "Amennyiben meg akarja változtani az e-mailcímét kattintson ide: %{contact_support_link}"
+        contact_support_link_text: "Lépjen kapcsolatba a rendszergazdával"
+        set_sender_address: "Feladó címének beállítása"
+        sender_name_label: Név
+        sender_name_placeholder: "Feladó neve"
+        sender_email_label: E-mailcím
+        sender_email_placeholder: kuldo-email@pelda.com
+        amazon_ses_notification: "Ön fog kapni egy E-mailt a %{email_sender} címről, hogy megerősítse az E-mail címét. Az E-mail tárgya '%{email_subject}. Kövesse az utasításokat az E-mail cím megerősítéséhez."
+        this_is_how_it_will_look: "Így fog kinézni:"
+        send_verification_button: "Igazoló e-mail küldése"
+        change_sender_email: "Változtassa meg a feladó E-mail címét"
+        successfully_saved: "A feladó címe sikeresen elmentve. Az igazoló e-mailt hamarosan küldjük."
+        successfully_saved_name: "A feladó neve sikeresen frissítve."
+        set_sender_name: "Változtassa meg a feladó nevét"
+        change_sender_name: "Változtassa meg a feladó nevét"
+        change_sender_prompt: "%{change_name_link} or %{change_email_link}"
+        status: "Állapot: %{status}"
+        status_verified: "Ellenőrzött - használatban"
+        status_error: "Hiba történt. Kérem frissítse ezt az oldalt."
+        status_requested: "Ellenőrizetlen - ellenőrző e-mail elküldve %{email} számára %{time_ago}.%{resend_link}"
+        status_expired: "Igazolás a %{email} lejártáról. %{resend_link}"
+        status_resent: "Igazoló e-mail újraküldve erre az e-mailcímre %{email}. %{resend_link}"
+        resend_link: Újraküld
+        invalid_email_error: "Hibás e-mail formátum %{email}"
+        invalid_email_address: ~
+        invalid_email_domain: "Ez az e-mailcím '%{email}' egy általunk nem támogatott e-mail szolgáltatót használ: '%{domain}'. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "További információért tekintse át atudásbázist"
+        unknown_error: "Hiba történt"
+        white_label_offer: "Allítsa be a saját e-mailcímét mint küldő és törölje a Sharetribe márkát a kimenő üzeneteiből %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "Váltás a Pro vagy további  csomagunkra"
+        verification_sent_from: "Az igazoló e-mail innen került küldésre %{verification_sender_name}"
+        follow_the_instructions: "Kérjük kövesse az e-mailben szereplő utasításokat hogy a címét igazolja."
+      getting_started:
+        getting_started: "Útmutató az első lépésekhez"
+      available_languages:
+        bg: Bolgár
+        ca: Katalán
+        cs: Cseh
+        da-DK: Dán
+        de: Német
+        el: Görög
+        en: Angol
+        en-AU: "Angol (Ausztrália)"
+        en-GB: "Angol (Egyesült Királyság)"
+        es: Spanyol
+        es-ES: "Spanyol (Spanyolország)"
+        et: Észt
+        fi: Finn
+        fr: Francia
+        fr-CA: "Francia (Kanada)"
+        hr: Horvát
+        hu: Magyar
+        it: Olasz
+        ja: Japán
+        ko: Koreai
+        lt: Litván
+        nb: "norvég bokmal"
+        nl: Holland
+        pl: Lengyel
+        pt-BR: "Portugál (Brazil)"
+        pt-PT: Portugál
+        ro: ~
+        ru: Orosz
+        sk-SK: Szlovák
+        sl: ~
+        sv: Svéd
+        th-TH: "Thai (Thaiföld)"
+        tr-TR: Török
+        uk: ~
+        vi: Vietnámi
+        zh: Kínai
+        zh-TW: "Kínai (Taiwan)"
+      settings:
+        settings: Beállítások
+        general: Általános
+        access: "Hozzáférés beállításai"
+        join_with_invite_only: "Új felhasználók csak a régi felhasználók meghívására csatlakozhatnak"
+        users_can_invite_new_users: "Engedélyezés az összes felhasználónak új felhasználók meghívására"
+        private: "Hirdetések és felhasználói profilok megtekintése kizárülag regisztrált felhasználók részére (privát piactér létrehozása)"
+        require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hirdetéseket"
+        allow_free_conversations: "Engedélyezze, hogy a felhasználók szabadon üzenjenek egymásnak."
+        search_preferences: "Keresési beállítások"
+        search_and_location_preferences: "Keresési és helymeghatározások"
+        default_search_type: "Keresés típusa: %{select_search_type}"
+        keyword_search: "Keresés kulcsszóra"
+        keyword_and_location_search: "Kulcsszó és hely szerinti keresés"
+        location_search: "Helyszín szerinti keresés"
+        select_distance_unit: "Távolság megjelenítése %{distance_units_selector}"
+        km: km
+        miles: mérföld
+        show_only_nearby: "Csak közeli hirdetéseket mutasson a listázás hely szerinti keresés esetén"
+        allow_users_to_add_location: "Engedélyezze, hogy a felhasználók helyszínt adhassanak profiljukhoz és hirdetéseikhez és térképet jelenítsenek meg a keresési oldalon"
+        fuzzy_location: "Jelenítsen meg egy kört a pontos helymeghatározás helyett"
+        listing_preferences: "Hirdetési beállítások"
+        transaction_preferences: "Rendelési preferenciák"
+        show_listing_publishing_date: "A hirdetés feladásának megmutatása a hírdető oldalon"
+        show_category_in_listing_list: "A hirdetés típusának kijelzése lista nézetben"
+        listing_comments_in_use: "Hirdetésekhez való hozzászólás engedélyezése felhasználók részére (minden felhasználó számára látható)"
+        email_preferences: "E-mail beállítások"
+        automatic_newsletters: "Napi/heti hírlevél küldése minden felhasználónak (amennyiben nem kapcsolják ki)"
+        email_admins_about_new_members: "E-mail küldése a rendszergazdáknak minden új felhasználó felíratkozásakor"
+        google_analytics_key: "Google Analytics követési azonosító"
+        twitter_handle: "Twitter név (használata a tweet gombbal a hirdető oldalon)"
+        update_settings: "Beállítások mentése"
+        automatically_confirmed_no_escrow: "A rendelés automatikusan teljesítettnek lesz jelölve %{days_dropdown} nappal a kifizetést követően."
+        automatically_confirmed_no_escrow_stripe_info: "A Stripe által feldolgozott tranzakciók esetén az eladóknak történő fizetések késleltetésre kerülnek, amíg a megrendelés meg nem jelenik teljesítettként. Tudjon meg többet itt %{learn_more}."
+        buyer_transaction_fees_are_only_supported_with_stripe: "A vásárlói tranzakciós díjakat csak a Stripe támogatja. Nem fogja tudni használni a PayPal szolgáltatást, ha a vevő tranzakciós díját a Stripe-pal állítja be."
+        automatic_newsletter_frequency: "Automatikus hírlevél küldése: %{frequency_dropdown}"
+        newsletter_daily: Napi
+        newsletter_weekly: Heti
+        delete_marketplace_title: "Piactér törlése"
+        type_marketplace_domain: "A piactere domain nevét (%{domain}) írja az alábbi mezőbe:"
+        type_marketplace_domain_placeholder: "Billentyűzze be a piactere domain nevét ide"
+        once_you_delete: "Ha törli a piacterét,  hozzáférése véglegesen megszűnik.  Csak óvatosan."
+        are_you_sure: "Biztos benne?"
+        i_understand_button: "Megértettem, hogy amennyiben erre a gombra kattintok a piacterem törlésre kerül"
+        last_community_updates: "Kérjük vegye figyelembe, hogy a piactér törlését követően ön és a piactere felhasználói még utoljára kaphatnak tájékoztató e-maileket."
+        you_will_be_redirected_to: "A piactere törlését követően önt átirányítjuk %{destination} oldalra. A továbbiakban nem lesz hozzáférése a piacteréhez."
+        delete_this_marketplace: "Piactér törlése"
+        payment_preferences: "Fizetési rendszer"
+        pre_approved_listings: "Tekintse át az összes hirdetést, mielőtt azokat közzétennénk"
+        email_admins_about_new_transactions: "Küldjön e-mailt az adminoknak, amikor egy új tranzakció indul"
+      manage_members:
+        manage_members: "Felhasználók kezelése"
+        email: E-mail
+        name: Név
+        display_name: "Megjelenési név"
+        join_date: Csatlakozva
+        admin: Rendszergazda
+        posting_allowed: "Posztolás engedélyezve"
+        ban_user: "Felhasználó tiltása"
+        saving_user_status: Mentés...
+        save_user_status_successful: "Mentve "
+        export_all_as_csv: "Az öszes exportálása CSV-ként"
+        save_user_status_error: "Hiba történt a mentés közben. Kérlek, frissítsd az oldalt s próbáld újra!"
+        ban_user_confirmation: "Ez törli a felhasználót a piactérről és megakadályozza az oldalhoz való hozzáférésben ezzel a fiókkal. Biztos benne hogy folytatja?"
+        unban_user_confirmation: "Ez lehetővé teszi a felhasználói fiókot a piactéren és lehetővé teszi számukra a fiókkal való újbóli belépést. Biztosan folytatni akarja?"
+        ban_me_error: "Nem tilthatja le önmagát"
+        have_ongoing_transactions: "Ezt a fiókot nem lehet törölni, mert tranzakciók vannak folyamatban. A fiók törlése előtt hajtsa végre az összes tranzakciót."
+        only_delete_disabled: "Csak a letiltott felhasználókat törölheti. Először tiltsa le a felhasználót hogy törölhesse fiókját"
+        delete_info1: "Ha törli ezt a fiókot, a személyes adatok (név, telefonszám, cím, e-mail, profilkép stb.) véglegesen törlődnek és nem állíthatók helyre. Az általuk létrehozott összes hirdetés eltávolításra kerül. Nem fogja tudni újraaktiválni ezt a fiókot."
+        delete_info2: "A fiók törlésekor nem távolítják el azokat az információkat, amelyekben más tagok vesznek részt (beszélgetések másokkal, tranzakciók, értékelések, amelyeket másoknak adtak, stb.). A név azonban nem jelenik meg ezen információk mellett."
+        search: Keresés
+        search_by_name_email: "Keresés név, E-mail cím vagy megjelenített név alapján"
+        reset_search: "Összes mutatása"
+        for_search_terms: ~
+        this_makes_the_user_an_admin: "Ez a felhasználót adminná teszi. Önnek értesítenie kell a felhasználót felelősségéről és hogy át kell néznie a Sharetribe használati feltételeit. Biztosan folytatni akarja?"
+        status_filter:
+          all: "Összes státusz"
+          selected: "Kiválasztott státuszok: %{count}"
+          selected_js: "Kiválasztott státuszok: "
+          admin: admin
+          banned: Tiltva
+          posting_allowed: "Posztolás engedélyezve"
+          accepted: Elfogadva
+          unconfirmed: "Nem megerősített."
+          pending: "Függőben levő"
+        this_user_hasnt_confirmed_their_email_address: "Ez a felhasználó nem erősítette meg az E-mail címét. Lehetséges, hogy a felhasználó nem kapott megerősítő e-mailt. Kattintson az újraküldés gombra, ha újra el szeretné küldeni."
+        unconfirmed_user: "Nem visszaigazolt felhasználó: %{name}"
+        resend: Újraküld
+        cancel: Töröl
+        confirm: Megerősítés
+        user_didnt_complete_the_signup_process: "Ez a felhasználó közösségi médián keresztül regisztrált, de nem fejezte be a regisztráció folyamatát. A közösségi médián való regisztráció után a felhasználóknak továbbra is el kell fogadniuk az Ön felhasználási feltételeit és ki kell tölteniük a kötelező felhasználói mezőket."
+        pending_user: "Függőben van: %{name}"
+      new_layout:
+        new_layout: "Új megjelenés"
+        description_roadmap_new: "Amikor új elrendezési elemek lesznek elérhetőek az Ön piacterén, akkor dönthet úgy, hogy elkezdi-e használni az új elemet, vagy használja a régit. A kiválasztás ezen az oldalon bármikor megváltoztatható. Javasoljuk, hogy mindig használja az új verziót, mivel a régi elemeket bizonyos esetekben megszüntethetik. Abban az esetben, ha egy jelenleg használt komponenst várhatóan megszüntetnek, akkor felvesszük Önnel a kapcsolatot."
+        enabled_for_you: "Bekapcsolva saját részre"
+        enabled_for_all: "Bekapcsolva mindenkinek"
+        new_topbar: "Új top bar (minden oldalon látható)"
+        searchpage: "Új keresési oldal"
+        new_email_templates: "Új elrendezés az e-mailekhez"
+      social_media:
+        social_media: "Közösségi média"
+        logo: "Közösségi média kép"
+        logo_info: "Ez a kép jelenik meg a Facebook, a Twitter és a LinkedIn közösségi médiában, ha valaki megosztja az Ön weboldalát. A legjobb eredmény eléréséhez 2:1 képarányúnak és minimális méretének %{width} x %{height} pixelnek kell lennie."
+        social_media_title: "Közösségi média név"
+        social_media_title_info: "Ez a szöveg a Facebook, a Twitter és a LinkedIn közösségi médiájában jelenik majd meg, ha valaki megosztja az Ön weboldalát. Megnézheti, hogy néz ki %{facebook_preview_link}, %{twitter_preview_link} és %{linkedin_preview_link}."
+        link_for_facebook: "a Facebook számára"
+        link_for_linkedin: "a LinkedIn számára"
+        link_for_twitter: "a Twitter számára"
+        social_media_description: "Közösségi média leírás"
+        twitter_handle: "Twitter név"
+        twitter_handle_info_text: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon."
+        twitter_handle_info_text_with_instructions: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon.%{instructions_link}"
+        twitter_instructions_link_text: Bővebben
+        twitter_handle_placeholder: felhasználónév
+        invalid_twitter_handle: "A Twitter név maximum 15 alfanumerikus (betűk A-Z és számok 0-9) karaktet tartalmazhat"
+        facebook_connect: Facebook
+        facebook_developers_dashboard: "Facebook fejlesztőinek a kezelőpultja"
+        facebook_connect_info_text: "A Facebook-os bejelentkezés lehetővé tételéhez jelentkezzen piacterével <a href='https://developers.facebook.com/'> Facebook fejlesztők kezelőpultján</a>. Adja meg a generált azonosítót és a titkos kódot itt."
+        facebook_connect_info_text_with_instructions: "A Facebook-os bejelentkezés lehetővé tételéhez jelentkezzen piacterével <a href='https://developers.facebook.com/'> Facebook fejlesztők kezelőpultján</a>. Adja meg a generált azonosítót és a titkos kódot itt. %{instructions_link}"
+        facebook_instructions_link_text: "Magyarázat a Facebook kapcsolat beállításához."
+        facebook_connect_id: "Facebook kliens azonosító"
+        invalid_facebook_connect_id: "Felhasználó azonosító csak számokat tartalmazhat."
+        facebook_connect_secret: "Facebook kliens kulcs"
+        invalid_facebook_connect_secret: "A kliens kulcs csak számokat tartalmazhat és betűket a-tól f-ig."
+        enable_facebook_login: "Engedélyezze a felhasználóknak, hogy Facebook-fiókkal jelentkezzenek be"
+        save: "Beállítások mentése"
+        google_connect: "Google bejelentkezés"
+        google_instructions_link_text: "Tekintse meg a Google Bejelentkezés funkció konfigurálásának útmutatásait."
+        google_developers_console: "Google fejlesztői konzol"
+        google_connect_info_text_with_instructions: "A Google bejelentkezés engedélyezéséhez hozzon létre egy projektet a piactéréhez a %{dashboard_link} oldalon. Adja hozzá a projekt létrehozott azonosítóját és titkos kulcsát itt. %{instructions_link}"
+        google_connect_info_text: "A Google bejelentkezés engedélyezéséhez hozzon létre egy projektet a piactéréhez a %{dashboard_link} oldalon. Adja hozzá a projekt létrehozott azonosítóját és titkos kulcsát itt."
+        enable_google_login: "Engedélyezze a felhasználóknak, hogy a Google-fiókjukkal jelentkezzenek be"
+        google_connect_id: "Google ügyfélazonosító"
+        google_connect_secret: "Google ügyfél biztonsági kulcs"
+        linkedin_connect: "LinkedIn bejelentkezés"
+        linkedin_instructions_link_text: "Tekintse meg a LinkedIn bejelentkezés konfigurálásának útmutatásait."
+        linkedin_developers_dashboard: "LinkedIn fejlesztőinek a kezelőpultja"
+        linkedin_connect_info_text_with_instructions: "A LinkedIn bejelentkezés engedélyezéséhez hozzon létre egy alkalmazást a piactéréhez a %{dashboard_link} oldalon. Adja hozzá az alkalmazás létrehozott azonosítóját és titkos kulcsát itt. %{instructions_link}"
+        linkedin_connect_info_text: "A LinkedIn bejelentkezés engedélyezéséhez hozzon létre egy alkalmazást a piactéréhez a %{dashboard_link} oldalon. Adja hozzá az alkalmazás létrehozott azonosítóját és titkos kulcsát itt."
+        enable_linkedin_login: "Engedélyezze a felhasználóknak, hogy bejelentkezzenek a LinkedIn fiókjukkal"
+        linkedin_connect_id: "LinkedIn ügyfélazonosító"
+        linkedin_connect_secret: "LinkedIn ügyfél biztonsági kulcs"
+      seo_settings:
+        seo: SEO
+        title: "Honlap vagy egyéni nyitóoldal"
+        meta_title_label: "Honlap vagy egyéni nyitóoldal cím metacímke"
+        meta_title_info: "Ennek a címkének a tartalmát javasolják a keresőmotoroknak, valamint az eredményoldalakon kattintható címsorként megjeleníteni. %{link} %{vars}"
+        meta_title_link_text: "További információ a metacímkékről."
+        meta_description_label: "Honlap vagy egyéni nyitóoldal leírás metacímke"
+        meta_description_info: "Ennek a címkének a tartalmát javasolják a keresőmotorok számára, valamint ezt javasolják a kereső találati oldalon, a kék kattintható hivatkozások alatt megjeleníteni. %{link} %{vars}"
+        meta_description_link_text: "További információ a metacímkékről."
+        search_title: "Keresési eredményoldal"
+        search_meta_title_label: "A keresési eredmények oldalának meta címkéje"
+        search_meta_title_info: "Ennek a címkének a tartalmát javasolják a keresőmotorok számára, valamint azt javasolják az eredményoldalakon kattintható címsorként megjeleníteni. %{link} %{vars}"
+        search_meta_title_link_text: "További információ a metacímkékről."
+        search_meta_description_label: "A keresési eredmények oldalának meta címkéje"
+        search_meta_description_info: "Ennek a címkének a tartalmát javasolják a keresőmotorok számára, valamint ezt javasolják a kereső találati oldalon, a kék kattintható hivatkozások alatt megjeleníteni. %{link} %{vars}"
+        search_meta_description_link_text: "További információ a metacímkékről."
+        listing_title: "Hirdetési oldal"
+        listing_meta_title_label: "Hirdetési oldal cím meta tag"
+        listing_meta_title_info: "Ennek a címkének a tartalmát javasolják a keresőmotorok számára, valamint azt javasolják az eredményoldalakon kattintható címsorként megjeleníteni. %{link} %{vars}"
+        listing_meta_title_link_text: "További információ a metacímkékről."
+        listing_meta_description_label: "Hirdetési oldal leírás meta tag"
+        listing_meta_description_info: "Ennek a címkének a tartalmát javasolják a keresőmotorok számára, valamint ezt javasolják a kereső találati oldalon, a kék kattintható hivatkozások alatt megjeleníteni. %{link} %{vars}"
+        listing_meta_description_link_text: "További információ a metacímkékről."
+        category_title: "Kategória oldal"
+        category_meta_title_label: "Kategória oldal cím meta tag"
+        category_meta_title_info: "Ennek a címkének a tartalmát javasolják a keresőmotorok számára, valamint azt javasolják az eredményoldalakon kattintható címsorként megjeleníteni. %{link} %{vars}"
+        category_meta_title_link_text: "További információ a metacímkékről."
+        category_meta_description_label: "Kategória oldal leírás metacímke"
+        category_meta_description_info: "Ennek a címkének a tartalmát javasolják a keresőmotorok számára, valamint ezt javasolják a kereső találati oldalon, a kék kattintható hivatkozások alatt megjeleníteni. %{link} %{vars}"
+        category_meta_description_link_text: "További információ a metacímkékről."
+        profile_title: "Profil oldal"
+        profile_meta_title_label: "Profil oldal név metacímke"
+        profile_meta_title_info: "Ennek a címkének a tartalmát javasolják a keresőmotorok számára, valamint azt javasolják az eredményoldalakon kattintható címsorként megjeleníteni. %{link} %{vars}"
+        profile_meta_title_link_text: "További információ a metacímkékről."
+        profile_meta_description_label: "Profil oldal leírás metacímke"
+        profile_meta_description_info: "Ennek a címkének a tartalmát javasolják a keresőmotorok számára, valamint ezt javasolják a kereső találati oldalon, a kék kattintható hivatkozások alatt megjeleníteni. %{link} %{vars}"
+        profile_meta_description_link_text: "További információ a metacímkékről."
+        sitemap_label: Oldaltérkép
+        sitemap_info: "Az oldaltérkép egyszerű módja annak, hogy a keresőmotorokat tájékoztassák a webhelyen feltérképezhető oldalakról. %{link}"
+        sitemap_info_link_text: "Tudjon meg többet az XML fájlról."
+        sitemap_info_public: "A oldaltérképet automatikusan létrehozza a piactér: az 500 legfrissebb hirdetésre hivatkozik a webhelyén. Oldaltérképét a következő címen érheti el: %{link}"
+        sitemap_info_private: "Mivel az ön piactere privát, nincs hozzá oldaltérkép."
+        robots_label: Robots.txt
+        robots_info: "A Robots.txt egy szöveges fájl, amellyel webrobotokat (általában keresőmotorrobotokat) utasíthatunk, hogyan kell feltérképezni a webhely oldalait. %{link}"
+        robots_info_link_text: "Tudjon meg többet a robots.txt fájlról"
+        robots_info_2: "A robots.txt fájlt automatikusan létrehozza a piactér. A robots.txt fájlhoz a következő címen férhet hozzá: %{link}."
+        google_search_console: "Google Search Console"
+        google_search_console_paragraph1: "A Google Search Console eszközöket és riportokat kínál a webhely keresési forgalmának és teljesítményének méréséhez, valamint a Google keresési eredményekkel kapcsolatos problémák megoldásához."
+        google_search_console_these_instructions: "ezek az instrukciók"
+        google_search_console_paragraph2: "Jó ötlet, ha webhelyét hozzáadja a Google Search Console-hoz. Csak néhány percig tart a %{link} használatával."
+        save: "Beállítások mentése"
+      analytics:
+        analytics: Vizsgálat
+        google_analytics_key: "Google Analytics követési azonosító"
+        google_analytics_key_info_text: "Google Analytics fiókja azonosítójának lekövetése."
+        google_analytics_key_info_text_with_instructions: "Google Analytics fiókja azonosítójának lekövetése.%{instructions_link}"
+        google_analytics_instructions_link_text: "Leírás a Google Analytics csatlakoztatásáról."
+        sharetribe_analytics: "Sharetribe elemzés"
+        sharetribe_analytics_info_text_with_instructions: "A Sharetribe szolgáltatásai és támogatásának fejlesztése érdekében a Sharetribe nyomon követi a piactér tagjainak tevékenységét. A személyes adatokat nem gyűjtik és ezeket az információkat a Sharetribe csapaton kívül nem osztják meg. Ezt a követést teljes mértékben le lehet tiltani. %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Olvasson többet a Sharetribe elemzéseiről."
+        end_user_analytics: "Engedje meg, hogy a Sharetribe nyomon kövesse a tagok tevékenységét a Sharetribe szolgáltatásainak javítása érdekében"
+        save: "Beállítások mentése"
+        google_tag_manager: "Google Címkekezelő"
+        gtm_paragraph_1: "A címkekezelő, például a GTM használata nagyszerű módja a kód- vagy nyomkövető képpontok kezelésére és telepítésére weboldalán a kód módosítása nélkül."
+        gtm_paragraph_2: "Mivel a Sharetribe a Google Címkekezelőre is támaszkodik, ezt a %{link} linket kellene használnia."
+        learn_how_to_configure_gtm: "Tanulja meg, hogyan konfigurálhatja a GTM-et az Ön Go piacterére"
+      logo_link:
+        title: "Logó link"
+        info: "Testreszabhatja a logó linkjét (és a felső sáv menüjének alapértelmezett kezdőgombját). Alapértelmezés szerint a logó a felhasználókat a honlapra vagy az egyedi nyitóoldalra viszi."
+        url: URL
+        placeholder: "https://www.example.com"
+      menu_links:
+        menu_links: "Menü linkek"
+        menu_links_display: "Menü linkek megjelenítése"
+        save: "Beállítások mentése"
+        add_menu_link: "Új link hozzáadása a menühöz"
+        title_placeholder: "Link cím"
+        url_placeholder: "http://pelda.com/hu"
+        title: Cím
+        language: Nyelv
+        url: link
+        empty: "Ön nem rendelkezik további menü linkekkel"
+        max_number_of_links: "A maximális számú megjelenített link a felső sávban: %{select_max_number}"
+        all: Összes
+        max_number_of_links_info: "A link a %{about_page} oldalhoz mindig az első menüpontban kerül megjelenínétésre."
+        about_page: rólunk
+      default_menu_links:
+        title: "Alapértelmezett menü linkek"
+        about_link_title: Rólunk
+        contact_link_title: "Lépjen velünk kapcsolatba"
+        invite_link_title: "Új tagok meghívása"
+        info: "Alapértelmezés szerint a következő oldalak linkjei sehol másutt nem jelennek meg a piactéren: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Mutassa a <i> Rólunk </i> és más statikus oldalak linkjét"
+        display_contact: "Mutassa a <i> Vegye fel velünk a kapcsolatot </i> oldal linkjét"
+        display_invite: "Mutassa a <i> Hívjon meg új tagokat </i> oldal linkjét"
+      topbar:
+        topbar: "Top bar"
+        new_listing_button_label: "Új hirdetés feladása gomb szövege"
+        invalid_post_listing_button_label: "Kérem helyes szöveget írjon az Új hirdetés feladása gombhoz."
+      transactions:
+        export_all_as_csv: "Az öszes exportálása CSV-ként"
+        processing_export: "Exportálás CSV formátumba..."
+        transactions: "Mutassa a tranzakciókat"
+        search_by_title_parties: "Keressen egy tranzakciós címet vagy az érintett feleket"
+        search: Keresés
+        reset_search: "Összes mutatása"
+        status_filter:
+          all: "Feladat státuszok"
+          selected: "Kiválasztott státuszok: %{count}"
+          selected_js: "Kiválasztott státuszok: "
+          free: "Ingyenes tranzakció"
+          confirmed: Befejezett
+          paid: Fizetett
+          canceled: Törölve
+          disputed: Vitás
+          preauthorized: "Előzetesen engedélyezett"
+          rejected: Elutasítva
+          payment_intent_requires_action: Függőben
+          payment_intent_action_expired: Lejárt
+          refunded: Visszatérítve
+          dismissed: Elutasítva
+        headers:
+          conversation: "Párbeszéd vonala"
+          listing: Hirdetések
+          status: Állapot
+          sum: Össz
+          started: Elkezdve
+          last_activity: "Legutolsó tevékenység"
+          initiated_by: Kezdeményező
+          other_party: Kereskedő
+        status:
+          conversation: Beszélgetés
+          free: Üzenetváltás
+          pending: Folyamatban
+          preauthorized: "Előzetesen engedélyezett"
+          accepted: Elfogadva
+          rejected: Elutasítva
+          paid: Fizetve
+          confirmed: Megerősítve
+          canceled: Törölve
+          disputed: Vitás
+          initiated: "Várjuk PayPal utalását"
+          pending_ext: "Várakozás a PayPal-os kifizetésre"
+          none:
+            free: "Ingyenes tranzakció"
+          paypal:
+            free: Beszélgetés
+            pending: Függő
+            preauthorized: "Előzetesen engedélyezett"
+            accepted: Elfogadott
+            rejected: Visszautasított
+            paid: Fizetett
+            confirmed: Befejezett
+            canceled: Törölt
+            disputed: Vitás
+            initiated: "Várjuk PayPal utalását"
+            pending_ext: "Várjuk PayPal utalását"
+            refunded: Visszatérítve
+            dismissed: Elutasítva
+          stripe:
+            free: Beszélgetés
+            pending: Függő
+            preauthorized: "Előzetesen engedélyezett"
+            accepted: Elfogadott
+            rejected: Elutasított
+            paid: Fizetett
+            confirmed: Befejezett
+            canceled: Törölt
+            disputed: Vitás
+            initiated: "Várjuk a Stripe utalást"
+            pending_ext: "Várjuk a Stripe utalást"
+            payment_intent_requires_action: Függőben
+            payment_intent_action_expired: Lejárt
+            payment_intent_failed: "Sikertelen Stripe fizetés"
+            refunded: Visszatérítve
+            dismissed: Elutasítva
+        not_available: "Nem elérhető"
+      conversations:
+        conversations: Beszélgetések
+        headers:
+          started_from: "-tól kezdődött"
+          status: Állapot
+          started: Elkezdve
+          last_activity: "Utolsó aktivitás"
+          initiated_by: Kezdeményező
+          other_party: Kereskedő
+        participants: "Beszélgetés: %{starter} és %{author} között"
+        profile: "%{author} profilja"
+        search_by_keyword: "Keresés névre, E-mail címre vagy kulcsszóra"
+        search: Keresés
+        reset_search: "Összes mutatása"
+        for_keyword: "Számára: <b>%{keyword}</b>"
+      testimonials:
+        testimonials: Vélemények
+        no_testimonials_found: "Nem található vélemény"
+        displaying_xx_reviews: ~
+        search_keyword: "Keresés névre vagy kulcsszóra"
+        search: Keresés
+        reset_search: "Összes mutatása"
+        for_keyword: "Számára: <b>%{keyword}</b>"
+        headers:
+          transaction: Tranzakció
+          author: Szerző
+          receiver: Vevő
+          status: Állapot
+          grade: Fokozat
+          text: Szöveg
+        status:
+          waiting: "Felülvizsgálatra vár"
+          skipped: Kihagyott
+          published: Közzétéve
+          blocked: Zárolt
+        status_filter:
+          selected: "Kiválasztott szűrők: %{count}"
+          all: Szűrők
+          published: Közzétéve
+          positive: Pozitív
+          negative: Negatív
+          skipped: Átugrott
+          waiting: Várakozás
+          blocked: Zárolt
+          selected_js: "Kiválasztott szűrők: "
+        form:
+          review_text: "Szöveg áttekintése"
+          save: Mentés
+          cancel: Töröl
+          delete_review: "Vélemény törlése"
+          block_review: "Vélemény blokkolása"
+          confirm_modify: "Biztos benne, hogy módosítani / törölni szeretné ezt az értékelést? A vélemény szerkesztése / törlése után a régi adatokat nem lehet helyreállítani."
+          deleting_info: "Az értékelés törlése lehetővé teszi a szerző számára, hogy ugyanahhoz a tranzakcióhoz új értékelést írjon."
+          blocking_info: "A megjegyzés blokkolása a törlés után megakadályozza a szerzőt, hogy ugyanahhoz a tranzakcióhoz újabb megjegyzést hagyjon."
+          unskip: "Ne ugorja át"
+          if_you_unskip_the_review: "Ha nem ugorja át az értékelést, a felhasználó fog tudni posztolni újabbat."
+          they_will_not_be_notified_automatically: "Őket nem értesítjük automatikusan."
+      invitations:
+        invitations: Meghívók
+        used:
+          "yes": Igen
+          "no": Nem
+        headers:
+          sent_by: "Az üzenetet küldte"
+          message: Üzenet
+          sent_to: "Az üzenet elküldve"
+          used: Használt
+          date_sent: "Küldés dátuma"
+      listings:
+        listings: Hirdetések
+        search_by_title_author_category: "Keresés egy bejegyzéscímre, szerzőre vagy kategórianévre"
+        search: Keresés
+        reset_search: "Összes mutatása"
+        export_all_as_csv: "Az összes exportálása CSV formátumban"
+        processing_export: "Exportálás CSV formátumba..."
+        status:
+          all: "Összes státusz"
+          selected_js: "Kiválasztott státuszok: "
+          open: Nyitva
+          closed: Zárva
+          expired: Lejárt
+          approval_pending: Függőben
+          approval_rejected: Eutasítva
+        headers:
+          title: Cím
+          author: Szerző
+          created: Létrehozva
+          updated: Frissítve
+          category: Kategória
+          status: Állapot
+        open: Nyitva
+        closed: Zárva
+        expired: Lejárt
+        approved: jóváhagyva
+        approval_pending: Függőben
+        approval_rejected: Elutasítva
+        form:
+          this_listing_has_not_not_been_approved_yet: "Ez a hirdetés még nem lett jóváhagyva. Most dönthet úgy, hogy jóváhagyja vagy elutasítja a hirdetést. Ha jóváhagyja a lhirdetést, az nyilvános és minden felhasználó számára látható lesz. Ha elutasítja a hirdetést, az nem lesz nyilvános."
+          approve: Jóváhagy
+          reject: Elutasít
+          cancel: Töröl
+      user_fields:
+        user_fields: "Felhasználói mezők"
+      footer:
+        footer: Lábjegyzet
+        offer_pro: "Konfigurálja és távolítsa el az összes Sharetribe márkát a piacterén a láblécből a %{upgrade_pro_plan_link} link által."
+        upgrade_plan_link: "Váltás a Pro vagy további csomagunkra"
+        menu_links: "Lábléc linkek"
+        language: Nyelv
+        title: Cím
+        url: URL
+        add: "Új link hozzáadása a lábléchez"
+        save: "Beállítások mentése"
+        footer_style: "Lábléc stílus"
+        footer_copyright: "A lábléc szerzői joga"
+        footer_enabled: "A lábléc engedélyezve van"
+        social_links: "Lábléc közösségi linkek"
+        title_placeholder: "Link cím"
+        url_placeholder: "https://www.example.com/username"
+        style:
+          dark: Sötét
+          light: Világos
+          marketplace_color: "Piactér fő színe"
+          logo: Logó
+        social:
+          title: Cím
+          url: URL
+      domain:
+        domain: domain
+        marketplace_domain: "Piactér domain"
+        offer_pro: "Konfigurálja a saját egyéni domainjét %{upgrade_pro_plan_link} által."
+        upgrade_pro_plan_link: "Váltás a Pro vagy további csomagunkra"
+        your_marketplace_address_is: "Az Ön piactér címe: %{address}"
+        would_you_like_to_change_address: "Szeretné megváltoztatni a piacterének címét? %{contact_us}"
+        contact_us: Kapcsolat
+        you_can_now_use_a_custom_domain: "Jelenlegi tervével most engedélyezheti az egyéni domaint. Haladjunk tovább a telepítéssel. %{contact_us}"
+        would_you_like_to_change_domain: "Szeretné megváltoztatni a piactér egyedi domainjét? %{contact_us}"
+        change_your_sharetribe_domain: "Módosítsa a Sharetribe domainjét"
+        only_letters_numbers_and_hyphens_can_be_used: "Csak betűk, számok és kötőjelek használhatók. Legyen óvatos! A régi domain mindenki számára elérhető lesz és nem fogja átirányítani az új domainjére."
+        when_you_change_your_sharetribe_domain: "Amikor megváltoztatja a Sharetribe domainjét, az összes URL automatikusan megváltozik. A rendszer átirányítja a piac új címére. Önnek és a felhasználóknak újra be kell jelentkezniük. A korábbi piactér domainjét semmilyen módon nem köti össze vagy irányítja át az új domainhez. A régi domain mások számára is elérhető lesz."
+        would_you_like_to_proceed: "Szeretné folytatni?"
+        change: Változás
+        you_can_now_enable_a_custom_domain: ~
+        read_more_about_the_set_up_of_your_custom_domain: ~
+        set_custom_domain: ~
+        in_order_to_set_your_custom_domain: ~
+        instructions_to_point_your_domain: ~
+        main_domain: ~
+        main_domain_info_text: ~
+        main_domain_link_text: ~
+        check_domain: ~
+        domain_being_checked: ~
+        status: ~
+        checks_pending: ~
+        please_check_back: ~
+        checks_not_passed: ~
+        check_the_domain_again_info: ~
+        check_the_domain_again: ~
+        use_another_domain: ~
+        checks_passed: ~
+        domain_being_set_up: ~
+        setup_in_progress: ~
+        setup_check_back: ~
+        setup_check_back_critical_error: ~
+        setup_failed: ~
+        setup_the_domain_again_info: ~
+        setup_the_domain_again: ~
+        summary:
+          main_domain: ~
+          redirect: ~
+        check_another_domain: ~
+        checks_passed_with_warning: ~
+        this_domain_is_not_configured_correctly: ~
+        start_using_the_custom_domain: ~
+      landing_pages:
+        landing_pages: Nyitóoldal
+        info_1: "A kezdőoldal talán a piactér legfontosabb oldala. Ez az első oldal, amelyet a látogatók látnak - olyan, mint az Ön házának a bejárata. Csak néhány másodperc van arra, hogy meggyőzze az új látogatókat arról, hogy felfedezzék az Ön oldalát. Az oldalnak megnyerőnek, ajánlatának érthetőnek és vonzónak kell lennie."
+        info_2: "Ezzel a szerkesztővel bármikor módosíthatja a nyitóoldalt!"
+        info_2_help_center: Súgócikk
+        info_3: "Ha teljesen testreszabott kezdőoldalt szeretne kapni a piacterére, havi 99 dollárért megvásárolhatja azt."
+        info_4: "Olvassa el ezt az %{link} oldalt, hogy megtudja, hogyan működik a kezdőoldal szerkesztője, ismerje meg a különböző szekciókat és azt, hogyan szerkesztheti őket.\n"
+        editor_title: "Nyitóoldal szerkesztő"
+        editor_info: "Itt szerkesztheti kezdőoldalának a szekcióit. Jelenleg csak egy nyelvet lehet használni a nyitóoldalhoz. A 'Hős' és 'Lábléc' szakaszok 'pozíciója nem változtatható meg"
+        preview: "A nyitóoldal előnézete"
+        set_live: "Élesítse az oldalt"
+        add_new_section: "Új rész hozzáadása:"
+        select_section_type: "Válassza ki a szekció típust..."
+        this_version_is_not_released: "A nyitóoldal új verziójának életbe léptetéséhez módosításokat kell végrehajtania."
+        latest_version_released: "Nyitóoldalának utolsó verziója életbe lépett! %{link}"
+        check_it_out: "Nézze meg"
+        form:
+          save: Mentés
+          cancel: Töröl
+        sections:
+          identifier: "Szekció ID"
+          kind: "Szekció típusa"
+          new: "Új rész"
+          edit: "Szekció szerkesztése %{section_id}"
+          remove_section_confirmation: "Biztos benne, hogy el akarja távolítani a %{section_id} részt és annak összes adatát? Ezt nem lehet visszafordítani."
+          info_single_column: "Infó - Egy bekezdés"
+          info_multi_column_2: "Infó - Két bekezdés"
+          info_multi_column_3: "Infó - Három bekezdés"
+          listings: Hirdetések
+          categories: Kategóriák
+          hero: Hős
+          locations: Elhelyezkedés
+          video: Videó
+          new_section:
+            categories: "Új \"kategóriák\" rész hozzáadása"
+            info_single_column: "Új \"Infó - egy bekezdés\" rész hozzáadása"
+            info_multi_column_2: "Új \"Infó - Két bekezdés\" rész hozzáadása"
+            info_multi_column_3: "Új \"Infó - Három bekezdés\" rész hozzáadása"
+            listings: "Új \"Hirdetések\" rész hozzáadása"
+            locations: "Új \"Elhelyezkedés\" rész hozzáadása"
+            video: "Új \"Videó\" rész hozzáadása"
+          edit_section:
+            categories: "\"Kategóriák\" szerkesztése"
+            footer: "A „lábléc” szekció szerkesztése"
+            hero: "\"Hős\" rész szerkesztés"
+            info_single_column: "\"Infó - Egy oszlop\" rész szerkesztése"
+            info_multi_column_2: "\"Infó - két oszlop\" rész szerkesztése"
+            info_multi_column_3: "\"Infó - három oszlop\" rész szerkesztése"
+            listings: "\"Hirdetések\" rész szerkesztése"
+            locations: "\"Helyszínek\" rész szerkesztése"
+            video: "\"Videó\" rész szerkesztése"
+      attachments:
+        delete: "Törölje a jelenlegi %{title} címet"
+        or_change: "Vagy változassa meg a %{title} címet egy újra:"
+    landing_page_versions:
+      sections:
+        content:
+          title: "A szekció tartalma"
+        hero:
+          hero_title: Hős
+          hero_description: "Állítsa be a háttérképet a Hős szekcióhoz. A szlogen és a leírás a %{link} oldalról van beállítva."
+          basic_details_tab: "'Alapvető részletek' fül"
+          cta_button: "Cselekvésre ösztönzés"
+          cta_button_info: "A  gomb szövegét nem kell szerkesztenie. Hagyja ezt a mezőt üresen. Alapértelmezés szerint a szöveg \"Keres\" a nyilvános piactereken és \"Regisztáljon\" a magán piactereken."
+          button_type:
+            default: Alapértelmezett
+            button: Gomb
+            none: "Egyik sem"
+          button_content: "Gomb tartalma"
+          click_me: "Kattintson rám!"
+        footer:
+          footer_title: Lábléc
+          footer_style: "Lábléc stílus"
+          style_dark: Sötét
+          style_light: Világos
+          style_marketplace_color: "Piactér fő szín"
+          style_logo: Logó
+        cta_button:
+          cta_button: "Cselekvésre ösztönző gomb"
+          cta_enabled: "Mutasson egy gombot"
+          cta_text: Címke
+          cta_url: URL
+          text_placeholder: "Kattintson rám!"
+          url_placeholder: "https://www.example.com"
+        background_selector:
+          title: Háttér
+        background_image_overlay:
+          background_image: Háttérkép
+          background_image_info: "Ez a kép fog megjelenni háttérképként. A legjobb eredmény elérése érdekében minimális méretének 1600x1200 pixelnek kell lennie."
+          add_another_image: "Adjon hozzá még egy képet"
+          current_image: "Jelenlegi kép: %{filename}"
+          file_not_selected: "Nincs kiválasztva"
+          background_image_overlay: "Háttérkép borítás"
+          background_image_overlay_info: "Ez lehetővé teszi annak meghatározását, hogy a háttérkép milyen sötét vagy világos lesz. A \"transzparens\" azt jelenti, hogy egyáltalán nincs rajta filter."
+          overlay_dark: Sötét
+          overlay_light: Világos
+          overlay_transparent: Transzparens
+        background_style:
+          background_style: Háttérstílus
+          style_image: Kép
+          style_color: Szín
+          style_none: "Egyik sem"
+        background_color:
+          background_color: Háttérszín
+          background_color_info: "A hex háttér szín megadásával kiválaszthatja ennek az oldalnak a háttérszínét. A %{link} segít kiválasztani a színt, és megadja a hex szín kódot. Ezután ide átmásolhatja a kódot."
+        categories:
+          add: "+ Adjon hozzá új kategóriát ehhez a részhez"
+          category: Kategória
+          empty: "Nincsenek benne kategóriák"
+          image: Kép
+          include_title: "Kiemelendő kategóriák"
+          info_text: "Három-hét kategóriát emelhet ki. Adjon hozzá egy képet minden egyes kategóriához és válassza ki az egyik kategóriát a piacteréről. A legjobb eredmény elérése érdekében az ajánlott képméret 1000 x 667 pixel."
+          need_at_least_3_categories: "Ebben a szekcióban legalább három kategóriának kell lennie"
+          need_at_most_7_categories: "Ebben a szekcióban legfeljebb hét kategória lehet"
+        category:
+          add_another_image: "Adjon hozzá még egy képet"
+          category: Kategória
+          current_image: "Jelenlegi kép: %{filename}"
+          file_not_selected: "Nincs kiválasztva"
+          image: Kép
+          image_required: "Adjon hozzá egy képet ehhez a kategóriához"
+          select_category: "Kategória kiválasztása"
+        locations:
+          add: "+ Adjon hozzá még egy helyszínt ehhez a szekcióhoz"
+          location: Helyszín
+          empty: "Nincs beépített helyszín"
+          image: Kép
+          include_title: "Megjelenítendő helyszínek"
+          info_text: "Három-hét helyszínt adhat meg. Kérjük, adjon hozzá egy képet minden egyes helyszínhez, és adja meg a helykeresési URL-t a piactere számára. A legjobb eredmény elérése érdekében az ajánlott képméret 1000 x 667 pixel."
+          need_at_least_3_locations: "Ebben a szekcióban legalább három helyszínt fel kell tüntetnie."
+          need_at_most_7_locations: "Ebben a szekcióban legfeljebb hét helyszín lehet"
+        location:
+          add_another_image: "Adjon hozzá még egy képet"
+          location: Helyszín
+          current_image: "Jelenlegi kép: %{filename}"
+          file_not_selected: "Nincs kiválasztva"
+          image: Kép
+          image_required: "Töltsön fel egy képet ehhez a helyszínhez"
+          title: Cím
+          title_placeholder: "Helység címke"
+          url: URL
+          url_placeholder: "Helység URL"
+        multi_column:
+          main_title: Főcím
+          column_header: "Oszlop %{index}"
+          column_title: "Oszlop %{index} cím"
+          column_icon_info: ~
+          column_icon_info_link: ~
+          column_icon: "Oszlop %{index} ikon"
+          column_paragraph: "Oszlop %{index} bekezdés"
+          column_button: "Oszlop %{index} gomb"
+          column_button_text: "Gomb címke"
+          column_button_url: "https://www.example.com"
+        listings:
+          listings_to_feature: "Megjelenítendő hirdetések"
+          you_need_to_add_the_listing_ids: "Hozzá kell adnia azoknak a hirdetéseknek az azonosítját, melyeket szeretne megjeleníteni ebben a szekcióban. A hirdetés azonosítójának megkereséséhez egyszerűen lépjen a hirdetés oldalára, és keresse meg a hirdetés URL-jét. A hirdetési azonosító az a szám, amely közvetlenül a fő URL után jön. A példában https://www.example.com/listings/123456-listing-title, a hirdetési azonosító 123456 lenne."
+        video:
+          text: Szöveg
+          autoplay: "Automatikus lejátszás opciók"
+          autoplay_no: "Nincs automatikus lejátszás"
+          autoplay_muted: "Néma automatikus lejátszás"
+          info: "Ez a szöveg akkor jelenik meg, ha a \\\"Nincs automatikus lejátszás\\\" lehetőséget választja vagy ha a videó le van állítva."
+          youtube_video_id_info: "A videó azonosítóját a videó URL-jéből kaphatja meg. Ez általában az URL utolsó része. Például, ha a videó URL címe: https://www.youtube.com/watch?v=UffchBUUIoI, akkor az azonosító „UffchBUUIoI” lenne."
+    custom_fields:
+      edit:
+        edit_listing_field: "Mező szerkesztése %{field_name}"
+      edit_price:
+        description: "A minimális és maximális ár csak a szűrőt befolyásolja. A hirdetések árát nem korlátozzák."
+        edit_price_field: "Ár változtatása"
+        show_price_filter_homepage: "Az ár szűrő megjelenítése a kezdőlapon"
+        price_min: "Legalacsonyabb ár szűrése"
+        price_max: "Legmagasabb ár szűrése"
+      edit_location:
+        edit_location_field: "A hely mező szerkesztése"
+        this_field_is_required: "A mező kitöltése kötelező."
+        the_location_feature_can_be_enabled: "A helymeghatározási funkciót engedélyezheti a piactér-beállítások %{link} szekciójában."
+      edit_expiration:
+        edit_expiration_field: "\"Lejárati dátum\" mező szerkesztése"
+        enable: "Lejárati dátum engedélyezése"
+      form:
+        field_required:
+          this_field_is_required: "A mező kitöltésének kötelezővé tétele új hirdetés feladásakor"
+          this_field_is_required_checkbox: "Legyen kötelező kitölteni ezt a mezőt új hirdetés feladásakor (a felhasználónak választania kell legalább egy lehetőséget)"
+        search_filter:
+          search_filter: "Ezen mező alapján szűrő megjelenítése a honlapon"
+          date_cant_be_filtered: "A dátum mezőhöz nem áll filter rendelkezésre."
+          text_cant_be_filtered: "Nincs szűrés a szövegablak számára. A fő szöveg kereső a szövegablakokból keres."
+      index:
+        listing_fields: "Listázási mezők és szűrők"
+        listing_fields_help: "Itt szerkesztheti a mezőket melyeket a felhasználóknak kell kitölteniük új hirdetés feladása során. Vegye figyelembe, hogy egyes mezők előre meghatározottak és nincs lehetőség a szerkesztésükre."
+        add_new_field: "Új mező hozzáadása:"
+        remove_field_confirmation: "Biztos benne, hogy el akarja távolítani ezt a mezőt '%{field_name}'?"
+        cancel: Mégse
+        save: Mentés
+        field_title: "A mező elnevezése"
+        field_type: "Mező típus"
+        categories: "A használt mezőben a kategóriák listázása"
+        select_all: "Mindet kijelöl"
+        clear_all: "Mindet töröl"
+        options: Beállítások
+        add_option: "+Opció hozzáadása"
+        saving_order: "Mezők sorrendjének elmentése"
+        save_order_successful: "Mezők sorrendje sikeresen elmentve"
+        save_order_error: "Hiba történt a mezők sorrendjének beállítása során. Kérjük frissítse az oldalt és próbálja újra."
+        select_one: "Válasszon mező típust..."
+        continue: Folytatás
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Tizedes tört engedélyezése"
+      new:
+        new_listing_field: "Új hirdetés mezeje"
+      field_types:
+        text: Szöveg
+        number: Szám
+        dropdown: Lenyíló
+        checkbox_group: "Jelölőnégyzet csoport"
+        date: Dátum
+        file: Fájl
+        location: Elhelyezkedés
+    person_custom_fields:
+      saving_failed: "A felhasználói mező mentése sikertelen"
+      index:
+        user_fields: "Felhasználói mezők"
+        field_title: "A mező elnevezése"
+        field_type: "A mező típusa"
+        signup: Regisztráció
+        public: Nyilvános
+        add_new_field: "Új mező hozzáadása:"
+        save: Mentés
+        cancel: Töröl
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Tizedesjegyek engedélyezése"
+        add_option: "Opció hozzáadása"
+      new:
+        new_user_field: "Új felhasználói mező"
+      form:
+        field_required:
+          this_field_is_required: "Tegye kötelezővé a mező kitöltését a piactérre történő feliratkozáskor"
+          this_field_is_required_checkbox: "Tegye kötelezővé a mező kitöltését a piactérre történő feliratkozáskor (a felhasználónak legalább egy opciót ki kell választania)"
+          this_field_is_public: "Mutassa meg ezt a mezőt a nyilvános profiloldalon"
+      edit:
+        edit_user_field: "Felhasználó mező szerkesztése %{field_name}"
+    emails:
+      new:
+        send_email_to_members: "E-mail küldése a felhasználóknak"
+        send_email_to_members_title: "E-mail küldése az öszes felhasználónak"
+        send_email: "E-mail küldése"
+        send_email_or: vagy
+        send_test_email: "Küldj egy teszt email-t magadnak"
+        test_sent: "A teszt E-mailt elküldtük postaládájába."
+        send_email_article_title: "Ez a cikk"
+        send_email_article_text: "További információ a felhasználói szegmensekről itt:  %{article_link}."
+        recipients:
+          title: "Kinek szeretne E-mailt küldeni?"
+          options:
+            all_users: "Minden felhasználó"
+            posting_allowed: "Felhasználók, akiknek engedélyezték az adatok közzétételét"
+            with_listing: "Felhasználók, akik legalább egy hirdetést közzétettek."
+            with_listing_no_payment: "Felhasználók, akik legalább egy hirdetést közzétettek, de nem adták meg a fizetési adataikat."
+            with_payment_no_listing: "Felhasználók, akik megadták a fizetési adataikat, de nem tettek közzé hirdetést."
+            no_listing_no_payment: "Felhasználók akik nem tettek közzé hirdetést és nem adták meg a fizetési adataikat."
+        email_subject: "E-mail tárgya"
+        email_content: "E-mail tartalma"
+        email_content_placeholder: "Mit szeretne mondani a felhasználóinak?"
+        email_language: "Az e-mailt fogadók anyanyelve"
+        any_language: "Egyéb nyelvek"
+        message_will_be_sent_only_to_people_with_this_language: "Figyelem: Az e-mail csak azoknak a felhasználóknak lesz elküldve akik az ön által kiválasztott nyelven használják a %{service_name} oldalát."
+        email_sent: "E-mail elküldve"
+        to_improve_email_deliverability: "Az E-mail kézbesítésének javítása érdekében az E-mail tárgya automatikusan generálódik és nem módosítható."
+        email_subject_text: "Új üzenet a %{service_name} csapattól"
+        firstname_cannot_be_removed: "A \"keresztnév\" nem távolítható el és helyébe az egyes címzettek tényleges keresztneve lép."
+        hello_firstname: "Hello Keresztnév,"
+        hello_firstname_text: "Hello %{person}"
+    left_hand_navigation:
+      general: Általános
+      users_and_transactions: "Felhasználók & tranzakciók"
+      configure: Beállítás
+      emails_title: E-mailek
+      subscription: Feliratkozás
+      preview: "A honlap előnézete"
+      whats_new: "Mi újság?"
+    listing_shapes:
+      availability_title: Elérhetőség
+      read_more: "Még több információ az automatikus elérhetőség menedzsmentről"
+      read_more_availability_management: "Még több információ az elérhetőség menedzsmentről"
+      allow_providers_to_manage_availability: "Engedélyezi hogy a szolgáltatók a naptár funkció segítségével szerkeszthessék az elérhetőségüket."
+      per_hour_availability: "\"Óránkénti\" elérhetőség"
+      per_day_availability: "Naponta elérhető"
+      per_night_availability: "Éjszakánként elérhető"
+      pricing_units_disabled_info: "A Pricing unit nem használható ha a naptár funkció aktiválva van"
+      can_not_find_name: "A megadott feltételeknek megfelelő megrendelés nem található: %{name}"
+      index:
+        listing_shapes: Ajánlattípusok
+        description: |-
+            A hirdetési típusok meghatározzák, a rendelések és vásárlások menetét. 
+            Ön eldöntheti, hogy a felhasználói bérbe adnak vagy eladnak, vagy akár csak  közleményeket osztanak meg és ingyen üzenetekkel kommunikálnak.
+        read_more_about_order_types: "Tudjon meg többet az ajánlattípusokról"
+        add_new_shape: "Adjon meg új ajánlattípust: "
+        select_template: "Sablon választása..."
+        all_categories: "Összes kategória"
+        no_categories: "Nincsenek kategóriák"
+        category_count: "%{category_count} kategóriák"
+        header:
+          listing_shape_name: "Ajánlattípus neve"
+          listing_shape_categories: "Kategóriák ahol ez használva van"
+        order:
+          saving_order: "Rendelés mentése"
+          save_order_successful: "Sikeresen mentett hirdetési típus"
+          save_order_error: "Hiba történt a rendelés mentése közben. Kérjük, frissítse az oldalt és próbálja újra."
+      templates:
+        selling_products: "Eladó termékek"
+        renting_products: "Termékek bérlése"
+        offering_services: "Szolgáltatási ajánlatok"
+        giving_things_away: Ajándékozás
+        requesting: Kérés
+        announcement: "Bejelentések kiírása"
+        custom: Egyedi
+      new:
+        create_listing_shape: "Hozzon létre ajánlattípust"
+        create: Létrehoz
+        cancel: Mégse
+        create_success: "Új rendelési típus '%{shape}' elkészülte"
+        create_failure: "Nem tudott új ajánlattípust létrehozni. Hiba:%{error_msg}"
+      edit:
+        edit_listing_shape: "Hirdetési típus szerkesztése '%{shape}'"
+        update: Mentés
+        cancel: Mégse
+        update_success: "A hirdetési típus változásai '%{shape}' mentésre kerültek"
+        update_failure: "A változások elmentése sikertelen. Hiba: %{error_msg}"
+        delete: "Ajánlattípus törlése"
+        confirm_delete_order_type:
+          other: "Ebben a hirdetési típusban %{count} számú hirdetés található. Amennyiben törli ezt a hirdetési típust a hirdetések lezáródnak. Biztos benne hogy törölni akarja ezt a hirdetési típust?"
+        can_not_delete_last: "Ezt a hirdetéstípust nem tudja törölni mert jelenleg piactere ezzel az egyetlen típussal rendelkezik."
+        can_not_delete_only_one_in_categories: "Ezt a hirdetéstípust ön nem tudja törölni mert a következő kategóriákban kizárólag ez a hirdetéstípus van használatban: %{categories}"
+      listing_shape_name: Név
+      listing_shape_name_placeholder: "Például: Elad"
+      action_button_label: "Ellenőrző gomb címke"
+      action_button_placeholder: "Például: Vásárlás"
+      open_listings_warning:
+        other: "%{count} számú ilyen típusú hirdetés található. Ha az alábbi beállítások bármelyikén változtat a hirdetés megőrzi a régi beállításait. A hirdetés átállítható az új beállításra manuális szerkesztéssel. Amennyiben nem szeretné, hogy a hirdetés a régi beállításokkal megjelenjen az oldalán a lenti gombra kattintva bezárhatja azokat."
+      close_listings_action:
+        other: "%{count} számú hirdetés lezárása"
+      confirm_close_listings_action:
+        other: "Biztos benne, hogy le szeretne zárni %{count} számú hirdetést?"
+      successfully_closed: "Sikeresen lezárt hirdetések"
+      successfully_deleted: "Sikeresen törölt rendelési típus '%{order_type}'"
+      pricing_and_checkout_title: "Árazás és ellenőrzés"
+      online_payments_label: "Onine utalások fogadásáanak engedélyezése az eladók számára"
+      shipping_label: "Eladók felhatalmazása a szállítási költség meghatározására"
+      price_label: "Hirdetések beárazásának engedélyezése az eladók számára"
+      units_title: Egységár
+      units_desc: "Amennyiben egységáras árat adott meg, a hirdetésben is  így lesz feltüntetve \"ár egységenként\". Például: \"900Ft/óra\"."
+      units:
+        piece: Darabonként
+        hour: Óránként
+        day: Naponként
+        night: Éjszakánként
+        week: Hetente
+        month: Havonta
+        unit: Egységenként
+      can_not_find: "Nem található hirdetés típus ezzel az azonosítóval: %{id}"
+      add_custom_unit: "+Adjon meg egy egyedi árat ..."
+      delete_custom_unit: töröl
+      custom_unit_form:
+        title: "Új egységár"
+        label_heading: Címke
+        selector_label_heading: "Választó címke"
+        label_placeholder: "pl: \"kg\", \"30 perc\", \"személy\", \"osztály\""
+        selector_placeholder: "pl: \"személyek száma\", \"Mennyiség kg-ban\""
+        per: Per
+        unit_type:
+          heading: "Egység típus"
+          quantity_label: "Mennyiség ( darabonként, kg-onként, személyenként, 2 órás túránként...)"
+          time_label: "Idő (30 percenként, 2 hetente, évente...)"
+    paypal_accounts:
+      marketplace_paypal_integration: "Fizetési beállítások"
+      preferences_updated: "Fizetési preferenciák frissítve"
+      contact_support_link_text: "Vegye fel a kapcsolatot a Sharetribe rendszergazdájával"
+      integration_info_text: "A Sharetribe-os kifizetéseket a PayPal támogatja. Amennyiben szeretné, hogy felhasználói fizessenek a piactér használatakor kapcsolja össze PayPal fiókjával. Amint csatlakoztatta a PayPal fiókját, kiválaszthatja a minimális tranakciós méretet és a lehetséges jutalékot."
+      link_paypal_personal_account_label: "Ön gondoskodik a termékekről illetve szolgáltatásokról személyesen?"
+      link_paypal_personal_account: "Abban az esetben A PayPal fiókját is csatlakoztassa fiókjához %{personal_payment_preferences_link}"
+      link_stripe_personal_account: "Ha igen, akkor hozzá kell adnia a kifizetési adatait is a  %{personal_payment_preferences_link} linken."
+      link_paypal_and_stripe_personal_account: "Ha igen, akkor csatlakoznia kell a PayPal vagy Stripe fiókjához a %{personal_payment_preferences_link} linken."
+      personal_payment_preferences_link_text: "Az Ön személyes piactéri fiókja"
+      read_more_about_paypal: "Leírás a Sharetribe fizetési rendszeréről"
+      edit_payment_settings: "Fizetési beállítások megváltoztatása"
+      supported_currencies_information_text: "A Sharetribe online fizetési rendszere 24 valutát támogat. Amennyiben az ön valutája nem szerepel a listán kérem vegye fel a kapcsolatot velünk %{contact_support_link}. Amennyiben megváltoztatja a piactere valutáját, a meglévő hirdetésekre ez nincs hatással. Ezeket a hirdetéseket manuálisan, egyesével kell hogy megváltoztassa."
+      currency_change_warning_text: "Fontos: amennyiben megváltoztatja a valutát, ne felejtse el értesíteni az eladóit, hogy manuálisan állítsák át a valutát."
+      marketplace_currency_label: "Piactere valutája"
+      minimum_listing_price_label: "Tranzakció minimális mérete:"
+      transaction_fee_label: "Tranzakciós díj:"
+      minimum_transaction_fee_label: "Minimum tranzakciós költség:"
+      save_settings: "Beállítások mentése"
+      minimum_listing_price_below_tx_fee: "A minimális tranzakció összegének megegyezőnek vagy nagyobbnak kell lennie a minimális tranzakciós díjnál:%{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "A minimális tranzakció összege legyen nagyobb mint a minimális jutalék %{minimum_commission}."
+    payment_preferences:
+      title: "Fizetési rendszer preferenciák"
+      general_settings: "Általános beállítások"
+      connect_a_payment_provider: "2. Csatlakoztasson egy fizetési szolgáltatót"
+      contact_support: "Vegye fel a kapcsolatot az ügyfélszolgálattal."
+      no_payments_link_text: itt
+      your_country: "Ország:"
+      you_cannot_use_online_payments: "Ön nem tud online fizetési módot használni a %{country_name} országban a %{currency} pénznemmel. Válasszon másik pénznemet vagy %{support_link}  változtassa meg az országot. Olvasson többet a támogatott országokról és pénznemekről a %{help_link} linken. A jövőben várhatóan további fizetési szolgáltatókat veszünk fel és több valutát elfogadunk majd."
+      which_to_choose: "Melyiket válasszam?"
+      you_can_use_stripe_or_paypal: "Használhatja a Stripe-t, a PayPal-t vagy mindkettőt fizetési szolgáltatóként: %{choose_link}"
+      you_can_use_stripe_only: "Használhatja a Stripe-t fizetési szolgáltatóként: %{read_more_link}"
+      read_more_stripe: "Bővebben a Stripe fizetésről."
+      you_can_use_paypal_only: "Használhatja a PayPal-t fizetési szolgáltatóként: %{read_more_link}"
+      read_more_paypal: "Bővebben a Paypal fizetésről"
+      read_more_about_paypal_and_stripe: "Bővebben az online fizetésről, Stripe és Paypal"
+      general_settings_updated: "A fizetési rendszer általános beállításai frissítve"
+      transaction_fee_settings_updated: "Tranzakciós díj beállítások frissítve"
+      choose_popup_text: |-
+          Ha azt akarja, hogy a felhasználói elfogadják az online fizetési módokat, akkor ki kell választania a piacterének a pénznemét, majd csatlakoznia kell a Sharetribe által támogatott két fizetési szolgáltató közül legalább az egyikhez: Stripe és PayPal. Dönthet úgy is, hogy mindkettőt használja, ami azt jelenti, hogy a felhasználók bármelyik fizetési móddal elfogadhatják a fizetéseket.
+          Bármelyik szolgáltatással létrehozhat új fiókot, ha még nem rendelkezik ilyennel. Miután kiválasztott egy fiókot, kiválaszthat egy lehetséges díjszabást amelyet az egyes tranzakciókra szab ki.
+          Mi a különbség a Stripe és a PayPal között? A Stripe lehetővé teszi, hogy legfeljebb 3 hónappal késleltesse az eladónak történő kifizetést, és egy fizetési módot kínál (hitel- / bankkártya). A Stripe lehetővé teszi az eladók számára, hogy pénzt közvetlenül a bankszámlájukra kapják meg, egyszerűen azáltal, hogy megadják a bank adataikat. A PayPal két fizetési módot kínál (hitelkártya és PayPal számla), és védelmi programot kínál a vásárlók és az eladók számára. Az eladóknak PayPal üzleti számlát kell létrehozniuk a fizetések elfogadásához.
+          Ha Stripe-t használ, akkor annak díjai levonásra kerülnek a tranzakciós díjból, ezért ne felejtsen el beállítani egy megfelelően magas minimumdíjat. Ha PayPal-t használ, annak díjai az eladótól külön, a tranzakciós díjon felül kerülnek felszámításra. A Stripe és a PayPal díjstruktúrája kissé eltér. A legtöbb esetben a Stripe díjai kissé alacsonyabbak.
+      invalid_api_keys: "Érvénytelen Stripe API kulcsok"
+      missing_api_keys: "Hiányzó Stripe API kulcsok"
+      stripe_verified: "Stripe API hozzáférés ellenőrizve"
+      change_settings: "Beállítások és a díjak módosítása"
+      configure_stripe: "Stripe konfigurálása"
+      configure_paypal: "Paypal konfigurálása"
+      transaction_fee_settings: "Tranzakciós díj beállítások"
+      transaction_fee_save: Mentés
+      stripe_fee: "Stripe díjak"
+      stripe_fee_notice: "%{stripe_fee_link} levonásra kerül a felszámított tranzakciós díjból."
+      fee_should_be_less_than_minimum_price: "A minimum tranzakciós díjnak alacsonyabbnak kell lennie a minimum tranzakció méretnél"
+      the_transaction_fee_must_be_lower_than_100: "A tranzakciós díjnak 100% -nál alacsonyabbnak kell lennie"
+      confirm_disable: "Biztos benne, hogy szeretné letiltani a %{gateway} szolgáltatást? Ha letiltja, az eladók már nem kapnak pénzt, a vásárlók pedig már nem tudnak fizetni ezen a fizetési módon keresztül. Ha az eladók nem konfiguráltak egy másik fizetési módot, akkor a vevők nem fognak tőlük vásárolni."
+      commission_from_buyer_label: "Vevő tranzakciós díja:"
+      minimum_buyer_transaction_fee_label: "Vevő minimum tranzakciós díja:"
+      stripe_connected:
+        title: "Stripe csatlakoztatva"
+        disable: "Tiltsa le a Stripe szolgáltatást"
+        disabled: "Stripe letiltva"
+        enable: "Engedélyezze újra a Stripe szolgáltatást"
+      paypal_connected:
+        title: "Paypal csatlakoztatva"
+        disable: "Tiltsa le a PayPal szolgáltatást"
+        disabled: "PayPal letiltva"
+        enable: "Engedélyezze újra a PayPal szolgáltatást"
+      cannot_enable_gateway: "Nem lehet engedélyezni a fizetési kaput %{gateway}."
+      cannot_disable_gateway: "Nem lehet letiltani a fizetési kaput %{gateway}"
+      cannot_enable_gateway_because_of_buyer_commission: "Nem lehet engedélyezni a %{gateway} fizetési kaput, mert a vevői jutalékot felhasználják."
+      stripe_form:
+        add_your_api_keys: "Adja meg Stripe API adatait"
+        how_to_get_these: "Hogyan szerezhetem be ezeket?"
+        publishable_key_example: "Például: %{api_publishable_key_example}"
+        secret_key_example: "Például: %{api_secret_key_example}"
+        save_api_keys: "Mentse el Stripe API adatait"
+        invalid_secret: "Ez nem tűnik a helyes %{secret_key} -nak/nek"
+        invalid_publishable: "Ez nem tűnik a helyes %{publishable_key} -nak/nek"
+      index:
+        header: "Elérhető fizetési beállítások"
+        info: "Konfigurálhatja az elérhető fizetési módokat a piactéren történő felhasználáshoz. Jelenleg a PayPal és a Stripe támogatott."
+        active: Aktív
+        gateway: Hozzáférés
+        process: Folyamat
+        commission: Jutalék
+        minimum_price: "Min. ár"
+        minimum_fee: "Min. díj"
+        api_verified: "API ellenőrizve?"
+        actions: Műveletek
+        payments_not_enabled: "A fizetés nem engedélyezett az Ön piacterén."
+    transaction_types:
+      sell: Eladás
+      sell_w_online_payment: "Online fizetéssel történő eladás"
+      sell_wo_online_payment: "Eladás online fizetési lehetőség nélkül"
+      rent: Bérbeadás
+      rent_w_online_payment: "Kölcsönzés online fizetéssel"
+      rent_wo_online_payment: "Kölcsönzés online fizetési lehetőség nélkül"
+      give: Ajándékozás
+      lend: Kölcsönöz
+      swap: Cserél
+      service: Ajánlat
+      service_w_online_payment: "Ajánlat online fizetéssel"
+      service_wo_online_payment: "Ajánlat online fizetési lehetőség nélkül"
+      request: Kérés
+      inquiry: Közlemény
+      share_for_free: "ingyen fuvar"
+      event_w_online_payment: "Esemény online fizetéssel"
+      event_wo_online_payment: "Esemény online fizetés nélkül"
+      default_action_button_labels:
+        sell: Vásárlás
+        rent: Bérlet
+        request: Ajánlat
+        offer: ajánlatkérés
+        inquiry: Kapcsolatfelvétel
+        book: Foglaljon
+    community_transactions:
+      show:
+        transaction_for: "%{transaction_id} tranzakció a %{link} linken"
+        status: "Státusz:"
+        next_step: "Következő lépés:"
+        waiting_for_provider_accept_or_reject: "Várakozás arra, hogy %{provider} elfogadja vagy elutasítsa a kérést."
+        waiting_for_fulfill_and_complete: "Várakozás a %{provider} szolgáltatóra hogy teljesítse a %{listing_title} hirdetésben szereplő megrendelést és a %{buyer} vevőre, hogy jelölje teljesítettként a rendelést."
+        buyer: "Vevő:"
+        provider: "Eladó:"
+        delivery: "Szállítási mód:"
+        shipping_to: "Szállítás a %{address} címre"
+        buyer_pays: "Vevő fizet:"
+        marketplace_collects: "%{service_name} összegyűjti:"
+        buyer_service_fee_label: "Jutalék a vevőtől:"
+        service_fee_label: "Jutalék az eladótól:"
+        provider_receives: "Az eladó kap:"
+        admin_info_text: "A %{service_name} adminjaként megtehet néhány lépést, hogy előremozdítsa a tranzakciót:"
+        manage_reviews: "Kezelje az értékeléseket"
+        you_should_investigate: "Meg kell vizsgálnia a helyzetet mindkét fél bevonásával és döntenie kell a vitás tétel árának visszatérítéséről vagy elutasításáról. %{learn_more_link}"
+        learn_more: "Tudjon meg többet."
