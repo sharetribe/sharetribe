@@ -5,1224 +5,6 @@ ko:
         separator: "."
         delimiter: ","
         format: "%u%n"
-  admin:
-    categories:
-      edit:
-        edit_listing_category: "분류 '%{category}' 편집"
-      index:
-        listing_categories: "매물 카테고리"
-        create_a_new_category: "+ 새로운 분류 추가"
-        remove_category_confirmation: "분류 '%{category_name}'을/를 정말로 삭제하시겠습니까?"
-        saving_order: "분류 순서 저장"
-        save_order_successful: "분류 순서가 저장되었습니다."
-        save_order_error: "분류 순서 저장 중 오류가 발생하였습니다. 페이지를 새로고침하신 후에 다시 시도하세요."
-      new:
-        new_listing_category: "새로운 분류"
-      form:
-        category_name:
-          category_title: "분류 이름"
-        category_parent:
-          category_parent: "상위 분류"
-          no_parent: "상위 분류 없음"
-        category_transaction_types:
-          transaction_types: "구매 종류"
-          transaction_types_description: "구매 타입은 이 카테고리의 매물이 어떤 구매 절차를 따를 것인지 정합니다. 예를 들면, 판매만인지 아니면 대여 포함인지."
-          select_all: "전체 선택"
-          clear_all: "전체 해제"
-        buttons:
-          save: 저장
-          cancel: 취소
-      remove:
-        remove_category: "분류 삭제"
-        remove_category_name: "분류 '%{category_name}' 삭제"
-        warning_remove_effects: "주의: 분류 '%{category_name}'를 삭제하시면 다음과 같은 영향이 있습니다:"
-        warning_listing_will_be_moved:
-          other: "이 카테고리에 %{count}개의 매물이 있습니다. 이 매물은 선택하신 카테고리로 이동합니다."
-        warning_custom_field_will_be_moved:
-          other: "해당 분류에 %{count}개의 커스텀 항목이 있습니다. 해당 항목은 선택하신 분류로 옮겨집니다."
-        warning_subcategory_will_be_removed:
-          other: "해당 분류에 %{count}개의 하위 분류가 있습니다. 해당 하위 분류도 삭제됩니다."
-        warning_with_subcategories_listing_will_be_moved:
-          other: "이 카테고리와 하위 카테고리에 %{count}개의 매물이 있습니다. 이 매물은 선택하신 카테고리로 이동합니다."
-        warning_with_subcategories_custom_field_will_be_moved:
-          other: "해당 분류와 하위 분류에 %{count}개의 커스텀 항목이 있습니다. 해당 항목은 선택하신 분류로 옮겨집니다."
-        select_new_category: "옮겨질 새로운 분류를 선택하세요:"
-        buttons:
-          remove: 삭제
-          cancel: 취소
-    communities:
-      edit_details:
-        community_details: "기본 정보"
-        community_look_and_feel: 디자인
-        edit_community: "기본 정보"
-        enabled_languages: "사용 가능한 언어"
-        enabled_languages_description: "사용자가 사용할 수 있는 언어 집합입니다. 첫 번째 매개 변수가 기본값으로 사용됩니다."
-        default_language: "기본 언어"
-        language_selection_disabled: "다음과 같은 비공식 언어: %{languages} 을(를) 사용 중이기 때문에 마켓 플레이스의 언어 선택을 사용할 수 없습니다. 언어 설정을 수정하려면 Sharetribe 지원부팀에 문의하십시오."
-        community_name: "마켓플레이스 이름"
-        edit_community_name_description: "마켓플레이스 이름입니다. 이메일 및 다양한 페이지에서 사용자에게 보여집니다."
-        community_slogan: "마켓플레이스 슬로건"
-        community_slogan_display: ~
-        edit_community_slogan_description: "로그인하지 않은 사용자에게 마켓 플레이스 상단에 보여집니다. %{see_how_it_looks_like}."
-        edit_community_slogan_description_hideable: ~
-        community_description: "마켓플레이스 설명"
-        community_description_display: ~
-        edit_community_description_description: "로그인하지 않은 사용자에게 마켓 플레이스 상단에 보여집니다. %{see_how_it_looks_like}."
-        edit_community_description_description_hideable: ~
-        community_search_placeholder: "도움말 텍스트 검색"
-        edit_community_search_placeholder_description: "이것은 검색창에 플레이스홀더 텍스트로 마켓 플레이스의 홈페이지에 표시됩니다. %{see_how_it_looks_like}."
-        private_community_homepage_content: "개인 마켓플레이스 홈페이지 컨텐츠"
-        edit_private_community_homepage_content_description: "이 컨텐츠는 개인 마켓플레이스에 로그인하지 않은 사용자에게 보여집니다. 당신의 마켓플레이스 및 가입 절차를 설명하실 수 있습니다. 이미지, 비디오, HTML 등의 컨턴츠를 추가하실 수 있습니다. %{see_how_it_looks_like}."
-        update_information: "설정 저장"
-        invite_people: "%{service_name}로 친구 초대"
-        edit_signup_info: "등록 정보"
-        edit_signup_info_description: "사용자가 신규 가입할 때 보여지는 내용입니다. 사용자에게 가입 안내와 초대하기와 같은 정보를 알려 줄 수 있습니다. 기본 설정으로 어떤 안내도 제공되지 않습니다."
-        edit_info: "정보 변경"
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: "확인되지 않은 사용자에 대한 정보 텍스트"
-        verification_to_post_listings_info_content_description: "현재 판매자가 매물을 등록하기 전에 수동으로 승인을 받도록 요구하고 있습니다. 승인 받지 않은 판매자들이 매물을 등록할때 보이는 기본 텍스트를 여기서 지정할 수 있습니다."
-        verification_to_post_listings_info_content_default: "%{service_name}의 관리자가 승인한 사용자만이 매물을 등록할 수 있습니다. 아직 승인을 받지 못하셨습니다. %{contact_admin_link} 에서 승인을 요청하십시요."
-        contact_admin_link_text: "%{service_name} 연락하기"
-        save: "설정 저장"
-        transaction_agreement: "거래 계약서"
-        transaction_agreement_checkbox: "사용자가 거래 전에 계약서에 동의하도록 요청하십시오."
-        transaction_agreement_checkbox_header: "계약 라벨"
-        transaction_agreement_checkbox_label_description: "이 텍스트는 결제 양식의 확인란 옆에 표시됩니다. 거래를 계속하려면 상자를 선택해야합니다. 예제 레이블은 \"이 상자를 클릭하면 계약에 동의합니다.\""
-        transaction_agreement_text_header: "계약서 텍스트"
-        transaction_agreement_description: "이것은 사용자가 수락해야하는 실제 계약의 내용입니다. 계약 내용은 사용자가 계약 레이블 옆의 \"%{read_more}\"링크를 클릭하면 표시됩니다."
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
-      edit_look_and_feel:
-        edit_community_look_and_feel: "마켓플레이스 %{community_name} 꾸미기"
-        community_logo: 로고
-        community_logo_icon: "모바일용 로고"
-        community_logo_icon_mobile: ~
-        community_cover_photo: "표지 이미지"
-        small_community_cover_photo: "작은 표지 이미지"
-        favicon: 파비콘
-        favicon_info_text: "Favicon이 기본 Sharetribe 로고를 대체합니다. 크기는 32x32 픽셀이어야 하며 업로드된 이미지는 이 사이즈로 조정됩니다."
-        community_custom_color1: "메인 컬러"
-        community_slogan_color: "마켓 플레이스 슬로건 색상"
-        community_slogan_color_instructions_text: "Homepage에서 16 진수 색상 값을 입력하여 슬로건의 색상을 변경할 수 있습니다. 슬로건은 로그인하지 않은 사용자에게 표시됩니다. %{colorpicker}는 색상을 선택하고 16 진수 색상 코드를 제공합니다. 그런 다음 여기에 코드를 복사 할 수 있습니다. %{see_how_it_looks_like}."
-        community_description_color: "마켓플레이스 설명 색상"
-        community_description_color_instructions_text: "홈페이지의 설명 색상은 16 진수 색상 값을 입력하여 변경할 수 있습니다. 설명은 로그인하지 않은 사용자에게 표시됩니다. %{colorpicker}는 색상을 선택하고 16 진수 색상 코드를 제공합니다. 그런 다음 여기에 코드를 복사 할 수 있습니다. %{see_how_it_looks_like}."
-        new_listing_button_custom_color: "신규 매물 버튼 색 게시"
-        logo_instructions_text_with_dimensions: "로고는 %{width} x %{height} 픽셀로 제공해주세요. 큰 화면을 사용하는 사용자에게 보여집니다."
-        logo_instructions_text_with_dimensions_no_placing: "로고 크기는 %{width} x %{height} px 여야합니다."
-        logo_icon_instructions_text_with_dimensions: "정사각형 로고는 모바일 화면 또는 페이스북을 통해 사이트를 공유할 때 사용됩니다. 가급적 %{width} x %{height}픽셀로 만들어주세요."
-        logo_icon_instructions_text_with_dimensions_no_placing: "이 사각형 로고는 사람들이 Facebook에서 귀하의 사이트를 공유하거나 모바일 장치의 홈 화면에 귀하의 사이트를 북마크 할 때 표시됩니다. 크기는 적어도 %{width} x %{height} px 여야합니다."
-        logo_mobile_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: "표지 이미지는 메인 페이지에서 로그인하지 않은 사용자에게 보여집니다."
-        cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다. %{see_how_it_looks_like}"
-        we_have_you_covered: ~
-        cover_photo_ready_made: ~
-        small_cover_photo_visibility: "작은 표지 이미지는 메인페이지 이외의 모든 페이지에서 로그인하지 않은 사용자에게 보여집니다."
-        small_cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다."
-        main_content_width: "표지 사진은 가로 최대 %{main_width} 픽셀까지 허용됩니다. 또한, 작은 화면에서 표지 사진이 어떻게 보여지는지 확인하세요 (브라우저 창의 크기를 줄여서 확인 가능합니다)."
-        custom_color1_instructions_text: "사용자 인터페이스의 메인 컬러를 컬러 코드를 입력하여 변경하실 수 있습니다. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>에서 컬러 코드를 확인하신 후 코드를 복사하여 사용하세요."
-        new_listing_button_instructions_text: "새 16 진수 값을 입력하여 새 목록 게시 버튼의 색상을 변경할 수 있습니다. %{link_to_colorpicker}는 색상을 선택하고 16 진수 색상 코드를 제공합니다. 그런 다음 여기에 코드를 복사 할 수 있습니다."
-        default_browse_view: "기본 브라우즈 보기"
-        default_browse_view_instructions_text: "기본 브라우저 보기는 홈페이지에서 매물이 기본적으로 표시되는 방식을 설정하는 데 사용됩니다."
-        grid: 그리드
-        list: 리스트
-        map: 지도
-        name_display_type: "이름 표시 유형"
-        name_display_type_instructions_text: "각 사용자의 이름이 사이트에 표시되는 방식을 선택하십시오."
-        full_name: "성명 (이름 성)"
-        first_name_with_initial: "이름의 이니셜 (이름 이니셜)"
-        first_name_only: "이름만 (성은 제외)"
-        invalid_color_code: "컬러 코드는 6자리의 숫자 또는 알파벳 A-F로 구성됩니다 (예: D96E21)."
-        custom_head_script: "사용자 정의 스크립트"
-        custom_head_script_instructions_text: ~
-        current_image: "현재 이미지:"
-      edit_text_instructions:
-        edit_text_instructions: 설명서
-      edit_welcome_email:
-        welcome_email_content: "환영 이메일 내용"
-        welcome_email_content_description: "아래의 메시지는 모든 신규 가입자에게 발송됩니다. 당신의 마켓 플레이스에 맞게 커스터마이즈 해보세요. %{send_test_message_link}을 클릭하면 메시지가 당신의 이메일로 보내지고, 고객에게 어떻게 보여지는지 확인하실 수 있습니다."
-        edit_message: "메시지 편집"
-        send_test_message: "테스트 메시지 보내기"
-      outgoing_email:
-        title: "발신 이메일 주소"
-        info: "이 이름과 주소는 마켓 플레이스에서 회원에게 보낸 이메일에 사용됩니다."
-        read_more: "발신 이메일 주소에 대해 자세히 읽어보세요"
-        sender_address: "발신자 주소 : %{sender_address}"
-        sender_address_default: "발신자 주소 : 설정되지 않음 (기본 주소 %{sender_address} 사용)"
-        need_to_change: "이메일 주소를 변경해야하는 경우 %{contact_support_link}하시기 바랍니다."
-        contact_support_link_text: "Sharetribe 지원팀에 문의하기"
-        set_sender_address: "발신자 주소 설정"
-        sender_name_label: 이름
-        sender_name_placeholder: "발신자 이름"
-        sender_email_label: 이메일
-        sender_email_placeholder: sender-email@example.com
-        amazon_ses_notification: "%{email_sender}로부터 인증 이메일을 받게됩니다. 이메일 타이틀은 '%{email_subject}' 입니다. 안내에 따라 이메일을 인증해주세요."
-        this_is_how_it_will_look: ~
-        send_verification_button: "확인 이메일 보내기"
-        change_sender_email: "발신자 이메일 변경"
-        successfully_saved: "보낸 사람 주소가 성공적으로 저장되었습니다. 확인 이메일이 곧 전송됩니다."
-        successfully_saved_name: "발신자 이름이 업데이트 되었습니다."
-        set_sender_name: "발신자 이름 변경"
-        change_sender_name: "발신자 이름 변경"
-        change_sender_prompt: "%{change_name_link} 또는 %{change_email_link}"
-        status: "상태 : %{status}"
-        status_verified: "증명됨 - 사용 중"
-        status_error: "에러 발생됨. 페이지를 새로 고침하십시오."
-        status_requested: "확인되지 않음 - 확인 이메일을 %{email} %{time_ago} (으)로 보냈습니다. %{resend_link}"
-        status_expired: "%{email} 확인이 만료되었습니다. %{resend_link}"
-        status_resent: "확인 이메일이 %{email}에 재전송됩니다. %{resend_link}"
-        resend_link: 재전송
-        invalid_email_error: "'%{email}'에 대한 이메일 형식이 잘못되었습니다."
-        invalid_email_address: ~
-        invalid_email_domain: "'%{email}'이메일 주소가 지원되지 않는 이메일 제공 업체인 '%{domain}'을 사용 중입니다. %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: "자세한 내용은 도움말 센터를 참조하십시오."
-        unknown_error: "오류가 발생했습니다"
-        white_label_offer: "%{upgrade_pro_plan_link}에서 본인의 이메일을 발신자로 설정하고 발신 메일에서 모든 Sharetribe 브랜드를 제거할 수 있습니다."
-        upgrade_plan_link: "프로 계획 이상으로 업그레이드"
-        verification_sent_from: "확인 이메일은 %{verification_sender_name}에서 발송되었습니다."
-        follow_the_instructions: "이메일의 지침에 따라 주소를 확인하십시오."
-      getting_started:
-        getting_started: ~
-      available_languages:
-        bg: ~
-        ca: ~
-        cs: ~
-        da-DK: 덴마크어
-        de: 독일어
-        el: 그리스어
-        en: 영어
-        en-AU: 영어(호주)
-        en-GB: 영어(영국)
-        es: ~
-        es-ES: ~
-        et: ~
-        fi: 핀란드어
-        fr: 프랑스어
-        fr-CA: 영어(캐나다)
-        hr: ~
-        hu: ~
-        it: 이탈리아어
-        ja: 일본어
-        ko: ~
-        lt: ~
-        nb: 노르웨이어
-        nl: 네덜란드어
-        pl: ~
-        pt-BR: 포르투갈어(브라질)
-        pt-PT: 포루투갈어
-        ro: ~
-        ru: 러시아어
-        sk-SK: ~
-        sl: ~
-        sv: 스웨덴어
-        th-TH: ~
-        tr-TR: 터키어
-        uk: ~
-        vi: ~
-        zh: 중국어
-        zh-TW: ~
-      settings:
-        settings: 설정
-        general: 일반
-        access: "액세스 환경 설정"
-        join_with_invite_only: "이미 등록된 사용자가 초대하였을때만 새로운 사용자가 참여하도록 허용"
-        users_can_invite_new_users: "모든 사용자가 새 사용자를 초대하도록 허용"
-        private: "등록된 사용자만 매물 및 사용자 프로필을 볼 수 있습니다 (마켓 플레이스를 비공개로 설정)."
-        require_verification_to_post_listings: "관리자가 승인한 사용자만 신규 매물을 등록할 수 있도록 허용"
-        allow_free_conversations: "사용자들이 서로 메시지를 주고 받을 수 있도록 허용"
-        search_preferences: "검색 환경 설정"
-        search_and_location_preferences: ~
-        default_search_type: "검색 유형 : %{select_search_type}"
-        keyword_search: "키워드 검색"
-        keyword_and_location_search: "키워드 및 위치 검색"
-        location_search: "위치 검색"
-        select_distance_unit: "거리를 %{distance_units_selector}로 표시하십시오."
-        km: 킬로미터
-        miles: 마일
-        show_only_nearby: "위치 검색을 사용하여 주변 매물만 표시하기"
-        allow_users_to_add_location: ~
-        fuzzy_location: ~
-        listing_preferences: "매물 환경설정"
-        transaction_preferences: "주문 환경 설정"
-        show_listing_publishing_date: "매물 페이지에 매물 게시 날짜 표시"
-        show_category_in_listing_list: "리스트 보기에서 매물 타입 표시"
-        listing_comments_in_use: "사용자가 매물에 댓글을 올릴 수 있도록 허용 (모든 사용자에게 노출됨)."
-        email_preferences: "이메일 환경 설정"
-        automatic_newsletters: "일간 / 주간 뉴스레터 자동으로 모든 사용자에게 보내기 (사용자가 원하는 경우)"
-        email_admins_about_new_members: "새 사용자가 가입 할 때마다 관리자에게 이메일 보내기"
-        google_analytics_key: ~
-        twitter_handle: "트위터 핸들 (매물 페이지의 트윗 버튼과 함께 사용)"
-        update_settings: "설정 저장"
-        automatically_confirmed_no_escrow: "결제 후 %{days_dropdown}일이 지나면 자동으로 주문이 완료된 것으로 표시됩니다."
-        automatically_confirmed_no_escrow_stripe_info: "Stripe를 통한 결제의 경우, 대금지급은 거래완료가 확인될 때까지 보류됩니다. %{learn_more}"
-        buyer_transaction_fees_are_only_supported_with_stripe: ~
-        automatic_newsletter_frequency: "자동으로 뉴스레터 보내기 : %{frequency_dropdown}"
-        newsletter_daily: 매일
-        newsletter_weekly: 매주
-        delete_marketplace_title: "마켓플레이스 삭제"
-        type_marketplace_domain: "마켓 플레이스 도메인 (%{domain})을 아래 텍스트 입력란에 입력하십시오."
-        type_marketplace_domain_placeholder: "여기에 마켓 플레이스 도메인을 입력하십시오."
-        once_you_delete: "마켓 플레이스를 삭제하면 더 이상 액세스 할 수 없습니다. 주의바랍니다"
-        are_you_sure: 확인
-        i_understand_button: "이 버튼을 클릭하면 마켓 플레이스가 삭제된다는 것을 이해합니다."
-        last_community_updates: "삭제 후에도 귀하와 귀하의 마켓 플레이스 사용자는 마켓 플레이스 업데이트 이메일을 받을 수 있습니다."
-        you_will_be_redirected_to: "마켓 플레이스를 삭제하면 %{목적지}로 리디렉션됩니다. 더 이상 시장에 액세스 할 수 없습니다."
-        delete_this_marketplace: "이 마켓플레이스를 삭제하기"
-        payment_preferences: "결제 시스템"
-        pre_approved_listings: ~
-        email_admins_about_new_transactions: ~
-      manage_members:
-        manage_members: "사용자 관리"
-        email: 이메일
-        name: 이름
-        display_name: 대화명
-        join_date: 가입
-        admin: 관리자
-        posting_allowed: "게시 허용"
-        ban_user: 금지
-        saving_user_status: 저장중...
-        save_user_status_successful: 저장되었습니다.
-        export_all_as_csv: "CSV로 모두 내보내기"
-        save_user_status_error: "저장하지 못했습니다. 페이지를 새로 고침하고 다시 시도하십시오."
-        ban_user_confirmation: "이렇게하면 마켓 플레이스에서 사용자가 삭제되고 사용자가 이 계정으로 사이트에 다시 액세스하지 못하게됩니다. 계속 하시겠습니까?"
-        unban_user_confirmation: "이렇게하면 마켓 플레이스의 사용자가 차단되고이 계정으로 사이트에 다시 액세스 할 수 있습니다. 계속 하시겠습니까?"
-        ban_me_error: "본인의 계정을 비활성화 할 수는 없습니다."
-        have_ongoing_transactions: ~
-        only_delete_disabled: ~
-        delete_info1: ~
-        delete_info2: ~
-        search: 검색
-        search_by_name_email: "이름, 이메일 또는 대화명으로 찾기"
-        reset_search: "전체 보기"
-        for_search_terms: "%{terms}동안"
-        this_makes_the_user_an_admin: ~
-        status_filter:
-          all: "모든 상태"
-          selected: ~
-          selected_js: ~
-          admin: ~
-          banned: ~
-          posting_allowed: ~
-          accepted: ~
-          unconfirmed: ~
-          pending: 보류
-        this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
-        confirm: 확인
-        user_didnt_complete_the_signup_process: ~
-        pending_user: "보류: %{name}"
-      new_layout:
-        new_layout: "새 레이아웃"
-        description_roadmap_new: "마켓 플레이스에서 새 레이아웃 구성 요소를 사용할 수있게 되면 새 구성 요소를 사용할지 아니면 이전 구성 요소를 계속 사용 할지를 선택할 수 있습니다. 이 페이지에서 언제든지 선택 사항을 토글 할 수 있습니다. 이전 버전의 구성 요소가 어느 정도 단계적으로 제거 될 수 있으므로 항상 새 버전을 사용하는 것이 좋습니다. 현재 사용중인 구성 요소가 단계적으로 제거되는 경우 사전에 연락을 받게됩니다."
-        enabled_for_you: "본인만 사용"
-        enabled_for_all: "모두 사용"
-        new_topbar: "새로운 최상위바 (모든 페이지에 표시됨)"
-        searchpage: "새 검색 페이지 (새 최상위 바가 필요함)"
-        new_email_templates: ~
-      social_media:
-        social_media: "소셜 미디어"
-        logo: ~
-        logo_info: ~
-        social_media_title: ~
-        social_media_title_info: ~
-        link_for_facebook: ~
-        link_for_linkedin: ~
-        link_for_twitter: ~
-        social_media_description: ~
-        twitter_handle: "트위터 핸들"
-        twitter_handle_info_text: "귀하의 마켓 플레이스의 트위터 계정의 사용자 이름 (있는 경우). 사람들이 목록 페이지에서 트윗 버튼을 사용할 때 언급됩니다."
-        twitter_handle_info_text_with_instructions: "귀하의 마켓 플레이스의 트위터 계정의 사용자 이름 (있는 경우). 사람들이 목록 페이지에서 트윗 버튼을 사용할 때 언급됩니다. %{instructions_link}."
-        twitter_instructions_link_text: 더읽기
-        twitter_handle_placeholder: 사용자명
-        invalid_twitter_handle: "트위터 핸들은 최대 15 자의 영숫자 (A-Z 및 0-9 자) 문자만 포함해야합니다."
-        facebook_connect: 페이스북
-        facebook_developers_dashboard: ~
-        facebook_connect_info_text: "Facebook 로그인을 활성화하려면 <a href='https://developers.facebook.com/'> Facebook 개발자 대시 보드 </a>에서 마켓 플레이스용 응용 프로그램을 만드십시오. 생성된 ID와 애플리케이션의 비밀 키를 여기에 추가하십시오."
-        facebook_connect_info_text_with_instructions: "Facebook 로그인을 활성화하려면 <a href='https://developers.facebook.com/'> Facebook 개발자 대시 보드 </a>에서 마켓 플레이스 용 응용 프로그램을 만드십시오. 생성 된 ID와 애플리케이션의 비밀 키를 여기에 추가하십시오. %{instructions_link}"
-        facebook_instructions_link_text: "Facebook Connect 구성 지침을 참조하십시오."
-        facebook_connect_id: "Facebook 클라이언트 ID"
-        invalid_facebook_connect_id: "클라이언트 ID는 숫자만 포함해야합니다."
-        facebook_connect_secret: "Facebook 클라이언트 비밀"
-        invalid_facebook_connect_secret: "클라이언트 비밀은 a에서 f까지의 숫자와 문자만 포함해야 합니다."
-        enable_facebook_login: "페이스북 계정으로 로그인 허용"
-        save: "설정 저장"
-        google_connect: ~
-        google_instructions_link_text: ~
-        google_developers_console: ~
-        google_connect_info_text_with_instructions: ~
-        google_connect_info_text: ~
-        enable_google_login: ~
-        google_connect_id: ~
-        google_connect_secret: ~
-        linkedin_connect: ~
-        linkedin_instructions_link_text: ~
-        linkedin_developers_dashboard: ~
-        linkedin_connect_info_text_with_instructions: ~
-        linkedin_connect_info_text: ~
-        enable_linkedin_login: ~
-        linkedin_connect_id: ~
-        linkedin_connect_secret: ~
-      seo_settings:
-        seo: ~
-        title: ~
-        meta_title_label: ~
-        meta_title_info: ~
-        meta_title_link_text: ~
-        meta_description_label: ~
-        meta_description_info: ~
-        meta_description_link_text: ~
-        search_title: ~
-        search_meta_title_label: ~
-        search_meta_title_info: ~
-        search_meta_title_link_text: ~
-        search_meta_description_label: ~
-        search_meta_description_info: ~
-        search_meta_description_link_text: ~
-        listing_title: ~
-        listing_meta_title_label: ~
-        listing_meta_title_info: ~
-        listing_meta_title_link_text: ~
-        listing_meta_description_label: ~
-        listing_meta_description_info: ~
-        listing_meta_description_link_text: ~
-        category_title: ~
-        category_meta_title_label: ~
-        category_meta_title_info: ~
-        category_meta_title_link_text: ~
-        category_meta_description_label: ~
-        category_meta_description_info: ~
-        category_meta_description_link_text: ~
-        profile_title: ~
-        profile_meta_title_label: ~
-        profile_meta_title_info: ~
-        profile_meta_title_link_text: ~
-        profile_meta_description_label: ~
-        profile_meta_description_info: ~
-        profile_meta_description_link_text: ~
-        sitemap_label: ~
-        sitemap_info: ~
-        sitemap_info_link_text: ~
-        sitemap_info_public: ~
-        sitemap_info_private: ~
-        robots_label: ~
-        robots_info: ~
-        robots_info_link_text: ~
-        robots_info_2: ~
-        google_search_console: ~
-        google_search_console_paragraph1: ~
-        google_search_console_these_instructions: ~
-        google_search_console_paragraph2: ~
-        save: ~
-      analytics:
-        analytics: 분석
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: "Google 애널리틱스 연결에 대해 자세히 알아보기"
-        sharetribe_analytics: ~
-        sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: ~
-        save: "설정 저장"
-        google_tag_manager: ~
-        gtm_paragraph_1: ~
-        gtm_paragraph_2: ~
-        learn_how_to_configure_gtm: ~
-      logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
-      menu_links:
-        menu_links: 메뉴링크
-        menu_links_display: ~
-        save: "설정 저장"
-        add_menu_link: "메뉴에 새 링크 추가"
-        title_placeholder: "링크 타이틀"
-        url_placeholder: "http://example.com/en"
-        title: 타이틀
-        language: 언어
-        url: URL
-        empty: "추가 메뉴 링크가 없습니다."
-        max_number_of_links: "위의 바에 표시된 최대 링크 수 : %{select_max_number}"
-        all: 모든
-        max_number_of_links_info: "%{about_page}에 대한 링크는 항상 첫번째 메뉴 링크로 표시됩니다."
-        about_page: "페이지에 대해"
-      default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
-      topbar:
-        topbar: 탑바
-        new_listing_button_label: "새 매물 버튼 텍스트 게시"
-        invalid_post_listing_button_label: "'신규 매물 등록' 버튼에 유효한 텍스트를 입력하십시오."
-      transactions:
-        export_all_as_csv: "CSV로 모두 내보내기"
-        processing_export: ~
-        transactions: 거래보기
-        search_by_title_parties: "매물명으로 찾아보기"
-        search: 찾기
-        reset_search: 전체보기
-        status_filter:
-          all: "모든 상태"
-          selected: ~
-          selected_js: ~
-          free: 무상거래
-          confirmed: 완료
-          paid: 결제완료
-          canceled: 취소
-          disputed: 분쟁중
-          preauthorized: 사전승인
-          rejected: 거부
-          payment_intent_requires_action: 보류
-          payment_intent_action_expired: 만료
-          refunded: 환불
-          dismissed: 무시
-        headers:
-          conversation: "대화 목록"
-          listing: 매물
-          status: 상태
-          sum: 합계
-          started: 시작
-          last_activity: "최근 활동"
-          initiated_by: 개시자
-          other_party: 판매자
-        status:
-          conversation: 대화
-          free: 무상거래
-          pending: 대기중
-          preauthorized: 사전승인됨
-          accepted: 승인됨
-          rejected: 거절됨
-          paid: 결제됨
-          confirmed: 완결됨
-          canceled: 취소됨
-          disputed: 분쟁중
-          initiated: "PayPal 결제 대기중"
-          pending_ext: "PayPal 결제 대기중"
-          none:
-            free: 무상거래
-          paypal:
-            free: 대화
-            pending: 대기중
-            preauthorized: 사전승인됨
-            accepted: 승인됨
-            rejected: 거절됨
-            paid: 지불됨
-            confirmed: 확인됨
-            canceled: 취소됨
-            disputed: 분쟁중
-            initiated: "PayPal 결제 대기중"
-            pending_ext: "PayPal 결제 대기중"
-            refunded: 환불
-            dismissed: 무시
-          stripe:
-            free: 대화
-            pending: 대기중
-            preauthorized: 사전승인됨
-            accepted: 승인됨
-            rejected: 거절됨
-            paid: 지불됨
-            confirmed: 확인됨
-            canceled: 취소됨
-            disputed: 분쟁중
-            initiated: "스트라이프 결제 대기중"
-            pending_ext: "스트라이프 결제 대기중"
-            payment_intent_requires_action: 보류
-            payment_intent_action_expired: 만료
-            payment_intent_failed: ~
-            refunded: 환불
-            dismissed: 무시
-        not_available: "이용 불가"
-      conversations:
-        conversations: "대화 보기"
-        headers:
-          started_from: 시작위치
-          status: 상태
-          started: 시작
-          last_activity: "최근 활동"
-          initiated_by: 개시자
-          other_party: 판매자
-        participants: "대화: %{starter} with %{author}"
-        profile: "%{author}의 프로필"
-        search_by_keyword: "이름, 이메일 또는 키워드로 찾기"
-        search: 찾기
-        reset_search: 전체보기
-        for_keyword: ~
-      testimonials:
-        testimonials: 리뷰
-        no_testimonials_found: ~
-        displaying_xx_reviews: ~
-        search_keyword: "이름 또는 키워드로 찾기"
-        search: 찾기
-        reset_search: 전체보기
-        for_keyword: ~
-        headers:
-          transaction: 거래
-          author: 작성자
-          receiver: 수신자
-          status: ~
-          grade: ~
-          text: ~
-        status:
-          waiting: "승인 대기중"
-          skipped: ~
-          published: ~
-          blocked: ~
-        status_filter:
-          selected: ~
-          all: ~
-          published: ~
-          positive: ~
-          negative: ~
-          skipped: ~
-          waiting: ~
-          blocked: ~
-          selected_js: ~
-        form:
-          review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
-          block_review: ~
-          confirm_modify: ~
-          deleting_info: ~
-          blocking_info: ~
-          unskip: ~
-          if_you_unskip_the_review: ~
-          they_will_not_be_notified_automatically: ~
-      invitations:
-        invitations: 초대하기
-        used:
-          "yes": 사용
-          "no": 미사용
-        headers:
-          sent_by: 발신자
-          message: 메시지
-          sent_to: 수신자
-          used: 사용여부
-          date_sent: 보낸날짜
-      listings:
-        listings: 매물
-        search_by_title_author_category: "매물명, 작성자 또는 카테고리명으로 찾기"
-        search: 찾기
-        reset_search: "모두 보기"
-        export_all_as_csv: ~
-        processing_export: ~
-        status:
-          all: "모든 상태"
-          selected_js: ~
-          open: 공개
-          closed: 비공개
-          expired: 만료
-          approval_pending: 보류
-          approval_rejected: 거부
-        headers:
-          title: 매물명
-          author: 작성자
-          created: 생성일
-          updated: 업데이트
-          category: 카테고리
-          status: 상태
-        open: 공개
-        closed: 닫힘
-        expired: 만료
-        approved: 승인
-        approval_pending: 보류
-        approval_rejected: 거부
-        form:
-          this_listing_has_not_not_been_approved_yet: ~
-          approve: 승인
-          reject: 거부
-          cancel: 취소
-      user_fields:
-        user_fields: ~
-      footer:
-        footer: ~
-        offer_pro: ~
-        upgrade_plan_link: ~
-        menu_links: ~
-        language: ~
-        title: ~
-        url: ~
-        add: ~
-        save: ~
-        footer_style: ~
-        footer_copyright: ~
-        footer_enabled: ~
-        social_links: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        style:
-          dark: ~
-          light: ~
-          marketplace_color: ~
-          logo: ~
-        social:
-          title: ~
-          url: ~
-      domain:
-        domain: ~
-        marketplace_domain: ~
-        offer_pro: ~
-        upgrade_pro_plan_link: ~
-        your_marketplace_address_is: ~
-        would_you_like_to_change_address: ~
-        contact_us: ~
-        you_can_now_use_a_custom_domain: ~
-        would_you_like_to_change_domain: ~
-        change_your_sharetribe_domain: ~
-        only_letters_numbers_and_hyphens_can_be_used: ~
-        when_you_change_your_sharetribe_domain: ~
-        would_you_like_to_proceed: ~
-        change: ~
-        you_can_now_enable_a_custom_domain: ~
-        read_more_about_the_set_up_of_your_custom_domain: ~
-        set_custom_domain: ~
-        in_order_to_set_your_custom_domain: ~
-        instructions_to_point_your_domain: ~
-        main_domain: ~
-        main_domain_info_text: ~
-        main_domain_link_text: ~
-        check_domain: ~
-        domain_being_checked: ~
-        status: ~
-        checks_pending: ~
-        please_check_back: ~
-        checks_not_passed: ~
-        check_the_domain_again_info: ~
-        check_the_domain_again: ~
-        use_another_domain: ~
-        checks_passed: ~
-        domain_being_set_up: ~
-        setup_in_progress: ~
-        setup_check_back: ~
-        setup_check_back_critical_error: ~
-        setup_failed: ~
-        setup_the_domain_again_info: ~
-        setup_the_domain_again: ~
-        summary:
-          main_domain: ~
-          redirect: ~
-        check_another_domain: ~
-        checks_passed_with_warning: ~
-        this_domain_is_not_configured_correctly: ~
-        start_using_the_custom_domain: ~
-      landing_pages:
-        landing_pages: ~
-        info_1: ~
-        info_2: ~
-        info_2_help_center: ~
-        info_3: ~
-        info_4: ~
-        editor_title: ~
-        editor_info: ~
-        preview: ~
-        set_live: ~
-        add_new_section: ~
-        select_section_type: ~
-        this_version_is_not_released: ~
-        latest_version_released: ~
-        check_it_out: ~
-        form:
-          save: ~
-          cancel: ~
-        sections:
-          identifier: ~
-          kind: ~
-          new: ~
-          edit: ~
-          remove_section_confirmation: ~
-          info_single_column: ~
-          info_multi_column_2: ~
-          info_multi_column_3: ~
-          listings: 매물
-          categories: ~
-          hero: ~
-          locations: ~
-          video: ~
-          new_section:
-            categories: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
-          edit_section:
-            categories: ~
-            footer: ~
-            hero: ~
-            info_single_column: ~
-            info_multi_column_2: ~
-            info_multi_column_3: ~
-            listings: ~
-            locations: ~
-            video: ~
-      attachments:
-        delete: ~
-        or_change: ~
-    landing_page_versions:
-      sections:
-        content:
-          title: ~
-        hero:
-          hero_title: ~
-          hero_description: ~
-          basic_details_tab: ~
-          cta_button: ~
-          cta_button_info: ~
-          button_type:
-            default: ~
-            button: ~
-            none: ~
-          button_content: ~
-          click_me: ~
-        footer:
-          footer_title: ~
-          footer_style: ~
-          style_dark: ~
-          style_light: ~
-          style_marketplace_color: ~
-          style_logo: ~
-        cta_button:
-          cta_button: ~
-          cta_enabled: ~
-          cta_text: ~
-          cta_url: ~
-          text_placeholder: ~
-          url_placeholder: ~
-        background_selector:
-          title: ~
-        background_image_overlay:
-          background_image: ~
-          background_image_info: ~
-          add_another_image: ~
-          current_image: ~
-          file_not_selected: ~
-          background_image_overlay: ~
-          background_image_overlay_info: ~
-          overlay_dark: ~
-          overlay_light: ~
-          overlay_transparent: ~
-        background_style:
-          background_style: ~
-          style_image: ~
-          style_color: ~
-          style_none: ~
-        background_color:
-          background_color: ~
-          background_color_info: ~
-        categories:
-          add: ~
-          category: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_categories: ~
-          need_at_most_7_categories: ~
-        category:
-          add_another_image: ~
-          category: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          select_category: ~
-        locations:
-          add: ~
-          location: ~
-          empty: ~
-          image: ~
-          include_title: ~
-          info_text: ~
-          need_at_least_3_locations: ~
-          need_at_most_7_locations: ~
-        location:
-          add_another_image: ~
-          location: ~
-          current_image: ~
-          file_not_selected: ~
-          image: ~
-          image_required: ~
-          title: ~
-          title_placeholder: ~
-          url: ~
-          url_placeholder: ~
-        multi_column:
-          main_title: ~
-          column_header: ~
-          column_title: ~
-          column_icon_info: ~
-          column_icon_info_link: ~
-          column_icon: ~
-          column_paragraph: ~
-          column_button: ~
-          column_button_text: ~
-          column_button_url: ~
-        listings:
-          listings_to_feature: ~
-          you_need_to_add_the_listing_ids: ~
-        video:
-          text: ~
-          autoplay: ~
-          autoplay_no: ~
-          autoplay_muted: ~
-          info: ~
-          youtube_video_id_info: ~
-    custom_fields:
-      edit:
-        edit_listing_field: "항목 '%{field_name}' 편집"
-      edit_price:
-        description: "최소 및 최대 가격은 필터에만 영향을 미칩니다. 매물 가격에 제한을 두지 않습니다."
-        edit_price_field: "매물 필드 '가격' 수정"
-        show_price_filter_homepage: "홈페이지에 가격필터 표시"
-        price_min: "최저 가격 필터링"
-        price_max: "최고 가격 필터링"
-      edit_location:
-        edit_location_field: "매물 필드 '위치' 수정"
-        this_field_is_required: "이 필드는 필수 항목입니다."
-        the_location_feature_can_be_enabled: ~
-      edit_expiration:
-        edit_expiration_field: "매물 필드 '만료일' 수정"
-        enable: "만료일 활성"
-      form:
-        field_required:
-          this_field_is_required: "신규 매물 등록시 이필드를 필수 입력 항목으로 지정하기"
-          this_field_is_required_checkbox: "신규 매물 등록시 이 필드 채우기를 필수조건으로 하기 (사용자는 적어도 하나의 옵션을 선택해야 합니다)"
-        search_filter:
-          search_filter: "이 필드를 기반으로하는 필터를 홈페이지에 표시하십시오."
-          date_cant_be_filtered: "날짜 입력란에는 사용할 수있는 필터가 없습니다."
-          text_cant_be_filtered: "텍스트 입력란에는 필터가 없습니다. 기본 텍스트 검색은 텍스트 필드에서 검색합니다."
-      index:
-        listing_fields: "매물 필드와 필터"
-        listing_fields_help: "사용자가 신규 매물 등록시 입력해야하는 필드를 편집 할 수 있습니다. 일부 필드는 미리 정의되어 있으며 편집 할 수 없습니다."
-        add_new_field: "새로운 항목 추가"
-        remove_field_confirmation: "항목 %{field_name}을/를 정말 삭제하시겠습니까?"
-        cancel: 취소
-        save: 저장
-        field_title: "항목 이름"
-        field_type: "항목 종류"
-        categories: "해당 필드가 사용되는 매물 카테고리"
-        select_all: "전체 선택"
-        clear_all: "전체 해제"
-        options: 옵션
-        add_option: "+ 옵션 추가"
-        saving_order: "항목 순서 저장"
-        save_order_successful: "항목 순서를  저장하였습니다."
-        save_order_error: "항목 순서 저장 중 오류가 발생하였습니다. 페이지를 새로고침하신 후에 다시 시도하세요."
-        select_one: "항목 유형 선택"
-        continue: 계속하기
-        minimum_value: 최소
-        maximum_value: 최대
-        allow_decimals: "십진법 허용"
-      new:
-        new_listing_field: "새로운 항목"
-      field_types:
-        text: 텍스트
-        number: 숫자
-        dropdown: 드롭다운
-        checkbox_group: "체크박스 그룹"
-        date: 날짜
-        file: ~
-        location: ~
-    person_custom_fields:
-      saving_failed: ~
-      index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        signup: ~
-        public: ~
-        add_new_field: ~
-        save: 저장
-        cancel: 취소
-        minimum_value: 최소
-        maximum_value: 최대
-        allow_decimals: "소수점 허용"
-        add_option: "옵션 추가"
-      new:
-        new_user_field: ~
-      form:
-        field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
-      edit:
-        edit_user_field: ~
-    emails:
-      new:
-        send_email_to_members: "사용자에게 이메일 발송"
-        send_email_to_members_title: "사용자에게 전체 이메일 발송"
-        send_email: "이메일 발송"
-        send_email_or: 또는
-        send_test_email: "자신에게 테스트 이메일 보내기"
-        test_sent: "테스트 이메일이 받은 편지함으로 전송되었습니다."
-        send_email_article_title: "이 내용"
-        send_email_article_text: "%{article_link}에서 사용자 세그먼트에 대해 자세히 알아볼 수 있습니다."
-        recipients:
-          title: "누구에게 이메일을 보내시겠습니까?"
-          options:
-            all_users: "모든 사용자"
-            posting_allowed: ~
-            with_listing: "하나 이상의 매물을 게시한 사용자들"
-            with_listing_no_payment: "하나 이상의 매물을 등록했지만 결제 정보를 추가하지 않은 사용자"
-            with_payment_no_listing: "결제 세부 사항을 추가했지만 매물을 게시하지 않은 사용자들"
-            no_listing_no_payment: "매물을 게시하지 않았고 결제 정보를 추가하지 않은 사용자"
-        email_subject: "이메일 제목"
-        email_content: "이메일 본문"
-        email_content_placeholder: "사용자에게 발송할 내용"
-        email_language: "이메일 수신자의 주요 언어"
-        any_language: "모든 언어"
-        message_will_be_sent_only_to_people_with_this_language: "이 이메일은 선택한 언어로 %{service_name}를 이용 중인 사용자들에게만 발송됩니다."
-        email_sent: "이메일을 보냈습니다."
-        to_improve_email_deliverability: "원활한 이메일 전송을 위해 이메일 타이틀은 자동으로 생성되며 변경할 수 없습니다."
-        email_subject_text: "%{service_name}의 새 메시지"
-        firstname_cannot_be_removed: "\"이름\"은 삭제할 수 없으며 각 수령인의 실제 이름으로 대체됩니다."
-        hello_firstname: "안녕하세요 이름,"
-        hello_firstname_text: "안녕하세요 %{person}님,"
-    left_hand_navigation:
-      general: 일반
-      users_and_transactions: 관리
-      configure: 구성
-      emails_title: 이메일
-      subscription: ~
-      preview: ~
-      whats_new: ~
-    listing_shapes:
-      availability_title: 가능여부
-      read_more: "자동 이용여부 관리에 대해 자세히 읽어보십시오."
-      read_more_availability_management: "가용성 관리에 대해 자세히 읽어보십시오."
-      allow_providers_to_manage_availability: "공급자가 캘린더에서 가용성을 관리 할 수 있도록 허용"
-      per_hour_availability: "\"시간당\"가능여부"
-      per_day_availability: "\"1일당\"가능여부"
-      per_night_availability: "\"1박당\"가능여부"
-      pricing_units_disabled_info: "가용성 달력을 사용하는 경우 가격 단위를 사용할 수 없습니다."
-      can_not_find_name: "주어진 이름으로 주문 유형을 찾을 수 없습니다 : %{name}"
-      index:
-        listing_shapes: "주문 유형"
-        description: "주문 타입은 사이트에서 주문 프로세스가 작동하는 방식을 결정합니다. 사용자가 대여 또는 판매하는지, 또는 공지사항을 게시하고 개인 메시지를 통해 소통하는지 여부를 결정할 수 있습니다."
-        read_more_about_order_types: "주문 유형에 대한 추가 정보"
-        add_new_shape: "새 주문 유형 추가 :"
-        select_template: "템플릿 선택 ..."
-        all_categories: "모든 카테고리"
-        no_categories: "카테고리 없음"
-        category_count: "%{category_count} 카테고리"
-        header:
-          listing_shape_name: "주문 유형"
-          listing_shape_categories: "사용된 카테고리"
-        order:
-          saving_order: 주문저장
-          save_order_successful: "주문 유형 주문을 저장했습니다."
-          save_order_error: "주문을 저장하는 중에 오류가 발생했습니다. 페이지를 새로 고침하고 다시 시도하십시오."
-      templates:
-        selling_products: "제품 판매"
-        renting_products: "제품 대여"
-        offering_services: "서바스 제안"
-        giving_things_away: 증정
-        requesting: 요청하기
-        announcement: "공지사항 게시하기"
-        custom: 세관
-      new:
-        create_listing_shape: "주문 유형 생성"
-        create: 생성
-        cancel: 취소
-        create_success: "새 주문 유형 '%{shape}'이(가) 생성되었습니다."
-        create_failure: "새 주문 유형을 만들 수 없습니다. 오류 : %{error_msg}"
-      edit:
-        edit_listing_shape: "주문유형편집 '%{shape}'"
-        update: 저장
-        cancel: 취소
-        update_success: "주문 유형 '%{shape}'에 대한 변경 사항이 저장되었습니다."
-        update_failure: "변경 사항을 저장할 수 없습니다. 오류 : %{error_msg}"
-        delete: "주문 유형 삭제"
-        confirm_delete_order_type:
-          other: "이 주문 유형에는 %{count}개의 매물이 있습니다. 주문 유형을 삭제하면 이 매물이 닫힙니다. 주문 유형을 삭제 하시겠습니까?"
-        can_not_delete_last: "이 주문 유형은 마켓 플레이스에서 유일한 유형이므로 삭제할 수 없습니다."
-        can_not_delete_only_one_in_categories: "다음과 같은 주문 유형이 사용중인 유일한 주문 유형이므로 이 주문 유형을 삭제할 수 없습니다 : %{categories}"
-      listing_shape_name: 이름
-      listing_shape_name_placeholder: "예 : 팔다"
-      action_button_label: "체크아웃 버튼 라벨"
-      action_button_placeholder: "예 : 사다"
-      open_listings_warning:
-        other: "이 주문 유형에는 %{count}개 목록이 있습니다. 아래 설정 중 하나를 변경하면 해당 목록에는 이전 설정이 유지됩니다. 목록을 수동으로 편집하여 새 설정으로 변경할 수 있습니다. 사이트에 이전 설정이 표시된 목록을 원하지 않으면 아래 버튼을 클릭하여 닫을 수 있습니다."
-      close_listings_action:
-        other: "%{count}개 매물 비공개"
-      confirm_close_listings_action:
-        other: "%{count}개의 매물을 비공개로 하시겠습니까?"
-      successfully_closed: "매물이 비공개 되었습니다."
-      successfully_deleted: "주문 유형 '%{order_type}'을(를) 삭제했습니다."
-      pricing_and_checkout_title: "가격 및 결제"
-      online_payments_label: "판매자가 온라인 결제를 허용하도록 허용"
-      shipping_label: "판매자가 배송료를 정의하도록 허용"
-      price_label: "판매자가 업체 정보에 가격을 추가하도록 허용"
-      units_title: "가격 단위"
-      units_desc: "가격 단위를 사용하는 경우, 가격은 \"가격 단위당 가격\"으로 표시됩니다. 예 : \"시간당 39 달러\""
-      units:
-        piece: 개당
-        hour: 시간당
-        day: 하루에
-        night: 1박당
-        week: 매주
-        month: 매월
-        unit: ~
-      can_not_find: "다음의 ID인 주문 유형을 찾을 수 없습니다 : %{id}"
-      add_custom_unit: "+ 맞춤 가격 책정 단위 추가 ..."
-      delete_custom_unit: 삭제
-      custom_unit_form:
-        title: "새로운 가격 단위"
-        label_heading: 라벨
-        selector_label_heading: "셀렉터 라벨"
-        label_placeholder: "예. \"kg\", \"30분\", \"사람\", \"클라스\""
-        selector_placeholder: "예. \"인원수\", \"금액\""
-        per: 당
-        unit_type:
-          heading: "단위 유형"
-          quantity_label: "수량 (1 인당, kg 당, 1 인당, 2 시간 투어 당 ...)"
-          time_label: "시간 (30분당, 2 주당, 연간 ...)"
-    paypal_accounts:
-      marketplace_paypal_integration: "결제 시스템 환경 설정"
-      preferences_updated: "결제 시스템 환경설정이 업데이트되었습니다."
-      contact_support_link_text: "고객센터에 문의하기"
-      integration_info_text: "귀하의 마켓 플레이스의 결제 시스템은 PayPal에 의해 제공됩니다. 사용자가 마켓 플레이스에서 결제 할 수 있도록 하려면 PayPal 계정을 연결해야 합니다. PayPal 계정을 연결하면 최소 거래 금액과 거래 수수료를 선택할 수 있습니다."
-      link_paypal_personal_account_label: "직접 제품이나 서비스를 제공하고 있습니까?"
-      link_paypal_personal_account: "그렇다면 PayPal 계정을 %{personal_payment_preferences_link}에 연결해야합니다."
-      link_stripe_personal_account: "그렇다면 %{personal_payment_preferences_link}에 결제 정보를 추가해야 합니다."
-      link_paypal_and_stripe_personal_account: "그렇다면 PayPal 또는 Stripe 계정을 %{personal_payment_preferences_link}에 연결해야합니다."
-      personal_payment_preferences_link_text: "귀하의 개인 마켓플레이스 계정"
-      read_more_about_paypal: "결제 시스템에 대해 자세히 알아보기"
-      edit_payment_settings: "결제 설정 수정"
-      supported_currencies_information_text: "Sharetribe의 온라인 결제 시스템은 24 가지 통화를 지원합니다. 통화가 목록에 없는 경우 %{contact_support_link}하시기 바랍니다. 마켓 플레이스 통화를 변경해도 기존 매물은 기존 통화를 유지합니다. 기존 매물들은 개별적으로 편집하여 새 통화로 변환해야 합니다."
-      currency_change_warning_text: "주의사항 : 변경된 통화로 사용할 경우, 판매자들에게 기존 매물들을 수동으로 편집하여 통화를 업데이트하도록 요청해 주십시요."
-      marketplace_currency_label: "마켓플레이스 통화:"
-      minimum_listing_price_label: "최소 거래 금액:"
-      transaction_fee_label: "판매자 거래 수수료:"
-      minimum_transaction_fee_label: "판매자 최소 거래 수수료 :"
-      save_settings: "설정 저장"
-      minimum_listing_price_below_tx_fee: "최소 거래 금액은 최소 거래 수수료 %{minimum_transaction_fee} 이상이어야 합니다."
-      minimum_listing_price_below_min: "최소 거래 금액은 최소 수수료 %{minimum_commission} 이상이어야 합니다."
-    payment_preferences:
-      title: "결제 시스템 환경 설정"
-      general_settings: "1. 일반 설정"
-      connect_a_payment_provider: "2. 결제 서비스 연결"
-      contact_support: "고객센터에 문의하기"
-      no_payments_link_text: 여기에
-      your_country: "귀하의 국가:"
-      you_cannot_use_online_payments: "%{country_name}의 온라인 결제를 %{통화}와 함께 사용할 수 없습니다. 국가를 변경하려면 다른 통화 또는 %{support_link}을 선택하십시오. 지원되는 국가 및 통화 %{help_link}에 대해 자세히 알아볼 수 있습니다. 앞으로는 더 많은 결제 업체를 추가하고 더 많은 통화를 지원할 것입니다."
-      which_to_choose: "어느 것을 선택해야합니까?"
-      you_can_use_stripe_or_paypal: "Stripe, PayPal 또는 둘 다를 결제 제공회사로 사용할 수 있습니다. %{choose_link}"
-      you_can_use_stripe_only: "Stripe를 지불 제공자로 사용할 수 있습니다. %{read_more_link}"
-      read_more_stripe: "스트라이프 결제에 대해 자세히 알아보기"
-      you_can_use_paypal_only: "PayPal을 결제서비스 제공업체로 사용할 수 있습니다. %{read_more_link}"
-      read_more_paypal: "PayPal 결제에 대해 자세히 알아보십시오."
-      read_more_about_paypal_and_stripe: "온라인 결제, Stripe 및 PayPal에 대해 자세히 알아보십시오."
-      general_settings_updated: "결제 시스템 일반 설정 업데이트 됨"
-      transaction_fee_settings_updated: "거래 수수료 설정이 업데이트되었습니다."
-      choose_popup_text: |-
-          사용자가 온라인 결제를 허용 할 수있게 하려면 결제 통화를 선택한 다음 마켓플레이스가 지원하는 두 개의 전자결제 서비스 제공자인 Stripe 또는 PayPal 중 하나를 연결해야 합니다. 두 가지를 모두 사용하도록 선택할 수도 있습니다. 즉, 사용자가 두 가지 결제 방법 중 하나를 사용하여 결제를 수락 할 수 있습니다.
-          아직 계정이 없다면 새 계정을 만들 수 있습니다. 계정을 연결하면 각 거래에서 청구할 수수료를 선택할 수 있습니다.
-          Stripe와 PayPal의 차이점은, Stripe를 사용하면 최대 3개월 동안 판매자에게 결제대금 지불을 연기 할 수 있으며 하나의 지불 방법(신용/직불 카드)을 제공합니다. Stripe는 판매자가 은행 정보를 등록하여 직접 본인의 은행 계좌로 결제대금을 받을 수 있습니다. PayPal은 두 가지 지불 방법(신용 카드 및 PayPal 계정)을 제공하며 구매자와 판매자를 위한 보호 프로그램을 제공합니다. 결제를 위해서 판매자는 PayPal Business 계좌를 개설해야 합니다.
-          Stripe를 사용하는 경우 결제 수수료가 거래 수수료에서 차감되므로 최저 수수료를 충분히 높게 설정하십시오. PayPal을 사용하는 경우 거래 수수료와는 별도로 결제 수수료가 판매자에게 부과됩니다. Stripe과 PayPal은 약간 다른 수수료 구조를 가지고 있습니다. 대부분의 경우 Stripe의 수수료가 약간 낮습니다.
-      invalid_api_keys: "잘못된 Stripe API 키"
-      missing_api_keys: "누락된 Stripe API 키"
-      stripe_verified: "Stripe API 액세스가 확인되었습니다."
-      change_settings: "설정 및 수수료 변경"
-      configure_stripe: "스트라이프 구성"
-      configure_paypal: "페이팔 구성"
-      transaction_fee_settings: "거래비용 설정"
-      transaction_fee_save: 저장
-      stripe_fee: "스트라이프 수수료"
-      stripe_fee_notice: "%{stripe_fee_link}는 귀하가 청구하는 거래 수수료에서 공제됩니다."
-      fee_should_be_less_than_minimum_price: "최소 거래 수수료는 최소 거래 규모보다 작아야합니다."
-      the_transaction_fee_must_be_lower_than_100: ~
-      confirm_disable: "%{gateway}을(를) 비활성화 하시겠습니까? 이 기능을 사용 중지하면 제공 업체는 더 이상 돈을받을 수 없으며 구매자는 더 이상이 지불 방법으로 지불 할 수 없습니다. 공급자가 다른 지불 방법을 구성하지 않으면 구매자가 구매할 수 없습니다."
-      commission_from_buyer_label: ~
-      minimum_buyer_transaction_fee_label: ~
-      stripe_connected:
-        title: "스트라이프가 연결됨"
-        disable: "스트라이프 비활성화"
-        disabled: "스트라이프 비활성화됨"
-        enable: "스트라이프 재활성화"
-      paypal_connected:
-        title: "페이팔 연결됨"
-        disable: "페이팔 비활성화"
-        disabled: "페이팔 비활성화됨"
-        enable: "페이팔 재활성화"
-      cannot_enable_gateway: "결제 게이트웨이 %{gateway}을(를) 활성화 할 수 없습니다."
-      cannot_disable_gateway: "결제 게이트웨이 %{gateway}을(를) 비활성화 할 수 없습니다."
-      cannot_enable_gateway_because_of_buyer_commission: ~
-      stripe_form:
-        add_your_api_keys: "Stripe API 키 추가"
-        how_to_get_these: "이것들을 어떻게 얻습니까?"
-        publishable_key_example: "예 : %{api_publishable_key_example}"
-        secret_key_example: "예: %{api_secret_key_example}"
-        save_api_keys: "Stripe API 키 저장"
-        invalid_secret: "올바른 %{secret_key}처럼 보이지 않습니다."
-        invalid_publishable: "올바른 %{publishable_key}처럼 보이지 않습니다."
-      index:
-        header: "사용 가능한 결제 설정"
-        info: "마켓플레이스에서 사용할 수있는 결제 게이트웨이를 구성 할 수 있습니다. 현재 PayPal 및 Stripe가 지원됩니다."
-        active: 활성화됨
-        gateway: 게이트웨이
-        process: 프로세스
-        commission: 커미션
-        minimum_price: "최소 가격"
-        minimum_fee: "최소 수수료"
-        api_verified: "API가 확인 되었습니까?"
-        actions: 작업
-        payments_not_enabled: "마켓 플레이스에서 결제가 사용 설정되지 않았습니다."
-    transaction_types:
-      sell: 판매
-      sell_w_online_payment: ~
-      sell_wo_online_payment: ~
-      rent: 대여
-      rent_w_online_payment: ~
-      rent_wo_online_payment: ~
-      give: 증정
-      lend: 대여
-      swap: 교환
-      service: 제안
-      service_w_online_payment: ~
-      service_wo_online_payment: ~
-      request: 요청
-      inquiry: 공지
-      share_for_free: "무료 공유"
-      event_w_online_payment: ~
-      event_wo_online_payment: ~
-      default_action_button_labels:
-        sell: 구매하기
-        rent: 임대
-        request: 제안
-        offer: 요청
-        inquiry: 연락처
-        book: ~
-    community_transactions:
-      show:
-        transaction_for: ~
-        status: ~
-        next_step: ~
-        waiting_for_provider_accept_or_reject: ~
-        waiting_for_fulfill_and_complete: ~
-        buyer: ~
-        provider: ~
-        delivery: ~
-        shipping_to: ~
-        buyer_pays: ~
-        marketplace_collects: ~
-        buyer_service_fee_label: ~
-        service_fee_label: ~
-        provider_receives: ~
-        admin_info_text: ~
-        manage_reviews: ~
-        you_should_investigate: ~
-        learn_more: ~
   common:
     edit_page: "페이지 편집"
     default_community_slogan: "커뮤니티 마켓플레이스"
@@ -1299,7 +81,7 @@ ko:
       reject_offer: "구매요청 거부"
       reject_request: "구매요청 거부"
       close_listing: "%{listing_title_link}를 비공개로 전환합니다."
-      update_later: "매물을 공개 상태로 유지합니다."
+      update_later: "광고를 공개 상태로 유지합니다."
       optional_message: "추가 메시지"
       price_to_pay: "총 결제금액"
       accept: 수락
@@ -1347,7 +129,7 @@ ko:
       canceled_request: 분쟁건
       canceled_offer: "취소되어진 제안"
       message_from: "%{person}님의 메시지"
-      about_listing: "매물 정보 %{listing_title}"
+      about_listing: "광고 정보 %{listing_title}"
       free_message: "다이렉트 메시지"
       message_content_not_available: "메시지 내용을 사용할 수 없습니다."
     message:
@@ -1383,10 +165,10 @@ ko:
       you_will_get_notified: "%{person}님이 답변하시면 이메일 알림이 도착합니다."
       title: 타이틀
       send_message_to_user: "%{person}님에게 메시지 보내기"
-      about_listing: "매물 정보 %{listing_title}"
+      about_listing: "광고 정보 %{listing_title}"
       author_has_to_accept_request: "결제하기 전에 %{author_name}이(가) 요청을 수락해야합니다."
     show:
-      in_response_to_listing: "매물 정보"
+      in_response_to_listing: "광고 정보"
       message_sent_by: "에 의해 전송된 메시지"
       message_sent_to: "에게 전송된 메시지"
       send_reply: "회신 보내기"
@@ -1521,7 +303,7 @@ ko:
       you_have_not_yet_confirmed_or_canceled_request: "거래가 완료되었다면 거래완료 선택을 해주셔야 합니다. 그 후에 %{other_party_given_name}님에게 피드백을 보낼 수 있습니다."
     payment_settings_reminder:
       remember_to_add_payment_details: "결제환경 설정이 필요합니다."
-      you_have_added_listing_with_payment: "%{listing_link}의 매물 등록을 추가하셨습니다. 하지만 아직 결제환경 설정이 되어 있지 않습니다. 판매대금의 결제를 위해서 결제환경을 설정해 주십시오."
+      you_have_added_listing_with_payment: "%{listing_link}의 광고 등록을 추가하셨습니다. 하지만 아직 결제환경 설정이 되어 있지 않습니다. 판매대금의 결제를 위해서 결제환경을 설정해 주십시오."
       please_go_to_payment_settings: "%{payment_settings_link}로 이동하여 필요한 결제 정보를 입력하십시오."
       payment_settings_link: "결제 설정"
     payment_settings_reminder_v2:
@@ -1614,7 +396,7 @@ ko:
       has_commented_your_listing_in_kassi: "%{author}님이 '%{listing}'에 댓글을 추가했습니다."
       view_comment: "댓글 보기"
       you_have_a_new_comment: "%{service_name}에서 %{author}님의 댓글이 추가됨"
-      listing_you_follow_has_a_new_comment: "%{service_name}의 매물에 %{author}님이 댓글을 추가하였습니다."
+      listing_you_follow_has_a_new_comment: "%{service_name}의 광고에 %{author}님이 댓글을 추가하였습니다."
       has_commented_listing_you_follow_in_kassi: "%{service_name}에서 %{author}님이 '%{listing}'에 댓글을 추가했습니다."
     new_message:
       view_message: "메시지 보기"
@@ -1664,7 +446,7 @@ ko:
       paypal_gateway_fee: "페이팔 수수료"
       money_will_be_transferred: "a) 귀하가 요청 완료를 표시했거나 b) 결제한 날 %{automatic_confirmation_days} 일이 경과하면 %{recipient_name}(으)로 이체됩니다."
     payment_receipt_to_payer_v2:
-      headline: "%{listing_link} 매물에 대한 영수증입니다."
+      headline: "%{listing_link} 광고에 대한 영수증입니다."
       you_have_made_new_payment: "<b>%{listing_title}</b>에 대해 <b>%{payment_sum}</b>를 결제하였습니다."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal 수수료"
@@ -1698,13 +480,13 @@ ko:
     new_testimonial_v2:
       headline: "피드백을 받으셨습니다!"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "팔로우하는 매물의 정보가 업데이트 되었습니다."
-      has_updated_listing_you_follow_in_kassi: "%{service_name}에서 %{author}님이 매물 '%{listing}'에 업데이트를 추가 했습니다."
+      listing_you_follow_has_been_updated: "팔로우하시는 광고의 정보가 업데이트 되었습니다."
+      has_updated_listing_you_follow_in_kassi: "%{service_name}에서 %{author}님이 광고 '%{listing}'에 업데이트를 추가 했습니다."
       view_changes: "변경사항 보기"
     community_updates:
-      added_offer: "%{name_link}이 매물을 추가했습니다 :"
-      added_request: "%{name_link}이 매물을 추가했습니다 :"
-      added_listing: "%{name_link}이/가 매물을 추가했습니다 :"
+      added_offer: "%{name_link}이 광고를 추가했습니다 :"
+      added_request: "%{name_link}이 광고를 추가했습니다 :"
+      added_listing: "%{name_link}이/가 광고를 추가했습니다 :"
       update_mail_title: "%{title_link} 업데이트"
       title_link_text: "%{community_name}"
       intro_paragraph: "과거 %{time_since_last_update} 동안 %{community_link}에서 발생한 일들이 있습니다."
@@ -1731,7 +513,7 @@ ko:
       leave_feedback: "%{other_party_name}님에게 피드백 보내기"
     transaction_preauthorized:
       subject: "%{requester}님이 %{service_name}에서 %{listing_title} 결제함"
-      transaction_requested_by_user: "%{requester}이/가 \"%{listing_title}\" 매물에 대한 결제를 승인했습니다."
+      transaction_requested_by_user: "%{requester}이/가 \"%{listing_title}\" 광고에 대한 결제를 승인했습니다."
       you_have_time_to_accept: "%{payment_expires_in}내에 구매를 수락하거나 거절해야 합니다."
       if_you_do_accept: "이 기간 내에 요청을 수락하면 즉시 귀하의 계좌로 돈을 받게됩니다."
       if_you_do_accept_stripe: "이 기간 내에 구매요청을 수락하면 결제가 처리됩니다. %{requester}님에게 %{listing_title}의 배송이 완료되면 본인의 은행 계좌로 입금처리 됩니다."
@@ -1740,8 +522,8 @@ ko:
     transaction_preauthorized_v2:
       headline: "%{requester}님이 %{listing_link}에 대한 결제를 했습니다."
     transaction_preauthorized_reminder:
-      subject: "%{requester}로부터 매물 %{listing_title}에 대한 요청을 수락하는 것을 잊지 마십시오."
-      remember_to_accept: "%{requester}로부터 매물 \"%{listing_title}\"에 대한 요청을 수락하는 것을 잊지 마십시오. %{requester}이/가 이미 해당 매물을 결제했습니다. 결제 금액을 받으려면 요청을 수락해야합니다."
+      subject: "%{requester}로부터 광고 %{listing_title}에 대한 요청을 수락하는 것을 잊지 마십시오."
+      remember_to_accept: "%{requester}로부터 광고 \"%{listing_title}\"에 대한 요청을 수락하는 것을 잊지 마십시오. %{requester}이/가 이미 해당 광고를 결제했습니다. 결제 금액을 받으려면 요청을 수락해야합니다."
       one_day_left: "하루 이내에 요청을 수락하지 않으면 요청이 자동으로 거절되고 결제되지 않습니다."
       click_here_to_reply: "구매요청 응답하기"
     transaction_preauthorized_reminder_v2:
@@ -1754,10 +536,10 @@ ko:
       welcome_email_footer_text: "%{settings_link}"
       settings_link_text: ~
     new_listing_by_followed_person:
-      subject: "%{author_name}이/가 %{service_name}에 신규 매물을 등록했습니다."
-      has_posted_a_new_listing: "%{author_name}이/가 신규 매물을 등록했습니다."
+      subject: "%{author_name}이/가 %{service_name}에 신규 광고를 등록했습니다."
+      has_posted_a_new_listing: "%{author_name}이/가 신규 광고를 등록했습니다."
       you_are_receiving_this_because: "당신은 %{author_name}을/를 팔로우하기 때문에 이 알림을 받았습니다."
-      view_listing: "매물 보기"
+      view_listing: "광고 보기"
     new_listing_by_followed_person_v2:
       headline: "%{author}님이 방금 신규 매물을 추가했습니다."
       has_posted_a_new_listing: ~
@@ -1790,8 +572,8 @@ ko:
       this_is_automatic_message: ~
     listing_approved:
       subject: "%{community}에서 %{listing_title} 승인 완료"
-      listing_has_been_approved: "축하합니다! 등록하신 %{listing_title} 매물이 %{community}에서 승인되어 공개되었습니다."
-      view_the_listing: 매물보기
+      listing_has_been_approved: "축하합니다! 등록하신 %{listing_title} 광고가 %{community}에서 승인되어 공개되었습니다."
+      view_the_listing: "광고 보기"
     listing_rejected:
       subject: ~
       listing_has_been_rejected: ~
@@ -1891,7 +673,7 @@ ko:
     error_410:
       page_removed: "페이지가 제거되었습니다."
       page_you_requested_has_been_removed: "요청한 페이지가 삭제되었습니다."
-      page_removed_reason: "사용자가 계정을 삭제했거나 매물이 삭제되었을 수 있습니다."
+      page_removed_reason: "사용자가 계정을 삭제했거나 광고가 삭제되었을 수 있습니다."
     error_410_title: "페이지가 제거되었습니다."
     error_500:
       temporary_unavailable: "싸이트를 일시적으로 사용할 수 없음"
@@ -1955,7 +737,7 @@ ko:
     about: 소개
     home: 홈
     members: 커뮤니티
-    new_listing: "신규 매물"
+    new_listing: "새로운 광고"
     mobile_version: "모바일 버전"
     offers: 제안
     requests: 요청
@@ -2009,16 +791,16 @@ ko:
     grid_item:
       processing_uploaded_image: "(업로드된 이미지 처리 중 ...)"
     index:
-      no_listings_with_your_search_criteria: "죄송합니다. 검색 기준에 맞는 매물을 찾을 수 없습니다. 다른 검색어를 사용해 보시겠습니까?"
-      no_listings_notification: "매물 없음. %{add_listing_link}."
-      add_listing_link_text: "신규 매물 추가"
-      open_listing: "공개 매물"
-      open_listings: "공개 매물"
+      no_listings_with_your_search_criteria: "죄송합니다. 검색 기준에 맞는 광고를 찾을 수 없습니다. 다른 검색어를 사용해 보시겠습니까?"
+      no_listings_notification: "광고 없음. %{add_listing_link}."
+      add_listing_link_text: "새로운 광고 추가"
+      open_listing: "공개된 광고"
+      open_listings: "공개된 광고"
       private_listing_notification_log_in: 로그인
       is: 입니다
       are: 입니다
       what_do_you_need: "어떤 것을 찾고 계십니까?"
-      post_new_listing: "신규 매물 등록"
+      post_new_listing: "새로운 광고 등록"
       are_offering: 제안
       add_news_item: "내용을 추가하세요"
       lend_rent_help_carpool: "매매, 대여, 도우미, 카 쉐어링"
@@ -2071,7 +853,7 @@ ko:
       map_button: 지도
       grid_button: 그리드
       list_button: 리스트
-      all_listing_types: "모든 매물 타입"
+      all_listing_types: "모든 광고 타입"
       all_categories: "모든 카테고리"
     errors:
       search_engine_not_responding: "검색은 현재 사용할 수 없습니다. 곧 다시 검색하십시오."
@@ -2178,7 +960,7 @@ ko:
       sign_up: 가입
     notifications:
       recaptcha_verification_failure: ~
-      listing_could_not_be_saved: "매물을 저장할 수 없습니다. 다시 시도하십시오. 문제가 지속되면 %{contact_admin_link}하시기 바랍니다."
+      listing_could_not_be_saved: "광고를 저장할 수 없습니다. 다시 시도하십시오. 문제가 지속되면 %{contact_admin_link}하시기 바랍니다."
       contact_admin_link_text: "%{service_name} 연락하기"
       test_welcome_email_delivered_to: "테스트 이메일이 %{email} (으)로 전송되었습니다."
       something_went_wrong: "오류가 발생했습니다"
@@ -2192,7 +974,7 @@ ko:
       additional_email_confirmed: "입력하신 이메일이 확인되었습니다."
       could_not_get_email_from_social_network: ~
       social_network_email_unconfirmed: ~
-      create_new_listing: "추가 매물 등록하기"
+      create_new_listing: "추가 광고 등록하기"
       create_one_here: "신규 작성"
       email_confirmation_sent_to_new_address: "이제 전자 메일 확인이 새 주소로 전송됩니다."
       email_not_found: "입력하신 이메일 주소를 %{service_name} 데이터베이스에서 찾을 수 없습니다."
@@ -2222,13 +1004,13 @@ ko:
       offer_accepted: "제안을 받아들였습니다."
       offer_confirmed: "완료된 제안"
       offer_closed: "제안을 종료하였습니다."
-      listing_created_successfully: "매물이 성공적으로 등록되었습니다. %{new_listing_link}."
+      listing_created_successfully: "광고가 성공적으로 등록되었습니다. %{new_listing_link}."
       offer_rejected: "제안을 거절했습니다."
       offer_canceled: "거래 취소"
-      listing_updated_successfully: "매물이 성공적으로 업데이트 되었습니다."
-      listing_updated_availability_management_enabled: "매물이 업데이트되었습니다. 가용성 관리가 가능합니다."
-      listing_updated_availability_management_disabled: "매물이 업데이트되었습니다. 가용성 관리가 비활성화되었습니다."
-      listing_deleted: "매물 삭제됨"
+      listing_updated_successfully: "광고가 성공적으로 업데이트 되었습니다."
+      listing_updated_availability_management_enabled: "광고가 업데이트되었습니다. 가용성 관리가 가능합니다."
+      listing_updated_availability_management_disabled: "광고가 업데이트 되었습니다. 가용성 관리가 비활성화되었습니다."
+      listing_deleted: "광고 삭제됨"
       only_kassi_administrators_can_access_this_area: "여기에 접속하시려면 관리자 계정으로 로그인 하세요."
       only_listing_author_can_close_a_listing: "게시자만 항목을 닫을 수 있습니다."
       only_listing_author_can_edit_a_listing: "게시자만 편집할 수 있습니다."
@@ -2273,7 +1055,7 @@ ko:
       you_have_already_given_feedback_about_this_event: "이미 피드백을 보내셨습니다."
       you_are_now_member: "%{service_name} 가입을 축하드립니다."
       you_are_already_member: "이미 %{service_name}의 멤버입니다. 다시 오신 것을 환영합니다!"
-      you_must_log_in_to_create_new_listing: "신규 매물을 올리려면 %{service_name}에 로그인해야합니다. 계정이 없다면 %{sign_up_link} 할 수 있습니다."
+      you_must_log_in_to_create_new_listing: "새로운 광고를 올리려면 %{service_name}에 로그인해야합니다. 계정이 없다면 %{sign_up_link} 할 수 있습니다."
       additional_email_confirmed_dashboard: "귀하의 이메일이 확인되었습니다."
       you_must_log_in_to_give_feedback: "피드백을 보내시려면 로그인하셔야 합니다."
       you_must_log_in_to_invite_new_users: "새 사용자를 %{service_name}로 초대하려면 로그인해야합니다"
@@ -2290,7 +1072,7 @@ ko:
       you_must_log_in_to_confirm_or_cancel: "거래를 취소하거나 확인하려면 로그인해야합니다."
       you_need_to_confirm_your_account_first: "이메일을 확인해야합니다."
       you_must_fill_all_the_fields: "모든 입력란을 채워야합니다."
-      you_unfollowed_listing: "더이상 이 매물을 팔로우하지 않습니다"
+      you_unfollowed_listing: "더이상 이 광고를 팔로우하지 않습니다"
       joining_community_failed: 가입실패
       can_not_delete_email: "이메일 주소를 삭제할 수 없습니다."
       user_does_not_have_email_to_delete: "제거하려는 이메일 주소가 없습니다."
@@ -2315,13 +1097,13 @@ ko:
       paypal_payments: "페이팔 결제"
       stripe_payments: "스트라이프 결제"
       payments: 결제
-      listings: 매물
+      listings: 광고
       listings_search_placeholder: "매물명으로 찾기"
-      transactions_search_placeholder: "매물명으로 찾아보기"
+      transactions_search_placeholder: "광고명으로 찾아보기"
       transactions: 거래
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "이 매물을 볼 수 있는 권한이 없습니다."
+      listing_not_visible: "이 광고를 볼 수 있는 권한이 없습니다."
     comment:
       wrote: 작성했다
       send_private_message: "%{person}님에게 개인 메시지 보내기"
@@ -2333,33 +1115,33 @@ ko:
       send_comment: "댓글 추가하기"
       to_send_a_comment: 해야합니다.
       write_comment: "새 메시지 쓰기 :"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "이 매물이 비공개로 되어 새로운 댓글을 보낼 수 없습니다."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "이 광고는 비공개로 되어 새로운 댓글을 보낼 수 없습니다."
       you_must: "댓글을 쓰려면"
       subscribe_to_comments: "새로운 메시지 및 업데이트 알림"
-    deleting_a_listing_cannot_be_undone: "매물을 삭제하시면 다시 되돌릴 수 없습니다. 진행하시겠습니까?"
+    deleting_a_listing_cannot_be_undone: "광고를 삭제하시면 다시 되돌릴 수 없습니다. 진행하시겠습니까?"
     edit:
-      edit_listing: "매물 수정"
+      edit_listing: "광고 수정"
     edit_links:
-      close_listing: "매물 비공개"
-      edit_listing: "매물 수정"
-      reopen_listing: "매물 재공개"
+      close_listing: "광고 비공개"
+      edit_listing: "광고 수정"
+      reopen_listing: "광고 재공개"
       move_to_top: "홈페이지 상단으로 이동"
       show_in_updates_email: "다음 뉴스레터에서 보기"
       show_in_updates_email_loading: 로딩중...
       show_in_updates_email_error: "서버에 연결할 수 없습니다. 페이지 새로 고침 후 다시 시도하십시오."
-      show_in_updates_email_success: "이 매물은 사용자에게 전송되는 다음 자동 업데이트 이메일에 표시됩니다."
-      listing_is_pending: "매물이 승인 대기중입니다"
-      listing_is_rejected: "매물이 거부되었습니다."
-      approve_listing: "매물 승인하기"
-      reject_listing: "매물 승인 거절하기"
-      delete_listing: "매물 삭제하기"
+      show_in_updates_email_success: "이 광고는 사용자에게 전송되는 다음 자동 업데이트 이메일에 표시됩니다."
+      listing_is_pending: "광고가 승인 대기중입니다"
+      listing_is_rejected: "광고가 거부되었습니다."
+      approve_listing: "광고 승인하기"
+      reject_listing: "광고 승인 거절하기"
+      delete_listing: "광고 삭제하기"
     map:
       open_in_google_maps: "Google지도에서 열기"
     error:
       something_went_wrong: "오류가 발생했습니다 : %{error_code}"
       something_went_wrong_plain: "오류가 발생했습니다"
-      create_failed_to_connect_to_booking_service: "매물 작성 실패 : 예약 서비스에 연결하지 못했습니다. 다시 시도하여 주십시요"
-      update_failed_to_connect_to_booking_service: "매물 업데이트 실패 : 예약 서비스에 연결하지 못했습니다. 다시 시도하십시오."
+      create_failed_to_connect_to_booking_service: "광고 작성 실패 : 예약 서비스에 연결하지 못했습니다. 다시 시도하여 주십시요"
+      update_failed_to_connect_to_booking_service: "광고 업데이트 실패 : 예약 서비스에 연결하지 못했습니다. 다시 시도하십시오."
     follow_links:
       follow: "새로운 댓글 이메일로 받기"
       unfollow: "새로운 댓글 이메일로 받지 않기"
@@ -2434,9 +1216,9 @@ ko:
         origin: 원산지
         the_exact_location: "정확한 위치는 공개되지 않습니다."
       send_button:
-        save_listing: "매물 등록하기"
+        save_listing: "광고 등록하기"
         submit_for_review: "승인 요청하기"
-        will_be_reviewed: "%{service_name}의 모든 매물은 공개되기 전에 승인 절차를 거칩니다. 매물이 승인되면 이메일로 연락을 드리고 매물은 모든 회원들에게 공개됩니다."
+        will_be_reviewed: "%{service_name}의 모든 광고는 공개되기 전에 승인 절차를 거칩니다. 매물이 승인되면 이메일로 연락을 드리고 매물은 모든 회원들에게 공개됩니다."
         we_noticed_youre_an_admin: ~
       share_type:
         select: 선택
@@ -2457,7 +1239,7 @@ ko:
         comma_separate: "(콤마로 분리하세요)"
         tags: 태그
       title:
-        listing_title: "매물 이름"
+        listing_title: "광고 제목"
       valid_until:
         valid_until: 만기일
       valid_until_radio_buttons:
@@ -2480,7 +1262,7 @@ ko:
       housing: 공간
       items: 상품
       list_view: "리스트 뷰"
-      listings: 매물
+      listings: 광고
       map_view: "지도로 보기"
       offer_something: "다른 분들에게 알려주세요"
       offer_type: 제안유형
@@ -2519,18 +1301,18 @@ ko:
       end_time: "마침 시간"
       marketplace_fees_may_apply: ~
     new:
-      listing: 매물
+      listing: 광고
       selected_category: "카테고리: %{category}"
       selected_subcategory: "하위 카테고리: %{subcategory}"
       selected_transaction_type: "매물 타입 : %{transaction_type}"
       select_category: "카테고리 선택"
       select_subcategory: "하위카테고리 선택"
-      select_transaction_type: "매물 타입 선택"
-      you_need_to_fill_payout_details_before_accepting: "매물을 등록하려면 먼저 결제 정보를 입력해야 합니다. 결제 정보를 입력 하려면 %{payment_settings_link}로 이동 하십시오."
+      select_transaction_type: "광고 타입 선택"
+      you_need_to_fill_payout_details_before_accepting: "광고를 등록하려면 먼저 결제 정보를 입력해야 합니다. 결제 정보를 입력 하려면 %{payment_settings_link}로 이동 하십시오."
       contact_admin_link_text: "%{service_name} 연락하기"
-      community_not_configured_for_payments: "%{service_name}의 지불 구성이 되지 않아 신규 매물을 아직 등록할 수 없습니다. 자세한 내용은 %{contact_admin_link}에 문의 하시기 바랍니다."
+      community_not_configured_for_payments: "%{service_name}의 지불 구성이 되지 않아 새로운 광고를 아직 등록할 수 없습니다. 자세한 내용은 %{contact_admin_link}에 문의 하시기 바랍니다."
       payment_settings_link: "결제 설정"
-      community_not_configured_for_payments_admin: "%{service_name}이/가 결제를 위해 구성되지 않았으므로 아직 신규 매물을 등록할 수 없습니다. 결제 세부 사항을 기입 하시려면 %{payment_settings_link}로 이동하십시오."
+      community_not_configured_for_payments_admin: "%{service_name}이/가 결제를 위해 구성되지 않았으므로 아직 새로운 광고를 등록할 수 없습니다. 결제 세부 사항을 기입 하시려면 %{payment_settings_link}로 이동하십시오."
       you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "시간 수 :"
@@ -2544,7 +1326,7 @@ ko:
     quantity_placeholder: 수량
     please_comment: 설명
     reply_link:
-      listing_closed: "매물이 비공개 되었습니다."
+      listing_closed: "광고가 비공개 되었습니다."
     show:
       add_your_phone_number: "전화 번호 추가"
       add_profile_picture: "프로필 사진을 추가하세요"
@@ -2573,7 +1355,7 @@ ko:
       times: 번
       times_viewed: 열람된
       processing_uploaded_image: "(업로드된 이미지 처리 중 ...)"
-      listing_created_at: "매물 등록일"
+      listing_created_at: "광고 등록일"
       price:
         per_quantity_unit: "%{quantity_unit}당"
         per_day: 일당
@@ -2703,7 +1485,7 @@ ko:
     paypal_account_connected_title: "연결된 PayPal 계정"
     paypal_account_connected: "PayPal 계정 <%{email}>이 %{service_name}에 연결 되었습니다."
     change_account: "PayPal 계정 변경"
-    missing: "등록된 매물이 있지만 PayPal 계정이 결제를 받을 수 있도록 설정되어 있지 않습니다. PayPal 계정을 연결하고 %{settings_link}에서 %{service_name}가 거래 수수료를 청구할 수 있는 권한을 부여하십시오."
+    missing: "등록된 광고가 있지만 PayPal 계정이 결제를 받을 수 있도록 설정되어 있지 않습니다. PayPal 계정을 연결하고 %{settings_link}에서 %{service_name}가 거래 수수료를 청구할 수 있는 권한을 부여하십시오."
     from_your_payment_settings_link_text: "결제 설정"
     redirect_message: "PayPal로 이동합니다. 진행이 안되면 %{redirect_link} 클릭 하세요."
     redirect_link_text: 여기
@@ -2734,7 +1516,7 @@ ko:
       invite_only_help_text_title: 초대전용
     inactive_notification:
       this_person_is_not_active_in_kassi: "이 사용자는 더 이상 %{service_name}에서 활성화되어 있지 않습니다."
-      inactive_description: "이 사용자는 %{service_name} 사용을 중지했습니다. 해당 사용자에게 연락하거나 피드백을 주거나 매물에 메시지를 남길 수 없습니다."
+      inactive_description: "이 사용자는 %{service_name} 사용을 중지했습니다. 해당 사용자에게 연락하거나 피드백을 주거나 광고에 메시지를 남길 수 없습니다."
     new:
       create_new_account: "계정 만들기"
       email: 이메일
@@ -2792,15 +1574,15 @@ ko:
       what_are_these: "이게 무엇이죠?"
       review: "수신된 리뷰"
       reviews: "수신된 리뷰"
-      listing: 매물
-      listings: 매물
-      open_listing: "공개 매물"
-      open_listings: "공개 매물"
-      no_listings: "매물 없음"
-      no_open_listings: "공개된 매물 없음"
+      listing: 광고
+      listings: 광고
+      open_listing: "공개 중인 광고"
+      open_listings: "공개 중인 매물"
+      no_listings: "광고 없음"
+      no_open_listings: "공개된 광고 없음"
       no_reviews: "리뷰 없음"
-      show_all_listings: "모든 매물 보기"
-      show_all_open_listings: "모든 공개 매물 보기"
+      show_all_listings: "모든 광고들 보기"
+      show_all_open_listings: "모든 광고들 보기"
       show_all_reviews: "모든 리뷰 보기"
       admin_actions: ~
       post_listing_as: ~
@@ -2859,7 +1641,7 @@ ko:
       delete_account_confirmation_popup: "정말로 사용자 계정을 삭제하고 영구적으로 관련된 모든 데이터를 삭제하기를 원하십니까? 계정 삭제는 되돌릴 수 없습니다."
       email_addresses: 이메일
       new_email: "새로운 이메일 주소"
-      delete_personal_information: "계정을 삭제하시면 개인 정보 (이름, 전화 번호, 주소, 이메일, 프로필 사진 등)가 영구적으로 삭제되며 복구 할 수 없습니다. 귀하가 등록한 매물은 삭제됩니다. 계정을 다시 활성화 할 수 없습니다. 당신의 사용자 이름은 다른 사용자들이 사용할 수 있습니다."
+      delete_personal_information: "계정을 삭제하시면 개인 정보 (이름, 전화 번호, 주소, 이메일, 프로필 사진 등)가 영구적으로 삭제되며 복구 할 수 없습니다. 귀하가 등록한 광고는 삭제됩니다. 계정을 다시 활성화 할 수 없습니다. 당신의 사용자 이름은 다른 사용자들이 사용할 수 있습니다."
       delete_information_others_involved: "다른 회원이 관련된 정보(대화내용, 거래내역, 리뷰 등)는 계정이 없어져도 삭제되지 않습니다. 그러나 당신의 이름은 이 정보에 더 이상 표시되지 않습니다."
       unfinished_transactions: "거래가 진행 중이므로 계정을 삭제할 수 없습니다. 계정을 삭제하기 전에 모든 거래를 완료하십시오."
       only_admin: ~
@@ -2891,14 +1673,14 @@ ko:
       email_about_new_messages: "...누군가 나에게 메시지를 보낸 경우"
       email_about_new_received_testimonials: "...누군가 나에게 피드백을 보낸 경우"
       email_about_testimonial_reminders: "...이벤트에 피드백 주는 것을 잊은 경우"
-      email_daily_community_updates: "신규 매물이 있는 경우 <b>daily</b> 뉴스레터 받기"
-      email_weekly_community_updates: "신규 매물이 있는 경우 <b>weekly</b> 뉴스레터 받기"
+      email_daily_community_updates: "신규 광고가 있는 경우 <b>daily</b> 뉴스레터 받기"
+      email_weekly_community_updates: "새로운 광고가 있는 경우 <b>weekly</b> 뉴스레터 받기"
       do_not_email_community_updates: "뉴스레터 수신거부"
       email_when_conversation_accepted: "...누군가 나의 제안 또는 요청을 승인한 경우"
       email_when_conversation_rejected: "...누군가 나의 제안 또는 요청을 거절한 경우"
       email_about_completed_transactions: "... 누군가 내 주문을 완료로 표시한 경우"
       email_about_new_payments: "...신규 지불을 받은 경우"
-      email_about_new_listings_by_followed_people: "...내가 팔로우하는 회원이 신규 매물을 등록한 경우"
+      email_about_new_listings_by_followed_people: "...내가 팔로우하는 회원이 신규 광고를 등록한 경우"
       unsubscribe_succesful: "성공적으로 구독취소"
       unsubscribe_info_text: "이 이메일은 더 이상 수신되지 않습니다. %{설정} 링크를 확인하여 %{service_name}에서 받을 이메일을 선택하거나 %{homepage link}로 돌아가십시오."
       settings_link: 설정
@@ -2927,7 +1709,7 @@ ko:
       these_fields_are_shown_in_your: "일부 정보는 모든 %{service_name} 사용자에게 공개 됩니다."
       visible_to_everybody: "모든 사람에게 보여집니다"
       visible_to_registered_users: "(로그인 한 사용자만 볼 수 있습니다)"
-      default_in_listing: "(신규 매물 등록시 기본값으로만 사용됨)"
+      default_in_listing: "(새로운 광고 등록시 기본값으로만 사용됨)"
       invisible: (비공개)
       image_is_processing: "잠시만 기다려주세요. 프로필 사진을 처리 중입니다."
       shown_in_your_public_profile: ~
@@ -2975,7 +1757,7 @@ ko:
       negative: 부정적
       default_textual_feedback: "모든 것이 무리없이 잘 진행되었습니다. 감사합니다."
     testimonial:
-      about_listing: "매물 정보"
+      about_listing: "광고 정보"
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
@@ -3114,7 +1896,7 @@ ko:
       save_and_close_availability_editing: "저장후 닫기"
       confirm_discarding_unsaved_availability_changes_explanation: "가용성 정보에 대한 변경 사항을 저장하지 않았습니다. 계속 진행하면 이러한 변경 사항이 손실됩니다."
       confirm_discarding_unsaved_availability_changes_question: "변경 사항을 삭제 하시겠습니까?"
-      edit_listing_availability: "매물 가용여부 편집"
+      edit_listing_availability: "광고 가용여부 편집"
       working_hours:
         default_schedule: "기본 일정"
         i_am_available_on: "사용할 수 있습니다 ..."
@@ -3123,7 +1905,7 @@ ko:
         add_another_time_slot: "+ 다른 시간대 추가"
         save: 저장
     no_listings:
-      sorry: "죄송합니다. 검색 기준에 맞는 매물을 찾을 수 없습니다."
+      sorry: "죄송합니다. 검색 기준에 맞는 광고를 찾을 수 없습니다."
       try_other_search_terms: "다른 검색어를 사용해 보시겠습니까?"
     listing_card:
       add_picture: "사진 추가"
@@ -3139,7 +1921,7 @@ ko:
       user: 사용자
       inbox: 수신함
       profile: 프로필
-      manage_listings: "내 매물"
+      manage_listings: "내 광고"
       settings: 설정
       logout: 로그아웃
       login: 로그인
