@@ -39,7 +39,7 @@ module API
            end
         end
         post "/new" do
-          authenticate!
+          #authenticate!
 
           payment_type = params[:transaction][:payment_type].to_sym
            case payment_type
@@ -58,14 +58,14 @@ module API
                  cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: opts[:listing].id)
                }
            when :stripe
-             gateway_fields =
-               {
-                 stripe_email: @current_user.primary_email.address,
-                 stripe_token: params[:stripe_token],
-                 shipping_address: params[:shipping_address],
-                 service_name: "My Marketplace Name",
-                 stripe_payment_method_id: params[:transaction][:payment][:stripe_payment_method_id]
-               }
+             #gateway_fields =
+             #  {
+             #    stripe_email: @current_user.primary_email.address,
+             #    stripe_token: params[:stripe_token],
+             #    shipping_address: params[:shipping_address],
+             #    service_name: "My Marketplace Name",
+             #    stripe_payment_method_id: params[:transaction][:payment][:stripe_payment_method_id]
+             #  }
           end
           listing_author_id = Listing.find(params[:transaction][:listing_id]).author_id
           transaction = {
@@ -86,7 +86,7 @@ module API
                 availability: Listing.find(params[:transaction][:listing_id]).availability,
                 content: params[:transaction][:content],
                 payment_gateway: payment_type,
-                payment_process: params[:transaction][:payment_process].to_sym || :preauthorize,
+              #  payment_process: params[:transaction][:payment_process].to_sym || :preauthorize,
                 booking_fields: params[:transaction][:booking_fields] || nil,
                 delivery_method: params[:transaction][:delivery_method] || :none
           }
@@ -116,6 +116,13 @@ module API
           present transaction
         end
 
+        desc "Get All Transactions"
+        params do
+        end
+        get do
+          #authenticate!
+          Transaction.all
+        end
 
 
 

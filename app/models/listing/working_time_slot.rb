@@ -27,6 +27,7 @@ class Listing::WorkingTimeSlot < ApplicationRecord
 
 
   def covers_booking?(booking)
+    
     start_time = booking.start_time
     year = start_time.year
     month = start_time.month
@@ -34,6 +35,7 @@ class Listing::WorkingTimeSlot < ApplicationRecord
     from_time = Time.zone.parse("#{year}/#{month}/#{day} #{from}")
     till_time = Time.zone.parse("#{year}/#{month}/#{day} #{till}")
     from_time <= booking.start_time && till_time >= booking.end_time
+    
   end
 
   private

@@ -13,7 +13,8 @@ module UserService::API
         puts "after begin"
         #just send username made by rocketchat
         #NEED TO CHANGE USERN NAME GENERATION
-        username = generate_username(user_hash[:given_name], user_hash[:family_name], community_id)
+        #username = generate_username(user_hash[:given_name], user_hash[:family_name], community_id)
+        username = user_hash[:username]
         locale = user_hash[:locale] || APP_CONFIG.default_locale # don't access config like this, require to be passed in in ctor
         puts locale, "local area"
         person = Person.new(

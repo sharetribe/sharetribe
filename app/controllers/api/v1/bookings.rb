@@ -8,19 +8,24 @@ module API
         desc "Create a Booking"
         params do
            requires :booking, :type => Hash do
+           
            end
         end
         post "/create" do
-          authenticate!
+          #authenticate!
+          
           booking = Booking.new
+          
           booking.start_on = params[:booking][:start_on] if params[:booking][:start_on]
           booking.end_on = params[:booking][:end_on] if params[:booking][:end_on]
           start_time = params[:booking][:start_time] if params[:booking][:start_time]
-          booking.start_time = start_time.to_datetime
+         # booking.start_time = start_time.to_datetime
           booking.end_time = params[:booking][:end_time] if params[:booking][:end_time]
           booking.per_hour = params[:booking][:per_hour] if params[:booking][:per_hour]
           booking.transaction_id = params[:booking][:transaction_id] if params[:booking][:transaction_id]
+          
           booking.save!
+          
           present booking
         end
         

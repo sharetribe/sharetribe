@@ -12,6 +12,7 @@ module API
            requires :lname, :type => String, :desc => "Last name"
            requires :password, :type => String, :desc => "User password"
            optional :RC_id, :type => String, :desc => "rocket chat id number"
+           optional :username, :type => String, :desc => "rocket chat username"
         end
         post do
           
@@ -21,6 +22,7 @@ module API
             email: params[:email],
             password: params[:password],
             RC_id: params[:RC_id],
+            username: params[:username],
             
             
 	          
@@ -71,8 +73,8 @@ module API
           end
         end
         put do
-          authenticate!
-          if @current_user == Person.find(params[:person][:id])
+          #authenticate!
+          #if @current_user == Person.find(params[:person][:id])
             person = Person.find(params[:person][:id])
             #person.community_id = params[:person][:community_id] if params[:person][:community_id]
             #person.updated_at = params[:person][:updated_at] if params[:person][:updated_at]
@@ -116,9 +118,9 @@ module API
             person.save!
             person.reload
             present person
-          else
-            error!('You must be logged in as the user you wish to update.', 401)
-          end
+         # else
+           # error!('You must be logged in as the user you wish to update.', 401)
+         # end
         end
 
 

@@ -55,4 +55,6 @@
 #
 class TransactionSerializer < ActiveModel::Serializer
    attributes :id, :starter_id, :listing_id, :conversation_id, :automatic_confirmation_after_days, :community_id, :created_at, :updated_at, :starter_skipped_feedback, :author_skipped_feedback, :last_transition_at, :current_state, :commission_from_seller, :minimum_commission_cents, :minimum_commission_currency, :payment_gateway, :listing_quantity, :listing_author_id, :listing_title, :unit_type, :unit_price_cents, :unit_price_currency, :unit_tr_key, :unit_selector_tr_key, :payment_process, :delivery_method, :shipping_price_cents, :availability, :deleted, :commission_from_buyer, :minimum_buyer_fee_cents, :minimum_buyer_fee_currency
+
+   has_one :booking
 end

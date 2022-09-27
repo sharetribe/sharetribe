@@ -26,6 +26,7 @@ describe TransactionService::StateMachine do
                          per_hour: true)
       transaction
     end
+    
     let(:new_booking) { Booking.new(start_time: start_time, end_time: end_time, per_hour: true) }
 
     it 'customer comply additional action required
@@ -68,6 +69,7 @@ describe TransactionService::StateMachine do
     end
 
     def booking_available?(booking)
+      
       listing.working_hours_covers_booking?(booking) && listing.bookings.covers_another_booking_per_hour(booking).empty?
     end
   end

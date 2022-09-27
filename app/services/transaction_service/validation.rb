@@ -155,6 +155,7 @@ module TransactionService
       end
 
       def validate_booking_timeslots(listing:, tx_params:)
+        
         booking_params = if tx_params[:per_hour]
                            tx_params.slice(:start_time, :end_time, :per_hour)
                          else
@@ -162,6 +163,7 @@ module TransactionService
                          end
 
         booking = Booking.new(
+
           booking_params.merge(
           tx: ::Transaction.new(listing: listing))
         )

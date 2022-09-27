@@ -23,8 +23,14 @@ module ManageAvailabilityPerHour
   end
 
   def working_hours_covers_booking?(booking)
+    puts booking.inspect, working_time_slots.by_week_day(booking.week_day).each.inspect , "JLKJLKJLKJLKJ"
     working_time_slots.by_week_day(booking.week_day).each do |time_slot|
+      
+      
+      
+      
       return true if time_slot.covers_booking?(booking)
+      
     end
     false
   end
