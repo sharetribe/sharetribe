@@ -237,9 +237,6 @@
             = link_to t('admin2.sidebar.analytics.google'), admin2_analytics_google_index_path
           %li#googletagmanager-mobile{class: active_li('google_manager')}
             = link_to t('admin2.sidebar.analytics.google_manager'), admin2_analytics_google_manager_index_path
-          - if APP_CONFIG.admin_enable_tracking_config
-            %li#sharetribeanalytics-mobile{class: active_li('sharetribe')}
-              = link_to t('admin2.sidebar.analytics.sharetribe'), admin2_analytics_sharetribe_index_path
         / Advanced
         %ul.category-title
           %li

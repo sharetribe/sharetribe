@@ -113,7 +113,6 @@ nl:
       analytics:
         google: "Google Analytics"
         google_manager: "Google Tag Manager"
-        sharetribe: "Sharetribe analytics"
       advanced:
         experimental: ~
         recaptcha: reCAPTCHA
@@ -976,9 +975,6 @@ nl:
       custom_css_script: ~
       custom_css_script_placeholder: ~
       custom_css_script_info_text: ~
-    sharetribe:
-      info_text: ~
-      end_user_analytics: ~
     google:
       info_text: ~
       google_analytics_key: ~
@@ -1389,7 +1385,6 @@ nl:
       category_pages_updated: ~
       profile_pages_updated: ~
       google_analytics_updated: ~
-      sharetribe_analytics_updated: ~
       custom_script_updated: ~
       topbar_updated: ~
       footer_updated: ~

@@ -91,7 +91,7 @@
 #  small_cover_photo_processing               :boolean
 #  favicon_processing                         :boolean
 #  deleted                                    :boolean
-#  end_user_analytics                         :boolean          default(TRUE)
+#  end_user_analytics                         :boolean          default(FALSE)
 #  show_slogan                                :boolean          default(TRUE)
 #  show_description                           :boolean          default(TRUE)
 #  hsts_max_age                               :integer
