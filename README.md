@@ -485,5 +485,4 @@ The forum is a great place to ask support and help for example with issues durin
 
 ## License
 
-
 Sharetribe Go is source-available under the Sharetribe Community Public License. See [LICENSE](LICENSE) for details.
