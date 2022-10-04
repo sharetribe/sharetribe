@@ -113,7 +113,6 @@ fr:
       analytics:
         google: "Google Analytics"
         google_manager: "Google Tag Manager"
-        sharetribe: "Sharetribe analytics"
       advanced:
         experimental: "Nouvelles fonctionnalités"
         recaptcha: reCAPTCHA
@@ -997,9 +996,6 @@ fr:
       custom_css_script: "Code \"CSS\" personnalisé"
       custom_css_script_placeholder: ".class { ... }"
       custom_css_script_info_text: "Le code de ce champ sera ajouté <code>CSS</code> de chaque page."
-    sharetribe:
-      info_text: "À Sharetribe, pour améliorer nos services et notre support, nous suivons l'activité des utilisateurs des places de marché. Nous ne collectons aucune données personnelles et ne partageons pas ces informations en dehors de l'équipe Sharetribe. <a href='%{url}' class=\"external-link\" target='_blank'>En savoir plus</a>."
-      end_user_analytics: "Permettre à Sharetribe de suivre l'activité des utilisateurs pour améliorer nos services"
     google:
       info_text: "Google Analytics vous permet de suivre le trafic utilisateurs sur votre place de marché. Vous pourrez visualiser et analyser de nombreuses données : nombre de visiteurs, pages vues, temps passé sur votre place de marché, sources du trafic, etc. <a href='%{url}' class='external-link' target='_blank' >En savoir plus sur la configuration Google Analytics</a>."
       google_analytics_key: "Code de suivi Google Analytics"
@@ -1410,7 +1406,6 @@ fr:
       category_pages_updated: "Les paramètres de meta tags des pages de catégories ont été mis à jour"
       profile_pages_updated: "Les paramètres de meta tags des pages de profils ont été mis à jour"
       google_analytics_updated: "Les paramètres Google Analytics ont été mis à jour"
-      sharetribe_analytics_updated: "Les paramètres Sharetribe analytics ont été mis à jour"
       custom_script_updated: "Les paramètres de script personnalisé ont été mis à jour"
       topbar_updated: "Les paramètres de barre de navigation ont été mis à jour"
       footer_updated: "Les paramètres de pied de page ont été mis à jour"

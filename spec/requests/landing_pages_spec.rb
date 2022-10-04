@@ -278,17 +278,7 @@ describe "Landing page", type: :request do
           APP_CONFIG.use_google_tag_manager = @old_gtm
         end
 
-        it "contains GTM" do
-          expect_string("http://#{@domain}", "Google Tag Manager")
-        end
-
         describe "when end user analytics disabled" do
-          before(:each) do
-            @community.end_user_analytics = false
-            @community.save
-            Rails.cache.clear
-          end
-
           it "does not contain GTM when disabled" do
             get "http://#{@domain}"
 

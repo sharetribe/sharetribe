@@ -19,8 +19,3 @@ Feature: Admin configures analytics
   And I press submit
   And I refresh the page
   Then I should see "UA-12345-12" in the Google analytics key field
-
-  Scenario: Disable end user analytics
-  When I uncheck "Allow Sharetribe to track"
-  And I press submit
-  Then the "Allow Sharetribe to track" checkbox should not be checked

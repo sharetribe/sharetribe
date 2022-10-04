@@ -252,12 +252,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     @selected_left_navi_link = "analytics"
 
     params[:community][:google_analytics_key] = nil if params[:community][:google_analytics_key] == ""
-    analytic_params = if APP_CONFIG.admin_enable_tracking_config
-                        params.require(:community).permit(:google_analytics_key,
-                                                          :end_user_analytics)
-                      else
-                        params.require(:community).permit(:google_analytics_key)
-                      end
+    analytic_params = params.require(:community).permit(:google_analytics_key)
 
     update(@current_community,
             analytic_params,

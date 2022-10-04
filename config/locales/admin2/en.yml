@@ -113,7 +113,6 @@ en:
       analytics:
         google: "Google Analytics"
         google_manager: "Google Tag Manager"
-        sharetribe: "Sharetribe analytics"
       advanced:
         experimental: "New features"
         recaptcha: reCAPTCHA
@@ -997,9 +996,6 @@ en:
       custom_css_script: "Custom CSS code"
       custom_css_script_placeholder: ".class { ... }"
       custom_css_script_info_text: "The code from that field will be added to the <code>CSS</code> of every page."
-    sharetribe:
-      info_text: "To improve its services and support, Sharetribe tracks marketplace users' activity. We will never collect personal data or share this information outside the Sharetribe team. <a href='%{url}' class=\"external-link\" target='_blank'>Learn more</a>."
-      end_user_analytics: "Allow Sharetribe to track users' activity in order to improve its services"
     google:
       info_text: "Google Analytics helps you track your marketplace traffic. You'll be able to browse and analyze lots of data: number of visitors, pages viewed, time spent on your marketplace, traffic sources, etc. <a href='%{url}' class='external-link' target='_blank' >Learn more about the Google Analytics setup</a>."
       google_analytics_key: "Google Analytics tracking ID"
@@ -1410,7 +1406,6 @@ en:
       category_pages_updated: "Category pages meta tags settings were updated"
       profile_pages_updated: "Profile pages meta tags settings were updated"
       google_analytics_updated: "Google analytics settings were updated"
-      sharetribe_analytics_updated: "Sharetribe analytics settings were updated"
       custom_script_updated: "Custom script settings were updated"
       topbar_updated: "Top bar settings were updated"
       footer_updated: "Footer settings were updated"
