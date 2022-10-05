@@ -592,7 +592,7 @@ function initialize_invitation_form(locale, email_error_message, invitation_limi
   $.validator.addMethod(
     "max_invitations",
     function(value) {
-      return value.split(",").length < invitation_limit;
+      return value.split(",").length <= invitation_limit;
     },
     $.validator.format(email_error_message)
   );
