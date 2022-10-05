@@ -88,7 +88,7 @@ class InvitationsController < ApplicationController
 
   def validate_daily_limit(inviter_id, number_of_emails, community)
     email_count = (number_of_emails + daily_email_count(inviter_id))
-    email_count < Invitation.invitation_limit || (community.join_with_invite_only && email_count < Invitation.invite_only_invitation_limit)
+    email_count <= Invitation.invitation_limit || (community.join_with_invite_only && email_count <= Invitation.invite_only_invitation_limit)
   end
 
   def daily_email_count(inviter_id)
