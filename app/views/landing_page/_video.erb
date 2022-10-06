@@ -30,6 +30,7 @@
 
    var player = new YT.Player('<%= section_id %>__video__youtube-player', {
      videoId: '<%= s["youtube_video_id"] %>',
+     host: 'https://www.youtube-nocookie.com',
      playerVars: {
        controls: 0,
        modestbranding: 1,

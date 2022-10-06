@@ -78,10 +78,10 @@
       .col-12.listing-description-content
         - if @listing.description && !@listing.description.blank?
           = markdown(@listing.description)
-          - if( @listing_presenter.youtube_link_ids.present?)
+          - if @listing_presenter.youtube_link_ids.present?
             - @listing_presenter.youtube_link_ids.each do |youtube_id|
               .listing-description-youtube-wrapper
-                %iframe.listing-description-youtube-iframe{ title: t("listings.show.youtube_video_player"), width: 640, height:390, src: "//www.youtube.com/embed/#{ youtube_id }", frameborder: 0, allowfullscreen: true}
+                %iframe.listing-description-youtube-iframe{ title: t("listings.show.youtube_video_player"), width: 640, height:390, src: "//www.youtube-nocookie.com/embed/#{ youtube_id }", frameborder: 0, allowfullscreen: true}
 
     - @listing.custom_field_values.each do |custom_field_value|
       .row
