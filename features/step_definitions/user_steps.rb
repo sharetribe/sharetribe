@@ -168,6 +168,26 @@ Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, commun
   CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, true)
 end
 
+And /^Community "([^"]*)" is private$/ do |community|
+  community = Community.find_by(ident: community)
+  community.update(private: true)
+end
+
+And /^Community "([^"]*)" is not private$/ do |community|
+  community = Community.find_by(ident: community)
+  community.update(private: false)
+end
+
+And /^Social share buttons in community "([^"]*)" enabled$/ do |community|
+  community = Community.find_by(ident: community)
+  community.update(enable_social_share_buttons: true)
+end
+
+And /^Social share buttons in community "([^"]*)" disabled$/ do |community|
+  community = Community.find_by(ident: community)
+  community.update(enable_social_share_buttons: false)
+end
+
 Then /^I should not see my username$/ do
   expect(page).to have_no_content(Person.order("created_at").last.username)
 end

@@ -112,6 +112,7 @@
 #  fuzzy_location                             :boolean          default(FALSE)
 #  recaptcha_site_key                         :string(255)
 #  recaptcha_secret_key                       :string(255)
+#  enable_social_share_buttons                :boolean          default(FALSE), not null
 #
 # Indexes
 #

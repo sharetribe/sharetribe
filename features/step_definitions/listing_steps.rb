@@ -251,6 +251,14 @@ Then(/^(?:|I )should see payment logos$/) do
   expect(page).to have_css('.submit-payment-form-link')
 end
 
+Then(/^(?:|I )should see social buttons block$/) do
+  expect(page).to have_css('.listing-social')
+end
+
+Then(/^(?:|I )should not see social buttons block$/) do
+  expect(page).not_to have_css('.listing-social')
+end
+
 Given(/^listing with title "(.*?)" has author "(.*?)"$/) do |title, username|
   listing = Listing.find_by(title: title)
   author = Person.find_by(username: username)

@@ -18,7 +18,7 @@ module Admin2Helper
       payment_system: %w[country_currencies transaction_size stripe paypal],
       emails: %w[newsletters email_users welcome_emails outgoing_emails],
       search_location: %w[search locations],
-      social_media: %w[image_tags twitter],
+      social_media: %w[image_tags twitter social_share_buttons],
       seo: %w[sitemap landing_pages search_pages listing_pages category_pages profile_pages google_console],
       analytics: %w[google sharetribe google_manager],
       advanced: %w[custom_scripts delete_marketplaces experimental recaptcha]

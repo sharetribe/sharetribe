@@ -432,6 +432,11 @@ Rails.application.routes.draw do
       end
 
       namespace :social_media, path: 'social-media' do
+        resources :social_share_buttons, path: 'social-share-buttons', only: %i[index] do
+          collection do
+            patch :update_share_buttons
+          end
+        end
         resources :image_tags, path: 'image-and-tags', only: %i[index] do
           collection do
             patch :update_image

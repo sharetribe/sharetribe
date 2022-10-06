@@ -323,6 +323,7 @@ CREATE TABLE `communities` (
     `fuzzy_location` tinyint(1) DEFAULT '0',
     `recaptcha_site_key` varchar(255) DEFAULT NULL,
     `recaptcha_secret_key` varchar(255) DEFAULT NULL,
+    `enable_social_share_buttons` tinyint(1) NOT NULL DEFAULT '0',
     PRIMARY KEY (`id`),
     UNIQUE KEY `index_communities_on_uuid` (`uuid`),
     KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -2490,6 +2491,8 @@ INSERT INTO `schema_migrations` (version) VALUES
     ('20210129114823'),
     ('20210517131520'),
     ('20211124070123'),
-    ('20220929080535');
+    ('20220929080535'),
+    ('20221006100641'),
+    ('20221006100754');
 
 
