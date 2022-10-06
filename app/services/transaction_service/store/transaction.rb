@@ -9,8 +9,8 @@ module TransactionService::Store::Transaction
     tx_model = TransactionModel.new(tx_data.except(:content, :booking_fields, :starting_page))
 
     build_conversation(tx_model, tx_data)
-    build_booking(tx_model, tx_data)
-
+    res = build_booking(tx_model, tx_data)
+    puts tx_model.inspect, tx_model, res.inspect, res, "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
     tx_model.save!
     
     tx_model
@@ -98,7 +98,9 @@ module TransactionService::Store::Transaction
   end
 
   def build_booking(tx_model, tx_data)
+    puts "whats", tx_data
     if is_booking?(tx_data)
+      puts "yes"
       if tx_data[:booking_fields][:per_hour]
         start_time, end_time, per_hour = tx_data[:booking_fields].values_at(:start_time, :end_time, :per_hour)
         tx_model.build_booking(
@@ -114,6 +116,7 @@ module TransactionService::Store::Transaction
       end
       tx_model.booking.tx = tx_model
     end
+    puts "nope"
   end
 
   def is_booking?(tx_data)

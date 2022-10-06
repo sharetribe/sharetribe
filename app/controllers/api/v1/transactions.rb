@@ -1,7 +1,7 @@
 module API
   module V1
     class Transactions < Grape::API
-      include API::V1::Defaults     
+      include API::V1::Defaults
 
       resource :transactions do
 
@@ -23,19 +23,19 @@ module API
             #optional :unit_tr_key, type: String
             #optional :unit_selector_tr_key, type: String
             #optional :availability, type: String
-            # optional :content, type: String
-            # optional :payment_gateway, type: String
-            # optional :payment_process, type: String
-            # optional :booking_fields, type: String
-            # optional :delivery_method, type: String
-            # requires :payment_type, type: String
-            # optional :booking_fields, type: Hash do
-            #  optional :start_on, type: String
-            #  optional :end_on, type: String
-            #  optional :start_time, type: String
-            #  optional :end_time, type: String
-            #  optional :per_hour, type: Integer
-            # end
+            #optional :content, type: String
+            #optional :payment_gateway, type: String
+            optional :payment_process, type: String
+            #optional :booking_fields, type: String
+            #optional :delivery_method, type: String
+            #requires :payment_type, type: String
+            #optional :booking_fields, type: Hash do
+            # optional :start_on, type: String
+            # optional :end_on, type: String
+            # optional :start_time, type: String
+            # optional :end_time, type: String
+            # optional :per_hour, type: Integer
+            #end
            end
         end
         post "/new" do
@@ -58,14 +58,16 @@ module API
                  cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: opts[:listing].id)
                }
            when :stripe
-             #gateway_fields =
-             #  {
-             #    stripe_email: @current_user.primary_email.address,
-             #    stripe_token: params[:stripe_token],
-             #    shipping_address: params[:shipping_address],
-             #    service_name: "My Marketplace Name",
-             #    stripe_payment_method_id: params[:transaction][:payment][:stripe_payment_method_id]
-             #  }
+             gateway_fields =
+               {
+                #  stripe_email: @current_user.primary_email.address,
+                 stripe_email: 'elikeetch@gmail.com',
+                 stripe_token: params[:stripe_token],
+                #  shipping_address: params[:shipping_address],
+                 #shipping_address: "832 w 42nd st Norfolk VA, 23508",
+                 service_name: "AtlasTalked",
+                 stripe_payment_method_id: params[:transaction][:payment][:stripe_payment_method_id]
+               }
           end
           listing_author_id = Listing.find(params[:transaction][:listing_id]).author_id
           transaction = {
@@ -86,23 +88,23 @@ module API
                 availability: Listing.find(params[:transaction][:listing_id]).availability,
                 content: params[:transaction][:content],
                 payment_gateway: payment_type,
-              #  payment_process: params[:transaction][:payment_process].to_sym || :preauthorize,
+                payment_process: params[:transaction][:payment_process].to_sym || :preauthorize,
                 booking_fields: params[:transaction][:booking_fields] || nil,
                 delivery_method: params[:transaction][:delivery_method] || :none
           }
           transaction = TransactionService::Transaction.create({
            transaction: transaction,
            gateway_fields: gateway_fields
-          }, force_sync: payment_type == :stripe)  
-          
-          puts transaction 
+          }, force_sync: payment_type == :stripe)
+
+          puts transaction, "ello ello ello "
           if transaction.success
           present transaction[:data][:transaction][:id]
           else
             present transaction
           end
         end
-        
+
 
         desc "Return Transaction"
         params do
@@ -206,7 +208,7 @@ module API
           else
             error!('You must be logged in as a party in the transaction.', 401)
           end
-          
+
         end
 
 

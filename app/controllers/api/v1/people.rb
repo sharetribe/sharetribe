@@ -49,6 +49,8 @@ module API
         get  do
          # authenticate!
          puts "before person find"
+          #person = Person.find(params[:id])
+          #perID = RocketChatId.where(RC_id: params[:id])
           person = Person.find(params[:id])
           puts person,"after person find"
           present person

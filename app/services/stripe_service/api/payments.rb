@@ -12,6 +12,7 @@ module StripeService::API
         end
 
         if gateway_fields[:stripe_payment_method_id].present?
+          puts "whats thissssssssssssssss", gateway_fields.inspect, tx.inspect, gateway_fields, tx
           wrap_in_report(tx: tx, start: :create_intent_start, success: :create_intent_success, failed: :create_intent_failed) do
             do_create_preauth_payment(tx, gateway_fields, seller_account)
           end
@@ -135,6 +136,7 @@ module StripeService::API
       end
 
       def wrap_in_report(tx:, start:, success:, failed:)
+        puts tx, start, success, failed, "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
         report = StripeService::Report.new(tx: tx)
         report.send(start)
         result = yield
@@ -151,6 +153,7 @@ module StripeService::API
       end
 
       def do_create_preauth_payment(tx, gateway_fields, seller_account)
+        puts "i made it to do createssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
         seller_id  = seller_account[:stripe_seller_id]
         payment_method_id = gateway_fields[:stripe_payment_method_id]
 
@@ -208,7 +211,9 @@ module StripeService::API
             payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_INVALID
           end
         end
+        puts "JJJJJJJEEEEEEEEEEERRRRRRRRRRRRRRTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEE"
         payment = PaymentStore.create(tx.community_id, tx.id, payment_data)
+        puts payment,gateway_fields[:shipping_address].present?,"JJJJJJJEEEEEEEEEEERRRRRRRRRRRRRRTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEE"
 
         if gateway_fields[:shipping_address].present?
           TransactionStore.upsert_shipping_address(
@@ -216,6 +221,7 @@ module StripeService::API
             transaction_id: tx.id,
             addr: gateway_fields[:shipping_address])
         end
+       
         Result::Success.new(payment)
       end
 

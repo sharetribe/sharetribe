@@ -51,6 +51,18 @@ module API
           Booking.all
         end
 
+        desc "Retrun bookings tied to specific user"
+        params do 
+          requires :person_id, type: String
+        end
+        get "/person" do
+          time = Time.new()
+          bookings = Transaction.where(listing_author_id: params[:person_id]).joins(:booking).where('end_time > ?', time)
+          
+          #fix this get only bookings to tidy up
+          present bookings
+        end
+
 
 
 

@@ -27,11 +27,13 @@ module TransactionService::Process
     def do_create(tx, gateway_fields)
       gateway_adapter = TransactionService::Transaction.gateway_adapter(tx.payment_gateway)
 
+     
+
       completion = gateway_adapter.create_payment(
         tx: tx,
         gateway_fields: gateway_fields,
         force_sync: true)
-
+      
       if completion[:success]
         if completion[:sync]
           finalize_res = finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
