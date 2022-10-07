@@ -102,7 +102,7 @@ en:
       social_media:
         image_tags: "Image & Tags"
         twitter: Twitter
-        social_share_buttons: 'Social share buttons'
+        social_share_buttons: "Social share buttons"
       seo:
         sitemap_robots: "Sitemap & Robots"
         landing_pages: "Landing page meta tags"
@@ -1064,8 +1064,8 @@ en:
       yourhandle: yourhandle
     social_share_buttons:
       social_share_buttons: "Social share buttons"
-      enable: "Enable"
-      disable: "Disable"
+      enable: Enable
+      disable: Disable
       info_text: "In marketplaces that are not private, Facebook and Twitter sharing buttons can be displayed on listing pages. If social share buttons are enabled, you should let visitors know as Facebook and Twitter will set a cookie on their device. Based on their location, regulations may require collecting their consent about such cookies. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about social share buttons</a>."
       sub_text: "The social share buttons can be controlled only if the marketplace is not private."
     image_tags:
@@ -1252,15 +1252,15 @@ en:
       remove_confirm: "Are you sure you want to delete the section \"%{name}\" and all its data?"
       add_new_section: "+ Add a new section"
       publish_changes: "Publish changes"
-      subscribe: 'Subscribe to enable publishing'
+      subscribe: "Subscribe to enable publishing"
       preview_landing_page: "Preview landing page"
       preview_landing_page_free: "Preview landing page (free)"
       check_it_out: "Check it out"
       latest_version_released: "The latest version of your landing page is live! %{link}!"
       this_version_is_not_released: "You need to make changes to publish a new version of your landing page."
       statusbar:
-        paid_on: 'Paid add-on:'
-        info: 'Improve visitor engagement on your marketplace with a Custom Landing Page. Test how your landing page could look and publish it by subscribing to the add-on.'
+        paid_on: "Paid add-on:"
+        info: "Improve visitor engagement on your marketplace with a Custom Landing Page. Test how your landing page could look and publish it by subscribing to the add-on."
       sections:
         add: "Add a new section to your landing page"
         new: "New section type"

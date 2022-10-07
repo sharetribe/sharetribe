@@ -102,6 +102,7 @@ nl:
       social_media:
         image_tags: ~
         twitter: ~
+        social_share_buttons: ~
       seo:
         sitemap_robots: ~
         landing_pages: ~
@@ -1040,6 +1041,12 @@ nl:
       twitter_handle: ~
       twitter_handle_info_text: ~
       yourhandle: ~
+    social_share_buttons:
+      social_share_buttons: ~
+      enable: ~
+      disable: ~
+      info_text: ~
+      sub_text: ~
     image_tags:
       social_logo: ~
       social_logo_info_text: ~
@@ -1379,6 +1386,7 @@ nl:
       location_updated: ~
       image_tags_updated: ~
       twitter_updated: ~
+      social_share_buttons_updated: ~
       landing_pages_updated: ~
       search_pages_updated: ~
       listing_pages_updated: ~

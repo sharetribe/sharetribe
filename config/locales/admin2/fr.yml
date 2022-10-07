@@ -102,6 +102,7 @@ fr:
       social_media:
         image_tags: "Image & Tags"
         twitter: Twitter
+        social_share_buttons: "Boutons de partage"
       seo:
         sitemap_robots: "Sitemap & Robots"
         landing_pages: "Meta tags de la page d'accueil"
@@ -1061,6 +1062,12 @@ fr:
       twitter_handle: "Nom Twitter"
       twitter_handle_info_text: "Le nom d'utilisateur du compte Twitter de votre place de marché (si vous en avez un). Il sera ajouté au tweet suggéré lorsque des visiteurs utilisent le bouton pour tweeter depuis une page d'annonce."
       yourhandle: nomtwitter
+    social_share_buttons:
+      social_share_buttons: "Boutons de partage"
+      enable: Activer
+      disable: Désactiver
+      info_text: "Sur une place de marché qui n'est pas privée, les boutons de partage Facebook et Twitter peuvent être affichés sur les pages d'annonces. Si les boutons de partage sont activés, vous devriez le faire savoir à vos visiteurs car Facebook et Twitter déposeront un cookie sur leur appareil. En fonction de leur emplacement, la loi peut imposer d'obtenir leur consentement à propos de tels cookies. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">En savoir plus sur les boutons de partage</a>."
+      sub_text: "Les boutons de partage ne peuvent être contrôlés que si la place de marché n'est pas privée."
     image_tags:
       social_logo: "Image sur les réseaux sociaux"
       social_logo_info_text: "Cette image est affichée lors du partage de votre place de marché dans un post sur Facebook, Twitter ou LinkedIn. Elle doit avoir un ratio de 2:1 et des dimensions minimum de 1200x600 pixels."
@@ -1400,6 +1407,7 @@ fr:
       location_updated: "Les paramètres d'adresse ont été mis à jour"
       image_tags_updated: "Les paramètres d'images & tags ont été mis à jour"
       twitter_updated: "Les paramètres Twitter ont été mis à jour"
+      social_share_buttons_updated: "Les boutons de partage ont été mis à jour"
       landing_pages_updated: "Les paramètres de meta tags de la page d'accueil ont été mis à jour"
       search_pages_updated: "Les paramètres de meta tags de la page de recherche ont été mis à jour"
       listing_pages_updated: "Les paramètres de meta tags des pages d'annonces ont été mis à jour"

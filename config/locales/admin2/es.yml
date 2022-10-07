@@ -102,6 +102,7 @@ es:
       social_media:
         image_tags: "Imágen y Tags"
         twitter: Twitter
+        social_share_buttons: "Botones de redes sociales"
       seo:
         sitemap_robots: "Sitemap y Robots"
         landing_pages: "Meta tags de la página de inicio"
@@ -1061,6 +1062,12 @@ es:
       twitter_handle: "Usuario de Twitter"
       twitter_handle_info_text: "Nombre de usuario de la cuenta de Twitter de tu marketplace (si tienes una). Se añadirá como sugerencia a los tweets cuando los usuarios presionen el botón de tweet en la página de anuncios."
       yourhandle: usuariotwitter
+    social_share_buttons:
+      social_share_buttons: "Botones de redes sociales"
+      enable: Habilitar
+      disable: Deshabilitar
+      info_text: "En marketplaces que no son privados, los botones de redes sociales aparecen en las páginas de anuncios. Debes hacer saber a tus usuarios que Facebook y Twitter añaden cookies a sus dispositivos, si los botones están habilitados. De acuerdo con su ubicación y regulaciones locales, quizás debes obtener consentimiento sobre dichas cookies. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Aprende más acerca de los botones de redes sociales</a>."
+      sub_text: "Los botones de redes sociales no se pueden controlar si el marketplace es privado."
     image_tags:
       social_logo: "Imagen para redes sociales"
       social_logo_info_text: "Esta imagen se muestra en redes sociales cuando alguien comparte la dirección de tu marketplace en una publicación en Facebook, Twitter o LinkedIn. Debería tener una proporción de 2:1 y un tamaño mínimo de 1200x600 pixeles."
@@ -1400,6 +1407,7 @@ es:
       location_updated: "La configuración de ubicación se ha actualizado"
       image_tags_updated: "La configuración de imagen y tags se ha actualizado"
       twitter_updated: "La configuración de Twitter se ha actualizado"
+      social_share_buttons_updated: "La configuración de los botones de redes sociales se ha actualizado"
       landing_pages_updated: "Meta tags para la página de inicio se actualizaron"
       search_pages_updated: "Meta tags de la página de búsqueda se actualizaron"
       listing_pages_updated: "Meta tags para las páginas de anuncio se actualizaron"
