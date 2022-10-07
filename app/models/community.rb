@@ -112,6 +112,7 @@
 #  fuzzy_location                             :boolean          default(FALSE)
 #  recaptcha_site_key                         :string(255)
 #  recaptcha_secret_key                       :string(255)
+#  enable_social_share_buttons                :boolean          default(FALSE), not null
 #
 # Indexes
 #
@@ -361,6 +362,14 @@ class Community < ApplicationRecord
     return unless slogan_color.present?
 
     "##{slogan_color}"
+  end
+
+  def social_share_buttons_disabled?
+    private?
+  end
+
+  def show_listing_social_share_buttons?
+    !private? && enable_social_share_buttons
   end
 
   def apply_main_search_keyword!

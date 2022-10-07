@@ -99,7 +99,7 @@
                 = t(".listing_created_at")
                 = l @listing.created_at, :format => :short_date
 
-    - if !@current_community.private?
+    - if @current_community.show_listing_social_share_buttons?
       .row
         .col-12
           .listing-social

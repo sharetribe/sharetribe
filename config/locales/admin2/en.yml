@@ -102,6 +102,7 @@ en:
       social_media:
         image_tags: "Image & Tags"
         twitter: Twitter
+        social_share_buttons: 'Social share buttons'
       seo:
         sitemap_robots: "Sitemap & Robots"
         landing_pages: "Landing page meta tags"
@@ -1061,6 +1062,12 @@ en:
       twitter_handle: "Twitter handle"
       twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be added to the suggested tweet when visitors use the tweet button on a listing page."
       yourhandle: yourhandle
+    social_share_buttons:
+      social_share_buttons: "Social share buttons"
+      enable: "Enable"
+      disable: "Disable"
+      info_text: "In marketplaces that are not private, Facebook and Twitter sharing buttons can be displayed on listing pages. If social share buttons are enabled, you should let visitors know as Facebook and Twitter will set a cookie on their device. Based on their location, regulations may require collecting their consent about such cookies. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about social share buttons</a>."
+      sub_text: "The social share buttons can be controlled only if the marketplace is not private."
     image_tags:
       social_logo: "Image for social media"
       social_logo_info_text: "This image is shown on the social media card when someone shares your marketplace in a post on Facebook, Twitter, or LinkedIn. It should have a 2:1 aspect ratio and a minimum size of 1200x600 pixels."
@@ -1400,6 +1407,7 @@ en:
       location_updated: "Location settings were updated"
       image_tags_updated: "Image & tags settings were updated"
       twitter_updated: "Twitter settings were updated"
+      social_share_buttons_updated: "Social share buttons settings were updated"
       landing_pages_updated: "Landing page meta tags settings were updated"
       search_pages_updated: "Search page meta tags settings were updated"
       listing_pages_updated: "Listing pages meta tags settings were updated"

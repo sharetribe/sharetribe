@@ -64,4 +64,23 @@ Feature: User views a single listing
     Then I should see "Request Services"
     Then I should see payment logos
 
+  Scenario: User see social buttons if community is not private and social sharing is enabled
+    When Community "test" is not private
+     And Social share buttons in community "test" enabled
+    Then I am on the home page
+     And I follow "Massage"
+    Then I should see social buttons block
 
+  Scenario: User don't see social buttons if community is private
+    When Community "test" is private
+     And I am logged in as "kassi_testperson1"
+     And I am on the home page
+    Then I follow "Massage"
+     And I should not see social buttons block
+
+  Scenario: User don't see social buttons if community is not private and social sharing is disabled
+    When Community "test" is not private
+     And Social share buttons in community "test" disabled
+    Then I am on the home page
+     And I follow "Massage"
+    Then I should not see social buttons block

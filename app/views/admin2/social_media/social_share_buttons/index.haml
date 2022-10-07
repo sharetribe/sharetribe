@@ -1,0 +1,27 @@
+- content_for :title do
+  = t('admin2.sidebar.social_media.social_share_buttons')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.social_media.social_share_buttons')
+
+.content-card-section-container
+  = form_for @current_community, url: update_share_buttons_admin2_social_media_social_share_buttons_path, html: { class: %i[content-card-section-form], remote: true }, method: :patch do |form|
+    %section.content-card-section
+      %h2= t('admin2.sidebar.social_media.social_share_buttons')
+      %p.ingress
+        = t('admin2.social_share_buttons.info_text', url: 'https://help.sharetribe.com/en/articles/6583390').html_safe
+      .form-group
+        = form.label :social_share_buttons, t('admin2.social_share_buttons.social_share_buttons')
+        .form-radiobutton-wrapper
+          .form-radiobutton.form-check-inline
+            = form.radio_button :enable_social_share_buttons, true, disabled: @current_community.social_share_buttons_disabled?, class: %i[form-check-input]
+            = form.label :enable_social_share_buttons_true, t('admin2.social_share_buttons.enable'), class: %i[form-check-label]
+          .form-radiobutton.form-check-inline
+            = form.radio_button :enable_social_share_buttons, false, disabled: @current_community.social_share_buttons_disabled?, class: %i[form-check-input]
+            = form.label :enable_social_share_buttons_false, t('admin2.social_share_buttons.disable'), class: %i[form-check-label]
+          %small#defaultBrowseView-help.form-text
+            = t('admin2.social_share_buttons.sub_text')
+    %section.content-card-terminal
+      = render 'admin2/submit_button', caption: t('admin2.save_changes')
+
