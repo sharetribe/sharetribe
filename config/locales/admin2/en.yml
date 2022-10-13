@@ -894,7 +894,7 @@ en:
     manage_users:
       ban_msg: "This disables the user account and prevents the user from accessing the site again with this account. Are you sure you want to proceed?"
       unban_msg: "This enables the user account and allows the user to access the site again with this account. Are you sure you want to proceed?"
-      to_admin: "This makes the user an admin. You should notify the user about their responsibilities and remind them to read the Sharetribe terms of use. Are you sure you want to proceed?"
+      to_admin: "This makes the user an admin. You should notify the user about their responsibilities and remind them to read the Sharetribe Terms of Service. Are you sure you want to proceed?"
       to_admin_caption: "Grant %{username} admin rights"
       to_admin_button: "Grant the user admin rights"
       from_admin: "This removes all admin rights from the user. They will lose access to the Admin panel. Are you sure you want to proceed?"
@@ -938,7 +938,7 @@ en:
         admin: Admin
         admin_tooltip: "This user has full access to the Admin panel and all marketplace settings and data."
         pending: Pending
-        pending_tooltip: "This user signed up through social login but didn't complete the signup. After signing up with a social login account, users still need to accept your terms of use and fill in any mandatory user fields."
+        pending_tooltip: "This user signed up through social login but didn't complete the signup. After signing up with a social login account, users still need to accept your Terms of Service and fill in any mandatory user fields."
         unconfirmed_tooltip: "This user's email address has not been verified. Use the Actions menu to resend the confirmation email."
         unconfirmed: Unconfirmed
       delete_user_text: "If you delete this account, the personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings the user has created will be deleted. <br> <br> Information where other users are involved (conversations with other users, transactions the user has made, reviews they've given to others, etc.) will not be deleted when you delete this account. However, the user's name will no longer be displayed next to this information. <br> <br> You will not be able to recover this account after it has been deleted.\n"
@@ -1237,8 +1237,8 @@ en:
       info_text: "Describe how your marketplace works and define your policy and terms (or edit the templates provided). Users can find the pages by clicking the \"About\" link in the top bar."
       about: About
       how_it_works: "How it works"
-      privacy_policy: "Privacy policy"
-      terms_of_use: "Terms of use"
+      privacy_policy: "Privacy Policy"
+      terms_of_use: "Terms of Service"
       edit: Edit
     landing_page:
       header: "Add-on: Custom Landing Page - $99 per month"
