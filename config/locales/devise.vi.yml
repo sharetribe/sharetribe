@@ -1,12 +1,12 @@
 vi:
   errors:
     messages:
-      expired: "đã hết hạn, xin vui lòng yêu cầu cái mới"
+      expired: "đã hết hạn, vui lòng gửi yêu cầu mới"
       not_found: "không tìm thấy"
-      already_confirmed: "đã được xác nhận, hãy thử đăng ký lại"
+      already_confirmed: "đã xác nhận, hãy thử đăng ký lại"
       not_locked: "không bị khoá"
       not_saved:
-        other: "%{count} lỗi phát sinh. Không thể lưu %{resource}."
+        other: "%{count} lỗi phát sinh này %{resource} không được lưu."
   devise:
     failure:
       already_authenticated: "Bạn đã đăng ký."
@@ -14,7 +14,7 @@ vi:
       unconfirmed: "Bạn phải xác nhận tài khoản trước khi tiếp tục."
       locked: "Tài khoản của bạn đã bị khoá."
       invalid: "Email hoặc mật khẩu không hợp lệ."
-      invalid_token: "Khóa xác thực không hợp lệ."
+      invalid_token: "Mã xác thực không hợp lệ"
       timeout: "Phiên làm việc đã hết hạn. Xin vui lòng đăng nhập lại để tiếp tục."
       inactive: "Tài khoản của bạn chưa được kích hoạt."
     passwords:
