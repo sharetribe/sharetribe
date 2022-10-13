@@ -265,12 +265,12 @@ de:
       contact_page_link: "Feedback senden"
     new:
       welcome_fb_user: "Willkommen bei %{service_name}, %{name}!"
-      fb_join_accept_terms: "Es gibt noch einen weiteren Schritt bevor du %{service_name} beitreten kannst: Du musst den Nutzungsbedingungen zustimmen."
+      fb_join_accept_terms: "Es gibt noch einen weiteren Schritt bevor du %{service_name} beitreten kannst: Du musst den Allgemeine Geschäftsbedingungen zustimmen."
       join_community: "'%{service_name}' beitreten"
-      you_can_join: "Du kannst %{service_name} beitreten, indem du die Nutzungsbedingungen akzeptierst und unten auf ''%{service_name}' beitreten' klickst."
-      you_can_join_email_confirmation: "Um %{service_name} beitreten zu können, benötigst du eine gültige E-Mail-Adresse, die auf %{email_ending} endet. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Nutzungsbedingungen des Marktplatzes akzeptierst, unten auf \"%{service_name} beitreten\" klickst und deine E-Mail-Adresse bestätigst."
-      you_can_join_email_confirmation_multiple_addresses: "Um %{service_name} beitreten zu können, benötigst du eine bestätigte E-Mail-Adresse. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Nutzungsbedingungen von %{service_name} akzeptierst und unten auf \"%{service_name} beitreten\" klickst."
-      you_can_join_with_invite_only: "Du musst eine Einladung eines anderen Mitglieds besitzen, um %{service_name} beitreten zu können. Falls du einen Einladungs-Code hast, kannst du dem Marktplatz beitreten, indem du den Code unten in das Feld eingibst, die Nutzungsbedingungen akzeptierst und auf '%{service_name} beitreten' klickst."
+      you_can_join: "Du kannst %{service_name} beitreten, indem du die Allgemeine Geschäftsbedingungen akzeptierst und unten auf ''%{service_name}' beitreten' klickst."
+      you_can_join_email_confirmation: "Um %{service_name} beitreten zu können, benötigst du eine gültige E-Mail-Adresse, die auf %{email_ending} endet. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Allgemeine Geschäftsbedingungen des Marktplatzes akzeptierst, unten auf \"%{service_name} beitreten\" klickst und deine E-Mail-Adresse bestätigst."
+      you_can_join_email_confirmation_multiple_addresses: "Um %{service_name} beitreten zu können, benötigst du eine bestätigte E-Mail-Adresse. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Allgemeine Geschäftsbedingungen von %{service_name} akzeptierst und unten auf \"%{service_name} beitreten\" klickst."
+      you_can_join_with_invite_only: "Du musst eine Einladung eines anderen Mitglieds besitzen, um %{service_name} beitreten zu können. Falls du einen Einladungs-Code hast, kannst du dem Marktplatz beitreten, indem du den Code unten in das Feld eingibst, die Allgemeine Geschäftsbedingungen akzeptierst und auf '%{service_name} beitreten' klickst."
       if_want_to_view_content: "Wenn du den Inhalt von %{service_name} ansehen möchtest, ohne beitreten zu wollen, musst du dich"
       log_out: abmelden
       join_community_button: "%{service_name} beitreten"
@@ -919,7 +919,7 @@ de:
       info_about_kassi: "Informationen über %{service_name}"
       news: News
       register_details: "Impressum und Datenschutz"
-      terms: Nutzungsbedingungen
+      terms: "Allgemeine Geschäftsbedingungen"
     logged_in:
       admin: Administrator
       go_to_your_profile_page: Profil
@@ -1515,7 +1515,7 @@ de:
     help_texts:
       feedback_description_title: Feedback
       help_invitation_code_title: "Du benötigst eine Einladung, um beitreten zu können."
-      terms_title: "%{service_name}Nutzungsbedingungen"
+      terms_title: "%{service_name} Allgemeine Geschäftsbedingungen"
       invite_only_help_text: "Wähle diese Option aus, wenn du willst, dass neue Mitglieder nur durch eine Einladung von einem bestehenden Mitglied des Stammes aufgenommen werden können."
       invite_only_help_text_title: "Nur Stamm einladen"
     inactive_notification:
@@ -1542,7 +1542,7 @@ de:
       password_again: "Passwort bestätigen"
       show_my_name_to_others: "Anderen %{service_name} Benutzern meinen richtigen Namen anzeigen"
       sign_up: "Ein neues Konto bei %{service_name} erstellen"
-      terms: Nutzungsbedingungen
+      terms: "Allgemeine Geschäftsbedingungen"
       privacy: "Impressum und Datenschutz"
       visible_only_to_you: "nur für dich und den Admin von %{service_name} sichtbar"
       visible_to_everybody: "für jeden sichtbar"
@@ -1731,15 +1731,15 @@ de:
       without_tag: "Ohne Tag"
   terms:
     show:
-      accept_terms: "Die %{service_name} Nutzungsbedingungen akzeptieren"
+      accept_terms: "Die %{service_name} Allgemeine Geschäftsbedingungen akzeptieren"
       here: "hier klicken"
       i_accept_new_terms: "Ich akzeptiere die neuen Nutzungsbedingungen"
       i_accept_terms: "Ich akzeptiere die Nutzungsbedingungen"
-      terms: "Nutzungsbedingungen von %{service_name}"
-      terms_have_changed: "Die Nutzungbedingungen haben sich geändert"
+      terms: "Allgemeine Geschäftsbedingungen von %{service_name}"
+      terms_have_changed: "Die Allgemeine Geschäftsbedingungen haben sich geändert"
       you_can_view_the_new_terms: "Du kannst die neuen Nutzungsbedingungen ansehen"
       you_need_to_accept: "Willkommen bei %{service_name}! Dies scheint das erste Mal zu sein, dass du diesen Service nutzt. Bevor es losgeht, akzeptiere zuerst die"
-      you_need_to_accept_new_terms: "Die Nutzungsbedingungen von %{service_name} haben sich geändert. Du musst die neuen Nutzungsbedingungen akzeptieren, um %{service_name} weiter zu verwenden. Die neuen Nutzungsbedingungen sollen die Instandhaltung des Dienstes ermöglichen, nachdem das Forschungsprojekt beendet wurde."
+      you_need_to_accept_new_terms: "Die Allgemeine Geschäftsbedingungen von %{service_name} haben sich geändert. Du musst die neuen Nutzungsbedingungen akzeptieren, um %{service_name} weiter zu verwenden. Die neuen Allgemeine Geschäftsbedingungen sollen die Instandhaltung des Dienstes ermöglichen, nachdem das Forschungsprojekt beendet wurde."
   testimonials:
     index:
       all_testimonials: "Alle Bewertungen"

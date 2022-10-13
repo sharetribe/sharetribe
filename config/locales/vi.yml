@@ -74,7 +74,7 @@ vi:
       details: "Chi tiết đơn đặt hàng"
       order_by: "Đơn hàng bởi %{orderer_link}"
       accept_offer: "Chấp nhận đề nghị"
-      accept_request: ~
+      accept_request: "Chấp nhận yêu cầu và giữ danh sách mở"
       accept_request_and_close: ~
       reject_offer: "Để lần sau"
       reject_request: "Để lần sau"
@@ -142,7 +142,7 @@ vi:
       canceled_request: ~
       canceled_offer: "đã hủy đề nghị"
       paid: "Thanh toán %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Đã ủy quyền thanh toán"
       payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
@@ -252,7 +252,7 @@ vi:
       mark_as_refunded: ~
       dismiss: ~
   feedback:
-    feedback_subject: ~
+    feedback_subject: "Nhập form liên hệ mới trên %{service_name}"
     feedback_body: ~
     unlogged_user: ~
     anonymous_user: ~
@@ -398,8 +398,8 @@ vi:
       has_commented_listing_you_follow_in_kassi: "%{author} đã nhận xét về tin đăng '%{listing}' bạn đang theo dõi trong %{service_name}"
     new_message:
       view_message: "Xem tin nhắn"
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} đã gửi cho bạn một tin nhắn. Truy cập %{service_name} để phản hồi"
+      you_have_a_new_message: "Bạn có một tin nhắn mới từ %{sender_name} trên %{service_name}"
     new_message_v2:
       headline: ~
       reply: ~
@@ -532,7 +532,7 @@ vi:
       welcome_to_marketplace: "Chào mừng bạn đến với %{service_name}! Rất vui khi bạn gia nhập."
       love_marketplace_crew: "Yêu thích,<br /><i>%{service_name} đội</i>"
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Chỉnh sửa cài đặt email của bạn tại đây"
     new_listing_by_followed_person:
       subject: "%{author_name} đã đăng một bài đăng mới trong %{service_name}"
       has_posted_a_new_listing: "%{author_name} đã đăng một bài đăng mới:"
