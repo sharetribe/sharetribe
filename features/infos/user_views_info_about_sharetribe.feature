@@ -11,7 +11,7 @@ Feature: User views info about sharetribe
     Then I should see "This marketplace is powered by Sharetribe platform." within ".about-section"
     And I should see "About" within ".left-navi"
     And I should see "About" within ".selected.left-navi-link"
-    And I should see "Terms of use"
+    And I should see "Terms of Service"
     And I should see "Privacy"
 
   @javascript
@@ -19,10 +19,10 @@ Feature: User views info about sharetribe
     Given I am on the home page
     And I open the menu
     And I follow "About" within the menu
-    And I follow "Terms of use" within ".left-navi"
+    And I follow "Terms of Service" within ".left-navi"
     And I should see "About" within ".left-navi"
     And I should not see "About" within ".selected.left-navi-link"
-    And I should see "Terms of use" within ".left-navi"
+    And I should see "Terms of Service" within ".left-navi"
     And I should see "Privacy" within ".left-navi"
     And I should see "Rights of Content"
 
@@ -33,6 +33,6 @@ Feature: User views info about sharetribe
     And I follow "About" within the menu
     And I follow "Privacy" within ".left-navi"
     And I should see "About" within ".left-navi"
-    And I should see "Terms of use" within ".left-navi"
+    And I should see "Terms of Service" within ".left-navi"
     And I should see "Privacy" within ".selected.left-navi-link"
     And I should see "Name of the register"

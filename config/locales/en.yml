@@ -265,12 +265,12 @@ en:
       contact_page_link: "contact them"
     new:
       welcome_fb_user: "Welcome to %{service_name}, %{name}!"
-      fb_join_accept_terms: "There's one more step to join %{service_name}: you need to accept the terms of use."
+      fb_join_accept_terms: "There's one more step to join %{service_name}: you need to accept the Terms of Service."
       join_community: "Join %{service_name}"
-      you_can_join: "You can join %{service_name} by accepting the terms of use and clicking 'Join %{service_name}' below."
-      you_can_join_email_confirmation: "To join %{service_name} you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use and clicking 'Join %{service_name}' below, and confirming your email."
-      you_can_join_email_confirmation_multiple_addresses: "%{service_name} has email restrictions. You can only join if you have an allowed email address. You can join by filling in your email address, accepting the terms of use of %{service_name} and clicking 'Join %{service_name}' below."
-      you_can_join_with_invite_only: "You have to have an invitation from another member to join %{service_name}. If you have an invitation code, you can join by typing the code to the field below, accepting the terms of use and clicking 'Join %{service_name}' below."
+      you_can_join: "You can join %{service_name} by accepting the Terms of Service and clicking 'Join %{service_name}' below."
+      you_can_join_email_confirmation: "To join %{service_name} you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the Terms of Service and clicking 'Join %{service_name}' below, and confirming your email."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} has email restrictions. You can only join if you have an allowed email address. You can join by filling in your email address, accepting the Terms of Service of %{service_name} and clicking 'Join %{service_name}' below."
+      you_can_join_with_invite_only: "You have to have an invitation from another member to join %{service_name}. If you have an invitation code, you can join by typing the code to the field below, accepting the Terms of Service and clicking 'Join %{service_name}' below."
       if_want_to_view_content: "If you want to view the content in %{service_name} without joining it as a member you need to"
       log_out: "log out"
       join_community_button: "Join %{service_name}"
@@ -918,8 +918,8 @@ en:
       how_to_use: "How it works"
       info_about_kassi: "Information about %{service_name}"
       news: News
-      register_details: "Privacy policy"
-      terms: "Terms of use"
+      register_details: "Privacy Policy"
+      terms: "Terms of Service"
     logged_in:
       admin: Admin
       go_to_your_profile_page: Profile
@@ -1515,7 +1515,7 @@ en:
     help_texts:
       feedback_description_title: Feedback
       help_invitation_code_title: "You need an invite to join"
-      terms_title: "%{service_name} terms of use"
+      terms_title: "%{service_name} Terms of Service"
       invite_only_help_text: "Select this option if you want that new members can join only if they are invited by an existing user."
       invite_only_help_text_title: Invite-only
     inactive_notification:
@@ -1542,8 +1542,8 @@ en:
       password_again: "Confirm password"
       show_my_name_to_others: "Show my real name to other %{service_name} users"
       sign_up: "Create a new %{service_name} account"
-      terms: "Terms of use"
-      privacy: "Privacy policy"
+      terms: "Terms of Service"
+      privacy: "Privacy Policy"
       visible_only_to_you: "visible only to you and the %{service_name} team"
       visible_to_everybody: "visible to everybody"
       create_account_with_provider: "Sign up with %{provider}"
@@ -1731,15 +1731,15 @@ en:
       without_tag: "Without tag"
   terms:
     show:
-      accept_terms: "Accepting %{service_name} terms of use"
+      accept_terms: "Accepting %{service_name} Terms of Service"
       here: "by clicking here"
       i_accept_new_terms: "I accept the new terms"
       i_accept_terms: "I accept the terms"
-      terms: "%{service_name} terms of use"
-      terms_have_changed: "Terms of use have changed"
+      terms: "%{service_name} Terms of Service"
+      terms_have_changed: "Terms of Service have changed"
       you_can_view_the_new_terms: "You can view the new terms"
       you_need_to_accept: "Welcome to %{service_name}! This seems to be the first time you are using the service. Before starting you must first accept the"
-      you_need_to_accept_new_terms: "%{service_name} terms of use have changed. You have to accept the new terms in order to continue using %{service_name}. The new terms are intended to enable the upkeep of the service after the research project has ended."
+      you_need_to_accept_new_terms: "%{service_name} Terms of Service have changed. You have to accept the new terms in order to continue using %{service_name}. The new terms are intended to enable the upkeep of the service after the research project has ended."
   testimonials:
     index:
       all_testimonials: "All feedback"
