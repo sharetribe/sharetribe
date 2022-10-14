@@ -3,8 +3,6 @@
 - content += render :layout => "layouts/mercury_editable_page", :locals => { :content_type => "terms_page_content" } do
   - if @community_customization && @community_customization.terms_page_content
     = @community_customization.terms_page_content.html_safe
-  - elsif File.exists?("app/views/infos/localized_terms/terms.#{I18n.locale}.haml")
-    = render :file => "infos/localized_terms/terms.#{I18n.locale}"
   - else
     = render :file => "infos/localized_terms/terms.en"
 

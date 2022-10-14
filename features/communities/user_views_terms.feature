@@ -8,7 +8,7 @@ Feature: User views terms
     Given I am not logged in
     And I am on the signup page
     When I follow "Terms of Service"
-    Then I should see "Rights of Content"
+    Then I should see "get started with creating your Terms of Service"
   
   
   

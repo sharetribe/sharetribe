@@ -24,7 +24,7 @@ Feature: User views info about sharetribe
     And I should not see "About" within ".selected.left-navi-link"
     And I should see "Terms of Service" within ".left-navi"
     And I should see "Privacy" within ".left-navi"
-    And I should see "Rights of Content"
+    And I should see "get started with creating your Terms of Service"
 
   @javascript
   Scenario: User views register details page
@@ -35,4 +35,4 @@ Feature: User views info about sharetribe
     And I should see "About" within ".left-navi"
     And I should see "Terms of Service" within ".left-navi"
     And I should see "Privacy" within ".selected.left-navi-link"
-    And I should see "Name of the register"
+    And I should see "get started with creating your Privacy Policy"
