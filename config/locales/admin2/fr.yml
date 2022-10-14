@@ -1234,7 +1234,7 @@ fr:
       email_admins_about_new_transactions: "Envoyer un email aux administrateurs lorsqu'une nouvelle transaction débute"
     static_content:
       header: "Pages de contenu statique"
-      info_text: "Décrivez comment fonctionne votre place de marché et rédigez votre politique de confidentialité et conditions d'utilisations (ou modifier les modèles proposés). Les utilisateurs peuvent visiter ces pages depuis le lien \"À propos\" dans la barre de navigation."
+      info_text: "Les utilisateurs peuvent visiter les pages de contenu statique depuis le lien \"À propos\" dans la barre de navigation. Sur ces pages, décrivez votre place de marché, comment elle fonctionne, et rédigez vos conditions d'utilisations et votre politique de confidentialité. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Créez facilement vos conditions d'utilisations et votre politique de confidentialité grâces à nos modèles gratuits</a>."
       about: "À propos"
       how_it_works: "Comment ça marche"
       privacy_policy: "Politique de confidentialité"

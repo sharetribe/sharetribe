@@ -1234,7 +1234,7 @@ es:
       email_admins_about_new_transactions: "Mandar un correo a admins cuando una nueva transacción se inicia"
     static_content:
       header: "Páginas de contenido estático"
-      info_text: "Describe como tu marketplace funciona y define tu política de privacidad y términos (o edita el contenido que ya está ahí). Los usuarios pueden encontrar estas página al hacer click en el menú de \"Acerca\" en la barra de navegación."
+      info_text: "Los usuarios pueden visitar las páginas de contenido estático al hacer click en el link \"Acerca de\" en la barra de navegación. En estas páginas puedes describir tu marketplace y su funcionamiento. También puedes definir los Términos y Condiciones y la Política de privacidad. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Puedes utilizar nuestras plantillas gratuitas para crear fácilmente tus Términos y Condiciones y tu Política de privacidad</a>."
       about: "Acerca de"
       how_it_works: "Cómo funciona"
       privacy_policy: "Política de privacidad"
