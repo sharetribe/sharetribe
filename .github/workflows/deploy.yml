@@ -15,6 +15,10 @@ on:
         description: Run db migrations (yes/no)?
         required: true
         default: "no"
+      toolbelt_git_ref:
+        description: Git ref for toolbelt
+        required: true
+        default: master
 
 jobs:
   deploy:
@@ -82,7 +86,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: sharetribe/toolbelt
-          ref: master
+          ref: ${{ github.event.inputs.toolbelt_git_ref }}
           # Path must be under the workspace. Take care that it is not included
           # in build artifacts. For instance, make sure it is in .gitignore and
           # .dockerignore.
