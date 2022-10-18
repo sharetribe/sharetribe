@@ -15,6 +15,10 @@ on:
         description: Run db migrations (yes/no)?
         required: true
         default: "no"
+      toolbelt_git_ref:
+        description: Git ref for toolbelt
+        required: true
+        default: master
 
 jobs:
   deploy:
@@ -27,12 +31,14 @@ jobs:
           DEPLOY_ENV: ${{ github.event.inputs.environment }}
           DEPLOY_REF: ${{ github.event.inputs.git_ref }}
           RUN_MIGRATIONS: ${{ github.event.inputs.run_migrations }}
+          TOOLBELT_REF: ${{ github.event.inputs.toolbelt_git_ref }}
         run: |
           echo "Deploying to: $DEPLOY_ENV"
           echo "Deploying ref: $DEPLOY_REF"
           echo "Using workflow definition from: $GITHUB_REF"
           echo "Initiated by: $GITHUB_ACTOR"
           echo "Run migrations: $RUN_MIGRATIONS"
+          echo "Using toolbelt ref: $TOOLBELT_REF"
 
       - name: Set app and rack
         id: convox_env
@@ -82,13 +88,17 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: sharetribe/toolbelt
-          ref: master
+          ref: ${{ github.event.inputs.toolbelt_git_ref }}
           # Path must be under the workspace. Take care that it is not included
           # in build artifacts. For instance, make sure it is in .gitignore and
           # .dockerignore.
           path: .toolbelt
           persist-credentials: false
           ssh-key: ${{ secrets.TOOLBELT_SSH_DEPLOY_KEY }}
+
+      - name: Resolve toolbelt short SHA
+        id: resolve_toolbelt_short_sha
+        run: echo "::set-output name=sha::$(cd .toolbelt && git rev-parse --short HEAD)"
 
       - name: Configure AWS credentials
         id: configure_aws_credentials
@@ -111,7 +121,8 @@ jobs:
         env:
           DEPLOY_ENV: ${{ github.event.inputs.environment }}
           RESOLVED_SHA: ${{ steps.resolve_sha.outputs.sha }}
-        run: RELEASE="gh-${DEPLOY_ENV}-${RESOLVED_SHA}" ; echo "::set-output name=release::$RELEASE"
+          RESOLVED_TOOLBELT_SHA: ${{ steps.resolve_toolbelt_short_sha.outputs.sha }}
+        run: RELEASE="gh-${DEPLOY_ENV}-${RESOLVED_SHA}-${RESOLVED_TOOLBELT_SHA}" ; echo "::set-output name=release::$RELEASE"
 
       - name: Set ECR image
         id: set_ecr_image
