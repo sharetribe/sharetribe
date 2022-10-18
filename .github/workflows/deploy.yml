@@ -31,12 +31,14 @@ jobs:
           DEPLOY_ENV: ${{ github.event.inputs.environment }}
           DEPLOY_REF: ${{ github.event.inputs.git_ref }}
           RUN_MIGRATIONS: ${{ github.event.inputs.run_migrations }}
+          TOOLBELT_REF: ${{ github.event.inputs.toolbelt_git_ref }}
         run: |
           echo "Deploying to: $DEPLOY_ENV"
           echo "Deploying ref: $DEPLOY_REF"
           echo "Using workflow definition from: $GITHUB_REF"
           echo "Initiated by: $GITHUB_ACTOR"
           echo "Run migrations: $RUN_MIGRATIONS"
+          echo "Using toolbelt ref: $TOOLBELT_REF"
 
       - name: Set app and rack
         id: convox_env
