@@ -94,6 +94,10 @@ jobs:
           persist-credentials: false
           ssh-key: ${{ secrets.TOOLBELT_SSH_DEPLOY_KEY }}
 
+      - name: Resolve toolbelt short SHA
+        id: resolve_toolbelt_short_sha
+        run: echo "::set-output name=sha::$(cd .toolbelt && git rev-parse --short HEAD)"
+
       - name: Configure AWS credentials
         id: configure_aws_credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -115,7 +119,8 @@ jobs:
         env:
           DEPLOY_ENV: ${{ github.event.inputs.environment }}
           RESOLVED_SHA: ${{ steps.resolve_sha.outputs.sha }}
-        run: RELEASE="gh-${DEPLOY_ENV}-${RESOLVED_SHA}" ; echo "::set-output name=release::$RELEASE"
+          RESOLVED_TOOLBELT_SHA: ${{ steps.resolve_toolbelt_short_sha.outputs.sha }}
+        run: RELEASE="gh-${DEPLOY_ENV}-${RESOLVED_SHA}-${RESOLVED_TOOLBELT_SHA}" ; echo "::set-output name=release::$RELEASE"
 
       - name: Set ECR image
         id: set_ecr_image
