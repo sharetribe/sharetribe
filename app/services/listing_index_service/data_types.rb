@@ -50,6 +50,7 @@ module ListingIndexService::DataTypes
     [:display_name, :string, :optional],
     [:avatar, entity: AvatarImage],
     [:is_deleted, :bool, default: false],
+    [:is_banned, :bool, default: false],
     [:num_of_reviews, :fixnum, default: 0]
   )
 

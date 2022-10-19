@@ -1,4 +1,4 @@
 = render :partial => "conversations/conversation_header", locals: {other_party: conversation_data.other_party(@current_user)}
 
 .centered-section-wide
-  = render :partial => "conversations/messages_and_form", locals: {role: :participant, message_form: message_form, message_form_action: message_form_action, messages: messages}
+  = render :partial => "conversations/messages_and_form", locals: {other_party: conversation_data.other_party(@current_user), role: :participant, message_form: message_form, message_form_action: message_form_action, messages: messages}

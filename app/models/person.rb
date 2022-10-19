@@ -420,6 +420,8 @@ class Person < ApplicationRecord
   end
 
   def should_receive?(email_type)
+    return false if banned?
+
     confirmed_email = !confirmed_notification_emails.empty?
     if email_type == "community_updates"
       # this is handled outside prefenrences so answer separately
@@ -438,7 +440,7 @@ class Person < ApplicationRecord
   end
 
   def banned?
-    community_membership.banned?
+    community_membership&.banned?
   end
 
   def has_email?(address)

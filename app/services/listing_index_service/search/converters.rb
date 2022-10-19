@@ -47,7 +47,8 @@ module ListingIndexService::Search::Converters
             avatar: {
               thumb: l.author.image.present? ? l.author.image.url(:thumb) : nil
             },
-            is_deleted: l.author.deleted?
+            is_deleted: l.author.deleted?,
+            is_banned: l.author.banned?
           }.merge(num_of_reviews_hash(l, includes))
         }
       else

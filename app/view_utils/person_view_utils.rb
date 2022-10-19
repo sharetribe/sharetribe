@@ -24,7 +24,9 @@ module PersonViewUtils
         username: nil,
         name_display_type: nil,
         is_deleted: true,
-        deleted_user_text: I18n.translate("common.removed_user")
+        deleted_user_text: I18n.translate("common.removed_user"),
+        banned: nil,
+        banned_text: I18n.translate("common.banned_user")
       )
     else
       names(
@@ -32,11 +34,11 @@ module PersonViewUtils
         last_name: person.family_name,
         display_name: person.display_name,
         username: person.username,
-
         name_display_type: name_display_type,
-
         is_deleted: person.deleted?,
-        deleted_user_text: I18n.translate("common.removed_user")
+        deleted_user_text: I18n.translate("common.removed_user"),
+        banned: person.banned?,
+        banned_text: I18n.translate("common.banned_user")
       )
     end
   end
@@ -56,7 +58,9 @@ module PersonViewUtils
         username: nil,
         name_display_type: name_display_type,
         is_deleted: true,
-        deleted_user_text: I18n.translate("common.removed_user")
+        deleted_user_text: I18n.translate("common.removed_user"),
+        banned: nil,
+        banned_text: I18n.translate("common.banned_user")
       )
     else
       names(
@@ -66,7 +70,9 @@ module PersonViewUtils
         username: person_entity[:username],
         name_display_type: name_display_type,
         is_deleted: person_entity[:is_deleted],
-        deleted_user_text: I18n.translate("common.removed_user")
+        deleted_user_text: I18n.translate("common.removed_user"),
+        banned: person_entity[:is_banned],
+        banned_text: I18n.translate("common.banned_user")
       )
     end
   end
@@ -78,27 +84,32 @@ module PersonViewUtils
         username:,
         name_display_type:,
         is_deleted:,
-        deleted_user_text:
+        deleted_user_text:,
+        banned:,
+        banned_text:
         )
     name_present = first_name.present?
     display_name_present = display_name.present?
 
-    case [is_deleted, name_present, display_name_present, name_display_type]
-    when matches([true])
-      [deleted_user_text]
-    when matches([__, __, true])
-      [display_name]
-    when matches([__, true, __, "first_name_with_initial"])
-      first_name_with_initial(first_name, last_name)
-    when matches([__, true, __, "first_name_only"])
-      [first_name]
-    when matches([__, true, __, "full_name"])
-      full_name(first_name, last_name)
-    when matches([__, true])
-      first_name_with_initial(first_name, last_name)
-    else
-      [username]
-    end
+    full_name = case [is_deleted, name_present, display_name_present, name_display_type]
+                when matches([true])
+                  [deleted_user_text]
+                when matches([__, __, true])
+                  [display_name]
+                when matches([__, true, __, "first_name_with_initial"])
+                  first_name_with_initial(first_name, last_name)
+                when matches([__, true, __, "first_name_only"])
+                  [first_name]
+                when matches([__, true, __, "full_name"])
+                  full_name(first_name, last_name)
+                when matches([__, true])
+                  first_name_with_initial(first_name, last_name)
+                else
+                  [username]
+                end
+
+    full_name << banned_text if banned && !is_deleted
+    full_name
   end
 
   def display_name(
@@ -108,7 +119,9 @@ module PersonViewUtils
         username:,
         name_display_type:,
         is_deleted:,
-        deleted_user_text:
+        deleted_user_text:,
+        banned:,
+        banned_text:
         )
     names(first_name: first_name,
           last_name: last_name,
@@ -116,7 +129,9 @@ module PersonViewUtils
           username: username,
           name_display_type: name_display_type,
           is_deleted: is_deleted,
-          deleted_user_text: deleted_user_text).join(" ")
+          deleted_user_text: deleted_user_text,
+          banned: banned,
+          banned_text: banned_text).join(" ")
   end
 
   def full_name(first_name, last_name)

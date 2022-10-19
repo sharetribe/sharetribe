@@ -34,7 +34,9 @@ module CustomLandingPage
             username: author.username,
             name_display_type: name_display_type,
             is_deleted: author.deleted?,
-            deleted_user_text: I18n.translate("common.removed_user")
+            deleted_user_text: I18n.translate("common.removed_user"),
+            banned: author.banned?,
+            banned_text: I18n.translate("common.banned_user")
           ),
           "author_avatar" => author_avatar,
           "listing_image" => listing_image,

@@ -69,7 +69,8 @@ describe Person, type: :model do
 
    before(:all) do
       #These will be created only once for the whole example group
-      @test_person = FactoryGirl.create(:person)
+      @community_membership = FactoryGirl.create(:community_membership)
+      @test_person = FactoryGirl.create(:person, community_membership: @community_membership)
     end
 
     it "should be valid" do
@@ -82,6 +83,12 @@ describe Person, type: :model do
       expect(@test_person.id).not_to eq(0)
       # "Test_person.id is 0, possible reason is INT type for id in test DB."
     end
+
+   it "should receive email" do
+     expect(@test_person.should_receive?("email_about_new_received_testimonials")).to eq(true)
+     @community_membership.update(status: "banned")
+     expect(@test_person.should_receive?("email_about_new_received_testimonials")).to eq(false)
+   end
 
     describe "#create" do
       it "should create a person in Sharetribe DB" do

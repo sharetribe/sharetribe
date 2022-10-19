@@ -28,6 +28,7 @@ module ListingIndexViewUtils
     :display_name,
     :avatar,
     :is_deleted,
+    :is_banned,
     :num_of_reviews)
 
   ListingImage = Struct.new(
@@ -51,6 +52,7 @@ module ListingIndexViewUtils
               l[:author][:avatar][:thumb]
             ),
             l[:author][:is_deleted],
+            l[:author][:is_banned],
             l[:author][:num_of_reviews]
           )
         end
