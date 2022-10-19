@@ -820,5 +820,18 @@ module ApplicationHelper
   def social_link_placeholder(provider)
     SOCIAL_LINKS[provider.to_sym][:placeholder]
   end
+
+  def load_facebook_sdk?
+    (@current_community.facebook_connect_enabled? && login_or_signup_page?) ||
+      (@current_community.show_listing_social_share_buttons? && listing_page?)
+  end
+
+  def login_or_signup_page?
+    %w[sessions people].include?(controller_name) && action_name == 'new'
+  end
+
+  def listing_page?
+    controller_name == 'listings' && action_name == 'show'
+  end
 end
 # rubocop:enable Metrics/ModuleLength

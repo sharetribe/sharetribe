@@ -89,7 +89,8 @@
     -# Most of the JavaScript should be for performance reasons at the end of the body
 
     -# load Facebook SDK for the whole page
-    = render :partial => "layouts/facebook_sdk"
+    - if load_facebook_sdk?
+      = render :partial => "layouts/facebook_sdk"
 
     -# Initialize global I18n variable and load translations there
     :javascript
