@@ -218,11 +218,14 @@ class Person < ApplicationRecord
                        length: {within: 3..20},
                        format: {with: /\A[A-Z0-9_]*\z/i, message: :username_is_invalid}
 
-  has_attached_file :image, :styles => {
-                      :medium => "288x288#",
-                      :small => "108x108#",
-                      :thumb => "48x48#",
-                      :original => "600x800>"}
+  has_attached_file :image,
+                    styles: {
+                      medium: "288x288#",
+                      small: "108x108#",
+                      thumb: "48x48#",
+                      original: "600x800>"
+                    },
+                    convert_options: { all: "-strip" }
 
   process_in_background :image, priority: 1
 
