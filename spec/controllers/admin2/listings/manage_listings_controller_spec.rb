@@ -164,7 +164,37 @@ describe Admin2::Listings::ManageListingsController, type: :controller do
         post :update, params: {id: listing.id, listing: {state: Listing::APPROVED}}, format: :js
         listing.reload
         expect(listing.state).to eq Listing::APPROVED
+        expect(listing.approval_count).to eq 1
       end
+    end
+
+    it 'notifies followers only once, when the listing is approved for the first time' do
+      follower_of_listing_author
+      ActionMailer::Base.deliveries = []
+      post :update, params: { id: listing.id, listing: {state: Listing::APPROVED} }, format: :js
+
+      listing.reload
+      expect(listing.approval_count).to eq 1
+
+      process_jobs
+      expect(ActionMailer::Base.deliveries).not_to be_empty
+      email = ActionMailer::Base.deliveries.last
+      expect(email.to.include?(follower_of_listing_author.confirmed_notification_emails_to)).to eq true
+      expect(email.subject).to eq 'Proto T has posted a new listing in Sharetribe'
+
+      listing.state = Listing::APPROVAL_PENDING
+      listing.save
+
+      ActionMailer::Base.deliveries = []
+      post :update, params: { id: listing.id, listing: {state: Listing::APPROVED} }, format: :js
+
+      listing.reload
+      expect(listing.approval_count).to eq 2
+
+      process_jobs
+      expect(ActionMailer::Base.deliveries).not_to be_empty
+      email = ActionMailer::Base.deliveries.last
+      expect(email.to.include?(follower_of_listing_author.confirmed_notification_emails_to)).to eq false
     end
 
     describe '#reject' do
