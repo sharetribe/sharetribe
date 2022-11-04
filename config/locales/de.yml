@@ -53,7 +53,7 @@ de:
     username_or_email: E-Mail
     what_is_this: "Was ist das?"
     removed_user: "Entfernter Benutzer"
-    banned_user: ~
+    banned_user: "- KONTO DEAKTIVIERT"
     payment_fee_info:
       title: "Provision und Zahlungsbearbeitungsgebühr"
       stripe: Stripe
@@ -266,12 +266,12 @@ de:
       contact_page_link: "Feedback senden"
     new:
       welcome_fb_user: "Willkommen bei %{service_name}, %{name}!"
-      fb_join_accept_terms: "Es gibt noch einen weiteren Schritt bevor du %{service_name} beitreten kannst: Du musst den Allgemeine Geschäftsbedingungen zustimmen."
+      fb_join_accept_terms: "Es gibt noch einen weiteren Schritt bevor du %{service_name} beitreten kannst: Du musst den Allgemeinen Geschäftsbedingungen zustimmen."
       join_community: "'%{service_name}' beitreten"
-      you_can_join: "Du kannst %{service_name} beitreten, indem du die Allgemeine Geschäftsbedingungen akzeptierst und unten auf ''%{service_name}' beitreten' klickst."
-      you_can_join_email_confirmation: "Um %{service_name} beitreten zu können, benötigst du eine gültige E-Mail-Adresse, die auf %{email_ending} endet. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Allgemeine Geschäftsbedingungen des Marktplatzes akzeptierst, unten auf \"%{service_name} beitreten\" klickst und deine E-Mail-Adresse bestätigst."
-      you_can_join_email_confirmation_multiple_addresses: "Um %{service_name} beitreten zu können, benötigst du eine bestätigte E-Mail-Adresse. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Allgemeine Geschäftsbedingungen von %{service_name} akzeptierst und unten auf \"%{service_name} beitreten\" klickst."
-      you_can_join_with_invite_only: "Du musst eine Einladung eines anderen Mitglieds besitzen, um %{service_name} beitreten zu können. Falls du einen Einladungs-Code hast, kannst du dem Marktplatz beitreten, indem du den Code unten in das Feld eingibst, die Allgemeine Geschäftsbedingungen akzeptierst und auf '%{service_name} beitreten' klickst."
+      you_can_join: "Du kannst %{service_name} beitreten, indem du die Allgemeinen Geschäftsbedingungen akzeptierst und unten auf ''%{service_name}' beitreten' klickst."
+      you_can_join_email_confirmation: "Um %{service_name} beitreten zu können, benötigst du eine gültige E-Mail-Adresse, die auf %{email_ending} endet. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Allgemeinen Geschäftsbedingungen des Marktplatzes akzeptierst, unten auf \"%{service_name} beitreten\" klickst und deine E-Mail-Adresse bestätigst."
+      you_can_join_email_confirmation_multiple_addresses: "Um %{service_name} beitreten zu können, benötigst du eine bestätigte E-Mail-Adresse. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Allgemeinen Geschäftsbedingungen von %{service_name} akzeptierst und unten auf \"%{service_name} beitreten\" klickst."
+      you_can_join_with_invite_only: "Du musst eine Einladung eines anderen Mitglieds besitzen, um %{service_name} beitreten zu können. Falls du einen Einladungs-Code hast, kannst du dem Marktplatz beitreten, indem du den Code unten in das Feld eingibst, die Allgemeinen Geschäftsbedingungen akzeptierst und auf '%{service_name} beitreten' klickst."
       if_want_to_view_content: "Wenn du den Inhalt von %{service_name} ansehen möchtest, ohne beitreten zu wollen, musst du dich"
       log_out: abmelden
       join_community_button: "%{service_name} beitreten"
@@ -1732,15 +1732,15 @@ de:
       without_tag: "Ohne Tag"
   terms:
     show:
-      accept_terms: "Die %{service_name} Allgemeine Geschäftsbedingungen akzeptieren"
+      accept_terms: "Die %{service_name} Allgemeinen Geschäftsbedingungen akzeptieren"
       here: "hier klicken"
       i_accept_new_terms: "Ich akzeptiere die neuen Nutzungsbedingungen"
       i_accept_terms: "Ich akzeptiere die Nutzungsbedingungen"
       terms: "Allgemeine Geschäftsbedingungen von %{service_name}"
-      terms_have_changed: "Die Allgemeine Geschäftsbedingungen haben sich geändert"
+      terms_have_changed: "Die Allgemeinen Geschäftsbedingungen haben sich geändert"
       you_can_view_the_new_terms: "Du kannst die neuen Nutzungsbedingungen ansehen"
       you_need_to_accept: "Willkommen bei %{service_name}! Dies scheint das erste Mal zu sein, dass du diesen Service nutzt. Bevor es losgeht, akzeptiere zuerst die"
-      you_need_to_accept_new_terms: "Die Allgemeine Geschäftsbedingungen von %{service_name} haben sich geändert. Du musst die neuen Nutzungsbedingungen akzeptieren, um %{service_name} weiter zu verwenden. Die neuen Allgemeine Geschäftsbedingungen sollen die Instandhaltung des Dienstes ermöglichen, nachdem das Forschungsprojekt beendet wurde."
+      you_need_to_accept_new_terms: "Die Allgemeinen Geschäftsbedingungen von %{service_name} haben sich geändert. Du musst die neuen Allgemeinen Geschäftsbedingungen akzeptieren, um %{service_name} weiter zu verwenden. Die neuen Allgemeinen Geschäftsbedingungen sollen die Instandhaltung des Dienstes ermöglichen, nachdem das Forschungsprojekt beendet wurde."
   testimonials:
     index:
       all_testimonials: "Alle Bewertungen"

@@ -53,7 +53,7 @@ es:
     username_or_email: "Correo electrónico"
     what_is_this: "¿Qué es esto?"
     removed_user: "Usuario eliminado"
-    banned_user: ~
+    banned_user: "- CUENTA DESHABILITADA"
     payment_fee_info:
       title: "Comisión y cuota de procesamiento de pago"
       stripe: Stripe
@@ -135,7 +135,7 @@ es:
       message_content_not_available: "Contenido del mensaje no disponible"
     message:
       accepted_request: "aceptó la solicitud"
-      received_payment: ~
+      received_payment: "aceptó la solicitud, recibió el pago"
       received_payment_wo_sum: "aceptó la solicitud y recibió el pago"
       accepted_offer: "aceptó la oferta"
       rejected_request: "rechazó la solicitud, se canceló el pago"
@@ -145,11 +145,11 @@ es:
       canceled_request: "canceló la solicitud"
       canceled_offer: "canceló la oferta"
       paid: "pagó %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Pago autorizado"
       payment_preauthorized_wo_sum: "Pago autorizado"
       stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
+        held_payment: "Aceptó la solicitud. El pago esta siendo retenido por %{service_name} hasta que la orden sea marcada como completada."
+        held_payment_wo_sum: "Aceptó la solicitud. El pago esta siendo retenido por %{service_name} hasta que la orden sea marcada como completada."
         confirmed_request: "Marcó la orden como completada. El dinero ha sido transferido a la cuenta de banco de %{author_name} o será transferido pronto."
       canceled_the_order: "Disputó la orden. El equipo de %{service_name} ha sido notificado."
       marked_as_refunded: "Marcada como reembolsada"
