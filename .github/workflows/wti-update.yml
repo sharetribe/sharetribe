@@ -12,7 +12,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install WTI
-        run: sudo gem install web_translate_it
+        # 2.7.3 seems to introduce bug when loading multipart-post dependency
+        # Check later, if that's fixed.
+        run: sudo gem install web_translate_it --version '2.7.2'
 
       - name: Create branch
         id: branch
