@@ -121,7 +121,7 @@
 #  index_communities_on_uuid    (uuid) UNIQUE
 #
 
-class Community < ApplicationRecord
+class Community < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   require 'compass'
   require 'sass/plugin'
@@ -378,6 +378,18 @@ class Community < ApplicationRecord
 
   def recaptcha_configured?
     recaptcha_site_key.present? && recaptcha_secret_key.present? && !Rails.env.test?
+  end
+
+  def google_analytics_key_ua
+    return nil unless google_analytics_key.to_s.start_with?('UA-')
+
+    google_analytics_key
+  end
+
+  def google_analytics_key_g
+    return nil unless google_analytics_key.to_s.start_with?('G-')
+
+    google_analytics_key
   end
 
   # Wrapper for the various attachment images url methods

@@ -15,7 +15,7 @@ module Admin2::Analytics
 
     def check_google_analytics_key
       code = params[:community][:google_analytics_key]
-      raise t('admin2.google.error_text') if code.present? && !code.start_with?('UA-')
+      raise t('admin2.google.error_text') if code.present? && !code.start_with?('UA-') && !code.start_with?('G-')
     end
 
     def google_params

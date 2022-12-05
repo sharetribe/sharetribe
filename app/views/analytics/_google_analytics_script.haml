@@ -7,6 +7,10 @@ if (typeof onDocumentReady === 'undefined') { onDocumentReady = function() {}; }
   - if APP_CONFIG.use_google_analytics.to_s == "true"
     = render partial: "analytics/legacy_google_analytics"
 
-- if google_analytics_key
-  = render partial: "analytics/customer_analytics", locals: {google_analytics_key: google_analytics_key}
+- if google_analytics_key_ua
+  = render partial: "analytics/customer_analytics", locals: { google_analytics_key: google_analytics_key_ua }
+
+- if google_analytics_key_g
+  = render partial: "analytics/customer_analytics_ga", locals: { google_analytics_key: google_analytics_key_g }
+
 </script>
