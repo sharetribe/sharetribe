@@ -4,7 +4,7 @@ $typography__main-color: #525961;
 // Basic fonts
 //
 
-$typography__font-family: 'Proxima Soft', 'Source Sans Pro', helvetica, sans-serif;
+$typography__font-family: 'Proxima Soft', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
 @mixin typography__regular {
   font-family: $typography__font-family;

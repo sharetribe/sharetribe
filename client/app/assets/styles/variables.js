@@ -14,7 +14,7 @@ const fontSizeMobile = '17px';
 const fontWeightMedium = '500';
 const fontWeightSemibold = '600';
 
-const proximaFontFamily = "'Proxima Soft', 'Source Sans Pro', helvetica, sans-serif";
+const proximaFontFamily = "'Proxima Soft', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
 
 const lineHeight = 22;
 
