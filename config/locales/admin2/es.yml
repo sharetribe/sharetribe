@@ -1001,7 +1001,7 @@ es:
       info_text: "Google Analytics te ayuda a rastrear el tráfico de tu marketplace. Podrás revisar y analizar bastante información: número de visitantes, páginas vistas, tiempo de visita, tráfico, origen, etc. <a href='%{url}' class='external-link' target='_blank' >Aprender más acerca de la configuración de Google Analytics</a>."
       google_analytics_key: "ID de rastreo de Google Analytics"
       error_text: "Por favor añade un ID de rastreo de Google Analytics que empiece con \"UA-\""
-      google_analytics_key_placeholder: UA-12345678-9
+      google_analytics_key_placeholder: G-1A2B3C4D5E or UA-12345678-9
       google_analytics_key_info_text: "Pega tu ID de rastreo de la cuenta de Google Analytics aquí."
     profile_pages:
       title: "Meta tags para las páginas de perfil"

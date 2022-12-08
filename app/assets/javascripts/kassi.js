@@ -42,7 +42,7 @@ function add_validator_methods() {
   $.validator.
   addMethod("google_analytics",
     function(value, element, param) {
-      return $(element).val().startsWith("UA-") || $(element).val().length === 0;
+      return $(element).val().startsWith("UA-") || $(element).val().startsWith("G-") || $(element).val().length === 0;
     }
   );
 

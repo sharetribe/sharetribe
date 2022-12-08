@@ -289,7 +289,8 @@ class LandingPageController < ActionController::Metal
       facebook_connect_id: c.facebook_connect_id,
       google_maps_key: MarketplaceHelper.google_maps_key(c.id),
       end_user_analytics: c.end_user_analytics,
-      google_analytics_key: c.google_analytics_key,
+      google_analytics_key_ua: c.google_analytics_key_ua,
+      google_analytics_key_g: c.google_analytics_key_g,
       social_image: c.social_logo.present? && c.social_logo.image.present?,
       show_slogan: c.show_slogan,
       show_description: c.show_description
