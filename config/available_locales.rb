@@ -55,7 +55,8 @@ module Sharetribe
     {ident: "crp", name: "Kreyòl ayisyen", language: "crp", region: "HT", fallback: nil}, # Haitian Creole
     {ident: "en-NZ", name: "English (New Zealand)", language: "en", region: "NZ", fallback: nil}, # English (New Zealand)
     {ident: "es-CL", name: "Español (Chile)", language: "es", region: "CL", fallback: "es"}, # Spanish (Chile)
-    {ident: "es-MX", name: "Español (México)", language: "es", region: "MX", fallback: "es"}, # Spanish (México)
+    {ident: "es-MX", name: "Español (México)", language: "es", region: "MX", fallback: "es"}, # Spanish (Mexico)
+    {ident: "es-US", name: "Español (Estados Unidos)", language: "es", region: "US", fallback: "es"}, # Spanish (United States)
     {ident: "he-IL", name: "עברית‎", language: "he", region: "IL", fallback: nil}, # Hebrew (Israel)
     {ident: "id", name: "Bahasa Indonesia", language: "id", region: "ID", fallback: nil}, # Indonesian (Indonesia)
     {ident: "is", name: "Íslenska", language: "is", region: "IS", fallback: nil}, # Icelandic (Iceland)
