@@ -2,15 +2,16 @@ he-IL:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: 
+        delimiter: 
+        format: 
   common:
-    edit_page: "ערוך דף"
-    default_community_slogan: "מרקטפלייס קהילתי"
-    default_community_description: "זה מקום למכור, לשכור, להחליף ולשתף סחורות ושירותים עם שאר חברי האתר."
+    edit_page: ערוך דף
+    default_community_slogan: מרקטפלייס קהילתי
+    default_community_description: זה מקום למכור, לשכור, להחליף ולשתף סחורות ושירותים
+      עם שאר חברי האתר.
     cancel: בטל
-    fields_that_are_mandatory: "שדות המסומנים ב (*) הם חובה."
+    fields_that_are_mandatory: שדות המסומנים ב (*) הם חובה.
     or: או
     password: סיסמה
     service_name: "‎%{service_name}‎"
@@ -21,720 +22,831 @@ he-IL:
       buy: קנייה
       give_away: למסירה
       lend: השאלה
-      receive: "לקחת בחינם"
+      receive: לקחת בחינם
       rent: השכרה
       rent_out: להשכרה
       sell: מכירה
       offer_to_swap: החלפה
       request_to_swap: החלפה
-      share_for_free: "משתף בחינם"
-      accept_for_free: "מעוניין להשתמש בחינם"
+      share_for_free: משתף בחינם
+      accept_for_free: מעוניין להשתמש בחינם
     categories:
       item: פריטים
       favor: שירותים
-      rideshare: "נסיעה שיתופית"
+      rideshare: נסיעה שיתופית
       housing: מקומות
       tools: כלים
       sports: ספורט
       music: מוסיקה
-      books: "ספרים ועיתונים"
-      games: "משחקים וצעצועים"
+      books: ספרים ועיתונים
+      games: משחקים וצעצועים
       furniture: ריהוט
-      outdoors: "קמפינג וטיול"
-      food: "מטבח ואוכל"
-      electronics: "מוצרי חשמל"
-      pets: "חיות מחמד"
+      outdoors: קמפינג וטיול
+      food: מטבח ואוכל
+      electronics: מוצרי חשמל
+      pets: חיות מחמד
       film: סרטים
-      clothes: "ביגוד ואביזרים"
+      clothes: ביגוד ואביזרים
       garden: גינה
       travel: טיול
       other: שונות
-    username: "שם משתמש"
+    username: שם משתמש
     username_or_email: דוא''ל
-    what_is_this: "מה זה?"
-    removed_user: "משתמש שנמחק"
-    banned_user: ~
+    what_is_this: מה זה?
+    removed_user: משתמש שנמחק
+    banned_user: 
     payment_fee_info:
-      title: "עמלת עיבוד תשלום ועמלות"
+      title: עמלת עיבוד תשלום ועמלות
       stripe: סטרייפ
       paypal: פייפאל
-      info: ~
+      info: 
     paypal_fee_info:
-      title: "עמלות פייפל"
+      title: עמלות פייפל
       body_text: |-
-          For PayPal payments, %{service_name} charges a commission of %{paypal_commission}%. The minimum transaction fee per transaction is %{minimum_transaction_fee}. PayPal's fees are not included in this commission, so in addition to %{service_name} commission, you will also pay PayPal's fees for each. PayPal's fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
-      body_text_accept: ~
+        For PayPal payments, %{service_name} charges a commission of %{paypal_commission}%. The minimum transaction fee per transaction is %{minimum_transaction_fee}. PayPal's fees are not included in this commission, so in addition to %{service_name} commission, you will also pay PayPal's fees for each. PayPal's fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
+        You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
+      body_text_accept: 
       link_to_paypal_text: כאן
     stripe_fee_info:
-      title: "עמלת העיבוד של סטרייפ"
-      body_text: ~
+      title: עמלת העיבוד של סטרייפ
+      body_text: 
       link_to_stripe_text: כאן
   conversations:
     accept:
-      details: "פרטי הזמנה"
-      order_by: "סדר לפי ‎%{orderer_link}‎ "
-      accept_offer: "אשר את ההצעה"
-      accept_request: ~
-      accept_request_and_close: ~
-      reject_offer: "לא כעת"
-      reject_request: "לא כעת"
+      details: פרטי הזמנה
+      order_by: 'סדר לפי ‎%{orderer_link}‎ '
+      accept_offer: אשר את ההצעה
+      accept_request: 
+      accept_request_and_close: 
+      reject_offer: לא כעת
+      reject_request: לא כעת
       close_listing: "‎%{listing_title_link}‎ לסגור את המודעה"
-      update_later: "השאר פעיל"
-      optional_message: "הודעה אופציונלית"
-      price_to_pay: "סה\"כ לתשלום"
+      update_later: השאר פעיל
+      optional_message: הודעה אופציונלית
+      price_to_pay: סה"כ לתשלום
       accept: אשר
       decline: דחה
-      quantity_label: "כמות:"
+      quantity_label: 'כמות:'
       sum_label: סה''כ
-      service_fee_label: "מחיר ‎%{service_name}‎ :"
+      service_fee_label: 'מחיר ‎%{service_name}‎ :'
       buyer_service_fee_label: "‎%{service_name}‎  עמלה:"
-      you_will_get_label: "אתה תקבל:"
+      you_will_get_label: 'אתה תקבל:'
       total_label: סה"כ
       total_value: "‎%{seller_gets}‎ "
       total_value_paypal: "‎%{seller_gets}‎ * "
       total_value_stripe: "‎%{seller_gets}‎ "
-      paypal_fee: ~
+      paypal_fee: 
       paypal_fee_info: "* למעט ‎%{link}‎ "
       shipping_price_label: משלוח
-      stripe-fee_label: "עמלת עיבוד תשלום"
+      stripe-fee_label: עמלת עיבוד תשלום
     confirm:
-      confirm_description: "אם ההזמנה שלך כבר התבצא אתה צריך לסמן זאת כמבוצע. לאחר מכן אתה יכול לתת משוב לצד השני."
-      cancel_description_team: ~
-      cancel_payed_description: "אם הבקשה שלך התקבלה, אך יש לך מחשבה שנייה, עדיין תוכל לבטל את הבקשה לפני התשלום."
-      canceling_payed_transaction: "בטל עסקה"
-      confirm: "סמן כהושלם"
+      confirm_description: אם ההזמנה שלך כבר התבצא אתה צריך לסמן זאת כמבוצע. לאחר
+        מכן אתה יכול לתת משוב לצד השני.
+      cancel_description_team: 
+      cancel_payed_description: אם הבקשה שלך התקבלה, אך יש לך מחשבה שנייה, עדיין תוכל
+        לבטל את הבקשה לפני התשלום.
+      canceling_payed_transaction: בטל עסקה
+      confirm: סמן כהושלם
       cancel: ביטול
       continue: המשך
-      give_feedback_to: "כתוב ביקורת ל‎%{person_link}‎"
-      do_not_give_feedback: "דלג על המשוב"
+      give_feedback_to: כתוב ביקורת ל‎%{person_link}‎
+      do_not_give_feedback: דלג על המשוב
     details:
       day: יום
       days: ימים
       price_per_day: "‎%{price}‎ מחיר ליום"
     index:
-      loading_more_messages: "טוען הודעות נוספות"
+      loading_more_messages: טוען הודעות נוספות
       message_partitive: הודעה
       messages_partitive: הודעות
-      no_received_messages: "אין הודעות"
-      no_sent_messages: "אין הודעות יוצאות"
+      no_received_messages: אין הודעות
+      no_sent_messages: אין הודעות יוצאות
     conversation:
-      accepted_request: "הבקשה התקבלה."
-      accepted_offer: "ההצעה התקבלה."
-      rejected_request: "הבקשה נדחתה."
-      rejected_offer: "ההצעה נדחתה."
-      confirmed_request: "ההזמנה בוצעה."
-      confirmed_offer: "ההזמנה בוצעה."
-      canceled_request: "ההזמנה בוטלה."
-      canceled_offer: "ההצעה בוטלה."
+      accepted_request: הבקשה התקבלה.
+      accepted_offer: ההצעה התקבלה.
+      rejected_request: הבקשה נדחתה.
+      rejected_offer: ההצעה נדחתה.
+      confirmed_request: ההזמנה בוצעה.
+      confirmed_offer: ההזמנה בוצעה.
+      canceled_request: ההזמנה בוטלה.
+      canceled_offer: ההצעה בוטלה.
       message_from: "‎%{person}‎ הודעה מ‎"
       about_listing: "‎%{listing_title}‎ לגבי"
-      free_message: "הודעה ישירה"
-      message_content_not_available: "תוכן ההודעה לא זמין"
+      free_message: הודעה ישירה
+      message_content_not_available: תוכן ההודעה לא זמין
     message:
-      accepted_request: "אישר את הבקשה"
-      received_payment: ~
-      received_payment_wo_sum: "בקשה אושרה,תשלום התקבל"
-      accepted_offer: "אישר את ההצעה"
-      rejected_request: "דחה את הבקשה, התשלום בוטל"
-      rejected_offer: "דחה את ההצעה"
-      confirmed_request: "סימן את ההזמנה כהושלמה"
-      confirmed_offer: "סימן את ההצעה כהושלמה"
-      canceled_request: "ביטל את ההזמנה"
-      canceled_offer: "ביטל את ההזמנה"
-      paid: "שולם ‎%{sum}‎"
-      payment_preauthorized: ~
-      payment_preauthorized_wo_sum: "תשלום אושר"
+      accepted_request: אישר את הבקשה
+      received_payment: 
+      received_payment_wo_sum: בקשה אושרה,תשלום התקבל
+      accepted_offer: אישר את ההצעה
+      rejected_request: דחה את הבקשה, התשלום בוטל
+      rejected_offer: דחה את ההצעה
+      confirmed_request: סימן את ההזמנה כהושלמה
+      confirmed_offer: סימן את ההצעה כהושלמה
+      canceled_request: ביטל את ההזמנה
+      canceled_offer: ביטל את ההזמנה
+      paid: שולם ‎%{sum}‎
+      payment_preauthorized: 
+      payment_preauthorized_wo_sum: תשלום אושר
       stripe:
-        held_payment: ~
-        held_payment_wo_sum: ~
-        confirmed_request: "הזמנה סומנה כהושלמה. התשלום יועבר כעת לחשבון הבנק של ‎%{author_name}‎ "
-      canceled_the_order: ~
-      marked_as_refunded: ~
-      dismissed_the_cancellation: ~
-      payment_has_now_been_transferred: ~
+        held_payment: 
+        held_payment_wo_sum: 
+        confirmed_request: 'הזמנה סומנה כהושלמה. התשלום יועבר כעת לחשבון הבנק של ‎%{author_name}‎ '
+      canceled_the_order: 
+      marked_as_refunded: 
+      dismissed_the_cancellation: 
+      payment_has_now_been_transferred: 
     new:
       message: הודעה
       message_to: "‎%{author_name}‎ הודעה ל‎"
       optional_message_to: "‎%{author_name}‎ הודעה אופציונלית אל"
       send_message: שלח/י
       send: שלח
-      this_message_is_private: "‎%{person}‎ יקבל הודעה על הודעה זו בדוא\"ל. התכתבות פרטית עם %{person}"
-      you_will_get_notified_of_acceptance: "מקבל או דוחה את ההצעה שלך ‎%{person}‎ תקבל הודעת אימייל כאשר"
-      you_will_get_notified: "עונה לך ‎%{person}‎ תקבל הודעת אימייל כאשר"
+      this_message_is_private: ‎%{person}‎ יקבל הודעה על הודעה זו בדוא"ל. התכתבות
+        פרטית עם %{person}
+      you_will_get_notified_of_acceptance: מקבל או דוחה את ההצעה שלך ‎%{person}‎ תקבל
+        הודעת אימייל כאשר
+      you_will_get_notified: עונה לך ‎%{person}‎ תקבל הודעת אימייל כאשר
       title: כותרת
       send_message_to_user: "‎%{person}‎ שלח/י הודעה ל"
       about_listing: "‎%{listing_title}‎ לגבי"
-      author_has_to_accept_request: "‎%{author_name}‎ צריך לקבל את הבקשה לפני שתוכל לשלם"
+      author_has_to_accept_request: "‎%{author_name}‎ צריך לקבל את הבקשה לפני שתוכל
+        לשלם"
     show:
       in_response_to_listing: לגבי
-      message_sent_by: "הודעה נשלח ע\"י"
-      message_sent_to: "הודעה נשלח ל"
-      send_reply: "שלח/י תגובה"
-      write_a_reply: "כתוב/כתבי תגובה:"
+      message_sent_by: הודעה נשלח ע"י
+      message_sent_to: הודעה נשלח ל
+      send_reply: שלח/י תגובה
+      write_a_reply: 'כתוב/כתבי תגובה:'
       conversation_about_listing: "‎%{listing}‎ לגבי ‎‎%{person}‎‎  עם"
       conversation_with_user: "‎%{person}‎ עם"
-      conversation_with: "שיחה עם ‎%{person}‎"
-      last_message_at: "הודעה אחרונה ‎%{time}‎ ‎ "
+      conversation_with: שיחה עם ‎%{person}‎
+      last_message_at: 'הודעה אחרונה ‎%{time}‎ ‎ '
       price: "‎%{price}‎ מחיר"
-      sum: "סה\"כ: ‎%{sum}‎"
-      total: "סה\"כ: ‎%{total}‎"
+      sum: 'סה"כ: ‎%{sum}‎'
+      total: 'סה"כ: ‎%{total}‎'
     status:
-      payment_errored: "תשלום נכשל, נא נסה שנית."
-      payment_errored_starter: "תשלום נכשל, נא נסה שנית. אם הבעיה ממשיכה אנא פנה לתמיכת SHARETRIBE."
-      payment_errored_author: "תשלום נכשל, נא נסה שנית. אם הבעיה ממשיכה אנא פנה לתמיכת SHARETRIBE."
+      payment_errored: תשלום נכשל, נא נסה שנית.
+      payment_errored_starter: תשלום נכשל, נא נסה שנית. אם הבעיה ממשיכה אנא פנה לתמיכת
+        SHARETRIBE.
+      payment_errored_author: תשלום נכשל, נא נסה שנית. אם הבעיה ממשיכה אנא פנה לתמיכת
+        SHARETRIBE.
       cancel_payed_transaction: ביטול
-      feedback_given: "ביקורת ניתנה"
-      feedback_skipped: "לא קיים משוב"
-      give_feedback: "כתוב/כתבי המלצה או הערה"
-      offer_accepted: "התקבל בהצלחה"
-      offer_rejected: "אינו מאושר"
+      feedback_given: ביקורת ניתנה
+      feedback_skipped: לא קיים משוב
+      give_feedback: כתוב/כתבי המלצה או הערה
+      offer_accepted: התקבל בהצלחה
+      offer_rejected: אינו מאושר
       offer_canceled: בוטל
       offer_confirmed: הושלם
-      offer_paid: "התשלום בוצעה בהצלחה"
-      offer_preauthorized: "התשלום בוצעה בהצלחה"
-      offer_waiting_for_payment: "מחכה ל ‎%{requester_name}‎ לשלם"
+      offer_paid: התשלום בוצעה בהצלחה
+      offer_preauthorized: התשלום בוצעה בהצלחה
+      offer_waiting_for_payment: מחכה ל ‎%{requester_name}‎ לשלם
       pay: תשלום
-      preauthorized: "התשלום בוצע בהצלחה"
-      paid: "התשלום הצליח"
+      preauthorized: התשלום בוצע בהצלחה
+      paid: התשלום הצליח
       pending_external:
         paypal:
-          multicurrency: "לא הצלחנו לעבד את התשלום שלך מאחר וחשבון הפייפאל שלך לא הוגדר לקבל תשלום ב‎%{currency}‎ . הכנס ל‎%{paypal_url}‎ והתחבר לחשבון שלך כדי לקבל או לדחות את התשלום."
-          verify: "אינך יכול לקבל את התשלום מאחר וחשבון הפייאפל שלך לא השלים הליך אימות. אנא הכנס ל‎%{paypal_url}‎  כדי לאמת את החשבון."
-          intl: "לא הצלחנו לעבד את התשלום מאחר ולחשבון שלך אין הגדרת משיכה. הכנס ל‎%{paypal_url}‎ כדי לקבל או לדחות את התשלום."
-      waiting_for_current_user_to_deliver_listing: "ממתין שתמלא את ההזמנה ‎%{listing_title}‎"
-      waiting_for_listing_author_to_deliver_listing: "ממתין ל‎%{listing_author_name}‎  בכדי להשלים את ההזמנה ל‎%{listing_title}‎ "
-      request_accepted: "אושר בהצלחה"
-      request_rejected: "אינו מאושר"
+          multicurrency: לא הצלחנו לעבד את התשלום שלך מאחר וחשבון הפייפאל שלך לא הוגדר
+            לקבל תשלום ב‎%{currency}‎ . הכנס ל‎%{paypal_url}‎ והתחבר לחשבון שלך כדי
+            לקבל או לדחות את התשלום.
+          verify: אינך יכול לקבל את התשלום מאחר וחשבון הפייאפל שלך לא השלים הליך אימות.
+            אנא הכנס ל‎%{paypal_url}‎  כדי לאמת את החשבון.
+          intl: לא הצלחנו לעבד את התשלום מאחר ולחשבון שלך אין הגדרת משיכה. הכנס ל‎%{paypal_url}‎
+            כדי לקבל או לדחות את התשלום.
+      waiting_for_current_user_to_deliver_listing: ממתין שתמלא את ההזמנה ‎%{listing_title}‎
+      waiting_for_listing_author_to_deliver_listing: 'ממתין ל‎%{listing_author_name}‎  בכדי
+        להשלים את ההזמנה ל‎%{listing_title}‎ '
+      request_accepted: אושר בהצלחה
+      request_rejected: אינו מאושר
       request_confirmed: הושלם
       request_canceled: התבטל
-      request_paid: "התשלום בוצעה בהצלחה"
-      request_preauthorized: "התשלום אושר"
-      skip_feedback: "דלג/י על המשוב"
-      waiting_for_listing_author_to_accept_offer: "ממתין ל-‎%{listing_author_name}‎ כדי לאשר את ההצעה"
-      waiting_for_listing_author_to_accept_request: "מחכה ל‎%{listing_author_name}‎ שיאשר את הבקשה. ברגע ש‎%{listing_author_name}‎  ייאשר, אתה תחוייב."
-      waiting_for_you_to_accept_request: "ממתין שתאשר את הבקשה"
-      waiting_confirmation_from_requester: "מחכה ל‎%{requester_name}‎ שייסמן את ההזמנה כהושלמה."
-      waiting_confirmation_from_you: "ממתין לסמן את ההזמנה"
-      waiting_payment_from_requester: "מחכה ל‎%{requester_name}‎ שישלם."
-      waiting_payment_from_you: "מחכה לתשלום שלך"
-      waiting_feedback_from_you: "ממתין למשוב שלך"
+      request_paid: התשלום בוצעה בהצלחה
+      request_preauthorized: התשלום אושר
+      skip_feedback: דלג/י על המשוב
+      waiting_for_listing_author_to_accept_offer: ממתין ל-‎%{listing_author_name}‎
+        כדי לאשר את ההצעה
+      waiting_for_listing_author_to_accept_request: מחכה ל‎%{listing_author_name}‎
+        שיאשר את הבקשה. ברגע ש‎%{listing_author_name}‎  ייאשר, אתה תחוייב.
+      waiting_for_you_to_accept_request: ממתין שתאשר את הבקשה
+      waiting_confirmation_from_requester: מחכה ל‎%{requester_name}‎ שייסמן את ההזמנה
+        כהושלמה.
+      waiting_confirmation_from_you: ממתין לסמן את ההזמנה
+      waiting_payment_from_requester: מחכה ל‎%{requester_name}‎ שישלם.
+      waiting_payment_from_you: מחכה לתשלום שלך
+      waiting_feedback_from_you: ממתין למשוב שלך
       pending_external_inbox:
         paypal:
-          multicurrency: "ממתין לאישור התשלום"
-          intl: "ממתין לאישור התשלום"
-          unknown_reason: "התשלום בהמתנה, נא כנס לחשבון הפייפאל שלך כדי לקבל פרטים."
-          verify: "ממתין לאימות חשבון הפייפאל על-ידך."
+          multicurrency: ממתין לאישור התשלום
+          intl: ממתין לאישור התשלום
+          unknown_reason: התשלום בהמתנה, נא כנס לחשבון הפייפאל שלך כדי לקבל פרטים.
+          verify: ממתין לאימות חשבון הפייפאל על-ידך.
       stripe:
-        waiting_confirmation_from_requester: "מחכה ל‎%{requester_name}‎ שייסמן את ההזמנה כהושלמה."
-      order_canceled: ~
-      waiting_for_marketplace_review: ~
-      marketplace_notified: ~
-      contact_them: ~
-      refunded: ~
-      dismissed: ~
-      order_refunded: ~
-      you_should_receive_refund_soon: ~
-      issue_with_the_refund: ~
-      do_you_disagree: ~
-      contact_the_marketpalce_team: ~
-      order_cancellation_dismissed: ~
+        waiting_confirmation_from_requester: מחכה ל‎%{requester_name}‎ שייסמן את ההזמנה
+          כהושלמה.
+      order_canceled: 
+      waiting_for_marketplace_review: 
+      marketplace_notified: 
+      contact_them: 
+      refunded: 
+      dismissed: 
+      order_refunded: 
+      you_should_receive_refund_soon: 
+      issue_with_the_refund: 
+      do_you_disagree: 
+      contact_the_marketpalce_team: 
+      order_cancellation_dismissed: 
     status_link:
-      accept_offer: "קבל/י הצעה"
-      accept_request: "קבל/י בקשה"
-      reject_offer: "תודה אבל לא כרגע"
-      reject_request: "תודה אבל לא כרגע"
-      accept_preauthorized_offer: "קבל הצעה"
-      accept_preauthorized_request: "קבל את הבקשה"
-      reject_preauthorized_offer: "לא הפעם"
-      reject_preauthorized_request: "לא הפעם"
-      confirm: "סמן את מה שהושלם"
+      accept_offer: קבל/י הצעה
+      accept_request: קבל/י בקשה
+      reject_offer: תודה אבל לא כרגע
+      reject_request: תודה אבל לא כרגע
+      accept_preauthorized_offer: קבל הצעה
+      accept_preauthorized_request: קבל את הבקשה
+      reject_preauthorized_offer: לא הפעם
+      reject_preauthorized_request: לא הפעם
+      confirm: סמן את מה שהושלם
       cancel: ביטול
-      mark_as_refunded: ~
-      dismiss: ~
+      mark_as_refunded: 
+      dismiss: 
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: 
+    feedback_body: 
+    unlogged_user: 
+    anonymous_user: 
   community_memberships:
     access_denied:
-      access_denied: "גישה נדחתה"
-      you_are_banned_in_this_community: "צוות ה‎%{service_name}‎  ביטל את החשבון שלך. אם ברצונך לשלוח הודעה‎ לצוות ‎%{service_name}‎  אתה יכול ב‎%{link_to_contact_page}‎ "
-      contact_page_link: "צור איתם קשר"
+      access_denied: גישה נדחתה
+      you_are_banned_in_this_community: 'צוות ה‎%{service_name}‎  ביטל את החשבון שלך.
+        אם ברצונך לשלוח הודעה‎ לצוות ‎%{service_name}‎  אתה יכול ב‎%{link_to_contact_page}‎ '
+      contact_page_link: צור איתם קשר
     new:
-      welcome_fb_user: "ברוכים הבאים ל ‎%{service_name}‎ , ‎%{name}‎"
-      fb_join_accept_terms: "יש עוד צעד אחד להצטרפות ל-‎%{service_name}‎: עליך לקבל את התנאי השימוש."
+      welcome_fb_user: ברוכים הבאים ל ‎%{service_name}‎ , ‎%{name}‎
+      fb_join_accept_terms: 'יש עוד צעד אחד להצטרפות ל-‎%{service_name}‎: עליך לקבל
+        את התנאי השימוש.'
       join_community: "‎%{service_name}‎ הצטרך ל"
-      you_can_join: "כדי להיצטרף לשירות ‎%{service_name}‎ מבקשת לאשר תנאי שימוש ‎%{service_name}‎"
-      you_can_join_email_confirmation: "כדי להצטרף ל‎%{service_name}‎ , דרושה לך כתובת דוא\"ל תקינה המסתיימת ב‎%{email_ending}‎  . תוכל להצטרף על ידי מילוי כתובת האימייל שלך, קבלת תנאי השימוש ולחיצה על 'הצטרף' ‎%{service_name}‎ , ואימות של הדוא\"ל שלך."
-      you_can_join_email_confirmation_multiple_addresses: "‏ ‎%{service_name}‎  יש מגבלות דוא\"ל. תוכל להצטרף רק אם יש לך כתובת דוא\"ל תקנית. תוכל להצטרף על ידי מילוי כתובת האימייל שלך, קבלת תנאי השימוש של ‎%{service_name}‎  ולחיצה על 'הצטרף למטה."
-      you_can_join_with_invite_only: "אתה צריך לבקש מחבר אחר להצטרף אל‎%{service_name}‎. אם יש לך קוד הזמנה, תוכל להצטרף על ידי הקלדת הקוד לשדה למטה, קבלת תנאי השימוש ולחיצה על 'הצטרף' ‎%{service_name}‎ ' למטה."
-      if_want_to_view_content: "אם ברצונך לראות את התוכן ב-‎%{service_name}‎ מבלי להצטרף אליו כחבר, אתה צריך"
+      you_can_join: כדי להיצטרף לשירות ‎%{service_name}‎ מבקשת לאשר תנאי שימוש ‎%{service_name}‎
+      you_can_join_email_confirmation: כדי להצטרף ל‎%{service_name}‎ , דרושה לך כתובת
+        דוא"ל תקינה המסתיימת ב‎%{email_ending}‎  . תוכל להצטרף על ידי מילוי כתובת
+        האימייל שלך, קבלת תנאי השימוש ולחיצה על 'הצטרף' ‎%{service_name}‎ , ואימות
+        של הדוא"ל שלך.
+      you_can_join_email_confirmation_multiple_addresses: ‏ ‎%{service_name}‎  יש
+        מגבלות דוא"ל. תוכל להצטרף רק אם יש לך כתובת דוא"ל תקנית. תוכל להצטרף על ידי
+        מילוי כתובת האימייל שלך, קבלת תנאי השימוש של ‎%{service_name}‎  ולחיצה על
+        'הצטרף למטה.
+      you_can_join_with_invite_only: אתה צריך לבקש מחבר אחר להצטרף אל‎%{service_name}‎.
+        אם יש לך קוד הזמנה, תוכל להצטרף על ידי הקלדת הקוד לשדה למטה, קבלת תנאי השימוש
+        ולחיצה על 'הצטרף' ‎%{service_name}‎ ' למטה.
+      if_want_to_view_content: אם ברצונך לראות את התוכן ב-‎%{service_name}‎ מבלי להצטרף
+        אליו כחבר, אתה צריך
       log_out: התנתקות
       join_community_button: "‎%{service_name}‎ הצטרף ל ‎"
     give_consent:
-      invitation_code_invalid_or_used: "קוד ההזמנה לא תקין או כבר שומש."
-      email_not_allowed: "הדוא''ל הזה אינו זמין ב‎%{service_name} ‎  "
-      email_not_available: "הדוא''ל שהוזן כבר נמצא בשימוש"
-      consent_not_given: "התנאים לא אושרו."
+      invitation_code_invalid_or_used: קוד ההזמנה לא תקין או כבר שומש.
+      email_not_allowed: 'הדוא''''ל הזה אינו זמין ב‎%{service_name} ‎  '
+      email_not_available: הדוא''ל שהוזן כבר נמצא בשימוש
+      consent_not_given: התנאים לא אושרו.
   emails:
     accept_reminder:
       remember_to_accept_offer: "‎%{sender_name}‎ זכור לקבל או לדחות הצעה מ"
       remember_to_accept_request: "‎%{sender_name}‎ זכור לאשר או לדחות בקשה מ‎"
-      you_can_accept_or_reject_offer_at: "אתה יכול לקבל או לדחות את ההצעה ב"
-      you_can_accept_or_reject_request_at: "באפשרותך לאשר או לדחות את הבקשה בכתובת"
-      you_have_not_yet_accepted_or_rejected_offer: "‎%{title}‎ עדיין לא אישרת או דחית את ההצעה‎ "
-      you_have_not_yet_accepted_or_rejected_request: "‎%{title}‎ עדיין לא אישרת או דחית את ההצעה‎ "
-      show_thread: "הצג שיחה"
+      you_can_accept_or_reject_offer_at: אתה יכול לקבל או לדחות את ההצעה ב
+      you_can_accept_or_reject_request_at: באפשרותך לאשר או לדחות את הבקשה בכתובת
+      you_have_not_yet_accepted_or_rejected_offer: "‎%{title}‎ עדיין לא אישרת או דחית
+        את ההצעה‎ "
+      you_have_not_yet_accepted_or_rejected_request: "‎%{title}‎ עדיין לא אישרת או
+        דחית את ההצעה‎ "
+      show_thread: הצג שיחה
     branding:
       powered_by: "‎%{service_name}‎  פועל בחסות ‎%{sharetribe_link}‎  מרקטפלייס"
-      create_own: |-
-          רוצה ליצור מרקטפלייס בסגנון‎%{service_name}‎ ? 
-          ‎%{learn_more}‎ 
-      learn_more: "למד עוד"
+      create_own: "רוצה ליצור מרקטפלייס בסגנון‎%{service_name}‎ ? \n‎%{learn_more}‎ "
+      learn_more: למד עוד
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "‎%{other_party_given_name}‎לאחר מכן תוכל לתת פידבק  ‎%{request_link}‎ עדיין לא הסתיים טיפול ב"
-      remember_to_confirm_request: "זכור לאשר או לבטל בקשה"
-      if_will_not_happen_you_should_cancel: "אם אתה חושב שהזמנה זו לא תושלם מסיבה זו או אחרת, תוכל לבצע את‎%{cancel_it_link}‎."
+      you_have_not_yet_confirmed_or_canceled_request: "‎%{other_party_given_name}‎לאחר
+        מכן תוכל לתת פידבק  ‎%{request_link}‎ עדיין לא הסתיים טיפול ב"
+      remember_to_confirm_request: זכור לאשר או לבטל בקשה
+      if_will_not_happen_you_should_cancel: אם אתה חושב שהזמנה זו לא תושלם מסיבה זו
+        או אחרת, תוכל לבצע את‎%{cancel_it_link}‎.
       cancel_it_link_text: לבטל
-      automatic_confirmation: "אם ברצונך לאשר או לבטל הזמנה בתוך ‎%{days_to_automatic_confirmation}‎  לאחר שהבקשה התקבלה, אנחנו נעדכן את הסטטוס באופן אוטומטי"
+      automatic_confirmation: אם ברצונך לאשר או לבטל הזמנה בתוך ‎%{days_to_automatic_confirmation}‎  לאחר
+        שהבקשה התקבלה, אנחנו נעדכן את הסטטוס באופן אוטומטי
     confirm_reminder_v2:
-      headline: "לא השלמת או ביקשת ערעור עבור ההזמנה ‎%{request_link}‎ "
-      you_have_not_yet_confirmed_or_canceled_request: "אם ההזמנה הושלמה, אתה צריך לסמן אותה כהושלמה. לאחר מכן תוכל להשאיר ביקורת ל ‎%{other_party_given_name}‎ "
+      headline: 'לא השלמת או ביקשת ערעור עבור ההזמנה ‎%{request_link}‎ '
+      you_have_not_yet_confirmed_or_canceled_request: 'אם ההזמנה הושלמה, אתה צריך
+        לסמן אותה כהושלמה. לאחר מכן תוכל להשאיר ביקורת ל ‎%{other_party_given_name}‎ '
     payment_settings_reminder:
-      remember_to_add_payment_details: "אל תשכח להגדיר פרטי תשלום לקבלת הזמנות"
-      you_have_added_listing_with_payment: "נוסף/ה בהצלחה,כול מה שנשאר זה לחבר את החשבון פייפל שלך ‎%{listing_link}‎"
-      please_go_to_payment_settings: "‎%{payment_settings_link}‎ על מנת לסדר את העניין עליך לגשת ל"
-      payment_settings_link: "הגדרות תשלום"
+      remember_to_add_payment_details: אל תשכח להגדיר פרטי תשלום לקבלת הזמנות
+      you_have_added_listing_with_payment: נוסף/ה בהצלחה,כול מה שנשאר זה לחבר את החשבון
+        פייפל שלך ‎%{listing_link}‎
+      please_go_to_payment_settings: "‎%{payment_settings_link}‎ על מנת לסדר את העניין
+        עליך לגשת ל"
+      payment_settings_link: הגדרות תשלום
     payment_settings_reminder_v2:
-      fill_payout_details: "מלא את פרטי התשלום"
-      you_have_added_listing_with_payment: "הוספת מודעה ‎%{listing_link}‎  עם תשלום. שמנו לב שלא הוספת עדיין פרטי תשלום. בכדי לקבל תשלומים אתה צריך לספר את פרטי התשלום שלך."
+      fill_payout_details: מלא את פרטי התשלום
+      you_have_added_listing_with_payment: הוספת מודעה ‎%{listing_link}‎  עם תשלום.
+        שמנו לב שלא הוספת עדיין פרטי תשלום. בכדי לקבל תשלומים אתה צריך לספר את פרטי
+        התשלום שלך.
     transaction_confirmed:
       here_is_a_message_from: "‎%{other_party_given_name}‎ הודעה מ"
-      request_marked_as_confirmed: "ההזמנה הושלמה - זכור לתת משוב"
-      request_marked_as_canceled: "ההזמנה בוטלה"
-      has_marked_request_as_confirmed: "‎%{other_party_full_name}‎  סימן את ההזמנה ‎%{request}‎ כהושלמה. אתה יכול עכשיו לתת ביקורת ל‎%{other_party_given_name}‎."
-      has_marked_request_as_canceled: "‎%{other_party_full_name}‎ ביטל את ההזמנה הבאה ‎%{request}‎. אתה עדיין יכול לדרג את ‎%{other_party_given_name}‎."
-      giving_feedback_is_good_idea: "לתת ביקורת זה תמיד רעיון טוב. אם הכול הלך כשורה, את אמור לתת לאחרים לדעת ש‎%{other_party_given_name}‎ אמין. אם היו בעיות כלשהן, חשוב להזכיר גם אותן."
-      give_feedback_to: "לתת משוב ל ‎%{other_party_given_name}‎"
+      request_marked_as_confirmed: ההזמנה הושלמה - זכור לתת משוב
+      request_marked_as_canceled: ההזמנה בוטלה
+      has_marked_request_as_confirmed: "‎%{other_party_full_name}‎  סימן את ההזמנה
+        ‎%{request}‎ כהושלמה. אתה יכול עכשיו לתת ביקורת ל‎%{other_party_given_name}‎."
+      has_marked_request_as_canceled: "‎%{other_party_full_name}‎ ביטל את ההזמנה הבאה
+        ‎%{request}‎. אתה עדיין יכול לדרג את ‎%{other_party_given_name}‎."
+      giving_feedback_is_good_idea: לתת ביקורת זה תמיד רעיון טוב. אם הכול הלך כשורה,
+        את אמור לתת לאחרים לדעת ש‎%{other_party_given_name}‎ אמין. אם היו בעיות כלשהן,
+        חשוב להזכיר גם אותן.
+      give_feedback_to: לתת משוב ל ‎%{other_party_given_name}‎
       stripe:
-        has_marked_request_as_confirmed: ~
-      team_title: ~
+        has_marked_request_as_confirmed: 
+      team_title: 
     transaction_confirmed_v2:
-      headline_confirmed: "‎%{other_party_full_name}‎  סימן את ההזמנ‎ה עבור ‎%{listing_link}‎  כהושלמה."
+      headline_confirmed: "‎%{other_party_full_name}‎  סימן את ההזמנ‎ה עבור ‎%{listing_link}‎
+        \ כהושלמה."
       headline_canceled: "‎%{other_party_full_name}‎  הגיש ערעור עבור ‎%{listing_link}‎ "
       stripe:
-        has_marked_request_as_confirmed: "התשלום עבור העסקה הזו הועבר לחשבונך."
-      can_give_feedback: ~
-      team_title: "צוות  ‎%{service_name}‎ "
+        has_marked_request_as_confirmed: התשלום עבור העסקה הזו הועבר לחשבונך.
+      can_give_feedback: 
+      team_title: 'צוות  ‎%{service_name}‎ '
     transaction_automatically_confirmed:
-      subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
-      we_have_marked_request_as_confirmed: "עדכנו את סטטוס הבקשה ‎%{request}‎ . ההזמנה עודכנה אוטומטית מאחר ו‎%{days_passed}‎  ימים חלפו מאז שהבקשה הוגשה"
+      subject: ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב
+      we_have_marked_request_as_confirmed: עדכנו את סטטוס הבקשה ‎%{request}‎ . ההזמנה
+        עודכנה אוטומטית מאחר ו‎%{days_passed}‎  ימים חלפו מאז שהבקשה הוגשה
     transaction_automatically_confirmed_v2:
-      we_have_marked_request_as_confirmed: "סימנו את ההזמנה עבור ‎%{request}‎  כהושלמה."
-      order_automatically_confirmed: "עדכנו את סטטוס הבקשה ‎%{request}‎ . ההזמנה עודכנה אוטומטית מאחר ו‎%{days_passed}‎  ימים חלפו מאז שהבקשה הוגשה"
+      we_have_marked_request_as_confirmed: סימנו את ההזמנה עבור ‎%{request}‎  כהושלמה.
+      order_automatically_confirmed: עדכנו את סטטוס הבקשה ‎%{request}‎ . ההזמנה עודכנה
+        אוטומטית מאחר ו‎%{days_passed}‎  ימים חלפו מאז שהבקשה הוגשה
     booking_transaction_automatically_confirmed:
-      subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
-      we_have_marked_request_as_confirmed: "סימנו את ההזמנה עבור ‎%{request}‎  כהושלמה. הבקשה אושרה אוטומטית מאחר ועבר המועד מזמן ההזמנה.\n"
+      subject: ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב
+      we_have_marked_request_as_confirmed: 'סימנו את ההזמנה עבור ‎%{request}‎  כהושלמה.
+        הבקשה אושרה אוטומטית מאחר ועבר המועד מזמן ההזמנה.
+
+        '
     booking_transaction_automatically_confirmed_v2:
-      order_automatically_confirmed: "ההזמנה הושלמה אוטמטית מאחר וחלף יום אחד ממועד תאריך ההזמנה של המודעה."
+      order_automatically_confirmed: ההזמנה הושלמה אוטמטית מאחר וחלף יום אחד ממועד
+        תאריך ההזמנה של המודעה.
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "כעת באפשרותך לרשום ביקורת על ‎%{other_party_given_name}‎ . לרשום ביקורת זה תמיד רעיון טוב. אם הכל עבר חלק תן לאחרים לדעת ש‎%{other_party_given_name}‎ ראוי לאמון. אם היו בעיות כדאי לציין גם אותן."
-      give_feedback_to: "לרשום ביקורת על ‎%{other_party_given_name}‎ "
-      show_thread: "הצג שיחה"
+      giving_feedback_is_good_idea: כעת באפשרותך לרשום ביקורת על ‎%{other_party_given_name}‎
+        . לרשום ביקורת זה תמיד רעיון טוב. אם הכל עבר חלק תן לאחרים לדעת ש‎%{other_party_given_name}‎
+        ראוי לאמון. אם היו בעיות כדאי לציין גם אותן.
+      give_feedback_to: 'לרשום ביקורת על ‎%{other_party_given_name}‎ '
+      show_thread: הצג שיחה
     confirmation_instructions:
       confirmation_instructions_signature: "‎%{service_name}‎ בברכה ‎<br/>‎ צוות"
-      need_to_confirm: "‎%{service_name}‎ עליך לאשר את כתובת האימייל שלך‎ להצטרפות ל"
-      confirmation_link_text: "מאשר את הכתובת"
-      or_paste_link: "לחלופין, תוכל להעתיק את הקישור הבא לדפדפן:"
+      need_to_confirm: "‎%{service_name}‎ עליך לאשר את כתובת האימייל שלך‎ להצטרפות
+        ל"
+      confirmation_link_text: מאשר את הכתובת
+      or_paste_link: 'לחלופין, תוכל להעתיק את הקישור הבא לדפדפן:'
     confirmation_instructions_v2:
-      headline: "עליך לאשר את כתובת האימייל שלך‎ להצטרפות ל‏ ‎%{service_name}‎ "
+      headline: 'עליך לאשר את כתובת האימייל שלך‎ להצטרפות ל‏ ‎%{service_name}‎ '
       need_to_confirm: |-
-          אשר את כתובת הדוא''ל כדי להשלים את חשבון ה ‎%{service_name}‎ .
-          זה קל- פשוט לחץ על הכפתור!
-      confirmation_link_text: ~
+        אשר את כתובת הדוא''ל כדי להשלים את חשבון ה ‎%{service_name}‎ .
+        זה קל- פשוט לחץ על הכפתור!
+      confirmation_link_text: 
     common:
       hey: "‎%{name}‎ שלום"
-      hi: ~
+      hi: 
       kassi_team: "‎%{service_name}‎"
       thanks: ",תודה רבה"
-      dont_want_to_receive_these_emails: "אינך רוצה לקבל הודעות אימייל אלה?"
-      edit_your_email_settings_here: "ערוך את פרטי האימייל שלך כאן"
-      message_not_displaying_correctly: "האם אימייל זה אינו מוצג כהלכה?"
-      view_it_in_your_browser: "הצג בדפדפן שלך"
+      dont_want_to_receive_these_emails: אינך רוצה לקבל הודעות אימייל אלה?
+      edit_your_email_settings_here: ערוך את פרטי האימייל שלך כאן
+      message_not_displaying_correctly: האם אימייל זה אינו מוצג כהלכה?
+      view_it_in_your_browser: הצג בדפדפן שלך
       or: או
-      unsubscribe_from_these_emails_info: "קיבלת את האימייל הזה מאחר ואתה שייך ל‎%{service_name}‎ "
-      unsubscribe_from_these_emails: "לבטל את המנוי של הודעות דוא\"ל אלה"
-      unsubscribe_from_invitation_emails_info: "קיבלת את האימייל הזה מאחר וחבר ב‎%{service_name}‎  הזמין אותך להצטרף"
-      unsubscribe_from_invitation_emails: "הסר מינוי לאימיילים של הזמנה ב‎%{service_name}‎ "
-      here_is_your_receipt: ~
+      unsubscribe_from_these_emails_info: 'קיבלת את האימייל הזה מאחר ואתה שייך ל‎%{service_name}‎ '
+      unsubscribe_from_these_emails: לבטל את המנוי של הודעות דוא"ל אלה
+      unsubscribe_from_invitation_emails_info: קיבלת את האימייל הזה מאחר וחבר ב‎%{service_name}‎  הזמין
+        אותך להצטרף
+      unsubscribe_from_invitation_emails: 'הסר מינוי לאימיילים של הזמנה ב‎%{service_name}‎ '
+      here_is_your_receipt: 
     conversation_status_changed:
       has_accepted_your_offer: "‎%{listing}‎ קיבל את ההצעה שלך ‎‎%{accepter}‎"
       has_accepted_your_request: "‎‎%{listing}‎ קיבל את בקשתך ‎%{accepter}‎‎"
       has_rejected_your_offer: "‎‎%{listing}‎ דחה את ההצעה שלך ‎%{accepter}‎‎"
       has_rejected_your_request: "‎‎%{listing}‎ דחה את הבקשה שלך ‎%{accepter}‎"
-      view_thread: "הצג שיחה"
-      your_offer_was_accepted: "הצעתך אושרה"
-      your_offer_was_rejected: "הצעתך לא אושרה"
-      your_request_was_accepted: "בקשתך אושרה"
-      your_request_was_rejected: "בקשתך לא אושרה"
-      you_can_now_pay_to: "עכשיו אתה יכול לשלם את הסכום המבוקש ל ‎%{payment_receiver}‎"
-      pay_now: "שלם עכשיו"
-      remember_to_confirm: "כשההזמנה הושלמה, זכור לעדכן את הסטטוס שלה. אם לא, באפשרותך לבטל אותה בתןך ‎%{days_to_automatic_confirmation}‎ ימים. אחרת ההזמנה‎%{days_to_automatic_confirmation}‎ תעודכן כהושלמה."
+      view_thread: הצג שיחה
+      your_offer_was_accepted: הצעתך אושרה
+      your_offer_was_rejected: הצעתך לא אושרה
+      your_request_was_accepted: בקשתך אושרה
+      your_request_was_rejected: בקשתך לא אושרה
+      you_can_now_pay_to: עכשיו אתה יכול לשלם את הסכום המבוקש ל ‎%{payment_receiver}‎
+      pay_now: שלם עכשיו
+      remember_to_confirm: כשההזמנה הושלמה, זכור לעדכן את הסטטוס שלה. אם לא, באפשרותך
+        לבטל אותה בתןך ‎%{days_to_automatic_confirmation}‎ ימים. אחרת ההזמנה‎%{days_to_automatic_confirmation}‎
+        תעודכן כהושלמה.
     conversation_status_changed_v2:
-      has_accepted_your_request: "הבקשה שלך אושרה."
+      has_accepted_your_request: הבקשה שלך אושרה.
       has_accepted_your_request_text: "‎%{accepter}‎  אישר את הבקשה עבור ‎%{listing}‎ "
-      has_rejected_your_request: "לצערנו הבקשה שלך נדחתה."
+      has_rejected_your_request: לצערנו הבקשה שלך נדחתה.
       has_rejected_your_request_text: "‎%{accepter}‎  דחה את הבקשה שלך עבור ‎%{listing}‎ "
     invitation_to_kassi:
       hi: הי!
       you_have_been_invited_to_kassi: "‎‎%{service_name}‎ הזמין אתך ל ‎%{inviter}‎‎"
       here_is_a_message_from: "‎%{inviter}‎ הודעה אישית מ ‎"
-      join_now: "הצטרף עכשיו"
-      invitation_code: "קוד ההזמנה: ‎%{code}‎"
+      join_now: הצטרף עכשיו
+      invitation_code: 'קוד ההזמנה: ‎%{code}‎'
     invitation_to_kassi_v2:
       headline: היי!
     new_comment:
       has_commented_your_listing_in_kassi: "‎‎%{listing}‎ הגיב על המודעה שלך ‎%{author}‎‎"
-      view_comment: "הצג תגובה"
+      view_comment: הצג תגובה
       you_have_a_new_comment: "‎%{service_name}‎ הגיב על המודעה שלך ב ‎%{author}‎‎"
-      listing_you_follow_has_a_new_comment: "‎%{service_name}‎ הגיב על מודעה שאתה עוקב אחריה ב ‎‎%{author}‎"
-      has_commented_listing_you_follow_in_kassi: "‎‎%{service_name}‎  שאתה עוקב ב ‎%{listing}‎ הגיב על המודעה ‎‎%{author}‎‎"
+      listing_you_follow_has_a_new_comment: "‎%{service_name}‎ הגיב על מודעה שאתה
+        עוקב אחריה ב ‎‎%{author}‎"
+      has_commented_listing_you_follow_in_kassi: "‎‎%{service_name}‎  שאתה עוקב ב
+        ‎%{listing}‎ הגיב על המודעה ‎‎%{author}‎‎"
     new_message:
-      view_message: "הצג הודעה"
-      has_sent_you_a_message_in_kassi: "‎%{sender}‎ שלח לך הודעה. עבור ל ‎%{service_name}‎ על מנת להשיב."
-      you_have_a_new_message: "יש לך הודעה חדשה מ ‎%{sender_name}‎ ב ‎%{service_name}‎"
+      view_message: הצג הודעה
+      has_sent_you_a_message_in_kassi: "‎%{sender}‎ שלח לך הודעה. עבור ל ‎%{service_name}‎
+        על מנת להשיב."
+      you_have_a_new_message: יש לך הודעה חדשה מ ‎%{sender_name}‎ ב ‎%{service_name}‎
     new_message_v2:
-      headline: ~
-      reply: "לחץ כאן להשיב ל ‎%{sender}‎"
+      headline: 
+      reply: לחץ כאן להשיב ל ‎%{sender}‎
     new_payment:
-      new_payment: "קיבלת תשלום חדש"
+      new_payment: קיבלת תשלום חדש
       price_per_unit_type: "‎%{unit_type}‎ מחיר ל"
-      quantity: "כמות:"
-      you_have_received_new_payment: "קיבלת תשלום בסך: ‎%{payment_sum}‎  עבור: ‎%{listing_title}‎ מ‎%{payer_full_name}‎. הנה הקבלה שלך. "
+      quantity: 'כמות:'
+      you_have_received_new_payment: 'קיבלת תשלום בסך: ‎%{payment_sum}‎  עבור: ‎%{listing_title}‎
+        מ‎%{payer_full_name}‎. הנה הקבלה שלך. '
       listing_per_unit_title: "‎%{title}‎ עבור‎%{unit_type}‎ "
     payment_receipt_to_seller:
-      payment_gateway_fee: "עמלת עיבוד תשלום:"
-      shipping_total: "משלוח:"
-      product: "מוצר:"
-      price_payer_paid: "מחיר ‎%{payer_full_name}‎  שולם:"
+      payment_gateway_fee: 'עמלת עיבוד תשלום:'
+      shipping_total: 'משלוח:'
+      product: 'מוצר:'
+      price_payer_paid: 'מחיר ‎%{payer_full_name}‎  שולם:'
       subtotal: סה''כ
       service_fee: "‎%{service_name}‎  עמלת שירות:"
       buyer_service_fee: "‎%{service_name}‎  עמלה:"
-      you_will_get: "סה''כ:"
-      new_payment: "קיבלת תשלום חדש"
-      price_per_unit_type: "מחיר ל‎%{unit_type}‎ "
-      quantity: "כמות:"
-      you_have_received_new_payment: "התקבל תשלום ‎<b>‎ ‎%{payment_sum}‎ ‎</b>‎  עבור‎<b>‎ ‎%{listing_title}‎ ‎</b>‎  על ידי ‎%{payer_full_name}‎ . הקבלה שלך כאן."
+      you_will_get: 'סה''''כ:'
+      new_payment: קיבלת תשלום חדש
+      price_per_unit_type: 'מחיר ל‎%{unit_type}‎ '
+      quantity: 'כמות:'
+      you_have_received_new_payment: התקבל תשלום ‎<b>‎ ‎%{payment_sum}‎ ‎</b>‎  עבור‎<b>‎
+        ‎%{listing_title}‎ ‎</b>‎  על ידי ‎%{payer_full_name}‎ . הקבלה שלך כאן.
       stripe:
-        you_have_received_new_payment: ~
+        you_have_received_new_payment: 
     payment_receipt_to_seller_v2:
-      headline: "קיבלת תשלום סך ‎%{payment_sum}‎ עבור ‎%{listing_link}‎  ע''י ‎%{payer_name}‎ "
-      main_text_stripe: "התשלום מוחזק ע''י ‎%{service_name}‎  עד שההזמנה תסומן כהושלמה."
-      price_breakdown: "פירוט מחיר"
+      headline: 'קיבלת תשלום סך ‎%{payment_sum}‎ עבור ‎%{listing_link}‎  ע''''י ‎%{payer_name}‎ '
+      main_text_stripe: התשלום מוחזק ע''י ‎%{service_name}‎  עד שההזמנה תסומן כהושלמה.
+      price_breakdown: פירוט מחיר
     payment_receipt_to_payer:
-      receipt_of_payment: "קבלה עבור תשלום"
-      you_have_made_new_payment: "התקבל תשלום‎<b>‎ ‎%{payment_sum}‎ ‎</b>‎  עבור ‎<b>‎ ‎%{listing_title}‎ ‎</b>‎  מ ‎%{recipient_full_name}‎ . להלן הקבלה עבור התשלום."
+      receipt_of_payment: קבלה עבור תשלום
+      you_have_made_new_payment: התקבל תשלום‎<b>‎ ‎%{payment_sum}‎ ‎</b>‎  עבור ‎<b>‎
+        ‎%{listing_title}‎ ‎</b>‎  מ ‎%{recipient_full_name}‎ . להלן הקבלה עבור התשלום.
       product: מוצר
-      price_per_unit_type: "מחיר ל‎%{unit_type}‎ "
-      duration: "משך זמן"
+      price_per_unit_type: 'מחיר ל‎%{unit_type}‎ '
+      duration: משך זמן
       quantity: כמות
       subtotal: סה''כ
       buyer_service_fee: "‎%{service_name}‎  עמלה:"
       total: סה''כ
       price: מחיר
-      service_fee: "עמלת שירות"
-      stripe_gateway_fee: "עמלת סטרייפ:"
-      paypal_gateway_fee: "עמלת פייפאל:"
+      service_fee: עמלת שירות
+      stripe_gateway_fee: 'עמלת סטרייפ:'
+      paypal_gateway_fee: 'עמלת פייפאל:'
       money_will_be_transferred: |-
-          התשלום יעבור ל‎%{recipient_name}‎  כש:
-          א- כשסימנת את הבקשה כהושלמה.
-          ב-‎%{automatic_confirmation_days}‎  ימים חלפו ממועד התשלום.
+        התשלום יעבור ל‎%{recipient_name}‎  כש:
+        א- כשסימנת את הבקשה כהושלמה.
+        ב-‎%{automatic_confirmation_days}‎  ימים חלפו ממועד התשלום.
     payment_receipt_to_payer_v2:
-      headline: ~
-      you_have_made_new_payment: ~
+      headline: 
+      you_have_made_new_payment: 
     paypal_new_payment:
-      paypal_gateway_fee: "עמלת פייפאל:"
+      paypal_gateway_fee: 'עמלת פייפאל:'
       shipping_total: משלוח
     braintree_new_payment:
-      product: "מוצר:"
+      product: 'מוצר:'
       price_payer_paid: "‎%{payer_full_name}‎ שולם"
       service_fee: "‎%{service_name}‎ עמלת שירות:"
-      you_will_get: "סה\"כ:"
+      you_will_get: 'סה"כ:'
     receipt_to_payer:
-      receipt_of_payment: "קבלת תשלום"
-      you_have_made_new_payment: "שילמת ‎%{payment_sum}‎ עבור ‎%{listing_title}‎ ל‎%{recipient_full_name}‎. הנה הקבלה שלך."
+      receipt_of_payment: קבלת תשלום
+      you_have_made_new_payment: שילמת ‎%{payment_sum}‎ עבור ‎%{listing_title}‎ ל‎%{recipient_full_name}‎.
+        הנה הקבלה שלך.
       product: מוצר
       price_per_unit_type: "‎%{unit_type}‎ מחיר ל"
-      duration: "משך זמן"
+      duration: משך זמן
       quantity: כמות
       subtotal: סה''כ
       total: סה"כ
       price: מחיר
       buyer_service_fee: "‎%{service_name}‎  עמלה"
-      stripe_gateway_fee: "עמלת סטרייפ:"
-      paypal_gateway_fee: "עמלת פייפאל:"
-      money_will_be_transferred: "התשלום יועבר ל‎%{recipient_name}‎ כש: א-סימנת את הבקשה כהושלמה או ב-‎%{automatic_confirmation_days}‎  ימים חלפו מהמועד בו תוקבלת."
+      stripe_gateway_fee: 'עמלת סטרייפ:'
+      paypal_gateway_fee: 'עמלת פייפאל:'
+      money_will_be_transferred: 'התשלום יועבר ל‎%{recipient_name}‎ כש: א-סימנת את
+        הבקשה כהושלמה או ב-‎%{automatic_confirmation_days}‎  ימים חלפו מהמועד בו תוקבלת.'
       listing_per_unit_title: "‎%{title}‎ עבור‎%{unit_type}‎ "
       stripe:
-        you_have_made_new_payment: ~
+        you_have_made_new_payment: 
     new_testimonial:
       has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ נתן לך משוב ב ‎%{name}‎"
       you_can_give_feedback_to: "‎%{name}‎ עדיין לא נתת משוב ל"
-      view_feedback: "הצג משוב"
+      view_feedback: הצג משוב
     new_testimonial_v2:
-      headline: ~
+      headline: 
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "המודעה שאתה עוקב אחריה עודכנה"
-      has_updated_listing_you_follow_in_kassi: "‎%{author}‎ עדכן את הרישום '‎%{listing}‎' אתה עוקב ב‎%{service_name}‎."
-      view_changes: "הצג שינויים"
+      listing_you_follow_has_been_updated: המודעה שאתה עוקב אחריה עודכנה
+      has_updated_listing_you_follow_in_kassi: "‎%{author}‎ עדכן את הרישום '‎%{listing}‎'
+        אתה עוקב ב‎%{service_name}‎."
+      view_changes: הצג שינויים
     community_updates:
-      added_offer: "הוסיף מודעה ‎%{name_link}‎"
-      added_request: "הוסיף מודעה ‎%{name_link}‎"
+      added_offer: הוסיף מודעה ‎%{name_link}‎
+      added_request: הוסיף מודעה ‎%{name_link}‎
       added_listing: "‎%{name_link}‎ הוסיף מודעה:"
       update_mail_title: "‎%{title_link}‎ עדכן"
       title_link_text: "‎%{community_name}‎"
-      intro_paragraph: "הנה כמה מהדברים שקרו ב-‎%{community_link}‎ במהלך% ‎%{time_since_last_update}‎ האחרון."
+      intro_paragraph: הנה כמה מהדברים שקרו ב-‎%{community_link}‎ במהלך% ‎%{time_since_last_update}‎
+        האחרון.
       intro_paragraph_link_text: "‎%{community_name}‎"
-      reduce_email_footer_text: "יותר מדי דוא\"ל? ‎%{settings_link}‎ או ‎%{unsubscribe_link}‎."
-      settings_link_text: "ערוך את פרטי האימייל שלך כאן"
-      unsubscribe_link_text: "ביטול מנוי"
+      reduce_email_footer_text: יותר מדי דוא"ל? ‎%{settings_link}‎ או ‎%{unsubscribe_link}‎.
+      settings_link_text: ערוך את פרטי האימייל שלך כאן
+      unsubscribe_link_text: ביטול מנוי
     community_updates_v2:
-      headline: ~
+      headline: 
     newsletter:
       hi: "‎%{name}‎ שלום ‎"
-      newest_offers: "מה אנשים כרגע מציעים"
-      newest_requests: "מה אנשים כרגע מחפשים"
-      text_version_text: "האם אתה יכול להיתחלק במשהו שאחרים עשויים להזדקק לו? או שאתה צריך משהו שיש למישהוא אחר? הוסף הצעה או בקשה או תעבור על כל מה שהאחרים מציעים או מבקשים בכתובת ‎%{url}‎"
+      newest_offers: מה אנשים כרגע מציעים
+      newest_requests: מה אנשים כרגע מחפשים
+      text_version_text: האם אתה יכול להיתחלק במשהו שאחרים עשויים להזדקק לו? או שאתה
+        צריך משהו שיש למישהוא אחר? הוסף הצעה או בקשה או תעבור על כל מה שהאחרים מציעים
+        או מבקשים בכתובת ‎%{url}‎
     reset_password_instructions:
-      change_my_password: "שנה את סיסמתי"
+      change_my_password: שנה את סיסמתי
       reset_password_instructions: |-
-          ‎<p>‎ ציינת ששכחת את הסיסמא ב‎%{service_name}‎ ‎
-          שירות‎</p><p>‎ . אם אתה צריך לאפס סיסמא, לחץ על הלינק‎%{password_reset_link}‎ ‎</p><br/><p>‎ .אם לא ביקשת לאפס, נא התעלם מהאימייל הזה.סיסמתך לא תשתנה עד אשר תיכנס ללינק המצורף.
+        ‎<p>‎ ציינת ששכחת את הסיסמא ב‎%{service_name}‎ ‎
+        שירות‎</p><p>‎ . אם אתה צריך לאפס סיסמא, לחץ על הלינק‎%{password_reset_link}‎ ‎</p><br/><p>‎ .אם לא ביקשת לאפס, נא התעלם מהאימייל הזה.סיסמתך לא תשתנה עד אשר תיכנס ללינק המצורף.
     testimonial_reminder:
       remember_to_give_feedback_to: "‎%{name}‎ תזכורת: זכור/זכרי לתת משוב ל‎"
-      you_have_not_given_feedback_yet: "עוד לא נתת ביקורת ל‎%{name}‎ בקשר לאירוע ‎%{event}‎. אנא זכור לתת ביקורת על ביצועו של ‎%{given_name}‎ באירוע."
+      you_have_not_given_feedback_yet: עוד לא נתת ביקורת ל‎%{name}‎ בקשר לאירוע ‎%{event}‎.
+        אנא זכור לתת ביקורת על ביצועו של ‎%{given_name}‎ באירוע.
     testimonial_reminder_v2:
-      headline: ~
-      you_have_not_given_feedback_yet: ~
-      leave_feedback: ~
+      headline: 
+      you_have_not_given_feedback_yet: 
+      leave_feedback: 
     transaction_preauthorized:
-      subject: "‎%{requester}‎  מעוניין ואישר את התשלום עבור‎%{listing_title}‎  המפורסם ב‎%{service_name}‎ "
-      transaction_requested_by_user: "חדשות מעולות! ‎%{requester}‎  מעוניין ב‎%{listing_title}‎  ואישר את התשלום."
-      you_have_time_to_accept: "הינך צריך לאשר או לדחות את הבקשה בתוך‎%{payment_expires_in}‎ "
-      if_you_do_accept: "אם תאשר את הבקשה בתוך מסגרת הזמן הזאת, תקבל את הכסף מיידית לחשבון."
-      if_you_do_accept_stripe: "אם תאשר את הבקשה במסגרת הזמן הזה, התשלום יתבצע. הכסף יתקבל בחשבון הבנק לאחר ביצוע ה‎%{listing_title}‎  ל ‎%{requester}‎ ."
-      if_you_do_not_accept: ~
-      click_here_to_reply: "לחץ כאן כדי להגיב לבקשה"
+      subject: "‎%{requester}‎  מעוניין ואישר את התשלום עבור‎%{listing_title}‎  המפורסם
+        ב‎%{service_name}‎ "
+      transaction_requested_by_user: חדשות מעולות! ‎%{requester}‎  מעוניין ב‎%{listing_title}‎  ואישר
+        את התשלום.
+      you_have_time_to_accept: 'הינך צריך לאשר או לדחות את הבקשה בתוך‎%{payment_expires_in}‎ '
+      if_you_do_accept: אם תאשר את הבקשה בתוך מסגרת הזמן הזאת, תקבל את הכסף מיידית
+        לחשבון.
+      if_you_do_accept_stripe: אם תאשר את הבקשה במסגרת הזמן הזה, התשלום יתבצע. הכסף
+        יתקבל בחשבון הבנק לאחר ביצוע ה‎%{listing_title}‎  ל ‎%{requester}‎ .
+      if_you_do_not_accept: 
+      click_here_to_reply: לחץ כאן כדי להגיב לבקשה
     transaction_preauthorized_v2:
-      headline: ~
+      headline: 
     transaction_preauthorized_reminder:
-      subject: "זכור לאשר את הבקשה מ‎%{requester}‎  עבור המודעה ‎%{listing_title}‎ "
+      subject: 'זכור לאשר את הבקשה מ‎%{requester}‎  עבור המודעה ‎%{listing_title}‎ '
       remember_to_accept: |-
-          זכור לאשר את הבקשה מ‎  ‎%{requester}‎ עבור המודעה ‎%{listing_title}‎ .
-          ‎%{requester}‎  כבר שילם עבור המודעה. אתה צריך לאשר כדי לקבל תשלום.
-      one_day_left: "אם לא תקבל את הבקשה בתוך יום אחד הבקשה תידחה באופן אוטומטי ולא תקבל תשלום."
-      click_here_to_reply: "לחץ כאן כדי להגיב לבקשה"
+        זכור לאשר את הבקשה מ‎  ‎%{requester}‎ עבור המודעה ‎%{listing_title}‎ .
+        ‎%{requester}‎  כבר שילם עבור המודעה. אתה צריך לאשר כדי לקבל תשלום.
+      one_day_left: אם לא תקבל את הבקשה בתוך יום אחד הבקשה תידחה באופן אוטומטי ולא
+        תקבל תשלום.
+      click_here_to_reply: לחץ כאן כדי להגיב לבקשה
     transaction_preauthorized_reminder_v2:
-      headline: ~
-      remember_to_accept: ~
+      headline: 
+      remember_to_accept: 
     welcome_email:
-      welcome_email_subject: "ברוכים הבאים אל ‎%{service_name}‎"
-      welcome_to_marketplace: "ברוך הבא ל‎%{service_name}‎ ! שמחים שאתה כאן!"
-      love_marketplace_crew: "באהבה,‎<br /><i>‎ ‎%{service_name}‎ "
+      welcome_email_subject: ברוכים הבאים אל ‎%{service_name}‎
+      welcome_to_marketplace: ברוך הבא ל‎%{service_name}‎ ! שמחים שאתה כאן!
+      love_marketplace_crew: 'באהבה,‎<br /><i>‎ ‎%{service_name}‎ '
       welcome_email_footer_text: "%{settings_link}"
-      settings_link_text: ~
+      settings_link_text: 
     new_listing_by_followed_person:
       subject: "‎%{author_name}‎ פרסם מודעה חדשה ב ‎%{service_name}‎"
       has_posted_a_new_listing: "‎%{author_name}‎ פרסם מודעה חדשה"
-      you_are_receiving_this_because: "‎%{author_name}‎ קיבלת הודעה זו מכיוון שאתה עוקב אחרי ‎"
-      view_listing: "לראות מודעה"
+      you_are_receiving_this_because: "‎%{author_name}‎ קיבלת הודעה זו מכיוון שאתה
+        עוקב אחרי ‎"
+      view_listing: לראות מודעה
     new_listing_by_followed_person_v2:
-      headline: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
-      cant_click: ~
+      headline: 
+      has_posted_a_new_listing: 
+      you_are_receiving_this_because: 
+      view_listing: 
+      cant_click: 
     new_ident_notification:
-      subject: ~
-      h1_body: ~
-      p_line1: ~
-      p_line2: ~
-      p_line3: ~
-      p_line4: ~
-      p_line5: ~
-      button: ~
+      subject: 
+      h1_body: 
+      p_line1: 
+      p_line2: 
+      p_line3: 
+      p_line4: 
+      p_line5: 
+      button: 
     new_member_notification:
-      subject: "חבר חדש ב ‎%{community}‎ "
-      new_member_has_joined: "משתמש חדש הצטרף ל‎%{community}‎ . הם עדיין יצטרכו לאשר את כתובת הדוא''ל שלהם."
-      this_is_automatic_message: "זוהי הודעה אוטומטית שנשלחה למנהל של ה‎%{community}‎ "
-      person_name: "שם:"
-      person_email: "דוא''ל:"
+      subject: 'חבר חדש ב ‎%{community}‎ '
+      new_member_has_joined: משתמש חדש הצטרף ל‎%{community}‎ . הם עדיין יצטרכו לאשר
+        את כתובת הדוא''ל שלהם.
+      this_is_automatic_message: 'זוהי הודעה אוטומטית שנשלחה למנהל של ה‎%{community}‎ '
+      person_name: 'שם:'
+      person_email: 'דוא''''ל:'
     new_member_notification_v2:
-      headline: ~
-      new_member_has_joined: ~
-      view_profile: ~
+      headline: 
+      new_member_has_joined: 
+      view_profile: 
     listing_submited_for_review:
-      subject: "מודעה חדשה לבדיקה: ‎%{listing_title}‎ על ידי‎%{author_name}‎ ב‎%{community}‎ "
-      there_is_a_new_listing_to_review: "יש מודעה חדשה לבדיקה:‎%{listing_title}‎ על ידי‎%{author_name}‎ . תצטרך לאשר או לדחות את המודעה."
-      review_the_listing: "בדוק את המודעה החדשה"
-      this_is_automatic_message: "זוהי הודעה אוטומטית אשר נשלחה למנהלים ב‎%{community}‎ "
+      subject: 'מודעה חדשה לבדיקה: ‎%{listing_title}‎ על ידי‎%{author_name}‎ ב‎%{community}‎ '
+      there_is_a_new_listing_to_review: יש מודעה חדשה לבדיקה:‎%{listing_title}‎ על
+        ידי‎%{author_name}‎ . תצטרך לאשר או לדחות את המודעה.
+      review_the_listing: בדוק את המודעה החדשה
+      this_is_automatic_message: 'זוהי הודעה אוטומטית אשר נשלחה למנהלים ב‎%{community}‎ '
     listing_approved:
-      subject: "צוות ה ‎%{community}‎  אישר את המודעה ‎%{listing_title}‎ "
-      listing_has_been_approved: "חדשות טובות! המודעה שלך ‎%{listing_title}‎  אושרה ע''י צוות ‎%{community}‎ . המודעה פורסמה."
-      view_the_listing: "צפה במודעה "
+      subject: 'צוות ה ‎%{community}‎  אישר את המודעה ‎%{listing_title}‎ '
+      listing_has_been_approved: חדשות טובות! המודעה שלך ‎%{listing_title}‎  אושרה
+        ע''י צוות ‎%{community}‎ . המודעה פורסמה.
+      view_the_listing: 'צפה במודעה '
     listing_rejected:
-      subject: "צוות ה‎%{community}‎  לא אישר את המודעה ‎%{listing_title}‎ "
-      listing_has_been_rejected: "לצערנו צוות ה‎%{community}‎ אישר את המודעה ‎%{listing_title}‎ לאחר בדיקה קפדנית. אתה יכול ‎%{contact_link}‎  כדי ללמוד עוד על עריכת מודעות ולייצר מודעה חדשה."
-      contact_link: "צור קשר עם צוות ‎%{community}‎ "
-      edit_the_listing: "ערוך מודעה"
+      subject: 'צוות ה‎%{community}‎  לא אישר את המודעה ‎%{listing_title}‎ '
+      listing_has_been_rejected: לצערנו צוות ה‎%{community}‎ אישר את המודעה ‎%{listing_title}‎
+        לאחר בדיקה קפדנית. אתה יכול ‎%{contact_link}‎  כדי ללמוד עוד על עריכת מודעות
+        ולייצר מודעה חדשה.
+      contact_link: 'צור קשר עם צוות ‎%{community}‎ '
+      edit_the_listing: ערוך מודעה
     edited_listing_submited_for_review:
-      subject: "הוספת מודעה לבדיקה: ‎%{listing_title}‎  ע''י ‎%{author_name}‎  ב‎%{community}‎ "
-      there_is_a_edited_listing_to_review: "ישנה מודעה ערוכה לבדיקה: ‎%{listing_title}‎  ע''י ‎%{author_name}‎ . כעת יש צורך לאשר או לדחות את המודעה."
-      review_the_listing: "לבדוק את המודעה הערוכה"
+      subject: 'הוספת מודעה לבדיקה: ‎%{listing_title}‎  ע''''י ‎%{author_name}‎  ב‎%{community}‎ '
+      there_is_a_edited_listing_to_review: 'ישנה מודעה ערוכה לבדיקה: ‎%{listing_title}‎  ע''''י
+        ‎%{author_name}‎ . כעת יש צורך לאשר או לדחות את המודעה.'
+      review_the_listing: לבדוק את המודעה הערוכה
     new_transaction:
-      subject: "עסקה חדשה ב‎%{service_name}‎ "
-      there_is_a_new_transaction: "זהו ‎%{link}‎  ב ‎%{service_name}‎ "
-      a_new_transaction: "עסקה חדשה"
-      listing: "מודעה: ‎%{title}‎ "
-      sum: "סה''כ: ‎%{amount}‎ "
-      starter: "יוזם: ‎%{name}‎ "
-      provider: "מוכר:‎%{name}‎ "
+      subject: 'עסקה חדשה ב‎%{service_name}‎ '
+      there_is_a_new_transaction: 'זהו ‎%{link}‎  ב ‎%{service_name}‎ '
+      a_new_transaction: עסקה חדשה
+      listing: 'מודעה: ‎%{title}‎ '
+      sum: 'סה''''כ: ‎%{amount}‎ '
+      starter: 'יוזם: ‎%{name}‎ '
+      provider: 'מוכר:‎%{name}‎ '
     new_transaction_v2:
-      subject: ~
-      there_is_a_new_transaction: ~
-      a_new_transaction: ~
-      listing: ~
-      sum: ~
-      starter: ~
-      provider: ~
-      view_transaction: ~
+      subject: 
+      there_is_a_new_transaction: 
+      a_new_transaction: 
+      listing: 
+      sum: 
+      starter: 
+      provider: 
+      view_transaction: 
     transaction_cancel_flow:
-      the_order_about: ~
-      you_can_contact_the_marketplace_team: ~
-      you_can_now_give_feedback: ~
-      give_feedback_to: ~
+      the_order_about: 
+      you_can_contact_the_marketplace_team: 
+      you_can_now_give_feedback: 
+      give_feedback_to: 
     transaction_disputed:
-      subject: ~
-      subject_admin: ~
-      order_about: ~
-      the_order_has_been_canceled: ~
-      the_order_between_buyer_and_seller_has_been_canceled: ~
-      the_marketplace_has_been_notified: ~
-      contact_the_marketplace_team: ~
-      you_must_now_decide: ~
-      learn_more_about: ~
-      review_the_transaction: ~
+      subject: 
+      subject_admin: 
+      order_about: 
+      the_order_has_been_canceled: 
+      the_order_between_buyer_and_seller_has_been_canceled: 
+      the_marketplace_has_been_notified: 
+      contact_the_marketplace_team: 
+      you_must_now_decide: 
+      learn_more_about: 
+      review_the_transaction: 
     transaction_refunded:
-      subject: ~
-      marketplace_team_has_approved_the_cancellation: ~
-      you_should_receive_a_refund_soon: ~
+      subject: 
+      marketplace_team_has_approved_the_cancellation: 
+      you_should_receive_a_refund_soon: 
     transaction_cancellation_dismissed:
-      subject: ~
-      marketplace_team_has_rejected_the_cancellation: ~
+      subject: 
+      marketplace_team_has_rejected_the_cancellation: 
     transaction_commission_charge_failed:
-      subject: ~
-      transaction_about: ~
-      the_commission_of_the_transaction: ~
-      this_usually_means: ~
-      if_you_would_like_to_investigate: ~
-      contact_the_seller: ~
+      subject: 
+      transaction_about: 
+      the_commission_of_the_transaction: 
+      this_usually_means: 
+      if_you_would_like_to_investigate: 
+      contact_the_seller: 
   error_messages:
     booking:
-      booking_failed_payment_voided: "הזמנה נכשלה בגלל שאירעה תקלה בלתי צפויה. אנא נסה שנית מאוחר יותר. לא בוצע תשלום."
-      double_booking_payment_voided: "לצערינו התאריכים שנבחרוים אינם זמינים יותר. אנא בחר תאריכים אחרים, לא בוצע תשלום."
+      booking_failed_payment_voided: הזמנה נכשלה בגלל שאירעה תקלה בלתי צפויה. אנא
+        נסה שנית מאוחר יותר. לא בוצע תשלום.
+      double_booking_payment_voided: לצערינו התאריכים שנבחרוים אינם זמינים יותר. אנא
+        בחר תאריכים אחרים, לא בוצע תשלום.
     onboarding:
-      server_rendering: "המדריך להתחלה נכשל בהעלאה. עודכנו ואנחנו עובדים על זה."
+      server_rendering: המדריך להתחלה נכשל בהעלאה. עודכנו ואנחנו עובדים על זה.
     listings:
-      departure_time: "זמן היציאה חייב להיות בין הזמן הנוכחי לבין שנה אחת מהיום."
-      share_type: "קיימת חובת בחירה."
-      valid_until: "התאריך הנבחר חיב להיות מהיום ועד 6 חודשים מהיום."
-      price: "אנא הכנס מספר שלם"
-      minimum_price: "המחיר המינימלי הינו ‎%{minimum_price}‎‎%{currency}‎. "
+      departure_time: זמן היציאה חייב להיות בין הזמן הנוכחי לבין שנה אחת מהיום.
+      share_type: קיימת חובת בחירה.
+      valid_until: התאריך הנבחר חיב להיות מהיום ועד 6 חודשים מהיום.
+      price: אנא הכנס מספר שלם
+      minimum_price: 'המחיר המינימלי הינו ‎%{minimum_price}‎‎%{currency}‎. '
     testimonials:
-      you_must_explain_not_neutral_feedback: "אם ברצונך לכתוב משוב חיובי או שלילי, את/ה חייב/ת להסביר למה."
-      you_must_select_a_grade: "זכור/זכרי לספר האם התנסותך הייתה חיובית או שלילית."
+      you_must_explain_not_neutral_feedback: אם ברצונך לכתוב משוב חיובי או שלילי,
+        את/ה חייב/ת להסביר למה.
+      you_must_select_a_grade: זכור/זכרי לספר האם התנסותך הייתה חיובית או שלילית.
     transaction_agreement:
-      required_error: "הינך חייב להסכים להסכם"
+      required_error: הינך חייב להסכים להסכם
     paypal:
-      transaction_cannot_complete: "ההעברה לא הסתיימה.כנראה שזה קשור לבנק או חברת האשראי, אנא נסה באמצעי תשלום אחר."
-      buyer_cannot_pay_error: "התשלום נדחה ע''י פייפאל, צור קשר עם השירות שלהם לפרטים נוספים:‎%{customer_service_link}‎ "
-      pending_review_error: "התשלום בוצע אך פייפאל סימנו את התשלום כ''תחת ביקורת''. לאחר שהביקורת תושלם התשלום יאושר אוטומטית."
-      seller_express_checkout_disabled: "פייפאל אקספרס הוגבל במודעה ע''י המפרסם. נא צור קשר עם המפרסם והצע לו לפתור את הסוגייה."
-      seller_express_checkout_disabled_no_free: ~
-      generic_error: "בעיה נוצרה בזמן עבוד התשלום, לא ניתן היה להשלים את תשלום הפייפאל שלך.\n"
-      cancel_error: "התגלתה שגיאה בעת הביטול, הביטול לא הצליח."
-      accept_authorization_error: "התקבלה שגיאה בזמן קבלת התשלום של פייפאל, נא נסה שנית."
-      reject_authorization_error: "נתקבלה שגיאה בזמן בקשה לביטול, נא נסה שנית"
+      transaction_cannot_complete: ההעברה לא הסתיימה.כנראה שזה קשור לבנק או חברת האשראי,
+        אנא נסה באמצעי תשלום אחר.
+      buyer_cannot_pay_error: 'התשלום נדחה ע''''י פייפאל, צור קשר עם השירות שלהם לפרטים
+        נוספים:‎%{customer_service_link}‎ '
+      pending_review_error: התשלום בוצע אך פייפאל סימנו את התשלום כ''תחת ביקורת''.
+        לאחר שהביקורת תושלם התשלום יאושר אוטומטית.
+      seller_express_checkout_disabled: פייפאל אקספרס הוגבל במודעה ע''י המפרסם. נא
+        צור קשר עם המפרסם והצע לו לפתור את הסוגייה.
+      seller_express_checkout_disabled_no_free: 
+      generic_error: 'בעיה נוצרה בזמן עבוד התשלום, לא ניתן היה להשלים את תשלום הפייפאל
+        שלך.
+
+        '
+      cancel_error: התגלתה שגיאה בעת הביטול, הביטול לא הצליח.
+      accept_authorization_error: התקבלה שגיאה בזמן קבלת התשלום של פייפאל, נא נסה
+        שנית.
+      reject_authorization_error: נתקבלה שגיאה בזמן בקשה לביטול, נא נסה שנית
     stripe:
-      generic_error: "התקבלה שגיאה בזמן עיבוד התשלום. תשלום הסטרייפ לא הצליח."
-      accept_authorization_error: "התקבלה שגיאה בזמן ניסיון לעבד תשלום מקדמי עם סטרייפ, אנא נסה בשנית"
-      reject_authorization_error: "התקבלה שגיאה בזמן ניסיון לדחות תשלום עם סטרייפ, אהא נסה בשנית"
-      card_declined: ~
-      expired_card: ~
+      generic_error: התקבלה שגיאה בזמן עיבוד התשלום. תשלום הסטרייפ לא הצליח.
+      accept_authorization_error: התקבלה שגיאה בזמן ניסיון לעבד תשלום מקדמי עם סטרייפ,
+        אנא נסה בשנית
+      reject_authorization_error: התקבלה שגיאה בזמן ניסיון לדחות תשלום עם סטרייפ,
+        אהא נסה בשנית
+      card_declined: 
+      expired_card: 
   error_pages:
-    back_to_kassi_front_page: "בחזרה לעמוד הראשי"
+    back_to_kassi_front_page: בחזרה לעמוד הראשי
     error_404:
-      if_you_believe: "אם את/ה סבור/ה כי הכתובת נכונה והיא צריכה לעבוד, אנא עזור לנו לאתר את הבעיה על ידי דווח על הכתובת שגרמה לבעיה ומה אמור לעלות בדף זה."
-      page_can_not_be_found: "הדף אינו נמצא!"
-      page_you_requested_can_not_be_found: "הדף אותו בקשת אינו נמצא. האם את/ה בטוח/ה שאייתת את הכתובת כראוי?"
-    error_404_title: "הדף אינו נמצא"
+      if_you_believe: אם את/ה סבור/ה כי הכתובת נכונה והיא צריכה לעבוד, אנא עזור לנו
+        לאתר את הבעיה על ידי דווח על הכתובת שגרמה לבעיה ומה אמור לעלות בדף זה.
+      page_can_not_be_found: הדף אינו נמצא!
+      page_you_requested_can_not_be_found: הדף אותו בקשת אינו נמצא. האם את/ה בטוח/ה
+        שאייתת את הכתובת כראוי?
+    error_404_title: הדף אינו נמצא
     error_410:
-      page_removed: "דף הוסר"
-      page_you_requested_has_been_removed: "הדף שביקשת הוסר."
-      page_removed_reason: "ישנם כמה סיבות לכך.לדוגמא, משתמש יכל להסיר את חשבונו או מודעתו."
-    error_410_title: "דף הוסר"
+      page_removed: דף הוסר
+      page_you_requested_has_been_removed: הדף שביקשת הוסר.
+      page_removed_reason: ישנם כמה סיבות לכך.לדוגמא, משתמש יכל להסיר את חשבונו או
+        מודעתו.
+    error_410_title: דף הוסר
     error_500:
-      temporary_unavailable: "המרקטפלייס לא זמין זמנית"
-      unable_to_process: "השירות לא זמין כרגע, נא נסה בעוד כמה רגעים."
-      we_hate_this: "אנחנו שונאים כשזה קורא! אנחנו מודעים ועובדים על פתרון."
-      refer_to_error_id: "אם ברצונך לעדכן את התמיכה, אנא ציין מס תקלה‎%{error_id}‎ בהודעתך."
-    error_500_title: "טעינת הדף נכשלה"
-    error_description: "תיאור שגיאה"
+      temporary_unavailable: המרקטפלייס לא זמין זמנית
+      unable_to_process: השירות לא זמין כרגע, נא נסה בעוד כמה רגעים.
+      we_hate_this: אנחנו שונאים כשזה קורא! אנחנו מודעים ועובדים על פתרון.
+      refer_to_error_id: אם ברצונך לעדכן את התמיכה, אנא ציין מס תקלה‎%{error_id}‎
+        בהודעתך.
+    error_500_title: טעינת הדף נכשלה
+    error_description: תיאור שגיאה
     no_javascript:
-      javascript_is_disabled_in_your_browser: "JavaScript אינו פעיל כרגע בדפדפן שלך"
-      kassi_does_not_currently_work_without_javascript: "‎ אינו פועל כשורה ללא ג'בהסקריפט נסה להפעיל ג'בהסקריפט ‎%{service_name}‎ דרך מאפייני הדפדפן שלך ולטעון דף זה מחדש"
-      contact_us: "צור קשר"
-      send_feedback: "שלח הודעה"
+      javascript_is_disabled_in_your_browser: JavaScript אינו פעיל כרגע בדפדפן שלך
+      kassi_does_not_currently_work_without_javascript: "‎ אינו פועל כשורה ללא ג'בהסקריפט
+        נסה להפעיל ג'בהסקריפט ‎%{service_name}‎ דרך מאפייני הדפדפן שלך ולטעון דף זה
+        מחדש"
+      contact_us: צור קשר
+      send_feedback: שלח הודעה
       your_feedback_to_admins: "‎%{service_name}‎ ההודעה שלך לצוות"
     send: שלח/י
-    your_email_address: "כתובת הדואר האלקטרוני שלך"
+    your_email_address: כתובת הדואר האלקטרוני שלך
   errors:
     messages:
-      invalid_date: "תאריך אינו תקין"
-      invalid_time: "הזמן לא תקין"
-      invalid_datetime: "הזמן שהוגדר לא תקין"
-      is_at: "חייב להיות ב‎%{restriction}‎"
-      before: "חייב להיות לפני ‎%{restriction}‎"
-      on_or_before: "חייב להיות על או לפני ‎%{restriction}‎"
-      after: "חייב להיות אחרי ‎%{restriction}‎"
-      on_or_after: "חייב להיות על או אחרי ‎%{restriction}‎"
-      positive_number: "הכנס מספר"
-      from_must_be_less_than_till: "זמן התחלה חייב להיות פחות מזמן סיום"
-      section_with_this_id_already_exists: ~
-      listing_with_this_id_does_not_exist: ~
-      presence: ~
-      username_is_invalid: "שם המשתמש לא תקין או לא זמין"
-      domain_name_is_invalid: ~
-      only_supported_variables: ~
+      invalid_date: תאריך אינו תקין
+      invalid_time: הזמן לא תקין
+      invalid_datetime: הזמן שהוגדר לא תקין
+      is_at: חייב להיות ב‎%{restriction}‎
+      before: חייב להיות לפני ‎%{restriction}‎
+      on_or_before: חייב להיות על או לפני ‎%{restriction}‎
+      after: חייב להיות אחרי ‎%{restriction}‎
+      on_or_after: חייב להיות על או אחרי ‎%{restriction}‎
+      positive_number: הכנס מספר
+      from_must_be_less_than_till: זמן התחלה חייב להיות פחות מזמן סיום
+      section_with_this_id_already_exists: 
+      listing_with_this_id_does_not_exist: 
+      presence: 
+      username_is_invalid: שם המשתמש לא תקין או לא זמין
+      domain_name_is_invalid: 
+      only_supported_variables: 
   event_feed_events:
     accept:
-      has_accepted_lend_item: "‎%{offerer_name}‎ הסכים להשאיל ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_borrow_item: "‎%{offerer_name}‎ הסכים להשאיל ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_rent_out_item: "‎%{offerer_name}‎ הסכים להשכיר ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_rent_item: "‎%{offerer_name}‎ הסכים להשכיר ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_give_away_item: "‎%{offerer_name}‎ הסכים לתת ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_receive_item: "‎%{offerer_name}‎ הסכים לתת ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_sell_item: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_buy_item: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_trade_item: "‎%{offerer_name}‎ הסכים להיתחלף  ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_sell_housing: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_buy_housing: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_rent_out_housing: "‎%{offerer_name}‎  הסכים להשכיר את ‎%{listing_title}‎  ל‎%{requester_name}‎ ‎%{time_ago}‎ ."
-      has_accepted_rent_housing: "‎%{offerer_name}‎ הסכים להשכיר ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_favor: "‎%{offerer_name}‎ הסכים להצעה ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}"
-      has_accepted_rideshare: "‎%{offerer_name}‎  הסכים לנסיעה משותפת ב‎%{listing_title}‎ עם‎%{requester_name}‎ ‎%{time_ago}‎ ."
+      has_accepted_lend_item: "‎%{offerer_name}‎ הסכים להשאיל ‎%{listing_title}‎ ל‎%{requester_name}‎
+        ‎%{time_ago}‎"
+      has_accepted_borrow_item: "‎%{offerer_name}‎ הסכים להשאיל ‎%{listing_title}‎
+        ל‎%{requester_name}‎ ‎%{time_ago}‎"
+      has_accepted_rent_out_item: "‎%{offerer_name}‎ הסכים להשכיר ‎%{listing_title}‎
+        ל‎%{requester_name}‎ ‎%{time_ago}‎"
+      has_accepted_rent_item: "‎%{offerer_name}‎ הסכים להשכיר ‎%{listing_title}‎ ל‎%{requester_name}‎
+        ‎%{time_ago}‎"
+      has_accepted_give_away_item: "‎%{offerer_name}‎ הסכים לתת ‎%{listing_title}‎
+        ל‎%{requester_name}‎ ‎%{time_ago}‎"
+      has_accepted_receive_item: "‎%{offerer_name}‎ הסכים לתת ‎%{listing_title}‎ ל‎%{requester_name}‎
+        ‎%{time_ago}‎"
+      has_accepted_sell_item: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎ ל‎%{requester_name}‎
+        ‎%{time_ago}‎"
+      has_accepted_buy_item: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎ ל‎%{requester_name}‎
+        ‎%{time_ago}‎"
+      has_accepted_trade_item: "‎%{offerer_name}‎ הסכים להיתחלף  ‎%{listing_title}‎
+        ל‎%{requester_name}‎ ‎%{time_ago}‎"
+      has_accepted_sell_housing: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎
+        ל‎%{requester_name}‎ ‎%{time_ago}‎"
+      has_accepted_buy_housing: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎
+        ל‎%{requester_name}‎ ‎%{time_ago}‎"
+      has_accepted_rent_out_housing: "‎%{offerer_name}‎  הסכים להשכיר את ‎%{listing_title}‎
+        \ ל‎%{requester_name}‎ ‎%{time_ago}‎ ."
+      has_accepted_rent_housing: "‎%{offerer_name}‎ הסכים להשכיר ‎%{listing_title}‎
+        ל‎%{requester_name}‎ ‎%{time_ago}‎"
+      has_accepted_favor: "‎%{offerer_name}‎ הסכים להצעה ‎%{listing_title}‎ ל‎%{requester_name}‎
+        ‎%{time_ago}"
+      has_accepted_rideshare: "‎%{offerer_name}‎  הסכים לנסיעה משותפת ב‎%{listing_title}‎
+        עם‎%{requester_name}‎ ‎%{time_ago}‎ ."
     join:
       joined_kassi: "‎%{name}‎ הצטרף ‎%{service_name}‎ ‎%{time_ago}‎"
     login:
@@ -745,176 +857,185 @@ he-IL:
       request_partitive: בקשה
   header:
     about: אודות
-    home: "דף הבית"
+    home: דף הבית
     members: קהילה
     new_listing: שתף
-    mobile_version: "גרסת מובייל"
+    mobile_version: גרסת מובייל
     offers: הצעות
     requests: בקשות
-    search_kassi: "חיפוש ‎%{service_name}‎"
-    create_new_marketplace: "צור אתר חדש"
-    contact_us: "צור קשר"
+    search_kassi: חיפוש ‎%{service_name}‎
+    create_new_marketplace: צור אתר חדש
+    contact_us: צור קשר
     profile: פרופיל
-    manage_listings: "המודעות שלי"
-    invite: "הזמנת חברים"
+    manage_listings: המודעות שלי
+    invite: הזמנת חברים
     login: כניסה
-    signup: "הרשמו עכשיו"
+    signup: הרשמו עכשיו
     menu: תפריט
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "יש עוד הזמנה נוספת אחת"
-      additionally_one_private_request_exists: "ישנה עוד בקשה נוספת אחת"
-      additionally_some_private_offers_exist: "הצעות אחרות ‎<b>‎ ‎%{number_of_listings}‎ בנוסף יש ‏‎‎</b>‎"
-      additionally_some_private_requests_exist: "בקשות נוספות  ‎%{number_of_listings}‎ ‎</b>‎‎ ‎<b>‎ישנן עוד"
+      additionally_one_private_offer_exists: יש עוד הזמנה נוספת אחת
+      additionally_one_private_request_exists: ישנה עוד בקשה נוספת אחת
+      additionally_some_private_offers_exist: הצעות אחרות ‎<b>‎ ‎%{number_of_listings}‎
+        בנוסף יש ‏‎‎</b>‎
+      additionally_some_private_requests_exist: בקשות נוספות  ‎%{number_of_listings}‎
+        ‎</b>‎‎ ‎<b>‎ישנן עוד
     blank_slate:
-      add_first: "באפשרותך להוסיף עוד אחד!"
-      but_that_is_visible_only_to_registered_members: "אפשרות זו זמינה רק עבור משתמשים רשומים."
-      but_those_are_visible_only_to_registered_members: "אפשרויות אלה זמינות רק עבור משתמשים רשומים."
-      create_new_account_for_yourself: "יצירת חשבון חדש"
-      examples_of_what_you_could_offer_to_others: "מה תוכל/י להציע למקבלי השירות"
-      examples_of_what_you_could_request_to_others: "מה תוכל/י לבקש ממקבלי השירות"
-      favor_offer_list: "סיוע ממוחשב, תיקון בגדים, אפייה, תיקון אופניים"
-      favor_request_list: "שמרטפות, שיעורי פסנתר, טיול עם כלבים, כיסוח דשא"
-      favors_to_offer: "עזרה "
-      favors_to_request: "עזרה "
-      item_offer_list: "כלים, ציוד ספורט, תחפושות, ציוד מחנאות"
-      item_request_list: "כלים, ציוד ספורט, תחפושות, ציוד מחנאות"
-      items_to_offer: "פריטים שלך הניתנים להשאלה "
-      items_to_request: "פריטים הניתנים להשאלה מאדם אחר "
+      add_first: באפשרותך להוסיף עוד אחד!
+      but_that_is_visible_only_to_registered_members: אפשרות זו זמינה רק עבור משתמשים
+        רשומים.
+      but_those_are_visible_only_to_registered_members: אפשרויות אלה זמינות רק עבור
+        משתמשים רשומים.
+      create_new_account_for_yourself: יצירת חשבון חדש
+      examples_of_what_you_could_offer_to_others: מה תוכל/י להציע למקבלי השירות
+      examples_of_what_you_could_request_to_others: מה תוכל/י לבקש ממקבלי השירות
+      favor_offer_list: סיוע ממוחשב, תיקון בגדים, אפייה, תיקון אופניים
+      favor_request_list: שמרטפות, שיעורי פסנתר, טיול עם כלבים, כיסוח דשא
+      favors_to_offer: 'עזרה '
+      favors_to_request: 'עזרה '
+      item_offer_list: כלים, ציוד ספורט, תחפושות, ציוד מחנאות
+      item_request_list: כלים, ציוד ספורט, תחפושות, ציוד מחנאות
+      items_to_offer: 'פריטים שלך הניתנים להשאלה '
+      items_to_request: 'פריטים הניתנים להשאלה מאדם אחר '
       log_in: התחבר
-      no_offers_visible_unless_logged_in: "עליך להתחבר בכדי שהשירות יהיה זמין"
-      no_open_offers_currently: "אין כל הצעה של פריט או שירות"
-      no_open_requests_currently: "אין כל בקשה של פריט או שירות."
-      no_requests_visible_unless_logged_in: "עליך להתחבר בכדי שהשירות יהיה זמין"
-      one_private_offer_exists: "ישנה כבר הצעה אחת‎</b>‎‎<b>‎"
-      one_private_request_exists: "ישנה כבר בקשה אחת‎</b>‎‎<b>‎"
-      ride_offer: "קח את ילדיהם של אחרים לתחביבים שלהם."
-      ride_request: "הסעה לעבודה"
-      some_private_offers_exist: "הצעות ‎<b>‎‎%{number_of_listings}‎ כבר קיים ‎</b>‎"
-      some_private_requests_exist: "הזמנות ‎%{number_of_listings}‎ ישנן ‎</b>‎‎<b>‎"
+      no_offers_visible_unless_logged_in: עליך להתחבר בכדי שהשירות יהיה זמין
+      no_open_offers_currently: אין כל הצעה של פריט או שירות
+      no_open_requests_currently: אין כל בקשה של פריט או שירות.
+      no_requests_visible_unless_logged_in: עליך להתחבר בכדי שהשירות יהיה זמין
+      one_private_offer_exists: ישנה כבר הצעה אחת‎</b>‎‎<b>‎
+      one_private_request_exists: ישנה כבר בקשה אחת‎</b>‎‎<b>‎
+      ride_offer: קח את ילדיהם של אחרים לתחביבים שלהם.
+      ride_request: הסעה לעבודה
+      some_private_offers_exist: הצעות ‎<b>‎‎%{number_of_listings}‎ כבר קיים ‎</b>‎
+      some_private_requests_exist: הזמנות ‎%{number_of_listings}‎ ישנן ‎</b>‎‎<b>‎
     custom_filters:
-      update_view: "עדכן חיפוש"
-      min: "מינימום:"
-      max: "מקסימום:"
+      update_view: עדכן חיפוש
+      min: 'מינימום:'
+      max: 'מקסימום:'
     event_feed:
-      latest_events: "מה קורה"
+      latest_events: מה קורה
     grid_item:
       processing_uploaded_image: "(מעבד תמונה שהועלתה ...)"
     index:
-      no_listings_with_your_search_criteria: "מצטערים, לא נמצאו מודעות שתואמות את החיפוש, נסו אולי חיפוש חדש?"
+      no_listings_with_your_search_criteria: מצטערים, לא נמצאו מודעות שתואמות את החיפוש,
+        נסו אולי חיפוש חדש?
       no_listings_notification: "‎%{add_listing_link}‎ לא קיימים פרסומים. להוספה"
-      add_listing_link_text: "הוסף מודעה חדשה"
-      open_listing: "מודעה פתוחה"
-      open_listings: "מודעות פתוחות"
+      add_listing_link_text: הוסף מודעה חדשה
+      open_listing: מודעה פתוחה
+      open_listings: מודעות פתוחות
       private_listing_notification_log_in: התחבר
       is: הוא
       are: אנחנו
       what_do_you_need: "?מה אתה מחפש"
-      post_new_listing: "פרסם מודעה חדשה"
+      post_new_listing: פרסם מודעה חדשה
       are_offering: הזמנה
-      add_news_item: "הוסף מאמר"
-      lend_rent_help_carpool: "למכור, להשאיל, לעזור ולשתף נסיעות"
-      loading_more_content: "טוען מידע נוסף"
-      more_events: "אירועים נוספים..."
+      add_news_item: הוסף מאמר
+      lend_rent_help_carpool: למכור, להשאיל, לעזור ולשתף נסיעות
+      loading_more_content: טוען מידע נוסף
+      more_events: אירועים נוספים...
       news: חדשות
-      no_news: "אין חדש"
-      more_news: "חדשות נוספות"
+      no_news: אין חדש
+      more_news: חדשות נוספות
       or: ו
       or_see_what_the_others: "... או ראה אחרים"
-      recent_events: "פוסטים אחרונים"
+      recent_events: פוסטים אחרונים
       requesting: דרושים
-      tell_it_here: "ספר על זה כאן!"
+      tell_it_here: ספר על זה כאן!
       welcome_to_new_kassi: "‎%{service_name}‎ ברוכים הבאים ל"
-      no_reviews: "אין ביקורות"
-      no_image: "אין תמונה"
+      no_reviews: אין ביקורות
+      no_image: אין תמונה
       filter: סנן
-      this_is_private_community: "עליך להירשם לפני שתוכל להציג את התוכן."
+      this_is_private_community: עליך להירשם לפני שתוכל להציג את התוכן.
     invitation_form:
-      email: "הכניסו את המיילים של החברים"
-      message: "הודעה אישית"
+      email: הכניסו את המיילים של החברים
+      message: הודעה אישית
       send_invitation: שלח/י
-      add_email_addresses_description: "עזרו לנו לבנות הקהילה! שתפו עם החברים."
-      add_lots_of_email_addresses: ~
-      this_article_link: "המאמר הזה"
-      invitation_emails_field_placeholder: "חבר1@דוגמא.COM חבר2@דוגמא.COM..."
-      invitation_message_field_placeholder: "אני כבר הצטרפתי. כדאי לך!"
-      errors_in_emails: "ודא שכתובות האימייל שהוספת תקינות ואינן מכילות תווים יוצאי דופן. אם הוספת מספר כתובות, ודא שהן מופרדות בפסיקים."
+      add_email_addresses_description: עזרו לנו לבנות הקהילה! שתפו עם החברים.
+      add_lots_of_email_addresses: 
+      this_article_link: המאמר הזה
+      invitation_emails_field_placeholder: חבר1@דוגמא.COM חבר2@דוגמא.COM...
+      invitation_message_field_placeholder: אני כבר הצטרפתי. כדאי לך!
+      errors_in_emails: ודא שכתובות האימייל שהוספת תקינות ואינן מכילות תווים יוצאי
+        דופן. אם הוספת מספר כתובות, ודא שהן מופרדות בפסיקים.
     list_item:
       review: ביקורת
       reviews: ביקורות
       distance_away: "‎%{distance}‎ ‎%{distance_unit}‎  מרחק"
     news_item:
-      show_less: "הראי פחות"
-      show_more: "הצג עוד"
+      show_less: הראי פחות
+      show_more: הצג עוד
     profile_info_empty_notification:
-      add_your_info: "הוסף את פרטי הקשר שלך"
-      add_a_profile_picture: "הוסף תמונת פרופיל"
-      you_have_not_added_your_info: "לא הוספת את פרטי הקשר שלך. בבקשה תוסיף כדי שאחרים יוכלו ליצור איתך קשר ביתר קלות. בנוסף, הוסף תמונת פרופיל כדי שיהיה קל יותר לאחרים לסמוך עליך."
-      add_your_info_link: "הוסף את מידע עכשיו"
+      add_your_info: הוסף את פרטי הקשר שלך
+      add_a_profile_picture: הוסף תמונת פרופיל
+      you_have_not_added_your_info: לא הוספת את פרטי הקשר שלך. בבקשה תוסיף כדי שאחרים
+        יוכלו ליצור איתך קשר ביתר קלות. בנוסף, הוסף תמונת פרופיל כדי שיהיה קל יותר
+        לאחרים לסמוך עליך.
+      add_your_info_link: הוסף את מידע עכשיו
     recent_listing:
       please_offer: הזמנה
       comment: הגב
       comments: תגובות
     filters:
-      show: "סינון:"
+      show: 'סינון:'
       search: חפש
       map: מפה
       list: רשימה
       map_button: מפה
       grid_button: תמונות
       list_button: רשימה
-      all_listing_types: "כול סוגי המודעות"
-      all_categories: "כל הקטגוריות"
+      all_listing_types: כול סוגי המודעות
+      all_categories: כל הקטגוריות
     errors:
-      search_engine_not_responding: "החיפוש זמנית אינו זמין.נסה שוב בקרוב."
+      search_engine_not_responding: החיפוש זמנית אינו זמין.נסה שוב בקרוב.
   infos:
     about:
-      default_about_text_title: "מה זה Sharetribe?"
-      default_about_text: "שוק זה מופעל על ידי פלטפורמת Sharetribe. עם Sharetribe אתה יכול בקלות ליצור אתר משלך. זה בחינם לוקח רגע. ‎%{click_here_link}‎ למידע נוסף!"
-      click_here_link_text: "לחץ כאן"
+      default_about_text_title: מה זה Sharetribe?
+      default_about_text: שוק זה מופעל על ידי פלטפורמת Sharetribe. עם Sharetribe אתה
+        יכול בקלות ליצור אתר משלך. זה בחינם לוקח רגע. ‎%{click_here_link}‎ למידע נוסף!
+      click_here_link_text: לחץ כאן
     how_to_use:
-      default_title: "איך זה עובד"
-      default_content: "כאן אתה יכול למצוא מידע אודות איך ‎%{marketplace_name}‎ עובד"
+      default_title: איך זה עובד
+      default_content: כאן אתה יכול למצוא מידע אודות איך ‎%{marketplace_name}‎ עובד
   landing_page:
     hero:
       search: חיפוש
-      signup: "הרשמו עכשיו"
-      search_placeholder: "מה אתה מחפש?"
+      signup: הרשמו עכשיו
+      search_placeholder: מה אתה מחפש?
       search_location_placeholder: מיקום
     listings:
-      no_listing_image: "אין תמונה"
+      no_listing_image: אין תמונה
   layouts:
     admin:
       admin: "‎%{service_name}‎ פאנל הניהול"
     branding:
       powered_by: "‎%{service_name}‎  פועל בחסות ‎%{sharetribe_link}‎  מרקטפלייס"
-      create_own: |-
-          רוצה ליצור אתר כמו ‎%{service_name}‎ ?
-          ‎%{learn_more}‎ 
-      learn_more: "למד עוד"
+      create_own: "רוצה ליצור אתר כמו ‎%{service_name}‎ ?\n‎%{learn_more}‎ "
+      learn_more: למד עוד
     no_tribe:
       inbox: הודעות
       settings: הגדרות
-      feedback: "צור קשר עם צוות ‎%{service_name}‎"
+      feedback: צור קשר עם צוות ‎%{service_name}‎
     application:
-      join_this_community: "הצטרף לאתר"
-      read_more: "קרא עוד"
+      join_this_community: הצטרף לאתר
+      read_more: קרא עוד
       feedback: "‎%{service_name}‎ ההודעה שלך לצוות"
-      dont_use_to_contact_support: ~
-      feedback_forum: "פורום משובים, הערות והארות."
+      dont_use_to_contact_support: 
+      feedback_forum: פורום משובים, הערות והארות.
       feedback_handle: משוב
-      give_feedback: "צור קשר"
+      give_feedback: צור קשר
       or_check_our: "... או בדוק את ה"
-      send_feedback_to_admin: "שלח/י הודעה"
-      to_see_what_others_have_suggested: "ראה והצביע מה משתמשים אחרים הציעו."
-      your_email_address: "כתובת הדואר האלקטרוני שלך ( ליצור קשר איתך)"
-      connect: "הרשמו עכשיו"
-      invite_your_friends: "הזמינו חברים!‏ "
-      invite_your_neighbors: "הזמן שכנים!"
-      invite_your_friends_description: "ככל שיש יותר אנשים ב-‎%{service_name}‎, כך הוא יהיה שימושי יותר."
-      invite_your_friends_invite_only_description: "אנשים לא יכולים להצטרף אל‎%{service_name}‎ אלא אם כן הם מוזמנים."
+      send_feedback_to_admin: שלח/י הודעה
+      to_see_what_others_have_suggested: ראה והצביע מה משתמשים אחרים הציעו.
+      your_email_address: כתובת הדואר האלקטרוני שלך ( ליצור קשר איתך)
+      connect: הרשמו עכשיו
+      invite_your_friends: 'הזמינו חברים!‏ '
+      invite_your_neighbors: הזמן שכנים!
+      invite_your_friends_description: ככל שיש יותר אנשים ב-‎%{service_name}‎, כך
+        הוא יהיה שימושי יותר.
+      invite_your_friends_invite_only_description: אנשים לא יכולים להצטרף אל‎%{service_name}‎
+        אלא אם כן הם מוזמנים.
       join_without_facebook: "... או לחילופין ‎%{join_without_facebook_link}‎"
-      join_without_facebook_link: "צור/י חשבון באמצעות כתובת הדואר האלקטרוני"
+      join_without_facebook_link: צור/י חשבון באמצעות כתובת הדואר האלקטרוני
     conversations:
       messages: הודעות
       notifications: התראות
@@ -924,11 +1045,11 @@ he-IL:
       select_language: שפה
     infos:
       about: אודות
-      how_to_use: "כיצד זה עובד"
-      info_about_kassi: "מידע אודות ‎%{service_name}‎"
+      how_to_use: כיצד זה עובד
+      info_about_kassi: מידע אודות ‎%{service_name}‎
       news: חדשות
-      register_details: "הגדרות פרטיות"
-      terms: "תנאי שימוש"
+      register_details: הגדרות פרטיות
+      terms: תנאי שימוש
     logged_in:
       admin: מנהל
       go_to_your_profile_page: פרופיל
@@ -936,317 +1057,354 @@ he-IL:
       login: התחבר
       logout: התנתק
       notifications: התראות
-      requests: "בקשות חברות"
+      requests: בקשות חברות
       settings: הגדרות
-      sign_up: "צור/ צרי חשבון"
+      sign_up: צור/ צרי חשבון
     logged_in_messages_icon:
       messages: הודעות
     logged_in_notifications_icon:
       notifications: התראות
     markdown_help:
-      title: ~
-      description: ~
-      formatting: "עיצוב טקסט"
+      title: 
+      description: 
+      formatting: עיצוב טקסט
       result: תוצאה
-      h1: ~
-      h2: ~
-      h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
+      h1: 
+      h2: 
+      h3: 
+      italic: 
+      bold: 
+      underline: 
+      strikethrough: 
+      inline_link: 
       list: רשימה
       one: אחת
       two: שתיים
       three: שלוש
     mobile_logged_in:
-      admin: "מנהל מערכת"
-      go_to_your_profile_page: "פרופיל משתמש"
+      admin: מנהל מערכת
+      go_to_your_profile_page: פרופיל משתמש
       hi: היי
       login: התחבר
       logout: התנתק
       notifications: התראות
-      requests: "בקשות חברות"
+      requests: בקשות חברות
       settings: הגדרות
-      sign_up: "הרשמו עכשיו"
+      sign_up: הרשמו עכשיו
     notifications:
-      recaptcha_verification_failure: ~
-      listing_could_not_be_saved: "המודעה לא נשמרה, נא נסה בשנית.אם הבעיה נמשכת אנא ‎%{contact_admin_link}‎ "
-      contact_admin_link_text: "שלח/י הודעה לצוות האתר"
-      test_welcome_email_delivered_to: "נשלח הודעת דוא\"ל לבדיקה אל ‎%{email}‎"
-      something_went_wrong: "משהוא השתבש"
-      community_updated: "הפרטים עודכנו."
-      community_update_failed: "עדכון הפרטים נכשל."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "המשתמש שלך נוצר בהצלחה. עכשיו אתה צריך לאשר את כתובת הדוא\"ל שלך."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "אנא אשרו את המייל שלכם ‎%{service_name}‎ תודה שהצטרפתם ל"
-      comment_cannot_be_empty: "לא ניתן להעלות תגובה ריקה"
-      comment_sent: "תגובה נשלחה"
-      confirmation_link_is_wrong_or_used: "קישור האישור כבר בשימוש או לא תקין. נסה להיכנס או צור קשר אם הבעיה נמשכת."
-      additional_email_confirmed: "המייל שהזנת כעת מאושר."
-      could_not_get_email_from_social_network: "לא ניתן היה לקבל כתובת אימייל מ ‎%{provider}‎ ולא ניתן לייצר חשבון ללא אימייל."
-      social_network_email_unconfirmed: ~
-      create_new_listing: "צור מודעה נוספת"
-      create_one_here: "להרשם כאן"
-      email_confirmation_sent_to_new_address: "אישור דוא\"ל נשלח כעת לכתובת החדשה."
-      email_not_found: "‎%{service_name}‎ כתובת הדואר האלקטרוני שהכנסת לא נמצאה במאגר של ‎"
-      error_with_session: "שגיאה בפעולה זו."
-      feedback_considered_spam: "המשוב לא נשמר בשל בעיות בפורמט שלו. נסה שוב או קבל עזרה בפורום המשובים."
-      feedback_not_saved: "משוב לא נשלח."
-      feedback_saved: "תודה! ניצור קשר בהקדם."
+      recaptcha_verification_failure: 
+      listing_could_not_be_saved: 'המודעה לא נשמרה, נא נסה בשנית.אם הבעיה נמשכת אנא
+        ‎%{contact_admin_link}‎ '
+      contact_admin_link_text: שלח/י הודעה לצוות האתר
+      test_welcome_email_delivered_to: נשלח הודעת דוא"ל לבדיקה אל ‎%{email}‎
+      something_went_wrong: משהוא השתבש
+      community_updated: הפרטים עודכנו.
+      community_update_failed: עדכון הפרטים נכשל.
+      account_creation_succesful_you_still_need_to_confirm_your_email: המשתמש שלך
+        נוצר בהצלחה. עכשיו אתה צריך לאשר את כתובת הדוא"ל שלך.
+      community_joined_succesfully_you_still_need_to_confirm_your_email: אנא אשרו
+        את המייל שלכם ‎%{service_name}‎ תודה שהצטרפתם ל
+      comment_cannot_be_empty: לא ניתן להעלות תגובה ריקה
+      comment_sent: תגובה נשלחה
+      confirmation_link_is_wrong_or_used: קישור האישור כבר בשימוש או לא תקין. נסה
+        להיכנס או צור קשר אם הבעיה נמשכת.
+      additional_email_confirmed: המייל שהזנת כעת מאושר.
+      could_not_get_email_from_social_network: לא ניתן היה לקבל כתובת אימייל מ ‎%{provider}‎
+        ולא ניתן לייצר חשבון ללא אימייל.
+      social_network_email_unconfirmed: 
+      create_new_listing: צור מודעה נוספת
+      create_one_here: להרשם כאן
+      email_confirmation_sent_to_new_address: אישור דוא"ל נשלח כעת לכתובת החדשה.
+      email_not_found: "‎%{service_name}‎ כתובת הדואר האלקטרוני שהכנסת לא נמצאה במאגר
+        של ‎"
+      error_with_session: שגיאה בפעולה זו.
+      feedback_considered_spam: המשוב לא נשמר בשל בעיות בפורמט שלו. נסה שוב או קבל
+        עזרה בפורום המשובים.
+      feedback_not_saved: משוב לא נשלח.
+      feedback_saved: תודה! ניצור קשר בהקדם.
       feedback_sent_to: "‎%{target_person}‎ הביקורת נשלחה ל"
-      feedback_skipped: "לא נכתב משוב"
-      invitation_cannot_be_sent: "לא ניתן לשלוח את ההזמנה"
-      invitation_cannot_unsubscribe: "לא ניתן היה להסיר מהרשימה"
-      invitation_limit_reached: "ניסית לשלוח יותר מדי הזמנות והגעת למכסה היומית."
-      invitation_sent: "ההזמנה נשלחה בהצלחה"
-      invitation_successfully_unsubscribed: "הוסרת בהצלחה מאימיילים להזמנה"
-      inviting_new_users_is_not_allowed_in_this_community: "לא ניתן להזמין משתמשים חדשים."
-      login_again: "אנא התחבר שוב."
-      login_failed: "התחברות נכשלה. אנא בדוק שוב את הזנת הנתונים."
-      account_creation_successful: "ברוכים הבאים ל ‎%{service_name}‎, ‎%{person_name}‎"
-      account_deleted: "חשבונך נמחק"
+      feedback_skipped: לא נכתב משוב
+      invitation_cannot_be_sent: לא ניתן לשלוח את ההזמנה
+      invitation_cannot_unsubscribe: לא ניתן היה להסיר מהרשימה
+      invitation_limit_reached: ניסית לשלוח יותר מדי הזמנות והגעת למכסה היומית.
+      invitation_sent: ההזמנה נשלחה בהצלחה
+      invitation_successfully_unsubscribed: הוסרת בהצלחה מאימיילים להזמנה
+      inviting_new_users_is_not_allowed_in_this_community: לא ניתן להזמין משתמשים
+        חדשים.
+      login_again: אנא התחבר שוב.
+      login_failed: התחברות נכשלה. אנא בדוק שוב את הזנת הנתונים.
+      account_creation_successful: ברוכים הבאים ל ‎%{service_name}‎, ‎%{person_name}‎
+      account_deleted: חשבונך נמחק
       login_successful: "‎%{person_name}‎ ברוכים הבאים"
       logout_successful: "‎%{service_name}‎ התנתקת מ‎"
-      news_item_created: "מאמר נוצר"
-      news_item_creation_failed: "יצירת המאמר נכשלה"
-      news_item_update_failed: "עדכון המאמר נכשל"
-      news_item_updated: "המאמר עודכן"
-      news_item_deleted: "המאמר הוסר"
-      offer_accepted: "ההצעה אושרה"
-      offer_confirmed: "ההצעה הושלמה"
-      offer_closed: "ההצעה נסגרה"
+      news_item_created: מאמר נוצר
+      news_item_creation_failed: יצירת המאמר נכשלה
+      news_item_update_failed: עדכון המאמר נכשל
+      news_item_updated: המאמר עודכן
+      news_item_deleted: המאמר הוסר
+      offer_accepted: ההצעה אושרה
+      offer_confirmed: ההצעה הושלמה
+      offer_closed: ההצעה נסגרה
       listing_created_successfully: "‎%{new_listing_link}‎ נוצר בהצלחה"
-      offer_rejected: "ההצעה נדחתה"
-      offer_canceled: "ההצעה בוטלה"
-      listing_updated_successfully: "המודעה עודכנה בהצלחה"
-      listing_updated_availability_management_enabled: "מודעה עודכנה בהצלחה, ניהול זמינות אופשרה"
-      listing_updated_availability_management_disabled: "מודעה עודכנה בהצלחה, ניהול זמינות לא אופשרה"
-      listing_deleted: "מודעה נמחקה"
-      only_kassi_administrators_can_access_this_area: "אנא התחבר עם חשבון מנהל כדי לגשת לאיזור המבוקש"
-      only_listing_author_can_close_a_listing: "רק מפרסם המודעה יכול לסגור את המודעה"
-      only_listing_author_can_edit_a_listing: "רק מפרסם המודעה יכול לערוך את המודעה"
-      payment_successful: "התשלום הצליח"
-      payment_canceled: "התשלום בוטל"
-      error_in_payment: "שגיאה בתשלום. אם עדיין לא השלמת את התשלום, נסה שוב. אם כן, שלח לנו משוב."
-      cannot_receive_payment: "הצד השני אינו יכול לקבל את התשלום עקב שגיאה כלשהי. צור קשר עם ‎%{service_name}‎  כדי להבהיר את המצב"
-      payment_waiting_for_later_accomplishment: "לאחר שתשלם, נודיע למוכר ותקבל קבלה בדוא\"ל"
-      password_recovery_sent: "הוראות לאיפוס סיסמתך נשלחו לתיבת הדואר שלך."
-      person_activated: "המשתמש הופעל"
-      person_deactivated: "המשתמש מושבת"
-      person_updated_successfully: "המידע עודכן"
-      poll_answered: "הסקר נענה"
-      poll_could_not_be_answered: "לא ניתן לענות על הסקר"
-      poll_created: "הסקר נוצר"
-      poll_creation_failed: "לא ניתן ליצור סקר"
-      poll_update_failed: "עדכון הסקר נכשל"
-      poll_updated: "הסקר עודכן"
-      poll_deleted: "הסקר הוסר"
-      read_more: "תקרא עוד!"
-      registration_considered_spam: "ההרשמה לא הצליחה, אנא צור קשר מתפריט הכותרת וציין \"email2 error\"."
-      reply_cannot_be_empty: "לא ניתן לשלוח הודעות ללא תוכן"
-      reply_sent: "ההודעה נשלחה בהצלחה"
-      request_accepted: "בקשתך אושרה"
-      request_accepted_and_closed: ~
-      request_confirmed: "הזמנה הושלמה"
-      request_rejected: "בקשתך נדחתה"
-      request_canceled: "ההזמנה בוטלה"
-      message_sent: "הודעה נשלחה"
-      message_not_sent: "ההודעה לא נשלחה, נסה שוב."
-      this_content_is_not_available_in_this_community: "התוכן לא זמין"
-      unknown_error: "שגיאה לא ידועה. אנא צור עמנו קשר עם פרטים נוספים."
-      update_error: "שגיאה נוצרה בעת עדכון פרטיך, אנא נסה שנית."
-      you_are_not_allowed_to_give_feedback_on_this_transaction: "אינך מורשה לתת משוב על אירוע זה"
-      you_are_not_authorized_to_do_this: "אינך מורשה לפעולה זו"
-      you_are_not_authorized_to_view_this_content: "אינך מורשה לצפייה בתוכן זה"
-      listing_closed: "המודעה נסגרה"
-      send_instructions: "תקבל איימיל עם הוראות לאיפוס סיסמתך בדקות הקרובות"
-      you_cannot_reply_to_a_closed_offer: "אין אפשרות להגיב. ההצעה סגורה."
-      you_cannot_send_message_to_yourself: "לא ניתן לשלוח הודעה לעצמך"
-      you_followed_listing: "כעת אתה עוקב אחרי המודעה"
-      you_have_already_given_feedback_about_this_event: "כבר השארת תגובה"
+      offer_rejected: ההצעה נדחתה
+      offer_canceled: ההצעה בוטלה
+      listing_updated_successfully: המודעה עודכנה בהצלחה
+      listing_updated_availability_management_enabled: מודעה עודכנה בהצלחה, ניהול
+        זמינות אופשרה
+      listing_updated_availability_management_disabled: מודעה עודכנה בהצלחה, ניהול
+        זמינות לא אופשרה
+      listing_deleted: מודעה נמחקה
+      only_kassi_administrators_can_access_this_area: אנא התחבר עם חשבון מנהל כדי
+        לגשת לאיזור המבוקש
+      only_listing_author_can_close_a_listing: רק מפרסם המודעה יכול לסגור את המודעה
+      only_listing_author_can_edit_a_listing: רק מפרסם המודעה יכול לערוך את המודעה
+      payment_successful: התשלום הצליח
+      payment_canceled: התשלום בוטל
+      error_in_payment: שגיאה בתשלום. אם עדיין לא השלמת את התשלום, נסה שוב. אם כן,
+        שלח לנו משוב.
+      cannot_receive_payment: הצד השני אינו יכול לקבל את התשלום עקב שגיאה כלשהי. צור
+        קשר עם ‎%{service_name}‎  כדי להבהיר את המצב
+      payment_waiting_for_later_accomplishment: לאחר שתשלם, נודיע למוכר ותקבל קבלה
+        בדוא"ל
+      password_recovery_sent: הוראות לאיפוס סיסמתך נשלחו לתיבת הדואר שלך.
+      person_activated: המשתמש הופעל
+      person_deactivated: המשתמש מושבת
+      person_updated_successfully: המידע עודכן
+      poll_answered: הסקר נענה
+      poll_could_not_be_answered: לא ניתן לענות על הסקר
+      poll_created: הסקר נוצר
+      poll_creation_failed: לא ניתן ליצור סקר
+      poll_update_failed: עדכון הסקר נכשל
+      poll_updated: הסקר עודכן
+      poll_deleted: הסקר הוסר
+      read_more: תקרא עוד!
+      registration_considered_spam: ההרשמה לא הצליחה, אנא צור קשר מתפריט הכותרת וציין
+        "email2 error".
+      reply_cannot_be_empty: לא ניתן לשלוח הודעות ללא תוכן
+      reply_sent: ההודעה נשלחה בהצלחה
+      request_accepted: בקשתך אושרה
+      request_accepted_and_closed: 
+      request_confirmed: הזמנה הושלמה
+      request_rejected: בקשתך נדחתה
+      request_canceled: ההזמנה בוטלה
+      message_sent: הודעה נשלחה
+      message_not_sent: ההודעה לא נשלחה, נסה שוב.
+      this_content_is_not_available_in_this_community: התוכן לא זמין
+      unknown_error: שגיאה לא ידועה. אנא צור עמנו קשר עם פרטים נוספים.
+      update_error: שגיאה נוצרה בעת עדכון פרטיך, אנא נסה שנית.
+      you_are_not_allowed_to_give_feedback_on_this_transaction: אינך מורשה לתת משוב
+        על אירוע זה
+      you_are_not_authorized_to_do_this: אינך מורשה לפעולה זו
+      you_are_not_authorized_to_view_this_content: אינך מורשה לצפייה בתוכן זה
+      listing_closed: המודעה נסגרה
+      send_instructions: תקבל איימיל עם הוראות לאיפוס סיסמתך בדקות הקרובות
+      you_cannot_reply_to_a_closed_offer: אין אפשרות להגיב. ההצעה סגורה.
+      you_cannot_send_message_to_yourself: לא ניתן לשלוח הודעה לעצמך
+      you_followed_listing: כעת אתה עוקב אחרי המודעה
+      you_have_already_given_feedback_about_this_event: כבר השארת תגובה
       you_are_now_member: "‎%{service_name}‎ ברוכים הבאים ל"
-      you_are_already_member: "ברוך שובך ‎%{service_name}‎ אתה כבר חבר ב"
-      you_must_log_in_to_create_new_listing: "‎‎%{sign_up_link}‎ מבקשת להיתחבר . אם עדיין אין לך חשבון ‎%{service_name}‎"
-      additional_email_confirmed_dashboard: "כתובת האימייל שלך מאושרת כעת."
-      you_must_log_in_to_give_feedback: "אנא התחבר לכתיבת ביקורת"
-      you_must_log_in_to_invite_new_users: "‎%{service_name}‎ אנא התחבר על מנת להזמין את החברים ל‎"
-      you_must_log_in_to_send_a_comment: "אנא התחבר לכתיבת תגובה חדשה"
+      you_are_already_member: ברוך שובך ‎%{service_name}‎ אתה כבר חבר ב
+      you_must_log_in_to_create_new_listing: "‎‎%{sign_up_link}‎ מבקשת להיתחבר . אם
+        עדיין אין לך חשבון ‎%{service_name}‎"
+      additional_email_confirmed_dashboard: כתובת האימייל שלך מאושרת כעת.
+      you_must_log_in_to_give_feedback: אנא התחבר לכתיבת ביקורת
+      you_must_log_in_to_invite_new_users: "‎%{service_name}‎ אנא התחבר על מנת להזמין
+        את החברים ל‎"
+      you_must_log_in_to_send_a_comment: אנא התחבר לכתיבת תגובה חדשה
       you_must_log_in_to_send_a_message: "‎%{service_name}‎ אנא התחבר ל"
-      you_must_log_in_to_do_a_transaction: "אתה חייב להיות מחובר ל‎%{service_name}‎  לביצוע העברה."
-      you_must_log_in_to_view_this_content: "אנא התחבר לצפייה בתוכן זה"
-      you_must_log_in_to_view_this_page: "עליך להיתחבר כדי לראות דף זה"
-      you_must_log_in_to_view_your_inbox: "‎%{service_name}‎ לבדיקת הדואר הנכנס אנא התחבר ל"
-      you_must_log_in_to_view_your_settings: "‎%{service_name}‎ לבדיקת הגדרות חשבונך אנא התחבר ל"
-      you_must_log_in_to_add_news_item: "כדי להוסיף מאמר חדש ‎%{service_name}‎  עליך להיכנס ל"
-      you_must_log_in_to_change_profile_settings: "‎%{service_name}‎ על מנת לשנות את ההגדרות אליך להיתחבר ל"
-      you_must_log_in_to_accept_or_reject: "עליך להיכנס כדי לקבל או לדחות את העסקה"
-      you_must_log_in_to_confirm_or_cancel: "עליך להיכנס כדי לבטל או לאשר את העסקה"
-      you_need_to_confirm_your_account_first: "עליך לאשר את כתובת דוא\"ל שלך."
-      you_must_fill_all_the_fields: "עליך למלא את כל השדות"
-      you_unfollowed_listing: "אינך ממשיך עוד במעקב על מודעה זו"
-      joining_community_failed: "החיבור נכשל"
-      can_not_delete_email: "לא ניתן להסיר את כתובת האימייל"
-      user_does_not_have_email_to_delete: "אין לך את כתובת האימייל שאתה מנסה להסיר"
-      email_deleted: "האימייל הוסר"
-      listing_author_payment_details_missing: "צור קשר עם המחבר על ידי לחיצה על הלחצן 'צור קשר' בהמשך. הם צריכים לעדכן את פרטי התשלום שלהם כדי לקבל תשלומים."
-      listing_author_payment_details_missing_no_free: ~
-      images_are_processing: "אנחנו מעבדים את התמונות, תן לנו דקה או שתיים כדי שהן יוצגו."
+      you_must_log_in_to_do_a_transaction: אתה חייב להיות מחובר ל‎%{service_name}‎  לביצוע
+        העברה.
+      you_must_log_in_to_view_this_content: אנא התחבר לצפייה בתוכן זה
+      you_must_log_in_to_view_this_page: עליך להיתחבר כדי לראות דף זה
+      you_must_log_in_to_view_your_inbox: "‎%{service_name}‎ לבדיקת הדואר הנכנס אנא
+        התחבר ל"
+      you_must_log_in_to_view_your_settings: "‎%{service_name}‎ לבדיקת הגדרות חשבונך
+        אנא התחבר ל"
+      you_must_log_in_to_add_news_item: כדי להוסיף מאמר חדש ‎%{service_name}‎  עליך
+        להיכנס ל
+      you_must_log_in_to_change_profile_settings: "‎%{service_name}‎ על מנת לשנות
+        את ההגדרות אליך להיתחבר ל"
+      you_must_log_in_to_accept_or_reject: עליך להיכנס כדי לקבל או לדחות את העסקה
+      you_must_log_in_to_confirm_or_cancel: עליך להיכנס כדי לבטל או לאשר את העסקה
+      you_need_to_confirm_your_account_first: עליך לאשר את כתובת דוא"ל שלך.
+      you_must_fill_all_the_fields: עליך למלא את כל השדות
+      you_unfollowed_listing: אינך ממשיך עוד במעקב על מודעה זו
+      joining_community_failed: החיבור נכשל
+      can_not_delete_email: לא ניתן להסיר את כתובת האימייל
+      user_does_not_have_email_to_delete: אין לך את כתובת האימייל שאתה מנסה להסיר
+      email_deleted: האימייל הוסר
+      listing_author_payment_details_missing: צור קשר עם המחבר על ידי לחיצה על הלחצן
+        'צור קשר' בהמשך. הם צריכים לעדכן את פרטי התשלום שלהם כדי לקבל תשלומים.
+      listing_author_payment_details_missing_no_free: 
+      images_are_processing: אנחנו מעבדים את התמונות, תן לנו דקה או שתיים כדי שהן
+        יוצגו.
       maintenance_mode:
-        zero: "האתר ירד לצורך תחזוקה"
-        one: "האתר יהיה לא זמין במשך ‎%{count}‎  דקות "
-        other: "האתר יהיה לא זמין במשך ‎%{count}‎  דקות "
-      automatically_logged_out_please_sign_in: "‎ התנתקת באופן אוטומטי, אנא התחבר שוב."
-      stripe_you_account_balance_is_not_0: ~
-      stripe_balance_for_username_is_not_0: ~
-      visit_admin: "האם תרצה ‎%{link}‎ ?"
-      visit_admin_link: "בקשר בפאנל הניהול שלך"
-      an_error_occurred_when_saving_your_information: ~
+        zero: האתר ירד לצורך תחזוקה
+        one: 'האתר יהיה לא זמין במשך ‎%{count}‎  דקות '
+        other: 'האתר יהיה לא זמין במשך ‎%{count}‎  דקות '
+      automatically_logged_out_please_sign_in: "‎ התנתקת באופן אוטומטי, אנא התחבר
+        שוב."
+      stripe_you_account_balance_is_not_0: 
+      stripe_balance_for_username_is_not_0: 
+      visit_admin: האם תרצה ‎%{link}‎ ?
+      visit_admin_link: בקשר בפאנל הניהול שלך
+      an_error_occurred_when_saving_your_information: 
     settings:
       account: חשבון
       notifications: התראות
-      profile: "הפרופיל שלי"
+      profile: הפרופיל שלי
       settings: הגדרות
-      paypal_payments: "תשלומי פייפאל"
-      stripe_payments: "תשלומי סטרייפ"
+      paypal_payments: תשלומי פייפאל
+      stripe_payments: תשלומי סטרייפ
       payments: תשלומים
       listings: מודעות
-      listings_search_placeholder: "חפש כותרת מודעה"
-      transactions_search_placeholder: ~
+      listings_search_placeholder: חפש כותרת מודעה
+      transactions_search_placeholder: 
       transactions: טרנזקציות
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "אין לך הרשאה לראות את המודעה."
+      listing_not_visible: אין לך הרשאה לראות את המודעה.
     comment:
       wrote: כתבתי
       send_private_message: "‎%{person}‎ שלח/י הודעה פרטית ל"
       delete: למחוק
-      are_you_sure: "האם אתה בטוח שברצונך למחוק את התגובה?"
+      are_you_sure: האם אתה בטוח שברצונך למחוק את התגובה?
     comment_form:
-      ask_a_question: "הגב על המודעה‎ או בקש עוד פרטים,משתמשים אחרים יוכלו לצפות בתגובתך"
+      ask_a_question: הגב על המודעה‎ או בקש עוד פרטים,משתמשים אחרים יוכלו לצפות בתגובתך
       log_in: התחבר
-      send_comment: "שלח תגובה"
-      to_send_a_comment: "לשליחת תגובה חדשה"
-      write_comment: "כתוב תגובה חדשה:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "לא ניתן לשלוח הערות חדשות משום שהמודעה הזו נסגרה."
+      send_comment: שלח תגובה
+      to_send_a_comment: לשליחת תגובה חדשה
+      write_comment: 'כתוב תגובה חדשה:'
+      you_cannot_send_a_new_comment_because_listing_is_closed: לא ניתן לשלוח הערות
+        חדשות משום שהמודעה הזו נסגרה.
       you_must: אנא
-      subscribe_to_comments: "עדכן אותי על תגובות חדשות"
-    deleting_a_listing_cannot_be_undone: "מחיקת מודעה, לא תוכלו לשחזר, האם הינכם בטוחים?"
+      subscribe_to_comments: עדכן אותי על תגובות חדשות
+    deleting_a_listing_cannot_be_undone: מחיקת מודעה, לא תוכלו לשחזר, האם הינכם בטוחים?
     edit:
-      edit_listing: "עריכת מודעה"
+      edit_listing: עריכת מודעה
     edit_links:
-      close_listing: "סגור מודעה"
-      edit_listing: "עריכת מודעה"
-      reopen_listing: "פרסם את המודעה מחדש"
+      close_listing: סגור מודעה
+      edit_listing: עריכת מודעה
+      reopen_listing: פרסם את המודעה מחדש
       move_to_top: הקפץ
-      show_in_updates_email: "הצג בעלון הבא"
+      show_in_updates_email: הצג בעלון הבא
       show_in_updates_email_loading: טוען...
-      show_in_updates_email_error: "לא ניתן להגיע לשרת. נסה שוב לאחר רענון הדף."
-      show_in_updates_email_success: "רישום זה יוצג בדוא\"ל העדכון האוטומטי הבא שנשלח למשתמשים"
-      listing_is_pending: "מודעה ממתינה לאישור"
-      listing_is_rejected: "מודעה נדחתה"
-      approve_listing: "אשר מודעה"
-      reject_listing: "דחה מודעה"
-      delete_listing: "למחוק מודעה"
+      show_in_updates_email_error: לא ניתן להגיע לשרת. נסה שוב לאחר רענון הדף.
+      show_in_updates_email_success: רישום זה יוצג בדוא"ל העדכון האוטומטי הבא שנשלח
+        למשתמשים
+      listing_is_pending: מודעה ממתינה לאישור
+      listing_is_rejected: מודעה נדחתה
+      approve_listing: אשר מודעה
+      reject_listing: דחה מודעה
+      delete_listing: למחוק מודעה
     map:
-      open_in_google_maps: "לפתוח בגוגל מפות"
+      open_in_google_maps: לפתוח בגוגל מפות
     error:
-      something_went_wrong: "משהו השתבש, מס תקלה:‎%{error_code}‎ "
-      something_went_wrong_plain: "משהו השתבש"
-      create_failed_to_connect_to_booking_service: "יצירת מודעה נכשלה.נכשל החיבור,אנא נסה שוב."
-      update_failed_to_connect_to_booking_service: "עדכון מודעה נכשל, אנא נסה שוב."
+      something_went_wrong: 'משהו השתבש, מס תקלה:‎%{error_code}‎ '
+      something_went_wrong_plain: משהו השתבש
+      create_failed_to_connect_to_booking_service: יצירת מודעה נכשלה.נכשל החיבור,אנא
+        נסה שוב.
+      update_failed_to_connect_to_booking_service: עדכון מודעה נכשל, אנא נסה שוב.
     follow_links:
-      follow: "קבל עדכון לאימייל על תגובות חדשות"
-      unfollow: "בטל עדכונים על תגובות חדשות"
+      follow: קבל עדכון לאימייל על תגובות חדשות
+      unfollow: בטל עדכונים על תגובות חדשות
     form:
       custom_field_partials:
         dropdown:
           select_one___: "...בחר"
       departure_time:
         at: ב
-        departure_time: "זמן עזיבה"
+        departure_time: זמן עזיבה
       departure_time_radio_buttons:
-        repeated: "חוזר (הוסף זמנים וימים בשדה 'תיאור מפורט')"
+        repeated: חוזר (הוסף זמנים וימים בשדה 'תיאור מפורט')
       description:
         detailed_description: תיאור
-        youtube_info: "אם התיאור שלך מכיל קישורים ליוטיוב, הסרטונים יפתחו מתחת לתיאור."
-        youtube_info_markdown: "אתה יכול ‎%{link}‎ . אם התיאור מכיל סרטוני יוטיוב הם יוצגו מתחת לתיאור."
+        youtube_info: אם התיאור שלך מכיל קישורים ליוטיוב, הסרטונים יפתחו מתחת לתיאור.
+        youtube_info_markdown: אתה יכול ‎%{link}‎ . אם התיאור מכיל סרטוני יוטיוב הם
+          יוצגו מתחת לתיאור.
       destination:
         destination: יעד
       form_content:
         favor: שירות
         housing: מקום
         item: פריט
-        offer_something: "הצע משהו"
-        request_something: "בקש משהו"
+        offer_something: הצע משהו
+        request_something: בקש משהו
         rideshare: נסיעה
         i_want_to_offer: "...אני רוצה להציע"
         i_want_to_request: "...אני צריך"
       googlemap:
-        googlemap_copy: "נקודות סיום מהמפה"
-        googlemap_description: "ראה מפה"
-        googlemap_updatemap: "עדכון מפה"
+        googlemap_copy: נקודות סיום מהמפה
+        googlemap_description: ראה מפה
+        googlemap_updatemap: עדכון מפה
       images:
         image: תמונות
-        best_result: "לתוצאות הטובות ביותר, השתמש בJPG , GIF , PNG  לתמונות ‎%{width}‎ x ‎%{height}‎ פיקסלים."
-        no_file_selected: "לא נבחר קובץ"
-        remove_image: "הסר תמונה"
-        select_file: "בחר קובץ"
-        add_more: "הוסף עוד +"
+        best_result: לתוצאות הטובות ביותר, השתמש בJPG , GIF , PNG  לתמונות ‎%{width}‎
+          x ‎%{height}‎ פיקסלים.
+        no_file_selected: לא נבחר קובץ
+        remove_image: הסר תמונה
+        select_file: בחר קובץ
+        add_more: הוסף עוד +
         removing: מוחק...
         processing: מעבד...
         loading_image: טוען...
-        image_uploading_in_progress: "העלאת תמונה בתהליך..."
-        processing_takes_a_while: "התמונה הועלתה! העיבוד יקח עוד קצת זמן אבל זה בסדר לאשר את המודעה ולהתקדם הלאה."
-        this_may_take_a_while: "זה לוקח רק שנייה"
+        image_uploading_in_progress: העלאת תמונה בתהליך...
+        processing_takes_a_while: התמונה הועלתה! העיבוד יקח עוד קצת זמן אבל זה בסדר
+          לאשר את המודעה ולהתקדם הלאה.
+        this_may_take_a_while: זה לוקח רק שנייה
         percentage_loaded: "%{percentage}%"
-        uploading_failed: "טעינת התמונה נכשלה"
-        image_processing_failed: "עיבוד תמונה נכשל"
-        file_too_large: "הקובץ גדול מדי"
-        accepted_formats: "פורמט התמונות חייב להיות GIF, JPG , PNG."
-        images_not_uploaded_confirm: "התמונות עוד לא הועלו, אתה בטוח שתרצה להמשיך?"
+        uploading_failed: טעינת התמונה נכשלה
+        image_processing_failed: עיבוד תמונה נכשל
+        file_too_large: הקובץ גדול מדי
+        accepted_formats: פורמט התמונות חייב להיות GIF, JPG , PNG.
+        images_not_uploaded_confirm: התמונות עוד לא הועלו, אתה בטוח שתרצה להמשיך?
       location:
         location: מיקום
       price:
         price: מחיר
         per: מחיר
         per_day: ליום
-        mass: "...ק\"ג, יחידה"
-        time: "שעה, יום, חודש, ..."
-        long_time: "שבוע, חודש, ..."
-        after_service_fee_you_will_get: "לאחר‎%{service_name}‎ ודמי עיבוד של תשלומים תקבל ‎%{sum_with_currency}‎"
-        no_service_fee_you_will_get_paypal_text: "‎%{paypal_fee_info_link}‎  תנוכה מהסכום"
-        no_service_fee_you_will_get_payment_text: "‎%{payment_fee_info_link}‎  יופחת מהתשלום"
-        after_service_fee_you_will_get_payment_text: "לאחר ביצוע ההזמנה, תתקבל התמורה בניכוי ‎%{payment_fee_info_link}‎"
+        mass: '...ק"ג, יחידה'
+        time: שעה, יום, חודש, ...
+        long_time: שבוע, חודש, ...
+        after_service_fee_you_will_get: לאחר‎%{service_name}‎ ודמי עיבוד של תשלומים
+          תקבל ‎%{sum_with_currency}‎
+        no_service_fee_you_will_get_paypal_text: "‎%{paypal_fee_info_link}‎  תנוכה
+          מהסכום"
+        no_service_fee_you_will_get_payment_text: "‎%{payment_fee_info_link}‎  יופחת
+          מהתשלום"
+        after_service_fee_you_will_get_payment_text: לאחר ביצוע ההזמנה, תתקבל התמורה
+          בניכוי ‎%{payment_fee_info_link}‎
         payment_fee_info_link_text: "‎%{service_name}‎ עמלה ועמלת עיבוד תשלום"
-        delivery: "סוג משלוח"
+        delivery: סוג משלוח
         shipping: משלוח
-        shipping_price: "דמי משלוח"
+        shipping_price: דמי משלוח
         shipping_price_additional: תוספות
-        pickup: "איסוף עצמי"
+        pickup: איסוף עצמי
       origin:
         location: מיקום
         origin: מקור
-        the_exact_location: ~
+        the_exact_location: 
       send_button:
-        save_listing: "פרסם מודעה"
-        submit_for_review: "שלח לביקורת"
-        will_be_reviewed: "כל המודעות ב‎%{service_name}‎  יעברו בדיקה לפני פרסום. כשהמודעה תאושר, יתקבל על כך מייל."
-        we_noticed_youre_an_admin: ~
+        save_listing: פרסם מודעה
+        submit_for_review: שלח לביקורת
+        will_be_reviewed: כל המודעות ב‎%{service_name}‎  יעברו בדיקה לפני פרסום. כשהמודעה
+          תאושר, יתקבל על כך מייל.
+        we_noticed_youre_an_admin: 
       share_type:
         select: בחר
         borrow: השאלה
         buy: קנייה
         give_away: למסירה
         lend: השאלה
-        offer_type: "סוג הצעה"
-        receive: "מאשר בחינם"
+        offer_type: סוג הצעה
+        receive: מאשר בחינם
         rent: להשכרה
         rent_out: להשכרה
-        request_type: "סוג בקשה"
+        request_type: סוג בקשה
         sell: מכירה
-        share_for_free: "משתף בחינם"
-        accept_for_free: "מאשר בחינם"
+        share_for_free: משתף בחינם
+        accept_for_free: מאשר בחינם
         trade: החלפה
       tag_list:
         comma_separate: "(פסיק נפרד)"
@@ -1259,32 +1417,32 @@ he-IL:
         for_the_time_being: לבינתיים
       privacy:
         privacy: פרטיות
-        private: "פרטי (רק משתמשים שהתחברו למערכת יכולים לראות)"
-        public: "גלוי (גלוי למשתמשים שאינם מחוברים)"
+        private: פרטי (רק משתמשים שהתחברו למערכת יכולים לראות)
+        public: גלוי (גלוי למשתמשים שאינם מחוברים)
     help_texts:
-      help_share_type_title: "סוג הזמנה או בקשה"
+      help_share_type_title: סוג הזמנה או בקשה
       help_tags_title: תגיות
-      help_valid_until_title: "תאריך תפוגה"
+      help_valid_until_title: תאריך תפוגה
     index:
       all_categories: תפריט
-      all_offer_types: "כל סוגי ההזמנות"
-      all_request_types: "כל סוגי הבקשות"
+      all_offer_types: כל סוגי ההזמנות
+      all_request_types: כל סוגי הבקשות
       category: קטגוריה
-      did_not_found_what_you_were_looking_for: "לא מוצא\\ת את מה שחפשת?"
+      did_not_found_what_you_were_looking_for: לא מוצא\ת את מה שחפשת?
       favors: שירותים
       housing: מקומות
       items: פריטים
       list_view: רשימה
       listings: מודעות
       map_view: מפה
-      offer_something: "ספר על כך לאחרים!"
-      offer_type: "סוג הזמנה"
+      offer_something: ספר על כך לאחרים!
+      offer_type: סוג הזמנה
       offers: הזמנות
-      request_something: "בקש משהו!"
-      request_type: "סוג בקשה"
+      request_something: בקש משהו!
+      request_type: סוג בקשה
       requests: בקשות
-      rideshare: "נסיעה משותפת"
-      you_have_something_others_do_not: "יש לך משהו להציע?"
+      rideshare: נסיעה משותפת
+      you_have_something_others_do_not: יש לך משהו להציע?
       feed_title: "‎%{listing_type}‎ ב ‎%{service_name}‎ ‎%{optional_category}‎"
     left_panel_link:
       borrows: השאלה
@@ -1297,88 +1455,90 @@ he-IL:
       receives: למסירה
       rent_outs: להשכרה
       rents: השכרה
-      rideshares: "נסיעה משותפת"
+      rideshares: נסיעה משותפת
       sells: מכירה
-      share_for_frees: "משתף בחינם"
-      accept_for_frees: "מאשר בחינם"
+      share_for_frees: משתף בחינם
+      accept_for_frees: מאשר בחינם
       trades: החלפה
     listing_actions:
       booking_from: מ
       booking_to: ל
-      how_paypal_works: "איך פייפאל עובד"
+      how_paypal_works: איך פייפאל עובד
       payment_help: עזרה
-      unable_load_availability: "בדיקת זמינות לא הצליחה, אנא נסה מאוחר יותר."
-      booking_date: "מועד הזמנה"
-      select_one: "בחר אחד"
-      start_time: "מועד התחלה"
-      end_time: "מועד סיום"
+      unable_load_availability: בדיקת זמינות לא הצליחה, אנא נסה מאוחר יותר.
+      booking_date: מועד הזמנה
+      select_one: בחר אחד
+      start_time: מועד התחלה
+      end_time: מועד סיום
       marketplace_fees_may_apply: "‎%{service_name}‎ עמלות יכולות לחל"
     new:
       listing: מודעה
       selected_category: "‎%{category}‎"
       selected_subcategory: "‎%{subcategory}‎"
       selected_transaction_type: "‎%{transaction_type}‎"
-      select_category: "בחר קטגוריה"
-      select_subcategory: "בחר תת קטגוריה"
-      select_transaction_type: "בחר סוג המודעה"
-      you_need_to_fill_payout_details_before_accepting: "אתה צריך למלא פרטי תשלום לפני שתוכל להעלות מודעות. כנס ל‎%{payment_settings_link}‎ כדי למלא את הפרטים."
-      contact_admin_link_text: "שלח/י הודעה לצוות האתר"
-      community_not_configured_for_payments: "‎%{service_name}‎  לא הוגדר עבור תשלומים, לכן אתה לא יכול לפרסם מודעות. נא ‎%{contact_admin_link}‎ כדי לקבל פרטים."
-      payment_settings_link: "הגדרות תשלום"
-      community_not_configured_for_payments_admin: ~
-      you_are_now_posting_a_listing_on_behalf_of: "אתה עכשיו מפרת מודעה בשם ‎%{name}‎ "
+      select_category: בחר קטגוריה
+      select_subcategory: בחר תת קטגוריה
+      select_transaction_type: בחר סוג המודעה
+      you_need_to_fill_payout_details_before_accepting: אתה צריך למלא פרטי תשלום לפני
+        שתוכל להעלות מודעות. כנס ל‎%{payment_settings_link}‎ כדי למלא את הפרטים.
+      contact_admin_link_text: שלח/י הודעה לצוות האתר
+      community_not_configured_for_payments: "‎%{service_name}‎  לא הוגדר עבור תשלומים,
+        לכן אתה לא יכול לפרסם מודעות. נא ‎%{contact_admin_link}‎ כדי לקבל פרטים."
+      payment_settings_link: הגדרות תשלום
+      community_not_configured_for_payments_admin: 
+      you_are_now_posting_a_listing_on_behalf_of: 'אתה עכשיו מפרת מודעה בשם ‎%{name}‎ '
     quantity:
-      hour: "מספר שעות:"
+      hour: 'מספר שעות:'
       day: ":מספר ימים"
-      night: "מס לילות:"
-      week: "מספר שבועות:"
-      month: "מספר חודשים:"
-      unit: "מספר יחידות:"
-      custom: "כמות:"
-      person: "מספר אנשים:"
+      night: 'מס לילות:'
+      week: 'מספר שבועות:'
+      month: 'מספר חודשים:'
+      unit: 'מספר יחידות:'
+      custom: 'כמות:'
+      person: 'מספר אנשים:'
     quantity_placeholder: כמות
     please_comment: תגובה
     reply_link:
-      listing_closed: "המודעה סגורה"
+      listing_closed: המודעה סגורה
     show:
-      add_your_phone_number: "הוסף את מספר הטלפון שלך"
-      add_profile_picture: "הוסף תמונת פרופיל"
+      add_your_phone_number: הוסף את מספר הטלפון שלך
+      add_profile_picture: הוסף תמונת פרופיל
       comments: תגובות
-      contact_by_phone: "צור קשר טלפוני:"
-      contact: "שלח/י הודעה"
-      favor_offer: "סוג הצעה"
-      favor_request: "בקשה לשירות"
+      contact_by_phone: 'צור קשר טלפוני:'
+      contact: שלח/י הודעה
+      favor_offer: סוג הצעה
+      favor_request: בקשה לשירות
       inquiry: הַכרָזָה
-      item_offer_trade: "הצעה החלפה"
-      item_request_trade: "בקשה להחלפה"
-      no_description: "למודעה זו אין תיאור"
-      no_image: "אין תמונה"
-      no_reviews: "לא התקבלו ביקורות"
+      item_offer_trade: הצעה החלפה
+      item_request_trade: בקשה להחלפה
+      no_description: למודעה זו אין תיאור
+      no_image: אין תמונה
+      no_reviews: לא התקבלו ביקורות
       offer: הצעה
       listing_created: נוצר
-      open_until: "פתוח עד ‎%{date}‎"
+      open_until: פתוח עד ‎%{date}‎
       feedback: משוב
-      qr_code: "קוד QR"
+      qr_code: קוד QR
       request: בקשה
-      rideshare_offer: "הצעה לנסיעה משותפת"
-      rideshare_request: "בקשה לנסיעה משותפת"
-      send_private_message: "שלח/י הודעה פרטית"
+      rideshare_offer: הצעה לנסיעה משותפת
+      rideshare_request: בקשה לנסיעה משותפת
+      send_private_message: שלח/י הודעה פרטית
       tags: תוויות
       time: זמן
       times: זמנים
       times_viewed: נצפה
       processing_uploaded_image: "(מעבד תמונה שהועלתה ...)"
-      listing_created_at: "מודעה נוצרה"
+      listing_created_at: מודעה נוצרה
       price:
-        per_quantity_unit: "ל‎%{quantity_unit}‎"
+        per_quantity_unit: ל‎%{quantity_unit}‎
         per_day: ליום
-      delivery: "סוג משלוח"
+      delivery: סוג משלוח
       shipping: "(‎%{price}‎) דמי משלוח"
       shipping_no_price: משלוח
-      shipping_price_additional: "משלוח(+ ‎%{price}‎ ), ומוצרים נוספים+‎%{shipping_price_additional}‎ "
-      pickup: "איסוף עצמי"
-      pickup_no_price: "איסוף עצמי"
-      youtube_video_player: "נגן וידאו של יוטיוב"
+      shipping_price_additional: 'משלוח(+ ‎%{price}‎ ), ומוצרים נוספים+‎%{shipping_price_additional}‎ '
+      pickup: איסוף עצמי
+      pickup_no_price: איסוף עצמי
+      youtube_video_player: נגן וידאו של יוטיוב
     unit_types:
       piece: מחיר
       hour: שעה
@@ -1389,40 +1549,41 @@ he-IL:
       unit: יחידה
       person: אדם
     verification_required:
-      verification_required: "נדרש אימות"
+      verification_required: נדרש אימות
   listing_conversations:
     preauthorize:
-      dates_not_available: "התאריכים שנבחרו אינם זמינים"
-      error_in_checking_availability: "לא ניתן היה לבדוק זמינות עבור התאריכים האלה"
+      dates_not_available: התאריכים שנבחרו אינם זמינים
+      error_in_checking_availability: לא ניתן היה לבדוק זמינות עבור התאריכים האלה
       details: פרטים
-      by: "‎‎%{author}‎ ע\"י ‎%{listing}‎‎"
+      by: ‎‎%{author}‎ ע"י ‎%{listing}‎‎
       payment: תשלום
-      exp: "Exp:"
-      you_will_be_charged: "למוכר יש 3 ימים לאשר את העברה, אחרת לא תחוייב. \"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\" ‎%{author}‎ ‎%{author}‎ ‎%{author}‎ ‎%{expiration_period}‎ \"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\""
+      exp: 'Exp:'
+      you_will_be_charged: למוכר יש 3 ימים לאשר את העברה, אחרת לא תחוייב. """"""""""""""""""""""""""""""""""""""""""""""""""
+        ‎%{author}‎ ‎%{author}‎ ‎%{author}‎ ‎%{expiration_period}‎ """"""""""""""""""""""""""""""""""""""""""""""
       day: יום
       days: ימים
       night: לילה
       nights: לילות
-      invalid_parameters: "ערכים שגויים להעברה החדשה"
-      select_delivery_method: ~
+      invalid_parameters: ערכים שגויים להעברה החדשה
+      select_delivery_method: 
     transaction_agreement_checkbox:
       read_more: צפה.
     stripe_payment:
       payment: תשלום
-      pay_with_card: "שלם בכרטיס אשראי"
-      address: "כתובת למשלוח"
+      pay_with_card: שלם בכרטיס אשראי
+      address: כתובת למשלוח
       address_country: מדינה*
-      address_name: "שמות ראשונים ואחרונים*"
+      address_name: שמות ראשונים ואחרונים*
       address_city: עיר*
       address_state: אזור
-      address_street1: "כתובת 1*"
-      address_street2: "כתובת 2*"
+      address_street1: כתובת 1*
+      address_street2: כתובת 2*
       address_postal_code: מיקוד*
   mapview:
     index:
       all_categories: תפריט
-      all_offer_types: "כל סוגי ההצעה"
-      all_request_types: "כול סוגי הבקשות"
+      all_offer_types: כל סוגי ההצעה
+      all_request_types: כול סוגי הבקשות
       category: קטגוריה
       did_not_found_what_you_were_looking_for: "?לא מצאת מה שאתה צריך"
       favors: שירותים
@@ -1431,352 +1592,403 @@ he-IL:
       list_view: רשימה
       map_view: מפה
       offer_something: שתף!
-      offer_type: "סוג ההצעה"
+      offer_type: סוג ההצעה
       offers: הצעות
       request_something: בקש
-      request_type: "סוג הבקשה"
+      request_type: סוג הבקשה
       requests: בקשות
-      rideshare: "נסיעה משותפת"
-      you_have_something_others_do_not: "יש לך מה להציע?"
+      rideshare: נסיעה משותפת
+      you_have_something_others_do_not: יש לך מה להציע?
     please_comment: תגובה
   mercury:
-    content_too_long: "התוכן שהוזן ארוך מדי."
+    content_too_long: התוכן שהוזן ארוך מדי.
   okl:
-    member_id: "מס חשבון משתמש"
-    member_id_or_email: "מספר עמית או דוא\"ל"
+    member_id: מס חשבון משתמש
+    member_id_or_email: מספר עמית או דוא"ל
   paypal_accounts:
-    payout_info_title: "קבלת תשלומים"
+    payout_info_title: קבלת תשלומים
     paypal_account_email_connected: "<del>חיבור לחשבון פייפאל</del> הושלם!"
-    payout_info_paypal: ~
-    paypal_billing_agreement_made: |-
-        <del>הרשה ל‎%{service_name}‎  לקבל עמלה עבור עסקה‎</del>‎  
-        הושלם!
-    commission_permission_needed: "תצטרך לאפשר ל‎%{service_name}‎ הרשאה לגבות עמלת עסקה."
-    create_paypal_account_link_text: "חשבון פייפל"
-    connected_account: "חשבון פייפאל ‎%{email}‎  התחבר בהצלחה"
-    paypal_receive_funds_info_label_australia_only: "חשבון הפייפאל שלך צריך לאפשר קבלת תשלום. זה יכול להצריך שדרוג לעסקי או פרמיום."
-    paypal_receive_funds_info_label: "חשבון הפייפאל שלך צריך יכולת לקבל תשלומים. יתכן ותצטרך לעדכן לחשבון עסקי."
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: "התחבר ושנה את חשבון הפייפאל לעסקי."
-    admin_account_not_connected: "‎%{service_name}‎ מבקשת שתסדיר אופן תשלום. לעזרה צור קשר ‎%{contact_admin_link}‎ אנחנו נשמח לעזור"
-    contact_admin_link_text: "צור קשר עם צוות ‎%{service_name}‎ "
-    you_are_ready_to_accept_payments: "כעת אתה יכול לקבל תשלומים!"
+    payout_info_paypal: 
+    paypal_billing_agreement_made: "<del>הרשה ל‎%{service_name}‎  לקבל עמלה עבור עסקה‎</del>‎
+      \ \nהושלם!"
+    commission_permission_needed: תצטרך לאפשר ל‎%{service_name}‎ הרשאה לגבות עמלת
+      עסקה.
+    create_paypal_account_link_text: חשבון פייפל
+    connected_account: חשבון פייפאל ‎%{email}‎  התחבר בהצלחה
+    paypal_receive_funds_info_label_australia_only: חשבון הפייפאל שלך צריך לאפשר קבלת
+      תשלום. זה יכול להצריך שדרוג לעסקי או פרמיום.
+    paypal_receive_funds_info_label: חשבון הפייפאל שלך צריך יכולת לקבל תשלומים. יתכן
+      ותצטרך לעדכן לחשבון עסקי.
+    paypal_receive_funds_info_australia_only: 
+    paypal_receive_funds_info: 
+    upgrade_paypal_account_link_text: התחבר ושנה את חשבון הפייפאל לעסקי.
+    admin_account_not_connected: "‎%{service_name}‎ מבקשת שתסדיר אופן תשלום. לעזרה
+      צור קשר ‎%{contact_admin_link}‎ אנחנו נשמח לעזור"
+    contact_admin_link_text: 'צור קשר עם צוות ‎%{service_name}‎ '
+    you_are_ready_to_accept_payments: כעת אתה יכול לקבל תשלומים!
     commission: "%{commission} %"
-    not_now: "איני רוצה לחבר את החשבון הפייפאל כרגע"
+    not_now: איני רוצה לחבר את החשבון הפייפאל כרגע
     new:
-      payout_info_you_need_to_connect: "‎%{service_name}‎ מבקש לחבר את חשבונך בפייפל על מנת לקבל תשלומים."
-      payout_info_text: "כדי לחבר את חשבונך, בצע את השלבים הבאים."
-      contact_admin_link_text: "שלח/י הודעה לצוות האתר"
+      payout_info_you_need_to_connect: "‎%{service_name}‎ מבקש לחבר את חשבונך בפייפל
+        על מנת לקבל תשלומים."
+      payout_info_text: כדי לחבר את חשבונך, בצע את השלבים הבאים.
+      contact_admin_link_text: שלח/י הודעה לצוות האתר
       admin_account_not_connected: |-
-          לא ניתן לחבר את חשבון הפייפאל שלך מאחר ו‎%{service_name}‎  לא הגדיר תשלומים.
-          אנא‎%{contact_admin_link}‎ כדי לקבל פרטים.
-      paypal_account_email: "חבר את חשבון פייפל שלך"
-      paypal_account_email_placeholder: "כתובת האימייל שלך ב- פייפל"
+        לא ניתן לחבר את חשבון הפייפאל שלך מאחר ו‎%{service_name}‎  לא הגדיר תשלומים.
+        אנא‎%{contact_admin_link}‎ כדי לקבל פרטים.
+      paypal_account_email: חבר את חשבון פייפל שלך
+      paypal_account_email_placeholder: כתובת האימייל שלך ב- פייפל
       paypal_account_email_info_text: |-
-          אם אין לך חשבון פייפאל, אתה יכול ליצור אחד כאן ‎%{create_paypal_account}‎ .
-          אם אתה מקבל הודעת שגיאה בעת ההתחברות, עדכן את חשבון הפייפאל לעסקי. השדרוג קל וחינמי. אם אתה אדפ פרטי פשוט רשום את שמך תחת שם העסק. בכדי לעדכן:‎%{upgrade_paypal_account}‎ .
-      create_paypal_account: "לחיצה כאן"
-      upgrade_paypal_account: "היכנס לחשבון פייפל שלך"
-      paypal_account_billing_agreement: "תן הרשאה ל‎%{service_name}‎  לגבות עמלות עבור טרנזקציות"
-      follow_steps: "שים לב לשלבים הבאים להגדרת קבלת התשלומים:"
-      connect_paypal_account_title: "חבר את חשבון הפייפאל שלך"
-      connect_paypal_account_title_with_step: "שלב‎%{current_step}‎ ‎%{total_steps}‎ :חבר את חשבון הפייפאל שלך"
-      connect_paypal_account_instructions: "לחץ על הכפתור מטה כדי להתחבר לחשבון הפייפאל שלך ולחבר את החשבון עם‎%{service_name}‎ "
-      connect_paypal_account: "חבר את חשבון פייפל שלך"
-      paypal_account_billing_agreement_with_step: "שלב‎%{current_step}‎ ‎%{total_steps}‎ :תן הרשאה לגבות עמלת עסקה"
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_account_billing_agreement_info_none: ~
-      paypal_info_link_text: "עמלת עיבוד עסקת פייפאל"
-      billing_agreement_description: "תן הרשאה ל‎%{service_name}‎  לגבות עמלות עבור טרנזקציות"
-      billing_agreement: "להעניק הרשאה"
-      permissions_not_granted: "הרשאות להתחברות לחשבון פייפל שלך לא הוענקו."
-      could_not_fetch_redirect_url: "לא ניתן היה לאתר לינק קשור לפייפאל"
-      paypal_not_enabled: "תשלומי פייפאל לא מאופשרים"
-      billing_agreement_canceled: "הסכם תשלומים בוטל"
-      billing_agreement_not_accepted: "לא הסכמת לשירות התשלומים בפייפאל."
-      billing_agreement_wrong_account: "חשבון הפייפאל לא מתאים. נא השתמש באותו חשבון אותו הגדרת לראשונה."
-      something_went_wrong: "משהו השתבש, נסו בשנית. אם הבעיה ממשיכה פנו לצוות ‎%{service_name}‎ "
-      account_not_verified: "לא אימתת את חשבון הפייפאל שלך.אנא גש לחשבונך כדי לאמתו."
-      account_restricted: "חשבון הפייפאל שלך הוגבל, אנא כנס לאתר פייפאל בכדי לפתור את הבעיה או ליצור קשר עם תמיכת פייפאל."
-    paypal_account_connected_title: "חשבון פייפאל מחובר"
-    paypal_account_connected: "חשבון הפייפאל‎%{email}‎ התחבר עם‎%{service_name}‎ "
-    change_account: "לשנות את חשבון הפייפאל"
-    missing: "‎%{settings_link}‎ תוכל להעביר תשלום רק לאחר חיבור חשבון פייפל בהגדרות ‎%{service_name}‎"
-    from_your_payment_settings_link_text: "הגדרות תשלום"
-    redirect_message: "מועבר לפייפאל, אם שום דבר לא מתרחש, נא ללחוץ על‎%{redirect_link}‎ "
+        אם אין לך חשבון פייפאל, אתה יכול ליצור אחד כאן ‎%{create_paypal_account}‎ .
+        אם אתה מקבל הודעת שגיאה בעת ההתחברות, עדכן את חשבון הפייפאל לעסקי. השדרוג קל וחינמי. אם אתה אדפ פרטי פשוט רשום את שמך תחת שם העסק. בכדי לעדכן:‎%{upgrade_paypal_account}‎ .
+      create_paypal_account: לחיצה כאן
+      upgrade_paypal_account: היכנס לחשבון פייפל שלך
+      paypal_account_billing_agreement: תן הרשאה ל‎%{service_name}‎  לגבות עמלות עבור
+        טרנזקציות
+      follow_steps: 'שים לב לשלבים הבאים להגדרת קבלת התשלומים:'
+      connect_paypal_account_title: חבר את חשבון הפייפאל שלך
+      connect_paypal_account_title_with_step: שלב‎%{current_step}‎ ‎%{total_steps}‎
+        :חבר את חשבון הפייפאל שלך
+      connect_paypal_account_instructions: 'לחץ על הכפתור מטה כדי להתחבר לחשבון הפייפאל
+        שלך ולחבר את החשבון עם‎%{service_name}‎ '
+      connect_paypal_account: חבר את חשבון פייפל שלך
+      paypal_account_billing_agreement_with_step: שלב‎%{current_step}‎ ‎%{total_steps}‎
+        :תן הרשאה לגבות עמלת עסקה
+      paypal_account_billing_agreement_info_both: 
+      paypal_account_billing_agreement_info_fixed: 
+      paypal_account_billing_agreement_info_relative: 
+      paypal_account_billing_agreement_info_none: 
+      paypal_info_link_text: עמלת עיבוד עסקת פייפאל
+      billing_agreement_description: תן הרשאה ל‎%{service_name}‎  לגבות עמלות עבור
+        טרנזקציות
+      billing_agreement: להעניק הרשאה
+      permissions_not_granted: הרשאות להתחברות לחשבון פייפל שלך לא הוענקו.
+      could_not_fetch_redirect_url: לא ניתן היה לאתר לינק קשור לפייפאל
+      paypal_not_enabled: תשלומי פייפאל לא מאופשרים
+      billing_agreement_canceled: הסכם תשלומים בוטל
+      billing_agreement_not_accepted: לא הסכמת לשירות התשלומים בפייפאל.
+      billing_agreement_wrong_account: חשבון הפייפאל לא מתאים. נא השתמש באותו חשבון
+        אותו הגדרת לראשונה.
+      something_went_wrong: 'משהו השתבש, נסו בשנית. אם הבעיה ממשיכה פנו לצוות ‎%{service_name}‎ '
+      account_not_verified: לא אימתת את חשבון הפייפאל שלך.אנא גש לחשבונך כדי לאמתו.
+      account_restricted: חשבון הפייפאל שלך הוגבל, אנא כנס לאתר פייפאל בכדי לפתור
+        את הבעיה או ליצור קשר עם תמיכת פייפאל.
+    paypal_account_connected_title: חשבון פייפאל מחובר
+    paypal_account_connected: 'חשבון הפייפאל‎%{email}‎ התחבר עם‎%{service_name}‎ '
+    change_account: לשנות את חשבון הפייפאל
+    missing: "‎%{settings_link}‎ תוכל להעביר תשלום רק לאחר חיבור חשבון פייפל בהגדרות
+      ‎%{service_name}‎"
+    from_your_payment_settings_link_text: הגדרות תשלום
+    redirect_message: 'מועבר לפייפאל, אם שום דבר לא מתרחש, נא ללחוץ על‎%{redirect_link}‎ '
     redirect_link_text: כאן
-    paypal_account_all_set_up: "יש! הכל מוכן!"
-    can_receive_payments: "מעכשיו תוכל לקבל תשלומים על מודעות"
-    paypal_account_connected_summary: "חשבון הפייפאל‎‎<%{email}>‎ ‎ התחבר בהצלחה"
-    paypal_permission_granted_summary: "הרשאה לעמלת עסקה אושרה"
+    paypal_account_all_set_up: יש! הכל מוכן!
+    can_receive_payments: מעכשיו תוכל לקבל תשלומים על מודעות
+    paypal_account_connected_summary: חשבון הפייפאל‎‎<%{email}>‎ ‎ התחבר בהצלחה
+    paypal_permission_granted_summary: הרשאה לעמלת עסקה אושרה
   paypal:
     pay_with_paypal: לתשלום
-    checkout_with: "תשלום ויציאה עם"
+    checkout_with: תשלום ויציאה עם
     or_pay_with_paypal: או
-    checkout_with_paypal: "תשלום עם פייפאל"
-    cancel_succesful: "חשבון הפייפאל בוטל בהצלחה"
+    checkout_with_paypal: תשלום עם פייפאל
+    cancel_succesful: חשבון הפייפאל בוטל בהצלחה
     transaction:
-      commission_payment_name: "עמלה עבור ‎%{listing_title}‎ "
-      commission_payment_description: "המרקטפלייס ‎%{service_name}‎ גבה עמלה עבור עסקה ב‎%{listing_title}‎ "
-    wait_while_loading: "אנא המתן"
-    chatting_with_paypal: "אנחנו בשיחה עם פייפאל"
+      commission_payment_name: 'עמלה עבור ‎%{listing_title}‎ '
+      commission_payment_description: 'המרקטפלייס ‎%{service_name}‎ גבה עמלה עבור
+        עסקה ב‎%{listing_title}‎ '
+    wait_while_loading: אנא המתן
+    chatting_with_paypal: אנחנו בשיחה עם פייפאל
   people:
     edit_links:
       activate: להפעיל
       deactivate: להשבית
     help_texts:
       feedback_description_title: משוב
-      help_invitation_code_title: "אתה צריך הזמנה כדי להצטרף"
+      help_invitation_code_title: אתה צריך הזמנה כדי להצטרף
       terms_title: "‎%{service_name}‎ תנאי שימוש"
-      invite_only_help_text: "בחר באפשרות זו אם ברצונך שחברים חדשים יוכלו להצטרף רק אם הם קיבלו הזמנה ממשתמש קיים."
-      invite_only_help_text_title: "מוזמנים בלבד"
+      invite_only_help_text: בחר באפשרות זו אם ברצונך שחברים חדשים יוכלו להצטרף רק
+        אם הם קיבלו הזמנה ממשתמש קיים.
+      invite_only_help_text_title: מוזמנים בלבד
     inactive_notification:
-      this_person_is_not_active_in_kassi: "‎%{service_name}‎ משתמש זה אינו פעיל עוד ב"
-      inactive_description: "לא ניתן ליצור קשר עם משתמש זה ‎%{service_name}‎ משתמש זה הפסיק להשתמש ב"
+      this_person_is_not_active_in_kassi: "‎%{service_name}‎ משתמש זה אינו פעיל עוד
+        ב"
+      inactive_description: לא ניתן ליצור קשר עם משתמש זה ‎%{service_name}‎ משתמש
+        זה הפסיק להשתמש ב
     new:
-      create_new_account: "צור חשבון"
-      email: "דואר אלקטרוני"
-      email_is_in_use: "כתובת הדואר אלקטרוני כבר בשימוש"
-      email_is_in_use_or_not_allowed: "אימייל זה אינו תקין או שהוא כבר נמצא בשימוש. אם אינך יכול להיכנס, צור איתנו קשר."
-      email_not_allowed: "השתמש בכתובת אימייל תקינה אם עדיין אינך מצליח להיכנס, צור איתנו קשר ‎%{service_name}‎ אימייל זה אינו תקין ב"
-      invalid_username_or_email: "דוא''ל לא תקין או נמצא בשימוש"
+      create_new_account: צור חשבון
+      email: דואר אלקטרוני
+      email_is_in_use: כתובת הדואר אלקטרוני כבר בשימוש
+      email_is_in_use_or_not_allowed: אימייל זה אינו תקין או שהוא כבר נמצא בשימוש.
+        אם אינך יכול להיכנס, צור איתנו קשר.
+      email_not_allowed: השתמש בכתובת אימייל תקינה אם עדיין אינך מצליח להיכנס, צור
+        איתנו קשר ‎%{service_name}‎ אימייל זה אינו תקין ב
+      invalid_username_or_email: דוא''ל לא תקין או נמצא בשימוש
       email_restriction_instructions:
-        one: "הגישה אל ‎%{service_name}‎ מוגבלת. כדי להצטרף אתה צריך כתובת דוא\"ל '‎%{allowed_emails}‎'."
-        other: "הגישה אל ‎‎%{service_name}‎‎ מוגבלת. כדי להצטרף אתה צריך כתובת דוא\"ל '‎%{allowed_emails}‎'."
-      family_name: "שם משפחה"
-      given_name: "שם פרטי"
-      i_accept_the_terms_and_privacy: "אני מאשר את ה‎%{terms}‎  וה‎%{privacy}‎ "
-      admin_emails_consent: "אני מסכים לקבל אימיילים מזדמנים מצוות ‎%{service_name}‎  ואני מבין שאני יכול לשנות את דעתי בכל זמן."
-      invalid_invitation_code: "קוד ההזמנה לא תקין"
-      invitation_code: "קוד הזמנה"
-      not_required: "לא דרוש"
-      notification_is_mandatory: "אתה חייב לבחור לפחות בדוא''ל אחד כדי לקבל התראות.אם אינך רוצה לקבל התראות מ‎%{service_name}‎ , בדוק את ההגדרות דוא''ל שלך."
-      password_again: "אשר סיסמה"
-      show_my_name_to_others: "אחרים ‎%{service_name}‎ הצג את השם האמיתי שלי למשתמשי"
+        one: הגישה אל ‎%{service_name}‎ מוגבלת. כדי להצטרף אתה צריך כתובת דוא"ל '‎%{allowed_emails}‎'.
+        other: הגישה אל ‎‎%{service_name}‎‎ מוגבלת. כדי להצטרף אתה צריך כתובת דוא"ל
+          '‎%{allowed_emails}‎'.
+      family_name: שם משפחה
+      given_name: שם פרטי
+      i_accept_the_terms_and_privacy: 'אני מאשר את ה‎%{terms}‎  וה‎%{privacy}‎ '
+      admin_emails_consent: אני מסכים לקבל אימיילים מזדמנים מצוות ‎%{service_name}‎  ואני
+        מבין שאני יכול לשנות את דעתי בכל זמן.
+      invalid_invitation_code: קוד ההזמנה לא תקין
+      invitation_code: קוד הזמנה
+      not_required: לא דרוש
+      notification_is_mandatory: אתה חייב לבחור לפחות בדוא''ל אחד כדי לקבל התראות.אם
+        אינך רוצה לקבל התראות מ‎%{service_name}‎ , בדוק את ההגדרות דוא''ל שלך.
+      password_again: אשר סיסמה
+      show_my_name_to_others: אחרים ‎%{service_name}‎ הצג את השם האמיתי שלי למשתמשי
       sign_up: "‎%{service_name}‎ צור חשבון חדש ב‎"
-      terms: "תנאי שימוש"
-      privacy: "מדיניות פרטיות"
-      visible_only_to_you: "גלוי רק לך ולצוות‎%{service_name}‎ "
-      visible_to_everybody: "פתוח לכולם"
-      create_account_with_provider: "הרשם עם ‎%{provider}‎ "
+      terms: תנאי שימוש
+      privacy: מדיניות פרטיות
+      visible_only_to_you: 'גלוי רק לך ולצוות‎%{service_name}‎ '
+      visible_to_everybody: פתוח לכולם
+      create_account_with_provider: 'הרשם עם ‎%{provider}‎ '
       OR: או
-      signup_with_email: "צור/י חשבון באמצעות כתובת הדואר האלקטרוני"
+      signup_with_email: צור/י חשבון באמצעות כתובת הדואר האלקטרוני
       this_field_will_be_publicly_visible: "(השדה הזה יראה באופן פומבי)"
     profile_feedback:
-      grade: "ציון:"
-      and_gave_following_feedback: "ונתן את המשוב הבא"
+      grade: 'ציון:'
+      and_gave_following_feedback: ונתן את המשוב הבא
     profile_listings:
-      no_image: "אין תמונה"
-      manage_listings: "נהל את כל המודעות שלי"
+      no_image: אין תמונה
+      manage_listings: נהל את כל המודעות שלי
     show:
       contact: "‎%{person}‎ שלח/י הודעה ל‎"
-      about_me: "קצת עלי:"
-      add_description: "שתף משהו על עצמך"
-      add_location: "הוסף מיקום"
-      add_phone_number: "הוסף מספר טלפון"
-      address: "מיקום:"
+      about_me: 'קצת עלי:'
+      add_description: שתף משהו על עצמך
+      add_location: הוסף מיקום
+      add_phone_number: הוסף מספר טלפון
+      address: 'מיקום:'
       as_expected: כצפוי
-      edit_profile_info: "עריכת פרופיל"
-      exceeded_expectations: "מעבר למצופה"
+      edit_profile_info: עריכת פרופיל
+      exceeded_expectations: מעבר למצופה
       positive: חיובי
-      hide_description: "הראי פחות"
-      less_than_expected: "מתחת למצופה"
-      phone_number: "מספר טלפון"
-      show_all_feedback: "הצג את כל המשובים"
-      show_all_testimonials: "הצג את כל המשובים"
-      show_full_description: "הצג עוד"
-      slightly_better_than_expected: "הציפיות עלו"
-      slightly_less_than_expected: "מתחת למצופה"
-      what_are_these: "מה אלה?"
-      review: "התקבלה ביקורת"
-      reviews: "התקבלו ביקורות"
+      hide_description: הראי פחות
+      less_than_expected: מתחת למצופה
+      phone_number: מספר טלפון
+      show_all_feedback: הצג את כל המשובים
+      show_all_testimonials: הצג את כל המשובים
+      show_full_description: הצג עוד
+      slightly_better_than_expected: הציפיות עלו
+      slightly_less_than_expected: מתחת למצופה
+      what_are_these: מה אלה?
+      review: התקבלה ביקורת
+      reviews: התקבלו ביקורות
       listing: מודעה
       listings: מודעות
-      open_listing: "מודעה פתוחה"
-      open_listings: "מודעות פתוחות"
-      no_listings: "אין שירותים או פריטים למכירה/מסירה"
-      no_open_listings: "אין מודעות פתוחות"
-      no_reviews: "אין ביקורות"
-      show_all_listings: "הצג את כל המודעות"
-      show_all_open_listings: "הצג את כל המודעות הפתוחות"
-      show_all_reviews: "הצג את כל הביקורות"
-      admin_actions: "פעולות מנהל"
-      post_listing_as: "מפרסם מודעה כ"
+      open_listing: מודעה פתוחה
+      open_listings: מודעות פתוחות
+      no_listings: אין שירותים או פריטים למכירה/מסירה
+      no_open_listings: אין מודעות פתוחות
+      no_reviews: אין ביקורות
+      show_all_listings: הצג את כל המודעות
+      show_all_open_listings: הצג את כל המודעות הפתוחות
+      show_all_reviews: הצג את כל הביקורות
+      admin_actions: פעולות מנהל
+      post_listing_as: מפרסם מודעה כ
     followed_people:
       you_follow_plural: "‎%{count}‎ אתה עוקב אחר"
       you_follow_singular: "‎%{count}‎ אתה עוקב אחר"
-      they_follow_plural: "אנשים שעוקבים ‎%{count}‎"
-      they_follow_singular: "שעוקבים ‎%{count}‎"
-      show_all_followed_people: "הצג את כל העוקבים"
-      no_followed_people: "אין עוקבים"
+      they_follow_plural: אנשים שעוקבים ‎%{count}‎
+      they_follow_singular: שעוקבים ‎%{count}‎
+      show_all_followed_people: הצג את כל העוקבים
+      no_followed_people: אין עוקבים
     follow_button:
       following: עוקב
       follow: עקוב
-      unfollow: "הפסק מעקב"
+      unfollow: הפסק מעקב
   sessions:
     new:
-      create_new_account: "צור חשבון חדש"
-      i_forgot_my_password: "שכחתי סיסמא"
+      create_new_account: צור חשבון חדש
+      i_forgot_my_password: שכחתי סיסמא
       login: כניסה
-      login_to_kassi: "התחבר ל ‎‎%{service_name}‎"
-      connect_your_facebook_to_kassi: "‎%{service_name}‎ חבר את חשבון הפייסבוק שלך אל"
-      facebook_account: "חשבון פייסבוק:"
-      log_in_to_link_account: "היכנס כדי לקשר אותו לחשבון פייסבוק שלך ‎ %{service_name}‎אם כבר יש לך חשבון"
-      you_can_also_create_new_account: "אם אין לך משתמש ב‎%{service_name}‎, לחץ על קישור זה ‎%{accont_creation_link}‎ על מנת ליצור אחד עם משתמש הפייסבוק שלך."
-      account_creation_link_text: "לחף כאן"
-      cancle_facebook_connect: "‎%{cancel_link}‎ אם אינך רוצה לקשר חשבון זה, תוכל לבצע את ‎"
+      login_to_kassi: התחבר ל ‎‎%{service_name}‎
+      connect_your_facebook_to_kassi: "‎%{service_name}‎ חבר את חשבון הפייסבוק שלך
+        אל"
+      facebook_account: 'חשבון פייסבוק:'
+      log_in_to_link_account: היכנס כדי לקשר אותו לחשבון פייסבוק שלך ‎ %{service_name}‎אם
+        כבר יש לך חשבון
+      you_can_also_create_new_account: אם אין לך משתמש ב‎%{service_name}‎, לחץ על
+        קישור זה ‎%{accont_creation_link}‎ על מנת ליצור אחד עם משתמש הפייסבוק שלך.
+      account_creation_link_text: לחף כאן
+      cancle_facebook_connect: "‎%{cancel_link}‎ אם אינך רוצה לקשר חשבון זה, תוכל
+        לבצע את ‎"
       facebook_cancel_link_text: ביטול
-      log_in_with_your_provider_account: "התחברת עם ‎%{provider}‎ "
-      or_sign_up_with_your_username: "או באמצעות הדואר האלקטרוני:"
-      we_will_not_post_without_asking_you: "לעולם לא נפרסם בפייסבוק מבלי לשאול אותך."
+      log_in_with_your_provider_account: 'התחברת עם ‎%{provider}‎ '
+      or_sign_up_with_your_username: 'או באמצעות הדואר האלקטרוני:'
+      we_will_not_post_without_asking_you: לעולם לא נפרסם בפייסבוק מבלי לשאול אותך.
     password_forgotten:
       email: איימיל
-      password_recovery_instructions: "Enter your email address to reset your password."
-      request_new_password: "בקש סיסמה חדשה"
-      change_your_password: "שנה את סיסמתך"
+      password_recovery_instructions: Enter your email address to reset your password.
+      request_new_password: בקש סיסמה חדשה
+      change_your_password: שנה את סיסמתך
     confirmation_pending:
       welcome_to_kassi: "‎%{service_name}‎ ברוכים הבאים ל‎"
-      check_your_email: "תבדוק את תיבת הדואר הנכנס שלך"
-      resend_confirmation_instructions: "שלח שוב את ההוראות לאישור"
-      your_current_email_is: "‎%{email}‎ הדוא\"ל שלך הוא‎"
+      check_your_email: תבדוק את תיבת הדואר הנכנס שלך
+      resend_confirmation_instructions: שלח שוב את ההוראות לאישור
+      your_current_email_is: ‎%{email}‎ הדוא"ל שלך הוא‎
       change_email: שנה
-      confirm_your_email: "אנא אשר את המייל שלך"
-      account_confirmation_instructions: "‎%{service_name}‎ בקרוב תקבל דוא\"ל עם קישור כדי לאשר את כתובת הדוא\"ל שלך.  לאחר אישור הכתובת, תוכל להצטרף אל"
-      account_confirmation_instructions_title_admin: "אשר את האיימיל"
-      before_full_access_you_need_to_confirm_email: "לפני שתוכל לקבל גישה מלאה יש רק דבר אחד שנותר לעשות: לאמת את הדוא''ל."
-      before_confirmation_only_access_admin_dashboard: "לפני האימות תוכל לגשת רק ל‎%{admin_dashboard_link}‎ ."
-      admin_dashboard_link_text: "פאנל ניהול"
-      account_confirmation_instructions_admin: "היית אמור לקבל דו''אל ל‎%{email_address}‎ עם לינק אישור. אם אינך רואה זאת, בדוק בספאם או לחץ על הכפתור בתחתית כדי לשלוח שוב. כשהמייל יגיע, הקלק על הלינק כדי לאמת את הדו''אל שלך. לאחר מכן תקבל גישה מלאה למרקטפלייס. אם אתה זקוק לעזרה, אל תהסס לפנות ל‎%{support_link}‎ "
-      contact_support_link_text: "צור קשר עם תמיכת SHARETRIBE"
+      confirm_your_email: אנא אשר את המייל שלך
+      account_confirmation_instructions: ‎%{service_name}‎ בקרוב תקבל דוא"ל עם קישור
+        כדי לאשר את כתובת הדוא"ל שלך.  לאחר אישור הכתובת, תוכל להצטרף אל
+      account_confirmation_instructions_title_admin: אשר את האיימיל
+      before_full_access_you_need_to_confirm_email: 'לפני שתוכל לקבל גישה מלאה יש
+        רק דבר אחד שנותר לעשות: לאמת את הדוא''''ל.'
+      before_confirmation_only_access_admin_dashboard: לפני האימות תוכל לגשת רק ל‎%{admin_dashboard_link}‎
+        .
+      admin_dashboard_link_text: פאנל ניהול
+      account_confirmation_instructions_admin: 'היית אמור לקבל דו''''אל ל‎%{email_address}‎
+        עם לינק אישור. אם אינך רואה זאת, בדוק בספאם או לחץ על הכפתור בתחתית כדי לשלוח
+        שוב. כשהמייל יגיע, הקלק על הלינק כדי לאמת את הדו''''אל שלך. לאחר מכן תקבל
+        גישה מלאה למרקטפלייס. אם אתה זקוק לעזרה, אל תהסס לפנות ל‎%{support_link}‎ '
+      contact_support_link_text: צור קשר עם תמיכת SHARETRIBE
   settings:
     account:
       change: שנה
-      confirm_new_password: "אשר סיסמה חדשה"
-      delete_account: "מחק חשבון"
-      delete_account_button: "מחק לצמיתות את החשבון שלי"
-      delete_account_confirmation_popup: "האם אתה בטוח שאתה באמת רוצה למחוק את חשבון המשתמש שלך ולאבד לצמיתות את כל הנתונים הקשורים אליו? לא ניתן להפוך את מחיקת החשבון."
+      confirm_new_password: אשר סיסמה חדשה
+      delete_account: מחק חשבון
+      delete_account_button: מחק לצמיתות את החשבון שלי
+      delete_account_confirmation_popup: האם אתה בטוח שאתה באמת רוצה למחוק את חשבון
+        המשתמש שלך ולאבד לצמיתות את כל הנתונים הקשורים אליו? לא ניתן להפוך את מחיקת
+        החשבון.
       email_addresses: מיילים
-      new_email: "הגדר כתובת דוא\"ל חדשה"
-      delete_personal_information: "אם מחקת את חשבונך, הפרטים שלך(שם,טלפון,כתובת,דוא''ל,תמונה וכו) ימחקו לצמיתות ולא תוכל לחדש אותם. כל המודעות יוסרו ולא תוכל לאקטב את חשבונך."
-      delete_information_others_involved: "מידע בו מעורבים משתמשים אחרים(שיחות,הזמנות,ביקורות וכו) לא נמחק עם מחיקת חשבונך. שמך לא יוצר בהקשר הזה."
-      unfinished_transactions: "חשבונך לא יכול להמחק מאחר ויש תשלומים ממתינים. נא השלם אותם לפני שתמחק את חשבונך."
-      only_admin: "החשבון שלך לא יכול להמחק מאחר ואתה המנהל היחיד במרקטפלייס"
-      new_password: "סיסמה חדשה"
+      new_email: הגדר כתובת דוא"ל חדשה
+      delete_personal_information: אם מחקת את חשבונך, הפרטים שלך(שם,טלפון,כתובת,דוא''ל,תמונה
+        וכו) ימחקו לצמיתות ולא תוכל לחדש אותם. כל המודעות יוסרו ולא תוכל לאקטב את
+        חשבונך.
+      delete_information_others_involved: מידע בו מעורבים משתמשים אחרים(שיחות,הזמנות,ביקורות
+        וכו) לא נמחק עם מחיקת חשבונך. שמך לא יוצר בהקשר הזה.
+      unfinished_transactions: חשבונך לא יכול להמחק מאחר ויש תשלומים ממתינים. נא השלם
+        אותם לפני שתמחק את חשבונך.
+      only_admin: החשבון שלך לא יכול להמחק מאחר ואתה המנהל היחיד במרקטפלייס
+      new_password: סיסמה חדשה
       save: שמור
-      these_fields_are_shown_only_to_you: "שם המשתמש יוצר בחשבון שלך אלא אם רשמת את השם שלך. כל המידע נוסף יוצג רק לך."
-      email_already_confirmed: "כתובת הדו''אל שלך כבר אומתה"
+      these_fields_are_shown_only_to_you: שם המשתמש יוצר בחשבון שלך אלא אם רשמת את
+        השם שלך. כל המידע נוסף יוצג רק לך.
+      email_already_confirmed: כתובת הדו''אל שלך כבר אומתה
       email:
         address_title: כתובת
         remove_title: מחק
-        remove_confirmation: "אתה בטוח שאתה רוצה למחוק את המייל הזה?"
-        receive_notifications_title_desktop: "קבל התראות"
-        receive_notifications_title_mobile: "קבל התראות"
-        receive_notifications_new_title_mobile: "קבל התראות"
-        add_new_with_plus: "+ הוסף כתובת דוא\"ל חדשה"
+        remove_confirmation: אתה בטוח שאתה רוצה למחוק את המייל הזה?
+        receive_notifications_title_desktop: קבל התראות
+        receive_notifications_title_mobile: קבל התראות
+        receive_notifications_new_title_mobile: קבל התראות
+        add_new_with_plus: + הוסף כתובת דוא"ל חדשה
         add_new_cancel: ביטול
-        confirmation_title_mobile: "אישור:"
+        confirmation_title_mobile: 'אישור:'
         confirmation_title_desktop: אישור
-        confirmation_resend: "שלח שוב"
+        confirmation_resend: שלח שוב
         status_confirmed: מאושר
         status_pending: ממתין
     notifications:
-      email_from_admins: "אני מאשר קבלת מיילים מצוות ‎%{service_name}‎ "
-      i_want_to_get_email_notification_when: "אני רוצה לקבל התראות לדוא\"ל כאשר..."
-      newsletters: "איימילים מצוות האתר"
+      email_from_admins: 'אני מאשר קבלת מיילים מצוות ‎%{service_name}‎ '
+      i_want_to_get_email_notification_when: אני רוצה לקבל התראות לדוא"ל כאשר...
+      newsletters: איימילים מצוות האתר
       community_updates: ניוזלטר
       email_about_confirm_reminders: "...שכחתי לאשר הזמנה"
-      email_about_new_comments_to_own_listing: "מישהו הגיב על כרטיס השירות שלי..."
-      email_about_new_messages: "מישהו שלח לי הודעה..."
-      email_about_new_received_testimonials: "מישהו כתב עלי משוב..."
-      email_about_testimonial_reminders: "שכחתי לכתוב ביקורת על הזמנה..."
-      email_daily_community_updates: "שלחו לי ניוזלטר יומי עם שיתופים חדשים!"
-      email_weekly_community_updates: "שלחו לי ניוזלטר שבועי אם יש מודעות חדשות"
-      do_not_email_community_updates: "אל תשלחו לי ניוזלטר"
-      email_when_conversation_accepted: "מישהו אישר את ההצעה או הבקשה שלי..."
-      email_when_conversation_rejected: "מישהו סרב להצעה או הבקשה שלי..."
-      email_about_completed_transactions: "מישהו סימן את ההזמנה שלי כהושלמה"
+      email_about_new_comments_to_own_listing: מישהו הגיב על כרטיס השירות שלי...
+      email_about_new_messages: מישהו שלח לי הודעה...
+      email_about_new_received_testimonials: מישהו כתב עלי משוב...
+      email_about_testimonial_reminders: שכחתי לכתוב ביקורת על הזמנה...
+      email_daily_community_updates: שלחו לי ניוזלטר יומי עם שיתופים חדשים!
+      email_weekly_community_updates: שלחו לי ניוזלטר שבועי אם יש מודעות חדשות
+      do_not_email_community_updates: אל תשלחו לי ניוזלטר
+      email_when_conversation_accepted: מישהו אישר את ההצעה או הבקשה שלי...
+      email_when_conversation_rejected: מישהו סרב להצעה או הבקשה שלי...
+      email_about_completed_transactions: מישהו סימן את ההזמנה שלי כהושלמה
       email_about_new_payments: "...קיבלתי תשלום חדש!"
-      email_about_new_listings_by_followed_people: "...מישהו שאני עוקב אחריו פרסם שיתוף חדש"
-      unsubscribe_succesful: "הסרנו אותך מהרשימה בהצלחה!"
-      unsubscribe_info_text: "לא תקבל עוד הודעות דוא\"ל אלה. בדוק את ‎%{settings_link}‎ כדי לבחור איזה סוג של הודעות דוא\"ל ברצונך לקבל מ-‎%{service_name}‎, או חזור אל‎%{homepage_link}‎."
+      email_about_new_listings_by_followed_people: "...מישהו שאני עוקב אחריו פרסם
+        שיתוף חדש"
+      unsubscribe_succesful: הסרנו אותך מהרשימה בהצלחה!
+      unsubscribe_info_text: לא תקבל עוד הודעות דוא"ל אלה. בדוק את ‎%{settings_link}‎
+        כדי לבחור איזה סוג של הודעות דוא"ל ברצונך לקבל מ-‎%{service_name}‎, או חזור
+        אל‎%{homepage_link}‎.
       settings_link: הגדרות
-      homepage_link: "דף הבית"
-      unsubscribe_unsuccesful: "שגיאה בביטול הרישום"
-      unsuccessful_unsubscribe_info_text: "פג תוקפו של הקישור לביטול המנוי. היכנס כדי לשנות את הגדרות דוא\"ל."
-      email_listing_new_comment: ~
-      email_listing_updated: ~
+      homepage_link: דף הבית
+      unsubscribe_unsuccesful: שגיאה בביטול הרישום
+      unsuccessful_unsubscribe_info_text: פג תוקפו של הקישור לביטול המנוי. היכנס כדי
+        לשנות את הגדרות דוא"ל.
+      email_listing_new_comment: 
+      email_listing_updated: 
     profile:
-      about_you: "קצת על עצמי"
+      about_you: קצת על עצמי
       city: עיר
-      family_name: "שם משפחה"
-      given_name: "שם פרטי"
-      first_name_with_initial: "רק האות הראשונה תוצג למשתמשים אחרים"
-      first_name_only: "לא יוצג למשתמשים אחרים"
-      display_name: "שם לתצוגה"
-      display_name_description: "אם אתה מייצג חברה, אתה יכול להשתמש בשם החברה כשם לתצוגה באתר. שם זה מוצג למשתמשים אחרים במקום השם הפרטי ושם המשפחה שלך."
+      family_name: שם משפחה
+      given_name: שם פרטי
+      first_name_with_initial: רק האות הראשונה תוצג למשתמשים אחרים
+      first_name_only: לא יוצג למשתמשים אחרים
+      display_name: שם לתצוגה
+      display_name_description: אם אתה מייצג חברה, אתה יכול להשתמש בשם החברה כשם לתצוגה
+        באתר. שם זה מוצג למשתמשים אחרים במקום השם הפרטי ושם המשפחה שלך.
       location_description: |-
-          באפשרותך לספק כתובת רחוב או עיר או מיקוד. תמיד טוב להוסיף את המדינה.
-          לדוגמא, רחוב הרב קוק 21 תל-אביב, מיקוד 662846, ישראל.
-      profile_picture_description: "תמונת הפרופיל צריכה להיות בפורמט מרובע 1:1, לדוגמא, 800X800 פיקסלים. אחרת היא תחתך."
-      phone_number: "מספר טלפון"
-      profile_picture: "תמונת פרופיל"
+        באפשרותך לספק כתובת רחוב או עיר או מיקוד. תמיד טוב להוסיף את המדינה.
+        לדוגמא, רחוב הרב קוק 21 תל-אביב, מיקוד 662846, ישראל.
+      profile_picture_description: תמונת הפרופיל צריכה להיות בפורמט מרובע 1:1, לדוגמא,
+        800X800 פיקסלים. אחרת היא תחתך.
+      phone_number: מספר טלפון
+      profile_picture: תמונת פרופיל
       postal_code: מיקוד
-      profile_page: "בדף המשתמש שלך"
+      profile_page: בדף המשתמש שלך
       profilemap: מפה
       street_address: מיקום
-      these_fields_are_shown_in_your: "‎%{service_name}‎ המידע הזה זמין לכל הקהילה של"
-      visible_to_everybody: "זמין לכולם"
+      these_fields_are_shown_in_your: "‎%{service_name}‎ המידע הזה זמין לכל הקהילה
+        של"
+      visible_to_everybody: זמין לכולם
       visible_to_registered_users: "(זמין למשתמשים מחוברים)"
-      default_in_listing: "משמש רק בתור ברירת מחדל בעת יצירת רשימה חדשה"
-      invisible: "לא יוצג למשתמשים אחרים"
-      image_is_processing: "אנא המתן, אנחנו מעבדים את תמונת הפרופיל שלך, זה יהיה מוכן בעוד דקה או שתיים."
+      default_in_listing: משמש רק בתור ברירת מחדל בעת יצירת רשימה חדשה
+      invisible: לא יוצג למשתמשים אחרים
+      image_is_processing: אנא המתן, אנחנו מעבדים את תמונת הפרופיל שלך, זה יהיה מוכן
+        בעוד דקה או שתיים.
       shown_in_your_public_profile: "(הצג בפרופיל הפומבי שלך)"
-      editing_profile_of: "אתה עכשיו עורך את הפרופיל של ‎%{name}‎ "
-      format_markdown_link: ~
-      format_markdown: "אתה יכול ‎%{link}‎ "
-      username: "שם משתמש"
-      username_description: "שם המשתמש שלך משומש כחלק יחודי בURL של הפרופיל שלך. אתה יכול להשתמש באותיות ומספרים ללא מרווחים. כשאתה משנה את שם המשתמש, הURL ישתנה אוטומטית. שם המשתמש הקודם יהפוך לזמין עבור משתמשים אחרים."
-    save_information: "שמור פרטים"
+      editing_profile_of: 'אתה עכשיו עורך את הפרופיל של ‎%{name}‎ '
+      format_markdown_link: 
+      format_markdown: 'אתה יכול ‎%{link}‎ '
+      username: שם משתמש
+      username_description: שם המשתמש שלך משומש כחלק יחודי בURL של הפרופיל שלך. אתה
+        יכול להשתמש באותיות ומספרים ללא מרווחים. כשאתה משנה את שם המשתמש, הURL ישתנה
+        אוטומטית. שם המשתמש הקודם יהפוך לזמין עבור משתמשים אחרים.
+    save_information: שמור פרטים
   shipping_address:
-    shipping_address: "כתובת למשלוח"
+    shipping_address: כתובת למשלוח
   tag_cloud:
     tag_used:
-      with_tag: "עם תיוג"
-      without_tag: "בלי תיוג"
+      with_tag: עם תיוג
+      without_tag: בלי תיוג
   terms:
     show:
       accept_terms: "‎%{service_name}‎ מאשר את תנאי השימוש"
-      here: "על ידי הלחיצה כאן"
-      i_accept_new_terms: "אני מקבל את התנאים החדשים"
-      i_accept_terms: "אני מאשר"
+      here: על ידי הלחיצה כאן
+      i_accept_new_terms: אני מקבל את התנאים החדשים
+      i_accept_terms: אני מאשר
       terms: "‎%{service_name}‎ תנאי השימוש של"
-      terms_have_changed: "תנאי השימוש שונו"
-      you_can_view_the_new_terms: "ניתן להציג את התנאים החדשים"
-      you_need_to_accept: "לפני שתתחיל בשימוש קודם אלייך לאשר ‎%{service_name}‎ ברוכים הבאים ל"
-      you_need_to_accept_new_terms: "‎‎%{service_name}‎ שינו תנאי השימוש  ועליך לקבל את התנאים החדשים ב‎ ‎%{service_name}‎"
+      terms_have_changed: תנאי השימוש שונו
+      you_can_view_the_new_terms: ניתן להציג את התנאים החדשים
+      you_need_to_accept: לפני שתתחיל בשימוש קודם אלייך לאשר ‎%{service_name}‎ ברוכים
+        הבאים ל
+      you_need_to_accept_new_terms: "‎‎%{service_name}‎ שינו תנאי השימוש  ועליך לקבל
+        את התנאים החדשים ב‎ ‎%{service_name}‎"
   testimonials:
     index:
       all_testimonials: משובים
-      feedback_altogether: "משוב כולל "
-      loading_more_testimonials: "טוען משובים נוספים"
-      no_testimonials: "לא התקבל משוב"
+      feedback_altogether: 'משוב כולל '
+      loading_more_testimonials: טוען משובים נוספים
+      no_testimonials: לא התקבל משוב
     new:
       as_expected: כצפוי
-      exceeded_expectations: "טוב מהצפוי"
+      exceeded_expectations: טוב מהצפוי
       give_feedback_to: "‎%{person}‎ תן משוב ל"
-      grade: "מהי התחושה הכללית שלך?"
-      less_than_expected: "מתחת למצופה"
-      send_feedback: "שלח משוב"
-      slightly_better_than_expected: "קצת מעבר למצופה"
-      slightly_less_than_expected: "קצת מתחת למצופה"
-      textual_feedback: "איך העניינים מתקדמים?"
-      this_will_be_shown_in_profile: "המשוב שתמסור יהיה גלוי למשתמשים אחרים בדף הפרופיל של ‎%{person}‎ זה עוזר להם להעריך אם ‎%{person}‎ הוא אדם ישר"
+      grade: מהי התחושה הכללית שלך?
+      less_than_expected: מתחת למצופה
+      send_feedback: שלח משוב
+      slightly_better_than_expected: קצת מעבר למצופה
+      slightly_less_than_expected: קצת מתחת למצופה
+      textual_feedback: איך העניינים מתקדמים?
+      this_will_be_shown_in_profile: המשוב שתמסור יהיה גלוי למשתמשים אחרים בדף הפרופיל
+        של ‎%{person}‎ זה עוזר להם להעריך אם ‎%{person}‎ הוא אדם ישר
       positive: חיובי
       negative: שלילי
-      default_textual_feedback: "הכל הלך בצורה חלקה, תודה רבה!"
+      default_textual_feedback: הכל הלך בצורה חלקה, תודה רבה!
     testimonial:
       about_listing: לגבי
   date:
@@ -1786,7 +1998,7 @@ he-IL:
   datepicker:
     days:
       sunday: ראשון
-      monday: "יום שני"
+      monday: יום שני
       tuesday: שלישי
       wednesday: רביעי
       thursday: חמישי
@@ -1842,31 +2054,31 @@ he-IL:
       short: "%b %e, %Y at %H:%M"
       shorter: "%b %e at %H:%M"
       short_date: "%b %e, %Y"
-      hours_only: ~
+      hours_only: 
   timestamps:
-    day_ago: "יום ‎%{count}‎ לפני"
-    days_ago: "ימים ‎%{count}‎ לפני"
-    hour_ago: "שעות ‎ %{count}‎ לפני"
-    hours_ago: "שעות ‎ %{count}‎ לפני"
-    minute_ago: "דקה ‎%{count}‎ לפני"
-    minutes_ago: "דקות  ‎%{count}‎ לפני"
-    month_ago: "חודש ‎%{count}‎ לפני"
-    months_ago: "חודשים ‎%{count}‎ לפני"
-    seconds_ago: "שניות ‎%{count}‎ לפני"
-    year_ago: "שנה ‎%{count}‎ לפני"
-    years_ago: "שנים ‎%{count}‎ לפני"
+    day_ago: יום ‎%{count}‎ לפני
+    days_ago: ימים ‎%{count}‎ לפני
+    hour_ago: שעות ‎ %{count}‎ לפני
+    hours_ago: שעות ‎ %{count}‎ לפני
+    minute_ago: דקה ‎%{count}‎ לפני
+    minutes_ago: דקות  ‎%{count}‎ לפני
+    month_ago: חודש ‎%{count}‎ לפני
+    months_ago: חודשים ‎%{count}‎ לפני
+    seconds_ago: שניות ‎%{count}‎ לפני
+    year_ago: שנה ‎%{count}‎ לפני
+    years_ago: שנים ‎%{count}‎ לפני
     days_since:
-      one: "יום ‎%{count}‎"
+      one: יום ‎%{count}‎
       other: "‎%{count}‎ ימים"
     time_to:
       seconds:
         one: "‎%{count}‎  שניות"
         other: "‎%{count}‎  שניות"
       minutes:
-        one: "דקה ‎%{count}‎"
+        one: דקה ‎%{count}‎
         other: "‎%{count}‎ דקות"
       hours:
-        one: "שעה ‎%{count}‎"
+        one: שעה ‎%{count}‎
         other: "‎%{count}‎ שעות"
       days:
         one: "‎%{count}‎ ימים"
@@ -1874,34 +2086,34 @@ he-IL:
   transactions:
     initiate:
       booked_days: ":ימים מוזמנים"
-      booked_nights: "לילות שהוזמנו:"
+      booked_nights: 'לילות שהוזמנו:'
       booked_days_label:
-        one: "יום מוזמן:"
-        other: "ימים מוזמנים:"
+        one: 'יום מוזמן:'
+        other: 'ימים מוזמנים:'
       booked_nights_label:
-        one: "לילה מוזמן:"
-        other: "לילות מוזמנים:"
+        one: 'לילה מוזמן:'
+        other: 'לילות מוזמנים:'
       booked_hours_label:
-        one: "שעת הזמנה"
-        other: "שעות הזמנה"
-      price_per_day: "מחיר ליום"
-      price_per_night: "מחיר ללילה:"
-      price_per_hour: "מחיר לשעה:"
-      price_per_unit: "מחיר ליחידה:"
-      quantity: "כמות:"
+        one: שעת הזמנה
+        other: שעות הזמנה
+      price_per_day: מחיר ליום
+      price_per_night: 'מחיר ללילה:'
+      price_per_hour: 'מחיר לשעה:'
+      price_per_unit: 'מחיר ליחידה:'
+      quantity: 'כמות:'
       subtotal: סה''כ
       shipping-price: משלוח
-      stripe-fee: "עמלת סטרייפ(מוערכת):"
+      stripe-fee: 'עמלת סטרייפ(מוערכת):'
       duration_in_hours:
         one: "(שעה 1)"
         other: "(‎%{count}‎ שעות)"
       start_end_time: "‎%{start_time}‎ עד ‎%{end_time}‎ "
     price_per_quantity: "‎%{unit_type}‎ מחיר ל"
     price: מחיר
-    quantity: "כמות:‎%{quantity}‎ "
+    quantity: 'כמות:‎%{quantity}‎ '
     unit_price: "‎ %{unit_price} ‎מחיר יחידה"
-    total: "סה''כ:"
-    total_to_pay: "תשלום כולל:"
+    total: 'סה''''כ:'
+    total_to_pay: 'תשלום כולל:'
   unit:
     day: יום
     days: ימים
@@ -1909,8 +2121,8 @@ he-IL:
     listings:
       errors:
         availability:
-          something_went_wrong: "לא הצלחנו להציג זמינו, אנא נסה לרען את העמוד."
-          saving_failed: "לא הצלחנו לשמור את השינויים בזמינות, אנא נסה לרענן את העמוד."
+          something_went_wrong: לא הצלחנו להציג זמינו, אנא נסה לרען את העמוד.
+          saving_failed: לא הצלחנו לשמור את השינויים בזמינות, אנא נסה לרענן את העמוד.
         working_hours:
           required: דרוש
           overlaps: חפיפה
@@ -1923,26 +2135,28 @@ he-IL:
         week: שבוע
         month: חודש
       edit_availability_header: תפוסה
-      save_and_close_availability_editing: "שמור וסגור"
-      confirm_discarding_unsaved_availability_changes_explanation: "יש לך שינויים שלא נשמרו, אם תמשיך ללא שמירה, השינויים יאבדו."
-      confirm_discarding_unsaved_availability_changes_question: "האם אתה בטוח שתרצה לזנוח את השינויים?"
-      edit_listing_availability: "עדכן תפוסה"
+      save_and_close_availability_editing: שמור וסגור
+      confirm_discarding_unsaved_availability_changes_explanation: יש לך שינויים שלא
+        נשמרו, אם תמשיך ללא שמירה, השינויים יאבדו.
+      confirm_discarding_unsaved_availability_changes_question: האם אתה בטוח שתרצה
+        לזנוח את השינויים?
+      edit_listing_availability: עדכן תפוסה
       working_hours:
-        default_schedule: "לו''ז ברירת מחדל"
-        i_am_available_on: "אני זמין ב..."
-        start_time: "מועד התחלה"
-        end_time: "מועד סיום"
+        default_schedule: לו''ז ברירת מחדל
+        i_am_available_on: אני זמין ב...
+        start_time: מועד התחלה
+        end_time: מועד סיום
         add_another_time_slot: "+הוסף מועד"
         save: שמור
     no_listings:
-      sorry: "מצטערים, לא מצאנו מודעות באפיון החיפוש שלך."
-      try_other_search_terms: "אולי ננסה חיפוש אחר?"
+      sorry: מצטערים, לא מצאנו מודעות באפיון החיפוש שלך.
+      try_other_search_terms: אולי ננסה חיפוש אחר?
     listing_card:
-      add_picture: "הוספת תמונה"
-      no_picture: "אין תמונה"
+      add_picture: הוספת תמונה
+      no_picture: אין תמונה
     search:
       page: עמוד
-      page_of_pages: "מתוך‎%{total_number_of_pages}‎ "
+      page_of_pages: 'מתוך‎%{total_number_of_pages}‎ '
     topbar:
       menu: תפריט
       more: עוד
@@ -1950,24 +2164,22 @@ he-IL:
       search_location_placeholder: מיקום
       user: משתמש
       inbox: הודעות
-      profile: "החשבון שלי"
-      manage_listings: "המודעות שלי"
+      profile: החשבון שלי
+      manage_listings: המודעות שלי
       settings: הגדרות
       logout: התנתק
       login: כניסה
-      signup: "הרשמו עכשיו"
-      admin_dashboard: "פאנל מנהל"
+      signup: הרשמו עכשיו
+      admin_dashboard: פאנל מנהל
       language: שפה
-      listings: "המודעות שלי"
+      listings: המודעות שלי
     utils:
       km: ק''מ
       mi: מייל
     branding:
       powered_by: "‎%{service_name}‎  פועל בחסות ‎%{sharetribe_link}‎  מרקטפלייס"
-      create_own: |-
-          רוצה ליצור מרקטפלייס משלך כמו‎%{service_name}‎ ? 
-          ‎%{learn_more}‎ 
-      learn_more: "למד עוד"
+      create_own: "רוצה ליצור מרקטפלייס משלך כמו‎%{service_name}‎ ? \n‎%{learn_more}‎ "
+      learn_more: למד עוד
   will_paginate:
     models:
       person:
@@ -1979,198 +2191,202 @@ he-IL:
         one: טרנזקציות
         other: טרנזקציות
     previous_label: "&#8592; הקודם"
-    next_label: "הבא& # 8594 "
-    page_gap: "חפש כאן &;"
+    next_label: 'הבא& # 8594 '
+    page_gap: חפש כאן &;
     page_entries_info:
       single_page:
         zero: " %{model} לא נמצא"
-        one: "מציג ‎%{count}‎  ‎%{model}‎ "
-        other: "מציג את כל ה‎%{count}‎ ‎%{model}‎ "
+        one: 'מציג ‎%{count}‎  ‎%{model}‎ '
+        other: 'מציג את כל ה‎%{count}‎ ‎%{model}‎ '
       single_page_html:
         zero: " %{model} לא נמצא"
-        one: |-
-            מציג‎<b>‎ 1 ‎</b>‎ ‎%
-            ‎%{model}‎ 
-        other: "מציג ‎<b>‎  הכל‎%{count}‎ ‎</b>‎ ‎%{model}‎ "
+        one: "מציג‎<b>‎ 1 ‎</b>‎ ‎%\n‎%{model}‎ "
+        other: 'מציג ‎<b>‎  הכל‎%{count}‎ ‎</b>‎ ‎%{model}‎ '
       multi_page: "‏ מציג ‎%{model}‎ ‎%{from}‎ -‎%{to}‎  מתוך‎%{count}‎  מסה''כ"
-      multi_page_html: |
-          מציג ‎%{model}‎ 
-           <b>‎%{from}‎ &nbsp;-&nbsp‎%{to}‎ ‎%{to}‎ </b> 
-          מתוך  <b>%{count}</b>  בסה''כ
+      multi_page_html: "מציג ‎%{model}‎ \n <b>‎%{from}‎ &nbsp;-&nbsp‎%{to}‎ ‎%{to}‎
+        </b> \nמתוך  <b>%{count}</b>  בסה''כ\n"
     person:
       community_members_entries_info:
         single_page:
           zero: "‎%{model}‎  לא נמצא"
-          one: "מציג‎%{accepted_count}‎  התקבל ‎%{accepted_model}‎ ו‎%{other_count}‎  אחר‎%{other_model}‎ "
-          other: "מציג‎%{accepted_count}‎  התקבל ‎%{accepted_model}‎ ו‎%{other_count}‎  אחר‎%{other_model}‎ "
+          one: 'מציג‎%{accepted_count}‎  התקבל ‎%{accepted_model}‎ ו‎%{other_count}‎  אחר‎%{other_model}‎ '
+          other: 'מציג‎%{accepted_count}‎  התקבל ‎%{accepted_model}‎ ו‎%{other_count}‎  אחר‎%{other_model}‎ '
         single_page_html:
           zero: " %{model} לא נמצא"
-          one: "מציג‎<b>‎ ‎%{accepted_count}‎ ‎</b>‎  מאושר‎%{accepted_model}‎ ו‎%{other_count}‎ אחר‎%{other_model}‎ "
-          other: "מציג‎<b>‎ ‎%{accepted_count}‎ ‎</b>‎ מאושר‎%{accepted_model}‎ ו‎%{other_count}‎ אחר‎%{other_model}‎ "
-        multi_page: ~
-        multi_page_html: ~
+          one: 'מציג‎<b>‎ ‎%{accepted_count}‎ ‎</b>‎  מאושר‎%{accepted_model}‎ ו‎%{other_count}‎
+            אחר‎%{other_model}‎ '
+          other: 'מציג‎<b>‎ ‎%{accepted_count}‎ ‎</b>‎ מאושר‎%{accepted_model}‎ ו‎%{other_count}‎
+            אחר‎%{other_model}‎ '
+        multi_page: 
+        multi_page_html: 
   stripe_accounts:
-    admin_account_not_connected: "שימוש ב‎%{service_name}‎  בכדי לקבל תשלומים לא אפשרית מאחר והתשלומים לא הוגדרו. נא ‎%{contact_admin_link}‎  לפרטים."
-    contact_admin_link_text: "צור קשר עם צוות ‎%{service_name}‎ "
-    you_are_ready_to_accept_payments: "אתה מוכן לקבל תשלומי פייפאל"
+    admin_account_not_connected: שימוש ב‎%{service_name}‎  בכדי לקבל תשלומים לא אפשרית
+      מאחר והתשלומים לא הוגדרו. נא ‎%{contact_admin_link}‎  לפרטים.
+    contact_admin_link_text: 'צור קשר עם צוות ‎%{service_name}‎ '
+    you_are_ready_to_accept_payments: אתה מוכן לקבל תשלומי פייפאל
     commission: "‎%{commission}‎ % "
-    pay_with_stripe: "שלם בסטרייפ באמצעות‎%{card}‎ "
-    add_and_pay: "אשר תשלום"
-    card_not_stored: ~
-    missing_payment: "‎%{settings_link}‎ יש לך מודעה פתוחה, כול מה שנשאר כדי להתחיל לקבל תשלומים זה לחבר את החשבון פייפל"
-    stripe_bank_connected: "פרטי בנק הוגדרו בהצלחה!"
-    stripe_can_accept: "מעכשיו תוכל לקבל תשלומים לחשבון הבנק שלך"
-    stripe_credit_card: "כרטיס אשראי"
+    pay_with_stripe: 'שלם בסטרייפ באמצעות‎%{card}‎ '
+    add_and_pay: אשר תשלום
+    card_not_stored: 
+    missing_payment: "‎%{settings_link}‎ יש לך מודעה פתוחה, כול מה שנשאר כדי להתחיל
+      לקבל תשלומים זה לחבר את החשבון פייפל"
+    stripe_bank_connected: פרטי בנק הוגדרו בהצלחה!
+    stripe_can_accept: מעכשיו תוכל לקבל תשלומים לחשבון הבנק שלך
+    stripe_credit_card: כרטיס אשראי
     paypal: פייפאל
-    paypal_connected: "חשבון פייפאל התחבר בהצלחה!"
-    paypal_can_accept: "מעכשיו תוכל לקבל תשלומים באמצעות פייפאל"
-    paypal_connected_give_permission: ~
-    stripe_account_restricted: "תשלומי און ליין בחשבון שלך הוגבלו!"
-    stripe_account_restricted_info: "נא להוסיף פרטי בנק כדי לספק לסולק עוד מידע."
-    stripe_account_restricted_soon: "תשלומי און ליין בחשבונכם יוגבלו בקרוב"
-    stripe_account_restricted_soon_info: "נא להוסיף פרטי בנק כדי לספק לסולק עוד מידע."
-    stripe_account_pending_verification: "פרטי חשבון נשמרו בהצלחה. ממתינים לאישור חשבון מהסולק."
-    stripe_account_pending_verification_info: "בדקו מאוחר יותר כדי לוודא שהכל כשורה."
+    paypal_connected: חשבון פייפאל התחבר בהצלחה!
+    paypal_can_accept: מעכשיו תוכל לקבל תשלומים באמצעות פייפאל
+    paypal_connected_give_permission: 
+    stripe_account_restricted: תשלומי און ליין בחשבון שלך הוגבלו!
+    stripe_account_restricted_info: נא להוסיף פרטי בנק כדי לספק לסולק עוד מידע.
+    stripe_account_restricted_soon: תשלומי און ליין בחשבונכם יוגבלו בקרוב
+    stripe_account_restricted_soon_info: נא להוסיף פרטי בנק כדי לספק לסולק עוד מידע.
+    stripe_account_pending_verification: פרטי חשבון נשמרו בהצלחה. ממתינים לאישור חשבון
+      מהסולק.
+    stripe_account_pending_verification_info: בדקו מאוחר יותר כדי לוודא שהכל כשורה.
     form_new:
-      need_info: "אנחנו צריכים מידע עבורך בכדי לאפשר לך לשלוח כסף"
-      select_country: "בחר מדינה..."
-      legal_name: "שם חוקי"
-      first_name: "שם פרטי"
-      last_name: "שם משפחה"
-      first_name_kana: "שם פרטי קאנה"
-      last_name_kana: "שם משפחה קאנה"
-      first_name_kanji: "שם פרטי קאנג'י"
-      last_name_kanji: "שם משפחה קאנג'י"
+      need_info: אנחנו צריכים מידע עבורך בכדי לאפשר לך לשלוח כסף
+      select_country: בחר מדינה...
+      legal_name: שם חוקי
+      first_name: שם פרטי
+      last_name: שם משפחה
+      first_name_kana: שם פרטי קאנה
+      last_name_kana: שם משפחה קאנה
+      first_name_kanji: שם פרטי קאנג'י
+      last_name_kanji: שם משפחה קאנג'י
       country: מדינה
-      birth_date: "תאריך לידה"
-      ssn_last_4: "מס זהות אמריקאי 4 אחרונים"
-      personal_id_number: "תעודת זהות"
+      birth_date: תאריך לידה
+      ssn_last_4: מס זהות אמריקאי 4 אחרונים
+      personal_id_number: תעודת זהות
       address_country: מדינה
       address_state: אזור
       address_province: מחוז
       address_city: עיר
       address_postal_code: מיקוד
-      address_line1: "כתובת רחוב"
-      tos_link: "בעת הוספת פרטי התשלום הינך מאשר את ‎%{stripe_link}‎ "
-      tos_link_title: "סטרייפ התחבר להסכם חשבון"
-      save_details: "שמור פרטים"
-      edit: "ערוך פרטים"
+      address_line1: כתובת רחוב
+      tos_link: 'בעת הוספת פרטי התשלום הינך מאשר את ‎%{stripe_link}‎ '
+      tos_link_title: סטרייפ התחבר להסכם חשבון
+      save_details: שמור פרטים
+      edit: ערוך פרטים
       cancel: ביטול
       gender: מין
-      phone_number: "מס טלפון"
-      phone_info_text: ~
-      address_kana_postal_code: "מיקוד קאנה"
-      address_kana_state: "מדינה קאנה"
-      address_kana_city: "עיר קאנה"
-      address_kana_town: "עיירה קאנה"
-      address_kana_line1: "שם רחוב קאנה"
-      address_kanji_postal_code: "מיקוד קאנג'י"
-      address_kanji_state: "מדינה קאנג'י"
-      address_kanji_city: "עיר קאנג'י"
-      address_kanji_town: "עיירה קאנג'י"
-      address_kanji_line1: "כתובת רחוב קאנג'י"
+      phone_number: מס טלפון
+      phone_info_text: 
+      address_kana_postal_code: מיקוד קאנה
+      address_kana_state: מדינה קאנה
+      address_kana_city: עיר קאנה
+      address_kana_town: עיירה קאנה
+      address_kana_line1: שם רחוב קאנה
+      address_kanji_postal_code: מיקוד קאנג'י
+      address_kanji_state: מדינה קאנג'י
+      address_kanji_city: עיר קאנג'י
+      address_kanji_town: עיירה קאנג'י
+      address_kanji_line1: כתובת רחוב קאנג'י
       male: זכר
       female: נקבה
     form_bank:
-      bank_account_number: "מס חשבון בנק"
-      bank_routing_number: "מס ניתוב"
-      bank_routing_1: "קוד בנק"
+      bank_account_number: מס חשבון בנק
+      bank_routing_number: מס ניתוב
+      bank_routing_1: קוד בנק
       bank_routing_2: סניף
       bank_currency: מטבע
-      update_also_bank_account: "עדכן גם את חשבון הנבק"
-      bank_account_same_country: ~
-      bank_country: ~
-      bank_holder_name: ~
+      update_also_bank_account: עדכן גם את חשבון הנבק
+      bank_account_same_country: 
+      bank_country: 
+      bank_holder_name: 
       messages:
-        account_number: "מס חשבון"
-        routing_number: "מס ניתוב"
-        bank_code: "קוד בנק"
-        branch_code: "קוד סניף"
-        transit_number: "מספר העברה"
-        institution_number: "מס מוסד"
-        format_varies_by_bank: "סוג פורמט לפי בנק"
-        bsb: "BSB "
-        error_message: "פורמט לא תקין"
-        clearing_code: "קוד ניכיון"
-        sort_code: "סוג קוד"
-        must_match: "חייב להיות בפורמט הבא:"
+        account_number: מס חשבון
+        routing_number: מס ניתוב
+        bank_code: קוד בנק
+        branch_code: קוד סניף
+        transit_number: מספר העברה
+        institution_number: מס מוסד
+        format_varies_by_bank: סוג פורמט לפי בנק
+        bsb: 'BSB '
+        error_message: פורמט לא תקין
+        clearing_code: קוד ניכיון
+        sort_code: סוג קוד
+        must_match: 'חייב להיות בפורמט הבא:'
         a_dash: מקף
         digits: מספרים
-        digits_or_chars: "מספרים או ספרות א-ת"
+        digits_or_chars: מספרים או ספרות א-ת
     form_verification:
-      personal_id_number: "תעודת זהות"
-      document: "הוכחת זהות(ת.ז,דרכון)"
-      document_back: ~
-      send_verification: "שלח אימות"
-      need_verification: "נצרך אימות נוסף"
-      additional_document: ~
-      additional_document_back: ~
-      files_need_to_be: ~
+      personal_id_number: תעודת זהות
+      document: הוכחת זהות(ת.ז,דרכון)
+      document_back: 
+      send_verification: שלח אימות
+      need_verification: נצרך אימות נוסף
+      additional_document: 
+      additional_document_back: 
+      files_need_to_be: 
     form_pin:
-      social_insurance_number: "מספר זהות SIN "
-      social_security_number: "מספר זהות אמריקאי SSN "
-      ssn_last_4: "4 מספרים אחרונים של SSN "
-      hong_kong_identity_card: "מספר זהות הונג קונגי HKID "
-      singapore_identity_card: "NRIC או FIN "
-      mexico_id_number: ~
+      social_insurance_number: 'מספר זהות SIN '
+      social_security_number: 'מספר זהות אמריקאי SSN '
+      ssn_last_4: '4 מספרים אחרונים של SSN '
+      hong_kong_identity_card: 'מספר זהות הונג קונגי HKID '
+      singapore_identity_card: 'NRIC או FIN '
+      mexico_id_number: 
       messages:
-        social_insurance_number: "מס SIN חייב להיות תקין"
+        social_insurance_number: מס SIN חייב להיות תקין
   payment_settings:
-    title: "העדפת תשלום"
-    bank_account: "חשבון בנק"
+    title: העדפת תשלום
+    bank_account: חשבון בנק
     paypal: פייפאל
-    bank_account_details: "כדי לקבל תשלום צריך להגדיר את פרטי הבנק שלך ולאחר מכן משתמשים יוכלו לשלם בכרטיס אשראי."
-    add_bank_details: "הוסף פרטי בנק"
-    can_accept_stripe_and_paypal: "אתה יכול לקבל תשלומים לחשבון הבנק או הפייפאל שלך."
-    to_accept_paypal: "כדי לקבל תשלומים באמצעות פייפאל, חבר את חשבון הפייפאל. משתמשים יוכלו לשלם באמצעות פייפאל."
-    connect_paypal: "חיבור חשבון פייפאל"
-    wrong_setup: ~
-    invalid_bank_account_number: "שים לב שפרטי חשבון הבנק נכונים ותואמים את המדינה שלך"
-    invalid_postal_code: "מיקוד לא מתאים ל‎%{country}‎ "
+    bank_account_details: כדי לקבל תשלום צריך להגדיר את פרטי הבנק שלך ולאחר מכן משתמשים
+      יוכלו לשלם בכרטיס אשראי.
+    add_bank_details: הוסף פרטי בנק
+    can_accept_stripe_and_paypal: אתה יכול לקבל תשלומים לחשבון הבנק או הפייפאל שלך.
+    to_accept_paypal: כדי לקבל תשלומים באמצעות פייפאל, חבר את חשבון הפייפאל. משתמשים
+      יוכלו לשלם באמצעות פייפאל.
+    connect_paypal: חיבור חשבון פייפאל
+    wrong_setup: 
+    invalid_bank_account_number: שים לב שפרטי חשבון הבנק נכונים ותואמים את המדינה
+      שלך
+    invalid_postal_code: 'מיקוד לא מתאים ל‎%{country}‎ '
   seo_sections:
-    you_can_use_variables: "תאה יכול להשתמש במשתנים הבאים:‎%{vars}‎ "
+    you_can_use_variables: 'תאה יכול להשתמש במשתנים הבאים:‎%{vars}‎ '
     placeholder:
-      search_results: "תוצאות חיפוש-‎%{variable}‎ "
-      search_results_for: "תוצאות חיפוש עבור:‎%{placeholder1}‎  ב ‎%{placeholder2}‎ "
+      search_results: 'תוצאות חיפוש-‎%{variable}‎ '
+      search_results_for: 'תוצאות חיפוש עבור:‎%{placeholder1}‎  ב ‎%{placeholder2}‎ '
       listing_description: "‎%{title}‎  עבור ‎%{price}‎  ע''י ‎%{author}‎  ב‎%{marketplace}‎ "
       listing_description_without_price: "‎%{title}‎  ע''י ‎%{author}‎  ב ‎%{marketplace}‎ "
       category_description: "‎%{category}‎  ב ‎%{marketplace}‎ "
-      profile_title: "פרופיל של ‎%{marketplace}‎  ‎%{user}‎  ‎ ‎ "
-      profile_description: "למדו עוד על ‎%{user}‎  ב ‎%{marketplace}‎ "
+      profile_title: 'פרופיל של ‎%{marketplace}‎  ‎%{user}‎  ‎ ‎ '
+      profile_description: 'למדו עוד על ‎%{user}‎  ב ‎%{marketplace}‎ '
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: ~
-        title: ~
-        paragraph: ~
-        button_title: ~
-        button_path: ~
-        button_path_string: ~
-        background_image: ~
-        background_image_variation: ~
-        background_color: ~
-        background_color_string: ~
+        id: 
+        title: 
+        paragraph: 
+        button_title: 
+        button_path: 
+        button_path_string: 
+        background_image: 
+        background_image_variation: 
+        background_color: 
+        background_color_string: 
       landing_page_version/section/listings:
-        listing_1_id: ~
-        listing_2_id: ~
-        listing_3_id: ~
+        listing_1_id: 
+        listing_2_id: 
+        listing_3_id: 
       landing_page_version/section/video:
-        text: ~
-        youtube_video_id: ~
+        text: 
+        youtube_video_id: 
       landing_page_version/section/hero:
-        cta_button_text: ~
-        cta_button_url: ~
+        cta_button_text: 
+        cta_button_url: 
   canada_states:
     AB: אלברטה
-    BC: "קולומביה בריטית"
+    BC: קולומביה בריטית
     MB: מניטובה
-    NB: "ברנסוויק החדשה"
-    NL: "ניופאונדלנד ולברדור"
-    NS: "Nova Scotiaנובה סקוטיה"
-    NT: "טריטוריות צפוניות"
+    NB: ברנסוויק החדשה
+    NL: ניופאונדלנד ולברדור
+    NS: Nova Scotiaנובה סקוטיה
+    NT: טריטוריות צפוניות
     NU: נונבות
-    "ON": אונטריו
-    PE: "אי הנסיך אדוורד"
+    'ON': אונטריו
+    PE: אי הנסיך אדוורד
     QC: קיובק
     SK: ססקצ'וואן
-    YT: "טריטוריית יוקון"
+    YT: טריטוריית יוקון
