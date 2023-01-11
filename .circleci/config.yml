@@ -27,6 +27,11 @@ jobs:
     steps:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
+      # Chrome driver installation leaves a license file in project dir, which
+      # prevents checkout. The project dir must be empty.
+      - run:
+          name: Clean install
+          command: rm -f LICENSE.chromedriver
       - run:
           name: Check install
           command: |
