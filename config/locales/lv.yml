@@ -2479,6 +2479,10 @@ lv:
       Gaidām konta verificēšanu no maksājuma sniedzēja.
     stripe_account_pending_verification_info: Pārbaudiet vēlreiz vēlāk, lai pārliecinātos,
       ka viss ir kārtībā.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Lai varētu Jums nosūtīt naudu, mums ir nepieciešama informācija par
         Jums.
@@ -2520,6 +2524,9 @@ lv:
       address_kanji_line1: Iela
       male: vīrietis
       female: sieviete
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Bankas konta numurs
       bank_routing_number: "“Routing” numurs"

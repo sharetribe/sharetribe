@@ -1991,7 +1991,7 @@ es:
       password_again: Confirme la contraseña
       show_my_name_to_others: Mostrar mi nombre real a otros usuarios de %{service_name}
       sign_up: Crear una nueva cuenta en %{service_name}
-      terms: Términos de uso
+      terms: Términos de Uso
       privacy: Política de privacidad
       visible_only_to_you: visible solamente para ti y el equipo de %{service_name}
       visible_to_everybody: Visible para todos
@@ -2542,6 +2542,11 @@ es:
       la verificación del proveedor de pagos.
     stripe_account_pending_verification_info: Vuelve más tarde para asegurarte de
       que todo esté en orden.
+    seller_account_not_connected: La cuenta del vendedor no está conectada
+    bank_account_not_connected: La cuenta de banco no está conectada
+    stripe_need_more_information: Stripe, la plataforma de pagos, requiere más información.
+    stripe_need_more_information_info: Para recibir pagos en línea, debes añadir más
+      datos para completar tu perfil y verificar tu cuenta.
     form_new:
       need_info: Necesitamos un poco de información sobre ti para poder enviarte dinero.
       select_country: Selecciona un país...
@@ -2582,6 +2587,9 @@ es:
       address_kanji_line1: Dirección (Kanji)
       male: masculino
       female: femenino
+      individual: Soy una persona física
+      company: Represento a una compañía
+      account_type: Tipo de cuenta
     form_bank:
       bank_account_number: Número de cuenta de banco
       bank_routing_number: Número de ruta/routing

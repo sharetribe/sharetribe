@@ -2601,6 +2601,10 @@ de:
       auf Konto-Verifizierung vom Zahlungsdienstleister.
     stripe_account_pending_verification_info: Prüfe bitte diese Seite später um sicherzustellen,
       dass alles in Ordnung ist.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Wir brauchen einige Informationen über dich, um dir Geld überweisen
         zu können.
@@ -2642,6 +2646,9 @@ de:
       address_kanji_line1: Adresse kanji
       male: männlich
       female: weiblich
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Kontonummer
       bank_routing_number: Bankleitzahl

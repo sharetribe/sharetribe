@@ -2454,6 +2454,10 @@ lt:
       Laukiama, kol mokėjimo paslaugų teikėjas patikrins paskyrą.
     stripe_account_pending_verification_info: Patikrinkite vėliau, kad įsitikintumėte,
       jog viskas tvarkinga.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Mums reikia šiek tiek informacijos apie jus, kad galėtume jums atsiųsti
         pinigų.
@@ -2495,6 +2499,9 @@ lt:
       address_kanji_line1: Gatvės adresas kanji
       male: Vyras
       female: Moteris
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Banko sąskaitos numeris
       bank_routing_number: Maršruto numeris

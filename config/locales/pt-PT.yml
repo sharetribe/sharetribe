@@ -2347,6 +2347,10 @@ pt-PT:
       A esperar a verificado da conta por parte do provedor de pagamentos.
     stripe_account_pending_verification_info: Volte mais tarde para te verificar se
       já foi tudo confirmado.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: 
       select_country: 
@@ -2389,6 +2393,9 @@ pt-PT:
       address_kanji_line1: Morada
       male: 
       female: 
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: 
       bank_routing_number: 

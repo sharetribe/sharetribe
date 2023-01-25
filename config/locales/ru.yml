@@ -2543,6 +2543,10 @@ ru:
       Ожидание подтверждения учетной записи от поставщика платежа.
     stripe_account_pending_verification_info: Зайдите позже, чтобы убедиться, что
       все в порядке.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Нам нужна некоторая информация о вас, чтобы иметь возможность отправить
         вам деньги.
@@ -2584,6 +2588,9 @@ ru:
       address_kanji_line1: Название улицы Кандзи
       male: мужской
       female: женский
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Номер банковского счета
       bank_routing_number: Код Банка (Routing number)

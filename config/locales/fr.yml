@@ -2583,6 +2583,12 @@ fr:
       de la vérification du compte par le prestataire de paiements.
     stripe_account_pending_verification_info: Revenez voir un peu plus tard pour vous
       assurer que tout est en ordre.
+    seller_account_not_connected: Le compte du vendeur n'est pas connecté
+    bank_account_not_connected: Le compte en banque n'est pas connecté
+    stripe_need_more_information: Stripe, la plateforme de paiements, requiert plus
+      d'informations.
+    stripe_need_more_information_info: Pour recevoir les paiements, vous devez fournir
+      quelques détails supplémentaires et vérifier votre compte.
     form_new:
       need_info: Nous avons besoin de quelques informations pour pouvoir vous transférer
         votre argent.
@@ -2625,6 +2631,9 @@ fr:
       address_kanji_line1: Adresse kanji
       male: Homme
       female: Femme
+      individual: Je suis un particulier
+      company: Je représente une entreprise
+      account_type: Type de compte
     form_bank:
       bank_account_number: Numéro de compte en banque
       bank_routing_number: Numéro de routing

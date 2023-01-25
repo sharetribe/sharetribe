@@ -2448,6 +2448,10 @@ et:
       Ootame konto kinnitust makseteenuse pakkujalt.
     stripe_account_pending_verification_info: Vaata hiljem uuesti, et veenduda, kas
       kõik on korras.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Raha saatmiseks vajame Sinu kohta teavet
       select_country: Vali riik...
@@ -2488,6 +2492,9 @@ et:
       address_kanji_line1: Tänav kanji
       male: mees
       female: naine
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: pangakonto number
       bank_routing_number: Suunakood
