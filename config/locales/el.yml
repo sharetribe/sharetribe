@@ -2605,6 +2605,10 @@ el:
       με επιτυχία. Αναμονή για επαλήθευση λογαριασμού από τον πάροχο πληρωμών.
     stripe_account_pending_verification_info: Ελέγξτε ξανά αργότερα για να βεβαιωθείτε
       ότι όλα είναι εντάξει.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Χρειαζόμαστε μερικές πληροφορίες για εσάς για να μπορέσουμε να σας
         στείλουμε χρήματα.
@@ -2647,6 +2651,9 @@ el:
       address_kanji_line1: Οδός Κάντζι
       male: άνδρας
       female: γυναίκα
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Αριθμός τραπεζικού λογαριασμού
       bank_routing_number: Αριθμός δρομολόγησης

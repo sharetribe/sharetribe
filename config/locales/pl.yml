@@ -2524,6 +2524,10 @@ pl:
       na weryfikację konta od pośrednika płatności.
     stripe_account_pending_verification_info: Sprawdź później, aby upewnić się że
       wszystko jest w porządku.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Potrzebujemy kilka informacji o Tobie, aby przesłać Ci pieniądze.
       select_country: Wybierz kraj...
@@ -2564,6 +2568,9 @@ pl:
       address_kanji_line1: ulica
       male: męski
       female: damski
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Numer konta bankowego
       bank_routing_number: Numer rozliczeniowy

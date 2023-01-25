@@ -2491,6 +2491,10 @@ bg:
       се потвърждаване от разплащателния доставчик.
     stripe_account_pending_verification_info: Проверете отново по-късно за да се уверите,
       че всичко е наред.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Трябва ни малко от личните ви данни за да може да Ви изпратим пари.
       select_country: Изберете държава...
@@ -2532,6 +2536,9 @@ bg:
       address_kanji_line1: Адрес
       male: Мъж
       female: Жена
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Номер на банкова сметка
       bank_routing_number: Маршрутен номер

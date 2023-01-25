@@ -2505,6 +2505,10 @@ pt-BR:
       verificação de conta do provedor de pagamento.
     stripe_account_pending_verification_info: Verifique novamente mais tarde para
       se certificar de que tudo está em ordem.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Precisamos de alguma informação para poder enviar-lhe o seu dinheiro.
       select_country: Selecione o país...
@@ -2546,6 +2550,9 @@ pt-BR:
       address_kanji_line1: 
       male: masculino
       female: feminimo
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Número da conta bancária
       bank_routing_number: Número de roteamento

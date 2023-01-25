@@ -2352,6 +2352,10 @@ da-DK:
     stripe_account_restricted_soon_info: 
     stripe_account_pending_verification: 
     stripe_account_pending_verification_info: 
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Vi har brug for nogle oplysninger om dig for at kunne sende dig penge.
       select_country: Vælg land
@@ -2392,6 +2396,9 @@ da-DK:
       address_kanji_line1: 
       male: Mand
       female: Kvinde
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Bankkonto nummer
       bank_routing_number: 

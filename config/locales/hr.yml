@@ -2420,6 +2420,10 @@ hr:
       Čekamo na verifikaciju računa od stane pružatelja usluga plaćanja.
     stripe_account_pending_verification_info: Dođite kasnije kako bi bili sigurni
       da je sve u redu.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Trebaju nam neke informacije o Vama kako bi Vam mogli slati novac
       select_country: Odaberi državu
@@ -2460,6 +2464,9 @@ hr:
       address_kanji_line1: Adresa kanji
       male: muško
       female: žensko
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Broj bankovnog računa
       bank_routing_number: Vodeći broj banke - VDBI

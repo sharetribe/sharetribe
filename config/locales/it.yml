@@ -2405,6 +2405,10 @@ it:
       bancario per fornire maggiori informazioni al servizio di pagamento.
     stripe_account_pending_verification: 
     stripe_account_pending_verification_info: 
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Abbiamo bisogno di alcune informazioni su di te per poterti inviare
         denaro
@@ -2447,6 +2451,9 @@ it:
       address_kanji_line1: 
       male: 
       female: 
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Numero conto corrente
       bank_routing_number: 

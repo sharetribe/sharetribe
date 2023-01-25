@@ -2021,6 +2021,10 @@ zh-TW:
     stripe_account_restricted_soon_info: 
     stripe_account_pending_verification: 
     stripe_account_pending_verification_info: 
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: 我們需要一些關於您的信息才能夠向您發送款項。
       select_country: 
@@ -2061,6 +2065,9 @@ zh-TW:
       address_kanji_line1: 
       male: 
       female: 
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: 
       bank_routing_number: 

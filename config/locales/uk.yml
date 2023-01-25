@@ -2566,6 +2566,10 @@ uk:
       підтвердження облікового запису від постачальника платежу.
     stripe_account_pending_verification_info: Зайдіть пізніше, щоб переконатися, що
       все гаразд.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Нам потрібна інформація про вас, щоб мати можливість відправити вам
         гроші.
@@ -2607,6 +2611,9 @@ uk:
       address_kanji_line1: Вулиця kanji
       male: чоловічий
       female: жіночий
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Номер банківського рахунку
       bank_routing_number: Маршрутний номер

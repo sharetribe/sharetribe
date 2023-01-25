@@ -2436,6 +2436,10 @@ es-ES:
     stripe_account_restricted_soon_info: 
     stripe_account_pending_verification: 
     stripe_account_pending_verification_info: 
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Necesitamos un poco de información sobre ti para poder enviarte dinero.
       select_country: Selecciona un país...
@@ -2476,6 +2480,9 @@ es-ES:
       address_kanji_line1: Dirección (Kanji)
       male: masculino
       female: femenino
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Número de cuenta de banco
       bank_routing_number: Número de ruta/routing

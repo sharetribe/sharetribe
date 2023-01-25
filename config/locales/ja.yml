@@ -2017,6 +2017,10 @@ ja:
     stripe_account_restricted_soon_info: 
     stripe_account_pending_verification: 
     stripe_account_pending_verification_info: 
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: 必要事項ご記載後、送金が可能になります。
       select_country: 国を選択する
@@ -2057,6 +2061,9 @@ ja:
       address_kanji_line1: 住所２
       male: 男性
       female: 女性
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: 口座番号
       bank_routing_number: 銀行支店コード

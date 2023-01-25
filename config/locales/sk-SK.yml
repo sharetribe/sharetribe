@@ -2494,6 +2494,10 @@ sk-SK:
       Čaká sa na overenie účtu od poskytovateľa platby.
     stripe_account_pending_verification_info: Skúste to znova neskôr a uistite sa,
       že je všetko v poriadku.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Potrebujeme o Vás nejaké informácie, aby sme Vám mohli posielať peniaze.
       select_country: Vyberte krajinu ...
@@ -2534,6 +2538,9 @@ sk-SK:
       address_kanji_line1: Ulica kanji
       male: Muž
       female: Žena
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Číslo bankového účtu
       bank_routing_number: Smerovacie číslo

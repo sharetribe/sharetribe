@@ -2512,6 +2512,10 @@ fi:
       tilin vahvistusta maksunvälittäjältä.
     stripe_account_pending_verification_info: Tarkista myöhemmin täältä että kaikki
       on kunnossa.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Tarvitsemme hieman tietoja sinusta, jotta voimme lähettää sinulle
         rahaa.
@@ -2553,6 +2557,9 @@ fi:
       address_kanji_line1: Katuosoite kanji
       male: mies
       female: nainen
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Tilinumero
       bank_routing_number: Reititysnumero

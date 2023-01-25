@@ -1941,6 +1941,10 @@ km-KH:
     stripe_account_restricted_soon_info: 
     stripe_account_pending_verification: 
     stripe_account_pending_verification_info: 
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: 
       select_country: 
@@ -1981,6 +1985,9 @@ km-KH:
       address_kanji_line1: 
       male: 
       female: 
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: 
       bank_routing_number: 

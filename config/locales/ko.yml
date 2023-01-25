@@ -2156,6 +2156,10 @@ ko:
     stripe_account_restricted_soon_info: 결제 서비스사에 추가 정보를 보내기 위해 은행계좌 정보를 수정해야 합니다.
     stripe_account_pending_verification: 계정 정보가 성공적으로 저장되었습니다. 결제 서비스사의 확인을 기다리고 있습니다.
     stripe_account_pending_verification_info: 이후에 모든 기능이 정상적으로 작동하는지 확인 바랍니다.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: 판매대금을 본인의 은행계좌로 받기 위한 정보가 필요합니다.
       select_country: 국가선택...
@@ -2196,6 +2200,9 @@ ko:
       address_kanji_line1: 
       male: 
       female: 
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: 은행 계좌 정보
       bank_routing_number: 라우팅 번호

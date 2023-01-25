@@ -2551,6 +2551,10 @@ nl:
       In afwachting van verificatie door het betalingssysteem.
     stripe_account_pending_verification_info: Kom later terug om te controleren of
       alles in orde is.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: We hebben wat informatie van je nodig om betalingen te kunnen sturen.
       select_country: Kies land...
@@ -2591,6 +2595,9 @@ nl:
       address_kanji_line1: Adres (in Kanji)
       male: man
       female: vrouw
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Bankrekeningnummer
       bank_routing_number: Routing nummer

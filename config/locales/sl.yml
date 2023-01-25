@@ -2513,6 +2513,10 @@ sl:
       Čakanje na preverjanje računa od ponudnika plačil.
     stripe_account_pending_verification_info: Preverite znova pozneje in se prepričajte,
       da je vse v redu.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Potrebujemo nekaj informacij o vas, da vam lahko pošljemo denar.
       select_country: Izberi državo...
@@ -2554,6 +2558,9 @@ sl:
       address_kanji_line1: Ulični naslov kanji
       male: moški
       female: ženska
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Številka bančnega računa
       bank_routing_number: Usmerjevalna številka

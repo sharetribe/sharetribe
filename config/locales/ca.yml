@@ -2537,6 +2537,10 @@ ca:
       S'espera la verificació del compte del proveïdor de pagaments.
     stripe_account_pending_verification_info: Torneu-ho a comprovar més endavant per
       assegurar-vos que tot està en ordre.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Necessitam un poc d'informació sobre tu per poder enviar-te diners.
       select_country: Selecciona un país...
@@ -2578,6 +2582,9 @@ ca:
       address_kanji_line1: Adreça kanji
       male: masculí
       female: femení
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Número de compte del banc
       bank_routing_number: Número de ruta/routing

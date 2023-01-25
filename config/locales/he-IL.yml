@@ -2244,6 +2244,10 @@ he-IL:
     stripe_account_pending_verification: פרטי חשבון נשמרו בהצלחה. ממתינים לאישור חשבון
       מהסולק.
     stripe_account_pending_verification_info: בדקו מאוחר יותר כדי לוודא שהכל כשורה.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: אנחנו צריכים מידע עבורך בכדי לאפשר לך לשלוח כסף
       select_country: בחר מדינה...
@@ -2284,6 +2288,9 @@ he-IL:
       address_kanji_line1: כתובת רחוב קאנג'י
       male: זכר
       female: נקבה
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: מס חשבון בנק
       bank_routing_number: מס ניתוב

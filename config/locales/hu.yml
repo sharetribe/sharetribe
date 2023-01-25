@@ -2513,6 +2513,10 @@ hu:
       A fizetési szolgáltató ellenőrzi az adatokat.
     stripe_account_pending_verification_info: Erre a feladatra adj egy kis időt, de
       később gyere vissza és ellenőrizd, hogy minden rendben van-e.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Ahhoz, hogy az eladott áru értékét át tudjuk majd utalni neked, szügségünk
         lesz néhány plusz információra.
@@ -2554,6 +2558,9 @@ hu:
       address_kanji_line1: Cím, házszám
       male: Férfi
       female: Nő
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Bankszámlaszám
       bank_routing_number: Útvonalszám

@@ -2417,6 +2417,10 @@ sv:
     stripe_account_pending_verification: Kontoinformationen sparades. Väntar på verifiering
       av konto från leverantören av betallösningen.
     stripe_account_pending_verification_info: 
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Vi behöver en del information om dig för att kunna skicka dig pengar.
       select_country: Välj land....
@@ -2457,6 +2461,9 @@ sv:
       address_kanji_line1: 
       male: 
       female: 
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Bankkontonummer
       bank_routing_number: Clearingnummer

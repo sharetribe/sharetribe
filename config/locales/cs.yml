@@ -2482,6 +2482,10 @@ cs:
       se na ověření účtu od poskytovatele plateb.
     stripe_account_pending_verification_info: Zkontrolujte to později, abyste se ujistil,
       že je vše v pořádku.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Potřebujeme nějaké informace k tomu, abyste mohli přijímat peníze.
       select_country: Vyberte zemi ...
@@ -2522,6 +2526,9 @@ cs:
       address_kanji_line1: Ulice
       male: muž
       female: žena
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Číslo bankovního účtu
       bank_routing_number: Směrovací číslo

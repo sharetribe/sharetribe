@@ -2493,6 +2493,10 @@ ro:
       Așteaptă verificarea contului de la furnizorul de plată.
     stripe_account_pending_verification_info: Reveniți mai târziu pentru a vă asigura
       că totul este în ordine și pentru a adăuga actele de confirmare a identității.
+    seller_account_not_connected: 
+    bank_account_not_connected: 
+    stripe_need_more_information: 
+    stripe_need_more_information_info: 
     form_new:
       need_info: Avem nevoie de câteva informații despre dvs. pentru a vă putea transfera
         bani.
@@ -2535,6 +2539,9 @@ ro:
       address_kanji_line1: Adresa stradala kanji
       male: masculin
       female: Femeie
+      individual: 
+      company: 
+      account_type: 
     form_bank:
       bank_account_number: Numarul contului bancar
       bank_routing_number: 
