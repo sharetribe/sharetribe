@@ -19,7 +19,7 @@
     - unless stripe_allowed
       = render 'stripe_not_allowed'
     - if stripe_connected
-      = render 'stripe_keys_connected', stripe_enabled_by_admin: stripe_enabled_by_admin, stripe_account: stripe_account, stripe_allowed: stripe_allowed
+      = render 'stripe_keys_connected', stripe_enabled_by_admin: stripe_enabled_by_admin, stripe_account: stripe_account, stripe_allowed: stripe_allowed, stripe_connect_onboarding: stripe_connect_onboarding
     - else
       = render 'stripe_keys', form: form, stripe_allowed: stripe_allowed
 

@@ -3,12 +3,13 @@ class Person::PaymentSettingsService
   attr_reader :community, :params, :person, :stripe_error, :stripe_error_message
   attr_accessor :presenter
 
-  def initialize(community:, params:, person:)
+  def initialize(community:, params:, person:, person_url: nil)
     @community = community
     @params = params
     @person = person
     @stripe_error = nil
     @stripe_error_message = nil
+    @person_url = person_url
   end
 
   delegate :stripe_account_ready, to: :presenter, prefix: false
@@ -20,6 +21,31 @@ class Person::PaymentSettingsService
     if stripe_error && stripe_account_ready
       stripe_accounts_api.destroy(community_id: community.id, person_id: person.id)
       presenter.reset_stripe
+    end
+  end
+
+  def create_onboarding(client_ip_address:)
+    return if stripe_account_ready
+
+    stripe_account_form = StripeAccountFormOnboarding.new(params[:stripe_account_form_onboarding])
+    presenter.stripe_account_form_onboarding = stripe_account_form
+    if stripe_account_form.valid? && !community.disabled_countries.include?(stripe_account_form.address_country)
+      account_attrs = stripe_account_form.to_hash
+      account_attrs[:email] = person.confirmed_notification_email_addresses.first || person.primary_email.try(:address)
+      account_attrs[:url] = @person_url
+      if stripe_account_form.business_type == 'individual'
+        account_attrs[:first_name] = person.given_name
+        account_attrs[:last_name] = person.family_name
+      end
+      account_attrs[:ip] = client_ip_address
+      result = stripe_accounts_api.create_onboarding(community_id: community.id, person_id: person.id, body: account_attrs)
+      if result[:success]
+        presenter.reload_from_stripe
+      else
+        presenter.stripe_seller_account[:address_country] = presenter.stripe_account_form_onboarding.address_country
+        @stripe_error = true
+        @stripe_error_message = result[:error_msg]
+      end
     end
   end
 

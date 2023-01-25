@@ -10,12 +10,36 @@ module StripeService::API
     end
 
     def create(community_id:, person_id:, body:)
-      metadata = {sharetribe_community_id: community_id, sharetribe_person_id: person_id, sharetribe_mode: stripe_api.charges_mode(community_id)}
+      metadata = { sharetribe_community_id: community_id,
+                   sharetribe_person_id: person_id,
+                   sharetribe_mode: stripe_api.charges_mode(community_id) }
       result = stripe_api.register_seller(community: community_id, account_info: body, metadata: metadata)
       data = body.merge(stripe_seller_id: result.id, community_id: community_id, person_id: person_id)
       Result::Success.new(stripe_accounts_store.create(opts: data))
     rescue StandardError => e
       allow_stripe_exceptions(e)
+    end
+
+    def create_onboarding(community_id:, person_id:, body:)
+      metadata = { sharetribe_community_id: community_id,
+                   sharetribe_person_id: person_id,
+                   sharetribe_mode: stripe_api.charges_mode(community_id) }
+      result = stripe_api.register_seller_bounding(community: community_id, account_info: body, metadata: metadata)
+      data = body.merge(stripe_seller_id: result.id, community_id: community_id, person_id: person_id)
+      Result::Success.new(stripe_accounts_store.create(opts: data))
+    rescue StandardError => e
+      allow_stripe_exceptions(e)
+    end
+
+    def create_account_link(community_id:, account_id:, return_url:)
+      account_info = {
+        account: account_id,
+        refresh_url: return_url,
+        return_url: return_url,
+        type: 'account_onboarding'
+      }
+      result = stripe_api.create_account_link(community: community_id, account_info: account_info)
+      result[:url]
     end
 
     def create_bank_account(community_id:, person_id:, body:)

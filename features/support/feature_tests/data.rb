@@ -9,7 +9,8 @@ module FeatureTests
         marketplace_type: "product",
         marketplace_country: "us",
         marketplace_language: "en",
-        payment_process: :preauthorize
+        payment_process: :preauthorize,
+        disable_feature_flags: true
       )
 
       if payment_gateway

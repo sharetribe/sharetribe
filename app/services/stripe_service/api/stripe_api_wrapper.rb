@@ -90,7 +90,7 @@ class StripeService::API::StripeApiWrapper
           email: account_info[:email],
           account_token: account_info[:token]
         }
-        data[:requested_capabilities] = ['card_payments', 'transfers']
+        data[:requested_capabilities] = %w[card_payments transfers]
         data[:business_profile] = {
           mcc: DEFAULT_MCC,
           product_description: "#{account_info[:first_name_kana] || account_info[:first_name]} #{account_info[:last_name_kana] || account_info[:last_name]}",
@@ -98,6 +98,56 @@ class StripeService::API::StripeApiWrapper
         }
         data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
         Stripe::Account.create(data)
+      end
+    end
+
+    def register_seller_bounding(community:, account_info:, metadata: {})
+      with_stripe_payment_config(community) do
+        case charges_mode(community)
+        when :separate
+          payout_mode = {}
+        when :destination
+          payout_mode =
+            {
+              settings: {
+                payouts: {
+                  schedule: {
+                    interval: 'manual'
+                  }
+                }
+              }
+            }
+        end
+        data = {
+          type: 'custom',
+          country: account_info[:address_country],
+          email: account_info[:email],
+          business_type: account_info[:business_type]
+        }
+        data[:requested_capabilities] = %w[card_payments transfers]
+        data[:business_profile] = {
+          mcc: DEFAULT_MCC,
+          product_description: "#{account_info[:first_name]} #{account_info[:last_name]}",
+          url: account_info[:url]
+        }
+        if account_info[:business_type] == 'individual'
+          data[:individual] = {
+            first_name: account_info[:first_name],
+            last_name: account_info[:last_name]
+          }
+        end
+        data[:tos_acceptance] = {
+          date: Time.now.to_i,
+          ip: account_info[:ip]
+        }
+        data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
+        Stripe::Account.create(data)
+      end
+    end
+
+    def create_account_link(community:, account_info:, _metadata: {})
+      with_stripe_payment_config(community) do
+        Stripe::AccountLink.create(account_info)
       end
     end
 

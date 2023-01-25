@@ -1,0 +1,52 @@
+%p
+  = t("stripe_accounts.form_new.need_info")
+.row.paypal-wizard.connect-row
+  %div
+    .paypal-wizard-content.connect-row
+      .col-12
+        = form_tag create_person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
+          = fields_for presenter.stripe_account_form_onboarding do |form|
+            .row
+              .col-12
+                = form.label :business_type, t("stripe_accounts.form_new.account_type")
+                %label.inline
+                  = form.radio_button :business_type, 'individual', checked: true
+                  = t("stripe_accounts.form_new.individual")
+                %label.inline
+                  = form.radio_button :business_type, 'company'
+                  = t("stripe_accounts.form_new.company")
+            .row
+              .col-12
+                = form.label :address_country, t("stripe_accounts.form_new.address_country")+"*"
+                = form.select :address_country, presenter.stripe_available_countries, {prompt: t("stripe_accounts.form_new.select_country"), disabled: @presenter.community.disabled_countries}, {style: "min-width: 200px"}
+
+          .country-dependent{"data-country-except" => "XXX"}
+            - base_terms_url = "https://stripe.com/COUNTRY/connect-account/legal#translation"
+            - stripe_link = link_to t("stripe_accounts.form_new.tos_link_title"), base_terms_url, target: '_blank', data: { terms_url: base_terms_url }, id: 'stripe-terms-link'
+            = t("stripe_accounts.form_new.tos_link", stripe_link: stripe_link ).html_safe
+
+            = button_tag t('stripe_accounts.form_new.save_details')
+
+- content_for :extra_javascript do
+  :javascript
+      var select_country = $("#stripe_account_form_onboarding_address_country"),
+          country_dependent = $('.country-dependent');
+
+      select_country.change(function(){
+        var country = $(this).val(),
+            stripe_link = $("#stripe-terms-link");
+        if (country) {
+          country_dependent.show();
+          if (stripe_link.size() > 0) {
+            stripe_link.attr('href', stripe_link.data("terms-url").replace(/COUNTRY/, country.toLowerCase()));
+          }
+        } else {
+          country_dependent.hide();
+        }
+      });
+
+      if ($('#stripe_account_form_onboarding_address_country option:selected')) {
+        select_country.trigger('change');
+      } else {
+        country_dependent.hide();
+      }

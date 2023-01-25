@@ -7,12 +7,13 @@ class Person::PaymentSettingsPresenter
 
   public
 
-  attr_writer :stripe_account_form, :stripe_bank_form
+  attr_writer :stripe_account_form, :stripe_bank_form, :stripe_account_form_onboarding
 
-  def initialize(service:, person_url:)
+  def initialize(service:, person_url:, person_id: nil)
     @service = service
     @service.presenter = self
     @person_url = person_url
+    @person_id = person_id
   end
 
   delegate :community, :params, :person, :person_email, :stripe_error, to: :service, prefix: false
@@ -50,6 +51,22 @@ class Person::PaymentSettingsPresenter
 
   def stripe_enabled
     @stripe_enabled ||= StripeHelper.community_ready_for_payments?(community.id)
+  end
+
+  def stripe_connect_onboarding
+    @stripe_connect_onboarding ||= FeatureFlagHelper.feature_enabled?(:stripe_connect_onboarding)
+  end
+
+  def account_link(stripe_seller_id:, return_url:)
+    StripeService::API::Api.accounts.create_account_link(community_id: community.id,
+                                                         account_id: stripe_seller_id,
+                                                         return_url: return_url)
+  end
+
+  def stripe_bank_id
+    api_seller_account[:external_accounts][:data][0][:id]
+  rescue StandardError
+    nil
   end
 
   # seller_account
@@ -130,6 +147,8 @@ class Person::PaymentSettingsPresenter
     @stripe_account_verification =
       if requirements.disabled_reason == 'requirements.pending_verification'
         :pending_verification
+      elsif stripe_account[:stripe_bank_id].nil?
+        :need_more_information
       elsif requirements.disabled_reason.present?
         :restricted
       elsif requirements.respond_to?(:current_deadline) && requirements.current_deadline.present?
@@ -159,6 +178,10 @@ class Person::PaymentSettingsPresenter
     stripe_account_verification == :verified
   end
 
+  def stripe_need_more_information?
+    stripe_account_verification == :need_more_information
+  end
+
   def stripe_seller_account
     return @stripe_seller_account if defined?(@stripe_seller_account)
 
@@ -175,6 +198,10 @@ class Person::PaymentSettingsPresenter
 
   def stripe_account_form
     @stripe_account_form ||= StripeAccountForm.new(stripe_seller_account.merge(email: person_email))
+  end
+
+  def stripe_account_form_onboarding
+    @stripe_account_form_onboarding ||= StripeAccountFormOnboarding.new(stripe_seller_account.merge(email: person_email))
   end
 
   def stripe_bank_form

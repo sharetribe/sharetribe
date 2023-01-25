@@ -1,0 +1,21 @@
+%p
+  = t("stripe_accounts.form_new.need_info")
+.row.paypal-wizard.connect-row
+  %div
+    .paypal-wizard-content.connect-row
+      .col-12
+        = form_tag create_person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
+          = render 'stripe_name', presenter: presenter
+          .country-dependent{"data-country-except" => "XXX"}
+            = render 'address_fields_form', presenter: presenter
+          .country-dependent{"data-country-except" => "XXX"}
+            = render 'bank_fields_form', presenter: presenter
+          = render 'personal_id_number', presenter: presenter
+          = render 'verification_fields_form2', presenter: presenter
+
+          .country-dependent{"data-country-except" => "XXX"}
+            - base_terms_url = "https://stripe.com/COUNTRY/connect-account/legal#translation"
+            - stripe_link = link_to t("stripe_accounts.form_new.tos_link_title"), base_terms_url, target: "_blank", data: {terms_url: base_terms_url}, id: "stripe-terms-link"
+            = t("stripe_accounts.form_new.tos_link", stripe_link: stripe_link ).html_safe
+
+            = button_tag t('stripe_accounts.form_new.save_details')

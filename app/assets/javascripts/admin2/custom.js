@@ -217,4 +217,8 @@ $(function(){
        place.hide();
     });
 
+    $('#confirm_stripe_connect_onboarding').on('change', function() {
+        $('#confirm_stripe_connect_onboarding_btn').prop('disabled', !$(this).prop('checked'));
+    });
+
 });

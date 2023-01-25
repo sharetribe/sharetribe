@@ -19,6 +19,17 @@ module Admin2::PaymentSystem
       render layout: false, status: :unprocessable_entity
     end
 
+    def onboarding_enable
+      unless FeatureFlagHelper.feature_enabled?(:stripe_connect_onboarding)
+        FeatureFlagService::API::Api.features.enable(community_id: @current_community.id, features: [:stripe_connect_onboarding])
+      end
+      flash[:notice] = t('admin2.notifications.onboarding_enabled')
+    rescue StandardError => e
+      flash[:error] = e.message
+    ensure
+      redirect_to admin2_payment_system_stripe_index_path
+    end
+
     def common_update
       message = update_payment_preferences
 

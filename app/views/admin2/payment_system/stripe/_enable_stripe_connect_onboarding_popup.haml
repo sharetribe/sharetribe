@@ -1,0 +1,22 @@
+#confirmStripeConnectOnboardingEnableModal.modal{'aria-hidden' => 'true', 'aria-labelledby' => 'confirmStripeConnectOnboardingEnableModalLabel', 'data-backdrop' => 'static', role: 'dialog', tabindex: '-1'}
+  .modal-dialog.modal-md{role: 'document'}
+    = form_tag onboarding_enable_admin2_payment_system_stripe_index_path, method: :patch, class: %i[modal-content], style: 'margin-left:0;' do
+      .modal-header
+        %h2#confirmStripeConnectOnboardingEnableModalLabel.modal-title
+          = t('admin2.stripe.enable_stripe_connect_onboarding')
+        %button.close{'aria-label' => 'Close', 'data-dismiss' => 'modal', type: 'button'}
+          %span{'aria-hidden' => 'true'} ×
+      .modal-body
+        %p
+          = t('admin2.stripe.enable_stripe_connect_onboarding_info', url: "#{APP_CONFIG.knowledge_base_url}/en/articles/6921884").html_safe
+        %p
+          = t('admin2.stripe.enable_stripe_connect_onboarding_info2')
+        %p
+          = t('admin2.stripe.enable_stripe_connect_onboarding_info3', url: "#{APP_CONFIG.knowledge_base_url}/en/articles/6921854").html_safe
+        .form-group
+          .form-check
+            = check_box_tag :confirm_stripe_connect_onboarding, '1', false, class: 'form-check-input single-checkbox'
+            = label_tag :confirm_stripe_connect_onboarding, t('admin2.stripe.i_have_configured_stripe_connect_onboarding'), class: 'form-check-label'
+      .modal-footer
+        = link_to t('admin2.cancel'), '#', class: %i[cancel-modal], 'data-dismiss': :modal
+        = button_tag t('admin2.stripe.btn_start_using_stripe_connect_onboarding'), class: %i[btn btn-primary], disabled: true, id: :confirm_stripe_connect_onboarding_btn

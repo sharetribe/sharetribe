@@ -132,6 +132,7 @@ module MarketplaceService
     create_category!("Default category", community, locale)
     create_processes!(community.id, payment_process)
     create_listing_shapes!(community, p[:marketplace_type])
+    create_feature_flags(community) if p[:disable_feature_flags].blank?
     create_configurations!({
       community_id: community.id,
       main_search: :keyword,
@@ -216,6 +217,10 @@ module MarketplaceService
 
   def create_listing_shapes!(community, marketplace_type)
     TransactionTypeCreator.create(community, marketplace_type)
+  end
+
+  def create_feature_flags(community)
+    FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:stripe_connect_onboarding])
   end
 
   def create_community_customization!(community, marketplace_name, locale)

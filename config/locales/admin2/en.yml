@@ -286,7 +286,7 @@ en:
       info_header: Stripe
       info_text: "Commission is the service fee you charge for every payment users make through your marketplace. <a href='%{fee_url}' class=\"external-link\" target='_blank'>Stripe's fees</a> will be deducted from the commission you are charging. For transactions processed by Stripe, payouts to sellers are delayed until the order is marked as completed. <a href='%{more_url}' class=\"external-link\" target='_blank'> Learn more</a>."
       transaction_fee_settings: "Stripe commission settings"
-      configure_api_keys: "Configure Stripe API Keys"
+      configure_api_keys: "Configure Stripe API Keys and Stripe Connect Onboarding"
       set_stripe_fee_keys: "To collect a commission using Stripe, you must first <a href=\"%{url}\">configure your Stripe API keys</a>."
       enable_stripe_fee_keys: "To collect a commission using Stripe, you must <a href=\"%{url}\">enable Stripe</a> again on your marketplace."
       enable_first_stripe_fee_keys: "To collect a commission using Stripe, you must first <a href=\"%{url}\">enable Stripe</a> again on your marketplace."
@@ -324,6 +324,15 @@ en:
       need_to_change_publishable_key: "To change your Stripe Publishable Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
       need_to_change_secret_key: "To change your Stripe Secret Key, <a href='#' show-intercom=true >contact the Sharetribe team</a>."
       not_allowed: "Unfortunately, the Stripe integration is not available in <a href=\"%{url}\">your marketplace country</a>."
+      start_using_onboarding: "Start using Stripe Connect Onboarding"
+      onboarding_describe: "Stripe Connect Onboarding makes it easier for sellers to add their payout details. <a href='%{url}' class='external-link' target='_blank'>Learn more</a>."
+      enable_stripe_connect_onboarding: "Enable Stripe Connect Onboarding"
+      enable_stripe_connect_onboarding_link: "%{url}."
+      btn_start_using_stripe_connect_onboarding: "Start using Stripe Connect Onboarding"
+      enable_stripe_connect_onboarding_info: "Stripe Connect Onboarding makes it easier for sellers to add and edit their payout details: <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">learn more and see how it looks</a>."
+      enable_stripe_connect_onboarding_info2: "Once enabled, it is not possible to disable Stripe Connect Onboarding and go back to the regular payout details form."
+      enable_stripe_connect_onboarding_info3: "To proceed, you must first <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">configure Stripe Connect Onboarding in your Stripe Dashboard</a>, then confirm here."
+      i_have_configured_stripe_connect_onboarding: "I have configured Stripe Connect Onboarding in my Stripe Dashboard"
     transaction_size:
       info_header: "Minimum listing price"
       info_text: "If the payment system is enabled in your marketplace, you need to define a minimum listing price: the smallest price a listing on your marketplace can have. <a href=\"%{url}\" class=\"external-link\" target=\"_blank\">Learn more about the minimum listing price</a>."
@@ -1435,6 +1444,7 @@ en:
       transaction_size_updated: "Minimum listing price settings were updated"
       file_was_deleted: "File was successfully deleted"
       custom_script_disabled: "Custom script is disabled. Please upgrade to a paid plan."
+      onboarding_enabled: "Stripe Connect Onboarding successfully enabled"
     seo:
       title: "%{title} | %{service_name} Go Admin panel"
       description: "Manage the %{title} settings of your %{service_name} Sharetribe Go marketplace"

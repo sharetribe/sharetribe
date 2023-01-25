@@ -149,6 +149,8 @@ Rails.application.routes.draw do
     get '/:person_id/settings/payments' => 'payment_settings#index', :as => :person_payment_settings
     post '/:person_id/settings/payments' => 'payment_settings#create', :as => :create_person_payment_settings
     put '/:person_id/settings/payments' => 'payment_settings#update', :as => :update_person_payment_settings
+    get '/:person_id/settings/redirect_to_stripe' => 'payment_settings#redirect_to_stripe', :as => :person_payment_settings_redirect_to_stripe
+    get '/:person_id/settings/stripe_callback' => 'payment_settings#stripe_callback', :as => :person_payment_settings_stripe_callback
     get '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment
 
     # community membership related actions
@@ -367,6 +369,7 @@ Rails.application.routes.draw do
           collection do
             patch :update_stripe_keys
             patch :common_update
+            patch :onboarding_enable
           end
           member do
             patch :disable

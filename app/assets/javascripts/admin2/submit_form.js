@@ -30,7 +30,7 @@ function initSubmitForm() {
         error_div.show();
     };
 
-    $(document).on('change keyup', 'form input, form select, form textarea', function(e) {
+    $(document).on('change keyup', 'form input:not(.single-checkbox), form select, form textarea', function(e) {
         $(this).closest('form').find('button').prop('disabled', false);
     });
 

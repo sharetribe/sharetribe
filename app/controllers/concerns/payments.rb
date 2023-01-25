@@ -22,6 +22,7 @@ module Payments
     stripe_connected =  view_locals[:stripe_enabled] && view_locals[:stripe_account] && view_locals[:stripe_account][:api_verified]
     paypal_connected =  view_locals[:paypal_enabled] && view_locals[:paypal_account].present?
 
+    stripe_connect_onboarding = FeatureFlagHelper.feature_enabled?(:stripe_connect_onboarding)
     buyer_commission = stripe_tx_settings[:active] && (stripe_tx_settings[:commission_from_buyer].to_i > 0 || stripe_tx_settings[:minimum_buyer_transaction_fee_cents].to_i > 0)
     payment_locals = {
       stripe_connected: stripe_connected,
@@ -33,7 +34,8 @@ module Payments
       paypal_ready: PaypalHelper.community_ready_for_payments?(@current_community.id),
       paypal_enabled_by_admin: !!paypal_tx_settings[:active],
       stripe_enabled_by_admin: !!stripe_tx_settings[:active],
-      buyer_commission: buyer_commission
+      buyer_commission: buyer_commission,
+      stripe_connect_onboarding: stripe_connect_onboarding
     }
     view_locals.merge(payment_locals)
   end

@@ -1,0 +1,36 @@
+.row
+  .col-12
+    - if presenter.stripe_account_verified?
+      %h3.paypal-account-connected
+        = icon_tag("check", ["icon-fix"])
+        = t("stripe_accounts.stripe_bank_connected")
+      %p
+        = t("stripe_accounts.stripe_can_accept")
+    - elsif presenter.stripe_need_more_information?
+      %h3.stripe-account-restricted-soon
+        = icon_tag("minus", ["icon-fix"])
+        = t("stripe_accounts.stripe_need_more_information")
+      %p
+        = t("stripe_accounts.stripe_need_more_information_info")
+    - elsif presenter.stripe_account_restricted?
+      %h3.paypal-account-disabled
+        = icon_tag("cross", ["icon-fix"])
+        = t("stripe_accounts.stripe_account_restricted")
+      %p
+        = t("stripe_accounts.stripe_account_restricted_info")
+    - elsif presenter.stripe_account_restricted_soon?
+      %h3.stripe-account-restricted-soon
+        = icon_tag("minus", ["icon-fix"])
+        = t("stripe_accounts.stripe_account_restricted_soon")
+      %p
+        = t("stripe_accounts.stripe_account_restricted_soon_info")
+    - elsif presenter.stripe_account_pending_verification?
+      %h3.stripe-account-pending-verification
+        = icon_tag("check", ["icon-fix"])
+        = t("stripe_accounts.stripe_account_pending_verification")
+      %p
+        = t("stripe_accounts.stripe_account_pending_verification_info")
+
+- unless presenter.stripe_account_pending_verification?
+  .row
+    = link_to t("stripe_accounts.form_new.edit"), person_payment_settings_redirect_to_stripe_path, class: "btn btn-primary", target: "_blank"

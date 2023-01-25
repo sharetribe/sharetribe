@@ -1,4 +1,7 @@
 module Person::PaymentSettingsCommon
+
+  STRIPE_ACCOUNT_FORM_ONBOARDING_ATTRIBUTES = %i[address_country business_type].freeze
+
   STRIPE_ACCOUNT_FORM_ATTRIBUTES =
     %i[
       first_name
@@ -49,6 +52,11 @@ module Person::PaymentSettingsCommon
     validates_inclusion_of :address_country, in: StripeService::Store::StripeAccount::COUNTRIES
     validates_presence_of :address_country
     validates_presence_of :token
+  end
+
+  StripeAccountFormOnboarding = FormUtils.define_form("StripeAccountFormOnboarding",
+                                                      *STRIPE_ACCOUNT_FORM_ONBOARDING_ATTRIBUTES).with_validations do
+    validates_inclusion_of :address_country, in: StripeService::Store::StripeAccount::COUNTRIES
   end
 
   StripeBankForm = FormUtils.define_form("StripeBankForm",

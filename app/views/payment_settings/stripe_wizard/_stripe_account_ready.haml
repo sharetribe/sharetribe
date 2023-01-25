@@ -1,0 +1,69 @@
+- if presenter.stripe_bank_account_ready
+  .row
+    .col-12
+      - if presenter.stripe_account_verified?
+        %h3.paypal-account-connected
+          = icon_tag("check", ["icon-fix"])
+          = t("stripe_accounts.stripe_bank_connected")
+        %p
+          = t("stripe_accounts.stripe_can_accept")
+      - elsif presenter.stripe_account_restricted?
+        %h3.paypal-account-disabled
+          = icon_tag("cross", ["icon-fix"])
+          = t("stripe_accounts.stripe_account_restricted")
+        %p
+          = t("stripe_accounts.stripe_account_restricted_info")
+      - elsif presenter.stripe_account_restricted_soon?
+        %h3.stripe-account-restricted-soon
+          = icon_tag("minus", ["icon-fix"])
+          = t("stripe_accounts.stripe_account_restricted_soon")
+        %p
+          = t("stripe_accounts.stripe_account_restricted_soon_info")
+      - elsif presenter.stripe_account_pending_verification?
+        %h3.stripe-account-pending-verification
+          = icon_tag("check", ["icon-fix"])
+          = t("stripe_accounts.stripe_account_pending_verification")
+        %p
+          = t("stripe_accounts.stripe_account_pending_verification_info")
+
+  - unless presenter.stripe_account_pending_verification?
+    .row
+      = link_to t("stripe_accounts.form_new.edit"), "#", id: "edit-stripe-info"
+
+- elsif !presenter.paypal_enabled
+  .row
+    .col-12
+      %h3= t("payment_settings.credit_card")
+      %p
+        = t("payment_settings.credit_card_bank_details")
+      %p
+        = link_to t("payment_settings.add_bank_details"), '#', id: "edit-stripe-info"
+
+%div.hidden#stripe_forms
+  .row.paypal-wizard.connect-row
+    .col-12
+      .paypal-wizard-content.connect-row
+        = form_tag update_person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true, method: :put do
+          = render 'stripe_name', presenter: presenter
+          = render 'address_fields_form', presenter: presenter
+          = render 'bank_fields_form', presenter: presenter
+          = render 'verification_fields_form2', presenter: presenter
+
+          .col-4
+            = link_to t('stripe_accounts.form_new.cancel'), person_payment_settings_path(@current_user), style: 'float: right; margin-top: 1.5em'
+            = button_tag t('stripe_accounts.form_new.save_details')
+
+- content_for :extra_javascript do
+  :javascript
+    $(function(){
+      $("#edit-stripe-info").click(function(){
+        $("#stripe_forms").toggleClass("hidden");
+        $("#edit-stripe-info").hide();
+        return false;
+      });
+
+      if (#{presenter.stripe_account[:stripe_bank_id].blank? || flash[:error].present?}) {
+        $("#edit-stripe-info").hide();
+        $("#stripe_forms").toggleClass("hidden");
+      }
+    });
