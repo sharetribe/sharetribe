@@ -623,10 +623,9 @@ es:
     community_updates_v2:
       headline: Consulta lo último que ha pasado en %{service_name}.
       intro_paragraph:
-        one: Aquí hay algo de lo más destacado que pasó en %{service_name} durante
-          el último día.
-        other: Aquí hay algo de lo más destacado que pasó en %{service_name} durante
-          los últimos %{count} días.
+        one: Lo más destacado que pasó en %{service_name} durante el último día.
+        other: Lo más destacado que pasó en %{service_name} durante los últimos %{count}
+          días.
     newsletter:
       hi: Hola %{name},
       newest_offers: Lo que la gente actualmente ofrece a los demás
@@ -1217,9 +1216,9 @@ es:
         del teclado muy conocidos.
       formatting: Formato
       result: Resultado
-      h1: H1
-      h2: H2
-      h3: H3
+      h1: Texto H1
+      h2: Texto H2
+      h3: Texto H3
       italic: itálicas
       bold: negritas
       underline: subrayado
@@ -1382,7 +1381,7 @@ es:
       you_must_log_in_to_send_a_message: Debes iniciar sesión en %{service_name} para
         enviar un mensaje a otro usuario.
       you_must_log_in_to_do_a_transaction: Debes iniciar sesión en %{service_name}
-        para realizar una transacción.
+        para realizar esta acción.
       you_must_log_in_to_view_this_content: Debes iniciar sesión para ver este contenido
       you_must_log_in_to_view_this_page: Debes iniciar sesión para ver esta página
       you_must_log_in_to_view_your_inbox: Debes iniciar sesión en %{service_name}
@@ -2596,7 +2595,7 @@ es:
       bank_routing_1: Código del banco
       bank_routing_2: Código de la sucursal
       bank_currency: Divisa de la cuenta del banco
-      update_also_bank_account: Modificar la cuenta de banco también
+      update_also_bank_account: Editar la cuenta de banco
       bank_account_same_country: Usar una cuenta bancaría en mi país de residencia
       bank_country: País de la cuenta bancaria
       bank_holder_name: Nombre del titular de la cuenta
