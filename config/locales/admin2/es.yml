@@ -403,12 +403,14 @@ es:
       the_transaction_fee_must_be_lower_than_100: La comisión debe ser menor al 100%
       the_buyer_transaction_fee_must_be_lower_than_100: La comisión del comprador
         debe ser menor al 100%
-      the_minimum_tx_fee: 
+      the_minimum_tx_fee: 'El precio mínimo de anuncio debe ser mayor que la suma
+        de las comisiones: %{sum}'
       fee_should_be_less_than_minimum_price: La comisión mínima deber ser menor al
         precio mínimo de anuncio
       buyer_fee_should_be_less_than_minimum_price: La comisión mínima del comprador
         deber ser menor al precio mínimo de anuncio
-      total_fee_should_be_less_than_minimum_price: 
+      total_fee_should_be_less_than_minimum_price: La suma de las comisiones debe
+        ser menor que el precio mínimo de anuncio
       stripe_connected: Stripe habilitado
       stripe_disabled: Stripe deshabilitado
       disable_stripe: Deshabilitar Stripe
@@ -461,7 +463,8 @@ es:
       errors:
         minimum_listing_price_below_tx_fee: El precio mínimo de anuncio debe ser mayor
           que la comisión mínima, que actualmente es %{minimum_transaction_fee}.
-        sum_listing_price_below_tx_fee: 
+        sum_listing_price_below_tx_fee: 'El precio mínimo de anuncio debe ser mayor
+          que la suma de las comisiones: %{sum_transaction_fee}.'
         minimum_listing_price_below_min: El precio mínimo de anuncio debe ser mayor
           que %{minimum_commission}.
         payments_not_enabled: El sistema de pagos no está habilitado
@@ -1727,17 +1730,19 @@ es:
         relacionada?
       add_new_section: "+ Añadir una nueva sección"
       publish_changes: Publicar cambios
-      subscribe: 
+      subscribe: Subscríbete para habilitar la publicación
       preview_landing_page: Ver la vista previa de la página
-      preview_landing_page_free: 
+      preview_landing_page_free: Vista previa de la página de inicio (gratis)
       check_it_out: Revísala
       latest_version_released: "¡La nueva version de tu página de inicio está en vivo!
         ¡%{link}!"
       this_version_is_not_released: Necesitas hacer y guardar cambios para poder publicar
         una nueva versión de tu página de inicio.
       statusbar:
-        paid_on: 
-        info: 
+        paid_on: 'Add-on pago:'
+        info: Mejora la participación de los visitantes en tu marketplace con una
+          página de inicio personalizada. Prueba cómo se vería tu página de inicio
+          gratis. Si quieres publicarla, puedes hacerlo al subscribirte.
       sections:
         add: Añade una nueva sección a tu página de inicio
         new: Tipo de la nueva sección
