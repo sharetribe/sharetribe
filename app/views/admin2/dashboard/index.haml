@@ -51,7 +51,11 @@
   .textWrapper
     %h2= t('admin2.home.free_and_practical')
     %p
-      = link_to t('admin2.home.read_on'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', class: %i[external-link], rel: :noopener, target: :_blank
+    %ul
+      %li
+        = link_to t('admin2.home.read_on'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', class: %i[external-link], rel: :noopener, target: :_blank
+      %li
+        = link_to t('admin2.home.video_course'), 'https://www.sharetribe.com/academy/guide/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=home', class: %i[external-link], rel: :noopener, target: :_blank
 
 .dashboard-card.academy
   %h2= t('admin2.home.block_1')
