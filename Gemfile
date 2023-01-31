@@ -195,4 +195,4 @@ gem "select2-rails"
 gem "cocoon"
 gem "fast-polylines"
 gem "codemirror-rails"
-gem 'rb-inotify', '~> 0.10'
+gem 'rb-inotify', '~> 0.10', require: false
