@@ -1595,9 +1595,10 @@ nl:
       send_button:
         save_listing: Plaats advertentie
         submit_for_review: Zend in voor controle
-        will_be_reviewed: Alle advertenties op %{service_name} ondergaan een controle,
-          alvorens publicatie. Als je advertentie is goedgekeurd wordt je per email
-          op de hoogte gesteld, en zal de advertentie voor iedereen zichtbaar zijn.
+        will_be_reviewed: Alle advertenties op %{service_name} worden inhoudelijk
+          gecontroleerd voordat deze worden gepubliceerd. Na goedkeuring word je per
+          e-mail op de hoogte gesteld en zal de advertentie voor iedereen zichtbaar
+          zijn.
         we_noticed_youre_an_admin: We merkten op dat je een beheerder bent van %{service_name}.
           Je wijzigingen zullen automatisch worden toegepast en hoeven geen controle
           te ondergaan.
