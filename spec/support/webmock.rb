@@ -4,7 +4,7 @@ WebMock.enable!
 
 require 'webmock/rspec'
 allowed_sites = lambda do |uri|
-  whitelist = ['127.0.0.1', '::1', 'localhost', 'graph.facebook.com', 'chromedriver.storage.googleapis.com']
+  whitelist = ['127.0.0.1', '::1', 'localhost', 'graph.facebook.com', 'chromedriver.storage.googleapis.com', 'static.xx.fbcdn.net']
   if ENV['REAL_STRIPE']
     whitelist << 'api.stripe.com'
     whitelist << 'js.stripe.com'

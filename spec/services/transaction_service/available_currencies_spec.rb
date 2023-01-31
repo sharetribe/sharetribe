@@ -3,11 +3,11 @@ require 'spec_helper'
 describe TransactionService::AvailableCurrencies do
   context '#paypal_allows_country_and_currency?' do
     it 'works for all countries with valid currency' do
-      country = ISO3166::Country.find_country_by_name('Finland')
+      country = ISO3166::Country.find_country_by_any_name('Finland')
       expect(paypal(country.alpha2, country.currency.iso_code)).to eq true
-      country = ISO3166::Country.find_country_by_name('Brasil')
+      country = ISO3166::Country.find_country_by_any_name('Brasil')
       expect(paypal(country.alpha2, country.currency.iso_code)).to eq true
-      country = ISO3166::Country.find_country_by_name('Burkina Faso')
+      country = ISO3166::Country.find_country_by_any_name('Burkina Faso')
       expect(paypal(country.alpha2, country.currency.iso_code)).to eq false
       expect(paypal(country.alpha2, 'USD')).to eq true
     end
@@ -19,11 +19,11 @@ describe TransactionService::AvailableCurrencies do
 
   context '#stripe_allows_country_and_currency?' do
     it 'works for listed countries' do
-      country = ISO3166::Country.find_country_by_name('Finland')
+      country = ISO3166::Country.find_country_by_any_name('Finland')
       expect(stripe(country.alpha2, country.currency.iso_code)).to eq true
-      country = ISO3166::Country.find_country_by_name('Brasil')
+      country = ISO3166::Country.find_country_by_any_name('Brasil')
       expect(stripe(country.alpha2, country.currency.iso_code)).to eq false
-      country = ISO3166::Country.find_country_by_name('Burkina Faso')
+      country = ISO3166::Country.find_country_by_any_name('Burkina Faso')
       expect(stripe(country.alpha2, country.currency.iso_code)).to eq nil
     end
 

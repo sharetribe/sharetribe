@@ -14,7 +14,6 @@ module Admin2::TransactionsReviews
 
     private
 
-    # rubocop:disable Rails/SkipsModelValidations
     def update_payment_settings
       confirmation_after_days = params[:community][:automatic_confirmation_after_days]
       return unless confirmation_after_days
@@ -25,7 +24,6 @@ module Admin2::TransactionsReviews
       stripe_settings = PaymentSettings.stripe.find_by(community_id: @current_community.id)
       stripe_settings&.update_column(:confirmation_after_days, confirmation_after_days.to_i)
     end
-    # rubocop:enable Rails/SkipsModelValidations
 
     def config_params
       params.require(:community).permit(:automatic_confirmation_after_days,

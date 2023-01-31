@@ -160,7 +160,7 @@ class Conversation < ApplicationRecord
   def mark_as_read(person_id)
     participations
       .where({ person_id: person_id })
-      .update_all({is_read: true}) # rubocop:disable Rails/SkipsModelValidations
+      .update_all({is_read: true})
   end
 
   def payment?

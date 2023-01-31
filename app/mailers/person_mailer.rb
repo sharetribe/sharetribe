@@ -16,7 +16,7 @@ class PersonMailer < ActionMailer::Base # rubocop:disable Metrics/ClassLength
   default :from => APP_CONFIG.sharetribe_mail_from_address
   layout 'email'
 
-  add_template_helper(EmailTemplateHelper)
+  helper EmailTemplateHelper
 
   def conversation_status_changed(transaction, community)
     @email_type =  (transaction.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")

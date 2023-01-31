@@ -1,8 +1,9 @@
 require_relative './common.rb'
-Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+require "active_support/core_ext/integer/time"
 
-  # The production environment is meant for finished, "live" apps.
+Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb.
+
   # Code is not reloaded between requests.
   # If live updates for translations are in use, caching is set to false.
   config.cache_classes = (APP_CONFIG.update_translations_on_every_page_load == "true" ? false : true)
@@ -13,7 +14,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  # Full error reports are disabled and caching is turned on
+  # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
@@ -39,6 +40,17 @@ Rails.application.configure do
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files
 
+  # Mount Action Cable outside main process or domain.
+  # config.action_cable.mount_path = nil
+  # config.action_cable.url = 'wss://example.com/cable'
+  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  # config.force_ssl = true
+
+  # Include generic and useful information about system operation, but avoid logging too much
+  # information to avoid inadvertent exposure of personally identifiable information (PII).
+
   config.log_level = :info
   # Basic log config, for calls to Rails.logger.<level> { <message> }
   config.logger = ::Logger.new(STDOUT)
@@ -60,8 +72,6 @@ Rails.application.configure do
       forwarded_for: event.payload[:forwarded_for],
       request_uuid: event.payload[:request_uuid] }
   }
-
-  # to ignore certain messages, see commit e1ac643f677b0a9f73b10454fa04f67595c8c0c5
 
   config.lograge.formatter = Lograge::Formatters::Json.new
 
@@ -96,7 +106,7 @@ Rails.application.configure do
     end
 
   # Compress JavaScript and CSS
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true)
 
   # Don't fallback to assets pipeline
   config.assets.compile = false
@@ -149,4 +159,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.active_storage.service = APP_CONFIG.active_storage_service.to_sym
+
+  # List of classes deemed safe to be deserialized from YAML.
+  config.active_record.yaml_column_permitted_classes = [Symbol, ActiveSupport::HashWithIndifferentAccess]
 end

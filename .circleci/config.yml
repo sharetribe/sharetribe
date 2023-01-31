@@ -40,12 +40,10 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - bundler-cache-v-7-{{ checksum "Gemfile.lock" }}
-            - bundler-cache-v-7-
+            - bundler-cache-v-8-{{ checksum "Gemfile.lock" }}
       - restore_cache:
           keys:
-            - node-cache-v7-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
-            - node-cache-v7-
+            - node-cache-v8-{{ checksum "package.json" }}-{{ checksum "client/package-lock.json" }}
       - run:
           name: install system deps
           command: script/ci-install-deps.sh
@@ -56,12 +54,12 @@ jobs:
           name: npm install
           command: npm install
       - save_cache:
-          key: bundler-cache-v-7-{{ checksum "Gemfile.lock" }}
+          key: bundler-cache-v-8-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
             - ~/.bundle
       - save_cache:
-          key: node-cache-v7-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
+          key: node-cache-v8-{{ checksum "package.json" }}-{{ checksum "client/package-lock.json" }}
           paths:
             - ~/.nvm
             - ~/.bashrc

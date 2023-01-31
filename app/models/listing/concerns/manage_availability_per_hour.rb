@@ -9,7 +9,7 @@ module ManageAvailabilityPerHour
 
       if force_create
         working_time_slots.create(week_day: week_day, from: '09:00', till: '17:00')
-        update_column(:per_hour_ready, true) # rubocop:disable Rails/SkipsModelValidations
+        update_column(:per_hour_ready, true)
       else
         working_time_slots.build(week_day: week_day, from: '09:00', till: '17:00')
       end

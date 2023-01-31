@@ -22,4 +22,6 @@
 #
 
 class CheckboxFieldValue < OptionFieldValue
+  has_many :custom_field_option_selections, :foreign_key => "custom_field_value_id", :dependent => :destroy # rubocop:disable Rails/InverseOf
+  has_many :selected_options, :through => :custom_field_option_selections, :source => :custom_field_option
 end
