@@ -8,7 +8,7 @@ gem 'coffee-rails', '~> 5.0.0'
 gem 'uglifier', '~> 4.2.0'
 
 gem 'sass-rails', '~> 5.0.6'
-gem 'compass-rails', '~> 3.0.0'
+gem 'compass-rails', '~> 4.0.0'
 
 gem 'jquery-rails', '~> 4.3.1'
 
@@ -24,7 +24,6 @@ gem 'haml', '~> 5.2.2'
 gem 'sass', '3.4.24'
 # gem 'compass', '0.12.2'
 
-# gem 'sass', '3.4.25'
 gem 'rack-attack', '~> 6.6.1'
 gem 'rest-client', '~> 2.1.0'
 
