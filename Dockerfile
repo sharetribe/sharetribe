@@ -2,7 +2,7 @@ FROM ruby:2.7.5-bullseye
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
-ENV REFRESHED_AT 2021-09-10
+ENV REFRESHED_AT 2023-02-01
 
 RUN apt-get update && apt-get dist-upgrade -y
 
@@ -67,7 +67,8 @@ RUN apt-get install -y nginx \
 
 # Install latest bundler
 ENV BUNDLE_BIN=
-RUN gem install bundler
+# Get new ruby gems and bundler, resolves issue with installation of mini_racer and libv8-node
+RUN gem update --system 3.4.6
 
 # Run as non-privileged user
 RUN useradd -m -s /bin/bash app \
@@ -81,7 +82,9 @@ ENV RAILS_ENV production
 
 USER app
 
-RUN bundle install --deployment --without test,development
+RUN bundle config set --local deployment true && \
+    bundle config set --local without test,development && \
+    bundle install
 
 COPY package.json /opt/app/
 COPY client/package.json client/package-lock.json /opt/app/client/

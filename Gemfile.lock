@@ -334,6 +334,7 @@ GEM
     jwt (2.3.0)
     launchy (2.5.0)
       addressable (~> 2.7)
+    libv8-node (16.10.0.0)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -365,6 +366,8 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
+    mini_racer (0.6.3)
+      libv8-node (~> 16.10.0.0)
     minitest (5.16.3)
     monetize (1.12.0)
       money (~> 6.12)
@@ -737,6 +740,7 @@ DEPENDENCIES
   memoist
   mercury-rails!
   mini_magick
+  mini_racer (~> 0.6.0)
   money-rails
   multi_test (= 0.1.2)
   mysql2

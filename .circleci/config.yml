@@ -48,8 +48,14 @@ jobs:
           name: install system deps
           command: script/ci-install-deps.sh
       - run:
+          name: Update rubygems and bundler
+          command: sudo gem update --system 3.4.6 --no-document
+      - run:
+          name: Configure bundler
+          command: bundle config set --local without development
+      - run:
           name: bundle install
-          command: bundle check || bundle install --without=development
+          command: bundle check || bundle install
       - run:
           name: npm install
           command: npm install
