@@ -17,7 +17,7 @@ module ListingIndexService::Search
       logger.level = ::Logger::INFO # log only on INFO level so that secrets are not logged
       @conn = Faraday.new(url: SEARCH_URL) do |c|
          c.request  :url_encoded             # form-encode POST params
-         c.response :logger, logger          # log requests to STDOUT
+         c.response :logger, logger, headers: false # log requests to STDOUT
          c.response :json, :content_type => /\bjson$/
          c.adapter  Faraday.default_adapter  # make requests with Net::HTTP
          c.use Faraday::Response::RaiseError if raise_errors
