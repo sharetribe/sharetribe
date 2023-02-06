@@ -86,14 +86,14 @@ RUN bundle config set --local deployment true && \
     bundle config set --local without test,development && \
     bundle install
 
-COPY package.json /opt/app/
+COPY package.json package-lock.json /opt/app/
 COPY client/package.json client/package-lock.json /opt/app/client/
 
 ENV NODE_ENV production
 ENV NPM_CONFIG_LOGLEVEL error
 ENV NPM_CONFIG_PRODUCTION true
 
-RUN npm install
+RUN npm ci && cd client && npm ci
 
 COPY . /opt/app
 

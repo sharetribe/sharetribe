@@ -5,7 +5,6 @@
     "node": "10.15"
   },
   "scripts": {
-    "postinstall": "cd client && npm install",
     "clean": "rm -f app/assets/webpack/*"
   },
   "cacheDirectories": [
