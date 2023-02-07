@@ -147,7 +147,7 @@ jobs:
           AWS_ACCOUNT_ID: ${{ steps.configure_aws_credentials.outputs.aws-account-id }}
           DEPLOY_ENV: ${{ github.event.inputs.environment }}
         run: |
-          latest_image_tag=$(aws ecr describe-images --repository-name anarchy --filter tagStatus=TAGGED --query "imageDetails[?starts_with(imageTags[0], 'gh-${DEPLOY_ENV}')] | sort_by(@,& imagePushedAt)[-1].imageTags[0]" --output text)
+          latest_image_tag=$(aws ecr describe-images --repository-name anarchy --filter tagStatus=TAGGED --query "imageDetails[?starts_with(imageTags[0], 'gh-${DEPLOY_ENV}')] | sort_by(@,& imagePushedAt)[-1].imageTags[0]" | tr -d '"')
           echo "Latest image tag: ${latest_image_tag}"
           if [[ "${latest_image_tag}" != "None" ]] ; then
             echo "::set-output name=image::${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/anarchy:${latest_image_tag}"
