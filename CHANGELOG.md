@@ -20,6 +20,59 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [10.3.0] - 2023-02-07
+
+### Added
+
+- Support for BYN currency [#b1f25e](https://github.com/sharetribe/sharetribe/commit/b1f25e169885ea8f4e2e0cdb85e866bbcec9ed2a)
+- Support for signing Google Maps Static Maps URLs [#e9f44f](https://github.com/sharetribe/sharetribe/commit/e9f44fec3080b7246d836d72c3da47332127d6b0)
+- Allow admins to enable/disable the Facebook and Twitter share buttons [#6b6793](https://github.com/sharetribe/sharetribe/commit/6b67936bf267686ccbcd3c1190aa27ad130a6393)
+- Location data (EXIF) removal for listing pictures [#ef55cf](https://github.com/sharetribe/sharetribe/commit/ef55cf15a6a8dcce927a2ceff137b7d908554461)
+- Support for Google Analytics 4 [#050414](https://github.com/sharetribe/sharetribe/commit/05041496053e941f918fec4ab42b4c16e5472fa4)
+- Support for Stripe Connect Onboarding [#b650ad](https://github.com/sharetribe/sharetribe/commit/b650ad1c0deb2b6e3069ae1471c6da7efa2d4638)
+
+### Changed
+
+- Stop using the Facebook Login app defined in APP_CONFIG [#a20392](https://github.com/sharetribe/sharetribe/commit/a203921ee071a6eb966f832a3aaf4e215a2e288e)
+- Always display the post listing button menu link on mobile [#a20392](https://github.com/sharetribe/sharetribe/commit/a203921ee071a6eb966f832a3aaf4e215a2e288e)
+- Disable newrelic browser instrumentation and Newrelic agent [#ef101f](https://github.com/sharetribe/sharetribe/commit/ef101f4570100ced33e2b9f015f4a133aadf0db6) and [#5a8f8a](https://github.com/sharetribe/sharetribe/commit/5a8f8a3a36db6b4daf1e448d4c441c73c0ea630d)
+- Improve test stability [#648b58](https://github.com/sharetribe/sharetribe/commit/648b584b3f5b231dd681f629ebd4d7ad6cd5d6b4)
+- Update list of supported locales [#4b7871](https://github.com/sharetribe/sharetribe/commit/4b7871d065e88748870e66db439d02afec433562)
+- Updates to Stripe support for Japan [#16b0ba](https://github.com/sharetribe/sharetribe/commit/16b0ba4bab559d0e811e716a7192a62136c3d216)
+- Update Twitter share button href [#0b77c3](https://github.com/sharetribe/sharetribe/commit/0b77c368b470b7b6674c610a4e7f23099d05563e)
+- Make CLP preview pages visible only to logged-in admins [#3a4d38](https://github.com/sharetribe/sharetribe/commit/3a4d38a4dcf8662d278c3bf13cdd78ddadc82caf)
+- Store, instead of link, an Admin panel Home page image [#16a19e](https://github.com/sharetribe/sharetribe/commit/16a19e76545eae48f24aa6580fbf948a093565f0)
+- Use the favicon as the Admin panel logo [#857eb3](https://github.com/sharetribe/sharetribe/commit/857eb3f0b59d826e2d11241fa1eb376f4da1229e)
+- Allow saving to remove the Google Analytics tracking code [#421057](https://github.com/sharetribe/sharetribe/commit/421057a08c78ba5e66ddc82ee99e8b545a0f3976)
+- Move the old_admin translation keys out of the main locale file [#77e66d](https://github.com/sharetribe/sharetribe/commit/77e66d7e003f31d823ffe0babe7f39b438517144)
+- Reduce the use of a deprecated function [#cfded1](https://github.com/sharetribe/sharetribe/commit/cfded13cc5394d0956154dc4de60dab7a5577bf1)
+- Remove all analytics defined in APP_CONFIG [#97ec7a](https://github.com/sharetribe/sharetribe/commit/97ec7aa95f6e692173ffd05a37dd97ccf75069bf)
+- Change the way to validate the number of invitations allowed per day [#83b053](https://github.com/sharetribe/sharetribe/commit/83b0531ade87623feb27e59ed8e31e8fd35c62c3)
+- Use the YouTube nocookie player [#ac91df](https://github.com/sharetribe/sharetribe/commit/ac91df769df95da348416d80a81f33083a77a357)
+- Load the Facebook SDK only when necessary [#a1d81e](https://github.com/sharetribe/sharetribe/commit/a1d81e4a3292c22b58be7fdd8df0d46f7735e186)
+- Update the minimum listing price [#367e7a](https://github.com/sharetribe/sharetribe/commit/367e7ae9da846ebafcf5f8f533df10abec4aefe9)
+- Update the default Terms of Service and Privacy Policy content [#378e7e](https://github.com/sharetribe/sharetribe/commit/378e7e9019be5c357af6b88ed076d4bf5094deae)
+- Update font-family and get rid of "Source Sans Pro" [#ce9c51](https://github.com/sharetribe/sharetribe/commit/ce9c512a1159c2cd756d6ba72bb4c90a1696a428)
+- Update Facebook API graph version (v10.0 to v15.0) [#72f0cd](https://github.com/sharetribe/sharetribe/commit/72f0cd2beef381bc8e97de06e64315e0edc606f4)
+
+### Fixed
+
+- Fixed incorrect transaction sum display with buyer commission used [#e64035](https://github.com/sharetribe/sharetribe/commit/e64035643786f5daffa902b0581606bfb7f5ff92)
+- Fixed country name not displayed in Admin panel in some cases [#00c391](https://github.com/sharetribe/sharetribe/commit/00c391a99cd86b5841c52026e8b39a17cd1044d8)
+- Fixed NZ bank account format pattern and error message [#feda96](https://github.com/sharetribe/sharetribe/commit/feda96866f22624ee4d58cb981424b128ea440ab), [#1e5afd](https://github.com/sharetribe/sharetribe/commit/1e5afdc61f8f8a087fc8a4a0a583e0680dc04766), [#a50508](https://github.com/sharetribe/sharetribe/commit/a505081dc5f4a5ae142f09087bb81638c739508e)
+- Fixed URL for CLP images when exporting [#27242e](https://github.com/sharetribe/sharetribe/commit/27242e900eebadb97bfbd87eb04311537840def9)
+- Fixed impossibility to move CLP sections in preview-only mode [#7a63f3](https://github.com/sharetribe/sharetribe/commit/7a63f364280500408e137461540b76ffaea4b343)
+- Fixed CSV exports [#ab2daa](https://github.com/sharetribe/sharetribe/commit/ab2daa6b060c6fcda46b89a8884aaf68a36b4d1c)
+- Fixed failing tests due to changing Facebook URL [#276473](https://github.com/sharetribe/sharetribe/commit/276473fbdb77e33fef5eedea918c381d1cc2d8d5)
+- Fixed the "Save changes" button not disabled if no changes in Essentials [#b75a8a](https://github.com/sharetribe/sharetribe/commit/b75a8ae49f8b671c2f79a115b8ab4bcbc003a4f0)
+- Fixed chrome driver installation leaving ci project dir not empty [#0ecb98](https://github.com/sharetribe/sharetribe/commit/0ecb9827147840b4790af79ce205bcef8b5fec0e)
+
+### Security
+
+- Update Ruby version from 2.6.8 to 2.7.5 [#22752a](https://github.com/sharetribe/sharetribe/commit/22752a0f97ae364d2e1142dba9ae08a480261579)
+- Dependencies updates [#0431f4](https://github.com/sharetribe/sharetribe/commit/0431f4e6f3965cb3f5d698a2209d709a56951eed), [#cd4876](https://github.com/sharetribe/sharetribe/commit/cd4876f932604bbd252463f35af003286a27c89e)
+- Update OS to bullseye [#3330c0](https://github.com/sharetribe/sharetribe/commit/3330c0feeefb3f7a8a732dea18424a5b8a7cf2b3)
+
 ## [10.2.1] - 2021-11-19
 
 ### Security
@@ -963,7 +1016,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v10.1.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v10.3.0...HEAD
+[10.3.0]: https://github.com/sharetribe/sharetribe/compare/v10.2.1...v10.3.0
+[10.2.1]: https://github.com/sharetribe/sharetribe/compare/v10.2.0...v10.2.1
+[10.2.0]: https://github.com/sharetribe/sharetribe/compare/v10.1.0...v10.2.0
 [10.1.0]: https://github.com/sharetribe/sharetribe/compare/v10.0.0...v10.1.0
 [10.0.0]: https://github.com/sharetribe/sharetribe/compare/v9.1.0...v10.0.0
 [9.1.0]: https://github.com/sharetribe/sharetribe/compare/v9.0.0...v9.1.0

@@ -38,6 +38,10 @@ heroku config:set next_maintenance_at="2016-04-29 17:15:00 +0000" --app=<your ap
 
 See instructions how to set application in [maintenance mode in Heroku](https://devcenter.heroku.com/articles/maintenance-mode).
 
+## Upgrade from 10.2.1 to 10.3.0
+
+The new version contains a Ruby upgrade to 2.7.5, that you should review. Otherwise, see the [General update instructions](#general-update-instructions).
+
 ## Upgrade from 10.2.0 to 10.2.1
 
 The new version contains a critical security fix that you should review. Otherwise, see the [General update instructions](#general-update-instructions).
