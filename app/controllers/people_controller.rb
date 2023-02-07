@@ -220,7 +220,7 @@ class PeopleController < Devise::RegistrationsController
       Person.delete_user(target_user.id)
       Listing.delete_by_author(target_user.id)
       PaypalAccount.where(person_id: target_user.id, community_id: target_user.community_id).delete_all
-      Invitation.where(community: @current_community, inviter: target_user).update_all(deleted: true) # rubocop:disable Rails/SkipsModelValidations
+      Invitation.where(community: @current_community, inviter: target_user).update_all(deleted: true)
     end
 
     sign_out target_user

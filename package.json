@@ -5,11 +5,13 @@
     "node": "10.15"
   },
   "scripts": {
-    "postinstall": "cd client && npm install",
     "clean": "rm -f app/assets/webpack/*"
   },
   "cacheDirectories": [
     "node_modules",
     "client/node_modules"
-  ]
+  ],
+  "dependencies": {
+    "check-node-version": "^4.2.1"
+  }
 }

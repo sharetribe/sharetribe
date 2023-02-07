@@ -36,8 +36,9 @@ namespace :sharetribe do
     end
 
     def pending_migrations
-      context = ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths)
-      migrator = ActiveRecord::Migrator.new(:up, context.migrations, context.last_migration.version)
+      schema_migration = ActiveRecord::Base.connection.schema_migration
+      context = ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths, schema_migration)
+      migrator = ActiveRecord::Migrator.new(:up, context.migrations, schema_migration)
       migrator.pending_migrations
     end
 
@@ -50,9 +51,10 @@ namespace :sharetribe do
       stage = args[:stage] || "pre-deploy"
       raise StandardError.new("Unknown execution stage #{stage}") unless allowed_stages.include?(stage)
 
-      context = ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths)
-      puts "Current database version: #{ActiveRecord::Migrator.current_version()}"
-      puts "Last available version: #{context.last_migration.version}"
+      schema_migration = ActiveRecord::Base.connection.schema_migration
+      context = ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths, schema_migration)
+      puts "Current database version: #{ActiveRecord::Migrator.current_version}"
+      puts "Last available version: #{context.current_version}"
 
       pending_migrations = pending_migrations()
 
@@ -79,8 +81,8 @@ namespace :sharetribe do
 
           if run?(definition, stage)
             puts "Running migration #{migration.version}"
-
-            ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths).up(migration.version)
+            schema_migration = ActiveRecord::Base.connection.schema_migration
+            ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths, schema_migration).up(migration.version)
           else
             puts "Automatic migration for #{stage} execution stage stopping at migration version #{migration.version}."
             break

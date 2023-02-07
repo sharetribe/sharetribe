@@ -97,7 +97,7 @@ Before you get started, the following needs to be installed:
 1.  Install node modules:
 
     ```bash
-    npm install
+    npm install && ( cd client && npm install )
     ```
 
 1.  Create a `database.yml` file by copying the example database configuration:

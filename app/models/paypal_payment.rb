@@ -60,7 +60,7 @@ class PaypalPayment < ApplicationRecord
   monetize :commission_fee_total_cents, with_model_currency: :currency, allow_nil: true
 
   def increment_commission_retry_count
-    update_column(:commission_retry_count, commission_retry_count + 1) # rubocop:disable Rails/SkipsModelValidations
+    update_column(:commission_retry_count, commission_retry_count + 1)
   end
 
   def retry_charge_commision?
@@ -68,6 +68,6 @@ class PaypalPayment < ApplicationRecord
   end
 
   def charge_commision_failed
-    update_column(:commission_status, :failed) # rubocop:disable Rails/SkipsModelValidations
+    update_column(:commission_status, :failed)
   end
 end

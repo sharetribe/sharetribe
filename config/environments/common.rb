@@ -1,4 +1,6 @@
-require_relative '../../lib/jsroutes_middleware.rb'
+# require_relative '../../lib/jsroutes_middleware.rb'
+
+require_relative '../../app/utils/entity_utils.rb'
 
 Rails.application.configure do
 

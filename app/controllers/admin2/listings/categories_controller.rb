@@ -70,7 +70,7 @@ module Admin2::Listings
     def destroy_and_move
       new_category = @current_community.categories.find_by_url_or_id(params[:new_category])
       if new_category
-        @category.own_and_subcategory_listings.update_all(category_id: new_category.id) # rubocop:disable Rails/SkipsModelValidations
+        @category.own_and_subcategory_listings.update_all(category_id: new_category.id)
         Admin::CategoryService.move_custom_fields!(@category, new_category)
       end
       @category.destroy
@@ -89,7 +89,7 @@ module Admin2::Listings
         sql + "WHEN #{cat_id} THEN #{priority}\n"
       end
       update_statements += "END"
-      @current_community.categories.update_all(update_statements) # rubocop:disable Rails/SkipsModelValidations
+      @current_community.categories.update_all(update_statements)
     end
 
     def category_params

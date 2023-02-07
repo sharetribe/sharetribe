@@ -40,30 +40,35 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - bundler-cache-v-7-{{ checksum "Gemfile.lock" }}
-            - bundler-cache-v-7-
+            - bundler-cache-v-8-{{ checksum "Gemfile.lock" }}
       - restore_cache:
           keys:
-            - node-cache-v7-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
-            - node-cache-v7-
+            - node-cache-v9-{{ checksum "package.json" }}-{{ checksum "client/package-lock.json" }}
       - run:
           name: install system deps
           command: script/ci-install-deps.sh
       - run:
-          name: bundle install
-          command: bundle check || bundle install --without=development
+          name: Update rubygems and bundler
+          command: sudo gem update --system 3.4.6 --no-document
       - run:
-          name: npm install
-          command: npm install
+          name: Configure bundler
+          command: bundle config set --local without development
+      - run:
+          name: bundle install
+          command: bundle check || bundle install
+      - run:
+          name: npm ci
+          command: npm ci && cd client && npm ci
       - save_cache:
-          key: bundler-cache-v-7-{{ checksum "Gemfile.lock" }}
+          key: bundler-cache-v-8-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
             - ~/.bundle
       - save_cache:
-          key: node-cache-v7-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
+          key: node-cache-v9-{{ checksum "package.json" }}-{{ checksum "client/package-lock.json" }}
           paths:
             - ~/.nvm
+            - ~/.npm
             - ~/.bashrc
             - client/node_modules
             - ./node_modules

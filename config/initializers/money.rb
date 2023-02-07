@@ -120,3 +120,5 @@ MoneyRails.configure do |config|
   # config.no_cents_if_whole = nil
   # config.symbol = nil
 end
+
+Money.locale_backend = :i18n

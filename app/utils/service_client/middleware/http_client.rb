@@ -11,6 +11,7 @@ module ServiceClient
       def initialize(host)
         @_conn = Faraday.new(host) do |c|
           c.response :encoding
+          c.response :logger, headers: false
           c.adapter Faraday.default_adapter # make requests with Net::HTTP
         end
       end

@@ -1,6 +1,4 @@
-# encoding: utf-8
-
-require_relative 'boot'
+require_relative "boot"
 
 require 'rails/all'
 
@@ -176,7 +174,7 @@ module Kassi
       paperclip_options[:url] = "#{APP_CONFIG.user_asset_host}#{paperclip_options[:url]}"
     end
 
-    if (APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key)
+    if APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
       # S3 is in use for uploaded images
       s3_domain = "amazonaws.com"
       # us-east-1 has special S3 endpoint, see http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
