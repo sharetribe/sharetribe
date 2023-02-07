@@ -139,7 +139,7 @@ jobs:
         with:
           path: ./assets.tar.gz
           # The key should include hash of all files that affect the asset build
-          key: ${{ runner.os }}-assets-${{ hashFiles('app/assets/**', 'client/**', 'config/locales/**', 'package.json', 'vendor/assets/**', 'script/asset-variables.sh') }}
+          key: ${{ runner.os }}-assets-${{ hashFiles('app/assets/**', 'client/**', 'config/locales/**', 'package-lock.json', 'vendor/assets/**', 'script/asset-variables.sh') }}
 
       - name: Resolve latest ECR image
         id: resolve_latest_ecr_image
