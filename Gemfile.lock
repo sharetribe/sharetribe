@@ -209,7 +209,6 @@ GEM
       rails (>= 5.0, < 7)
     cucumber-tag_expressions (1.1.1)
     cucumber-wire (0.0.1)
-    dalli (3.2.3)
     database_cleaner (2.0.1)
       database_cleaner-active_record (~> 2.0.0)
     database_cleaner-active_record (2.0.1)
@@ -353,7 +352,6 @@ GEM
       tilt
     marcel (1.0.2)
     matrix (0.4.2)
-    memcachier (0.0.2)
     memoist (0.16.2)
     method_source (1.0.0)
     middleware (0.1.0)
@@ -706,7 +704,6 @@ DEPENDENCIES
   css_parser (~> 1.11.0)
   cucumber (= 3.1.2)
   cucumber-rails (~> 2.2.0)
-  dalli (~> 3.2.3)
   database_cleaner (~> 2.0.1)
   delayed_job (~> 4.1.3)
   delayed_job_active_record (~> 4.1.3)
@@ -736,7 +733,6 @@ DEPENDENCIES
   lograge (~> 0.12.0)
   mail (~> 2.7.1)
   mail_view (~> 2.0.4)
-  memcachier (~> 0.0.2)
   memoist (~> 0.16.2)
   mercury-rails!
   mini_magick (~> 4.11.0)

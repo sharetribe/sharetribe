@@ -14,8 +14,6 @@ services:
       - MAGICK_MEMORY_LIMIT=256MiB
       - MAGICK_TIME_LIMIT=30
     command: bundle exec rake jobs:work
-  memcached:
-    image: memcached:latest
 networks:
   default:
     external:

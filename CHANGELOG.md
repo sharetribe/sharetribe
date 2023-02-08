@@ -16,6 +16,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Removed
 
+- Drop support for memcache
+
 ### Fixed
 
 ### Security
