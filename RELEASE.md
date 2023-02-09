@@ -1,6 +1,8 @@
 # Release
 
-When you are ready to release a new version, follow these steps:
+When you are ready to release a new version, follow these steps.
+
+These instructions assume that you want to release what is at the top of the master branch. To release something without including the most recent commits to master, creating a dedicated branch that includes the content to be released along with the relevant changelog updates, and create the tag to point to that branch, can be considered as an alternative.
 
 1.  Bump up the [VERSION](VERSION)
 
