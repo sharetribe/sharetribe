@@ -10,6 +10,8 @@ class PaypalIpnController < ApplicationController
                      :fetch_community_membership,
                      :check_http_auth
 
+  skip_parameter_encoding :ipn_hook
+
   IPNDataTypes = PaypalService::DataTypes::IPN
 
   def ipn_hook
