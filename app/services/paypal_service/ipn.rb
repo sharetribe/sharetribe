@@ -53,6 +53,7 @@ module PaypalService
 
     def store_and_create_handler(params)
       # PayPal api sends us ipn messages with charset dependent on sellers settings that we cannot control
+      # :controller and :action keys hold frozen strings and should not be modified
       converted = HashUtils.map_values(params) { |val| val.frozen? ? val : val.force_encoding(params[:charset]).encode("utf-8", invalid: :replace, replace: "") }
 
       msg = PaypalIpnMessage.create(body: converted)
