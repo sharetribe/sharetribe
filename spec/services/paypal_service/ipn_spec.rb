@@ -421,7 +421,7 @@ describe PaypalService::IPN do
         "payment_type" => "instant",
         "remaining_settle" => "10",
         "auth_id" => "0L584749FU2628910",
-        "last_name" => "kjh",
+        "last_name" => "kjhá".encode("windows-1252", "utf-8"),
         "receiver_email" => "dev+paypal-user1@sharetribe.com",
         "auth_amount" => "1.20",
         "receiver_id" => "URAPMR7WHFAWY",
@@ -438,7 +438,9 @@ describe PaypalService::IPN do
         "payment_gross" => "",
         "auth_status" => "Pending",
         "shipping" => "0.00",
-        "ipn_track_id" => "35b2bed5966"
+        "ipn_track_id" => "35b2bed5966",
+        "controller": "paypal_ipn".freeze,
+        "action": "ipn_hook".freeze
       }.with_indifferent_access
 
       SyncDelayedJobObserver.reset!
