@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/Charly3X/codemirror-rails.git
+  revision: db11b2c13852f50ec86b93ec5554f50517667f0e
+  specs:
+    codemirror-rails (5.16.0)
+      railties (>= 3.0, < 6.2)
+
+GIT
   remote: https://github.com/Charly3X/transit-ruby.git
   revision: c02cf2567b61ba38986deb425f83e514410ddec1
   specs:
@@ -151,7 +158,6 @@ GEM
     climate_control (0.2.0)
     cliver (0.3.2)
     cocoon (1.2.15)
-    codemirror-rails (0.3.1)
     coderay (1.1.3)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
@@ -695,7 +701,7 @@ DEPENDENCIES
   bootsnap (~> 1.4.5)
   capybara (~> 3.37.0)
   cocoon (~> 1.2.15)
-  codemirror-rails (~> 0.3.1)
+  codemirror-rails (~> 5.16)!
   coffee-rails (~> 5.0.0)
   color (~> 1.8)
   compass-rails (~> 4.0.0)
