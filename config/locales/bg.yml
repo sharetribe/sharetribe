@@ -4,7 +4,7 @@ bg:
       format:
         separator: "."
         delimiter: " "
-        format: "%u%n"
+        format: "%n %u"
   common:
     edit_page: Редактиране на страницата
     default_community_slogan: Обществена платформа
