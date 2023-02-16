@@ -34,9 +34,9 @@
       - visible_stripe = StripeHelper.stripe_provisioned?(@current_community.id) && stripe_allowed
       - visible_paypal = PaypalHelper.paypal_provisioned?(@current_community.id) && paypal_allowed
       - if payments_connected
-        = link_to 'Configure Stripe', admin2_payment_system_stripe_index_path, class: %i[btn btn-ghost], id: :button_stripe, style: "#{'display: none' unless visible_stripe}"
-        = link_to 'Configure PayPal', admin2_payment_system_paypal_index_path, class: %i[btn btn-ghost], id: :button_paypal, style: "#{'display: none' unless visible_paypal}"
+        = link_to t('admin2.country_currency.configure_stripe'), admin2_payment_system_stripe_index_path, class: %i[btn btn-ghost], id: :button_stripe, style: "#{'display: none' unless visible_stripe}"
+        = link_to t('admin2.country_currency.configure_paypal'), admin2_payment_system_paypal_index_path, class: %i[btn btn-ghost], id: :button_paypal, style: "#{'display: none' unless visible_paypal}"
       - else
         = render 'admin2/submit_button', caption: t('admin2.save_changes') do
-          = link_to 'Configure Stripe', admin2_payment_system_stripe_index_path, class: %i[btn btn-ghost], id: :button_stripe, style: "#{'display: none' unless visible_stripe}"
-          = link_to 'Configure PayPal', admin2_payment_system_paypal_index_path, class: %i[btn btn-ghost], id: :button_paypal, style: "#{'display: none' unless visible_paypal}"
+          = link_to t('admin2.country_currency.configure_stripe'), admin2_payment_system_stripe_index_path, class: %i[btn btn-ghost], id: :button_stripe, style: "#{'display: none' unless visible_stripe}"
+          = link_to t('admin2.country_currency.configure_paypal'), admin2_payment_system_paypal_index_path, class: %i[btn btn-ghost], id: :button_paypal, style: "#{'display: none' unless visible_paypal}"
