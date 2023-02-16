@@ -1459,6 +1459,8 @@ en:
       stripe_paypal_not_allowed: With <strong>%{country_name}</strong> and <strong>%{currency}</strong>
         as your marketplace settings, there is unfortunately no payment gateways available
         for your marketplace.
+      configure_stripe: Configure Stripe
+      configure_paypal: Configure PayPal
     automatic_newsletter:
       send_automatic_newsletter: Send an automatic newsletter
       send_automatic_newsletter_info_text: Notify your users about new listings with
