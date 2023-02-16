@@ -1485,6 +1485,8 @@ es:
       stripe_paypal_not_allowed: Con la configuración de <strong>%{country_name}</strong>
         y <strong>%{currency}</strong> en tu marketplace, no hay plataformas de pago
         disponible para tu marketplace.
+      configure_stripe: Configurar Stripe
+      configure_paypal: Configurar PayPal
     automatic_newsletter:
       send_automatic_newsletter: Mandar un newsletter automático
       send_automatic_newsletter_info_text: Notifica a tus usuarios sobre nuevos anuncios

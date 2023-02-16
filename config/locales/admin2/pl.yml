@@ -1096,6 +1096,8 @@ pl:
       paypal_allowed: 
       stripe_allowed: 
       stripe_paypal_not_allowed: 
+      configure_stripe: 
+      configure_paypal: 
     automatic_newsletter:
       send_automatic_newsletter: 
       send_automatic_newsletter_info_text: 

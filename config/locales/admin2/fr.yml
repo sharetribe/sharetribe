@@ -1528,6 +1528,8 @@ fr:
       stripe_paypal_not_allowed: Avec <strong>%{country_name}</strong> et <strong>%{currency}</strong>
         comme paramètres de votre place de marché, il n'y a hélas aucune plateforme
         de paiements disponible pour votre place de marché.
+      configure_stripe: Configurer Stripe
+      configure_paypal: Configurer PayPal
     automatic_newsletter:
       send_automatic_newsletter: Envoyez une newsletter automatique
       send_automatic_newsletter_info_text: Annoncez à vos utilisateurs les nouvelles
