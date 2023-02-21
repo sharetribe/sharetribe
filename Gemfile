@@ -191,5 +191,4 @@ gem 'bootsnap', '~> 1.4.5', require: false
 gem 'select2-rails', '~> 4.0.13'
 gem 'cocoon', '~> 1.2.15'
 gem 'fast-polylines', '~> 2.2.2'
-gem 'codemirror-rails', '~> 0.3.1'
 gem 'rb-inotify', '~> 0.10', require: false
