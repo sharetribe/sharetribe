@@ -279,6 +279,8 @@ class ListingsController < ApplicationController
   def ensure_current_user_is_listing_author(error_message)
     @listing = @current_community.listings.find(params[:id])
 
+    raise ListingDeleted if @listing.deleted?
+
     return if @listing && (current_user?(@listing.author) || @current_user.has_admin_rights?(@current_community))
 
     flash[:error] = error_message
