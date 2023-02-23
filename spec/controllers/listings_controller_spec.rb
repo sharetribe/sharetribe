@@ -514,7 +514,7 @@ describe ListingsController, type: :controller do
     end
   end
 
-  describe "delete" do
+  describe "update and delete" do
     let(:community){ FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]}) }
     let(:offer_process) {
       FactoryGirl.create(:transaction_process,
@@ -537,17 +537,64 @@ describe ListingsController, type: :controller do
                          price: Money.new(4567, "USD")
                         )
     }
+    let(:other_community) { FactoryGirl.create(:community) }
 
-    before :each do
-      @request.host = "#{community.ident}.lvh.me"
-      @request.env[:current_marketplace] = community
+    context 'allowed' do
+      before :each do
+        @request.host = "#{community.ident}.lvh.me"
+        @request.env[:current_marketplace] = community
+      end
+
+      it 'author updates listing' do
+        sign_in_for_spec(person)
+        patch :update, params: {
+                id: listing.id,
+                listing: {
+                  title: 'not a bike',
+                  listing_shape_id: listing.listing_shape_id,
+                  price: Money.new(4567, "USD"),
+                  unit: "{\"unit_type\":\"unit\",\"kind\":\"quantity\",\"quantity_selector\":\"number\"}"
+                }}
+        listing.reload
+        expect(listing.title).to eq 'not a bike'
+      end
+
+      it 'author deletes listing' do
+        sign_in_for_spec(person)
+        delete :delete, params: {id: listing.id}
+        listing.reload
+        expect(listing.deleted).to eq true
+      end
     end
 
-    it 'author deletes listing' do
-      sign_in_for_spec(person)
-      delete :delete, params: {id: listing.id}
-      listing.reload
-      expect(listing.deleted).to eq true
+    context 'other community' do
+      before :each do
+        @request.host = "#{other_community.ident}.lvh.me"
+        @request.env[:current_marketplace] = other_community
+      end
+
+      it 'does not allow updating listing in another community' do
+        sign_in_for_spec(create_admin_for(other_community))
+        expect {
+        patch :update, params: {
+                id: listing.id,
+                listing: {
+                  title: 'not a bike',
+                  listing_shape_id: listing.listing_shape_id,
+                  price: Money.new(4567, "USD"),
+                  unit: "{\"unit_type\":\"unit\",\"kind\":\"quantity\",\"quantity_selector\":\"number\"}"
+                }}
+        }.to raise_error(ActiveRecord::RecordNotFound)
+        listing.reload
+        expect(listing.title).to eq 'bike'
+      end
+
+      it 'does not allow deleting listing in another community' do
+        sign_in_for_spec(create_admin_for(other_community))
+        expect{delete :delete, params: {id: listing.id}}.to raise_error(ActiveRecord::RecordNotFound)
+        listing.reload
+        expect(listing.deleted).to eq false
+      end
     end
   end
 end
