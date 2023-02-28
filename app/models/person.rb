@@ -455,6 +455,10 @@ class Person < ApplicationRecord
     self.confirmed_notification_emails.collect(&:address)
   end
 
+  def valid_email
+    confirmed_notification_email_addresses.first || primary_email.try(:address)
+  end
+
   # Notice: If no confirmed notification emails is found, this
   # method returns the first confirmed emails
   def confirmed_notification_emails_to

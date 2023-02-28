@@ -1,6 +1,6 @@
 module Person::PaymentSettingsCommon
 
-  STRIPE_ACCOUNT_FORM_ONBOARDING_ATTRIBUTES = %i[address_country business_type].freeze
+  STRIPE_ACCOUNT_FORM_ONBOARDING_ATTRIBUTES = %i[address_country business_type token first_name last_name].freeze
 
   STRIPE_ACCOUNT_FORM_ATTRIBUTES =
     %i[

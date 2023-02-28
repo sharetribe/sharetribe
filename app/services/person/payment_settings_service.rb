@@ -31,12 +31,9 @@ class Person::PaymentSettingsService
     presenter.stripe_account_form_onboarding = stripe_account_form
     if stripe_account_form.valid? && !community.disabled_countries.include?(stripe_account_form.address_country)
       account_attrs = stripe_account_form.to_hash
-      account_attrs[:email] = person.confirmed_notification_email_addresses.first || person.primary_email.try(:address)
+      account_attrs[:account_token] = stripe_account_form.token
+      account_attrs[:email] = person.valid_email
       account_attrs[:url] = @person_url
-      if stripe_account_form.business_type == 'individual'
-        account_attrs[:first_name] = person.given_name
-        account_attrs[:last_name] = person.family_name
-      end
       account_attrs[:ip] = client_ip_address
       result = stripe_accounts_api.create_onboarding(community_id: community.id, person_id: person.id, body: account_attrs)
       if result[:success]

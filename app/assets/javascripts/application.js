@@ -100,6 +100,7 @@
 //= require radio_buttons
 //= require new_layout
 //= require stripe_form3
+//= require stripe_form_onboarding
 //= require analytics
 //= require social-insurance-number
 //= require stripe_payment

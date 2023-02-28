@@ -122,23 +122,13 @@ class StripeService::API::StripeApiWrapper
           type: 'custom',
           country: account_info[:address_country],
           email: account_info[:email],
-          business_type: account_info[:business_type]
+          account_token: account_info[:account_token]
         }
         data[:requested_capabilities] = %w[card_payments transfers]
         data[:business_profile] = {
           mcc: DEFAULT_MCC,
           product_description: "#{account_info[:first_name]} #{account_info[:last_name]}",
           url: account_info[:url]
-        }
-        if account_info[:business_type] == 'individual'
-          data[:individual] = {
-            first_name: account_info[:first_name],
-            last_name: account_info[:last_name]
-          }
-        end
-        data[:tos_acceptance] = {
-          date: Time.now.to_i,
-          ip: account_info[:ip]
         }
         data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
         Stripe::Account.create(data)
